@@ -1,3 +1,12 @@
+/*
+ * XREFs of ZwCreateTransactionManager @ 0x140413CD0
+ * Callers:
+ *     DifZwCreateTransactionManagerWrapper @ 0x1405ECD20 (DifZwCreateTransactionManagerWrapper.c)
+ *     CmpInitCmRM @ 0x1407334D4 (CmpInitCmRM.c)
+ * Callees:
+ *     <none>
+ */
+
 // local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateTransactionManager(
         PHANDLE TmHandle,

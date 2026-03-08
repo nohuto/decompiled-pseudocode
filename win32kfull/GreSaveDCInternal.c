@@ -1,3 +1,20 @@
+/*
+ * XREFs of GreSaveDCInternal @ 0x1C00C6CB0
+ * Callers:
+ *     ?UT_InvertCaret@@YAXXZ @ 0x1C0006508 (-UT_InvertCaret@@YAXXZ.c)
+ *     NtGdiSaveDC @ 0x1C00C6C90 (NtGdiSaveDC.c)
+ *     xxxClientExtTextOutW @ 0x1C0214CF4 (xxxClientExtTextOutW.c)
+ *     xxxClientGetTextExtentPointW @ 0x1C0215674 (xxxClientGetTextExtentPointW.c)
+ *     xxxClientLpkDrawTextEx @ 0x1C0215A80 (xxxClientLpkDrawTextEx.c)
+ *     xxxClientPSMTextOut @ 0x1C0215E88 (xxxClientPSMTextOut.c)
+ *     ?xxxDWPPrint@@YAHPEAUtagWND@@PEAUHDC__@@_J@Z @ 0x1C0225290 (-xxxDWPPrint@@YAHPEAUtagWND@@PEAUHDC__@@_J@Z.c)
+ * Callees:
+ *     ?bSaveRegion@@YAHAEAVXDCOBJ@@J@Z @ 0x1C0050094 (-bSaveRegion@@YAHAEAVXDCOBJ@@J@Z.c)
+ *     ?bSavePath@@YAHAEAVXDCOBJ@@J@Z @ 0x1C00DC16C (-bSavePath@@YAHAEAVXDCOBJ@@J@Z.c)
+ *     ?vMarkTransformDirty@DC@@QEAAXXZ @ 0x1C0269660 (-vMarkTransformDirty@DC@@QEAAXXZ.c)
+ *     ?vRestorePath@@YAXAEAVXDCOBJ@@J@Z @ 0x1C02899DC (-vRestorePath@@YAXAEAVXDCOBJ@@J@Z.c)
+ */
+
 __int64 __fastcall GreSaveDCInternal(Gre::Base *a1, int a2)
 {
   struct Gre::Base::SESSION_GLOBALS *v4; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of UnlockDesktopMenu @ 0x1C00F3930
+ * Callers:
+ *     ?DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C0094CDC (-DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
+ *     UnlockDesktopSysMenu @ 0x1C00F390C (UnlockDesktopSysMenu.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall UnlockDesktopMenu(__int64 a1)
 {
   __int64 v2; // rax

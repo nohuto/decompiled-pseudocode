@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIDevicePowerProcessPhase5SystemSubPhase5 @ 0x1C0021620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qqss @ 0x1C000A374 (WPP_RECORDER_SF_qqss.c)
+ *     ACPIDeviceCompleteGenericPhase @ 0x1C001C540 (ACPIDeviceCompleteGenericPhase.c)
+ *     AMLIPauseInterpreter @ 0x1C0048968 (AMLIPauseInterpreter.c)
+ */
+
 __int64 __fastcall ACPIDevicePowerProcessPhase5SystemSubPhase5(__int64 a1)
 {
   _QWORD *v1; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CFormatConverter@@QEAA@XZ @ 0x1802B80D4
+ * Callers:
+ *     ?HrConvertBitmap@CFormatConverter@@SAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@PEAPEAV2@@Z @ 0x1802B8B58 (-HrConvertBitmap@CFormatConverter@@SAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@PEAPEAV2@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 CFormatConverter *__fastcall CFormatConverter::CFormatConverter(CFormatConverter *this)
 {
   __int64 v2; // rcx

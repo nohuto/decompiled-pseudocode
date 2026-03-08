@@ -1,3 +1,21 @@
+/*
+ * XREFs of RaisePower @ 0x1C014B26A
+ * Callers:
+ *     HT_CreateDeviceHalftoneInfo @ 0x1C00195AC (HT_CreateDeviceHalftoneInfo.c)
+ *     HT_ComputeRGBGammaTable @ 0x1C0252900 (HT_ComputeRGBGammaTable.c)
+ *     AdjustSrcDevGamma @ 0x1C0256104 (AdjustSrcDevGamma.c)
+ *     ComputeBGRMappingTable @ 0x1C0256580 (ComputeBGRMappingTable.c)
+ *     ComputeRGBLUTAA @ 0x1C0257424 (ComputeRGBLUTAA.c)
+ *     pDCIAdjClr @ 0x1C02583A8 (pDCIAdjClr.c)
+ *     BuildExpandAAInfo @ 0x1C025C820 (BuildExpandAAInfo.c)
+ * Callees:
+ *     DivFD6 @ 0x1C014AF0C (DivFD6.c)
+ *     FD6DivL @ 0x1C014AFC0 (FD6DivL.c)
+ *     Log @ 0x1C014B004 (Log.c)
+ *     MulFD6 @ 0x1C014B146 (MulFD6.c)
+ *     AntiLog @ 0x1C025555C (AntiLog.c)
+ */
+
 __int64 __fastcall RaisePower(int a1, int a2, char a3)
 {
   char v3; // si

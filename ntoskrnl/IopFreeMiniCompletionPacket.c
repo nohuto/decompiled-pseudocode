@@ -1,3 +1,19 @@
+/*
+ * XREFs of IopFreeMiniCompletionPacket @ 0x1407C40A0
+ * Callers:
+ *     IoRemoveIoCompletion @ 0x140315A70 (IoRemoveIoCompletion.c)
+ *     NtCreateWorkerFactory @ 0x14068A160 (NtCreateWorkerFactory.c)
+ *     AlpcpAllocateCompletionPacketLookaside @ 0x14068A4D8 (AlpcpAllocateCompletionPacketLookaside.c)
+ *     IoFreeMiniCompletionPacket @ 0x1406F4D80 (IoFreeMiniCompletionPacket.c)
+ *     IopFreeCompletionListPackets @ 0x1406F7B38 (IopFreeCompletionListPackets.c)
+ *     NtSetInformationJobObject @ 0x1406FC3C0 (NtSetInformationJobObject.c)
+ * Callees:
+ *     ExReturnPoolQuota @ 0x1403144E0 (ExReturnPoolQuota.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall IopFreeMiniCompletionPacket(ULONG_PTR BugCheckParameter2)
 {
   void (__fastcall *v2)(ULONG_PTR, _QWORD); // rax

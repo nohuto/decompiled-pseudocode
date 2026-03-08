@@ -1,3 +1,12 @@
+/*
+ * XREFs of DbgkpInitializePhase1 @ 0x140B44FC0
+ * Callers:
+ *     DbgkInitialize @ 0x140B475E0 (DbgkInitialize.c)
+ * Callees:
+ *     DbgkpGetServerSiloState @ 0x14080F9D4 (DbgkpGetServerSiloState.c)
+ *     DbgkpInitializePhase1SiloState @ 0x14080FA00 (DbgkpInitializePhase1SiloState.c)
+ */
+
 __int64 DbgkpInitializePhase1()
 {
   char *ServerSiloState; // rax

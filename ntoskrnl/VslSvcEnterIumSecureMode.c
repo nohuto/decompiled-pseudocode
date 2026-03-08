@@ -1,3 +1,13 @@
+/*
+ * XREFs of VslSvcEnterIumSecureMode @ 0x14054A754
+ * Callers:
+ *     VmCallSkSvc @ 0x1405F64F0 (VmCallSkSvc.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall VslSvcEnterIumSecureMode(_OWORD *a1)
 {
   __int128 v2; // xmm1

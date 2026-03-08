@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CloseCallback@CTTMDEVICE@@CAX_K@Z @ 0x1C0350350
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ??_GCTTMDEVICE@@QEAAPEAXI@Z @ 0x1C0058070 (--_GCTTMDEVICE@@QEAAPEAXI@Z.c)
+ */
+
 void __fastcall CTTMDEVICE::CloseCallback(CTTMDEVICE *this)
 {
   __int64 v2; // rax

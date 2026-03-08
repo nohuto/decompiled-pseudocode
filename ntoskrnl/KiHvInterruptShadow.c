@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiHvInterruptShadow @ 0x140AF3FC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // positive sp value has been detected, the output may be wrong!
 __int64 __fastcall KiHvInterruptShadow()
 {

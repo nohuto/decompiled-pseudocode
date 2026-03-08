@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspSubtractAccountingValues @ 0x1409B03F8
+ * Callers:
+ *     PspRemoveProcessFromJobChain @ 0x1406FB110 (PspRemoveProcessFromJobChain.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspSubtractAccountingValues(_QWORD *a1, _QWORD *a2)
 {
   __int64 v2; // rax

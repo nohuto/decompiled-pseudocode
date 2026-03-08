@@ -1,3 +1,18 @@
+/*
+ * XREFs of PspReaper @ 0x1402A75B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeEnumerateKernelStackSegments @ 0x1402A76A0 (KeEnumerateKernelStackSegments.c)
+ *     KiWaitForContextSwap @ 0x1402A77E8 (KiWaitForContextSwap.c)
+ *     KiDecrementProcessStackCount @ 0x1402A7824 (KiDecrementProcessStackCount.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 signed __int64 PspReaper()
 {
   _QWORD *v0; // rdi

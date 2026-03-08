@@ -1,3 +1,48 @@
+/*
+ * XREFs of KiDirectSwitchThread @ 0x1403414A0
+ * Callers:
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ * Callees:
+ *     KiReadyDeferredReadyList @ 0x140226FA0 (KiReadyDeferredReadyList.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x140227C10 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiComputePriorityFloor @ 0x140229E28 (KiComputePriorityFloor.c)
+ *     HalRequestSoftwareInterrupt @ 0x140230830 (HalRequestSoftwareInterrupt.c)
+ *     KiComputeThreadAffinity @ 0x140236FD4 (KiComputeThreadAffinity.c)
+ *     KiEndThreadAccountingPeriodEx @ 0x140256710 (KiEndThreadAccountingPeriodEx.c)
+ *     KiStartRescheduleContext @ 0x140258AD0 (KiStartRescheduleContext.c)
+ *     KiDeferredReadySingleThread @ 0x140259FB0 (KiDeferredReadySingleThread.c)
+ *     KiCommitRescheduleContextEntry @ 0x140261A70 (KiCommitRescheduleContextEntry.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402ADF80 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiAdjustRescheduleContextEntryForThreadRemoval @ 0x1402AE004 (KiAdjustRescheduleContextEntryForThreadRemoval.c)
+ *     KiIsPrcbThread @ 0x1402AEFCC (KiIsPrcbThread.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402B7960 (KiFlushSoftwareInterruptBatch.c)
+ *     KiInswapAndReadyThread @ 0x1402C06E8 (KiInswapAndReadyThread.c)
+ *     KiDoesThreadDominateRescheduleContextEntry @ 0x1402C3F04 (KiDoesThreadDominateRescheduleContextEntry.c)
+ *     KiCanThreadBeReadiedImmediately @ 0x1402E1E48 (KiCanThreadBeReadiedImmediately.c)
+ *     KiGetComparisonRanks @ 0x1402FDA84 (KiGetComparisonRanks.c)
+ *     KiCompleteRescheduleContext @ 0x140302484 (KiCompleteRescheduleContext.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x14033FBD0 (KiSetBasePriorityAndClearDecrement.c)
+ *     KiComputeEffectivePriority @ 0x140342350 (KiComputeEffectivePriority.c)
+ *     PpmPerfGetCurrentFrequency @ 0x140342660 (PpmPerfGetCurrentFrequency.c)
+ *     KiEvaluateGroupSchedulingPreemption @ 0x1403426B0 (KiEvaluateGroupSchedulingPreemption.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1403428F0 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiInsertDeferredReadyList @ 0x140343778 (KiInsertDeferredReadyList.c)
+ *     KiUpdateThreadPriority @ 0x1403437B0 (KiUpdateThreadPriority.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiComputeNewPriority @ 0x140369CB0 (KiComputeNewPriority.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x14040A618 (KiReadGuestSchedulerAssistPriority.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiSetThreadQosLevelUnsafe @ 0x14045A058 (KiSetThreadQosLevelUnsafe.c)
+ *     EtwTraceReadyThread @ 0x14045EEF6 (EtwTraceReadyThread.c)
+ *     KiCheckAssistDataForBamQosLevelOverride @ 0x14056B928 (KiCheckAssistDataForBamQosLevelOverride.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiBeginCounterAccumulation @ 0x140571C80 (KiBeginCounterAccumulation.c)
+ *     EtwTraceXSchedulerPriorityUpdate @ 0x1405FB458 (EtwTraceXSchedulerPriorityUpdate.c)
+ */
+
 bool __fastcall KiDirectSwitchThread(__int64 a1, int a2, char a3)
 {
   unsigned __int8 v3; // bl

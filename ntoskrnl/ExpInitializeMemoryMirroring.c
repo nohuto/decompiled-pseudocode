@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpInitializeMemoryMirroring @ 0x140B7267C
+ * Callers:
+ *     BootApplicationPersistentDataProcess @ 0x140B44538 (BootApplicationPersistentDataProcess.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwCreatePartition @ 0x140413A70 (ZwCreatePartition.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExpAddNonMirroredRanges @ 0x140B94B94 (ExpAddNonMirroredRanges.c)
+ */
+
 __int64 (__fastcall *ExpInitializeMemoryMirroring())(_QWORD)
 {
   __int64 (__fastcall *result)(_QWORD); // rax

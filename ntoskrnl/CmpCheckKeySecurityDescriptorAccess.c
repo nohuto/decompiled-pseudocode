@@ -1,3 +1,22 @@
+/*
+ * XREFs of CmpCheckKeySecurityDescriptorAccess @ 0x14074CA68
+ * Callers:
+ *     CmpCheckSecurityCellAccess @ 0x14074C9BC (CmpCheckSecurityCellAccess.c)
+ *     CmRenameKey @ 0x140A1170C (CmRenameKey.c)
+ *     CmpCheckKcbStackAccess @ 0x140A18350 (CmpCheckKcbStackAccess.c)
+ *     CmpCheckKeyNodeStackAccess @ 0x140A18620 (CmpCheckKeyNodeStackAccess.c)
+ *     CmpDoAccessCheckOnLayeredSubtree @ 0x140A18A38 (CmpDoAccessCheckOnLayeredSubtree.c)
+ * Callees:
+ *     SeAccessCheck @ 0x140265330 (SeAccessCheck.c)
+ *     SepDeleteAccessState @ 0x140265F50 (SepDeleteAccessState.c)
+ *     PsGetCurrentThreadProcess @ 0x1402C0BB0 (PsGetCurrentThreadProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SeCreateAccessStateEx @ 0x1406991E0 (SeCreateAccessStateEx.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     CmpSetAccessStateForBackupRestore @ 0x14087BCE8 (CmpSetAccessStateForBackupRestore.c)
+ */
+
 __int64 __fastcall CmpCheckKeySecurityDescriptorAccess(
         PSECURITY_DESCRIPTOR SecurityDescriptor,
         KPROCESSOR_MODE a2,

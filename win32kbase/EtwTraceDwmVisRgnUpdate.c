@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceDwmVisRgnUpdate @ 0x1C00BA9D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0ppqt_EtwWriteTransfer @ 0x1C0165C84 (McTemplateK0ppqt_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall EtwTraceDwmVisRgnUpdate(int a1, int a2, int a3, char a4)
 {
   __int64 result; // rax

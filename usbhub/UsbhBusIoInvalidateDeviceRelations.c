@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhBusIoInvalidateDeviceRelations @ 0x1C0036940
+ * Callers:
+ *     UsbhBusConnectPdo @ 0x1C0001B70 (UsbhBusConnectPdo.c)
+ *     UsbhDeregisterPdo @ 0x1C0037578 (UsbhDeregisterPdo.c)
+ *     UsbhFdoPower_PowerFailureEntry @ 0x1C003C0B8 (UsbhFdoPower_PowerFailureEntry.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ */
+
 void __fastcall UsbhBusIoInvalidateDeviceRelations(__int64 a1, __int64 a2)
 {
   PDEVICE_OBJECT *v4; // rsi

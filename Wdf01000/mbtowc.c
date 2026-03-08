@@ -1,3 +1,11 @@
+/*
+ * XREFs of mbtowc @ 0x1C000A778
+ * Callers:
+ *     _woutput_l @ 0x1C0009C9C (_woutput_l.c)
+ * Callees:
+ *     RtlAnsiCharToUnicodeChar_0 @ 0x1C000A916 (RtlAnsiCharToUnicodeChar_0.c)
+ */
+
 __int64 __fastcall mbtowc(wchar_t *pwc, char *s, unsigned __int64 n)
 {
   __int64 result; // rax

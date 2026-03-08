@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepFindMatchingLowBoxNumberEntries @ 0x1409CE86C
+ * Callers:
+ *     SepIsParentOfChildAppContainer @ 0x1409CEBF4 (SepIsParentOfChildAppContainer.c)
+ * Callees:
+ *     RtlEnumerateEntryHashTable @ 0x1402B8050 (RtlEnumerateEntryHashTable.c)
+ *     RtlEndEnumerationHashTable @ 0x1402B81D0 (RtlEndEnumerationHashTable.c)
+ *     RtlInitEnumerationHashTable @ 0x1402B8220 (RtlInitEnumerationHashTable.c)
+ */
+
 __int64 __fastcall SepFindMatchingLowBoxNumberEntries(
         PRTL_DYNAMIC_HASH_TABLE HashTable,
         int a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ClientWaitMessageExMPH @ 0x1C0006E60
+ * Callers:
+ *     NtUserWaitMessage @ 0x1C00D78A0 (NtUserWaitMessage.c)
+ *     xxxWaitMessageEx @ 0x1C01B84F0 (xxxWaitMessageEx.c)
+ * Callees:
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00344F8 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0034558 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall ClientWaitMessageExMPH(int a1, int a2)
 {
   int v2; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetConstantBufferRequirements@ShaderLinkingConfig@@QEBA?AUConstantBufferRequirements@1@XZ @ 0x18002C4DC
+ * Callers:
+ *     ?GetShaders@CRenderingTechnique@@QEAAJPEAVCD3DDevice@@AEBUShaderLinkingConfig@@PEAIPEAPEAUID3D11PixelShader@@@Z @ 0x18002C1D8 (-GetShaders@CRenderingTechnique@@QEAAJPEAVCD3DDevice@@AEBUShaderLinkingConfig@@PEAIPEAPEAUID3D11.c)
+ * Callees:
+ *     <none>
+ */
+
 int *__fastcall ShaderLinkingConfig::GetConstantBufferRequirements(_BYTE *a1, int *a2)
 {
   int v2; // r8d

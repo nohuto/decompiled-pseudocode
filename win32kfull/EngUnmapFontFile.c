@@ -1,3 +1,12 @@
+/*
+ * XREFs of EngUnmapFontFile @ 0x1C028DF90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     vUnmapFile @ 0x1C00B81B4 (vUnmapFile.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 void __stdcall EngUnmapFontFile(ULONG_PTR iFile)
 {
   Gre::Base *v2; // rcx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of CcCompleteAsyncWriteBehind @ 0x140539048
+ * Callers:
+ *     CcCompleteAsyncLazywriteWorker @ 0x140538D80 (CcCompleteAsyncLazywriteWorker.c)
+ * Callees:
+ *     CcWriteBehindPostProcess @ 0x140219248 (CcWriteBehindPostProcess.c)
+ *     CcFreeWorkQueueEntry @ 0x140219E50 (CcFreeWorkQueueEntry.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall CcCompleteAsyncWriteBehind(PSLIST_ENTRY ListEntry, char a2)
 {
   _SLIST_ENTRY *Next; // rdi

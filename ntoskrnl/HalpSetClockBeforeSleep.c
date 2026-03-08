@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpSetClockBeforeSleep @ 0x140508B74
+ * Callers:
+ *     HalpAcpiPreSleep @ 0x140A93820 (HalpAcpiPreSleep.c)
+ *     HalpDpPreReplace @ 0x140A94700 (HalpDpPreReplace.c)
+ * Callees:
+ *     HalpAcquireCmosSpinLock @ 0x1402D1A0C (HalpAcquireCmosSpinLock.c)
+ */
+
 __int64 __fastcall HalpSetClockBeforeSleep(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int8 v3; // al

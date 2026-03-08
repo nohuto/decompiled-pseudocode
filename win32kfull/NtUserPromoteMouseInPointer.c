@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserPromoteMouseInPointer @ 0x1C01D9B30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     IsMiPEnabledForThread @ 0x1C00D7F08 (IsMiPEnabledForThread.c)
+ */
+
 __int64 NtUserPromoteMouseInPointer()
 {
   __int64 v0; // rcx

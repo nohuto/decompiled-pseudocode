@@ -1,3 +1,19 @@
+/*
+ * XREFs of UsbhGetGlobalUxdSettings @ 0x1C0059EA0
+ * Callers:
+ *     UsbhRegPnpStart @ 0x1C0046820 (UsbhRegPnpStart.c)
+ *     UsbhDeleteUxdSettings @ 0x1C0059BF8 (UsbhDeleteUxdSettings.c)
+ *     UsbhUpdateUxdSettings @ 0x1C005ACF0 (UsbhUpdateUxdSettings.c)
+ *     UsbhUxdShutdown @ 0x1C005B1D0 (UsbhUxdShutdown.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003B830 (WPP_RECORDER_SF_S.c)
+ *     WPP_RECORDER_SF_SD @ 0x1C00485E4 (WPP_RECORDER_SF_SD.c)
+ */
+
 __int64 __fastcall UsbhGetGlobalUxdSettings(__int64 a1, _OWORD *a2)
 {
   unsigned int v2; // edi

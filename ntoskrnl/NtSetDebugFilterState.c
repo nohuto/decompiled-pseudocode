@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtSetDebugFilterState @ 0x140828EB0
+ * Callers:
+ *     DbgSetDebugFilterState @ 0x14038FA80 (DbgSetDebugFilterState.c)
+ *     VfInitBootDriversLoaded @ 0x140B4EE44 (VfInitBootDriversLoaded.c)
+ *     MiInitializeLoadedModuleList @ 0x140B5D84C (MiInitializeLoadedModuleList.c)
+ * Callees:
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ */
+
 __int64 __fastcall NtSetDebugFilterState(unsigned int a1, unsigned int a2, char a3)
 {
   __int64 v5; // rdi

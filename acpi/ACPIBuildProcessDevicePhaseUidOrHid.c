@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIBuildProcessDevicePhaseUidOrHid @ 0x1C0010B20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIBuildCompleteMustSucceed @ 0x1C000BCB0 (ACPIBuildCompleteMustSucceed.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessDevicePhaseUidOrHid(__int64 a1)
 {
   __int64 v1; // r14

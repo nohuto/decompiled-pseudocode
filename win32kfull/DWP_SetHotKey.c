@@ -1,3 +1,13 @@
+/*
+ * XREFs of DWP_SetHotKey @ 0x1C0012040
+ * Callers:
+ *     xxxDestroyWindow @ 0x1C004B7F0 (xxxDestroyWindow.c)
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ * Callees:
+ *     ?HotKeyHelper@@YAPEAPEAUtagHOTKEYSTRUCT@@PEAUtagWND@@@Z @ 0x1C00120DC (-HotKeyHelper@@YAPEAPEAUtagHOTKEYSTRUCT@@PEAUtagWND@@@Z.c)
+ *     HotKeyToWindow @ 0x1C022B44C (HotKeyToWindow.c)
+ */
+
 __int64 __fastcall DWP_SetHotKey(struct tagWND *a1, unsigned int a2)
 {
   int v2; // esi

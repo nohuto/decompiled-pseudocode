@@ -1,3 +1,16 @@
+/*
+ * XREFs of AuthzBasepFreeSecurityAttributeValues @ 0x1402B87B0
+ * Callers:
+ *     AuthzBasepCommitSecurityAttributeChanges @ 0x140297AA0 (AuthzBasepCommitSecurityAttributeChanges.c)
+ *     AuthzBasepDeleteSecurityAttribute @ 0x140297E80 (AuthzBasepDeleteSecurityAttribute.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402B8730 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepDeleteAllSecurityAttributeValues @ 0x14066C504 (AuthzBasepDeleteAllSecurityAttributeValues.c)
+ *     AuthzBasepRollbackSecurityAttributeChanges @ 0x14066C990 (AuthzBasepRollbackSecurityAttributeChanges.c)
+ * Callees:
+ *     AuthzBasepRemoveSecurityAttributeValueFromLists @ 0x14066C90C (AuthzBasepRemoveSecurityAttributeValueFromLists.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall AuthzBasepFreeSecurityAttributeValues(__int64 a1, char a2, __int64 a3, __int64 a4)
 {
   void **v5; // rbx

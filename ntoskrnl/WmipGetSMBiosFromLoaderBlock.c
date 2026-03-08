@@ -1,3 +1,11 @@
+/*
+ * XREFs of WmipGetSMBiosFromLoaderBlock @ 0x140B54540
+ * Callers:
+ *     WMIInitialize @ 0x140B54790 (WMIInitialize.c)
+ * Callees:
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ */
+
 unsigned __int8 __fastcall WmipGetSMBiosFromLoaderBlock(__int64 a1)
 {
   __int64 v1; // rbx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of CcRepostToSynchronousLazywriter @ 0x140537F48
+ * Callers:
+ *     CcAsyncLazywriteWorker @ 0x14053741C (CcAsyncLazywriteWorker.c)
+ *     CcAsyncLazywriteWorkerMulti @ 0x1405387F4 (CcAsyncLazywriteWorkerMulti.c)
+ * Callees:
+ *     CcPostWorkQueue @ 0x1402191C4 (CcPostWorkQueue.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall CcRepostToSynchronousLazywriter(__int64 a1)
 {
   __int64 v1; // rsi

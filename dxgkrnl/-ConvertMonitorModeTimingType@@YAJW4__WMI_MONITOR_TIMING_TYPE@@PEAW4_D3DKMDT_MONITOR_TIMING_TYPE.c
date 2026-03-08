@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ConvertMonitorModeTimingType@@YAJW4__WMI_MONITOR_TIMING_TYPE@@PEAW4_D3DKMDT_MONITOR_TIMING_TYPE@@@Z @ 0x1C001F4F4
+ * Callers:
+ *     ?ParseDescriptorModes@MonitorModes@DxgMonitor@@AEAAJAEBUIMonitorDescriptor@2@@Z @ 0x1C01FF808 (-ParseDescriptorModes@MonitorModes@DxgMonitor@@AEAAJAEBUIMonitorDescriptor@2@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ConvertMonitorModeTimingType(int a1, _DWORD *a2)
 {
   switch ( a1 )

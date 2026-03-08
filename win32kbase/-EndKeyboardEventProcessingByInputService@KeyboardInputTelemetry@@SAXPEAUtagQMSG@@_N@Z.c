@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?EndKeyboardEventProcessingByInputService@KeyboardInputTelemetry@@SAXPEAUtagQMSG@@_N@Z @ 0x1C00065D8
+ * Callers:
+ *     HandleDeferredInput @ 0x1C0006160 (HandleDeferredInput.c)
+ * Callees:
+ *     ?GetKeyboardInputLatency@KeyboardInputTelemetry@@CAK_K@Z @ 0x1C0006668 (-GetKeyboardInputLatency@KeyboardInputTelemetry@@CAK_K@Z.c)
+ *     ?_UpdateTelemetryBuffer@KeyboardInputTelemetry@@AEAAX_NK@Z @ 0x1C000683C (-_UpdateTelemetryBuffer@KeyboardInputTelemetry@@AEAAX_NK@Z.c)
+ *     ?LogHanging@KeyboardInputTelemetry@@CAXPEAUtagTHREADINFO@@_K@Z @ 0x1C017DAEC (-LogHanging@KeyboardInputTelemetry@@CAXPEAUtagTHREADINFO@@_K@Z.c)
+ */
+
 void __fastcall KeyboardInputTelemetry::EndKeyboardEventProcessingByInputService(
         struct tagQMSG *a1,
         __int64 a2,

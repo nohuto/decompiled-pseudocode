@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Cleanup@BLTQUEUE@@QEAAXXZ @ 0x1C03CC424
+ * Callers:
+ *     ??1BLTQUEUE@@QEAA@XZ @ 0x1C03CC1B8 (--1BLTQUEUE@@QEAA@XZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?SetIndirectSwapChainHandles@BLTQUEUE@@QEAAJPEAX@Z @ 0x1C03CF198 (-SetIndirectSwapChainHandles@BLTQUEUE@@QEAAJPEAX@Z.c)
+ */
+
 void __fastcall BLTQUEUE::Cleanup(BLTQUEUE *this)
 {
   void (__fastcall ***v2)(_QWORD, _QWORD); // rcx

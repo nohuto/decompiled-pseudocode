@@ -1,3 +1,38 @@
+/*
+ * XREFs of ?xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0097FCC
+ * Callers:
+ *     EditionDoHotKeys @ 0x1C0097F80 (EditionDoHotKeys.c)
+ * Callees:
+ *     ?xxxReportHotKey@@YAXPEBUtagHOTKEY@@_NPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C000E95C (-xxxReportHotKey@@YAXPEBUtagHOTKEY@@_NPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ *     ?HotkeyInvoked@Keyboard@InputTraceLogging@@SAXIE_N@Z @ 0x1C000ECE4 (-HotkeyInvoked@Keyboard@InputTraceLogging@@SAXIE_N@Z.c)
+ *     ?Execute@ShellHangDetection@@YAXXZ @ 0x1C000EDD4 (-Execute@ShellHangDetection@@YAXXZ.c)
+ *     ?IsPenQuickLaunchAndShouldBeDisabled@@YA_NIE@Z @ 0x1C00141E8 (-IsPenQuickLaunchAndShouldBeDisabled@@YA_NIE@Z.c)
+ *     ?IsPenQuickLaunchHotKey@@YA_NIE@Z @ 0x1C001425C (-IsPenQuickLaunchHotKey@@YA_NIE@Z.c)
+ *     zzzCancelJournalling @ 0x1C001D3F4 (zzzCancelJournalling.c)
+ *     _PostThreadMessageEx @ 0x1C0037298 (_PostThreadMessageEx.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C0048220 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
+ *     _SetMagnificationInputTransform @ 0x1C007F160 (_SetMagnificationInputTransform.c)
+ *     ?IsHotKey@@YAPEAUtagHOTKEY@@II@Z @ 0x1C00989D0 (-IsHotKey@@YAPEAUtagHOTKEY@@II@Z.c)
+ *     ?IsSAS@@YA_NEPEAI@Z @ 0x1C0098AB0 (-IsSAS@@YA_NEPEAI@Z.c)
+ *     ?TestSequence@WindowArrangementSequence@@YAXQEBUtagHOTKEY@@IIIH@Z @ 0x1C0098B5C (-TestSequence@WindowArrangementSequence@@YAXQEBUtagHOTKEY@@IIIH@Z.c)
+ *     ?IsUninterceptable@@YAPEAUtagHOTKEY@@PEAIE@Z @ 0x1C0098C20 (-IsUninterceptable@@YAPEAUtagHOTKEY@@PEAIE@Z.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     HasRawInputForegroundTarget @ 0x1C009EFE4 (HasRawInputForegroundTarget.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C00A126C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ *     Feature_ReportShellHotKey__private_IsEnabledDeviceUsage @ 0x1C012C740 (Feature_ReportShellHotKey__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ?HKFindChildHotkeyForQueue@@YA_NPEAUtagQ@@PEBUtagHOTKEY@@PEAPEAUtagCHILDHOTKEY@@@Z @ 0x1C01C1254 (-HKFindChildHotkeyForQueue@@YA_NPEAUtagQ@@PEBUtagHOTKEY@@PEAPEAUtagCHILDHOTKEY@@@Z.c)
+ *     ?HandleIAMHotKey@@YAHQEBUtagHOTKEY@@@Z @ 0x1C01C1290 (-HandleIAMHotKey@@YAHQEBUtagHOTKEY@@@Z.c)
+ *     ?xxxHandleVolumeUpDownCombo@@YAXXZ @ 0x1C01C1438 (-xxxHandleVolumeUpDownCombo@@YAXXZ.c)
+ *     ?TraceLoggingPenHotkey@@YAXII@Z @ 0x1C0204CE0 (-TraceLoggingPenHotkey@@YAXII@Z.c)
+ *     ?TraceLoggingYieldedHotkey@@YAXII@Z @ 0x1C0205448 (-TraceLoggingYieldedHotkey@@YAXII@Z.c)
+ *     ?DismissTooltips@TooltipDismiss@@YAXXZ @ 0x1C0230240 (-DismissTooltips@TooltipDismiss@@YAXXZ.c)
+ *     xxxActivateDebugger @ 0x1C0230364 (xxxActivateDebugger.c)
+ */
+
 bool __fastcall xxxDoHotKeyStuff(unsigned __int8 a1, bool a2, int a3, struct tagINPUT_MESSAGE_SOURCE *a4)
 {
   unsigned int v4; // r13d

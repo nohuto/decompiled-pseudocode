@@ -1,3 +1,13 @@
+/*
+ * XREFs of TtmiLogQueueDequeueEvent @ 0x1409A5DF8
+ * Callers:
+ *     TtmiRetrieveEventFromQueue @ 0x1409A9170 (TtmiRetrieveEventFromQueue.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void TtmiLogQueueDequeueEvent()
 {
   _DWORD *v0; // r9

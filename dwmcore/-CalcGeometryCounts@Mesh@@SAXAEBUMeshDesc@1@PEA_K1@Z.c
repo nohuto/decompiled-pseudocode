@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CalcGeometryCounts@Mesh@@SAXAEBUMeshDesc@1@PEA_K1@Z @ 0x1800DA74C
+ * Callers:
+ *     ?AppendHWGeometry@CDrawListEntryBuilder@@AEAAXAEBUMeshDesc@Mesh@@PEBUPrimitiveVertexAttributesDesc@@@Z @ 0x18005D950 (-AppendHWGeometry@CDrawListEntryBuilder@@AEAAXAEBUMeshDesc@Mesh@@PEBUPrimitiveVertexAttributesDe.c)
+ *     ?CalcGeometryCountsForRectangle@Mesh@@CAXAEBUMeshDesc@1@PEA_K1@Z @ 0x1801FC264 (-CalcGeometryCountsForRectangle@Mesh@@CAXAEBUMeshDesc@1@PEA_K1@Z.c)
+ * Callees:
+ *     ?CheckExteriorFilterCondition@Mesh@@CA_NAEBUMeshDesc@1@I@Z @ 0x1800DA834 (-CheckExteriorFilterCondition@Mesh@@CA_NAEBUMeshDesc@1@I@Z.c)
+ *     ?CalcGeometryCountsForRectangle@Mesh@@CAXAEBUMeshDesc@1@PEA_K1@Z @ 0x1801FC264 (-CalcGeometryCountsForRectangle@Mesh@@CAXAEBUMeshDesc@1@PEA_K1@Z.c)
+ */
+
 void __fastcall Mesh::CalcGeometryCounts(const struct Mesh::MeshDesc *a1, unsigned __int64 *a2, unsigned __int64 *a3)
 {
   __int64 v3; // r9

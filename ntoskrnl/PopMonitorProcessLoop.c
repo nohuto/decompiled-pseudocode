@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopMonitorProcessLoop @ 0x14085C548
+ * Callers:
+ *     PopMonitorAlpcCallback @ 0x140994910 (PopMonitorAlpcCallback.c)
+ *     PopUmpoInitializeMonitorChannel @ 0x140B6DF34 (PopUmpoInitializeMonitorChannel.c)
+ * Callees:
+ *     PopUmpoSendPowerMessage @ 0x1402BD1D0 (PopUmpoSendPowerMessage.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwAlpcAcceptConnectPort @ 0x1404131F0 (ZwAlpcAcceptConnectPort.c)
+ *     ZwAlpcSendWaitReceivePort @ 0x140413490 (ZwAlpcSendWaitReceivePort.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopSetPowerSettingValueAcDc @ 0x14073BE70 (PopSetPowerSettingValueAcDc.c)
+ */
+
 __int64 PopMonitorProcessLoop()
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AnimateSingle@ForceAnimator@Particles@@UEBAXMAEAV?$span@M$0?0@gsl@@0@Z @ 0x18023CFC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 float *__fastcall Particles::ForceAnimator::AnimateSingle(__int64 a1, float a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rcx

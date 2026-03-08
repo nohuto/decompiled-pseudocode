@@ -1,3 +1,11 @@
+/*
+ * XREFs of WindowsQueryLicenseDWORD @ 0x1C001D44C
+ * Callers:
+ *     DpiFdoHandleStartDevice @ 0x1C01F6860 (DpiFdoHandleStartDevice.c)
+ * Callees:
+ *     InternalRtlGetLicenseData @ 0x1C001D58C (InternalRtlGetLicenseData.c)
+ */
+
 __int64 __fastcall WindowsQueryLicenseDWORD(__int64 a1, _DWORD *a2)
 {
   PVOID v2; // rcx

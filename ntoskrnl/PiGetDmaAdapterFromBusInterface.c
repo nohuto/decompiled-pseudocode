@@ -1,3 +1,15 @@
+/*
+ * XREFs of PiGetDmaAdapterFromBusInterface @ 0x140821C18
+ * Callers:
+ *     IoGetDmaAdapter @ 0x140821B20 (IoGetDmaAdapter.c)
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PnpQueryInterface @ 0x1407F8C60 (PnpQueryInterface.c)
+ */
+
 __int64 __fastcall PiGetDmaAdapterFromBusInterface(_QWORD *Object, __int64 a2, __int64 a3)
 {
   __int64 v6; // rbx

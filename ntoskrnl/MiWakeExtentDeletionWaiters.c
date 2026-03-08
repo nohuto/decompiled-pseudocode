@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiWakeExtentDeletionWaiters @ 0x14063DFA4
+ * Callers:
+ *     MiDeleteExtentPfns @ 0x14063A660 (MiDeleteExtentPfns.c)
+ * Callees:
+ *     KeSignalGate @ 0x1402F0524 (KeSignalGate.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiWakeExtentDeletionWaiters(__int64 a1, unsigned __int8 a2)
 {
   _QWORD *v2; // rdi

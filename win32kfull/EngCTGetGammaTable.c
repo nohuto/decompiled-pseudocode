@@ -1,3 +1,11 @@
+/*
+ * XREFs of EngCTGetGammaTable @ 0x1C0091B00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __stdcall EngCTGetGammaTable(ULONG ulGamma, const BYTE **pGammaTable, const BYTE **pInverseGammaTable)
 {
   const BYTE *v3; // rax

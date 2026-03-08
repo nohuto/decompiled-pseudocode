@@ -1,3 +1,15 @@
+/*
+ * XREFs of IoCreateObjectTypes @ 0x140B3F3D0
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObCreateObjectType @ 0x14080CB00 (ObCreateObjectType.c)
+ *     ObCreateObjectTypeEx @ 0x14080CB20 (ObCreateObjectTypeEx.c)
+ *     IopCreateIoRingObjectType @ 0x140B71970 (IopCreateIoRingObjectType.c)
+ */
+
 bool IoCreateObjectTypes()
 {
   UNICODE_STRING DestinationString; // [rsp+38h] [rbp-39h] BYREF

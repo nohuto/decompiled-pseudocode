@@ -1,3 +1,33 @@
+/*
+ * XREFs of ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x18004E7F8
+ * Callers:
+ *     ?ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ @ 0x18004DAF0 (-ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180004700 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?SendReportToE3@CEnergyReporter@@AEAAXXZ @ 0x180037650 (-SendReportToE3@CEnergyReporter@@AEAAXXZ.c)
+ *     ?CheckAndReportHighResourceUsage@CProcessResourceAttributionReporter@@AEAAXXZ @ 0x180037730 (-CheckAndReportHighResourceUsage@CProcessResourceAttributionReporter@@AEAAXXZ.c)
+ *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18003CE64 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?FlushChannels@CComposition@@QEAAXXZ @ 0x18004D118 (-FlushChannels@CComposition@@QEAAXXZ.c)
+ *     ?Trace@CFrameInfo@@QEAAXK_K0@Z @ 0x18004E320 (-Trace@CFrameInfo@@QEAAXK_K0@Z.c)
+ *     ?UpdateCurrentTime@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004E374 (-UpdateCurrentTime@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ *     ?ComputeFrameTime@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004EB20 (-ComputeFrameTime@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ *     ?UpdateDwmTimingInfo@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004EBFC (-UpdateDwmTimingInfo@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ *     ?ProcessComposition@CComposition@@IEAAXPEA_N@Z @ 0x18004EF0C (-ProcessComposition@CComposition@@IEAAXPEA_N@Z.c)
+ *     ?FrameRenderingStarted@CTelemetryFrames@@SAX_K@Z @ 0x18004F8FC (-FrameRenderingStarted@CTelemetryFrames@@SAX_K@Z.c)
+ *     ?Report@CProcessAttributionReporter@@QEAAXXZ @ 0x1800507E0 (-Report@CProcessAttributionReporter@@QEAAXXZ.c)
+ *     ?PresentFrame@CPartitionVerticalBlankScheduler@@AEAA_NPEAVCFrameInfo@@I@Z @ 0x1800509B0 (-PresentFrame@CPartitionVerticalBlankScheduler@@AEAA_NPEAVCFrameInfo@@I@Z.c)
+ *     ?UpdateFrameStatistics@CTelemetryFrameStatistics@@QEAAX_K00II_N@Z @ 0x180050AE8 (-UpdateFrameStatistics@CTelemetryFrameStatistics@@QEAAX_K00II_N@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0q_EventWriteTransfer @ 0x180129D14 (McTemplateU0q_EventWriteTransfer.c)
+ *     McTemplateU0qqqq_EventWriteTransfer @ 0x18012A6F8 (McTemplateU0qqqq_EventWriteTransfer.c)
+ *     McTemplateU0xqqq_EventWriteTransfer @ 0x18012A840 (McTemplateU0xqqq_EventWriteTransfer.c)
+ *     McTemplateU0xxxxx_EventWriteTransfer @ 0x18012AB2A (McTemplateU0xxxxx_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ *     ?DebugInspectBitmap@@YAJPEAUID2D1Bitmap@@@Z @ 0x18026F0A8 (-DebugInspectBitmap@@YAJPEAUID2D1Bitmap@@@Z.c)
+ *     ?DebugInspectTexture@@YAJPEAUID3D11Texture2D@@I@Z @ 0x18026F7F8 (-DebugInspectTexture@@YAJPEAUID3D11Texture2D@@I@Z.c)
+ */
+
 void __fastcall CPartitionVerticalBlankScheduler::ProcessFrame(
         CPartitionVerticalBlankScheduler *this,
         __int64 a2,

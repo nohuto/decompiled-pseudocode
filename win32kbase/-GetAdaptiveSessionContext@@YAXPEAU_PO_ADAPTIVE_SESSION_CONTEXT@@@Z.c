@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetAdaptiveSessionContext@@YAXPEAU_PO_ADAPTIVE_SESSION_CONTEXT@@@Z @ 0x1C0016A3C
+ * Callers:
+ *     PowerConnectionEvent @ 0x1C0016838 (PowerConnectionEvent.c)
+ *     ?UpdateAdaptiveSessionState@@YAXXZ @ 0x1C00169A0 (-UpdateAdaptiveSessionState@@YAXXZ.c)
+ * Callees:
+ *     ?GetGlobalTickCount@CInputGlobals@@QEBA_KW4INPUT_GLOBALS_TICK_COUNT@@@Z @ 0x1C0016AA0 (-GetGlobalTickCount@CInputGlobals@@QEBA_KW4INPUT_GLOBALS_TICK_COUNT@@@Z.c)
+ *     ?GetLastInputTime@CInputGlobals@@QEBA_KXZ @ 0x1C0016B10 (-GetLastInputTime@CInputGlobals@@QEBA_KXZ.c)
+ */
+
 void __fastcall GetAdaptiveSessionContext(struct _PO_ADAPTIVE_SESSION_CONTEXT *a1)
 {
   __int64 v2; // rdx

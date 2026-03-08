@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetPowerTransitionsState @ 0x1C00E7750
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsLockedShared@tagDomLock@@QEBA_NXZ @ 0x1C00E77B4 (-IsLockedShared@tagDomLock@@QEBA_NXZ.c)
+ */
+
 __int64 __fastcall GetPowerTransitionsState(_OWORD *a1)
 {
   __int64 v2; // rcx

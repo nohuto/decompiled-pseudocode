@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetDisconnectDesktopSecurity@@YAJPEAUHDESK__@@@Z @ 0x1C00C1764
+ * Callers:
+ *     ?xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z @ 0x1C00C1594 (-xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall SetDisconnectDesktopSecurity(HDESK Handle)
 {
   void *v2; // rsi

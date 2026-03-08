@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkUpdateCddDevmodeExtraData @ 0x1C03ABF10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAE@Z @ 0x1C0172AAC (-DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDE.c)
+ *     ?GetD3dFormatFromGdiBitsPerPixel@@YA?AW4_D3DDDIFORMAT@@K@Z @ 0x1C03AA8A0 (-GetD3dFormatFromGdiBitsPerPixel@@YA-AW4_D3DDDIFORMAT@@K@Z.c)
+ */
+
 __int64 __fastcall DxgkUpdateCddDevmodeExtraData(_DWORD *a1, __int64 a2)
 {
   unsigned int v4; // ecx

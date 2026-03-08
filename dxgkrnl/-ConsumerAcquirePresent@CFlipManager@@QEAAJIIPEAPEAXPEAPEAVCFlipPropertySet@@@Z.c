@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ConsumerAcquirePresent@CFlipManager@@QEAAJIIPEAPEAXPEAPEAVCFlipPropertySet@@@Z @ 0x1C0081DD0
+ * Callers:
+ *     ?ConsumerAcquirePresent@FlipManagerObject@@QEAAJIIPEAPEAXPEAPEAVCFlipPropertySet@@@Z @ 0x1C007F0E8 (-ConsumerAcquirePresent@FlipManagerObject@@QEAAJIIPEAPEAXPEAPEAVCFlipPropertySet@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CFlipManager::ConsumerAcquirePresent(
         CFlipManager *this,
         int a2,

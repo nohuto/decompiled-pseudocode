@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceIdleActionExpiration @ 0x1C0163950
+ * Callers:
+ *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x1C00B4A78 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
+ * Callees:
+ *     ?GetLastInputTime@CInputGlobals@@QEBA_KXZ @ 0x1C0016B10 (-GetLastInputTime@CInputGlobals@@QEBA_KXZ.c)
+ *     McTemplateK0qqqqh_EtwWriteTransfer @ 0x1C016686C (McTemplateK0qqqqh_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTraceIdleActionExpiration(char a1, char a2)
 {
   char v4; // di

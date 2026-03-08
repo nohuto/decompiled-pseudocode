@@ -1,3 +1,19 @@
+/*
+ * XREFs of PiDmGetObjectManagerForObjectType @ 0x1406D045C
+ * Callers:
+ *     PiDmRemoveCacheReferenceForObject @ 0x140680BEC (PiDmRemoveCacheReferenceForObject.c)
+ *     PiDmListAddObject @ 0x1406CBAD4 (PiDmListAddObject.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1406CBBDC (PiDmAddCacheReferenceForObject.c)
+ *     PiDmEnumObjectsWithCallback @ 0x1406CE130 (PiDmEnumObjectsWithCallback.c)
+ *     PiDmGetObject @ 0x1406D0370 (PiDmGetObject.c)
+ *     PiDmListAddList @ 0x14087DCD8 (PiDmListAddList.c)
+ *     PiDmGetObjectCount @ 0x140957DA0 (PiDmGetObjectCount.c)
+ *     PiDmListRemoveList @ 0x140957DFC (PiDmListRemoveList.c)
+ *     PiDmListRemoveObject @ 0x140957F4C (PiDmListRemoveObject.c)
+ * Callees:
+ *     <none>
+ */
+
 void *__fastcall PiDmGetObjectManagerForObjectType(int a1)
 {
   __int64 v1; // rdx

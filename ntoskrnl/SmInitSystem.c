@@ -1,3 +1,16 @@
+/*
+ * XREFs of SmInitSystem @ 0x140B427B4
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ *     Phase1InitializationIoReady @ 0x140B42D0C (Phase1InitializationIoReady.c)
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwRegister @ 0x140690D20 (EtwRegister.c)
+ *     SmpSystemStoreCreate @ 0x140858420 (SmpSystemStoreCreate.c)
+ *     SmGlobalsStart @ 0x140B428A8 (SmGlobalsStart.c)
+ */
+
 __int64 __fastcall SmInitSystem(int a1)
 {
   __int64 v2; // rdi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserOpenWindowStation @ 0x1C00C2180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastStatus @ 0x1C0012568 (UserSetLastStatus.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _OpenWindowStation @ 0x1C00C0364 (_OpenWindowStation.c)
+ *     ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C01CD6EC (-RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
+ */
+
 __int64 __fastcall NtUserOpenWindowStation(unsigned __int64 a1, int a2)
 {
   __int64 v4; // rbx

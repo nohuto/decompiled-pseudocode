@@ -1,3 +1,20 @@
+/*
+ * XREFs of HalpInterruptRegisterController @ 0x140373AE4
+ * Callers:
+ *     HalpPicDiscover @ 0x140374634 (HalpPicDiscover.c)
+ *     HalpApicRegisterIoUnit @ 0x1403A8208 (HalpApicRegisterIoUnit.c)
+ * Callees:
+ *     HalpInterruptLookupController @ 0x14028EEE0 (HalpInterruptLookupController.c)
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     HalpIsPartitionCpuManager @ 0x1403732F8 (HalpIsPartitionCpuManager.c)
+ *     HalpInterruptBuildKnownResourceIdString @ 0x140373E60 (HalpInterruptBuildKnownResourceIdString.c)
+ *     HalpMmAllocateMemoryInternal @ 0x14037A7A8 (HalpMmAllocateMemoryInternal.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall HalpInterruptRegisterController(__int64 a1)
 {
   unsigned int v1; // ebx

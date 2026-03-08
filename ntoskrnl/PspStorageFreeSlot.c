@@ -1,3 +1,16 @@
+/*
+ * XREFs of PspStorageFreeSlot @ 0x1409B4EC4
+ * Callers:
+ *     PsFreeSiloContextSlot @ 0x1409A95C0 (PsFreeSiloContextSlot.c)
+ *     PsUnregisterSiloMonitor @ 0x1409B1070 (PsUnregisterSiloMonitor.c)
+ *     PspInitializeSiloStructures @ 0x140B3E8CC (PspInitializeSiloStructures.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 __int64 __fastcall PspStorageFreeSlot(unsigned int a1)
 {
   unsigned int v1; // edi

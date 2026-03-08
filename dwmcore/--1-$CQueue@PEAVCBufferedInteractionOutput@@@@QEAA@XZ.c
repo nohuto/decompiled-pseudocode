@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1?$CQueue@PEAVCBufferedInteractionOutput@@@@QEAA@XZ @ 0x18003A004
+ * Callers:
+ *     ??1CInteractionContextWrapper@@EEAA@XZ @ 0x180039F6C (--1CInteractionContextWrapper@@EEAA@XZ.c)
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ */
+
 void __fastcall CQueue<CBufferedInteractionOutput *>::~CQueue<CBufferedInteractionOutput *>(_DWORD *a1)
 {
   struct _RTL_CRITICAL_SECTION *v2; // rdi

@@ -1,3 +1,18 @@
+/*
+ * XREFs of ACPIFanPrepareImpactZoneSupport @ 0x1C0084960
+ * Callers:
+ *     ACPIFanStartDevice @ 0x1C0085270 (ACPIFanStartDevice.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     WPP_RECORDER_SF_ddqss @ 0x1C0014AC8 (WPP_RECORDER_SF_ddqss.c)
+ *     WPP_RECORDER_SF_dDqss @ 0x1C0027D7C (WPP_RECORDER_SF_dDqss.c)
+ *     AMLIEvalPkgDataElement @ 0x1C0047F38 (AMLIEvalPkgDataElement.c)
+ *     AMLIFreeDataBuffs @ 0x1C00482C4 (AMLIFreeDataBuffs.c)
+ *     ACPIAmliEvaluateDsm @ 0x1C007C65C (ACPIAmliEvaluateDsm.c)
+ *     ACPIFanValidateImpactZoneSupport @ 0x1C0085554 (ACPIFanValidateImpactZoneSupport.c)
+ */
+
 __int64 __fastcall ACPIFanPrepareImpactZoneSupport(__int64 a1)
 {
   _QWORD *v2; // rcx

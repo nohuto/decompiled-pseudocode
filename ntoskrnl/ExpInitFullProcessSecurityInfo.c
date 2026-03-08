@@ -1,3 +1,19 @@
+/*
+ * XREFs of ExpInitFullProcessSecurityInfo @ 0x14085B9E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlLengthSid @ 0x140245EC0 (RtlLengthSid.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x140299320 (RtlGetDaclSecurityDescriptor.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpAddKnownAce @ 0x1406D3290 (RtlpAddKnownAce.c)
+ *     RtlValidSid @ 0x1407C92A0 (RtlValidSid.c)
+ */
+
 _BOOL8 __fastcall ExpInitFullProcessSecurityInfo(PRTL_RUN_ONCE RunOnce, PVOID Parameter, PVOID *Context)
 {
   int DaclSecurityDescriptor; // ebx

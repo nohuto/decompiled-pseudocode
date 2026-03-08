@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_PurgeRelatedEntries@CDS_JOURNAL@@AEAAJAEBU_ENTRY@1@@Z @ 0x1C03BBA24
+ * Callers:
+ *     ?Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C03BA164 (-Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ */
+
 __int64 __fastcall CDS_JOURNAL::_PurgeRelatedEntries(CDS_JOURNAL *this, const struct CDS_JOURNAL::_ENTRY *a2)
 {
   char *v2; // rdi

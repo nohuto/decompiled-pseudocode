@@ -1,3 +1,13 @@
+/*
+ * XREFs of UnpackPenSettings @ 0x1C0219724
+ * Callers:
+ *     ?ivOnNonInputPacketReceived@@YA_NPEBXKKPEAX1@Z @ 0x1C0220200 (-ivOnNonInputPacketReceived@@YA_NPEBXKKPEAX1@Z.c)
+ * Callees:
+ *     RIMIsDefaultUILanguageRTL @ 0x1C00D3A40 (RIMIsDefaultUILanguageRTL.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_AND_TRACE_SF_s @ 0x1C00EF582 (WPP_RECORDER_AND_TRACE_SF_s.c)
+ */
+
 __int64 __fastcall UnpackPenSettings(_DWORD *a1)
 {
   int v1; // eax

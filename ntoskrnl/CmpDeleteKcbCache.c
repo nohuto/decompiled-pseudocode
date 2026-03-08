@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpDeleteKcbCache @ 0x14074C7C4
+ * Callers:
+ *     CmpInitializeKcbCache @ 0x14073163C (CmpInitializeKcbCache.c)
+ *     CmpDeleteHive @ 0x14074C680 (CmpDeleteHive.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall CmpDeleteKcbCache(__int64 a1)
 {
   void *v2; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlInitializeExtraCreateParameter @ 0x140797D80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __stdcall FsRtlInitializeExtraCreateParameter(
         PECP_HEADER Ecp,
         ULONG EcpFlags,

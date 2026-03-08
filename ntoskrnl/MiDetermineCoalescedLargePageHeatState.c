@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiDetermineCoalescedLargePageHeatState @ 0x1402DD078
+ * Callers:
+ *     MiCoalesceFreePages @ 0x140278FE0 (MiCoalesceFreePages.c)
+ *     MiLargePagePromote @ 0x14034EC80 (MiLargePagePromote.c)
+ * Callees:
+ *     MiDetermineNewPfnHeatState @ 0x1402DD0B8 (MiDetermineNewPfnHeatState.c)
+ *     MiColdPageSizeSupported @ 0x1402DD100 (MiColdPageSizeSupported.c)
+ */
+
 _BOOL8 MiDetermineCoalescedLargePageHeatState()
 {
   unsigned int v0; // ecx

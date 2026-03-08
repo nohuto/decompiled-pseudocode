@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIRegisterForDeviceNotificationsByPowerInfo @ 0x1C0039774
+ * Callers:
+ *     ACPIRegisterForDeviceNotifications @ 0x1C00396E0 (ACPIRegisterForDeviceNotifications.c)
+ *     ACPIRegisterForDeviceNotificationsByDeviceExtension @ 0x1C0039748 (ACPIRegisterForDeviceNotificationsByDeviceExtension.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPIRegisterForDeviceNotificationsByPowerInfo(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rbp

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MapFrameBufferPointer@DXGADAPTER@@QEAAJI_KPEA_KPEAPEAX@Z @ 0x1C02B3684
+ * Callers:
+ *     DxgkMapFrameBufferPointerCB @ 0x1C0052360 (DxgkMapFrameBufferPointerCB.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall DXGADAPTER::MapFrameBufferPointer(
         DXGADAPTER *this,
         unsigned int a2,

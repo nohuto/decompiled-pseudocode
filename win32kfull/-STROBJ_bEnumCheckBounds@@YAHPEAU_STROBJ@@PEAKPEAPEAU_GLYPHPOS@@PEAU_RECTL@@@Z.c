@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?STROBJ_bEnumCheckBounds@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@PEAU_RECTL@@@Z @ 0x1C02DB668
+ * Callers:
+ *     EngTextOut @ 0x1C001A540 (EngTextOut.c)
+ * Callees:
+ *     ?bGlyphOutOfBounds@@YAHPEAVESTROBJ@@PEAU_GLYPHPOS@@PEAU_RECTL@@K@Z @ 0x1C02DBE24 (-bGlyphOutOfBounds@@YAHPEAVESTROBJ@@PEAU_GLYPHPOS@@PEAU_RECTL@@K@Z.c)
+ *     STROBJ_bEnum @ 0x1C02DD9A0 (STROBJ_bEnum.c)
+ *     vGetPosInfo @ 0x1C02DDBC0 (vGetPosInfo.c)
+ */
+
 __int64 __fastcall STROBJ_bEnumCheckBounds(struct _STROBJ *a1, ULONG *pc, PGLYPHPOS *ppgpos, struct _RECTL *a4)
 {
   PGLYPHPOS *v5; // rbx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of TR_AcquireSecureSegments @ 0x1C0040F24
+ * Callers:
+ *     TR_EnsureSegments @ 0x1C000B240 (TR_EnsureSegments.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C001E754 (CommonBuffer_ReleaseBuffer.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ */
+
 __int64 __fastcall TR_AcquireSecureSegments(__int64 a1, unsigned int a2, __int64 a3)
 {
   int *v3; // rsi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0xnn_EventWriteTransfer @ 0x180130026
+ * Callers:
+ *     ?NotifyDirtySurface@CWindowNode@@QEAAXAEBVCRegion@@_N@Z @ 0x180096FCC (-NotifyDirtySurface@CWindowNode@@QEAAXAEBVCRegion@@_N@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall McTemplateU0xnn_EventWriteTransfer(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlStringCopyWorkerW_2 @ 0x1402EF0D4
+ * Callers:
+ *     _CmGetDeviceRegPropWorker @ 0x1406C9A04 (_CmGetDeviceRegPropWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlStringCopyWorkerW_2(
         NTSTRSAFE_PWSTR pszDest,
         size_t cchDest,

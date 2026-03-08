@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1TraceLoggingProvider@wil@@MEAA@XZ @ 0x18019A438
+ * Callers:
+ *     ??_ECompositorTracing@@UEAAPEAXI@Z @ 0x18019A5C0 (--_ECompositorTracing@@UEAAPEAXI@Z.c)
+ *     ??_ETraceLoggingProvider@wil@@MEAAPEAXI@Z @ 0x18019A600 (--_ETraceLoggingProvider@wil@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall wil::TraceLoggingProvider::~TraceLoggingProvider(wil::TraceLoggingProvider *this)
 {
   __int64 v1; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?UpdateISODState@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z @ 0x1C000647C
+ * Callers:
+ *     DeferSysPeekMsg @ 0x1C0005F80 (DeferSysPeekMsg.c)
+ *     HandleDeferredInput @ 0x1C0006160 (HandleDeferredInput.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 void __fastcall InputTraceLogging::Delivery::UpdateISODState(const struct tagQMSG *a1)
 {
   int v1; // r8d

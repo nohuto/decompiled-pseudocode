@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetFloatProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C005A4F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetFloatProperty@CGeometryMarshaler@DirectComposition@@MEAAJIMPEA_N@Z @ 0x1C000DD20 (-SetFloatProperty@CGeometryMarshaler@DirectComposition@@MEAAJIMPEA_N@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CRectangleClipMarshaler::SetFloatProperty(
         DirectComposition::CRectangleClipMarshaler *this,
         unsigned int a2,

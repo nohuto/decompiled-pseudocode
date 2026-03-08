@@ -1,3 +1,11 @@
+/*
+ * XREFs of LogEvent @ 0x1C004E2DC
+ * Callers:
+ *     LogSchedEvent @ 0x1C004E3AC (LogSchedEvent.c)
+ * Callees:
+ *     <none>
+ */
+
 PVOID __fastcall LogEvent(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6, __int64 a7, __int64 a8)
 {
   __int64 v9; // rdx

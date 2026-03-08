@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ReportDeviceResources@DXGDEVICE@@QEAAXXZ @ 0x1C02E8164
+ * Callers:
+ *     ?ReportState@DXGDEVICE@@QEAAXXZ @ 0x1C02E82CC (-ReportState@DXGDEVICE@@QEAAXXZ.c)
+ * Callees:
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0006F40 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007104 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00095A8 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?ReportAllocationState@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@H@Z @ 0x1C02E7F58 (-ReportAllocationState@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@H@Z.c)
+ */
+
 void __fastcall DXGDEVICE::ReportDeviceResources(struct _KTHREAD **this)
 {
   struct _KTHREAD *v2; // rbx

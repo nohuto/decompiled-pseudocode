@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmHeteroComputeBias @ 0x14098FE28
+ * Callers:
+ *     PopConfigureHeteroPolicies @ 0x1408273AC (PopConfigureHeteroPolicies.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PpmHeteroComputeBias(char a1, char a2)
 {
   __int64 result; // rax

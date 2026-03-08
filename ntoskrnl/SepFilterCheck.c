@@ -1,3 +1,21 @@
+/*
+ * XREFs of SepFilterCheck @ 0x140263850
+ * Callers:
+ *     SepCommonAccessCheckEx @ 0x140206FC0 (SepCommonAccessCheckEx.c)
+ *     SeAccessCheckWithHint @ 0x1402653A0 (SeAccessCheckWithHint.c)
+ *     SeAccessCheckByType @ 0x14033BB40 (SeAccessCheckByType.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1406973E0 (SepAccessCheckAndAuditAlarm.c)
+ *     SepAdjustAccessStateForConstraints @ 0x1407582D0 (SepAdjustAccessStateForConstraints.c)
+ *     SeShouldCheckForAccessRightsFromParent @ 0x1407C9300 (SeShouldCheckForAccessRightsFromParent.c)
+ * Callees:
+ *     SepFreeResourceInfo @ 0x1402078B8 (SepFreeResourceInfo.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x140246980 (AuthzBasepEvaluateAceCondition.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1402975A8 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ */
+
 __int64 __fastcall SepFilterCheck(__int64 a1, __int64 *a2, __int64 a3, char a4, int *a5)
 {
   __int64 v5; // r11

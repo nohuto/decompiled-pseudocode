@@ -1,3 +1,29 @@
+/*
+ * XREFs of MiReferencePageRuns @ 0x1402EB520
+ * Callers:
+ *     MiZeroLocalPages @ 0x140273BB0 (MiZeroLocalPages.c)
+ *     MiReferencePageRuns @ 0x1402EB520 (MiReferencePageRuns.c)
+ *     MiComputeNodeMemory @ 0x1403A6D2C (MiComputeNodeMemory.c)
+ *     MiFindContiguousPagesEx @ 0x1403B5CF8 (MiFindContiguousPagesEx.c)
+ *     MiRebuildLargePage @ 0x140466288 (MiRebuildLargePage.c)
+ *     MiFinishResume @ 0x1406244A0 (MiFinishResume.c)
+ *     MiGetListOfPendingBadPages @ 0x140627BD8 (MiGetListOfPendingBadPages.c)
+ *     MiCombineAllPhysicalMemory @ 0x1407C7D50 (MiCombineAllPhysicalMemory.c)
+ *     MiGetPhysicalMemoryRanges @ 0x140836318 (MiGetPhysicalMemoryRanges.c)
+ *     MmGetNodeChannelRanges @ 0x14084FBB8 (MmGetNodeChannelRanges.c)
+ *     MiAddPhysicalMemory @ 0x140A289D8 (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x140A29F5C (MiRemovePhysicalMemory.c)
+ *     MmIdentifyPhysicalMemory @ 0x140A2C028 (MmIdentifyPhysicalMemory.c)
+ *     MiScanPagefileSpace @ 0x140A2FF20 (MiScanPagefileSpace.c)
+ *     MmScrubMemory @ 0x140A43E64 (MmScrubMemory.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiReferencePageRuns @ 0x1402EB520 (MiReferencePageRuns.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiReferencePageRuns(__int64 a1, unsigned int a2)
 {
   unsigned __int64 v4; // rsi

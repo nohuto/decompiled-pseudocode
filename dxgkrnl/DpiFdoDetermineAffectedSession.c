@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiFdoDetermineAffectedSession @ 0x1C0396188
+ * Callers:
+ *     DpiFdoHandleDevicePower @ 0x1C01E1A70 (DpiFdoHandleDevicePower.c)
+ *     DpiFdoStopAdapter @ 0x1C0398994 (DpiFdoStopAdapter.c)
+ * Callees:
+ *     DxgkDetermineAffectedSession @ 0x1C020AFC8 (DxgkDetermineAffectedSession.c)
+ */
+
 unsigned __int64 __fastcall DpiFdoDetermineAffectedSession(__int64 a1)
 {
   __int64 v1; // r10

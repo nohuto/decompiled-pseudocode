@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$CreateWindowProp@VCVisRgnTrackerProp@@@CWindowProp@@SAJPEAPEAVCVisRgnTrackerProp@@@Z @ 0x1C00288AC
+ * Callers:
+ *     CreateVisRgnTracker @ 0x1C00287F0 (CreateVisRgnTracker.c)
+ * Callees:
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall CWindowProp::CreateWindowProp<CVisRgnTrackerProp>(_QWORD *a1)
 {
   unsigned int v2; // ebx

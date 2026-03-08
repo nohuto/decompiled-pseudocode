@@ -1,3 +1,13 @@
+/*
+ * XREFs of SetDialogPointer @ 0x1C00F9E74
+ * Callers:
+ *     NtUserSetDialogPointer @ 0x1C00F9DB0 (NtUserSetDialogPointer.c)
+ * Callees:
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     unsafe_cast_fnid_zero_to_PDIALOG @ 0x1C00F9F78 (unsafe_cast_fnid_zero_to_PDIALOG.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall SetDialogPointer(__int64 *a1, __int64 a2)
 {
   __int64 *v4; // rsi

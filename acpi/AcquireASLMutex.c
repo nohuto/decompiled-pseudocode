@@ -1,3 +1,15 @@
+/*
+ * XREFs of AcquireASLMutex @ 0x1C0054268
+ * Callers:
+ *     ParseAcquire @ 0x1C005A0F0 (ParseAcquire.c)
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ *     QueueContext @ 0x1C0054D1C (QueueContext.c)
+ */
+
 __int64 __fastcall AcquireASLMutex(__int64 a1, KSPIN_LOCK *a2, unsigned __int16 a3)
 {
   int v3; // eax

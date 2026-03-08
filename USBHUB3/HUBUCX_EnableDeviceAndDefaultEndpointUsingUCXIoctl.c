@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBUCX_EnableDeviceAndDefaultEndpointUsingUCXIoctl @ 0x1C0026CB0
+ * Callers:
+ *     HUBDSM_EnablingDeviceInUCXFor30 @ 0x1C0020BF0 (HUBDSM_EnablingDeviceInUCXFor30.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBUCX_SubmitUcxIoctl @ 0x1C00263DC (HUBUCX_SubmitUcxIoctl.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBUCX_EnableDeviceAndDefaultEndpointUsingUCXIoctl(__int64 *a1)
 {
   __int64 v2; // rax

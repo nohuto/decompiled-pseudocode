@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?_GetMonitorDiagInfo@DXGMONITOR@@QEBAJPEAU_DXGK_DIAG_MONITOR_MGR_EXTRA_INFO@@@Z @ 0x1C01F9F6C
+ * Callers:
+ *     MonitorCreatePhysicalMonitor @ 0x1C01FA828 (MonitorCreatePhysicalMonitor.c)
+ *     MonitorNotifyDeviceNodeReady @ 0x1C01FB0DC (MonitorNotifyDeviceNodeReady.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DXGMONITOR::_GetMonitorDiagInfo(DXGMONITOR *this, struct _DXGK_DIAG_MONITOR_MGR_EXTRA_INFO *a2)
 {
   __int64 v4; // rcx

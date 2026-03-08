@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiVadPagesTradable @ 0x1403481F0
+ * Callers:
+ *     NtLockVirtualMemory @ 0x140344C50 (NtLockVirtualMemory.c)
+ *     NtUnlockVirtualMemory @ 0x1403479C0 (NtUnlockVirtualMemory.c)
+ *     MiLockStealUserVm @ 0x1403B7F90 (MiLockStealUserVm.c)
+ *     MiProcessVaContiguityInformation @ 0x14065B3D4 (MiProcessVaContiguityInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiVadPagesTradable(__int64 a1)
 {
   int v1; // eax

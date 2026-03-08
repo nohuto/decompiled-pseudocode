@@ -1,3 +1,11 @@
+/*
+ * XREFs of HMValidateHandleNoRipNoIL @ 0x1C024E6D8
+ * Callers:
+ *     xxxDDETrackGetMessageHook @ 0x1C01FD7B8 (xxxDDETrackGetMessageHook.c)
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ */
+
 __int64 __fastcall HMValidateHandleNoRipNoIL(__int64 a1)
 {
   __int64 v2; // rbx

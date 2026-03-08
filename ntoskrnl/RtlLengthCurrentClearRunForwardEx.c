@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlLengthCurrentClearRunForwardEx @ 0x1405A6640
+ * Callers:
+ *     RtlCSparseBitmapFindBitSetCapped @ 0x1403096E0 (RtlCSparseBitmapFindBitSetCapped.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlLengthCurrentClearRunForwardEx(_QWORD *a1, unsigned __int64 a2)
 {
   __int64 v2; // r8

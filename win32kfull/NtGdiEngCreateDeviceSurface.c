@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiEngCreateDeviceSurface @ 0x1C02CBBC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?UmpdSecurityGateNoUmpdObj@@YA_NXZ @ 0x1C0279028 (-UmpdSecurityGateNoUmpdObj@@YA_NXZ.c)
+ *     ?ValidUmpdSizl@@YAHUtagSIZE@@_N@Z @ 0x1C02C9DE0 (-ValidUmpdSizl@@YAHUtagSIZE@@_N@Z.c)
+ */
+
 HSURF __fastcall NtGdiEngCreateDeviceSurface(Gre::Base *dhsurf, SIZEL a2, int a3)
 {
   if ( UmpdSecurityGateNoUmpdObj(dhsurf) && !ValidUmpdSizl(a2, 0) || (unsigned int)(a3 - 1) > 7 )

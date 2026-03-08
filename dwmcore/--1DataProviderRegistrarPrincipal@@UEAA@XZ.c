@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1DataProviderRegistrarPrincipal@@UEAA@XZ @ 0x1801DD6F0
+ * Callers:
+ *     ??_EDataProviderRegistrarPrincipal@@UEAAPEAXI@Z @ 0x1801DD890 (--_EDataProviderRegistrarPrincipal@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?Release@BamoImplObject@BamoImpl@Microsoft@@UEAAKXZ @ 0x1800AD490 (-Release@BamoImplObject@BamoImpl@Microsoft@@UEAAKXZ.c)
+ */
+
 void __fastcall DataProviderRegistrarPrincipal::~DataProviderRegistrarPrincipal(
         DataProviderRegistrarPrincipal *this,
         __int64 a2,

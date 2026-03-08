@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiUpdateControlAreaCommitCount @ 0x140368568
+ * Callers:
+ *     MiSetPagesModified @ 0x1406264CC (MiSetPagesModified.c)
+ *     MiChargeSegmentCommit @ 0x1407F1988 (MiChargeSegmentCommit.c)
+ *     MiCreatePagingFileMap @ 0x1407F3500 (MiCreatePagingFileMap.c)
+ *     MiCreateFileOnlyImageFixupList @ 0x140A30D1C (MiCreateFileOnlyImageFixupList.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x140368520 (MiGetSubsectionHoldingCrossPartitionReferences.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiUpdateControlAreaCommitCount(__int64 a1, unsigned __int64 a2)
 {
   volatile LONG *v4; // rbx

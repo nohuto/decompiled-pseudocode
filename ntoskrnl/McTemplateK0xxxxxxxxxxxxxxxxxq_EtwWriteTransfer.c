@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0xxxxxxxxxxxxxxxxxq_EtwWriteTransfer @ 0x1403CD430
+ * Callers:
+ *     CcPostVolumeTelemetry @ 0x1403CB4D0 (CcPostVolumeTelemetry.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1403BE3A0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS McTemplateK0xxxxxxxxxxxxxxxxxq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
 {
   int v4; // [rsp+30h] [rbp-D0h] BYREF

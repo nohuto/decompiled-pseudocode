@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiScaleValues @ 0x1C02C70B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     GreScaleValues @ 0x1C02AA82C (GreScaleValues.c)
+ */
+
 __int64 __fastcall NtGdiScaleValues(HDC a1, char *a2, unsigned int a3)
 {
   unsigned __int64 v6; // rdi

@@ -1,3 +1,18 @@
+/*
+ * XREFs of RIMDeviceNotifyUsingAsyncPnpWorkNotification @ 0x1C01D0004
+ * Callers:
+ *     RIMDeviceNotify @ 0x1C01C7910 (RIMDeviceNotify.c)
+ * Callees:
+ *     ??0CTempW32ThreadNonPaged@@QEAA@XZ @ 0x1C0036710 (--0CTempW32ThreadNonPaged@@QEAA@XZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     ??1CTempW32ThreadNonPaged@@QEAA@XZ @ 0x1C007012C (--1CTempW32ThreadNonPaged@@QEAA@XZ.c)
+ *     RimDeviceTypeToRimInputType @ 0x1C00BC2F4 (RimDeviceTypeToRimInputType.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMQueueDeviceNotifyAsyncWorkItem @ 0x1C01D01A4 (RIMQueueDeviceNotifyAsyncWorkItem.c)
+ *     WPP_RECORDER_AND_TRACE_SF_Sd @ 0x1C01D1340 (WPP_RECORDER_AND_TRACE_SF_Sd.c)
+ */
+
 __int64 __fastcall RIMDeviceNotifyUsingAsyncPnpWorkNotification(__int64 a1, __int64 a2)
 {
   __int64 v4; // rdi

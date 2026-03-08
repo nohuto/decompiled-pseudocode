@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiRootIsFeatureSupported @ 0x1C003D920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IsHypervisorLpiCapable @ 0x1C003DA5C (IsHypervisorLpiCapable.c)
+ *     HviIsAnyHypervisorPresent @ 0x1C005ED90 (HviIsAnyHypervisorPresent.c)
+ */
+
 __int64 __fastcall AcpiRootIsFeatureSupported(char *Str1)
 {
   unsigned int v2; // ebx

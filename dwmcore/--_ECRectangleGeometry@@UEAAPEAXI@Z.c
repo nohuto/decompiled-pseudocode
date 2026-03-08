@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??_ECRectangleGeometry@@UEAAPEAXI@Z @ 0x1800EA620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ??1CGeometry@@MEAA@XZ @ 0x1800EA664 (--1CGeometry@@MEAA@XZ.c)
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801046B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ */
+
 CRectangleGeometry *__fastcall CRectangleGeometry::`vector deleting destructor'(CRectangleGeometry *this, char a2)
 {
   CGeometry::~CGeometry(this);

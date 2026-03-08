@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?_GetOwnerTransformedMonitorRect@@YAXPEAUtagWND@@PEAUtagMONITOR@@HPEAUtagRECT@@@Z @ 0x1C0222480
+ * Callers:
+ *     NtUserGetOwnerTransformedMonitorRect @ 0x1C01D3BA0 (NtUserGetOwnerTransformedMonitorRect.c)
+ * Callees:
+ *     GetMonitorWorkRect @ 0x1C0101744 (GetMonitorWorkRect.c)
+ *     GetMonitorRect @ 0x1C0101788 (GetMonitorRect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall _GetOwnerTransformedMonitorRect(struct tagWND *a1, struct tagMONITOR *a2, int a3, struct tagRECT *a4)
 {
   __m128i *MonitorWorkRect; // rax

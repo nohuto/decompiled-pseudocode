@@ -1,3 +1,11 @@
+/*
+ * XREFs of wil_RtlStagingConfig_QueryFeatureState @ 0x1C03025D0
+ * Callers:
+ *     wil_details_GetCurrentFeatureEnabledState @ 0x1C0155280 (wil_details_GetCurrentFeatureEnabledState.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall wil_RtlStagingConfig_QueryFeatureState(__int64 a1, unsigned int a2, int a3)
 {
   unsigned int v4; // ebx

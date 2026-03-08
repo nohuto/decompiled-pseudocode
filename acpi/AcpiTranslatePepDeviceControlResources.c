@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiTranslatePepDeviceControlResources @ 0x1C008B5E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiTranslatePepDeviceControlResourcesInternal @ 0x1C008B620 (AcpiTranslatePepDeviceControlResourcesInternal.c)
+ */
+
 __int64 __fastcall AcpiTranslatePepDeviceControlResources(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   return AcpiTranslatePepDeviceControlResourcesInternal(

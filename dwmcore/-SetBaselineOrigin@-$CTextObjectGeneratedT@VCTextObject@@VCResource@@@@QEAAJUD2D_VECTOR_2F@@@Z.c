@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBaselineOrigin@?$CTextObjectGeneratedT@VCTextObject@@VCResource@@@@QEAAJUD2D_VECTOR_2F@@@Z @ 0x1801C3244
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F0A8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CTextObjectGeneratedT<CTextObject,CResource>::SetBaselineOrigin(__int64 *a1, __int64 a2)
 {
   __int64 v2; // rax

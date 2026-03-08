@@ -1,3 +1,13 @@
+/*
+ * XREFs of TlgUnregisterAggregateProvider @ 0x1C00906E0
+ * Callers:
+ *     DriverCleanup @ 0x1C00021B0 (DriverCleanup.c)
+ * Callees:
+ *     CancelTimerCallbacksAndDeleteTimer @ 0x1C008FCDC (CancelTimerCallbacksAndDeleteTimer.c)
+ *     DestroyAggregateSession @ 0x1C008FD6C (DestroyAggregateSession.c)
+ *     LookUpTableFlushComplete @ 0x1C0090038 (LookUpTableFlushComplete.c)
+ */
+
 void TlgUnregisterAggregateProvider()
 {
   REGHANDLE v0; // rcx

@@ -1,3 +1,20 @@
+/*
+ * XREFs of ExProcessorCounterSetCallback @ 0x14086BB50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryNodeActiveAffinityEx @ 0x1402AAE68 (KeQueryNodeActiveAffinityEx.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     swscanf_s @ 0x1403DA110 (swscanf_s.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PcwAddInstance @ 0x14086B690 (PcwAddInstance.c)
+ *     ExpQueryProcessorInformationCounters @ 0x14086C350 (ExpQueryProcessorInformationCounters.c)
+ */
+
 int __fastcall ExProcessorCounterSetCallback(int a1, __int64 *a2)
 {
   int v4; // ebx

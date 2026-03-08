@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetCurrentVisual@CDrawingContext@@UEBAPEAVCVisual@@XZ @ 0x1800D3EA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 struct CVisual *__fastcall CDrawingContext::GetCurrentVisual(CDrawingContext *this)
 {
   if ( !*((_BYTE *)this + 8024) )

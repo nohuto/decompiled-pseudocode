@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhFdoPnp_QueryCaps @ 0x1C0042D30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ */
+
 NTSTATUS __fastcall UsbhFdoPnp_QueryCaps(struct _DEVICE_OBJECT *Context, PIRP Irp)
 {
   PDEVICE_OBJECT *v4; // rax

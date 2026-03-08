@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserInvalidateRgn @ 0x1C00D9280
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxRedrawWindow @ 0x1C0050700 (xxxRedrawWindow.c)
+ */
+
 __int64 __fastcall NtUserInvalidateRgn(__int64 a1, __int64 a2, int a3)
 {
   __int64 v6; // rax

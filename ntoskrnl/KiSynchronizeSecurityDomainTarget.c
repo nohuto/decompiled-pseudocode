@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiSynchronizeSecurityDomainTarget @ 0x140302CD0
+ * Callers:
+ *     KeSynchronizeSecurityDomain @ 0x1402EAE28 (KeSynchronizeSecurityDomain.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 KiSynchronizeSecurityDomainTarget()
 {
   __int64 result; // rax

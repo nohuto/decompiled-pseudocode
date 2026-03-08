@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpQueryNumaAvailableMemory @ 0x1409F40F4
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     MmGetProcessPartitionId @ 0x140299858 (MmGetProcessPartitionId.c)
+ *     MmGetAvailablePages @ 0x1402999C4 (MmGetAvailablePages.c)
+ *     MmGetChannelInformation @ 0x14084FA60 (MmGetChannelInformation.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpQueryNumaAvailableMemory(__int64 a1)
 {
   unsigned int v2; // edx

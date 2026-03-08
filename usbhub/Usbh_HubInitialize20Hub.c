@@ -1,3 +1,12 @@
+/*
+ * XREFs of Usbh_HubInitialize20Hub @ 0x1C002E2F4
+ * Callers:
+ *     UsbhInitializeTtHub @ 0x1C002D268 (UsbhInitializeTtHub.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Usbh_HubInitialize20Hub(__int64 a1, __int64 a2, unsigned int a3)
 {
   _DWORD *v6; // rsi

@@ -1,3 +1,20 @@
+/*
+ * XREFs of WmipFindGEByGuid @ 0x14069BDF4
+ * Callers:
+ *     WmipOpenBlock @ 0x14069AF1C (WmipOpenBlock.c)
+ *     WmipDetermineInstanceBaseIndex @ 0x1408680E4 (WmipDetermineInstanceBaseIndex.c)
+ *     WmipLinkDataSourceToList @ 0x1408681AC (WmipLinkDataSourceToList.c)
+ *     WmipEnableCollectionForNewGuid @ 0x140868484 (WmipEnableCollectionForNewGuid.c)
+ *     WmipProcessEvent @ 0x1408686A8 (WmipProcessEvent.c)
+ *     WmipMangleInstanceName @ 0x1408687EC (WmipMangleInstanceName.c)
+ *     WmipDisableCollectionForRemovedGuid @ 0x14087EB44 (WmipDisableCollectionForRemovedGuid.c)
+ *     WmipIncludeStaticNames @ 0x1409DDB94 (WmipIncludeStaticNames.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     WmipReferenceEntry @ 0x14069C27C (WmipReferenceEntry.c)
+ */
+
 _QWORD *__fastcall WmipFindGEByGuid(_QWORD *a1, char a2)
 {
   _QWORD *i; // rbx

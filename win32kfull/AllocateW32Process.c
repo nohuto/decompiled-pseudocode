@@ -1,3 +1,12 @@
+/*
+ * XREFs of AllocateW32Process @ 0x1C003EBB0
+ * Callers:
+ *     ?xxxSetProcessInitState@@YAJPEAU_EPROCESS@@W4_PROCESS_INIT_HINT@@@Z @ 0x1C003E988 (-xxxSetProcessInitState@@YAJPEAU_EPROCESS@@W4_PROCESS_INIT_HINT@@@Z.c)
+ *     W32pProcessCallout @ 0x1C00CA590 (W32pProcessCallout.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall AllocateW32Process(__int64 a1)
 {
   volatile signed __int32 *v2; // rbx

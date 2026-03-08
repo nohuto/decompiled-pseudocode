@@ -1,3 +1,13 @@
+/*
+ * XREFs of TR_InitializeLinkTrb @ 0x1C0007F3C
+ * Callers:
+ *     Control_Transfer_MapIntoRing @ 0x1C00062A0 (Control_Transfer_MapIntoRing.c)
+ *     Bulk_InsertLinkTrb @ 0x1C00227FE (Bulk_InsertLinkTrb.c)
+ *     Isoch_InsertLinkTrb @ 0x1C00445F4 (Isoch_InsertLinkTrb.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TR_InitializeLinkTrb(__int64 a1, int a2, __int64 a3, char a4)
 {
   int v4; // r10d

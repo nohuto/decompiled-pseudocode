@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CollectOcclusion@CCursorVisual@@UEAAJPEAVCOcclusionContext@@PEAVCOcclusionInfo@@@Z @ 0x180225480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CollectCursor@COcclusionContext@@QEAAXPEAVCCursorVisual@@@Z @ 0x1801E3D40 (-CollectCursor@COcclusionContext@@QEAAXPEAVCCursorVisual@@@Z.c)
+ *     ?IsVisible@CCursorVisual@@IEBA_NXZ @ 0x1802255C4 (-IsVisible@CCursorVisual@@IEBA_NXZ.c)
+ */
+
 __int64 __fastcall CCursorVisual::CollectOcclusion(
         CCursorVisual *this,
         struct COcclusionContext *a2,

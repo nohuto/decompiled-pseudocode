@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiGetPageFileSectionForReservation @ 0x140638834
+ * Callers:
+ *     MiReservePageFileSpace @ 0x14032E800 (MiReservePageFileSpace.c)
+ *     MiBuildReservationCluster @ 0x140635ED4 (MiBuildReservationCluster.c)
+ * Callees:
+ *     MiLockProtoPoolPage @ 0x140283CA0 (MiLockProtoPoolPage.c)
+ *     MiReleasePageFileSectionInfo @ 0x140639168 (MiReleasePageFileSectionInfo.c)
+ *     MiReferencePfBackedSection @ 0x140667510 (MiReferencePfBackedSection.c)
+ */
+
 __int64 __fastcall MiGetPageFileSectionForReservation(unsigned __int64 a1, __int64 a2, int a3)
 {
   _QWORD *v6; // rax

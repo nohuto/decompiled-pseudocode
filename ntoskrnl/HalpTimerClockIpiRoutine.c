@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpTimerClockIpiRoutine @ 0x14022CC70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeClockInterruptNotify @ 0x14022CD80 (KeClockInterruptNotify.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpScanForProfilingCorruption @ 0x1404532C4 (HalpScanForProfilingCorruption.c)
+ *     HalpTimerWatchdogTriggerSystemReset @ 0x1405097B0 (HalpTimerWatchdogTriggerSystemReset.c)
+ */
+
 char __fastcall HalpTimerClockIpiRoutine(__int64 a1)
 {
   __int64 v1; // rdi

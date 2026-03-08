@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?OriginIdToString@InputTraceLogging@@CAPEBDW4tagINPUT_MESSAGE_ORIGIN_ID@@@Z @ 0x1C021A3B0
+ * Callers:
+ *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C007AB10 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
+ *     xxxKeyEventEx @ 0x1C007F2E0 (xxxKeyEventEx.c)
+ * Callees:
+ *     <none>
+ */
+
 const char *__fastcall InputTraceLogging::OriginIdToString(int a1)
 {
   int v1; // ecx

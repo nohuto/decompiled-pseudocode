@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiIsPdeOrAboveAccessible @ 0x1402E21F4
+ * Callers:
+ *     MiGetNextPageTablePte @ 0x140224090 (MiGetNextPageTablePte.c)
+ *     MiResolvePageTablePage @ 0x1402689F0 (MiResolvePageTablePage.c)
+ *     MiReplacePageTablePage @ 0x14039164C (MiReplacePageTablePage.c)
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ */
+
 __int64 __fastcall MiIsPdeOrAboveAccessible(__int64 a1)
 {
   unsigned __int64 v1; // rdx

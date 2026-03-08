@@ -1,3 +1,22 @@
+/*
+ * XREFs of AlpcpReceiveMessage @ 0x1407CCD50
+ * Callers:
+ *     NtAlpcSendWaitReceivePort @ 0x1407CCAC0 (NtAlpcSendWaitReceivePort.c)
+ * Callees:
+ *     AlpcpCancelMessage @ 0x1407141F0 (AlpcpCancelMessage.c)
+ *     AlpcpReadMessageData @ 0x140716C08 (AlpcpReadMessageData.c)
+ *     AlpcpExposeCapturedContextAttribute @ 0x140768DC4 (AlpcpExposeCapturedContextAttribute.c)
+ *     AlpcpReceiveDirectMessagePort @ 0x140769704 (AlpcpReceiveDirectMessagePort.c)
+ *     AlpcpReturnMessageOnInsufficientBuffer @ 0x14077EC7C (AlpcpReturnMessageOnInsufficientBuffer.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     AlpcpReceiveMessagePort @ 0x1407CD3A0 (AlpcpReceiveMessagePort.c)
+ *     AlpcpUnlockBlob @ 0x1407CDB50 (AlpcpUnlockBlob.c)
+ *     AlpcpExposeAttributes @ 0x1407CDCB0 (AlpcpExposeAttributes.c)
+ *     AlpcpGetDataFromUserVaSafe @ 0x140975F5C (AlpcpGetDataFromUserVaSafe.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x140977A1C (AlpcpEnterStateChangeEventMessageLog.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall AlpcpReceiveMessage(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, int *a4, __int64 *a5)
 {
   __int64 *v8; // r10

@@ -1,3 +1,12 @@
+/*
+ * XREFs of VerifierKeAcquireInStackQueuedSpinLockForDpc @ 0x140AD2280
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ViTargetIncrementCounter @ 0x140AC8BDC (ViTargetIncrementCounter.c)
+ */
+
 __int64 __fastcall VerifierKeAcquireInStackQueuedSpinLockForDpc(__int64 a1, __int64 a2)
 {
   __int64 retaddr; // [rsp+28h] [rbp+0h]

@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhExRemove @ 0x1C004A8B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 void __fastcall UsbhExRemove(__int64 a1)
 {
   _DWORD *v2; // rdi

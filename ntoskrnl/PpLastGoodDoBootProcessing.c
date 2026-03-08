@@ -1,3 +1,15 @@
+/*
+ * XREFs of PpLastGoodDoBootProcessing @ 0x140B6ACC4
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     IopFileUtilRename @ 0x140B6AD78 (IopFileUtilRename.c)
+ *     PiLastGoodCopyKeyContents @ 0x140B6AE50 (PiLastGoodCopyKeyContents.c)
+ *     CmIsLastKnownGoodBoot @ 0x140B6AF2C (CmIsLastKnownGoodBoot.c)
+ *     PiLastGoodRevertLastKnownDirectory @ 0x140B91710 (PiLastGoodRevertLastKnownDirectory.c)
+ */
+
 __int64 PpLastGoodDoBootProcessing()
 {
   __int64 v0; // rdx

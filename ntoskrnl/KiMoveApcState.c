@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiMoveApcState @ 0x14030E330
+ * Callers:
+ *     KiDetachProcess @ 0x14030E460 (KiDetachProcess.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 ***__fastcall KiMoveApcState(__int64 *a1, __int64 a2)
 {
   __int64 *v3; // rcx

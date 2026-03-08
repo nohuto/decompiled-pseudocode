@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeQuerySpeculationControlInformation @ 0x14097183C
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     KeKvaShadowingActive @ 0x1402FE9A0 (KeKvaShadowingActive.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvlQueryL1tfMitigationInformation @ 0x14053D758 (HvlQueryL1tfMitigationInformation.c)
+ *     KiIsFbClearSupported @ 0x140576DE0 (KiIsFbClearSupported.c)
+ */
+
 __int64 __fastcall KeQuerySpeculationControlInformation(void *a1, size_t Size, unsigned int *a3)
 {
   size_t v3; // r15

@@ -1,3 +1,12 @@
+/*
+ * XREFs of UserDeleteAtomFromAtomTable @ 0x1C008ECA0
+ * Callers:
+ *     DeleteProperties @ 0x1C0072500 (DeleteProperties.c)
+ *     RealInternalRemoveProp @ 0x1C008EB00 (RealInternalRemoveProp.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ */
+
 __int64 __fastcall UserDeleteAtomFromAtomTable(struct _RTL_ATOM_TABLE *a1, RTL_ATOM a2)
 {
   int v4; // eax

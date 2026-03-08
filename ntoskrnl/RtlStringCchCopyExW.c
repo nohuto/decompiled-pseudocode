@@ -1,3 +1,41 @@
+/*
+ * XREFs of RtlStringCchCopyExW @ 0x140244A08
+ * Callers:
+ *     _RegRtlCreateTreeTransacted @ 0x140687B40 (_RegRtlCreateTreeTransacted.c)
+ *     IopGetDeviceInterfaces @ 0x1406C4A94 (IopGetDeviceInterfaces.c)
+ *     _CmGetDeviceInterfaceName @ 0x1406C54F8 (_CmGetDeviceInterfaceName.c)
+ *     PiDmGetObjectListCallback @ 0x1406C77F0 (PiDmGetObjectListCallback.c)
+ *     _CmGetDeviceParent @ 0x1406C7D1C (_CmGetDeviceParent.c)
+ *     _CmGetDeviceInterfaceSubkeyPath @ 0x1406D208C (_CmGetDeviceInterfaceSubkeyPath.c)
+ *     PiPnpRtlGetFilteredDeviceList @ 0x140777284 (PiPnpRtlGetFilteredDeviceList.c)
+ *     _CmIsDeviceSafeRemovalRequired @ 0x14078A594 (_CmIsDeviceSafeRemovalRequired.c)
+ *     _CmGetDeviceInterfaceReferenceString @ 0x14078E658 (_CmGetDeviceInterfaceReferenceString.c)
+ *     _CmGetMatchingDeviceListForSubkey @ 0x140823CD0 (_CmGetMatchingDeviceListForSubkey.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceListWorker @ 0x140823FCC (_CmGetMatchingFilteredDeviceInterfaceListWorker.c)
+ *     _CmDevicePanelEnumSubkeyCallback @ 0x140824470 (_CmDevicePanelEnumSubkeyCallback.c)
+ *     _CmEnumSubkeyCallback @ 0x1408247A0 (_CmEnumSubkeyCallback.c)
+ *     _CmDeviceClassesSubkeyCallback @ 0x140824A50 (_CmDeviceClassesSubkeyCallback.c)
+ *     _CmGetDeviceChildren @ 0x140839DE0 (_CmGetDeviceChildren.c)
+ *     _PnpGetGenericStorePropertyLocales @ 0x14083AA64 (_PnpGetGenericStorePropertyLocales.c)
+ *     _CmClassSubkeyCallback @ 0x1408412C0 (_CmClassSubkeyCallback.c)
+ *     _PnpObjectListCallback @ 0x140856BA0 (_PnpObjectListCallback.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x140864F88 (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbGetDriverDatabaseList @ 0x14086607C (DrvDbGetDriverDatabaseList.c)
+ *     DrvDbGetDeviceIdDriverInfMatches @ 0x140866238 (DrvDbGetDeviceIdDriverInfMatches.c)
+ *     DrvDbBuildDeviceIdDriverInfMatch @ 0x140866494 (DrvDbBuildDeviceIdDriverInfMatch.c)
+ *     PnpGetDeviceDependencyList @ 0x1409519F8 (PnpGetDeviceDependencyList.c)
+ *     PiDevCfgQueryPolicyStringList @ 0x14095C778 (PiDevCfgQueryPolicyStringList.c)
+ *     PiCMCreateDevice @ 0x1409654C0 (PiCMCreateDevice.c)
+ *     PiCMGenerateDeviceInstance @ 0x140966C4C (PiCMGenerateDeviceInstance.c)
+ *     _RegRtlDeletePathInternal @ 0x140A67F0C (_RegRtlDeletePathInternal.c)
+ *     DrvDbDeleteObjectSubKey @ 0x140A6832C (DrvDbDeleteObjectSubKey.c)
+ *     DrvDbGetObjectSubKeyCallback @ 0x140A69880 (DrvDbGetObjectSubKeyCallback.c)
+ * Callees:
+ *     RtlStringCopyWorkerW @ 0x140244B40 (RtlStringCopyWorkerW.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     StringExHandleOtherFlagsW @ 0x14055D3D8 (StringExHandleOtherFlagsW.c)
+ */
+
 NTSTATUS __stdcall RtlStringCchCopyExW(
         NTSTRSAFE_PWSTR pszDest,
         size_t cchDest,

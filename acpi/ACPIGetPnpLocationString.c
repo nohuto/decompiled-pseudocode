@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIGetPnpLocationString @ 0x1C0087670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     RtlStringCchPrintfExW @ 0x1C000B730 (RtlStringCchPrintfExW.c)
+ *     AMLIGetNSObjectNameSegment @ 0x1C0048384 (AMLIGetNSObjectNameSegment.c)
+ */
+
 __int64 __fastcall ACPIGetPnpLocationString(__int64 *a1, wchar_t **a2)
 {
   __int64 v4; // r13

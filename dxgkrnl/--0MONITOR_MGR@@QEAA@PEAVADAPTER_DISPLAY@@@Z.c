@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0MONITOR_MGR@@QEAA@PEAVADAPTER_DISPLAY@@@Z @ 0x1C0022E70
+ * Callers:
+ *     MonitorCreateMonitorManager @ 0x1C02162DC (MonitorCreateMonitorManager.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ */
+
 MONITOR_MGR *__fastcall MONITOR_MGR::MONITOR_MGR(MONITOR_MGR *this, struct ADAPTER_DISPLAY *a2, __int64 a3, __int64 a4)
 {
   __int64 v6; // rax

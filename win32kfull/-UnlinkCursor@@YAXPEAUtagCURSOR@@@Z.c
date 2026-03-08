@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?UnlinkCursor@@YAXPEAUtagCURSOR@@@Z @ 0x1C00E1474
+ * Callers:
+ *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C0041464 (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
+ *     ?DestroyEmptyCursorObject@@YAXPEAUtagCURSOR@@@Z @ 0x1C01C1C90 (-DestroyEmptyCursorObject@@YAXPEAUtagCURSOR@@@Z.c)
+ *     ZombieCursor @ 0x1C01C1ED0 (ZombieCursor.c)
+ * Callees:
+ *     ?_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0022318 (-_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ.c)
+ */
+
 void __fastcall UnlinkCursor(struct tagCURSOR *a1)
 {
   int v2; // edx

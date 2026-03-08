@@ -1,3 +1,16 @@
+/*
+ * XREFs of sub_14067C010 @ 0x14067C010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetCoalescableTimer @ 0x140250440 (KeSetCoalescableTimer.c)
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     KeExitRetpoline @ 0x1402E3E6C (KeExitRetpoline.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140305AB0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     CcAdjustBcbDepth @ 0x140422F00 (CcAdjustBcbDepth.c)
+ *     VslVerifyPage @ 0x14054A880 (VslVerifyPage.c)
+ */
+
 BOOLEAN __fastcall sub_14067C010(PKDPC Dpc, __int64 a2)
 {
   __int64 ProcessorHistory_low; // r8

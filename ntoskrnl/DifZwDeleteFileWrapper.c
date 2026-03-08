@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwDeleteFileWrapper @ 0x1405ED130
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwDeleteFile @ 0x140413E30 (ZwDeleteFile.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifZwDeleteFileWrapper(POBJECT_ATTRIBUTES ObjectAttributes)
 {
   __int64 *APIThunkContextById; // rax

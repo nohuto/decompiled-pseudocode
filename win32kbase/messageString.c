@@ -1,3 +1,11 @@
+/*
+ * XREFs of messageString @ 0x1C0209534
+ * Callers:
+ *     ?PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerInfoNode@@_KIKHH@Z @ 0x1C01FDB10 (-PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerIn.c)
+ * Callees:
+ *     <none>
+ */
+
 const char *__fastcall messageString(unsigned int a1)
 {
   unsigned int v1; // ecx

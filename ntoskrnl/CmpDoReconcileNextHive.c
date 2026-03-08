@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpDoReconcileNextHive @ 0x140732AC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     CmpGetNextActiveHive @ 0x1406BD940 (CmpGetNextActiveHive.c)
+ *     CmpFlushHive @ 0x1406BEA70 (CmpFlushHive.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x140730814 (HvGetEffectiveLogSizeCapForHive.c)
+ *     CmpIsHiveEligibleForLazyReconcile @ 0x140732BD4 (CmpIsHiveEligibleForLazyReconcile.c)
+ *     CmpFlushUnsupportedOperationTelemetry @ 0x1407333FC (CmpFlushUnsupportedOperationTelemetry.c)
+ */
+
 char __fastcall CmpDoReconcileNextHive(_BYTE *a1, unsigned __int64 *a2)
 {
   char v2; // bp

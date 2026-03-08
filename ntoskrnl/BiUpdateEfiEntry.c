@@ -1,3 +1,20 @@
+/*
+ * XREFs of BiUpdateEfiEntry @ 0x140A5C248
+ * Callers:
+ *     BiCreateEfiEntry @ 0x140A5B13C (BiCreateEfiEntry.c)
+ *     BiExportBcdObjects @ 0x140A5B800 (BiExportBcdObjects.c)
+ * Callees:
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     BiSpacesUpdatePhysicalDevicePath @ 0x14066F1C4 (BiSpacesUpdatePhysicalDevicePath.c)
+ *     BcdCloseObject @ 0x14082E5DC (BcdCloseObject.c)
+ *     BcdOpenObject @ 0x14082E620 (BcdOpenObject.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiGetElement @ 0x140A59CEC (BiGetElement.c)
+ *     BiCreateMergedBootEntry @ 0x140A5B328 (BiCreateMergedBootEntry.c)
+ *     BiModifyBootEntry @ 0x140A5BF28 (BiModifyBootEntry.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiUpdateEfiEntry(__int64 a1, __int64 a2)
 {
   PVOID v3; // r12

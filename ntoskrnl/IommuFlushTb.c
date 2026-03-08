@@ -1,3 +1,14 @@
+/*
+ * XREFs of IommuFlushTb @ 0x1405208E0
+ * Callers:
+ *     HalpIommuFlushDmaDomain @ 0x140515AF0 (HalpIommuFlushDmaDomain.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IommuFlushTb(__int64 *a1, int a2, __int64 a3)
 {
   __int64 v4; // r15

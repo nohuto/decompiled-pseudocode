@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?xxxNumpadCursor@@YAHPEAUtagKE@@@Z @ 0x1C00C3A30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxKeyEventEx @ 0x1C007F2E0 (xxxKeyEventEx.c)
+ *     ApiSetEditionIsSAS @ 0x1C023FE40 (ApiSetEditionIsSAS.c)
+ */
+
 __int64 __fastcall xxxNumpadCursor(struct tagKE *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _WORD *v5; // r14

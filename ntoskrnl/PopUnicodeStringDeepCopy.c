@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopUnicodeStringDeepCopy @ 0x140856290
+ * Callers:
+ *     PopPowerRequestStatsGetIdForRequest @ 0x14073C3F4 (PopPowerRequestStatsGetIdForRequest.c)
+ * Callees:
+ *     RtlUnicodeStringCopy @ 0x1402B3164 (RtlUnicodeStringCopy.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall PopUnicodeStringDeepCopy(PUNICODE_STRING DestinationString, PCUNICODE_STRING SourceString)
 {
   PVOID *p_Buffer; // rbx

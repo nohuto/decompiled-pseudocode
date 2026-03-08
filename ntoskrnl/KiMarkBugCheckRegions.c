@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiMarkBugCheckRegions @ 0x1403DE604
+ * Callers:
+ *     KiCollectTriageDumpDataBlocks @ 0x140567894 (KiCollectTriageDumpDataBlocks.c)
+ * Callees:
+ *     MmQueryApiSetSchema @ 0x1402F3614 (MmQueryApiSetSchema.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     MmIsAddressValid @ 0x1403A9A20 (MmIsAddressValid.c)
+ *     sub_1403ED56C @ 0x1403ED56C (sub_1403ED56C.c)
+ */
+
 char __fastcall KiMarkBugCheckRegions(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
 {
   int v6; // esi

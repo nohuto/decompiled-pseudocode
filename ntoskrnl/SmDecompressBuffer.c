@@ -1,3 +1,15 @@
+/*
+ * XREFs of SmDecompressBuffer @ 0x14035AD38
+ * Callers:
+ *     PfSnGetPrefetchInstructions @ 0x1407E1BA4 (PfSnGetPrefetchInstructions.c)
+ * Callees:
+ *     RtlComputeCrc32 @ 0x1402B8B70 (RtlComputeCrc32.c)
+ *     RtlGetCompressionWorkSpaceSize @ 0x14035AEA0 (RtlGetCompressionWorkSpaceSize.c)
+ *     RtlDecompressBufferEx @ 0x14035AF00 (RtlDecompressBufferEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall SmDecompressBuffer(__int64 a1, unsigned int a2, _QWORD *a3, _DWORD *a4, _DWORD *a5, __int64 a6)
 {
   __int64 v6; // r12

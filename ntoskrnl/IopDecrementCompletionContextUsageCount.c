@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopDecrementCompletionContextUsageCount @ 0x1402F25B0
+ * Callers:
+ *     NtLockFile @ 0x1406B1EB0 (NtLockFile.c)
+ *     IopXxxControlFile @ 0x1407C1720 (IopXxxControlFile.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IopDecrementCompletionContextUsageCount(ULONG_PTR BugCheckParameter1)
 {
   volatile signed __int64 *v1; // rbx

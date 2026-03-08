@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiDiagTraceFanStatusChange @ 0x1C00084F0
+ * Callers:
+ *     ACPIFanFSTCallback @ 0x1C0026F60 (ACPIFanFSTCallback.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     AcpiDiagTraceFanEvent @ 0x1C0008320 (AcpiDiagTraceFanEvent.c)
+ */
+
 void __fastcall AcpiDiagTraceFanStatusChange(__int64 a1)
 {
   int v1; // [rsp+20h] [rbp-68h] BYREF

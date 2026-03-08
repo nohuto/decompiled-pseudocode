@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtOpenSemaphore @ 0x1406C3740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObOpenObjectByName @ 0x1406C39E0 (ObOpenObjectByName.c)
+ */
+
 __int64 __fastcall NtOpenSemaphore(_QWORD *a1, int a2, int a3)
 {
   char PreviousMode; // di

@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxxMenuItemFromPoint @ 0x1C023C080
+ * Callers:
+ *     NtUserMenuItemFromPoint @ 0x1C01D87B0 (NtUserMenuItemFromPoint.c)
+ * Callees:
+ *     ?MNItemHitTest@@YAIPEAUtagMENU@@PEAUtagWND@@UtagPOINT@@@Z @ 0x1C02182B0 (-MNItemHitTest@@YAIPEAUtagMENU@@PEAUtagWND@@UtagPOINT@@@Z.c)
+ *     ?GetMenuPwnd@@YAPEAUtagWND@@PEAU1@AEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C023A528 (-GetMenuPwnd@@YAPEAUtagWND@@PEAU1@AEBV-$SmartObjStackRef@UtagMENU@@@@@Z.c)
+ *     xxxMNRecomputeBarIfNeeded @ 0x1C023BD88 (xxxMNRecomputeBarIfNeeded.c)
+ */
+
 __int64 __fastcall xxxMenuItemFromPoint(__int64 a1, __int64 *a2, struct tagPOINT a3)
 {
   struct tagWND *MenuPwnd; // rsi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtCreateProfile @ 0x140A01750
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeQueryGroupAffinity @ 0x140296080 (KeQueryGroupAffinity.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExpProfileCreate @ 0x140A01038 (ExpProfileCreate.c)
+ */
+
 __int64 __fastcall NtCreateProfile(
         __int64 *a1,
         ULONG_PTR a2,

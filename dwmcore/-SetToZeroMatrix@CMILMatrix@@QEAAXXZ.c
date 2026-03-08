@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetToZeroMatrix@CMILMatrix@@QEAAXXZ @ 0x180092384
+ * Callers:
+ *     ??0NodeEffects@CDrawingContext@@QEAA@XZ @ 0x180092178 (--0NodeEffects@CDrawingContext@@QEAA@XZ.c)
+ * Callees:
+ *     ?SetMatrix@CMILMatrix@@QEAAXMMMMMMMMMMMMMMMM@Z @ 0x180130648 (-SetMatrix@CMILMatrix@@QEAAXMMMMMMMMMMMMMMMM@Z.c)
+ */
+
 void __fastcall CMILMatrix::SetToZeroMatrix(CMILMatrix *this)
 {
   char v2; // al

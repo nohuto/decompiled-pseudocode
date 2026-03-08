@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheapInitializeErrorRecordWrapper @ 0x14037D79C
+ * Callers:
+ *     WheapAllocErrorRecord @ 0x14060E78C (WheapAllocErrorRecord.c)
+ *     WheapInitializeErrorSource @ 0x14080C6B4 (WheapInitializeErrorSource.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WheapInitializeErrorRecordWrapper(__int64 a1, int a2, __int64 a3)
 {
   int *v3; // r9

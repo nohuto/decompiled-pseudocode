@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UnlockAllocation@VIDMM_PROCESS_HEAP@@UEAAXPEAX_K1E@Z @ 0x1C0105BE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?VidMmiUnlockAllocation@@YAXPEAU_VIDMM_MDL@@@Z @ 0x1C008A90C (-VidMmiUnlockAllocation@@YAXPEAU_VIDMM_MDL@@@Z.c)
+ */
+
 void __fastcall VIDMM_PROCESS_HEAP::UnlockAllocation(
         VIDMM_PROCESS_HEAP *this,
         _QWORD *a2,

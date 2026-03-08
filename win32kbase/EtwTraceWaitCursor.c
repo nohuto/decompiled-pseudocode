@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceWaitCursor @ 0x1C00BED80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EtwpGetWaitCursorType@@YAKQEAUtagCURSOR@@@Z @ 0x1C00EDB70 (-EtwpGetWaitCursorType@@YAKQEAUtagCURSOR@@@Z.c)
+ *     McTemplateK0qqqqq_EtwWriteTransfer @ 0x1C016691C (McTemplateK0qqqqq_EtwWriteTransfer.c)
+ */
+
 char __fastcall EtwTraceWaitCursor(__int64 a1, struct tagCURSOR *a2)
 {
   _UNKNOWN **v2; // rax

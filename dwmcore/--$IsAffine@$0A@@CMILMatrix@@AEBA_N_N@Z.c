@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??$IsAffine@$0A@@CMILMatrix@@AEBA_N_N@Z @ 0x180062070
+ * Callers:
+ *     ?GetTightBounds@CRectanglesShape@@UEBAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBVCMILMatrix@@@Z @ 0x1800622C0 (-GetTightBounds@CRectanglesShape@@UEBAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSize.c)
+ *     ??$IsPure2DUniformZ@$0A@@CMILMatrix@@AEBA_NXZ @ 0x18026C728 (--$IsPure2DUniformZ@$0A@@CMILMatrix@@AEBA_NXZ.c)
+ *     ??$IsTranslateAndScaleIgnoreZ@$0A@@CMILMatrix@@AEBA_NXZ @ 0x18026C784 (--$IsTranslateAndScaleIgnoreZ@$0A@@CMILMatrix@@AEBA_NXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CMILMatrix::IsAffine<0>(__int64 a1, char a2)
 {
   char v4; // dl

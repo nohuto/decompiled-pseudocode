@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIBuildProcessDevicePhaseSta @ 0x1C0010780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIBuildCompleteMustSucceed @ 0x1C000BCB0 (ACPIBuildCompleteMustSucceed.c)
+ *     ACPIDetectDuplicateHID @ 0x1C001A3CC (ACPIDetectDuplicateHID.c)
+ *     ACPIRegisterForDeviceNotificationsByDeviceExtension @ 0x1C0039748 (ACPIRegisterForDeviceNotificationsByDeviceExtension.c)
+ *     LinkNodeAddLinkNode @ 0x1C005CE38 (LinkNodeAddLinkNode.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessDevicePhaseSta(__int64 a1)
 {
   ULONG_PTR v1; // rbx

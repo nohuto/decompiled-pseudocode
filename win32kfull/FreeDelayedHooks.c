@@ -1,3 +1,15 @@
+/*
+ * XREFs of FreeDelayedHooks @ 0x1C0042B90
+ * Callers:
+ *     xxxSendMessageCallback @ 0x1C004C51C (xxxSendMessageCallback.c)
+ *     xxxReceiveMessage @ 0x1C006DB60 (xxxReceiveMessage.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ * Callees:
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C0044080 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void FreeDelayedHooks()
 {
   unsigned int DLT; // eax

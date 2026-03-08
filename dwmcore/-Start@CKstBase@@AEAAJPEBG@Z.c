@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Start@CKstBase@@AEAAJPEBG@Z @ 0x1800CB16C
+ * Callers:
+ *     ?Initialize@CGlobalInputManager@@UEAAJXZ @ 0x1800CB060 (-Initialize@CGlobalInputManager@@UEAAJXZ.c)
+ * Callees:
+ *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x1800CE01C (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
 __int64 __fastcall CKstBase::Start(CKstBase *this, const unsigned __int16 *a2)
 {
   char *Thread; // rax

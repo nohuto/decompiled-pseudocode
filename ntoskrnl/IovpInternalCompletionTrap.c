@@ -1,3 +1,11 @@
+/*
+ * XREFs of IovpInternalCompletionTrap @ 0x140ACA140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IovpInternalCompletionTrap(__int64 a1, __int64 a2)
 {
   if ( *(_BYTE *)(a2 + 65) )

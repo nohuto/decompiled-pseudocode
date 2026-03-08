@@ -1,3 +1,17 @@
+/*
+ * XREFs of PiUEventBroadcastPortsChangedEvent @ 0x140956BCC
+ * Callers:
+ *     PiUEventBroadcastEventWorker @ 0x1407F80C0 (PiUEventBroadcastEventWorker.c)
+ * Callees:
+ *     MmGetSessionById @ 0x14022A4F0 (MmGetSessionById.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     _CmOpenDeviceRegKey @ 0x1406D3B3C (_CmOpenDeviceRegKey.c)
+ *     _RegRtlQueryValue @ 0x1406D3E98 (_RegRtlQueryValue.c)
+ */
+
 int __fastcall PiUEventBroadcastPortsChangedEvent(unsigned int a1, __int128 *a2, __int64 a3)
 {
   __int64 SessionById; // rax

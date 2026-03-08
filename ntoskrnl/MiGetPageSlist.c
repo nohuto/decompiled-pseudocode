@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiGetPageSlist @ 0x1403D1650
+ * Callers:
+ *     MiGetFreeOrZeroPageAnyColor @ 0x14034E684 (MiGetFreeOrZeroPageAnyColor.c)
+ * Callees:
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14032F834 (MiSetOriginalPtePfnFromFreeList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     MiArePageContentsZero @ 0x14064AE74 (MiArePageContentsZero.c)
+ */
+
 _QWORD *__fastcall MiGetPageSlist(__int64 a1, unsigned int a2, __int16 a3)
 {
   int v3; // r15d

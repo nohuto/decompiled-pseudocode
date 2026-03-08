@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifExRaiseAccessViolationWrapper @ 0x1405D7070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     ExRaiseAccessViolation @ 0x1408713F0 (ExRaiseAccessViolation.c)
+ */
+
 void __noreturn DifExRaiseAccessViolationWrapper()
 {
   __int64 *APIThunkContextById; // rax

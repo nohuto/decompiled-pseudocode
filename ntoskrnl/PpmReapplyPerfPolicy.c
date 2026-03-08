@@ -1,3 +1,23 @@
+/*
+ * XREFs of PpmReapplyPerfPolicy @ 0x1408261A0
+ * Callers:
+ *     PpmSetProfilePolicySetting @ 0x140825A60 (PpmSetProfilePolicySetting.c)
+ *     PpmReinitializeHeteroEngine @ 0x140828C88 (PpmReinitializeHeteroEngine.c)
+ *     PpmCompareAndApplyPolicySettings @ 0x14098FE4C (PpmCompareAndApplyPolicySettings.c)
+ *     PpmPerfProcCapFloorSettingCallback @ 0x140990170 (PpmPerfProcCapFloorSettingCallback.c)
+ * Callees:
+ *     PpmReleaseLock @ 0x1402D1F40 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ *     PpmParkApplyPolicy @ 0x14038E5E0 (PpmParkApplyPolicy.c)
+ *     PpmCheckApplyParkConstraints @ 0x14038F03C (PpmCheckApplyParkConstraints.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x14075DE18 (PpmPerfUpdateDomainPolicy.c)
+ *     PpmUpdateProcessorPolicy @ 0x140826290 (PpmUpdateProcessorPolicy.c)
+ *     PpmCheckReInit @ 0x1408265CC (PpmCheckReInit.c)
+ *     PopInitializeHeteroProcessors @ 0x140826970 (PopInitializeHeteroProcessors.c)
+ *     PpmCheckInitProcessors @ 0x140827DA4 (PpmCheckInitProcessors.c)
+ *     PpmPerfResizeHistoryAll @ 0x140983ACC (PpmPerfResizeHistoryAll.c)
+ */
+
 void __fastcall PpmReapplyPerfPolicy(_DWORD *a1)
 {
   char v1; // bp

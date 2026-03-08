@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepEqualAsciiWideStringCaseInSensitive @ 0x1409CDAF0
+ * Callers:
+ *     SepSecureBootFindMatchingRegistryRule @ 0x1409CDDA0 (SepSecureBootFindMatchingRegistryRule.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall SepEqualAsciiWideStringCaseInSensitive(unsigned __int16 *a1, unsigned __int16 *a2)
 {
   unsigned __int64 v2; // r8

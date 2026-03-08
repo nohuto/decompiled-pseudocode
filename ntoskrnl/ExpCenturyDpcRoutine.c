@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExpCenturyDpcRoutine @ 0x140603990
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     _local_unwind @ 0x1403D3990 (_local_unwind.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiCustomAccessRoutine9 @ 0x140422C80 (KiCustomAccessRoutine9.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __fastcall ExpCenturyDpcRoutine(
         struct _KDPC *Dpc,
         PVOID DeferredContext,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of W32SetCurrentThreadDpiAwarenessContext @ 0x1C0041930
+ * Callers:
+ *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0014608 (-zzzUpdateUserScreen@@YAJXZ.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     CaptureAndValidateUserModeDpiAwarenessContext @ 0x1C0041B80 (CaptureAndValidateUserModeDpiAwarenessContext.c)
+ */
+
 __int64 __fastcall W32SetCurrentThreadDpiAwarenessContext(int a1)
 {
   unsigned int v1; // ebx

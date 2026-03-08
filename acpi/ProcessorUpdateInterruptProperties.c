@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcessorUpdateInterruptProperties @ 0x1C009AFCC
+ * Callers:
+ *     AcpiUpdateInterruptProperties @ 0x1C0084160 (AcpiUpdateInterruptProperties.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ProcessorUpdateInterruptProperties(int a1, int a2)
 {
   char v2; // bl

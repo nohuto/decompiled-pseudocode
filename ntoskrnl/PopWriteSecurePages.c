@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopWriteSecurePages @ 0x14058CB30
+ * Callers:
+ *     PopSaveHiberContext @ 0x140AA1810 (PopSaveHiberContext.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HvlIterateSecurePagesForHibernation @ 0x140544434 (HvlIterateSecurePagesForHibernation.c)
+ *     PopWriteHiberPages @ 0x140AA2874 (PopWriteHiberPages.c)
+ */
+
 __int64 __fastcall PopWriteSecurePages(ULONG_PTR BugCheckParameter3)
 {
   __int64 v1; // rax

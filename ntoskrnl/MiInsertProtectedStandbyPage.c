@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiInsertProtectedStandbyPage @ 0x1402DFCF4
+ * Callers:
+ *     MiDeletePteRun @ 0x140279760 (MiDeletePteRun.c)
+ *     MiWalkEntireImage @ 0x1402862C0 (MiWalkEntireImage.c)
+ *     MiHardFaultPageRelease @ 0x140287C78 (MiHardFaultPageRelease.c)
+ *     MiPfnShareCountIsZero @ 0x14032BF50 (MiPfnShareCountIsZero.c)
+ * Callees:
+ *     MiAddPageToInsertList @ 0x1402848D0 (MiAddPageToInsertList.c)
+ *     MiIsPageEligibleForProtectedStandby @ 0x140287110 (MiIsPageEligibleForProtectedStandby.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402879C0 (MiPfnReferenceCountIsZero.c)
+ *     MiInsertPagesInList @ 0x140287DB0 (MiInsertPagesInList.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __fastcall MiInsertProtectedStandbyPage(__int64 a1, __int64 a2)
 {
   _OWORD v4[7]; // [rsp+20h] [rbp-78h] BYREF

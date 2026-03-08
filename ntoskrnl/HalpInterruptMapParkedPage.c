@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpInterruptMapParkedPage @ 0x1405182F0
+ * Callers:
+ *     HalpInterruptParseMadt @ 0x140376468 (HalpInterruptParseMadt.c)
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     HalpMmAllocateMemoryInternal @ 0x14037A7A8 (HalpMmAllocateMemoryInternal.c)
+ *     HalpMap @ 0x14037AE88 (HalpMap.c)
+ */
+
 __int64 __fastcall HalpInterruptMapParkedPage(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

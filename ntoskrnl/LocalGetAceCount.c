@@ -1,3 +1,11 @@
+/*
+ * XREFs of LocalGetAceCount @ 0x140750CCC
+ * Callers:
+ *     LocalGetAclForString @ 0x14074F18C (LocalGetAclForString.c)
+ * Callees:
+ *     FContainCallBackAce @ 0x140750D80 (FContainCallBackAce.c)
+ */
+
 __int64 __fastcall LocalGetAceCount(wchar_t *a1, wchar_t *a2, unsigned int *a3)
 {
   unsigned int v3; // ebx

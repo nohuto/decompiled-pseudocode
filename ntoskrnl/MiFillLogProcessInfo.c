@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiFillLogProcessInfo @ 0x140224D68
+ * Callers:
+ *     MiAgeWorkingSet @ 0x1402248A0 (MiAgeWorkingSet.c)
+ *     MiLogTrimWs @ 0x1402F0ADC (MiLogTrimWs.c)
+ *     MiLogWsEmptyControl @ 0x140650470 (MiLogWsEmptyControl.c)
+ *     MiLogHotPatchOperation @ 0x140A35E3C (MiLogHotPatchOperation.c)
+ *     MiLogHotPatchOperationStatus @ 0x140A36298 (MiLogHotPatchOperationStatus.c)
+ *     MiLogHotPatchRundown @ 0x140A36A34 (MiLogHotPatchRundown.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiFillLogProcessInfo(__int64 a1, _DWORD *a2, _QWORD *a3)
 {
   __int64 result; // rax

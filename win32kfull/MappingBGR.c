@@ -1,3 +1,11 @@
+/*
+ * XREFs of MappingBGR @ 0x1C026599C
+ * Callers:
+ *     GetFixupScan @ 0x1C014BF50 (GetFixupScan.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall MappingBGR(unsigned __int8 *a1, int a2, __int64 a3, unsigned __int8 *a4)
 {
   unsigned int v4; // ebx

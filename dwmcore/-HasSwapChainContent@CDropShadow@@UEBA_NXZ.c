@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HasSwapChainContent@CDropShadow@@UEBA_NXZ @ 0x180227000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CDropShadow::HasSwapChainContent(CDropShadow *this)
 {
   char v1; // bl

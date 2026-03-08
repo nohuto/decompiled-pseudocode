@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiInsertNewProcess @ 0x1402A5E9C
+ * Callers:
+ *     MmCreateProcessAddressSpace @ 0x1407289B8 (MmCreateProcessAddressSpace.c)
+ *     MmInitializeHandBuiltProcess @ 0x1408598B8 (MmInitializeHandBuiltProcess.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiInsertNewProcess(_QWORD *a1, __int64 a2)
 {
   _QWORD *v4; // r8

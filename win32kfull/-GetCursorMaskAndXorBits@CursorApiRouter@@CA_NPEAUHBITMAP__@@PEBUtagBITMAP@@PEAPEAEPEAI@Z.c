@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetCursorMaskAndXorBits@CursorApiRouter@@CA_NPEAUHBITMAP__@@PEBUtagBITMAP@@PEAPEAEPEAI@Z @ 0x1C0225F84
+ * Callers:
+ *     ?SendMITCursorShape@CursorApiRouter@@CA_NPEAU_CURSINFO@@K@Z @ 0x1C02261A0 (-SendMITCursorShape@CursorApiRouter@@CA_NPEAU_CURSINFO@@K@Z.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     GreGetBitmapBits @ 0x1C02B07CC (GreGetBitmapBits.c)
+ */
+
 bool __fastcall CursorApiRouter::GetCursorMaskAndXorBits(
         HBITMAP a1,
         const struct tagBITMAP *a2,

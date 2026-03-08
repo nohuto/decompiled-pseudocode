@@ -1,3 +1,18 @@
+/*
+ * XREFs of VmpPauseResumeNotify @ 0x1409DA524
+ * Callers:
+ *     VmPauseResumeNotify @ 0x1409D9AB0 (VmPauseResumeNotify.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MiGetProcessPartition @ 0x14031F9D4 (MiGetProcessPartition.c)
+ *     SmStoreExistsForProcess @ 0x14035BD70 (SmStoreExistsForProcess.c)
+ *     MmProcessWorkingSetControl @ 0x140A408A4 (MmProcessWorkingSetControl.c)
+ */
+
 __int64 __fastcall VmpPauseResumeNotify(__int64 a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rax

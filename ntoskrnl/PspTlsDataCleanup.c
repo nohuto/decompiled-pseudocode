@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspTlsDataCleanup @ 0x1407D9C28
+ * Callers:
+ *     PspExitThread @ 0x1407D9464 (PspExitThread.c)
+ * Callees:
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpFlsSlotDataValidateEmpty @ 0x1402F8F60 (RtlpFlsSlotDataValidateEmpty.c)
+ *     RtlpFlsDataCleanup @ 0x1407DAFFC (RtlpFlsDataCleanup.c)
+ */
+
 void __fastcall PspTlsDataCleanup(__int64 a1, int a2)
 {
   unsigned __int64 v2; // rdx

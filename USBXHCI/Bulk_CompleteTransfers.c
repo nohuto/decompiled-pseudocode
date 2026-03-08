@@ -1,3 +1,18 @@
+/*
+ * XREFs of Bulk_CompleteTransfers @ 0x1C000E608
+ * Callers:
+ *     Bulk_ProcessTransferCompletion @ 0x1C000E3C8 (Bulk_ProcessTransferCompletion.c)
+ * Callees:
+ *     Bulk_Transfer_Complete @ 0x1C000E8D8 (Bulk_Transfer_Complete.c)
+ *     StageQueue_Release @ 0x1C0011840 (StageQueue_Release.c)
+ *     TR_ReleaseSegments @ 0x1C001187C (TR_ReleaseSegments.c)
+ *     Bulk_Stage_FreeScatterGatherList @ 0x1C00118C4 (Bulk_Stage_FreeScatterGatherList.c)
+ *     TR_ReleaseDoubleBuffer @ 0x1C0011C34 (TR_ReleaseDoubleBuffer.c)
+ *     StageQueue_ForwardScanGetNextStage @ 0x1C0012EEC (StageQueue_ForwardScanGetNextStage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_DDDqd @ 0x1C0047C80 (WPP_RECORDER_SF_DDDqd.c)
+ */
+
 _QWORD **__fastcall Bulk_CompleteTransfers(__int64 a1, __int64 ****a2)
 {
   KSPIN_LOCK *v3; // r12

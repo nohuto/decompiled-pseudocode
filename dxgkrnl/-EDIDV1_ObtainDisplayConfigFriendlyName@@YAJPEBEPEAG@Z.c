@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?EDIDV1_ObtainDisplayConfigFriendlyName@@YAJPEBEPEAG@Z @ 0x1C0011344
+ * Callers:
+ *     ?AppendFriendlyName@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAU_UNICODE_STRING@@@Z @ 0x1C01CFCC0 (-AppendFriendlyName@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAU_UNICODE_STRING@@@Z.c)
+ * Callees:
+ *     ?GetDispDescAsASCIIStringLength@EDID_PARSER@MonDescParser@@QEBA_KH@Z @ 0x1C0011464 (-GetDispDescAsASCIIStringLength@EDID_PARSER@MonDescParser@@QEBA_KH@Z.c)
+ *     ?Validate@EDID_PARSER@MonDescParser@@QEBAJ_N@Z @ 0x1C00114B0 (-Validate@EDID_PARSER@MonDescParser@@QEBAJ_N@Z.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ?GetDispDescAsASCIIString@EDID_PARSER@MonDescParser@@QEBAXHPEAG@Z @ 0x1C0073BC0 (-GetDispDescAsASCIIString@EDID_PARSER@MonDescParser@@QEBAXHPEAG@Z.c)
+ */
+
 __int64 __fastcall EDIDV1_ObtainDisplayConfigFriendlyName(const unsigned __int8 *a1, unsigned __int16 *a2)
 {
   __int64 v4; // r8

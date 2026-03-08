@@ -1,3 +1,18 @@
+/*
+ * XREFs of HUBPDO_ValidateSelectConfigUrb @ 0x1C0016970
+ * Callers:
+ *     HUBDSM_ValidatingSelectConfigUrbFromConfigured @ 0x1C00206B0 (HUBDSM_ValidatingSelectConfigUrbFromConfigured.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     HUBPDO_ValidateConfigurationDescriptor @ 0x1C001676C (HUBPDO_ValidateConfigurationDescriptor.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C0032FCC (HUBMISC_VerifierDbgBreak.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     WMI_FireNotification @ 0x1C008C428 (WMI_FireNotification.c)
+ */
+
 __int64 __fastcall HUBPDO_ValidateSelectConfigUrb(__int64 a1)
 {
   __int64 v1; // r15

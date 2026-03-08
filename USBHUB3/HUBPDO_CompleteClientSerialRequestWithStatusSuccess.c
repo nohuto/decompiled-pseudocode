@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBPDO_CompleteClientSerialRequestWithStatusSuccess @ 0x1C0015708
+ * Callers:
+ *     HUBDSM_CompletingClientRequestInConfiguredWithSpecialFile @ 0x1C001F350 (HUBDSM_CompletingClientRequestInConfiguredWithSpecialFile.c)
+ *     HUBDSM_CompletingClientUnconfigureRequest @ 0x1C001F3E0 (HUBDSM_CompletingClientUnconfigureRequest.c)
+ * Callees:
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000CE90 (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBPDO_CompleteClientSerialRequestWithStatusSuccess(__int64 a1)
 {
   __int64 v1; // rdx

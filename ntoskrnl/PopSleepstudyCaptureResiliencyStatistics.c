@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopSleepstudyCaptureResiliencyStatistics @ 0x140990254
+ * Callers:
+ *     PopSleepstudyStartNextSession @ 0x1408797E4 (PopSleepstudyStartNextSession.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopCalculateTotalHwDripsResidency @ 0x14058F3F0 (PopCalculateTotalHwDripsResidency.c)
+ *     PopDiagTraceCsResiliencyEnter @ 0x14058FC5C (PopDiagTraceCsResiliencyEnter.c)
+ *     PopDiagTraceCsResiliencyExit @ 0x14058FDB4 (PopDiagTraceCsResiliencyExit.c)
+ *     PopGetEnergyCounter @ 0x140872DDC (PopGetEnergyCounter.c)
+ *     PopDiagTraceCsResiliencyStats @ 0x14098AFD0 (PopDiagTraceCsResiliencyStats.c)
+ */
+
 char __fastcall PopSleepstudyCaptureResiliencyStatistics(_QWORD *a1, __int64 a2, char a3, char a4)
 {
   unsigned __int64 v9; // rbx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopCreateCmResourceList @ 0x1408027E8
+ * Callers:
+ *     IopAllocateLegacyBootResources @ 0x140B359CC (IopAllocateLegacyBootResources.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char *__fastcall IopCreateCmResourceList(__int64 a1, int a2, int a3, _QWORD *a4)
 {
   unsigned int *v4; // r15

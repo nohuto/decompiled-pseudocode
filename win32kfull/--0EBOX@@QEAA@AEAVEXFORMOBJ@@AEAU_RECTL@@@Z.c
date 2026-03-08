@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0EBOX@@QEAA@AEAVEXFORMOBJ@@AEAU_RECTL@@@Z @ 0x1C02C7E14
+ * Callers:
+ *     GreAngleArc @ 0x1C02ADE64 (GreAngleArc.c)
+ * Callees:
+ *     <none>
+ */
+
 EBOX *__fastcall EBOX::EBOX(EBOX *this, struct EXFORMOBJ *a2, struct _RECTL *a3)
 {
   __int128 v3; // xmm0

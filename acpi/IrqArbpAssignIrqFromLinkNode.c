@@ -1,3 +1,16 @@
+/*
+ * XREFs of IrqArbpAssignIrqFromLinkNode @ 0x1C009DB0C
+ * Callers:
+ *     IrqArbpFindSuitableRangePci @ 0x1C009E1A4 (IrqArbpFindSuitableRangePci.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_i @ 0x1C002293C (WPP_RECORDER_SF_i.c)
+ *     LinkNodeGetPossibleResources @ 0x1C00994B8 (LinkNodeGetPossibleResources.c)
+ *     IrqArbIrqFromGsiv @ 0x1C009D6BC (IrqArbIrqFromGsiv.c)
+ *     IcGetPossibleInput @ 0x1C009F314 (IcGetPossibleInput.c)
+ *     IcIsInputValid @ 0x1C009F424 (IcIsInputValid.c)
+ */
+
 __int64 __fastcall IrqArbpAssignIrqFromLinkNode(__int64 a1, _QWORD *a2, __int64 a3)
 {
   __int64 v4; // rdx

@@ -1,3 +1,36 @@
+/*
+ * XREFs of MiCheckControlArea @ 0x140334D00
+ * Callers:
+ *     MmPurgeSection @ 0x1402836F0 (MmPurgeSection.c)
+ *     MmUnmapViewInSystemCache @ 0x140285250 (MmUnmapViewInSystemCache.c)
+ *     MiUnmapViewSubsections @ 0x1402DADD4 (MiUnmapViewSubsections.c)
+ *     MiReleaseFaultCharges @ 0x1402F8018 (MiReleaseFaultCharges.c)
+ *     MiAddViewsForSection @ 0x140331DC0 (MiAddViewsForSection.c)
+ *     MiDereferenceControlAreaBySection @ 0x1403349EC (MiDereferenceControlAreaBySection.c)
+ *     MiFlushRelease @ 0x140334AC0 (MiFlushRelease.c)
+ *     MiRemoveMappedPtes @ 0x1403474D0 (MiRemoveMappedPtes.c)
+ *     MiDereferenceControlArea @ 0x14036CC30 (MiDereferenceControlArea.c)
+ *     MiRemoveSystemCacheReferences @ 0x14062CB5C (MiRemoveSystemCacheReferences.c)
+ * Callees:
+ *     MiCleanSection @ 0x14020165C (MiCleanSection.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MiClearFilePointer @ 0x1402E9840 (MiClearFilePointer.c)
+ *     MiImageUnused @ 0x1402E9DE8 (MiImageUnused.c)
+ *     KeSignalGate @ 0x1402F0524 (KeSignalGate.c)
+ *     MiPurgeImageSection @ 0x1402FECC8 (MiPurgeImageSection.c)
+ *     PsGetNextPartition @ 0x1402FF5F0 (PsGetNextPartition.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiBuildWakeList @ 0x140332B34 (MiBuildWakeList.c)
+ *     MiInsertUnusedSegment @ 0x14034C75C (MiInsertUnusedSegment.c)
+ *     MiShouldTrimUnusedSegments @ 0x1404635C8 (MiShouldTrimUnusedSegments.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140608CDC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x140668DD4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiSegmentDelete @ 0x1406A6FD4 (MiSegmentDelete.c)
+ *     MiReturnImageBase @ 0x1407C8860 (MiReturnImageBase.c)
+ */
+
 __int64 __fastcall MiCheckControlArea(__int64 a1, unsigned __int8 a2)
 {
   unsigned __int64 v3; // rbp

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIBuildProcessGenericComplete @ 0x1C0010C40
+ * Callers:
+ *     ACPIBuildProcessDeviceFailure @ 0x1C000E680 (ACPIBuildProcessDeviceFailure.c)
+ *     ACPIBuildProcessPowerResourceFailure @ 0x1C0010E80 (ACPIBuildProcessPowerResourceFailure.c)
+ *     ACPIBuildProcessSpecialSynchronizationList @ 0x1C0012100 (ACPIBuildProcessSpecialSynchronizationList.c)
+ *     ACPIBuildProcessSynchronizationList @ 0x1C00123A0 (ACPIBuildProcessSynchronizationList.c)
+ *     ACPIBuildProcessThermalZoneFailure @ 0x1C0012A90 (ACPIBuildProcessThermalZoneFailure.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessGenericComplete(_QWORD *Entry)
 {
   void (__fastcall *v1)(_QWORD, _QWORD, _QWORD); // rax

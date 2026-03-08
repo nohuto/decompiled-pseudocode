@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_qDDDdddddd @ 0x1C0015304
+ * Callers:
+ *     HUBPDO_CreatePdoInternal @ 0x1C007EDF4 (HUBPDO_CreatePdoInternal.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_qDDDdddddd(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
 {
   int v7; // [rsp+28h] [rbp-A9h]

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UserTextOutWInternal@@YAHPEAUHDC__@@HHPEBGIK@Z @ 0x1C024FE90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreExtTextOutW @ 0x1C0113604 (GreExtTextOutW.c)
+ */
+
 __int64 __fastcall UserTextOutWInternal(
         __int64 a1,
         unsigned int a2,

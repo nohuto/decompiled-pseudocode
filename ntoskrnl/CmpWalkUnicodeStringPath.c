@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpWalkUnicodeStringPath @ 0x1407FE980
+ * Callers:
+ *     CmpWalkPath @ 0x1407FE938 (CmpWalkPath.c)
+ *     CmpFindHiveSubKey @ 0x140B32F34 (CmpFindHiveSubKey.c)
+ * Callees:
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x1407FE740 (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpGetNextName @ 0x1407FEA44 (CmpGetNextName.c)
+ */
+
 __int64 __fastcall CmpWalkUnicodeStringPath(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4, __int128 *a3)
 {
   unsigned int v3; // edi

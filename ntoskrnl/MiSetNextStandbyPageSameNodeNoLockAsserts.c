@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiSetNextStandbyPageSameNodeNoLockAsserts @ 0x140287AE0
+ * Callers:
+ *     MiEnqueuePageList @ 0x140285CB0 (MiEnqueuePageList.c)
+ *     MiSharedInsertPfnChainInList @ 0x140288400 (MiSharedInsertPfnChainInList.c)
+ *     MiUpdatePfnOnSlabStandbyList @ 0x1402C7778 (MiUpdatePfnOnSlabStandbyList.c)
+ *     MiUnlinkNumaStandbyPage @ 0x1402C77BC (MiUnlinkNumaStandbyPage.c)
+ *     MiExclusiveInsertPfnChainInList @ 0x1402D3138 (MiExclusiveInsertPfnChainInList.c)
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ *     MiReplaceNumaStandbyPage @ 0x1403BE8B8 (MiReplaceNumaStandbyPage.c)
+ *     MiInsertNumaStandbyPage @ 0x14064E1CC (MiInsertNumaStandbyPage.c)
+ *     MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x140654130 (MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY.c)
+ * Callees:
+ *     <none>
+ */
+
 signed __int64 __fastcall MiSetNextStandbyPageSameNodeNoLockAsserts(__int64 a1, unsigned __int64 a2)
 {
   int v2; // eax

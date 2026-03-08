@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExInitializeTimeRefresh @ 0x140B545AC
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     KiInitializeTimer2 @ 0x140203D9C (KiInitializeTimer2.c)
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     ZwLockProductActivationKeys @ 0x140414570 (ZwLockProductActivationKeys.c)
+ *     ExGetExpirationDate @ 0x14081A9F4 (ExGetExpirationDate.c)
+ */
+
 __int64 *ExInitializeTimeRefresh()
 {
   __int64 *result; // rax

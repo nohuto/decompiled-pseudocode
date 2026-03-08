@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RemoveContact@CInteractionProcessor@@QEAAXW4InputType@@@Z @ 0x1801AC934
+ * Callers:
+ *     ?RemoveContact@CInteractionRoot@@UEAAXW4InputType@@@Z @ 0x1801A2000 (-RemoveContact@CInteractionRoot@@UEAAXW4InputType@@@Z.c)
+ *     ?RemoveContact@CInteraction@@UEAAXW4InputType@@@Z @ 0x180209540 (-RemoveContact@CInteraction@@UEAAXW4InputType@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CInteractionProcessor::RemoveContact(_BYTE *a1, int a2)
 {
   int v2; // edx

@@ -1,3 +1,27 @@
+/*
+ * XREFs of SshpSessionManagerSendControlEvent @ 0x1408717B8
+ * Callers:
+ *     SshSessionManagerTraceDirtyTransition @ 0x1407FBAD8 (SshSessionManagerTraceDirtyTransition.c)
+ *     PopBootBatteryStatusWorker @ 0x1408604E0 (PopBootBatteryStatusWorker.c)
+ *     SshpSessionManagerTraceSystemStart @ 0x140860848 (SshpSessionManagerTraceSystemStart.c)
+ *     SshSessionManagerTraceCsEnterReason @ 0x140879D58 (SshSessionManagerTraceCsEnterReason.c)
+ *     PopDiagTraceAcDcStateChange @ 0x140989160 (PopDiagTraceAcDcStateChange.c)
+ *     PopDiagTraceBatteryCountChange @ 0x140989CC0 (PopDiagTraceBatteryCountChange.c)
+ *     SshSessionManagerTraceCsExitReason @ 0x14099E7FC (SshSessionManagerTraceCsExitReason.c)
+ *     SshSessionManagerTracePostSleepNotification @ 0x14099EA1C (SshSessionManagerTracePostSleepNotification.c)
+ *     SshSessionManagerTracePreSleepNotification @ 0x14099EB00 (SshSessionManagerTracePreSleepNotification.c)
+ *     SshSessionManagerTraceShutdownAction @ 0x14099EBAC (SshSessionManagerTraceShutdownAction.c)
+ *     SshSessionManagerTraceSystemStop @ 0x14099EC30 (SshSessionManagerTraceSystemStop.c)
+ * Callees:
+ *     RtlGetSystemTimePrecise @ 0x140205310 (RtlGetSystemTimePrecise.c)
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1402A4AB8 (SSHSupportReleasePushLockExclusive.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SshpAlpcOpenTraceSessionUnsafe @ 0x140849E40 (SshpAlpcOpenTraceSessionUnsafe.c)
+ *     SshpSessionManagerFlushControlEventBuffer @ 0x140857DB0 (SshpSessionManagerFlushControlEventBuffer.c)
+ */
+
 signed __int32 __fastcall SshpSessionManagerSendControlEvent(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 SystemTimePrecise; // r13

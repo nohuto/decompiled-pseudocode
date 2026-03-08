@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?BuildMainItem@@YAHPEAEKPEAKUtagUSAGE_PROPERTIES@@PEAU1@W4_HIDP_REPORT_TYPE@@PEAH1@Z @ 0x1C01C5B84
+ * Callers:
+ *     ?BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z @ 0x1C01C5EBC (-BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     ?OpenCollection@@YAHPEAEKW4tagHID_IDE_COL_TYPE@@PEAK@Z @ 0x1C01C68D8 (-OpenCollection@@YAHPEAEKW4tagHID_IDE_COL_TYPE@@PEAK@Z.c)
+ *     ?SetCollectionLabel@@YAHPEAEKPEAK@Z @ 0x1C01C696C (-SetCollectionLabel@@YAHPEAEKPEAK@Z.c)
+ *     ?SetMultiByteValue@@YAHPEAEKPEAKPEAHK1@Z @ 0x1C01C69DC (-SetMultiByteValue@@YAHPEAEKPEAKPEAHK1@Z.c)
+ */
+
 __int64 __fastcall BuildMainItem(
         unsigned __int8 *a1,
         __int64 a2,

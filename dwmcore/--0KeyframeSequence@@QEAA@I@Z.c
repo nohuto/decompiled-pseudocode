@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??0KeyframeSequence@@QEAA@I@Z @ 0x180044A88
+ * Callers:
+ *     ?SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionColorSpace@@PEAUKeyframeData@@@Z @ 0x180055BE4 (-SetKeyFrameData@CKeyframeAnimation@@AEAAJW4Enum@KeyframeAnimationDelayBehavior@@W42CompositionC.c)
+ * Callees:
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044B4C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ??0Keyframe@KeyframeSequence@@QEAA@XZ @ 0x1800E877C (--0Keyframe@KeyframeSequence@@QEAA@XZ.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ */
+
 KeyframeSequence *__fastcall KeyframeSequence::KeyframeSequence(KeyframeSequence *this, unsigned int a2)
 {
   unsigned __int64 v2; // rdi

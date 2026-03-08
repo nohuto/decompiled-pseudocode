@@ -1,3 +1,11 @@
+/*
+ * XREFs of BgpRasGetGlyphTextCellDimensions @ 0x140382190
+ * Callers:
+ *     BgpFoGetTextMetrics @ 0x140382160 (BgpFoGetTextMetrics.c)
+ * Callees:
+ *     BgpFmRoundUp @ 0x14038305C (BgpFmRoundUp.c)
+ */
+
 __int64 __fastcall BgpRasGetGlyphTextCellDimensions(__int64 a1, _DWORD *a2, _DWORD *a3)
 {
   __int64 v3; // r10

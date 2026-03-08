@@ -1,3 +1,24 @@
+/*
+ * XREFs of DbgkpSendApiMessage @ 0x1409370E0
+ * Callers:
+ *     DbgkPostModuleMessage @ 0x1405395FC (DbgkPostModuleMessage.c)
+ *     DbgkUnMapViewOfSection @ 0x1406A10EC (DbgkUnMapViewOfSection.c)
+ *     DbgkMapViewOfSection @ 0x1407D2C6C (DbgkMapViewOfSection.c)
+ *     DbgkCreateThread @ 0x1407ED96C (DbgkCreateThread.c)
+ *     DbgkCreateMinimalProcess @ 0x140817FEC (DbgkCreateMinimalProcess.c)
+ *     DbgkSendSystemDllMessages @ 0x140933E74 (DbgkSendSystemDllMessages.c)
+ *     DbgkCreateMinimalThread @ 0x14093621C (DbgkCreateMinimalThread.c)
+ *     DbgkExitProcess @ 0x1409362CC (DbgkExitProcess.c)
+ *     DbgkExitThread @ 0x140936388 (DbgkExitThread.c)
+ *     DbgkForwardException @ 0x1409365F4 (DbgkForwardException.c)
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     PsThawMultiProcess @ 0x1402FFE80 (PsThawMultiProcess.c)
+ *     EtwTraceDebuggerEvent @ 0x1405FA5D0 (EtwTraceDebuggerEvent.c)
+ *     DbgkpQueueMessage @ 0x140934EE8 (DbgkpQueueMessage.c)
+ *     DbgkpSuspendProcess @ 0x1409365B4 (DbgkpSuspendProcess.c)
+ */
+
 __int64 __fastcall DbgkpSendApiMessage(_KPROCESS *Object, char a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // r12

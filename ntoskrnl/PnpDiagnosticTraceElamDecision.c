@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpDiagnosticTraceElamDecision @ 0x140389454
+ * Callers:
+ *     PnpDoPolicyCheck @ 0x140B5910C (PnpDoPolicyCheck.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall PnpDiagnosticTraceElamDecision(__int64 a1, int a2, int a3, int a4)
 {
   REGHANDLE v4; // rdi

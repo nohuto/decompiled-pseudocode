@@ -1,3 +1,12 @@
+/*
+ * XREFs of CarFindRuleOverrideEntryByGlobalRuleId @ 0x1405D189C
+ * Callers:
+ *     CarQueryReportActionForTriage @ 0x1405D1B40 (CarQueryReportActionForTriage.c)
+ *     CarRegisterRuleOverride @ 0x1405D1D50 (CarRegisterRuleOverride.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall CarFindRuleOverrideEntryByGlobalRuleId(_QWORD **a1, int a2)
 {
   _QWORD *i; // rax

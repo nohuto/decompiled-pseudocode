@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiDoesDriverProvideImportsForDriver @ 0x140B3C3A0
+ * Callers:
+ *     MiDoesDriverProvideBaseImageImports @ 0x140B3C350 (MiDoesDriverProvideBaseImageImports.c)
+ * Callees:
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ */
+
 __int64 __fastcall MiDoesDriverProvideImportsForDriver(__int64 a1, __int64 a2)
 {
   unsigned __int64 v2; // rsi

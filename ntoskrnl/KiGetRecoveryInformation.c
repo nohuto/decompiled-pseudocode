@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiGetRecoveryInformation @ 0x140578B44
+ * Callers:
+ *     KiAttemptBugcheckRecovery @ 0x140577FAC (KiAttemptBugcheckRecovery.c)
+ * Callees:
+ *     ObGetCurrentIrql @ 0x140205E10 (ObGetCurrentIrql.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall KiGetRecoveryInformation(_DWORD *a1)
 {
   struct _KPRCB *CurrentPrcb; // rbx

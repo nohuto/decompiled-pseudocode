@@ -1,3 +1,18 @@
+/*
+ * XREFs of SeCheckAuditPrivilege @ 0x140699908
+ * Callers:
+ *     SepAccessCheckAndAuditAlarm @ 0x1406973E0 (SepAccessCheckAndAuditAlarm.c)
+ *     NtCloseObjectAuditAlarm @ 0x1407742A0 (NtCloseObjectAuditAlarm.c)
+ *     NtPrivilegedServiceAuditAlarm @ 0x140788B50 (NtPrivilegedServiceAuditAlarm.c)
+ *     NtOpenObjectAuditAlarm @ 0x140790670 (NtOpenObjectAuditAlarm.c)
+ *     NtPrivilegeObjectAuditAlarm @ 0x140843210 (NtPrivilegeObjectAuditAlarm.c)
+ *     NtDeleteObjectAuditAlarm @ 0x1409CB0D0 (NtDeleteObjectAuditAlarm.c)
+ * Callees:
+ *     SepPrivilegeCheck @ 0x14030F080 (SepPrivilegeCheck.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x140699B5C (SePrivilegedServiceAuditAlarm.c)
+ */
+
 char __fastcall SeCheckAuditPrivilege(__int64 a1, char a2)
 {
   __int64 v4; // rcx

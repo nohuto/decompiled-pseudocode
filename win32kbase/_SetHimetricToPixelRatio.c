@@ -1,3 +1,11 @@
+/*
+ * XREFs of _SetHimetricToPixelRatio @ 0x1C0218F50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     LongLongToLong @ 0x1C00A7CFC (LongLongToLong.c)
+ */
+
 HRESULT __fastcall SetHimetricToPixelRatio(_DWORD *a1, _DWORD *a2)
 {
   int v3; // eax

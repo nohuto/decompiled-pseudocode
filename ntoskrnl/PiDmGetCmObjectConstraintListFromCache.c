@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiDmGetCmObjectConstraintListFromCache @ 0x14077761C
+ * Callers:
+ *     PiPnpRtlGetFilteredDeviceList @ 0x140777284 (PiPnpRtlGetFilteredDeviceList.c)
+ *     PiPnpRtlGetFilteredDeviceInterfaceList @ 0x140777504 (PiPnpRtlGetFilteredDeviceInterfaceList.c)
+ * Callees:
+ *     PiDmGetObjectConstraintList @ 0x1407776B0 (PiDmGetObjectConstraintList.c)
+ */
+
 __int64 __fastcall PiDmGetCmObjectConstraintListFromCache(
         int a1,
         int a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbDevice_GetEndpointState @ 0x1C00111B4
+ * Callers:
+ *     Endpoint_OnCancelStopCompletion @ 0x1C0010D70 (Endpoint_OnCancelStopCompletion.c)
+ *     Endpoint_OnResetEndpointResetCompletion @ 0x1C003B410 (Endpoint_OnResetEndpointResetCompletion.c)
+ *     UsbDevice_DeviceResetCompletion @ 0x1C0048620 (UsbDevice_DeviceResetCompletion.c)
+ * Callees:
+ *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C0007FC0 (XilUsbDevice_GetDeviceContextBufferVA.c)
+ *     XilDeviceSlot_SendQueryEndpointContextInfoRequest @ 0x1C00386A8 (XilDeviceSlot_SendQueryEndpointContextInfoRequest.c)
+ */
+
 __int64 __fastcall UsbDevice_GetEndpointState(__int64 a1, int a2)
 {
   __int64 v2; // r9

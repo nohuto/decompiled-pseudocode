@@ -1,3 +1,17 @@
+/*
+ * XREFs of SdbpGetProcessHistory @ 0x140A4F1C8
+ * Callers:
+ *     SdbpInitializeSearchDBContext @ 0x140A4E760 (SdbpInitializeSearchDBContext.c)
+ * Callees:
+ *     NLS_UPCASE @ 0x140267AD0 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     RtlGetNtSystemRoot @ 0x1407F7270 (RtlGetNtSystemRoot.c)
+ */
+
 _WORD *__fastcall SdbpGetProcessHistory(char *a1, _WORD *a2, _WORD *a3)
 {
   unsigned __int64 v3; // rsi

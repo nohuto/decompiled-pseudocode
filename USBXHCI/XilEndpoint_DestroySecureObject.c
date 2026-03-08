@@ -1,3 +1,12 @@
+/*
+ * XREFs of XilEndpoint_DestroySecureObject @ 0x1C0039068
+ * Callers:
+ *     Endpoint_EvtEndpointCleanupCallback @ 0x1C003A520 (Endpoint_EvtEndpointCleanupCallback.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ */
+
 __int64 __fastcall XilEndpoint_DestroySecureObject(__int64 *a1)
 {
   __int64 v1; // r8

@@ -1,3 +1,24 @@
+/*
+ * XREFs of ?InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z @ 0x1C0052B80
+ * Callers:
+ *     ?InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z @ 0x1C0052B80 (-InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z.c)
+ *     xxxInternalInvalidate @ 0x1C0053270 (xxxInternalInvalidate.c)
+ *     ?ValidateParents@@YAHPEAUtagWND@@H@Z @ 0x1C010220C (-ValidateParents@@YAHPEAUtagWND@@H@Z.c)
+ * Callees:
+ *     LogicalToPhysicalInPlaceRect @ 0x1C0016144 (LogicalToPhysicalInPlaceRect.c)
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     ?SmartRectInRegion@@YAIPEAUHRGN__@@PEAUtagRECT@@@Z @ 0x1C0050388 (-SmartRectInRegion@@YAIPEAUHRGN__@@PEAUtagRECT@@@Z.c)
+ *     PhysicalToLogicalInPlaceRgn @ 0x1C0052AEC (PhysicalToLogicalInPlaceRgn.c)
+ *     ?InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z @ 0x1C0052B80 (-InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z.c)
+ *     PhysicalToLogicalInPlaceRect @ 0x1C005460C (PhysicalToLogicalInPlaceRect.c)
+ *     InternalInvalidate3 @ 0x1C0054B50 (InternalInvalidate3.c)
+ *     LogicalToPhysicalInPlaceRgnWorker @ 0x1C00DB9C4 (LogicalToPhysicalInPlaceRgnWorker.c)
+ *     GetAppCompatFlags @ 0x1C00DBDF0 (GetAppCompatFlags.c)
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?PixieHack@@YAXPEAUtagWND@@PEAUtagRECT@@@Z @ 0x1C0217CA8 (-PixieHack@@YAXPEAUtagWND@@PEAUtagRECT@@@Z.c)
+ */
+
 _BOOL8 __fastcall InternalInvalidate2(
         struct tagWND *a1,
         unsigned __int64 a2,

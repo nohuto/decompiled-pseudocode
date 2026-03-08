@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??4SubTreeContext@CPreComputeContext@@QEAAAEAV01@$$QEAV01@@Z @ 0x1801B2FE8
+ * Callers:
+ *     ??$move@V?$move_iterator@PEAVSubTreeContext@CPreComputeContext@@@std@@V?$checked_array_iterator@PEAVSubTreeContext@CPreComputeContext@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAVSubTreeContext@CPreComputeContext@@@stdext@@V?$move_iterator@PEAVSubTreeContext@CPreComputeContext@@@0@0V12@@Z @ 0x1801B093C (--$move@V-$move_iterator@PEAVSubTreeContext@CPreComputeContext@@@std@@V-$checked_array_iterator@.c)
+ *     ??$move_backward@V?$move_iterator@PEAVSubTreeContext@CPreComputeContext@@@std@@V?$checked_array_iterator@PEAVSubTreeContext@CPreComputeContext@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAVSubTreeContext@CPreComputeContext@@@stdext@@V?$move_iterator@PEAVSubTreeContext@CPreComputeContext@@@0@0V12@@Z @ 0x1801B2A74 (--$move_backward@V-$move_iterator@PEAVSubTreeContext@CPreComputeContext@@@std@@V-$checked_array_.c)
+ *     ??0SubTreeContext@CPreComputeContext@@QEAA@$$QEAV01@@Z @ 0x1801B2C20 (--0SubTreeContext@CPreComputeContext@@QEAA@$$QEAV01@@Z.c)
+ * Callees:
+ *     ??4CBspPreComputeHelper@@QEAAAEAV0@$$QEAV0@@Z @ 0x1801B2CDC (--4CBspPreComputeHelper@@QEAAAEAV0@$$QEAV0@@Z.c)
+ */
+
 __int64 __fastcall CPreComputeContext::SubTreeContext::operator=(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdx

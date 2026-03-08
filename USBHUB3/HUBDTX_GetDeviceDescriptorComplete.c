@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBDTX_GetDeviceDescriptorComplete @ 0x1C002D8C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBFDO_CompleteGetDescriptorRequest @ 0x1C000EA68 (HUBFDO_CompleteGetDescriptorRequest.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBDTX_GetDeviceDescriptorComplete(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
 {
   int v5; // ebx

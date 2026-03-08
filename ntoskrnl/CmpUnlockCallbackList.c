@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpUnlockCallbackList @ 0x140738E04
+ * Callers:
+ *     CmSetCallbackObjectContext @ 0x140738C30 (CmSetCallbackObjectContext.c)
+ *     CmpInsertCallbackInListByAltitude @ 0x14084E8FC (CmpInsertCallbackInListByAltitude.c)
+ *     CmpEnumerateCallback @ 0x140880C70 (CmpEnumerateCallback.c)
+ *     CmUnRegisterCallback @ 0x140A0C560 (CmUnRegisterCallback.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ */
+
 void CmpUnlockCallbackList()
 {
   signed __int64 v0; // rdx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MonitorUnifyCCDMonitorString @ 0x1C01F88E4
+ * Callers:
+ *     DpiFdoInitializeAdapterUniqueString @ 0x1C01F8548 (DpiFdoInitializeAdapterUniqueString.c)
+ *     ?_PrepareMonitorCCDName@DXGMONITOR@@AEAAJXZ @ 0x1C01F9AA4 (-_PrepareMonitorCCDName@DXGMONITOR@@AEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MonitorUnifyCCDMonitorString(unsigned __int16 *a1)
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIWakeMarkHiberPhase @ 0x1C0045F60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void ACPIWakeMarkHiberPhase()
 {
   if ( GpeTable )

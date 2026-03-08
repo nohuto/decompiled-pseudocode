@@ -1,3 +1,20 @@
+/*
+ * XREFs of SepInsertOrReferenceSharedSidEntries @ 0x1409CE9FC
+ * Callers:
+ *     SepSetTokenCapabilities @ 0x140710278 (SepSetTokenCapabilities.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     RtlInsertEntryHashTable @ 0x1402989F0 (RtlInsertEntryHashTable.c)
+ *     RtlRemoveEntryHashTable @ 0x1402B8170 (RtlRemoveEntryHashTable.c)
+ *     RtlCopySid @ 0x1406D4890 (RtlCopySid.c)
+ *     SepFindSharedSidEntry @ 0x1409CE95C (SepFindSharedSidEntry.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepInsertOrReferenceSharedSidEntries(unsigned int **a1, unsigned int **a2, unsigned int a3)
 {
   struct _KTHREAD *CurrentThread; // rax

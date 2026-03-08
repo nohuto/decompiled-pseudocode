@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpNumaQueryNodeDistance @ 0x1403B0B20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpNumaQueryNodeDistance(unsigned __int16 a1, unsigned __int16 a2, _DWORD *a3)
 {
   unsigned int v3; // r10d

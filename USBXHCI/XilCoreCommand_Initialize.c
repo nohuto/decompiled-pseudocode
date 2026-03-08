@@ -1,3 +1,12 @@
+/*
+ * XREFs of XilCoreCommand_Initialize @ 0x1C0014418
+ * Callers:
+ *     Command_Initialize @ 0x1C001438C (Command_Initialize.c)
+ * Callees:
+ *     XilRegister_WriteUlong64 @ 0x1C0014C68 (XilRegister_WriteUlong64.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 __int64 __fastcall XilCoreCommand_Initialize(__int64 a1)
 {
   __int128 v3; // [rsp+20h] [rbp-18h]

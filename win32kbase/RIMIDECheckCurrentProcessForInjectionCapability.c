@@ -1,3 +1,16 @@
+/*
+ * XREFs of RIMIDECheckCurrentProcessForInjectionCapability @ 0x1C0004814
+ * Callers:
+ *     NtUserInjectKeyboardInput @ 0x1C00031D0 (NtUserInjectKeyboardInput.c)
+ *     NtUserInitializeGenericHidInjection @ 0x1C01718B0 (NtUserInitializeGenericHidInjection.c)
+ *     NtUserInitializeInputDeviceInjection @ 0x1C0172020 (NtUserInitializeInputDeviceInjection.c)
+ *     NtUserInitializePointerDeviceInjectionEx @ 0x1C0172660 (NtUserInitializePointerDeviceInjectionEx.c)
+ *     NtUserInjectMouseInput @ 0x1C0173C50 (NtUserInjectMouseInput.c)
+ *     NtUserSetFeatureReportResponse @ 0x1C0176950 (NtUserSetFeatureReportResponse.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 RIMIDECheckCurrentProcessForInjectionCapability()
 {
   int v0; // eax

@@ -1,3 +1,21 @@
+/*
+ * XREFs of SdbOpenDatabaseEx @ 0x140A4B8F0
+ * Callers:
+ *     SdbpOpenLocalDatabaseEx @ 0x140A4F86C (SdbpOpenLocalDatabaseEx.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbpValidateAndApplyCompatFlags @ 0x14079D0F4 (SdbpValidateAndApplyCompatFlags.c)
+ *     AslFileMappingDelete @ 0x1407A1D38 (AslFileMappingDelete.c)
+ *     SdbpReadMappedData @ 0x1407A22CC (SdbpReadMappedData.c)
+ *     AslFileMappingCreate @ 0x1407A2D8C (AslFileMappingCreate.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     SdbGetMergeRedirectPath @ 0x140A4B4A0 (SdbGetMergeRedirectPath.c)
+ *     SdbpOpenCompressedDatabase @ 0x140A505A8 (SdbpOpenCompressedDatabase.c)
+ *     AslFileMappingEnsureMappedAs @ 0x140A51A4C (AslFileMappingEnsureMappedAs.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 wchar_t ***SdbOpenDatabaseEx(const wchar_t *a1, __int64 a2, __int64 a3, ...)
 {
   __int64 v4; // rcx

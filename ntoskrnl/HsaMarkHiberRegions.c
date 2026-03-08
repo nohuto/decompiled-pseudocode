@@ -1,3 +1,11 @@
+/*
+ * XREFs of HsaMarkHiberRegions @ 0x140A96750
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpIommuExtMarkHiberMemory @ 0x140512ED8 (HalpIommuExtMarkHiberMemory.c)
+ */
+
 void __fastcall HsaMarkHiberRegions(void *a1, __int64 a2, __int64 ***a3)
 {
   __int64 **i; // rbx

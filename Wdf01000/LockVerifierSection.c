@@ -1,3 +1,12 @@
+/*
+ * XREFs of LockVerifierSection @ 0x1C0045038
+ * Callers:
+ *     FxLibraryCommonRegisterClient @ 0x1C002C2B8 (FxLibraryCommonRegisterClient.c)
+ *     FxInitialize @ 0x1C0043DE4 (FxInitialize.c)
+ * Callees:
+ *     WPP_IFR_SF_dZq @ 0x1C00452E8 (WPP_IFR_SF_dZq.c)
+ */
+
 void __fastcall LockVerifierSection(
         _FX_DRIVER_GLOBALS *FxDriverGlobals,
         const _UNICODE_STRING *RegistryPath,

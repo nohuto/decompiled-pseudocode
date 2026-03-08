@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBFDO_LowPowerEpochCallback @ 0x1C000FB30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_OpenQueryAttemptRecoveryFromUsbPowerDrainValue @ 0x1C00887B0 (HUBREG_OpenQueryAttemptRecoveryFromUsbPowerDrainValue.c)
+ */
+
 __int64 __fastcall HUBFDO_LowPowerEpochCallback(LPCGUID SettingGuid, int *Value, __int64 ValueLength, char *Context)
 {
   int v5; // eax

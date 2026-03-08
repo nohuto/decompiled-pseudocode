@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiOpPatchCode @ 0x14057CF80
+ * Callers:
+ *     KiOp_MOVAPS @ 0x14057D5B0 (KiOp_MOVAPS.c)
+ *     KiOp_MOVDQA @ 0x14057D630 (KiOp_MOVDQA.c)
+ * Callees:
+ *     MiProbeAndLockPages @ 0x140242114 (MiProbeAndLockPages.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwProtectVirtualMemory @ 0x140412D10 (ZwProtectVirtualMemory.c)
+ */
+
 __int64 __fastcall KiOpPatchCode(__int64 a1, __int64 a2, char a3)
 {
   int v5; // edi

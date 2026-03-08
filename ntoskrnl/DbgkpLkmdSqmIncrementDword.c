@@ -1,3 +1,13 @@
+/*
+ * XREFs of DbgkpLkmdSqmIncrementDword @ 0x140539C38
+ * Callers:
+ *     DbgkCaptureLiveDump @ 0x1409378F8 (DbgkCaptureLiveDump.c)
+ *     DbgkpLkmdSqmStatus @ 0x1409384AC (DbgkpLkmdSqmStatus.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall DbgkpLkmdSqmIncrementDword(REGHANDLE a1, int a2)
 {
   int v3; // [rsp+40h] [rbp-9h] BYREF

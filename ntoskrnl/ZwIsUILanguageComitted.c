@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwIsUILanguageComitted @ 0x140414450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwIsUILanguageComitted(__int64 a1, __int64 a2)
 {
   _disable();

@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiScrubNode @ 0x140A43A10
+ * Callers:
+ *     MiScrubMemoryWorker @ 0x140A439A0 (MiScrubMemoryWorker.c)
+ * Callees:
+ *     MiClaimPhysicalRun @ 0x1403B545C (MiClaimPhysicalRun.c)
+ *     MiPfnsWorthTrying @ 0x1403B6374 (MiPfnsWorthTrying.c)
+ *     MiEmptyKernelStackCache @ 0x1406423A0 (MiEmptyKernelStackCache.c)
+ *     MiMakePageBad @ 0x14065BCD0 (MiMakePageBad.c)
+ *     MiScrubInterrupted @ 0x14065BE30 (MiScrubInterrupted.c)
+ *     MiScrubPage @ 0x14065CB10 (MiScrubPage.c)
+ *     MiScrubLargePageRegions @ 0x140A437AC (MiScrubLargePageRegions.c)
+ */
+
 __int64 __fastcall MiScrubNode(__int64 a1)
 {
   unsigned int v1; // r8d

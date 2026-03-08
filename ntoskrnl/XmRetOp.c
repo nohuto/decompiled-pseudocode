@@ -1,3 +1,12 @@
+/*
+ * XREFs of XmRetOp @ 0x1403B3850
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmPopStack @ 0x1403B4154 (XmPopStack.c)
+ *     XmGetWordImmediate @ 0x1403B4350 (XmGetWordImmediate.c)
+ */
+
 __int64 __fastcall XmRetOp(__int64 a1)
 {
   int WordImmediate; // edi

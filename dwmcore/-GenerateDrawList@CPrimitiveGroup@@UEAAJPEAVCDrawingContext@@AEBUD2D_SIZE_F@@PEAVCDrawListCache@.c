@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?GenerateDrawList@CPrimitiveGroup@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180010140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EnsureDrawListGenerator@CPrimitiveGroup@@AEAAJXZ @ 0x1800101E4 (-EnsureDrawListGenerator@CPrimitiveGroup@@AEAAJXZ.c)
+ *     ?GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEAVCDrawListCache@@@Z @ 0x1800102A0 (-GenerateDrawList@CPrimitiveGroupDrawListGenerator@@QEAAJPEAVCDrawingContext@@PEAVCDrawListCache.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ClearPrimitiveContent@CPrimitiveGroup@@AEAAXXZ @ 0x180111BAC (-ClearPrimitiveContent@CPrimitiveGroup@@AEAAXXZ.c)
+ */
+
 __int64 __fastcall CPrimitiveGroup::GenerateDrawList(
         CPrimitiveGroup *this,
         struct CDrawingContext *a2,

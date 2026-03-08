@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpRemoveFromSecurityCache @ 0x140788F0C
+ * Callers:
+ *     CmpRemoveSecurityCellList @ 0x1402F6F3C (CmpRemoveSecurityCellList.c)
+ * Callees:
+ *     CmpFindSecurityCellCacheIndex @ 0x14030DD50 (CmpFindSecurityCellCacheIndex.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 char __fastcall CmpRemoveFromSecurityCache(__int64 a1, int a2)
 {
   char result; // al

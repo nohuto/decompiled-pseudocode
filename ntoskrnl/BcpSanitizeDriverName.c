@@ -1,3 +1,11 @@
+/*
+ * XREFs of BcpSanitizeDriverName @ 0x1406707B0
+ * Callers:
+ *     BcpDisplayErrorInformation @ 0x140670094 (BcpDisplayErrorInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall BcpSanitizeDriverName(unsigned __int16 *a1, __int64 a2)
 {
   unsigned __int64 v3; // r8

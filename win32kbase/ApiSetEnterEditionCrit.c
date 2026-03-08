@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEnterEditionCrit @ 0x1C00C6D90
+ * Callers:
+ *     ??0ApiSetEditionCrit@@QEAA@H@Z @ 0x1C0039D28 (--0ApiSetEditionCrit@@QEAA@H@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 ApiSetEnterEditionCrit()
 {
   char v0; // bl

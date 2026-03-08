@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z @ 0x1C00BC0F8
+ * Callers:
+ *     ?bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z @ 0x1C00BACFC (-bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z.c)
+ *     ?bCreateSection@@YAHPEBGPEAU_FILEVIEW@@HPEAHE@Z @ 0x1C00BBDF0 (-bCreateSection@@YAHPEBGPEAU_FILEVIEW@@HPEAHE@Z.c)
+ *     EngMapFontFileFDInternal @ 0x1C0115154 (EngMapFontFileFDInternal.c)
+ * Callees:
+ *     ZwWin32CreateSection @ 0x1C00BC3EC (ZwWin32CreateSection.c)
+ *     ?bIsFileInSystemFontsDir@@YAHPEAX@Z @ 0x1C00BC504 (-bIsFileInSystemFontsDir@@YAHPEAX@Z.c)
+ *     ?TryGetFileDeviceRemoteBit@@YAJPEAXPEA_N@Z @ 0x1C00BC65C (-TryGetFileDeviceRemoteBit@@YAJPEAXPEA_N@Z.c)
+ *     ?ScrutinizeFontLoad@@YAJW4_W32KFontSourceType@@PEBG@Z @ 0x1C00F2EE4 (-ScrutinizeFontLoad@@YAJW4_W32KFontSourceType@@PEBG@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?ObtainSectionForNetworkedFontFile@@YAJPEAU_UNICODE_STRING@@PEAU_FILEVIEW@@PEAU_OBJECT_ATTRIBUTES@@PEAT_LARGE_INTEGER@@_N@Z @ 0x1C028D380 (-ObtainSectionForNetworkedFontFile@@YAJPEAU_UNICODE_STRING@@PEAU_FILEVIEW@@PEAU_OBJECT_ATTRIBUTE.c)
+ */
+
 __int64 __fastcall bCreateSectionFromHandle(
         void *a1,
         PCWSTR SourceString,

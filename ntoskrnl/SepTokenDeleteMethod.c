@@ -1,3 +1,23 @@
+/*
+ * XREFs of SepTokenDeleteMethod @ 0x1407C3CB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402B8730 (AuthzBasepFreeSecurityAttributesList.c)
+ *     SepDereferenceLuidToIndexEntry @ 0x1402DF15C (SepDereferenceLuidToIndexEntry.c)
+ *     SepFreeTokenCapabilities @ 0x1402F35E0 (SepFreeTokenCapabilities.c)
+ *     ExDeleteResourceLite @ 0x140336580 (ExDeleteResourceLite.c)
+ *     SepDereferenceCachedHandlesEntry @ 0x140744278 (SepDereferenceCachedHandlesEntry.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x14074438C (SepDereferenceLowBoxNumberEntry.c)
+ *     SepDeReferenceLogonSession @ 0x1407DBBB8 (SepDeReferenceLogonSession.c)
+ *     SepModifyTokenPolicyCounter @ 0x1409C69B8 (SepModifyTokenPolicyCounter.c)
+ *     SepDeleteTokenUserAndGroups @ 0x1409CC8DC (SepDeleteTokenUserAndGroups.c)
+ *     SepRemoveTokenLogonSession @ 0x1409CD544 (SepRemoveTokenLogonSession.c)
+ *     SepDeleteClaimAttributes @ 0x1409CE5CC (SepDeleteClaimAttributes.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SepTokenDeleteMethod(__int64 a1)
 {
   void *v2; // rcx

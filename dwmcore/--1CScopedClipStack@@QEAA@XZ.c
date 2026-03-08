@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??1CScopedClipStack@@QEAA@XZ @ 0x18003C724
+ * Callers:
+ *     ??1CDrawingContext@@MEAA@XZ @ 0x18003C524 (--1CDrawingContext@@MEAA@XZ.c)
+ * Callees:
+ *     ?Clear@CScopedClipStack@@QEAAXXZ @ 0x18003C7B0 (-Clear@CScopedClipStack@@QEAAXXZ.c)
+ *     ?clear@?$vector_facade@UClippingScopeState@CScopedClipStack@@V?$buffer_impl@UClippingScopeState@CScopedClipStack@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x18003C89C (-clear@-$vector_facade@UClippingScopeState@CScopedClipStack@@V-$buffer_impl@UClippingScopeState@.c)
+ *     ?clear@?$vector_facade@UCpuClipStackState@CScopedClipStack@@V?$buffer_impl@UCpuClipStackState@CScopedClipStack@@$09$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAAXXZ @ 0x18003C8C8 (-clear@-$vector_facade@UCpuClipStackState@CScopedClipStack@@V-$buffer_impl@UCpuClipStackState@CS.c)
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ */
+
 void __fastcall CScopedClipStack::~CScopedClipStack(void **this)
 {
   CScopedClipStack *v2; // rcx

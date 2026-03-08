@@ -1,3 +1,12 @@
+/*
+ * XREFs of ProcessorIdtEntryToGsiv @ 0x1C009AD78
+ * Callers:
+ *     IrqLibpGetVectorInput @ 0x1C005CD50 (IrqLibpGetVectorInput.c)
+ *     IrqLibFreeMessageTarget @ 0x1C0099250 (IrqLibFreeMessageTarget.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ProcessorIdtEntryToGsiv(int a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   unsigned __int16 v5; // ax

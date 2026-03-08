@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcMdlReadComplete @ 0x140790C70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     CcMdlReadComplete2 @ 0x140774164 (CcMdlReadComplete2.c)
+ */
+
 void __stdcall CcMdlReadComplete(PFILE_OBJECT FileObject, PMDL MdlChain)
 {
   PDEVICE_OBJECT RelatedDeviceObject; // rcx

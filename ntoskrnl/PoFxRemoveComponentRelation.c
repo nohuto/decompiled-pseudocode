@@ -1,3 +1,21 @@
+/*
+ * XREFs of PoFxRemoveComponentRelation @ 0x140585C70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PopFxNextParentRelationSafe @ 0x1402E4C58 (PopFxNextParentRelationSafe.c)
+ *     PopFxActivateComponent @ 0x140305D50 (PopFxActivateComponent.c)
+ *     PopFxAddRefDevice @ 0x140305F38 (PopFxAddRefDevice.c)
+ *     PopFxIdleComponent @ 0x140306A50 (PopFxIdleComponent.c)
+ *     PopFxNextComponentChildRelationSafe @ 0x140308264 (PopFxNextComponentChildRelationSafe.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PoFxRemoveComponentRelation(ULONG_PTR BugCheckParameter2, unsigned int a2, __int64 a3, _QWORD *a4)
 {
   unsigned int v4; // ebx

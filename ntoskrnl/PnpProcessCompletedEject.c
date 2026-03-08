@@ -1,3 +1,23 @@
+/*
+ * XREFs of PnpProcessCompletedEject @ 0x140956080
+ * Callers:
+ *     PnpProcessQueryRemoveAndEject @ 0x1408625F0 (PnpProcessQueryRemoveAndEject.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PnpDisableAndFreeEventWatchdog @ 0x14068A900 (PnpDisableAndFreeEventWatchdog.c)
+ *     PnpCompleteDeviceEvent @ 0x14068C1BC (PnpCompleteDeviceEvent.c)
+ *     PpDevNodeUnlockTree @ 0x1406CB8B0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406CB944 (PpDevNodeLockTree.c)
+ *     IopFreeRelationList @ 0x140863634 (IopFreeRelationList.c)
+ *     PnpInvalidateRelationsInList @ 0x14087CBE8 (PnpInvalidateRelationsInList.c)
+ *     PpProfileMarkAllTransitioningDocksEjected @ 0x140960E64 (PpProfileMarkAllTransitioningDocksEjected.c)
+ *     PnpSetDeviceRemovalSafe @ 0x140961730 (PnpSetDeviceRemovalSafe.c)
+ *     PnpTrackQueryRemoveDevices @ 0x140961AFC (PnpTrackQueryRemoveDevices.c)
+ *     IopWarmEjectDevice @ 0x14096C1CC (IopWarmEjectDevice.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PnpProcessCompletedEject(PVOID P)
 {
   int v1; // esi

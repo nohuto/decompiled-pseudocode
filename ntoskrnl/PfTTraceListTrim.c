@@ -1,3 +1,12 @@
+/*
+ * XREFs of PfTTraceListTrim @ 0x14097C3AC
+ * Callers:
+ *     PfTTraceListAdd @ 0x1407E797C (PfTTraceListAdd.c)
+ *     PfTCleanup @ 0x14097C168 (PfTCleanup.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall PfTTraceListTrim(int a1, unsigned int a2, __int64 a3)
 {
   unsigned int v3; // r9d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpGetVirtualizationIDFromFullVirtualPath @ 0x140A171A8
+ * Callers:
+ *     CmpGetCmHiveFromVirtualPath @ 0x140A16E8C (CmpGetCmHiveFromVirtualPath.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpGetVirtualizationIDFromFullVirtualPath(_OWORD *a1, unsigned __int16 *a2)
 {
   unsigned __int16 v2; // r10

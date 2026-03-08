@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchReportHwQueue @ 0x1C0109330
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0ppp_EtwWriteTransfer @ 0x1C002F600 (McTemplateK0ppp_EtwWriteTransfer.c)
+ */
+
 NTSTATUS __fastcall VidSchReportHwQueue(__int64 a1)
 {
   __int64 v1; // rdx

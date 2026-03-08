@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiGetNextSession @ 0x14035C308
+ * Callers:
+ *     MiEmptyAccessLogs @ 0x1402005B0 (MiEmptyAccessLogs.c)
+ *     MmGetNextSession @ 0x14035C2F0 (MmGetNextSession.c)
+ *     PsQueryCpuQuotaInformation @ 0x1403B1468 (PsQueryCpuQuotaInformation.c)
+ * Callees:
+ *     MiSelectSessionAttachProcess @ 0x14022A5A8 (MiSelectSessionAttachProcess.c)
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 _QWORD *__fastcall MiGetNextSession(_QWORD *Object)
 {
   _QWORD *v2; // rdi

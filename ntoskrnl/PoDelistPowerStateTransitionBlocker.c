@@ -1,3 +1,21 @@
+/*
+ * XREFs of PoDelistPowerStateTransitionBlocker @ 0x140AA2FFC
+ * Callers:
+ *     PopUmpoSendPowerMessage @ 0x1402BD1D0 (PopUmpoSendPowerMessage.c)
+ *     PnpPowerStateTransitionWatchdogPopRecord @ 0x140954B24 (PnpPowerStateTransitionWatchdogPopRecord.c)
+ *     PnpSurpriseFailUnsafeDmaDevices @ 0x140968A40 (PnpSurpriseFailUnsafeDmaDevices.c)
+ *     PopManageTransitionRecordRequest @ 0x140981498 (PopManageTransitionRecordRequest.c)
+ *     PopIssueActionRequest @ 0x140986CA4 (PopIssueActionRequest.c)
+ *     PopInitSystemSleeperThread @ 0x1409887A0 (PopInitSystemSleeperThread.c)
+ *     ExSwapinWorkerThreads @ 0x1409FD778 (ExSwapinWorkerThreads.c)
+ *     PopUnlockAfterSleepWorker @ 0x140AA37E0 (PopUnlockAfterSleepWorker.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ */
+
 __int64 PoDelistPowerStateTransitionBlocker()
 {
   unsigned int v0; // edi

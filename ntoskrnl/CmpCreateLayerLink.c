@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpCreateLayerLink @ 0x14074BAE4
+ * Callers:
+ *     CmpCreateKeyControlBlock @ 0x1407AFAA0 (CmpCreateKeyControlBlock.c)
+ *     CmRenameKey @ 0x140A1170C (CmRenameKey.c)
+ * Callees:
+ *     CmpAllocateLayerInfoForKcb @ 0x14074BB70 (CmpAllocateLayerInfoForKcb.c)
+ *     CmpReferenceKeyControlBlock @ 0x14074BF00 (CmpReferenceKeyControlBlock.c)
+ */
+
 __int64 __fastcall CmpCreateLayerLink(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   __int64 result; // rax

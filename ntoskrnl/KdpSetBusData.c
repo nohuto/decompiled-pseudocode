@@ -1,3 +1,11 @@
+/*
+ * XREFs of KdpSetBusData @ 0x140AB1B1C
+ * Callers:
+ *     KdpSendWaitContinue @ 0x140AAD824 (KdpSendWaitContinue.c)
+ * Callees:
+ *     KdpSysWriteBusData @ 0x140AB1D2C (KdpSysWriteBusData.c)
+ */
+
 __int64 __fastcall KdpSetBusData(_DWORD *a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r9

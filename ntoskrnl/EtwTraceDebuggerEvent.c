@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwTraceDebuggerEvent @ 0x1405FA5D0
+ * Callers:
+ *     NtDebugContinue @ 0x140935970 (NtDebugContinue.c)
+ *     DbgkpSendApiMessage @ 0x1409370E0 (DbgkpSendApiMessage.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall EtwTraceDebuggerEvent(__int64 a1, __int64 a2, int a3)
 {
   _DWORD v3[4]; // [rsp+30h] [rbp-38h] BYREF

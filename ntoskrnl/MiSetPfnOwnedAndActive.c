@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiSetPfnOwnedAndActive @ 0x14034591C
+ * Callers:
+ *     MiAssignNonPagedPoolPte @ 0x140345570 (MiAssignNonPagedPoolPte.c)
+ *     MiFindContiguousPagesEx @ 0x1403B5CF8 (MiFindContiguousPagesEx.c)
+ *     MiFindLargeNodePage @ 0x14061B228 (MiFindLargeNodePage.c)
+ *     MiRemoveMdlPages @ 0x140A2B84C (MiRemoveMdlPages.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiChangePageAttribute @ 0x14036CE40 (MiChangePageAttribute.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiSetPfnOwnedAndActive(__int64 a1, char a2, __int64 a3, unsigned int a4, unsigned int a5)
 {
   unsigned __int8 v9; // al

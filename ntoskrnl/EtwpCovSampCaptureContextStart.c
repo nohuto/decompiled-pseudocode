@@ -1,3 +1,30 @@
+/*
+ * XREFs of EtwpCovSampCaptureContextStart @ 0x1409EDC1C
+ * Callers:
+ *     EtwpCoverageSamplerStart @ 0x1409F05F8 (EtwpCoverageSamplerStart.c)
+ * Callees:
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     ExSaAllocate @ 0x1402962FC (ExSaAllocate.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1402A7240 (KeQueryMaximumProcessorCountEx.c)
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeSetBasePriorityThread @ 0x140369500 (KeSetBasePriorityThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwSetInformationThread @ 0x1404124B0 (ZwSetInformationThread.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpCovSampLookasideGrow @ 0x140601528 (EtwpCovSampLookasideGrow.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1407DE330 (PsCreateSystemThreadEx.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     EtwpCovSampCaptureFreeLookasides @ 0x1409EE1B0 (EtwpCovSampCaptureFreeLookasides.c)
+ *     EtwpCovSampLookasideControlInitialize @ 0x1409EF7B0 (EtwpCovSampLookasideControlInitialize.c)
+ *     EtwpCovSampLookasideInitialize @ 0x1409EF844 (EtwpCovSampLookasideInitialize.c)
+ *     EtwpCovSampStackHashTableAlloc @ 0x1409EFF9C (EtwpCovSampStackHashTableAlloc.c)
+ *     EtwpCovSampStrideSamplerInitialize @ 0x1409F0034 (EtwpCovSampStrideSamplerInitialize.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall EtwpCovSampCaptureContextStart(_DWORD *a1)
 {
   PVOID *v1; // rsi

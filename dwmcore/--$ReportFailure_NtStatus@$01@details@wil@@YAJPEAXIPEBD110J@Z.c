@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??$ReportFailure_NtStatus@$01@details@wil@@YAJPEAXIPEBD110J@Z @ 0x180274978
+ * Callers:
+ *     ?_Log_NtStatus@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x180278940 (-_Log_NtStatus@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ * Callees:
+ *     ??$ReportFailure_Base@$01$0A@@details@wil@@YAXPEAXIPEBD110AEBUResultStatus@01@PEBGW4ReportFailureOptions@01@@Z @ 0x180193DFC (--$ReportFailure_Base@$01$0A@@details@wil@@YAXPEAXIPEBD110AEBUResultStatus@01@PEBGW4ReportFailur.c)
+ *     ?NtStatusToHr@details@wil@@YAJJ@Z @ 0x180195BA4 (-NtStatusToHr@details@wil@@YAJJ@Z.c)
+ */
+
 __int64 __fastcall wil::details::ReportFailure_NtStatus<2>(
         int a1,
         int a2,

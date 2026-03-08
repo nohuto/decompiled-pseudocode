@@ -1,3 +1,15 @@
+/*
+ * XREFs of BmlGetMonitorModePreference @ 0x1C016F008
+ * Callers:
+ *     BmlFillPreferredMonitorMode @ 0x1C016EB6C (BmlFillPreferredMonitorMode.c)
+ *     ?BmlGetTargetModePreferenceOnMonitor@@YA?AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARGETMODE@@EPEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C016ED64 (-BmlGetTargetModePreferenceOnMonitor@@YA-AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARG.c)
+ * Callees:
+ *     ?DivideAndRound@DMMVIDEOSIGNALMODE@@SA_K_K0@Z @ 0x1C0002AA0 (-DivideAndRound@DMMVIDEOSIGNALMODE@@SA_K_K0@Z.c)
+ *     BmlIsEDIDCapableOutputTechonology @ 0x1C016F144 (BmlIsEDIDCapableOutputTechonology.c)
+ *     BmlIsLowResAnalogTvOutput @ 0x1C0171D0C (BmlIsLowResAnalogTvOutput.c)
+ *     BmlGetMonitorModeVSyncPreference @ 0x1C03B8B50 (BmlGetMonitorModeVSyncPreference.c)
+ */
+
 __int64 __fastcall BmlGetMonitorModePreference(__int64 a1, int a2, __int64 a3)
 {
   int v3; // ecx

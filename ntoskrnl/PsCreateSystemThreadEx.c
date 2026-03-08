@@ -1,3 +1,39 @@
+/*
+ * XREFs of PsCreateSystemThreadEx @ 0x1407DE330
+ * Callers:
+ *     MiZeroInParallel @ 0x140242EB8 (MiZeroInParallel.c)
+ *     MiInsertNewZeroThread @ 0x1403A72CC (MiInsertNewZeroThread.c)
+ *     MiEnablePartitionMappedWrites @ 0x1406A6ABC (MiEnablePartitionMappedWrites.c)
+ *     ExpWatchProductTypeWork @ 0x1407586E0 (ExpWatchProductTypeWork.c)
+ *     NtGetMUIRegistryInfo @ 0x140779C90 (NtGetMUIRegistryInfo.c)
+ *     ExpNodeCreateSystemThread @ 0x1407DE204 (ExpNodeCreateSystemThread.c)
+ *     PsCreateSystemThread @ 0x1407DE2E0 (PsCreateSystemThread.c)
+ *     KiStartDpcThread @ 0x14080F080 (KiStartDpcThread.c)
+ *     CmpCreateRegistryThread @ 0x140817904 (CmpCreateRegistryThread.c)
+ *     MmStoreRegister @ 0x140834CA4 (MmStoreRegister.c)
+ *     MiInsertPageFileInList @ 0x140835F30 (MiInsertPageFileInList.c)
+ *     PfTStart @ 0x140844B00 (PfTStart.c)
+ *     PopFxCreateStaticWorkPoolThread @ 0x14084D3B4 (PopFxCreateStaticWorkPoolThread.c)
+ *     IopCreatePassiveInterruptRealtimeThreads @ 0x140853088 (IopCreatePassiveInterruptRealtimeThreads.c)
+ *     MiCreatePerNodeZeroingConductor @ 0x14085B8B8 (MiCreatePerNodeZeroingConductor.c)
+ *     IoCreateSystemThread @ 0x14086FC50 (IoCreateSystemThread.c)
+ *     IopStartApcHardError @ 0x140943600 (IopStartApcHardError.c)
+ *     PopInitSystemSleeperThread @ 0x1409887A0 (PopInitSystemSleeperThread.c)
+ *     EtwpCovSampCaptureContextStart @ 0x1409EDC1C (EtwpCovSampCaptureContextStart.c)
+ *     ExpWatchLicenseInfoWork @ 0x1409F57C0 (ExpWatchLicenseInfoWork.c)
+ *     NtMapCMFModule @ 0x140A005D0 (NtMapCMFModule.c)
+ *     MiZeroHugeRangeCore @ 0x140A2B20C (MiZeroHugeRangeCore.c)
+ *     MiInitializePartitionThreads @ 0x140A2CE10 (MiInitializePartitionThreads.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeQueryActiveGroupCount @ 0x1403598D0 (KeQueryActiveGroupCount.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PspCreateThread @ 0x1406B1908 (PspCreateThread.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406D8E50 (ObReferenceObjectByHandleWithTag.c)
+ */
+
 __int64 __fastcall PsCreateSystemThreadEx(
         __int64 a1,
         int a2,

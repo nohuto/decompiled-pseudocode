@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpConvertSharedToExclusiveImmediately @ 0x14040FFC8
+ * Callers:
+ *     ExTryToConvertFastResourceSharedToExclusive2 @ 0x14040F0B8 (ExTryToConvertFastResourceSharedToExclusive2.c)
+ * Callees:
+ *     ExpAddFastOwnerEntryToThreadList2 @ 0x14040FD90 (ExpAddFastOwnerEntryToThreadList2.c)
+ *     ExpRemoveEntryListAndClear2 @ 0x14041128C (ExpRemoveEntryListAndClear2.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall ExpConvertSharedToExclusiveImmediately(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rdx

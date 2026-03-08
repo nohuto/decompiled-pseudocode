@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpAtsDereferenceDevice @ 0x14060A2C0
+ * Callers:
+ *     ExUninitializeDeviceAts @ 0x14060A134 (ExUninitializeDeviceAts.c)
+ * Callees:
+ *     ExpAtsConfigureSecureDevice @ 0x14040D320 (ExpAtsConfigureSecureDevice.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpAtsDereferenceDevice(_QWORD *P)
 {
   unsigned int v1; // edi

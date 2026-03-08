@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIGetUsedDebuggingDevices @ 0x1C0097E8C
+ * Callers:
+ *     ACPIGlobalInitialize @ 0x1C00A8468 (ACPIGlobalInitialize.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 ACPIGetUsedDebuggingDevices()
 {
   __int64 result; // rax

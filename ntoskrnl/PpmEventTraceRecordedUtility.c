@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmEventTraceRecordedUtility @ 0x140233A78
+ * Callers:
+ *     PpmPerfRecordUtility @ 0x140233B60 (PpmPerfRecordUtility.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     PpmEventGetEventDescriptorAndProcessorId @ 0x140233B18 (PpmEventGetEventDescriptorAndProcessorId.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char PpmEventTraceRecordedUtility(int a1, ...)
 {
   const EVENT_DESCRIPTOR *EventDescriptorAndProcessorId; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of CcLogExtraWBThreadAction @ 0x1405344A8
+ * Callers:
+ *     CcWorkerThread @ 0x140215D70 (CcWorkerThread.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcPerfLogExtraWBThreadAction @ 0x140538378 (CcPerfLogExtraWBThreadAction.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall CcLogExtraWBThreadAction(__int64 a1, __int64 a2, int a3)
 {
   __int64 v6; // r14

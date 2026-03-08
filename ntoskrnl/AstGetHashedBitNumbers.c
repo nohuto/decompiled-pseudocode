@@ -1,3 +1,12 @@
+/*
+ * XREFs of AstGetHashedBitNumbers @ 0x14075A7A0
+ * Callers:
+ *     AstAddBloomFilter @ 0x14075A680 (AstAddBloomFilter.c)
+ *     AstTestBloomFilter @ 0x14075A710 (AstTestBloomFilter.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall AstGetHashedBitNumbers(unsigned int *a1, __int64 a2, unsigned __int64 a3, unsigned int a4)
 {
   unsigned __int64 v4; // r10

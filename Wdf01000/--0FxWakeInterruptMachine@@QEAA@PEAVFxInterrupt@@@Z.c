@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0FxWakeInterruptMachine@@QEAA@PEAVFxInterrupt@@@Z @ 0x1C008218C
+ * Callers:
+ *     ?CreateWakeInterruptMachine@FxInterrupt@@QEAAJXZ @ 0x1C007EAD8 (-CreateWakeInterruptMachine@FxInterrupt@@QEAAJXZ.c)
+ * Callees:
+ *     ??0FxThreadedEventQueue@@QEAA@E@Z @ 0x1C008120C (--0FxThreadedEventQueue@@QEAA@E@Z.c)
+ */
+
 void __fastcall FxWakeInterruptMachine::FxWakeInterruptMachine(FxWakeInterruptMachine *this, FxInterrupt *Interrupt)
 {
   __int64 m_HistoryIndex; // r8

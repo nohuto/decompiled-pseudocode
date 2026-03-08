@@ -1,3 +1,16 @@
+/*
+ * XREFs of PspInitPhase2 @ 0x140B64880
+ * Callers:
+ *     PsInitSystem @ 0x140B42F74 (PsInitSystem.c)
+ * Callees:
+ *     RtlGetSystemTimePrecise @ 0x140205310 (RtlGetSystemTimePrecise.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     RtlRandom @ 0x140797410 (RtlRandom.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14080F6BC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     PspInitializeProtectedProcessParameters @ 0x14084AAB4 (PspInitializeProtectedProcessParameters.c)
+ *     PspInitializeSystemDlls @ 0x140B649D4 (PspInitializeSystemDlls.c)
+ */
+
 bool PspInitPhase2()
 {
   PEPROCESS v0; // rbx

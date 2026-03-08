@@ -1,3 +1,14 @@
+/*
+ * XREFs of _CmGetMatchingDevicePanelListWorker @ 0x140823EA0
+ * Callers:
+ *     _CmGetMatchingDevicePanelList @ 0x140823988 (_CmGetMatchingDevicePanelList.c)
+ * Callees:
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406D3680 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x140824EA0 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmGetMatchingDevicePanelListWorker(
         __int64 a1,
         __int64 a2,

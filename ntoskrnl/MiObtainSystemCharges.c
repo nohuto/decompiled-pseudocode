@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiObtainSystemCharges @ 0x140348C90
+ * Callers:
+ *     MiGetPageTablePages @ 0x140348AF8 (MiGetPageTablePages.c)
+ *     MiGetLargePagesForSystemMapping @ 0x140A2F604 (MiGetLargePagesForSystemMapping.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     MiChargeResident @ 0x140348DE8 (MiChargeResident.c)
+ */
+
 __int64 __fastcall MiObtainSystemCharges(unsigned __int64 a1, unsigned __int64 a2, int a3)
 {
   __int64 v6; // r8

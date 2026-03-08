@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AdvanceDeltaDueToScale@CPositionMotion@@AEAAXXZ @ 0x18026BFA0
+ * Callers:
+ *     ?AdvanceInertiaToTime@CPositionMotion@@QEAAMPEAVCExpressionValueStack@@_KMMMMMM@Z @ 0x18026BFF8 (-AdvanceInertiaToTime@CPositionMotion@@QEAAMPEAVCExpressionValueStack@@_KMMMMMM@Z.c)
+ *     ?CalculateInContactValue@CPositionMotion@@QEAAMMMMMMM@Z @ 0x18026C0C8 (-CalculateInContactValue@CPositionMotion@@QEAAMMMMMMM@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CPositionMotion::AdvanceDeltaDueToScale(CPositionMotion *this)
 {
   float v1; // xmm0_4

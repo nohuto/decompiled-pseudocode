@@ -1,3 +1,12 @@
+/*
+ * XREFs of Simulator_Pre_RegEventHandler @ 0x1C00497CC
+ * Callers:
+ *     AMLIRegEventHandler @ 0x1C0048A7C (AMLIRegEventHandler.c)
+ * Callees:
+ *     Simulator_AllocAndInitTestData @ 0x1C0048EC4 (Simulator_AllocAndInitTestData.c)
+ *     Simulator_TestNotify @ 0x1C0049970 (Simulator_TestNotify.c)
+ */
+
 __int64 __fastcall Simulator_Pre_RegEventHandler(unsigned int a1, __int64 a2, _QWORD *a3, _QWORD *a4, __int64 *a5)
 {
   __int64 v6; // r14

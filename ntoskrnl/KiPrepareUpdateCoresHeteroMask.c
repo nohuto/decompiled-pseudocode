@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiPrepareUpdateCoresHeteroMask @ 0x140970358
+ * Callers:
+ *     KiConfigureHeteroMultiCoreProcessors @ 0x140970054 (KiConfigureHeteroMultiCoreProcessors.c)
+ * Callees:
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int16 __fastcall KiPrepareUpdateCoresHeteroMask(
         char a1,
         __int64 a2,

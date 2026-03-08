@@ -1,3 +1,11 @@
+/*
+ * XREFs of ESM_SimulatingExpectedEventTRBsProcessedOnTimeout @ 0x1C0051D20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ */
+
 __int64 __fastcall ESM_SimulatingExpectedEventTRBsProcessedOnTimeout(__int64 a1)
 {
   __int64 v1; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpHeapFindListLookupEntry @ 0x1405B3184
+ * Callers:
+ *     RtlpFindEntry @ 0x1405B2FB0 (RtlpFindEntry.c)
+ *     RtlpFindUCREntry @ 0x1405B302C (RtlpFindUCREntry.c)
+ * Callees:
+ *     RtlpHeapListCompare @ 0x1405B3324 (RtlpHeapListCompare.c)
+ */
+
 _QWORD *__fastcall RtlpHeapFindListLookupEntry(__int64 a1, __int64 a2, char a3, __int64 a4, __int64 a5)
 {
   _QWORD *v5; // rdi

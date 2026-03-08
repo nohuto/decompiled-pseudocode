@@ -1,3 +1,27 @@
+/*
+ * XREFs of ExpQueueWorkItem @ 0x14033EE40
+ * Callers:
+ *     ExQueueWorkItemFromIo @ 0x14033EDC0 (ExQueueWorkItemFromIo.c)
+ *     ExQueueWorkItemToPartition @ 0x1403439E0 (ExQueueWorkItemToPartition.c)
+ *     ExQueueWorkItemEx @ 0x140353EB0 (ExQueueWorkItemEx.c)
+ *     ExQueueWorkItemToPrivatePool @ 0x1404631EE (ExQueueWorkItemToPrivatePool.c)
+ *     ExQueueWorkItemExFromIo @ 0x14060A7DC (ExQueueWorkItemExFromIo.c)
+ * Callees:
+ *     KiSetPriorityThread @ 0x1402273F0 (KiSetPriorityThread.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     MmGetNextNode @ 0x1402AB0A0 (MmGetNextNode.c)
+ *     ExpIsPoolReadyForWork @ 0x14033F350 (ExpIsPoolReadyForWork.c)
+ *     ExpNewThreadNecessary @ 0x14033F670 (ExpNewThreadNecessary.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x14033FBD0 (KiSetBasePriorityAndClearDecrement.c)
+ *     KiAdjustRealtimePriorityFloor @ 0x14033FCCC (KiAdjustRealtimePriorityFloor.c)
+ *     KiSignalThread @ 0x14033FD70 (KiSignalThread.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403C8140 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403C8170 (HvlNotifyLongSpinWait.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExpQueueWorkItem(__int64 a1, _QWORD *a2, int a3, unsigned int a4, int a5)
 {
   unsigned __int8 v5; // di

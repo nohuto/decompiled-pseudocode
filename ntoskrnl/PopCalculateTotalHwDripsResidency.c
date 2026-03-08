@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopCalculateTotalHwDripsResidency @ 0x14058F3F0
+ * Callers:
+ *     PopCalculateCsSummary @ 0x14058EE94 (PopCalculateCsSummary.c)
+ *     PopSleepstudyCaptureResiliencyStatistics @ 0x140990254 (PopSleepstudyCaptureResiliencyStatistics.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopCalculateTotalHwDripsResidency(unsigned __int64 a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // rdx

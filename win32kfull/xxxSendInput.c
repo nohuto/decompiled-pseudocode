@@ -1,3 +1,21 @@
+/*
+ * XREFs of xxxSendInput @ 0x1C00171A4
+ * Callers:
+ *     NtUserSendInput @ 0x1C0016F20 (NtUserSendInput.c)
+ *     ?xxxSend3FingerTapHotkey@@YAXXZ @ 0x1C01F78C8 (-xxxSend3FingerTapHotkey@@YAXXZ.c)
+ *     ?xxxSend4FingerTapHotkey@@YAXXZ @ 0x1C01F7A30 (-xxxSend4FingerTapHotkey@@YAXXZ.c)
+ *     ?SendZoomHotkey@InteractiveControlDefaultScroller@@AEAAHF@Z @ 0x1C024A88C (-SendZoomHotkey@InteractiveControlDefaultScroller@@AEAAHF@Z.c)
+ *     ?SendZoomModifiers@InteractiveControlDefaultScroller@@CAXEH@Z @ 0x1C024A964 (-SendZoomModifiers@InteractiveControlDefaultScroller@@CAXEH@Z.c)
+ * Callees:
+ *     xxxInternalKeyEventDirect @ 0x1C00172DC (xxxInternalKeyEventDirect.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C00200C4 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00E3308 (WPP_RECORDER_AND_TRACE_SF_dd.c)
+ *     ?xxxMouseEventDirect@@YAHKKKK_K00H@Z @ 0x1C01AC80C (-xxxMouseEventDirect@@YAHKKKK_K00H@Z.c)
+ *     xxxSynchronizeDWMWindowChanges @ 0x1C01AE0C8 (xxxSynchronizeDWMWindowChanges.c)
+ *     xxxWaitForDITMouseInjectionFlush @ 0x1C01AE114 (xxxWaitForDITMouseInjectionFlush.c)
+ */
+
 __int64 __fastcall xxxSendInput(__int64 a1, __int64 a2)
 {
   unsigned int v3; // r15d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DbgDumpNode@@YAXKPEAUtagRIMPOINTERINFONODE@@@Z @ 0x1C00F0204
+ * Callers:
+ *     rimGetCompleteFrameAndReleaseHoldingFrame @ 0x1C01CE320 (rimGetCompleteFrameAndReleaseHoldingFrame.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     ?DumpPointerEventInt@@YAXPEAUtagPOINTEREVENTINT@@@Z @ 0x1C01CC2F0 (-DumpPointerEventInt@@YAXPEAUtagPOINTEREVENTINT@@@Z.c)
+ */
+
 void __fastcall DbgDumpNode(char a1, struct tagRIMPOINTERINFONODE *a2)
 {
   struct tagRIMPOINTERINFONODE *v2; // rbx

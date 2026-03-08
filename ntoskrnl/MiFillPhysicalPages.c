@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiFillPhysicalPages @ 0x1402CE820
+ * Callers:
+ *     MiZeroPhysicalPage @ 0x1402CE78C (MiZeroPhysicalPage.c)
+ *     MiInitializeSystemPageTable @ 0x1403483AC (MiInitializeSystemPageTable.c)
+ *     MiGetPoolPages @ 0x14036413C (MiGetPoolPages.c)
+ *     MxMapVa @ 0x140B3819C (MxMapVa.c)
+ *     MiInitializeDummyPages @ 0x140B39C40 (MiInitializeDummyPages.c)
+ * Callees:
+ *     KeFlushSingleTb @ 0x140211E60 (KeFlushSingleTb.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiGetUltraMapping @ 0x140276080 (MiGetUltraMapping.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KeZeroPages @ 0x14041BBF0 (KeZeroPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MxGetPhase0Mapping @ 0x140B5049C (MxGetPhase0Mapping.c)
+ */
+
 __int64 __fastcall MiFillPhysicalPages(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // rbx

@@ -1,3 +1,47 @@
+/*
+ * XREFs of SepFilterToken @ 0x14073FED0
+ * Callers:
+ *     NtFilterToken @ 0x14073FB20 (NtFilterToken.c)
+ *     SeFilterToken @ 0x140817AD0 (SeFilterToken.c)
+ * Callees:
+ *     RtlWalkFrameChain @ 0x140205CA0 (RtlWalkFrameChain.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x1402976E0 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     DbgPrint @ 0x1402BDD20 (DbgPrint.c)
+ *     SepDuplicateLogonSessionReference @ 0x1402BE368 (SepDuplicateLogonSessionReference.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     RtlSidHashInitialize @ 0x140310020 (RtlSidHashInitialize.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SeIsSystemContext @ 0x1405B6D4C (SeIsSystemContext.c)
+ *     SepNewTokenAsRestrictedAsProcessToken @ 0x14069D29C (SepNewTokenAsRestrictedAsProcessToken.c)
+ *     SepSetTokenTrust @ 0x1406D33D8 (SepSetTokenTrust.c)
+ *     RtlCopySidAndAttributesArray @ 0x1406D47D0 (RtlCopySidAndAttributesArray.c)
+ *     SepRefDerefLuidToIndexEntryIfNecessary @ 0x14070BB54 (SepRefDerefLuidToIndexEntryIfNecessary.c)
+ *     SepSetTokenSessionById @ 0x14070BB80 (SepSetTokenSessionById.c)
+ *     SepSetTokenCapabilities @ 0x140710278 (SepSetTokenCapabilities.c)
+ *     SepSetTokenPackage @ 0x140739590 (SepSetTokenPackage.c)
+ *     RtlIsCapabilitySid @ 0x140740828 (RtlIsCapabilitySid.c)
+ *     RtlIsPackageSid @ 0x140740AA4 (RtlIsPackageSid.c)
+ *     RtlIsSandboxedToken @ 0x140741410 (RtlIsSandboxedToken.c)
+ *     SepRemoveDisabledGroupsAndPrivileges @ 0x14074380C (SepRemoveDisabledGroupsAndPrivileges.c)
+ *     SepSidInSidAndAttributes @ 0x1407439F8 (SepSidInSidAndAttributes.c)
+ *     SepSetLogonSessionToken @ 0x14079AF7C (SepSetLogonSessionToken.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ *     SepDuplicateTokenClaims @ 0x1408A1CFA (SepDuplicateTokenClaims.c)
+ *     SepModifyTokenPolicyCounter @ 0x1409C69B8 (SepModifyTokenPolicyCounter.c)
+ *     SepDuplicateTokenUserAndGroups @ 0x1409CC9C0 (SepDuplicateTokenUserAndGroups.c)
+ *     SepAddTokenLogonSession @ 0x1409CD020 (SepAddTokenLogonSession.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepFilterToken(
         __int64 a1,
         char a2,

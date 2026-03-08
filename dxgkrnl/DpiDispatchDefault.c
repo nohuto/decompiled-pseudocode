@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiDispatchDefault @ 0x1C005DFF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall DpiDispatchDefault(__int64 a1, IRP *a2)
 {
   __int64 v2; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMApplyDisplayOrientationToPointerProps @ 0x1C01BCF7C
+ * Callers:
+ *     RIMApplyTransforms @ 0x1C01BD0C8 (RIMApplyTransforms.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RIMApplyDisplayOrientationToPointerProps(int a1, unsigned int *a2)
 {
   __int64 result; // rax

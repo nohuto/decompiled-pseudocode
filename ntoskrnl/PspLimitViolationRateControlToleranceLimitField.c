@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspLimitViolationRateControlToleranceLimitField @ 0x1406F90B8
+ * Callers:
+ *     NtQueryInformationJobObject @ 0x1406F9480 (NtQueryInformationJobObject.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspLimitViolationRateControlToleranceLimitField(__int64 a1, int a2)
 {
   __int64 v2; // rax

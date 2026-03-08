@@ -1,3 +1,15 @@
+/*
+ * XREFs of IoWMIQuerySingleInstance @ 0x14069D0A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WmipQuerySetExecuteSI @ 0x14069C72C (WmipQuerySetExecuteSI.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall IoWMIQuerySingleInstance(
         PVOID DataBlockObject,
         PUNICODE_STRING InstanceName,

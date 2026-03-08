@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?wil_details_WriteSRUMWnfUsageBuffer@@YAJPEAV?$heap_vector@Uwil_details_FeatureUsageSRUM@@@details_abi@wil@@@Z @ 0x14000BB54
+ * Callers:
+ *     ?_lambda_invoker_cdecl_@_lambda_5035b992506f4af81a770c5842624510_@@CA@PEAU_TP_CALLBACK_INSTANCE@@PEAXPEAU_TP_TIMER@@@Z @ 0x140006D10 (-_lambda_invoker_cdecl_@_lambda_5035b992506f4af81a770c5842624510_@@CA@PEAU_TP_CALLBACK_INSTANCE@.c)
+ * Callees:
+ *     __security_check_cookie @ 0x140005510 (__security_check_cookie.c)
+ *     wil_details_NtQueryWnfStateData @ 0x140006E38 (wil_details_NtQueryWnfStateData.c)
+ *     wil_details_NtUpdateWnfStateData @ 0x140006ECC (wil_details_NtUpdateWnfStateData.c)
+ *     _alloca_probe @ 0x140007150 (_alloca_probe.c)
+ */
+
 __int64 __fastcall wil_details_WriteSRUMWnfUsageBuffer(__int64 *a1, __int64 a2, __int64 a3)
 {
   unsigned int WnfStateData; // ebx

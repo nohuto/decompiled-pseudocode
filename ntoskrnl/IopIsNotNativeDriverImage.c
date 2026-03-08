@@ -1,3 +1,19 @@
+/*
+ * XREFs of IopIsNotNativeDriverImage @ 0x1409420DC
+ * Callers:
+ *     IopCheckIfNotNativeDriver @ 0x140941674 (IopCheckIfNotNativeDriver.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x140412810 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x140412850 (ZwUnmapViewOfSection.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     ZwCreateSection @ 0x140412C50 (ZwCreateSection.c)
+ */
+
 bool __fastcall IopIsNotNativeDriverImage(UNICODE_STRING *a1)
 {
   bool v1; // bl

@@ -1,3 +1,37 @@
+/*
+ * XREFs of IopCloseFile @ 0x1407BACE0
+ * Callers:
+ *     IopParseDevice @ 0x1407B6A30 (IopParseDevice.c)
+ *     IopDeleteFile @ 0x1407BAF80 (IopDeleteFile.c)
+ *     IopCreateFile @ 0x1407CE5A0 (IopCreateFile.c)
+ * Callees:
+ *     IopGetFileObjectExtension @ 0x14023EB8C (IopGetFileObjectExtension.c)
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     IopSetLockOperationProcess @ 0x14023ED48 (IopSetLockOperationProcess.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     IopReleaseFileObjectLock @ 0x140267920 (IopReleaseFileObjectLock.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     IopCloseFileObjectExtension @ 0x140293FAC (IopCloseFileObjectExtension.c)
+ *     MmIsDriverVerifying @ 0x140303C10 (MmIsDriverVerifying.c)
+ *     IoFreeIrp @ 0x14030EC00 (IoFreeIrp.c)
+ *     IoGetAttachedDevice @ 0x14030EE00 (IoGetAttachedDevice.c)
+ *     IopDequeueIrpFromThread @ 0x14030F160 (IopDequeueIrpFromThread.c)
+ *     IopAllocateIrpMustSucceed @ 0x14030F2F0 (IopAllocateIrpMustSucceed.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IopCancelIrpsInFileObjectList @ 0x14030F360 (IopCancelIrpsInFileObjectList.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     IopQueueThreadIrp @ 0x140312720 (IopQueueThreadIrp.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406B5654 (IopWaitAndAcquireFileObjectLock.c)
+ *     IopCleanupProcessResources @ 0x14077B318 (IopCleanupProcessResources.c)
+ *     IopCleanupFileObjectIosbRange @ 0x140941770 (IopCleanupFileObjectIosbRange.c)
+ *     IopFreeBandwidthContract @ 0x14094E9BC (IopFreeBandwidthContract.c)
+ *     VfFastIoCheckState @ 0x140AC8204 (VfFastIoCheckState.c)
+ *     VfFastIoSnapState @ 0x140AC82DC (VfFastIoSnapState.c)
+ */
+
 void __fastcall IopCloseFile(__int64 a1, struct _FILE_OBJECT *a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // r10

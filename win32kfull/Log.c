@@ -1,3 +1,15 @@
+/*
+ * XREFs of Log @ 0x1C014B004
+ * Callers:
+ *     RaisePower @ 0x1C014B26A (RaisePower.c)
+ *     AdjustSrcDevGamma @ 0x1C0256104 (AdjustSrcDevGamma.c)
+ *     ComputeRGBLUTAA @ 0x1C0257424 (ComputeRGBLUTAA.c)
+ *     pDCIAdjClr @ 0x1C02583A8 (pDCIAdjClr.c)
+ * Callees:
+ *     FD6DivL @ 0x1C014AFC0 (FD6DivL.c)
+ *     FractionToMantissa @ 0x1C0255998 (FractionToMantissa.c)
+ */
+
 __int64 __fastcall Log(int a1)
 {
   int v2; // ebx

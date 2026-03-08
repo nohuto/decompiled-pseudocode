@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DestroyDeviceResources@CSharedDirect3DResources@CDrawListEntryBatch@@QEAAXXZ @ 0x180103974
+ * Callers:
+ *     ?DestroyDeviceResources@CDrawListBatchManager@@IEAAXXZ @ 0x1800D1140 (-DestroyDeviceResources@CDrawListBatchManager@@IEAAXXZ.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800E0830 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
+ */
+
 void __fastcall CDrawListEntryBatch::CSharedDirect3DResources::DestroyDeviceResources(
         CDrawListEntryBatch::CSharedDirect3DResources *this)
 {

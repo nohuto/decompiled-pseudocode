@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpCompareTwoCompressedNames @ 0x14076D7AC
+ * Callers:
+ *     CmpDoCompareKeyName @ 0x1407AE420 (CmpDoCompareKeyName.c)
+ *     CmpFindNameInListCellWithStatus @ 0x1407B3CA0 (CmpFindNameInListCellWithStatus.c)
+ *     CmpFindKcbInHashEntryByCompressedName @ 0x140A146E0 (CmpFindKcbInHashEntryByCompressedName.c)
+ *     CmpCompareKeysByName @ 0x140A1CA20 (CmpCompareKeysByName.c)
+ *     CmpSortedValueEnumStackValueCompareFunction @ 0x140A227E0 (CmpSortedValueEnumStackValueCompareFunction.c)
+ * Callees:
+ *     NLS_UPCASE @ 0x140267AD0 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ */
+
 __int64 __fastcall CmpCompareTwoCompressedNames(
         unsigned __int8 *a1,
         unsigned __int16 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InternalRelease@?$ComPtr@UIHotKeyClientStatics@Text@Internal@UI@Windows@@@WRL@Microsoft@@IEAAKXZ @ 0x14000C0B4
+ * Callers:
+ *     ?RuntimeClassInitialize@HotKeyCallback@@QEAAJXZ @ 0x14000C0EC (-RuntimeClassInitialize@HotKeyCallback@@QEAAJXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x140007200 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Microsoft::WRL::ComPtr<Windows::UI::Internal::Text::IHotKeyClientStatics>::InternalRelease(
         __int64 *a1)
 {

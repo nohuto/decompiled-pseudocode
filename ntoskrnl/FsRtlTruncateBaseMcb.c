@@ -1,3 +1,15 @@
+/*
+ * XREFs of FsRtlTruncateBaseMcb @ 0x1402D0170
+ * Callers:
+ *     FsRtlTruncateLargeMcb @ 0x1402D0130 (FsRtlTruncateLargeMcb.c)
+ * Callees:
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ *     FsRtlFindLargeIndex @ 0x1402D0B8C (FsRtlFindLargeIndex.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __stdcall FsRtlTruncateBaseMcb(PBASE_MCB Mcb, LONGLONG Vbn)
 {
   unsigned int v2; // edi

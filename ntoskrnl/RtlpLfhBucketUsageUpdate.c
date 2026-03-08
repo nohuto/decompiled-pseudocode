@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpLfhBucketUsageUpdate @ 0x14030C164
+ * Callers:
+ *     RtlpHpLfhBucketUpdateStats @ 0x14030BFE0 (RtlpHpLfhBucketUpdateStats.c)
+ * Callees:
+ *     <none>
+ */
+
 signed __int64 __fastcall RtlpLfhBucketUsageUpdate(__int64 a1, unsigned int a2, int a3)
 {
   __int64 v3; // r10

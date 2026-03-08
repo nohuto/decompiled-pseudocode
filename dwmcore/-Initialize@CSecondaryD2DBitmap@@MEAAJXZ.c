@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@CSecondaryD2DBitmap@@MEAAJXZ @ 0x1800ED370
+ * Callers:
+ *     ?Create@CSecondaryD2DBitmap@@SAJPEAVCD2DResourceManager@@UD2D_SIZE_U@@PEAUID3D11Texture2D@@AEBUD3D11_TEXTURE2D_DESC@@AEBUD2D1_BITMAP_PROPERTIES1@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@PEAPEAV1@@Z @ 0x1800ED060 (-Create@CSecondaryD2DBitmap@@SAJPEAVCD2DResourceManager@@UD2D_SIZE_U@@PEAUID3D11Texture2D@@AEBUD.c)
+ * Callees:
+ *     ?AddResource@CD2DResourceManager@@QEAAXPEAVCD2DResource@@@Z @ 0x1800EAB60 (-AddResource@CD2DResourceManager@@QEAAXPEAVCD2DResource@@@Z.c)
+ */
+
 __int64 __fastcall CSecondaryD2DBitmap::Initialize(CSecondaryD2DBitmap *this)
 {
   int v1; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CBrightnessEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C024DC20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CBrightnessEffectMarshaler::SetRemarshalingFlags(
         DirectComposition::CBrightnessEffectMarshaler *this)
 {

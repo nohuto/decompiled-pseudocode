@@ -1,3 +1,20 @@
+/*
+ * XREFs of AlpcpDoPortCleanup @ 0x140716E08
+ * Callers:
+ *     AlpcpClosePort @ 0x1407156B0 (AlpcpClosePort.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeReleaseSemaphore @ 0x140292210 (KeReleaseSemaphore.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeReleaseSemaphoreEx @ 0x14033E940 (KeReleaseSemaphoreEx.c)
+ *     AlpcpDisconnectPort @ 0x140716FA8 (AlpcpDisconnectPort.c)
+ *     AlpcpFlushResourcesPort @ 0x1407175F8 (AlpcpFlushResourcesPort.c)
+ *     AlpcpFlushMessagesPort @ 0x140717700 (AlpcpFlushMessagesPort.c)
+ *     AlpcpFreeCompletionList @ 0x1409766D0 (AlpcpFreeCompletionList.c)
+ */
+
 signed __int32 __fastcall AlpcpDoPortCleanup(__int64 a1)
 {
   volatile signed __int64 *v2; // rsi

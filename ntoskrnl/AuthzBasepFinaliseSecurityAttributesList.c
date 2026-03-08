@@ -1,3 +1,14 @@
+/*
+ * XREFs of AuthzBasepFinaliseSecurityAttributesList @ 0x140297A30
+ * Callers:
+ *     AuthzBasepSetSecurityAttributesToken @ 0x14029705C (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x1402976E0 (AuthzBasepDuplicateSecurityAttributes.c)
+ * Callees:
+ *     AuthzBasepCommitSecurityAttributeChanges @ 0x140297AA0 (AuthzBasepCommitSecurityAttributeChanges.c)
+ *     AuthzBasepRollbackSecurityAttributeChanges @ 0x14066C990 (AuthzBasepRollbackSecurityAttributeChanges.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 _QWORD *__fastcall AuthzBasepFinaliseSecurityAttributesList(__int64 a1, char a2)
 {
   _QWORD *v3; // rsi

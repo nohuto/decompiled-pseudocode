@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiCreateDescriptorPfns @ 0x140B373F4
+ * Callers:
+ *     MiSwitchToPfns @ 0x140B37268 (MiSwitchToPfns.c)
+ * Callees:
+ *     MiMarkPfnVerified @ 0x1402093BC (MiMarkPfnVerified.c)
+ *     MiLockAndDecrementShareCount @ 0x140210114 (MiLockAndDecrementShareCount.c)
+ *     MiGetContainingPageTable @ 0x140289FE0 (MiGetContainingPageTable.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiRestrictRangeToNode @ 0x140370AB4 (MiRestrictRangeToNode.c)
+ *     MiInitializeNewPfns @ 0x140370B10 (MiInitializeNewPfns.c)
+ *     MxCreateFreePfns @ 0x140B37690 (MxCreateFreePfns.c)
+ *     MxInsertEnclaveBootPages @ 0x140B96C30 (MxInsertEnclaveBootPages.c)
+ */
+
 char __fastcall MiCreateDescriptorPfns(__int64 a1, const __m128i *a2, const __m128i *a3)
 {
   ULONG_PTR v3; // rdi

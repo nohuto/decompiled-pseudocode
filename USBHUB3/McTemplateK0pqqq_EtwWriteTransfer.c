@@ -1,3 +1,18 @@
+/*
+ * XREFs of McTemplateK0pqqq_EtwWriteTransfer @ 0x1C000242C
+ * Callers:
+ *     HUBHTX_HubControlTransferComplete @ 0x1C0003330 (HUBHTX_HubControlTransferComplete.c)
+ *     HUBHTX_SendInterruptTransferComplete @ 0x1C0003CC0 (HUBHTX_SendInterruptTransferComplete.c)
+ *     HUBHTX_PortControlTransferComplete @ 0x1C0003E90 (HUBHTX_PortControlTransferComplete.c)
+ *     HUBHTX_ClearTtBufferControlTransferComplete @ 0x1C0006A80 (HUBHTX_ClearTtBufferControlTransferComplete.c)
+ *     HUBPARENT_ResetInterruptPipeComplete @ 0x1C0007900 (HUBPARENT_ResetInterruptPipeComplete.c)
+ *     HUBDTX_ControlTransferComplete @ 0x1C0029900 (HUBDTX_ControlTransferComplete.c)
+ *     FWUPDATE_HubVendorControlTransferComplete @ 0x1C00409D0 (FWUPDATE_HubVendorControlTransferComplete.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001680 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ */
+
 NTSTATUS McTemplateK0pqqq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, const GUID *a3, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-21h] BYREF

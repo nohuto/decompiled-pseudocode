@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiLockSwitchedMdlTrackerCompare @ 0x14061A560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiLockSwitchedMdlTrackerCompare(unsigned __int64 a1, __int64 a2)
 {
   unsigned __int64 v2; // r8

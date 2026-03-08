@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?BuildDynamicVideoPresentTargetChildRelations@DMMVIDEOPRESENTTARGETSET@@QEAAJIPEAKPEAIPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C03AE220
+ * Callers:
+ *     ?DmmBuildDynamicVideoPresentTargetChildRelations@@YAJPEAXIPEAKPEAIPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C03AD0A8 (-DmmBuildDynamicVideoPresentTargetChildRelations@@YAJPEAXIPEAKPEAIPEAW4_CONNECTION_CHANGE_FAILUR.c)
+ * Callees:
+ *     ?GetTargetById@DMMVIDEOPRESENTTARGETSET@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z @ 0x1C0009534 (-GetTargetById@DMMVIDEOPRESENTTARGETSET@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z.c)
+ *     _lambda_9913d0abb7c2ea8d45a858df1e180213_::operator() @ 0x1C03AE120 (_lambda_9913d0abb7c2ea8d45a858df1e180213_--operator().c)
+ *     _lambda_ed419e8dc31e70bbfd3394c14ddbfc24_::operator() @ 0x1C03AE1CC (_lambda_ed419e8dc31e70bbfd3394c14ddbfc24_--operator().c)
+ */
+
 __int64 __fastcall DMMVIDEOPRESENTTARGETSET::BuildDynamicVideoPresentTargetChildRelations(
         DMMVIDEOPRESENTTARGETSET *this,
         unsigned int a2,

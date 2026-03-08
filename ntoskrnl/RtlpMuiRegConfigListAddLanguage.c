@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpMuiRegConfigListAddLanguage @ 0x140A7185C
+ * Callers:
+ *     RtlpPopulateLanguageConfigList @ 0x14084413C (RtlpPopulateLanguageConfigList.c)
+ * Callees:
+ *     RtlpMuiRegResizeLanguageConfigList @ 0x140A7233C (RtlpMuiRegResizeLanguageConfigList.c)
+ */
+
 __int64 __fastcall RtlpMuiRegConfigListAddLanguage(__int64 *a1, __int16 *a2)
 {
   unsigned int v2; // ebx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?D2DMatrixInverse@@YAPEAUD2DMatrix@@PEAU1@PEAMPEBU1@@Z @ 0x180279A80
+ * Callers:
+ *     ?ConvertGlobalMotionToLocalMotion@CInteractionProcessor@@AEAA?AUD2DVector3@@AEBUInteractionMotion@@AEBUD2DMatrix@@PEAU4@2@Z @ 0x1801AAAFC (-ConvertGlobalMotionToLocalMotion@CInteractionProcessor@@AEAA-AUD2DVector3@@AEBUInteractionMotio.c)
+ *     ?GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ @ 0x1802391F0 (-GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ.c)
+ *     ?Inverse@CExpressionValueStack@@QEAAJXZ @ 0x18025A190 (-Inverse@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?ChangeBasis@CVector3ForceEvaluator@@QEAAXAEBUD2DMatrix@@@Z @ 0x180273A34 (-ChangeBasis@CVector3ForceEvaluator@@QEAAXAEBUD2DMatrix@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct D2DMatrix *__fastcall D2DMatrixInverse(struct D2DMatrix *a1, float *a2, const struct D2DMatrix *a3)
 {
   float v4; // xmm3_4

@@ -1,3 +1,30 @@
+/*
+ * XREFs of EtwpLogSystemEventUnsafe @ 0x14036F9F8
+ * Callers:
+ *     NtTraceEvent @ 0x140230D30 (NtTraceEvent.c)
+ *     EtwpTraceThreadRundown @ 0x14036FE60 (EtwpTraceThreadRundown.c)
+ *     EtwpLogRegistryEvent @ 0x1408A24EC (EtwpLogRegistryEvent.c)
+ *     EtwpSetMark @ 0x1409E3AC0 (EtwpSetMark.c)
+ * Callees:
+ *     EtwpOpenLogger @ 0x140205B30 (EtwpOpenLogger.c)
+ *     EtwpReleaseTraceBuffer @ 0x140205BD8 (EtwpReleaseTraceBuffer.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwpUpdateEventsLostCount @ 0x1402FAD84 (EtwpUpdateEventsLostCount.c)
+ *     EtwpGetReserveTraceBufferStatus @ 0x1402FF40C (EtwpGetReserveTraceBufferStatus.c)
+ *     EtwpReserveTraceBuffer @ 0x1403151E0 (EtwpReserveTraceBuffer.c)
+ *     EtwpCopyEventData @ 0x14036FDD8 (EtwpCopyEventData.c)
+ *     EtwpSendTraceEvent @ 0x14039D2E8 (EtwpSendTraceEvent.c)
+ *     EtwpCloseLogger @ 0x1403BC590 (EtwpCloseLogger.c)
+ *     EtwpTraceLostSystemEventOld @ 0x14040C628 (EtwpTraceLostSystemEventOld.c)
+ *     Feature_Servicing_PropagateFlagsThroughLostSystemEvent__private_IsEnabledDeviceUsage @ 0x14040C8BC (Feature_Servicing_PropagateFlagsThroughLostSystemEvent__private_IsEnabledDeviceUsage.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpStackTraceDispatcher @ 0x140460750 (EtwpStackTraceDispatcher.c)
+ *     EtwpTraceLastBranchRecord @ 0x140461546 (EtwpTraceLastBranchRecord.c)
+ *     EtwpTraceLostSystemEvent @ 0x1405FA2E0 (EtwpTraceLostSystemEvent.c)
+ *     EtwpInvokeEventCallback @ 0x1405FEBA4 (EtwpInvokeEventCallback.c)
+ *     EtwpTraceProcessorTrace @ 0x140600834 (EtwpTraceProcessorTrace.c)
+ */
+
 __int64 __fastcall EtwpLogSystemEventUnsafe(
         __int64 a1,
         __int64 a2,

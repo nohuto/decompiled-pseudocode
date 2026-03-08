@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpExceptionHandler @ 0x140421660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpExceptionHandler(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBCONNECTOR_MapIntegratedHubPorts @ 0x1C0082838
+ * Callers:
+ *     HUBCONNECTOR_MapHubPorts @ 0x1C0082A18 (HUBCONNECTOR_MapHubPorts.c)
+ * Callees:
+ *     HUBCONNECTOR_RegisterPort @ 0x1C0081CF0 (HUBCONNECTOR_RegisterPort.c)
+ */
+
 __int64 __fastcall HUBCONNECTOR_MapIntegratedHubPorts(__int64 a1)
 {
   __int64 result; // rax

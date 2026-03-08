@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CurrentProcessHasIncreasedPriorityPrivileges@@YA_NXZ @ 0x1800D0D70
+ * Callers:
+ *     ?CreateD3D11Device@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAW4D3D_FEATURE_LEVEL@@PEAW4_QAI_DRIVERVERSION@@PEAT_LARGE_INTEGER@@PEAPEAUID3D11Device1@@@Z @ 0x1800CE934 (-CreateD3D11Device@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAW4D3D_FEATURE_LEVEL@@PEAW4_QAI_DRIVERVERS.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ */
+
 char CurrentProcessHasIncreasedPriorityPrivileges(void)
 {
   HANDLE CurrentProcess; // rax

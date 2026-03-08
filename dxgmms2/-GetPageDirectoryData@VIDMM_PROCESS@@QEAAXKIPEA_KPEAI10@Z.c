@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPageDirectoryData@VIDMM_PROCESS@@QEAAXKIPEA_KPEAI10@Z @ 0x1C00C440A
+ * Callers:
+ *     VidSchiEnsureRootPageTableUpdated @ 0x1C00C4DE4 (VidSchiEnsureRootPageTableUpdated.c)
+ * Callees:
+ *     ?GetPageDirectoryData@CVirtualAddressAllocator@@QEBAXIPEA_KPEAI10@Z @ 0x1C00C3138 (-GetPageDirectoryData@CVirtualAddressAllocator@@QEBAXIPEA_KPEAI10@Z.c)
+ */
+
 void __fastcall VIDMM_PROCESS::GetPageDirectoryData(
         VIDMM_PROCESS *this,
         unsigned int a2,

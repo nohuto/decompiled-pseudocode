@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PnpEventFinal@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C006A840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PnpProcessEvent@FxPkgPnp@@QEAAXW4FxPnpEvent@@E@Z @ 0x1C006BE64 (-PnpProcessEvent@FxPkgPnp@@QEAAXW4FxPnpEvent@@E@Z.c)
+ *     ?SetDelayedDeletion@FxEventQueue@@QEAAXXZ @ 0x1C00814A0 (-SetDelayedDeletion@FxEventQueue@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall FxPkgPnp::PnpEventFinal(FxPkgPnp *This, __int64 a2, unsigned __int8 a3)
 {
   $2577F5D74A6AFCBEE1DF62E423AAEAA5 *v3; // rdi

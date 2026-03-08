@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBID_BuildDeviceCompatibleID @ 0x1C001E220
+ * Callers:
+ *     HUBID_BuildCompatibleID @ 0x1C001E9A8 (HUBID_BuildCompatibleID.c)
+ * Callees:
+ *     RtlUnicodeStringPrintf @ 0x1C000C4DC (RtlUnicodeStringPrintf.c)
+ *     HUBID_AssignIDString @ 0x1C001DBCC (HUBID_AssignIDString.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ */
+
 int __fastcall HUBID_BuildDeviceCompatibleID(__int64 a1, __int64 a2, _OWORD *a3)
 {
   unsigned int v5; // esi

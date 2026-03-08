@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ResetMouseHover@@YAXPEAUtagDESKTOP@@UtagPOINT@@@Z @ 0x1C0143AD6
+ * Callers:
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00725D0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     TrackMouseEvent @ 0x1C00E01E4 (TrackMouseEvent.c)
+ * Callees:
+ *     _SetSystemTimer @ 0x1C0006384 (_SetSystemTimer.c)
+ */
+
 void __fastcall ResetMouseHover(struct tagDESKTOP *a1, struct tagPOINT a2)
 {
   LONG x; // ebx

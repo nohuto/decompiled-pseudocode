@@ -1,3 +1,23 @@
+/*
+ * XREFs of CMFCheckAccess @ 0x1409FECA4
+ * Callers:
+ *     NtMapCMFModule @ 0x140A005D0 (NtMapCMFModule.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     SeAccessCheck @ 0x140265330 (SeAccessCheck.c)
+ *     SepDeleteAccessState @ 0x140265F50 (SepDeleteAccessState.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SeCreateAccessState @ 0x1406991A0 (SeCreateAccessState.c)
+ *     SeUnlockSubjectContext @ 0x140699470 (SeUnlockSubjectContext.c)
+ *     SeLockSubjectContext @ 0x1406994B0 (SeLockSubjectContext.c)
+ *     SeAppendPrivileges @ 0x140761800 (SeAppendPrivileges.c)
+ *     SePrivilegeCheck @ 0x1407B9710 (SePrivilegeCheck.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     CMFCreateSecurityDescriptor @ 0x1409FEF0C (CMFCreateSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CMFCheckAccess(__int64 a1, int a2, KPROCESSOR_MODE a3)
 {
   unsigned int v6; // edi

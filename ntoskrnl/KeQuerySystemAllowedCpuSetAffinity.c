@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeQuerySystemAllowedCpuSetAffinity @ 0x140236F18
+ * Callers:
+ *     KeResumeClockTimerFromIdle @ 0x14022E860 (KeResumeClockTimerFromIdle.c)
+ *     PpmParkSteerInterrupts @ 0x1402341D0 (PpmParkSteerInterrupts.c)
+ *     PpmCheckContinueExecution @ 0x140236E60 (PpmCheckContinueExecution.c)
+ * Callees:
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     RtlBeginReadTickLock @ 0x140236FBC (RtlBeginReadTickLock.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall KeQuerySystemAllowedCpuSetAffinity(unsigned __int16 *a1, __int64 *a2)
 {
   __int64 result; // rax

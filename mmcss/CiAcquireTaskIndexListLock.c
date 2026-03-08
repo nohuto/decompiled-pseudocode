@@ -1,3 +1,11 @@
+/*
+ * XREFs of CiAcquireTaskIndexListLock @ 0x1C000B660
+ * Callers:
+ *     CiTaskIndexDereference @ 0x1C00021B0 (CiTaskIndexDereference.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _KTHREAD *CiAcquireTaskIndexListLock()
 {
   struct _KTHREAD *result; // rax

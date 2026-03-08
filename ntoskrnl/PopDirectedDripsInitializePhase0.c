@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopDirectedDripsInitializePhase0 @ 0x140B6E9FC
+ * Callers:
+ *     PopInitializeDirectedDrips @ 0x140B46FF8 (PopInitializeDirectedDrips.c)
+ * Callees:
+ *     PopInitializeWorkItem @ 0x14080FA3C (PopInitializeWorkItem.c)
+ *     PopDirectedDripsInitializeDisengageTimer @ 0x14085CDF4 (PopDirectedDripsInitializeDisengageTimer.c)
+ *     PopDirectedDripsUmInitialize @ 0x14085CE30 (PopDirectedDripsUmInitialize.c)
+ *     PopDirectedDripsDiagInitialize @ 0x140B4407C (PopDirectedDripsDiagInitialize.c)
+ */
+
 void PopDirectedDripsInitializePhase0()
 {
   qword_140C3EE08 = 0LL;

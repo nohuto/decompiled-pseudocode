@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopTraceThermalZoneActiveActivity @ 0x1405938C0
+ * Callers:
+ *     PopThermalSxEntry @ 0x14058D7A8 (PopThermalSxEntry.c)
+ *     PopThermalTelemetryWorker @ 0x14058DAF0 (PopThermalTelemetryWorker.c)
+ *     PopThermalZoneRemove @ 0x140988010 (PopThermalZoneRemove.c)
+ * Callees:
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140240954 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x140244050 (_tlgCreate1Sz_wchar_t.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopDiagSnapActiveActivity @ 0x14058F46C (PopDiagSnapActiveActivity.c)
+ */
+
 void *__fastcall PopTraceThermalZoneActiveActivity(__int64 a1)
 {
   __int64 v2; // rcx

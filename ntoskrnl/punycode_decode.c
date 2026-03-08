@@ -1,3 +1,15 @@
+/*
+ * XREFs of punycode_decode @ 0x1409BC720
+ * Callers:
+ *     RtlpIdnToUnicodeWorker @ 0x1405AD830 (RtlpIdnToUnicodeWorker.c)
+ * Callees:
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ *     FindLabelEnd @ 0x1405AD798 (FindLabelEnd.c)
+ *     InsertChar @ 0x1405AD808 (InsertChar.c)
+ *     ValidateStd3Range @ 0x1405ADE48 (ValidateStd3Range.c)
+ *     adapt @ 0x1405ADE84 (adapt.c)
+ */
+
 __int64 __fastcall punycode_decode(
         wchar_t *Str1,
         int a2,

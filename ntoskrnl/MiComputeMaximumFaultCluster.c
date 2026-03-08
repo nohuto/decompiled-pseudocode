@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiComputeMaximumFaultCluster @ 0x14026AFC0
+ * Callers:
+ *     MiDispatchFault @ 0x14026A900 (MiDispatchFault.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     MiFaultListPagesRemaining @ 0x1402DFDD8 (MiFaultListPagesRemaining.c)
+ *     KiRspInIstStack @ 0x1402EDCB0 (KiRspInIstStack.c)
+ *     MiUnlockVadTree @ 0x140330EC8 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x1403334B4 (MiLockVadTree.c)
+ */
+
 __int64 __fastcall MiComputeMaximumFaultCluster(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // r11

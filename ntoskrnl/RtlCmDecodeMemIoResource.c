@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlCmDecodeMemIoResource @ 0x1403706C0
+ * Callers:
+ *     HalpDmaGetReservedRegionsForHybridPassthroughDomain @ 0x140510488 (HalpDmaGetReservedRegionsForHybridPassthroughDomain.c)
+ *     PnpFilterResourceRequirementsList @ 0x140803FE4 (PnpFilterResourceRequirementsList.c)
+ *     PnpIsRangeWithin @ 0x1408049A4 (PnpIsRangeWithin.c)
+ *     PnpCmResourcesToIoResources @ 0x140804A84 (PnpCmResourcesToIoResources.c)
+ *     IopGenericUnpackResource @ 0x140956F10 (IopGenericUnpackResource.c)
+ *     PnprAddMemoryResources @ 0x140962664 (PnprAddMemoryResources.c)
+ * Callees:
+ *     <none>
+ */
+
 ULONGLONG __stdcall RtlCmDecodeMemIoResource(PCM_PARTIAL_RESOURCE_DESCRIPTOR Descriptor, PULONGLONG Start)
 {
   ULONGLONG Length; // r8

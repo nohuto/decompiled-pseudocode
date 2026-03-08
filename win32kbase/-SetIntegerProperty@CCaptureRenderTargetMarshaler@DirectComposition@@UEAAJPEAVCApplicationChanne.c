@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetIntegerProperty@CCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C026CDA0
+ * Callers:
+ *     ?SetIntegerProperty@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C026D270 (-SetIntegerProperty@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApp.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CCaptureRenderTargetMarshaler::SetIntegerProperty(
         DirectComposition::CCaptureRenderTargetMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

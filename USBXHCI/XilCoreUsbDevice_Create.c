@@ -1,3 +1,13 @@
+/*
+ * XREFs of XilCoreUsbDevice_Create @ 0x1C001BA28
+ * Callers:
+ *     XilUsbDevice_Create @ 0x1C001BB24 (XilUsbDevice_Create.c)
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     XilCommonBuffer_AcquireBufferEx @ 0x1C001BAFC (XilCommonBuffer_AcquireBufferEx.c)
+ *     XilCoreUsbDevice_FreeResources @ 0x1C0052FC4 (XilCoreUsbDevice_FreeResources.c)
+ */
+
 __int64 __fastcall XilCoreUsbDevice_Create(__int64 a1, char a2, __int64 a3, int a4)
 {
   char v5; // si

@@ -1,3 +1,17 @@
+/*
+ * XREFs of ObpLookupDirectoryEntry @ 0x14076161C
+ * Callers:
+ *     ObpCreateSymbolicLinkName @ 0x1407612D4 (ObpCreateSymbolicLinkName.c)
+ *     ObpCloseHandle @ 0x1407C2500 (ObpCloseHandle.c)
+ *     ObpDeleteNameCheck @ 0x1407D85E0 (ObpDeleteNameCheck.c)
+ *     ObCreateObjectTypeEx @ 0x14080CB20 (ObCreateObjectTypeEx.c)
+ *     ObInitSystem @ 0x140B403CC (ObInitSystem.c)
+ * Callees:
+ *     NLS_UPCASE @ 0x140267AD0 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     ObpLookupDirectoryUsingHash @ 0x14076174C (ObpLookupDirectoryUsingHash.c)
+ */
+
 __int64 __fastcall ObpLookupDirectoryEntry(unsigned __int16 *a1, unsigned int a2, __int64 *a3)
 {
   unsigned __int16 *v4; // rdi

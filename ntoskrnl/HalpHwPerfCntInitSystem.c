@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpHwPerfCntInitSystem @ 0x140A8DE90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpInitializeUncoreProfiling @ 0x1403A5450 (HalpInitializeUncoreProfiling.c)
+ *     HalpCompleteInitializeProfiling @ 0x140A8DF2C (HalpCompleteInitializeProfiling.c)
+ *     HalpInitializeProfiling @ 0x140A8DF54 (HalpInitializeProfiling.c)
+ *     HalpInitializePmcCounterSetInfo @ 0x140B3D3DC (HalpInitializePmcCounterSetInfo.c)
+ */
+
 __int64 __fastcall HalpHwPerfCntInitSystem(int a1, unsigned int a2)
 {
   switch ( a1 )

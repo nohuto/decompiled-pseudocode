@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SearchProcessHidRequest@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESSINFO@@GGPEAK@Z @ 0x1C00D5DF8
+ * Callers:
+ *     DestroyThreadHidObjects @ 0x1C00D5730 (DestroyThreadHidObjects.c)
+ *     _RegisterRawInputDevices @ 0x1C00D5AC8 (_RegisterRawInputDevices.c)
+ * Callees:
+ *     ?SearchProcessHidRequestInclusion@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@GG@Z @ 0x1C00D5E58 (-SearchProcessHidRequestInclusion@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@GG@Z.c)
+ */
+
 struct tagPROCESS_HID_REQUEST *__fastcall SearchProcessHidRequest(
         struct tagPROCESSINFO *a1,
         unsigned __int16 a2,

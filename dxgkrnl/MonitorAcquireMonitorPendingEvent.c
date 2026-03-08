@@ -1,3 +1,14 @@
+/*
+ * XREFs of MonitorAcquireMonitorPendingEvent @ 0x1C03BF0BC
+ * Callers:
+ *     ?DxgkWaitForMonitorEventDoneInternal@@YAJPEAVDXGADAPTER@@@Z @ 0x1C02CA740 (-DxgkWaitForMonitorEventDoneInternal@@YAJPEAVDXGADAPTER@@@Z.c)
+ *     ?PollDisplayChildrenForAdapter@@YAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02CAC10 (-PollDisplayChildrenForAdapter@@YAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_.c)
+ *     ?PollDisplayChildrenAll@DXGGLOBAL@@QEAAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C030EE50 (-PollDisplayChildrenAll@DXGGLOBAL@@QEAAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCEN.c)
+ * Callees:
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00070C4 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?_AcquireMonitorPendingEvent@MONITOR_MGR@@QEAAPEAU_MONITOR_PENDING_EVENT@@XZ @ 0x1C006AEF4 (-_AcquireMonitorPendingEvent@MONITOR_MGR@@QEAAPEAU_MONITOR_PENDING_EVENT@@XZ.c)
+ */
+
 __int64 __fastcall MonitorAcquireMonitorPendingEvent(
         DXGADAPTER *this,
         struct _MONITOR_PENDING_EVENT **a2,

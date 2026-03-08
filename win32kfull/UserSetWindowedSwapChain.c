@@ -1,3 +1,19 @@
+/*
+ * XREFs of UserSetWindowedSwapChain @ 0x1C021EFC8
+ * Callers:
+ *     UserSetWindowedSwapChainApiExt @ 0x1C014A530 (UserSetWindowedSwapChainApiExt.c)
+ * Callees:
+ *     CreateVisRgnTracker @ 0x1C00287F0 (CreateVisRgnTracker.c)
+ *     IsWindowBeingDestroyed @ 0x1C0039B60 (IsWindowBeingDestroyed.c)
+ *     ?SetProp@CWindowProp@@QEAAHPEAUtagWND@@@Z @ 0x1C00469D0 (-SetProp@CWindowProp@@QEAAHPEAUtagWND@@@Z.c)
+ *     ??$GetProp@VCSwapChainProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCSwapChainProp@@@Z @ 0x1C007D6D4 (--$GetProp@VCSwapChainProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCSwapChainProp@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ?ClearCompositionSurfaceObj@CSwapChainProp@@QEAAHXZ @ 0x1C021ECCC (-ClearCompositionSurfaceObj@CSwapChainProp@@QEAAHXZ.c)
+ *     ?CreateSwapChainProp@CSwapChainProp@@SAHPEAXPEAPEAV1@@Z @ 0x1C021ED10 (-CreateSwapChainProp@CSwapChainProp@@SAHPEAXPEAPEAV1@@Z.c)
+ *     ?NotifyDwm@CSwapChainProp@@QEAAHQEAUtagWND@@@Z @ 0x1C021EDEC (-NotifyDwm@CSwapChainProp@@QEAAHQEAUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall UserSetWindowedSwapChain(__int64 a1, int a2, __int64 a3)
 {
   unsigned int v6; // edi

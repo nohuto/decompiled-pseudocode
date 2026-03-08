@@ -1,3 +1,17 @@
+/*
+ * XREFs of KeAllocateProcessorProfileStructures @ 0x1403A4C70
+ * Callers:
+ *     EmonCompleteInitializeProfiling @ 0x140A8DD80 (EmonCompleteInitializeProfiling.c)
+ * Callees:
+ *     KiIsIntelPebsSupported @ 0x1403A4E30 (KiIsIntelPebsSupported.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmCreateShadowMapping @ 0x14080B624 (MmCreateShadowMapping.c)
+ *     MmAllocateIndependentPages @ 0x140869AC0 (MmAllocateIndependentPages.c)
+ *     MmFreeIndependentPages @ 0x14087B250 (MmFreeIndependentPages.c)
+ *     MmDeleteShadowMapping @ 0x140A39B58 (MmDeleteShadowMapping.c)
+ */
+
 __int64 __fastcall KeAllocateProcessorProfileStructures(
         unsigned int a1,
         __int64 a2,

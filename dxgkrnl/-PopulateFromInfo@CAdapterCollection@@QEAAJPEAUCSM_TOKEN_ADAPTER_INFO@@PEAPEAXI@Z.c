@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?PopulateFromInfo@CAdapterCollection@@QEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C0018FD8
+ * Callers:
+ *     ?InitAdapterCollection@CTokenManager@@IEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C00187A4 (-InitAdapterCollection@CTokenManager@@IEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
+ * Callees:
+ *     ?Release@CPushLockCriticalSection@@QEAAXXZ @ 0x1C0018BE8 (-Release@CPushLockCriticalSection@@QEAAXXZ.c)
+ *     ?Create@CAdapter@@SAJAEBUCSM_TOKEN_ADAPTER_INFO@@IPEAPEAV1@@Z @ 0x1C00190BC (-Create@CAdapter@@SAJAEBUCSM_TOKEN_ADAPTER_INFO@@IPEAPEAV1@@Z.c)
+ *     ?InternalDiscard@CAdapterCollection@@AEAAXXZ @ 0x1C00192B0 (-InternalDiscard@CAdapterCollection@@AEAAXXZ.c)
+ */
+
 __int64 __fastcall CAdapterCollection::PopulateFromInfo(
         CAdapterCollection *this,
         struct CSM_TOKEN_ADAPTER_INFO *a2,

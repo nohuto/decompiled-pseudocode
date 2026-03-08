@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheapWmiExecuteErrorSourceMethod @ 0x140611798
+ * Callers:
+ *     WheapWmiExecuteMethod @ 0x140611BB0 (WheapWmiExecuteMethod.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     WheapGetErrorSource @ 0x14060EAE8 (WheapGetErrorSource.c)
+ */
+
 __int64 __fastcall WheapWmiExecuteErrorSourceMethod(
         int a1,
         unsigned int a2,

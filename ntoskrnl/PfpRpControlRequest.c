@@ -1,3 +1,15 @@
+/*
+ * XREFs of PfpRpControlRequest @ 0x1407DFB68
+ * Callers:
+ *     PfSetSuperfetchInformation @ 0x1407E2A94 (PfSetSuperfetchInformation.c)
+ * Callees:
+ *     PfpRpControlRequestVerify @ 0x14035ABD0 (PfpRpControlRequestVerify.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PfpRpControlRequestCopy @ 0x1407DF940 (PfpRpControlRequestCopy.c)
+ *     PfpRpControlRequestPerform @ 0x1407DFC34 (PfpRpControlRequestPerform.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfpRpControlRequest(__int64 a1, char a2)
 {
   unsigned int v3; // edx

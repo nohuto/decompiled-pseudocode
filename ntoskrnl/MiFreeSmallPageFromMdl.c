@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiFreeSmallPageFromMdl @ 0x140620DF0
+ * Callers:
+ *     MiFreeSecureKernelPage @ 0x1406543B4 (MiFreeSecureKernelPage.c)
+ * Callees:
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     MiIsPfnEnclave @ 0x1402C11E0 (MiIsPfnEnclave.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiFreeSmallPageFromMdl(ULONG_PTR a1, char a2, char a3, __int64 a4)
 {
   __int64 v7; // r13

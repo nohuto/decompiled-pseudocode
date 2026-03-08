@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCreateFreePfns @ 0x140B37598
+ * Callers:
+ *     MiSwitchToPfns @ 0x140B37268 (MiSwitchToPfns.c)
+ * Callees:
+ *     MxReleaseFreeDescriptor @ 0x140B371A0 (MxReleaseFreeDescriptor.c)
+ *     MxCreateFreePfns @ 0x140B37690 (MxCreateFreePfns.c)
+ */
+
 __int64 __fastcall MiCreateFreePfns(__int128 *a1)
 {
   __int128 *v2; // rcx

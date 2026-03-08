@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?TransformToDifferentScope@CCpuClippingData@@QEBA_NPEAV1@AEBVCMILMatrix@@1@Z @ 0x180022224
+ * Callers:
+ *     ?BeginFrame@CSubDrawingContext@@AEAAJAEBVCMILMatrix@@@Z @ 0x180021404 (-BeginFrame@CSubDrawingContext@@AEAAJAEBVCMILMatrix@@@Z.c)
+ * Callees:
+ *     ??$?4U?$default_delete@VCMILMatrix@@@std@@$0A@@?$unique_ptr@VCMILMatrix@@U?$default_delete@VCMILMatrix@@@std@@@std@@QEAAAEAV01@$$QEAV01@@Z @ 0x180022308 (--$-4U-$default_delete@VCMILMatrix@@@std@@$0A@@-$unique_ptr@VCMILMatrix@@U-$default_delete@VCMIL.c)
+ *     ??$make_unique@VCMILMatrix@@$$V$0A@@std@@YA?AV?$unique_ptr@VCMILMatrix@@U?$default_delete@VCMILMatrix@@@std@@@0@XZ @ 0x18002233C (--$make_unique@VCMILMatrix@@$$V$0A@@std@@YA-AV-$unique_ptr@VCMILMatrix@@U-$default_delete@VCMILM.c)
+ *     ?CalcScopeTransformFromWorld@CCpuClippingData@@SA_NAEBVCMILMatrix@@0PEAV2@@Z @ 0x180022370 (-CalcScopeTransformFromWorld@CCpuClippingData@@SA_NAEBVCMILMatrix@@0PEAV2@@Z.c)
+ *     ?IsScopePreservingTransform@CCpuClippingData@@CA_NAEBVCMILMatrix@@@Z @ 0x1800DFED0 (-IsScopePreservingTransform@CCpuClippingData@@CA_NAEBVCMILMatrix@@@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ */
+
 bool __fastcall CCpuClippingData::TransformToDifferentScope(
         CCpuClippingData *this,
         struct CCpuClippingData *a2,

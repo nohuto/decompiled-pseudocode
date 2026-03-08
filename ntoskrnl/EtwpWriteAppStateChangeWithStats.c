@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpWriteAppStateChangeWithStats @ 0x1407E69B4
+ * Callers:
+ *     EtwTraceAppStateChange @ 0x1407E8520 (EtwTraceAppStateChange.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetProcessStartKey @ 0x1402993E0 (PsGetProcessStartKey.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void EtwpWriteAppStateChangeWithStats()
 {
   __int64 v0; // r9

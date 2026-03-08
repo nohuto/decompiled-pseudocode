@@ -1,3 +1,11 @@
+/*
+ * XREFs of AslpFileMakeBinVersionAttributes @ 0x1407A042C
+ * Callers:
+ *     AslpFileGetVersionAttributes @ 0x1407A0DEC (AslpFileGetVersionAttributes.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AslpFileMakeBinVersionAttributes(__int64 a1, _DWORD *a2)
 {
   __int64 v2; // r9

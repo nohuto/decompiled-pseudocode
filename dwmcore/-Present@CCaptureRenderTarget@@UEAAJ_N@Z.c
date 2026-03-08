@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?Present@CCaptureRenderTarget@@UEAAJ_N@Z @ 0x1801EA24C
+ * Callers:
+ *     ?Present@CCaptureRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z @ 0x1801188D0 (-Present@CCaptureRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z.c)
+ *     ?Present@CCaptureRenderTarget@@$4PPPPPPPM@FA@EAAJ_N@Z @ 0x1801188F0 (-Present@CCaptureRenderTarget@@$4PPPPPPPM@FA@EAAJ_N@Z.c)
+ * Callees:
+ *     ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x1800733C4 (-TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetCurrentFrameBuffer@CCaptureRenderTarget@@IEAAPEAUIDXGIResource@@XZ @ 0x1801EA070 (-GetCurrentFrameBuffer@CCaptureRenderTarget@@IEAAPEAUIDXGIResource@@XZ.c)
+ *     ?GetD3DDeviceNoRef@CDeviceManager@CCaptureRenderTarget@@QEAAPEAVCD3DDevice@@AEBU_LUID@@PEAUIFlipProducer@@@Z @ 0x1801EA094 (-GetD3DDeviceNoRef@CDeviceManager@CCaptureRenderTarget@@QEAAPEAVCD3DDevice@@AEBU_LUID@@PEAUIFlip.c)
+ */
+
 __int64 __fastcall CCaptureRenderTarget::Present(struct CD3DDevice **this)
 {
   CCaptureRenderTarget *v2; // rsi

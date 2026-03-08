@@ -1,3 +1,15 @@
+/*
+ * XREFs of OSInterface @ 0x1C0057DA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     _stricmp_0 @ 0x1C0001AF7 (_stricmp_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     IsCompatableDSDTRevision @ 0x1C004BE28 (IsCompatableDSDTRevision.c)
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ */
+
 __int64 __fastcall OSInterface(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdx

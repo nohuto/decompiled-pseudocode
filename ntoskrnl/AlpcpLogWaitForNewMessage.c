@@ -1,3 +1,16 @@
+/*
+ * XREFs of AlpcpLogWaitForNewMessage @ 0x140977588
+ * Callers:
+ *     AlpcpReceiveMessagePort @ 0x1407CD3A0 (AlpcpReceiveMessagePort.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AlpcpGetPortNameInformation @ 0x140976020 (AlpcpGetPortNameInformation.c)
+ *     AlpcpInvokeLogCallbacks @ 0x1409771E8 (AlpcpInvokeLogCallbacks.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall AlpcpLogWaitForNewMessage(__int64 a1)
 {
   const void **v1; // rbx

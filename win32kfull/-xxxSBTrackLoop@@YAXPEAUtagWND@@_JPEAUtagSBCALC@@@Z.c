@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z @ 0x1C022C64C
+ * Callers:
+ *     xxxSBTrackInit @ 0x1C022D18C (xxxSBTrackInit.c)
+ * Callees:
+ *     SystoChar @ 0x1C000BD84 (SystoChar.c)
+ *     xxxDispatchMessage @ 0x1C0038064 (xxxDispatchMessage.c)
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ *     xxxInternalGetMessage @ 0x1C00946B0 (xxxInternalGetMessage.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     xxxTranslateMessage @ 0x1C00E4F1C (xxxTranslateMessage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     xxxCallMsgFilter @ 0x1C014538E (xxxCallMsgFilter.c)
+ */
+
 void __fastcall xxxSBTrackLoop(struct tagWND *a1, __int64 a2, struct tagSBCALC *a3)
 {
   __int64 v6; // rdi

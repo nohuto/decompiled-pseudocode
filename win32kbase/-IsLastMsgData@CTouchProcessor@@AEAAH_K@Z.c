@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsLastMsgData@CTouchProcessor@@AEAAH_K@Z @ 0x1C00F2CD4
+ * Callers:
+ *     ?UpdateThreadPointerList@CTouchProcessor@@QEAAXPEAUtagTHREADINPUTPOINTERLIST@@G@Z @ 0x1C0092B70 (-UpdateThreadPointerList@CTouchProcessor@@QEAAXPEAUtagTHREADINPUTPOINTERLIST@@G@Z.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?GetNonConstMsgData@CTouchProcessor@@AEAAPEAUCPointerMsgData@@_K@Z @ 0x1C01F6280 (-GetNonConstMsgData@CTouchProcessor@@AEAAPEAUCPointerMsgData@@_K@Z.c)
+ */
+
 __int64 __fastcall CTouchProcessor::IsLastMsgData(CTouchProcessor *this, unsigned __int64 a2)
 {
   unsigned int v3; // edi

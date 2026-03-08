@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?Initialize@CManipulationManager@@IEAAJXZ @ 0x1800CAB14
+ * Callers:
+ *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800AE4F0 (-Initialize@CComposition@@MEAAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CreateManipulationThread@CManipulationManager@@IEAAJXZ @ 0x1800CAC38 (-CreateManipulationThread@CManipulationManager@@IEAAJXZ.c)
+ *     ?SetupMessageCallThreadInfo@CManipulationManager@@IEAAJPEAUIMessageSession@@P6AJPEAXPEBXH@ZPEAUMessageCallThreadInfo@1@@Z @ 0x1800CAF6C (-SetupMessageCallThreadInfo@CManipulationManager@@IEAAJPEAUIMessageSession@@P6AJPEAXPEBXH@ZPEAUM.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?ClearWaitHandles@CManipulationManager@@KAXXZ @ 0x18019AAB8 (-ClearWaitHandles@CManipulationManager@@KAXXZ.c)
+ */
+
 __int64 __fastcall CManipulationManager::Initialize(CManipulationManager *this)
 {
   unsigned int v2; // ebx

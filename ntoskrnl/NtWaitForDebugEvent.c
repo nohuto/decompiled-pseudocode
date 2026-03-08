@@ -1,3 +1,22 @@
+/*
+ * XREFs of NtWaitForDebugEvent @ 0x140935E70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     DbgkpConvertKernelToUserStateChange @ 0x1409342D4 (DbgkpConvertKernelToUserStateChange.c)
+ *     DbgkpOpenHandles @ 0x1409345C0 (DbgkpOpenHandles.c)
+ */
+
 NTSTATUS __fastcall NtWaitForDebugEvent(HANDLE Handle, BOOLEAN a2, LARGE_INTEGER *a3, _OWORD *a4)
 {
   KPROCESSOR_MODE PreviousMode; // r15

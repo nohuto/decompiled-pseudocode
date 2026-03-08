@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Dispose@FxTimer@@UEAAEXZ @ 0x1C0040EA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0006060 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0006094 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?FlushAndRundown@FxTimer@@AEAAXXZ @ 0x1C0040EE4 (-FlushAndRundown@FxTimer@@AEAAXXZ.c)
+ */
+
 unsigned __int8 __fastcall FxTimer::Dispose(FxTimer *this, __int64 a2, unsigned __int8 a3)
 {
   unsigned __int8 v4; // dl

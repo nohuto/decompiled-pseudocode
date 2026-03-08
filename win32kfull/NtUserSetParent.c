@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserSetParent @ 0x1C00E0420
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C0036908 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ */
+
 __int64 __fastcall NtUserSetParent(__int64 a1, __int64 a2)
 {
   __int64 v4; // rax

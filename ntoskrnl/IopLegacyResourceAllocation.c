@@ -1,3 +1,35 @@
+/*
+ * XREFs of IopLegacyResourceAllocation @ 0x140801DA4
+ * Callers:
+ *     IopDestroyDeviceNode @ 0x140782FD0 (IopDestroyDeviceNode.c)
+ *     IopReleaseDeviceResources @ 0x140866C4C (IopReleaseDeviceResources.c)
+ *     IoAssignResources @ 0x140950C10 (IoAssignResources.c)
+ *     IoReportResourceUsageInternal @ 0x140953FC8 (IoReportResourceUsageInternal.c)
+ * Callees:
+ *     PipSetDevNodeState @ 0x1402028D0 (PipSetDevNodeState.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     KeReleaseSemaphore @ 0x140292210 (KeReleaseSemaphore.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     IoDeleteDevice @ 0x140368010 (IoDeleteDevice.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopSetLegacyResourcesFlag @ 0x14055F1A4 (IopSetLegacyResourcesFlag.c)
+ *     PipSetDevNodeFlags @ 0x1406857DC (PipSetDevNodeFlags.c)
+ *     PnpAllocateResources @ 0x1406F5CE0 (PnpAllocateResources.c)
+ *     PnpDetermineResourceListSize @ 0x1406F69E8 (PnpDetermineResourceListSize.c)
+ *     IopDestroyDeviceNode @ 0x140782FD0 (IopDestroyDeviceNode.c)
+ *     PipAllocateDeviceNode @ 0x14078BC8C (PipAllocateDeviceNode.c)
+ *     IopRemoveLegacyDeviceNode @ 0x140801EC8 (IopRemoveLegacyDeviceNode.c)
+ *     IopReleaseResources @ 0x140801F0C (IopReleaseResources.c)
+ *     IopWriteAllocatedResourcesToRegistry @ 0x140803B38 (IopWriteAllocatedResourcesToRegistry.c)
+ *     IopCreateRootEnumeratedDeviceObject @ 0x14081D1C8 (IopCreateRootEnumeratedDeviceObject.c)
+ *     IopCombineLegacyResources @ 0x140956E34 (IopCombineLegacyResources.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopLegacyResourceAllocation(int a1, __int64 a2, __int64 a3, __int64 a4, const void **a5)
 {
   struct _KTHREAD *CurrentThread; // rax

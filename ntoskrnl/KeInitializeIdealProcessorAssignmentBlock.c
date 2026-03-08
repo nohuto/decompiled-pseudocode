@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeInitializeIdealProcessorAssignmentBlock @ 0x1402969F4
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ *     KiInitializeIdleProcess @ 0x140B5F2B8 (KiInitializeIdleProcess.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall KeInitializeIdealProcessorAssignmentBlock(__int64 a1)
 {
   __int64 result; // rax

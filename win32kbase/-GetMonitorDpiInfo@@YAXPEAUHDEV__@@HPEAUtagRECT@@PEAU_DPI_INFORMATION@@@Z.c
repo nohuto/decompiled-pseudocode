@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetMonitorDpiInfo@@YAXPEAUHDEV__@@HPEAUtagRECT@@PEAU_DPI_INFORMATION@@@Z @ 0x1C0015B1C
+ * Callers:
+ *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C0014BB4 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
+ * Callees:
+ *     DrvGetCurrentDpiInfoFromHDev @ 0x1C003CAE4 (DrvGetCurrentDpiInfoFromHDev.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 void __fastcall GetMonitorDpiInfo(HDEV a1, char a2, struct tagRECT *a3, struct _DPI_INFORMATION *a4)
 {
   int v8; // ecx

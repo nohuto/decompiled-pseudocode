@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiSaveBugCheckRecoveryStatusPhase1 @ 0x140578F68
+ * Callers:
+ *     KiAttemptBugcheckRecovery @ 0x140577FAC (KiAttemptBugcheckRecovery.c)
+ * Callees:
+ *     IoSaveBugCheckRecoveryStatus @ 0x14054E6BC (IoSaveBugCheckRecoveryStatus.c)
+ *     KiUpdateBugcheckRecoveryProgress @ 0x1405793F8 (KiUpdateBugcheckRecoveryProgress.c)
+ */
+
 __int64 __fastcall KiSaveBugCheckRecoveryStatusPhase1(unsigned __int8 a1, int a2)
 {
   __int64 v3; // [rsp+20h] [rbp-20h] BYREF

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMWatchDogTimerInit @ 0x1C01A0CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ */
+
 void __fastcall RIMWatchDogTimerInit(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rax

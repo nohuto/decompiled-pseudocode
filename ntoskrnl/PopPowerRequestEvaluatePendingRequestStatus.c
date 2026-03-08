@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopPowerRequestEvaluatePendingRequestStatus @ 0x1402BCCE4
+ * Callers:
+ *     PopApplyLegacyPowerRequestFlags @ 0x1402B8C40 (PopApplyLegacyPowerRequestFlags.c)
+ *     PopPowerRequestReferenceRelease @ 0x1402BA084 (PopPowerRequestReferenceRelease.c)
+ *     PopPowerRequestHandleClose @ 0x1402BBD4C (PopPowerRequestHandleClose.c)
+ *     PopPowerRequestReferenceAcquire @ 0x1402BBDF0 (PopPowerRequestReferenceAcquire.c)
+ *     PopPowerRequestHandleRequestOverrideQueryResponse @ 0x1402BC0D8 (PopPowerRequestHandleRequestOverrideQueryResponse.c)
+ *     PopPowerRequestUnrevokeRequests @ 0x1403A5A90 (PopPowerRequestUnrevokeRequests.c)
+ *     PopPowerRequestRevokeRequests @ 0x140581724 (PopPowerRequestRevokeRequests.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ */
+
 int __fastcall PopPowerRequestEvaluatePendingRequestStatus(_BYTE *Object, __int64 *a2)
 {
   __int64 *v2; // rbp

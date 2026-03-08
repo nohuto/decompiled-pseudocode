@@ -1,3 +1,25 @@
+/*
+ * XREFs of xxxDefWindowProc @ 0x1C00A66F0
+ * Callers:
+ *     xxxGetControlColor @ 0x1C0007848 (xxxGetControlColor.c)
+ *     ?xxxGetColorObjects@@YAPEAUHBRUSH__@@PEAUtagWND@@PEAUHDC__@@@Z @ 0x1C0013EE8 (-xxxGetColorObjects@@YAPEAUHBRUSH__@@PEAUtagWND@@PEAUHDC__@@@Z.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ *     ?xxxSendMessageToClient@@YAXPEAUtagWND@@I_K_JPEAUtagSMS@@HPEA_J@Z @ 0x1C006EE00 (-xxxSendMessageToClient@@YAXPEAUtagWND@@I_K_JPEAUtagSMS@@HPEA_J@Z.c)
+ *     xxxTooltipWndProc @ 0x1C00FA000 (xxxTooltipWndProc.c)
+ *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C00FA1BC (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
+ *     xxxValidateClassAndSize @ 0x1C00FA3E4 (xxxValidateClassAndSize.c)
+ *     xxxEventWndProc @ 0x1C0107F00 (xxxEventWndProc.c)
+ *     xxxSwitchWndProc @ 0x1C01CC6D0 (xxxSwitchWndProc.c)
+ *     xxxGetWindowText @ 0x1C01F3F74 (xxxGetWindowText.c)
+ *     xxxMenuWindowProc @ 0x1C021D3D0 (xxxMenuWindowProc.c)
+ *     xxxSBWndProc @ 0x1C022D770 (xxxSBWndProc.c)
+ * Callees:
+ *     SfnDWORD @ 0x1C00385D0 (SfnDWORD.c)
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ *     xxxLoadUserApiHook @ 0x1C00DE45C (xxxLoadUserApiHook.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall xxxDefWindowProc(struct tagWND *a1, unsigned int a2, HWND a3, __int64 a4)
 {
   __int64 v7; // rdi

@@ -1,3 +1,18 @@
+/*
+ * XREFs of PnpiBiosAddressExtendedToIoDescriptor @ 0x1C0090830
+ * Callers:
+ *     PnpBiosResourcesToNtResources @ 0x1C008EFDC (PnpBiosResourcesToNtResources.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_i @ 0x1C002293C (WPP_RECORDER_SF_i.c)
+ *     ACPIInitIgnoreResourceMapDescriptor @ 0x1C003AFD0 (ACPIInitIgnoreResourceMapDescriptor.c)
+ *     PnpiBiosValidateMemoryMapAttribute @ 0x1C003C574 (PnpiBiosValidateMemoryMapAttribute.c)
+ *     AcpiDiagTraceMemoryReserved @ 0x1C007A720 (AcpiDiagTraceMemoryReserved.c)
+ *     PnpiBiosAddressHandleGlobalFlags @ 0x1C0090C88 (PnpiBiosAddressHandleGlobalFlags.c)
+ *     PnpiUpdateResourceList @ 0x1C0092328 (PnpiUpdateResourceList.c)
+ */
+
 NTSTATUS __fastcall PnpiBiosAddressExtendedToIoDescriptor(
         unsigned __int8 *BugCheckParameter2,
         __int64 a2,

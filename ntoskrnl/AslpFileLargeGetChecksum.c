@@ -1,3 +1,11 @@
+/*
+ * XREFs of AslpFileLargeGetChecksum @ 0x140A56A34
+ * Callers:
+ *     AslpFileLargeGetChecksumAttributes @ 0x140A56B28 (AslpFileLargeGetChecksumAttributes.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ */
+
 __int64 __fastcall AslpFileLargeGetChecksum(unsigned int *a1, _QWORD *a2)
 {
   unsigned int v3; // r8d

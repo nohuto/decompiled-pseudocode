@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopNetEvaluationTimerCallback @ 0x140596A90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopQueueWorkItem @ 0x1402BCCB4 (PopQueueWorkItem.c)
+ */
+
 char PopNetEvaluationTimerCallback()
 {
   signed __int32 v0; // eax

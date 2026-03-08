@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlUnicodeStringCchCopyStringN @ 0x14059FC08
+ * Callers:
+ *     PopPlInitWString @ 0x14099D8D0 (PopPlInitWString.c)
+ * Callees:
+ *     RtlWideCharArrayCopyStringWorker @ 0x14059FCA0 (RtlWideCharArrayCopyStringWorker.c)
+ */
+
 NTSTATUS __stdcall RtlUnicodeStringCchCopyStringN(
         PUNICODE_STRING DestinationString,
         NTSTRSAFE_PCWSTR pszSrc,

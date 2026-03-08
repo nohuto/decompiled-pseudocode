@@ -1,3 +1,12 @@
+/*
+ * XREFs of XilUsbDevice_DestroySecureObject @ 0x1C00480C8
+ * Callers:
+ *     UsbDevice_EvtUsbDeviceCleanupCallback @ 0x1C0048CB0 (UsbDevice_EvtUsbDeviceCleanupCallback.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ */
+
 __int64 __fastcall XilUsbDevice_DestroySecureObject(__int64 *a1)
 {
   __int64 v1; // r8

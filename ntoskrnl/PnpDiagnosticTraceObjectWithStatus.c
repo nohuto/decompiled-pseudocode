@@ -1,3 +1,19 @@
+/*
+ * XREFs of PnpDiagnosticTraceObjectWithStatus @ 0x1402B146C
+ * Callers:
+ *     PiDrvDbUnloadNodeWaitWorkerCallback @ 0x140300E30 (PiDrvDbUnloadNodeWaitWorkerCallback.c)
+ *     IopLoadDriver @ 0x14072A9DC (IopLoadDriver.c)
+ *     PiDrvDbLoadNodeWorkerCallback @ 0x1408674A0 (PiDrvDbLoadNodeWorkerCallback.c)
+ *     PiDrvDbLoadNode @ 0x1408693C4 (PiDrvDbLoadNode.c)
+ *     PiDevCfgProcessDevice @ 0x140873308 (PiDevCfgProcessDevice.c)
+ *     PnpRebalance @ 0x14096B948 (PnpRebalance.c)
+ *     PnpInitializeBootStartDriver @ 0x140B58AC4 (PnpInitializeBootStartDriver.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall PnpDiagnosticTraceObjectWithStatus(
         PCEVENT_DESCRIPTOR EventDescriptor,
         unsigned __int16 *a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of RIMVirtDeviceClassNotifyUsingAsyncPnpWorkNotification @ 0x1C01D07BC
+ * Callers:
+ *     ?ivHandlePnpCreatePacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C021F510 (-ivHandlePnpCreatePacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_S @ 0x1C0037E30 (WPP_RECORDER_AND_TRACE_SF_S.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RIMVirtQueueDeviceClassNotifyAsyncWorkItem @ 0x1C01D0EAC (RIMVirtQueueDeviceClassNotifyAsyncWorkItem.c)
+ */
+
 __int64 __fastcall RIMVirtDeviceClassNotifyUsingAsyncPnpWorkNotification(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebp

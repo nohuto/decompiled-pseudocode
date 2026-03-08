@@ -1,3 +1,12 @@
+/*
+ * XREFs of ESM_WaitingForFSEAfterStopEndpointCommandCompletion @ 0x1C000F5E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ESM_WaitingForFSEAfterStopEndpointCommandCompletion(__int64 a1)
 {
   KSPIN_LOCK *v1; // rbx

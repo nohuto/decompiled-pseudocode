@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserRemoteShadowStart @ 0x1C01DAD60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RemoteShadowStart @ 0x1C0205FFC (RemoteShadowStart.c)
+ */
+
 __int64 __fastcall NtUserRemoteShadowStart(void *Src, size_t Size)
 {
   unsigned int v2; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of _GetThreadDesktop @ 0x1C00D13FC
+ * Callers:
+ *     EditionGetThreadDesktopEntryPoint @ 0x1C00D13C0 (EditionGetThreadDesktopEntryPoint.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     GetConsoleDesktop @ 0x1C01BFCC8 (GetConsoleDesktop.c)
+ */
+
 HANDLE __fastcall GetThreadDesktop(__int64 a1)
 {
   unsigned int v1; // ebx

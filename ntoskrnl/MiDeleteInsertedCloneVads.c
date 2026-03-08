@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiDeleteInsertedCloneVads @ 0x140A46058
+ * Callers:
+ *     MiCloneProcessAddressSpace @ 0x140A45CF4 (MiCloneProcessAddressSpace.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MiDeleteCloneZombies @ 0x1402FBC3C (MiDeleteCloneZombies.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     MiReferenceVad @ 0x14031F794 (MiReferenceVad.c)
+ *     MiLockVad @ 0x14034CF60 (MiLockVad.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiDeleteCloneDescriptor @ 0x140661860 (MiDeleteCloneDescriptor.c)
+ *     MiDeleteVad @ 0x1407C82E0 (MiDeleteVad.c)
+ */
+
 __int64 __fastcall MiDeleteInsertedCloneVads(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rbp

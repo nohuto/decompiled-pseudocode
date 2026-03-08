@@ -1,3 +1,12 @@
+/*
+ * XREFs of KitpReadUlongFromKey @ 0x14085D7D4
+ * Callers:
+ *     KitpInitAitSampleRate @ 0x140B6EF0C (KitpInitAitSampleRate.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ */
+
 NTSTATUS __fastcall KitpReadUlongFromKey(void *a1, __int64 a2, _DWORD *a3)
 {
   NTSTATUS result; // eax

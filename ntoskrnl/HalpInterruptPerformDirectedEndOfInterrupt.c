@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpInterruptPerformDirectedEndOfInterrupt @ 0x140504748
+ * Callers:
+ *     HalPerformEndOfInterrupt @ 0x1402C7920 (HalPerformEndOfInterrupt.c)
+ * Callees:
+ *     HalpInterruptLookupController @ 0x14028EEE0 (HalpInterruptLookupController.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x14028EF5C (HalpInterruptFindLinesForGsiRange.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __fastcall HalpInterruptPerformDirectedEndOfInterrupt(__int64 a1)
 {
   _DWORD *v1; // rbx

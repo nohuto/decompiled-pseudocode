@@ -1,3 +1,15 @@
+/*
+ * XREFs of sub_140A48FC0 @ 0x140A48FC0
+ * Callers:
+ *     sub_1406DC290 @ 0x1406DC290 (sub_1406DC290.c)
+ * Callees:
+ *     StringCbLengthW @ 0x14035ACC4 (StringCbLengthW.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall sub_140A48FC0(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   signed int v7; // ebx

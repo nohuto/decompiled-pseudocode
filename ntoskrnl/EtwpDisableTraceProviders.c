@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpDisableTraceProviders @ 0x140693E28
+ * Callers:
+ *     EtwpStopLoggerInstance @ 0x140748874 (EtwpStopLoggerInstance.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     EtwpGetNextGuidEntry @ 0x140693F10 (EtwpGetNextGuidEntry.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x140695580 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     PsEnumProcesses @ 0x1407809CC (PsEnumProcesses.c)
+ */
+
 LONG __fastcall EtwpDisableTraceProviders(__int64 a1, unsigned int a2)
 {
   _WORD *v4; // rbx

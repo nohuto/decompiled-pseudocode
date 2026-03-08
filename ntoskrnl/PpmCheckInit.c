@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmCheckInit @ 0x140B71320
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void *PpmCheckInit()
 {
   void *result; // rax

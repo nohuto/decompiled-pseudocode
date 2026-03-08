@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreScalingDispatchEscape @ 0x1C02AA894
+ * Callers:
+ *     NtGdiExtEscape @ 0x1C00BB120 (NtGdiExtEscape.c)
+ * Callees:
+ *     GreEscCreateScaledCompatibleBitmap @ 0x1C02AA3F0 (GreEscCreateScaledCompatibleBitmap.c)
+ */
+
 __int64 __fastcall GreScalingDispatchEscape(unsigned __int64 a1)
 {
   __int128 v3; // [rsp+20h] [rbp-28h] BYREF

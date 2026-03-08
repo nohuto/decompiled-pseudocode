@@ -1,3 +1,11 @@
+/*
+ * XREFs of CiThreadInsertInTree @ 0x1C0002A60
+ * Callers:
+ *     CiThreadCreate @ 0x1C000AD80 (CiThreadCreate.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CiThreadInsertInTree(__int64 a1)
 {
   _QWORD *v2; // rdx

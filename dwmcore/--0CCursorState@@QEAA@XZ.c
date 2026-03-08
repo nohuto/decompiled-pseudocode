@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CCursorState@@QEAA@XZ @ 0x1802759A8
+ * Callers:
+ *     ?EnsureCursorState@CCursorManager@@AEAAJ_KPEAPEAVCCursorState@@@Z @ 0x1802745F4 (-EnsureCursorState@CCursorManager@@AEAAJ_KPEAPEAVCCursorState@@@Z.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ */
+
 CCursorState *__fastcall CCursorState::CCursorState(CCursorState *this)
 {
   _QWORD *v2; // rax

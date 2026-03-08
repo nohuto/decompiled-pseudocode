@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserArrangeIconicWindows @ 0x1C01CDBE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxArrangeIconicWindows @ 0x1C023C684 (xxxArrangeIconicWindows.c)
+ */
+
 __int64 __fastcall NtUserArrangeIconicWindows(__int64 a1)
 {
   __int64 v2; // rax

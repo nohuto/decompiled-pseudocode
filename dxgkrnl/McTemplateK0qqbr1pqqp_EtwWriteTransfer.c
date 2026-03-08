@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0qqbr1pqqp_EtwWriteTransfer @ 0x1C0065E2C
+ * Callers:
+ *     DpiDxgkDdiQueryDeviceDescriptor @ 0x1C0201770 (DpiDxgkDdiQueryDeviceDescriptor.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002BBC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0qqbr1pqqp_EtwWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

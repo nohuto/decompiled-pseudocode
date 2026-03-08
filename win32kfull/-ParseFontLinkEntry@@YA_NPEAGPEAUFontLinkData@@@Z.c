@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ParseFontLinkEntry@@YA_NPEAGPEAUFontLinkData@@@Z @ 0x1C02A1A0C
+ * Callers:
+ *     bDeleteFlEntry @ 0x1C02A1F2C (bDeleteFlEntry.c)
+ * Callees:
+ *     ?ParseFontScaleFactor@@YA_NPEBGPEAJ@Z @ 0x1C02A1B50 (-ParseFontScaleFactor@@YA_NPEBGPEAJ@Z.c)
+ */
+
 bool __fastcall ParseFontLinkEntry(unsigned __int16 *a1, struct FontLinkData *a2)
 {
   unsigned __int16 *v3; // rbx

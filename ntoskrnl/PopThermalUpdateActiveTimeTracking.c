@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopThermalUpdateActiveTimeTracking @ 0x140846CC0
+ * Callers:
+ *     PopCoolingSxTransition @ 0x140584670 (PopCoolingSxTransition.c)
+ *     PopCoolingTelemetryWorker @ 0x140584788 (PopCoolingTelemetryWorker.c)
+ *     PopThermalSxEntry @ 0x14058D7A8 (PopThermalSxEntry.c)
+ *     PopThermalTelemetryWorker @ 0x14058DAF0 (PopThermalTelemetryWorker.c)
+ *     PopThermalWorker @ 0x140846460 (PopThermalWorker.c)
+ *     PoSetThermalActiveCooling @ 0x14097FC40 (PoSetThermalActiveCooling.c)
+ *     PopDeactiveThermalRequest @ 0x14097FEC8 (PopDeactiveThermalRequest.c)
+ *     PopOrphanCoolingExtension @ 0x140980178 (PopOrphanCoolingExtension.c)
+ *     PopThermalZoneRemove @ 0x140988010 (PopThermalZoneRemove.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopThermalUpdateActiveTimeTracking(__int64 a1, __int64 a2)
 {
   __int64 v2; // r9

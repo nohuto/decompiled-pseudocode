@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InitializeInterface@DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPNTARGETMODESET_INTERFACE@@@Z @ 0x1C02076F4
+ * Callers:
+ *     ?_InitializeVidPnMiniportInterfaces@VIDPN_MGR@@AEAAJXZ @ 0x1C0207188 (-_InitializeVidPnMiniportInterfaces@VIDPN_MGR@@AEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL::InitializeInterface(
         DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL *this,
         struct _DXGK_VIDPNTARGETMODESET_INTERFACE *a2)

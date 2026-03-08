@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DoesMsgNeedDPITransform@@YA_NI_K_J@Z @ 0x1C004C2D4
+ * Callers:
+ *     TransformMessageBetweenCoordinateSpaces @ 0x1C0048E70 (TransformMessageBetweenCoordinateSpaces.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DoesMsgNeedDPITransform(unsigned int a1, __int64 a2, int a3)
 {
   unsigned int v3; // ecx

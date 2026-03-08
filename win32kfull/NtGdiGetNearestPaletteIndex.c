@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiGetNearestPaletteIndex @ 0x1C02D4460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C007CA7C (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ */
+
 __int64 __fastcall NtGdiGetNearestPaletteIndex(HPALETTE a1, unsigned int a2)
 {
   __int64 v3; // rcx

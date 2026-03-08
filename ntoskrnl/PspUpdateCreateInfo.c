@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspUpdateCreateInfo @ 0x14070DEE4
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ *     NtCreateUserProcess @ 0x14070C850 (NtCreateUserProcess.c)
+ * Callees:
+ *     PspPropagateHandle @ 0x14070E0B4 (PspPropagateHandle.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ */
+
 __int64 __fastcall PspUpdateCreateInfo(int a1, __int64 a2, __int64 a3)
 {
   int v5; // edi

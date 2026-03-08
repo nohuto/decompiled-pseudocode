@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlStringCopyWorkerW @ 0x1C00874C8
+ * Callers:
+ *     RtlStringCbCatW @ 0x1C0087454 (RtlStringCbCatW.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlStringCopyWorkerW(
         wchar_t *pszDest,
         unsigned __int64 cchDest,

@@ -1,3 +1,19 @@
+/*
+ * XREFs of CmpFindSubKeyInRoot @ 0x1407ADE40
+ * Callers:
+ *     CmpMarkIndexDirtyInStorageType @ 0x1406BA664 (CmpMarkIndexDirtyInStorageType.c)
+ *     CmpRemoveSubKeyFromList @ 0x1406BB424 (CmpRemoveSubKeyFromList.c)
+ *     CmpWalkOneLevel @ 0x1407B1C90 (CmpWalkOneLevel.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x1407FE740 (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpSelectLeaf @ 0x140872120 (CmpSelectLeaf.c)
+ * Callees:
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpCompareInIndex @ 0x1407AE250 (CmpCompareInIndex.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpFindSubKeyInRoot(
         ULONG_PTR BugCheckParameter3,
         __int64 a2,

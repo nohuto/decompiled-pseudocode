@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionInitializeWppLogging @ 0x1C00C3818
+ * Callers:
+ *     ?InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z @ 0x1C00C35F8 (-InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ApiSetEditionInitializeWppLogging(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rsi

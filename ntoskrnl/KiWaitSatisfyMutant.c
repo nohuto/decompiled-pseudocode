@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiWaitSatisfyMutant @ 0x140352000
+ * Callers:
+ *     KiTryUnwaitThread @ 0x140258880 (KiTryUnwaitThread.c)
+ *     KiWaitForAllObjects @ 0x1402936D0 (KiWaitForAllObjects.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall KiWaitSatisfyMutant(__int64 a1, __int64 a2, __int64 a3)
 {
   char v3; // r9

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ObpRemoveNamespaceFromTable @ 0x14077B7BC
+ * Callers:
+ *     ObpCloseDirectoryObject @ 0x14077B790 (ObpCloseDirectoryObject.c)
+ *     NtDeletePrivateNamespace @ 0x140881680 (NtDeletePrivateNamespace.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 __int64 __fastcall ObpRemoveNamespaceFromTable(volatile signed __int32 *Object)
 {
   unsigned int v2; // edi

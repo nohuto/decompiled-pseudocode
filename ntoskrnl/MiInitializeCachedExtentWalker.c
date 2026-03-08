@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiInitializeCachedExtentWalker @ 0x14063B7E8
+ * Callers:
+ *     MiGetCachedExtentWalkerNextPage @ 0x14063B268 (MiGetCachedExtentWalkerNextPage.c)
+ *     MiTransferFileExtent @ 0x14063D474 (MiTransferFileExtent.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiStartingOffset @ 0x14028C530 (MiStartingOffset.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLocateCachedExtent @ 0x14063BB9C (MiLocateCachedExtent.c)
+ *     MiAllocateFileExtents @ 0x140A303A8 (MiAllocateFileExtents.c)
+ */
+
 __int64 __fastcall MiInitializeCachedExtentWalker(__int64 a1, __int64 *a2, __int64 a3, int a4)
 {
   volatile LONG *v5; // r15

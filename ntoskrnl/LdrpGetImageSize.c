@@ -1,3 +1,13 @@
+/*
+ * XREFs of LdrpGetImageSize @ 0x14035D8E8
+ * Callers:
+ *     LdrpAccessResourceData @ 0x1407E987C (LdrpAccessResourceData.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x1407EA480 (LdrpAccessResourceDataNoMultipleLanguage.c)
+ * Callees:
+ *     LdrpKrnGetDataTableEntry @ 0x14035CF08 (LdrpKrnGetDataTableEntry.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ */
+
 __int64 __fastcall LdrpGetImageSize(unsigned __int64 a1, _QWORD *a2)
 {
   unsigned int v3; // ebx

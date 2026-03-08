@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBUCX_GetEndpointPriority @ 0x1C0027414
+ * Callers:
+ *     HUBUCX_CreateEndpointsInUCX @ 0x1C0027584 (HUBUCX_CreateEndpointsInUCX.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBUCX_GetEndpointPriority(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   unsigned int v4; // edi

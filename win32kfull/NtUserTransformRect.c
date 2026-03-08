@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserTransformRect @ 0x1C00C72D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall NtUserTransformRect(_OWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v5; // r12d

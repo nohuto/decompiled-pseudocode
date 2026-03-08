@@ -1,3 +1,11 @@
+/*
+ * XREFs of MmGetSessionObjectByProcess @ 0x14063536C
+ * Callers:
+ *     PspEstablishDfssHierarchy @ 0x1409AF340 (PspEstablishDfssHierarchy.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MmGetSessionObjectByProcess(__int64 a1)
 {
   __int64 v1; // rax

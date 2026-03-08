@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopGetRegistryKeyInformation @ 0x140780288
+ * Callers:
+ *     pIoQueryDeviceDescription @ 0x14077FA74 (pIoQueryDeviceDescription.c)
+ *     pIoQueryBusDescription @ 0x14077FF18 (pIoQueryBusDescription.c)
+ *     PiDevCfgCopyDeviceKey @ 0x140877A34 (PiDevCfgCopyDeviceKey.c)
+ * Callees:
+ *     ZwQueryKey @ 0x1404125D0 (ZwQueryKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall IopGetRegistryKeyInformation(HANDLE KeyHandle, _QWORD *a2)
 {
   NTSTATUS result; // eax

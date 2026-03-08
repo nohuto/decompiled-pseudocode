@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_RECORDER_SF_sqqD @ 0x1C0038878
+ * Callers:
+ *     AcpiSetupNativeMethodContext @ 0x1C0037EA0 (AcpiSetupNativeMethodContext.c)
+ *     AcpiTranslatePepDeviceControlResourcesInternal @ 0x1C008B620 (AcpiTranslatePepDeviceControlResourcesInternal.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_sqqD(
         __int64 a1,
         _DWORD a2,

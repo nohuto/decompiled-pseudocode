@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiIsAddressInDriverView @ 0x140631A9C
+ * Callers:
+ *     MiCompleteProtoPteFault @ 0x14026F5F0 (MiCompleteProtoPteFault.c)
+ * Callees:
+ *     MmLockLoadedModuleListShared @ 0x1402280EC (MmLockLoadedModuleListShared.c)
+ *     MmUnlockLoadedModuleListShared @ 0x1402824A4 (MmUnlockLoadedModuleListShared.c)
+ */
+
 __int64 __fastcall MiIsAddressInDriverView(unsigned __int64 a1)
 {
   unsigned int v2; // ebx

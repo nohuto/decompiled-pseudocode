@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserSetSystemCursor @ 0x1C01DDAE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     ?zzzSetSystemCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C01AA0E4 (-zzzSetSystemCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
+ */
+
 __int64 __fastcall NtUserSetSystemCursor(__int64 a1, __int16 a2)
 {
   __int64 v4; // rax

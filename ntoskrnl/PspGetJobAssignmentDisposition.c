@@ -1,3 +1,16 @@
+/*
+ * XREFs of PspGetJobAssignmentDisposition @ 0x1406FFFD0
+ * Callers:
+ *     PsAssignProcessToJobObject @ 0x1406FF9A0 (PsAssignProcessToJobObject.c)
+ *     PspAssignProcessToJob @ 0x1406FFA20 (PspAssignProcessToJob.c)
+ * Callees:
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     PspIsProcessInJob @ 0x140788EDC (PspIsProcessInJob.c)
+ *     PsIsJobParentImmutable @ 0x140799510 (PsIsJobParentImmutable.c)
+ *     PspIsJobMovable @ 0x1409AF5C4 (PspIsJobMovable.c)
+ */
+
 __int64 __fastcall PspGetJobAssignmentDisposition(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetMetaData@CIndirectSwapchainRenderTarget@@AEAAXPEAPEAXPEAI@Z @ 0x1801EBFD0
+ * Callers:
+ *     ?ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x1801EC52C (-ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
+ *     ?Unregister@CIndirectSwapchainRenderTarget@@AEAAXXZ @ 0x1801EC890 (-Unregister@CIndirectSwapchainRenderTarget@@AEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CIndirectSwapchainRenderTarget::GetMetaData(
         CIndirectSwapchainRenderTarget *this,
         void **a2,

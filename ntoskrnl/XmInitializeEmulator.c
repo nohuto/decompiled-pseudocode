@@ -1,3 +1,12 @@
+/*
+ * XREFs of XmInitializeEmulator @ 0x14039A878
+ * Callers:
+ *     x86BiosInitializeBiosEx @ 0x14039A7B4 (x86BiosInitializeBiosEx.c)
+ * Callees:
+ *     x86BiosTranslateAddress @ 0x1403B9030 (x86BiosTranslateAddress.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 XmInitializeEmulator()
 {
   _WORD *v0; // rax

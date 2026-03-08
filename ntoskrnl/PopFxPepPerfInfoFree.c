@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopFxPepPerfInfoFree @ 0x1409826C4
+ * Callers:
+ *     PopFxPepPerfInfoQuery @ 0x140982744 (PopFxPepPerfInfoQuery.c)
+ *     PopFxRegisterComponentPerfStates @ 0x140982948 (PopFxRegisterComponentPerfStates.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PopFxPepPerfInfoFree(_QWORD *P)
 {
   __int64 i; // rdi

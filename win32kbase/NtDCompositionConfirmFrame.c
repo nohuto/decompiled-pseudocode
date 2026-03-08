@@ -1,3 +1,21 @@
+/*
+ * XREFs of NtDCompositionConfirmFrame @ 0x1C008F990
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetCurrentStats@CFrameStats@CConnection@DirectComposition@@QEAA_NPEAUtagCOMPOSITION_CONFIRM_FRAME_INFO@@@Z @ 0x1C0090470 (-SetCurrentStats@CFrameStats@CConnection@DirectComposition@@QEAA_NPEAUtagCOMPOSITION_CONFIRM_FRA.c)
+ *     ?DiscardFrame@CConnection@DirectComposition@@AEAAJ_K@Z @ 0x1C0090630 (-DiscardFrame@CConnection@DirectComposition@@AEAAJ_K@Z.c)
+ *     ?ReleaseShellResourceAccess@CConnection@DirectComposition@@QEAAXI@Z @ 0x1C0091B60 (-ReleaseShellResourceAccess@CConnection@DirectComposition@@QEAAXI@Z.c)
+ *     ?NotifyBatchProcessed@CApplicationChannel@DirectComposition@@QEAAXPEAVCBatch@2@@Z @ 0x1C009997C (-NotifyBatchProcessed@CApplicationChannel@DirectComposition@@QEAAXPEAVCBatch@2@@Z.c)
+ *     ??_GCConnection@DirectComposition@@AEAAPEAXI@Z @ 0x1C0099D20 (--_GCConnection@DirectComposition@@AEAAPEAXI@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?ReleaseHandle@CLinearObjectTableBase@DirectComposition@@QEAAXI@Z @ 0x1C00C2458 (-ReleaseHandle@CLinearObjectTableBase@DirectComposition@@QEAAXI@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     DirectComposition::Memory::Allocate @ 0x1C00F63CA (DirectComposition--Memory--Allocate.c)
+ */
+
 __int64 __fastcall NtDCompositionConfirmFrame(__int64 a1, __int128 *a2, __int64 a3, __int64 a4)
 {
   __int128 *v4; // rbx

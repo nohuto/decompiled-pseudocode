@@ -1,3 +1,13 @@
+/*
+ * XREFs of WPP_IFR_SF_Z @ 0x1C0045150
+ * Callers:
+ *     FxInitialize @ 0x1C0043DE4 (FxInitialize.c)
+ *     ?_VerifyStateSeparationRegistryPolicy@FxRegKey@@SAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C004E4D4 (-_VerifyStateSeparationRegistryPolicy@FxRegKey@@SAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_Z(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 level,

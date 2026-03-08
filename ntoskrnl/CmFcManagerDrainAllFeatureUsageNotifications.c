@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmFcManagerDrainAllFeatureUsageNotifications @ 0x140A240B0
+ * Callers:
+ *     CmFcShutdownSystem @ 0x140A0EFB8 (CmFcShutdownSystem.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     CmFcpManagerDrainUsageNotifications @ 0x140818490 (CmFcpManagerDrainUsageNotifications.c)
+ */
+
 char CmFcManagerDrainAllFeatureUsageNotifications()
 {
   struct _KTHREAD *CurrentThread; // rax

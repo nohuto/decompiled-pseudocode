@@ -1,3 +1,14 @@
+/*
+ * XREFs of _CmGetMatchingDevicePanelList @ 0x140823988
+ * Callers:
+ *     _PnpDispatchDevicePanel @ 0x140823890 (_PnpDispatchDevicePanel.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _CmGetMatchingDevicePanelListWorker @ 0x140823EA0 (_CmGetMatchingDevicePanelListWorker.c)
+ */
+
 __int64 __fastcall CmGetMatchingDevicePanelList(
         __int64 a1,
         __int64 a2,

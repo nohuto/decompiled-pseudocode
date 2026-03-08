@@ -1,3 +1,14 @@
+/*
+ * XREFs of FsRtlFindLargeIndex @ 0x1402D0B8C
+ * Callers:
+ *     FsRtlTruncateBaseMcb @ 0x1402D0170 (FsRtlTruncateBaseMcb.c)
+ *     FsRtlRemoveBaseMcbEntry @ 0x1402D0270 (FsRtlRemoveBaseMcbEntry.c)
+ *     FsRtlAddBaseMcbEntryEx @ 0x1402D06D0 (FsRtlAddBaseMcbEntryEx.c)
+ *     FsRtlSplitBaseMcb @ 0x14053A920 (FsRtlSplitBaseMcb.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall FsRtlFindLargeIndex(__int64 a1, unsigned int a2, int *a3)
 {
   int v3; // edi

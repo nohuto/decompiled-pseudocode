@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopPepTriggerComponentActiveActivity @ 0x1402EF020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _DWORD *__fastcall PopPepTriggerComponentActiveActivity(__int64 a1, __int64 a2)
 {
   _DWORD *result; // rax

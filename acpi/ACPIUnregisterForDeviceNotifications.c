@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIUnregisterForDeviceNotifications @ 0x1C0039880
+ * Callers:
+ *     ACPIFanStopDevice @ 0x1C0027980 (ACPIFanStopDevice.c)
+ *     ACPIUnregisterForDeviceNotifications2 @ 0x1C00398E0 (ACPIUnregisterForDeviceNotifications2.c)
+ *     ACPIThermalStopZoneWorker @ 0x1C0041F9C (ACPIThermalStopZoneWorker.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ */
+
 void __fastcall ACPIUnregisterForDeviceNotifications(ULONG_PTR a1)
 {
   __int64 DeviceExtension; // rax

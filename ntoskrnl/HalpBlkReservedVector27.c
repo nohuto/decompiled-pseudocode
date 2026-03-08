@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpBlkReservedVector27 @ 0x140B11D00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpBlkFatalErrorHalt @ 0x140B110B0 (HalpBlkFatalErrorHalt.c)
+ */
+
 void __fastcall __noreturn HalpBlkReservedVector27(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rax

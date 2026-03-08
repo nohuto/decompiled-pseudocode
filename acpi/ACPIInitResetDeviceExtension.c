@@ -1,3 +1,19 @@
+/*
+ * XREFs of ACPIInitResetDeviceExtension @ 0x1C002D7B0
+ * Callers:
+ *     ACPIBusIrpRemoveDevice @ 0x1C0016C30 (ACPIBusIrpRemoveDevice.c)
+ *     ACPIDispatchIrpDepRemoveDevice @ 0x1C0017A90 (ACPIDispatchIrpDepRemoveDevice.c)
+ *     ACPIFilterFastIoDetachCallback @ 0x1C0028500 (ACPIFilterFastIoDetachCallback.c)
+ *     ACPIInitDeleteChildDeviceList @ 0x1C002CC88 (ACPIInitDeleteChildDeviceList.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     AcpiArblibFreeArbiterInstance @ 0x1C000B64C (AcpiArblibFreeArbiterInstance.c)
+ *     ACPIBuildProcessNotifyPepDeleteDevice @ 0x1C0010E04 (ACPIBuildProcessNotifyPepDeleteDevice.c)
+ *     ACPIInitDereferenceDeviceExtensionLocked @ 0x1C002D060 (ACPIInitDereferenceDeviceExtensionLocked.c)
+ *     ACPIInternalInterruptPolarityCacheCleanup @ 0x1C002E874 (ACPIInternalInterruptPolarityCacheCleanup.c)
+ *     PnpiCleanupForceActiveBothInterrupts @ 0x1C003C580 (PnpiCleanupForceActiveBothInterrupts.c)
+ */
+
 void __fastcall ACPIInitResetDeviceExtension(ULONG_PTR BugCheckParameter4)
 {
   struct _DEVICE_OBJECT *v2; // r12

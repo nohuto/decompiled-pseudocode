@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchEnableLatencyToleranceTimer @ 0x1C0016B90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C003DCA0 (McTemplateK0_EtwWriteTransfer.c)
+ */
+
 void __fastcall VidSchEnableLatencyToleranceTimer(__int64 a1, char a2)
 {
   LARGE_INTEGER v3; // r9

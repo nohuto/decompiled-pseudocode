@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetCurrentKbdTables @ 0x1C021A790
+ * Callers:
+ *     ?SendKeyUpDown@@YAXEE@Z @ 0x1C021A6EC (-SendKeyUpDown@@YAXEE@Z.c)
+ * Callees:
+ *     PtiKbdFromQ @ 0x1C00F43EE (PtiKbdFromQ.c)
+ */
+
 __int64 GetCurrentKbdTables()
 {
   __int64 v1; // rax

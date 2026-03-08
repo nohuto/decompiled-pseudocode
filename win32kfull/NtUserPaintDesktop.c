@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserPaintDesktop @ 0x1C01D8F80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxInternalPaintDesktop @ 0x1C00F9338 (xxxInternalPaintDesktop.c)
+ */
+
 __int64 __fastcall NtUserPaintDesktop(HDC a1)
 {
   int v2; // ebx

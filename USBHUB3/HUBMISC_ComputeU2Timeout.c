@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBMISC_ComputeU2Timeout @ 0x1C0030ADC
+ * Callers:
+ *     HUBDSM_ComputingU1U2TimeoutsAndExitLatency @ 0x1C0025070 (HUBDSM_ComputingU1U2TimeoutsAndExitLatency.c)
+ * Callees:
+ *     Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage @ 0x1C000CE04 (Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage.c)
+ */
+
 char __fastcall HUBMISC_ComputeU2Timeout(__int64 *a1)
 {
   volatile signed __int32 *v2; // rdx

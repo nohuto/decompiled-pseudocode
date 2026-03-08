@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlLoadStringOrError @ 0x1C0018EE0
+ * Callers:
+ *     InitScancodeMap @ 0x1C00178C0 (InitScancodeMap.c)
+ *     CheckDesktopPolicy @ 0x1C0017BD0 (CheckDesktopPolicy.c)
+ *     FastGetProfileIntsW @ 0x1C0017DC0 (FastGetProfileIntsW.c)
+ *     FastGetProfileValue @ 0x1C0018890 (FastGetProfileValue.c)
+ *     FastGetProfileIntFromID @ 0x1C0018DA0 (FastGetProfileIntFromID.c)
+ *     FastGetProfileStringFromIDW @ 0x1C0018E40 (FastGetProfileStringFromIDW.c)
+ *     FastUpdateWinIni @ 0x1C015D330 (FastUpdateWinIni.c)
+ *     FastWriteProfileValue @ 0x1C015D3A0 (FastWriteProfileValue.c)
+ *     Win32kBaseDriverEntry @ 0x1C0320F10 (Win32kBaseDriverEntry.c)
+ * Callees:
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 __int64 __fastcall RtlLoadStringOrError(ULONG MessageId, _WORD *a2, int a3, unsigned __int16 a4)
 {
   int v5; // esi

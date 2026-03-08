@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TryGetDescriptor@EdidMonitorDescriptor@DxgMonitor@@UEBA_NIAEAU_D3DKMDT_MONITOR_DESCRIPTOR@@@Z @ 0x1C01FF790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ConvertMonitorCapablitiesOrigin@@YAJW4__WMI_MONITOR_CAPABILITY_ORIGIN_TYPE@@PEAW4_D3DKMDT_MONITOR_CAPABILITIES_ORIGIN@@@Z @ 0x1C001F4B8 (-ConvertMonitorCapablitiesOrigin@@YAJW4__WMI_MONITOR_CAPABILITY_ORIGIN_TYPE@@PEAW4_D3DKMDT_MONIT.c)
+ */
+
 char __fastcall DxgMonitor::EdidMonitorDescriptor::TryGetDescriptor(
         DxgMonitor::EdidMonitorDescriptor *this,
         D3DKMDT_MONITOR_DESCRIPTOR_ID a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserClearWindowState @ 0x1C01CE920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ClearWindowState @ 0x1C0226908 (ClearWindowState.c)
+ */
+
 __int64 __fastcall NtUserClearWindowState(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rax

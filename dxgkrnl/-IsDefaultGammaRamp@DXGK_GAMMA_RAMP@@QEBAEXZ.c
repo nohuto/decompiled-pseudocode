@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsDefaultGammaRamp@DXGK_GAMMA_RAMP@@QEBAEXZ @ 0x1C02B9128
+ * Callers:
+ *     ?UpdateGammaRamp@DMMVIDPNPRESENTPATH@@QEAAJXZ @ 0x1C0179EC4 (-UpdateGammaRamp@DMMVIDPNPRESENTPATH@@QEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall DXGK_GAMMA_RAMP::IsDefaultGammaRamp(DXGK_GAMMA_RAMP *this)
 {
   int v2; // eax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of Controller_DriverInstalledDueToCompatibleIdMatch @ 0x1C007425C
+ * Callers:
+ *     Controller_SetDeviceDescription @ 0x1C0073EEC (Controller_SetDeviceDescription.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 char __fastcall Controller_DriverInstalledDueToCompatibleIdMatch(_QWORD *a1)
 {
   char v2; // bl

@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpCovSampSafeForUserAddressCapture @ 0x140461D68
+ * Callers:
+ *     EtwpCovSampCaptureApc @ 0x140461810 (EtwpCovSampCaptureApc.c)
+ *     EtwpCovSampCaptureSample @ 0x140601340 (EtwpCovSampCaptureSample.c)
+ * Callees:
+ *     MmCanThreadFault @ 0x140205D8C (MmCanThreadFault.c)
+ */
+
 __int64 __fastcall EtwpCovSampSafeForUserAddressCapture(int a1, int *a2)
 {
   unsigned __int8 CurrentIrql; // cl

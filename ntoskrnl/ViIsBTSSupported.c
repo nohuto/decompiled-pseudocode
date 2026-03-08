@@ -1,3 +1,14 @@
+/*
+ * XREFs of ViIsBTSSupported @ 0x140AD0ADC
+ * Callers:
+ *     VfInitializeBranchTracing @ 0x140AD0860 (VfInitializeBranchTracing.c)
+ * Callees:
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402ABED0 (KeSetSystemGroupAffinityThread.c)
+ *     DbgPrint @ 0x1402BDD20 (DbgPrint.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 ViIsBTSSupported()
 {
   struct _KPRCB *CurrentPrcb; // rbx

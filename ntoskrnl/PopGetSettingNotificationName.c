@@ -1,3 +1,24 @@
+/*
+ * XREFs of PopGetSettingNotificationName @ 0x14068CCC4
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ * Callees:
+ *     MmIsSessionInCurrentServerSilo @ 0x1402019D8 (MmIsSessionInCurrentServerSilo.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     PsGetCurrentSilo @ 0x1402640A0 (PsGetCurrentSilo.c)
+ *     PopSetNotificationWork @ 0x1402BCB00 (PopSetNotificationWork.c)
+ *     PsGetProcessSessionIdEx @ 0x1402BDFA0 (PsGetProcessSessionIdEx.c)
+ *     PsIsHostSilo @ 0x14030F2E0 (PsIsHostSilo.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopFindPowerSettingConfiguration @ 0x14068D434 (PopFindPowerSettingConfiguration.c)
+ *     PopStateIsSessionSpecific @ 0x14068D530 (PopStateIsSessionSpecific.c)
+ *     PopCreateNotificationName @ 0x140794270 (PopCreateNotificationName.c)
+ *     PsIsServiceSession @ 0x140799A4C (PsIsServiceSession.c)
+ *     PopValidateContextMembership @ 0x14079BF0C (PopValidateContextMembership.c)
+ *     PopDiagTracePowerSettingRegistration @ 0x14098DD00 (PopDiagTracePowerSettingRegistration.c)
+ */
+
 __int64 __fastcall PopGetSettingNotificationName(__int64 a1, __int64 *a2)
 {
   char v3; // r12

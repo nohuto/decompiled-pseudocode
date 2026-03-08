@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetTransform@CAtlasBitmapResource@@UEBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180267990
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DA10 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
+ *     ?GetSize@CAtlasTexture@@QEBA?AUD2D_SIZE_U@@XZ @ 0x1800F427C (-GetSize@CAtlasTexture@@QEBA-AUD2D_SIZE_U@@XZ.c)
+ */
+
 char __fastcall CAtlasBitmapResource::GetTransform(__int64 a1, CMILMatrix *a2, __int64 a3)
 {
   __int64 v4; // r8

@@ -1,3 +1,13 @@
+/*
+ * XREFs of rimQueueHandleAnyPnpRemovePendingDevicesAsyncWorkItem @ 0x1C01C8B04
+ * Callers:
+ *     rimHandleAnyPnpRemovePendingDevices @ 0x1C003A13C (rimHandleAnyPnpRemovePendingDevices.c)
+ * Callees:
+ *     RIMAllocateAsyncPnpWorkItem @ 0x1C00364E8 (RIMAllocateAsyncPnpWorkItem.c)
+ *     RIMQueueAndSignalAsyncPnpWorkItem @ 0x1C00376B0 (RIMQueueAndSignalAsyncPnpWorkItem.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqqDqd @ 0x1C01C8194 (WPP_RECORDER_AND_TRACE_SF_qqqDqd.c)
+ */
+
 void __fastcall rimQueueHandleAnyPnpRemovePendingDevicesAsyncWorkItem(_DWORD *a1)
 {
   _QWORD *v2; // rax

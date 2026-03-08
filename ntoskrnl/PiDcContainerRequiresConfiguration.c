@@ -1,3 +1,18 @@
+/*
+ * XREFs of PiDcContainerRequiresConfiguration @ 0x1408793AC
+ * Callers:
+ *     PiDcUpdateDeviceContainerMembership @ 0x1406825AC (PiDcUpdateDeviceContainerMembership.c)
+ *     PiDcHandleCustomDeviceEvent @ 0x140688AC8 (PiDcHandleCustomDeviceEvent.c)
+ *     PiDcHandleDeviceEvent @ 0x1407F8294 (PiDcHandleDeviceEvent.c)
+ *     PiDcHandleInterfaceEvent @ 0x1407F8364 (PiDcHandleInterfaceEvent.c)
+ *     PiDcHandleSystemFirmwareUpdate @ 0x1409582A0 (PiDcHandleSystemFirmwareUpdate.c)
+ * Callees:
+ *     wcscmp @ 0x1403D5DD0 (wcscmp.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     _PnpSetObjectProperty @ 0x140686C8C (_PnpSetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ */
+
 __int64 __fastcall PiDcContainerRequiresConfiguration(wchar_t *Str2)
 {
   int ObjectProperty; // ebx

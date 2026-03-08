@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmIdleEvaluateConstraints @ 0x14022AB68
+ * Callers:
+ *     PpmIdlePrepare @ 0x14022AA10 (PpmIdlePrepare.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     PoAllProcessorsDeepIdle @ 0x1402AAF54 (PoAllProcessorsDeepIdle.c)
+ */
+
 __int64 __fastcall PpmIdleEvaluateConstraints(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rsi

@@ -1,3 +1,42 @@
+/*
+ * XREFs of MmOutSwapWorkingSet @ 0x1402DAFF8
+ * Callers:
+ *     PspChangeProcessExecutionState @ 0x1406F8AC0 (PspChangeProcessExecutionState.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiOutSwapWorkingSet @ 0x1402DB710 (MiOutSwapWorkingSet.c)
+ *     MiGetWorkingSetSwapSupport @ 0x1402DBD74 (MiGetWorkingSetSwapSupport.c)
+ *     MiReAllocateWorkingSetSwapSupport @ 0x1402DBD9C (MiReAllocateWorkingSetSwapSupport.c)
+ *     MiAllocateWorkingSetSwapSupport @ 0x1402DBDF4 (MiAllocateWorkingSetSwapSupport.c)
+ *     MiFindBestOutswapPagefile @ 0x1402DBE44 (MiFindBestOutswapPagefile.c)
+ *     MiGetKernelStackSwapSupport @ 0x1402DBFB8 (MiGetKernelStackSwapSupport.c)
+ *     MiVadSupportsPrivateCommit @ 0x14031EE80 (MiVadSupportsPrivateCommit.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14031F590 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14031F600 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiVadMapsLargeImage @ 0x140327280 (MiVadMapsLargeImage.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     SmStoreExistsForProcess @ 0x14035BD70 (SmStoreExistsForProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFreeWorkingSetSwapContext @ 0x14067E58C (MiFreeWorkingSetSwapContext.c)
+ *     EtwTraceWorkingSetSwap @ 0x140765840 (EtwTraceWorkingSetSwap.c)
+ *     SmStoreSetProcessVaRanges @ 0x1407658C4 (SmStoreSetProcessVaRanges.c)
+ *     MiFreeReservationRuns @ 0x140765980 (MiFreeReservationRuns.c)
+ *     VmCheckLargePageInswap @ 0x1409D90D4 (VmCheckLargePageInswap.c)
+ *     MiExtendWorkingSetSwapPagefile @ 0x140A40524 (MiExtendWorkingSetSwapPagefile.c)
+ *     MiReserveWorkingSetSwapSpace @ 0x140A40660 (MiReserveWorkingSetSwapSpace.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MmOutSwapWorkingSet(PEPROCESS Process, int a2)
 {
   unsigned __int64 *v2; // r15

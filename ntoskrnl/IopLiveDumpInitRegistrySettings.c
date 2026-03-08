@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopLiveDumpInitRegistrySettings @ 0x14094B85C
+ * Callers:
+ *     IoCaptureLiveDump @ 0x140948A78 (IoCaptureLiveDump.c)
+ * Callees:
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ *     IopOpenRegistryKey @ 0x1407803E0 (IopOpenRegistryKey.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall IopLiveDumpInitRegistrySettings(__int64 a1)
 {
   PVOID v2; // rcx

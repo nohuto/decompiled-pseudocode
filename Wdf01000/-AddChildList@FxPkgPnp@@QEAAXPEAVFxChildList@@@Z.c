@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?AddChildList@FxPkgPnp@@QEAAXPEAVFxChildList@@@Z @ 0x1C00711E4
+ * Callers:
+ *     ?AddChildList@FxDevice@@UEAAXPEAVFxChildList@@@Z @ 0x1C003C010 (-AddChildList@FxDevice@@UEAAXPEAVFxChildList@@@Z.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qq @ 0x1C001828C (WPP_IFR_SF_qq.c)
+ *     ?Add@FxTransactionedList@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAUFxTransactionedEntry@@@Z @ 0x1C004F80C (-Add@FxTransactionedList@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAUFxTransactionedEntry@@@Z.c)
+ */
+
 void __fastcall FxPkgPnp::AddChildList(FxPkgPnp *this, FxChildList *List)
 {
   const void *_a2; // rax

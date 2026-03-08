@@ -1,3 +1,16 @@
+/*
+ * XREFs of Usbh_FDO_WaitPnpRemove @ 0x1C0044460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     UsbhReleaseFdoPnpLock @ 0x1C0031D14 (UsbhReleaseFdoPnpLock.c)
+ *     GET_FDO_PNPSTATE @ 0x1C003BF34 (GET_FDO_PNPSTATE.c)
+ *     UsbhSetFdoPnpState @ 0x1C0044248 (UsbhSetFdoPnpState.c)
+ *     Usbh_PnpRemove @ 0x1C0044B44 (Usbh_PnpRemove.c)
+ */
+
 __int64 __fastcall Usbh_FDO_WaitPnpRemove(ULONG_PTR a1, int a2)
 {
   __int64 v2; // rdi

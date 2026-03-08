@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiReturnPartitionPagesToParent @ 0x140658E84
+ * Callers:
+ *     MiFreePartitionPhysicalPages @ 0x140A41E90 (MiFreePartitionPhysicalPages.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDrainZeroLookasides @ 0x1403B6E88 (MiDrainZeroLookasides.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReleasePartitionHugeIoSpace @ 0x140620094 (MiReleasePartitionHugeIoSpace.c)
+ *     MiActOnPartitionNodePages @ 0x140655AB0 (MiActOnPartitionNodePages.c)
+ */
+
 __int64 __fastcall MiReturnPartitionPagesToParent(ULONG_PTR BugCheckParameter2)
 {
   __int16 *v2; // rbx

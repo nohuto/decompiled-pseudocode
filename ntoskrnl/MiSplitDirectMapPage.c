@@ -1,3 +1,34 @@
+/*
+ * XREFs of MiSplitDirectMapPage @ 0x14063CE6C
+ * Callers:
+ *     MiWalkEntireImage @ 0x1402862C0 (MiWalkEntireImage.c)
+ * Callees:
+ *     MiCopyPfnEntryEx @ 0x140213930 (MiCopyPfnEntryEx.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140214870 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140214A54 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiRemoveLockedPageCharge @ 0x140286E00 (MiRemoveLockedPageCharge.c)
+ *     MiFinalizePageAttribute @ 0x14028A354 (MiFinalizePageAttribute.c)
+ *     MiAddLockedPageCharge @ 0x1402A309C (MiAddLockedPageCharge.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiUpdateTransitionPteFrame @ 0x1402C6CD0 (MiUpdateTransitionPteFrame.c)
+ *     MiDereferenceControlAreaPfnList @ 0x1402CFBF0 (MiDereferenceControlAreaPfnList.c)
+ *     MiColdPageSizeSupported @ 0x1402DD100 (MiColdPageSizeSupported.c)
+ *     MiLockNestedPageAtDpcInline @ 0x1402DDE90 (MiLockNestedPageAtDpcInline.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiCopyPage @ 0x14032DC70 (MiCopyPage.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiReleaseFreshPage @ 0x14034E570 (MiReleaseFreshPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWaitForFreePage @ 0x140651458 (MiWaitForFreePage.c)
+ *     MiAddPageToHeatRanges @ 0x140651704 (MiAddPageToHeatRanges.c)
+ *     MiNotifyPageHeat @ 0x140652018 (MiNotifyPageHeat.c)
+ */
+
 __int64 __fastcall MiSplitDirectMapPage(unsigned __int16 *a1, __int64 a2, ULONG_PTR a3, __int64 a4)
 {
   __int64 v4; // rdi

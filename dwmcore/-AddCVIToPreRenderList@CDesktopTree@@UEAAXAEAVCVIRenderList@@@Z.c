@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AddCVIToPreRenderList@CDesktopTree@@UEAAXAEAVCVIRenderList@@@Z @ 0x1800C1F40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?reserve_region@?$vector_facade@VCVIRenderList@@V?$buffer_impl@VCVIRenderList@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAVCVIRenderList@@_K0@Z @ 0x1800C1F94 (-reserve_region@-$vector_facade@VCVIRenderList@@V-$buffer_impl@VCVIRenderList@@$0BA@$00Vliberal_.c)
+ */
+
 void __fastcall CDesktopTree::AddCVIToPreRenderList(CDesktopTree *this, struct CVIRenderList *a2)
 {
   __int64 v3; // rax

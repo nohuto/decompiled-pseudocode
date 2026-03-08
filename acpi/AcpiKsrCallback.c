@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiKsrCallback @ 0x1C008B180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiKsrPreparePersistentContext @ 0x1C008B1D0 (AcpiKsrPreparePersistentContext.c)
+ */
+
 void __fastcall AcpiKsrCallback(PVOID CallbackContext, PVOID Argument1, PVOID Argument2)
 {
   int v3; // eax

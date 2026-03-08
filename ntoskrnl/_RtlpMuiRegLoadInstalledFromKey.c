@@ -1,3 +1,18 @@
+/*
+ * XREFs of _RtlpMuiRegLoadInstalledFromKey @ 0x14039C4A0
+ * Callers:
+ *     _RtlpMuiRegLoadInstalled @ 0x140844000 (_RtlpMuiRegLoadInstalled.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwEnumerateKey @ 0x140412950 (ZwEnumerateKey.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     LdrpOpenKey @ 0x14084370C (LdrpOpenKey.c)
+ *     ValidateRegistrLangType @ 0x140843758 (ValidateRegistrLangType.c)
+ *     RtlpMuiRegAddLanguageByName @ 0x1408437B0 (RtlpMuiRegAddLanguageByName.c)
+ *     LdrpQueryValueKey @ 0x1408446D0 (LdrpQueryValueKey.c)
+ */
+
 __int64 __fastcall RtlpMuiRegLoadInstalledFromKey(int a1)
 {
   unsigned int *v1; // rbp

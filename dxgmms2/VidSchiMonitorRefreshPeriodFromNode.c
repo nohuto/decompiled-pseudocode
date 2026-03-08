@@ -1,3 +1,13 @@
+/*
+ * XREFs of VidSchiMonitorRefreshPeriodFromNode @ 0x1C0018FE4
+ * Callers:
+ *     VidSchiUpdateLastCompletedPresentTimestamp @ 0x1C0002D40 (VidSchiUpdateLastCompletedPresentTimestamp.c)
+ *     VidSchiProcessDpcCompletedPacket @ 0x1C0004B90 (VidSchiProcessDpcCompletedPacket.c)
+ *     ?VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C00379BC (-VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VidSchiMonitorRefreshPeriodFromNode(__int64 a1)
 {
   __int64 v1; // rdi

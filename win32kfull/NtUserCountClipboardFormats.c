@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserCountClipboardFormats @ 0x1C00155C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CountNumClipFormatForIL@@YAKUtagUIPI_INFO@@PEBUtagWINDOWSTATION@@@Z @ 0x1C0015634 (-CountNumClipFormatForIL@@YAKUtagUIPI_INFO@@PEBUtagWINDOWSTATION@@@Z.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00BD7B8 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ */
+
 __int64 NtUserCountClipboardFormats()
 {
   unsigned int v0; // ebx

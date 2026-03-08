@@ -1,3 +1,15 @@
+/*
+ * XREFs of PspIumGetPhysicalPage @ 0x1408A11F0
+ * Callers:
+ *     PsDispatchIumService @ 0x1405A2A44 (PsDispatchIumService.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PspIumReplenishPartitionPages @ 0x1405A3DE0 (PspIumReplenishPartitionPages.c)
+ *     MmVirtualAccessFault @ 0x1408A7758 (MmVirtualAccessFault.c)
+ */
+
 __int64 __fastcall PspIumGetPhysicalPage(__int64 a1)
 {
   unsigned int v1; // r15d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?xxxEnableWindowGDIScaledDpiMessageX@@YA_NPEAUtagWND@@H@Z @ 0x1C02225FC
+ * Callers:
+ *     NtUserEnableWindowGDIScaledDpiMessage @ 0x1C01D0600 (NtUserEnableWindowGDIScaledDpiMessage.c)
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ */
+
 char __fastcall xxxEnableWindowGDIScaledDpiMessageX(struct tagWND *a1, int a2)
 {
   char v4; // di

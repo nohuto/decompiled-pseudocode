@@ -1,3 +1,19 @@
+/*
+ * XREFs of KeRemoveQueueApc @ 0x1402F7360
+ * Callers:
+ *     EtwpCancelPendingStackWalkApcs @ 0x14028E24C (EtwpCancelPendingStackWalkApcs.c)
+ *     ExpCancelTimer @ 0x1402CE3BC (ExpCancelTimer.c)
+ *     EtwpQueueStackWalkApc @ 0x140460526 (EtwpQueueStackWalkApc.c)
+ *     EtwpTraceThreadRundownWithStack @ 0x1405FF6DC (EtwpTraceThreadRundownWithStack.c)
+ *     EtwpCovSampCaptureCancelApcs @ 0x140600A20 (EtwpCovSampCaptureCancelApcs.c)
+ *     CmNotifyRunDown @ 0x1407D9F54 (CmNotifyRunDown.c)
+ *     ExSwapinWorkerThreads @ 0x1409FD778 (ExSwapinWorkerThreads.c)
+ * Callees:
+ *     KiRemoveQueueApc @ 0x1402F742C (KiRemoveQueueApc.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall KeRemoveQueueApc(__int64 a1)
 {
   __int64 v1; // rdi

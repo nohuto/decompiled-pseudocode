@@ -1,3 +1,16 @@
+/*
+ * XREFs of IoQueryFileDosDeviceName @ 0x14071FFB0
+ * Callers:
+ *     EtwpGetDriverDataDosPath @ 0x1403D1CCC (EtwpGetDriverDataDosPath.c)
+ *     CcMmLogLostDelayedWriteError @ 0x140535454 (CcMmLogLostDelayedWriteError.c)
+ *     NtQueryInformationProcess @ 0x1407215F0 (NtQueryInformationProcess.c)
+ *     PiDrvDbQuerySystemPathWin32 @ 0x14081DD70 (PiDrvDbQuerySystemPathWin32.c)
+ * Callees:
+ *     IopQueryNameInternal @ 0x140720054 (IopQueryNameInternal.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall IoQueryFileDosDeviceName(PFILE_OBJECT FileObject, POBJECT_NAME_INFORMATION *ObjectNameInformation)
 {
   __int64 v2; // rdi

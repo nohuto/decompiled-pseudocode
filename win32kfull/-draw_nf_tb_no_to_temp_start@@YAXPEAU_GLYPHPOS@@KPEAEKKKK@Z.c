@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?draw_nf_tb_no_to_temp_start@@YAXPEAU_GLYPHPOS@@KPEAEKKKK@Z @ 0x1C0304B60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall draw_nf_tb_no_to_temp_start(struct _GLYPHPOS *a1, int a2, unsigned __int8 *a3, int a4, unsigned int a5)
 {
   __int64 v5; // rdi

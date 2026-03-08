@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpDmaMapScatterTransferV2 @ 0x140455D28
+ * Callers:
+ *     HalpMapTransferV2 @ 0x140454DA4 (HalpMapTransferV2.c)
+ * Callees:
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1403B44EC (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaNextContiguousPiece @ 0x140452E28 (HalpDmaNextContiguousPiece.c)
+ *     HalpDmaSyncMapBuffers @ 0x1404544F2 (HalpDmaSyncMapBuffers.c)
+ *     HalpDmaFlushBuffer @ 0x14050E7A0 (HalpDmaFlushBuffer.c)
+ */
+
 _QWORD *__fastcall HalpDmaMapScatterTransferV2(
         __int64 a1,
         __int64 a2,

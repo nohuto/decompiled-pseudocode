@@ -1,3 +1,11 @@
+/*
+ * XREFs of CompareVersions @ 0x1402FF3D0
+ * Callers:
+ *     RtlGetProductInfo @ 0x1402FF290 (RtlGetProductInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CompareVersions(_DWORD *a1, _DWORD *a2)
 {
   unsigned int v3; // eax

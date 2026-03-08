@@ -1,3 +1,43 @@
+/*
+ * XREFs of MiQueryAddressState @ 0x14031B4F0
+ * Callers:
+ *     MiComparePteProtections @ 0x1402DE51C (MiComparePteProtections.c)
+ *     MiQueryAddressSpan @ 0x14031E2D0 (MiQueryAddressSpan.c)
+ *     MiSetProtectionOnSection @ 0x140321FC0 (MiSetProtectionOnSection.c)
+ *     MiAllowProtectionChange @ 0x140367C88 (MiAllowProtectionChange.c)
+ *     MiObtainRotateProtectionRanges @ 0x1406304A8 (MiObtainRotateProtectionRanges.c)
+ * Callees:
+ *     MiLocateLockedVadEvent @ 0x14020DC68 (MiLocateLockedVadEvent.c)
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiWalkPageTables @ 0x140222CF0 (MiWalkPageTables.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiFastLockLeafPageTable @ 0x140269C50 (MiFastLockLeafPageTable.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiGetPageTableLockBuffer @ 0x140290838 (MiGetPageTableLockBuffer.c)
+ *     PsReferencePartitionSafe @ 0x140295BC8 (PsReferencePartitionSafe.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     MiGetSharedProtos @ 0x1402CCDF8 (MiGetSharedProtos.c)
+ *     MiQueryStateMatches @ 0x1402E23F4 (MiQueryStateMatches.c)
+ *     MiSkipEntirePagefileRegions @ 0x1402EC8D4 (MiSkipEntirePagefileRegions.c)
+ *     MiSkipFractionalPagefileRegion @ 0x1402F3234 (MiSkipFractionalPagefileRegion.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPageProtection @ 0x14031C310 (MiGetPageProtection.c)
+ *     MiGetProtoPteAddress @ 0x14031C780 (MiGetProtoPteAddress.c)
+ *     MI_GET_GRAPHICS_PROTECTION_FROM_VAD @ 0x14031F770 (MI_GET_GRAPHICS_PROTECTION_FROM_VAD.c)
+ *     MiVadPureReserve @ 0x140321EB0 (MiVadPureReserve.c)
+ *     MiIsPrototypePteVadLookup @ 0x140327240 (MiIsPrototypePteVadLookup.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceShouldYieldProcessor @ 0x1405FB09C (EtwTraceShouldYieldProcessor.c)
+ *     MiFaultInPagedPool @ 0x14062E748 (MiFaultInPagedPool.c)
+ *     MiGetProtectionFromPte @ 0x140646910 (MiGetProtectionFromPte.c)
+ *     MiGetAweVadPartition @ 0x1406483B4 (MiGetAweVadPartition.c)
+ */
+
 __int64 __fastcall MiQueryAddressState(
         unsigned __int64 a1,
         unsigned __int64 a2,

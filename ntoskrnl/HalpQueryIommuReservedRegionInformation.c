@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpQueryIommuReservedRegionInformation @ 0x1408220EC
+ * Callers:
+ *     HaliQuerySystemInformation @ 0x140A85470 (HaliQuerySystemInformation.c)
+ * Callees:
+ *     HalpIommuGetDeviceId @ 0x14038CC4C (HalpIommuGetDeviceId.c)
+ *     HalpIommuFreeDeviceId @ 0x14038CD68 (HalpIommuFreeDeviceId.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpIommuLocateFromDevice @ 0x14082218C (HalpIommuLocateFromDevice.c)
+ */
+
 __int64 __fastcall HalpQueryIommuReservedRegionInformation(__int64 a1, unsigned int a2)
 {
   __int64 v3; // rcx

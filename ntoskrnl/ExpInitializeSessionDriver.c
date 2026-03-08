@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpInitializeSessionDriver @ 0x14079B72C
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     MmSessionSetUnloadAddress @ 0x14030260C (MmSessionSetUnloadAddress.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall ExpInitializeSessionDriver(__int64 (__fastcall *a1)(_QWORD *, _QWORD), __int64 a2)
 {
   int v4; // ebx

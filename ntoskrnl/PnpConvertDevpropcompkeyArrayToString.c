@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpConvertDevpropcompkeyArrayToString @ 0x1409558BC
+ * Callers:
+ *     PiDqIrpQueryCreate @ 0x140745F08 (PiDqIrpQueryCreate.c)
+ * Callees:
+ *     ConvertDevpropcompkeyToString @ 0x140A6B464 (ConvertDevpropcompkeyToString.c)
+ */
+
 __int64 __fastcall PnpConvertDevpropcompkeyArrayToString(
         __int64 a1,
         unsigned int a2,

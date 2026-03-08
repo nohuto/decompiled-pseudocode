@@ -1,3 +1,21 @@
+/*
+ * XREFs of HalpInterruptInitSystem @ 0x140A86CD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpInterruptModel @ 0x14028EADC (HalpInterruptModel.c)
+ *     HalpInterruptInitializeGlobals @ 0x140303100 (HalpInterruptInitializeGlobals.c)
+ *     HalpInterruptEnableNmi @ 0x140378254 (HalpInterruptEnableNmi.c)
+ *     HalpInterruptEnablePerformanceEvents @ 0x1403789F8 (HalpInterruptEnablePerformanceEvents.c)
+ *     HalpInitializeInterruptsPn @ 0x140379DFC (HalpInitializeInterruptsPn.c)
+ *     HalpInterruptInitPowerManagement @ 0x1403930CC (HalpInterruptInitPowerManagement.c)
+ *     HalpInterruptBuildGlobalStartupStub @ 0x1403A3BE0 (HalpInterruptBuildGlobalStartupStub.c)
+ *     HalpInitializeInterruptsBspLate @ 0x1403A9F1C (HalpInitializeInterruptsBspLate.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HalpInterruptInitDiscard @ 0x140B7107C (HalpInterruptInitDiscard.c)
+ *     HalpPreAllocateKInterrupts @ 0x140B7228C (HalpPreAllocateKInterrupts.c)
+ */
+
 __int64 __fastcall HalpInterruptInitSystem(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   unsigned int v4; // ebx

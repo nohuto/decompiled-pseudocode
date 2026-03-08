@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CSTPop@@YAHPEAIPEAPEAX@Z @ 0x1C008E8E4
+ * Callers:
+ *     ?Win32kNtUserCleanupInternal@@YAXXZ @ 0x1C008DC04 (-Win32kNtUserCleanupInternal@@YAXXZ.c)
+ *     xxxCreateSystemThreads @ 0x1C008E630 (xxxCreateSystemThreads.c)
+ *     HandleSystemThreadCreationFailure @ 0x1C015CEF0 (HandleSystemThreadCreationFailure.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CSTPop(unsigned int *a1, void **a2)
 {
   unsigned int v2; // eax

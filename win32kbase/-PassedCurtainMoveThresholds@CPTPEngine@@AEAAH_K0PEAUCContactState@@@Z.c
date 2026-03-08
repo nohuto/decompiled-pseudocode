@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PassedCurtainMoveThresholds@CPTPEngine@@AEAAH_K0PEAUCContactState@@@Z @ 0x1C0237DFC
+ * Callers:
+ *     ?UpdateTPStateIndicator@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUCContactState@@PEAUPTPEnginePointerNode@@PEAH@Z @ 0x1C023ACE0 (-UpdateTPStateIndicator@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUCContactState@@PEAUPTPEnginePointerNo.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall CPTPEngine::PassedCurtainMoveThresholds(
         CPTPEngine *this,
         __int64 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpSortByTag @ 0x140B34DE8
+ * Callers:
+ *     CmpDoSort @ 0x140B34CB0 (CmpDoSort.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CmpSortByTag(__int64 a1)
 {
   _QWORD *v1; // r8

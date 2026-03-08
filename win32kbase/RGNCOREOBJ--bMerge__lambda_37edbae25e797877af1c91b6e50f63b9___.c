@@ -1,3 +1,12 @@
+/*
+ * XREFs of RGNCOREOBJ::bMerge__lambda_37edbae25e797877af1c91b6e50f63b9___ @ 0x1C0042F40
+ * Callers:
+ *     ?bMerge@RGNOBJ@@QEAAHAEAV1@0E@Z @ 0x1C0042EB0 (-bMerge@RGNOBJ@@QEAAHAEAV1@0E@Z.c)
+ * Callees:
+ *     ?bExpand@RGNOBJ@@QEAAHK@Z @ 0x1C00AAC50 (-bExpand@RGNOBJ@@QEAAHK@Z.c)
+ *     memcmp @ 0x1C00E17D0 (memcmp.c)
+ */
+
 char __fastcall RGNCOREOBJ::bMerge__lambda_37edbae25e797877af1c91b6e50f63b9___(
         __m128i **a1,
         __int64 a2,

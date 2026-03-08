@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_6205c396a1390c774bd95fcbb0cc7414_::operator() @ 0x1C00C45A4
+ * Callers:
+ *     ?ValidateIFIMETRICS@@YA_NPEAU_IFIMETRICS@@@Z @ 0x1C00C434C (-ValidateIFIMETRICS@@YA_NPEAU_IFIMETRICS@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall lambda_6205c396a1390c774bd95fcbb0cc7414_::operator()(_QWORD **a1, unsigned int a2)
 {
   _DWORD *v2; // r8

@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefRawMaskedAddSubdigit @ 0x1403FDFDC
+ * Callers:
+ *     SymCryptFdefRawDivMod @ 0x1403FDD28 (SymCryptFdefRawDivMod.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall SymCryptFdefRawMaskedAddSubdigit(_DWORD *a1, __int64 a2, unsigned int a3, __int64 a4)
 {
   unsigned __int64 result; // rax

@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpDmaProcessMapRegisterQueueV2 @ 0x1404551EE
+ * Callers:
+ *     IoFreeMapRegistersV2 @ 0x1404554C0 (IoFreeMapRegistersV2.c)
+ *     HalpGrowMapBufferWorker @ 0x1404FF9C0 (HalpGrowMapBufferWorker.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpDmaAllocateMapRegisters @ 0x14045399E (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaDequeueAdapter @ 0x140453D90 (HalpDmaDequeueAdapter.c)
+ *     HalpDmaFreeMapRegisters @ 0x140453EF6 (HalpDmaFreeMapRegisters.c)
+ *     IoFreeAdapterChannelV2 @ 0x1404552D0 (IoFreeAdapterChannelV2.c)
+ *     HalpQueueMapBufferWorker @ 0x140503034 (HalpQueueMapBufferWorker.c)
+ *     HalpDmaQueueAdapter @ 0x14050EF68 (HalpDmaQueueAdapter.c)
+ */
+
 __int64 *__fastcall HalpDmaProcessMapRegisterQueueV2(__int64 a1, char a2)
 {
   __int64 *result; // rax

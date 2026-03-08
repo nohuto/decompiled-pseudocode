@@ -1,3 +1,15 @@
+/*
+ * XREFs of _GetLayeredWindowAttributes @ 0x1C000F978
+ * Callers:
+ *     NtUserGetLayeredWindowAttributes @ 0x1C000F840 (NtUserGetLayeredWindowAttributes.c)
+ *     ?zzzApplyShadow@@YAHPEAUtagWND@@0@Z @ 0x1C0224188 (-zzzApplyShadow@@YAHPEAUtagWND@@0@Z.c)
+ *     zzzUpdateShadowAlpha @ 0x1C02248CC (zzzUpdateShadowAlpha.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     GetRedirectionFlags @ 0x1C0096CD0 (GetRedirectionFlags.c)
+ *     GreGetSpriteAttributes @ 0x1C010CF4C (GreGetSpriteAttributes.c)
+ */
+
 __int64 __fastcall GetLayeredWindowAttributes(__int64 a1, __int64 a2, BYTE *a3, unsigned int *a4)
 {
   unsigned int SpriteAttributes; // edi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIProcessHardwareInformation @ 0x1C00889B0
+ * Callers:
+ *     ACPILoadProcessFADT @ 0x1C00A999C (ACPILoadProcessFADT.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ACPIAssert @ 0x1C000AB78 (ACPIAssert.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 ACPIProcessHardwareInformation()
 {
   __int64 v0; // rdi

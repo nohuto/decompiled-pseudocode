@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_QueryForInterface@FxQueryInterface@@SAJPEAU_DEVICE_OBJECT@@PEBU_GUID@@PEAU_INTERFACE@@GGPEAX@Z @ 0x1C002BAF4
+ * Callers:
+ *     ?QueryForInterface@FxDeviceBase@@QEAAJPEBU_GUID@@PEAU_INTERFACE@@GGPEAXPEAU_DEVICE_OBJECT@@@Z @ 0x1C003B79C (-QueryForInterface@FxDeviceBase@@QEAAJPEBU_GUID@@PEAU_INTERFACE@@GGPEAXPEAU_DEVICE_OBJECT@@@Z.c)
+ *     imp_WdfIoTargetQueryForInterface @ 0x1C0052130 (imp_WdfIoTargetQueryForInterface.c)
+ * Callees:
+ *     ?SendIrpSynchronously@FxIrp@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C002BA14 (-SendIrpSynchronously@FxIrp@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ */
+
 __int64 __fastcall FxQueryInterface::_QueryForInterface(
         _DEVICE_OBJECT *TopOfStack,
         const _GUID *InterfaceType,

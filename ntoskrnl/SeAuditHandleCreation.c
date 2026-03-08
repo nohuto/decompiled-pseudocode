@@ -1,3 +1,19 @@
+/*
+ * XREFs of SeAuditHandleCreation @ 0x14078D9F8
+ * Callers:
+ *     ObDuplicateObject @ 0x1406ED5C0 (ObDuplicateObject.c)
+ * Callees:
+ *     PsGetCurrentThreadProcessId @ 0x140204F00 (PsGetCurrentThreadProcessId.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwDuplicateObject @ 0x140412A90 (ZwDuplicateObject.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x1406996AC (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     SepAdtClassifyObjectIntoSubCategory @ 0x1408A1798 (SepAdtClassifyObjectIntoSubCategory.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x1409C930C (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtStagingEvent @ 0x1409CA0F4 (SepAdtStagingEvent.c)
+ */
+
 char __fastcall SeAuditHandleCreation(__int64 a1, void *a2, void *a3)
 {
   _UNKNOWN **v3; // rax

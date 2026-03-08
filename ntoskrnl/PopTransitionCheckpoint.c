@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopTransitionCheckpoint @ 0x14067F1CC
+ * Callers:
+ *     PopSwitchUpdateUserShutdownScenarioState @ 0x14067EF08 (PopSwitchUpdateUserShutdownScenarioState.c)
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ *     PopGracefulShutdown @ 0x140A9D970 (PopGracefulShutdown.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PsIsHostSilo @ 0x14030F2E0 (PsIsHostSilo.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void __fastcall PopTransitionCheckpoint(int a1, int a2)
 {
   __int64 CurrentServerSilo; // rax

@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExReinitializeResourceLite @ 0x1402CB110
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsBoostThreadIoEx @ 0x1402634D0 (PsBoostThreadIoEx.c)
+ *     ExpOwnerEntryToThread @ 0x140283298 (ExpOwnerEntryToThread.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140283390 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     PsBoostThreadIoQoS @ 0x14029176C (PsBoostThreadIoQoS.c)
+ *     ExpResourceEnforcesOwnershipTransfer @ 0x1402917A4 (ExpResourceEnforcesOwnershipTransfer.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PerfLogExecutiveResourceInitialize @ 0x1405FE3D8 (PerfLogExecutiveResourceInitialize.c)
+ */
+
 NTSTATUS __stdcall ExReinitializeResourceLite(PERESOURCE Resource)
 {
   __int16 v2; // ax

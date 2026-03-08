@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopBatteryQueryEstimatedTime @ 0x1409924A8
+ * Callers:
+ *     PopBatteryWorker @ 0x14086DD10 (PopBatteryWorker.c)
+ * Callees:
+ *     IoSynchronousCallDriver @ 0x1402E9470 (IoSynchronousCallDriver.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopPrepareIoctl @ 0x140846A50 (PopPrepareIoctl.c)
+ */
+
 __int64 __fastcall PopBatteryQueryEstimatedTime(__int64 a1, int a2)
 {
   int v2; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of IrqArbpFindBootConfig @ 0x1C009DCEC
+ * Callers:
+ *     IrqArbGetNextAllocationRange @ 0x1C009D3B0 (IrqArbGetNextAllocationRange.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IrqArbpFindBootConfig(__int64 a1, __int64 a2, _DWORD *a3)
 {
   struct _RTL_RANGE_LIST *v3; // rcx

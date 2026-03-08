@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?MilUnexpectedError@@YAXJPEBG@Z @ 0x180278D8C
+ * Callers:
+ *     ?ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ @ 0x18004DAF0 (-ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ.c)
+ *     ?ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z @ 0x18009EF00 (-ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z.c)
+ * Callees:
+ *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1800AE258 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     ?RegGetHKLMDword@@YA_NQEBG0PEAK@Z @ 0x180278A58 (-RegGetHKLMDword@@YA_NQEBG0PEAK@Z.c)
+ *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x180279008 (-IsKernelDebuggerPresent@@YAHXZ.c)
+ */
+
 void __fastcall MilUnexpectedError(unsigned int a1, const unsigned __int16 *a2)
 {
   int v2; // eax

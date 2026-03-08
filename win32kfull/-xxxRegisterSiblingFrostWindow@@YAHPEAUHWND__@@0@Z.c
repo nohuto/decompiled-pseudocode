@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?xxxRegisterSiblingFrostWindow@@YAHPEAUHWND__@@0@Z @ 0x1C01F65C4
+ * Callers:
+ *     NtUserRegisterSiblingFrostWindow @ 0x1C01DA940 (NtUserRegisterSiblingFrostWindow.c)
+ * Callees:
+ *     InternalRemoveProp @ 0x1C002484C (InternalRemoveProp.c)
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     IsWindowBeingDestroyed @ 0x1C0039B60 (IsWindowBeingDestroyed.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     ?SetFrostProp@@YAHPEAUtagWND@@PEAUHWND__@@@Z @ 0x1C01F4F04 (-SetFrostProp@@YAHPEAUtagWND@@PEAUHWND__@@@Z.c)
+ *     ?SetGhostFNID@@YAHPEAUtagWND@@H@Z @ 0x1C01F4F78 (-SetGhostFNID@@YAHPEAUtagWND@@H@Z.c)
+ *     ?_ShouldFrostSiblingWindow@@YAHPEAUtagWND@@@Z @ 0x1C01F54A0 (-_ShouldFrostSiblingWindow@@YAHPEAUtagWND@@@Z.c)
+ *     ?xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C01F5BBC (-xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z.c)
+ *     ?xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C01F687C (-xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z.c)
+ */
+
 __int64 __fastcall xxxRegisterSiblingFrostWindow(HWND a1, HWND a2, __int64 a3)
 {
   unsigned int v5; // ebx

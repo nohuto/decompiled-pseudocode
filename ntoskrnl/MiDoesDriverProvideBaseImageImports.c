@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiDoesDriverProvideBaseImageImports @ 0x140B3C350
+ * Callers:
+ *     MiImportOptimizationCompatibleWithDriverRelocation @ 0x140B3C2F8 (MiImportOptimizationCompatibleWithDriverRelocation.c)
+ * Callees:
+ *     MiDoesDriverProvideImportsForDriver @ 0x140B3C3A0 (MiDoesDriverProvideImportsForDriver.c)
+ */
+
 __int64 __fastcall MiDoesDriverProvideBaseImageImports(__int64 a1)
 {
   unsigned int v2; // ebx

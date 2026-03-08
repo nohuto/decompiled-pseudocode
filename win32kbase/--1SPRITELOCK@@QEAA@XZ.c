@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1SPRITELOCK@@QEAA@XZ @ 0x1C00A6D90
+ * Callers:
+ *     ?DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z @ 0x1C018DA5C (-DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z.c)
+ * Callees:
+ *     McTemplateK0pz_EtwWriteTransfer @ 0x1C0198A10 (McTemplateK0pz_EtwWriteTransfer.c)
+ */
+
 void __fastcall SPRITELOCK::~SPRITELOCK(SPRITELOCK *this)
 {
   __int64 v1; // rbx

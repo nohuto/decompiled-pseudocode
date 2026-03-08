@@ -1,3 +1,13 @@
+/*
+ * XREFs of InitializeDynamicPartitioningPolicy @ 0x140B45014
+ * Callers:
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     HviIsAnyHypervisorPresent @ 0x14037F1D0 (HviIsAnyHypervisorPresent.c)
+ *     ZwQueryLicenseValue @ 0x140414ED0 (ZwQueryLicenseValue.c)
+ */
+
 __int64 InitializeDynamicPartitioningPolicy()
 {
   __int64 result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpTscTraceProcessorSynchronization @ 0x1403884E4
+ * Callers:
+ *     HalpTscAdvSynchToLeader @ 0x140388164 (HalpTscAdvSynchToLeader.c)
+ *     HalpTscAdvSynchToTarget @ 0x140507F18 (HalpTscAdvSynchToTarget.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char HalpTscTraceProcessorSynchronization(int a1, int a2, ...)
 {
   _UNKNOWN **v2; // rax

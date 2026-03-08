@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlFindClearBitsEx @ 0x14034D0A0
+ * Callers:
+ *     MiSelectRelocationStartHint @ 0x1406A1BE8 (MiSelectRelocationStartHint.c)
+ *     MiFindEmptyAddressRange @ 0x1407D6F10 (MiFindEmptyAddressRange.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall RtlFindClearBitsEx(unsigned __int64 *a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // r15

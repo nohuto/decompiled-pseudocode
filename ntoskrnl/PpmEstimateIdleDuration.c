@@ -1,3 +1,17 @@
+/*
+ * XREFs of PpmEstimateIdleDuration @ 0x14022A74C
+ * Callers:
+ *     PpmComputeIdleDurationHint @ 0x14022A658 (PpmComputeIdleDurationHint.c)
+ *     PpmIdleSelectStates @ 0x1403B2150 (PpmIdleSelectStates.c)
+ * Callees:
+ *     KeEstimateClockTickDuration @ 0x14022A8EC (KeEstimateClockTickDuration.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PpmGetIdleConstrainedMask @ 0x140581D60 (PpmGetIdleConstrainedMask.c)
+ */
+
 unsigned __int64 *__fastcall PpmEstimateIdleDuration(
         __int64 a1,
         char a2,

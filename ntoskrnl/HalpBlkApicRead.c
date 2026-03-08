@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpBlkApicRead @ 0x140B13104
+ * Callers:
+ *     HalpBlkApicInitializeLocalUnit @ 0x140B12FB0 (HalpBlkApicInitializeLocalUnit.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall HalpBlkApicRead(int a1)
 {
   _EXCEPTION_REGISTRATION_RECORD *ExceptionList; // rax

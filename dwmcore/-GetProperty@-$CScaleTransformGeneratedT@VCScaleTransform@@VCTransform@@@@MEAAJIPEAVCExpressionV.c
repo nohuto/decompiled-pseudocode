@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetProperty@?$CScaleTransformGeneratedT@VCScaleTransform@@VCTransform@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801C1910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CScaleTransformGeneratedT<CScaleTransform,CTransform>::GetProperty(_DWORD *a1, int a2, __int64 a3)
 {
   __int64 result; // rax

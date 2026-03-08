@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UmfdCallSessionUninitialize@@YAXXZ @ 0x1C00928DC
+ * Callers:
+ *     UmfdSessionUninitialize @ 0x1C0092A20 (UmfdSessionUninitialize.c)
+ * Callees:
+ *     ?Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z @ 0x1C00EF3DC (-Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z.c)
+ */
+
 void __fastcall UmfdCallSessionUninitialize(__int64 a1)
 {
   __int64 v1; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwExitProcess @ 0x1407049EC
+ * Callers:
+ *     PspProcessDelete @ 0x140704DD0 (PspProcessDelete.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     EtwpCovSampProcessCleanup @ 0x1409EFCC8 (EtwpCovSampProcessCleanup.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwExitProcess(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

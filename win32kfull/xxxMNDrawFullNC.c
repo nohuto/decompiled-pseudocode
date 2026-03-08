@@ -1,3 +1,22 @@
+/*
+ * XREFs of xxxMNDrawFullNC @ 0x1C0237FB4
+ * Callers:
+ *     xxxMNSetTop @ 0x1C021CD94 (xxxMNSetTop.c)
+ *     xxxMenuWindowProc @ 0x1C021D3D0 (xxxMenuWindowProc.c)
+ * Callees:
+ *     GreSetBrushOrg @ 0x1C0007754 (GreSetBrushOrg.c)
+ *     DrawEdge @ 0x1C0088404 (DrawEdge.c)
+ *     NtGdiPatBlt @ 0x1C008B370 (NtGdiPatBlt.c)
+ *     MNGetpItemFromIndex @ 0x1C00A266C (MNGetpItemFromIndex.c)
+ *     MNIsUAHMenu @ 0x1C02194D8 (MNIsUAHMenu.c)
+ *     ?GetDPIMETRICS@@YAPEBUtagDPIMETRICS@@PEBUtagWND@@@Z @ 0x1C02363F0 (-GetDPIMETRICS@@YAPEBUtagDPIMETRICS@@PEBUtagWND@@@Z.c)
+ *     MNDrawArrow @ 0x1C02372BC (MNDrawArrow.c)
+ *     MNDrawEdge @ 0x1C0237488 (MNDrawEdge.c)
+ *     xxxSendUAHMenuMessage @ 0x1C023A4DC (xxxSendUAHMenuMessage.c)
+ *     DrawFrame @ 0x1C024F2F8 (DrawFrame.c)
+ *     GreGetBrushOrg @ 0x1C02AA4C8 (GreGetBrushOrg.c)
+ */
+
 __int64 __fastcall xxxMNDrawFullNC(struct tagWND *a1, HDC a2, __int64 **a3)
 {
   __int64 result; // rax

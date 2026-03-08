@@ -1,3 +1,15 @@
+/*
+ * XREFs of IpmiHwInitializeContext @ 0x1406751C8
+ * Callers:
+ *     WheaSelLogInitialize @ 0x140B482FC (WheaSelLogInitialize.c)
+ * Callees:
+ *     IpmiHwContextInitialized @ 0x1406751AC (IpmiHwContextInitialized.c)
+ *     IpmiHwKcsInit @ 0x1406752BC (IpmiHwKcsInit.c)
+ *     IpmiHwpReadSpmiConfiguration @ 0x1406753FC (IpmiHwpReadSpmiConfiguration.c)
+ *     IpmiLibReadSmbiosRecord38 @ 0x1406754B4 (IpmiLibReadSmbiosRecord38.c)
+ *     IpmiLibpParseDeviceInfo @ 0x1406755F0 (IpmiLibpParseDeviceInfo.c)
+ */
+
 __int64 IpmiHwInitializeContext()
 {
   __int128 *v0; // r8

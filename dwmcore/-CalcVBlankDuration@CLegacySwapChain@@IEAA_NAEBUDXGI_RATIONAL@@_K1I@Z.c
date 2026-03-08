@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CalcVBlankDuration@CLegacySwapChain@@IEAA_NAEBUDXGI_RATIONAL@@_K1I@Z @ 0x1800C80F8
+ * Callers:
+ *     ??0CLegacySwapChain@@IEAA@PEAVCD3DDevice@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@U_LUID@@IIIAEBUDXGI_RATIONAL@@_K6IW4Enum@FrontBufferRender@@@Z @ 0x1800CA640 (--0CLegacySwapChain@@IEAA@PEAVCD3DDevice@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEBVRende.c)
+ *     ?UpdateRefreshRate@CLegacySwapChain@@UEAAJXZ @ 0x1802984E0 (-UpdateRefreshRate@CLegacySwapChain@@UEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CLegacySwapChain::CalcVBlankDuration(
         struct DXGI_RATIONAL *this,
         const struct DXGI_RATIONAL *a2,

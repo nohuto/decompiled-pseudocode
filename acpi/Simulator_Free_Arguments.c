@@ -1,3 +1,15 @@
+/*
+ * XREFs of Simulator_Free_Arguments @ 0x1C0049214
+ * Callers:
+ *     AMLIAsyncEvalObject @ 0x1C00478E8 (AMLIAsyncEvalObject.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C0047B9C (AMLIEvalNameSpaceObject.c)
+ *     AMLIRegEventHandler @ 0x1C0048A7C (AMLIRegEventHandler.c)
+ *     Simulator_AsyncEvalObjectCallBack @ 0x1C0048F10 (Simulator_AsyncEvalObjectCallBack.c)
+ * Callees:
+ *     FreeObjData @ 0x1C004B544 (FreeObjData.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ */
+
 __int64 __fastcall Simulator_Free_Arguments(int a1, __int64 a2)
 {
   __int64 v3; // rsi

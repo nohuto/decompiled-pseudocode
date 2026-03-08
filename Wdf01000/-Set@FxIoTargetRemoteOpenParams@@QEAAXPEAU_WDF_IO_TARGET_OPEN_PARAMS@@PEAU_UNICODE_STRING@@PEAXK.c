@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Set@FxIoTargetRemoteOpenParams@@QEAAXPEAU_WDF_IO_TARGET_OPEN_PARAMS@@PEAU_UNICODE_STRING@@PEAXK@Z @ 0x1C000ECB2
+ * Callers:
+ *     ?Open@FxIoTargetRemote@@QEAAJPEAU_WDF_IO_TARGET_OPEN_PARAMS@@@Z @ 0x1C0055060 (-Open@FxIoTargetRemote@@QEAAJPEAU_WDF_IO_TARGET_OPEN_PARAMS@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxIoTargetRemoteOpenParams::Set(
         FxIoTargetRemoteOpenParams *this,
         _WDF_IO_TARGET_OPEN_PARAMS *OpenParams,

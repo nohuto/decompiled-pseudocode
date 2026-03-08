@@ -1,3 +1,11 @@
+/*
+ * XREFs of MantissaToFraction @ 0x1C0255AB8
+ * Callers:
+ *     AntiLog @ 0x1C025555C (AntiLog.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MantissaToFraction(__int16 a1, unsigned int a2)
 {
   unsigned __int16 v2; // r11

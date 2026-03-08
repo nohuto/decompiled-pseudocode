@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIVectorDisconnect @ 0x1C0044040
+ * Callers:
+ *     ACPIVectorDisconnect2 @ 0x1C0044160 (ACPIVectorDisconnect2.c)
+ *     ACPIEcDisconnectGpeVector @ 0x1C00834E8 (ACPIEcDisconnectGpeVector.c)
+ * Callees:
+ *     ACPIGpeIndexToByteIndex @ 0x1C0003564 (ACPIGpeIndexToByteIndex.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     ACPIGpeEnableDisableEvents @ 0x1C002C29C (ACPIGpeEnableDisableEvents.c)
+ *     ACPIGpeInstallRemoveIndex @ 0x1C002C3F8 (ACPIGpeInstallRemoveIndex.c)
+ */
+
 __int64 __fastcall ACPIVectorDisconnect(char *P)
 {
   KIRQL v2; // si

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CCompositionMipmapSurfaceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C026E570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CCompositionMipmapSurfaceMarshaler::SetRemarshalingFlags(
         DirectComposition::CCompositionMipmapSurfaceMarshaler *this)
 {

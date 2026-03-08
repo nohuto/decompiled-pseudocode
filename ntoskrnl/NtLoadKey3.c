@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtLoadKey3 @ 0x140799D50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CmLoadDifferencingKey @ 0x1406BC49C (CmLoadDifferencingKey.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall NtLoadKey3(
         __int64 a1,
         __int64 a2,

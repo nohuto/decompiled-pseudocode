@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0ParticleCollection@CParticleEmitterVisual@@QEAA@XZ @ 0x180240184
+ * Callers:
+ *     ??0CParticleEmitterVisual@@QEAA@PEAVCComposition@@@Z @ 0x18023FEB4 (--0CParticleEmitterVisual@@QEAA@PEAVCComposition@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 CParticleEmitterVisual::ParticleCollection *__fastcall CParticleEmitterVisual::ParticleCollection::ParticleCollection(
         CParticleEmitterVisual::ParticleCollection *this)
 {

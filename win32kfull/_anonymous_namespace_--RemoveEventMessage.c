@@ -1,3 +1,12 @@
+/*
+ * XREFs of _anonymous_namespace_::RemoveEventMessage @ 0x1C009DFD4
+ * Callers:
+ *     _anonymous_namespace_::xxxLocalActivateWindow @ 0x1C009E0E4 (_anonymous_namespace_--xxxLocalActivateWindow.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C00A126C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ * Callees:
+ *     DelQEntry @ 0x1C0038CDC (DelQEntry.c)
+ */
+
 __int64 __fastcall anonymous_namespace_::RemoveEventMessage(__int64 a1, int a2, int a3)
 {
   __int64 result; // rax

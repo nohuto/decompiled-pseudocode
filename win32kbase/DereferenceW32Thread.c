@@ -1,3 +1,14 @@
+/*
+ * XREFs of DereferenceW32Thread @ 0x1C0070180
+ * Callers:
+ *     ??1CTempW32ThreadNonPaged@@QEAA@XZ @ 0x1C007012C (--1CTempW32ThreadNonPaged@@QEAA@XZ.c)
+ * Callees:
+ *     IsGreIsCurrentProcessSystemCriticalSupported @ 0x1C007026C (IsGreIsCurrentProcessSystemCriticalSupported.c)
+ *     UserDeleteW32Thread @ 0x1C00702A0 (UserDeleteW32Thread.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DereferenceW32Thread(volatile signed __int32 *a1)
 {
   void *v1; // rbp

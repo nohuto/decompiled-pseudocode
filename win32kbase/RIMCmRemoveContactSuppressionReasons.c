@@ -1,3 +1,19 @@
+/*
+ * XREFs of RIMCmRemoveContactSuppressionReasons @ 0x1C01DECA4
+ * Callers:
+ *     rimAbUpdateDeadzonesAndResurrectContacts @ 0x1C01A9D04 (rimAbUpdateDeadzonesAndResurrectContacts.c)
+ *     rimConfidenceBitPolicyUpdateStateAndApply @ 0x1C01D5E18 (rimConfidenceBitPolicyUpdateStateAndApply.c)
+ *     rimDigitizerActiveBitPolicyUpdateStateAndApply @ 0x1C01D61E0 (rimDigitizerActiveBitPolicyUpdateStateAndApply.c)
+ *     rimNullXYPolicyUpdateStateAndApply @ 0x1C01D8CE0 (rimNullXYPolicyUpdateStateAndApply.c)
+ *     rimOutOfBoundsPolicyUpdateStateAndApply @ 0x1C01D8E70 (rimOutOfBoundsPolicyUpdateStateAndApply.c)
+ * Callees:
+ *     Feature_Servicing_PointerInputIncorrectlyWakingSystem__private_IsEnabledDeviceUsage @ 0x1C00DF2DC (Feature_Servicing_PointerInputIncorrectlyWakingSystem__private_IsEnabledDeviceUsage.c)
+ *     ?UnsuppressContact@RIM@InputTraceLogging@@SAXPEBURIMDEV@@KKK_N@Z @ 0x1C00DF55C (-UnsuppressContact@RIM@InputTraceLogging@@SAXPEBURIMDEV@@KKK_N@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMCmIsContactSuppressed @ 0x1C00F1A7A (RIMCmIsContactSuppressed.c)
+ *     ?SuppressContact@RIM@InputTraceLogging@@SAXPEBURIMDEV@@KKK_N@Z @ 0x1C01DDCC4 (-SuppressContact@RIM@InputTraceLogging@@SAXPEBURIMDEV@@KKK_N@Z.c)
+ */
+
 _BOOL8 __fastcall RIMCmRemoveContactSuppressionReasons(__int64 a1, unsigned int *a2, unsigned int a3)
 {
   int IsContactSuppressed; // eax

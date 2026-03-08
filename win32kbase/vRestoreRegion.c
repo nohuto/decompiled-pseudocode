@@ -1,3 +1,11 @@
+/*
+ * XREFs of vRestoreRegion @ 0x1C00B1BD0
+ * Callers:
+ *     ?GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z @ 0x1C00A49CC (-GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z.c)
+ * Callees:
+ *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C00558E0 (-vDeleteREGION@REGION@@QEAAXXZ.c)
+ */
+
 void __fastcall vRestoreRegion(__int64 a1)
 {
   unsigned __int64 v2; // rcx

@@ -1,3 +1,21 @@
+/*
+ * XREFs of Interrupter_PrepareHardware @ 0x1C0072C28
+ * Callers:
+ *     Controller_WdfEvtDevicePrepareHardware @ 0x1C0072A30 (Controller_WdfEvtDevicePrepareHardware.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     Interrupter_SetSecondaryInterrupterCount @ 0x1C0008228 (Interrupter_SetSecondaryInterrupterCount.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     Debug_FreAssertMsg @ 0x1C000880C (Debug_FreAssertMsg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_Dd @ 0x1C003E3E8 (WPP_RECORDER_SF_Dd.c)
+ *     Interrupter_CreateInterrupter @ 0x1C0070198 (Interrupter_CreateInterrupter.c)
+ *     Interrupter_CmResList_GetInterrupterCountAndType @ 0x1C0072438 (Interrupter_CmResList_GetInterrupterCountAndType.c)
+ *     Interrupter_PrepareInterrupter @ 0x1C007275C (Interrupter_PrepareInterrupter.c)
+ *     Interrupter_PopulateInterrupterLookupTable @ 0x1C0072D44 (Interrupter_PopulateInterrupterLookupTable.c)
+ */
+
 __int64 __fastcall Interrupter_PrepareHardware(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rsi

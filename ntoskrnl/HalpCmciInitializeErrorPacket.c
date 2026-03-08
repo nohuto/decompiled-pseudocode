@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpCmciInitializeErrorPacket @ 0x14037CCA4
+ * Callers:
+ *     HalpCmciInit @ 0x140A8795C (HalpCmciInit.c)
+ *     HalpInitializeCmc @ 0x140A87F7C (HalpInitializeCmc.c)
+ * Callees:
+ *     HalpGetMcaPcrContext @ 0x14037CEF4 (HalpGetMcaPcrContext.c)
+ *     HalpCmcInitializeErrorPacketContents @ 0x14037D248 (HalpCmcInitializeErrorPacketContents.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpCmciInitializeErrorPacket(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdi

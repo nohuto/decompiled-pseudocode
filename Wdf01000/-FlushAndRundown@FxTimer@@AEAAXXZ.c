@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?FlushAndRundown@FxTimer@@AEAAXXZ @ 0x1C0040EE4
+ * Callers:
+ *     ?Dispose@FxTimer@@UEAAEXZ @ 0x1C0040EA0 (-Dispose@FxTimer@@UEAAEXZ.c)
+ * Callees:
+ *     ?Stop@FxTimer@@QEAAEE@Z @ 0x1C000578C (-Stop@FxTimer@@QEAAEE@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_qq @ 0x1C001828C (WPP_IFR_SF_qq.c)
+ */
+
 void __fastcall FxTimer::FlushAndRundown(FxTimer *this)
 {
   const void *_a1; // rax

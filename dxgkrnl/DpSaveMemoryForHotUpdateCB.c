@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpSaveMemoryForHotUpdateCB @ 0x1C03A1370
+ * Callers:
+ *     DpiKsrDoKsrSave @ 0x1C03A16E4 (DpiKsrDoKsrSave.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ */
+
 __int64 __fastcall DpSaveMemoryForHotUpdateCB(__int64 a1, int *a2)
 {
   unsigned int v2; // eax

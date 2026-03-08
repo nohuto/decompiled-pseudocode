@@ -1,3 +1,19 @@
+/*
+ * XREFs of IrqArbpFindSuitableRangeIsa @ 0x1C009DDC0
+ * Callers:
+ *     IrqArbFindSuitableRange @ 0x1C009D270 (IrqArbFindSuitableRange.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     AcpiIrqTranslateSecondaryInterruptToNtResources @ 0x1C000AB60 (AcpiIrqTranslateSecondaryInterruptToNtResources.c)
+ *     ACPIInternalInterruptPolarityCacheGetPolarity @ 0x1C002E8C4 (ACPIInternalInterruptPolarityCacheGetPolarity.c)
+ *     IrqArbGsivFromIrq @ 0x1C009D69C (IrqArbGsivFromIrq.c)
+ *     IrqArbpLookupIsaOverrideByGsiv @ 0x1C009E4A4 (IrqArbpLookupIsaOverrideByGsiv.c)
+ *     IcGetPossibleInput @ 0x1C009F314 (IcGetPossibleInput.c)
+ *     IcIsInputValid @ 0x1C009F424 (IcIsInputValid.c)
+ *     IcIsInterruptTypeSecondary @ 0x1C009F45C (IcIsInterruptTypeSecondary.c)
+ */
+
 char __fastcall IrqArbpFindSuitableRangeIsa(__int64 a1, __int64 a2)
 {
   unsigned int v2; // esi

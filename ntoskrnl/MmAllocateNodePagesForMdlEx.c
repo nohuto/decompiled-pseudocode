@@ -1,3 +1,11 @@
+/*
+ * XREFs of MmAllocateNodePagesForMdlEx @ 0x1403BE0E0
+ * Callers:
+ *     HvlpDepositPages @ 0x14053E7A4 (HvlpDepositPages.c)
+ * Callees:
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402B39C0 (MmAllocatePartitionNodePagesForMdlEx.c)
+ */
+
 __int64 __fastcall MmAllocateNodePagesForMdlEx(
         int a1,
         int a2,

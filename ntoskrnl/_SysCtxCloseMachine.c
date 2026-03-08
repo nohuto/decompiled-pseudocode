@@ -1,3 +1,13 @@
+/*
+ * XREFs of _SysCtxCloseMachine @ 0x140A676C4
+ * Callers:
+ *     _PnpCtxCreateNode @ 0x140851F88 (_PnpCtxCreateNode.c)
+ *     _PnpCtxDestroyNode @ 0x140A5DBA8 (_PnpCtxDestroyNode.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SysCtxCloseMachine(_QWORD *P)
 {
   void *v2; // rcx

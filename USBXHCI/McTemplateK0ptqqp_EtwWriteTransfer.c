@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0ptqqp_EtwWriteTransfer @ 0x1C0037098
+ * Callers:
+ *     Controller_UcxEvtStartTrackingForTimeSync @ 0x1C0035B60 (Controller_UcxEvtStartTrackingForTimeSync.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0022498 (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS McTemplateK0ptqqp_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-39h] BYREF

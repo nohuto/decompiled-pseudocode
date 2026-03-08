@@ -1,3 +1,29 @@
+/*
+ * XREFs of EtwpReserveTraceBuffer @ 0x1403151E0
+ * Callers:
+ *     EtwpTraceMessageVa @ 0x140205450 (EtwpTraceMessageVa.c)
+ *     EtwpEventWriteFull @ 0x1402319C0 (EtwpEventWriteFull.c)
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x14036F9F8 (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogContextSwapEvent @ 0x140384C90 (EtwpLogContextSwapEvent.c)
+ *     EtwpReserveWithPmcCounters @ 0x14045F958 (EtwpReserveWithPmcCounters.c)
+ *     EtwTraceEvent @ 0x14045FE22 (EtwTraceEvent.c)
+ *     EtwpReserveWithPebsIndex @ 0x1405FBE50 (EtwpReserveWithPebsIndex.c)
+ *     EtwTraceRaw @ 0x1405FCF28 (EtwTraceRaw.c)
+ *     EtwpWriteUserEvent @ 0x1406AA640 (EtwpWriteUserEvent.c)
+ * Callees:
+ *     RtlGetSystemTimePrecise @ 0x140205310 (RtlGetSystemTimePrecise.c)
+ *     EtwpSwitchBuffer @ 0x140205FF4 (EtwpSwitchBuffer.c)
+ *     EtwpUnlockBufferList @ 0x140206498 (EtwpUnlockBufferList.c)
+ *     EtwpLockBufferList @ 0x1402064E4 (EtwpLockBufferList.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     EtwpUpdateEventsLostCount @ 0x1402FAD84 (EtwpUpdateEventsLostCount.c)
+ *     HalpTimerScaleCounter @ 0x1403BE604 (HalpTimerScaleCounter.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     EtwpGetTimeStampAndQpcDelta @ 0x1405FECD0 (EtwpGetTimeStampAndQpcDelta.c)
+ */
+
 __int64 __fastcall EtwpReserveTraceBuffer(__int64 a1, unsigned int a2, __int64 a3, __int64 *a4, __int16 a5)
 {
   __int64 v7; // r8

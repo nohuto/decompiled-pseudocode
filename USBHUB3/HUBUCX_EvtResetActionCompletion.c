@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBUCX_EvtResetActionCompletion @ 0x1C0025A00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qd @ 0x1C00031FC (WPP_RECORDER_SF_qd.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBUCX_EvtResetActionCompletion(__int64 a1, int a2)
 {
   __int64 v4; // rax

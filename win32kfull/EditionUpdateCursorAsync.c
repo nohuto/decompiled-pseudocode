@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionUpdateCursorAsync @ 0x1C00D3C20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 LONG_PTR __fastcall EditionUpdateCursorAsync(__int64 a1)
 {
   LONG_PTR result; // rax

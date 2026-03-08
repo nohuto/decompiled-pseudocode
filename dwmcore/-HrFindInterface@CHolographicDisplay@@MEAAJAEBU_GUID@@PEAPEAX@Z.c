@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CHolographicDisplay@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802A4520
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CHolographicDisplay::HrFindInterface(CHolographicDisplay *this, const struct _GUID *a2, void **a3)
 {
   __int64 v3; // rax

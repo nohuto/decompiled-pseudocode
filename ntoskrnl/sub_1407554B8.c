@@ -1,3 +1,13 @@
+/*
+ * XREFs of sub_1407554B8 @ 0x1407554B8
+ * Callers:
+ *     WbGetWarbirdEncryptionSegment @ 0x140755824 (WbGetWarbirdEncryptionSegment.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WbAlloc @ 0x1406AF510 (WbAlloc.c)
+ *     sub_140755994 @ 0x140755994 (sub_140755994.c)
+ */
+
 __int64 __fastcall sub_1407554B8(__int64 a1, _QWORD *a2)
 {
   void *v2; // rdi

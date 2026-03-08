@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiReferenceNonPagedMemoryProcessList @ 0x140A434AC
+ * Callers:
+ *     MmScrubMemory @ 0x140A43E64 (MmScrubMemory.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiGetProcessPartition @ 0x14031F9D4 (MiGetProcessPartition.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsGetNextProcess @ 0x1406AA530 (PsGetNextProcess.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 LONG_PTR __fastcall MiReferenceNonPagedMemoryProcessList(__int64 a1)
 {
   unsigned __int64 v2; // rbx

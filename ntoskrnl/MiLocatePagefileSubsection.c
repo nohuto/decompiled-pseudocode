@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiLocatePagefileSubsection @ 0x14031DDB0
+ * Callers:
+ *     MiAdvanceVadView @ 0x1402D5E10 (MiAdvanceVadView.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1402DD950 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiSkipEntirePagefileRegions @ 0x1402EC8D4 (MiSkipEntirePagefileRegions.c)
+ *     MiGetProtoPteAddress @ 0x14031C780 (MiGetProtoPteAddress.c)
+ *     MiOffsetToProtos @ 0x140331B90 (MiOffsetToProtos.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x1406A5EE0 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiMapViewOfDataSection @ 0x1407D57C0 (MiMapViewOfDataSection.c)
+ *     MmCommitSessionMappedView @ 0x1407F1600 (MmCommitSessionMappedView.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned int *__fastcall MiLocatePagefileSubsection(unsigned int *a1, unsigned __int64 *a2)
 {
   unsigned __int64 v3; // r8

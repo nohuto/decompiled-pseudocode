@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1CGlobalMit@@UEAA@XZ @ 0x1801AE294
+ * Callers:
+ *     ??_GCGlobalMit@@UEAAPEAXI@Z @ 0x1801AE310 (--_GCGlobalMit@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?CloseHandle@details@wil@@YAXPEAX@Z @ 0x1800FF340 (-CloseHandle@details@wil@@YAXPEAX@Z.c)
+ *     ?Stop@CMit@@QEAAXXZ @ 0x1801AD8EC (-Stop@CMit@@QEAAXXZ.c)
+ *     ?UnloadRuntime@CMmcssTask@@AEAAXXZ @ 0x1801B2538 (-UnloadRuntime@CMmcssTask@@AEAAXXZ.c)
+ */
+
 void __fastcall CGlobalMit::~CGlobalMit(wil::details **this)
 {
   void *v2; // rdx

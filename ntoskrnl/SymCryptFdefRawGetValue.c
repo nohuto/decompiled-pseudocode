@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefRawGetValue @ 0x1403FFE54
+ * Callers:
+ *     SymCryptFdefModElementGetValue @ 0x1403FE668 (SymCryptFdefModElementGetValue.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefRawGetValue(unsigned int *a1, int a2, _BYTE *a3, __int64 a4, int a5)
 {
   unsigned int v5; // r11d

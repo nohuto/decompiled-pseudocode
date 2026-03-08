@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpDmaAllocateEmergencyResources @ 0x140B61178
+ * Callers:
+ *     HalpDmaInit @ 0x140B60E78 (HalpDmaInit.c)
+ * Callees:
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     MmAllocateMappingAddress @ 0x140869D00 (MmAllocateMappingAddress.c)
+ *     MmFreeMappingAddress @ 0x14086B720 (MmFreeMappingAddress.c)
+ */
+
 __int64 __fastcall HalpDmaAllocateEmergencyResources(__int64 a1)
 {
   __int64 v1; // rcx

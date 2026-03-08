@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiExpandKernelStackAndCalloutOnStackSegment @ 0x140317800
+ * Callers:
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x140315700 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ * Callees:
+ *     KeReleaseMutant @ 0x14030E920 (KeReleaseMutant.c)
+ *     KeQueryCurrentStackInformationEx @ 0x140312A40 (KeQueryCurrentStackInformationEx.c)
+ *     MmCreateKernelStack @ 0x140317B10 (MmCreateKernelStack.c)
+ *     MmDeleteKernelStackEx @ 0x140318070 (MmDeleteKernelStackEx.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KeGetCurrentStackPointer @ 0x1404166E0 (KeGetCurrentStackPointer.c)
+ *     KiSwitchKernelStackAndCallout @ 0x14041AC70 (KiSwitchKernelStackAndCallout.c)
+ */
+
 __int64 __fastcall KiExpandKernelStackAndCalloutOnStackSegment(
         ULONG_PTR a1,
         ULONG_PTR a2,

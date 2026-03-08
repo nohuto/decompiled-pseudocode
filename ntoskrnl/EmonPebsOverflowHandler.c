@@ -1,3 +1,11 @@
+/*
+ * XREFs of EmonPebsOverflowHandler @ 0x14051BA84
+ * Callers:
+ *     EmonOverflowHandler @ 0x14051B1E0 (EmonOverflowHandler.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall EmonPebsOverflowHandler()
 {
   __int64 v0; // rax

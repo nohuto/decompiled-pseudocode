@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopGetNextTable @ 0x14058C744
+ * Callers:
+ *     PopCompressHiberBlocks @ 0x140A9EE04 (PopCompressHiberBlocks.c)
+ *     PopWriteHiberImage @ 0x140AA272C (PopWriteHiberImage.c)
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     MmMapMemoryDumpMdlEx2 @ 0x14062E298 (MmMapMemoryDumpMdlEx2.c)
+ */
+
 __int64 __fastcall PopGetNextTable(__int64 a1, _DWORD *a2, __int64 a3, __int64 a4, char a5, __int64 a6)
 {
   unsigned int v6; // ebp

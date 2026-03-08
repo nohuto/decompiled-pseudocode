@@ -1,3 +1,15 @@
+/*
+ * XREFs of SeAuditHardLinkCreationWithTransaction @ 0x1409C79F0
+ * Callers:
+ *     SeAuditHardLinkCreation @ 0x1409C79D0 (SeAuditHardLinkCreation.c)
+ * Callees:
+ *     SepAdtLogAuditRecord @ 0x140397890 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ */
+
 void __stdcall SeAuditHardLinkCreationWithTransaction(
         PUNICODE_STRING FileName,
         PUNICODE_STRING LinkName,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhGenDispatch @ 0x1C001E130
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     UsbhTrapBadIrp @ 0x1C002DFF0 (UsbhTrapBadIrp.c)
+ */
+
 __int64 __fastcall UsbhGenDispatch(ULONG_PTR a1, IRP *a2)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // rdx

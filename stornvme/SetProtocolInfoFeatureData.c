@@ -1,3 +1,17 @@
+/*
+ * XREFs of SetProtocolInfoFeatureData @ 0x1C001B16C
+ * Callers:
+ *     IoctlSetProtocolInfoProcess @ 0x1C0013FD8 (IoctlSetProtocolInfoProcess.c)
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     memmove @ 0x1C0004280 (memmove.c)
+ *     GetNamespaceId @ 0x1C0007A8C (GetNamespaceId.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C000C1C0 (NVMeAllocateDmaBuffer.c)
+ */
+
 __int64 __fastcall SetProtocolInfoFeatureData(__int64 a1, __int64 a2)
 {
   __int64 SrbExtension; // r15

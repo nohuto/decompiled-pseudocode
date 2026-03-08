@@ -1,3 +1,17 @@
+/*
+ * XREFs of IopGetSessionIdFromPDO @ 0x1406F72F8
+ * Callers:
+ *     IopCheckSessionDeviceAccess @ 0x140555228 (IopCheckSessionDeviceAccess.c)
+ *     PnpNotifyTargetDeviceChange @ 0x14068C820 (PnpNotifyTargetDeviceChange.c)
+ *     IopGetSessionIdFromSymbolicName @ 0x1406F6EFC (IopGetSessionIdFromSymbolicName.c)
+ *     PnpStartDeviceNode @ 0x1406F71A4 (PnpStartDeviceNode.c)
+ *     PnpInitializeSessionId @ 0x140791830 (PnpInitializeSessionId.c)
+ *     IoRegisterContainerNotification @ 0x140945260 (IoRegisterContainerNotification.c)
+ *     PnpNotifyTargetDeviceChangeNotifyEntry @ 0x140953980 (PnpNotifyTargetDeviceChangeNotifyEntry.c)
+ * Callees:
+ *     IoGetDevicePropertyData @ 0x1406F7380 (IoGetDevicePropertyData.c)
+ */
+
 __int64 __fastcall IopGetSessionIdFromPDO(struct _DEVICE_OBJECT *a1)
 {
   unsigned int v1; // ebx

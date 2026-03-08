@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpTestMemoryRandomUp @ 0x140679508
+ * Callers:
+ *     RtlpGenericRandomPatternWorker @ 0x140679048 (RtlpGenericRandomPatternWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RtlpTestMemoryRandomUp(_QWORD *a1, __int64 a2, unsigned __int64 a3, __int64 a4)
 {
   _QWORD *v4; // rdx

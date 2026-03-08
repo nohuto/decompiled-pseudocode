@@ -1,3 +1,16 @@
+/*
+ * XREFs of _CmCreateDeviceInterface @ 0x14087B7BC
+ * Callers:
+ *     _PnpDispatchDeviceInterface @ 0x1406C8CF0 (_PnpDispatchDeviceInterface.c)
+ *     IopRegisterDeviceInterface @ 0x14086A664 (IopRegisterDeviceInterface.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _CmCreateDeviceInterfaceWorker @ 0x14087B924 (_CmCreateDeviceInterfaceWorker.c)
+ */
+
 __int64 __fastcall CmCreateDeviceInterface(__int64 a1, __int64 a2, int a3, HANDLE *a4, _BYTE *a5, int a6)
 {
   __int64 (__fastcall *v10)(__int64, __int64, __int64); // rsi

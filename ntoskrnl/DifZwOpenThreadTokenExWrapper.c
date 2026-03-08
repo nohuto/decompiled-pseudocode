@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwOpenThreadTokenExWrapper @ 0x1405F03A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwOpenThreadTokenEx @ 0x1404128F0 (ZwOpenThreadTokenEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifZwOpenThreadTokenExWrapper(
         HANDLE ThreadHandle,
         ACCESS_MASK DesiredAccess,

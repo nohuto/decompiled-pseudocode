@@ -1,3 +1,13 @@
+/*
+ * XREFs of AslFileMappingGetFileKindDetail @ 0x140A51B1C
+ * Callers:
+ *     AslpFileGetFileKindDetailAttribute @ 0x140A559AC (AslpFileGetFileKindDetailAttribute.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslFileMappingEnsure @ 0x1407A12F0 (AslFileMappingEnsure.c)
+ *     AslFileMappingGetImageTypeEx @ 0x140A51CE0 (AslFileMappingGetImageTypeEx.c)
+ */
+
 __int64 __fastcall AslFileMappingGetFileKindDetail(int *a1, __int64 a2)
 {
   bool v3; // zf

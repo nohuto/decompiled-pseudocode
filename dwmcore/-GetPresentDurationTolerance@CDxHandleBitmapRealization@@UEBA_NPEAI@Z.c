@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPresentDurationTolerance@CDxHandleBitmapRealization@@UEBA_NPEAI@Z @ 0x1801318C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CDxHandleBitmapRealization::GetPresentDurationTolerance(
         CDxHandleBitmapRealization *this,
         unsigned int *a2)

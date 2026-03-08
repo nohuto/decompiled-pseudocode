@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DCEInverseTransform@@YA_NPEBUtagRECT@@PEBU_D3DVERTEX@@PEBU_SUBPIXELS@@PEAUtagPOINT@@@Z @ 0x1C01447C8
+ * Callers:
+ *     ?DCEHitTestWindow@@YA_NPEBUtagRECT@@PEBU_D3DMATRIX@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z @ 0x1C01446E8 (-DCEHitTestWindow@@YA_NPEBUtagRECT@@PEBU_D3DMATRIX@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z.c)
+ * Callees:
+ *     FixedPointSubPixel @ 0x1C014511E (FixedPointSubPixel.c)
+ */
+
 char __fastcall DCEInverseTransform(
         const struct tagRECT *a1,
         const struct _D3DVERTEX *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Serialize@CIVPnPCreateSerializer@@QEAAXAEAU_IV_KEYBOARD_DEVICE_INFO@@AEBUtagKEYBOARD_DEVICE_INFO@@@Z @ 0x1C0234040
+ * Callers:
+ *     ?IVSerializeRimDevForIVPnpCreatePacket@@YAJPEAURIMDEV@@AEBU_UNICODE_STRING@@AEAVCIVPnPCreateSerializer@@@Z @ 0x1C021DB1C (-IVSerializeRimDevForIVPnpCreatePacket@@YAJPEAURIMDEV@@AEBU_UNICODE_STRING@@AEAVCIVPnPCreateSeri.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CIVPnPCreateSerializer::Serialize(
         CIVPnPCreateSerializer *this,
         struct _IV_KEYBOARD_DEVICE_INFO *a2,

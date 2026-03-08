@@ -1,3 +1,11 @@
+/*
+ * XREFs of AllocAndInitializeTelemetryContext @ 0x1C004D098
+ * Callers:
+ *     FxAllocateDriverGlobals @ 0x1C0043978 (FxAllocateDriverGlobals.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall AllocAndInitializeTelemetryContext(_FX_TELEMETRY_CONTEXT **TelemetryContext)
 {
   UUID *Pool2; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiLogRelocationRva @ 0x1407F4A00
+ * Callers:
+ *     MiLogRelocationFaults @ 0x1407F457C (MiLogRelocationFaults.c)
+ *     MiParseComAndCetHeaders @ 0x1407F4604 (MiParseComAndCetHeaders.c)
+ *     MiParseImageLoadConfig @ 0x1407F4AEC (MiParseImageLoadConfig.c)
+ *     MiCaptureImageCfgContext @ 0x1407F5190 (MiCaptureImageCfgContext.c)
+ * Callees:
+ *     PsGetIoPriorityThread @ 0x1402832C0 (PsGetIoPriorityThread.c)
+ *     PfLogFileDataAccess @ 0x14028C67C (PfLogFileDataAccess.c)
+ *     PfSnLogPageFault @ 0x14028D4BC (PfSnLogPageFault.c)
+ *     MiOffsetToProtos @ 0x140331B90 (MiOffsetToProtos.c)
+ */
+
 void __fastcall MiLogRelocationRva(unsigned int a1, unsigned int a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rbp

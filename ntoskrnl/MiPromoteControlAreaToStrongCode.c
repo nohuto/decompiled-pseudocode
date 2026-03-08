@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiPromoteControlAreaToStrongCode @ 0x140A385E8
+ * Callers:
+ *     MiLoadHotPatch @ 0x140A352A0 (MiLoadHotPatch.c)
+ * Callees:
+ *     MiValidateSectionCreate @ 0x14069F890 (MiValidateSectionCreate.c)
+ *     MiGetSectionStrongImageReference @ 0x140A40B24 (MiGetSectionStrongImageReference.c)
+ */
+
 __int64 __fastcall MiPromoteControlAreaToStrongCode(ULONG_PTR a1, ULONG_PTR a2, int a3, _QWORD *a4)
 {
   __int64 result; // rax

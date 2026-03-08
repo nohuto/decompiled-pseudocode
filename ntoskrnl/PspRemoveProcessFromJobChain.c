@@ -1,3 +1,32 @@
+/*
+ * XREFs of PspRemoveProcessFromJobChain @ 0x1406FB110
+ * Callers:
+ *     PspRundownSingleProcess @ 0x1406F8160 (PspRundownSingleProcess.c)
+ *     PspTerminateProcessesJobCallback @ 0x1406F8A00 (PspTerminateProcessesJobCallback.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x1406FBA00 (PspEnforceLimitsJobPostCallback.c)
+ *     PspAssignProcessToJob @ 0x1406FFA20 (PspAssignProcessToJob.c)
+ *     PspProcessDelete @ 0x140704DD0 (PspProcessDelete.c)
+ * Callees:
+ *     PspSendJobNotification @ 0x14030201C (PspSendJobNotification.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     Feature_Servicing_BypassGraphicsFreezeNotification__private_IsEnabledDeviceUsage @ 0x14040BA70 (Feature_Servicing_BypassGraphicsFreezeNotification__private_IsEnabledDeviceUsage.c)
+ *     PspInitializeProcessExecutionState @ 0x14040BAC8 (PspInitializeProcessExecutionState.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PspRequestProcessExecutionStateOld @ 0x14067CE2C (PspRequestProcessExecutionStateOld.c)
+ *     PsQueryStatisticsProcess @ 0x1406A8F30 (PsQueryStatisticsProcess.c)
+ *     PspUnlinkJobProcess @ 0x1406F811C (PspUnlinkJobProcess.c)
+ *     PspFoldProcessAccountingIntoJob @ 0x1406F8590 (PspFoldProcessAccountingIntoJob.c)
+ *     PspChangeProcessExecutionState @ 0x1406F8AC0 (PspChangeProcessExecutionState.c)
+ *     PspLockRootJobFromProcess @ 0x1406F93EC (PspLockRootJobFromProcess.c)
+ *     PspUnlockJobConditionally @ 0x1406FB418 (PspUnlockJobConditionally.c)
+ *     PspLockJobConditionally @ 0x1406FB448 (PspLockJobConditionally.c)
+ *     PspUnlockJob @ 0x1406FBF7C (PspUnlockJob.c)
+ *     PspRequestProcessExecutionState @ 0x1406FF388 (PspRequestProcessExecutionState.c)
+ *     PsTerminateProcess @ 0x1407DC8A0 (PsTerminateProcess.c)
+ *     PspSubtractAccountingValues @ 0x1409B03F8 (PspSubtractAccountingValues.c)
+ *     EtwTraceJobRemoveProcess @ 0x1409E26A8 (EtwTraceJobRemoveProcess.c)
+ */
+
 void __fastcall PspRemoveProcessFromJobChain(PEPROCESS Process, _QWORD *a2, unsigned int a3, unsigned int a4)
 {
   char v4; // r15

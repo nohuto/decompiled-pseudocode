@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiControlProtectionFaultShadow @ 0x140AF3BC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // positive sp value has been detected, the output may be wrong!
 __int64 __fastcall KiControlProtectionFaultShadow(int a1, int a2, int a3, int a4, __int16 a5)
 {

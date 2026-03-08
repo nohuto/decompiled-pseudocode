@@ -1,3 +1,20 @@
+/*
+ * XREFs of CmpRebuildKcbCache @ 0x1406B6498
+ * Callers:
+ *     CmpTransMgrFreeVolatileData @ 0x1406B617C (CmpTransMgrFreeVolatileData.c)
+ *     CmpSaveBootControlSet @ 0x140A078D8 (CmpSaveBootControlSet.c)
+ *     CmpRefreshHive @ 0x140A09C50 (CmpRefreshHive.c)
+ *     CmpCloneHwProfile @ 0x140A0D554 (CmpCloneHwProfile.c)
+ *     CmpSyncKcbCacheForHive @ 0x140A17510 (CmpSyncKcbCacheForHive.c)
+ *     CmpCommitDiscardReplacePost @ 0x140A1CC50 (CmpCommitDiscardReplacePost.c)
+ * Callees:
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpRebuildKcbCacheFromNode @ 0x1407A5468 (CmpRebuildKcbCacheFromNode.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 char __fastcall CmpRebuildKcbCache(ULONG_PTR a1)
 {
   int v1; // eax

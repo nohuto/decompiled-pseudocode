@@ -1,3 +1,11 @@
+/*
+ * XREFs of EmitterShapes::GetPointOnLine @ 0x180266980
+ * Callers:
+ *     ?GetPointOnEdge@Figure@CPathEmitterEdge@EmitterShapes@@QEBA?AUfloat2@Numerics@Foundation@Windows@@MM@Z @ 0x1802668B8 (-GetPointOnEdge@Figure@CPathEmitterEdge@EmitterShapes@@QEBA-AUfloat2@Numerics@Foundation@Windows.c)
+ * Callees:
+ *     sqrtf_0 @ 0x1801177AC (sqrtf_0.c)
+ */
+
 float *__fastcall EmitterShapes::GetPointOnLine(float *a1, __int64 a2, __int64 a3, float a4, float a5)
 {
   float v6; // xmm6_4

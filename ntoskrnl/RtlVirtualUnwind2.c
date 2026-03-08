@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlVirtualUnwind2 @ 0x140281680
+ * Callers:
+ *     PspGetSetContextInternal @ 0x1406EA840 (PspGetSetContextInternal.c)
+ * Callees:
+ *     RtlpxVirtualUnwind @ 0x140281720 (RtlpxVirtualUnwind.c)
+ */
+
 __int64 __fastcall RtlVirtualUnwind2(
         int a1,
         int a2,

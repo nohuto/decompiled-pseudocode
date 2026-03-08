@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CD3DTexture@@IEAA@_N@Z @ 0x1802BBE6C
+ * Callers:
+ *     ??0CD3DVidMemOnlyTexture@@IEAA@_N@Z @ 0x1802BC478 (--0CD3DVidMemOnlyTexture@@IEAA@_N@Z.c)
+ * Callees:
+ *     ??0CD3DResource@@IEAA@_N@Z @ 0x1800D0454 (--0CD3DResource@@IEAA@_N@Z.c)
+ */
+
 CD3DTexture *__fastcall CD3DTexture::CD3DTexture(CD3DTexture *this)
 {
   __int64 v1; // rcx

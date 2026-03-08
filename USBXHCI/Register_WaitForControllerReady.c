@@ -1,3 +1,14 @@
+/*
+ * XREFs of Register_WaitForControllerReady @ 0x1C001882C
+ * Callers:
+ *     Register_ControllerReset @ 0x1C0018518 (Register_ControllerReset.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     Controller_IsControllerAccessible @ 0x1C000A8E4 (Controller_IsControllerAccessible.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall Register_WaitForControllerReady(__int64 a1)
 {
   unsigned int v1; // ebx

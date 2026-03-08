@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiProcessProfileList @ 0x140571EC4
+ * Callers:
+ *     KeProfileInterruptWithSource @ 0x140571A20 (KeProfileInterruptWithSource.c)
+ * Callees:
+ *     KeCheckProcessorAffinityEx @ 0x140234B10 (KeCheckProcessorAffinityEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 unsigned __int64 __fastcall KiProcessProfileList(__int64 a1, int a2, unsigned __int16 *a3)
 {
   unsigned __int64 result; // rax

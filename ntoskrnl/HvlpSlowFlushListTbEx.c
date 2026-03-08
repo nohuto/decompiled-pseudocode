@@ -1,3 +1,18 @@
+/*
+ * XREFs of HvlpSlowFlushListTbEx @ 0x140547AF8
+ * Callers:
+ *     HvlpFlushRangeListTbEx @ 0x1405476CC (HvlpFlushRangeListTbEx.c)
+ * Callees:
+ *     HvlpCopyFlushVaList @ 0x1403C6E98 (HvlpCopyFlushVaList.c)
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ *     HvlpAffinityToHvProcessorSet @ 0x1405472B0 (HvlpAffinityToHvProcessorSet.c)
+ *     VslFlushSecureAddressSpace @ 0x140548BFC (VslFlushSecureAddressSpace.c)
+ *     VslSlowFlushSecureRangeList @ 0x14054A5BC (VslSlowFlushSecureRangeList.c)
+ */
+
 char __fastcall HvlpSlowFlushListTbEx(
         PHYSICAL_ADDRESS *a1,
         __int64 a2,

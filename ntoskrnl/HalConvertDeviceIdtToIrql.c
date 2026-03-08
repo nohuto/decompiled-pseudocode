@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalConvertDeviceIdtToIrql @ 0x140822B00
+ * Callers:
+ *     HalpQueryResources @ 0x1408229CC (HalpQueryResources.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HalConvertDeviceIdtToIrql(unsigned int a1)
 {
   unsigned __int8 v1; // cl

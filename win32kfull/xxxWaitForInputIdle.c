@@ -1,3 +1,16 @@
+/*
+ * XREFs of xxxWaitForInputIdle @ 0x1C009604C
+ * Callers:
+ *     NtUserWaitForInputIdle @ 0x1C0095F00 (NtUserWaitForInputIdle.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?xxxPollAndWaitForSingleObject@@YAKPEAU_KEVENT@@PEAXK@Z @ 0x1C0095CF4 (-xxxPollAndWaitForSingleObject@@YAKPEAU_KEVENT@@PEAXK@Z.c)
+ *     WaitOnPseudoEvent @ 0x1C0095F60 (WaitOnPseudoEvent.c)
+ *     LockProcessByClientId @ 0x1C0099860 (LockProcessByClientId.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ */
+
 __int64 __fastcall xxxWaitForInputIdle(HANDLE a1, unsigned int a2)
 {
   __int64 v4; // r8

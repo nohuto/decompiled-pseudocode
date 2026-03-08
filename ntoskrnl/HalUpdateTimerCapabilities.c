@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalUpdateTimerCapabilities @ 0x140373620
+ * Callers:
+ *     HalpArtInitialize @ 0x140372B50 (HalpArtInitialize.c)
+ *     HalpTscInitialize @ 0x1403735A0 (HalpTscInitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalUpdateTimerCapabilities(__int64 a1, int a2, int a3)
 {
   ULONG_PTR *v5; // rax

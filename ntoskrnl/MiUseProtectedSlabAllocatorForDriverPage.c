@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiUseProtectedSlabAllocatorForDriverPage @ 0x1402A6DA0
+ * Callers:
+ *     MiMakeDriverPagesPrivate @ 0x1402A6440 (MiMakeDriverPagesPrivate.c)
+ *     MiAllocateDriverPage @ 0x1407290FC (MiAllocateDriverPage.c)
+ * Callees:
+ *     MiGetSlabAllocatorTypeByProtection @ 0x1404650AE (MiGetSlabAllocatorTypeByProtection.c)
+ */
+
 __int64 __fastcall MiUseProtectedSlabAllocatorForDriverPage(__int64 a1, __int64 a2)
 {
   int SlabAllocatorTypeByProtection; // eax

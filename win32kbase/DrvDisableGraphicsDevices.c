@@ -1,3 +1,11 @@
+/*
+ * XREFs of DrvDisableGraphicsDevices @ 0x1C019331C
+ * Callers:
+ *     ?Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C015B374 (-Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DrvDisableGraphicsDevices(__int64 a1)
 {
   __int64 result; // rax

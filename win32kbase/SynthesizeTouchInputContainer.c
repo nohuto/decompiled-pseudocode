@@ -1,3 +1,14 @@
+/*
+ * XREFs of SynthesizeTouchInputContainer @ 0x1C022370C
+ * Callers:
+ *     ?OnTouchSynthesizeNotification@CHidInput@@EEAAJXZ @ 0x1C0212070 (-OnTouchSynthesizeNotification@CHidInput@@EEAAJXZ.c)
+ * Callees:
+ *     ?InjectInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4InputTracing_RimInjectionSource@@K@Z @ 0x1C0004188 (-InjectInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4InputTracing_RimInjectionSource@@K@Z.c)
+ *     HMValidateHandleNoSecure @ 0x1C007A1CC (HMValidateHandleNoSecure.c)
+ *     ?ProcessInjectedInput@CTouchProcessor@@QEAAXPEAX0_NK1@Z @ 0x1C01FF048 (-ProcessInjectedInput@CTouchProcessor@@QEAAXPEAX0_NK1@Z.c)
+ *     ?CreateInjectionDevice@@YAHXZ @ 0x1C0223278 (-CreateInjectionDevice@@YAHXZ.c)
+ */
+
 char __fastcall SynthesizeTouchInputContainer(struct RIMCOMPLETEFRAME *a1)
 {
   int InjectionDevice; // eax

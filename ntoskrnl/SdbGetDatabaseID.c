@@ -1,3 +1,15 @@
+/*
+ * XREFs of SdbGetDatabaseID @ 0x14079F0D0
+ * Callers:
+ *     SdbpValidateAndApplyCompatFlags @ 0x14079D0F4 (SdbpValidateAndApplyCompatFlags.c)
+ *     SdbReadEntryInformation @ 0x140A4C714 (SdbReadEntryInformation.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbReadBinaryTag @ 0x14079D160 (SdbReadBinaryTag.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ */
+
 __int64 __fastcall SdbGetDatabaseID(__int64 a1, void *a2)
 {
   int v2; // eax

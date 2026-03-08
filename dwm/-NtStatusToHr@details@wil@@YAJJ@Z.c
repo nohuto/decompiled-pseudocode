@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NtStatusToHr@details@wil@@YAJJ@Z @ 0x14000210C
+ * Callers:
+ *     ?RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z @ 0x14000149C (-RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x140007200 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall wil::details::NtStatusToHr(wil::details *this)
 {
   int v1; // ebx

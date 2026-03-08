@@ -1,3 +1,20 @@
+/*
+ * XREFs of UsbDualRoleFeaturesQueryLocalMachine @ 0x1C00436CC
+ * Callers:
+ *     HUBDTX_ValidateAndCacheBOSDescriptor @ 0x1C002AE70 (HUBDTX_ValidateAndCacheBOSDescriptor.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_Sd @ 0x1C0042CD0 (WPP_RECORDER_SF_Sd.c)
+ *     GetPersistedKeyPath @ 0x1C0042E20 (GetPersistedKeyPath.c)
+ *     ReadManifestAssignedValue @ 0x1C0042FCC (ReadManifestAssignedValue.c)
+ *     CheckUSBFnIncludeDefaultCfg @ 0x1C00430C8 (CheckUSBFnIncludeDefaultCfg.c)
+ *     CheckUSBFnConfiguration @ 0x1C004329C (CheckUSBFnConfiguration.c)
+ *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C004353C (ReadUSBFnFeaturesFromCurrentConfiguration.c)
+ *     MyRegOpenKeyForRead @ 0x1C0043A3C (MyRegOpenKeyForRead.c)
+ *     MyRegQueryUlong @ 0x1C0043C88 (MyRegQueryUlong.c)
+ */
+
 void __fastcall UsbDualRoleFeaturesQueryLocalMachine(int *a1)
 {
   int PersistedKeyPath; // eax

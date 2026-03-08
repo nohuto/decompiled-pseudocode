@@ -1,3 +1,22 @@
+/*
+ * XREFs of TtmpStartCallout @ 0x1409A0CA0
+ * Callers:
+ *     TtmiSessionDeviceListWorker @ 0x14099FD30 (TtmiSessionDeviceListWorker.c)
+ *     TtmpCallAssignedToTerminal @ 0x14099FFFC (TtmpCallAssignedToTerminal.c)
+ *     TtmpCallSetBuiltinPanelState @ 0x1409A0098 (TtmpCallSetBuiltinPanelState.c)
+ *     TtmpCallSetDisplayState @ 0x1409A0118 (TtmpCallSetDisplayState.c)
+ *     TtmpCallSetInputMode @ 0x1409A01C8 (TtmpCallSetInputMode.c)
+ *     TtmpUpdatePrimaryDisplayWnf @ 0x1409A0E1C (TtmpUpdatePrimaryDisplayWnf.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     TtmpCalloutArmWatchdog @ 0x1409A0268 (TtmpCalloutArmWatchdog.c)
+ *     TtmpCalloutCreateWatchdog @ 0x1409A030C (TtmpCalloutCreateWatchdog.c)
+ *     TtmpGetCalloutTagFromCalloutType @ 0x1409A0714 (TtmpGetCalloutTagFromCalloutType.c)
+ *     TtmpInitializeWatchdogTimeouts @ 0x1409A088C (TtmpInitializeWatchdogTimeouts.c)
+ *     TtmiLogCalloutStart @ 0x1409A3C14 (TtmiLogCalloutStart.c)
+ */
+
 __int64 __fastcall TtmpStartCallout(__int64 a1, int *a2, __int64 a3, int a4, __int64 a5, unsigned int a6)
 {
   _DWORD *v10; // rax

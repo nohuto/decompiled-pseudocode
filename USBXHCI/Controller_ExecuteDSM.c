@@ -1,3 +1,24 @@
+/*
+ * XREFs of Controller_ExecuteDSM @ 0x1C006E4A4
+ * Callers:
+ *     Controller_QueryControllerCapabilitiesFromACPI @ 0x1C001A3D0 (Controller_QueryControllerCapabilitiesFromACPI.c)
+ *     Controller_QuerySupportedDSMs @ 0x1C001E6D4 (Controller_QuerySupportedDSMs.c)
+ *     Controller_ExecuteDSMToSendPORTSCValues @ 0x1C0033374 (Controller_ExecuteDSMToSendPORTSCValues.c)
+ *     Controller_ExecuteHSICDisconnectInU3Workaround @ 0x1C006E400 (Controller_ExecuteHSICDisconnectInU3Workaround.c)
+ *     Controller_ConfigureS0IdleSettings @ 0x1C006EC7C (Controller_ConfigureS0IdleSettings.c)
+ *     Controller_WdfEvtDeviceAdd @ 0x1C006FA60 (Controller_WdfEvtDeviceAdd.c)
+ *     Controller_PopulateDeviceFlagsFromACPI @ 0x1C0073C40 (Controller_PopulateDeviceFlagsFromACPI.c)
+ *     Controller_ExecuteKBLPowerTransitionWorkaround @ 0x1C0078248 (Controller_ExecuteKBLPowerTransitionWorkaround.c)
+ * Callees:
+ *     WPP_RECORDER_SF_q_guid_LLLLL @ 0x1C0014D60 (WPP_RECORDER_SF_q_guid_LLLLL.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     memcpy_s @ 0x1C001E860 (memcpy_s.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF__guid_d @ 0x1C00373EC (WPP_RECORDER_SF__guid_d.c)
+ *     WPP_RECORDER_SF_q_guid_L @ 0x1C00375C4 (WPP_RECORDER_SF_q_guid_L.c)
+ *     WPP_RECORDER_SF_q_guid_Ld @ 0x1C00376CC (WPP_RECORDER_SF_q_guid_Ld.c)
+ */
+
 __int64 __fastcall Controller_ExecuteDSM(__int64 *a1, const void *a2, int a3, int a4, void *a5, unsigned __int16 a6)
 {
   unsigned int v6; // edi

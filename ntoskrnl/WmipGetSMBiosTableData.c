@@ -1,3 +1,19 @@
+/*
+ * XREFs of WmipGetSMBiosTableData @ 0x140725AEC
+ * Callers:
+ *     WmipRawSMBiosTableHandler @ 0x14029AAF0 (WmipRawSMBiosTableHandler.c)
+ *     WmipQueryWmiDataBlock @ 0x140725910 (WmipQueryWmiDataBlock.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x14029B230 (MmUnmapIoSpace.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     WmipGetRegistryHideMachine @ 0x140725BEC (WmipGetRegistryHideMachine.c)
+ *     WmipSMBiosHideMachine @ 0x1409DD3A8 (WmipSMBiosHideMachine.c)
+ */
+
 __int64 __fastcall WmipGetSMBiosTableData(void *a1, _DWORD *a2, _DWORD *a3)
 {
   struct _KTHREAD *CurrentThread; // rax

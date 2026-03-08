@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiEpfComplete @ 0x140576A00
+ * Callers:
+ *     KiEpfDrainCompletionQueue @ 0x140576B0C (KiEpfDrainCompletionQueue.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KeSignalGate @ 0x1402F0524 (KeSignalGate.c)
+ */
+
 char __fastcall KiEpfComplete(unsigned __int64 a1)
 {
   __int64 v2; // rdi

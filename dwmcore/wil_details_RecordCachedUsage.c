@@ -1,3 +1,12 @@
+/*
+ * XREFs of wil_details_RecordCachedUsage @ 0x180110C20
+ * Callers:
+ *     ?RecordCachedUsageUnderLock@EnabledStateManager@details@wil@@AEAAXXZ @ 0x180196110 (-RecordCachedUsageUnderLock@EnabledStateManager@details@wil@@AEAAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     ?WilApi_RecordFeatureUsage@details@wil@@YAXIIIPEBD@Z @ 0x180197308 (-WilApi_RecordFeatureUsage@details@wil@@YAXIIIPEBD@Z.c)
+ */
+
 void __fastcall wil_details_RecordCachedUsage(wil::details *this, __int64 a2)
 {
   unsigned int v3; // esi

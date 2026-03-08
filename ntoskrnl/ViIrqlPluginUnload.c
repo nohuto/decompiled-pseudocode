@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViIrqlPluginUnload @ 0x140AE5610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void ViIrqlPluginUnload()
 {
   _InterlockedExchange(&ViIrqlTrimAndLog, 0);

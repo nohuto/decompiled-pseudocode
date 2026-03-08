@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiTpWriteBreakpoint @ 0x14057CA4C
+ * Callers:
+ *     KiTpHandleTrap @ 0x14057C800 (KiTpHandleTrap.c)
+ *     KeSetTracepoint @ 0x140972D40 (KeSetTracepoint.c)
+ * Callees:
+ *     KiTpWriteMemory @ 0x14057CAEC (KiTpWriteMemory.c)
+ *     MmWriteSystemImageTracepoint @ 0x140640F7C (MmWriteSystemImageTracepoint.c)
+ */
+
 __int64 __fastcall KiTpWriteBreakpoint(__int64 a1, __int64 a2, __int64 a3)
 {
   char v3; // si

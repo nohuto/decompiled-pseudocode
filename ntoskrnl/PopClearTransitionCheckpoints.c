@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopClearTransitionCheckpoints @ 0x14097D7B8
+ * Callers:
+ *     PopUnlockAfterSleepWorker @ 0x140AA37E0 (PopUnlockAfterSleepWorker.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void PopClearTransitionCheckpoints()
 {
   PVOID v0; // rcx

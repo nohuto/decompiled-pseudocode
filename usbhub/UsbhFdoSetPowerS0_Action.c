@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhFdoSetPowerS0_Action @ 0x1C0020F48
+ * Callers:
+ *     UsbhFdoSystemPowerState @ 0x1C000D270 (UsbhFdoSystemPowerState.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 __int64 __fastcall UsbhFdoSetPowerS0_Action(PDEVICE_OBJECT DeviceObject, PIRP Irp, _QWORD *Context)
 {
   __int64 v3; // rdi

@@ -1,3 +1,31 @@
+/*
+ * XREFs of PopSetPowerSettingValue @ 0x14068CFA0
+ * Callers:
+ *     PopScanIdleList @ 0x1402BC8E0 (PopScanIdleList.c)
+ *     PopInitilizeAcDcSettings @ 0x140380E04 (PopInitilizeAcDcSettings.c)
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ *     PopSetPowerSettingValueAcDc @ 0x14073BE70 (PopSetPowerSettingValueAcDc.c)
+ *     PopSetSessionUserStatus @ 0x14073C8E4 (PopSetSessionUserStatus.c)
+ *     PopSetSessionDisplayStatus @ 0x14079A2F0 (PopSetSessionDisplayStatus.c)
+ *     PopSetNewPolicyValue @ 0x140825FDC (PopSetNewPolicyValue.c)
+ * Callees:
+ *     PopIncrementPowerSettingPendingUpdates @ 0x1402048C0 (PopIncrementPowerSettingPendingUpdates.c)
+ *     PopDecrementPowerSettingPendingUpdates @ 0x14020494C (PopDecrementPowerSettingPendingUpdates.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     PopSetNotificationWork @ 0x1402BCB00 (PopSetNotificationWork.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PopArePowerSettingsEqual @ 0x14068D3F8 (PopArePowerSettingsEqual.c)
+ *     PopFindPowerSettingConfiguration @ 0x14068D434 (PopFindPowerSettingConfiguration.c)
+ *     PopGetListHead @ 0x14068D4BC (PopGetListHead.c)
+ *     PopStateIsSessionSpecific @ 0x14068D530 (PopStateIsSessionSpecific.c)
+ *     PopValidatePowerSettingData @ 0x14068D570 (PopValidatePowerSettingData.c)
+ *     PoRegisterPowerSettingCallback @ 0x14073B960 (PoRegisterPowerSettingCallback.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopSetPowerSettingValue(const GUID *a1, unsigned int a2, int a3, unsigned int a4, void *Src)
 {
   size_t v5; // r13

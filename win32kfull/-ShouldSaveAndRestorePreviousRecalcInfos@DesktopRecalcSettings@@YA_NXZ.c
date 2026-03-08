@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ShouldSaveAndRestorePreviousRecalcInfos@DesktopRecalcSettings@@YA_NXZ @ 0x1C00F9240
+ * Callers:
+ *     ?StartRecalc@DesktopRecalc@@YAXPEAUtagWINDOWSTATION@@PEAVCMonitorTopology@@PEBU_GUID@@@Z @ 0x1C00F954C (-StartRecalc@DesktopRecalc@@YAXPEAUtagWINDOWSTATION@@PEAVCMonitorTopology@@PEBU_GUID@@@Z.c)
+ *     ?ShouldStoreAfterProcessing@CRecalcState@@QEBA_NPEBUtagWND@@@Z @ 0x1C00FAA3C (-ShouldStoreAfterProcessing@CRecalcState@@QEBA_NPEBUtagWND@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_s @ 0x1C002574C (WPP_RECORDER_AND_TRACE_SF_s.c)
+ *     Feature_Erpsrbspi__private_ReportDeviceUsage @ 0x1C012F338 (Feature_Erpsrbspi__private_ReportDeviceUsage.c)
+ */
+
 bool __fastcall DesktopRecalcSettings::ShouldSaveAndRestorePreviousRecalcInfos(DesktopRecalcSettings *this)
 {
   int v1; // r10d

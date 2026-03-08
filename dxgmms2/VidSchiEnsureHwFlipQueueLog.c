@@ -1,3 +1,14 @@
+/*
+ * XREFs of VidSchiEnsureHwFlipQueueLog @ 0x1C010966C
+ * Callers:
+ *     VidSchSubmitCommandToHwQueue @ 0x1C0044510 (VidSchSubmitCommandToHwQueue.c)
+ *     VidSchSetVidPnSourceAddressWithMultiPlaneOverlay3 @ 0x1C0086460 (VidSchSetVidPnSourceAddressWithMultiPlaneOverlay3.c)
+ *     VidSchSubmitCommand @ 0x1C00A4B80 (VidSchSubmitCommand.c)
+ * Callees:
+ *     ?DdiSetFlipQueueLogBuffer@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_SETFLIPQUEUELOGBUFFER@@@Z @ 0x1C002C948 (-DdiSetFlipQueueLogBuffer@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_SETFLIPQUEUELOGBUFFER@@@Z.c)
+ *     ?VidSchiSetInterruptTargetPresentId@@YAJPEAU_VIDSCH_GLOBAL@@II_K_NI@Z @ 0x1C004A448 (-VidSchiSetInterruptTargetPresentId@@YAJPEAU_VIDSCH_GLOBAL@@II_K_NI@Z.c)
+ */
+
 __int64 __fastcall VidSchiEnsureHwFlipQueueLog(struct _VIDSCH_GLOBAL *a1, unsigned int a2, unsigned int a3)
 {
   __int64 v6; // rdi

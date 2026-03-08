@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetContextHelpId @ 0x1C0251B58
+ * Callers:
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ *     xxxHelpLoop @ 0x1C023C17C (xxxHelpLoop.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetContextHelpId(_QWORD *a1)
 {
   unsigned int i; // r8d

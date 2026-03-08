@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlDowncaseUnicodeString @ 0x14076C0F0
+ * Callers:
+ *     DifRtlDowncaseUnicodeStringWrapper @ 0x1405E8FB0 (DifRtlDowncaseUnicodeStringWrapper.c)
+ *     ExpKdPullRemoteFileForUser @ 0x14084C910 (ExpKdPullRemoteFileForUser.c)
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_DOWNCASE @ 0x1402E1428 (NLS_DOWNCASE.c)
+ *     AllocateOrValidateUnicodeStringBuffer @ 0x1403051CC (AllocateOrValidateUnicodeStringBuffer.c)
+ *     ExFreePool @ 0x140AAB270 (ExFreePool.c)
+ */
+
 NTSTATUS __stdcall RtlDowncaseUnicodeString(
         PUNICODE_STRING DestinationString,
         PCUNICODE_STRING SourceString,

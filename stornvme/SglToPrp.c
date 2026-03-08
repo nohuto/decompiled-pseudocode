@@ -1,3 +1,13 @@
+/*
+ * XREFs of SglToPrp @ 0x1C001B550
+ * Callers:
+ *     ScsiToNVMe @ 0x1C00010C0 (ScsiToNVMe.c)
+ *     SetPrpFromSrb @ 0x1C001B51C (SetPrpFromSrb.c)
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ */
+
 __int64 __fastcall SglToPrp(__int64 a1, __int64 a2)
 {
   char v2; // bp

@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoWMIHandleToInstanceName @ 0x140774300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     WmipGetFilePDO @ 0x14077437C (WmipGetFilePDO.c)
+ *     IoWMIDeviceObjectToInstanceName @ 0x1407744D0 (IoWMIDeviceObjectToInstanceName.c)
+ */
+
 NTSTATUS __stdcall IoWMIHandleToInstanceName(PVOID DataBlockObject, HANDLE FileHandle, PUNICODE_STRING InstanceName)
 {
   int FilePDO; // ebx

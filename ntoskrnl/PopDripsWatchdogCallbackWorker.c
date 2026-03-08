@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopDripsWatchdogCallbackWorker @ 0x1409991B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     PopDirectedDripsSetDisengageReason @ 0x1402F2F84 (PopDirectedDripsSetDisengageReason.c)
+ *     PopDirectedDripsClearDisengageReason @ 0x1402F2FE8 (PopDirectedDripsClearDisengageReason.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PopCalculateIdleInformation @ 0x1403C2C3C (PopCalculateIdleInformation.c)
+ *     PopDripsWatchdogCallbackHandler @ 0x140999010 (PopDripsWatchdogCallbackHandler.c)
+ *     PopDripsWatchdogScheduleNextTimer @ 0x1409996C8 (PopDripsWatchdogScheduleNextTimer.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 char __fastcall PopDripsWatchdogCallbackWorker(PERESOURCE Resource)
 {
   struct _KTHREAD *CurrentThread; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UpdateStop@CGradientBrush@@AEAAXPEBUIUnknown@@@Z @ 0x18003F608
+ * Callers:
+ *     ?OnChanged@CGradientBrush@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18003F420 (-OnChanged@CGradientBrush@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CGradientBrush::UpdateStop(CGradientBrush *this, const struct IUnknown *a2)
 {
   __int64 v2; // r11

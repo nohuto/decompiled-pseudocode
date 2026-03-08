@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViLookupThunkArray @ 0x140AC79DC
+ * Callers:
+ *     VfGetHookAddressForOriginal @ 0x140AC788C (VfGetHookAddressForOriginal.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 *__fastcall ViLookupThunkArray(unsigned __int8 **a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // r9

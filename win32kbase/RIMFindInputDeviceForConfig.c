@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMFindInputDeviceForConfig @ 0x1C01ADCD8
+ * Callers:
+ *     RIMCreateDev @ 0x1C0036CBC (RIMCreateDev.c)
+ *     RIMDeviceClassNotifyAsyncWorkItem @ 0x1C0037820 (RIMDeviceClassNotifyAsyncWorkItem.c)
+ *     RIMAllocateHidConfigDesc @ 0x1C01ABC58 (RIMAllocateHidConfigDesc.c)
+ * Callees:
+ *     RIMIsParentCommon @ 0x1C01AF3D0 (RIMIsParentCommon.c)
+ */
+
 __int64 __fastcall RIMFindInputDeviceForConfig(int a1, __int64 a2, int a3, _DWORD *a4, _DWORD *a5, _QWORD *a6)
 {
   unsigned int v6; // edi

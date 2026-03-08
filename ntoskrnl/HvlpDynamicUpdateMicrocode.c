@@ -1,3 +1,20 @@
+/*
+ * XREFs of HvlpDynamicUpdateMicrocode @ 0x14093E628
+ * Callers:
+ *     HvlUpdateMicrocodeDatabase @ 0x14093E610 (HvlUpdateMicrocodeDatabase.c)
+ * Callees:
+ *     IoAllocateMdl @ 0x14020CAD0 (IoAllocateMdl.c)
+ *     MmBuildMdlForNonPagedPool @ 0x1402B5DB0 (MmBuildMdlForNonPagedPool.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     HvcallInitInputControl @ 0x14036E320 (HvcallInitInputControl.c)
+ *     HvcallFastExtended @ 0x1403C6CA0 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HvlpHvStatusIsInsufficientMemory @ 0x140456EEE (HvlpHvStatusIsInsufficientMemory.c)
+ *     HvlpHvToNtStatus @ 0x140456F16 (HvlpHvToNtStatus.c)
+ *     HvlpHandleInsufficientMemory @ 0x14053DA58 (HvlpHandleInsufficientMemory.c)
+ *     HvlpLogMicrocodeUpdateStatus @ 0x14093E204 (HvlpLogMicrocodeUpdateStatus.c)
+ */
+
 __int64 __fastcall HvlpDynamicUpdateMicrocode(void *a1, ULONG a2, char a3)
 {
   struct _MDL *Mdl; // rax

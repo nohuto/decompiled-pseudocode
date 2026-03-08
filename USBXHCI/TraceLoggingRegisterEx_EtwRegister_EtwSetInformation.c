@@ -1,3 +1,12 @@
+/*
+ * XREFs of TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C0075028
+ * Callers:
+ *     InitializeTelemetryAssertsKMWorkerInternal @ 0x1C001D15C (InitializeTelemetryAssertsKMWorkerInternal.c)
+ *     TraceLoggingRegister_EtwRegister_EtwSetInformation @ 0x1C0079958 (TraceLoggingRegister_EtwRegister_EtwSetInformation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(char *CallbackContext)
 {
   ULONGLONG *v1; // rsi

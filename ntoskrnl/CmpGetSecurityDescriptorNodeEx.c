@@ -1,3 +1,32 @@
+/*
+ * XREFs of CmpGetSecurityDescriptorNodeEx @ 0x14067D1C8
+ * Callers:
+ *     CmpUndoDeleteKeyForTransEx @ 0x14067D5F4 (CmpUndoDeleteKeyForTransEx.c)
+ *     CmpCopyKeyPartial @ 0x14078ECB4 (CmpCopyKeyPartial.c)
+ *     CmpCreateChild @ 0x1407A7590 (CmpCreateChild.c)
+ *     CmpAssignKeySecurity @ 0x140854E7C (CmpAssignKeySecurity.c)
+ *     CmpCreateHiveRootCell @ 0x140871A9C (CmpCreateHiveRootCell.c)
+ *     CmpAssignSecurityDescriptor @ 0x1408A6FC2 (CmpAssignSecurityDescriptor.c)
+ *     CmpCopySaclToVirtualKey @ 0x140A186EC (CmpCopySaclToVirtualKey.c)
+ *     CmpCopyMergeOfLayeredKeyNode @ 0x140A1E428 (CmpCopyMergeOfLayeredKeyNode.c)
+ *     CmpSyncKeyValues @ 0x140A20124 (CmpSyncKeyValues.c)
+ *     CmpLightWeightPrepareSetSecDescUoW @ 0x140A26B64 (CmpLightWeightPrepareSetSecDescUoW.c)
+ * Callees:
+ *     RtlLengthSecurityDescriptorStrict @ 0x14030D2D0 (RtlLengthSecurityDescriptorStrict.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpInsertSecurityCellList @ 0x14078F5D4 (CmpInsertSecurityCellList.c)
+ *     CmpFindMatchingDescriptorCell @ 0x1407A5244 (CmpFindMatchingDescriptorCell.c)
+ *     HvAllocateCell @ 0x1407A63A8 (HvAllocateCell.c)
+ *     HvFreeCell @ 0x1407A6A90 (HvFreeCell.c)
+ *     CmpUpdateKeyNodeAccessBits @ 0x1407A893C (CmpUpdateKeyNodeAccessBits.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpMarkCellDirty @ 0x1407D2460 (HvpMarkCellDirty.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     HvpGetBinContextInitialize @ 0x140AF2644 (HvpGetBinContextInitialize.c)
+ */
+
 __int64 __fastcall CmpGetSecurityDescriptorNodeEx(
         ULONG_PTR BugCheckParameter3,
         unsigned int a2,

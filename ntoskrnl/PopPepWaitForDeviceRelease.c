@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopPepWaitForDeviceRelease @ 0x14059DB98
+ * Callers:
+ *     PopPepUnregisterDevice @ 0x14099A948 (PopPepUnregisterDevice.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall PopPepWaitForDeviceRelease(__int64 a1)
 {
   volatile LONG *v1; // rbx

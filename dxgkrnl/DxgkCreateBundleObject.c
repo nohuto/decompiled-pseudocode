@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkCreateBundleObject @ 0x1C0322540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     DxgkCreateBundleObjectInternal @ 0x1C03225D0 (DxgkCreateBundleObjectInternal.c)
+ */
+
 __int64 __fastcall DxgkCreateBundleObject(__int64 a1)
 {
   int v2; // edx

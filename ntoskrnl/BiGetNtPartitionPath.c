@@ -1,3 +1,25 @@
+/*
+ * XREFs of BiGetNtPartitionPath @ 0x140830938
+ * Callers:
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x140830F7C (BiConvertBootEnvironmentDeviceToNt.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     ZwOpenDirectoryObject @ 0x140412E10 (ZwOpenDirectoryObject.c)
+ *     ZwQueryDirectoryObject @ 0x140414C90 (ZwQueryDirectoryObject.c)
+ *     BiGetPartitionVhdFilePath @ 0x140830098 (BiGetPartitionVhdFilePath.c)
+ *     BiIsValidDiskDevice @ 0x140830D88 (BiIsValidDiskDevice.c)
+ *     BiGetDriveLayoutBlock @ 0x140830E1C (BiGetDriveLayoutBlock.c)
+ *     BiVerifyBootPartition @ 0x140830EA8 (BiVerifyBootPartition.c)
+ *     BiTranslateSymbolicLink @ 0x140831298 (BiTranslateSymbolicLink.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiGetNtPartitionPath(int a1, _QWORD *a2)
 {
   wchar_t *v2; // r14

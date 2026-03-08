@@ -1,3 +1,14 @@
+/*
+ * XREFs of Endpoint_SM_ResetEndpoint @ 0x1C003BB98
+ * Callers:
+ *     ESM_ResettingEndpoint @ 0x1C0051BA0 (ESM_ResettingEndpoint.c)
+ * Callees:
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 char __fastcall Endpoint_SM_ResetEndpoint(__int64 a1)
 {
   __int64 v1; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of TtmiPurgeSessionPowerRequestEntries @ 0x1409A19B0
+ * Callers:
+ *     TtmiSessionTerminalListWorker @ 0x1409A82BC (TtmiSessionTerminalListWorker.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 _QWORD *__fastcall TtmiPurgeSessionPowerRequestEntries(__int64 a1)
 {
   _QWORD *v1; // rdi

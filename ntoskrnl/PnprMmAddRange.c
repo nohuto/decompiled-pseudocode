@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnprMmAddRange @ 0x140963C60
+ * Callers:
+ *     PnprMmConstruct @ 0x140963D98 (PnprMmConstruct.c)
+ * Callees:
+ *     RtlSetAllBits @ 0x14028BD00 (RtlSetAllBits.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PnprMmAddRange(_QWORD *a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // rsi

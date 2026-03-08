@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhInternalValidatePlatformCapabilityDescriptor @ 0x1C00520D8
+ * Callers:
+ *     UsbhInternalValidateDeviceCapabilityDescriptor @ 0x1C0051EEC (UsbhInternalValidateDeviceCapabilityDescriptor.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 char __fastcall UsbhInternalValidatePlatformCapabilityDescriptor(__int64 a1, unsigned __int8 *a2, ULONG **a3)
 {
   char v6; // bp

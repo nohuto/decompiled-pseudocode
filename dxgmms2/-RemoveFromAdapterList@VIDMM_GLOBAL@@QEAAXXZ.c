@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RemoveFromAdapterList@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E725C
+ * Callers:
+ *     ??1VIDMM_GLOBAL@@QEAA@XZ @ 0x1C00E0158 (--1VIDMM_GLOBAL@@QEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VIDMM_GLOBAL::RemoveFromAdapterList(VIDMM_GLOBAL *this)
 {
   _QWORD *v2; // rbx

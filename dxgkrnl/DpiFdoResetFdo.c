@@ -1,3 +1,18 @@
+/*
+ * XREFs of DpiFdoResetFdo @ 0x1C0398754
+ * Callers:
+ *     DpiAddDevice @ 0x1C01F38A0 (DpiAddDevice.c)
+ *     DpiFdoHandleRemoveDevice @ 0x1C0396F80 (DpiFdoHandleRemoveDevice.c)
+ * Callees:
+ *     DpiFdoCleanupMipiDsi @ 0x1C0024208 (DpiFdoCleanupMipiDsi.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     DpiFdoCleanupDP @ 0x1C005E8E4 (DpiFdoCleanupDP.c)
+ *     DpiRequestIoPowerState @ 0x1C01E2390 (DpiRequestIoPowerState.c)
+ *     DxgkFreeUnicodeString @ 0x1C020EA5C (DxgkFreeUnicodeString.c)
+ *     DxgkReleaseAdapterFdoReference @ 0x1C02BE328 (DxgkReleaseAdapterFdoReference.c)
+ *     DpiFdoCleanupGpuVirtualization @ 0x1C0396550 (DpiFdoCleanupGpuVirtualization.c)
+ */
+
 void __fastcall DpiFdoResetFdo(__int64 a1)
 {
   __int64 v1; // rbx

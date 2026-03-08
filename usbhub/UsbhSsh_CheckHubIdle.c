@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhSsh_CheckHubIdle @ 0x1C0004570
+ * Callers:
+ *     UsbhBusPause_Action @ 0x1C0012DC0 (UsbhBusPause_Action.c)
+ * Callees:
+ *     UsbhSsh_CheckPortChangeQueuesIdle @ 0x1C00045F0 (UsbhSsh_CheckPortChangeQueuesIdle.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ */
+
 __int64 __fastcall UsbhSsh_CheckHubIdle(__int64 a1)
 {
   __int64 v2; // rax

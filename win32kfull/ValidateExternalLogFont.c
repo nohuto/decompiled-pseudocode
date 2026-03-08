@@ -1,3 +1,14 @@
+/*
+ * XREFs of ValidateExternalLogFont @ 0x1C010EFFC
+ * Callers:
+ *     ?xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z @ 0x1C00F0DE8 (-xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z.c)
+ *     ?GetLogFontFromUserProfile@@YA?AUtagLOGFONTW@@PEAU_UNICODE_STRING@@I@Z @ 0x1C010EEA8 (-GetLogFontFromUserProfile@@YA-AUtagLOGFONTW@@PEAU_UNICODE_STRING@@I@Z.c)
+ * Callees:
+ *     GreCreateFontIndirectW @ 0x1C0025AF8 (GreCreateFontIndirectW.c)
+ *     GetCharDimensions @ 0x1C010F9F4 (GetCharDimensions.c)
+ *     GreSelectFontInternal @ 0x1C0116F84 (GreSelectFontInternal.c)
+ */
+
 _BOOL8 __fastcall ValidateExternalLogFont(__int64 a1)
 {
   BOOL v1; // ebx

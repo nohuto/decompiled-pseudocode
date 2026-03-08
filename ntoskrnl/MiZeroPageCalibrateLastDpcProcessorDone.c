@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiZeroPageCalibrateLastDpcProcessorDone @ 0x140389E3C
+ * Callers:
+ *     MiZeroPageCalibrateDpc @ 0x140389C70 (MiZeroPageCalibrateDpc.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     MiZeroInflectionPointReached @ 0x140389F8C (MiZeroInflectionPointReached.c)
+ */
+
 __int64 __fastcall MiZeroPageCalibrateLastDpcProcessorDone(__int64 a1)
 {
   LARGE_INTEGER v2; // rax

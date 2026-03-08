@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RemoveFromSynchronizationTable@CSynchronizationManager@DirectComposition@@SAXPEAVCBatch@2@@Z @ 0x1C005F1B4
+ * Callers:
+ *     ?Clear@CBatch@DirectComposition@@QEAAXXZ @ 0x1C0061350 (-Clear@CBatch@DirectComposition@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DirectComposition::CSynchronizationManager::RemoveFromSynchronizationTable(
         struct DirectComposition::CBatch *a1)
 {

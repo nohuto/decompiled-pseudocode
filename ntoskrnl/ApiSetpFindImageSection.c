@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetpFindImageSection @ 0x140A072FC
+ * Callers:
+ *     ApiSetLoadSchemaEx @ 0x140A070AC (ApiSetLoadSchemaEx.c)
+ * Callees:
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     strncmp @ 0x1403D3310 (strncmp.c)
+ */
+
 const char *__fastcall ApiSetpFindImageSection(__int64 a1)
 {
   __int64 v1; // rax

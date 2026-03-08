@@ -1,3 +1,12 @@
+/*
+ * XREFs of Crashdump_DoBulkTransfer @ 0x1C004C20C
+ * Callers:
+ *     Crashdump_SendUrb @ 0x1C004CEC0 (Crashdump_SendUrb.c)
+ *     Crashdump_SendUrbAsync @ 0x1C004CFB0 (Crashdump_SendUrbAsync.c)
+ * Callees:
+ *     Crashdump_Endpoint_SendBulkTransfer @ 0x1C004F218 (Crashdump_Endpoint_SendBulkTransfer.c)
+ */
+
 __int64 __fastcall Crashdump_DoBulkTransfer(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
   unsigned __int8 v8; // bl

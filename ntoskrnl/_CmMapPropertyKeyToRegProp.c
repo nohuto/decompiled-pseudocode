@@ -1,3 +1,11 @@
+/*
+ * XREFs of _CmMapPropertyKeyToRegProp @ 0x140687394
+ * Callers:
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140687320 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmMapPropertyKeyToRegProp(__int64 a1, __int64 a2)
 {
   int v2; // edi

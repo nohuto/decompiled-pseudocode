@@ -1,3 +1,31 @@
+/*
+ * XREFs of KeResumeClockTimerFromIdle @ 0x14022E860
+ * Callers:
+ *     PpmIdleExecuteTransition @ 0x14022D7D0 (PpmIdleExecuteTransition.c)
+ * Callees:
+ *     KiSetClockTimer @ 0x14022AC78 (KiSetClockTimer.c)
+ *     KiSetPendingTick @ 0x14022AF40 (KiSetPendingTick.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     KeCheckProcessorAffinityEx @ 0x140234B10 (KeCheckProcessorAffinityEx.c)
+ *     KeQuerySystemAllowedCpuSetAffinity @ 0x140236F18 (KeQuerySystemAllowedCpuSetAffinity.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KiEventClockStateChange @ 0x1402A9ADC (KiEventClockStateChange.c)
+ *     KiRestoreClockTickRate @ 0x1402D9574 (KiRestoreClockTickRate.c)
+ *     KiSetClockTimerKTimerDeadlines @ 0x1402DF1B0 (KiSetClockTimerKTimerDeadlines.c)
+ *     KiSendClockInterruptToClockOwner @ 0x1402F984C (KiSendClockInterruptToClockOwner.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     KiUpdateTimeAssist @ 0x1403C9BA8 (KiUpdateTimeAssist.c)
+ *     KiGetPendingTick @ 0x1403CED40 (KiGetPendingTick.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeFindFirstSetRightAffinityEx @ 0x14056CE10 (KeFindFirstSetRightAffinityEx.c)
+ *     KiAdjustTimersAfterDripsExit @ 0x14056D68C (KiAdjustTimersAfterDripsExit.c)
+ *     KiResetForceIdle @ 0x14057ACCC (KiResetForceIdle.c)
+ *     KiGetPastDueIRTimerInfo @ 0x14057B0D4 (KiGetPastDueIRTimerInfo.c)
+ *     ExRecordOneTimerExpiry @ 0x140609608 (ExRecordOneTimerExpiry.c)
+ */
+
 void __fastcall KeResumeClockTimerFromIdle(_DWORD *a1, volatile signed __int32 *a2)
 {
   struct _KPRCB *CurrentPrcb; // rbx

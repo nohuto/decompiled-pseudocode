@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlAddAccessFilterAce @ 0x1409B8030
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlIsValidProcessTrustLabelSid @ 0x1402480E0 (RtlIsValidProcessTrustLabelSid.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlCopySid @ 0x1406D4890 (RtlCopySid.c)
+ *     RtlFirstFreeAce @ 0x140740C70 (RtlFirstFreeAce.c)
+ *     RtlValidAcl @ 0x1407BB670 (RtlValidAcl.c)
+ *     RtlValidSid @ 0x1407C92A0 (RtlValidSid.c)
+ */
+
 __int64 __fastcall RtlAddAccessFilterAce(
         unsigned __int8 *a1,
         unsigned int a2,

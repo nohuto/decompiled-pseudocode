@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExpTryConvertSharedToExclusiveLite @ 0x140608A2C
+ * Callers:
+ *     ExTryConvertSharedToExclusiveLite @ 0x14060866C (ExTryConvertSharedToExclusiveLite.c)
+ * Callees:
+ *     ExpFindCurrentThread @ 0x14033A7F0 (ExpFindCurrentThread.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpTryUpgradeResource @ 0x14060DC3C (ExpTryUpgradeResource.c)
+ */
+
 char ExpTryConvertSharedToExclusiveLite()
 {
   __int64 CurrentThread; // rbx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of IoUnregisterIoTracking @ 0x140946120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     IopIrpExtensionControl @ 0x140553530 (IopIrpExtensionControl.c)
+ *     IoPerfReset @ 0x140556BD4 (IoPerfReset.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall IoUnregisterIoTracking(_QWORD *P)
 {
   struct _KTHREAD *CurrentThread; // rax

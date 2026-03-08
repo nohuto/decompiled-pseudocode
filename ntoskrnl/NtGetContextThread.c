@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtGetContextThread @ 0x140792A70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     PspGetContextThreadInternal @ 0x1407EE524 (PspGetContextThreadInternal.c)
+ */
+
 __int64 __fastcall NtGetContextThread(void *a1, int a2)
 {
   KPROCESSOR_MODE PreviousMode; // si

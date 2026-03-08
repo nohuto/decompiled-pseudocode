@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?zzzUpdateFade@@YAXPEAUtagPOINT@@PEAUtagSIZE@@PEAUHDC__@@0PEAU_BLENDFUNCTION@@@Z @ 0x1C01BDC84
+ * Callers:
+ *     zzzAnimateFade @ 0x1C01BE518 (zzzAnimateFade.c)
+ *     zzzShowFade @ 0x1C01BE658 (zzzShowFade.c)
+ * Callees:
+ *     GreUpdateSprite @ 0x1C002F030 (GreUpdateSprite.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     zzzUpdateLayeredWindow @ 0x1C01BE8C0 (zzzUpdateLayeredWindow.c)
+ */
+
 void __fastcall zzzUpdateFade(
         struct tagPOINT *a1,
         struct tagSIZE *a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetAnalogExclusiveTokenEvent@CTokenManager@@UEAAJPEAPEAX@Z @ 0x1C0076EA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AcquireTokenManagerLock@CTokenManager@@AEAAXXZ @ 0x1C00129C0 (-AcquireTokenManagerLock@CTokenManager@@AEAAXXZ.c)
+ *     ?OpenEventForSynchonize@CTokenManager@@CAJPEAXPEAPEAX@Z @ 0x1C00167CC (-OpenEventForSynchonize@CTokenManager@@CAJPEAXPEAPEAX@Z.c)
+ */
+
 __int64 __fastcall CTokenManager::GetAnalogExclusiveTokenEvent(void **this, void **a2)
 {
   int v4; // esi

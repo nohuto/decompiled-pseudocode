@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PlaneVectorIntersection@D2DVectorHelper@@YA?AUD2D_VECTOR_4F@@AEBU2@00@Z @ 0x18021073C
+ * Callers:
+ *     ?CompareAndSplit@CPolygon@@QEAAJPEAV1@PEAW4Relation@D2DVectorHelper@@PEAPEAV1@2@Z @ 0x18020EFFC (-CompareAndSplit@CPolygon@@QEAAJPEAV1@PEAW4Relation@D2DVectorHelper@@PEAPEAV1@2@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct D2D_VECTOR_4F *__fastcall D2DVectorHelper::PlaneVectorIntersection(
         D2DVectorHelper *this,
         struct D2D_VECTOR_4F *__return_ptr retstr,

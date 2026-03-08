@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?FreeHandle@DXGGLOBAL@@QEAAXI@Z @ 0x1C000E148
+ * Callers:
+ *     ?Destroy@DXGSYNCOBJECT@@QEAAXXZ @ 0x1C0186C00 (-Destroy@DXGSYNCOBJECT@@QEAAXXZ.c)
+ *     ?DestroyCoreAllocations@DXGSHAREDRESOURCE@@QEAAXPEAPEAXI@Z @ 0x1C01CA2D4 (-DestroyCoreAllocations@DXGSHAREDRESOURCE@@QEAAXPEAPEAXI@Z.c)
+ *     ?DestroyGlobal@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C034AC74 (-DestroyGlobal@DXGKEYEDMUTEX@@QEAAXXZ.c)
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ?FreeHandle@HMGRTABLE@@QEAAXI@Z @ 0x1C018C3C0 (-FreeHandle@HMGRTABLE@@QEAAXI@Z.c)
+ */
+
 void __fastcall DXGGLOBAL::FreeHandle(struct _KTHREAD **this, unsigned int a2)
 {
   int v4; // edx

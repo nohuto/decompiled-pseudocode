@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpCalculateSubsegmentSizeIndex @ 0x14030B25C
+ * Callers:
+ *     RtlpHpLfhSubsegmentCreate @ 0x14030AFE0 (RtlpHpLfhSubsegmentCreate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpCalculateSubsegmentSizeIndex(unsigned int a1)
 {
   unsigned int v1; // ecx

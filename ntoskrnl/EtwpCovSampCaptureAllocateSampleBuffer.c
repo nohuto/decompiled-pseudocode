@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpCovSampCaptureAllocateSampleBuffer @ 0x1409EDB30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 _QWORD *__fastcall EtwpCovSampCaptureAllocateSampleBuffer(__int64 a1)
 {
   unsigned int v1; // edi

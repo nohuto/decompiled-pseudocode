@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiEndingOffsetWithLock @ 0x140324190
+ * Callers:
+ *     MiFinishMdlForMappedFileFault @ 0x14028BD60 (MiFinishMdlForMappedFileFault.c)
+ *     MiReadyFlushMdlToWrite @ 0x14028C5D0 (MiReadyFlushMdlToWrite.c)
+ *     MiViewMayContainPage @ 0x1402A12A0 (MiViewMayContainPage.c)
+ *     MiPfPrepareSequentialReadList @ 0x1406EBE40 (MiPfPrepareSequentialReadList.c)
+ *     MiPfAllocateMdls @ 0x14075A230 (MiPfAllocateMdls.c)
+ *     MiPfPrepareReadList @ 0x1407C42F0 (MiPfPrepareReadList.c)
+ * Callees:
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14030AD60 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpTryAcquireSpinLockShared @ 0x140321970 (ExpTryAcquireSpinLockShared.c)
+ *     MiEndingOffset @ 0x140324248 (MiEndingOffset.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140462F92 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140608D0C (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ */
+
 __int64 __fastcall MiEndingOffsetWithLock(_QWORD *a1)
 {
   volatile signed __int32 *v2; // rbx

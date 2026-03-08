@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiSetNodeResettingStateAtISR @ 0x1C003C640
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall VidSchiSetNodeResettingStateAtISR(LARGE_INTEGER *a1)
 {
   LARGE_INTEGER *QuadPart; // rax

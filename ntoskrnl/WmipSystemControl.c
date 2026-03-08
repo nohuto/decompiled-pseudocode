@@ -1,3 +1,11 @@
+/*
+ * XREFs of WmipSystemControl @ 0x1407939B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoWMISystemControl @ 0x1407939D4 (IoWMISystemControl.c)
+ */
+
 __int64 __fastcall WmipSystemControl(__int64 a1, __int64 a2)
 {
   return IoWMISystemControl(WmipWmiLibInfo, a1, a2);

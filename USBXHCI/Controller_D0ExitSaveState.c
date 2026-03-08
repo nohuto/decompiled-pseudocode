@@ -1,3 +1,17 @@
+/*
+ * XREFs of Controller_D0ExitSaveState @ 0x1C0032A8C
+ * Callers:
+ *     Controller_WdfEvtDeviceD0Exit @ 0x1C000E9C0 (Controller_WdfEvtDeviceD0Exit.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_I @ 0x1C00138F8 (WPP_RECORDER_SF_I.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0036BDC (McTemplateK0p_EtwWriteTransfer.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0036E80 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ */
+
 __int64 __fastcall Controller_D0ExitSaveState(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

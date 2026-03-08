@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpInitializeClassicStackTracing @ 0x1409E5CE4
+ * Callers:
+ *     EtwpUpdateStackTracing @ 0x1409E5DD8 (EtwpUpdateStackTracing.c)
+ * Callees:
+ *     EtwpAllocateStackwalkApcPool @ 0x1409E5C44 (EtwpAllocateStackwalkApcPool.c)
+ *     EtwpReferenceStackLookasideList @ 0x1409E5D6C (EtwpReferenceStackLookasideList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall EtwpInitializeClassicStackTracing(__int64 a1)
 {
   unsigned int v2; // edi

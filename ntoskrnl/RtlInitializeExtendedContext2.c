@@ -1,3 +1,23 @@
+/*
+ * XREFs of RtlInitializeExtendedContext2 @ 0x140364EE0
+ * Callers:
+ *     RtlDispatchException @ 0x14027FA60 (RtlDispatchException.c)
+ *     RtlpWalkFrameChain @ 0x14027FF40 (RtlpWalkFrameChain.c)
+ *     RtlUnwindEx @ 0x1402809E0 (RtlUnwindEx.c)
+ *     KiDispatchException @ 0x140362740 (KiDispatchException.c)
+ *     RtlInitializeExtendedContext @ 0x140364A10 (RtlInitializeExtendedContext.c)
+ *     RtlRaiseException @ 0x140364BF0 (RtlRaiseException.c)
+ *     RtlUnwind @ 0x1403BE7D0 (RtlUnwind.c)
+ *     NtCreateUserProcess @ 0x14070C850 (NtCreateUserProcess.c)
+ *     PspInitializeThunkContext @ 0x1407EDF4C (PspInitializeThunkContext.c)
+ *     NtCreateThreadEx @ 0x1407EEB00 (NtCreateThreadEx.c)
+ * Callees:
+ *     RtlpValidateContextFlags @ 0x1403650A0 (RtlpValidateContextFlags.c)
+ *     RtlpGetEntireXStateAreaLength @ 0x1403D1A20 (RtlpGetEntireXStateAreaLength.c)
+ *     RtlpRemoveArchDisallowedXStateFeatures @ 0x1403D1FAC (RtlpRemoveArchDisallowedXStateFeatures.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall RtlInitializeExtendedContext2(__int64 a1, unsigned int a2, _QWORD *a3, unsigned __int64 a4)
 {
   size_t v6; // rbp

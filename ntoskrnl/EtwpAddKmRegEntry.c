@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpAddKmRegEntry @ 0x140691058
+ * Callers:
+ *     EtwpRegisterKMProvider @ 0x140690D64 (EtwpRegisterKMProvider.c)
+ * Callees:
+ *     EtwpInitializeRegEntry @ 0x140694D00 (EtwpInitializeRegEntry.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall EtwpAddKmRegEntry(int a1, int a2, int a3, __int64 a4, __int64 *a5)
 {
   unsigned int v5; // ebx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of _CmDeleteDeviceInterfaceWorker @ 0x140A5EEA4
+ * Callers:
+ *     _CmDeleteDeviceInterface @ 0x140A5E93C (_CmDeleteDeviceInterface.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _CmSetDeviceInterfaceMappedProperty @ 0x14086B538 (_CmSetDeviceInterfaceMappedProperty.c)
+ *     _CmDeleteDeviceInterfaceRegKey @ 0x140A5EA68 (_CmDeleteDeviceInterfaceRegKey.c)
+ *     _CmRaiseDeleteEvent @ 0x140A62958 (_CmRaiseDeleteEvent.c)
+ *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x140A65758 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmDeleteDeviceInterfaceWorker(__int64 a1, __int64 a2, __int16 a3, __int64 a4)
 {
   int v4; // ebx

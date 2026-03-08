@@ -1,3 +1,19 @@
+/*
+ * XREFs of PspNotifyProcessEffectiveIoLimitChanged @ 0x140356E2C
+ * Callers:
+ *     PspApplyJobChainLimitsToProcess @ 0x1406FF27C (PspApplyJobChainLimitsToProcess.c)
+ *     PspSetProcessIoPriorityLimitCallback @ 0x1407DD170 (PspSetProcessIoPriorityLimitCallback.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsGetIoPriorityThread @ 0x1402832C0 (PsGetIoPriorityThread.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     IoBoostThreadIoPriority @ 0x140356FD0 (IoBoostThreadIoPriority.c)
+ *     KeAbProcessBaseIoPriorityChange @ 0x140357A24 (KeAbProcessBaseIoPriorityChange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall PspNotifyProcessEffectiveIoLimitChanged(__int64 a1, __int64 a2, char a3)
 {
   signed __int64 *v3; // rbp

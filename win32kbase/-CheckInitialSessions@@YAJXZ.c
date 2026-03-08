@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CheckInitialSessions@@YAJXZ @ 0x1C00CFB7C
+ * Callers:
+ *     Win32kBaseDriverEntry @ 0x1C0320F10 (Win32kBaseDriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CheckInitialSessions(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // ebx

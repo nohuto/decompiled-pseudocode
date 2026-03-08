@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpAcpiPmRegisterReadRegister @ 0x14051A3E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpAcpiPmRegisterReadRegister(_QWORD *a1, int a2, _QWORD *a3)
 {
   int v3; // edx

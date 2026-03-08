@@ -1,3 +1,17 @@
+/*
+ * XREFs of AlpcpAllocateMessage @ 0x140712E84
+ * Callers:
+ *     AlpcpFormatConnectionRequest @ 0x140712838 (AlpcpFormatConnectionRequest.c)
+ *     AlpcpCreateClientPort @ 0x140713330 (AlpcpCreateClientPort.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x140715930 (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpCreateReserve @ 0x140781384 (AlpcpCreateReserve.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AlpcpAllocateBlob @ 0x1407CBB50 (AlpcpAllocateBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1407CBD44 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpEnterAllocationEventMessageLog @ 0x1409778E8 (AlpcpEnterAllocationEventMessageLog.c)
+ */
+
 __int64 __fastcall AlpcpAllocateMessage(ULONG_PTR *a1, unsigned __int64 a2)
 {
   __int64 v3; // rdx

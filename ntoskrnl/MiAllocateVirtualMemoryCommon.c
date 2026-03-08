@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiAllocateVirtualMemoryCommon @ 0x1407C4A70
+ * Callers:
+ *     MmAllocateVirtualMemory @ 0x140728160 (MmAllocateVirtualMemory.c)
+ *     NtAllocateVirtualMemory @ 0x1407584D0 (NtAllocateVirtualMemory.c)
+ *     MmAllocateUserStack @ 0x14077409C (MmAllocateUserStack.c)
+ * Callees:
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsReferencePartitionByHandle @ 0x14070591C (PsReferencePartitionByHandle.c)
+ *     MiAllocateUserStack @ 0x14077B2C0 (MiAllocateUserStack.c)
+ *     MiAllocateVirtualMemoryPrepare @ 0x1407C4C00 (MiAllocateVirtualMemoryPrepare.c)
+ *     MiAllocateVirtualMemory @ 0x1407C5270 (MiAllocateVirtualMemory.c)
+ */
+
 __int64 __fastcall MiAllocateVirtualMemoryCommon(
         int a1,
         __int64 *a2,

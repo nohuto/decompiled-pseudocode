@@ -1,3 +1,12 @@
+/*
+ * XREFs of UserVisrgnFromHwnd @ 0x1C007EF04
+ * Callers:
+ *     GreUpdateSpriteVisRgn @ 0x1C007ED24 (GreUpdateSpriteVisRgn.c)
+ * Callees:
+ *     _VisrgnFromWindow @ 0x1C007EFB0 (_VisrgnFromWindow.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ */
+
 __int64 __fastcall UserVisrgnFromHwnd(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v4; // rcx

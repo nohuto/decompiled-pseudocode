@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlGetAppContainerNamedObjectPath @ 0x1405A7A70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     NtQueryInformationToken @ 0x1406D6780 (NtQueryInformationToken.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x1409B9D5C (RtlpGetTokenNamedObjectPath.c)
+ */
+
 NTSTATUS __fastcall RtlGetAppContainerNamedObjectPath(__int64 TokenHandle, void *a2, char a3, _OWORD *a4)
 {
   NTSTATUS result; // eax

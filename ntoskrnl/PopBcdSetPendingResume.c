@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopBcdSetPendingResume @ 0x140999E60
+ * Callers:
+ *     PopAllocateHiberContext @ 0x140984D38 (PopAllocateHiberContext.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopBcdSetupResumeObject @ 0x14082B3F0 (PopBcdSetupResumeObject.c)
+ *     BcdQueryObject @ 0x14082B5C0 (BcdQueryObject.c)
+ *     BcdSetElementDataWithFlags @ 0x14082D894 (BcdSetElementDataWithFlags.c)
+ *     BcdCloseObject @ 0x14082E5DC (BcdCloseObject.c)
+ *     BcdOpenObject @ 0x14082E620 (BcdOpenObject.c)
+ */
+
 __int64 __fastcall PopBcdSetPendingResume(__int64 a1, __int64 a2, __int64 a3, void *a4)
 {
   int Object; // ebx

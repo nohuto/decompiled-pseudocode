@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiQueryEPTAccessedState @ 0x140463B2C
+ * Callers:
+ *     MiAgeWorkingSetTail @ 0x1402C9E50 (MiAgeWorkingSetTail.c)
+ *     MiResetAccessBitsTail @ 0x1402DDE40 (MiResetAccessBitsTail.c)
+ *     MiTrimWorkingSetTail @ 0x1402E29B0 (MiTrimWorkingSetTail.c)
+ *     MiSimpleAgeWorkingSetTail @ 0x140463CB0 (MiSimpleAgeWorkingSetTail.c)
+ *     MiUpdateOldWorkingSetPagesTail @ 0x140463EE0 (MiUpdateOldWorkingSetPagesTail.c)
+ * Callees:
+ *     MiReleaseWalkLocks @ 0x1402D45CC (MiReleaseWalkLocks.c)
+ *     VmpQueryAccessedState @ 0x14045E7BA (VmpQueryAccessedState.c)
+ *     MiReacquireWalkLocks @ 0x140463468 (MiReacquireWalkLocks.c)
+ */
+
 __int64 __fastcall MiQueryEPTAccessedState(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // rdi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserfnPOINTERINPUT @ 0x1C01E3ED0
+ * Callers:
+ *     NtUserfnPARENTNOTIFY @ 0x1C01E3E20 (NtUserfnPARENTNOTIFY.c)
+ * Callees:
+ *     IsPointerInputMessage @ 0x1C0038580 (IsPointerInputMessage.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     xxxSendPointerMessage @ 0x1C01C682C (xxxSendPointerMessage.c)
+ */
+
 __int64 __fastcall NtUserfnPOINTERINPUT(
         __int64 a1,
         unsigned int a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of DwmAsyncMagnSetSamplingMode @ 0x1C026F858
+ * Callers:
+ *     MagSetLensContextInformation @ 0x1C01A4A80 (MagSetLensContextInformation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall DwmAsyncMagnSetSamplingMode(PVOID Object, __int64 a2, __int64 a3, int *a4)
 {
   unsigned int v8; // ebx

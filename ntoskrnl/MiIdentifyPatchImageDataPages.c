@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiIdentifyPatchImageDataPages @ 0x140A34ABC
+ * Callers:
+ *     MiApplyDriverHotPatch @ 0x140A31BB8 (MiApplyDriverHotPatch.c)
+ *     MiApplySingleSessionPatch @ 0x140A333E0 (MiApplySingleSessionPatch.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlClearAllBitsEx @ 0x1402D4520 (RtlClearAllBitsEx.c)
+ *     RtlSetBitsEx @ 0x14034CE90 (RtlSetBitsEx.c)
+ */
+
 __int64 __fastcall MiIdentifyPatchImageDataPages(__int64 a1, int a2)
 {
   __int64 v3; // rsi

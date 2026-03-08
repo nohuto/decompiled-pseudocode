@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpRestampVersion @ 0x1408161B0
+ * Callers:
+ *     CmpSetVersionData @ 0x140815CD8 (CmpSetVersionData.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ */
+
 __int64 __fastcall CmpRestampVersion(HANDLE KeyHandle)
 {
   __int64 v1; // rdi

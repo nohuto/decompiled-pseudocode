@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiActOnLargeKernelHalPages @ 0x140809AB8
+ * Callers:
+ *     MiProtectSystemImage @ 0x14080A600 (MiProtectSystemImage.c)
+ *     MiInitializeBootLoadedDriverPfns @ 0x140B38DFC (MiInitializeBootLoadedDriverPfns.c)
+ *     MiCreateSlabAllocationsFromKernelHal @ 0x140B39FD4 (MiCreateSlabAllocationsFromKernelHal.c)
+ * Callees:
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall MiActOnLargeKernelHalPages(__int64 a1, __int64 (__fastcall *a2)(unsigned __int64, __int64))
 {
   __int64 v4; // rbp

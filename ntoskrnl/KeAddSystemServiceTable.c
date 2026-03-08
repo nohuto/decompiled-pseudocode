@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeAddSystemServiceTable @ 0x14083A320
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsRegisterSyscallProviderServiceTableMetadata @ 0x14083A484 (PsRegisterSyscallProviderServiceTableMetadata.c)
+ */
+
 char __fastcall KeAddSystemServiceTable(__int64 a1, __int64 a2, int a3, __int64 a4, int a5)
 {
   unsigned int v5; // ebx

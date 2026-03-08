@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?xxxUpdateSystemCursorFromRegistry@@YAXPEAU_UNICODE_STRING@@HW4InputTracing_SetSystemCursorReason@@@Z @ 0x1C0107CAC
+ * Callers:
+ *     ?xxxUpdateSystemCursorsFromRegistry@@YAXPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C0107C68 (-xxxUpdateSystemCursorsFromRegistry@@YAXPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReaso.c)
+ *     ?xxxRestoreMouseCursors@Feedback@@YAXXZ @ 0x1C01AEC54 (-xxxRestoreMouseCursors@Feedback@@YAXXZ.c)
+ * Callees:
+ *     xxxClientLoadImage @ 0x1C01080C0 (xxxClientLoadImage.c)
+ *     ?zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C01084CC (-zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCur.c)
+ *     RtlInitUnicodeStringOrId @ 0x1C0108BB4 (RtlInitUnicodeStringOrId.c)
+ *     xxxClientExpandStringW @ 0x1C0108BE4 (xxxClientExpandStringW.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall xxxUpdateSystemCursorFromRegistry(__int64 a1, unsigned int a2, unsigned int a3)
 {
   int v5; // edi

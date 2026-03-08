@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopBatteryInit @ 0x140B6C9F4
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     <none>
+ */
+
 LIST_ENTRY *PopBatteryInit()
 {
   __int64 v0; // rcx

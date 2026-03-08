@@ -1,3 +1,13 @@
+/*
+ * XREFs of GreGetRgnBox @ 0x1C00A70C0
+ * Callers:
+ *     NtGdiGetRgnBox @ 0x1C0008AB0 (NtGdiGetRgnBox.c)
+ *     EngGetRgnBox @ 0x1C01977C0 (EngGetRgnBox.c)
+ * Callees:
+ *     ?UpdateUserRgn@RGNOBJ@@QEAAXXZ @ 0x1C0051CB0 (-UpdateUserRgn@RGNOBJ@@QEAAXXZ.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00DE3A0 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ */
+
 __int64 __fastcall GreGetRgnBox(HRGN a1, __int64 a2)
 {
   unsigned int v3; // edi

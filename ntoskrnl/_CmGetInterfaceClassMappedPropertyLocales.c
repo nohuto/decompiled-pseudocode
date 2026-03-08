@@ -1,3 +1,11 @@
+/*
+ * XREFs of _CmGetInterfaceClassMappedPropertyLocales @ 0x140A6672C
+ * Callers:
+ *     _PnpDispatchInterfaceClass @ 0x1406C59F0 (_PnpDispatchInterfaceClass.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmGetInterfaceClassMappedPropertyLocales(
         __int64 a1,
         __int64 a2,

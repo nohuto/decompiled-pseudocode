@@ -1,3 +1,26 @@
+/*
+ * XREFs of ?DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z @ 0x1C007E644
+ * Callers:
+ *     DwmNotifyChildrenAddRemove @ 0x1C007E250 (DwmNotifyChildrenAddRemove.c)
+ * Callees:
+ *     IsDesktopWindow @ 0x1C002C460 (IsDesktopWindow.c)
+ *     ?_GetWindowCompositionInfo@@YAHPEBUtagWND@@PEAUWINDOWCOMPOSITIONINFO@@@Z @ 0x1C0043348 (-_GetWindowCompositionInfo@@YAHPEBUtagWND@@PEAUWINDOWCOMPOSITIONINFO@@@Z.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ *     IsMotherDesktopWindow @ 0x1C007E8EC (IsMotherDesktopWindow.c)
+ *     DwmGetClassStyle @ 0x1C007E918 (DwmGetClassStyle.c)
+ *     DwmAsyncChildCreate @ 0x1C007E990 (DwmAsyncChildCreate.c)
+ *     IsMessageParentWindow @ 0x1C007EAD8 (IsMessageParentWindow.c)
+ *     DwmAsyncChildDestroy @ 0x1C007EAF8 (DwmAsyncChildDestroy.c)
+ *     SendDwmIconChange @ 0x1C00A1060 (SendDwmIconChange.c)
+ *     DwmAsyncTextChange @ 0x1C00A5394 (DwmAsyncTextChange.c)
+ *     DwmChildRectChange @ 0x1C00AD03C (DwmChildRectChange.c)
+ *     ?CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z @ 0x1C00AD734 (-CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z.c)
+ *     DirtyVisRgnTrackers @ 0x1C00AEA8C (DirtyVisRgnTrackers.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 void __fastcall DwmNotifyChildrenCreateDestroy(const struct tagDESKTOP *a1, int a2)
 {
   unsigned __int64 v4; // rsi

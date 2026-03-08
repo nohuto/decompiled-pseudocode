@@ -1,3 +1,14 @@
+/*
+ * XREFs of _PnpCtxRegisterMachineNode @ 0x140A5DF28
+ * Callers:
+ *     PiDrvDbRegisterNode @ 0x14081C38C (PiDrvDbRegisterNode.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _PnpCtxCreateNode @ 0x140851F88 (_PnpCtxCreateNode.c)
+ *     _PnpCtxDestroyNode @ 0x140A5DBA8 (_PnpCtxDestroyNode.c)
+ *     _PnpCtxFindNode @ 0x140A5DCA8 (_PnpCtxFindNode.c)
+ */
+
 __int64 __fastcall PnpCtxRegisterMachineNode(__int64 a1, const WCHAR *a2, int a3, __int64 a4, __int64 a5)
 {
   __int64 v6; // rdi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiLogPeriodicTelemetryForSlabAllocator @ 0x1403CAEA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     InsertEventEntryInLookUpTable @ 0x14035EE9C (InsertEventEntryInLookUpTable.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 MiLogPeriodicTelemetryForSlabAllocator()
 {
   __int64 v0; // r9

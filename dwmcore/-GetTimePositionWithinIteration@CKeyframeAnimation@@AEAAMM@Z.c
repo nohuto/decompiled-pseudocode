@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetTimePositionWithinIteration@CKeyframeAnimation@@AEAAMM@Z @ 0x180236760
+ * Callers:
+ *     ?ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x180056B00 (-ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
+ * Callees:
+ *     ?GetAnimationTimeLength@CKeyframeAnimation@@QEBAMXZ @ 0x1800BAF68 (-GetAnimationTimeLength@CKeyframeAnimation@@QEBAMXZ.c)
+ *     fmod_0 @ 0x180117734 (fmod_0.c)
+ */
+
 float __fastcall CKeyframeAnimation::GetTimePositionWithinIteration(CKeyframeAnimation *this, float a2)
 {
   float result; // xmm0_4

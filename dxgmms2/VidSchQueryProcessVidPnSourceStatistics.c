@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchQueryProcessVidPnSourceStatistics @ 0x1C0107EC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VidSchQueryProcessVidPnSourceStatistics(__int64 a1, unsigned int a2, __int64 a3, _DWORD *a4)
 {
   __int64 v4; // r11

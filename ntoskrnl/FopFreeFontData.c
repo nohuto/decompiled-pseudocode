@@ -1,3 +1,13 @@
+/*
+ * XREFs of FopFreeFontData @ 0x140AE9314
+ * Callers:
+ *     BgpFoDestroy @ 0x140AEBCA8 (BgpFoDestroy.c)
+ *     FopInitializeFonts @ 0x140B99D48 (FopInitializeFonts.c)
+ * Callees:
+ *     BgpFwFreeMemory @ 0x140382650 (BgpFwFreeMemory.c)
+ *     FopFreeMappingTable @ 0x140AE92E8 (FopFreeMappingTable.c)
+ */
+
 void __fastcall FopFreeFontData(_QWORD *a1)
 {
   _QWORD *v1; // r14

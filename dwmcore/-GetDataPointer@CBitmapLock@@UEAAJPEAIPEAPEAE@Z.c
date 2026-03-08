@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetDataPointer@CBitmapLock@@UEAAJPEAIPEAPEAE@Z @ 0x1800F1B70
+ * Callers:
+ *     ?GetDataPointer@CBitmapLock@@WBI@EAAJPEAIPEAPEAE@Z @ 0x18011A7D0 (-GetDataPointer@CBitmapLock@@WBI@EAAJPEAIPEAPEAE@Z.c)
+ * Callees:
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034BB4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CBitmapLock::GetDataPointer(CBitmapLock *this, unsigned int *a2, unsigned __int8 **a3)
 {
   __int64 v6; // rcx

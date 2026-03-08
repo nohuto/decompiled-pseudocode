@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_BeginKeyboardEventProcessingByInputService@KeyboardInputTelemetry@@AEAAXI@Z @ 0x1C00066A0
+ * Callers:
+ *     DeferSysPeekMsg @ 0x1C0005F80 (DeferSysPeekMsg.c)
+ * Callees:
+ *     ?_UploadTelemetryData@KeyboardInputTelemetry@@AEAAXXZ @ 0x1C0005824 (-_UploadTelemetryData@KeyboardInputTelemetry@@AEAAXXZ.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0070E78 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ */
+
 void __fastcall KeyboardInputTelemetry::_BeginKeyboardEventProcessingByInputService(
         KeyboardInputTelemetry *this,
         __int64 a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Initialize@InteractionSourceManager@@QEAAXPEAVCComposition@@PEAVCInteractionTracker@@@Z @ 0x180271248
+ * Callers:
+ *     ??0CInteractionTracker@@QEAA@PEAVCComposition@@@Z @ 0x18022CFAC (--0CInteractionTracker@@QEAA@PEAVCComposition@@@Z.c)
+ * Callees:
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B44D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?Create@?$CWeakReference@VCInteractionTracker@@@@SAJPEAVCInteractionTracker@@PEAPEAV1@@Z @ 0x180261860 (-Create@-$CWeakReference@VCInteractionTracker@@@@SAJPEAVCInteractionTracker@@PEAPEAV1@@Z.c)
+ */
+
 void __fastcall InteractionSourceManager::Initialize(
         struct CWeakResourceReference **this,
         struct CComposition *a2,

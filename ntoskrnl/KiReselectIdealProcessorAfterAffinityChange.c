@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiReselectIdealProcessorAfterAffinityChange @ 0x14035977C
+ * Callers:
+ *     KiComputeThreadAffinity @ 0x140236FD4 (KiComputeThreadAffinity.c)
+ *     KiSetAffinityThread @ 0x1402AFA28 (KiSetAffinityThread.c)
+ * Callees:
+ *     KeSelectIdealProcessor @ 0x140359930 (KeSelectIdealProcessor.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall KiReselectIdealProcessorAfterAffinityChange(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rdx

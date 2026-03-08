@@ -1,3 +1,17 @@
+/*
+ * XREFs of HmgFreeDcAttr @ 0x1C0053788
+ * Callers:
+ *     GreSetDCOwnerEx @ 0x1C0041580 (GreSetDCOwnerEx.c)
+ *     GdiThreadCallout @ 0x1C00420F0 (GdiThreadCallout.c)
+ *     ?vDelete@XDCOBJ@@QEAAXK@Z @ 0x1C004EC00 (-vDelete@XDCOBJ@@QEAAXK@Z.c)
+ *     ?FreeDCAttributes@@YAXPEAVDC@@@Z @ 0x1C0052474 (-FreeDCAttributes@@YAXPEAVDC@@@Z.c)
+ *     GreCreateDisplayDC @ 0x1C0055340 (GreCreateDisplayDC.c)
+ * Callees:
+ *     GreReleaseHmgrSemaphore @ 0x1C0049700 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C0049780 (GreAcquireHmgrSemaphore.c)
+ *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0062994 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ */
+
 _QWORD *__fastcall HmgFreeDcAttr(__int64 a1)
 {
   __int64 v2; // rbx

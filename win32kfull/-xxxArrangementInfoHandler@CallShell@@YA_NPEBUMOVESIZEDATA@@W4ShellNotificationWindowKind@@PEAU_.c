@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?xxxArrangementInfoHandler@CallShell@@YA_NPEBUMOVESIZEDATA@@W4ShellNotificationWindowKind@@PEAU_SHELL_WINDOWMANAGEMENT_CALLOUT_INFO@@@Z @ 0x1C0220CBC
+ * Callers:
+ *     ?xxxGetArrangeRectFromShell@@YA_NPEAUMOVESIZEDATA@@PEAUtagMONITOR@@W4ShellNotificationWindowKind@@PEAUtagRECT@@@Z @ 0x1C01EE504 (-xxxGetArrangeRectFromShell@@YA_NPEAUMOVESIZEDATA@@PEAUtagMONITOR@@W4ShellNotificationWindowKind.c)
+ * Callees:
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     _anonymous_namespace_::xxxCallIAMWindowManagementHandler @ 0x1C0220E14 (_anonymous_namespace_--xxxCallIAMWindowManagementHandler.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dds @ 0x1C02220B4 (WPP_RECORDER_AND_TRACE_SF_dds.c)
+ */
+
 bool __fastcall CallShell::xxxArrangementInfoHandler(__int64 a1, unsigned int a2, _QWORD *a3)
 {
   __int64 v6; // r9

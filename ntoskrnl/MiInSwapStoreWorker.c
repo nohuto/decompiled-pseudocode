@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiInSwapStoreWorker @ 0x14067E3D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SmSwapStore @ 0x14067E484 (SmSwapStore.c)
+ *     MiInSwapStoreContextDereference @ 0x14067E508 (MiInSwapStoreContextDereference.c)
+ *     EtwTraceWorkingSetInSwapStoreFail @ 0x14067E52C (EtwTraceWorkingSetInSwapStoreFail.c)
+ */
+
 __int64 __fastcall MiInSwapStoreWorker(__int64 a1)
 {
   _KPROCESS *v2; // rcx

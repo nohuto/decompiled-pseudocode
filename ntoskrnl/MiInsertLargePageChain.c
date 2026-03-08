@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiInsertLargePageChain @ 0x1402CADB0
+ * Callers:
+ *     MiInsertDemotedPages @ 0x1402CACC8 (MiInsertDemotedPages.c)
+ * Callees:
+ *     MiConvertEntireLargePageToSmall @ 0x140277140 (MiConvertEntireLargePageToSmall.c)
+ *     MiInsertLargePageInNodeList @ 0x14031C970 (MiInsertLargePageInNodeList.c)
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiIsFreeZeroPfnCold @ 0x140350240 (MiIsFreeZeroPfnCold.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiWakeLargePageWaiters @ 0x14064DA54 (MiWakeLargePageWaiters.c)
+ */
+
 void __fastcall MiInsertLargePageChain(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int a5, int a6)
 {
   __int64 v9; // r8

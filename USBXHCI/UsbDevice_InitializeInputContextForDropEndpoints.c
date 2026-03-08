@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbDevice_InitializeInputContextForDropEndpoints @ 0x1C000CFF4
+ * Callers:
+ *     UsbDevice_InitializeInputContextForAddDropEndpoints @ 0x1C000AF50 (UsbDevice_InitializeInputContextForAddDropEndpoints.c)
+ * Callees:
+ *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C0007FC0 (XilUsbDevice_GetDeviceContextBufferVA.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_dddddd @ 0x1C004A1A0 (WPP_RECORDER_SF_dddddd.c)
+ */
+
 __int64 __fastcall UsbDevice_InitializeInputContextForDropEndpoints(__int64 a1, __int64 a2)
 {
   __int64 v4; // rax

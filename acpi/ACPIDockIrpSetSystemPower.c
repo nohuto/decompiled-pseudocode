@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIDockIrpSetSystemPower @ 0x1C00097F4
+ * Callers:
+ *     ACPIDockIrpSetPower @ 0x1C00097C0 (ACPIDockIrpSetPower.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDispatchPowerIrpSuccess @ 0x1C0002B60 (ACPIDispatchPowerIrpSuccess.c)
+ *     WPP_RECORDER_SF_qdqss @ 0x1C0009EDC (WPP_RECORDER_SF_qdqss.c)
+ *     ACPIDeviceIrpWarmEjectRequest @ 0x1C001E474 (ACPIDeviceIrpWarmEjectRequest.c)
+ */
+
 __int64 __fastcall ACPIDockIrpSetSystemPower(PDEVICE_OBJECT DeviceObject, PIRP *Irp)
 {
   PIRP v2; // rbx

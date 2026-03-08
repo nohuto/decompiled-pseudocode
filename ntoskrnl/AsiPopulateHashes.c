@@ -1,3 +1,11 @@
+/*
+ * XREFs of AsiPopulateHashes @ 0x140612D48
+ * Callers:
+ *     ApiSetComposeSchema @ 0x1406125BC (ApiSetComposeSchema.c)
+ * Callees:
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ */
+
 __int64 __fastcall AsiPopulateHashes(unsigned int *a1)
 {
   size_t v1; // r14

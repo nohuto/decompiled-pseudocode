@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopTraceStandbyConnectivityUpdate @ 0x1408578B8
+ * Callers:
+ *     PopNetEvaluationWorkerCallback @ 0x1403A7BD0 (PopNetEvaluationWorkerCallback.c)
+ *     PopNetInitialize @ 0x140B46E8C (PopNetInitialize.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PopTraceStandbyConnectivityUpdate(int a1, int a2)
 {
   _UNKNOWN **v2; // rax

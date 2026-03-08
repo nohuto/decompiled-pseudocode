@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpTrackDebugIdForSession @ 0x1407756FC
+ * Callers:
+ *     EtwpProviderArrivalCallback @ 0x140775208 (EtwpProviderArrivalCallback.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 signed __int32 __fastcall EtwpTrackDebugIdForSession(__int64 a1, const void *a2, unsigned int a3)
 {
   volatile signed __int64 *v3; // rbp

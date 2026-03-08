@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopCheckUnloadDriver @ 0x1403A623C
+ * Callers:
+ *     IopUnloadDriver @ 0x1408549C8 (IopUnloadDriver.c)
+ *     IovpUnloadDriver @ 0x140ABEEB8 (IovpUnloadDriver.c)
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ */
+
 __int64 __fastcall IopCheckUnloadDriver(_QWORD *Object, char *a2)
 {
   KIRQL v4; // al

@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_dqqs @ 0x1C002E1DC
+ * Callers:
+ *     HUBMISC_WaitForSignal @ 0x1C0032DEC (HUBMISC_WaitForSignal.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF_dqqs(
         __int64 a1,
         __int64 a2,

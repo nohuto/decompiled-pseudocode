@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpPicSetLineState @ 0x140525800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpIoDelay @ 0x140411C50 (HalpIoDelay.c)
+ *     WRITE_PORT_USHORT_PAIR @ 0x140504708 (WRITE_PORT_USHORT_PAIR.c)
+ *     READ_PORT_USHORT_PAIR @ 0x14052592C (READ_PORT_USHORT_PAIR.c)
+ */
+
 __int64 __fastcall HalpPicSetLineState(_DWORD *a1, __int64 a2, __int64 a3)
 {
   bool v6; // bl

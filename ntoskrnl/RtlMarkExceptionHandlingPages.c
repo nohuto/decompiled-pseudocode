@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlMarkExceptionHandlingPages @ 0x1406ECFC0
+ * Callers:
+ *     MiCaptureImageExceptionValues @ 0x14072D5FC (MiCaptureImageExceptionValues.c)
+ * Callees:
+ *     RtlpConvertFunctionEntry @ 0x1402822F0 (RtlpConvertFunctionEntry.c)
+ *     RtlSetBits @ 0x14028BC50 (RtlSetBits.c)
+ *     RtlpSearchFunctionTable @ 0x1402D3DB0 (RtlpSearchFunctionTable.c)
+ */
+
 __int64 __fastcall RtlMarkExceptionHandlingPages(
         unsigned __int64 a1,
         unsigned int a2,

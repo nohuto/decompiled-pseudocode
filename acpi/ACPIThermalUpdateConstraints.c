@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIThermalUpdateConstraints @ 0x1C004221C
+ * Callers:
+ *     ACPIThermalWorker @ 0x1C00962E0 (ACPIThermalWorker.c)
+ * Callees:
+ *     AcpiDiagTraceActiveCoolingConstraint @ 0x1C0007500 (AcpiDiagTraceActiveCoolingConstraint.c)
+ *     AcpiDiagTraceActiveCoolingDevicePower @ 0x1C0007584 (AcpiDiagTraceActiveCoolingDevicePower.c)
+ *     AcpiDiagTracePassiveCoolingConstraint @ 0x1C0008720 (AcpiDiagTracePassiveCoolingConstraint.c)
+ *     ACPIThermalReevaluateConstraints @ 0x1C0041A74 (ACPIThermalReevaluateConstraints.c)
+ */
+
 void __fastcall ACPIThermalUpdateConstraints(__int64 a1)
 {
   __int64 v1; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ___entry_from_strcat_in_strcpy @ 0x1403D5463
+ * Callers:
+ *     strcat @ 0x1403D53A0 (strcat.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall __entry_from_strcat_in_strcpy(__int64 a1, char *a2)
 {
   __int64 v2; // r11

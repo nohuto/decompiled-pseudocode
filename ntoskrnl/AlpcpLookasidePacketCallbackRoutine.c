@@ -1,3 +1,17 @@
+/*
+ * XREFs of AlpcpLookasidePacketCallbackRoutine @ 0x140290C60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObReferenceObjectSafeWithTag @ 0x14022BD30 (ObReferenceObjectSafeWithTag.c)
+ *     AlpcpDeferredFreeCompletionPacketLookaside @ 0x140291968 (AlpcpDeferredFreeCompletionPacketLookaside.c)
+ *     AlpcpQueueIoCompletion @ 0x1402927FC (AlpcpQueueIoCompletion.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall AlpcpLookasidePacketCallbackRoutine(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rbx

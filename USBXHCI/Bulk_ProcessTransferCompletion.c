@@ -1,3 +1,16 @@
+/*
+ * XREFs of Bulk_ProcessTransferCompletion @ 0x1C000E3C8
+ * Callers:
+ *     Bulk_WdfEvtDpcForTransferCompletion @ 0x1C000E390 (Bulk_WdfEvtDpcForTransferCompletion.c)
+ *     Bulk_WdfEvtWorkItemForTransferCompletion @ 0x1C00474C0 (Bulk_WdfEvtWorkItemForTransferCompletion.c)
+ * Callees:
+ *     Bulk_DoesDriverOwnRequests @ 0x1C000E544 (Bulk_DoesDriverOwnRequests.c)
+ *     TR_TransfersReclaimed @ 0x1C000E578 (TR_TransfersReclaimed.c)
+ *     Bulk_CompleteTransfers @ 0x1C000E608 (Bulk_CompleteTransfers.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C001E054 (WPP_RECORDER_SF_DDD.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall Bulk_ProcessTransferCompletion(__int64 a1)
 {
   char v1; // bp

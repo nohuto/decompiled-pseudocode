@@ -1,3 +1,25 @@
+/*
+ * XREFs of SdbGetMergeRedirectPath @ 0x140A4B4A0
+ * Callers:
+ *     SdbOpenDatabaseEx @ 0x140A4B8F0 (SdbOpenDatabaseEx.c)
+ * Callees:
+ *     RtlStringCchCatW @ 0x140246580 (RtlStringCchCatW.c)
+ *     RtlStringCchLengthW @ 0x140247080 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyNW @ 0x140303EF8 (RtlStringCchCopyNW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ *     wcsrchr @ 0x1403D5F90 (wcsrchr.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     AslRegistryGetKey @ 0x14084BF1C (AslRegistryGetKey.c)
+ *     SdbpGetFileTimestamp @ 0x140A4BCD4 (SdbpGetFileTimestamp.c)
+ *     SdbpGetManifestedMergeStubAlloc @ 0x140A4BEA8 (SdbpGetManifestedMergeStubAlloc.c)
+ *     AslRegistryGetString @ 0x140A51674 (AslRegistryGetString.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SdbGetMergeRedirectPath(wchar_t **a1, const wchar_t *a2)
 {
   wchar_t *v3; // r12

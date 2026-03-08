@@ -1,3 +1,11 @@
+/*
+ * XREFs of CiLogThreadJoin @ 0x1C0004380
+ * Callers:
+ *     CiThreadCreate @ 0x1C000AD80 (CiThreadCreate.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003050 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall CiLogThreadJoin(__int64 a1)
 {
   HANDLE ThreadId; // rax

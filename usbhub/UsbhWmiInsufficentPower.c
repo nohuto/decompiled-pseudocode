@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhWmiInsufficentPower @ 0x1C004A3A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C002E788 (WPP_RECORDER_SF_dd.c)
+ */
+
 __int64 __fastcall UsbhWmiInsufficentPower(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4, __int64 a5)
 {
   __int64 v6; // rsi

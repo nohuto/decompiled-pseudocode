@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpErrataInitSystem @ 0x140A87AA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpUsbLegacyScanBusForHandoff @ 0x14038F7C4 (HalpUsbLegacyScanBusForHandoff.c)
+ *     HalpErrataApplyPerProcessor @ 0x140A87B18 (HalpErrataApplyPerProcessor.c)
+ *     HalpErrataInitDiscard @ 0x140B320C0 (HalpErrataInitDiscard.c)
+ *     HalpInitChipHacks @ 0x140B35648 (HalpInitChipHacks.c)
+ */
+
 __int64 __fastcall HalpErrataInitSystem(int a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

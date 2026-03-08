@@ -1,3 +1,11 @@
+/*
+ * XREFs of IidGetDeviceIdBufferSize @ 0x140822DAC
+ * Callers:
+ *     HalpIommuCloneDeviceId @ 0x14038D3A8 (HalpIommuCloneDeviceId.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IidGetDeviceIdBufferSize(__int64 a1, __int64 *a2)
 {
   __int64 result; // rax

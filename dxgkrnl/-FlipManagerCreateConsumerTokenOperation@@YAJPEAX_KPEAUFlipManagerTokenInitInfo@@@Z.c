@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?FlipManagerCreateConsumerTokenOperation@@YAJPEAX_KPEAUFlipManagerTokenInitInfo@@@Z @ 0x1C00810C4
+ * Callers:
+ *     NtTokenManagerCreateFlipObjectReturnTokenHandle @ 0x1C0075720 (NtTokenManagerCreateFlipObjectReturnTokenHandle.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ??1FlipManagerTokenInitInfo@@QEAA@XZ @ 0x1C00755E4 (--1FlipManagerTokenInitInfo@@QEAA@XZ.c)
+ *     ?CreateWaitedConsumerReturnForConsumer@FlipManagerObject@@QEAAJ_KPEAPEAVCFlipWaitedConsumerReturn@@@Z @ 0x1C0080FE8 (-CreateWaitedConsumerReturnForConsumer@FlipManagerObject@@QEAAJ_KPEAPEAVCFlipWaitedConsumerRetur.c)
+ *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C00817F8 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ */
+
 __int64 __fastcall FlipManagerCreateConsumerTokenOperation(
         void *a1,
         unsigned __int64 a2,

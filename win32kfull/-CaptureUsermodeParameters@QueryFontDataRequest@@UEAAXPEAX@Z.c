@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CaptureUsermodeParameters@QueryFontDataRequest@@UEAAXPEAX@Z @ 0x1C011E020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CaptureUsermodeFontObj@FontDriverDdiRequest@@KA_NPEAU_FONTOBJ@@0@Z @ 0x1C011E140 (-CaptureUsermodeFontObj@FontDriverDdiRequest@@KA_NPEAU_FONTOBJ@@0@Z.c)
+ *     ?ValidateGlyphBitsBuffer@@YA_NKJJKK@Z @ 0x1C011E160 (-ValidateGlyphBitsBuffer@@YA_NKJJKK@Z.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 void __fastcall QueryFontDataRequest::CaptureUsermodeParameters(QueryFontDataRequest *this, _QWORD *a2)
 {
   struct _FONTOBJ *v3; // rax

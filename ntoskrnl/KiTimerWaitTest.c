@@ -1,3 +1,24 @@
+/*
+ * XREFs of KiTimerWaitTest @ 0x140251B00
+ * Callers:
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     KeSetTimerEx @ 0x140250F30 (KeSetTimerEx.c)
+ *     KiProcessExpiredTimerList @ 0x140251760 (KiProcessExpiredTimerList.c)
+ *     KiCommitThreadWait @ 0x140261290 (KiCommitThreadWait.c)
+ *     KiResumeThread @ 0x1403538F8 (KiResumeThread.c)
+ *     KiAdjustTimerDueTimes @ 0x1403966F4 (KiAdjustTimerDueTimes.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     PsTimerResolutionActive @ 0x140250500 (PsTimerResolutionActive.c)
+ *     KiInsertTimerTable @ 0x1402511D0 (KiInsertTimerTable.c)
+ *     KiTryUnwaitThread @ 0x140258880 (KiTryUnwaitThread.c)
+ *     KiWakeOtherQueueWaiters @ 0x140293BF4 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x140340700 (KiWakeQueueWaiter.c)
+ *     KeIsThreadRunning @ 0x14056C7FC (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405FA8FC (EtwTraceEnqueueWork.c)
+ */
+
 unsigned __int64 __fastcall KiTimerWaitTest(__int64 a1, __int64 a2, unsigned int *a3)
 {
   __int64 v3; // rsi

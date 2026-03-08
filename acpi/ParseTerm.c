@@ -1,3 +1,23 @@
+/*
+ * XREFs of ParseTerm @ 0x1C005C790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ *     AMLIDebugger @ 0x1C004D630 (AMLIDebugger.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintIndent @ 0x1C004E484 (PrintIndent.c)
+ *     PrintObject @ 0x1C004E4C8 (PrintObject.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     ParseArg @ 0x1C005A46C (ParseArg.c)
+ *     ParsePackageLen @ 0x1C005BEFC (ParsePackageLen.c)
+ */
+
 __int64 __fastcall ParseTerm(__int64 a1, __int64 a2, unsigned int a3)
 {
   unsigned int v3; // edi

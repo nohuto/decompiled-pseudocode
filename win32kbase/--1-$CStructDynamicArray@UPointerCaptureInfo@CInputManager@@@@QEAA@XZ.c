@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1?$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAA@XZ @ 0x1C00D1904
+ * Callers:
+ *     ??1CInputManager@@IEAA@XZ @ 0x1C00D18D0 (--1CInputManager@@IEAA@XZ.c)
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?Reset@?$CDynamicArray@PEAUPointerCaptureInfo@CInputManager@@$0HHHAHDFF@@@QEAAX_N@Z @ 0x1C00D1940 (-Reset@-$CDynamicArray@PEAUPointerCaptureInfo@CInputManager@@$0HHHAHDFF@@@QEAAX_N@Z.c)
+ */
+
 __int64 __fastcall CStructDynamicArray<CInputManager::PointerCaptureInfo>::~CStructDynamicArray<CInputManager::PointerCaptureInfo>(
         __int64 a1)
 {

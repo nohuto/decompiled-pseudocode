@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiGetTbLeafInfo @ 0x140B92F78
+ * Callers:
+ *     KeGetTbSize @ 0x140B5CBF8 (KeGetTbSize.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 KiGetTbLeafInfo()
 {
   __int64 v0; // rdi

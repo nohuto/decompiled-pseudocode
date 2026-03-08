@@ -1,3 +1,12 @@
+/*
+ * XREFs of Bulk_ValidateStagePointer @ 0x1C0012E28
+ * Callers:
+ *     Bulk_ProcessTransferEventWithED1 @ 0x1C0011324 (Bulk_ProcessTransferEventWithED1.c)
+ * Callees:
+ *     StageQueue_ForwardScanGetNextStage @ 0x1C0012EEC (StageQueue_ForwardScanGetNextStage.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0017FB0 (WPP_RECORDER_SF_ddd.c)
+ */
+
 char __fastcall Bulk_ValidateStagePointer(__int64 a1, __int64 a2)
 {
   char v2; // di

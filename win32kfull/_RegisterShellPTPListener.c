@@ -1,3 +1,11 @@
+/*
+ * XREFs of _RegisterShellPTPListener @ 0x1C00F1D18
+ * Callers:
+ *     NtUserRegisterShellPTPListener @ 0x1C00F1C40 (NtUserRegisterShellPTPListener.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall RegisterShellPTPListener(__int64 a1, int a2)
 {
   __int64 v3; // rcx

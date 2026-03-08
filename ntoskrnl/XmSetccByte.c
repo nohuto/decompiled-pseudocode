@@ -1,3 +1,11 @@
+/*
+ * XREFs of XmSetccByte @ 0x140530D60
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmEvaluateAddressSpecifier @ 0x1403B3F0C (XmEvaluateAddressSpecifier.c)
+ */
+
 __int64 __fastcall XmSetccByte(__int64 a1)
 {
   int v3; // [rsp+30h] [rbp+8h] BYREF

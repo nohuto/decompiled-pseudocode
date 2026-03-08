@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepAdtInitializePrivilegeAuditing @ 0x140841CF8
+ * Callers:
+ *     SepAdtRegNotificationCallback @ 0x1407FCD30 (SepAdtRegNotificationCallback.c)
+ *     SepAdtInitializeAuditingOptions @ 0x140B615C0 (SepAdtInitializeAuditingOptions.c)
+ * Callees:
+ *     SepRegQueryValue @ 0x1407394A4 (SepRegQueryValue.c)
+ */
+
 char SepAdtInitializePrivilegeAuditing()
 {
   __int64 **v0; // rax

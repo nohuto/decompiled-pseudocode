@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwOpenThreadWrapper @ 0x1405F0630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwOpenThread @ 0x1404149F0 (ZwOpenThread.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 __int64 __fastcall DifZwOpenThreadWrapper(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
   __int64 *APIThunkContextById; // rax

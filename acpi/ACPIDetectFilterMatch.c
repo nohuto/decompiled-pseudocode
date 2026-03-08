@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIDetectFilterMatch @ 0x1C0082650
+ * Callers:
+ *     ACPIDetectFilterDevices @ 0x1C001AA10 (ACPIDetectFilterDevices.c)
+ * Callees:
+ *     ACPIInternalClearFlags @ 0x1C002E508 (ACPIInternalClearFlags.c)
+ *     ACPIDetectCouldExtensionBeInRelation @ 0x1C00824A0 (ACPIDetectCouldExtensionBeInRelation.c)
+ */
+
 __int64 __fastcall ACPIDetectFilterMatch(__int64 a1, unsigned int *a2, _QWORD *a3)
 {
   __int64 v3; // rax

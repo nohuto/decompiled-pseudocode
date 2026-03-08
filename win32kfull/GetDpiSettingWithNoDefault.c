@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetDpiSettingWithNoDefault @ 0x1C00B9980
+ * Callers:
+ *     GetDpiSetting @ 0x1C00B9960 (GetDpiSetting.c)
+ *     ?PerformWin8DpiUpgrade@@YAHPEAU_UNICODE_STRING@@K@Z @ 0x1C01BBF54 (-PerformWin8DpiUpgrade@@YAHPEAU_UNICODE_STRING@@K@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall GetDpiSettingWithNoDefault(int a1, unsigned int *a2)
 {
   unsigned __int16 v3; // bx

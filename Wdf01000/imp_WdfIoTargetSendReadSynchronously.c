@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_WdfIoTargetSendReadSynchronously @ 0x1C000EA70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FxIoTargetSendIo @ 0x1C000E794 (FxIoTargetSendIo.c)
+ */
+
 __int64 __fastcall imp_WdfIoTargetSendReadSynchronously(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFIOTARGET__ *IoTarget,

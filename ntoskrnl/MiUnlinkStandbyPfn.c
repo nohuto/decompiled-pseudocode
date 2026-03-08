@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiUnlinkStandbyPfn @ 0x1402D69FC
+ * Callers:
+ *     MmCopyToCachedPage @ 0x14021DBE0 (MmCopyToCachedPage.c)
+ * Callees:
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiGetPfnPriority @ 0x14028A3F8 (MiGetPfnPriority.c)
+ *     MiDiscardTransitionPteEx @ 0x14064E040 (MiDiscardTransitionPteEx.c)
+ */
+
 __int64 __fastcall MiUnlinkStandbyPfn(unsigned __int64 *a1, char a2)
 {
   unsigned __int64 v3; // rdi

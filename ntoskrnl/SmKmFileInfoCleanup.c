@@ -1,3 +1,22 @@
+/*
+ * XREFs of SmKmFileInfoCleanup @ 0x1409D5B90
+ * Callers:
+ *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1402E69A8 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmKmFileInfoDuplicate @ 0x1409D5C34 (SmKmFileInfoDuplicate.c)
+ *     SmKmStoreFileCreate @ 0x1409D68D4 (SmKmStoreFileCreate.c)
+ *     SmKmStoreFileCreateForIoType @ 0x1409D6D88 (SmKmStoreFileCreateForIoType.c)
+ *     SmcCacheCleanup @ 0x1409D7CF4 (SmcCacheCleanup.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     IoSetThreadHardErrorMode @ 0x140244770 (IoSetThreadHardErrorMode.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IoReuseIrp @ 0x1402B1EB0 (IoReuseIrp.c)
+ *     IoFreeIrp @ 0x14030EC00 (IoFreeIrp.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     IoUnregisterPlugPlayNotification @ 0x1406F4390 (IoUnregisterPlugPlayNotification.c)
+ *     SmKmSendUsageNotification @ 0x1409D6804 (SmKmSendUsageNotification.c)
+ */
+
 BOOLEAN __fastcall SmKmFileInfoCleanup(__int64 a1)
 {
   BOOLEAN v2; // al

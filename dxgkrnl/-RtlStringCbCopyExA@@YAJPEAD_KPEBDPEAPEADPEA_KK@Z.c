@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RtlStringCbCopyExA@@YAJPEAD_KPEBDPEAPEADPEA_KK@Z @ 0x1C004C158
+ * Callers:
+ *     ?PrepareDripsBlockerProcessName@DripsBlockerTrackingHelper@@QEAAJPEBDPEAU_EPROCESS@@PEADIPEA_K@Z @ 0x1C0302814 (-PrepareDripsBlockerProcessName@DripsBlockerTrackingHelper@@QEAAJPEBDPEAU_EPROCESS@@PEADIPEA_K@Z.c)
+ * Callees:
+ *     RtlStringCopyWorkerA @ 0x1C004C23C (RtlStringCopyWorkerA.c)
+ */
+
 __int64 __fastcall RtlStringCbCopyExA(char *a1, size_t a2, const char *a3, char **a4, unsigned __int64 *a5)
 {
   unsigned int v9; // edx

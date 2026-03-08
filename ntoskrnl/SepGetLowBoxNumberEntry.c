@@ -1,3 +1,20 @@
+/*
+ * XREFs of SepGetLowBoxNumberEntry @ 0x140739A38
+ * Callers:
+ *     SepSetTokenLowboxNumber @ 0x1407398DC (SepSetTokenLowboxNumber.c)
+ * Callees:
+ *     RtlSetBits @ 0x14028BC50 (RtlSetBits.c)
+ *     RtlInsertEntryHashTable @ 0x1402989F0 (RtlInsertEntryHashTable.c)
+ *     RtlClearAllBits @ 0x1402B24A0 (RtlClearAllBits.c)
+ *     RtlFindClearBitsAndSet @ 0x14030CEE0 (RtlFindClearBitsAndSet.c)
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ *     RtlNumberOfSetBits @ 0x14035C520 (RtlNumberOfSetBits.c)
+ *     RtlCopySid @ 0x1406D4890 (RtlCopySid.c)
+ *     SepFindMatchingLowBoxNumberEntry @ 0x140739B6C (SepFindMatchingLowBoxNumberEntry.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepGetLowBoxNumberEntry(__int64 a1, unsigned __int8 *a2, __int64 *a3)
 {
   struct _RTL_DYNAMIC_HASH_TABLE *v3; // r13

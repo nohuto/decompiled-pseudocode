@@ -1,3 +1,20 @@
+/*
+ * XREFs of MmCallDllInitialize @ 0x14081BAB0
+ * Callers:
+ *     MiLoadImportDll @ 0x14081B9F8 (MiLoadImportDll.c)
+ *     PipInitializeDriverDependentDLLs @ 0x140B579BC (PipInitializeDriverDependentDLLs.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     wcschr @ 0x1403D5D90 (wcschr.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     MiCallDllInitialize @ 0x14081BC4C (MiCallDllInitialize.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     VfDriverInitStarting @ 0x140AB9E54 (VfDriverInitStarting.c)
+ *     VfDriverInitSuccess @ 0x140ABA5FC (VfDriverInitSuccess.c)
+ */
+
 __int64 __fastcall MmCallDllInitialize(__int64 a1, __int64 a2)
 {
   unsigned __int16 v2; // ax

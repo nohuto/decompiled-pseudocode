@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CursorToString@InputTraceLogging@@CAPEBDPEAUtagCURSOR@@@Z @ 0x1C01A9968
+ * Callers:
+ *     ?SetCursorImage@Cursor@InputTraceLogging@@SAXPEAUtagCURSOR@@0IW4CursorImageReason@12@KK@Z @ 0x1C0021BEC (-SetCursorImage@Cursor@InputTraceLogging@@SAXPEAUtagCURSOR@@0IW4CursorImageReason@12@KK@Z.c)
+ *     LockQCursor @ 0x1C00CE570 (LockQCursor.c)
+ * Callees:
+ *     ?CurIndexName@InputTraceLogging@@CAPEBDI@Z @ 0x1C01A991C (-CurIndexName@InputTraceLogging@@CAPEBDI@Z.c)
+ */
+
 const char *__fastcall InputTraceLogging::CursorToString(struct tagCURSOR *a1)
 {
   unsigned int v2; // ecx

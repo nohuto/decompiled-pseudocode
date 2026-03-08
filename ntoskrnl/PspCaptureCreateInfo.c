@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspCaptureCreateInfo @ 0x14070D7FC
+ * Callers:
+ *     NtCreateUserProcess @ 0x14070C850 (NtCreateUserProcess.c)
+ * Callees:
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall PspCaptureCreateInfo(char a1, unsigned __int64 a2, __int64 a3)
 {
   unsigned int v4; // r9d

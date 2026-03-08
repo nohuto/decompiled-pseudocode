@@ -1,3 +1,15 @@
+/*
+ * XREFs of VfSuspectDriversParseRegistryString @ 0x140B93B7C
+ * Callers:
+ *     VfInitBootDriversLoaded @ 0x140B4EE44 (VfInitBootDriversLoaded.c)
+ * Callees:
+ *     VfDriverLock @ 0x140AC773C (VfDriverLock.c)
+ *     VfDriverUnlock @ 0x140AC7860 (VfDriverUnlock.c)
+ *     VfSuspectDriversAllocateEntry @ 0x140AD7394 (VfSuspectDriversAllocateEntry.c)
+ *     VfSuspectDriversInsert @ 0x140AD76D0 (VfSuspectDriversInsert.c)
+ *     VfSuspectExcludedDriversAllocateEntry @ 0x140AD7C10 (VfSuspectExcludedDriversAllocateEntry.c)
+ */
+
 int VfSuspectDriversParseRegistryString()
 {
   __int64 *v0; // rcx

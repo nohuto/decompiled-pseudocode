@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?OnCachedTargetInvalidated@CBackdropVisualImage@@EEAAXPEBVCCachedTarget@CCachedVisualImage@@@Z @ 0x180031030
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InvalidateBlurCache@CBackdropVisualImage@@AEAAXAEBVRenderTargetInfo@@@Z @ 0x180030F00 (-InvalidateBlurCache@CBackdropVisualImage@@AEAAXAEBVRenderTargetInfo@@@Z.c)
+ *     ?GetRenderTargetInfo@CCachedTarget@CCachedVisualImage@@QEBA?AVRenderTargetInfo@@XZ @ 0x180032D40 (-GetRenderTargetInfo@CCachedTarget@CCachedVisualImage@@QEBA-AVRenderTargetInfo@@XZ.c)
+ */
+
 void __fastcall CBackdropVisualImage::OnCachedTargetInvalidated(
         CBackdropVisualImage *this,
         const struct CCachedVisualImage::CCachedTarget *a2)

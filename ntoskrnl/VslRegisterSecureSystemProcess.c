@@ -1,3 +1,13 @@
+/*
+ * XREFs of VslRegisterSecureSystemProcess @ 0x140549E3C
+ * Callers:
+ *     PspInitPhase1 @ 0x140B422C8 (PspInitPhase1.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 VslRegisterSecureSystemProcess()
 {
   ULONG_PTR v0; // rbx

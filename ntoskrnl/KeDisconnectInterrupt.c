@@ -1,3 +1,19 @@
+/*
+ * XREFs of KeDisconnectInterrupt @ 0x14028E38C
+ * Callers:
+ *     KeConnectInterrupt @ 0x14028FA54 (KeConnectInterrupt.c)
+ *     IoDisconnectInterrupt @ 0x1406F41C0 (IoDisconnectInterrupt.c)
+ * Callees:
+ *     KiIntSteerDisable @ 0x14028E484 (KiIntSteerDisable.c)
+ *     KeMaskInterrupt @ 0x14028E5A8 (KeMaskInterrupt.c)
+ *     KiDisconnectInterruptCommon @ 0x14028E714 (KiDisconnectInterruptCommon.c)
+ *     KiIsInterruptTypeSecondary @ 0x140290340 (KiIsInterruptTypeSecondary.c)
+ *     KiClearSystemPriority @ 0x1402DAA90 (KiClearSystemPriority.c)
+ *     KiSetSystemPriorityThread @ 0x1402E9F30 (KiSetSystemPriorityThread.c)
+ *     KiDisconnectSecondaryInterrupt @ 0x14056F468 (KiDisconnectSecondaryInterrupt.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall KeDisconnectInterrupt(__int64 *a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbx

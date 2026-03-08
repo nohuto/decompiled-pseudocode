@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetRITWakeReason@@YAHPEAK@Z @ 0x1C007B42C
+ * Callers:
+ *     RawInputThread @ 0x1C007A0C0 (RawInputThread.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetRITWakeReason(unsigned int *a1)
 {
   unsigned int v1; // edx

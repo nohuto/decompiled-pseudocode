@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExpAeThresholdInitialization @ 0x140B5E160
+ * Callers:
+ *     ExpInitSystemPhase1 @ 0x140B3F0B8 (ExpInitSystemPhase1.c)
+ * Callees:
+ *     ExpAeMeasureContention @ 0x140391544 (ExpAeMeasureContention.c)
+ *     KeGenericCallDpcEx @ 0x1403C07D0 (KeGenericCallDpcEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char ExpAeThresholdInitialization()
 {
   unsigned __int64 v0; // rbp

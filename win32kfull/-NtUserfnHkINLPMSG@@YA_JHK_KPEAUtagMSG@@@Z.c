@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NtUserfnHkINLPMSG@@YA_JHK_KPEAUtagMSG@@@Z @ 0x1C0146FA4
+ * Callers:
+ *     NtUserCallNextHookEx @ 0x1C0147340 (NtUserCallNextHookEx.c)
+ * Callees:
+ *     xxxCallNextHookEx @ 0x1C0009C64 (xxxCallNextHookEx.c)
+ */
+
 __int64 __fastcall NtUserfnHkINLPMSG(int a1, int a2, unsigned __int64 a3, struct tagMSG *a4)
 {
   struct tagMSG *v6; // rax

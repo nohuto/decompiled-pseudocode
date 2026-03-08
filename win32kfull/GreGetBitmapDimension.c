@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreGetBitmapDimension @ 0x1C02E039C
+ * Callers:
+ *     NtGdiGetBitmapDimension @ 0x1C02C4BB0 (NtGdiGetBitmapDimension.c)
+ * Callees:
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002A694 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002A6E0 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall GreGetBitmapDimension(__int64 a1, _QWORD *a2)
 {
   unsigned int v4; // edi

@@ -1,3 +1,16 @@
+/*
+ * XREFs of _lambda_16c4919e5c7bc2115c075ef4a54f2434_::operator() @ 0x180030CAC
+ * Callers:
+ *     std::_Func_impl_no_alloc__lambda_16c4919e5c7bc2115c075ef4a54f2434__long_CExternalEffectGraph::CGraphRenderingContext___::_Do_call @ 0x1800FA450 (std--_Func_impl_no_alloc__lambda_16c4919e5c7bc2115c075ef4a54f2434__long_CExternalEffectGraph--CG.c)
+ * Callees:
+ *     ?ExecuteShaders@CGraphRenderingContext@CExternalEffectGraph@@QEBAJII@Z @ 0x18002FAD0 (-ExecuteShaders@CGraphRenderingContext@CExternalEffectGraph@@QEBAJII@Z.c)
+ *     ?PushTarget@CGraphRenderingContext@CExternalEffectGraph@@QEAAJI@Z @ 0x180033774 (-PushTarget@CGraphRenderingContext@CExternalEffectGraph@@QEAAJI@Z.c)
+ *     ?MakeTargetFromSource@CGraphRenderingContext@CExternalEffectGraph@@QEAAIIAEBVMatrix3x2F@D2D1@@@Z @ 0x18003584C (-MakeTargetFromSource@CGraphRenderingContext@CExternalEffectGraph@@QEAAIIAEBVMatrix3x2F@D2D1@@@Z.c)
+ *     ?PopLayer@CDrawingContext@@QEAAJXZ @ 0x18008D00C (-PopLayer@CDrawingContext@@QEAAJXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall lambda_16c4919e5c7bc2115c075ef4a54f2434_::operator()(__int64 a1, __int64 a2)
 {
   float *v2; // rax

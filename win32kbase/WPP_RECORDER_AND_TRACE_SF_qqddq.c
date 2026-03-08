@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_AND_TRACE_SF_qqddq @ 0x1C017A960
+ * Callers:
+ *     NtUserGetInputContainerId @ 0x1C016F9B0 (NtUserGetInputContainerId.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_AND_TRACE_SF_qqddq(
         __int64 a1,
         char a2,

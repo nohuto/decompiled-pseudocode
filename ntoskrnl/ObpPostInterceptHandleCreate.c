@@ -1,3 +1,11 @@
+/*
+ * XREFs of ObpPostInterceptHandleCreate @ 0x1408A0E28
+ * Callers:
+ *     ObpCreateHandle @ 0x1407C0130 (ObpCreateHandle.c)
+ * Callees:
+ *     ObpCallPostOperationCallbacks @ 0x1408A0D82 (ObpCallPostOperationCallbacks.c)
+ */
+
 __int64 __fastcall ObpPostInterceptHandleCreate(__int64 a1, char a2, int a3, int a4, _QWORD *a5)
 {
   unsigned __int64 v5; // rcx

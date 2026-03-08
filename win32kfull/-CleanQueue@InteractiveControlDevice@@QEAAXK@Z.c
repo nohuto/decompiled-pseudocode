@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CleanQueue@InteractiveControlDevice@@QEAAXK@Z @ 0x1C0247B90
+ * Callers:
+ *     ?QueueInput@InteractiveControlDevice@@QEAAXPEAU_LIST_ENTRY@@PEAVInteractiveControlInput@@@Z @ 0x1C0248D40 (-QueueInput@InteractiveControlDevice@@QEAAXPEAU_LIST_ENTRY@@PEAVInteractiveControlInput@@@Z.c)
+ * Callees:
+ *     ??_GInteractiveControlInput@@QEAAPEAXI@Z @ 0x1C0247B20 (--_GInteractiveControlInput@@QEAAPEAXI@Z.c)
+ */
+
 void __fastcall InteractiveControlDevice::CleanQueue(InteractiveControlDevice *this)
 {
   InteractiveControlInput *v2; // rcx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpSortDriverList @ 0x140B330B4
+ * Callers:
+ *     CmGetSystemDriverList @ 0x140B59568 (CmGetSystemDriverList.c)
+ * Callees:
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpFindValueByName @ 0x1407A74A0 (CmpFindValueByName.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpFindSubKeyByName @ 0x1407FE71C (CmpFindSubKeyByName.c)
+ *     CmpValueToData @ 0x1407FEFF8 (CmpValueToData.c)
+ *     CmpDoSort @ 0x140B34CB0 (CmpDoSort.c)
+ */
+
 char __fastcall CmpSortDriverList(ULONG_PTR BugCheckParameter3, ULONG_PTR a2, __int64 a3)
 {
   bool v3; // zf

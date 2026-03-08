@@ -1,3 +1,24 @@
+/*
+ * XREFs of PspInitializeThunkContext @ 0x1407EDF4C
+ * Callers:
+ *     PspUserThreadStartup @ 0x1407ED430 (PspUserThreadStartup.c)
+ * Callees:
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KiDispatchException @ 0x140362740 (KiDispatchException.c)
+ *     RtlGetExtendedContextLength2 @ 0x140364DF0 (RtlGetExtendedContextLength2.c)
+ *     RtlInitializeExtendedContext2 @ 0x140364EE0 (RtlInitializeExtendedContext2.c)
+ *     KePopulateContinuationContext @ 0x140365578 (KePopulateContinuationContext.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1404210C0 (_alloca_probe.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     PspCallThreadNotifyRoutines @ 0x1407D3260 (PspCallThreadNotifyRoutines.c)
+ *     RtlCopyContext @ 0x1407EE220 (RtlCopyContext.c)
+ *     PspSetContextThreadInternal @ 0x1407EE340 (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x1407EE524 (PspGetContextThreadInternal.c)
+ *     PspCreateUserContext @ 0x1407EEA8C (PspCreateUserContext.c)
+ */
+
 char PspInitializeThunkContext()
 {
   struct _KTHREAD *CurrentThread; // r14

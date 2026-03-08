@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhPdoPowerWorkerInternal @ 0x1C0022960
+ * Callers:
+ *     UsbhPdoPowerWorker @ 0x1C003CAA0 (UsbhPdoPowerWorker.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall UsbhPdoPowerWorkerInternal(ULONG_PTR a1, IRP *a2)
 {
   unsigned int Status; // edi

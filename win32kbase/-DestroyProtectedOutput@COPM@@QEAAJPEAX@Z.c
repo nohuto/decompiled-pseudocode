@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DestroyProtectedOutput@COPM@@QEAAJPEAX@Z @ 0x1C01883F0
+ * Callers:
+ *     ?OPMDestroyProtectedOutput@@YAJPEAX@Z @ 0x1C0188D54 (-OPMDestroyProtectedOutput@@YAJPEAX@Z.c)
+ * Callees:
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00B0000 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     ?DestroyHandleInternal@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@AEAAJPEAVCOPMProtectedOutput@@KPEAVCMutex@2@@Z @ 0x1C0188350 (-DestroyHandleInternal@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@AEAAJPEAVCOPMProtec.c)
+ *     ?GetHandleObject@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProtectedOutput@@@Z @ 0x1C0188928 (-GetHandleObject@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProte.c)
+ */
+
 __int64 __fastcall COPM::DestroyProtectedOutput(void **this, void *a2)
 {
   int HandleObject; // edi

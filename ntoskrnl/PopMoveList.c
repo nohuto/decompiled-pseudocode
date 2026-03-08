@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopMoveList @ 0x140AA4114
+ * Callers:
+ *     PopSetupSleepNotifies @ 0x140AA4370 (PopSetupSleepNotifies.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall PopMoveList(__int64 a1, _QWORD **a2)
 {
   _QWORD *result; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z @ 0x1C0186930
+ * Callers:
+ *     GreIntersectClipRect @ 0x1C0056F30 (GreIntersectClipRect.c)
+ *     ?MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z @ 0x1C006D528 (-MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z.c)
+ *     GreSelectPalette @ 0x1C0092ED0 (GreSelectPalette.c)
+ *     EngAssociateSurface @ 0x1C00A3DA0 (EngAssociateSurface.c)
+ *     GreRestoreOwnedDC @ 0x1C00A46A0 (GreRestoreOwnedDC.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 void __fastcall TraceLoggingWriteUnsupportedGdiUsage(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   __int64 v5; // r8

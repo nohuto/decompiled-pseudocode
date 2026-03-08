@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiAcpiEvalAcpiMethodEx @ 0x1C02091CC
+ * Callers:
+ *     DpEvalAcpiMethod @ 0x1C01D38B0 (DpEvalAcpiMethod.c)
+ *     DpiAcpiPrepareAcpiChildNameList @ 0x1C0208E34 (DpiAcpiPrepareAcpiChildNameList.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall DpiAcpiEvalAcpiMethodEx(
         __int64 a1,
         const void **a2,

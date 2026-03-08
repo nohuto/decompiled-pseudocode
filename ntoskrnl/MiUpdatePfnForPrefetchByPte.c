@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiUpdatePfnForPrefetchByPte @ 0x14031D5F0
+ * Callers:
+ *     MiSystemFault @ 0x1402220A0 (MiSystemFault.c)
+ *     MiPfPrepareSequentialReadList @ 0x1406EBE40 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x1407C42F0 (MiPfPrepareReadList.c)
+ * Callees:
+ *     MiRelinkStandbyPage @ 0x140225A14 (MiRelinkStandbyPage.c)
+ *     MiSetNonResidentPteHeat @ 0x140287A90 (MiSetNonResidentPteHeat.c)
+ *     MiLockPfnByPte @ 0x14031A8C0 (MiLockPfnByPte.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAddPageToHeatRanges @ 0x140651704 (MiAddPageToHeatRanges.c)
+ *     MiNotifyPageHeat @ 0x140652018 (MiNotifyPageHeat.c)
+ */
+
 __int64 __fastcall MiUpdatePfnForPrefetchByPte(unsigned __int64 a1, unsigned int a2, __int64 a3)
 {
   int v5; // ebp

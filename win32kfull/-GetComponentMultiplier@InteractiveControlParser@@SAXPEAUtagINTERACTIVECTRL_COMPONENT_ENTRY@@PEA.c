@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetComponentMultiplier@InteractiveControlParser@@SAXPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@PEAJ1@Z @ 0x1C024D910
+ * Callers:
+ *     ?CreateAndLinkComponent@InteractiveControlParser@@CAJPEAU_HIDP_VALUE_CAPS@@HPEAU_INTERACTIVECTRL_CAPABILITIES@@PEAPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@@Z @ 0x1C024D484 (-CreateAndLinkComponent@InteractiveControlParser@@CAJPEAU_HIDP_VALUE_CAPS@@HPEAU_INTERACTIVECTRL.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall InteractiveControlParser::GetComponentMultiplier(
         struct tagINTERACTIVECTRL_COMPONENT_ENTRY *a1,
         int *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpEcReadSkuUpdateManagementGroup @ 0x14040BD04
+ * Callers:
+ *     RtlIsFeatureEnabledForEnterprise @ 0x14040BC10 (RtlIsFeatureEnabledForEnterprise.c)
+ * Callees:
+ *     ZwQueryLicenseValue @ 0x140414ED0 (ZwQueryLicenseValue.c)
+ */
+
 __int64 __fastcall RtlpEcReadSkuUpdateManagementGroup(bool *a1)
 {
   __int64 result; // rax

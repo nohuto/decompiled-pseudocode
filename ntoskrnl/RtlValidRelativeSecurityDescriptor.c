@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlValidRelativeSecurityDescriptor @ 0x14071D120
+ * Callers:
+ *     _PnpValidatePropertyData @ 0x140686FC8 (_PnpValidatePropertyData.c)
+ *     ExpWnfLookupPermanentName @ 0x14071C320 (ExpWnfLookupPermanentName.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x14071C9C4 (CmpValidateHiveSecurityDescriptors.c)
+ *     PipGetRegistrySecurityWithFallback @ 0x14074D0CC (PipGetRegistrySecurityWithFallback.c)
+ *     _CmSetDeviceRegPropWorker @ 0x14086A240 (_CmSetDeviceRegPropWorker.c)
+ *     CmpVerifyCreateOrDeleteKeyLogRecord @ 0x140A1C584 (CmpVerifyCreateOrDeleteKeyLogRecord.c)
+ *     CmpVerifySetSecurityDescriptorLogRecord @ 0x140A1C774 (CmpVerifySetSecurityDescriptorLogRecord.c)
+ *     _CmSetInstallerClassRegPropWorker @ 0x140A60700 (_CmSetInstallerClassRegPropWorker.c)
+ * Callees:
+ *     RtlpValidateSDOffsetAndSize @ 0x14071D280 (RtlpValidateSDOffsetAndSize.c)
+ *     RtlValidAcl @ 0x1407BB670 (RtlValidAcl.c)
+ */
+
 BOOLEAN __stdcall RtlValidRelativeSecurityDescriptor(
         PSECURITY_DESCRIPTOR SecurityDescriptorInput,
         ULONG SecurityDescriptorLength,

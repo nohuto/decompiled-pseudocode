@@ -1,3 +1,15 @@
+/*
+ * XREFs of SeValidSecurityDescriptor @ 0x14075EA40
+ * Callers:
+ *     RtlNormalizeSecurityDescriptor @ 0x1403BE650 (RtlNormalizeSecurityDescriptor.c)
+ *     EtwpGetGuidSecurityDescriptor @ 0x14069707C (EtwpGetGuidSecurityDescriptor.c)
+ *     WmipSDRegistryQueryRoutine @ 0x14075E9C0 (WmipSDRegistryQueryRoutine.c)
+ *     PiSwValidateCreateData @ 0x14080780C (PiSwValidateCreateData.c)
+ *     SepReadAndPopulateCapes @ 0x1408597BC (SepReadAndPopulateCapes.c)
+ * Callees:
+ *     RtlValidAcl @ 0x1407BB670 (RtlValidAcl.c)
+ */
+
 BOOLEAN __stdcall SeValidSecurityDescriptor(ULONG Length, PSECURITY_DESCRIPTOR SecurityDescriptor)
 {
   __int64 v4; // rcx

@@ -1,3 +1,22 @@
+/*
+ * XREFs of EnableDisableIPMIRegions @ 0x1C008879C
+ * Callers:
+ *     ACPIBusIrpRemoveDevice @ 0x1C0016C30 (ACPIBusIrpRemoveDevice.c)
+ *     ACPIBusIrpSurpriseRemoval @ 0x1C0017400 (ACPIBusIrpSurpriseRemoval.c)
+ *     ACPIBusIrpStartDeviceWorker @ 0x1C0081770 (ACPIBusIrpStartDeviceWorker.c)
+ *     ACPIBusIrpStopDevice @ 0x1C0081900 (ACPIBusIrpStopDevice.c)
+ *     EnableDisableIPMIRegions @ 0x1C008879C (EnableDisableIPMIRegions.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     AMLIAsyncEvalObject @ 0x1C00478E8 (AMLIAsyncEvalObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetFirstChild @ 0x1C00482EC (AMLIGetFirstChild.c)
+ *     AMLIGetNSObjectData @ 0x1C0048374 (AMLIGetNSObjectData.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ *     AMLIIterateSiblingsNext @ 0x1C00488D8 (AMLIIterateSiblingsNext.c)
+ *     EnableDisableIPMIRegions @ 0x1C008879C (EnableDisableIPMIRegions.c)
+ */
+
 __int64 __fastcall EnableDisableIPMIRegions(_QWORD *a1, unsigned __int8 a2)
 {
   __int64 v2; // r15

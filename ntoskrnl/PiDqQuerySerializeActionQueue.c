@@ -1,3 +1,20 @@
+/*
+ * XREFs of PiDqQuerySerializeActionQueue @ 0x140746290
+ * Callers:
+ *     PiDqIrpQueryCreate @ 0x140745F08 (PiDqIrpQueryCreate.c)
+ *     PiDqIrpQueryGetResult @ 0x1407480E0 (PiDqIrpQueryGetResult.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PiDqActionDataCreate @ 0x140746614 (PiDqActionDataCreate.c)
+ *     PiDqQueryActionQueueEntryFree @ 0x140746890 (PiDqQueryActionQueueEntryFree.c)
+ *     PiDqActionDataFree @ 0x1407468D4 (PiDqActionDataFree.c)
+ *     PiDqQueryGetObjectManager @ 0x140746CE4 (PiDqQueryGetObjectManager.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x140746D28 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDqQuerySerializeActionQueue(__int64 a1, __int64 a2, int a3, int *a4, _DWORD *a5)
 {
   int v7; // esi

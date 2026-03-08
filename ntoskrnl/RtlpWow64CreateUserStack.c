@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlpWow64CreateUserStack @ 0x14078F9F0
+ * Callers:
+ *     PspWow64SetupUserStack @ 0x14078F944 (PspWow64SetupUserStack.c)
+ * Callees:
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     ZwAllocateVirtualMemory @ 0x140412610 (ZwAllocateVirtualMemory.c)
+ *     ZwSetInformationProcess @ 0x140412690 (ZwSetInformationProcess.c)
+ *     ZwFreeVirtualMemory @ 0x1404126D0 (ZwFreeVirtualMemory.c)
+ */
+
 __int64 __fastcall RtlpWow64CreateUserStack(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, int a4, __int64 a5)
 {
   _QWORD *v6; // r15

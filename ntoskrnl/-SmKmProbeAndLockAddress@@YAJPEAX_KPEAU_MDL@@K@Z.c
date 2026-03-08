@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z @ 0x1405C8A1C
+ * Callers:
+ *     SmKmStoreHelperCommandProcess @ 0x1405C93E8 (SmKmStoreHelperCommandProcess.c)
+ * Callees:
+ *     MmStoreProbeAndLockPages @ 0x14065ACBC (MmStoreProbeAndLockPages.c)
+ */
+
 __int64 __fastcall SmKmProbeAndLockAddress(unsigned __int64 a1, __int64 a2, struct _MDL *a3)
 {
   __int64 result; // rax

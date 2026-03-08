@@ -1,3 +1,17 @@
+/*
+ * XREFs of DxgNotifyDpcCB @ 0x1C000E390
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpSynchronizeExecution @ 0x1C000EB40 (DpSynchronizeExecution.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ?AllocateNewChunks@MIRACAST_CHUNK_LIST@@QEAAEK@Z @ 0x1C005EE40 (-AllocateNewChunks@MIRACAST_CHUNK_LIST@@QEAAEK@Z.c)
+ *     ?RemoveHead@MIRACAST_CHUNK_LIST@@QEAAPEAUMIRACAST_CHUNK@@XZ @ 0x1C005F208 (-RemoveHead@MIRACAST_CHUNK_LIST@@QEAAPEAUMIRACAST_CHUNK@@XZ.c)
+ *     DpiMiracastStopMiracastSessionAsync @ 0x1C0060040 (DpiMiracastStopMiracastSessionAsync.c)
+ *     ?NotifyDpc@DXGDODPRESENT@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C006D2EC (-NotifyDpc@DXGDODPRESENT@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ */
+
 void __fastcall DxgNotifyDpcCB(__int64 a1)
 {
   __int64 v2; // rax

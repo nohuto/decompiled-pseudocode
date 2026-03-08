@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopUpdatePowerButtonHoldState @ 0x140597038
+ * Callers:
+ *     PoSetPowerButtonHoldState @ 0x140584CA0 (PoSetPowerButtonHoldState.c)
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopQueueWorkItem @ 0x1402BCCB4 (PopQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PopUpdatePowerButtonHoldState(char a1)
 {
   KIRQL v2; // al

@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?CommitRecordedStatistics@CCompositionSwapchainStatistics@@UEAAJXZ @ 0x18026A1E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     ??$?9UIFlipConsumer@@Uerr_returncode_policy@wil@@@wil@@YA_NAEBV?$com_ptr_t@UIFlipConsumer@@Uerr_returncode_policy@wil@@@0@$$T@Z @ 0x1801166A0 (--$-9UIFlipConsumer@@Uerr_returncode_policy@wil@@@wil@@YA_NAEBV-$com_ptr_t@UIFlipConsumer@@Uerr_.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??$_Emplace_reallocate@AEBUFlipPropertyItem@@@?$vector@UFlipPropertyItem@@V?$allocator@UFlipPropertyItem@@@std@@@std@@QEAAPEAUFlipPropertyItem@@QEAU2@AEBU2@@Z @ 0x180269ECC (--$_Emplace_reallocate@AEBUFlipPropertyItem@@@-$vector@UFlipPropertyItem@@V-$allocator@UFlipProp.c)
+ *     McTemplateU0pxxx_EventWriteTransfer @ 0x18026A7A4 (McTemplateU0pxxx_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall CCompositionSwapchainStatistics::CommitRecordedStatistics(CCompositionSwapchainStatistics *this)
 {
   _QWORD *v1; // r15

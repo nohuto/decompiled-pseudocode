@@ -1,3 +1,15 @@
+/*
+ * XREFs of Controller_TimeSyncStartTrackingWorker @ 0x1C0035200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DynamicLock_Acquire @ 0x1C000A918 (DynamicLock_Acquire.c)
+ *     DynamicLock_Release @ 0x1C000A958 (DynamicLock_Release.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_DetectFrameMicroframeBoundary @ 0x1C0032EF4 (Controller_DetectFrameMicroframeBoundary.c)
+ */
+
 __int64 __fastcall Controller_TimeSyncStartTrackingWorker(__int64 a1)
 {
   __int64 v1; // rax

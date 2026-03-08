@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?bComputeUnits@EXFORMOBJ@@QEAAHJPEAVPOINTFL@@PEAVEFLOAT@@1@Z @ 0x1C017FB70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     efSin @ 0x1C000BE30 (efSin.c)
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C000DEC0 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAVVECTORFL@@0_K@Z @ 0x1C005A700 (-bXform@EXFORMOBJ@@QEAAHPEAVVECTORFL@@0_K@Z.c)
+ *     ?eqLength@EFLOAT@@QEAA?AV1@AEBVPOINTFL@@@Z @ 0x1C00C1390 (-eqLength@EFLOAT@@QEAA-AV1@AEBVPOINTFL@@@Z.c)
+ */
+
 __int64 __fastcall EXFORMOBJ::bComputeUnits(
         __m128 **this,
         int a2,

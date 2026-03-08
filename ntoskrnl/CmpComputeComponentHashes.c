@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpComputeComponentHashes @ 0x140739D80
+ * Callers:
+ *     CmpDoParseKey @ 0x1406E1D90 (CmpDoParseKey.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1407B0EF0 (CmpGetSymbolicLinkTarget.c)
+ * Callees:
+ *     NLS_UPCASE @ 0x140267AD0 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     CmpExpandPathInfo @ 0x14073A0C4 (CmpExpandPathInfo.c)
+ */
+
 __int64 __fastcall CmpComputeComponentHashes(__m128i *a1, __int16 *a2, __int64 a3)
 {
   char v3; // r13

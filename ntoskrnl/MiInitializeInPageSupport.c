@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiInitializeInPageSupport @ 0x14028A110
+ * Callers:
+ *     MiGetInPageSupportBlock @ 0x14028A054 (MiGetInPageSupportBlock.c)
+ *     MiMakeOutswappedPageResident @ 0x14061612C (MiMakeOutswappedPageResident.c)
+ *     MiPfIssueCoalescedSupport @ 0x14062F98C (MiPfIssueCoalescedSupport.c)
+ *     MiGetReadyInPageBlock @ 0x140A2E670 (MiGetReadyInPageBlock.c)
+ * Callees:
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     PsGetPagePriorityThread @ 0x14028A290 (PsGetPagePriorityThread.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiInitializeInPageSupport(__int64 a1, char a2, volatile signed __int64 *a3)
 {
   _DWORD *v6; // r8

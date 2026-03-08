@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiReadImageHeaders @ 0x1407F17D4
+ * Callers:
+ *     MiCreateImageFileMap @ 0x1407F1C28 (MiCreateImageFileMap.c)
+ * Callees:
+ *     MiPageRead @ 0x14020CED0 (MiPageRead.c)
+ *     MiIsRetryIoStatus @ 0x140212D58 (MiIsRetryIoStatus.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiCopyFromDirectMapExtent @ 0x140A30C8C (MiCopyFromDirectMapExtent.c)
+ */
+
 __int64 __fastcall MiReadImageHeaders(struct _FILE_OBJECT *a1, ULONG_PTR a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // r10

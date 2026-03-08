@@ -1,3 +1,11 @@
+/*
+ * XREFs of DxgkEngReleaseStableSprite @ 0x1C014D680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C0018890 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall DxgkEngReleaseStableSprite(Gre::Base *a1, int a2)
 {
   unsigned int v2; // edi

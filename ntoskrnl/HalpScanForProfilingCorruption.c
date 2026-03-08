@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpScanForProfilingCorruption @ 0x1404532C4
+ * Callers:
+ *     HalpTimerClockInterrupt @ 0x14022C760 (HalpTimerClockInterrupt.c)
+ *     HalpTimerClockIpiRoutine @ 0x14022CC70 (HalpTimerClockIpiRoutine.c)
+ *     HalpTimerAlwaysOnClockInterrupt @ 0x14051C3E0 (HalpTimerAlwaysOnClockInterrupt.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 (__fastcall **__fastcall HalpScanForProfilingCorruption(int a1))()
 {
   LARGE_INTEGER PerformanceCounter; // rbx

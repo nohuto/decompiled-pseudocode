@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchGetMonitorPowerState @ 0x1C0107A40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall VidSchGetMonitorPowerState(__int64 a1)
 {
   __int64 v2; // rcx

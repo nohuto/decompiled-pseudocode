@@ -1,3 +1,11 @@
+/*
+ * XREFs of WaitASLEvent @ 0x1C005525C
+ * Callers:
+ *     Wait @ 0x1C0059630 (Wait.c)
+ * Callees:
+ *     QueueContext @ 0x1C0054D1C (QueueContext.c)
+ */
+
 __int64 __fastcall WaitASLEvent(__int64 a1, __int64 a2, unsigned __int16 a3)
 {
   int v3; // eax

@@ -1,3 +1,29 @@
+/*
+ * XREFs of MiMapImageInSystemSpace @ 0x1406A53F8
+ * Callers:
+ *     MiSetPagesModified @ 0x1406264CC (MiSetPagesModified.c)
+ *     MiValidateSectionCreate @ 0x14069F890 (MiValidateSectionCreate.c)
+ *     MiRelocateImage @ 0x1407F2760 (MiRelocateImage.c)
+ *     MiParseComAndCetHeaders @ 0x1407F4604 (MiParseComAndCetHeaders.c)
+ *     MiGetSystemAddressForImage @ 0x1407F6010 (MiGetSystemAddressForImage.c)
+ *     MiOpenHotPatchFile @ 0x140A376D4 (MiOpenHotPatchFile.c)
+ *     MiCreateSessionDriverProtos @ 0x140A4316C (MiCreateSessionDriverProtos.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     MiGetControlAreaPartition @ 0x14031F9F0 (MiGetControlAreaPartition.c)
+ *     MiReferenceActiveSubsection @ 0x1403323F0 (MiReferenceActiveSubsection.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     MiReferenceControlAreaFile @ 0x140344094 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1403441A0 (MiDereferenceControlAreaFile.c)
+ *     MiControlAreaRequiresCharge @ 0x14034C4DC (MiControlAreaRequiresCharge.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x1406238BC (MiReturnCrossPartitionControlAreaCharges.c)
+ *     MiMapViewInSystemSpace @ 0x1406A55B8 (MiMapViewInSystemSpace.c)
+ *     MiMapImageInSystemProcess @ 0x140A2DEF4 (MiMapImageInSystemProcess.c)
+ */
+
 __int64 __fastcall MiMapImageInSystemSpace(__int64 *a1, int a2, __int64 a3)
 {
   unsigned int v6; // r14d

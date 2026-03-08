@@ -1,3 +1,12 @@
+/*
+ * XREFs of Controller_UcxEvtGetCurrentFrameNumber @ 0x1C0001AC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_D @ 0x1C00180C4 (WPP_RECORDER_SF_D.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Controller_UcxEvtGetCurrentFrameNumber(__int64 a1, unsigned int *a2)
 {
   __int64 v3; // r10

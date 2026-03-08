@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifIoCreateSymbolicLinkWrapper @ 0x1405DC460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     IoCreateSymbolicLink @ 0x14086DC10 (IoCreateSymbolicLink.c)
+ */
+
 NTSTATUS __fastcall DifIoCreateSymbolicLinkWrapper(PUNICODE_STRING SymbolicLinkName, PUNICODE_STRING DeviceName)
 {
   __int64 *APIThunkContextById; // rax

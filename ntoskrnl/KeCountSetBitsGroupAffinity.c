@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeCountSetBitsGroupAffinity @ 0x1403B0430
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall KeCountSetBitsGroupAffinity(_QWORD *a1)
 {
   unsigned __int64 v1; // rcx

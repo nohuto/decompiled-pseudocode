@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0DXGSWAPCHAIN@@QEAA@XZ @ 0x1C03522BC
+ * Callers:
+ *     DxgkCreateSwapChain @ 0x1C0356B70 (DxgkCreateSwapChain.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ?GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z @ 0x1C01DC800 (-GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z.c)
+ */
+
 DXGSWAPCHAIN *__fastcall DXGSWAPCHAIN::DXGSWAPCHAIN(DXGSWAPCHAIN *this)
 {
   char *v2; // rcx

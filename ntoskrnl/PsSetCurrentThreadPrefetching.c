@@ -1,3 +1,14 @@
+/*
+ * XREFs of PsSetCurrentThreadPrefetching @ 0x1406A47E0
+ * Callers:
+ *     PfSnSectionInfoCleanupWorkItem @ 0x1406A41F0 (PfSnSectionInfoCleanupWorkItem.c)
+ *     PfSnPopulateReadList @ 0x1406A42B0 (PfSnPopulateReadList.c)
+ *     PfpPrefetchSharedCleanup @ 0x1407666FC (PfpPrefetchSharedCleanup.c)
+ *     PfpPrefetchSharedStart @ 0x1407E0898 (PfpPrefetchSharedStart.c)
+ * Callees:
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ */
+
 BOOLEAN __stdcall PsSetCurrentThreadPrefetching(BOOLEAN Prefetching)
 {
   struct _KTHREAD *CurrentThread; // rdx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeGetBugMessageText @ 0x140567014
+ * Callers:
+ *     KiDisplayBlueScreen @ 0x140567D34 (KiDisplayBlueScreen.c)
+ *     CmpCreateHwProfileFriendlyName @ 0x140A0DD5C (CmpCreateHwProfileFriendlyName.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KeGetBugMessageText(unsigned int a1, __int64 a2)
 {
   char v4; // r8

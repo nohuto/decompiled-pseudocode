@@ -1,3 +1,11 @@
+/*
+ * XREFs of SmmValidateParameters_0 @ 0x1C0070CA4
+ * Callers:
+ *     ?SysMmMapPhysicalObject@@YAJPEAUSYSMM_PHYSICAL_OBJECT@@D_K1IPEAPEAXPEA_K3@Z @ 0x1C0070E84 (-SysMmMapPhysicalObject@@YAJPEAUSYSMM_PHYSICAL_OBJECT@@D_K1IPEAPEAXPEA_K3@Z.c)
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 char __fastcall SmmValidateParameters_0(__int64 a1, char a2, unsigned __int64 a3, __int64 a4)
 {
   unsigned int v4; // r10d

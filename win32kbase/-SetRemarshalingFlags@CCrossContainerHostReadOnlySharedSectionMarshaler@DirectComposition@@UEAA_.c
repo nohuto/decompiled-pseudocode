@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C0261E70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsReadyForMarshaling@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@AEAAJPEA_N@Z @ 0x1C0261D1C (-IsReadyForMarshaling@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@AEAAJ.c)
+ */
+
 char __fastcall DirectComposition::CCrossContainerHostReadOnlySharedSectionMarshaler::SetRemarshalingFlags(
         DirectComposition::CCrossContainerHostReadOnlySharedSectionMarshaler *this)
 {

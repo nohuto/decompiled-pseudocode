@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViDeadlockAddParticipant @ 0x140AD53A8
+ * Callers:
+ *     ViDeadlockAnalyze @ 0x140AD5740 (ViDeadlockAnalyze.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ViDeadlockAddParticipant(__int64 a1)
 {
   _DWORD *v1; // rdx

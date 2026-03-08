@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?UpdateParticleSystem@CParticleEmitterVisual@@IEAAJAEBUD2D_SIZE_F@@@Z @ 0x18024372C
+ * Callers:
+ *     ?GetBounds@CParticleEmitter@@UEBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18023E330 (-GetBounds@CParticleEmitter@@UEBAJAEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilP.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ApplyActiveBehaviors@CParticleEmitterVisual@@IEAAXM@Z @ 0x180240B14 (-ApplyActiveBehaviors@CParticleEmitterVisual@@IEAAXM@Z.c)
+ *     ?EmitParticles@CParticleEmitterVisual@@IEAAJMAEBUD2D_SIZE_F@@@Z @ 0x180241934 (-EmitParticles@CParticleEmitterVisual@@IEAAJMAEBUD2D_SIZE_F@@@Z.c)
+ *     ?RemoveDeadParticles@CParticleEmitterVisual@@IEAAXM@Z @ 0x180242994 (-RemoveDeadParticles@CParticleEmitterVisual@@IEAAXM@Z.c)
+ *     ?UpdateBounds@CParticleEmitterVisual@@IEAAXAEBUD2D_SIZE_F@@@Z @ 0x1802435B8 (-UpdateBounds@CParticleEmitterVisual@@IEAAXAEBUD2D_SIZE_F@@@Z.c)
+ *     ?UpdateParticles@CParticleEmitterVisual@@IEAAXM@Z @ 0x180243870 (-UpdateParticles@CParticleEmitterVisual@@IEAAXM@Z.c)
+ */
+
 __int64 __fastcall CParticleEmitterVisual::UpdateParticleSystem(
         CParticleEmitterVisual *this,
         const struct D2D_SIZE_F *a2)

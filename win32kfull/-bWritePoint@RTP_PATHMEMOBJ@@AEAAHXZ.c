@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bWritePoint@RTP_PATHMEMOBJ@@AEAAHXZ @ 0x1C02E1F1C
+ * Callers:
+ *     ?bDiagonalizeSubPath@RTP_PATHMEMOBJ@@AEAAHXZ @ 0x1C02E1BB8 (-bDiagonalizeSubPath@RTP_PATHMEMOBJ@@AEAAHXZ.c)
+ * Callees:
+ *     ?bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z @ 0x1C014DA72 (-bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z.c)
+ */
+
 __int64 __fastcall RTP_PATHMEMOBJ::bWritePoint(RTP_PATHMEMOBJ *this)
 {
   int v1; // r8d

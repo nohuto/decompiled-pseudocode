@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CHolographicInteropTextureMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0264FD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CHolographicInteropTextureMarshaler::SetRemarshalingFlags(
         DirectComposition::CHolographicInteropTextureMarshaler *this)
 {

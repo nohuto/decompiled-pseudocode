@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiFreeDriverInitialization @ 0x140729EFC
+ * Callers:
+ *     IopLoadDriver @ 0x14072A9DC (IopLoadDriver.c)
+ *     MiLoadImportDll @ 0x14081B9F8 (MiLoadImportDll.c)
+ *     MmFreeBootDriverInitializationCode @ 0x14084B4CC (MmFreeBootDriverInitializationCode.c)
+ * Callees:
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14032E710 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiSnapDriverRange @ 0x14072A118 (MiSnapDriverRange.c)
+ *     MiFreeInitializationCode @ 0x14072A51C (MiFreeInitializationCode.c)
+ */
+
 __int64 __fastcall MiFreeDriverInitialization(__int64 a1)
 {
   unsigned __int64 v1; // rbx

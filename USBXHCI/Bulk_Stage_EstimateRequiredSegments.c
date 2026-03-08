@@ -1,3 +1,12 @@
+/*
+ * XREFs of Bulk_Stage_EstimateRequiredSegments @ 0x1C0012734
+ * Callers:
+ *     Bulk_PrepareStage @ 0x1C001239C (Bulk_PrepareStage.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DDDDD @ 0x1C0041E20 (WPP_RECORDER_SF_DDDDD.c)
+ *     WPP_RECORDER_SF_DDDDDDD @ 0x1C0047574 (WPP_RECORDER_SF_DDDDDDD.c)
+ */
+
 __int64 __fastcall Bulk_Stage_EstimateRequiredSegments(_DWORD *a1, int *a2)
 {
   __int64 v4; // rbx

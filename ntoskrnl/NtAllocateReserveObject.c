@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtAllocateReserveObject @ 0x140789490
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ */
+
 __int64 __fastcall NtAllocateReserveObject(__int64 *a1, int a2, signed int a3)
 {
   __int64 v3; // r14

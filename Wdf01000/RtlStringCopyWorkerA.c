@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlStringCopyWorkerA @ 0x1C0017958
+ * Callers:
+ *     ?FxIFRStart@@YAXPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@PEAU_DRIVER_OBJECT@@@Z @ 0x1C00227AC (-FxIFRStart@@YAXPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@PEAU_DRIVER_OBJECT@@@Z.c)
+ *     ?_InitializeDriverName@FxDriver@@SAXPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z @ 0x1C00404D4 (-_InitializeDriverName@FxDriver@@SAXPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z.c)
+ *     FxInitializeBugCheckDriverInfo @ 0x1C0088B50 (FxInitializeBugCheckDriverInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlStringCopyWorkerA(
         char *pszDest,
         unsigned __int64 pszSrc,

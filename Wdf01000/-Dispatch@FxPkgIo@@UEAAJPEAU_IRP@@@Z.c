@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Dispatch@FxPkgIo@@UEAAJPEAU_IRP@@@Z @ 0x1C0004270
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DispatchStep1@FxPkgIo@@QEAAJPEAU_IRP@@PEAX@Z @ 0x1C00042E0 (-DispatchStep1@FxPkgIo@@QEAAJPEAU_IRP@@PEAX@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qqcDq @ 0x1C0031830 (WPP_IFR_SF_qqcDq.c)
+ */
+
 int __fastcall FxPkgIo::Dispatch(FxPkgIo *this, _IRP *Irp)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rcx

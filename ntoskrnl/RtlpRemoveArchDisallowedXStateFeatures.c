@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpRemoveArchDisallowedXStateFeatures @ 0x1403D1FAC
+ * Callers:
+ *     RtlGetExtendedContextLength2 @ 0x140364DF0 (RtlGetExtendedContextLength2.c)
+ *     RtlInitializeExtendedContext2 @ 0x140364EE0 (RtlInitializeExtendedContext2.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpRemoveArchDisallowedXStateFeatures(int a1, _QWORD *a2)
 {
   __int64 result; // rax

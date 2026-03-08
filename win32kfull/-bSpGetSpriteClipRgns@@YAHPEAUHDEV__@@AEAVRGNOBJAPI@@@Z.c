@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bSpGetSpriteClipRgns@@YAHPEAUHDEV__@@AEAVRGNOBJAPI@@@Z @ 0x1C0280D60
+ * Callers:
+ *     ?GdiGetSpriteClipRgns@@YAHPEAUHDEV__@@PEAUHRGN__@@@Z @ 0x1C027CAE0 (-GdiGetSpriteClipRgns@@YAHPEAUHDEV__@@PEAUHRGN__@@@Z.c)
+ * Callees:
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00287BC (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall bSpGetSpriteClipRgns(_QWORD *a1, struct RGNOBJAPI *a2)
 {
   bool v4; // zf

@@ -1,3 +1,11 @@
+/*
+ * XREFs of Crashdump_Register_PrepareForHibernate @ 0x1C004DA14
+ * Callers:
+ *     Crashdump_InitializeWithoutControllerReset @ 0x1C004CA8C (Crashdump_InitializeWithoutControllerReset.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall Crashdump_Register_PrepareForHibernate(__int64 a1)
 {
   unsigned int v1; // edi

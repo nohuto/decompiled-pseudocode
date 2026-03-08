@@ -1,3 +1,20 @@
+/*
+ * XREFs of SmCreatePartition @ 0x140728884
+ * Callers:
+ *     MiMakePartitionActive @ 0x1402A6140 (MiMakePartitionActive.c)
+ *     SmProcessConfigRequest @ 0x1408582AC (SmProcessConfigRequest.c)
+ *     PspSetJobMemoryPartition @ 0x1409AFC84 (PspSetJobMemoryPartition.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402A4AEC (SSHSupportAllocateNonPaged.c)
+ *     SmPartitionInitialize @ 0x14084CDAC (SmPartitionInitialize.c)
+ *     SmPartitionCleanup @ 0x1409D3DC8 (SmPartitionCleanup.c)
+ */
+
 __int64 __fastcall SmCreatePartition(__int64 a1)
 {
   unsigned int v1; // edi

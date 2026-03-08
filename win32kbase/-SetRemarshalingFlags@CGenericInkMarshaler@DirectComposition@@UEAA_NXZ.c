@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CGenericInkMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C0250AC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CGenericInkMarshaler::SetRemarshalingFlags(
         DirectComposition::CGenericInkMarshaler *this)
 {

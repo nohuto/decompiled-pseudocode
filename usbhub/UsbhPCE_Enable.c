@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhPCE_Enable @ 0x1C0034698
+ * Callers:
+ *     UsbhOvercurrentResetWorker @ 0x1C002FD00 (UsbhOvercurrentResetWorker.c)
+ *     UsbhSyncResumePort @ 0x1C003A460 (UsbhSyncResumePort.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0014330 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ */
+
 int *__fastcall UsbhPCE_Enable(__int64 a1, __int64 a2, unsigned __int16 a3)
 {
   __int64 v3; // rsi

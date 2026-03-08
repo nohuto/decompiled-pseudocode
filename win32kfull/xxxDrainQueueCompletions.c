@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxxDrainQueueCompletions @ 0x1C00B6940
+ * Callers:
+ *     NtUserGetQueueStatus @ 0x1C00B6720 (NtUserGetQueueStatus.c)
+ *     _GetQueueStatus @ 0x1C01B46D8 (_GetQueueStatus.c)
+ * Callees:
+ *     ?xxxHandleCoreMessagingQueueCompletion@@YAXPEAUtagTHREADINFO@@QEAU_FILE_IO_COMPLETION_INFORMATION@@W4tagQUEUE_COMPLETION_DRAINER@@@Z @ 0x1C0047BD0 (-xxxHandleCoreMessagingQueueCompletion@@YAXPEAUtagTHREADINFO@@QEAU_FILE_IO_COMPLETION_INFORMATIO.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall xxxDrainQueueCompletions(__int64 a1)
 {
   int v1; // esi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of OSOpenLargestSubkey @ 0x1C008DFE0
+ * Callers:
+ *     ACPIRegGetTableFromSimulatorRegistryEntry @ 0x1C008D15C (ACPIRegGetTableFromSimulatorRegistryEntry.c)
+ *     ACPIRegReadAMLRegistryEntry @ 0x1C008D3DC (ACPIRegReadAMLRegistryEntry.c)
+ * Callees:
+ *     OSOpenUnicodeHandle @ 0x1C008E3DC (OSOpenUnicodeHandle.c)
+ */
+
 __int64 __fastcall OSOpenLargestSubkey(HANDLE KeyHandle, _QWORD *a2, ULONG a3)
 {
   ULONG v3; // r13d

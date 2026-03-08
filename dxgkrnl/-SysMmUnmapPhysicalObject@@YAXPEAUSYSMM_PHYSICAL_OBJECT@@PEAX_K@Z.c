@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?SysMmUnmapPhysicalObject@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@PEAX_K@Z @ 0x1C0071130
+ * Callers:
+ *     DxgkUnmapPhysicalMemoryCB @ 0x1C00525B0 (DxgkUnmapPhysicalMemoryCB.c)
+ *     ?SmmLockPagedObject@@YAJPEAUSYSMM_PHYSICAL_OBJECT@@PEAUSYSMM_ADAPTER_OBJECT@@@Z @ 0x1C03D2E8C (-SmmLockPagedObject@@YAJPEAUSYSMM_PHYSICAL_OBJECT@@PEAUSYSMM_ADAPTER_OBJECT@@@Z.c)
+ * Callees:
+ *     ?SysMmUnreferencePhysicalObject@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@@Z @ 0x1C0013590 (-SysMmUnreferencePhysicalObject@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@@Z.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     SmmUnmapMdl @ 0x1C0070B94 (SmmUnmapMdl.c)
+ *     McTemplateK0ppx_EtwWriteTransfer @ 0x1C0071248 (McTemplateK0ppx_EtwWriteTransfer.c)
+ *     SmmUnmapSection @ 0x1C03D2DEC (SmmUnmapSection.c)
+ */
+
 void __fastcall SysMmUnmapPhysicalObject(struct _MDL **a1, PVOID BaseAddress, SIZE_T NumberOfBytes)
 {
   char v3; // si

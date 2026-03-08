@@ -1,3 +1,14 @@
+/*
+ * XREFs of WMI_AcquireBusInfo @ 0x1C008B890
+ * Callers:
+ *     WMI_ExecuteMethodUsbWmiStdData @ 0x1C008BE50 (WMI_ExecuteMethodUsbWmiStdData.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     HUBUCX_GetControllerName @ 0x1C0028D3C (HUBUCX_GetControllerName.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall WMI_AcquireBusInfo(__int64 a1, unsigned int a2, _DWORD *a3, _DWORD *a4)
 {
   int ControllerName; // ebx

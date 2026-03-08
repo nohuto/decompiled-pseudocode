@@ -1,3 +1,12 @@
+/*
+ * XREFs of IsHandleEntrySecure @ 0x1C00D6650
+ * Callers:
+ *     ValidateHwndEx @ 0x1C003E310 (ValidateHwndEx.c)
+ *     ValidateHandleSecure @ 0x1C0077D40 (ValidateHandleSecure.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IsHandleEntrySecure(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // rdi

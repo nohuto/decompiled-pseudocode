@@ -1,3 +1,13 @@
+/*
+ * XREFs of IvtGrowPasidTable @ 0x14052A880
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IvtAllocateScalableModePasidTables @ 0x140529000 (IvtAllocateScalableModePasidTables.c)
+ *     IvtExtendScalableModePasidTables @ 0x14052A0B4 (IvtExtendScalableModePasidTables.c)
+ */
+
 __int64 __fastcall IvtGrowPasidTable(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v7; // rbx

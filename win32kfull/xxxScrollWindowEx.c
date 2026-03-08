@@ -1,3 +1,35 @@
+/*
+ * XREFs of xxxScrollWindowEx @ 0x1C0231B34
+ * Callers:
+ *     NtUserScrollWindowEx @ 0x1C01482B0 (NtUserScrollWindowEx.c)
+ *     xxxMNSetTop @ 0x1C021CD94 (xxxMNSetTop.c)
+ *     xxxMNUpdateShownMenu @ 0x1C02341E4 (xxxMNUpdateShownMenu.c)
+ * Callees:
+ *     zzzInternalShowCaret @ 0x1C00061E4 (zzzInternalShowCaret.c)
+ *     GreTransformPoints @ 0x1C0006C84 (GreTransformPoints.c)
+ *     SpbCheckRect @ 0x1C000B2CC (SpbCheckRect.c)
+ *     MirrorRegion @ 0x1C002779C (MirrorRegion.c)
+ *     _IsDescendant @ 0x1C002C4D0 (_IsDescendant.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C002EF28 (zzzEndDeferWinEventNotify.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     OffsetChildren @ 0x1C004CB34 (OffsetChildren.c)
+ *     xxxRedrawWindow @ 0x1C0050700 (xxxRedrawWindow.c)
+ *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00519F0 (zzzLockDisplayAreaAndInvalidateDCCache.c)
+ *     xxxInternalInvalidate @ 0x1C0053270 (xxxInternalInvalidate.c)
+ *     GetRect @ 0x1C0067778 (GetRect.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     IsVisible @ 0x1C00A66A0 (IsVisible.c)
+ *     UnionRect @ 0x1C00DD06C (UnionRect.c)
+ *     ThreadLockExchangeAlways @ 0x1C00DEE6C (ThreadLockExchangeAlways.c)
+ *     zzzInternalHideCaret @ 0x1C00E877C (zzzInternalHideCaret.c)
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     GetDCOrgOnScreen @ 0x1C01BEDC4 (GetDCOrgOnScreen.c)
+ *     ?InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z @ 0x1C0230DA0 (-InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall xxxScrollWindowEx(
         struct tagWND *a1,

@@ -1,3 +1,21 @@
+/*
+ * XREFs of ACPIDevicePowerDpc @ 0x1C001E5C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     ACPIDeviceCompleteRequest @ 0x1C001C95C (ACPIDeviceCompleteRequest.c)
+ *     ACPIDevicePowerProcessBlockedItems @ 0x1C001EB38 (ACPIDevicePowerProcessBlockedItems.c)
+ *     ACPIDevicePowerProcessGenericPhase @ 0x1C001EC1C (ACPIDevicePowerProcessGenericPhase.c)
+ *     ACPIDevicePowerProcessPhase3 @ 0x1C001FEA4 (ACPIDevicePowerProcessPhase3.c)
+ *     ACPIDevicePowerProcessPhase4 @ 0x1C00203FC (ACPIDevicePowerProcessPhase4.c)
+ *     ACPIDeviceRecordBlockedOnPhase3List @ 0x1C0021B70 (ACPIDeviceRecordBlockedOnPhase3List.c)
+ *     ACPIDeviceRecordDependencies @ 0x1C0021C48 (ACPIDeviceRecordDependencies.c)
+ *     ACPIIsPhase3ListEmptyOfUnblockedItems @ 0x1C0021D74 (ACPIIsPhase3ListEmptyOfUnblockedItems.c)
+ *     ACPIMovePowerListUnblockedItems @ 0x1C002234C (ACPIMovePowerListUnblockedItems.c)
+ *     ACPIInternalMovePowerList @ 0x1C002EC34 (ACPIInternalMovePowerList.c)
+ */
+
 void __fastcall ACPIDevicePowerDpc(
         struct _KDPC *Dpc,
         PVOID DeferredContext,

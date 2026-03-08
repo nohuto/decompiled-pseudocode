@@ -1,3 +1,13 @@
+/*
+ * XREFs of SymCryptFdefModInvMontgomery256 @ 0x1403FEDB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SymCryptWipe @ 0x1403F0988 (SymCryptWipe.c)
+ *     SymCryptFdefModInvGeneric @ 0x1403FE960 (SymCryptFdefModInvGeneric.c)
+ *     SymCryptFdefMontgomeryReduce256Asm @ 0x140400FE0 (SymCryptFdefMontgomeryReduce256Asm.c)
+ */
+
 __int64 __fastcall SymCryptFdefModInvMontgomery256(__int64 a1, _OWORD *a2, void *a3, char a4, _OWORD *a5, __int64 a6)
 {
   *a5 = *a2;

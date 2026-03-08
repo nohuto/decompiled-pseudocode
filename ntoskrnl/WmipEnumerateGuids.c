@@ -1,3 +1,13 @@
+/*
+ * XREFs of WmipEnumerateGuids @ 0x1409DD9FC
+ * Callers:
+ *     WmipIoControl @ 0x140787290 (WmipIoControl.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     WmipGetGuidPropertiesFromGuidEntry @ 0x1409DDB04 (WmipGetGuidPropertiesFromGuidEntry.c)
+ */
+
 __int64 __fastcall WmipEnumerateGuids(int a1, _DWORD *a2, int a3, _DWORD *a4)
 {
   __int64 v5; // rbx

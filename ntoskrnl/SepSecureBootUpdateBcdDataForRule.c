@@ -1,3 +1,17 @@
+/*
+ * XREFs of SepSecureBootUpdateBcdDataForRule @ 0x1409CE004
+ * Callers:
+ *     SepSecureBootCorrectBcd @ 0x1409CDB74 (SepSecureBootCorrectBcd.c)
+ * Callees:
+ *     BiDeleteElement @ 0x14082CDF8 (BiDeleteElement.c)
+ *     BcdSetElementDataWithFlags @ 0x14082D894 (BcdSetElementDataWithFlags.c)
+ *     BcdGetElementDataWithFlags @ 0x14082E398 (BcdGetElementDataWithFlags.c)
+ *     SepSecureBootGetPolicyDefaultValue @ 0x1409CDE74 (SepSecureBootGetPolicyDefaultValue.c)
+ *     SepSecureBootValidateBcdDataAgainstBcdRule @ 0x1409CE184 (SepSecureBootValidateBcdDataAgainstBcdRule.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepSecureBootUpdateBcdDataForRule(__int64 a1, void *a2, _BYTE *a3)
 {
   _WORD *v3; // rsi

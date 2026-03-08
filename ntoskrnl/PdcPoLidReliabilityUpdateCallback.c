@@ -1,3 +1,14 @@
+/*
+ * XREFs of PdcPoLidReliabilityUpdateCallback @ 0x140828FA0
+ * Callers:
+ *     PopLidReliabilityInit @ 0x14038FDA0 (PopLidReliabilityInit.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopBsdHandleRequest @ 0x1402B8B24 (PopBsdHandleRequest.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopSetPowerSettingValueAcDc @ 0x14073BE70 (PopSetPowerSettingValueAcDc.c)
+ */
+
 void __fastcall PdcPoLidReliabilityUpdateCallback(char a1)
 {
   BOOL v2; // [rsp+30h] [rbp+8h] BYREF

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiSynchronizeStibpPairingTarget @ 0x140458580
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 KiSynchronizeStibpPairingTarget()
 {
   struct _KPRCB *CurrentPrcb; // r8

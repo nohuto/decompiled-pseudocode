@@ -1,3 +1,12 @@
+/*
+ * XREFs of PciConfigInternal @ 0x1C0035ECC
+ * Callers:
+ *     IsPciBusAsyncWorker @ 0x1C0035350 (IsPciBusAsyncWorker.c)
+ *     IsPciDeviceWorker @ 0x1C0035980 (IsPciDeviceWorker.c)
+ * Callees:
+ *     PciConfigSpaceHandlerWorker @ 0x1C0036080 (PciConfigSpaceHandlerWorker.c)
+ */
+
 __int64 __fastcall PciConfigInternal(
         __int64 a1,
         __int64 a2,

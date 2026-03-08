@@ -1,3 +1,11 @@
+/*
+ * XREFs of I_MinCryptFindRootByName @ 0x140A6C9F8
+ * Callers:
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6CBC8 (MinCryptVerifyCertificateWithPolicy2.c)
+ * Callees:
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ */
+
 __int64 *__fastcall I_MinCryptFindRootByName(const void **a1, __int64 a2)
 {
   int v2; // ebx

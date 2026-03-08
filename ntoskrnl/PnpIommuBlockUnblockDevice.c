@@ -1,3 +1,14 @@
+/*
+ * XREFs of PnpIommuBlockUnblockDevice @ 0x14096BFE8
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     PpDevNodeUnlockTree @ 0x1406CB8B0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406CB944 (PpDevNodeLockTree.c)
+ *     PiIommuUnblockDevice @ 0x14084DB4C (PiIommuUnblockDevice.c)
+ *     PiIommuBlockDevice @ 0x140861948 (PiIommuBlockDevice.c)
+ */
+
 __int64 __fastcall PnpIommuBlockUnblockDevice(__int64 a1, int a2)
 {
   unsigned int v2; // ebx

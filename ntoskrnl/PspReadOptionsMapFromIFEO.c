@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspReadOptionsMapFromIFEO @ 0x14070A4D8
+ * Callers:
+ *     PspReadIFEOMitigationOptions @ 0x14070A3F4 (PspReadIFEOMitigationOptions.c)
+ *     PspReadIFEOMitigationAuditOptions @ 0x14070A47C (PspReadIFEOMitigationAuditOptions.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlQueryImageFileKeyOption @ 0x140709A50 (RtlQueryImageFileKeyOption.c)
+ */
+
 __int64 __fastcall PspReadOptionsMapFromIFEO(__int64 a1, const WCHAR *a2, ULONG *a3)
 {
   void *v4; // rcx

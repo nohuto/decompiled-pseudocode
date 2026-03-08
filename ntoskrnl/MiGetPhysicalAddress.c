@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiGetPhysicalAddress @ 0x14030C890
+ * Callers:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     RtlMarkHiberPhase @ 0x1405B232C (RtlMarkHiberPhase.c)
+ * Callees:
+ *     MiQueuePinDriverAddressLog @ 0x14030C9F8 (MiQueuePinDriverAddressLog.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14032E710 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiFillPteHierarchy @ 0x140333AE0 (MiFillPteHierarchy.c)
+ *     MiVaToPfnEx @ 0x140384AD0 (MiVaToPfnEx.c)
+ *     MiSetNonPagedPoolNoSteal @ 0x14063F4B8 (MiSetNonPagedPoolNoSteal.c)
+ */
+
 __int64 __fastcall MiGetPhysicalAddress(__int64 a1, _QWORD *a2, _DWORD *a3)
 {
   int v6; // eax

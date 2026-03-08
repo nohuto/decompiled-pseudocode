@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopThermalDeferedTraceThermalZoneEnumeration @ 0x14039CB48
+ * Callers:
+ *     PopDiagInitialize @ 0x140B442C4 (PopDiagInitialize.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopDiagTraceThermalZoneEnumeration @ 0x14039CBDC (PopDiagTraceThermalZoneEnumeration.c)
+ */
+
 void PopThermalDeferedTraceThermalZoneEnumeration()
 {
   struct _KTHREAD *CurrentThread; // rax

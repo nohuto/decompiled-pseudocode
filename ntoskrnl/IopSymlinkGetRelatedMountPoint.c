@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopSymlinkGetRelatedMountPoint @ 0x14087AF0C
+ * Callers:
+ *     IopSymlinkRememberJunction @ 0x14087A7D0 (IopSymlinkRememberJunction.c)
+ *     IopGraftName @ 0x14087A8D0 (IopGraftName.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IopSymlinkGetRelatedMountPoint(__int64 a1, unsigned __int16 a2)
 {
   if ( a1 )

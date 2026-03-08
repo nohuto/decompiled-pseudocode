@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspCaptureProcessParameters @ 0x14070D704
+ * Callers:
+ *     NtCreateUserProcess @ 0x14070C850 (NtCreateUserProcess.c)
+ * Callees:
+ *     PspCaptureUserProcessParameters @ 0x140759A00 (PspCaptureUserProcessParameters.c)
+ */
+
 __int64 __fastcall PspCaptureProcessParameters(char a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // eax

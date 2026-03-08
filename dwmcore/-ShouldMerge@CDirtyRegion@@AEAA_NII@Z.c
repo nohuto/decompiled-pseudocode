@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ShouldMerge@CDirtyRegion@@AEAA_NII@Z @ 0x1800E9494
+ * Callers:
+ *     ?CleanTrees@CComposition@@IEAAJXZ @ 0x1800664C0 (-CleanTrees@CComposition@@IEAAJXZ.c)
+ * Callees:
+ *     ?DoesIntersectUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x180041810 (-DoesIntersectUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NAEBV.c)
+ *     ?CalcOvehead@@YAMAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@0@Z @ 0x1800E9508 (-CalcOvehead@@YAMAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniq.c)
+ */
+
 char __fastcall CDirtyRegion::ShouldMerge(CDirtyRegion *this, unsigned int a2, unsigned int a3)
 {
   char v3; // bl

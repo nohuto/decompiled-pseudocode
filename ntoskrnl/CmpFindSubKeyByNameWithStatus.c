@@ -1,3 +1,24 @@
+/*
+ * XREFs of CmpFindSubKeyByNameWithStatus @ 0x1407FE740
+ * Callers:
+ *     CmpFindPathByNameEx @ 0x14067CEE0 (CmpFindPathByNameEx.c)
+ *     CmpFindSubKeyByName @ 0x1407FE71C (CmpFindSubKeyByName.c)
+ *     CmpWalkUnicodeStringPath @ 0x1407FE980 (CmpWalkUnicodeStringPath.c)
+ *     CmpFindControlSet @ 0x1407FEB10 (CmpFindControlSet.c)
+ *     CmpMarkCurrentValueDirty @ 0x140820E94 (CmpMarkCurrentValueDirty.c)
+ *     CmRenameKey @ 0x140A1170C (CmRenameKey.c)
+ *     CmpCopySyncTree2 @ 0x140A1E7F8 (CmpCopySyncTree2.c)
+ *     CmpSyncSubKeysAfterDelete @ 0x140A203EC (CmpSyncSubKeysAfterDelete.c)
+ * Callees:
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpFindSubKeyInRoot @ 0x1407ADE40 (CmpFindSubKeyInRoot.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1407AE0D0 (CmpFindSubKeyInLeafWithStatus.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpFindSubKeyByHashWithStatus @ 0x1407FE888 (CmpFindSubKeyByHashWithStatus.c)
+ */
+
 __int64 __fastcall CmpFindSubKeyByNameWithStatus(ULONG_PTR BugCheckParameter3, __int64 a2, __int64 a3, _DWORD *a4)
 {
   __int64 v5; // rsi

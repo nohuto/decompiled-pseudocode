@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Copy_64@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802BB040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall Copy_64(const struct PipelineParams *a1, const struct ScanOpParams *a2)
 {
   __int64 *v2; // r8

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwClearEvent @ 0x140412AD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwClearEvent(__int64 a1, __int64 a2)
 {
   _disable();

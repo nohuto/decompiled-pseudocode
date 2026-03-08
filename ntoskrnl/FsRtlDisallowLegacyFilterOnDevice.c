@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlDisallowLegacyFilterOnDevice @ 0x140409FD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ */
+
 __int64 __fastcall FsRtlDisallowLegacyFilterOnDevice(__int64 a1)
 {
   unsigned __int64 v3; // rax

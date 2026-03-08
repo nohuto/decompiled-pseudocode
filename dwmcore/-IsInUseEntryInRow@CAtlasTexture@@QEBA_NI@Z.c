@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsInUseEntryInRow@CAtlasTexture@@QEBA_NI@Z @ 0x1800188BC
+ * Callers:
+ *     ?CopyFrom@CAtlasTexture@@QEAAXPEBV1@PEAI@Z @ 0x1800185F4 (-CopyFrom@CAtlasTexture@@QEAAXPEBV1@PEAI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CAtlasTexture::IsInUseEntryInRow(CAtlasTexture *this, int a2)
 {
   char v2; // r8

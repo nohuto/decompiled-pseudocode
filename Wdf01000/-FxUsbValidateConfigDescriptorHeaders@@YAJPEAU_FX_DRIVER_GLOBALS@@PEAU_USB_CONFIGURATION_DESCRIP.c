@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?FxUsbValidateConfigDescriptorHeaders@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_USB_CONFIGURATION_DESCRIPTOR@@_K@Z @ 0x1C005BDBC
+ * Callers:
+ *     ?CreateInterfaces@FxUsbDevice@@QEAAJXZ @ 0x1C005CA18 (-CreateInterfaces@FxUsbDevice@@QEAAJXZ.c)
+ * Callees:
+ *     WPP_IFR_SF_i @ 0x1C00458F4 (WPP_IFR_SF_i.c)
+ *     WPP_IFR_SF_dii @ 0x1C005C068 (WPP_IFR_SF_dii.c)
+ *     WPP_IFR_SF_idii @ 0x1C005C160 (WPP_IFR_SF_idii.c)
+ */
+
 __int64 __fastcall FxUsbValidateConfigDescriptorHeaders(
         _FX_DRIVER_GLOBALS *FxDriverGlobals,
         _USB_CONFIGURATION_DESCRIPTOR *ConfigDescriptor,

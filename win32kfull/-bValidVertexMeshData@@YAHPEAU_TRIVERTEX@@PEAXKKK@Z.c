@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bValidVertexMeshData@@YAHPEAU_TRIVERTEX@@PEAXKKK@Z @ 0x1C02CA5C8
+ * Callers:
+ *     NtGdiEngGradientFill @ 0x1C02CC2F0 (NtGdiEngGradientFill.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bValidVertexMeshData(
         struct _TRIVERTEX *a1,
         char *a2,

@@ -1,3 +1,22 @@
+/*
+ * XREFs of IopAllocateIrpExtension @ 0x1402B22EC
+ * Callers:
+ *     IopSetDiskIoAttributionExtension @ 0x1402B1E30 (IopSetDiskIoAttributionExtension.c)
+ *     IoSetActivityIdIrp @ 0x1402B2080 (IoSetActivityIdIrp.c)
+ *     IoPropagateIrpExtensionEx @ 0x1402B2100 (IoPropagateIrpExtensionEx.c)
+ *     IopSetDriverFlagsExtension @ 0x1402B22A0 (IopSetDriverFlagsExtension.c)
+ *     IopSetCopyInformationExtension @ 0x14035A9EC (IopSetCopyInformationExtension.c)
+ *     IoSetGenericIrpExtension @ 0x140390920 (IoSetGenericIrpExtension.c)
+ *     IopPerfCallDriver @ 0x14045728A (IopPerfCallDriver.c)
+ *     IoClearAdapterCryptoEngineExtension @ 0x140556880 (IoClearAdapterCryptoEngineExtension.c)
+ *     IoSetAdapterCryptoEngineExtension @ 0x140556980 (IoSetAdapterCryptoEngineExtension.c)
+ *     IoSetFsTrackOffsetState @ 0x1405569E0 (IoSetFsTrackOffsetState.c)
+ *     IoSetFsZeroingOffsetRequired @ 0x140556A80 (IoSetFsZeroingOffsetRequired.c)
+ *     ViGetContextPointer @ 0x140AC104C (ViGetContextPointer.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 _WORD *__fastcall IopAllocateIrpExtension(__int64 a1, int a2)
 {
   _WORD *Pool2; // r8

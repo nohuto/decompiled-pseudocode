@@ -1,3 +1,12 @@
+/*
+ * XREFs of TR_ReclaimTransfers @ 0x1C000E940
+ * Callers:
+ *     ESM_ReclaimingTransfersAfterEndpointStop @ 0x1C000FA20 (ESM_ReclaimingTransfersAfterEndpointStop.c)
+ *     ESM_RequeuingPendingTransfersAfterHaltClear @ 0x1C0051A60 (ESM_RequeuingPendingTransfersAfterHaltClear.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall TR_ReclaimTransfers(__int64 a1)
 {
   __int64 v2; // rax

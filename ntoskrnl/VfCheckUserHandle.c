@@ -1,3 +1,24 @@
+/*
+ * XREFs of VfCheckUserHandle @ 0x140AD0CE4
+ * Callers:
+ *     ObDuplicateObject @ 0x1406ED5C0 (ObDuplicateObject.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ * Callees:
+ *     RtlCaptureStackBackTrace @ 0x140205C20 (RtlCaptureStackBackTrace.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ObQueryTypeName @ 0x14097937C (ObQueryTypeName.c)
+ *     VfUtilIsLocalSystem @ 0x140ABF724 (VfUtilIsLocalSystem.c)
+ *     VfDriverIsKernelImageAddress @ 0x140AC7714 (VfDriverIsKernelImageAddress.c)
+ *     VfTargetDriversIsEnabled @ 0x140AC8614 (VfTargetDriversIsEnabled.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 char __fastcall VfCheckUserHandle(ULONG_PTR BugCheckParameter2)
 {
   struct _KPROCESS *Process; // rdi

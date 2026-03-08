@@ -1,3 +1,11 @@
+/*
+ * XREFs of SleepstudyHelperSetBlockerVisible @ 0x14099F2B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SleepstudyHelperSetBlockerVisible(__int64 a1, char a2)
 {
   __int64 result; // rax

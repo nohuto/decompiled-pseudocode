@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiComputeProcessorDataSize @ 0x140A85FB4
+ * Callers:
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiComputeProcessorDataSize(int a1, _DWORD *a2, _DWORD *a3)
 {
   unsigned int v3; // ecx

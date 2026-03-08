@@ -1,3 +1,12 @@
+/*
+ * XREFs of DwmAsyncSetTaggedWindowRect @ 0x1C02704D0
+ * Callers:
+ *     ?_DwmAsyncSetTaggedWindowRect@@YAJPEBUtagWND@@PEBUtagRECT@@@Z @ 0x1C01F8898 (-_DwmAsyncSetTaggedWindowRect@@YAJPEBUtagWND@@PEBUtagRECT@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall DwmAsyncSetTaggedWindowRect(PVOID Object, __int64 a2, __int128 *a3)
 {
   unsigned int v6; // ebx

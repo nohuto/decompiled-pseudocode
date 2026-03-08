@@ -1,3 +1,18 @@
+/*
+ * XREFs of UsbhSetFdoPnpState @ 0x1C0044248
+ * Callers:
+ *     Usbh_FDO_WaitPnpAdd @ 0x1C00443E0 (Usbh_FDO_WaitPnpAdd.c)
+ *     Usbh_FDO_WaitPnpRemove @ 0x1C0044460 (Usbh_FDO_WaitPnpRemove.c)
+ *     Usbh_FDO_WaitPnpRestart @ 0x1C0044500 (Usbh_FDO_WaitPnpRestart.c)
+ *     Usbh_FDO_WaitPnpStart @ 0x1C00446A0 (Usbh_FDO_WaitPnpStart.c)
+ *     Usbh_FDO_WaitPnpStop @ 0x1C0044890 (Usbh_FDO_WaitPnpStop.c)
+ *     Usbh_FDO_WaitPnpStop_CB @ 0x1C0044A00 (Usbh_FDO_WaitPnpStop_CB.c)
+ *     Usbh_PnpRemove @ 0x1C0044B44 (Usbh_PnpRemove.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhEtwLogHubInformation @ 0x1C005BA60 (UsbhEtwLogHubInformation.c)
+ */
+
 unsigned __int64 __fastcall UsbhSetFdoPnpState(__int64 a1, int a2, int a3)
 {
   _DWORD *v5; // rdi

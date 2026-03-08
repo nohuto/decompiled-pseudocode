@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0pqqpqq_EtwWriteTransfer @ 0x1C0058DC4
+ * Callers:
+ *     DxgkUnOrderedPresentSwapChain @ 0x1C0358800 (DxgkUnOrderedPresentSwapChain.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002BBC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 NTSTATUS McTemplateK0pqqpqq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-51h] BYREF

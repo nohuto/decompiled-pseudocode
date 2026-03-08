@@ -1,3 +1,48 @@
+/*
+ * XREFs of MiReserveUserMemory @ 0x1407D4340
+ * Callers:
+ *     MiAllocateVirtualMemory @ 0x1407C5270 (MiAllocateVirtualMemory.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     MiReferenceVad @ 0x14031F794 (MiReferenceVad.c)
+ *     MiGetProcessPartition @ 0x14031F9D4 (MiGetProcessPartition.c)
+ *     MiInsertVad @ 0x1403312E0 (MiInsertVad.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14034C380 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14034CA58 (LOCK_ADDRESS_SPACE.c)
+ *     MiUpdateVadStartVpn @ 0x14034CF40 (MiUpdateVadStartVpn.c)
+ *     MiLockVad @ 0x14034CF60 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14034D51C (MiUnlockVad.c)
+ *     MiUnlockAndDereferenceNestedVad @ 0x14065E63C (MiUnlockAndDereferenceNestedVad.c)
+ *     MiFindPlaceholderVadToReplace @ 0x14065E720 (MiFindPlaceholderVadToReplace.c)
+ *     MiMapUserLargePages @ 0x1406667E0 (MiMapUserLargePages.c)
+ *     MiReleaseVadEventBlocks @ 0x1406ECE8C (MiReleaseVadEventBlocks.c)
+ *     MiCreateWriteWatchView @ 0x140755EB4 (MiCreateWriteWatchView.c)
+ *     MiSecureVad @ 0x14076918C (MiSecureVad.c)
+ *     MiDeleteVad @ 0x1407C82E0 (MiDeleteVad.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     MiCommitVadMetadataBits @ 0x1407D2944 (MiCommitVadMetadataBits.c)
+ *     MiAddSecureEntry @ 0x1407D3424 (MiAddSecureEntry.c)
+ *     MiIsVaRangeAvailable @ 0x1407D3554 (MiIsVaRangeAvailable.c)
+ *     MiInsertVadCharges @ 0x1407D6A70 (MiInsertVadCharges.c)
+ *     MiSelectUserAddress @ 0x1407D6D30 (MiSelectUserAddress.c)
+ *     MiAdvanceVadHint @ 0x1407D72F0 (MiAdvanceVadHint.c)
+ *     MiArbitraryCodeBlocked @ 0x1407F1204 (MiArbitraryCodeBlocked.c)
+ *     MiLogReserveVaFailed @ 0x140A2BBB4 (MiLogReserveVaFailed.c)
+ *     MiStoreGraphicsProtectionInVad @ 0x140A2BDB4 (MiStoreGraphicsProtectionInVad.c)
+ *     MiCreateRotateView @ 0x140A2E550 (MiCreateRotateView.c)
+ *     MiCreateUserPhysicalView @ 0x140A3EB08 (MiCreateUserPhysicalView.c)
+ *     MiCreatePlaceholderStorage @ 0x140A44FD0 (MiCreatePlaceholderStorage.c)
+ *     MiFinishPlaceholderVadReplacement @ 0x140A45098 (MiFinishPlaceholderVadReplacement.c)
+ *     MiPreparePlaceholderVadReplacement @ 0x140A451C8 (MiPreparePlaceholderVadReplacement.c)
+ *     MiCreateLargePageVad @ 0x140A46988 (MiCreateLargePageVad.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiReserveUserMemory(_QWORD *a1, __int64 *a2, unsigned int a3, unsigned __int64 *a4, _WORD *a5)
 {
   unsigned int v5; // r15d

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?vTryToCacheRealization@@YAXPEAVEBRUSHOBJ@@PEAVRBRUSH@@PEAVBRUSH@@H@Z @ 0x1C0124F50
+ * Callers:
+ *     ?pvGetEngRbrush@@YAPEAXPEAU_BRUSHOBJ@@@Z @ 0x1C0124ED4 (-pvGetEngRbrush@@YAPEAXPEAU_BRUSHOBJ@@@Z.c)
+ *     ?BRUSHOBJ_pvGetRbrushUMPD@@YAPEAXPEAU_BRUSHOBJ@@@Z @ 0x1C0267B3C (-BRUSHOBJ_pvGetRbrushUMPD@@YAPEAXPEAU_BRUSHOBJ@@@Z.c)
+ *     BRUSHOBJ_pvGetRbrush @ 0x1C0267DA0 (BRUSHOBJ_pvGetRbrush.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vTryToCacheRealization(struct EBRUSHOBJ *a1, struct RBRUSH *a2, struct BRUSH *a3, int a4)
 {
   __int64 v8; // rbp

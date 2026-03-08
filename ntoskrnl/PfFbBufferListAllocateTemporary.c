@@ -1,3 +1,13 @@
+/*
+ * XREFs of PfFbBufferListAllocateTemporary @ 0x14035B4C8
+ * Callers:
+ *     PfpEventHandleOutOfBuffers @ 0x14035B4A0 (PfpEventHandleOutOfBuffers.c)
+ *     PfpSectInfoHandleOutOfBuffers @ 0x14079C670 (PfpSectInfoHandleOutOfBuffers.c)
+ * Callees:
+ *     PfFbBufferListInsertInFree @ 0x14035B6E4 (PfFbBufferListInsertInFree.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PfFbBufferListAllocateTemporary(PEX_RUNDOWN_REF RunRef, signed int a2)
 {
   void *Pool2; // rax

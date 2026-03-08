@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetIntegerProperty@CYCbCrSurfaceMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0262460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CYCbCrSurfaceMarshaler::SetIntegerProperty(
         DirectComposition::CYCbCrSurfaceMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

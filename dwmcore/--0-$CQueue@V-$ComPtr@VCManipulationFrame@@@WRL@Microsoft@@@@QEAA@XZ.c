@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0?$CQueue@V?$ComPtr@VCManipulationFrame@@@WRL@Microsoft@@@@QEAA@XZ @ 0x180103D0C
+ * Callers:
+ *     _dynamic_initializer_for__CManipulationManager::s_InputQueue__ @ 0x1800011E0 (_dynamic_initializer_for__CManipulationManager--s_InputQueue__.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *CQueue<Microsoft::WRL::ComPtr<CManipulationFrame>>::CQueue<Microsoft::WRL::ComPtr<CManipulationFrame>>()
 {
   dword_1803E2F90 = 0;

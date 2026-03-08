@@ -1,3 +1,13 @@
+/*
+ * XREFs of SyspartGetSystemPartition @ 0x140A5C67C
+ * Callers:
+ *     BiMapEfiDeviceForSpaces @ 0x140390584 (BiMapEfiDeviceForSpaces.c)
+ *     CmpMountPreloadedHives @ 0x140812EF4 (CmpMountPreloadedHives.c)
+ * Callees:
+ *     SiGetSystemDeviceName @ 0x140784278 (SiGetSystemDeviceName.c)
+ *     SiQuerySystemInformationString @ 0x14082BAB8 (SiQuerySystemInformationString.c)
+ */
+
 __int64 __fastcall SyspartGetSystemPartition(void *a1, unsigned int a2, unsigned int *a3)
 {
   __int64 result; // rax

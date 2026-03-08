@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetProperty@CManipulationTransform@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1800FA9D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CalculateMatrixFromDelta@CManipulationTransform@@SAXAEBUD2DVector3@@00PEAUD2DMatrix@@@Z @ 0x180012374 (-CalculateMatrixFromDelta@CManipulationTransform@@SAXAEBUD2DVector3@@00PEAUD2DMatrix@@@Z.c)
+ */
+
 __int64 __fastcall CManipulationTransform::GetProperty(
         CManipulationTransform *this,
         int a2,

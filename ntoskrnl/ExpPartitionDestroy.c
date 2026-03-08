@@ -1,3 +1,20 @@
+/*
+ * XREFs of ExpPartitionDestroy @ 0x1409FDA98
+ * Callers:
+ *     ExpPartitionInitialize @ 0x1408481F8 (ExpPartitionInitialize.c)
+ *     PspTeardownPartition @ 0x1409B3730 (PspTeardownPartition.c)
+ * Callees:
+ *     KeCancelTimer2 @ 0x140204390 (KeCancelTimer2.c)
+ *     KeCancelTimer @ 0x140250B60 (KeCancelTimer.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeFlushQueuedDpcs @ 0x1402AF200 (KeFlushQueuedDpcs.c)
+ *     ZwWaitForSingleObject @ 0x140412390 (ZwWaitForSingleObject.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExpWorkQueueDestroy @ 0x1409FDC74 (ExpWorkQueueDestroy.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall ExpPartitionDestroy(PVOID P, __int64 a2, __int64 a3, _DWORD *a4)
 {
   unsigned __int16 i; // si

@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefModAdd256Asm @ 0x140400B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefModAdd256Asm(__int64 a1, _QWORD *a2, _QWORD *a3, _QWORD *a4)
 {
   unsigned __int64 v4; // r10

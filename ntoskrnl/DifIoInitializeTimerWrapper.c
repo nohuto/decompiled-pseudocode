@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifIoInitializeTimerWrapper @ 0x1405DDB20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     IoInitializeTimer @ 0x14085EA80 (IoInitializeTimer.c)
+ */
+
 NTSTATUS __fastcall DifIoInitializeTimerWrapper(
         PDEVICE_OBJECT DeviceObject,
         PIO_TIMER_ROUTINE TimerRoutine,

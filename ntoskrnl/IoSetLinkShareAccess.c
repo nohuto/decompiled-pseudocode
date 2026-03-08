@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoSetLinkShareAccess @ 0x1406F34E0
+ * Callers:
+ *     IoSetShareAccess @ 0x1406F2E60 (IoSetShareAccess.c)
+ *     RawCreate @ 0x1406F3164 (RawCreate.c)
+ *     IoSetShareAccessEx @ 0x14087FED0 (IoSetShareAccessEx.c)
+ * Callees:
+ *     <none>
+ */
+
 _DWORD *__fastcall IoSetLinkShareAccess(int a1, char a2, __int64 a3, __int64 a4, _DWORD *a5, int a6)
 {
   int v6; // r10d

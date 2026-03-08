@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AllowInteractiveServices@@YAHXZ @ 0x1C00DA000
+ * Callers:
+ *     IsIMMEnabledSystem @ 0x1C002D790 (IsIMMEnabledSystem.c)
+ * Callees:
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 AllowInteractiveServices(void)
 {
   unsigned int v0; // ebx

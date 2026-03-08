@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?QueueForDeferredDestruction@DataProviderProxy@@QEAAJPEAVBamoDataSourceProxy@@@Z @ 0x1801E1C5C
+ * Callers:
+ *     ?OnDisconnected@DataSourceProxy@@MEAAJXZ @ 0x1801DFDF0 (-OnDisconnected@DataSourceProxy@@MEAAJXZ.c)
+ * Callees:
+ *     ??$GetUniqueId@VBamoDataSourceProxy@@@DataProviderHelper@@YA_KPEAVBamoDataSourceProxy@@@Z @ 0x1801B44F0 (--$GetUniqueId@VBamoDataSourceProxy@@@DataProviderHelper@@YA_KPEAVBamoDataSourceProxy@@@Z.c)
+ *     ??$_Emplace_reallocate@AEA_K@?$vector@_KV?$allocator@_K@std@@@std@@QEAAPEA_KQEA_KAEA_K@Z @ 0x1801E0C94 (--$_Emplace_reallocate@AEA_K@-$vector@_KV-$allocator@_K@std@@@std@@QEAAPEA_KQEA_KAEA_K@Z.c)
+ *     ??$find@X@?$_Hash@V?$_Umap_traits@_KV?$ComPtr@VBamoDataSourceProxy@@@WRL@Microsoft@@V?$_Uhash_compare@_KU?$hash@_K@std@@U?$equal_to@_K@2@@std@@V?$allocator@U?$pair@$$CB_KV?$ComPtr@VBamoDataSourceProxy@@@WRL@Microsoft@@@std@@@5@$0A@@std@@@std@@QEAA?AV?$_List_iterator@V?$_List_val@U?$_List_simple_types@U?$pair@$$CB_KV?$ComPtr@VBamoDataSourceProxy@@@WRL@Microsoft@@@std@@@std@@@std@@@1@AEB_K@Z @ 0x1801E0F78 (--$find@X@-$_Hash@V-$_Umap_traits@_KV-$ComPtr@VBamoDataSourceProxy@@@WRL@Microsoft@@V-$_Uhash_co.c)
+ */
+
 __int64 __fastcall DataProviderProxy::QueueForDeferredDestruction(
         DataProviderProxy *this,
         struct BamoDataSourceProxy *a2)

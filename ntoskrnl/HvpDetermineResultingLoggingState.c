@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvpDetermineResultingLoggingState @ 0x1407F9E70
+ * Callers:
+ *     HvAnalyzeLogFiles @ 0x1407F9528 (HvAnalyzeLogFiles.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HvpDetermineResultingLoggingState(unsigned int *a1)
 {
   unsigned int v1; // r11d

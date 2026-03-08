@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopParentToRawTranslation @ 0x1408051F8
+ * Callers:
+ *     PnpBuildCmResourceList @ 0x140804D9C (PnpBuildCmResourceList.c)
+ *     IopParentToRawTranslation @ 0x1408051F8 (IopParentToRawTranslation.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IopParentToRawTranslation @ 0x1408051F8 (IopParentToRawTranslation.c)
+ */
+
 __int64 __fastcall IopParentToRawTranslation(__int64 a1)
 {
   __int64 result; // rax

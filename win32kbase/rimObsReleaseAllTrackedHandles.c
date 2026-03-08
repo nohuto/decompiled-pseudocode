@@ -1,3 +1,11 @@
+/*
+ * XREFs of rimObsReleaseAllTrackedHandles @ 0x1C01DD448
+ * Callers:
+ *     RawInputManagerObjectDelete @ 0x1C00361E4 (RawInputManagerObjectDelete.c)
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 void __fastcall rimObsReleaseAllTrackedHandles(__int64 a1)
 {
   char *v1; // rsi

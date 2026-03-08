@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CRenderTargetManager@@IEAA@PEAVCComposition@@@Z @ 0x1800AEACC
+ * Callers:
+ *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800AE4F0 (-Initialize@CComposition@@MEAAJXZ.c)
+ * Callees:
+ *     ?Create@CDrawingContext@@SAXPEAPEAV1@@Z @ 0x180038BA0 (-Create@CDrawingContext@@SAXPEAPEAV1@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 CRenderTargetManager *__fastcall CRenderTargetManager::CRenderTargetManager(
         CRenderTargetManager *this,
         struct CComposition *a2)

@@ -1,3 +1,18 @@
+/*
+ * XREFs of SmCrEncStart @ 0x1409D7A3C
+ * Callers:
+ *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x14035A528 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
+ * Callees:
+ *     SSHSupportAllocateNonPaged @ 0x1402A4AEC (SSHSupportAllocateNonPaged.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SmCrGenRandom @ 0x1405CB86C (SmCrGenRandom.c)
+ *     BCryptGetProperty @ 0x140754608 (BCryptGetProperty.c)
+ *     BCryptOpenAlgorithmProvider @ 0x14081B624 (BCryptOpenAlgorithmProvider.c)
+ *     BCryptGenerateSymmetricKey @ 0x1409C5FE4 (BCryptGenerateSymmetricKey.c)
+ *     BCryptSetProperty @ 0x1409C610C (BCryptSetProperty.c)
+ */
+
 NTSTATUS __fastcall SmCrEncStart(__int64 a1, const void *a2, unsigned int a3)
 {
   size_t v4; // rsi

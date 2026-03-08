@@ -1,3 +1,19 @@
+/*
+ * XREFs of MmDecodeExportSection @ 0x14035D424
+ * Callers:
+ *     MiResolveImageImports @ 0x14076F7A4 (MiResolveImageImports.c)
+ *     RtlFindExportedRoutineByName @ 0x1407EBE40 (RtlFindExportedRoutineByName.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     MiGetExportSectionExtents @ 0x14035E1BC (MiGetExportSectionExtents.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char MmDecodeExportSection()
 {
   $C71981A45BEB2B45F82C232A7085991E *v0; // rax

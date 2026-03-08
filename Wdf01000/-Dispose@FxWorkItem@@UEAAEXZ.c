@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Dispose@FxWorkItem@@UEAAEXZ @ 0x1C0040970
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0006060 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0006094 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ?WaitForSignal@FxWorkItem@@AEAAXXZ @ 0x1C0040BBC (-WaitForSignal@FxWorkItem@@AEAAXXZ.c)
+ */
+
 unsigned __int8 __fastcall FxWorkItem::Dispose(FxWorkItem *this, __int64 a2, unsigned __int8 a3)
 {
   unsigned __int8 v4; // dl

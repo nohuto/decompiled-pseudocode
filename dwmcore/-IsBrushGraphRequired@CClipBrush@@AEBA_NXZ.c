@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsBrushGraphRequired@CClipBrush@@AEBA_NXZ @ 0x18021E170
+ * Callers:
+ *     ?OnBrushChanged@CCompositionTextLine@@UEAAXXZ @ 0x180223D60 (-OnBrushChanged@CCompositionTextLine@@UEAAXXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CClipBrush::IsBrushGraphRequired(CClipBrush *this)
 {
   char v2; // bl

@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiEvaluateBiosMethodsOnPciRootBus @ 0x1C00345C4
+ * Callers:
+ *     ACPIBuildPdo @ 0x1C000DC84 (ACPIBuildPdo.c)
+ *     ACPIDispatchIrpDepPdoQueryID @ 0x1C0017830 (ACPIDispatchIrpDepPdoQueryID.c)
+ * Callees:
+ *     AcpiEvaluateOscMethodOnPciRootBus @ 0x1C0034694 (AcpiEvaluateOscMethodOnPciRootBus.c)
+ */
+
 __int64 __fastcall AcpiEvaluateBiosMethodsOnPciRootBus(__int64 a1, __int64 a2, int a3)
 {
   __int64 v4; // rdi

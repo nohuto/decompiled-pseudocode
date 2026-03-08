@@ -1,3 +1,21 @@
+/*
+ * XREFs of UsbhFdoDevicePowerState @ 0x1C000AE40
+ * Callers:
+ *     UsbhFdoPower_SetPower @ 0x1C001F580 (UsbhFdoPower_SetPower.c)
+ * Callees:
+ *     UsbhEtwLogHubPowerEvent @ 0x1C00096F0 (UsbhEtwLogHubPowerEvent.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhFdoSetPowerDx_Action @ 0x1C000EB10 (UsbhFdoSetPowerDx_Action.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhFdoSetPowerD0_Action @ 0x1C0021A28 (UsbhFdoSetPowerD0_Action.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhReleaseFdoPwrLock @ 0x1C0031D74 (UsbhReleaseFdoPwrLock.c)
+ *     UsbhPoStartNextPowerIrp_Fdo @ 0x1C003C7C0 (UsbhPoStartNextPowerIrp_Fdo.c)
+ *     UsbhSetFdoPowerState @ 0x1C003C87C (UsbhSetFdoPowerState.c)
+ */
+
 NTSTATUS __fastcall UsbhFdoDevicePowerState(struct _DEVICE_OBJECT *a1, IRP *a2)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // rdx

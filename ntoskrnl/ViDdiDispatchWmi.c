@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViDdiDispatchWmi @ 0x140AC0BA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     ViDdiDispatchWmiQueryAllData @ 0x140AC0C04 (ViDdiDispatchWmiQueryAllData.c)
+ *     ViDdiDispatchWmiRegInfoEx @ 0x140AC0DA0 (ViDdiDispatchWmiRegInfoEx.c)
+ */
+
 __int64 __fastcall ViDdiDispatchWmi(__int64 a1, IRP *a2)
 {
   UCHAR MinorFunction; // dl

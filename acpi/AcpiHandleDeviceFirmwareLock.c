@@ -1,3 +1,15 @@
+/*
+ * XREFs of AcpiHandleDeviceFirmwareLock @ 0x1C001B660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     AcquireDeviceFirmwareLock @ 0x1C001B710 (AcquireDeviceFirmwareLock.c)
+ *     DestroyDeviceFirmwareLock @ 0x1C001BB60 (DestroyDeviceFirmwareLock.c)
+ *     ReleaseDeviceFirmwareLock @ 0x1C001BF6C (ReleaseDeviceFirmwareLock.c)
+ *     TranslateBindMutexResources @ 0x1C001C044 (TranslateBindMutexResources.c)
+ */
+
 __int64 __fastcall AcpiHandleDeviceFirmwareLock(__int64 a1)
 {
   unsigned int v1; // ebx

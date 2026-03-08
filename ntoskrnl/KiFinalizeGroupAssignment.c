@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiFinalizeGroupAssignment @ 0x1403A4FD0
+ * Callers:
+ *     KiPerformGroupConfiguration @ 0x140B66804 (KiPerformGroupConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 KiFinalizeGroupAssignment()
 {
   __int64 result; // rax

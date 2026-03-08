@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpMcaAMDIsMemoryError @ 0x140503E64
+ * Callers:
+ *     HalpCreateMachineCheckErrorRecord @ 0x140500730 (HalpCreateMachineCheckErrorRecord.c)
+ *     HalpMceRecoveryRequired @ 0x140516F9C (HalpMceRecoveryRequired.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall HalpMcaAMDIsMemoryError(__int64 a1, __int16 a2)
 {
   char v2; // r8

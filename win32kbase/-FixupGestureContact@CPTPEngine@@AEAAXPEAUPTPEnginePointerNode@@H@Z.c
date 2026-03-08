@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FixupGestureContact@CPTPEngine@@AEAAXPEAUPTPEnginePointerNode@@H@Z @ 0x1C00F5836
+ * Callers:
+ *     ?ProcessGestureFrame@CPTPEngine@@AEAAXPEAUPTPInput@@HPEAH@Z @ 0x1C02383A4 (-ProcessGestureFrame@CPTPEngine@@AEAAXPEAUPTPInput@@HPEAH@Z.c)
+ *     ?SendInitialGestureFrame@CPTPEngine@@AEAAHPEAUPTPInput@@PEAUCContactState@@H@Z @ 0x1C0239C50 (-SendInitialGestureFrame@CPTPEngine@@AEAAHPEAUPTPInput@@PEAUCContactState@@H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CPTPEngine::FixupGestureContact(CPTPEngine *this, struct PTPEnginePointerNode *a2, int a3)
 {
   int v3; // eax

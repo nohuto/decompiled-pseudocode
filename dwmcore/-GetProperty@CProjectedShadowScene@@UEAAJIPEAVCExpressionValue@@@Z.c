@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetProperty@CProjectedShadowScene@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1802486A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CProjectedShadowScene::GetProperty(CProjectedShadowScene *this, int a2, struct CExpressionValue *a3)
 {
   unsigned int v3; // ebx

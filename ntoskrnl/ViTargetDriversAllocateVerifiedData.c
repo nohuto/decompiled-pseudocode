@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViTargetDriversAllocateVerifiedData @ 0x140AC8A34
+ * Callers:
+ *     VfTargetDriversAdd @ 0x140303834 (VfTargetDriversAdd.c)
+ *     VfTargetDriversEnableVerifier @ 0x140AC8480 (VfTargetDriversEnableVerifier.c)
+ * Callees:
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 union _SLIST_HEADER *__fastcall ViTargetDriversAllocateVerifiedData(unsigned __int64 a1)
 {
   union _SLIST_HEADER *Pool2; // rax

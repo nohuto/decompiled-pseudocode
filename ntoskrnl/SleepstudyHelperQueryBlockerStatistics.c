@@ -1,3 +1,13 @@
+/*
+ * XREFs of SleepstudyHelperQueryBlockerStatistics @ 0x1405A0FB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall SleepstudyHelperQueryBlockerStatistics(__int64 a1, char *a2, _QWORD *a3)
 {
   unsigned int v3; // ebx

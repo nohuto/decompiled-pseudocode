@@ -1,3 +1,17 @@
+/*
+ * XREFs of Usbh_SSH_HubPendingResume @ 0x1C00076A0
+ * Callers:
+ *     Usbh_SSH_Event @ 0x1C0007220 (Usbh_SSH_Event.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhSshResumeDownstream @ 0x1C000E1B0 (UsbhSshResumeDownstream.c)
+ *     UsbhDisarmHubForWakeDetect @ 0x1C0020A80 (UsbhDisarmHubForWakeDetect.c)
+ *     UsbhUnlockSSH @ 0x1C0022790 (UsbhUnlockSSH.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhLockSSH @ 0x1C0058FFC (UsbhLockSSH.c)
+ */
+
 __int64 __fastcall Usbh_SSH_HubPendingResume(__int64 a1, int a2, __int64 a3)
 {
   unsigned int v6; // ebx

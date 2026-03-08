@@ -1,3 +1,11 @@
+/*
+ * XREFs of FONTOBJ_pwszFontFilePaths @ 0x1C029B150
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C011DDB0 (--1RFONTOBJ@@QEAA@XZ.c)
+ */
+
 LPWSTR __stdcall FONTOBJ_pwszFontFilePaths(FONTOBJ *pfo, ULONG *pcwc)
 {
   WCHAR *v2; // rbx

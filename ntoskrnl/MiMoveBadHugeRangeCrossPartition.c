@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiMoveBadHugeRangeCrossPartition @ 0x14061FC7C
+ * Callers:
+ *     MiReleasePartitionHugeIoSpace @ 0x140620094 (MiReleasePartitionHugeIoSpace.c)
+ * Callees:
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInsertHugeRangeInList @ 0x14061EB84 (MiInsertHugeRangeInList.c)
+ *     MiLockHugePfn @ 0x14061EFAC (MiLockHugePfn.c)
+ *     MiUnlinkHugeRange @ 0x140620680 (MiUnlinkHugeRange.c)
+ *     MiUpdateHugePageCounts @ 0x14062090C (MiUpdateHugePageCounts.c)
+ */
+
 __int64 __fastcall MiMoveBadHugeRangeCrossPartition(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rcx

@@ -1,3 +1,36 @@
+/*
+ * XREFs of ExpApplyPriorityBoost @ 0x140282C50
+ * Callers:
+ *     ExpApplyPrewaitBoost @ 0x14027F3C0 (ExpApplyPrewaitBoost.c)
+ *     ExpConvertExclusiveToSharedLite @ 0x1402DCFAC (ExpConvertExclusiveToSharedLite.c)
+ *     ExpApplyRewaitBoost @ 0x140300250 (ExpApplyRewaitBoost.c)
+ * Callees:
+ *     PsBoostThreadIoEx @ 0x1402634D0 (PsBoostThreadIoEx.c)
+ *     PsGetBaseIoPriorityThread @ 0x14027F460 (PsGetBaseIoPriorityThread.c)
+ *     ExpOwnerEntryToThread @ 0x140283298 (ExpOwnerEntryToThread.c)
+ *     PsGetIoPriorityThread @ 0x1402832C0 (PsGetIoPriorityThread.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140283390 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KxWaitForLockChainValid @ 0x140291730 (KxWaitForLockChainValid.c)
+ *     ExGetExtensionTable @ 0x1402C57F0 (ExGetExtensionTable.c)
+ *     KiAbThreadInsertList @ 0x1402F45E0 (KiAbThreadInsertList.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x14033B510 (KxWaitForLockOwnerShip.c)
+ *     ObpIncrPointerCount @ 0x14033BAEC (ObpIncrPointerCount.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     KeSetPriorityBoost @ 0x14035112C (KeSetPriorityBoost.c)
+ *     KeAbProcessEffectiveIoPriorityChange @ 0x140356D7C (KeAbProcessEffectiveIoPriorityChange.c)
+ *     IoBoostThreadIoPriority @ 0x140356FD0 (IoBoostThreadIoPriority.c)
+ *     KiAbQueueAutoBoostDpc @ 0x14035845C (KiAbQueueAutoBoostDpc.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140457B8E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x14056EF78 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14057DAC8 (KiHaltOnAddressWakeEntireList.c)
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ */
+
 __int64 __fastcall ExpApplyPriorityBoost(__int64 a1, __int16 a2, __int64 a3)
 {
   __int64 result; // rax

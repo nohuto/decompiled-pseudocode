@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiReparkIdlingProcessorIfNecessary @ 0x1402C7970
+ * Callers:
+ *     KiSearchForNewThread @ 0x140260460 (KiSearchForNewThread.c)
+ * Callees:
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140255D00 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiDowngradeIsolationUnitLockHandle @ 0x1402ADC00 (KiDowngradeIsolationUnitLockHandle.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiParkCurrentProcessor @ 0x14057BAA4 (KiParkCurrentProcessor.c)
+ */
+
 __int64 __fastcall KiReparkIdlingProcessorIfNecessary(_QWORD *a1, __int64 *a2)
 {
   __int64 v2; // rbx

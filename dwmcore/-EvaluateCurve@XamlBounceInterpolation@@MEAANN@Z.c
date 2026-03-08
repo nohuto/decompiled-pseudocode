@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?EvaluateCurve@XamlBounceInterpolation@@MEAANN@Z @ 0x1802646A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     floor_0 @ 0x18011771C (floor_0.c)
+ *     log_0 @ 0x18011774C (log_0.c)
+ *     pow_0 @ 0x180117770 (pow_0.c)
+ */
+
 double __fastcall XamlBounceInterpolation::EvaluateCurve(XamlBounceInterpolation *this, double a2)
 {
   double v2; // xmm11_8

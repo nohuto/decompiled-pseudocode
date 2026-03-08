@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpGetBiosDate @ 0x140B9526C
+ * Callers:
+ *     CmpSetSystemBiosInformation @ 0x140B9565C (CmpSetSystemBiosInformation.c)
+ *     CmpSetVideoBiosInformation @ 0x140B959FC (CmpSetVideoBiosInformation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     strtoul @ 0x1403D32B8 (strtoul.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ */
+
 char __fastcall CmpGetBiosDate(__int64 a1, unsigned int a2, __int64 a3, char a4)
 {
   _BYTE *v4; // rdi

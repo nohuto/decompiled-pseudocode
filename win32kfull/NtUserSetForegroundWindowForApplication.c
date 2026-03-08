@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserSetForegroundWindowForApplication @ 0x1C01DCC40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegroundBehaviors@@W4SetForegroundffects@@@Z @ 0x1C002498C (-xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegrou.c)
+ *     ?IsPartOfCompositeApplication@CoreWindowProp@@SAHPEBUtagWND@@@Z @ 0x1C00999A8 (-IsPartOfCompositeApplication@CoreWindowProp@@SAHPEBUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall NtUserSetForegroundWindowForApplication(__int64 a1)
 {
   __int64 v2; // rax

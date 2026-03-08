@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Start@CMit@@QEAAJXZ @ 0x1800CB4A8
+ * Callers:
+ *     ?Reset@CMit@@QEAAJXZ @ 0x1800CB458 (-Reset@CMit@@QEAAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CMit::Start(HANDLE *this)
 {
   HANDLE v2; // rax

@@ -1,3 +1,25 @@
+/*
+ * XREFs of xxxSBTrackInit @ 0x1C022D18C
+ * Callers:
+ *     xxxSysCommand @ 0x1C00DE67C (xxxSysCommand.c)
+ *     xxxDoScrollMenu @ 0x1C022CC6C (xxxDoScrollMenu.c)
+ *     xxxSBWndProc @ 0x1C022D770 (xxxSBWndProc.c)
+ * Callees:
+ *     zzzShowCaret @ 0x1C0006108 (zzzShowCaret.c)
+ *     xxxCapture @ 0x1C0010A5C (xxxCapture.c)
+ *     GetWndSBDisableFlags @ 0x1C00D9F98 (GetWndSBDisableFlags.c)
+ *     CalcSBStuff @ 0x1C00D9FC8 (CalcSBStuff.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     safe_cast_fnid_to_PSBWND @ 0x1C01BC260 (safe_cast_fnid_to_PSBWND.c)
+ *     ??$UserFreeIsolatedType@V?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C022B4A0 (--$UserFreeIsolatedType@V-$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@@@YAXPEAX@Z.c)
+ *     ?Allocate@?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C022B5FC (-Allocate@-$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAPEAXXZ.c)
+ *     ?CalcTrackDragRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C022B780 (-CalcTrackDragRect@@YAXPEAUtagSBTRACK@@@Z.c)
+ *     ?xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z @ 0x1C022C0E0 (-xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z.c)
+ *     ?xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z @ 0x1C022C64C (-xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z.c)
+ */
+
 __int64 __fastcall xxxSBTrackInit(struct tagWND *a1, __int64 a2, int a3, int a4)
 {
   unsigned __int64 v4; // r12

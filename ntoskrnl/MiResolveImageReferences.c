@@ -1,3 +1,34 @@
+/*
+ * XREFs of MiResolveImageReferences @ 0x1407EC794
+ * Callers:
+ *     MiResolveImageImports @ 0x14076F7A4 (MiResolveImageImports.c)
+ * Callees:
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     ApiSetResolveToHost @ 0x1402F3878 (ApiSetResolveToHost.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     MiSessionReferenceImage @ 0x14036C5C4 (MiSessionReferenceImage.c)
+ *     MiSessionLookupImage @ 0x14036C7B8 (MiSessionLookupImage.c)
+ *     _strnicmp @ 0x1403D3C80 (_strnicmp.c)
+ *     RtlCompareUnicodeString @ 0x1406EA3B0 (RtlCompareUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     RtlDuplicateUnicodeString @ 0x140761970 (RtlDuplicateUnicodeString.c)
+ *     PsQueryCurrentApiSetSchema @ 0x14078495C (PsQueryCurrentApiSetSchema.c)
+ *     MiCompressImportList @ 0x14078AB10 (MiCompressImportList.c)
+ *     MiPrepareImportList @ 0x14078ABD0 (MiPrepareImportList.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ *     MiSnapThunk @ 0x1407ECC30 (MiSnapThunk.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     MiDereferenceSingleImport @ 0x1407F77B4 (MiDereferenceSingleImport.c)
+ *     MiLoadImportDll @ 0x14081B9F8 (MiLoadImportDll.c)
+ *     MiFormFullImageName @ 0x140851A5C (MiFormFullImageName.c)
+ *     MiSnapUnresolvedImport @ 0x140A283DC (MiSnapUnresolvedImport.c)
+ *     MiLogFailedDriverLoad @ 0x140A2D5B4 (MiLogFailedDriverLoad.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiResolveImageReferences(__int64 a1, __int64 a2, _QWORD *a3, const UNICODE_STRING *a4, int a5)
 {
   unsigned __int64 v5; // r13

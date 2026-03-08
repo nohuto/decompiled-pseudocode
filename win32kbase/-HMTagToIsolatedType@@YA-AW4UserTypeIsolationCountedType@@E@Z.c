@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?HMTagToIsolatedType@@YA?AW4UserTypeIsolationCountedType@@E@Z @ 0x1C0078704
+ * Callers:
+ *     ?HMFreeIsolatedType@@YAXEPEAX@Z @ 0x1C0075514 (-HMFreeIsolatedType@@YAXEPEAX@Z.c)
+ *     ?HMAllocateIsolatedType@@YAPEAXE@Z @ 0x1C0078690 (-HMAllocateIsolatedType@@YAPEAXE@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HMTagToIsolatedType(unsigned __int8 a1)
 {
   int v1; // ecx

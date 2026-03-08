@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpUpdateComPlusPackage @ 0x1409F4C98
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ */
+
 __int64 __fastcall ExpUpdateComPlusPackage(int a1)
 {
   NTSTATUS v1; // ebx

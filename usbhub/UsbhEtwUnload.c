@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhEtwUnload @ 0x1C005C070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ */
+
 int UsbhEtwUnload()
 {
   _UNKNOWN **v0; // rax

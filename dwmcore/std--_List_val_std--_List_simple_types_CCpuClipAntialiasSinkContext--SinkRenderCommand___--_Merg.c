@@ -1,61 +1,66 @@
-_QWORD *__fastcall std::_List_val_std::_List_simple_types_CCpuClipAntialiasSinkContext::SinkRenderCommand___::_Merge_same__lambda_0c3994cbe405861b61e36de8c3dd15dd___(
-        __int64 a1,
-        __int64 a2,
-        _QWORD *a3)
-{
-  __int64 v4; // rdx
-  _QWORD *v5; // rcx
-  _QWORD *v6; // r9
-  _QWORD *v7; // r10
-  _QWORD *v8; // r11
-  _QWORD *v9; // r9
-  _QWORD *v11; // rdi
-  _QWORD *v12; // r8
-  _QWORD *v13; // rdx
-  _QWORD *v14; // rax
-  _QWORD *v15; // r9
+/*
+ * XREFs of std::_List_val_std::_List_simple_types_CCpuClipAntialiasSinkContext::SinkRenderCommand___::_Merge_same__lambda_894843b827d9c4fe3ec8d7f4d554a50c___ @ 0x180048E90
+ * Callers:
+ *     std::_List_val_std::_List_simple_types_CCpuClipAntialiasSinkContext::SinkRenderCommand___::_Sort__lambda_894843b827d9c4fe3ec8d7f4d554a50c___ @ 0x180048E00 (std--_List_val_std--_List_simple_types_CCpuClipAntialiasSinkContext--SinkRenderCommand___--_Sort.c)
+ * Callees:
+ *     <none>
+ */
 
-  if ( (unsigned __int8)lambda_0c3994cbe405861b61e36de8c3dd15dd_::operator()(a1, a2 + 16, a1 + 16, a1) )
+float *__fastcall std::_List_val_std::_List_simple_types_CCpuClipAntialiasSinkContext::SinkRenderCommand___::_Merge_same__lambda_894843b827d9c4fe3ec8d7f4d554a50c___(
+        float *a1,
+        float *a2,
+        __int64 *a3)
+{
+  float *v3; // r10
+  float *v4; // r9
+  float *v5; // r11
+  float *v7; // rbx
+  float **v8; // rdx
+  float **v9; // rcx
+  float **v10; // rax
+
+  v3 = a2;
+  v4 = a1;
+  if ( a1[6] > a2[6] )
   {
-    v8 = v7;
-LABEL_6:
-    v11 = v7;
-    v12 = v6 + 2;
+    v5 = a2;
+LABEL_8:
+    v7 = v3;
     do
-      v7 = (_QWORD *)*v7;
-    while ( v7 != a3 && (unsigned __int8)lambda_0c3994cbe405861b61e36de8c3dd15dd_::operator()(v5, v7 + 2, v12, v6) );
-    v13 = (_QWORD *)v11[1];
-    *v13 = v7;
-    v5 = (_QWORD *)v7[1];
-    *v5 = v6;
-    v14 = (_QWORD *)v6[1];
-    *v14 = v11;
-    v6[1] = v5;
-    v7[1] = v13;
-    v11[1] = v14;
-    if ( v7 != a3 )
+      v3 = *(float **)v3;
+    while ( v3 != (float *)a3 && v4[6] > v3[6] );
+    v8 = (float **)*((_QWORD *)v7 + 1);
+    *v8 = v3;
+    v9 = (float **)*((_QWORD *)v3 + 1);
+    *v9 = v4;
+    v10 = (float **)*((_QWORD *)v4 + 1);
+    *v10 = v7;
+    *((_QWORD *)v4 + 1) = v9;
+    *((_QWORD *)v3 + 1) = v8;
+    *((_QWORD *)v7 + 1) = v10;
+    if ( v3 != (float *)a3 )
     {
       while ( 1 )
       {
-        v15 = (_QWORD *)*v6;
-        if ( v15 == v7 )
+        v4 = *(float **)v4;
+        if ( v4 == v3 )
           break;
-        if ( (unsigned __int8)lambda_0c3994cbe405861b61e36de8c3dd15dd_::operator()(v5, v7 + 2, v15 + 2, v15) )
-          goto LABEL_6;
+        if ( v4[6] > v3[6] )
+          goto LABEL_8;
       }
     }
   }
   else
   {
-    v8 = v5;
+    v5 = a1;
     while ( 1 )
     {
-      v9 = (_QWORD *)*v6;
-      if ( v9 == v7 )
+      v4 = *(float **)v4;
+      if ( v4 == a2 )
         break;
-      if ( (unsigned __int8)lambda_0c3994cbe405861b61e36de8c3dd15dd_::operator()(v5, v4, v9 + 2, v9) )
-        goto LABEL_6;
+      if ( v4[6] > a2[6] )
+        goto LABEL_8;
     }
   }
-  return v8;
+  return v5;
 }

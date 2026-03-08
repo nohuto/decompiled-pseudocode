@@ -1,3 +1,12 @@
+/*
+ * XREFs of vGetJpn98FixPitch @ 0x1C00B9810
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetGreRegKey@@YAJPEAPEAXKPEBG@Z @ 0x1C00B96F0 (-GetGreRegKey@@YAJPEAPEAXKPEBG@Z.c)
+ *     bQueryFntCacheReg @ 0x1C00BAC20 (bQueryFntCacheReg.c)
+ */
+
 int vGetJpn98FixPitch()
 {
   int v0; // ebx

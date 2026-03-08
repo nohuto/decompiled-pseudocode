@@ -1,3 +1,13 @@
+/*
+ * XREFs of BgkSetTextColor @ 0x14054CAC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     BgkpAcquireConsole @ 0x14054CB88 (BgkpAcquireConsole.c)
+ */
+
 __int64 __fastcall BgkSetTextColor(unsigned int a1)
 {
   __int64 v1; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlFindClearRuns @ 0x14029A680
+ * Callers:
+ *     RtlFindLongestRunClear @ 0x1405A5BE0 (RtlFindLongestRunClear.c)
+ * Callees:
+ *     <none>
+ */
+
 ULONG __stdcall RtlFindClearRuns(
         PRTL_BITMAP BitMapHeader,
         PRTL_BITMAP_RUN RunArray,

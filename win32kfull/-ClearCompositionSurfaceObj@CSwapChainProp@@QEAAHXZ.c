@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ClearCompositionSurfaceObj@CSwapChainProp@@QEAAHXZ @ 0x1C021ECCC
+ * Callers:
+ *     ?Delete@CSwapChainProp@@UEAAXXZ @ 0x1C021EDC0 (-Delete@CSwapChainProp@@UEAAXXZ.c)
+ *     UserRemoveWindowedSwapChain @ 0x1C021EEC0 (UserRemoveWindowedSwapChain.c)
+ *     UserSetWindowedSwapChain @ 0x1C021EFC8 (UserSetWindowedSwapChain.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CSwapChainProp::ClearCompositionSurfaceObj(CSwapChainProp *this)
 {
   unsigned int v2; // ebx

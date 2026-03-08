@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhGetPnpKey @ 0x1C005A134
+ * Callers:
+ *     UsbhBuildUxdPnpId @ 0x1C00598B4 (UsbhBuildUxdPnpId.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ */
+
 NTSTATUS __fastcall UsbhGetPnpKey(__int64 a1, __int64 a2, const GUID *a3, _QWORD *a4, _DWORD *a5)
 {
   NTSTATUS result; // eax

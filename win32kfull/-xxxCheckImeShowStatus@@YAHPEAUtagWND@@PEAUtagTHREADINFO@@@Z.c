@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?xxxCheckImeShowStatus@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@@Z @ 0x1C00C62B0
+ * Callers:
+ *     NtUserCheckImeShowStatusInThread @ 0x1C00C61D0 (NtUserCheckImeShowStatusInThread.c)
+ *     ?xxxNotifyImeShowStatus@@YAXPEAUtagWND@@@Z @ 0x1C01B94A8 (-xxxNotifyImeShowStatus@@YAXPEAUtagWND@@@Z.c)
+ * Callees:
+ *     BuildHwndList @ 0x1C0041A10 (BuildHwndList.c)
+ *     FreeHwndList @ 0x1C00680B0 (FreeHwndList.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall xxxCheckImeShowStatus(struct tagWND *a1, struct tagTHREADINFO *a2)
 {
   struct tagTHREADINFO *v2; // rsi

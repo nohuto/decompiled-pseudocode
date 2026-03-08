@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcgrpSetSystemGroupAffinityThread @ 0x1C008A650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall ProcgrpSetSystemGroupAffinityThread(_GROUP_AFFINITY *NewAffinity, _GROUP_AFFINITY *PreviousAffinity)
 {
   unsigned __int64 Mask; // rdx

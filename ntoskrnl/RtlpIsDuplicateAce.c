@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpIsDuplicateAce @ 0x140699C50
+ * Callers:
+ *     RtlpGenerateInheritedAce @ 0x140699FA0 (RtlpGenerateInheritedAce.c)
+ * Callees:
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ *     RtlpCompareKnownObjectAces @ 0x1409B97E8 (RtlpCompareKnownObjectAces.c)
+ */
+
 char __fastcall RtlpIsDuplicateAce(__int64 a1, unsigned __int8 *a2)
 {
   unsigned __int8 v4; // cl

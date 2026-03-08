@@ -1,3 +1,18 @@
+/*
+ * XREFs of TtmiSessionTerminalListWorker @ 0x1409A82BC
+ * Callers:
+ *     TtmpSessionWorker @ 0x1409A2950 (TtmpSessionWorker.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     TtmiEvacuateDevices @ 0x14099FC34 (TtmiEvacuateDevices.c)
+ *     TtmiPurgeSessionPowerRequestEntries @ 0x1409A19B0 (TtmiPurgeSessionPowerRequestEntries.c)
+ *     TtmiUpdateActiveTerminalCount @ 0x1409A1DF0 (TtmiUpdateActiveTerminalCount.c)
+ *     TtmpDereferenceSessionMaybeLast @ 0x1409A228C (TtmpDereferenceSessionMaybeLast.c)
+ *     TtmiLogTerminalCleanup @ 0x1409A7078 (TtmiLogTerminalCleanup.c)
+ *     TtmpUpdateTerminalState @ 0x1409A8CC8 (TtmpUpdateTerminalState.c)
+ *     TtmpWriteDisplayStateChangedEvent @ 0x1409A8F04 (TtmpWriteDisplayStateChangedEvent.c)
+ */
+
 void __fastcall TtmiSessionTerminalListWorker(__int64 a1, char *a2, _BYTE *a3)
 {
   __int64 v3; // r15

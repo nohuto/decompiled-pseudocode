@@ -1,3 +1,18 @@
+/*
+ * XREFs of AuthzBasepDeleteSecurityAttribute @ 0x140297E80
+ * Callers:
+ *     AuthzBasepSetSecurityAttributesToken @ 0x14029705C (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepReplaceSecurityAttribute @ 0x140297E14 (AuthzBasepReplaceSecurityAttribute.c)
+ * Callees:
+ *     AuthzBasepFindSecurityAttribute @ 0x1402478D0 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepAddSecurityAttributeToLists @ 0x140297DC8 (AuthzBasepAddSecurityAttributeToLists.c)
+ *     AuthzBasepFreeSecurityAttributeValues @ 0x1402B87B0 (AuthzBasepFreeSecurityAttributeValues.c)
+ *     AuthzBasepDeleteAllSecurityAttributeValues @ 0x14066C504 (AuthzBasepDeleteAllSecurityAttributeValues.c)
+ *     AuthzBasepDeleteSecurityAttributeValues @ 0x14066C5AC (AuthzBasepDeleteSecurityAttributeValues.c)
+ *     AuthzBasepRemoveSecurityAttributeFromLists @ 0x14066C88C (AuthzBasepRemoveSecurityAttributeFromLists.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AuthzBasepDeleteSecurityAttribute(__int64 a1, __int64 a2)
 {
   int v3; // edi

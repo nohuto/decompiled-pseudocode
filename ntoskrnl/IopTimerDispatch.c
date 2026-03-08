@@ -1,3 +1,21 @@
+/*
+ * XREFs of IopTimerDispatch @ 0x1405538A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     EtwGetKernelTraceTimestamp @ 0x140250530 (EtwGetKernelTraceTimestamp.c)
+ *     EtwTraceTimedEvent @ 0x1402CD670 (EtwTraceTimedEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _local_unwind @ 0x1403D3990 (_local_unwind.c)
+ *     RtlpComputeEpilogueOffset @ 0x1403ED6A8 (RtlpComputeEpilogueOffset.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiCustomAccessRoutine1 @ 0x140422800 (KiCustomAccessRoutine1.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall IopTimerDispatch(__int64 a1, unsigned int *a2, __int64 a3, unsigned __int64 a4)
 {
   int v8; // r14d

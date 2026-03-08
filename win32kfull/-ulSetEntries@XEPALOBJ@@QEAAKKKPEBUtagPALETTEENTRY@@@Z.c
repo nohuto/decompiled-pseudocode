@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ulSetEntries@XEPALOBJ@@QEAAKKKPEBUtagPALETTEENTRY@@@Z @ 0x1C02DABC4
+ * Callers:
+ *     NtGdiColorCorrectPalette @ 0x1C02D0DA0 (NtGdiColorCorrectPalette.c)
+ *     GreSetPaletteEntries @ 0x1C02D3E00 (GreSetPaletteEntries.c)
+ * Callees:
+ *     ?vUpdateTime@XEPALOBJ@@QEAAXXZ @ 0x1C00D922C (-vUpdateTime@XEPALOBJ@@QEAAXXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0309288 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ */
+
 __int64 __fastcall XEPALOBJ::ulSetEntries(
         XEPALOBJ *this,
         unsigned int a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserSetMirrorRendering @ 0x1C01DD3A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreDisableMirrorRendering @ 0x1C02860A8 (GreDisableMirrorRendering.c)
+ *     GreEnableMirrorRendering @ 0x1C02861C4 (GreEnableMirrorRendering.c)
+ */
+
 __int64 __fastcall NtUserSetMirrorRendering(__int64 a1, int a2)
 {
   __int64 v4; // rax

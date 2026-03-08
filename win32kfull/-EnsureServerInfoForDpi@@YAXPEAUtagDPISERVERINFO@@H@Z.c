@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?EnsureServerInfoForDpi@@YAXPEAUtagDPISERVERINFO@@H@Z @ 0x1C01C02EC
+ * Callers:
+ *     GetDPIServerInfoForDpi @ 0x1C00A1E90 (GetDPIServerInfoForDpi.c)
+ * Callees:
+ *     DeleteMetricsFont @ 0x1C00B8050 (DeleteMetricsFont.c)
+ *     GreTextInitialized @ 0x1C010FB94 (GreTextInitialized.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     CreateScaledFont @ 0x1C01C05F8 (CreateScaledFont.c)
+ */
+
 void __fastcall EnsureServerInfoForDpi(struct tagDPISERVERINFO *a1, int a2)
 {
   __int64 v4; // rsi

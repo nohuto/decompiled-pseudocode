@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetChannelHandle@CAnimation@@UEAAIXZ @ 0x18021C450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CAnimation::GetChannelHandle(CAnimation *this)
 {
   __int64 v1; // rdx

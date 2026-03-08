@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiInitializeSystemCache @ 0x140858B28
+ * Callers:
+ *     MiLateInitializeSystemCache @ 0x1403A852C (MiLateInitializeSystemCache.c)
+ * Callees:
+ *     MiQuerySystemBase @ 0x1403030C4 (MiQuerySystemBase.c)
+ *     MiInitializeSystemWorkingSetList @ 0x140726074 (MiInitializeSystemWorkingSetList.c)
+ *     MiInitializeDynamicRegion @ 0x140B6B4DC (MiInitializeDynamicRegion.c)
+ */
+
 __int64 __fastcall MiInitializeSystemCache(__int64 a1)
 {
   _QWORD *v2; // rax

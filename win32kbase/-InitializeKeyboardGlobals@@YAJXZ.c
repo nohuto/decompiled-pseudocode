@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InitializeKeyboardGlobals@@YAJXZ @ 0x1C009737C
+ * Callers:
+ *     ?InitializeInputGlobals@@YAJXZ @ 0x1C0096E3C (-InitializeInputGlobals@@YAJXZ.c)
+ * Callees:
+ *     ApiSetEditionGetExecutionEvironment @ 0x1C009755C (ApiSetEditionGetExecutionEvironment.c)
+ */
+
 __int64 __fastcall InitializeKeyboardGlobals(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rax

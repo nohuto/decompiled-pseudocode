@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CTextObjectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025ED50
+ * Callers:
+ *     ?SetRemarshalingFlags@CCompositionGlyphRunMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025DF30 (-SetRemarshalingFlags@CCompositionGlyphRunMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CCompositionTextLineMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025DF70 (-SetRemarshalingFlags@CCompositionTextLineMarshaler@DirectComposition@@MEAA_NXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DirectComposition::CTextObjectMarshaler::SetRemarshalingFlags(
         DirectComposition::CTextObjectMarshaler *this)
 {

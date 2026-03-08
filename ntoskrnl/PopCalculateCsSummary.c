@@ -1,3 +1,25 @@
+/*
+ * XREFs of PopCalculateCsSummary @ 0x14058EE94
+ * Callers:
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     PpmConvertTime @ 0x140235D70 (PpmConvertTime.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopGetModernStandbyTransitionReason @ 0x1403C2A80 (PopGetModernStandbyTransitionReason.c)
+ *     PpmGetPlatformSelectionVetoCounts @ 0x1403C2AE8 (PpmGetPlatformSelectionVetoCounts.c)
+ *     PopCalculateIdleInformation @ 0x1403C2C3C (PopCalculateIdleInformation.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopCalculateTotalHwDripsResidency @ 0x14058F3F0 (PopCalculateTotalHwDripsResidency.c)
+ *     PopBatteryCapacityToRate @ 0x14059674C (PopBatteryCapacityToRate.c)
+ *     PopBatteryGetEnergyDrainFromDischage @ 0x140596770 (PopBatteryGetEnergyDrainFromDischage.c)
+ *     PopCurrentPowerState @ 0x14078F3D0 (PopCurrentPowerState.c)
+ *     PopQueryInputSuppressionCount @ 0x14079C78C (PopQueryInputSuppressionCount.c)
+ *     PopMeasureEnergyChange @ 0x1408560F8 (PopMeasureEnergyChange.c)
+ *     PopQueryPowerButtonSuppressionCount @ 0x140879AFC (PopQueryPowerButtonSuppressionCount.c)
+ */
+
 __int64 __fastcall PopCalculateCsSummary(__int64 a1, int a2)
 {
   __int64 InterruptTimePrecise; // rsi
@@ -75,14 +97,14 @@ __int64 __fastcall PopCalculateCsSummary(__int64 a1, int a2)
     v55 = 0;
   }
   v7 = PopMeasureEnergyChange(&v49, &CsSessionEnergyCounter);
-  v8 = HIDWORD(unk_140C3CB94);
-  if ( HIDWORD(unk_140C3CB94) )
-    LODWORD(v7) = (unsigned int)(100 * MEMORY[0x140C3CBA4]) / HIDWORD(unk_140C3CB94);
+  v8 = HIDWORD(xmmword_140C3CB94);
+  if ( HIDWORD(xmmword_140C3CB94) )
+    LODWORD(v7) = (unsigned int)(100 * xmmword_140C3CBA4) / HIDWORD(xmmword_140C3CB94);
   else
     LOBYTE(v7) = 0;
   v9 = 0;
-  if ( (unk_140C3CB94 & 0x40000000) == 0 )
-    v9 = MEMORY[0x140C3CBA4];
+  if ( (xmmword_140C3CB94 & 0x40000000) == 0 )
+    v9 = xmmword_140C3CBA4;
   v56 = v7;
   v43 = *((_QWORD *)&v50 + 1) - qword_140CF7890;
   v36 = v9;

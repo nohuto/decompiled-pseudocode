@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0DXGK_GAMMA_RAMP@@QEAA@XZ @ 0x1C00050E4
+ * Callers:
+ *     DxgkSetGammaRamp @ 0x1C02EDBA0 (DxgkSetGammaRamp.c)
+ * Callees:
+ *     <none>
+ */
+
 DXGK_GAMMA_RAMP *__fastcall DXGK_GAMMA_RAMP::DXGK_GAMMA_RAMP(DXGK_GAMMA_RAMP *this)
 {
   DXGK_GAMMA_RAMP *result; // rax

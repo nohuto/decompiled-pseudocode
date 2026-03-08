@@ -1,3 +1,17 @@
+/*
+ * XREFs of PiDrvDbQueryHiveFileName @ 0x14096DBF4
+ * Callers:
+ *     PiDrvDbMountNode @ 0x14096D0E0 (PiDrvDbMountNode.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _RegRtlQueryValue @ 0x1406D3E98 (_RegRtlQueryValue.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     ExFreePool @ 0x140AAB270 (ExFreePool.c)
+ */
+
 __int64 __fastcall PiDrvDbQueryHiveFileName(__int64 a1, UNICODE_STRING *a2)
 {
   int v4; // ebx

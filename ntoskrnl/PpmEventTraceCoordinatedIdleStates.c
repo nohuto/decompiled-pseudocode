@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmEventTraceCoordinatedIdleStates @ 0x140995CC8
+ * Callers:
+ *     PpmEventTraceControlCallback @ 0x140860AA0 (PpmEventTraceControlCallback.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void PpmEventTraceCoordinatedIdleStates()
 {
   __int64 v0; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserRedrawFrame @ 0x1C01D9EB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxSetWindowPos @ 0x1C0028F4C (xxxSetWindowPos.c)
+ */
+
 __int64 __fastcall NtUserRedrawFrame(__int64 a1)
 {
   __int64 v2; // rax

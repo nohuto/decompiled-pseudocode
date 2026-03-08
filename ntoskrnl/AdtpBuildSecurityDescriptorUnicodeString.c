@@ -1,3 +1,18 @@
+/*
+ * XREFs of AdtpBuildSecurityDescriptorUnicodeString @ 0x140A58320
+ * Callers:
+ *     AdtpPackageParameters @ 0x1403958B4 (AdtpPackageParameters.c)
+ *     AdtpBuildSecurityDescriptorChangeString @ 0x140A58254 (AdtpBuildSecurityDescriptorChangeString.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x1402C0D20 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
+ *     StringCchPrintfW @ 0x1402FAA78 (StringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AdtpBuildSecurityDescriptorUnicodeString(
         unsigned int a1,
         __int64 a2,

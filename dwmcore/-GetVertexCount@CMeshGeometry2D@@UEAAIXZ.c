@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetVertexCount@CMeshGeometry2D@@UEAAIXZ @ 0x1801300C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall CMeshGeometry2D::GetVertexCount(CMeshGeometry2D *this)
 {
   unsigned __int64 result; // rax

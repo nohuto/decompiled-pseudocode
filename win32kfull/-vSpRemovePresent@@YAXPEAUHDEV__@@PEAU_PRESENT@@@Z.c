@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vSpRemovePresent@@YAXPEAUHDEV__@@PEAU_PRESENT@@@Z @ 0x1C0284DE4
+ * Callers:
+ *     GreDeleteSpriteOverlapPresent @ 0x1C0034150 (GreDeleteSpriteOverlapPresent.c)
+ *     ?GreAddSpriteOverlapPresent@@YAHPEAUHDEV__@@PEAUHWND__@@@Z @ 0x1C027D564 (-GreAddSpriteOverlapPresent@@YAHPEAUHDEV__@@PEAUHWND__@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vSpRemovePresent(_QWORD *a1, struct _PRESENT *a2)
 {
   __int64 v2; // rax

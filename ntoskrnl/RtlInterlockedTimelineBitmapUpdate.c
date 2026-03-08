@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlInterlockedTimelineBitmapUpdate @ 0x140294BF4
+ * Callers:
+ *     PsUpdateComponentPower @ 0x140294B40 (PsUpdateComponentPower.c)
+ * Callees:
+ *     <none>
+ */
+
 signed __int64 __fastcall RtlInterlockedTimelineBitmapUpdate(volatile signed __int64 *a1, unsigned int a2)
 {
   signed __int64 result; // rax

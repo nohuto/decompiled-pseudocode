@@ -1,3 +1,11 @@
+/*
+ * XREFs of strlen @ 0x1403D5640
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 size_t __cdecl strlen(const char *Str)
 {
   const char *v1; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of xxxEnableScrollBar @ 0x1C00D4CD0
+ * Callers:
+ *     NtUserEnableScrollBar @ 0x1C00D4BD0 (NtUserEnableScrollBar.c)
+ *     xxxSBWndProc @ 0x1C022D770 (xxxSBWndProc.c)
+ * Callees:
+ *     xxxEnableWindow @ 0x1C000AE3C (xxxEnableWindow.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ *     ?xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z @ 0x1C00D4D10 (-xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z.c)
+ *     safe_cast_fnid_to_PSBWND @ 0x1C01BC260 (safe_cast_fnid_to_PSBWND.c)
+ */
+
 __int64 __fastcall xxxEnableScrollBar(struct tagWND *a1, unsigned int a2, unsigned int a3)
 {
   unsigned __int64 v3; // rdi

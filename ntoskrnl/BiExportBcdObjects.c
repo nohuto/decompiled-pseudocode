@@ -1,3 +1,16 @@
+/*
+ * XREFs of BiExportBcdObjects @ 0x140A5B800
+ * Callers:
+ *     BiExportStoreAlterationsToEfi @ 0x140A5BC98 (BiExportStoreAlterationsToEfi.c)
+ * Callees:
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiIsPortableWorkspaceBoot @ 0x140A5A244 (BiIsPortableWorkspaceBoot.c)
+ *     BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x140A5AB4C (BiAddBootEntryToEfiBootManagerDisplayOrder.c)
+ *     BiCreateEfiEntry @ 0x140A5B13C (BiCreateEfiEntry.c)
+ *     BiDeleteBootEntry @ 0x140A5B66C (BiDeleteBootEntry.c)
+ *     BiUpdateEfiEntry @ 0x140A5C248 (BiUpdateEfiEntry.c)
+ */
+
 __int64 __fastcall BiExportBcdObjects(__int64 a1, __int64 *a2)
 {
   __int64 v2; // rbx

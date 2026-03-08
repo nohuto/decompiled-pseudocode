@@ -1,3 +1,14 @@
+/*
+ * XREFs of _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0009270
+ * Callers:
+ *     AcpiDiagTraceAmliWatchdogTimeout @ 0x1C00079E8 (AcpiDiagTraceAmliWatchdogTimeout.c)
+ *     AcpiDiagTraceRecordAmlEvaluationStatistics @ 0x1C0008798 (AcpiDiagTraceRecordAmlEvaluationStatistics.c)
+ *     AcpiDiagTraceTemperatureTelemetry @ 0x1C00089D4 (AcpiDiagTraceTemperatureTelemetry.c)
+ *     IrqTraceAffinityPolicy @ 0x1C009FFC0 (IrqTraceAffinityPolicy.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall tlgWriteTransfer_EtwWriteTransfer(
         __int64 a1,
         unsigned __int8 *a2,

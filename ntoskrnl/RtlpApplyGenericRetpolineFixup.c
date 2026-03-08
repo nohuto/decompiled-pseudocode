@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlpApplyGenericRetpolineFixup @ 0x1402098E0
+ * Callers:
+ *     MiUpdateRetpolineImportFixups @ 0x1402097C0 (MiUpdateRetpolineImportFixups.c)
+ *     RtlApplyImportRelocationToPage @ 0x1402F6BE4 (RtlApplyImportRelocationToPage.c)
+ *     RtlUpdateImportRelocationsInImage @ 0x140370FC4 (RtlUpdateImportRelocationsInImage.c)
+ *     RtlApplyImportRelocationToImage @ 0x140677E00 (RtlApplyImportRelocationToImage.c)
+ *     RtlApplyIndirectRelocationToPage @ 0x140677EB4 (RtlApplyIndirectRelocationToPage.c)
+ *     RtlApplySwitchJumpRelocationToPage @ 0x140677F60 (RtlApplySwitchJumpRelocationToPage.c)
+ *     RtlPerformRetpolineRelocationsOnImageEx @ 0x14067804C (RtlPerformRetpolineRelocationsOnImageEx.c)
+ * Callees:
+ *     <none>
+ */
+
 _BYTE *__fastcall RtlpApplyGenericRetpolineFixup(unsigned __int64 a1, unsigned int a2, _WORD *a3, int a4)
 {
   __int64 v4; // rdi

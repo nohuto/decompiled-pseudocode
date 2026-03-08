@@ -1,3 +1,15 @@
+/*
+ * XREFs of vLinkEudcPFEs @ 0x1C011177C
+ * Callers:
+ *     bAddAllFlEntry @ 0x1C00B8F0C (bAddAllFlEntry.c)
+ *     bDeleteAllFlEntry @ 0x1C0116094 (bDeleteAllFlEntry.c)
+ *     GreEudcLoadLinkW @ 0x1C02A10C8 (GreEudcLoadLinkW.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??0DEVICE_PFTOBJ@@QEAA@XZ @ 0x1C00DF170 (--0DEVICE_PFTOBJ@@QEAA@XZ.c)
+ *     vLinkEudcPFEsWorker @ 0x1C0114EE8 (vLinkEudcPFEsWorker.c)
+ */
+
 void __fastcall vLinkEudcPFEs(Gre::Base *a1)
 {
   struct Gre::Base::SESSION_GLOBALS *v2; // rbx

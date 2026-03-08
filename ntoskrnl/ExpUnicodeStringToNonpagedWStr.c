@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpUnicodeStringToNonpagedWStr @ 0x14075D26C
+ * Callers:
+ *     ExGetFirmwareEnvironmentVariable @ 0x14075D1E0 (ExGetFirmwareEnvironmentVariable.c)
+ *     ExSetFirmwareEnvironmentVariable @ 0x1409F8BC0 (ExSetFirmwareEnvironmentVariable.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 _WORD *__fastcall ExpUnicodeStringToNonpagedWStr(const void **a1)
 {
   unsigned __int64 v1; // rdi

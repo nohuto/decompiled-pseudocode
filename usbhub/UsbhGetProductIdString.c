@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhGetProductIdString @ 0x1C00507E0
+ * Callers:
+ *     UsbhSetupDevice @ 0x1C0039728 (UsbhSetupDevice.c)
+ *     UsbhPdoPnp_QueryDeviceText @ 0x1C0055540 (UsbhPdoPnp_QueryDeviceText.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhFreeID @ 0x1C00503BC (UsbhFreeID.c)
+ *     UsbhLanguageSupported @ 0x1C0050C20 (UsbhLanguageSupported.c)
+ *     UsbhValidateStringDescriptor @ 0x1C00530B4 (UsbhValidateStringDescriptor.c)
+ *     UsbhGetStringFromDevice @ 0x1C0054830 (UsbhGetStringFromDevice.c)
+ */
+
 __int64 __fastcall UsbhGetProductIdString(__int64 a1, __int64 a2, unsigned __int16 a3, __int64 a4)
 {
   __int64 v8; // rcx

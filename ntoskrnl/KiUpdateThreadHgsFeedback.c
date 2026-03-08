@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiUpdateThreadHgsFeedback @ 0x140576260
+ * Callers:
+ *     KiRetireDpcList @ 0x1402521E0 (KiRetireDpcList.c)
+ *     KiEndThreadAccountingPeriodEx @ 0x140256710 (KiEndThreadAccountingPeriodEx.c)
+ *     KiSwapThread @ 0x14025F500 (KiSwapThread.c)
+ * Callees:
+ *     KiIsPrcbThread @ 0x1402AEFCC (KiIsPrcbThread.c)
+ *     KiRequestSoftwareInterrupt @ 0x1402B7A24 (KiRequestSoftwareInterrupt.c)
+ *     KiEvaluateHgsClassChange @ 0x140574B80 (KiEvaluateHgsClassChange.c)
+ *     EtwTraceThreadFeedbackRead @ 0x1405FB260 (EtwTraceThreadFeedbackRead.c)
+ *     EtwTraceWorkloadClassUpdate @ 0x1405FB364 (EtwTraceWorkloadClassUpdate.c)
+ */
+
 char __fastcall KiUpdateThreadHgsFeedback(struct _KPRCB *a1, __int64 a2, __int64 a3, char a4)
 {
   _UNKNOWN **v4; // rax

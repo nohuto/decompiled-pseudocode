@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ModesFromEstablishedTimings@EDID_MODES@MonDescParser@@QEAAJ_KPEAU_VideoModeDescriptor@@@Z @ 0x1C001D82C
+ * Callers:
+ *     ?ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z @ 0x1C001DE50 (-ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MonDescParser::EDID_MODES::ModesFromEstablishedTimings(
         MonDescParser::EDID_MODES *this,
         unsigned __int64 a2,

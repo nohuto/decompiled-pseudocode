@@ -1,3 +1,13 @@
+/*
+ * XREFs of SmcProcessStoreDeleteRequest @ 0x1409D5818
+ * Callers:
+ *     SmSetStoreInformation @ 0x1407990D4 (SmSetStoreInformation.c)
+ * Callees:
+ *     SmpGetProcessPartition @ 0x14029622C (SmpGetProcessPartition.c)
+ *     SmcStoreDelete @ 0x1409D86C8 (SmcStoreDelete.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall SmcProcessStoreDeleteRequest(__int128 *a1, int a2, char a3)
 {
   __int64 ProcessPartition; // rax

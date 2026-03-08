@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIValidateStringVendorDeviceIdFormat @ 0x1C0098A2C
+ * Callers:
+ *     ACPIBusIrpQueryCompatibleId @ 0x1C007EE84 (ACPIBusIrpQueryCompatibleId.c)
+ *     ACPIBusIrpQueryDeviceId @ 0x1C007F574 (ACPIBusIrpQueryDeviceId.c)
+ *     ACPIBusIrpQueryHardwareId @ 0x1C007FC3C (ACPIBusIrpQueryHardwareId.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall ACPIValidateStringVendorDeviceIdFormat(__int64 a1, unsigned __int64 a2)
 {
   unsigned __int16 v3; // r8

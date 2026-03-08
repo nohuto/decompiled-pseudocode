@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPSM30_StartingTimerForAllowingReconnect @ 0x1C0012C20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBPSM30_StartingTimerForAllowingReconnect(__int64 a1)
 {
   __int64 v1; // rax

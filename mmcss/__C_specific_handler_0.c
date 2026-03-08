@@ -1,3 +1,11 @@
+/*
+ * XREFs of __C_specific_handler_0 @ 0x1C000309D
+ * Callers:
+ *     __GSHandlerCheck_SEH @ 0x1C00032D4 (__GSHandlerCheck_SEH.c)
+ * Callees:
+ *     <none>
+ */
+
 // attributes: thunk
 EXCEPTION_DISPOSITION __cdecl _C_specific_handler_0(
         struct _EXCEPTION_RECORD *ExceptionRecord,

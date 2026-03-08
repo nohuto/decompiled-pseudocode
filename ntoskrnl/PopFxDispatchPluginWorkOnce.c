@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopFxDispatchPluginWorkOnce @ 0x14030541C
+ * Callers:
+ *     PopFxProcessWorkPool @ 0x140351514 (PopFxProcessWorkPool.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxEnableWorkOrderWatchdog @ 0x140305580 (PopFxEnableWorkOrderWatchdog.c)
+ *     PopFxDisableWorkOrderWatchdog @ 0x140305680 (PopFxDisableWorkOrderWatchdog.c)
+ *     PopPepWork @ 0x140305714 (PopPepWork.c)
+ *     PopFxProcessWork @ 0x1403060C4 (PopFxProcessWork.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ */
+
 __int64 __fastcall PopFxDispatchPluginWorkOnce(ULONG_PTR BugCheckParameter3, unsigned int a2)
 {
   bool v4; // zf

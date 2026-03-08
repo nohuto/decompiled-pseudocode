@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiAllocateFromSubAllocatedRegion @ 0x1406A3620
+ * Callers:
+ *     MiCreatePebOrTeb @ 0x1406A35BC (MiCreatePebOrTeb.c)
+ * Callees:
+ *     RtlFindClearBitsAndSetEx @ 0x14020C1E0 (RtlFindClearBitsAndSetEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     MiVadDeleted @ 0x14031F750 (MiVadDeleted.c)
+ *     MiReferenceVad @ 0x14031F794 (MiReferenceVad.c)
+ *     MiCommitExistingVad @ 0x140320D70 (MiCommitExistingVad.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14034C380 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14034CA58 (LOCK_ADDRESS_SPACE.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x14034CCF4 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14034CD5C (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiLockVad @ 0x14034CF60 (MiLockVad.c)
+ *     MiFreeToSubAllocatedRegion @ 0x1406A5278 (MiFreeToSubAllocatedRegion.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140756084 (MiAllocateNewSubAllocatedRegion.c)
+ */
+
 __int64 __fastcall MiAllocateFromSubAllocatedRegion(int a1, __int64 a2, unsigned __int64 *a3, __int64 a4)
 {
   __int64 v4; // rdi

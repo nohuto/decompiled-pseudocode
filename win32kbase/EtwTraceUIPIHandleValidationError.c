@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwTraceUIPIHandleValidationError @ 0x1C003CC40
+ * Callers:
+ *     ValidateHwndEx @ 0x1C003E310 (ValidateHwndEx.c)
+ *     ValidateHandleSecure @ 0x1C0077D40 (ValidateHandleSecure.c)
+ *     ??0CHMRefHwndByHandle@@QEAA@PEAUHWND__@@_N111@Z @ 0x1C008F460 (--0CHMRefHwndByHandle@@QEAA@PEAUHWND__@@_N111@Z.c)
+ * Callees:
+ *     ?EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@KPEAUtagTHREADINFO@@PEBUtagPROCESSINFO@@PEBU3@2@Z @ 0x1C003CD2C (-EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@.c)
+ *     WPP_RECORDER_AND_TRACE_SF_DDqq @ 0x1C003CDFC (WPP_RECORDER_AND_TRACE_SF_DDqq.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     McTemplateK0nxqq_EtwWriteTransfer @ 0x1C0165A0C (McTemplateK0nxqq_EtwWriteTransfer.c)
+ */
+
 _UNKNOWN **__fastcall EtwTraceUIPIHandleValidationError(
         struct tagPROCESSINFO *a1,
         const struct tagPROCESSINFO *a2,

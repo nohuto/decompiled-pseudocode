@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?GeneratePointerMessageFromMouse@@YAHPEAUtagQMSG@@I0PEAUtagWND@@H@Z @ 0x1C01433FC
+ * Callers:
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00725D0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ * Callees:
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?MiPConvertPoint@@YA?AUtagPOINT@@PEBU1@@Z @ 0x1C0143940 (-MiPConvertPoint@@YA-AUtagPOINT@@PEBU1@@Z.c)
+ *     ?RefreshMiPIdleNotificationTimer@@YAXPEAUtagWND@@@Z @ 0x1C01439F8 (-RefreshMiPIdleNotificationTimer@@YAXPEAUtagWND@@@Z.c)
+ *     ?StopMiPIdleNotificationTimer@@YAXPEAUtagWND@@@Z @ 0x1C01B6DDC (-StopMiPIdleNotificationTimer@@YAXPEAUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall GeneratePointerMessageFromMouse(
         struct tagQMSG *a1,
         unsigned int a2,

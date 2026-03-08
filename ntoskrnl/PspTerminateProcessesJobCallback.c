@@ -1,3 +1,16 @@
+/*
+ * XREFs of PspTerminateProcessesJobCallback @ 0x1406F8A00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsIsServerSilo @ 0x140294E20 (PsIsServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     PspGetNextJobProcess @ 0x1406F90E0 (PspGetNextJobProcess.c)
+ *     PspRemoveProcessFromJobChain @ 0x1406FB110 (PspRemoveProcessFromJobChain.c)
+ *     PspCompleteServerSiloShutdown @ 0x1409A9AC8 (PspCompleteServerSiloShutdown.c)
+ *     PspMarkServerSiloAsTerminating @ 0x1409B12C8 (PspMarkServerSiloAsTerminating.c)
+ */
+
 __int64 __fastcall PspTerminateProcessesJobCallback(__int64 a1, __int64 a2)
 {
   int *v4; // rdx

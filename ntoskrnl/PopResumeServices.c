@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopResumeServices @ 0x1409874AC
+ * Callers:
+ *     PopIssueActionRequest @ 0x140986CA4 (PopIssueActionRequest.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     PopDiagTraceEventNoPayload @ 0x1402FBBF8 (PopDiagTraceEventNoPayload.c)
+ *     PopDispatchStateCallout @ 0x14067F6E8 (PopDispatchStateCallout.c)
+ *     PopCheckpointSystemSleep @ 0x140AA7378 (PopCheckpointSystemSleep.c)
+ */
+
 __int64 __fastcall PopResumeServices(_DWORD *a1)
 {
   int v3; // [rsp+38h] [rbp+10h] BYREF

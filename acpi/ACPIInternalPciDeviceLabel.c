@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIInternalPciDeviceLabel @ 0x1C0088180
+ * Callers:
+ *     AcpiQueryPciDeviceChassisLabel @ 0x1C0089EB4 (AcpiQueryPciDeviceChassisLabel.c)
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall ACPIInternalPciDeviceLabel(__int64 a1, __int64 a2)
 {
   int result; // eax

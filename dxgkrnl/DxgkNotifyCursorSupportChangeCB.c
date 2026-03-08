@@ -1,3 +1,13 @@
+/*
+ * XREFs of DxgkNotifyCursorSupportChangeCB @ 0x1C0335D00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z @ 0x1C0001D60 (-IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z.c)
+ *     DpiGetDxgAdapter @ 0x1C000E550 (DpiGetDxgAdapter.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall DxgkNotifyCursorSupportChangeCB(__int64 *a1)
 {
   __int64 DxgAdapter; // rax

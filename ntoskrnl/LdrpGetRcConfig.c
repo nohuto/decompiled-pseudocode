@@ -1,3 +1,16 @@
+/*
+ * XREFs of LdrpGetRcConfig @ 0x14035CDC4
+ * Callers:
+ *     LdrIsResItemExist @ 0x14035CD44 (LdrIsResItemExist.c)
+ *     LdrpVerifyAlternateResourceModuleEx @ 0x1403A7A78 (LdrpVerifyAlternateResourceModuleEx.c)
+ * Callees:
+ *     LdrpGetFromMUIMemCache @ 0x14035D974 (LdrpGetFromMUIMemCache.c)
+ *     LdrpSetAlternateResourceModuleHandle @ 0x14039D7D4 (LdrpSetAlternateResourceModuleHandle.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     LdrpSearchResourceSection_U @ 0x1407E9958 (LdrpSearchResourceSection_U.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x1407EA480 (LdrpAccessResourceDataNoMultipleLanguage.c)
+ */
+
 _DWORD *__fastcall LdrpGetRcConfig(__int64 a1, __int64 a2, char a3, char a4)
 {
   int v4; // esi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of RIMDirectPnpRemoveDevicesOfType @ 0x1C002F1B0
+ * Callers:
+ *     ?OnRemoteCloseNotification@CBaseInput@@AEAAJXZ @ 0x1C002F130 (-OnRemoteCloseNotification@CBaseInput@@AEAAJXZ.c)
+ * Callees:
+ *     rimOnPnpRemoveComplete @ 0x1C0030730 (rimOnPnpRemoveComplete.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     RawInputManagerObjectResolveHandle @ 0x1C0039E60 (RawInputManagerObjectResolveHandle.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 __int64 __fastcall RIMDirectPnpRemoveDevicesOfType(__int64 a1, int a2)
 {
   int v2; // r14d

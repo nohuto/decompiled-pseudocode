@@ -1,3 +1,12 @@
+/*
+ * XREFs of ObpPostInterceptHandleDuplicate @ 0x1408A0EBC
+ * Callers:
+ *     ObDuplicateObject @ 0x1406ED5C0 (ObDuplicateObject.c)
+ *     ObCompleteObjectDuplication @ 0x14071134C (ObCompleteObjectDuplication.c)
+ * Callees:
+ *     ObpCallPostOperationCallbacks @ 0x1408A0D82 (ObpCallPostOperationCallbacks.c)
+ */
+
 __int64 __fastcall ObpPostInterceptHandleDuplicate(__int64 a1, char a2, int a3, int a4, _QWORD *a5)
 {
   unsigned __int64 v5; // rcx

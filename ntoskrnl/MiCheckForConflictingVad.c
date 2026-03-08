@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiCheckForConflictingVad @ 0x14034C30C
+ * Callers:
+ *     MiLocateLowestConflictingVad @ 0x1402A6F9C (MiLocateLowestConflictingVad.c)
+ *     MiCheckForConflictingVadExistence @ 0x14034C2EC (MiCheckForConflictingVadExistence.c)
+ *     MmGetImageInformation @ 0x14077582C (MmGetImageInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 **__fastcall MiCheckForConflictingVad(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   __int64 **v3; // r9

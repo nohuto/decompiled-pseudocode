@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?pvFile@RFONTOBJ@@QEAAPEAXPEAK@Z @ 0x1C02B9790
+ * Callers:
+ *     FONTOBJ_pvTrueTypeFontFile @ 0x1C029B100 (FONTOBJ_pvTrueTypeFontFile.c)
+ * Callees:
+ *     ?pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z @ 0x1C02B9424 (-pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z.c)
+ *     ?GetTrueTypeFile@PFFOBJ@@QEAAPEAX_KPEAK@Z @ 0x1C02E3048 (-GetTrueTypeFile@PFFOBJ@@QEAAPEAX_KPEAK@Z.c)
+ */
+
 char *__fastcall RFONTOBJ::pvFile(RFONTOBJ *this, unsigned int *a2)
 {
   __int64 v2; // rax

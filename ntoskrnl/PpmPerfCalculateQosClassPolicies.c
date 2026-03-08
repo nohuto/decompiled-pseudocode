@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmPerfCalculateQosClassPolicies @ 0x1402D2278
+ * Callers:
+ *     PpmPerfUpdateDomainPolicy @ 0x14075DE18 (PpmPerfUpdateDomainPolicy.c)
+ * Callees:
+ *     PpmGetPerfPolicyClass @ 0x140235B9C (PpmGetPerfPolicyClass.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     PpmEventQosClassPolicyV1 @ 0x14067CAF0 (PpmEventQosClassPolicyV1.c)
+ */
+
 char __fastcall PpmPerfCalculateQosClassPolicies(__int64 a1)
 {
   char v1; // r12

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?HeuristicallyDetermineViewingDistance@Win81@@YAIAEBUtagSIZE@@H0H@Z @ 0x1C031C960
+ * Callers:
+ *     ?DetermineViewDistance@Win81@@YA_NQEAXAEBUtagSIZE@@H1HPEAI@Z @ 0x1C031C49C (-DetermineViewDistance@Win81@@YA_NQEAXAEBUtagSIZE@@H1HPEAI@Z.c)
+ * Callees:
+ *     ?IsNativeResolutionOnlyTVTiming@Win81@@YAHUtagSIZE@@H@Z @ 0x1C031CAE8 (-IsNativeResolutionOnlyTVTiming@Win81@@YAHUtagSIZE@@H@Z.c)
+ *     ?IsNetbookResolution@Win81@@YAHUtagSIZE@@@Z @ 0x1C031CB50 (-IsNetbookResolution@Win81@@YAHUtagSIZE@@@Z.c)
+ */
+
 __int64 __fastcall Win81::HeuristicallyDetermineViewingDistance(
         Win81 *this,
         const struct tagSIZE *a2,

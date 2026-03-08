@@ -1,3 +1,13 @@
+/*
+ * XREFs of ObEnumerateObjectsByType @ 0x140978854
+ * Callers:
+ *     IovUnloadDrivers @ 0x140ABE7F0 (IovUnloadDrivers.c)
+ * Callees:
+ *     ObpCreateTypeArray @ 0x140978F7C (ObpCreateTypeArray.c)
+ *     ObpDestroyTypeArray @ 0x140979084 (ObpDestroyTypeArray.c)
+ *     IovpBuildDriverObjectList @ 0x140ABE8F8 (IovpBuildDriverObjectList.c)
+ */
+
 __int64 ObEnumerateObjectsByType()
 {
   unsigned int v0; // ebx

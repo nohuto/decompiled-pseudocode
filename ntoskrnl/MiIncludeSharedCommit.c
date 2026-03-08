@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiIncludeSharedCommit @ 0x14034C990
+ * Callers:
+ *     MiReleaseControlAreaCharges @ 0x14034C8D8 (MiReleaseControlAreaCharges.c)
+ *     MiInsertSharedCommitNode @ 0x1407D63F0 (MiInsertSharedCommitNode.c)
+ *     MiRemoveSharedCommitNode @ 0x1407D6770 (MiRemoveSharedCommitNode.c)
+ *     MiUpdateProcessSharedCommit @ 0x1407F18F0 (MiUpdateProcessSharedCommit.c)
+ *     MiVadHasSharedCommit @ 0x140A41134 (MiVadHasSharedCommit.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiIncludeSharedCommit(__int64 a1)
 {
   int v1; // eax

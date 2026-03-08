@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HasEnded@CAnimationMarshaler@DirectComposition@@QEAA_N_KPEAM@Z @ 0x1C005E234
+ * Callers:
+ *     ?RemoveExpiredAnimations@CApplicationChannel@DirectComposition@@IEAAXXZ @ 0x1C00617B8 (-RemoveExpiredAnimations@CApplicationChannel@DirectComposition@@IEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CAnimationMarshaler::HasEnded(
         DirectComposition::CAnimationMarshaler *this,
         unsigned __int64 a2,

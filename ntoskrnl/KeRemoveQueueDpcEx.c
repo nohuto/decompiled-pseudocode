@@ -1,3 +1,29 @@
+/*
+ * XREFs of KeRemoveQueueDpcEx @ 0x14028DB50
+ * Callers:
+ *     KeRemoveQueueDpc @ 0x14028DB30 (KeRemoveQueueDpc.c)
+ *     EtwpCancelPendingStackWalkApcs @ 0x14028E24C (EtwpCancelPendingStackWalkApcs.c)
+ *     EtwpFreeCompression @ 0x14028E2C4 (EtwpFreeCompression.c)
+ *     KeMaskInterrupt @ 0x14028E5A8 (KeMaskInterrupt.c)
+ *     ExpCancelTimer @ 0x1402CE3BC (ExpCancelTimer.c)
+ *     KiCheckAndRearmForceIdle @ 0x1403026FC (KiCheckAndRearmForceIdle.c)
+ *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x14057833C (KiBugCheckRecoveryFreezeOtherProcessors.c)
+ *     KeClearForceIdle @ 0x14057A720 (KeClearForceIdle.c)
+ *     DifKeRemoveQueueDpcWrapper @ 0x1405E3120 (DifKeRemoveQueueDpcWrapper.c)
+ *     VfWdCheckForSettingsChange @ 0x140ADB034 (VfWdCheckForSettingsChange.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KeGenericProcessorCallback @ 0x1402A9E48 (KeGenericProcessorCallback.c)
+ *     KiGetDeepIdleProcessors @ 0x1402AF0A0 (KiGetDeepIdleProcessors.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireReleaseDpcData @ 0x14057A058 (KiAcquireReleaseDpcData.c)
+ */
+
 char __fastcall KeRemoveQueueDpcEx(__int64 a1, char a2)
 {
   __int16 v4; // si

@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcGetPartitionFromFileObject @ 0x140243818
+ * Callers:
+ *     CcZeroData @ 0x140243410 (CcZeroData.c)
+ *     CcDeferWrite @ 0x140535060 (CcDeferWrite.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CcGetPartitionFromFileObject(__int64 a1)
 {
   __int64 v1; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InternalQueryInterface@?$CMILCOMBaseT@VIBitmapLock@@@@IEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18027EBD8
+ * Callers:
+ *     ?QueryInterface@CBitmapLock@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18027EC80 (-QueryInterface@CBitmapLock@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CMILCOMBaseT<IBitmapLock>::InternalQueryInterface(_QWORD *a1, _QWORD *a2, __int64 *a3)
 {
   int v5; // esi

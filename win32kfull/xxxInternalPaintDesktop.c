@@ -1,3 +1,16 @@
+/*
+ * XREFs of xxxInternalPaintDesktop @ 0x1C00F9338
+ * Callers:
+ *     xxxDWP_EraseBkgnd @ 0x1C00A4F54 (xxxDWP_EraseBkgnd.c)
+ *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C00FA1BC (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
+ *     ?xxxRedrawHungWindow@@YAXPEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C0149E06 (-xxxRedrawHungWindow@@YAXPEAUtagWND@@PEAUHRGN__@@@Z.c)
+ *     xxxRealizeDesktop @ 0x1C01BFDAC (xxxRealizeDesktop.c)
+ *     NtUserPaintDesktop @ 0x1C01D8F80 (NtUserPaintDesktop.c)
+ * Callees:
+ *     GreOffsetClipRgn @ 0x1C00F94D4 (GreOffsetClipRgn.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall xxxInternalPaintDesktop(__int64 a1, HDC a2, int a3)
 {
   unsigned int v3; // ebx

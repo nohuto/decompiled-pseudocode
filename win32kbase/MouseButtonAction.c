@@ -1,3 +1,12 @@
+/*
+ * XREFs of MouseButtonAction @ 0x1C0218130
+ * Callers:
+ *     ?xxxMKButtonSetState@@YAHG@Z @ 0x1C01E4B80 (-xxxMKButtonSetState@@YAHG@Z.c)
+ * Callees:
+ *     _anonymous_namespace_::GetMouseProcessor @ 0x1C0079E3C (_anonymous_namespace_--GetMouseProcessor.c)
+ *     ?AccessibilityMouseButtonAction@CMouseProcessor@@QEAAXW4MouseKeyButton@@W4MouseKeyButtonState@@@Z @ 0x1C022AC34 (-AccessibilityMouseButtonAction@CMouseProcessor@@QEAAXW4MouseKeyButton@@W4MouseKeyButtonState@@@.c)
+ */
+
 __int64 __fastcall MouseButtonAction(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of bInitBMOBJ @ 0x1C031FEE0
+ * Callers:
+ *     InitializeGre @ 0x1C031D988 (InitializeGre.c)
+ * Callees:
+ *     ?bSetStockObject@@YAHPEAXHH@Z @ 0x1C001D100 (-bSetStockObject@@YAHPEAXHH@Z.c)
+ *     HmgDecrementShareReferenceCountEx @ 0x1C00483B0 (HmgDecrementShareReferenceCountEx.c)
+ *     HmgShareLockCheck @ 0x1C0049E60 (HmgShareLockCheck.c)
+ *     HmgSetOwner @ 0x1C00522C0 (HmgSetOwner.c)
+ *     GreCreateBitmap @ 0x1C005A690 (GreCreateBitmap.c)
+ */
+
 __int64 __fastcall bInitBMOBJ(__int64 a1)
 {
   unsigned int v1; // edi

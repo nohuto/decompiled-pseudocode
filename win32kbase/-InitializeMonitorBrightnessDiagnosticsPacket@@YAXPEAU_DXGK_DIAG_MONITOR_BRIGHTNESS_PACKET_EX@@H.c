@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?InitializeMonitorBrightnessDiagnosticsPacket@@YAXPEAU_DXGK_DIAG_MONITOR_BRIGHTNESS_PACKET_EX@@H@Z @ 0x1C00D0C0C
+ * Callers:
+ *     PowerDimUndimResend @ 0x1C00108AC (PowerDimUndimResend.c)
+ *     PowerUnDimMonitor @ 0x1C0086A40 (PowerUnDimMonitor.c)
+ *     PowerDimMonitor @ 0x1C015B728 (PowerDimMonitor.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall InitializeMonitorBrightnessDiagnosticsPacket(
         struct _DXGK_DIAG_MONITOR_BRIGHTNESS_PACKET_EX *a1,
         char a2)

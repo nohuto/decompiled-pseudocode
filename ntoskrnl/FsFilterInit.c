@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsFilterInit @ 0x1403A3F60
+ * Callers:
+ *     FsRtlInitSystem @ 0x140B65B14 (FsRtlInitSystem.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 FsFilterInit()
 {
   unsigned int v0; // ebx

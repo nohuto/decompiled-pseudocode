@@ -1,3 +1,18 @@
+/*
+ * XREFs of IopSetLockOperationProcess @ 0x14023ED48
+ * Callers:
+ *     NtLockFile @ 0x1406B1EB0 (NtLockFile.c)
+ *     IopCloseFile @ 0x1407BACE0 (IopCloseFile.c)
+ * Callees:
+ *     IopGetSetSpecificExtension @ 0x14023EA58 (IopGetSetSpecificExtension.c)
+ *     IopGetFileObjectExtension @ 0x14023EB8C (IopGetFileObjectExtension.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopSetLockOperationProcess(__int64 a1, __int64 a2, char a3)
 {
   _QWORD *v3; // rbx

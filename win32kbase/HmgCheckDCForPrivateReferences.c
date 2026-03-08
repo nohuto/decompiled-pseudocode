@@ -1,3 +1,17 @@
+/*
+ * XREFs of HmgCheckDCForPrivateReferences @ 0x1C0185D28
+ * Callers:
+ *     ?vCleanupDCs@@YAXK@Z @ 0x1C006F338 (-vCleanupDCs@@YAXK@Z.c)
+ * Callees:
+ *     ?prgnRao@DC@@QEBAPEAVREGION@@XZ @ 0x1C001ADA0 (-prgnRao@DC@@QEBAPEAVREGION@@XZ.c)
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     HmgIsObjectOwnedByW32Pid @ 0x1C00A726C (HmgIsObjectOwnedByW32Pid.c)
+ *     Feature_439792958__private_IsEnabledDeviceUsage @ 0x1C00DC850 (Feature_439792958__private_IsEnabledDeviceUsage.c)
+ *     ??0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z @ 0x1C017F2E4 (--0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z.c)
+ *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C017F36C (--1XEPATHOBJ@@QEAA@XZ.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@33@Z @ 0x1C0185A30 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@U1@U1@@-$_tlgWriteTemplate@$$A6AJPEBU.c)
+ */
+
 __int64 __fastcall HmgCheckDCForPrivateReferences(struct OBJECT **this, unsigned int a2)
 {
   struct OBJECT *v4; // rax

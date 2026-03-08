@@ -1,3 +1,34 @@
+/*
+ * XREFs of Controller_InternalReset @ 0x1C0033D04
+ * Callers:
+ *     Controller_InitiateBootRecovery @ 0x1C0033900 (Controller_InitiateBootRecovery.c)
+ *     Controller_InitiateRecovery @ 0x1C0033990 (Controller_InitiateRecovery.c)
+ *     Controller_UcxEvtReset @ 0x1C0035A70 (Controller_UcxEvtReset.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     DynamicLock_Acquire @ 0x1C000A918 (DynamicLock_Acquire.c)
+ *     DynamicLock_Release @ 0x1C000A958 (DynamicLock_Release.c)
+ *     CommonBuffer_FlushWorkItems @ 0x1C000ED94 (CommonBuffer_FlushWorkItems.c)
+ *     Register_ControllerStop @ 0x1C000EEB0 (Register_ControllerStop.c)
+ *     Controller_Start @ 0x1C0014F3C (Controller_Start.c)
+ *     RootHub_D0Entry @ 0x1C0015520 (RootHub_D0Entry.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     Register_ControllerReset @ 0x1C0018518 (Register_ControllerReset.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Command_ControllerResetPostReset @ 0x1C002F8B4 (Command_ControllerResetPostReset.c)
+ *     Command_ControllerResetPostResetSuccess @ 0x1C002FA7C (Command_ControllerResetPostResetSuccess.c)
+ *     Command_FailAllCommands @ 0x1C002FB48 (Command_FailAllCommands.c)
+ *     Controller_DisableController @ 0x1C003314C (Controller_DisableController.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C0036BDC (McTemplateK0p_EtwWriteTransfer.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0036E80 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     DeviceSlot_ControllerResetPostReset @ 0x1C0037BD0 (DeviceSlot_ControllerResetPostReset.c)
+ *     DeviceSlot_ControllerResetPreReset @ 0x1C0037C6C (DeviceSlot_ControllerResetPreReset.c)
+ *     Interrupter_ControllerResetPostReset @ 0x1C003DC84 (Interrupter_ControllerResetPostReset.c)
+ *     Interrupter_FlushPendingDpcOrWorkItemPreReset @ 0x1C003DF10 (Interrupter_FlushPendingDpcOrWorkItemPreReset.c)
+ */
+
 __int64 __fastcall Controller_InternalReset(__int64 a1, __int64 a2, __int64 a3)
 {
   int v4; // esi

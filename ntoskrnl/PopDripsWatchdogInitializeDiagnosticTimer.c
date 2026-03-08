@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopDripsWatchdogInitializeDiagnosticTimer @ 0x140B93794
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     PopInitializeTimer @ 0x14084747C (PopInitializeTimer.c)
+ */
+
 __int64 PopDripsWatchdogInitializeDiagnosticTimer()
 {
   if ( PopDripsWatchdogTimeout )

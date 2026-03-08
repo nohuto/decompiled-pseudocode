@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetDigitFromChar @ 0x1409D0648
+ * Callers:
+ *     GetOperandValue @ 0x1409D07DC (GetOperandValue.c)
+ *     LocalGetRelativeAttributeForString @ 0x1409D2214 (LocalGetRelativeAttributeForString.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall GetDigitFromChar(unsigned __int16 a1, _BYTE *a2)
 {
   char v2; // cl

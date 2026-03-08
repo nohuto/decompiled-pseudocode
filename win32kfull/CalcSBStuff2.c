@@ -1,3 +1,14 @@
+/*
+ * XREFs of CalcSBStuff2 @ 0x1C00DA144
+ * Callers:
+ *     xxxGetScrollBarInfo @ 0x1C00D9CEC (xxxGetScrollBarInfo.c)
+ *     CalcSBStuff @ 0x1C00D9FC8 (CalcSBStuff.c)
+ *     SBCtlSetup @ 0x1C022CC24 (SBCtlSetup.c)
+ * Callees:
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ */
+
 INT __fastcall CalcSBStuff2(int *a1, int *a2, int *a3, int a4)
 {
   int *v4; // rax

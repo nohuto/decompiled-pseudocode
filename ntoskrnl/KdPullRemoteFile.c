@@ -1,3 +1,12 @@
+/*
+ * XREFs of KdPullRemoteFile @ 0x140AADD28
+ * Callers:
+ *     MiCreateSectionForDriver @ 0x1407F5C64 (MiCreateSectionForDriver.c)
+ *     ExpKdPullRemoteFileForUser @ 0x14084C910 (ExpKdPullRemoteFileForUser.c)
+ * Callees:
+ *     KdPullRemoteFileEx @ 0x140AADD80 (KdPullRemoteFileEx.c)
+ */
+
 __int64 __fastcall KdPullRemoteFile(int a1)
 {
   _DWORD v2[3]; // [rsp+30h] [rbp-28h] BYREF

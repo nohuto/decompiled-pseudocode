@@ -1,3 +1,11 @@
+/*
+ * XREFs of DifCreateAPIThunkContext @ 0x1405D277C
+ * Callers:
+ *     DifRegisterPlugin @ 0x1405D2C50 (DifRegisterPlugin.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall DifCreateAPIThunkContext(__int64 a1, int a2, int a3)
 {
   __int64 result; // rax

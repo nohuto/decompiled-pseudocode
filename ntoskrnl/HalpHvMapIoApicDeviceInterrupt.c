@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpHvMapIoApicDeviceInterrupt @ 0x140A84310
+ * Callers:
+ *     HalpInterruptEnableNmi @ 0x140378254 (HalpInterruptEnableNmi.c)
+ *     HalpInterruptRemap @ 0x140378D78 (HalpInterruptRemap.c)
+ *     HalpInterruptRemapFixedLines @ 0x1403A9F64 (HalpInterruptRemapFixedLines.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpHvMapIoApicDeviceInterrupt(char a1, __int64 a2, __int64 a3)
 {
   int v4; // ecx

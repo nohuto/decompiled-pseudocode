@@ -1,3 +1,18 @@
+/*
+ * XREFs of DpiFdoEnumChildDevices @ 0x1C02088D0
+ * Callers:
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C000A240 (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DxgkDWCloneCheckTargetID @ 0x1C0208C2C (DxgkDWCloneCheckTargetID.c)
+ *     DpiFdoCreateChildDescriptor @ 0x1C0208C54 (DpiFdoCreateChildDescriptor.c)
+ *     DpiDxgkDdiQueryChildRelations @ 0x1C02093E8 (DpiDxgkDdiQueryChildRelations.c)
+ *     DpiAcpiExposeInfo @ 0x1C02094A4 (DpiAcpiExposeInfo.c)
+ *     DpiFdoRemoveChildDescriptors @ 0x1C039868C (DpiFdoRemoveChildDescriptors.c)
+ */
+
 __int64 __fastcall DpiFdoEnumChildDevices(__int64 a1)
 {
   __int64 v1; // rbp

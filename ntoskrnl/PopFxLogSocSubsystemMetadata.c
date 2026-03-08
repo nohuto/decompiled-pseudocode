@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopFxLogSocSubsystemMetadata @ 0x1409821EC
+ * Callers:
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x140879AD8 (PopFxLookupSocSubsystemsByPlatformIdleState.c)
+ *     PopPluginQuerySocSubsystemMetadata @ 0x1409835B4 (PopPluginQuerySocSubsystemMetadata.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopFxLogSocSubsystemMetadata(__int64 a1, int a2, int a3)
 {
   int v3; // ebx

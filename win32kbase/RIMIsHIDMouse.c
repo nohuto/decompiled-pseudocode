@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMIsHIDMouse @ 0x1C0031360
+ * Callers:
+ *     RIMLoadDeviceLegacyInfo @ 0x1C00305E4 (RIMLoadDeviceLegacyInfo.c)
+ *     IsMouseDeviceOnIgnoreList @ 0x1C0031278 (IsMouseDeviceOnIgnoreList.c)
+ * Callees:
+ *     RIMGetPointerDevicePDO @ 0x1C0031414 (RIMGetPointerDevicePDO.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall RIMIsHIDMouse(struct _DEVICE_OBJECT *a1)
 {
   unsigned int v1; // ebx

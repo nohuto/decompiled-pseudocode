@@ -1,3 +1,12 @@
+/*
+ * XREFs of MigrateDefunctObjectsToNewOwner @ 0x1C004C0DC
+ * Callers:
+ *     AMLIRemoveNativeObjectsFromNamespace @ 0x1C0049C4C (AMLIRemoveNativeObjectsFromNamespace.c)
+ *     NotifyObjectDestruction @ 0x1C004C42C (NotifyObjectDestruction.c)
+ * Callees:
+ *     InsertOwnerObjList @ 0x1C004BDF0 (InsertOwnerObjList.c)
+ */
+
 void __fastcall MigrateDefunctObjectsToNewOwner(__int64 a1, struct _EX_RUNDOWN_REF *a2)
 {
   __int64 v2; // rbx

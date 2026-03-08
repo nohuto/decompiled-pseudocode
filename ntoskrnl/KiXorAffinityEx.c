@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiXorAffinityEx @ 0x14045796C
+ * Callers:
+ *     PpmParkReportParkedCores @ 0x1402E3AE0 (PpmParkReportParkedCores.c)
+ *     PpmParkComputeDiff @ 0x14045B0D0 (PpmParkComputeDiff.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall KiXorAffinityEx(char *a1, _WORD *a2, _BYTE *a3, unsigned __int16 a4)
 {
   _BYTE *v8; // r10

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiMirrorGatherBrownPages @ 0x140624848
+ * Callers:
+ *     MiMirrorBrownPhase @ 0x140AA94BC (MiMirrorBrownPhase.c)
+ * Callees:
+ *     MiIsDecayPfn @ 0x140319ED0 (MiIsDecayPfn.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiMirrorAddPagesToBrownList @ 0x1406246DC (MiMirrorAddPagesToBrownList.c)
+ *     MiMirrorNodeLargePages @ 0x14064CF54 (MiMirrorNodeLargePages.c)
+ */
+
 __int64 __fastcall MiMirrorGatherBrownPages(__int64 *a1, __int64 a2, int a3, unsigned int a4)
 {
   unsigned int v4; // ebp

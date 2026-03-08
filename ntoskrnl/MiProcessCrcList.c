@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiProcessCrcList @ 0x1406A8670
+ * Callers:
+ *     MiCombineWorkingSet @ 0x140650E28 (MiCombineWorkingSet.c)
+ *     MiCombineWorkingSetTail @ 0x140651030 (MiCombineWorkingSetTail.c)
+ *     MiCombineAllPhysicalMemory @ 0x1407C7D50 (MiCombineAllPhysicalMemory.c)
+ * Callees:
+ *     MiSharePages @ 0x140228990 (MiSharePages.c)
+ *     MiValidCombineProtection @ 0x140229F1C (MiValidCombineProtection.c)
+ *     MiLocateCombineBlock @ 0x140229F50 (MiLocateCombineBlock.c)
+ *     MiCompareActiveCrcEntries @ 0x14022A0D4 (MiCompareActiveCrcEntries.c)
+ *     MiCapturePfnVm @ 0x14022A10C (MiCapturePfnVm.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiProcessCrcList(__int64 a1, unsigned __int64 *a2, size_t a3, int a4)
 {
   unsigned __int64 *v4; // r12

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?DrvUpdateDpiInfoOnOptimizedModeChange@@YAJPEAU_MDEV@@PEAE@Z @ 0x1C018F3A4
+ * Callers:
+ *     DrvProcessDxgkDisplayCallout @ 0x1C0194740 (DrvProcessDxgkDisplayCallout.c)
+ * Callees:
+ *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C001F7C4 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memcmp @ 0x1C00E17D0 (memcmp.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DrvUpdateDpiInfoOnOptimizedModeChange(struct _MDEV *a1, unsigned __int8 *a2)
 {
   unsigned int v2; // ebp

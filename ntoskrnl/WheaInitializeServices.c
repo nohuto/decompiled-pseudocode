@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheaInitializeServices @ 0x140B495D4
+ * Callers:
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     WheapInitializeInUsePageOfflineNotifications @ 0x140810870 (WheapInitializeInUsePageOfflineNotifications.c)
+ *     WheapSetDefaultErrorSourceConfiguration @ 0x140B496CC (WheapSetDefaultErrorSourceConfiguration.c)
+ */
+
 PVOID *WheaInitializeServices()
 {
   signed __int32 v1[10]; // [rsp+0h] [rbp-28h] BYREF

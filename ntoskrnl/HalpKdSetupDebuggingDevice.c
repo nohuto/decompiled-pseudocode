@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpKdSetupDebuggingDevice @ 0x140AAF250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpKdEnumerateDebuggingDevices @ 0x140AAF060 (HalpKdEnumerateDebuggingDevices.c)
+ *     HalpRegisterDeviceInUse @ 0x140AAF2D0 (HalpRegisterDeviceInUse.c)
+ *     HalpFindDevice @ 0x140AAF410 (HalpFindDevice.c)
+ *     HalpAllocateScratchMemory @ 0x140AB0930 (HalpAllocateScratchMemory.c)
+ */
+
 __int64 __fastcall HalpKdSetupDebuggingDevice(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

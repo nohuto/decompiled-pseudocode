@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vLoadAndConvert8ToBGRA@@YAXPEAKPEAEJJPEAU_XLATEOBJ@@@Z @ 0x1C02E6E10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vLoadAndConvert8ToBGRA(unsigned int *a1, unsigned __int8 *a2, int a3, int a4, struct _XLATEOBJ *a5)
 {
   unsigned __int8 *v6; // r8

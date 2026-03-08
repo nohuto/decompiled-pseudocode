@@ -1,3 +1,26 @@
+/*
+ * XREFs of NtCreateIoRing @ 0x140947140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PsGetProcessImageFileName @ 0x1402E1550 (PsGetProcessImageFileName.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     _tlgWriteAgg @ 0x14035EDD0 (_tlgWriteAgg.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x1403BE3FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopExceptionFilter @ 0x1405530E8 (IopExceptionFilter.c)
+ *     MmMapViewOfSection @ 0x14069EC70 (MmMapViewOfSection.c)
+ *     MiMapViewInSystemSpace @ 0x1406A55B8 (MiMapViewInSystemSpace.c)
+ *     MmCreateSection @ 0x140711DC0 (MmCreateSection.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ *     IopAllocateAndLockMdl @ 0x1409410EC (IopAllocateAndLockMdl.c)
+ */
+
 __int64 __fastcall NtCreateIoRing(
         unsigned __int64 a1,
         unsigned int a2,

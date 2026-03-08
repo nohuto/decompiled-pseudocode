@@ -1,3 +1,11 @@
+/*
+ * XREFs of unsafe_cast_fnid_or_class_to_PSBWND @ 0x1C00D9F08
+ * Callers:
+ *     xxxGetScrollBarInfo @ 0x1C00D9CEC (xxxGetScrollBarInfo.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall unsafe_cast_fnid_or_class_to_PSBWND(_QWORD *a1)
 {
   __int64 v2; // r8

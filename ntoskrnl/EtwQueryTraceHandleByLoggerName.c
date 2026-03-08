@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwQueryTraceHandleByLoggerName @ 0x1407968F8
+ * Callers:
+ *     WdipSemGetLoggerIds @ 0x140796868 (WdipSemGetLoggerIds.c)
+ *     WmiQueryTraceInformation @ 0x140833D80 (WmiQueryTraceInformation.c)
+ *     IopErrorLogThread @ 0x1408704E0 (IopErrorLogThread.c)
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpAcquireLoggerContextByLoggerName @ 0x140692AB4 (EtwpAcquireLoggerContextByLoggerName.c)
+ *     EtwpReleaseLoggerContext @ 0x14069349C (EtwpReleaseLoggerContext.c)
+ */
+
 __int64 __fastcall EtwQueryTraceHandleByLoggerName(__int64 a1, _QWORD *a2)
 {
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax

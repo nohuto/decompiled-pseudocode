@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DXGIFormatToPixelFormat@@YA?AW4Enum@MilPixelFormat@@W4DXGI_FORMAT@@_N@Z @ 0x18027C5D4
+ * Callers:
+ *     ?GetPixelFormat@CBitmap@@UEAAJPEAU_GUID@@@Z @ 0x18027E0E0 (-GetPixelFormat@CBitmap@@UEAAJPEAU_GUID@@@Z.c)
+ *     ?GetPixelFormat@CBitmapLock@@UEAAJPEAU_GUID@@@Z @ 0x18027EAD0 (-GetPixelFormat@CBitmapLock@@UEAAJPEAU_GUID@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DXGIFormatToPixelFormat(int a1, unsigned __int8 a2)
 {
   int v2; // ecx

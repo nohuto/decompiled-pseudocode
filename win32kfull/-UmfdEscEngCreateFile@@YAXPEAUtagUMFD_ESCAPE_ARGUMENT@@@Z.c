@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?UmfdEscEngCreateFile@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C02A9AC4
+ * Callers:
+ *     UmfdDispatchEscape @ 0x1C00BB270 (UmfdDispatchEscape.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x1C012BEC0 (__report_rangecheckfailure.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ?EngCreateFile@@YAPEAXPEBG@Z @ 0x1C02A992C (-EngCreateFile@@YAPEAXPEBG@Z.c)
+ */
+
 void __fastcall UmfdEscEngCreateFile(struct tagUMFD_ESCAPE_ARGUMENT *a1)
 {
   char *v1; // rbx

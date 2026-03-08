@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpAddDevice @ 0x140802640
+ * Callers:
+ *     HalpDriverEntry @ 0x1408025A0 (HalpDriverEntry.c)
+ * Callees:
+ *     IoAttachDeviceToDeviceStack @ 0x1402F3E00 (IoAttachDeviceToDeviceStack.c)
+ *     IoDeleteDevice @ 0x140368010 (IoDeleteDevice.c)
+ *     HalAcpiGetTable @ 0x1403706A0 (HalAcpiGetTable.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     IoCreateDevice @ 0x1407F0460 (IoCreateDevice.c)
+ *     HalpIsUefiFirmwareResourceTablePresent @ 0x14080204C (HalpIsUefiFirmwareResourceTablePresent.c)
+ *     HalpPostPnpInitialize @ 0x1408020CC (HalpPostPnpInitialize.c)
+ */
+
 NTSTATUS __fastcall HalpAddDevice(PDRIVER_OBJECT DriverObject, PDEVICE_OBJECT TargetDevice)
 {
   NTSTATUS v4; // eax

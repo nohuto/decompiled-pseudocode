@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiGetCcAccessLog @ 0x14077A724
+ * Callers:
+ *     MmPrefetchForCacheManager @ 0x1406A3DCC (MmPrefetchForCacheManager.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiQueuePageAccessLog @ 0x14035B540 (MiQueuePageAccessLog.c)
+ *     MiInitializePageAccessLogging @ 0x140364410 (MiInitializePageAccessLogging.c)
+ */
+
 PVOID __fastcall MiGetCcAccessLog(__int64 a1, __int64 a2)
 {
   __int64 v4; // r10

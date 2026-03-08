@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeInitializeCpuPartition @ 0x1403A5F58
+ * Callers:
+ *     PsCreateCpuPartition @ 0x140853FE4 (PsCreateCpuPartition.c)
+ *     PspInitializeCpuPartitionsPhase0 @ 0x140B68074 (PspInitializeCpuPartitionsPhase0.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall KeInitializeCpuPartition(__int64 a1, int a2)
 {
   __int64 result; // rax

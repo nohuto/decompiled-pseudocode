@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?EngMapFontFileInternal@@YAH_KPEAPEAKPEAK@Z @ 0x1C028CE58
+ * Callers:
+ *     EngMapFontFile @ 0x1C028DEB0 (EngMapFontFile.c)
+ * Callees:
+ *     vUnmapFile @ 0x1C00B81B4 (vUnmapFile.c)
+ *     ?bMapRoutine@@YAHPEAU_FONTFILEVIEW@@PEAU_FILEVIEW@@W4_MAP_MODE@@H@Z @ 0x1C00BBE98 (-bMapRoutine@@YAHPEAU_FONTFILEVIEW@@PEAU_FILEVIEW@@W4_MAP_MODE@@H@Z.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     bMapFile @ 0x1C028E338 (bMapFile.c)
+ */
+
 __int64 __fastcall EngMapFontFileInternal(__int64 a1, unsigned int **a2, unsigned int *a3)
 {
   struct Gre::Base::SESSION_GLOBALS *v5; // r15

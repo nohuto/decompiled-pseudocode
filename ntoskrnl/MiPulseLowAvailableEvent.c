@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiPulseLowAvailableEvent @ 0x140651230
+ * Callers:
+ *     MiComputeSystemTrimCriteria @ 0x14035FE9C (MiComputeSystemTrimCriteria.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KePulseEvent @ 0x14035F580 (KePulseEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiPulseLowAvailableEvent(__int64 a1)
 {
   __int64 result; // rax

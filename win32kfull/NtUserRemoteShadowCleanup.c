@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserRemoteShadowCleanup @ 0x1C01DACD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RemoteShadowCleanup @ 0x1C0205DF0 (RemoteShadowCleanup.c)
+ */
+
 __int64 __fastcall NtUserRemoteShadowCleanup(void *Src, size_t Size)
 {
   unsigned int v2; // ebx

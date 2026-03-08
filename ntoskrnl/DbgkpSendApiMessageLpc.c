@@ -1,3 +1,15 @@
+/*
+ * XREFs of DbgkpSendApiMessageLpc @ 0x1409371D8
+ * Callers:
+ *     DbgkForwardException @ 0x1409365F4 (DbgkForwardException.c)
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     PsThawMultiProcess @ 0x1402FFE80 (PsThawMultiProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     LpcSendWaitReceivePort @ 0x140796F40 (LpcSendWaitReceivePort.c)
+ *     DbgkpSuspendProcess @ 0x1409365B4 (DbgkpSuspendProcess.c)
+ */
+
 __int64 __fastcall DbgkpSendApiMessageLpc(__int64 a1, int a2, char a3)
 {
   struct _KTHREAD *CurrentThread; // rax

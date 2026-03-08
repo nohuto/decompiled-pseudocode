@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpNeedToReleaseBootResources @ 0x14080484C
+ * Callers:
+ *     IopReleaseFilteredBootResources @ 0x140803C88 (IopReleaseFilteredBootResources.c)
+ * Callees:
+ *     PnpIsRangeWithin @ 0x1408049A4 (PnpIsRangeWithin.c)
+ */
+
 __int64 __fastcall PnpNeedToReleaseBootResources(__int64 a1, _DWORD *a2, _DWORD *a3)
 {
   unsigned int v3; // ebx

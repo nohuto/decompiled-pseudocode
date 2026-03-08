@@ -1,3 +1,11 @@
+/*
+ * XREFs of BcdUtilGetBootOptionInteger @ 0x14083FC8C
+ * Callers:
+ *     SeAuditBootConfiguration @ 0x14083FCC8 (SeAuditBootConfiguration.c)
+ * Callees:
+ *     BcdUtilGetBootOption @ 0x140840180 (BcdUtilGetBootOption.c)
+ */
+
 __int64 __fastcall BcdUtilGetBootOptionInteger(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 BootOption; // rax

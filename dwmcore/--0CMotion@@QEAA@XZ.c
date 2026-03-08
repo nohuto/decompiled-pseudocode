@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??0CMotion@@QEAA@XZ @ 0x18026AF58
+ * Callers:
+ *     ?EnsureInteractionAnimations@CInteractionTracker@@AEAAJXZ @ 0x18022ECB0 (-EnsureInteractionAnimations@CInteractionTracker@@AEAAJXZ.c)
+ *     ??0CInteractionTrackerPositionAnimation@@QEAA@PEAVCComposition@@@Z @ 0x1802631D8 (--0CInteractionTrackerPositionAnimation@@QEAA@PEAVCComposition@@@Z.c)
+ * Callees:
+ *     ??2@YAPEAX_K@Z @ 0x180034790 (--2@YAPEAX_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??0CScalarForce@@QEAA@PEAUIAccelerator@@@Z @ 0x180272670 (--0CScalarForce@@QEAA@PEAUIAccelerator@@@Z.c)
+ */
+
 CMotion *__fastcall CMotion::CMotion(CMotion *this)
 {
   void (__fastcall ***v2)(_QWORD); // rax

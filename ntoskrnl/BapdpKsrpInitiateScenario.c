@@ -1,3 +1,11 @@
+/*
+ * XREFs of BapdpKsrpInitiateScenario @ 0x140603380
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall BapdpKsrpInitiateScenario(int a1, int a2)
 {
   __int64 v3; // rdx

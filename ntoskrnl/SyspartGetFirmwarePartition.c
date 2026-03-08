@@ -1,3 +1,12 @@
+/*
+ * XREFs of SyspartGetFirmwarePartition @ 0x14082BA5C
+ * Callers:
+ *     BiGetSystemPartition @ 0x14082B9D0 (BiGetSystemPartition.c)
+ * Callees:
+ *     SiGetSystemDeviceName @ 0x140784278 (SiGetSystemDeviceName.c)
+ *     SiQuerySystemInformationString @ 0x14082BAB8 (SiQuerySystemInformationString.c)
+ */
+
 __int64 __fastcall SyspartGetFirmwarePartition(void *a1, unsigned int a2, unsigned int *a3)
 {
   __int64 result; // rax

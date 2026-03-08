@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIFanWorker @ 0x1C00279F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     WPP_RECORDER_SF_qDDqss @ 0x1C00281CC (WPP_RECORDER_SF_qDDqss.c)
+ *     ACPIFanSetTripPoints @ 0x1C0085078 (ACPIFanSetTripPoints.c)
+ */
+
 int __fastcall ACPIFanWorker(__int64 a1, __int16 a2)
 {
   const char *v2; // r11

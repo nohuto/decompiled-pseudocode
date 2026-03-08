@@ -1,3 +1,35 @@
+/*
+ * XREFs of ?CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z @ 0x1C00AD734
+ * Callers:
+ *     xxxSetWindowStyle @ 0x1C002DD90 (xxxSetWindowStyle.c)
+ *     xxxSetWindowData @ 0x1C002F9C8 (xxxSetWindowData.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C0036908 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     xxxDispatchMessage @ 0x1C0038064 (xxxDispatchMessage.c)
+ *     xxxSimpleDoSyncPaint @ 0x1C0038E64 (xxxSimpleDoSyncPaint.c)
+ *     InternalInvalidate3 @ 0x1C0054B50 (InternalInvalidate3.c)
+ *     ?DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z @ 0x1C007E644 (-DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ *     xxxCalcClientRect @ 0x1C00AAA20 (xxxCalcClientRect.c)
+ *     DwmChildRectChange @ 0x1C00AD03C (DwmChildRectChange.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ *     xxxDoPaint @ 0x1C00C3298 (xxxDoPaint.c)
+ *     NtUserEndPaint @ 0x1C00CC490 (NtUserEndPaint.c)
+ *     xxxBeginPaint @ 0x1C00FD4C0 (xxxBeginPaint.c)
+ *     xxxInternalDoSyncPaint @ 0x1C00FDB80 (xxxInternalDoSyncPaint.c)
+ *     ?xxxSendNCPaint@@YAXPEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C00FE35C (-xxxSendNCPaint@@YAXPEAUtagWND@@PEAUHRGN__@@@Z.c)
+ *     ?DwmNotifyWindowsMarginsChangeByTheme@@YAXXZ @ 0x1C01BD8AC (-DwmNotifyWindowsMarginsChangeByTheme@@YAXXZ.c)
+ * Callees:
+ *     ?RemoveAndDeleteProp@CWindowProp@@QEAAXXZ @ 0x1C0024800 (-RemoveAndDeleteProp@CWindowProp@@QEAAXXZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ddddqdddds @ 0x1C003CC08 (WPP_RECORDER_AND_TRACE_SF_ddddqdddds.c)
+ *     ?CalculateWindowMargins@CWindowMarginProp@WindowMargins@@QEAA?AUFRAME_MARGIN@@PEBUtagWND@@IW4MarginsFor@?A0x67ef0edd@2@@Z @ 0x1C0042CB8 (-CalculateWindowMargins@CWindowMarginProp@WindowMargins@@QEAA-AUFRAME_MARGIN@@PEBUtagWND@@IW4Mar.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qs @ 0x1C009EB2C (WPP_RECORDER_AND_TRACE_SF_qs.c)
+ *     DwmAsyncNotifyWindowFrameMarginsChange @ 0x1C00DAD28 (DwmAsyncNotifyWindowFrameMarginsChange.c)
+ *     ?ChangeReasonToString@WindowMargins@@YAQEADW4ChangeReason@1@@Z @ 0x1C00E3D38 (-ChangeReasonToString@WindowMargins@@YAQEADW4ChangeReason@1@@Z.c)
+ *     ?GetOrCreate@CWindowMarginProp@WindowMargins@@SAPEAV12@PEAUtagWND@@@Z @ 0x1C010141C (-GetOrCreate@CWindowMarginProp@WindowMargins@@SAPEAV12@PEAUtagWND@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dddd @ 0x1C021F368 (WPP_RECORDER_AND_TRACE_SF_dddd.c)
+ */
+
 __int64 __fastcall WindowMargins::CheckForChanges(struct tagWND *a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

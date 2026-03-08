@@ -1,3 +1,13 @@
+/*
+ * XREFs of PipConvertResolutionsToReservations @ 0x1409513EC
+ * Callers:
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x14087E214 (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     PipDeleteAllDependencyRelations @ 0x1409514A0 (PipDeleteAllDependencyRelations.c)
+ * Callees:
+ *     PipSetDependency @ 0x1408387E4 (PipSetDependency.c)
+ *     PipDeleteBindingIds @ 0x140951624 (PipDeleteBindingIds.c)
+ */
+
 __int64 __fastcall PipConvertResolutionsToReservations(__int64 a1, __int64 a2)
 {
   unsigned int v3; // ebp

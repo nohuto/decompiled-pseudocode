@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlFastUnlockAllByKey @ 0x14053AFC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FsRtlPrivateFastUnlockAll @ 0x1402C16B4 (FsRtlPrivateFastUnlockAll.c)
+ */
+
 NTSTATUS __stdcall FsRtlFastUnlockAllByKey(
         PFILE_LOCK FileLock,
         PFILE_OBJECT FileObject,

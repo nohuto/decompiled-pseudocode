@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiReduceWs @ 0x1402F0810
+ * Callers:
+ *     MiPreUnlockWorkingSetShared @ 0x1402F0758 (MiPreUnlockWorkingSetShared.c)
+ *     MiSelfTrim @ 0x14064DCAC (MiSelfTrim.c)
+ * Callees:
+ *     MiTrimWorkingSet @ 0x1402F08AC (MiTrimWorkingSet.c)
+ *     MiSimpleAging @ 0x1402F0B90 (MiSimpleAging.c)
+ */
+
 __int64 __fastcall MiReduceWs(__int64 a1, char a2, unsigned __int64 a3)
 {
   unsigned __int64 v4; // rsi

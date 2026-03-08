@@ -1,3 +1,13 @@
+/*
+ * XREFs of SmmReleaseBlock @ 0x1C007050C
+ * Callers:
+ *     SmmAcquireBlock @ 0x1C006FC8C (SmmAcquireBlock.c)
+ *     ?SmmFreeLogicalAddress@@YAXPEAUSYSMM_LOGICAL_ALLOCATOR@@PEAUSYSMM_LOGICAL_BLOCK@@@Z @ 0x1C0070254 (-SmmFreeLogicalAddress@@YAXPEAUSYSMM_LOGICAL_ALLOCATOR@@PEAUSYSMM_LOGICAL_BLOCK@@@Z.c)
+ *     ?SmmAllocateLogicalAddressAt@@YAJPEAUSYSMM_LOGICAL_ALLOCATOR@@_K1PEBXPEAPEAUSYSMM_LOGICAL_BLOCK@@@Z @ 0x1C03D24BC (-SmmAllocateLogicalAddressAt@@YAJPEAUSYSMM_LOGICAL_ALLOCATOR@@_K1PEBXPEAPEAUSYSMM_LOGICAL_BLOCK@.c)
+ * Callees:
+ *     SmmCoalesceBlocks @ 0x1C00700A8 (SmmCoalesceBlocks.c)
+ */
+
 _QWORD *__fastcall SmmReleaseBlock(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rbx

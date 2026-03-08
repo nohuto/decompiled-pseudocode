@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1BaseBamoPeerImpl@BamoImpl@Microsoft@@UEAA@XZ @ 0x1801B5B4C
+ * Callers:
+ *     ??_EBamoPeer@DiagnosticCallbacks_AutoBamos@@MEAAPEAXI@Z @ 0x1801B5DC0 (--_EBamoPeer@DiagnosticCallbacks_AutoBamos@@MEAAPEAXI@Z.c)
+ *     ??_GBamoPeerImpl@DiagnosticCallbacks_AutoBamos@BamoImpl@@UEAAPEAXI@Z @ 0x1801B5E10 (--_GBamoPeerImpl@DiagnosticCallbacks_AutoBamos@BamoImpl@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?Release@BamoImplObject@BamoImpl@Microsoft@@UEAAKXZ @ 0x1800AD490 (-Release@BamoImplObject@BamoImpl@Microsoft@@UEAAKXZ.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
 void __fastcall Microsoft::BamoImpl::BaseBamoPeerImpl::~BaseBamoPeerImpl(
         Microsoft::BamoImpl::BaseBamoPeerImpl *this,
         __int64 a2,

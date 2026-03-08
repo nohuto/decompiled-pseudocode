@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ComputeMaximumMessageSize@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@PEAPEBEIIIIPEAI@Z @ 0x1C00AE408
+ * Callers:
+ *     CoreUICallComputeMaximumMessageSize @ 0x1C00AE174 (CoreUICallComputeMaximumMessageSize.c)
+ * Callees:
+ *     ?PrepareMessageWorker@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@GGPEBEPEADHIII@Z @ 0x1C00AE4C8 (-PrepareMessageWorker@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@GGPEBE.c)
+ */
+
 __int64 __fastcall CoreMessaging::Calling::SendProcessor::ComputeMaximumMessageSize(
         CoreMessaging::Calling::SendProcessor *this,
         struct IMessageCallSendHost *a2,

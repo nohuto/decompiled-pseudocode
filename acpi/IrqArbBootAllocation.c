@@ -1,3 +1,16 @@
+/*
+ * XREFs of IrqArbBootAllocation @ 0x1C009CF90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ProcessorCopyData @ 0x1C009A964 (ProcessorCopyData.c)
+ *     ProcessorpClearData @ 0x1C009B098 (ProcessorpClearData.c)
+ *     IcClearPossibleData @ 0x1C009EFD0 (IcClearPossibleData.c)
+ *     IcCopyData @ 0x1C009F078 (IcCopyData.c)
+ *     IcRemapInputs @ 0x1C009F490 (IcRemapInputs.c)
+ *     ArbBootAllocation @ 0x1C00A1080 (ArbBootAllocation.c)
+ */
+
 __int64 __fastcall IrqArbBootAllocation(__int64 a1, __int64 a2)
 {
   __int64 v4; // rdx

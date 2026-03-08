@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifExIsProcessorFeaturePresentWrapper @ 0x1405D6F60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlIsProcessorFeaturePresent @ 0x1402FA0E0 (RtlIsProcessorFeaturePresent.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 char __fastcall DifExIsProcessorFeaturePresentWrapper(unsigned int a1)
 {
   __int64 *APIThunkContextById; // rax

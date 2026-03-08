@@ -1,3 +1,12 @@
+/*
+ * XREFs of Usbh_HUB_RESET_TT_ON_CANCEL @ 0x1C00473E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003B830 (WPP_RECORDER_SF_S.c)
+ */
+
 __int64 __fastcall Usbh_HUB_RESET_TT_ON_CANCEL(__int64 a1, __int64 a2, _BYTE *a3, int a4)
 {
   int v7; // ebx

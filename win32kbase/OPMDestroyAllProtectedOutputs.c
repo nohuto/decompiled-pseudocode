@@ -1,3 +1,12 @@
+/*
+ * XREFs of OPMDestroyAllProtectedOutputs @ 0x1C00AFEC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DestroyAllHandlesFromAdapter@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAXPEAU_LUID@@PEAVCMutex@2@@Z @ 0x1C00AFF24 (-DestroyAllHandlesFromAdapter@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAXPEAU_LU.c)
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00B0000 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ */
+
 LONG __fastcall OPMDestroyAllProtectedOutputs(__int64 a1)
 {
   __int64 v1; // rdi

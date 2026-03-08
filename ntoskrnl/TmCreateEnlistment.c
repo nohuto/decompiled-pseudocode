@@ -1,3 +1,11 @@
+/*
+ * XREFs of TmCreateEnlistment @ 0x1403D28D0
+ * Callers:
+ *     CmTmCreateEnlistment @ 0x140735534 (CmTmCreateEnlistment.c)
+ * Callees:
+ *     <none>
+ */
+
 // attributes: thunk
 NTSTATUS __stdcall TmCreateEnlistment(
         PHANDLE EnlistmentHandle,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreClientRgnUpdatedStable @ 0x1C028A920
+ * Callers:
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C0110C1C (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GreClientRgnUpdatedStable(Gre::Base *a1)
 {
   struct Gre::Base::SESSION_GLOBALS *v1; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bFindBitmapFont@MAPPER@@QEAAHPEBG@Z @ 0x1C011CF24
+ * Callers:
+ *     ?bGetFaceName@MAPPER@@AEAAHXZ @ 0x1C011CD5C (-bGetFaceName@MAPPER@@AEAAHXZ.c)
+ * Callees:
+ *     ?pfsubAlternateFacename@@YAPEAU_FONTSUB@@PEBG@Z @ 0x1C0003B40 (-pfsubAlternateFacename@@YAPEAU_FONTSUB@@PEBG@Z.c)
+ *     ?pbktSearch@FHOBJ@@QEAAPEAU_HASHBUCKET@@PEBGPEAIPEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C0114DE0 (-pbktSearch@FHOBJ@@QEAAPEAU_HASHBUCKET@@PEBGPEAIPEAU_UNIVERSAL_FONT_ID@@H@Z.c)
+ *     ?bValid@FHOBJ@@QEBAHXZ @ 0x1C0117D28 (-bValid@FHOBJ@@QEBAHXZ.c)
+ */
+
 __int64 __fastcall MAPPER::bFindBitmapFont(MAPPER *this, const unsigned __int16 *a2)
 {
   struct _HASHBUCKET *v5; // rax

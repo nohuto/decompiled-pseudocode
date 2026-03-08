@@ -1,3 +1,21 @@
+/*
+ * XREFs of PopRestoreHiberContext @ 0x140AA139C
+ * Callers:
+ *     PopHandleNextState @ 0x140AA4FAC (PopHandleNextState.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IoInitializeDumpStack @ 0x14054E39C (IoInitializeDumpStack.c)
+ *     IoNotifyDump @ 0x14054E4A0 (IoNotifyDump.c)
+ *     PopInternalAddToDumpFile @ 0x140580CC0 (PopInternalAddToDumpFile.c)
+ *     PopDecompressHiberBlocks @ 0x140A9F1C4 (PopDecompressHiberBlocks.c)
+ *     PopHiberReadChecksums @ 0x140AA01BC (PopHiberReadChecksums.c)
+ *     PopRequestRead @ 0x140AA0A10 (PopRequestRead.c)
+ *     PopCheckpointSystemSleep @ 0x140AA7378 (PopCheckpointSystemSleep.c)
+ *     BgLibraryInitialize @ 0x140AEB57C (BgLibraryInitialize.c)
+ */
+
 struct _KPRCB *__fastcall PopRestoreHiberContext(ULONG_PTR BugCheckParameter3)
 {
   struct _KPRCB *result; // rax

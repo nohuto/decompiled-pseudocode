@@ -1,3 +1,19 @@
+/*
+ * XREFs of SshpGenerateDeviceFriendlyName @ 0x140842DE4
+ * Callers:
+ *     SleepstudyHelper_GetPdoFriendlyName @ 0x140842BD0 (SleepstudyHelper_GetPdoFriendlyName.c)
+ *     SleepstudyHelperCreateBlockerFromDevice @ 0x140842D00 (SleepstudyHelperCreateBlockerFromDevice.c)
+ *     SleepstudyHelperCreateBlockerFromComponent @ 0x14099EFE0 (SleepstudyHelperCreateBlockerFromComponent.c)
+ * Callees:
+ *     CmpFreeTransientPoolWithTag @ 0x1402A4B0C (CmpFreeTransientPoolWithTag.c)
+ *     RtlUnicodeStringCatString @ 0x1402BD420 (RtlUnicodeStringCatString.c)
+ *     RtlUnicodeStringCat @ 0x1402BD900 (RtlUnicodeStringCat.c)
+ *     RtlUnicodeStringPrintf @ 0x1403BEBCC (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IoGetDeviceProperty @ 0x1406C5B00 (IoGetDeviceProperty.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SshpGenerateDeviceFriendlyName(
         PDEVICE_OBJECT DeviceObject,
         unsigned int *a2,

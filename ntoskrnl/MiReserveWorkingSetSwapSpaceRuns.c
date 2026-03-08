@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiReserveWorkingSetSwapSpaceRuns @ 0x140A4071C
+ * Callers:
+ *     MiReserveWorkingSetSwapSpace @ 0x140A40660 (MiReserveWorkingSetSwapSpace.c)
+ * Callees:
+ *     MiFindFreePageFileSpace @ 0x140209F7C (MiFindFreePageFileSpace.c)
+ *     MiMakePageFilePte @ 0x14064BCA4 (MiMakePageFilePte.c)
+ */
+
 unsigned __int64 __fastcall MiReserveWorkingSetSwapSpaceRuns(
         __int64 a1,
         unsigned __int64 a2,

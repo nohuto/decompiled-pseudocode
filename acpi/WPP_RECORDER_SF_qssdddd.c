@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_qssdddd @ 0x1C0043624
+ * Callers:
+ *     ACPIThermalRereadTemperature @ 0x1C0041E34 (ACPIThermalRereadTemperature.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_qssdddd(__int64 a1, _DWORD a2, _DWORD a3, _DWORD a4, __int64 a5, ...)
 {
   const char *v5; // rsi

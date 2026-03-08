@@ -1,3 +1,12 @@
+/*
+ * XREFs of LinkNodeRestoreHardwareState @ 0x1C005D7D8
+ * Callers:
+ *     ACPIDevicePowerProcessPhase2SystemSubPhase2 @ 0x1C001FAA0 (ACPIDevicePowerProcessPhase2SystemSubPhase2.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     LinkNodepRestoreIrqRoutingWorker @ 0x1C005D940 (LinkNodepRestoreIrqRoutingWorker.c)
+ */
+
 __int64 __fastcall LinkNodeRestoreHardwareState(__int64 a1, __int64 a2)
 {
   __int64 Pool2; // rax

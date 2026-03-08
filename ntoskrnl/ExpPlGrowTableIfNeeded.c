@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExpPlGrowTableIfNeeded @ 0x1406061B4
+ * Callers:
+ *     ExpTrackTableInsertLimit @ 0x1406067BC (ExpTrackTableInsertLimit.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 ExpPlGrowTableIfNeeded()
 {
   __int64 v0; // rbx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtExtendSection @ 0x1407265B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     MmExtendSection @ 0x1407267DC (MmExtendSection.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 NTSTATUS __fastcall NtExtendSection(HANDLE Handle, unsigned __int64 a2)
 {
   KPROCESSOR_MODE PreviousMode; // r9

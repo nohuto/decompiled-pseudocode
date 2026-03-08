@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopDirectedDripsDiagTraceBroadcastVisit @ 0x14099C190
+ * Callers:
+ *     PopDirectedDripsVisitDevice @ 0x14099D230 (PopDirectedDripsVisitDevice.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x14099B0EC (PopDirectedDripsDiagCreateDeviceDiagnostic.c)
+ */
+
 signed __int32 __fastcall PopDirectedDripsDiagTraceBroadcastVisit(__int64 a1, __int64 a2, int a3)
 {
   int v5; // eax

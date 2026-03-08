@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcessorpIndexInstance @ 0x1C009BA08
+ * Callers:
+ *     ProcessorAddInstance @ 0x1C009A7C4 (ProcessorAddInstance.c)
+ * Callees:
+ *     ProcessorpIsPreferredInterruptTarget @ 0x1C009BCB4 (ProcessorpIsPreferredInterruptTarget.c)
+ */
+
 __int64 __fastcall ProcessorpIndexInstance(unsigned int a1, __int64 a2)
 {
   __int64 v2; // rsi

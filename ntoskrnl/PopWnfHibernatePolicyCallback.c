@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopWnfHibernatePolicyCallback @ 0x140986410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopQueryHiberPersistedRegValue @ 0x14080FD60 (PopQueryHiberPersistedRegValue.c)
+ *     PopTraceHibernatePolicyUpdate @ 0x14082AADC (PopTraceHibernatePolicyUpdate.c)
+ *     PopAcquireTransitionLock @ 0x14082AD04 (PopAcquireTransitionLock.c)
+ *     PopReleaseTransitionLock @ 0x14082AD60 (PopReleaseTransitionLock.c)
+ *     PopHibernateEvaluation @ 0x14082B35C (PopHibernateEvaluation.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 PopWnfHibernatePolicyCallback()
 {
   int HiberPersistedRegValue; // edi

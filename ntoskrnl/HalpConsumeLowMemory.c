@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpConsumeLowMemory @ 0x140B62A4C
+ * Callers:
+ *     HalpMmInitSystem @ 0x140A8D600 (HalpMmInitSystem.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall HalpConsumeLowMemory(__int64 a1)
 {
   __int64 *v1; // r9

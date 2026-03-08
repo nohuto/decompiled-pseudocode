@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIIoctlEvalPreProcessingV1 @ 0x1C002FE58
+ * Callers:
+ *     ACPIIoctlEvalControlMethod @ 0x1C0004232 (ACPIIoctlEvalControlMethod.c)
+ *     ACPIIoctlAsyncEvalControlMethod @ 0x1C002F468 (ACPIIoctlAsyncEvalControlMethod.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     AcpiIoctlArgumentToPackageObjV1 @ 0x1C003157C (AcpiIoctlArgumentToPackageObjV1.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNameSpaceObject @ 0x1C00483B8 (AMLIGetNameSpaceObject.c)
+ */
+
 __int64 __fastcall ACPIIoctlEvalPreProcessingV1(
         ULONG_PTR BugCheckParameter3,
         __int64 a2,

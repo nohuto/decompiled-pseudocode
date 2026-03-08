@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InitializeWin32CrossSessionGlobals@@YAJW4XSessionGlobalAccess@@@Z @ 0x1C00CF780
+ * Callers:
+ *     Win32kBaseDriverEntry @ 0x1C0320F10 (Win32kBaseDriverEntry.c)
+ * Callees:
+ *     ZwWin32CreateSectionRetainHandle @ 0x1C00CF8B0 (ZwWin32CreateSectionRetainHandle.c)
+ */
+
 NTSTATUS __fastcall InitializeWin32CrossSessionGlobals(__int64 a1, __int64 a2)
 {
   NTSTATUS v2; // ebx

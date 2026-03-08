@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpInterruptGetApicVersion @ 0x1403A5A50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpInterruptFindLinesForGsiRange @ 0x14028EF5C (HalpInterruptFindLinesForGsiRange.c)
+ */
+
 __int64 __fastcall HalpInterruptGetApicVersion(unsigned int a1)
 {
   _DWORD *LinesForGsiRange; // rax

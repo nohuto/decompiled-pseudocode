@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?DispBrokerUpdateKernelDisplayPolicies@@YAXXZ @ 0x1C001077C
+ * Callers:
+ *     xxxRemoteConnect @ 0x1C000F480 (xxxRemoteConnect.c)
+ *     ?DispBrokerAsyncSessionSwitched@@YAJXZ @ 0x1C0010630 (-DispBrokerAsyncSessionSwitched@@YAJXZ.c)
+ *     InitVideo @ 0x1C0010AAC (InitVideo.c)
+ * Callees:
+ *     DrvDxgkConfigureKernelDisplayPolicy @ 0x1C001081C (DrvDxgkConfigureKernelDisplayPolicy.c)
+ *     ?LoadRegistrySettings@DispBrokerClient@DispBroker@@QEAAXXZ @ 0x1C001085C (-LoadRegistrySettings@DispBrokerClient@DispBroker@@QEAAXXZ.c)
+ */
+
 void DispBrokerUpdateKernelDisplayPolicies(void)
 {
   unsigned int *v0; // rax

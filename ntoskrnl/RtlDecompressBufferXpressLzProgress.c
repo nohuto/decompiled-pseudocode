@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlDecompressBufferXpressLzProgress @ 0x1405B1BE8
+ * Callers:
+ *     RtlDecompressBufferProgress @ 0x1405B1154 (RtlDecompressBufferProgress.c)
+ * Callees:
+ *     RtlpMakeXpressCallback @ 0x1405B2518 (RtlpMakeXpressCallback.c)
+ */
+
 __int64 __fastcall RtlDecompressBufferXpressLzProgress(
         _BYTE *a1,
         unsigned int a2,

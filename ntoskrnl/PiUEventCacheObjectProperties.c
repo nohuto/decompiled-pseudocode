@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiUEventCacheObjectProperties @ 0x14068C634
+ * Callers:
+ *     PiUEventNotifyUserMode @ 0x14068C2D0 (PiUEventNotifyUserMode.c)
+ * Callees:
+ *     PnpGetObjectProperty @ 0x1406CEE90 (PnpGetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiUEventCacheObjectProperties(__int64 a1)
 {
   int v1; // edx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of WdipSemDisableAllProviders @ 0x1409DB994
+ * Callers:
+ *     WdipSemShutdown @ 0x1409DAE00 (WdipSemShutdown.c)
+ * Callees:
+ *     WdipSemEnableDisableTrace @ 0x140833B40 (WdipSemEnableDisableTrace.c)
+ */
+
 __int64 WdipSemDisableAllProviders()
 {
   __int64 v0; // rbx

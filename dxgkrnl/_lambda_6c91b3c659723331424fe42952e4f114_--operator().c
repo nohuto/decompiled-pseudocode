@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_6c91b3c659723331424fe42952e4f114_::operator() @ 0x1C02EEF94
+ * Callers:
+ *     _lambda_2792f1a5517d9286fa3e49da2fcc5db9_::operator() @ 0x1C02EECBC (_lambda_2792f1a5517d9286fa3e49da2fcc5db9_--operator().c)
+ * Callees:
+ *     ConvertDmmToDisplayConfigRotation @ 0x1C01BA4A4 (ConvertDmmToDisplayConfigRotation.c)
+ */
+
 __int64 __fastcall lambda_6c91b3c659723331424fe42952e4f114_::operator()(
         __int64 a1,
         int a2,

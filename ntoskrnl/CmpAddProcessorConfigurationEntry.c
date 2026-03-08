@@ -1,3 +1,23 @@
+/*
+ * XREFs of CmpAddProcessorConfigurationEntry @ 0x140816B6C
+ * Callers:
+ *     CmInitializeProcessor @ 0x140A0CCAC (CmInitializeProcessor.c)
+ *     CmpInitializeMachineDependentConfiguration @ 0x140B520BC (CmpInitializeMachineDependentConfiguration.c)
+ * Callees:
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     sprintf_s @ 0x1403D9BA0 (sprintf_s.c)
+ *     strcpy_s @ 0x1403D9D10 (strcpy_s.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     KeBugCheck @ 0x140415FE0 (KeBugCheck.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     CmpInitializeRegistryNode @ 0x140816FB8 (CmpInitializeRegistryNode.c)
+ */
+
 __int64 __fastcall CmpAddProcessorConfigurationEntry(__int64 a1, int a2, int a3)
 {
   char v6; // al

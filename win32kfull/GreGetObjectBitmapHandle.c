@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreGetObjectBitmapHandle @ 0x1C02D3058
+ * Callers:
+ *     NtGdiGetObjectBitmapHandle @ 0x1C02C5BB0 (NtGdiGetObjectBitmapHandle.c)
+ * Callees:
+ *     ??0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z @ 0x1C00E8C20 (--0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z.c)
+ *     ??1BRUSHSELOBJ@@QEAA@XZ @ 0x1C00E8CA0 (--1BRUSHSELOBJ@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall GreGetObjectBitmapHandle(HBRUSH a1, int *a2)
 {
   __int64 v3; // rbx

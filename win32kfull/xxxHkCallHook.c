@@ -1,3 +1,28 @@
+/*
+ * XREFs of xxxHkCallHook @ 0x1C006C7F0
+ * Callers:
+ *     ?xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z @ 0x1C006C010 (-xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z.c)
+ * Callees:
+ *     fnHkINLPMOUSEHOOKSTRUCTEX @ 0x1C0008DAC (fnHkINLPMOUSEHOOKSTRUCTEX.c)
+ *     SfnDWORD @ 0x1C00385D0 (SfnDWORD.c)
+ *     fnHkINLPMSG @ 0x1C00C5E60 (fnHkINLPMSG.c)
+ *     fnHkINDWORD @ 0x1C00D7148 (fnHkINDWORD.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??0?$UnlockObjectLock@$$V@?$UnlockDomainExclusive@$$V@?$UnlockDomainShared@VDLT_HOOK@@@SharedUserCritOnly@@QEAA@XZ @ 0x1C012DB14 (--0-$UnlockObjectLock@$$V@-$UnlockDomainExclusive@$$V@-$UnlockDomainShared@VDLT_HOOK@@@SharedUse.c)
+ *     ??1?$UnlockObjectLock@$$V@?$UnlockDomainExclusive@$$V@?$UnlockDomainShared@VDLT_HOOK@@@SharedUserCritOnly@@QEAA@XZ @ 0x1C012DBA4 (--1-$UnlockObjectLock@$$V@-$UnlockDomainExclusive@$$V@-$UnlockDomainShared@VDLT_HOOK@@@SharedUse.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     fnHkINLPKBDLLHOOKSTRUCT @ 0x1C0149936 (fnHkINLPKBDLLHOOKSTRUCT.c)
+ *     fnHkINLPMSLLHOOKSTRUCT @ 0x1C0149A62 (fnHkINLPMSLLHOOKSTRUCT.c)
+ *     ??1CCheckLLHookTime@@QEAA@XZ @ 0x1C014AA3E (--1CCheckLLHookTime@@QEAA@XZ.c)
+ *     fnHkINLPCBTACTIVATESTRUCT @ 0x1C0212EA8 (fnHkINLPCBTACTIVATESTRUCT.c)
+ *     fnHkINLPCBTCREATESTRUCT @ 0x1C0212FB8 (fnHkINLPCBTCREATESTRUCT.c)
+ *     fnHkINLPDEBUGHOOKSTRUCT @ 0x1C0213884 (fnHkINLPDEBUGHOOKSTRUCT.c)
+ *     fnHkINLPRECT @ 0x1C0213B90 (fnHkINLPRECT.c)
+ *     fnHkOPTINLPEVENTMSG @ 0x1C0213D34 (fnHkOPTINLPEVENTMSG.c)
+ *     ?CallfnHkINLPMSG@@YA_JHH_K_JP6A_JXZPEAU_PFNCLIENT@@K@Z @ 0x1C022E4C4 (-CallfnHkINLPMSG@@YA_JHH_K_JP6A_JXZPEAU_PFNCLIENT@@K@Z.c)
+ */
+
 __int64 __fastcall xxxHkCallHook(__int64 a1, int a2, unsigned __int64 a3, __int64 a4)
 {
   __int64 v5; // rdi

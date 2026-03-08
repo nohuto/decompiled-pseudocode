@@ -1,3 +1,14 @@
+/*
+ * XREFs of SepSetTrustLevelForProcessToken @ 0x140296E90
+ * Callers:
+ *     SeSubProcessToken @ 0x14070B29C (SeSubProcessToken.c)
+ *     SeExchangePrimaryToken @ 0x14083FA34 (SeExchangePrimaryToken.c)
+ * Callees:
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ *     SepSidFromProcessProtection @ 0x140247C8C (SepSidFromProcessProtection.c)
+ *     SepSetTokenTrust @ 0x1406D33D8 (SepSetTokenTrust.c)
+ */
+
 __int64 __fastcall SepSetTrustLevelForProcessToken(__int64 a1, __int64 a2, _BYTE *a3)
 {
   void *v5; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagTraceUmpoAlpcProcessingError @ 0x14098EFD8
+ * Callers:
+ *     PopUmpoProcessMessages @ 0x14073B298 (PopUmpoProcessMessages.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void PopDiagTraceUmpoAlpcProcessingError()
 {
   int v0; // r9d

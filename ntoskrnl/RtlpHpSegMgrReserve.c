@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlpHpSegMgrReserve @ 0x1403085F4
+ * Callers:
+ *     RtlpHpSegMgrAllocate @ 0x14030853C (RtlpHpSegMgrAllocate.c)
+ * Callees:
+ *     RtlpHpFreeVA @ 0x14020DC8C (RtlpHpFreeVA.c)
+ *     RtlpHpSegMgrVaCtxAlloc @ 0x140308718 (RtlpHpSegMgrVaCtxAlloc.c)
+ *     RtlpHpSegMgrVaCtxInitialize @ 0x14030C2C4 (RtlpHpSegMgrVaCtxInitialize.c)
+ *     RtlpHpAllocVA @ 0x140330920 (RtlpHpAllocVA.c)
+ */
+
 __int64 __fastcall RtlpHpSegMgrReserve(__int64 a1, unsigned int a2, unsigned __int64 *a3, unsigned int *a4, _DWORD *a5)
 {
   unsigned int v6; // esi

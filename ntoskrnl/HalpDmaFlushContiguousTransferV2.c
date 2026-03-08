@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpDmaFlushContiguousTransferV2 @ 0x140455976
+ * Callers:
+ *     IoFlushAdapterBuffersV2 @ 0x140454F60 (IoFlushAdapterBuffersV2.c)
+ * Callees:
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1403B44EC (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaNextContiguousPiece @ 0x140452E28 (HalpDmaNextContiguousPiece.c)
+ *     HalpDmaSyncMapBuffers @ 0x1404544F2 (HalpDmaSyncMapBuffers.c)
+ *     HalpDmaFlushBuffer @ 0x14050E7A0 (HalpDmaFlushBuffer.c)
+ */
+
 void __fastcall HalpDmaFlushContiguousTransferV2(
         __int64 a1,
         __int64 a2,

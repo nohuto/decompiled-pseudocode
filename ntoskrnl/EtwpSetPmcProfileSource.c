@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpSetPmcProfileSource @ 0x1409E3C40
+ * Callers:
+ *     EtwSetPerformanceTraceInformation @ 0x1409DF094 (EtwSetPerformanceTraceInformation.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KeInitializeProfileCallback @ 0x140971F68 (KeInitializeProfileCallback.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpSetPmcProfileSource(_DWORD *a1, unsigned int a2)
 {
   unsigned int v2; // ebx

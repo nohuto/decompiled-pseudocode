@@ -1,3 +1,17 @@
+/*
+ * XREFs of Amd64EnableMonitoring @ 0x140526CE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeCheckProcessorAffinityEx @ 0x140234B10 (KeCheckProcessorAffinityEx.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     HalpGetProfileDescriptor @ 0x1403781E0 (HalpGetProfileDescriptor.c)
+ *     HalpAcquireHighLevelLock @ 0x140379818 (HalpAcquireHighLevelLock.c)
+ *     Amd64AllocateCounter @ 0x140526678 (Amd64AllocateCounter.c)
+ *     Amd64ConfigureCounter @ 0x140526AA0 (Amd64ConfigureCounter.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall Amd64EnableMonitoring(signed __int32 a1, int a2, _DWORD *a3, _DWORD *a4, _DWORD *a5)
 {
   unsigned __int64 v9; // rbp

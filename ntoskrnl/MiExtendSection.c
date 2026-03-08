@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiExtendSection @ 0x140726AAC
+ * Callers:
+ *     MmExtendSection @ 0x1407267DC (MmExtendSection.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiSetSubsectionBase @ 0x1402A4B24 (MiSetSubsectionBase.c)
+ *     MiAppendSubsectionChain @ 0x1402A5090 (MiAppendSubsectionChain.c)
+ *     MiGetControlAreaPartition @ 0x14031F9F0 (MiGetControlAreaPartition.c)
+ *     MiIncrementSubsectionViewCount @ 0x140332840 (MiIncrementSubsectionViewCount.c)
+ *     MiDecrementSubsectionViewCount @ 0x140334C10 (MiDecrementSubsectionViewCount.c)
+ *     MiDeleteSubsectionPages @ 0x14034B8E0 (MiDeleteSubsectionPages.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140368AE0 (MiUpdateSystemProtoPtesTree.c)
+ *     MiSubsectionNeedsExtents @ 0x140633720 (MiSubsectionNeedsExtents.c)
+ *     MiGetSubsectionCharges @ 0x140668BC8 (MiGetSubsectionCharges.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x140668DD4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x140668EB4 (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     MiInitializePrototypePtes @ 0x1407F3F04 (MiInitializePrototypePtes.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 MiExtendSection(__int64 a1, _QWORD *a2, unsigned int a3, __int64 a4, ...)
 {
   __int64 v4; // rdx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ProcessRenderCommands_OcclusionPass@CCpuClipAntialiasSinkContext@@AEBAXIPEAV?$list@USinkRenderCommand@CCpuClipAntialiasSinkContext@@V?$allocator@USinkRenderCommand@CCpuClipAntialiasSinkContext@@@std@@@std@@@Z @ 0x180085C98
+ * Callers:
+ *     ?FlushDrawList@CCpuClipAntialiasSinkContext@@QEAAJPEAVCDrawingContext@@I@Z @ 0x180090A0C (-FlushDrawList@CCpuClipAntialiasSinkContext@@QEAAJPEAVCDrawingContext@@I@Z.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$?0GGMGM@?$_List_node_emplace_op2@V?$allocator@U?$_List_node@UBounds@CCpuClipAntialiasSink@@PEAX@std@@@std@@@std@@QEAA@AEAV?$allocator@U?$_List_node@UBounds@CCpuClipAntialiasSink@@PEAX@std@@@1@$$QEAG1$$QEAM12@Z @ 0x1800DF508 (--$-0GGMGM@-$_List_node_emplace_op2@V-$allocator@U-$_List_node@UBounds@CCpuClipAntialiasSink@@PE.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ */
+
 void __fastcall CCpuClipAntialiasSinkContext::ProcessRenderCommands_OcclusionPass(
         __int64 a1,
         unsigned int a2,

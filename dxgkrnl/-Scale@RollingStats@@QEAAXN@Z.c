@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Scale@RollingStats@@QEAAXN@Z @ 0x1C0088480
+ * Callers:
+ *     ?EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ @ 0x1C0359510 (-EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall RollingStats::Scale(RollingStats *this, double a2)
 {
   unsigned int v2; // r9d

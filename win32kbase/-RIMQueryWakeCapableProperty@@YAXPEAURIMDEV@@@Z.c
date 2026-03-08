@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RIMQueryWakeCapableProperty@@YAXPEAURIMDEV@@@Z @ 0x1C00BC4E4
+ * Callers:
+ *     RIMHandlePowerDeviceArrival @ 0x1C00BC314 (RIMHandlePowerDeviceArrival.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall RIMQueryWakeCapableProperty(struct RIMDEV *a1)
 {
   int DeviceInterfacePropertyData; // eax

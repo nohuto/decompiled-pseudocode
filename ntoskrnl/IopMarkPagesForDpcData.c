@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopMarkPagesForDpcData @ 0x14055ACEC
+ * Callers:
+ *     IopAddMiniDumpPagesToPartialKernelDump @ 0x14055A768 (IopAddMiniDumpPagesToPartialKernelDump.c)
+ * Callees:
+ *     MmIsAddressValidEx @ 0x1403471E0 (MmIsAddressValidEx.c)
+ *     MmAddRangeToCrashDump @ 0x14062DD30 (MmAddRangeToCrashDump.c)
+ */
+
 __int64 __fastcall IopMarkPagesForDpcData(__int64 a1)
 {
   unsigned int v1; // ebx

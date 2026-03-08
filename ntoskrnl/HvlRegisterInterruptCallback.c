@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlRegisterInterruptCallback @ 0x14053D7F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HvlRegisterInterruptCallback(unsigned int a1, signed __int64 a2, _DWORD *a3)
 {
   if ( a1 > 4 )

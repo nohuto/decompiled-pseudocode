@@ -1,3 +1,15 @@
+/*
+ * XREFs of PiDrvDbRegisterNodeCallback @ 0x140860D8C
+ * Callers:
+ *     PiDrvDbEnumDriverStoreNodes @ 0x14081DAA0 (PiDrvDbEnumDriverStoreNodes.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     PiDrvDbRegisterNode @ 0x14081C38C (PiDrvDbRegisterNode.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 bool __fastcall PiDrvDbRegisterNodeCallback(const WCHAR *a1, int *a2)
 {
   int v4; // ebx

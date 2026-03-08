@@ -1,3 +1,24 @@
+/*
+ * XREFs of LdrpResSearchResourceMappedFile @ 0x14035DC3C
+ * Callers:
+ *     LdrResGetRCConfig @ 0x1407928C4 (LdrResGetRCConfig.c)
+ *     LdrResSearchResource @ 0x1407EACB0 (LdrResSearchResource.c)
+ * Callees:
+ *     DownLevelLangIDToLanguageName @ 0x1402BEE08 (DownLevelLangIDToLanguageName.c)
+ *     LdrpFindMessageInAlternateModule @ 0x14035C884 (LdrpFindMessageInAlternateModule.c)
+ *     LdrIsResItemExist @ 0x14035CD44 (LdrIsResItemExist.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x14035D07C (LdrLoadAlternateResourceModuleEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     LdrpResSearchResourceInsideDirectory @ 0x1406DFE4C (LdrpResSearchResourceInsideDirectory.c)
+ *     LdrResGetRCConfig @ 0x1407928C4 (LdrResGetRCConfig.c)
+ *     LdrResFallbackLangList @ 0x1407EAAE4 (LdrResFallbackLangList.c)
+ *     LdrpResGetMappingSize @ 0x1407EB0A8 (LdrpResGetMappingSize.c)
+ *     LdrpResGetResourceDirectory @ 0x1407EB258 (LdrpResGetResourceDirectory.c)
+ */
+
 __int64 __fastcall LdrpResSearchResourceMappedFile(
         ULONGLONG a1,
         __int64 a2,

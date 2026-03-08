@@ -1,3 +1,15 @@
+/*
+ * XREFs of XilDeviceSlot_SendQueryEndpointContextInfoRequest @ 0x1C00386A8
+ * Callers:
+ *     UsbDevice_GetXhciEndpointDequeuePointer @ 0x1C001114C (UsbDevice_GetXhciEndpointDequeuePointer.c)
+ *     UsbDevice_GetEndpointState @ 0x1C00111B4 (UsbDevice_GetEndpointState.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ */
+
 char __fastcall XilDeviceSlot_SendQueryEndpointContextInfoRequest(
         __int64 *a1,
         __int64 a2,

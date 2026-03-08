@@ -1,3 +1,13 @@
+/*
+ * XREFs of Controller_PopulateDeviceFlagsFromRegistry @ 0x1C00739B8
+ * Callers:
+ *     Controller_PopulateDeviceFlags @ 0x1C00738B4 (Controller_PopulateDeviceFlags.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_di @ 0x1C001C448 (WPP_RECORDER_SF_di.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Controller_PopulateDeviceFlagsFromRegistry(__int64 *a1, int a2)
 {
   __int64 v3; // rdx

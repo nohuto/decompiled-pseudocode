@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifKeWaitForMultipleObjectsWrapper @ 0x1405E3EA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifKeWaitForMultipleObjectsWrapper(
         ULONG Count,
         PVOID Object[],

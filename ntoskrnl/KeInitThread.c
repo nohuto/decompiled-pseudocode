@@ -1,3 +1,23 @@
+/*
+ * XREFs of KeInitThread @ 0x140A845D0
+ * Callers:
+ *     KiAllocatePrcbThread @ 0x140371F98 (KiAllocatePrcbThread.c)
+ *     KiInitializeAndStartInitialThread @ 0x1403AE4FC (KiInitializeAndStartInitialThread.c)
+ *     PspAllocateThread @ 0x1406B00F4 (PspAllocateThread.c)
+ * Callees:
+ *     KeInitializeTimerEx @ 0x140237DB0 (KeInitializeTimerEx.c)
+ *     KeAbInitializeThreadState @ 0x140237DDC (KeAbInitializeThreadState.c)
+ *     KeInitializeApc @ 0x140237E20 (KeInitializeApc.c)
+ *     KiInitializeContextThread @ 0x140237E9C (KiInitializeContextThread.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     MmCreateKernelStack @ 0x140317B10 (MmCreateKernelStack.c)
+ *     MmDeleteKernelStackEx @ 0x140318070 (MmDeleteKernelStackEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KeCopyXfdMaskToTeb @ 0x14056FED0 (KeCopyXfdMaskToTeb.c)
+ *     KiCreateKernelShadowStack @ 0x1409713F0 (KiCreateKernelShadowStack.c)
+ *     KiDeleteKernelShadowStack @ 0x14097141C (KiDeleteKernelShadowStack.c)
+ */
+
 __int64 __fastcall KeInitThread(__int64 a1, __int64 a2)
 {
   unsigned int v4; // r14d

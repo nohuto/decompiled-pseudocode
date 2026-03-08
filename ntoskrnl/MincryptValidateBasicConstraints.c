@@ -1,3 +1,14 @@
+/*
+ * XREFs of MincryptValidateBasicConstraints @ 0x14067DECC
+ * Callers:
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6CBC8 (MinCryptVerifyCertificateWithPolicy2.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MinAsn1DecodeInteger @ 0x14067E004 (MinAsn1DecodeInteger.c)
+ *     MinAsn1ParseSingleExtensionValue @ 0x140A6DAB8 (MinAsn1ParseSingleExtensionValue.c)
+ *     MinAsn1ExtractValues @ 0x140A6EB74 (MinAsn1ExtractValues.c)
+ */
+
 __int64 __fastcall MincryptValidateBasicConstraints(_DWORD *a1, int a2, char a3, _DWORD *a4)
 {
   unsigned int v4; // ebx

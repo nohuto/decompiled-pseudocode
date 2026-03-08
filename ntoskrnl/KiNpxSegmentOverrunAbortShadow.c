@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiNpxSegmentOverrunAbortShadow @ 0x140AF35C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // positive sp value has been detected, the output may be wrong!
 void __fastcall __noreturn KiNpxSegmentOverrunAbortShadow()
 {

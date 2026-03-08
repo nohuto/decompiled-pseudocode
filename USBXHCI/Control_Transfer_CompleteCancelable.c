@@ -1,3 +1,17 @@
+/*
+ * XREFs of Control_Transfer_CompleteCancelable @ 0x1C0006FBC
+ * Callers:
+ *     Control_WdfEvtIoDefault @ 0x1C0005C60 (Control_WdfEvtIoDefault.c)
+ *     Control_ProcessTransferEventWithED1 @ 0x1C0006840 (Control_ProcessTransferEventWithED1.c)
+ *     Control_MapTransfer @ 0x1C00071B4 (Control_MapTransfer.c)
+ *     Control_ProcessTransferCompletion @ 0x1C0042704 (Control_ProcessTransferCompletion.c)
+ * Callees:
+ *     Control_Transfer_Complete @ 0x1C0005E64 (Control_Transfer_Complete.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0007C90 (WPP_RECORDER_SF_DD.c)
+ *     WPP_RECORDER_SF_DDd @ 0x1C001BCB0 (WPP_RECORDER_SF_DDd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Control_Transfer_CompleteCancelable(_QWORD *a1)
 {
   __int64 v1; // rbx

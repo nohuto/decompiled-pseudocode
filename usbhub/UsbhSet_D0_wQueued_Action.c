@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhSet_D0_wQueued_Action @ 0x1C001E1B0
+ * Callers:
+ *     UsbhPdoDevicePowerState @ 0x1C000A4C0 (UsbhPdoDevicePowerState.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhReleasePowerContext @ 0x1C001BA68 (UsbhReleasePowerContext.c)
+ *     UsbhFdoScheduleDeferredPowerRequest @ 0x1C001E494 (UsbhFdoScheduleDeferredPowerRequest.c)
+ */
+
 __int64 __fastcall UsbhSet_D0_wQueued_Action(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 Pool2; // rax

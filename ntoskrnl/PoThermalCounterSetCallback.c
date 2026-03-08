@@ -1,3 +1,18 @@
+/*
+ * XREFs of PoThermalCounterSetCallback @ 0x140987BE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140240954 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcspbrk @ 0x1403D64C0 (wcspbrk.c)
+ *     PcwAddInstance @ 0x14086B690 (PcwAddInstance.c)
+ *     PopThermalReadCounters @ 0x140987EB4 (PopThermalReadCounters.c)
+ */
+
 __int64 __fastcall PoThermalCounterSetCallback(int a1, _QWORD *a2)
 {
   struct _KTHREAD *CurrentThread; // rax

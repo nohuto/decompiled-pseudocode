@@ -1,3 +1,43 @@
+/*
+ * XREFs of DpiAddDevice @ 0x1C01F38A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     DxgkDiagCalcDuration1us @ 0x1C001BD88 (DxgkDiagCalcDuration1us.c)
+ *     DpiGetDeviceRegistryPaths @ 0x1C001D038 (DpiGetDeviceRegistryPaths.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     wcsncmp_0 @ 0x1C00243C5 (wcsncmp_0.c)
+ *     Feature_EnableIddCx110__private_IsEnabledDeviceUsage @ 0x1C0024584 (Feature_EnableIddCx110__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     McTemplateK0ppq_EtwWriteTransfer @ 0x1C005A62C (McTemplateK0ppq_EtwWriteTransfer.c)
+ *     DpiDxgkDdiLinkDevice @ 0x1C006593C (DpiDxgkDdiLinkDevice.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01BA77C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     DpEvalAcpiMethod @ 0x1C01D38B0 (DpEvalAcpiMethod.c)
+ *     DpiFdoDetectPostDevice @ 0x1C01E7AF0 (DpiFdoDetectPostDevice.c)
+ *     DpiDxgkDdiAddDevice @ 0x1C01F1168 (DpiDxgkDdiAddDevice.c)
+ *     DpiReadPnpRegistryValue @ 0x1C01F1618 (DpiReadPnpRegistryValue.c)
+ *     DpiFdoInitializeFdo @ 0x1C01F5A64 (DpiFdoInitializeFdo.c)
+ *     DpiQueryBusInterface @ 0x1C01F6760 (DpiQueryBusInterface.c)
+ *     DpiGetDevicePropertyString @ 0x1C02163CC (DpiGetDevicePropertyString.c)
+ *     DpiGetAgpStatus @ 0x1C021830C (DpiGetAgpStatus.c)
+ *     DpiAcpiRegisterAcpiCallbacks @ 0x1C0218574 (DpiAcpiRegisterAcpiCallbacks.c)
+ *     DpiGetVgaStatus @ 0x1C0218D80 (DpiGetVgaStatus.c)
+ *     DpiDxgkDdiExchangePreStartInfo @ 0x1C0219BF0 (DpiDxgkDdiExchangePreStartInfo.c)
+ *     ?DxgAllocateDiagnosticInfoArgs@@YAPEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@W4_DXGK_DIAGNOSTICINFO_TYPE@@@Z @ 0x1C02C9034 (-DxgAllocateDiagnosticInfoArgs@@YAPEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@W4_DXGK_DIAGNOSTICINFO_TYP.c)
+ *     ?DxgCreateLiveDumpWithDriverBlob@@YAJPEAU_DEVICE_OBJECT@@K_K111PEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@@Z @ 0x1C02C911C (-DxgCreateLiveDumpWithDriverBlob@@YAJPEAU_DEVICE_OBJECT@@K_K111PEAU_DXGKARG_COLLECTDIAGNOSTICINF.c)
+ *     ?DxgCreateLiveDumpWithWdLogs2@@YAJK_K000UDXGK_LIVEREPORT_FLAGS@@@Z @ 0x1C02C935C (-DxgCreateLiveDumpWithWdLogs2@@YAJK_K000UDXGK_LIVEREPORT_FLAGS@@@Z.c)
+ *     ?DxgFreeDiagnosticInfoArgs@@YAXPEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@@Z @ 0x1C02C95C8 (-DxgFreeDiagnosticInfoArgs@@YAXPEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@@Z.c)
+ *     DpiSetDeviceUsageType @ 0x1C0396374 (DpiSetDeviceUsageType.c)
+ *     DpiFdoResetFdo @ 0x1C0398754 (DpiFdoResetFdo.c)
+ *     DpiAcpiUnregisterAcpiCallbacks @ 0x1C03A2624 (DpiAcpiUnregisterAcpiCallbacks.c)
+ *     DpiLdaLinkDeviceToChain @ 0x1C03A3B80 (DpiLdaLinkDeviceToChain.c)
+ *     DpiLdaUnLinkDeviceFromChain @ 0x1C03A4380 (DpiLdaUnLinkDeviceFromChain.c)
+ *     DpiDxgkDdiRemoveDevice @ 0x1C03A48CC (DpiDxgkDdiRemoveDevice.c)
+ */
+
 __int64 __fastcall DpiAddDevice(
         struct _DRIVER_OBJECT *ClientIdentificationAddress,
         PDEVICE_OBJECT DeviceObject,

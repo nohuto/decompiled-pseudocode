@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiSuspendAdapterDpc @ 0x1C001A990
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiRequestDevicePowerState @ 0x1C001AC34 (DpiRequestDevicePowerState.c)
+ */
+
 void __fastcall DpiSuspendAdapterDpc(
         struct _KDPC *Dpc,
         int *DeferredContext,

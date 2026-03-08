@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpSetProviderTraitsKm @ 0x140788328
+ * Callers:
+ *     EtwSetInformation @ 0x1407882D0 (EtwSetInformation.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     EtwpSetProviderTraitsCommon @ 0x140695C68 (EtwpSetProviderTraitsCommon.c)
+ *     EtwpEventWriteRegistrationStatus @ 0x1409E0B4C (EtwpEventWriteRegistrationStatus.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall EtwpSetProviderTraitsKm(__int64 a1, void *Src, unsigned __int16 a3)
 {
   __int16 v4; // ax

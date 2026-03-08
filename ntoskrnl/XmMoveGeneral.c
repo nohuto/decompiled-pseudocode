@@ -1,3 +1,14 @@
+/*
+ * XREFs of XmMoveGeneral @ 0x1403B3EA0
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmEvaluateAddressSpecifier @ 0x1403B3F0C (XmEvaluateAddressSpecifier.c)
+ *     XmGetRegisterAddress @ 0x1403B4124 (XmGetRegisterAddress.c)
+ *     XmSetSourceValue @ 0x1403B41A0 (XmSetSourceValue.c)
+ *     XmSetDataType @ 0x1403B41C8 (XmSetDataType.c)
+ */
+
 __int64 __fastcall XmMoveGeneral(__int64 a1)
 {
   __int64 result; // rax

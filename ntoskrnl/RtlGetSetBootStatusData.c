@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlGetSetBootStatusData @ 0x14073D600
+ * Callers:
+ *     PopBootStatGet @ 0x14073D308 (PopBootStatGet.c)
+ *     PopBootStatSet @ 0x14073D9E0 (PopBootStatSet.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpGetSetBootStatusData @ 0x14073D77C (RtlpGetSetBootStatusData.c)
+ */
+
 __int64 __fastcall RtlGetSetBootStatusData(HANDLE FileHandle, char a2, int a3, _BYTE *a4, int a5, _DWORD *a6)
 {
   __int64 result; // rax

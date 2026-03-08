@@ -1,3 +1,13 @@
+/*
+ * XREFs of _OpenWindowStation @ 0x1C00C0364
+ * Callers:
+ *     xxxResolveDesktop @ 0x1C00BF660 (xxxResolveDesktop.c)
+ *     NtUserOpenWindowStation @ 0x1C00C2180 (NtUserOpenWindowStation.c)
+ *     xxxResolveDesktopForWOW @ 0x1C01BFDF8 (xxxResolveDesktopForWOW.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall OpenWindowStation(__int64 a1, int a2, __int64 a3)
 {
   NTSTATUS v3; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiVerifyXcpt11 @ 0x140B5D1A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiVerifyXcptFilter @ 0x140B5D724 (KiVerifyXcptFilter.c)
+ */
+
 __int64 __fastcall KiVerifyXcpt11(__int64 a1)
 {
   __int64 v1; // rdx

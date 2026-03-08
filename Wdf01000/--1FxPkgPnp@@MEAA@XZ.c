@@ -1,3 +1,23 @@
+/*
+ * XREFs of ??1FxPkgPnp@@MEAA@XZ @ 0x1C0070ED0
+ * Callers:
+ *     ??1FxPkgPdo@@UEAA@XZ @ 0x1C00686E8 (--1FxPkgPdo@@UEAA@XZ.c)
+ *     ??_EFxPkgPnp@@MEAAPEAXI@Z @ 0x1C0071150 (--_EFxPkgPnp@@MEAAPEAXI@Z.c)
+ *     ??1FxPkgFdo@@MEAA@XZ @ 0x1C00779D4 (--1FxPkgFdo@@MEAA@XZ.c)
+ * Callees:
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0002D30 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ?Free@MxWorkItem@@QEAAXXZ @ 0x1C0040A18 (-Free@MxWorkItem@@QEAAXXZ.c)
+ *     ??_GFxDeviceInterface@@QEAAPEAXI@Z @ 0x1C0049AB4 (--_GFxDeviceInterface@@QEAAPEAXI@Z.c)
+ *     ??1FxTransactionedList@@QEAA@XZ @ 0x1C004F69C (--1FxTransactionedList@@QEAA@XZ.c)
+ *     ??_GFxRelatedDeviceList@@QEAAPEAXI@Z @ 0x1C00687C0 (--_GFxRelatedDeviceList@@QEAAPEAXI@Z.c)
+ *     ??_GFxEnumerationInfo@@QEAAPEAXI@Z @ 0x1C007111C (--_GFxEnumerationInfo@@QEAAPEAXI@Z.c)
+ *     ??_GFxSelfManagedIoMachine@@QEAAPEAXI@Z @ 0x1C0071190 (--_GFxSelfManagedIoMachine@@QEAAPEAXI@Z.c)
+ *     ?SleepStudyStop@FxPkgPnp@@QEAAXXZ @ 0x1C0079834 (-SleepStudyStop@FxPkgPnp@@QEAAXXZ.c)
+ *     ??1FxPowerPolicyMachine@@QEAA@XZ @ 0x1C007A1B8 (--1FxPowerPolicyMachine@@QEAA@XZ.c)
+ */
+
 void __fastcall FxPkgPnp::~FxPkgPnp(FxPkgPnp *this)
 {
   unsigned int v2; // edx

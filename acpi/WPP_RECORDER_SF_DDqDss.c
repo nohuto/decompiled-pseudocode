@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_DDqDss @ 0x1C005E1C8
+ * Callers:
+ *     ProcessorpFindAffinitizedIdtEntries @ 0x1C009B1A8 (ProcessorpFindAffinitizedIdtEntries.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF_DDqDss(
         __int64 a1,
         __int64 a2,

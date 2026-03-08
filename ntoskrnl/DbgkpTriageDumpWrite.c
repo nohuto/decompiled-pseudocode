@@ -1,3 +1,11 @@
+/*
+ * XREFs of DbgkpTriageDumpWrite @ 0x140939340
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall DbgkpTriageDumpWrite(__int64 *a1, _DWORD *a2)
 {
   __int64 v2; // rbx

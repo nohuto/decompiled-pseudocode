@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiPrepareLargePageSubPageForFree @ 0x140666E94
+ * Callers:
+ *     MiReadyLargePageToFree @ 0x140350860 (MiReadyLargePageToFree.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiSetPfnIdentity @ 0x14034BE78 (MiSetPfnIdentity.c)
+ *     MiClearPfnImageVerified @ 0x14036ABC0 (MiClearPfnImageVerified.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiPrepareLargePageSubPageForFree(ULONG_PTR BugCheckParameter2)
 {
   volatile signed __int64 *v1; // rbx

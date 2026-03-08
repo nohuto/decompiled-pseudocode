@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpDmaReturnPageToSource @ 0x14050F064
+ * Callers:
+ *     HalpDmaFreeChildAdapter @ 0x14050ED00 (HalpDmaFreeChildAdapter.c)
+ *     HalpDmaAllocateLocalContiguousPool @ 0x140930FF0 (HalpDmaAllocateLocalContiguousPool.c)
+ * Callees:
+ *     HalpDmaReturnToContiguousPool @ 0x14045430C (HalpDmaReturnToContiguousPool.c)
+ *     HalpDmaReturnToScatterPool @ 0x140454408 (HalpDmaReturnToScatterPool.c)
+ */
+
 void __fastcall HalpDmaReturnPageToSource(__int64 a1, unsigned __int64 a2)
 {
   __int64 v2; // rax

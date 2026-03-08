@@ -1,3 +1,13 @@
+/*
+ * XREFs of SeRegisterElamCertResources @ 0x14081B8D0
+ * Callers:
+ *     ExpQueryElamCertInfo @ 0x1409F3CC0 (ExpQueryElamCertInfo.c)
+ *     PipInitializeEarlyLaunchDrivers @ 0x140B57190 (PipInitializeEarlyLaunchDrivers.c)
+ * Callees:
+ *     LdrResSearchResource @ 0x1407EACB0 (LdrResSearchResource.c)
+ *     SepParseElamCertResources @ 0x14081AB7C (SepParseElamCertResources.c)
+ */
+
 NTSTATUS __fastcall SeRegisterElamCertResources(ULONGLONG a1, __int64 a2, char a3)
 {
   NTSTATUS result; // eax

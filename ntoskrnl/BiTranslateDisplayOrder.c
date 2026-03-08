@@ -1,3 +1,11 @@
+/*
+ * XREFs of BiTranslateDisplayOrder @ 0x140A5C138
+ * Callers:
+ *     BiExportEfiBootManager @ 0x140A5B928 (BiExportEfiBootManager.c)
+ * Callees:
+ *     BiTranslateObjectIdentifier @ 0x140A5C1C0 (BiTranslateObjectIdentifier.c)
+ */
+
 __int64 __fastcall BiTranslateDisplayOrder(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   __int64 v4; // rbx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PspSendProcessNotificationToJobChain @ 0x1406F84CC
+ * Callers:
+ *     PspRundownSingleProcess @ 0x1406F8160 (PspRundownSingleProcess.c)
+ * Callees:
+ *     PspSendJobNotification @ 0x14030201C (PspSendJobNotification.c)
+ *     PspLockRootJobFromProcess @ 0x1406F93EC (PspLockRootJobFromProcess.c)
+ *     PspUnlockJobConditionally @ 0x1406FB418 (PspUnlockJobConditionally.c)
+ *     PspLockJobConditionally @ 0x1406FB448 (PspLockJobConditionally.c)
+ *     PspUnlockJob @ 0x1406FBF7C (PspUnlockJob.c)
+ */
+
 __int64 __fastcall PspSendProcessNotificationToJobChain(__int64 a1, __int64 a2, int a3)
 {
   struct _KTHREAD *CurrentThread; // rsi

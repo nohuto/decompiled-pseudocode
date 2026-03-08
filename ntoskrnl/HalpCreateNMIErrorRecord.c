@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpCreateNMIErrorRecord @ 0x1405044A4
+ * Callers:
+ *     HalpCreateErrorRecord @ 0x1405006E0 (HalpCreateErrorRecord.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WheaInitializeRecordHeader @ 0x140610140 (WheaInitializeRecordHeader.c)
+ */
+
 __int64 __fastcall HalpCreateNMIErrorRecord(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   unsigned int v8; // edi

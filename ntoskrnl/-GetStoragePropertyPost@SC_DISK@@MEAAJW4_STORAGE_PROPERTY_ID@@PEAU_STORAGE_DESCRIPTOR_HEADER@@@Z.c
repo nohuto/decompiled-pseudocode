@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetStoragePropertyPost@SC_DISK@@MEAAJW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x140673160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetFruIdDescPost@SC_DISK@@AEAAJPEAU_STORAGE_FRU_ID_DESCRIPTOR@@@Z @ 0x1406730EC (-GetFruIdDescPost@SC_DISK@@AEAAJPEAU_STORAGE_FRU_ID_DESCRIPTOR@@@Z.c)
+ */
+
 __int64 __fastcall SC_DISK::GetStoragePropertyPost(
         struct _UNICODE_STRING *this,
         int a2,

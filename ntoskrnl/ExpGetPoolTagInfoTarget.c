@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpGetPoolTagInfoTarget @ 0x14038BCC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall ExpGetPoolTagInfoTarget(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)
 {
   signed __int32 v7; // eax

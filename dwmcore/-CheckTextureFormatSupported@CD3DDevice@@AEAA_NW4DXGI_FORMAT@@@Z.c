@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CheckTextureFormatSupported@CD3DDevice@@AEAA_NW4DXGI_FORMAT@@@Z @ 0x1800D0768
+ * Callers:
+ *     ?GatherSupportedTextureFormats@CD3DDevice@@AEAAJXZ @ 0x1800D05D0 (-GatherSupportedTextureFormats@CD3DDevice@@AEAAJXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CD3DDevice::CheckTextureFormatSupported(CD3DDevice *this, __int64 a2)
 {
   __int64 v2; // rcx

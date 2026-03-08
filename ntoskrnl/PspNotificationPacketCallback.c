@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspNotificationPacketCallback @ 0x140797BA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoSetIoCompletionEx @ 0x140292850 (IoSetIoCompletionEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     PspUnlockJob @ 0x1406FBF7C (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x1406FC178 (PspLockJobExclusive.c)
+ */
+
 void __fastcall PspNotificationPacketCallback(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rsi

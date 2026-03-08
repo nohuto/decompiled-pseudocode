@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiHotRemovePartitionPageRun @ 0x140A423B8
+ * Callers:
+ *     MiActOnPartitionNodePages @ 0x140655AB0 (MiActOnPartitionNodePages.c)
+ * Callees:
+ *     MiRemovePhysicalMemory @ 0x140A29F5C (MiRemovePhysicalMemory.c)
+ */
+
 __int64 __fastcall MiHotRemovePartitionPageRun(ULONG_PTR a1, ULONG_PTR a2, int a3, int a4, __int16 a5)
 {
   int v6; // r8d

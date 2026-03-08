@@ -1,3 +1,22 @@
+/*
+ * XREFs of UserDeactivateMITInputProcessing @ 0x1C0093B20
+ * Callers:
+ *     xxxDestroyThreadInfo @ 0x1C0072BF4 (xxxDestroyThreadInfo.c)
+ *     NtMITDeactivateInputProcessing @ 0x1C016A2F0 (NtMITDeactivateInputProcessing.c)
+ * Callees:
+ *     ?HandleInputThreadStateChange@CBaseInput@@QEAAXW4InputThreadState@@@Z @ 0x1C002EFEC (-HandleInputThreadStateChange@CBaseInput@@QEAAXW4InputThreadState@@@Z.c)
+ *     RawInputManagerObjectResolveHandle @ 0x1C0039E60 (RawInputManagerObjectResolveHandle.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     HMValidateHandleNoSecure @ 0x1C007A1CC (HMValidateHandleNoSecure.c)
+ *     ApiSetEditionDeactivateMitInput @ 0x1C0093CC4 (ApiSetEditionDeactivateMitInput.c)
+ *     ?OnInputThreadStateChanged@InputExtensibilityCallout@@QEBAXW4InputThreadState@@@Z @ 0x1C00947E0 (-OnInputThreadStateChanged@InputExtensibilityCallout@@QEBAXW4InputThreadState@@@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?CoreMsgCloseAllDestinations@InputExtensibilityCallout@@AEAAXXZ @ 0x1C00CCF84 (-CoreMsgCloseAllDestinations@InputExtensibilityCallout@@AEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     RIMFreePointerDevice @ 0x1C01B5B18 (RIMFreePointerDevice.c)
+ *     ??1VirtualTouchpadProcessor@@AEAA@XZ @ 0x1C0223D34 (--1VirtualTouchpadProcessor@@AEAA@XZ.c)
+ */
+
 __int64 UserDeactivateMITInputProcessing()
 {
   char v0; // bl

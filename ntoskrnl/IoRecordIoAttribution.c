@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoRecordIoAttribution @ 0x14030BC80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IopFindDiskIoAttribution @ 0x14030AE38 (IopFindDiskIoAttribution.c)
+ *     IopRecordIoAttribution @ 0x14030C324 (IopRecordIoAttribution.c)
+ *     IoDiskIoAttributionDereference @ 0x14030C4DC (IoDiskIoAttributionDereference.c)
+ */
+
 __int64 __fastcall IoRecordIoAttribution(unsigned __int64 a1, _DWORD *a2)
 {
   __int64 DiskIoAttribution; // rax

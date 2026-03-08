@@ -1,3 +1,13 @@
+/*
+ * XREFs of _EnumClipboardFormats @ 0x1C0200608
+ * Callers:
+ *     NtUserEnumClipboardFormats @ 0x1C01475A0 (NtUserEnumClipboardFormats.c)
+ * Callees:
+ *     ?FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z @ 0x1C0012468 (-FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00BD7B8 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ */
+
 __int64 __fastcall EnumClipboardFormats(__int64 a1)
 {
   unsigned int v1; // esi

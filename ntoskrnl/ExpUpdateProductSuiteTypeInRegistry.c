@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExpUpdateProductSuiteTypeInRegistry @ 0x140B6505C
+ * Callers:
+ *     ExpWatchProductTypeInitialization @ 0x140B64AFC (ExpWatchProductTypeInitialization.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ExVerifySuite @ 0x1403A1420 (ExVerifySuite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     NtSetValueKey @ 0x1407A9030 (NtSetValueKey.c)
+ */
+
 __int64 ExpUpdateProductSuiteTypeInRegistry()
 {
   HANDLE v0; // r12

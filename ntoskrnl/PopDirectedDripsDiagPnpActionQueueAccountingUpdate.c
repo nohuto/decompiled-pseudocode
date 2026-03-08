@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopDirectedDripsDiagPnpActionQueueAccountingUpdate @ 0x14059DFB8
+ * Callers:
+ *     PopDirectedDripsHandleResiliencyNotification @ 0x140980530 (PopDirectedDripsHandleResiliencyNotification.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe @ 0x14059E05C (PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe.c)
+ */
+
 __int64 __fastcall PopDirectedDripsDiagPnpActionQueueAccountingUpdate(__int64 a1, char a2)
 {
   __int64 v3; // rdx

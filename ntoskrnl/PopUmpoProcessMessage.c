@@ -1,3 +1,23 @@
+/*
+ * XREFs of PopUmpoProcessMessage @ 0x14073B3C8
+ * Callers:
+ *     PopUmpoSendPowerMessage @ 0x1402BD1D0 (PopUmpoSendPowerMessage.c)
+ *     PopUmpoProcessMessages @ 0x14073B298 (PopUmpoProcessMessages.c)
+ * Callees:
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwAlpcAcceptConnectPort @ 0x1404131F0 (ZwAlpcAcceptConnectPort.c)
+ *     ZwAlpcCancelMessage @ 0x140413210 (ZwAlpcCancelMessage.c)
+ *     ZwAlpcOpenSenderProcess @ 0x1404133F0 (ZwAlpcOpenSenderProcess.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopUmpoProcessPowerMessage @ 0x14073B5A4 (PopUmpoProcessPowerMessage.c)
+ *     PopAcquireUmpoPushLock @ 0x14073C2DC (PopAcquireUmpoPushLock.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall PopUmpoProcessMessage(__int64 a1)
 {
   __int16 v1; // r8

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPowerTransitionTimesInMs @ 0x140581020
+ * Callers:
+ *     PopCalculateWakeTimeAdjustment @ 0x140984168 (PopCalculateWakeTimeAdjustment.c)
+ *     PopDiagTracePowerTransitionTime @ 0x14098E1F8 (PopDiagTracePowerTransitionTime.c)
+ * Callees:
+ *     PopQpcTimeInMs @ 0x140A84A40 (PopQpcTimeInMs.c)
+ */
+
 unsigned __int64 __fastcall PopPowerTransitionTimesInMs(
         _DWORD *a1,
         _DWORD *a2,

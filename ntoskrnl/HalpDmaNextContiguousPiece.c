@@ -1,3 +1,21 @@
+/*
+ * XREFs of HalpDmaNextContiguousPiece @ 0x140452E28
+ * Callers:
+ *     HalPutScatterGatherListV2 @ 0x1403C8D28 (HalPutScatterGatherListV2.c)
+ *     HalpDmaFlushContiguousTransferV2 @ 0x140455976 (HalpDmaFlushContiguousTransferV2.c)
+ *     HalpDmaFlushScatterTransferV2 @ 0x140455A8C (HalpDmaFlushScatterTransferV2.c)
+ *     HalpDmaMapContiguousTransferV2 @ 0x140455BE8 (HalpDmaMapContiguousTransferV2.c)
+ *     HalpDmaMapScatterTransferV2 @ 0x140455D28 (HalpDmaMapScatterTransferV2.c)
+ *     HalpDmaFlushContiguousTransferV3 @ 0x1404FDA54 (HalpDmaFlushContiguousTransferV3.c)
+ *     HalpDmaFlushScatterTransferV3 @ 0x1404FDBA4 (HalpDmaFlushScatterTransferV3.c)
+ *     HalpDmaMapContiguousTransferV3 @ 0x1404FDFEC (HalpDmaMapContiguousTransferV3.c)
+ *     HalpDmaMapScatterTransferV3 @ 0x1404FE110 (HalpDmaMapScatterTransferV3.c)
+ * Callees:
+ *     HalpDmaGetAdapterVersion @ 0x1403B4514 (HalpDmaGetAdapterVersion.c)
+ *     HalpDmaNextContiguousPieceV2 @ 0x140455EB4 (HalpDmaNextContiguousPieceV2.c)
+ *     HalpDmaNextContiguousPieceV3 @ 0x1404FE2D0 (HalpDmaNextContiguousPieceV3.c)
+ */
+
 __int64 __fastcall HalpDmaNextContiguousPiece(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, int a6)
 {
   int v6; // r8d

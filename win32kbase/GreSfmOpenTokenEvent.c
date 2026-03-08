@@ -1,3 +1,13 @@
+/*
+ * XREFs of GreSfmOpenTokenEvent @ 0x1C0019080
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserIsCurrentProcessDwm @ 0x1C00191C0 (UserIsCurrentProcessDwm.c)
+ *     EtwTraceGreLockAcquireSemaphoreShared @ 0x1C0047AF0 (EtwTraceGreLockAcquireSemaphoreShared.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0049E20 (EtwTraceGreLockReleaseSemaphore.c)
+ */
+
 __int64 __fastcall GreSfmOpenTokenEvent(PHANDLE Handle)
 {
   __int64 v2; // rbx

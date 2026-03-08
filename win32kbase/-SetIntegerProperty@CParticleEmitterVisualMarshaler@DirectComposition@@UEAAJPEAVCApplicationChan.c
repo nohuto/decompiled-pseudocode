@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetIntegerProperty@CParticleEmitterVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C025CA80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetIntegerProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00A6910 (-SetIntegerProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@.c)
+ */
+
 __int64 __fastcall DirectComposition::CParticleEmitterVisualMarshaler::SetIntegerProperty(
         DirectComposition::CParticleEmitterVisualMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PsFreeEnclaveModuleInfo @ 0x1405A43B0
+ * Callers:
+ *     PsGetProcessEnclaveModuleInfo @ 0x1405A440C (PsGetProcessEnclaveModuleInfo.c)
+ *     DbgkpPostModuleMessages @ 0x140934C44 (DbgkpPostModuleMessages.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PsFreeEnclaveModuleInfo(char *P, int a2)
 {
   int v2; // edi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_EFxRequestMemory@@UEAAPEAXI@Z @ 0x1C0042410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxRequestMemory@@UEAA@XZ @ 0x1C0042360 (--1FxRequestMemory@@UEAA@XZ.c)
+ */
+
 FxRequestMemory *__fastcall FxRequestMemory::`vector deleting destructor'(
         FxRequestMemory *this,
         unsigned int a2,

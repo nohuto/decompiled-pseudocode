@@ -1,3 +1,13 @@
+/*
+ * XREFs of VidSchSetPriorityContext @ 0x1C00ACE20
+ * Callers:
+ *     VidSchiCreateContextInternal @ 0x1C0013B3C (VidSchiCreateContextInternal.c)
+ * Callees:
+ *     VidSchiSetPriorityContext @ 0x1C0014574 (VidSchiSetPriorityContext.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     VidSchiComputePriority @ 0x1C00ACEB0 (VidSchiComputePriority.c)
+ */
+
 __int64 __fastcall VidSchSetPriorityContext(struct _VIDSCH_CONTEXT *a1, int a2, int a3, int a4)
 {
   __int64 v6; // rdx

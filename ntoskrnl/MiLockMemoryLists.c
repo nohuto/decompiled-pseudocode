@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiLockMemoryLists @ 0x14064E390
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ */
+
 void __fastcall MiLockMemoryLists(__int64 a1, __int64 a2)
 {
   volatile LONG *v3; // rcx

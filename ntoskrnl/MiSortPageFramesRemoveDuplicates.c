@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiSortPageFramesRemoveDuplicates @ 0x140628888
+ * Callers:
+ *     MiGetListOfPendingBadPages @ 0x140627BD8 (MiGetListOfPendingBadPages.c)
+ *     MmEnumerateBadPages @ 0x140A2CF14 (MmEnumerateBadPages.c)
+ * Callees:
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ */
+
 __int64 __fastcall MiSortPageFramesRemoveDuplicates(_QWORD *a1, size_t a2)
 {
   _QWORD *v3; // rbx

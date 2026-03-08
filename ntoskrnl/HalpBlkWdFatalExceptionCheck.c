@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpBlkWdFatalExceptionCheck @ 0x140528C94
+ * Callers:
+ *     HalpBlkPoBusyWait @ 0x140528290 (HalpBlkPoBusyWait.c)
+ *     HalpBlkWdWorkerRoutine @ 0x140528D20 (HalpBlkWdWorkerRoutine.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 ULONG_PTR __fastcall HalpBlkWdFatalExceptionCheck(ULONG_PTR BugCheckParameter2)
 {
   ULONG_PTR v1; // r8

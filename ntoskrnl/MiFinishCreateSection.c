@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiFinishCreateSection @ 0x1407D0800
+ * Callers:
+ *     MiCreateSection @ 0x1407D05D0 (MiCreateSection.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     MiDereferencePerSessionProtos @ 0x14075B72C (MiDereferencePerSessionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x14075B874 (MiCreatePerSessionProtos.c)
+ *     MiFindEmptyAddressRangeDownTree @ 0x140760F18 (MiFindEmptyAddressRangeDownTree.c)
+ *     ObCheckActiveHandles @ 0x140790BB4 (ObCheckActiveHandles.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ *     MiDereferenceFailedControlArea @ 0x14085F4AC (MiDereferenceFailedControlArea.c)
+ */
+
 __int64 __fastcall MiFinishCreateSection(int *a1)
 {
   __int64 v1; // rsi

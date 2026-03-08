@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreHideSprites @ 0x1C00F0F90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?vSpHideSprites@@YAXPEAUHDEV__@@H@Z @ 0x1C00F0FE4 (-vSpHideSprites@@YAXPEAUHDEV__@@H@Z.c)
+ */
+
 void __fastcall GreHideSprites(__int64 a1, int a2)
 {
   __int64 v4; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalAllocateCommonBufferExV2 @ 0x1403ABEB0
+ * Callers:
+ *     HalAllocateCommonBufferV2 @ 0x1403ABE80 (HalAllocateCommonBufferV2.c)
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1403B4900 (MmAllocateContiguousNodeMemory.c)
+ */
+
 void *__fastcall HalAllocateCommonBufferExV2(__int64 a1, __int64 *a2, int a3, PHYSICAL_ADDRESS *a4, int a5, int a6)
 {
   __int64 v8; // r8

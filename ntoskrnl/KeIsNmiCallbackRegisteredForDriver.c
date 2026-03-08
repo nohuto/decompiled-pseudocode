@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeIsNmiCallbackRegisteredForDriver @ 0x14056A100
+ * Callers:
+ *     MmIsVerifierApplicableToImage @ 0x140619C10 (MmIsVerifierApplicableToImage.c)
+ * Callees:
+ *     KiEnumerateNmiSxCallback @ 0x1403D0194 (KiEnumerateNmiSxCallback.c)
+ */
+
 __int64 __fastcall KeIsNmiCallbackRegisteredForDriver(unsigned __int64 a1, unsigned __int64 a2)
 {
   unsigned int v5; // ebx

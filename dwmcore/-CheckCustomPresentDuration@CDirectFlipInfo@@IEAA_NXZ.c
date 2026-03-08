@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CheckCustomPresentDuration@CDirectFlipInfo@@IEAA_NXZ @ 0x1801F3B70
+ * Callers:
+ *     ?Activate@CDirectFlipInfo@@QEAAJXZ @ 0x1801F373C (-Activate@CDirectFlipInfo@@QEAAJXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0qqq_EventWriteTransfer @ 0x180129D70 (McTemplateU0qqq_EventWriteTransfer.c)
+ */
+
 char __fastcall CDirectFlipInfo::CheckCustomPresentDuration(CDirectFlipInfo *this)
 {
   char v2; // si

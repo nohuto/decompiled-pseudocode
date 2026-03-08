@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcessorpReserveUnownedRanges @ 0x1C009BFE4
+ * Callers:
+ *     ProcessorAddInstance @ 0x1C009A7C4 (ProcessorAddInstance.c)
+ * Callees:
+ *     AcpiIrqGetRootResourceList @ 0x1C000AB48 (AcpiIrqGetRootResourceList.c)
+ */
+
 __int64 __fastcall ProcessorpReserveUnownedRanges(PRTL_RANGE_LIST RangeList)
 {
   __int64 v2; // rdi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiLogHotPatchManagement @ 0x140A359F8
+ * Callers:
+ *     NtManageHotPatch @ 0x140784740 (NtManageHotPatch.c)
+ * Callees:
+ *     PsGetProcessId @ 0x140236D10 (PsGetProcessId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall MiLogHotPatchManagement(int a1, __int64 a2, unsigned __int16 *a3, int a4)
 {
   _UNKNOWN **v4; // rax

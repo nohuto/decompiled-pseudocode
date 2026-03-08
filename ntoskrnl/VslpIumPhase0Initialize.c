@@ -1,3 +1,21 @@
+/*
+ * XREFs of VslpIumPhase0Initialize @ 0x140B903AC
+ * Callers:
+ *     HvlPhase1Initialize @ 0x140384654 (HvlPhase1Initialize.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x1402D8618 (HvlQueryVsmConnection.c)
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     MmSetPageProtection @ 0x1403BCCE0 (MmSetPageProtection.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KeQueryKvaShadowInformation @ 0x140972498 (KeQueryKvaShadowInformation.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     VslpIumPhase0InitializeNtKd @ 0x140B90664 (VslpIumPhase0InitializeNtKd.c)
+ */
+
 __int64 __fastcall VslpIumPhase0Initialize(__int64 a1)
 {
   __int64 result; // rax

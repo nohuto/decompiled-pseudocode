@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopUserPresentOverride @ 0x140998B50
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ * Callees:
+ *     PopEvaluateGlobalUserStatus @ 0x14073CA7C (PopEvaluateGlobalUserStatus.c)
+ *     PopAcquireAdaptiveLock @ 0x14073CCB4 (PopAcquireAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x14073CD60 (PopReleaseAdaptiveLock.c)
+ */
+
 __int64 __fastcall PopUserPresentOverride(char a1, __int64 a2)
 {
   unsigned int v3; // ebx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of DifKeReleaseInStackQueuedSpinLockWrapper @ 0x1405E2690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 __int64 __fastcall DifKeReleaseInStackQueuedSpinLockWrapper(__int64 a1)
 {
   __int64 *APIThunkContextById; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiPatchDataPagesCallback @ 0x140A37AC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiSetImageProtection @ 0x1402E3BB8 (MiSetImageProtection.c)
+ *     RtlAreBitsClearEx @ 0x1402E4560 (RtlAreBitsClearEx.c)
+ *     RtlSetBitsEx @ 0x14034CE90 (RtlSetBitsEx.c)
+ *     RtlAreBitsSetEx @ 0x14045B6E0 (RtlAreBitsSetEx.c)
+ */
+
 __int64 __fastcall MiPatchDataPagesCallback(
         __int64 a1,
         unsigned int a2,

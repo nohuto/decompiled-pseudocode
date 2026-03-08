@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidMmQueryVideoMemoryInfo @ 0x1C002D320
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?QueryVideoMemoryInfo@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@KW4_D3DKMT_MEMORY_SEGMENT_GROUP@@PEA_K222@Z @ 0x1C00E6D78 (-QueryVideoMemoryInfo@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@KW4_D3DKMT_MEMORY_SEGMENT_GROUP@@PEA.c)
+ */
+
 __int64 __fastcall VidMmQueryVideoMemoryInfo(
         VIDMM_GLOBAL *a1,
         struct VIDMM_PROCESS *a2,

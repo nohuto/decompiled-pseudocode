@@ -1,3 +1,13 @@
+/*
+ * XREFs of Mutex @ 0x1C0050C50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PerformMutexDriverCallbacks @ 0x1C004C9F4 (PerformMutexDriverCallbacks.c)
+ *     CreateNameSpaceObject @ 0x1C004F10C (CreateNameSpaceObject.c)
+ *     InitMutex @ 0x1C00509FC (InitMutex.c)
+ */
+
 __int64 __fastcall Mutex(__int64 a1, __int64 a2)
 {
   __int64 *v2; // rdi

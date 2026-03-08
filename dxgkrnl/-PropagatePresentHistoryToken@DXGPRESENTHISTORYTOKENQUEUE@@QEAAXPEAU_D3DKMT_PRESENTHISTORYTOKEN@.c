@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PropagatePresentHistoryToken@DXGPRESENTHISTORYTOKENQUEUE@@QEAAXPEAU_D3DKMT_PRESENTHISTORYTOKEN@@_N111111PEAX@Z @ 0x1C005B31C
+ * Callers:
+ *     ?VmBusPropagatePresentHistoryToken@DXG_GUEST_GLOBAL_VMBUS@@SAXPEAUDXGKVMB_COMMAND_PROPAGATEPRESENTHISTORYTOKEN@@@Z @ 0x1C005C368 (-VmBusPropagatePresentHistoryToken@DXG_GUEST_GLOBAL_VMBUS@@SAXPEAUDXGKVMB_COMMAND_PROPAGATEPRESE.c)
+ * Callees:
+ *     McTemplateK0ppqqxdqp_EtwWriteTransfer @ 0x1C0029C48 (McTemplateK0ppqqxdqp_EtwWriteTransfer.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 void __fastcall DXGPRESENTHISTORYTOKENQUEUE::PropagatePresentHistoryToken(
         PKSPIN_LOCK SpinLock,
         struct _D3DKMT_PRESENTHISTORYTOKEN *a2,

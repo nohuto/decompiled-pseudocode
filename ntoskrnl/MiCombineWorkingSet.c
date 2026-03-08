@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiCombineWorkingSet @ 0x140650E28
+ * Callers:
+ *     MiCombineIdenticalPages @ 0x1407F7D84 (MiCombineIdenticalPages.c)
+ * Callees:
+ *     MiWalkPageTables @ 0x140222CF0 (MiWalkPageTables.c)
+ *     MiProcessSuitableForCombining @ 0x140229534 (MiProcessSuitableForCombining.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiProcessCrcList @ 0x1406A8670 (MiProcessCrcList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiCombineWorkingSet(__int64 a1)
 {
   __int64 v2; // r14

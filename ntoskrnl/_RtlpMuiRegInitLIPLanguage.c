@@ -1,3 +1,17 @@
+/*
+ * XREFs of _RtlpMuiRegInitLIPLanguage @ 0x140A72A0C
+ * Callers:
+ *     RtlpMuiRegAddLanguageByName @ 0x1408437B0 (RtlpMuiRegAddLanguageByName.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwEnumerateValueKey @ 0x140412570 (ZwEnumerateValueKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlCompareUnicodeStrings @ 0x140684CA0 (RtlCompareUnicodeStrings.c)
+ *     LdrpQueryValueKey @ 0x1408446D0 (LdrpQueryValueKey.c)
+ *     _RtlMuiRegAddLIPParent @ 0x140A724F4 (_RtlMuiRegAddLIPParent.c)
+ */
+
 __int64 __fastcall RtlpMuiRegInitLIPLanguage(__int64 a1, void *a2, _BYTE *a3)
 {
   unsigned __int64 v3; // rbp

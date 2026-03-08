@@ -1,3 +1,24 @@
+/*
+ * XREFs of RtlUnicodeStringCopy @ 0x1402B3164
+ * Callers:
+ *     SleepstudyHelperSetBlockerFriendlyName @ 0x1402B37A0 (SleepstudyHelperSetBlockerFriendlyName.c)
+ *     KiAllocatePrcbThread @ 0x140371F98 (KiAllocatePrcbThread.c)
+ *     SshpCopyDataEntry @ 0x1405A0820 (SshpCopyDataEntry.c)
+ *     CmpLinkHiveToMaster @ 0x140731250 (CmpLinkHiveToMaster.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x140735A88 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x14079B2C8 (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1407B0EF0 (CmpGetSymbolicLinkTarget.c)
+ *     CmpDoWritethroughReparse @ 0x1407B6860 (CmpDoWritethroughReparse.c)
+ *     SleepstudyHelper_GetPdoFriendlyName @ 0x140842BD0 (SleepstudyHelper_GetPdoFriendlyName.c)
+ *     PopUnicodeStringDeepCopy @ 0x140856290 (PopUnicodeStringDeepCopy.c)
+ *     PopCloneUnicodeString @ 0x14097D824 (PopCloneUnicodeString.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140A17764 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     MiConstructNonRetpolineImageLoadRecord @ 0x140A31548 (MiConstructNonRetpolineImageLoadRecord.c)
+ *     AslpPathWildcardAllocMatchNode @ 0x140A539A4 (AslpPathWildcardAllocMatchNode.c)
+ * Callees:
+ *     RtlUnicodeStringValidateWorker @ 0x1402B3244 (RtlUnicodeStringValidateWorker.c)
+ */
+
 NTSTATUS __stdcall RtlUnicodeStringCopy(PUNICODE_STRING DestinationString, PCUNICODE_STRING SourceString)
 {
   ULONG v2; // r8d

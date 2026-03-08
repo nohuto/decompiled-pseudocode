@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpSendSessionNotification @ 0x1407489B8
+ * Callers:
+ *     EtwpRealtimeCreateLogfile @ 0x14069152C (EtwpRealtimeCreateLogfile.c)
+ *     EtwpRealtimeFlushSavedBuffers @ 0x1406917BC (EtwpRealtimeFlushSavedBuffers.c)
+ *     EtwpStartLogger @ 0x140691964 (EtwpStartLogger.c)
+ *     EtwpFlushBuffer @ 0x140692C18 (EtwpFlushBuffer.c)
+ *     EtwpStopLoggerInstance @ 0x140748874 (EtwpStopLoggerInstance.c)
+ *     EtwpCreateLogFile @ 0x140772270 (EtwpCreateLogFile.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpNotifyGuid @ 0x14068EA84 (EtwpNotifyGuid.c)
+ */
+
 __int64 __fastcall EtwpSendSessionNotification(__int64 a1, unsigned int a2, unsigned int a3)
 {
   unsigned __int16 v3; // bx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?GeneratedCreatePrivateMarshaler@DirectComposition@@YAJIPEAPEAVCResourceMarshaler@1@@Z @ 0x1C006A574
+ * Callers:
+ *     ?CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C00673F4 (-CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2.c)
+ * Callees:
+ *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0068568 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ??0CVisualMarshaler@DirectComposition@@IEAA@W4MIL_RESOURCE_TYPE@@@Z @ 0x1C0068E74 (--0CVisualMarshaler@DirectComposition@@IEAA@W4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ??0CParticleEmitterVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C024C1C4 (--0CParticleEmitterVisualMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CSceneVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C024C238 (--0CSceneVisualMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CSuperWetInkVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C024C298 (--0CSuperWetInkVisualMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CTextVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C024C2F8 (--0CTextVisualMarshaler@DirectComposition@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall DirectComposition::GeneratedCreatePrivateMarshaler(
         DirectComposition *this,
         __int64 *a2,

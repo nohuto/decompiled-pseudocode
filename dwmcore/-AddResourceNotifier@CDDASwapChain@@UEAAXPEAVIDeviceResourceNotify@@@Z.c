@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AddResourceNotifier@CDDASwapChain@@UEAAXPEAVIDeviceResourceNotify@@@Z @ 0x18029FA4C
+ * Callers:
+ *     ?AddResourceNotifier@CDDASwapChain@@$4PPPPPPPM@A@EAAXPEAVIDeviceResourceNotify@@@Z @ 0x18011D2B0 (-AddResourceNotifier@CDDASwapChain@@$4PPPPPPPM@A@EAAXPEAVIDeviceResourceNotify@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CDDASwapChain::AddResourceNotifier(CDDASwapChain *this, struct IDeviceResourceNotify *a2)
 {
   __int64 v2; // rcx

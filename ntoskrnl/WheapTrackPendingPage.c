@@ -1,3 +1,14 @@
+/*
+ * XREFs of WheapTrackPendingPage @ 0x140A06FC8
+ * Callers:
+ *     WheapLogPageOfflineAttemptEvent @ 0x140A05BE0 (WheapLogPageOfflineAttemptEvent.c)
+ * Callees:
+ *     WheaLogInternalEvent @ 0x14037D610 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExInterlockedPushEntryList @ 0x14060A750 (ExInterlockedPushEntryList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 int __fastcall WheapTrackPendingPage(struct _SINGLE_LIST_ENTRY *a1)
 {
   unsigned int v2; // eax

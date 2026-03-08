@@ -1,3 +1,23 @@
+/*
+ * XREFs of CcDecrementOpenCount @ 0x14021B85C
+ * Callers:
+ *     CcCompleteAsyncRead @ 0x14020A77C (CcCompleteAsyncRead.c)
+ *     CcPerformReadAhead @ 0x14020B9E0 (CcPerformReadAhead.c)
+ *     CcNotifyOfMappedWrite @ 0x140215670 (CcNotifyOfMappedWrite.c)
+ *     CcWriteBehindPreProcess @ 0x140219A70 (CcWriteBehindPreProcess.c)
+ *     CcFlushCachePostProcess @ 0x14021AF2C (CcFlushCachePostProcess.c)
+ *     CcSetFileSizesEx @ 0x14029F9B0 (CcSetFileSizesEx.c)
+ *     CcPurgeCacheSection @ 0x1402A0EA0 (CcPurgeCacheSection.c)
+ *     CcGetFlushedValidData @ 0x1402A1120 (CcGetFlushedValidData.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x1402A42CC (CcNotifyOfMappedWriteComplete.c)
+ *     CcMdlWriteComplete2 @ 0x1403002DC (CcMdlWriteComplete2.c)
+ *     CcUnmapInactiveViewsInternal @ 0x140535FC0 (CcUnmapInactiveViewsInternal.c)
+ *     CcMdlWriteAbort @ 0x1405365D0 (CcMdlWriteAbort.c)
+ * Callees:
+ *     CcScheduleLazyWriteScan @ 0x140242B0C (CcScheduleLazyWriteScan.c)
+ *     CcInsertIntoDirtySharedCacheMapList @ 0x140242BEC (CcInsertIntoDirtySharedCacheMapList.c)
+ */
+
 __int64 __fastcall CcDecrementOpenCount(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v4; // dl

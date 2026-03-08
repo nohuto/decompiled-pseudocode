@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlStateDurationCapture @ 0x140238458
+ * Callers:
+ *     PsQueryProcessEnergyValues @ 0x1406B0B60 (PsQueryProcessEnergyValues.c)
+ *     PoEnergyContextCleanup @ 0x1407046AC (PoEnergyContextCleanup.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlStateDurationCapture(__int64 a1, _QWORD *a2, unsigned int a3)
 {
   unsigned int v3; // r9d

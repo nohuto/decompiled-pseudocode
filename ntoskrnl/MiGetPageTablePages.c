@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiGetPageTablePages @ 0x140348AF8
+ * Callers:
+ *     MiCreateSystemPageTable @ 0x140348960 (MiCreateSystemPageTable.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x14038B664 (MiDemoteValidLargePageOneLevel.c)
+ *     MmCreateShadowMapping @ 0x14080B624 (MmCreateShadowMapping.c)
+ * Callees:
+ *     MiGetSlabPage @ 0x14025BA50 (MiGetSlabPage.c)
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiSetPfnTbFlushStamp @ 0x14028A3A0 (MiSetPfnTbFlushStamp.c)
+ *     MiReturnSystemCharges @ 0x1402D8C88 (MiReturnSystemCharges.c)
+ *     MiObtainSystemCharges @ 0x140348C90 (MiObtainSystemCharges.c)
+ *     MiReleaseFreshPage @ 0x14034E570 (MiReleaseFreshPage.c)
+ *     MiSufficientAvailablePages @ 0x1403643E4 (MiSufficientAvailablePages.c)
+ */
+
 __int64 __fastcall MiGetPageTablePages(__int64 a1, unsigned __int64 a2, int a3, _QWORD *a4)
 {
   int v4; // eax

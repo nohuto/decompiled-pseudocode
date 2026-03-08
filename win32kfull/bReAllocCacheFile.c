@@ -1,3 +1,12 @@
+/*
+ * XREFs of bReAllocCacheFile @ 0x1C028CAF0
+ * Callers:
+ *     EngFntCacheAllocInternal @ 0x1C028CC6C (EngFntCacheAllocInternal.c)
+ * Callees:
+ *     vUnmapFontCacheFile @ 0x1C00B812C (vUnmapFontCacheFile.c)
+ *     ?bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z @ 0x1C00BACFC (-bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z.c)
+ */
+
 __int64 __fastcall bReAllocCacheFile(__int64 a1)
 {
   int v1; // esi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of BuildFirmwareActivateCommand @ 0x1C0010D98
+ * Callers:
+ *     FirmwareActivate @ 0x1C00116D0 (FirmwareActivate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall BuildFirmwareActivateCommand(__int64 a1, unsigned __int8 a2, char a3, char a4, char a5)
 {
   int v5; // eax

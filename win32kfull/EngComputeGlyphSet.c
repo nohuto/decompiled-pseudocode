@@ -1,3 +1,13 @@
+/*
+ * XREFs of EngComputeGlyphSet @ 0x1C00BCC00
+ * Callers:
+ *     ?UmfdEscEngComputeGlyphSet@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00BCB4C (-UmfdEscEngComputeGlyphSet@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ *     NtGdiEngComputeGlyphSet @ 0x1C02CB570 (NtGdiEngComputeGlyphSet.c)
+ * Callees:
+ *     cUnicodeRangesSupported @ 0x1C00BCCE0 (cUnicodeRangesSupported.c)
+ *     cComputeGlyphSet @ 0x1C00BCF1C (cComputeGlyphSet.c)
+ */
+
 FD_GLYPHSET *__stdcall EngComputeGlyphSet(INT nCodePage, INT nFirstChar, INT cChars)
 {
   __int64 v3; // rbx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of SetSysColor @ 0x1C001A584
+ * Callers:
+ *     xxxSetSysColors @ 0x1C001A31C (xxxSetSysColors.c)
+ * Callees:
+ *     GreGetNearestColor @ 0x1C001A710 (GreGetNearestColor.c)
+ *     ?GreSetSolidBrushInternal@@YAHPEAUHBRUSH__@@KHH@Z @ 0x1C001BBAC (-GreSetSolidBrushInternal@@YAHPEAUHBRUSH__@@KHH@Z.c)
+ *     ??0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z @ 0x1C001BD04 (--0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z.c)
+ *     ??1BRUSHSELOBJ@@QEAA@XZ @ 0x1C001BD48 (--1BRUSHSELOBJ@@QEAA@XZ.c)
+ *     GreSetBrushOwner @ 0x1C001BD80 (GreSetBrushOwner.c)
+ *     hCreateSolidBrushInternal @ 0x1C001C240 (hCreateSolidBrushInternal.c)
+ *     HmgMarkUndeletable @ 0x1C003EA00 (HmgMarkUndeletable.c)
+ *     GreSetMagicColors @ 0x1C01995FC (GreSetMagicColors.c)
+ */
+
 __int64 __fastcall SetSysColor(unsigned int a1, unsigned int NearestColor, char a3)
 {
   __int64 v4; // rbx

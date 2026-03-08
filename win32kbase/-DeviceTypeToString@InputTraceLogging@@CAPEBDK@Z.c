@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DeviceTypeToString@InputTraceLogging@@CAPEBDK@Z @ 0x1C0219BE8
+ * Callers:
+ *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C007AB10 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
+ *     xxxKeyEventEx @ 0x1C007F2E0 (xxxKeyEventEx.c)
+ * Callees:
+ *     <none>
+ */
+
 const char *__fastcall InputTraceLogging::DeviceTypeToString(int a1)
 {
   int v1; // ecx

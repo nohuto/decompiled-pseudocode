@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?LongLongAdd@@YAJ_J0PEA_J@Z @ 0x18004A534
+ * Callers:
+ *     ?AddToSums@?$LinearFitT@$0BAA@@@QEAA_NAEBUPoint@1@@Z @ 0x18004A494 (-AddToSums@-$LinearFitT@$0BAA@@@QEAA_NAEBUPoint@1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall LongLongAdd(unsigned __int64 a1, unsigned __int64 a2, unsigned __int64 *a3)
 {
   unsigned __int64 v3; // r9

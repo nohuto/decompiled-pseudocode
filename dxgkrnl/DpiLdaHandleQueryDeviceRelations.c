@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiLdaHandleQueryDeviceRelations @ 0x1C03A39A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ */
+
 __int64 __fastcall DpiLdaHandleQueryDeviceRelations(__int64 a1, IRP *a2)
 {
   __int64 v2; // rbp

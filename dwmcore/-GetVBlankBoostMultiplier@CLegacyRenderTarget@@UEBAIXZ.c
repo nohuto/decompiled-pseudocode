@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetVBlankBoostMultiplier@CLegacyRenderTarget@@UEBAIXZ @ 0x1800E0FF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CLegacyRenderTarget::GetVBlankBoostMultiplier(CLegacyRenderTarget *this)
 {
   __int64 v1; // rcx

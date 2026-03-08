@@ -1,3 +1,11 @@
+/*
+ * XREFs of RunningHash @ 0x1C00BBBC0
+ * Callers:
+ *     ComputeEventEntryHash @ 0x1C00BBB30 (ComputeEventEntryHash.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RunningHash(_DWORD *a1, __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 i; // r10

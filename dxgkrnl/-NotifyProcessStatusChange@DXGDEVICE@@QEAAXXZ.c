@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?NotifyProcessStatusChange@DXGDEVICE@@QEAAXXZ @ 0x1C01883CC
+ * Callers:
+ *     ?ProcessStatusChange@DXGPROCESS@@IEAAXXZ @ 0x1C0188444 (-ProcessStatusChange@DXGPROCESS@@IEAAXXZ.c)
+ *     ?SetProcessSchedulingPriorityBand@DXGPROCESS@@QEAAJW4_D3DKMT_SCHEDULING_PRIORITYBAND@@@Z @ 0x1C03413FC (-SetProcessSchedulingPriorityBand@DXGPROCESS@@QEAAJW4_D3DKMT_SCHEDULING_PRIORITYBAND@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall DXGDEVICE::NotifyProcessStatusChange(DXGDEVICE *this)
 {
   __int64 v1; // r8

@@ -1,3 +1,18 @@
+/*
+ * XREFs of xxxEndMenuLoop @ 0x1C0216810
+ * Callers:
+ *     xxxMNLoop @ 0x1C021726C (xxxMNLoop.c)
+ *     xxxCallHandleMenuMessages @ 0x1C0219674 (xxxCallHandleMenuMessages.c)
+ *     xxxMenuWindowProc @ 0x1C021D3D0 (xxxMenuWindowProc.c)
+ * Callees:
+ *     xxxDWP_DoNCActivate @ 0x1C00245B8 (xxxDWP_DoNCActivate.c)
+ *     ??1?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ @ 0x1C00A11DC (--1-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z @ 0x1C00E67A8 (-Init@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z.c)
+ *     xxxDrawMenuBarUnderlines @ 0x1C00F268C (xxxDrawMenuBarUnderlines.c)
+ *     xxxMNCancel @ 0x1C02199C4 (xxxMNCancel.c)
+ *     xxxEndMenu @ 0x1C0234AE4 (xxxEndMenu.c)
+ */
+
 _QWORD *__fastcall xxxEndMenuLoop(__int64 a1, __int64 a2)
 {
   _DWORD *v3; // rbx

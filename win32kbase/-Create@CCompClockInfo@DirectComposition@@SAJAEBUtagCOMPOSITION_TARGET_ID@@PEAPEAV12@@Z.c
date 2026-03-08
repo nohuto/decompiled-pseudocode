@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Create@CCompClockInfo@DirectComposition@@SAJAEBUtagCOMPOSITION_TARGET_ID@@PEAPEAV12@@Z @ 0x1C000831C
+ * Callers:
+ *     ?GetCompositorClockInfo@CConnection@DirectComposition@@QEAAJPEAPEAVCCompClockInfo@2@@Z @ 0x1C0008188 (-GetCompositorClockInfo@CConnection@DirectComposition@@QEAAJPEAPEAVCCompClockInfo@2@@Z.c)
+ * Callees:
+ *     ?Initialize@CCompClockInfo@DirectComposition@@AEAAJXZ @ 0x1C0008398 (-Initialize@CCompClockInfo@DirectComposition@@AEAAJXZ.c)
+ *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0068568 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ??_GCCompClockInfo@DirectComposition@@AEAAPEAXI@Z @ 0x1C0247E50 (--_GCCompClockInfo@DirectComposition@@AEAAPEAXI@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CCompClockInfo::Create(
         const struct tagCOMPOSITION_TARGET_ID *a1,
         struct DirectComposition::CCompClockInfo **a2)

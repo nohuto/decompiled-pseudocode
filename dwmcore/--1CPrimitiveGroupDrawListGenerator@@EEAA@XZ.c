@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??1CPrimitiveGroupDrawListGenerator@@EEAA@XZ @ 0x18001009C
+ * Callers:
+ *     ??_GCPrimitiveGroupDrawListGenerator@@EEAAPEAXI@Z @ 0x180010060 (--_GCPrimitiveGroupDrawListGenerator@@EEAAPEAXI@Z.c)
+ * Callees:
+ *     ??_GCPrimitiveBuffer@@QEAAPEAXI@Z @ 0x1800115C0 (--_GCPrimitiveBuffer@@QEAAPEAXI@Z.c)
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1800EE108 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     ??_V@YAXPEAX_K@Z @ 0x18010F020 (--_V@YAXPEAX_K@Z.c)
+ *     ??_GCRegion@@QEAAPEAXI@Z @ 0x1801C06D0 (--_GCRegion@@QEAAPEAXI@Z.c)
+ */
+
 void __fastcall CPrimitiveGroupDrawListGenerator::~CPrimitiveGroupDrawListGenerator(
         CPrimitiveGroupDrawListGenerator *this,
         unsigned int a2)

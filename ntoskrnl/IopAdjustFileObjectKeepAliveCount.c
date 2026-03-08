@@ -1,3 +1,18 @@
+/*
+ * XREFs of IopAdjustFileObjectKeepAliveCount @ 0x14055606C
+ * Callers:
+ *     IoDecrementKeepAliveCount @ 0x140555BC0 (IoDecrementKeepAliveCount.c)
+ *     IoIncrementKeepAliveCount @ 0x140555D20 (IoIncrementKeepAliveCount.c)
+ * Callees:
+ *     IopGetSetSpecificExtension @ 0x14023EA58 (IopGetSetSpecificExtension.c)
+ *     IopGetFileObjectExtension @ 0x14023EB8C (IopGetFileObjectExtension.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopAdjustFileObjectKeepAliveCount(__int64 a1, __int64 a2, int a3, _DWORD *a4, __int64 *a5)
 {
   _QWORD *Pool2; // rbx

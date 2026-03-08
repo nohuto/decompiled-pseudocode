@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpTraceDmaGuardSystemPolicy @ 0x14085FF78
+ * Callers:
+ *     PipDmgInitPhaseTwo @ 0x14081CB84 (PipDmgInitPhaseTwo.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void PnpTraceDmaGuardSystemPolicy()
 {
   int v0; // [rsp+30h] [rbp-68h] BYREF

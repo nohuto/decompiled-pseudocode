@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpSetValueDataNew @ 0x1407A4E40
+ * Callers:
+ *     CmpSetValueKeyExisting @ 0x1406BAE08 (CmpSetValueKeyExisting.c)
+ *     CmpAddValueKeyNew @ 0x1407A5F18 (CmpAddValueKeyNew.c)
+ *     CmpCopyValue @ 0x1408A6FF4 (CmpCopyValue.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvAllocateCell @ 0x1407A63A8 (HvAllocateCell.c)
+ *     HvFreeCell @ 0x1407A6A90 (HvFreeCell.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ */
+
 __int64 __fastcall CmpSetValueDataNew(ULONG_PTR BugCheckParameter2, char *Src, size_t Size, int a4, _DWORD *a5)
 {
   size_t v6; // rsi

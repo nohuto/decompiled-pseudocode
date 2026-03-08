@@ -1,3 +1,29 @@
+/*
+ * XREFs of CcDeletePartition @ 0x140536840
+ * Callers:
+ *     CcGetPartitionWithCreate @ 0x1402E20D0 (CcGetPartitionWithCreate.c)
+ *     CcCreatePartition @ 0x14039B540 (CcCreatePartition.c)
+ *     CcExitPartition @ 0x140536FC8 (CcExitPartition.c)
+ * Callees:
+ *     CcDereferencePartition @ 0x140219EF0 (CcDereferencePartition.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeCancelTimer @ 0x140250B60 (KeCancelTimer.c)
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     CcDeleteNumaNode @ 0x1403BC424 (CcDeleteNumaNode.c)
+ *     CcForEachNumaNode @ 0x1403BDC9C (CcForEachNumaNode.c)
+ *     ZwWaitForSingleObject @ 0x140412390 (ZwWaitForSingleObject.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     CcUninitializePartitionVacbs @ 0x1405372DC (CcUninitializePartitionVacbs.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall CcDeletePartition(char *P)
 {
   __int64 *v2; // rbp

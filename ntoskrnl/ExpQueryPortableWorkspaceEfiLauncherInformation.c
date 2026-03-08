@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpQueryPortableWorkspaceEfiLauncherInformation @ 0x1409F43F8
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     ZwEnumerateBootEntries @ 0x140413FB0 (ZwEnumerateBootEntries.c)
+ *     ZwQueryBootEntryOrder @ 0x140414C10 (ZwQueryBootEntryOrder.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpQueryPortableWorkspaceEfiLauncherInformation(bool *a1, int a2, _DWORD *a3)
 {
   unsigned int *v5; // rsi

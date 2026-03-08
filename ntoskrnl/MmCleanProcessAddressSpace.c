@@ -1,3 +1,37 @@
+/*
+ * XREFs of MmCleanProcessAddressSpace @ 0x1407D4924
+ * Callers:
+ *     PspRundownSingleProcess @ 0x1406F8160 (PspRundownSingleProcess.c)
+ * Callees:
+ *     PsReturnProcessQuota @ 0x14020D064 (PsReturnProcessQuota.c)
+ *     MiReturnResident @ 0x1402A52C8 (MiReturnResident.c)
+ *     MiGetFirstVad @ 0x1402A5B0C (MiGetFirstVad.c)
+ *     MiBeginProcessClean @ 0x1402DB7FC (MiBeginProcessClean.c)
+ *     MiCleanCfg @ 0x1402F86F4 (MiCleanCfg.c)
+ *     MiCleanWorkingSet @ 0x1402F92FC (MiCleanWorkingSet.c)
+ *     ExFreeSvmAsid @ 0x1402FB294 (ExFreeSvmAsid.c)
+ *     MiDeleteCloneZombies @ 0x1402FBC3C (MiDeleteCloneZombies.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14031F590 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14031F600 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiVadDeleted @ 0x14031F750 (MiVadDeleted.c)
+ *     MiReferenceVad @ 0x14031F794 (MiReferenceVad.c)
+ *     MiGetProcessPartition @ 0x14031F9D4 (MiGetProcessPartition.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14034C380 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14034CA58 (LOCK_ADDRESS_SPACE.c)
+ *     MiLockVad @ 0x14034CF60 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14034D51C (MiUnlockVad.c)
+ *     MiGetNextVad @ 0x140350908 (MiGetNextVad.c)
+ *     MiClearCommitReleaseState @ 0x140615BBC (MiClearCommitReleaseState.c)
+ *     MiReturnProcessCommitment @ 0x140654090 (MiReturnProcessCommitment.c)
+ *     MiContractWsSwapPageFile @ 0x14067E2A0 (MiContractWsSwapPageFile.c)
+ *     MiDereferenceSession @ 0x140791B70 (MiDereferenceSession.c)
+ *     MiCleanVad @ 0x1407D36F8 (MiCleanVad.c)
+ *     VmpCleanProcessAddressSpace @ 0x1409DA2B4 (VmpCleanProcessAddressSpace.c)
+ *     MiDeleteAweInfoPages @ 0x140A3EE20 (MiDeleteAweInfoPages.c)
+ */
+
 char __fastcall MmCleanProcessAddressSpace(__int64 a1)
 {
   __int64 v1; // rdx

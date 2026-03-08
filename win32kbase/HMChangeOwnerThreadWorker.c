@@ -1,3 +1,21 @@
+/*
+ * XREFs of HMChangeOwnerThreadWorker @ 0x1C00AEC48
+ * Callers:
+ *     MarkThreadsObjects @ 0x1C00783B0 (MarkThreadsObjects.c)
+ *     HMChangeOwnerThread @ 0x1C00AEC30 (HMChangeOwnerThread.c)
+ * Callees:
+ *     ?IsLockedShared@tagDomLock@@QEBA_NXZ @ 0x1C003A33C (-IsLockedShared@tagDomLock@@QEBA_NXZ.c)
+ *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C003A360 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C004E3E0 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     ?IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ @ 0x1C004F968 (-IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ.c)
+ *     ?GetEtwUserHandleType@@YA?AW4EtwUserHandleType@@E@Z @ 0x1C00785AC (-GetEtwUserHandleType@@YA-AW4EtwUserHandleType@@E@Z.c)
+ *     LockObjectAssignment @ 0x1C00A7CA0 (LockObjectAssignment.c)
+ *     EtwTraceUserUpdateHandleOwner @ 0x1C00AF0E8 (EtwTraceUserUpdateHandleOwner.c)
+ *     IsGetClassPtrSupported @ 0x1C00AF124 (IsGetClassPtrSupported.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 LONG_PTR __fastcall HMChangeOwnerThreadWorker(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdi

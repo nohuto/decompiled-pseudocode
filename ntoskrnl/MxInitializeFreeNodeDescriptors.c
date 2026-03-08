@@ -1,3 +1,14 @@
+/*
+ * XREFs of MxInitializeFreeNodeDescriptors @ 0x140B37B68
+ * Callers:
+ *     MiFindLargestLoaderDescriptor @ 0x140B37A44 (MiFindLargestLoaderDescriptor.c)
+ * Callees:
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiRestrictRangeToNode @ 0x140370AB4 (MiRestrictRangeToNode.c)
+ *     MxPageAlwaysHot @ 0x140B3864C (MxPageAlwaysHot.c)
+ *     MiInitializeBootMemoryDescriptor @ 0x140B38670 (MiInitializeBootMemoryDescriptor.c)
+ */
+
 __int64 *__fastcall MxInitializeFreeNodeDescriptors(__int64 a1, __int64 a2)
 {
   __int64 *result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiCreateRetpolineRelocationInformation @ 0x1407F5B50
+ * Callers:
+ *     MiParseImageLoadConfig @ 0x1407F4AEC (MiParseImageLoadConfig.c)
+ *     MiCaptureBootDriverRetpolineInfo @ 0x140828D60 (MiCaptureBootDriverRetpolineInfo.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlCreateRetpolineRelocationInformation @ 0x14036BA3C (RtlCreateRetpolineRelocationInformation.c)
+ *     MiFreeRetpolineRelocationInformation @ 0x140861430 (MiFreeRetpolineRelocationInformation.c)
+ */
+
 __int64 __fastcall MiCreateRetpolineRelocationInformation(__int64 a1, int a2, unsigned int a3, _QWORD *a4)
 {
   unsigned int v6; // ebx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PsQueryThreadStartAddress @ 0x1405A1A94
+ * Callers:
+ *     NtQueryInformationThread @ 0x1406A7BF0 (NtQueryInformationThread.c)
+ *     PspAllocateThread @ 0x1406B00F4 (PspAllocateThread.c)
+ *     EtwpPsProvTraceThread @ 0x1409E372C (EtwpPsProvTraceThread.c)
+ *     sub_140B31730 @ 0x140B31730 (sub_140B31730.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PsQueryThreadStartAddress(__int64 a1, int a2)
 {
   __int64 v3; // r8

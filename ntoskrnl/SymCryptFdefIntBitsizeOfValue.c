@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefIntBitsizeOfValue @ 0x1403FFB50
+ * Callers:
+ *     SymCryptIntBitsizeOfValue @ 0x1403F3750 (SymCryptIntBitsizeOfValue.c)
+ * Callees:
+ *     SymCryptFdefBitsizeOfUint32 @ 0x1403FF94C (SymCryptFdefBitsizeOfUint32.c)
+ */
+
 __int64 __fastcall SymCryptFdefIntBitsizeOfValue(__int64 a1)
 {
   int v2; // ebx

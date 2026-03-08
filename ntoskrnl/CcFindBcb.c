@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcFindBcb @ 0x14021B6B0
+ * Callers:
+ *     CcAcquireByteRangeForWrite @ 0x14021A220 (CcAcquireByteRangeForWrite.c)
+ * Callees:
+ *     CcGetBcbListHeadLargeOffset @ 0x14021BF30 (CcGetBcbListHeadLargeOffset.c)
+ */
+
 __int64 __fastcall CcFindBcb(__int64 a1, __int64 *a2, _QWORD *a3, __int64 *a4)
 {
   __int64 v4; // rbx

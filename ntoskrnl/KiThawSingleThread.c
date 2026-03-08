@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiThawSingleThread @ 0x140355DCC
+ * Callers:
+ *     KeForceResumeProcess @ 0x140355998 (KeForceResumeProcess.c)
+ *     KeThawMultiProcess @ 0x140356058 (KeThawMultiProcess.c)
+ * Callees:
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiResumeThread @ 0x1403538F8 (KiResumeThread.c)
+ */
+
 void __fastcall KiThawSingleThread(__int64 a1, __int64 a2, char a3, char a4)
 {
   volatile signed __int32 *v4; // rsi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiMakePrototypePteDirect @ 0x14020F510
+ * Callers:
+ *     MiAddMappedPtes @ 0x1406A56B0 (MiAddMappedPtes.c)
+ *     MiMapPatchTable @ 0x140A375E4 (MiMapPatchTable.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiMakePrototypePteDirect(__int64 a1)
 {
   __int64 v1; // rcx

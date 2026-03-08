@@ -1,3 +1,15 @@
+/*
+ * XREFs of IoSetDependency @ 0x140951330
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x1406819F4 (PipProcessRebuildPowerRelationsQueue.c)
+ *     PpDevNodeUnlockTree @ 0x1406CB8B0 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1406CB90C (PnpAcquireDependencyRelationsLock.c)
+ *     PipSetDependency @ 0x1408387E4 (PipSetDependency.c)
+ */
+
 __int64 __fastcall IoSetDependency(__int64 a1, __int64 a2, int a3)
 {
   int v4; // ebx

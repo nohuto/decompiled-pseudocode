@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopPowerAggregatorEngageAggressiveStandbyActions @ 0x1409906A8
+ * Callers:
+ *     PopPowerAggregatorEngageModernStandby @ 0x140990734 (PopPowerAggregatorEngageModernStandby.c)
+ * Callees:
+ *     PopNetSetConnectivityConstraint @ 0x140860708 (PopNetSetConnectivityConstraint.c)
+ *     PopPdcEngagePhases @ 0x14087960C (PopPdcEngagePhases.c)
+ *     PopNetCheckAdaptiveCsState @ 0x140993634 (PopNetCheckAdaptiveCsState.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopPowerAggregatorEngageAggressiveStandbyActions(int a1)
 {
   int v1; // ecx

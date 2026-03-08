@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExInitSystemPhase2 @ 0x140B64A84
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     ExpGetOriginalImageVersionRegistryValue @ 0x14084AC20 (ExpGetOriginalImageVersionRegistryValue.c)
+ *     BootApplicationPersistentDataProcess @ 0x140B44538 (BootApplicationPersistentDataProcess.c)
+ *     ExpWatchProductTypeInitialization @ 0x140B64AFC (ExpWatchProductTypeInitialization.c)
+ */
+
 __int64 ExInitSystemPhase2()
 {
   __int64 result; // rax

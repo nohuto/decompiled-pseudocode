@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpHvInitDiscard @ 0x140B6A9F0
+ * Callers:
+ *     HalpHvInitSystem @ 0x140A8E3B0 (HalpHvInitSystem.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 HalpHvInitDiscard()
 {
   _QWORD v1[74]; // [rsp+20h] [rbp-E0h] BYREF

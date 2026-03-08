@@ -1,3 +1,21 @@
+/*
+ * XREFs of HalpReportResourceUsage @ 0x140B35B2C
+ * Callers:
+ *     HalReportResourceUsage @ 0x140B45C40 (HalReportResourceUsage.c)
+ * Callees:
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     RtlCmEncodeMemIoResource @ 0x140370750 (RtlCmEncodeMemIoResource.c)
+ *     HalTranslateBusAddress @ 0x1403707F0 (HalTranslateBusAddress.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpClaimDebugResource @ 0x1405060AC (HalpClaimDebugResource.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     HalpGetResourceSortValue @ 0x140B360F0 (HalpGetResourceSortValue.c)
+ *     IoReportHalResourceUsage @ 0x140B366A0 (IoReportHalResourceUsage.c)
+ */
+
 void __fastcall HalpReportResourceUsage(__int64 a1)
 {
   __int64 v1; // r11

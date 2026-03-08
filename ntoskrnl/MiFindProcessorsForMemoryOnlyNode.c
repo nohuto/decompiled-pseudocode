@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiFindProcessorsForMemoryOnlyNode @ 0x140B96EFC
+ * Callers:
+ *     MiReassignProcessorsToMemoryOnlyNodes @ 0x140B971D4 (MiReassignProcessorsToMemoryOnlyNodes.c)
+ * Callees:
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402A9460 (KeFindFirstSetRightGroupAffinity.c)
+ *     MiGetEngineType @ 0x14039580C (MiGetEngineType.c)
+ */
+
 __int64 __fastcall MiFindProcessorsForMemoryOnlyNode(unsigned int a1, unsigned int a2)
 {
   _DWORD *v2; // r12

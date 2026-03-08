@@ -1,3 +1,15 @@
+/*
+ * XREFs of xxxDesktopPaintCallback @ 0x1C00EF1F0
+ * Callers:
+ *     NtUserPaintMonitor @ 0x1C01D9190 (NtUserPaintMonitor.c)
+ * Callees:
+ *     GetStyleWindow @ 0x1C0039020 (GetStyleWindow.c)
+ *     FillRect @ 0x1C00881F8 (FillRect.c)
+ *     ?_GetShellWindow@@YAPEAUtagWND@@PEAUtagDESKTOP@@@Z @ 0x1C00D812C (-_GetShellWindow@@YAPEAUtagWND@@PEAUtagDESKTOP@@@Z.c)
+ *     GetMonitorWorkRect @ 0x1C0101744 (GetMonitorWorkRect.c)
+ *     ?PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z @ 0x1C02039A0 (-PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z.c)
+ */
+
 _BOOL8 __fastcall xxxDesktopPaintCallback(__int64 a1, HDC a2, const RECT *a3, __int64 a4)
 {
   int v5; // ebx

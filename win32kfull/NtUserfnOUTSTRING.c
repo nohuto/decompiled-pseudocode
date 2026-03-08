@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserfnOUTSTRING @ 0x1C00F1410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall NtUserfnOUTSTRING(__int64 a1, unsigned int a2, SIZE_T a3, _BYTE *a4, __int64 a5, char a6, int a7)
 {
   int v11; // ecx

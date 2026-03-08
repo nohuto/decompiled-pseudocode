@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0FxSystemWorkItem@@AEAA@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0042B28
+ * Callers:
+ *     ?_Create@FxSystemWorkItem@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z @ 0x1C0042DAC (-_Create@FxSystemWorkItem@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z.c)
+ * Callees:
+ *     ??0FxNonPagedObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C001AA5C (--0FxNonPagedObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ */
+
 void __fastcall FxSystemWorkItem::FxSystemWorkItem(FxSystemWorkItem *this, _FX_DRIVER_GLOBALS *FxDriverGlobals)
 {
   FxNonPagedObject::FxNonPagedObject(this, 0x1031u, 0, FxDriverGlobals);

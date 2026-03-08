@@ -1,3 +1,15 @@
+/*
+ * XREFs of SleepstudyHelperCreateLibrary @ 0x140847520
+ * Callers:
+ *     SleepstudyHelper_Initialize @ 0x1408474D0 (SleepstudyHelper_Initialize.c)
+ *     PopPowerRequestStatsInitialize @ 0x140B62918 (PopPowerRequestStatsInitialize.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1402A4AB8 (SSHSupportReleasePushLockExclusive.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402A4AEC (SSHSupportAllocateNonPaged.c)
+ *     SSHSupportQueryIsLibraryEnabled @ 0x14039EB70 (SSHSupportQueryIsLibraryEnabled.c)
+ */
+
 __int64 __fastcall SleepstudyHelperCreateLibrary(int a1, _QWORD *a2)
 {
   unsigned int v2; // ebx

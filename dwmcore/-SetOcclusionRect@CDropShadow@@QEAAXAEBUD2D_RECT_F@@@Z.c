@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SetOcclusionRect@CDropShadow@@QEAAXAEBUD2D_RECT_F@@@Z @ 0x180227368
+ * Callers:
+ *     ?RenderContent@CSpriteVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z @ 0x18007A2F0 (-RenderContent@CSpriteVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z.c)
+ * Callees:
+ *     ?AreEqual@@YA_NAEBUD2D_RECT_F@@0@Z @ 0x1800909CC (-AreEqual@@YA_NAEBUD2D_RECT_F@@0@Z.c)
+ *     ?IsWellOrdered@@YA_NAEBUD2D_RECT_F@@@Z @ 0x1800B2BB8 (-IsWellOrdered@@YA_NAEBUD2D_RECT_F@@@Z.c)
+ *     ?IsEmpty@@YA_NAEBUD2D_RECT_F@@@Z @ 0x1800B2BDC (-IsEmpty@@YA_NAEBUD2D_RECT_F@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CDropShadow::SetOcclusionRect(CDropShadow *this, __m128 *a2)
 {
   __int64 v2; // r9

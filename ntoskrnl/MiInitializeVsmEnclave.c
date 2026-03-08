@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiInitializeVsmEnclave @ 0x140A3B328
+ * Callers:
+ *     MiInitializeEnclave @ 0x140A3B220 (MiInitializeEnclave.c)
+ * Callees:
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     MiLockVad @ 0x14034CF60 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14034D51C (MiUnlockVad.c)
+ *     PsDereferenceVsmEnclave @ 0x1408A1324 (PsDereferenceVsmEnclave.c)
+ *     PsInitializeVsmEnclave @ 0x1409B45D4 (PsInitializeVsmEnclave.c)
+ *     MiMapImageForEnclaveUse @ 0x140A3BAD0 (MiMapImageForEnclaveUse.c)
+ *     MiUnmapImageForEnclaveUse @ 0x140A3BD1C (MiUnmapImageForEnclaveUse.c)
+ */
+
 __int64 __fastcall MiInitializeVsmEnclave(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   __int64 v4; // rdi

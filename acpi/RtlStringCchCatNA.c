@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlStringCchCatNA @ 0x1C003BDE4
+ * Callers:
+ *     GetObjectPathNoLock @ 0x1C004BBC8 (GetObjectPathNoLock.c)
+ *     OSOpenAMLINamespaceOverrideHandle @ 0x1C008DDB4 (OSOpenAMLINamespaceOverrideHandle.c)
+ * Callees:
+ *     RtlStringCopyWorkerA @ 0x1C003BE3C (RtlStringCopyWorkerA.c)
+ *     RtlStringValidateDestAndLengthA @ 0x1C003BE88 (RtlStringValidateDestAndLengthA.c)
+ */
+
 NTSTATUS __stdcall RtlStringCchCatNA(NTSTRSAFE_PSTR pszDest, size_t cchDest, STRSAFE_PCNZCH pszSrc, size_t cchToAppend)
 {
   NTSTATUS result; // eax

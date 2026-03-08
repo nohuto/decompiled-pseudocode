@@ -1,3 +1,17 @@
+/*
+ * XREFs of SepSetTokenClaims @ 0x1407808B8
+ * Callers:
+ *     SepCreateTokenEx @ 0x1402079F0 (SepCreateTokenEx.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     SepCompareClaimAttributes @ 0x140776718 (SepCompareClaimAttributes.c)
+ *     SepCreateClaimAttributes @ 0x140780934 (SepCreateClaimAttributes.c)
+ *     SepDeleteClaimAttributes @ 0x1409CE5CC (SepDeleteClaimAttributes.c)
+ */
+
 __int64 __fastcall SepSetTokenClaims(__int64 a1, int a2, int a3, int a4, void *a5)
 {
   char v6; // bp

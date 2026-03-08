@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?PointerDelegateGetClient@@YAHGKPEAUtagDELEGATEPOINTERMAP@@@Z @ 0x1C01C710C
+ * Callers:
+ *     ValidateDelegatePointerList @ 0x1C01C5618 (ValidateDelegatePointerList.c)
+ * Callees:
+ *     INPUTDEST_FROM_PWND @ 0x1C00E6A40 (INPUTDEST_FROM_PWND.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall PointerDelegateGetClient(__int64 a1, unsigned int a2, struct tagDELEGATEPOINTERMAP *a3)
 {
   unsigned __int16 v5; // bx

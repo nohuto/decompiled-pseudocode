@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vConvertAndSaveBGRATo32Bitfields@@YAXPEAEPEBKJJPEAU_XLATEOBJ@@VXEPALOBJ@@3@Z @ 0x1C02E6640
+ * Callers:
+ *     <none>
+ * Callees:
+ *     XLATEOBJ_iXlate @ 0x1C00C3AA0 (XLATEOBJ_iXlate.c)
+ */
+
 ULONG __fastcall vConvertAndSaveBGRATo32Bitfields(__int64 a1, __int64 a2, ULONG a3, int a4, XLATEOBJ *pxlo)
 {
   ULONG *v5; // rbx

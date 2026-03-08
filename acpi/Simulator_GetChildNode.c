@@ -1,3 +1,11 @@
+/*
+ * XREFs of Simulator_GetChildNode @ 0x1C00492C4
+ * Callers:
+ *     Simulator_CallbackWorker @ 0x1C0048FB0 (Simulator_CallbackWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Simulator_GetChildNode(__int64 a1)
 {
   KIRQL v2; // al

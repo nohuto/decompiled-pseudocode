@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?QueryProcessAdapterInfo@ADAPTER_RENDER@@QEAAJPEAU_D3DKMT_GETPROCESSLIST_PER_PROCESS@@PEAIK@Z @ 0x1C02BC8D8
+ * Callers:
+ *     NtDxgkGetProcessList @ 0x1C02D1A80 (NtDxgkGetProcessList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ADAPTER_RENDER::QueryProcessAdapterInfo(
         ADAPTER_RENDER *this,
         void **a2,

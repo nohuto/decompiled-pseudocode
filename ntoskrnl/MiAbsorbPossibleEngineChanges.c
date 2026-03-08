@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiAbsorbPossibleEngineChanges @ 0x1402A87C4
+ * Callers:
+ *     MiInitializeZeroEngines @ 0x140729A34 (MiInitializeZeroEngines.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     MiInitializeDpcGroupAffinity @ 0x1402A9390 (MiInitializeDpcGroupAffinity.c)
+ *     MiAllocateAcceleratorDescriptor @ 0x1402A9850 (MiAllocateAcceleratorDescriptor.c)
+ *     MiDrainEngineDescriptors @ 0x1402A9904 (MiDrainEngineDescriptors.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAllocatePoolMm @ 0x14034C1AC (ExAllocatePoolMm.c)
+ *     MiAllocateZeroPageDecisionTraceBuffer @ 0x1403AE45C (MiAllocateZeroPageDecisionTraceBuffer.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInitializeZeroingDomains @ 0x140729BBC (MiInitializeZeroingDomains.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiAbsorbPossibleEngineChanges(int *a1, _BYTE *a2)
 {
   __int64 v4; // r13

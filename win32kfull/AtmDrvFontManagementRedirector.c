@@ -1,3 +1,12 @@
+/*
+ * XREFs of AtmDrvFontManagementRedirector @ 0x1C02A9F64
+ * Callers:
+ *     GreNamedEscape @ 0x1C02B5C58 (GreNamedEscape.c)
+ * Callees:
+ *     ?EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C0118E20 (-EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     UmfdFontManagement @ 0x1C0307F50 (UmfdFontManagement.c)
+ */
+
 __int64 __fastcall AtmDrvFontManagementRedirector(__int64 a1, __int64 a2, int a3, int a4, int *a5, int a6, __int64 a7)
 {
   unsigned int v7; // ecx

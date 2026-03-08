@@ -1,3 +1,25 @@
+/*
+ * XREFs of NVMeReenumerateNameSpaceIdentifyWorkItem @ 0x1C0021CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C000C1C0 (NVMeAllocateDmaBuffer.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ *     NVMeFreeNamespaceEnumerationContext @ 0x1C001D2A4 (NVMeFreeNamespaceEnumerationContext.c)
+ *     NVMeParseNameSpaceIdentifyData @ 0x1C0021490 (NVMeParseNameSpaceIdentifyData.c)
+ *     NVMeReenumerateNameSpaceCancelMerge @ 0x1C0021928 (NVMeReenumerateNameSpaceCancelMerge.c)
+ *     NVMeReenumerateNameSpaceCompare @ 0x1C002197C (NVMeReenumerateNameSpaceCompare.c)
+ *     NVMeReenumerateNameSpaceMerge @ 0x1C00220C4 (NVMeReenumerateNameSpaceMerge.c)
+ *     NVMeReenumerateNameSpaceRescan @ 0x1C002237C (NVMeReenumerateNameSpaceRescan.c)
+ *     NVMeReenumerateNameSpaceWaitForAllIOComplete @ 0x1C00226C8 (NVMeReenumerateNameSpaceWaitForAllIOComplete.c)
+ *     NVMeReenumerateReissueGetLogNamespaceChangeList @ 0x1C0022838 (NVMeReenumerateReissueGetLogNamespaceChangeList.c)
+ *     NVMeVersionCheck @ 0x1C00244A8 (NVMeVersionCheck.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 __int64 __fastcall NVMeReenumerateNameSpaceIdentifyWorkItem(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v5; // r15d

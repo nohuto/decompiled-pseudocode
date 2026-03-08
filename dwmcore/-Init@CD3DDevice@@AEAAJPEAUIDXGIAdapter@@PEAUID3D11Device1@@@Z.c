@@ -1,3 +1,22 @@
+/*
+ * XREFs of ?Init@CD3DDevice@@AEAAJPEAUIDXGIAdapter@@PEAUID3D11Device1@@@Z @ 0x1800CF23C
+ * Callers:
+ *     ?Create@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAPEAV1@@Z @ 0x1800CE504 (-Create@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180004700 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?GenerateShaders@CD3DDevice@@AEAAJXZ @ 0x180026018 (-GenerateShaders@CD3DDevice@@AEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?QueryWarpExtension@CD3DDevice@@AEAAJXZ @ 0x1800CF4F0 (-QueryWarpExtension@CD3DDevice@@AEAAJXZ.c)
+ *     ?InitSystemDevice@CD3DDevice@@AEAAJXZ @ 0x1800CF594 (-InitSystemDevice@CD3DDevice@@AEAAJXZ.c)
+ *     ?CreateRenderingResources@CDrawListBatchManager@@IEAAJXZ @ 0x1800CF778 (-CreateRenderingResources@CDrawListBatchManager@@IEAAJXZ.c)
+ *     ?GatherSupportedTextureFormats@CD3DDevice@@AEAAJXZ @ 0x1800D05D0 (-GatherSupportedTextureFormats@CD3DDevice@@AEAAJXZ.c)
+ *     ?InitializeD2D@CD2DContext@@IEAAJPEAUIDXGIDevice3@@@Z @ 0x1800D07C0 (-InitializeD2D@CD2DContext@@IEAAJPEAUIDXGIDevice3@@@Z.c)
+ *     ?IsShaderLinkingBlacklistedGpu@CCommonRegistryData@@SA_NII@Z @ 0x1800D0C68 (-IsShaderLinkingBlacklistedGpu@CCommonRegistryData@@SA_NII@Z.c)
+ *     ?CalcMaxTextureSize@CD3DDevice@@AEAAXXZ @ 0x1800D0CE4 (-CalcMaxTextureSize@CD3DDevice@@AEAAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0pqnz_EventWriteTransfer @ 0x18028B944 (McTemplateU0pqnz_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall CD3DDevice::Init(CD3DDevice *this, struct IDXGIAdapter *a2, struct ID3D11Device1 *a3)
 {
   struct IDXGIAdapterVtbl *lpVtbl; // rax

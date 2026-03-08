@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhHubQueueProcessChangeWorker @ 0x1C0020078
+ * Callers:
+ *     Usbh_PCE_wDone_Action @ 0x1C00116B0 (Usbh_PCE_wDone_Action.c)
+ *     Usbh_PCE_QueueDriverReset_Action @ 0x1C001F8E0 (Usbh_PCE_QueueDriverReset_Action.c)
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 void __fastcall UsbhHubQueueProcessChangeWorker(__int64 a1, __int64 a2)
 {
   KSPIN_LOCK *v2; // rdi

@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiLoadSectionIntoVsmEnclave @ 0x140A3B820
+ * Callers:
+ *     NtLoadEnclaveData @ 0x140A3C600 (NtLoadEnclaveData.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     MiVadDeleted @ 0x14031F750 (MiVadDeleted.c)
+ *     MiCommitExistingVad @ 0x140320D70 (MiCommitExistingVad.c)
+ *     MiLockVad @ 0x14034CF60 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14034D51C (MiUnlockVad.c)
+ *     MiCountCommittedPages @ 0x140644EA8 (MiCountCommittedPages.c)
+ *     MiDecommitRegion @ 0x1406EBCC0 (MiDecommitRegion.c)
+ *     MiPrefetchControlArea @ 0x14078DBC4 (MiPrefetchControlArea.c)
+ *     VslLoadEnclaveModule @ 0x14093FA58 (VslLoadEnclaveModule.c)
+ *     MiMapImageForEnclaveUse @ 0x140A3BAD0 (MiMapImageForEnclaveUse.c)
+ *     MiUnmapImageForEnclaveUse @ 0x140A3BD1C (MiUnmapImageForEnclaveUse.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiLoadSectionIntoVsmEnclave(
         __int64 a1,
         _QWORD *a2,

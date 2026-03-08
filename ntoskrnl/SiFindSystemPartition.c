@@ -1,3 +1,14 @@
+/*
+ * XREFs of SiFindSystemPartition @ 0x140A5C744
+ * Callers:
+ *     SyspartGetPhysicalPartitions @ 0x140A5C57C (SyspartGetPhysicalPartitions.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     SiGetDriveLayoutInformation @ 0x140A5C928 (SiGetDriveLayoutInformation.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SiFindSystemPartition(__int64 a1)
 {
   __int64 v1; // r9

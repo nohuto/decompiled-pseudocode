@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopNetDisengageNetworkRefresh @ 0x140993720
+ * Callers:
+ *     PopNetRefreshTimerWorkerCallback @ 0x1409938F0 (PopNetRefreshTimerWorkerCallback.c)
+ *     PopNetWnfLowPowerEpochCallback @ 0x140993A30 (PopNetWnfLowPowerEpochCallback.c)
+ * Callees:
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     PopNetSetResiliencyPhaseBias @ 0x140993978 (PopNetSetResiliencyPhaseBias.c)
+ */
+
 __int64 PopNetDisengageNetworkRefresh()
 {
   __int64 result; // rax

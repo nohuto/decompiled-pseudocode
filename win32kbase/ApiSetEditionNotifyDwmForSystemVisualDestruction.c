@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionNotifyDwmForSystemVisualDestruction @ 0x1C00BEFC0
+ * Callers:
+ *     ?ClearSystemVisual@CHwndTargetProp@@QEAAHW4_HwndTargetType@@@Z @ 0x1C00BEF50 (-ClearSystemVisual@CHwndTargetProp@@QEAAHW4_HwndTargetType@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ApiSetEditionNotifyDwmForSystemVisualDestruction(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // esi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ScheduleCompositionPass@CPartitionVerticalBlankScheduler@@UEAAXKW4CompositionReason@@@Z @ 0x1800D96E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateU0q_EventWriteTransfer @ 0x180129D14 (McTemplateU0q_EventWriteTransfer.c)
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ */
+
 __int64 __fastcall CPartitionVerticalBlankScheduler::ScheduleCompositionPass(
         __int64 a1,
         unsigned int a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvlPrepareForHibernate @ 0x140544744
+ * Callers:
+ *     PopSaveHiberContext @ 0x140AA1810 (PopSaveHiberContext.c)
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 __int64 __fastcall HvlPrepareForHibernate(__int128 *a1, LONGLONG *a2, _QWORD *a3, _QWORD *a4, _QWORD *a5)
 {
   unsigned int v9; // r14d

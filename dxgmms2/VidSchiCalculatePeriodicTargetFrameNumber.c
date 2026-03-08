@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiCalculatePeriodicTargetFrameNumber @ 0x1C003A394
+ * Callers:
+ *     VidSchiProcessPeriodicNotificationCookie @ 0x1C003B0C4 (VidSchiProcessPeriodicNotificationCookie.c)
+ *     ?VidSchPeriodicMonitoredFenceTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1C003D700 (-VidSchPeriodicMonitoredFenceTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z.c)
+ * Callees:
+ *     ?VidSchiGetCurrentVSyncPeriodQpc@@YA_KPEAU_VIDSCH_GLOBAL@@I_N@Z @ 0x1C0017488 (-VidSchiGetCurrentVSyncPeriodQpc@@YA_KPEAU_VIDSCH_GLOBAL@@I_N@Z.c)
+ */
+
 __int64 __fastcall VidSchiCalculatePeriodicTargetFrameNumber(
         __int64 a1,
         unsigned __int64 a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of rimObsCheckForObservationPermissions @ 0x1C01DB780
+ * Callers:
+ *     NtRIMAddInputObserver @ 0x1C01A1830 (NtRIMAddInputObserver.c)
+ *     NtRIMUpdateInputObserverRegistration @ 0x1C01A3010 (NtRIMUpdateInputObserverRegistration.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RIMIsTestSigningOn @ 0x1C01D16B8 (RIMIsTestSigningOn.c)
+ *     ?rimIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z @ 0x1C01DA5F4 (-rimIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z.c)
+ */
+
 __int64 __fastcall rimObsCheckForObservationPermissions(char a1)
 {
   char v1; // bl

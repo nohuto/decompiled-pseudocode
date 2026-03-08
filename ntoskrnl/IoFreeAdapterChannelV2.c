@@ -1,3 +1,18 @@
+/*
+ * XREFs of IoFreeAdapterChannelV2 @ 0x1404552D0
+ * Callers:
+ *     HalAllocateAdapterChannelV2 @ 0x140454AE8 (HalAllocateAdapterChannelV2.c)
+ *     HalpDmaProcessMapRegisterQueueV2 @ 0x1404551EE (HalpDmaProcessMapRegisterQueueV2.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpDmaAllocateMapRegisters @ 0x14045399E (HalpDmaAllocateMapRegisters.c)
+ *     IoFreeMapRegistersV2 @ 0x1404554C0 (IoFreeMapRegistersV2.c)
+ *     HalpQueueMapBufferWorker @ 0x140503034 (HalpQueueMapBufferWorker.c)
+ *     HalpDmaQueueAdapter @ 0x14050EF68 (HalpDmaQueueAdapter.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeRemoveDeviceQueue @ 0x140570ED0 (KeRemoveDeviceQueue.c)
+ */
+
 __int64 __fastcall IoFreeAdapterChannelV2(__int64 a1)
 {
   char v1; // r14

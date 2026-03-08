@@ -1,3 +1,15 @@
+/*
+ * XREFs of DbgkpWerIsFullLiveDumpDisabled @ 0x14087EE3C
+ * Callers:
+ *     DbgkCaptureLiveKernelDump @ 0x140539CE8 (DbgkCaptureLiveKernelDump.c)
+ *     DbgkWerCaptureLiveKernelDump2 @ 0x14087EC90 (DbgkWerCaptureLiveKernelDump2.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ */
+
 bool DbgkpWerIsFullLiveDumpDisabled()
 {
   HANDLE KeyHandle; // [rsp+30h] [rbp-29h] BYREF

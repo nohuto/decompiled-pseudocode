@@ -1,3 +1,13 @@
+/*
+ * XREFs of AMLIIsObjectInGivenScope @ 0x1C0048828
+ * Callers:
+ *     ACPIIoctlEvalPreProcessingV1Ex @ 0x1C0030194 (ACPIIoctlEvalPreProcessingV1Ex.c)
+ *     ACPIIoctlEvalPreProcessingV2Ex @ 0x1C0030814 (ACPIIoctlEvalPreProcessingV2Ex.c)
+ *     ACPIIoctlGetDeviceSpecificData @ 0x1C0030F58 (ACPIIoctlGetDeviceSpecificData.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AMLIIsObjectInGivenScope(__int64 a1, _QWORD *a2)
 {
   unsigned int v4; // edi

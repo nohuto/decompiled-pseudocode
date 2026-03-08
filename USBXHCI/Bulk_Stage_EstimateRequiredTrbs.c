@@ -1,3 +1,14 @@
+/*
+ * XREFs of Bulk_Stage_EstimateRequiredTrbs @ 0x1C00125B8
+ * Callers:
+ *     Bulk_PrepareStage @ 0x1C001239C (Bulk_PrepareStage.c)
+ * Callees:
+ *     TR_IsUrbUsingChainedMdl @ 0x1C0007484 (TR_IsUrbUsingChainedMdl.c)
+ *     WPP_RECORDER_SF_DDDD @ 0x1C000E120 (WPP_RECORDER_SF_DDDD.c)
+ *     WPP_RECORDER_SF_DDDDD @ 0x1C0041E20 (WPP_RECORDER_SF_DDDDD.c)
+ *     WPP_RECORDER_SF_DDDqDDDDD @ 0x1C0047ABC (WPP_RECORDER_SF_DDDqDDDDD.c)
+ */
+
 __int64 __fastcall Bulk_Stage_EstimateRequiredTrbs(__int64 *a1)
 {
   int v1; // r11d

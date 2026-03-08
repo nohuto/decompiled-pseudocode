@@ -1,3 +1,18 @@
+/*
+ * XREFs of TR_CreateSecureObject @ 0x1C004139C
+ * Callers:
+ *     TR_Create @ 0x1C006DDF8 (TR_Create.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C001E754 (CommonBuffer_ReleaseBuffer.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     CommonBuffer_AcquireShadowBuffer @ 0x1C003229C (CommonBuffer_AcquireShadowBuffer.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     XilEndpoint_GetRemoteHandle @ 0x1C00391BC (XilEndpoint_GetRemoteHandle.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ */
+
 __int64 __fastcall TR_CreateSecureObject(__int64 a1)
 {
   __int64 v1; // rax

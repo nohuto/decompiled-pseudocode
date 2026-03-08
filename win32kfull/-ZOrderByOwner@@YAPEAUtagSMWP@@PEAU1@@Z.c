@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z @ 0x1C0025E8C
+ * Callers:
+ *     xxxEndDeferWindowPosEx @ 0x1C00698F0 (xxxEndDeferWindowPosEx.c)
+ * Callees:
+ *     ?SetTopmostEnum@@YAXPEAUtagWND@@HH@Z @ 0x1C0021308 (-SetTopmostEnum@@YAXPEAUtagWND@@HH@Z.c)
+ *     SetWindowGroupBand @ 0x1C0025CE4 (SetWindowGroupBand.c)
+ *     ?TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z @ 0x1C0026330 (-TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z.c)
+ *     ?ZOrderByOwner2@@YAPEAUtagSMWP@@PEAU1@H@Z @ 0x1C0026458 (-ZOrderByOwner2@@YAPEAUtagSMWP@@PEAU1@H@Z.c)
+ *     ?CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z @ 0x1C0026674 (-CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z.c)
+ *     GetLastTopMostWindow @ 0x1C0044610 (GetLastTopMostWindow.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 struct tagSMWP *__fastcall ZOrderByOwner(struct tagSMWP *a1)
 {
   __int64 v1; // r10

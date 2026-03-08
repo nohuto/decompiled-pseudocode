@@ -1,3 +1,16 @@
+/*
+ * XREFs of WheapCommitPolicy @ 0x140A06A08
+ * Callers:
+ *     WheapWmiExecutePolicyManagementMethod @ 0x140611EEC (WheapWmiExecutePolicyManagementMethod.c)
+ *     WheapResetPolicyDefaults @ 0x140A06D70 (WheapResetPolicyDefaults.c)
+ * Callees:
+ *     RtlWriteRegistryValue @ 0x14069EDB0 (RtlWriteRegistryValue.c)
+ *     RtlCheckRegistryKey @ 0x1407964F0 (RtlCheckRegistryKey.c)
+ *     RtlCreateRegistryKey @ 0x140860170 (RtlCreateRegistryKey.c)
+ *     WheapPfaReset @ 0x140A06240 (WheapPfaReset.c)
+ *     WheapLogPolicyTelemetry @ 0x140A06CB4 (WheapLogPolicyTelemetry.c)
+ */
+
 __int64 WheapCommitPolicy()
 {
   NTSTATUS RegistryKey; // ebx

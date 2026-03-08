@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmPerfComputePerfReductionTolerance @ 0x14038E174
+ * Callers:
+ *     PpmInfoAdjustSetting @ 0x140825E18 (PpmInfoAdjustSetting.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PpmPerfComputePerfReductionTolerance(unsigned int a1)
 {
   __int64 v1; // rdx

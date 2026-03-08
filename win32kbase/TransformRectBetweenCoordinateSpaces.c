@@ -1,3 +1,22 @@
+/*
+ * XREFs of TransformRectBetweenCoordinateSpaces @ 0x1C00152E0
+ * Callers:
+ *     xxxEnumDisplayMonitors @ 0x1C003AE40 (xxxEnumDisplayMonitors.c)
+ * Callees:
+ *     Is_MonitorFromRectSupported @ 0x1C000A0C4 (Is_MonitorFromRectSupported.c)
+ *     ?ExpandedMonitorRect@@YA?AUtagRECT@@PEAUtagMONITOR@@K@Z @ 0x1C000C860 (-ExpandedMonitorRect@@YA-AUtagRECT@@PEAUtagMONITOR@@K@Z.c)
+ *     TransformRectBetweenCoordinateSpacesPerMonitor @ 0x1C000C99C (TransformRectBetweenCoordinateSpacesPerMonitor.c)
+ *     Is_GetTopLevelWindowSupported @ 0x1C000CBB0 (Is_GetTopLevelWindowSupported.c)
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C0015510 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ *     IntersectRect @ 0x1C003B560 (IntersectRect.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C0041AF0 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     IsDpiAwarenessBoundaryInParentChain @ 0x1C0168404 (IsDpiAwarenessBoundaryInParentChain.c)
+ *     TransformOffscreenAdjacentRect @ 0x1C016845C (TransformOffscreenAdjacentRect.c)
+ *     HMValidateSharedHandleNoRip @ 0x1C0247060 (HMValidateSharedHandleNoRip.c)
+ */
+
 __int64 __fastcall TransformRectBetweenCoordinateSpaces(
         struct tagRECT *a1,
         const struct tagRECT *a2,

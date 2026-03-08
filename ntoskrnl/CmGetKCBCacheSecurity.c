@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmGetKCBCacheSecurity @ 0x1407AF620
+ * Callers:
+ *     CmpSetSecurityDescriptorInfo @ 0x1406B845C (CmpSetSecurityDescriptorInfo.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x1407AF4E0 (CmpGetSecurityCacheEntryForKcbStack.c)
+ * Callees:
+ *     CmEqualTrans @ 0x1406B6428 (CmEqualTrans.c)
+ *     CmListGetPrevElement @ 0x140776A40 (CmListGetPrevElement.c)
+ */
+
 __int64 __fastcall CmGetKCBCacheSecurity(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

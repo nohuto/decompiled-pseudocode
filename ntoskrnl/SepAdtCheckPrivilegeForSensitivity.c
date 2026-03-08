@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepAdtCheckPrivilegeForSensitivity @ 0x1405B6A00
+ * Callers:
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x14069976C (SepAdtAuditPrivilegeUseWithContext.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall SepAdtCheckPrivilegeForSensitivity(unsigned int *a1, char *a2, _BYTE *a3)
 {
   unsigned int v4; // r10d

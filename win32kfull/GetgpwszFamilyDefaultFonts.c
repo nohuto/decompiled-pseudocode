@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetgpwszFamilyDefaultFonts @ 0x1C00F6460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetgpwszFamilyDefaultFonts(_QWORD *a1)
 {
   __int64 result; // rax

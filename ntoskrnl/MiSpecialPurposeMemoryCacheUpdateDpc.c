@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiSpecialPurposeMemoryCacheUpdateDpc @ 0x14065E3C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 __int64 __fastcall MiSpecialPurposeMemoryCacheUpdateDpc(
         __int64 a1,
         __int64 *a2,

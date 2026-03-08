@@ -1,3 +1,11 @@
+/*
+ * XREFs of FlattenEventEntryTree @ 0x1C0075100
+ * Callers:
+ *     FlushLookUpTableBucket @ 0x1C0075148 (FlushLookUpTableBucket.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FlattenEventEntryTree(__int64 a1)
 {
   __int64 *v1; // rdx

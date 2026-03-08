@@ -1,3 +1,12 @@
+/*
+ * XREFs of BgpRasInitializeRasterizer @ 0x140B98F30
+ * Callers:
+ *     FopInitializeFonts @ 0x140B99D48 (FopInitializeFonts.c)
+ * Callees:
+ *     FioFwReadBytesAtOffset @ 0x140383778 (FioFwReadBytesAtOffset.c)
+ *     FopGetTableOffsetAndSize @ 0x140B996C4 (FopGetTableOffsetAndSize.c)
+ */
+
 __int64 __fastcall BgpRasInitializeRasterizer(__int64 a1)
 {
   int v1; // esi

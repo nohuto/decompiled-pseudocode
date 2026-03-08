@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalFreeCommonBufferFromVector @ 0x14050CB20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall HalFreeCommonBufferFromVector(__int64 a1, __int64 a2, unsigned int a3)
 {
   unsigned int v3; // eax

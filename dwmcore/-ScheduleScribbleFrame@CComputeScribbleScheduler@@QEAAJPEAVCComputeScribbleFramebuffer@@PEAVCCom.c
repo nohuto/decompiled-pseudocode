@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?ScheduleScribbleFrame@CComputeScribbleScheduler@@QEAAJPEAVCComputeScribbleFramebuffer@@PEAVCComputeScribble@@_KI@Z @ 0x180200B14
+ * Callers:
+ *     ?ScheduleScribble@CComputeScribbleRenderer@@QEAAJXZ @ 0x1801F8B3C (-ScheduleScribble@CComputeScribbleRenderer@@QEAAJXZ.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?GetWakeupTimeBeforeVBlank@CComputeScribbleScheduler@@AEAAXPEAVCComputeScribble@@PEAN1@Z @ 0x1801FFFDC (-GetWakeupTimeBeforeVBlank@CComputeScribbleScheduler@@AEAAXPEAVCComputeScribble@@PEAN1@Z.c)
+ *     ?Schedule@CComputeScribbleScheduler@@AEAAJAEBUScribbleFrame@1@II@Z @ 0x1802009D0 (-Schedule@CComputeScribbleScheduler@@AEAAJAEBUScribbleFrame@1@II@Z.c)
+ *     McTemplateU0xqf_EventWriteTransfer @ 0x180201360 (McTemplateU0xqf_EventWriteTransfer.c)
+ *     ?SetScribble@CComputeScribbleFramebuffer@@QEAAXPEAVCComputeScribble@@@Z @ 0x180201F20 (-SetScribble@CComputeScribbleFramebuffer@@QEAAXPEAVCComputeScribble@@@Z.c)
+ */
+
 __int64 __fastcall CComputeScribbleScheduler::ScheduleScribbleFrame(
         RTL_SRWLOCK *this,
         struct CComputeScribbleFramebuffer *a2,

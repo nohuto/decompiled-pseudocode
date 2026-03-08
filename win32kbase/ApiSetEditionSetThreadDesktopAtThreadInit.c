@@ -1,3 +1,13 @@
+/*
+ * XREFs of ApiSetEditionSetThreadDesktopAtThreadInit @ 0x1C024305C
+ * Callers:
+ *     xxxCreateThreadInfo @ 0x1C0076490 (xxxCreateThreadInfo.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     IsEditionSetThreadDesktopAtThreadInitSupported @ 0x1C00C82E4 (IsEditionSetThreadDesktopAtThreadInitSupported.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (*ApiSetEditionSetThreadDesktopAtThreadInit())(void)
 {
   char v0; // bl

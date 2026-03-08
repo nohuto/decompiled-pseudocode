@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_IFR_SF_qqqqi @ 0x1C00559EC
+ * Callers:
+ *     ?Close@FxIoTargetRemote@@QEAAXW4FxIoTargetRemoteCloseReason@@@Z @ 0x1C0054BC8 (-Close@FxIoTargetRemote@@QEAAXW4FxIoTargetRemoteCloseReason@@@Z.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_qqqqi(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 _a1,

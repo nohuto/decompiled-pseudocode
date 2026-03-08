@@ -1,3 +1,15 @@
+/*
+ * XREFs of TextCopy @ 0x1C00D176C
+ * Callers:
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ *     NtUserInternalGetWindowText @ 0x1C00D1530 (NtUserInternalGetWindowText.c)
+ *     ?xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z @ 0x1C012E4C8 (-xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z.c)
+ *     _GetAltTabInfo @ 0x1C01CB224 (_GetAltTabInfo.c)
+ *     xxxDrawCaptionTemp @ 0x1C022EDB4 (xxxDrawCaptionTemp.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall TextCopy(__int64 a1, char *a2, unsigned int a3)
 {
   unsigned int v3; // edi

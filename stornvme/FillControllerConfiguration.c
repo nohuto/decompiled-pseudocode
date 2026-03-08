@@ -1,3 +1,11 @@
+/*
+ * XREFs of FillControllerConfiguration @ 0x1C00076B4
+ * Callers:
+ *     NVMeLogEtwControllerInfo @ 0x1C000880C (NVMeLogEtwControllerInfo.c)
+ * Callees:
+ *     memset @ 0x1C0004580 (memset.c)
+ */
+
 __int64 __fastcall FillControllerConfiguration(__int64 a1, _DWORD *a2)
 {
   __int64 result; // rax

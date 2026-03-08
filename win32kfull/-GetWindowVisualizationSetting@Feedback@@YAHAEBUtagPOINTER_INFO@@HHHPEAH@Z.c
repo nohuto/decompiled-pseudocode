@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetWindowVisualizationSetting@Feedback@@YAHAEBUtagPOINTER_INFO@@HHHPEAH@Z @ 0x1C01AE7D0
+ * Callers:
+ *     ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01AE304 (-ContactVisualizationWorker@@YAHKPEAX_KHK@Z.c)
+ * Callees:
+ *     FeedbackGetWindowSetting @ 0x1C01AEDEC (FeedbackGetWindowSetting.c)
+ */
+
 __int64 __fastcall Feedback::GetWindowVisualizationSetting(
         Feedback *this,
         const struct tagPOINTER_INFO *a2,

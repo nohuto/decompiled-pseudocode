@@ -1,3 +1,14 @@
+/*
+ * XREFs of CreateTokenManagerSessionGlobal @ 0x1C0016FC4
+ * Callers:
+ *     ??0DXGSESSIONDATA@@QEAA@K@Z @ 0x1C01DDCF0 (--0DXGSESSIONDATA@@QEAA@K@Z.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??_GCTokenManager@@AEAAPEAXI@Z @ 0x1C0013A40 (--_GCTokenManager@@AEAAPEAXI@Z.c)
+ *     ??0CTokenManager@@AEAA@XZ @ 0x1C0017034 (--0CTokenManager@@AEAA@XZ.c)
+ *     ?Initialize@CTokenManager@@AEAAJXZ @ 0x1C0017154 (-Initialize@CTokenManager@@AEAAJXZ.c)
+ */
+
 __int64 __fastcall CreateTokenManagerSessionGlobal(CTokenManager **a1)
 {
   CTokenManager *v2; // rax

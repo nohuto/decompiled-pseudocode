@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpStartProfileInterruptEx @ 0x140505FD0
+ * Callers:
+ *     HalStartProfileInterrupt @ 0x140504F00 (HalStartProfileInterrupt.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpStartProfileInterruptEx(unsigned int a1, _DWORD *a2, unsigned int *a3, _QWORD *a4)
 {
   __int64 v7; // rsi

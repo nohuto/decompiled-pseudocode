@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidSchiValidateHwFlipQueueCompletionTimestamp@@YAXPEAUVIDSCH_FLIP_QUEUE@@K_K1@Z @ 0x1C004B250
+ * Callers:
+ *     VidSchiProcessVsyncCompletedFlipEntry @ 0x1C000CDD0 (VidSchiProcessVsyncCompletedFlipEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidSchiValidateHwFlipQueueCompletionTimestamp(
         struct VIDSCH_FLIP_QUEUE *a1,
         unsigned int a2,

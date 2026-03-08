@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiAbThreadInsertList @ 0x1402F45E0
+ * Callers:
+ *     PsBoostThreadIoEx @ 0x1402634D0 (PsBoostThreadIoEx.c)
+ *     ExpApplyPriorityBoost @ 0x140282C50 (ExpApplyPriorityBoost.c)
+ *     KeAbProcessEffectiveIoPriorityChange @ 0x140356D7C (KeAbProcessEffectiveIoPriorityChange.c)
+ *     KeAbProcessBaseIoPriorityChangeInternal @ 0x140357A54 (KeAbProcessBaseIoPriorityChangeInternal.c)
+ *     KiAbSetMinimumThreadPriority @ 0x140357EB4 (KiAbSetMinimumThreadPriority.c)
+ *     KiAbThreadBoostIoPriority @ 0x140358384 (KiAbThreadBoostIoPriority.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 __int64 __fastcall KiAbThreadInsertList(__int64 a1, _QWORD *a2, _QWORD *a3)
 {
   unsigned int v3; // edi

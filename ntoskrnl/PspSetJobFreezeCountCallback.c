@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspSetJobFreezeCountCallback @ 0x140300810
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Feature_Servicing_BypassGraphicsFreezeNotification__private_IsEnabledDeviceUsage @ 0x14040BA70 (Feature_Servicing_BypassGraphicsFreezeNotification__private_IsEnabledDeviceUsage.c)
+ *     PspComputeExecutionState @ 0x1406FF3AC (PspComputeExecutionState.c)
+ */
+
 __int64 __fastcall PspSetJobFreezeCountCallback(_DWORD *a1, _BYTE *a2)
 {
   int IsEnabledDeviceUsage; // eax

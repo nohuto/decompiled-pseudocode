@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OtherThreadsKeyboardInput@@YAPEAUtagTHREADINFO@@PEAUtagQ@@PEAUtagQMSG@@@Z @ 0x1C01B67F0
+ * Callers:
+ *     SlowAppThreadInShellFrame @ 0x1C01B7C3C (SlowAppThreadInShellFrame.c)
+ * Callees:
+ *     <none>
+ */
+
 struct tagTHREADINFO *__fastcall OtherThreadsKeyboardInput(struct tagQ *a1, struct tagQMSG *a2)
 {
   __int64 v3; // rcx

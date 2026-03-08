@@ -1,3 +1,17 @@
+/*
+ * XREFs of ACPIEcStartDeviceWorker @ 0x1C00256A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIEcConnectInterrupt @ 0x1C00834C0 (ACPIEcConnectInterrupt.c)
+ *     ACPIEcGetGpeVector @ 0x1C00835C4 (ACPIEcGetGpeVector.c)
+ *     ACPIEcGetUid @ 0x1C0083668 (ACPIEcGetUid.c)
+ *     ACPIEcInstallOpRegionHandler @ 0x1C00836FC (ACPIEcInstallOpRegionHandler.c)
+ *     ACPIEcGetResources @ 0x1C0083774 (ACPIEcGetResources.c)
+ */
+
 _UNKNOWN **__fastcall ACPIEcStartDeviceWorker(__int64 a1)
 {
   int Resources; // edi

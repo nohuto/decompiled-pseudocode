@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpConnectThermalInterrupt @ 0x140378B60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpInterruptFindLines @ 0x14028EE80 (HalpInterruptFindLines.c)
+ *     HalpInterruptGetPriority @ 0x1403792F0 (HalpInterruptGetPriority.c)
+ *     HalpInterruptSetLineStateInternal @ 0x1403796D0 (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptGetIdentifiers @ 0x140379900 (HalpInterruptGetIdentifiers.c)
+ *     HalpInterruptSetIdtEntry @ 0x140379F10 (HalpInterruptSetIdtEntry.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ */
+
 __int64 __fastcall HalpConnectThermalInterrupt(ULONG_PTR BugCheckParameter4)
 {
   ULONG_PTR v1; // rbx

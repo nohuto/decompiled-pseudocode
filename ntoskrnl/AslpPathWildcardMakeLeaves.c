@@ -1,3 +1,14 @@
+/*
+ * XREFs of AslpPathWildcardMakeLeaves @ 0x140A53CE4
+ * Callers:
+ *     AslPathWildcardFindFirst @ 0x140A52910 (AslPathWildcardFindFirst.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ *     wcsncmp @ 0x1403D5ED0 (wcsncmp.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ */
+
 __int64 __fastcall AslpPathWildcardMakeLeaves(WCHAR *SourceString)
 {
   WCHAR *v1; // rdi

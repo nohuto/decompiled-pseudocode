@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??$_Emplace_reallocate@AEBUFlipPropertyItem@@@?$vector@UFlipPropertyItem@@V?$allocator@UFlipPropertyItem@@@std@@@std@@QEAAPEAUFlipPropertyItem@@QEAU2@AEBU2@@Z @ 0x180269ECC
+ * Callers:
+ *     ?CommitRecordedStatistics@CCompositionSwapchainStatistics@@UEAAJXZ @ 0x18026A1E0 (-CommitRecordedStatistics@CCompositionSwapchainStatistics@@UEAAJXZ.c)
+ * Callees:
+ *     ??$_Get_size_of_n@$0CA@@std@@YA_K_K@Z @ 0x180085FC4 (--$_Get_size_of_n@$0CA@@std@@YA_K_K@Z.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     ?_Change_array@?$vector@UFlipPropertyItem@@V?$allocator@UFlipPropertyItem@@@std@@@std@@AEAAXQEAUFlipPropertyItem@@_K1@Z @ 0x18026A734 (-_Change_array@-$vector@UFlipPropertyItem@@V-$allocator@UFlipPropertyItem@@@std@@@std@@AEAAXQEAU.c)
+ */
+
 char *__fastcall std::vector<FlipPropertyItem>::_Emplace_reallocate<FlipPropertyItem const &>(
         const void **a1,
         _BYTE *a2,

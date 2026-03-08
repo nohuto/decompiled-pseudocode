@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlRemoveExtraCreateParameter @ 0x1406B1E00
+ * Callers:
+ *     IopSymlinkRemoveECP @ 0x14023ADC4 (IopSymlinkRemoveECP.c)
+ *     FsRtlCheckOplockEx2 @ 0x14023AE40 (FsRtlCheckOplockEx2.c)
+ *     FsRtlpAttachOplockKey @ 0x14023FE88 (FsRtlpAttachOplockKey.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall FsRtlRemoveExtraCreateParameter(
         PECP_LIST EcpList,
         LPCGUID EcpType,

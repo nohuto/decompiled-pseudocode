@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetTrueClipRgn@@YAHPEAUHDC__@@PEAUHRGN__@@@Z @ 0x1C0230CB0
+ * Callers:
+ *     ?InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z @ 0x1C0230DA0 (-InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z.c)
+ * Callees:
+ *     GreGetRandomRgn @ 0x1C0125C40 (GreGetRandomRgn.c)
+ */
+
 __int64 __fastcall GetTrueClipRgn(HDC a1, HRGN a2)
 {
   HRGN EmptyRgn; // rbx

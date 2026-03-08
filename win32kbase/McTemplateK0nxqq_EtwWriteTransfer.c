@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0nxqq_EtwWriteTransfer @ 0x1C0165A0C
+ * Callers:
+ *     EtwTraceUIPIHandleValidationError @ 0x1C003CC40 (EtwTraceUIPIHandleValidationError.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0nxqq_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

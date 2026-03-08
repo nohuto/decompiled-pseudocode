@@ -1,3 +1,11 @@
+/*
+ * XREFs of strncat @ 0x1403D5710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char *__cdecl strncat(char *Dest, const char *Source, size_t Count)
 {
   char *v3; // r11

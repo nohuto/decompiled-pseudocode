@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CSurfaceBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00AFE50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CSurfaceBrushMarshaler::SetBufferProperty(
         DirectComposition::CSurfaceBrushMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetColorimetryData@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAUDISPLAY_COLORIMETRY_DATA@@AEAUDISPLAY_COLOR_DEPTHS@@@Z @ 0x1C03CBEE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DisplayID_GetColorimetryData@@YAJPEBUDisplayIDObj@@PEAUDISPLAYID_COLORIMETRY_DATA@@PEAUDISPLAY_COLOR_DEPTHS@@@Z @ 0x1C00727B0 (-DisplayID_GetColorimetryData@@YAJPEBUDisplayIDObj@@PEAUDISPLAYID_COLORIMETRY_DATA@@PEAUDISPLAY_.c)
+ */
+
 __int64 __fastcall DxgMonitor::DisplayIdMonitorDescriptor::GetColorimetryData(
         DxgMonitor::DisplayIdMonitorDescriptor *this,
         struct DISPLAY_COLORIMETRY_DATA *a2,

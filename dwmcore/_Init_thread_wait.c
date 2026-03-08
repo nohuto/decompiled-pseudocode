@@ -1,3 +1,11 @@
+/*
+ * XREFs of _Init_thread_wait @ 0x18010EFAC
+ * Callers:
+ *     _Init_thread_header @ 0x18010EEE8 (_Init_thread_header.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall Init_thread_wait(DWORD dwMilliseconds)
 {
   if ( qword_1803E26C0 )

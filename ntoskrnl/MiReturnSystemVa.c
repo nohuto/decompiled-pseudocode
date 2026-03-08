@@ -1,3 +1,26 @@
+/*
+ * XREFs of MiReturnSystemVa @ 0x14020E9A0
+ * Callers:
+ *     MmFreePoolMemory @ 0x14020DD58 (MmFreePoolMemory.c)
+ *     MiExpandPtes @ 0x140210210 (MiExpandPtes.c)
+ *     MiExpandSystemCache @ 0x1402E9B28 (MiExpandSystemCache.c)
+ *     MiReturnSystemPtes @ 0x1402EB3FC (MiReturnSystemPtes.c)
+ *     MiGetPageTablesForLargeMap @ 0x14038A5B8 (MiGetPageTablesForLargeMap.c)
+ *     MiDeleteBootRange @ 0x14038BEB8 (MiDeleteBootRange.c)
+ *     MiReturnSystemCacheRegionsToKva @ 0x1403CE458 (MiReturnSystemCacheRegionsToKva.c)
+ *     MiUnmapLargePages @ 0x1403D0D9C (MiUnmapLargePages.c)
+ *     MmFreeSecurePoolMemory @ 0x14063F668 (MmFreeSecurePoolMemory.c)
+ *     MiReleaseLargePdeMappings @ 0x14065D1F4 (MiReleaseLargePdeMappings.c)
+ *     MiReserveDriverPtes @ 0x1407F6D70 (MiReserveDriverPtes.c)
+ *     MiReleaseDriverPtes @ 0x1407F74BC (MiReleaseDriverPtes.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiDeleteSystemPageTables @ 0x14020F540 (MiDeleteSystemPageTables.c)
+ *     MiMakeSystemRangeAvailable @ 0x14020F62C (MiMakeSystemRangeAvailable.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 unsigned __int64 __fastcall MiReturnSystemVa(unsigned __int64 a1, unsigned __int64 a2, int a3, _QWORD *a4)
 {
   unsigned __int64 v8; // rbx

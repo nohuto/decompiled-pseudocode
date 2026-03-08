@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIButtonCompletePendingIrps @ 0x1C001873C
+ * Callers:
+ *     ACPIButtonEvent @ 0x1C00189F0 (ACPIButtonEvent.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall ACPIButtonCompletePendingIrps(__int64 a1, int a2)
 {
   char v3; // di

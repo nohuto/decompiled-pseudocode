@@ -1,3 +1,26 @@
+/*
+ * XREFs of CmpAddRemoveContainerToCLFSLog @ 0x140864428
+ * Callers:
+ *     CmpStartCLFSLog @ 0x14086411C (CmpStartCLFSLog.c)
+ *     CmpAddRemoveRMLogContainer @ 0x140A1BBAC (CmpAddRemoveRMLogContainer.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     sprintf_s @ 0x1403D9BA0 (sprintf_s.c)
+ *     PsDisableImpersonation @ 0x1406D2C20 (PsDisableImpersonation.c)
+ *     PsRestoreImpersonation @ 0x1406D2D60 (PsRestoreImpersonation.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmpAddRemoveContainerToCLFSLog(
         PLOG_FILE_OBJECT plfoLog,
         PCUNICODE_STRING Source,

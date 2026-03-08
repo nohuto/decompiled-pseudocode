@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsIdentityTransform@@YA_NAEBUtagINPUT_TRANSFORM@@@Z @ 0x1C0158520
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 bool __fastcall IsIdentityTransform(const struct tagINPUT_TRANSFORM *Source1)
 {
   _DWORD Source2[16]; // [rsp+20h] [rbp-58h] BYREF

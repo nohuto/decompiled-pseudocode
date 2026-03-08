@@ -1,3 +1,20 @@
+/*
+ * XREFs of PpmRegisterPerfCap @ 0x14058AF70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PpmReleaseLock @ 0x1402D1F40 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ *     PopDiagTraceProcessorThrottleDurationPerfTrack @ 0x140591DB0 (PopDiagTraceProcessorThrottleDurationPerfTrack.c)
+ *     PopDiagTraceProcessorThrottlePerfTrack @ 0x140591F00 (PopDiagTraceProcessorThrottlePerfTrack.c)
+ *     PpmEventBiosCapChange @ 0x1405977CC (PpmEventBiosCapChange.c)
+ *     PpmEventHiddenProcessorBiosCapChange @ 0x140598218 (PpmEventHiddenProcessorBiosCapChange.c)
+ *     PpmEventHiddenProcessorThermalCapChange @ 0x140598320 (PpmEventHiddenProcessorThermalCapChange.c)
+ *     PpmEventThermalCapChange @ 0x140599200 (PpmEventThermalCapChange.c)
+ *     PpmCheckApplyPerfConstraints @ 0x14098FE08 (PpmCheckApplyPerfConstraints.c)
+ */
+
 __int64 __fastcall PpmRegisterPerfCap(_DWORD *a1)
 {
   unsigned int v2; // ebx

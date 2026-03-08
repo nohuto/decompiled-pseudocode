@@ -1,3 +1,12 @@
+/*
+ * XREFs of Control_ProcessTransferEventPointer @ 0x1C00427B4
+ * Callers:
+ *     Control_ProcessTransferEventWithED0 @ 0x1C0042974 (Control_ProcessTransferEventWithED0.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DD @ 0x1C0007C90 (WPP_RECORDER_SF_DD.c)
+ *     Control_FindTrbMatch @ 0x1C00425F4 (Control_FindTrbMatch.c)
+ */
+
 bool __fastcall Control_ProcessTransferEventPointer(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4, int *a5)
 {
   int v6; // ebx

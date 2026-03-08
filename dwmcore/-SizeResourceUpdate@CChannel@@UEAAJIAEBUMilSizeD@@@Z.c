@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SizeResourceUpdate@CChannel@@UEAAJIAEBUMilSizeD@@@Z @ 0x18001B400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x180043E68 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ??0CChannelLock@CChannel@@QEAA@PEAV1@@Z @ 0x18004407C (--0CChannelLock@CChannel@@QEAA@PEAV1@@Z.c)
+ *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800441FC (--1CChannelLock@CChannel@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x180044440 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ */
+
 __int64 __fastcall CChannel::SizeResourceUpdate(CChannel *this, unsigned int a2, const struct MilSizeD *a3)
 {
   __int128 v6; // xmm0

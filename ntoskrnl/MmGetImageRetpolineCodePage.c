@@ -1,3 +1,12 @@
+/*
+ * XREFs of MmGetImageRetpolineCodePage @ 0x140A318F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiLookupDataTableEntry @ 0x14035ECF0 (MiLookupDataTableEntry.c)
+ *     MiIsRetpolineEnabled @ 0x14036905C (MiIsRetpolineEnabled.c)
+ */
+
 __int64 __fastcall MmGetImageRetpolineCodePage(__int64 a1, _QWORD *a2)
 {
   _QWORD *v3; // rdx

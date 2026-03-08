@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?xxxMNHideNextHierarchy@@YAHAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@@Z @ 0x1C0218BF0
+ * Callers:
+ *     xxxMNButtonDown @ 0x1C02197A8 (xxxMNButtonDown.c)
+ *     xxxMNMouseMove @ 0x1C021B510 (xxxMNMouseMove.c)
+ * Callees:
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ */
+
 __int64 __fastcall xxxMNHideNextHierarchy(__int64 *a1)
 {
   __int64 v2; // rax

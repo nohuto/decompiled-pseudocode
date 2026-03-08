@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserGetGestureInfo @ 0x1C01D2760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     _FreeGestureInfo @ 0x1C0207760 (_FreeGestureInfo.c)
+ */
+
 __int64 __fastcall NtUserGetGestureInfo(__int64 a1, ULONG64 a2)
 {
   int v4; // ecx

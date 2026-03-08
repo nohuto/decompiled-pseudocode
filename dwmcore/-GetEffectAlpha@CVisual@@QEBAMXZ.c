@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetEffectAlpha@CVisual@@QEBAMXZ @ 0x180009628
+ * Callers:
+ *     ?_IsInTree@CVisualTree@@IEBA_NPEBVCVisual@@W4IsInTreeFlags@1@@Z @ 0x1800094F0 (-_IsInTree@CVisualTree@@IEBA_NPEBVCVisual@@W4IsInTreeFlags@1@@Z.c)
+ * Callees:
+ *     ?GetEffectInternal@CVisual@@QEBAPEAVCEffect@@XZ @ 0x1800C31F4 (-GetEffectInternal@CVisual@@QEBAPEAVCEffect@@XZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 float __fastcall CVisual::GetEffectAlpha(CVisual *this)
 {
   float v1; // xmm6_4

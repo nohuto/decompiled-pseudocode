@@ -1,3 +1,13 @@
+/*
+ * XREFs of VidSchiNeedToForcePreemptNode @ 0x1C0017AA4
+ * Callers:
+ *     VidSchiCheckHwProgress @ 0x1C00A5940 (VidSchiCheckHwProgress.c)
+ * Callees:
+ *     VidSchiUpdateLastCompletedPresentTimestamp @ 0x1C0002D40 (VidSchiUpdateLastCompletedPresentTimestamp.c)
+ *     VidSchiProfilePerformanceTick @ 0x1C0006E50 (VidSchiProfilePerformanceTick.c)
+ *     VidSchiIncrementContextReference @ 0x1C00146D0 (VidSchiIncrementContextReference.c)
+ */
+
 char __fastcall VidSchiNeedToForcePreemptNode(__int64 a1)
 {
   __int64 v1; // rbp

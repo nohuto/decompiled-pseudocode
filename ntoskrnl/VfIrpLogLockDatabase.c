@@ -1,3 +1,13 @@
+/*
+ * XREFs of VfIrpLogLockDatabase @ 0x140AD9844
+ * Callers:
+ *     ViDdiDispatchWmiQueryAllData @ 0x140AC0C04 (ViDdiDispatchWmiQueryAllData.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall VfIrpLogLockDatabase(unsigned int a1)
 {
   __int64 v1; // rbx

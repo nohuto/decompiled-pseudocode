@@ -1,3 +1,13 @@
+/*
+ * XREFs of rimHidP_GetUsages @ 0x1C00EFB14
+ * Callers:
+ *     rimExtractButtonPageButtonUsages @ 0x1C00F1382 (rimExtractButtonPageButtonUsages.c)
+ *     rimExtractDigitizerPageButtonUsages @ 0x1C01D6EB4 (rimExtractDigitizerPageButtonUsages.c)
+ *     rimExtractPointerDeviceUsages @ 0x1C01D78A0 (rimExtractPointerDeviceUsages.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall rimHidP_GetUsages(
         __int64 a1,
         __int64 a2,

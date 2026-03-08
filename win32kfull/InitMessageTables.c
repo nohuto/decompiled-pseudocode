@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitMessageTables @ 0x1C03B6E70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 __int64 InitMessageTables()
 {
   char v0; // dl

@@ -1,3 +1,30 @@
+/*
+ * XREFs of MiLoadHotPatch @ 0x140A352A0
+ * Callers:
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ *     NtManageHotPatch @ 0x140784740 (NtManageHotPatch.c)
+ *     MmRegisterHotPatches @ 0x140B7092C (MmRegisterHotPatches.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     VslApplyHotPatch @ 0x140548770 (VslApplyHotPatch.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     MmAcquireLoadLock @ 0x1407D2360 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x1407D2400 (MmReleaseLoadLock.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     VslDetermineHotPatchType @ 0x14093F108 (VslDetermineHotPatchType.c)
+ *     MiAllocateHotPatchRecord @ 0x140A31AD8 (MiAllocateHotPatchRecord.c)
+ *     MiAllocateSecureImageActivePatch @ 0x140A31B5C (MiAllocateSecureImageActivePatch.c)
+ *     MiApplyHotPatchToDriver @ 0x140A321B0 (MiApplyHotPatchToDriver.c)
+ *     MiHotPatchAllProcesses @ 0x140A34748 (MiHotPatchAllProcesses.c)
+ *     MiInsertHotPatchRecord @ 0x140A34E80 (MiInsertHotPatchRecord.c)
+ *     MiInsertSecureImageActivePatch @ 0x140A35124 (MiInsertSecureImageActivePatch.c)
+ *     MiLogHotPatchOperationStatus @ 0x140A36298 (MiLogHotPatchOperationStatus.c)
+ *     MiOpenHotPatchFile @ 0x140A376D4 (MiOpenHotPatchFile.c)
+ *     MiPromoteControlAreaToStrongCode @ 0x140A385E8 (MiPromoteControlAreaToStrongCode.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiLoadHotPatch(const void **a1, char a2, int *a3, unsigned int *a4)
 {
   struct _KTHREAD *Lock; // r12

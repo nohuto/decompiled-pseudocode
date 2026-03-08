@@ -1,3 +1,24 @@
+/*
+ * XREFs of VrpRegistryCallback @ 0x1406C2D60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwActivityIdControl @ 0x140244870 (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     VrpPostQueryKey @ 0x1406C14A4 (VrpPostQueryKey.c)
+ *     VrpPreOpenOrCreate @ 0x1406C1A34 (VrpPreOpenOrCreate.c)
+ *     VrpPostOpenOrCreate @ 0x1406C2968 (VrpPostOpenOrCreate.c)
+ *     VrpPreLoadKey @ 0x140735EB4 (VrpPreLoadKey.c)
+ *     VrpPostEnumerateKey @ 0x140736428 (VrpPostEnumerateKey.c)
+ *     VRegEnabledInJob @ 0x140736F40 (VRegEnabledInJob.c)
+ *     VrpFreeKeyContext @ 0x14078D308 (VrpFreeKeyContext.c)
+ *     VrpDecommissionKeyContext @ 0x14078D340 (VrpDecommissionKeyContext.c)
+ *     VrpPostUnloadKey @ 0x140A6FF3C (VrpPostUnloadKey.c)
+ *     VrpPreFlushKey @ 0x140A6FFDC (VrpPreFlushKey.c)
+ *     VrpPreQueryKeyName @ 0x140A700A4 (VrpPreQueryKeyName.c)
+ *     VrpPreUnloadKey @ 0x140A70314 (VrpPreUnloadKey.c)
+ */
+
 __int64 __fastcall VrpRegistryCallback(__int64 a1, unsigned int a2, __int64 *a3)
 {
   unsigned int v3; // edi

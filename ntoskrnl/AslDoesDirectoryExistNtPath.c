@@ -1,3 +1,13 @@
+/*
+ * XREFs of AslDoesDirectoryExistNtPath @ 0x140A51428
+ * Callers:
+ *     SdbpCheckMatchingDir @ 0x140A4C9D0 (SdbpCheckMatchingDir.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ */
+
 __int64 __fastcall AslDoesDirectoryExistNtPath(PCWSTR SourceString)
 {
   unsigned int v1; // ebx

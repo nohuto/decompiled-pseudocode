@@ -1,3 +1,12 @@
+/*
+ * XREFs of SymCryptFdefRawIsEqualUint32 @ 0x1403FFF04
+ * Callers:
+ *     SymCryptFdefModNegGeneric @ 0x1403FF0D0 (SymCryptFdefModNegGeneric.c)
+ *     SymCryptFdefIntIsEqualUint32 @ 0x1403FFD50 (SymCryptFdefIntIsEqualUint32.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefRawIsEqualUint32(_DWORD *a1, int a2, int a3)
 {
   unsigned int v3; // r8d

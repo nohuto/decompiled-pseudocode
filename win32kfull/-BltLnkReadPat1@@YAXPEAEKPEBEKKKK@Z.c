@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?BltLnkReadPat1@@YAXPEAEKPEBEKKKK@Z @ 0x1C0306910
+ * Callers:
+ *     ?BltLnkSrcCopyMsk1@@YAXPEAUBLTINFO@@PEAU_BLTLNK_MASKINFO@@PEAK2@Z @ 0x1C0306E10 (-BltLnkSrcCopyMsk1@@YAXPEAUBLTINFO@@PEAU_BLTLNK_MASKINFO@@PEAK2@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall BltLnkReadPat1(
         unsigned __int8 *a1,
         char a2,

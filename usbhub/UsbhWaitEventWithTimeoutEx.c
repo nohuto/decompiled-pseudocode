@@ -1,3 +1,26 @@
+/*
+ * XREFs of UsbhWaitEventWithTimeoutEx @ 0x1C00068E0
+ * Callers:
+ *     UsbhWaitForResetTimeout @ 0x1C000179C (UsbhWaitForResetTimeout.c)
+ *     Usbh_PCE_Disable_Action @ 0x1C0005350 (Usbh_PCE_Disable_Action.c)
+ *     UsbhSshResumeDownstream @ 0x1C000E1B0 (UsbhSshResumeDownstream.c)
+ *     Usbh_PCE_Suspend_Action @ 0x1C000F290 (Usbh_PCE_Suspend_Action.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C0019820 (UsbhSyncResetDeviceInternal.c)
+ *     Usbh_PCE_Close_Action @ 0x1C00357E8 (Usbh_PCE_Close_Action.c)
+ *     UsbhNotifyPnpOfFailure_Action @ 0x1C0038E08 (UsbhNotifyPnpOfFailure_Action.c)
+ *     UsbhWaitForPortResume @ 0x1C003A71C (UsbhWaitForPortResume.c)
+ *     UsbhPdoWaitForD3Reconnect @ 0x1C003CB44 (UsbhPdoWaitForD3Reconnect.c)
+ *     UsbhAsyncStop @ 0x1C00424CC (UsbhAsyncStop.c)
+ * Callees:
+ *     UsbhPCE_wRun @ 0x1C0004288 (UsbhPCE_wRun.c)
+ *     UsbhIncHubBusy @ 0x1C0007050 (UsbhIncHubBusy.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0014330 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     UsbhTrapFatalTimeout_x9f @ 0x1C002E034 (UsbhTrapFatalTimeout_x9f.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall UsbhWaitEventWithTimeoutEx(__int64 a1, void *a2, int a3, int a4, unsigned int a5, __int64 a6)
 {
   __int64 v6; // r15

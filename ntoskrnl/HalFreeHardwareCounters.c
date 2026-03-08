@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalFreeHardwareCounters @ 0x1409304A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 NTSTATUS __stdcall HalFreeHardwareCounters(HANDLE CounterSetHandle)
 {
   unsigned int v1; // edx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0VIDMM_PAGE_DIRECTORY@@QEAA@III@Z @ 0x1C00B2A44
+ * Callers:
+ *     ?CreatePageDirectory@@YAPEAVVIDMM_PAGE_DIRECTORY@@PEAVCVirtualAddressAllocator@@II@Z @ 0x1C00B29A4 (-CreatePageDirectory@@YAPEAVVIDMM_PAGE_DIRECTORY@@PEAVCVirtualAddressAllocator@@II@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 VIDMM_PAGE_DIRECTORY *__fastcall VIDMM_PAGE_DIRECTORY::VIDMM_PAGE_DIRECTORY(
         VIDMM_PAGE_DIRECTORY *this,
         char a2,

@@ -1,3 +1,19 @@
+/*
+ * XREFs of MmAssignProcessToJob @ 0x1407000C4
+ * Callers:
+ *     PspAssignProcessToJob @ 0x1406FFA20 (PspAssignProcessToJob.c)
+ *     PspImplicitAssignProcessToJob @ 0x140797010 (PspImplicitAssignProcessToJob.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x14034CCF4 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14034CD5C (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PspChangeJobMemoryUsageByProcess @ 0x1406DBAB0 (PspChangeJobMemoryUsageByProcess.c)
+ *     MiUnlockVadRange @ 0x1407D73E8 (MiUnlockVadRange.c)
+ *     MiLockVadRange @ 0x1407D74B8 (MiLockVadRange.c)
+ */
+
 __int64 __fastcall MmAssignProcessToJob(__int64 a1, __int64 a2, char a3)
 {
   int v3; // esi

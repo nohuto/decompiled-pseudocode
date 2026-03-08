@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiInsertInterruptObjectOrdered @ 0x1403A1A2C
+ * Callers:
+ *     KiConnectInterrupt @ 0x14028FC8C (KiConnectInterrupt.c)
+ *     KiConnectSecondaryInterrupt @ 0x14039DF6C (KiConnectSecondaryInterrupt.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall KiInsertInterruptObjectOrdered(__int64 a1, __int64 a2)
 {
   __int64 *v2; // r8

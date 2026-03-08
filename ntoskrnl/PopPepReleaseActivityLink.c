@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopPepReleaseActivityLink @ 0x140307608
+ * Callers:
+ *     PopPepUpdateConstraints @ 0x1402B9328 (PopPepUpdateConstraints.c)
+ *     PopPepComponentSetLatency @ 0x1402EE890 (PopPepComponentSetLatency.c)
+ *     PopPepTryPowerDownDevice @ 0x1403050D0 (PopPepTryPowerDownDevice.c)
+ *     PopPepProcessEvent @ 0x140307424 (PopPepProcessEvent.c)
+ *     PopPepComponentSetResidency @ 0x1403AE9C4 (PopPepComponentSetResidency.c)
+ *     PopPepCompleteComponentIdleState @ 0x14059C714 (PopPepCompleteComponentIdleState.c)
+ *     PopPepComponentSetWakeHint @ 0x14059C820 (PopPepComponentSetWakeHint.c)
+ *     PopPepSurprisePowerOn @ 0x14059D930 (PopPepSurprisePowerOn.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall PopPepReleaseActivityLink(__int64 a1, volatile LONG *a2, char a3, unsigned __int8 a4)
 {
   unsigned __int64 v4; // rbx

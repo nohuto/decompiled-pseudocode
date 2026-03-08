@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Create@CManualResetEvent@@SAQEAV1@XZ @ 0x1C00E72CC
+ * Callers:
+ *     ?Create@CEventPoolEntry@CEventPool@@SAQEAV12@XZ @ 0x1C00E7128 (-Create@CEventPoolEntry@CEventPool@@SAQEAV12@XZ.c)
+ *     ?UmfdCallSessionInitialize@@YAJXZ @ 0x1C00E717C (-UmfdCallSessionInitialize@@YAJXZ.c)
+ * Callees:
+ *     ??1?$CAutoDestroy@VCManualResetEvent@@@@QEAA@XZ @ 0x1C0309168 (--1-$CAutoDestroy@VCManualResetEvent@@@@QEAA@XZ.c)
+ */
+
 struct CManualResetEvent *CManualResetEvent::Create(void)
 {
   struct CManualResetEvent *v0; // rax

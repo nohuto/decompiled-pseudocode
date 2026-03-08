@@ -1,3 +1,12 @@
+/*
+ * XREFs of xtow @ 0x1403D38E4
+ * Callers:
+ *     _itow @ 0x1403D3890 (_itow.c)
+ *     _ultow @ 0x1403D38C0 (_ultow.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall xtow(unsigned int a1, __int16 *a2, unsigned int a3, int a4)
 {
   __int16 *v5; // r10

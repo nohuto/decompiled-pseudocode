@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InsertChannel@CChannelGroup@DirectComposition@@QEAAJPEAVCChannel@2@PEAI@Z @ 0x1C00BB858
+ * Callers:
+ *     ?RegisterChannel@CConnection@DirectComposition@@QEAAJPEAVCChannel@2@PEAI@Z @ 0x1C005D0B4 (-RegisterChannel@CConnection@DirectComposition@@QEAAJPEAVCChannel@2@PEAI@Z.c)
+ * Callees:
+ *     ?InsertObject@CLinearObjectTableBase@DirectComposition@@QEAAJPEAXPEAI@Z @ 0x1C0069E6C (-InsertObject@CLinearObjectTableBase@DirectComposition@@QEAAJPEAXPEAI@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CChannelGroup::InsertChannel(
         DirectComposition::CChannelGroup *this,
         struct DirectComposition::CChannel *a2,

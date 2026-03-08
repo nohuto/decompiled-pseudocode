@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopRegistryOpenDeepestPath @ 0x140836718
+ * Callers:
+ *     IopRegistryInitializeCallbacks @ 0x1408364DC (IopRegistryInitializeCallbacks.c)
+ *     IopRegistryCallback @ 0x1408365F0 (IopRegistryCallback.c)
+ * Callees:
+ *     IopOpenRegistryKey @ 0x1407803E0 (IopOpenRegistryKey.c)
+ */
+
 __int64 __fastcall IopRegistryOpenDeepestPath(UNICODE_STRING *a1, _QWORD *a2, bool *a3)
 {
   UNICODE_STRING v3; // xmm0

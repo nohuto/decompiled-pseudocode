@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CompleteWmiQueryAllDataRequest@FxWmiIrpHandler@@AEAAXPEAU_IRP@@JK@Z @ 0x1C0029FDC
+ * Callers:
+ *     ?CompleteWmiRequest@FxWmiIrpHandler@@AEAAJPEAU_IRP@@JK@Z @ 0x1C002A0A8 (-CompleteWmiRequest@FxWmiIrpHandler@@AEAAJPEAU_IRP@@JK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxWmiIrpHandler::CompleteWmiQueryAllDataRequest(
         FxWmiIrpHandler *this,
         _IRP *Irp,

@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiReleasePageListLock @ 0x140288360
+ * Callers:
+ *     MiAcquirePageListLock @ 0x140264E70 (MiAcquirePageListLock.c)
+ *     MiInsertPagesInList @ 0x140287DB0 (MiInsertPagesInList.c)
+ *     MiReplaceTransitionPage @ 0x1402C6784 (MiReplaceTransitionPage.c)
+ *     MiDecayPfnFullyInitialized @ 0x1402D6FA4 (MiDecayPfnFullyInitialized.c)
+ *     MiSynchronizeFastPageInsert @ 0x140319210 (MiSynchronizeFastPageInsert.c)
+ *     MiUpdatePageAttributeStamp @ 0x14036A854 (MiUpdatePageAttributeStamp.c)
+ *     MiUnlinkStandbyPage @ 0x140464E9A (MiUnlinkStandbyPage.c)
+ *     MiUnlinkPageFromBadList @ 0x14064BA18 (MiUnlinkPageFromBadList.c)
+ *     MiLockPageListAndFirstPage @ 0x14064E5E4 (MiLockPageListAndFirstPage.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x14064F264 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiRepointPteAtExtendedStandby @ 0x14064F5DC (MiRepointPteAtExtendedStandby.c)
+ *     MiGetSlabStandbyPage @ 0x14065488C (MiGetSlabStandbyPage.c)
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140608D0C (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ */
+
 void __fastcall MiReleasePageListLock(__int64 a1, __int64 a2)
 {
   volatile signed __int32 *v2; // rcx

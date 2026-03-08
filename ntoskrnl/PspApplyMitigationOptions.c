@@ -1,3 +1,19 @@
+/*
+ * XREFs of PspApplyMitigationOptions @ 0x14070A66C
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     Feature_FsctlProcessMitigation__private_IsEnabledNoReporting @ 0x14040A0E4 (Feature_FsctlProcessMitigation__private_IsEnabledNoReporting.c)
+ *     ObReferenceProcessHandleTable @ 0x140711794 (ObReferenceProcessHandleTable.c)
+ *     ExEnableHandleExceptions @ 0x14078D244 (ExEnableHandleExceptions.c)
+ *     PspSetRedirectionTrustPolicy @ 0x14078E980 (PspSetRedirectionTrustPolicy.c)
+ *     PspSetNoChildProcessRestrictedPolicy @ 0x1407998F0 (PspSetNoChildProcessRestrictedPolicy.c)
+ *     PspDecodeMitigationExecuteOptions @ 0x14079A558 (PspDecodeMitigationExecuteOptions.c)
+ *     KeSetCheckStackExtentsProcess @ 0x140971434 (KeSetCheckStackExtentsProcess.c)
+ */
+
 __int64 __fastcall PspApplyMitigationOptions(__int64 a1, __int64 a2, __m128i *a3, __int128 *a4, int a5)
 {
   __m128i v5; // xmm2

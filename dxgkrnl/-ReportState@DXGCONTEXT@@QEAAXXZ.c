@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?ReportState@DXGCONTEXT@@QEAAXXZ @ 0x1C02DFB44
+ * Callers:
+ *     ?ReportState@DXGDEVICE@@QEAAXXZ @ 0x1C02E82CC (-ReportState@DXGDEVICE@@QEAAXXZ.c)
+ * Callees:
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007104 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pppp_EtwWriteTransfer @ 0x1C00477C4 (McTemplateK0pppp_EtwWriteTransfer.c)
+ *     McTemplateK0pqqqqqqqqppp_EtwWriteTransfer @ 0x1C0047864 (McTemplateK0pqqqqqqqqppp_EtwWriteTransfer.c)
+ *     ?ReportState@DXGHWQUEUE@@IEAAXXZ @ 0x1C0316654 (-ReportState@DXGHWQUEUE@@IEAAXXZ.c)
+ *     ?ReportState@DXGDEVICESYNCOBJECT@@QEAAXXZ @ 0x1C034FDA8 (-ReportState@DXGDEVICESYNCOBJECT@@QEAAXXZ.c)
+ */
+
 void __fastcall DXGCONTEXT::ReportState(DXGCONTEXT *this, __int64 a2, __int64 a3)
 {
   __int128 v4; // xmm0

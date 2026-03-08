@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Add@CumulativeStats@@QEAAXN@Z @ 0x1C0087FB8
+ * Callers:
+ *     ?ProcessActiveInstancePairs@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@_KPEA_K@Z @ 0x1C03599A0 (-ProcessActiveInstancePairs@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@_KPEA_.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CumulativeStats::Add(CumulativeStats *this, double a2)
 {
   double v2; // xmm0_8

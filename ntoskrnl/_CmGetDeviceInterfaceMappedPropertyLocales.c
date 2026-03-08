@@ -1,3 +1,11 @@
+/*
+ * XREFs of _CmGetDeviceInterfaceMappedPropertyLocales @ 0x140A65984
+ * Callers:
+ *     _PnpDispatchDeviceInterface @ 0x1406C8CF0 (_PnpDispatchDeviceInterface.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmGetDeviceInterfaceMappedPropertyLocales(
         __int64 a1,
         __int64 a2,

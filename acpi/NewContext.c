@@ -1,3 +1,13 @@
+/*
+ * XREFs of NewContext @ 0x1C00539EC
+ * Callers:
+ *     AsyncEvalObject @ 0x1C00544D0 (AsyncEvalObject.c)
+ *     AMLILoadDDB @ 0x1C00AB124 (AMLILoadDDB.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     InitContext @ 0x1C0053838 (InitContext.c)
+ */
+
 __int64 __fastcall NewContext(char **a1)
 {
   unsigned int v2; // ebx

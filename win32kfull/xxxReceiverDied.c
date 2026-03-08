@@ -1,3 +1,15 @@
+/*
+ * XREFs of xxxReceiverDied @ 0x1C00949E0
+ * Callers:
+ *     zzzCancelJournalling @ 0x1C001D3F4 (zzzCancelJournalling.c)
+ *     SendMsgCleanup @ 0x1C0094980 (SendMsgCleanup.c)
+ *     SuspendThreadQueue @ 0x1C00DE9B0 (SuspendThreadQueue.c)
+ * Callees:
+ *     SetWakeBit @ 0x1C0038B60 (SetWakeBit.c)
+ *     xxxInterSendMsgEx @ 0x1C004A280 (xxxInterSendMsgEx.c)
+ *     UnlinkSendListSms @ 0x1C0094A8C (UnlinkSendListSms.c)
+ */
+
 __int64 __fastcall xxxReceiverDied(__int64 a1)
 {
   __int64 v1; // rdx

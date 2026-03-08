@@ -1,3 +1,11 @@
+/*
+ * XREFs of IrqArbPreprocessEntry @ 0x1C009D7A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IrqArbPreprocessEntry(__int64 a1, __int64 a2)
 {
   char v3; // r8

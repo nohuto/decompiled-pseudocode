@@ -1,3 +1,12 @@
+/*
+ * XREFs of Usbh_HubIsRoot @ 0x1C004C6F4
+ * Callers:
+ *     UsbhBusIfAddDevice @ 0x1C004BC10 (UsbhBusIfAddDevice.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Usbh_HubIsRoot(__int64 a1, _BYTE *a2)
 {
   unsigned int v2; // ebx

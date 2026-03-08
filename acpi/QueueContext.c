@@ -1,3 +1,13 @@
+/*
+ * XREFs of QueueContext @ 0x1C0054D1C
+ * Callers:
+ *     WriteCookAccess @ 0x1C0005DA0 (WriteCookAccess.c)
+ *     AcquireASLMutex @ 0x1C0054268 (AcquireASLMutex.c)
+ *     WaitASLEvent @ 0x1C005525C (WaitASLEvent.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall QueueContext(__int64 a1, unsigned __int16 a2, __int64 a3)
 {
   __int64 v4; // rsi

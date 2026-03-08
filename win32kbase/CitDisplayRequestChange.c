@@ -1,3 +1,11 @@
+/*
+ * XREFs of CitDisplayRequestChange @ 0x1C00B81B4
+ * Callers:
+ *     UserPowerInfoCallout @ 0x1C00B657C (UserPowerInfoCallout.c)
+ * Callees:
+ *     ?OnDisplayRequiredChange@CIT_USER_ACTIVE_TRACKER@@QEAAXII@Z @ 0x1C00B8260 (-OnDisplayRequiredChange@CIT_USER_ACTIVE_TRACKER@@QEAAXII@Z.c)
+ */
+
 char __fastcall CitDisplayRequestChange(unsigned int a1)
 {
   struct _CIT_IMPACT_CONTEXT *v1; // rbx

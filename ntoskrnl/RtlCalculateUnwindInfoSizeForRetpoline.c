@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlCalculateUnwindInfoSizeForRetpoline @ 0x1405AFB94
+ * Callers:
+ *     RtlCopyRetpolineStubsUnwindInfo @ 0x1405AFC40 (RtlCopyRetpolineStubsUnwindInfo.c)
+ *     RtlCreateRetpolineStubsFunctionTable @ 0x1405AFD28 (RtlCreateRetpolineStubsFunctionTable.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlCalculateUnwindInfoSizeForRetpoline(__int64 a1, __int64 a2, unsigned int *a3)
 {
   _BYTE *v4; // r9

@@ -1,3 +1,13 @@
+/*
+ * XREFs of AnFwProgressIndicatorTransition @ 0x140AEF174
+ * Callers:
+ *     BgpFwLibraryInitialize @ 0x140AEAC78 (BgpFwLibraryInitialize.c)
+ * Callees:
+ *     KeInitializeTimerEx @ 0x140237DB0 (KeInitializeTimerEx.c)
+ *     KeSetCoalescableTimer @ 0x140250440 (KeSetCoalescableTimer.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ */
+
 BOOLEAN AnFwProgressIndicatorTransition()
 {
   BOOLEAN result; // al

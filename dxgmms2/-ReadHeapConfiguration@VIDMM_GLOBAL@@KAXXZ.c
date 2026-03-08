@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReadHeapConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C18DC
+ * Callers:
+ *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C0968 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ */
+
 void VIDMM_GLOBAL::ReadHeapConfiguration(void)
 {
   int v0; // edx

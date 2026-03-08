@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIConnectWakeInterrupt @ 0x1C0098AB4
+ * Callers:
+ *     ACPIAssociateWakeInterrupt @ 0x1C004431C (ACPIAssociateWakeInterrupt.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ */
+
 NTSTATUS __fastcall ACPIConnectWakeInterrupt(__int64 a1, __int64 a2)
 {
   struct _IO_CONNECT_INTERRUPT_PARAMETERS Parameters; // [rsp+20h] [rbp-50h] BYREF

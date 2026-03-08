@@ -1,3 +1,28 @@
+/*
+ * XREFs of CmpTryToRundownHive @ 0x1402BFA88
+ * Callers:
+ *     CmpLateUnloadHiveWorker @ 0x14074A6B0 (CmpLateUnloadHiveWorker.c)
+ * Callees:
+ *     ExpUnblockPushLock @ 0x1402BFD34 (ExpUnblockPushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     CmpLockRegistryFreezeAware @ 0x1406BF3D0 (CmpLockRegistryFreezeAware.c)
+ *     LOCK_HIVE_LOAD @ 0x1406C00DC (LOCK_HIVE_LOAD.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1406C0154 (UNLOCK_HIVE_LOAD.c)
+ *     CmpInitializeRollbackPacket @ 0x14074A878 (CmpInitializeRollbackPacket.c)
+ *     CmpCleanupRollbackPacket @ 0x14074A888 (CmpCleanupRollbackPacket.c)
+ *     CmpDoesKeyHaveOpenSubkeys @ 0x14074B804 (CmpDoesKeyHaveOpenSubkeys.c)
+ *     CmCloseRmHandle @ 0x14074C258 (CmCloseRmHandle.c)
+ *     CmCloseTmHandle @ 0x14074C280 (CmCloseTmHandle.c)
+ *     CmSnapshotRMTxArray @ 0x14074C2A8 (CmSnapshotRMTxArray.c)
+ *     CmpLogTransactionAbortedForRollbackPacket @ 0x14074C358 (CmpLogTransactionAbortedForRollbackPacket.c)
+ *     CmShutdownCmRM @ 0x14074C37C (CmShutdownCmRM.c)
+ *     CmpAbortRollbackPacket @ 0x14074C8DC (CmpAbortRollbackPacket.c)
+ *     CmObliterateRMTxArray @ 0x140A19310 (CmObliterateRMTxArray.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ *     CmpIsHiveLoadUnloadRundownActive @ 0x140AF2444 (CmpIsHiveLoadUnloadRundownActive.c)
+ */
+
 char __fastcall CmpTryToRundownHive(struct _EX_RUNDOWN_REF *a1, __int64 a2)
 {
   char v4; // bp

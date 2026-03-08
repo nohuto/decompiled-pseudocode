@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopPowerAggregatorScreenOffExitStateHandler @ 0x140990EA0
+ * Callers:
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140872018 (PopPowerAggregatorInvokeStateMachine.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorEnterScreenOff @ 0x140879524 (PopPowerAggregatorEnterScreenOff.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140879638 (PopPowerAggregatorSetCurrentState.c)
+ *     PopPdcAreAllPhasesDisengaged @ 0x14087F0C8 (PopPdcAreAllPhasesDisengaged.c)
+ */
+
 __int64 __fastcall PopPowerAggregatorScreenOffExitStateHandler(__int64 a1)
 {
   char v2; // bl

@@ -1,3 +1,14 @@
+/*
+ * XREFs of EditionIVSyncForeground @ 0x1C01AF6B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     WakeRIT @ 0x1C00DB568 (WakeRIT.c)
+ */
+
 void __fastcall EditionIVSyncForeground(HWND a1)
 {
   char v2; // dl

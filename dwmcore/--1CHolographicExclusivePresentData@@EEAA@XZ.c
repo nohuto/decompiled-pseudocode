@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CHolographicExclusivePresentData@@EEAA@XZ @ 0x1802ABAF0
+ * Callers:
+ *     ??_GCHolographicExclusivePresentData@@EEAAPEAXI@Z @ 0x1802ABB6C (--_GCHolographicExclusivePresentData@@EEAAPEAXI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CHolographicExclusivePresentData::~CHolographicExclusivePresentData(
         CHolographicExclusivePresentData *this)
 {

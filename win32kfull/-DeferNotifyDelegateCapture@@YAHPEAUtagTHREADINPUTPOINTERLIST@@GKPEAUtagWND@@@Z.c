@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DeferNotifyDelegateCapture@@YAHPEAUtagTHREADINPUTPOINTERLIST@@GKPEAUtagWND@@@Z @ 0x1C01C6958
+ * Callers:
+ *     _DelegateCapturePointers @ 0x1C01C5C88 (_DelegateCapturePointers.c)
+ * Callees:
+ *     ?FindThreadPointerData@@YAPEAUtagTHREADPOINTERDATA@@PEAU_LIST_ENTRY@@G@Z @ 0x1C014659C (-FindThreadPointerData@@YAPEAUtagTHREADPOINTERDATA@@PEAU_LIST_ENTRY@@G@Z.c)
+ */
+
 __int64 __fastcall DeferNotifyDelegateCapture(struct _LIST_ENTRY *a1, __int16 a2, int a3, struct tagWND *a4)
 {
   __int64 v7; // rcx

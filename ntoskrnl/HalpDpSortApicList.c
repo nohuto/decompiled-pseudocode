@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpDpSortApicList @ 0x1409323A8
+ * Callers:
+ *     HalpDpReplaceBegin @ 0x1409321C0 (HalpDpReplaceBegin.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall HalpDpSortApicList(__int64 a1, unsigned int a2)
 {
   unsigned int v2; // r8d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReadSettingsFromRegKey@DelayZonePalmRejection@@AEAAXXZ @ 0x1C00981F0
+ * Callers:
+ *     ?Initialize@DelayZonePalmRejection@@AEAAXXZ @ 0x1C00971FC (-Initialize@DelayZonePalmRejection@@AEAAXXZ.c)
+ * Callees:
+ *     RIMRegQueryDWord @ 0x1C00DA0B8 (RIMRegQueryDWord.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 void __fastcall DelayZonePalmRejection::ReadSettingsFromRegKey(DelayZonePalmRejection *this)
 {
   const wchar_t **v2; // rdi

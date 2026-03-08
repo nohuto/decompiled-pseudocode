@@ -1,3 +1,11 @@
+/*
+ * XREFs of SharpenInput @ 0x1C0265E60
+ * Callers:
+ *     ExpandDIB_CY_ExpCX @ 0x1C0262870 (ExpandDIB_CY_ExpCX.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall SharpenInput(
         __int16 a1,
         unsigned __int64 a2,

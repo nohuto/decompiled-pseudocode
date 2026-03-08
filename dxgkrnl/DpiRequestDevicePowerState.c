@@ -1,3 +1,23 @@
+/*
+ * XREFs of DpiRequestDevicePowerState @ 0x1C001AC34
+ * Callers:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     DpiSuspendAdapterDpc @ 0x1C001A990 (DpiSuspendAdapterDpc.c)
+ *     ?PowerRuntimeDevicePowerRequiredCallback@DXGADAPTER@@QEAAXE@Z @ 0x1C001ABD0 (-PowerRuntimeDevicePowerRequiredCallback@DXGADAPTER@@QEAAXE@Z.c)
+ *     ?WakeUpAdapter@DXGADAPTER@@QEAAXXZ @ 0x1C01E2C60 (-WakeUpAdapter@DXGADAPTER@@QEAAXXZ.c)
+ * Callees:
+ *     DpiSetDevicePowerTransitionState @ 0x1C001AFB8 (DpiSetDevicePowerTransitionState.c)
+ *     DpiCancelSuspendAdapterTimer @ 0x1C001B010 (DpiCancelSuspendAdapterTimer.c)
+ *     ?DpiScheduleDelayedDevicePowerRequired@@YAXPEAU_FDO_CONTEXT@@@Z @ 0x1C001B0A4 (-DpiScheduleDelayedDevicePowerRequired@@YAXPEAU_FDO_CONTEXT@@@Z.c)
+ *     DxgkReportDevicePoweredOn @ 0x1C001B114 (DxgkReportDevicePoweredOn.c)
+ *     DpiRequestDevicePowerIrp @ 0x1C001B144 (DpiRequestDevicePowerIrp.c)
+ *     DpiSendAsyncResumeAdapterRequest @ 0x1C001B270 (DpiSendAsyncResumeAdapterRequest.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C003FFEC (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     DpiCancelAsyncRequest @ 0x1C005DD0C (DpiCancelAsyncRequest.c)
+ *     DpiDisableD3Requests @ 0x1C0180D38 (DpiDisableD3Requests.c)
+ */
+
 void __fastcall DpiRequestDevicePowerState(__int64 a1, int a2, int a3)
 {
   __int64 v3; // rbx

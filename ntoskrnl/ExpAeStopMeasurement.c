@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpAeStopMeasurement @ 0x1402FBDA8
+ * Callers:
+ *     ExfReleasePushLockSharedEx @ 0x140241CF0 (ExfReleasePushLockSharedEx.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall ExpAeStopMeasurement(__int64 a1, unsigned __int64 *a2)
 {
   unsigned __int64 result; // rax

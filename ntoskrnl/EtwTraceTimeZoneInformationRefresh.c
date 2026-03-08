@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwTraceTimeZoneInformationRefresh @ 0x140811F50
+ * Callers:
+ *     ExpRefreshTimeZoneInformation @ 0x140811500 (ExpRefreshTimeZoneInformation.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall EtwTraceTimeZoneInformationRefresh(int a1, int a2, int a3, char a4, char a5)
 {
   int v5; // r8d

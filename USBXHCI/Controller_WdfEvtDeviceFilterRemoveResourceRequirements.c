@@ -1,3 +1,17 @@
+/*
+ * XREFs of Controller_WdfEvtDeviceFilterRemoveResourceRequirements @ 0x1C006EAF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Interrupter_SetSecondaryInterrupterCount @ 0x1C0008228 (Interrupter_SetSecondaryInterrupterCount.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C001A2FC (WPP_RECORDER_SF_qq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Interrupter_IoResList_GetMessageCountAndType @ 0x1C006E888 (Interrupter_IoResList_GetMessageCountAndType.c)
+ *     Interrupter_FilterMessageDescriptors @ 0x1C007223C (Interrupter_FilterMessageDescriptors.c)
+ *     Interrupter_DetermineSecondaryInterrupterCount @ 0x1C0079CDC (Interrupter_DetermineSecondaryInterrupterCount.c)
+ *     Interrupter_FilterAllMSIResources @ 0x1C0079D9C (Interrupter_FilterAllMSIResources.c)
+ */
+
 __int64 __fastcall Controller_WdfEvtDeviceFilterRemoveResourceRequirements(__int64 a1, __int64 a2)
 {
   char v3; // di

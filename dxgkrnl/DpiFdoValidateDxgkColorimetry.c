@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiFdoValidateDxgkColorimetry @ 0x1C02148C0
+ * Callers:
+ *     DpiGetMonitorColorimetryOverride @ 0x1C02147C4 (DpiGetMonitorColorimetryOverride.c)
+ *     DpiFdoValidateIntegratedDisplayDescriptor @ 0x1C0399218 (DpiFdoValidateIntegratedDisplayDescriptor.c)
+ * Callees:
+ *     _lambda_257d7c3e5d4eac318129c4c4e210f286_::operator() @ 0x1C005E66C (_lambda_257d7c3e5d4eac318129c4c4e210f286_--operator().c)
+ */
+
 __int64 __fastcall DpiFdoValidateDxgkColorimetry(__int64 a1)
 {
   _BYTE *v1; // rax

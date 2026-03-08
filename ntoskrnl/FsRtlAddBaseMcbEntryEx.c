@@ -1,3 +1,14 @@
+/*
+ * XREFs of FsRtlAddBaseMcbEntryEx @ 0x1402D06D0
+ * Callers:
+ *     FsRtlAddLargeMcbEntry @ 0x1402D00C0 (FsRtlAddLargeMcbEntry.c)
+ *     FsRtlAddBaseMcbEntry @ 0x1402D06B0 (FsRtlAddBaseMcbEntry.c)
+ * Callees:
+ *     FsRtlFindLargeIndex @ 0x1402D0B8C (FsRtlFindLargeIndex.c)
+ *     FsRtlAddEntry @ 0x1402D0C14 (FsRtlAddEntry.c)
+ *     FsRtlRemoveLargeEntry @ 0x1402D0D2C (FsRtlRemoveLargeEntry.c)
+ */
+
 NTSTATUS __stdcall FsRtlAddBaseMcbEntryEx(PBASE_MCB Mcb, LONGLONG Vbn, LONGLONG Lbn, LONGLONG SectorCount)
 {
   int v4; // r15d

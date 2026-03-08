@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiSwitchQueue @ 0x1403555E0
+ * Callers:
+ *     KeRemoveQueueEx @ 0x140315D50 (KeRemoveQueueEx.c)
+ * Callees:
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x1403548F8 (KiActivateWaiterQueueWithNoLocks.c)
+ */
+
 __int64 __fastcall KiSwitchQueue(__int64 a1, __int64 a2, unsigned __int64 a3)
 {
   _QWORD *v3; // rdi

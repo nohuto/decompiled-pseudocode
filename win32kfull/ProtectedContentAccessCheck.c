@@ -1,3 +1,12 @@
+/*
+ * XREFs of ProtectedContentAccessCheck @ 0x1C0039B9C
+ * Callers:
+ *     ValidateNewParent @ 0x1C0039AAC (ValidateNewParent.c)
+ * Callees:
+ *     IsWindowContentProtected @ 0x1C002E710 (IsWindowContentProtected.c)
+ *     _GetTopLevelWindow @ 0x1C0035AF0 (_GetTopLevelWindow.c)
+ */
+
 __int64 __fastcall ProtectedContentAccessCheck(__int64 a1)
 {
   __int64 TopLevelWindow; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?PreventInterMonitorBlts@@YAXPEAUtagCVR@@@Z @ 0x1C01A71B0
+ * Callers:
+ *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C0068A60 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
+ * Callees:
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00E42C8 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ *     GetMonitorRect @ 0x1C0101788 (GetMonitorRect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall PreventInterMonitorBlts(struct tagCVR *a1)
 {
   int v2; // ecx

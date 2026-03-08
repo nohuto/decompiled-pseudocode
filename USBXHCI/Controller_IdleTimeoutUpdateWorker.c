@@ -1,3 +1,13 @@
+/*
+ * XREFs of Controller_IdleTimeoutUpdateWorker @ 0x1C0013830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_UpdateIdleTimeout @ 0x1C006E734 (Controller_UpdateIdleTimeout.c)
+ */
+
 _UNKNOWN **__fastcall Controller_IdleTimeoutUpdateWorker(__int64 a1)
 {
   __int64 v1; // rax

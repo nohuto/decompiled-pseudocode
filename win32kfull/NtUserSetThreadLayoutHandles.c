@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetThreadLayoutHandles @ 0x1C01DDF00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtUserSetThreadLayoutHandles(__int64 a1, __int64 a2)
 {
   __int64 v4; // rcx

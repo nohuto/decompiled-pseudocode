@@ -1,3 +1,11 @@
+/*
+ * XREFs of AlpcpExposeContextAttribute32 @ 0x14077DDCC
+ * Callers:
+ *     AlpcpExposeAttributes @ 0x1407CDCB0 (AlpcpExposeAttributes.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AlpcpExposeContextAttribute32(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4)
 {
   _QWORD *v4; // rax

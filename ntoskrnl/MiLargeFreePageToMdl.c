@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiLargeFreePageToMdl @ 0x1403D1BC4
+ * Callers:
+ *     MiTradePage @ 0x1403B5640 (MiTradePage.c)
+ * Callees:
+ *     MiConvertEntireLargePageToSmall @ 0x140277140 (MiConvertEntireLargePageToSmall.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     MiIsFreeZeroPfnCold @ 0x140350240 (MiIsFreeZeroPfnCold.c)
+ *     MiTryUnlinkNodeLargePages @ 0x14039BDDC (MiTryUnlinkNodeLargePages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiChangePageHeatImmediate @ 0x1406517FC (MiChangePageHeatImmediate.c)
+ */
+
 __int64 __fastcall MiLargeFreePageToMdl(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int a5)
 {
   __int16 v7; // ax

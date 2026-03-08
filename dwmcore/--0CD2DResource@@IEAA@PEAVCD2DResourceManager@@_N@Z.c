@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??0CD2DResource@@IEAA@PEAVCD2DResourceManager@@_N@Z @ 0x18003D1B0
+ * Callers:
+ *     ??0CD2DEffect@@IEAA@PEAVCD2DResourceManager@@@Z @ 0x180016A38 (--0CD2DEffect@@IEAA@PEAVCD2DResourceManager@@@Z.c)
+ *     ??0CD2DBitmap@@IEAA@PEAVCD2DResourceManager@@_NPEAUID3D11Texture2D@@AEBUD3D11_TEXTURE2D_DESC@@AEBUD2D1_BITMAP_PROPERTIES1@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@I@Z @ 0x18003CE8C (--0CD2DBitmap@@IEAA@PEAVCD2DResourceManager@@_NPEAUID3D11Texture2D@@AEBUD3D11_TEXTURE2D_DESC@@AE.c)
+ *     ??0CD2DBrush@@IEAA@PEAVCD2DResourceManager@@PEAUID2D1Brush@@@Z @ 0x1800F0844 (--0CD2DBrush@@IEAA@PEAVCD2DResourceManager@@PEAUID2D1Brush@@@Z.c)
+ *     ??0CD2DInk@@IEAA@PEAVCD2DResourceManager@@@Z @ 0x180299364 (--0CD2DInk@@IEAA@PEAVCD2DResourceManager@@@Z.c)
+ *     ??0CD2DGenericInk@@AEAA@PEAVCD2DResourceManager@@PEAUIDCompositionDirectInkWetStrokePartner@@@Z @ 0x180299668 (--0CD2DGenericInk@@AEAA@PEAVCD2DResourceManager@@PEAUIDCompositionDirectInkWetStrokePartner@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 CD2DResource *__fastcall CD2DResource::CD2DResource(CD2DResource *this, struct CD2DResourceManager *a2, char a3)
 {
   __int64 v4; // rcx

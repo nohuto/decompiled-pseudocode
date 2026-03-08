@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpCovSampStackHashCheck @ 0x1408A537C
+ * Callers:
+ *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1408A3ADC (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
+ *     EtwpCovSampCaptureBufferProcess @ 0x1408A3BF4 (EtwpCovSampCaptureBufferProcess.c)
+ *     EtwpCovSampSampleBufferProcess @ 0x1409EFD64 (EtwpCovSampSampleBufferProcess.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpCovSampStackHashLookup @ 0x1409EFF34 (EtwpCovSampStackHashLookup.c)
+ */
+
 __int64 __fastcall EtwpCovSampStackHashCheck(__int64 a1, __int64 a2, unsigned __int8 *a3, __int64 a4)
 {
   unsigned int *v7; // rbp

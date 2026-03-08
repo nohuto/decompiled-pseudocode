@@ -1,3 +1,17 @@
+/*
+ * XREFs of SdbFindFirstStringIndexedTag @ 0x14079F36C
+ * Callers:
+ *     SdbpSearchDB @ 0x14079F878 (SdbpSearchDB.c)
+ *     SdbGetDatabaseMatchEx @ 0x1407A1A40 (SdbGetDatabaseMatchEx.c)
+ *     SdbGetKShimTagRef @ 0x14080030C (SdbGetKShimTagRef.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbMakeIndexKeyFromStringEx @ 0x14079F418 (SdbMakeIndexKeyFromStringEx.c)
+ *     SdbpGetFirstIndexedRecord @ 0x14079F5A8 (SdbpGetFirstIndexedRecord.c)
+ *     SdbGetIndex @ 0x14079FE64 (SdbGetIndex.c)
+ *     SdbpFindMatchingName @ 0x140848B18 (SdbpFindMatchingName.c)
+ */
+
 __int64 __fastcall SdbFindFirstStringIndexedTag(void *a1, __int64 a2, __int16 a3, const WCHAR *a4, unsigned int *a5)
 {
   unsigned int Index; // eax

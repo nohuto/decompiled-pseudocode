@@ -1,3 +1,13 @@
+/*
+ * XREFs of DwmAsyncDesktopCreate @ 0x1C007D0B8
+ * Callers:
+ *     zzzDwmStartRedirection @ 0x1C007CEC8 (zzzDwmStartRedirection.c)
+ *     xxxCreateDesktopEx @ 0x1C00C03D4 (xxxCreateDesktopEx.c)
+ * Callees:
+ *     ?IncrementDWMWindowUniqueness@@YA_JXZ @ 0x1C0028164 (-IncrementDWMWindowUniqueness@@YA_JXZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall DwmAsyncDesktopCreate(PVOID Object, __int64 a2)
 {
   unsigned int v4; // ebx

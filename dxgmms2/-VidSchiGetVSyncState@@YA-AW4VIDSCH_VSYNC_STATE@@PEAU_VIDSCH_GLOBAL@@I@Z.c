@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidSchiGetVSyncState@@YA?AW4VIDSCH_VSYNC_STATE@@PEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0046D98
+ * Callers:
+ *     VidSchCollectDbgInfo @ 0x1C0109A80 (VidSchCollectDbgInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VidSchiGetVSyncState(__int64 a1, unsigned int a2)
 {
   char v2; // r8

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Purge@CDS_JOURNAL@@QEAAJXZ @ 0x1C03BAA74
+ * Callers:
+ *     ?Persist@CCD_TOPOLOGY@@QEAAJI@Z @ 0x1C01C0D10 (-Persist@CCD_TOPOLOGY@@QEAAJI@Z.c)
+ *     ??1CCD_BTL@@MEAA@XZ @ 0x1C03B7E9C (--1CCD_BTL@@MEAA@XZ.c)
+ *     ?Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C03BA164 (-Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ */
+
 __int64 __fastcall CDS_JOURNAL::Purge(CDS_JOURNAL *this)
 {
   char *v1; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of KasanMarkAddressInvalid @ 0x140562DC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall KasanMarkAddressInvalid(
         ULONG_PTR BugCheckParameter3,
         ULONG_PTR BugCheckParameter4,

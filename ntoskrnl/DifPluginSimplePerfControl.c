@@ -1,3 +1,11 @@
+/*
+ * XREFs of DifPluginSimplePerfControl @ 0x1405D2680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DifPluginSimplePerfControl(unsigned int a1, unsigned int a2, unsigned int a3)
 {
   unsigned int v4; // eax

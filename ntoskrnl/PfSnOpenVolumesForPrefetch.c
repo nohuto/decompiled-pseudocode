@@ -1,3 +1,25 @@
+/*
+ * XREFs of PfSnOpenVolumesForPrefetch @ 0x14077A964
+ * Callers:
+ *     PfSnAsyncPrefetchWorker @ 0x1407E3C20 (PfSnAsyncPrefetchWorker.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PfpOpenHandleCreate @ 0x1406A5020 (PfpOpenHandleCreate.c)
+ *     PfpOpenHandleClose @ 0x1406A5824 (PfpOpenHandleClose.c)
+ *     IopGetDeviceInterfaces @ 0x1406C4A94 (IopGetDeviceInterfaces.c)
+ *     PfSnIsVolumeMounted @ 0x14077AECC (PfSnIsVolumeMounted.c)
+ *     PfSnQueryVolumeInfo @ 0x14077AFF0 (PfSnQueryVolumeInfo.c)
+ *     PfMetadataRecordIsEqual @ 0x14077B124 (PfMetadataRecordIsEqual.c)
+ *     PfSnLogOpenVolumesForPrefetch @ 0x14077B144 (PfSnLogOpenVolumesForPrefetch.c)
+ *     PfSnVolumeCheckSeekPenalty @ 0x14077B1D8 (PfSnVolumeCheckSeekPenalty.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     NtCreateEvent @ 0x1407D0E20 (NtCreateEvent.c)
+ *     PfSnVolumeCheckIsSdBus @ 0x1408A0F74 (PfSnVolumeCheckIsSdBus.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfSnOpenVolumesForPrefetch(__int64 *a1, _DWORD *a2)
 {
   __int64 v2; // r14

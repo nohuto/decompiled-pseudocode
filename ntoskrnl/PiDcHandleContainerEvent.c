@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiDcHandleContainerEvent @ 0x1407F8458
+ * Callers:
+ *     PiDcHandleObjectEvent @ 0x1407F8244 (PiDcHandleObjectEvent.c)
+ * Callees:
+ *     PiDcGenerateConfigNotificationIfContainerRequiresConfiguration @ 0x14081D82C (PiDcGenerateConfigNotificationIfContainerRequiresConfiguration.c)
+ */
+
 __int64 __fastcall PiDcHandleContainerEvent(__int64 a1)
 {
   unsigned int v1; // r11d

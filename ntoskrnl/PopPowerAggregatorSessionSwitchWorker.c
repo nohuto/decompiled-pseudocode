@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopPowerAggregatorSessionSwitchWorker @ 0x140990F20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PdcTaskClientRequest @ 0x14067F048 (PdcTaskClientRequest.c)
+ *     PopPowerAggregatorScheduleWorker @ 0x140873100 (PopPowerAggregatorScheduleWorker.c)
+ */
+
 void PopPowerAggregatorSessionSwitchWorker()
 {
   char v0; // di

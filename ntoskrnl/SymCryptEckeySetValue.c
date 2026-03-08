@@ -1,3 +1,37 @@
+/*
+ * XREFs of SymCryptEckeySetValue @ 0x1403F2F18
+ * Callers:
+ *     HashpVerifyEcdsaSignature @ 0x140A74544 (HashpVerifyEcdsaSignature.c)
+ * Callees:
+ *     SymCryptWipe @ 0x1403F0988 (SymCryptWipe.c)
+ *     SymCryptEcurveDigitsofScalarMultiplier @ 0x1403F2C94 (SymCryptEcurveDigitsofScalarMultiplier.c)
+ *     SymCryptEcurveSizeofFieldElement @ 0x1403F2CDC (SymCryptEcurveSizeofFieldElement.c)
+ *     SymCryptFdefIntGetValueLsbits32 @ 0x1403F2CE8 (SymCryptFdefIntGetValueLsbits32.c)
+ *     SymCryptEckeyPerformPublicKeyValidation @ 0x1403F2DFC (SymCryptEckeyPerformPublicKeyValidation.c)
+ *     SymCryptDivisorFromModulus @ 0x1403F36F0 (SymCryptDivisorFromModulus.c)
+ *     SymCryptIntCopy @ 0x1403F3798 (SymCryptIntCopy.c)
+ *     SymCryptIntCreate @ 0x1403F37C8 (SymCryptIntCreate.c)
+ *     SymCryptIntDivMod @ 0x1403F37E0 (SymCryptIntDivMod.c)
+ *     SymCryptIntDivPow2 @ 0x1403F380C (SymCryptIntDivPow2.c)
+ *     SymCryptIntFromModulus @ 0x1403F383C (SymCryptIntFromModulus.c)
+ *     SymCryptIntGetBits @ 0x1403F386C (SymCryptIntGetBits.c)
+ *     SymCryptIntIsEqualUint32 @ 0x1403F389C (SymCryptIntIsEqualUint32.c)
+ *     SymCryptIntIsLessThan @ 0x1403F38B4 (SymCryptIntIsLessThan.c)
+ *     SymCryptIntSetValue @ 0x1403F391C (SymCryptIntSetValue.c)
+ *     SymCryptIntToModElement @ 0x1403F39F0 (SymCryptIntToModElement.c)
+ *     SymCryptModDivPow2 @ 0x1403F3A90 (SymCryptModDivPow2.c)
+ *     SymCryptModElementCreate @ 0x1403F3AEC (SymCryptModElementCreate.c)
+ *     SymCryptModElementToInt @ 0x1403F3C7C (SymCryptModElementToInt.c)
+ *     SymCryptSizeofIntFromDigits @ 0x1403F3EF0 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptEcpointCreate @ 0x1403F94A0 (SymCryptEcpointCreate.c)
+ *     SymCryptEcpointSetValue @ 0x1403F96E0 (SymCryptEcpointSetValue.c)
+ *     SymCryptSizeofEcpointFromCurve @ 0x1403F9E14 (SymCryptSizeofEcpointFromCurve.c)
+ *     SymCryptEcpointIsEqual @ 0x1403FD178 (SymCryptEcpointIsEqual.c)
+ *     SymCryptEcpointScalarMul @ 0x1403FD2C0 (SymCryptEcpointScalarMul.c)
+ *     SymCryptCallbackAlloc @ 0x14067B400 (SymCryptCallbackAlloc.c)
+ *     SymCryptCallbackFree @ 0x14067B438 (SymCryptCallbackFree.c)
+ */
+
 __int64 __fastcall SymCryptEckeySetValue(
         __int64 a1,
         __int64 a2,

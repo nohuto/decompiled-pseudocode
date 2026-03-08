@@ -1,3 +1,11 @@
+/*
+ * XREFs of KxSetAddressPolicy @ 0x140417720
+ * Callers:
+ *     KiSetAddressPolicy @ 0x14030E890 (KiSetAddressPolicy.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _KPRCB *__fastcall KxSetAddressPolicy(char a1)
 {
   struct _KPRCB *result; // rax

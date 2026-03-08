@@ -1,3 +1,40 @@
+/*
+ * XREFs of _RegRtlDeleteTreeInternal @ 0x140868B00
+ * Callers:
+ *     _PnpSetPropertyWorker @ 0x140687D54 (_PnpSetPropertyWorker.c)
+ *     PpDevCfgProcessDeviceOperations @ 0x14078AC6C (PpDevCfgProcessDeviceOperations.c)
+ *     _PnpCtxRegDeleteTree @ 0x14081B6AC (_PnpCtxRegDeleteTree.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140868B00 (_RegRtlDeleteTreeInternal.c)
+ *     PiDevCfgConfigureDevice @ 0x14087384C (PiDevCfgConfigureDevice.c)
+ *     PipHardwareConfigActivateService @ 0x140875A78 (PipHardwareConfigActivateService.c)
+ *     PiDevCfgConfigureSoftwareDevices @ 0x140876C88 (PiDevCfgConfigureSoftwareDevices.c)
+ *     PiDevCfgInitResolveContext @ 0x140876E48 (PiDevCfgInitResolveContext.c)
+ *     PiDevCfgFreeResolveContext @ 0x1408771F0 (PiDevCfgFreeResolveContext.c)
+ *     PiDevCfgCopyDeviceKey @ 0x140877A34 (PiDevCfgCopyDeviceKey.c)
+ *     PiDqDeleteUserObject @ 0x1409592CC (PiDqDeleteUserObject.c)
+ *     PiDevCfgResetDeviceDriverSettings @ 0x14095CBE0 (PiDevCfgResetDeviceDriverSettings.c)
+ *     PpDevCfgProcessDeviceReset @ 0x14096044C (PpDevCfgProcessDeviceReset.c)
+ *     _CmDeleteCommonClassRegKeyWorker @ 0x140A5E4A8 (_CmDeleteCommonClassRegKeyWorker.c)
+ *     _CmDeleteDeviceInterfaceRegKeyWorker @ 0x140A5EBA0 (_CmDeleteDeviceInterfaceRegKeyWorker.c)
+ *     _CmDeleteDeviceRegKeyWorker @ 0x140A5F264 (_CmDeleteDeviceRegKeyWorker.c)
+ *     _CmDeleteDeviceContainerRegKeyWorker @ 0x140A60C0C (_CmDeleteDeviceContainerRegKeyWorker.c)
+ *     _CmRemoveDeviceFromContainerWorker @ 0x140A61AEC (_CmRemoveDeviceFromContainerWorker.c)
+ *     _CmDeleteDevicePanelRegKeyWorker @ 0x140A6333C (_CmDeleteDevicePanelRegKeyWorker.c)
+ *     _CmRemovePanelDeviceWorker @ 0x140A64074 (_CmRemovePanelDeviceWorker.c)
+ *     _RegRtlDeletePathInternal @ 0x140A67F0C (_RegRtlDeletePathInternal.c)
+ *     DrvDbDeleteObjectSubKey @ 0x140A6832C (DrvDbDeleteObjectSubKey.c)
+ * Callees:
+ *     IoGetStackLimits @ 0x1403129C0 (IoGetStackLimits.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1406D43A0 (_RegRtlOpenKeyTransacted.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x14085F0A8 (_RegRtlDeleteKeyTransacted.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140868B00 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlQueryInfoKey @ 0x140868C7C (_RegRtlQueryInfoKey.c)
+ *     _RegRtlEnumKey @ 0x140868D44 (_RegRtlEnumKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RegRtlDeleteTreeInternal(void *a1, const WCHAR *a2, __int64 a3, char a4)
 {
   int v4; // r14d

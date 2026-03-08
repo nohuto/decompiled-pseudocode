@@ -1,3 +1,13 @@
+/*
+ * XREFs of MdlInvariantFindMdlInfo @ 0x1405CCF0C
+ * Callers:
+ *     MdlInvariantPostDriverCompletion @ 0x1405CCFE4 (MdlInvariantPostDriverCompletion.c)
+ *     MdlInvariantPostProcessing1 @ 0x1405CD074 (MdlInvariantPostProcessing1.c)
+ *     MdlInvariantPreProcessing1 @ 0x1405CD258 (MdlInvariantPreProcessing1.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall MdlInvariantFindMdlInfo(__int64 a1, __int64 a2)
 {
   unsigned int *v2; // rax

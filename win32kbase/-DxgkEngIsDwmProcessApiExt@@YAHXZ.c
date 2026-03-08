@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DxgkEngIsDwmProcessApiExt@@YAHXZ @ 0x1C00B9910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 DxgkEngIsDwmProcessApiExt(void)
 {
   unsigned int v0; // ebx

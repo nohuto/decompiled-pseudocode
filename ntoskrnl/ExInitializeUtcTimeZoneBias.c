@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExInitializeUtcTimeZoneBias @ 0x14080F488
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlTimeToTimeFields @ 0x1402D14B0 (RtlTimeToTimeFields.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpQueryTimeZoneInformationWorker @ 0x140773434 (RtlpQueryTimeZoneInformationWorker.c)
+ *     RtlCutoverTimeToSystemTime @ 0x1408119D0 (RtlCutoverTimeToSystemTime.c)
+ *     ExpWriteTimeZoneBias @ 0x140811BF4 (ExpWriteTimeZoneBias.c)
+ */
+
 __int64 __fastcall ExInitializeUtcTimeZoneBias(PLARGE_INTEGER a1)
 {
   __int64 result; // rax

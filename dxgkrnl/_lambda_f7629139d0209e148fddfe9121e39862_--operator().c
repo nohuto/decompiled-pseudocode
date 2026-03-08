@@ -1,3 +1,12 @@
+/*
+ * XREFs of _lambda_f7629139d0209e148fddfe9121e39862_::operator() @ 0x1C03B8508
+ * Callers:
+ *     _BmlBuildVirtualRefreshRateListFromTargetModeSet @ 0x1C03B9548 (_BmlBuildVirtualRefreshRateListFromTargetModeSet.c)
+ * Callees:
+ *     ?IsFreqWithinToleranceRange@DMMVIDEOSIGNALMODE@@SAEAEBU_D3DDDI_RATIONAL@@0I@Z @ 0x1C0002890 (-IsFreqWithinToleranceRange@DMMVIDEOSIGNALMODE@@SAEAEBU_D3DDDI_RATIONAL@@0I@Z.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ */
+
 char __fastcall lambda_f7629139d0209e148fddfe9121e39862_::operator()(
         unsigned __int64 **a1,
         const struct _D3DDDI_RATIONAL *a2)

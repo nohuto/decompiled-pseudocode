@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreUnlockVisRgnPublish @ 0x1C00A7300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0pz_EtwWriteTransfer @ 0x1C0198A10 (McTemplateK0pz_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall GreUnlockVisRgnPublish(__int64 a1)
 {
   __int64 v1; // rbx

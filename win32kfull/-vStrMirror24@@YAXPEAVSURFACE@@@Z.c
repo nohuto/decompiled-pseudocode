@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vStrMirror24@@YAXPEAVSURFACE@@@Z @ 0x1C02E5070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vStrMirror24(struct SURFACE *a1)
 {
   int v1; // r9d

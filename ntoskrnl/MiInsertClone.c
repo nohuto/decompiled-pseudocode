@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiInsertClone @ 0x140662B2C
+ * Callers:
+ *     MiCloneVads @ 0x140660C98 (MiCloneVads.c)
+ *     MiCloneProcessAddressSpace @ 0x140A45CF4 (MiCloneProcessAddressSpace.c)
+ * Callees:
+ *     MiDeleteCloneZombies @ 0x1402FBC3C (MiDeleteCloneZombies.c)
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ */
+
 char __fastcall MiInsertClone(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
 {
   bool v4; // bl

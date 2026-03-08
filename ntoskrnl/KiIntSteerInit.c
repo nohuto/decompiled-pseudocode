@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiIntSteerInit @ 0x140B43678
+ * Callers:
+ *     KeInitSystem @ 0x140B42FB8 (KeInitSystem.c)
+ * Callees:
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     KiIntPartInit @ 0x140B437B4 (KiIntPartInit.c)
+ *     KiIntSteerDetermineSteeringEnabled @ 0x140B713C0 (KiIntSteerDetermineSteeringEnabled.c)
+ */
+
 __int64 __fastcall KiIntSteerInit(int a1)
 {
   unsigned int v1; // ebx

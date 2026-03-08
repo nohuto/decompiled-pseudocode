@@ -1,3 +1,26 @@
+/*
+ * XREFs of CcAsyncLazywriteWorkerMulti @ 0x1405387F4
+ * Callers:
+ *     CcAsyncLazywriteWorkerThread @ 0x1405378E0 (CcAsyncLazywriteWorkerThread.c)
+ * Callees:
+ *     CcFindNextWorkQueueEntry @ 0x14021746C (CcFindNextWorkQueueEntry.c)
+ *     CcFreeWorkQueueEntry @ 0x140219E50 (CcFreeWorkQueueEntry.c)
+ *     CcFlushCachePostProcessOneRange @ 0x14021B410 (CcFlushCachePostProcessOneRange.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     CcFlushCachePreProcess @ 0x1403373A0 (CcFlushCachePreProcess.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CcRepostToSynchronousLazywriter @ 0x140537F48 (CcRepostToSynchronousLazywriter.c)
+ *     CcQueueAsyncLazywriteCompletion @ 0x1405392F4 (CcQueueAsyncLazywriteCompletion.c)
+ *     CcWriteBehindAsyncFlushOneRange @ 0x140539380 (CcWriteBehindAsyncFlushOneRange.c)
+ *     CcWriteBehindAsyncPreProcess @ 0x140539404 (CcWriteBehindAsyncPreProcess.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall CcAsyncLazywriteWorkerMulti(__int64 a1)
 {
   __int64 v1; // rsi

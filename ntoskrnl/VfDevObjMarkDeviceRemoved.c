@@ -1,3 +1,13 @@
+/*
+ * XREFs of VfDevObjMarkDeviceRemoved @ 0x140ACF118
+ * Callers:
+ *     IovpCallDriver1 @ 0x140AC9170 (IovpCallDriver1.c)
+ * Callees:
+ *     VfAvlLookupTreeNode @ 0x140303680 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403039F0 (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x14045DE58 (VfAvlInitializeLockContext.c)
+ */
+
 void VfDevObjMarkDeviceRemoved()
 {
   unsigned __int64 v0; // r8

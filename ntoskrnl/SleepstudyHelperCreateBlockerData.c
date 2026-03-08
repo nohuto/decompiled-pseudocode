@@ -1,3 +1,15 @@
+/*
+ * XREFs of SleepstudyHelperCreateBlockerData @ 0x14099ECF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1402A4AB8 (SSHSupportReleasePushLockExclusive.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402A4AEC (SSHSupportAllocateNonPaged.c)
+ *     SshpCopyDataEntry @ 0x1405A0820 (SshpCopyDataEntry.c)
+ *     SshpFreeDataEntry @ 0x14099E728 (SshpFreeDataEntry.c)
+ */
+
 __int64 __fastcall SleepstudyHelperCreateBlockerData(
         __int64 a1,
         __int128 *a2,

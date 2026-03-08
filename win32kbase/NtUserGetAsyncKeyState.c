@@ -1,3 +1,20 @@
+/*
+ * XREFs of NtUserGetAsyncKeyState @ 0x1C007FBB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwTraceUIPIInputError @ 0x1C003A560 (EtwTraceUIPIInputError.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C004FE50 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ *     ApiSetEditionIsGetAsyncKeyStateBlocked @ 0x1C007FCCC (ApiSetEditionIsGetAsyncKeyStateBlocked.c)
+ *     ApiSetEditionIsGpqForegroundAccessibleCurrent @ 0x1C007FDD0 (ApiSetEditionIsGpqForegroundAccessibleCurrent.c)
+ *     _GetAsyncKeyState @ 0x1C007FEE0 (_GetAsyncKeyState.c)
+ *     IsKeyboardDelegationEnabledForThread @ 0x1C007FFC0 (IsKeyboardDelegationEnabledForThread.c)
+ *     EtwTraceGetAsyncKeyState @ 0x1C007FFE4 (EtwTraceGetAsyncKeyState.c)
+ */
+
 __int64 __fastcall NtUserGetAsyncKeyState(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // esi

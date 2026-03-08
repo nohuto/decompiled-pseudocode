@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiStoreRundownWritesApc @ 0x14065A300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiStoreDecrementOutstandingWrites @ 0x140659A2C (MiStoreDecrementOutstandingWrites.c)
+ */
+
 LONG __fastcall MiStoreRundownWritesApc(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rbx

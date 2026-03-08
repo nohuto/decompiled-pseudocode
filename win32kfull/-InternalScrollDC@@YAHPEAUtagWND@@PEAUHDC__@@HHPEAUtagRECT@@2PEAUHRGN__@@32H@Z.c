@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z @ 0x1C0230DA0
+ * Callers:
+ *     _ScrollDC @ 0x1C0231974 (_ScrollDC.c)
+ *     xxxScrollWindowEx @ 0x1C0231B34 (xxxScrollWindowEx.c)
+ * Callees:
+ *     GreTransformPoints @ 0x1C0006C84 (GreTransformPoints.c)
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     UnionRect @ 0x1C00DD06C (UnionRect.c)
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ *     GreGetLayout @ 0x1C0111738 (GreGetLayout.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     GetDCOrgOnScreen @ 0x1C01BEDC4 (GetDCOrgOnScreen.c)
+ *     ?GetTrueClipRgn@@YAHPEAUHDC__@@PEAUHRGN__@@@Z @ 0x1C0230CB0 (-GetTrueClipRgn@@YAHPEAUHDC__@@PEAUHRGN__@@@Z.c)
+ *     SubtractRect @ 0x1C024E530 (SubtractRect.c)
+ */
+
 __int64 __fastcall InternalScrollDC(
         struct tagWND *a1,
         HDC a2,

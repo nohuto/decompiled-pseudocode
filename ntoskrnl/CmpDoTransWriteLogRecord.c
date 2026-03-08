@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpDoTransWriteLogRecord @ 0x140735080
+ * Callers:
+ *     CmpTransWriteLog @ 0x140734F84 (CmpTransWriteLog.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall CmpDoTransWriteLogRecord(__int64 a1, char *a2, ULONG a3, ULONG fFlags, PCLFS_LSN plsn)
 {
   char *v5; // r14

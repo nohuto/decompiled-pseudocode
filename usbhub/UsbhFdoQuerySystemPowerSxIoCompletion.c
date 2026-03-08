@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhFdoQuerySystemPowerSxIoCompletion @ 0x1C0022150
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhPoStartNextPowerIrp_Fdo @ 0x1C003C7C0 (UsbhPoStartNextPowerIrp_Fdo.c)
+ */
+
 __int64 __fastcall UsbhFdoQuerySystemPowerSxIoCompletion(PDEVICE_OBJECT DeviceObject, PIRP Irp, PVOID Context)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // rbx

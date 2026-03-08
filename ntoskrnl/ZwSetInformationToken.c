@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwSetInformationToken @ 0x140415850
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwSetInformationToken(
         HANDLE TokenHandle,

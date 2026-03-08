@@ -1,3 +1,15 @@
+/*
+ * XREFs of DecPaintCount @ 0x1C00FE604
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ *     InternalInvalidate3 @ 0x1C0054B50 (InternalInvalidate3.c)
+ *     ?GetNCUpdateRgn@@YAPEAUHRGN__@@PEAUtagWND@@H@Z @ 0x1C00FE114 (-GetNCUpdateRgn@@YAPEAUHRGN__@@PEAUtagWND@@H@Z.c)
+ *     ClrFTrueVis @ 0x1C00FED00 (ClrFTrueVis.c)
+ *     ?xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z @ 0x1C0102024 (-xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DecPaintCount(__int64 a1)
 {
   __int64 v1; // rdx

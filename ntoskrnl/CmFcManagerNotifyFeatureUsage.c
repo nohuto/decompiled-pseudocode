@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmFcManagerNotifyFeatureUsage @ 0x140614CE8
+ * Callers:
+ *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x140263260 (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
+ *     RtlNotifyFeatureUsage @ 0x1405A5220 (RtlNotifyFeatureUsage.c)
+ * Callees:
+ *     ObGetCurrentIrql @ 0x140205E10 (ObGetCurrentIrql.c)
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     RtlReleaseSwapReference @ 0x1402F03F8 (RtlReleaseSwapReference.c)
+ *     RtlAcquireSwapReference @ 0x1402F04A0 (RtlAcquireSwapReference.c)
+ *     CmpWorkItemQueueWork @ 0x14038897C (CmpWorkItemQueueWork.c)
+ *     RtlpFcAddDelayedUsageReportToBuffer @ 0x1405B25C4 (RtlpFcAddDelayedUsageReportToBuffer.c)
+ */
+
 __int64 __fastcall CmFcManagerNotifyFeatureUsage(__int64 a1, _QWORD *a2)
 {
   char v3; // bp

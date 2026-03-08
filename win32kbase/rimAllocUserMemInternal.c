@@ -1,3 +1,12 @@
+/*
+ * XREFs of rimAllocUserMemInternal @ 0x1C01AB674
+ * Callers:
+ *     rimProcessInput @ 0x1C00045B0 (rimProcessInput.c)
+ *     RIMAllocUserMem @ 0x1C01AB5A0 (RIMAllocUserMem.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall rimAllocUserMemInternal(struct _RTL_AVL_TABLE *a1, ULONG_PTR a2, PVOID *a3)
 {
   unsigned int v6; // edi

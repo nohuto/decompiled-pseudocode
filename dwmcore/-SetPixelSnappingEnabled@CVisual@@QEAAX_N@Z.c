@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetPixelSnappingEnabled@CVisual@@QEAAX_N@Z @ 0x18020EA08
+ * Callers:
+ *     ?SetProperty@CVisual@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180098440 (-SetProperty@CVisual@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ * Callees:
+ *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@@Z @ 0x180098FD8 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@@Z.c)
+ *     ?OnInnerTransformChanged@CVisual@@AEAAXXZ @ 0x1800E41D0 (-OnInnerTransformChanged@CVisual@@AEAAXXZ.c)
+ */
+
 void __fastcall CVisual::SetPixelSnappingEnabled(CVisual *this, char a2)
 {
   __int64 v2; // r11

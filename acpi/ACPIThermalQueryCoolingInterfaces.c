@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIThermalQueryCoolingInterfaces @ 0x1C00416FC
+ * Callers:
+ *     ACPIThermalAcquireCoolingInterfaces @ 0x1C003FAD8 (ACPIThermalAcquireCoolingInterfaces.c)
+ *     ACPIThermalActivateConstraint @ 0x1C003FC80 (ACPIThermalActivateConstraint.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPIThermalQueryCoolingInterfaces(__int64 a1)
 {
   KIRQL v2; // al

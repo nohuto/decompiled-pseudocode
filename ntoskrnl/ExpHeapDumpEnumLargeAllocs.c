@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpHeapDumpEnumLargeAllocs @ 0x14060CF78
+ * Callers:
+ *     IoAddPagesForPartialKernelDump @ 0x140559F94 (IoAddPagesForPartialKernelDump.c)
+ * Callees:
+ *     MmIsAddressValidEx @ 0x1403471E0 (MmIsAddressValidEx.c)
+ *     IopRemoveLargeAllocsFromPartialDump @ 0x14055B490 (IopRemoveLargeAllocsFromPartialDump.c)
+ *     ExpHeapDumpNodeLinksValid @ 0x14060D070 (ExpHeapDumpNodeLinksValid.c)
+ */
+
 __int64 __fastcall ExpHeapDumpEnumLargeAllocs(__int64 a1)
 {
   unsigned int v2; // ebx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopMarkDeviceToBeReset @ 0x140954500
+ * Callers:
+ *     IopQueueDeviceResetEvent @ 0x14095467C (IopQueueDeviceResetEvent.c)
+ *     PnpFinalizeDeviceRemovalForReset @ 0x14095486C (PnpFinalizeDeviceRemovalForReset.c)
+ *     PnpRebalance @ 0x14096B948 (PnpRebalance.c)
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     IopQueryDeviceState @ 0x140683218 (IopQueryDeviceState.c)
+ */
+
 __int64 __fastcall IopMarkDeviceToBeReset(ULONG_PTR MaxDataSize)
 {
   __int64 v2; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvpShrinkMap @ 0x140A22E44
+ * Callers:
+ *     HvpAddBin @ 0x14072F9F0 (HvpAddBin.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HvpFreeMap @ 0x140791D78 (HvpFreeMap.c)
+ *     HvpGetCellMap @ 0x140AF2670 (HvpGetCellMap.c)
+ */
+
 __int64 __fastcall HvpShrinkMap(__int64 a1, int a2, unsigned int a3, unsigned int a4)
 {
   __int64 v4; // rdi

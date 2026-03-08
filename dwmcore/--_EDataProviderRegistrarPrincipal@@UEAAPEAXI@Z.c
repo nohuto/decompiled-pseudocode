@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??_EDataProviderRegistrarPrincipal@@UEAAPEAXI@Z @ 0x1801DD890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801046B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??1DataProviderRegistrarPrincipal@@UEAA@XZ @ 0x1801DD6F0 (--1DataProviderRegistrarPrincipal@@UEAA@XZ.c)
+ */
+
 DataProviderRegistrarPrincipal *__fastcall DataProviderRegistrarPrincipal::`vector deleting destructor'(
         DataProviderRegistrarPrincipal *this,
         __int64 a2,

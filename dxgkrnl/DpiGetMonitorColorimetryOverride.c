@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiGetMonitorColorimetryOverride @ 0x1C02147C4
+ * Callers:
+ *     ?GetDriverColorimetryOverride@KernelDriver@@UEBAJAEAU_DXGK_COLORIMETRY@@@Z @ 0x1C0214790 (-GetDriverColorimetryOverride@KernelDriver@@UEBAJAEAU_DXGK_COLORIMETRY@@@Z.c)
+ * Callees:
+ *     DpiFdoGetChildDescriptor @ 0x1C0015614 (DpiFdoGetChildDescriptor.c)
+ *     ?DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z @ 0x1C01B473C (-DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z.c)
+ *     DpiFdoValidateDxgkColorimetry @ 0x1C02148C0 (DpiFdoValidateDxgkColorimetry.c)
+ */
+
 __int64 __fastcall DpiGetMonitorColorimetryOverride(__int64 a1, unsigned int a2, __int64 a3)
 {
   unsigned int v5; // edi

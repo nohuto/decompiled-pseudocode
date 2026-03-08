@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspDeleteSilo @ 0x1409AA08C
+ * Callers:
+ *     PspJobDelete @ 0x140291AD0 (PspJobDelete.c)
+ * Callees:
+ *     PsIsServerSilo @ 0x140294E20 (PsIsServerSilo.c)
+ *     PspDeleteServerSiloGlobals @ 0x1409A9EC0 (PspDeleteServerSiloGlobals.c)
+ */
+
 void __fastcall PspDeleteSilo(__int64 a1)
 {
   __int64 v2; // rcx

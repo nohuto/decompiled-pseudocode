@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopHardErrorThread @ 0x140941E20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     IopCheckHardErrorEmpty @ 0x140552AE0 (IopCheckHardErrorEmpty.c)
+ *     IopRemoveHardErrorPacket @ 0x1405537C8 (IopRemoveHardErrorPacket.c)
+ *     ExRaiseHardError @ 0x1409FDD30 (ExRaiseHardError.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void IopHardErrorThread()
 {
   __int64 v0; // rbx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?vSync@PDEVOBJ@@QEAAXPEAU_SURFOBJ@@PEAU_RECTL@@K@Z @ 0x1C0017690
+ * Callers:
+ *     DxgkEngAcquireWin32kAndPDEVLocks @ 0x1C00191F0 (DxgkEngAcquireWin32kAndPDEVLocks.c)
+ *     DxgkEngReleaseWin32kAndPDEVLocks @ 0x1C0019320 (DxgkEngReleaseWin32kAndPDEVLocks.c)
+ *     DrvNotifyModeChangeStartStop @ 0x1C001D468 (DrvNotifyModeChangeStartStop.c)
+ *     ?DrvDisableDisplay@@YAHPEAUHDEV__@@H@Z @ 0x1C001DC20 (-DrvDisableDisplay@@YAHPEAUHDEV__@@H@Z.c)
+ *     HDXDrvEscape @ 0x1C00D8F50 (HDXDrvEscape.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall PDEVOBJ::vSync(PDEVOBJ *this, struct _SURFOBJ *a2, struct _RECTL *a3, unsigned int a4)
 {
   __int64 p_hsurf; // rax

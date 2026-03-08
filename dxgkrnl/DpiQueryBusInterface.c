@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiQueryBusInterface @ 0x1C01F6760
+ * Callers:
+ *     DpiAddDevice @ 0x1C01F38A0 (DpiAddDevice.c)
+ *     DpiFdoInitializeFdo @ 0x1C01F5A64 (DpiFdoInitializeFdo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiQueryBusInterface(PDEVICE_OBJECT DeviceObject, ULONG_PTR a2, USHORT a3, USHORT a4, __int64 a5)
 {
   PIRP v9; // rax

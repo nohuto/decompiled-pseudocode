@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AllowEarlyTokenSync@CFlipToken@@UEBA_NXZ @ 0x1C0078770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetEarlyTokenSync@CompositionSurfaceObject@@QEBA_N_K@Z @ 0x1C0078C48 (-GetEarlyTokenSync@CompositionSurfaceObject@@QEBA_N_K@Z.c)
+ */
+
 bool __fastcall CFlipToken::AllowEarlyTokenSync(CFlipToken *this)
 {
   bool result; // al

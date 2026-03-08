@@ -1,3 +1,13 @@
+/*
+ * XREFs of AlpcpClosePort @ 0x1407156B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     AlpcpSendCloseMessage @ 0x140714B20 (AlpcpSendCloseMessage.c)
+ *     AlpcpDoPortCleanup @ 0x140716E08 (AlpcpDoPortCleanup.c)
+ */
+
 char __fastcall AlpcpClosePort(__int64 a1, __int64 a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rax

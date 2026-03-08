@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlSwitchToVsmVtl1 @ 0x140412150
+ * Callers:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ * Callees:
+ *     HvlpSwitchToVsmVtl1RetpolineHelper @ 0x1404122A0 (HvlpSwitchToVsmVtl1RetpolineHelper.c)
+ */
+
 __int64 __fastcall HvlSwitchToVsmVtl1(__int64 a1, __int64 *a2, __int64 a3)
 {
   __int64 v3; // rbx

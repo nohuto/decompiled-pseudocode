@@ -1,3 +1,11 @@
+/*
+ * XREFs of MNCreateAnimationBitmap @ 0x1C0201E28
+ * Callers:
+ *     xxxMenuWindowProc @ 0x1C021D3D0 (xxxMenuWindowProc.c)
+ * Callees:
+ *     GreCreateCompatibleBitmapInternal @ 0x1C007BB00 (GreCreateCompatibleBitmapInternal.c)
+ */
+
 __int64 __fastcall MNCreateAnimationBitmap(__int64 a1, int a2, unsigned int a3)
 {
   __int64 result; // rax

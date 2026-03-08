@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIThermalQueryWmiDataBlock @ 0x1C0095A70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ */
+
 NTSTATUS __fastcall ACPIThermalQueryWmiDataBlock(
         PDEVICE_OBJECT DeviceObject,
         PIRP Irp,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of StringListContains @ 0x140765764
+ * Callers:
+ *     PropertyEval @ 0x1407622B0 (PropertyEval.c)
+ * Callees:
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ */
+
 __int64 __fastcall StringListContains(wchar_t *Str1, int a2, const wchar_t *a3, int a4)
 {
   const wchar_t *v5; // rdi

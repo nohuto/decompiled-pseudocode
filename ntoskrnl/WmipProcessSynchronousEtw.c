@@ -1,3 +1,14 @@
+/*
+ * XREFs of WmipProcessSynchronousEtw @ 0x1408689F0
+ * Callers:
+ *     WmipAddDataSource @ 0x140867978 (WmipAddDataSource.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     WmipLegacyEtwWorker @ 0x14084D950 (WmipLegacyEtwWorker.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall WmipProcessSynchronousEtw(_QWORD **a1)
 {
   _QWORD *v2; // rbx

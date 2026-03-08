@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RtlStringCbCatW@@YAJPEAG_KPEBG@Z @ 0x1C00DD870
+ * Callers:
+ *     _RegisterDManipHook @ 0x1C00DD6D0 (_RegisterDManipHook.c)
+ * Callees:
+ *     RtlStringCopyWorkerW @ 0x1C010A9DC (RtlStringCopyWorkerW.c)
+ */
+
 NTSTATUS __fastcall RtlStringCbCatW(unsigned __int16 *a1, __int64 a2, const unsigned __int16 *a3)
 {
   unsigned __int16 *v3; // rax

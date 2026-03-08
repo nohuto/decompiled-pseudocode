@@ -1,3 +1,22 @@
+/*
+ * XREFs of UsbhFdoPower_PowerFailureEntry @ 0x1C003C0B8
+ * Callers:
+ *     UsbhFdoSxIoComplete_Action @ 0x1C000C140 (UsbhFdoSxIoComplete_Action.c)
+ *     UsbhFdoD0PoComplete_Action @ 0x1C000C6B0 (UsbhFdoD0PoComplete_Action.c)
+ *     UsbhFdoS0IoComplete_Action @ 0x1C000CA40 (UsbhFdoS0IoComplete_Action.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhReleasePowerContext @ 0x1C001BA68 (UsbhReleasePowerContext.c)
+ *     UsbhDisarmHubForWakeDetect @ 0x1C0020A80 (UsbhDisarmHubForWakeDetect.c)
+ *     UsbhFdoUnblockAllPendedPdoD0Irps @ 0x1C00212F4 (UsbhFdoUnblockAllPendedPdoD0Irps.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     UsbhReleaseFdoPwrLock @ 0x1C0031D74 (UsbhReleaseFdoPwrLock.c)
+ *     UsbhBusIoInvalidateDeviceRelations @ 0x1C0036940 (UsbhBusIoInvalidateDeviceRelations.c)
+ *     UsbhSetFdoPowerState @ 0x1C003C87C (UsbhSetFdoPowerState.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 void __fastcall UsbhFdoPower_PowerFailureEntry(__int64 a1, int a2, int a3, __int64 a4)
 {
   __int64 v5; // rsi

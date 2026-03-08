@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiUEventDispatch @ 0x14068DED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     PiUEventHandleIoctl @ 0x14068DF6C (PiUEventHandleIoctl.c)
+ *     PiUEventFreeClientRegistrationContext @ 0x14078DA7C (PiUEventFreeClientRegistrationContext.c)
+ */
+
 __int64 __fastcall PiUEventDispatch(__int64 a1, IRP *a2)
 {
   int Status; // edi

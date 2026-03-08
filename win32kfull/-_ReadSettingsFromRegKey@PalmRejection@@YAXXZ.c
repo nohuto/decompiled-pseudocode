@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_ReadSettingsFromRegKey@PalmRejection@@YAXXZ @ 0x1C01E8538
+ * Callers:
+ *     ?CreateEdgePalmRejectionZones@PalmRejection@@YAHPEAX@Z @ 0x1C01E8380 (-CreateEdgePalmRejectionZones@PalmRejection@@YAHPEAX@Z.c)
+ * Callees:
+ *     GetLocalMachineRegistryDWORDValues @ 0x1C0102D80 (GetLocalMachineRegistryDWORDValues.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall PalmRejection::_ReadSettingsFromRegKey(PalmRejection *this)
 {
   __int64 v1; // rcx

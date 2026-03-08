@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExternalRequestBiosNameDeviceAssociation @ 0x1C00842D4
+ * Callers:
+ *     AcpiExternalTranslateBiosToNtResources @ 0x1C0083DA0 (AcpiExternalTranslateBiosToNtResources.c)
+ * Callees:
+ *     ACPIInternalGetDeviceFromNSOBJ @ 0x1C00035BC (ACPIInternalGetDeviceFromNSOBJ.c)
+ *     WPP_RECORDER_SF_qSD @ 0x1C00260F8 (WPP_RECORDER_SF_qSD.c)
+ *     WPP_RECORDER_SF_qsD @ 0x1C002627C (WPP_RECORDER_SF_qsD.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNameSpaceObject @ 0x1C00483B8 (AMLIGetNameSpaceObject.c)
+ *     AMLISetNSObjectNotifyFlag @ 0x1C0048E9C (AMLISetNSObjectNotifyFlag.c)
+ *     AcpiExternalAddBiosNameDeviceAssociation @ 0x1C0083C5C (AcpiExternalAddBiosNameDeviceAssociation.c)
+ *     ACPIInitUnicodeString @ 0x1C0087DD4 (ACPIInitUnicodeString.c)
+ */
+
 __int64 __fastcall ExternalRequestBiosNameDeviceAssociation(_BYTE *a1, __int64 a2, char a3)
 {
   void *v5; // rdi

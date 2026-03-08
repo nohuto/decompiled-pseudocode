@@ -1,3 +1,13 @@
+/*
+ * XREFs of RootHub_HideInvalidDebugPortStatusAndChange @ 0x1C0018258
+ * Callers:
+ *     RootHub_HandlePortStatusChangeEvent @ 0x1C0014E60 (RootHub_HandlePortStatusChangeEvent.c)
+ *     RootHub_UcxEvtInterruptTransfer @ 0x1C0016C90 (RootHub_UcxEvtInterruptTransfer.c)
+ *     RootHub_UcxEvtGetPortStatus @ 0x1C0017660 (RootHub_UcxEvtGetPortStatus.c)
+ * Callees:
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ */
+
 bool __fastcall RootHub_HideInvalidDebugPortStatusAndChange(__int64 a1, int a2)
 {
   __int64 v2; // rcx

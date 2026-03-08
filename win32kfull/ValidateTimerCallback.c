@@ -1,3 +1,12 @@
+/*
+ * XREFs of ValidateTimerCallback @ 0x1C00D1AE4
+ * Callers:
+ *     xxxDispatchMessage @ 0x1C0038064 (xxxDispatchMessage.c)
+ *     NtUserValidateTimerCallback @ 0x1C00D1AA0 (NtUserValidateTimerCallback.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall ValidateTimerCallback(__int64 a1)
 {
   return *(_DWORD *)(a1 + 632) <= 0x501u

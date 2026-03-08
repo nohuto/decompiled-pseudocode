@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpNotifyMachineHiveLoaded @ 0x1403887C0
+ * Callers:
+ *     CmpFinishSystemHivesLoad @ 0x140815160 (CmpFinishSystemHivesLoad.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     CmpWorkItemQueueWork @ 0x14038897C (CmpWorkItemQueueWork.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 signed __int32 __fastcall CmpNotifyMachineHiveLoaded(unsigned int a1)
 {
   struct _KTHREAD *CurrentThread; // rsi

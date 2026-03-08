@@ -1,3 +1,13 @@
+/*
+ * XREFs of TtmiLogTerminalDisplayTimeouts @ 0x1409A73D8
+ * Callers:
+ *     TtmiTerminalSetDisplayTimeouts @ 0x1409A8608 (TtmiTerminalSetDisplayTimeouts.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall TtmiLogTerminalDisplayTimeouts(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
 {
   int v7; // r9d

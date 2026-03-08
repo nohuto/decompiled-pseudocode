@@ -1,3 +1,19 @@
+/*
+ * XREFs of LdrpQueryValueKey @ 0x1408446D0
+ * Callers:
+ *     RtlpMuiRegAddAlternateCodePage @ 0x14039C354 (RtlpMuiRegAddAlternateCodePage.c)
+ *     _RtlpMuiRegLoadInstalledFromKey @ 0x14039C4A0 (_RtlpMuiRegLoadInstalledFromKey.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x140843474 (RtlpLoadInstallLanguageFallback.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x140A716A4 (RtlpLoadPolicyLanguageSpec.c)
+ *     _RtlpMuiRegInitLIPLanguage @ 0x140A72A0C (_RtlpMuiRegInitLIPLanguage.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x140A72CB8 (_RtlpMuiRegPopulateBaseLanguages.c)
+ * Callees:
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall LdrpQueryValueKey(HANDLE KeyHandle, PUNICODE_STRING ValueName, _DWORD *a3, void *a4, ULONG *a5)
 {
   ULONG *v5; // rbx

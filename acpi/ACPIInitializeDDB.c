@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIInitializeDDB @ 0x1C00A93C4
+ * Callers:
+ *     ACPIInitializeDDBs @ 0x1C00A94A0 (ACPIInitializeDDBs.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     ACPILoadTableCheckSum @ 0x1C00A9EF8 (ACPILoadTableCheckSum.c)
+ *     AMLILoadDDB @ 0x1C00AB124 (AMLILoadDDB.c)
+ */
+
 __int64 __fastcall ACPIInitializeDDB(__int64 a1)
 {
   ULONG_PTR v1; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_CheckingIfWaitRequiredAfterSetAddress @ 0x1C0022190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBDSM_CheckingIfWaitRequiredAfterSetAddress(__int64 a1)
 {
   __int64 v1; // rdx

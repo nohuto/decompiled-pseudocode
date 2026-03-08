@@ -1,3 +1,16 @@
+/*
+ * XREFs of PnpFreeResourceRequirementsForAssignTable @ 0x140803C30
+ * Callers:
+ *     PnpAllocateResources @ 0x1406F5CE0 (PnpAllocateResources.c)
+ *     PnpGetResourceRequirementsForAssignTable @ 0x1406F6080 (PnpGetResourceRequirementsForAssignTable.c)
+ *     PnpReallocateResources @ 0x14096A5D8 (PnpReallocateResources.c)
+ *     PnpRestoreResourcesInternal @ 0x14096A7C4 (PnpRestoreResourcesInternal.c)
+ *     PnpRebalance @ 0x14096B948 (PnpRebalance.c)
+ * Callees:
+ *     IopFreeReqList @ 0x140806108 (IopFreeReqList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PnpFreeResourceRequirementsForAssignTable(unsigned __int64 a1, unsigned __int64 a2)
 {
   PVOID *v2; // rdi

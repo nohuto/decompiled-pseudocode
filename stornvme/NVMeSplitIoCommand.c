@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeSplitIoCommand @ 0x1C0001CA0
+ * Callers:
+ *     ScsiToNVMe @ 0x1C00010C0 (ScsiToNVMe.c)
+ *     ProcessCommandNvmePacket @ 0x1C00244D0 (ProcessCommandNvmePacket.c)
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ */
+
 __int64 __fastcall NVMeSplitIoCommand(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdx

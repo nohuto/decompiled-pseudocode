@@ -1,3 +1,20 @@
+/*
+ * XREFs of ScsiInquiryRequest @ 0x1C0019C74
+ * Callers:
+ *     ScsiToNVMe @ 0x1C00010C0 (ScsiToNVMe.c)
+ * Callees:
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     FormInquiryBlockLimitsData @ 0x1C0011F6C (FormInquiryBlockLimitsData.c)
+ *     FormInquiryBlockProvisioningData @ 0x1C0012194 (FormInquiryBlockProvisioningData.c)
+ *     FormInquiryDeviceCharacteristicsData @ 0x1C0012284 (FormInquiryDeviceCharacteristicsData.c)
+ *     FormInquiryDeviceIdentifiersData @ 0x1C00122F8 (FormInquiryDeviceIdentifiersData.c)
+ *     FormInquirySerialNumberData @ 0x1C0012548 (FormInquirySerialNumberData.c)
+ *     FormInquiryStandardData @ 0x1C0012754 (FormInquiryStandardData.c)
+ *     FormInquiryVpdSupportedPagesData @ 0x1C0012974 (FormInquiryVpdSupportedPagesData.c)
+ *     NVMeSetSenseData @ 0x1C0024238 (NVMeSetSenseData.c)
+ */
+
 __int64 __fastcall ScsiInquiryRequest(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rsi

@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlpStdLogCapturedStackTrace @ 0x1405A7764
+ * Callers:
+ *     RtlStdLogStackTrace @ 0x1405A70F4 (RtlStdLogStackTrace.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpStdGetSpaceForTrace @ 0x1405A76A4 (RtlpStdGetSpaceForTrace.c)
+ */
+
 PSLIST_ENTRY __fastcall RtlpStdLogCapturedStackTrace(__int64 a1, __int64 a2, unsigned int a3)
 {
   SIZE_T v4; // rbp

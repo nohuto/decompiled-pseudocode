@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiMoveLargeFreePage @ 0x14064D244
+ * Callers:
+ *     MiTransferPartitionPageRun @ 0x140659030 (MiTransferPartitionPageRun.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiInsertLargePageInNodeList @ 0x14031C970 (MiInsertLargePageInNodeList.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiTryUnlinkNodeLargePages @ 0x14039BDDC (MiTryUnlinkNodeLargePages.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiMoveBadPageCrossPartition @ 0x14064B358 (MiMoveBadPageCrossPartition.c)
+ *     MiUpdatePartitionChildPageCounts @ 0x140659730 (MiUpdatePartitionChildPageCounts.c)
+ */
+
 __int64 __fastcall MiMoveLargeFreePage(__int64 a1, unsigned int a2, __int64 a3, _WORD *a4)
 {
   unsigned int v5; // ebp

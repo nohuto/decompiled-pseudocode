@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiIsMmIoFlipPending @ 0x1C0017B4C
+ * Callers:
+ *     VidSchWaitForEvents @ 0x1C0014E64 (VidSchWaitForEvents.c)
+ *     VidSchiWaitForDrainFlipQueue @ 0x1C00B5A88 (VidSchiWaitForDrainFlipQueue.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall VidSchiIsMmIoFlipPending(__int64 a1, unsigned int *a2)
 {
   char v4; // bl

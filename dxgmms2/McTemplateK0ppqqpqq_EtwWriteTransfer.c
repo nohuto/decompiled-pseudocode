@@ -1,3 +1,13 @@
+/*
+ * XREFs of McTemplateK0ppqqpqq_EtwWriteTransfer @ 0x1C002EDB0
+ * Callers:
+ *     VidSchDestroySyncObject @ 0x1C00AA4A0 (VidSchDestroySyncObject.c)
+ *     VidSchCreateSyncObject @ 0x1C00AA640 (VidSchCreateSyncObject.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BDEC (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS McTemplateK0ppqqpqq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-69h] BYREF

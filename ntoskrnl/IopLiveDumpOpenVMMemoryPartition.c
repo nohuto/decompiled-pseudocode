@@ -1,3 +1,17 @@
+/*
+ * XREFs of IopLiveDumpOpenVMMemoryPartition @ 0x140557AD8
+ * Callers:
+ *     IoCaptureLiveDump @ 0x140948A78 (IoCaptureLiveDump.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwOpenPartition @ 0x1404148F0 (ZwOpenPartition.c)
+ *     IopLiveDumpTraceOpenVMMemoryPartitionFailure @ 0x140558F98 (IopLiveDumpTraceOpenVMMemoryPartitionFailure.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall IopLiveDumpOpenVMMemoryPartition(__int64 a1)
 {
   int v2; // ebx

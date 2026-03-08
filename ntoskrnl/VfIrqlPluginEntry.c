@@ -1,3 +1,13 @@
+/*
+ * XREFs of VfIrqlPluginEntry @ 0x140679A04
+ * Callers:
+ *     DifRegisterKernelPlugin @ 0x1405D2B20 (DifRegisterKernelPlugin.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     DifRegisterPlugin @ 0x1405D2C50 (DifRegisterPlugin.c)
+ *     ViIrqlInit @ 0x140AE5484 (ViIrqlInit.c)
+ */
+
 __int64 VfIrqlPluginEntry()
 {
   int v0; // ebx

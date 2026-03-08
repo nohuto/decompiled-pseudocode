@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpHpLfhContextCleanup @ 0x1405B4838
+ * Callers:
+ *     RtlpHpHeapDestroy @ 0x1405B4210 (RtlpHpHeapDestroy.c)
+ * Callees:
+ *     RtlpHpLfhOwnerCleanup @ 0x1405B48C8 (RtlpHpLfhOwnerCleanup.c)
+ */
+
 __int64 __fastcall RtlpHpLfhContextCleanup(__int64 a1)
 {
   __int64 *v2; // rbx

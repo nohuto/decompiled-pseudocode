@@ -1,3 +1,12 @@
+/*
+ * XREFs of HeapInsertFreeList @ 0x1C004EEA4
+ * Callers:
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall HeapInsertFreeList(__int64 a1, unsigned int *a2)
 {
   unsigned int *v2; // r9

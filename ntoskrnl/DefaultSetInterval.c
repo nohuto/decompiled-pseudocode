@@ -1,3 +1,11 @@
+/*
+ * XREFs of DefaultSetInterval @ 0x14050A980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpTimerSetTimerBackedProfileInterval @ 0x1405085C0 (HalpTimerSetTimerBackedProfileInterval.c)
+ */
+
 __int64 __fastcall DefaultSetInterval(int a1, unsigned int *a2)
 {
   __int64 v4; // rdx

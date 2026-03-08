@@ -1,3 +1,13 @@
+/*
+ * XREFs of SmcProcessResizeRequest @ 0x1409D53B4
+ * Callers:
+ *     SmSetStoreInformation @ 0x1407990D4 (SmSetStoreInformation.c)
+ * Callees:
+ *     SmpGetProcessPartition @ 0x14029622C (SmpGetProcessPartition.c)
+ *     SmcStoreResize @ 0x1409D8984 (SmcStoreResize.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall SmcProcessResizeRequest(unsigned __int64 a1, int a2, char a3)
 {
   __int64 result; // rax

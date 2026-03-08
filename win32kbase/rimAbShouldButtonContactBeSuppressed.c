@@ -1,3 +1,15 @@
+/*
+ * XREFs of rimAbShouldButtonContactBeSuppressed @ 0x1C01A91C8
+ * Callers:
+ *     rimAbSuppressLowerRankActivityForFrame @ 0x1C01A93A0 (rimAbSuppressLowerRankActivityForFrame.c)
+ *     rimAbSuppressLowerRankActivityInFrame @ 0x1C01A98C0 (rimAbSuppressLowerRankActivityInFrame.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00052A0 (WPP_RECORDER_AND_TRACE_SF_dd.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RIMGetPointerInputType @ 0x1C00EFC04 (RIMGetPointerInputType.c)
+ *     RIMCmIsButtonContactActiveAndNotSuppressed @ 0x1C01DEACC (RIMCmIsButtonContactActiveAndNotSuppressed.c)
+ */
+
 __int64 __fastcall rimAbShouldButtonContactBeSuppressed(__int64 a1, __int64 a2, int a3)
 {
   unsigned int v6; // edi

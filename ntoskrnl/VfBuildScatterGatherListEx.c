@@ -1,3 +1,19 @@
+/*
+ * XREFs of VfBuildScatterGatherListEx @ 0x140AC29B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     DECREMENT_SCATTER_GATHER_LISTS @ 0x140AC13C0 (DECREMENT_SCATTER_GATHER_LISTS.c)
+ *     VERIFY_BUFFER_LOCKED @ 0x140AC1620 (VERIFY_BUFFER_LOCKED.c)
+ *     VF_ASSERT_IRQL @ 0x140AC16AC (VF_ASSERT_IRQL.c)
+ *     ViCheckMdlLength @ 0x140AC531C (ViCheckMdlLength.c)
+ *     ViGetAdapterInformationInternal @ 0x140AC5E44 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaAdapter @ 0x140AC6158 (ViGetRealDmaAdapter.c)
+ *     ViHalPreprocessOptions @ 0x140AC62F4 (ViHalPreprocessOptions.c)
+ */
+
 __int64 __fastcall VfBuildScatterGatherListEx(
         int a1,
         __int64 a2,

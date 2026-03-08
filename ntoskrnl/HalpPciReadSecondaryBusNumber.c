@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpPciReadSecondaryBusNumber @ 0x140513620
+ * Callers:
+ *     HalpPciConvertDevicePathToRid @ 0x14039A210 (HalpPciConvertDevicePathToRid.c)
+ * Callees:
+ *     HalpGetPCIData @ 0x1403703A4 (HalpGetPCIData.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall HalpPciReadSecondaryBusNumber(unsigned __int16 a1, char a2, char a3, char a4, _BYTE *a5)
 {
   int v9; // r8d

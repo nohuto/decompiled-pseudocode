@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpPciWriteIoConfigUlong @ 0x1405132C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpPciWriteIoConfigUlong(unsigned int *a1, unsigned int *a2, int a3)
 {
   unsigned int v3; // r8d

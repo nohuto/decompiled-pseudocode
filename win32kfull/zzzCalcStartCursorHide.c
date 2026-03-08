@@ -1,3 +1,19 @@
+/*
+ * XREFs of zzzCalcStartCursorHide @ 0x1C00612C0
+ * Callers:
+ *     ?xxxSetProcessInitState@@YAJPEAU_EPROCESS@@W4_PROCESS_INIT_HINT@@@Z @ 0x1C003E988 (-xxxSetProcessInitState@@YAJPEAU_EPROCESS@@W4_PROCESS_INIT_HINT@@@Z.c)
+ *     xxxGetInputEvent @ 0x1C0047670 (xxxGetInputEvent.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C00669E0 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C006D360 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
+ *     xxxRealInternalGetMessage @ 0x1C006F2F0 (xxxRealInternalGetMessage.c)
+ *     zzzWakeInputIdle @ 0x1C00944D0 (zzzWakeInputIdle.c)
+ *     zzzShowStartGlass @ 0x1C01B48F8 (zzzShowStartGlass.c)
+ * Callees:
+ *     zzzUpdateCursorImage @ 0x1C0061E20 (zzzUpdateCursorImage.c)
+ *     ?IsSessionGlobalsAreaAllocated@Umfd@Gre@@YA_NXZ @ 0x1C009376C (-IsSessionGlobalsAreaAllocated@Umfd@Gre@@YA_NXZ.c)
+ *     ?IsProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NPEAU_EPROCESS@@@Z @ 0x1C0093790 (-IsProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NPEAU_EPROCESS@@@Z.c)
+ */
+
 __int64 __fastcall zzzCalcStartCursorHide(__int64 a1, __int64 a2)
 {
   int v3; // ebp

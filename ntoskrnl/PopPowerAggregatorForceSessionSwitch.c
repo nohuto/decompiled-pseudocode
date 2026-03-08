@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopPowerAggregatorForceSessionSwitch @ 0x140990844
+ * Callers:
+ *     PopPowerSourceChangeCallback @ 0x140380CA0 (PopPowerSourceChangeCallback.c)
+ *     PopPreCriticalBatteryNotify @ 0x14098F6C0 (PopPreCriticalBatteryNotify.c)
+ *     PdcPoReportLidState @ 0x140994A70 (PdcPoReportLidState.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x14040B89C (Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x140757290 (PopPowerAggregatorHandleIntentUnsafe.c)
+ */
+
 void __fastcall PopPowerAggregatorForceSessionSwitch(unsigned int a1)
 {
   __int64 v2; // rcx

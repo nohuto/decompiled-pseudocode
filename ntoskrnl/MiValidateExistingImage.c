@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiValidateExistingImage @ 0x1406A1230
+ * Callers:
+ *     MiShareExistingControlArea @ 0x1407D1CAC (MiShareExistingControlArea.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     MiValidateSectionSigningPolicy @ 0x1406A14E8 (MiValidateSectionSigningPolicy.c)
+ *     MiRelocateImageAgain @ 0x1406A160C (MiRelocateImageAgain.c)
+ *     SeGetImageRequiredSigningLevel @ 0x1406A17A8 (SeGetImageRequiredSigningLevel.c)
+ */
+
 __int64 __fastcall MiValidateExistingImage(unsigned int *a1)
 {
   __int64 *v1; // r15

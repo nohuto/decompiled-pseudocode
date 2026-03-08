@@ -1,3 +1,11 @@
+/*
+ * XREFs of LdrApplyDynamicRelocations @ 0x140370E54
+ * Callers:
+ *     MiApplyDynamicRelocations @ 0x140B39134 (MiApplyDynamicRelocations.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall LdrApplyDynamicRelocations(
         __int64 a1,
         _DWORD *a2,

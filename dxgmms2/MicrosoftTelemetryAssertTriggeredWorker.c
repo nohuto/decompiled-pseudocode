@@ -1,3 +1,16 @@
+/*
+ * XREFs of MicrosoftTelemetryAssertTriggeredWorker @ 0x1C004C6F4
+ * Callers:
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C004C6C4 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00149E0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1C0014A7C (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     GetImageTuple @ 0x1C004C674 (GetImageTuple.c)
+ *     _tlgCreate1Sz_char @ 0x1C004CC18 (_tlgCreate1Sz_char.c)
+ *     TakeTelemetryAssertsLock @ 0x1C004CC4C (TakeTelemetryAssertsLock.c)
+ */
+
 void __fastcall MicrosoftTelemetryAssertTriggeredWorker(unsigned __int64 a1)
 {
   __int64 *v2; // rcx

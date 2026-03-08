@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0EngModeState@@QEAA@XZ @ 0x1C0270F18
+ * Callers:
+ *     W32kCddClipRegion @ 0x1C0272C60 (W32kCddClipRegion.c)
+ * Callees:
+ *     <none>
+ */
+
 EngModeState *__fastcall EngModeState::EngModeState(EngModeState *this)
 {
   struct _KTHREAD *CurrentThread; // rbp

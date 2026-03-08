@@ -1,3 +1,11 @@
+/*
+ * XREFs of EmonConfigurePebsBuffer @ 0x14051ACA8
+ * Callers:
+ *     EmonMarkCountersReserved @ 0x14051AFC0 (EmonMarkCountersReserved.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EmonConfigurePebsBuffer(unsigned int a1, int a2)
 {
   __int64 v3; // rcx

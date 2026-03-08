@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiMiracastGetDeviceContextFromLuid @ 0x1C005F39C
+ * Callers:
+ *     DxgkMiracastGetNextChunkInfo @ 0x1C0061380 (DxgkMiracastGetNextChunkInfo.c)
+ *     DxgkHandleMiracastEscape @ 0x1C039B7B8 (DxgkHandleMiracastEscape.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall DpiMiracastGetDeviceContextFromLuid(__int64 a1, char a2)
 {
   unsigned int v3; // ebx

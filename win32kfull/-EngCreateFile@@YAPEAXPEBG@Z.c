@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EngCreateFile@@YAPEAXPEBG@Z @ 0x1C02A992C
+ * Callers:
+ *     ?UmfdEscEngCreateFile@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C02A9AC4 (-UmfdEscEngCreateFile@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ * Callees:
+ *     MakeSystemRelativePath @ 0x1C0307BDC (MakeSystemRelativePath.c)
+ */
+
 void *__fastcall EngCreateFile(const unsigned __int16 *a1)
 {
   NTSTATUS v1; // eax

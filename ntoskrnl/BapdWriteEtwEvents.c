@@ -1,3 +1,21 @@
+/*
+ * XREFs of BapdWriteEtwEvents @ 0x140380290
+ * Callers:
+ *     BapdpProcessEtwEvents @ 0x140380170 (BapdpProcessEtwEvents.c)
+ *     PopBootLoaderTraceProcess @ 0x1409853E0 (PopBootLoaderTraceProcess.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     BapdpParseEventParts @ 0x1403805F4 (BapdpParseEventParts.c)
+ *     BapdRegisterEtwProvider @ 0x14038069C (BapdRegisterEtwProvider.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     EtwUnregister @ 0x14076F9E0 (EtwUnregister.c)
+ *     EtwSetInformation @ 0x1407882D0 (EtwSetInformation.c)
+ *     BapdpWriteEventDataToRegistry @ 0x140A8C034 (BapdpWriteEventDataToRegistry.c)
+ */
+
 __int64 __fastcall BapdWriteEtwEvents(unsigned __int64 a1, __int64 a2)
 {
   unsigned __int64 v2; // rbx

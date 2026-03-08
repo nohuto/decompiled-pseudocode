@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Update@CVisRgnTrackerProp@@QEAAXXZ @ 0x1C004411C
+ * Callers:
+ *     UpdateDirtyVisRgnTrackers @ 0x1C00440C0 (UpdateDirtyVisRgnTrackers.c)
+ * Callees:
+ *     ?UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z @ 0x1C0044204 (-UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z.c)
+ */
+
 void __fastcall CVisRgnTrackerProp::Update(CVisRgnTrackerProp *this)
 {
   _QWORD *v1; // rdx

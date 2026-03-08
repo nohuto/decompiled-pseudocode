@@ -1,3 +1,11 @@
+/*
+ * XREFs of IommupHvFlushDeviceDomainVaList @ 0x14052268C
+ * Callers:
+ *     IommuFlushDomainVaList @ 0x1409327C0 (IommuFlushDomainVaList.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall IommupHvFlushDeviceDomainVaList(int a1, char a2, unsigned int a3, __int64 a4)
 {
   __int64 v5; // [rsp+20h] [rbp-18h] BYREF

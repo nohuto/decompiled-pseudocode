@@ -1,3 +1,28 @@
+/*
+ * XREFs of ExpAcquireSharedStarveExclusive @ 0x1402213C0
+ * Callers:
+ *     CcPinFileData @ 0x14021E620 (CcPinFileData.c)
+ *     ExAcquireSharedStarveExclusive @ 0x1402DE340 (ExAcquireSharedStarveExclusive.c)
+ * Callees:
+ *     ExpGetThreadResourceHint @ 0x140222C60 (ExpGetThreadResourceHint.c)
+ *     ExpApplyPrewaitBoost @ 0x14027F3C0 (ExpApplyPrewaitBoost.c)
+ *     KxWaitForLockChainValid @ 0x140291730 (KxWaitForLockChainValid.c)
+ *     ExpFindEmptyEntry @ 0x1402D9F84 (ExpFindEmptyEntry.c)
+ *     RtlInsertHeadCircularList @ 0x1402E22E4 (RtlInsertHeadCircularList.c)
+ *     ExpTryAcquireResourceSharedStarveExclusive @ 0x1402E9154 (ExpTryAcquireResourceSharedStarveExclusive.c)
+ *     ExpFindCurrentThread @ 0x14033A7F0 (ExpFindCurrentThread.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x14033B510 (KxWaitForLockOwnerShip.c)
+ *     ExpWaitForResource @ 0x140342994 (ExpWaitForResource.c)
+ *     ExpBoostIoAfterAcquire @ 0x140356B60 (ExpBoostIoAfterAcquire.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140457B8E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x14056EF78 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14057DAC8 (KiHaltOnAddressWakeEntireList.c)
+ *     PerfLogExecutiveResourceAcquire @ 0x1405FE2B8 (PerfLogExecutiveResourceAcquire.c)
+ *     PerfLogExecutiveResourceWait @ 0x1405FE790 (PerfLogExecutiveResourceWait.c)
+ */
+
 char __fastcall ExpAcquireSharedStarveExclusive(__int64 a1, char a2)
 {
   struct _KTHREAD *CurrentThread; // r14

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiSwPnPInfoFree @ 0x1409646D4
+ * Callers:
+ *     PiSwIrpStartCreateWorker @ 0x140806A2C (PiSwIrpStartCreateWorker.c)
+ *     PiSwDeviceFree @ 0x140964270 (PiSwDeviceFree.c)
+ *     PiSwProcessRemove @ 0x140964760 (PiSwProcessRemove.c)
+ *     PiSwQueuedCreateInfoFree @ 0x140964BA0 (PiSwQueuedCreateInfoFree.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PiSwPnPInfoFree(__int64 a1)
 {
   void *v2; // rcx

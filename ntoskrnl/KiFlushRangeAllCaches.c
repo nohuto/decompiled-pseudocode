@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiFlushRangeAllCaches @ 0x14056FBF0
+ * Callers:
+ *     KeFlushIoBuffers @ 0x1402DCDE0 (KeFlushIoBuffers.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KeInvalidateRangeAllCaches @ 0x1404580A0 (KeInvalidateRangeAllCaches.c)
+ */
+
 void __fastcall KiFlushRangeAllCaches(ULONG_PTR BugCheckParameter4, PVOID BaseAddress, ULONG Length, char a4, char a5)
 {
   if ( a5 && a4 )

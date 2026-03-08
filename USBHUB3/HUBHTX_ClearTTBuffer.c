@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBHTX_ClearTTBuffer @ 0x1C0006BA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBHTX_GetClearTtBufferInfoForEndpoint @ 0x1C000696C (HUBHTX_GetClearTtBufferInfoForEndpoint.c)
+ *     HUBMISC_ControlTransfer @ 0x1C0032664 (HUBMISC_ControlTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBHTX_ClearTTBuffer(__int64 a1, __int64 a2, __int64 a3, char a4, __int16 a5)
 {
   int v5; // r15d

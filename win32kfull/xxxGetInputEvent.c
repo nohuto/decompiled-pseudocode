@@ -1,3 +1,15 @@
+/*
+ * XREFs of xxxGetInputEvent @ 0x1C0047670
+ * Callers:
+ *     NtUserMsgWaitForMultipleObjectsEx @ 0x1C00470E0 (NtUserMsgWaitForMultipleObjectsEx.c)
+ *     NtUserGetInputEvent @ 0x1C01D2CF0 (NtUserGetInputEvent.c)
+ * Callees:
+ *     zzzCalcStartCursorHide @ 0x1C00612C0 (zzzCalcStartCursorHide.c)
+ *     ?CheckProcessForeground@@YAJPEAUtagTHREADINFO@@@Z @ 0x1C00E8454 (-CheckProcessForeground@@YAJPEAUtagTHREADINFO@@@Z.c)
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C01098A8 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ *     ?xxxHandleHealthyThread@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C01F5AA4 (-xxxHandleHealthyThread@@YAXPEAUtagTHREADINFO@@@Z.c)
+ */
+
 __int64 __fastcall xxxGetInputEvent(unsigned int a1)
 {
   unsigned __int16 v1; // si

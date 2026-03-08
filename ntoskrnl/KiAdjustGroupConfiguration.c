@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiAdjustGroupConfiguration @ 0x1403B0E38
+ * Callers:
+ *     KiAllocateProcessorNumber @ 0x14037279C (KiAllocateProcessorNumber.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall KiAdjustGroupConfiguration(__int64 a1)
 {
   __int64 v2; // rcx

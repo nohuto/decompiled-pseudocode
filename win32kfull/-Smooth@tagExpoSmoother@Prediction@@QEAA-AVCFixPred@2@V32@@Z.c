@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Smooth@tagExpoSmoother@Prediction@@QEAA?AVCFixPred@2@V32@@Z @ 0x1C01C2F7C
+ * Callers:
+ *     ?UpdateContactPrediction@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@UtagPOINT@@1PEAUtagHPD_PREDICTION_INFO@@PEAU2@3@Z @ 0x1C01C3108 (-UpdateContactPrediction@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@UtagPOINT@@1PEAUtagHPD_PREDICTION_I.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall Prediction::tagExpoSmoother::Smooth(_QWORD *a1, __int64 *a2, __int64 *a3)
 {
   __int64 v3; // r12

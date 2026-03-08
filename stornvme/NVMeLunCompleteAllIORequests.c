@@ -1,3 +1,11 @@
+/*
+ * XREFs of NVMeLunCompleteAllIORequests @ 0x1C000FAA8
+ * Callers:
+ *     NVMeHwUnitControl @ 0x1C0008600 (NVMeHwUnitControl.c)
+ * Callees:
+ *     NVMeCompleteSubmissionQueueRequests @ 0x1C000C644 (NVMeCompleteSubmissionQueueRequests.c)
+ */
+
 void __fastcall NVMeLunCompleteAllIORequests(__int64 a1, int a2)
 {
   unsigned int i; // edi

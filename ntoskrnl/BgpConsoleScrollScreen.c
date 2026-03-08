@@ -1,3 +1,11 @@
+/*
+ * XREFs of BgpConsoleScrollScreen @ 0x140AEEAC0
+ * Callers:
+ *     BgpConsoleDisplayCharacterEx @ 0x140AEE5D4 (BgpConsoleDisplayCharacterEx.c)
+ * Callees:
+ *     BgpDisplayCharacterEx @ 0x14066F654 (BgpDisplayCharacterEx.c)
+ */
+
 __int64 BgpConsoleScrollScreen()
 {
   __int64 v0; // r10

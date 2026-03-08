@@ -1,3 +1,17 @@
+/*
+ * XREFs of HUBREG_UpdateUxdSettings @ 0x1C0087358
+ * Callers:
+ *     HUBFDO_IoctlCyclePort @ 0x1C007B988 (HUBFDO_IoctlCyclePort.c)
+ *     HUBPDO_AssignPDOIds @ 0x1C007EB7C (HUBPDO_AssignPDOIds.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ *     HUBREG_QueryGlobalUxdSettings @ 0x1C0086AA4 (HUBREG_QueryGlobalUxdSettings.c)
+ *     HUBREG_QueryUxdPortKey @ 0x1C0086DEC (HUBREG_QueryUxdPortKey.c)
+ *     HUBREG_QueryUxdDeviceKey @ 0x1C0087074 (HUBREG_QueryUxdDeviceKey.c)
+ */
+
 __int64 __fastcall HUBREG_UpdateUxdSettings(__int64 a1, __int64 a2, _BYTE *a3)
 {
   int v6; // eax

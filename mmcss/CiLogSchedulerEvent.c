@@ -1,3 +1,13 @@
+/*
+ * XREFs of CiLogSchedulerEvent @ 0x1C0003EA0
+ * Callers:
+ *     CiSchedulerWait @ 0x1C0001680 (CiSchedulerWait.c)
+ *     CiSchedulerTaskIndexYield @ 0x1C0002300 (CiSchedulerTaskIndexYield.c)
+ *     CiSchedulerSetPriority @ 0x1C00029B0 (CiSchedulerSetPriority.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003050 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall CiLogSchedulerEvent(__int64 a1, int a2)
 {
   HANDLE ThreadProcessId; // rax

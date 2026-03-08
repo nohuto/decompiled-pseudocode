@@ -1,3 +1,12 @@
+/*
+ * XREFs of BiConvertBootEnvironmentDeviceToQualifiedPartition @ 0x140A5A2E4
+ * Callers:
+ *     BiConvertRegistryDataToElement @ 0x14082F010 (BiConvertRegistryDataToElement.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiConvertBootEnvironmentDeviceToQualifiedPartition(__int64 a1, __int64 *a2, _DWORD *a3)
 {
   unsigned int v6; // ebx

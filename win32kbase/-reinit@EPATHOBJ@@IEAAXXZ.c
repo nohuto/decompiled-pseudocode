@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?reinit@EPATHOBJ@@IEAAXXZ @ 0x1C01815E8
+ * Callers:
+ *     ?createrec@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z @ 0x1C01811A8 (-createrec@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z.c)
+ * Callees:
+ *     ?vFreeBlocks@EPATHOBJ@@QEAAXXZ @ 0x1C01816C0 (-vFreeBlocks@EPATHOBJ@@QEAAXXZ.c)
+ */
+
 void __fastcall EPATHOBJ::reinit(EPATHOBJ *this)
 {
   if ( *((_QWORD *)this + 1) )

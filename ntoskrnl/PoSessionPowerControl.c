@@ -1,3 +1,12 @@
+/*
+ * XREFs of PoSessionPowerControl @ 0x140998BBC
+ * Callers:
+ *     TtmpSessionPowerControl @ 0x1409A28A4 (TtmpSessionPowerControl.c)
+ * Callees:
+ *     PopInvokeWin32Callout @ 0x14073A52C (PopInvokeWin32Callout.c)
+ *     PopBlockSessionSwitch @ 0x140994CF0 (PopBlockSessionSwitch.c)
+ */
+
 __int64 __fastcall PoSessionPowerControl(unsigned __int8 a1, int a2, int a3)
 {
   int v6; // [rsp+20h] [rbp-30h] BYREF

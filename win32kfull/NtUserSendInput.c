@@ -1,3 +1,23 @@
+/*
+ * XREFs of NtUserSendInput @ 0x1C0016F20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserGetLastError @ 0x1C0015748 (UserGetLastError.c)
+ *     xxxSendInput @ 0x1C00171A4 (xxxSendInput.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dqd @ 0x1C0017538 (WPP_RECORDER_AND_TRACE_SF_dqd.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C00200C4 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1C00D6A80 (--0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
+ *     ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x1C00D6CE8 (--1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00E3308 (WPP_RECORDER_AND_TRACE_SF_dd.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ddD @ 0x1C01E443C (WPP_RECORDER_AND_TRACE_SF_ddD.c)
+ */
+
 __int64 __fastcall NtUserSendInput(unsigned int a1, void *a2, int a3, int a4)
 {
   int v4; // ebx

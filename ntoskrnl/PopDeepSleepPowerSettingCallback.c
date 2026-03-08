@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDeepSleepPowerSettingCallback @ 0x14085F780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopCheckResiliencyScenarios @ 0x14073AF4C (PopCheckResiliencyScenarios.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopDeepSleepPowerSettingCallback(_QWORD *a1, _DWORD *a2, int a3)
 {
   unsigned int v4; // r10d

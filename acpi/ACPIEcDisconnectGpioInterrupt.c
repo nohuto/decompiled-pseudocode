@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIEcDisconnectGpioInterrupt @ 0x1C0083518
+ * Callers:
+ *     ACPIEcInitOpRegionHandler @ 0x1C00251B0 (ACPIEcInitOpRegionHandler.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPIEcDisconnectGpioInterrupt(__int64 a1)
 {
   void *v1; // rax

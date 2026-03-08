@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HmgInitializeLookAsideList@@YAHKKKG@Z @ 0x1C002D210
+ * Callers:
+ *     HmgCreate @ 0x1C002CDD0 (HmgCreate.c)
+ * Callees:
+ *     ?AllocatePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_KIII@Z @ 0x1C00C6824 (-AllocatePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_KIII@Z.c)
+ */
+
 _BOOL8 __fastcall HmgInitializeLookAsideList(__int64 a1, unsigned int a2, __int64 a3, unsigned __int16 a4)
 {
   unsigned int v4; // r14d

@@ -1,3 +1,16 @@
+/*
+ * XREFs of HMValidateSharedHandle @ 0x1C003DE88
+ * Callers:
+ *     NtUserGetUniformSpaceMapping @ 0x1C0013860 (NtUserGetUniformSpaceMapping.c)
+ *     DrvGetCurrentDpiInfo @ 0x1C003CBE8 (DrvGetCurrentDpiInfo.c)
+ *     NtUserGetDpiForMonitor @ 0x1C003DF40 (NtUserGetDpiForMonitor.c)
+ *     xxxCreateThreadInfo @ 0x1C0076490 (xxxCreateThreadInfo.c)
+ *     NtUserInitializeInputDeviceInjection @ 0x1C0172020 (NtUserInitializeInputDeviceInjection.c)
+ *     NtUserInitializePointerDeviceInjectionEx @ 0x1C0172660 (NtUserInitializePointerDeviceInjectionEx.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ */
+
 __int64 __fastcall HMValidateSharedHandle(int a1)
 {
   __int16 v1; // r8d^2

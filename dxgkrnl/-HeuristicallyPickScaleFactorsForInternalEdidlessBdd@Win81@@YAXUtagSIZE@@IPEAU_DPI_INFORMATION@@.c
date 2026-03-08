@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HeuristicallyPickScaleFactorsForInternalEdidlessBdd@Win81@@YAXUtagSIZE@@IPEAU_DPI_INFORMATION@@@Z @ 0x1C031CA68
+ * Callers:
+ *     ?UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C031CC94 (-UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z.c)
+ * Callees:
+ *     ??PWin81@@YA_NAEBUtagSIZE@@0@Z @ 0x1C031C220 (--PWin81@@YA_NAEBUtagSIZE@@0@Z.c)
+ */
+
 void __fastcall Win81::HeuristicallyPickScaleFactorsForInternalEdidlessBdd(
         Win81 *this,
         struct tagSIZE a2,

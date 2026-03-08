@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiSelectSessionAttachProcess @ 0x14022A5A8
+ * Callers:
+ *     MmGetSessionById @ 0x14022A4F0 (MmGetSessionById.c)
+ *     MiReferenceOwningSession @ 0x1402DE780 (MiReferenceOwningSession.c)
+ *     MiGetNextSession @ 0x14035C308 (MiGetNextSession.c)
+ *     MiLockAndSelectSessionAttachProcess @ 0x14062F6C4 (MiLockAndSelectSessionAttachProcess.c)
+ * Callees:
+ *     ObReferenceObjectSafeWithTag @ 0x14022BD30 (ObReferenceObjectSafeWithTag.c)
+ */
+
 _QWORD *__fastcall MiSelectSessionAttachProcess(__int64 a1)
 {
   _QWORD *v1; // rsi

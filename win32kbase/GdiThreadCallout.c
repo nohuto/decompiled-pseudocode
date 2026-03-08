@@ -1,3 +1,16 @@
+/*
+ * XREFs of GdiThreadCallout @ 0x1C00420F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?vUMPDThreadCleanup@@YAXPEAU_W32THREAD@@@Z @ 0x1C0042308 (-vUMPDThreadCleanup@@YAXPEAU_W32THREAD@@@Z.c)
+ *     PopThreadGuardedObject @ 0x1C00453C0 (PopThreadGuardedObject.c)
+ *     W32GetThreadWin32Thread @ 0x1C004E3B0 (W32GetThreadWin32Thread.c)
+ *     HmgFreeDcAttr @ 0x1C0053788 (HmgFreeDcAttr.c)
+ *     bDeletePalette @ 0x1C00CB0A0 (bDeletePalette.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall GdiThreadCallout(__int64 a1, int a2)
 {
   unsigned int v2; // ebx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Initialize@DXGMMS_EXPORT@@QEAAJI@Z @ 0x1C0214D04
+ * Callers:
+ *     ?DeferredInitialize@DXGGLOBAL@@QEAAJI@Z @ 0x1C0214B78 (-DeferredInitialize@DXGGLOBAL@@QEAAJI@Z.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?FindExportAddress@DXGMMS_EXPORT@@QEAAPEAXPEADI@Z @ 0x1C0214E94 (-FindExportAddress@DXGMMS_EXPORT@@QEAAPEAXPEADI@Z.c)
+ */
+
 __int64 __fastcall DXGMMS_EXPORT::Initialize(DXGMMS_EXPORT *this, int a2)
 {
   char *v2; // rdi

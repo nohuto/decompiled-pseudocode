@@ -1,3 +1,19 @@
+/*
+ * XREFs of PfpProcessScenarioPhase @ 0x14073A2C8
+ * Callers:
+ *     PfSetSuperfetchInformation @ 0x1407E2A94 (PfSetSuperfetchInformation.c)
+ *     PfSnSetPrefetcherInformation @ 0x1407E2E70 (PfSnSetPrefetcherInformation.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     RtlGetActiveConsoleId @ 0x1402B8940 (RtlGetActiveConsoleId.c)
+ *     PsGetCurrentProcessSessionId @ 0x140343AA0 (PsGetCurrentProcessSessionId.c)
+ *     MmGetNextSession @ 0x14035C2F0 (MmGetNextSession.c)
+ *     PfpLogScenarioEvent @ 0x14073A758 (PfpLogScenarioEvent.c)
+ *     PfpScenCtxScenarioSet @ 0x140A84910 (PfpScenCtxScenarioSet.c)
+ *     PfPowerActionNotify @ 0x140A9CD7C (PfPowerActionNotify.c)
+ *     PfpScenCtxPrefetchWait @ 0x140A9D25C (PfpScenCtxPrefetchWait.c)
+ */
+
 __int64 __fastcall PfpProcessScenarioPhase(_DWORD *a1, __int64 a2)
 {
   unsigned int v2; // edi

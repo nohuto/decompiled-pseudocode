@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpVerifyHmatEntryValidity @ 0x140B8E6F0
+ * Callers:
+ *     HalpNumaParseHmat @ 0x140B8E1C4 (HalpNumaParseHmat.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall HalpVerifyHmatEntryValidity(unsigned __int16 *a1)
 {
   signed int v1; // edx

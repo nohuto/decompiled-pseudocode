@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcQueueAsyncLazywriteCompletion @ 0x1405392F4
+ * Callers:
+ *     CcAsyncLazywriteWorkerMulti @ 0x1405387F4 (CcAsyncLazywriteWorkerMulti.c)
+ * Callees:
+ *     CcWriteBehindReleaseFile @ 0x140219638 (CcWriteBehindReleaseFile.c)
+ *     CcFlushCachePostProcess @ 0x14021AF2C (CcFlushCachePostProcess.c)
+ *     CcPostWorkQueueAsyncLazywrite @ 0x140537D14 (CcPostWorkQueueAsyncLazywrite.c)
+ */
+
 char __fastcall CcQueueAsyncLazywriteCompletion(__int64 a1, char a2, char a3)
 {
   __int64 v3; // rbp

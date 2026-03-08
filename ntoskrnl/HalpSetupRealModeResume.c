@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpSetupRealModeResume @ 0x1404120A0
+ * Callers:
+ *     HaliAcpiSleep @ 0x140525AD0 (HaliAcpiSleep.c)
+ * Callees:
+ *     HalpInterruptSetProcessorStartContext @ 0x140371C70 (HalpInterruptSetProcessorStartContext.c)
+ *     KeSaveStateForHibernate @ 0x1404170A0 (KeSaveStateForHibernate.c)
+ */
+
 __int64 __fastcall HalpSetupRealModeResume(__int64 a1, int a2)
 {
   __int64 v2; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpEnumerateCallback @ 0x140880C70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CmCleanupThreadInfo @ 0x140263740 (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x140263760 (CmpInitializeThreadInfo.c)
+ *     ExfUnblockPushLock @ 0x14040CCE0 (ExfUnblockPushLock.c)
+ *     CmpUnlockCallbackList @ 0x140738E04 (CmpUnlockCallbackList.c)
+ *     CmpLockCallbackListShared @ 0x140738E68 (CmpLockCallbackListShared.c)
+ */
+
 __int64 __fastcall CmpEnumerateCallback(__int64 **a1)
 {
   __int64 *v2; // rdx

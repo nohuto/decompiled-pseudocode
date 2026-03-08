@@ -1,3 +1,11 @@
+/*
+ * XREFs of Isoch_CalculatePacketsPerFrame @ 0x1C0001D9C
+ * Callers:
+ *     Isoch_Initialize @ 0x1C006D400 (Isoch_Initialize.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Isoch_CalculatePacketsPerFrame(__int64 a1)
 {
   int v1; // r8d

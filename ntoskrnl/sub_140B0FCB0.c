@@ -1,3 +1,13 @@
+/*
+ * XREFs of sub_140B0FCB0 @ 0x140B0FCB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     $$ba @ 0x140B0E898 ($$ba.c)
+ *     KeGuardDispatchICall @ 0x140B107A0 (KeGuardDispatchICall.c)
+ *     RtlMinimalBarrier @ 0x140B1092C (RtlMinimalBarrier.c)
+ */
+
 __int64 __fastcall sub_140B0FCB0(__int64 a1)
 {
   _DWORD *v2; // rcx

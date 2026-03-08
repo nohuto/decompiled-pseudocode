@@ -1,3 +1,16 @@
+/*
+ * XREFs of VmpUnpinMemoryRange @ 0x1405F9144
+ * Callers:
+ *     VmUnpinMemoryRange @ 0x1409D9E30 (VmUnpinMemoryRange.c)
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     VmpProcessContextLockExclusive @ 0x14045E6CE (VmpProcessContextLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpInvalidateSlatBatched @ 0x1405F73F8 (VmpInvalidateSlatBatched.c)
+ *     VmpVaRangeCheckPinnedGpaRanges @ 0x1405F9384 (VmpVaRangeCheckPinnedGpaRanges.c)
+ *     VmpUnlockMemoryForPin @ 0x1409DA9F0 (VmpUnlockMemoryForPin.c)
+ */
+
 __int64 __fastcall VmpUnpinMemoryRange(
         PEX_SPIN_LOCK SpinLock,
         unsigned __int64 a2,

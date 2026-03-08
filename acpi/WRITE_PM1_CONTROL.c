@@ -1,3 +1,12 @@
+/*
+ * XREFs of WRITE_PM1_CONTROL @ 0x1C0038F24
+ * Callers:
+ *     ACPIEnableInitializeACPI @ 0x1C00368F0 (ACPIEnableInitializeACPI.c)
+ *     ACPIReleaseHardwareGlobalLock @ 0x1C00394BC (ACPIReleaseHardwareGlobalLock.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WRITE_PM1_CONTROL(__int16 a1, char a2)
 {
   int (__fastcall *v2)(__int64); // rax

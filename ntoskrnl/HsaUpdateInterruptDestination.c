@@ -1,3 +1,11 @@
+/*
+ * XREFs of HsaUpdateInterruptDestination @ 0x14052EBCC
+ * Callers:
+ *     HsaUpdateRemappingTableEntry @ 0x14052EE50 (HsaUpdateRemappingTableEntry.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall HsaUpdateInterruptDestination(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4)
 {
   int v3; // ecx

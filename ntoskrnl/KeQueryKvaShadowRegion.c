@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeQueryKvaShadowRegion @ 0x1403CA1C8
+ * Callers:
+ *     MiCheckRelevantKernelShadows @ 0x1403CA158 (MiCheckRelevantKernelShadows.c)
+ * Callees:
+ *     RtlSectionTableFromVirtualAddress @ 0x14035D7C0 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ */
+
 __int64 __fastcall KeQueryKvaShadowRegion(__int64 a1, unsigned __int64 **a2, unsigned __int64 *a3)
 {
   __int64 v5; // rcx

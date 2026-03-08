@@ -1,3 +1,13 @@
+/*
+ * XREFs of PipMergeDependencyNodes @ 0x14095192C
+ * Callers:
+ *     IoResolveDependency @ 0x1403943F0 (IoResolveDependency.c)
+ * Callees:
+ *     PipMoveListEntries @ 0x14055D934 (PipMoveListEntries.c)
+ *     PipDeleteDependencyNode @ 0x140951668 (PipDeleteDependencyNode.c)
+ *     PipMergeDependencyEdgeList @ 0x1409517A8 (PipMergeDependencyEdgeList.c)
+ */
+
 void __fastcall PipMergeDependencyNodes(_DWORD *P, _DWORD *a2)
 {
   bool v4; // zf

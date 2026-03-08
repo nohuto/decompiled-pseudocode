@@ -1,3 +1,18 @@
+/*
+ * XREFs of xxxShowOwnedWindows @ 0x1C010189C
+ * Callers:
+ *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00FFAF8 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
+ *     NtUserShowOwnedPopups @ 0x1C01DFBB0 (NtUserShowOwnedPopups.c)
+ *     xxxMinimizeHungWindow @ 0x1C02278C0 (xxxMinimizeHungWindow.c)
+ * Callees:
+ *     SetVisible @ 0x1C002DB8C (SetVisible.c)
+ *     BuildHwndList @ 0x1C0041A10 (BuildHwndList.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     FreeHwndList @ 0x1C00680B0 (FreeHwndList.c)
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ */
+
 void __fastcall xxxShowOwnedWindows(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 v4; // rax

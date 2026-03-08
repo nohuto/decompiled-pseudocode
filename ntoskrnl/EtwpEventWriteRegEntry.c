@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpEventWriteRegEntry @ 0x1409E0A5C
+ * Callers:
+ *     EtwpTracingProvEnableCallback @ 0x140861AF0 (EtwpTracingProvEnableCallback.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall EtwpEventWriteRegEntry(__int64 a1, __int64 a2)
 {
   bool v2; // zf

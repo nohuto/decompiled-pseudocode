@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FxObjectGetTypedContext@@YAPEAXPEAVFxObject@@PEBU_WDF_OBJECT_CONTEXT_TYPE_INFO@@@Z @ 0x1C0043504
+ * Callers:
+ *     imp_WdfCxDeviceInitGetTypedContextWorker @ 0x1C00364F0 (imp_WdfCxDeviceInitGetTypedContextWorker.c)
+ * Callees:
+ *     WPP_IFR_SF_sq @ 0x1C0021984 (WPP_IFR_SF_sq.c)
+ */
+
 char *__fastcall FxObjectGetTypedContext(FxObject *Object, const _WDF_OBJECT_CONTEXT_TYPE_INFO *TypeInfo)
 {
   __int64 m_ObjectSize; // rax

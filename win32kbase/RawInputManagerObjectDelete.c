@@ -1,3 +1,24 @@
+/*
+ * XREFs of RawInputManagerObjectDelete @ 0x1C00361E4
+ * Callers:
+ *     RIMObjectManagerCallout @ 0x1C00360B4 (RIMObjectManagerCallout.c)
+ * Callees:
+ *     RIMDeleteAllAsyncPnpWorkNotificationItems @ 0x1C0032BB8 (RIMDeleteAllAsyncPnpWorkNotificationItems.c)
+ *     rimFreeAllUserMem @ 0x1C0032BE8 (rimFreeAllUserMem.c)
+ *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C0032C40 (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C0033950 (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
+ *     RIMFreeSpecificDevWorker @ 0x1C0034C6C (RIMFreeSpecificDevWorker.c)
+ *     rimRemoveFromObTrackList @ 0x1C0038270 (rimRemoveFromObTrackList.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimFreePointerRawDataListWorker @ 0x1C01CE29C (rimFreePointerRawDataListWorker.c)
+ *     rimObsFreeInputMessageQueue @ 0x1C01DC754 (rimObsFreeInputMessageQueue.c)
+ *     rimObsReleaseAllTrackedHandles @ 0x1C01DD448 (rimObsReleaseAllTrackedHandles.c)
+ *     rimObsStartStopDeviceRead @ 0x1C01DD4D4 (rimObsStartStopDeviceRead.c)
+ */
+
 __int64 __fastcall RawInputManagerObjectDelete(__int64 *a1)
 {
   __int64 v1; // rdi

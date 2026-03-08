@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitializeBuildStrings @ 0x140B31CFC
+ * Callers:
+ *     KiInitializeBootStructures @ 0x140A887E0 (KiInitializeBootStructures.c)
+ * Callees:
+ *     <none>
+ */
+
 _BYTE *__fastcall InitializeBuildStrings(__int64 a1)
 {
   _OWORD *v1; // rdx

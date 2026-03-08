@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?DiscardPendingPresent@BLTQUEUE@@AEAAXXZ @ 0x1C03CD0F0
+ * Callers:
+ *     ?BltQueueWorker@BLTQUEUE@@QEAAXXZ @ 0x1C01CB020 (-BltQueueWorker@BLTQUEUE@@QEAAXXZ.c)
+ *     ?ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z @ 0x1C01CB6F0 (-ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z.c)
+ *     ?ResetInternal@BLTQUEUE@@AEAAXXZ @ 0x1C03CF094 (-ResetInternal@BLTQUEUE@@AEAAXXZ.c)
+ * Callees:
+ *     ?FinishCommand@BLTQUEUE@@AEAAXJ@Z @ 0x1C01CBAB0 (-FinishCommand@BLTQUEUE@@AEAAXJ@Z.c)
+ *     ?AssignNull@DXGALLOCATIONREFERENCE@@QEAAXXZ @ 0x1C02D24A4 (-AssignNull@DXGALLOCATIONREFERENCE@@QEAAXXZ.c)
+ *     ?InsertQueueTail@BLTQUEUE@@AEAAXPEAU_LIST_ENTRY@@PEAVBLTENTRY@@W4BltQueueEntryAddReason@1@@Z @ 0x1C03CD3D8 (-InsertQueueTail@BLTQUEUE@@AEAAXPEAU_LIST_ENTRY@@PEAVBLTENTRY@@W4BltQueueEntryAddReason@1@@Z.c)
+ *     ?ReleasePresentDoneEvent@BLTENTRY@@QEAAXE@Z @ 0x1C03CEE38 (-ReleasePresentDoneEvent@BLTENTRY@@QEAAXE@Z.c)
+ *     ?ReleaseRenderingDoneEvent@BLTENTRY@@QEAAXXZ @ 0x1C03CEE84 (-ReleaseRenderingDoneEvent@BLTENTRY@@QEAAXXZ.c)
+ */
+
 void __fastcall BLTQUEUE::DiscardPendingPresent(BLTQUEUE *this)
 {
   struct _KMUTANT *v1; // rbx

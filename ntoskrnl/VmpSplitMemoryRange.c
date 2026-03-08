@@ -1,3 +1,21 @@
+/*
+ * XREFs of VmpSplitMemoryRange @ 0x1405F8CA0
+ * Callers:
+ *     VmSplitMemoryRange @ 0x1409D9CF0 (VmSplitMemoryRange.c)
+ * Callees:
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     VmpProcessContextLockExclusive @ 0x14045E6CE (VmpProcessContextLockExclusive.c)
+ *     VmpProcessContextLockShared @ 0x14045E744 (VmpProcessContextLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpVaRangeNumberOfGpaRanges @ 0x1405F93B8 (VmpVaRangeNumberOfGpaRanges.c)
+ *     VmpAllocateMemoryRanges @ 0x1409DA1C4 (VmpAllocateMemoryRanges.c)
+ *     VmpFreeMemoryRanges @ 0x1409DA3BC (VmpFreeMemoryRanges.c)
+ *     VmpLockMemoryForPin @ 0x1409DA418 (VmpLockMemoryForPin.c)
+ *     VmpUnlockMemoryForPin @ 0x1409DA9F0 (VmpUnlockMemoryForPin.c)
+ */
+
 __int64 __fastcall VmpSplitMemoryRange(PEX_SPIN_LOCK SpinLock, unsigned __int64 a2, __int64 a3)
 {
   unsigned __int64 MemoryRanges; // rbp

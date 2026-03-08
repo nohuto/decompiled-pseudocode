@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpCovSampStackHashTableAlloc @ 0x1409EFF9C
+ * Callers:
+ *     EtwpCovSampCaptureContextStart @ 0x1409EDC1C (EtwpCovSampCaptureContextStart.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpCovSampStackHashTableAlloc(void **a1, int a2)
 {
   unsigned int v3; // ebx

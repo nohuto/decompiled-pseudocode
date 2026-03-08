@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiMapImageForEnclaveUse @ 0x140A3BAD0
+ * Callers:
+ *     MiInitializeVsmEnclave @ 0x140A3B328 (MiInitializeVsmEnclave.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x140A3B820 (MiLoadSectionIntoVsmEnclave.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     MmMapViewOfSectionEx @ 0x1402A5B98 (MmMapViewOfSectionEx.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     MiReferenceControlAreaFile @ 0x140344094 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1403441A0 (MiDereferenceControlAreaFile.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiValidateSectionCreate @ 0x14069F890 (MiValidateSectionCreate.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 NTSTATUS __fastcall MiMapImageForEnclaveUse(void *a1, __int64 a2, KPROCESSOR_MODE a3, int a4, ULONG_PTR *a5)
 {
   NTSTATUS result; // eax

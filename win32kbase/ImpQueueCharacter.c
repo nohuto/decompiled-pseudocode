@@ -1,3 +1,17 @@
+/*
+ * XREFs of ImpQueueCharacter @ 0x1C0274AC8
+ * Callers:
+ *     ImInspectChar @ 0x1C02746E0 (ImInspectChar.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ImpAllocate @ 0x1C0089EE4 (ImpAllocate.c)
+ *     ImpReleaseLock @ 0x1C008A6FC (ImpReleaseLock.c)
+ *     ImpAcquireLock @ 0x1C008A74C (ImpAcquireLock.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C008D2C0 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall ImpQueueCharacter(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int16 v4; // r12

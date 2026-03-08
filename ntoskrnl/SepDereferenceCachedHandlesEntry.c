@@ -1,3 +1,19 @@
+/*
+ * XREFs of SepDereferenceCachedHandlesEntry @ 0x140744278
+ * Callers:
+ *     SepSetTokenBnoIsolation @ 0x140296F14 (SepSetTokenBnoIsolation.c)
+ *     NtSetInformationToken @ 0x140741E70 (NtSetInformationToken.c)
+ *     SepTokenDeleteMethod @ 0x1407C3CB0 (SepTokenDeleteMethod.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     RtlRemoveEntryHashTable @ 0x1402B8170 (RtlRemoveEntryHashTable.c)
+ *     SepCloseCachedTokenHandles @ 0x140300274 (SepCloseCachedTokenHandles.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepDereferenceCachedHandlesEntry(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax

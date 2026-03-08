@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopSessionWinlogonNotification @ 0x14067F97C
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ * Callees:
+ *     PopPrintEx @ 0x1402BDCD4 (PopPrintEx.c)
+ *     PopNotifyConsoleUserPresent @ 0x14073A3BC (PopNotifyConsoleUserPresent.c)
+ *     PopSetPowerSettingValueAcDc @ 0x14073BE70 (PopSetPowerSettingValueAcDc.c)
+ *     PopAcquireAdaptiveLock @ 0x14073CCB4 (PopAcquireAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x14073CD60 (PopReleaseAdaptiveLock.c)
+ *     PopDiagTraceSessionStates @ 0x14079A284 (PopDiagTraceSessionStates.c)
+ */
+
 __int64 __fastcall PopSessionWinlogonNotification(unsigned int a1, __int64 a2)
 {
   char v2; // si

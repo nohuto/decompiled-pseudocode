@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HmgrStacksInit@@YAXXZ @ 0x1C008AD04
+ * Callers:
+ *     HmgCreate @ 0x1C002CDD0 (HmgCreate.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 void HmgrStacksInit(void)
 {
   __int64 v0; // rcx

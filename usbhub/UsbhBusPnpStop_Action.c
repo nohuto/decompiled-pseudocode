@@ -1,3 +1,22 @@
+/*
+ * XREFs of UsbhBusPnpStop_Action @ 0x1C00314EC
+ * Callers:
+ *     Usbh_BS_BusRun @ 0x1C001D160 (Usbh_BS_BusRun.c)
+ *     Usbh_BS_BusPause @ 0x1C001D2E0 (Usbh_BS_BusPause.c)
+ *     Usbh_BS_BusSuspend @ 0x1C001D470 (Usbh_BS_BusSuspend.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhQueryPortState @ 0x1C0016540 (UsbhQueryPortState.c)
+ *     UsbhDisablePortIndicators @ 0x1C002EFC0 (UsbhDisablePortIndicators.c)
+ *     UsbhPCE_Close @ 0x1C0034474 (UsbhPCE_Close.c)
+ *     UsbhPCE_HW_Stop @ 0x1C003476C (UsbhPCE_HW_Stop.c)
+ *     UsbhDecrementHubIsrWorkerReference @ 0x1C003750C (UsbhDecrementHubIsrWorkerReference.c)
+ *     UsbhDisablePort @ 0x1C00377CC (UsbhDisablePort.c)
+ *     Usbh_BusPnpStop_PdoEvent @ 0x1C003AB58 (Usbh_BusPnpStop_PdoEvent.c)
+ *     UsbhFreeTimerObject @ 0x1C003BC10 (UsbhFreeTimerObject.c)
+ */
+
 void __fastcall UsbhBusPnpStop_Action(__int64 a1, __int64 a2)
 {
   _DWORD *v4; // rsi

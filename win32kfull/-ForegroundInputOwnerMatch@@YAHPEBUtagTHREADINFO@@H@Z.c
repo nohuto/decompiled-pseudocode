@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ForegroundInputOwnerMatch@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C0024054
+ * Callers:
+ *     NtUserOpenClipboard @ 0x1C0010250 (NtUserOpenClipboard.c)
+ *     ?InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C0023F94 (-InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z.c)
+ *     NtUserSetClipboardData @ 0x1C01DBC50 (NtUserSetClipboardData.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall ForegroundInputOwnerMatch(const struct tagTHREADINFO *a1, int a2)
 {
   bool result; // al

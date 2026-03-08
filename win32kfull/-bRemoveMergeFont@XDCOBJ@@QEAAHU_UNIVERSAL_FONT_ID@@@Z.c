@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bRemoveMergeFont@XDCOBJ@@QEAAHU_UNIVERSAL_FONT_ID@@@Z @ 0x1C02C2F6C
+ * Callers:
+ *     NtGdiRemoveMergeFont @ 0x1C027B140 (NtGdiRemoveMergeFont.c)
+ * Callees:
+ *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C01181FC (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
+ */
+
 _BOOL8 __fastcall XDCOBJ::bRemoveMergeFont(Gre::Base *a1, __int64 a2)
 {
   BOOL v2; // ebx

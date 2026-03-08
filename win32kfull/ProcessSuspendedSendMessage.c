@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcessSuspendedSendMessage @ 0x1C0015688
+ * Callers:
+ *     xxxInterSendMsgEx @ 0x1C004A280 (xxxInterSendMsgEx.c)
+ * Callees:
+ *     ?ProcessComplexCoalescence@@YAHII_K_JPEA_KPEA_J@Z @ 0x1C000F514 (-ProcessComplexCoalescence@@YAHII_K_JPEA_KPEA_J@Z.c)
+ */
+
 __int64 __fastcall ProcessSuspendedSendMessage(
         __int64 a1,
         __int64 a2,

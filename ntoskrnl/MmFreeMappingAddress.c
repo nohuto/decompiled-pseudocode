@@ -1,3 +1,22 @@
+/*
+ * XREFs of MmFreeMappingAddress @ 0x14086B720
+ * Callers:
+ *     SmFpCleanup @ 0x1403590B8 (SmFpCleanup.c)
+ *     PnprFreeMappingReserve @ 0x140962E7C (PnprFreeMappingReserve.c)
+ *     PnprInitializeMappingReserve @ 0x140963304 (PnprInitializeMappingReserve.c)
+ *     EtwpSavePersistedLogger @ 0x1409EAC60 (EtwpSavePersistedLogger.c)
+ *     HalpDmaAllocateEmergencyResources @ 0x140B61178 (HalpDmaAllocateEmergencyResources.c)
+ *     HalpDmaAllocateMappingResources @ 0x140B6124C (HalpDmaAllocateMappingResources.c)
+ * Callees:
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiRemoveMappingNode @ 0x1403BD598 (MiRemoveMappingNode.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiRemovePteTracker @ 0x14065F020 (MiRemovePteTracker.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 // local variable allocation has failed, the output may be wrong!
 void __stdcall MmFreeMappingAddress(PVOID BaseAddress, ULONG PoolTag)
 {

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIQueryPhysicalDeviceLocation @ 0x1C0081D08
+ * Callers:
+ *     ACPIBusIrpDeviceEnumerated @ 0x1C007E480 (ACPIBusIrpDeviceEnumerated.c)
+ *     ACPIInitialize @ 0x1C00A8F78 (ACPIInitialize.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     ACPIFreePhysicalDeviceLocationDescriptors @ 0x1C0097DF4 (ACPIFreePhysicalDeviceLocationDescriptors.c)
+ *     ACPIProcessPhysicalDeviceLocation @ 0x1C0098134 (ACPIProcessPhysicalDeviceLocation.c)
+ */
+
 __int64 __fastcall ACPIQueryPhysicalDeviceLocation(__int64 a1)
 {
   NTSTATUS v2; // esi

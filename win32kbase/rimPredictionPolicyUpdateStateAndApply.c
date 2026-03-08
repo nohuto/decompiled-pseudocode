@@ -1,3 +1,11 @@
+/*
+ * XREFs of rimPredictionPolicyUpdateStateAndApply @ 0x1C01D93A8
+ * Callers:
+ *     rimApplyPointerDevicePolicies @ 0x1C00F1204 (rimApplyPointerDevicePolicies.c)
+ * Callees:
+ *     ApiSetDoPrediction @ 0x1C023BFD0 (ApiSetDoPrediction.c)
+ */
+
 __int64 __fastcall rimPredictionPolicyUpdateStateAndApply(__int64 a1, __int64 a2, int a3, int a4)
 {
   int v5; // edx

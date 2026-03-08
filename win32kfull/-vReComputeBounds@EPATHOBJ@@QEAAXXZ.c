@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vReComputeBounds@EPATHOBJ@@QEAAXXZ @ 0x1C02F50F8
+ * Callers:
+ *     NtGdiWidenPath @ 0x1C02C4190 (NtGdiWidenPath.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall EPATHOBJ::vReComputeBounds(EPATHOBJ *this)
 {
   __int64 v2; // rcx

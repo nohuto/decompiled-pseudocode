@@ -1,3 +1,14 @@
+/*
+ * XREFs of PnpGetDeviceInstancePropertyData @ 0x1409548E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     RtlLCIDToCultureName @ 0x1409BBD70 (RtlLCIDToCultureName.c)
+ */
+
 __int64 __fastcall PnpGetDeviceInstancePropertyData(
         __int64 a1,
         __int64 a2,

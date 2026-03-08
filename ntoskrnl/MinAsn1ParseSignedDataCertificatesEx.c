@@ -1,3 +1,12 @@
+/*
+ * XREFs of MinAsn1ParseSignedDataCertificatesEx @ 0x140A6D9C8
+ * Callers:
+ *     MinAsn1ExtractParsedCertificatesFromSignedData @ 0x140A6EAD0 (MinAsn1ExtractParsedCertificatesFromSignedData.c)
+ * Callees:
+ *     MinAsn1ParseCertificate @ 0x140A6D7E0 (MinAsn1ParseCertificate.c)
+ *     MinAsn1ExtractContent @ 0x140A6EA28 (MinAsn1ExtractContent.c)
+ */
+
 __int64 MinAsn1ParseSignedDataCertificatesEx(unsigned int *a1, unsigned int *a2, __int64 a3, ...)
 {
   __int64 v3; // rbp

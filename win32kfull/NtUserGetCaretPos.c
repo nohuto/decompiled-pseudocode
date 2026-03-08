@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserGetCaretPos @ 0x1C01D1190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ */
+
 __int64 __fastcall NtUserGetCaretPos(_DWORD *a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rcx

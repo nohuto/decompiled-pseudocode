@@ -1,3 +1,11 @@
+/*
+ * XREFs of CiSchedulerRemoveThread @ 0x1C0002250
+ * Callers:
+ *     CiThreadCleanup @ 0x1C000A4B0 (CiThreadCleanup.c)
+ * Callees:
+ *     CiSystemUpdateThreadTag @ 0x1C0002970 (CiSystemUpdateThreadTag.c)
+ */
+
 void __fastcall CiSchedulerRemoveThread(__int64 a1)
 {
   __int64 v2; // rdx

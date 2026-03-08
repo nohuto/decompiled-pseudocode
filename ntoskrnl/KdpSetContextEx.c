@@ -1,3 +1,13 @@
+/*
+ * XREFs of KdpSetContextEx @ 0x140392008
+ * Callers:
+ *     KdpSendWaitContinue @ 0x140AAD824 (KdpSendWaitContinue.c)
+ * Callees:
+ *     KdpCopyContext @ 0x140AAD658 (KdpCopyContext.c)
+ *     KdpQuickMoveMemory @ 0x140AAE918 (KdpQuickMoveMemory.c)
+ *     KdpSanitizeContextFlags @ 0x140AAE938 (KdpSanitizeContextFlags.c)
+ */
+
 __int64 __fastcall KdpSetContextEx(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rax

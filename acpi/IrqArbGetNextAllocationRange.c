@@ -1,3 +1,18 @@
+/*
+ * XREFs of IrqArbGetNextAllocationRange @ 0x1C009D3B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     LinkNodeCrackPrt @ 0x1C005CE9C (LinkNodeCrackPrt.c)
+ *     WPP_RECORDER_SF_ii @ 0x1C005EB30 (WPP_RECORDER_SF_ii.c)
+ *     PcisuppIsPciDevice @ 0x1C0099F68 (PcisuppIsPciDevice.c)
+ *     IrqArbIrqFromGsiv @ 0x1C009D6BC (IrqArbIrqFromGsiv.c)
+ *     IrqArbpFindBootConfig @ 0x1C009DCEC (IrqArbpFindBootConfig.c)
+ *     IrqArbpFindIrqInAlternatives @ 0x1C009DD80 (IrqArbpFindIrqInAlternatives.c)
+ *     ArbGetNextAllocationRange @ 0x1C00A1A10 (ArbGetNextAllocationRange.c)
+ */
+
 char __fastcall IrqArbGetNextAllocationRange(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rax

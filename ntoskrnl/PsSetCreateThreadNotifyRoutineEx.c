@@ -1,3 +1,12 @@
+/*
+ * XREFs of PsSetCreateThreadNotifyRoutineEx @ 0x1408191D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmVerifyCallbackFunctionCheckFlags @ 0x140388FBC (MmVerifyCallbackFunctionCheckFlags.c)
+ *     PspSetCreateThreadNotifyRoutine @ 0x1408195F4 (PspSetCreateThreadNotifyRoutine.c)
+ */
+
 __int64 __fastcall PsSetCreateThreadNotifyRoutineEx(int a1, unsigned __int64 a2)
 {
   unsigned int v3; // ebx

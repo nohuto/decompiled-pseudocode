@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_AND_TRACE_SF_LHL @ 0x1C01C5980
+ * Callers:
+ *     _DelegateCapturePointers @ 0x1C01C5C88 (_DelegateCapturePointers.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_AND_TRACE_SF_LHL(
         __int64 a1,
         char a2,

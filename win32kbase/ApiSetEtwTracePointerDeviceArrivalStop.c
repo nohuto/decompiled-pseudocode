@@ -1,3 +1,13 @@
+/*
+ * XREFs of ApiSetEtwTracePointerDeviceArrivalStop @ 0x1C0243DC8
+ * Callers:
+ *     RIMAllocateHidDesc @ 0x1C01AC4D4 (RIMAllocateHidDesc.c)
+ *     RIMVirtAllocateHidDesc @ 0x1C01B0738 (RIMVirtAllocateHidDesc.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     EtwTracePointerDeviceArrivalStop @ 0x1C0163C60 (EtwTracePointerDeviceArrivalStop.c)
+ */
+
 NTSTATUS ApiSetEtwTracePointerDeviceArrivalStop()
 {
   PDEVICE_OBJECT v0; // rcx

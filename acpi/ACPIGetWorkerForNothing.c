@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIGetWorkerForNothing @ 0x1C002B780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ */
+
 void __fastcall ACPIGetWorkerForNothing(__int64 a1, int a2, __int64 a3, _DWORD *a4)
 {
   void (__fastcall *v7)(__int64, _QWORD, _QWORD, _QWORD); // rax

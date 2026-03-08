@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMDeleteAllAsyncPnpWorkNotificationItems @ 0x1C0032BB8
+ * Callers:
+ *     RIMUnregisterForInput @ 0x1C00326C0 (RIMUnregisterForInput.c)
+ *     RawInputManagerObjectDelete @ 0x1C00361E4 (RawInputManagerObjectDelete.c)
+ * Callees:
+ *     RIMFreeAsyncPnpWorkItem @ 0x1C003A278 (RIMFreeAsyncPnpWorkItem.c)
+ */
+
 __int64 __fastcall RIMDeleteAllAsyncPnpWorkNotificationItems(__int64 a1)
 {
   _QWORD *v1; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhInsertPdoWakeIrp @ 0x1C00226E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 void __fastcall UsbhInsertPdoWakeIrp(struct _IO_CSQ *Csq, __int64 Irp)
 {
   __int64 v2; // r11

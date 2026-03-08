@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiPageHashBugCheck @ 0x1406645D8
+ * Callers:
+ *     MiWritePageFileHash @ 0x1404670A6 (MiWritePageFileHash.c)
+ *     MiArePagefileContentsCorrupted @ 0x1406633DC (MiArePagefileContentsCorrupted.c)
+ *     MiClearPageFileHash @ 0x1406635B0 (MiClearPageFileHash.c)
+ *     MiUpdatePageFileBlockOwner @ 0x1406646BC (MiUpdatePageFileBlockOwner.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void __fastcall __noreturn MiPageHashBugCheck(
         ULONG_PTR BugCheckParameter1,
         ULONG_PTR BugCheckParameter2,

@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopVerifyPowerActionPolicy @ 0x14082A608
+ * Callers:
+ *     PopVerifySystemPowerPolicy @ 0x14082A334 (PopVerifySystemPowerPolicy.c)
+ *     PopExecutePowerAction @ 0x1409867F4 (PopExecutePowerAction.c)
+ *     PdcPoVerifyActionPolicy @ 0x140994BD0 (PdcPoVerifyActionPolicy.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopFilterCapabilities @ 0x140760774 (PopFilterCapabilities.c)
+ *     PopIsHibernateSupported @ 0x140870C14 (PopIsHibernateSupported.c)
+ *     PopIsHiberbootSupported @ 0x14097DB40 (PopIsHiberbootSupported.c)
+ */
+
 char __fastcall PopVerifyPowerActionPolicy(int *a1)
 {
   char v2; // di

@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmOnlySystemCacheViewsPresent @ 0x1402A3534
+ * Callers:
+ *     CcCoherencyFlushAndPurgeCache @ 0x14029FE90 (CcCoherencyFlushAndPurgeCache.c)
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiLockSectionControlArea @ 0x1403638A8 (MiLockSectionControlArea.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall MmOnlySystemCacheViewsPresent(__int64 a1)
 {
   __int64 v1; // rax

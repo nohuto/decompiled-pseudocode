@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionComputeInjectorUIPI @ 0x1C01AD220
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EditionComputeInjectorUIPI(__int64 a1)
 {
   __int64 v2; // rcx

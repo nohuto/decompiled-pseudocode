@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtOpenTransactionManager @ 0x1403D2590
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // attributes: thunk
 NTSTATUS __stdcall NtOpenTransactionManager(
         PHANDLE TmHandle,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of NVMeLogEtwControllerInfo @ 0x1C000880C
+ * Callers:
+ *     NVMeHwFindAdapter @ 0x1C0007CD0 (NVMeHwFindAdapter.c)
+ *     NVMeHwPassiveInitialize @ 0x1C0008480 (NVMeHwPassiveInitialize.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ *     FillControllerConfiguration @ 0x1C00076B4 (FillControllerConfiguration.c)
+ */
+
 __int64 __fastcall NVMeLogEtwControllerInfo(__int64 a1)
 {
   __int64 result; // rax

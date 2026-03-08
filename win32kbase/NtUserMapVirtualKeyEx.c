@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserMapVirtualKeyEx @ 0x1C00818E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C004FE50 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ *     InternalMapVirtualKeyEx @ 0x1C0081970 (InternalMapVirtualKeyEx.c)
+ *     HKLtoPKL @ 0x1C0081F10 (HKLtoPKL.c)
+ */
+
 __int64 __fastcall NtUserMapVirtualKeyEx(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // ebx

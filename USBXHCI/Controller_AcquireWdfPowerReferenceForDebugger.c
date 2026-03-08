@@ -1,3 +1,13 @@
+/*
+ * XREFs of Controller_AcquireWdfPowerReferenceForDebugger @ 0x1C0032530
+ * Callers:
+ *     Controller_LPEEnterExitCallback @ 0x1C00342C0 (Controller_LPEEnterExitCallback.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qd @ 0x1C00141F4 (WPP_RECORDER_SF_qd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pt_EtwWriteTransfer @ 0x1C003701C (McTemplateK0pt_EtwWriteTransfer.c)
+ */
+
 void __fastcall Controller_AcquireWdfPowerReferenceForDebugger(__int64 a1)
 {
   int v2; // eax

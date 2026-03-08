@@ -1,3 +1,16 @@
+/*
+ * XREFs of WheapExecuteRowFailureCheck @ 0x140A05D80
+ * Callers:
+ *     WheaExecuteRowFailureCheck @ 0x140A05CDC (WheaExecuteRowFailureCheck.c)
+ *     WheapPfaMemoryCheck @ 0x140A06078 (WheapPfaMemoryCheck.c)
+ * Callees:
+ *     WheaLogInternalEvent @ 0x14037D610 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MmGetPageBadStatus @ 0x140629080 (MmGetPageBadStatus.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x140A05140 (WheaAttemptPhysicalPageOffline.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall WheapExecuteRowFailureCheck(unsigned __int64 a1, __int64 a2, char a3, char a4)
 {
   char v5; // r15

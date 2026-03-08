@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?FindBaseFontEntry@@YAPEAU_FLENTRY@@PEBG@Z @ 0x1C0115FA0
+ * Callers:
+ *     vLinkEudcPFEsWorker @ 0x1C0114EE8 (vLinkEudcPFEsWorker.c)
+ *     ?bAddEntry@PFFMEMOBJ@@QEAAHKPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@1PEAU_UNIVERSAL_FONT_ID@@PEAU_EUDCLOAD@@@Z @ 0x1C01155D8 (-bAddEntry@PFFMEMOBJ@@QEAAHKPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@1PEAU_UNIVERSAL_FONT_ID@@PEAU_E.c)
+ *     bDeleteFlEntry @ 0x1C02A1F2C (bDeleteFlEntry.c)
+ *     NtGdiGetEudcTimeStampEx @ 0x1C02A3620 (NtGdiGetEudcTimeStampEx.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _FLENTRY *__fastcall FindBaseFontEntry(wchar_t *Str1)
 {
   _QWORD *v2; // rsi

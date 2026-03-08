@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bFindNextScan@XCLIPOBJ@@IEAAHXZ @ 0x1C02F5B90
+ * Callers:
+ *     ?bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z @ 0x1C02F5534 (-bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z.c)
+ *     ?bSetup@XCLIPOBJ@@IEAAHXZ @ 0x1C02F5D98 (-bSetup@XCLIPOBJ@@IEAAHXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall XCLIPOBJ::bFindNextScan(XCLIPOBJ *this)
 {
   __int64 v1; // r9

@@ -1,3 +1,14 @@
+/*
+ * XREFs of Control_ProcessTransferCompletion @ 0x1C0042704
+ * Callers:
+ *     Control_WdfEvtDpcForTransferCompletion @ 0x1C0042F30 (Control_WdfEvtDpcForTransferCompletion.c)
+ *     Control_WdfEvtWorkItemForTransferCompletion @ 0x1C0043460 (Control_WdfEvtWorkItemForTransferCompletion.c)
+ * Callees:
+ *     Control_Transfer_CompleteCancelable @ 0x1C0006FBC (Control_Transfer_CompleteCancelable.c)
+ *     TR_TransfersReclaimed @ 0x1C000E578 (TR_TransfersReclaimed.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall Control_ProcessTransferCompletion(__int64 a1)
 {
   bool v1; // di

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CCompiledEffectTemplate@@MEAA@XZ @ 0x1800EA964
+ * Callers:
+ *     ??_GCCompiledEffectTemplate@@MEAAPEAXI@Z @ 0x1800EA920 (--_GCCompiledEffectTemplate@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ?SignalCompileCompletedEvent@CCompiledEffectTemplate@@AEAAXXZ @ 0x1800EAAE0 (-SignalCompileCompletedEvent@CCompiledEffectTemplate@@AEAAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CCompiledEffectTemplate::~CCompiledEffectTemplate(CCompiledEffectTemplate *this)
 {
   __int64 v1; // r8

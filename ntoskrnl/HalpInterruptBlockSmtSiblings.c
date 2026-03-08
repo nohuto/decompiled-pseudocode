@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpInterruptBlockSmtSiblings @ 0x140518160
+ * Callers:
+ *     HalpInterruptParseMadt @ 0x140376468 (HalpInterruptParseMadt.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 unsigned __int64 HalpInterruptBlockSmtSiblings()
 {
   int v0; // ebx

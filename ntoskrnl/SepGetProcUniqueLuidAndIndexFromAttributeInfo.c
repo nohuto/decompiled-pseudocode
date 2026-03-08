@@ -1,3 +1,14 @@
+/*
+ * XREFs of SepGetProcUniqueLuidAndIndexFromAttributeInfo @ 0x1402EF4D0
+ * Callers:
+ *     SepGetProcUniqueLuidAndIndexFromTokenEx @ 0x1402EF41C (SepGetProcUniqueLuidAndIndexFromTokenEx.c)
+ *     SepValidateAndCopyGlobalEntry @ 0x1405B710C (SepValidateAndCopyGlobalEntry.c)
+ * Callees:
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1402472F0 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall SepGetProcUniqueLuidAndIndexFromAttributeInfo(__int64 a1, _DWORD *a2, _QWORD *a3)
 {
   int SecurityAttributeAndValues; // r9d

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SetFilterKeys@@YAHPEAUtagFILTERKEYS@@@Z @ 0x1C017B1F4
+ * Callers:
+ *     ?SpiSetFilterKeys@@YAHKPEAXHHPEAH@Z @ 0x1C017B654 (-SpiSetFilterKeys@@YAHKPEAXHHPEAH@Z.c)
+ * Callees:
+ *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00CD374 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     FastWriteProfileValue @ 0x1C015D3A0 (FastWriteProfileValue.c)
+ */
+
 __int64 __fastcall SetFilterKeys(struct tagFILTERKEYS *a1)
 {
   __int64 v2; // rbx

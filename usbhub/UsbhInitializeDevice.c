@@ -1,3 +1,21 @@
+/*
+ * XREFs of UsbhInitializeDevice @ 0x1C0002778
+ * Callers:
+ *     UsbhReset2Complete @ 0x1C0002D00 (UsbhReset2Complete.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhUnlinkPdoDeviceHandle @ 0x1C001BEDC (UsbhUnlinkPdoDeviceHandle.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0023880 (memset.c)
+ *     UsbhWait @ 0x1C002E204 (UsbhWait.c)
+ *     UsbhClearTt @ 0x1C003708C (UsbhClearTt.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhEtwLogHubEventWithExtraData @ 0x1C005B848 (UsbhEtwLogHubEventWithExtraData.c)
+ */
+
 __int64 __fastcall UsbhInitializeDevice(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v6; // rbx

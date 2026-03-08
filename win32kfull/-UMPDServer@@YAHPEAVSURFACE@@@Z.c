@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?UMPDServer@@YAHPEAVSURFACE@@@Z @ 0x1C02C1308
+ * Callers:
+ *     ?bEndDocInternal@@YAHPEAUHDC__@@KG@Z @ 0x1C0279074 (-bEndDocInternal@@YAHPEAUHDC__@@KG@Z.c)
+ * Callees:
+ *     ?vServer@UMPDOBJ@@QEAAXPEAX@Z @ 0x1C029C9B8 (-vServer@UMPDOBJ@@QEAAXPEAX@Z.c)
+ *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C02B9F40 (--0XUMPDOBJ@@QEAA@XZ.c)
+ *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1C02B9FB8 (--1XUMPDOBJ@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall UMPDServer(struct SURFACE *a1)
 {
   UMPDOBJ *v2; // rcx

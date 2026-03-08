@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?__DisplayDriverQueryRoutine@@YAJPEAGKPEAXK11@Z @ 0x1C00CCDA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0062994 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 __int64 __fastcall __DisplayDriverQueryRoutine(unsigned __int16 *a1, __int64 a2, void *a3, unsigned int a4, _QWORD *a5)
 {
   size_t v5; // rbx

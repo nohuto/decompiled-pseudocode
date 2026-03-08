@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CrossedTPTapWarpBackThreshold@CPTPEngine@@AEAAHPEAUCContactState@@UtagPOINT@@@Z @ 0x1C0235604
+ * Callers:
+ *     ?UpdateTPStateIndicator@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUCContactState@@PEAUPTPEnginePointerNode@@PEAH@Z @ 0x1C023ACE0 (-UpdateTPStateIndicator@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUCContactState@@PEAUPTPEnginePointerNo.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall CPTPEngine::CrossedTPTapWarpBackThreshold(
         CPTPEngine *this,
         struct CContactState *a2,

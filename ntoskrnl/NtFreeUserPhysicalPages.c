@@ -1,3 +1,32 @@
+/*
+ * XREFs of NtFreeUserPhysicalPages @ 0x140A3F6B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoAllocateMdl @ 0x14020CAD0 (IoAllocateMdl.c)
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MiFreePagesFromMdl @ 0x1402C0DD0 (MiFreePagesFromMdl.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     MiGetProcessPartition @ 0x14031F9D4 (MiGetProcessPartition.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14034C380 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14034CA58 (LOCK_ADDRESS_SPACE.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiFreePhysicalPageChain @ 0x140647BC4 (MiFreePhysicalPageChain.c)
+ *     MiFreePhysicalPages @ 0x140647F94 (MiFreePhysicalPages.c)
+ *     MiGetAweInfoPartition @ 0x1406482AC (MiGetAweInfoPartition.c)
+ *     MiGetAwePageSize @ 0x14064836C (MiGetAwePageSize.c)
+ *     MiPreparePhysicalPagesMdlForFree @ 0x140648B3C (MiPreparePhysicalPagesMdlForFree.c)
+ *     MiReferenceAweHandle @ 0x14064976C (MiReferenceAweHandle.c)
+ *     MiReturnProcessCommitment @ 0x140654090 (MiReturnProcessCommitment.c)
+ *     MiReturnCrossPartitionCharges @ 0x140658D80 (MiReturnCrossPartitionCharges.c)
+ *     MiCaptureUlongPtrArray @ 0x140A3E714 (MiCaptureUlongPtrArray.c)
+ */
+
 NTSTATUS __fastcall NtFreeUserPhysicalPages(HANDLE Handle, unsigned __int64 *a2, void *a3)
 {
   unsigned __int64 *v3; // r12

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsReadyToDraw@CClipBrush@@UEBA_NPEAVCDrawingContext@@PEA_N@Z @ 0x18021E270
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 bool __fastcall CClipBrush::IsReadyToDraw(CClipBrush *this, struct CDrawingContext *a2, bool *a3)
 {
   __int64 v3; // rcx

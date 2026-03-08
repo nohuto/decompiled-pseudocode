@@ -1,3 +1,15 @@
+/*
+ * XREFs of Register_Create @ 0x1C006FE40
+ * Callers:
+ *     Controller_WdfEvtDeviceAdd @ 0x1C006FA60 (Controller_WdfEvtDeviceAdd.c)
+ * Callees:
+ *     Controller_IsSecureDevice @ 0x1C000B0F8 (Controller_IsSecureDevice.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Register_CreateSecureObject @ 0x1C007A1F8 (Register_CreateSecureObject.c)
+ */
+
 __int64 __fastcall Register_Create(__int64 a1, _QWORD *a2)
 {
   int v4; // eax

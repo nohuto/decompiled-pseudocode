@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?QueryDockedOrientationRegistrySetting@CLegacyRotationMgr@@AEAAJPEAK0@Z @ 0x1C01A8304
+ * Callers:
+ *     ?GetDockedOrientationValue@CLegacyRotationMgr@@AEAAKPEAK@Z @ 0x1C01A8028 (-GetDockedOrientationValue@CLegacyRotationMgr@@AEAAKPEAK@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall CLegacyRotationMgr::QueryDockedOrientationRegistrySetting(
         CLegacyRotationMgr *this,
         unsigned int *a2,

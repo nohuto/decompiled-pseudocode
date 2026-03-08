@@ -1,3 +1,11 @@
+/*
+ * XREFs of DrvCloseRemoteGraphicsDevices @ 0x1C0126250
+ * Callers:
+ *     xxxRemoteReconnect @ 0x1C01267DC (xxxRemoteReconnect.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 struct Gre::Base::SESSION_GLOBALS *DrvCloseRemoteGraphicsDevices()
 {
   Gre::Base *v0; // rcx

@@ -1,3 +1,19 @@
+/*
+ * XREFs of StringCbLengthW @ 0x14035ACC4
+ * Callers:
+ *     sub_1406DF1C0 @ 0x1406DF1C0 (sub_1406DF1C0.c)
+ *     SPCallServerHandleGetAppPolicyValue @ 0x1407883F0 (SPCallServerHandleGetAppPolicyValue.c)
+ *     SPCallServerHandleIsAppLicensed @ 0x1407DE5E8 (SPCallServerHandleIsAppLicensed.c)
+ *     PfVerifyScenarioBuffer @ 0x1407E0090 (PfVerifyScenarioBuffer.c)
+ *     sub_140A48FC0 @ 0x140A48FC0 (sub_140A48FC0.c)
+ *     sub_140A49374 @ 0x140A49374 (sub_140A49374.c)
+ *     sub_140A49D04 @ 0x140A49D04 (sub_140A49D04.c)
+ *     sub_140A4A29C @ 0x140A4A29C (sub_140A4A29C.c)
+ *     sub_140A4A6B8 @ 0x140A4A6B8 (sub_140A4A6B8.c)
+ * Callees:
+ *     <none>
+ */
+
 HRESULT __stdcall StringCbLengthW(STRSAFE_PCNZWCH psz, size_t cbMax, size_t *pcbLength)
 {
   size_t v3; // rdx

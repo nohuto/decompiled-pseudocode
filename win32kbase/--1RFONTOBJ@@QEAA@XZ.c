@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1RFONTOBJ@@QEAA@XZ @ 0x1C005A234
+ * Callers:
+ *     ?vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z @ 0x1C00292E0 (-vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ?vReleaseCache@RFONTOBJ@@QEAAXXZ @ 0x1C017F900 (-vReleaseCache@RFONTOBJ@@QEAAXXZ.c)
+ */
+
 void __fastcall RFONTOBJ::~RFONTOBJ(RFONTOBJ *this)
 {
   if ( *(_QWORD *)this )

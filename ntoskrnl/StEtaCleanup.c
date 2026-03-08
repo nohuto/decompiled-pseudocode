@@ -1,3 +1,12 @@
+/*
+ * XREFs of StEtaCleanup @ 0x1402E7424
+ * Callers:
+ *     ?StCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1402E6DD8 (-StCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmcCacheCleanup @ 0x1409D7CF4 (SmcCacheCleanup.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall StEtaCleanup(__int64 a1)
 {
   PVOID *v1; // rbx

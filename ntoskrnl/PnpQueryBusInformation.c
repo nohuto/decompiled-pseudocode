@@ -1,3 +1,14 @@
+/*
+ * XREFs of PnpQueryBusInformation @ 0x14078CB9C
+ * Callers:
+ *     PiProcessNewDeviceNode @ 0x140685858 (PiProcessNewDeviceNode.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopSynchronousCall @ 0x14069DD78 (IopSynchronousCall.c)
+ *     PnpBusTypeGuidGetIndex @ 0x14078CC74 (PnpBusTypeGuidGetIndex.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpQueryBusInformation(__int64 a1)
 {
   _QWORD *v2; // rcx

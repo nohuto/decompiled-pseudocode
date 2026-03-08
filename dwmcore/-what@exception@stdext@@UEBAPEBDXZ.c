@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?what@exception@stdext@@UEBAPEBDXZ @ 0x1801A39C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 const char *__fastcall stdext::exception::what(stdext::exception *this)
 {
   const char *result; // rax

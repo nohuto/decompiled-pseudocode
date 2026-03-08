@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIThermalCompletePendingIrps @ 0x1C00400B0
+ * Callers:
+ *     ACPIThermalLoopEx @ 0x1C00410F0 (ACPIThermalLoopEx.c)
+ *     ACPIThermalStopZoneWorker @ 0x1C0041F9C (ACPIThermalStopZoneWorker.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     WPP_RECORDER_SF_qqssdddd @ 0x1C00433B0 (WPP_RECORDER_SF_qqssdddd.c)
+ */
+
 char __fastcall ACPIThermalCompletePendingIrps(__int64 a1)
 {
   __int64 v1; // r15

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NormBuffer__RewindOutputCharacter @ 0x1405AE678
+ * Callers:
+ *     Normalization__NormalizeCharacter @ 0x1409BE3B8 (Normalization__NormalizeCharacter.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NormBuffer__RewindOutputCharacter(__int64 a1)
 {
   __int64 v1; // r8

@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhPdoPnp_DeviceEnumerated @ 0x1C0054DA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhEnableTimerObject @ 0x1C0008770 (UsbhEnableTimerObject.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     UsbhSetSqmEnumerationData @ 0x1C0046EC8 (UsbhSetSqmEnumerationData.c)
+ *     UsbhPublishBillboardDetails @ 0x1C005717C (UsbhPublishBillboardDetails.c)
+ *     UsbhPublishDualRoleFeaturesProperty @ 0x1C005738C (UsbhPublishDualRoleFeaturesProperty.c)
+ *     UsbhQueryD3ColdSupport @ 0x1C0057418 (UsbhQueryD3ColdSupport.c)
+ */
+
 __int64 __fastcall UsbhPdoPnp_DeviceEnumerated(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 {
   _DWORD *v4; // rdi

@@ -1,3 +1,31 @@
+/*
+ * XREFs of MiDeleteKernelShadowStack @ 0x140641FD4
+ * Callers:
+ *     MiDeleteCachedKernelShadowStack @ 0x140641F64 (MiDeleteCachedKernelShadowStack.c)
+ *     MmCreateKernelShadowStack @ 0x140642B98 (MmCreateKernelShadowStack.c)
+ *     MmDeleteKernelShadowStack @ 0x140643030 (MmDeleteKernelShadowStack.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x14026A0D0 (MiLockPageTableInternal.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiSetPfnIdentity @ 0x14034BE78 (MiSetPfnIdentity.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiValidateKernelShadowStackPage @ 0x140642B48 (MiValidateKernelShadowStackPage.c)
+ *     VslFreeKernelShadowStack @ 0x14093F348 (VslFreeKernelShadowStack.c)
+ */
+
 unsigned __int64 __fastcall MiDeleteKernelShadowStack(__int64 *a1, int a2, __int64 a3)
 {
   unsigned __int64 v3; // r14

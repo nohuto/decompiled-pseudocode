@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?DelegateCapturePointersMitOn@@YAHIPEAI0@Z @ 0x1C01CCF38
+ * Callers:
+ *     NtUserDelegateCapturePointers @ 0x1C0147580 (NtUserDelegateCapturePointers.c)
+ * Callees:
+ *     ??0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C0014940 (--0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     ??1CInpLockGuardExclusive@@QEAA@XZ @ 0x1C0014984 (--1CInpLockGuardExclusive@@QEAA@XZ.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     ValidateDelegatePointerList @ 0x1C01C5618 (ValidateDelegatePointerList.c)
+ *     _DelegateCapturePointers @ 0x1C01C5C88 (_DelegateCapturePointers.c)
+ */
+
 __int64 __fastcall DelegateCapturePointersMitOn(unsigned int a1, unsigned int *a2, unsigned int *a3)
 {
   __int64 v5; // r12

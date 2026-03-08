@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_IFR_SF_dddddd @ 0x1C005F758
+ * Callers:
+ *     ?CreateSettings@FxUsbInterface@@QEAAJXZ @ 0x1C005EB4C (-CreateSettings@FxUsbInterface@@QEAAJXZ.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_dddddd(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 _a1,

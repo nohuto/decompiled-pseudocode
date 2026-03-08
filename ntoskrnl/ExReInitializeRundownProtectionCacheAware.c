@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExReInitializeRundownProtectionCacheAware @ 0x14028E180
+ * Callers:
+ *     EtwpFreeLoggerContext @ 0x1406F29FC (EtwpFreeLoggerContext.c)
+ * Callees:
+ *     ExRundownCompletedCacheAware @ 0x14028E1D0 (ExRundownCompletedCacheAware.c)
+ */
+
 void __stdcall ExReInitializeRundownProtectionCacheAware(PEX_RUNDOWN_REF_CACHE_AWARE RunRefCacheAware)
 {
   unsigned int Number; // ecx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionStopSonar @ 0x1C0145650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     StopFade @ 0x1C01BDEF0 (StopFade.c)
+ */
+
 void *EditionStopSonar()
 {
   void *result; // rax

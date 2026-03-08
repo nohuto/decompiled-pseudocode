@@ -1,3 +1,14 @@
+/*
+ * XREFs of DpiDxgkDdiQueryInterface @ 0x1C01F667C
+ * Callers:
+ *     DpiPdoDispatchPnp @ 0x1C01D5FF0 (DpiPdoDispatchPnp.c)
+ *     DpiQueryMiniportInterface @ 0x1C01F65F4 (DpiQueryMiniportInterface.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pjq_EtwWriteTransfer @ 0x1C0065B6C (McTemplateK0pjq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiDxgkDdiQueryInterface(__int64 a1, __int64 a2, __int128 **a3)
 {
   __int128 *v6; // rax

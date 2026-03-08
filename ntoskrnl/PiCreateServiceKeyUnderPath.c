@@ -1,3 +1,21 @@
+/*
+ * XREFs of PiCreateServiceKeyUnderPath @ 0x140952CC8
+ * Callers:
+ *     PiCreateDriverRedirectedStateKey @ 0x14086F37C (PiCreateDriverRedirectedStateKey.c)
+ *     PiCreateUniqueServiceStateKey @ 0x140952F14 (PiCreateUniqueServiceStateKey.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintfEx @ 0x1403C1A7C (RtlUnicodeStringPrintfEx.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     IopAllocateUnicodeString @ 0x140683958 (IopAllocateUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PiCreateRegistryPath @ 0x140952A34 (PiCreateRegistryPath.c)
+ *     PiAuGetServiceStateSecurityObject @ 0x1409589E4 (PiAuGetServiceStateSecurityObject.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiCreateServiceKeyUnderPath(
         UNICODE_STRING *CreateOptions,
         UNICODE_STRING *SourceString,

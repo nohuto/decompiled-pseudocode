@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CommitRecordedStatistics@CFlipExSwapchainStatistics@@UEAAJXZ @ 0x18001F670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CFlipExSwapchainStatistics::CommitRecordedStatistics(CFlipExSwapchainStatistics *this)
 {
   unsigned int v1; // edi

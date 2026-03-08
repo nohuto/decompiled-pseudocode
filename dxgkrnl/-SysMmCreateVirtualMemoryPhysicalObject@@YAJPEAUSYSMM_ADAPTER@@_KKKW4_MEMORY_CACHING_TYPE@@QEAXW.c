@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SysMmCreateVirtualMemoryPhysicalObject@@YAJPEAUSYSMM_ADAPTER@@_KKKW4_MEMORY_CACHING_TYPE@@QEAXW4SYSMM_PHYSICAL_OBJECT_OWNER@@PEAPEAUSYSMM_PHYSICAL_OBJECT@@PEAPEAUSYSMM_ADAPTER_OBJECT@@@Z @ 0x1C03D2318
+ * Callers:
+ *     SysMmTestCreateVirtualMemoryPhysicalObject @ 0x1C0071900 (SysMmTestCreateVirtualMemoryPhysicalObject.c)
+ * Callees:
+ *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C0009B30 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
+ *     SmmCreatePhysicalObject @ 0x1C00130BC (SmmCreatePhysicalObject.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall SysMmCreateVirtualMemoryPhysicalObject(
         struct SYSMM_ADAPTER *a1,
         __int64 a2,

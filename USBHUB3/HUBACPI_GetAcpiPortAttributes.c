@@ -1,3 +1,20 @@
+/*
+ * XREFs of HUBACPI_GetAcpiPortAttributes @ 0x1C008ADA8
+ * Callers:
+ *     HUBFDO_EvtDevicePrepareHardware @ 0x1C0078890 (HUBFDO_EvtDevicePrepareHardware.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000CE90 (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBACPI_EvaluateDsmMethod @ 0x1C0089C6C (HUBACPI_EvaluateDsmMethod.c)
+ *     HUBACPI_EvalAcpiMethodEx @ 0x1C008A174 (HUBACPI_EvalAcpiMethodEx.c)
+ *     HUBACPI_EvaluateDSD @ 0x1C008A5B8 (HUBACPI_EvaluateDSD.c)
+ *     HUBACPI_EnumChildren @ 0x1C008A990 (HUBACPI_EnumChildren.c)
+ *     TUNNEL_RegisterUsb4HostForPort @ 0x1C008D404 (TUNNEL_RegisterUsb4HostForPort.c)
+ */
+
 __int64 __fastcall HUBACPI_GetAcpiPortAttributes(__int64 a1)
 {
   unsigned int v1; // ebx

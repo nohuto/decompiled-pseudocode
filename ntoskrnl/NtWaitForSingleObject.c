@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtWaitForSingleObject @ 0x1407CFE90
+ * Callers:
+ *     SepRmCallLsa @ 0x1402E8690 (SepRmCallLsa.c)
+ *     PfSnPrefetchFileMetadata @ 0x140789C64 (PfSnPrefetchFileMetadata.c)
+ *     NtCopyFileChunk @ 0x1407DEE00 (NtCopyFileChunk.c)
+ * Callees:
+ *     ObWaitForSingleObject @ 0x1407CFF10 (ObWaitForSingleObject.c)
+ */
+
 __int64 __fastcall NtWaitForSingleObject(int a1, unsigned __int8 a2, unsigned __int64 a3)
 {
   int v3; // r9d

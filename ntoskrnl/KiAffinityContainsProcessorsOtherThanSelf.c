@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiAffinityContainsProcessorsOtherThanSelf @ 0x1402E2150
+ * Callers:
+ *     KiPreprocessFlushTb @ 0x140212038 (KiPreprocessFlushTb.c)
+ *     KiIpiSendRequestEx @ 0x14021238C (KiIpiSendRequestEx.c)
+ *     KiEnterLongDpcProcessing @ 0x140254490 (KiEnterLongDpcProcessing.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiAffinityContainsProcessorsOtherThanSelf(__int64 a1, _WORD *a2)
 {
   unsigned __int16 v3; // r8

@@ -1,3 +1,14 @@
+/*
+ * XREFs of AlpcpReleaseMessageAttributesOnCancel @ 0x140717C30
+ * Callers:
+ *     AlpcpCancelMessage @ 0x1407141F0 (AlpcpCancelMessage.c)
+ *     AlpcpCancelMessagesByRequestor @ 0x1407172DC (AlpcpCancelMessagesByRequestor.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071550C (AlpcpDereferenceBlobEx.c)
+ *     AlpcpReleaseViewAttribute @ 0x14078CD78 (AlpcpReleaseViewAttribute.c)
+ */
+
 __int64 __fastcall AlpcpReleaseMessageAttributesOnCancel(__int64 a1)
 {
   ULONG_PTR v2; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlIpv4AddressToStringW @ 0x1403B97E0
+ * Callers:
+ *     RtlIpv4AddressToStringExW @ 0x1403B9710 (RtlIpv4AddressToStringExW.c)
+ *     AdtpBuildIPv4Strings @ 0x140A57A18 (AdtpBuildIPv4Strings.c)
+ * Callees:
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ */
+
 PWSTR __stdcall RtlIpv4AddressToStringW(const struct in_addr *Addr, PWSTR S)
 {
   int s_b2; // [rsp+20h] [rbp-28h]

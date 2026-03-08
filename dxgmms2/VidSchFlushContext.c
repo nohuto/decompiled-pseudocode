@@ -1,3 +1,17 @@
+/*
+ * XREFs of VidSchFlushContext @ 0x1C00AB850
+ * Callers:
+ *     VidSchTerminateContext @ 0x1C00A8F80 (VidSchTerminateContext.c)
+ * Callees:
+ *     VidSchiInterlockedReadUlong @ 0x1C00126BC (VidSchiInterlockedReadUlong.c)
+ *     ??$VidSchRundownUnorderedWaiter@U_VIDSCH_CONTEXT@@@@YAJPEAU_VIDSCH_CONTEXT@@PEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_STAGE@@_NP6AXPEAVHwQueueStagingList@@0@Z@Z @ 0x1C00127D0 (--$VidSchRundownUnorderedWaiter@U_VIDSCH_CONTEXT@@@@YAJPEAU_VIDSCH_CONTEXT@@PEAU_VIDSCH_GLOBAL@@.c)
+ *     VidSchiCancelDelayTimerContext @ 0x1C0012824 (VidSchiCancelDelayTimerContext.c)
+ *     VidSchiCleanupDeferredWaiterContext @ 0x1C0012910 (VidSchiCleanupDeferredWaiterContext.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     VidSchiWaitFlushCompletion @ 0x1C00ADCEC (VidSchiWaitFlushCompletion.c)
+ */
+
 __int64 __fastcall VidSchFlushContext(__int64 a1, int *a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rdi

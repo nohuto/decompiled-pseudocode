@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpAcquireCmosSpinLockAndWait @ 0x1402D19D8
+ * Callers:
+ *     HalpReadCmosTime @ 0x1402D181C (HalpReadCmosTime.c)
+ *     HalpSetWakeAlarm @ 0x140508C04 (HalpSetWakeAlarm.c)
+ *     HalpWriteCmosTime @ 0x1405133BC (HalpWriteCmosTime.c)
+ * Callees:
+ *     HalpAcquireCmosSpinLock @ 0x1402D1A0C (HalpAcquireCmosSpinLock.c)
+ */
+
 char HalpAcquireCmosSpinLockAndWait()
 {
   int v0; // ebx

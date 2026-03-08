@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspSyscallProviderServiceDispatchGeneric @ 0x1409B20D8
+ * Callers:
+ *     PsSyscallProviderDispatch @ 0x1409B1700 (PsSyscallProviderDispatch.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PspCaptureSystemServiceInMemoryArgs @ 0x1409B19D0 (PspCaptureSystemServiceInMemoryArgs.c)
+ */
+
 __int64 __fastcall PspSyscallProviderServiceDispatchGeneric(
         _QWORD *a1,
         __int64 (__fastcall *a2)(__int64, _QWORD, _QWORD *, _QWORD *),

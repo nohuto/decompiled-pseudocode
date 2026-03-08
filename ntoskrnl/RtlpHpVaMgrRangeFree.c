@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpHpVaMgrRangeFree @ 0x14030C074
+ * Callers:
+ *     RtlpHpVaMgrCtxFree @ 0x14030BD10 (RtlpHpVaMgrCtxFree.c)
+ * Callees:
+ *     RtlpHpEnvFreeVA @ 0x14020DD14 (RtlpHpEnvFreeVA.c)
+ *     RtlpHpVaMgrRangeCleanup @ 0x14030BF1C (RtlpHpVaMgrRangeCleanup.c)
+ */
+
 __int64 __fastcall RtlpHpVaMgrRangeFree(__int64 a1, __int64 a2)
 {
   bool v2; // zf

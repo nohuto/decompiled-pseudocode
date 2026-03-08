@@ -1,3 +1,12 @@
+/*
+ * XREFs of IsHypervisorLpiCapable @ 0x1C003DA5C
+ * Callers:
+ *     AcpiRootIsFeatureSupported @ 0x1C003D920 (AcpiRootIsFeatureSupported.c)
+ *     ACPIRootInitialize @ 0x1C0093768 (ACPIRootInitialize.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ */
+
 bool IsHypervisorLpiCapable()
 {
   char v0; // cl

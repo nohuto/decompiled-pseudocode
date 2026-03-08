@@ -1,3 +1,28 @@
+/*
+ * XREFs of MmFlushVirtualMemory @ 0x14075ED38
+ * Callers:
+ *     NtFlushVirtualMemory @ 0x14075EBB0 (NtFlushVirtualMemory.c)
+ *     CMFFlushHitsFile @ 0x1409FF53C (CMFFlushHitsFile.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     MiFindLastSubsection @ 0x1402A5010 (MiFindLastSubsection.c)
+ *     MiFlushAcquire @ 0x1402D4788 (MiFlushAcquire.c)
+ *     MiFlushDirtyBitsToPfn @ 0x1402D4830 (MiFlushDirtyBitsToPfn.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     MiGetProtoPteAddress @ 0x14031C780 (MiGetProtoPteAddress.c)
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14031F7B0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiFlushSectionInternal @ 0x14031FA90 (MiFlushSectionInternal.c)
+ *     MiFlushRelease @ 0x140334AC0 (MiFlushRelease.c)
+ *     MiReferenceControlAreaFile @ 0x140344094 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1403441A0 (MiDereferenceControlAreaFile.c)
+ *     KeAreAllApcsDisabled @ 0x14034C170 (KeAreAllApcsDisabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x14075EFA8 (FsRtlAcquireFileForCcFlushEx.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x14075F248 (FsRtlReleaseFileForCcFlush.c)
+ */
+
 __int64 __fastcall MmFlushVirtualMemory(_KPROCESS *a1, unsigned __int64 *a2, _QWORD *a3, struct _IO_STATUS_BLOCK *a4)
 {
   unsigned __int64 v4; // r12

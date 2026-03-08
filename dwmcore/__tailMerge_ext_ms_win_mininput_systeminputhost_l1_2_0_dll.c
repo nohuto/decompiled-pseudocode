@@ -1,3 +1,11 @@
+/*
+ * XREFs of __tailMerge_ext_ms_win_mininput_systeminputhost_l1_2_0_dll @ 0x18011018E
+ * Callers:
+ *     __imp_load_CreateSystemInputHost @ 0x180110182 (__imp_load_CreateSystemInputHost.c)
+ * Callees:
+ *     __delayLoadHelper2 @ 0x180100EB0 (__delayLoadHelper2.c)
+ */
+
 __int64 __fastcall _tailMerge_ext_ms_win_mininput_systeminputhost_l1_2_0_dll(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,16 @@
+/*
+ * XREFs of BgpGxFillRectangle @ 0x1403842E4
+ * Callers:
+ *     BgpTxtDisplayCharacter @ 0x140381538 (BgpTxtDisplayCharacter.c)
+ *     RaspAntiAlias @ 0x140384090 (RaspAntiAlias.c)
+ *     BgpClearScreen @ 0x14066F510 (BgpClearScreen.c)
+ *     BgpTxtAdjustStaticRegion @ 0x14066FA50 (BgpTxtAdjustStaticRegion.c)
+ *     BgpTxtCreateRegion @ 0x140AEB2AC (BgpTxtCreateRegion.c)
+ *     BgpTxtDisplayString @ 0x140AEF7A0 (BgpTxtDisplayString.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall BgpGxFillRectangle(__int64 a1, unsigned int a2)
 {
   unsigned __int64 result; // rax

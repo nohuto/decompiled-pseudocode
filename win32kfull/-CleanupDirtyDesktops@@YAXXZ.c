@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CleanupDirtyDesktops@@YAXXZ @ 0x1C01BF744
+ * Callers:
+ *     xxxCreateDesktopEx @ 0x1C00C03D4 (xxxCreateDesktopEx.c)
+ * Callees:
+ *     <none>
+ */
+
 void CleanupDirtyDesktops(void)
 {
   __int64 i; // rbx

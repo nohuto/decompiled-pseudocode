@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPresentCount@CLegacyRemotingSwapChain@@UEBAIXZ @ 0x18010A820
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CLegacyRemotingSwapChain::GetPresentCount(CLegacyRemotingSwapChain *this)
 {
   int v1; // eax

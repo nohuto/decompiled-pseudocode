@@ -1,3 +1,20 @@
+/*
+ * XREFs of KiActivateWaiterQueueWithNoLocks @ 0x1403548F8
+ * Callers:
+ *     KiCommitThreadWait @ 0x140261290 (KiCommitThreadWait.c)
+ *     KiSwitchPriQueue @ 0x1402FBDD4 (KiSwitchPriQueue.c)
+ *     KeTerminateThread @ 0x140353168 (KeTerminateThread.c)
+ *     KiSwitchQueue @ 0x1403555E0 (KiSwitchQueue.c)
+ *     KiPriQueueThreadPriorityChanged @ 0x1403578B0 (KiPriQueueThreadPriorityChanged.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiActivateWaiterKQueue @ 0x140354A10 (KiActivateWaiterKQueue.c)
+ *     KiActivateWaiterPriQueue @ 0x140354BF4 (KiActivateWaiterPriQueue.c)
+ */
+
 void __fastcall KiActivateWaiterQueueWithNoLocks(__int64 a1, unsigned __int64 a2, _QWORD *a3)
 {
   volatile LONG *v5; // rbp

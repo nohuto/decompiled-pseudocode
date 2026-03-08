@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlDecompressBuffer2Xp10 @ 0x1409C0EF0
+ * Callers:
+ *     RtlDecompressBufferXp10 @ 0x1409C1120 (RtlDecompressBufferXp10.c)
+ * Callees:
+ *     Xp10ExecuteHuffmanDecode @ 0x1409C2EF0 (Xp10ExecuteHuffmanDecode.c)
+ *     Xp10ReadAndValidateCrc @ 0x1409C4EC0 (Xp10ReadAndValidateCrc.c)
+ *     Xp10ReadMtfHeader @ 0x1409C4F98 (Xp10ReadMtfHeader.c)
+ *     Xp10ScatteredCopyBits @ 0x1409C52B8 (Xp10ScatteredCopyBits.c)
+ *     Xp10ScatteredReadBytes @ 0x1409C5568 (Xp10ScatteredReadBytes.c)
+ *     Xp10ValidateFrameHeaderAndFillParameters @ 0x1409C566C (Xp10ValidateFrameHeaderAndFillParameters.c)
+ */
+
 __int64 __fastcall RtlDecompressBuffer2Xp10(
         _QWORD *a1,
         __int64 a2,

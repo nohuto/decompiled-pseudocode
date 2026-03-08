@@ -1,3 +1,41 @@
+/*
+ * XREFs of DpiPowerArbiterThread @ 0x1C0210150
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00045F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     DpiScheduleDelayedDevicePowerRequiredAtPassiveLevel @ 0x1C0007720 (DpiScheduleDelayedDevicePowerRequiredAtPassiveLevel.c)
+ *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C0007980 (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     DpiSetDevicePowerTransitionStateAtPassiveLevel @ 0x1C001A42C (DpiSetDevicePowerTransitionStateAtPassiveLevel.c)
+ *     ?DpiStartSuspendingAdapter@@YAEPEAU_FDO_CONTEXT@@@Z @ 0x1C001AA78 (-DpiStartSuspendingAdapter@@YAEPEAU_FDO_CONTEXT@@@Z.c)
+ *     ?DpiFinishSuspendAdapter@@YAXPEAU_FDO_CONTEXT@@@Z @ 0x1C001AAEC (-DpiFinishSuspendAdapter@@YAXPEAU_FDO_CONTEXT@@@Z.c)
+ *     ?DpiGetPowerActionQueueEntry@@YAPEAU_LIST_ENTRY@@PEAU_FDO_CONTEXT@@@Z @ 0x1C001B34C (-DpiGetPowerActionQueueEntry@@YAPEAU_LIST_ENTRY@@PEAU_FDO_CONTEXT@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseAllVidPnSourceOwners@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C0166DF0 (-ReleaseAllVidPnSourceOwners@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z.c)
+ *     DxgkShutdownBootGraphics @ 0x1C0178460 (DxgkShutdownBootGraphics.c)
+ *     ?FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z @ 0x1C0180040 (-FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z.c)
+ *     DxgkAcquireAdapterCoreSync @ 0x1C01801F4 (DxgkAcquireAdapterCoreSync.c)
+ *     DxgkReleaseAdapterCoreSync @ 0x1C0180708 (DxgkReleaseAdapterCoreSync.c)
+ *     DpiIsPowerRuntimeDStateTransition @ 0x1C0180CF0 (DpiIsPowerRuntimeDStateTransition.c)
+ *     ?ApplyCoreSyncAction@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_ACTION@@@Z @ 0x1C01E07B0 (-ApplyCoreSyncAction@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_ACTION@@@Z.c)
+ *     ?DisablePinnedHardware@ADAPTER_RENDER@@QEAAXXZ @ 0x1C01E0D54 (-DisablePinnedHardware@ADAPTER_RENDER@@QEAAXXZ.c)
+ *     ?PurgeSegments@ADAPTER_RENDER@@AEAAXU_VIDMM_PURGE_FLAGS@@PEAVDXGPROCESS@@@Z @ 0x1C01E0FC0 (-PurgeSegments@ADAPTER_RENDER@@AEAAXU_VIDMM_PURGE_FLAGS@@PEAVDXGPROCESS@@@Z.c)
+ *     ?StopDeadlockTrackers@DXGADAPTER@@QEAAXXZ @ 0x1C01E1084 (-StopDeadlockTrackers@DXGADAPTER@@QEAAXXZ.c)
+ *     ?DmmAdapterPowerChange@@YAJQEAXE@Z @ 0x1C01E4220 (-DmmAdapterPowerChange@@YAJQEAXE@Z.c)
+ *     ?DmmResetModeState@@YAJQEAXK@Z @ 0x1C01E47B0 (-DmmResetModeState@@YAJQEAXK@Z.c)
+ *     MonitorAdapterPowerChange @ 0x1C01E4828 (MonitorAdapterPowerChange.c)
+ *     DxgkIsAdapterCoreSyncAcquired @ 0x1C01E5204 (DxgkIsAdapterCoreSyncAcquired.c)
+ *     ?PrepareToRemove@DXGADAPTER@@QEAAXXZ @ 0x1C02B3D8C (-PrepareToRemove@DXGADAPTER@@QEAAXXZ.c)
+ *     ?Stop@DXGADAPTER@@QEAAXEE@Z @ 0x1C02B5558 (-Stop@DXGADAPTER@@QEAAXEE@Z.c)
+ *     DxgkResumeMemorySegments @ 0x1C02BE454 (DxgkResumeMemorySegments.c)
+ *     DxgkSuspendMemorySegments @ 0x1C02BE73C (DxgkSuspendMemorySegments.c)
+ *     ?TdrResetFromTimeoutWorkItem@@YAXPEAX@Z @ 0x1C030A8A0 (-TdrResetFromTimeoutWorkItem@@YAXPEAX@Z.c)
+ *     ?NotifyAdapterRemoval@DXGGLOBAL@@QEAAXXZ @ 0x1C030E948 (-NotifyAdapterRemoval@DXGGLOBAL@@QEAAXXZ.c)
+ *     DxgkNotifySharedPowerGraphicsPowerTransition @ 0x1C03112F4 (DxgkNotifySharedPowerGraphicsPowerTransition.c)
+ */
+
 void __fastcall DpiPowerArbiterThread(_QWORD *StartContext)
 {
   __int64 v1; // rdi

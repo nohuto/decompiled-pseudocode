@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetQuaternionValue@DataSourceProxy@@MEAAJIMMMM@Z @ 0x1801E0620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$SetProperty@UD2DQuaternion@@@DataSourcePropertySet@@QEAAJIPEBUD2DQuaternion@@W4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1801DE7BC (--$SetProperty@UD2DQuaternion@@@DataSourcePropertySet@@QEAAJIPEBUD2DQuaternion@@W4DCOMPOSITION_E.c)
+ *     ?CheckAndReportError@DataSourceProxy@@AEAAJJ@Z @ 0x1801DF6BC (-CheckAndReportError@DataSourceProxy@@AEAAJJ@Z.c)
+ *     ?InvalidateReadersAnimationSources@DataSourceProxy@@AEAAXI@Z @ 0x1801DFD5C (-InvalidateReadersAnimationSources@DataSourceProxy@@AEAAXI@Z.c)
+ */
+
 __int64 __fastcall DataSourceProxy::SetQuaternionValue(
         DataSourceProxy *this,
         int a2,

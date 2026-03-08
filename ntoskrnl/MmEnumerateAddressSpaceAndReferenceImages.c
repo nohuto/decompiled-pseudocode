@@ -1,3 +1,24 @@
+/*
+ * XREFs of MmEnumerateAddressSpaceAndReferenceImages @ 0x140727330
+ * Callers:
+ *     EtwpEnumerateAddressSpace @ 0x1407EC24C (EtwpEnumerateAddressSpace.c)
+ *     EtwpCovSampEnumerateProcess @ 0x1409EF5D0 (EtwpCovSampEnumerateProcess.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MiLocateVadEvent @ 0x14020DC50 (MiLocateVadEvent.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiUnlockVadShared @ 0x1402A5B30 (MiUnlockVadShared.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14031F590 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14031F600 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiVadDeleted @ 0x14031F750 (MiVadDeleted.c)
+ *     MiLockVadShared @ 0x14031F870 (MiLockVadShared.c)
+ *     MiVadMapsLargeImage @ 0x140327280 (MiVadMapsLargeImage.c)
+ *     MiReferenceControlAreaFile @ 0x140344094 (MiReferenceControlAreaFile.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiFillMapFileInfo @ 0x1408A749A (MiFillMapFileInfo.c)
+ */
+
 _QWORD *__fastcall MmEnumerateAddressSpaceAndReferenceImages(PRKPROCESS PROCESS, char a2)
 {
   int v4; // ecx

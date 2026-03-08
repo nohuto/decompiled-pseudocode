@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiGetVadWakeList @ 0x140289A20
+ * Callers:
+ *     MiFinishVadDeletion @ 0x140248200 (MiFinishVadDeletion.c)
+ *     MiFreePlaceholderStorage @ 0x1406800F8 (MiFreePlaceholderStorage.c)
+ *     MiReleaseVadEventBlocks @ 0x1406ECE8C (MiReleaseVadEventBlocks.c)
+ *     MiFreeRotateView @ 0x140A2E638 (MiFreeRotateView.c)
+ *     MiFreeVadEventBitmap @ 0x140A2F248 (MiFreeVadEventBitmap.c)
+ *     MiDeleteVadHotPatchState @ 0x140A33D1C (MiDeleteVadHotPatchState.c)
+ *     MiDeletePartialCloneVads @ 0x140A461CC (MiDeletePartialCloneVads.c)
+ * Callees:
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140350400 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403C8140 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403C8170 (HvlNotifyLongSpinWait.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140462ED8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ */
+
 unsigned __int64 __fastcall MiGetVadWakeList(__int64 a1, int a2)
 {
   unsigned __int64 v2; // rsi

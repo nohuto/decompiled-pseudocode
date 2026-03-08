@@ -1,3 +1,18 @@
+/*
+ * XREFs of IopFreeIrp @ 0x14030EC30
+ * Callers:
+ *     IopfCompleteRequest @ 0x14027B2C0 (IopfCompleteRequest.c)
+ *     IoFreeIrp @ 0x14030EC00 (IoFreeIrp.c)
+ *     IovFreeIrpPrivate @ 0x140ABE6D0 (IovFreeIrpPrivate.c)
+ * Callees:
+ *     IopFreeIrpExtension @ 0x1402B18FC (IopFreeIrpExtension.c)
+ *     ExReturnPoolQuota @ 0x1403144E0 (ExReturnPoolQuota.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     IopFreeReserveIrp @ 0x1405531AC (IopFreeReserveIrp.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall IopFreeIrp(ULONG_PTR BugCheckParameter1)
 {
   bool v2; // zf

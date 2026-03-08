@@ -1,3 +1,14 @@
+/*
+ * XREFs of GetOpRegionScopeWorker @ 0x1C0034C20
+ * Callers:
+ *     GetOpRegionScope @ 0x1C0034B60 (GetOpRegionScope.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     IsPciDevice @ 0x1C00358A8 (IsPciDevice.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIIterateParentNext @ 0x1C00488A4 (AMLIIterateParentNext.c)
+ */
+
 __int64 __fastcall GetOpRegionScopeWorker(__int64 a1, int a2, __int64 a3, volatile signed __int32 *a4)
 {
   unsigned int v5; // edi

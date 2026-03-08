@@ -1,3 +1,13 @@
+/*
+ * XREFs of VslEndSecurePageIteration @ 0x140548960
+ * Callers:
+ *     HvlpEndSecurePageListIteration @ 0x140547D58 (HvlpEndSecurePageListIteration.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall VslEndSecurePageIteration(unsigned __int8 a1, _DWORD *a2)
 {
   __int64 v3; // rbx

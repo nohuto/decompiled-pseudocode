@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpSaAllocatorOptimizeList @ 0x1403CFEC8
+ * Callers:
+ *     ExpSaAllocatorFree @ 0x140295774 (ExpSaAllocatorFree.c)
+ *     ExpSaAllocatorAllocate @ 0x140296390 (ExpSaAllocatorAllocate.c)
+ * Callees:
+ *     ExpSaPageGroupDescriptorFree @ 0x1403CFF54 (ExpSaPageGroupDescriptorFree.c)
+ */
+
 void __fastcall ExpSaAllocatorOptimizeList(__int64 a1)
 {
   int v1; // ebx

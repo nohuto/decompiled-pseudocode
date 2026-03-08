@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??$read_advance@E@?$umptr_r@E@@QEAA_NPEAE@Z @ 0x1C02ACD18
+ * Callers:
+ *     ?GrePolyDraw@@YAHPEAUHDC__@@AEAV?$umptr_r@UtagPOINT@@@@AEAV?$umptr_r@E@@K@Z @ 0x1C02AD894 (-GrePolyDraw@@YAHPEAUHDC__@@AEAV-$umptr_r@UtagPOINT@@@@AEAV-$umptr_r@E@@K@Z.c)
+ * Callees:
+ *     ??$read@E@?$umptr_r@E@@QEBA_NPEAE_K_J@Z @ 0x1C02ACB60 (--$read@E@-$umptr_r@E@@QEBA_NPEAE_K_J@Z.c)
+ *     ?ssizet_add_to_sizet@?$umptr@E@@SA_N_K_JPEA_K@Z @ 0x1C02ADE18 (-ssizet_add_to_sizet@-$umptr@E@@SA_N_K_JPEA_K@Z.c)
+ */
+
 char __fastcall umptr_r<unsigned char>::read_advance<unsigned char>(__int64 a1, void *a2)
 {
   char v3; // r11

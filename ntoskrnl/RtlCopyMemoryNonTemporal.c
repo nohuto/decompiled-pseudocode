@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlCopyMemoryNonTemporal @ 0x140420E80
+ * Callers:
+ *     MmCopyToCachedPage @ 0x14021DBE0 (MmCopyToCachedPage.c)
+ *     RtlWriteNonVolatileMemory @ 0x1405AD540 (RtlWriteNonVolatileMemory.c)
+ *     HviCopyMemoryNonTemporal @ 0x1405B37C0 (HviCopyMemoryNonTemporal.c)
+ * Callees:
+ *     <none>
+ */
+
 void __stdcall RtlCopyMemoryNonTemporal(void *Destination, const void *Source, SIZE_T Length)
 {
   signed __int64 v3; // rdx

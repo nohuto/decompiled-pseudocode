@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpValidateSDOffsetAndSize @ 0x14071D280
+ * Callers:
+ *     RtlValidRelativeSecurityDescriptor @ 0x14071D120 (RtlValidRelativeSecurityDescriptor.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RtlpValidateSDOffsetAndSize(unsigned int a1, unsigned int a2, unsigned int a3, unsigned int *a4)
 {
   unsigned int v4; // edx

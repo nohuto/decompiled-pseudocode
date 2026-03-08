@@ -1,3 +1,11 @@
+/*
+ * XREFs of ComputeAABBP @ 0x1C025DCB8
+ * Callers:
+ *     SetupAAHeader @ 0x1C025E588 (SetupAAHeader.c)
+ * Callees:
+ *     IntersectRECTL @ 0x1C0254010 (IntersectRECTL.c)
+ */
+
 __int64 __fastcall ComputeAABBP(__int128 *a1, __int64 a2, __m128i *a3, int a4)
 {
   int v5; // r8d

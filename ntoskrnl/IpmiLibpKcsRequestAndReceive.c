@@ -1,3 +1,16 @@
+/*
+ * XREFs of IpmiLibpKcsRequestAndReceive @ 0x140675E00
+ * Callers:
+ *     IpmiLibAddSelRecord @ 0x1406758D8 (IpmiLibAddSelRecord.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IpmiLibpKcsBmcTransact @ 0x140675A94 (IpmiLibpKcsBmcTransact.c)
+ *     IpmiLibKcsIpmiMessageUnpack @ 0x1406763C8 (IpmiLibKcsIpmiMessageUnpack.c)
+ */
+
 __int64 __fastcall IpmiLibpKcsRequestAndReceive(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v5; // rdi

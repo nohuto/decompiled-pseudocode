@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheapApplyPolicyChanges @ 0x140A06724
+ * Callers:
+ *     WheapPfaReset @ 0x140A06240 (WheapPfaReset.c)
+ * Callees:
+ *     HalWheaUpdateCmciPolicy @ 0x1403A76C0 (HalWheaUpdateCmciPolicy.c)
+ *     __report_rangecheckfailure @ 0x1404FBCCC (__report_rangecheckfailure.c)
+ */
+
 void WheapApplyPolicyChanges()
 {
   unsigned int v0; // ebx

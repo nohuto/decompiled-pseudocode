@@ -1,3 +1,12 @@
+/*
+ * XREFs of CheckAndPromoteAliasedObjects @ 0x1C004AE34
+ * Callers:
+ *     Concat @ 0x1C0055F60 (Concat.c)
+ *     ConcatenateResTemplate @ 0x1C0056290 (ConcatenateResTemplate.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CheckAndPromoteAliasedObjects(__int16 *a1, __int64 a2, __int64 a3)
 {
   char result; // al

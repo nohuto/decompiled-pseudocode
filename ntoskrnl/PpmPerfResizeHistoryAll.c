@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmPerfResizeHistoryAll @ 0x140983ACC
+ * Callers:
+ *     PpmReapplyPerfPolicy @ 0x1408261A0 (PpmReapplyPerfPolicy.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PpmPerfResizeHistory @ 0x140983A10 (PpmPerfResizeHistory.c)
+ */
+
 __int64 PpmPerfResizeHistoryAll()
 {
   __int64 result; // rax

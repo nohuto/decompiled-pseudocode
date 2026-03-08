@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?AllocateWorkItemForSetDeviceFailed@FxPkgPnp@@IEAAJXZ @ 0x1C0071874
+ * Callers:
+ *     ?QueryForReenumerationInterface@FxPkgPdo@@EEAAJXZ @ 0x1C00696B0 (-QueryForReenumerationInterface@FxPkgPdo@@EEAAJXZ.c)
+ *     ?QueryForReenumerationInterface@FxPkgFdo@@EEAAJXZ @ 0x1C0078590 (-QueryForReenumerationInterface@FxPkgFdo@@EEAAJXZ.c)
+ * Callees:
+ *     WPP_IFR_SF_D @ 0x1C0017F78 (WPP_IFR_SF_D.c)
+ *     WPP_IFR_SF_ @ 0x1C001BC64 (WPP_IFR_SF_.c)
+ *     ?_Create@FxSystemWorkItem@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z @ 0x1C0042DAC (-_Create@FxSystemWorkItem@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z.c)
+ */
+
 __int64 __fastcall FxPkgPnp::AllocateWorkItemForSetDeviceFailed(FxPkgPnp *this)
 {
   signed int _a1; // eax

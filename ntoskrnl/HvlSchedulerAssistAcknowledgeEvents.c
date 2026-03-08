@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlSchedulerAssistAcknowledgeEvents @ 0x140540360
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 struct _KPRCB *__fastcall HvlSchedulerAssistAcknowledgeEvents(unsigned __int64 a1)
 {
   struct _KPRCB *result; // rax

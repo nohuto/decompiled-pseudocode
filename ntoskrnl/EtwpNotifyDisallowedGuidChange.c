@@ -1,3 +1,23 @@
+/*
+ * XREFs of EtwpNotifyDisallowedGuidChange @ 0x1409E46E0
+ * Callers:
+ *     EtwpUpdateDisallowedGuids @ 0x1409ED100 (EtwpUpdateDisallowedGuids.c)
+ * Callees:
+ *     PsGetCurrentThreadProcessId @ 0x140204F00 (PsGetCurrentThreadProcessId.c)
+ *     EtwpGetEnableInfoIndex @ 0x1402068FC (EtwpGetEnableInfoIndex.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     EtwpBuildNotificationPacket @ 0x14068ECF4 (EtwpBuildNotificationPacket.c)
+ *     EtwpSendDataBlock @ 0x1406901A8 (EtwpSendDataBlock.c)
+ *     EtwpUpdateRegEntryEnableMask @ 0x14069059C (EtwpUpdateRegEntryEnableMask.c)
+ *     EtwpCalculateUpdateNotification @ 0x140690658 (EtwpCalculateUpdateNotification.c)
+ *     EtwpUnreferenceDataBlock @ 0x1406909A0 (EtwpUnreferenceDataBlock.c)
+ *     EtwpFindGuidEntryByGuid @ 0x140694F60 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpUnreferenceGuidEntry @ 0x140695094 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpIsGuidAllowed @ 0x140695F94 (EtwpIsGuidAllowed.c)
+ */
+
 __int64 *__fastcall EtwpNotifyDisallowedGuidChange(_DWORD *a1, __int64 a2, int a3)
 {
   int *v3; // r15

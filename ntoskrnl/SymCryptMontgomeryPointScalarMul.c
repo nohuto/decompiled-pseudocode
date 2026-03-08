@@ -1,3 +1,19 @@
+/*
+ * XREFs of SymCryptMontgomeryPointScalarMul @ 0x1403FB2C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SymCryptDigitsFromBits @ 0x1403F36C0 (SymCryptDigitsFromBits.c)
+ *     SymCryptIntGetBit @ 0x1403F3854 (SymCryptIntGetBit.c)
+ *     SymCryptModElementConditionalSwap @ 0x1403F3ABC (SymCryptModElementConditionalSwap.c)
+ *     SymCryptModElementCopy @ 0x1403F3AD4 (SymCryptModElementCopy.c)
+ *     SymCryptModElementCreate @ 0x1403F3AEC (SymCryptModElementCreate.c)
+ *     SymCryptModElementSetValueUint32 @ 0x1403F3C0C (SymCryptModElementSetValueUint32.c)
+ *     SymCryptSizeofIntFromDigits @ 0x1403F3EF0 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x1403F3F08 (SymCryptSizeofModElementFromModulus.c)
+ *     SymCryptMontgomeryDoubleAndAdd @ 0x1403FAD2C (SymCryptMontgomeryDoubleAndAdd.c)
+ */
+
 __int64 __fastcall SymCryptMontgomeryPointScalarMul(__int64 a1, __int64 a2, _BYTE *a3, int a4, _BYTE *a5, __int64 a6)
 {
   _BYTE *v6; // r13

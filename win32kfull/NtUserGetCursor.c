@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetCursor @ 0x1C0147630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ */
+
 __int64 __fastcall NtUserGetCursor(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rcx

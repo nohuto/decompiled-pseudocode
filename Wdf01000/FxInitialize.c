@@ -1,3 +1,21 @@
+/*
+ * XREFs of FxInitialize @ 0x1C0043DE4
+ * Callers:
+ *     imp_WdfDriverCreate @ 0x1C0037350 (imp_WdfDriverCreate.c)
+ * Callees:
+ *     ?FxIFRStart@@YAXPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@PEAU_DRIVER_OBJECT@@@Z @ 0x1C00227AC (-FxIFRStart@@YAXPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@PEAU_DRIVER_OBJECT@@@Z.c)
+ *     ?FxIFRStop@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00228D4 (-FxIFRStop@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     FxRegistrySettingsInitialize @ 0x1C00443BC (FxRegistrySettingsInitialize.c)
+ *     LockVerifierSection @ 0x1C0045038 (LockVerifierSection.c)
+ *     WPP_IFR_SF_Z @ 0x1C0045150 (WPP_IFR_SF_Z.c)
+ *     ?FxPoolInitialize@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@@Z @ 0x1C0045734 (-FxPoolInitialize@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@@Z.c)
+ *     ?AllocateThreadTable@FxVerifierLock@@SAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00468C0 (-AllocateThreadTable@FxVerifierLock@@SAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?IsCorrectVersionRegistered@_FX_DRIVER_GLOBALS@@QEAAEPEBU_UNICODE_STRING@@@Z @ 0x1C00484D0 (-IsCorrectVersionRegistered@_FX_DRIVER_GLOBALS@@QEAAEPEBU_UNICODE_STRING@@@Z.c)
+ *     ?RegisterClientVersion@_FX_DRIVER_GLOBALS@@QEAAXPEBU_UNICODE_STRING@@@Z @ 0x1C0048684 (-RegisterClientVersion@_FX_DRIVER_GLOBALS@@QEAAXPEBU_UNICODE_STRING@@@Z.c)
+ *     FxCacheBugCheckDriverInfo @ 0x1C00889F4 (FxCacheBugCheckDriverInfo.c)
+ *     FxRegisterBugCheckCallback @ 0x1C0088D28 (FxRegisterBugCheckCallback.c)
+ */
+
 __int64 __fastcall FxInitialize(
         _FX_DRIVER_GLOBALS *FxDriverGlobals,
         _DRIVER_OBJECT *DriverObject,

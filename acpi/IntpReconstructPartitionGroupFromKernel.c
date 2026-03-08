@@ -1,3 +1,13 @@
+/*
+ * XREFs of IntpReconstructPartitionGroupFromKernel @ 0x1C005EF2C
+ * Callers:
+ *     IntPartArbInit @ 0x1C00A318C (IntPartArbInit.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     RtlNumberOfSetBitsUlongPtr_0 @ 0x1C0001B1B (RtlNumberOfSetBitsUlongPtr_0.c)
+ *     IntpAllocateGroupContext @ 0x1C005EED4 (IntpAllocateGroupContext.c)
+ */
+
 __int64 __fastcall IntpReconstructPartitionGroupFromKernel(__int64 a1, _QWORD *a2)
 {
   int v3; // eax

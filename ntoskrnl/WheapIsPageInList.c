@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheapIsPageInList @ 0x140A059C8
+ * Callers:
+ *     WheaPersistBadPageToBcd @ 0x14060F9E0 (WheaPersistBadPageToBcd.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall WheapIsPageInList(_QWORD *a1, unsigned int a2, __int64 a3)
 {
   char result; // al

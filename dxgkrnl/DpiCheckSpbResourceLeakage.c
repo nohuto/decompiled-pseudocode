@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiCheckSpbResourceLeakage @ 0x1C0065810
+ * Callers:
+ *     DpiFdoHandleRemoveDevice @ 0x1C0396F80 (DpiFdoHandleRemoveDevice.c)
+ * Callees:
+ *     DpiDeleteSpbResourceRecord @ 0x1C03A36CC (DpiDeleteSpbResourceRecord.c)
+ */
+
 __int64 __fastcall DpiCheckSpbResourceLeakage(__int64 a1)
 {
   __int64 v1; // rbx

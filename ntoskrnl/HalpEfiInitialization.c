@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpEfiInitialization @ 0x140B68BC0
+ * Callers:
+ *     HalpFirmwareInitDiscard @ 0x140B68B70 (HalpFirmwareInitDiscard.c)
+ * Callees:
+ *     KeRegisterBugCheckReasonCallback @ 0x1402E8DA0 (KeRegisterBugCheckReasonCallback.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall HalpEfiInitialization(__int64 a1)
 {
   int v2; // eax

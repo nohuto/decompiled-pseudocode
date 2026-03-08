@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiMarkHugeRangeIoPfnDeleted @ 0x14062C34C
+ * Callers:
+ *     MiHotRemoveHugeRange @ 0x14061DC8C (MiHotRemoveHugeRange.c)
+ * Callees:
+ *     MiUnlockIoPfnTree @ 0x14029B9B4 (MiUnlockIoPfnTree.c)
+ *     MiLockIoPfnTree @ 0x14029C1B0 (MiLockIoPfnTree.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiIoPfnTreeLockContended @ 0x1403BFB90 (MiIoPfnTreeLockContended.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void __fastcall MiMarkHugeRangeIoPfnDeleted(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   unsigned __int8 v4; // al

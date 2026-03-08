@@ -1,3 +1,13 @@
+/*
+ * XREFs of RootHub_UcxEvtGetHubStatus @ 0x1C0013580
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_DDDDDDDD @ 0x1C0040A98 (WPP_RECORDER_SF_DDDDDDDD.c)
+ */
+
 __int64 __fastcall RootHub_UcxEvtGetHubStatus(__int64 a1, __int64 a2)
 {
   __int64 v3; // r15

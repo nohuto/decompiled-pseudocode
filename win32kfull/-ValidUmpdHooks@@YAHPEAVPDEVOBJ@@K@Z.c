@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ValidUmpdHooks@@YAHPEAVPDEVOBJ@@K@Z @ 0x1C02C9CD0
+ * Callers:
+ *     NtGdiEngAssociateSurface @ 0x1C02CAF00 (NtGdiEngAssociateSurface.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ValidUmpdHooks(struct PDEVOBJ *a1, int a2)
 {
   unsigned int v2; // r9d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of TouchTargetingDownrank @ 0x1C014ADB2
+ * Callers:
+ *     ?_TTWindowPenalty@@YAIPEAUtagWND@@PEAUtagPNTRWINDOWHITTTESTARGS@@I@Z @ 0x1C0148932 (-_TTWindowPenalty@@YAIPEAUtagWND@@PEAUtagPNTRWINDOWHITTTESTARGS@@I@Z.c)
+ * Callees:
+ *     _TTHmToPixels @ 0x1C014AE1A (_TTHmToPixels.c)
+ */
+
 __int64 __fastcall TouchTargetingDownrank(__int64 a1, int a2)
 {
   unsigned int v2; // eax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?GetSwapChain@CBitmapRenderStrategy@@SAJPEBVCSurfaceBrush@@PEAPEAVISwapChainRealization@@@Z @ 0x1800771D4
+ * Callers:
+ *     ?HasRevealBorder@CBitmapRenderStrategy@@UEBA_NPEBVCSurfaceBrush@@PEAU_D3DCOLORVALUE@@@Z @ 0x1800401F0 (-HasRevealBorder@CBitmapRenderStrategy@@UEBA_NPEBVCSurfaceBrush@@PEAU_D3DCOLORVALUE@@@Z.c)
+ *     ?HasLetterboxingMargins@CBitmapRenderStrategy@@UEBA_NPEBVCSurfaceBrush@@PEAUMilRectF@@@Z @ 0x1800E1CB0 (-HasLetterboxingMargins@CBitmapRenderStrategy@@UEBA_NPEBVCSurfaceBrush@@PEAUMilRectF@@@Z.c)
+ *     ?HasSwapChainContent@CBitmapRenderStrategy@@UEBA_NPEBVCSurfaceBrush@@@Z @ 0x18024F4F0 (-HasSwapChainContent@CBitmapRenderStrategy@@UEBA_NPEBVCSurfaceBrush@@@Z.c)
+ * Callees:
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800342C8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CBitmapRenderStrategy::GetSwapChain(
         const struct CSurfaceBrush *a1,
         struct ISwapChainRealization **a2)

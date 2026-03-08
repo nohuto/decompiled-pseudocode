@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpFindKcbInHashEntryByCompressedName @ 0x140A146E0
+ * Callers:
+ *     CmpSubtreeEnumeratorAdvance @ 0x140A1D6E8 (CmpSubtreeEnumeratorAdvance.c)
+ *     CmpPartialPromoteSubkeys @ 0x140A236F0 (CmpPartialPromoteSubkeys.c)
+ * Callees:
+ *     CmpCompareTwoCompressedNames @ 0x14076D7AC (CmpCompareTwoCompressedNames.c)
+ *     CmpCompareCompressedName @ 0x140775138 (CmpCompareCompressedName.c)
+ */
+
 __int64 __fastcall CmpFindKcbInHashEntryByCompressedName(
         __int64 a1,
         unsigned int a2,

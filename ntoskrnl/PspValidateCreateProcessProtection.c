@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspValidateCreateProcessProtection @ 0x14070D630
+ * Callers:
+ *     NtCreateUserProcess @ 0x14070C850 (NtCreateUserProcess.c)
+ * Callees:
+ *     RtlTestProtectedAccess @ 0x14070C7FC (RtlTestProtectedAccess.c)
+ */
+
 __int64 __fastcall PspValidateCreateProcessProtection(__int64 a1, __int64 a2, char a3, char a4, unsigned __int8 a5)
 {
   unsigned int v5; // r10d

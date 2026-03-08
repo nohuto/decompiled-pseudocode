@@ -1,3 +1,12 @@
+/*
+ * XREFs of SddlpUuidToString @ 0x1409CFD68
+ * Callers:
+ *     LocalConvertAclToString @ 0x14074FD70 (LocalConvertAclToString.c)
+ * Callees:
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ */
+
 wchar_t *__fastcall SddlpUuidToString(unsigned int *a1, _QWORD *a2)
 {
   wchar_t *result; // rax

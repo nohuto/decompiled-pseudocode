@@ -1,3 +1,18 @@
+/*
+ * XREFs of PfpVolumePrefetchMetadata @ 0x1407667FC
+ * Callers:
+ *     PfpPrefetchRequestPerform @ 0x1407662E0 (PfpPrefetchRequestPerform.c)
+ * Callees:
+ *     PfpCheckPrefetchAbort @ 0x14020C198 (PfpCheckPrefetchAbort.c)
+ *     MmQueryMemoryListInformation @ 0x140236738 (MmQueryMemoryListInformation.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     PfpUpdateRepurposedByPrefetch @ 0x1406A2DC0 (PfpUpdateRepurposedByPrefetch.c)
+ *     PfpGetPageListCount @ 0x1406A2EDC (PfpGetPageListCount.c)
+ *     PfpPrefetchDirectoryStream @ 0x140766EA8 (PfpPrefetchDirectoryStream.c)
+ *     PfpFileSetupObjectAttributes @ 0x1407674E0 (PfpFileSetupObjectAttributes.c)
+ *     IopXxxControlFile @ 0x1407C1720 (IopXxxControlFile.c)
+ */
+
 __int64 __fastcall PfpVolumePrefetchMetadata(_QWORD *a1, unsigned int a2)
 {
   __int64 v3; // r12

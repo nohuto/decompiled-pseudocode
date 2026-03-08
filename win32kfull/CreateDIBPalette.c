@@ -1,3 +1,11 @@
+/*
+ * XREFs of CreateDIBPalette @ 0x1C0200398
+ * Callers:
+ *     ?xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FFEE0 (-xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ * Callees:
+ *     GreCreateHalftonePalette @ 0x1C02D32E0 (GreCreateHalftonePalette.c)
+ */
+
 _WORD *__fastcall CreateDIBPalette(unsigned __int16 *a1, int a2)
 {
   int v2; // ebx

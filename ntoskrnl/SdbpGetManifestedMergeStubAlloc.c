@@ -1,3 +1,22 @@
+/*
+ * XREFs of SdbpGetManifestedMergeStubAlloc @ 0x140A4BEA8
+ * Callers:
+ *     SdbGetMergeRedirectPath @ 0x140A4B4A0 (SdbGetMergeRedirectPath.c)
+ * Callees:
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwEnumerateValueKey @ 0x140412570 (ZwEnumerateValueKey.c)
+ *     SdbpGetMergeSdbsDisabled @ 0x14066B714 (SdbpGetMergeSdbsDisabled.c)
+ *     AslStringDuplicate @ 0x1406D51D8 (AslStringDuplicate.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     RtlGetNtSystemRoot @ 0x1407F7270 (RtlGetNtSystemRoot.c)
+ *     AslRegistryGetKey @ 0x14084BF1C (AslRegistryGetKey.c)
+ *     AslPathToSystemPath @ 0x140A526E4 (AslPathToSystemPath.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SdbpGetManifestedMergeStubAlloc(_QWORD *a1, const wchar_t *a2)
 {
   wchar_t *v3; // rsi

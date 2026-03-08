@@ -1,3 +1,18 @@
+/*
+ * XREFs of CcWaitForCurrentLazyWriterActivityOnNode @ 0x1403CEA10
+ * Callers:
+ *     CcWaitForCurrentLazyWriterActivityOnPartition @ 0x1403CE98C (CcWaitForCurrentLazyWriterActivityOnPartition.c)
+ * Callees:
+ *     CcAllocateWorkQueueEntry @ 0x140219880 (CcAllocateWorkQueueEntry.c)
+ *     CcScheduleLazyWriteScan @ 0x140242B0C (CcScheduleLazyWriteScan.c)
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14025C890 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x140391D54 (CcPerfLogWorkItemEnqueue.c)
+ *     Feature_Servicing_FastfatLockFailIncompleteLazyWrite__private_IsEnabledDeviceUsage @ 0x140409ECC (Feature_Servicing_FastfatLockFailIncompleteLazyWrite__private_IsEnabledDeviceUsage.c)
+ */
+
 int __fastcall CcWaitForCurrentLazyWriterActivityOnNode(__int64 a1, __int64 a2, __int64 a3)
 {
   int result; // eax

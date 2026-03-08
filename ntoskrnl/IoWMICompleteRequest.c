@@ -1,3 +1,12 @@
+/*
+ * XREFs of IoWMICompleteRequest @ 0x140725A08
+ * Callers:
+ *     WmipQueryWmiDataBlock @ 0x140725910 (WmipQueryWmiDataBlock.c)
+ *     IoWMISystemControl @ 0x1407939D4 (IoWMISystemControl.c)
+ * Callees:
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ */
+
 __int64 __fastcall IoWMICompleteRequest(__int64 a1, __int64 a2, IRP *a3, int a4, int a5)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r10

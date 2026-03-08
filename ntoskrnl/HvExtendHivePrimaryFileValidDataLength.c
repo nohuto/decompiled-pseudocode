@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvExtendHivePrimaryFileValidDataLength @ 0x140A1DCD0
+ * Callers:
+ *     CmpFlushHive @ 0x1406BEA70 (CmpFlushHive.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     CmpFileFlushAndPurge @ 0x140731D18 (CmpFileFlushAndPurge.c)
+ */
+
 __int64 __fastcall HvExtendHivePrimaryFileValidDataLength(__int64 a1, int a2, int a3)
 {
   unsigned int v3; // ebx

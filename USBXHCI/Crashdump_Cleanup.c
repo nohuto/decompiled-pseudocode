@@ -1,3 +1,16 @@
+/*
+ * XREFs of Crashdump_Cleanup @ 0x1C004BE10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Crashdump_Register_SaveStateForHybridSleep @ 0x1C004DE3C (Crashdump_Register_SaveStateForHybridSleep.c)
+ *     Crashdump_Register_StopController @ 0x1C004E020 (Crashdump_Register_StopController.c)
+ *     Crashdump_Command_Stop @ 0x1C004ED20 (Crashdump_Command_Stop.c)
+ *     Crashdump_UsbDevice_Cleanup @ 0x1C004FB20 (Crashdump_UsbDevice_Cleanup.c)
+ *     Crashdump_UsbDevice_ConfigureEndpointsForSaveState @ 0x1C0050160 (Crashdump_UsbDevice_ConfigureEndpointsForSaveState.c)
+ *     Crashdump_UsbDevice_SuspendPort @ 0x1C00510F8 (Crashdump_UsbDevice_SuspendPort.c)
+ */
+
 __int64 __fastcall Crashdump_Cleanup(__int64 a1)
 {
   unsigned int v2; // edi

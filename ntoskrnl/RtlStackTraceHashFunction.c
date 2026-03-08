@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlStackTraceHashFunction @ 0x14040C100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlStackTraceHashFunction(unsigned int a1, __int64 a2)
 {
   __int64 result; // rax

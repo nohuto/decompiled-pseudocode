@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhDisableDeviceForWake @ 0x1C001AC18
+ * Callers:
+ *     UsbhPdoSetD0 @ 0x1C0003200 (UsbhPdoSetD0.c)
+ *     UsbhPdoSetD0_Finish @ 0x1C001AA00 (UsbhPdoSetD0_Finish.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhSyncSendCommandToDevice @ 0x1C001A250 (UsbhSyncSendCommandToDevice.c)
+ */
+
 __int64 __fastcall UsbhDisableDeviceForWake(__int64 a1, __int64 a2)
 {
   _DWORD *v4; // rbp

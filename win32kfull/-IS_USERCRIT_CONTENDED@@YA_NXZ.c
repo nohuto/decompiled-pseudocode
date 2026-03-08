@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IS_USERCRIT_CONTENDED@@YA_NXZ @ 0x1C02364B8
+ * Callers:
+ *     MNAnimate @ 0x1C0237090 (MNAnimate.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall IS_USERCRIT_CONTENDED(__int64 a1)
 {
   __int64 v1; // rax

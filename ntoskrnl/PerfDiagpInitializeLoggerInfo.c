@@ -1,3 +1,13 @@
+/*
+ * XREFs of PerfDiagpInitializeLoggerInfo @ 0x14083C48C
+ * Callers:
+ *     PerfDiagpProxyWorker @ 0x14083C130 (PerfDiagpProxyWorker.c)
+ *     PerfDiagpUpdatePerfDiagLoggerEnableFlags @ 0x14083C378 (PerfDiagpUpdatePerfDiagLoggerEnableFlags.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __fastcall PerfDiagpInitializeLoggerInfo(int a1, __int16 a2)
 {
   memset(dword_140C32350, 0, 0xB0uLL);

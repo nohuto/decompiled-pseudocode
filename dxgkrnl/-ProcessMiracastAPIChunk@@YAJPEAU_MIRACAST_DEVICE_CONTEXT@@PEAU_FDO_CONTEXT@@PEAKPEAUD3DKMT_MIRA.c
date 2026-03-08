@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ProcessMiracastAPIChunk@@YAJPEAU_MIRACAST_DEVICE_CONTEXT@@PEAU_FDO_CONTEXT@@PEAKPEAUD3DKMT_MIRACAST_CHUNK_DATA@@2@Z @ 0x1C005F0CC
+ * Callers:
+ *     DxgkMiracastGetNextChunkInfo @ 0x1C0061380 (DxgkMiracastGetNextChunkInfo.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     ?RemoveHead@MIRACAST_CHUNK_LIST@@QEAAPEAUMIRACAST_CHUNK@@XZ @ 0x1C005F208 (-RemoveHead@MIRACAST_CHUNK_LIST@@QEAAPEAUMIRACAST_CHUNK@@XZ.c)
+ */
+
 __int64 __fastcall ProcessMiracastAPIChunk(
         struct _MIRACAST_DEVICE_CONTEXT *a1,
         struct _FDO_CONTEXT *a2,

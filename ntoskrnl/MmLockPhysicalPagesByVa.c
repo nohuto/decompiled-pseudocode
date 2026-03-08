@@ -1,3 +1,15 @@
+/*
+ * XREFs of MmLockPhysicalPagesByVa @ 0x140A2AA04
+ * Callers:
+ *     VmpLockMemoryForPin @ 0x1409DA418 (VmpLockMemoryForPin.c)
+ * Callees:
+ *     MiProbeAndLockComplete @ 0x140267C70 (MiProbeAndLockComplete.c)
+ *     MiProbeAndLockPacket @ 0x140268C30 (MiProbeAndLockPacket.c)
+ *     MiProbeAndLockPrepare @ 0x14026B160 (MiProbeAndLockPrepare.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiCheckLockUnlockByVa @ 0x14061A2D0 (MiCheckLockUnlockByVa.c)
+ */
+
 __int64 __fastcall MmLockPhysicalPagesByVa(__int64 a1, __int64 a2, __int64 a3, signed __int32 a4)
 {
   __int64 v8; // rbx

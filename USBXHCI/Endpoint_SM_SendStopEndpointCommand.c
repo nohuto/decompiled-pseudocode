@@ -1,3 +1,13 @@
+/*
+ * XREFs of Endpoint_SM_SendStopEndpointCommand @ 0x1C0010734
+ * Callers:
+ *     ESM_StoppingEndpoint @ 0x1C0011220 (ESM_StoppingEndpoint.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 char __fastcall Endpoint_SM_SendStopEndpointCommand(__int64 a1)
 {
   __int64 v1; // rbx

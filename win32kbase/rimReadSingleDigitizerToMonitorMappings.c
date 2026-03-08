@@ -1,3 +1,16 @@
+/*
+ * XREFs of rimReadSingleDigitizerToMonitorMappings @ 0x1C01BC984
+ * Callers:
+ *     RIMReadDigitizerToMonitorMappings @ 0x1C01BD6F0 (RIMReadDigitizerToMonitorMappings.c)
+ * Callees:
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0070E78 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00CD374 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     wcsstr @ 0x1C00DA8B8 (wcsstr.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 int __fastcall rimReadSingleDigitizerToMonitorMappings(
         const UNICODE_STRING *a1,
         void *a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of RegisterDefaultClass @ 0x1C003124C
+ * Callers:
+ *     NtUserGetClassInfoEx @ 0x1C002F120 (NtUserGetClassInfoEx.c)
+ *     NtUserRegisterClassExWOW @ 0x1C0030020 (NtUserRegisterClassExWOW.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ * Callees:
+ *     InternalRegisterClassEx @ 0x1C0030830 (InternalRegisterClassEx.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall RegisterDefaultClass(wchar_t *Str1)
 {
   int v2; // r12d

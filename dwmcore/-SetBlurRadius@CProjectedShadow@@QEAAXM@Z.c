@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBlurRadius@CProjectedShadow@@QEAAXM@Z @ 0x18012F55C
+ * Callers:
+ *     ?PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x180004F04 (-PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CProjectedShadow::SetBlurRadius(CProjectedShadow *this, float a2)
 {
   __int64 v2; // rax

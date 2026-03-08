@@ -1,3 +1,16 @@
+/*
+ * XREFs of HUBMUX_QueuePowerUpEventToDSMs @ 0x1C001152C
+ * Callers:
+ *     HUBHSM_NotifyingHubResumeInS0ToDevices @ 0x1C0008AB0 (HUBHSM_NotifyingHubResumeInS0ToDevices.c)
+ *     HUBHSM_NotifyingHubResumeToDevices @ 0x1C0008AE0 (HUBHSM_NotifyingHubResumeToDevices.c)
+ *     HUBHSM_NotifyingHubResumeWithResetToDevices @ 0x1C0008B20 (HUBHSM_NotifyingHubResumeWithResetToDevices.c)
+ *     HUBHSM_NotifyingHubResumeWithResetToDevicesOnFailure @ 0x1C0008B60 (HUBHSM_NotifyingHubResumeWithResetToDevicesOnFailure.c)
+ *     HUBHSM_WaitingForDevicesToAcquireReferenceOnStart @ 0x1C0009230 (HUBHSM_WaitingForDevicesToAcquireReferenceOnStart.c)
+ * Callees:
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 _QWORD *__fastcall HUBMUX_QueuePowerUpEventToDSMs(__int64 a1, int a2)
 {
   __int64 v3; // rsi

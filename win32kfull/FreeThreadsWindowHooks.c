@@ -1,3 +1,12 @@
+/*
+ * XREFs of FreeThreadsWindowHooks @ 0x1C00C92A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FreeHook @ 0x1C0039160 (FreeHook.c)
+ *     ?UnlinkHook@@YAXPEAUtagHOOK@@@Z @ 0x1C00C9380 (-UnlinkHook@@YAXPEAUtagHOOK@@@Z.c)
+ */
+
 void FreeThreadsWindowHooks()
 {
   __int64 v0; // rsi

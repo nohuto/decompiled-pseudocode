@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0qhhqppmqqqxqmxzqpqqpq_EtwWriteTransfer @ 0x1C0034394
+ * Callers:
+ *     EtwTraceAuditApiRegisterRawInputDevices @ 0x1C0033990 (EtwTraceAuditApiRegisterRawInputDevices.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall McTemplateK0qhhqppmqqqxqmxzqpqqpq_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

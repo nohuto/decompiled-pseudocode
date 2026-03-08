@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetDispatchPackage@FxDevice@@QEAAPEAVFxPackage@@E@Z @ 0x1C000CF60
+ * Callers:
+ *     ?Send@FxIoTargetSelf@@UEAAXPEAU_IRP@@@Z @ 0x1C000EB40 (-Send@FxIoTargetSelf@@UEAAXPEAU_IRP@@@Z.c)
+ *     ?DispatchWorker@@YAJPEAVFxDevice@@PEAU_IRP@@PEAX@Z @ 0x1C003DF94 (-DispatchWorker@@YAJPEAVFxDevice@@PEAU_IRP@@PEAX@Z.c)
+ *     Vf_VerifyWdfDeviceWdmDispatchIrpToIoQueue @ 0x1C00B9D10 (Vf_VerifyWdfDeviceWdmDispatchIrpToIoQueue.c)
+ * Callees:
+ *     <none>
+ */
+
 FxDefaultIrpHandler *__fastcall FxDevice::GetDispatchPackage(FxDevice *this, unsigned __int8 MajorFunction)
 {
   FxDefaultIrpHandler *result; // rax

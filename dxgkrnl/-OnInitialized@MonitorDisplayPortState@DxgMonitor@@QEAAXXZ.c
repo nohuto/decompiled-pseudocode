@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnInitialized@MonitorDisplayPortState@DxgMonitor@@QEAAXXZ @ 0x1C0023F50
+ * Callers:
+ *     ?_InitializeMonitorWithDriver@DXGMONITOR@@QEAAJPEAV1@AEAVIMonitorDeferredEventSource@DxgMonitor@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01FBF54 (-_InitializeMonitorWithDriver@DXGMONITOR@@QEAAJPEAV1@AEAVIMonitorDeferredEventSource@DxgMonitor@.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall DxgMonitor::MonitorDisplayPortState::OnInitialized(DxgMonitor::MonitorDisplayPortState *this)
 {
   __int64 v2; // rax

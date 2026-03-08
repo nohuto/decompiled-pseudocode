@@ -1,3 +1,20 @@
+/*
+ * XREFs of HalpInterruptFindLinesForGsiRange @ 0x14028EF5C
+ * Callers:
+ *     HalDisableInterrupt @ 0x14028E8F0 (HalDisableInterrupt.c)
+ *     HalpInterruptGsiToLine @ 0x14028EF10 (HalpInterruptGsiToLine.c)
+ *     HalpInterruptRegisterLine @ 0x1403748A0 (HalpInterruptRegisterLine.c)
+ *     HalpMaskInterrupt @ 0x140376370 (HalpMaskInterrupt.c)
+ *     HalpUnmaskInterrupt @ 0x140379600 (HalpUnmaskInterrupt.c)
+ *     HalpInterruptApplyOverrides @ 0x140379748 (HalpInterruptApplyOverrides.c)
+ *     HalpInterruptGetApicVersion @ 0x1403A5A50 (HalpInterruptGetApicVersion.c)
+ *     HalpInterruptRequestInterrupt @ 0x1405031A0 (HalpInterruptRequestInterrupt.c)
+ *     HalpInterruptPerformDirectedEndOfInterrupt @ 0x140504748 (HalpInterruptPerformDirectedEndOfInterrupt.c)
+ *     HalpInterruptServiceActiveBoth @ 0x1405047BC (HalpInterruptServiceActiveBoth.c)
+ * Callees:
+ *     <none>
+ */
+
 _DWORD *__fastcall HalpInterruptFindLinesForGsiRange(unsigned int a1, unsigned int a2)
 {
   ULONG_PTR *v2; // r8

@@ -1,3 +1,21 @@
+/*
+ * XREFs of PpmCheckSnapAllDeliveredPerformance @ 0x140234630
+ * Callers:
+ *     PpmCheckUpdateDeliveredPerformanceIfTracingEnabled @ 0x140301970 (PpmCheckUpdateDeliveredPerformanceIfTracingEnabled.c)
+ * Callees:
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PpmPerfSnapDeliveredPerformance @ 0x140234BB0 (PpmPerfSnapDeliveredPerformance.c)
+ *     PpmPerfQueueAction @ 0x1402363D4 (PpmPerfQueueAction.c)
+ *     KeCountSetBitsAffinityEx @ 0x140237550 (KeCountSetBitsAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140237640 (KeRemoveProcessorAffinityEx.c)
+ *     HvlGetReferenceTime @ 0x1403C30D8 (HvlGetReferenceTime.c)
+ *     HvlUpdatePerformanceStateCountersForLp @ 0x1403C81A0 (HvlUpdatePerformanceStateCountersForLp.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 char PpmCheckSnapAllDeliveredPerformance()
 {
   __int64 v0; // rcx

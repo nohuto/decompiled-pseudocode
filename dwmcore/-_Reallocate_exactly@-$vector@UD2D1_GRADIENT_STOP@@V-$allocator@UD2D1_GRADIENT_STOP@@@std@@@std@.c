@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?_Reallocate_exactly@?$vector@UD2D1_GRADIENT_STOP@@V?$allocator@UD2D1_GRADIENT_STOP@@@std@@@std@@AEAAX_K@Z @ 0x1800B9E5C
+ * Callers:
+ *     ?FlattenStops@CGradientBrush@@AEAAXXZ @ 0x1800B9D68 (-FlattenStops@CGradientBrush@@AEAAXXZ.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$0BE@@std@@YA_K_K@Z @ 0x1800B9EE4 (--$_Get_size_of_n@$0BE@@std@@YA_K_K@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ */
+
 __int64 __fastcall std::vector<D2D1_GRADIENT_STOP>::_Reallocate_exactly(__int64 a1, __int64 a2)
 {
   unsigned __int64 v3; // rdi

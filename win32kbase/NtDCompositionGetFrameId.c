@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtDCompositionGetFrameId @ 0x1C0008660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetFrameId@CConnection@DirectComposition@@QEAA_KW4COMPOSITION_FRAME_ID_TYPE@@@Z @ 0x1C000872C (-GetFrameId@CConnection@DirectComposition@@QEAA_KW4COMPOSITION_FRAME_ID_TYPE@@@Z.c)
+ *     ?Release@CConnection@DirectComposition@@QEAAKXZ @ 0x1C005E51C (-Release@CConnection@DirectComposition@@QEAAKXZ.c)
+ *     ?GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ @ 0x1C006AA58 (-GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ.c)
+ */
+
 __int64 __fastcall NtDCompositionGetFrameId(unsigned int a1, __int64 *a2)
 {
   unsigned int v4; // ebx

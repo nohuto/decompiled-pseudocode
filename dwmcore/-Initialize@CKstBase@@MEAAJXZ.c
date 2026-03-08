@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Initialize@CKstBase@@MEAAJXZ @ 0x1800CB270
+ * Callers:
+ *     ?Initialize@CKst@@EEAAJXZ @ 0x1800CB220 (-Initialize@CKst@@EEAAJXZ.c)
+ * Callees:
+ *     ?reset@?$unique_storage@U?$resource_policy@PEAXP6AXPEAX@_E$1?CloseHandle@details@wil@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x1800CB324 (-reset@-$unique_storage@U-$resource_policy@PEAXP6AXPEAX@_E$1-CloseHandle@details@wil@@YAX0@ZU-$i.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?GetLastErrorFailHr@details@wil@@YAJXZ @ 0x18019559C (-GetLastErrorFailHr@details@wil@@YAJXZ.c)
+ */
+
 __int64 __fastcall CKstBase::Initialize(CKstBase *this)
 {
   wil::details *v2; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpGetNumberOfSGElementsDmarThin @ 0x140454A50
+ * Callers:
+ *     HalpBuildScatterGatherListDmarThin @ 0x140511900 (HalpBuildScatterGatherListDmarThin.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpGetNumberOfSGElementsDmarThin(__int64 *a1, int a2, unsigned int a3)
 {
   unsigned int v3; // r9d

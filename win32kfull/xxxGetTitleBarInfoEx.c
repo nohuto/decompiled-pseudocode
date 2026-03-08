@@ -1,3 +1,16 @@
+/*
+ * XREFs of xxxGetTitleBarInfoEx @ 0x1C000B72C
+ * Callers:
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ * Callees:
+ *     DwmSyncGetTitleBarInfo @ 0x1C000B84C (DwmSyncGetTitleBarInfo.c)
+ *     IsToplevelWindowDesktopComposed @ 0x1C002D900 (IsToplevelWindowDesktopComposed.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z @ 0x1C00A3E1C (-xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     xxxCalcCaptionButton @ 0x1C022EAF0 (xxxCalcCaptionButton.c)
+ */
+
 __int64 __fastcall xxxGetTitleBarInfoEx(struct tagWND *a1, struct tagTITLEBARINFO *a2)
 {
   unsigned int v3; // esi

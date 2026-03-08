@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiBuildPagedPool @ 0x140B38784
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiSystemVaToDynamicBitmap @ 0x14021055C (MiSystemVaToDynamicBitmap.c)
+ *     MiBuildDynamicRegion @ 0x1403715AC (MiBuildDynamicRegion.c)
+ *     MiInitializeSystemWorkingSetList @ 0x140726074 (MiInitializeSystemWorkingSetList.c)
+ */
+
 __int64 MiBuildPagedPool()
 {
   __int64 *v0; // rax

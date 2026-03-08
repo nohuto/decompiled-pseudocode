@@ -1,3 +1,14 @@
+/*
+ * XREFs of HvpGetHiveHeader @ 0x140730880
+ * Callers:
+ *     HvLoadHive @ 0x14072F5C0 (HvLoadHive.c)
+ *     HvRecoverFlushProtocolStateFromFiles @ 0x140A1A9B4 (HvRecoverFlushProtocolStateFromFiles.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvpHeaderCheckSum @ 0x140AF2414 (HvpHeaderCheckSum.c)
+ */
+
 __int64 __fastcall HvpGetHiveHeader(__int64 a1, char **a2, _QWORD *a3)
 {
   char **v4; // r15

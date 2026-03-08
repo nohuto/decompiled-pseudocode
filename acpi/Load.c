@@ -1,3 +1,20 @@
+/*
+ * XREFs of Load @ 0x1C00556C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ *     ValidateTarget @ 0x1C004D4F0 (ValidateTarget.c)
+ *     AMLIDebugger @ 0x1C004D630 (AMLIDebugger.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     GetNameSpaceObject @ 0x1C004F728 (GetNameSpaceObject.c)
+ *     LoadFieldUnitDDB @ 0x1C004FB68 (LoadFieldUnitDDB.c)
+ *     LoadMemDDB @ 0x1C004FD4C (LoadMemDDB.c)
+ */
+
 __int64 __fastcall Load(_QWORD *a1, __int64 a2)
 {
   unsigned int v4; // ebx

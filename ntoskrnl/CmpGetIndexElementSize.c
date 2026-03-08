@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpGetIndexElementSize @ 0x14086F82C
+ * Callers:
+ *     CmpCheckKey @ 0x1407B4B80 (CmpCheckKey.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpGetIndexElementSize(_WORD *a1)
 {
   __int64 result; // rax

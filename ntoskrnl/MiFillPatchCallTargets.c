@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiFillPatchCallTargets @ 0x140A33E80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall MiFillPatchCallTargets(unsigned int *a1, unsigned int *a2, int a3, char a4)
 {
   __int64 v4; // r8

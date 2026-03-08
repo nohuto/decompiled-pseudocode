@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?UpdateOnManipulationThread@CManipulation@@UEAAJAEBUUpdateOnManipulationThreadArgs@@AEBUManipulationThreadTelemetryData@@PEAVIDCompositionInteractionStats@@@Z @ 0x18020B620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     _anonymous_namespace_::StoreIfChanged_float_ @ 0x180209C78 (_anonymous_namespace_--StoreIfChanged_float_.c)
+ *     _anonymous_namespace_::StoreIfChanged_D2DVector3_ @ 0x180209C94 (_anonymous_namespace_--StoreIfChanged_D2DVector3_.c)
+ *     ?_ResetManipulationThreadDataIfNecessary@CManipulation@@AEAAXW4InteractionState@@@Z @ 0x18020BDD4 (-_ResetManipulationThreadDataIfNecessary@CManipulation@@AEAAXW4InteractionState@@@Z.c)
+ *     ?_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z @ 0x18020BE3C (-_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z.c)
+ *     ?_UpdateCaptureState@CManipulation@@AEAAX_N@Z @ 0x18020C3E4 (-_UpdateCaptureState@CManipulation@@AEAAX_N@Z.c)
+ */
+
 __int64 __fastcall CManipulation::UpdateOnManipulationThread(
         CManipulation *this,
         const struct UpdateOnManipulationThreadArgs *a2,

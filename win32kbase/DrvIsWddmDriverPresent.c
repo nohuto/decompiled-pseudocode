@@ -1,3 +1,15 @@
+/*
+ * XREFs of DrvIsWddmDriverPresent @ 0x1C0022640
+ * Callers:
+ *     DrvGetDisplayConfigBufferSizes @ 0x1C0022450 (DrvGetDisplayConfigBufferSizes.c)
+ *     DrvQueryDisplayConfig @ 0x1C0022530 (DrvQueryDisplayConfig.c)
+ *     DrvSetDisplayConfig @ 0x1C0025C00 (DrvSetDisplayConfig.c)
+ *     ?DrvDisplayConfigGetDeviceInfoInternal@@YAJPEAUDISPLAYCONFIG_DEVICE_INFO_HEADER@@_N@Z @ 0x1C002834C (-DrvDisplayConfigGetDeviceInfoInternal@@YAJPEAUDISPLAYCONFIG_DEVICE_INFO_HEADER@@_N@Z.c)
+ *     DrvDisplayConfigSetDeviceInfo @ 0x1C0193490 (DrvDisplayConfigSetDeviceInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DrvIsWddmDriverPresent(__int64 a1)
 {
   __int64 i; // rdx

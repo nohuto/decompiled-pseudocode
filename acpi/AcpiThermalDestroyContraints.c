@@ -1,3 +1,13 @@
+/*
+ * XREFs of AcpiThermalDestroyContraints @ 0x1C0042508
+ * Callers:
+ *     ACPIThermalStopZoneWorker @ 0x1C0041F9C (ACPIThermalStopZoneWorker.c)
+ * Callees:
+ *     AcpiDiagTraceActiveCoolingConstraint @ 0x1C0007500 (AcpiDiagTraceActiveCoolingConstraint.c)
+ *     AcpiDiagTracePassiveCoolingConstraint @ 0x1C0008720 (AcpiDiagTracePassiveCoolingConstraint.c)
+ *     ACPIThermalReevaluateConstraints @ 0x1C0041A74 (ACPIThermalReevaluateConstraints.c)
+ */
+
 void __fastcall AcpiThermalDestroyContraints(__int64 a1)
 {
   __int64 v1; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetClipboardIL@@YAXUtagUIPI_INFO@@PEAU1@@Z @ 0x1C014976A
+ * Callers:
+ *     ?CheckClipboardAccessForIntegrityLevel@@YAHUtagUIPI_INFO@@0@Z @ 0x1C014972C (-CheckClipboardAccessForIntegrityLevel@@YAHUtagUIPI_INFO@@0@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetClipboardIL(unsigned int a1, _DWORD *a2)
 {
   unsigned int v2; // r8d

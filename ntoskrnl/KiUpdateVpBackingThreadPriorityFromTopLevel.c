@@ -1,3 +1,23 @@
+/*
+ * XREFs of KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x14056C0C8
+ * Callers:
+ *     KeSetThreadSchedulerAssist @ 0x14056AE2C (KeSetThreadSchedulerAssist.c)
+ *     KiUpdateVpBackingThreadPriorityDpcRoutine @ 0x14056BAF0 (KiUpdateVpBackingThreadPriorityDpcRoutine.c)
+ *     KiUpdateVpBackingThreadPriorityOnPriorityQuery @ 0x14056C4D8 (KiUpdateVpBackingThreadPriorityOnPriorityQuery.c)
+ * Callees:
+ *     KiSetPriorityThread @ 0x1402273F0 (KiSetPriorityThread.c)
+ *     KiComputePriorityFloor @ 0x140229E28 (KiComputePriorityFloor.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140255D00 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402ADF80 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x14033FBD0 (KiSetBasePriorityAndClearDecrement.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x14040A618 (KiReadGuestSchedulerAssistPriority.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiSetThreadQosLevelUnsafe @ 0x14045A058 (KiSetThreadQosLevelUnsafe.c)
+ *     KiCheckAssistDataForBamQosLevelOverride @ 0x14056B928 (KiCheckAssistDataForBamQosLevelOverride.c)
+ *     EtwTraceXSchedulerPriorityUpdate @ 0x1405FB458 (EtwTraceXSchedulerPriorityUpdate.c)
+ */
+
 char __fastcall KiUpdateVpBackingThreadPriorityFromTopLevel(ULONG_PTR BugCheckParameter1, unsigned __int64 a2)
 {
   int v4; // eax

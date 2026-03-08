@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiInitializePartitionSpecialPurposeMemory @ 0x140A4470C
+ * Callers:
+ *     MiInitializePartitionSpecialPurposeMemoryCallout @ 0x14065E110 (MiInitializePartitionSpecialPurposeMemoryCallout.c)
+ *     MiAddSpecialPurposeMemoryPrepare @ 0x140A44160 (MiAddSpecialPurposeMemoryPrepare.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     KeExpandKernelStackAndCallout @ 0x1403D0D60 (KeExpandKernelStackAndCallout.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     MiFindSpecialPurposeMemoryType @ 0x14065DBE8 (MiFindSpecialPurposeMemoryType.c)
+ *     ObDuplicateObject @ 0x1406ED5C0 (ObDuplicateObject.c)
+ *     PsReferencePartitionByHandle @ 0x14070591C (PsReferencePartitionByHandle.c)
+ *     PsCreatePartition @ 0x140855A0C (PsCreatePartition.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiInitializePartitionSpecialPurposeMemory(__int64 a1, _OWORD *a2)
 {
   PVOID *v5; // r15

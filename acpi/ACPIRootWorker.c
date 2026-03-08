@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIRootWorker @ 0x1C0094950
+ * Callers:
+ *     <none>
+ * Callees:
+ *     OSCreateHandle @ 0x1C008DB54 (OSCreateHandle.c)
+ *     OSWriteRegValue @ 0x1C008EC30 (OSWriteRegValue.c)
+ */
+
 NTSTATUS __fastcall ACPIRootWorker(__int64 a1, char a2)
 {
   NTSTATUS result; // eax

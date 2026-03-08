@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopPowerAggregatorInitialize @ 0x140B46D2C
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     KiInitializeTimer2 @ 0x140203D9C (KiInitializeTimer2.c)
+ *     PopPowerRequestCreateCommon @ 0x1402BC348 (PopPowerRequestCreateCommon.c)
+ *     PoCaptureReasonContext @ 0x1402BD2FC (PoCaptureReasonContext.c)
+ *     PoDestroyReasonContext @ 0x1402BDBE4 (PoDestroyReasonContext.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall PopPowerAggregatorInitialize(int a1)
 {
   int Common; // ebx

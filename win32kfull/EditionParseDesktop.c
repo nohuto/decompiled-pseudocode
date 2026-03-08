@@ -1,3 +1,12 @@
+/*
+ * XREFs of EditionParseDesktop @ 0x1C00D45C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ @ 0x1C004A174 (-IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ.c)
+ *     ?xxxCreateDesktopEx2@@YAJPEAUtagWINDOWSTATION@@PEAU_ACCESS_STATE@@DPEAU_UNICODE_STRING@@KPEAPEAX@Z @ 0x1C00D4724 (-xxxCreateDesktopEx2@@YAJPEAUtagWINDOWSTATION@@PEAU_ACCESS_STATE@@DPEAU_UNICODE_STRING@@KPEAPEAX.c)
+ */
+
 __int64 __fastcall EditionParseDesktop(
         struct tagWINDOWSTATION *a1,
         __int64 a2,

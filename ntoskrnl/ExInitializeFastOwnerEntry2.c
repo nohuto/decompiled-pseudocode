@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExInitializeFastOwnerEntry2 @ 0x14040E26C
+ * Callers:
+ *     ExInitializeFastOwnerEntry @ 0x1402D3ED0 (ExInitializeFastOwnerEntry.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 struct _KTHREAD *__fastcall ExInitializeFastOwnerEntry2(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // al

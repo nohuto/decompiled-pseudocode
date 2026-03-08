@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CalcDpi@Win81@@YAIII@Z @ 0x1C031C370
+ * Callers:
+ *     ?FillDpiInfo@Win81@@YAXAEBUtagSIZE@@0IIHPEAU_DPI_INFORMATION@@@Z @ 0x1C031C72C (-FillDpiInfo@Win81@@YAXAEBUtagSIZE@@0IIHPEAU_DPI_INFORMATION@@@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall Win81::CalcDpi(Win81 *this, int a2)
 {
   if ( a2 )

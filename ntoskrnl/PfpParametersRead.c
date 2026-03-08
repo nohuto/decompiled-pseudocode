@@ -1,3 +1,13 @@
+/*
+ * XREFs of PfpParametersRead @ 0x140844FC8
+ * Callers:
+ *     PfpParametersWatcher @ 0x14097D180 (PfpParametersWatcher.c)
+ *     PfpParametersInitialize @ 0x140B61C6C (PfpParametersInitialize.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PfpGetParameter @ 0x1408456E4 (PfpGetParameter.c)
+ */
+
 __int64 __fastcall PfpParametersRead(__int64 a1)
 {
   __int128 v1; // xmm0

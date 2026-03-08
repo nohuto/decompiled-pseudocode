@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bRotationOrMirroring@EXFORMOBJ@@QEBAHXZ @ 0x1C0272E94
+ * Callers:
+ *     NtGdiTransparentBlt @ 0x1C029A1B0 (NtGdiTransparentBlt.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EXFORMOBJ::bRotationOrMirroring(float **this)
 {
   float *v1; // rdx

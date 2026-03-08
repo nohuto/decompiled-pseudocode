@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?OnDisplayRequiredChange@CIT_USER_ACTIVE_TRACKER@@QEAAXII@Z @ 0x1C00B8260
+ * Callers:
+ *     CitDisplayRequestChange @ 0x1C00B81B4 (CitDisplayRequestChange.c)
+ * Callees:
+ *     ?SetActive@CIT_USER_ACTIVITY_STAT@@QEAAXI@Z @ 0x1C00B8578 (-SetActive@CIT_USER_ACTIVITY_STAT@@QEAAXI@Z.c)
+ *     ?CalculateUpToTime@CIT_USER_ACTIVE_TRACKER@@QEAAXI@Z @ 0x1C00B85BC (-CalculateUpToTime@CIT_USER_ACTIVE_TRACKER@@QEAAXI@Z.c)
+ */
+
 void __fastcall CIT_USER_ACTIVE_TRACKER::OnDisplayRequiredChange(
         CIT_USER_ACTIVE_TRACKER *this,
         unsigned int a2,

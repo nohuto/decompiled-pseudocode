@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiMirrorReduceBlackWrites @ 0x140625C30
+ * Callers:
+ *     MiMirrorBlackPhase @ 0x1406247B4 (MiMirrorBlackPhase.c)
+ * Callees:
+ *     MiIsDecayPfn @ 0x140319ED0 (MiIsDecayPfn.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x140624E58 (MiMirrorOmitPagesFromCopy.c)
+ *     MiMirrorNodeLargePages @ 0x14064CF54 (MiMirrorNodeLargePages.c)
+ */
+
 __int64 __fastcall MiMirrorReduceBlackWrites(__int64 a1, __int64 a2)
 {
   int v2; // eax

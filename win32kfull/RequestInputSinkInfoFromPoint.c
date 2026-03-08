@@ -1,3 +1,12 @@
+/*
+ * XREFs of RequestInputSinkInfoFromPoint @ 0x1C01E795C
+ * Callers:
+ *     NtUserCompositionInputSinkLuidFromPoint @ 0x1C01CE9E0 (NtUserCompositionInputSinkLuidFromPoint.c)
+ *     NtUserCompositionInputSinkViewInstanceIdFromPoint @ 0x1C01CED50 (NtUserCompositionInputSinkViewInstanceIdFromPoint.c)
+ * Callees:
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall RequestInputSinkInfoFromPoint(__int128 *a1, __int64 a2, __int64 a3, __int64 a4)
 {

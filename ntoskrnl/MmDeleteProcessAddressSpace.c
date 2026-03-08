@@ -1,3 +1,27 @@
+/*
+ * XREFs of MmDeleteProcessAddressSpace @ 0x140726E8C
+ * Callers:
+ *     PspProcessDelete @ 0x140704DD0 (PspProcessDelete.c)
+ * Callees:
+ *     PsReturnProcessQuota @ 0x14020D064 (PsReturnProcessQuota.c)
+ *     ExCleanupAutoExpandPushLock @ 0x14023A500 (ExCleanupAutoExpandPushLock.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiEmptyPageAccessLog @ 0x14028C160 (MiEmptyPageAccessLog.c)
+ *     MiUnlinkWorkingSet @ 0x1402A4D2C (MiUnlinkWorkingSet.c)
+ *     MiReturnResident @ 0x1402A52C8 (MiReturnResident.c)
+ *     MiContractPagingFiles @ 0x1402A5364 (MiContractPagingFiles.c)
+ *     MiDeleteWorkingSetList @ 0x1402A5430 (MiDeleteWorkingSetList.c)
+ *     MiDeletePxeSharedLocks @ 0x1402A54C4 (MiDeletePxeSharedLocks.c)
+ *     MiDeleteFinalPageTables @ 0x1402A54F4 (MiDeleteFinalPageTables.c)
+ *     MiGetProcessPartition @ 0x14031F9D4 (MiGetProcessPartition.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     PspChangeJobMemoryUsageByProcess @ 0x1406DBAB0 (PspChangeJobMemoryUsageByProcess.c)
+ *     MiReleaseProcessReferenceToSessionDataPage @ 0x14072665C (MiReleaseProcessReferenceToSessionDataPage.c)
+ *     MiDeleteAweInfo @ 0x140A3EDD8 (MiDeleteAweInfo.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MmDeleteProcessAddressSpace(ULONG_PTR BugCheckParameter2)
 {
   __int64 v1; // r14

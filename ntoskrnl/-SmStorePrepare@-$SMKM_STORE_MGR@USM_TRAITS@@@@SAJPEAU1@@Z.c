@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SmStorePrepare@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x1403A1670
+ * Callers:
+ *     SmFirstTimeInit @ 0x1407DDCE0 (SmFirstTimeInit.c)
+ * Callees:
+ *     SmFpPreAllocate @ 0x1403A1704 (SmFpPreAllocate.c)
+ */
+
 __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmStorePrepare(__int64 a1)
 {
   int v2; // eax

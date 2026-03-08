@@ -1,3 +1,13 @@
+/*
+ * XREFs of _GetPointerDeviceInfoProperties @ 0x1C0146180
+ * Callers:
+ *     NtUserGetPointerDevices @ 0x1C00E3A50 (NtUserGetPointerDevices.c)
+ *     NtUserGetPointerDevice @ 0x1C01D3DF0 (NtUserGetPointerDevice.c)
+ * Callees:
+ *     ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1C0145F3A (-RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z.c)
+ *     PHIDTtoPT @ 0x1C01C43EC (PHIDTtoPT.c)
+ */
+
 __int64 __fastcall GetPointerDeviceInfoProperties(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v5; // r9

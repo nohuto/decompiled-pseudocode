@@ -1,3 +1,21 @@
+/*
+ * XREFs of pDCIAdjClr @ 0x1C02583A8
+ * Callers:
+ *     HT_CreateHalftoneBrush @ 0x1C0252A88 (HT_CreateHalftoneBrush.c)
+ *     HT_CreateStandardMonoPattern @ 0x1C0252C14 (HT_CreateStandardMonoPattern.c)
+ *     HT_HalftoneBitmap @ 0x1C025325C (HT_HalftoneBitmap.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     DivFD6 @ 0x1C014AF0C (DivFD6.c)
+ *     Log @ 0x1C014B004 (Log.c)
+ *     RaisePower @ 0x1C014B26A (RaisePower.c)
+ *     CompareMemory @ 0x1C014C736 (CompareMemory.c)
+ *     AdjustSrcDevGamma @ 0x1C0256104 (AdjustSrcDevGamma.c)
+ *     ComputeColorSpaceXForm @ 0x1C0257078 (ComputeColorSpaceXForm.c)
+ *     GenCMYMaskXlate @ 0x1C0257F10 (GenCMYMaskXlate.c)
+ *     TintAngle @ 0x1C0258144 (TintAngle.c)
+ */
+
 __int64 __fastcall pDCIAdjClr(__int64 a1, __m128i *a2, char **a3, unsigned int a4, __int16 a5, int a6, _DWORD *a7)
 {
   __int64 v11; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopInitializePowerSettingCallbacks @ 0x140B65314
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     PoRegisterPowerSettingCallback @ 0x14073B960 (PoRegisterPowerSettingCallback.c)
+ *     PpmInfoRegisterCallbacks @ 0x140B653F0 (PpmInfoRegisterCallbacks.c)
+ */
+
 NTSTATUS PopInitializePowerSettingCallbacks()
 {
   PPOWER_SETTING_CALLBACK *v0; // rbx

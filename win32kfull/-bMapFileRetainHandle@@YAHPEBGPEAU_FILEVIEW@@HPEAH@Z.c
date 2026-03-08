@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z @ 0x1C00BACFC
+ * Callers:
+ *     InitFNTCache @ 0x1C00B9300 (InitFNTCache.c)
+ *     bInitCacheTable @ 0x1C028C900 (bInitCacheTable.c)
+ *     bReAllocCacheFile @ 0x1C028CAF0 (bReAllocCacheFile.c)
+ * Callees:
+ *     ?bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z @ 0x1C00BC0F8 (-bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z.c)
+ *     ?hGetHandleFromFilePath@@YAPEAXPEBGH@Z @ 0x1C01153AC (-hGetHandleFromFilePath@@YAPEAXPEBGH@Z.c)
+ *     ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C011CC6C (-vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 void *__fastcall bMapFileRetainHandle(const unsigned __int16 *a1, struct _FILEVIEW *a2, int a3, int *a4)
 {
   Gre::Base *v6; // rcx

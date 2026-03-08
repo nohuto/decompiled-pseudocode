@@ -1,3 +1,20 @@
+/*
+ * XREFs of NtReplyWaitReceivePortEx @ 0x140716750
+ * Callers:
+ *     NtReplyWaitReceivePort @ 0x140716730 (NtReplyWaitReceivePort.c)
+ *     NtListenPort @ 0x140860480 (NtListenPort.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x140716318 (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpReceiveLegacyMessage @ 0x1407168B0 (AlpcpReceiveLegacyMessage.c)
+ *     AlpcpCompleteDeferSignalRequest @ 0x140716B9C (AlpcpCompleteDeferSignalRequest.c)
+ *     AlpcpProbeForWriteMessageHeader @ 0x140716C88 (AlpcpProbeForWriteMessageHeader.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     AlpcpSendMessage @ 0x1407CAFB0 (AlpcpSendMessage.c)
+ */
+
 __int64 __fastcall NtReplyWaitReceivePortEx(HANDLE Handle, __int64 a2, unsigned __int64 a3, __int64 a4, __int64 a5)
 {
   struct _KTHREAD *CurrentThread; // rax

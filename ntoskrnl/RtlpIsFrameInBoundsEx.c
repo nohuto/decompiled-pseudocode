@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpIsFrameInBoundsEx @ 0x140282250
+ * Callers:
+ *     RtlpWalkFrameChain @ 0x14027FF40 (RtlpWalkFrameChain.c)
+ *     PspGetSetContextInternal @ 0x1406EA840 (PspGetSetContextInternal.c)
+ * Callees:
+ *     KeGetNextKernelStackSegment @ 0x1402A775C (KeGetNextKernelStackSegment.c)
+ *     KeQueryCurrentStackInformation @ 0x1402E1E00 (KeQueryCurrentStackInformation.c)
+ */
+
 char __fastcall RtlpIsFrameInBoundsEx(
         unsigned __int64 *a1,
         unsigned __int64 a2,

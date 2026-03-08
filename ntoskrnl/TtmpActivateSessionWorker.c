@@ -1,3 +1,13 @@
+/*
+ * XREFs of TtmpActivateSessionWorker @ 0x1409A2018
+ * Callers:
+ *     TtmpSessionWorker @ 0x1409A2950 (TtmpSessionWorker.c)
+ * Callees:
+ *     TtmpInitiateModernStandbyTransition @ 0x1409A23F0 (TtmpInitiateModernStandbyTransition.c)
+ *     TtmpSessionPowerControl @ 0x1409A28A4 (TtmpSessionPowerControl.c)
+ *     TtmiLogSessionActivate @ 0x1409A61A4 (TtmiLogSessionActivate.c)
+ */
+
 __int64 __fastcall TtmpActivateSessionWorker(__int64 a1, __int64 a2)
 {
   unsigned int v2; // eax

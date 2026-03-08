@@ -1,3 +1,20 @@
+/*
+ * XREFs of EtwpSwitchBuffer @ 0x140205FF4
+ * Callers:
+ *     EtwpReserveTraceBuffer @ 0x1403151E0 (EtwpReserveTraceBuffer.c)
+ * Callees:
+ *     EtwpAllocateFreeBuffers @ 0x140205030 (EtwpAllocateFreeBuffers.c)
+ *     EtwpBuffersFlushRequired @ 0x1402052DC (EtwpBuffersFlushRequired.c)
+ *     ObGetCurrentIrql @ 0x140205E10 (ObGetCurrentIrql.c)
+ *     EtwpRequestFlushTimer @ 0x140205EDC (EtwpRequestFlushTimer.c)
+ *     EtwpPrepareDirtyBuffer @ 0x140205FA4 (EtwpPrepareDirtyBuffer.c)
+ *     EtwpDequeueFreeBuffer @ 0x14020620C (EtwpDequeueFreeBuffer.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x1402063C4 (EtwpEnqueueAvailableBuffer.c)
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     EtwpEnqueueOverflowBuffer @ 0x140300FB4 (EtwpEnqueueOverflowBuffer.c)
+ */
+
 __int64 __fastcall EtwpSwitchBuffer(__int64 a1, __int64 a2, signed __int64 *a3, __int16 a4, __int16 a5)
 {
   int v6; // r14d

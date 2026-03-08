@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpGetDurationSince @ 0x14045F42A
+ * Callers:
+ *     MiAllocatePagesForMdl @ 0x1402B3B18 (MiAllocatePagesForMdl.c)
+ *     MiAllocateContiguousMemory @ 0x1403B49B4 (MiAllocateContiguousMemory.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ */
+
 ULONGLONG __fastcall EtwpGetDurationSince(__int64 a1)
 {
   LARGE_INTEGER v2; // rax

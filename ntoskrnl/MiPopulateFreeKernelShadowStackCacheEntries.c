@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiPopulateFreeKernelShadowStackCacheEntries @ 0x14039C190
+ * Callers:
+ *     MmCreatePartition @ 0x1403A6A3C (MmCreatePartition.c)
+ *     MiCreatePfnDatabase @ 0x140B3A0B8 (MiCreatePfnDatabase.c)
+ * Callees:
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ */
+
 PSLIST_ENTRY __fastcall MiPopulateFreeKernelShadowStackCacheEntries(
         union _SLIST_HEADER *a1,
         struct _SLIST_ENTRY *a2,

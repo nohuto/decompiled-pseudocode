@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetLastErrorFail@details@wil@@YAKPEAXIPEBD110@Z @ 0x140009434
+ * Callers:
+ *     ??$ReportFailure_GetLastError@$02@details@wil@@YAKPEAXIPEBD110@Z @ 0x1400081A4 (--$ReportFailure_GetLastError@$02@details@wil@@YAKPEAXIPEBD110@Z.c)
+ *     ??$ReportFailure_GetLastErrorHr@$00@details@wil@@YAJPEAXIPEBD110@Z @ 0x14000822C (--$ReportFailure_GetLastErrorHr@$00@details@wil@@YAJPEAXIPEBD110@Z.c)
+ *     ?GetLastErrorFailHr@details@wil@@YAJXZ @ 0x1400094A0 (-GetLastErrorFailHr@details@wil@@YAJXZ.c)
+ * Callees:
+ *     ??$ReportFailure_Hr@$01@details@wil@@YAXPEAXIPEBD110J@Z @ 0x14000833C (--$ReportFailure_Hr@$01@details@wil@@YAXPEAXIPEBD110J@Z.c)
+ */
+
 DWORD __fastcall wil::details::GetLastErrorFail(
         wil::details *this,
         void *a2,

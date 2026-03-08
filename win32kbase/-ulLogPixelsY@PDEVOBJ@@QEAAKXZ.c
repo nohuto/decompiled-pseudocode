@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ulLogPixelsY@PDEVOBJ@@QEAAKXZ @ 0x1C018C3A8
+ * Callers:
+ *     ?bDynamicMatchEnoughForModeChange@@YAHPEAUHDEV__@@0@Z @ 0x1C00D0464 (-bDynamicMatchEnoughForModeChange@@YAHPEAUHDEV__@@0@Z.c)
+ *     ?vMakeIso@DC@@QEAAXXZ @ 0x1C018C3EC (-vMakeIso@DC@@QEAAXXZ.c)
+ * Callees:
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C0041AF0 (W32GetCurrentThreadDpiAwarenessContext.c)
+ */
+
 __int64 __fastcall PDEVOBJ::ulLogPixelsY(PDEVOBJ *this)
 {
   unsigned int CurrentThreadDpiAwarenessContext; // eax

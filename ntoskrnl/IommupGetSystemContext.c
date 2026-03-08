@@ -1,3 +1,19 @@
+/*
+ * XREFs of IommupGetSystemContext @ 0x1403AB428
+ * Callers:
+ *     IommuGetLibraryContext @ 0x140520AF0 (IommuGetLibraryContext.c)
+ *     IommuGetConfiguration @ 0x140B6DEF0 (IommuGetConfiguration.c)
+ *     IommuHvGetConfiguration @ 0x140B8F420 (IommuHvGetConfiguration.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IommupHvCreateSvmPasidSpace @ 0x140522330 (IommupHvCreateSvmPasidSpace.c)
+ */
+
 PVOID *__fastcall IommupGetSystemContext(unsigned int a1)
 {
   __int64 v2; // rcx

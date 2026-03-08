@@ -1,3 +1,37 @@
+/*
+ * XREFs of memmove @ 0x1C0023580
+ * Callers:
+ *     UsbhQueryBusRelations @ 0x1C0008DD0 (UsbhQueryBusRelations.c)
+ *     UsbhBuildVendorSpecificCompatibleIDs @ 0x1C0022B08 (UsbhBuildVendorSpecificCompatibleIDs.c)
+ *     UsbhAcpiEvalAcpiMethodEx @ 0x1C0029AD0 (UsbhAcpiEvalAcpiMethodEx.c)
+ *     UsbhFdoGetMsDescriptorPdo @ 0x1C002A894 (UsbhFdoGetMsDescriptorPdo.c)
+ *     UsbhGetControllerName @ 0x1C002B838 (UsbhGetControllerName.c)
+ *     UsbhGetHubPdoName @ 0x1C002C6F0 (UsbhGetHubPdoName.c)
+ *     UsbhLogStartFailure @ 0x1C002D464 (UsbhLogStartFailure.c)
+ *     UsbhFdoRecordFailure @ 0x1C003074C (UsbhFdoRecordFailure.c)
+ *     UsbhIoctlGetDescriptorForPDO @ 0x1C003E714 (UsbhIoctlGetDescriptorForPDO.c)
+ *     UsbhGetPdoRegistryParameter @ 0x1C0045000 (UsbhGetPdoRegistryParameter.c)
+ *     UsbhQueryGlobalLegacyDeviceValue @ 0x1C00460D0 (UsbhQueryGlobalLegacyDeviceValue.c)
+ *     UsbhGetDeviceNodeInfo @ 0x1C004910C (UsbhGetDeviceNodeInfo.c)
+ *     UsbhPdoQueryWmiRegInfo @ 0x1C0049A80 (UsbhPdoQueryWmiRegInfo.c)
+ *     UsbhWmiDriverEntry @ 0x1C004A130 (UsbhWmiDriverEntry.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhGetBusInterface @ 0x1C004C410 (UsbhGetBusInterface.c)
+ *     UsbhBuildDeviceCompatibleID @ 0x1C004F8A8 (UsbhBuildDeviceCompatibleID.c)
+ *     UsbhMakeId @ 0x1C0050D48 (UsbhMakeId.c)
+ *     UsbhPdoPnp_QueryDeviceText @ 0x1C0055540 (UsbhPdoPnp_QueryDeviceText.c)
+ *     UsbhPdoPnp_QueryId @ 0x1C00558C0 (UsbhPdoPnp_QueryId.c)
+ *     UsbhBuildUxdPnpId @ 0x1C00598B4 (UsbhBuildUxdPnpId.c)
+ *     UsbhCopyPnpString @ 0x1C00599F0 (UsbhCopyPnpString.c)
+ *     UsbhGetUxdLoadKeySettings @ 0x1C005A460 (UsbhGetUxdLoadKeySettings.c)
+ *     UsbhQueryUxdDevice @ 0x1C005AA70 (UsbhQueryUxdDevice.c)
+ *     MyRegQueryString @ 0x1C005D154 (MyRegQueryString.c)
+ *     WppTraceCallback @ 0x1C0073610 (WppTraceCallback.c)
+ *     KsPropertyHandleDrmSetContentId @ 0x1C0073BA0 (KsPropertyHandleDrmSetContentId.c)
+ * Callees:
+ *     <none>
+ */
+
 void *__cdecl memmove(void *a1, const void *Src, size_t Size)
 {
   void *result; // rax

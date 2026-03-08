@@ -1,3 +1,12 @@
+/*
+ * XREFs of _RtlpMuiRegValidateAndGetInstallFallbackBase @ 0x140A730F0
+ * Callers:
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x140A72CB8 (_RtlpMuiRegPopulateBaseLanguages.c)
+ * Callees:
+ *     RtlpLangNameInMultiSzString @ 0x140843B4C (RtlpLangNameInMultiSzString.c)
+ *     RtlLCIDToCultureName @ 0x1409BBD70 (RtlLCIDToCultureName.c)
+ */
+
 __int64 __fastcall RtlpMuiRegValidateAndGetInstallFallbackBase(
         __int64 a1,
         _DWORD *a2,

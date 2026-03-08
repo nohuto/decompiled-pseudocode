@@ -1,3 +1,11 @@
+/*
+ * XREFs of PfVolumeSupportedForPrefetch @ 0x1402DC294
+ * Callers:
+ *     PfpVolumeOpenAndVerify @ 0x140766A44 (PfpVolumeOpenAndVerify.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PfVolumeSupportedForPrefetch(_DWORD *a1)
 {
   unsigned int v1; // eax

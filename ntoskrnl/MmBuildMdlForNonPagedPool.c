@@ -1,3 +1,29 @@
+/*
+ * XREFs of MmBuildMdlForNonPagedPool @ 0x1402B5DB0
+ * Callers:
+ *     VslpLockPagesForTransfer @ 0x1403C8E74 (VslpLockPagesForTransfer.c)
+ *     VslpLockMdlForTransfer @ 0x1403C9050 (VslpLockMdlForTransfer.c)
+ *     HalpFlushMapBuffers @ 0x14050F610 (HalpFlushMapBuffers.c)
+ *     HvlGetCoverageData @ 0x14053D1C8 (HvlGetCoverageData.c)
+ *     IoWriteCapturedPristineTriageDumpToDedicatedDumpFile @ 0x14054ECE4 (IoWriteCapturedPristineTriageDumpToDedicatedDumpFile.c)
+ *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PEAX2PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x1405BC49C (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PE.c)
+ *     SmKmIssueVolumeIo @ 0x1405C91AC (SmKmIssueVolumeIo.c)
+ *     DifMmBuildMdlForNonPagedPoolWrapper @ 0x1405E4AC0 (DifMmBuildMdlForNonPagedPoolWrapper.c)
+ *     MiCreateMdl @ 0x1407F223C (MiCreateMdl.c)
+ *     HvlpDynamicUpdateMicrocode @ 0x14093E628 (HvlpDynamicUpdateMicrocode.c)
+ *     PopAllocateHiberContext @ 0x140984D38 (PopAllocateHiberContext.c)
+ *     SmKmStoreFileWriteHeader @ 0x1409D7778 (SmKmStoreFileWriteHeader.c)
+ *     EtwpBuildMdlForTraceBuffer @ 0x1409EA424 (EtwpBuildMdlForTraceBuffer.c)
+ *     MiReplaceRotateWithDemandZero @ 0x140A2E748 (MiReplaceRotateWithDemandZero.c)
+ * Callees:
+ *     MiQueuePinDriverAddressLog @ 0x14030C9F8 (MiQueuePinDriverAddressLog.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiVaToPfnEx @ 0x140384AD0 (MiVaToPfnEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiSetNonPagedPoolNoSteal @ 0x14063F4B8 (MiSetNonPagedPoolNoSteal.c)
+ */
+
 void __stdcall MmBuildMdlForNonPagedPool(PMDL MemoryDescriptorList)
 {
   unsigned __int64 StartVa; // rdi

@@ -1,3 +1,27 @@
+/*
+ * XREFs of CcUnmapVacbArray @ 0x14021B910
+ * Callers:
+ *     CcUnmapAndPurge @ 0x140217984 (CcUnmapAndPurge.c)
+ *     CcGetVirtualAddress @ 0x14021FB80 (CcGetVirtualAddress.c)
+ *     CcSetFileSizesEx @ 0x14029F9B0 (CcSetFileSizesEx.c)
+ *     CcPurgeCacheSection @ 0x1402A0EA0 (CcPurgeCacheSection.c)
+ *     CcFlushCachePreProcess @ 0x1403373A0 (CcFlushCachePreProcess.c)
+ *     CcUnmapFileOffsetFromSystemCache @ 0x1403BE0A0 (CcUnmapFileOffsetFromSystemCache.c)
+ * Callees:
+ *     CcSetVacbLargeOffset @ 0x1402180C0 (CcSetVacbLargeOffset.c)
+ *     CcGetVacbLargeOffset @ 0x14021BBE0 (CcGetVacbLargeOffset.c)
+ *     CcSetVacbInFreeList @ 0x14021BC58 (CcSetVacbInFreeList.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x14021BCF0 (CcReleaseBcbLockAndVacbLock.c)
+ *     CcAcquireBcbLockAndVacbLock @ 0x14021BD30 (CcAcquireBcbLockAndVacbLock.c)
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KxAcquireQueuedSpinLock @ 0x140336C10 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcUnmapVacb @ 0x1406A7150 (CcUnmapVacb.c)
+ */
+
 char __fastcall CcUnmapVacbArray(__int64 a1, __int64 *a2, unsigned int a3, char a4, char a5, char a6)
 {
   __int64 v6; // r13

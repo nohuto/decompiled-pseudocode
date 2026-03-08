@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlIdnToUnicode @ 0x1409BC420
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpIdnToUnicodeWorker @ 0x1405AD830 (RtlpIdnToUnicodeWorker.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall RtlIdnToUnicode(
         ULONG Flags,
         PCWSTR SourceString,

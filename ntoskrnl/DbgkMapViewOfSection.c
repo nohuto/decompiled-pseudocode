@@ -1,3 +1,20 @@
+/*
+ * XREFs of DbgkMapViewOfSection @ 0x1407D2C6C
+ * Callers:
+ *     PsDispatchIumService @ 0x1405A2A44 (PsDispatchIumService.c)
+ *     MiMapViewOfSectionExCommon @ 0x140727CDC (MiMapViewOfSectionExCommon.c)
+ *     NtMapViewOfSection @ 0x1407D4B90 (NtMapViewOfSection.c)
+ *     NtLoadEnclaveData @ 0x140A3C600 (NtLoadEnclaveData.c)
+ * Callees:
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     DbgkpSectionToFileHandle @ 0x140936458 (DbgkpSectionToFileHandle.c)
+ *     DbgkpSuppressDbgMsg @ 0x14093650C (DbgkpSuppressDbgMsg.c)
+ *     DbgkpSendApiMessage @ 0x1409370E0 (DbgkpSendApiMessage.c)
+ */
+
 int __fastcall DbgkMapViewOfSection(
         _KPROCESS *Object,
         __int64 a2,

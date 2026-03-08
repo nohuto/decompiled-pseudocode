@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CMessageConversationHost@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800FEEA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CMessageConversationHost::HrFindInterface(
         CMessageConversationHost *this,
         const struct _GUID *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DDEImpIncRefInit@@YAHPEAUtagWND@@PEAUtagDDEIMP@@PEAU_TL@@@Z @ 0x1C01CCEE4
+ * Callers:
+ *     NtUserfnDDEINIT @ 0x1C01E1520 (NtUserfnDDEINIT.c)
+ * Callees:
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ */
+
 __int64 __fastcall DDEImpIncRefInit(struct tagWND *a1, struct tagDDEIMP *a2, struct _TL *a3)
 {
   __int16 v3; // ax

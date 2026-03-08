@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0qqqqqp_EtwWriteTransfer @ 0x1C0038158
+ * Callers:
+ *     EtwTraceAuditApiSetWinEventHook @ 0x1C0038110 (EtwTraceAuditApiSetWinEventHook.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall McTemplateK0qqqqqp_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

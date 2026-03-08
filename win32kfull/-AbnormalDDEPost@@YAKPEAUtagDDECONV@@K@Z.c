@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AbnormalDDEPost@@YAKPEAUtagDDECONV@@K@Z @ 0x1C01FA7BC
+ * Callers:
+ *     ?xxxUnexpectedClientPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FD134 (-xxxUnexpectedClientPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ *     ?xxxUnexpectedServerPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FD260 (-xxxUnexpectedServerPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ * Callees:
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ */
+
 __int64 __fastcall AbnormalDDEPost(struct tagDDECONV *a1, int a2)
 {
   unsigned int v2; // ebx

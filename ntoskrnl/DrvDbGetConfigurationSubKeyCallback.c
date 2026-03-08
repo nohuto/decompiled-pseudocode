@@ -1,3 +1,16 @@
+/*
+ * XREFs of DrvDbGetConfigurationSubKeyCallback @ 0x1406718E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     _PnpCtxRegOpenKey @ 0x14081D410 (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegCloseKey @ 0x1408653B4 (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegQueryValue @ 0x14086617C (_PnpCtxRegQueryValue.c)
+ */
+
 __int64 __fastcall DrvDbGetConfigurationSubKeyCallback(int a1, int a2, _WORD *a3, __int64 a4)
 {
   unsigned int v4; // edi

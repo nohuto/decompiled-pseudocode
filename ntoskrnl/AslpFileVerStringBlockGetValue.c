@@ -1,3 +1,12 @@
+/*
+ * XREFs of AslpFileVerStringBlockGetValue @ 0x14076C2E4
+ * Callers:
+ *     AslpFileQueryVersionString @ 0x1406D48D0 (AslpFileQueryVersionString.c)
+ * Callees:
+ *     AslpFileVerBlockGetValueOffset @ 0x1402468AC (AslpFileVerBlockGetValueOffset.c)
+ *     RtlStringCbLengthW @ 0x140246920 (RtlStringCbLengthW.c)
+ */
+
 NTSTATUS __fastcall AslpFileVerStringBlockGetValue(__int64 *a1, size_t *a2, __int64 a3, unsigned __int64 a4)
 {
   NTSTATUS result; // eax

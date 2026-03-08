@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Subtract@CStripe@Internal@FastRegion@@QEAAXPEBV123@00@Z @ 0x180046F28
+ * Callers:
+ *     ?Subtract@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z @ 0x180046BB8 (-Subtract@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FastRegion::Internal::CStripe::Subtract(
         FastRegion::Internal::CStripe *this,
         const struct FastRegion::Internal::CStripe *a2,

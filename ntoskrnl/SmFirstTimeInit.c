@@ -1,3 +1,34 @@
+/*
+ * XREFs of SmFirstTimeInit @ 0x1407DDCE0
+ * Callers:
+ *     SmProcessCreateRequest @ 0x1407DD648 (SmProcessCreateRequest.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     SmFpCleanup @ 0x1403590B8 (SmFpCleanup.c)
+ *     ?SmCompressCtxStart@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@K@Z @ 0x1403A1440 (-SmCompressCtxStart@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@K@Z.c)
+ *     ?SmStorePrepare@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x1403A1670 (-SmStorePrepare@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z.c)
+ *     SmFpPreAllocate @ 0x1403A1704 (SmFpPreAllocate.c)
+ *     SmFpInitialize @ 0x1403A33A8 (SmFpInitialize.c)
+ *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x1403A340C (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
+ *     MmStoreChargeResidentAvailableForRead @ 0x1403B0DD0 (MmStoreChargeResidentAvailableForRead.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1405BC26C (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmTerminateStoreProcess @ 0x1405C77C8 (SmTerminateStoreProcess.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     PsCreateMinimalProcess @ 0x140817C28 (PsCreateMinimalProcess.c)
+ *     MmStoreRegister @ 0x140834CA4 (MmStoreRegister.c)
+ *     MmStoreCheckPagefiles @ 0x140836214 (MmStoreCheckPagefiles.c)
+ *     ExpPartitionCreatePool @ 0x1408480E8 (ExpPartitionCreatePool.c)
+ *     SmRegistrationCtxStart @ 0x14085DAC0 (SmRegistrationCtxStart.c)
+ */
+
 __int64 __fastcall SmFirstTimeInit(__int64 a1, int a2, int a3)
 {
   volatile signed __int64 *v3; // r14

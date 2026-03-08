@@ -1,3 +1,14 @@
+/*
+ * XREFs of DpiMiracastGetDeviceContextFromName @ 0x1C039A854
+ * Callers:
+ *     DxgkMiracastStartMiracastSession @ 0x1C00615C4 (DxgkMiracastStartMiracastSession.c)
+ *     DxgkMiracastStopMiracastSession @ 0x1C00624C4 (DxgkMiracastStopMiracastSession.c)
+ *     DxgkMiracastQueryMiracastStatus @ 0x1C039BE64 (DxgkMiracastQueryMiracastStatus.c)
+ * Callees:
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     DpiMiracastAddRefMiracastDeviceContext @ 0x1C005F23C (DpiMiracastAddRefMiracastDeviceContext.c)
+ */
+
 __int64 __fastcall DpiMiracastGetDeviceContextFromName(PCWSTR SourceString)
 {
   __int64 i; // rbx

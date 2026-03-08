@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeEnableProfiling @ 0x140971DE0
+ * Callers:
+ *     NtSetInformationThread @ 0x1406D8E90 (NtSetInformationThread.c)
+ * Callees:
+ *     KeUpdateTotalCyclesCurrentThread @ 0x140228820 (KeUpdateTotalCyclesCurrentThread.c)
+ *     KiBeginCounterAccumulation @ 0x140571C80 (KiBeginCounterAccumulation.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall KeEnableProfiling(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
   __int64 Pool2; // rax

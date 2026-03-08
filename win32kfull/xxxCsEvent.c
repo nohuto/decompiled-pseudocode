@@ -1,3 +1,16 @@
+/*
+ * XREFs of xxxCsEvent @ 0x1C000DCC0
+ * Callers:
+ *     xxxChangeMonitorFlags @ 0x1C00E49D0 (xxxChangeMonitorFlags.c)
+ *     NtUserEvent @ 0x1C01D0710 (NtUserEvent.c)
+ *     xxxMessageEvent @ 0x1C022E378 (xxxMessageEvent.c)
+ * Callees:
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0035F20 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall xxxCsEvent(void *Src, unsigned __int16 a2)
 {
   __int64 v4; // rdi

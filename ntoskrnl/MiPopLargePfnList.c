@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiPopLargePfnList @ 0x140349C1C
+ * Callers:
+ *     MiCommitExistingVad @ 0x140320D70 (MiCommitExistingVad.c)
+ *     MiAllocateSlabEntry @ 0x140349850 (MiAllocateSlabEntry.c)
+ *     MiAllocateLargeProcessPagesFromCache @ 0x140664B5C (MiAllocateLargeProcessPagesFromCache.c)
+ * Callees:
+ *     MiDemotePfnListChain @ 0x140665964 (MiDemotePfnListChain.c)
+ */
+
 unsigned __int64 __fastcall MiPopLargePfnList(__int64 a1, unsigned int a2)
 {
   _QWORD *v2; // rbx

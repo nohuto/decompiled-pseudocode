@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopIncrementCompletionContextUsageCountAndReadData @ 0x1402EEDD4
+ * Callers:
+ *     NtLockFile @ 0x1406B1EB0 (NtLockFile.c)
+ *     IopXxxControlFile @ 0x1407C1720 (IopXxxControlFile.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IopIncrementCompletionContextUsageCountAndReadData(
         ULONG_PTR BugCheckParameter1,
         _BYTE *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CD2DResource@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800339F0
+ * Callers:
+ *     ?HrFindInterface@CD2DBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180035080 (-HrFindInterface@CD2DBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CD2DResource::HrFindInterface(CD2DResource *this, const struct _GUID *a2, void **a3)
 {
   __int64 result; // rax

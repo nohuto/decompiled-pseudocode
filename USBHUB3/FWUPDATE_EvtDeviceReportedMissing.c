@@ -1,3 +1,13 @@
+/*
+ * XREFs of FWUPDATE_EvtDeviceReportedMissing @ 0x1C008C600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     FWUPDATE_CreateFirmwareUpdateDevice @ 0x1C008CAD8 (FWUPDATE_CreateFirmwareUpdateDevice.c)
+ */
+
 _BYTE *__fastcall FWUPDATE_EvtDeviceReportedMissing(__int64 a1)
 {
   _BYTE *result; // rax

@@ -1,3 +1,22 @@
+/*
+ * XREFs of AlphaBlendBGRF @ 0x1C0260824
+ * Callers:
+ *     BltDIB_CY @ 0x1C0260E50 (BltDIB_CY.c)
+ *     ExpandDIB_CY @ 0x1C0261EE0 (ExpandDIB_CY.c)
+ *     ExpandDIB_CY_ExpCX @ 0x1C0262870 (ExpandDIB_CY_ExpCX.c)
+ *     FastExpAA_CY @ 0x1C0263760 (FastExpAA_CY.c)
+ *     GrayExpandDIB_CY @ 0x1C02640E0 (GrayExpandDIB_CY.c)
+ *     GrayExpandDIB_CY_ExpCX @ 0x1C0264850 (GrayExpandDIB_CY_ExpCX.c)
+ *     GrayShrinkDIB_CY @ 0x1C0265340 (GrayShrinkDIB_CY.c)
+ *     RepDIB_CY @ 0x1C0265B80 (RepDIB_CY.c)
+ *     ShrinkDIB_CY @ 0x1C0266300 (ShrinkDIB_CY.c)
+ *     ShrinkDIB_CY_SrkCX @ 0x1C0266AA0 (ShrinkDIB_CY_SrkCX.c)
+ *     SkipDIB_CY @ 0x1C02674B0 (SkipDIB_CY.c)
+ *     TileDIB_CY @ 0x1C0267720 (TileDIB_CY.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int16 __fastcall AlphaBlendBGRF(int *a1)
 {
   unsigned __int8 *v1; // rbx

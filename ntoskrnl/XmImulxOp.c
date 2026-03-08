@@ -1,3 +1,11 @@
+/*
+ * XREFs of XmImulxOp @ 0x1405321D0
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmStoreResult @ 0x1403B42E8 (XmStoreResult.c)
+ */
+
 __int64 __fastcall XmImulxOp(int *a1)
 {
   int v1; // eax

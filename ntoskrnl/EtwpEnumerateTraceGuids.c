@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpEnumerateTraceGuids @ 0x1409E4D98
+ * Callers:
+ *     NtTraceControl @ 0x140694040 (NtTraceControl.c)
+ * Callees:
+ *     EtwpGetNextGuidEntry @ 0x140693F10 (EtwpGetNextGuidEntry.c)
+ */
+
 __int64 __fastcall EtwpEnumerateTraceGuids(__int64 a1, __int64 a2, unsigned int a3, unsigned int *a4)
 {
   unsigned int v4; // edi

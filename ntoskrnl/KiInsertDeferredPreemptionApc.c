@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiInsertDeferredPreemptionApc @ 0x1403554AC
+ * Callers:
+ *     KiBeginThreadAccountingPeriod @ 0x140228310 (KiBeginThreadAccountingPeriod.c)
+ *     KiSwapThread @ 0x14025F500 (KiSwapThread.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1402AB8A8 (KiGroupSchedulingQuantumEnd.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x1402ADC48 (KiDeferGroupSchedulingPreemption.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiSignalThreadForApc @ 0x140353F08 (KiSignalThreadForApc.c)
+ *     KiInsertQueueApc @ 0x140354598 (KiInsertQueueApc.c)
+ */
+
 char __fastcall KiInsertDeferredPreemptionApc(__int64 a1, __int64 a2, char a3)
 {
   __int64 v5; // rdi

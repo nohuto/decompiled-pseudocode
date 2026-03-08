@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetHandleProperty@CCompositionSurfaceBitmapMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C00BC8E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CCompositionSurfaceBitmapMarshaler::SetHandleProperty(
         DirectComposition::CCompositionSurfaceBitmapMarshaler *this,
         int a2,

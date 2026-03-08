@@ -1,3 +1,13 @@
+/*
+ * XREFs of PipDeviceObjectListIndexOf @ 0x140862130
+ * Callers:
+ *     PipIsDeviceInDeviceObjectList @ 0x14086210C (PipIsDeviceInDeviceObjectList.c)
+ *     IopMergeRelationLists @ 0x140969AC4 (IopMergeRelationLists.c)
+ *     IopRemoveRelationFromList @ 0x140969C34 (IopRemoveRelationFromList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PipDeviceObjectListIndexOf(__int64 a1, __int64 a2, int a3, _QWORD *a4)
 {
   int v4; // r10d

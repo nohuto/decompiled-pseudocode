@@ -1,3 +1,14 @@
+/*
+ * XREFs of MagpDecomposeDesktop @ 0x1C007F098
+ * Callers:
+ *     zzzDecomposeDesktop @ 0x1C007CC0C (zzzDecomposeDesktop.c)
+ * Callees:
+ *     MagpRevokeInputTransfrom @ 0x1C007F120 (MagpRevokeInputTransfrom.c)
+ *     DwmAsyncMagnDestroy @ 0x1C026F38C (DwmAsyncMagnDestroy.c)
+ *     DwmAsyncMagnSetDesktopColorTransform @ 0x1C026F43C (DwmAsyncMagnSetDesktopColorTransform.c)
+ *     DwmAsyncMagnSetDesktopTransform @ 0x1C026F6A8 (DwmAsyncMagnSetDesktopTransform.c)
+ */
+
 __int64 __fastcall MagpDecomposeDesktop(_QWORD *a1, __int64 a2)
 {
   __int64 result; // rax

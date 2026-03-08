@@ -1,3 +1,13 @@
+/*
+ * XREFs of McTemplateK0xxxqq_EtwWriteTransfer @ 0x14053CCF4
+ * Callers:
+ *     FsRtlDedupChangeLogWrite @ 0x14093B7C0 (FsRtlDedupChangeLogWrite.c)
+ *     FsRtlHeatLogIo @ 0x14093CA50 (FsRtlHeatLogIo.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1403BE3A0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS McTemplateK0xxxqq_EtwWriteTransfer(REGHANDLE *a1, const EVENT_DESCRIPTOR *a2, const GUID *a3, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-39h] BYREF

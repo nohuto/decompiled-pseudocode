@@ -1,3 +1,13 @@
+/*
+ * XREFs of AcpiIoctlCleanupArgumentObjects @ 0x1C00319C8
+ * Callers:
+ *     ACPIIoctlEvalControlMethod @ 0x1C0004232 (ACPIIoctlEvalControlMethod.c)
+ *     ACPIIoctlAsyncEvalControlMethod @ 0x1C002F468 (ACPIIoctlAsyncEvalControlMethod.c)
+ *     AcpiIoctlCleanupArgumentObjects @ 0x1C00319C8 (AcpiIoctlCleanupArgumentObjects.c)
+ * Callees:
+ *     AcpiIoctlCleanupArgumentObjects @ 0x1C00319C8 (AcpiIoctlCleanupArgumentObjects.c)
+ */
+
 void __fastcall AcpiIoctlCleanupArgumentObjects(__int64 a1, unsigned int a2)
 {
   unsigned int **v2; // rbx

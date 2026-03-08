@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?rimInvalidateInputs@@YAXPEAURIMDEV@@@Z @ 0x1C01BFB10
+ * Callers:
+ *     RIMSetDeviceInputMode @ 0x1C00BC07C (RIMSetDeviceInputMode.c)
+ * Callees:
+ *     SendMessageTo @ 0x1C0081230 (SendMessageTo.c)
+ *     RIMSuppressAllActiveContacts @ 0x1C01B9F94 (RIMSuppressAllActiveContacts.c)
+ */
+
 void __fastcall rimInvalidateInputs(struct RIMDEV *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rdi

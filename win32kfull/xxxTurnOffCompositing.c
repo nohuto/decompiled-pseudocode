@@ -1,3 +1,12 @@
+/*
+ * XREFs of xxxTurnOffCompositing @ 0x1C01BE490
+ * Callers:
+ *     xxxSetWindowStyle @ 0x1C002DD90 (xxxSetWindowStyle.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C0036908 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ * Callees:
+ *     xxxInternalEnumWindow @ 0x1C01A9044 (xxxInternalEnumWindow.c)
+ */
+
 struct tagBWL *__fastcall xxxTurnOffCompositing(ShellWindowManagement **a1, int a2)
 {
   struct tagBWL *result; // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of PiDrvDbResolveSystemFilePath @ 0x14096E128
+ * Callers:
+ *     PiDrvDbResolveFilePathKeyValues @ 0x14081DBF0 (PiDrvDbResolveFilePathKeyValues.c)
+ * Callees:
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ *     PiDrvDbFindSystemFilePathToken @ 0x14096CFAC (PiDrvDbFindSystemFilePathToken.c)
+ *     ExFreePool @ 0x140AAB270 (ExFreePool.c)
+ */
+
 __int64 __fastcall PiDrvDbResolveSystemFilePath(
         __int16 *a1,
         char a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?Update@?$LinearFitT@$0BAA@@@QEAA_N_J0@Z @ 0x18004D8A4
+ * Callers:
+ *     ?GetPresentStatisticsAndAdjustRates@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004E430 (-GetPresentStatisticsAndAdjustRates@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ * Callees:
+ *     ?AddToSums@?$LinearFitT@$0BAA@@@QEAA_NAEBUPoint@1@@Z @ 0x18004A494 (-AddToSums@-$LinearFitT@$0BAA@@@QEAA_NAEBUPoint@1@@Z.c)
+ *     ?Reset@?$LinearFitT@$0BAA@@@QEAAXXZ @ 0x18004C6C8 (-Reset@-$LinearFitT@$0BAA@@@QEAAXXZ.c)
+ *     ?Compute_b0_b1@?$LinearFitT@$0BAA@@@QEAAXXZ @ 0x18004D69C (-Compute_b0_b1@-$LinearFitT@$0BAA@@@QEAAXXZ.c)
+ *     ?InitWithPoint@?$LinearFitT@$0BAA@@@QEAAXAEBUPoint@1@@Z @ 0x1801CEABC (-InitWithPoint@-$LinearFitT@$0BAA@@@QEAAXAEBUPoint@1@@Z.c)
+ *     ?RebaseSums@?$LinearFitT@$0BAA@@@QEAA_NXZ @ 0x1801CEB04 (-RebaseSums@-$LinearFitT@$0BAA@@@QEAA_NXZ.c)
+ */
+
 char __fastcall LinearFitT<256>::Update(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // r9d

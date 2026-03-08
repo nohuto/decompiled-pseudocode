@@ -1,3 +1,25 @@
+/*
+ * XREFs of DbgkUserReportWorkRoutine @ 0x140936CD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     IoThreadToProcess @ 0x140248470 (IoThreadToProcess.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     PsMultiResumeThread @ 0x140354658 (PsMultiResumeThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwSetInformationThread @ 0x1404124B0 (ZwSetInformationThread.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwAllocateVirtualMemory @ 0x140412610 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x1404126D0 (ZwFreeVirtualMemory.c)
+ *     ZwResumeThread @ 0x140412D50 (ZwResumeThread.c)
+ *     ZwCreateThreadEx @ 0x140413BF0 (ZwCreateThreadEx.c)
+ *     ObOpenObjectByPointer @ 0x1407C93D0 (ObOpenObjectByPointer.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 LONG_PTR __fastcall DbgkUserReportWorkRoutine(char *P)
 {
   __int64 v2; // rdi

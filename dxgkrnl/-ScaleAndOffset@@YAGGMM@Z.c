@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ScaleAndOffset@@YAGGMM@Z @ 0x1C02BABB8
+ * Callers:
+ *     ?AdjustFullscreenGammaRamp@ADAPTER_DISPLAY@@QEAAJPEBUDXGK_GAMMA_RAMP@@PEAU2@PEAUDXGK_GAMMA_ADJUSTMENT@@@Z @ 0x1C02B6370 (-AdjustFullscreenGammaRamp@ADAPTER_DISPLAY@@QEAAJPEBUDXGK_GAMMA_RAMP@@PEAU2@PEAUDXGK_GAMMA_ADJUS.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ScaleAndOffset(unsigned __int16 a1, float a2, float a3)
 {
   int v3; // eax

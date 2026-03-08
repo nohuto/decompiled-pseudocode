@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetCPD @ 0x1C000DF30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetCPD @ 0x1C000DFB4 (GetCPD.c)
+ */
+
 __int64 __fastcall NtUserGetCPD(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 v6; // rax

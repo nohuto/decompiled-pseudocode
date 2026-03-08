@@ -1,3 +1,27 @@
+/*
+ * XREFs of PopInvokeWin32Callout @ 0x14073A52C
+ * Callers:
+ *     PopEventCalloutDispatch @ 0x1403B127C (PopEventCalloutDispatch.c)
+ *     PoSessionBuiltinPanelState @ 0x14059BAF0 (PoSessionBuiltinPanelState.c)
+ *     PoSessionEngagementUpdate @ 0x14059BB7C (PoSessionEngagementUpdate.c)
+ *     PopDispatchStateCallout @ 0x14067F6E8 (PopDispatchStateCallout.c)
+ *     PopSendSessionInfo @ 0x14067FE1C (PopSendSessionInfo.c)
+ *     PopNotifyConsoleUserPresent @ 0x14073A3BC (PopNotifyConsoleUserPresent.c)
+ *     PopPowerRequestCallbackDisplayRequired @ 0x14073A470 (PopPowerRequestCallbackDisplayRequired.c)
+ *     PopBroadcastSessionInfo @ 0x1408294F4 (PopBroadcastSessionInfo.c)
+ *     PopPowerAggregatorNotifyCsStateExited @ 0x140990B24 (PopPowerAggregatorNotifyCsStateExited.c)
+ *     PopControlMonitor @ 0x140994D70 (PopControlMonitor.c)
+ *     PoSessionPowerControl @ 0x140998BBC (PoSessionPowerControl.c)
+ *     PopWin32CalloutWatchdogCallback @ 0x140998C70 (PopWin32CalloutWatchdogCallback.c)
+ * Callees:
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402992F0 (PdcCreateWatchdogAroundClientCall.c)
+ *     MmGetSessionId @ 0x140299600 (MmGetSessionId.c)
+ *     MmGetNextSession @ 0x14035C2F0 (MmGetNextSession.c)
+ *     ZwPowerInformation @ 0x140412EF0 (ZwPowerInformation.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsInvokeWin32Callout @ 0x1407D2D10 (PsInvokeWin32Callout.c)
+ */
+
 __int64 __fastcall PopInvokeWin32Callout(unsigned int a1, __int64 a2, unsigned int a3, int *a4)
 {
   char v6; // si

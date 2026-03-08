@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetMarshalSizeMax@FtmBase@WRL@Microsoft@@UEAAJAEBU_GUID@@PEAXK1KPEAK@Z @ 0x180292600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Microsoft::WRL::FtmBase::GetMarshalSizeMax(
         Microsoft::WRL::FtmBase *this,
         const struct _GUID *a2,

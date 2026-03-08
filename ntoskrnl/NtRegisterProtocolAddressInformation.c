@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtRegisterProtocolAddressInformation @ 0x1403D2C70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // attributes: thunk
 NTSTATUS __stdcall NtRegisterProtocolAddressInformation(
         HANDLE ResourceManager,

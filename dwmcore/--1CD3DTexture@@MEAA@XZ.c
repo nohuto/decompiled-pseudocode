@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??1CD3DTexture@@MEAA@XZ @ 0x1802BBEF8
+ * Callers:
+ *     ??_GCD3DTexture@@MEAAPEAXI@Z @ 0x1802BC060 (--_GCD3DTexture@@MEAAPEAXI@Z.c)
+ *     ??1CD3DVidMemOnlyTexture@@MEAA@XZ @ 0x1802BC4DC (--1CD3DVidMemOnlyTexture@@MEAA@XZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??$ReleaseInterfaceNoNULL@VCD3DSurface@@@@YAXPEAVCD3DSurface@@@Z @ 0x1802987F0 (--$ReleaseInterfaceNoNULL@VCD3DSurface@@@@YAXPEAVCD3DSurface@@@Z.c)
+ */
+
 void __fastcall CD3DTexture::~CD3DTexture(CD3DTexture *this)
 {
   __int64 v2; // rdx

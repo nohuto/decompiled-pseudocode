@@ -1,3 +1,17 @@
+/*
+ * XREFs of PoSetProcessorQoS @ 0x14045A860
+ * Callers:
+ *     KiUpdateRunTime @ 0x14022ECE0 (KiUpdateRunTime.c)
+ *     KiQuantumEnd @ 0x140254F30 (KiQuantumEnd.c)
+ *     KeCheckAndApplyBamQos @ 0x140458D70 (KeCheckAndApplyBamQos.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     PpmPerfArbitratorApplyProcessorState @ 0x1402ED6EC (PpmPerfArbitratorApplyProcessorState.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmHvSetVirtualProcessorQos @ 0x14059DC24 (PpmHvSetVirtualProcessorQos.c)
+ */
+
 char __fastcall PoSetProcessorQoS(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rbp

@@ -1,3 +1,11 @@
+/*
+ * XREFs of vAlphaConstOnly @ 0x1C00E7E70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall vAlphaConstOnly(__int64 a1, _DWORD *a2, int a3, unsigned int a4)
 {
   __int64 result; // rax

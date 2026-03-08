@@ -1,3 +1,45 @@
+/*
+ * XREFs of CmSaveKey @ 0x140A08D50
+ * Callers:
+ *     CmDumpKeyToFile @ 0x140A07E64 (CmDumpKeyToFile.c)
+ *     NtSaveKeyEx @ 0x140A0BF70 (NtSaveKeyEx.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpLockKcbStackFlusherLocksExclusive @ 0x140613E8C (CmpLockKcbStackFlusherLocksExclusive.c)
+ *     CmpUnlockKcbStackFlusherLocksExclusive @ 0x140613F14 (CmpUnlockKcbStackFlusherLocksExclusive.c)
+ *     CmpUuidCreate @ 0x140733C60 (CmpUuidCreate.c)
+ *     CmpInitializeKeyNodeStack @ 0x1407836E4 (CmpInitializeKeyNodeStack.c)
+ *     CmpCleanupKeyNodeStack @ 0x140783738 (CmpCleanupKeyNodeStack.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140783798 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpUnlockKcbStack @ 0x1407ABFF8 (CmpUnlockKcbStack.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1407AF294 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpLockKcbStackShared @ 0x1407AF490 (CmpLockKcbStackShared.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpCreateTemporaryHive @ 0x140A09630 (CmpCreateTemporaryHive.c)
+ *     CmpSaveKeyByFileCopy @ 0x140A0A220 (CmpSaveKeyByFileCopy.c)
+ *     CmpTraceHiveSaveFileCopied @ 0x140A10164 (CmpTraceHiveSaveFileCopied.c)
+ *     CmpTraceHiveSaveStart @ 0x140A101D4 (CmpTraceHiveSaveStart.c)
+ *     CmpTraceHiveSaveStop @ 0x140A102AC (CmpTraceHiveSaveStop.c)
+ *     CmpTraceHiveSaveTreeCopied @ 0x140A1033C (CmpTraceHiveSaveTreeCopied.c)
+ *     CmpDoAccessCheckOnLayeredSubtree @ 0x140A18A38 (CmpDoAccessCheckOnLayeredSubtree.c)
+ *     CmpDestroyHive @ 0x140A19FFC (CmpDestroyHive.c)
+ *     CmpLogUnsupportedOperation @ 0x140A1D140 (CmpLogUnsupportedOperation.c)
+ *     CmpPopulateKeyNodeStackFromKcbStack @ 0x140A1D1EC (CmpPopulateKeyNodeStackFromKcbStack.c)
+ *     CmpStartKeyNodeStack @ 0x140A1D5E8 (CmpStartKeyNodeStack.c)
+ *     HvWriteExternal @ 0x140A1DE94 (HvWriteExternal.c)
+ *     CmpCopyMergeOfLayeredKeyNode @ 0x140A1E428 (CmpCopyMergeOfLayeredKeyNode.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140A23124 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpPromoteSubtree @ 0x140A23F00 (CmpPromoteSubtree.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140AF24F0 (CmpPerformKeyBodyDeletionCheck.c)
+ */
+
 __int64 __fastcall CmSaveKey(__int64 a1, __int64 a2, int a3, char a4)
 {
   char v5; // si

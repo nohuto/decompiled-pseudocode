@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopEtStringSet @ 0x14070254C
+ * Callers:
+ *     PopEtEnergyContextSetState @ 0x140700F30 (PopEtEnergyContextSetState.c)
+ *     PopEtProcessSnapshotCreate @ 0x140701954 (PopEtProcessSnapshotCreate.c)
+ *     PopEtProcessSnapshotUpdateFromSnapshotContext @ 0x140702468 (PopEtProcessSnapshotUpdateFromSnapshotContext.c)
+ * Callees:
+ *     RtlInternEntryDereference @ 0x140702B20 (RtlInternEntryDereference.c)
+ */
+
 void __fastcall PopEtStringSet(_QWORD *a1, __int64 a2)
 {
   signed __int64 v4; // rax

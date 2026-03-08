@@ -1,3 +1,37 @@
+/*
+ * XREFs of MiUserFault @ 0x140268260
+ * Callers:
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ * Callees:
+ *     MiCheckVirtualAddress @ 0x140225600 (MiCheckVirtualAddress.c)
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiZeroFault @ 0x140266000 (MiZeroFault.c)
+ *     MiResolvePageTablePage @ 0x1402689F0 (MiResolvePageTablePage.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiReleaseFaultState @ 0x1402A2FD4 (MiReleaseFaultState.c)
+ *     MiValidFault @ 0x1402C90E0 (MiValidFault.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x1402CFF20 (MiEmptyDeferredWorkingSetEntries.c)
+ *     MiAllowGuardFault @ 0x1402DA480 (MiAllowGuardFault.c)
+ *     MiLockTransitionLeafPageEx @ 0x1402DD4C8 (MiLockTransitionLeafPageEx.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiCheckFatalAccessViolation @ 0x1402FCEDC (MiCheckFatalAccessViolation.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14030AD60 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiUnlockVadTree @ 0x140330EC8 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x1403334B4 (MiLockVadTree.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140462F92 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140608D0C (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiIsVadEligibleForCommitRelease @ 0x140615D8C (MiIsVadEligibleForCommitRelease.c)
+ *     MiWaitForRotateToComplete @ 0x1406317E4 (MiWaitForRotateToComplete.c)
+ *     MiCheckHoldFaultForHotPatch @ 0x14063F8B0 (MiCheckHoldFaultForHotPatch.c)
+ *     MiDelayFaultingThread @ 0x140643864 (MiDelayFaultingThread.c)
+ *     MiCheckForUserStackOverflow @ 0x14076B848 (MiCheckForUserStackOverflow.c)
+ */
+
 __int64 __fastcall MiUserFault(_QWORD *a1)
 {
   __int64 **v1; // r12

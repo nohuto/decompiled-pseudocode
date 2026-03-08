@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpFreeVetoInformation @ 0x140961340
+ * Callers:
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x14096ED2C (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 _QWORD *__fastcall PnpFreeVetoInformation(_QWORD **a1)
 {
   _QWORD *result; // rax

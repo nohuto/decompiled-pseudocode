@@ -1,3 +1,19 @@
+/*
+ * XREFs of CmpQueryKeyValueData @ 0x1407AA6A0
+ * Callers:
+ *     CmEnumerateValueKey @ 0x1407AB770 (CmEnumerateValueKey.c)
+ *     CmQueryValueKey @ 0x1407B4730 (CmQueryValueKey.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x140A10EC4 (CmEnumerateValueFromLayeredKey.c)
+ *     CmEnumerateValueKeyFromMergedView @ 0x140A14D34 (CmEnumerateValueKeyFromMergedView.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpCopyCompressedName @ 0x1407A47DC (CmpCopyCompressedName.c)
+ *     CmpGetValueData @ 0x1407AAC20 (CmpGetValueData.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmpQueryKeyValueData(
         __int64 a1,
         __int64 a2,

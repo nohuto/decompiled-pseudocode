@@ -1,3 +1,23 @@
+/*
+ * XREFs of CmpDoFileSetSizeEx @ 0x140731FA4
+ * Callers:
+ *     CmShutdownSystem2 @ 0x1406139DC (CmShutdownSystem2.c)
+ *     HvpAddBin @ 0x14072F9F0 (HvpAddBin.c)
+ *     HvTruncateCurrentLogFileIfRequired @ 0x140730604 (HvTruncateCurrentLogFileIfRequired.c)
+ *     HvWriteLogFile @ 0x140731BB0 (HvWriteLogFile.c)
+ *     HvTruncateAllLogFilesIfRequired @ 0x1407320E4 (HvTruncateAllLogFilesIfRequired.c)
+ *     CmpCompleteUnloadKey @ 0x14074A958 (CmpCompleteUnloadKey.c)
+ *     HvpPerformLogFileRecovery @ 0x1407FBCAC (HvpPerformLogFileRecovery.c)
+ *     CmpMountPreloadedHives @ 0x140812EF4 (CmpMountPreloadedHives.c)
+ *     CmpLoadHiveThread @ 0x140820360 (CmpLoadHiveThread.c)
+ *     HvWriteExternal @ 0x140A1DE94 (HvWriteExternal.c)
+ * Callees:
+ *     IoSetThreadHardErrorMode @ 0x140244770 (IoSetThreadHardErrorMode.c)
+ *     ZwSetInformationFile @ 0x1404127F0 (ZwSetInformationFile.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x1407307FC (HvpLogTypeToLogArrayIndex.c)
+ *     CmpAdjustRequestedFileSize @ 0x140732C80 (CmpAdjustRequestedFileSize.c)
+ */
+
 __int64 __fastcall CmpDoFileSetSizeEx(__int64 a1, unsigned int a2, unsigned __int64 a3, char a4)
 {
   void *v6; // r14

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReleaseNotificationChannels@CComposition@@AEAAXXZ @ 0x1801B1E9C
+ * Callers:
+ *     ??1CComposition@@MEAA@XZ @ 0x1801B0AEC (--1CComposition@@MEAA@XZ.c)
+ *     ?OnShutdown@CComposition@@QEAAXXZ @ 0x1801B1A44 (-OnShutdown@CComposition@@QEAAXXZ.c)
+ * Callees:
+ *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800DB0E4 (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
+ */
+
 void __fastcall CComposition::ReleaseNotificationChannels(CComposition *this)
 {
   __int64 v1; // rsi

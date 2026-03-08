@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiDeleteUltraMapContext @ 0x1403513B4
+ * Callers:
+ *     MiDeleteUltraThreadContext @ 0x14035137C (MiDeleteUltraThreadContext.c)
+ *     MiReclaimUnusedUltraMdlMaps @ 0x1403615B4 (MiReclaimUnusedUltraMdlMaps.c)
+ *     MiGetUltraMdlContext @ 0x14065F3EC (MiGetUltraMdlContext.c)
+ * Callees:
+ *     MiGetUltraMapping @ 0x140276080 (MiGetUltraMapping.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiGetPfnChannel @ 0x140334470 (MiGetPfnChannel.c)
+ *     MiReleaseFreshPage @ 0x14034E570 (MiReleaseFreshPage.c)
+ *     MiManageUltraSpacePageTable @ 0x14046673C (MiManageUltraSpacePageTable.c)
+ */
+
 void __fastcall MiDeleteUltraMapContext(__int64 a1, unsigned int a2)
 {
   __int64 v3; // rbp

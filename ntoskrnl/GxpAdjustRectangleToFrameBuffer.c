@@ -1,3 +1,12 @@
+/*
+ * XREFs of GxpAdjustRectangleToFrameBuffer @ 0x140381AD8
+ * Callers:
+ *     GxpWriteFrameBufferPixels @ 0x14038188C (GxpWriteFrameBufferPixels.c)
+ *     GxpReadFrameBufferPixels @ 0x140AE9548 (GxpReadFrameBufferPixels.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GxpAdjustRectangleToFrameBuffer(
         unsigned int *a1,
         unsigned int *a2,

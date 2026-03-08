@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?GetDropShadow@CSpriteVisual@@IEBAPEAVCDropShadow@@XZ @ 0x18012F6FA
+ * Callers:
+ *     ?GetContentBounds@CSpriteVisual@@UEAAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800453F0 (-GetContentBounds@CSpriteVisual@@UEAAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF.c)
+ *     ?RenderContent@CSpriteVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z @ 0x18007A2F0 (-RenderContent@CSpriteVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z.c)
+ *     ?HasNonEmptyContent@CSpriteVisual@@UEBA_NXZ @ 0x1800D76F0 (-HasNonEmptyContent@CSpriteVisual@@UEBA_NXZ.c)
+ *     ??1CSpriteVisual@@UEAA@XZ @ 0x1800EA204 (--1CSpriteVisual@@UEAA@XZ.c)
+ *     ?ProcessSetShadow@CSpriteVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SPRITEVISUAL_SETSHADOW@@@Z @ 0x18024EDC4 (-ProcessSetShadow@CSpriteVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SPRITEVISUAL_SETSHADOW@@.c)
+ * Callees:
+ *     <none>
+ */
+
 struct CDropShadow *__fastcall CSpriteVisual::GetDropShadow(CSpriteVisual *this)
 {
   _DWORD *v1; // r8

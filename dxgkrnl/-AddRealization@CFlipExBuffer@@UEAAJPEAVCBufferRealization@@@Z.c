@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AddRealization@CFlipExBuffer@@UEAAJPEAVCBufferRealization@@@Z @ 0x1C000CD80
+ * Callers:
+ *     ?AddRealization@CCompositionSwapchainBuffer@@UEAAJPEAVCBufferRealization@@@Z @ 0x1C0089400 (-AddRealization@CCompositionSwapchainBuffer@@UEAAJPEAVCBufferRealization@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CFlipExBuffer::AddRealization(CFlipExBuffer *this, struct CBufferRealization *a2)
 {
   unsigned int v2; // r8d

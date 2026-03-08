@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0?$ObjectLock@$$V@?$DomainExclusive@VDLT_WINEVENT@@@?$DomainShared@$$V@@QEAA@XZ @ 0x1C012D284
+ * Callers:
+ *     NtUserSetWinEventHook @ 0x1C00397B0 (NtUserSetWinEventHook.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DomainShared<>::DomainExclusive<DLT_WINEVENT>::ObjectLock<>::ObjectLock<>(__int64 a1)
 {
   unsigned int DLT; // eax

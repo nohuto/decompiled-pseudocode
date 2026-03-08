@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?xxxRedrawForSetLPITEMInfo@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C00A6850
+ * Callers:
+ *     xxxSetMenuItemInfo @ 0x1C00A2218 (xxxSetMenuItemInfo.c)
+ *     xxxInsertMenuItem @ 0x1C00A7ADC (xxxInsertMenuItem.c)
+ * Callees:
+ *     DwmAsyncChildStyleChange @ 0x1C002E648 (DwmAsyncChildStyleChange.c)
+ *     DwmGetClassStyle @ 0x1C007E918 (DwmGetClassStyle.c)
+ *     ??1?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ @ 0x1C00A11DC (--1-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ.c)
+ *     MNGetPopupFromMenu @ 0x1C00A69F0 (MNGetPopupFromMenu.c)
+ *     MNGetpItemIndex @ 0x1C00A6FD0 (MNGetpItemIndex.c)
+ *     DirtyVisRgnTrackers @ 0x1C00AEA8C (DirtyVisRgnTrackers.c)
+ *     xxxMNUpdateShownMenu @ 0x1C02341E4 (xxxMNUpdateShownMenu.c)
+ */
+
 _QWORD *__fastcall xxxRedrawForSetLPITEMInfo(__int64 ***a1, __int64 a2)
 {
   __int64 v4; // rdi

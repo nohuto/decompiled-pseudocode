@@ -1,3 +1,22 @@
+/*
+ * XREFs of AMLIEvalPackageElement @ 0x1C0047D64
+ * Callers:
+ *     NotifyHalWithMachineStatesAndRetrieveInterruptModel @ 0x1C00A7BFC (NotifyHalWithMachineStatesAndRetrieveInterruptModel.c)
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ *     GetBaseObject @ 0x1C004B918 (GetBaseObject.c)
+ *     GetObjectPath @ 0x1C004BB70 (GetObjectPath.c)
+ *     GetObjectTypeName @ 0x1C004BD50 (GetObjectTypeName.c)
+ *     AMLIDebugger @ 0x1C004D630 (AMLIDebugger.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     EvalPackageElement @ 0x1C004F6E4 (EvalPackageElement.c)
+ *     SyncEvalObject @ 0x1C0054E8C (SyncEvalObject.c)
+ */
+
 __int64 __fastcall AMLIEvalPackageElement(__int64 *a1, unsigned int a2, __int64 a3)
 {
   __int64 v6; // rcx

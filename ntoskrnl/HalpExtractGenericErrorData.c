@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpExtractGenericErrorData @ 0x1405166F4
+ * Callers:
+ *     HalpCheckAndReportGhes @ 0x14029AA2C (HalpCheckAndReportGhes.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 void *__fastcall HalpExtractGenericErrorData(__int64 a1)
 {
   _DWORD *v1; // rdx

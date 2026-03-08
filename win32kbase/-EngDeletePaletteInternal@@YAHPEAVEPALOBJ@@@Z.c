@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EngDeletePaletteInternal@@YAHPEAVEPALOBJ@@@Z @ 0x1C002D400
+ * Callers:
+ *     EngDeletePalette @ 0x1C002D390 (EngDeletePalette.c)
+ * Callees:
+ *     ?vUnrefPalette@XEPALOBJ@@QEAAXXZ @ 0x1C002D440 (-vUnrefPalette@XEPALOBJ@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall EngDeletePaletteInternal(struct EPALOBJ *a1)
 {
   __int64 v1; // r8

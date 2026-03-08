@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?xxxVolumeUpDownComboSupported@@YA_NXZ @ 0x1C01C14D4
+ * Callers:
+ *     ?xxxHandleVolumeUpDownCombo@@YAXXZ @ 0x1C01C1438 (-xxxHandleVolumeUpDownCombo@@YAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall xxxVolumeUpDownComboSupported(__int64 a1)
 {
   __int64 v1; // rax

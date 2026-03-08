@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?PixieHack@@YAXPEAUtagWND@@PEAUtagRECT@@@Z @ 0x1C0217CA8
+ * Callers:
+ *     ?InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z @ 0x1C0052B80 (-InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z.c)
+ * Callees:
+ *     GetThreadDesktopWindow @ 0x1C003BE08 (GetThreadDesktopWindow.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ */
+
 void __fastcall PixieHack(struct tagWND *a1, struct tagRECT *a2)
 {
   __int64 *v4; // rbx

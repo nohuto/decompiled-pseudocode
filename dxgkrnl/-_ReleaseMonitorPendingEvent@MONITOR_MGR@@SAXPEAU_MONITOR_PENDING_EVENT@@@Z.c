@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_ReleaseMonitorPendingEvent@MONITOR_MGR@@SAXPEAU_MONITOR_PENDING_EVENT@@@Z @ 0x1C006B344
+ * Callers:
+ *     MonitorReleaseMonitorPendingEvent @ 0x1C03BFF94 (MonitorReleaseMonitorPendingEvent.c)
+ *     ??1MONITOR_MGR@@UEAA@XZ @ 0x1C03C2954 (--1MONITOR_MGR@@UEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall MONITOR_MGR::_ReleaseMonitorPendingEvent(PVOID P)
 {
   KIRQL v2; // al

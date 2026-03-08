@@ -1,3 +1,14 @@
+/*
+ * XREFs of KeQuerySchedulingGroupHistory @ 0x14035C6F8
+ * Callers:
+ *     PspQueryRateControlHistory @ 0x1407E8B5C (PspQueryRateControlHistory.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeQuerySchedulingGroupHistory(__int64 a1, _QWORD *a2, _DWORD *a3, _DWORD *a4)
 {
   unsigned int v8; // eax

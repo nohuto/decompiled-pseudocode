@@ -1,3 +1,16 @@
+/*
+ * XREFs of wil_details_FeatureReporting_ReportUsageToService @ 0x1C0019FFC
+ * Callers:
+ *     Feature_DelayedForceEviction__private_ReportDeviceUsage @ 0x1C0019AE0 (Feature_DelayedForceEviction__private_ReportDeviceUsage.c)
+ *     Feature_Wddm30CpuVisible__private_ReportDeviceUsage @ 0x1C0019C40 (Feature_Wddm30CpuVisible__private_ReportDeviceUsage.c)
+ *     wil_details_IsEnabledFallback @ 0x1C001A424 (wil_details_IsEnabledFallback.c)
+ *     Feature_GpuVaPagingHistoryFre__private_ReportDeviceUsage @ 0x1C001A558 (Feature_GpuVaPagingHistoryFre__private_ReportDeviceUsage.c)
+ * Callees:
+ *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x1C001A084 (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
+ *     wil_details_MapReportingKind @ 0x1C001A4B8 (wil_details_MapReportingKind.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (__fastcall *__fastcall wil_details_FeatureReporting_ReportUsageToService(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiPteBinsNeedTrimming @ 0x14029A168
+ * Callers:
+ *     MiAdjustPteBins @ 0x140299A90 (MiAdjustPteBins.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ * Callees:
+ *     MiGetNumberOfCachedPtes @ 0x14029A1BC (MiGetNumberOfCachedPtes.c)
+ */
+
 _BOOL8 __fastcall MiPteBinsNeedTrimming(_QWORD *a1)
 {
   unsigned int NumberOfCachedPtes; // eax

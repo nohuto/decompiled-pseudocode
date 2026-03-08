@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserCheckImeShowStatusInThread @ 0x1C00C61D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxCheckImeShowStatus@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@@Z @ 0x1C00C62B0 (-xxxCheckImeShowStatus@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@@Z.c)
+ */
+
 __int64 __fastcall NtUserCheckImeShowStatusInThread(__int64 a1)
 {
   __int64 v2; // rdi

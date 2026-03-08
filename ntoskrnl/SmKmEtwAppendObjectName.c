@@ -1,3 +1,16 @@
+/*
+ * XREFs of SmKmEtwAppendObjectName @ 0x1405C8DF4
+ * Callers:
+ *     SmKmStoreTerminateWorker @ 0x1405C9740 (SmKmStoreTerminateWorker.c)
+ * Callees:
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140240954 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     IoSetThreadHardErrorMode @ 0x140244770 (IoSetThreadHardErrorMode.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ObQueryNameString @ 0x14071EA00 (ObQueryNameString.c)
+ */
+
 __int64 __fastcall SmKmEtwAppendObjectName(__int64 a1, unsigned __int64 a2)
 {
   unsigned int v2; // eax

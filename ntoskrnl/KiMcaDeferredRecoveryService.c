@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiMcaDeferredRecoveryService @ 0x140422F50
+ * Callers:
+ *     KiScanQueues @ 0x14066B0A0 (KiScanQueues.c)
+ *     KiSchedulerDpc @ 0x14066B0D0 (KiSchedulerDpc.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall __noreturn KiMcaDeferredRecoveryService(
         ULONG BugCheckCode,
         ULONG_PTR BugCheckParameter1,

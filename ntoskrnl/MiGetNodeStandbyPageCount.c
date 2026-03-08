@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiGetNodeStandbyPageCount @ 0x1404648CA
+ * Callers:
+ *     MiCheckZeroFreeRebalance @ 0x14027DFA0 (MiCheckZeroFreeRebalance.c)
+ *     MiFreeZeroPagesNeeded @ 0x140464858 (MiFreeZeroPagesNeeded.c)
+ *     MiRebuildLargePage @ 0x140466288 (MiRebuildLargePage.c)
+ *     MiRebuildLargePages @ 0x14065B810 (MiRebuildLargePages.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiGetNodeStandbyPageCount(__int64 a1, unsigned int a2, unsigned int a3)
 {
   __int64 v3; // r10

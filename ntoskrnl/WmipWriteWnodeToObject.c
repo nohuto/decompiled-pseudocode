@@ -1,3 +1,17 @@
+/*
+ * XREFs of WmipWriteWnodeToObject @ 0x1405F97A4
+ * Callers:
+ *     WmipProcessEvent @ 0x1408686A8 (WmipProcessEvent.c)
+ * Callees:
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     WmipClearIrpObjectList @ 0x1402FEABC (WmipClearIrpObjectList.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     WmipQueueNotification @ 0x1409DE654 (WmipQueueNotification.c)
+ */
+
 __int64 __fastcall WmipWriteWnodeToObject(PRKEVENT Event, unsigned int *Src)
 {
   __int64 v4; // rbx

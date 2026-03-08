@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetSceneLightRealization@CCompositionEnvironmentLight@@UEBAJAEBVCMILMatrix@@PEAPEAUISpectreLightNode@@@Z @ 0x18026ABF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CCompositionEnvironmentLight::GetSceneLightRealization(
         CCompositionEnvironmentLight *this,
         const struct CMILMatrix *a2,

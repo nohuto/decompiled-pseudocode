@@ -1,3 +1,19 @@
+/*
+ * XREFs of GetPciAddressWorker @ 0x1C0034E00
+ * Callers:
+ *     GetPciAddress @ 0x1C0034D48 (GetPciAddress.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     CacheBBNResult @ 0x1C00349D8 (CacheBBNResult.c)
+ *     GetCachedBBNResult @ 0x1C0034ACC (GetCachedBBNResult.c)
+ *     GetPciAddress @ 0x1C0034D48 (GetPciAddress.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetParent @ 0x1C0048724 (AMLIGetParent.c)
+ *     AMLIIsNamedChildPresent @ 0x1C00487BC (AMLIIsNamedChildPresent.c)
+ */
+
 __int64 __fastcall GetPciAddressWorker(__int64 a1, int a2, __int64 a3, _DWORD *a4)
 {
   volatile signed __int32 *v5; // rsi

@@ -1,3 +1,17 @@
+/*
+ * XREFs of VfSuspectDriversGetVerifierInformation @ 0x140AD744C
+ * Callers:
+ *     VfGetVerifierInformation @ 0x1405CFC58 (VfGetVerifierInformation.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     VfAvlCleanupLockContext @ 0x1403039F0 (VfAvlCleanupLockContext.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     VfAvlInitializeLockContext @ 0x14045DE58 (VfAvlInitializeLockContext.c)
+ *     VfDriverLock @ 0x140AC773C (VfDriverLock.c)
+ *     VfTargetDriversGetZeroCounters @ 0x140AC8578 (VfTargetDriversGetZeroCounters.c)
+ *     VfAvlEnumerateNodes @ 0x140AD92A4 (VfAvlEnumerateNodes.c)
+ */
+
 __int64 __fastcall VfSuspectDriversGetVerifierInformation(
         __int64 a1,
         unsigned int a2,

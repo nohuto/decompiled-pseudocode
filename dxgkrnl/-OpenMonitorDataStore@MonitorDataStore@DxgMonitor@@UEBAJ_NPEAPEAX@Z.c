@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OpenMonitorDataStore@MonitorDataStore@DxgMonitor@@UEBAJ_NPEAPEAX@Z @ 0x1C03CA550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DxgMonitor::MonitorDataStore::OpenMonitorDataStore(
         DxgMonitor::MonitorDataStore *this,
         __int64 a2,

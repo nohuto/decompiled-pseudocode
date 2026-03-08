@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpReadExtendedMcaRegistersIntel @ 0x140504248
+ * Callers:
+ *     HalpMcaPopulateErrorData @ 0x14050135C (HalpMcaPopulateErrorData.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpReadExtendedMcaRegistersIntel(int a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned __int8 v5; // ebx^2

@@ -1,3 +1,22 @@
+/*
+ * XREFs of IoWriteDeferredLiveDumpData @ 0x140949354
+ * Callers:
+ *     DbgkpWerDeferredWriteRoutine @ 0x140938A80 (DbgkpWerDeferredWriteRoutine.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwActivityIdControl @ 0x140244870 (EtwActivityIdControl.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x14055793C (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpTrace @ 0x140557C8C (IopLiveDumpTrace.c)
+ *     IopLiveDumpTraceDumpFileWriteEnd @ 0x14055859C (IopLiveDumpTraceDumpFileWriteEnd.c)
+ *     IopLiveDumpTraceInterfaceEnd @ 0x1405588B0 (IopLiveDumpTraceInterfaceEnd.c)
+ *     IopLiveDumpTraceInterfaceStart @ 0x140558AB4 (IopLiveDumpTraceInterfaceStart.c)
+ *     IopLiveDumpReleaseResources @ 0x14094BEA8 (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpWriteDumpFile @ 0x14094C514 (IopLiveDumpWriteDumpFile.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IoWriteDeferredLiveDumpData(char *P)
 {
   __int64 MillisecondCounter; // rbx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of BgpFoInitialize @ 0x140B99E88
+ * Callers:
+ *     BgpFwLibraryInitialize @ 0x140AEAC78 (BgpFwLibraryInitialize.c)
+ * Callees:
+ *     BgpFwFreeMemory @ 0x140382650 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x140383BDC (BgpFwAllocateMemory.c)
+ *     FioFwReadUlongAtOffset @ 0x1403843C4 (FioFwReadUlongAtOffset.c)
+ *     FopInitializeFonts @ 0x140B99D48 (FopInitializeFonts.c)
+ */
+
 __int64 __fastcall BgpFoInitialize(__int64 a1, int a2)
 {
   __int64 Memory; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of DxgkDdiGetDeviceLocation @ 0x1C036563C
+ * Callers:
+ *     ?DpiDdiGetDeviceLocation@@YAXPEAXGPEAGPEAE2@Z @ 0x1C0064A10 (-DpiDdiGetDeviceLocation@@YAXPEAXGPEAGPEAE2@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005A55C (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?GetDeviceLocation@ADAPTER_RENDER@@QEAAXW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETDEVICELOCATION@@@Z @ 0x1C036378C (-GetDeviceLocation@ADAPTER_RENDER@@QEAAXW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETDEVICELOCATION@@.c)
+ */
+
 void __fastcall DxgkDdiGetDeviceLocation(_QWORD *a1, int a2, unsigned __int16 a3, _WORD *a4, _BYTE *a5, _BYTE *a6)
 {
   __int64 v7; // rcx

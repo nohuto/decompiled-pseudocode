@@ -1,3 +1,13 @@
+/*
+ * XREFs of IommuMapReservedLogicalRange @ 0x140523E20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpIommuDomainMapLogical @ 0x1405158BC (HalpIommuDomainMapLogical.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x140515914 (HalpIommuDomainMapLogicalRange.c)
+ *     IommupProcessPhysicalAddress @ 0x140524798 (IommupProcessPhysicalAddress.c)
+ */
+
 __int64 __fastcall IommuMapReservedLogicalRange(__int64 a1, __int64 a2, unsigned int a3, int a4, _QWORD *a5)
 {
   unsigned int v8; // ecx

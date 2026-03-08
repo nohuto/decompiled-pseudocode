@@ -1,3 +1,14 @@
+/*
+ * XREFs of KsepStringTransform @ 0x140801918
+ * Callers:
+ *     KsepDbQueryRegistryDeviceData @ 0x14080187C (KsepDbQueryRegistryDeviceData.c)
+ *     KseSetDeviceFlags @ 0x140973B40 (KseSetDeviceFlags.c)
+ *     KsepDbQueryRegistryDeviceDataList @ 0x140973D58 (KsepDbQueryRegistryDeviceDataList.c)
+ * Callees:
+ *     RtlAssert @ 0x1405A7CA0 (RtlAssert.c)
+ *     KsepStringDuplicate @ 0x14079E668 (KsepStringDuplicate.c)
+ */
+
 __int64 __fastcall KsepStringTransform(__int64 a1, _WORD *a2)
 {
   unsigned __int16 v2; // bx

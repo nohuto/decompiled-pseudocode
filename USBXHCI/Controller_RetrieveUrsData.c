@@ -1,3 +1,15 @@
+/*
+ * XREFs of Controller_RetrieveUrsData @ 0x1C007882C
+ * Callers:
+ *     Controller_Create @ 0x1C00712C4 (Controller_Create.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_P @ 0x1C0037340 (WPP_RECORDER_SF_P.c)
+ *     Controller_PopulatePciDeviceInformation @ 0x1C0074CAC (Controller_PopulatePciDeviceInformation.c)
+ *     Controller_PopulateAcpiDeviceInformation @ 0x1C00782EC (Controller_PopulateAcpiDeviceInformation.c)
+ */
+
 __int64 __fastcall Controller_RetrieveUrsData(__int64 a1, __int64 a2, _DWORD *a3, __int64 a4, __int64 a5, __int64 a6)
 {
   int v10; // edx

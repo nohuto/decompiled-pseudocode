@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CBitmapLockUnaligned@@QEAA@XZ @ 0x18027ED2C
+ * Callers:
+ *     ?HrLockUnaligned@CBitmap@@IEAAJIIAEBUPixelFormatInfo@@IIIIPEAXW4WICBitmapLockFlags@@PEAPEAVIBitmapLock@@@Z @ 0x18027E444 (-HrLockUnaligned@CBitmap@@IEAAJIIAEBUPixelFormatInfo@@IIIIPEAXW4WICBitmapLockFlags@@PEAPEAVIBitm.c)
+ * Callees:
+ *     ??0CBitmapLock@@QEAA@XZ @ 0x1800A7E6C (--0CBitmapLock@@QEAA@XZ.c)
+ */
+
 CBitmapLockUnaligned *__fastcall CBitmapLockUnaligned::CBitmapLockUnaligned(CBitmapLockUnaligned *this)
 {
   __int64 v2; // rcx

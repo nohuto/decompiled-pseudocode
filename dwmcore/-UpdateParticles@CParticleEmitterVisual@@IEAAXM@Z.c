@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UpdateParticles@CParticleEmitterVisual@@IEAAXM@Z @ 0x180243870
+ * Callers:
+ *     ?UpdateParticleSystem@CParticleEmitterVisual@@IEAAJAEBUD2D_SIZE_F@@@Z @ 0x18024372C (-UpdateParticleSystem@CParticleEmitterVisual@@IEAAJAEBUD2D_SIZE_F@@@Z.c)
+ * Callees:
+ *     sqrtf_0 @ 0x1801177AC (sqrtf_0.c)
+ */
+
 void __fastcall CParticleEmitterVisual::UpdateParticles(CParticleEmitterVisual *this, float a2)
 {
   __int64 v3; // rcx

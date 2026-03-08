@@ -1,3 +1,16 @@
+/*
+ * XREFs of RawInitialize @ 0x140B53CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     IoDeleteDevice @ 0x140368010 (IoDeleteDevice.c)
+ *     IoCreateDevice @ 0x1407F0460 (IoCreateDevice.c)
+ *     IoRegisterShutdownNotification @ 0x1408198A0 (IoRegisterShutdownNotification.c)
+ *     IoRegisterFileSystem @ 0x14086F860 (IoRegisterFileSystem.c)
+ */
+
 NTSTATUS __fastcall RawInitialize(PDRIVER_OBJECT DriverObject)
 {
   NTSTATUS result; // eax

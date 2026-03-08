@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepSecureBootGetPolicyValueByRef @ 0x1409CDED0
+ * Callers:
+ *     SeQuerySecureBootPolicyValue @ 0x140861880 (SeQuerySecureBootPolicyValue.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SepSecureBootGetPolicyValueByRef(unsigned __int16 *a1, int a2, _QWORD *a3, int *a4)
 {
   int v4; // eax

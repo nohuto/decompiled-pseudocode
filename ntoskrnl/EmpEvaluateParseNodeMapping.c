@@ -1,3 +1,11 @@
+/*
+ * XREFs of EmpEvaluateParseNodeMapping @ 0x1402DE63C
+ * Callers:
+ *     EmpEvaluateNodeLink @ 0x140245FF4 (EmpEvaluateNodeLink.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall EmpEvaluateParseNodeMapping(
         unsigned int *a1,
         int a2,

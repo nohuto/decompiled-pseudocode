@@ -1,3 +1,13 @@
+/*
+ * XREFs of ApiSetEditionPointerParentNotify @ 0x1C0241170
+ * Callers:
+ *     ?PointerParentNotify@CTouchProcessor@@AEAAXPEAVCInputDest@@PEAUCPointerInfoNode@@@Z @ 0x1C01FCB8C (-PointerParentNotify@CTouchProcessor@@AEAAXPEAVCInputDest@@PEAUCPointerInfoNode@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     EditionPointerParentNotify @ 0x1C0271B00 (EditionPointerParentNotify.c)
+ */
+
 __int64 (__fastcall *__fastcall ApiSetEditionPointerParentNotify(
         _OWORD *a1,
         __int64 a2,

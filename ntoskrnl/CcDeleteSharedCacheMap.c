@@ -1,3 +1,32 @@
+/*
+ * XREFs of CcDeleteSharedCacheMap @ 0x140217A10
+ * Callers:
+ *     CcWriteBehindPostProcess @ 0x140219248 (CcWriteBehindPostProcess.c)
+ *     CcUninitializeCacheMap @ 0x140336C50 (CcUninitializeCacheMap.c)
+ *     CcInitializeCacheMapInternal @ 0x140338F10 (CcInitializeCacheMapInternal.c)
+ *     CcDeleteSectionsForPartition @ 0x140536B34 (CcDeleteSectionsForPartition.c)
+ * Callees:
+ *     CcDecrementVolumeUseCountWithDelete @ 0x14021782C (CcDecrementVolumeUseCountWithDelete.c)
+ *     CcUnmapAndPurge @ 0x140217984 (CcUnmapAndPurge.c)
+ *     ObFastReplaceObject @ 0x140217FC8 (ObFastReplaceObject.c)
+ *     CcDecrementPrivateVolumeUseCount @ 0x14021802C (CcDecrementPrivateVolumeUseCount.c)
+ *     CcDereferencePartition @ 0x140219EF0 (CcDereferencePartition.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     CcDeleteMbcb @ 0x14029CBA4 (CcDeleteMbcb.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1403441C0 (ObFastDereferenceObjectDeferDelete.c)
+ *     CcPostPVCMForDeleteToPartition @ 0x1403BE4F0 (CcPostPVCMForDeleteToPartition.c)
+ *     CcDeleteBcbs @ 0x1403C0748 (CcDeleteBcbs.c)
+ *     CcFreeSharedCacheMapIgnoreNull @ 0x140409DD4 (CcFreeSharedCacheMapIgnoreNull.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     FsRtlReleaseFile @ 0x1407D18E0 (FsRtlReleaseFile.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall CcDeleteSharedCacheMap(
         _QWORD *Entry,
         PKLOCK_QUEUE_HANDLE LockHandle,

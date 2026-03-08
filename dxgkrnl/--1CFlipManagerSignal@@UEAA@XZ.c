@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CFlipManagerSignal@@UEAA@XZ @ 0x1C00814B8
+ * Callers:
+ *     ??_ECFlipManagerSignal@@UEAAPEAXI@Z @ 0x1C0081520 (--_ECFlipManagerSignal@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?ServiceBufferSignals@CFlipManagerSignal@@QEAAXXZ @ 0x1C0081628 (-ServiceBufferSignals@CFlipManagerSignal@@QEAAXXZ.c)
+ */
+
 void __fastcall CFlipManagerSignal::~CFlipManagerSignal(CFlipManagerSignal *this)
 {
   void *v2; // rcx

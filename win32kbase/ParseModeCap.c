@@ -1,3 +1,13 @@
+/*
+ * XREFs of ParseModeCap @ 0x1C0190A98
+ * Callers:
+ *     GetMonitorCapabilityFromInf @ 0x1C01902C4 (GetMonitorCapabilityFromInf.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     wcschr @ 0x1C00DA918 (wcschr.c)
+ *     xwtol @ 0x1C0192154 (xwtol.c)
+ */
+
 __int64 __fastcall ParseModeCap(wchar_t *Str, _DWORD *a2, int a3)
 {
   int v3; // ebx

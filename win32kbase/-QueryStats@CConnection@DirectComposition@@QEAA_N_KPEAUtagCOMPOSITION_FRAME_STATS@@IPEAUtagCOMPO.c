@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?QueryStats@CConnection@DirectComposition@@QEAA_N_KPEAUtagCOMPOSITION_FRAME_STATS@@IPEAUtagCOMPOSITION_TARGET_ID@@PEAI@Z @ 0x1C00029E4
+ * Callers:
+ *     NtDCompositionGetStatistics @ 0x1C00026E0 (NtDCompositionGetStatistics.c)
+ * Callees:
+ *     ?Release@CPushLockCriticalSection@DirectComposition@@QEAAXXZ @ 0x1C0091D74 (-Release@CPushLockCriticalSection@DirectComposition@@QEAAXXZ.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 bool __fastcall DirectComposition::CConnection::QueryStats(
         DirectComposition::CConnection *this,
         unsigned __int64 a2,

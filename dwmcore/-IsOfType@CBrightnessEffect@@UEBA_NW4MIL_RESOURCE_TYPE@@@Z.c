@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsOfType@CBrightnessEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C2250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsOfType@CFilterEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18012A3D0 (-IsOfType@CFilterEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ */
+
 char __fastcall CBrightnessEffect::IsOfType(__int64 a1, int a2)
 {
   char v2; // al

@@ -1,3 +1,14 @@
+/*
+ * XREFs of sub_140A4AACC @ 0x140A4AACC
+ * Callers:
+ *     sub_1406DC290 @ 0x1406DC290 (sub_1406DC290.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall sub_140A4AACC(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v6; // edx

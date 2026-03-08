@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtCreateCrossVmEvent @ 0x1409F8A90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExpCreateCrossVmEvent @ 0x140A02DE8 (ExpCreateCrossVmEvent.c)
+ */
+
 __int64 __fastcall NtCreateCrossVmEvent(_QWORD *a1, int a2, int a3, int a4, __int64 a5, __int64 a6)
 {
   char PreviousMode; // di

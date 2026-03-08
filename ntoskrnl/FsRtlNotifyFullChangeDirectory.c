@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlNotifyFullChangeDirectory @ 0x14084F6C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FsRtlNotifyFilterChangeDirectory @ 0x14084F730 (FsRtlNotifyFilterChangeDirectory.c)
+ */
+
 void __stdcall FsRtlNotifyFullChangeDirectory(
         PNOTIFY_SYNC NotifySync,
         PLIST_ENTRY NotifyList,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EnsureNoInvalidIntermediates@CProjectedShadowReceiver@@QEAAXXZ @ 0x18024817C
+ * Callers:
+ *     ?UpdateShadowIntermediates@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z @ 0x180247EC4 (-UpdateShadowIntermediates@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z.c)
+ * Callees:
+ *     ?InvalidateMaskContent@CProjectedShadowReceiver@@QEAAXXZ @ 0x180004C28 (-InvalidateMaskContent@CProjectedShadowReceiver@@QEAAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CProjectedShadowReceiver::EnsureNoInvalidIntermediates(CProjectedShadowReceiver *this)
 {
   __int64 v2; // rcx

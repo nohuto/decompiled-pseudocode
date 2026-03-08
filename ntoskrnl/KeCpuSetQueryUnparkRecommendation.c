@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeCpuSetQueryUnparkRecommendation @ 0x140458CC2
+ * Callers:
+ *     PpmParkCalculateCoreParkingMask @ 0x1402E7970 (PpmParkCalculateCoreParkingMask.c)
+ * Callees:
+ *     RtlBeginReadTickLock @ 0x140236FBC (RtlBeginReadTickLock.c)
+ */
+
 char KeCpuSetQueryUnparkRecommendation()
 {
   __int64 v0; // rdx

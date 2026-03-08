@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetSubchannels@MatrixSubchannelMaskInfo@@QEBAGXZ @ 0x18027D028
+ * Callers:
+ *     ?LogDebugPropertyUpdate@CAnimationLoggingManager@@QEAAXPEAVCResource@@W4PropertyChangeSource@@_KW4MIL_RESOURCE_TYPE@@IIPEAVSubchannelMaskInfo@@PEBVCExpressionValue@@@Z @ 0x180212430 (-LogDebugPropertyUpdate@CAnimationLoggingManager@@QEAAXPEAVCResource@@W4PropertyChangeSource@@_K.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MatrixSubchannelMaskInfo::GetSubchannels(MatrixSubchannelMaskInfo *this)
 {
   int v1; // edx

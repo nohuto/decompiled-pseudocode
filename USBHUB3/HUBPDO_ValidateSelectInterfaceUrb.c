@@ -1,3 +1,16 @@
+/*
+ * XREFs of HUBPDO_ValidateSelectInterfaceUrb @ 0x1C0016F68
+ * Callers:
+ *     HUBDSM_ValidatingSelectInterfaceUrbFromConfigured @ 0x1C00206D0 (HUBDSM_ValidatingSelectInterfaceUrbFromConfigured.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C001502C (WPP_RECORDER_SF_dq.c)
+ *     HUBPDO_InitializeInterfaceInformation @ 0x1C0016D14 (HUBPDO_InitializeInterfaceInformation.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBPDO_ValidateSelectInterfaceUrb(__int64 a1)
 {
   __int64 v1; // r13

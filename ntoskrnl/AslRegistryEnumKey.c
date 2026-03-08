@@ -1,3 +1,13 @@
+/*
+ * XREFs of AslRegistryEnumKey @ 0x140A515C0
+ * Callers:
+ *     AslpProcessMatchRegNode @ 0x140A53E9C (AslpProcessMatchRegNode.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwEnumerateKey @ 0x140412950 (ZwEnumerateKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall AslRegistryEnumKey(void *a1, __int64 a2, void *a3, ULONG a4)
 {
   NTSTATUS v5; // edi

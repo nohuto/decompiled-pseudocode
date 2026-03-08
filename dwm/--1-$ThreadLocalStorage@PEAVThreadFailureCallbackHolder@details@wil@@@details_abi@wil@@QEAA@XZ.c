@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1?$ThreadLocalStorage@PEAVThreadFailureCallbackHolder@details@wil@@@details_abi@wil@@QEAA@XZ @ 0x1400050E0
+ * Callers:
+ *     wil::details::_dynamic_atexit_destructor_for__g_threadFailureCallbacks___0 @ 0x140007300 (wil--details--_dynamic_atexit_destructor_for__g_threadFailureCallbacks___0.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall wil::details_abi::ThreadLocalStorage<wil::details::ThreadFailureCallbackHolder *>::~ThreadLocalStorage<wil::details::ThreadFailureCallbackHolder *>(
         _QWORD *a1)
 {

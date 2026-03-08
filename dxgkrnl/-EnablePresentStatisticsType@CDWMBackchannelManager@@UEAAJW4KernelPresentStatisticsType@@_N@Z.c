@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EnablePresentStatisticsType@CDWMBackchannelManager@@UEAAJW4KernelPresentStatisticsType@@_N@Z @ 0x1C0087200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CDWMBackchannelManager::EnablePresentStatisticsType(__int64 a1, int a2, char a3)
 {
   unsigned int v3; // r10d

@@ -1,3 +1,28 @@
+/*
+ * XREFs of IopCreateArcName @ 0x14086D7D8
+ * Callers:
+ *     IoCreateArcName @ 0x14086D7C0 (IoCreateArcName.c)
+ *     IopCreateArcNamesDisk @ 0x140B54B24 (IopCreateArcNamesDisk.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14024FE00 (IoBuildDeviceIoControlRequest.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     IopCreateUnicodeFromAnsiBuffer @ 0x1403891CC (IopCreateUnicodeFromAnsiBuffer.c)
+ *     RtlStringCchPrintfA @ 0x140389204 (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     IopBuildSynchronousFsdRequest @ 0x1407F8DE0 (IopBuildSynchronousFsdRequest.c)
+ *     IopVerifyDiskSignature @ 0x1408607B0 (IopVerifyDiskSignature.c)
+ *     IoCreateSymbolicLink @ 0x14086DC10 (IoCreateSymbolicLink.c)
+ *     VhdiVerifyBootDisk @ 0x140A70CE0 (VhdiVerifyBootDisk.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopCreateArcName(PDEVICE_OBJECT DeviceObject, int a2)
 {
   void *v3; // r12

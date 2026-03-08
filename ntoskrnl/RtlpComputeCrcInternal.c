@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpComputeCrcInternal @ 0x1403B8710
+ * Callers:
+ *     RtlCrc64 @ 0x1403B86F0 (RtlCrc64.c)
+ *     RtlCrc32 @ 0x14045BD70 (RtlCrc32.c)
+ *     PopEnsureErratumSubscribed @ 0x14058B594 (PopEnsureErratumSubscribed.c)
+ *     MdlInvariantPostProcessing1 @ 0x1405CD074 (MdlInvariantPostProcessing1.c)
+ *     MdlInvariantPreProcessing1 @ 0x1405CD258 (MdlInvariantPreProcessing1.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpComputeCrcInternal(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // r10

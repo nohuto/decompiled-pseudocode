@@ -1,3 +1,14 @@
+/*
+ * XREFs of IrqTraceAffinityPolicy @ 0x1C009FFC0
+ * Callers:
+ *     IrqPolicyGetDevicePolicy @ 0x1C009F8A4 (IrqPolicyGetDevicePolicy.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1C0009240 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0009270 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     IrqpAllocateInstancePath @ 0x1C00A014C (IrqpAllocateInstancePath.c)
+ */
+
 void __fastcall IrqTraceAffinityPolicy(PDEVICE_OBJECT Pdo, unsigned __int16 a2, __int16 a3, __int64 a4)
 {
   int v6; // esi

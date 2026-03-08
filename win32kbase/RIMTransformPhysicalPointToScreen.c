@@ -1,3 +1,14 @@
+/*
+ * XREFs of RIMTransformPhysicalPointToScreen @ 0x1C01BE428
+ * Callers:
+ *     RIMApplyTransforms @ 0x1C01BD0C8 (RIMApplyTransforms.c)
+ *     RIMSetContactBoundary @ 0x1C01BDA20 (RIMSetContactBoundary.c)
+ *     RIMTransformCoordinatesFromDigitizer @ 0x1C01BE1E0 (RIMTransformCoordinatesFromDigitizer.c)
+ * Callees:
+ *     RIMConvertPointCoordinates @ 0x1C01BD270 (RIMConvertPointCoordinates.c)
+ *     ApiSetTransformForInputMagnification @ 0x1C0246BF8 (ApiSetTransformForInputMagnification.c)
+ */
+
 __int64 __fastcall RIMTransformPhysicalPointToScreen(__int64 a1, __int64 *a2, __int64 a3)
 {
   __int128 v3; // xmm0

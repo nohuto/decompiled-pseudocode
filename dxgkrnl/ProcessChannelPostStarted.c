@@ -1,3 +1,12 @@
+/*
+ * XREFs of ProcessChannelPostStarted @ 0x1C03628B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?NotifyChannelPostStarted@DXGVMBUSCHANNEL@@QEAAXXZ @ 0x1C03620B0 (-NotifyChannelPostStarted@DXGVMBUSCHANNEL@@QEAAXXZ.c)
+ */
+
 void ProcessChannelPostStarted()
 {
   DXGVMBUSCHANNEL *v0; // rax

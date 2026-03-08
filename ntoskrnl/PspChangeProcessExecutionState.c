@@ -1,3 +1,32 @@
+/*
+ * XREFs of PspChangeProcessExecutionState @ 0x1406F8AC0
+ * Callers:
+ *     PspExecuteJobFreezeThawCallback @ 0x1402FF830 (PspExecuteJobFreezeThawCallback.c)
+ *     PspInsertThread @ 0x1406B0F50 (PspInsertThread.c)
+ *     PspRemoveProcessFromJobChain @ 0x1406FB110 (PspRemoveProcessFromJobChain.c)
+ *     PspAssignProcessToJob @ 0x1406FFA20 (PspAssignProcessToJob.c)
+ *     PsSwapProcessWorkingSet @ 0x1409AB6DC (PsSwapProcessWorkingSet.c)
+ * Callees:
+ *     MmInSwapWorkingSet @ 0x1402000BC (MmInSwapWorkingSet.c)
+ *     KeUnstackDetachProcess @ 0x14020D010 (KeUnstackDetachProcess.c)
+ *     MmGetSessionById @ 0x14022A4F0 (MmGetSessionById.c)
+ *     ExGetExtensionTable @ 0x1402C57F0 (ExGetExtensionTable.c)
+ *     ExReleaseExtensionTable @ 0x1402C5820 (ExReleaseExtensionTable.c)
+ *     MmOutSwapWorkingSet @ 0x1402DAFF8 (MmOutSwapWorkingSet.c)
+ *     MmDetachSession @ 0x1402EA460 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1402EA500 (MmAttachSession.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     Feature_Servicing_BypassGraphicsFreezeNotification__private_IsEnabledDeviceUsage @ 0x14040BA70 (Feature_Servicing_BypassGraphicsFreezeNotification__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PsApplyDeepFreezeOptimizations @ 0x14067CDA4 (PsApplyDeepFreezeOptimizations.c)
+ *     PsRemoveDeepFreezeOptimizations @ 0x14067CDE8 (PsRemoveDeepFreezeOptimizations.c)
+ *     PsFreezeProcess @ 0x1407DD068 (PsFreezeProcess.c)
+ *     MmQuitNextSession @ 0x14087FF10 (MmQuitNextSession.c)
+ *     PsThawProcess @ 0x1409B31CC (PsThawProcess.c)
+ */
+
 __int64 __fastcall PspChangeProcessExecutionState(PEPROCESS Process)
 {
   __int64 v2; // rdx

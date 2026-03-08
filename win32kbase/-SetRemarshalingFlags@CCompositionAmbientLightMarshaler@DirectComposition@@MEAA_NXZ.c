@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CCompositionAmbientLightMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0269710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetRemarshalingFlags@CCompositionLightMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0269570 (-SetRemarshalingFlags@CCompositionLightMarshaler@DirectComposition@@MEAA_NXZ.c)
+ */
+
 bool __fastcall DirectComposition::CCompositionAmbientLightMarshaler::SetRemarshalingFlags(
         DirectComposition::CCompositionAmbientLightMarshaler *this)
 {

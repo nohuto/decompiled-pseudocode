@@ -1,3 +1,11 @@
+/*
+ * XREFs of AlpcpCaptureDirectAttribute32 @ 0x14077EB60
+ * Callers:
+ *     AlpcpCaptureAttributes @ 0x1407CAAD0 (AlpcpCaptureAttributes.c)
+ * Callees:
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall AlpcpCaptureDirectAttribute32(unsigned int *a1, void *a2, __int64 a3, int a4, int a5)
 {
   char v6; // dl

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIDetectCouldExtensionBeInRelation @ 0x1C00824A0
+ * Callers:
+ *     ACPIDetectEjectDevices @ 0x1C001A6C0 (ACPIDetectEjectDevices.c)
+ *     ACPIDetectFilterMatch @ 0x1C0082650 (ACPIDetectFilterMatch.c)
+ *     ACPIDetectPdoMatch @ 0x1C00826E0 (ACPIDetectPdoMatch.c)
+ * Callees:
+ *     ACPIDeviceHasFirmwareDependencies @ 0x1C00144D4 (ACPIDeviceHasFirmwareDependencies.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     ACPIMatchHardwareAddress @ 0x1C0088CE8 (ACPIMatchHardwareAddress.c)
+ *     ACPIMatchHardwareId @ 0x1C0088E00 (ACPIMatchHardwareId.c)
+ */
+
 __int64 __fastcall ACPIDetectCouldExtensionBeInRelation(__int64 a1, unsigned int *a2, char a3, char a4, _QWORD *a5)
 {
   const signed __int64 *v5; // rdi

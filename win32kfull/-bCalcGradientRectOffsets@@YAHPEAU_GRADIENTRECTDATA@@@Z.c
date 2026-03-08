@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bCalcGradientRectOffsets@@YAHPEAU_GRADIENTRECTDATA@@@Z @ 0x1C0004FB8
+ * Callers:
+ *     ?bRectangleMesh@@YAHPEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAU_GRADIENT_RECT@@KKPEAU_RECTL@@PEAU_POINTL@@@Z @ 0x1C00175F0 (-bRectangleMesh@@YAHPEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAU_GRADIENT_RECT@@KKPEAU_RECT.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bCalcGradientRectOffsets(struct _GRADIENTRECTDATA *a1)
 {
   int v1; // edi

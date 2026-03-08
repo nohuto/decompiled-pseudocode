@@ -1,3 +1,11 @@
+/*
+ * XREFs of CheckSpaceAvailable @ 0x1C0053C40
+ * Callers:
+ *     WerKernelCreateReport @ 0x1C0053E44 (WerKernelCreateReport.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CheckSpaceAvailable(HANDLE KeyHandle)
 {
   unsigned int v1; // ebx

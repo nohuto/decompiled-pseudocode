@@ -1,3 +1,33 @@
+/*
+ * XREFs of PopSleepstudyStartNextSession @ 0x1408797E4
+ * Callers:
+ *     PopPowerAggregatorStartNextSession @ 0x1408794D4 (PopPowerAggregatorStartNextSession.c)
+ *     PopPowerAggregatorEnterScreenOff @ 0x140879524 (PopPowerAggregatorEnterScreenOff.c)
+ *     PopPowerAggregatorDisengageModernStandby @ 0x14099057C (PopPowerAggregatorDisengageModernStandby.c)
+ *     PopPowerAggregatorEngageModernStandby @ 0x140990734 (PopPowerAggregatorEngageModernStandby.c)
+ *     PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x140990FE0 (PopPowerAggregatorSystemTransitionEnterStateHandler.c)
+ *     PopPowerAggregatorSystemTransitionExitStateHandler @ 0x140991090 (PopPowerAggregatorSystemTransitionExitStateHandler.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopSetModernStandbyTransitionReason @ 0x1403C2B10 (PopSetModernStandbyTransitionReason.c)
+ *     PopCalculateIdleInformation @ 0x1403C2C3C (PopCalculateIdleInformation.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopThermalCsEntry @ 0x14058D3AC (PopThermalCsEntry.c)
+ *     PopThermalCsExit @ 0x14058D42C (PopThermalCsExit.c)
+ *     PopTransitionTelemetryOsState @ 0x140855C64 (PopTransitionTelemetryOsState.c)
+ *     PopCurrentPowerStatePrecise @ 0x140870DD8 (PopCurrentPowerStatePrecise.c)
+ *     PopSleepstudyCaptureSessionStatistics @ 0x140879704 (PopSleepstudyCaptureSessionStatistics.c)
+ *     PopSleepstudySendWnfNotification @ 0x140879B54 (PopSleepstudySendWnfNotification.c)
+ *     PopDiagTraceSleepStudyStart @ 0x140879BB0 (PopDiagTraceSleepStudyStart.c)
+ *     PopSleepstudySendSessionChangeEvent @ 0x14087A160 (PopSleepstudySendSessionChangeEvent.c)
+ *     PopSleepstudyCaptureResiliencyStatistics @ 0x140990254 (PopSleepstudyCaptureResiliencyStatistics.c)
+ */
+
 void __fastcall PopSleepstudyStartNextSession(int a1, unsigned int a2)
 {
   char *v4; // r13

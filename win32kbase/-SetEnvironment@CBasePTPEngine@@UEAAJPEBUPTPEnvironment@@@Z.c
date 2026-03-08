@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetEnvironment@CBasePTPEngine@@UEAAJPEBUPTPEnvironment@@@Z @ 0x1C023A480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CBasePTPEngine::SetEnvironment(CBasePTPEngine *this, const struct PTPEnvironment *a2)
 {
   __int64 v2; // rax

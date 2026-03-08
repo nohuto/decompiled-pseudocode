@@ -1,3 +1,12 @@
+/*
+ * XREFs of LdrpFetchAddressOfSecurityCookie @ 0x140784B40
+ * Callers:
+ *     LdrInitSecurityCookie @ 0x140784A8C (LdrInitSecurityCookie.c)
+ * Callees:
+ *     RtlImageNtHeaderEx @ 0x14035E850 (RtlImageNtHeaderEx.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x140784BDC (LdrImageDirectoryEntryToLoadConfig.c)
+ */
+
 unsigned __int64 __fastcall LdrpFetchAddressOfSecurityCookie(
         unsigned __int64 a1,
         unsigned int a2,

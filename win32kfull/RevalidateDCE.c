@@ -1,3 +1,14 @@
+/*
+ * XREFs of RevalidateDCE @ 0x1C0097390
+ * Callers:
+ *     DeleteHrgnClip @ 0x1C0096DB0 (DeleteHrgnClip.c)
+ *     UpdateRedirectedDCE @ 0x1C0096EF0 (UpdateRedirectedDCE.c)
+ *     ?RecalcDCVisRgn@@YAXPEAUHDC__@@@Z @ 0x1C0236A50 (-RecalcDCVisRgn@@YAXPEAUHDC__@@@Z.c)
+ * Callees:
+ *     InvalidateDCE @ 0x1C0096E74 (InvalidateDCE.c)
+ *     SpbCheckDce @ 0x1C0097430 (SpbCheckDce.c)
+ */
+
 __int64 __fastcall RevalidateDCE(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rdx

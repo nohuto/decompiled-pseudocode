@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspSetPicoThreadDescriptorBase @ 0x1405A2900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PspSetPicoThreadDescriptorBase(int a1, unsigned __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rdi

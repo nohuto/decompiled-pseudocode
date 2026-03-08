@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiCaptureUlongPtrArray @ 0x140A3E714
+ * Callers:
+ *     NtFreeUserPhysicalPages @ 0x140A3F6B0 (NtFreeUserPhysicalPages.c)
+ *     NtMapUserPhysicalPages @ 0x140A3FC10 (NtMapUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x140A3FEC0 (NtMapUserPhysicalPagesScatter.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall MiCaptureUlongPtrArray(_QWORD *a1, unsigned int *a2, unsigned __int64 a3)
 {
   _KPROCESS *Process; // r8

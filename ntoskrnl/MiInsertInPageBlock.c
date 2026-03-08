@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiInsertInPageBlock @ 0x140287BF8
+ * Callers:
+ *     MiFreeInPageSupportBlock @ 0x140287B5C (MiFreeInPageSupportBlock.c)
+ *     MiInitializePageFaultResources @ 0x140370C30 (MiInitializePageFaultResources.c)
+ * Callees:
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ */
+
 __int64 __fastcall MiInsertInPageBlock(PSLIST_ENTRY ListEntry)
 {
   __int64 v2; // rcx

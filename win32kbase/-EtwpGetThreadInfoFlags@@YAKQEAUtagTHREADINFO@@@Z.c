@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?EtwpGetThreadInfoFlags@@YAKQEAUtagTHREADINFO@@@Z @ 0x1C003422C
+ * Callers:
+ *     EtwTraceAuditApiRegisterRawInputDevices @ 0x1C0033990 (EtwTraceAuditApiRegisterRawInputDevices.c)
+ *     EtwTraceInputProcessDelay @ 0x1C0033C70 (EtwTraceInputProcessDelay.c)
+ *     xxxDestroyThreadInfo @ 0x1C0072BF4 (xxxDestroyThreadInfo.c)
+ *     EtwTraceMessageCheckDelay @ 0x1C0092210 (EtwTraceMessageCheckDelay.c)
+ *     EtwTraceProcessWindowInfo @ 0x1C009B6E0 (EtwTraceProcessWindowInfo.c)
+ *     ?EtwCaptureStateCallback@@YAXXZ @ 0x1C0160F44 (-EtwCaptureStateCallback@@YAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall EtwpGetThreadInfoFlags(struct tagTHREADINFO *const a1)
 {
   __int64 v1; // r8

@@ -1,3 +1,11 @@
+/*
+ * XREFs of Normalization__GetSecondAndThirdDecomposedCharPlane0 @ 0x1409BD960
+ * Callers:
+ *     NormBuffer__ReplaceLastStartBase @ 0x1405AE580 (NormBuffer__ReplaceLastStartBase.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Normalization__GetSecondAndThirdDecomposedCharPlane0(__int64 a1, int a2, _DWORD *a3, _DWORD *a4)
 {
   int v5; // edx

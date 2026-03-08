@@ -1,3 +1,19 @@
+/*
+ * XREFs of IoWMISystemControl @ 0x1407939D4
+ * Callers:
+ *     WmipSystemControl @ 0x1407939B0 (WmipSystemControl.c)
+ * Callees:
+ *     WmipFindRegEntryByProviderId @ 0x140208D1C (WmipFindRegEntryByProviderId.c)
+ *     WmipUnreferenceRegEntry @ 0x140208DE4 (WmipUnreferenceRegEntry.c)
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     WmipQueryWmiDataBlock @ 0x140725910 (WmipQueryWmiDataBlock.c)
+ *     IoWMICompleteRequest @ 0x140725A08 (IoWMICompleteRequest.c)
+ *     WmipFindGuid @ 0x140793CEC (WmipFindGuid.c)
+ *     WmipQueryWmiRegInfo @ 0x1408614C0 (WmipQueryWmiRegInfo.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IoWMISystemControl(__int64 a1, __int64 a2, IRP *a3)
 {
   unsigned int *p_OutboundQuota; // rbx

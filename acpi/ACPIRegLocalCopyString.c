@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIRegLocalCopyString @ 0x1C008D388
+ * Callers:
+ *     ACPIRegGetTableFromSimulatorRegistryEntry @ 0x1C008D15C (ACPIRegGetTableFromSimulatorRegistryEntry.c)
+ *     ACPIRegReadAMLRegistryEntry @ 0x1C008D3DC (ACPIRegReadAMLRegistryEntry.c)
+ *     PnpiUpdateForceActiveBothInterrupts @ 0x1C0091FC4 (PnpiUpdateForceActiveBothInterrupts.c)
+ *     ACPIRegDumpAcpiTable @ 0x1C00A9FEC (ACPIRegDumpAcpiTable.c)
+ * Callees:
+ *     <none>
+ */
+
 char *__fastcall ACPIRegLocalCopyString(char *a1, __int64 a2, unsigned int a3)
 {
   unsigned int v3; // r9d

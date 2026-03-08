@@ -1,3 +1,16 @@
+/*
+ * XREFs of CiDispatchCreateMmThreadClient @ 0x1C000AB00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_SF_ @ 0x1C0004634 (WPP_SF_.c)
+ *     WPP_SF_dd @ 0x1C00048CC (WPP_SF_dd.c)
+ *     CiLookupTask @ 0x1C000AC70 (CiLookupTask.c)
+ *     CiThreadCreate @ 0x1C000AD80 (CiThreadCreate.c)
+ *     CiTaskIndexCreate @ 0x1C000B370 (CiTaskIndexCreate.c)
+ *     CiTaskIndexLocate @ 0x1C000B500 (CiTaskIndexLocate.c)
+ */
+
 __int64 __fastcall CiDispatchCreateMmThreadClient(PIRP Irp, __int64 a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // r15

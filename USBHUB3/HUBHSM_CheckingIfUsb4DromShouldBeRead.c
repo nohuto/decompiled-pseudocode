@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBHSM_CheckingIfUsb4DromShouldBeRead @ 0x1C0009EE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ */
+
 __int64 __fastcall HUBHSM_CheckingIfUsb4DromShouldBeRead(__int64 a1)
 {
   __int64 v1; // rbx

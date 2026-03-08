@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlGetDefaultCodePage @ 0x14079B460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ */
+
 __int64 RtlGetDefaultCodePage()
 {
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax

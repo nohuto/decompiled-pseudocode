@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpHvMapDeviceMsiRange @ 0x140A928BC
+ * Callers:
+ *     HalpInterruptRemap @ 0x140378D78 (HalpInterruptRemap.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpHvBuildDeviceId @ 0x140A92814 (HalpHvBuildDeviceId.c)
+ */
+
 __int64 __fastcall HalpHvMapDeviceMsiRange(
         unsigned int a1,
         unsigned int a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhSetSqmEnumerationData @ 0x1C0046EC8
+ * Callers:
+ *     UsbhPdoPnp_DeviceEnumerated @ 0x1C0054DA0 (UsbhPdoPnp_DeviceEnumerated.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     UsbhSetPdoRegistryParameter @ 0x1C0046D44 (UsbhSetPdoRegistryParameter.c)
+ */
+
 __int64 __fastcall UsbhSetSqmEnumerationData(PDEVICE_OBJECT DeviceObject)
 {
   _DWORD *v2; // rdi

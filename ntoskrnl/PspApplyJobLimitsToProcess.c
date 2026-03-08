@@ -1,3 +1,18 @@
+/*
+ * XREFs of PspApplyJobLimitsToProcess @ 0x1406FF17C
+ * Callers:
+ *     PspApplyJobChainLimitsToProcess @ 0x1406FF27C (PspApplyJobChainLimitsToProcess.c)
+ *     PspSetJobLimitsProcessCallback @ 0x1409AFC30 (PspSetJobLimitsProcessCallback.c)
+ * Callees:
+ *     KeSetDisableQuantumProcess @ 0x140294C60 (KeSetDisableQuantumProcess.c)
+ *     PspSetProcessPriorityByClass @ 0x1402E2DD8 (PspSetProcessPriorityByClass.c)
+ *     KeSetQuantumProcess @ 0x1402E39BC (KeSetQuantumProcess.c)
+ *     PspLockJobMemoryLimitsShared @ 0x1406FC318 (PspLockJobMemoryLimitsShared.c)
+ *     PspUnlockJobMemoryLimitsShared @ 0x1406FC344 (PspUnlockJobMemoryLimitsShared.c)
+ *     PspWritePebAffinityInfo @ 0x14070687C (PspWritePebAffinityInfo.c)
+ *     PspSetProcessAffinitySafe @ 0x1409AC928 (PspSetProcessAffinitySafe.c)
+ */
+
 char __fastcall PspApplyJobLimitsToProcess(__int64 a1, __int16 a2)
 {
   _UNKNOWN **v2; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MmAdjustSecuredVirtualMemorySize @ 0x140A2F2AC
+ * Callers:
+ *     VmpUnlockMemoryForPin @ 0x1409DA9F0 (VmpUnlockMemoryForPin.c)
+ * Callees:
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedSecureVad @ 0x14034C5AC (MiObtainReferencedSecureVad.c)
+ */
+
 __int64 __fastcall MmAdjustSecuredVirtualMemorySize(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   unsigned int v4; // ebx

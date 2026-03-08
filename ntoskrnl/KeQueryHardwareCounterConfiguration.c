@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeQueryHardwareCounterConfiguration @ 0x140972010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall KeQueryHardwareCounterConfiguration(
         PHARDWARE_COUNTER CounterArray,
         ULONG MaximumCount,

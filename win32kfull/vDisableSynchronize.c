@@ -1,3 +1,11 @@
+/*
+ * XREFs of vDisableSynchronize @ 0x1C00F1660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?vDisableTimers@@YAXK@Z @ 0x1C00F1730 (-vDisableTimers@@YAXK@Z.c)
+ */
+
 __int64 __fastcall vDisableSynchronize(__int64 a1)
 {
   int v2; // esi

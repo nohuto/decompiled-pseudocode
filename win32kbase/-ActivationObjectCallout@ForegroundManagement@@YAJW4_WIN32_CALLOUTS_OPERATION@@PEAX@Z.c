@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ActivationObjectCallout@ForegroundManagement@@YAJW4_WIN32_CALLOUTS_OPERATION@@PEAX@Z @ 0x1C00CF148
+ * Callers:
+ *     W32CalloutDispatch @ 0x1C00ED390 (W32CalloutDispatch.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?ActivationObjectOkToClose@@YAJPEAU_WIN32_OKAYTOCLOSEMETHOD_PARAMETERS@@@Z @ 0x1C0155CDC (-ActivationObjectOkToClose@@YAJPEAU_WIN32_OKAYTOCLOSEMETHOD_PARAMETERS@@@Z.c)
+ *     ?ActivationObjectOpen@@YAJPEAU_WIN32_OPENMETHOD_PARAMETERS@@@Z @ 0x1C0155D5C (-ActivationObjectOpen@@YAJPEAU_WIN32_OPENMETHOD_PARAMETERS@@@Z.c)
+ */
+
 __int64 __fastcall ForegroundManagement::ActivationObjectCallout(int a1, struct _WIN32_OPENMETHOD_PARAMETERS *a2)
 {
   int v2; // ecx

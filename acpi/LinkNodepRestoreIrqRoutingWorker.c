@@ -1,3 +1,15 @@
+/*
+ * XREFs of LinkNodepRestoreIrqRoutingWorker @ 0x1C005D940
+ * Callers:
+ *     LinkNodeRestoreHardwareState @ 0x1C005D7D8 (LinkNodeRestoreHardwareState.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     AMLIAsyncEvalObject @ 0x1C00478E8 (AMLIAsyncEvalObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ *     LinkNodepRunSrsAsync @ 0x1C005DAAC (LinkNodepRunSrsAsync.c)
+ */
+
 __int64 __fastcall LinkNodepRestoreIrqRoutingWorker(__int64 a1, unsigned int a2, __int64 a3, char *a4)
 {
   KSPIN_LOCK *v7; // rsi

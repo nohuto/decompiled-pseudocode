@@ -1,3 +1,12 @@
+/*
+ * XREFs of CiSystemInitialize @ 0x1C000E270
+ * Callers:
+ *     CsInitialize @ 0x1C000E0B0 (CsInitialize.c)
+ * Callees:
+ *     memset @ 0x1C00037C0 (memset.c)
+ *     CiSystemTerminate @ 0x1C000C8CC (CiSystemTerminate.c)
+ */
+
 __int64 CiSystemInitialize()
 {
   NTSTATUS SystemInformation; // ebx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PfSnUpdatePrefetcherFlags @ 0x140300F30
+ * Callers:
+ *     PfSnEnablePrefetcherTimerRoutine @ 0x140300F00 (PfSnEnablePrefetcherTimerRoutine.c)
+ *     PfSnBeginBootPhase @ 0x140A859AC (PfSnBeginBootPhase.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PfSnUpdatePrefetcherFlags(int a1, int a2)
 {
   KIRQL v4; // al

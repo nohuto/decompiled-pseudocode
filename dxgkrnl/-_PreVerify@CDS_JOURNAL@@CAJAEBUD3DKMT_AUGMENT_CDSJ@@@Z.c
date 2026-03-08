@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?_PreVerify@CDS_JOURNAL@@CAJAEBUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C03BB998
+ * Callers:
+ *     ?Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C03BA164 (-Augment@CDS_JOURNAL@@QEAAJPEAUD3DKMT_AUGMENT_CDSJ@@@Z.c)
+ * Callees:
+ *     ??$_GetPixelFormatFromDevMode@U_devicemodeW@@@CDS_JOURNAL@@CAJAEBU_devicemodeW@@PEAW4_D3DDDIFORMAT@@@Z @ 0x1C006ABD8 (--$_GetPixelFormatFromDevMode@U_devicemodeW@@@CDS_JOURNAL@@CAJAEBU_devicemodeW@@PEAW4_D3DDDIFORM.c)
+ *     ??$_GetRotationFromDevMode@U_devicemodeW@@@CDS_JOURNAL@@CAJAEBU_devicemodeW@@PEAW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@@Z @ 0x1C006ACE0 (--$_GetRotationFromDevMode@U_devicemodeW@@@CDS_JOURNAL@@CAJAEBU_devicemodeW@@PEAW4_D3DKMDT_VIDPN.c)
+ *     ConvertGdiScalingToDMMScaling @ 0x1C02FC820 (ConvertGdiScalingToDMMScaling.c)
+ */
+
 __int64 __fastcall CDS_JOURNAL::_PreVerify(const struct D3DKMT_AUGMENT_CDSJ *a1)
 {
   unsigned int v1; // edx

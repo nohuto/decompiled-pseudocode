@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopFxDuplicateUniqueId @ 0x1403936FC
+ * Callers:
+ *     PopFxCreateDeviceCommon @ 0x1403934D4 (PopFxCreateDeviceCommon.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PopFxDuplicateUniqueId(const void **a1, __int64 a2)
 {
   __int64 v2; // rsi

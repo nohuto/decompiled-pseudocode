@@ -1,3 +1,11 @@
+/*
+ * XREFs of IommuUnmapReservedLogicalRange @ 0x1405244D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpIommuDomainUnmapLogicalRange @ 0x140515A38 (HalpIommuDomainUnmapLogicalRange.c)
+ */
+
 __int64 __fastcall IommuUnmapReservedLogicalRange(_QWORD *a1)
 {
   __int64 v1; // rdi

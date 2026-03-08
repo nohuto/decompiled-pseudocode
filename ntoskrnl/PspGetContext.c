@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspGetContext @ 0x1407ED060
+ * Callers:
+ *     PspGetSetContextInternal @ 0x1406EA840 (PspGetSetContextInternal.c)
+ * Callees:
+ *     RtlXSaveS @ 0x140302524 (RtlXSaveS.c)
+ *     KeCopyLastBranchInformation @ 0x140362500 (KeCopyLastBranchInformation.c)
+ *     KiCopyXStateArea @ 0x140570100 (KiCopyXStateArea.c)
+ */
+
 int __fastcall PspGetContext(__int64 a1, __int64 a2, __int64 a3)
 {
   int v3; // ebp

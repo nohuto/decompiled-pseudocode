@@ -1,3 +1,16 @@
+/*
+ * XREFs of Controller_AudioOffloadWnfStateUpdateWorker @ 0x1C0032650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     DynamicLock_Acquire @ 0x1C000A918 (DynamicLock_Acquire.c)
+ *     DynamicLock_Release @ 0x1C000A958 (DynamicLock_Release.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WnfHelper_PublishUsbXhciAudioOffloadState @ 0x1C007B928 (WnfHelper_PublishUsbXhciAudioOffloadState.c)
+ */
+
 __int64 __fastcall Controller_AudioOffloadWnfStateUpdateWorker(__int64 a1)
 {
   __int64 v1; // rax

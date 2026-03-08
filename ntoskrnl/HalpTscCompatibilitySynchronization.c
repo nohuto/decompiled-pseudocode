@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpTscCompatibilitySynchronization @ 0x140508124
+ * Callers:
+ *     HalpTscSynchronizationWorker @ 0x140387F60 (HalpTscSynchronizationWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HalpTscCompatibilitySynchronization(__int64 a1)
 {
   __int16 v1; // r11

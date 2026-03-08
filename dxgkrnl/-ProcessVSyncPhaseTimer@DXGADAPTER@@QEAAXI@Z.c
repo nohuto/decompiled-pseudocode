@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ProcessVSyncPhaseTimer@DXGADAPTER@@QEAAXI@Z @ 0x1C017F648
+ * Callers:
+ *     ?DxgkpProcessVSyncPhaseThread@@YAXPEAX@Z @ 0x1C017F430 (-DxgkpProcessVSyncPhaseThread@@YAXPEAX@Z.c)
+ * Callees:
+ *     ?DdiControlInterrupt2@DXGADAPTER@@QEAAJU_DXGKARG_CONTROLINTERRUPT2@@EI@Z @ 0x1C0003F70 (-DdiControlInterrupt2@DXGADAPTER@@QEAAJU_DXGKARG_CONTROLINTERRUPT2@@EI@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C002463C (McTemplateK0q_EtwWriteTransfer.c)
+ */
+
 void __fastcall DXGADAPTER::ProcessVSyncPhaseTimer(DXGADAPTER *this, unsigned int a2)
 {
   __int64 v2; // rsi

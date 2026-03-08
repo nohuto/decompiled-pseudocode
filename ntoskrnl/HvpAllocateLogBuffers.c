@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvpAllocateLogBuffers @ 0x1402B23E0
+ * Callers:
+ *     HvpGenerateLogEntry @ 0x14072DD08 (HvpGenerateLogEntry.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall HvpAllocateLogBuffers(__int64 *a1, _DWORD *a2, unsigned int a3)
 {
   void *Pool2; // r14

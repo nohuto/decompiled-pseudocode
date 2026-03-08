@@ -1,3 +1,15 @@
+/*
+ * XREFs of NVMeIoSubmissionQueueDelete @ 0x1C001FAB4
+ * Callers:
+ *     IoQueuesDeletion @ 0x1C000AB24 (IoQueuesDeletion.c)
+ *     IoctlCreateReservedQueuePair @ 0x1C0012DF0 (IoctlCreateReservedQueuePair.c)
+ *     IoctlDeleteReservedQueuePair @ 0x1C0013304 (IoctlDeleteReservedQueuePair.c)
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 bool __fastcall NVMeIoSubmissionQueueDelete(__int64 a1, __int16 a2)
 {
   __int64 v4; // rax

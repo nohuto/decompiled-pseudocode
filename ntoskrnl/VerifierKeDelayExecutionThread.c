@@ -1,3 +1,12 @@
+/*
+ * XREFs of VerifierKeDelayExecutionThread @ 0x140AD2460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ViKeInjectStatusAlerted @ 0x140ABD618 (ViKeInjectStatusAlerted.c)
+ */
+
 __int64 __fastcall VerifierKeDelayExecutionThread(char a1, char a2, __int64 a3)
 {
   __int64 v6; // rdx

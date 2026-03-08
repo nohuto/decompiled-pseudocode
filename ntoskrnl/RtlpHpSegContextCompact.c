@@ -1,3 +1,20 @@
+/*
+ * XREFs of RtlpHpSegContextCompact @ 0x1402CC380
+ * Callers:
+ *     RtlpHpHeapCompact @ 0x1402CC2D4 (RtlpHpHeapCompact.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     RtlpHpSegPageRangeCoalesce @ 0x14024DF10 (RtlpHpSegPageRangeCoalesce.c)
+ *     RtlpHpSegFreeRangeInsert @ 0x14024E6D0 (RtlpHpSegFreeRangeInsert.c)
+ *     RtlpHpSegFreeRangeRemove @ 0x14024E804 (RtlpHpSegFreeRangeRemove.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpSegSegmentFree @ 0x140308E54 (RtlpHpSegSegmentFree.c)
+ *     RtlpHpSegLockAcquire @ 0x14030AB78 (RtlpHpSegLockAcquire.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 _QWORD *__fastcall RtlpHpSegContextCompact(__int64 a1, __int64 a2)
 {
   bool v2; // zf

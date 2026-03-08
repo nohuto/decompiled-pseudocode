@@ -1,3 +1,16 @@
+/*
+ * XREFs of PoIssueCoalescingNotification @ 0x14058B2F4
+ * Callers:
+ *     CmpIssueNewDirtyCallback @ 0x14079508C (CmpIssueNewDirtyCallback.c)
+ *     PopCoalescingCallbackWorker @ 0x140983F50 (PopCoalescingCallbackWorker.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     ExReferenceCallBackBlock @ 0x14034C060 (ExReferenceCallBackBlock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __fastcall PoIssueCoalescingNotification(__int64 a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rax

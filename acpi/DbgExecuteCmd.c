@@ -1,3 +1,13 @@
+/*
+ * XREFs of DbgExecuteCmd @ 0x1C004E878
+ * Callers:
+ *     Debugger @ 0x1C004E9A4 (Debugger.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     DbgParseArgs @ 0x1C0059E48 (DbgParseArgs.c)
+ */
+
 __int64 __fastcall DbgExecuteCmd(__int64 a1, char *a2, char **a3)
 {
   unsigned int v3; // r11d

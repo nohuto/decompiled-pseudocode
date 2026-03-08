@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?vSrcAlignCopyMemory@@YAXPEAE0K@Z @ 0x1C03078EC
+ * Callers:
+ *     ?vSrcCopyS32D32Identity@@YAXPEAUBLTINFO@@@Z @ 0x1C00B6670 (-vSrcCopyS32D32Identity@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vSrcCopyS24D24Identity@@YAXPEAUBLTINFO@@@Z @ 0x1C0150660 (-vSrcCopyS24D24Identity@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vSrcCopyS8D8IdentityLtoR@@YAXPEAUBLTINFO@@@Z @ 0x1C02ED580 (-vSrcCopyS8D8IdentityLtoR@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vSrcCopyS8D8IdentityRtoL@@YAXPEAUBLTINFO@@@Z @ 0x1C02ED610 (-vSrcCopyS8D8IdentityRtoL@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vSrcCopyS16D16Identity@@YAXPEAUBLTINFO@@@Z @ 0x1C02ED910 (-vSrcCopyS16D16Identity@@YAXPEAUBLTINFO@@@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 void __fastcall vSrcAlignCopyMemory(unsigned __int8 *a1, unsigned __int8 *a2, unsigned int a3)
 {
   int v3; // eax

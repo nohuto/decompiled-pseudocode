@@ -1,3 +1,11 @@
+/*
+ * XREFs of MonitorGetSDRWhiteLevel @ 0x1C03BFAC8
+ * Callers:
+ *     DxgkDisplayConfigDeviceInfo @ 0x1C01AB2A0 (DxgkDisplayConfigDeviceInfo.c)
+ * Callees:
+ *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONITOR__@@@Z @ 0x1C000935C (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONI.c)
+ */
+
 __int64 __fastcall MonitorGetSDRWhiteLevel(__int64 a1, _DWORD *a2)
 {
   __int64 v4; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiPdoDestroyPdo @ 0x1C03A4CB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiFdoReleaseChildDescriptor @ 0x1C03985D0 (DpiFdoReleaseChildDescriptor.c)
+ */
+
 void __fastcall DpiPdoDestroyPdo(PDEVICE_OBJECT DeviceObject, PVOID Context)
 {
   PVOID DeviceExtension; // rbx

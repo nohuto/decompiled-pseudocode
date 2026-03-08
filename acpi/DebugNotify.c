@@ -1,3 +1,18 @@
+/*
+ * XREFs of DebugNotify @ 0x1C004DB10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _strupr_0 @ 0x1C0001A8B (_strupr_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     GetObjectPath @ 0x1C004BB70 (GetObjectPath.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     IsNumber @ 0x1C004E1D4 (IsNumber.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     GetNameSpaceObject @ 0x1C004F728 (GetNameSpaceObject.c)
+ */
+
 __int64 __fastcall DebugNotify(__int64 a1, char *a2, int a3, int a4)
 {
   unsigned int v4; // ebx

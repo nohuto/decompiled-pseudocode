@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhFdoPnp_DeviceUsageNotification @ 0x1C0042A80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 __int64 __fastcall UsbhFdoPnp_DeviceUsageNotification(struct _DEVICE_OBJECT *Context, PIRP Irp)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // r15

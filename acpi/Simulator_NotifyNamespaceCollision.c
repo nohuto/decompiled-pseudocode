@@ -1,3 +1,13 @@
+/*
+ * XREFs of Simulator_NotifyNamespaceCollision @ 0x1C00493A0
+ * Callers:
+ *     CreateNameSpaceObject @ 0x1C004F10C (CreateNameSpaceObject.c)
+ * Callees:
+ *     Simulator_AllocAndInitTestData @ 0x1C0048EC4 (Simulator_AllocAndInitTestData.c)
+ *     Simulator_TestNotify @ 0x1C0049970 (Simulator_TestNotify.c)
+ *     GetObjectPath @ 0x1C004BB70 (GetObjectPath.c)
+ */
+
 __int64 __fastcall Simulator_NotifyNamespaceCollision(__int64 a1, __int64 a2)
 {
   void *ObjectPath; // rsi

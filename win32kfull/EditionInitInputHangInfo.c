@@ -1,3 +1,12 @@
+/*
+ * XREFs of EditionInitInputHangInfo @ 0x1C00CCD90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?xxxHandleHealthyThread@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C01F5AA4 (-xxxHandleHealthyThread@@YAXPEAUtagTHREADINFO@@@Z.c)
+ */
+
 __int64 __fastcall EditionInitInputHangInfo(__int64 a1)
 {
   __int64 v1; // rcx

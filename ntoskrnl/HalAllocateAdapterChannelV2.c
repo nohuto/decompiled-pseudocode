@@ -1,3 +1,19 @@
+/*
+ * XREFs of HalAllocateAdapterChannelV2 @ 0x140454AE8
+ * Callers:
+ *     HalBuildScatterGatherListV2 @ 0x1403C7C60 (HalBuildScatterGatherListV2.c)
+ *     HalAllocateAdapterChannel @ 0x140452D00 (HalAllocateAdapterChannel.c)
+ *     HalRealAllocateAdapterChannelV2 @ 0x140454D70 (HalRealAllocateAdapterChannelV2.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpDmaAllocateMapRegisters @ 0x14045399E (HalpDmaAllocateMapRegisters.c)
+ *     IoFreeAdapterChannelV2 @ 0x1404552D0 (IoFreeAdapterChannelV2.c)
+ *     HalpQueueMapBufferWorker @ 0x140503034 (HalpQueueMapBufferWorker.c)
+ *     HalpDmaQueueAdapter @ 0x14050EF68 (HalpDmaQueueAdapter.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeInsertDeviceQueue @ 0x140570C90 (KeInsertDeviceQueue.c)
+ */
+
 __int64 __fastcall HalAllocateAdapterChannelV2(
         __int64 a1,
         __int64 a2,

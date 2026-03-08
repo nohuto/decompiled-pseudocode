@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?IsValidPixelFormatInfo@@YA_NAEBUPixelFormatInfo@@@Z @ 0x1800A86F8
+ * Callers:
+ *     ?HrInit@CClientMemoryBitmap@@QEAAJIIAEBUPixelFormatInfo@@IPEAXIPEAUIUnknown@@@Z @ 0x1800A7AF4 (-HrInit@CClientMemoryBitmap@@QEAAJIIAEBUPixelFormatInfo@@IPEAXIPEAUIUnknown@@@Z.c)
+ *     ?Initialize@CFormatConverter@@IEAAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@N@Z @ 0x1802B8CE8 (-Initialize@CFormatConverter@@IEAAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@N@Z.c)
+ * Callees:
+ *     ?IsValidPixelFormat@@YAHW4DXGI_FORMAT@@@Z @ 0x1800A875C (-IsValidPixelFormat@@YAHW4DXGI_FORMAT@@@Z.c)
+ *     ?HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z @ 0x1800A8DE4 (-HasAlphaChannel@@YAHW4DXGI_FORMAT@@@Z.c)
+ */
+
 char __fastcall IsValidPixelFormatInfo(enum DXGI_FORMAT *a1)
 {
   enum DXGI_FORMAT *v1; // rdx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopIdleWakeNotifyWakeSource @ 0x14059B75C
+ * Callers:
+ *     PpmIdleExecuteTransition @ 0x14022D7D0 (PpmIdleExecuteTransition.c)
+ * Callees:
+ *     KeGetCurrentProcessorNumberEx @ 0x1402C1200 (KeGetCurrentProcessorNumberEx.c)
+ *     PopIdleWakeFinalizeWakeSource @ 0x14059B218 (PopIdleWakeFinalizeWakeSource.c)
+ *     PopIdleWakeFindOrAllocateWakeSource @ 0x14059B27C (PopIdleWakeFindOrAllocateWakeSource.c)
+ *     PopIdleWakeStopActiveIntervalAccounting @ 0x14059B80C (PopIdleWakeStopActiveIntervalAccounting.c)
+ */
+
 int *__fastcall PopIdleWakeNotifyWakeSource(int a1, int a2, __int64 a3, __int64 a4, __int64 a5, int *a6)
 {
   _DWORD *v6; // rbx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of DxgkOpenAdapterFromDeviceName @ 0x1C01A6740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DxgkCloseAdapterImpl @ 0x1C0188940 (DxgkCloseAdapterImpl.c)
+ *     ?DxgkOpenAdapter@@YAJPEAU_D3DKMT_OPENADAPTER@@@Z @ 0x1C01A2B10 (-DxgkOpenAdapter@@YAJPEAU_D3DKMT_OPENADAPTER@@@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01A3640 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     DpiValidateDeviceName @ 0x1C01D0F28 (DpiValidateDeviceName.c)
+ */
+
 __int64 __fastcall DxgkOpenAdapterFromDeviceName(ULONG64 a1)
 {
   ULONG64 v2; // rcx

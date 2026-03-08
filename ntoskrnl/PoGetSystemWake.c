@@ -1,3 +1,11 @@
+/*
+ * XREFs of PoGetSystemWake @ 0x140581630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall PoGetSystemWake(PIRP Irp)
 {
   BOOLEAN result; // al

@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_IFR_SF_qDDDDsdisd @ 0x1C007FC98
+ * Callers:
+ *     ?Connect@FxInterrupt@@QEAAJK@Z @ 0x1C007E91C (-Connect@FxInterrupt@@QEAAJK@Z.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_qDDDDsdisd(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 _a1,

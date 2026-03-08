@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIGetConvertToString @ 0x1C002A908
+ * Callers:
+ *     ACPIGetWorkerForString @ 0x1C002B860 (ACPIGetWorkerForString.c)
+ * Callees:
+ *     ACPIGetConvertToStringWide @ 0x1C002A974 (ACPIGetConvertToStringWide.c)
+ *     ACPIWideStringToAnsiHelper @ 0x1C0043C58 (ACPIWideStringToAnsiHelper.c)
+ */
+
 __int64 __fastcall ACPIGetConvertToString(__int64 a1, int a2, int a3, int a4, _QWORD *a5, unsigned int *a6)
 {
   _QWORD *v6; // rsi

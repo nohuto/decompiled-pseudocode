@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwInitializeProcessor @ 0x14080B24C
+ * Callers:
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ * Callees:
+ *     EtwpCCSwapDeleteProcessor @ 0x140601E2C (EtwpCCSwapDeleteProcessor.c)
+ *     EtwpCCSwapInitializeProcessor @ 0x14080B358 (EtwpCCSwapInitializeProcessor.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwInitializeProcessor(__int64 a1)
 {
   __int64 Pool2; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of OSInitializeCallbacks @ 0x1C00A8160
+ * Callers:
+ *     ACPIInitializeAMLI @ 0x1C00A92D4 (ACPIInitializeAMLI.c)
+ * Callees:
+ *     ACPIGetCmosInterface @ 0x1C0019B00 (ACPIGetCmosInterface.c)
+ *     AMLIRegEventHandler @ 0x1C0048A7C (AMLIRegEventHandler.c)
+ *     RegisterOperationRegionHandler @ 0x1C008BB24 (RegisterOperationRegionHandler.c)
+ */
+
 __int64 OSInitializeCallbacks()
 {
   unsigned int *v1; // [rsp+40h] [rbp+8h] BYREF

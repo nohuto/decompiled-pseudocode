@@ -1,3 +1,15 @@
+/*
+ * XREFs of CcCreatePartition @ 0x14039B540
+ * Callers:
+ *     CcGetPartitionWithCreate @ 0x1402E20D0 (CcGetPartitionWithCreate.c)
+ *     CcInitializeCacheManager @ 0x140B3EB44 (CcInitializeCacheManager.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     CcInitializePartition @ 0x14039B5F0 (CcInitializePartition.c)
+ *     CcDeletePartition @ 0x140536840 (CcDeletePartition.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ */
+
 void *CcCreatePartition()
 {
   void *v0; // rbx

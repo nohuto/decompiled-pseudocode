@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AreAnimateUpdatesRequired@CComposition@@IEAA_NXZ @ 0x18005360C
+ * Callers:
+ *     ?PostPresent@CComposition@@QEAAJ_N@Z @ 0x180052E70 (-PostPresent@CComposition@@QEAAJ_N@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CComposition::AreAnimateUpdatesRequired(CComposition *this)
 {
   char v1; // si

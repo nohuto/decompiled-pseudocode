@@ -1,3 +1,11 @@
+/*
+ * XREFs of AdjustBoundingBox @ 0x1C02A0EA0
+ * Callers:
+ *     ?vEudcOpaqueArea@ESTROBJ@@QEAAXPEAU_POINTFIX@@H@Z @ 0x1C02A2D18 (-vEudcOpaqueArea@ESTROBJ@@QEAAXPEAU_POINTFIX@@H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AdjustBoundingBox(__int64 a1, __int64 a2, int *a3, _DWORD *a4, int *a5, int *a6)
 {
   _DWORD *v6; // r10

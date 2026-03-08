@@ -1,3 +1,11 @@
+/*
+ * XREFs of CategoryMaskFromEvent @ 0x1C0062DE0
+ * Callers:
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CategoryMaskFromEvent(unsigned int a1)
 {
   unsigned int v1; // ecx

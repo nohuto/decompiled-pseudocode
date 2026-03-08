@@ -1,3 +1,12 @@
+/*
+ * XREFs of WriteSystemIO @ 0x1C000624C
+ * Callers:
+ *     DebugOutPort @ 0x1C004DCE0 (DebugOutPort.c)
+ *     AccessBaseField @ 0x1C00517B0 (AccessBaseField.c)
+ * Callees:
+ *     CheckSystemIOAddressValidity @ 0x1C0051C58 (CheckSystemIOAddressValidity.c)
+ */
+
 char __fastcall WriteSystemIO(unsigned int a1, unsigned int a2, unsigned int a3)
 {
   unsigned __int16 v4; // di

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PpmGetPerfPolicyClass @ 0x140235B9C
+ * Callers:
+ *     PpmPerfSelectProcessorState @ 0x140235830 (PpmPerfSelectProcessorState.c)
+ *     PpmPerfCalculateQosClassPolicies @ 0x1402D2278 (PpmPerfCalculateQosClassPolicies.c)
+ *     PpmPerfApplyDomainState @ 0x1402E56F8 (PpmPerfApplyDomainState.c)
+ *     PpmPerfApplyLatencyHint @ 0x1402EDE2C (PpmPerfApplyLatencyHint.c)
+ *     PpmPerfResizeHistory @ 0x140983A10 (PpmPerfResizeHistory.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PpmGetPerfPolicyClass(_BYTE *a1)
 {
   char result; // al

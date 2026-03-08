@@ -1,3 +1,11 @@
+/*
+ * XREFs of TtmpInitializeWatchdogTimeouts @ 0x1409A088C
+ * Callers:
+ *     TtmpStartCallout @ 0x1409A0CA0 (TtmpStartCallout.c)
+ * Callees:
+ *     TtmpGetConfigOverride @ 0x1409A076C (TtmpGetConfigOverride.c)
+ */
+
 char __fastcall TtmpInitializeWatchdogTimeouts(__int64 a1)
 {
   _DWORD *v1; // rbx

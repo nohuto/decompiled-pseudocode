@@ -1,3 +1,11 @@
+/*
+ * XREFs of Short2Bcd @ 0x1C004ED94
+ * Callers:
+ *     UsbhGetLocationIdString @ 0x1C0050690 (UsbhGetLocationIdString.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Short2Bcd(unsigned __int16 a1)
 {
   unsigned __int16 v1; // r10

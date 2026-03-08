@@ -1,3 +1,14 @@
+/*
+ * XREFs of WdmlibIoCreateDeviceSecure @ 0x1C0203154
+ * Callers:
+ *     DpiPdoAddPdo @ 0x1C0201FA0 (DpiPdoAddPdo.c)
+ *     DpiGdoCreateGdiObjects @ 0x1C0202D20 (DpiGdoCreateGdiObjects.c)
+ *     DriverEntry @ 0x1C03D9E6C (DriverEntry.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     WdmlibInit @ 0x1C0200958 (WdmlibInit.c)
+ */
+
 NTSTATUS __stdcall WdmlibIoCreateDeviceSecure(
         PDRIVER_OBJECT DriverObject,
         ULONG DeviceExtensionSize,

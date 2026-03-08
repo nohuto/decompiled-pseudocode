@@ -1,3 +1,15 @@
+/*
+ * XREFs of GetDynamicRegistrySettings @ 0x1C0025C98
+ * Callers:
+ *     NVMeHwRegistryNotify @ 0x1C00085A0 (NVMeHwRegistryNotify.c)
+ *     GetRegistrySettings @ 0x1C0025E60 (GetRegistrySettings.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     ReadMultiSzRegistryValueAndCompareId @ 0x1C0027934 (ReadMultiSzRegistryValueAndCompareId.c)
+ *     UlongToHex @ 0x1C0027B00 (UlongToHex.c)
+ */
+
 __int64 __fastcall GetDynamicRegistrySettings(__int64 a1)
 {
   __int64 result; // rax

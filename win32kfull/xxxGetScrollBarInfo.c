@@ -1,3 +1,19 @@
+/*
+ * XREFs of xxxGetScrollBarInfo @ 0x1C00D9CEC
+ * Callers:
+ *     NtUserGetScrollBarInfo @ 0x1C00D9B10 (NtUserGetScrollBarInfo.c)
+ *     xxxSBWndProc @ 0x1C022D770 (xxxSBWndProc.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     GetRect @ 0x1C0067778 (GetRect.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ *     unsafe_cast_fnid_or_class_to_PSBWND @ 0x1C00D9F08 (unsafe_cast_fnid_or_class_to_PSBWND.c)
+ *     GetWndSBDisableFlags @ 0x1C00D9F98 (GetWndSBDisableFlags.c)
+ *     CalcSBStuff @ 0x1C00D9FC8 (CalcSBStuff.c)
+ *     CalcSBStuff2 @ 0x1C00DA144 (CalcSBStuff2.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall xxxGetScrollBarInfo(struct tagWND *a1, int a2, __int64 a3)
 {
   __int64 v6; // rax

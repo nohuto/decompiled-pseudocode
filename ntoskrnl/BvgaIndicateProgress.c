@@ -1,3 +1,11 @@
+/*
+ * XREFs of BvgaIndicateProgress @ 0x140B906E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     BvgaUpdateProgressBar @ 0x14054D230 (BvgaUpdateProgressBar.c)
+ */
+
 char BvgaIndicateProgress()
 {
   unsigned int v0; // eax

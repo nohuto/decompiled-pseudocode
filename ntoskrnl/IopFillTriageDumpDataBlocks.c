@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopFillTriageDumpDataBlocks @ 0x140550CB8
+ * Callers:
+ *     IoFillTriageDumpBuffer @ 0x14054DAD0 (IoFillTriageDumpBuffer.c)
+ * Callees:
+ *     RtlULongLongSub @ 0x1403050A8 (RtlULongLongSub.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IoUpdateBugCheckProgressEnvVariable @ 0x14054EC04 (IoUpdateBugCheckProgressEnvVariable.c)
+ */
+
 int __fastcall IopFillTriageDumpDataBlocks(unsigned int *a1, int a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // r11

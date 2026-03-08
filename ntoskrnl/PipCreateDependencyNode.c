@@ -1,3 +1,15 @@
+/*
+ * XREFs of PipCreateDependencyNode @ 0x140838A40
+ * Callers:
+ *     IoResolveDependency @ 0x1403943F0 (IoResolveDependency.c)
+ *     PipSetDependency @ 0x1408387E4 (PipSetDependency.c)
+ *     IoDuplicateDependency @ 0x140951200 (IoDuplicateDependency.c)
+ * Callees:
+ *     PipAddBindingId @ 0x1408389BC (PipAddBindingId.c)
+ *     PipDeleteDependencyNode @ 0x140951668 (PipDeleteDependencyNode.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PipCreateDependencyNode(__int64 a1)
 {
   __int64 Pool2; // rax

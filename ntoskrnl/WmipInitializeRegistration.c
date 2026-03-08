@@ -1,3 +1,13 @@
+/*
+ * XREFs of WmipInitializeRegistration @ 0x140B544A8
+ * Callers:
+ *     WmipDriverEntry @ 0x140B53F10 (WmipDriverEntry.c)
+ *     WMIInitialize @ 0x140B54790 (WMIInitialize.c)
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1403BD3B0 (ExInitializeNPagedLookasideListInternal.c)
+ */
+
 void __fastcall WmipInitializeRegistration(int a1)
 {
   if ( a1 )

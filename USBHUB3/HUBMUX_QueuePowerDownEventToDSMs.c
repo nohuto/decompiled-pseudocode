@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBMUX_QueuePowerDownEventToDSMs @ 0x1C0011084
+ * Callers:
+ *     HUBHSM_NotifyingHubStopToDevices @ 0x1C0008BB0 (HUBHSM_NotifyingHubStopToDevices.c)
+ *     HUBHSM_WaitingForDevicesToReleaseReferenceOnD0ExitFinalFromReset @ 0x1C0009260 (HUBHSM_WaitingForDevicesToReleaseReferenceOnD0ExitFinalFromReset.c)
+ *     HUBHSM_WaitingForDevicesToReleaseReferenceOnSuspend @ 0x1C00092A0 (HUBHSM_WaitingForDevicesToReleaseReferenceOnSuspend.c)
+ * Callees:
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 _QWORD *__fastcall HUBMUX_QueuePowerDownEventToDSMs(__int64 a1, int a2)
 {
   __int64 v2; // r15

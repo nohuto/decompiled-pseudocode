@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViDeadlockExAcquireSharedStarveExclusive_Exit @ 0x140AD6050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VfDeadlockAcquireResource @ 0x140AD3DAC (VfDeadlockAcquireResource.c)
+ */
+
 PVOID __fastcall ViDeadlockExAcquireSharedStarveExclusive_Exit(__int64 a1)
 {
   unsigned int v1; // r9d

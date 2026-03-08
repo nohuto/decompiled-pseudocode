@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhFdoCleanupDeviceInterfaceForBillBoard @ 0x1C002A378
+ * Callers:
+ *     UsbhBillboardCleanup @ 0x1C00532D4 (UsbhBillboardCleanup.c)
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     memset @ 0x1C0023880 (memset.c)
+ */
+
 __int64 __fastcall UsbhFdoCleanupDeviceInterfaceForBillBoard(
         __int64 a1,
         unsigned __int16 a2,

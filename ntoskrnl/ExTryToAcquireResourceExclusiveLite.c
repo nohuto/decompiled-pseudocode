@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExTryToAcquireResourceExclusiveLite @ 0x1406086B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExpFastResourceLegacyAcquireExclusive @ 0x1403C4310 (ExpFastResourceLegacyAcquireExclusive.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExpTryToAcquireResourceExclusiveLite @ 0x140608B54 (ExpTryToAcquireResourceExclusiveLite.c)
+ */
+
 BOOLEAN __stdcall ExTryToAcquireResourceExclusiveLite(PERESOURCE Resource)
 {
   __int64 Flag; // rdx

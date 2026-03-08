@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxxDwmControl @ 0x1C0090CE0
+ * Callers:
+ *     ?xxxDwmProcessShutdown@@YAJH@Z @ 0x1C008F854 (-xxxDwmProcessShutdown@@YAJH@Z.c)
+ *     ?xxxDwmProcessStartup@@YAJPEAX@Z @ 0x1C00909F4 (-xxxDwmProcessStartup@@YAJPEAX@Z.c)
+ *     VideoPortCalloutThread @ 0x1C00D93A8 (VideoPortCalloutThread.c)
+ * Callees:
+ *     PostWinlogonMessage @ 0x1C0090D50 (PostWinlogonMessage.c)
+ */
+
 __int64 __fastcall xxxDwmControl(__int64 a1, unsigned int a2)
 {
   int v2; // ebx

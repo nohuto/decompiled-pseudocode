@@ -1,3 +1,17 @@
+/*
+ * XREFs of xxxCancelCoolSwitch @ 0x1C0146A72
+ * Callers:
+ *     EditionHandleAltTabCancel @ 0x1C00EC610 (EditionHandleAltTabCancel.c)
+ *     EditionHandleAltTab @ 0x1C00F54C0 (EditionHandleAltTab.c)
+ *     EditionCancelCoolSwitch @ 0x1C0146A50 (EditionCancelCoolSwitch.c)
+ *     xxxNextWindow @ 0x1C01CB604 (xxxNextWindow.c)
+ *     xxxOldNextWindow @ 0x1C01CBDC8 (xxxOldNextWindow.c)
+ *     xxxSwitchWndProc @ 0x1C01CC6D0 (xxxSwitchWndProc.c)
+ * Callees:
+ *     xxxDestroyWindow @ 0x1C004B7F0 (xxxDestroyWindow.c)
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ */
+
 __int64 xxxCancelCoolSwitch()
 {
   __int64 v0; // rcx

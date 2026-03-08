@@ -1,3 +1,11 @@
+/*
+ * XREFs of IdpValidateAcpiName @ 0x1408411C8
+ * Callers:
+ *     PipIommuValidateDeviceId @ 0x140841140 (PipIommuValidateDeviceId.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IdpValidateAcpiName(__int64 a1, __int64 a2)
 {
   unsigned __int64 v2; // r8

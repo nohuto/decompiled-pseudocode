@@ -1,3 +1,11 @@
+/*
+ * XREFs of AlpcpQueryHandleInformationMessage @ 0x1407119D8
+ * Callers:
+ *     NtAlpcQueryInformationMessage @ 0x140715730 (NtAlpcQueryInformationMessage.c)
+ * Callees:
+ *     ObCompleteObjectDuplication @ 0x14071134C (ObCompleteObjectDuplication.c)
+ */
+
 __int64 __fastcall AlpcpQueryHandleInformationMessage(__int64 a1, __int64 a2, unsigned int *a3, int a4, _DWORD *a5)
 {
   unsigned int v7; // eax

@@ -1,3 +1,31 @@
+/*
+ * XREFs of BiBuildIdentifierList @ 0x14082DD44
+ * Callers:
+ *     BiBindEfiNamespaceObjects @ 0x14082BF38 (BiBindEfiNamespaceObjects.c)
+ *     BiExportStoreAlterationsToEfi @ 0x140A5BC98 (BiExportStoreAlterationsToEfi.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     BiFreeIdentifierList @ 0x14082B53C (BiFreeIdentifierList.c)
+ *     BiEnumerateSubKeys @ 0x14082D288 (BiEnumerateSubKeys.c)
+ *     BiGetObjectDescription @ 0x14082E2C8 (BiGetObjectDescription.c)
+ *     BcdGetElementDataWithFlags @ 0x14082E398 (BcdGetElementDataWithFlags.c)
+ *     BcdCloseObject @ 0x14082E5DC (BcdCloseObject.c)
+ *     BcdOpenObject @ 0x14082E620 (BcdOpenObject.c)
+ *     BiOpenKey @ 0x14082E7AC (BiOpenKey.c)
+ *     BiCloseKey @ 0x14082E938 (BiCloseKey.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiGetSavedBootEntry @ 0x14082F250 (BiGetSavedBootEntry.c)
+ *     BiLookupObjectByBootEntry @ 0x14082F324 (BiLookupObjectByBootEntry.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x14082F354 (BiGetObjectReferenceFromEfiEntry.c)
+ *     BiEnumerateBootEntries @ 0x140830608 (BiEnumerateBootEntries.c)
+ *     BiLookupObjectByIdentifierAndBootEntry @ 0x140A5BEC8 (BiLookupObjectByIdentifierAndBootEntry.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiBuildIdentifierList(_QWORD *a1, __int64 a2, __int64 a3)
 {
   _QWORD *v4; // r14

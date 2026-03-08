@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopPepComponentSetLatency @ 0x1402EE890
+ * Callers:
+ *     PoFxSetComponentLatency @ 0x1402EE7E0 (PoFxSetComponentLatency.c)
+ * Callees:
+ *     PopPepComponentGetLatencyIdleState @ 0x1402EE980 (PopPepComponentGetLatencyIdleState.c)
+ *     PopPepUpdateIdleState @ 0x140304DB8 (PopPepUpdateIdleState.c)
+ *     PopPepCountReadyActivities @ 0x140307578 (PopPepCountReadyActivities.c)
+ *     PopPepRequestWork @ 0x1403075C4 (PopPepRequestWork.c)
+ *     PopPepReleaseActivityLink @ 0x140307608 (PopPepReleaseActivityLink.c)
+ *     PopPepLockActivityLink @ 0x14030768C (PopPepLockActivityLink.c)
+ *     PopPepPromoteActivities @ 0x140307780 (PopPepPromoteActivities.c)
+ */
+
 __int64 __fastcall PopPepComponentSetLatency(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 v4; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CheckMcdmDdiSubmission@DXGADAPTER@@AEAAJXZ @ 0x1C001F994
+ * Callers:
+ *     ?Initialize@ADAPTER_RENDER@@QEAAJXZ @ 0x1C02031F0 (-Initialize@ADAPTER_RENDER@@QEAAJXZ.c)
+ * Callees:
+ *     ?GetNumDifferentPhysicalAdapters@DXGADAPTER@@QEBAIXZ @ 0x1C0016460 (-GetNumDifferentPhysicalAdapters@DXGADAPTER@@QEBAIXZ.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DXGADAPTER::CheckMcdmDdiSubmission(DXGADAPTER *this)
 {
   int v3; // eax

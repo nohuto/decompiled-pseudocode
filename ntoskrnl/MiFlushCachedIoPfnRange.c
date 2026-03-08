@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiFlushCachedIoPfnRange @ 0x14062BB3C
+ * Callers:
+ *     MiReferenceIoPages @ 0x14029BA60 (MiReferenceIoPages.c)
+ * Callees:
+ *     MiFlushCacheMdl @ 0x14065E8C0 (MiFlushCacheMdl.c)
+ */
+
 __int64 __fastcall MiFlushCachedIoPfnRange(__int64 a1, int a2)
 {
   unsigned int v2; // edx

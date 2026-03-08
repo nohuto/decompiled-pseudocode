@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiAllocateZeroCalibrationBuffer @ 0x1403A53F8
+ * Callers:
+ *     MiZeroPageCalibrate @ 0x1403A50D0 (MiZeroPageCalibrate.c)
+ * Callees:
+ *     ExAllocatePoolMm @ 0x14034C1AC (ExAllocatePoolMm.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1403B4900 (MmAllocateContiguousNodeMemory.c)
+ */
+
 PVOID __fastcall MiAllocateZeroCalibrationBuffer(int a1, SIZE_T a2, int a3)
 {
   if ( a3 == 1 )

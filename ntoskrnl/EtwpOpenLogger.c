@@ -1,3 +1,21 @@
+/*
+ * XREFs of EtwpOpenLogger @ 0x140205B30
+ * Callers:
+ *     EtwpTraceMessageVa @ 0x140205450 (EtwpTraceMessageVa.c)
+ *     NtTraceEvent @ 0x140230D30 (NtTraceEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x14036F9F8 (EtwpLogSystemEventUnsafe.c)
+ *     EtwpCCSwapFlush @ 0x1403858B4 (EtwpCCSwapFlush.c)
+ *     EtwTraceEvent @ 0x14045FE22 (EtwTraceEvent.c)
+ *     EtwSendTraceBuffer @ 0x1405FCD90 (EtwSendTraceBuffer.c)
+ *     EtwTraceRaw @ 0x1405FCF28 (EtwTraceRaw.c)
+ *     EtwpKernelTraceRundown @ 0x14080D9F8 (EtwpKernelTraceRundown.c)
+ * Callees:
+ *     ObGetCurrentIrql @ 0x140205E10 (ObGetCurrentIrql.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x14028DD10 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     EtwpCloseLogger @ 0x1403BC590 (EtwpCloseLogger.c)
+ */
+
 __int64 __fastcall EtwpOpenLogger(unsigned int a1, __int64 a2, char a3, _BYTE *a4)
 {
   __int64 v4; // rdi

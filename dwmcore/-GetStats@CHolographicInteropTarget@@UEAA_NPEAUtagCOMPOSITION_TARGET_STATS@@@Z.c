@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetStats@CHolographicInteropTarget@@UEAA_NPEAUtagCOMPOSITION_TARGET_STATS@@@Z @ 0x1802A5CE0
+ * Callers:
+ *     ?GetStats@CHolographicInteropTarget@@$4PPPPPPPM@A@EAA_NPEAUtagCOMPOSITION_TARGET_STATS@@@Z @ 0x18011D630 (-GetStats@CHolographicInteropTarget@@$4PPPPPPPM@A@EAA_NPEAUtagCOMPOSITION_TARGET_STATS@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CHolographicInteropTarget::GetStats(
         CHolographicInteropTarget *this,
         struct tagCOMPOSITION_TARGET_STATS *a2)

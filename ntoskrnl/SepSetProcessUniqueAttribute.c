@@ -1,3 +1,14 @@
+/*
+ * XREFs of SepSetProcessUniqueAttribute @ 0x14070B6C4
+ * Callers:
+ *     SeSubProcessToken @ 0x14070B29C (SeSubProcessToken.c)
+ * Callees:
+ *     AuthzBasepSetSecurityAttributesToken @ 0x14029705C (AuthzBasepSetSecurityAttributesToken.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     SepAddLuidToIndexEntry @ 0x14070B8C0 (SepAddLuidToIndexEntry.c)
+ *     SepRefDerefLuidToIndexEntryIfNecessary @ 0x14070BB54 (SepRefDerefLuidToIndexEntryIfNecessary.c)
+ */
+
 __int64 __fastcall SepSetProcessUniqueAttribute(__int64 a1)
 {
   __int64 result; // rax

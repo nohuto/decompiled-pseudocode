@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefModSub256Asm @ 0x140400C00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefModSub256Asm(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int128 v4; // kr00_16

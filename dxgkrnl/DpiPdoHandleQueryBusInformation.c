@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiPdoHandleQueryBusInformation @ 0x1C021A9E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiPdoHandleQueryBusInformation(__int64 a1, __int64 a2)
 {
   unsigned int v3; // ebx

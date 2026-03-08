@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FxStubUnbindClasses@@YAXPEAU_WDF_BIND_INFO@@@Z @ 0x1C00529C4
+ * Callers:
+ *     ?FxStubDriverUnloadCommon@@YAXXZ @ 0x1C0052950 (-FxStubDriverUnloadCommon@@YAXXZ.c)
+ * Callees:
+ *     FxGetNextClassBindInfo @ 0x1C001CFDC (FxGetNextClassBindInfo.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxStubUnbindClasses(struct _WDF_BIND_INFO *a1)
 {
   _QWORD *v1; // rbx

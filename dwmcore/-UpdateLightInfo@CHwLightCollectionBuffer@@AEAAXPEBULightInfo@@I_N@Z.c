@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UpdateLightInfo@CHwLightCollectionBuffer@@AEAAXPEBULightInfo@@I_N@Z @ 0x180017894
+ * Callers:
+ *     ?Create@CHwLightCollectionBuffer@@SAJPEBULightInfo@@I_NPEAPEAV1@@Z @ 0x1800177A0 (-Create@CHwLightCollectionBuffer@@SAJPEBULightInfo@@I_NPEAPEAV1@@Z.c)
+ * Callees:
+ *     ?Transpose@CMILMatrix@@QEAAXXZ @ 0x180006324 (-Transpose@CMILMatrix@@QEAAXXZ.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ */
+
 void __fastcall CHwLightCollectionBuffer::UpdateLightInfo(
         CHwLightCollectionBuffer *this,
         const struct LightInfo *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDolbyVisionCaps@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAUDISPLAY_DVLL_CAPS@@@Z @ 0x1C01E06B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall DxgMonitor::DisplayIdMonitorDescriptor::GetDolbyVisionCaps(
         DxgMonitor::DisplayIdMonitorDescriptor *this,
         struct DISPLAY_DVLL_CAPS *a2)

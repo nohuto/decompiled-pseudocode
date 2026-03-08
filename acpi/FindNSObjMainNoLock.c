@@ -1,3 +1,14 @@
+/*
+ * XREFs of FindNSObjMainNoLock @ 0x1C004B2F4
+ * Callers:
+ *     AMLIFindNameSpaceObject @ 0x1C0048110 (AMLIFindNameSpaceObject.c)
+ * Callees:
+ *     _strupr_0 @ 0x1C0001A8B (_strupr_0.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     FindNSObj @ 0x1C004B09C (FindNSObj.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ */
+
 __int64 __fastcall FindNSObjMainNoLock(char *Src, __int64 a2, __int64 a3, int a4)
 {
   __int64 v8; // rbx

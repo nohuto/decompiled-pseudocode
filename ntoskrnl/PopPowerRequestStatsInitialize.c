@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopPowerRequestStatsInitialize @ 0x140B62918
+ * Callers:
+ *     PopPowerRequestInitialize @ 0x140B62754 (PopPowerRequestInitialize.c)
+ * Callees:
+ *     RtlInitializeGenericTableAvl @ 0x140245560 (RtlInitializeGenericTableAvl.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x140726450 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
+ *     SleepstudyHelperCreateLibrary @ 0x140847520 (SleepstudyHelperCreateLibrary.c)
+ *     PopSleepstudyRegisterSessionCallback @ 0x1408475F4 (PopSleepstudyRegisterSessionCallback.c)
+ */
+
 void PopPowerRequestStatsInitialize()
 {
   __int64 v0; // rbx

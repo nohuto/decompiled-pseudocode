@@ -1,3 +1,13 @@
+/*
+ * XREFs of rimAbRemoveGlobalPenDeadzoneIfExpired @ 0x1C00EF7FA
+ * Callers:
+ *     RIMAbArbitratePointerDeviceFrame @ 0x1C01AA284 (RIMAbArbitratePointerDeviceFrame.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimAbRemoveGlobalPenDeadzone @ 0x1C01A9100 (rimAbRemoveGlobalPenDeadzone.c)
+ */
+
 void __fastcall rimAbRemoveGlobalPenDeadzoneIfExpired(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v5; // edx

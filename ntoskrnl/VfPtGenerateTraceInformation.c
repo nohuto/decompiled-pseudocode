@@ -1,3 +1,20 @@
+/*
+ * XREFs of VfPtGenerateTraceInformation @ 0x140ADB7D8
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     RtlEnumerateGenericTableAvl @ 0x1402EF150 (RtlEnumerateGenericTableAvl.c)
+ *     RtlNumberGenericTableElementsAvl @ 0x140303C70 (RtlNumberGenericTableElementsAvl.c)
+ *     ViPtAcquireTreeLockAtDpcLevelSafe @ 0x1405CFEE0 (ViPtAcquireTreeLockAtDpcLevelSafe.c)
+ *     ViPtCleanupLockContext @ 0x1405CFF24 (ViPtCleanupLockContext.c)
+ *     ViPtInitializeLockContext @ 0x1405CFFC0 (ViPtInitializeLockContext.c)
+ *     ViPtRaiseIrqlSafe @ 0x1405CFFD4 (ViPtRaiseIrqlSafe.c)
+ *     ViPtReleaseTreeLockFromDpcLevel @ 0x1405D0044 (ViPtReleaseTreeLockFromDpcLevel.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x14087EC10 (DbgkWerCaptureLiveKernelDump.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall VfPtGenerateTraceInformation(char a1)
 {
   unsigned int v1; // edi

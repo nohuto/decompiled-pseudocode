@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SwitchWndCleanup@@YAXPEAPEAUtagSwitchWndInfo@@@Z @ 0x1C01CA528
+ * Callers:
+ *     RemoveResidualSwitchWindowInfos @ 0x1C012E7C0 (RemoveResidualSwitchWindowInfos.c)
+ *     RemoveSwitchWindowInfo @ 0x1C01CB1C0 (RemoveSwitchWindowInfo.c)
+ * Callees:
+ *     FreeHwndList @ 0x1C00680B0 (FreeHwndList.c)
+ */
+
 void __fastcall SwitchWndCleanup(struct tagSwitchWndInfo **a1)
 {
   struct tagBWL *v2; // rcx

@@ -1,3 +1,24 @@
+/*
+ * XREFs of ExpProfileCreate @ 0x140A01038
+ * Callers:
+ *     NtCreateProfile @ 0x140A01750 (NtCreateProfile.c)
+ *     NtCreateProfileEx @ 0x140A01830 (NtCreateProfileEx.c)
+ * Callees:
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeVerifyGroupAffinity @ 0x140290374 (KeVerifyGroupAffinity.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExIsRestrictedCaller @ 0x14078A078 (ExIsRestrictedCaller.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall ExpProfileCreate(
         __int64 *a1,
         ULONG_PTR a2,

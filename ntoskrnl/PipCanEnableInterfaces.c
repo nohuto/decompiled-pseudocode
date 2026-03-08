@@ -1,3 +1,11 @@
+/*
+ * XREFs of PipCanEnableInterfaces @ 0x1408703C0
+ * Callers:
+ *     IopProcessSetInterfaceState @ 0x140683354 (IopProcessSetInterfaceState.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PipCanEnableInterfaces(__int64 a1)
 {
   char result; // al

@@ -1,3 +1,16 @@
+/*
+ * XREFs of WPP_RECORDER_SF_Sd @ 0x1C005109C
+ * Callers:
+ *     UsbhBuildClassCompatibleID @ 0x1C004EE18 (UsbhBuildClassCompatibleID.c)
+ *     UsbhBuildDeviceID @ 0x1C004F9EC (UsbhBuildDeviceID.c)
+ *     UsbhBuildHardwareID @ 0x1C004FCFC (UsbhBuildHardwareID.c)
+ *     CheckUSBFnConfiguration @ 0x1C005C27C (CheckUSBFnConfiguration.c)
+ *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C005CACC (ReadUSBFnFeaturesFromCurrentConfiguration.c)
+ *     UpdateUcmIsPresentBit @ 0x1C005CC80 (UpdateUcmIsPresentBit.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_Sd(
         __int64 a1,
         unsigned __int8 a2,

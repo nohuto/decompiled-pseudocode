@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?InternalQueryInterface@?$CMILCOMBaseT@VIDDASwapChain@@@@IEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802848F4
+ * Callers:
+ *     ?QueryInterface@?$CMILCOMBaseT@VIDDASwapChain@@@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180284990 (-QueryInterface@-$CMILCOMBaseT@VIDDASwapChain@@@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?QueryInterface@CD3DSurface@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180299034 (-QueryInterface@CD3DSurface@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CMILCOMBaseT<IDDASwapChain>::InternalQueryInterface(_QWORD *a1, _QWORD *a2, __int64 *a3)
 {
   int v5; // esi

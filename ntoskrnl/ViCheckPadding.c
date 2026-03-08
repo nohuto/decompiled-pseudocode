@@ -1,3 +1,15 @@
+/*
+ * XREFs of ViCheckPadding @ 0x140AC5364
+ * Callers:
+ *     ViFreeMapRegisterFile @ 0x140AC5A90 (ViFreeMapRegisterFile.c)
+ *     ViSpecialFreeCommonBuffer @ 0x140AC6FA8 (ViSpecialFreeCommonBuffer.c)
+ * Callees:
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     ViCheckTag @ 0x140AC5514 (ViCheckTag.c)
+ *     ViHalPreprocessOptions @ 0x140AC62F4 (ViHalPreprocessOptions.c)
+ *     ViHasBufferBeenTouched @ 0x140AC64A8 (ViHasBufferBeenTouched.c)
+ */
+
 void __fastcall ViCheckPadding(__int64 a1, unsigned int a2, ULONG_PTR a3, unsigned int a4)
 {
   ULONG_PTR v6; // rbx

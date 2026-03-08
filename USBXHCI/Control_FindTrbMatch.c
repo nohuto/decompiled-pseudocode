@@ -1,3 +1,11 @@
+/*
+ * XREFs of Control_FindTrbMatch @ 0x1C00425F4
+ * Callers:
+ *     Control_ProcessTransferEventPointer @ 0x1C00427B4 (Control_ProcessTransferEventPointer.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall Control_FindTrbMatch(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4, _DWORD *a5, int *a6)
 {
   __int64 v6; // rax

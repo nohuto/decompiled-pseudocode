@@ -1,3 +1,12 @@
+/*
+ * XREFs of _UnregisterUserApiHook @ 0x1C00F56F0
+ * Callers:
+ *     NtUserUnregisterUserApiHook @ 0x1C01E03D0 (NtUserUnregisterUserApiHook.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     RemoveHmodDependency @ 0x1C009D71C (RemoveHmodDependency.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall UnregisterUserApiHook(__int64 a1)
 {

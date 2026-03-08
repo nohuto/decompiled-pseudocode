@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?PowerD0Starting@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C006E200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?InvokeStateful@FxPrePostCallback@@QEAAJPEAW4FxCxCallbackProgress@@W4FxCxCallbackCleanupAction@@@Z @ 0x1C000FE0E (-InvokeStateful@FxPrePostCallback@@QEAAJPEAW4FxCxCallbackProgress@@W4FxCxCallbackCleanupAction@@.c)
+ *     ?SleepStudyResetBlockersForD0@FxPkgPnp@@QEAAXXZ @ 0x1C0070890 (-SleepStudyResetBlockersForD0@FxPkgPnp@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall FxPkgPnp::PowerD0Starting(FxPkgPnp *This)
 {
   unsigned __int64 ObjectHandleUnchecked; // rax

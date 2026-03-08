@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?CreateCoreMsgPort@InputExtensibilityCallout@@AEAAJXZ @ 0x1C00C010C
+ * Callers:
+ *     UserSetMITInputCallbacks @ 0x1C00BFFC0 (UserSetMITInputCallbacks.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     CoreMsgCreatePort @ 0x1C00C01E8 (CoreMsgCreatePort.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall InputExtensibilityCallout::CreateCoreMsgPort(InputExtensibilityCallout *this)
 {
   char v2; // di

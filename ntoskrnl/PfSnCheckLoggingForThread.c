@@ -1,3 +1,12 @@
+/*
+ * XREFs of PfSnCheckLoggingForThread @ 0x1402EA88C
+ * Callers:
+ *     PfSnLogFileDataAccess @ 0x14028D408 (PfSnLogFileDataAccess.c)
+ *     PfSnLogPageFault @ 0x14028D4BC (PfSnLogPageFault.c)
+ * Callees:
+ *     PsGetIoPriorityThread @ 0x1402832C0 (PsGetIoPriorityThread.c)
+ */
+
 __int64 __fastcall PfSnCheckLoggingForThread(__int64 a1, __int64 a2, char a3)
 {
   __int64 v3; // r10

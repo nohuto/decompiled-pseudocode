@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bMakePathRecords@@YAHPEAU_PATHRECORD@@PEBKJPEAU_POINTL@@KJJPEAU_RECTFX@@PEAPEAU1@@Z @ 0x1C000C4D8
+ * Callers:
+ *     NtGdiFastPolyPolyline @ 0x1C000BDA0 (NtGdiFastPolyPolyline.c)
+ * Callees:
+ *     LongLongToLong @ 0x1C0013C0C (LongLongToLong.c)
+ */
+
 __int64 __fastcall bMakePathRecords(
         struct _PATHRECORD *a1,
         const unsigned int *a2,

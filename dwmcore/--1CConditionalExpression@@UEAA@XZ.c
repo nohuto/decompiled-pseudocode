@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??1CConditionalExpression@@UEAA@XZ @ 0x18022404C
+ * Callers:
+ *     ??_ECConditionalExpression@@UEAAPEAXI@Z @ 0x1802241B0 (--_ECConditionalExpression@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C8D4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??$_Destroy_range@V?$allocator@UConditionExpressionListEntry@CConditionalExpression@@@std@@@std@@YAXPEAUConditionExpressionListEntry@CConditionalExpression@@QEAU12@AEAV?$allocator@UConditionExpressionListEntry@CConditionalExpression@@@0@@Z @ 0x180223DE8 (--$_Destroy_range@V-$allocator@UConditionExpressionListEntry@CConditionalExpression@@@std@@@std@.c)
+ */
+
 void __fastcall CConditionalExpression::~CConditionalExpression(CConditionalExpression *this)
 {
   _QWORD *v2; // rsi

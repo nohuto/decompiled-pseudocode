@@ -1,3 +1,18 @@
+/*
+ * XREFs of SepCaptureUnicodeStringArray @ 0x1406D5840
+ * Callers:
+ *     NtQuerySecurityAttributesToken @ 0x1406D5B30 (NtQuerySecurityAttributesToken.c)
+ *     SepCaptureTokenSecurityAttributesInformation @ 0x140742D6C (SepCaptureTokenSecurityAttributesInformation.c)
+ *     NtQuerySecurityPolicy @ 0x14078FEA0 (NtQuerySecurityPolicy.c)
+ *     NtSetCachedSigningLevel2 @ 0x1407FAFF0 (NtSetCachedSigningLevel2.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SeCaptureUnicodeStringStructures @ 0x1406D52BC (SeCaptureUnicodeStringStructures.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepCaptureUnicodeStringArray(ULONGLONG a1, unsigned int a2, char a3, ULONGLONG *a4)
 {
   __int64 v5; // rdi

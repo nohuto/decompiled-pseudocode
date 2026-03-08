@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CalcDeviceTransformDelta@CGammaBlendLayer@@EEAAJPEAVCDrawingContext@@PEAVCMILMatrix@@@Z @ 0x1801F1980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CGammaBlendLayer::CalcDeviceTransformDelta(
         CGammaBlendLayer *this,
         struct CDrawingContext *a2,

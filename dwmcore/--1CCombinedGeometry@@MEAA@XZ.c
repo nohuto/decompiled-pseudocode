@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CCombinedGeometry@@MEAA@XZ @ 0x18000BF18
+ * Callers:
+ *     ??_ECCombinedGeometry@@MEAAPEAXI@Z @ 0x18000BE50 (--_ECCombinedGeometry@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ?UnRegisterNotifiers@CCombinedGeometry@@UEAAXXZ @ 0x18000C1F0 (-UnRegisterNotifiers@CCombinedGeometry@@UEAAXXZ.c)
+ */
+
 void __fastcall CCombinedGeometry::~CCombinedGeometry(CCombinedGeometry *this)
 {
   __int64 v2; // rbx

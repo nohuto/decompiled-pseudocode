@@ -1,3 +1,11 @@
+/*
+ * XREFs of RegRetrieveValueInfo @ 0x1C007B834
+ * Callers:
+ *     TelemetryData_pInitWerContext @ 0x1C007B300 (TelemetryData_pInitWerContext.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RegRetrieveValueInfo(HANDLE KeyHandle, PUNICODE_STRING ValueName, _QWORD *a3)
 {
   void *Pool2; // rbx

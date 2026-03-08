@@ -1,3 +1,20 @@
+/*
+ * XREFs of VfSuspectDriversLoadCallback @ 0x140AD7704
+ * Callers:
+ *     VfDriverLoadImage @ 0x140AB9ED8 (VfDriverLoadImage.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     VfTargetDriversAdd @ 0x140303834 (VfTargetDriversAdd.c)
+ *     CarLoadImageHandler @ 0x1405D0EB4 (CarLoadImageHandler.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     VfUtilPrintCheckinString @ 0x140ABF804 (VfUtilPrintCheckinString.c)
+ *     VfInitPickCurrentRandomTarget @ 0x140ABFC94 (VfInitPickCurrentRandomTarget.c)
+ *     VfCheckImageCompliance @ 0x140AC049C (VfCheckImageCompliance.c)
+ *     VfDriverLock @ 0x140AC773C (VfDriverLock.c)
+ *     VfSuspectDriversAllocateEntry @ 0x140AD7394 (VfSuspectDriversAllocateEntry.c)
+ *     VfThunkApplyThunksCurrentSession @ 0x140AD83AC (VfThunkApplyThunksCurrentSession.c)
+ */
+
 LONG __fastcall VfSuspectDriversLoadCallback(__int64 a1, char a2, int a3)
 {
   int v6; // ebp

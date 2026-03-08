@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1ProtectableFromChange@@UEAA@XZ @ 0x1C0005304
+ * Callers:
+ *     ??1DMMVIDPNTOPOLOGY@@UEAA@XZ @ 0x1C000527C (--1DMMVIDPNTOPOLOGY@@UEAA@XZ.c)
+ *     ??_EProtectableFromChange@@UEAAPEAXI@Z @ 0x1C006A2F0 (--_EProtectableFromChange@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ProtectableFromChange::~ProtectableFromChange(ProtectableFromChange *this)
 {
   void *v2; // rcx

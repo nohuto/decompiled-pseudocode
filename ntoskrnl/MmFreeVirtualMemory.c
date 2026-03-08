@@ -1,3 +1,35 @@
+/*
+ * XREFs of MmFreeVirtualMemory @ 0x1406EC820
+ * Callers:
+ *     PsDispatchIumService @ 0x1405A2A44 (PsDispatchIumService.c)
+ *     NtFreeVirtualMemory @ 0x1406EC750 (NtFreeVirtualMemory.c)
+ *     PspDeleteUserStack @ 0x140799590 (PspDeleteUserStack.c)
+ *     PspFreeUserFiberShadowStack @ 0x1409AE1B8 (PspFreeUserFiberShadowStack.c)
+ *     PspReserveAndCommitUserShadowStack @ 0x1409AE7B0 (PspReserveAndCommitUserShadowStack.c)
+ *     PspSetupUserFiberShadowStack @ 0x1409AEA90 (PspSetupUserFiberShadowStack.c)
+ *     PspSetupUserShadowStack @ 0x1409AEB6C (PspSetupUserShadowStack.c)
+ *     PspFreeCurrentThreadUserShadowStack @ 0x1409B0BD0 (PspFreeCurrentThreadUserShadowStack.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MiLocateVadEvent @ 0x14020DC50 (MiLocateVadEvent.c)
+ *     MiFreeVadRange @ 0x1402D5634 (MiFreeVadRange.c)
+ *     MiDeleteEmptyPageTables @ 0x1402EB5E0 (MiDeleteEmptyPageTables.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ *     MiGetVadPageSize @ 0x14031F9B4 (MiGetVadPageSize.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14034C380 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiCheckSecuredVad @ 0x1406A0F38 (MiCheckSecuredVad.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406D8E50 (ObReferenceObjectByHandleWithTag.c)
+ *     MiDecommitRegion @ 0x1406EBCC0 (MiDecommitRegion.c)
+ *     PerfInfoLogVirtualFree @ 0x1409E42D4 (PerfInfoLogVirtualFree.c)
+ *     MiCoalescePlaceholderAllocations @ 0x140A2F378 (MiCoalescePlaceholderAllocations.c)
+ *     MiDecommitEnclavePages @ 0x140A3B114 (MiDecommitEnclavePages.c)
+ *     MiFreeEnclaveModules @ 0x140A3B1B0 (MiFreeEnclaveModules.c)
+ */
+
 NTSTATUS __fastcall MmFreeVirtualMemory(
         HANDLE Handle,
         unsigned __int64 *a2,

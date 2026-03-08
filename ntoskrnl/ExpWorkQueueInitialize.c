@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpWorkQueueInitialize @ 0x140848498
+ * Callers:
+ *     ExpPartitionCreatePoolInternal @ 0x1408483B0 (ExpPartitionCreatePoolInternal.c)
+ * Callees:
+ *     KeQueryNodeActiveAffinity @ 0x1402AE860 (KeQueryNodeActiveAffinity.c)
+ *     KeInitializePriQueue @ 0x14039F800 (KeInitializePriQueue.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall ExpWorkQueueInitialize(__int64 a1, int a2, int a3, __int64 a4, USHORT *a5, unsigned int a6)
 {
   USHORT *v10; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpPrepareDiscardReplacePost @ 0x140A1D350
+ * Callers:
+ *     CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140A1D2A4 (CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ * Callees:
+ *     CmpReferenceKeyControlBlock @ 0x14074BF00 (CmpReferenceKeyControlBlock.c)
+ *     CmpCloneToUnbackedKcb @ 0x140A14164 (CmpCloneToUnbackedKcb.c)
+ */
+
 __int64 __fastcall CmpPrepareDiscardReplacePost(ULONG_PTR a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // edi

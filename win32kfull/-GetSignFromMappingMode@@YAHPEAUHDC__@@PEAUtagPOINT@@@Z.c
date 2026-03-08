@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetSignFromMappingMode@@YAHPEAUHDC__@@PEAUtagPOINT@@@Z @ 0x1C024F148
+ * Callers:
+ *     ClientFrame @ 0x1C024F1DC (ClientFrame.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetSignFromMappingMode(HDC a1, struct tagPOINT *a2)
 {
   __int64 result; // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlpIsAppContainer @ 0x1409BA41C
+ * Callers:
+ *     RtlpCapabilityCheckSystemCapability @ 0x1407445E8 (RtlpCapabilityCheckSystemCapability.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenThreadTokenEx @ 0x1404128F0 (ZwOpenThreadTokenEx.c)
+ *     ZwOpenProcessTokenEx @ 0x140412910 (ZwOpenProcessTokenEx.c)
+ *     ZwDuplicateToken @ 0x140412B50 (ZwDuplicateToken.c)
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ */
+
 __int64 __fastcall RtlpIsAppContainer(HANDLE a1, bool *a2)
 {
   NTSTATUS v3; // ebx

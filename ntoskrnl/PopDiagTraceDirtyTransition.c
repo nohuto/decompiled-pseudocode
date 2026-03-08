@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopDiagTraceDirtyTransition @ 0x140B32210
+ * Callers:
+ *     PopCheckShutdownMarker @ 0x140B6B05C (PopCheckShutdownMarker.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SshSessionManagerTraceDirtyTransition @ 0x1407FBAD8 (SshSessionManagerTraceDirtyTransition.c)
+ *     PopDiagInterruptTimeToSystemTime @ 0x140A85B30 (PopDiagInterruptTimeToSystemTime.c)
+ *     PopPotsLogDirtyPowerTransition @ 0x140B32DDC (PopPotsLogDirtyPowerTransition.c)
+ */
+
 char PopDiagTraceDirtyTransition()
 {
   char result; // al

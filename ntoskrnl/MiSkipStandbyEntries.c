@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiSkipStandbyEntries @ 0x1402C7100
+ * Callers:
+ *     MiRebuildStandbyLookasideList @ 0x1402C6EB0 (MiRebuildStandbyLookasideList.c)
+ * Callees:
+ *     MiIsDecayPfn @ 0x140319ED0 (MiIsDecayPfn.c)
+ *     MiGetStandbyPageType @ 0x14064E190 (MiGetStandbyPageType.c)
+ */
+
 unsigned __int64 __fastcall MiSkipStandbyEntries(
         __int64 a1,
         unsigned __int64 a2,

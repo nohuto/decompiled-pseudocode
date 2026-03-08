@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPICMLidWorker @ 0x1C00199B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIButtonEvent @ 0x1C00189F0 (ACPIButtonEvent.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ */
+
 __int64 __fastcall ACPICMLidWorker(__int64 a1, char a2)
 {
   char v2; // di

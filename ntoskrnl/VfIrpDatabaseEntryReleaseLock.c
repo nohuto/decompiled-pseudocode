@@ -1,3 +1,33 @@
+/*
+ * XREFs of VfIrpDatabaseEntryReleaseLock @ 0x140ADE8EC
+ * Callers:
+ *     IovCancelIrp @ 0x140ABE448 (IovCancelIrp.c)
+ *     IovpLocalCompletionRoutine @ 0x140ABEB60 (IovpLocalCompletionRoutine.c)
+ *     IovpCallDriver1 @ 0x140AC9170 (IovpCallDriver1.c)
+ *     IovpCallDriver2 @ 0x140AC96CC (IovpCallDriver2.c)
+ *     IovpCheckIrpForCriticalTracking @ 0x140AC9954 (IovpCheckIrpForCriticalTracking.c)
+ *     IovpCompleteRequest1 @ 0x140AC99CC (IovpCompleteRequest1.c)
+ *     IovpCompleteRequest2 @ 0x140AC9AFC (IovpCompleteRequest2.c)
+ *     IovpCompleteRequest3 @ 0x140AC9E10 (IovpCompleteRequest3.c)
+ *     IovpCompleteRequest4 @ 0x140AC9E98 (IovpCompleteRequest4.c)
+ *     VfIoAllocateIrp1 @ 0x140ACA6E8 (VfIoAllocateIrp1.c)
+ *     VfIoAllocateIrp2 @ 0x140ACA760 (VfIoAllocateIrp2.c)
+ *     VfIoFreeIrp @ 0x140ACA7E4 (VfIoFreeIrp.c)
+ *     VfIoInitializeIrp @ 0x140ACA99C (VfIoInitializeIrp.c)
+ *     VfIrpWatermark @ 0x140ACAC28 (VfIrpWatermark.c)
+ *     VfPendingMoreProcessingRequired @ 0x140ACE970 (VfPendingMoreProcessingRequired.c)
+ *     ViPendingCompleteAfterWait @ 0x140ACEBEC (ViPendingCompleteAfterWait.c)
+ *     VfPacketReleaseLock @ 0x140ADA158 (VfPacketReleaseLock.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x140ADE768 (VfIrpDatabaseEntryFindAndLock.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ViIrpDatabaseAcquireLockExclusive @ 0x1405D0134 (ViIrpDatabaseAcquireLockExclusive.c)
+ *     ViIrpDatabaseReleaseLockExclusive @ 0x1405D017C (ViIrpDatabaseReleaseLockExclusive.c)
+ *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140ABF44C (VfUtilAddressRangeRemoveCheckEmpty.c)
+ */
+
 __int64 __fastcall VfIrpDatabaseEntryReleaseLock(_QWORD *a1)
 {
   bool v1; // zf

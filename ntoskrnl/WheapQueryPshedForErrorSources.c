@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheapQueryPshedForErrorSources @ 0x140B3E5DC
+ * Callers:
+ *     WheaInitialize @ 0x140B3E1A0 (WheaInitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WheapQueryPshedForErrorSources(_DWORD *a1, _QWORD *a2)
 {
   int AllErrorSources; // eax

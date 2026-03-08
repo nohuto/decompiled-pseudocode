@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?RecordCachedUsageUnderLock@EnabledStateManager@details@wil@@AEAAXXZ @ 0x180196110
+ * Callers:
+ *     ?destroy@?$manually_managed_shutdown_aware_object@VEnabledStateManager@details@wil@@@wil@@QEAAXXZ @ 0x18010E1F4 (-destroy@-$manually_managed_shutdown_aware_object@VEnabledStateManager@details@wil@@@wil@@QEAAXX.c)
+ *     ??1EnabledStateManager@details@wil@@QEAA@XZ @ 0x180194864 (--1EnabledStateManager@details@wil@@QEAA@XZ.c)
+ *     ?OnTimer@EnabledStateManager@details@wil@@QEAAXXZ @ 0x1801B3140 (-OnTimer@EnabledStateManager@details@wil@@QEAAXXZ.c)
+ * Callees:
+ *     wil_details_RecordCachedUsage @ 0x180110C20 (wil_details_RecordCachedUsage.c)
+ *     ?WilApi_RecordFeatureUsage@details@wil@@YAXIIIPEBD@Z @ 0x180197308 (-WilApi_RecordFeatureUsage@details@wil@@YAXIIIPEBD@Z.c)
+ */
+
 void __fastcall wil::details::EnabledStateManager::RecordCachedUsageUnderLock(wil::details::EnabledStateManager *this)
 {
   unsigned int *v1; // rsi

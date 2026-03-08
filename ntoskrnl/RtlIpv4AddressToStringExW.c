@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlIpv4AddressToStringExW @ 0x1403B9710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlIpv4AddressToStringW @ 0x1403B97E0 (RtlIpv4AddressToStringW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 NTSTATUS __stdcall RtlIpv4AddressToStringExW(
         const struct in_addr *Address,
         USHORT Port,

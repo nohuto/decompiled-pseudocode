@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DetachFromChannel@CAnimation@@UEAAXPEAVCChannelContext@@_N@Z @ 0x1800E89B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FlushCallbackId@CMessageConversationHost@@QEAAJII@Z @ 0x1800F58CC (-FlushCallbackId@CMessageConversationHost@@QEAAJII@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CAnimation::DetachFromChannel(CAnimation *this, struct CChannelContext *a2, bool a3)
 {
   unsigned int v6; // edx

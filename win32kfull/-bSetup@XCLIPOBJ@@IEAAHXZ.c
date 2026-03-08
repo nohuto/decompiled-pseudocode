@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?bSetup@XCLIPOBJ@@IEAAHXZ @ 0x1C02F5D98
+ * Callers:
+ *     ?bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z @ 0x1C02F5534 (-bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z.c)
+ * Callees:
+ *     ?bFindFirstScan@XCLIPOBJ@@IEAAHXZ @ 0x1C02F57DC (-bFindFirstScan@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?bFindFirstSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C02F58E0 (-bFindFirstSegment@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?bFindNextScan@XCLIPOBJ@@IEAAHXZ @ 0x1C02F5B90 (-bFindNextScan@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?bFindNextSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C02F5C24 (-bFindNextSegment@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z @ 0x1C02F5CA8 (-bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z.c)
+ *     ?bRecordRun@XCLIPOBJ@@IEAAHAEAJ@Z @ 0x1C02F5D10 (-bRecordRun@XCLIPOBJ@@IEAAHAEAJ@Z.c)
+ *     ?vIntersectScan@XCLIPOBJ@@IEAAXJPEAU_POINTL@@0PEAJ@Z @ 0x1C02F61C8 (-vIntersectScan@XCLIPOBJ@@IEAAXJPEAU_POINTL@@0PEAJ@Z.c)
+ */
+
 __int64 __fastcall XCLIPOBJ::bSetup(XCLIPOBJ *this)
 {
   _DWORD *v1; // rdx

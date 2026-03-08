@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtFlipObjectQueryEndpointConnected @ 0x1C0080780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsEndpointConnected@FlipManagerObject@@QEAAJ_NPEA_N@Z @ 0x1C007F450 (-IsEndpointConnected@FlipManagerObject@@QEAAJ_NPEA_N@Z.c)
+ *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C00817F8 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ */
+
 __int64 __fastcall NtFlipObjectQueryEndpointConnected(void *a1, int a2, _DWORD *a3)
 {
   bool v6; // si

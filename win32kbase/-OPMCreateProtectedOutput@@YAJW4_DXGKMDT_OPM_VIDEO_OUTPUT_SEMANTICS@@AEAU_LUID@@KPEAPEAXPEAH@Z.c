@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?OPMCreateProtectedOutput@@YAJW4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAPEAXPEAH@Z @ 0x1C0188CDC
+ * Callers:
+ *     NtGdiCreateOPMProtectedOutput @ 0x1C01890C0 (NtGdiCreateOPMProtectedOutput.c)
+ *     DrvCreatePhysicalMonitorObjects @ 0x1C0192D10 (DrvCreatePhysicalMonitorObjects.c)
+ * Callees:
+ *     ?CreateProtectedOutput@COPM@@QEAAJW4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAPEAXPEAH@Z @ 0x1C0188190 (-CreateProtectedOutput@COPM@@QEAAJW4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAPEAXPEAH.c)
+ */
+
 __int64 __fastcall OPMCreateProtectedOutput(__int64 a1, struct _LUID *a2, unsigned int a3, void **a4, int *a5)
 {
   enum _DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS v8; // ebp

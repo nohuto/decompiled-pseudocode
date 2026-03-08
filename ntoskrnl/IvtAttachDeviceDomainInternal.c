@@ -1,3 +1,21 @@
+/*
+ * XREFs of IvtAttachDeviceDomainInternal @ 0x140529388
+ * Callers:
+ *     IvtAttachDeviceDomain @ 0x140529370 (IvtAttachDeviceDomain.c)
+ *     IvtDetachDeviceDomain @ 0x140529CF0 (IvtDetachDeviceDomain.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140379818 (HalpAcquireHighLevelLock.c)
+ *     IvtFlushTbInternal @ 0x1403ABA60 (IvtFlushTbInternal.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IvtAllocateTranslationStructures @ 0x1405292FC (IvtAllocateTranslationStructures.c)
+ *     IvtGetDomainId @ 0x14052A58C (IvtGetDomainId.c)
+ *     IvtUpdateTranslationStructures @ 0x14052BCBC (IvtUpdateTranslationStructures.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IvtAttachDeviceDomainInternal(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)
 {
   unsigned int *v6; // rax

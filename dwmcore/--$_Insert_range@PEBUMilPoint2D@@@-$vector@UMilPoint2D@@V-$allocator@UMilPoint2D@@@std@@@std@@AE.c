@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??$_Insert_range@PEBUMilPoint2D@@@?$vector@UMilPoint2D@@V?$allocator@UMilPoint2D@@@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@UMilPoint2D@@@std@@@std@@@1@PEBUMilPoint2D@@1Uforward_iterator_tag@1@@Z @ 0x1801BC390
+ * Callers:
+ *     ?SetOrAppendTextureCoordinates@?$CMeshGeometry2DGeneratedT@VCMeshGeometry2D@@VCGeometry2D@@@@AEAAJAEBV?$span@$$CBUMilPoint2D@@$0?0@gsl@@_N@Z @ 0x1801C5144 (-SetOrAppendTextureCoordinates@-$CMeshGeometry2DGeneratedT@VCMeshGeometry2D@@VCGeometry2D@@@@AEA.c)
+ * Callees:
+ *     ??$_Get_size_of_n@$0BA@@std@@YA_K_K@Z @ 0x18004269C (--$_Get_size_of_n@$0BA@@std@@YA_K_K@Z.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     ?_Change_array@?$vector@UMilPoint2D@@V?$allocator@UMilPoint2D@@@std@@@std@@AEAAXQEAUMilPoint2D@@_K1@Z @ 0x1801C78E4 (-_Change_array@-$vector@UMilPoint2D@@V-$allocator@UMilPoint2D@@@std@@@std@@AEAAXQEAUMilPoint2D@@.c)
+ */
+
 void __fastcall std::vector<MilPoint2D>::_Insert_range<MilPoint2D const *>(
         __int64 a1,
         _BYTE *a2,

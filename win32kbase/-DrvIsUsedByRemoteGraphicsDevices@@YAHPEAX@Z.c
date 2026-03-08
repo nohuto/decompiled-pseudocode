@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DrvIsUsedByRemoteGraphicsDevices@@YAHPEAX@Z @ 0x1C018E540
+ * Callers:
+ *     DrvNeedToSwitchAdapterForRemoteSession @ 0x1C019456C (DrvNeedToSwitchAdapterForRemoteSession.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DrvIsUsedByRemoteGraphicsDevices(void *a1)
 {
   __int64 i; // r8

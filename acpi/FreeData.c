@@ -1,3 +1,14 @@
+/*
+ * XREFs of FreeData @ 0x1C004B498
+ * Callers:
+ *     FreeData @ 0x1C004B498 (FreeData.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ * Callees:
+ *     FreeData @ 0x1C004B498 (FreeData.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ *     FreeObjData @ 0x1C004B544 (FreeObjData.c)
+ */
+
 __int64 __fastcall FreeData(__int64 a1)
 {
   __int64 v2; // rcx

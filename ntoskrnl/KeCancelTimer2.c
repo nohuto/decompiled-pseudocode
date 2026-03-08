@@ -1,3 +1,33 @@
+/*
+ * XREFs of KeCancelTimer2 @ 0x140204390
+ * Callers:
+ *     ExpShutdownWorkerFactory @ 0x1402037D0 (ExpShutdownWorkerFactory.c)
+ *     ExCancelTimer @ 0x140204330 (ExCancelTimer.c)
+ *     ExpSetTimerObject2 @ 0x1402CF9D4 (ExpSetTimerObject2.c)
+ *     PopIdleCancelAoAcDozeS4Timer @ 0x14036D07C (PopIdleCancelAoAcDozeS4Timer.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x1403901F8 (PopThermalUpdateTelemetryClientCount.c)
+ *     PopDirectedDripsStartDisengageTimer @ 0x140584B8C (PopDirectedDripsStartDisengageTimer.c)
+ *     PopThermalEventTransitionEnableDeepSleep @ 0x14058D598 (PopThermalEventTransitionEnableDeepSleep.c)
+ *     PopCheckPowerSourceAfterRtcWakeCancel @ 0x14058DE90 (PopCheckPowerSourceAfterRtcWakeCancel.c)
+ *     PopUpdatePdcSystemIdleState @ 0x14073B8FC (PopUpdatePdcSystemIdleState.c)
+ *     EtwpDisableKernelTrace @ 0x1407864C4 (EtwpDisableKernelTrace.c)
+ *     EtwpCoverageFlushPending @ 0x140799B84 (EtwpCoverageFlushPending.c)
+ *     SshpAlpcOpenTraceSessionUnsafe @ 0x140849E40 (SshpAlpcOpenTraceSessionUnsafe.c)
+ *     PopPowerRequestExecutionRequiredSettingCallback @ 0x1408523C0 (PopPowerRequestExecutionRequiredSettingCallback.c)
+ *     PopPowerRequestDebounceTimerWorker @ 0x14097E560 (PopPowerRequestDebounceTimerWorker.c)
+ *     PopNetWnfLowPowerEpochCallback @ 0x140993A30 (PopNetWnfLowPowerEpochCallback.c)
+ *     PdcPoNetworkResiliency @ 0x140994930 (PdcPoNetworkResiliency.c)
+ *     ExpPartitionDestroy @ 0x1409FDA98 (ExpPartitionDestroy.c)
+ * Callees:
+ *     KiUpdateTimer2Flags @ 0x1402044C8 (KiUpdateTimer2Flags.c)
+ *     KiRemoveTimer2 @ 0x140248860 (KiRemoveTimer2.c)
+ *     KiAcquireTimer2CollectionLockIfInserted @ 0x14024EA84 (KiAcquireTimer2CollectionLockIfInserted.c)
+ *     KiAcquireTimer2LockUnlessDisabled @ 0x14024EAC8 (KiAcquireTimer2LockUnlessDisabled.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KiTraceCancelTimer2 @ 0x14045A3E8 (KiTraceCancelTimer2.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall KeCancelTimer2(__int64 a1, __int64 a2, __int64 a3, _DWORD *SchedulerAssist)
 {
   unsigned int v4; // r12d

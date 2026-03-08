@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Report@CProcessAttributionReporter@@QEAAXXZ @ 0x1800507E0
+ * Callers:
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x18004E7F8 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
+ * Callees:
+ *     ?EnumerateChangedProcessAttributions@CProcessAttributionManager@@AEAAXAEAVCProcessAttributionObserver@@PEAXV?$function@$$A6AXPEAXK_KPEBGW4ProcessAttributionFlags@@AEBUProcessAttributionResourceCounters@@@Z@std@@@Z @ 0x180050EE0 (-EnumerateChangedProcessAttributions@CProcessAttributionManager@@AEAAXAEAVCProcessAttributionObs.c)
+ *     std::_Func_impl_no_alloc__lambda_b496c46762585f0fe68863cd1dbbffab__void_void___unsigned_long_unsigned___int64_unsigned_short_const___enum_ProcessAttributionFlags_ProcessAttributionResourceCounters_const_&_::_Copy @ 0x180105B00 (std--_Func_impl_no_alloc__lambda_b496c46762585f0fe68863cd1dbbffab__void_void___unsi_ea_180105B00.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0qQR0qQR2qQR4qQR6qQR8_EventWriteTransfer @ 0x18012ABD6 (McTemplateU0qQR0qQR2qQR4qQR6qQR8_EventWriteTransfer.c)
+ */
+
 void __fastcall CProcessAttributionReporter::Report(CProcessAttributionReporter *this)
 {
   __int64 v1; // rdi

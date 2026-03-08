@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoCheckDesiredAccess @ 0x140943EE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall IoCheckDesiredAccess(PACCESS_MASK DesiredAccess, ACCESS_MASK GrantedAccess)
 {
   ACCESS_MASK v2; // eax

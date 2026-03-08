@@ -1,3 +1,11 @@
+/*
+ * XREFs of Win32WatchdogLiveKernelDumpCaptureInfo @ 0x1C00DD6D0
+ * Callers:
+ *     W32CalloutDispatch @ 0x1C00ED390 (W32CalloutDispatch.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Win32WatchdogLiveKernelDumpCaptureInfo(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _DWORD *v5; // rax

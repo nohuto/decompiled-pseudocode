@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Dequeue@?$CFlipObjectQueue@VCFlipConsumerMessage@@@@QEAAPEAVCFlipConsumerMessage@@XZ @ 0x1C0087378
+ * Callers:
+ *     ?QueryNextMessageToProducer@FlipManagerObject@@QEAAJ_NPEAPEAVCFlipConsumerMessage@@@Z @ 0x1C007F61C (-QueryNextMessageToProducer@FlipManagerObject@@QEAAJ_NPEAPEAVCFlipConsumerMessage@@@Z.c)
+ *     ?Clear@CBackchannelManager@@QEAAXXZ @ 0x1C0087328 (-Clear@CBackchannelManager@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CFlipObjectQueue<CFlipConsumerMessage>::Dequeue(_QWORD *a1)
 {
   __int64 v1; // r9

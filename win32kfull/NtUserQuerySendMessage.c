@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserQuerySendMessage @ 0x1C01D9CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _QuerySendMessage @ 0x1C01FE96C (_QuerySendMessage.c)
+ */
+
 __int64 __fastcall NtUserQuerySendMessage(_OWORD *a1, __int64 a2, __int64 a3)
 {
   _OWORD *v3; // rdi

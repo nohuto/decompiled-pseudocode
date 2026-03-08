@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserGetCIMSSM @ 0x1C01D1030
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?_GetCurrentInputMessageSource@@YAHHPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C00D7584 (-_GetCurrentInputMessageSource@@YAHHPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ */
+
 __int64 __fastcall NtUserGetCIMSSM(ULONG64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rbx

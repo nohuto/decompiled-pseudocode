@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCheckPteForWriteCluster @ 0x1404640B2
+ * Callers:
+ *     MiGetPageForWriteCluster @ 0x1404641B6 (MiGetPageForWriteCluster.c)
+ * Callees:
+ *     MiLockTransitionLeafPageEx @ 0x1402DD4C8 (MiLockTransitionLeafPageEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiCheckPteForWriteCluster(__int64 a1, ULONG_PTR a2, unsigned __int64 a3, _BYTE *a4)
 {
   __int64 result; // rax

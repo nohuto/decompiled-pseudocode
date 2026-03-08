@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreCreateCompatibleHalftonePalette @ 0x1C00E9A48
+ * Callers:
+ *     NtGdiCreateHalftonePalette @ 0x1C00E9A30 (NtGdiCreateHalftonePalette.c)
+ *     ?DrvRealizeHalftonePalette@@YAPEAVPALETTE@@PEAUHDEV__@@H@Z @ 0x1C026E880 (-DrvRealizeHalftonePalette@@YAPEAVPALETTE@@PEAUHDEV__@@H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GreCreateCompatibleHalftonePalette(__int64 a1, char a2)
 {
   __int64 v3; // rbx

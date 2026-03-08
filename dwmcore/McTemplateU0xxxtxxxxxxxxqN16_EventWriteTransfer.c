@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0xxxtxxxxxxxxqN16_EventWriteTransfer @ 0x1801EFD3C
+ * Callers:
+ *     ?TraceGlitch@CScheduleStatistics@@CAXIPEBVCFrameInfo@@AEB_K1@Z @ 0x1800E6C40 (-TraceGlitch@CScheduleStatistics@@CAXIPEBVCFrameInfo@@AEB_K1@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 ULONG McTemplateU0xxxtxxxxxxxxqN16_EventWriteTransfer(
         _DWORD a1,
         _DWORD a2,

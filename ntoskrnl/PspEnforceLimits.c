@@ -1,3 +1,16 @@
+/*
+ * XREFs of PspEnforceLimits @ 0x1406FB5C0
+ * Callers:
+ *     PspJobTimeLimitsWork @ 0x1406FB500 (PspJobTimeLimitsWork.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PspGetNextJob @ 0x1406FB6B8 (PspGetNextJob.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FB7C8 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ */
+
 __int64 __fastcall PspEnforceLimits(char a1)
 {
   void *i; // rcx

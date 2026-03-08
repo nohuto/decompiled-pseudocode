@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_UpdateInertiaEnabled@CManipulation@@AEAA_NW4ScrollAxis@@_N@Z @ 0x18020C5E8
+ * Callers:
+ *     ?ProcessUpdateSettings@CManipulation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MANIPULATION_UPDATESETTINGS@@@Z @ 0x18020AD80 (-ProcessUpdateSettings@CManipulation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MANIPULATION_UPDATE.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CManipulation::_UpdateInertiaEnabled(__int64 a1, int a2, char a3)
 {
   char result; // al

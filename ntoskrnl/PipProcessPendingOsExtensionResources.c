@@ -1,3 +1,14 @@
+/*
+ * XREFs of PipProcessPendingOsExtensionResources @ 0x140B5B018
+ * Callers:
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406D3680 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x14081D410 (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegCloseKey @ 0x1408653B4 (_PnpCtxRegCloseKey.c)
+ *     PipProcessPendingObjects @ 0x140B91F00 (PipProcessPendingObjects.c)
+ */
+
 __int64 PipProcessPendingOsExtensionResources()
 {
   __int64 v0; // rcx

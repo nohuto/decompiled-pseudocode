@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiEnableOptionalXStateFeatures @ 0x14057033C
+ * Callers:
+ *     KiPreprocessFault @ 0x140362554 (KiPreprocessFault.c)
+ * Callees:
+ *     MmCreateKernelStack @ 0x140317B10 (MmCreateKernelStack.c)
+ *     MmDeleteKernelStackEx @ 0x140318070 (MmDeleteKernelStackEx.c)
+ *     KxEnableOptionalXStateFeatures @ 0x140570874 (KxEnableOptionalXStateFeatures.c)
+ */
+
 __int64 __fastcall KiEnableOptionalXStateFeatures(unsigned __int64 a1, __int64 a2)
 {
   ULONG_PTR v2; // r8

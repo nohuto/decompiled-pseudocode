@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiReturnPhysicalPoolPages @ 0x1402D878C
+ * Callers:
+ *     MiClearNonPagedPtes @ 0x14020DF88 (MiClearNonPagedPtes.c)
+ *     MiReturnExcessPoolCommit @ 0x1403303F8 (MiReturnExcessPoolCommit.c)
+ *     MiGetPoolPages @ 0x14036413C (MiGetPoolPages.c)
+ *     MiAddExpansionNonPagedPool @ 0x140394B74 (MiAddExpansionNonPagedPool.c)
+ * Callees:
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiReturnPoolCharges @ 0x1402D89F8 (MiReturnPoolCharges.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiReturnPhysicalPoolPages(__int64 a1, unsigned int a2)
 {
   char v2; // r14

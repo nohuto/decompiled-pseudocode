@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CScratchRenderTargetBitmap@@IEAA@XZ @ 0x18003BE3C
+ * Callers:
+ *     ?Create@CScratchRenderTargetBitmap@@KAJPEAVIDeviceTarget@@PEAPEAV1@@Z @ 0x18003BDC0 (-Create@CScratchRenderTargetBitmap@@KAJPEAVIDeviceTarget@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     ??0CRenderTargetBitmap@@IEAA@_N@Z @ 0x18003C200 (--0CRenderTargetBitmap@@IEAA@_N@Z.c)
+ */
+
 CScratchRenderTargetBitmap *__fastcall CScratchRenderTargetBitmap::CScratchRenderTargetBitmap(
         CScratchRenderTargetBitmap *this)
 {

@@ -1,3 +1,20 @@
+/*
+ * XREFs of PspExitProcess @ 0x1407E7B3C
+ * Callers:
+ *     PspProcessDelete @ 0x140704DD0 (PspProcessDelete.c)
+ *     PspExitThread @ 0x1407D9464 (PspExitThread.c)
+ * Callees:
+ *     ExCleanTimerResolutionRequest @ 0x140201AD0 (ExCleanTimerResolutionRequest.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PspProcessUnbindVirtualizedTimers @ 0x14035BBCC (PspProcessUnbindVirtualizedTimers.c)
+ *     PspCallProcessNotifyRoutines @ 0x1407D2E14 (PspCallProcessNotifyRoutines.c)
+ *     PfProcessExitNotification @ 0x1407E6B80 (PfProcessExitNotification.c)
+ *     DbgkFlushErrorPort @ 0x1407E7AEC (DbgkFlushErrorPort.c)
+ *     PsSetProcessTelemetryAppState @ 0x1407E7C28 (PsSetProcessTelemetryAppState.c)
+ *     EtwTraceProcess @ 0x1407E93B4 (EtwTraceProcess.c)
+ */
+
 char __fastcall PspExitProcess(char a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?OnHostReady@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00F49B8
+ * Callers:
+ *     UmfdDispatchEscape @ 0x1C00BB270 (UmfdDispatchEscape.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?TryResurrectPffApcRoutine@UmfdHostLifeTimeManager@@CAXPEAX00@Z @ 0x1C02E2C90 (-TryResurrectPffApcRoutine@UmfdHostLifeTimeManager@@CAXPEAX00@Z.c)
+ */
+
 void __fastcall UmfdHostLifeTimeManager::OnHostReady(__int64 a1)
 {
   __int64 v1; // rbx

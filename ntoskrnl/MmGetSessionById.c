@@ -1,3 +1,31 @@
+/*
+ * XREFs of MmGetSessionById @ 0x14022A4F0
+ * Callers:
+ *     MiTrimSharedPageFromViews @ 0x1402A031C (MiTrimSharedPageFromViews.c)
+ *     MmGetSessionObjectById @ 0x1402BE684 (MmGetSessionObjectById.c)
+ *     PopWatchdogWorker @ 0x1403D0490 (PopWatchdogWorker.c)
+ *     PopPowerButtonWorkCallback @ 0x140596C60 (PopPowerButtonWorkCallback.c)
+ *     EtwpEnableGuid @ 0x14068EEBC (EtwpEnableGuid.c)
+ *     EtwpSendDataBlock @ 0x1406901A8 (EtwpSendDataBlock.c)
+ *     PsGetSiloBySessionId @ 0x1406CDDA8 (PsGetSiloBySessionId.c)
+ *     PnpNotifyDriverCallback @ 0x1406F55F4 (PnpNotifyDriverCallback.c)
+ *     PspChangeProcessExecutionState @ 0x1406F8AC0 (PspChangeProcessExecutionState.c)
+ *     ExpWnfCaptureScopeInstanceId @ 0x14071A42C (ExpWnfCaptureScopeInstanceId.c)
+ *     PspAttachSession @ 0x140776AB8 (PspAttachSession.c)
+ *     ExCallSessionCallBack @ 0x140776B38 (ExCallSessionCallBack.c)
+ *     PiUEventBroadcastEventWorker @ 0x1407F80C0 (PiUEventBroadcastEventWorker.c)
+ *     PiUEventBroadcastHardwareProfilesChangedEvent @ 0x140956B40 (PiUEventBroadcastHardwareProfilesChangedEvent.c)
+ *     PiUEventBroadcastPortsChangedEvent @ 0x140956BCC (PiUEventBroadcastPortsChangedEvent.c)
+ *     TtmpSessionWorker @ 0x1409A2950 (TtmpSessionWorker.c)
+ *     CmFcpChangeSubscriptionWrapper @ 0x140A24E40 (CmFcpChangeSubscriptionWrapper.c)
+ * Callees:
+ *     MiSelectSessionAttachProcess @ 0x14022A5A8 (MiSelectSessionAttachProcess.c)
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MmGetSessionById(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?xxxClientCopyDDEOut2@@YAKPEAUtagINTDDEINFO@@@Z @ 0x1C02081FC
+ * Callers:
+ *     xxxClientCopyDDEOut1 @ 0x1C02148C8 (xxxClientCopyDDEOut1.c)
+ * Callees:
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00344F8 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0034558 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall xxxClientCopyDDEOut2(struct tagINTDDEINFO *a1)
 {
   int v2; // ebx

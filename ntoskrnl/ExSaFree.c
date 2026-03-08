@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExSaFree @ 0x1402956DC
+ * Callers:
+ *     ExCleanupAutoExpandPushLock @ 0x14023A500 (ExCleanupAutoExpandPushLock.c)
+ *     ExpCleanupAutoExpandPushLock @ 0x1403C9F18 (ExpCleanupAutoExpandPushLock.c)
+ *     PspProcessDelete @ 0x140704DD0 (PspProcessDelete.c)
+ * Callees:
+ *     ExpSaAllocatorFree @ 0x140295774 (ExpSaAllocatorFree.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ */
+
 struct _KTHREAD *__fastcall ExSaFree(unsigned int a1)
 {
   __int64 v1; // r8

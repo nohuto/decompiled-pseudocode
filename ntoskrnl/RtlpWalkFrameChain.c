@@ -1,3 +1,27 @@
+/*
+ * XREFs of RtlpWalkFrameChain @ 0x14027FF40
+ * Callers:
+ *     RtlWalkFrameChain @ 0x140205CA0 (RtlWalkFrameChain.c)
+ * Callees:
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x140281490 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     RtlpxVirtualUnwind @ 0x140281720 (RtlpxVirtualUnwind.c)
+ *     RtlpIsFrameInBoundsEx @ 0x140282250 (RtlpIsFrameInBoundsEx.c)
+ *     MmIsSessionExecutionValid @ 0x140282320 (MmIsSessionExecutionValid.c)
+ *     RtlpGetStackLimits @ 0x1403129F0 (RtlpGetStackLimits.c)
+ *     MmIsExecutivePagingDisabled @ 0x14032D3D0 (MmIsExecutivePagingDisabled.c)
+ *     RtlGetExtendedContextLength2 @ 0x140364DF0 (RtlGetExtendedContextLength2.c)
+ *     RtlInitializeExtendedContext2 @ 0x140364EE0 (RtlInitializeExtendedContext2.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlpCaptureContext2 @ 0x1404206C0 (RtlpCaptureContext2.c)
+ *     _alloca_probe @ 0x1404210C0 (_alloca_probe.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpWalkWowStack @ 0x14045BA38 (RtlpWalkWowStack.c)
+ *     RtlLocateExtendedFeature2 @ 0x14045BC40 (RtlLocateExtendedFeature2.c)
+ *     RtlWow64GetCpuAreaInfo @ 0x14077C93C (RtlWow64GetCpuAreaInfo.c)
+ *     PsWow64GetProcessMachine @ 0x1407EE9F0 (PsWow64GetProcessMachine.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, char a3, unsigned int a4)
 {
   _KPROCESS *Process; // rdx

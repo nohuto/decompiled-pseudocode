@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViTargetAddCountersCallback @ 0x140AC8840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ViTargetAddCountersCallback(__int64 a1, __int64 a2)
 {
   __int64 v2; // r9

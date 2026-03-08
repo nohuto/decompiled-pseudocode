@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetComponentType@InteractiveControlParser@@CA?AW4_INTERACTIVECTRL_COMPONENT_TYPE@@GG@Z @ 0x1C024D9C8
+ * Callers:
+ *     ?CreateAndLinkComponent@InteractiveControlParser@@CAJPEAU_HIDP_VALUE_CAPS@@HPEAU_INTERACTIVECTRL_CAPABILITIES@@PEAPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@@Z @ 0x1C024D484 (-CreateAndLinkComponent@InteractiveControlParser@@CAJPEAU_HIDP_VALUE_CAPS@@HPEAU_INTERACTIVECTRL.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall InteractiveControlParser::GetComponentType(__int16 a1, unsigned __int16 a2)
 {
   unsigned int v2; // r8d

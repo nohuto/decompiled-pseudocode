@@ -1,3 +1,15 @@
+/*
+ * XREFs of VerifierMmAllocatePagesForMdl @ 0x140ADFAF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ViTargetAddToCounter @ 0x140AC8994 (ViTargetAddToCounter.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ *     VfFaultsInjectResourceFailure @ 0x140AD2FAC (VfFaultsInjectResourceFailure.c)
+ *     ViMmValidateIrql @ 0x140AE0B50 (ViMmValidateIrql.c)
+ */
+
 __int64 __fastcall VerifierMmAllocatePagesForMdl(__int64 a1, ULONG_PTR a2, __int64 a3, ULONG_PTR a4)
 {
   __int64 v7; // rcx

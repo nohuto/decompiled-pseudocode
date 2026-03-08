@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CaptureAndMungeCLIPOBJ@@YAPEAU_CLIPOBJ@@PEAU1@0PEAUtagSIZE@@@Z @ 0x1C02C97F8
+ * Callers:
+ *     ?GetDDIOBJ@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU2@PEAUtagSIZE@@@Z @ 0x1C02C99BC (-GetDDIOBJ@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU2@PEAUtagSIZE@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _CLIPOBJ *__fastcall CaptureAndMungeCLIPOBJ(struct _CLIPOBJ *a1, struct _CLIPOBJ *a2, struct tagSIZE *a3)
 {
   struct _CLIPOBJ *v3; // r10

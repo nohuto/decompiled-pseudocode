@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PostHidNotification@@YAHPEAUtagPROCESS_HID_REQUEST@@PEAUDEVICEINFO@@I_K@Z @ 0x1C00D6620
+ * Callers:
+ *     PostDeviceNotification @ 0x1C00D6230 (PostDeviceNotification.c)
+ * Callees:
+ *     PostInputMessage @ 0x1C0037A48 (PostInputMessage.c)
+ *     AdjustPwndPtiPqForDelegation @ 0x1C009FA68 (AdjustPwndPtiPqForDelegation.c)
+ */
+
 _BOOL8 __fastcall PostHidNotification(
         struct tagPROCESS_HID_REQUEST *a1,
         struct DEVICEINFO *a2,

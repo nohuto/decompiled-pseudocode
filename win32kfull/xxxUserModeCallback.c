@@ -1,3 +1,16 @@
+/*
+ * XREFs of xxxUserModeCallback @ 0x1C02165AC
+ * Callers:
+ *     xxxMNOpenHierarchy @ 0x1C021B7B0 (xxxMNOpenHierarchy.c)
+ *     xxxMenuWindowProc @ 0x1C021D3D0 (xxxMenuWindowProc.c)
+ *     xxxClientLoadOLE @ 0x1C0234524 (xxxClientLoadOLE.c)
+ *     xxxTrackPopupMenuEx @ 0x1C02353CC (xxxTrackPopupMenuEx.c)
+ * Callees:
+ *     ?GetCount@AtomicExecutionCheck@@SAIXZ @ 0x1C00B8314 (-GetCount@AtomicExecutionCheck@@SAIXZ.c)
+ *     ??0LeaveEnterCrit@@QEAA@XZ @ 0x1C012C5E4 (--0LeaveEnterCrit@@QEAA@XZ.c)
+ *     ??1LeaveEnterCrit@@QEAA@XZ @ 0x1C012C60C (--1LeaveEnterCrit@@QEAA@XZ.c)
+ */
+
 __int64 xxxUserModeCallback(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, ...)
 {
   unsigned int v6; // edi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiProcessReenumeration @ 0x1407854F4
+ * Callers:
+ *     PnpDeviceActionWorker @ 0x140203020 (PnpDeviceActionWorker.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PipClearDevNodeFlags @ 0x14068816C (PipClearDevNodeFlags.c)
+ *     PipProcessDevNodeTree @ 0x1406CCD80 (PipProcessDevNodeTree.c)
+ *     PiMarkDeviceTreeForReenumeration @ 0x1407855A8 (PiMarkDeviceTreeForReenumeration.c)
+ */
+
 __int64 __fastcall PiProcessReenumeration(__int64 a1, __int64 a2)
 {
   _QWORD *v3; // rcx

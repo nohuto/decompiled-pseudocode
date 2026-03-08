@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiFdoRebootForSurpriseRemoval @ 0x1C0398498
+ * Callers:
+ *     DpiFdoHandleDevicePower @ 0x1C01E1A70 (DpiFdoHandleDevicePower.c)
+ *     DpiFdoSetAdapterPowerState @ 0x1C01E1E80 (DpiFdoSetAdapterPowerState.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiFdoRebootForSurpriseRemoval(struct _DEVICE_OBJECT *a1, unsigned int a2)
 {
   unsigned int *DeviceExtension; // rsi

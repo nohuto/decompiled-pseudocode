@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPICacheCoherencyInterface @ 0x1C0081B44
+ * Callers:
+ *     ACPIBusIrpQueryInterface @ 0x1C00165F0 (ACPIBusIrpQueryInterface.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPICacheCoherencyInterface(__int64 a1, __int64 a2)
 {
   __int64 v2; // r9

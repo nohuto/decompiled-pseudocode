@@ -1,3 +1,19 @@
+/*
+ * XREFs of PiUEventFreeClientRegistrationContext @ 0x14078DA7C
+ * Callers:
+ *     PiUEventDispatch @ 0x14068DED0 (PiUEventDispatch.c)
+ *     PiUEventHandleRegistration @ 0x14068E738 (PiUEventHandleRegistration.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ZwDeleteWnfStateName @ 0x140413EF0 (ZwDeleteWnfStateName.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PiUEventDequeuePendingEventWorker @ 0x14068DE6C (PiUEventDequeuePendingEventWorker.c)
+ *     PiDmObjectRelease @ 0x1406D0328 (PiDmObjectRelease.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PiUEventFreeClientRegistrationContext(char *P, __int64 a2)
 {
   PFAST_MUTEX *v2; // r14

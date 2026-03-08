@@ -1,3 +1,20 @@
+/*
+ * XREFs of RtlpAnalyzeHeapFailure @ 0x1405B28D8
+ * Callers:
+ *     RtlpAllocateHeap @ 0x1405A8E28 (RtlpAllocateHeap.c)
+ *     RtlpCoalesceFreeBlocks @ 0x1405A97B8 (RtlpCoalesceFreeBlocks.c)
+ *     RtlpCreateSplitBlock @ 0x1405A9BA8 (RtlpCreateSplitBlock.c)
+ *     RtlpExtendHeap @ 0x1405AA9D8 (RtlpExtendHeap.c)
+ *     RtlpFindAndCommitPages @ 0x1405AAC2C (RtlpFindAndCommitPages.c)
+ *     RtlpFreeHeap @ 0x1405AAE88 (RtlpFreeHeap.c)
+ *     RtlpSetupExtendedBlock @ 0x1405ABCBC (RtlpSetupExtendedBlock.c)
+ *     RtlpPopulateListIndex @ 0x1405B3494 (RtlpPopulateListIndex.c)
+ *     RtlZeroHeap @ 0x1409BAEE0 (RtlZeroHeap.c)
+ * Callees:
+ *     RtlpHeapExceptionFilter @ 0x1405B276C (RtlpHeapExceptionFilter.c)
+ *     RtlpLogHeapFailure @ 0x1405B2884 (RtlpLogHeapFailure.c)
+ */
+
 void __fastcall RtlpAnalyzeHeapFailure(ULONG_PTR a1, ULONG_PTR a2)
 {
   unsigned __int64 v4; // r9

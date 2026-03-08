@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiGetDbgInfoAdapters @ 0x1C005DA4C
+ * Callers:
+ *     ?TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N1@Z @ 0x1C004EC88 (-TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N1@Z.c)
+ *     ?TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C03092A0 (-TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiGetDbgInfoAdapters(__int64 a1)
 {
   unsigned int v1; // r10d

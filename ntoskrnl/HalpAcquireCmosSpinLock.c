@@ -1,3 +1,24 @@
+/*
+ * XREFs of HalpAcquireCmosSpinLock @ 0x1402D1A0C
+ * Callers:
+ *     HalpAcquireCmosSpinLockAndWait @ 0x1402D19D8 (HalpAcquireCmosSpinLockAndWait.c)
+ *     HalpGetSetCmosData @ 0x14039F6CC (HalpGetSetCmosData.c)
+ *     HalGetEnvironmentVariable @ 0x140502810 (HalGetEnvironmentVariable.c)
+ *     HalSetEnvironmentVariable @ 0x1405029B0 (HalSetEnvironmentVariable.c)
+ *     HalMakeBeep @ 0x140504630 (HalMakeBeep.c)
+ *     HalReturnToFirmware @ 0x140504990 (HalReturnToFirmware.c)
+ *     x86BiosReadCmosPortByte @ 0x1405061D4 (x86BiosReadCmosPortByte.c)
+ *     x86BiosWriteCmosPortByte @ 0x140506350 (x86BiosWriteCmosPortByte.c)
+ *     HalpSetClockAfterSleep @ 0x140508AF0 (HalpSetClockAfterSleep.c)
+ *     HalpSetClockBeforeSleep @ 0x140508B74 (HalpSetClockBeforeSleep.c)
+ *     HalpReadRtcStdPCAT @ 0x14051DB40 (HalpReadRtcStdPCAT.c)
+ *     HalpReadStdCmosData @ 0x14051DBD0 (HalpReadStdCmosData.c)
+ *     HalpWriteRtcStdPCAT @ 0x14051DC40 (HalpWriteRtcStdPCAT.c)
+ *     HalpWriteStdCmosData @ 0x14051DD10 (HalpWriteStdCmosData.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpAcquireCmosSpinLock(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

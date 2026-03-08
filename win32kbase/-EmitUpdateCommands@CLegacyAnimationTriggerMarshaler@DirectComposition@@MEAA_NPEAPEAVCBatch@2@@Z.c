@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CLegacyAnimationTriggerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02622F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0064740 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ */
+
 char __fastcall DirectComposition::CLegacyAnimationTriggerMarshaler::EmitUpdateCommands(
         LARGE_INTEGER *this,
         struct DirectComposition::CBatch ***a2)

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KsepGetModuleInfoByAddress @ 0x140801264
+ * Callers:
+ *     KsepValidateShimProviderAndData @ 0x1408011B0 (KsepValidateShimProviderAndData.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KsepGetModuleInfoByAddress(unsigned __int64 a1, unsigned int *a2, unsigned __int64 *a3, _DWORD *a4)
 {
   unsigned int v7; // r8d

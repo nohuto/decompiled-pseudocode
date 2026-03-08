@@ -1,3 +1,25 @@
+/*
+ * XREFs of KeCapturePersistentThreadState @ 0x140551EC0
+ * Callers:
+ *     DbgkpWerCaptureLiveTriageDump @ 0x1409388FC (DbgkpWerCaptureLiveTriageDump.c)
+ *     LkmdTelCreateReport @ 0x140A73E94 (LkmdTelCreateReport.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     RtlGetNtProductType @ 0x140303E90 (RtlGetNtProductType.c)
+ *     MmIsAddressValidEx @ 0x1403471E0 (MmIsAddressValidEx.c)
+ *     SecureDump_GetSecureDumpSettings @ 0x140392344 (SecureDump_GetSecureDumpSettings.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IoGetLoadedDriverInfo @ 0x14054E304 (IoGetLoadedDriverInfo.c)
+ *     IopAddCodeRegion @ 0x14054F968 (IopAddCodeRegion.c)
+ *     IopValidateSectionSize @ 0x140551A64 (IopValidateSectionSize.c)
+ *     IopWriteDriverList @ 0x140551C74 (IopWriteDriverList.c)
+ *     KdCopyDataBlock @ 0x140564CD0 (KdCopyDataBlock.c)
+ */
+
 __int64 __fastcall KeCapturePersistentThreadState(
         __int64 a1,
         struct _KTHREAD *a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of CiThreadReferenceTaskIndex @ 0x1C0002DB0
+ * Callers:
+ *     CiCreateTaskIndexClientFromThread @ 0x1C000B8B0 (CiCreateTaskIndexClientFromThread.c)
+ * Callees:
+ *     CiReleaseProcessLock @ 0x1C000BA80 (CiReleaseProcessLock.c)
+ *     CiAcquireProcessLock @ 0x1C000BAB0 (CiAcquireProcessLock.c)
+ */
+
 __int64 __fastcall CiThreadReferenceTaskIndex(__int64 a1)
 {
   __int64 v2; // rbx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiDrainZeroLookasides @ 0x1403B6E88
+ * Callers:
+ *     MiProcessWorkingSets @ 0x14035F6F0 (MiProcessWorkingSets.c)
+ *     MiTradePage @ 0x1403B5640 (MiTradePage.c)
+ *     MiReturnPartitionPagesToParent @ 0x140658E84 (MiReturnPartitionPagesToParent.c)
+ *     MiTransferPartitionPageRun @ 0x140659030 (MiTransferPartitionPageRun.c)
+ * Callees:
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 _QWORD *__fastcall MiDrainZeroLookasides(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)
 {
   unsigned int v4; // r13d

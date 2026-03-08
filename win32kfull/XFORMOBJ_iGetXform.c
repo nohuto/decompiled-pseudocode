@@ -1,3 +1,12 @@
+/*
+ * XREFs of XFORMOBJ_iGetXform @ 0x1C00BBD90
+ * Callers:
+ *     ?UmfdEscXFORMOBJ_iGetXform@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00BBC94 (-UmfdEscXFORMOBJ_iGetXform@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ *     NtGdiXFORMOBJ_iGetXform @ 0x1C02D00A0 (NtGdiXFORMOBJ_iGetXform.c)
+ * Callees:
+ *     <none>
+ */
+
 ULONG __stdcall XFORMOBJ_iGetXform(XFORMOBJ *pxo, XFORML *pxform)
 {
   if ( !pxo )

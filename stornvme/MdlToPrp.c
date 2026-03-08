@@ -1,3 +1,16 @@
+/*
+ * XREFs of MdlToPrp @ 0x1C0001570
+ * Callers:
+ *     ScsiToNVMe @ 0x1C00010C0 (ScsiToNVMe.c)
+ *     SetPrpFromSrb @ 0x1C001B51C (SetPrpFromSrb.c)
+ * Callees:
+ *     memset @ 0x1C0004580 (memset.c)
+ *     GetSrbFunction @ 0x1C0007AEC (GetSrbFunction.c)
+ *     BuildReadWriteCommand @ 0x1C0010FC4 (BuildReadWriteCommand.c)
+ *     GetLbaFromCdb @ 0x1C0012AD0 (GetLbaFromCdb.c)
+ *     GetSrbScsiData @ 0x1C0012B7C (GetSrbScsiData.c)
+ */
+
 __int64 __fastcall MdlToPrp(__int64 a1, __int64 a2)
 {
   __int64 v4; // rbx

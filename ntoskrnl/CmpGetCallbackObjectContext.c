@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpGetCallbackObjectContext @ 0x140738A30
+ * Callers:
+ *     CmpCallbackFillObjectContext @ 0x1406E1220 (CmpCallbackFillObjectContext.c)
+ * Callees:
+ *     CmpUnlockContextList @ 0x140738DA0 (CmpUnlockContextList.c)
+ *     CmpLockContextListShared @ 0x140738ED8 (CmpLockContextListShared.c)
+ */
+
 __int64 __fastcall CmpGetCallbackObjectContext(_DWORD *a1, __int64 *a2)
 {
   __int64 v2; // rdi

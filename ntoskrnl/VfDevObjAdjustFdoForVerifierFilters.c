@@ -1,3 +1,11 @@
+/*
+ * XREFs of VfDevObjAdjustFdoForVerifierFilters @ 0x140ACF080
+ * Callers:
+ *     IovUtilMarkStack @ 0x1402FBF78 (IovUtilMarkStack.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VfDevObjAdjustFdoForVerifierFilters(__int64 a1)
 {
   __int64 result; // rax

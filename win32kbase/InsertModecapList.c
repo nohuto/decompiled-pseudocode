@@ -1,3 +1,13 @@
+/*
+ * XREFs of InsertModecapList @ 0x1C0190884
+ * Callers:
+ *     GetMonitorCapability1 @ 0x1C018FD28 (GetMonitorCapability1.c)
+ *     GetMonitorCapabilityFromInf @ 0x1C01902C4 (GetMonitorCapabilityFromInf.c)
+ * Callees:
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     compModeCap @ 0x1C0192134 (compModeCap.c)
+ */
+
 __int64 __fastcall InsertModecapList(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v3; // r10

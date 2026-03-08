@@ -1,3 +1,14 @@
+/*
+ * XREFs of SmcCacheInitialize @ 0x1409D7DE8
+ * Callers:
+ *     SmcProcessCreateRequest @ 0x1409D50AC (SmcProcessCreateRequest.c)
+ * Callees:
+ *     ExInitializePushLock @ 0x140238200 (ExInitializePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     StEtaInitialize @ 0x1405C851C (StEtaInitialize.c)
+ */
+
 void __fastcall SmcCacheInitialize(struct _EX_RUNDOWN_REF *a1)
 {
   struct _EX_RUNDOWN_REF *v2; // rbx

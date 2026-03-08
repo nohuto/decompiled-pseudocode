@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InitializeCoreMessagingIocp@CGlobalMit@@CAXPEAX@Z @ 0x1800F9108
+ * Callers:
+ *     ?Run@CGlobalMit@@MEAAKXZ @ 0x1800F8F00 (-Run@CGlobalMit@@MEAAKXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CGlobalMit::InitializeCoreMessagingIocp(void *a1)
 {
   __int64 v2; // [rsp+48h] [rbp+10h] BYREF

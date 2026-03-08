@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopReadUlongPowerKey @ 0x140380EC0
+ * Callers:
+ *     PopQueryHiberPersistedRegValue @ 0x14080FD60 (PopQueryHiberPersistedRegValue.c)
+ *     PopBatteryInitPhaseTwo @ 0x140B4735C (PopBatteryInitPhaseTwo.c)
+ * Callees:
+ *     PopReadRegKeyValue @ 0x140380F18 (PopReadRegKeyValue.c)
+ */
+
 __int64 __fastcall PopReadUlongPowerKey(
         PCWSTR a1,
         unsigned int *a2,

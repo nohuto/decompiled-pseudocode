@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bRotated@BLTRECORD@@QEAAHXZ @ 0x1C0291F00
+ * Callers:
+ *     GrePlgBlt @ 0x1C0293740 (GrePlgBlt.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall BLTRECORD::bRotated(BLTRECORD *this)
 {
   int v1; // r10d

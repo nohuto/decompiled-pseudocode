@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiWakeWaitersForAweCacheAttributeChange @ 0x140649E3C
+ * Callers:
+ *     MiIncrementAweMapCount @ 0x140648524 (MiIncrementAweMapCount.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KeSignalGate @ 0x1402F0524 (KeSignalGate.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall MiWakeWaitersForAweCacheAttributeChange(__int64 a1, __int64 a2)
 {
   _QWORD **v3; // r14

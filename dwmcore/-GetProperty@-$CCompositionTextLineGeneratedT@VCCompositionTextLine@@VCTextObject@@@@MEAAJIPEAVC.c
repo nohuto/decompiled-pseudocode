@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetProperty@?$CCompositionTextLineGeneratedT@VCCompositionTextLine@@VCTextObject@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801C1560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CCompositionTextLineGeneratedT<CCompositionTextLine,CTextObject>::GetProperty(
         _DWORD *a1,
         int a2,

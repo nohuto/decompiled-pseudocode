@@ -1,3 +1,16 @@
+/*
+ * XREFs of CcReferenceFileOffset @ 0x140535C90
+ * Callers:
+ *     CcPinFileData @ 0x14021E620 (CcPinFileData.c)
+ * Callees:
+ *     SetVacb @ 0x14021804C (SetVacb.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x14021BCF0 (CcReleaseBcbLockAndVacbLock.c)
+ *     CcAcquireBcbLockAndVacbLock @ 0x14021BD30 (CcAcquireBcbLockAndVacbLock.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     CcAllocateVacbLevels @ 0x14029C894 (CcAllocateVacbLevels.c)
+ *     CcFreeUnusedVacbLevels @ 0x14029E2EC (CcFreeUnusedVacbLevels.c)
+ */
+
 void __fastcall CcReferenceFileOffset(__int64 a1, __int64 a2)
 {
   int v4; // edx

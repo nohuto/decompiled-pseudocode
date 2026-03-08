@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiAcquirePageListLock @ 0x140264E70
+ * Callers:
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiReplaceTransitionPage @ 0x1402C6784 (MiReplaceTransitionPage.c)
+ *     MiDecayPfnFullyInitialized @ 0x1402D6FA4 (MiDecayPfnFullyInitialized.c)
+ *     MiUpdatePageAttributeStamp @ 0x14036A854 (MiUpdatePageAttributeStamp.c)
+ *     MiLockStandbyLookasidePage @ 0x140464910 (MiLockStandbyLookasidePage.c)
+ *     MiUnlinkPageFromBadList @ 0x14064BA18 (MiUnlinkPageFromBadList.c)
+ * Callees:
+ *     MiReleasePageListLock @ 0x140288360 (MiReleasePageListLock.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14030AD60 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiPageToChannel @ 0x140370C10 (MiPageToChannel.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140462F92 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ */
+
 __int64 __fastcall MiAcquirePageListLock(__int64 a1, __int64 a2, int a3, __int64 a4)
 {
   __int64 v4; // rdi

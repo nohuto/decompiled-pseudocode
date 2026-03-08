@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CMeshGeometry2D@@IEAA@PEAVCComposition@@@Z @ 0x1801BDEE8
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     <none>
+ */
+
 CMeshGeometry2D *__fastcall CMeshGeometry2D::CMeshGeometry2D(CMeshGeometry2D *this, struct CComposition *a2)
 {
   CMeshGeometry2D *result; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of IoCreateFileEx @ 0x14070DA20
+ * Callers:
+ *     DifIoCreateFileExWrapper @ 0x1405DBD30 (DifIoCreateFileExWrapper.c)
+ *     NtCreateUserProcess @ 0x14070C850 (NtCreateUserProcess.c)
+ *     IopOpenLinkOrRenameTarget @ 0x140783F08 (IopOpenLinkOrRenameTarget.c)
+ *     IoCreateFileSpecifyDeviceObjectHint @ 0x140792760 (IoCreateFileSpecifyDeviceObjectHint.c)
+ * Callees:
+ *     FsRtlpPrepareExtraCreateParametersForCreate @ 0x14070DB70 (FsRtlpPrepareExtraCreateParametersForCreate.c)
+ *     IopCreateFile @ 0x1407CE5A0 (IopCreateFile.c)
+ */
+
 NTSTATUS __stdcall IoCreateFileEx(
         PHANDLE FileHandle,
         ACCESS_MASK DesiredAccess,

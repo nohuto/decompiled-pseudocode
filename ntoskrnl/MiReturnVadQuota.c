@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiReturnVadQuota @ 0x140704558
+ * Callers:
+ *     MiFinishVadDeletion @ 0x140248200 (MiFinishVadDeletion.c)
+ * Callees:
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1402955D0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x140295600 (PsReturnProcessPagedPoolQuota.c)
+ *     MiVadPureReserve @ 0x140321EB0 (MiVadPureReserve.c)
+ */
+
 __int64 __fastcall MiReturnVadQuota(__int64 a1, struct _KPROCESS *a2, int a3)
 {
   __int64 v6; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?xxxSetActiveWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00EA204
+ * Callers:
+ *     NtUserSetActiveWindow @ 0x1C00EA160 (NtUserSetActiveWindow.c)
+ *     xxxActivateEnabledPopup @ 0x1C0225928 (xxxActivateEnabledPopup.c)
+ * Callees:
+ *     ?xxxActivateWindowWithOptions@@YA_NPEAUtagWND@@W4ActivateWindowKind@@W4ComputeWindowToActivateStrategy@@W4WindowActivateReason@@@Z @ 0x1C003A028 (-xxxActivateWindowWithOptions@@YA_NPEAUtagWND@@W4ActivateWindowKind@@W4ComputeWindowToActivateSt.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ */
+
 struct tagWND *__fastcall xxxSetActiveWindow(struct tagWND *a1)
 {
   __int64 *v1; // rdx

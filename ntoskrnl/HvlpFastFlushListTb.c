@@ -1,3 +1,14 @@
+/*
+ * XREFs of HvlpFastFlushListTb @ 0x1403C6998
+ * Callers:
+ *     HvlpFlushRangeListTb @ 0x1403C68E4 (HvlpFlushRangeListTb.c)
+ * Callees:
+ *     HvcallFastExtended @ 0x1403C6CA0 (HvcallFastExtended.c)
+ *     HvlpCopyFlushVaList @ 0x1403C6E98 (HvlpCopyFlushVaList.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     VslFastFlushSecureRangeList @ 0x140456FD8 (VslFastFlushSecureRangeList.c)
+ */
+
 void __fastcall HvlpFastFlushListTb(__int128 *a1, char a2, __int64 a3, unsigned int a4, __int64 a5, int a6)
 {
   __int64 v8; // xmm1_8

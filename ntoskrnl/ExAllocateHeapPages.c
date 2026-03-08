@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExAllocateHeapPages @ 0x1403B489C
+ * Callers:
+ *     ExpInitializePoolTrackerTable @ 0x14039FCEC (ExpInitializePoolTrackerTable.c)
+ *     ExpResizeBigPageTable @ 0x1403B453C (ExpResizeBigPageTable.c)
+ *     ExGetBigPoolInfo @ 0x140604B70 (ExGetBigPoolInfo.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140605758 (ExpInsertPoolTrackerExpansion.c)
+ * Callees:
+ *     RtlpHpSegAlloc @ 0x1402491F0 (RtlpHpSegAlloc.c)
+ *     RtlpHpAllocateHeap @ 0x14024A2B0 (RtlpHpAllocateHeap.c)
+ *     ExGetHeapFromType @ 0x1403B509C (ExGetHeapFromType.c)
+ */
+
 __int64 ExAllocateHeapPages()
 {
   __int64 HeapFromType; // rax

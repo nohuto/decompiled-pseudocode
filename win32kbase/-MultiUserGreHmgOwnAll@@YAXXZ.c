@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MultiUserGreHmgOwnAll@@YAXXZ @ 0x1C00A0B00
+ * Callers:
+ *     MultiUserNtGreCleanup @ 0x1C009EFD4 (MultiUserNtGreCleanup.c)
+ * Callees:
+ *     ?GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z @ 0x1C006F140 (-GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z.c)
+ */
+
 void MultiUserGreHmgOwnAll(void)
 {
   unsigned int CurrentProcessId; // eax

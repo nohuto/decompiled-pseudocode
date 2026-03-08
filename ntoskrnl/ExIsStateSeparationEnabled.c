@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExIsStateSeparationEnabled @ 0x1409F5E28
+ * Callers:
+ *     PspSiloInitializeIsStateSeparationEnabled @ 0x1409AA674 (PspSiloInitializeIsStateSeparationEnabled.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x14069B3C0 (RtlpQueryRegistryValues.c)
+ */
+
 __int64 __fastcall ExIsStateSeparationEnabled(bool *a1)
 {
   int RegistryValues; // eax

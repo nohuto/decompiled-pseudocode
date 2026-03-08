@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtAllocateVirtualMemory @ 0x1407584D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiAllocateVirtualMemoryCommon @ 0x1407C4A70 (MiAllocateVirtualMemoryCommon.c)
+ */
+
 NTSTATUS __stdcall NtAllocateVirtualMemory(
         HANDLE ProcessHandle,
         PVOID *BaseAddress,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CVisualReferenceControllerMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0253200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DirectComposition::CVisualReferenceControllerMarshaler::SetRemarshalingFlags(
         DirectComposition::CVisualReferenceControllerMarshaler *this)
 {

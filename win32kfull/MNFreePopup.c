@@ -1,3 +1,17 @@
+/*
+ * XREFs of MNFreePopup @ 0x1C0202004
+ * Callers:
+ *     MNFlushDestroyedPopups @ 0x1C0201F10 (MNFlushDestroyedPopups.c)
+ *     xxxMNEndMenuState @ 0x1C0202580 (xxxMNEndMenuState.c)
+ *     xxxMNStartMenuState @ 0x1C0202C44 (xxxMNStartMenuState.c)
+ *     ?xxxMNDestroyHandler@@YAXPEAUtagMENUWND@@@Z @ 0x1C021876C (-xxxMNDestroyHandler@@YAXPEAUtagMENUWND@@@Z.c)
+ * Callees:
+ *     ??1?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ @ 0x1C00A11DC (--1-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ.c)
+ *     safe_cast_fnid_to_PMENUWND @ 0x1C012D8B8 (safe_cast_fnid_to_PMENUWND.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     UnlockPopupMenu @ 0x1C0219608 (UnlockPopupMenu.c)
+ */
+
 _QWORD *__fastcall MNFreePopup(_QWORD *a1)
 {
   __int64 v2; // rax

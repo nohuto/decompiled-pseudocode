@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtAlpcDeletePortSection @ 0x140711AE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     AlpcReferenceBlobByHandle @ 0x1406D1E94 (AlpcReferenceBlobByHandle.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071550C (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteBlob @ 0x140715630 (AlpcpDeleteBlob.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall NtAlpcDeletePortSection(void *a1, int a2, int a3)
 {
   struct _KTHREAD *CurrentThread; // rax

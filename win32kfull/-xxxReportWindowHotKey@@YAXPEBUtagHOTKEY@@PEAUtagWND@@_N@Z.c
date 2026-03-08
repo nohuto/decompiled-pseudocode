@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?xxxReportWindowHotKey@@YAXPEBUtagHOTKEY@@PEAUtagWND@@_N@Z @ 0x1C000ED34
+ * Callers:
+ *     ?xxxReportHotKey@@YAXPEBUtagHOTKEY@@_NPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C000E95C (-xxxReportHotKey@@YAXPEBUtagHOTKEY@@_NPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ * Callees:
+ *     ?Execute@ShellHangDetection@@YAXXZ @ 0x1C000EDD4 (-Execute@ShellHangDetection@@YAXXZ.c)
+ *     ?xxxReportHotKeyToShell@@YAXPEAUtagWND@@_J_KPEAUHWND__@@_N@Z @ 0x1C000EE5C (-xxxReportHotKeyToShell@@YAXPEAUtagWND@@_J_KPEAUHWND__@@_N@Z.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ */
+
 void __fastcall xxxReportWindowHotKey(const struct tagHOTKEY *a1, struct tagTHREADINFO **a2, bool a3)
 {
   const struct tagHOTKEY *v6; // rcx

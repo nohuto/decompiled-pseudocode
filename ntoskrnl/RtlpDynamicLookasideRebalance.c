@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpDynamicLookasideRebalance @ 0x1402C5F90
+ * Callers:
+ *     ExpScanSystemLookasideList @ 0x1402C5D38 (ExpScanSystemLookasideList.c)
+ * Callees:
+ *     RtlpLookasideAdjustDepth @ 0x1402C60F0 (RtlpLookasideAdjustDepth.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ */
+
 __int64 __fastcall RtlpDynamicLookasideRebalance(__int64 *a1)
 {
   unsigned int v1; // r11d

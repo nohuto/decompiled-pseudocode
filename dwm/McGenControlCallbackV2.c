@@ -1,3 +1,11 @@
+/*
+ * XREFs of McGenControlCallbackV2 @ 0x140004EC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset_0 @ 0x1400063A8 (memset_0.c)
+ */
+
 __int64 __fastcall McGenControlCallbackV2(__int64 a1, int a2, char a3, __int64 a4, __int64 a5, int a6, __int64 a7)
 {
   __int64 result; // rax

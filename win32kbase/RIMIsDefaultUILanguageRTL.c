@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMIsDefaultUILanguageRTL @ 0x1C00D3A40
+ * Callers:
+ *     UnpackPenSettings @ 0x1C0219724 (UnpackPenSettings.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 RIMIsDefaultUILanguageRTL()
 {
   unsigned int v0; // ecx

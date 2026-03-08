@@ -1,3 +1,30 @@
+/*
+ * XREFs of ??1FxObject@@UEAA@XZ @ 0x1C0004920
+ * Callers:
+ *     ??1FxPagedObject@@UEAA@XZ @ 0x1C00018D8 (--1FxPagedObject@@UEAA@XZ.c)
+ *     ??_GFxMemoryBuffer@@MEAAPEAXI@Z @ 0x1C0001CA0 (--_GFxMemoryBuffer@@MEAAPEAXI@Z.c)
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0002D30 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     ?SelfDestruct@FxRequestFromLookaside@@MEAAXXZ @ 0x1C00049A0 (-SelfDestruct@FxRequestFromLookaside@@MEAAXXZ.c)
+ *     ?SelfDestruct@FxMemoryBufferFromLookaside@@MEAAXXZ @ 0x1C000E590 (-SelfDestruct@FxMemoryBufferFromLookaside@@MEAAXXZ.c)
+ *     ??_GFxSpinLock@@UEAAPEAXI@Z @ 0x1C000E750 (--_GFxSpinLock@@UEAAPEAXI@Z.c)
+ *     ??_EFxObject@@UEAAPEAXI@Z @ 0x1C003F280 (--_EFxObject@@UEAAPEAXI@Z.c)
+ *     ??_EFxUsbUrb@@MEAAPEAXI@Z @ 0x1C003F840 (--_EFxUsbUrb@@MEAAPEAXI@Z.c)
+ *     ??1FxNPagedLookasideList@@MEAA@XZ @ 0x1C0041344 (--1FxNPagedLookasideList@@MEAA@XZ.c)
+ *     ??1FxNPagedLookasideListFromPool@@MEAA@XZ @ 0x1C0041394 (--1FxNPagedLookasideListFromPool@@MEAA@XZ.c)
+ *     ??1FxPagedLookasideListFromPool@@MEAA@XZ @ 0x1C004167C (--1FxPagedLookasideListFromPool@@MEAA@XZ.c)
+ *     ??_EFxMemoryBufferFromLookaside@@MEAAPEAXI@Z @ 0x1C00416F0 (--_EFxMemoryBufferFromLookaside@@MEAAPEAXI@Z.c)
+ *     ??1FxRequestMemory@@UEAA@XZ @ 0x1C0042360 (--1FxRequestMemory@@UEAA@XZ.c)
+ *     ??1FxMemoryBufferFromPool@@MEAA@XZ @ 0x1C00428A4 (--1FxMemoryBufferFromPool@@MEAA@XZ.c)
+ *     ??_GFxLookasideList@@MEAAPEAXI@Z @ 0x1C0042ED0 (--_GFxLookasideList@@MEAAPEAXI@Z.c)
+ *     ??1FxString@@UEAA@XZ @ 0x1C004F2A8 (--1FxString@@UEAA@XZ.c)
+ *     ??1FxRelatedDevice@@UEAA@XZ @ 0x1C00899EC (--1FxRelatedDevice@@UEAA@XZ.c)
+ * Callees:
+ *     WPP_IFR_SF_qqdd @ 0x1C0019480 (WPP_IFR_SF_qqdd.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0045B6C (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ??_GFxTagTracker@@QEAAPEAXI@Z @ 0x1C0045FBC (--_GFxTagTracker@@QEAAPEAXI@Z.c)
+ *     WPP_IFR_SF_sqq @ 0x1C004676C (WPP_IFR_SF_sqq.c)
+ */
+
 void __fastcall FxObject::~FxObject(FxObject *this, unsigned int a2, unsigned int a3)
 {
   FxTagTracker *m_Lock; // rcx

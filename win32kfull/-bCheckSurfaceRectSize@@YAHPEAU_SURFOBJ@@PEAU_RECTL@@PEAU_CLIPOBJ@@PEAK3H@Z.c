@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?bCheckSurfaceRectSize@@YAHPEAU_SURFOBJ@@PEAU_RECTL@@PEAU_CLIPOBJ@@PEAK3H@Z @ 0x1C02CA26C
+ * Callers:
+ *     NtGdiEngBitBlt @ 0x1C02CAFD0 (NtGdiEngBitBlt.c)
+ *     NtGdiEngCopyBits @ 0x1C02CB640 (NtGdiEngCopyBits.c)
+ *     NtGdiEngPlgBlt @ 0x1C02CCC00 (NtGdiEngPlgBlt.c)
+ *     NtGdiEngStretchBlt @ 0x1C02CD010 (NtGdiEngStretchBlt.c)
+ *     NtGdiEngStretchBltROP @ 0x1C02CD470 (NtGdiEngStretchBltROP.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bCheckSurfaceRectSize(
         struct _SURFOBJ *a1,
         struct _RECTL *a2,

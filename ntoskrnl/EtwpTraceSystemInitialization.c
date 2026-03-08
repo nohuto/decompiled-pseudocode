@@ -1,3 +1,21 @@
+/*
+ * XREFs of EtwpTraceSystemInitialization @ 0x140B41904
+ * Callers:
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ * Callees:
+ *     RtlGetSystemTimePrecise @ 0x140205310 (RtlGetSystemTimePrecise.c)
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     HviGetHypervisorFeatures @ 0x14037F8A0 (HviGetHypervisorFeatures.c)
+ *     HviIsHypervisorVendorMicrosoft @ 0x14037FCF0 (HviIsHypervisorVendorMicrosoft.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HviGetHardwareFeatures @ 0x140612F60 (HviGetHardwareFeatures.c)
+ *     RtlGetVersion @ 0x1407A1380 (RtlGetVersion.c)
+ */
+
 char EtwpTraceSystemInitialization()
 {
   __int64 v0; // rax

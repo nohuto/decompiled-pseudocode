@@ -1,3 +1,16 @@
+/*
+ * XREFs of RIMConfigurePointerDevice @ 0x1C01AD4A0
+ * Callers:
+ *     RIMUpdateDeviceForInputMode @ 0x1C00BC380 (RIMUpdateDeviceForInputMode.c)
+ *     RIMAllocateHidDesc @ 0x1C01AC4D4 (RIMAllocateHidDesc.c)
+ *     RIMApplyPTPConfigRemedyWorker @ 0x1C01E1F68 (RIMApplyPTPConfigRemedyWorker.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_s @ 0x1C00EF582 (WPP_RECORDER_AND_TRACE_SF_s.c)
+ *     RIMDeliverConfigRequest @ 0x1C01AD678 (RIMDeliverConfigRequest.c)
+ *     RIMFindConfigDeviceForInput @ 0x1C01ADC20 (RIMFindConfigDeviceForInput.c)
+ */
+
 __int16 __fastcall RIMConfigurePointerDevice(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rsi

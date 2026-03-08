@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiSetVirtualMitigationControl @ 0x14040AE0C
+ * Callers:
+ *     KiOptimizeSpecCtrlSettingsWorker @ 0x14037E220 (KiOptimizeSpecCtrlSettingsWorker.c)
+ *     KiRestoreFeatureBits @ 0x140574114 (KiRestoreFeatureBits.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall KiSetVirtualMitigationControl(__int64 a1)
 {
   _BOOL8 v1; // r8

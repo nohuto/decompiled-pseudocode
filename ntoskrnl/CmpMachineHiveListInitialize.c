@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpMachineHiveListInitialize @ 0x1408187E8
+ * Callers:
+ *     CmInitSystem2 @ 0x140B54728 (CmInitSystem2.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     CmpQueryHiveRedirectionFileList @ 0x140733370 (CmpQueryHiveRedirectionFileList.c)
+ *     CmpBuildMachineHiveMountPoint @ 0x1408189C8 (CmpBuildMachineHiveMountPoint.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 char CmpMachineHiveListInitialize()
 {
   unsigned int v0; // edi

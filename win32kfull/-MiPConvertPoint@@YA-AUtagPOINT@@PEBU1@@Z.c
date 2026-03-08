@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?MiPConvertPoint@@YA?AUtagPOINT@@PEBU1@@Z @ 0x1C0143940
+ * Callers:
+ *     ?GeneratePointerMessageFromMouse@@YAHPEAUtagQMSG@@I0PEAUtagWND@@H@Z @ 0x1C01433FC (-GeneratePointerMessageFromMouse@@YAHPEAUtagQMSG@@I0PEAUtagWND@@H@Z.c)
+ * Callees:
+ *     MiPGetPhysicalRect @ 0x1C00E4C44 (MiPGetPhysicalRect.c)
+ *     GetScreenRect @ 0x1C00E4C8C (GetScreenRect.c)
+ */
+
 struct tagPOINT __fastcall MiPConvertPoint(const struct tagPOINT *a1)
 {
   __m128i v2; // xmm7

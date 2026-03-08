@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlLookupFunctionTable @ 0x14040C148
+ * Callers:
+ *     CcInitializeBcbProfiler @ 0x140B14354 (CcInitializeBcbProfiler.c)
+ *     sub_140B16730 @ 0x140B16730 (sub_140B16730.c)
+ * Callees:
+ *     RtlpxLookupFunctionTable @ 0x1402CB3A0 (RtlpxLookupFunctionTable.c)
+ */
+
 PVOID __fastcall RtlLookupFunctionTable(unsigned __int64 a1, _QWORD *a2, _DWORD *a3)
 {
   PVOID result; // rax

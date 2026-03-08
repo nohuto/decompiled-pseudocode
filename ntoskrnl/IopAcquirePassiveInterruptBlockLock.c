@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopAcquirePassiveInterruptBlockLock @ 0x14039E744
+ * Callers:
+ *     IopDereferencePassiveInterruptBlock @ 0x14039E56C (IopDereferencePassiveInterruptBlock.c)
+ *     IopPassiveInterruptWorker @ 0x14039E620 (IopPassiveInterruptWorker.c)
+ *     IoProcessPassiveInterrupts @ 0x14039E784 (IoProcessPassiveInterrupts.c)
+ * Callees:
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ */
+
 void __fastcall IopAcquirePassiveInterruptBlockLock(__int64 a1, unsigned __int8 *a2)
 {
   unsigned __int8 CurrentIrql; // r8

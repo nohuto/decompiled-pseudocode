@@ -1,3 +1,13 @@
+/*
+ * XREFs of _SetClassWord @ 0x1C01BF450
+ * Callers:
+ *     NtUserSetClassWord @ 0x1C01DBBD0 (NtUserSetClassWord.c)
+ * Callees:
+ *     ??1?$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ @ 0x1C0031BF4 (--1-$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z @ 0x1C00E02D4 (-Init@-$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z.c)
+ */
+
 __int64 __fastcall SetClassWord(__int64 a1, int a2, __int16 a3)
 {
   __int64 v3; // rbx

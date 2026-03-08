@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifIoSetCompletionRoutineExWrapper @ 0x1405DECB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoSetCompletionRoutineEx @ 0x1402F01A0 (IoSetCompletionRoutineEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifIoSetCompletionRoutineExWrapper(
         PDEVICE_OBJECT DeviceObject,
         PIRP Irp,

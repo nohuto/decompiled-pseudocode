@@ -1,3 +1,23 @@
+/*
+ * XREFs of VidSchiCreateDeviceInternal @ 0x1C00AC5B0
+ * Callers:
+ *     VidSchCreateDevice @ 0x1C00AC4C0 (VidSchCreateDevice.c)
+ *     VidSchCreateSystemDevices @ 0x1C00C2444 (VidSchCreateSystemDevices.c)
+ * Callees:
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0002338 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     VidSchiInterlockedInsertTailList @ 0x1C00035E0 (VidSchiInterlockedInsertTailList.c)
+ *     VidSchiIncrementDeviceReference @ 0x1C001470C (VidSchiIncrementDeviceReference.c)
+ *     ?GetKmdProcessHandle@DXGPROCESS@@QEBAPEAXI@Z @ 0x1C0014FFC (-GetKmdProcessHandle@DXGPROCESS@@QEBAPEAXI@Z.c)
+ *     ?DdiCreateDevice@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_CREATEDEVICE@@@Z @ 0x1C0019908 (-DdiCreateDevice@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_CREATEDEVICE@@@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     McTemplateK0ppqpttqpqp_EtwWriteTransfer @ 0x1C003DD88 (McTemplateK0ppqpttqpqp_EtwWriteTransfer.c)
+ *     VidSchTerminateDevice @ 0x1C00A8E60 (VidSchTerminateDevice.c)
+ *     VidSchSetQueuedPresentLimit @ 0x1C00AC890 (VidSchSetQueuedPresentLimit.c)
+ *     VidSchiOpenProcessAdapterInfo @ 0x1C00ACA8C (VidSchiOpenProcessAdapterInfo.c)
+ *     VidSchiReadDeviceConfiguration @ 0x1C00ACF9C (VidSchiReadDeviceConfiguration.c)
+ *     VidSchControlVSyncDevice @ 0x1C00AD1E0 (VidSchControlVSyncDevice.c)
+ */
+
 __int64 __fastcall VidSchiCreateDeviceInternal(__int64 a1, __int128 *a2, __int64 a3, __int64 *a4)
 {
   struct DXGPROCESS *Current; // r15

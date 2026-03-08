@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpTimerWaitForPhase0Interrupt @ 0x1403AC710
+ * Callers:
+ *     HalpTimerInitializeClock @ 0x1403AC5D0 (HalpTimerInitializeClock.c)
+ * Callees:
+ *     KeStallExecutionProcessor @ 0x14022B710 (KeStallExecutionProcessor.c)
+ */
+
 bool __fastcall HalpTimerWaitForPhase0Interrupt(__int64 a1)
 {
   unsigned __int64 v2; // rax

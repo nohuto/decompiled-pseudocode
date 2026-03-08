@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvpViewMapTouchPages @ 0x140732810
+ * Callers:
+ *     HvpViewMapMakeViewRangeValid @ 0x140730EE4 (HvpViewMapMakeViewRangeValid.c)
+ *     HvpViewMapMakeViewRangeCOWByCaller @ 0x1407326F8 (HvpViewMapMakeViewRangeCOWByCaller.c)
+ *     HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x140732864 (HvpMappedViewConvertRegionFromLockedToCOWByPolicy.c)
+ * Callees:
+ *     HvpInpageErrorFilter @ 0x140A1A60C (HvpInpageErrorFilter.c)
+ */
+
 __int64 __fastcall HvpViewMapTouchPages(_BYTE *a1, __int64 a2, char a3)
 {
   _BYTE *i; // [rsp+28h] [rbp-10h]

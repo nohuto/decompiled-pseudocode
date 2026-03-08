@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RestoreScopeFromClipStack@CScopedClipStack@@QEAAXAEBV1@@Z @ 0x1800218C4
+ * Callers:
+ *     ?EndFrame@CSubDrawingContext@@AEAAX_N@Z @ 0x1800217DC (-EndFrame@CSubDrawingContext@@AEAAX_N@Z.c)
+ * Callees:
+ *     ?clear_region@?$vector_facade@USinkEntry@CCpuClipAntialiasSinkContext@@V?$buffer_impl@USinkEntry@CCpuClipAntialiasSinkContext@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180090BE4 (-clear_region@-$vector_facade@USinkEntry@CCpuClipAntialiasSinkContext@@V-$buffer_impl@USinkEntry.c)
+ */
+
 void __fastcall CScopedClipStack::RestoreScopeFromClipStack(CScopedClipStack *this, const struct CScopedClipStack *a2)
 {
   __int64 v2; // rax

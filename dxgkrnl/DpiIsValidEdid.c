@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiIsValidEdid @ 0x1C001F86C
+ * Callers:
+ *     DpiPdoGetDeviceDescriptor @ 0x1C02014BC (DpiPdoGetDeviceDescriptor.c)
+ *     DpiPdoGetDeviceIdFromDescriptor @ 0x1C0201AEC (DpiPdoGetDeviceIdFromDescriptor.c)
+ *     DpiFdoValidateIntegratedDisplayDescriptor @ 0x1C0399218 (DpiFdoValidateIntegratedDisplayDescriptor.c)
+ * Callees:
+ *     ?DpiEdidCheckSum@@YAEPEADK@Z @ 0x1C001F8A0 (-DpiEdidCheckSum@@YAEPEADK@Z.c)
+ */
+
 unsigned __int8 __fastcall DpiIsValidEdid(__int64 a1)
 {
   unsigned int v1; // edx

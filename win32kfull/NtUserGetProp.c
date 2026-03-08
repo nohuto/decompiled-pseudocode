@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserGetProp @ 0x1C00B6C30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?LockRefactorStagingAssertOwned@@YAXAEBUtagObjLock@@@Z @ 0x1C0101318 (-LockRefactorStagingAssertOwned@@YAXAEBUtagObjLock@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??1?$ObjectLock@UtagObjLock@@@?$DomainExclusive@$$V@?$DomainShared@$$V@SharedUserCritOnly@@QEAA@XZ @ 0x1C012F0E4 (--1-$ObjectLock@UtagObjLock@@@-$DomainExclusive@$$V@-$DomainShared@$$V@SharedUserCritOnly@@QEAA@.c)
+ *     GetSharedPropForFilteredProcesses @ 0x1C021F1BC (GetSharedPropForFilteredProcesses.c)
+ */
+
 __int64 __fastcall NtUserGetProp(HWND a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r12

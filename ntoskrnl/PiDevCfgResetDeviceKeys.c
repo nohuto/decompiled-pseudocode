@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiDevCfgResetDeviceKeys @ 0x14095D024
+ * Callers:
+ *     PiDevCfgResetDeviceDriverSettings @ 0x14095CBE0 (PiDevCfgResetDeviceDriverSettings.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     PiDevCfgEnumDeviceKeys @ 0x140876FB8 (PiDevCfgEnumDeviceKeys.c)
+ */
+
 __int64 __fastcall PiDevCfgResetDeviceKeys(__int64 a1, __int64 a2, void *a3)
 {
   NTSTATUS v5; // eax

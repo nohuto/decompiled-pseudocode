@@ -1,3 +1,14 @@
+/*
+ * XREFs of MxInsertEnclaveBootPages @ 0x140B96C30
+ * Callers:
+ *     MiCreateDescriptorPfns @ 0x140B373F4 (MiCreateDescriptorPfns.c)
+ * Callees:
+ *     MiSetPageTablePfnBuddy @ 0x1402A6F18 (MiSetPageTablePfnBuddy.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiSetPfnIdentity @ 0x14034BE78 (MiSetPfnIdentity.c)
+ */
+
 __m128i *__fastcall MxInsertEnclaveBootPages(unsigned __int64 a1, unsigned __int64 a2, int a3)
 {
   __int64 v6; // r9

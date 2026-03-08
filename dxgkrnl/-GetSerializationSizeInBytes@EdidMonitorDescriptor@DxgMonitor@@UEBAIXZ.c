@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetSerializationSizeInBytes@EdidMonitorDescriptor@DxgMonitor@@UEBAIXZ @ 0x1C03CB6A0
+ * Callers:
+ *     ?SerializeToBuffer@EdidMonitorDescriptor@DxgMonitor@@UEBAXPEAU_DMM_MONITORDESCRIPTORSET_SERIALIZATION@@I@Z @ 0x1C03CB6C0 (-SerializeToBuffer@EdidMonitorDescriptor@DxgMonitor@@UEBAXPEAU_DMM_MONITORDESCRIPTORSET_SERIALIZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DxgMonitor::EdidMonitorDescriptor::GetSerializationSizeInBytes(
         DxgMonitor::EdidMonitorDescriptor *this)
 {

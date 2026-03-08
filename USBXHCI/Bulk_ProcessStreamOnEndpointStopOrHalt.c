@@ -1,3 +1,14 @@
+/*
+ * XREFs of Bulk_ProcessStreamOnEndpointStopOrHalt @ 0x1C0046E58
+ * Callers:
+ *     Bulk_EP_FSEReceived @ 0x1C000FC40 (Bulk_EP_FSEReceived.c)
+ *     Bulk_EP_EndpointHalted @ 0x1C0046BB0 (Bulk_EP_EndpointHalted.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DDDD @ 0x1C000E120 (WPP_RECORDER_SF_DDDD.c)
+ *     Bulk_FindStage @ 0x1C000E218 (Bulk_FindStage.c)
+ *     memmove @ 0x1C0020400 (memmove.c)
+ */
+
 __int64 __fastcall Bulk_ProcessStreamOnEndpointStopOrHalt(__int64 a1)
 {
   __int64 v1; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIProcessorBuildHiddenApicIds @ 0x1C008C460
+ * Callers:
+ *     ACPIProcessorStartDeviceWorker @ 0x1C003A1C0 (ACPIProcessorStartDeviceWorker.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ */
+
 __int64 ACPIProcessorBuildHiddenApicIds()
 {
   __int64 (__fastcall *v0)(__int64); // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ValidateHwinsta @ 0x1C00C6960
+ * Callers:
+ *     NtUserCloseWindowStation @ 0x1C00C68F0 (NtUserCloseWindowStation.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ */
+
 __int64 __fastcall ValidateHwinsta(void *a1, KPROCESSOR_MODE a2, ACCESS_MASK a3, PVOID *a4)
 {
   int v5; // eax

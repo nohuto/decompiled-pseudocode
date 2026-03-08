@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiCopyImageExtentContents @ 0x14063A258
+ * Callers:
+ *     MiIssueHardFaultIo @ 0x1403435F0 (MiIssueHardFaultIo.c)
+ * Callees:
+ *     MiFillPageWithImageExtentContents @ 0x14063AC90 (MiFillPageWithImageExtentContents.c)
+ */
+
 __int64 __fastcall MiCopyImageExtentContents(__int64 a1, __int64 a2)
 {
   __int64 v2; // r14

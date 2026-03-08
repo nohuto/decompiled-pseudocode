@@ -1,3 +1,19 @@
+/*
+ * XREFs of ExAcquireAutoExpandPushLockShared @ 0x1402621D0
+ * Callers:
+ *     FsRtlLookupPerFileContext @ 0x1402FD1B0 (FsRtlLookupPerFileContext.c)
+ *     MiDeletePagablePteRange @ 0x1403244A0 (MiDeletePagablePteRange.c)
+ *     MiFreePhysicalPages @ 0x140647F94 (MiFreePhysicalPages.c)
+ *     MiLockAwePagesShared @ 0x140648A68 (MiLockAwePagesShared.c)
+ *     MiLockAweVadsShared @ 0x140648AC4 (MiLockAweVadsShared.c)
+ * Callees:
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 ULONG_PTR __fastcall ExAcquireAutoExpandPushLockShared(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
 {
   char v2; // r14

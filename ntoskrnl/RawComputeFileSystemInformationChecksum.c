@@ -1,3 +1,11 @@
+/*
+ * XREFs of RawComputeFileSystemInformationChecksum @ 0x1409B58A0
+ * Callers:
+ *     RawQueryFileSystemInformation @ 0x1409B58F4 (RawQueryFileSystemInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RawComputeFileSystemInformationChecksum(__int64 a1)
 {
   unsigned __int16 v1; // r9

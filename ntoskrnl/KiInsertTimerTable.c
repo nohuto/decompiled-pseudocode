@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiInsertTimerTable @ 0x1402511D0
+ * Callers:
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     KeSetTimerEx @ 0x140250F30 (KeSetTimerEx.c)
+ *     KiTimerWaitTest @ 0x140251B00 (KiTimerWaitTest.c)
+ *     KiCommitThreadWait @ 0x140261290 (KiCommitThreadWait.c)
+ *     KiResumeThread @ 0x1403538F8 (KiResumeThread.c)
+ *     KiAdjustTimerDueTimes @ 0x1403966F4 (KiAdjustTimerDueTimes.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveEntryTimer @ 0x1403BCED8 (KiRemoveEntryTimer.c)
+ */
+
 _BOOL8 __fastcall KiInsertTimerTable(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, char *a5)
 {
   unsigned int v5; // ebx

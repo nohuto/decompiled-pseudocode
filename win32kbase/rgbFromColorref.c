@@ -1,3 +1,11 @@
+/*
+ * XREFs of rgbFromColorref @ 0x1C0199DC0
+ * Callers:
+ *     ?vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z @ 0x1C0027D30 (-vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall rgbFromColorref(__int64 a1, __int64 a2, unsigned int a3)
 {
   unsigned int v3; // edx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlUnregisterWheaErrorNotification @ 0x14093E1D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WheaUnregisterInUsePageOfflineNotification @ 0x140A05460 (WheaUnregisterInUsePageOfflineNotification.c)
+ */
+
 NTSTATUS __stdcall HvlUnregisterWheaErrorNotification(PHVL_WHEA_ERROR_NOTIFICATION Callback)
 {
   if ( Callback == (PHVL_WHEA_ERROR_NOTIFICATION)_InterlockedCompareExchange64(

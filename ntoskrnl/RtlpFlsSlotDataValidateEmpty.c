@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpFlsSlotDataValidateEmpty @ 0x1402F8F60
+ * Callers:
+ *     PspTlsDataCleanup @ 0x1407D9C28 (PspTlsDataCleanup.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RtlpFlsSlotDataValidateEmpty(__int64 a1, __int64 a2)
 {
   char v2; // r8

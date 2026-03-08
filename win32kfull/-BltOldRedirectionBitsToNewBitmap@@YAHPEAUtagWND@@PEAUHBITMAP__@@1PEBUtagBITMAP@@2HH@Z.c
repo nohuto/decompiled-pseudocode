@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?BltOldRedirectionBitsToNewBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@1PEBUtagBITMAP@@2HH@Z @ 0x1C000FA18
+ * Callers:
+ *     RecreateRedirectionBitmap @ 0x1C0096A48 (RecreateRedirectionBitmap.c)
+ * Callees:
+ *     GreExtSelectClipRgnInternal @ 0x1C004D240 (GreExtSelectClipRgnInternal.c)
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     GreExcludeClipRect @ 0x1C0088000 (GreExcludeClipRect.c)
+ *     FillRect @ 0x1C00881F8 (FillRect.c)
+ *     GreConvertMemToRedirectionDC @ 0x1C00DC7AC (GreConvertMemToRedirectionDC.c)
+ *     GreConvertRedirectionToMemDC @ 0x1C02AFFC4 (GreConvertRedirectionToMemDC.c)
+ */
+
 __int64 __fastcall BltOldRedirectionBitsToNewBitmap(
         struct tagWND *a1,
         HBITMAP a2,

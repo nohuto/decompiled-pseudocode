@@ -1,3 +1,22 @@
+/*
+ * XREFs of WmipDriverEntry @ 0x140B53F10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     KiInitializeMutant @ 0x1402D981C (KiInitializeMutant.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     IoDeleteDevice @ 0x140368010 (IoDeleteDevice.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ *     IoCreateDevice @ 0x1407F0460 (IoCreateDevice.c)
+ *     IoRegisterShutdownNotification @ 0x1408198A0 (IoRegisterShutdownNotification.c)
+ *     IoWMIRegistrationControl @ 0x140869750 (IoWMIRegistrationControl.c)
+ *     IoCreateSymbolicLink @ 0x14086DC10 (IoCreateSymbolicLink.c)
+ *     WmipInitializeDataStructs @ 0x140B540A4 (WmipInitializeDataStructs.c)
+ *     WmipInitializeSecurity @ 0x140B54220 (WmipInitializeSecurity.c)
+ *     WmipInitializeRegistration @ 0x140B544A8 (WmipInitializeRegistration.c)
+ */
+
 NTSTATUS __fastcall WmipDriverEntry(PDRIVER_OBJECT DriverObject)
 {
   NTSTATUS result; // eax

@@ -1,3 +1,19 @@
+/*
+ * XREFs of IopReassignSystemRoot @ 0x140B6CE8C
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     NtCreateSymbolicLinkObject @ 0x140740CD0 (NtCreateSymbolicLinkObject.c)
+ *     NtQuerySymbolicLinkObject @ 0x140755C30 (NtQuerySymbolicLinkObject.c)
+ *     NtOpenSymbolicLinkObject @ 0x1407563E0 (NtOpenSymbolicLinkObject.c)
+ *     NtMakeTemporaryObject @ 0x140791BC0 (NtMakeTemporaryObject.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1407A34D0 (RtlUnicodeStringToAnsiString.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ */
+
 char __fastcall IopReassignSystemRoot(__int64 a1, STRING *a2)
 {
   __int64 v2; // r9

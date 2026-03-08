@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIBuildFixedButtonExtension @ 0x1C000D3DC
+ * Callers:
+ *     ACPIFixedFeatureButtonInitialize @ 0x1C003CBA8 (ACPIFixedFeatureButtonInitialize.c)
+ * Callees:
+ *     ACPIBuildDeviceExtension @ 0x1C000C314 (ACPIBuildDeviceExtension.c)
+ */
+
 __int64 __fastcall ACPIBuildFixedButtonExtension(__int64 a1, __int64 *a2)
 {
   int v3; // esi

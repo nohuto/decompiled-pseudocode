@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DxgkThreadPsTslCallback@@YAXPEAX@Z @ 0x1C01D1F50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall DxgkThreadPsTslCallback(volatile signed __int32 *a1)
 {
   int v1; // eax

@@ -1,3 +1,21 @@
+/*
+ * XREFs of PspProcessDynamicEnforcedAddressRanges @ 0x1409AC050
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlAddDynamicEnforcedAddressRange @ 0x1409BF688 (RtlAddDynamicEnforcedAddressRange.c)
+ *     RtlRemoveDynamicEnforcedAddressRange @ 0x1409BF804 (RtlRemoveDynamicEnforcedAddressRange.c)
+ */
+
 __int64 __fastcall PspProcessDynamicEnforcedAddressRanges(
         ULONG_PTR BugCheckParameter1,
         __int64 a2,

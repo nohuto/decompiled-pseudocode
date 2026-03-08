@@ -1,3 +1,28 @@
+/*
+ * XREFs of CcCanIWriteStreamEx @ 0x140363460
+ * Callers:
+ *     CcNotifyOfMappedWrite @ 0x140215670 (CcNotifyOfMappedWrite.c)
+ *     CcShouldLazyWriteCacheMap @ 0x140219060 (CcShouldLazyWriteCacheMap.c)
+ *     CcMapAndCopyInToCache @ 0x14021CD00 (CcMapAndCopyInToCache.c)
+ *     CcCopyWriteWontFlush @ 0x140290880 (CcCopyWriteWontFlush.c)
+ *     CcForceWriteThrough @ 0x1402FD990 (CcForceWriteThrough.c)
+ *     CcCanIWrite @ 0x140362960 (CcCanIWrite.c)
+ *     CcPostDeferredWrites @ 0x1403BBEB8 (CcPostDeferredWrites.c)
+ *     CcCanIWriteStream @ 0x140535004 (CcCanIWriteStream.c)
+ * Callees:
+ *     CcIsFileObjectDirectMapped @ 0x140290BB8 (CcIsFileObjectDirectMapped.c)
+ *     KxWaitForLockChainValid @ 0x140291730 (KxWaitForLockChainValid.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x14033B510 (KxWaitForLockOwnerShip.c)
+ *     MmEnoughMemoryForWrite @ 0x1403637E0 (MmEnoughMemoryForWrite.c)
+ *     MiSufficientAvailablePages @ 0x1403643E4 (MiSufficientAvailablePages.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140457B8E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x14056EF78 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14057DAC8 (KiHaltOnAddressWakeEntireList.c)
+ */
+
 bool __fastcall CcCanIWriteStreamEx(
         __int64 a1,
         __int64 a2,

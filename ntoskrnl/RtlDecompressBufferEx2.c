@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlDecompressBufferEx2 @ 0x14035AC40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall RtlDecompressBufferEx2(
         unsigned __int8 a1,
         __int64 a2,

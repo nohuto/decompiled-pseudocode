@@ -1,3 +1,12 @@
+/*
+ * XREFs of Isoch_Transfer_PrepareForCompletion @ 0x1C0045868
+ * Callers:
+ *     Isoch_Transfer_Complete @ 0x1C00454C0 (Isoch_Transfer_Complete.c)
+ *     Isoch_Transfer_CompleteCancelable @ 0x1C0045590 (Isoch_Transfer_CompleteCancelable.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DDqdDDDD @ 0x1C0002F20 (WPP_RECORDER_SF_DDqdDDDD.c)
+ */
+
 void __fastcall Isoch_Transfer_PrepareForCompletion(__int64 a1, __int64 a2, int a3, __int64 a4)
 {
   __int64 v7; // r11

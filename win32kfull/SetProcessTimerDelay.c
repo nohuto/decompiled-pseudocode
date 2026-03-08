@@ -1,3 +1,12 @@
+/*
+ * XREFs of SetProcessTimerDelay @ 0x1C01C1A20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ??1CAutoPushLockSh@@QEAA@XZ @ 0x1C0142398 (--1CAutoPushLockSh@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall SetProcessTimerDelay(__int64 a1, unsigned int a2, unsigned int a3)
 {
   unsigned int v4; // edx

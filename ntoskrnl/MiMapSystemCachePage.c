@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiMapSystemCachePage @ 0x14062C834
+ * Callers:
+ *     MmCopyToCachedPage @ 0x14021DBE0 (MmCopyToCachedPage.c)
+ * Callees:
+ *     MiAddLockedPageCharge @ 0x1402A309C (MiAddLockedPageCharge.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiMapFrame @ 0x14062C794 (MiMapFrame.c)
+ */
+
 __int64 __fastcall MiMapSystemCachePage(unsigned __int64 a1, unsigned __int64 *a2, char a3)
 {
   unsigned __int64 i; // rsi

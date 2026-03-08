@@ -1,3 +1,16 @@
+/*
+ * XREFs of xxxSetClassIcon @ 0x1C0223360
+ * Callers:
+ *     ?xxxSetClassCursor@@YA_KPEAUtagWND@@PEAUtagCLS@@K_K@Z @ 0x1C0012624 (-xxxSetClassCursor@@YA_KPEAUtagWND@@PEAUtagCLS@@K_K@Z.c)
+ * Callees:
+ *     DestroyClassSmIcon @ 0x1C00343D0 (DestroyClassSmIcon.c)
+ *     xxxCreateClassSmIcon @ 0x1C0107B5C (xxxCreateClassSmIcon.c)
+ *     ?LockPointer@@YA?AU_LOCKASSIGNPAIR@@PEAV?$SharedUserObjPoolPointerFieldspicnSm@UtagCURSOR@@@tagCLS@@PEAX@Z @ 0x1C0107C3C (-LockPointer@@YA-AU_LOCKASSIGNPAIR@@PEAV-$SharedUserObjPoolPointerFieldspicnSm@UtagCURSOR@@@tagC.c)
+ *     HMValidateHandleNoRip @ 0x1C01083AC (HMValidateHandleNoRip.c)
+ *     ?xxxSetClassIconEnum@@YAHPEAUtagWND@@_J@Z @ 0x1C014A550 (-xxxSetClassIconEnum@@YAHPEAUtagWND@@_J@Z.c)
+ *     xxxInternalEnumWindow @ 0x1C01A9044 (xxxInternalEnumWindow.c)
+ */
+
 __int64 *__fastcall xxxSetClassIcon(struct tagWND *a1, __int64 **a2, __int64 *a3, int a4)
 {
   __int64 *v7; // rax

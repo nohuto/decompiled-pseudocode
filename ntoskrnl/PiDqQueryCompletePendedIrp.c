@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiDqQueryCompletePendedIrp @ 0x1407491B0
+ * Callers:
+ *     PiDqObjectManagerServiceActionQueue @ 0x140688EF0 (PiDqObjectManagerServiceActionQueue.c)
+ * Callees:
+ *     PiDqIrpComplete @ 0x140746C78 (PiDqIrpComplete.c)
+ *     PiDqQueryGetNextIoctlInfo @ 0x14074715C (PiDqQueryGetNextIoctlInfo.c)
+ */
+
 void __fastcall PiDqQueryCompletePendedIrp(__int64 a1)
 {
   __int64 v2; // rcx

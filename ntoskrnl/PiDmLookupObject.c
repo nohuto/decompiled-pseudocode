@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiDmLookupObject @ 0x140680C78
+ * Callers:
+ *     PiDmRemoveCacheReferenceForObject @ 0x140680BEC (PiDmRemoveCacheReferenceForObject.c)
+ * Callees:
+ *     RtlLookupElementGenericTableAvl @ 0x140245A20 (RtlLookupElementGenericTableAvl.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PiDmInitializeComparisonObject @ 0x1406D04C0 (PiDmInitializeComparisonObject.c)
+ */
+
 __int64 __fastcall PiDmLookupObject(__int64 a1, __int64 a2)
 {
   __int64 v4; // rbx

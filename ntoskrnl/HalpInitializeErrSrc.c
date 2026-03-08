@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpInitializeErrSrc @ 0x140A87F30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpInitializeNMI @ 0x14037D5B8 (HalpInitializeNMI.c)
+ *     HalpInitializeCmc @ 0x140A87F7C (HalpInitializeCmc.c)
+ *     HalpInitializeMce @ 0x140A87FF0 (HalpInitializeMce.c)
+ *     HalpInitializeGenericErrorSource @ 0x140A880EC (HalpInitializeGenericErrorSource.c)
+ */
+
 __int64 __fastcall HalpInitializeErrSrc(__int64 a1, __int64 a2)
 {
   int v2; // r8d

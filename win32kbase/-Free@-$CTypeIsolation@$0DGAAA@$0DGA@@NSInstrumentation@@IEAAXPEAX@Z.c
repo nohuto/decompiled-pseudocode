@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Free@?$CTypeIsolation@$0DGAAA@$0DGA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C00A5AC0
+ * Callers:
+ *     ??$_lambda_invoker_cdecl_@PEAXPEAU_LOOKASIDE_LIST_EX@@@_lambda_e7a726a5677ec7d6a7448e8985ca7462_@@CA?A_PPEAXPEAU_LOOKASIDE_LIST_EX@@@Z @ 0x1C00BB2B0 (--$_lambda_invoker_cdecl_@PEAXPEAU_LOOKASIDE_LIST_EX@@@_lambda_e7a726a5677ec7d6a7448e8985ca7462_.c)
+ * Callees:
+ *     ?CheckAllocationStatus@?$CSectionBitmapAllocator@$0DGAAA@$0DGA@@NSInstrumentation@@QEAA?AW4AllocationStatus@2@PEBX@Z @ 0x1C00A5B8C (-CheckAllocationStatus@-$CSectionBitmapAllocator@$0DGAAA@$0DGA@@NSInstrumentation@@QEAA-AW4Alloc.c)
+ *     ?Free@?$CSectionBitmapAllocator@$0DGAAA@$0DGA@@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00A5C3C (-Free@-$CSectionBitmapAllocator@$0DGAAA@$0DGA@@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     ?PlatformAbort@NSInstrumentation@@YAXW4PLATFORMABORTREASON@1@PEAX11@Z @ 0x1C019A620 (-PlatformAbort@NSInstrumentation@@YAXW4PLATFORMABORTREASON@1@PEAX11@Z.c)
+ */
+
 void __fastcall NSInstrumentation::CTypeIsolation<221184,864>::Free(__int64 a1, void *a2)
 {
   __int64 v4; // rbx

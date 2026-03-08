@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x1405747AC
+ * Callers:
+ *     KiEnterLongDpcProcessing @ 0x140254490 (KiEnterLongDpcProcessing.c)
+ *     KiChooseTargetProcessor @ 0x140258FC0 (KiChooseTargetProcessor.c)
+ *     KiAcquirePrcbLocksForPreemptionAttempt @ 0x1402C9000 (KiAcquirePrcbLocksForPreemptionAttempt.c)
+ * Callees:
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140255D00 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiDowngradeIsolationUnitLockHandle @ 0x1402ADC00 (KiDowngradeIsolationUnitLockHandle.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402ADF80 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiTryUpgradeIsolationUnitLockHandle @ 0x14056AC40 (KiTryUpgradeIsolationUnitLockHandle.c)
+ */
+
 char __fastcall KiAcquirePrcbLocksForPreemptionAttemptSlowPath(__int64 a1, int a2, int *a3)
 {
   int i; // r9d

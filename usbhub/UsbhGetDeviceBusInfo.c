@@ -1,3 +1,21 @@
+/*
+ * XREFs of UsbhGetDeviceBusInfo @ 0x1C002BA9C
+ * Callers:
+ *     UsbhFdoReturnDeviceBusInfo @ 0x1C0030DA8 (UsbhFdoReturnDeviceBusInfo.c)
+ *     UsbhAcquireBusInfo @ 0x1C00489A0 (UsbhAcquireBusInfo.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     Usbh_HubGetDeviceBusContext @ 0x1C002E294 (Usbh_HubGetDeviceBusContext.c)
+ *     Usbh_UsbdInterfaceDereference @ 0x1C002E42C (Usbh_UsbdInterfaceDereference.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C002E8A8 (WPP_RECORDER_SF_ddd.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002E98C (WPP_RECORDER_SF_dq.c)
+ */
+
 __int64 __fastcall UsbhGetDeviceBusInfo(__int64 a1, __int64 a2, _DWORD *a3, unsigned int a4)
 {
   __int64 v4; // rbx

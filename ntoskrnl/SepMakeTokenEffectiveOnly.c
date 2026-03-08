@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepMakeTokenEffectiveOnly @ 0x140770990
+ * Callers:
+ *     SepDuplicateToken @ 0x1407BCF00 (SepDuplicateToken.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SepMakeTokenEffectiveOnly(__int64 a1)
 {
   __int64 result; // rax

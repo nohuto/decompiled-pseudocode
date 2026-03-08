@@ -1,3 +1,12 @@
+/*
+ * XREFs of PlaySoundConnect @ 0x1C039CDE4
+ * Callers:
+ *     ?Connect@CUserPlaySound@@AEAAJPEAX@Z @ 0x1C00F6B4C (-Connect@CUserPlaySound@@AEAAJPEAX@Z.c)
+ * Callees:
+ *     StringCchPrintfW @ 0x1C00F6CAC (StringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall PlaySoundConnect(unsigned int a1, __int64 a2, RPC_BINDING_HANDLE *a3)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of StringToGuidNoBrackets @ 0x140395354
+ * Callers:
+ *     EtwpQueryPartitionRegistryInformation @ 0x140395114 (EtwpQueryPartitionRegistryInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall StringToGuidNoBrackets(unsigned __int16 *a1, __int64 a2)
 {
   unsigned int v2; // r8d

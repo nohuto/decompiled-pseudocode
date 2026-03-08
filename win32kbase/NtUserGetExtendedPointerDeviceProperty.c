@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserGetExtendedPointerDeviceProperty @ 0x1C016F820
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ *     HMValidateHandle @ 0x1C0079718 (HMValidateHandle.c)
+ *     RIMGetExtendedPointerDeviceProperty @ 0x1C01C7328 (RIMGetExtendedPointerDeviceProperty.c)
+ */
+
 __int64 __fastcall NtUserGetExtendedPointerDeviceProperty(unsigned __int64 a1, ULONG64 a2, __int64 a3, __int64 a4)
 {
   ULONG64 v4; // rdi

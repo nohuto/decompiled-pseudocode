@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiUnlinkNodeLargePageHelper @ 0x14034FE70
+ * Callers:
+ *     MiLargePagePromote @ 0x14034EC80 (MiLargePagePromote.c)
+ *     MiGetFreeLargePage @ 0x14034FBD0 (MiGetFreeLargePage.c)
+ *     MiTryUnlinkNodeLargePages @ 0x14039BDDC (MiTryUnlinkNodeLargePages.c)
+ *     MiChangePageAttributeLargeFreeZeroPage @ 0x14064C4F4 (MiChangePageAttributeLargeFreeZeroPage.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MiIncreaseAvailablePages @ 0x140288238 (MiIncreaseAvailablePages.c)
+ *     MiPageListCollision @ 0x1402FD02C (MiPageListCollision.c)
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14032F834 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiUpdateAvailableEvents @ 0x1403A9340 (MiUpdateAvailableEvents.c)
+ *     MiObtainFreePages @ 0x140632B0C (MiObtainFreePages.c)
+ *     MiArePageContentsZero @ 0x14064AE74 (MiArePageContentsZero.c)
+ *     MiWakeLargePageRebuild @ 0x14065BC3C (MiWakeLargePageRebuild.c)
+ */
+
 __int64 __fastcall MiUnlinkNodeLargePageHelper(_QWORD *a1, __int64 a2, __int64 a3, unsigned int a4, char a5)
 {
   __int64 v7; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpExtEnvInitSystem @ 0x140A8E7D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpExtEnvInitSystem(int a1, __int64 a2, __int64 a3)
 {
   int v3; // ecx

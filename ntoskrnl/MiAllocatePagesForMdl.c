@@ -1,3 +1,28 @@
+/*
+ * XREFs of MiAllocatePagesForMdl @ 0x1402B3B18
+ * Callers:
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402B39C0 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     MmAllocatePagesForMdl @ 0x1403A54F0 (MmAllocatePagesForMdl.c)
+ *     MmAllocateNonCachedMemory @ 0x140A2AC20 (MmAllocateNonCachedMemory.c)
+ *     MiAllocateUserPhysicalPages @ 0x140A3D6E8 (MiAllocateUserPhysicalPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A416B8 (MiAllocatePartitionPhysicalPages.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     MiObtainMdlCharges @ 0x1402B3CA8 (MiObtainMdlCharges.c)
+ *     MiValidateMdlAllocationRequest @ 0x1402B3DE8 (MiValidateMdlAllocationRequest.c)
+ *     MiFindPagesForMdl @ 0x1402B3FE8 (MiFindPagesForMdl.c)
+ *     MiInitializeMdlBatchPages @ 0x1402B4150 (MiInitializeMdlBatchPages.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpGetDurationSince @ 0x14045F42A (EtwpGetDurationSince.c)
+ *     MiLogMdlRangeEvent @ 0x140621060 (MiLogMdlRangeEvent.c)
+ *     MiReturnMdlExcess @ 0x1406212E8 (MiReturnMdlExcess.c)
+ *     MiRemoveMdlPages @ 0x140A2B84C (MiRemoveMdlPages.c)
+ */
+
 __int64 __fastcall MiAllocatePagesForMdl(
         int a1,
         __int64 a2,

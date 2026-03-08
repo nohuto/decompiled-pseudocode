@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Close@CPathEmitterArea@EmitterShapes@@EEAAJXZ @ 0x180266510
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@0_JP6A_NAEBU123@2@Z@Z @ 0x180265DA8 (--$_Sort_unchecked@PEAUAreaTriangle@CPathEmitterArea@EmitterShapes@@P6A_NAEBU123@0@Z@std@@YAXPEA.c)
+ */
+
 __int64 __fastcall EmitterShapes::CPathEmitterArea::Close(char **this)
 {
   unsigned int i; // r9d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessFirstFrameTimer@DXGADAPTER@@QEAAXXZ @ 0x1C003F59C
+ * Callers:
+ *     ?DxgkpFirstFrameTimerDpc@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1C0045910 (-DxgkpFirstFrameTimerDpc@@YAXPEAU_KDPC@@PEAX11@Z.c)
+ * Callees:
+ *     ?RequestPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z @ 0x1C0054B78 (-RequestPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z.c)
+ */
+
 void __fastcall DXGADAPTER::ProcessFirstFrameTimer(KSPIN_LOCK *this)
 {
   unsigned int v2; // edi

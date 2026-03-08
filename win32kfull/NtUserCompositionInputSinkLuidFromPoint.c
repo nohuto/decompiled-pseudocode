@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserCompositionInputSinkLuidFromPoint @ 0x1C01CE9E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     RequestInputSinkInfoFromPoint @ 0x1C01E795C (RequestInputSinkInfoFromPoint.c)
+ */
+
 __int64 __fastcall NtUserCompositionInputSinkLuidFromPoint(
         int a1,
         __int64 *a2,

@@ -1,3 +1,37 @@
+/*
+ * XREFs of InternalSetProp @ 0x1C01011E0
+ * Callers:
+ *     xxxFlashWindow @ 0x1C0005B74 (xxxFlashWindow.c)
+ *     _SetTouchWindowFlags @ 0x1C00168D0 (_SetTouchWindowFlags.c)
+ *     ?SetRedirectionBitmap@@YAHPEAUtagWND@@QEAUHBITMAP__@@H@Z @ 0x1C002D938 (-SetRedirectionBitmap@@YAHPEAUtagWND@@QEAUHBITMAP__@@H@Z.c)
+ *     ?SetWindowCompositionInfo@@YAHPEAUtagWND@@PEBUWINDOWCOMPOSITIONINFO@@@Z @ 0x1C002DAB8 (-SetWindowCompositionInfo@@YAHPEAUtagWND@@PEBUWINDOWCOMPOSITIONINFO@@@Z.c)
+ *     NtUserSetBrokeredForeground @ 0x1C00961D0 (NtUserSetBrokeredForeground.c)
+ *     xxxInheritWindowMonitor @ 0x1C00ADDA0 (xxxInheritWindowMonitor.c)
+ *     NtUserShutdownBlockReasonCreate @ 0x1C00EA2E0 (NtUserShutdownBlockReasonCreate.c)
+ *     CkptRestore @ 0x1C0100A4C (CkptRestore.c)
+ *     NtUserRegisterTouchHitTestingWindow @ 0x1C0100BD0 (NtUserRegisterTouchHitTestingWindow.c)
+ *     FeedbackSetWindowSetting @ 0x1C0100DCC (FeedbackSetWindowSetting.c)
+ *     SetRedrawProp @ 0x1C0100E8C (SetRedrawProp.c)
+ *     ?SetMiPWindowFlags@@YAXPEAUtagWND@@_K@Z @ 0x1C0143CEA (-SetMiPWindowFlags@@YAXPEAUtagWND@@_K@Z.c)
+ *     FeedbackClearWindowSetting @ 0x1C01AED8C (FeedbackClearWindowSetting.c)
+ *     UserAssociateHwnd @ 0x1C01BEED0 (UserAssociateHwnd.c)
+ *     NtUserSetAppImeLevel @ 0x1C01DB480 (NtUserSetAppImeLevel.c)
+ *     NtUserfnDDEINIT @ 0x1C01E1520 (NtUserfnDDEINIT.c)
+ *     ?SetFrostProp@@YAHPEAUtagWND@@PEAUHWND__@@@Z @ 0x1C01F4F04 (-SetFrostProp@@YAHPEAUtagWND@@PEAUHWND__@@@Z.c)
+ *     ?SetGhostProp@@YAHPEAUtagWND@@PEAUHWND__@@@Z @ 0x1C01F4FB8 (-SetGhostProp@@YAHPEAUtagWND@@PEAUHWND__@@@Z.c)
+ *     ?AddConvProp@@YAHPEAUtagWND@@0KPEAUtagDDECONV@@1@Z @ 0x1C01FA810 (-AddConvProp@@YAHPEAUtagWND@@0KPEAUtagDDECONV@@1@Z.c)
+ *     ?UnlinkConv@@YAPEAUtagDDECONV@@PEAU1@@Z @ 0x1C01FB15C (-UnlinkConv@@YAPEAUtagDDECONV@@PEAU1@@Z.c)
+ *     SetDisplayAffinity @ 0x1C022FAFC (SetDisplayAffinity.c)
+ * Callees:
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C0044080 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     ?IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ @ 0x1C004A174 (-IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ.c)
+ *     UserGetGlobalAtomTableOfWindow @ 0x1C01011B8 (UserGetGlobalAtomTableOfWindow.c)
+ *     ?LockRefactorStagingAssertOwned@@YAXAEBUtagObjLock@@@Z @ 0x1C0101318 (-LockRefactorStagingAssertOwned@@YAXAEBUtagObjLock@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??1?$ObjectLock@UtagObjLock@@@?$DomainExclusive@$$V@?$DomainShared@$$V@SharedUserCritOnly@@QEAA@XZ @ 0x1C012F0E4 (--1-$ObjectLock@UtagObjLock@@@-$DomainExclusive@$$V@-$DomainShared@$$V@SharedUserCritOnly@@QEAA@.c)
+ *     SetSharedPropForFilteredProcesses @ 0x1C021F288 (SetSharedPropForFilteredProcesses.c)
+ */
+
 __int64 __fastcall InternalSetProp(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   LIST_ENTRY *v4; // rbx

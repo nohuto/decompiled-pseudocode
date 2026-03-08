@@ -1,3 +1,14 @@
+/*
+ * XREFs of SetTiledRect @ 0x1C0045B74
+ * Callers:
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ * Callees:
+ *     GetDpiCacheSlot @ 0x1C0045E2C (GetDpiCacheSlot.c)
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     InternalGetRealClientRect @ 0x1C00A2710 (InternalGetRealClientRect.c)
+ *     _EnsureDpiDepSysMetCacheForPlateau @ 0x1C01C074C (_EnsureDpiDepSysMetCacheForPlateau.c)
+ */
+
 __int64 __fastcall SetTiledRect(__int64 a1, _DWORD *a2, __int64 a3)
 {
   __int64 v3; // rax

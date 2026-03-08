@@ -1,3 +1,18 @@
+/*
+ * XREFs of RtlpCreateSplitBlock @ 0x1405A9BA8
+ * Callers:
+ *     RtlpAllocateHeap @ 0x1405A8E28 (RtlpAllocateHeap.c)
+ * Callees:
+ *     DbgPrint @ 0x1402BDD20 (DbgPrint.c)
+ *     RtlCompareMemoryUlong @ 0x140420E50 (RtlCompareMemoryUlong.c)
+ *     RtlpInsertFreeBlock @ 0x1405AB78C (RtlpInsertFreeBlock.c)
+ *     RtlpLogHeapFailure @ 0x1405B2884 (RtlpLogHeapFailure.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1405B28D8 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpFindEntry @ 0x1405B2FB0 (RtlpFindEntry.c)
+ *     RtlpHeapAddListEntry @ 0x1405B30D4 (RtlpHeapAddListEntry.c)
+ *     RtlpHeapRemoveListEntry @ 0x1405B33A0 (RtlpHeapRemoveListEntry.c)
+ */
+
 char __fastcall RtlpCreateSplitBlock(__int64 a1, __int64 a2, __int64 a3, char a4, char a5, __int16 a6, __int64 a7)
 {
   int v7; // r14d

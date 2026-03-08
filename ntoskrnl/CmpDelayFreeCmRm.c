@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpDelayFreeCmRm @ 0x14074C598
+ * Callers:
+ *     CmpRunDownCmRM @ 0x14074C420 (CmpRunDownCmRM.c)
+ * Callees:
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ */
+
 void __fastcall CmpDelayFreeCmRm(_QWORD *a1)
 {
   _QWORD *v2; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of FunctionLevelResetCompletion @ 0x1C0043E60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 LONG __fastcall FunctionLevelResetCompletion(int a1, struct _KEVENT *a2)
 {
   a2[2].Header.LockNV = a1;

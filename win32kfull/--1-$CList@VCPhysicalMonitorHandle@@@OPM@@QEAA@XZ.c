@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1?$CList@VCPhysicalMonitorHandle@@@OPM@@QEAA@XZ @ 0x1C00F4820
+ * Callers:
+ *     ??1CMonitorAPI@@QEAA@XZ @ 0x1C00F47E0 (--1CMonitorAPI@@QEAA@XZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall OPM::CList<CPhysicalMonitorHandle>::~CList<CPhysicalMonitorHandle>(__int64 a1, void *a2)
 {
   __int64 i; // rdi

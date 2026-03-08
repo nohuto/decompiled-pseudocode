@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIDevicePowerProcessPhase2SystemSubPhase2 @ 0x1C001FAA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qD @ 0x1C001B508 (WPP_RECORDER_SF_qD.c)
+ *     ACPIDeviceCompleteGenericPhase @ 0x1C001C540 (ACPIDeviceCompleteGenericPhase.c)
+ *     LinkNodeRestoreHardwareState @ 0x1C005D7D8 (LinkNodeRestoreHardwareState.c)
+ */
+
 __int64 __fastcall ACPIDevicePowerProcessPhase2SystemSubPhase2(__int64 a1)
 {
   int v2; // edi

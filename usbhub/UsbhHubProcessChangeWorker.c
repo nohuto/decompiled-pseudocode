@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhHubProcessChangeWorker @ 0x1C0012090
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0014330 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     UsbhTrapFatalTimeout_x9f @ 0x1C002E034 (UsbhTrapFatalTimeout_x9f.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002E98C (WPP_RECORDER_SF_dq.c)
+ */
+
 void __fastcall UsbhHubProcessChangeWorker(PDEVICE_OBJECT DeviceObject, unsigned __int16 *Context, int a3)
 {
   _DWORD *DeviceExtension; // rdx

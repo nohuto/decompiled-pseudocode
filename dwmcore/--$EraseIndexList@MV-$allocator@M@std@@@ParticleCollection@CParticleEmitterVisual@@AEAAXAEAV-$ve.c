@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$EraseIndexList@MV?$allocator@M@std@@@ParticleCollection@CParticleEmitterVisual@@AEAAXAEAV?$vector@MV?$allocator@M@std@@@std@@AEBV?$vector@HV?$allocator@H@std@@@3@@Z @ 0x18023E474
+ * Callers:
+ *     ?EraseIndexList@ParticleCollection@CParticleEmitterVisual@@QEAAXAEBV?$vector@HV?$allocator@H@std@@@std@@@Z @ 0x180241F14 (-EraseIndexList@ParticleCollection@CParticleEmitterVisual@@QEAAXAEBV-$vector@HV-$allocator@H@std.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CParticleEmitterVisual::ParticleCollection::EraseIndexList<float,std::allocator<float>>(
         __int64 a1,
         __int64 *a2,

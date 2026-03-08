@@ -1,3 +1,15 @@
+/*
+ * XREFs of CcAsyncReadPrefetch @ 0x14020CCA4
+ * Callers:
+ *     CcAsyncReadWorker @ 0x1403B8B70 (CcAsyncReadWorker.c)
+ * Callees:
+ *     CcUpdateReadHistory @ 0x14020CF04 (CcUpdateReadHistory.c)
+ *     CcScheduleReadAheadNuma @ 0x14020D0BC (CcScheduleReadAheadNuma.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402ECFB0 (FsRtlIsNtstatusExpected.c)
+ *     MmPrefetchForCacheManager @ 0x1406A3DCC (MmPrefetchForCacheManager.c)
+ *     MmProbeAndLockProcessPages @ 0x1406A40F0 (MmProbeAndLockProcessPages.c)
+ */
+
 char __fastcall CcAsyncReadPrefetch(__int64 a1)
 {
   __int64 v1; // rbx

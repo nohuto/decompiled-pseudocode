@@ -1,3 +1,14 @@
+/*
+ * XREFs of RIMFreeSpecificDevOnCreateFailure @ 0x1C019DEC8
+ * Callers:
+ *     rimDoRimDevChangeAsyncWorkItem @ 0x1C00BC0DC (rimDoRimDevChangeAsyncWorkItem.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     rimFreeSpecificDevFinal @ 0x1C00BC028 (rimFreeSpecificDevFinal.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     UserLogError @ 0x1C017CC90 (UserLogError.c)
+ */
+
 LONG_PTR __fastcall RIMFreeSpecificDevOnCreateFailure(__int64 *a1, _QWORD *a2)
 {
   __int64 v4; // rbp

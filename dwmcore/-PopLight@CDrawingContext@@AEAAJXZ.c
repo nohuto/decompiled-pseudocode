@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?PopLight@CDrawingContext@@AEAAJXZ @ 0x18000DE74
+ * Callers:
+ *     ?Pop@CDrawingContext@@UEAAJXZ @ 0x18008E940 (-Pop@CDrawingContext@@UEAAJXZ.c)
+ * Callees:
+ *     ?Pop@CLightStack@@QEAAJXZ @ 0x18000DEB4 (-Pop@CLightStack@@QEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Pop@?$CWatermarkStack@UStackStateEntry@CDrawingContext@@$0EA@$01$09@@QEAA_NPEAUStackStateEntry@CDrawingContext@@@Z @ 0x1800E29EC (-Pop@-$CWatermarkStack@UStackStateEntry@CDrawingContext@@$0EA@$01$09@@QEAA_NPEAUStackStateEntry@.c)
+ */
+
 __int64 __fastcall CDrawingContext::PopLight(CDrawingContext *this)
 {
   __int64 v1; // r8

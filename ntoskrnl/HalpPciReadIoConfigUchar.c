@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpPciReadIoConfigUchar @ 0x140513200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpPciReadIoConfigUchar(unsigned int *a1, _BYTE *a2, int a3)
 {
   unsigned int v3; // eax

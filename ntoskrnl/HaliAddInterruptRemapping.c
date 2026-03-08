@@ -1,3 +1,11 @@
+/*
+ * XREFs of HaliAddInterruptRemapping @ 0x14080BD00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpInterruptRemap @ 0x140378D78 (HalpInterruptRemap.c)
+ */
+
 __int64 __fastcall HaliAddInterruptRemapping(
         unsigned int a1,
         unsigned int a2,

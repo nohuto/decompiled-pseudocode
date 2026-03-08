@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?pAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ @ 0x1C001F800
+ * Callers:
+ *     ?DrvUpdatePDevForWDDMVidPnSource@@YAXPEAU_LUID@@I@Z @ 0x1C001F074 (-DrvUpdatePDevForWDDMVidPnSource@@YAXPEAU_LUID@@I@Z.c)
+ *     DxgkEngFindViewDesktopPosition @ 0x1C001F3D0 (DxgkEngFindViewDesktopPosition.c)
+ *     DrvGetWDDMAdapterInfo @ 0x1C001F730 (DrvGetWDDMAdapterInfo.c)
+ *     DrvDxgkUpgradeLegacyDpiSettings @ 0x1C0193D30 (DrvDxgkUpgradeLegacyDpiSettings.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _LUID *__fastcall PDEVOBJ::pAdapterLuid(PDEVOBJ *this)
 {
   __int64 v1; // rdx

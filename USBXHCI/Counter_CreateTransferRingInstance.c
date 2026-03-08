@@ -1,3 +1,12 @@
+/*
+ * XREFs of Counter_CreateTransferRingInstance @ 0x1C006E274
+ * Callers:
+ *     TR_Create @ 0x1C006DDF8 (TR_Create.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x1C000CF50 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall Counter_CreateTransferRingInstance(__int64 *a1, int a2, PPCW_INSTANCE *a3)
 {
   NTSTATUS result; // eax

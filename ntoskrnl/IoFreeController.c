@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoFreeController @ 0x140554450
+ * Callers:
+ *     IoAllocateController @ 0x1405542D0 (IoAllocateController.c)
+ *     DifIoFreeControllerWrapper @ 0x1405DCDD0 (DifIoFreeControllerWrapper.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KeRemoveDeviceQueue @ 0x140570ED0 (KeRemoveDeviceQueue.c)
+ */
+
 void __stdcall IoFreeController(PCONTROLLER_OBJECT ControllerObject)
 {
   struct _KDEVICE_QUEUE *p_DeviceWaitQueue; // rbx

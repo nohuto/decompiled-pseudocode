@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiCountBootDriverRegions @ 0x140B6BE5C
+ * Callers:
+ *     MiInitializeDynamicVa @ 0x140B6BDEC (MiInitializeDynamicVa.c)
+ * Callees:
+ *     MiWalkPageTables @ 0x140222CF0 (MiWalkPageTables.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 MiCountBootDriverRegions()
 {
   __int64 v1; // [rsp+20h] [rbp-D8h] BYREF

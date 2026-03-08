@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RtlUnicodeStringPrintfEx@@YAJPEAU_UNICODE_STRING@@0KPEBGZZ @ 0x1C0022714
+ * Callers:
+ *     DpiPdoHandleQueryDeviceText @ 0x1C0214910 (DpiPdoHandleQueryDeviceText.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ *     RtlUnicodeStringExHandleOtherFlags @ 0x1C0065F14 (RtlUnicodeStringExHandleOtherFlags.c)
+ */
+
 __int64 RtlUnicodeStringPrintfEx(
         struct _UNICODE_STRING *a1,
         struct _UNICODE_STRING *a2,

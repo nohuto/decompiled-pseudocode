@@ -1,3 +1,13 @@
+/*
+ * XREFs of VrpFindNamespaceNode @ 0x1406C231C
+ * Callers:
+ *     VrpTranslatePath @ 0x1406C1EF8 (VrpTranslatePath.c)
+ *     VrpFindExactNamespaceNode @ 0x140737324 (VrpFindExactNamespaceNode.c)
+ *     VrpFindBestMatchNamespaceNode @ 0x1407375A8 (VrpFindBestMatchNamespaceNode.c)
+ * Callees:
+ *     VrpComparePath @ 0x1406C2400 (VrpComparePath.c)
+ */
+
 __int64 __fastcall VrpFindNamespaceNode(
         unsigned __int64 *a1,
         __int64 a2,

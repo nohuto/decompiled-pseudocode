@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopWaitForLockAlertable @ 0x140241084
+ * Callers:
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406B5654 (IopWaitAndAcquireFileObjectLock.c)
+ *     IopMountVolume @ 0x14072B180 (IopMountVolume.c)
+ * Callees:
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ */
+
 NTSTATUS __fastcall IopWaitForLockAlertable(PVOID Object, char a2, char a3)
 {
   KPROCESSOR_MODE v6; // di

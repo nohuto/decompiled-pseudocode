@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserGetKeyboardLayoutList @ 0x1C0082640
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ *     _GetKeyboardLayoutList @ 0x1C00826CC (_GetKeyboardLayoutList.c)
+ */
+
 __int64 __fastcall NtUserGetKeyboardLayoutList(__int64 a1, volatile void *a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rdi

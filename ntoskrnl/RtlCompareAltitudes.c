@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlCompareAltitudes @ 0x1402E26A0
+ * Callers:
+ *     CmpInsertCallbackInListByAltitude @ 0x14084E8FC (CmpInsertCallbackInListByAltitude.c)
+ *     ObpInsertCallbackByAltitude @ 0x1408548FC (ObpInsertCallbackByAltitude.c)
+ * Callees:
+ *     <none>
+ */
+
 LONG __stdcall RtlCompareAltitudes(PCUNICODE_STRING Altitude1, PCUNICODE_STRING Altitude2)
 {
   unsigned __int16 Length; // r10

@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPUpdateCheckPointSettings @ 0x1C01F3F38
+ * Callers:
+ *     ?xxxProcessShowWindowEvent@@YAXPEAUtagWND@@W4QEVENT_SHOWINDOW_MESSAGE_ID@@_K_J@Z @ 0x1C0014C34 (-xxxProcessShowWindowEvent@@YAXPEAUtagWND@@W4QEVENT_SHOWINDOW_MESSAGE_ID@@_K_J@Z.c)
+ *     xxxSetWindowPlacement @ 0x1C00FF7C8 (xxxSetWindowPlacement.c)
+ * Callees:
+ *     UpdateCheckpoint @ 0x1C01009F4 (UpdateCheckpoint.c)
+ */
+
 __int64 __fastcall WPUpdateCheckPointSettings(struct tagWND *a1, char a2)
 {
   __int64 result; // rax

@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopBootStatAccessCheck @ 0x140798D98
+ * Callers:
+ *     PopBootStatGet @ 0x14073D308 (PopBootStatGet.c)
+ *     PopBootStatSet @ 0x14073D9E0 (PopBootStatSet.c)
+ *     PopBootStatCheckIntegrity @ 0x14084B00C (PopBootStatCheckIntegrity.c)
+ *     PopBootStatRestoreDefaults @ 0x1409940B0 (PopBootStatRestoreDefaults.c)
+ * Callees:
+ *     SeAccessCheck @ 0x140265330 (SeAccessCheck.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReleaseObjectSecurityEx @ 0x1406993F0 (ObReleaseObjectSecurityEx.c)
+ *     ObpGetObjectSecurity @ 0x1406DB240 (ObpGetObjectSecurity.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ */
+
 int __fastcall PopBootStatAccessCheck(void *a1, KPROCESSOR_MODE a2, ACCESS_MASK a3)
 {
   int result; // eax

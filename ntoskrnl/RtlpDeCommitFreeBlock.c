@@ -1,3 +1,20 @@
+/*
+ * XREFs of RtlpDeCommitFreeBlock @ 0x1405AA41C
+ * Callers:
+ *     RtlpFreeHeap @ 0x1405AAE88 (RtlpFreeHeap.c)
+ * Callees:
+ *     DbgPrint @ 0x1402BDD20 (DbgPrint.c)
+ *     ZwFreeVirtualMemory @ 0x1404126D0 (ZwFreeVirtualMemory.c)
+ *     RtlpCoalesceFreeBlocks @ 0x1405A97B8 (RtlpCoalesceFreeBlocks.c)
+ *     RtlpCreateUCREntry @ 0x1405AA2DC (RtlpCreateUCREntry.c)
+ *     RtlpInsertFreeBlock @ 0x1405AB78C (RtlpInsertFreeBlock.c)
+ *     RtlpInsertUCRBlock @ 0x1405ABAD4 (RtlpInsertUCRBlock.c)
+ *     RtlpRemoveUCRBlock @ 0x1405ABC2C (RtlpRemoveUCRBlock.c)
+ *     RtlpUpdateHeapRates @ 0x1405AC014 (RtlpUpdateHeapRates.c)
+ *     RtlpLogHeapFailure @ 0x1405B2884 (RtlpLogHeapFailure.c)
+ *     RtlpHeapHandleError @ 0x1405B2C0C (RtlpHeapHandleError.c)
+ */
+
 unsigned __int64 __fastcall RtlpDeCommitFreeBlock(__int64 a1, __int64 a2, unsigned __int64 a3)
 {
   char v3; // si

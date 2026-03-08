@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpInterruptRegisterDynamicProcessor @ 0x140502D0C
+ * Callers:
+ *     HalRegisterDynamicProcessor @ 0x140504920 (HalRegisterDynamicProcessor.c)
+ * Callees:
+ *     HalpInterruptModel @ 0x14028EADC (HalpInterruptModel.c)
+ */
+
 __int64 HalpInterruptRegisterDynamicProcessor()
 {
   unsigned int v0; // r8d

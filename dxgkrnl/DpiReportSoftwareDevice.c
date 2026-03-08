@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiReportSoftwareDevice @ 0x1C0219D90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiReportSoftwareDevice(PDRIVER_OBJECT DriverObject)
 {
   _DWORD *DriverObjectExtension; // rax

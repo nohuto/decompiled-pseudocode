@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDeviceTexture@CWICBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x180033A30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CWICBitmapRealization::GetDeviceTexture(
         CWICBitmapRealization *this,
         const struct RenderTargetInfo *a2,

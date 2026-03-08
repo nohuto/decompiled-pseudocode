@@ -1,3 +1,20 @@
+/*
+ * XREFs of CmSetCallbackObjectContext @ 0x140738C30
+ * Callers:
+ *     VrpPostOpenOrCreate @ 0x1406C2968 (VrpPostOpenOrCreate.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x140735A88 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpPreLoadKey @ 0x140735EB4 (VrpPreLoadKey.c)
+ * Callees:
+ *     CmCleanupThreadInfo @ 0x140263740 (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x140263760 (CmpInitializeThreadInfo.c)
+ *     CmpLockContextListExclusive @ 0x140738BC4 (CmpLockContextListExclusive.c)
+ *     CmpUnlockContextList @ 0x140738DA0 (CmpUnlockContextList.c)
+ *     CmpUnlockCallbackList @ 0x140738E04 (CmpUnlockCallbackList.c)
+ *     CmpLockCallbackListShared @ 0x140738E68 (CmpLockCallbackListShared.c)
+ *     CmpLockContextListShared @ 0x140738ED8 (CmpLockContextListShared.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 NTSTATUS __stdcall CmSetCallbackObjectContext(PVOID Object, PLARGE_INTEGER Cookie, PVOID NewContext, PVOID *OldContext)
 {
   NTSTATUS v5; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpWow64GetContextOnAmd64 @ 0x14077CAD4
+ * Callers:
+ *     PspWow64GetContextThread @ 0x14077BF00 (PspWow64GetContextThread.c)
+ * Callees:
+ *     RtlpWow64CtxFromAmd64 @ 0x14077CCA8 (RtlpWow64CtxFromAmd64.c)
+ */
+
 __int64 __fastcall RtlpWow64GetContextOnAmd64(__int64 a1, __int64 a2, int *a3)
 {
   unsigned int v3; // esi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of GreDwmNotifySpriteMonitorChange @ 0x1C002C60C
+ * Callers:
+ *     UpdateWindowSpriteMonitor @ 0x1C002C598 (UpdateWindowSpriteMonitor.c)
+ *     UpdateWindowMonitor @ 0x1C00AE6B0 (UpdateWindowMonitor.c)
+ *     ?CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z @ 0x1C01BD154 (-CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z.c)
+ * Callees:
+ *     IsDwmActive @ 0x1C002CF30 (IsDwmActive.c)
+ *     ?hspLookupWindow@DWMSPRITEREF@@SAPEAUHSPRITE__@@PEAUHWND__@@@Z @ 0x1C002D150 (-hspLookupWindow@DWMSPRITEREF@@SAPEAUHSPRITE__@@PEAUHWND__@@@Z.c)
+ *     DwmAsyncNotifySpriteMonitorChange @ 0x1C002D208 (DwmAsyncNotifySpriteMonitorChange.c)
+ */
+
 __int64 __fastcall GreDwmNotifySpriteMonitorChange(Gre::Base *a1, HWND a2, HSPRITE a3)
 {
   unsigned int v5; // r12d

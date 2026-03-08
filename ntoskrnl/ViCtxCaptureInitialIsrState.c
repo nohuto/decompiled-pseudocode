@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViCtxCaptureInitialIsrState @ 0x140AE1AB8
+ * Callers:
+ *     ViCtxIsr @ 0x140AE1DA0 (ViCtxIsr.c)
+ *     ViCtxIsrMessageBased @ 0x140AE1E00 (ViCtxIsrMessageBased.c)
+ * Callees:
+ *     RtlXSave @ 0x14036A800 (RtlXSave.c)
+ */
+
 volatile signed __int32 *__fastcall ViCtxCaptureInitialIsrState(__int64 a1, __int64 a2, __int64 a3)
 {
   int v3; // edx

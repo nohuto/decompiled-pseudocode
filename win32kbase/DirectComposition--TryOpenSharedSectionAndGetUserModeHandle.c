@@ -1,3 +1,11 @@
+/*
+ * XREFs of DirectComposition::TryOpenSharedSectionAndGetUserModeHandle @ 0x1C0261EB0
+ * Callers:
+ *     ?CreateDwmHandle@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@EEAAPEAXXZ @ 0x1C0261BD0 (-CreateDwmHandle@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@EEAAPEAXXZ.c)
+ * Callees:
+ *     OpenVmSharedMemorySection @ 0x1C02755DC (OpenVmSharedMemorySection.c)
+ */
+
 void *__fastcall DirectComposition::TryOpenSharedSectionAndGetUserModeHandle(__int64 a1, __int64 a2, PVOID *a3)
 {
   NTSTATUS v4; // edi

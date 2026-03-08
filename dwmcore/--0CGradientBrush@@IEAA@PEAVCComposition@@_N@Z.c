@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CGradientBrush@@IEAA@PEAVCComposition@@_N@Z @ 0x1800B81D8
+ * Callers:
+ *     ??0CLinearGradientBrush@@QEAA@PEAVCComposition@@@Z @ 0x1800B8280 (--0CLinearGradientBrush@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CRadialGradientBrush@@QEAA@PEAVCComposition@@@Z @ 0x1801BE02C (--0CRadialGradientBrush@@QEAA@PEAVCComposition@@@Z.c)
+ * Callees:
+ *     ??0CContent@@IEAA@PEAVCComposition@@@Z @ 0x1800B8F68 (--0CContent@@IEAA@PEAVCComposition@@@Z.c)
+ */
+
 CGradientBrush *__fastcall CGradientBrush::CGradientBrush(CGradientBrush *this, struct CComposition *a2)
 {
   __int64 v2; // r9

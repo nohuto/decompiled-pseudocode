@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlLocateSupervisorFeature @ 0x1405AD630
+ * Callers:
+ *     KiInitializeContextThread @ 0x140237E9C (KiInitializeContextThread.c)
+ *     KiGetSavedIptState @ 0x140570400 (KiGetSavedIptState.c)
+ * Callees:
+ *     <none>
+ */
+
 char *__fastcall RtlLocateSupervisorFeature(_QWORD *a1, unsigned int a2, _DWORD *a3)
 {
   __int64 v3; // r9

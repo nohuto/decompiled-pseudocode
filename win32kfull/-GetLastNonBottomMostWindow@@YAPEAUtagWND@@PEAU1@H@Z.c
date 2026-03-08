@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetLastNonBottomMostWindow@@YAPEAUtagWND@@PEAU1@H@Z @ 0x1C012A388
+ * Callers:
+ *     CalcForegroundInsertAfter @ 0x1C0041090 (CalcForegroundInsertAfter.c)
+ *     ?ValidateZorder@@YAHPEAUtagCVR@@@Z @ 0x1C00A5428 (-ValidateZorder@@YAHPEAUtagCVR@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct tagWND *__fastcall GetLastNonBottomMostWindow(struct tagWND *a1, int a2)
 {
   struct tagWND *v2; // r10

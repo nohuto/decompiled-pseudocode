@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIPepCleanupPlatformNotificationSupport @ 0x1C008A784
+ * Callers:
+ *     ACPIBusIrpRemoveDevice @ 0x1C0016C30 (ACPIBusIrpRemoveDevice.c)
+ *     ACPIBusIrpSurpriseRemoval @ 0x1C0017400 (ACPIBusIrpSurpriseRemoval.c)
+ *     ACPIBusIrpStopDevice @ 0x1C0081900 (ACPIBusIrpStopDevice.c)
+ * Callees:
+ *     ACPIInitDereferenceDeviceExtensionUnlocked @ 0x1C002D0C0 (ACPIInitDereferenceDeviceExtensionUnlocked.c)
+ *     ACPISetDeviceWorker @ 0x1C00474D4 (ACPISetDeviceWorker.c)
+ */
+
 char __fastcall ACPIPepCleanupPlatformNotificationSupport(ULONG_PTR BugCheckParameter4)
 {
   void *v2; // rcx

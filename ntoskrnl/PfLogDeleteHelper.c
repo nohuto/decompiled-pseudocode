@@ -1,3 +1,12 @@
+/*
+ * XREFs of PfLogDeleteHelper @ 0x1402F5B50
+ * Callers:
+ *     PfFileInfoNotify @ 0x14028C770 (PfFileInfoNotify.c)
+ * Callees:
+ *     PfFbLogEntryReserve @ 0x14028D1C0 (PfFbLogEntryReserve.c)
+ *     PfFbLogEntryComplete @ 0x14028D2D0 (PfFbLogEntryComplete.c)
+ */
+
 __int64 __fastcall PfLogDeleteHelper(char a1, __int64 a2, int a3, int a4)
 {
   __int64 v8; // rdx

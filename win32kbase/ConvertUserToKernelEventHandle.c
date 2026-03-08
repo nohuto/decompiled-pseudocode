@@ -1,3 +1,11 @@
+/*
+ * XREFs of ConvertUserToKernelEventHandle @ 0x1C009A9C8
+ * Callers:
+ *     ?InitializeEventHandles@CKernelSensorThread@@QEAAJPEAX0@Z @ 0x1C009A844 (-InitializeEventHandles@CKernelSensorThread@@QEAAJPEAX0@Z.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall ConvertUserToKernelEventHandle(void *a1, void **a2)
 {
   NTSTATUS v3; // eax

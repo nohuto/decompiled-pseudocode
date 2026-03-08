@@ -1,3 +1,12 @@
+/*
+ * XREFs of CarEtwCopyDriverName @ 0x1405D31BC
+ * Callers:
+ *     CarGetDriverInfoFromDriverName @ 0x1405D0C20 (CarGetDriverInfoFromDriverName.c)
+ *     CarCreateViolationHashString @ 0x1405D313C (CarCreateViolationHashString.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CarEtwCopyDriverName(_WORD *a1, _WORD *a2, unsigned __int64 a3)
 {
   unsigned int v3; // r9d

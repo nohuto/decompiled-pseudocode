@@ -1,3 +1,16 @@
+/*
+ * XREFs of KeContextToKframes @ 0x140416130
+ * Callers:
+ *     KiDispatchException @ 0x140362740 (KiDispatchException.c)
+ *     KiContinueEx @ 0x140364520 (KiContinueEx.c)
+ *     KiContinuePreviousModeUser @ 0x1403647F4 (KiContinuePreviousModeUser.c)
+ *     KiRestoreProcessorState @ 0x14036A318 (KiRestoreProcessorState.c)
+ *     KiRestoreSetContextState @ 0x1404172F0 (KiRestoreSetContextState.c)
+ *     KyRaiseException @ 0x140576670 (KyRaiseException.c)
+ * Callees:
+ *     KxContextToKframes @ 0x1402D7DC0 (KxContextToKframes.c)
+ */
+
 char __fastcall KeContextToKframes(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
 {
   char result; // al

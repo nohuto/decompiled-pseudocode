@@ -1,3 +1,11 @@
+/*
+ * XREFs of _dynamic_atexit_destructor_for__CCustomKernelEffect::s_rgspCache__ @ 0x180120570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void dynamic_atexit_destructor_for__CCustomKernelEffect::s_rgspCache__()
 {
   `vector destructor iterator'(

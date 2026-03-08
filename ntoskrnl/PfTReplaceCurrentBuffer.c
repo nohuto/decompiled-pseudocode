@@ -1,3 +1,13 @@
+/*
+ * XREFs of PfTReplaceCurrentBuffer @ 0x1407E6840
+ * Callers:
+ *     PfpLogPageAccess @ 0x1407E6160 (PfpLogPageAccess.c)
+ *     PfTAcquireLogEntry @ 0x1407E67C4 (PfTAcquireLogEntry.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PfTGetFreeBuffer @ 0x1407E68E0 (PfTGetFreeBuffer.c)
+ */
+
 __int64 PfTReplaceCurrentBuffer()
 {
   __int64 v0; // rax

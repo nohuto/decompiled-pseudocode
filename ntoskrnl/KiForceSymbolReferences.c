@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiForceSymbolReferences @ 0x140B92408
+ * Callers:
+ *     KiInitSystem @ 0x140B5EFDC (KiInitSystem.c)
+ * Callees:
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140305AB0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 KiForceSymbolReferences()
 {
   struct _KTHREAD *CurrentThread; // rdi

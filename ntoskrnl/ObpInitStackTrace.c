@@ -1,3 +1,16 @@
+/*
+ * XREFs of ObpInitStackTrace @ 0x140B6E2C0
+ * Callers:
+ *     ObInitSystem @ 0x140B403CC (ObInitSystem.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObpInitStackAndObjectTables @ 0x140979F68 (ObpInitStackAndObjectTables.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 int ObpInitStackTrace()
 {
   int v0; // ebx

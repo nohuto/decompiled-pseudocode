@@ -1,3 +1,17 @@
+/*
+ * XREFs of GetScaledLogFontForDpi @ 0x1C00A4620
+ * Callers:
+ *     _SystemParametersInfoForDpi @ 0x1C00A21BC (_SystemParametersInfoForDpi.c)
+ *     GetWindowNCMetrics @ 0x1C00A40A8 (GetWindowNCMetrics.c)
+ *     GetWindowNCMetricsForDpi @ 0x1C00A43A0 (GetWindowNCMetricsForDpi.c)
+ * Callees:
+ *     GreExtGetObjectW @ 0x1C0065580 (GreExtGetObjectW.c)
+ *     GetDPIServerInfoForDpi @ 0x1C00A1E90 (GetDPIServerInfoForDpi.c)
+ *     GetDPIMETRICSForDpiUnsafe @ 0x1C00A47B4 (GetDPIMETRICSForDpiUnsafe.c)
+ *     DeleteMetricsFont @ 0x1C00B8050 (DeleteMetricsFont.c)
+ *     CreateScaledFont @ 0x1C01C05F8 (CreateScaledFont.c)
+ */
+
 _BOOL8 __fastcall GetScaledLogFontForDpi(int a1, unsigned int a2, __int64 a3)
 {
   HBRUSH *DPIMETRICSForDpiUnsafe; // r9

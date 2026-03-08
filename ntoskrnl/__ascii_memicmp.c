@@ -1,3 +1,11 @@
+/*
+ * XREFs of __ascii_memicmp @ 0x1403F19C8
+ * Callers:
+ *     _memicmp @ 0x1403F1A30 (_memicmp.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall _ascii_memicmp(__int64 a1, unsigned __int8 *a2, __int64 a3)
 {
   int v3; // r9d

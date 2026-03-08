@@ -1,3 +1,11 @@
+/*
+ * XREFs of _wcsset_s @ 0x1403D4190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ */
+
 errno_t __cdecl wcsset_s(wchar_t *Dst, size_t SizeInWords, wchar_t Value)
 {
   wchar_t *v3; // rax

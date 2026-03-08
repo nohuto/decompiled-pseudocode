@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptScsTableLoadC @ 0x1404092E0
+ * Callers:
+ *     SymCryptScsTableLoad @ 0x140409124 (SymCryptScsTableLoad.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptScsTableLoadC(__int64 a1, unsigned int a2, __int64 *a3)
 {
   unsigned int v4; // edi

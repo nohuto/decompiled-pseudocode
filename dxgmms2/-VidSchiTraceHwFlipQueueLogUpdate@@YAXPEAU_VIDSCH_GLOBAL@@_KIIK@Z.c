@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?VidSchiTraceHwFlipQueueLogUpdate@@YAXPEAU_VIDSCH_GLOBAL@@_KIIK@Z @ 0x1C0037400
+ * Callers:
+ *     ?VidSchiObserveHwFlipQueueUpdates@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@IPEA_N@Z @ 0x1C0049888 (-VidSchiObserveHwFlipQueueUpdates@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@IPEA_N@Z.c)
+ *     ?VidSchiProcessDpcVSyncHwFlipQueue@@YAXPEAU_VIDSCH_VSYNC_COOKIE@@@Z @ 0x1C0049A8C (-VidSchiProcessDpcVSyncHwFlipQueue@@YAXPEAU_VIDSCH_VSYNC_COOKIE@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     McTemplateK0pqqqqXR4XR4_EtwWriteTransfer @ 0x1C0038DC4 (McTemplateK0pqqqqXR4XR4_EtwWriteTransfer.c)
+ */
+
 void __fastcall VidSchiTraceHwFlipQueueLogUpdate(
         struct _VIDSCH_GLOBAL *a1,
         char a2,

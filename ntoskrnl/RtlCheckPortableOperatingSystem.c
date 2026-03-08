@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlCheckPortableOperatingSystem @ 0x1402FD500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlQueryRegistryValuesEx @ 0x14069DF10 (RtlQueryRegistryValuesEx.c)
+ *     RtlCheckRegistryKey @ 0x1407964F0 (RtlCheckRegistryKey.c)
+ */
+
 __int64 __fastcall RtlCheckPortableOperatingSystem(bool *a1)
 {
   unsigned int v1; // ebx

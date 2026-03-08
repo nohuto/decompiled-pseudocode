@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopFxActivateDevicesForSx @ 0x1405865A4
+ * Callers:
+ *     PopFxPrepareDevicesForShutdown @ 0x140588F3C (PopFxPrepareDevicesForShutdown.c)
+ *     PoBroadcastSystemState @ 0x140AA38F8 (PoBroadcastSystemState.c)
+ * Callees:
+ *     PopFxActivateDevice @ 0x140202154 (PopFxActivateDevice.c)
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 char __fastcall PopFxActivateDevicesForSx(unsigned int a1)
 {
   struct _KTHREAD *CurrentThread; // rax

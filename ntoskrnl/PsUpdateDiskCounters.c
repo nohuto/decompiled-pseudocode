@@ -1,3 +1,11 @@
+/*
+ * XREFs of PsUpdateDiskCounters @ 0x1402DF100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 signed __int64 __fastcall PsUpdateDiskCounters(
         __int64 a1,
         unsigned __int64 a2,

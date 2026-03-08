@@ -1,3 +1,13 @@
+/*
+ * XREFs of EngUnionRgn @ 0x1C0197A30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0EngModeState@@QEAA@XZ @ 0x1C0019C74 (--0EngModeState@@QEAA@XZ.c)
+ *     GreGetObjectOwner @ 0x1C0019E80 (GreGetObjectOwner.c)
+ *     GreCombineRgn @ 0x1C0041BD0 (GreCombineRgn.c)
+ */
+
 INT __stdcall EngUnionRgn(HANDLE hrgnResult, HANDLE hRgnA, HANDLE hRgnB)
 {
   INT v6; // ecx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of HvlSendSyntheticClusterIpi @ 0x1403C6D90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwGetKernelTraceTimestampSilo @ 0x140250570 (EtwGetKernelTraceTimestampSilo.c)
+ *     HvcallpNoHypervisorPresent @ 0x1402C0AC0 (HvcallpNoHypervisorPresent.c)
+ *     EtwTraceTimedEvent @ 0x1402CD670 (EtwTraceTimedEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HvlpFastSendSyntheticClusterIpiEx @ 0x140543E08 (HvlpFastSendSyntheticClusterIpiEx.c)
+ *     HvlpSlowSendSyntheticClusterIpiEx @ 0x1405440CC (HvlpSlowSendSyntheticClusterIpiEx.c)
+ */
+
 __int64 __fastcall HvlSendSyntheticClusterIpi(__int64 a1, unsigned int a2)
 {
   unsigned __int64 v2; // rbx

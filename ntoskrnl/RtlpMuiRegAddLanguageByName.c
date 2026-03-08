@@ -1,3 +1,18 @@
+/*
+ * XREFs of RtlpMuiRegAddLanguageByName @ 0x1408437B0
+ * Callers:
+ *     _RtlpMuiRegLoadInstalledFromKey @ 0x14039C4A0 (_RtlpMuiRegLoadInstalledFromKey.c)
+ * Callees:
+ *     RtlpMuiRegAddAlternateCodePage @ 0x14039C354 (RtlpMuiRegAddAlternateCodePage.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlpIsALicensedRegularLanguage @ 0x140843AD4 (RtlpIsALicensedRegularLanguage.c)
+ *     _RtlpMuiRegInitAnyLanguage @ 0x140844394 (_RtlpMuiRegInitAnyLanguage.c)
+ *     RtlpMuiRegGetOrAddLangInfo @ 0x14085B02C (RtlpMuiRegGetOrAddLangInfo.c)
+ *     RtlpIsALicensedLIPLanguage @ 0x140A71638 (RtlpIsALicensedLIPLanguage.c)
+ *     _RtlpMuiRegInitLIPLanguage @ 0x140A72A0C (_RtlpMuiRegInitLIPLanguage.c)
+ *     _RtlpMuiRegInitPartialLanguage @ 0x140A72C5C (_RtlpMuiRegInitPartialLanguage.c)
+ */
+
 __int64 __fastcall RtlpMuiRegAddLanguageByName(__int64 a1, void *a2, __int64 a3, __int64 a4, int a5, __int64 a6)
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidSchiUpdateReadyBitsInNewPriority@@YAXPEAU_VIDSCH_NODE@@PEAU_VIDSCH_CONTEXT@@@Z @ 0x1C0037AC4
+ * Callers:
+ *     VidSchiSetPriorityContext @ 0x1C0014574 (VidSchiSetPriorityContext.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidSchiUpdateReadyBitsInNewPriority(struct _VIDSCH_NODE *a1, struct _VIDSCH_CONTEXT *a2)
 {
   __int64 v2; // r9

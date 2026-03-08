@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmRegUtilCreateUcKey @ 0x1C039392C
+ * Callers:
+ *     CmRegUtilCreateWstrKey @ 0x1C03939D4 (CmRegUtilCreateWstrKey.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmRegUtilCreateUcKey(
         void *a1,
         struct _UNICODE_STRING *a2,

@@ -1,3 +1,24 @@
+/*
+ * XREFs of UsbhIdleIrp_Event @ 0x1C0057F68
+ * Callers:
+ *     UsbhPdoInternalDeviceControl @ 0x1C0015370 (UsbhPdoInternalDeviceControl.c)
+ *     UsbhCompletePdoIdleIrp @ 0x1C001BD28 (UsbhCompletePdoIdleIrp.c)
+ *     UsbhFdoSubmitPdoIdleNotification @ 0x1C003136C (UsbhFdoSubmitPdoIdleNotification.c)
+ *     UsbhCompleteCanceledPdoIdleIrp @ 0x1C0057A50 (UsbhCompleteCanceledPdoIdleIrp.c)
+ *     UsbhPdoIdleCC_Worker @ 0x1C0058720 (UsbhPdoIdleCC_Worker.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhGetIdleIrpState @ 0x1C001BE10 (UsbhGetIdleIrpState.c)
+ *     UsbhSetIdleIrpState @ 0x1C001BE6C (UsbhSetIdleIrpState.c)
+ *     UsbhIdleExIrp_IdleReady @ 0x1C0057A84 (UsbhIdleExIrp_IdleReady.c)
+ *     UsbhIdleIrp_CB_Canceled @ 0x1C0057BF8 (UsbhIdleIrp_CB_Canceled.c)
+ *     UsbhIdleIrp_CB_Complete @ 0x1C0057CF4 (UsbhIdleIrp_CB_Complete.c)
+ *     UsbhIdleIrp_CB_Pending @ 0x1C0057E1C (UsbhIdleIrp_CB_Pending.c)
+ *     UsbhIdleIrp_NoIrp @ 0x1C00580F0 (UsbhIdleIrp_NoIrp.c)
+ *     UsbhIdleIrp_WaitWorker @ 0x1C0058548 (UsbhIdleIrp_WaitWorker.c)
+ */
+
 __int64 __fastcall UsbhIdleIrp_Event(ULONG_PTR a1, __int64 a2, IRP *a3, unsigned int a4, int a5)
 {
   _DWORD *v9; // rbx

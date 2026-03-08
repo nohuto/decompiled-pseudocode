@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifExDeletePagedLookasideListWrapper @ 0x1405D6040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExDeletePagedLookasideList @ 0x1402EC300 (ExDeletePagedLookasideList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 void __fastcall DifExDeletePagedLookasideListWrapper(PPAGED_LOOKASIDE_LIST Lookaside)
 {
   __int64 *APIThunkContextById; // rax

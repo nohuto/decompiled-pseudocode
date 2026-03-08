@@ -1,3 +1,17 @@
+/*
+ * XREFs of NtQuerySecurityPolicy @ 0x14078FEA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SepCaptureUnicodeStringArray @ 0x1406D5840 (SepCaptureUnicodeStringArray.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtQuerySecurityPolicy(
         ULONGLONG a1,
         ULONGLONG a2,

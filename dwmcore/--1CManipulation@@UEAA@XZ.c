@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CManipulation@@UEAA@XZ @ 0x18020A498
+ * Callers:
+ *     ??_ECManipulation@@UEAAPEAXI@Z @ 0x18020A590 (--_ECManipulation@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1800EE108 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CManipulation::~CManipulation(CManipulation *this)
 {
   __int64 v2; // rcx

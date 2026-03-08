@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?GetTopGpuClipInScope@CScopedClipStack@@QEBAXPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_NPEAV2@@Z @ 0x1800216AC
+ * Callers:
+ *     ?PopClipBounds@CDrawingContext@@AEAAXXZ @ 0x18002160C (-PopClipBounds@CDrawingContext@@AEAAXXZ.c)
+ *     ?PushClippingScope@CDrawingContext@@AEAAJPEBVCVisual@@_N1PEBVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801D31F4 (-PushClippingScope@CDrawingContext@@AEAAJPEBVCVisual@@_N1PEBVCMILMatrix@@PEAV-$TMilRect_@MUMilRe.c)
+ * Callees:
+ *     ?HasGpuClipsInScope@CScopedClipStack@@QEBA_NXZ @ 0x1800217BC (-HasGpuClipsInScope@CScopedClipStack@@QEBA_NXZ.c)
+ *     ?Top@CBaseClipStack@@QEBAXPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18009098C (-Top@CBaseClipStack@@QEBAXPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded.c)
+ *     ?HasClipBoundsInScope@CScopedClipStack@@QEBA_NXZ @ 0x1800DF434 (-HasClipBoundsInScope@CScopedClipStack@@QEBA_NXZ.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ */
+
 char __fastcall CScopedClipStack::GetTopGpuClipInScope(CScopedClipStack *a1, __int64 a2, char a3)
 {
   char result; // al

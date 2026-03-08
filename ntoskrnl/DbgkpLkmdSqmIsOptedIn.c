@@ -1,3 +1,14 @@
+/*
+ * XREFs of DbgkpLkmdSqmIsOptedIn @ 0x14093830C
+ * Callers:
+ *     DbgkCaptureLiveDump @ 0x1409378F8 (DbgkCaptureLiveDump.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ */
+
 bool DbgkpLkmdSqmIsOptedIn()
 {
   HANDLE KeyHandle; // [rsp+30h] [rbp-39h] BYREF

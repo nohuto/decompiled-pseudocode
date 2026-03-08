@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlpMuiRegCreateKernelRegistryInfo @ 0x14039C764
+ * Callers:
+ *     MUIRegistrySystemRoutine @ 0x1408435A0 (MUIRegistrySystemRoutine.c)
+ * Callees:
+ *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x140843BA8 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
+ *     _RtlpMuiRegSerializeRegistryInfo @ 0x140843C80 (_RtlpMuiRegSerializeRegistryInfo.c)
+ *     RtlpMuiRegCreateRegistryInfo @ 0x140843F60 (RtlpMuiRegCreateRegistryInfo.c)
+ *     RtlpMuiRegLoadRegistryInfo @ 0x140843F90 (RtlpMuiRegLoadRegistryInfo.c)
+ *     RtlpMuiRegFreeRegistryInfo @ 0x1408447E8 (RtlpMuiRegFreeRegistryInfo.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlpMuiRegCreateKernelRegistryInfo(
         _QWORD *a1,
         _DWORD *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpUpdateLastBranchTracingEvents @ 0x1409ED7C0
+ * Callers:
+ *     EtwSetPerformanceTraceInformation @ 0x1409DF094 (EtwSetPerformanceTraceInformation.c)
+ * Callees:
+ *     EtwpAllocateLbrData @ 0x1409ED63C (EtwpAllocateLbrData.c)
+ */
+
 __int64 __fastcall EtwpUpdateLastBranchTracingEvents(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 result; // rax

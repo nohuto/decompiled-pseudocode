@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpAllocateKInterrupt @ 0x140379FF8
+ * Callers:
+ *     HalpCreateInterrupt @ 0x140379F48 (HalpCreateInterrupt.c)
+ * Callees:
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 char *__fastcall HalpAllocateKInterrupt(int a1, int a2)
 {
   char *v2; // r9

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?xxxEnableWindowWorker@@YAHPEAUtagWND@@H@Z @ 0x1C000AEB8
+ * Callers:
+ *     xxxEnableWindow @ 0x1C000AE3C (xxxEnableWindow.c)
+ *     NtUserDisableImmersiveOwner @ 0x1C01CF6A0 (NtUserDisableImmersiveOwner.c)
+ * Callees:
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     ?xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C009A3E0 (-xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z.c)
+ */
+
 __int64 __fastcall xxxEnableWindowWorker(struct tagWND *a1, int a2)
 {
   __int64 v3; // rsi

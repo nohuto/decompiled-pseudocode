@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserGetInteractiveCtrlSupportedWaveforms @ 0x1C01D3030
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C007A05C (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ?GetDeviceSupportedWaveforms@InteractiveControlManager@@QEAAJKPEAPEAU_WAVEFORM_INFO@@PEAJ@Z @ 0x1C02435F0 (-GetDeviceSupportedWaveforms@InteractiveControlManager@@QEAAJKPEAPEAU_WAVEFORM_INFO@@PEAJ@Z.c)
+ */
+
 __int64 __fastcall NtUserGetInteractiveCtrlSupportedWaveforms(__int64 a1, volatile void *a2, int *a3)
 {
   unsigned __int16 v5; // r15

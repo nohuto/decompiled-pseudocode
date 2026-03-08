@@ -1,3 +1,12 @@
+/*
+ * XREFs of xxxWrapSendMessageBSM @ 0x1C00DD8F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxSendMessageBSM @ 0x1C00A48F0 (xxxSendMessageBSM.c)
+ *     IsPrivileged @ 0x1C00DD9E0 (IsPrivileged.c)
+ */
+
 __int64 __fastcall xxxWrapSendMessageBSM(
         struct tagWND *a1,
         unsigned int a2,

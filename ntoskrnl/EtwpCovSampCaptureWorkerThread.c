@@ -1,3 +1,19 @@
+/*
+ * XREFs of EtwpCovSampCaptureWorkerThread @ 0x1408A3E60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     EtwpCovSampCaptureBufferRelease @ 0x14040CB5C (EtwpCovSampCaptureBufferRelease.c)
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ *     EtwpCovSampCaptureReleaseToLookaside @ 0x140461C2A (EtwpCovSampCaptureReleaseToLookaside.c)
+ *     EtwpCovSampLookasideGrow @ 0x140601528 (EtwpCovSampLookasideGrow.c)
+ *     EtwpCovSampCaptureBufferProcess @ 0x1408A3BF4 (EtwpCovSampCaptureBufferProcess.c)
+ *     EtwpCovSampSampleBufferProcess @ 0x1409EFD64 (EtwpCovSampSampleBufferProcess.c)
+ */
+
 void __fastcall __noreturn EtwpCovSampCaptureWorkerThread(__int64 a1)
 {
   unsigned int v2; // eax

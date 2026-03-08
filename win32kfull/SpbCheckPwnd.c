@@ -1,3 +1,14 @@
+/*
+ * XREFs of SpbCheckPwnd @ 0x1C0012BCC
+ * Callers:
+ *     zzzLockWindowUpdate2 @ 0x1C00E51C8 (zzzLockWindowUpdate2.c)
+ *     ?xxxDWP_SetRedraw@@YAXPEAUtagWND@@H@Z @ 0x1C0100930 (-xxxDWP_SetRedraw@@YAXPEAUtagWND@@H@Z.c)
+ * Callees:
+ *     SpbCheckRect @ 0x1C000B2CC (SpbCheckRect.c)
+ *     ?IsSpbPresentOrNull@@YA_NPEAUtagSPB@@@Z @ 0x1C000B50C (-IsSpbPresentOrNull@@YA_NPEAUtagSPB@@@Z.c)
+ *     FreeSpb @ 0x1C000B520 (FreeSpb.c)
+ */
+
 char __fastcall SpbCheckPwnd(struct tagWND *a1)
 {
   struct tagSPB *v2; // rdi

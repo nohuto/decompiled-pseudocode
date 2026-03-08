@@ -1,3 +1,31 @@
+/*
+ * XREFs of InsertEventEntryInLookUpTable @ 0x14035EE9C
+ * Callers:
+ *     _tlgWriteAgg @ 0x14035EDD0 (_tlgWriteAgg.c)
+ *     MiLogPeriodicTelemetry @ 0x140360374 (MiLogPeriodicTelemetry.c)
+ *     MiLogPeriodicTelemetryForSlabAllocator @ 0x1403CAEA0 (MiLogPeriodicTelemetryForSlabAllocator.c)
+ *     MiLogSlabEntriesDemote @ 0x1403D0FE0 (MiLogSlabEntriesDemote.c)
+ *     CmpThreadInfoLogStack @ 0x140613BCC (CmpThreadInfoLogStack.c)
+ *     MiLogBadMapper @ 0x14062E9E8 (MiLogBadMapper.c)
+ *     MiLogSlabEntryAllocateFailure @ 0x140654B1C (MiLogSlabEntryAllocateFailure.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     CreateNewEventEntry @ 0x1402E2438 (CreateNewEventEntry.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     ComputeEventEntryHash @ 0x14035F2AC (ComputeEventEntryHash.c)
+ *     CompareEventEntry @ 0x14035F404 (CompareEventEntry.c)
+ *     EnableFlushTimer @ 0x1403C12C0 (EnableFlushTimer.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall InsertEventEntryInLookUpTable(
         __int64 a1,
         __int128 *a2,

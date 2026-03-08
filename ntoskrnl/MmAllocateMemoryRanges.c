@@ -1,3 +1,18 @@
+/*
+ * XREFs of MmAllocateMemoryRanges @ 0x140A2B5D0
+ * Callers:
+ *     IopLiveDumpAllocateIoSpaceRanges @ 0x14094AAB0 (IopLiveDumpAllocateIoSpaceRanges.c)
+ *     MiAllocateUserPhysicalRanges @ 0x140A3E4C0 (MiAllocateUserPhysicalRanges.c)
+ * Callees:
+ *     MiPartitionObjectToPartition @ 0x140236884 (MiPartitionObjectToPartition.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     MmGetNextNode @ 0x1402AB0A0 (MmGetNextNode.c)
+ *     MiGetHugeRangeFromNode @ 0x1403BF1C4 (MiGetHugeRangeFromNode.c)
+ *     MiReleaseMemoryRuns @ 0x14061FEB0 (MiReleaseMemoryRuns.c)
+ *     MiAddRun @ 0x140A2AED0 (MiAddRun.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MmAllocateMemoryRanges(ULONG_PTR a1)
 {
   bool v1; // zf

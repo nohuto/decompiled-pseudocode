@@ -1,3 +1,37 @@
+/*
+ * XREFs of PsCreateMinimalProcess @ 0x140817C28
+ * Callers:
+ *     SmFirstTimeInit @ 0x1407DDCE0 (SmFirstTimeInit.c)
+ *     CmpInitializeRegistryProcess @ 0x140817300 (CmpInitializeRegistryProcess.c)
+ *     PspCreateProcess @ 0x140858F60 (PspCreateProcess.c)
+ *     PspCreatePicoProcess @ 0x1409B2550 (PspCreatePicoProcess.c)
+ *     PspCreatePartitionSystemProcess @ 0x1409B35F8 (PspCreatePartitionSystemProcess.c)
+ *     VmCreateMemoryProcess @ 0x1409D9550 (VmCreateMemoryProcess.c)
+ *     MiInitializeHotPatches @ 0x140B39AE8 (MiInitializeHotPatches.c)
+ *     PspInitPhase1 @ 0x140B422C8 (PspInitPhase1.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     SepDeleteAccessState @ 0x140265F50 (SepDeleteAccessState.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     MiDeleteProcessShadow @ 0x1402A5828 (MiDeleteProcessShadow.c)
+ *     KeKvaShadowingActive @ 0x1402FE9A0 (KeKvaShadowingActive.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PspCreateObjectHandle @ 0x1406B1864 (PspCreateObjectHandle.c)
+ *     PspRundownSingleProcess @ 0x1406F8160 (PspRundownSingleProcess.c)
+ *     PsAssignProcessToJobObject @ 0x1406FF9A0 (PsAssignProcessToJobObject.c)
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ *     PspGetMemoryPartitionContext @ 0x14070D690 (PspGetMemoryPartitionContext.c)
+ *     PspInsertProcess @ 0x14070E514 (PspInsertProcess.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     PsTerminateProcess @ 0x1407DC8A0 (PsTerminateProcess.c)
+ *     PspSetMinimalProcessName @ 0x140817F50 (PspSetMinimalProcessName.c)
+ *     DbgkCreateMinimalProcess @ 0x140817FEC (DbgkCreateMinimalProcess.c)
+ */
+
 __int64 __fastcall PsCreateMinimalProcess(
         __int64 a1,
         __int64 a2,

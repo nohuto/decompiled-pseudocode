@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopBcdEstablishResumeObject @ 0x14082B658
+ * Callers:
+ *     PoInitHiberServices @ 0x14082B1B0 (PoInitHiberServices.c)
+ *     PopAllocateHiberContext @ 0x140984D38 (PopAllocateHiberContext.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     BcdQueryObject @ 0x14082B5C0 (BcdQueryObject.c)
+ *     PopBcdSetDefaultResumeObjectElements @ 0x14082BFD0 (PopBcdSetDefaultResumeObjectElements.c)
+ *     BcdGetElementDataWithFlags @ 0x14082E398 (BcdGetElementDataWithFlags.c)
+ *     BcdCloseObject @ 0x14082E5DC (BcdCloseObject.c)
+ *     BcdOpenObject @ 0x14082E620 (BcdOpenObject.c)
+ *     PopBcdRegenerateResumeObject @ 0x140999C24 (PopBcdRegenerateResumeObject.c)
+ */
+
 __int64 __fastcall PopBcdEstablishResumeObject(__int64 a1, __int64 *a2)
 {
   __int64 v3; // rbx

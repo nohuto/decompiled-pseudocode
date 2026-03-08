@@ -1,3 +1,14 @@
+/*
+ * XREFs of SecureDmaEnabler_AllocateCommonBufferPage @ 0x1C007A6EC
+ * Callers:
+ *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0007A24 (XilCoreCommonBuffer_AllocateBuffers.c)
+ *     CommonBuffer_AcquireSecureBuffer @ 0x1C00321B8 (CommonBuffer_AcquireSecureBuffer.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     SecureDmaEnabler_MapMemory @ 0x1C007AB74 (SecureDmaEnabler_MapMemory.c)
+ */
+
 __int64 __fastcall SecureDmaEnabler_AllocateCommonBufferPage(__int64 *a1, __int64 a2, __int64 *a3, _QWORD *a4)
 {
   int v7; // edx

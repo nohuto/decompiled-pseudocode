@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiRoundUpToPowerOf2SizeT @ 0x1406670D8
+ * Callers:
+ *     MiMapSystemImageWithLargePage @ 0x140A46F04 (MiMapSystemImageWithLargePage.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiRoundUpToPowerOf2SizeT(unsigned __int64 a1)
 {
   bool v1; // zf

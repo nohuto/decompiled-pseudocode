@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceThreadFeedbackRead @ 0x1405FB260
+ * Callers:
+ *     KiUpdateThreadHgsFeedback @ 0x140576260 (KiUpdateThreadHgsFeedback.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall EtwTraceThreadFeedbackRead(__int64 a1, __int64 a2, __int64 a3)
 {
   _DWORD v3[2]; // [rsp+30h] [rbp-38h] BYREF

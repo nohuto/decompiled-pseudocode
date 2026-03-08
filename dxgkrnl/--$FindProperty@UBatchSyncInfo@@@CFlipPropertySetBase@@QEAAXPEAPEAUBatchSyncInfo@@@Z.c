@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$FindProperty@UBatchSyncInfo@@@CFlipPropertySetBase@@QEAAXPEAPEAUBatchSyncInfo@@@Z @ 0x1C0080EE8
+ * Callers:
+ *     ?FlipManagerCreateProducerTokenInitInfo@@YAJPEAX_N_KIPEAUFlipPropertyItem@@PEAUFlipManagerTokenInitInfo@@@Z @ 0x1C00811E8 (-FlipManagerCreateProducerTokenInitInfo@@YAJPEAX_N_KIPEAUFlipPropertyItem@@PEAUFlipManagerTokenI.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CFlipPropertySetBase::FindProperty<BatchSyncInfo>(__int64 a1, _QWORD *a2)
 {
   unsigned int v2; // r9d

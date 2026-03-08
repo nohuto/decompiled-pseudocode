@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpMcExportAndChargeNeededData @ 0x14085CB10
+ * Callers:
+ *     HalMcFinishMicrocode @ 0x1403ABA24 (HalMcFinishMicrocode.c)
+ * Callees:
+ *     HalpMcExportAllData @ 0x14085CB80 (HalpMcExportAllData.c)
+ *     MmObtainChargesToLockPagedPool @ 0x14085CC30 (MmObtainChargesToLockPagedPool.c)
+ *     HalpUnloadMicrocode @ 0x140931E50 (HalpUnloadMicrocode.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 HalpMcExportAndChargeNeededData()
 {
   __int64 v0; // rax

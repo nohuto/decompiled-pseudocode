@@ -1,3 +1,13 @@
+/*
+ * XREFs of XilCoreCommonBuffer_AcquireBuffer @ 0x1C0013088
+ * Callers:
+ *     CommonBuffer_AcquireBuffer @ 0x1C0013038 (CommonBuffer_AcquireBuffer.c)
+ * Callees:
+ *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0007A24 (XilCoreCommonBuffer_AllocateBuffers.c)
+ *     XilCoreCommonBuffer_AcquireBufferWithSegmenter @ 0x1C000B6DC (XilCoreCommonBuffer_AcquireBufferWithSegmenter.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsMsgKM @ 0x1C00202C0 (MicrosoftTelemetryAssertTriggeredArgsMsgKM.c)
+ */
+
 unsigned int *__fastcall XilCoreCommonBuffer_AcquireBuffer(
         __int64 a1,
         unsigned int a2,

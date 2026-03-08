@@ -1,3 +1,13 @@
+/*
+ * XREFs of MinCryptDecodeSignatureAlgorithmIdentifier @ 0x140A6C590
+ * Callers:
+ *     MinCryptVerifySignedHash2 @ 0x140A6C6A0 (MinCryptVerifySignedHash2.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     MinAsn1ParseAlgorithmIdentifier @ 0x140A6D684 (MinAsn1ParseAlgorithmIdentifier.c)
+ */
+
 __int64 __fastcall MinCryptDecodeSignatureAlgorithmIdentifier(__int64 a1)
 {
   SIZE_T v1; // rbp

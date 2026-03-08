@@ -1,3 +1,40 @@
+/*
+ * XREFs of PiCMHandleIoctl @ 0x1406CF040
+ * Callers:
+ *     PiCMFastIoDeviceDispatch @ 0x1406CEFD0 (PiCMFastIoDeviceDispatch.c)
+ * Callees:
+ *     PiCMOpenDeviceInterfaceKey @ 0x14067E994 (PiCMOpenDeviceInterfaceKey.c)
+ *     PiCMGetDeviceStatus @ 0x1406C3FD8 (PiCMGetDeviceStatus.c)
+ *     PiCMGetDeviceInterfaceList @ 0x1406C46EC (PiCMGetDeviceInterfaceList.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x1406C6068 (PiCMGetRelatedDeviceInstance.c)
+ *     PiCMGetRegistryProperty @ 0x1406C74A4 (PiCMGetRegistryProperty.c)
+ *     PiCMValidateDeviceInstance @ 0x1406C78A0 (PiCMValidateDeviceInstance.c)
+ *     PiCMGetObjectProperty @ 0x1406CF2B4 (PiCMGetObjectProperty.c)
+ *     PiCMOpenDeviceKey @ 0x14076C7C4 (PiCMOpenDeviceKey.c)
+ *     PiCMGetDeviceIdList @ 0x14077813C (PiCMGetDeviceIdList.c)
+ *     PiCMSetObjectProperty @ 0x14078B060 (PiCMSetObjectProperty.c)
+ *     PiCMGetDeviceInterfaceAlias @ 0x14078DEB0 (PiCMGetDeviceInterfaceAlias.c)
+ *     PiCMOpenClassKey @ 0x14085C868 (PiCMOpenClassKey.c)
+ *     PiCMGetObjectList @ 0x140869E8C (PiCMGetObjectList.c)
+ *     PiCMOpenObjectKey @ 0x14086B97C (PiCMOpenObjectKey.c)
+ *     PiCMCreateDevice @ 0x1409654C0 (PiCMCreateDevice.c)
+ *     PiCMCreateObject @ 0x140965C20 (PiCMCreateObject.c)
+ *     PiCMDeleteClassKey @ 0x140965DBC (PiCMDeleteClassKey.c)
+ *     PiCMDeleteDevice @ 0x140965ED8 (PiCMDeleteDevice.c)
+ *     PiCMDeleteDeviceInterfaceKey @ 0x140966230 (PiCMDeleteDeviceInterfaceKey.c)
+ *     PiCMDeleteDeviceKey @ 0x140966320 (PiCMDeleteDeviceKey.c)
+ *     PiCMDeleteObject @ 0x14096656C (PiCMDeleteObject.c)
+ *     PiCMDeviceAction @ 0x14096671C (PiCMDeviceAction.c)
+ *     PiCMEnumerateSubKeys @ 0x140966A2C (PiCMEnumerateSubKeys.c)
+ *     PiCMGetDeviceDepth @ 0x140966FB0 (PiCMGetDeviceDepth.c)
+ *     PiCMGetObjectPropertyKeys @ 0x1409670A8 (PiCMGetObjectPropertyKeys.c)
+ *     PiCMQueryRemove @ 0x140967304 (PiCMQueryRemove.c)
+ *     PiCMRegisterDeviceInterface @ 0x140967714 (PiCMRegisterDeviceInterface.c)
+ *     PiCMSetDeviceProblem @ 0x1409679A8 (PiCMSetDeviceProblem.c)
+ *     PiCMSetRegistryProperty @ 0x140967BA4 (PiCMSetRegistryProperty.c)
+ *     PiCMUnregisterDeviceInterface @ 0x140967D60 (PiCMUnregisterDeviceInterface.c)
+ */
+
 __int64 __fastcall PiCMHandleIoctl(
         unsigned __int64 a1,
         __int64 a2,

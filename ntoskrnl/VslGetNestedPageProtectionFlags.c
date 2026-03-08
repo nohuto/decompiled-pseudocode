@@ -1,3 +1,23 @@
+/*
+ * XREFs of VslGetNestedPageProtectionFlags @ 0x1402D85B0
+ * Callers:
+ *     RtlpControlFlowGuardEnforced @ 0x1402D8590 (RtlpControlFlowGuardEnforced.c)
+ *     HvlGetEnlightenmentInfo @ 0x140541BC0 (HvlGetEnlightenmentInfo.c)
+ *     HvlpDetermineEnlightenments @ 0x140546B64 (HvlpDetermineEnlightenments.c)
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ *     PsLocateSystemDlls @ 0x14084ADDC (PsLocateSystemDlls.c)
+ *     MmInitSystem @ 0x140B393A4 (MmInitSystem.c)
+ *     PspInitPhase0 @ 0x140B3F968 (PspInitPhase0.c)
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ *     KiIsKernelCfgActive @ 0x140B729B8 (KiIsKernelCfgActive.c)
+ *     KiAreCodePatchesAllowed @ 0x140B926E0 (KiAreCodePatchesAllowed.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x1402D8618 (HvlQueryVsmConnection.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 VslGetNestedPageProtectionFlags()
 {
   int v0; // ecx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of BiOpenStoreKeyFromObject @ 0x1403904AC
+ * Callers:
+ *     BiSetFirmwareModifiedFromObject @ 0x1403902F4 (BiSetFirmwareModifiedFromObject.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQueryKey @ 0x1404125D0 (ZwQueryKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     BiOpenKey @ 0x14082E7AC (BiOpenKey.c)
+ *     BiCloseKey @ 0x14082E938 (BiCloseKey.c)
+ */
+
 __int64 __fastcall BiOpenStoreKeyFromObject(HANDLE KeyHandle, _QWORD *a2)
 {
   NTSTATUS Key; // ebx

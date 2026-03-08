@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetKnownRIMDeviceKind @ 0x1C002FBBC
+ * Callers:
+ *     ?HandleInputThreadStateChange@CBaseInput@@QEAAXW4InputThreadState@@@Z @ 0x1C002EFEC (-HandleInputThreadStateChange@CBaseInput@@QEAAXW4InputThreadState@@@Z.c)
+ *     ?PerformPnpNotification@CBaseInput@@AEAAXPEBU_DevicePnpNotification@@@Z @ 0x1C002F5A4 (-PerformPnpNotification@CBaseInput@@AEAAXPEBU_DevicePnpNotification@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetKnownRIMDeviceKind(__int64 a1)
 {
   unsigned int v1; // r8d

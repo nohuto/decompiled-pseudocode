@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIInternalSetSpare @ 0x1C0088498
+ * Callers:
+ *     ACPIBusIrpQueryResourceRequirements @ 0x1C0080980 (ACPIBusIrpQueryResourceRequirements.c)
+ *     ACPIFilterIrpQueryResourceRequirements @ 0x1C0086660 (ACPIFilterIrpQueryResourceRequirements.c)
+ * Callees:
+ *     ACPIInternalClearFlags @ 0x1C002E508 (ACPIInternalClearFlags.c)
+ *     ACPIQuerySpareDsm @ 0x1C0089418 (ACPIQuerySpareDsm.c)
+ */
+
 __int64 __fastcall ACPIInternalSetSpare(__int64 a1)
 {
   unsigned int v1; // ebx

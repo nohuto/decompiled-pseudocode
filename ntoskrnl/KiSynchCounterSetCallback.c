@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiSynchCounterSetCallback @ 0x140970F10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PcwAddInstance @ 0x14086B690 (PcwAddInstance.c)
+ *     EtwDereferenceSpinLockCounters @ 0x1409E9198 (EtwDereferenceSpinLockCounters.c)
+ *     EtwReferenceSpinLockCounters @ 0x1409E91F4 (EtwReferenceSpinLockCounters.c)
+ */
+
 NTSTATUS __fastcall KiSynchCounterSetCallback(int a1, __int64 a2)
 {
   int v2; // ecx

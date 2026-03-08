@@ -1,3 +1,14 @@
+/*
+ * XREFs of SmProcessProcessStoreInfoRequest @ 0x1409D4344
+ * Callers:
+ *     SmQueryStoreInformation @ 0x140840788 (SmQueryStoreInformation.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     SmStoreExistsForProcess @ 0x14035BD70 (SmStoreExistsForProcess.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall SmProcessProcessStoreInfoRequest(unsigned __int64 a1, int a2, KPROCESSOR_MODE a3)
 {
   PVOID v4; // rdi

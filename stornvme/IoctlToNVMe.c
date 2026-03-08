@@ -1,3 +1,26 @@
+/*
+ * XREFs of IoctlToNVMe @ 0x1C0014800
+ * Callers:
+ *     NVMeHwBuildIo @ 0x1C0001010 (NVMeHwBuildIo.c)
+ * Callees:
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     DiagGeneric @ 0x1C00114BC (DiagGeneric.c)
+ *     IoctlCreateReservedQueuePair @ 0x1C0012DF0 (IoctlCreateReservedQueuePair.c)
+ *     IoctlDeleteReservedQueuePair @ 0x1C0013304 (IoctlDeleteReservedQueuePair.c)
+ *     IoctlFirmwareProcess @ 0x1C00137A8 (IoctlFirmwareProcess.c)
+ *     IoctlQueryEnduranceInformation @ 0x1C00139B0 (IoctlQueryEnduranceInformation.c)
+ *     IoctlQueryProtocolInfoProcess @ 0x1C0013B68 (IoctlQueryProtocolInfoProcess.c)
+ *     IoctlQueryReservedQueueEntries @ 0x1C0013C14 (IoctlQueryReservedQueueEntries.c)
+ *     IoctlQueryTemperatureInfoProcess @ 0x1C0013E68 (IoctlQueryTemperatureInfoProcess.c)
+ *     IoctlSetProtocolInfoProcess @ 0x1C0013FD8 (IoctlSetProtocolInfoProcess.c)
+ *     IoctlSetTemperatureThresholdProcess @ 0x1C0014060 (IoctlSetTemperatureThresholdProcess.c)
+ *     IoctlStorageStreamsGetOpenStreams @ 0x1C0014194 (IoctlStorageStreamsGetOpenStreams.c)
+ *     IoctlStorageStreamsGetParameters @ 0x1C001434C (IoctlStorageStreamsGetParameters.c)
+ *     IoctlStorageStreamsReleaseId @ 0x1C0014708 (IoctlStorageStreamsReleaseId.c)
+ *     SetPrpFromSrb @ 0x1C001B51C (SetPrpFromSrb.c)
+ *     CompareId @ 0x1C0025AD8 (CompareId.c)
+ */
+
 __int64 __fastcall IoctlToNVMe(__int64 a1, __int64 a2)
 {
   __int64 SrbDataBuffer; // rax

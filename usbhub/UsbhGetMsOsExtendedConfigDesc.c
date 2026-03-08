@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhGetMsOsExtendedConfigDesc @ 0x1C0033348
+ * Callers:
+ *     UsbhSetupDevice @ 0x1C0039728 (UsbhSetupDevice.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     USBD_ValidateExtendedConfigurationDescriptor @ 0x1C0032600 (USBD_ValidateExtendedConfigurationDescriptor.c)
+ *     UsbhGetMsOsFeatureDescriptor @ 0x1C003360C (UsbhGetMsOsFeatureDescriptor.c)
+ */
+
 void *__fastcall UsbhGetMsOsExtendedConfigDesc(__int64 a1, __int64 a2)
 {
   int v2; // ebp

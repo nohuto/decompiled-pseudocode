@@ -1,3 +1,11 @@
+/*
+ * XREFs of DeleteHrgnClip @ 0x1C0096DB0
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ * Callees:
+ *     RevalidateDCE @ 0x1C0097390 (RevalidateDCE.c)
+ */
+
 __int64 __fastcall DeleteHrgnClip(__int64 a1)
 {
   _QWORD *v1; // rdi

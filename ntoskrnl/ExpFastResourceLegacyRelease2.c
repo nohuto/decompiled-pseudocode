@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExpFastResourceLegacyRelease2 @ 0x1404103B8
+ * Callers:
+ *     ExpFastResourceLegacyRelease @ 0x1403C5290 (ExpFastResourceLegacyRelease.c)
+ * Callees:
+ *     ExReleaseFastResource2 @ 0x14040EBEC (ExReleaseFastResource2.c)
+ *     ExpFindFastOwnerEntryForThread2 @ 0x140410518 (ExpFindFastOwnerEntryForThread2.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall ExpFastResourceLegacyRelease2(ULONG_PTR BugCheckParameter2, __int64 a2, int a3)
 {
   struct _KTHREAD *CurrentThread; // rsi

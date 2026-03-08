@@ -1,3 +1,22 @@
+/*
+ * XREFs of EtwTraceRaw @ 0x1405FCF28
+ * Callers:
+ *     NtTraceEvent @ 0x140230D30 (NtTraceEvent.c)
+ * Callees:
+ *     EtwpOpenLogger @ 0x140205B30 (EtwpOpenLogger.c)
+ *     EtwpReleaseTraceBuffer @ 0x140205BD8 (EtwpReleaseTraceBuffer.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402331B0 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpGetReserveTraceBufferStatus @ 0x1402FF40C (EtwpGetReserveTraceBufferStatus.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     EtwpReserveTraceBuffer @ 0x1403151E0 (EtwpReserveTraceBuffer.c)
+ *     EtwpSendTraceEvent @ 0x14039D2E8 (EtwpSendTraceEvent.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     EtwpInvokeEventCallback @ 0x1405FEBA4 (EtwpInvokeEventCallback.c)
+ *     EtwpCheckLoggerControlAccess @ 0x140692E00 (EtwpCheckLoggerControlAccess.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall EtwTraceRaw(unsigned __int16 a1, void *a2, int a3, char a4)
 {
   int ReserveTraceBufferStatus; // edi

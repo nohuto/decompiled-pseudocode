@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepImageVerificationCallbackWorker @ 0x14075E440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExNotifyWithProcessing @ 0x1402D2F20 (ExNotifyWithProcessing.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SepImageVerificationCallbackWorker(unsigned int *P)
 {
   _QWORD v2[5]; // [rsp+20h] [rbp-28h] BYREF

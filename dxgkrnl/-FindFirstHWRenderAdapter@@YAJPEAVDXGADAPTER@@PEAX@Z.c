@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FindFirstHWRenderAdapter@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C01E5370
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C00097B8 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ */
+
 __int64 __fastcall FindFirstHWRenderAdapter(struct DXGADAPTER *a1, void *a2)
 {
   __int64 v3; // r8

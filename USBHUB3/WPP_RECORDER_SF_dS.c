@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_dS @ 0x1C000CF98
+ * Callers:
+ *     HUBFDO_MapDvsecUsb4Hosts @ 0x1C00783A4 (HUBFDO_MapDvsecUsb4Hosts.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF_dS(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of _GetKeyboardLayoutList @ 0x1C00826CC
+ * Callers:
+ *     NtUserGetKeyboardLayoutList @ 0x1C0082640 (NtUserGetKeyboardLayoutList.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     ApiSetEditionGetProcessWindowStation @ 0x1C0082880 (ApiSetEditionGetProcessWindowStation.c)
+ */
+
 __int64 __fastcall GetKeyboardLayoutList(int a1, _QWORD *a2)
 {
   unsigned int v4; // ebx

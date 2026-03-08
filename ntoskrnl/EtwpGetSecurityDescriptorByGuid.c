@@ -1,3 +1,19 @@
+/*
+ * XREFs of EtwpGetSecurityDescriptorByGuid @ 0x1406972D0
+ * Callers:
+ *     EtwpAllocGuidEntry @ 0x140690BD4 (EtwpAllocGuidEntry.c)
+ *     EtwpCheckGuidAccess @ 0x1406910EC (EtwpCheckGuidAccess.c)
+ *     EtwpStartLogger @ 0x140691964 (EtwpStartLogger.c)
+ *     EtwpAccessCheckFromState @ 0x140695F0C (EtwpAccessCheckFromState.c)
+ *     EtwpUpdateTrace @ 0x140744D3C (EtwpUpdateTrace.c)
+ *     EtwpFixBootLoggers @ 0x140B6569C (EtwpFixBootLoggers.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpGetGuidSecurityDescriptor @ 0x14069707C (EtwpGetGuidSecurityDescriptor.c)
+ */
+
 char __fastcall EtwpGetSecurityDescriptorByGuid(unsigned int *a1, _QWORD *a2)
 {
   int v4; // [rsp+20h] [rbp-D8h]

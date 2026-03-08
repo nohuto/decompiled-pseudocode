@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RtlStringCbPrintfA@@YAJPEAD_KPEBDZZ @ 0x1C002E7F4
+ * Callers:
+ *     ?CreateWin32KFilterBitmap@@YAJKQEAPEBDHKPEAE@Z @ 0x1C002E6D0 (-CreateWin32KFilterBitmap@@YAJKQEAPEBDHKPEAE@Z.c)
+ * Callees:
+ *     _vsnprintf @ 0x1C00DA954 (_vsnprintf.c)
+ */
+
 __int64 RtlStringCbPrintfA(char *a1, __int64 a2, const char *a3, ...)
 {
   unsigned __int64 v4; // rdi

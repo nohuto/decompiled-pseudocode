@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CHolographicViewer@@MEAA@XZ @ 0x1802A83B0
+ * Callers:
+ *     ??_ECHolographicViewer@@MEAAPEAXI@Z @ 0x1802A8410 (--_ECHolographicViewer@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C8D4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Dispose@CHolographicViewer@@UEAAJXZ @ 0x1802A85F0 (-Dispose@CHolographicViewer@@UEAAJXZ.c)
+ */
+
 void __fastcall CHolographicViewer::~CHolographicViewer(CHolographicViewer *this)
 {
   CHolographicViewer *v2; // rcx

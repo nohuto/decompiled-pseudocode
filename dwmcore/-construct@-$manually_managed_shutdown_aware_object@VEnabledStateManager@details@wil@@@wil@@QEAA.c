@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?construct@?$manually_managed_shutdown_aware_object@VEnabledStateManager@details@wil@@@wil@@QEAAXXZ @ 0x1800FF194
+ * Callers:
+ *     wil::details::_dynamic_initializer_for__g_enabledStateManager__ @ 0x180001010 (wil--details--_dynamic_initializer_for__g_enabledStateManager__.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 wil::manually_managed_shutdown_aware_object<wil::details::EnabledStateManager>::construct()
 {
   __int64 result; // rax

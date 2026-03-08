@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_CheckingIfAltEnumCommandNeeded @ 0x1C00222D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBDSM_CheckingIfAltEnumCommandNeeded(__int64 a1)
 {
   __int64 v1; // rdx

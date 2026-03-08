@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpHpetStop @ 0x14036DB50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpHpetStop(int *a1)
 {
   __int64 result; // rax

@@ -1,3 +1,26 @@
+/*
+ * XREFs of BiDeleteElement @ 0x14082CDF8
+ * Callers:
+ *     PoInitHiberServices @ 0x14082B1B0 (PoInitHiberServices.c)
+ *     PopBcdClearPendingResume @ 0x14082B2FC (PopBcdClearPendingResume.c)
+ *     BcdSetElementDataWithFlags @ 0x14082D894 (BcdSetElementDataWithFlags.c)
+ *     BiUpdateBcdObject @ 0x14082DA80 (BiUpdateBcdObject.c)
+ *     SepSecureBootUpdateBcdDataForRule @ 0x1409CE004 (SepSecureBootUpdateBcdDataForRule.c)
+ *     BiHandleFirmwareDefaultEntry @ 0x140A5BD48 (BiHandleFirmwareDefaultEntry.c)
+ * Callees:
+ *     BiSetFirmwareModifiedFromObject @ 0x1403902F4 (BiSetFirmwareModifiedFromObject.c)
+ *     BiIsOfflineHandle @ 0x1403903FC (BiIsOfflineHandle.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _ultow_s @ 0x1403D8C70 (_ultow_s.c)
+ *     BiDeleteKey @ 0x14082CF64 (BiDeleteKey.c)
+ *     BiIsLinkedToFirmwareVariable @ 0x14082D76C (BiIsLinkedToFirmwareVariable.c)
+ *     BiOpenKey @ 0x14082E7AC (BiOpenKey.c)
+ *     BiCloseKey @ 0x14082E938 (BiCloseKey.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiAcquireBcdSyncMutant @ 0x14082ED10 (BiAcquireBcdSyncMutant.c)
+ *     BiReleaseBcdSyncMutant @ 0x14082EDB8 (BiReleaseBcdSyncMutant.c)
+ */
+
 __int64 __fastcall BiDeleteElement(void *a1, unsigned int a2)
 {
   __int64 v4; // rcx

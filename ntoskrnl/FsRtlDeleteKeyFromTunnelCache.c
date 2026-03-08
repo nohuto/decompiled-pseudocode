@@ -1,3 +1,15 @@
+/*
+ * XREFs of FsRtlDeleteKeyFromTunnelCache @ 0x140751F40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     RtlRealSuccessor @ 0x1402C1970 (RtlRealSuccessor.c)
+ *     FsRtlRemoveNodeFromTunnel @ 0x1402C1A0C (FsRtlRemoveNodeFromTunnel.c)
+ *     FsRtlEmptyFreePoolList @ 0x1402C1B10 (FsRtlEmptyFreePoolList.c)
+ */
+
 void __stdcall FsRtlDeleteKeyFromTunnelCache(TUNNEL *Cache, ULONGLONG DirectoryKey)
 {
   RTL_SPLAY_LINKS *v2; // rbx

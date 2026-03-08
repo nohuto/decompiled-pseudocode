@@ -1,3 +1,12 @@
+/*
+ * XREFs of IommuGetLeastMaximumSupportedAsidValue @ 0x1403AB514
+ * Callers:
+ *     IommupDeviceEnableSvm @ 0x140930DD4 (IommupDeviceEnableSvm.c)
+ *     IommuGetConfiguration @ 0x140B6DEF0 (IommuGetConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 IommuGetLeastMaximumSupportedAsidValue()
 {
   ULONG_PTR *v0; // rdx

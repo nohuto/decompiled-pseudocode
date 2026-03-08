@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vUnlockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXXZ @ 0x1C014FD94
+ * Callers:
+ *     ?dtorHelper@RFONTOBJ@@QEAAXXZ @ 0x1C02B70B0 (-dtorHelper@RFONTOBJ@@QEAAXXZ.c)
+ * Callees:
+ *     ?vReleaseCache@RFONTOBJ@@QEAAXXZ @ 0x1C011DDEC (-vReleaseCache@RFONTOBJ@@QEAAXXZ.c)
+ *     ??1RFONTTMPOBJ@@QEAA@XZ @ 0x1C012F7B8 (--1RFONTTMPOBJ@@QEAA@XZ.c)
+ */
+
 void __fastcall RFONTOBJ::vUnlockEUDCFontsGlyphCache(RFONTOBJ *this)
 {
   __int64 v2; // rcx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PnpDiagRundownRegisterCallback @ 0x140955000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     PpDevNodeUnlockTree @ 0x1406CB8B0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406CB944 (PpDevNodeLockTree.c)
+ *     PipForDeviceNodeSubtree @ 0x1407855F8 (PipForDeviceNodeSubtree.c)
+ */
+
 void __fastcall PnpDiagRundownRegisterCallback(
         LPCGUID SourceId,
         ULONG ControlCode,

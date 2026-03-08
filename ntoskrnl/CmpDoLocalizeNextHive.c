@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpDoLocalizeNextHive @ 0x140731900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     CmpGetNextActiveHive @ 0x1406BD940 (CmpGetNextActiveHive.c)
+ *     HvHiveConvertLockedPagesToCowByPolicy @ 0x140731984 (HvHiveConvertLockedPagesToCowByPolicy.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ *     CmpAcquireShutdownRundown @ 0x140AF23A0 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140AF23F0 (CmpReleaseShutdownRundown.c)
+ */
+
 char __fastcall CmpDoLocalizeNextHive(_BYTE *a1, _QWORD *a2)
 {
   char v2; // di

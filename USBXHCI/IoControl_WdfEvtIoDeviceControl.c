@@ -1,3 +1,20 @@
+/*
+ * XREFs of IoControl_WdfEvtIoDeviceControl @ 0x1C003E4C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_D @ 0x1C00180C4 (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C001835C (WPP_RECORDER_SF_qD.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_Dddd @ 0x1C003E990 (WPP_RECORDER_SF_Dddd.c)
+ *     WPP_RECORDER_SF_PP @ 0x1C003EAAC (WPP_RECORDER_SF_PP.c)
+ *     WPP_RECORDER_SF_Pd @ 0x1C003EB7C (WPP_RECORDER_SF_Pd.c)
+ *     WPP_RECORDER_SF_dL @ 0x1C003EC54 (WPP_RECORDER_SF_dL.c)
+ */
+
 PDEVICE_OBJECT __fastcall IoControl_WdfEvtIoDeviceControl(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
 {
   __int64 v9; // rax

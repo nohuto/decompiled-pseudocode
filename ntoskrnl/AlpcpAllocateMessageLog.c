@@ -1,3 +1,11 @@
+/*
+ * XREFs of AlpcpAllocateMessageLog @ 0x1409776F4
+ * Callers:
+ *     AlpcpEnterAllocationEventMessageLog @ 0x1409778E8 (AlpcpEnterAllocationEventMessageLog.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 AlpcpAllocateMessageLog()
 {
   __int64 result; // rax

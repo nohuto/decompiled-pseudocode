@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_Delete_this@?$_Ref_count_obj2@UShapeData@CCursorState@@@std@@EEAAXXZ @ 0x18012BBA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall std::_Ref_count_obj2<CCursorState::ShapeData>::_Delete_this(__int64 a1)
 {
   __int64 result; // rax

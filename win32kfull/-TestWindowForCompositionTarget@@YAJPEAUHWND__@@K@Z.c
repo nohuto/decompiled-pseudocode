@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?TestWindowForCompositionTarget@@YAJPEAUHWND__@@K@Z @ 0x1C007D9EC
+ * Callers:
+ *     NtUserCreateDCompositionHwndTarget @ 0x1C007D760 (NtUserCreateDCompositionHwndTarget.c)
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     ?WindowHasCompositionTarget@@YAHPEAUtagWND@@K@Z @ 0x1C007DBD8 (-WindowHasCompositionTarget@@YAHPEAUtagWND@@K@Z.c)
+ */
+
 __int64 __fastcall TestWindowForCompositionTarget(HWND a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // esi

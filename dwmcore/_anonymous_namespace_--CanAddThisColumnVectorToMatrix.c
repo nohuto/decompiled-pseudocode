@@ -1,3 +1,12 @@
+/*
+ * XREFs of _anonymous_namespace_::CanAddThisColumnVectorToMatrix @ 0x1801A9174
+ * Callers:
+ *     ?ConstructLocalToGlobalTransform@CInteractionProcessor@@AEAA?AUD2DMatrix@@PEAV?$DynArray@UAxisWithType@@$0A@@@@Z @ 0x1801AA8CC (-ConstructLocalToGlobalTransform@CInteractionProcessor@@AEAA-AUD2DMatrix@@PEAV-$DynArray@UAxisWi.c)
+ * Callees:
+ *     _anonymous_namespace_::VectorInsideAngleThreshold @ 0x1801AD808 (_anonymous_namespace_--VectorInsideAngleThreshold.c)
+ *     ?D3DXVectorAreCloseToZero@@YAHAEBUD2DVector3@@@Z @ 0x18027C1D8 (-D3DXVectorAreCloseToZero@@YAHAEBUD2DVector3@@@Z.c)
+ */
+
 char __fastcall anonymous_namespace_::CanAddThisColumnVectorToMatrix(float *a1, int a2, __int64 a3)
 {
   char v6; // bp

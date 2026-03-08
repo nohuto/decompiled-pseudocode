@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?PostPresent@CGlobalSurfaceManager@@UEAAJ_N@Z @ 0x1800DE1B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D4A28 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?OpenDxBltEvent@@YAJ_KPEAPEAX@Z @ 0x180130AC2 (-OpenDxBltEvent@@YAJ_KPEAPEAX@Z.c)
+ *     ?ReleaseCaptureBitsResponse@CLegacySurfaceManager@@QEAA_NXZ @ 0x1801DC928 (-ReleaseCaptureBitsResponse@CLegacySurfaceManager@@QEAA_NXZ.c)
+ */
+
 __int64 __fastcall CGlobalSurfaceManager::PostPresent(CGlobalSurfaceManager *this, char a2)
 {
   char *v3; // rcx

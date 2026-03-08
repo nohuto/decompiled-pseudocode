@@ -1,3 +1,15 @@
+/*
+ * XREFs of std::_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x180255EC0
+ * Callers:
+ *     std::_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x180255EC0 (std--_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___.c)
+ *     ?BuildPolygonList@CBspNode@@QEAAJPEAVCVisual@@@Z @ 0x1802561B4 (-BuildPolygonList@CBspNode@@QEAAJPEAVCVisual@@@Z.c)
+ * Callees:
+ *     std::_Insertion_sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x180255B34 (std--_Insertion_sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___.c)
+ *     std::_Partition_by_median_guess_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x180255C44 (std--_Partition_by_median_guess_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e_.c)
+ *     std::_Pop_heap_hole_by_index_CPolygon_____CPolygon____lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x180255DF4 (std--_Pop_heap_hole_by_index_CPolygon_____CPolygon____lambda_216ffb03724e5fb78403a39766447e0e___.c)
+ *     std::_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x180255EC0 (std--_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___.c)
+ */
+
 __int64 __fastcall std::_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___(
         char *a1,
         char *a2,

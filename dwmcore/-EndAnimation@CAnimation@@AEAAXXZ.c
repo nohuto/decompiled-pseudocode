@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?EndAnimation@CAnimation@@AEAAXXZ @ 0x1800C5A6C
+ * Callers:
+ *     ?UpdateAnimateValues@CAnimation@@UEAA_NXZ @ 0x1800C51A0 (-UpdateAnimateValues@CAnimation@@UEAA_NXZ.c)
+ *     ??1CAnimation@@UEAA@XZ @ 0x1800C58A0 (--1CAnimation@@UEAA@XZ.c)
+ * Callees:
+ *     ?UnregisterAnimateResource@CBaseAnimation@@QEAAJXZ @ 0x1800C5B04 (-UnregisterAnimateResource@CBaseAnimation@@QEAAJXZ.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D4A28 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0x_EventWriteTransfer @ 0x180129DEE (McTemplateU0x_EventWriteTransfer.c)
+ */
+
 void __fastcall CAnimation::EndAnimation(CAnimation *this)
 {
   unsigned int v2; // esi

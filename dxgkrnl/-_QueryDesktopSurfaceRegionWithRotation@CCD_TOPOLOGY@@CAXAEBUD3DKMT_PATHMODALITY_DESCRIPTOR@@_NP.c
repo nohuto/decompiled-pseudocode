@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?_QueryDesktopSurfaceRegionWithRotation@CCD_TOPOLOGY@@CAXAEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@_NPEAU_D3DKMDT_2DREGION@@@Z @ 0x1C01C2C00
+ * Callers:
+ *     ?AdjustDesktopLayout@CCD_TOPOLOGY@@QEAAJ_N@Z @ 0x1C01C2790 (-AdjustDesktopLayout@CCD_TOPOLOGY@@QEAAJ_N@Z.c)
+ *     ?AdjustSlateVirtualMonitorsPosition@CCD_TOPOLOGY@@AEAAJPEAUtagRECT@@AEAIAEAJ@Z @ 0x1C01C2C34 (-AdjustSlateVirtualMonitorsPosition@CCD_TOPOLOGY@@AEAAJPEAUtagRECT@@AEAIAEAJ@Z.c)
+ *     ?MakeCloneGroupContentResolutionValid@CCD_TOPOLOGY@@QEAAJI@Z @ 0x1C01C478C (-MakeCloneGroupContentResolutionValid@CCD_TOPOLOGY@@QEAAJI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CCD_TOPOLOGY::_QueryDesktopSurfaceRegionWithRotation(
         const struct D3DKMT_PATHMODALITY_DESCRIPTOR *a1,
         char a2,

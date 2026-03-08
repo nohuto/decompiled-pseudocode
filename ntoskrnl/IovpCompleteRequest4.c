@@ -1,3 +1,14 @@
+/*
+ * XREFs of IovpCompleteRequest4 @ 0x140AC9E98
+ * Callers:
+ *     IovpLocalCompletionRoutine @ 0x140ABEB60 (IovpLocalCompletionRoutine.c)
+ * Callees:
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     MdlInvariantPostDriverCompletion @ 0x1405CCFE4 (MdlInvariantPostDriverCompletion.c)
+ *     ViErrorReport1 @ 0x1405CDA04 (ViErrorReport1.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140ADE8EC (VfIrpDatabaseEntryReleaseLock.c)
+ */
+
 void __fastcall IovpCompleteRequest4(__int64 a1, int a2, const void *a3, _QWORD *a4)
 {
   __int64 v7; // rbx

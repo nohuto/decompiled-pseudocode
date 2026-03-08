@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DestroyCoreState@DXGPROTECTEDSESSION@@QEAAJXZ @ 0x1C0343CA4
+ * Callers:
+ *     ?Stop@DXGPROTECTEDSESSION@@QEAAXXZ @ 0x1C0344664 (-Stop@DXGPROTECTEDSESSION@@QEAAXXZ.c)
+ * Callees:
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00045F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?DdiDestroyProtectedSession@ADAPTER_DISPLAY@@QEAAJPEAX@Z @ 0x1C02C2334 (-DdiDestroyProtectedSession@ADAPTER_DISPLAY@@QEAAJPEAX@Z.c)
+ */
+
 __int64 __fastcall DXGPROTECTEDSESSION::DestroyCoreState(DXGPROTECTEDSESSION *this)
 {
   __int64 v2; // r8

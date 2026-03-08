@@ -1,3 +1,16 @@
+/*
+ * XREFs of PnpGetDeviceLocationStrings @ 0x1407F8628
+ * Callers:
+ *     PiQueryRemovableDeviceOverride @ 0x140680570 (PiQueryRemovableDeviceOverride.c)
+ *     PiProcessNewDeviceNode @ 0x140685858 (PiProcessNewDeviceNode.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PnpQueryInterface @ 0x1407F8C60 (PnpQueryInterface.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpGetDeviceLocationStrings(__int64 a1, _QWORD *a2, _DWORD *a3)
 {
   __int64 v3; // rbx

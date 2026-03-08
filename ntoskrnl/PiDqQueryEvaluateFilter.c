@@ -1,3 +1,17 @@
+/*
+ * XREFs of PiDqQueryEvaluateFilter @ 0x1406CC524
+ * Callers:
+ *     PiDqQueryApplyObjectEvent @ 0x1406896F4 (PiDqQueryApplyObjectEvent.c)
+ *     PiDqQueryEnumObject @ 0x1406CBF24 (PiDqQueryEnumObject.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     PnpFreeDevPropertyArray @ 0x1406CC480 (PnpFreeDevPropertyArray.c)
+ *     FilterEval @ 0x1406CC630 (FilterEval.c)
+ *     PiPnpRtlEndOperation @ 0x1406CCB7C (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1406CDF98 (PiPnpRtlBeginOperation.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PiDqQueryEvaluateFilter(__int64 a1, __int64 a2, bool *a3)
 {
   __int64 v3; // rax

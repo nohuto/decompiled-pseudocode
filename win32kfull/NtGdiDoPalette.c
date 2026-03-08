@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiDoPalette @ 0x1C00D3F50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall NtGdiDoPalette(HPALETTE a1, __int64 a2, __int64 a3, char *a4, unsigned int a5)
 {
   __int64 v6; // rbx

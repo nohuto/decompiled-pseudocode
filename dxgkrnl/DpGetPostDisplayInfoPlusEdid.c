@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpGetPostDisplayInfoPlusEdid @ 0x1C03944C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     DpiAcquirePostDisplayOwnership @ 0x1C0395658 (DpiAcquirePostDisplayOwnership.c)
+ */
+
 __int64 __fastcall DpGetPostDisplayInfoPlusEdid(__int64 a1, __int64 a2)
 {
   int v3; // ebx

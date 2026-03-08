@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DpiBrightnessIfSetBacklightOptimization@@YAJPEAXW4DXGK_BACKLIGHT_OPTIMIZATION_LEVEL@@@Z @ 0x1C039D4C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C0180684 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C0180B30 (DpiAcquireCoreSyncAccessSafe.c)
+ *     DpiCallDrvSetBacklightOptimizationLevel @ 0x1C039DBB4 (DpiCallDrvSetBacklightOptimizationLevel.c)
+ */
+
 __int64 __fastcall DpiBrightnessIfSetBacklightOptimization(_QWORD *a1, unsigned int a2)
 {
   __int64 v2; // rdi

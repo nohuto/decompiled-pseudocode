@@ -1,3 +1,17 @@
+/*
+ * XREFs of Controller_DetectFrameMicroframeBoundary @ 0x1C0032EF4
+ * Callers:
+ *     Controller_Start @ 0x1C0014F3C (Controller_Start.c)
+ *     Controller_TimeSyncStartTrackingWorker @ 0x1C0035200 (Controller_TimeSyncStartTrackingWorker.c)
+ * Callees:
+ *     DynamicLock_Acquire @ 0x1C000A918 (DynamicLock_Acquire.c)
+ *     DynamicLock_Release @ 0x1C000A958 (DynamicLock_Release.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_GetFrameNumber @ 0x1C0033490 (Controller_GetFrameNumber.c)
+ */
+
 __int64 __fastcall Controller_DetectFrameMicroframeBoundary(__int64 a1)
 {
   unsigned int v1; // r14d

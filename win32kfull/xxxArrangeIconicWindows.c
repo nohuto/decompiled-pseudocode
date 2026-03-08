@@ -1,3 +1,20 @@
+/*
+ * XREFs of xxxArrangeIconicWindows @ 0x1C023C684
+ * Callers:
+ *     NtUserArrangeIconicWindows @ 0x1C01CDBE0 (NtUserArrangeIconicWindows.c)
+ * Callees:
+ *     InternalBeginDeferWindowPos @ 0x1C0029148 (InternalBeginDeferWindowPos.c)
+ *     ?IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z @ 0x1C002E354 (-IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z.c)
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     BuildHwndList @ 0x1C0041A10 (BuildHwndList.c)
+ *     ?_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z @ 0x1C0067EB8 (-_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z.c)
+ *     FreeHwndList @ 0x1C00680B0 (FreeHwndList.c)
+ *     xxxEndDeferWindowPosEx @ 0x1C00698F0 (xxxEndDeferWindowPosEx.c)
+ *     InternalGetRealClientRect @ 0x1C00A2710 (InternalGetRealClientRect.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     _ScreenToClient @ 0x1C00E8E64 (_ScreenToClient.c)
+ */
+
 __int64 __fastcall xxxArrangeIconicWindows(__int64 a1)
 {
   ShellWindowManagement *v2; // rcx

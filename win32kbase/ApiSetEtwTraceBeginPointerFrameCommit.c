@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEtwTraceBeginPointerFrameCommit @ 0x1C0243B70
+ * Callers:
+ *     rimGetCompleteFrameAndReleaseHoldingFrame @ 0x1C01CE320 (rimGetCompleteFrameAndReleaseHoldingFrame.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     EtwTraceBeginPointerFrameCommit @ 0x1C00EDCA0 (EtwTraceBeginPointerFrameCommit.c)
+ */
+
 __int64 __fastcall ApiSetEtwTraceBeginPointerFrameCommit(__int64 a1, char a2)
 {
   char v3; // bl

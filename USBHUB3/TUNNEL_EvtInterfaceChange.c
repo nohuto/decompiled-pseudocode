@@ -1,3 +1,18 @@
+/*
+ * XREFs of TUNNEL_EvtInterfaceChange @ 0x1C008DCF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_q @ 0x1C0015204 (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_S @ 0x1C00344CC (WPP_RECORDER_SF_S.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsMsgKM @ 0x1C0041C84 (MicrosoftTelemetryAssertTriggeredArgsMsgKM.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     TUNNEL_GetUsb4Host @ 0x1C008D2F4 (TUNNEL_GetUsb4Host.c)
+ */
+
 __int64 __fastcall TUNNEL_EvtInterfaceChange(char *NotificationStructure, PVOID Context)
 {
   char v3; // r13

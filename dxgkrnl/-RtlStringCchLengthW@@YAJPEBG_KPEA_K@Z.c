@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?RtlStringCchLengthW@@YAJPEBG_KPEA_K@Z @ 0x1C000296C
+ * Callers:
+ *     ?_QueryMonitorIdStr@CCD_TOPOLOGY@@CAJAEBU_LUID@@IPEAGG1@Z @ 0x1C017151C (-_QueryMonitorIdStr@CCD_TOPOLOGY@@CAJAEBU_LUID@@IPEAGG1@Z.c)
+ *     ?DmmAppendCcdConnectedSetForAdapter@@YAJQEAXPEAU_UNICODE_STRING@@@Z @ 0x1C0171724 (-DmmAppendCcdConnectedSetForAdapter@@YAJQEAXPEAU_UNICODE_STRING@@@Z.c)
+ *     ?AppendMonitorId@DpiPersistence@@YAJIAEBU_LUID@@PEAVVIDPN_MGR@@GPEAG2@Z @ 0x1C01C1CF0 (-AppendMonitorId@DpiPersistence@@YAJIAEBU_LUID@@PEAVVIDPN_MGR@@GPEAG2@Z.c)
+ *     ?_PrepareMonitorCCDName@DXGMONITOR@@AEAAJXZ @ 0x1C01F9AA4 (-_PrepareMonitorCCDName@DXGMONITOR@@AEAAJXZ.c)
+ *     DxgkNetDispQueryMiracastDisplayDeviceStatus @ 0x1C02CE9A0 (DxgkNetDispQueryMiracastDisplayDeviceStatus.c)
+ *     DxgkNetDispStopMiracastDisplayDevice @ 0x1C02CEF20 (DxgkNetDispStopMiracastDisplayDevice.c)
+ *     ?AddHostRouter@USB4_HOSTROUTER_MGR@@AEAAJPEBU_UNICODE_STRING@@@Z @ 0x1C03C5960 (-AddHostRouter@USB4_HOSTROUTER_MGR@@AEAAJPEBU_UNICODE_STRING@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlStringCchLengthW(const unsigned __int16 *a1, unsigned __int64 a2, unsigned __int64 *a3)
 {
   unsigned __int64 i; // r9

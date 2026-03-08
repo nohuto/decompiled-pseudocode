@@ -1,3 +1,20 @@
+/*
+ * XREFs of ObpCaptureObjectCreateInformation @ 0x1406E9E60
+ * Callers:
+ *     ObOpenObjectByNameEx @ 0x1406E7F70 (ObOpenObjectByNameEx.c)
+ *     ObReferenceObjectByNameEx @ 0x140710ADC (ObReferenceObjectByNameEx.c)
+ *     IopAllocRealFileObject @ 0x1407BA090 (IopAllocRealFileObject.c)
+ *     CmpCreateKeyBody @ 0x1407BA4F0 (CmpCreateKeyBody.c)
+ *     SepDuplicateToken @ 0x1407BCF00 (SepDuplicateToken.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ * Callees:
+ *     SeComputeQuotaInformationSize @ 0x1406968A0 (SeComputeQuotaInformationSize.c)
+ *     ObpCaptureObjectName @ 0x1406EA0F0 (ObpCaptureObjectName.c)
+ *     SeCaptureSecurityDescriptor @ 0x1407C8A50 (SeCaptureSecurityDescriptor.c)
+ *     SeReleaseSecurityDescriptor @ 0x1407C92D0 (SeReleaseSecurityDescriptor.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall ObpCaptureObjectCreateInformation(
         unsigned __int8 a1,
         char a2,

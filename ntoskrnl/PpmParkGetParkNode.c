@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmParkGetParkNode @ 0x14040B904
+ * Callers:
+ *     PpmParkSnapNodeIdleTime @ 0x14059AF68 (PpmParkSnapNodeIdleTime.c)
+ *     PpmIdleGetPackageIdleIntervalStats @ 0x14084C230 (PpmIdleGetPackageIdleIntervalStats.c)
+ *     PpmIdleGetConcurrencyStats @ 0x14085AA64 (PpmIdleGetConcurrencyStats.c)
+ * Callees:
+ *     <none>
+ */
+
 _WORD *__fastcall PpmParkGetParkNode(__int16 a1)
 {
   __int64 v1; // rdx

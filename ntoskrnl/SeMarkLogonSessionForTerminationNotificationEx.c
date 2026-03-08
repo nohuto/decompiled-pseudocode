@@ -1,3 +1,13 @@
+/*
+ * XREFs of SeMarkLogonSessionForTerminationNotificationEx @ 0x140880B30
+ * Callers:
+ *     SeMarkLogonSessionForTerminationNotification @ 0x140880B10 (SeMarkLogonSessionForTerminationNotification.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 __int64 __fastcall SeMarkLogonSessionForTerminationNotificationEx(_DWORD *a1, __int64 a2)
 {
   unsigned __int64 v4; // r8

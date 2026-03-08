@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiDeleteBatch @ 0x14027A5E0
+ * Callers:
+ *     MiDeletePteRun @ 0x140279760 (MiDeletePteRun.c)
+ *     MiDeleteClusterPage @ 0x14027A890 (MiDeleteClusterPage.c)
+ * Callees:
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     MiDetermineModifiedPageListHead @ 0x14027E090 (MiDetermineModifiedPageListHead.c)
+ *     MiLockNestedPageAtDpcInline @ 0x1402DDE90 (MiLockNestedPageAtDpcInline.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPfnShareCountIsZero @ 0x14032BF50 (MiPfnShareCountIsZero.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14032D790 (MiCaptureDirtyBitToPfn.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiBadShareCount @ 0x14064B0E0 (MiBadShareCount.c)
+ */
+
 __int64 __fastcall MiDeleteBatch(unsigned __int8 *a1)
 {
   __int64 result; // rax

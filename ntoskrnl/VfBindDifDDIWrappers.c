@@ -1,3 +1,11 @@
+/*
+ * XREFs of VfBindDifDDIWrappers @ 0x140AC7220
+ * Callers:
+ *     DifRegisterPlugin @ 0x1405D2C50 (DifRegisterPlugin.c)
+ * Callees:
+ *     ViBindDifThunkNormal @ 0x140AC78D8 (ViBindDifThunkNormal.c)
+ */
+
 bool __fastcall VfBindDifDDIWrappers(int a1, int a2, __int64 a3)
 {
   int v3; // edx

@@ -1,3 +1,26 @@
+/*
+ * XREFs of PopWriteHiberPages @ 0x140AA2874
+ * Callers:
+ *     PopWriteSecurePages @ 0x14058CB30 (PopWriteSecurePages.c)
+ *     PopWriteSecurePagesCallback @ 0x14058CBD8 (PopWriteSecurePagesCallback.c)
+ *     PopWriteChecksumPages @ 0x140AA23E0 (PopWriteChecksumPages.c)
+ *     PopWriteHeaderPages @ 0x140AA2478 (PopWriteHeaderPages.c)
+ *     PopWriteImageHeader @ 0x140AA2B28 (PopWriteImageHeader.c)
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _PopInternalError @ 0x140581228 (_PopInternalError.c)
+ *     MmGetNumberOfPhysicalPages @ 0x140768AB0 (MmGetNumberOfPhysicalPages.c)
+ *     PopGetIoLocation @ 0x140A9FBBC (PopGetIoLocation.c)
+ *     PopGetRemainingHibernateRangeDataSize @ 0x140A9FC4C (PopGetRemainingHibernateRangeDataSize.c)
+ *     PopRecordHibernateDiagnosticInfo @ 0x140AA0920 (PopRecordHibernateDiagnosticInfo.c)
+ *     PopCheckpointSystemSleep @ 0x140AA7378 (PopCheckpointSystemSleep.c)
+ */
+
 __int64 __fastcall PopWriteHiberPages(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
 {
   __int64 v6; // rsi

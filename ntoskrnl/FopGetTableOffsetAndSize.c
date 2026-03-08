@@ -1,3 +1,13 @@
+/*
+ * XREFs of FopGetTableOffsetAndSize @ 0x140B996C4
+ * Callers:
+ *     BgpRasInitializeRasterizer @ 0x140B98F30 (BgpRasInitializeRasterizer.c)
+ *     FopValidateFontNameTable @ 0x140B99A68 (FopValidateFontNameTable.c)
+ *     FopInitializeFonts @ 0x140B99D48 (FopInitializeFonts.c)
+ * Callees:
+ *     FioFwReadBytesAtOffset @ 0x140383778 (FioFwReadBytesAtOffset.c)
+ */
+
 __int64 __fastcall FopGetTableOffsetAndSize(
         __int64 a1,
         unsigned int a2,

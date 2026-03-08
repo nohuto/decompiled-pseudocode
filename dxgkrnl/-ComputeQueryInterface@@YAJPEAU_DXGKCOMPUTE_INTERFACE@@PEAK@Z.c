@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ComputeQueryInterface@@YAJPEAU_DXGKCOMPUTE_INTERFACE@@PEAK@Z @ 0x1C004C7CC
+ * Callers:
+ *     DxgkInternalDeviceIoctl @ 0x1C01D6220 (DxgkInternalDeviceIoctl.c)
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall ComputeQueryInterface(struct _DXGKCOMPUTE_INTERFACE *a1, unsigned int *a2)
 {
   __int64 result; // rax

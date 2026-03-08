@@ -1,3 +1,12 @@
+/*
+ * XREFs of ImpRpcConnect @ 0x1C008CAE8
+ * Callers:
+ *     ImSessionStart @ 0x1C008BE98 (ImSessionStart.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C008D2C0 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall ImpRpcConnect(__int64 a1, __int64 a2, __int64 a3)
 {
   RPC_STATUS v3; // eax

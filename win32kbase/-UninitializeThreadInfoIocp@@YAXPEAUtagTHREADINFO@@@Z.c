@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UninitializeThreadInfoIocp@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C00944FC
+ * Callers:
+ *     xxxDestroyThreadInfo @ 0x1C0072BF4 (xxxDestroyThreadInfo.c)
+ * Callees:
+ *     ProtectHandle @ 0x1C00945DC (ProtectHandle.c)
+ */
+
 void __fastcall UninitializeThreadInfoIocp(struct tagTHREADINFO *a1, __int64 a2)
 {
   void *v3; // rcx

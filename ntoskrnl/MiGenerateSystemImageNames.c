@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiGenerateSystemImageNames @ 0x14072ECD0
+ * Callers:
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x140A323A8 (MiApplyHotPatchToLoadedDriver.c)
+ * Callees:
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ */
+
 __int64 __fastcall MiGenerateSystemImageNames(
         unsigned __int16 *a1,
         const UNICODE_STRING *a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?MapKernelSectionForUserMapping@@YAJPEAXPEAU_EPROCESS@@_KPEAPEAX@Z @ 0x1C002268C
+ * Callers:
+ *     ?Map@SURFACE@@QEAA?AW4SurfaceMapStatus@1@PEAXPEAVDC@@@Z @ 0x1C00214A0 (-Map@SURFACE@@QEAA-AW4SurfaceMapStatus@1@PEAXPEAVDC@@@Z.c)
+ *     ?AllocateSharedSection@@YAJKKPEAPEAX00@Z @ 0x1C0185010 (-AllocateSharedSection@@YAJKKPEAPEAX00@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MapKernelSectionForUserMapping(void *a1, struct _EPROCESS *a2, __int64 a3, void **a4)
 {
   __int64 result; // rax

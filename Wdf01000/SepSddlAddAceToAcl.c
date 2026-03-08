@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepSddlAddAceToAcl @ 0x1C00B08F4
+ * Callers:
+ *     SepSddlGetAclForString @ 0x1C00B0AE0 (SepSddlGetAclForString.c)
+ * Callees:
+ *     memset @ 0x1C000AC00 (memset.c)
+ *     memmove @ 0x1C000B140 (memmove.c)
+ */
+
 NTSTATUS __fastcall SepSddlAddAceToAcl(
         _ACL **Acl,
         unsigned int *TrueAclSize,

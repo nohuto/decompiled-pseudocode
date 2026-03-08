@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiSwDeviceCreate @ 0x140806D94
+ * Callers:
+ *     PiSwIrpStartCreateWorker @ 0x140806A2C (PiSwIrpStartCreateWorker.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PiSwDeviceCreate(_QWORD *a1)
 {
   unsigned int v2; // ebx

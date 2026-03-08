@@ -1,3 +1,12 @@
+/*
+ * XREFs of HmgQueryAltLock @ 0x1C01862A0
+ * Callers:
+ *     vDynamicConvertNewSurfaceDCs @ 0x1C009DC40 (vDynamicConvertNewSurfaceDCs.c)
+ *     bMigrateSurfaceForConversion @ 0x1C0186E60 (bMigrateSurfaceForConversion.c)
+ * Callees:
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C004B5B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ */
+
 __int64 __fastcall HmgQueryAltLock(__int64 a1)
 {
   unsigned int v1; // ebx

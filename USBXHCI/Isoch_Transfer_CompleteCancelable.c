@@ -1,3 +1,19 @@
+/*
+ * XREFs of Isoch_Transfer_CompleteCancelable @ 0x1C0045590
+ * Callers:
+ *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001EC0 (Isoch_ProcessTransferEventWithED1.c)
+ *     Isoch_RetrieveNextStage @ 0x1C0003800 (Isoch_RetrieveNextStage.c)
+ *     Isoch_MapStage @ 0x1C0004810 (Isoch_MapStage.c)
+ *     Isoch_PrepareStage @ 0x1C0004AD0 (Isoch_PrepareStage.c)
+ *     Isoch_CompleteStaleTransfers @ 0x1C0043B94 (Isoch_CompleteStaleTransfers.c)
+ *     Isoch_CompleteTransfers @ 0x1C0043E28 (Isoch_CompleteTransfers.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DDqd @ 0x1C0007E70 (WPP_RECORDER_SF_DDqd.c)
+ *     TR_QueueDpcForTransferCompletion @ 0x1C000F284 (TR_QueueDpcForTransferCompletion.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Isoch_Transfer_PrepareForCompletion @ 0x1C0045868 (Isoch_Transfer_PrepareForCompletion.c)
+ */
+
 char __fastcall Isoch_Transfer_CompleteCancelable(
         __int64 a1,
         __int64 *a2,

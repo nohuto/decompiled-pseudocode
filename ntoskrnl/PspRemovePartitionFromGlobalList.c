@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspRemovePartitionFromGlobalList @ 0x1405A41A8
+ * Callers:
+ *     PspDeletePartition @ 0x1409B36F0 (PspDeletePartition.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall PspRemovePartitionFromGlobalList(__int64 a1)
 {
   _QWORD *v1; // rbx

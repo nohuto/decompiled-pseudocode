@@ -1,3 +1,13 @@
+/*
+ * XREFs of _PnpMultiSzGetLen @ 0x1406C8258
+ * Callers:
+ *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1406C9418 (_CmGetDeviceMappedPropertyFromRegProp.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA2A4 (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceSiblings @ 0x140839C1C (_CmGetDeviceSiblings.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PnpMultiSzGetLen(_WORD *a1)
 {
   unsigned int v1; // edx

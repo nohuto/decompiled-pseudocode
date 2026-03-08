@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceEndPointerSetTargetWindows @ 0x1C01624D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C00EDED8 (McTemplateK0_EtwWriteTransfer.c)
+ */
+
 NTSTATUS __fastcall EtwTraceEndPointerSetTargetWindows(int a1)
 {
   __int64 v1; // rcx

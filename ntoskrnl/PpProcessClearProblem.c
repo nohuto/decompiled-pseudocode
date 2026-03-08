@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpProcessClearProblem @ 0x1403ABD90
+ * Callers:
+ *     PnpDeviceActionWorker @ 0x140203020 (PnpDeviceActionWorker.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PipForDeviceNodeSubtree @ 0x1407855F8 (PipForDeviceNodeSubtree.c)
+ */
+
 __int64 __fastcall PpProcessClearProblem(__int64 a1)
 {
   __int64 v1; // rax

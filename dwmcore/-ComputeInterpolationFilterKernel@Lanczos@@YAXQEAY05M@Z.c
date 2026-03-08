@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ComputeInterpolationFilterKernel@Lanczos@@YAXQEAY05M@Z @ 0x1801FC0E0
+ * Callers:
+ *     ?ComputeLanczosKernel@@YAJPEAVCSurfaceShaderComposer@@IIII@Z @ 0x1801F2168 (-ComputeLanczosKernel@@YAJPEAVCSurfaceShaderComposer@@IIII@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     Lanczos::Lanczos @ 0x1801FC1C0 (Lanczos--Lanczos.c)
+ */
+
 void __fastcall Lanczos::ComputeInterpolationFilterKernel(Lanczos *this, float (*const a2)[6])
 {
   float *v2; // rdi

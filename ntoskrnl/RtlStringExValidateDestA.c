@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlStringExValidateDestA @ 0x1403847DC
+ * Callers:
+ *     RtlStringCbCopyExA @ 0x140384764 (RtlStringCbCopyExA.c)
+ *     RtlStringCbPrintfExA @ 0x1404FB9CC (RtlStringCbPrintfExA.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlStringExValidateDestA(STRSAFE_PCNZCH pszDest, size_t cchDest, const size_t cchMax, ULONG dwFlags)
 {
   NTSTATUS result; // eax

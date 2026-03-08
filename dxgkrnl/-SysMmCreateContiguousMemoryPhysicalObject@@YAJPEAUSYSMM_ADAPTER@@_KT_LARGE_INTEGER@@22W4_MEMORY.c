@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SysMmCreateContiguousMemoryPhysicalObject@@YAJPEAUSYSMM_ADAPTER@@_KT_LARGE_INTEGER@@22W4_MEMORY_CACHING_TYPE@@QEAXW4SYSMM_PHYSICAL_OBJECT_OWNER@@PEAPEAUSYSMM_PHYSICAL_OBJECT@@PEAPEAUSYSMM_ADAPTER_OBJECT@@PEAPEAX@Z @ 0x1C006F010
+ * Callers:
+ *     DxgkAllocateContiguousMemoryCB @ 0x1C0052030 (DxgkAllocateContiguousMemoryCB.c)
+ *     DxgkCreatePhysicalMemoryObjectCB @ 0x1C0052100 (DxgkCreatePhysicalMemoryObjectCB.c)
+ *     SysMmTestCreateContiguousMemoryPhysicalObject @ 0x1C00716A0 (SysMmTestCreateContiguousMemoryPhysicalObject.c)
+ * Callees:
+ *     SmmCreatePhysicalObject @ 0x1C00130BC (SmmCreatePhysicalObject.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall SysMmCreateContiguousMemoryPhysicalObject(
         struct SYSMM_ADAPTER *a1,
         SIZE_T a2,

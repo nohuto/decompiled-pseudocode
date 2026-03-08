@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiAssignSystemVa @ 0x140B60784
+ * Callers:
+ *     MiAssignTopLevelRanges @ 0x140B604AC (MiAssignTopLevelRanges.c)
+ * Callees:
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     RtlFindClearBitsAndSet @ 0x14030CEE0 (RtlFindClearBitsAndSet.c)
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ */
+
 __int64 __fastcall MiAssignSystemVa(ULONG NumberToClear, unsigned int a2)
 {
   ULONG v4; // esi

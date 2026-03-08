@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbDevice_GetEndpointOffloadInformation @ 0x1C0048D9C
+ * Callers:
+ *     UsbDevice_EndpointsConfigureCompletion @ 0x1C000D070 (UsbDevice_EndpointsConfigureCompletion.c)
+ * Callees:
+ *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C0007FC0 (XilUsbDevice_GetDeviceContextBufferVA.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_IncrementNumberOfEndpointsOffloaded @ 0x1C0033878 (Controller_IncrementNumberOfEndpointsOffloaded.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ */
+
 __int64 __fastcall UsbDevice_GetEndpointOffloadInformation(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

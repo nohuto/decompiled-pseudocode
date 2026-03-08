@@ -1,3 +1,27 @@
+/*
+ * XREFs of MiCopyFileOnlyGlobalSubsectionPage @ 0x140639EB8
+ * Callers:
+ *     MiResolveMappedFileFault @ 0x14028A780 (MiResolveMappedFileFault.c)
+ * Callees:
+ *     MiInitializeTransitionPfn @ 0x140214B28 (MiInitializeTransitionPfn.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PsGetIoPriorityThread @ 0x1402832C0 (PsGetIoPriorityThread.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140286264 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiStartingOffset @ 0x14028C530 (MiStartingOffset.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x1402A2850 (MiTryLockProtoPoolPageAtDpc.c)
+ *     MiTryLockLeafPage @ 0x1402A29B8 (MiTryLockLeafPage.c)
+ *     MiObtainProtoReference @ 0x1402A304C (MiObtainProtoReference.c)
+ *     MiFlowThroughInsertNode @ 0x1402FE598 (MiFlowThroughInsertNode.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiCopyPage @ 0x14032DC70 (MiCopyPage.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiAdvanceFaultList @ 0x140363F9C (MiAdvanceFaultList.c)
+ *     MiHandleInPageError @ 0x14036A984 (MiHandleInPageError.c)
+ */
+
 __int64 __fastcall MiCopyFileOnlyGlobalSubsectionPage(
         __int64 a1,
         __int64 *a2,

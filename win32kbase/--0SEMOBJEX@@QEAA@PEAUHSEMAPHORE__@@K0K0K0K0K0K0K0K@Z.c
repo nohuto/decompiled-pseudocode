@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C00D9220
+ * Callers:
+ *     HDXDrvEscape @ 0x1C00D8F50 (HDXDrvEscape.c)
+ *     GreDrvConnect @ 0x1C01998F0 (GreDrvConnect.c)
+ * Callees:
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0049800 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     EngAcquireSemaphore @ 0x1C004B690 (EngAcquireSemaphore.c)
+ */
+
 SEMOBJEX *__fastcall SEMOBJEX::SEMOBJEX(
         SEMOBJEX *this,
         HSEMAPHORE a2,

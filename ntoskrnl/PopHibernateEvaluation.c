@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopHibernateEvaluation @ 0x14082B35C
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ *     PoInitHiberServices @ 0x14082B1B0 (PoInitHiberServices.c)
+ *     PopWnfHibernatePolicyCallback @ 0x140986410 (PopWnfHibernatePolicyCallback.c)
+ * Callees:
+ *     PopEnableHiberFile @ 0x14082ADA4 (PopEnableHiberFile.c)
+ */
+
 __int64 __fastcall PopHibernateEvaluation(char a1, char a2, bool *a3)
 {
   bool v4; // r10

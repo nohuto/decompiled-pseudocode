@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlRemoveLargeEntry @ 0x1402D0D2C
+ * Callers:
+ *     FsRtlRemoveBaseMcbEntry @ 0x1402D0270 (FsRtlRemoveBaseMcbEntry.c)
+ *     FsRtlAddBaseMcbEntryEx @ 0x1402D06D0 (FsRtlAddBaseMcbEntryEx.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 void *__fastcall FsRtlRemoveLargeEntry(__int64 a1, unsigned int a2, int a3)
 {
   void *result; // rax

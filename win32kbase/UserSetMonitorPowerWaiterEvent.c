@@ -1,3 +1,11 @@
+/*
+ * XREFs of UserSetMonitorPowerWaiterEvent @ 0x1C00D7120
+ * Callers:
+ *     DrvSetWddmDeviceMonitorPowerState @ 0x1C00D6BA0 (DrvSetWddmDeviceMonitorPowerState.c)
+ * Callees:
+ *     <none>
+ */
+
 LONG __fastcall UserSetMonitorPowerWaiterEvent(__int64 Increment, BOOLEAN a2)
 {
   KPRIORITY v3; // edi

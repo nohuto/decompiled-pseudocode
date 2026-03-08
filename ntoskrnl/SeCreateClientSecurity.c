@@ -1,3 +1,21 @@
+/*
+ * XREFs of SeCreateClientSecurity @ 0x1406D61E0
+ * Callers:
+ *     EtwpStartLogger @ 0x140691964 (EtwpStartLogger.c)
+ *     AlpcpCreateSecurityContext @ 0x1406D45F8 (AlpcpCreateSecurityContext.c)
+ *     AlpcpImpersonateMessage @ 0x1406D4C70 (AlpcpImpersonateMessage.c)
+ *     AlpcpCreateClientPort @ 0x140713330 (AlpcpCreateClientPort.c)
+ *     EtwpUpdateTrace @ 0x140744D3C (EtwpUpdateTrace.c)
+ *     NtImpersonateThread @ 0x140773790 (NtImpersonateThread.c)
+ *     EtwpFixBootLoggers @ 0x140B6569C (EtwpFixBootLoggers.c)
+ * Callees:
+ *     SepReconcileTrustSidWithProcessProtection @ 0x140247C30 (SepReconcileTrustSidWithProcessProtection.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     SepCreateClientSecurityEx @ 0x1406D5F10 (SepCreateClientSecurityEx.c)
+ *     PsReferenceImpersonationTokenEx @ 0x1406D6630 (PsReferenceImpersonationTokenEx.c)
+ */
+
 NTSTATUS __stdcall SeCreateClientSecurity(
         PETHREAD ClientThread,
         PSECURITY_QUALITY_OF_SERVICE ClientSecurityQos,

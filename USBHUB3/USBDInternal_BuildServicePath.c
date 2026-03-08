@@ -1,3 +1,12 @@
+/*
+ * XREFs of USBDInternal_BuildServicePath @ 0x1C0042258
+ * Callers:
+ *     USBD_CreateHandle @ 0x1C004247C (USBD_CreateHandle.c)
+ * Callees:
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 __int64 __fastcall USBDInternal_BuildServicePath(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rbx

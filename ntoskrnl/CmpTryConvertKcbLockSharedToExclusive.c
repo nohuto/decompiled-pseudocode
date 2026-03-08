@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpTryConvertKcbLockSharedToExclusive @ 0x1407A7560
+ * Callers:
+ *     CmpEnlistKeyBody @ 0x14076EBCC (CmpEnlistKeyBody.c)
+ *     CmSetValueKey @ 0x1407A9870 (CmSetValueKey.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CmpTryConvertKcbLockSharedToExclusive(__int64 a1)
 {
   char v1; // dl

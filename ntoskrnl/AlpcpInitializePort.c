@@ -1,3 +1,17 @@
+/*
+ * XREFs of AlpcpInitializePort @ 0x140712D08
+ * Callers:
+ *     AlpcpCreateClientPort @ 0x140713330 (AlpcpCreateClientPort.c)
+ *     AlpcpAcceptConnectPort @ 0x140713844 (AlpcpAcceptConnectPort.c)
+ *     AlpcpCreateConnectionPort @ 0x14077D738 (AlpcpCreateConnectionPort.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeInitializeSemaphore @ 0x140343A50 (KeInitializeSemaphore.c)
+ */
+
 __int64 __fastcall AlpcpInitializePort(__int64 a1, char a2, char a3)
 {
   __int64 *v4; // rax

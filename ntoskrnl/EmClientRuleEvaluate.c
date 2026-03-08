@@ -1,3 +1,20 @@
+/*
+ * XREFs of EmClientRuleEvaluate @ 0x140A85280
+ * Callers:
+ *     PopPepInitializeVetoMasks @ 0x14059CE34 (PopPepInitializeVetoMasks.c)
+ *     PoRegisterPowerSettingCallback @ 0x14073B960 (PoRegisterPowerSettingCallback.c)
+ *     PopReadErrataSkipMemoryOverwriteRequestControlLockAction @ 0x140B7203C (PopReadErrataSkipMemoryOverwriteRequestControlLockAction.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     EmpSearchTargetRuleList @ 0x1402D62A0 (EmpSearchTargetRuleList.c)
+ *     EmpSearchRuleDatabase @ 0x1402D62C8 (EmpSearchRuleDatabase.c)
+ *     EmpEvaluateTargetRule @ 0x1402D6300 (EmpEvaluateTargetRule.c)
+ *     EmpAcquirePagingReference @ 0x140A85380 (EmpAcquirePagingReference.c)
+ *     EmpReleasePagingReference @ 0x140A853F4 (EmpReleasePagingReference.c)
+ */
+
 __int64 __fastcall EmClientRuleEvaluate(_QWORD *a1, __int64 a2, int a3, _DWORD *a4)
 {
   unsigned int v4; // ebx

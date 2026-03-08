@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpQueryFeatureSupport @ 0x1C021A040
+ * Callers:
+ *     DpIsFeatureEnabled @ 0x1C0394650 (DpIsFeatureEnabled.c)
+ * Callees:
+ *     Feature_DxgkGpuVaIoMmu__private_IsEnabledDeviceUsage @ 0x1C0024530 (Feature_DxgkGpuVaIoMmu__private_IsEnabledDeviceUsage.c)
+ */
+
 __int64 __fastcall DpQueryFeatureSupport(__int64 *a1)
 {
   __int64 v1; // r10

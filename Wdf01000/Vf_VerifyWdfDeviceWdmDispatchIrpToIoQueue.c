@@ -1,3 +1,18 @@
+/*
+ * XREFs of Vf_VerifyWdfDeviceWdmDispatchIrpToIoQueue @ 0x1C00B9D10
+ * Callers:
+ *     imp_WdfDeviceWdmDispatchIrpToIoQueue @ 0x1C000D160 (imp_WdfDeviceWdmDispatchIrpToIoQueue.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qd @ 0x1C0007FCC (WPP_IFR_SF_qd.c)
+ *     ?GetDispatchPackage@FxDevice@@QEAAPEAVFxPackage@@E@Z @ 0x1C000CF60 (-GetDispatchPackage@FxDevice@@QEAAPEAVFxPackage@@E@Z.c)
+ *     ?IsIoEventHandlerRegistered@FxIoQueue@@QEAAEW4_WDF_REQUEST_TYPE@@@Z @ 0x1C000FAEE (-IsIoEventHandlerRegistered@FxIoQueue@@QEAAEW4_WDF_REQUEST_TYPE@@@Z.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_dd @ 0x1C0017D64 (WPP_IFR_SF_dd.c)
+ *     WPP_IFR_SF_qqcDq @ 0x1C0031830 (WPP_IFR_SF_qqcDq.c)
+ *     WPP_IFR_SF_qqcDqd @ 0x1C003196C (WPP_IFR_SF_qqcDqd.c)
+ */
+
 __int64 __fastcall Vf_VerifyWdfDeviceWdmDispatchIrpToIoQueue(
         _FX_DRIVER_GLOBALS *FxDriverGlobals,
         FxDevice *device,

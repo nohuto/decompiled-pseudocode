@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpTimerHypervisorInterruptStub @ 0x14051C640
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char HalpTimerHypervisorInterruptStub()
 {
   __int64 InternalData; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepSddlSecurityDescriptorFromSDDLString @ 0x1C0393064
+ * Callers:
+ *     SeSddlSecurityDescriptorFromSDDL @ 0x1C03927C0 (SeSddlSecurityDescriptorFromSDDL.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     SepSddlDaclFromSDDLString @ 0x1C0392994 (SepSddlDaclFromSDDLString.c)
+ */
+
 __int64 __fastcall SepSddlSecurityDescriptorFromSDDLString(_WORD *a1, ULONG a2, __int64 a3)
 {
   __int64 (__fastcall *SystemRoutineAddress)(_WORD *, __int64, __int64); // rax

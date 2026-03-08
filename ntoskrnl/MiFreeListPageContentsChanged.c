@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiFreeListPageContentsChanged @ 0x14064B138
+ * Callers:
+ *     MiZeroPage @ 0x140275060 (MiZeroPage.c)
+ * Callees:
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiGetPfnChannel @ 0x140334470 (MiGetPfnChannel.c)
+ */
+
 void __fastcall MiFreeListPageContentsChanged(unsigned __int64 a1)
 {
   __int64 v2; // rcx

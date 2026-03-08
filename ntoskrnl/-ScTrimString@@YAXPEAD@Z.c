@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ScTrimString@@YAXPEAD@Z @ 0x140672CCC
+ * Callers:
+ *     ?ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z @ 0x140672B68 (-ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z.c)
+ * Callees:
+ *     isspace @ 0x1403D4560 (isspace.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 void __fastcall ScTrimString(char *a1)
 {
   __int64 v1; // rbx

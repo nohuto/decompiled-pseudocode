@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetValue@?$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$03$03@@SAJPEAU1@KURTLP_FLS_SLOT@@K@Z @ 0x1402E0E10
+ * Callers:
+ *     RtlpFlsSetValueSlot @ 0x14076B5F4 (RtlpFlsSetValueSlot.c)
+ * Callees:
+ *     ?ChunkAllocate@?$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$03$03@@SAPEAURTL_BINARY_ARRAY_CHUNK@1@PEAU1@K@Z @ 0x1402E0E84 (-ChunkAllocate@-$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$03$03@@SAPEAURTL_BINARY_ARRAY_CHUNK@1@PEAU1@K.c)
+ */
+
 __int64 __fastcall RTL_BINARY_ARRAY<RTLP_FLS_SLOT,4,4>::SetValue(__int64 a1, unsigned int a2, __int64 a3)
 {
   unsigned int v3; // ebx

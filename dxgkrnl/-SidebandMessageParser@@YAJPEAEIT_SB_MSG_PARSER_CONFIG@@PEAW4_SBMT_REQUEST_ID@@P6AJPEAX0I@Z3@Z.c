@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SidebandMessageParser@@YAJPEAEIT_SB_MSG_PARSER_CONFIG@@PEAW4_SBMT_REQUEST_ID@@P6AJPEAX0I@Z3@Z @ 0x1C0088780
+ * Callers:
+ *     NtDxgkDisplayPortOperation @ 0x1C004A830 (NtDxgkDisplayPortOperation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SidebandMessageParser(unsigned __int8 *a1, unsigned int a2, __int64 a3, _DWORD *a4)
 {
   unsigned int v5; // r10d

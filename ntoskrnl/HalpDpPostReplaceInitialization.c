@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpDpPostReplaceInitialization @ 0x140A94574
+ * Callers:
+ *     HalpDpOfflineProcessorForReplace @ 0x140A94318 (HalpDpOfflineProcessorForReplace.c)
+ * Callees:
+ *     HalpInterruptReinitializeThisProcessor @ 0x140377F50 (HalpInterruptReinitializeThisProcessor.c)
+ *     HalpInterruptEnableNmi @ 0x140378254 (HalpInterruptEnableNmi.c)
+ *     HalpInterruptEnablePerformanceEvents @ 0x1403789F8 (HalpInterruptEnablePerformanceEvents.c)
+ *     HalpMcUpdateMicrocode @ 0x14037CB18 (HalpMcUpdateMicrocode.c)
+ *     HalpGetCpuInfo @ 0x14037D1F0 (HalpGetCpuInfo.c)
+ *     HalpRestartProfiling @ 0x140505F14 (HalpRestartProfiling.c)
+ *     HalpMcaResumeProcessorConfig @ 0x140A9218C (HalpMcaResumeProcessorConfig.c)
+ */
+
 __int64 __fastcall HalpDpPostReplaceInitialization(int *a1, unsigned __int64 *a2)
 {
   int v2; // edi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpInitializeRegEntry @ 0x140694D00
+ * Callers:
+ *     EtwpAddKmRegEntry @ 0x140691058 (EtwpAddKmRegEntry.c)
+ *     EtwpAddUmRegEntry @ 0x140695184 (EtwpAddUmRegEntry.c)
+ * Callees:
+ *     MmIsSessionAddress @ 0x140239ED0 (MmIsSessionAddress.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     EtwpReferenceGuidEntry @ 0x140695054 (EtwpReferenceGuidEntry.c)
+ */
+
 __int64 __fastcall EtwpInitializeRegEntry(ULONG_PTR a1, int a2, int a3, __int64 a4, __int64 a5, __int16 a6, __int64 a7)
 {
   _KPROCESS *Process; // rbx

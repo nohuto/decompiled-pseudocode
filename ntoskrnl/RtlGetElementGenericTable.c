@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlGetElementGenericTable @ 0x1402ED130
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 PVOID __stdcall RtlGetElementGenericTable(PRTL_GENERIC_TABLE Table, ULONG I)
 {
   ULONG WhichOrderedElement; // r10d

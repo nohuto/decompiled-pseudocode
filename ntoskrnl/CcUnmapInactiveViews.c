@@ -1,3 +1,19 @@
+/*
+ * XREFs of CcUnmapInactiveViews @ 0x140535E58
+ * Callers:
+ *     MiObtainSystemCacheView @ 0x140335220 (MiObtainSystemCacheView.c)
+ *     CcGetVacbMiss @ 0x140335850 (CcGetVacbMiss.c)
+ *     MiDereferenceSegmentThread @ 0x1403A2790 (MiDereferenceSegmentThread.c)
+ *     MiRemoveUnusedSegments @ 0x1406236E4 (MiRemoveUnusedSegments.c)
+ * Callees:
+ *     CcDereferencePartition @ 0x140219EF0 (CcDereferencePartition.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PsGetNextPartitionUnsafe @ 0x140305364 (PsGetNextPartitionUnsafe.c)
+ *     CcUnmapInactiveViewsInternal @ 0x140535FC0 (CcUnmapInactiveViewsInternal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall CcUnmapInactiveViews(_QWORD *a1)
 {
   unsigned __int8 v1; // si

@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpCovSampSampleBufferDecRef @ 0x140601840
+ * Callers:
+ *     EtwpCovSampCaptureBufferQueue @ 0x140461A8C (EtwpCovSampCaptureBufferQueue.c)
+ *     EtwpCovSampSampleBufferReserve @ 0x140461E06 (EtwpCovSampSampleBufferReserve.c)
+ *     EtwpCovSampCaptureFlushSampleBuffers @ 0x140600E90 (EtwpCovSampCaptureFlushSampleBuffers.c)
+ * Callees:
+ *     EtwpCovSampCaptureQueueBuffer @ 0x140461B58 (EtwpCovSampCaptureQueueBuffer.c)
+ */
+
 int __fastcall EtwpCovSampSampleBufferDecRef(__int64 a1, __int64 a2)
 {
   signed __int64 v2; // rax

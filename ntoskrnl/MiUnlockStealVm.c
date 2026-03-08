@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiUnlockStealVm @ 0x1403B7AF8
+ * Callers:
+ *     MiLockStealSystemVm @ 0x140394CFC (MiLockStealSystemVm.c)
+ *     MiStealPage @ 0x1403B70BC (MiStealPage.c)
+ *     MiLockStealUserVm @ 0x1403B7F90 (MiLockStealUserVm.c)
+ * Callees:
+ *     KeForceDetachProcess @ 0x14020CC48 (KeForceDetachProcess.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140283390 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     MiAttachThreadDone @ 0x14029C9D4 (MiAttachThreadDone.c)
+ *     MiUnlockSystemVa @ 0x1402A2820 (MiUnlockSystemVa.c)
+ *     MmDetachSession @ 0x1402EA460 (MmDetachSession.c)
+ */
+
 void __fastcall MiUnlockStealVm(__int64 a1, __int64 a2)
 {
   void *v3; // rdi

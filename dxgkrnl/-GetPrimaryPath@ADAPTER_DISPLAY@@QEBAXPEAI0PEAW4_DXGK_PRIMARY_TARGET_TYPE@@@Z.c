@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetPrimaryPath@ADAPTER_DISPLAY@@QEBAXPEAI0PEAW4_DXGK_PRIMARY_TARGET_TYPE@@@Z @ 0x1C0041FA0
+ * Callers:
+ *     DpiEnterSystemDisplay @ 0x1C001BC60 (DpiEnterSystemDisplay.c)
+ *     DxgkIsBootPrimarySource @ 0x1C01683F0 (DxgkIsBootPrimarySource.c)
+ *     ?DmmRemovePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@IE@Z @ 0x1C03A9DBC (-DmmRemovePathsFromVidPnSource@@YAJPEAVDXGDEVICE@@IE@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ADAPTER_DISPLAY::GetPrimaryPath(
         ADAPTER_DISPLAY *this,
         unsigned int *a2,

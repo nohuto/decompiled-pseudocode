@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpIommuUpdatePageWalkCapability @ 0x1403A4AA4
+ * Callers:
+ *     HalpIommuInitializeAll @ 0x140A8DA7C (HalpIommuInitializeAll.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 HalpIommuUpdatePageWalkCapability()
 {
   ULONG_PTR v0; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of Bulk_EP_AreTransfersPending @ 0x1C0046AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall Bulk_EP_AreTransfersPending(__int64 a1)
 {
   KSPIN_LOCK *v1; // rdi

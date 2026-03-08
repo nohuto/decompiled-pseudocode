@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?DeleteBaseWindowProperties@@YAXPEAUtagBWND@@@Z @ 0x1C017BC2C
+ * Callers:
+ *     DestroyBaseWindow @ 0x1C017BDE0 (DestroyBaseWindow.c)
+ * Callees:
+ *     ?LockRefactorStagingAssertOwned@@YAXAEBUtagObjLock@@@Z @ 0x1C00724BC (-LockRefactorStagingAssertOwned@@YAXAEBUtagObjLock@@@Z.c)
+ *     ?LockExclusive@tagObjLock@@QEBAXXZ @ 0x1C009B720 (-LockExclusive@tagObjLock@@QEBAXXZ.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall DeleteBaseWindowProperties(struct tagBWND *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 *v4; // rdx

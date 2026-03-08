@@ -1,3 +1,14 @@
+/*
+ * XREFs of RIMDiscoverSpecificDevice @ 0x1C01D1704
+ * Callers:
+ *     RIMRegisterForInputWithCallbacks @ 0x1C00356F0 (RIMRegisterForInputWithCallbacks.c)
+ * Callees:
+ *     RIMCreateDev @ 0x1C0036CBC (RIMCreateDev.c)
+ *     RimInputTypeToDeviceType @ 0x1C0039D00 (RimInputTypeToDeviceType.c)
+ *     RIMDoOnPnpNotification @ 0x1C00872A8 (RIMDoOnPnpNotification.c)
+ *     RIMFreeDev @ 0x1C019DE20 (RIMFreeDev.c)
+ */
+
 __int64 __fastcall RIMDiscoverSpecificDevice(__int64 a1, __int64 a2)
 {
   unsigned int v4; // eax

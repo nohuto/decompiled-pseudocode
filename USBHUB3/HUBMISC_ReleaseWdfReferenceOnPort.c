@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBMISC_ReleaseWdfReferenceOnPort @ 0x1C003289C
+ * Callers:
+ *     HUBDSM_RemovingDeviceInfoFromGlobalListOnReportedMissingOnHubStopOnDetach @ 0x1C001FD80 (HUBDSM_RemovingDeviceInfoFromGlobalListOnReportedMissingOnHubStopOnDetach.c)
+ *     HUBDSM_UnregisteringWithHSMOnDetachAfterCleanup @ 0x1C0020640 (HUBDSM_UnregisteringWithHSMOnDetachAfterCleanup.c)
+ *     HUBDSM_WaitingForPDORemovedOnDetachInConfigured @ 0x1C00206F0 (HUBDSM_WaitingForPDORemovedOnDetachInConfigured.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBMISC_ReleaseWdfReferenceOnPort(__int64 a1)
 {
   __int64 v1; // rax

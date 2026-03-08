@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlUnicodeStringPrintf @ 0x1C001A488
+ * Callers:
+ *     Controller_CreateWdfDevice @ 0x1C006EFBC (Controller_CreateWdfDevice.c)
+ *     Controller_WdfEvtDevicePrepareHardware @ 0x1C0072A30 (Controller_WdfEvtDevicePrepareHardware.c)
+ *     Controller_PopulateHardwareVerifierFlags @ 0x1C0073D3C (Controller_PopulateHardwareVerifierFlags.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS RtlUnicodeStringPrintf(PUNICODE_STRING DestinationString, NTSTRSAFE_PCWSTR pszFormat, ...)
 {
   unsigned __int16 Length; // cx

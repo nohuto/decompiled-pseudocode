@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpGetNextName @ 0x1407FEA44
+ * Callers:
+ *     CmpWalkUnicodeStringPath @ 0x1407FE980 (CmpWalkUnicodeStringPath.c)
+ *     CmpFindHiveSubKey @ 0x140B32F34 (CmpFindHiveSubKey.c)
+ *     CmpGetKnownHivePathNode @ 0x140B95CEC (CmpGetKnownHivePathNode.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CmpGetNextName(__int16 *a1, __int64 a2, bool *a3)
 {
   _WORD *v3; // r9

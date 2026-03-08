@@ -1,3 +1,15 @@
+/*
+ * XREFs of CcGetRandomVacbArrayWithReference @ 0x140535BC4
+ * Callers:
+ *     CcUnmapInactiveViewsInternal @ 0x140535FC0 (CcUnmapInactiveViewsInternal.c)
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     CcReferenceVacbArray @ 0x140335D48 (CcReferenceVacbArray.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     CcRecalculateVacbArrayHighwaterMark @ 0x140535C64 (CcRecalculateVacbArrayHighwaterMark.c)
+ *     RtlRandom @ 0x140797410 (RtlRandom.c)
+ */
+
 _DWORD *CcGetRandomVacbArrayWithReference()
 {
   ULONG v0; // ebx

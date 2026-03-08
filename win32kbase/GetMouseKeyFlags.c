@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetMouseKeyFlags @ 0x1C00B96D0
+ * Callers:
+ *     GetPointerFlagsFromMouse @ 0x1C0155800 (GetPointerFlagsFromMouse.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetMouseKeyFlags(unsigned __int8 *a1)
 {
   unsigned __int8 v1; // r9

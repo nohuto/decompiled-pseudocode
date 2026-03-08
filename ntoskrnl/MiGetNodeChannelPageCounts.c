@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiGetNodeChannelPageCounts @ 0x140295EF0
+ * Callers:
+ *     MiGetChannelInformation @ 0x140295C20 (MiGetChannelInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 *__fastcall MiGetNodeChannelPageCounts(
         __int64 a1,
         unsigned int a2,

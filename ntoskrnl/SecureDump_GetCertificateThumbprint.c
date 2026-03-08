@@ -1,3 +1,11 @@
+/*
+ * XREFs of SecureDump_GetCertificateThumbprint @ 0x14055BB70
+ * Callers:
+ *     SecureDump_ValidateAmeCertChain @ 0x14055C3D0 (SecureDump_ValidateAmeCertChain.c)
+ * Callees:
+ *     MinCrypK_HashMemory @ 0x140A6C4C4 (MinCrypK_HashMemory.c)
+ */
+
 __int64 __fastcall SecureDump_GetCertificateThumbprint(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpRealtimeRestoreBuffer @ 0x14083F64C
+ * Callers:
+ *     EtwpRealtimeFlushSavedBuffers @ 0x1406917BC (EtwpRealtimeFlushSavedBuffers.c)
+ * Callees:
+ *     ZwReadFile @ 0x1404123D0 (ZwReadFile.c)
+ */
+
 NTSTATUS __fastcall EtwpRealtimeRestoreBuffer(__int64 a1, _DWORD *Buffer)
 {
   LARGE_INTEGER *ByteOffset; // rbx

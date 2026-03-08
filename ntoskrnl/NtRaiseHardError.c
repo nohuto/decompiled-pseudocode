@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtRaiseHardError @ 0x1409FE610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseHardError @ 0x1409FDD30 (ExRaiseHardError.c)
+ *     ExpRaiseHardError @ 0x1409FE27C (ExpRaiseHardError.c)
+ */
+
 __int64 __fastcall NtRaiseHardError(unsigned int a1, unsigned int a2, int a3, char *a4, unsigned int a5, _DWORD *a6)
 {
   __int64 v7; // rbx

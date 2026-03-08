@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ApplyPresentAttributeMetadataToUpdateToken@CContentResourceState@@IEAAXPEAVCFlipPropertySet@@PEAVCFlipContentToken@@@Z @ 0x1C0087924
+ * Callers:
+ *     ?CreateUpdateTokens@CContentResourceState@@QEAAJPEAVCEndpointResourceStateManager@@PEAVCFlipPropertySet@@_NAEAU_LIST_ENTRY@@@Z @ 0x1C0087A84 (-CreateUpdateTokens@CContentResourceState@@QEAAJPEAVCEndpointResourceStateManager@@PEAVCFlipProp.c)
+ * Callees:
+ *     ??$FindProperty@UPresentParametersInfo@@@CFlipPropertySetBase@@QEAAXPEAPEAUPresentParametersInfo@@@Z @ 0x1C0084FAC (--$FindProperty@UPresentParametersInfo@@@CFlipPropertySetBase@@QEAAXPEAPEAUPresentParametersInfo.c)
+ *     ??$FindProperty@UPresentedContentUpdateHDR10Info@@@CFlipPropertySetBase@@QEAAXPEAPEAUPresentedContentUpdateHDR10Info@@@Z @ 0x1C0085010 (--$FindProperty@UPresentedContentUpdateHDR10Info@@@CFlipPropertySetBase@@QEAAXPEAPEAUPresentedCo.c)
+ *     ??$FindProperty@UPresentedContentUpdateHDR10PlusInfo@@@CFlipPropertySetBase@@QEAAXPEAPEAUPresentedContentUpdateHDR10PlusInfo@@@Z @ 0x1C0085074 (--$FindProperty@UPresentedContentUpdateHDR10PlusInfo@@@CFlipPropertySetBase@@QEAAXPEAPEAUPresent.c)
+ *     ??$FindProperty@UPresentedContentUpdateInfo@@@CFlipPropertySetBase@@QEAAXPEAPEAUPresentedContentUpdateInfo@@@Z @ 0x1C00850D8 (--$FindProperty@UPresentedContentUpdateInfo@@@CFlipPropertySetBase@@QEAAXPEAPEAUPresentedContent.c)
+ */
+
 void __fastcall CContentResourceState::ApplyPresentAttributeMetadataToUpdateToken(
         CContentResourceState *this,
         struct CFlipPropertySet *a2,

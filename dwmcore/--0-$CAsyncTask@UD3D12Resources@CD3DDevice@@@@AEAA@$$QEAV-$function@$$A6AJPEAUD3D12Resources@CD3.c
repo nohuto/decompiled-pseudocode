@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0?$CAsyncTask@UD3D12Resources@CD3DDevice@@@@AEAA@$$QEAV?$function@$$A6AJPEAUD3D12Resources@CD3DDevice@@@Z@std@@@Z @ 0x180288DE8
+ * Callers:
+ *     CAsyncTask_CD3DDevice::D3D12Resources_::Start__lambda_88358cf897930614284adb3422b4c545___ @ 0x180288B2C (CAsyncTask_CD3DDevice--D3D12Resources_--Start__lambda_88358cf897930614284adb3422b4c545___.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CAsyncTask<CD3DDevice::D3D12Resources>::CAsyncTask<CD3DDevice::D3D12Resources>(
         __int64 a1,
         __int64 a2)

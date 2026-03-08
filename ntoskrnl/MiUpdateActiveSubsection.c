@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiUpdateActiveSubsection @ 0x1406337C0
+ * Callers:
+ *     MmExtendSection @ 0x1407267DC (MmExtendSection.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiReferenceSubsection @ 0x1403327C0 (MiReferenceSubsection.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDecrementSubsections @ 0x140334B70 (MiDecrementSubsections.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x140668DD4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiAllocateFileExtents @ 0x140A303A8 (MiAllocateFileExtents.c)
+ */
+
 __int64 __fastcall MiUpdateActiveSubsection(_QWORD *BugCheckParameter2)
 {
   ULONG_PTR v1; // rdi

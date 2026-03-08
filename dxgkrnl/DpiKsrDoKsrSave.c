@@ -1,3 +1,14 @@
+/*
+ * XREFs of DpiKsrDoKsrSave @ 0x1C03A16E4
+ * Callers:
+ *     DpiSriovDetach @ 0x1C0399AF0 (DpiSriovDetach.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?DpIterateFdoContexts@@YAXP6AJPEAU_FDO_CONTEXT@@PEAX@Z1@Z @ 0x1C03A0834 (-DpIterateFdoContexts@@YAXP6AJPEAU_FDO_CONTEXT@@PEAX@Z1@Z.c)
+ *     DpSaveMemoryForHotUpdateCB @ 0x1C03A1370 (DpSaveMemoryForHotUpdateCB.c)
+ */
+
 char DpiKsrDoKsrSave()
 {
   int v0; // r14d

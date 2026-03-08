@@ -1,3 +1,22 @@
+/*
+ * XREFs of EtwpUpdateFileHeader @ 0x140772B94
+ * Callers:
+ *     EtwpCreateLogFile @ 0x140772270 (EtwpCreateLogFile.c)
+ * Callees:
+ *     EtwpInitializeBufferHeader @ 0x140204FD4 (EtwpInitializeBufferHeader.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140206540 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpResetBufferHeader @ 0x14020657C (EtwpResetBufferHeader.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1404123D0 (ZwReadFile.c)
+ *     ZwWriteFile @ 0x140412410 (ZwWriteFile.c)
+ *     ZwQueryInformationFile @ 0x140412530 (ZwQueryInformationFile.c)
+ *     ZwSetInformationFile @ 0x1404127F0 (ZwSetInformationFile.c)
+ *     EtwpAddLogHeader @ 0x140772F04 (EtwpAddLogHeader.c)
+ *     EtwpIsWow64Logger @ 0x14077341C (EtwpIsWow64Logger.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpUpdateFileHeader(__int64 a1, char a2, int a3)
 {
   ULONG Length; // r12d

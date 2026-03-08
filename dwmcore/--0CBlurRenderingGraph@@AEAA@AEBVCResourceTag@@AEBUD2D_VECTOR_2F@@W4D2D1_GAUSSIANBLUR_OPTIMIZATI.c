@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CBlurRenderingGraph@@AEAA@AEBVCResourceTag@@AEBUD2D_VECTOR_2F@@W4D2D1_GAUSSIANBLUR_OPTIMIZATION@@@Z @ 0x1800D181C
+ * Callers:
+ *     ?Create@CBlurRenderingGraph@@SAJAEBVCResourceTag@@W4D3D_FEATURE_LEVEL@@AEBUD2D_VECTOR_2F@@W4D2D1_GAUSSIANBLUR_OPTIMIZATION@@PEAPEAV1@@Z @ 0x1800D1764 (-Create@CBlurRenderingGraph@@SAJAEBVCResourceTag@@W4D3D_FEATURE_LEVEL@@AEBUD2D_VECTOR_2F@@W4D2D1.c)
+ * Callees:
+ *     ??0CBrushRenderingGraph@@IEAA@XZ @ 0x180029AA0 (--0CBrushRenderingGraph@@IEAA@XZ.c)
+ */
+
 CBlurRenderingGraph *__fastcall CBlurRenderingGraph::CBlurRenderingGraph(
         CBlurRenderingGraph *this,
         const struct CResourceTag *a2,

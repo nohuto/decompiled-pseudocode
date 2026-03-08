@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetQueueStatusReadonly @ 0x1C00C6560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtUserGetQueueStatusReadonly(unsigned __int16 a1)
 {
   __int64 v2; // rbx

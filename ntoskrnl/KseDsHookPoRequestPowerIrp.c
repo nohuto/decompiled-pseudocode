@@ -1,3 +1,12 @@
+/*
+ * XREFs of KseDsHookPoRequestPowerIrp @ 0x14057F020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KsepDsEventRequestPowerIrp @ 0x14057FD14 (KsepDsEventRequestPowerIrp.c)
+ */
+
 __int64 __fastcall KseDsHookPoRequestPowerIrp(
         __int64 a1,
         __int64 a2,

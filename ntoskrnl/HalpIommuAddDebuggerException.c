@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpIommuAddDebuggerException @ 0x1403A48B8
+ * Callers:
+ *     HalpIommuPopulateExceptionList @ 0x1403A489C (HalpIommuPopulateExceptionList.c)
+ * Callees:
+ *     HalpMmAllocateMemoryInternal @ 0x14037A7A8 (HalpMmAllocateMemoryInternal.c)
+ */
+
 __int64 HalpIommuAddDebuggerException()
 {
   unsigned int *v0; // rbx

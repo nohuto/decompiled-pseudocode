@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z @ 0x1C00C35F8
+ * Callers:
+ *     Win32kBaseDriverEntry @ 0x1C0320F10 (Win32kBaseDriverEntry.c)
+ * Callees:
+ *     ?InitializeWppRecorder@@YAJPEAPEAURECORDER_LOG__@@PEADK@Z @ 0x1C00C3740 (-InitializeWppRecorder@@YAJPEAPEAURECORDER_LOG__@@PEADK@Z.c)
+ *     ApiSetEditionInitializeWppLogging @ 0x1C00C3818 (ApiSetEditionInitializeWppLogging.c)
+ *     ?UninitializeBaseWppLog@@YAXXZ @ 0x1C00D21D0 (-UninitializeBaseWppLog@@YAXXZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     WppInitKm @ 0x1C03014F4 (WppInitKm.c)
+ *     WppLoadTracingSupport @ 0x1C03015A8 (WppLoadTracingSupport.c)
+ */
+
 __int64 __fastcall InitializeWppLogging(struct _DRIVER_OBJECT *a1)
 {
   PVOID v1; // rdi

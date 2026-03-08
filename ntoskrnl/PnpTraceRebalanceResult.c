@@ -1,3 +1,15 @@
+/*
+ * XREFs of PnpTraceRebalanceResult @ 0x140968FDC
+ * Callers:
+ *     PnpRebalance @ 0x14096B948 (PnpRebalance.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     McTemplateK0zzqqzttquqqzxt_EtwWriteTransfer @ 0x140562268 (McTemplateK0zzqqzttquqqzxt_EtwWriteTransfer.c)
+ *     McTemplateK0zzqqzttquxt_EtwWriteTransfer @ 0x140562480 (McTemplateK0zzqqzttquxt_EtwWriteTransfer.c)
+ */
+
 char __fastcall PnpTraceRebalanceResult(unsigned int a1, int a2, __int64 a3)
 {
   __int64 v3; // r14

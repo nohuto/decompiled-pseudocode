@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiLdaLinkDeviceToChain @ 0x1C03A3B80
+ * Callers:
+ *     DpiAddDevice @ 0x1C01F38A0 (DpiAddDevice.c)
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ */
+
 __int64 __fastcall DpiLdaLinkDeviceToChain(__int64 a1)
 {
   __int64 v1; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiHotSwapGetDefaultBusRemovalPolicy @ 0x140852F74
+ * Callers:
+ *     PpHotSwapUpdateRemovalPolicy @ 0x14078F428 (PpHotSwapUpdateRemovalPolicy.c)
+ * Callees:
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ */
+
 int __fastcall PiHotSwapGetDefaultBusRemovalPolicy(__int64 a1, int *a2)
 {
   const wchar_t **v2; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ShouldDeferMessage @ 0x1C00A6E10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ShouldDeferMessage(int a1, __int64 a2)
 {
   int v2; // r9d

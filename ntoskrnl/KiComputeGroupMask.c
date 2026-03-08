@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiComputeGroupMask @ 0x1402967CC
+ * Callers:
+ *     KeStartThread @ 0x1402385C4 (KeStartThread.c)
+ *     KeQueryCpuPartitionAffinity @ 0x1403A8718 (KeQueryCpuPartitionAffinity.c)
+ *     KeSetAffinityProcess @ 0x1403A9688 (KeSetAffinityProcess.c)
+ *     KiExtendProcessAffinity @ 0x14057C4E4 (KiExtendProcessAffinity.c)
+ *     KeInitializeProcess @ 0x14070A0C8 (KeInitializeProcess.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiComputeGroupMask(unsigned __int16 *a1)
 {
   unsigned int v1; // r8d

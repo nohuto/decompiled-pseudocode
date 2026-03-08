@@ -1,3 +1,17 @@
+/*
+ * XREFs of PipProcessStartPhase1 @ 0x1406F7074
+ * Callers:
+ *     PipProcessDevNodeTree @ 0x1406CCD80 (PipProcessDevNodeTree.c)
+ * Callees:
+ *     McTemplateK0dz_EtwWriteTransfer @ 0x1405620F8 (McTemplateK0dz_EtwWriteTransfer.c)
+ *     PnpStartDeviceNode @ 0x1406F71A4 (PnpStartDeviceNode.c)
+ *     PiDmaGuardProcessPreStart @ 0x1406F7574 (PiDmaGuardProcessPreStart.c)
+ *     IopUncacheInterfaceInformation @ 0x1406F75C8 (IopUncacheInterfaceInformation.c)
+ *     PpProfileBeginHardwareProfileTransition @ 0x140960AF0 (PpProfileBeginHardwareProfileTransition.c)
+ *     PpProfileIncludeInHardwareProfileTransition @ 0x140960DA4 (PpProfileIncludeInHardwareProfileTransition.c)
+ *     PpProfileQueryHardwareProfileChange @ 0x140960EB4 (PpProfileQueryHardwareProfileChange.c)
+ */
+
 __int64 __fastcall PipProcessStartPhase1(__int64 MaxDataSize, unsigned int a2, __int64 a3)
 {
   int v3; // edi

@@ -1,3 +1,31 @@
+/*
+ * XREFs of HvpPerformLogFileRecovery @ 0x1407FBCAC
+ * Callers:
+ *     HvLoadHive @ 0x14072F5C0 (HvLoadHive.c)
+ * Callees:
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     SetFailureLocation @ 0x140243E5C (SetFailureLocation.c)
+ *     RtlClearAllBits @ 0x1402B24A0 (RtlClearAllBits.c)
+ *     HvpGrowDirtyVectors @ 0x1402B32C4 (HvpGrowDirtyVectors.c)
+ *     RtlMergeBitMaps @ 0x1402D7420 (RtlMergeBitMaps.c)
+ *     RtlNumberOfSetBits @ 0x14035C520 (RtlNumberOfSetBits.c)
+ *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x14072CD4C (HvCheckAndUpdateHiveBackupTimeStamp.c)
+ *     HvFreeHivePartial @ 0x14072DB74 (HvFreeHivePartial.c)
+ *     HvpAdjustHiveFreeDisplay @ 0x1407300D8 (HvpAdjustHiveFreeDisplay.c)
+ *     HvpExpandMap @ 0x14073024C (HvpExpandMap.c)
+ *     HvpMapHiveImageFromViewMap @ 0x14073051C (HvpMapHiveImageFromViewMap.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x1407307FC (HvpLogTypeToLogArrayIndex.c)
+ *     HvValidateOrInvalidatePrimaryFileHeader @ 0x140731AB4 (HvValidateOrInvalidatePrimaryFileHeader.c)
+ *     CmpDoFileSetSizeEx @ 0x140731FA4 (CmpDoFileSetSizeEx.c)
+ *     HvWriteHivePrimaryFile @ 0x14073216C (HvWriteHivePrimaryFile.c)
+ *     HvpViewMapExtendStorage @ 0x140732D5C (HvpViewMapExtendStorage.c)
+ *     HvResetLogFileStatusAll @ 0x140798BB4 (HvResetLogFileStatusAll.c)
+ *     HvpSetRangeProtection @ 0x1407A5934 (HvpSetRangeProtection.c)
+ *     HvApplyLogFiles @ 0x1407F9454 (HvApplyLogFiles.c)
+ *     HvpAddDummyBinToHive @ 0x140A1AF8C (HvpAddDummyBinToHive.c)
+ */
+
 __int64 __fastcall HvpPerformLogFileRecovery(
         ULONG_PTR BugCheckParameter2,
         __int64 a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepSDContainsAttributeACE @ 0x1409CE498
+ * Callers:
+ *     SepAdtOpenObjectAuditAlarm @ 0x1409C930C (SepAdtOpenObjectAuditAlarm.c)
+ * Callees:
+ *     RtlFindAceByType @ 0x1403100D0 (RtlFindAceByType.c)
+ *     RtlGetSaclSecurityDescriptor @ 0x14071C1D0 (RtlGetSaclSecurityDescriptor.c)
+ */
+
 bool __fastcall SepSDContainsAttributeACE(void *a1)
 {
   char v1; // bl

@@ -1,3 +1,16 @@
+/*
+ * XREFs of VslFinishStartSecureProcessor @ 0x140548B00
+ * Callers:
+ *     KeWriteProtectProcessorState @ 0x140A8E420 (KeWriteProtectProcessorState.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     VslpLockPagesForTransfer @ 0x1403C8E74 (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x1403C90EC (VslpUnlockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall VslFinishStartSecureProcessor(__int64 a1, struct _MDL *a2)
 {
   PHYSICAL_ADDRESS PhysicalAddress; // rax

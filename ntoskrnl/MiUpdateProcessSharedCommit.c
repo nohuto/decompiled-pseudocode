@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiUpdateProcessSharedCommit @ 0x1407F18F0
+ * Callers:
+ *     MiChargeSegmentCommit @ 0x1407F1988 (MiChargeSegmentCommit.c)
+ * Callees:
+ *     MiIncludeSharedCommit @ 0x14034C990 (MiIncludeSharedCommit.c)
+ */
+
 _QWORD *__fastcall MiUpdateProcessSharedCommit(__int64 a1)
 {
   _QWORD *result; // rax

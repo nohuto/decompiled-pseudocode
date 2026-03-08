@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?pGetRGBXlate@XEPALOBJ@@QEAAPEAEXZ @ 0x1C02DA6D8
+ * Callers:
+ *     XLATEOBJ_iXlate @ 0x1C00C3AA0 (XLATEOBJ_iXlate.c)
+ *     ?XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z @ 0x1C02DE1EC (-XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z.c)
+ * Callees:
+ *     ?ulTime@XEPALOBJ@@QEAAKXZ @ 0x1C00E4450 (-ulTime@XEPALOBJ@@QEAAKXZ.c)
+ *     ?bGenColorXlate555@XEPALOBJ@@QEAAHXZ @ 0x1C02DA5E4 (-bGenColorXlate555@XEPALOBJ@@QEAAHXZ.c)
+ */
+
 unsigned __int8 *__fastcall XEPALOBJ::pGetRGBXlate(XEPALOBJ *this)
 {
   __int64 v1; // rdx

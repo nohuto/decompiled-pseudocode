@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?OnRemoteCloseNotification@CBaseInput@@AEAAJXZ @ 0x1C002F130
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RimInputTypeToDeviceInputType @ 0x1C002F180 (RimInputTypeToDeviceInputType.c)
+ *     RIMDirectPnpRemoveDevicesOfType @ 0x1C002F1B0 (RIMDirectPnpRemoveDevicesOfType.c)
+ *     ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1C007AF8C (--0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
+ *     ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x1C007B050 (--1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall CBaseInput::OnRemoteCloseNotification(CBaseInput *this)
 {
   unsigned int v2; // eax

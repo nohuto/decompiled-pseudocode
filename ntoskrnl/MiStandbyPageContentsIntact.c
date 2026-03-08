@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiStandbyPageContentsIntact @ 0x14034B200
+ * Callers:
+ *     MiStandbyPageStillCombineCandidate @ 0x14029F354 (MiStandbyPageStillCombineCandidate.c)
+ *     MiTranslatePageForCopy @ 0x1402A1FD4 (MiTranslatePageForCopy.c)
+ *     MiCopyDataPageToImagePage @ 0x140334490 (MiCopyDataPageToImagePage.c)
+ *     MiConfirmCombinePageContents @ 0x14034B140 (MiConfirmCombinePageContents.c)
+ *     MiCopyHeaderIfResident @ 0x140368D84 (MiCopyHeaderIfResident.c)
+ * Callees:
+ *     MiCheckWriteInProgressFault @ 0x140201D38 (MiCheckWriteInProgressFault.c)
+ *     MiGetPfnPriority @ 0x14028A3F8 (MiGetPfnPriority.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ */
+
 __int64 __fastcall MiStandbyPageContentsIntact(__int64 a1)
 {
   char v1; // dl

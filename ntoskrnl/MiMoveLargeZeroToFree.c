@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiMoveLargeZeroToFree @ 0x14064D424
+ * Callers:
+ *     MiPurgeLargeZeroNodePages @ 0x14064D6A8 (MiPurgeLargeZeroNodePages.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiMoveLargeZeroToFree(
         __int64 a1,
         __int64 a2,

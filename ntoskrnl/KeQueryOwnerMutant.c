@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeQueryOwnerMutant @ 0x14057116C
+ * Callers:
+ *     NtQueryMutant @ 0x140A02BD0 (NtQueryMutant.c)
+ * Callees:
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __stdcall KeQueryOwnerMutant(PKMUTANT Mutant, PCLIENT_ID ClientId)
 {
   unsigned __int8 CurrentIrql; // bl

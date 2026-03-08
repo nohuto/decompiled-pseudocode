@@ -1,3 +1,14 @@
+/*
+ * XREFs of VslEnableOnDemandDebugWithResponse @ 0x14093F29C
+ * Callers:
+ *     PsIumEnableOnDemandDebugWithResponse @ 0x1409B32E8 (PsIumEnableOnDemandDebugWithResponse.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall VslEnableOnDemandDebugWithResponse(__int64 a1, const void *a2, unsigned int a3)
 {
   __int64 v3; // rbx

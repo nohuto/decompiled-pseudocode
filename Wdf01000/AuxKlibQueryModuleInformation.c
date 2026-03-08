@@ -1,3 +1,13 @@
+/*
+ * XREFs of AuxKlibQueryModuleInformation @ 0x1C00B2274
+ * Callers:
+ *     FxpGetImageBase @ 0x1C0088FA8 (FxpGetImageBase.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C000AC00 (memset.c)
+ */
+
 unsigned int __fastcall AuxKlibQueryModuleInformation(unsigned int *BufferSize, unsigned int QueryInfo, char *a3)
 {
   unsigned int v5; // edi

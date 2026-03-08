@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?D3DXMatrixDeterminant@@YAHPEAMPEBU_D3DMATRIX@@@Z @ 0x1C0210474
+ * Callers:
+ *     ?ValidateInertiaInfo@CInertiaManager@@QEBA_NPEAUINERTIA_INFO@@PEBUINERTIA_REGION@@PEAU_D3DMATRIX@@PEAN@Z @ 0x1C0210F24 (-ValidateInertiaInfo@CInertiaManager@@QEBA_NPEAUINERTIA_INFO@@PEBUINERTIA_REGION@@PEAU_D3DMATRIX.c)
+ * Callees:
+ *     _finite @ 0x1C00DAEC4 (_finite.c)
+ *     sqrtf_0 @ 0x1C00E18AF (sqrtf_0.c)
+ *     FloatingPointExceptionFilter @ 0x1C02110C4 (FloatingPointExceptionFilter.c)
+ */
+
 __int64 __fastcall D3DXMatrixDeterminant(float *a1, const struct _D3DMATRIX *a2)
 {
   unsigned int v3; // ebx

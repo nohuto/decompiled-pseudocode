@@ -1,3 +1,19 @@
+/*
+ * XREFs of ViFaultsAddAppNoDuplicates @ 0x140AD34AC
+ * Callers:
+ *     ViFaultsAddAllApps @ 0x140AD3354 (ViFaultsAddAllApps.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlUpcaseUnicodeString @ 0x1407A3D00 (RtlUpcaseUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     ViFaultsIsAppTarget @ 0x140AD3A00 (ViFaultsIsAppTarget.c)
+ */
+
 __int64 __fastcall ViFaultsAddAppNoDuplicates(void *Src, __int64 a2)
 {
   size_t v2; // rdi

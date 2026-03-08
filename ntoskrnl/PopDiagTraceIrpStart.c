@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopDiagTraceIrpStart @ 0x1402BB178
+ * Callers:
+ *     PopRequestPowerIrp @ 0x1402BA570 (PopRequestPowerIrp.c)
+ *     PopQueueQuerySetIrp @ 0x1402BAFA4 (PopQueueQuerySetIrp.c)
+ *     PopDequeueQuerySetIrp @ 0x1402BB70C (PopDequeueQuerySetIrp.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     PopFxAddLogEntry @ 0x140306584 (PopFxAddLogEntry.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PopDiagTraceIrpStart(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

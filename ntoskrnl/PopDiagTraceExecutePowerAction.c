@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopDiagTraceExecutePowerAction @ 0x14098BC1C
+ * Callers:
+ *     PopExecutePowerAction @ 0x1409867F4 (PopExecutePowerAction.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetProcessImageFileName @ 0x1402E1550 (PsGetProcessImageFileName.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x1403BE3FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char PopDiagTraceExecutePowerAction(
         int a1,
         int a2,

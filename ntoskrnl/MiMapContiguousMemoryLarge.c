@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiMapContiguousMemoryLarge @ 0x14038A3C4
+ * Callers:
+ *     MiMapContiguousMemory @ 0x14029AF58 (MiMapContiguousMemory.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiDereferenceIoPages @ 0x14029B654 (MiDereferenceIoPages.c)
+ *     MiReferenceIoPages @ 0x14029BA60 (MiReferenceIoPages.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiGetPageTablesForLargeMap @ 0x14038A5B8 (MiGetPageTablesForLargeMap.c)
+ *     MiMapWithLargePages @ 0x14038A6D4 (MiMapWithLargePages.c)
+ *     MiAssignInitialPageAttribute @ 0x14039DE84 (MiAssignInitialPageAttribute.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall MiMapContiguousMemoryLarge(
         ULONG_PTR BugCheckParameter2,
         unsigned __int64 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of NVMeSetAutoPowerStateTransition @ 0x1C0023724
+ * Callers:
+ *     NVMePowerInitialize @ 0x1C000FCC4 (NVMePowerInitialize.c)
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 __int64 __fastcall NVMeSetAutoPowerStateTransition(__int64 a1, unsigned __int8 a2)
 {
   int v2; // ebx

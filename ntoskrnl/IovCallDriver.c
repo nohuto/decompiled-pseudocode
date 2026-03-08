@@ -1,3 +1,22 @@
+/*
+ * XREFs of IovCallDriver @ 0x140ABE1D0
+ * Callers:
+ *     IofCallDriverSpecifyReturn @ 0x1402B91D0 (IofCallDriverSpecifyReturn.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ * Callees:
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     IopfCallDriver @ 0x1402B903C (IopfCallDriver.c)
+ *     IopPerfCallDriver @ 0x14045728A (IopPerfCallDriver.c)
+ *     VfBugCheckNoStackUsage @ 0x1405CD460 (VfBugCheckNoStackUsage.c)
+ *     IovpCallDriverNoIrpTracking @ 0x140ABE96C (IovpCallDriverNoIrpTracking.c)
+ *     IovpCallDriverWithStackBuffer @ 0x140ABE9B4 (IovpCallDriverWithStackBuffer.c)
+ *     IovpValidateDeviceObject @ 0x140ABEFC4 (IovpValidateDeviceObject.c)
+ *     VfAfterCallDriver @ 0x140ACA3D8 (VfAfterCallDriver.c)
+ *     VfBeforeCallDriver @ 0x140ACA5AC (VfBeforeCallDriver.c)
+ *     VfIrpAllocateCallDriverData @ 0x140ACAA48 (VfIrpAllocateCallDriverData.c)
+ */
+
 __int64 __fastcall IovCallDriver(PVOID Object, ULONG_PTR a2, __int64 a3)
 {
   unsigned __int8 CurrentIrql; // di

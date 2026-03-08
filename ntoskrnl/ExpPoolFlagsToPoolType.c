@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpPoolFlagsToPoolType @ 0x140AAB010
+ * Callers:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     ExAllocatePoolMm @ 0x14034C1AC (ExAllocatePoolMm.c)
+ *     VerifierExAllocatePool2 @ 0x140ACD9E0 (VerifierExAllocatePool2.c)
+ *     VfHandlePoolAlloc @ 0x140ACDFB0 (VfHandlePoolAlloc.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ExpPoolFlagsToPoolType(__int64 a1, int a2, int *a3, _BYTE *a4, _BYTE *a5)
 {
   int v5; // r10d

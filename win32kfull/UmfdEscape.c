@@ -1,3 +1,12 @@
+/*
+ * XREFs of UmfdEscape @ 0x1C0307EA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z @ 0x1C011E760 (--0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z.c)
+ *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C011ED74 (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
+ */
+
 __int64 __fastcall UmfdEscape(__int64 a1, int a2, int a3, __int64 a4, int a5, __int64 a6)
 {
   int v10; // eax

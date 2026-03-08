@@ -1,3 +1,14 @@
+/*
+ * XREFs of VidSchBlockUntilNoUnorderedWaitsInDevice @ 0x1C0086720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VidSchiInterlockedRemoveEntryList @ 0x1C0014268 (VidSchiInterlockedRemoveEntryList.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     VidSchWaitForCompletionEvent @ 0x1C00ADD4C (VidSchWaitForCompletionEvent.c)
+ *     VidSchRegisterCompletionEvent @ 0x1C00AE0A4 (VidSchRegisterCompletionEvent.c)
+ */
+
 char __fastcall VidSchBlockUntilNoUnorderedWaitsInDevice(__int64 a1)
 {
   __int64 v1; // rbx

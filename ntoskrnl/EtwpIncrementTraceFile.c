@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpIncrementTraceFile @ 0x1409E5140
+ * Callers:
+ *     NtTraceControl @ 0x140694040 (NtTraceControl.c)
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     EtwpReleaseLoggerContext @ 0x14069349C (EtwpReleaseLoggerContext.c)
+ *     EtwpValidateLoggerInfo @ 0x1407457C8 (EtwpValidateLoggerInfo.c)
+ *     EtwpAcquireLoggerContext @ 0x140745800 (EtwpAcquireLoggerContext.c)
+ *     EtwpGetLoggerInfoFromContext @ 0x1407458FC (EtwpGetLoggerInfoFromContext.c)
+ *     EtwpSynchronizeWithLogger @ 0x140749078 (EtwpSynchronizeWithLogger.c)
+ *     EtwpGenerateFileName @ 0x14079A7F0 (EtwpGenerateFileName.c)
+ */
+
 __int64 __fastcall EtwpIncrementTraceFile(__int64 a1, _DWORD *a2)
 {
   __int64 result; // rax

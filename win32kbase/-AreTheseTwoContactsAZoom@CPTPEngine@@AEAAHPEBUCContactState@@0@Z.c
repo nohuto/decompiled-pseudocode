@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AreTheseTwoContactsAZoom@CPTPEngine@@AEAAHPEBUCContactState@@0@Z @ 0x1C0235248
+ * Callers:
+ *     ?FindGestureAndMarkGesturingContactsAsNonResting@CPTPEngine@@AEAAHPEBUPTPInput@@@Z @ 0x1C023783C (-FindGestureAndMarkGesturingContactsAsNonResting@CPTPEngine@@AEAAHPEBUPTPInput@@@Z.c)
+ * Callees:
+ *     ?ndotprod@@YA_NHHHHPEAN@Z @ 0x1C023B168 (-ndotprod@@YA_NHHHHPEAN@Z.c)
+ */
+
 __int64 __fastcall CPTPEngine::AreTheseTwoContactsAZoom(
         CPTPEngine *this,
         const struct CContactState *a2,

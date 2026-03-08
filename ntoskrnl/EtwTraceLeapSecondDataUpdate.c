@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwTraceLeapSecondDataUpdate @ 0x140851178
+ * Callers:
+ *     ExpReadLeapSecondData @ 0x140850DB4 (ExpReadLeapSecondData.c)
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall EtwTraceLeapSecondDataUpdate(int a1, int a2, int a3, int a4)
 {
   _UNKNOWN **v4; // rax

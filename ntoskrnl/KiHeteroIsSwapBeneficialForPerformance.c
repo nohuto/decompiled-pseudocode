@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiHeteroIsSwapBeneficialForPerformance @ 0x140574E70
+ * Callers:
+ *     KiEvaluatePreemptionSwapTarget @ 0x140574C20 (KiEvaluatePreemptionSwapTarget.c)
+ *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x140574F74 (KiHeteroScanQueueForPreemptionSwapTarget.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall KiHeteroIsSwapBeneficialForPerformance(
         __int64 a1,
         unsigned __int8 a2,

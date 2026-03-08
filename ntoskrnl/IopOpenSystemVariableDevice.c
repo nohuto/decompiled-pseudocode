@@ -1,3 +1,17 @@
+/*
+ * XREFs of IopOpenSystemVariableDevice @ 0x14075D4AC
+ * Callers:
+ *     IoGetEnvironmentVariableEx @ 0x14075D3B0 (IoGetEnvironmentVariableEx.c)
+ *     IoEnumerateEnvironmentVariablesEx @ 0x14083F460 (IoEnumerateEnvironmentVariablesEx.c)
+ *     IoQueryEnvironmentVariableInfoEx @ 0x14094D37C (IoQueryEnvironmentVariableInfoEx.c)
+ *     IoSetEnvironmentVariableEx @ 0x14094D504 (IoSetEnvironmentVariableEx.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     IopGetDeviceInterfaces @ 0x1406C4A94 (IopGetDeviceInterfaces.c)
+ *     IoGetDeviceObjectPointer @ 0x140720950 (IoGetDeviceObjectPointer.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopOpenSystemVariableDevice(
         PFILE_OBJECT *FileObject,
         PDEVICE_OBJECT *DeviceObject,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_InitializingEnumRetryCountInReEnumDuringResetInUnConfigured @ 0x1C00239E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HUBMISC_LogDeviceReEnumeration @ 0x1C002E978 (HUBMISC_LogDeviceReEnumeration.c)
+ */
+
 __int64 __fastcall HUBDSM_InitializingEnumRetryCountInReEnumDuringResetInUnConfigured(__int64 a1)
 {
   __int64 v1; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of memcpy_s @ 0x1C001E860
+ * Callers:
+ *     Controller_ExecuteDSM @ 0x1C006E4A4 (Controller_ExecuteDSM.c)
+ * Callees:
+ *     Control_Cleanup @ 0x1C000D900 (Control_Cleanup.c)
+ *     memmove @ 0x1C0020400 (memmove.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 errno_t __cdecl memcpy_s(void *a1, rsize_t DstSize, const void *Src, rsize_t MaxCount)
 {
   errno_t v8; // ebx

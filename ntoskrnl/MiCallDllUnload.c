@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiCallDllUnload @ 0x140861060
+ * Callers:
+ *     MiUnloadApproved @ 0x1407F77E8 (MiUnloadApproved.c)
+ * Callees:
+ *     RtlPcToFileHeader @ 0x1403BE120 (RtlPcToFileHeader.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     RtlFindExportedRoutineByName @ 0x1407EBE40 (RtlFindExportedRoutineByName.c)
+ */
+
 __int64 __fastcall MiCallDllUnload(__int64 a1)
 {
   __int64 (*BugCheckParameter4)(void); // rbx

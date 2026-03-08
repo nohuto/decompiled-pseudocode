@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeInitializeDeviceQueue @ 0x1402F96C0
+ * Callers:
+ *     IoCreateDevice @ 0x1407F0460 (IoCreateDevice.c)
+ *     HalpDmaAllocateChildAdapterV2 @ 0x140821840 (HalpDmaAllocateChildAdapterV2.c)
+ *     IoCreateController @ 0x140944220 (IoCreateController.c)
+ * Callees:
+ *     <none>
+ */
+
 void __stdcall KeInitializeDeviceQueue(PKDEVICE_QUEUE DeviceQueue)
 {
   DeviceQueue->Lock = 0LL;

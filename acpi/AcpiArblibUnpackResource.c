@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiArblibUnpackResource @ 0x1C007D3E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AcpiArblibUnpackResource(
         struct _CM_PARTIAL_RESOURCE_DESCRIPTOR *a1,
         unsigned __int64 *a2,

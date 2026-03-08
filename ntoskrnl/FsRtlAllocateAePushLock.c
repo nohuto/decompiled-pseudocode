@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlAllocateAePushLock @ 0x14053AB30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ */
+
 _QWORD *__fastcall FsRtlAllocateAePushLock(POOL_TYPE a1, ULONG a2)
 {
   int v2; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ivrInitAllwin32knsDelayLoads@@YAXPEAX@Z @ 0x1C022102C
+ * Callers:
+ *     InputInitialize @ 0x1C0096C0C (InputInitialize.c)
+ * Callees:
+ *     ivrFindImageProcAddress @ 0x1C022209C (ivrFindImageProcAddress.c)
+ */
+
 void __fastcall ivrInitAllwin32knsDelayLoads(void *a1)
 {
   void *v1; // rbx

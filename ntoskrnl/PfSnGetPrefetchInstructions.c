@@ -1,3 +1,25 @@
+/*
+ * XREFs of PfSnGetPrefetchInstructions @ 0x1407E1BA4
+ * Callers:
+ *     PfSnBeginScenario @ 0x1407E4764 (PfSnBeginScenario.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     SmDecompressBuffer @ 0x14035AD38 (SmDecompressBuffer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     NtQueryInformationFile @ 0x1406EAEB0 (NtQueryInformationFile.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     PfVerifyScenarioBuffer @ 0x1407E0090 (PfVerifyScenarioBuffer.c)
+ *     NtReadFile @ 0x1407E0B30 (NtReadFile.c)
+ *     NtOpenFile @ 0x1407E1EC0 (NtOpenFile.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfSnGetPrefetchInstructions(__int64 a1, int a2, _QWORD *a3)
 {
   __int64 v3; // rbx

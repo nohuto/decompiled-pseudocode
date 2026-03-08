@@ -1,3 +1,13 @@
+/*
+ * XREFs of AdtpBuildContextFromSecurityDescriptor @ 0x14066E690
+ * Callers:
+ *     AdtpBuildAccessReasonAuditString @ 0x14066D780 (AdtpBuildAccessReasonAuditString.c)
+ * Callees:
+ *     RtlFindAceByType @ 0x1403100D0 (RtlFindAceByType.c)
+ *     SeRmReferenceFindCapName @ 0x1405B7318 (SeRmReferenceFindCapName.c)
+ *     RtlGetSaclSecurityDescriptor @ 0x14071C1D0 (RtlGetSaclSecurityDescriptor.c)
+ */
+
 int __fastcall AdtpBuildContextFromSecurityDescriptor(void *a1, __int64 a2)
 {
   int result; // eax

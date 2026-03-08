@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserFlashWindowEx @ 0x1C01D0870
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxFlashWindow @ 0x1C0005B74 (xxxFlashWindow.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?ValidateHWNDND@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z @ 0x1C0099FC0 (-ValidateHWNDND@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall NtUserFlashWindowEx(__int128 *a1)
 {
   int v2; // edi

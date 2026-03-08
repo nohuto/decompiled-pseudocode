@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhSshExitSx @ 0x1C0003CCC
+ * Callers:
+ *     UsbhFdoD0Worker_Action @ 0x1C000CE60 (UsbhFdoD0Worker_Action.c)
+ * Callees:
+ *     UsbhDecHubBusy @ 0x1C0003DB0 (UsbhDecHubBusy.c)
+ *     UsbhEnableTimerObject @ 0x1C0008770 (UsbhEnableTimerObject.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 LONG __fastcall UsbhSshExitSx(__int64 a1, __int64 a2)
 {
   __int64 v4; // rdi

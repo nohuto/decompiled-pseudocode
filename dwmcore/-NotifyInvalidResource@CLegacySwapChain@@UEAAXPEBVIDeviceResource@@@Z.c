@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?NotifyInvalidResource@CLegacySwapChain@@UEAAXPEBVIDeviceResource@@@Z @ 0x180297FC0
+ * Callers:
+ *     ?NotifyInvalidResource@CConversionSwapChain@@UEAAXPEBVIDeviceResource@@@Z @ 0x18029EED0 (-NotifyInvalidResource@CConversionSwapChain@@UEAAXPEBVIDeviceResource@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?ReleaseD3D12Resources@CLegacySwapChain@@IEAAXXZ @ 0x180298110 (-ReleaseD3D12Resources@CLegacySwapChain@@IEAAXXZ.c)
+ */
+
 void __fastcall CLegacySwapChain::NotifyInvalidResource(CLegacySwapChain *this, const struct IDeviceResource *a2)
 {
   char *v2; // rsi

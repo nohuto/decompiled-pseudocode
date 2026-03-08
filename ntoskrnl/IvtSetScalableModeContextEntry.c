@@ -1,3 +1,12 @@
+/*
+ * XREFs of IvtSetScalableModeContextEntry @ 0x14052B470
+ * Callers:
+ *     IvtUpdateScalableModeContextEntry @ 0x14052B844 (IvtUpdateScalableModeContextEntry.c)
+ *     IvtInitializeIommu @ 0x140A87060 (IvtInitializeIommu.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IvtSetScalableModeContextEntry(__int64 a1, _QWORD *a2, _QWORD *a3)
 {
   int v3; // ecx

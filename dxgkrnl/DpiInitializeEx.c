@@ -1,3 +1,19 @@
+/*
+ * XREFs of DpiInitializeEx @ 0x1C020F728
+ * Callers:
+ *     DpiKmdDodInitialize @ 0x1C0021050 (DpiKmdDodInitialize.c)
+ *     DpiInitializeInternal @ 0x1C00210F8 (DpiInitializeInternal.c)
+ * Callees:
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     Feature_EnableIddCx110__private_IsEnabledDeviceUsage @ 0x1C0024584 (Feature_EnableIddCx110__private_IsEnabledDeviceUsage.c)
+ *     Feature_KsrDisplay__private_ReportDeviceUsage @ 0x1C002673C (Feature_KsrDisplay__private_ReportDeviceUsage.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiGetDriverDataSizeFromVersion @ 0x1C020FF60 (DpiGetDriverDataSizeFromVersion.c)
+ *     ?DxgCreateLiveDumpWithWdLogs2@@YAJK_K000UDXGK_LIVEREPORT_FLAGS@@@Z @ 0x1C02C935C (-DxgCreateLiveDumpWithWdLogs2@@YAJK_K000UDXGK_LIVEREPORT_FLAGS@@@Z.c)
+ */
+
 __int64 __fastcall DpiInitializeEx(
         struct _DRIVER_OBJECT *ClientIdentificationAddress,
         PCUNICODE_STRING SourceString,

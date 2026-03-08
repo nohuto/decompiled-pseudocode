@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtCreateThread @ 0x1409AAD10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpSanitizeContextFlags @ 0x140364D9C (RtlpSanitizeContextFlags.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PspCreateThread @ 0x1406B1908 (PspCreateThread.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall NtCreateThread(
         _QWORD *a1,
         int a2,

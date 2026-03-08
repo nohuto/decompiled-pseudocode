@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsPointerPrimary @ 0x1C01C7C44
+ * Callers:
+ *     xxxHandleMenuMessages @ 0x1C0216988 (xxxHandleMenuMessages.c)
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall IsPointerPrimary(__int64 a1, unsigned __int16 a2)
 {
   __int64 v4; // rax

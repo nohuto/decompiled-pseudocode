@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopMergeRelationLists @ 0x140969AC4
+ * Callers:
+ *     PnpProcessRelation @ 0x140861E18 (PnpProcessRelation.c)
+ *     PnpQueuePendingSurpriseRemoval @ 0x14087E79C (PnpQueuePendingSurpriseRemoval.c)
+ * Callees:
+ *     IopAddRelationToList @ 0x14086207C (IopAddRelationToList.c)
+ *     PipDeviceObjectListIndexOf @ 0x140862130 (PipDeviceObjectListIndexOf.c)
+ */
+
 __int64 __fastcall IopMergeRelationLists(int **a1, __int64 a2, char a3)
 {
   _DWORD *v3; // r11

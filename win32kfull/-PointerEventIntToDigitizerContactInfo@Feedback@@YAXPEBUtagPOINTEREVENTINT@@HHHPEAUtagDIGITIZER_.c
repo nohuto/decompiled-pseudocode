@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PointerEventIntToDigitizerContactInfo@Feedback@@YAXPEBUtagPOINTEREVENTINT@@HHHPEAUtagDIGITIZER_CONTACT_INFO@@@Z @ 0x1C01AE9A8
+ * Callers:
+ *     ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01AE304 (-ContactVisualizationWorker@@YAHKPEAX_KHK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall Feedback::PointerEventIntToDigitizerContactInfo(
         Feedback *this,
         const struct tagPOINTEREVENTINT *a2,

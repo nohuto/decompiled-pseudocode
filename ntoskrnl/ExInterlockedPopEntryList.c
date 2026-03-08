@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExInterlockedPopEntryList @ 0x14060A6C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExpAcquireSpinLockDisabled @ 0x1402E50A8 (ExpAcquireSpinLockDisabled.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 PSINGLE_LIST_ENTRY __stdcall ExInterlockedPopEntryList(PSINGLE_LIST_ENTRY ListHead, PKSPIN_LOCK Lock)
 {
   bool v4; // al

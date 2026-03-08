@@ -1,3 +1,11 @@
+/*
+ * XREFs of _tlgEnableCallback @ 0x1C039CC80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall tlgEnableCallback(
         LPCGUID SourceId,
         __int64 ControlCode,

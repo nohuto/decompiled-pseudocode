@@ -1,3 +1,23 @@
+/*
+ * XREFs of PopPdcCsDeviceNotification @ 0x140994E6C
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ *     PopPdcCsCheckSystemVolumeDevice @ 0x140B72350 (PopPdcCsCheckSystemVolumeDevice.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     PopNetUpdateCsConsumptionFlags @ 0x140857840 (PopNetUpdateCsConsumptionFlags.c)
+ *     PopNetCompliantNicUpdate @ 0x1409936D4 (PopNetCompliantNicUpdate.c)
+ *     PopNetNonCompliantDeviceUpdate @ 0x140993894 (PopNetNonCompliantDeviceUpdate.c)
+ *     PopPdcUpdateDeviceCompliance @ 0x140995184 (PopPdcUpdateDeviceCompliance.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopPdcCsDeviceNotification(__int64 a1)
 {
   unsigned int v1; // edi

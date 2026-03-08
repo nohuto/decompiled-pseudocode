@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UpdateAttributes@CCompositionSwapchainBuffer@@IEAA_NAEBVCFlipContentToken@@@Z @ 0x1C008984C
+ * Callers:
+ *     ?NotifyFlipContentTokenInFrame@CCompositionSwapchainBuffer@@IEAAJPEBVCFlipContentToken@@PEA_N@Z @ 0x1C00896C4 (-NotifyFlipContentTokenInFrame@CCompositionSwapchainBuffer@@IEAAJPEBVCFlipContentToken@@PEA_N@Z.c)
+ * Callees:
+ *     ?EnsureHDR10MetaData@CFlipExBuffer@@IEAAJXZ @ 0x1C007D630 (-EnsureHDR10MetaData@CFlipExBuffer@@IEAAJXZ.c)
+ */
+
 char __fastcall CCompositionSwapchainBuffer::UpdateAttributes(
         CCompositionSwapchainBuffer *this,
         const struct CFlipContentToken *a2)

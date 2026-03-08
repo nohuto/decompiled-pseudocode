@@ -1,3 +1,12 @@
+/*
+ * XREFs of ReadSystemIO @ 0x1C0052EDC
+ * Callers:
+ *     DebugInPort @ 0x1C004DA10 (DebugInPort.c)
+ *     AccessBaseField @ 0x1C00517B0 (AccessBaseField.c)
+ * Callees:
+ *     CheckSystemIOAddressValidity @ 0x1C0051C58 (CheckSystemIOAddressValidity.c)
+ */
+
 __int64 __fastcall ReadSystemIO(unsigned int a1, unsigned int a2, int a3)
 {
   unsigned __int16 v5; // di

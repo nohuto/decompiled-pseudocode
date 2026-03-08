@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ChangeReasonToString@WindowMargins@@YAQEADW4ChangeReason@1@@Z @ 0x1C00E3D38
+ * Callers:
+ *     ?CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z @ 0x1C00AD734 (-CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 const char *__fastcall WindowMargins::ChangeReasonToString(int a1)
 {
   int v1; // ecx

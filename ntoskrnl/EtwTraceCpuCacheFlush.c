@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceCpuCacheFlush @ 0x1405FA4BC
+ * Callers:
+ *     KeFlushIoBuffers @ 0x1402DCDE0 (KeFlushIoBuffers.c)
+ * Callees:
+ *     EtwTraceTimedEvent @ 0x1402CD670 (EtwTraceTimedEvent.c)
+ */
+
 __int64 __fastcall EtwTraceCpuCacheFlush(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
   _QWORD v5[2]; // [rsp+30h] [rbp-28h] BYREF

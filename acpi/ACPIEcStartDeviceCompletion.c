@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIEcStartDeviceCompletion @ 0x1C0025540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ */
+
 void __fastcall ACPIEcStartDeviceCompletion(__int64 a1, IRP *a2, int a3)
 {
   struct _WORK_QUEUE_ITEM *v4; // rcx

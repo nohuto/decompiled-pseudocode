@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetLastError@ThreadLocalData@details_abi@wil@@QEAAXAEBUFailureInfo@3@@Z @ 0x14000A274
+ * Callers:
+ *     ?GetContextAndNotifyFailure@details@wil@@YAXPEAUFailureInfo@2@PEAD_K@Z @ 0x1400090A0 (-GetContextAndNotifyFailure@details@wil@@YAXPEAUFailureInfo@2@PEAD_K@Z.c)
+ * Callees:
+ *     ?ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z @ 0x140002A24 (-ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z.c)
+ *     ?Set@ThreadLocalFailureInfo@details_abi@wil@@QEAAXAEBUFailureInfo@3@I@Z @ 0x14000A11C (-Set@ThreadLocalFailureInfo@details_abi@wil@@QEAAXAEBUFailureInfo@3@I@Z.c)
+ */
+
 void __fastcall wil::details_abi::ThreadLocalData::SetLastError(
         wil::details_abi::ThreadLocalData *this,
         const struct wil::FailureInfo *a2)

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlDecompressFragment @ 0x1409B64F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 NTSTATUS __stdcall RtlDecompressFragment(
         USHORT CompressionFormat,
         PUCHAR UncompressedFragment,

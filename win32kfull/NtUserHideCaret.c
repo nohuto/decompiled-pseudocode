@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserHideCaret @ 0x1C0006010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     zzzHideCaret @ 0x1C0006078 (zzzHideCaret.c)
+ */
+
 __int64 __fastcall NtUserHideCaret(__int64 a1)
 {
   int v2; // ebx

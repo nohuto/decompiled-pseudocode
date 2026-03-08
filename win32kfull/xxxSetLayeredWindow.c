@@ -1,3 +1,38 @@
+/*
+ * XREFs of xxxSetLayeredWindow @ 0x1C0028C1C
+ * Callers:
+ *     ComposeWindow @ 0x1C002297C (ComposeWindow.c)
+ *     xxxSetWindowStyle @ 0x1C002DD90 (xxxSetWindowStyle.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ *     ?CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z @ 0x1C01BD154 (-CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z.c)
+ * Callees:
+ *     GreGetSprite @ 0x1C00130A0 (GreGetSprite.c)
+ *     GreUpdateSpriteClipRgn @ 0x1C001DFD0 (GreUpdateSpriteClipRgn.c)
+ *     ?GetExplicitClipRgn@tagWND@@QEBAPEAUHRGN__@@XZ @ 0x1C002772C (-GetExplicitClipRgn@tagWND@@QEBAPEAUHRGN__@@XZ.c)
+ *     CreateVisRgnTracker @ 0x1C00287F0 (CreateVisRgnTracker.c)
+ *     CreateSprite @ 0x1C002891C (CreateSprite.c)
+ *     TrackLayeredZorder @ 0x1C002C250 (TrackLayeredZorder.c)
+ *     IsDesktopWindow @ 0x1C002C460 (IsDesktopWindow.c)
+ *     UpdateWindowSpriteMonitor @ 0x1C002C598 (UpdateWindowSpriteMonitor.c)
+ *     IsToplevelWindowDesktopComposed @ 0x1C002D900 (IsToplevelWindowDesktopComposed.c)
+ *     DwmAsyncChildStyleChange @ 0x1C002E648 (DwmAsyncChildStyleChange.c)
+ *     _GetTopLevelWindow @ 0x1C0035AF0 (_GetTopLevelWindow.c)
+ *     UserGetRedirectedWindowOrigin @ 0x1C0038F40 (UserGetRedirectedWindowOrigin.c)
+ *     IsWindowBeingDestroyed @ 0x1C0039B60 (IsWindowBeingDestroyed.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ *     xxxRedrawWindow @ 0x1C0050700 (xxxRedrawWindow.c)
+ *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00519F0 (zzzLockDisplayAreaAndInvalidateDCCache.c)
+ *     ?IsChildWindowDpiBoundary@@YA_NPEBUtagWND@@@Z @ 0x1C00647C8 (-IsChildWindowDpiBoundary@@YA_NPEBUtagWND@@@Z.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     SendDwmIconChange @ 0x1C00A1060 (SendDwmIconChange.c)
+ *     DwmAsyncTextChange @ 0x1C00A5394 (DwmAsyncTextChange.c)
+ *     ?IsChildWindowDpiIsolationEnabled@@YA_NPEAUtagWND@@0@Z @ 0x1C00DE2B0 (-IsChildWindowDpiIsolationEnabled@@YA_NPEAUtagWND@@0@Z.c)
+ *     zzzUpdateLayeredWindow @ 0x1C01BE8C0 (zzzUpdateLayeredWindow.c)
+ *     xxxUpdateWindows @ 0x1C0217D90 (xxxUpdateWindows.c)
+ */
+
 __int64 __fastcall xxxSetLayeredWindow(struct tagWND **a1, int a2, __int64 *a3)
 {
   int v3; // esi

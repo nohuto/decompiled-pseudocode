@@ -1,3 +1,24 @@
+/*
+ * XREFs of SiGetEfiSystemDevice @ 0x140A5CDB0
+ * Callers:
+ *     SiGetFirmwareSystemPartition @ 0x14076E380 (SiGetFirmwareSystemPartition.c)
+ *     SiGetSystemDisk @ 0x14087C0C0 (SiGetSystemDisk.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x140412E10 (ZwOpenDirectoryObject.c)
+ *     ZwQueryDirectoryObject @ 0x140414C90 (ZwQueryDirectoryObject.c)
+ *     SiGetDriveLayoutInformation @ 0x140A5C928 (SiGetDriveLayoutInformation.c)
+ *     SiIssueSynchronousIoctl @ 0x140A5CA28 (SiIssueSynchronousIoctl.c)
+ *     SiDisambiguateSystemDevice @ 0x140A5CCE4 (SiDisambiguateSystemDevice.c)
+ *     SiGetEspFromFirmware @ 0x140A5D1A4 (SiGetEspFromFirmware.c)
+ *     SiIsValidDiskDevice @ 0x140A5D574 (SiIsValidDiskDevice.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SiGetEfiSystemDevice(unsigned int a1, __int64 a2, wchar_t **a3)
 {
   wchar_t **v3; // r15

@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoMapTransfer @ 0x1404FF130
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 PHYSICAL_ADDRESS __stdcall IoMapTransfer(
         PDMA_ADAPTER DmaAdapter,
         PMDL Mdl,

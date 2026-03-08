@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwOpenJobObjectWrapper @ 0x1405EF5F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwOpenJobObject @ 0x140414810 (ZwOpenJobObject.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 __int64 __fastcall DifZwOpenJobObjectWrapper(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 *APIThunkContextById; // rax

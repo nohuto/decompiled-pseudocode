@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiNodeLargeFreeZeroPages @ 0x14027DEB0
+ * Callers:
+ *     MiCheckZeroFreeRebalance @ 0x14027DFA0 (MiCheckZeroFreeRebalance.c)
+ *     MiNodeFreeZeroPages @ 0x14034EAD4 (MiNodeFreeZeroPages.c)
+ *     MiSignalLargePageRebuild @ 0x1403609B4 (MiSignalLargePageRebuild.c)
+ *     MiWakePageZeroing @ 0x140361388 (MiWakePageZeroing.c)
+ *     MiRebuildLargePages @ 0x14065B810 (MiRebuildLargePages.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiNodeLargeFreeZeroPages(_QWORD *a1, unsigned int a2, int a3)
 {
   __int64 v3; // r11

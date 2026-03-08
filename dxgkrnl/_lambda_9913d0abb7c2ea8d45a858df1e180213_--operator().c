@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_9913d0abb7c2ea8d45a858df1e180213_::operator() @ 0x1C03AE120
+ * Callers:
+ *     ?BuildDynamicVideoPresentTargetChildRelations@DMMVIDEOPRESENTTARGETSET@@QEAAJIPEAKPEAIPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x1C03AE220 (-BuildDynamicVideoPresentTargetChildRelations@DMMVIDEOPRESENTTARGETSET@@QEAAJIPEAKPEAIPEAW4_CONN.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall lambda_9913d0abb7c2ea8d45a858df1e180213_::operator()(__int64 a1, int a2)
 {
   __int64 v2; // r8

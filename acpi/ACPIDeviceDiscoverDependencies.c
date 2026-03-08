@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIDeviceDiscoverDependencies @ 0x1C001CD04
+ * Callers:
+ *     ACPIDeviceRecordDependencies @ 0x1C0021C48 (ACPIDeviceRecordDependencies.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ */
+
 _UNKNOWN **__fastcall ACPIDeviceDiscoverDependencies(_QWORD *a1, _QWORD *a2)
 {
   _UNKNOWN **result; // rax

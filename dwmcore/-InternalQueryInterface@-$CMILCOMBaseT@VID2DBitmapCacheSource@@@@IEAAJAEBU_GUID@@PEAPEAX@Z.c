@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InternalQueryInterface@?$CMILCOMBaseT@VID2DBitmapCacheSource@@@@IEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802B400C
+ * Callers:
+ *     ?QueryInterface@CColorKeyBitmap@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802B43C0 (-QueryInterface@CColorKeyBitmap@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CMILCOMBaseT<ID2DBitmapCacheSource>::InternalQueryInterface(_QWORD *a1, _QWORD *a2, __int64 *a3)
 {
   int v5; // esi

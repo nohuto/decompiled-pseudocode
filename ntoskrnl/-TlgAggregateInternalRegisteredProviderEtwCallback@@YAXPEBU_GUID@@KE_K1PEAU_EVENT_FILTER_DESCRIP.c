@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x140859410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     LookUpTableFlushComplete @ 0x140859480 (LookUpTableFlushComplete.c)
+ *     LookUpTableFlushPartial @ 0x14087B43C (LookUpTableFlushPartial.c)
+ */
+
 void __fastcall TlgAggregateInternalRegisteredProviderEtwCallback(
         const struct _GUID *a1,
         __int64 a2,

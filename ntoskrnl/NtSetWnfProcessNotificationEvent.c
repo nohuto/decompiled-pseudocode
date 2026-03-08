@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtSetWnfProcessNotificationEvent @ 0x140781560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExpWnfCreateProcessContext @ 0x140781634 (ExpWnfCreateProcessContext.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall NtSetWnfProcessNotificationEvent(HANDLE Handle)
 {
   struct _KTHREAD *CurrentThread; // rax

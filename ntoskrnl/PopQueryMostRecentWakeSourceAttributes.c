@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopQueryMostRecentWakeSourceAttributes @ 0x140984574
+ * Callers:
+ *     PopPotsLogPowerTransitionReliability @ 0x14099DA40 (PopPotsLogPowerTransitionReliability.c)
+ * Callees:
+ *     PopGetMostRecentWakeInfo @ 0x14058C140 (PopGetMostRecentWakeInfo.c)
+ *     PopWakeInfoDereference @ 0x14058C3B8 (PopWakeInfoDereference.c)
+ */
+
 void __fastcall PopQueryMostRecentWakeSourceAttributes(_DWORD *a1, _QWORD *a2, _QWORD *a3, _DWORD *a4)
 {
   __int64 MostRecentWakeInfo; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of _InnerGetClassPtr @ 0x1C0031A40
+ * Callers:
+ *     _GetClassInfoEx @ 0x1C00314C8 (_GetClassInfoEx.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ *     GetClassPtr @ 0x1C00ECC80 (GetClassPtr.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall InnerGetClassPtr(__int16 a1, _QWORD *a2, __int64 a3)
 {
   _QWORD *v4; // r9

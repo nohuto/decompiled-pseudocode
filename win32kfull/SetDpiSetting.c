@@ -1,3 +1,11 @@
+/*
+ * XREFs of SetDpiSetting @ 0x1C00B9880
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SetDpiAllHWProfileSetting @ 0x1C00B9AC0 (SetDpiAllHWProfileSetting.c)
+ */
+
 __int64 __fastcall SetDpiSetting(int a1, unsigned int a2)
 {
   NTSTATUS v2; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiProcessFlipPendingContextList @ 0x1C001BFCC
+ * Callers:
+ *     VidSchiScheduleCommandToRun @ 0x1C0006850 (VidSchiScheduleCommandToRun.c)
+ *     VidSchiClearFlipDevice @ 0x1C0012708 (VidSchiClearFlipDevice.c)
+ * Callees:
+ *     ?VidSchiUpdateFlipContextStatus@@YAHPEAU_VIDSCH_CONTEXT@@@Z @ 0x1C0037980 (-VidSchiUpdateFlipContextStatus@@YAHPEAU_VIDSCH_CONTEXT@@@Z.c)
+ */
+
 __int64 __fastcall VidSchiProcessFlipPendingContextList(__int64 a1, __int64 a2)
 {
   _QWORD **v3; // rdi

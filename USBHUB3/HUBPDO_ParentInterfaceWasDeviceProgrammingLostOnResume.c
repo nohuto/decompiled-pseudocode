@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPDO_ParentInterfaceWasDeviceProgrammingLostOnResume @ 0x1C001A970
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HUBPDO_ParentInterfaceWasDeviceProgrammingLostOnResume(__int64 a1)
 {
   if ( (*(_DWORD *)(a1 + 32) & 0x80u) == 0 )

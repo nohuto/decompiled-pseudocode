@@ -1,3 +1,22 @@
+/*
+ * XREFs of HashpHashMemory @ 0x140A7438C
+ * Callers:
+ *     MinCryptHashMemory @ 0x140674E0C (MinCryptHashMemory.c)
+ * Callees:
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     SymCryptSha256Result @ 0x1403EF390 (SymCryptSha256Result.c)
+ *     SymCryptSha384Result @ 0x1403F49DC (SymCryptSha384Result.c)
+ *     SymCryptSha512Result @ 0x1403F61C8 (SymCryptSha512Result.c)
+ *     SymCryptSha1Result @ 0x1403F7550 (SymCryptSha1Result.c)
+ *     SymCryptMd5Result @ 0x1403F7F80 (SymCryptMd5Result.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HashpHashBytes @ 0x140A74954 (HashpHashBytes.c)
+ *     HashpInitHash @ 0x140A749CC (HashpInitHash.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall HashpHashMemory(unsigned int a1, unsigned int a2, __int64 a3, _OWORD *a4, __int64 a5)
 {
   char v5; // r12

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1CBitmap@@MEAA@XZ @ 0x1800A7974
+ * Callers:
+ *     ??_GCWICBitmapWrapper@@UEAAPEAXI@Z @ 0x1800A5FB0 (--_GCWICBitmapWrapper@@UEAAPEAXI@Z.c)
+ *     ??1CSystemMemoryBitmap@@MEAA@XZ @ 0x1800A736C (--1CSystemMemoryBitmap@@MEAA@XZ.c)
+ *     ??_ECBitmap@@MEAAPEAXI@Z @ 0x18027E0A0 (--_ECBitmap@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CBitmap::~CBitmap(CBitmap *this)
 {
   __int64 v2; // rcx

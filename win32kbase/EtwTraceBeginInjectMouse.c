@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceBeginInjectMouse @ 0x1C0161A10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetCallbackCount@@YACXZ @ 0x1C00EDBA8 (-GetCallbackCount@@YACXZ.c)
+ *     McTemplateK0cddd_EtwWriteTransfer @ 0x1C0164CBC (McTemplateK0cddd_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTraceBeginInjectMouse(char a1, char a2, char a3)
 {
   int v6; // r9d

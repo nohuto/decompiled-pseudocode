@@ -1,3 +1,12 @@
+/*
+ * XREFs of ESM_ReclaimingCanceledTransfersAfterControllerSurpriseRemoval @ 0x1C00519E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Endpoint_SM_OkToCompleteEndpointResetRequest @ 0x1C003BA04 (Endpoint_SM_OkToCompleteEndpointResetRequest.c)
+ *     TR_OkToReclaimTransfersOnCancel @ 0x1C0041B60 (TR_OkToReclaimTransfersOnCancel.c)
+ */
+
 __int64 __fastcall ESM_ReclaimingCanceledTransfersAfterControllerSurpriseRemoval(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // rbx

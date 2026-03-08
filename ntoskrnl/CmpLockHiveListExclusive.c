@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpLockHiveListExclusive @ 0x140731734
+ * Callers:
+ *     CmpLoadKeyCommon @ 0x1402B2DEC (CmpLoadKeyCommon.c)
+ *     CmpJoinClassOfTrust @ 0x1402B38BC (CmpJoinClassOfTrust.c)
+ *     CmpUnJoinClassOfTrust @ 0x1402BFCE8 (CmpUnJoinClassOfTrust.c)
+ * Callees:
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ */
+
 __int64 CmpLockHiveListExclusive()
 {
   __int64 result; // rax

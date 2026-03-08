@@ -1,3 +1,11 @@
+/*
+ * XREFs of MmAllocateMdlForIoSpace @ 0x14061C710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IopAllocateMdl @ 0x140241F90 (IopAllocateMdl.c)
+ */
+
 __int64 __fastcall MmAllocateMdlForIoSpace(_QWORD *a1, unsigned __int64 a2, __int64 *a3)
 {
   unsigned int v4; // r10d

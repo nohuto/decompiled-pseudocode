@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopReadyDeviceObjects @ 0x14072A854
+ * Callers:
+ *     IopLoadDriver @ 0x14072A9DC (IopLoadDriver.c)
+ *     IopInitializeBuiltinDriver @ 0x140B58C28 (IopInitializeBuiltinDriver.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IopReadyDeviceObjects(__int64 a1)
 {
   __int64 result; // rax

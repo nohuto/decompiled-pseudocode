@@ -1,3 +1,13 @@
+/*
+ * XREFs of Crashdump_Endpoint_PrepareForHibernate @ 0x1C004F150
+ * Callers:
+ *     Crashdump_UsbDevice_PrepareForHibernate @ 0x1C00506E0 (Crashdump_UsbDevice_PrepareForHibernate.c)
+ * Callees:
+ *     memset @ 0x1C0020700 (memset.c)
+ *     Crashdump_Endpoint_SetDequeuePointer @ 0x1C004F848 (Crashdump_Endpoint_SetDequeuePointer.c)
+ *     Crashdump_Endpoint_StopEndpoint @ 0x1C004F914 (Crashdump_Endpoint_StopEndpoint.c)
+ */
+
 __int64 __fastcall Crashdump_Endpoint_PrepareForHibernate(__int64 a1)
 {
   int v2; // eax

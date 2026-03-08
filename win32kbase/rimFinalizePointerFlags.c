@@ -1,3 +1,17 @@
+/*
+ * XREFs of rimFinalizePointerFlags @ 0x1C01D8470
+ * Callers:
+ *     RIMUpdatePrimaryAndFinalizePointerFlags @ 0x1C01D5A04 (RIMUpdatePrimaryAndFinalizePointerFlags.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMCmGetButtonContact @ 0x1C00F1A60 (RIMCmGetButtonContact.c)
+ *     RIMCmIsContactSuppressed @ 0x1C00F1A7A (RIMCmIsContactSuppressed.c)
+ *     rimPenButtonsPolicyApply @ 0x1C01D8ECC (rimPenButtonsPolicyApply.c)
+ *     RIMCmIsButtonContactActiveAndNotSuppressed @ 0x1C01DEACC (RIMCmIsButtonContactActiveAndNotSuppressed.c)
+ *     RIMCmIsContactDeliveringPointerData @ 0x1C01DEB84 (RIMCmIsContactDeliveringPointerData.c)
+ *     RIMCmIsSuppressedContactMarkedForDelivery @ 0x1C01DEBD0 (RIMCmIsSuppressedContactMarkedForDelivery.c)
+ */
+
 __int64 __fastcall rimFinalizePointerFlags(__int64 a1, __int64 a2, _DWORD *a3)
 {
   int v3; // r10d

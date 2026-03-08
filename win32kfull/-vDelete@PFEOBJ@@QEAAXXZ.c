@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vDelete@PFEOBJ@@QEAAXXZ @ 0x1C00B74A0
+ * Callers:
+ *     ?vPFFC_Delete@PFFOBJ@@QEAAXPEAVPFFCLEANUP@@@Z @ 0x1C00B7328 (-vPFFC_Delete@PFFOBJ@@QEAAXPEAVPFFCLEANUP@@@Z.c)
+ *     ?vDeletePFE@@YAXPEAVPFE@@@Z @ 0x1C02E3490 (-vDeletePFE@@YAXPEAVPFE@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall PFEOBJ::vDelete(PFEOBJ *this)
 {
   __int64 v1; // rdx

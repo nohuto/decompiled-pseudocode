@@ -1,3 +1,18 @@
+/*
+ * XREFs of KeAssignCpuPartitionsToProcess @ 0x1405725AC
+ * Callers:
+ *     PspAssignCpuPartitionsToProcess @ 0x1409ADDC4 (PspAssignCpuPartitionsToProcess.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveCpuPartitionAssignmentProcess @ 0x140295BA0 (KiRemoveCpuPartitionAssignmentProcess.c)
+ *     KeSetCpuSetsProcess @ 0x140398C34 (KeSetCpuSetsProcess.c)
+ *     KeQueryCpuPartitionAffinity @ 0x1403A8718 (KeQueryCpuPartitionAffinity.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall KeAssignCpuPartitionsToProcess(__int64 a1, unsigned int a2, __int64 a3, char a4)
 {
   __int64 v7; // rbx

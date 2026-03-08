@@ -1,3 +1,40 @@
+/*
+ * XREFs of CmpMountPreloadedHives @ 0x140812EF4
+ * Callers:
+ *     CmpFinishSystemHivesLoad @ 0x140815160 (CmpFinishSystemHivesLoad.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     SetFailureLocation @ 0x140243E5C (SetFailureLocation.c)
+ *     RtlSetBits @ 0x14028BC50 (RtlSetBits.c)
+ *     RtlSetAllBits @ 0x14028BD00 (RtlSetAllBits.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402992F0 (PdcCreateWatchdogAroundClientCall.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     RtlNumberOfSetBits @ 0x14035C520 (RtlNumberOfSetBits.c)
+ *     RtlAreBitsClear @ 0x14036C910 (RtlAreBitsClear.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     TmEnableCallbacks @ 0x1403D2930 (TmEnableCallbacks.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpLockRegistryExclusive @ 0x1406B6454 (CmpLockRegistryExclusive.c)
+ *     CmpFlushHive @ 0x1406BEA70 (CmpFlushHive.c)
+ *     CmpOpenHiveFile @ 0x1406C05C4 (CmpOpenHiveFile.c)
+ *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x14072CD4C (HvCheckAndUpdateHiveBackupTimeStamp.c)
+ *     CmpInitializeActualFileSizes @ 0x140730684 (CmpInitializeActualFileSizes.c)
+ *     CmpDoFileSetSizeEx @ 0x140731FA4 (CmpDoFileSetSizeEx.c)
+ *     CmpQueryHiveRedirectionFileList @ 0x140733370 (CmpQueryHiveRedirectionFileList.c)
+ *     CmRmFinalizeRecovery @ 0x140733440 (CmRmFinalizeRecovery.c)
+ *     CmpInitCmRM @ 0x1407334D4 (CmpInitCmRM.c)
+ *     HvpDropPagedBins @ 0x140820B14 (HvpDropPagedBins.c)
+ *     ExRaiseHardError @ 0x1409FDD30 (ExRaiseHardError.c)
+ *     CmpDiskFullWarning @ 0x140A0EDE4 (CmpDiskFullWarning.c)
+ *     SyspartGetSystemPartition @ 0x140A5C67C (SyspartGetSystemPartition.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ */
+
 void CmpMountPreloadedHives()
 {
   int v0; // edi

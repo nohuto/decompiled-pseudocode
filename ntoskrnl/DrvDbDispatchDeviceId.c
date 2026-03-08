@@ -1,3 +1,18 @@
+/*
+ * XREFs of DrvDbDispatchDeviceId @ 0x140864D40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _PnpCtxGetObjectContext @ 0x140864F5C (_PnpCtxGetObjectContext.c)
+ *     DrvDbGetDeviceIdMappedProperty @ 0x140865414 (DrvDbGetDeviceIdMappedProperty.c)
+ *     DrvDbDeleteObjectRegKey @ 0x140A681B0 (DrvDbDeleteObjectRegKey.c)
+ *     DrvDbGetDeviceIdMappedPropertyKeys @ 0x140A68868 (DrvDbGetDeviceIdMappedPropertyKeys.c)
+ *     DrvDbGetObjectList @ 0x140A696A0 (DrvDbGetObjectList.c)
+ *     DrvDbOpenDeviceIdRegKey @ 0x140A69CD8 (DrvDbOpenDeviceIdRegKey.c)
+ *     DrvDbSetDeviceIdMappedProperty @ 0x140A6A0FC (DrvDbSetDeviceIdMappedProperty.c)
+ *     DrvDbValidateDeviceIdName @ 0x140A6AB2C (DrvDbValidateDeviceIdName.c)
+ */
+
 __int64 __fastcall DrvDbDispatchDeviceId(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int *a5)
 {
   int ObjectContext; // eax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiNewPfnsSuitable @ 0x140A29EF0
+ * Callers:
+ *     MiAllocateEntireImageFileExtents @ 0x140A30264 (MiAllocateEntireImageFileExtents.c)
+ *     MiAllocateFileExtents @ 0x140A303A8 (MiAllocateFileExtents.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiNewPfnsSuitable(__int64 a1)
 {
   unsigned int v1; // r9d

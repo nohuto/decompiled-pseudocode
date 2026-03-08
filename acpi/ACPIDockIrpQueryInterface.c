@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIDockIrpQueryInterface @ 0x1C007B740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     ACPIDockIntfReference @ 0x1C007A970 (ACPIDockIntfReference.c)
+ */
+
 __int64 __fastcall ACPIDockIrpQueryInterface(PVOID Object, PIRP Irp)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // rbp

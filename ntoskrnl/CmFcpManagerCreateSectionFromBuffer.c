@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmFcpManagerCreateSectionFromBuffer @ 0x1408181E8
+ * Callers:
+ *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x140A2416C (CmFcManagerOverwriteFeatureConfigurationSection.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140B53284 (CmFcManagerStartRuntimePhase.c)
+ * Callees:
+ *     MiRemoveFromSystemSpace @ 0x14020E5C8 (MiRemoveFromSystemSpace.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     CmFcpMapSection @ 0x1408182C4 (CmFcpMapSection.c)
+ *     CmFcpManagerCreateSection @ 0x140818398 (CmFcpManagerCreateSection.c)
+ */
+
 __int64 __fastcall CmFcpManagerCreateSectionFromBuffer(void *Src, size_t Size, __int64 a3, __int64 a4, __int64 a5)
 {
   int Section; // edi

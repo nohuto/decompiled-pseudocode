@@ -1,3 +1,13 @@
+/*
+ * XREFs of ApiSetEditionIsPointerQueuedMessageCoalescable @ 0x1C023FC64
+ * Callers:
+ *     ?CanCoalesceNodeWithPrevious@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@PEAUtagQMSG@@PEAUCPointerQFrame@@PEAW4CPointerCoalesce@@@Z @ 0x1C01EA0CC (-CanCoalesceNodeWithPrevious@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     EditionIsPointerQueuedMessageCoalescable @ 0x1C027194C (EditionIsPointerQueuedMessageCoalescable.c)
+ */
+
 __int64 __fastcall ApiSetEditionIsPointerQueuedMessageCoalescable(
         _OWORD *a1,
         __int64 a2,

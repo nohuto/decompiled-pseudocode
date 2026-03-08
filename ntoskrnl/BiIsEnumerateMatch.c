@@ -1,3 +1,11 @@
+/*
+ * XREFs of BiIsEnumerateMatch @ 0x140A59B5C
+ * Callers:
+ *     BcdEnumerateObjects @ 0x140A597EC (BcdEnumerateObjects.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall BiIsEnumerateMatch(unsigned int a1, unsigned int a2)
 {
   char v2; // r8

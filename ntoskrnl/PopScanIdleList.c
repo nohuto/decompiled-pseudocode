@@ -1,3 +1,22 @@
+/*
+ * XREFs of PopScanIdleList @ 0x1402BC8E0
+ * Callers:
+ *     PopSystemIdleWorker @ 0x14073B6A0 (PopSystemIdleWorker.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopRequestPowerIrp @ 0x1402BA570 (PopRequestPowerIrp.c)
+ *     PopGetPowerSettingValue @ 0x1402BCC10 (PopGetPowerSettingValue.c)
+ *     PopDiagTraceEventNoPayload @ 0x1402FBBF8 (PopDiagTraceEventNoPayload.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopCoalescingCheck @ 0x14058B3E4 (PopCoalescingCheck.c)
+ *     PopDiagTraceDeviceIdleCheck @ 0x1405904E0 (PopDiagTraceDeviceIdleCheck.c)
+ *     PopDiagTraceDiskIdleCheck @ 0x1405906C0 (PopDiagTraceDiskIdleCheck.c)
+ *     PopDiagTraceIoCoalescingDiskIdle @ 0x140591C70 (PopDiagTraceIoCoalescingDiskIdle.c)
+ *     PopSetPowerSettingValue @ 0x14068CFA0 (PopSetPowerSettingValue.c)
+ *     PopSetPowerSettingValueAcDc @ 0x14073BE70 (PopSetPowerSettingValueAcDc.c)
+ */
+
 __int64 __fastcall PopScanIdleList(int a1, unsigned __int64 a2)
 {
   int v2; // r13d

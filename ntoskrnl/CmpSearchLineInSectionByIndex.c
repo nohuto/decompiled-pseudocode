@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpSearchLineInSectionByIndex @ 0x140B4E7A0
+ * Callers:
+ *     CmpGetSectionLineIndexValueCount @ 0x140B4DB74 (CmpGetSectionLineIndexValueCount.c)
+ *     EmpInfParseGetSectionLineCount @ 0x140B4E09C (EmpInfParseGetSectionLineCount.c)
+ *     CmpGetSectionLineIndex @ 0x140B4E640 (CmpGetSectionLineIndex.c)
+ *     CmpGetKeyName @ 0x140B4E760 (CmpGetKeyName.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall CmpSearchLineInSectionByIndex(__int64 a1, unsigned int a2)
 {
   unsigned int v2; // r8d

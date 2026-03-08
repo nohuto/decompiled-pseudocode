@@ -1,3 +1,31 @@
+/*
+ * XREFs of xxxProcessKeyEvent @ 0x1C007EE00
+ * Callers:
+ *     ProcessKeyboardInjectedInput @ 0x1C000E730 (ProcessKeyboardInjectedInput.c)
+ *     ?xxxFKAcceptanceDelayTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01E49D0 (-xxxFKAcceptanceDelayTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?xxxFKRepeatRateTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01E4A90 (-xxxFKRepeatRateTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?xxxStickyKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01E5C10 (-xxxStickyKeys@@YAHPEAUtagKE@@KH@Z.c)
+ *     ?xxxToggleKeysTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01E6040 (-xxxToggleKeysTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?xxxUpdateModifierState@@YAXHH@Z @ 0x1C01E62D0 (-xxxUpdateModifierState@@YAXHH@Z.c)
+ *     ?xxxDownlevelInput@CPTPProcessor@@CAJPEBUCPointerInputFrame@@AEBUtagPTP_DOWNLEVELED_INPUT@@@Z @ 0x1C020FB30 (-xxxDownlevelInput@CPTPProcessor@@CAJPEBUCPointerInputFrame@@AEBUtagPTP_DOWNLEVELED_INPUT@@@Z.c)
+ *     ?RemoteSyncToggleKeys@@YAXK@Z @ 0x1C021A3F8 (-RemoteSyncToggleKeys@@YAXK@Z.c)
+ *     ?SendKeyUpDown@@YAXEE@Z @ 0x1C021A6EC (-SendKeyUpDown@@YAXEE@Z.c)
+ *     ProcessKeyboardInputWorker @ 0x1C021A7E0 (ProcessKeyboardInputWorker.c)
+ * Callees:
+ *     ?GetLastInputTime@CInputGlobals@@QEBA_KXZ @ 0x1C0016B10 (-GetLastInputTime@CInputGlobals@@QEBA_KXZ.c)
+ *     UpdateRawKeyState @ 0x1C007F0C8 (UpdateRawKeyState.c)
+ *     xxxKeyEventEx @ 0x1C007F2E0 (xxxKeyEventEx.c)
+ *     GetActiveHKL @ 0x1C007F950 (GetActiveHKL.c)
+ *     ApiSetEditionIsGpqForegroundAccessibleCurrent @ 0x1C007FDD0 (ApiSetEditionIsGpqForegroundAccessibleCurrent.c)
+ *     KEOEMProcs @ 0x1C00803C4 (KEOEMProcs.c)
+ *     xxxKELocaleProcs @ 0x1C0080414 (xxxKELocaleProcs.c)
+ *     ApiSetEditionHandleSonarKeyEvent @ 0x1C008055C (ApiSetEditionHandleSonarKeyEvent.c)
+ *     ?UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z @ 0x1C0080790 (-UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ?DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z @ 0x1C01E3DAC (-DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z.c)
+ *     ?OnKeyEvent@CPTPProcessor@@SAXE_N@Z @ 0x1C020E594 (-OnKeyEvent@CPTPProcessor@@SAXE_N@Z.c)
+ */
+
 __int64 __fastcall xxxProcessKeyEvent(
         unsigned __int8 *a1,
         __int64 a2,

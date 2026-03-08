@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspApplyIFEOPerfOptions @ 0x1409ADCE8
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ * Callees:
+ *     MmGetDefaultPagePriority @ 0x14035B470 (MmGetDefaultPagePriority.c)
+ *     PspSetProcessPriorityClass @ 0x14079488C (PspSetProcessPriorityClass.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ */
+
 __int64 __fastcall PspApplyIFEOPerfOptions(__int64 a1, unsigned int *a2, KPROCESSOR_MODE a3)
 {
   unsigned int v6; // edi

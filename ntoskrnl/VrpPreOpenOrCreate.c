@@ -1,3 +1,25 @@
+/*
+ * XREFs of VrpPreOpenOrCreate @ 0x1406C1A34
+ * Callers:
+ *     VrpRegistryCallback @ 0x1406C2D60 (VrpRegistryCallback.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwActivityIdControl @ 0x140244870 (EtwActivityIdControl.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     VrpTranslatePath @ 0x1406C1EF8 (VrpTranslatePath.c)
+ *     VrpGetNextToken @ 0x1406C24E8 (VrpGetNextToken.c)
+ *     VrpBuildKeyPath @ 0x1406C286C (VrpBuildKeyPath.c)
+ *     CmpFindExtraParameterInBlock @ 0x1406C3180 (CmpFindExtraParameterInBlock.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     CmAllocateExtraParameter @ 0x140797310 (CmAllocateExtraParameter.c)
+ *     CmpFreeExtraParameter @ 0x140797DC0 (CmpFreeExtraParameter.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall VrpPreOpenOrCreate(__int64 a1, void *a2)
 {
   PCUNICODE_STRING *v2; // rdi

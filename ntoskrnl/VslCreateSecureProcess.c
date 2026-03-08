@@ -1,3 +1,14 @@
+/*
+ * XREFs of VslCreateSecureProcess @ 0x14093EBE0
+ * Callers:
+ *     KeInitializeProcess @ 0x14070A0C8 (KeInitializeProcess.c)
+ *     VslCreateEnclave @ 0x14093EA80 (VslCreateEnclave.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall VslCreateSecureProcess(__int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 result; // rax

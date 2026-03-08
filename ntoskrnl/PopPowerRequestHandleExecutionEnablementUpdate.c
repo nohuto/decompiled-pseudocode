@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopPowerRequestHandleExecutionEnablementUpdate @ 0x1408525A4
+ * Callers:
+ *     PopUpdatePdcSystemIdleState @ 0x14073B8FC (PopUpdatePdcSystemIdleState.c)
+ *     PopPowerRequestExecutionRequiredSettingCallback @ 0x1408523C0 (PopPowerRequestExecutionRequiredSettingCallback.c)
+ *     PopWnfAudioCallback @ 0x140852480 (PopWnfAudioCallback.c)
+ *     PopPowerRequestExecutionRequiredTimeoutWorker @ 0x14097E610 (PopPowerRequestExecutionRequiredTimeoutWorker.c)
+ *     PopPowerRequestNotifyMobileHotspotChanged @ 0x14097E708 (PopPowerRequestNotifyMobileHotspotChanged.c)
+ * Callees:
+ *     PopPowerRequestUnrevokeRequests @ 0x1403A5A90 (PopPowerRequestUnrevokeRequests.c)
+ *     PopPowerRequestRevokeRequests @ 0x140581724 (PopPowerRequestRevokeRequests.c)
+ */
+
 __int64 PopPowerRequestHandleExecutionEnablementUpdate()
 {
   int v0; // ecx

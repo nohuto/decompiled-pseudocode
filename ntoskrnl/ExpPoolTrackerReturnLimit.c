@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExpPoolTrackerReturnLimit @ 0x140313B50
+ * Callers:
+ *     ExFreeHeapPool @ 0x1402B61C0 (ExFreeHeapPool.c)
+ *     ExInsertPoolTag @ 0x1403B51DC (ExInsertPoolTag.c)
+ *     ExRemovePoolTag @ 0x1403BD8EC (ExRemovePoolTag.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x140462C3A (ExpRemovePoolTrackerExpansion.c)
+ *     ExPoolCleanupExpansionTable @ 0x140604EC8 (ExPoolCleanupExpansionTable.c)
+ *     ExpFreeHeapSpecialPool @ 0x14060CCF8 (ExpFreeHeapSpecialPool.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ * Callees:
+ *     <none>
+ */
+
 signed __int64 __fastcall ExpPoolTrackerReturnLimit(int a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r9

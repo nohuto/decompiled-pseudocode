@@ -1,3 +1,14 @@
+/*
+ * XREFs of VidSchiPreemptEngineNodes @ 0x1C0106530
+ * Callers:
+ *     VidSchiPrepareToResetEngine @ 0x1C010667C (VidSchiPrepareToResetEngine.c)
+ * Callees:
+ *     VidSchIsTDRPending @ 0x1C0007920 (VidSchIsTDRPending.c)
+ *     VidSchiDriverNodeEngineToSchedulerNode @ 0x1C001471C (VidSchiDriverNodeEngineToSchedulerNode.c)
+ *     VidSchiCompletePreemption @ 0x1C003A5D8 (VidSchiCompletePreemption.c)
+ *     VidSchiSubmitPreemptionCommand @ 0x1C00ADB04 (VidSchiSubmitPreemptionCommand.c)
+ */
+
 char __fastcall VidSchiPreemptEngineNodes(__int64 a1, unsigned int a2, __int64 a3, __int64 *a4)
 {
   __int64 v4; // r11

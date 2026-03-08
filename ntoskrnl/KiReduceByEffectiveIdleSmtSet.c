@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiReduceByEffectiveIdleSmtSet @ 0x1403C8C94
+ * Callers:
+ *     KiTryLocalThreadSchedule @ 0x140259D60 (KiTryLocalThreadSchedule.c)
+ * Callees:
+ *     KiUpdateTotalCyclesCurrentThread @ 0x14036A030 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall KiReduceByEffectiveIdleSmtSet(__int64 a1, _QWORD *a2)
 {
   __int64 v3; // rbx

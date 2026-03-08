@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?LookUpAndRemove@?$CSortedVector@PEAXPEAX@NSInstrumentation@@QEAA_NAEBQEAXPEAPEAX@Z @ 0x1C019B554
+ * Callers:
+ *     Win32FreePool @ 0x1C0070430 (Win32FreePool.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ * Callees:
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     ?Wait@CPlatformSingleWatierSignal@NSInstrumentation@@QEAAXXZ @ 0x1C019A6D0 (-Wait@CPlatformSingleWatierSignal@NSInstrumentation@@QEAAXXZ.c)
+ *     ?LowerBound@?$CSortedVector@PEAXPEAX@NSInstrumentation@@QEBA_KAEBQEAX@Z @ 0x1C019B664 (-LowerBound@-$CSortedVector@PEAXPEAX@NSInstrumentation@@QEBA_KAEBQEAX@Z.c)
+ */
+
 char __fastcall NSInstrumentation::CSortedVector<void *,void *>::LookUpAndRemove(__int64 a1, _QWORD *a2, _QWORD *a3)
 {
   char v6; // si

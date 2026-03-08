@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UpdatePipelinePointers@CScanPipeline@@IEAAXPEAXPEBX@Z @ 0x1802B91E4
+ * Callers:
+ *     ?Run@CScanPipeline@@QEAAXPEAXPEBXIHH@Z @ 0x1802B9164 (-Run@CScanPipeline@@QEAAXPEAXPEBXIHH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CScanPipeline::UpdatePipelinePointers(CScanPipeline *this, void *a2, const void *a3)
 {
   int v3; // r10d

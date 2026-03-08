@@ -1,3 +1,23 @@
+/*
+ * XREFs of xxxDDETrackGetMessageHook @ 0x1C01FD7B8
+ * Callers:
+ *     ?xxxReadPostMessage@@YAHPEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIH@Z @ 0x1C0071AC0 (-xxxReadPostMessage@@YAHPEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIH@Z.c)
+ *     SfnSENTDDEMSG @ 0x1C0211BA0 (SfnSENTDDEMSG.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003E858 (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     ?FindDdeConv@@YAPEAUtagDDECONV@@PEAUtagWND@@0@Z @ 0x1C01FAB6C (-FindDdeConv@@YAPEAUtagDDECONV@@PEAUtagWND@@0@Z.c)
+ *     ?xxxCleanupDdeConv@@YAXPEAUtagWND@@@Z @ 0x1C01FBC54 (-xxxCleanupDdeConv@@YAXPEAUtagWND@@@Z.c)
+ *     ?xxxCopyDDEOut@@YAPEAXPEAUtagINTDDEINFO@@PEAPEAX@Z @ 0x1C01FBE90 (-xxxCopyDDEOut@@YAPEAXPEAUtagINTDDEINFO@@PEAPEAX@Z.c)
+ *     ?xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z @ 0x1C01FC75C (-xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z.c)
+ *     FreeDdeXact @ 0x1C01FD370 (FreeDdeXact.c)
+ *     xxxFreeDdeConv @ 0x1C01FE3AC (xxxFreeDdeConv.c)
+ *     HMValidateCatHandleNoSecure @ 0x1C024E624 (HMValidateCatHandleNoSecure.c)
+ *     HMValidateHandleNoRipNoIL @ 0x1C024E6D8 (HMValidateHandleNoRipNoIL.c)
+ */
+
 struct _HANDLEENTRY *__fastcall xxxDDETrackGetMessageHook(__int64 *a1)
 {
   __int64 v2; // rcx

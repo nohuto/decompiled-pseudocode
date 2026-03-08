@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpSendReplyDataBlock @ 0x140783DB4
+ * Callers:
+ *     NtTraceControl @ 0x140694040 (NtTraceControl.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     EtwpReleaseQueueEntry @ 0x1406909C8 (EtwpReleaseQueueEntry.c)
+ *     EtwpQueueReply @ 0x140783E98 (EtwpQueueReply.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall EtwpSendReplyDataBlock(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

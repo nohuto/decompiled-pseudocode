@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ShouldGoMonitorMaximizedMoveSizeData@@YA_NPEAUMOVESIZEDATA@@@Z @ 0x1C01EBAA4
+ * Callers:
+ *     ?xxxCommitMoveSize@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@@Z @ 0x1C01ECE40 (-xxxCommitMoveSize@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall ShouldGoMonitorMaximizedMoveSizeData(struct MOVESIZEDATA *a1)
 {
   _DWORD *v1; // rdx

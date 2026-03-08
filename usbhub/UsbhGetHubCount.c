@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhGetHubCount @ 0x1C002C420
+ * Callers:
+ *     UsbhInitialize @ 0x1C002CE20 (UsbhInitialize.c)
+ * Callees:
+ *     UsbhSyncSendInternalIoctl @ 0x1C0004A70 (UsbhSyncSendInternalIoctl.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 __int64 __fastcall UsbhGetHubCount(__int64 a1, _DWORD *a2)
 {
   _DWORD *v4; // rax

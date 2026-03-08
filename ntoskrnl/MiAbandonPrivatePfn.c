@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiAbandonPrivatePfn @ 0x14029D7BC
+ * Callers:
+ *     MiCombineInitialInstance @ 0x14029CD58 (MiCombineInitialInstance.c)
+ * Callees:
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14029DAB8 (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1402CF5DC (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiCapturePageFileInfoInline @ 0x1402DE2D4 (MiCapturePageFileInfoInline.c)
+ */
+
 __int64 __fastcall MiAbandonPrivatePfn(__int64 a1, int a2)
 {
   __int64 v2; // r9

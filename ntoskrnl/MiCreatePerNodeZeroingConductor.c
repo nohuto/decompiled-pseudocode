@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiCreatePerNodeZeroingConductor @ 0x14085B8B8
+ * Callers:
+ *     MiZeroPageThread @ 0x1403AAC50 (MiZeroPageThread.c)
+ * Callees:
+ *     MiNumberNodeDomains @ 0x1402A7108 (MiNumberNodeDomains.c)
+ *     ExAllocatePoolMm @ 0x14034C1AC (ExAllocatePoolMm.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PsCreateSystemThreadEx @ 0x1407DE330 (PsCreateSystemThreadEx.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiCreatePerNodeZeroingConductor(__int64 a1, unsigned int a2, char a3)
 {
   __int64 v6; // r14

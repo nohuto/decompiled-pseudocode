@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIFilterIrpStopDevice @ 0x1C0086CA0
+ * Callers:
+ *     ACPIFilterIrpSurpriseRemoval @ 0x1C0086E40 (ACPIFilterIrpSurpriseRemoval.c)
+ * Callees:
+ *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     EnableDisableRegions @ 0x1C008A57C (EnableDisableRegions.c)
+ *     IsNsobjPciBus @ 0x1C008A678 (IsNsobjPciBus.c)
+ */
+
 __int64 __fastcall ACPIFilterIrpStopDevice(ULONG_PTR a1, IRP *a2)
 {
   __int64 DeviceExtension; // rax

@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiUnmapLegacyAwePage @ 0x14064992C
+ * Callers:
+ *     MiFreePhysicalPages @ 0x140647F94 (MiFreePhysicalPages.c)
+ * Callees:
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x14026A0D0 (MiLockPageTableInternal.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiDecrementAweMapCount @ 0x14064709C (MiDecrementAweMapCount.c)
+ *     MiUpdateAwePageTable @ 0x140649AB0 (MiUpdateAwePageTable.c)
+ */
+
 __int64 __fastcall MiUnmapLegacyAwePage(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   unsigned __int64 *v5; // r14

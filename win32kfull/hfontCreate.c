@@ -1,3 +1,18 @@
+/*
+ * XREFs of hfontCreate @ 0x1C0027050
+ * Callers:
+ *     GreCreateFontIndirectW @ 0x1C0025AF8 (GreCreateFontIndirectW.c)
+ *     NtGdiHfontCreate @ 0x1C00C7C90 (NtGdiHfontCreate.c)
+ *     bInitStockFontsInternal @ 0x1C03B63A8 (bInitStockFontsInternal.c)
+ *     bInitOneStockFontInternal @ 0x1C03B6790 (bInitOneStockFontInternal.c)
+ *     hfontInitDefaultGuiFont @ 0x1C03B6C5C (hfontInitDefaultGuiFont.c)
+ *     bInitSystemFont @ 0x1C03B85AC (bInitSystemFont.c)
+ * Callees:
+ *     ?Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@EK@Z @ 0x1C0029D88 (-Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@EK@Z.c)
+ *     cCapString @ 0x1C0117F80 (cCapString.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 struct HOBJ__ *__fastcall hfontCreate(_DWORD *Src, int a2, int a3, __int64 a4, unsigned int a5)
 {
   unsigned int v9; // eax

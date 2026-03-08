@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vMirror@BLTRECORD@@QEAAXPEAVERECTL@@@Z @ 0x1C0091AD0
+ * Callers:
+ *     ?bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C00912D0 (-bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
+ *     ?bStretch@BLTRECORD@@QEAAHAEAVSURFMEM@@K@Z @ 0x1C0295E50 (-bStretch@BLTRECORD@@QEAAHAEAVSURFMEM@@K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall BLTRECORD::vMirror(BLTRECORD *this, struct ERECTL *a2)
 {
   int v2; // r8d

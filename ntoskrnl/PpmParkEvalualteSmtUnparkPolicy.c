@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmParkEvalualteSmtUnparkPolicy @ 0x14038EE6C
+ * Callers:
+ *     PpmParkApplyPolicy @ 0x14038E5E0 (PpmParkApplyPolicy.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ */
+
 char __fastcall PpmParkEvalualteSmtUnparkPolicy(unsigned __int8 a1)
 {
   _UNKNOWN **v1; // rax

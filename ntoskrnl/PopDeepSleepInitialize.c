@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopDeepSleepInitialize @ 0x140B4702C
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 (*__fastcall PopDeepSleepInitialize(int a1))()
 {
   __int64 (*result)(); // rax

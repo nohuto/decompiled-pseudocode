@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiFlushAllPages @ 0x1406377FC
+ * Callers:
+ *     MmFlushAllPagesEx @ 0x1406398BC (MmFlushAllPagesEx.c)
+ *     MmPerformMemoryListCommand @ 0x140A849F4 (MmPerformMemoryListCommand.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiEmptyWorkingSetPrivatePagesByVa @ 0x140619C68 (MiEmptyWorkingSetPrivatePagesByVa.c)
+ *     MiFlushAllPagesWorker @ 0x1406378D4 (MiFlushAllPagesWorker.c)
+ */
+
 __int64 __fastcall MiFlushAllPages(__int64 a1, char a2)
 {
   __int64 UnbiasedInterruptTime; // rax

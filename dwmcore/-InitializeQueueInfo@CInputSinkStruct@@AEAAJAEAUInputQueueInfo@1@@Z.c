@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InitializeQueueInfo@CInputSinkStruct@@AEAAJAEAUInputQueueInfo@1@@Z @ 0x1800E571C
+ * Callers:
+ *     ?InitializeQueues@CInputSinkStruct@@AEAAXXZ @ 0x1800E56AC (-InitializeQueues@CInputSinkStruct@@AEAAXXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall CInputSinkStruct::InitializeQueueInfo(
         CInputSinkStruct *this,
         struct CInputSinkStruct::InputQueueInfo *a2)

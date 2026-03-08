@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmEventPlatformVetoRequest @ 0x140598BAC
+ * Callers:
+ *     PpmUpdatePlatformIdleVeto @ 0x1405841D0 (PpmUpdatePlatformIdleVeto.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PpmEventPlatformVetoRequest(int a1, int a2, char a3)
 {
   const EVENT_DESCRIPTOR *v3; // rax

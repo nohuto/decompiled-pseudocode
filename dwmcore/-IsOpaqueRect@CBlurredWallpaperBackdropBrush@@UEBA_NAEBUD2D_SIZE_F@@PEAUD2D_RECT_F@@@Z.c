@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsOpaqueRect@CBlurredWallpaperBackdropBrush@@UEBA_NAEBUD2D_SIZE_F@@PEAUD2D_RECT_F@@@Z @ 0x1801056E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CBlurredWallpaperBackdropBrush::IsOpaqueRect(
         CBlurredWallpaperBackdropBrush *this,
         const struct D2D_SIZE_F *a2,

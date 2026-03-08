@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepAdtInitializeBounds @ 0x140841D58
+ * Callers:
+ *     SepAdtRegNotificationCallback @ 0x1407FCD30 (SepAdtRegNotificationCallback.c)
+ *     SepAdtInitializeAuditingOptions @ 0x140B615C0 (SepAdtInitializeAuditingOptions.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SepRegQueryValue @ 0x1407394A4 (SepRegQueryValue.c)
+ */
+
 void SepAdtInitializeBounds()
 {
   unsigned int v0; // [rsp+30h] [rbp-18h] BYREF

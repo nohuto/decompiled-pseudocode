@@ -1,3 +1,12 @@
+/*
+ * XREFs of DrvDbBuildDeviceIdDriverInfMatch @ 0x140866494
+ * Callers:
+ *     DrvDbGetDeviceIdDriverInfMatches @ 0x140866238 (DrvDbGetDeviceIdDriverInfMatches.c)
+ * Callees:
+ *     RtlStringCchCopyExW @ 0x140244A08 (RtlStringCchCopyExW.c)
+ *     RtlStringCchPrintfExW @ 0x140245C80 (RtlStringCchPrintfExW.c)
+ */
+
 int __fastcall DrvDbBuildDeviceIdDriverInfMatch(size_t a1, unsigned __int8 *a2, wchar_t *a3, unsigned int a4)
 {
   int v5; // edx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?WaitForVBlank@CDDisplayRenderTarget@@UEBAJPEAX@Z @ 0x1801C7360
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?WaitForVBlank@CDDisplaySwapChain@@QEAAJPEAX@Z @ 0x180288808 (-WaitForVBlank@CDDisplaySwapChain@@QEAAJPEAX@Z.c)
+ */
+
 __int64 __fastcall CDDisplayRenderTarget::WaitForVBlank(CDDisplayRenderTarget *this, void *a2)
 {
   int v2; // eax

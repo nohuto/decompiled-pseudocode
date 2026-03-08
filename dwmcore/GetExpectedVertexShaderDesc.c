@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetExpectedVertexShaderDesc @ 0x180027E3C
+ * Callers:
+ *     ?LinkShader@@YAJAEBUShaderLinkingBody@@AEBUShaderLinkingConfig@@V?$span@PEBUShaderLinkingBody@@$0?0@gsl@@PEAUVertexShaderDesc@@PEAPEAUID3D10Blob@@@Z @ 0x180028514 (-LinkShader@@YAJAEBUShaderLinkingBody@@AEBUShaderLinkingConfig@@V-$span@PEBUShaderLinkingBody@@$.c)
+ * Callees:
+ *     HasLighting @ 0x180027EF8 (HasLighting.c)
+ */
+
 __int64 __fastcall GetExpectedVertexShaderDesc(__int64 a1, _QWORD *a2, __int64 a3, unsigned int a4, char a5)
 {
   _QWORD *v7; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of Bulk_Initialize @ 0x1C0074F90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Bulk_Initialize(__int64 a1)
 {
   bool v1; // r8

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpChannelAssignmentSort @ 0x140B8F760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpChannelAssignmentSort(_WORD *a1, _WORD *a2)
 {
   unsigned __int16 v2; // ax

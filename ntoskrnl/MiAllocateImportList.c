@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiAllocateImportList @ 0x14078AC28
+ * Callers:
+ *     MiCompressImportList @ 0x14078AB10 (MiCompressImportList.c)
+ *     MiPrepareImportList @ 0x14078ABD0 (MiPrepareImportList.c)
+ *     MiAddEntryToImportList @ 0x140A282AC (MiAddEntryToImportList.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ */
+
 _QWORD *__fastcall MiAllocateImportList(unsigned __int64 a1)
 {
   _QWORD *result; // rax

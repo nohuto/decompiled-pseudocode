@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExGetHeapFromType @ 0x1403B509C
+ * Callers:
+ *     ExAllocateHeapPages @ 0x1403B489C (ExAllocateHeapPages.c)
+ *     ExAllocateContiguousHeapPool @ 0x1403B4DF4 (ExAllocateContiguousHeapPool.c)
+ *     ExAllocateHeapSpecialPool @ 0x14060C980 (ExAllocateHeapSpecialPool.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ExGetHeapFromType(int a1, unsigned int a2, int a3)
 {
   __int64 *v4; // rcx

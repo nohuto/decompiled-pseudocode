@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIInternalIsPci @ 0x1C0088074
+ * Callers:
+ *     ACPIDetectFilterDevices @ 0x1C001AA10 (ACPIDetectFilterDevices.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIInternalSetFlags @ 0x1C002F068 (ACPIInternalSetFlags.c)
+ *     IsPciDevice @ 0x1C00358A8 (IsPciDevice.c)
+ *     IsNsobjPciBus @ 0x1C008A678 (IsNsobjPciBus.c)
+ */
+
 __int64 __fastcall ACPIInternalIsPci(ULONG_PTR BugCheckParameter3)
 {
   __int64 DeviceExtension; // rsi

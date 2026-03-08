@@ -1,3 +1,24 @@
+/*
+ * XREFs of HalpAllocateDomainCommonBufferInternal @ 0x14050FF60
+ * Callers:
+ *     HalAllocateCommonBufferExV3 @ 0x14050C450 (HalAllocateCommonBufferExV3.c)
+ *     HalAllocateCommonBufferWithBounds @ 0x14050C5F0 (HalAllocateCommonBufferWithBounds.c)
+ *     HalAllocateDomainCommonBuffer @ 0x14050F9C0 (HalAllocateDomainCommonBuffer.c)
+ * Callees:
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     MmAllocatePagesForMdlEx @ 0x1402B3960 (MmAllocatePagesForMdlEx.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402B39C0 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     MiFreePagesFromMdl @ 0x1402C0DD0 (MiFreePagesFromMdl.c)
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     HalpDmaReferenceDomainObject @ 0x14038D02C (HalpDmaReferenceDomainObject.c)
+ *     HalpAllocateCommonBufferEntry @ 0x14038D0B4 (HalpAllocateCommonBufferEntry.c)
+ *     MmAllocateContiguousMemoryEx @ 0x14038D1E0 (MmAllocateContiguousMemoryEx.c)
+ *     MmFreeContiguousMemory @ 0x1403BD6E0 (MmFreeContiguousMemory.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpDmaDereferenceDomainObject @ 0x140510338 (HalpDmaDereferenceDomainObject.c)
+ */
+
 __int64 __fastcall HalpAllocateDomainCommonBufferInternal(
         ULONG_PTR BugCheckParameter3,
         PHYSICAL_ADDRESS *a2,

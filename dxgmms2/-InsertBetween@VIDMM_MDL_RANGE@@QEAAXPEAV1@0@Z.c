@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InsertBetween@VIDMM_MDL_RANGE@@QEAAXPEAV1@0@Z @ 0x1C00B414C
+ * Callers:
+ *     ?UnlockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJ_K0@Z @ 0x1C0098EB0 (-UnlockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJ_K0@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VIDMM_MDL_RANGE::InsertBetween(
         VIDMM_MDL_RANGE *this,
         struct VIDMM_MDL_RANGE *a2,

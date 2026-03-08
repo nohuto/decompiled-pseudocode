@@ -1,3 +1,17 @@
+/*
+ * XREFs of LdrpGetFromMUIMemCache @ 0x14035D974
+ * Callers:
+ *     LdrpGetRcConfig @ 0x14035CDC4 (LdrpGetRcConfig.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x14035D07C (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrResGetRCConfig @ 0x1407928C4 (LdrResGetRCConfig.c)
+ * Callees:
+ *     KeReleaseMutant @ 0x14030E920 (KeReleaseMutant.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     LdrUnloadAlternateResourceModuleEx @ 0x14036C9E0 (LdrUnloadAlternateResourceModuleEx.c)
+ *     RtlRunOnceExecuteOnce @ 0x1407A2BE0 (RtlRunOnceExecuteOnce.c)
+ */
+
 _DWORD *__fastcall LdrpGetFromMUIMemCache(__int64 a1, __int16 a2, _QWORD *a3, int a4)
 {
   char v4; // si

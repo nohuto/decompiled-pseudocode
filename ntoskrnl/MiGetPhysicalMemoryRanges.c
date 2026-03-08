@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiGetPhysicalMemoryRanges @ 0x140836318
+ * Callers:
+ *     MmGetPhysicalMemoryRangesEx2 @ 0x1408362B0 (MmGetPhysicalMemoryRangesEx2.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiLockDynamicMemoryShared @ 0x1402DAC90 (MiLockDynamicMemoryShared.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1402DC340 (MiUnlockDynamicMemoryShared.c)
+ *     MiReferencePageRuns @ 0x1402EB520 (MiReferencePageRuns.c)
+ *     MiDereferencePageRuns @ 0x1402EBA0C (MiDereferencePageRuns.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     MiGetFileOnlyRanges @ 0x140618854 (MiGetFileOnlyRanges.c)
+ *     MiLockDynamicMemoryExclusive @ 0x140619164 (MiLockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x140619B70 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiMakePartitionMemoryBlock @ 0x140A4242C (MiMakePartitionMemoryBlock.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 _QWORD *__fastcall MiGetPhysicalMemoryRanges(__int64 a1, char a2)
 {
   struct _KTHREAD *CurrentThread; // r15

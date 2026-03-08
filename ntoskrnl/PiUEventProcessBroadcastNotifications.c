@@ -1,3 +1,17 @@
+/*
+ * XREFs of PiUEventProcessBroadcastNotifications @ 0x14068DA78
+ * Callers:
+ *     PiUEventProcessEventWorker @ 0x14068D8E0 (PiUEventProcessEventWorker.c)
+ * Callees:
+ *     RtlStringCchLengthW @ 0x140247080 (RtlStringCchLengthW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     IopGetSessionIdFromSymbolicName @ 0x1406F6EFC (IopGetSessionIdFromSymbolicName.c)
+ *     PiUEventQueueBroadcastEventEntry @ 0x14078F2C0 (PiUEventQueueBroadcastEventEntry.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiUEventProcessBroadcastNotifications(__int64 a1)
 {
   NTSTATUS ObjectProperty; // ebx

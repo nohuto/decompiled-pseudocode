@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Thunk_SetAutoReset_122@?$IManipulation_Receive@VCManipulationManager@@@@SAJPEAXPEAPEAX@Z @ 0x18019EE00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Attach@?$ComPtr@VCManipulation@@@WRL@Microsoft@@QEAAXPEAVCManipulation@@@Z @ 0x18019A7A0 (-Attach@-$ComPtr@VCManipulation@@@WRL@Microsoft@@QEAAXPEAVCManipulation@@@Z.c)
+ */
+
 __int64 __fastcall IManipulation_Receive<CManipulationManager>::Thunk_SetAutoReset_122(__int64 a1, __int64 a2)
 {
   char *v2; // rax

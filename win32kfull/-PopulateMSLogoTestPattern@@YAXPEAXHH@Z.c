@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PopulateMSLogoTestPattern@@YAXPEAXHH@Z @ 0x1C02260A4
+ * Callers:
+ *     ?SendMITCursorShape@CursorApiRouter@@CA_NPEAU_CURSINFO@@K@Z @ 0x1C02261A0 (-SendMITCursorShape@CursorApiRouter@@CA_NPEAU_CURSINFO@@K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall PopulateMSLogoTestPattern(char *a1, int a2, int a3)
 {
   char *v3; // r9

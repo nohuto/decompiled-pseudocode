@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ClearTransforms@InputTransform@@YAXPEAUtagWND@@@Z @ 0x1C012E824
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall InputTransform::ClearTransforms(InputTransform *this, struct tagWND *a2)
 {
   __int64 v2; // rdi

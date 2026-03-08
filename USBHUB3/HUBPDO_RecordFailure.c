@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBPDO_RecordFailure @ 0x1C001624C
+ * Callers:
+ *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0018550 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ */
+
 __int64 __fastcall HUBPDO_RecordFailure(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

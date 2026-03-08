@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetLogFontFromUserProfile@@YA?AUtagLOGFONTW@@PEAU_UNICODE_STRING@@I@Z @ 0x1C010EEA8
+ * Callers:
+ *     CreateFontFromUserProfile @ 0x1C010E764 (CreateFontFromUserProfile.c)
+ *     xxxSetNCFonts @ 0x1C010E91C (xxxSetNCFonts.c)
+ * Callees:
+ *     ValidateExternalLogFont @ 0x1C010EFFC (ValidateExternalLogFont.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 struct tagLOGFONTW *__fastcall GetLogFontFromUserProfile(
         struct tagLOGFONTW *__return_ptr retstr,
         struct _UNICODE_STRING *a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of GetLocalMachineRegistryDWORDValues @ 0x1C0102D80
+ * Callers:
+ *     EditionOverrideUserTouchGestureSettings @ 0x1C0102D30 (EditionOverrideUserTouchGestureSettings.c)
+ *     ?_ReadSettingsFromRegKey@PalmRejection@@YAXXZ @ 0x1C01E8538 (-_ReadSettingsFromRegKey@PalmRejection@@YAXXZ.c)
+ * Callees:
+ *     ?RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C01031CC (-RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0107898 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall GetLocalMachineRegistryDWORDValues(__int64 a1, const unsigned __int16 *a2, __int128 *a3)
 {
   __int128 v3; // xmm0

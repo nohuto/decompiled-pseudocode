@@ -1,3 +1,11 @@
+/*
+ * XREFs of PfSnCheckLogSequenceNumber @ 0x140308120
+ * Callers:
+ *     PfSnLogPageFaultCommon @ 0x140306D88 (PfSnLogPageFaultCommon.c)
+ * Callees:
+ *     PfSnTraceGetLogEntry @ 0x14030841C (PfSnTraceGetLogEntry.c)
+ */
+
 __int64 __fastcall PfSnCheckLogSequenceNumber(__int64 a1)
 {
   int v1; // edi

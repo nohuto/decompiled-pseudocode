@@ -1,3 +1,13 @@
+/*
+ * XREFs of SmmInitializeLogicalAllocator @ 0x1C03D2A9C
+ * Callers:
+ *     ?SmmCreateLogicalAllocator@@YAJ_KPEAPEAUSYSMM_LOGICAL_ALLOCATOR@@@Z @ 0x1C03D262C (-SmmCreateLogicalAllocator@@YAJ_KPEAPEAUSYSMM_LOGICAL_ALLOCATOR@@@Z.c)
+ * Callees:
+ *     ??$SmmInitializePushLock@$00@@YAXPEAU?$SYSMM_PUSHLOCK@$00@@@Z @ 0x1C0016F68 (--$SmmInitializePushLock@$00@@YAXPEAU-$SYSMM_PUSHLOCK@$00@@@Z.c)
+ *     SmmGetLowerOrderFromPageCount @ 0x1C0070468 (SmmGetLowerOrderFromPageCount.c)
+ *     SmmInitializeLogicalPool @ 0x1C00704D0 (SmmInitializeLogicalPool.c)
+ */
+
 __int64 __fastcall SmmInitializeLogicalAllocator(__int64 a1, unsigned __int64 a2)
 {
   __int64 v2; // r9

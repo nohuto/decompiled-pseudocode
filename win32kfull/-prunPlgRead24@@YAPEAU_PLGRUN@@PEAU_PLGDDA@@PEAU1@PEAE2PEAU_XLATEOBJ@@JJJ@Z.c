@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?prunPlgRead24@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C0302400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     XLATEOBJ_iXlate @ 0x1C00C3AA0 (XLATEOBJ_iXlate.c)
+ *     ?prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z @ 0x1C0152040 (-prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z.c)
+ *     ?vAdvXDDA@@YAXPEAU_PLGDDA@@@Z @ 0x1C030294C (-vAdvXDDA@@YAXPEAU_PLGDDA@@@Z.c)
+ */
+
 struct _PLGRUN *__fastcall prunPlgRead24(
         struct _PLGDDA *a1,
         struct _PLGRUN *a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EnsureTimeListEntry@CAnimationMarshaler@DirectComposition@@IEAAJXZ @ 0x1C00B88A0
+ * Callers:
+ *     ?Initialize@CAnimationMarshaler@DirectComposition@@MEAAJXZ @ 0x1C00B8730 (-Initialize@CAnimationMarshaler@DirectComposition@@MEAAJXZ.c)
+ *     ?SetBufferProperty@CAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00B8760 (-SetBufferProperty@CAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_K.c)
+ * Callees:
+ *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0068568 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CAnimationMarshaler::EnsureTimeListEntry(
         DirectComposition::CAnimationMarshaler *this,
         unsigned __int64 a2)

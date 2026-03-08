@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserEnableShellWindowManagementBehavior @ 0x1C0097750
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     IAMThreadAccessGranted @ 0x1C009A2DC (IAMThreadAccessGranted.c)
+ */
+
 __int64 __fastcall NtUserEnableShellWindowManagementBehavior(int a1, int a2)
 {
   __int64 v4; // rcx

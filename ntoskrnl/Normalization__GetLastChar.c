@@ -1,3 +1,11 @@
+/*
+ * XREFs of Normalization__GetLastChar @ 0x1409BD888
+ * Callers:
+ *     Normalization__IsNormalized @ 0x1409BDB3C (Normalization__IsNormalized.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Normalization__GetLastChar(
         __int64 a1,
         __int64 a2,

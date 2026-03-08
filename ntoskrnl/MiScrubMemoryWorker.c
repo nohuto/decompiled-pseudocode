@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiScrubMemoryWorker @ 0x140A439A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSignalGate @ 0x1402F0524 (KeSignalGate.c)
+ *     MiInitializeScrubPacket @ 0x140A433C8 (MiInitializeScrubPacket.c)
+ *     MiReleaseScrubPacket @ 0x140A436D0 (MiReleaseScrubPacket.c)
+ *     MiScrubNode @ 0x140A43A10 (MiScrubNode.c)
+ */
+
 char __fastcall MiScrubMemoryWorker(__int64 a1)
 {
   __int64 v1; // rdi

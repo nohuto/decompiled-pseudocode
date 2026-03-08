@@ -1,3 +1,11 @@
+/*
+ * XREFs of McGenControlCallbackV2 @ 0x1C002C9F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x1C000AC00 (memset.c)
+ */
+
 void __fastcall McGenControlCallbackV2(
         const _GUID *SourceId,
         unsigned int ControlCode,

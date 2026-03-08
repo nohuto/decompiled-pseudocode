@@ -1,3 +1,33 @@
+/*
+ * XREFs of _PnpOpenObjectRegKey @ 0x1406CECB8
+ * Callers:
+ *     _PnpSetObjectPropertyWorker @ 0x140686E0C (_PnpSetObjectPropertyWorker.c)
+ *     PiCMValidateDeviceInstance @ 0x1406C78A0 (PiCMValidateDeviceInstance.c)
+ *     PiPnpRtlCacheObjectBaseKey @ 0x1406D0C78 (PiPnpRtlCacheObjectBaseKey.c)
+ *     _PnpGetObjectPropertyWorker @ 0x1406D1148 (_PnpGetObjectPropertyWorker.c)
+ *     PiDqOpenObjectRegKey @ 0x140747218 (PiDqOpenObjectRegKey.c)
+ *     PiSwPropertySet @ 0x140785B60 (PiSwPropertySet.c)
+ *     _PnpGetObjectPropertyLocalesWorker @ 0x14083A898 (_PnpGetObjectPropertyLocalesWorker.c)
+ *     _PnpGetObjectPropertyKeysWorker @ 0x14083B0E4 (_PnpGetObjectPropertyKeysWorker.c)
+ *     PiDevCfgQueryObjectProperties @ 0x14086AC20 (PiDevCfgQueryObjectProperties.c)
+ *     PiCMOpenObjectKey @ 0x14086B97C (PiCMOpenObjectKey.c)
+ *     PiDevCfgConfigureDevice @ 0x14087384C (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgCopyObjectProperties @ 0x140875D30 (PiDevCfgCopyObjectProperties.c)
+ *     PiDevCfgQueryDriverNode @ 0x140878BA8 (PiDevCfgQueryDriverNode.c)
+ *     PiDevCfgGetDriverPackageId @ 0x1408791D8 (PiDevCfgGetDriverPackageId.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x140959960 (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PiDevCfgInitDeviceCallback @ 0x14095B580 (PiDevCfgInitDeviceCallback.c)
+ *     PiDevCfgQueryIncludedDriverNode @ 0x14095C298 (PiDevCfgQueryIncludedDriverNode.c)
+ *     PiDevCfgResetDeviceDriverSettings @ 0x14095CBE0 (PiDevCfgResetDeviceDriverSettings.c)
+ *     PpDevCfgProcessDeviceClass @ 0x14095F98C (PpDevCfgProcessDeviceClass.c)
+ *     PpDevCfgProcessDeviceReset @ 0x14096044C (PpDevCfgProcessDeviceReset.c)
+ *     _CmEnumDevicesInContainerWithCallbackWorker @ 0x140A611A4 (_CmEnumDevicesInContainerWithCallbackWorker.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _PnpOpenObjectRegKeyDispatch @ 0x1406CEDAC (_PnpOpenObjectRegKeyDispatch.c)
+ */
+
 __int64 __fastcall PnpOpenObjectRegKey(__int64 a1, __int64 a2, unsigned int a3, int a4, char a5, __int64 a6)
 {
   __int64 (__fastcall *v10)(__int64, __int64, _QWORD, __int64, int, __int64 *); // rdi

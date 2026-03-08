@@ -1,3 +1,13 @@
+/*
+ * XREFs of Usbh_HubDeferIrpProcessing @ 0x1C003C8F4
+ * Callers:
+ *     UsbhFdoPower @ 0x1C001EA90 (UsbhFdoPower.c)
+ *     UsbhPdoPower @ 0x1C0020BA0 (UsbhPdoPower.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Usbh_HubDeferIrpProcessing(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v7; // ebx

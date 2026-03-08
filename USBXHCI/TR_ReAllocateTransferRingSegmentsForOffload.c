@@ -1,3 +1,13 @@
+/*
+ * XREFs of TR_ReAllocateTransferRingSegmentsForOffload @ 0x1C0041B80
+ * Callers:
+ *     UsbDevice_HandleAddAndDropEndpointsState @ 0x1C000AE18 (UsbDevice_HandleAddAndDropEndpointsState.c)
+ * Callees:
+ *     TR_AcquireSegment @ 0x1C000B1A8 (TR_AcquireSegment.c)
+ *     TR_EnsureSegments @ 0x1C000B240 (TR_EnsureSegments.c)
+ *     XilCoreCommonBuffer_ReleaseBuffers @ 0x1C000E848 (XilCoreCommonBuffer_ReleaseBuffers.c)
+ */
+
 __int64 __fastcall TR_ReAllocateTransferRingSegmentsForOffload(__int64 a1)
 {
   _QWORD *v2; // rsi

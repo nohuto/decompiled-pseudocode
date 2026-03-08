@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiInitializeNewUltraHugeContext @ 0x1403BFBC8
+ * Callers:
+ *     MiGetHugePageToZero @ 0x1402E41D8 (MiGetHugePageToZero.c)
+ * Callees:
+ *     MiWriteLargePte @ 0x1402443C4 (MiWriteLargePte.c)
+ *     MiCreateUltraThreadContext @ 0x140244548 (MiCreateUltraThreadContext.c)
+ *     MiGetUltraMapping @ 0x140276080 (MiGetUltraMapping.c)
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     MiStopPageAccessor @ 0x1402FD06C (MiStopPageAccessor.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14034A974 (MiMakeProtectionPfnCompatible.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiDeleteUltraThreadContext @ 0x14035137C (MiDeleteUltraThreadContext.c)
+ *     MiLockHugePfnInternal @ 0x14061F020 (MiLockHugePfnInternal.c)
+ */
+
 __int64 __fastcall MiInitializeNewUltraHugeContext(__int64 a1, __int64 a2)
 {
   __int64 v2; // r14

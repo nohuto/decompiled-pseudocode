@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMSetDeadzoneRotation @ 0x1C01AADD8
+ * Callers:
+ *     NtRIMSetDeadzoneRotation @ 0x1C01A2A60 (NtRIMSetDeadzoneRotation.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ */
+
 void __fastcall RIMSetDeadzoneRotation(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // ebx

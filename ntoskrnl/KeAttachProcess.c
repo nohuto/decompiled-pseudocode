@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeAttachProcess @ 0x1402F8D80
+ * Callers:
+ *     KiExecuteDpcDelegate @ 0x14038D4D0 (KiExecuteDpcDelegate.c)
+ *     KiCompleteKernelInit @ 0x140A89D30 (KiCompleteKernelInit.c)
+ *     PopGracefulShutdown @ 0x140A9D970 (PopGracefulShutdown.c)
+ * Callees:
+ *     KiAttachProcess @ 0x14030E080 (KiAttachProcess.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void __stdcall KeAttachProcess(PRKPROCESS Process)
 {
   struct _KTHREAD *CurrentThread; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of WppLoadTracingSupport @ 0x1C0074988
+ * Callers:
+ *     DriverEntry @ 0x1C0074360 (DriverEntry.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 void *WppLoadTracingSupport()
 {
   void *result; // rax

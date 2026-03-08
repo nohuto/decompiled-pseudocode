@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0qqqt_EtwWriteTransfer @ 0x1C0166DE0
+ * Callers:
+ *     EtwTraceTouchPadCurtainSize @ 0x1C01642A0 (EtwTraceTouchPadCurtainSize.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0qqqt_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

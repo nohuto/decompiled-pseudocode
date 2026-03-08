@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpSetWorkerFactoryDeferredCreateTimer @ 0x140792310
+ * Callers:
+ *     ExpWorkerFactoryCheckCreate @ 0x140340CC0 (ExpWorkerFactoryCheckCreate.c)
+ * Callees:
+ *     KeSetCoalescableTimer @ 0x140250440 (KeSetCoalescableTimer.c)
+ */
+
 void __fastcall ExpSetWorkerFactoryDeferredCreateTimer(signed __int32 a1)
 {
   LARGE_INTEGER v1; // rdx

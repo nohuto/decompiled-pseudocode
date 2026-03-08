@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??$_Emplace_reallocate@AEA_K@?$vector@_KV?$allocator@_K@std@@@std@@QEAAPEA_KQEA_KAEA_K@Z @ 0x1801E0C94
+ * Callers:
+ *     ?QueueForDeferredDestruction@DataProviderProxy@@QEAAJPEAVBamoDataSourceProxy@@@Z @ 0x1801E1C5C (-QueueForDeferredDestruction@DataProviderProxy@@QEAAJPEAVBamoDataSourceProxy@@@Z.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B9880 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     ?_Change_array@?$vector@_KV?$allocator@_K@std@@@std@@AEAAXQEA_K_K1@Z @ 0x1801E2068 (-_Change_array@-$vector@_KV-$allocator@_K@std@@@std@@AEAAXQEA_K_K1@Z.c)
+ */
+
 char *__fastcall std::vector<unsigned __int64>::_Emplace_reallocate<unsigned __int64 &>(
         const void **a1,
         _BYTE *a2,

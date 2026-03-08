@@ -1,3 +1,12 @@
+/*
+ * XREFs of _anonymous_namespace_::ScreenOnStudySessionStateTracker::WnfCallback @ 0x1801034E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall anonymous_namespace_::ScreenOnStudySessionStateTracker::WnfCallback(
         __int64 a1,
         __int64 a2,

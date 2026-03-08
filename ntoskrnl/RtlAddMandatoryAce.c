@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlAddMandatoryAce @ 0x140740AF0
+ * Callers:
+ *     ObpVerifyAccessToBoundaryEntry @ 0x140740870 (ObpVerifyAccessToBoundaryEntry.c)
+ *     IopCreateSecurityDescriptorPerType @ 0x1407F0A50 (IopCreateSecurityDescriptorPerType.c)
+ *     CmpGenerateAppHiveSecurityDescriptor @ 0x1408808A8 (CmpGenerateAppHiveSecurityDescriptor.c)
+ *     SepInitSystemDacls @ 0x140B4C2CC (SepInitSystemDacls.c)
+ *     ExpKeyedEventInitialization @ 0x140B6A590 (ExpKeyedEventInitialization.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlCopySid @ 0x1406D4890 (RtlCopySid.c)
+ *     RtlFirstFreeAce @ 0x140740C70 (RtlFirstFreeAce.c)
+ *     RtlValidAcl @ 0x1407BB670 (RtlValidAcl.c)
+ *     RtlValidSid @ 0x1407C92A0 (RtlValidSid.c)
+ */
+
 __int64 __fastcall RtlAddMandatoryAce(__int64 a1, unsigned int a2, int a3, __int64 a4, char a5, int a6)
 {
   int v10; // ecx

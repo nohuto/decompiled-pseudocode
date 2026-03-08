@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_EFxPkgGeneral@@UEAAPEAXI@Z @ 0x1C0084E10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxPkgGeneral@@UEAA@XZ @ 0x1C0084DA4 (--1FxPkgGeneral@@UEAA@XZ.c)
+ */
+
 FxPkgGeneral *__fastcall FxPkgGeneral::`vector deleting destructor'(FxPkgGeneral *this, unsigned int a2)
 {
   char v2; // bl

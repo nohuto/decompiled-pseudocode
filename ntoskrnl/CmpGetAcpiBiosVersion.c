@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpGetAcpiBiosVersion @ 0x140B951E0
+ * Callers:
+ *     CmpSetSystemBiosInformation @ 0x140B9565C (CmpSetSystemBiosInformation.c)
+ * Callees:
+ *     HalpAcpiGetTable @ 0x14029C550 (HalpAcpiGetTable.c)
+ *     sprintf_s @ 0x1403D9BA0 (sprintf_s.c)
+ */
+
 char __fastcall CmpGetAcpiBiosVersion(__int64 a1, char *a2)
 {
   __int64 Table; // rax

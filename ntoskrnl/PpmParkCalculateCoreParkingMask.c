@@ -1,3 +1,18 @@
+/*
+ * XREFs of PpmParkCalculateCoreParkingMask @ 0x1402E7970
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KeCpuSetQueryUnparkRecommendation @ 0x140458CC2 (KeCpuSetQueryUnparkRecommendation.c)
+ *     PpmEventTraceSoftCoreParkingSelection @ 0x14045AE9E (PpmEventTraceSoftCoreParkingSelection.c)
+ *     PpmParkComputeDiff @ 0x14045B0D0 (PpmParkComputeDiff.c)
+ *     PpmEventLPICoreParking @ 0x14059858C (PpmEventLPICoreParking.c)
+ *     PpmParkComputeUnparkMask @ 0x14059A174 (PpmParkComputeUnparkMask.c)
+ */
+
 char PpmParkCalculateCoreParkingMask()
 {
   unsigned int v0; // r15d

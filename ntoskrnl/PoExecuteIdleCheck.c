@@ -1,3 +1,19 @@
+/*
+ * XREFs of PoExecuteIdleCheck @ 0x1403C65A0
+ * Callers:
+ *     KiUpdateTime @ 0x14022BD80 (KiUpdateTime.c)
+ *     KeClockInterruptNotify @ 0x14022CD80 (KeClockInterruptNotify.c)
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ *     KiEnumerateNextProcessorNumber @ 0x1402AA0A0 (KiEnumerateNextProcessorNumber.c)
+ *     HalRequestIpi @ 0x1402EF7C0 (HalRequestIpi.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PpmEventIdleDurationExpiration @ 0x140598428 (PpmEventIdleDurationExpiration.c)
+ */
+
 __int64 __fastcall PoExecuteIdleCheck(unsigned __int64 a1)
 {
   __int64 result; // rax

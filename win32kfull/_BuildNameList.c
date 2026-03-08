@@ -1,3 +1,11 @@
+/*
+ * XREFs of _BuildNameList @ 0x1C00E5770
+ * Callers:
+ *     NtUserBuildNameList @ 0x1C00E5660 (NtUserBuildNameList.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall BuildNameList(__int64 a1, _DWORD *a2, size_t a3, _DWORD *a4)
 {
   _DWORD *v5; // rdi

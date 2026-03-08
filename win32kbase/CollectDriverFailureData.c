@@ -1,3 +1,11 @@
+/*
+ * XREFs of CollectDriverFailureData @ 0x1C0192188
+ * Callers:
+ *     ?DrvDriverFailure@@YAJXZ @ 0x1C0168718 (-DrvDriverFailure@@YAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall CollectDriverFailureData(unsigned __int64 *a1, __int64 a2)
 {
   __int64 v4; // rdi

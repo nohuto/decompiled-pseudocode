@@ -1,3 +1,18 @@
+/*
+ * XREFs of AlpcpDispatchCloseMessage @ 0x140718414
+ * Callers:
+ *     AlpcpSendCloseMessage @ 0x140714B20 (AlpcpSendCloseMessage.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     AlpcpSetOwnerPortMessage @ 0x140716D14 (AlpcpSetOwnerPortMessage.c)
+ *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x14078C518 (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
+ *     AlpcpReferenceAndLockTargetPortsAndCommunicationInfo @ 0x1407CBA00 (AlpcpReferenceAndLockTargetPortsAndCommunicationInfo.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1407CBD90 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpLogClosePort @ 0x14097727C (AlpcpLogClosePort.c)
+ */
+
 __int64 __fastcall AlpcpDispatchCloseMessage(__int64 *a1)
 {
   __int64 v1; // rsi

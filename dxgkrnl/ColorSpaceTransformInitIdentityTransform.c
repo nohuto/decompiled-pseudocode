@@ -1,3 +1,16 @@
+/*
+ * XREFs of ColorSpaceTransformInitIdentityTransform @ 0x1C0074718
+ * Callers:
+ *     ColorSpaceTransformConvert @ 0x1C0004808 (ColorSpaceTransformConvert.c)
+ *     ?ConvertToMatrix_V2@@YAJPEBU_D3DKMDT_GAMMA_RAMP@@PEAU1@@Z @ 0x1C0074104 (-ConvertToMatrix_V2@@YAJPEBU_D3DKMDT_GAMMA_RAMP@@PEAU1@@Z.c)
+ *     ?UpdateGammaRamp@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C0179B90 (-UpdateGammaRamp@ADAPTER_DISPLAY@@QEAAJI@Z.c)
+ *     ?GetDxgiGammaRamp@ADAPTER_DISPLAY@@QEAAJIPEAPEBUDXGK_GAMMA_RAMP@@@Z @ 0x1C01D491C (-GetDxgiGammaRamp@ADAPTER_DISPLAY@@QEAAJIPEAPEBUDXGK_GAMMA_RAMP@@@Z.c)
+ * Callees:
+ *     ?InitializeIdentityLut@@YAJPEAUD3DDDI_DXGI_RGB@@IMM@Z @ 0x1C0074204 (-InitializeIdentityLut@@YAJPEAUD3DDDI_DXGI_RGB@@IMM@Z.c)
+ *     ?InitializeIdentityLut_RGB256x3x16@@YAJPEAU_D3DDDI_GAMMA_RAMP_RGB256x3x16@@@Z @ 0x1C0074248 (-InitializeIdentityLut_RGB256x3x16@@YAJPEAU_D3DDDI_GAMMA_RAMP_RGB256x3x16@@@Z.c)
+ *     ?InitializeIdentityMatrix@@YAJPEAMII@Z @ 0x1C0074290 (-InitializeIdentityMatrix@@YAJPEAMII@Z.c)
+ */
+
 __int64 __fastcall ColorSpaceTransformInitIdentityTransform(__int64 a1)
 {
   unsigned int v1; // edi

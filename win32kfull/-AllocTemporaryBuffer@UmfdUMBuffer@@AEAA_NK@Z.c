@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AllocTemporaryBuffer@UmfdUMBuffer@@AEAA_NK@Z @ 0x1C0309050
+ * Callers:
+ *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C011EA58 (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
+ * Callees:
+ *     ?AlignSizeTo@UmfdUMBuffer@@CA_NKKPEAK@Z @ 0x1C00F0C48 (-AlignSizeTo@UmfdUMBuffer@@CA_NKKPEAK@Z.c)
+ */
+
 char __fastcall UmfdUMBuffer::AllocTemporaryBuffer(UmfdUMBuffer *this, __int64 a2)
 {
   void *v2; // rax

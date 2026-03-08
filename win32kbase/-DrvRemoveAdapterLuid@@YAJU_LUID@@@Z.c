@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?DrvRemoveAdapterLuid@@YAJU_LUID@@@Z @ 0x1C00A02D4
+ * Callers:
+ *     ?DrvCleanupGraphicsDeviceList@@YAXPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00A01A4 (-DrvCleanupGraphicsDeviceList@@YAXPEAUtagGRAPHICS_DEVICE@@@Z.c)
+ *     DrvAddMirrorDriversToRemoteList @ 0x1C00D7164 (DrvAddMirrorDriversToRemoteList.c)
+ *     DrvCleanupGraphicsDevices @ 0x1C0192A24 (DrvCleanupGraphicsDevices.c)
+ * Callees:
+ *     ??8@YA_NAEBU_LUID@@0@Z @ 0x1C00A03C0 (--8@YA_NAEBU_LUID@@0@Z.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 __int64 __fastcall DrvRemoveAdapterLuid(struct _LUID a1)
 {
   int v1; // r12d

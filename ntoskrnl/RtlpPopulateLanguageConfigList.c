@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlpPopulateLanguageConfigList @ 0x14084413C
+ * Callers:
+ *     RtlpLoadLanguageConfigList @ 0x140843624 (RtlpLoadLanguageConfigList.c)
+ * Callees:
+ *     RtlStringCbLengthW @ 0x140246920 (RtlStringCbLengthW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwEnumerateValueKey @ 0x140412570 (ZwEnumerateValueKey.c)
+ *     RtlpMuiRegValidateConfigNode @ 0x140677BB8 (RtlpMuiRegValidateConfigNode.c)
+ *     RtlpMuiRegCreateLanguageConfigList @ 0x140844284 (RtlpMuiRegCreateLanguageConfigList.c)
+ *     RtlpMuiRegConfigListAddLanguage @ 0x140A7185C (RtlpMuiRegConfigListAddLanguage.c)
+ *     RtlpMuiRegGetLanguageSpec @ 0x140A72004 (RtlpMuiRegGetLanguageSpec.c)
+ */
+
 __int64 __fastcall RtlpPopulateLanguageConfigList(HANDLE KeyHandle, __int64 *a2, __int64 a3)
 {
   unsigned __int8 *v3; // rbp

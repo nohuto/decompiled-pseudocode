@@ -1,3 +1,14 @@
+/*
+ * XREFs of Usbh_CheckPortHwPendingStatus @ 0x1C0001F1C
+ * Callers:
+ *     UsbhResetPort @ 0x1C0002918 (UsbhResetPort.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhSignalResumeEvent @ 0x1C001B710 (UsbhSignalResumeEvent.c)
+ *     UsbhSignalSuspendEvent @ 0x1C00353B4 (UsbhSignalSuspendEvent.c)
+ */
+
 void __fastcall Usbh_CheckPortHwPendingStatus(__int64 a1, __int64 a2)
 {
   KSPIN_LOCK *v4; // rdi

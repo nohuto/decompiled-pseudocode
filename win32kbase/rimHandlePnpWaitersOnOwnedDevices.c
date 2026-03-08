@@ -1,3 +1,13 @@
+/*
+ * XREFs of rimHandlePnpWaitersOnOwnedDevices @ 0x1C00C3BB8
+ * Callers:
+ *     rimApcIoUnregisterPlugPlayNotificationExWorker @ 0x1C00C3ACC (rimApcIoUnregisterPlugPlayNotificationExWorker.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqq @ 0x1C0153AA4 (WPP_RECORDER_AND_TRACE_SF_qqq.c)
+ */
+
 void __fastcall rimHandlePnpWaitersOnOwnedDevices(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // ebp

@@ -1,3 +1,13 @@
+/*
+ * XREFs of XilCommand_AddCommandCRBToRing @ 0x1C000AB9C
+ * Callers:
+ *     Command_InternalSendCommand @ 0x1C000A998 (Command_InternalSendCommand.c)
+ * Callees:
+ *     XilCommand_WriteDoorbell @ 0x1C000ABF8 (XilCommand_WriteDoorbell.c)
+ *     XilCoreCommand_AddCommandTRBToRing @ 0x1C000AC28 (XilCoreCommand_AddCommandTRBToRing.c)
+ *     XilCommand_SendAddCommandCRBToRingRequest @ 0x1C0031B20 (XilCommand_SendAddCommandCRBToRingRequest.c)
+ */
+
 __int64 __fastcall XilCommand_AddCommandCRBToRing(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

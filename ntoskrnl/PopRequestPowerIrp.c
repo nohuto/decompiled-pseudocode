@@ -1,3 +1,23 @@
+/*
+ * XREFs of PopRequestPowerIrp @ 0x1402BA570
+ * Callers:
+ *     PopFxReleasePowerIrp @ 0x1402BA1B4 (PopFxReleasePowerIrp.c)
+ *     PoRequestPowerIrp @ 0x1402BA540 (PoRequestPowerIrp.c)
+ *     PopScanIdleList @ 0x1402BC8E0 (PopScanIdleList.c)
+ *     DifPoRequestPowerIrpWrapper @ 0x1405E7DF0 (DifPoRequestPowerIrpWrapper.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PopPepDeviceWaitWake @ 0x1402B8FC8 (PopPepDeviceWaitWake.c)
+ *     IofCallDriverSpecifyReturn @ 0x1402B91D0 (IofCallDriverSpecifyReturn.c)
+ *     PopFxGetDeviceDStateReason @ 0x1402B9BF4 (PopFxGetDeviceDStateReason.c)
+ *     PopFxNotifyPreDIrpIssue @ 0x1402BA338 (PopFxNotifyPreDIrpIssue.c)
+ *     PopAllocateIrp @ 0x1402BA774 (PopAllocateIrp.c)
+ *     PopQueueQuerySetIrp @ 0x1402BAFA4 (PopQueueQuerySetIrp.c)
+ *     PopDiagTraceIrpStart @ 0x1402BB178 (PopDiagTraceIrpStart.c)
+ *     PopLogNotifyDevice @ 0x14045AA2A (PopLogNotifyDevice.c)
+ *     PopMapInternalActionToIrpAction @ 0x140584D54 (PopMapInternalActionToIrpAction.c)
+ */
+
 __int64 __fastcall PopRequestPowerIrp(__int64 a1, char a2, int a3, int a4, __int64 a5, char a6, PIRP Irp)
 {
   volatile __int64 *p_Type; // rbp

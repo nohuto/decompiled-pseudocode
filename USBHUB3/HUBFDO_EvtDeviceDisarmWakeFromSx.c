@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBFDO_EvtDeviceDisarmWakeFromSx @ 0x1C000DFA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBFDO_EvtDeviceDisarmWakeFromSx(__int64 a1)
 {
   __int64 result; // rax

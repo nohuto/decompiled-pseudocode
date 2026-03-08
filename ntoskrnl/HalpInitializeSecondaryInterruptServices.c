@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpInitializeSecondaryInterruptServices @ 0x140B35558
+ * Callers:
+ *     HalpPostPnpInitialize @ 0x1408020CC (HalpPostPnpInitialize.c)
+ * Callees:
+ *     HalpCheckSecondaryInterruptSupported @ 0x14079C818 (HalpCheckSecondaryInterruptSupported.c)
+ *     HalpQueryMaximumGsiv @ 0x14080213C (HalpQueryMaximumGsiv.c)
+ *     HalpRecordSecondaryGsivRange @ 0x1408021D0 (HalpRecordSecondaryGsivRange.c)
+ */
+
 __int64 HalpInitializeSecondaryInterruptServices()
 {
   int v0; // ebx

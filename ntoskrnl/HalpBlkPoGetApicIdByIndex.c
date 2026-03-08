@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpBlkPoGetApicIdByIndex @ 0x140528320
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpBlkPoGetApicIdByIndex(unsigned int a1, _DWORD *a2)
 {
   __int64 result; // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?_GetWindowTrackInfoAsync@@YA_JPEAUtagWND@@@Z @ 0x1C0097C84
+ * Callers:
+ *     NtUserGetWindowTrackInfoAsync @ 0x1C0097BD0 (NtUserGetWindowTrackInfoAsync.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?BeginGetWidnowTrackInfoAsync@@YA_NPEAUtagWND@@@Z @ 0x1C00977F4 (-BeginGetWidnowTrackInfoAsync@@YA_NPEAUtagWND@@@Z.c)
+ *     ?EligibleWindow@ShellWindowManagement@@YA_NPEBUtagWND@@@Z @ 0x1C0097B88 (-EligibleWindow@ShellWindowManagement@@YA_NPEBUtagWND@@@Z.c)
+ *     IAMThreadAccessGranted @ 0x1C009A2DC (IAMThreadAccessGranted.c)
+ *     IsShellProcess @ 0x1C009C278 (IsShellProcess.c)
+ *     ?IsThreadHungTimeCheck@@YA_NPEBUtagTHREADINFO@@K@Z @ 0x1C00E2134 (-IsThreadHungTimeCheck@@YA_NPEBUtagTHREADINFO@@K@Z.c)
+ */
+
 _BOOL8 __fastcall _GetWindowTrackInfoAsync(struct tagWND *a1)
 {
   const struct tagTHREADINFO *v2; // rbx

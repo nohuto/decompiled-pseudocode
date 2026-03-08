@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopInsertActiveConnectListLocked @ 0x140851B0C
+ * Callers:
+ *     IopInitializeActiveConnectBlock @ 0x1406F490C (IopInitializeActiveConnectBlock.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IopInsertActiveConnectListLocked(__int64 a1)
 {
   __int64 result; // rax

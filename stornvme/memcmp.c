@@ -1,3 +1,12 @@
+/*
+ * XREFs of memcmp @ 0x1C0004070
+ * Callers:
+ *     NVMeGetRichDeviceDescription @ 0x1C001651C (NVMeGetRichDeviceDescription.c)
+ *     NVMeGetHealthInfoLog @ 0x1C001E084 (NVMeGetHealthInfoLog.c)
+ * Callees:
+ *     <none>
+ */
+
 int __cdecl memcmp(const void *Buf1, const void *Buf2, size_t Size)
 {
   signed __int64 v3; // rdx

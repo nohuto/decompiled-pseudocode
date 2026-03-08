@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeAcquireSpinLockRaiseToSynch @ 0x14056F200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ */
+
 KIRQL __stdcall KeAcquireSpinLockRaiseToSynch(PKSPIN_LOCK SpinLock)
 {
   KIRQL CurrentIrql; // bl

@@ -1,3 +1,19 @@
+/*
+ * XREFs of SshpAlpcProcessAlpcMessage @ 0x14084A04C
+ * Callers:
+ *     SshpAlpcMessageCallback @ 0x140849F10 (SshpAlpcMessageCallback.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1402A4AB8 (SSHSupportReleasePushLockExclusive.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwAlpcAcceptConnectPort @ 0x1404131F0 (ZwAlpcAcceptConnectPort.c)
+ *     ZwAlpcCancelMessage @ 0x140413210 (ZwAlpcCancelMessage.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SshpAlpcProcessMessage @ 0x14084A1D8 (SshpAlpcProcessMessage.c)
+ *     SshpAlpcSendMessage @ 0x14084A2B0 (SshpAlpcSendMessage.c)
+ */
+
 __int64 __fastcall SshpAlpcProcessAlpcMessage(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8

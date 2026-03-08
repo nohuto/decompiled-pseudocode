@@ -1,3 +1,13 @@
+/*
+ * XREFs of WPP_IFR_SF_qqii @ 0x1C001DE48
+ * Callers:
+ *     ?StartTransfer@FxDmaPacketTransaction@@UEAAJXZ @ 0x1C001D3F0 (-StartTransfer@FxDmaPacketTransaction@@UEAAJXZ.c)
+ *     ?TransferCompleted@FxDmaPacketTransaction@@UEAAJXZ @ 0x1C001D650 (-TransferCompleted@FxDmaPacketTransaction@@UEAAJXZ.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_qqii(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 id,

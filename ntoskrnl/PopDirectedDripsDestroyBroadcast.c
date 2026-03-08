@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopDirectedDripsDestroyBroadcast @ 0x1409804A8
+ * Callers:
+ *     PopDirectedDripsResumeDevices @ 0x140980BC4 (PopDirectedDripsResumeDevices.c)
+ *     PopDirectedDripsSuspendDevices @ 0x140980E14 (PopDirectedDripsSuspendDevices.c)
+ * Callees:
+ *     PoClearBroadcast @ 0x140988B8C (PoClearBroadcast.c)
+ */
+
 __int64 PopDirectedDripsDestroyBroadcast()
 {
   volatile signed __int32 *v0; // rdx

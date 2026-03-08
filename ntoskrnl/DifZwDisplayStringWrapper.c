@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwDisplayStringWrapper @ 0x1405ED610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwDisplayString @ 0x140413F50 (ZwDisplayString.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifZwDisplayStringWrapper(PUNICODE_STRING String)
 {
   __int64 *APIThunkContextById; // rax

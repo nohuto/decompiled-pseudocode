@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?QueueAnimationStateChange@CExpressionManager@@QEAAJW4AnimationEventType@@PEAVCBaseExpression@@@Z @ 0x180096E4C
+ * Callers:
+ *     ?NotifyAnimationDisconnected@CBaseExpression@@QEAAJXZ @ 0x180096D48 (-NotifyAnimationDisconnected@CBaseExpression@@QEAAJXZ.c)
+ *     ?NotifyAnimationCompleted@CBaseExpression@@QEAAJXZ @ 0x1800BC454 (-NotifyAnimationCompleted@CBaseExpression@@QEAAJXZ.c)
+ *     ?NotifyAnimationStopped@CBaseExpression@@IEAAJXZ @ 0x1800BD110 (-NotifyAnimationStopped@CBaseExpression@@IEAAJXZ.c)
+ * Callees:
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$00@@IEAAJIIPEBX@Z @ 0x18002718C (-AddMultipleAndSet@-$DynArrayImpl@$00@@IEAAJIIPEBX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CExpressionManager::QueueAnimationStateChange(__int64 a1, int a2, int *a3)
 {
   unsigned int v4; // eax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?_SaveHDRParamDriverOverrides@MonitorColorState@DxgMonitor@@AEAAJAEBU_DXGK_COLORIMETRY@@@Z @ 0x1C03C9CA8
+ * Callers:
+ *     ?_RetrieveHDRParamDriverOverrides@MonitorColorState@DxgMonitor@@AEAAJXZ @ 0x1C01F9038 (-_RetrieveHDRParamDriverOverrides@MonitorColorState@DxgMonitor@@AEAAJXZ.c)
+ *     MonitorSetDriverColorimetryOverride @ 0x1C03C0640 (MonitorSetDriverColorimetryOverride.c)
+ * Callees:
+ *     ?SetLuminanceValuesWithBrightnessCompensation@MonitorColorState@DxgMonitor@@AEAAJXZ @ 0x1C01F89F4 (-SetLuminanceValuesWithBrightnessCompensation@MonitorColorState@DxgMonitor@@AEAAJXZ.c)
+ *     ?_UpdateHDRParamsIfRequired@MonitorColorState@DxgMonitor@@AEAAXXZ @ 0x1C01FA1E0 (-_UpdateHDRParamsIfRequired@MonitorColorState@DxgMonitor@@AEAAXXZ.c)
+ */
+
 __int64 __fastcall DxgMonitor::MonitorColorState::_SaveHDRParamDriverOverrides(
         DxgMonitor::MonitorColorState *this,
         const struct _DXGK_COLORIMETRY *a2)

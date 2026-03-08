@@ -1,3 +1,26 @@
+/*
+ * XREFs of KiCommitRescheduleContextEntry @ 0x140261A70
+ * Callers:
+ *     KeSetPriorityThread @ 0x1402261B0 (KeSetPriorityThread.c)
+ *     KiSetPriorityThread @ 0x1402273F0 (KiSetPriorityThread.c)
+ *     KiRemoveBoostThread @ 0x140229890 (KiRemoveBoostThread.c)
+ *     KiExecuteAllDpcs @ 0x140252F60 (KiExecuteAllDpcs.c)
+ *     KiEnterLongDpcProcessing @ 0x140254490 (KiEnterLongDpcProcessing.c)
+ *     KeYieldExecution @ 0x140256BE0 (KeYieldExecution.c)
+ *     KiDeferredReadySingleThread @ 0x140259FB0 (KiDeferredReadySingleThread.c)
+ *     KiSearchForNewThread @ 0x140260460 (KiSearchForNewThread.c)
+ *     KiSearchForNewThreadOnProcessor @ 0x1402AC810 (KiSearchForNewThreadOnProcessor.c)
+ *     KiCommitRescheduleContext @ 0x1402AE04C (KiCommitRescheduleContext.c)
+ *     KiApplyForegroundBoostThread @ 0x1402E3178 (KiApplyForegroundBoostThread.c)
+ *     KiDirectSwitchThread @ 0x1403414A0 (KiDirectSwitchThread.c)
+ * Callees:
+ *     KiIsThreadRankNonZero @ 0x140228010 (KiIsThreadRankNonZero.c)
+ *     KiEnterDeferredReadyState @ 0x140341110 (KiEnterDeferredReadyState.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiSetProcessorIdle @ 0x14037DFEC (KiSetProcessorIdle.c)
+ *     KiSetSchedulerAssistPriority @ 0x14040A730 (KiSetSchedulerAssistPriority.c)
+ */
+
 char __fastcall KiCommitRescheduleContextEntry(__int64 a1, struct _KPRCB *a2, char a3, _QWORD *a4)
 {
   __int64 v4; // rsi

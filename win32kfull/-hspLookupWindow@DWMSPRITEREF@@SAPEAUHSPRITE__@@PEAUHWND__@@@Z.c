@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?hspLookupWindow@DWMSPRITEREF@@SAPEAUHSPRITE__@@PEAUHWND__@@@Z @ 0x1C002D150
+ * Callers:
+ *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z @ 0x1C0027A0C (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z.c)
+ *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C00296D4 (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
+ *     GreDwmNotifySpriteMonitorChange @ 0x1C002C60C (GreDwmNotifySpriteMonitorChange.c)
+ *     GreHintSpriteShape @ 0x1C002C80C (GreHintSpriteShape.c)
+ *     GreZorderSprite @ 0x1C002CF5C (GreZorderSprite.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DWMSPRITEREF::hspLookupWindow(Gre::Base *a1)
 {
   __int64 v1; // rdi

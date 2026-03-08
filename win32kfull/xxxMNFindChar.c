@@ -1,3 +1,12 @@
+/*
+ * XREFs of xxxMNFindChar @ 0x1C0241D40
+ * Callers:
+ *     xxxMNChar @ 0x1C0219CB8 (xxxMNChar.c)
+ * Callees:
+ *     xxxClientFindMnemChar @ 0x1C02150CC (xxxClientFindMnemChar.c)
+ *     MNFindNextValidItem @ 0x1C0241C80 (MNFindNextValidItem.c)
+ */
+
 __int64 __fastcall xxxMNFindChar(__int64 **a1, int a2, int a3, unsigned int *a4)
 {
   int v4; // ebp

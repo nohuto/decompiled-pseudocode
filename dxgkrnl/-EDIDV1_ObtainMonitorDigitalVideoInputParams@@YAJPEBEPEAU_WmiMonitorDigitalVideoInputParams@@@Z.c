@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EDIDV1_ObtainMonitorDigitalVideoInputParams@@YAJPEBEPEAU_WmiMonitorDigitalVideoInputParams@@@Z @ 0x1C00240EC
+ * Callers:
+ *     ?GetDigitalVideoInputParams@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAU_WmiMonitorDigitalVideoInputParams@@@Z @ 0x1C021A5C0 (-GetDigitalVideoInputParams@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAU_WmiMonitorDigitalVideoIn.c)
+ * Callees:
+ *     ?Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z @ 0x1C0011258 (-Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z.c)
+ */
+
 __int64 __fastcall EDIDV1_ObtainMonitorDigitalVideoInputParams(
         unsigned __int8 *a1,
         struct _WmiMonitorDigitalVideoInputParams *a2)

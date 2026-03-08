@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?GetScaledLetterboxingMargins@CDxHandleYUVBitmapRealization@@UEBA_NPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180131E1C
+ * Callers:
+ *     ?GetScaledLetterboxingMargins@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18011EF90 (-GetScaledLetterboxingMargins@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NPEAV-$TMilRect_@M.c)
+ *     ?GetMPORects@CDxHandleYUVBitmapRealization@@UEBAXAEBVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@11@Z @ 0x180131B6E (-GetMPORects@CDxHandleYUVBitmapRealization@@UEBAXAEBVCMILMatrix@@PEAV-$TMilRect_@MUMilRectF@@UMi.c)
+ * Callees:
+ *     ?Get2DScaleDimensions@CMILMatrix@@QEBAXPEAM0@Z @ 0x1800B4BA4 (-Get2DScaleDimensions@CMILMatrix@@QEBAXPEAM0@Z.c)
+ *     ?CalcDecodedSourceRectAndTransform@CDxHandleYUVBitmapRealization@@IEBAXPEAVCMILMatrix@@PEAV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@1@Z @ 0x1801173EC (-CalcDecodedSourceRectAndTransform@CDxHandleYUVBitmapRealization@@IEBAXPEAVCMILMatrix@@PEAV-$TMi.c)
+ *     ?IsCloseRealZero@@YA_NMM@Z @ 0x1801B1A18 (-IsCloseRealZero@@YA_NMM@Z.c)
+ */
+
 char __fastcall CDxHandleYUVBitmapRealization::GetScaledLetterboxingMargins(__int64 a1, float *a2)
 {
   char v2; // di

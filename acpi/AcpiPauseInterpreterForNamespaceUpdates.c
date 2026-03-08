@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiPauseInterpreterForNamespaceUpdates @ 0x1C0037CDC
+ * Callers:
+ *     AcpiReflectNativeObject @ 0x1C0037D80 (AcpiReflectNativeObject.c)
+ * Callees:
+ *     AMLIPauseInterpreter @ 0x1C0048968 (AMLIPauseInterpreter.c)
+ */
+
 __int64 AcpiPauseInterpreterForNamespaceUpdates()
 {
   unsigned int v0; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InternalRebuildHwndListForIMEClass@@YAPEAUtagBWL@@PEAU1@@Z @ 0x1C00400D0
+ * Callers:
+ *     BuildHwndList @ 0x1C0041A10 (BuildHwndList.c)
+ * Callees:
+ *     <none>
+ */
+
 struct tagBWL *__fastcall InternalRebuildHwndListForIMEClass(struct tagBWL *a1)
 {
   struct tagBWL *v1; // r13

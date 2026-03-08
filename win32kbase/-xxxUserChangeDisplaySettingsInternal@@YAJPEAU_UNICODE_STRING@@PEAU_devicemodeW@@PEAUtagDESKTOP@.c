@@ -1,3 +1,29 @@
+/*
+ * XREFs of ?xxxUserChangeDisplaySettingsInternal@@YAJPEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAUtagDESKTOP@@KPEAXW4_MODE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C015DB90
+ * Callers:
+ *     xxxUserChangeDisplaySettings @ 0x1C015FD70 (xxxUserChangeDisplaySettings.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C000F0BC (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     PowerDimUndimResend @ 0x1C00108AC (PowerDimUndimResend.c)
+ *     ?TrackFullscreenMode@@YAXH@Z @ 0x1C0010A90 (-TrackFullscreenMode@@YAXH@Z.c)
+ *     DrvQueryMDEVPowerState @ 0x1C0011490 (DrvQueryMDEVPowerState.c)
+ *     ?CreateCachedMonitor@@YAPEAUtagMONITOR@@XZ @ 0x1C00121E8 (-CreateCachedMonitor@@YAPEAUtagMONITOR@@XZ.c)
+ *     xxxResetDisplayDevice @ 0x1C0016410 (xxxResetDisplayDevice.c)
+ *     DrvSetDisplayConfig @ 0x1C0025C00 (DrvSetDisplayConfig.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     SafeEnableMDEV @ 0x1C00D8A70 (SafeEnableMDEV.c)
+ *     SafeDisableMDEV @ 0x1C00D8AC0 (SafeDisableMDEV.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C00EDED8 (McTemplateK0_EtwWriteTransfer.c)
+ *     ?xxxDispBrokerChangeDisplaySettings@@YAJPEBU_UNICODE_STRING@@PEAU_devicemodeW@@I_N@Z @ 0x1C0156F40 (-xxxDispBrokerChangeDisplaySettings@@YAJPEBU_UNICODE_STRING@@PEAU_devicemodeW@@I_N@Z.c)
+ *     DrvChangeDisplaySettings @ 0x1C019249C (DrvChangeDisplaySettings.c)
+ *     DrvChangeDisplaySettingsPreValidate @ 0x1C019288C (DrvChangeDisplaySettingsPreValidate.c)
+ *     DrvSetPruneFlag @ 0x1C01949DC (DrvSetPruneFlag.c)
+ *     DrvSetVideoParameters @ 0x1C0194B28 (DrvSetVideoParameters.c)
+ *     LogDiagCDS @ 0x1C0195280 (LogDiagCDS.c)
+ *     IszzzUpdateCursorImageSupported @ 0x1C0272024 (IszzzUpdateCursorImageSupported.c)
+ */
+
 __int64 __fastcall xxxUserChangeDisplaySettingsInternal(
         struct _UNICODE_STRING *a1,
         struct _devicemodeW *a2,

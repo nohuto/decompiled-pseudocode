@@ -1,3 +1,51 @@
+/*
+ * XREFs of memmove @ 0x1C0044CC0
+ * Callers:
+ *     HUBHTX_ValidateAndCacheHubConfigDescriptor @ 0x1C0003694 (HUBHTX_ValidateAndCacheHubConfigDescriptor.c)
+ *     HUBPDO_GetHubName @ 0x1C00160D8 (HUBPDO_GetHubName.c)
+ *     HUBPDO_RecordFailure @ 0x1C001624C (HUBPDO_RecordFailure.c)
+ *     HUBPDO_ReturnDeviceConfigInfo @ 0x1C0016420 (HUBPDO_ReturnDeviceConfigInfo.c)
+ *     HUBPDO_EvtDeviceWdmIrpQueryDeviceTextPreprocess @ 0x1C0018018 (HUBPDO_EvtDeviceWdmIrpQueryDeviceTextPreprocess.c)
+ *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0018550 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
+ *     HUBID_AppendStringToIDString @ 0x1C001DAB4 (HUBID_AppendStringToIDString.c)
+ *     HUBID_BuildUxdPnpId @ 0x1C001DC7C (HUBID_BuildUxdPnpId.c)
+ *     HUBUCX_UCXIoctlComplete @ 0x1C0025AA0 (HUBUCX_UCXIoctlComplete.c)
+ *     HUBUCX_GetControllerName @ 0x1C0028D3C (HUBUCX_GetControllerName.c)
+ *     HUBUCX_CheckIfEndpointsNeedToBeDisabledOnConfigFailure @ 0x1C0029538 (HUBUCX_CheckIfEndpointsNeedToBeDisabledOnConfigFailure.c)
+ *     HUBDTX_ValidateAndCacheBOSDescriptor @ 0x1C002AE70 (HUBDTX_ValidateAndCacheBOSDescriptor.c)
+ *     HUBDTX_ValidateAndCacheConfigDescriptor @ 0x1C002B98C (HUBDTX_ValidateAndCacheConfigDescriptor.c)
+ *     HUBDTX_ValidateAndCacheLanguageIdStringDescriptor @ 0x1C002C414 (HUBDTX_ValidateAndCacheLanguageIdStringDescriptor.c)
+ *     HUBDTX_ValidateAndCacheProductIdStringDescriptor @ 0x1C002CB14 (HUBDTX_ValidateAndCacheProductIdStringDescriptor.c)
+ *     HUBDTX_ValidateAndCacheSerialNumberStringDescriptor @ 0x1C002CCF0 (HUBDTX_ValidateAndCacheSerialNumberStringDescriptor.c)
+ *     HUBDTX_LogBillboardEvent @ 0x1C002D020 (HUBDTX_LogBillboardEvent.c)
+ *     HUBDTX_LogAlternateMode @ 0x1C002D134 (HUBDTX_LogAlternateMode.c)
+ *     HUBDTX_CacheBillboardInfo @ 0x1C002D304 (HUBDTX_CacheBillboardInfo.c)
+ *     HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectConfiguration @ 0x1C002EBC0 (HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectConfiguration.c)
+ *     HUBMISC_GenerateControllerSuffix @ 0x1C0034298 (HUBMISC_GenerateControllerSuffix.c)
+ *     WMI_QueryInstanceDeviceNodeInfo @ 0x1C003F6F0 (WMI_QueryInstanceDeviceNodeInfo.c)
+ *     FWUPDATE_EvtIoInternalDeviceControl @ 0x1C003FFE0 (FWUPDATE_EvtIoInternalDeviceControl.c)
+ *     InitializeTelemetryAssertsKMWorkerInternal @ 0x1C0041448 (InitializeTelemetryAssertsKMWorkerInternal.c)
+ *     USBDInternal_BuildServicePath @ 0x1C0042258 (USBDInternal_BuildServicePath.c)
+ *     MyRegQueryString @ 0x1C0043ABC (MyRegQueryString.c)
+ *     CreateNewEventEntry @ 0x1C0043F84 (CreateNewEventEntry.c)
+ *     memcpy_s @ 0x1C0044960 (memcpy_s.c)
+ *     WppTraceCallback @ 0x1C0076440 (WppTraceCallback.c)
+ *     HUBDRIVER_EtwRundownHub @ 0x1C007685C (HUBDRIVER_EtwRundownHub.c)
+ *     HUBDRIVER_EtwRundownUsbDevice @ 0x1C0076D58 (HUBDRIVER_EtwRundownUsbDevice.c)
+ *     HUBFDO_EvtDevicePrepareHardware @ 0x1C0078890 (HUBFDO_EvtDevicePrepareHardware.c)
+ *     HUBFDO_IoctlGetNodeConnectionName @ 0x1C007A52C (HUBFDO_IoctlGetNodeConnectionName.c)
+ *     HUBFDO_IoctlGetDescriptorFromNodeConnection @ 0x1C007A918 (HUBFDO_IoctlGetDescriptorFromNodeConnection.c)
+ *     HUBFDO_IoctlGetPortConnectorProperties @ 0x1C007B17C (HUBFDO_IoctlGetPortConnectorProperties.c)
+ *     HUBPDO_EvtDevicePrepareHardware @ 0x1C007CF20 (HUBPDO_EvtDevicePrepareHardware.c)
+ *     HUBREG_QueryValuesInDeviceHardwareKey @ 0x1C0086210 (HUBREG_QueryValuesInDeviceHardwareKey.c)
+ *     WMI_AcquireHubName @ 0x1C008B7AC (WMI_AcquireHubName.c)
+ *     WMI_GetPropertyString @ 0x1C008BCF8 (WMI_GetPropertyString.c)
+ *     TUNNEL_EvtIrpPreprocessQueryDevRelations @ 0x1C008E9F0 (TUNNEL_EvtIrpPreprocessQueryDevRelations.c)
+ *     KsPropertyHandleDrmSetContentId @ 0x1C008F3A8 (KsPropertyHandleDrmSetContentId.c)
+ * Callees:
+ *     <none>
+ */
+
 void *__cdecl memmove(void *a1, const void *Src, size_t Size)
 {
   void *result; // rax

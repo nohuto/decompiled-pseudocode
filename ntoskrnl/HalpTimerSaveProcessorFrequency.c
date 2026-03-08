@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpTimerSaveProcessorFrequency @ 0x140377B98
+ * Callers:
+ *     HalpTimerInitSystem @ 0x1403776D0 (HalpTimerInitSystem.c)
+ * Callees:
+ *     HalpFindTimer @ 0x140377CA8 (HalpFindTimer.c)
+ */
+
 __int64 HalpTimerSaveProcessorFrequency()
 {
   KPCR *Pcr; // rbx

@@ -1,3 +1,29 @@
+/*
+ * XREFs of CcSetDirtyPinnedData @ 0x140242420
+ * Callers:
+ *     CcZeroDataInCache @ 0x140241DBC (CcZeroDataInCache.c)
+ *     CcReleaseByteRangeFromWrite @ 0x140337D3C (CcReleaseByteRangeFromWrite.c)
+ *     CcUnpinRepinnedBcb @ 0x140390990 (CcUnpinRepinnedBcb.c)
+ *     CcPreparePinWrite @ 0x1406B6780 (CcPreparePinWrite.c)
+ * Callees:
+ *     CcSetDirtyInMask @ 0x14021C370 (CcSetDirtyInMask.c)
+ *     ExpReleaseFastMutexContended @ 0x140239650 (ExpReleaseFastMutexContended.c)
+ *     ExpAcquireFastMutexContended @ 0x1402410FC (ExpAcquireFastMutexContended.c)
+ *     CcChargeDirtyPagesInternal @ 0x1402429A0 (CcChargeDirtyPagesInternal.c)
+ *     CcScheduleLazyWriteScan @ 0x140242B0C (CcScheduleLazyWriteScan.c)
+ *     CcInsertIntoDirtySharedCacheMapList @ 0x140242BEC (CcInsertIntoDirtySharedCacheMapList.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KxWaitForLockChainValid @ 0x140291730 (KxWaitForLockChainValid.c)
+ *     KxWaitForLockOwnerShip @ 0x14033B510 (KxWaitForLockOwnerShip.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140457B8E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x14056EF78 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14057DAC8 (KiHaltOnAddressWakeEntireList.c)
+ */
+
 void __stdcall CcSetDirtyPinnedData(PVOID BcbVoid, PLARGE_INTEGER Lsn)
 {
   char *v2; // r8

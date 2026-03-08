@@ -1,3 +1,14 @@
+/*
+ * XREFs of WdipSemInitializeGlobalState @ 0x1408347EC
+ * Callers:
+ *     WdipSemInitialize @ 0x140831898 (WdipSemInitialize.c)
+ *     WdipSemUpdate @ 0x1409DAB4C (WdipSemUpdate.c)
+ * Callees:
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     WdipSemClearFrequentScenarioTable @ 0x1403911FC (WdipSemClearFrequentScenarioTable.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void *WdipSemInitializeGlobalState()
 {
   __int64 v0; // rdi

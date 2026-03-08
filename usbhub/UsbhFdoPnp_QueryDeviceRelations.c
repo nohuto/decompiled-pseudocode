@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhFdoPnp_QueryDeviceRelations @ 0x1C0005240
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhQueryBusRelations @ 0x1C0008DD0 (UsbhQueryBusRelations.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhFdoChainIrp @ 0x1C002A33C (UsbhFdoChainIrp.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ */
+
 __int64 __fastcall UsbhFdoPnp_QueryDeviceRelations(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8

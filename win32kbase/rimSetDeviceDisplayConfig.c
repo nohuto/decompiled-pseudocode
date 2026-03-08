@@ -1,3 +1,13 @@
+/*
+ * XREFs of rimSetDeviceDisplayConfig @ 0x1C01BEDF8
+ * Callers:
+ *     RIMSetDeviceOutputConfig @ 0x1C01BDB78 (RIMSetDeviceOutputConfig.c)
+ * Callees:
+ *     RIMUpdatePointerDeviceScalingInfo @ 0x1C000FF84 (RIMUpdatePointerDeviceScalingInfo.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimNotifyPointerDeviceChangeClients @ 0x1C01BEC28 (rimNotifyPointerDeviceChangeClients.c)
+ */
+
 __int64 __fastcall rimSetDeviceDisplayConfig(__int64 a1, __int64 a2, int a3, __int64 a4)
 {
   int v8; // r9d

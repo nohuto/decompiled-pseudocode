@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopCheckDisabledState @ 0x1407608E8
+ * Callers:
+ *     PopFilterCapabilities @ 0x140760774 (PopFilterCapabilities.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PopCheckDisabledState(int a1)
 {
   __int64 *v1; // rdx

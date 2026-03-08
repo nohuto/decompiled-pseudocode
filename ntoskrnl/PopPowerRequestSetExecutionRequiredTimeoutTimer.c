@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPowerRequestSetExecutionRequiredTimeoutTimer @ 0x14085245C
+ * Callers:
+ *     PopUpdatePdcSystemIdleState @ 0x14073B8FC (PopUpdatePdcSystemIdleState.c)
+ *     PopPowerRequestExecutionRequiredSettingCallback @ 0x1408523C0 (PopPowerRequestExecutionRequiredSettingCallback.c)
+ * Callees:
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ */
+
 _BOOL8 PopPowerRequestSetExecutionRequiredTimeoutTimer()
 {
   unsigned __int64 v0; // rcx

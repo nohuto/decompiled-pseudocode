@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiProcessIsrMonitoredFenceSignaled @ 0x1C001DAFC
+ * Callers:
+ *     VidSchDdiNotifyInterruptWorker @ 0x1C000B040 (VidSchDdiNotifyInterruptWorker.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ */
+
 PSLIST_ENTRY __fastcall VidSchiProcessIsrMonitoredFenceSignaled(__int64 a1)
 {
   union _SLIST_HEADER *v1; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmCapturePerformanceDistributionCallback @ 0x1405957C0
+ * Callers:
+ *     PpmCapturePerformanceDistribution @ 0x14059558C (PpmCapturePerformanceDistribution.c)
+ * Callees:
+ *     PpmSnapPerformanceAccumulation @ 0x140234F00 (PpmSnapPerformanceAccumulation.c)
+ */
+
 __int64 __fastcall PpmCapturePerformanceDistributionCallback(struct _KPRCB *a1, __int64 a2)
 {
   unsigned int v2; // r8d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpCovSampHashLookupInTable @ 0x1408A4A72
+ * Callers:
+ *     EtwpCovSampContextAddSamples @ 0x1408A4190 (EtwpCovSampContextAddSamples.c)
+ *     EtwpCovSampHashMakeRoomAndAcquireLock @ 0x1408A4B3A (EtwpCovSampHashMakeRoomAndAcquireLock.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwpCovSampHashLookupInTable(__int64 a1, unsigned __int8 *a2, __int64 **a3)
 {
   int v3; // edi

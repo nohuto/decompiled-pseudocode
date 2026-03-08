@@ -1,3 +1,13 @@
+/*
+ * XREFs of AcpiPccEjectInterface @ 0x1C0033D34
+ * Callers:
+ *     ACPIBusIrpQueryInterface @ 0x1C00165F0 (ACPIBusIrpQueryInterface.c)
+ *     ACPIRootIrpQueryInterface @ 0x1C00944D0 (ACPIRootIrpQueryInterface.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     PciConfigPinToLine @ 0x1C0001990 (PciConfigPinToLine.c)
+ */
+
 __int64 __fastcall AcpiPccEjectInterface(ULONG_PTR a1, __int64 a2)
 {
   __int64 v2; // rsi

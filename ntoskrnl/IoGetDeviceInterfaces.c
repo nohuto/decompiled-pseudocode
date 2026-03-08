@@ -1,3 +1,16 @@
+/*
+ * XREFs of IoGetDeviceInterfaces @ 0x1406C3A60
+ * Callers:
+ *     PnprIsMemoryDevice @ 0x1409633D0 (PnprIsMemoryDevice.c)
+ *     PnprIsProcessorDevice @ 0x140963488 (PnprIsProcessorDevice.c)
+ *     VhdiMountVhdFile @ 0x140A7058C (VhdiMountVhdFile.c)
+ *     IopFetchConfigurationInformation @ 0x140B54DF4 (IopFetchConfigurationInformation.c)
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     IopGetDeviceInterfaces @ 0x1406C4A94 (IopGetDeviceInterfaces.c)
+ */
+
 NTSTATUS __stdcall IoGetDeviceInterfaces(
         const GUID *InterfaceClassGuid,
         PDEVICE_OBJECT PhysicalDeviceObject,

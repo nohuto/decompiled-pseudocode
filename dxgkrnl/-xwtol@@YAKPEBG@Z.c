@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?xwtol@@YAKPEBG@Z @ 0x1C01FF51C
+ * Callers:
+ *     ParseModeCap @ 0x1C01FF3DC (ParseModeCap.c)
+ *     ?InitializeDriverWorkarounds@DXGADAPTER@@AEAAXXZ @ 0x1C020D8B0 (-InitializeDriverWorkarounds@DXGADAPTER@@AEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall xwtol(const unsigned __int16 *a1)
 {
   unsigned int v1; // edx

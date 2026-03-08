@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiSetOPMSigningKeyAndSequenceNumbers @ 0x1C0189970
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SafelyCopyUserModeDataToKernelModeData__DXGKMDT_OPM_ENCRYPTED_PARAMETERS_ @ 0x1C0187BEC (SafelyCopyUserModeDataToKernelModeData__DXGKMDT_OPM_ENCRYPTED_PARAMETERS_.c)
+ *     ?SetSigningKeyAndSequenceNumbers@COPM@@QEAAJPEAXQEAU_DXGKMDT_OPM_ENCRYPTED_PARAMETERS@@@Z @ 0x1C0188D94 (-SetSigningKeyAndSequenceNumbers@COPM@@QEAAJPEAXQEAU_DXGKMDT_OPM_ENCRYPTED_PARAMETERS@@@Z.c)
+ */
+
 __int64 __fastcall NtGdiSetOPMSigningKeyAndSequenceNumbers(unsigned __int64 a1, _OWORD *a2)
 {
   __int64 v4; // rbp

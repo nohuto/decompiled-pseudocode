@@ -1,3 +1,22 @@
+/*
+ * XREFs of _CmSetInstallerClassRegPropWorker @ 0x140A60700
+ * Callers:
+ *     _CmSetInstallerClassRegProp @ 0x140A6059C (_CmSetInstallerClassRegProp.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     _CmClassPropertyRead @ 0x1402C0BC8 (_CmClassPropertyRead.c)
+ *     _MapCmClassPropertyToRegValue @ 0x1402C0C58 (_MapCmClassPropertyToRegValue.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x140413EB0 (ZwDeleteValueKey.c)
+ *     _CmClassPropertyWrite @ 0x140671848 (_CmClassPropertyWrite.c)
+ *     _CmOpenInstallerClassRegKey @ 0x1406C4ED8 (_CmOpenInstallerClassRegKey.c)
+ *     _PnpOpenPropertiesKey @ 0x1406D1610 (_PnpOpenPropertiesKey.c)
+ *     RtlLengthSecurityDescriptor @ 0x14071C8F0 (RtlLengthSecurityDescriptor.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x14071D120 (RtlValidRelativeSecurityDescriptor.c)
+ *     _RegRtlSetValue @ 0x140784FE4 (_RegRtlSetValue.c)
+ *     _CmRaisePropertyChangeEvent @ 0x14086A444 (_CmRaisePropertyChangeEvent.c)
+ */
+
 __int64 __fastcall CmSetInstallerClassRegPropWorker(
         __int64 a1,
         __int64 a2,

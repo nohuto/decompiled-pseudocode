@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserForceEnableNumpadTranslation @ 0x1C0016A40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtUserForceEnableNumpadTranslation(int a1)
 {
   unsigned __int64 v2; // rbx

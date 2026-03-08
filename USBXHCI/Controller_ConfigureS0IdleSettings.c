@@ -1,3 +1,20 @@
+/*
+ * XREFs of Controller_ConfigureS0IdleSettings @ 0x1C006EC7C
+ * Callers:
+ *     Controller_WdfEvtDeviceAdd @ 0x1C006FA60 (Controller_WdfEvtDeviceAdd.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     WPP_RECORDER_SF_L @ 0x1C00136C0 (WPP_RECORDER_SF_L.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     Controller_IsRegKeySetToDisableS0Idle @ 0x1C001EA78 (Controller_IsRegKeySetToDisableS0Idle.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Controller_ExecuteDSM @ 0x1C006E4A4 (Controller_ExecuteDSM.c)
+ *     Controller_UpdateIdleTimeout @ 0x1C006E734 (Controller_UpdateIdleTimeout.c)
+ */
+
 void __fastcall Controller_ConfigureS0IdleSettings(_QWORD *a1)
 {
   int v2; // edx

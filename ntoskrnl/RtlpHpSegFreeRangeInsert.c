@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpHpSegFreeRangeInsert @ 0x14024E6D0
+ * Callers:
+ *     RtlpHpSegPageRangeAllocate @ 0x1402493A0 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegContextCompact @ 0x1402CC380 (RtlpHpSegContextCompact.c)
+ *     RtlpHpSegContextReserve @ 0x14037596C (RtlpHpSegContextReserve.c)
+ *     RtlpHpSegLargeRangeAllocate @ 0x1403BEB28 (RtlpHpSegLargeRangeAllocate.c)
+ * Callees:
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ *     RtlpHpSegPageRangeComputeLargePageCost @ 0x14024E860 (RtlpHpSegPageRangeComputeLargePageCost.c)
+ */
+
 unsigned __int64 __fastcall RtlpHpSegFreeRangeInsert(__int64 a1, unsigned __int64 a2, int a3)
 {
   char v5; // al

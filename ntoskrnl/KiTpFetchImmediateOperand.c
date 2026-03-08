@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiTpFetchImmediateOperand @ 0x140AF1338
+ * Callers:
+ *     KiTpEmulateGroup11Instruction @ 0x140AF0694 (KiTpEmulateGroup11Instruction.c)
+ *     KiTpEmulateGroup1Instruction @ 0x140AF0754 (KiTpEmulateGroup1Instruction.c)
+ *     KiTpEmulateMovRegImm @ 0x140AF10CC (KiTpEmulateMovRegImm.c)
+ * Callees:
+ *     KiTpFetchInstructionBytes @ 0x140AF13B4 (KiTpFetchInstructionBytes.c)
+ */
+
 __int64 __fastcall KiTpFetchImmediateOperand(__int64 a1, __int64 a2, _DWORD *a3)
 {
   unsigned int v3; // eax

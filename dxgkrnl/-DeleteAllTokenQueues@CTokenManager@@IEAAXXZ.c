@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DeleteAllTokenQueues@CTokenManager@@IEAAXXZ @ 0x1C0018E28
+ * Callers:
+ *     ??1CTokenManager@@AEAA@XZ @ 0x1C00172B0 (--1CTokenManager@@AEAA@XZ.c)
+ *     ?DeleteAllTokens@CTokenManager@@UEAAXXZ @ 0x1C0017590 (-DeleteAllTokens@CTokenManager@@UEAAXXZ.c)
+ * Callees:
+ *     ?RemoveTokenQueueTableEntry@CTokenManager@@IEAAXPEAUTokenQueueTableEntry@1@@Z @ 0x1C0077224 (-RemoveTokenQueueTableEntry@CTokenManager@@IEAAXPEAUTokenQueueTableEntry@1@@Z.c)
+ */
+
 void __fastcall CTokenManager::DeleteAllTokenQueues(CTokenManager *this)
 {
   struct _RTL_GENERIC_TABLE *v2; // rdi

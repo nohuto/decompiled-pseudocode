@@ -1,3 +1,17 @@
+/*
+ * XREFs of HKLtoPKL @ 0x1C0081F10
+ * Callers:
+ *     NtUserVkKeyScanEx @ 0x1C0006E40 (NtUserVkKeyScanEx.c)
+ *     NtUserMapVirtualKeyEx @ 0x1C00818E0 (NtUserMapVirtualKeyEx.c)
+ *     xxxInternalToUnicode @ 0x1C0081AB0 (xxxInternalToUnicode.c)
+ *     xxxActivateKeyboardLayout @ 0x1C0082330 (xxxActivateKeyboardLayout.c)
+ *     ?xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_INTERNAL@@PEBGII@Z @ 0x1C0085310 (-xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_IN.c)
+ *     ?xxxInternalUnloadKeyboardLayout@@YA_NPEAUtagWINDOWSTATION@@PEAUtagKL@@I@Z @ 0x1C0086700 (-xxxInternalUnloadKeyboardLayout@@YA_NPEAUtagWINDOWSTATION@@PEAUtagKL@@I@Z.c)
+ *     NtUserUnloadKeyboardLayout @ 0x1C0179DB0 (NtUserUnloadKeyboardLayout.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HKLtoPKL(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8

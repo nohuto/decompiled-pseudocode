@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIAmliPreDefinedRootObjectsNotifyPepDiscoverDevice @ 0x1C003C8FC
+ * Callers:
+ *     ACPIRootInitialize @ 0x1C0093768 (ACPIRootInitialize.c)
+ * Callees:
+ *     AcpiNotifyPlExtDiscoverDeviceAsync @ 0x1C0037A5C (AcpiNotifyPlExtDiscoverDeviceAsync.c)
+ */
+
 __int64 ACPIAmliPreDefinedRootObjectsNotifyPepDiscoverDevice()
 {
   ULONG_PTR v0; // rsi

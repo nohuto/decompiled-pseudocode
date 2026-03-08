@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ProcessRemoveViewer@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AA94C
+ * Callers:
+ *     ?ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z @ 0x1802AA1A4 (-ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Remove@?$DynArray@PEAUIHolographicViewer@@$0A@@@QEAAHAEBQEAUIHolographicViewer@@@Z @ 0x1802AADFC (-Remove@-$DynArray@PEAUIHolographicViewer@@$0A@@@QEAAHAEBQEAUIHolographicViewer@@@Z.c)
+ */
+
 void __fastcall CHolographicClient::ProcessRemoveViewer(CHolographicClient *this, struct IUnknown *a2)
 {
   __int64 v3; // [rsp+38h] [rbp+10h] BYREF

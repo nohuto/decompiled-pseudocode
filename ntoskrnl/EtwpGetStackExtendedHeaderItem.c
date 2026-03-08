@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpGetStackExtendedHeaderItem @ 0x1405FD72C
+ * Callers:
+ *     EtwpEventWriteFull @ 0x1402319C0 (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x1406AA640 (EtwpWriteUserEvent.c)
+ * Callees:
+ *     RtlWalkFrameChain @ 0x140205CA0 (RtlWalkFrameChain.c)
+ *     EtwpGetStackCaptureSettings @ 0x1404603A4 (EtwpGetStackCaptureSettings.c)
+ */
+
 char __fastcall EtwpGetStackExtendedHeaderItem(
         struct _KTHREAD *a1,
         char a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of KeProcessorProfileControlArea @ 0x14056A18C
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     KiIsIntelPebsSupported @ 0x1403A4E30 (KiIsIntelPebsSupported.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall KeProcessorProfileControlArea(__int64 a1, int a2, char a3)
 {
   char v5; // bp

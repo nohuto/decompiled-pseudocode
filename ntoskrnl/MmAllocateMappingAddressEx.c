@@ -1,3 +1,22 @@
+/*
+ * XREFs of MmAllocateMappingAddressEx @ 0x140869D20
+ * Callers:
+ *     MmAllocateMappingAddress @ 0x140869D00 (MmAllocateMappingAddress.c)
+ *     PnprInitializeMappingReserve @ 0x140963304 (PnprInitializeMappingReserve.c)
+ *     EtwpSavePersistedLogger @ 0x1409EAC60 (EtwpSavePersistedLogger.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiInsertMappingNode @ 0x1403BC7E4 (MiInsertMappingNode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiInsertPteTracker @ 0x14065EDA4 (MiInsertPteTracker.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MmAllocateMappingAddressEx(__int64 a1, unsigned int a2, int a3)
 {
   __int64 v3; // r15

@@ -1,3 +1,42 @@
+/*
+ * XREFs of NtCreateLowBoxToken @ 0x14069D520
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     RtlSubAuthoritySid @ 0x1402BE740 (RtlSubAuthoritySid.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x1402BE754 (SepAppendAceToTokenDefaultDacl.c)
+ *     SepCaptureHandles @ 0x1402FF0A8 (SepCaptureHandles.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     SepLocateTokenIntegrity @ 0x14030FEA8 (SepLocateTokenIntegrity.c)
+ *     SepSidInTokenSidHash @ 0x14033DEA0 (SepSidInTokenSidHash.c)
+ *     SepFinalizeTokenAcls @ 0x1406D1E60 (SepFinalizeTokenAcls.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x1406D22B0 (SepAppendAceToTokenObjectAcl.c)
+ *     SeReleaseLuidAndAttributesArray @ 0x14070F4F8 (SeReleaseLuidAndAttributesArray.c)
+ *     SepSetTokenCapabilities @ 0x140710278 (SepSetTokenCapabilities.c)
+ *     SeCaptureSidAndAttributesArray @ 0x140710470 (SeCaptureSidAndAttributesArray.c)
+ *     SeCaptureSid @ 0x140710930 (SeCaptureSid.c)
+ *     SeReleaseSid @ 0x140710A34 (SeReleaseSid.c)
+ *     SepSetTokenPackage @ 0x140739590 (SepSetTokenPackage.c)
+ *     SepSetTokenCachedHandles @ 0x140739630 (SepSetTokenCachedHandles.c)
+ *     SepSetTokenLowboxNumber @ 0x1407398DC (SepSetTokenLowboxNumber.c)
+ *     RtlIsCapabilitySid @ 0x140740828 (RtlIsCapabilitySid.c)
+ *     RtlIsPackageSid @ 0x140740AA4 (RtlIsPackageSid.c)
+ *     RtlGetAppContainerSidType @ 0x1407414C0 (RtlGetAppContainerSidType.c)
+ *     SeSetMandatoryPolicyToken @ 0x140742AD4 (SeSetMandatoryPolicyToken.c)
+ *     SepCheckCreateLowBox @ 0x140799F04 (SepCheckCreateLowBox.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     SepDuplicateToken @ 0x1407BCF00 (SepDuplicateToken.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     SepCheckCapabilities @ 0x1409CC46C (SepCheckCapabilities.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall NtCreateLowBoxToken(
         HANDLE *a1,
         void *a2,

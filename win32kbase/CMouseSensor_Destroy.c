@@ -1,3 +1,11 @@
+/*
+ * XREFs of CMouseSensor_Destroy @ 0x1C0095420
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??_GCHidInput@@UEAAPEAXI@Z @ 0x1C0095370 (--_GCHidInput@@UEAAPEAXI@Z.c)
+ */
+
 __int64 __fastcall CMouseSensor_Destroy(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax

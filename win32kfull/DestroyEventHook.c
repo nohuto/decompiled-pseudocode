@@ -1,3 +1,16 @@
+/*
+ * XREFs of DestroyEventHook @ 0x1C0035F80
+ * Callers:
+ *     FreeThreadsWinEvents @ 0x1C00C8670 (FreeThreadsWinEvents.c)
+ *     _UnhookWinEvent @ 0x1C00D24FC (_UnhookWinEvent.c)
+ * Callees:
+ *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C00394B4 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
+ *     ??0?$ObjectLockBase@$$V@?$DomainExclusiveBase@VDLT_HANDLEMANAGER@@@?$DomainSharedBase@$$V@@IEAA@XZ @ 0x1C00394D8 (--0-$ObjectLockBase@$$V@-$DomainExclusiveBase@VDLT_HANDLEMANAGER@@@-$DomainSharedBase@$$V@@IEAA@.c)
+ *     ??0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z @ 0x1C003AA08 (--0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z.c)
+ *     RemoveHmodDependency @ 0x1C009D71C (RemoveHmodDependency.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall DestroyEventHook(void **a1)
 {

@@ -1,3 +1,18 @@
+/*
+ * XREFs of _CmGetDeviceSiblings @ 0x140839C1C
+ * Callers:
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA2A4 (_CmGetDeviceMappedPropertyFromComposite.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     _CmGetDeviceParent @ 0x1406C7D1C (_CmGetDeviceParent.c)
+ *     _PnpMultiSzGetLen @ 0x1406C8258 (_PnpMultiSzGetLen.c)
+ *     _CmGetDeviceChildren @ 0x140839DE0 (_CmGetDeviceChildren.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmGetDeviceSiblings(__int64 a1, const WCHAR *a2, _WORD *a3, unsigned int *a4)
 {
   void *v5; // r12

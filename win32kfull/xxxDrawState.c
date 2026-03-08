@@ -1,3 +1,31 @@
+/*
+ * XREFs of xxxDrawState @ 0x1C02423C0
+ * Callers:
+ *     xxxDrawMenuItem @ 0x1C0237914 (xxxDrawMenuItem.c)
+ * Callees:
+ *     GreGetTextColor @ 0x1C0013F70 (GreGetTextColor.c)
+ *     GreExtGetObjectW @ 0x1C0065580 (GreExtGetObjectW.c)
+ *     GrePolyPatBlt @ 0x1C0088258 (GrePolyPatBlt.c)
+ *     NtGdiPatBlt @ 0x1C008B370 (NtGdiPatBlt.c)
+ *     MNGetpItemIndex @ 0x1C00A6FD0 (MNGetpItemIndex.c)
+ *     GetDPIServerInfo @ 0x1C010C460 (GetDPIServerInfo.c)
+ *     GreGetLayout @ 0x1C0111738 (GreGetLayout.c)
+ *     GreSetBkColor @ 0x1C0113964 (GreSetBkColor.c)
+ *     GreSetTextColor @ 0x1C0113D94 (GreSetTextColor.c)
+ *     GreSelectFontInternal @ 0x1C0116F84 (GreSelectFontInternal.c)
+ *     GreSetBkMode @ 0x1C0118028 (GreSetBkMode.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     xxxRealDrawMenuItem @ 0x1C0239598 (xxxRealDrawMenuItem.c)
+ *     BltColor @ 0x1C0242064 (BltColor.c)
+ *     GreGetHFONT @ 0x1C02AC85C (GreGetHFONT.c)
+ *     GreSetViewportOrg @ 0x1C02D2434 (GreSetViewportOrg.c)
+ *     GreGetTextAlign @ 0x1C02D9A84 (GreGetTextAlign.c)
+ *     GreGetTextCharacterExtra @ 0x1C02D9AC8 (GreGetTextCharacterExtra.c)
+ *     GreSetTextAlign @ 0x1C02D9B10 (GreSetTextAlign.c)
+ *     GreSetTextCharacterExtra @ 0x1C02D9BA4 (GreSetTextCharacterExtra.c)
+ */
+
 __int64 __fastcall xxxDrawState(
         Gre::Base *a1,
         __int64 a2,

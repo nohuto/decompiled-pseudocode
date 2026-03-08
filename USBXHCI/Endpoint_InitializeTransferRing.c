@@ -1,3 +1,14 @@
+/*
+ * XREFs of Endpoint_InitializeTransferRing @ 0x1C0013AB4
+ * Callers:
+ *     Endpoint_OnCancelSetDequeuePointer @ 0x1C0010A74 (Endpoint_OnCancelSetDequeuePointer.c)
+ *     Endpoint_UcxEvtDefaultEndpointUpdate @ 0x1C001B610 (Endpoint_UcxEvtDefaultEndpointUpdate.c)
+ *     Endpoint_OnResetEndpointConfigure @ 0x1C003AD30 (Endpoint_OnResetEndpointConfigure.c)
+ *     Endpoint_OnResetEndpointConfigureCompletion_EpDropped @ 0x1C003B190 (Endpoint_OnResetEndpointConfigureCompletion_EpDropped.c)
+ * Callees:
+ *     TR_InitializeTransferRing @ 0x1C0007DFC (TR_InitializeTransferRing.c)
+ */
+
 __int64 __fastcall Endpoint_InitializeTransferRing(__int64 *a1, unsigned int a2)
 {
   __int64 v3; // rcx

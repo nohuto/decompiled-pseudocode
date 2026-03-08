@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetShaderLinkingBody@CommonRenderingShaderBody@@YA?AUShaderLinkingBody@@W4Enum@1@W4D3DShaderProfileVersion@@@Z @ 0x1800FFCC0
+ * Callers:
+ *     ?GetCommonOrCubeMapRenderingShader@CCommonRenderingShaderCache@@AEAAJPEAVCD3DDevice@@AEBUCommonRenderingShaderDesc@@_NPEAIPEAPEAUID3D11PixelShader@@@Z @ 0x18002C590 (-GetCommonOrCubeMapRenderingShader@CCommonRenderingShaderCache@@AEAAJPEAVCD3DDevice@@AEBUCommonR.c)
+ * Callees:
+ *     ?GetInputs@CommonRenderingShaderBody@@YA?AV?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@W4Enum@1@@Z @ 0x1800FFD58 (-GetInputs@CommonRenderingShaderBody@@YA-AV-$span@$$CBW4ShaderLinkingArgument@@$0-0@gsl@@W4Enum@.c)
+ */
+
 __int64 __fastcall CommonRenderingShaderBody::GetShaderLinkingBody(__int64 a1, int a2, char a3)
 {
   __int64 v3; // r9

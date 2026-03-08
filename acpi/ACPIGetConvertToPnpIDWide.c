@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIGetConvertToPnpIDWide @ 0x1C002A650
+ * Callers:
+ *     ACPIGetConvertToCompatibleIDWide @ 0x1C00298A4 (ACPIGetConvertToCompatibleIDWide.c)
+ *     ACPIGetConvertToPnpID @ 0x1C002A5E8 (ACPIGetConvertToPnpID.c)
+ *     ACPIGetWorkerForString @ 0x1C002B860 (ACPIGetWorkerForString.c)
+ * Callees:
+ *     ACPIAmliDoubleToNameWide @ 0x1C000B4F8 (ACPIAmliDoubleToNameWide.c)
+ *     RtlStringCchPrintfA @ 0x1C000B5D8 (RtlStringCchPrintfA.c)
+ *     ACPIAnsiStringToWideHelper @ 0x1C00438EC (ACPIAnsiStringToWideHelper.c)
+ */
+
 __int64 __fastcall ACPIGetConvertToPnpIDWide(__int64 a1, int a2, __int64 a3, int a4, char **a5, int *a6)
 {
   __int64 v8; // rbx

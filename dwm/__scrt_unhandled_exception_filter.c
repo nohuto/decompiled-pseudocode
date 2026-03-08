@@ -1,3 +1,13 @@
+/*
+ * XREFs of __scrt_unhandled_exception_filter @ 0x140005CE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _o_terminate_0 @ 0x14000636C (_o_terminate_0.c)
+ *     __current_exception_0 @ 0x140006390 (__current_exception_0.c)
+ *     __current_exception_context_0 @ 0x14000639C (__current_exception_context_0.c)
+ */
+
 __int64 __fastcall _scrt_unhandled_exception_filter(_QWORD *a1)
 {
   _DWORD *v1; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReadRegistryDwords@CSettingsManager@@UEAAJW4DwmSettingType@@PEAUDwordRegistrySetting@@I@Z @ 0x1400043D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetDword@CSettingsManager@@AEAAJW4DwmSettingType@@PEBGPEAK@Z @ 0x140004440 (-GetDword@CSettingsManager@@AEAAJW4DwmSettingType@@PEBGPEAK@Z.c)
+ */
+
 __int64 __fastcall CSettingsManager::ReadRegistryDwords(__int64 a1, unsigned int a2, _QWORD *a3, unsigned int a4)
 {
   unsigned int v4; // ebx

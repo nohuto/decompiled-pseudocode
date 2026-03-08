@@ -1,3 +1,13 @@
+/*
+ * XREFs of PipDeviceObjectListAdd @ 0x140862180
+ * Callers:
+ *     IopAddRelationToList @ 0x14086207C (IopAddRelationToList.c)
+ *     PipGrowDeviceObjectList @ 0x140969C70 (PipGrowDeviceObjectList.c)
+ * Callees:
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     PipGrowDeviceObjectList @ 0x140969C70 (PipGrowDeviceObjectList.c)
+ */
+
 __int64 __fastcall PipDeviceObjectListAdd(unsigned int **a1, void *a2, unsigned int a3, int a4)
 {
   unsigned int *v4; // rbx

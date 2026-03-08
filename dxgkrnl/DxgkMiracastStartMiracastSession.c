@@ -1,3 +1,34 @@
+/*
+ * XREFs of DxgkMiracastStartMiracastSession @ 0x1C00615C4
+ * Callers:
+ *     DxgkNetDispStartMiracastDisplayDevice @ 0x1C02CEC90 (DxgkNetDispStartMiracastDisplayDevice.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ??_GMIRACAST_CHUNK_LIST@@QEAAPEAXI@Z @ 0x1C005ED78 (--_GMIRACAST_CHUNK_LIST@@QEAAPEAXI@Z.c)
+ *     ?AllocateNewChunks@MIRACAST_CHUNK_LIST@@QEAAEK@Z @ 0x1C005EE40 (-AllocateNewChunks@MIRACAST_CHUNK_LIST@@QEAAEK@Z.c)
+ *     DpiMiracastEtwLogStartMiracastSessionStage @ 0x1C005F33C (DpiMiracastEtwLogStartMiracastSessionStage.c)
+ *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C005FF40 (DpiMiracastReleaseMiracastDeviceContext.c)
+ *     McTemplateK0pxzqq_EtwWriteTransfer @ 0x1C006266C (McTemplateK0pxzqq_EtwWriteTransfer.c)
+ *     McTemplateK0qqqz_EtwWriteTransfer @ 0x1C006274C (McTemplateK0qqqz_EtwWriteTransfer.c)
+ *     McTemplateK0qqz_EtwWriteTransfer @ 0x1C006281C (McTemplateK0qqz_EtwWriteTransfer.c)
+ *     TraceLoggingWriteMiracastSessionStart @ 0x1C00668BC (TraceLoggingWriteMiracastSessionStart.c)
+ *     TraceLoggingWriteMiracastStartSessionEntry @ 0x1C0066EC8 (TraceLoggingWriteMiracastStartSessionEntry.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01BA77C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     DxgkMiracastQueryMiracastSupportInternal @ 0x1C01F7DCC (DxgkMiracastQueryMiracastSupportInternal.c)
+ *     DpiMiracastBroadcastDeviceStateChange @ 0x1C0399F0C (DpiMiracastBroadcastDeviceStateChange.c)
+ *     DpiMiracastDdiMiracastCreateContext @ 0x1C039A2E4 (DpiMiracastDdiMiracastCreateContext.c)
+ *     DpiMiracastDdiMiracastDestroyContext @ 0x1C039A39C (DpiMiracastDdiMiracastDestroyContext.c)
+ *     DpiMiracastFindDisplayAdapterFdo @ 0x1C039A4FC (DpiMiracastFindDisplayAdapterFdo.c)
+ *     DpiMiracastGetDeviceContextFromName @ 0x1C039A854 (DpiMiracastGetDeviceContextFromName.c)
+ *     DpiMiracastSendAsyncUserModeRequest @ 0x1C039B048 (DpiMiracastSendAsyncUserModeRequest.c)
+ *     DpiMiracastSendSyncUserModeRequest @ 0x1C039B354 (DpiMiracastSendSyncUserModeRequest.c)
+ */
+
 __int64 __fastcall DxgkMiracastStartMiracastSession(unsigned __int16 *a1, struct _KEVENT *a2, int *a3)
 {
   __int64 v3; // rbx

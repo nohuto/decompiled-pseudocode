@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?GetDpiRectWithSubpixel@@YAXPEBUtagRECT@@PEBMPEBUtagWND@@2PEAM333@Z @ 0x1C01BA2B8
+ * Callers:
+ *     DpiRectContainsRectWithSubpixel @ 0x1C01BAA00 (DpiRectContainsRectWithSubpixel.c)
+ *     DpiRectIntersectsRectWithSubpixel @ 0x1C01BAAFC (DpiRectIntersectsRectWithSubpixel.c)
+ * Callees:
+ *     PhysicalToLogicalInPlaceRectWithSubpixel @ 0x1C00A35E4 (PhysicalToLogicalInPlaceRectWithSubpixel.c)
+ *     LogicalToPhysicalInPlaceRectWithSubpixel @ 0x1C00A3628 (LogicalToPhysicalInPlaceRectWithSubpixel.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ScaleDpiOffsetWithSubpixel @ 0x1C01BB208 (ScaleDpiOffsetWithSubpixel.c)
+ */
+
 void __fastcall GetDpiRectWithSubpixel(
         __m128i *a1,
         const float *a2,

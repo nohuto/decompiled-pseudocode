@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopCaptureObjectName @ 0x140A9B740
+ * Callers:
+ *     IoBuildPoDeviceNotifyList @ 0x140A9B078 (IoBuildPoDeviceNotifyList.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ObQueryNameString @ 0x14071EA00 (ObQueryNameString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 _WORD *__fastcall IopCaptureObjectName(void *a1)
 {
   _WORD *v1; // rbx

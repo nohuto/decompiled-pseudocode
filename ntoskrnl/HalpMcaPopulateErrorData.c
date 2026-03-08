@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpMcaPopulateErrorData @ 0x14050135C
+ * Callers:
+ *     HalpMcaReadError @ 0x1405014E0 (HalpMcaReadError.c)
+ * Callees:
+ *     HalpGetCpuVendor @ 0x14037D1B4 (HalpGetCpuVendor.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpMcaInitializeErrorSection @ 0x140501288 (HalpMcaInitializeErrorSection.c)
+ *     HalpReadExtendedMcaRegistersAMD @ 0x1405040C4 (HalpReadExtendedMcaRegistersAMD.c)
+ *     HalpReadExtendedMcaRegistersIntel @ 0x140504248 (HalpReadExtendedMcaRegistersIntel.c)
+ *     HalpHvGetMachineCheckContext @ 0x140509A64 (HalpHvGetMachineCheckContext.c)
+ *     HalpWheaReadMsrAddress @ 0x140516540 (HalpWheaReadMsrAddress.c)
+ *     HalpWheaReadMsrMisc @ 0x140516598 (HalpWheaReadMsrMisc.c)
+ */
+
 char __fastcall HalpMcaPopulateErrorData(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, __int64 a5)
 {
   __int64 v10; // r14

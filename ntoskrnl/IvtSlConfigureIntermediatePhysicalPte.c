@@ -1,3 +1,11 @@
+/*
+ * XREFs of IvtSlConfigureIntermediatePhysicalPte @ 0x1403ADD60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall IvtSlConfigureIntermediatePhysicalPte(__int64 *a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rdx

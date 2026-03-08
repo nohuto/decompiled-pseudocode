@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlpHpHeapExtendContext @ 0x1402F8FAC
+ * Callers:
+ *     RtlpHpSegLfhExtendContext @ 0x1402F8F90 (RtlpHpSegLfhExtendContext.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpAcquireReleaseLockExclusive @ 0x1402F9180 (RtlpHpAcquireReleaseLockExclusive.c)
+ *     RtlpHpAcquireLockExclusive @ 0x14030ABA4 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpAllocVA @ 0x140330920 (RtlpHpAllocVA.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlpHpMetadataCommit @ 0x1403C1314 (RtlpHpMetadataCommit.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 signed __int64 __fastcall RtlpHpHeapExtendContext(__int128 *a1, __int64 a2)
 {
   volatile LONG *v2; // rdi

@@ -1,3 +1,23 @@
+/*
+ * XREFs of PiProcessDriverInstance @ 0x140770360
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlStringCchPrintfExW @ 0x140245C80 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x140413EB0 (ZwDeleteValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     McTemplateK0zzzd_EtwWriteTransfer @ 0x140561988 (McTemplateK0zzzd_EtwWriteTransfer.c)
+ *     PipOpenServiceEnumKeys @ 0x1406C1280 (PipOpenServiceEnumKeys.c)
+ *     PiFindDevInstMatch @ 0x1407705F4 (PiFindDevInstMatch.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PiRearrangeDeviceInstances @ 0x14087E564 (PiRearrangeDeviceInstances.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiProcessDriverInstance(unsigned __int16 *a1, __int64 a2, const wchar_t *a3, char *a4)
 {
   NTSTATUS v8; // eax

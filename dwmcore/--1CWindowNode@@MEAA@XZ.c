@@ -1,3 +1,16 @@
+/*
+ * XREFs of ??1CWindowNode@@MEAA@XZ @ 0x1800AAF34
+ * Callers:
+ *     ??_GCWindowNode@@MEAAPEAXI@Z @ 0x1800AAEF0 (--_GCWindowNode@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800234BC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?DiscardGdiSpriteBitmaps@CWindowNode@@AEAAXXZ @ 0x1800AB238 (-DiscardGdiSpriteBitmaps@CWindowNode@@AEAAXXZ.c)
+ *     ?DiscardFlipExSurfaces@CWindowNode@@AEAAXXZ @ 0x1800AB2D0 (-DiscardFlipExSurfaces@CWindowNode@@AEAAXXZ.c)
+ *     ??$ReleaseInterface@VCProcessAttribution@@@@YAXAEAPEAVCProcessAttribution@@@Z @ 0x1800AB2F8 (--$ReleaseInterface@VCProcessAttribution@@@@YAXAEAPEAVCProcessAttribution@@@Z.c)
+ *     ?Clear@CPtrArrayBase@@IEAAXXZ @ 0x1800F8338 (-Clear@CPtrArrayBase@@IEAAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CWindowNode::~CWindowNode(struct CResource **this)
 {
   struct CResource *v2; // rcx

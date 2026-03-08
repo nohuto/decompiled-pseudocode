@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiEnumerateSlabAllocators @ 0x140360F88
+ * Callers:
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLogPeriodicTelemetry @ 0x140360374 (MiLogPeriodicTelemetry.c)
+ *     MiFreeUnusedSlabPages @ 0x140360D18 (MiFreeUnusedSlabPages.c)
+ *     MiDemoteSlabEntriesDpc @ 0x1403C7F40 (MiDemoteSlabEntriesDpc.c)
+ *     MiGetSlabAllocatorStandbyList @ 0x140654688 (MiGetSlabAllocatorStandbyList.c)
+ *     MiDeletePartitionResources @ 0x140656EBC (MiDeletePartitionResources.c)
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ *     MmUpdateSlabRangeType @ 0x140B9732C (MmUpdateSlabRangeType.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall MiEnumerateSlabAllocators(
         __int64 a1,
         unsigned int (__fastcall *a2)(__int64, unsigned __int64, __int64),

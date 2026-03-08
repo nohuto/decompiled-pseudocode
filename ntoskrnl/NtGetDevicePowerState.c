@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtGetDevicePowerState @ 0x140988280
+ * Callers:
+ *     PfpVolumeOpenAndVerify @ 0x140766A44 (PfpVolumeOpenAndVerify.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PopLockGetDoDevicePowerState @ 0x14058CD80 (PopLockGetDoDevicePowerState.c)
+ *     IoGetRelatedTargetDevice @ 0x1406F3B0C (IoGetRelatedTargetDevice.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 NTSTATUS __fastcall NtGetDevicePowerState(void *a1, _DWORD *a2)
 {
   __int64 v3; // rdx

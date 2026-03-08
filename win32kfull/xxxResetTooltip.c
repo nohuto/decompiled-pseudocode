@@ -1,3 +1,17 @@
+/*
+ * XREFs of xxxResetTooltip @ 0x1C00164F0
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ *     xxxProcessEventMessage @ 0x1C006B460 (xxxProcessEventMessage.c)
+ *     xxxTrackMouseMove @ 0x1C00BD950 (xxxTrackMouseMove.c)
+ *     xxxCancelMouseMoveTracking @ 0x1C00EF010 (xxxCancelMouseMoveTracking.c)
+ *     ?xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z @ 0x1C0228AA4 (-xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z.c)
+ * Callees:
+ *     ?KillTooltipTimer@@YAXPEAUtagTOOLTIPWND@@@Z @ 0x1C0016540 (-KillTooltipTimer@@YAXPEAUtagTOOLTIPWND@@@Z.c)
+ *     xxxSetWindowPosAndBand @ 0x1C0028FFC (xxxSetWindowPosAndBand.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C0036908 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ */
+
 struct tagWND *__fastcall xxxResetTooltip(struct tagTOOLTIPWND *a1)
 {
   struct tagWND *v2; // rcx

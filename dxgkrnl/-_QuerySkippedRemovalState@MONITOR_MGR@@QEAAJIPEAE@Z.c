@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_QuerySkippedRemovalState@MONITOR_MGR@@QEAAJIPEAE@Z @ 0x1C03C3FC0
+ * Callers:
+ *     MonitorQuerySkippedRemovalState @ 0x1C03BFE44 (MonitorQuerySkippedRemovalState.c)
+ * Callees:
+ *     ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C01AAC00 (-_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z.c)
+ */
+
 __int64 __fastcall MONITOR_MGR::_QuerySkippedRemovalState(MONITOR_MGR *this, unsigned int a2, bool *a3)
 {
   __int64 v3; // rbx

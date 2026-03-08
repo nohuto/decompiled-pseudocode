@@ -1,3 +1,17 @@
+/*
+ * XREFs of SepValidOwnerSubjectContext @ 0x14069D3EC
+ * Callers:
+ *     RtlpNewSecurityObject @ 0x1407BD790 (RtlpNewSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x1407BF100 (RtlpSetSecurityObject.c)
+ * Callees:
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     SepIdAssignableAsOwner @ 0x14069D4F0 (SepIdAssignableAsOwner.c)
+ *     SeSinglePrivilegeCheckEx @ 0x1406BA46C (SeSinglePrivilegeCheckEx.c)
+ */
+
 char __fastcall SepValidOwnerSubjectContext(__int64 *a1, void *a2, char a3)
 {
   bool v3; // di

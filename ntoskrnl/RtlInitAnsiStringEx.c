@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlInitAnsiStringEx @ 0x140388C60
+ * Callers:
+ *     RtlInitUTF8StringEx @ 0x1405A5240 (RtlInitUTF8StringEx.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x140817BE0 (RtlCreateUnicodeStringFromAsciiz.c)
+ *     ExpCovReadFriendlyName @ 0x140A0420C (ExpCovReadFriendlyName.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlInitAnsiStringEx(PANSI_STRING DestinationString, PCSZ SourceString)
 {
   unsigned __int64 v2; // rax

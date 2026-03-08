@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vSrcCopyS8D1@@YAXPEAUBLTINFO@@@Z @ 0x1C02EB770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vSrcCopyS8D1(struct BLTINFO *a1)
 {
   __int64 v1; // rdx

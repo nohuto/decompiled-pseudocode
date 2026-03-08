@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpHpVsChunkSetExtraPresent @ 0x1405B4F80
+ * Callers:
+ *     RtlpHpSegSetExtraPresent @ 0x1405B4720 (RtlpHpSegSetExtraPresent.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpHpVsChunkSetExtraPresent(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8

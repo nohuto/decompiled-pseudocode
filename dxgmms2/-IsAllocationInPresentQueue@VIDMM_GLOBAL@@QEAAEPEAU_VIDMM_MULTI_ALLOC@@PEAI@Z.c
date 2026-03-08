@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsAllocationInPresentQueue@VIDMM_GLOBAL@@QEAAEPEAU_VIDMM_MULTI_ALLOC@@PEAI@Z @ 0x1C00E44EC
+ * Callers:
+ *     VidMmIsAllocationInPresentQueue @ 0x1C002D230 (VidMmIsAllocationInPresentQueue.c)
+ *     ?VidMmProcessAsyncOperation@@YAXPEAX@Z @ 0x1C00B31D0 (-VidMmProcessAsyncOperation@@YAXPEAX@Z.c)
+ * Callees:
+ *     ?HasOutstandingPresentReferences@_VIDMM_GLOBAL_ALLOC_NONPAGED@@QEAA_NXZ @ 0x1C001BCB2 (-HasOutstandingPresentReferences@_VIDMM_GLOBAL_ALLOC_NONPAGED@@QEAA_NXZ.c)
+ */
+
 char __fastcall VIDMM_GLOBAL::IsAllocationInPresentQueue(
         VIDMM_GLOBAL *this,
         _VIDMM_GLOBAL_ALLOC_NONPAGED **a2,

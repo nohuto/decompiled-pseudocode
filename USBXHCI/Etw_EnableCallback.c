@@ -1,3 +1,14 @@
+/*
+ * XREFs of Etw_EnableCallback @ 0x1C001C8E0
+ * Callers:
+ *     McGenControlCallbackV2 @ 0x1C001C7B0 (McGenControlCallbackV2.c)
+ * Callees:
+ *     Etw_ControllerRundown @ 0x1C0013EAC (Etw_ControllerRundown.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C004AE00 (McTemplateK0_EtwWriteTransfer.c)
+ */
+
 void __fastcall Etw_EnableCallback(__int64 a1, int a2)
 {
   __int64 v2; // rcx

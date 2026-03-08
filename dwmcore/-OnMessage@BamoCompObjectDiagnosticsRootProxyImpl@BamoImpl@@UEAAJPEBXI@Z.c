@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?OnMessage@BamoCompObjectDiagnosticsRootProxyImpl@BamoImpl@@UEAAJPEBXI@Z @ 0x1801E2950
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B44D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?TrackError@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJJI@Z @ 0x1801B89E0 (-TrackError@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJJI@Z.c)
+ */
+
 __int64 __fastcall BamoImpl::BamoCompObjectDiagnosticsRootProxyImpl::OnMessage(
         BamoImpl::BamoCompObjectDiagnosticsRootProxyImpl *this,
         const void *a2)

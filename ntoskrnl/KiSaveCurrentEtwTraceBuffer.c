@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiSaveCurrentEtwTraceBuffer @ 0x140568664
+ * Callers:
+ *     KiCollectTriageDumpDataBlocks @ 0x140567894 (KiCollectTriageDumpDataBlocks.c)
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     EtwGetProcessorBuffer @ 0x1405F9A40 (EtwGetProcessorBuffer.c)
+ */
+
 char KiSaveCurrentEtwTraceBuffer()
 {
   int ProcessorBuffer; // eax

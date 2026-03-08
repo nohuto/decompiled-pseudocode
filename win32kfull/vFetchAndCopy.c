@@ -1,3 +1,14 @@
+/*
+ * XREFs of vFetchAndCopy @ 0x1C00180E8
+ * Callers:
+ *     ?vPatCpyRect8@@YAXPEAU_PATBLTFRAME@@@Z @ 0x1C0017F50 (-vPatCpyRect8@@YAXPEAU_PATBLTFRAME@@@Z.c)
+ *     ?vPatCpyRect8_8x8@@YAXPEAU_PATBLTFRAME@@H@Z @ 0x1C02E8530 (-vPatCpyRect8_8x8@@YAXPEAU_PATBLTFRAME@@H@Z.c)
+ *     ?vPatCpyRow8@@YAXPEAU_PATBLTFRAME@@JH@Z @ 0x1C02E8B50 (-vPatCpyRow8@@YAXPEAU_PATBLTFRAME@@JH@Z.c)
+ *     ?vPatCpyRow8_8x8@@YAXPEAU_PATBLTFRAME@@JH@Z @ 0x1C02E8D5C (-vPatCpyRow8_8x8@@YAXPEAU_PATBLTFRAME@@JH@Z.c)
+ * Callees:
+ *     ?CopyPattern@@YAXPEAKJJJ@Z @ 0x1C0305E48 (-CopyPattern@@YAXPEAKJJJ@Z.c)
+ */
+
 void __fastcall vFetchAndCopy(__int64 a1)
 {
   int *v1; // r11

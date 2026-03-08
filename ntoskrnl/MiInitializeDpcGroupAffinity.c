@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiInitializeDpcGroupAffinity @ 0x1402A9390
+ * Callers:
+ *     MiInitializeAffinityWalker @ 0x1402A7028 (MiInitializeAffinityWalker.c)
+ *     MiAbsorbPossibleEngineChanges @ 0x1402A87C4 (MiAbsorbPossibleEngineChanges.c)
+ *     MiComputeIdealDpcGang @ 0x1403867CC (MiComputeIdealDpcGang.c)
+ * Callees:
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402A9460 (KeFindFirstSetRightGroupAffinity.c)
+ *     MiGetEngineType @ 0x14039580C (MiGetEngineType.c)
+ */
+
 void __fastcall MiInitializeDpcGroupAffinity(_OWORD *a1, __int64 a2, unsigned int a3, int a4)
 {
   __int64 v4; // r14

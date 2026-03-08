@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?HasActiveInk@CSuperWetInkManager@@QEBA_NXZ @ 0x180052758
+ * Callers:
+ *     ?CheckOcclusionState@CRenderTargetManager@@QEAAJXZ @ 0x18004FEF0 (-CheckOcclusionState@CRenderTargetManager@@QEAAJXZ.c)
+ *     ?PostPresent@CComposition@@QEAAJ_N@Z @ 0x180052E70 (-PostPresent@CComposition@@QEAAJ_N@Z.c)
+ *     ?PostPresent@CRenderTargetManager@@QEAA_N_N@Z @ 0x180053430 (-PostPresent@CRenderTargetManager@@QEAA_N_N@Z.c)
+ *     ?GetCompositorClockBoost@CComposition@@QEBA_NXZ @ 0x1800C81D8 (-GetCompositorClockBoost@CComposition@@QEBA_NXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CSuperWetInkManager::HasActiveInk(CSuperWetInkManager *this)
 {
   __int64 v1; // rdx

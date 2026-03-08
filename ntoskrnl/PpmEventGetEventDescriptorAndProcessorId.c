@@ -1,3 +1,18 @@
+/*
+ * XREFs of PpmEventGetEventDescriptorAndProcessorId @ 0x140233B18
+ * Callers:
+ *     PpmEventTraceRecordedUtility @ 0x140233A78 (PpmEventTraceRecordedUtility.c)
+ *     PpmEventTraceDeliveredPerfChange @ 0x1402356B4 (PpmEventTraceDeliveredPerfChange.c)
+ *     PpmEventPerfSelectProcessorState @ 0x14023579C (PpmEventPerfSelectProcessorState.c)
+ *     PpmEventProcessorPerfStateChange @ 0x1402ED92C (PpmEventProcessorPerfStateChange.c)
+ *     PpmEventTraceExpectedUtility @ 0x1402ED9CC (PpmEventTraceExpectedUtility.c)
+ *     PpmEventAutonomousModeChange @ 0x140597710 (PpmEventAutonomousModeChange.c)
+ *     PpmEventBiosCapChange @ 0x1405977CC (PpmEventBiosCapChange.c)
+ *     PpmEventThermalCapChange @ 0x140599200 (PpmEventThermalCapChange.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PpmEventGetEventDescriptorAndProcessorId(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   int v6; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of wil_details_PopulateInitialConfiguredFeatureStates @ 0x1C00930B4
+ * Callers:
+ *     wil_InitializeFeatureStaging @ 0x1C0093008 (wil_InitializeFeatureStaging.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ */
+
 void wil_details_PopulateInitialConfiguredFeatureStates()
 {
   _UNKNOWN **i; // rbx

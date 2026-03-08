@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpAcpiPmRegisterWritePort @ 0x1402FA3F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpAcpiPmRegisterWritePort(unsigned __int16 a1, int a2, unsigned __int8 *a3)
 {
   int v3; // edx

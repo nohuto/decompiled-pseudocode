@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bCheckAndCapThePath@@YAHPEAGPEBGKK@Z @ 0x1C00D0A54
+ * Callers:
+ *     NtGdiAddFontResourceW @ 0x1C00D0870 (NtGdiAddFontResourceW.c)
+ *     NtGdiGetFontResourceInfoInternalW @ 0x1C02C56E0 (NtGdiGetFontResourceInfoInternalW.c)
+ *     NtGdiRemoveFontResourceW @ 0x1C02C6D80 (NtGdiRemoveFontResourceW.c)
+ * Callees:
+ *     cCapString @ 0x1C0117F80 (cCapString.c)
+ */
+
 __int64 __fastcall bCheckAndCapThePath(unsigned __int16 *a1, const unsigned __int16 *a2, unsigned int a3, int a4)
 {
   unsigned int v5; // ebx

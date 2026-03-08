@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HidIsRequestedByThisProcess@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUDEVICEINFO@@PEAUtagPROCESS_HID_TABLE@@@Z @ 0x1C0141B50
+ * Callers:
+ *     xxxProcessHidInput @ 0x1C0141C40 (xxxProcessHidInput.c)
+ * Callees:
+ *     ?InProcessDeviceTypeRequestTable@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@GG@Z @ 0x1C00D5A40 (-InProcessDeviceTypeRequestTable@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@GG@Z.c)
+ */
+
 struct tagPROCESS_HID_REQUEST *__fastcall HidIsRequestedByThisProcess(
         struct DEVICEINFO *a1,
         struct tagPROCESS_HID_TABLE *a2)

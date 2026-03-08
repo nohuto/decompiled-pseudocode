@@ -1,3 +1,16 @@
+/*
+ * XREFs of MmDiscardDriverSection @ 0x140B71424
+ * Callers:
+ *     KeFreeInitializationCode @ 0x140B14BF4 (KeFreeInitializationCode.c)
+ * Callees:
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14032E710 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiLookupDataTableEntry @ 0x14035ECF0 (MiLookupDataTableEntry.c)
+ *     MiSnapDriverRange @ 0x14072A118 (MiSnapDriverRange.c)
+ *     MiFreeInitializationCode @ 0x14072A51C (MiFreeInitializationCode.c)
+ *     MmAcquireLoadLock @ 0x1407D2360 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x1407D2400 (MmReleaseLoadLock.c)
+ */
+
 char __fastcall MmDiscardDriverSection(unsigned __int64 a1)
 {
   _QWORD *v2; // rdi

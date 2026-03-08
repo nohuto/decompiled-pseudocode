@@ -1,3 +1,17 @@
+/*
+ * XREFs of NtUserGetSystemContentRects @ 0x1C0171330
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     ?GetContentRects@CContentRects@@SA_NIPEAUtagRECT@@PEAI@Z @ 0x1C0157A30 (-GetContentRects@CContentRects@@SA_NIPEAUtagRECT@@PEAI@Z.c)
+ *     ?GetCount@CContentRects@@SAIXZ @ 0x1C0157AF0 (-GetCount@CContentRects@@SAIXZ.c)
+ */
+
 __int64 __fastcall NtUserGetSystemContentRects(unsigned int *a1, volatile void *a2)
 {
   unsigned int *v3; // rdi

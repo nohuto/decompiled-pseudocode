@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiDoesThreadDominateRescheduleContextEntry @ 0x1402C3F04
+ * Callers:
+ *     KiExecuteAllDpcs @ 0x140252F60 (KiExecuteAllDpcs.c)
+ *     KeYieldExecution @ 0x140256BE0 (KeYieldExecution.c)
+ *     KiDeferredReadySingleThread @ 0x140259FB0 (KiDeferredReadySingleThread.c)
+ *     KiSearchForNewThread @ 0x140260460 (KiSearchForNewThread.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x1402ABBFC (KiGroupSchedulingGenerationEnd.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x1402ADC48 (KiDeferGroupSchedulingPreemption.c)
+ *     KiCanLocalReadyThreadBeScheduledToRescheduleContext @ 0x1402C3E38 (KiCanLocalReadyThreadBeScheduledToRescheduleContext.c)
+ *     KiDirectSwitchThread @ 0x1403414A0 (KiDirectSwitchThread.c)
+ * Callees:
+ *     KiEvaluateGroupSchedulingPreemption @ 0x1403426B0 (KiEvaluateGroupSchedulingPreemption.c)
+ */
+
 char __fastcall KiDoesThreadDominateRescheduleContextEntry(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
   __int64 v4; // r10

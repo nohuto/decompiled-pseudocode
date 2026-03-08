@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpSetProcessorMicrocodeUpdateInformation @ 0x1409F47E4
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ExpSetProcessorMicrocodeUpdateInformation(unsigned int *a1, unsigned int a2)
 {
   __int64 v3; // rcx

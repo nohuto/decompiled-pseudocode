@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiDiagEnumCoolingDevices @ 0x1C0007254
+ * Callers:
+ *     AcpiDiagTraceThermalZoneRundown @ 0x1C0008DBC (AcpiDiagTraceThermalZoneRundown.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AcpiDiagEnumCoolingDevices(__int64 a1, char a2, int a3, __int64 a4, unsigned int *a5)
 {
   __int64 *v5; // r11

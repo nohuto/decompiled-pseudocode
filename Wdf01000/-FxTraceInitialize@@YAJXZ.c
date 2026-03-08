@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FxTraceInitialize@@YAJXZ @ 0x1C002292C
+ * Callers:
+ *     FxLibraryCommonCommission @ 0x1C002BFD8 (FxLibraryCommonCommission.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FxTraceInitialize()
 {
   WPP_GLOBAL_WDF_Control.NextDevice = 0LL;

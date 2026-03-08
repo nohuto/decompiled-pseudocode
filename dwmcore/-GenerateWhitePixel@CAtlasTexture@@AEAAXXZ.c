@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GenerateWhitePixel@CAtlasTexture@@AEAAXXZ @ 0x180024284
+ * Callers:
+ *     ?Initialize@CAtlasTexture@@AEAAJPEAVCD3DDevice@@I@Z @ 0x1800240C4 (-Initialize@CAtlasTexture@@AEAAJPEAVCD3DDevice@@I@Z.c)
+ * Callees:
+ *     ?UpdateGradientStrip@CAtlasTexture@@QEAAXPEBVCAtlasEntry@@V?$span@$$CBE$0?0@gsl@@@Z @ 0x1800B76E4 (-UpdateGradientStrip@CAtlasTexture@@QEAAXPEBVCAtlasEntry@@V-$span@$$CBE$0-0@gsl@@@Z.c)
+ *     ??1CAtlasEntry@@QEAA@XZ @ 0x1800B7A04 (--1CAtlasEntry@@QEAA@XZ.c)
+ */
+
 void __fastcall CAtlasTexture::GenerateWhitePixel(CAtlasTexture *this)
 {
   _QWORD v1[2]; // [rsp+20h] [rbp-38h] BYREF

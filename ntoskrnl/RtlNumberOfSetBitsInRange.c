@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlNumberOfSetBitsInRange @ 0x1405A6910
+ * Callers:
+ *     RtlNumberOfClearBitsInRange @ 0x1405A6740 (RtlNumberOfClearBitsInRange.c)
+ *     KiTpIsExcludedKernelTracepointLocation @ 0x140973550 (KiTpIsExcludedKernelTracepointLocation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlNumberOfSetBitsInRange(__int64 a1, unsigned int a2, unsigned int a3)
 {
   unsigned int v4; // r10d

@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpDmaRemoveFromEmergencyLogicalAddressQueue @ 0x1404FE6A4
+ * Callers:
+ *     HalCancelAdapterChannel @ 0x14050CA30 (HalCancelAdapterChannel.c)
+ *     HalCancelAdapterChannelDmaThin @ 0x140510AC0 (HalCancelAdapterChannelDmaThin.c)
+ *     HalCancelAdapterChannelDmarThin @ 0x1405112B0 (HalCancelAdapterChannelDmarThin.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x140512A4C (HalpAllocateDmaResourcesInternal.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall HalpDmaRemoveFromEmergencyLogicalAddressQueue(__int64 a1, _QWORD *a2)
 {
   volatile signed __int64 *v2; // rbp

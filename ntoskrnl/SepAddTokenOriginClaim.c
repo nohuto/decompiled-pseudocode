@@ -1,3 +1,18 @@
+/*
+ * XREFs of SepAddTokenOriginClaim @ 0x140794680
+ * Callers:
+ *     SeSubProcessToken @ 0x14070B29C (SeSubProcessToken.c)
+ *     SeDuplicateTokenAndAddOriginClaim @ 0x1407945AC (SeDuplicateTokenAndAddOriginClaim.c)
+ * Callees:
+ *     RtlUShortAdd @ 0x140202574 (RtlUShortAdd.c)
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x14029705C (AuthzBasepSetSecurityAttributesToken.c)
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepAddTokenOriginClaim(_DWORD *a1, int a2, __int64 a3, char a4)
 {
   int appended; // ebx

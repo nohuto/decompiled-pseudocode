@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?NotifyMultirangeEvent@VIDMM_RECYCLE_BLOCK@@QEAAXW4RangeOp@1@PEAX@Z @ 0x1C00020CC
+ * Callers:
+ *     ?ShiftTreeMembershipOnDebouncedStateChange@VIDMM_RECYCLE_HEAP@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z @ 0x1C0099390 (-ShiftTreeMembershipOnDebouncedStateChange@VIDMM_RECYCLE_HEAP@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@@Z.c)
+ *     ?Destroy@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ @ 0x1C0099D5C (-Destroy@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ.c)
+ *     ?MergeWithNeighborsIfPossible@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAV1@XZ @ 0x1C0099FC0 (-MergeWithNeighborsIfPossible@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAV1@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VIDMM_RECYCLE_BLOCK::NotifyMultirangeEvent(__int64 a1, int a2, __int64 a3)
 {
   __int64 v5; // rcx

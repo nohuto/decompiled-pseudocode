@@ -1,3 +1,28 @@
+/*
+ * XREFs of CiThreadCreate @ 0x1C000AD80
+ * Callers:
+ *     CiDispatchCreateMmThreadClient @ 0x1C000AB00 (CiDispatchCreateMmThreadClient.c)
+ * Callees:
+ *     CiDecrementTotalThreadCount @ 0x1C000212C (CiDecrementTotalThreadCount.c)
+ *     CiTaskIndexDereference @ 0x1C00021B0 (CiTaskIndexDereference.c)
+ *     CiTryIncrementTotalThreadCount @ 0x1C0002790 (CiTryIncrementTotalThreadCount.c)
+ *     CiSchedulerPoke @ 0x1C00027F0 (CiSchedulerPoke.c)
+ *     CiSchedulerAddThread @ 0x1C0002840 (CiSchedulerAddThread.c)
+ *     CiThreadInsertInTree @ 0x1C0002A60 (CiThreadInsertInTree.c)
+ *     memset @ 0x1C00037C0 (memset.c)
+ *     CiLogThreadJoin @ 0x1C0004380 (CiLogThreadJoin.c)
+ *     WPP_SF_ @ 0x1C0004634 (WPP_SF_.c)
+ *     WPP_SF_dI @ 0x1C0004A88 (WPP_SF_dI.c)
+ *     CiThreadDereference @ 0x1C000A400 (CiThreadDereference.c)
+ *     CiThreadCleanup @ 0x1C000A4B0 (CiThreadCleanup.c)
+ *     CiProcessLocate @ 0x1C000AFF0 (CiProcessLocate.c)
+ *     CiProcessAddThread @ 0x1C000B100 (CiProcessAddThread.c)
+ *     CiThreadIncrementScheduledCount @ 0x1C000B150 (CiThreadIncrementScheduledCount.c)
+ *     CiThreadUpdatePriorities @ 0x1C000B1D0 (CiThreadUpdatePriorities.c)
+ *     CiProcessDereference @ 0x1C000B280 (CiProcessDereference.c)
+ *     CiProcessCreate @ 0x1C000B6A0 (CiProcessCreate.c)
+ */
+
 __int64 __fastcall CiThreadCreate(struct _KTHREAD *Object, _QWORD *P, __int64 *a3)
 {
   __int64 v3; // rdi

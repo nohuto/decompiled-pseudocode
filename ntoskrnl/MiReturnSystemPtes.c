@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiReturnSystemPtes @ 0x1402EB3FC
+ * Callers:
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiReleaseSmallPteMappings @ 0x14027D4D0 (MiReleaseSmallPteMappings.c)
+ *     MiAttemptCoalesce @ 0x14027E1A0 (MiAttemptCoalesce.c)
+ * Callees:
+ *     MiReturnSystemVa @ 0x14020E9A0 (MiReturnSystemVa.c)
+ */
+
 unsigned __int64 __fastcall MiReturnSystemPtes(__int64 a1, int a2, __int64 a3, __int64 a4, int a5)
 {
   __int64 v5; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of AslEnvExpandStrings2 @ 0x140A54280
+ * Callers:
+ *     SdbpResolveMatchingFile @ 0x140A4EB00 (SdbpResolveMatchingFile.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     AslEnvExpandStrings @ 0x140A540A8 (AslEnvExpandStrings.c)
+ *     AslpEnvResolveVars @ 0x140A54B80 (AslpEnvResolveVars.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AslEnvExpandStrings2(
         __int64 a1,
         const wchar_t *a2,

@@ -1,3 +1,33 @@
+/*
+ * XREFs of UsbhDispatch_HardResetEvent @ 0x1C001EC80
+ * Callers:
+ *     UsbhFdoD0Worker_Action @ 0x1C000CE60 (UsbhFdoD0Worker_Action.c)
+ *     UsbhFdoSetPowerDx_Action @ 0x1C000EB10 (UsbhFdoSetPowerDx_Action.c)
+ *     UsbhQueryPortState @ 0x1C0016540 (UsbhQueryPortState.c)
+ *     UsbhOvercurrentResetWorker @ 0x1C002FD00 (UsbhOvercurrentResetWorker.c)
+ *     UsbhQueueDriverOvercurrent @ 0x1C002FF70 (UsbhQueueDriverOvercurrent.c)
+ *     UsbhQueueOvercurrentReset @ 0x1C00300F0 (UsbhQueueOvercurrentReset.c)
+ *     UsbhFinishStart @ 0x1C00378F4 (UsbhFinishStart.c)
+ *     UsbhDisableHardReset @ 0x1C003CFA4 (UsbhDisableHardReset.c)
+ *     UsbhHardResetWorker @ 0x1C003D050 (UsbhHardResetWorker.c)
+ *     UsbhQueueHardReset @ 0x1C003D3B0 (UsbhQueueHardReset.c)
+ *     UsbhResumeHardReset @ 0x1C003D6C8 (UsbhResumeHardReset.c)
+ *     UsbhResetNotificationIrpCompletion @ 0x1C0043F40 (UsbhResetNotificationIrpCompletion.c)
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     Usbh_HRS_WaitReady @ 0x1C001F060 (Usbh_HRS_WaitReady.c)
+ *     Usbh_HRS_Paused @ 0x1C001F180 (Usbh_HRS_Paused.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhReleaseResetLock @ 0x1C0031DCC (UsbhReleaseResetLock.c)
+ *     UsbhIncrementConcurrentResetCounter @ 0x1C003D358 (UsbhIncrementConcurrentResetCounter.c)
+ *     Usbh_HRS_Disabled @ 0x1C003D7D4 (Usbh_HRS_Disabled.c)
+ *     Usbh_HRS_PausedWaitDone @ 0x1C003D8C4 (Usbh_HRS_PausedWaitDone.c)
+ *     Usbh_HRS_Queued @ 0x1C003D9BC (Usbh_HRS_Queued.c)
+ *     Usbh_HRS_ResetStop @ 0x1C003DC84 (Usbh_HRS_ResetStop.c)
+ *     Usbh_HRS_WaitDone @ 0x1C003DDA0 (Usbh_HRS_WaitDone.c)
+ */
+
 __int64 __fastcall UsbhDispatch_HardResetEvent(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // rdi

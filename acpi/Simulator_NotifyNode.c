@@ -1,3 +1,13 @@
+/*
+ * XREFs of Simulator_NotifyNode @ 0x1C0049478
+ * Callers:
+ *     Simulator_CallbackWorker @ 0x1C0048FB0 (Simulator_CallbackWorker.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     GetNameSpaceObject @ 0x1C004F728 (GetNameSpaceObject.c)
+ */
+
 __int64 __fastcall Simulator_NotifyNode(__int64 a1)
 {
   __int64 v2; // rdx

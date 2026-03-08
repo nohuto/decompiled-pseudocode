@@ -1,3 +1,25 @@
+/*
+ * XREFs of PopPepInitializeVetoMasks @ 0x14059CE34
+ * Callers:
+ *     PoFxStartDevicePowerManagement @ 0x140393C70 (PoFxStartDevicePowerManagement.c)
+ *     PopPepPlatformStateRegistered @ 0x14059D504 (PopPepPlatformStateRegistered.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1402F295C (PopPepUpdateIdleStateRefCount.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     PopFxReinitializeAccountingInstance @ 0x140393EC4 (PopFxReinitializeAccountingInstance.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmGetDeepSleepPlatformStateIndex @ 0x140581D3C (PpmGetDeepSleepPlatformStateIndex.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ *     PopPluginRequestComponentIdleConstraints @ 0x14058A4A0 (PopPluginRequestComponentIdleConstraints.c)
+ *     PopPluginRequestDeviceIdleConstraints @ 0x14058A5C8 (PopPluginRequestDeviceIdleConstraints.c)
+ *     EmClientRuleEvaluate @ 0x140A85280 (EmClientRuleEvaluate.c)
+ */
+
 __int64 __fastcall PopPepInitializeVetoMasks(__int64 a1, unsigned int a2)
 {
   __int64 v2; // r12

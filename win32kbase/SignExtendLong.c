@@ -1,3 +1,11 @@
+/*
+ * XREFs of SignExtendLong @ 0x1C01BBEFC
+ * Callers:
+ *     RIMExtractPointerPropertyValues @ 0x1C01B5500 (RIMExtractPointerPropertyValues.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SignExtendLong(unsigned int a1, char a2)
 {
   int v2; // eax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmHeteroDispatchHgsInterrupt @ 0x14059C2E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ */
+
 __int64 PpmHeteroDispatchHgsInterrupt()
 {
   REGHANDLE v0; // rbx

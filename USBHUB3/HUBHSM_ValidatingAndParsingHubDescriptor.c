@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBHSM_ValidatingAndParsingHubDescriptor @ 0x1C0009A20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     HUBDESC_Validate30HubDescriptor @ 0x1C003CE78 (HUBDESC_Validate30HubDescriptor.c)
+ *     HUBDESC_Validate20HubDescriptor @ 0x1C003D274 (HUBDESC_Validate20HubDescriptor.c)
+ */
+
 __int64 __fastcall HUBHSM_ValidatingAndParsingHubDescriptor(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

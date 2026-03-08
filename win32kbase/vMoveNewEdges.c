@@ -1,3 +1,11 @@
+/*
+ * XREFs of vMoveNewEdges @ 0x1C0184950
+ * Callers:
+ *     ?vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z @ 0x1C0184190 (-vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall vMoveNewEdges(__int64 a1, _DWORD *a2, int a3)
 {
   _DWORD *v3; // r9

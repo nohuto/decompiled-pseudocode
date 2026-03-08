@@ -1,3 +1,18 @@
+/*
+ * XREFs of HUBPDO_HandlePLDRRecovery @ 0x1C001A06C
+ * Callers:
+ *     HUBPDO_EvtDevicePrepareHardware @ 0x1C007CF20 (HUBPDO_EvtDevicePrepareHardware.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0001008 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C000C97C (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C000CD94 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     HUBPDO_GetPortPath @ 0x1C001A014 (HUBPDO_GetPortPath.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     HUBPDO_InvokePortPLDRRecovery @ 0x1C0081794 (HUBPDO_InvokePortPLDRRecovery.c)
+ *     HUBREG_IsPortPLDRCapable @ 0x1C00895D4 (HUBREG_IsPortPLDRCapable.c)
+ */
+
 __int64 __fastcall HUBPDO_HandlePLDRRecovery(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

@@ -1,3 +1,22 @@
+/*
+ * XREFs of PopDripsWatchdogDiagnosticWorker @ 0x140999490
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     PopDeepSleepEnabled @ 0x1402BBA98 (PopDeepSleepEnabled.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PopCalculateIdleInformation @ 0x1403C2C3C (PopCalculateIdleInformation.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopDiagTraceCsDripsDivergence @ 0x14058F750 (PopDiagTraceCsDripsDivergence.c)
+ *     PopDripsWatchdogCheckHwDivergence @ 0x1409993BC (PopDripsWatchdogCheckHwDivergence.c)
+ *     PopDripsWatchdogScheduleNextTimer @ 0x1409996C8 (PopDripsWatchdogScheduleNextTimer.c)
+ *     PopDripsWatchdogUpdateMetrics @ 0x140999904 (PopDripsWatchdogUpdateMetrics.c)
+ *     PopDeepSleepWatchdogTakeAction @ 0x14099E044 (PopDeepSleepWatchdogTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x14099E1CC (PopDripsWatchdogTakeAction.c)
+ */
+
 char __fastcall PopDripsWatchdogDiagnosticWorker(PERESOURCE Resource)
 {
   ULONG *p_ActiveEntries; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?BmlIsPrimaryClonePath@@YA_NPEBUD3DKMT_GETPATHSMODALITY@@I@Z @ 0x1C016C0F0
+ * Callers:
+ *     _BmlGetPathModalityForAdapter @ 0x1C016D3D0 (_BmlGetPathModalityForAdapter.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall BmlIsPrimaryClonePath(const struct D3DKMT_GETPATHSMODALITY *a1, unsigned int a2)
 {
   unsigned __int16 v3; // r9

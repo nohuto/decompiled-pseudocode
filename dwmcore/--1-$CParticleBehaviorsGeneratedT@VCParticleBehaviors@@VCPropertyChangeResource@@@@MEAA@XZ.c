@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1?$CParticleBehaviorsGeneratedT@VCParticleBehaviors@@VCPropertyChangeResource@@@@MEAA@XZ @ 0x1801BE874
+ * Callers:
+ *     ??_ECParticleBehaviors@@UEAAPEAXI@Z @ 0x1801C01F0 (--_ECParticleBehaviors@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800234BC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ */
+
 void __fastcall CParticleBehaviorsGeneratedT<CParticleBehaviors,CPropertyChangeResource>::~CParticleBehaviorsGeneratedT<CParticleBehaviors,CPropertyChangeResource>(
         struct CResource **this)
 {

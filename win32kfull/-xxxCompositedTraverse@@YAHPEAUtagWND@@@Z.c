@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?xxxCompositedTraverse@@YAHPEAUtagWND@@@Z @ 0x1C0015858
+ * Callers:
+ *     xxxCompositedPaint @ 0x1C0015794 (xxxCompositedPaint.c)
+ *     ?xxxCompositedTraverse@@YAHPEAUtagWND@@@Z @ 0x1C0015858 (-xxxCompositedTraverse@@YAHPEAUtagWND@@@Z.c)
+ * Callees:
+ *     ?xxxCompositedTraverse@@YAHPEAUtagWND@@@Z @ 0x1C0015858 (-xxxCompositedTraverse@@YAHPEAUtagWND@@@Z.c)
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     ThreadLockExchange @ 0x1C010A0D0 (ThreadLockExchange.c)
+ */
+
 __int64 __fastcall xxxCompositedTraverse(struct tagWND *a1)
 {
   unsigned int v1; // edi

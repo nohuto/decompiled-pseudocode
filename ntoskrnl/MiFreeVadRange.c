@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiFreeVadRange @ 0x1402D5634
+ * Callers:
+ *     MmFreeVirtualMemory @ 0x1406EC820 (MmFreeVirtualMemory.c)
+ *     MmStoreAllocateVirtualMemory @ 0x140A42EFC (MmStoreAllocateVirtualMemory.c)
+ *     MmStoreFreeVirtualMemory @ 0x140A430C0 (MmStoreFreeVirtualMemory.c)
+ * Callees:
+ *     MiLocateLockedVadEvent @ 0x14020DC68 (MiLocateLockedVadEvent.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1402955D0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     MiDeletePartialVad @ 0x1402D5768 (MiDeletePartialVad.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x14034CCC0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     MiCanDeleteEnclave @ 0x140644B94 (MiCanDeleteEnclave.c)
+ *     MiAllocateVad @ 0x140728758 (MiAllocateVad.c)
+ *     MiPrepareVadDelete @ 0x14075FF3C (MiPrepareVadDelete.c)
+ *     MiDeleteVad @ 0x1407C82E0 (MiDeleteVad.c)
+ *     PerfInfoLogVirtualFree @ 0x1409E42D4 (PerfInfoLogVirtualFree.c)
+ *     MiLockNestedVad @ 0x140A44F48 (MiLockNestedVad.c)
+ *     MiUnlockNestedVad @ 0x140A44F98 (MiUnlockNestedVad.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiFreeVadRange(_DWORD *P, int a2, __int64 a3, __int64 a4, __int64 a5, int a6, __int64 a7)
 {
   int v7; // eax

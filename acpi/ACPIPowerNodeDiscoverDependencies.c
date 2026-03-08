@@ -1,3 +1,17 @@
+/*
+ * XREFs of ACPIPowerNodeDiscoverDependencies @ 0x1C0022428
+ * Callers:
+ *     ACPIDeviceRecordDependencies @ 0x1C0021C48 (ACPIDeviceRecordDependencies.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIInternalGetDeviceFromNSOBJ @ 0x1C00035BC (ACPIInternalGetDeviceFromNSOBJ.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_sL @ 0x1C0015638 (WPP_RECORDER_SF_sL.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNameSpaceObject @ 0x1C00483B8 (AMLIGetNameSpaceObject.c)
+ */
+
 void __fastcall ACPIPowerNodeDiscoverDependencies(_QWORD **a1)
 {
   _QWORD **v1; // r15

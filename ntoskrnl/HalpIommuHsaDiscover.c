@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpIommuHsaDiscover @ 0x140B6C630
+ * Callers:
+ *     HalpIommuInitDiscard @ 0x140B6C3EC (HalpIommuInitDiscard.c)
+ * Callees:
+ *     HalpAcpiGetTable @ 0x14029C550 (HalpAcpiGetTable.c)
+ *     HalpIommuProcessIvhdEntry @ 0x14052C244 (HalpIommuProcessIvhdEntry.c)
+ */
+
 int __fastcall HalpIommuHsaDiscover(_QWORD *a1)
 {
   __int64 Table; // rax

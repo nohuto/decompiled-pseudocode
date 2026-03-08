@@ -1,3 +1,16 @@
+/*
+ * XREFs of ApiSetLoadSchemaWithExtensions @ 0x140A0717C
+ * Callers:
+ *     PspSiloLoadApiSets @ 0x1409AAA20 (PspSiloLoadApiSets.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ApiSetReleaseSchema @ 0x140612300 (ApiSetReleaseSchema.c)
+ *     ApiSetIsSchemaSealed @ 0x140612CA0 (ApiSetIsSchemaSealed.c)
+ *     ApiSetLoadSchemaEx @ 0x140A070AC (ApiSetLoadSchemaEx.c)
+ *     ApiSetpLoadSchemaExtensions @ 0x140A0749C (ApiSetpLoadSchemaExtensions.c)
+ *     ApiSetpOpenSchemaExtensionsRootNode @ 0x140A07750 (ApiSetpOpenSchemaExtensionsRootNode.c)
+ */
+
 __int64 __fastcall ApiSetLoadSchemaWithExtensions(__int64 a1, __int64 *a2, size_t *a3)
 {
   int SchemaExtensions; // ebx

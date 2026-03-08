@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DrawRegionalShadow@@YAXPEAXJJ@Z @ 0x1C014A5B2
+ * Callers:
+ *     ?GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z @ 0x1C0223DF4 (-GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DrawRegionalShadow(char *a1, int a2, int a3)
 {
   __int64 v3; // r11

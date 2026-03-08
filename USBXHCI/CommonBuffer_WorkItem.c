@@ -1,3 +1,14 @@
+/*
+ * XREFs of CommonBuffer_WorkItem @ 0x1C00078A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     XilCoreCommonBuffer_PreAllocateBuffers @ 0x1C0007968 (XilCoreCommonBuffer_PreAllocateBuffers.c)
+ *     XilCoreCommonBuffer_AcquireBuffers @ 0x1C000B490 (XilCoreCommonBuffer_AcquireBuffers.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_qqd @ 0x1C0032438 (WPP_RECORDER_SF_qqd.c)
+ */
+
 void __fastcall CommonBuffer_WorkItem(PVOID IoObject, char *Context, PIO_WORKITEM IoWorkItem)
 {
   KIRQL v5; // r8

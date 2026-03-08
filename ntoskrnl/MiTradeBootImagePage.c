@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiTradeBootImagePage @ 0x140B3BE4C
+ * Callers:
+ *     MiHandleBootImage @ 0x140B3BA98 (MiHandleBootImage.c)
+ * Callees:
+ *     MiWriteValidPteNewPage @ 0x140211DE8 (MiWriteValidPteNewPage.c)
+ *     MiCopyPfnEntryEx @ 0x140213930 (MiCopyPfnEntryEx.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiLockNestedPageAtDpcInline @ 0x1402DDE90 (MiLockNestedPageAtDpcInline.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiDecrementShareCount @ 0x14032AE40 (MiDecrementShareCount.c)
+ *     MiCopyPage @ 0x14032DC70 (MiCopyPage.c)
+ *     MiClearPfnImageVerified @ 0x14036ABC0 (MiClearPfnImageVerified.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeCopyPrivilegedPage @ 0x14056C654 (KeCopyPrivilegedPage.c)
+ */
+
 __int64 __fastcall MiTradeBootImagePage(unsigned __int64 a1, ULONG_PTR a2)
 {
   __int64 v4; // rsi

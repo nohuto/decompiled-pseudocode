@@ -1,3 +1,13 @@
+/*
+ * XREFs of IcRemapInputs @ 0x1C009F490
+ * Callers:
+ *     AcpiIrqLibSetupSciInterrupt @ 0x1C0098DAC (AcpiIrqLibSetupSciInterrupt.c)
+ *     IrqArbBootAllocation @ 0x1C009CF90 (IrqArbBootAllocation.c)
+ *     IrqArbCommitAllocation @ 0x1C009D040 (IrqArbCommitAllocation.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 IcRemapInputs()
 {
   unsigned __int8 i; // si

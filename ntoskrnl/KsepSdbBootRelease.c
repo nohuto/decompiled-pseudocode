@@ -1,3 +1,13 @@
+/*
+ * XREFs of KsepSdbBootRelease @ 0x140842AC4
+ * Callers:
+ *     KseShimDatabaseBootRelease @ 0x140842A14 (KseShimDatabaseBootRelease.c)
+ *     KseShimDatabaseBootInitialize @ 0x140B6FF30 (KseShimDatabaseBootInitialize.c)
+ * Callees:
+ *     KsepPoolFreePaged @ 0x140303C7C (KsepPoolFreePaged.c)
+ *     SdbReleaseDatabase @ 0x14079C878 (SdbReleaseDatabase.c)
+ */
+
 void __fastcall KsepSdbBootRelease(__int64 a1)
 {
   _QWORD *v2; // rcx

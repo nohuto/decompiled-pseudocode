@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpValidateMpns @ 0x140932D74
+ * Callers:
+ *     HalpChannelInitializeStaticConfiguration @ 0x140B63680 (HalpChannelInitializeStaticConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 HalpValidateMpns()
 {
   unsigned int v0; // ecx

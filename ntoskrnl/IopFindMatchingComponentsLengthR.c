@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopFindMatchingComponentsLengthR @ 0x140945054
+ * Callers:
+ *     IopSymlinkProcessReparse @ 0x140790C0C (IopSymlinkProcessReparse.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IopFindMatchingComponentsLengthR(unsigned __int16 *a1, unsigned __int16 *a2)
 {
   unsigned __int64 v2; // r11

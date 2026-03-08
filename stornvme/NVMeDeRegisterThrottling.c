@@ -1,3 +1,11 @@
+/*
+ * XREFs of NVMeDeRegisterThrottling @ 0x1C0014FC0
+ * Callers:
+ *     NVMeDisableThrottling @ 0x1C000EC7C (NVMeDisableThrottling.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NVMeDeRegisterThrottling(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rdi

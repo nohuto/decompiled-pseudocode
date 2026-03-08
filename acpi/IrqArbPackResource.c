@@ -1,3 +1,11 @@
+/*
+ * XREFs of IrqArbPackResource @ 0x1C009D6F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IrqArbpGetRangeData @ 0x1C009E418 (IrqArbpGetRangeData.c)
+ */
+
 __int64 __fastcall IrqArbPackResource(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   int v4; // esi

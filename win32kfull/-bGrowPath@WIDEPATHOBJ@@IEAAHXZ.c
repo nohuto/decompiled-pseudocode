@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bGrowPath@WIDEPATHOBJ@@IEAAHXZ @ 0x1C0150A36
+ * Callers:
+ *     ?bBeginFigure@WIDEPATHOBJ@@QEAAHXZ @ 0x1C01509EA (-bBeginFigure@WIDEPATHOBJ@@QEAAHXZ.c)
+ *     ?bPenFlatten@WIDEPENOBJ@@AEAAHPEAU_POINTFIX@@@Z @ 0x1C02F36F8 (-bPenFlatten@WIDEPENOBJ@@AEAAHPEAU_POINTFIX@@@Z.c)
+ *     ?vGrowPathAndAddPoint@WIDEPATHOBJ@@IEAAXPEBU_POINTFIX@@PEAVEVECTORFX@@H@Z @ 0x1C02F4634 (-vGrowPathAndAddPoint@WIDEPATHOBJ@@IEAAXPEBU_POINTFIX@@PEAVEVECTORFX@@H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WIDEPATHOBJ::bGrowPath(WIDEPATHOBJ *this)
 {
   __int64 v2; // rdx

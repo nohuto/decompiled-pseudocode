@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SetSharedPage@DXGVIRTUALMACHINE@@QEAAJI@Z @ 0x1C0341638
+ * Callers:
+ *     ?VmBusSetIoSpaceRegion@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C038DB00 (-VmBusSetIoSpaceRegion@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ * Callees:
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007104 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     MapGpadl @ 0x1C03916D0 (MapGpadl.c)
+ *     UnmapGpadl @ 0x1C03919D0 (UnmapGpadl.c)
+ */
+
 __int64 __fastcall DXGVIRTUALMACHINE::SetSharedPage(DXGVIRTUALMACHINE *this, unsigned int a2)
 {
   unsigned int v4; // ebx

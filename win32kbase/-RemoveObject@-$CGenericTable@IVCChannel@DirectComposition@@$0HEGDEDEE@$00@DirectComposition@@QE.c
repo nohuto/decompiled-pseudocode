@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RemoveObject@?$CGenericTable@IVCChannel@DirectComposition@@$0HEGDEDEE@$00@DirectComposition@@QEAAPEAVCChannel@2@I@Z @ 0x1C00985C8
+ * Callers:
+ *     ?DestroyHandle@CChannel@DirectComposition@@SAJI@Z @ 0x1C0098528 (-DestroyHandle@CChannel@DirectComposition@@SAJI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CGenericTable<unsigned int,DirectComposition::CChannel,1952662340,1>::RemoveObject(
         PRTL_GENERIC_TABLE Table,
         int a2)

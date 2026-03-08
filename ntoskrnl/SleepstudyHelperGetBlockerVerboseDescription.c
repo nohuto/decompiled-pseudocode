@@ -1,3 +1,11 @@
+/*
+ * XREFs of SleepstudyHelperGetBlockerVerboseDescription @ 0x140798D2C
+ * Callers:
+ *     PopPowerRequestStatsGetIdForBlocker @ 0x140798C04 (PopPowerRequestStatsGetIdForBlocker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SleepstudyHelperGetBlockerVerboseDescription(
         __int64 a1,
         _WORD *a2,

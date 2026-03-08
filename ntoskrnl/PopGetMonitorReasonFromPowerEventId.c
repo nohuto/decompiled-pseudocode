@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopGetMonitorReasonFromPowerEventId @ 0x1403C2490
+ * Callers:
+ *     PopPowerAggregatorStartNextSession @ 0x1408794D4 (PopPowerAggregatorStartNextSession.c)
+ *     PopPowerAggregatorEnterScreenOff @ 0x140879524 (PopPowerAggregatorEnterScreenOff.c)
+ *     PopPowerAggregatorDisengageModernStandby @ 0x14099057C (PopPowerAggregatorDisengageModernStandby.c)
+ *     PopPowerAggregatorEngageModernStandby @ 0x140990734 (PopPowerAggregatorEngageModernStandby.c)
+ *     PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x140990FE0 (PopPowerAggregatorSystemTransitionEnterStateHandler.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopGetMonitorReasonFromPowerEventId(int a1)
 {
   unsigned int v1; // r8d

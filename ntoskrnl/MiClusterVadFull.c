@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiClusterVadFull @ 0x1404674C0
+ * Callers:
+ *     MiTrimSharedPage @ 0x1403A0EBC (MiTrimSharedPage.c)
+ *     MiPfnsWorthTrying @ 0x1403B6374 (MiPfnsWorthTrying.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiClusterVadFull(unsigned __int64 a1, __int64 a2, __int64 a3)
 {
   _QWORD *v6; // r9

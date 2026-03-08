@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiInitializePartitionThreads @ 0x140A2CE10
+ * Callers:
+ *     MmCreatePartition @ 0x1403A6A3C (MmCreatePartition.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PsCreateSystemThreadEx @ 0x1407DE330 (PsCreateSystemThreadEx.c)
+ */
+
 __int64 __fastcall MiInitializePartitionThreads(__int64 a1)
 {
   unsigned int *v1; // rdi

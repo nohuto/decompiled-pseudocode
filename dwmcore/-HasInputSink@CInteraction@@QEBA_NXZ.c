@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HasInputSink@CInteraction@@QEBA_NXZ @ 0x180032158
+ * Callers:
+ *     ?HitTestPoint@CHitTestContext@@QEAAJAEBUHitTestPointRequest@1@AEAUHitTestPointResult@1@@Z @ 0x180031CF4 (-HitTestPoint@CHitTestContext@@QEAAJAEBUHitTestPointRequest@1@AEAUHitTestPointResult@1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CInteraction::HasInputSink(CInteraction *this)
 {
   __int64 v1; // rdx

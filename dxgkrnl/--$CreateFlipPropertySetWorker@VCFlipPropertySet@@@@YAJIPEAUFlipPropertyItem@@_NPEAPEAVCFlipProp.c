@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??$CreateFlipPropertySetWorker@VCFlipPropertySet@@@@YAJIPEAUFlipPropertyItem@@_NPEAPEAVCFlipPropertySet@@@Z @ 0x1C007E97C
+ * Callers:
+ *     NtFlipObjectAddContent @ 0x1C007F850 (NtFlipObjectAddContent.c)
+ *     NtFlipObjectAddPoolBuffer @ 0x1C007F9A0 (NtFlipObjectAddPoolBuffer.c)
+ *     NtFlipObjectSetContent @ 0x1C0080D60 (NtFlipObjectSetContent.c)
+ *     ?FlipManagerCreateProducerTokenInitInfo@@YAJPEAX_N_KIPEAUFlipPropertyItem@@PEAUFlipManagerTokenInitInfo@@@Z @ 0x1C00811E8 (-FlipManagerCreateProducerTokenInitInfo@@YAJPEAX_N_KIPEAUFlipPropertyItem@@PEAUFlipManagerTokenI.c)
+ * Callees:
+ *     ??0CFlipPropertySet@@QEAA@IPEAUFlipPropertyItem@@PEAXI@Z @ 0x1C0026EF0 (--0CFlipPropertySet@@QEAA@IPEAUFlipPropertyItem@@PEAXI@Z.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ */
+
 __int64 __fastcall CreateFlipPropertySetWorker<CFlipPropertySet>(
         unsigned int a1,
         char *Src,

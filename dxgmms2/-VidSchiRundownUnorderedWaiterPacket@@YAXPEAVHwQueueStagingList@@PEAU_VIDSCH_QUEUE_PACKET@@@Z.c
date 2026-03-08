@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?VidSchiRundownUnorderedWaiterPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C00366DC
+ * Callers:
+ *     VidSchiRundownUnorderedWaiterContext @ 0x1C003C39C (VidSchiRundownUnorderedWaiterContext.c)
+ *     VidSchiRundownUnorderedWaiterDevice @ 0x1C003C3E8 (VidSchiRundownUnorderedWaiterDevice.c)
+ *     ?VidSchiRundownUnorderedWaiterHwQueue@@YAXPEAVHwQueueStagingList@@PEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C003DC54 (-VidSchiRundownUnorderedWaiterHwQueue@@YAXPEAVHwQueueStagingList@@PEAUVIDSCH_HW_QUEUE@@@Z.c)
+ * Callees:
+ *     VidSchiUnwaitWaitQueuePacket @ 0x1C0013514 (VidSchiUnwaitWaitQueuePacket.c)
+ *     VidSchiUnblockUnorderedWaitQueuePacket @ 0x1C003C938 (VidSchiUnblockUnorderedWaitQueuePacket.c)
+ */
+
 void __fastcall VidSchiRundownUnorderedWaiterPacket(
         struct HwQueueStagingList *a1,
         struct _VIDSCH_QUEUE_PACKET *a2,

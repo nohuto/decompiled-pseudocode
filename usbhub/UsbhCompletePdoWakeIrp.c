@@ -1,3 +1,20 @@
+/*
+ * XREFs of UsbhCompletePdoWakeIrp @ 0x1C001BB3C
+ * Callers:
+ *     UsbhCompletePdoWakeIrps @ 0x1C0001010 (UsbhCompletePdoWakeIrps.c)
+ *     UsbhSS_PdoWakeWorker @ 0x1C00020D0 (UsbhSS_PdoWakeWorker.c)
+ *     UsbhFdoSetPowerDx_Action @ 0x1C000EB10 (UsbhFdoSetPowerDx_Action.c)
+ *     UsbhPdoSetDx @ 0x1C001ACC4 (UsbhPdoSetDx.c)
+ *     UsbhPdoRemoveCleanup @ 0x1C0056C34 (UsbhPdoRemoveCleanup.c)
+ * Callees:
+ *     UsbhEtwLogDeviceIrpEvent @ 0x1C0007830 (UsbhEtwLogDeviceIrpEvent.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhDecPdoIoCount @ 0x1C001BC4C (UsbhDecPdoIoCount.c)
+ *     WPP_RECORDER_SF_ddqqD @ 0x1C003CD84 (WPP_RECORDER_SF_ddqqD.c)
+ */
+
 char __fastcall UsbhCompletePdoWakeIrp(__int64 a1, __int64 a2, int a3)
 {
   __int64 v4; // rbp

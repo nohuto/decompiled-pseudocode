@@ -1,3 +1,15 @@
+/*
+ * XREFs of DrvDisplayConfigSetScaleFactorOverride @ 0x1C0193A60
+ * Callers:
+ *     DrvDisplayConfigSetDeviceInfo @ 0x1C0193490 (DrvDisplayConfigSetDeviceInfo.c)
+ * Callees:
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0049800 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     EngAcquireSemaphore @ 0x1C004B690 (EngAcquireSemaphore.c)
+ *     UserNotifyUniversalScaleFactorChanged @ 0x1C017CCD4 (UserNotifyUniversalScaleFactorChanged.c)
+ *     ??1DRIVERMANAGEMENTSHARELOCK@@QEAA@XZ @ 0x1C018C7B0 (--1DRIVERMANAGEMENTSHARELOCK@@QEAA@XZ.c)
+ *     ?SetScaleFactorOverride@@YAJAEAU_LUID@@IHPEAU_DPI_INFORMATION@@@Z @ 0x1C01920A8 (-SetScaleFactorOverride@@YAJAEAU_LUID@@IHPEAU_DPI_INFORMATION@@@Z.c)
+ */
+
 __int64 __fastcall DrvDisplayConfigSetScaleFactorOverride(_DWORD *a1, _DWORD *a2)
 {
   int v4; // edi

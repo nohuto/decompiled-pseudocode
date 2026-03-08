@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?ResetSystemColors@@YAXXZ @ 0x1C00C8EE0
+ * Callers:
+ *     xxxResetDisplayDevice @ 0x1C0016410 (xxxResetDisplayDevice.c)
+ * Callees:
+ *     xxxSetSysColors @ 0x1C001A31C (xxxSetSysColors.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C007795C (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00ABD88 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 void ResetSystemColors(void)
 {
   unsigned int v0; // ebx

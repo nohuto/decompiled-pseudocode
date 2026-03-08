@@ -1,3 +1,39 @@
+/*
+ * XREFs of VrpPreLoadKey @ 0x140735EB4
+ * Callers:
+ *     VrpRegistryCallback @ 0x1406C2D60 (VrpRegistryCallback.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     EtwActivityIdControl @ 0x140244870 (EtwActivityIdControl.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     CmLoadDifferencingKey @ 0x1406BC49C (CmLoadDifferencingKey.c)
+ *     VrpGetNextToken @ 0x1406C24E8 (VrpGetNextToken.c)
+ *     VrpBuildKeyPath @ 0x1406C286C (VrpBuildKeyPath.c)
+ *     VrpStripTrailingCharacters @ 0x1406C30B0 (VrpStripTrailingCharacters.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     RtlStringFromGUIDEx @ 0x140733E90 (RtlStringFromGUIDEx.c)
+ *     VrpAllocateKeyContext @ 0x140735DF0 (VrpAllocateKeyContext.c)
+ *     VrpCreateNamespaceNodePlaceholderKey @ 0x140736FA0 (VrpCreateNamespaceNodePlaceholderKey.c)
+ *     VrpAddNamespaceNodeToList @ 0x140737050 (VrpAddNamespaceNodeToList.c)
+ *     VrpDestroyNamespaceNode @ 0x140737134 (VrpDestroyNamespaceNode.c)
+ *     VrpCreateNamespaceNode @ 0x140737348 (VrpCreateNamespaceNode.c)
+ *     CmSetCallbackObjectContext @ 0x140738C30 (CmSetCallbackObjectContext.c)
+ *     VrpFreeKeyContext @ 0x14078D308 (VrpFreeKeyContext.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByPointer @ 0x1407C93D0 (ObOpenObjectByPointer.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall VrpPreLoadKey(__int64 *a1, __int64 a2)
 {
   __int64 v4; // r15

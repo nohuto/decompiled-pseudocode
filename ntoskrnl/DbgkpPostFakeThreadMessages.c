@@ -1,3 +1,28 @@
+/*
+ * XREFs of DbgkpPostFakeThreadMessages @ 0x140934820
+ * Callers:
+ *     DbgkpPostFakeProcessCreateMessages @ 0x140934758 (DbgkpPostFakeProcessCreateMessages.c)
+ *     DbgkpSetProcessDebugObject @ 0x1409351E4 (DbgkpSetProcessDebugObject.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     PsMultiResumeThread @ 0x140354658 (PsMultiResumeThread.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsGetNextProcessThread @ 0x1406A8E30 (PsGetNextProcessThread.c)
+ *     PsSuspendThread @ 0x1407DC9C0 (PsSuspendThread.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     DbgkSendSystemDllMessages @ 0x140933E74 (DbgkSendSystemDllMessages.c)
+ *     DbgkpQueueMessage @ 0x140934EE8 (DbgkpQueueMessage.c)
+ *     DbgkpSectionToFileHandle @ 0x140936458 (DbgkpSectionToFileHandle.c)
+ *     PsSynchronizeWithThreadInsertion @ 0x1409AB528 (PsSynchronizeWithThreadInsertion.c)
+ */
+
 __int64 __fastcall DbgkpPostFakeThreadMessages(_KPROCESS *a1, struct _KEVENT *a2, __int64 a3, _QWORD *a4, _QWORD *a5)
 {
   void *v7; // r14

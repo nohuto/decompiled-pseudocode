@@ -1,3 +1,25 @@
+/*
+ * XREFs of UsbDevice_EndpointsConfigureCompletion @ 0x1C000D070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C0007FC0 (XilUsbDevice_GetDeviceContextBufferVA.c)
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0008958 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     Endpoint_Disable @ 0x1C000B0AC (Endpoint_Disable.c)
+ *     WPP_RECORDER_SF_dqL @ 0x1C000CC70 (WPP_RECORDER_SF_dqL.c)
+ *     WPP_RECORDER_SF_dqq @ 0x1C0019284 (WPP_RECORDER_SF_dqq.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0019330 (WPP_RECORDER_SF_dq.c)
+ *     WPP_RECORDER_SF_dqd @ 0x1C001E3F8 (WPP_RECORDER_SF_dqd.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ *     XilDeviceSlot_SendQuerySlotContextInfoRequest @ 0x1C0038834 (XilDeviceSlot_SendQuerySlotContextInfoRequest.c)
+ *     UsbDevice_GetEndpointOffloadInformation @ 0x1C0048D9C (UsbDevice_GetEndpointOffloadInformation.c)
+ */
+
 char __fastcall UsbDevice_EndpointsConfigureCompletion(__int64 a1, int a2, __int64 a3)
 {
   __int64 v3; // rsi

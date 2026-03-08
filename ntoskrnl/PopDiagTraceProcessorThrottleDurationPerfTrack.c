@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopDiagTraceProcessorThrottleDurationPerfTrack @ 0x140591DB0
+ * Callers:
+ *     PpmRegisterPerfCap @ 0x14058AF70 (PpmRegisterPerfCap.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     RtlStringCchPrintfExW @ 0x140245C80 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PopDiagTraceProcessorThrottleDurationPerfTrack(int a1, ULONG a2)
 {
   NTSTATUS v3; // eax

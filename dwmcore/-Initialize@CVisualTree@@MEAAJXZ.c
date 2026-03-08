@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Initialize@CVisualTree@@MEAAJXZ @ 0x1800C7540
+ * Callers:
+ *     ?Initialize@CDesktopTree@@MEAAJXZ @ 0x1800C6D90 (-Initialize@CDesktopTree@@MEAAJXZ.c)
+ * Callees:
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034BB4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SetVisualTreeNoRef@CVisual@@QEAAXPEAVCVisualTree@@@Z @ 0x1800C75E0 (-SetVisualTreeNoRef@CVisual@@QEAAXPEAVCVisualTree@@@Z.c)
+ *     ??$insert_unchecked@AEBQEAVCVisualTree@@@?$vector_facade@PEAVCVisualTree@@V?$buffer_impl@PEAVCVisualTree@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAA?AV?$basic_iterator@PEAVCVisualTree@@@1@V?$basic_iterator@QEAVCVisualTree@@@1@AEBQEAVCVisualTree@@@Z @ 0x1800C7628 (--$insert_unchecked@AEBQEAVCVisualTree@@@-$vector_facade@PEAVCVisualTree@@V-$buffer_impl@PEAVCVi.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CVisualTree::Initialize(CVisualTree *this)
 {
   CVisual *v1; // rbx

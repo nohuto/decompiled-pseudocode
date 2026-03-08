@@ -1,3 +1,15 @@
+/*
+ * XREFs of xxxODI_ColorInit @ 0x1C0018A90
+ * Callers:
+ *     InitUserScreen @ 0x1C00127A8 (InitUserScreen.c)
+ * Callees:
+ *     ?CI_GetClrVal@@YAKPEAGK@Z @ 0x1C0018D04 (-CI_GetClrVal@@YAKPEAGK@Z.c)
+ *     FastGetProfileStringFromIDW @ 0x1C0018E40 (FastGetProfileStringFromIDW.c)
+ *     xxxSetSysColors @ 0x1C001A31C (xxxSetSysColors.c)
+ *     GetProcessLuid @ 0x1C00727F0 (GetProcessLuid.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall xxxODI_ColorInit(PCUNICODE_STRING Source)
 {
   char *v1; // rdx

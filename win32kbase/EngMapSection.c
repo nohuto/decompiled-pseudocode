@@ -1,3 +1,11 @@
+/*
+ * XREFs of EngMapSection @ 0x1C0196F60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EngMapSection(__int64 a1, int a2, void *a3, _QWORD *a4)
 {
   unsigned int v4; // ebx

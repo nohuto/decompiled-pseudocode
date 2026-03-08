@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$move_backward_uninitialized@V?$basic_iterator@VPlaneInfo@CCheckMPOCache@@@detail@@V?$checked_array_iterator@PEAVPlaneInfo@CCheckMPOCache@@@stdext@@@detail@@YAXV?$basic_iterator@VPlaneInfo@CCheckMPOCache@@@0@0V?$checked_array_iterator@PEAVPlaneInfo@CCheckMPOCache@@@stdext@@@Z @ 0x1801169CC
+ * Callers:
+ *     ?reserve_region@?$vector_facade@VPlaneInfo@CCheckMPOCache@@V?$buffer_impl@VPlaneInfo@CCheckMPOCache@@$05$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAVPlaneInfo@CCheckMPOCache@@_K0@Z @ 0x18011727C (-reserve_region@-$vector_facade@VPlaneInfo@CCheckMPOCache@@V-$buffer_impl@VPlaneInfo@CCheckMPOCa.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall detail::move_backward_uninitialized<detail::basic_iterator<CCheckMPOCache::PlaneInfo>,stdext::checked_array_iterator<CCheckMPOCache::PlaneInfo *>>(
         _QWORD *a1,
         __int64 *a2,

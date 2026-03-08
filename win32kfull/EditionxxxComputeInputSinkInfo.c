@@ -1,3 +1,12 @@
+/*
+ * XREFs of EditionxxxComputeInputSinkInfo @ 0x1C01BAC00
+ * Callers:
+ *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C006D360 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 LONG __fastcall EditionxxxComputeInputSinkInfo(__int64 a1, __int64 a2, __int64 a3)
 {

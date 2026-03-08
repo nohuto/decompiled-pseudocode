@@ -1,3 +1,14 @@
+/*
+ * XREFs of AlpcpDestroyPort @ 0x140717B30
+ * Callers:
+ *     AlpcpDeletePort @ 0x140714C40 (AlpcpDeletePort.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ */
+
 void __fastcall AlpcpDestroyPort(__int64 *a1)
 {
   __int64 *v2; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of SleepstudyHelper_Initialize @ 0x1C0074750
+ * Callers:
+ *     DriverEntry @ 0x1C0074360 (DriverEntry.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall SleepstudyHelper_Initialize(_QWORD *a1, __int64 a2)
 {
   NTSTATUS v4; // eax

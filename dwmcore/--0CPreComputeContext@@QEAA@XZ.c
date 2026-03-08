@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CPreComputeContext@@QEAA@XZ @ 0x1800AEC6C
+ * Callers:
+ *     ??$make_unique@VCPreComputeContext@@$$V$0A@@std@@YA?AV?$unique_ptr@VCPreComputeContext@@U?$default_delete@VCPreComputeContext@@@std@@@0@XZ @ 0x18001F91C (--$make_unique@VCPreComputeContext@@$$V$0A@@std@@YA-AV-$unique_ptr@VCPreComputeContext@@U-$defau.c)
+ *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800AE4F0 (-Initialize@CComposition@@MEAAJXZ.c)
+ * Callees:
+ *     ??0CLightStack@@QEAA@XZ @ 0x180038FF4 (--0CLightStack@@QEAA@XZ.c)
+ */
+
 CPreComputeContext *__fastcall CPreComputeContext::CPreComputeContext(CPreComputeContext *this)
 {
   __int64 v1; // r8

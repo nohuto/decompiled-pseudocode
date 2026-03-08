@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiInitializeTbFlushStamps @ 0x14020E538
+ * Callers:
+ *     MiDeleteNonPagedPoolPte @ 0x14020E220 (MiDeleteNonPagedPoolPte.c)
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MmUnmapViewInSystemCache @ 0x140285250 (MmUnmapViewInSystemCache.c)
+ *     MiDeleteSystemPagableVm @ 0x1402B04B0 (MiDeleteSystemPagableVm.c)
+ * Callees:
+ *     MiSetPteTimeStamp @ 0x14020E59C (MiSetPteTimeStamp.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ */
+
 struct _KTHREAD *__fastcall MiInitializeTbFlushStamps(__int64 *a1)
 {
   __int64 v2; // rax

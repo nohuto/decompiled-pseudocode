@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlEndEnumerationHashTable @ 0x1402B81D0
+ * Callers:
+ *     SepCleanupMarkedForDeletionEntries @ 0x1402B7F18 (SepCleanupMarkedForDeletionEntries.c)
+ *     RtlEndWeakEnumerationHashTable @ 0x1403D2020 (RtlEndWeakEnumerationHashTable.c)
+ *     SepFindMatchingLowBoxNumberEntries @ 0x1409CE86C (SepFindMatchingLowBoxNumberEntries.c)
+ *     SepRmDestroyCapTable @ 0x1409CF58C (SepRmDestroyCapTable.c)
+ * Callees:
+ *     <none>
+ */
+
 void __stdcall RtlEndEnumerationHashTable(
         PRTL_DYNAMIC_HASH_TABLE HashTable,
         PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator)

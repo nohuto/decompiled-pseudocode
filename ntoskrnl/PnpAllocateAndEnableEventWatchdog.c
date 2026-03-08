@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpAllocateAndEnableEventWatchdog @ 0x140689D10
+ * Callers:
+ *     PnpDeviceEventWorker @ 0x1406892C0 (PnpDeviceEventWorker.c)
+ * Callees:
+ *     PnpEnableWatchdog @ 0x14068A5EC (PnpEnableWatchdog.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpAllocateAndEnableEventWatchdog(__int64 a1)
 {
   __int64 v1; // rbx

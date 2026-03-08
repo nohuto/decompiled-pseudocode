@@ -1,3 +1,18 @@
+/*
+ * XREFs of KsepDbCacheQueryDevice @ 0x1408015F4
+ * Callers:
+ *     KseQueryDeviceData @ 0x1408016F0 (KseQueryDeviceData.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KsepCacheLookup @ 0x14079CC94 (KsepCacheLookup.c)
+ *     KsepDbCacheQueryDeviceData @ 0x140800DE4 (KsepDbCacheQueryDeviceData.c)
+ */
+
 __int64 __fastcall KsepDbCacheQueryDevice(PCWSTR SourceString, __int64 a2, _DWORD *a3, unsigned int *a4, void *a5)
 {
   unsigned int DeviceData; // esi

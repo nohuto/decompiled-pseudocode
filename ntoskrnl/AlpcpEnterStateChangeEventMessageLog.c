@@ -1,3 +1,21 @@
+/*
+ * XREFs of AlpcpEnterStateChangeEventMessageLog @ 0x140977A1C
+ * Callers:
+ *     NtAlpcImpersonateClientOfPort @ 0x1406D4A10 (NtAlpcImpersonateClientOfPort.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     AlpcpDispatchReplyToWaitingThread @ 0x1407C9EE0 (AlpcpDispatchReplyToWaitingThread.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1407CBD90 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpReceiveMessage @ 0x1407CCD50 (AlpcpReceiveMessage.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1407CF500 (AlpcpProcessSynchronousRequest.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     AlpcpAllocateSnapshotMessageLog @ 0x1409777D8 (AlpcpAllocateSnapshotMessageLog.c)
+ *     AlpcpLocateMessageLog @ 0x140977BC8 (AlpcpLocateMessageLog.c)
+ */
+
 signed __int32 __fastcall AlpcpEnterStateChangeEventMessageLog(__int64 a1)
 {
   __int64 MessageLog; // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of HUBMISC_GenerateControllerSuffix @ 0x1C0034298
+ * Callers:
+ *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0018550 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
+ *     HUBID_BuildClassCompatibleID @ 0x1C001E568 (HUBID_BuildClassCompatibleID.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     RtlStringCbPrintfW @ 0x1C0013FD0 (RtlStringCbPrintfW.c)
+ *     WPP_RECORDER_SF_H @ 0x1C002DF4C (WPP_RECORDER_SF_H.c)
+ *     WPP_RECORDER_SF_HH @ 0x1C002DFF8 (WPP_RECORDER_SF_HH.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ */
+
 __int64 __fastcall HUBMISC_GenerateControllerSuffix(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdi

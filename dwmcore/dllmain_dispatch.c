@@ -1,3 +1,14 @@
+/*
+ * XREFs of dllmain_dispatch @ 0x18010EB9C
+ * Callers:
+ *     _DllMainCRTStartup @ 0x18010ECF4 (_DllMainCRTStartup.c)
+ * Callees:
+ *     __scrt_dllmain_exception_filter @ 0x18010E674 (__scrt_dllmain_exception_filter.c)
+ *     dllmain_crt_dispatch @ 0x18010E990 (dllmain_crt_dispatch.c)
+ *     DllMain @ 0x180110894 (DllMain.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall dllmain_dispatch(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
 {
   unsigned int v7; // ebx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhPdoPnp_DeviceUsageNotification @ 0x1C0054E60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhRegisterBootDeviceNotification @ 0x1C005C0FC (UsbhRegisterBootDeviceNotification.c)
+ *     UsbhUpdateSqmFlags @ 0x1C007389C (UsbhUpdateSqmFlags.c)
+ *     UsbhPdo_IsDeviceExternal @ 0x1C0073B34 (UsbhPdo_IsDeviceExternal.c)
+ */
+
 __int64 __fastcall UsbhPdoPnp_DeviceUsageNotification(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 {
   _DWORD *v4; // rax

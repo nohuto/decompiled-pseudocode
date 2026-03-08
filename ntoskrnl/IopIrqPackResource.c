@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopIrqPackResource @ 0x1407F9180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IopIrqPackResource(__int64 a1, int a2, __int64 a3)
 {
   __int64 result; // rax

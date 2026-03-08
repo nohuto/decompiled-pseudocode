@@ -1,3 +1,18 @@
+/*
+ * XREFs of DrvDbDispatchDriverInfFile @ 0x140864AC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DrvDbGetDriverInfFileMappedProperty @ 0x140864950 (DrvDbGetDriverInfFileMappedProperty.c)
+ *     DrvDbOpenDriverInfFileRegKey @ 0x140864A78 (DrvDbOpenDriverInfFileRegKey.c)
+ *     _PnpCtxGetObjectContext @ 0x140864F5C (_PnpCtxGetObjectContext.c)
+ *     DrvDbDeleteObjectRegKey @ 0x140A681B0 (DrvDbDeleteObjectRegKey.c)
+ *     DrvDbGetDriverInfFileMappedPropertyKeys @ 0x140A690A0 (DrvDbGetDriverInfFileMappedPropertyKeys.c)
+ *     DrvDbGetObjectList @ 0x140A696A0 (DrvDbGetObjectList.c)
+ *     DrvDbSetDriverInfFileMappedProperty @ 0x140A6A3F0 (DrvDbSetDriverInfFileMappedProperty.c)
+ *     DrvDbValidateDriverInfFileName @ 0x140A6AC08 (DrvDbValidateDriverInfFileName.c)
+ */
+
 __int64 __fastcall DrvDbDispatchDriverInfFile(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5)
 {
   int ObjectContext; // eax

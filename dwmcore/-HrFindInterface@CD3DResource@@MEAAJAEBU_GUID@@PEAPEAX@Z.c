@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CD3DResource@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802848C0
+ * Callers:
+ *     ?HrFindInterface@CD3DSurface@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180298D60 (-HrFindInterface@CD3DSurface@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CD3DResource::HrFindInterface(CD3DResource *this, const struct _GUID *a2, void **a3)
 {
   __int64 v3; // rax

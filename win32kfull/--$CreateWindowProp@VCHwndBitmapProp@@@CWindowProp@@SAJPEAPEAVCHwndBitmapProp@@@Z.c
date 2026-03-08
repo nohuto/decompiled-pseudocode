@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$CreateWindowProp@VCHwndBitmapProp@@@CWindowProp@@SAJPEAPEAVCHwndBitmapProp@@@Z @ 0x1C0014720
+ * Callers:
+ *     ?_GetWindowCompositionVisualBitmap@@YAJPEAUtagWND@@PEAPEAUCompositionObject@@@Z @ 0x1C0014674 (-_GetWindowCompositionVisualBitmap@@YAJPEAUtagWND@@PEAPEAUCompositionObject@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CWindowProp::CreateWindowProp<CHwndBitmapProp>(_QWORD *a1)
 {
   unsigned int v2; // ebx

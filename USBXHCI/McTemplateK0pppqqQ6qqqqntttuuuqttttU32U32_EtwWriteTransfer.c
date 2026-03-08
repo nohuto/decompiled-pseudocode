@@ -1,3 +1,15 @@
+/*
+ * XREFs of McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer @ 0x1C004B0B8
+ * Callers:
+ *     Etw_DeviceRundown @ 0x1C000FFA0 (Etw_DeviceRundown.c)
+ *     Etw_DeviceUpdate @ 0x1C001D724 (Etw_DeviceUpdate.c)
+ *     Etw_DeviceCreate @ 0x1C001E5C8 (Etw_DeviceCreate.c)
+ *     Etw_DeviceDelete @ 0x1C004AAF0 (Etw_DeviceDelete.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0022498 (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

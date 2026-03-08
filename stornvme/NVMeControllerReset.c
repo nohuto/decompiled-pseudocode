@@ -1,3 +1,26 @@
+/*
+ * XREFs of NVMeControllerReset @ 0x1C000E4D8
+ * Callers:
+ *     NVMeHwAdapterControl @ 0x1C0003050 (NVMeHwAdapterControl.c)
+ *     NVMeHwResetBus @ 0x1C00085C0 (NVMeHwResetBus.c)
+ *     NVMeControllerAsyncResetWorker @ 0x1C000CBD0 (NVMeControllerAsyncResetWorker.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ *     FillControllerRuntimeLog @ 0x1C0007908 (FillControllerRuntimeLog.c)
+ *     NVMeControllerStartFailureEventLog @ 0x1C0007C08 (NVMeControllerStartFailureEventLog.c)
+ *     ControllerReset @ 0x1C0009668 (ControllerReset.c)
+ *     IsNVMeControllerOnFatalError @ 0x1C000C03C (IsNVMeControllerOnFatalError.c)
+ *     NVMeCancelAllCompletionQueueDpc @ 0x1C000C2A8 (NVMeCancelAllCompletionQueueDpc.c)
+ *     NVMeControllerCompleteAllIORequests @ 0x1C000CC54 (NVMeControllerCompleteAllIORequests.c)
+ *     NVMeControllerInitPart1 @ 0x1C000D7A8 (NVMeControllerInitPart1.c)
+ *     NVMeControllerInitPart2 @ 0x1C000D9F0 (NVMeControllerInitPart2.c)
+ *     NVMeControllerInitPart3 @ 0x1C000DCDC (NVMeControllerInitPart3.c)
+ *     NVMeHardwareReset @ 0x1C000F26C (NVMeHardwareReset.c)
+ *     NVMeQueuesReInit @ 0x1C0010588 (NVMeQueuesReInit.c)
+ *     NvmSubsystemReset @ 0x1C0010BAC (NvmSubsystemReset.c)
+ */
+
 char __fastcall NVMeControllerReset(__int64 a1, char a2)
 {
   char v4; // r12

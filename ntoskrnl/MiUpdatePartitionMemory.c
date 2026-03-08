@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiUpdatePartitionMemory @ 0x1406597F8
+ * Callers:
+ *     MiMakePartitionMemoryBlock @ 0x140A4242C (MiMakePartitionMemoryBlock.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiDereferencePageRunsEx @ 0x1402EBA28 (MiDereferencePageRunsEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiComputeNodeMemory @ 0x1403A6D2C (MiComputeNodeMemory.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiUpdatePartitionMemory(__int64 a1, __int64 a2, int a3)
 {
   volatile LONG *v3; // rbx

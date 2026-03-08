@@ -1,3 +1,11 @@
+/*
+ * XREFs of TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C00BE2C8
+ * Callers:
+ *     TlgRegisterAggregateProviderEx @ 0x1C00BE1D4 (TlgRegisterAggregateProviderEx.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(char *CallbackContext, __int64 a2, __int64 a3)
 {
   ULONGLONG *v3; // rsi

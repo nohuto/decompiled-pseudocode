@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiCreateSectionCommon @ 0x1407D01E0
+ * Callers:
+ *     NtCreateSection @ 0x1407D1770 (NtCreateSection.c)
+ *     NtCreateSectionEx @ 0x140A2CB00 (NtCreateSectionEx.c)
+ * Callees:
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     CcZeroEndOfLastPage @ 0x140343FA8 (CcZeroEndOfLastPage.c)
+ *     MiReferenceControlAreaFile @ 0x140344094 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1403441A0 (MiDereferenceControlAreaFile.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     MiCaptureSectionCreateExtendedParameters @ 0x1407D0550 (MiCaptureSectionCreateExtendedParameters.c)
+ *     MiCreateSection @ 0x1407D05D0 (MiCreateSection.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall MiCreateSectionCommon(
         unsigned __int64 a1,
         unsigned int a2,

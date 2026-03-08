@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?ComputeAndDeliverMouseButtons@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@@Z @ 0x1C022B6A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ApiSetEditionForegroundQAccessibleToMouseProducer @ 0x1C007C9A8 (ApiSetEditionForegroundQAccessibleToMouseProducer.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ??0CButtonEvent@CMouseProcessor@@QEAA@W4ButtonNumber@@W4ButtonState@1@W4ButtonStateSpecialization@1@PEBVCMouseEvent@1@@Z @ 0x1C022A844 (--0CButtonEvent@CMouseProcessor@@QEAA@W4ButtonNumber@@W4ButtonState@1@W4ButtonStateSpecializatio.c)
+ *     ?ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z @ 0x1C022F50C (-ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z.c)
+ */
+
 void __fastcall CMouseProcessor::ComputeAndDeliverMouseButtons(
         CMouseProcessor *this,
         const struct CMouseProcessor::CMouseEvent *a2)

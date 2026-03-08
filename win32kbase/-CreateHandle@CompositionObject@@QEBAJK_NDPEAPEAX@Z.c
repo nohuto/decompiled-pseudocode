@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z @ 0x1C00BA110
+ * Callers:
+ *     NtDCompositionGetMaterialProperty @ 0x1C000C040 (NtDCompositionGetMaterialProperty.c)
+ *     ?OpenSharedResourceHandle@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAX@Z @ 0x1C00BA090 (-OpenSharedResourceHandle@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall CompositionObject::CreateHandle(
         CompositionObject *this,
         ACCESS_MASK a2,

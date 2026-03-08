@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0qqxqqqqqqtqqqqtqq_EtwWriteTransfer @ 0x1C016730C
+ * Callers:
+ *     EtwTraceTouchPadHWTimeStamp @ 0x1C01643C0 (EtwTraceTouchPadHWTimeStamp.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0qqxqqqqqqtqqqqtqq_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

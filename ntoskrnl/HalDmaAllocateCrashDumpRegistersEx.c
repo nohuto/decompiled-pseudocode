@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalDmaAllocateCrashDumpRegistersEx @ 0x1403A9AD0
+ * Callers:
+ *     DifHalDmaAllocateCrashDumpRegistersExWrapper @ 0x1405D8560 (DifHalDmaAllocateCrashDumpRegistersExWrapper.c)
+ * Callees:
+ *     HalpIsHvPresent @ 0x14037337C (HalpIsHvPresent.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     HalpDmaExtractFromVerifierShadowAdapter @ 0x1403A9C20 (HalpDmaExtractFromVerifierShadowAdapter.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpDmaAllocateMapRegisters @ 0x14045399E (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaFreeMapRegisters @ 0x140453EF6 (HalpDmaFreeMapRegisters.c)
+ *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x14050E094 (HalpDmaAllocateMapRegistersAtHighLevel.c)
+ */
+
 __int64 __fastcall HalDmaAllocateCrashDumpRegistersEx(
         __int64 a1,
         unsigned int a2,

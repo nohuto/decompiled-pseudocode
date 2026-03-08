@@ -1,3 +1,17 @@
+/*
+ * XREFs of BiQueryBootOptions @ 0x14082BCCC
+ * Callers:
+ *     BiBindEfiBootManager @ 0x14082C288 (BiBindEfiBootManager.c)
+ *     BiExportEfiBootManager @ 0x140A5B928 (BiExportEfiBootManager.c)
+ * Callees:
+ *     ZwQueryBootOptions @ 0x140414C30 (ZwQueryBootOptions.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiAcquirePrivilege @ 0x14082F784 (BiAcquirePrivilege.c)
+ *     BiReleasePrivilege @ 0x14082F810 (BiReleasePrivilege.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiQueryBootOptions(_QWORD *a1, unsigned int *a2)
 {
   void *v2; // rdi

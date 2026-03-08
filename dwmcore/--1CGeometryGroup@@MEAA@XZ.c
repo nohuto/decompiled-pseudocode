@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CGeometryGroup@@MEAA@XZ @ 0x18022B764
+ * Callers:
+ *     ??_ECGeometryGroup@@MEAAPEAXI@Z @ 0x1801BFDD0 (--_ECGeometryGroup@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?UnRegisterNotifiers@CGeometryGroup@@UEAAXXZ @ 0x18021EF20 (-UnRegisterNotifiers@CGeometryGroup@@UEAAXXZ.c)
+ */
+
 void __fastcall CGeometryGroup::~CGeometryGroup(CGeometryGroup *this)
 {
   __int64 v2; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcRecalculateVacbArrayHighwaterMark @ 0x140535C64
+ * Callers:
+ *     CcGetRandomVacbArrayWithReference @ 0x140535BC4 (CcGetRandomVacbArrayWithReference.c)
+ *     CcUnmapInactiveViewsInternal @ 0x140535FC0 (CcUnmapInactiveViewsInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CcRecalculateVacbArrayHighwaterMark(__int64 a1)
 {
   int v1; // edx

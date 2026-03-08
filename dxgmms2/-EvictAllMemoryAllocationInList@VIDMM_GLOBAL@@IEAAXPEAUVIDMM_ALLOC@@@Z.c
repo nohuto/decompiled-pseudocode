@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EvictAllMemoryAllocationInList@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C00E27A0
+ * Callers:
+ *     ?EvictAllReclaimedAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C00E2878 (-EvictAllReclaimedAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
+ * Callees:
+ *     ?EvictAllAllocationInList@VIDMM_GLOBAL@@IEAAXPEAU_LIST_ENTRY@@PEAIPEA_K@Z @ 0x1C00E26AC (-EvictAllAllocationInList@VIDMM_GLOBAL@@IEAAXPEAU_LIST_ENTRY@@PEAIPEA_K@Z.c)
+ *     GetBucketIdForAllocationSizePow2 @ 0x1C00F4040 (GetBucketIdForAllocationSizePow2.c)
+ */
+
 void __fastcall VIDMM_GLOBAL::EvictAllMemoryAllocationInList(VIDMM_GLOBAL *this, struct VIDMM_ALLOC *a2)
 {
   struct _LIST_ENTRY *v2; // rsi

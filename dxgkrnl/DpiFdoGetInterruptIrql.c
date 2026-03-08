@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiFdoGetInterruptIrql @ 0x1C01F0F98
+ * Callers:
+ *     DpiFdoConnectInterrupt @ 0x1C01F0E70 (DpiFdoConnectInterrupt.c)
+ *     DpiLdaGetInterruptIrqlForChain @ 0x1C03A38A0 (DpiLdaGetInterruptIrqlForChain.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiFdoGetInterruptIrql(__int64 a1, unsigned __int8 *a2)
 {
   unsigned __int8 v2; // al

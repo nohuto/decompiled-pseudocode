@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DeleteAllFlipManagerTokens@CTokenManager@@IEAAXXZ @ 0x1C0018E74
+ * Callers:
+ *     ??1CTokenManager@@AEAA@XZ @ 0x1C00172B0 (--1CTokenManager@@AEAA@XZ.c)
+ *     ?DeleteAllTokens@CTokenManager@@UEAAXXZ @ 0x1C0017590 (-DeleteAllTokens@CTokenManager@@UEAAXXZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?FlipManagerConsumerAdapterCleanupTokenDiscard@@YAJPEAUFlipManagerTokenObject@@@Z @ 0x1C0081048 (-FlipManagerConsumerAdapterCleanupTokenDiscard@@YAJPEAUFlipManagerTokenObject@@@Z.c)
+ */
+
 void __fastcall CTokenManager::DeleteAllFlipManagerTokens(CTokenManager *this)
 {
   _QWORD **v2; // rdi

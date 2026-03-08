@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserSetWindowLong @ 0x1C00C8F50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxSetWindowLong @ 0x1C00C9054 (xxxSetWindowLong.c)
+ *     DesktopVerifyHeapRange @ 0x1C01BFA78 (DesktopVerifyHeapRange.c)
+ */
+
 __int64 __fastcall NtUserSetWindowLong(__int64 a1, int a2)
 {
   __int64 v4; // rax

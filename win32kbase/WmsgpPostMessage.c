@@ -1,3 +1,13 @@
+/*
+ * XREFs of WmsgpPostMessage @ 0x1C0301404
+ * Callers:
+ *     PostWinlogonMessage @ 0x1C0090D50 (PostWinlogonMessage.c)
+ * Callees:
+ *     WMsg_midl_user_allocate @ 0x1C0090DD0 (WMsg_midl_user_allocate.c)
+ *     ClientI_WMsgkSendMessage @ 0x1C0090DFC (ClientI_WMsgkSendMessage.c)
+ *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00A07E0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
+ */
+
 __int64 __fastcall WmsgpPostMessage(__int64 a1, int a2, int a3)
 {
   RPC_BINDING_HANDLE v5; // rsi

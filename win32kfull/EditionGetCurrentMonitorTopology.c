@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionGetCurrentMonitorTopology @ 0x1C00F6270
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 CMonitorTopology *__fastcall EditionGetCurrentMonitorTopology(_QWORD *a1)
 {
   CMonitorTopology *result; // rax

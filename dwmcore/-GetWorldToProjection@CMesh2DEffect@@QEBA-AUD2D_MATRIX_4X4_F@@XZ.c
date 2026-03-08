@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetWorldToProjection@CMesh2DEffect@@QEBA?AUD2D_MATRIX_4X4_F@@XZ @ 0x180108750
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 struct D2D_MATRIX_4X4_F *__fastcall CMesh2DEffect::GetWorldToProjection(
         CMesh2DEffect *this,
         struct D2D_MATRIX_4X4_F *__return_ptr retstr)

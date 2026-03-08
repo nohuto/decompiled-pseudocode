@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViMiscCheckResourceAcquire @ 0x140ADE41C
+ * Callers:
+ *     VfMiscExAcquireSharedWaitForExclusive_Entry @ 0x140ABD810 (VfMiscExAcquireSharedWaitForExclusive_Entry.c)
+ * Callees:
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 struct _KTHREAD *__fastcall ViMiscCheckResourceAcquire(__int64 a1, char a2)
 {
   struct _KTHREAD *result; // rax

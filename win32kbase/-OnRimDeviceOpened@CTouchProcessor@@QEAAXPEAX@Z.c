@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?OnRimDeviceOpened@CTouchProcessor@@QEAAXPEAX@Z @ 0x1C01FC878
+ * Callers:
+ *     ?OnRIMDeviceOpened@CHidInput@@EEAAKPEAUDEVICEINFO@@@Z @ 0x1C0211FE0 (-OnRIMDeviceOpened@CHidInput@@EEAAKPEAUDEVICEINFO@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?IsTouchDevice@CTouchProcessor@@IEBAHPEAX@Z @ 0x1C01FC028 (-IsTouchDevice@CTouchProcessor@@IEBAHPEAX@Z.c)
+ *     ApiSetEditionCreateEdgePalmRejectionZones @ 0x1C023CFD8 (ApiSetEditionCreateEdgePalmRejectionZones.c)
+ */
+
 void __fastcall CTouchProcessor::OnRimDeviceOpened(CTouchProcessor *this, void *a2)
 {
   void *v2; // rdi

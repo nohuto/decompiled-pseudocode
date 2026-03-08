@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiCreatePatchTableProtos @ 0x140A33A10
+ * Callers:
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiLockPagedRange @ 0x14072601C (MiLockPagedRange.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void *MiCreatePatchTableProtos()
 {
   SIZE_T v0; // rdi

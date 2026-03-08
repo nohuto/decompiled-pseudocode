@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpFindDebugId @ 0x140775478
+ * Callers:
+ *     EtwpLocateDbgIdForRegEntry @ 0x140775328 (EtwpLocateDbgIdForRegEntry.c)
+ *     EtwpCovSampContextGetModule @ 0x1409EE4AC (EtwpCovSampContextGetModule.c)
+ * Callees:
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     EtwpIsValidImageAddress @ 0x140775684 (EtwpIsValidImageAddress.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall EtwpFindDebugId(__int64 a1, size_t a2, __int64 *a3, _DWORD *a4)
 {
   int v5; // edi

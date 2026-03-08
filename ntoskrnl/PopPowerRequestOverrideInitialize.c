@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopPowerRequestOverrideInitialize @ 0x14085F104
+ * Callers:
+ *     PopUmpoProcessPowerMessage @ 0x14073B5A4 (PopUmpoProcessPowerMessage.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopUmpoSendPowerRequestOverrideQuery @ 0x1402BCE58 (PopUmpoSendPowerRequestOverrideQuery.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14073B7D4 (PopAcquirePowerRequestPushLock.c)
+ */
+
 void PopPowerRequestOverrideInitialize()
 {
   __int64 v0; // rdx

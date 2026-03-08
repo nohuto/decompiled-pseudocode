@@ -1,3 +1,21 @@
+/*
+ * XREFs of WmipSecurityMethod @ 0x14076BC30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ObQuerySecurityDescriptorInfo @ 0x140696AE0 (ObQuerySecurityDescriptorInfo.c)
+ *     ObSetSecurityDescriptorInfo @ 0x140751100 (ObSetSecurityDescriptorInfo.c)
+ *     ObAssignObjectSecurityDescriptor @ 0x14076BE14 (ObAssignObjectSecurityDescriptor.c)
+ *     ObDeassignSecurity @ 0x14076BE90 (ObDeassignSecurity.c)
+ *     WmipSaveGuidSecurityDescriptor @ 0x14085BE20 (WmipSaveGuidSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WmipSecurityMethod(
         unsigned __int16 *Object,
         int a2,

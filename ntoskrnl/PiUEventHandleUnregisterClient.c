@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiUEventHandleUnregisterClient @ 0x140796DDC
+ * Callers:
+ *     PiUEventHandleIoctl @ 0x14068DF6C (PiUEventHandleIoctl.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ */
+
 __int64 __fastcall PiUEventHandleUnregisterClient(__int64 a1)
 {
   __int64 v1; // rdi

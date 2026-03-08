@@ -1,3 +1,11 @@
+/*
+ * XREFs of SendAppClipChanged @ 0x1C0015910
+ * Callers:
+ *     ?UpdateClipRect@CCursorClip@@AEAAXUtagRECT@@@Z @ 0x1C0015004 (-UpdateClipRect@CCursorClip@@AEAAXUtagRECT@@@Z.c)
+ * Callees:
+ *     SendMessageTo @ 0x1C0081230 (SendMessageTo.c)
+ */
+
 __int64 __fastcall SendAppClipChanged(_OWORD *a1)
 {
   _OWORD v2[2]; // [rsp+20h] [rbp-38h] BYREF

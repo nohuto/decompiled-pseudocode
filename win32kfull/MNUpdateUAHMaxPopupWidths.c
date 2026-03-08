@@ -1,3 +1,12 @@
+/*
+ * XREFs of MNUpdateUAHMaxPopupWidths @ 0x1C023B280
+ * Callers:
+ *     ?xxxMNGetBitmapSize@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagWND@@HPEAUHDC__@@@Z @ 0x1C023A8F8 (-xxxMNGetBitmapSize@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagWND@@HPEAUHDC__@@.c)
+ *     MNRefreshUAHCachedSizes @ 0x1C023B230 (MNRefreshUAHCachedSizes.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MNUpdateUAHMaxPopupWidths(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

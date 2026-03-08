@@ -1,3 +1,12 @@
+/*
+ * XREFs of McGenEventWrite_EtwEventWriteTransfer @ 0x14000B068
+ * Callers:
+ *     ?StartKernelRedirection@CDwmAppHost@@AEAAJXZ @ 0x14000394C (-StartKernelRedirection@CDwmAppHost@@AEAAJXZ.c)
+ *     McTemplateU0q_EtwEventWriteTransfer @ 0x14000B0CC (McTemplateU0q_EtwEventWriteTransfer.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall McGenEventWrite_EtwEventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
 {
   unsigned __int16 *v5; // r8

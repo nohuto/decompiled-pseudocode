@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiReadBlockListInfo @ 0x1C039554C
+ * Callers:
+ *     ?DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C018DC00 (-DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ */
+
 __int64 __fastcall DpiReadBlockListInfo(__int64 a1, unsigned int *a2, unsigned int a3, char a4)
 {
   __int64 v4; // r10

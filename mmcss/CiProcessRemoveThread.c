@@ -1,3 +1,11 @@
+/*
+ * XREFs of CiProcessRemoveThread @ 0x1C000A6D0
+ * Callers:
+ *     CiThreadCleanup @ 0x1C000A4B0 (CiThreadCleanup.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CiProcessRemoveThread(__int64 a1)
 {
   __int64 v1; // rdi

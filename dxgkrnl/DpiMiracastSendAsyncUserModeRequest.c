@@ -1,3 +1,14 @@
+/*
+ * XREFs of DpiMiracastSendAsyncUserModeRequest @ 0x1C039B048
+ * Callers:
+ *     DpiMiracastStopMiracastSessionSync @ 0x1C0060170 (DpiMiracastStopMiracastSessionSync.c)
+ *     DxgkMiracastStartMiracastSession @ 0x1C00615C4 (DxgkMiracastStartMiracastSession.c)
+ *     DpiMiracastCbSendUserModeMessage @ 0x1C039A080 (DpiMiracastCbSendUserModeMessage.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     McTemplateK0pqtqq_EtwWriteTransfer @ 0x1C0040104 (McTemplateK0pqtqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiMiracastSendAsyncUserModeRequest(
         _QWORD *a1,
         __int64 a2,

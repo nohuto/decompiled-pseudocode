@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?Create@CCommandBatch@@SAJIPEAPEAV1@@Z @ 0x180044740
+ * Callers:
+ *     ?EnsureSize@CChannel@@AEAAJI@Z @ 0x180043C0C (-EnsureSize@CChannel@@AEAAJI@Z.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x180044440 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ * Callees:
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038C50 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?RoundUpToAlignDWORD@@YAJPEAI@Z @ 0x1800447F0 (-RoundUpToAlignDWORD@@YAJPEAI@Z.c)
+ *     ?AllocateNewBlock@CDataStreamWriter@@IEAAJI@Z @ 0x180044814 (-AllocateNewBlock@CDataStreamWriter@@IEAAJI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??_GCCommandBatch@@QEAAPEAXI@Z @ 0x1801B261C (--_GCCommandBatch@@QEAAPEAXI@Z.c)
+ */
+
 __int64 __fastcall CCommandBatch::Create(unsigned int a1, struct CCommandBatch **a2)
 {
   _QWORD *v3; // rax

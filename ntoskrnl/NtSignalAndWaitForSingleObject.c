@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtSignalAndWaitForSingleObject @ 0x140580330
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeReleaseSemaphoreEx @ 0x14033E940 (KeReleaseSemaphoreEx.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KeReleaseMutantEx @ 0x14040A86C (KeReleaseMutantEx.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406D8E50 (ObReferenceObjectByHandleWithTag.c)
+ */
+
 __int64 __fastcall NtSignalAndWaitForSingleObject(void *a1, void *a2, BOOLEAN a3, unsigned __int64 a4)
 {
   KPROCESSOR_MODE PreviousMode; // r14

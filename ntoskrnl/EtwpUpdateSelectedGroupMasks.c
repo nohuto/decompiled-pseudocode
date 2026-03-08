@@ -1,3 +1,22 @@
+/*
+ * XREFs of EtwpUpdateSelectedGroupMasks @ 0x14037F908
+ * Callers:
+ *     EtwpEnableMetaProviderGuid @ 0x140204F18 (EtwpEnableMetaProviderGuid.c)
+ *     EtwpUpdateGroupMasks @ 0x14080D8D8 (EtwpUpdateGroupMasks.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x140785F3C (EtwpUpdateGlobalGroupMasks.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     EtwpLogGroupMask @ 0x14080D970 (EtwpLogGroupMask.c)
+ *     EtwpKernelTraceRundown @ 0x14080D9F8 (EtwpKernelTraceRundown.c)
+ *     EtwpLogAlwaysPresentRundown @ 0x14080E2F8 (EtwpLogAlwaysPresentRundown.c)
+ *     EtwpCCSwapStart @ 0x14080E634 (EtwpCCSwapStart.c)
+ *     EtwpCCSwapStop @ 0x14080E6EC (EtwpCCSwapStop.c)
+ */
+
 __int64 __fastcall EtwpUpdateSelectedGroupMasks(int *a1, _DWORD *a2, _DWORD *a3)
 {
   _DWORD *v5; // rbx

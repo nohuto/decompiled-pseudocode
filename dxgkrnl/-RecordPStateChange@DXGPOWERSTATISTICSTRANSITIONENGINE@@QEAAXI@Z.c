@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RecordPStateChange@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXI@Z @ 0x1C00549F0
+ * Callers:
+ *     ?CompletePStateTransitionCB@DXGADAPTER@@QEAAXII@Z @ 0x1C003E8DC (-CompletePStateTransitionCB@DXGADAPTER@@QEAAXII@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DXGPOWERSTATISTICSTRANSITIONENGINE::RecordPStateChange(LARGE_INTEGER *this, DWORD a2)
 {
   bool v4; // zf

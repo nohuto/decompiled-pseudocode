@@ -1,3 +1,27 @@
+/*
+ * XREFs of MiFindFreePageFileSpace @ 0x140209F7C
+ * Callers:
+ *     MiGetKernelStackSwapSupport @ 0x1402DBFB8 (MiGetKernelStackSwapSupport.c)
+ *     MiReservePageFileSpace @ 0x14032E800 (MiReservePageFileSpace.c)
+ *     MiFindPageFileWriteCluster @ 0x1406374E0 (MiFindPageFileWriteCluster.c)
+ *     MiTrimUnusedPageFileRegionsApc @ 0x1406391E0 (MiTrimUnusedPageFileRegionsApc.c)
+ *     MiReserveWorkingSetSwapSpaceRuns @ 0x140A4071C (MiReserveWorkingSetSwapSpaceRuns.c)
+ * Callees:
+ *     MiInvalidatePageFileBitmapsCache @ 0x14020A3E4 (MiInvalidatePageFileBitmapsCache.c)
+ *     MiPageFileLargestBitmapsRun @ 0x14020A53C (MiPageFileLargestBitmapsRun.c)
+ *     RtlLengthCurrentClearRunForward @ 0x14020B7C4 (RtlLengthCurrentClearRunForward.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     RtlSetBits @ 0x14028BC50 (RtlSetBits.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     MiTransferSoftwarePte @ 0x14032F630 (MiTransferSoftwarePte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiRescanPagefileBitmaps @ 0x140392140 (MiRescanPagefileBitmaps.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFindFreePageFileSpaceForward @ 0x1406373A0 (MiFindFreePageFileSpaceForward.c)
+ *     MiSetPageFileAllocationBits @ 0x1406391A8 (MiSetPageFileAllocationBits.c)
+ */
+
 __int64 __fastcall MiFindFreePageFileSpace(__int64 a1, unsigned __int64 *a2, unsigned __int64 a3, unsigned __int64 a4)
 {
   unsigned int v4; // esi

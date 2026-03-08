@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiCompareActiveCrcEntries @ 0x14022A0D4
+ * Callers:
+ *     MiProcessCrcList @ 0x1406A8670 (MiProcessCrcList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiCompareActiveCrcEntries(__int64 a1, __int64 a2)
 {
   unsigned __int64 v2; // rax

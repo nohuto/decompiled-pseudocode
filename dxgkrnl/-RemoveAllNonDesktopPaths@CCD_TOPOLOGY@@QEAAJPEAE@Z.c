@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RemoveAllNonDesktopPaths@CCD_TOPOLOGY@@QEAAJPEAE@Z @ 0x1C03B7170
+ * Callers:
+ *     ?Functionalize@CCD_TOPOLOGY@@QEAAJI_N@Z @ 0x1C01C3C80 (-Functionalize@CCD_TOPOLOGY@@QEAAJI_N@Z.c)
+ *     ?ApplyTopology@CCD_TOPOLOGY@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01C3E44 (-ApplyTopology@CCD_TOPOLOGY@@QEAAJIPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ * Callees:
+ *     ?ClearModalitySetId@CCD_TOPOLOGY@@QEBAXXZ @ 0x1C01BD614 (-ClearModalitySetId@CCD_TOPOLOGY@@QEBAXXZ.c)
+ */
+
 __int64 __fastcall CCD_TOPOLOGY::RemoveAllNonDesktopPaths(CCD_TOPOLOGY *this, unsigned __int8 *a2)
 {
   unsigned __int16 v2; // r8

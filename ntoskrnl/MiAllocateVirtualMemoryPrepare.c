@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiAllocateVirtualMemoryPrepare @ 0x1407C4C00
+ * Callers:
+ *     MiAllocateVirtualMemoryCommon @ 0x1407C4A70 (MiAllocateVirtualMemoryCommon.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     xHalUnmaskInterrupt @ 0x14036D7F0 (xHalUnmaskInterrupt.c)
+ *     MiHugePagesSupported @ 0x1403C1984 (MiHugePagesSupported.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406D8E50 (ObReferenceObjectByHandleWithTag.c)
+ *     MiValidateAllocationType @ 0x1407C5194 (MiValidateAllocationType.c)
+ *     MiValidateZeroBits @ 0x1407D4DF0 (MiValidateZeroBits.c)
+ *     MiGetUserReservationHighestAddress @ 0x1407D51A4 (MiGetUserReservationHighestAddress.c)
+ */
+
 __int64 MiAllocateVirtualMemoryPrepare(void *a1, unsigned __int64 a2, ...)
 {
   __int64 v2; // rbx

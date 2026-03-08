@@ -1,3 +1,15 @@
+/*
+ * XREFs of AlpcReserveDestroyProcedure @ 0x140794020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     AlpcDeleteBlobByHandle @ 0x1406A0400 (AlpcDeleteBlobByHandle.c)
+ *     AlpcpRemoveResourcePort @ 0x1406A293C (AlpcpRemoveResourcePort.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1407CBD44 (AlpcpLockForCachedReferenceBlob.c)
+ */
+
 __int64 __fastcall AlpcReserveDestroyProcedure(__int64 *a1)
 {
   ULONG_PTR v1; // rdi

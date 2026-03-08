@@ -1,3 +1,21 @@
+/*
+ * XREFs of PpmUpdateProcessorIdleVeto @ 0x140584430
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140236BF0 (KeGetProcessorIndexFromNumber.c)
+ *     PopExecuteOnTargetProcessors @ 0x140236D20 (PopExecuteOnTargetProcessors.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmUpdateIdleVeto @ 0x140583F90 (PpmUpdateIdleVeto.c)
+ *     PpmEventProcessorVetoRequest @ 0x140598E90 (PpmEventProcessorVetoRequest.c)
+ */
+
 __int64 __fastcall PpmUpdateProcessorIdleVeto(__int64 a1)
 {
   ULONG ProcessorIndexFromNumber; // r14d

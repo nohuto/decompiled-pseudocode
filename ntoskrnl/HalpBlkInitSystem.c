@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpBlkInitSystem @ 0x140B3DFE0
+ * Callers:
+ *     HalpProcInitSystem @ 0x140A878D0 (HalpProcInitSystem.c)
+ * Callees:
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HalpBlkInitializeVirtualAddressSpace @ 0x140B8ECAC (HalpBlkInitializeVirtualAddressSpace.c)
+ *     HalpBlkWdInitialize @ 0x140B8FBF8 (HalpBlkWdInitialize.c)
+ */
+
 void __fastcall HalpBlkInitSystem(int a1)
 {
   int v1; // eax

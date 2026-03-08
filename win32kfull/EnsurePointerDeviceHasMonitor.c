@@ -1,3 +1,11 @@
+/*
+ * XREFs of EnsurePointerDeviceHasMonitor @ 0x1C0146090
+ * Callers:
+ *     _GetPointerDeviceRects @ 0x1C00E4B94 (_GetPointerDeviceRects.c)
+ * Callees:
+ *     ?IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ @ 0x1C004A174 (-IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ.c)
+ */
+
 __int64 __fastcall EnsurePointerDeviceHasMonitor(__int64 a1)
 {
   __int64 v1; // rdi

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PnpCmResourcesToIoResources @ 0x140804A84
+ * Callers:
+ *     PnpReleaseBootResourcesForFilteredRequirements @ 0x14055F1D4 (PnpReleaseBootResourcesForFilteredRequirements.c)
+ *     IopQueryDeviceResources @ 0x1406F6440 (IopQueryDeviceResources.c)
+ *     PnpFilterResourceRequirementsList @ 0x140803FE4 (PnpFilterResourceRequirementsList.c)
+ *     IopAllocateBootResourcesInternal @ 0x1408046F8 (IopAllocateBootResourcesInternal.c)
+ *     IoReportResourceUsageInternal @ 0x140953FC8 (IoReportResourceUsageInternal.c)
+ *     PnpRestoreResourcesInternal @ 0x14096A7C4 (PnpRestoreResourcesInternal.c)
+ * Callees:
+ *     RtlCmDecodeMemIoResource @ 0x1403706C0 (RtlCmDecodeMemIoResource.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 _DWORD *__fastcall PnpCmResourcesToIoResources(__int64 a1, _DWORD *a2, int a3)
 {
   unsigned int v3; // r9d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopFanSetupRpmBuckets @ 0x140994364
+ * Callers:
+ *     PopFanWorker @ 0x140846840 (PopFanWorker.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 unsigned int __fastcall PopFanSetupRpmBuckets(__int64 a1)
 {
   unsigned int v1; // r11d

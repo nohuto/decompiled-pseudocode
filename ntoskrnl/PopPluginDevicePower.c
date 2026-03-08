@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopPluginDevicePower @ 0x140306D00
+ * Callers:
+ *     PopFxCompleteDevicePowerRequired @ 0x140304EE0 (PopFxCompleteDevicePowerRequired.c)
+ *     PopFxProcessWork @ 0x1403060C4 (PopFxProcessWork.c)
+ * Callees:
+ *     PopPepUpdateConstraints @ 0x1402B9328 (PopPepUpdateConstraints.c)
+ *     PopPepProcessEvent @ 0x140307424 (PopPepProcessEvent.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ */
+
 __int64 __fastcall PopPluginDevicePower(__int64 a1, char a2, __int64 a3)
 {
   __int64 v3; // rbx

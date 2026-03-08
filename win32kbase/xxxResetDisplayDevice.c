@@ -1,3 +1,29 @@
+/*
+ * XREFs of xxxResetDisplayDevice @ 0x1C0016410
+ * Callers:
+ *     xxxUserSetDisplayConfig @ 0x1C0011DE0 (xxxUserSetDisplayConfig.c)
+ *     VideoPortCalloutThread @ 0x1C00D93A8 (VideoPortCalloutThread.c)
+ *     ?xxxUserChangeDisplaySettingsInternal@@YAJPEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAUtagDESKTOP@@KPEAXW4_MODE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C015DB90 (-xxxUserChangeDisplaySettingsInternal@@YAJPEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAUtagDESKTOP@.c)
+ *     UserNotifyUniversalScaleFactorChanged @ 0x1C017CCD4 (UserNotifyUniversalScaleFactorChanged.c)
+ * Callees:
+ *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0014608 (-zzzUpdateUserScreen@@YAJXZ.c)
+ *     IsPostIAMShellHookMessageExSupported @ 0x1C00163DC (IsPostIAMShellHookMessageExSupported.c)
+ *     ReferenceDwmApiPort @ 0x1C00167E0 (ReferenceDwmApiPort.c)
+ *     IsDwmAsyncNotifyDisplayModeChangeSupported @ 0x1C0016D1C (IsDwmAsyncNotifyDisplayModeChangeSupported.c)
+ *     DwmAsyncNotifyDisplayModeChange @ 0x1C0016D48 (DwmAsyncNotifyDisplayModeChange.c)
+ *     IsCreateBitmapStripSupported @ 0x1C0017470 (IsCreateBitmapStripSupported.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C007795C (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00ABD88 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     ApiSetEditionEndDeferWinEventNotify @ 0x1C00AD874 (ApiSetEditionEndDeferWinEventNotify.c)
+ *     ApiSeEditionDeferWinEventNotify @ 0x1C00AD970 (ApiSeEditionDeferWinEventNotify.c)
+ *     ?ResetSystemColors@@YAXXZ @ 0x1C00C8EE0 (-ResetSystemColors@@YAXXZ.c)
+ *     DestroyMonitorDCs @ 0x1C00D0790 (DestroyMonitorDCs.c)
+ *     ?UnlockAndRelease@CMonitorTopology@@SAXPEAPEAV1@PEAU_TL@@@Z @ 0x1C00D2A2C (-UnlockAndRelease@CMonitorTopology@@SAXPEAPEAV1@PEAU_TL@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C00EDED8 (McTemplateK0_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall xxxResetDisplayDevice(__int64 a1, int a2, unsigned int a3, __int64 a4)
 {
   struct CMonitorTopology *v5; // rcx

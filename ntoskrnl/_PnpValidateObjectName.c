@@ -1,3 +1,14 @@
+/*
+ * XREFs of _PnpValidateObjectName @ 0x140747528
+ * Callers:
+ *     PiDqOpenUserObjectRegKey @ 0x140747298 (PiDqOpenUserObjectRegKey.c)
+ *     PiDmObjectCreate @ 0x140868FFC (PiDmObjectCreate.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _PnpValidateObjectNameDispatch @ 0x1407475E8 (_PnpValidateObjectNameDispatch.c)
+ */
+
 __int64 __fastcall PnpValidateObjectName(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v3; // rsi

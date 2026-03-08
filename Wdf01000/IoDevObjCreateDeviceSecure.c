@@ -1,3 +1,14 @@
+/*
+ * XREFs of IoDevObjCreateDeviceSecure @ 0x1C00B05A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IopDevObjApplyPostCreationSettings @ 0x1C00B0730 (IopDevObjApplyPostCreationSettings.c)
+ *     SeSddlSecurityDescriptorFromSDDL @ 0x1C00B0820 (SeSddlSecurityDescriptorFromSDDL.c)
+ *     PpRegStateReadCreateClassCreationSettings @ 0x1C00B1610 (PpRegStateReadCreateClassCreationSettings.c)
+ *     PpRegStateUpdateStackCreationSettings @ 0x1C00B1774 (PpRegStateUpdateStackCreationSettings.c)
+ */
+
 NTSTATUS __fastcall IoDevObjCreateDeviceSecure(
         _DRIVER_OBJECT *DriverObject,
         unsigned int DeviceExtensionSize,

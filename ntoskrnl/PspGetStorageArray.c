@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspGetStorageArray @ 0x140738754
+ * Callers:
+ *     PspStorageMakeSlotReadOnly @ 0x1407359D8 (PspStorageMakeSlotReadOnly.c)
+ *     PspStorageInsertObject @ 0x140738660 (PspStorageInsertObject.c)
+ *     PspStorageReplaceObject @ 0x1409B50B4 (PspStorageReplaceObject.c)
+ * Callees:
+ *     PspGetStorageArrayIfPossible @ 0x1402995E4 (PspGetStorageArrayIfPossible.c)
+ *     PspLazyInitializeStorageExpansion @ 0x1409B4D98 (PspLazyInitializeStorageExpansion.c)
+ */
+
 __int64 __fastcall PspGetStorageArray(__int64 a1, unsigned int a2, unsigned int *a3, _QWORD *a4)
 {
   __int64 result; // rax

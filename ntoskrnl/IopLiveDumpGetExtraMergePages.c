@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopLiveDumpGetExtraMergePages @ 0x14094B4D0
+ * Callers:
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14094C9E8 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall IopLiveDumpGetExtraMergePages(_QWORD *a1, __int64 a2, _QWORD *a3, _DWORD *a4, _QWORD *a5)
 {
   __int64 v5; // rbx

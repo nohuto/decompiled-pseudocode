@@ -1,3 +1,14 @@
+/*
+ * XREFs of __scrt_fastfail @ 0x140005AC8
+ * Callers:
+ *     pre_c_initialization @ 0x140005260 (pre_c_initialization.c)
+ *     __scrt_common_main_seh @ 0x140005350 (__scrt_common_main_seh.c)
+ *     __scrt_initialize_onexit_tables @ 0x140005750 (__scrt_initialize_onexit_tables.c)
+ * Callees:
+ *     __crt_debugger_hook @ 0x140005AB8 (__crt_debugger_hook.c)
+ *     memset_0 @ 0x1400063A8 (memset_0.c)
+ */
+
 void __fastcall _scrt_fastfail(unsigned int a1)
 {
   ULONG64 Rip; // rbx

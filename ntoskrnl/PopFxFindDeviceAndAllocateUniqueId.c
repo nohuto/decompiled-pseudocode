@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopFxFindDeviceAndAllocateUniqueId @ 0x1406F7118
+ * Callers:
+ *     PoFxPrepareDevice @ 0x140291E3C (PoFxPrepareDevice.c)
+ * Callees:
+ *     PopFxQueryBiosDeviceName @ 0x140292070 (PopFxQueryBiosDeviceName.c)
+ *     PopFxFindAcpiDeviceByUniqueId @ 0x140393420 (PopFxFindAcpiDeviceByUniqueId.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopFxFindDeviceAndAllocateUniqueId(__int64 a1, _QWORD *a2)
 {
   UNICODE_STRING v4; // xmm0

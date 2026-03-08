@@ -1,3 +1,11 @@
+/*
+ * XREFs of _anonymous_namespace_::ApplyKeyStateToQueue @ 0x1C00B8D74
+ * Callers:
+ *     _anonymous_namespace_::UpdateKeyState @ 0x1C00B8CEC (_anonymous_namespace_--UpdateKeyState.c)
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall anonymous_namespace_::ApplyKeyStateToQueue(__int64 a1, unsigned __int8 a2, char a3)
 {
   unsigned __int64 v3; // r10

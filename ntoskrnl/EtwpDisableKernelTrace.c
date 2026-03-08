@@ -1,3 +1,19 @@
+/*
+ * XREFs of EtwpDisableKernelTrace @ 0x1407864C4
+ * Callers:
+ *     EtwpUpdateGlobalGroupMasks @ 0x140785F3C (EtwpUpdateGlobalGroupMasks.c)
+ *     EtwpEnableKernelTrace @ 0x140786150 (EtwpEnableKernelTrace.c)
+ * Callees:
+ *     KeCancelTimer2 @ 0x140204390 (KeCancelTimer2.c)
+ *     IoPerfReset @ 0x140556BD4 (IoPerfReset.c)
+ *     KeStopProfile @ 0x140571BAC (KeStopProfile.c)
+ *     DbgSetDebugPrintCallback @ 0x1405A53E0 (DbgSetDebugPrintCallback.c)
+ *     EtwpUpdateFileInfoDriverState @ 0x140786730 (EtwpUpdateFileInfoDriverState.c)
+ *     AlpcUnregisterLogRoutine @ 0x140977128 (AlpcUnregisterLogRoutine.c)
+ *     ObDisableEtwReferenceTrace @ 0x140979480 (ObDisableEtwReferenceTrace.c)
+ *     WmiSetNetworkNotify @ 0x1409DEA4C (WmiSetNetworkNotify.c)
+ */
+
 __int64 __fastcall EtwpDisableKernelTrace(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   int v4; // r15d

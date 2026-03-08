@@ -1,3 +1,11 @@
+/*
+ * XREFs of SleepstudyHelper_Initialize @ 0x1C00B2108
+ * Callers:
+ *     ?SleepStudyEvaluateDripsConstraint@FxPkgPnp@@QEAAXE@Z @ 0x1C0079228 (-SleepStudyEvaluateDripsConstraint@FxPkgPnp@@QEAAXE@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall SleepstudyHelper_Initialize(SS_LIBRARY__ **InitializeHandle, void *Tag)
 {
   NTSTATUS v4; // eax

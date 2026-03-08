@@ -1,3 +1,15 @@
+/*
+ * XREFs of VerifierMmProbeAndLockPages @ 0x140AE0450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ViTargetAddToCounter @ 0x140AC8994 (ViTargetAddToCounter.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ *     VfFaultsInjectResourceFailure @ 0x140AD2FAC (VfFaultsInjectResourceFailure.c)
+ */
+
 void __fastcall VerifierMmProbeAndLockPages(ULONG_PTR BugCheckParameter2, char a2, unsigned int a3)
 {
   unsigned __int8 CurrentIrql; // cl

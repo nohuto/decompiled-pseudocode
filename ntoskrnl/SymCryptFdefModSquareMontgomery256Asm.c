@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefModSquareMontgomery256Asm @ 0x140401030
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefModSquareMontgomery256Asm(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

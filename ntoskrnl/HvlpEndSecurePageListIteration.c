@@ -1,3 +1,16 @@
+/*
+ * XREFs of HvlpEndSecurePageListIteration @ 0x140547D58
+ * Callers:
+ *     HvlDiscardSecurePagesFromHibernation @ 0x140544308 (HvlDiscardSecurePagesFromHibernation.c)
+ *     HvlIterateSecurePagesForHibernation @ 0x140544434 (HvlIterateSecurePagesForHibernation.c)
+ *     HvlAddSecurePagesCallbackRoutine @ 0x140545098 (HvlAddSecurePagesCallbackRoutine.c)
+ *     HvlpGetEncryptedDataFromSecureKernel @ 0x140545AC0 (HvlpGetEncryptedDataFromSecureKernel.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HvlpEndPageListIteration @ 0x140547D2C (HvlpEndPageListIteration.c)
+ *     VslEndSecurePageIteration @ 0x140548960 (VslEndSecurePageIteration.c)
+ */
+
 __int16 *__fastcall HvlpEndSecurePageListIteration(__int64 a1, void *a2, _DWORD *a3)
 {
   int v5; // ebx

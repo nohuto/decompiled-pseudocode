@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReleaseOlderInactiveBuffers@CCompositionSurface@@IEAA_NPEAVCCompositionBuffer@@@Z @ 0x1C007C454
+ * Callers:
+ *     ?NotifyTokenInFrame@CCompositionSurface@@IEAAJAEBVCToken@@PEA_N@Z @ 0x1C007C038 (-NotifyTokenInFrame@CCompositionSurface@@IEAAJAEBVCToken@@PEA_N@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall CCompositionSurface::ReleaseOlderInactiveBuffers(
         CCompositionSurface *this,
         struct CCompositionBuffer *a2)

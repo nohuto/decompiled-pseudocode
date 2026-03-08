@@ -1,4 +1,13 @@
-NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>>(
+/*
+ * XREFs of ??$Write@U?$_tlgWrapSz@D@@U1@U?$_tlgWrapperByVal@$07@@U2@U?$_tlgWrapperByVal@$03@@U3@U3@U3@U3@U3@U2@U2@U2@U3@U3@U3@U3@U2@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@3AEBU?$_tlgWrapperByVal@$07@@4AEBU?$_tlgWrapperByVal@$03@@55555444555545@Z @ 0x1C01A91B0
+ * Callers:
+ *     ?SetCursorImage@Cursor@InputTraceLogging@@SAXPEAUtagCURSOR@@0IW4CursorImageReason@12@KK@Z @ 0x1C0021BEC (-SetCursorImage@Cursor@InputTraceLogging@@SAXPEAUtagCURSOR@@0IW4CursorImageReason@12@KK@Z.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F8FF0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
+NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>>(
         __int64 a1,
         unsigned __int8 *a2,
         __int64 a3,
@@ -18,12 +27,12 @@ NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,
         __int64 a17,
         __int64 a18,
         __int64 a19,
-        const unsigned __int16 **a20)
+        __int64 a20,
+        __int64 a21,
+        __int64 a22,
+        __int64 a23)
 {
-  __int64 v22; // rcx
-  const unsigned __int16 *v23; // rdx
-  __int64 v24; // rax
-  int v25; // r8d
+  __int64 v25; // rcx
   _BYTE *v26; // rdx
   __int64 v27; // rax
   int v28; // eax
@@ -62,25 +71,20 @@ NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,
   __int64 v62; // [rsp+128h] [rbp+28h]
   __int64 v63; // [rsp+130h] [rbp+30h]
   __int64 v64; // [rsp+138h] [rbp+38h]
-  const unsigned __int16 *v65; // [rsp+140h] [rbp+40h]
-  int v66; // [rsp+148h] [rbp+48h]
-  int v67; // [rsp+14Ch] [rbp+4Ch]
+  __int64 v65; // [rsp+140h] [rbp+40h]
+  __int64 v66; // [rsp+148h] [rbp+48h]
+  __int64 v67; // [rsp+150h] [rbp+50h]
+  __int64 v68; // [rsp+158h] [rbp+58h]
+  __int64 v69; // [rsp+160h] [rbp+60h]
+  __int64 v70; // [rsp+168h] [rbp+68h]
+  __int64 v71; // [rsp+170h] [rbp+70h]
+  __int64 v72; // [rsp+178h] [rbp+78h]
 
-  v22 = -1LL;
-  v23 = *a20;
-  if ( *a20 )
-  {
-    v24 = -1LL;
-    do
-      ++v24;
-    while ( v23[v24] );
-    v25 = 2 * v24 + 2;
-  }
-  else
-  {
-    v23 = &word_1C03142AC;
-    v25 = 2;
-  }
+  v71 = a23;
+  v69 = a22;
+  v25 = -1LL;
+  v67 = a21;
+  v65 = a20;
   v63 = a19;
   v61 = a18;
   v59 = a17;
@@ -94,10 +98,11 @@ NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,
   v43 = a9;
   v41 = a8;
   v39 = a7;
-  v65 = v23;
-  v66 = v25;
-  v67 = 0;
+  v72 = 4LL;
+  v70 = 8LL;
+  v68 = 4LL;
   v26 = *a6;
+  v66 = 4LL;
   v64 = 4LL;
   v62 = 4LL;
   v60 = 8LL;
@@ -131,9 +136,9 @@ NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,
   if ( *a5 )
   {
     do
-      ++v22;
-    while ( v29[v22] );
-    v30 = v22 + 1;
+      ++v25;
+    while ( v29[v25] );
+    v30 = v25 + 1;
   }
   else
   {
@@ -143,5 +148,5 @@ NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,
   v33 = v29;
   v34 = v30;
   v35 = 0;
-  return tlgWriteTransfer_EtwWriteTransfer(a1, a2, 0LL, 0LL, 0x12u, &v32);
+  return tlgWriteTransfer_EtwWriteTransfer(a1, a2, 0LL, 0LL, 0x15u, &v32);
 }

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?PackAffectedThreadList@@YAXPEBUtagTHREADINFO@@0@Z @ 0x1C00CE3D0
+ * Callers:
+ *     PackAffectedThreadsFromThreadCleanup @ 0x1C0039090 (PackAffectedThreadsFromThreadCleanup.c)
+ *     zzzReattachThreads @ 0x1C00CD3A8 (zzzReattachThreads.c)
+ * Callees:
+ *     UnpackAffectedThreadList @ 0x1C00CE1E4 (UnpackAffectedThreadList.c)
+ *     ?InAffectedThreadList@@YAPEAUPTI_LIST@@PEBUtagTHREADINFO@@@Z @ 0x1C00CE524 (-InAffectedThreadList@@YAPEAUPTI_LIST@@PEBUtagTHREADINFO@@@Z.c)
+ */
+
 void __fastcall PackAffectedThreadList(const struct tagTHREADINFO *a1, const struct tagTHREADINFO *a2)
 {
   _QWORD **v3; // r14

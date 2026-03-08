@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CHolographicDisplay@@IEAA@PEAVCComposition@@@Z @ 0x1802A4330
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     <none>
+ */
+
 CHolographicDisplay *__fastcall CHolographicDisplay::CHolographicDisplay(
         CHolographicDisplay *this,
         struct CComposition *a2)

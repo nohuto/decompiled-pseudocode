@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopLiveDumpMarkProcessorData @ 0x140A98C10
+ * Callers:
+ *     IopLiveDumpMarkRequiredDumpData @ 0x140A98D24 (IopLiveDumpMarkRequiredDumpData.c)
+ * Callees:
+ *     MmAddRangeToCrashDump @ 0x14062DD30 (MmAddRangeToCrashDump.c)
+ */
+
 __int64 __fastcall IopLiveDumpMarkProcessorData(__int64 a1, int a2)
 {
   __int64 v3; // rbx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of ObpInitStackAndObjectTables @ 0x140979F68
+ * Callers:
+ *     ObpStartRuntimeStackTrace @ 0x14097A5B4 (ObpStartRuntimeStackTrace.c)
+ *     ObpInitStackTrace @ 0x140B6E2C0 (ObpInitStackTrace.c)
+ * Callees:
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 ObpInitStackAndObjectTables()
 {
   __int64 Pool2; // rax

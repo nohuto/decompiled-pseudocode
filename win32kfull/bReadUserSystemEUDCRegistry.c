@@ -1,3 +1,15 @@
+/*
+ * XREFs of bReadUserSystemEUDCRegistry @ 0x1C00B8E10
+ * Callers:
+ *     bAddAllFlEntry @ 0x1C00B8F0C (bAddAllFlEntry.c)
+ * Callees:
+ *     GetUserEUDCRegistryPath @ 0x1C00B79B4 (GetUserEUDCRegistryPath.c)
+ *     bNotIsKeySymbolicLink @ 0x1C00B7A98 (bNotIsKeySymbolicLink.c)
+ *     ??1?$AutoResource@$1?Win32FreePool@@YAXPEAX@Z@@QEAA@XZ @ 0x1C00B90C0 (--1-$AutoResource@$1-Win32FreePool@@YAXPEAX@Z@@QEAA@XZ.c)
+ *     ??0MALLOCOBJ@@QEAA@K@Z @ 0x1C0116400 (--0MALLOCOBJ@@QEAA@K@Z.c)
+ *     bWriteUserSystemEUDCRegistry @ 0x1C02A2A34 (bWriteUserSystemEUDCRegistry.c)
+ */
+
 __int64 __fastcall bReadUserSystemEUDCRegistry(wchar_t *Dst)
 {
   WCHAR *v2; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiSelectIdealProcessorSetForNode @ 0x140296D74
+ * Callers:
+ *     KiSelectIdealProcessorSetForGroup @ 0x140296BAC (KiSelectIdealProcessorSetForGroup.c)
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     KiFindBiasedSetMember @ 0x14045780C (KiFindBiasedSetMember.c)
+ */
+
 unsigned int *__fastcall KiSelectIdealProcessorSetForNode(
         __int64 a1,
         __int64 a2,

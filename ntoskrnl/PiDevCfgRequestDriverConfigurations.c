@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiDevCfgRequestDriverConfigurations @ 0x14095CA98
+ * Callers:
+ *     PiDevCfgProcessDevice @ 0x140873308 (PiDevCfgProcessDevice.c)
+ * Callees:
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PiDevCfgSetObjectProperty @ 0x140874858 (PiDevCfgSetObjectProperty.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x140876268 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgAppendMultiSz @ 0x1409596C4 (PiDevCfgAppendMultiSz.c)
+ */
+
 __int64 __fastcall PiDevCfgRequestDriverConfigurations(__int64 a1, __int64 a2)
 {
   int DriverConfiguration; // eax

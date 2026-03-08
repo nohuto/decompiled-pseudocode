@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpValidRelativeAttribute @ 0x140857A80
+ * Callers:
+ *     RtlpValidAttributeAce @ 0x140857A10 (RtlpValidAttributeAce.c)
+ * Callees:
+ *     RtlStringCbLengthW @ 0x140246920 (RtlStringCbLengthW.c)
+ */
+
 char __fastcall RtlpValidRelativeAttribute(unsigned int *a1, unsigned int a2)
 {
   __int64 v4; // rcx

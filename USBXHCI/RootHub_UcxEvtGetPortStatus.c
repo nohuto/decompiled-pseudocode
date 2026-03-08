@@ -1,3 +1,23 @@
+/*
+ * XREFs of RootHub_UcxEvtGetPortStatus @ 0x1C0017660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0007C90 (WPP_RECORDER_SF_DD.c)
+ *     Controller_IsControllerAccessible @ 0x1C000A8E4 (Controller_IsControllerAccessible.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     WPP_RECORDER_SF_D @ 0x1C00180C4 (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0018184 (WPP_RECORDER_SF_dD.c)
+ *     RootHub_HideInvalidDebugPortStatusAndChange @ 0x1C0018258 (RootHub_HideInvalidDebugPortStatusAndChange.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_SetControllerGone @ 0x1C00347AC (Controller_SetControllerGone.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     WPP_RECORDER_SF_DDDDDDDD @ 0x1C0040A98 (WPP_RECORDER_SF_DDDDDDDD.c)
+ */
+
 __int64 __fastcall RootHub_UcxEvtGetPortStatus(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdi

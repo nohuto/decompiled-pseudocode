@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?MapToIommu@VIDMM_SEGMENT@@QEAAJXZ @ 0x1C00FDE0C
+ * Callers:
+ *     ?EnableIoMmuIsolation@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C00E1D24 (-EnableIoMmuIsolation@VIDMM_GLOBAL@@QEAAJXZ.c)
+ * Callees:
+ *     ?SysMmGetLogicalAddress@@YA_KQEAX@Z @ 0x1C0001754 (-SysMmGetLogicalAddress@@YA_KQEAX@Z.c)
+ *     ?IoMmuMapAllocation@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00E42FC (-IoMmuMapAllocation@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ */
+
 __int64 __fastcall VIDMM_SEGMENT::MapToIommu(VIDMM_SEGMENT *this)
 {
   int v1; // eax

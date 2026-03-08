@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalCreateCommonBufferFromMdlDmaThin @ 0x140510B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     HalpDmaReferenceDomainObject @ 0x14038D02C (HalpDmaReferenceDomainObject.c)
+ *     HalpAllocateCommonBufferEntry @ 0x14038D0B4 (HalpAllocateCommonBufferEntry.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpCreateCommonBufferFromMdlVerifyParams @ 0x14050D904 (HalpCreateCommonBufferFromMdlVerifyParams.c)
+ *     HalpDmaDereferenceDomainObject @ 0x140510338 (HalpDmaDereferenceDomainObject.c)
+ */
+
 __int64 __fastcall HalCreateCommonBufferFromMdlDmaThin(
         __int64 a1,
         struct _MDL *a2,

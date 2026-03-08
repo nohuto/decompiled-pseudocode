@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiFatalExceptionFilter @ 0x140B7015C
+ * Callers:
+ *     KiLockServiceTable @ 0x1402E3C60 (KiLockServiceTable.c)
+ * Callees:
+ *     RtlCaptureImageExceptionValues @ 0x1402B274C (RtlCaptureImageExceptionValues.c)
+ *     RtlLookupExceptionHandler @ 0x1403BEEE8 (RtlLookupExceptionHandler.c)
+ *     KeBugCheck @ 0x140415FE0 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 KiFatalExceptionFilter()
 {
   struct _KPRCB *CurrentPrcb; // rsi

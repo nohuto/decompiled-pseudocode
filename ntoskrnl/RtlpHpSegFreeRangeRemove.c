@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpHpSegFreeRangeRemove @ 0x14024E804
+ * Callers:
+ *     RtlpHpSegPageRangeCoalesce @ 0x14024DF10 (RtlpHpSegPageRangeCoalesce.c)
+ *     RtlpHpSegContextCompact @ 0x1402CC380 (RtlpHpSegContextCompact.c)
+ *     RtlpHpSegLargeRangeAllocate @ 0x1403BEB28 (RtlpHpSegLargeRangeAllocate.c)
+ * Callees:
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ */
+
 __int64 __fastcall RtlpHpSegFreeRangeRemove(__int64 a1, unsigned __int64 a2)
 {
   unsigned __int16 v4; // ax

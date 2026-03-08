@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetNextLegacyTokenBlock@CCompositionFrame@@UEAA_NPEAPEBEPEAI1@Z @ 0x1C0012940
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CCompositionFrame::GetNextLegacyTokenBlock(
         CCompositionFrame *this,
         const unsigned __int8 **a2,

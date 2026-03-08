@@ -1,3 +1,22 @@
+/*
+ * XREFs of InitFNTCache @ 0x1C00B9300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?vCleanUpFntCacheInternal@@YAXXZ @ 0x1C00B8080 (-vCleanUpFntCacheInternal@@YAXXZ.c)
+ *     vGetFontDriverLWT @ 0x1C00B8340 (vGetFontDriverLWT.c)
+ *     vGetLastBootTimeStatus @ 0x1C00B91AC (vGetLastBootTimeStatus.c)
+ *     QueryFontReg @ 0x1C00B9620 (QueryFontReg.c)
+ *     ?GetGreRegKey@@YAJPEAPEAXKPEBG@Z @ 0x1C00B96F0 (-GetGreRegKey@@YAJPEAPEAXKPEBG@Z.c)
+ *     bSetFntCacheReg @ 0x1C00B9774 (bSetFntCacheReg.c)
+ *     bServicingStackModifiedFonts @ 0x1C00BAA94 (bServicingStackModifiedFonts.c)
+ *     ComputeFileviewCheckSum @ 0x1C00BAB00 (ComputeFileviewCheckSum.c)
+ *     bFntCacheDisabled @ 0x1C00BAB7C (bFntCacheDisabled.c)
+ *     ?bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z @ 0x1C00BACFC (-bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     bInitCacheTable @ 0x1C028C900 (bInitCacheTable.c)
+ */
+
 void __fastcall InitFNTCache(Gre::Base *a1)
 {
   int v1; // edi

@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiHandleCollidedFault @ 0x1402A2AC4
+ * Callers:
+ *     MiResolveTransitionFault @ 0x140271760 (MiResolveTransitionFault.c)
+ * Callees:
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140286264 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiIssueFlowThroughFault @ 0x1402A2C24 (MiIssueFlowThroughFault.c)
+ *     MiWaitForCollidedFaultComplete @ 0x1402A2D3C (MiWaitForCollidedFaultComplete.c)
+ *     MiObtainProtoReference @ 0x1402A304C (MiObtainProtoReference.c)
+ *     MiAddLockedPageCharge @ 0x1402A309C (MiAddLockedPageCharge.c)
+ *     MiLockNestedPageAtDpcInline @ 0x1402DDE90 (MiLockNestedPageAtDpcInline.c)
+ */
+
 __int64 __fastcall MiHandleCollidedFault(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5, _DWORD *a6)
 {
   int v8; // ebp

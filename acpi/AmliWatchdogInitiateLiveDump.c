@@ -1,3 +1,11 @@
+/*
+ * XREFs of AmliWatchdogInitiateLiveDump @ 0x1C0046F18
+ * Callers:
+ *     AmliWatchdogTimeoutAction @ 0x1C0046F84 (AmliWatchdogTimeoutAction.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AmliWatchdogInitiateLiveDump(_QWORD *a1)
 {
   ULONG_PTR v1; // rax

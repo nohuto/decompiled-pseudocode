@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UpdateFrameControlMetricsSize@@YAFPEAUOEMBITMAPSET@@I@Z @ 0x1C00A41E4
+ * Callers:
+ *     ?EnsureOemBitmapInfoForDpiSlot@@YAXPEAUOEMBITMAPSET@@I@Z @ 0x1C00D0688 (-EnsureOemBitmapInfoForDpiSlot@@YAXPEAUOEMBITMAPSET@@I@Z.c)
+ * Callees:
+ *     GetDPIMETRICSForDpi @ 0x1C00A11BC (GetDPIMETRICSForDpi.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ */
+
 __int64 __fastcall UpdateFrameControlMetricsSize(struct OEMBITMAPSET *a1, unsigned int a2)
 {
   unsigned __int16 *v2; // r14

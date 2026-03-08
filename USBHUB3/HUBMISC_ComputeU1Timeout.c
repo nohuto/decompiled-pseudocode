@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBMISC_ComputeU1Timeout @ 0x1C003081C
+ * Callers:
+ *     HUBDSM_ComputingU1U2TimeoutsAndExitLatency @ 0x1C0025070 (HUBDSM_ComputingU1U2TimeoutsAndExitLatency.c)
+ * Callees:
+ *     Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage @ 0x1C000CE04 (Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage.c)
+ */
+
 __int64 __fastcall HUBMISC_ComputeU1Timeout(__int64 *a1)
 {
   int IsEnabledDeviceUsage; // eax

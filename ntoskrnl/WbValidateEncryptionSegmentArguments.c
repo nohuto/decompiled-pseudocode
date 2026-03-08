@@ -1,3 +1,12 @@
+/*
+ * XREFs of WbValidateEncryptionSegmentArguments @ 0x140755A20
+ * Callers:
+ *     WbGetInitializedEncryptionSegment @ 0x140755694 (WbGetInitializedEncryptionSegment.c)
+ * Callees:
+ *     WbAlloc @ 0x1406AF510 (WbAlloc.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WbValidateEncryptionSegmentArguments(__int64 a1, unsigned int a2, _OWORD *a3, __int64 a4)
 {
   int v7; // ebx

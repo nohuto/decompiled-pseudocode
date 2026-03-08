@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z @ 0x1C014CD9A
+ * Callers:
+ *     ?ChangeGhostFont@PUBLIC_PFTOBJ@@QEAAHPEAXH@Z @ 0x1C026D16C (-ChangeGhostFont@PUBLIC_PFTOBJ@@QEAAHPEAXH@Z.c)
+ *     NtGdiAddEmbFontToDC @ 0x1C027A7E0 (NtGdiAddEmbFontToDC.c)
+ *     GreRemoveFontMemResourceEx @ 0x1C0290DB8 (GreRemoveFontMemResourceEx.c)
+ *     NtGdiGetFontFileData @ 0x1C02D87D0 (NtGdiGetFontFileData.c)
+ *     NtGdiGetFontFileInfo @ 0x1C02D8A30 (NtGdiGetFontFileInfo.c)
+ * Callees:
+ *     ?pPvtDataMatch@PFFOBJ@@QEAAPEAUtagPvtData@@XZ @ 0x1C0150274 (-pPvtDataMatch@PFFOBJ@@QEAAPEAUtagPvtData@@XZ.c)
+ */
+
 struct PFF *__fastcall GetPFFFromId(struct PFT *a1, unsigned int a2, struct PFF ***a3)
 {
   struct Gre::Base::SESSION_GLOBALS *v6; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ProcessorpSelectProcessorSetFromPartitions @ 0x1C00A02C0
+ * Callers:
+ *     ProcessorpFindIdtEntriesApic @ 0x1C009B5F0 (ProcessorpFindIdtEntriesApic.c)
+ * Callees:
+ *     IntPartAllocateAndZeroMemory @ 0x1C005ECC4 (IntPartAllocateAndZeroMemory.c)
+ *     ProcessorpSelectGroup @ 0x1C009C174 (ProcessorpSelectGroup.c)
+ *     IntPartArbInit @ 0x1C00A318C (IntPartArbInit.c)
+ *     IntpArbGetNextAffinity @ 0x1C00A323C (IntpArbGetNextAffinity.c)
+ */
+
 __int64 __fastcall ProcessorpSelectProcessorSetFromPartitions(__int16 a1, char a2, __int64 a3, __int64 a4)
 {
   __int64 v6; // rsi

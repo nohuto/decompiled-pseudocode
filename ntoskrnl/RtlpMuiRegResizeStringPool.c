@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpMuiRegResizeStringPool @ 0x140A72414
+ * Callers:
+ *     RtlpMuiRegGrowStringPool @ 0x140A720D0 (RtlpMuiRegGrowStringPool.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlpMuiRegCreateStringPool @ 0x1408442EC (RtlpMuiRegCreateStringPool.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlpMuiRegResizeStringPool(const void **P, __int16 a2, __int16 a3, char a4)
 {
   __int64 v4; // rdi

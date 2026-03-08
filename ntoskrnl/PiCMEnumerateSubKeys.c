@@ -1,3 +1,18 @@
+/*
+ * XREFs of PiCMEnumerateSubKeys @ 0x140966A2C
+ * Callers:
+ *     PiCMHandleIoctl @ 0x1406CF040 (PiCMHandleIoctl.c)
+ * Callees:
+ *     CmIsStateSeparationEnabled @ 0x1402FBD38 (CmIsStateSeparationEnabled.c)
+ *     PiCMReturnBufferResultData @ 0x1406D0ED4 (PiCMReturnBufferResultData.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406D3680 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1408665AC (_PnpCtxRegQueryInfoKey.c)
+ *     _RegRtlEnumKey @ 0x140868D44 (_RegRtlEnumKey.c)
+ *     PiCMCaptureEnumerateInputData @ 0x1408A043A (PiCMCaptureEnumerateInputData.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiCMEnumerateSubKeys(
         unsigned __int64 a1,
         unsigned int a2,

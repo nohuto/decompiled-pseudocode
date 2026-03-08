@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bIsSourceBGRA@@YAHPEAVSURFACE@@@Z @ 0x1C00066DC
+ * Callers:
+ *     ?psSetupTransparentSrcSurface@@YAPEAVSURFACE@@PEAV1@0PEAU_RECTL@@PEAU_XLATEOBJ@@1AEAVSURFMEM@@KK@Z @ 0x1C00B50F8 (-psSetupTransparentSrcSurface@@YAPEAVSURFACE@@PEAV1@0PEAU_RECTL@@PEAU_XLATEOBJ@@1AEAVSURFMEM@@KK.c)
+ *     ?bSpUpdateShape@@YAHPEAVSPRITE@@KPEAUHDC__@@1KPEAU_BLENDFUNCTION@@PEAU_POINTL@@PEAUtagSIZE@@PEAU_RECTL@@@Z @ 0x1C012A3C0 (-bSpUpdateShape@@YAHPEAVSPRITE@@KPEAUHDC__@@1KPEAU_BLENDFUNCTION@@PEAU_POINTL@@PEAUtagSIZE@@PEAU.c)
+ *     EngHTBlt @ 0x1C02E0A38 (EngHTBlt.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bIsSourceBGRA(struct SURFACE *a1)
 {
   unsigned int v1; // edx

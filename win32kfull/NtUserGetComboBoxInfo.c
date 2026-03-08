@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserGetComboBoxInfo @ 0x1C01D1C10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     xxxGetComboBoxInfo @ 0x1C02334F4 (xxxGetComboBoxInfo.c)
+ */
+
 __int64 __fastcall NtUserGetComboBoxInfo(__int64 a1, ULONG64 a2)
 {
   __int64 v4; // rcx

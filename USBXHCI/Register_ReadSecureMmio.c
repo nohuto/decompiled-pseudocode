@@ -1,3 +1,21 @@
+/*
+ * XREFs of Register_ReadSecureMmio @ 0x1C003EE08
+ * Callers:
+ *     Controller_WdfEvtWatchdogTimerFunc @ 0x1C0004FE0 (Controller_WdfEvtWatchdogTimerFunc.c)
+ *     RootHub_UcxEvtInterruptTransfer @ 0x1C0016C90 (RootHub_UcxEvtInterruptTransfer.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     XilRegister_ReadUchar @ 0x1C0018904 (XilRegister_ReadUchar.c)
+ *     XilRegister_ReadBufferUlong @ 0x1C001A920 (XilRegister_ReadBufferUlong.c)
+ *     XilRegister_ReadUlong64 @ 0x1C003F338 (XilRegister_ReadUlong64.c)
+ *     XilRegister_ReadUshort @ 0x1C003F39C (XilRegister_ReadUshort.c)
+ * Callees:
+ *     WPP_RECORDER_SF_L @ 0x1C00136C0 (WPP_RECORDER_SF_L.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     memmove @ 0x1C0020400 (memmove.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ */
+
 void __fastcall Register_ReadSecureMmio(__int64 a1, __int64 a2, int a3, unsigned int a4, void *a5)
 {
   __int64 v8; // rdx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of StageQueue_Acquire @ 0x1C001227C
+ * Callers:
+ *     Bulk_Stage_Acquire @ 0x1C001224C (Bulk_Stage_Acquire.c)
+ *     Isoch_Stage_Acquire @ 0x1C0045208 (Isoch_Stage_Acquire.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 *__fastcall StageQueue_Acquire(unsigned __int8 *a1)
 {
   unsigned __int8 v1; // dl

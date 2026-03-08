@@ -1,3 +1,22 @@
+/*
+ * XREFs of SdbpCheckMatchingTextEntry @ 0x140A4D2F4
+ * Callers:
+ *     SdbpCheckMatchingText @ 0x140A4D1D0 (SdbpCheckMatchingText.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslFileNotFound @ 0x1407A0E50 (AslFileNotFound.c)
+ *     AslFileMappingDelete @ 0x1407A1D38 (AslFileMappingDelete.c)
+ *     AslFileMappingCreate @ 0x1407A2D8C (AslFileMappingCreate.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     SdbpInitializeSearchDBContext @ 0x140A4E760 (SdbpInitializeSearchDBContext.c)
+ *     SdbpResolveMatchingFile @ 0x140A4EB00 (SdbpResolveMatchingFile.c)
+ *     AslStringSearchA @ 0x140A5126C (AslStringSearchA.c)
+ *     AslStringSearchW @ 0x140A51304 (AslStringSearchW.c)
+ *     AslFileMappingEnsureMappedAs @ 0x140A51A4C (AslFileMappingEnsureMappedAs.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SdbpCheckMatchingTextEntry(
         __int64 a1,
         int *a2,

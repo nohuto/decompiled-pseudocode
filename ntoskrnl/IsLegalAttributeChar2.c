@@ -1,3 +1,12 @@
+/*
+ * XREFs of IsLegalAttributeChar2 @ 0x1409D1AA0
+ * Callers:
+ *     GetAttributeName @ 0x1409D0304 (GetAttributeName.c)
+ *     LocalGetRelativeAttributeForString @ 0x1409D2214 (LocalGetRelativeAttributeForString.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall IsLegalAttributeChar2(unsigned __int16 a1)
 {
   char result; // al

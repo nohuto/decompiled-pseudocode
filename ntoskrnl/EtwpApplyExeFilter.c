@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpApplyExeFilter @ 0x1409F2064
+ * Callers:
+ *     EtwpApplyScopeFilters @ 0x140695404 (EtwpApplyScopeFilters.c)
+ *     EtwpApplyTransientFilters @ 0x1409F2338 (EtwpApplyTransientFilters.c)
+ * Callees:
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ */
+
 char __fastcall EtwpApplyExeFilter(__int64 a1, _WORD *a2)
 {
   unsigned __int16 *v3; // rcx

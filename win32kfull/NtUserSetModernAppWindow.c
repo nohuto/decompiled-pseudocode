@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetModernAppWindow @ 0x1C000E140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxSetModernAppWindow @ 0x1C000E204 (xxxSetModernAppWindow.c)
+ */
+
 __int64 __fastcall NtUserSetModernAppWindow(__int64 a1)
 {
   __int64 v2; // rax

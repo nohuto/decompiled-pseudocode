@@ -1,3 +1,17 @@
+/*
+ * XREFs of ACPIBuildRunMethodRequest @ 0x1C0013564
+ * Callers:
+ *     ACPIBuildProcessRunMethodPhaseRecurse @ 0x1C0011C70 (ACPIBuildProcessRunMethodPhaseRecurse.c)
+ *     ACPIBuildRegRequest @ 0x1C00133EC (ACPIBuildRegRequest.c)
+ *     ACPITableLoad @ 0x1C003F170 (ACPITableLoad.c)
+ *     ACPIWakeDeferredRestoreEnables @ 0x1C0044C38 (ACPIWakeDeferredRestoreEnables.c)
+ *     ACPIWakeRestoreEnables @ 0x1C0046004 (ACPIWakeRestoreEnables.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     ACPIBuildScheduleDpc @ 0x1C0013794 (ACPIBuildScheduleDpc.c)
+ */
+
 __int64 __fastcall ACPIBuildRunMethodRequest(
         __int64 a1,
         void (__fastcall *a2)(__int64, __int64, _QWORD),

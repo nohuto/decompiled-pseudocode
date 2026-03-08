@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpDoQueueSystemHiveHysteresis @ 0x140A0CE68
+ * Callers:
+ *     CmpUpdateSystemHiveHysteresis @ 0x140731F58 (CmpUpdateSystemHiveHysteresis.c)
+ *     CmRegisterSystemHiveLimitCallback @ 0x14081D478 (CmRegisterSystemHiveLimitCallback.c)
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 char __fastcall CmpDoQueueSystemHiveHysteresis(int a1)
 {
   struct _WORK_QUEUE_ITEM *Pool2; // rax

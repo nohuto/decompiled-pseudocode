@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiPurgingPageFromLookaside @ 0x1402C75C0
+ * Callers:
+ *     MiWriteStandbyLookasideEntry @ 0x1402C71E0 (MiWriteStandbyLookasideEntry.c)
+ *     MiFindSuitableLookasideReplacement @ 0x1402C7240 (MiFindSuitableLookasideReplacement.c)
+ * Callees:
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiGetStandbyLookaside @ 0x140319E70 (MiGetStandbyLookaside.c)
+ *     MiPageToChannel @ 0x140370C10 (MiPageToChannel.c)
+ */
+
 __int64 __fastcall MiPurgingPageFromLookaside(int a1, __int64 a2)
 {
   __int64 v4; // r13

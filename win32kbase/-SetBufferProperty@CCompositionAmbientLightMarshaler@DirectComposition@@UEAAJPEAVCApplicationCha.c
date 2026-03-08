@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CCompositionAmbientLightMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0269690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CCompositionAmbientLightMarshaler::SetBufferProperty(
         DirectComposition::CCompositionAmbientLightMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

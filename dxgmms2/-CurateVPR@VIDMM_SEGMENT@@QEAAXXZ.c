@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?CurateVPR@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00FCB90
+ * Callers:
+ *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C00B7F80 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
+ * Callees:
+ *     ?DriverId@VIDMM_SEGMENT@@QEAAKXZ @ 0x1C0001414 (-DriverId@VIDMM_SEGMENT@@QEAAKXZ.c)
+ *     McTemplateK0phhhqqx_EtwWriteTransfer @ 0x1C00329E0 (McTemplateK0phhhqqx_EtwWriteTransfer.c)
+ *     McTemplateK0phhhxxqqx_EtwWriteTransfer @ 0x1C0032AAC (McTemplateK0phhhxxqqx_EtwWriteTransfer.c)
+ *     ?PrepareMoveResources@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4VIDMM_MOVE_RESOURCES_OPERATION@@I_KW4VIDMM_MOVE_RESOURCES_DEFRAG_STAGE@@22W4VIDMM_DEFRAGMENT_DIRECTION@@PEA_NPEAPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00E6990 (-PrepareMoveResources@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4VIDMM_MOVE_RESOURCES_OPERATION@@I_KW.c)
+ *     Percentagex100 @ 0x1C00FE544 (Percentagex100.c)
+ *     ?CalculateCapacity@VIDMM_LINEAR_POOL@@QEAA_KXZ @ 0x1C0101AA8 (-CalculateCapacity@VIDMM_LINEAR_POOL@@QEAA_KXZ.c)
+ */
+
 void __fastcall VIDMM_SEGMENT::CurateVPR(VIDMM_SEGMENT *this)
 {
   bool v2; // zf

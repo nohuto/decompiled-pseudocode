@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetNewSgListBuffer@FxDmaScatterGatherTransaction@@MEAAXPEAXK@Z @ 0x1C001E6E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FreeSgListBuffer@FxDmaScatterGatherTransaction@@AEAAXXZ @ 0x1C001E530 (-FreeSgListBuffer@FxDmaScatterGatherTransaction@@AEAAXXZ.c)
+ */
+
 void __fastcall FxDmaScatterGatherTransaction::SetNewSgListBuffer(
         FxDmaScatterGatherTransaction *this,
         void *Buffer,

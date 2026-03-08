@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DrvDriverExtraSizeCallback@@YAJPEAGKPEAXK11@Z @ 0x1C00D5E20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DrvDriverExtraSizeCallback(
         unsigned __int16 *a1,
         __int64 a2,

@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopBroadcastSessionInfo @ 0x1408294F4
+ * Callers:
+ *     PopPowerSourceChangeCallback @ 0x140380CA0 (PopPowerSourceChangeCallback.c)
+ *     PopWin32kPowerSettingCallback @ 0x14038FFB0 (PopWin32kPowerSettingCallback.c)
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ *     PopLidSwitchReliabilityUpdateCallback @ 0x140829020 (PopLidSwitchReliabilityUpdateCallback.c)
+ *     PopAdaptivePowerSettingCallback @ 0x140829230 (PopAdaptivePowerSettingCallback.c)
+ *     PopLidSwitchChangeCallback @ 0x140981400 (PopLidSwitchChangeCallback.c)
+ *     PopSetAwayModeStatus @ 0x14098780C (PopSetAwayModeStatus.c)
+ *     PopEvaluateInputSuppressionAction @ 0x1409912C4 (PopEvaluateInputSuppressionAction.c)
+ * Callees:
+ *     PopInvokeWin32Callout @ 0x14073A52C (PopInvokeWin32Callout.c)
+ */
+
 __int64 __fastcall PopBroadcastSessionInfo(int a1, int a2, __int64 a3)
 {
   __int64 result; // rax

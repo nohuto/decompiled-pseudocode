@@ -1,3 +1,19 @@
+/*
+ * XREFs of PiDmaGuardProcessPostRemove @ 0x140867254
+ * Callers:
+ *     PnpRemoveLockedDeviceNode @ 0x1403B1D8C (PnpRemoveLockedDeviceNode.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x14087E214 (PnpSurpriseRemoveLockedDeviceNode.c)
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     PiIommuUninitializeDeviceAts @ 0x1403B16D0 (PiIommuUninitializeDeviceAts.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     PiDmaGuardQueueRemoveEntry @ 0x140562CC8 (PiDmaGuardQueueRemoveEntry.c)
+ *     PipDmgDestroyIommuExtension @ 0x1407F8E3C (PipDmgDestroyIommuExtension.c)
+ *     PiIommuBlockDevice @ 0x140861948 (PiIommuBlockDevice.c)
+ *     PipDmgReevaluateQueue @ 0x1409684CC (PipDmgReevaluateQueue.c)
+ *     PiDmaGuardQueueInsertEntry @ 0x14096F04C (PiDmaGuardQueueInsertEntry.c)
+ */
+
 void __fastcall PiDmaGuardProcessPostRemove(ULONG_PTR MaxDataSize, int a2, char a3)
 {
   int v6; // eax

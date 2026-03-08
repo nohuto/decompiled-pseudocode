@@ -1,3 +1,18 @@
+/*
+ * XREFs of UsbhSetPdoIdleReady @ 0x1C000A364
+ * Callers:
+ *     UsbhPdoDevicePowerState @ 0x1C000A4C0 (UsbhPdoDevicePowerState.c)
+ *     UsbhBusIf_SuspendChildHub @ 0x1C001A0F0 (UsbhBusIf_SuspendChildHub.c)
+ *     UsbhPdoSetDx @ 0x1C001ACC4 (UsbhPdoSetDx.c)
+ *     UsbhIdleIrp_NoIrp @ 0x1C00580F0 (UsbhIdleIrp_NoIrp.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhRefPdoDeviceHandle @ 0x1C0019C20 (UsbhRefPdoDeviceHandle.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall UsbhSetPdoIdleReady(__int64 a1, __int64 a2, __int64 a3)
 {
   _DWORD *v6; // rbp

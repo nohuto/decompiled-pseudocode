@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpAddUoWToRollbackPacket @ 0x140A1B6D0
+ * Callers:
+ *     CmpSnapshotTxOwnerArrayToRollbackPacket @ 0x140A1BB24 (CmpSnapshotTxOwnerArrayToRollbackPacket.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     CmpAddPointerToRollbackPacket @ 0x140A1B67C (CmpAddPointerToRollbackPacket.c)
+ */
+
 __int64 __fastcall CmpAddUoWToRollbackPacket(unsigned int *a1, __int64 a2)
 {
   __int64 v2; // rdi

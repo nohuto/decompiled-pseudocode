@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiQueryMemoryListInformation @ 0x140236920
+ * Callers:
+ *     MmQueryMemoryListInformation @ 0x140236738 (MmQueryMemoryListInformation.c)
+ *     MmManagePartitionMemoryInformation @ 0x1407059DC (MmManagePartitionMemoryInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MiQueryMemoryListInformation(_QWORD *a1, unsigned __int64 *a2)
 {
   unsigned __int64 v2; // rax

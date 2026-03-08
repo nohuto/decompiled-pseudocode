@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiCreatePfnTemplate @ 0x1403708F4
+ * Callers:
+ *     MiDoGangAssignment @ 0x140386D14 (MiDoGangAssignment.c)
+ *     MiInitializeDynamicPfns @ 0x140618AB8 (MiInitializeDynamicPfns.c)
+ *     MiSwitchToPfns @ 0x140B37268 (MiSwitchToPfns.c)
+ *     MxCreateFreePfns @ 0x140B37690 (MxCreateFreePfns.c)
+ * Callees:
+ *     MiSetPfnTbFlushStamp @ 0x14028A3A0 (MiSetPfnTbFlushStamp.c)
+ *     MiSetPageTablePfnBuddy @ 0x1402A6F18 (MiSetPageTablePfnBuddy.c)
+ *     MiDetermineNewPfnHeatState @ 0x1402DD0B8 (MiDetermineNewPfnHeatState.c)
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiSetPfnIdentity @ 0x14034BE78 (MiSetPfnIdentity.c)
+ */
+
 __int64 __fastcall MiCreatePfnTemplate(__int64 a1, __int16 a2, unsigned __int16 a3)
 {
   __int64 v3; // rbp

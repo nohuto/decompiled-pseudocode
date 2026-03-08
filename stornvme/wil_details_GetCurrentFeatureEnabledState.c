@@ -1,3 +1,12 @@
+/*
+ * XREFs of wil_details_GetCurrentFeatureEnabledState @ 0x1C0003D18
+ * Callers:
+ *     wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState @ 0x1C0003BD4 (wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState.c)
+ * Callees:
+ *     wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState @ 0x1C0003BD4 (wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState.c)
+ *     wil_RtlStagingConfig_QueryFeatureState @ 0x1C0034008 (wil_RtlStagingConfig_QueryFeatureState.c)
+ */
+
 __int64 __fastcall wil_details_GetCurrentFeatureEnabledState(__int64 a1, _DWORD *a2)
 {
   __int64 v3; // rdx

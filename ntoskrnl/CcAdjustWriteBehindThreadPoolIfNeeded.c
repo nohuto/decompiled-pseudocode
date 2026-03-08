@@ -1,3 +1,21 @@
+/*
+ * XREFs of CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140533834
+ * Callers:
+ *     CcSetDirtyInMask @ 0x14021C370 (CcSetDirtyInMask.c)
+ *     CcChargeDirtyPagesInternal @ 0x1402429A0 (CcChargeDirtyPagesInternal.c)
+ *     CcUninitializeCacheMap @ 0x140336C50 (CcUninitializeCacheMap.c)
+ *     CcCanIWrite @ 0x140362960 (CcCanIWrite.c)
+ *     CcQueueLazyWriteScanThread @ 0x140534A20 (CcQueueLazyWriteScanThread.c)
+ * Callees:
+ *     CcGetCurrentNumaNode @ 0x14020D750 (CcGetCurrentNumaNode.c)
+ *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x140219E24 (CcIsWriteBehindThreadpoolAtLowPriority.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x140300D74 (CcBoostLowPriorityWorkerThread.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcAdjustWriteBehindThreadPool @ 0x1405337B8 (CcAdjustWriteBehindThreadPool.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 signed __int32 __fastcall CcAdjustWriteBehindThreadPoolIfNeeded(__int64 a1, char a2)
 {
   signed __int32 result; // eax

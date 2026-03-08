@@ -1,3 +1,22 @@
+/*
+ * XREFs of ExAllocateContiguousHeapPool @ 0x1403B4DF4
+ * Callers:
+ *     MiAllocateContiguousMemory @ 0x1403B49B4 (MiAllocateContiguousMemory.c)
+ * Callees:
+ *     RtlpHpSegAlloc @ 0x1402491F0 (RtlpHpSegAlloc.c)
+ *     ExFreeHeapPool @ 0x1402B61C0 (ExFreeHeapPool.c)
+ *     ExpAddTagForBigPages @ 0x1402C7A20 (ExpAddTagForBigPages.c)
+ *     ExpPlFindLimitEntry @ 0x1402F00EC (ExpPlFindLimitEntry.c)
+ *     RtlpHpFreeHeap @ 0x140313CC0 (RtlpHpFreeHeap.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExGetHeapFromType @ 0x1403B509C (ExGetHeapFromType.c)
+ *     ExpPoolTrackerChargeEntry @ 0x1403B53DC (ExpPoolTrackerChargeEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTracePool @ 0x1405FAD80 (EtwTracePool.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140605758 (ExpInsertPoolTrackerExpansion.c)
+ */
+
 unsigned __int64 __fastcall ExAllocateContiguousHeapPool(
         __int64 a1,
         unsigned __int64 a2,

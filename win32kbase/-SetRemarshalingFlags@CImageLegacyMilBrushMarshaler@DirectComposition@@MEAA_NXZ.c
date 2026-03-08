@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CImageLegacyMilBrushMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025E170
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetRemarshalingFlags@CLegacyMilBrushMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025E260 (-SetRemarshalingFlags@CLegacyMilBrushMarshaler@DirectComposition@@MEAA_NXZ.c)
+ */
+
 char __fastcall DirectComposition::CImageLegacyMilBrushMarshaler::SetRemarshalingFlags(
         DirectComposition::CImageLegacyMilBrushMarshaler *this)
 {

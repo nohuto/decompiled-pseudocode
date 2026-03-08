@@ -1,3 +1,11 @@
+/*
+ * XREFs of sub_14041BA99 @ 0x14041BA99
+ * Callers:
+ *     sub_14041BAA2 @ 0x14041BAA2 (sub_14041BAA2.c)
+ * Callees:
+ *     sub_14041BA90 @ 0x14041BA90 (sub_14041BA90.c)
+ */
+
 // positive sp value has been detected, the output may be wrong!
 __int64 sub_14041BA99()
 {

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopPowerRequestActionInfo @ 0x14073ACE4
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ * Callees:
+ *     PopPowerRequestReferenceRelease @ 0x1402BA084 (PopPowerRequestReferenceRelease.c)
+ *     PopPowerRequestReferenceAcquire @ 0x1402BBDF0 (PopPowerRequestReferenceAcquire.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406D8E50 (ObReferenceObjectByHandleWithTag.c)
+ *     SeIsAppContainerOrIdentifyLevelContext @ 0x14073AC00 (SeIsAppContainerOrIdentifyLevelContext.c)
+ *     PopPowerRequestSpecialRequestClear @ 0x14097E900 (PopPowerRequestSpecialRequestClear.c)
+ *     PopPowerRequestSpecialRequestSet @ 0x14097E9DC (PopPowerRequestSpecialRequestSet.c)
+ */
+
 __int64 __fastcall PopPowerRequestActionInfo(__int64 a1)
 {
   void *v2; // rcx

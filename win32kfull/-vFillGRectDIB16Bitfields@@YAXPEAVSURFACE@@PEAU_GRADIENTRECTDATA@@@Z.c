@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vFillGRectDIB16Bitfields@@YAXPEAVSURFACE@@PEAU_GRADIENTRECTDATA@@@Z @ 0x1C02F8B00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vFillGRectDIB16Bitfields(struct SURFACE *a1, struct _GRADIENTRECTDATA *a2)
 {
   struct _GRADIENTRECTDATA *v2; // rbp

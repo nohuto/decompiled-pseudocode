@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopIoRingDispatchRead @ 0x1409464AC
+ * Callers:
+ *     IopProcessIoRingEntry @ 0x140947008 (IopProcessIoRingEntry.c)
+ * Callees:
+ *     IopCompleteIoRingEntry @ 0x140556F5C (IopCompleteIoRingEntry.c)
+ *     IopMcReleaseMdl @ 0x14055CD74 (IopMcReleaseMdl.c)
+ *     IopReadFile @ 0x1407E0C40 (IopReadFile.c)
+ *     IopIoRingGetBuffer @ 0x140946E9C (IopIoRingGetBuffer.c)
+ *     IopIoRingReferenceFileObject @ 0x140946F94 (IopIoRingReferenceFileObject.c)
+ */
+
 LONG_PTR __fastcall IopIoRingDispatchRead(PVOID a1, __int64 a2, __int64 a3)
 {
   char PreviousMode; // r14

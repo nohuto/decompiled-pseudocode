@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopFileUtilWalkDirectoryTreeBottomUp @ 0x14087F880
+ * Callers:
+ *     NtEnableLastKnownGood @ 0x14087F5A0 (NtEnableLastKnownGood.c)
+ * Callees:
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IopFileUtilWalkDirectoryTreeHelper @ 0x14087FA04 (IopFileUtilWalkDirectoryTreeHelper.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopFileUtilWalkDirectoryTreeBottomUp(PCUNICODE_STRING SourceString)
 {
   __int64 Length; // rdx

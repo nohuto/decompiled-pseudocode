@@ -1,3 +1,16 @@
+/*
+ * XREFs of PspIumAllocatePhysicalPages @ 0x1405A36E0
+ * Callers:
+ *     PsDispatchIumService @ 0x1405A2A44 (PsDispatchIumService.c)
+ * Callees:
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     MmAllocateSecureKernelPages @ 0x1406551DC (MmAllocateSecureKernelPages.c)
+ *     MmFreeSecureKernelPages @ 0x1406558DC (MmFreeSecureKernelPages.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PspIumAllocatePhysicalPages(int a1, ULONG_PTR a2, __int64 a3, _QWORD *a4, __int64 a5)
 {
   __int64 SecureKernelPages; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of fnHkINLPCWPEXSTRUCT @ 0x1C0009B90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxCallNextHookEx @ 0x1C0009C64 (xxxCallNextHookEx.c)
+ *     PhkNextValid @ 0x1C0039A4C (PhkNextValid.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ */
+
 __int64 __fastcall fnHkINLPCWPEXSTRUCT(__int64 *a1, int a2, __int64 a3, __int64 a4)
 {
   _DWORD *v8; // rdi

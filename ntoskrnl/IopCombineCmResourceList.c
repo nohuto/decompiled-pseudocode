@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopCombineCmResourceList @ 0x1408028BC
+ * Callers:
+ *     IopAllocateLegacyBootResources @ 0x140B359CC (IopAllocateLegacyBootResources.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PnpDetermineResourceListSize @ 0x1406F69E8 (PnpDetermineResourceListSize.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 _DWORD *__fastcall IopCombineCmResourceList(_DWORD *Src, _DWORD *a2)
 {
   _DWORD *v5; // rbp

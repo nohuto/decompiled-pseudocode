@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlRemovePointerMapping @ 0x1405A8600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpAcquirePropStoreLockExclusive @ 0x1405A8890 (RtlpAcquirePropStoreLockExclusive.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlRemovePointerMapping(__int64 a1, _QWORD *a2)
 {
   unsigned __int64 v4; // rdi

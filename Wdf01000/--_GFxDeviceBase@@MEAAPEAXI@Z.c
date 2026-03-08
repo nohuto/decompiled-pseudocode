@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_GFxDeviceBase@@MEAAPEAXI@Z @ 0x1C0038550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxDeviceBase@@MEAA@XZ @ 0x1C0038CC8 (--1FxDeviceBase@@MEAA@XZ.c)
+ */
+
 FxDeviceBase *__fastcall FxDeviceBase::`scalar deleting destructor'(FxDeviceBase *this, char a2)
 {
   FxDeviceBase *v4; // rcx

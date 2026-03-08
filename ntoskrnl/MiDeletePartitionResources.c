@@ -1,3 +1,44 @@
+/*
+ * XREFs of MiDeletePartitionResources @ 0x140656EBC
+ * Callers:
+ *     MiDeletePartition @ 0x140626F80 (MiDeletePartition.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExFreeCacheAwareRundownProtection @ 0x14028E220 (ExFreeCacheAwareRundownProtection.c)
+ *     MiUnlinkWorkingSet @ 0x1402A4D2C (MiUnlinkWorkingSet.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiDereferencePageRunsEx @ 0x1402EBA28 (MiDereferencePageRunsEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     MiEnumerateSlabAllocators @ 0x140360F88 (MiEnumerateSlabAllocators.c)
+ *     ZwWaitForSingleObject @ 0x140412390 (ZwWaitForSingleObject.c)
+ *     CcExitPartition @ 0x140536FC8 (CcExitPartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockDynamicMemoryNestedParentExclusive @ 0x1406193A8 (MiLockDynamicMemoryNestedParentExclusive.c)
+ *     MiEmptyKernelStackCache @ 0x1406423A0 (MiEmptyKernelStackCache.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x14064F264 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiDeletePartitionPageNodes @ 0x140656E28 (MiDeletePartitionPageNodes.c)
+ *     MiMergePageNodes @ 0x14065893C (MiMergePageNodes.c)
+ *     MiStoreDeletePartition @ 0x140659A64 (MiStoreDeletePartition.c)
+ *     MiDeleteSpecialPurposeMemory @ 0x14065DA34 (MiDeleteSpecialPurposeMemory.c)
+ *     MiFreeClonePool @ 0x14066213C (MiFreeClonePool.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     SmDeletePartition @ 0x1409D3CF8 (SmDeletePartition.c)
+ *     MiDeletePagingFiles @ 0x140A2FCE8 (MiDeletePagingFiles.c)
+ *     MiDeletePfnBitMaps @ 0x140A40338 (MiDeletePfnBitMaps.c)
+ *     MiFreePartitionPhysicalPages @ 0x140A41E90 (MiFreePartitionPhysicalPages.c)
+ *     MiMakePartitionMemoryBlock @ 0x140A4242C (MiMakePartitionMemoryBlock.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiDeletePartitionResources(__int64 a1)
 {
   _QWORD *v2; // rcx

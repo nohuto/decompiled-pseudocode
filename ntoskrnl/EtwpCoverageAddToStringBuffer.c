@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpCoverageAddToStringBuffer @ 0x1403BD4CC
+ * Callers:
+ *     EtwTelemetryCoverageReport @ 0x1402F9DD0 (EtwTelemetryCoverageReport.c)
+ *     EtwpCoverageRecord @ 0x14078E9DC (EtwpCoverageRecord.c)
+ * Callees:
+ *     RtlStringCchCopyA @ 0x1403BD50C (RtlStringCchCopyA.c)
+ */
+
 __int64 __fastcall EtwpCoverageAddToStringBuffer(__int64 a1, const char *a2, int a3)
 {
   char *v4; // rcx

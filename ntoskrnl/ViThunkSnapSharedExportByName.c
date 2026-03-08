@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViThunkSnapSharedExportByName @ 0x140ABA164
+ * Callers:
+ *     ViThunkSnapSharedExports @ 0x140ABA0B4 (ViThunkSnapSharedExports.c)
+ * Callees:
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     _stricmp @ 0x1403D3BD0 (_stricmp.c)
+ */
+
 __int64 __fastcall ViThunkSnapSharedExportByName(__int64 a1, const char **a2, __int64 a3)
 {
   unsigned int v3; // ebx

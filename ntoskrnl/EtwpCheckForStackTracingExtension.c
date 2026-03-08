@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpCheckForStackTracingExtension @ 0x140748504
+ * Callers:
+ *     EtwpStartLogger @ 0x140691964 (EtwpStartLogger.c)
+ *     EtwpUpdateTrace @ 0x140744D3C (EtwpUpdateTrace.c)
+ * Callees:
+ *     EtwpGetFlagExtension @ 0x14074856C (EtwpGetFlagExtension.c)
+ *     EtwpEnableStackCaching @ 0x1408A385A (EtwpEnableStackCaching.c)
+ *     EtwpUpdateStackTracing @ 0x1409E5DD8 (EtwpUpdateStackTracing.c)
+ */
+
 __int64 __fastcall EtwpCheckForStackTracingExtension(__int64 a1, __int64 a2)
 {
   _WORD *FlagExtension; // rax

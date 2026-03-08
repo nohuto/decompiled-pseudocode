@@ -1,3 +1,50 @@
+/*
+ * XREFs of RtlRbInsertNodeEx @ 0x14024D3A0
+ * Callers:
+ *     MiInvalidatePageFileBitmapsCache @ 0x14020A3E4 (MiInvalidatePageFileBitmapsCache.c)
+ *     MiBitmapsCachedEntryLengthChanged @ 0x14020B884 (MiBitmapsCachedEntryLengthChanged.c)
+ *     RtlpHpVsChunkFree @ 0x140249D70 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x14024A580 (RtlpHpVsFreeChunkInsert.c)
+ *     RtlpHpVsChunkSplit @ 0x14024AB60 (RtlpHpVsChunkSplit.c)
+ *     KiAbEntryGetLockedHeadEntry @ 0x14024CE30 (KiAbEntryGetLockedHeadEntry.c)
+ *     RtlpHpSegPageRangeShrink @ 0x14024DB00 (RtlpHpSegPageRangeShrink.c)
+ *     KiInsertTimer2WithCollectionLockHeld @ 0x14024E320 (KiInsertTimer2WithCollectionLockHeld.c)
+ *     RtlpHpSegFreeRangeInsert @ 0x14024E6D0 (RtlpHpSegFreeRangeInsert.c)
+ *     KiInsertSchedulingGroupQueue @ 0x1402AE47C (KiInsertSchedulingGroupQueue.c)
+ *     RtlpHpLargeAlloc @ 0x1402B6D70 (RtlpHpLargeAlloc.c)
+ *     IoStartDiskIoAttributionForContext @ 0x1402C4114 (IoStartDiskIoAttributionForContext.c)
+ *     MiRescanPageFileBitmapPortion @ 0x1402DF480 (MiRescanPageFileBitmapPortion.c)
+ *     RtlpHpVaMgrFree @ 0x1402F12D4 (RtlpHpVaMgrFree.c)
+ *     KasanDriverLoadImage @ 0x1402F4670 (KasanDriverLoadImage.c)
+ *     PfSnGetFileInformation @ 0x140307D00 (PfSnGetFileInformation.c)
+ *     RtlpHpFreeHeap @ 0x140313CC0 (RtlpHpFreeHeap.c)
+ *     MiInsertSlabEntry @ 0x140349C90 (MiInsertSlabEntry.c)
+ *     KiAbEntryUpdateWaiterTreePosition @ 0x140358150 (KiAbEntryUpdateWaiterTreePosition.c)
+ *     KiAbEntryUpdateOwnerTreePosition @ 0x14035827C (KiAbEntryUpdateOwnerTreePosition.c)
+ *     HalpAllocateCommonBufferEntry @ 0x14038D0B4 (HalpAllocateCommonBufferEntry.c)
+ *     MiInitializePagefileBitmapsCache @ 0x1403926D0 (MiInitializePagefileBitmapsCache.c)
+ *     KiSetClockInterval @ 0x1403ACBC4 (KiSetClockInterval.c)
+ *     VmpFaultEntryInsert @ 0x14045E1E8 (VmpFaultEntryInsert.c)
+ *     PspJobIoRateVolumeEntryInsert @ 0x1405A2018 (PspJobIoRateVolumeEntryInsert.c)
+ *     RtlCompareExchangePointerMapping @ 0x1405A7ED0 (RtlCompareExchangePointerMapping.c)
+ *     VmpInsertMemoryRange @ 0x1405F6F6C (VmpInsertMemoryRange.c)
+ *     VmpSplitMemoryRange @ 0x1405F8CA0 (VmpSplitMemoryRange.c)
+ *     MiMovePageFileMemoryExtents @ 0x14065E2B8 (MiMovePageFileMemoryExtents.c)
+ *     EtwpSetProviderTraitsCommon @ 0x140695C68 (EtwpSetProviderTraitsCommon.c)
+ *     HvpViewMapCreateViewsForRegion @ 0x140730B54 (HvpViewMapCreateViewsForRegion.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x140779930 (HvpViewMapPromoteRangeToMapping.c)
+ *     KiGetSystemServiceTraceTable @ 0x140972A44 (KiGetSystemServiceTraceTable.c)
+ *     PfSnSetAltPrefetchParam @ 0x14097C9F8 (PfSnSetAltPrefetchParam.c)
+ *     EtwpRegisterPrivateSession @ 0x1409E9A6C (EtwpRegisterPrivateSession.c)
+ *     MiCreatePagefileMemoryExtents @ 0x140A44298 (MiCreatePagefileMemoryExtents.c)
+ *     MiConstructLoaderMemoryTree @ 0x140B601A0 (MiConstructLoaderMemoryTree.c)
+ *     KeInitializeClock @ 0x140B67BE8 (KeInitializeClock.c)
+ *     MiRemoveLargeFreeLoaderDescriptors @ 0x140B69ECC (MiRemoveLargeFreeLoaderDescriptors.c)
+ *     MiSplitMultiNodeFreeDescriptors @ 0x140B6B4FC (MiSplitMultiNodeFreeDescriptors.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RtlRbInsertNodeEx(unsigned __int64 *a1, unsigned __int64 a2, bool a3, unsigned __int64 a4)
 {
   bool v4; // bl

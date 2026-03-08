@@ -1,3 +1,13 @@
+/*
+ * XREFs of TdrTimedOperationWaitForSingleObject @ 0x1C030B020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_TdrTimedOperationGetRelativeTimeLeft@@YAXAEAU_DXGK_TIMED_OPERATION@@AEAT_LARGE_INTEGER@@@Z @ 0x1C004F0D4 (-_TdrTimedOperationGetRelativeTimeLeft@@YAXAEAU_DXGK_TIMED_OPERATION@@AEAT_LARGE_INTEGER@@@Z.c)
+ *     TdrTimedOperationAllowToDebugTimeout @ 0x1C004F13C (TdrTimedOperationAllowToDebugTimeout.c)
+ *     TdrTimedOperationBugcheckOnTimeout @ 0x1C004F2C8 (TdrTimedOperationBugcheckOnTimeout.c)
+ */
+
 __int64 __fastcall TdrTimedOperationWaitForSingleObject(
         struct _DXGK_TIMED_OPERATION *a1,
         PVOID Object,

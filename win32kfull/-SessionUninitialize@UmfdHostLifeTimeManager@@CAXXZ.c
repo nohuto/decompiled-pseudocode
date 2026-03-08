@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SessionUninitialize@UmfdHostLifeTimeManager@@CAXXZ @ 0x1C0092838
+ * Callers:
+ *     UmfdSessionUninitialize @ 0x1C0092A20 (UmfdSessionUninitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall UmfdHostLifeTimeManager::SessionUninitialize(__int64 a1)
 {
   _QWORD *v1; // rbx

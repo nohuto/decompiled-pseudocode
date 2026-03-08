@@ -1,3 +1,11 @@
+/*
+ * XREFs of ObQueryNameInfo @ 0x14077F720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ObQueryNameInfo(__int64 a1)
 {
   char v1; // al

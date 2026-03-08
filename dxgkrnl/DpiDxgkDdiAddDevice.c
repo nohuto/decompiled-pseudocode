@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiDxgkDdiAddDevice @ 0x1C01F1168
+ * Callers:
+ *     DpiAddDevice @ 0x1C01F38A0 (DpiAddDevice.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0ppq_EtwWriteTransfer @ 0x1C005A62C (McTemplateK0ppq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiDxgkDdiAddDevice(__int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 v6; // rdx

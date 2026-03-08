@@ -1,3 +1,15 @@
+/*
+ * XREFs of MonitorSetSDRWhiteLevelOverride @ 0x1C03C0994
+ * Callers:
+ *     DxgkIddHandleSetDisplayConfig2 @ 0x1C02F0840 (DxgkIddHandleSetDisplayConfig2.c)
+ * Callees:
+ *     ?AcquireMonitorExclusive@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAXI_N@Z @ 0x1C0001E2C (-AcquireMonitorExclusive@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAXI_N@Z.c)
+ *     ?EdidSupportsHDR@MonitorColorState@DxgMonitor@@QEBA_NXZ @ 0x1C01B0374 (-EdidSupportsHDR@MonitorColorState@DxgMonitor@@QEBA_NXZ.c)
+ *     TriggerSDRWhiteLevelChangedWnf @ 0x1C02F86C0 (TriggerSDRWhiteLevelChangedWnf.c)
+ *     ?HasDescriptor@DXGMONITOR@@UEBA_NXZ @ 0x1C03C4810 (-HasDescriptor@DXGMONITOR@@UEBA_NXZ.c)
+ *     ?SetSDRWhiteLevel@MonitorColorState@DxgMonitor@@QEAAJK@Z @ 0x1C03C987C (-SetSDRWhiteLevel@MonitorColorState@DxgMonitor@@QEAAJK@Z.c)
+ */
+
 __int64 __fastcall MonitorSetSDRWhiteLevelOverride(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // esi

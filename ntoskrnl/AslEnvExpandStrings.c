@@ -1,3 +1,12 @@
+/*
+ * XREFs of AslEnvExpandStrings @ 0x140A540A8
+ * Callers:
+ *     AslEnvExpandStrings2 @ 0x140A54280 (AslEnvExpandStrings2.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslEnvVarQuery @ 0x140A54908 (AslEnvVarQuery.c)
+ */
+
 __int64 __fastcall AslEnvExpandStrings(__int64 a1, _WORD *a2, __int64 a3, _WORD *a4, unsigned __int64 a5, _QWORD *a6)
 {
   unsigned __int64 v6; // rsi

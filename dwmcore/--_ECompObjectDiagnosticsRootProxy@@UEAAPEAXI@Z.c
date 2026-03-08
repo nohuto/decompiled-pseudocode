@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_ECompObjectDiagnosticsRootProxy@@UEAAPEAXI@Z @ 0x1801E21B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 CompObjectDiagnosticsRootProxy *__fastcall CompObjectDiagnosticsRootProxy::`vector deleting destructor'(
         CompObjectDiagnosticsRootProxy *this,
         char a2)

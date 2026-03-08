@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopDeviceIdlePolicySettingCallback @ 0x14085FD40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopDeviceIdlePolicySettingCallback(_QWORD *a1, int *a2, int a3)
 {
   __int64 v3; // r9

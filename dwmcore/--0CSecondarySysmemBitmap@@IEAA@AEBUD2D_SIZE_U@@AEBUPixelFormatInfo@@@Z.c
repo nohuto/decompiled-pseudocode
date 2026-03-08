@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CSecondarySysmemBitmap@@IEAA@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@@Z @ 0x1800EC960
+ * Callers:
+ *     ?EnsureSysmemBitmap@CD2DBitmapCache@@IEAAJXZ @ 0x1800EC864 (-EnsureSysmemBitmap@CD2DBitmapCache@@IEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 CSecondarySysmemBitmap *__fastcall CSecondarySysmemBitmap::CSecondarySysmemBitmap(
         CSecondarySysmemBitmap *this,
         const struct D2D_SIZE_U *a2,

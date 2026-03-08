@@ -1,3 +1,20 @@
+/*
+ * XREFs of ACPIQueryDeviceBiosNameEx @ 0x1C0043BC4
+ * Callers:
+ *     ACPIIoctlQueryDeviceBiosNameEx @ 0x1C00311E0 (ACPIIoctlQueryDeviceBiosNameEx.c)
+ *     ACPIBusIrpDeviceEnumerated @ 0x1C007E480 (ACPIBusIrpDeviceEnumerated.c)
+ *     ACPIInternalNotifyAvailableDeviceObject @ 0x1C008310C (ACPIInternalNotifyAvailableDeviceObject.c)
+ *     ACPIIoctlQueryDeviceBiosName @ 0x1C00885E4 (ACPIIoctlQueryDeviceBiosName.c)
+ *     PnpBiosGetDeviceResourceList @ 0x1C008ED68 (PnpBiosGetDeviceResourceList.c)
+ *     AcpiIsDeviceSecure @ 0x1C0094C68 (AcpiIsDeviceSecure.c)
+ *     ACPIIsDebuggingDevice @ 0x1C0098070 (ACPIIsDebuggingDevice.c)
+ *     ACPIQueryDeviceBiosName @ 0x1C0098A0C (ACPIQueryDeviceBiosName.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIAmliBuildObjectPathname @ 0x1C000B0E0 (ACPIAmliBuildObjectPathname.c)
+ *     ACPIInitUnicodeString @ 0x1C0087DD4 (ACPIInitUnicodeString.c)
+ */
+
 __int64 __fastcall ACPIQueryDeviceBiosNameEx(ULONG_PTR a1, char a2, struct _UNICODE_STRING *a3)
 {
   __int64 v5; // rcx

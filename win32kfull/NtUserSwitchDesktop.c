@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserSwitchDesktop @ 0x1C00EA5E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxSwitchDesktop @ 0x1C00205D4 (xxxSwitchDesktop.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ *     xxxSwitchDesktopWithFade @ 0x1C00EA72C (xxxSwitchDesktopWithFade.c)
+ */
+
 _BOOL8 __fastcall NtUserSwitchDesktop(__int64 a1, int a2, int a3)
 {
   BOOL v5; // ebx

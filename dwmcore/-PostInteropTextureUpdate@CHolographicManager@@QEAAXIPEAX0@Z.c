@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PostInteropTextureUpdate@CHolographicManager@@QEAAXIPEAX0@Z @ 0x1802A2574
+ * Callers:
+ *     ?Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1802A6068 (-Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ * Callees:
+ *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x1802A8D0C (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
+ */
+
 void __fastcall CHolographicManager::PostInteropTextureUpdate(
         CHolographicManager *this,
         __int64 a2,

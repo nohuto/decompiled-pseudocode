@@ -1,3 +1,24 @@
+/*
+ * XREFs of ACPIBusIrpRemoveDevice @ 0x1C0016C30
+ * Callers:
+ *     ACPIEcRemoveDevice @ 0x1C00253C0 (ACPIEcRemoveDevice.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIBuildSurpriseRemovedExtension @ 0x1C0013960 (ACPIBuildSurpriseRemovedExtension.c)
+ *     ACPIFanStopDevice @ 0x1C0027980 (ACPIFanStopDevice.c)
+ *     ACPIInitDeleteChildDeviceList @ 0x1C002CC88 (ACPIInitDeleteChildDeviceList.c)
+ *     ACPIInitResetDeviceExtension @ 0x1C002D7B0 (ACPIInitResetDeviceExtension.c)
+ *     ACPIThermalStopZone @ 0x1C0041F54 (ACPIThermalStopZone.c)
+ *     ACPIWakeDisconnectWakeInterrupts @ 0x1C00450BC (ACPIWakeDisconnectWakeInterrupts.c)
+ *     ACPIInitStopDevice @ 0x1C0087AE4 (ACPIInitStopDevice.c)
+ *     EnableDisableIPMIRegions @ 0x1C008879C (EnableDisableIPMIRegions.c)
+ *     EnableDisableRegions @ 0x1C008A57C (EnableDisableRegions.c)
+ *     IsPciBus @ 0x1C008A744 (IsPciBus.c)
+ *     ACPIPepCleanupPlatformNotificationSupport @ 0x1C008A784 (ACPIPepCleanupPlatformNotificationSupport.c)
+ *     PcisuppReleasePciInterfaces @ 0x1C009A0AC (PcisuppReleasePciInterfaces.c)
+ */
+
 __int64 __fastcall ACPIBusIrpRemoveDevice(ULONG_PTR a1, IRP *a2)
 {
   unsigned int MinorFunction; // r14d

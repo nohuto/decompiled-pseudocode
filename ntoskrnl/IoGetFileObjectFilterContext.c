@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoGetFileObjectFilterContext @ 0x14023AAB0
+ * Callers:
+ *     FsRtlRemovePerFileObjectContext @ 0x14023A530 (FsRtlRemovePerFileObjectContext.c)
+ *     FsRtlInsertPerFileObjectContext @ 0x14023A9B0 (FsRtlInsertPerFileObjectContext.c)
+ *     FsRtlPTeardownPerFileObjectContexts @ 0x1406B1CE4 (FsRtlPTeardownPerFileObjectContexts.c)
+ * Callees:
+ *     IopAllocateFileObjectExtension @ 0x14024F600 (IopAllocateFileObjectExtension.c)
+ */
+
 __int64 __fastcall IoGetFileObjectFilterContext(__int64 a1, _QWORD *a2, char a3)
 {
   __int64 v3; // rbx

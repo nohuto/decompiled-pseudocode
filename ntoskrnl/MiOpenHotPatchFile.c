@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiOpenHotPatchFile @ 0x140A376D4
+ * Callers:
+ *     MiApplyImageHotPatchRequest @ 0x140A32920 (MiApplyImageHotPatchRequest.c)
+ *     MiLoadHotPatch @ 0x140A352A0 (MiLoadHotPatch.c)
+ *     MiLoadHotPatchForUserSid @ 0x140A35638 (MiLoadHotPatchForUserSid.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     RtlImageNtHeaderEx @ 0x14035E850 (RtlImageNtHeaderEx.c)
+ *     MiCreateSystemSection @ 0x14036BD9C (MiCreateSystemSection.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiMapImageInSystemSpace @ 0x1406A53F8 (MiMapImageInSystemSpace.c)
+ *     MiUnmapImageInSystemSpace @ 0x1406A556C (MiUnmapImageInSystemSpace.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     RtlFindHotPatchBase @ 0x140A7380C (RtlFindHotPatchBase.c)
+ *     RtlFindHotPatchInformation @ 0x140A7383C (RtlFindHotPatchInformation.c)
+ */
+
 __int64 __fastcall MiOpenHotPatchFile(
         UNICODE_STRING *a1,
         int a2,

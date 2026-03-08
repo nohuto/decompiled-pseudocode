@@ -1,3 +1,13 @@
+/*
+ * XREFs of ObQueryTypeName @ 0x14097937C
+ * Callers:
+ *     ObGetObjectInformation @ 0x140978914 (ObGetObjectInformation.c)
+ *     SepQueryTypeString @ 0x1409CA608 (SepQueryTypeString.c)
+ *     VfCheckUserHandle @ 0x140AD0CE4 (VfCheckUserHandle.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall ObQueryTypeName(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)
 {
   __int64 v5; // rdx

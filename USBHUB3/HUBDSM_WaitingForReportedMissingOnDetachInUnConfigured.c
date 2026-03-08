@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBDSM_WaitingForReportedMissingOnDetachInUnConfigured @ 0x1C0020760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HUBPDO_NotifyDeviceDisconnected @ 0x1C001743C (HUBPDO_NotifyDeviceDisconnected.c)
+ *     HUBPDO_ReportDeviceAsMissing @ 0x1C001B420 (HUBPDO_ReportDeviceAsMissing.c)
+ */
+
 __int64 __fastcall HUBDSM_WaitingForReportedMissingOnDetachInUnConfigured(__int64 a1)
 {
   __int64 v1; // rbx

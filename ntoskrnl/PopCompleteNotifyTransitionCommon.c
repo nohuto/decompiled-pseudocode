@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopCompleteNotifyTransitionCommon @ 0x14058DFFC
+ * Callers:
+ *     PopCompleteDirectedPowerTransitionCallback @ 0x14058DF74 (PopCompleteDirectedPowerTransitionCallback.c)
+ *     PopSystemIrpCompletion @ 0x140AA4450 (PopSystemIrpCompletion.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseSemaphoreEx @ 0x14033E940 (KeReleaseSemaphoreEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopPrepChildWake @ 0x14058E3F4 (PopPrepChildWake.c)
+ *     PopReadyChildWake @ 0x14058E464 (PopReadyChildWake.c)
+ *     PopReadyParentSleep @ 0x14058E4F0 (PopReadyParentSleep.c)
+ *     PopDiagTraceDriverVeto @ 0x140AA48D0 (PopDiagTraceDriverVeto.c)
+ */
+
 LONG __fastcall PopCompleteNotifyTransitionCommon(__int64 a1, __int64 *a2, int a3, __int64 a4)
 {
   _QWORD *v4; // r14

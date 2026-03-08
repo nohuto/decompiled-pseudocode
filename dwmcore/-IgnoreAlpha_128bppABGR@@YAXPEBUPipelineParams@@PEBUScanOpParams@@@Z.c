@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IgnoreAlpha_128bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802BAEC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall IgnoreAlpha_128bppABGR(const struct PipelineParams *a1, const struct ScanOpParams *a2)
 {
   int v2; // eax

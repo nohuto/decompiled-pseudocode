@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserGetAppImeLevel @ 0x1C01D0EE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ */
+
 __int64 __fastcall NtUserGetAppImeLevel(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rax

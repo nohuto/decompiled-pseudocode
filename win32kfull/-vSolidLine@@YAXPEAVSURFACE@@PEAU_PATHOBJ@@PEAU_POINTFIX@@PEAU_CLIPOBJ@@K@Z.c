@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?vSolidLine@@YAXPEAVSURFACE@@PEAU_PATHOBJ@@PEAU_POINTFIX@@PEAU_CLIPOBJ@@K@Z @ 0x1C02FF1A8
+ * Callers:
+ *     EngStrokePath @ 0x1C000C6E0 (EngStrokePath.c)
+ *     EngLineTo @ 0x1C028FDB0 (EngLineTo.c)
+ * Callees:
+ *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C00D4254 (-bUMPDSecurityGateEx@@YAHXZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?vDrawLine@@YAXPEAU_POINTFIX@@0PEAEJKPEAU_RECTL@@KPEAU_W32KCDD_ENG_CALLBACKS@@@Z @ 0x1C02FDD10 (-vDrawLine@@YAXPEAU_POINTFIX@@0PEAEJKPEAU_RECTL@@KPEAU_W32KCDD_ENG_CALLBACKS@@@Z.c)
+ */
+
 void __fastcall vSolidLine(
         struct SURFACE *a1,
         struct _PATHOBJ *a2,

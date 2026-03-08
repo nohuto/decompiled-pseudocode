@@ -1,3 +1,18 @@
+/*
+ * XREFs of CcCopyWriteEx @ 0x14021C0A0
+ * Callers:
+ *     CcCopyWrite @ 0x1403A3B60 (CcCopyWrite.c)
+ *     CcFastCopyWrite @ 0x140535310 (CcFastCopyWrite.c)
+ *     DifCcCopyWriteExWrapper @ 0x1405D3AE0 (DifCcCopyWriteExWrapper.c)
+ *     DifCcCopyWriteWrapper @ 0x1405D3C40 (DifCcCopyWriteWrapper.c)
+ *     DifCcFastCopyWriteWrapper @ 0x1405D3EE0 (DifCcFastCopyWriteWrapper.c)
+ * Callees:
+ *     CcMapAndCopyInToCache @ 0x14021CD00 (CcMapAndCopyInToCache.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     CcTelemetryBucketizeLatency @ 0x1406A74A0 (CcTelemetryBucketizeLatency.c)
+ *     CcSetTelemetryPeriodicTimer @ 0x140872D84 (CcSetTelemetryPeriodicTimer.c)
+ */
+
 char __fastcall CcCopyWriteEx(__int64 a1, __int64 *a2, unsigned int a3, char a4, __int64 a5, __int64 a6)
 {
   int v10; // ebx

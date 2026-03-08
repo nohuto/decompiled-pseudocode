@@ -1,3 +1,23 @@
+/*
+ * XREFs of UsbhDisablePort @ 0x1C00377CC
+ * Callers:
+ *     UsbhCancelResetTimeout @ 0x1C00015A0 (UsbhCancelResetTimeout.c)
+ *     UsbhReset2Complete @ 0x1C0002D00 (UsbhReset2Complete.c)
+ *     UsbhBusPnpStop_Action @ 0x1C00314EC (UsbhBusPnpStop_Action.c)
+ *     UsbhQueueSoftConnectChange @ 0x1C0034FA8 (UsbhQueueSoftConnectChange.c)
+ *     UsbhFinishStart @ 0x1C00378F4 (UsbhFinishStart.c)
+ *     Usbh_PdoRemove_PdoEvent @ 0x1C003B22C (Usbh_PdoRemove_PdoEvent.c)
+ *     UsbhDriverNotFoundWorker @ 0x1C00428B0 (UsbhDriverNotFoundWorker.c)
+ *     UsbhPortConnect @ 0x1C004D100 (UsbhPortConnect.c)
+ *     UsbhReset1TimeoutBadEnable @ 0x1C004E300 (UsbhReset1TimeoutBadEnable.c)
+ *     UsbhReset2TimeoutBadEnable @ 0x1C004E8C0 (UsbhReset2TimeoutBadEnable.c)
+ *     UsbhSetEnumerationFailed @ 0x1C004E9B8 (UsbhSetEnumerationFailed.c)
+ * Callees:
+ *     UsbhSyncSendCommand @ 0x1C0016EE0 (UsbhSyncSendCommand.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 char __fastcall UsbhDisablePort(__int64 a1, __int64 a2)
 {
   int v3; // edi

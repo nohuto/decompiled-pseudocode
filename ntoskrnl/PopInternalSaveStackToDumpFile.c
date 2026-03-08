@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopInternalSaveStackToDumpFile @ 0x140580D7C
+ * Callers:
+ *     PopInternalAddToDumpFile @ 0x140580CC0 (PopInternalAddToDumpFile.c)
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KiIsAddressRangeValid @ 0x1403849BC (KiIsAddressRangeValid.c)
+ */
+
 void __fastcall PopInternalSaveStackToDumpFile(__int64 MaxDataSize)
 {
   __int64 v1; // rbx

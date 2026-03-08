@@ -1,3 +1,15 @@
+/*
+ * XREFs of RIMSetContactBoundary @ 0x1C01BDA20
+ * Callers:
+ *     RIMAddSimulatedPointerDeviceData @ 0x1C01B2DEC (RIMAddSimulatedPointerDeviceData.c)
+ *     RIMApplyTransforms @ 0x1C01BD0C8 (RIMApplyTransforms.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMTransformPointerDevicePointToPhysical @ 0x1C00EFE38 (RIMTransformPointerDevicePointToPhysical.c)
+ *     RIMTransformPhysicalPointToScreen @ 0x1C01BE428 (RIMTransformPhysicalPointToScreen.c)
+ *     ApiSetApplyMagInputTransform @ 0x1C023BE74 (ApiSetApplyMagInputTransform.c)
+ */
+
 __int64 __fastcall RIMSetContactBoundary(__int64 a1, _DWORD *a2, __int64 a3, unsigned int a4, unsigned int a5)
 {
   int v8; // edi

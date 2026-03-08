@@ -1,3 +1,15 @@
+/*
+ * XREFs of ParseNameObj @ 0x1C005B96C
+ * Callers:
+ *     ParseOpcode @ 0x1C005BD40 (ParseOpcode.c)
+ * Callees:
+ *     ReadObject @ 0x1C0005BEE (ReadObject.c)
+ *     GetBaseObject @ 0x1C004B918 (GetBaseObject.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     PushCall @ 0x1C0053AF8 (PushCall.c)
+ *     ParseAndGetNameSpaceObject @ 0x1C005A3B4 (ParseAndGetNameSpaceObject.c)
+ */
+
 __int64 __fastcall ParseNameObj(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8

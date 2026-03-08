@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBMISC_StartD3ColdReconnectTimer @ 0x1C0032598
+ * Callers:
+ *     HUBPSM30_StartingTimerForAllowingReconnectOnResumingFromD3Cold @ 0x1C0012E40 (HUBPSM30_StartingTimerForAllowingReconnectOnResumingFromD3Cold.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qd @ 0x1C00031FC (WPP_RECORDER_SF_qd.c)
+ */
+
 __int64 __fastcall HUBMISC_StartD3ColdReconnectTimer(__int64 a1)
 {
   unsigned int *v2; // rbx

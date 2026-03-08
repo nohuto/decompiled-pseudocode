@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopAddKernelSpacePagesToPartialDump @ 0x14055A3F4
+ * Callers:
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14055A46C (IopAddLiveDumpPagesToPartialKernelDump.c)
+ * Callees:
+ *     MmGetDumpRange @ 0x14062DF70 (MmGetDumpRange.c)
+ */
+
 __int64 IopAddKernelSpacePagesToPartialDump()
 {
   __int64 v0; // rcx

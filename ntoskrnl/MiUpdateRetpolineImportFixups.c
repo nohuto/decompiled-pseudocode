@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiUpdateRetpolineImportFixups @ 0x1402097C0
+ * Callers:
+ *     MiUpdateImagePfnImportRelocations @ 0x140209498 (MiUpdateImagePfnImportRelocations.c)
+ * Callees:
+ *     RtlpApplyGenericRetpolineFixup @ 0x1402098E0 (RtlpApplyGenericRetpolineFixup.c)
+ *     RtlpConstructImportRelocationFixup @ 0x140209B30 (RtlpConstructImportRelocationFixup.c)
+ *     RtlApplyImportRelocationToPage @ 0x1402F6BE4 (RtlApplyImportRelocationToPage.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall MiUpdateRetpolineImportFixups(__int64 a1, __int64 a2, unsigned int a3)
 {
   int v3; // r15d

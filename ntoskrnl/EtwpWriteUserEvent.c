@@ -1,3 +1,45 @@
+/*
+ * XREFs of EtwpWriteUserEvent @ 0x1406AA640
+ * Callers:
+ *     NtTraceEvent @ 0x140230D30 (NtTraceEvent.c)
+ * Callees:
+ *     DecodeProviderTraits @ 0x1402315FC (DecodeProviderTraits.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402331B0 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     EtwpIsEventNameFilterEnabled @ 0x14023389C (EtwpIsEventNameFilterEnabled.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x14028DD10 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     PsGetProcessStartKey @ 0x1402993E0 (PsGetProcessStartKey.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     EtwpCreateEventKey @ 0x1402DFEF0 (EtwpCreateEventKey.c)
+ *     EtwpFailLogging @ 0x1402FABEC (EtwpFailLogging.c)
+ *     EtwpGetReserveTraceBufferStatus @ 0x1402FF40C (EtwpGetReserveTraceBufferStatus.c)
+ *     IoGetStackLimits @ 0x1403129C0 (IoGetStackLimits.c)
+ *     EtwpReserveTraceBuffer @ 0x1403151E0 (EtwpReserveTraceBuffer.c)
+ *     PsGetCurrentProcessSessionId @ 0x140343AA0 (PsGetCurrentProcessSessionId.c)
+ *     EtwpSendTraceEvent @ 0x14039D2E8 (EtwpSendTraceEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpTraceLostEventOld @ 0x14040C2E0 (EtwpTraceLostEventOld.c)
+ *     Feature_Servicing_PropagateFlagsThroughLostSystemEvent__private_IsEnabledDeviceUsage @ 0x14040C8BC (Feature_Servicing_PropagateFlagsThroughLostSystemEvent__private_IsEnabledDeviceUsage.c)
+ *     EtwpFailLoggingOld @ 0x14040C914 (EtwpFailLoggingOld.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpGetStackLookasideListEntry @ 0x140460460 (EtwpGetStackLookasideListEntry.c)
+ *     EtwpDereferenceStackEntry @ 0x140460D12 (EtwpDereferenceStackEntry.c)
+ *     EtwpApplyEventNameFilter @ 0x140462256 (EtwpApplyEventNameFilter.c)
+ *     EtwpApplyLevelKwFilter @ 0x1404626B2 (EtwpApplyLevelKwFilter.c)
+ *     EtwpTraceLostEvent @ 0x1405F9F94 (EtwpTraceLostEvent.c)
+ *     EtwpGetStackExtendedHeaderItem @ 0x1405FD72C (EtwpGetStackExtendedHeaderItem.c)
+ *     EtwpInvokeEventCallback @ 0x1405FEBA4 (EtwpInvokeEventCallback.c)
+ *     EtwpGetCrimsonStackKey @ 0x1405FF81C (EtwpGetCrimsonStackKey.c)
+ *     EtwpGetSidExtendedHeaderItem @ 0x1406D6370 (EtwpGetSidExtendedHeaderItem.c)
+ *     EtwpApplyEventIdPayloadFilterOnUserEvent @ 0x140793FCC (EtwpApplyEventIdPayloadFilterOnUserEvent.c)
+ *     EtwpGetPsmKeyExtendedHeaderItem @ 0x1409E4364 (EtwpGetPsmKeyExtendedHeaderItem.c)
+ *     EtwpApplyStackWalkFilterOnUserEvent @ 0x1409F2310 (EtwpApplyStackWalkFilterOnUserEvent.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall EtwpWriteUserEvent(
         __int64 a1,
         unsigned __int8 a2,

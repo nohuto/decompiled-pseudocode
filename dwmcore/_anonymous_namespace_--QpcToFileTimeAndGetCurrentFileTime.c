@@ -1,3 +1,11 @@
+/*
+ * XREFs of _anonymous_namespace_::QpcToFileTimeAndGetCurrentFileTime @ 0x18010D920
+ * Callers:
+ *     _anonymous_namespace_::SendFramesReport @ 0x18010B170 (_anonymous_namespace_--SendFramesReport.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall anonymous_namespace_::QpcToFileTimeAndGetCurrentFileTime(
         unsigned __int64 a1,
         _DWORD *a2,

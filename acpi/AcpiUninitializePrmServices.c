@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiUninitializePrmServices @ 0x1C003AEC4
+ * Callers:
+ *     ACPIRootIrpRemoveDevice @ 0x1C003D280 (ACPIRootIrpRemoveDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS AcpiUninitializePrmServices()
 {
   NTSTATUS result; // eax

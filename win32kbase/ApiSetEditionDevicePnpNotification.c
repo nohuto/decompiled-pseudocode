@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionDevicePnpNotification @ 0x1C002F690
+ * Callers:
+ *     ?PerformPnpNotification@CBaseInput@@AEAAXPEBU_DevicePnpNotification@@@Z @ 0x1C002F5A4 (-PerformPnpNotification@CBaseInput@@AEAAXPEBU_DevicePnpNotification@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (*__fastcall ApiSetEditionDevicePnpNotification(__int64 a1))(void)
 {
   char v2; // bl

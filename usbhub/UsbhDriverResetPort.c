@@ -1,3 +1,20 @@
+/*
+ * XREFs of UsbhDriverResetPort @ 0x1C001B8C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhSignalSyncDeviceResetPdo @ 0x1C0001CD0 (UsbhSignalSyncDeviceResetPdo.c)
+ *     UsbhSignalDriverResetEvent @ 0x1C0001DA8 (UsbhSignalDriverResetEvent.c)
+ *     UsbhResetPort @ 0x1C0002918 (UsbhResetPort.c)
+ *     UsbhDecHubBusy @ 0x1C0003DB0 (UsbhDecHubBusy.c)
+ *     UsbhAcquireEnumBusLock @ 0x1C0004C60 (UsbhAcquireEnumBusLock.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhSignalResumeEvent @ 0x1C001B710 (UsbhSignalResumeEvent.c)
+ *     UsbhAllocateTimeoutObject @ 0x1C001B9D8 (UsbhAllocateTimeoutObject.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall UsbhDriverResetPort(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v6; // esi

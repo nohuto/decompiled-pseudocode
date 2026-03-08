@@ -1,3 +1,14 @@
+/*
+ * XREFs of GetMonitorCapability @ 0x1C0190204
+ * Callers:
+ *     PruneModesByDisplayDeviceCaps @ 0x1C0190E0C (PruneModesByDisplayDeviceCaps.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     GetMonitorCapability1 @ 0x1C018FD28 (GetMonitorCapability1.c)
+ *     GetMonitorCapabilityFromInf @ 0x1C01902C4 (GetMonitorCapabilityFromInf.c)
+ *     GetRegEDID @ 0x1C019065C (GetRegEDID.c)
+ */
+
 __int64 __fastcall GetMonitorCapability(__int64 a1, __int64 a2, int *a3, char a4)
 {
   int *v5; // rbx

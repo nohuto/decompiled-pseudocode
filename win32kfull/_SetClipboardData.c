@@ -1,3 +1,14 @@
+/*
+ * XREFs of _SetClipboardData @ 0x1C02007CC
+ * Callers:
+ *     NtUserSetClipboardData @ 0x1C01DBC50 (NtUserSetClipboardData.c)
+ *     xxxSnapWindow @ 0x1C022AF08 (xxxSnapWindow.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00BD7B8 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ *     ?InternalSetClipboardData@@YAHPEAUtagWINDOWSTATION@@IPEAXHH@Z @ 0x1C01FECA4 (-InternalSetClipboardData@@YAHPEAUtagWINDOWSTATION@@IPEAXHH@Z.c)
+ */
+
 __int64 __fastcall SetClipboardData(__int64 a1, char *a2, int a3, int a4)
 {
   unsigned int v7; // edi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of IsValidBand @ 0x1C009BB20
+ * Callers:
+ *     ?_DeferWindowPosAndBand@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@W4WindowBandOptions@@@Z @ 0x1C0099DE8 (-_DeferWindowPosAndBand@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@W4WindowBandOptions@@@Z.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IsValidBand(int a1)
 {
   __int64 result; // rax

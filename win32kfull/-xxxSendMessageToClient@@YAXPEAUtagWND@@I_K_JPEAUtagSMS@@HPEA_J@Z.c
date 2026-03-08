@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?xxxSendMessageToClient@@YAXPEAUtagWND@@I_K_JPEAUtagSMS@@HPEA_J@Z @ 0x1C006EE00
+ * Callers:
+ *     xxxSendMessageCallback @ 0x1C004C51C (xxxSendMessageCallback.c)
+ *     xxxReceiveMessage @ 0x1C006DB60 (xxxReceiveMessage.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ * Callees:
+ *     SfnDWORD @ 0x1C00385D0 (SfnDWORD.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     xxxDefWindowProc @ 0x1C00A66F0 (xxxDefWindowProc.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     PrepareSentPointerMessageForClient @ 0x1C01C5368 (PrepareSentPointerMessageForClient.c)
+ */
+
 void __fastcall xxxSendMessageToClient(
         struct tagWND *a1,
         unsigned int a2,

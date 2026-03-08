@@ -1,3 +1,20 @@
+/*
+ * XREFs of NVMeControllerPanicResetActionWorkItem @ 0x1C001C690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ *     FillControllerRuntimeLog @ 0x1C0007908 (FillControllerRuntimeLog.c)
+ *     NVMeControllerStartFailureEventLog @ 0x1C0007C08 (NVMeControllerStartFailureEventLog.c)
+ *     ControllerReset @ 0x1C0009668 (ControllerReset.c)
+ *     NVMeCancelAllCompletionQueueDpc @ 0x1C000C2A8 (NVMeCancelAllCompletionQueueDpc.c)
+ *     NVMeControllerCompleteAllIORequests @ 0x1C000CC54 (NVMeControllerCompleteAllIORequests.c)
+ *     NVMeHardwareReset @ 0x1C000F26C (NVMeHardwareReset.c)
+ *     NvmSubsystemReset @ 0x1C0010BAC (NvmSubsystemReset.c)
+ *     NVMeControllerReinitialize @ 0x1C001C9A0 (NVMeControllerReinitialize.c)
+ */
+
 __int64 __fastcall NVMeControllerPanicResetActionWorkItem(__int64 a1, __int64 a2, __int64 a3)
 {
   char v5; // si

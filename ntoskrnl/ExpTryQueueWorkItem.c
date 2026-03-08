@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExpTryQueueWorkItem @ 0x140308AAC
+ * Callers:
+ *     IoTryQueueWorkItem @ 0x140300920 (IoTryQueueWorkItem.c)
+ *     ExTryQueueWorkItem @ 0x140308A80 (ExTryQueueWorkItem.c)
+ * Callees:
+ *     MmGetNextNode @ 0x1402AB0A0 (MmGetNextNode.c)
+ *     ExpPartitionCreateThreadIfNecessary @ 0x1402F6A24 (ExpPartitionCreateThreadIfNecessary.c)
+ *     ExpIsPoolReadyForWork @ 0x14033F350 (ExpIsPoolReadyForWork.c)
+ *     ExpValidateWorkItem @ 0x14033F620 (ExpValidateWorkItem.c)
+ *     KeInsertPriQueue @ 0x14033F6C0 (KeInsertPriQueue.c)
+ *     ExpTypeToPriority @ 0x140343758 (ExpTypeToPriority.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall ExpTryQueueWorkItem(__int64 a1, ULONG_PTR a2, unsigned int a3, unsigned int a4)
 {
   int v4; // r12d

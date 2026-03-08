@@ -1,3 +1,23 @@
+/*
+ * XREFs of UsbhAsyncStop @ 0x1C00424CC
+ * Callers:
+ *     Usbh_FDO_WaitPnpStop_CB @ 0x1C0044A00 (Usbh_FDO_WaitPnpStop_CB.c)
+ * Callees:
+ *     UsbhWaitEventWithTimeoutEx @ 0x1C00068E0 (UsbhWaitEventWithTimeoutEx.c)
+ *     Usbh_SSH_Event @ 0x1C0007220 (Usbh_SSH_Event.c)
+ *     UsbhDisableTimerObject @ 0x1C00084D0 (UsbhDisableTimerObject.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     UsbhSyncBusPause @ 0x1C0031870 (UsbhSyncBusPause.c)
+ *     UsbhAcquireFdoPnpLock @ 0x1C0031BEC (UsbhAcquireFdoPnpLock.c)
+ *     UsbhReleaseFdoPnpLock @ 0x1C0031D14 (UsbhReleaseFdoPnpLock.c)
+ *     Usbh_BusPnpFreeResources_PdoEvent @ 0x1C003A9B8 (Usbh_BusPnpFreeResources_PdoEvent.c)
+ *     Usbh_HubRootHubInitNotification @ 0x1C003C958 (Usbh_HubRootHubInitNotification.c)
+ *     UsbhDisableHardReset @ 0x1C003CFA4 (UsbhDisableHardReset.c)
+ *     UsbhSshDisabled @ 0x1C00592A0 (UsbhSshDisabled.c)
+ */
+
 void __fastcall UsbhAsyncStop(__int64 a1, int a2)
 {
   _DWORD *v4; // rbp

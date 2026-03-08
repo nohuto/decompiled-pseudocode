@@ -1,3 +1,13 @@
+/*
+ * XREFs of BgLibraryDestroy @ 0x140AEE2D8
+ * Callers:
+ *     BgkDestroy @ 0x140AEBA68 (BgkDestroy.c)
+ * Callees:
+ *     BgpFwReleaseLock @ 0x140381C10 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140381C60 (BgpFwAcquireLock.c)
+ *     BgpFwLibraryDestroy @ 0x140AEBA88 (BgpFwLibraryDestroy.c)
+ */
+
 __int64 BgLibraryDestroy()
 {
   __int16 v1; // bx

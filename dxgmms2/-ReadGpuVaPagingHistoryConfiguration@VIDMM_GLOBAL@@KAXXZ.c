@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReadGpuVaPagingHistoryConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C1DD0
+ * Callers:
+ *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C0968 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ * Callees:
+ *     Feature_GpuVaPagingHistoryFre__private_ReportDeviceUsage @ 0x1C001A558 (Feature_GpuVaPagingHistoryFre__private_ReportDeviceUsage.c)
+ */
+
 void VIDMM_GLOBAL::ReadGpuVaPagingHistoryConfiguration(void)
 {
   int v0; // eax

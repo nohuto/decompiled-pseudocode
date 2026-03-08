@@ -1,3 +1,14 @@
+/*
+ * XREFs of Win32UAFMAllocPoolWithQuotaZInit @ 0x1C017D280
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0064C54 (-AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     ?AdjustSize@?$UAFMitigationAllocator@VWin32UAFMAllocatorCollection@@@NSInstrumentation@@CA_K_K@Z @ 0x1C017D460 (-AdjustSize@-$UAFMitigationAllocator@VWin32UAFMAllocatorCollection@@@NSInstrumentation@@CA_K_K@Z.c)
+ *     ?GenerateCookie@?$UAFMitigationAllocator@VWin32UAFMAllocatorCollection@@@NSInstrumentation@@CAIXZ @ 0x1C017D510 (-GenerateCookie@-$UAFMitigationAllocator@VWin32UAFMAllocatorCollection@@@NSInstrumentation@@CAIX.c)
+ */
+
 _DWORD *__fastcall Win32UAFMAllocPoolWithQuotaZInit(size_t Size, __int64 a2, _DWORD *a3)
 {
   unsigned __int64 v5; // rax

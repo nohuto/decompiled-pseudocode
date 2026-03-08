@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DxgkInitializeTelemetry@@YAXXZ @ 0x1C0021DF4
+ * Callers:
+ *     DriverEntry @ 0x1C03D9E6C (DriverEntry.c)
+ * Callees:
+ *     TlgRegisterAggregateProviderEx @ 0x1C0210A1C (TlgRegisterAggregateProviderEx.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C0210B58 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ */
+
 void DxgkInitializeTelemetry(void)
 {
   TlgRegisterAggregateProviderEx(&dword_1C013A918);

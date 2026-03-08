@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiResumeClockTimer @ 0x14056D878
+ * Callers:
+ *     KeResumeClockTimer @ 0x14056D39C (KeResumeClockTimer.c)
+ *     KeResumeClockTimerSafe @ 0x14056D3B4 (KeResumeClockTimerSafe.c)
+ * Callees:
+ *     KiSetClockTimer @ 0x14022AC78 (KiSetClockTimer.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     KiEventClockStateChange @ 0x1402A9ADC (KiEventClockStateChange.c)
+ *     KiRestoreClockTickRate @ 0x1402D9574 (KiRestoreClockTickRate.c)
+ *     KiSetClockTimerKTimerDeadlines @ 0x1402DF1B0 (KiSetClockTimerKTimerDeadlines.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void KiResumeClockTimer()
 {
   char v0; // di

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bSetMagicColor@@YAHAEAVPDEVOBJ@@VXEPALOBJ@@KT_PAL_ULONG@@@Z @ 0x1C01994B4
+ * Callers:
+ *     GreSetMagicColors @ 0x1C01995FC (GreSetMagicColors.c)
+ * Callees:
+ *     ?vUpdateTime@XEPALOBJ@@QEAAXXZ @ 0x1C0184CFC (-vUpdateTime@XEPALOBJ@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall bSetMagicColor(__int64 a1, __int64 a2, unsigned int a3, int a4)
 {
   __int64 v4; // rsi

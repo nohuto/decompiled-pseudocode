@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopUmpoProcessMessages @ 0x14073B298
+ * Callers:
+ *     PopUmpoMessageCallback @ 0x1402BBFC0 (PopUmpoMessageCallback.c)
+ *     PopUmpoInitializeChannel @ 0x140B6CC1C (PopUmpoInitializeChannel.c)
+ * Callees:
+ *     AlpcGetMessageAttribute @ 0x1402BBFE0 (AlpcGetMessageAttribute.c)
+ *     AlpcInitializeMessageAttribute @ 0x1402BC020 (AlpcInitializeMessageAttribute.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwAlpcSendWaitReceivePort @ 0x140413490 (ZwAlpcSendWaitReceivePort.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopUmpoProcessMessage @ 0x14073B3C8 (PopUmpoProcessMessage.c)
+ *     PopDiagTraceUmpoAlpcProcessingError @ 0x14098EFD8 (PopDiagTraceUmpoAlpcProcessingError.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void PopUmpoProcessMessages()
 {
   void *Pool2; // rdi

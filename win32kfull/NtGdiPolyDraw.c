@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtGdiPolyDraw @ 0x1C02C67A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?init_probe@?$umptr_r@E@@SA?AV1@PEAE_K1@Z @ 0x1C008D8A4 (-init_probe@-$umptr_r@E@@SA-AV1@PEAE_K1@Z.c)
+ *     ?GrePolyDraw@@YAHPEAUHDC__@@AEAV?$umptr_r@UtagPOINT@@@@AEAV?$umptr_r@E@@K@Z @ 0x1C02AD894 (-GrePolyDraw@@YAHPEAUHDC__@@AEAV-$umptr_r@UtagPOINT@@@@AEAV-$umptr_r@E@@K@Z.c)
+ *     ?init_probe@?$umptr_r@UtagPOINT@@@@SA?AV1@PEAUtagPOINT@@_K1@Z @ 0x1C02C4458 (-init_probe@-$umptr_r@UtagPOINT@@@@SA-AV1@PEAUtagPOINT@@_K1@Z.c)
+ */
+
 __int64 __fastcall NtGdiPolyDraw(HDC a1, __int64 a2, unsigned __int64 a3, unsigned int a4)
 {
   unsigned int v4; // edi

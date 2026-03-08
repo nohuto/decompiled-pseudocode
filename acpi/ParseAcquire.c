@@ -1,3 +1,21 @@
+/*
+ * XREFs of ParseAcquire @ 0x1C005A0F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     AcquireGL @ 0x1C004ACB0 (AcquireGL.c)
+ *     IsCompatableDSDTRevision @ 0x1C004BE28 (IsCompatableDSDTRevision.c)
+ *     PerformMutexDriverCallbacks @ 0x1C004C9F4 (PerformMutexDriverCallbacks.c)
+ *     PerformMutexResourceBindings @ 0x1C004CBB8 (PerformMutexResourceBindings.c)
+ *     ReleaseGL @ 0x1C004CEA8 (ReleaseGL.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ *     AcquireASLMutex @ 0x1C0054268 (AcquireASLMutex.c)
+ *     ReleaseASLMutex @ 0x1C0054DD0 (ReleaseASLMutex.c)
+ */
+
 __int64 __fastcall ParseAcquire(__int64 a1, __int64 a2, int a3)
 {
   int v5; // edx

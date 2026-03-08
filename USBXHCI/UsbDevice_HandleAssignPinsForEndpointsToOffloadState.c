@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbDevice_HandleAssignPinsForEndpointsToOffloadState @ 0x1C004908C
+ * Callers:
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0008958 (UsbDevice_QueueConfigureEndpointEvent.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     UsbDevice_SetResourceAssignment @ 0x1C0049ABC (UsbDevice_SetResourceAssignment.c)
+ */
+
 char __fastcall UsbDevice_HandleAssignPinsForEndpointsToOffloadState(__int64 a1, __int64 a2, int a3, int a4)
 {
   unsigned int v4; // ebp

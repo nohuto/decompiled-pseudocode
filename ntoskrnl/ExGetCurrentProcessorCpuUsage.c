@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExGetCurrentProcessorCpuUsage @ 0x140462BC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall ExGetCurrentProcessorCpuUsage(_DWORD *a1)
 {
   struct _KPRCB *CurrentPrcb; // rdx

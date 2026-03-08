@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpQueryTrace @ 0x1407456E0
+ * Callers:
+ *     NtTraceControl @ 0x140694040 (NtTraceControl.c)
+ *     EtwWmitraceWorker @ 0x1409E8BFC (EtwWmitraceWorker.c)
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     EtwpCheckLoggerControlAccess @ 0x140692E00 (EtwpCheckLoggerControlAccess.c)
+ *     EtwpReleaseLoggerContext @ 0x14069349C (EtwpReleaseLoggerContext.c)
+ *     EtwpValidateLoggerInfo @ 0x1407457C8 (EtwpValidateLoggerInfo.c)
+ *     EtwpAcquireLoggerContext @ 0x140745800 (EtwpAcquireLoggerContext.c)
+ *     EtwpGetLoggerInfoFromContext @ 0x1407458FC (EtwpGetLoggerInfoFromContext.c)
+ *     EtwCheckSecurityLoggerAccess @ 0x140748A78 (EtwCheckSecurityLoggerAccess.c)
+ */
+
 __int64 __fastcall EtwpQueryTrace(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

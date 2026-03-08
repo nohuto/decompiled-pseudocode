@@ -1,3 +1,18 @@
+/*
+ * XREFs of UserGetLastError @ 0x1C0247AF0
+ * Callers:
+ *     NtUserReportInertia @ 0x1C0002CA0 (NtUserReportInertia.c)
+ *     NtUserInjectKeyboardInput @ 0x1C00031D0 (NtUserInjectKeyboardInput.c)
+ *     NtMapVisualRelativePoints @ 0x1C0158F60 (NtMapVisualRelativePoints.c)
+ *     NtUserInjectDeviceInput @ 0x1C0172A60 (NtUserInjectDeviceInput.c)
+ *     NtUserInjectGenericHidInput @ 0x1C0173440 (NtUserInjectGenericHidInput.c)
+ *     NtUserInjectMouseInput @ 0x1C0173C50 (NtUserInjectMouseInput.c)
+ *     NtUserInjectPointerInput @ 0x1C01746E0 (NtUserInjectPointerInput.c)
+ *     NtUserMapPointsByVisualIdentifier @ 0x1C01752C0 (NtUserMapPointsByVisualIdentifier.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 UserGetLastError()
 {
   __int64 v0; // rdx

@@ -1,3 +1,38 @@
+/*
+ * XREFs of MiWaitForFreePage @ 0x140651458
+ * Callers:
+ *     MiGetSystemPage @ 0x1402141C8 (MiGetSystemPage.c)
+ *     MiWalkPageTablesRecursively @ 0x140223160 (MiWalkPageTablesRecursively.c)
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ *     MiMakePageAvoidRead @ 0x140272670 (MiMakePageAvoidRead.c)
+ *     MiAllocateKernelStackPages @ 0x14031D830 (MiAllocateKernelStackPages.c)
+ *     MiMakeOutswappedPageResident @ 0x14061612C (MiMakeOutswappedPageResident.c)
+ *     MiSwitchToTransition @ 0x140630D6C (MiSwitchToTransition.c)
+ *     MiSplitDirectMapPage @ 0x14063CE6C (MiSplitDirectMapPage.c)
+ *     MiBuildForkPte @ 0x14065FC20 (MiBuildForkPte.c)
+ *     MiDoneWithThisPageGetAnother @ 0x1406619A4 (MiDoneWithThisPageGetAnother.c)
+ *     MiHandleForkTransitionPte @ 0x140662368 (MiHandleForkTransitionPte.c)
+ *     MiCopyOnWriteCheckConditions @ 0x140664840 (MiCopyOnWriteCheckConditions.c)
+ *     MiAllocateTopLevelPage @ 0x140728F6C (MiAllocateTopLevelPage.c)
+ *     MiAllocateDriverPage @ 0x1407290FC (MiAllocateDriverPage.c)
+ *     MmAllocateIndependentPagesEx @ 0x140869ADC (MmAllocateIndependentPagesEx.c)
+ *     MiFillPerSessionProtos @ 0x140A4734C (MiFillPerSessionProtos.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     MiSufficientAvailablePages @ 0x1403643E4 (MiSufficientAvailablePages.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiObtainFreePages @ 0x140632B0C (MiObtainFreePages.c)
+ *     MiCanFlushMakeProgress @ 0x14063678C (MiCanFlushMakeProgress.c)
+ *     MiNoPagesLastChance @ 0x14064E904 (MiNoPagesLastChance.c)
+ *     MiDemoteSlabEntries @ 0x1406541E4 (MiDemoteSlabEntries.c)
+ */
+
 __int64 __fastcall MiWaitForFreePage(_QWORD *a1)
 {
   int v2; // r8d

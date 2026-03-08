@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiCaptureProcessName @ 0x1C0046E6C
+ * Callers:
+ *     VidSchCollectDbgInfo @ 0x1C0109A80 (VidSchCollectDbgInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VidSchiCaptureProcessName(__int64 a1, _BYTE *a2)
 {
   __int64 result; // rax

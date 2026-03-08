@@ -1,3 +1,25 @@
+/*
+ * XREFs of ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C00550A0
+ * Callers:
+ *     GreGetNearestColor @ 0x1C001A710 (GreGetNearestColor.c)
+ *     GreGetDeviceCaps @ 0x1C003EAF0 (GreGetDeviceCaps.c)
+ *     GreCleanDC @ 0x1C0072B90 (GreCleanDC.c)
+ *     ?GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z @ 0x1C00A49CC (-GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z.c)
+ *     GreSelectBrush @ 0x1C00CD8F0 (GreSelectBrush.c)
+ *     GreSetLayout @ 0x1C00D1C50 (GreSetLayout.c)
+ *     GreCleanDCAndSetOwnerEx @ 0x1C00DEED0 (GreCleanDCAndSetOwnerEx.c)
+ *     GreSelectPen @ 0x1C017E5A0 (GreSelectPen.c)
+ *     NtGdiGetDeviceCapsAll @ 0x1C018C1F0 (NtGdiGetDeviceCapsAll.c)
+ *     ?DrvGetCurrentDpiInfoFromHDC@@YAJPEAUHDC__@@QEAU_DPI_INFORMATION@@@Z @ 0x1C018E1E0 (-DrvGetCurrentDpiInfoFromHDC@@YAJPEAUHDC__@@QEAU_DPI_INFORMATION@@@Z.c)
+ *     NtGdiCreateMetafileDC @ 0x1C0199440 (NtGdiCreateMetafileDC.c)
+ *     GreSetMagicColors @ 0x1C01995FC (GreSetMagicColors.c)
+ * Callees:
+ *     HmgDecrementExclusiveReferenceCountEx @ 0x1C00499E0 (HmgDecrementExclusiveReferenceCountEx.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C004B5B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?RestoreAttributes@DC@@QEAAXPEAU_DC_ATTR@@@Z @ 0x1C0050300 (-RestoreAttributes@DC@@QEAAXPEAU_DC_ATTR@@@Z.c)
+ *     GrepDeleteDC @ 0x1C00549D0 (GrepDeleteDC.c)
+ */
+
 void __fastcall XDCOBJ::vUnlockFast(XDCOBJ *this)
 {
   __int64 v1; // rbp

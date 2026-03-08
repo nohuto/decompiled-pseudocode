@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwCreateProcess @ 0x140413AD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwCreateProcess(__int64 a1, __int64 a2)
 {
   _disable();

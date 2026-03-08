@@ -1,3 +1,22 @@
+/*
+ * XREFs of fnHkINLPMSG @ 0x1C00C5E60
+ * Callers:
+ *     xxxHkCallHook @ 0x1C006C7F0 (xxxHkCallHook.c)
+ *     xxxRealInternalGetMessage @ 0x1C006F2F0 (xxxRealInternalGetMessage.c)
+ *     xxxCallCtfHook @ 0x1C00D6FB4 (xxxCallCtfHook.c)
+ *     ?CallfnHkINLPMSG@@YA_JHH_K_JP6A_JXZPEAU_PFNCLIENT@@K@Z @ 0x1C022E4C4 (-CallfnHkINLPMSG@@YA_JHH_K_JP6A_JXZPEAU_PFNCLIENT@@K@Z.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C0044080 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     _FreeTouchInputInfo @ 0x1C01B1740 (_FreeTouchInputInfo.c)
+ *     _FreeGestureInfo @ 0x1C0207760 (_FreeGestureInfo.c)
+ *     RtlMBMessageWParamCharToWCS @ 0x1C024EA38 (RtlMBMessageWParamCharToWCS.c)
+ *     RtlWCSMessageWParamCharToMB @ 0x1C024EB88 (RtlWCSMessageWParamCharToMB.c)
+ */
+
 __int64 __fastcall fnHkINLPMSG(int a1, __int64 a2, __int128 *a3, __int64 a4, __int64 a5, int a6, _DWORD *a7)
 {
   int v11; // edi

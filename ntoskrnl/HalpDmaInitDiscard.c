@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpDmaInitDiscard @ 0x140B60DD0
+ * Callers:
+ *     HalpDmaInitSystem @ 0x140A8D4D0 (HalpDmaInitSystem.c)
+ * Callees:
+ *     HalpDmaInitMemory @ 0x140B3D81C (HalpDmaInitMemory.c)
+ */
+
 __int64 __fastcall HalpDmaInitDiscard(__int64 a1)
 {
   __int64 *i; // rdx

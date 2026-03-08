@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpLightWeightCreateModificationData @ 0x140A25D48
+ * Callers:
+ *     CmpLightWeightPrepareAddKeyUoW @ 0x140A26040 (CmpLightWeightPrepareAddKeyUoW.c)
+ *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140A262F8 (CmpLightWeightPrepareDeleteKeyUoW.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x140A266F0 (CmpLightWeightPrepareRenameKeyUoW.c)
+ * Callees:
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A25254 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpLightWeightDuplicateParentLists @ 0x140A25F50 (CmpLightWeightDuplicateParentLists.c)
+ *     CmpLightWeightUpdateModificationActions @ 0x140A272EC (CmpLightWeightUpdateModificationActions.c)
+ */
+
 __int64 __fastcall CmpLightWeightCreateModificationData(__int64 a1, unsigned int **a2)
 {
   ULONG_PTR v4; // rbp

@@ -1,3 +1,20 @@
+/*
+ * XREFs of IopShutdownBaseFileSystems @ 0x140A96E64
+ * Callers:
+ *     IoShutdownSystem @ 0x140A96AB4 (IoShutdownSystem.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     IoGetAttachedDevice @ 0x14030EE00 (IoGetAttachedDevice.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IopDecrementDeviceObjectRef @ 0x14030F5C0 (IopDecrementDeviceObjectRef.c)
+ *     IopIncrementDeviceObjectRefCount @ 0x14030F910 (IopIncrementDeviceObjectRefCount.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     IoBuildSynchronousFsdRequest @ 0x1407F8DA0 (IoBuildSynchronousFsdRequest.c)
+ */
+
 LONG_PTR __fastcall IopShutdownBaseFileSystems(LONG_PTR **a1)
 {
   LONG_PTR *v2; // rbx

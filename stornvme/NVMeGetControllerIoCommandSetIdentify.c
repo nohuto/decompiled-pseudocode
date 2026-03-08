@@ -1,3 +1,14 @@
+/*
+ * XREFs of NVMeGetControllerIoCommandSetIdentify @ 0x1C001DF88
+ * Callers:
+ *     NVMeControllerInitPart1 @ 0x1C000D7A8 (NVMeControllerInitPart1.c)
+ *     NVMeControllerIdentifyWorkItem @ 0x1C0014EA0 (NVMeControllerIdentifyWorkItem.c)
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 __int64 __fastcall NVMeGetControllerIoCommandSetIdentify(__int64 a1)
 {
   __int64 v1; // rsi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiHotAddBootDeferredDescriptorsDiscardable @ 0x140B6625C
+ * Callers:
+ *     MiHotAddBootDeferredDescriptors @ 0x14084E170 (MiHotAddBootDeferredDescriptors.c)
+ * Callees:
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     MiHotAddBootDescriptor @ 0x140B962B0 (MiHotAddBootDescriptor.c)
+ */
+
 int MiHotAddBootDeferredDescriptorsDiscardable()
 {
   unsigned __int64 v0; // rax

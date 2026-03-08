@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiCancelAsyncRequest @ 0x1C005DD0C
+ * Callers:
+ *     DpiRequestDevicePowerState @ 0x1C001AC34 (DpiRequestDevicePowerState.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 **__fastcall DpiCancelAsyncRequest(__int64 a1)
 {
   __int64 **result; // rax

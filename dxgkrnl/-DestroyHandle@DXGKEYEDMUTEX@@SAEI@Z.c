@@ -1,3 +1,27 @@
+/*
+ * XREFs of ?DestroyHandle@DXGKEYEDMUTEX@@SAEI@Z @ 0x1C034ADBC
+ * Callers:
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C01A8400 (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
+ *     DxgkOpenKeyedMutexFromNtHandle @ 0x1C0323F00 (DxgkOpenKeyedMutexFromNtHandle.c)
+ *     ?CloseLocalMutex@DXGDXGIKEYEDMUTEX@@QEAAXW4_OUTPUTDUPL_MUTEX_TYPE@@H@Z @ 0x1C03261D4 (-CloseLocalMutex@DXGDXGIKEYEDMUTEX@@QEAAXW4_OUTPUTDUPL_MUTEX_TYPE@@H@Z.c)
+ *     ?DestroyLocal@DXGKEYEDMUTEX@@SAJI@Z @ 0x1C034AFB8 (-DestroyLocal@DXGKEYEDMUTEX@@SAJI@Z.c)
+ *     DxgkCreateKeyedMutex @ 0x1C034DA20 (DxgkCreateKeyedMutex.c)
+ *     DxgkCreateKeyedMutex2 @ 0x1C034DDA0 (DxgkCreateKeyedMutex2.c)
+ *     DxgkOpenKeyedMutex @ 0x1C034E340 (DxgkOpenKeyedMutex.c)
+ *     DxgkOpenKeyedMutex2 @ 0x1C034E670 (DxgkOpenKeyedMutex2.c)
+ * Callees:
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0006F40 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C0009B78 (--0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C0053394 (-ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
+ *     ?FreeHandle@HMGRTABLE@@QEAAXI@Z @ 0x1C018C3C0 (-FreeHandle@HMGRTABLE@@QEAAXI@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01A3640 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?FreeHostHandle@DXGKEYEDMUTEX@@QEAAXI@Z @ 0x1C034B258 (-FreeHostHandle@DXGKEYEDMUTEX@@QEAAXI@Z.c)
+ *     ?GetHostHandle@DXGKEYEDMUTEX@@QEAAII@Z @ 0x1C034B480 (-GetHostHandle@DXGKEYEDMUTEX@@QEAAII@Z.c)
+ *     ?VmBusSendDestroyKeyedMutex@DXG_GUEST_GLOBAL_VMBUS@@QEAAXII@Z @ 0x1C0383844 (-VmBusSendDestroyKeyedMutex@DXG_GUEST_GLOBAL_VMBUS@@QEAAXII@Z.c)
+ */
+
 unsigned __int8 __fastcall DXGKEYEDMUTEX::DestroyHandle(__int64 a1)
 {
   unsigned int v1; // esi

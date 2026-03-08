@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?PartitionSwitchRemotingMode@CChannel@@UEAAJW4Enum@DwmRemotingMode@@I@Z @ 0x180100460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0CChannelLock@CChannel@@QEAA@PEAV1@@Z @ 0x18004407C (--0CChannelLock@CChannel@@QEAA@PEAV1@@Z.c)
+ *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800441FC (--1CChannelLock@CChannel@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x180044440 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ */
+
 __int64 __fastcall CChannel::PartitionSwitchRemotingMode(struct CChannel *a1, int a2, int a3)
 {
   unsigned int v6; // ebx

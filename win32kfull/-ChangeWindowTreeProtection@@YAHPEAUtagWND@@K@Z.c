@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?ChangeWindowTreeProtection@@YAHPEAUtagWND@@K@Z @ 0x1C022F838
+ * Callers:
+ *     zzzComposeDesktop @ 0x1C007D394 (zzzComposeDesktop.c)
+ *     SetDisplayAffinity @ 0x1C022FAFC (SetDisplayAffinity.c)
+ * Callees:
+ *     BuildHwndList @ 0x1C0041A10 (BuildHwndList.c)
+ *     FreeHwndList @ 0x1C00680B0 (FreeHwndList.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     ?Add@?$CDynamicArray@PEAUtagWND@@$0HHHAHDFF@@@QEAAJAEBQEAUtagWND@@@Z @ 0x1C022F7FC (-Add@-$CDynamicArray@PEAUtagWND@@$0HHHAHDFF@@@QEAAJAEBQEAUtagWND@@@Z.c)
+ *     ?ProtectWindowBitmap@@YAHPEAUtagWND@@K@Z @ 0x1C022FA64 (-ProtectWindowBitmap@@YAHPEAUtagWND@@K@Z.c)
+ */
+
 __int64 __fastcall ChangeWindowTreeProtection(struct tagWND *a1, unsigned int a2)
 {
   unsigned int v3; // r15d

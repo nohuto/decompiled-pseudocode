@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0qxq_EtwWriteTransfer @ 0x1C004D99C
+ * Callers:
+ *     ?DxgkEtwEnableCallback@@YAXKK_K@Z @ 0x1C0020F18 (-DxgkEtwEnableCallback@@YAXKK_K@Z.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002BBC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0qxq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, char a6)
 {
   int v7; // [rsp+30h] [rbp-19h] BYREF

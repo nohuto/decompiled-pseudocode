@@ -1,3 +1,15 @@
+/*
+ * XREFs of HvlAddPagesCallbackRoutine @ 0x140544F20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HvlpEndPageListIteration @ 0x140547D2C (HvlpEndPageListIteration.c)
+ *     HvlpGetPageList @ 0x140547DF4 (HvlpGetPageList.c)
+ *     HvlpInvokeGetPageListHypercall @ 0x140547EC8 (HvlpInvokeGetPageListHypercall.c)
+ *     HvlpSetupPageListIteration @ 0x140547F78 (HvlpSetupPageListIteration.c)
+ *     IoIsPartialDumpRetry @ 0x14054E3E0 (IoIsPartialDumpRetry.c)
+ */
+
 void __fastcall HvlAddPagesCallbackRoutine(
         __int64 Reason,
         struct _KBUGCHECK_REASON_CALLBACK_RECORD *Record,

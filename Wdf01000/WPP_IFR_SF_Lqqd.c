@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_IFR_SF_Lqqd @ 0x1C0018E7C
+ * Callers:
+ *     imp_WdfDmaTransactionInitializeUsingRequest @ 0x1C0019C10 (imp_WdfDmaTransactionInitializeUsingRequest.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_Lqqd(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 id,

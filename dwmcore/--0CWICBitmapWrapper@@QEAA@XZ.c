@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CWICBitmapWrapper@@QEAA@XZ @ 0x1800A658C
+ * Callers:
+ *     ?Create@CWICBitmapWrapper@@SAJPEAUIWICBitmapSource@@PEAPEAVID2DBitmapCacheSource@@@Z @ 0x1800A64F8 (-Create@CWICBitmapWrapper@@SAJPEAUIWICBitmapSource@@PEAPEAVID2DBitmapCacheSource@@@Z.c)
+ * Callees:
+ *     ??0CBitmap@@QEAA@XZ @ 0x1800A79F4 (--0CBitmap@@QEAA@XZ.c)
+ */
+
 CWICBitmapWrapper *__fastcall CWICBitmapWrapper::CWICBitmapWrapper(CWICBitmapWrapper *this)
 {
   CWICBitmapWrapper *result; // rax

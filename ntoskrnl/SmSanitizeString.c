@@ -1,3 +1,11 @@
+/*
+ * XREFs of SmSanitizeString @ 0x1405C831C
+ * Callers:
+ *     SmKmVolumeQueryUniqueId @ 0x1409D79A8 (SmKmVolumeQueryUniqueId.c)
+ * Callees:
+ *     isprint @ 0x1403D4530 (isprint.c)
+ */
+
 int __fastcall SmSanitizeString(_WORD *a1, unsigned int a2)
 {
   _UNKNOWN **v2; // rax

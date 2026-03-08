@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtGdiEngCreatePalette @ 0x1C02CBC30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?bSafeReadBits@@YAHPEAX0K@Z @ 0x1C02CA4E8 (-bSafeReadBits@@YAHPEAX0K@Z.c)
+ *     ?bSecureBits@@YAHPEAXKPEAPEAX@Z @ 0x1C02CA544 (-bSecureBits@@YAHPEAXKPEAPEAX@Z.c)
+ */
+
 HPALETTE __fastcall NtGdiEngCreatePalette(int a1, ULONG a2, char *a3, FLONG a4, FLONG flGreen, FLONG flBlue)
 {
   HANDLE v10; // rbp

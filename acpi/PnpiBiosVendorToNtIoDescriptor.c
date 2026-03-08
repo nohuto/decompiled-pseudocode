@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpiBiosVendorToNtIoDescriptor @ 0x1C0091C74
+ * Callers:
+ *     PnpBiosResourcesToNtResources @ 0x1C008EFDC (PnpBiosResourcesToNtResources.c)
+ * Callees:
+ *     AcpiExternalTranslateBiosToNtResources @ 0x1C0083DA0 (AcpiExternalTranslateBiosToNtResources.c)
+ *     PnpiUpdateResourceList @ 0x1C0092328 (PnpiUpdateResourceList.c)
+ */
+
 __int64 __fastcall PnpiBiosVendorToNtIoDescriptor(
         ULONG_PTR a1,
         __int64 a2,

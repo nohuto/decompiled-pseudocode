@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MapEscapeCodeToDiagInfoType@VIDPN_MGR@@SA?AW4DIAGINFO_TYPE@1@W4_D3DKMT_DMMESCAPETYPE@@@Z @ 0x1C03AA9FC
+ * Callers:
+ *     ?DmmEscape@@YAJQEAVDXGADAPTER@@QEAU_D3DKMT_DMM_ESCAPE_INTERNAL@@@Z @ 0x1C03A82C8 (-DmmEscape@@YAJQEAVDXGADAPTER@@QEAU_D3DKMT_DMM_ESCAPE_INTERNAL@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VIDPN_MGR::MapEscapeCodeToDiagInfoType(int a1)
 {
   __int64 result; // rax

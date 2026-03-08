@@ -1,3 +1,12 @@
+/*
+ * XREFs of PackAffectedThreadsFromThreadCleanup @ 0x1C0039090
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AreMultipleThreadsAttached@tagQ@@QEBA_NXZ @ 0x1C00390F4 (-AreMultipleThreadsAttached@tagQ@@QEBA_NXZ.c)
+ *     ?PackAffectedThreadList@@YAXPEBUtagTHREADINFO@@0@Z @ 0x1C00CE3D0 (-PackAffectedThreadList@@YAXPEBUtagTHREADINFO@@0@Z.c)
+ */
+
 void __fastcall PackAffectedThreadsFromThreadCleanup(tagQ **a1)
 {
   _QWORD *v2; // rax

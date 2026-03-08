@@ -1,3 +1,17 @@
+/*
+ * XREFs of WdipSemLogInflightLimitExceededInformation @ 0x1409DAEA4
+ * Callers:
+ *     WdipSemReserveInstanceTableEntry @ 0x140831D7C (WdipSemReserveInstanceTableEntry.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WdipSemFastFree @ 0x140833700 (WdipSemFastFree.c)
+ *     WdipSemUpdateFrequentScenarioTable @ 0x1409DB064 (WdipSemUpdateFrequentScenarioTable.c)
+ *     WdipSemUpdateInflightScenarioTable @ 0x1409DB118 (WdipSemUpdateInflightScenarioTable.c)
+ *     WdipSemWriteInflightLimitExceededEvent @ 0x1409DB510 (WdipSemWriteInflightLimitExceededEvent.c)
+ *     WdipSemSqmEnabled @ 0x1409DBBAC (WdipSemSqmEnabled.c)
+ */
+
 __int64 __fastcall WdipSemLogInflightLimitExceededInformation(__int64 a1, unsigned __int16 a2, __int64 a3)
 {
   unsigned int v6; // ebx

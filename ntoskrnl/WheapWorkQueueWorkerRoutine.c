@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheapWorkQueueWorkerRoutine @ 0x140611660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExInterlockedRemoveHeadList @ 0x1402C3C20 (ExInterlockedRemoveHeadList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall WheapWorkQueueWorkerRoutine(PLIST_ENTRY ListHead)
 {
   PLIST_ENTRY v2; // rax

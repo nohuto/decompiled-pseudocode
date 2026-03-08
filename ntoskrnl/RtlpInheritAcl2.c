@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpInheritAcl2 @ 0x1407BC430
+ * Callers:
+ *     RtlpNewSecurityObject @ 0x1407BD790 (RtlpNewSecurityObject.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpGenerateInheritAcl @ 0x140699DD0 (RtlpGenerateInheritAcl.c)
+ *     RtlFirstFreeAce @ 0x140740C70 (RtlFirstFreeAce.c)
+ *     RtlpCopyAces @ 0x1407BBF30 (RtlpCopyAces.c)
+ */
+
 __int64 __fastcall RtlpInheritAcl2(
         char *a1,
         unsigned __int8 *a2,

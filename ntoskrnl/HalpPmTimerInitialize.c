@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpPmTimerInitialize @ 0x1403B17D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalMapIoSpace @ 0x14037AD90 (HalMapIoSpace.c)
+ */
+
 __int64 __fastcall HalpPmTimerInitialize(__int64 a1)
 {
   unsigned int v1; // ebx

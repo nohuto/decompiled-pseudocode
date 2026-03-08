@@ -1,3 +1,14 @@
+/*
+ * XREFs of WmipPrepareForWnodeAD @ 0x14069E360
+ * Callers:
+ *     WmipQueryAllData @ 0x14069DF2C (WmipQueryAllData.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     WmipAddProviderIdToPIList @ 0x14069C180 (WmipAddProviderIdToPIList.c)
+ *     WmipReferenceEntry @ 0x14069C27C (WmipReferenceEntry.c)
+ */
+
 __int64 __fastcall WmipPrepareForWnodeAD(__int64 a1, _OWORD *a2, int *a3, void **a4, _BYTE *a5)
 {
   __int64 v5; // rdi

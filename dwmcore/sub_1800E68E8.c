@@ -1,3 +1,11 @@
+/*
+ * XREFs of sub_1800E68E8 @ 0x1800E68E8
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall sub_1800E68E8()
 {
   char v0; // of

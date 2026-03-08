@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIFanCompletePendingIrps @ 0x1C00266E0
+ * Callers:
+ *     ACPIFanLoop @ 0x1C002759C (ACPIFanLoop.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qLqss @ 0x1C0009C8C (WPP_RECORDER_SF_qLqss.c)
+ */
+
 char __fastcall ACPIFanCompletePendingIrps(__int64 a1, char a2)
 {
   KSPIN_LOCK *v3; // rbp

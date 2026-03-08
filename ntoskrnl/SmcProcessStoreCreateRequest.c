@@ -1,3 +1,14 @@
+/*
+ * XREFs of SmcProcessStoreCreateRequest @ 0x1409D56AC
+ * Callers:
+ *     SmSetStoreInformation @ 0x1407990D4 (SmSetStoreInformation.c)
+ * Callees:
+ *     SmpGetProcessPartition @ 0x14029622C (SmpGetProcessPartition.c)
+ *     SmcStoreCreate @ 0x1409D8464 (SmcStoreCreate.c)
+ *     SmcStoreDelete @ 0x1409D86C8 (SmcStoreDelete.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall SmcProcessStoreCreateRequest(unsigned __int64 a1, int a2, char a3)
 {
   int v4; // ebx

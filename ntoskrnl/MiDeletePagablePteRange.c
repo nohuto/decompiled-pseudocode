@@ -1,3 +1,35 @@
+/*
+ * XREFs of MiDeletePagablePteRange @ 0x1403244A0
+ * Callers:
+ *     MiDeleteSessionAddressSpace @ 0x1402008EC (MiDeleteSessionAddressSpace.c)
+ *     MiDeleteSessionPdes @ 0x140200F38 (MiDeleteSessionPdes.c)
+ *     MiDeleteVirtualAddresses @ 0x140332E60 (MiDeleteVirtualAddresses.c)
+ *     MiDeleteVadBitmap @ 0x1407266B4 (MiDeleteVadBitmap.c)
+ * Callees:
+ *     MiWalkPageTables @ 0x140222CF0 (MiWalkPageTables.c)
+ *     MiTbFlushType @ 0x140224BDC (MiTbFlushType.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     ExAcquireAutoExpandPushLockShared @ 0x1402621D0 (ExAcquireAutoExpandPushLockShared.c)
+ *     MiFastLockLeafPageTable @ 0x140269C50 (MiFastLockLeafPageTable.c)
+ *     MiLockPageTableInternal @ 0x14026A0D0 (MiLockPageTableInternal.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiDeleteVaTail @ 0x140323460 (MiDeleteVaTail.c)
+ *     MiDeleteVa @ 0x140324900 (MiDeleteVa.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiFillPteHierarchy @ 0x140333AE0 (MiFillPteHierarchy.c)
+ *     MiGetUsedPtesHandle @ 0x140346CA0 (MiGetUsedPtesHandle.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiFreePhysicalPageChain @ 0x140647BC4 (MiFreePhysicalPageChain.c)
+ *     MiUnlockAweVadsShared @ 0x14064989C (MiUnlockAweVadsShared.c)
+ *     MiFreeLargePages @ 0x140665C70 (MiFreeLargePages.c)
+ */
+
 __int64 __fastcall MiDeletePagablePteRange(
         __int64 a1,
         unsigned __int8 a2,

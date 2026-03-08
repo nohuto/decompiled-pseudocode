@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiUEventInit @ 0x140B5A78C
+ * Callers:
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     ExSubscribeWnfStateChange @ 0x14078C4C0 (ExSubscribeWnfStateChange.c)
+ */
+
 __int64 __fastcall PiUEventInit(int a1)
 {
   unsigned int v1; // edx

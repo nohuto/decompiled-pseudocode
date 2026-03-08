@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiIsRecoveryPossibleOnCurrentStack @ 0x140578CD4
+ * Callers:
+ *     KiAttemptBugcheckRecovery @ 0x140577FAC (KiAttemptBugcheckRecovery.c)
+ * Callees:
+ *     <none>
+ */
+
 bool KiIsRecoveryPossibleOnCurrentStack()
 {
   struct _KPRCB *CurrentPrcb; // rcx

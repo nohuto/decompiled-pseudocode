@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CGlobalMit@@IEAA@PEAVCComposition@@@Z @ 0x1800CB754
+ * Callers:
+ *     ?Create@CGlobalMit@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x1800CB6A0 (-Create@CGlobalMit@@SAJPEAVCComposition@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     ??0CMmcssTask@@QEAA@XZ @ 0x1800CBEC8 (--0CMmcssTask@@QEAA@XZ.c)
+ */
+
 CGlobalMit *__fastcall CGlobalMit::CGlobalMit(CGlobalMit *this, struct CComposition *a2)
 {
   CGlobalMit *result; // rax

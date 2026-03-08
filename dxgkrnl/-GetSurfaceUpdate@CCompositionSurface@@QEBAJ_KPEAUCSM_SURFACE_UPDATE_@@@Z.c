@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?GetSurfaceUpdate@CCompositionSurface@@QEBAJ_KPEAUCSM_SURFACE_UPDATE_@@@Z @ 0x1C007BB6C
+ * Callers:
+ *     ?GetSurfaceUpdate@CompositionSurfaceObject@@QEAAJ_KPEAUCSM_SURFACE_UPDATE_@@@Z @ 0x1C00774F4 (-GetSurfaceUpdate@CompositionSurfaceObject@@QEAAJ_KPEAUCSM_SURFACE_UPDATE_@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ?GetRenderingBuffer@CCompositionSurface@@IEBAPEAVCCompositionBuffer@@XZ @ 0x1C007BB00 (-GetRenderingBuffer@CCompositionSurface@@IEBAPEAVCCompositionBuffer@@XZ.c)
+ *     ?GetAndClearCurrentDirty@CCompositionBuffer@@QEAAXPEAPEAUHRGN__@@PEAUScrollOptimization@@@Z @ 0x1C007CAC4 (-GetAndClearCurrentDirty@CCompositionBuffer@@QEAAXPEAPEAUHRGN__@@PEAUScrollOptimization@@@Z.c)
+ */
+
 __int64 __fastcall CCompositionSurface::GetSurfaceUpdate(
         CCompositionSurface *this,
         __int64 a2,

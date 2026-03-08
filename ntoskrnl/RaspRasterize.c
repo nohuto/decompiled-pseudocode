@@ -1,3 +1,16 @@
+/*
+ * XREFs of RaspRasterize @ 0x140382470
+ * Callers:
+ *     BgpRasPrintGlyph @ 0x140381CD4 (BgpRasPrintGlyph.c)
+ *     RaspGetXExtent @ 0x140382254 (RaspGetXExtent.c)
+ * Callees:
+ *     RaspFreeMemory @ 0x140382634 (RaspFreeMemory.c)
+ *     RaspGetUnscaledGlyphData @ 0x140382708 (RaspGetUnscaledGlyphData.c)
+ *     RaspScanConvert @ 0x1403827F0 (RaspScanConvert.c)
+ *     RaspCreatePointList @ 0x1403831CC (RaspCreatePointList.c)
+ *     RaspScaleCoordinates @ 0x140383F9C (RaspScaleCoordinates.c)
+ */
+
 __int64 __fastcall RaspRasterize(
         __int64 a1,
         int a2,

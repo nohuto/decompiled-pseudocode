@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SortRegisteredDevices@@YAXPEAUtagRAWINPUTDEVICE@@H@Z @ 0x1C01AADC8
+ * Callers:
+ *     _GetRegisteredRawInputDevices @ 0x1C01AB428 (_GetRegisteredRawInputDevices.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall SortRegisteredDevices(struct tagRAWINPUTDEVICE *a1, int a2)
 {
   __int64 v2; // r9

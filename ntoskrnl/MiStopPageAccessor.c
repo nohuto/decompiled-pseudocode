@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiStopPageAccessor @ 0x1402FD06C
+ * Callers:
+ *     MiPageListCollision @ 0x1402FD02C (MiPageListCollision.c)
+ *     MiInitializeNewUltraHugeContext @ 0x1403BFBC8 (MiInitializeNewUltraHugeContext.c)
+ *     MiDecrementHugeContext @ 0x1403D0A68 (MiDecrementHugeContext.c)
+ * Callees:
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiLocatePageCollisionNodeByPfn @ 0x14064CDD4 (MiLocatePageCollisionNodeByPfn.c)
+ */
+
 __int64 __fastcall MiStopPageAccessor(ULONG_PTR a1, int a2)
 {
   ULONG_PTR v3; // rdi

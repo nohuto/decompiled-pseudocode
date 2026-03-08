@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIFilterIrpStopDeviceCompletion @ 0x1C0028EF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIInternalDecrementIrpReferenceCount @ 0x1C002E528 (ACPIInternalDecrementIrpReferenceCount.c)
+ *     ACPIInitStopDevice @ 0x1C0087AE4 (ACPIInitStopDevice.c)
+ */
+
 __int64 __fastcall ACPIFilterIrpStopDeviceCompletion(ULONG_PTR a1, __int64 a2)
 {
   int v2; // esi

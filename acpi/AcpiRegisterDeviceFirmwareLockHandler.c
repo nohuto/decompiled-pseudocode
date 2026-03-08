@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiRegisterDeviceFirmwareLockHandler @ 0x1C0082744
+ * Callers:
+ *     ACPIIoctlRegisterDeviceFirmwareLock @ 0x1C00312BC (ACPIIoctlRegisterDeviceFirmwareLock.c)
+ * Callees:
+ *     InsertDeviceFirmwareLockHandlerEntry @ 0x1C001BD38 (InsertDeviceFirmwareLockHandlerEntry.c)
+ */
+
 __int64 __fastcall AcpiRegisterDeviceFirmwareLockHandler(PVOID Object, int a2, __int64 a3, __int64 a4)
 {
   _QWORD *Pool2; // rax

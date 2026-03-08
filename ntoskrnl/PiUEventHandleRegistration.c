@@ -1,3 +1,21 @@
+/*
+ * XREFs of PiUEventHandleRegistration @ 0x14068E738
+ * Callers:
+ *     PiUEventHandleIoctl @ 0x14068DF6C (PiUEventHandleIoctl.c)
+ * Callees:
+ *     PiUEventHashStringIntoBucket @ 0x140201E5C (PiUEventHashStringIntoBucket.c)
+ *     PiUEventHashGuidIntoBucket @ 0x140201EB4 (PiUEventHashGuidIntoBucket.c)
+ *     PsGetCurrentThreadProcessId @ 0x140204F00 (PsGetCurrentThreadProcessId.c)
+ *     RtlStringCchLengthW @ 0x140247080 (RtlStringCchLengthW.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     PiUEventInitClientRegistrationContext @ 0x14068E428 (PiUEventInitClientRegistrationContext.c)
+ *     PiDmGetObject @ 0x1406D0370 (PiDmGetObject.c)
+ *     PiUEventGetDeviceInstanceIdFromUserHandle @ 0x140781084 (PiUEventGetDeviceInstanceIdFromUserHandle.c)
+ *     PiUEventFreeClientRegistrationContext @ 0x14078DA7C (PiUEventFreeClientRegistrationContext.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ */
+
 __int64 __fastcall PiUEventHandleRegistration(__int64 a1, __int64 a2, int a3, int a4, __int64 a5)
 {
   _QWORD *inited; // rdi

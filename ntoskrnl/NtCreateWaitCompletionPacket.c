@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtCreateWaitCompletionPacket @ 0x140768EF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ */
+
 __int64 __fastcall NtCreateWaitCompletionPacket(__int64 a1, __int64 a2, int a3)
 {
   _QWORD *v3; // rbx

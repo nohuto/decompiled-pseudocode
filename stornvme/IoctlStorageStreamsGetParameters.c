@@ -1,3 +1,15 @@
+/*
+ * XREFs of IoctlStorageStreamsGetParameters @ 0x1C001434C
+ * Callers:
+ *     IoctlToNVMe @ 0x1C0014800 (IoctlToNVMe.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     GetNamespaceId @ 0x1C0007A8C (GetNamespaceId.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeInitStreams @ 0x1C000F660 (NVMeInitStreams.c)
+ *     NVMeDirectiveStreamsReturnParameters @ 0x1C001D150 (NVMeDirectiveStreamsReturnParameters.c)
+ */
+
 __int64 __fastcall IoctlStorageStreamsGetParameters(__int64 a1, __int64 a2)
 {
   bool v3; // zf

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiDrvDbGetNodeSystemRoot @ 0x14081D958
+ * Callers:
+ *     PiDrvDbResolveNodeFilePaths @ 0x14081C828 (PiDrvDbResolveNodeFilePaths.c)
+ *     PiDrvDbQuerySystemPathWin32 @ 0x14081DD70 (PiDrvDbQuerySystemPathWin32.c)
+ *     PiDrvDbResolveKeyFilePaths @ 0x14096DFEC (PiDrvDbResolveKeyFilePaths.c)
+ * Callees:
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ */
+
 __int64 __fastcall PiDrvDbGetNodeSystemRoot(__int64 a1, _QWORD *a2)
 {
   int ObjectProperty; // r8d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MakeITable256@@YAHPEAE@Z @ 0x1C02A5CEC
+ * Callers:
+ *     ?MakeITable@@YAHPEAEPEAURGBX@@H@Z @ 0x1C02A5D44 (-MakeITable@@YAHPEAEPEAURGBX@@H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MakeITable256(unsigned __int8 *a1)
 {
   int i; // edx

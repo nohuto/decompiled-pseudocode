@@ -1,3 +1,12 @@
+/*
+ * XREFs of LinkNodepGetFilter @ 0x1C005D8A8
+ * Callers:
+ *     LinkNodeCrackPrt @ 0x1C005CE9C (LinkNodeCrackPrt.c)
+ *     LinkNodepGetFilter @ 0x1C005D8A8 (LinkNodepGetFilter.c)
+ * Callees:
+ *     LinkNodepGetFilter @ 0x1C005D8A8 (LinkNodepGetFilter.c)
+ */
+
 __int64 __fastcall LinkNodepGetFilter(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8

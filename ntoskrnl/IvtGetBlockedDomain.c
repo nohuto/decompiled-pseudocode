@@ -1,3 +1,13 @@
+/*
+ * XREFs of IvtGetBlockedDomain @ 0x14052A538
+ * Callers:
+ *     IvtUpdateContextEntry @ 0x14052B564 (IvtUpdateContextEntry.c)
+ *     IvtUpdateScalableModeTranslationStructures @ 0x14052BAEC (IvtUpdateScalableModeTranslationStructures.c)
+ *     IvtInitializeIommu @ 0x140A87060 (IvtInitializeIommu.c)
+ * Callees:
+ *     HalpIvtFindReservedDomain @ 0x140532738 (HalpIvtFindReservedDomain.c)
+ */
+
 __int64 __fastcall IvtGetBlockedDomain(__int64 a1, unsigned int *a2, unsigned __int64 *a3)
 {
   unsigned int *ReservedDomain; // rax

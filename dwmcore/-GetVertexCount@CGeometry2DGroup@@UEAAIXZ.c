@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetVertexCount@CGeometry2DGroup@@UEAAIXZ @ 0x18021ACE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CGeometry2DGroup::GetVertexCount(CGeometry2DGroup *this)
 {
   unsigned int v1; // esi

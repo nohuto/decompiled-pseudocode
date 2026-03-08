@@ -1,3 +1,14 @@
+/*
+ * XREFs of rimOnPnpRemoveCompleteInUserCrit @ 0x1C01C89B8
+ * Callers:
+ *     RIMDoOnPnpNotification @ 0x1C00872A8 (RIMDoOnPnpNotification.c)
+ *     rimDoRimDevChangeAsyncWorkItem @ 0x1C00BC0DC (rimDoRimDevChangeAsyncWorkItem.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     rimEndAllActiveContactsWorker @ 0x1C01BC12C (rimEndAllActiveContactsWorker.c)
+ */
+
 __int64 __fastcall rimOnPnpRemoveCompleteInUserCrit(struct RawInputManagerObject *a1, __int64 a2)
 {
   char *v2; // rbp

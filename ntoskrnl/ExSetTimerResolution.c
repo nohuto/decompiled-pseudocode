@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExSetTimerResolution @ 0x1403AF930
+ * Callers:
+ *     DifExSetTimerResolutionWrapper @ 0x1405D79E0 (DifExSetTimerResolutionWrapper.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PoTraceSystemTimerResolutionKernel @ 0x1402D9468 (PoTraceSystemTimerResolutionKernel.c)
+ *     ExpUpdateTimerResolution @ 0x14035AA94 (ExpUpdateTimerResolution.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 ULONG __stdcall ExSetTimerResolution(ULONG DesiredTime, BOOLEAN SetResolution)
 {
   KIRQL v4; // al

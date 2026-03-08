@@ -1,3 +1,17 @@
+/*
+ * XREFs of AuthzBasepValueInSet @ 0x14036559C
+ * Callers:
+ *     AuthzBasepEvaluateSetRelationship @ 0x1403663B8 (AuthzBasepEvaluateSetRelationship.c)
+ * Callees:
+ *     AuthzBasepGetNextValue @ 0x1403656C8 (AuthzBasepGetNextValue.c)
+ *     AuthzBasepCompareUnicodeStringOperands @ 0x1403657AC (AuthzBasepCompareUnicodeStringOperands.c)
+ *     AuthzBasepOperandValueTypesCompatible @ 0x140366290 (AuthzBasepOperandValueTypesCompatible.c)
+ *     AuthzBasepRestartOperandValueEnumeration @ 0x1403664A4 (AuthzBasepRestartOperandValueEnumeration.c)
+ *     AuthzBasepCompareFQBNOperands @ 0x14066CC80 (AuthzBasepCompareFQBNOperands.c)
+ *     AuthzBasepCompareIntegerOperands @ 0x14066CF0C (AuthzBasepCompareIntegerOperands.c)
+ *     AuthzBasepCompareOctetStringOperands @ 0x14066D030 (AuthzBasepCompareOctetStringOperands.c)
+ */
+
 __int64 __fastcall AuthzBasepValueInSet(__int128 *a1, __int16 *a2, _DWORD *a3, char a4)
 {
   __int128 v4; // xmm1

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiDrvDbSetupNodes @ 0x14081C208
+ * Callers:
+ *     PiDrvDbInit @ 0x14081C014 (PiDrvDbInit.c)
+ * Callees:
+ *     _PnpSetObjectProperty @ 0x140686C8C (_PnpSetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     PiDrvDbSetupNodeHive @ 0x14081C5C8 (PiDrvDbSetupNodeHive.c)
+ */
+
 __int64 __fastcall PiDrvDbSetupNodes(int a1)
 {
   int ObjectProperty; // edi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ensure_extra_capacity@?$buffer_impl@UConstantBufferRow@CCustomKernelEffect@@$07$00Vliberal_expansion_policy@detail@@@detail@@QEAAX_K@Z @ 0x1800D2660
+ * Callers:
+ *     ?reserve_region@?$vector_facade@UConstantBufferRow@CCustomKernelEffect@@V?$buffer_impl@UConstantBufferRow@CCustomKernelEffect@@$07$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAUConstantBufferRow@CCustomKernelEffect@@_K0@Z @ 0x1800D25A0 (-reserve_region@-$vector_facade@UConstantBufferRow@CCustomKernelEffect@@V-$buffer_impl@UConstant.c)
+ * Callees:
+ *     ??2@YAPEAX_K@Z @ 0x180034790 (--2@YAPEAX_K@Z.c)
+ *     ?expand@liberal_expansion_policy@detail@@QEAA_K_K0@Z @ 0x180044B80 (-expand@liberal_expansion_policy@detail@@QEAA_K_K0@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ??$uninitialized_move@V?$move_iterator@PEAUConstantBufferRow@CCustomKernelEffect@@@std@@V?$checked_array_iterator@PEAUConstantBufferRow@CCustomKernelEffect@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAUConstantBufferRow@CCustomKernelEffect@@@stdext@@V?$move_iterator@PEAUConstantBufferRow@CCustomKernelEffect@@@0@0V12@@Z @ 0x1800D2750 (--$uninitialized_move@V-$move_iterator@PEAUConstantBufferRow@CCustomKernelEffect@@@std@@V-$check.c)
+ */
+
 void __fastcall detail::buffer_impl<CCustomKernelEffect::ConstantBufferRow,8,1,detail::liberal_expansion_policy>::ensure_extra_capacity(
         void **a1,
         unsigned __int64 a2)

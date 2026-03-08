@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopThermalTraceRundownEvents @ 0x14058DBD4
+ * Callers:
+ *     PopDiagTraceControlCallback @ 0x14085EC40 (PopDiagTraceControlCallback.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     PopDiagTraceThermalZoneRundown @ 0x1405928C0 (PopDiagTraceThermalZoneRundown.c)
+ */
+
 void PopThermalTraceRundownEvents()
 {
   struct _KTHREAD *CurrentThread; // rax

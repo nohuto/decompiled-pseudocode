@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Reset@FxDmaTransactionBase@@AEAAXXZ @ 0x1C000CDE4
+ * Callers:
+ *     ?ReleaseForReuse@FxDmaTransactionBase@@QEAAXE@Z @ 0x1C000CC8A (-ReleaseForReuse@FxDmaTransactionBase@@QEAAXE@Z.c)
+ *     ??0FxDmaTransactionBase@@QEAA@PEAU_FX_DRIVER_GLOBALS@@GGPEAVFxDmaEnabler@@@Z @ 0x1C001F3A4 (--0FxDmaTransactionBase@@QEAA@PEAU_FX_DRIVER_GLOBALS@@GGPEAVFxDmaEnabler@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxDmaTransactionBase::Reset(FxDmaTransactionBase *this)
 {
   FxDmaEnabler *m_DmaEnabler; // rax

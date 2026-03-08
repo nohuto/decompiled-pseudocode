@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlCreateFunctionOverrideFixupInfo @ 0x140300A2C
+ * Callers:
+ *     MiParseImageLoadConfig @ 0x1407F4AEC (MiParseImageLoadConfig.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlCreateFunctionOverrideFixupInfo(
         __int64 a1,
         __int64 a2,

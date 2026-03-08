@@ -1,3 +1,11 @@
+/*
+ * XREFs of MapPhysMem @ 0x1C004BE74
+ * Callers:
+ *     MapUnmapPhysMem @ 0x1C004BF40 (MapUnmapPhysMem.c)
+ * Callees:
+ *     AmlpValidateFirmwareMemoryAddress @ 0x1C004AD48 (AmlpValidateFirmwareMemoryAddress.c)
+ */
+
 __int64 __fastcall MapPhysMem(ULONG_PTR a1, unsigned int a2, __int64 *a3)
 {
   ULONG_PTR BugCheckParameter4; // rdi

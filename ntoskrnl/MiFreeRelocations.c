@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiFreeRelocations @ 0x140A45458
+ * Callers:
+ *     MiDeleteControlArea @ 0x140215028 (MiDeleteControlArea.c)
+ *     MiRelocateImage @ 0x1407F2760 (MiRelocateImage.c)
+ * Callees:
+ *     MiReturnImageBase @ 0x1407C8860 (MiReturnImageBase.c)
+ *     MiFreeImageLoadConfig @ 0x140A47684 (MiFreeImageLoadConfig.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiFreeRelocations(_DWORD *a1, _QWORD *a2)
 {
   __int64 v2; // rax

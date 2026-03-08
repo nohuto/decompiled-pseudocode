@@ -1,3 +1,16 @@
+/*
+ * XREFs of FsRtlFindExtraCreateParameter @ 0x1406B1D70
+ * Callers:
+ *     IopSymlinkGetECP @ 0x14023ADA0 (IopSymlinkGetECP.c)
+ *     FsRtlCheckOplockEx2 @ 0x14023AE40 (FsRtlCheckOplockEx2.c)
+ *     FsRtlpAttachOplockKey @ 0x14023FE88 (FsRtlpAttachOplockKey.c)
+ *     IopCheckTopDeviceHint @ 0x1406B4EC0 (IopCheckTopDeviceHint.c)
+ *     IopCheckAndUpdateStopOnSymlinkEcp @ 0x140944934 (IopCheckAndUpdateStopOnSymlinkEcp.c)
+ *     IopSymlinkEnforceEnabledTypes @ 0x140945E94 (IopSymlinkEnforceEnabledTypes.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall FsRtlFindExtraCreateParameter(
         PECP_LIST EcpList,
         LPCGUID EcpType,

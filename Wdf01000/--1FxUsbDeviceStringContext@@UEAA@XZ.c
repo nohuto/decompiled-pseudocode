@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1FxUsbDeviceStringContext@@UEAA@XZ @ 0x1C005C4CC
+ * Callers:
+ *     ??_GFxUsbDeviceStringContext@@UEAAPEAXI@Z @ 0x1C005C5D0 (--_GFxUsbDeviceStringContext@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     USBD_UrbFree @ 0x1C008876C (USBD_UrbFree.c)
+ */
+
 void __fastcall FxUsbDeviceStringContext::~FxUsbDeviceStringContext(FxUsbDeviceStringContext *this)
 {
   FX_POOL_TRACKER *m_StringDescriptor; // rcx

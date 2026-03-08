@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??$_Insert_range@PEAPEAVCGeometry2D@@@?$vector@PEAVCGeometry2D@@V?$allocator@PEAVCGeometry2D@@@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCGeometry2D@@@std@@@std@@@1@PEAPEAVCGeometry2D@@1Uforward_iterator_tag@1@@Z @ 0x1801BB608
+ * Callers:
+ *     ?SetOrAppendChildren@?$CGeometry2DGroupGeneratedT@VCGeometry2DGroup@@VCGeometry2D@@@@AEAAJAEBV?$span@PEAVCGeometry2D@@$0?0@gsl@@_N@Z @ 0x1801C4C94 (-SetOrAppendChildren@-$CGeometry2DGroupGeneratedT@VCGeometry2DGroup@@VCGeometry2D@@@@AEAAJAEBV-$.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B9880 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     ?_Change_array@?$vector@PEAVCGeometry2D@@V?$allocator@PEAVCGeometry2D@@@std@@@std@@AEAAXQEAPEAVCGeometry2D@@_K1@Z @ 0x1801C75C4 (-_Change_array@-$vector@PEAVCGeometry2D@@V-$allocator@PEAVCGeometry2D@@@std@@@std@@AEAAXQEAPEAVC.c)
+ */
+
 void __fastcall std::vector<CGeometry2D *>::_Insert_range<CGeometry2D * *>(
         __int64 a1,
         _BYTE *a2,

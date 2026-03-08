@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpInitChipHacks @ 0x140B35648
+ * Callers:
+ *     HalpErrataInitSystem @ 0x140A87AA0 (HalpErrataInitSystem.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcstoul @ 0x1403D6370 (wcstoul.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x140412570 (ZwEnumerateValueKey.c)
+ *     ZwQueryKey @ 0x1404125D0 (ZwQueryKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 HalpInitChipHacks()
 {
   __int64 Pool2; // r14

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CitProcessForegroundChange @ 0x1C00B0410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CitpProcessForegroundChange@@YAHPEAUtagPROCESSINFO@@PEAUtagWND@@0PEAUtagSHELL_INPUT_USAGE_DATA_INFO@@@Z @ 0x1C00B0458 (-CitpProcessForegroundChange@@YAHPEAUtagPROCESSINFO@@PEAUtagWND@@0PEAUtagSHELL_INPUT_USAGE_DATA_.c)
+ */
+
 __int64 __fastcall CitProcessForegroundChange(
         __int64 a1,
         struct tagWND *a2,

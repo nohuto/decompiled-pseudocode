@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPowerAggregatorModernStandbyEnterStateHandler @ 0x140990A90
+ * Callers:
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140872018 (PopPowerAggregatorInvokeStateMachine.c)
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     PopPowerAggregatorDisengageModernStandby @ 0x14099057C (PopPowerAggregatorDisengageModernStandby.c)
+ */
+
 __int64 __fastcall PopPowerAggregatorModernStandbyEnterStateHandler(__int64 a1)
 {
   if ( *(_BYTE *)(a1 + 72) )

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$CreateWindowProp@VCHwndTargetProp@@@CWindowProp@@SAJPEAPEAVCHwndTargetProp@@@Z @ 0x1C007DC60
+ * Callers:
+ *     ?_AttachWindowCompositionTarget@@YAJPEAUtagWND@@KPEAUCompositionObject@@@Z @ 0x1C007DAFC (-_AttachWindowCompositionTarget@@YAJPEAUtagWND@@KPEAUCompositionObject@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CWindowProp::CreateWindowProp<CHwndTargetProp>(__int64 *a1)
 {
   unsigned int v2; // ebx

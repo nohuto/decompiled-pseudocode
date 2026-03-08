@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiMakeObjectXferable @ 0x1C02AAB30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?bPrepareDCForXfer@XFERDCOBJ@@SAHPEAUHDC__@@K@Z @ 0x1C02AA0CC (-bPrepareDCForXfer@XFERDCOBJ@@SAHPEAUHDC__@@K@Z.c)
+ */
+
 __int64 __fastcall NtGdiMakeObjectXferable(HDC a1, int a2)
 {
   char v5; // bl

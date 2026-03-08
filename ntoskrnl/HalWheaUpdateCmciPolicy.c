@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalWheaUpdateCmciPolicy @ 0x1403A76C0
+ * Callers:
+ *     WheapApplyPolicyChanges @ 0x140A06724 (WheapApplyPolicyChanges.c)
+ *     WheapLoadPolicy @ 0x140B6A2B0 (WheapLoadPolicy.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ */
+
 LONGLONG __fastcall HalWheaUpdateCmciPolicy(int a1, unsigned int a2)
 {
   __int64 v2; // rbx

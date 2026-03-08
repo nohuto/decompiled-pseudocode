@@ -1,3 +1,21 @@
+/*
+ * XREFs of IopAddBugcheckTriageDataFromParameters @ 0x14054F674
+ * Callers:
+ *     IopUpdateMinidumpContext @ 0x1405516E4 (IopUpdateMinidumpContext.c)
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KiIsAddressRangeValid @ 0x1403849BC (KiIsAddressRangeValid.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopAddBugcheckPnpTriageData @ 0x140559658 (IopAddBugcheckPnpTriageData.c)
+ *     IopAddBugcheckPnpWatchdogTriageData @ 0x1405596C0 (IopAddBugcheckPnpWatchdogTriageData.c)
+ *     IopAddBugcheckPowerTriageData @ 0x140559780 (IopAddBugcheckPowerTriageData.c)
+ *     IopAddBugcheckTriageDeviceNode @ 0x140559AE0 (IopAddBugcheckTriageDeviceNode.c)
+ *     IopAddBugcheckTriageThread @ 0x140559D4C (IopAddBugcheckTriageThread.c)
+ *     PnpInitializeTriageBlock @ 0x14055E240 (PnpInitializeTriageBlock.c)
+ *     PnpSaveGlobalsToMinidump @ 0x14055E2C0 (PnpSaveGlobalsToMinidump.c)
+ *     PopInternalAddToDumpFile @ 0x140580CC0 (PopInternalAddToDumpFile.c)
+ */
+
 char __fastcall IopAddBugcheckTriageDataFromParameters(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 MaxDataSize)
 {
   char result; // al

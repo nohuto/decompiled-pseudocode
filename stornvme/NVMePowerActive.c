@@ -1,3 +1,13 @@
+/*
+ * XREFs of NVMePowerActive @ 0x1C00030C0
+ * Callers:
+ *     NVMeHwAdapterControl @ 0x1C0003050 (NVMeHwAdapterControl.c)
+ * Callees:
+ *     NVMePerfStateTransition @ 0x1C000314C (NVMePerfStateTransition.c)
+ *     NVMeSetFStateIdleTimer @ 0x1C00106AC (NVMeSetFStateIdleTimer.c)
+ *     NVMeUpdateResumeLatencyTolerance @ 0x1C0010AA0 (NVMeUpdateResumeLatencyTolerance.c)
+ */
+
 __int64 __fastcall NVMePowerActive(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

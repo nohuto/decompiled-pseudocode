@@ -1,3 +1,25 @@
+/*
+ * XREFs of GreIntersectVisRect @ 0x1C0197D20
+ * Callers:
+ *     ?bDynamicIntersectVisRect@@YAHPEAVSURFACE@@UtagSIZE@@@Z @ 0x1C0199130 (-bDynamicIntersectVisRect@@YAHPEAVSURFACE@@UtagSIZE@@@Z.c)
+ * Callees:
+ *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C0041EF8 (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??0RGNMEMOBJTMP@@QEAA@K@Z @ 0x1C00427C4 (--0RGNMEMOBJTMP@@QEAA@K@Z.c)
+ *     ?vCopy@RGNOBJ@@QEAAXAEAV1@@Z @ 0x1C0043670 (-vCopy@RGNOBJ@@QEAAXAEAV1@@Z.c)
+ *     ?iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z @ 0x1C0044F90 (-iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z.c)
+ *     ??1DCOBJA@@QEAA@XZ @ 0x1C0046798 (--1DCOBJA@@QEAA@XZ.c)
+ *     ?vReleaseRao@DC@@QEAAXXZ @ 0x1C0046AF0 (-vReleaseRao@DC@@QEAAXXZ.c)
+ *     ?vSet@RGNOBJ@@QEAAXQEBU_RECTL@@@Z @ 0x1C0051770 (-vSet@RGNOBJ@@QEAAXQEBU_RECTL@@@Z.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C0055304 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ??0RGNMEMOBJTMP@@QEAA@XZ @ 0x1C0056EF8 (--0RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?vStamp@REGION@@QEAAXXZ @ 0x1C00A4D7C (-vStamp@REGION@@QEAAXXZ.c)
+ *     EngSetLastError @ 0x1C00BAB10 (EngSetLastError.c)
+ *     ?AcquireDcVisRgnExclusive@DC@@QEAA@XZ @ 0x1C00DDFD0 (-AcquireDcVisRgnExclusive@DC@@QEAA@XZ.c)
+ *     ?ReleaseLock@GreInnermostPushLockMSRC85333@@QEAAXXZ @ 0x1C00DE014 (-ReleaseLock@GreInnermostPushLockMSRC85333@@QEAAXXZ.c)
+ *     ??0DEVLOCKOBJ@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C0181D50 (--0DEVLOCKOBJ@@QEAA@AEAVPDEVOBJ@@@Z.c)
+ *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C018277C (--1DEVLOCKOBJ@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall GreIntersectVisRect(HDC a1, LONG a2, LONG a3, LONG a4, LONG a5)
 {
   unsigned int v5; // r12d

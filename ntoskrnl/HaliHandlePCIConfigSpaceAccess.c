@@ -1,3 +1,12 @@
+/*
+ * XREFs of HaliHandlePCIConfigSpaceAccess @ 0x14051E3F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HaliPciInterfaceReadConfig @ 0x1402D77A0 (HaliPciInterfaceReadConfig.c)
+ *     HalpPCIConfig @ 0x1402D7810 (HalpPCIConfig.c)
+ */
+
 __int64 __fastcall HaliHandlePCIConfigSpaceAccess(char a1, int a2, unsigned int a3, _WORD *a4)
 {
   unsigned int v4; // ebx

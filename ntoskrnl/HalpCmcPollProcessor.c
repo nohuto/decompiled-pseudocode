@@ -1,3 +1,21 @@
+/*
+ * XREFs of HalpCmcPollProcessor @ 0x14037CF58
+ * Callers:
+ *     HalpCmciPollProcessor @ 0x14037CE58 (HalpCmciPollProcessor.c)
+ *     HalpCmcWorkerRoutine @ 0x14080C020 (HalpCmcWorkerRoutine.c)
+ * Callees:
+ *     KeQueryDpcWatchdogInformation @ 0x1402B7480 (KeQueryDpcWatchdogInformation.c)
+ *     HalpMcaReadErrorPresence @ 0x14037D0E4 (HalpMcaReadErrorPresence.c)
+ *     HalpGetCpuVendor @ 0x14037D1B4 (HalpGetCpuVendor.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HalpCmcIsDpcTimeRunningLow @ 0x1405005FC (HalpCmcIsDpcTimeRunningLow.c)
+ *     HalpCmcLogPollingTimeoutEvent @ 0x140500654 (HalpCmcLogPollingTimeoutEvent.c)
+ *     HalpMcaClearError @ 0x140500FC0 (HalpMcaClearError.c)
+ *     HalpMcaReadError @ 0x1405014E0 (HalpMcaReadError.c)
+ *     HalpMcaReportError @ 0x140501778 (HalpMcaReportError.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpCmcPollProcessor(__int64 a1, char a2, __int64 a3, __int64 a4)
 {
   unsigned int v6; // r14d

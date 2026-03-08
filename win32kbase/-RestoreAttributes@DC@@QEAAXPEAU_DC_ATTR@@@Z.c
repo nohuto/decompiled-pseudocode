@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?RestoreAttributes@DC@@QEAAXPEAU_DC_ATTR@@@Z @ 0x1C0050300
+ * Callers:
+ *     GreGetClipBox @ 0x1C001AB40 (GreGetClipBox.c)
+ *     ?SetupDCAttributes@@YAXPEAVDC@@PEAU_DC_ATTR@@@Z @ 0x1C00502A0 (-SetupDCAttributes@@YAXPEAVDC@@PEAU_DC_ATTR@@@Z.c)
+ *     GreCreateCompatibleDC @ 0x1C0052510 (GreCreateCompatibleDC.c)
+ *     GreGetDCPoint @ 0x1C0053880 (GreGetDCPoint.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C0054DA0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C00550A0 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ *     ?RestoreAttributesHelper@XDCOBJ@@AEAAXXZ @ 0x1C0056684 (-RestoreAttributesHelper@XDCOBJ@@AEAAXXZ.c)
+ *     GreIntersectClipRect @ 0x1C0056F30 (GreIntersectClipRect.c)
+ *     GreSelectPalette @ 0x1C0092ED0 (GreSelectPalette.c)
+ *     GreRestoreOwnedDC @ 0x1C00A46A0 (GreRestoreOwnedDC.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DC::RestoreAttributes(DC *this, struct _DC_ATTR *a2)
 {
   char *v2; // rax

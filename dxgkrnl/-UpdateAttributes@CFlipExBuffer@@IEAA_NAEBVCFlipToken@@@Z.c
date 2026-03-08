@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?UpdateAttributes@CFlipExBuffer@@IEAA_NAEBVCFlipToken@@@Z @ 0x1C007DEE4
+ * Callers:
+ *     ?NotifyTokenInFrame@CFlipExBuffer@@UEAAJAEBVCToken@@PEA_N@Z @ 0x1C007D970 (-NotifyTokenInFrame@CFlipExBuffer@@UEAAJAEBVCToken@@PEA_N@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?EnsureHDR10MetaData@CFlipExBuffer@@IEAAJXZ @ 0x1C007D630 (-EnsureHDR10MetaData@CFlipExBuffer@@IEAAJXZ.c)
+ *     ?GetTransform@CFlipToken@@QEBAXPEAM@Z @ 0x1C007D78C (-GetTransform@CFlipToken@@QEBAXPEAM@Z.c)
+ */
+
 char __fastcall CFlipExBuffer::UpdateAttributes(CFlipExBuffer *this, const struct CFlipToken *a2)
 {
   __m128 v2; // xmm6

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpDeleteResource @ 0x1403CEE78
+ * Callers:
+ *     ExDeleteFastResource @ 0x1403CEDE0 (ExDeleteFastResource.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall ExpDeleteResource(_QWORD *a1)
 {
   KIRQL v2; // al

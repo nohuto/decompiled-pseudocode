@@ -1,3 +1,11 @@
+/*
+ * XREFs of fromIV_HIDP_CAPS @ 0x1C01ABBBC
+ * Callers:
+ *     RIMVirtCreateHidDesc @ 0x1C01B10CC (RIMVirtCreateHidDesc.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall fromIV_HIDP_CAPS(__int64 a1, __int64 a2)
 {
   __int128 v2; // xmm0

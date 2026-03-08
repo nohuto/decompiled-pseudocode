@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiLdaStopAllAdaptersInChain @ 0x1C03A4294
+ * Callers:
+ *     DpiFdoHandleStopDevice @ 0x1C03973C0 (DpiFdoHandleStopDevice.c)
+ *     DpiKsrStopAdapter @ 0x1C03A1DF4 (DpiKsrStopAdapter.c)
+ * Callees:
+ *     DpiFdoStopAdapter @ 0x1C0398994 (DpiFdoStopAdapter.c)
+ */
+
 __int64 __fastcall DpiLdaStopAllAdaptersInChain(struct _DEVICE_OBJECT *a1, __int64 a2)
 {
   _QWORD *DeviceExtension; // rbx

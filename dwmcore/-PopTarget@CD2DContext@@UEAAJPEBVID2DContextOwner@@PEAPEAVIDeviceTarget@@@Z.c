@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?PopTarget@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAPEAVIDeviceTarget@@@Z @ 0x180284470
+ * Callers:
+ *     gsl::final_action__lambda_d4d69d0dd690f9a056e445a8894bc90a___::_final_action__lambda_d4d69d0dd690f9a056e445a8894bc90a___ @ 0x180275AE0 (gsl--final_action__lambda_d4d69d0dd690f9a056e445a8894bc90a___--_final_action__lambda_d4d69d0dd69.c)
+ * Callees:
+ *     ?FlushD2DInternal@CD2DContext@@AEAAJXZ @ 0x18001A18C (-FlushD2DInternal@CD2DContext@@AEAAJXZ.c)
+ *     ?FlushDrawList@CD2DContext@@QEAAJXZ @ 0x18008DE30 (-FlushDrawList@CD2DContext@@QEAAJXZ.c)
+ *     ?EndDraw@CD2DContext@@AEAAJXZ @ 0x1800906C4 (-EndDraw@CD2DContext@@AEAAJXZ.c)
+ *     ?ApplyState@CD2DTarget@@QEAAXPEAVCD2DContext@@@Z @ 0x180091E58 (-ApplyState@CD2DTarget@@QEAAXPEAVCD2DContext@@@Z.c)
+ *     ?D2DSetTargetInternal@CD2DContext@@IEAAXPEAVCD2DTarget@@@Z @ 0x180091EBC (-D2DSetTargetInternal@CD2DContext@@IEAAXPEAVCD2DTarget@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??_GCD2DTarget@@QEAAPEAXI@Z @ 0x1800E5B40 (--_GCD2DTarget@@QEAAPEAXI@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?CacheTarget@CD2DTarget@@QEBA_NXZ @ 0x180299850 (-CacheTarget@CD2DTarget@@QEBA_NXZ.c)
+ */
+
 __int64 __fastcall CD2DContext::PopTarget(
         CD2DContext *this,
         const struct ID2DContextOwner *a2,

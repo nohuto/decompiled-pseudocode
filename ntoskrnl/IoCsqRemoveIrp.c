@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoCsqRemoveIrp @ 0x1403D14E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 PIRP __stdcall IoCsqRemoveIrp(PIO_CSQ Csq, PIO_CSQ_IRP_CONTEXT Context)
 {
   PIO_CSQ_ACQUIRE_LOCK CsqAcquireLock; // rax

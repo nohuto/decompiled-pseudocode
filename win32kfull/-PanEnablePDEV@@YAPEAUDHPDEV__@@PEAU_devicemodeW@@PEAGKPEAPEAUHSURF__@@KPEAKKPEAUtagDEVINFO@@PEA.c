@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?PanEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C029E3D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?bCreateSemaphores@@YAHPEAU_PANDEV@@@Z @ 0x1C029F970 (-bCreateSemaphores@@YAHPEAU_PANDEV@@@Z.c)
+ *     ?vDeleteSemaphores@@YAXPEAU_PANDEV@@@Z @ 0x1C029FD7C (-vDeleteSemaphores@@YAXPEAU_PANDEV@@@Z.c)
+ */
+
 struct DHPDEV__ *__fastcall PanEnablePDEV(
         struct _devicemodeW *a1,
         unsigned __int16 *a2,

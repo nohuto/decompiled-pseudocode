@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?bStretch@BLTRECORD@@QEAAHAEAVSURFMEM@@K@Z @ 0x1C0295E50
+ * Callers:
+ *     ?bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C00912D0 (-bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
+ * Callees:
+ *     EngStretchBlt @ 0x1C004DC80 (EngStretchBlt.c)
+ *     ?vMirror@BLTRECORD@@QEAAXPEAVERECTL@@@Z @ 0x1C0091AD0 (-vMirror@BLTRECORD@@QEAAXPEAVERECTL@@@Z.c)
+ *     ?pSurfMskOut@BLTRECORD@@QEAAPEAVSURFACE@@XZ @ 0x1C00F39C4 (-pSurfMskOut@BLTRECORD@@QEAAPEAVSURFACE@@XZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall BLTRECORD::bStretch(BLTRECORD *this, struct SURFMEM *a2, ULONG a3)
 {
   int v6; // edx

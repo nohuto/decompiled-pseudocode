@@ -1,3 +1,13 @@
+/*
+ * XREFs of I_MinCryptGetCertificateEKUs @ 0x140A6CAE0
+ * Callers:
+ *     I_MinCryptFindIssuerCertificateByName @ 0x140A6C8E0 (I_MinCryptFindIssuerCertificateByName.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6CBC8 (MinCryptVerifyCertificateWithPolicy2.c)
+ * Callees:
+ *     MinAsn1ParseOIDSequence @ 0x140A6D858 (MinAsn1ParseOIDSequence.c)
+ *     MinAsn1ParseSingleExtensionValue @ 0x140A6DAB8 (MinAsn1ParseSingleExtensionValue.c)
+ */
+
 __int64 __fastcall I_MinCryptGetCertificateEKUs(_DWORD *a1, _DWORD *a2, __int64 a3)
 {
   unsigned int v5; // ebx

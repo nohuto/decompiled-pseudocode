@@ -1,3 +1,15 @@
+/*
+ * XREFs of KxFlushMultipleTb @ 0x14038C454
+ * Callers:
+ *     KeFlushMultipleRangeTb @ 0x14038C374 (KeFlushMultipleRangeTb.c)
+ * Callees:
+ *     KiIpiSendRequestEx @ 0x14021238C (KiIpiSendRequestEx.c)
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140237640 (KeRemoveProcessorAffinityEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KxFlushMultipleTb(int a1, __int64 a2, int a3, int a4)
 {
   unsigned __int8 CurrentIrql; // di

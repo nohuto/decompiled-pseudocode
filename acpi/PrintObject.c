@@ -1,3 +1,21 @@
+/*
+ * XREFs of PrintObject @ 0x1C004E4C8
+ * Callers:
+ *     ReadObject @ 0x1C0005BEE (ReadObject.c)
+ *     PrintObject @ 0x1C004E4C8 (PrintObject.c)
+ *     AccFieldUnit @ 0x1C0051630 (AccFieldUnit.c)
+ *     AsyncEvalObject @ 0x1C00544D0 (AsyncEvalObject.c)
+ *     NestAsyncEvalObject @ 0x1C005496C (NestAsyncEvalObject.c)
+ *     ParseArgObj @ 0x1C005A5E0 (ParseArgObj.c)
+ *     ParseLocalObj @ 0x1C005B7EC (ParseLocalObj.c)
+ *     ParseTerm @ 0x1C005C790 (ParseTerm.c)
+ * Callees:
+ *     GetObjectTypeName @ 0x1C004BD50 (GetObjectTypeName.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     PrintBuffData @ 0x1C004E408 (PrintBuffData.c)
+ *     PrintObject @ 0x1C004E4C8 (PrintObject.c)
+ */
+
 ULONG __fastcall PrintObject(__int64 a1)
 {
   int v2; // ecx

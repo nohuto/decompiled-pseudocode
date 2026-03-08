@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpUsbLegacyDeviceHandoff @ 0x1403A7544
+ * Callers:
+ *     HalpUsbLegacyScanBusForHandoff @ 0x14038F7C4 (HalpUsbLegacyScanBusForHandoff.c)
+ * Callees:
+ *     HalpRegisterUsbController @ 0x14051EB18 (HalpRegisterUsbController.c)
+ */
+
 __int64 __fastcall HalpUsbLegacyDeviceHandoff(__int64 a1, unsigned int a2, __int64 a3, unsigned __int16 *a4)
 {
   __int64 result; // rax

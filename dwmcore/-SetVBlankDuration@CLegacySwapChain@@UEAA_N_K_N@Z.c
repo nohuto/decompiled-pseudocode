@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SetVBlankDuration@CLegacySwapChain@@UEAA_N_K_N@Z @ 0x180298380
+ * Callers:
+ *     ?SetVBlankDuration@CLegacySwapChain@@$4PPPPPPPM@BLA@EAA_N_K_N@Z @ 0x18011BAD0 (-SetVBlankDuration@CLegacySwapChain@@$4PPPPPPPM@BLA@EAA_N_K_N@Z.c)
+ *     ?SetVBlankDuration@CLegacySwapChain@@$4PPPPPPPM@DFI@EAA_N_K_N@Z @ 0x18011D230 (-SetVBlankDuration@CLegacySwapChain@@$4PPPPPPPM@DFI@EAA_N_K_N@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18008F164 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
+ *     ?GetCompositorClockBoost@CComposition@@QEBA_NXZ @ 0x1800C81D8 (-GetCompositorClockBoost@CComposition@@QEBA_NXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CLegacySwapChain::SetVBlankDuration(CLegacySwapChain *this, unsigned __int64 a2, char a3)
 {
   unsigned __int64 v3; // r9

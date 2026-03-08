@@ -1,3 +1,33 @@
+/*
+ * XREFs of ExReferenceCallBackBlock @ 0x14034C060
+ * Callers:
+ *     IoBoostThreadIoPriority @ 0x140356FD0 (IoBoostThreadIoPriority.c)
+ *     KiEnumerateCallback @ 0x1403D0130 (KiEnumerateCallback.c)
+ *     IoUnregisterPriorityCallback @ 0x1405550E0 (IoUnregisterPriorityCallback.c)
+ *     KeDeregisterBoundCallback @ 0x140569F00 (KeDeregisterBoundCallback.c)
+ *     KiHandleBound @ 0x14056A8C0 (KiHandleBound.c)
+ *     PoIssueCoalescingNotification @ 0x14058B2F4 (PoIssueCoalescingNotification.c)
+ *     ExCallSessionCallBack @ 0x140776B38 (ExCallSessionCallBack.c)
+ *     ExCallCallBack @ 0x1407D2DA4 (ExCallCallBack.c)
+ *     PspCallProcessNotifyRoutines @ 0x1407D2E14 (PspCallProcessNotifyRoutines.c)
+ *     PsCallImageNotifyRoutines @ 0x1407D30D0 (PsCallImageNotifyRoutines.c)
+ *     PspCallThreadNotifyRoutines @ 0x1407D3260 (PspCallThreadNotifyRoutines.c)
+ *     DbgkLkmdRegisterCallback @ 0x140819220 (DbgkLkmdRegisterCallback.c)
+ *     PspSetCreateProcessNotifyRoutine @ 0x140819698 (PspSetCreateProcessNotifyRoutine.c)
+ *     DbgkLkmdUnregisterCallback @ 0x140937D20 (DbgkLkmdUnregisterCallback.c)
+ *     DbgkpLkmdFireCallbacks @ 0x140937DC4 (DbgkpLkmdFireCallbacks.c)
+ *     PoUnregisterCoalescingCallback @ 0x140983E40 (PoUnregisterCoalescingCallback.c)
+ *     PsRemoveCreateThreadNotifyRoutine @ 0x1409B2C70 (PsRemoveCreateThreadNotifyRoutine.c)
+ *     PsRemoveLoadImageNotifyRoutine @ 0x1409B2D60 (PsRemoveLoadImageNotifyRoutine.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     ExAcquireRundownProtectionEx @ 0x14035AFC0 (ExAcquireRundownProtectionEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 struct _EX_RUNDOWN_REF *__fastcall ExReferenceCallBackBlock(signed __int64 *a1)
 {
   signed __int64 v2; // rbx

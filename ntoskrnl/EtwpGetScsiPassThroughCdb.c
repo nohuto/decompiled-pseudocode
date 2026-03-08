@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpGetScsiPassThroughCdb @ 0x1405FB950
+ * Callers:
+ *     EtwpTraceOpticalIo @ 0x1405FC180 (EtwpTraceOpticalIo.c)
+ *     EtwpTraceOpticalIoInit @ 0x1405FC430 (EtwpTraceOpticalIoInit.c)
+ * Callees:
+ *     IoIs32bitProcess @ 0x140245910 (IoIs32bitProcess.c)
+ */
+
 IO_STATUS_BLOCK *__fastcall EtwpGetScsiPassThroughCdb(IRP *a1)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r8

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PipPnPDriverEntry @ 0x140B32140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PipPnPDriverEntry(struct _DRIVER_OBJECT *a1)
 {
   PDRIVER_EXTENSION DriverExtension; // rax

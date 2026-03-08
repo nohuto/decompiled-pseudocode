@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiUnlockImageSection @ 0x140225A90
+ * Callers:
+ *     MiLockPagableImageSection @ 0x1402252E0 (MiLockPagableImageSection.c)
+ * Callees:
+ *     MiIsPfnCommitNotCharged @ 0x140286190 (MiIsPfnCommitNotCharged.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402879C0 (MiPfnReferenceCountIsZero.c)
+ *     ExpUnblockPushLock @ 0x1402BFD34 (ExpUnblockPushLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiBadRefCount @ 0x14064B094 (MiBadRefCount.c)
+ */
+
 __int64 __fastcall MiUnlockImageSection(
         volatile signed __int32 *a1,
         unsigned __int64 a2,

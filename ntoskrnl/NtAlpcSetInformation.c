@@ -1,3 +1,26 @@
+/*
+ * XREFs of NtAlpcSetInformation @ 0x140689DC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AlpcpAssociateIoCompletionPort @ 0x140689FD8 (AlpcpAssociateIoCompletionPort.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     AlpcpAdjustCompletionListConcurrencyCount @ 0x1409765B4 (AlpcpAdjustCompletionListConcurrencyCount.c)
+ *     AlpcpFreeCompletionList @ 0x1409766D0 (AlpcpFreeCompletionList.c)
+ *     AlpcpInitializeCompletionList @ 0x14097672C (AlpcpInitializeCompletionList.c)
+ */
+
 __int64 __fastcall NtAlpcSetInformation(void *a1, int a2, unsigned __int64 a3, unsigned int a4)
 {
   size_t v4; // r15

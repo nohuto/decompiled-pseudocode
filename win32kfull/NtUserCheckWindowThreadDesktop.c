@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserCheckWindowThreadDesktop @ 0x1C01CE770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     GetConsoleDesktop @ 0x1C01BFCC8 (GetConsoleDesktop.c)
+ */
+
 __int64 __fastcall NtUserCheckWindowThreadDesktop(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // esi

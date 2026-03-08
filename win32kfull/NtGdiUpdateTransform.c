@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiUpdateTransform @ 0x1C02D2C30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ */
+
 __int64 __fastcall NtGdiUpdateTransform(HDC a1)
 {
   unsigned int v1; // ebx

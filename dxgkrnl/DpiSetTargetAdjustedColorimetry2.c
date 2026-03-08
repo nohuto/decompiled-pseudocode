@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiSetTargetAdjustedColorimetry2 @ 0x1C0015594
+ * Callers:
+ *     ?SetTargetAdjustedColorimetry@KernelDriver@@UEAAJU_DXGK_COLORIMETRY@@I@Z @ 0x1C01D5DF0 (-SetTargetAdjustedColorimetry@KernelDriver@@UEAAJU_DXGK_COLORIMETRY@@I@Z.c)
+ * Callees:
+ *     DpiFdoGetChildDescriptor @ 0x1C0015614 (DpiFdoGetChildDescriptor.c)
+ *     DpiDxgkDdiSetTargetAdjustedColorimetry2 @ 0x1C0015640 (DpiDxgkDdiSetTargetAdjustedColorimetry2.c)
+ */
+
 __int64 __fastcall DpiSetTargetAdjustedColorimetry2(__int64 a1, __int64 a2, __int64 a3)
 {
   int v4; // edx

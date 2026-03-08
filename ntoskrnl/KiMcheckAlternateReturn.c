@@ -1,3 +1,22 @@
+/*
+ * XREFs of KiMcheckAlternateReturn @ 0x14057DEF0
+ * Callers:
+ *     KxMcheckAlternateReturn @ 0x1404285C0 (KxMcheckAlternateReturn.c)
+ * Callees:
+ *     KeStallExecutionProcessor @ 0x14022B710 (KeStallExecutionProcessor.c)
+ *     WheaLogInternalEvent @ 0x14037D610 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     WheaGetErrPacketFromErrRecord @ 0x140517070 (WheaGetErrPacketFromErrRecord.c)
+ *     KiAltContextWorkQueueAddItem @ 0x14057DD74 (KiAltContextWorkQueueAddItem.c)
+ *     WheaRecoveryBugCheck @ 0x14060E210 (WheaRecoveryBugCheck.c)
+ *     WheapGetErrorSource @ 0x14060EAE8 (WheapGetErrorSource.c)
+ *     WheaGetCurrentProcessName @ 0x14060F890 (WheaGetCurrentProcessName.c)
+ *     WheaProcessWaitingETWEvents @ 0x140610D50 (WheaProcessWaitingETWEvents.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x140A05140 (WheaAttemptPhysicalPageOffline.c)
+ *     WheaTerminateProcess @ 0x140A053E0 (WheaTerminateProcess.c)
+ *     WheaExecuteRowFailureCheck @ 0x140A05CDC (WheaExecuteRowFailureCheck.c)
+ */
+
 LONG __fastcall KiMcheckAlternateReturn(int *a1)
 {
   unsigned __int64 v1; // rbx

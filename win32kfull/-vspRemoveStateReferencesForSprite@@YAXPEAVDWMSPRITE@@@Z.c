@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vspRemoveStateReferencesForSprite@@YAXPEAVDWMSPRITE@@@Z @ 0x1C00D7BF8
+ * Callers:
+ *     ?GreDeleteSpriteInternal@@YAJPEAUHDEV__@@PEAUHWND__@@PEAXH@Z @ 0x1C00243E4 (-GreDeleteSpriteInternal@@YAJPEAUHDEV__@@PEAUHWND__@@PEAXH@Z.c)
+ *     ?vspDestroyDwmSpriteObjInternal@@YAXPEAUHDEV__@@_NPEAVDWMSPRITE@@@Z @ 0x1C00D790C (-vspDestroyDwmSpriteObjInternal@@YAXPEAUHDEV__@@_NPEAVDWMSPRITE@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vspRemoveStateReferencesForSprite(struct DWMSPRITE *a1)
 {
   struct Gre::Base::SESSION_GLOBALS *v2; // rax

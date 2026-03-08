@@ -1,3 +1,43 @@
+/*
+ * XREFs of MiReturnCrossPartitionSectionCharges @ 0x140668DD4
+ * Callers:
+ *     MiCleanSection @ 0x14020165C (MiCleanSection.c)
+ *     MiRemoveViewsFromSectionWithPfn @ 0x14020DBB4 (MiRemoveViewsFromSectionWithPfn.c)
+ *     MiDeleteControlArea @ 0x140215028 (MiDeleteControlArea.c)
+ *     MmPurgeSection @ 0x1402836F0 (MmPurgeSection.c)
+ *     MmUnmapViewInSystemCache @ 0x140285250 (MmUnmapViewInSystemCache.c)
+ *     MiUpdateLastSubsectionSize @ 0x1402A4BE0 (MiUpdateLastSubsectionSize.c)
+ *     MiAppendSubsectionChain @ 0x1402A5090 (MiAppendSubsectionChain.c)
+ *     MiDereferenceControlAreaPfnList @ 0x1402CFBF0 (MiDereferenceControlAreaPfnList.c)
+ *     MiUnmapViewSubsections @ 0x1402DADD4 (MiUnmapViewSubsections.c)
+ *     MiReleaseFaultCharges @ 0x1402F8018 (MiReleaseFaultCharges.c)
+ *     MiFlushSectionInternal @ 0x14031FA90 (MiFlushSectionInternal.c)
+ *     MiAddViewsForSection @ 0x140331DC0 (MiAddViewsForSection.c)
+ *     MiReferenceActiveSubsection @ 0x1403323F0 (MiReferenceActiveSubsection.c)
+ *     MiFlushRelease @ 0x140334AC0 (MiFlushRelease.c)
+ *     MiCheckControlArea @ 0x140334D00 (MiCheckControlArea.c)
+ *     MiRemoveMappedPtes @ 0x1403474D0 (MiRemoveMappedPtes.c)
+ *     MiDeleteSubsectionPages @ 0x14034B8E0 (MiDeleteSubsectionPages.c)
+ *     MiCreatePrototypePtes @ 0x14036862C (MiCreatePrototypePtes.c)
+ *     MiDecrementSubsection @ 0x1403A118C (MiDecrementSubsection.c)
+ *     MiDeleteCachedSegment @ 0x140621514 (MiDeleteCachedSegment.c)
+ *     MiDeleteCachedSubsection @ 0x140621708 (MiDeleteCachedSubsection.c)
+ *     MiFlushControlArea @ 0x1406220F4 (MiFlushControlArea.c)
+ *     MiMakeUnusedSegmentDeleteOnClose @ 0x140622788 (MiMakeUnusedSegmentDeleteOnClose.c)
+ *     MiProcessDeleteOnClose @ 0x1406229CC (MiProcessDeleteOnClose.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x1406238BC (MiReturnCrossPartitionControlAreaCharges.c)
+ *     MiSetDeleteOnClose @ 0x1406239AC (MiSetDeleteOnClose.c)
+ *     MiUpControlAreaRefs @ 0x140623ABC (MiUpControlAreaRefs.c)
+ *     MiRemoveSystemCacheReferences @ 0x14062CB5C (MiRemoveSystemCacheReferences.c)
+ *     MiUpdateActiveSubsection @ 0x1406337C0 (MiUpdateActiveSubsection.c)
+ *     MiSegmentDelete @ 0x1406A6FD4 (MiSegmentDelete.c)
+ *     MiExtendSection @ 0x140726AAC (MiExtendSection.c)
+ *     MiChargeSegmentCommit @ 0x1407F1988 (MiChargeSegmentCommit.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiReturnCrossPartitionCharges @ 0x140658D80 (MiReturnCrossPartitionCharges.c)
+ */
+
 void __fastcall MiReturnCrossPartitionSectionCharges(__int64 a1, int a2, unsigned __int64 a3)
 {
   char v4; // si

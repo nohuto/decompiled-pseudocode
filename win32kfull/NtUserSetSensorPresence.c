@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserSetSensorPresence @ 0x1C01DD9B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall NtUserSetSensorPresence(unsigned int a1)
 {
   __int64 v2; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of OkayToCloseDesktop @ 0x1C00D1870
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CheckHandleFlag @ 0x1C00D1900 (CheckHandleFlag.c)
+ */
+
 __int64 __fastcall OkayToCloseDesktop(PRKPROCESS *a1)
 {
   PRKPROCESS v2; // rdi

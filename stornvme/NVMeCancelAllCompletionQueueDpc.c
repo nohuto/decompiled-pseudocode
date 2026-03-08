@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeCancelAllCompletionQueueDpc @ 0x1C000C2A8
+ * Callers:
+ *     NVMeControllerReset @ 0x1C000E4D8 (NVMeControllerReset.c)
+ *     NVMeControllerPanicResetActionWorkItem @ 0x1C001C690 (NVMeControllerPanicResetActionWorkItem.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NVMeCancelAllCompletionQueueDpc(__int64 a1, char a2)
 {
   unsigned int v2; // edx

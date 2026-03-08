@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViFindMappedRegisterInFile @ 0x140AC589C
+ * Callers:
+ *     ViFlushDoubleBuffer @ 0x140AC58D4 (ViFlushDoubleBuffer.c)
+ *     ViFreeMapRegistersToFile @ 0x140AC5C60 (ViFreeMapRegistersToFile.c)
+ *     ViSwap @ 0x140AC7104 (ViSwap.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall ViFindMappedRegisterInFile(__int64 a1, __int64 a2, _DWORD *a3)
 {
   unsigned int v3; // r10d

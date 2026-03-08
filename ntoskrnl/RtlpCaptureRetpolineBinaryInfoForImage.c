@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpCaptureRetpolineBinaryInfoForImage @ 0x140371248
+ * Callers:
+ *     RtlUpdateImportRelocationsInImage @ 0x140370FC4 (RtlUpdateImportRelocationsInImage.c)
+ *     RtlPerformRetpolineRelocationsOnImageEx @ 0x14067804C (RtlPerformRetpolineRelocationsOnImageEx.c)
+ * Callees:
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x140784BDC (LdrImageDirectoryEntryToLoadConfig.c)
+ */
+
 __int64 __fastcall RtlpCaptureRetpolineBinaryInfoForImage(
         __int64 a1,
         __int64 a2,

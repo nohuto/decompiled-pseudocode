@@ -1,3 +1,18 @@
+/*
+ * XREFs of VrpPostQueryKey @ 0x1406C14A4
+ * Callers:
+ *     VrpRegistryCallback @ 0x1406C2D60 (VrpRegistryCallback.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwActivityIdControl @ 0x140244870 (EtwActivityIdControl.c)
+ *     ExGetPreviousMode @ 0x1402449F0 (ExGetPreviousMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     VrpCleanupBufferParameter @ 0x1406C16C4 (VrpCleanupBufferParameter.c)
+ *     VrpOutputBufferParameter @ 0x1406C16FC (VrpOutputBufferParameter.c)
+ *     VrpProcessBufferParameter @ 0x1407367D8 (VrpProcessBufferParameter.c)
+ *     VrpUpdateKeyInformation @ 0x140791490 (VrpUpdateKeyInformation.c)
+ */
+
 __int64 __fastcall VrpPostQueryKey(__int64 a1)
 {
   __int64 v2; // rdi

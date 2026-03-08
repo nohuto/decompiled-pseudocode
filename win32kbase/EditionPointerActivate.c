@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionPointerActivate @ 0x1C0271A8C
+ * Callers:
+ *     ApiSetEditionPointerActivate @ 0x1C0240FB0 (ApiSetEditionPointerActivate.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (__fastcall *__fastcall EditionPointerActivate(_OWORD *a1))(_QWORD)
 {
   __int64 (__fastcall *result)(_QWORD); // rax

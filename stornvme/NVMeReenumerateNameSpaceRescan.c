@@ -1,3 +1,14 @@
+/*
+ * XREFs of NVMeReenumerateNameSpaceRescan @ 0x1C002237C
+ * Callers:
+ *     NVMeReenumerateNameSpaceIdentifyWorkItem @ 0x1C0021CA0 (NVMeReenumerateNameSpaceIdentifyWorkItem.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     NVMeIsLunActive @ 0x1C001695C (NVMeIsLunActive.c)
+ *     NVMeGetNamespaceDescriptorListIdentify @ 0x1C001E7AC (NVMeGetNamespaceDescriptorListIdentify.c)
+ *     NVMeGetNamespaceIoCommandSetIdentify @ 0x1C001E908 (NVMeGetNamespaceIoCommandSetIdentify.c)
+ */
+
 void __fastcall NVMeReenumerateNameSpaceRescan(__int64 a1, unsigned int a2, int a3, unsigned int a4)
 {
   unsigned int i; // edi

@@ -1,3 +1,19 @@
+/*
+ * XREFs of GreMovePointer @ 0x1C001E270
+ * Callers:
+ *     ?MovePointer@CursorApiRouter@@QEAAXPEAUHDEV__@@HHK@Z @ 0x1C0020334 (-MovePointer@CursorApiRouter@@QEAAXPEAUHDEV__@@HHK@Z.c)
+ *     ?SetPointerShape@CursorApiRouter@@QEAAXPEAU_CURSINFO@@KKK@Z @ 0x1C0021C48 (-SetPointerShape@CursorApiRouter@@QEAAXPEAU_CURSINFO@@KKK@Z.c)
+ *     GreHidePointer @ 0x1C002A524 (GreHidePointer.c)
+ *     GreStretchBltInternal @ 0x1C0059930 (GreStretchBltInternal.c)
+ *     zzzUpdateCursorImage @ 0x1C0061E20 (zzzUpdateCursorImage.c)
+ * Callees:
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C0018890 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ?vMovePointer@@YAXPEAUHDEV__@@HHJ@Z @ 0x1C001DC84 (-vMovePointer@@YAXPEAUHDEV__@@HHJ@Z.c)
+ *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C001F240 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
+ *     ?bDontShowPointer@@YAHXZ @ 0x1C001F284 (-bDontShowPointer@@YAHXZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ */
+
 void __fastcall GreMovePointer(_DWORD *a1, int a2, int a3, int a4)
 {
   int v5; // r12d

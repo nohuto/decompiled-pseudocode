@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiIntSteerLogState @ 0x1402903C8
+ * Callers:
+ *     KiIntSteerDisable @ 0x14028E484 (KiIntSteerDisable.c)
+ *     KiIntSteerConnect @ 0x14028FF2C (KiIntSteerConnect.c)
+ *     KiIntSteerLogStatus @ 0x1402A8FAC (KiIntSteerLogStatus.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     KiIntSteerEtwEventEnabled @ 0x1402A9098 (KiIntSteerEtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall KiIntSteerLogState(__int64 a1, const EVENT_DESCRIPTOR *a2)
 {
   NTSTATUS result; // eax

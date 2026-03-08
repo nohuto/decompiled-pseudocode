@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiInitializeDpcRuntimeHistoryHashTables @ 0x140B43D24
+ * Callers:
+ *     KeInitSystem @ 0x140B42FB8 (KeInitSystem.c)
+ * Callees:
+ *     KiInitializeTimer2 @ 0x140203D9C (KiInitializeTimer2.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     KiInitializeSingleDpcRuntimeHistoryHashTable @ 0x14080F2A0 (KiInitializeSingleDpcRuntimeHistoryHashTable.c)
+ */
+
 __int64 KiInitializeDpcRuntimeHistoryHashTables()
 {
   __int64 Prcb; // rax

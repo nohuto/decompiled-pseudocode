@@ -1,3 +1,22 @@
+/*
+ * XREFs of PiDrvDbLoadNodeWorkerCallback @ 0x1408674A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PnpDiagnosticTraceObject @ 0x140202BAC (PnpDiagnosticTraceObject.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PnpDiagnosticTraceObjectWithStatus @ 0x1402B146C (PnpDiagnosticTraceObjectWithStatus.c)
+ *     ZwSetEvent @ 0x1404124D0 (ZwSetEvent.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwResetEvent @ 0x1404153B0 (ZwResetEvent.c)
+ *     _PnpSetObjectProperty @ 0x140686C8C (_PnpSetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ *     PiDrvDbSetupNodeHive @ 0x14081C5C8 (PiDrvDbSetupNodeHive.c)
+ *     PiDrvDbUnloadHive @ 0x14086773C (PiDrvDbUnloadHive.c)
+ *     PiDrvDbLoadHive @ 0x140867788 (PiDrvDbLoadHive.c)
+ */
+
 NTSTATUS __fastcall PiDrvDbLoadNodeWorkerCallback(__int64 a1)
 {
   unsigned __int16 *v1; // rsi

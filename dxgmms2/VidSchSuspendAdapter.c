@@ -1,3 +1,15 @@
+/*
+ * XREFs of VidSchSuspendAdapter @ 0x1C00AE170
+ * Callers:
+ *     VidSchiDeferredVisibilityThread @ 0x1C0015070 (VidSchiDeferredVisibilityThread.c)
+ * Callees:
+ *     VidSchiSuspendResumeDevicesForPowerTransition @ 0x1C0012994 (VidSchiSuspendResumeDevicesForPowerTransition.c)
+ *     VidSchWaitForEvents @ 0x1C0014E64 (VidSchWaitForEvents.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     VidSchFlushDevice @ 0x1C00AB9F0 (VidSchFlushDevice.c)
+ *     VidSchSubmitGlobalCommand @ 0x1C00ADFC8 (VidSchSubmitGlobalCommand.c)
+ */
+
 __int64 __fastcall VidSchSuspendAdapter(__int64 a1, __int64 a2, char a3)
 {
   int v3; // eax

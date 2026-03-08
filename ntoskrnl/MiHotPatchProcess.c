@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiHotPatchProcess @ 0x140A34804
+ * Callers:
+ *     MiHotPatchAllProcesses @ 0x140A34748 (MiHotPatchAllProcesses.c)
+ * Callees:
+ *     MiGetFirstVad @ 0x1402A5B0C (MiGetFirstVad.c)
+ *     MiUnlockVadShared @ 0x1402A5B30 (MiUnlockVadShared.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14031F590 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14031F600 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiVadDeleted @ 0x14031F750 (MiVadDeleted.c)
+ *     MiReferenceVad @ 0x14031F794 (MiReferenceVad.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14031F7B0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiLockVadShared @ 0x14031F870 (MiLockVadShared.c)
+ *     MiGetNextVad @ 0x140350908 (MiGetNextVad.c)
+ *     MiImageVadHotPatchEligible @ 0x140768E2C (MiImageVadHotPatchEligible.c)
+ *     MiInjectThreadForHotPatch @ 0x140A34C94 (MiInjectThreadForHotPatch.c)
+ */
+
 __int64 __fastcall MiHotPatchProcess(__int64 a1, unsigned int a2, unsigned int a3)
 {
   struct _KTHREAD *CurrentThread; // rsi

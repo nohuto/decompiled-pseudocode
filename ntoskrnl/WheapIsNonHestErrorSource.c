@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheapIsNonHestErrorSource @ 0x14037D750
+ * Callers:
+ *     WheaAddErrorSource @ 0x14080C450 (WheaAddErrorSource.c)
+ *     WheaRemoveErrorSource @ 0x140A04C80 (WheaRemoveErrorSource.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall WheapIsNonHestErrorSource(__int64 a1)
 {
   unsigned int v1; // eax

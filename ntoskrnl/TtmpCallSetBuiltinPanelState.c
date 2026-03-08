@@ -1,3 +1,13 @@
+/*
+ * XREFs of TtmpCallSetBuiltinPanelState @ 0x1409A0098
+ * Callers:
+ *     TtmpPushTerminalDisplayStateOntoDevice @ 0x1409A0A2C (TtmpPushTerminalDisplayStateOntoDevice.c)
+ * Callees:
+ *     PoSessionBuiltinPanelState @ 0x14059BAF0 (PoSessionBuiltinPanelState.c)
+ *     TtmpStartCallout @ 0x1409A0CA0 (TtmpStartCallout.c)
+ *     TtmpStopCallout @ 0x1409A0D8C (TtmpStopCallout.c)
+ */
+
 __int64 __fastcall TtmpCallSetBuiltinPanelState(int *a1, __int64 a2, unsigned int a3)
 {
   __int64 result; // rax

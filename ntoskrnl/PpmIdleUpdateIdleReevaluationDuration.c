@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmIdleUpdateIdleReevaluationDuration @ 0x140583244
+ * Callers:
+ *     PpmIdleSelectStates @ 0x1403B2150 (PpmIdleSelectStates.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PpmIdleUpdateIdleReevaluationDuration(
         __int64 a1,
         __int64 a2,

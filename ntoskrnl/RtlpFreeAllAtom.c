@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpFreeAllAtom @ 0x140355B04
+ * Callers:
+ *     RtlpDereferenceAtom @ 0x140355550 (RtlpDereferenceAtom.c)
+ * Callees:
+ *     RtlpHashStringToAtom @ 0x1407DA630 (RtlpHashStringToAtom.c)
+ *     RtlpFreeAtom @ 0x1407DC628 (RtlpFreeAtom.c)
+ *     RtlpFreeHandleForAtom @ 0x1407DC658 (RtlpFreeHandleForAtom.c)
+ */
+
 __int64 __fastcall RtlpFreeAllAtom(_QWORD *a1, __int64 a2)
 {
   __int64 result; // rax

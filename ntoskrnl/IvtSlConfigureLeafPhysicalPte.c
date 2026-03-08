@@ -1,3 +1,11 @@
+/*
+ * XREFs of IvtSlConfigureLeafPhysicalPte @ 0x14039D000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IvtSlConfigureLeafPhysicalPte(__int64 *a1, unsigned __int64 a2, char a3, unsigned int a4)
 {
   unsigned int v5; // ebx

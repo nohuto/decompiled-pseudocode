@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetAdapterLuidAndGpuSync@CFlipExBuffer@@UEBAJPEAU_LUID@@PEAPEAX@Z @ 0x1C007D690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CFlipExBuffer::GetAdapterLuidAndGpuSync(CFlipExBuffer *this, struct _LUID *a2, void **a3)
 {
   unsigned int v3; // r9d

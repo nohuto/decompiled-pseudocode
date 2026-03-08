@@ -1,3 +1,12 @@
+/*
+ * XREFs of xxxDW_DestroyOwnedWindows @ 0x1C00C7B00
+ * Callers:
+ *     xxxDestroyWindow @ 0x1C004B7F0 (xxxDestroyWindow.c)
+ * Callees:
+ *     DwmAsyncOwnerChange @ 0x1C00280A4 (DwmAsyncOwnerChange.c)
+ *     xxxDestroyWindow @ 0x1C004B7F0 (xxxDestroyWindow.c)
+ */
+
 __int64 __fastcall xxxDW_DestroyOwnedWindows(__int64 a1)
 {
   __int64 *v2; // r14

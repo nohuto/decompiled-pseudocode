@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiVadIsMetadataBitmap @ 0x1407D76A0
+ * Callers:
+ *     MiLockVadRange @ 0x1407D74B8 (MiLockVadRange.c)
+ *     NtAreMappedFilesTheSame @ 0x14086F640 (NtAreMappedFilesTheSame.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiVadIsMetadataBitmap(__int64 a1)
 {
   int v1; // r8d

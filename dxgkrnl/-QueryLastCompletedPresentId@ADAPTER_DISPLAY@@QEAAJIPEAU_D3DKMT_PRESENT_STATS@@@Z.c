@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?QueryLastCompletedPresentId@ADAPTER_DISPLAY@@QEAAJIPEAU_D3DKMT_PRESENT_STATS@@@Z @ 0x1C02B9A94
+ * Callers:
+ *     ?QueryLastCompletedPresentId@DXGDEVICE@@QEAAJIPEAU_D3DKMT_PRESENT_STATS@@@Z @ 0x1C02E7884 (-QueryLastCompletedPresentId@DXGDEVICE@@QEAAJIPEAU_D3DKMT_PRESENT_STATS@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ADAPTER_DISPLAY::QueryLastCompletedPresentId(
         ADAPTER_DISPLAY *this,
         unsigned int a2,

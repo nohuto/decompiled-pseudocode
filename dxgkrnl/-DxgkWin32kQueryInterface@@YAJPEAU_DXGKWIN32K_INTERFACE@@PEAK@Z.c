@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DxgkWin32kQueryInterface@@YAJPEAU_DXGKWIN32K_INTERFACE@@PEAK@Z @ 0x1C01D683C
+ * Callers:
+ *     DxgkInternalDeviceIoctl @ 0x1C01D6220 (DxgkInternalDeviceIoctl.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall DxgkWin32kQueryInterface(struct _DXGKWIN32K_INTERFACE *a1, unsigned int *a2)
 {
   __int64 result; // rax

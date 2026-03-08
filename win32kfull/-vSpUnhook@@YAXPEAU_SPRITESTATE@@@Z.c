@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vSpUnhook@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00F1068
+ * Callers:
+ *     ?vSpHideSprites@@YAXPEAUHDEV__@@H@Z @ 0x1C00F0FE4 (-vSpHideSprites@@YAXPEAUHDEV__@@H@Z.c)
+ *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C0110C1C (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vSpUnhook(struct _SPRITESTATE *a1)
 {
   _QWORD *v1; // rdx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of FsRtlRemovePerStreamContext @ 0x14053ACC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x14023A620 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x14023A860 (ExAcquireAutoExpandPushLockExclusive.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 PFSRTL_PER_STREAM_CONTEXT __stdcall FsRtlRemovePerStreamContext(
         PFSRTL_ADVANCED_FCB_HEADER StreamContext,
         PVOID OwnerId,

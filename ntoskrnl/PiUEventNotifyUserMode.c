@@ -1,3 +1,33 @@
+/*
+ * XREFs of PiUEventNotifyUserMode @ 0x14068C2D0
+ * Callers:
+ *     PnpProcessTargetDeviceEvent @ 0x140681D34 (PnpProcessTargetDeviceEvent.c)
+ *     PnpProcessCustomDeviceEvent @ 0x140688B68 (PnpProcessCustomDeviceEvent.c)
+ *     PnpDeviceEventWorker @ 0x1406892C0 (PnpDeviceEventWorker.c)
+ *     PnpNotifyUserModeDeviceRemoval @ 0x140862BC0 (PnpNotifyUserModeDeviceRemoval.c)
+ * Callees:
+ *     PiUEventShouldQueueEvent @ 0x1402046E0 (PiUEventShouldQueueEvent.c)
+ *     KeInitializeGuardedMutex @ 0x140204750 (KeInitializeGuardedMutex.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     McTemplateK0z_EtwWriteTransfer @ 0x14055EEE8 (McTemplateK0z_EtwWriteTransfer.c)
+ *     PiUEventReferenceEventEntry @ 0x140680474 (PiUEventReferenceEventEntry.c)
+ *     PnpWatchdogTimerStart @ 0x14068A9C4 (PnpWatchdogTimerStart.c)
+ *     PnpWatchdogTimerPause @ 0x14068A9F4 (PnpWatchdogTimerPause.c)
+ *     PiUEventCacheObjectProperties @ 0x14068C634 (PiUEventCacheObjectProperties.c)
+ *     PiUEventIsDeviceEventVetoable @ 0x14068CC7C (PiUEventIsDeviceEventVetoable.c)
+ *     PiUEventDereferenceEventEntry @ 0x14068DA18 (PiUEventDereferenceEventEntry.c)
+ *     PiUEventFreeEventEntry @ 0x14068DE0C (PiUEventFreeEventEntry.c)
+ *     PiUEventDeviceNeedsInstall @ 0x14078BA10 (PiUEventDeviceNeedsInstall.c)
+ *     PpDevCfgRequestDeviceInstall @ 0x140960740 (PpDevCfgRequestDeviceInstall.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PiUEventNotifyUserMode(__int64 a1)
 {
   unsigned int v2; // ebx

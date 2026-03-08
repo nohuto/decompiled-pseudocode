@@ -1,3 +1,15 @@
+/*
+ * XREFs of CiProcessDereference @ 0x1C000B280
+ * Callers:
+ *     CiProcessNotification @ 0x1C00027C0 (CiProcessNotification.c)
+ *     CiDispatchClose @ 0x1C000A380 (CiDispatchClose.c)
+ *     CiThreadCleanup @ 0x1C000A4B0 (CiThreadCleanup.c)
+ *     CiThreadCreate @ 0x1C000AD80 (CiThreadCreate.c)
+ *     CiDispatchCreateNotificationClient @ 0x1C000C320 (CiDispatchCreateNotificationClient.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CiProcessDereference(char *P)
 {
   signed __int64 v2; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExfAcquireRundownProtection @ 0x1402C3BD0
+ * Callers:
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExAcquireRundownProtectionCacheAware @ 0x1402C3B80 (ExAcquireRundownProtectionCacheAware.c)
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall ExfAcquireRundownProtection(PEX_RUNDOWN_REF RunRef)
 {
   unsigned __int64 Count; // rax

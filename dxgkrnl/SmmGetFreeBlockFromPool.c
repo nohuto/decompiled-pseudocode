@@ -1,3 +1,11 @@
+/*
+ * XREFs of SmmGetFreeBlockFromPool @ 0x1C00703EC
+ * Callers:
+ *     SmmAcquireBlock @ 0x1C006FC8C (SmmAcquireBlock.c)
+ * Callees:
+ *     SmmRemoveBlockFromPool @ 0x1C00705E8 (SmmRemoveBlockFromPool.c)
+ */
+
 _QWORD *__fastcall SmmGetFreeBlockFromPool(_QWORD **a1, char a2, unsigned __int64 a3)
 {
   _QWORD *v3; // r9

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InvokeClient@FxPnpDeviceSelfManagedIoInit@@MEAAJXZ @ 0x1C006CDF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qid @ 0x1C00195EC (WPP_IFR_SF_qid.c)
+ */
+
 int (__fastcall *__fastcall FxPnpDeviceSelfManagedIoInit::InvokeClient(
         FxPnpDeviceSelfManagedIoInit *this))(WDFDEVICE__ *)
 {

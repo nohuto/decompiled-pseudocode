@@ -1,3 +1,18 @@
+/*
+ * XREFs of ObpReferenceSecurityDescriptorSlow @ 0x140880604
+ * Callers:
+ *     ObpReferenceSecurityDescriptor @ 0x140698F3C (ObpReferenceSecurityDescriptor.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x1406D22B0 (SepAppendAceToTokenObjectAcl.c)
+ *     ObpGetObjectSecurity @ 0x1406DB240 (ObpGetObjectSecurity.c)
+ *     ObpCreateHandle @ 0x1407C0130 (ObpCreateHandle.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObDereferenceSecurityDescriptor @ 0x140696920 (ObDereferenceSecurityDescriptor.c)
+ */
+
 unsigned __int64 __fastcall ObpReferenceSecurityDescriptorSlow(__int64 a1, int a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // rbx

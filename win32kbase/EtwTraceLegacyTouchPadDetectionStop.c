@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceLegacyTouchPadDetectionStop @ 0x1C002EF80
+ * Callers:
+ *     RIMApiSetCheckForLegacyTouchPad @ 0x1C003017C (RIMApiSetCheckForLegacyTouchPad.c)
+ * Callees:
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C00EDED8 (McTemplateK0_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall EtwTraceLegacyTouchPadDetectionStop(__int64 a1)
 {
   __int64 result; // rax

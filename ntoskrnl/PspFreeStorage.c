@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspFreeStorage @ 0x1409B4D28
+ * Callers:
+ *     PspJobDeleteStorageArrays @ 0x1406F6E9C (PspJobDeleteStorageArrays.c)
+ *     PspCreateSilo @ 0x140797438 (PspCreateSilo.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PspFreeStorage(_QWORD *P)
 {
   _QWORD *v2; // rax

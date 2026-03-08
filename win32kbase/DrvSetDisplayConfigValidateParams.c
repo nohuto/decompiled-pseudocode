@@ -1,3 +1,19 @@
+/*
+ * XREFs of DrvSetDisplayConfigValidateParams @ 0x1C00E2170
+ * Callers:
+ *     xxxUserSetDisplayConfig @ 0x1C0011DE0 (xxxUserSetDisplayConfig.c)
+ *     DrvFunctionalizeDisplayConfig @ 0x1C0193FD4 (DrvFunctionalizeDisplayConfig.c)
+ * Callees:
+ *     UserIsWddmConnectedSession @ 0x1C0022420 (UserIsWddmConnectedSession.c)
+ *     ?Globals@Base@Gre@@YAAEAUSESSION_GLOBALS@12@XZ @ 0x1C004B470 (-Globals@Base@Gre@@YAAEAUSESSION_GLOBALS@12@XZ.c)
+ *     _stricmp @ 0x1C00DADA4 (_stricmp.c)
+ *     ?DrvIsPermanentSettingChangesDisabled@@YAHXZ @ 0x1C018E3F0 (-DrvIsPermanentSettingChangesDisabled@@YAHXZ.c)
+ *     ?DrvIsTemporarySettingChangeDisabled@@YAHXZ @ 0x1C018E498 (-DrvIsTemporarySettingChangeDisabled@@YAHXZ.c)
+ *     ?EnforceSDCCloneSourceIndexCoherency@@YAJIPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@@Z @ 0x1C018F8A8 (-EnforceSDCCloneSourceIndexCoherency@@YAJIPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@@Z.c)
+ *     ?GetTargetVirtualization@@YAJU_LUID@@IPEAE11PEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@2PEAW4_D3DKMT_DISPLAY_TARGET_USAGE@@@Z @ 0x1C019074C (-GetTargetVirtualization@@YAJU_LUID@@IPEAE11PEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@2PEAW4_D3DKMT.c)
+ *     ?IsPathVirtualFlagCloneCompatible@@YAEEE@Z @ 0x1C0190954 (-IsPathVirtualFlagCloneCompatible@@YAEEE@Z.c)
+ */
+
 __int64 __fastcall DrvSetDisplayConfigValidateParams(
         __int64 a1,
         struct DISPLAYCONFIG_PATH_INFO_INTERNAL *a2,

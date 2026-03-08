@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiMceLinkage @ 0x140B10710
+ * Callers:
+ *     KiMceThunk @ 0x140B10600 (KiMceThunk.c)
+ * Callees:
+ *     KiMceDispatch @ 0x140B0A550 (KiMceDispatch.c)
+ */
+
 // positive sp value has been detected, the output may be wrong!
 void __spoils<rdx,rcx,r8,r9,r10,r11,xmm0,xmm4,xmm5> KiMceLinkage()
 {

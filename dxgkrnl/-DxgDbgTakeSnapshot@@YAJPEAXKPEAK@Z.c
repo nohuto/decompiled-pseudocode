@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DxgDbgTakeSnapshot@@YAJPEAXKPEAK@Z @ 0x1C035BBB8
+ * Callers:
+ *     DxgkEscape @ 0x1C01A3EE0 (DxgkEscape.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     ?TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N1@Z @ 0x1C004EC88 (-TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N1@Z.c)
+ *     _DxgDbgTakeSnapshot_::_2_::_AUTO::__AUTO @ 0x1C035BB74 (_DxgDbgTakeSnapshot_--_2_--_AUTO--__AUTO.c)
+ */
+
 __int64 __fastcall DxgDbgTakeSnapshot(void *a1, unsigned int a2, unsigned int *a3)
 {
   __int64 v4; // rsi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PnprRecopyMirrorPages @ 0x140560F5C
+ * Callers:
+ *     PnprSwapFinalize @ 0x140561300 (PnprSwapFinalize.c)
+ * Callees:
+ *     PnprCopyReservedMapping @ 0x1405607AC (PnprCopyReservedMapping.c)
+ *     PnprGetStackLimits @ 0x140560BE4 (PnprGetStackLimits.c)
+ *     PnprRecopyAddress @ 0x140560E30 (PnprRecopyAddress.c)
+ *     PnprRecopyMappingReserve @ 0x140560E88 (PnprRecopyMappingReserve.c)
+ */
+
 __int64 PnprRecopyMirrorPages()
 {
   __int64 Number; // rcx

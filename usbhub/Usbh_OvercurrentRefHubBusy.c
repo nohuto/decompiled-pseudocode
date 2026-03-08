@@ -1,3 +1,11 @@
+/*
+ * XREFs of Usbh_OvercurrentRefHubBusy @ 0x1C004EBC8
+ * Callers:
+ *     UsbhHandleOvercurrent @ 0x1C004CC94 (UsbhHandleOvercurrent.c)
+ * Callees:
+ *     UsbhIncHubBusy @ 0x1C0007050 (UsbhIncHubBusy.c)
+ */
+
 LONG __fastcall Usbh_OvercurrentRefHubBusy(__int64 a1, __int64 a2, char a3)
 {
   struct _KEVENT *v3; // rdi

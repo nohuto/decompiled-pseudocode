@@ -1,3 +1,11 @@
+/*
+ * XREFs of SfmSignalTokenEvent @ 0x1C00D8B60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SfmSignalTokenEvent(__int64 a1)
 {
   __int64 v1; // rax

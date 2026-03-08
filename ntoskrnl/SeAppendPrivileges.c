@@ -1,3 +1,23 @@
+/*
+ * XREFs of SeAppendPrivileges @ 0x140761800
+ * Callers:
+ *     IopCreateSecurityCheck @ 0x1402ED19C (IopCreateSecurityCheck.c)
+ *     ObpAdjustCreatorAccessState @ 0x140698E40 (ObpAdjustCreatorAccessState.c)
+ *     ObCheckCreateObjectAccess @ 0x14069A900 (ObCheckCreateObjectAccess.c)
+ *     ObCheckObjectAccess @ 0x14069DB90 (ObCheckObjectAccess.c)
+ *     CmpDoParseKey @ 0x1406E1D90 (CmpDoParseKey.c)
+ *     IopParseDevice @ 0x1407B6A30 (IopParseDevice.c)
+ *     ObpCreateHandle @ 0x1407C0130 (ObpCreateHandle.c)
+ *     ObpCheckTraverseAccess @ 0x140978718 (ObpCheckTraverseAccess.c)
+ *     CMFCheckAccess @ 0x1409FECA4 (CMFCheckAccess.c)
+ *     CmpCheckKeyBodyAccess @ 0x140A18448 (CmpCheckKeyBodyAccess.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SepConcatenatePrivileges @ 0x140761868 (SepConcatenatePrivileges.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall SeAppendPrivileges(PACCESS_STATE AccessState, PPRIVILEGE_SET Privileges)
 {
   PVOID *AuxData; // rdi

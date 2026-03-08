@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiCallDllInitialize @ 0x14081BC4C
+ * Callers:
+ *     MmCallDllInitialize @ 0x14081BAB0 (MmCallDllInitialize.c)
+ * Callees:
+ *     RtlPcToFileHeader @ 0x1403BE120 (RtlPcToFileHeader.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     RtlFindExportedRoutineByName @ 0x1407EBE40 (RtlFindExportedRoutineByName.c)
+ */
+
 unsigned __int64 __fastcall MiCallDllInitialize(__int64 a1, __int64 a2)
 {
   unsigned __int64 result; // rax

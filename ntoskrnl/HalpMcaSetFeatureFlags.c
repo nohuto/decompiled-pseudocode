@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpMcaSetFeatureFlags @ 0x140A8E900
+ * Callers:
+ *     HalpInitializeMce @ 0x140A87FF0 (HalpInitializeMce.c)
+ * Callees:
+ *     HalpCpuID @ 0x1403020F0 (HalpCpuID.c)
+ *     HalpGetCpuVendor @ 0x14037D1B4 (HalpGetCpuVendor.c)
+ *     HalpIsCmciImplemented @ 0x140A8E988 (HalpIsCmciImplemented.c)
+ */
+
 char HalpMcaSetFeatureFlags()
 {
   unsigned __int64 v0; // rax

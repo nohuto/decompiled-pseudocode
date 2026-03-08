@@ -1,3 +1,18 @@
+/*
+ * XREFs of SepReferenceLogonSessionSilo @ 0x140773DF8
+ * Callers:
+ *     NtQueryInformationToken @ 0x1406D6780 (NtQueryInformationToken.c)
+ *     SepReferenceLogonSession @ 0x140773DC0 (SepReferenceLogonSession.c)
+ *     SeInitServerSilo @ 0x1409C5E50 (SeInitServerSilo.c)
+ *     SeSetSessionIdTokenWithLinked @ 0x1409C66C0 (SeSetSessionIdTokenWithLinked.c)
+ *     SepSetServerSiloToken @ 0x1409C6A80 (SepSetServerSiloToken.c)
+ *     SeGetLinkedToken @ 0x1409CC300 (SeGetLinkedToken.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ */
+
 __int64 __fastcall SepReferenceLogonSessionSilo(_DWORD *a1, __int64 a2, __int64 *a3)
 {
   unsigned __int64 v6; // r9

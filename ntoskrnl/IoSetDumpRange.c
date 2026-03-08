@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoSetDumpRange @ 0x14054E9E0
+ * Callers:
+ *     IopAddPageDumpRange @ 0x14054FB48 (IopAddPageDumpRange.c)
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     MmIsAddressValidEx @ 0x1403471E0 (MmIsAddressValidEx.c)
+ *     IopAddPageToPageMap @ 0x14054FD30 (IopAddPageToPageMap.c)
+ */
+
 __int64 __fastcall IoSetDumpRange(__int64 a1, char *a2, unsigned __int64 a3, int a4)
 {
   int v4; // ebp

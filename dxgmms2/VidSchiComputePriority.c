@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiComputePriority @ 0x1C00ACEB0
+ * Callers:
+ *     VidSchSetPriorityContext @ 0x1C00ACE20 (VidSchSetPriorityContext.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VidSchiComputePriority(__int64 a1, int a2, int a3, char a4, _DWORD *a5)
 {
   __int64 v8; // rdi

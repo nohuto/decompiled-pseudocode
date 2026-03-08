@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiIsUserQueryVmCallerTrusted @ 0x14078194C
+ * Callers:
+ *     MmQueryVirtualMemory @ 0x1407C6390 (MmQueryVirtualMemory.c)
+ * Callees:
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     PsReferenceEffectiveToken @ 0x1406D657C (PsReferenceEffectiveToken.c)
+ *     SeTokenIsAdmin @ 0x1407819E0 (SeTokenIsAdmin.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ */
+
 __int64 __fastcall MiIsUserQueryVmCallerTrusted(__int64 a1)
 {
   void *v2; // rbx

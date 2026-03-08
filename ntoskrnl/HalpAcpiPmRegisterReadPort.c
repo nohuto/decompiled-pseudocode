@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpAcpiPmRegisterReadPort @ 0x1403A05C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpAcpiPmRegisterReadPort(unsigned __int16 a1, int a2, _BYTE *a3)
 {
   int v3; // edx

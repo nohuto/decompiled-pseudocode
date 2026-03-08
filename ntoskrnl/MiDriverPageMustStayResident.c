@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiDriverPageMustStayResident @ 0x1402B0248
+ * Callers:
+ *     MiMakeDriverPagesPrivate @ 0x1402A6440 (MiMakeDriverPagesPrivate.c)
+ *     MiSetPagingOfDriver @ 0x1402AFF28 (MiSetPagingOfDriver.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall MiDriverPageMustStayResident(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViPtFreePoolInfoEntryCallback @ 0x140ADBD40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall ViPtFreePoolInfoEntryCallback(struct _RTL_AVL_TABLE *Table, _QWORD *Buffer)
 {
   __int64 v2; // rcx

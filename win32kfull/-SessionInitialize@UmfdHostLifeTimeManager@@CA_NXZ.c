@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SessionInitialize@UmfdHostLifeTimeManager@@CA_NXZ @ 0x1C00E75F8
+ * Callers:
+ *     UmfdSessionInitialize @ 0x1C00E6FB0 (UmfdSessionInitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall UmfdHostLifeTimeManager::SessionInitialize(__int64 a1)
 {
   PRKEVENT *v1; // rbx

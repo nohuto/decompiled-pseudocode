@@ -1,3 +1,12 @@
+/*
+ * XREFs of CarRegisterRuleClassConfiguration @ 0x1405D1C80
+ * Callers:
+ *     CarRegisterDefaultRuleClassConfiguration @ 0x1405D1C20 (CarRegisterDefaultRuleClassConfiguration.c)
+ * Callees:
+ *     CarCreateRuleClassConfigurationEntry @ 0x1405D14E4 (CarCreateRuleClassConfigurationEntry.c)
+ *     CarDeregisterRuleClassConfiguration @ 0x1405D1760 (CarDeregisterRuleClassConfiguration.c)
+ */
+
 __int64 __fastcall CarRegisterRuleClassConfiguration(__int64 a1)
 {
   int v2; // edx

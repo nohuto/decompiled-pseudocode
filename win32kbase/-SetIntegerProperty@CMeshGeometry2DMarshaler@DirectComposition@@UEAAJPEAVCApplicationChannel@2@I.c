@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetIntegerProperty@CMeshGeometry2DMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C025CA20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CMeshGeometry2DMarshaler::SetIntegerProperty(
         DirectComposition::CMeshGeometry2DMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

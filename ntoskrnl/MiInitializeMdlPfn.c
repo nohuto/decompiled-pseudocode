@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiInitializeMdlPfn @ 0x1403870D0
+ * Callers:
+ *     MiInitializeMdlLeafPfns @ 0x140386EC0 (MiInitializeMdlLeafPfns.c)
+ *     MiInitializeMdlSinglePage @ 0x14046350C (MiInitializeMdlSinglePage.c)
+ *     MmAllocateNonChargedSecurePages @ 0x140654ECC (MmAllocateNonChargedSecurePages.c)
+ *     MmAllocateSecureKernelPages @ 0x1406551DC (MmAllocateSecureKernelPages.c)
+ * Callees:
+ *     MiAbortCombineScan @ 0x14021467C (MiAbortCombineScan.c)
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     MiSetPfnIdentity @ 0x14034BE78 (MiSetPfnIdentity.c)
+ */
+
 char __fastcall MiInitializeMdlPfn(__int64 a1, int a2)
 {
   __int64 v4; // rcx

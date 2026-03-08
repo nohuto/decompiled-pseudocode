@@ -1,3 +1,18 @@
+/*
+ * XREFs of VidSchiControlVSync @ 0x1C00A5D30
+ * Callers:
+ *     VidSchiControlVSyncThread @ 0x1C000E940 (VidSchiControlVSyncThread.c)
+ *     VidSchSetMonitorPowerState @ 0x1C000FA60 (VidSchSetMonitorPowerState.c)
+ *     ?VidSchiControlIndependentVidPnVSyncThread@@YAXPEAU_VIDSCH_GLOBAL@@@Z @ 0x1C0035840 (-VidSchiControlIndependentVidPnVSyncThread@@YAXPEAU_VIDSCH_GLOBAL@@@Z.c)
+ *     VidSchIsVSyncEnabled @ 0x1C00A5F00 (VidSchIsVSyncEnabled.c)
+ *     VidSchControlVSyncAdapter @ 0x1C00AD380 (VidSchControlVSyncAdapter.c)
+ * Callees:
+ *     ?DdiControlInterrupt@DXGADAPTER@@QEAAJW4_DXGK_INTERRUPT_TYPE@@EI@Z @ 0x1C000EAC0 (-DdiControlInterrupt@DXGADAPTER@@QEAAJW4_DXGK_INTERRUPT_TYPE@@EI@Z.c)
+ *     VidSchiGetVSyncSuspended @ 0x1C000F7C0 (VidSchiGetVSyncSuspended.c)
+ *     VidSchiSetVSyncSuspended @ 0x1C000F7DC (VidSchiSetVSyncSuspended.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C002E4FC (McTemplateK0p_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall VidSchiControlVSync(__int64 a1, enum _DXGK_INTERRUPT_TYPE j, int a3, unsigned int a4)
 {
   char v4; // r10

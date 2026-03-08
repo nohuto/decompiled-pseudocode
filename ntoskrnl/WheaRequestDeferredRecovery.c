@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheaRequestDeferredRecovery @ 0x140610910
+ * Callers:
+ *     HalpMemoryErrorDeferredRecovery @ 0x1405174A4 (HalpMemoryErrorDeferredRecovery.c)
+ *     HalpPmemErrorDeferredRecovery @ 0x1405176AC (HalpPmemErrorDeferredRecovery.c)
+ * Callees:
+ *     HalRequestDeferredRecoveryServiceInterrupt @ 0x140504950 (HalRequestDeferredRecoveryServiceInterrupt.c)
+ */
+
 char __fastcall WheaRequestDeferredRecovery(signed __int64 a1, __int64 a2)
 {
   signed __int64 v2; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of __tailMerge_ext_ms_win_composition_holographic_l1_1_0_dll @ 0x1801106C4
+ * Callers:
+ *     __imp_load_CreateHolographicCompositor @ 0x1801106B8 (__imp_load_CreateHolographicCompositor.c)
+ * Callees:
+ *     __delayLoadHelper2 @ 0x180100EB0 (__delayLoadHelper2.c)
+ */
+
 __int64 __fastcall _tailMerge_ext_ms_win_composition_holographic_l1_1_0_dll(
         __int64 a1,
         __int64 a2,

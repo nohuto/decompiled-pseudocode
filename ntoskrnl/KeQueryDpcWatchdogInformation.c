@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeQueryDpcWatchdogInformation @ 0x1402B7480
+ * Callers:
+ *     HalpCmcPollProcessor @ 0x14037CF58 (HalpCmcPollProcessor.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall KeQueryDpcWatchdogInformation(PKDPC_WATCHDOG_INFORMATION WatchdogInformation)
 {
   struct _KPRCB *CurrentPrcb; // rdx

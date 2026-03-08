@@ -1,3 +1,12 @@
+/*
+ * XREFs of PdcRwLockInitialize2 @ 0x1408576A8
+ * Callers:
+ *     Pdcv2ActivationClientRegister @ 0x140857554 (Pdcv2ActivationClientRegister.c)
+ * Callees:
+ *     KeInitializeMutex @ 0x1402D97E0 (KeInitializeMutex.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PdcRwLockInitialize2(__int64 a1)
 {
   unsigned int v2; // ebx

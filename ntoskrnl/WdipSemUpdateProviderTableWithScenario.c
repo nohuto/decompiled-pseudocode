@@ -1,3 +1,11 @@
+/*
+ * XREFs of WdipSemUpdateProviderTableWithScenario @ 0x14083372C
+ * Callers:
+ *     WdipSemLoadScenarioTable @ 0x140832BA4 (WdipSemLoadScenarioTable.c)
+ * Callees:
+ *     WdipSemUpdateProviderTableWithEvent @ 0x1408337A0 (WdipSemUpdateProviderTableWithEvent.c)
+ */
+
 __int64 __fastcall WdipSemUpdateProviderTableWithScenario(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??$IsPure2DUniformZ@$0A@@CMILMatrix@@AEBA_NXZ @ 0x18026C728
+ * Callers:
+ *     ?CanUseWarpExtension@CPrimitiveGroupDrawListGenerator@@QEBA_NXZ @ 0x1802B5E18 (-CanUseWarpExtension@CPrimitiveGroupDrawListGenerator@@QEBA_NXZ.c)
+ * Callees:
+ *     ??$ProducesUniformZ@$0A@@CMILMatrix@@AEBA_NXZ @ 0x180061FEC (--$ProducesUniformZ@$0A@@CMILMatrix@@AEBA_NXZ.c)
+ *     ??$IsAffine@$0A@@CMILMatrix@@AEBA_N_N@Z @ 0x180062070 (--$IsAffine@$0A@@CMILMatrix@@AEBA_N_N@Z.c)
+ */
+
 bool __fastcall CMILMatrix::IsPure2DUniformZ<0>(__int64 a1)
 {
   char v1; // al

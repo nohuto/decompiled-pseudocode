@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmInitSystem2 @ 0x140B54728
+ * Callers:
+ *     Phase1InitializationIoReady @ 0x140B42D0C (Phase1InitializationIoReady.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MmLockRegistryRecoverySections @ 0x140618448 (MmLockRegistryRecoverySections.c)
+ *     CmpMachineHiveListInitialize @ 0x1408187E8 (CmpMachineHiveListInitialize.c)
+ *     CmpRegisterTraceLoggingProvider @ 0x14081AB58 (CmpRegisterTraceLoggingProvider.c)
+ *     IoCreateDriver @ 0x14081AF70 (IoCreateDriver.c)
+ *     CmFcInitSystem3 @ 0x140B44130 (CmFcInitSystem3.c)
+ */
+
 char CmInitSystem2()
 {
   int v0; // eax

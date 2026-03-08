@@ -1,3 +1,15 @@
+/*
+ * XREFs of DpiAcpiCallAcpiEventHandler @ 0x1C00654A4
+ * Callers:
+ *     ?DpiAcpiPowerStateCallback@@YAXPEAX00@Z @ 0x1C001CCD0 (-DpiAcpiPowerStateCallback@@YAXPEAX00@Z.c)
+ *     DpiTryLidStateRecovery @ 0x1C005DB6C (DpiTryLidStateRecovery.c)
+ *     ?DpiAcpiEventCallback@@YAXPEAXK@Z @ 0x1C0065450 (-DpiAcpiEventCallback@@YAXPEAXK@Z.c)
+ *     DpiAcpiDockEventCallback @ 0x1C03A1FB0 (DpiAcpiDockEventCallback.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall DpiAcpiCallAcpiEventHandler(PVOID Object, unsigned int a2, unsigned int a3, __int64 a4)
 {
   __int64 v5; // rsi

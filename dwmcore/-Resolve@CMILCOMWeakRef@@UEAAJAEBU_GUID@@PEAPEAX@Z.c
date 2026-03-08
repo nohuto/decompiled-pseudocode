@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Resolve@CMILCOMWeakRef@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802884D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034BB4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CMILCOMWeakRef::Resolve(CMILCOMWeakRef *this, const struct _GUID *a2, void **a3)
 {
   __int64 (__fastcall ***v6)(_QWORD, const struct _GUID *, void **); // rcx

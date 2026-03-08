@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifKeReleaseGuardedMutexWrapper @ 0x1405E2390
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 void __fastcall DifKeReleaseGuardedMutexWrapper(PFAST_MUTEX FastMutex)
 {
   __int64 *APIThunkContextById; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of WmipDetermineInstanceBaseIndex @ 0x1408680E4
+ * Callers:
+ *     WmipBuildInstanceSet @ 0x140867C6C (WmipBuildInstanceSet.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     WmipFindGEByGuid @ 0x14069BDF4 (WmipFindGEByGuid.c)
+ *     WmipUnreferenceEntry @ 0x14069C9D0 (WmipUnreferenceEntry.c)
+ */
+
 __int64 __fastcall WmipDetermineInstanceBaseIndex(_QWORD *a1, char *a2)
 {
   unsigned int v4; // edi

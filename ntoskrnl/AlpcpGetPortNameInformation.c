@@ -1,3 +1,14 @@
+/*
+ * XREFs of AlpcpGetPortNameInformation @ 0x140976020
+ * Callers:
+ *     AlpcpPortQueryServerInfo @ 0x1409760D8 (AlpcpPortQueryServerInfo.c)
+ *     AlpcpLogWaitForNewMessage @ 0x140977588 (AlpcpLogWaitForNewMessage.c)
+ * Callees:
+ *     ObQueryNameStringMode @ 0x14071EE84 (ObQueryNameStringMode.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AlpcpGetPortNameInformation(char *a1, _QWORD *a2, unsigned int *a3)
 {
   unsigned int v3; // edi

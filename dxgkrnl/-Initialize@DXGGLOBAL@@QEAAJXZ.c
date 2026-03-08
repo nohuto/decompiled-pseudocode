@@ -1,3 +1,25 @@
+/*
+ * XREFs of ?Initialize@DXGGLOBAL@@QEAAJXZ @ 0x1C0205878
+ * Callers:
+ *     ?CreateGlobal@DXGGLOBAL@@SAJXZ @ 0x1C0205754 (-CreateGlobal@DXGGLOBAL@@SAJXZ.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ??0DXGDIAGNOSTICS@@QEAA@IIW4DXGK_POOL_FLAGS@@I@Z @ 0x1C001FBD4 (--0DXGDIAGNOSTICS@@QEAA@IIW4DXGK_POOL_FLAGS@@I@Z.c)
+ *     ?InitializeBootSettings@DXGVALIDATION@@QEAAXXZ @ 0x1C002399C (-InitializeBootSettings@DXGVALIDATION@@QEAAXXZ.c)
+ *     ?Initialize@DisplayDiagnostics@@QEAAXXZ @ 0x1C0023B7C (-Initialize@DisplayDiagnostics@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ?CreateDxgProcess@DXGPROCESS@@SAJPEAPEAV1@PEAV1@1EPEAU_EPROCESS@@@Z @ 0x1C01A7864 (-CreateDxgProcess@DXGPROCESS@@SAJPEAPEAV1@PEAV1@1EPEAU_EPROCESS@@@Z.c)
+ *     ?ExpandTable@HMGRTABLE@@QEAAEXZ @ 0x1C01CAA80 (-ExpandTable@HMGRTABLE@@QEAAEXZ.c)
+ *     ?CsExitInitiatedWnfSubscription@DXGGLOBAL@@QEAAJXZ @ 0x1C0205514 (-CsExitInitiatedWnfSubscription@DXGGLOBAL@@QEAAJXZ.c)
+ *     ??0DXGSESSIONMGR@@QEAA@XZ @ 0x1C0208560 (--0DXGSESSIONMGR@@QEAA@XZ.c)
+ *     CreateDxgkSharedObjectTypes @ 0x1C0212E8C (CreateDxgkSharedObjectTypes.c)
+ *     ?ReadRegistryDwordKeyValue@@YAJQEAU_UNICODE_STRING@@0PEAK@Z @ 0x1C02134F0 (-ReadRegistryDwordKeyValue@@YAJQEAU_UNICODE_STRING@@0PEAK@Z.c)
+ *     ?InitializeResourceManagerSid@DXGGLOBAL@@AEAAXXZ @ 0x1C0219970 (-InitializeResourceManagerSid@DXGGLOBAL@@AEAAXXZ.c)
+ *     ?SubscribeWNFForCSAccounting@DXGGLOBAL@@QEAAXXZ @ 0x1C02E1A94 (-SubscribeWNFForCSAccounting@DXGGLOBAL@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall DXGGLOBAL::Initialize(DXGGLOBAL *this)
 {
   __int64 v1; // rdi

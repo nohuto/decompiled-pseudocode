@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiAddPendingBadPageNode @ 0x1406272C8
+ * Callers:
+ *     MiSetPfnRemovalRequested @ 0x14064B908 (MiSetPfnRemovalRequested.c)
+ * Callees:
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ */
+
 void __fastcall MiAddPendingBadPageNode(unsigned __int64 a1, unsigned __int64 a2)
 {
   bool v2; // bl

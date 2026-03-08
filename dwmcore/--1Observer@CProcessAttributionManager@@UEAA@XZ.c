@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1Observer@CProcessAttributionManager@@UEAA@XZ @ 0x1801CEE18
+ * Callers:
+ *     ??_EObserver@CProcessAttributionManager@@UEAAPEAXI@Z @ 0x1801CEEE0 (--_EObserver@CProcessAttributionManager@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ *     ?NotifyOnDeadObserver@CProcessAttributionManager@@AEAAXPEAVCProcessAttributionObserver@@@Z @ 0x1801CEF2C (-NotifyOnDeadObserver@CProcessAttributionManager@@AEAAXPEAVCProcessAttributionObserver@@@Z.c)
+ */
+
 void __fastcall CProcessAttributionManager::Observer::~Observer(CProcessAttributionManager **this)
 {
   void **v2; // rsi

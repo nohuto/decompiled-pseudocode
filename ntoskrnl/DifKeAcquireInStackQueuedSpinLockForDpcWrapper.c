@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifKeAcquireInStackQueuedSpinLockForDpcWrapper @ 0x1405E0030
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     KeAcquireInStackQueuedSpinLockForDpc @ 0x14056F040 (KeAcquireInStackQueuedSpinLockForDpc.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 void __fastcall DifKeAcquireInStackQueuedSpinLockForDpcWrapper(PKSPIN_LOCK SpinLock, PKLOCK_QUEUE_HANDLE LockHandle)
 {
   __int64 *APIThunkContextById; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBHTX_SetLinkStateToSSDisabledUsingControlTransfer @ 0x1C0006F10
+ * Callers:
+ *     HUBPSM30_DisablingSuperSpeedOnPortForUnsupportedHubs @ 0x1C0012F80 (HUBPSM30_DisablingSuperSpeedOnPortForUnsupportedHubs.c)
+ *     HUBPSM30_DisablingSuperSpeedOnPortOnDeviceRequest @ 0x1C0012FB0 (HUBPSM30_DisablingSuperSpeedOnPortOnDeviceRequest.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBMISC_ControlTransfer @ 0x1C0032664 (HUBMISC_ControlTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBHTX_SetLinkStateToSSDisabledUsingControlTransfer(__int64 a1)
 {
   char v2; // al

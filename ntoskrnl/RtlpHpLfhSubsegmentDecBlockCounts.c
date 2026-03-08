@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpHpLfhSubsegmentDecBlockCounts @ 0x14030B5B4
+ * Callers:
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x14030A210 (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     RtlpHpLfhSlotAllocate @ 0x140310BA0 (RtlpHpLfhSlotAllocate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpHpLfhSubsegmentDecBlockCounts(__int64 a1, __int64 a2, unsigned int a3, int a4)
 {
   char v6; // cl

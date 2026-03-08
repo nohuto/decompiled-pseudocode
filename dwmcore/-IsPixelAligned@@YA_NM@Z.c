@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsPixelAligned@@YA_NM@Z @ 0x1800CA1F4
+ * Callers:
+ *     ?IsPixelAligned@@YA_NAEBUMilRectF@@@Z @ 0x1800CA19C (-IsPixelAligned@@YA_NAEBUMilRectF@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall IsPixelAligned(float a1)
 {
   int v1; // eax

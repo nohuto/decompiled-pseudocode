@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpCancelTraceImageUnloadApc @ 0x1405FB550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     EtwpTraceImageUnload @ 0x14035E3D0 (EtwpTraceImageUnload.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwpCancelTraceImageUnloadApc(PVOID P)
 {
   __int64 v2; // rcx

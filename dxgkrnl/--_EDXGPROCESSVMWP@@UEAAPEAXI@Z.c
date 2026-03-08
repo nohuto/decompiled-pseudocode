@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_EDXGPROCESSVMWP@@UEAAPEAXI@Z @ 0x1C00556B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1DXGPROCESSVMWP@@UEAA@XZ @ 0x1C00555F4 (--1DXGPROCESSVMWP@@UEAA@XZ.c)
+ */
+
 DXGPROCESSVMWP *__fastcall DXGPROCESSVMWP::`vector deleting destructor'(DXGPROCESSVMWP *P, unsigned int a2)
 {
   char v2; // bl

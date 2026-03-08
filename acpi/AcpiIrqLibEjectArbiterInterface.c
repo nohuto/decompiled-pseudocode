@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiIrqLibEjectArbiterInterface @ 0x1C0098D24
+ * Callers:
+ *     ACPIRootIrpQueryInterface @ 0x1C00944D0 (ACPIRootIrpQueryInterface.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AcpiIrqLibEjectArbiterInterface(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

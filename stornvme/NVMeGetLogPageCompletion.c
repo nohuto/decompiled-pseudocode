@@ -1,3 +1,20 @@
+/*
+ * XREFs of NVMeGetLogPageCompletion @ 0x1C001E210
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     GetLocalCommand @ 0x1C0009C80 (GetLocalCommand.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ *     NVMeIssueAsyncEventCommand @ 0x1C001FB54 (NVMeIssueAsyncEventCommand.c)
+ *     NVMeReenumerateNameSpaceStart @ 0x1C002263C (NVMeReenumerateNameSpaceStart.c)
+ *     ProcessNvmeHealthInfoLog @ 0x1C0024B64 (ProcessNvmeHealthInfoLog.c)
+ *     ProcessNvmeReservationNotification @ 0x1C0024E94 (ProcessNvmeReservationNotification.c)
+ *     ProcessNvmeSanitizeStatus @ 0x1C0024F88 (ProcessNvmeSanitizeStatus.c)
+ */
+
 __int64 __fastcall NVMeGetLogPageCompletion(__int64 a1, __int64 a2)
 {
   unsigned __int64 LocalCommand; // r14

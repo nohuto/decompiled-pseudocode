@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwCopyFileChunk @ 0x1404137B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwCopyFileChunk(__int64 a1, __int64 a2)
 {
   _disable();

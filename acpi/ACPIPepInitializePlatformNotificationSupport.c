@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIPepInitializePlatformNotificationSupport @ 0x1C008A9B0
+ * Callers:
+ *     ACPIBusIrpStartDeviceWorker @ 0x1C0081770 (ACPIBusIrpStartDeviceWorker.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C002D594 (ACPIInitReferenceDeviceExtension.c)
+ *     AMLIFreeDataBuffs @ 0x1C00482C4 (AMLIFreeDataBuffs.c)
+ *     ACPIAmliEvaluateDsm @ 0x1C007C65C (ACPIAmliEvaluateDsm.c)
+ */
+
 char __fastcall ACPIPepInitializePlatformNotificationSupport(char *Context)
 {
   _QWORD *v2; // rcx

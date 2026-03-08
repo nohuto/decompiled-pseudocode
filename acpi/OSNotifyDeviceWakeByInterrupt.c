@@ -1,3 +1,16 @@
+/*
+ * XREFs of OSNotifyDeviceWakeByInterrupt @ 0x1C003348C
+ * Callers:
+ *     ACPIWakeEmulationInterruptServiceRoutine @ 0x1C002F380 (ACPIWakeEmulationInterruptServiceRoutine.c)
+ * Callees:
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C000518C (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C001B508 (WPP_RECORDER_SF_qD.c)
+ *     OSNotifyDeviceWakeCallBack @ 0x1C0033670 (OSNotifyDeviceWakeCallBack.c)
+ *     ACPIWakeDisableAsync @ 0x1C0044CC8 (ACPIWakeDisableAsync.c)
+ *     ACPIWakeEmulationDisable @ 0x1C0045254 (ACPIWakeEmulationDisable.c)
+ */
+
 void __fastcall OSNotifyDeviceWakeByInterrupt(__int64 a1)
 {
   _QWORD *Pool2; // rax

@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiCfgMarkValidEntries @ 0x14075C3DC
+ * Callers:
+ *     NtSetInformationVirtualMemory @ 0x14075BCB0 (NtSetInformationVirtualMemory.c)
+ * Callees:
+ *     MiStartingOffset @ 0x14028C530 (MiStartingOffset.c)
+ *     MiGetProtoPteAddress @ 0x14031C780 (MiGetProtoPteAddress.c)
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     CfgAddressToBitState @ 0x1406540A4 (CfgAddressToBitState.c)
+ *     MiValidateXfgUserCallTarget @ 0x1406540E8 (MiValidateXfgUserCallTarget.c)
+ *     MiPopulateCfgBitMap @ 0x14075C600 (MiPopulateCfgBitMap.c)
+ *     MiSelectCfgBitMap @ 0x1407D2C08 (MiSelectCfgBitMap.c)
+ *     MiIsProcessCfgExportSuppressionEnabled @ 0x140A40FD0 (MiIsProcessCfgExportSuppressionEnabled.c)
+ *     MiIsProcessXfgEnabled @ 0x140A40FF8 (MiIsProcessXfgEnabled.c)
+ *     MiValidateUserCallTarget @ 0x140A41024 (MiValidateUserCallTarget.c)
+ */
+
 __int64 __fastcall MiCfgMarkValidEntries(
         __int64 a1,
         unsigned __int64 a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MI_PAGEFILE_WRITE @ 0x14065EB48
+ * Callers:
+ *     MiWriteComplete @ 0x1402126E0 (MiWriteComplete.c)
+ *     MiGatherPagefilePages @ 0x140637D34 (MiGatherPagefilePages.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MI_PAGEFILE_WRITE(__int64 a1, _QWORD *a2, char a3, int a4, int a5)
 {
   __int64 v5; // r10

@@ -1,3 +1,11 @@
+/*
+ * XREFs of FxpBugCheckCallback @ 0x1C0088E70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FxpBugCheckCallbackFilter @ 0x1C0088F20 (FxpBugCheckCallbackFilter.c)
+ */
+
 void __fastcall FxpBugCheckCallback(
         _KBUGCHECK_CALLBACK_REASON Reason,
         _KBUGCHECK_REASON_CALLBACK_RECORD *Record,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of StorNVMeDriverUnload @ 0x1C0003670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0004200 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 StorNVMeDriverUnload()
 {
   __int64 result; // rax

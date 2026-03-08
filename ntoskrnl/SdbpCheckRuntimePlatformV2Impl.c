@@ -1,3 +1,11 @@
+/*
+ * XREFs of SdbpCheckRuntimePlatformV2Impl @ 0x140A4DD50
+ * Callers:
+ *     SdbpCheckRuntimePlatformImpl @ 0x140A4DD18 (SdbpCheckRuntimePlatformImpl.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SdbpCheckRuntimePlatformV2Impl(int *a1, unsigned int a2, unsigned int a3)
 {
   int v3; // eax

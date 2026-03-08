@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhUxdShutdown @ 0x1C005B1D0
+ * Callers:
+ *     UsbhDeviceShutdown @ 0x1C00427C0 (UsbhDeviceShutdown.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhDeleteUxdSubKeys @ 0x1C0059D10 (UsbhDeleteUxdSubKeys.c)
+ *     UsbhGetGlobalUxdSettings @ 0x1C0059EA0 (UsbhGetGlobalUxdSettings.c)
+ *     UsbhOpenRegistryKey @ 0x1C005A648 (UsbhOpenRegistryKey.c)
+ *     UsbhOpenUxdPortHandle @ 0x1C005A6D0 (UsbhOpenUxdPortHandle.c)
+ */
+
 __int64 __fastcall UsbhUxdShutdown(__int64 a1)
 {
   PDEVICE_OBJECT v2; // rcx

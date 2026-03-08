@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ReadEdidFromRegistry@EDIDCACHE@DxgMonitor@@CAJIPEAEPEAW4_D3DKMDT_MONITOR_CAPABILITIES_ORIGIN@@@Z @ 0x1C03C11C4
+ * Callers:
+ *     ?GetEdidForTarget@EDIDCACHE@DxgMonitor@@UEAAJU_LUID@@IEQEAEPEAW4_D3DKMDT_MONITOR_CAPABILITIES_ORIGIN@@@Z @ 0x1C03C0DA0 (-GetEdidForTarget@EDIDCACHE@DxgMonitor@@UEAAJU_LUID@@IEQEAEPEAW4_D3DKMDT_MONITOR_CAPABILITIES_OR.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     ?OpenEdidRegistryForTarget@EDIDCACHE@DxgMonitor@@CAJIKAEAPEAXPEAK@Z @ 0x1C03C1044 (-OpenEdidRegistryForTarget@EDIDCACHE@DxgMonitor@@CAJIKAEAPEAXPEAK@Z.c)
+ */
+
 __int64 __fastcall DxgMonitor::EDIDCACHE::ReadEdidFromRegistry(
         unsigned int a1,
         unsigned __int8 *a2,

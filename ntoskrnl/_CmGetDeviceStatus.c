@@ -1,3 +1,22 @@
+/*
+ * XREFs of _CmGetDeviceStatus @ 0x1406C8624
+ * Callers:
+ *     PiCMGetDeviceStatus @ 0x1406C3FD8 (PiCMGetDeviceStatus.c)
+ *     PiCMValidateDeviceInstance @ 0x1406C78A0 (PiCMValidateDeviceInstance.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA2A4 (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmIsDeviceSafeRemovalRequired @ 0x14078A594 (_CmIsDeviceSafeRemovalRequired.c)
+ *     PpDevCfgProcessDevices @ 0x14081B964 (PpDevCfgProcessDevices.c)
+ *     PiCMDeleteDevice @ 0x140965ED8 (PiCMDeleteDevice.c)
+ *     PiCMDeviceAction @ 0x14096671C (PiCMDeviceAction.c)
+ *     PiCMGenerateDeviceInstance @ 0x140966C4C (PiCMGenerateDeviceInstance.c)
+ *     PiCMQueryRemove @ 0x140967304 (PiCMQueryRemove.c)
+ *     PiCMSetProblem @ 0x140967AB4 (PiCMSetProblem.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     _NtPlugPlayGetDeviceStatus @ 0x1406C8898 (_NtPlugPlayGetDeviceStatus.c)
+ *     _CmGetDeviceRegProp @ 0x1406C9884 (_CmGetDeviceRegProp.c)
+ */
+
 __int64 __fastcall CmGetDeviceStatus(
         int a1,
         const WCHAR *a2,

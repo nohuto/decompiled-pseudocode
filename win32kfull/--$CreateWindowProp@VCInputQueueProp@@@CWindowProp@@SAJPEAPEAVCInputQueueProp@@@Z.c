@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$CreateWindowProp@VCInputQueueProp@@@CWindowProp@@SAJPEAPEAVCInputQueueProp@@@Z @ 0x1C00E829C
+ * Callers:
+ *     ?AttachInputQueueToWindow@@YAJPEAUtagWND@@PEAVIInputQueue@@@Z @ 0x1C0029A64 (-AttachInputQueueToWindow@@YAJPEAUtagWND@@PEAVIInputQueue@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CWindowProp::CreateWindowProp<CInputQueueProp>(__int64 *a1)
 {
   unsigned int v2; // ebx

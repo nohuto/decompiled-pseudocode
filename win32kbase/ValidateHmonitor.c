@@ -1,3 +1,11 @@
+/*
+ * XREFs of ValidateHmonitor @ 0x1C00A57A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ */
+
 __int64 __fastcall ValidateHmonitor(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rcx

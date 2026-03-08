@@ -1,3 +1,19 @@
+/*
+ * XREFs of IoReportTargetDeviceChangeAsynchronous @ 0x140204780
+ * Callers:
+ *     PnpDeviceActionWorker @ 0x140203020 (PnpDeviceActionWorker.c)
+ *     FsRtlNotifyVolumeEventEx @ 0x1406F3A30 (FsRtlNotifyVolumeEventEx.c)
+ * Callees:
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PnpSetCustomTargetEvent @ 0x140688958 (PnpSetCustomTargetEvent.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 NTSTATUS __stdcall IoReportTargetDeviceChangeAsynchronous(
         PDEVICE_OBJECT PhysicalDeviceObject,
         PVOID NotificationStructure,

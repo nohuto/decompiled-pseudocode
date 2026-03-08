@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiUnlockDriverMappings @ 0x14036C434
+ * Callers:
+ *     MiReserveDriverPtes @ 0x1407F6D70 (MiReserveDriverPtes.c)
+ *     MiReleaseDriverPtes @ 0x1407F74BC (MiReleaseDriverPtes.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ */
+
 char __fastcall MiUnlockDriverMappings(__int64 a1)
 {
   _QWORD *v2; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiEndDebugAccumulation @ 0x14036A1E0
+ * Callers:
+ *     KiFreezeTargetExecution @ 0x140369240 (KiFreezeTargetExecution.c)
+ *     KeThawExecution @ 0x14036B200 (KeThawExecution.c)
+ * Callees:
+ *     PoGetFrequencyBucket @ 0x140254EC0 (PoGetFrequencyBucket.c)
+ *     KiGetProcessorEfficiencyClass @ 0x14036A2D4 (KiGetProcessorEfficiencyClass.c)
+ *     KiBeginCounterAccumulation @ 0x140571C80 (KiBeginCounterAccumulation.c)
+ */
+
 void __fastcall KiEndDebugAccumulation(__int64 a1)
 {
   unsigned __int64 v2; // r11

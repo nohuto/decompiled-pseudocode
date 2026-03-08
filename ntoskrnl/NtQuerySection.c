@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtQuerySection @ 0x1407850E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     MmGetSectionInformation @ 0x140720B20 (MmGetSectionInformation.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ */
+
 __int64 __fastcall NtQuerySection(HANDLE Handle, int a2, volatile void *a3, SIZE_T a4, unsigned __int64 *a5)
 {
   KPROCESSOR_MODE PreviousMode; // r15

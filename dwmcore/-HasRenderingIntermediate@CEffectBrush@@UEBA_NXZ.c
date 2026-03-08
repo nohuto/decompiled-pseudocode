@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?HasRenderingIntermediate@CEffectBrush@@UEBA_NXZ @ 0x180228370
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?HasBlurEffectNode@CEffectBrush@@QEBA_NXZ @ 0x1801F0CF4 (-HasBlurEffectNode@CEffectBrush@@QEBA_NXZ.c)
+ */
+
 char __fastcall CEffectBrush::HasRenderingIntermediate(CEffectBrush *this)
 {
   __int64 v2; // rbx

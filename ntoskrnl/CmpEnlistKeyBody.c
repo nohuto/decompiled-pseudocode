@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpEnlistKeyBody @ 0x14076EBCC
+ * Callers:
+ *     CmpDoParseKey @ 0x1406E1D90 (CmpDoParseKey.c)
+ * Callees:
+ *     CmpIsKeyStackDeleted @ 0x1406B5978 (CmpIsKeyStackDeleted.c)
+ *     EnlistKeyBodyWithKCB @ 0x14076EC30 (EnlistKeyBodyWithKCB.c)
+ *     CmpTryConvertKcbLockSharedToExclusive @ 0x1407A7560 (CmpTryConvertKcbLockSharedToExclusive.c)
+ *     CmpLockKcbExclusive @ 0x1407AF778 (CmpLockKcbExclusive.c)
+ *     CmpUnlockKcb @ 0x140AF2140 (CmpUnlockKcb.c)
+ */
+
 __int64 __fastcall CmpEnlistKeyBody(__int64 a1, __int64 a2, __int64 a3, char a4, __int64 a5)
 {
   unsigned int v5; // ebx

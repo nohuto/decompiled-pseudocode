@@ -1,3 +1,19 @@
+/*
+ * XREFs of CmpTransSearchAddLightWeightTrans @ 0x1406B5B04
+ * Callers:
+ *     CmpTransSearchAddTransFromHive @ 0x1406B5A10 (CmpTransSearchAddTransFromHive.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x1406B5A64 (CmpTransSearchAddTransFromKeyBody.c)
+ * Callees:
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     CmpTransReferenceTransaction @ 0x1406B5C38 (CmpTransReferenceTransaction.c)
+ *     CmpTransDereferenceTransaction @ 0x1406B5C90 (CmpTransDereferenceTransaction.c)
+ *     CmpBindHiveToTrans @ 0x1406B5CAC (CmpBindHiveToTrans.c)
+ *     CmpTransAllocateTrans @ 0x14078C6A4 (CmpTransAllocateTrans.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmpTransSearchAddLightWeightTrans(__int64 a1, __int64 a2, int a3, _QWORD *a4)
 {
   unsigned __int64 v5; // rbp

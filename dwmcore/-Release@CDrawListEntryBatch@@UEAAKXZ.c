@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Release@CDrawListEntryBatch@@UEAAKXZ @ 0x1800E1C60
+ * Callers:
+ *     ?Release@CDrawListEntryBatch@@W7EAAKXZ @ 0x180119990 (-Release@CDrawListEntryBatch@@W7EAAKXZ.c)
+ * Callees:
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CDrawListEntryBatch::Release(CDrawListEntryBatch *this)
 {
   char *v1; // rsi

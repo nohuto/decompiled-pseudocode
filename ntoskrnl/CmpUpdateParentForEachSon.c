@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpUpdateParentForEachSon @ 0x140A22084
+ * Callers:
+ *     CmRenameKey @ 0x140A1170C (CmRenameKey.c)
+ *     CmpLightWeightCommitRenameKeyUoW @ 0x140A25828 (CmpLightWeightCommitRenameKeyUoW.c)
+ * Callees:
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpFindSubKeyByNumber @ 0x1407AD320 (CmpFindSubKeyByNumber.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpUpdateParentForEachSon(ULONG_PTR BugCheckParameter3, ULONG_PTR a2)
 {
   int v3; // r12d

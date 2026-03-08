@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiLogCommitRequestFailed @ 0x140A40CE4
+ * Callers:
+ *     MiCommitRequestFailed @ 0x140A40C84 (MiCommitRequestFailed.c)
+ * Callees:
+ *     PsGetProcessSessionId @ 0x140299380 (PsGetProcessSessionId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     MiGetProcessPartition @ 0x14031F9D4 (MiGetProcessPartition.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PsQueryJobMemoryUsageByProcess @ 0x1409AED40 (PsQueryJobMemoryUsageByProcess.c)
+ */
+
 char __fastcall MiLogCommitRequestFailed(__int64 a1, __int64 a2, int a3)
 {
   signed __int32 v3; // eax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopWriteCapsuleTriageDumpToFirmware @ 0x140551A98
+ * Callers:
+ *     IoWriteCrashDump @ 0x14054EF00 (IoWriteCrashDump.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IoFillDumpHeader @ 0x14054D7C8 (IoFillDumpHeader.c)
+ *     IoFillTriageDumpBuffer @ 0x14054DAD0 (IoFillTriageDumpBuffer.c)
+ *     IopUpdateMinidumpContext @ 0x1405516E4 (IopUpdateMinidumpContext.c)
+ *     IopWriteTriageDumpToFirmware @ 0x140551DD0 (IopWriteTriageDumpToFirmware.c)
+ *     MmSnapTriageDumpInformation @ 0x14062E39C (MmSnapTriageDumpInformation.c)
+ */
+
 bool __fastcall IopWriteCapsuleTriageDumpToFirmware(
         int a1,
         __int64 a2,

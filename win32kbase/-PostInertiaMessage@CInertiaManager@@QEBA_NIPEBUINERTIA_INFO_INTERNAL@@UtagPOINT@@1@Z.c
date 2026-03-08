@@ -1,3 +1,25 @@
+/*
+ * XREFs of ?PostInertiaMessage@CInertiaManager@@QEBA_NIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@1@Z @ 0x1C0210784
+ * Callers:
+ *     ?StopAndEndInertia@CTouchProcessor@@QEAAHIPEAX@Z @ 0x1C0206300 (-StopAndEndInertia@CTouchProcessor@@QEAAHIPEAX@Z.c)
+ *     ?EndInertia@CPTPProcessor@@AEAAXXZ @ 0x1C020D944 (-EndInertia@CPTPProcessor@@AEAAXXZ.c)
+ *     ?EndInertiaForContainer@CPTPProcessor@@SAXPEAX_K@Z @ 0x1C020D9D0 (-EndInertiaForContainer@CPTPProcessor@@SAXPEAX_K@Z.c)
+ *     ?HandleInertiaTimer@CPTPProcessor@@QEAAXXZ @ 0x1C020DEB0 (-HandleInertiaTimer@CPTPProcessor@@QEAAXXZ.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C007D0A0 (-SetEmpty@CInputDest@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     ?PostInertiaMessage@Inertia@InputTraceLogging@@SAXIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@@Z @ 0x1C00E0E58 (-PostInertiaMessage@Inertia@InputTraceLogging@@SAXIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@@Z.c)
+ *     Feature_Servicing_ListViewScrollingFix__private_IsEnabledDeviceUsage @ 0x1C00E1050 (Feature_Servicing_ListViewScrollingFix__private_IsEnabledDeviceUsage.c)
+ *     WPP_RECORDER_AND_TRACE_SF_s @ 0x1C00EF582 (WPP_RECORDER_AND_TRACE_SF_s.c)
+ *     ?HasDelegationThread@CInputDest@@QEBA_NXZ @ 0x1C00F1E86 (-HasDelegationThread@CInputDest@@QEBA_NXZ.c)
+ *     ??0CInputDest@@QEAA@PEAUHWND__@@W4INPUT_DESTINATION_WINDOW_TYPE@@W4HandleValidationType@0@@Z @ 0x1C01E3284 (--0CInputDest@@QEAA@PEAUHWND__@@W4INPUT_DESTINATION_WINDOW_TYPE@@W4HandleValidationType@0@@Z.c)
+ *     ?GetDelegateThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ @ 0x1C01E3804 (-GetDelegateThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ.c)
+ *     ?RouteSyntheticTouchpadToMT@CInertiaManager@@QEBAXIUtagPOINT@@0_K@Z @ 0x1C0210D6C (-RouteSyntheticTouchpadToMT@CInertiaManager@@QEBAXIUtagPOINT@@0_K@Z.c)
+ *     ?ValidateInertiaDest@CInertiaManager@@AEBA_NAEBVCInputDest@@@Z @ 0x1C0210EE0 (-ValidateInertiaDest@CInertiaManager@@AEBA_NAEBVCInputDest@@@Z.c)
+ *     ApiSetEditionPostInertiaMessage @ 0x1C024180C (ApiSetEditionPostInertiaMessage.c)
+ */
+
 char __fastcall CInertiaManager::PostInertiaMessage(
         CInertiaManager *this,
         unsigned int a2,

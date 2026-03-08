@@ -1,3 +1,12 @@
+/*
+ * XREFs of IoWMIQuerySingleInstanceMultiple @ 0x1409DC0B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     WmipQuerySingleMultiple @ 0x1409DE144 (WmipQuerySingleMultiple.c)
+ */
+
 NTSTATUS __stdcall IoWMIQuerySingleInstanceMultiple(
         PVOID *DataBlockObjectList,
         PUNICODE_STRING InstanceNames,

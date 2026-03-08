@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtQueueApcThreadEx @ 0x1406F5A60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     NtQueueApcThreadEx2 @ 0x1406F5AB0 (NtQueueApcThreadEx2.c)
+ */
+
 __int64 __fastcall NtQueueApcThreadEx(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
 {
   __int64 v6; // r10

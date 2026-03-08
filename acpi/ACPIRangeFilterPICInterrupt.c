@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIRangeFilterPICInterrupt @ 0x1C003B054
+ * Callers:
+ *     ACPIBusIrpQueryResourceRequirements @ 0x1C0080980 (ACPIBusIrpQueryResourceRequirements.c)
+ *     ACPIBusIrpQueryResources @ 0x1C0080E80 (ACPIBusIrpQueryResources.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPIRangeFilterPICInterrupt(__int64 a1)
 {
   unsigned int v1; // r10d

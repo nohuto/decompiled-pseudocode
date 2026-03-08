@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetClipboardViewer @ 0x1C01DC2E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxSetClipboardViewer @ 0x1C0200B44 (xxxSetClipboardViewer.c)
+ */
+
 __int64 __fastcall NtUserSetClipboardViewer(__int64 a1)
 {
   __int64 v2; // rbx

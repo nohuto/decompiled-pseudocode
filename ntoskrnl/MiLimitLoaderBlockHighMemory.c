@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiLimitLoaderBlockHighMemory @ 0x140B5FB90
+ * Callers:
+ *     MiMemoryLicense @ 0x140B5FAA0 (MiMemoryLicense.c)
+ * Callees:
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 unsigned __int64 __fastcall MiLimitLoaderBlockHighMemory(__int64 a1, ULONG_PTR a2)
 {
   unsigned __int64 *v2; // rbp

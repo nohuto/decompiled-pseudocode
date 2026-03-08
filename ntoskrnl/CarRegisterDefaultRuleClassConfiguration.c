@@ -1,3 +1,11 @@
+/*
+ * XREFs of CarRegisterDefaultRuleClassConfiguration @ 0x1405D1C20
+ * Callers:
+ *     DifRegisterKernelPlugin @ 0x1405D2B20 (DifRegisterKernelPlugin.c)
+ * Callees:
+ *     CarRegisterRuleClassConfiguration @ 0x1405D1C80 (CarRegisterRuleClassConfiguration.c)
+ */
+
 __int64 __fastcall CarRegisterDefaultRuleClassConfiguration(int a1, int a2)
 {
   _DWORD v3[4]; // [rsp+20h] [rbp-48h] BYREF

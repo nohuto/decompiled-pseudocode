@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpInitializeCompression @ 0x1403AF1D8
+ * Callers:
+ *     EtwpInitLoggerContext @ 0x140761AA8 (EtwpInitLoggerContext.c)
+ * Callees:
+ *     EtwpFreePlaceholderList @ 0x14028E33C (EtwpFreePlaceholderList.c)
+ *     RtlGetCompressionWorkSpaceSize @ 0x14035AEA0 (RtlGetCompressionWorkSpaceSize.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall EtwpInitializeCompression(__int64 a1)
 {
   NTSTATUS result; // eax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopQueueDeviceResetEvent @ 0x14095467C
+ * Callers:
+ *     PiProcessDeviceResetAction @ 0x14055DCD8 (PiProcessDeviceResetAction.c)
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     PnpRequestDeviceRemoval @ 0x140862294 (PnpRequestDeviceRemoval.c)
+ *     PipSetDevNodeProblem @ 0x1408667BC (PipSetDevNodeProblem.c)
+ *     IopMarkDeviceToBeReset @ 0x140954500 (IopMarkDeviceToBeReset.c)
+ *     PipSetDevNodeStateFlags @ 0x140956AA8 (PipSetDevNodeStateFlags.c)
+ */
+
 __int64 __fastcall IopQueueDeviceResetEvent(struct _DEVICE_OBJECT *MaxDataSize, _BYTE *a2)
 {
   __int64 DeviceNode; // rdi

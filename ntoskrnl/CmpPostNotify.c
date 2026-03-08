@@ -1,3 +1,24 @@
+/*
+ * XREFs of CmpPostNotify @ 0x1406B3790
+ * Callers:
+ *     CmpNotifyChangeKey @ 0x1406B4A70 (CmpNotifyChangeKey.c)
+ *     CmpCloseKeyObject @ 0x1406B5340 (CmpCloseKeyObject.c)
+ *     CmpFlushNotify @ 0x14074B6C4 (CmpFlushNotify.c)
+ *     CmpReportNotifyHelper @ 0x1407AF050 (CmpReportNotifyHelper.c)
+ * Callees:
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeInsertQueueApc @ 0x14027DBF0 (KeInsertQueueApc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     CmpAddToDelayedDeref @ 0x1406B4DDC (CmpAddToDelayedDeref.c)
+ *     CmpCancelSubordinatePost @ 0x1406B4E10 (CmpCancelSubordinatePost.c)
+ *     CmpFreeSubordinatePost @ 0x1406B4E5C (CmpFreeSubordinatePost.c)
+ *     CmpSignalDeferredPosts @ 0x1406B5564 (CmpSignalDeferredPosts.c)
+ *     CmpFreePostBlock @ 0x1406B5600 (CmpFreePostBlock.c)
+ *     CmpDelayedDerefKeys @ 0x1407AEFE8 (CmpDelayedDerefKeys.c)
+ */
+
 void __fastcall CmpPostNotify(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, __int128 *a6, __int128 *a7)
 {
   __int128 *v8; // r14

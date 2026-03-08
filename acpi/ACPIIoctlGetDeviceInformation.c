@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIIoctlGetDeviceInformation @ 0x1C0030CE8
+ * Callers:
+ *     ACPIIrpDispatchDeviceControl @ 0x1C0001290 (ACPIIrpDispatchDeviceControl.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ */
+
 __int64 __fastcall ACPIIoctlGetDeviceInformation(ULONG_PTR a1, IRP *a2, __int64 a3)
 {
   unsigned __int64 v3; // r13

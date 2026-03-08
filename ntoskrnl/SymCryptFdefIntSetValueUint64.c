@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefIntSetValueUint64 @ 0x1403FFDF4
+ * Callers:
+ *     SymCryptIntSetValueUint64 @ 0x1403F394C (SymCryptIntSetValueUint64.c)
+ * Callees:
+ *     SymCryptWipe @ 0x1403F0988 (SymCryptWipe.c)
+ */
+
 __int64 __fastcall SymCryptFdefIntSetValueUint64(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagTraceRegisterSystemState @ 0x140592068
+ * Callers:
+ *     PoRegisterSystemState @ 0x14058B800 (PoRegisterSystemState.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PopDiagTraceRegisterSystemState(int a1, __int64 a2)
 {
   REGHANDLE v2; // rbx

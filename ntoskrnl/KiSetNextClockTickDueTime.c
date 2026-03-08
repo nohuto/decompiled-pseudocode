@@ -1,3 +1,23 @@
+/*
+ * XREFs of KiSetNextClockTickDueTime @ 0x14022FD10
+ * Callers:
+ *     KiSetClockTimer @ 0x14022AC78 (KiSetClockTimer.c)
+ *     KeClockInterruptNotify @ 0x14022CD80 (KeClockInterruptNotify.c)
+ *     KePrepareNonClockOwnerForIdle @ 0x1402D4634 (KePrepareNonClockOwnerForIdle.c)
+ *     KiCancelClockTimer @ 0x1402D94E4 (KiCancelClockTimer.c)
+ *     KiRestoreClockTickRate @ 0x1402D9574 (KiRestoreClockTickRate.c)
+ *     KiSetClockInterval @ 0x1403ACBC4 (KiSetClockInterval.c)
+ *     KiResetClockInterval @ 0x14056D814 (KiResetClockInterval.c)
+ * Callees:
+ *     KiSetClockTickRate @ 0x14022AF70 (KiSetClockTickRate.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KiSetNextClockTickDueTime(char a1)
 {
   struct _KPRCB *CurrentPrcb; // rdi

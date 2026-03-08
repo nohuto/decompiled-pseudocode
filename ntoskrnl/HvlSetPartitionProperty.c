@@ -1,3 +1,14 @@
+/*
+ * XREFs of HvlSetPartitionProperty @ 0x140543734
+ * Callers:
+ *     HvlResumePartition @ 0x1405431A0 (HvlResumePartition.c)
+ *     HvlSuspendPartition @ 0x140543B10 (HvlSuspendPartition.c)
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 __int64 __fastcall HvlSetPartitionProperty(LONGLONG a1, __int64 a2, PHYSICAL_ADDRESS a3)
 {
   PHYSICAL_ADDRESS *v6; // rax

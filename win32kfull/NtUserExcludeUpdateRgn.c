@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserExcludeUpdateRgn @ 0x1C01D0800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _ExcludeUpdateRgn @ 0x1C000665C (_ExcludeUpdateRgn.c)
+ */
+
 __int64 __fastcall NtUserExcludeUpdateRgn(HDC a1, __int64 a2)
 {
   struct tagWND *v4; // rax

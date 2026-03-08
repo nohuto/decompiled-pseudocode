@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlOplockBreakToNone @ 0x14053B8C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FsRtlOplockBreakToNoneEx @ 0x14053B920 (FsRtlOplockBreakToNoneEx.c)
+ */
+
 NTSTATUS __stdcall FsRtlOplockBreakToNone(
         POPLOCK Oplock,
         PIO_STACK_LOCATION IrpSp,

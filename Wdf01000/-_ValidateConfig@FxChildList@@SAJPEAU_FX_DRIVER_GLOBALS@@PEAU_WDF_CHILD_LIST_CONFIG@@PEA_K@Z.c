@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?_ValidateConfig@FxChildList@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_CHILD_LIST_CONFIG@@PEA_K@Z @ 0x1C00269D4
+ * Callers:
+ *     imp_WdfChildListCreate @ 0x1C0020D40 (imp_WdfChildListCreate.c)
+ *     imp_WdfFdoInitSetDefaultChildListConfig @ 0x1C0030370 (imp_WdfFdoInitSetDefaultChildListConfig.c)
+ * Callees:
+ *     WPP_IFR_SF_DDd @ 0x1C0017C28 (WPP_IFR_SF_DDd.c)
+ *     WPP_IFR_SF_D @ 0x1C0017F78 (WPP_IFR_SF_D.c)
+ *     ?_ComputeTotalDescriptionSize@FxChildList@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_CHILD_LIST_CONFIG@@PEA_K@Z @ 0x1C002680C (-_ComputeTotalDescriptionSize@FxChildList@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_CHILD_LIST_CONFIG.c)
+ */
+
 __int64 __fastcall FxChildList::_ValidateConfig(
         _FX_DRIVER_GLOBALS *FxDriverGlobals,
         _WDF_CHILD_LIST_CONFIG *Config,

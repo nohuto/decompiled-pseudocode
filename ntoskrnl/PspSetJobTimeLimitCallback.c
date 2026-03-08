@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspSetJobTimeLimitCallback @ 0x1409B0010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsQueryRuntimeProcess @ 0x140720A5C (PsQueryRuntimeProcess.c)
+ */
+
 __int64 __fastcall PspSetJobTimeLimitCallback(__int64 a1, _QWORD *a2)
 {
   unsigned int v4; // [rsp+30h] [rbp+8h] BYREF

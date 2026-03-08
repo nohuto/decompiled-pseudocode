@@ -1,3 +1,13 @@
+/*
+ * XREFs of PipDgqInsertEntry @ 0x14096F100
+ * Callers:
+ *     PiDmaGuardQueueInsertEntry @ 0x14096F04C (PiDmaGuardQueueInsertEntry.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ */
+
 void __fastcall PipDgqInsertEntry(_QWORD *a1)
 {
   struct _KTHREAD *CurrentThread; // rax

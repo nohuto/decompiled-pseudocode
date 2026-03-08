@@ -1,3 +1,21 @@
+/*
+ * XREFs of SepReadAndInsertCaps @ 0x1409CEF1C
+ * Callers:
+ *     SepBuildCapPolicyTable @ 0x1403A918C (SepBuildCapPolicyTable.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     RtlInsertEntryHashTable @ 0x1402989F0 (RtlInsertEntryHashTable.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryKey @ 0x1404125D0 (ZwQueryKey.c)
+ *     ZwEnumerateKey @ 0x140412950 (ZwEnumerateKey.c)
+ *     SepRmCapPoolExpand @ 0x1405B7464 (SepRmCapPoolExpand.c)
+ *     SepRegOpenKey @ 0x140739428 (SepRegOpenKey.c)
+ *     SepReadSingleCap @ 0x1409CF278 (SepReadSingleCap.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepReadAndInsertCaps(HANDLE KeyHandle, int a2, __int64 a3)
 {
   int v3; // eax

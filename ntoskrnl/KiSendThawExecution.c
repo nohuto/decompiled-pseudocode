@@ -1,3 +1,19 @@
+/*
+ * XREFs of KiSendThawExecution @ 0x14036B330
+ * Callers:
+ *     KeThawExecution @ 0x14036B200 (KeThawExecution.c)
+ *     KeBugCheck2 @ 0x140565E90 (KeBugCheck2.c)
+ *     KeRebootSystemForRecovery @ 0x140577F2C (KeRebootSystemForRecovery.c)
+ *     KiBugCheckRecoveryCleanupFromCrashDump @ 0x140578228 (KiBugCheckRecoveryCleanupFromCrashDump.c)
+ *     KiUpdateBugcheckRecoveryProgress @ 0x1405793F8 (KiUpdateBugcheckRecoveryProgress.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KiSetDebuggerOwner @ 0x14036B4E0 (KiSetDebuggerOwner.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall KiSendThawExecution(char a1)
 {
   __int64 result; // rax

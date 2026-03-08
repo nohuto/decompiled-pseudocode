@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIDeviceWorkerThread @ 0x1C0047400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 void ACPIDeviceWorkerThread()
 {
   KIRQL v0; // al

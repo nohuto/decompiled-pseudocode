@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopDeviceConstraintsEnforced @ 0x1405A06C0
+ * Callers:
+ *     PopDripsWatchdogCallbackHandler @ 0x140999010 (PopDripsWatchdogCallbackHandler.c)
+ *     PopDripsWatchdogTakeAction @ 0x14099E1CC (PopDripsWatchdogTakeAction.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 bool PopDeviceConstraintsEnforced()
 {
   bool v0; // di

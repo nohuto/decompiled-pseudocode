@@ -1,3 +1,11 @@
+/*
+ * XREFs of XFORMOBJ_iGetFloatObjXform @ 0x1C02DDDA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 ULONG __stdcall XFORMOBJ_iGetFloatObjXform(XFORMOBJ *pxo, FLOATOBJ_XFORM *pxfo)
 {
   if ( !pxo )

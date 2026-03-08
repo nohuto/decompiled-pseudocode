@@ -1,3 +1,18 @@
+/*
+ * XREFs of RtlpCreateHashTable @ 0x1402B8550
+ * Callers:
+ *     RtlCreateHashTable @ 0x1402B8530 (RtlCreateHashTable.c)
+ *     SepBuildCapPolicyTable @ 0x1403A918C (SepBuildCapPolicyTable.c)
+ *     RtlCreateHashTableEx @ 0x1403C1A20 (RtlCreateHashTableEx.c)
+ *     SepInitializeSingletonAttributesStructures @ 0x140B49204 (SepInitializeSingletonAttributesStructures.c)
+ * Callees:
+ *     RtlpAllocateSecondLevelDir @ 0x1402B86BC (RtlpAllocateSecondLevelDir.c)
+ *     RtlpInitializeSecondLevelDir @ 0x1402B86E8 (RtlpInitializeSecondLevelDir.c)
+ *     RtlDeleteHashTable @ 0x1403BBB80 (RtlDeleteHashTable.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 char __fastcall RtlpCreateHashTable(__int64 *a1, unsigned int a2, int a3, int a4)
 {
   unsigned int v4; // esi

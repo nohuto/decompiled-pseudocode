@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CDesktopTreeMarshaler@DirectComposition@@EEAA_NXZ @ 0x1C0264260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DirectComposition::CDesktopTreeMarshaler::SetRemarshalingFlags(
         DirectComposition::CDesktopTreeMarshaler *this)
 {

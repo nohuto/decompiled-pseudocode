@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlGetCallersAddress @ 0x1403BCC70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlCaptureStackBackTrace @ 0x140205C20 (RtlCaptureStackBackTrace.c)
+ */
+
 USHORT __fastcall RtlGetCallersAddress(_QWORD *a1, _QWORD *a2)
 {
   USHORT result; // ax

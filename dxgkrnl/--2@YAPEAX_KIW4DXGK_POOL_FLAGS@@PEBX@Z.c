@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@PEBX@Z @ 0x1C00525F8
+ * Callers:
+ *     ?DxgkpCreateSharedObjectFromHostDesc@@YAJPEAVADAPTER_RENDER@@PEBEPEAPEAU_DXGSHAREDALLOCOBJECT@@@Z @ 0x1C036F040 (-DxgkpCreateSharedObjectFromHostDesc@@YAJPEAVADAPTER_RENDER@@PEBEPEAPEAU_DXGSHAREDALLOCOBJECT@@@.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ */
+
 void *__fastcall operator new(size_t a1, __int64 a2, __int64 a3, const void *a4)
 {
   size_t v4; // rbx

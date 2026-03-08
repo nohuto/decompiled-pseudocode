@@ -1,3 +1,13 @@
+/*
+ * XREFs of _vswprintf_l @ 0x1403D3E0C
+ * Callers:
+ *     _vswprintf @ 0x1403D3DF0 (_vswprintf.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     _flsbuf @ 0x1403D67F0 (_flsbuf.c)
+ *     _woutput_l @ 0x1403D6800 (_woutput_l.c)
+ */
+
 __int64 __fastcall vswprintf_l(char *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // eax

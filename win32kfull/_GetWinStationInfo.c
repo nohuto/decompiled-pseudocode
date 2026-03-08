@@ -1,3 +1,11 @@
+/*
+ * XREFs of _GetWinStationInfo @ 0x1C020630C
+ * Callers:
+ *     NtUserGetWinStationInfo @ 0x1C01D5520 (NtUserGetWinStationInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetWinStationInfo(ULONG64 a1)
 {
   __int64 CurrentProcessWow64Process; // rax

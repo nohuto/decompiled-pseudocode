@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpHpExtrasGet @ 0x1405B4100
+ * Callers:
+ *     ExFreeHeapPool @ 0x1402B61C0 (ExFreeHeapPool.c)
+ *     RtlpHpFreeHeap @ 0x140313CC0 (RtlpHpFreeHeap.c)
+ * Callees:
+ *     RtlpHpSizeHeapInternal @ 0x1405B4430 (RtlpHpSizeHeapInternal.c)
+ */
+
 unsigned __int64 __fastcall RtlpHpExtrasGet(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
 {
   int v5; // edi

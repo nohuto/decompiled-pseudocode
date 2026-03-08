@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeCopyLastBranchInformation @ 0x140362500
+ * Callers:
+ *     KeContextFromKframes @ 0x1403620F0 (KeContextFromKframes.c)
+ *     PspGetContext @ 0x1407ED060 (PspGetContext.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall KeCopyLastBranchInformation(__int64 a1, __int64 a2)
 {
   unsigned __int64 result; // rax

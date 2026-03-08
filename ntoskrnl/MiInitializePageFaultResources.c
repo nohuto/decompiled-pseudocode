@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiInitializePageFaultResources @ 0x140370C30
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     MiInsertInPageBlock @ 0x140287BF8 (MiInsertInPageBlock.c)
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     MiAllocateInPageSupportBlock @ 0x1402F7884 (MiAllocateInPageSupportBlock.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ */
+
 __int64 MiInitializePageFaultResources()
 {
   int v0; // edi

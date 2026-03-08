@@ -1,3 +1,11 @@
+/*
+ * XREFs of SmFixSingleBitCorruption @ 0x1405C7C24
+ * Callers:
+ *     ?StDmHandleDecompressionFailure@?$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x1405C3B64 (-StDmHandleDecompressionFailure@-$ST_STORE@USM_TRAITS@@@@SAKPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE.c)
+ * Callees:
+ *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x1406797B0 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
+ */
+
 __int64 __fastcall SmFixSingleBitCorruption(unsigned __int8 *a1, unsigned __int64 a2, int a3, unsigned __int64 a4)
 {
   __int64 v4; // rsi

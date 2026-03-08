@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBPDO_AllocateForwardProgressResources @ 0x1C001C944
+ * Callers:
+ *     HUBPDO_EvtDeviceUsageNotificationEx @ 0x1C001CA80 (HUBPDO_EvtDeviceUsageNotificationEx.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBPDO_AllocateForwardProgressResources(_QWORD *a1)
 {
   __int64 v2; // rax

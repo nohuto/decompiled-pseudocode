@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopDiagDeviceRundownWorker @ 0x1408A1070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoControlPnpDeviceActionQueue @ 0x1403BDF5C (IoControlPnpDeviceActionQueue.c)
+ *     PoDiagTraceDeviceRundown @ 0x140988DB4 (PoDiagTraceDeviceRundown.c)
+ */
+
 __int64 PopDiagDeviceRundownWorker()
 {
   _QWORD *v0; // rbx

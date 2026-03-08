@@ -1,3 +1,12 @@
+/*
+ * XREFs of IsDWMGhostHandleGhostMsgPresent @ 0x1400067D0
+ * Callers:
+ *     ?ProcessLPCCommand@CDwmAppHost@@AEAAJPEAUIPortMessage@@PEBUPORT_CONTEXT@@PEAH2@Z @ 0x140002400 (-ProcessLPCCommand@CDwmAppHost@@AEAAJPEAUIPortMessage@@PEBUPORT_CONTEXT@@PEAH2@Z.c)
+ *     ?Initialize@CDwmAppHost@@QEAAJPEAUHINSTANCE__@@@Z @ 0x140003CD4 (-Initialize@CDwmAppHost@@QEAAJPEAUHINSTANCE__@@@Z.c)
+ * Callees:
+ *     ApiSetQueryApiSetPresence_0 @ 0x1400069D0 (ApiSetQueryApiSetPresence_0.c)
+ */
+
 char IsDWMGhostHandleGhostMsgPresent()
 {
   char result; // al

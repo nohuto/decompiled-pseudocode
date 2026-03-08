@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1FxUsbDeviceControlContext@@UEAA@XZ @ 0x1C000F564
+ * Callers:
+ *     imp_WdfUsbTargetDeviceSendControlTransferSynchronously @ 0x1C0059400 (imp_WdfUsbTargetDeviceSendControlTransferSynchronously.c)
+ *     ??_EFxUsbDeviceControlContext@@UEAAPEAXI@Z @ 0x1C005C590 (--_EFxUsbDeviceControlContext@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     USBD_UrbFree @ 0x1C008876C (USBD_UrbFree.c)
+ */
+
 void __fastcall FxUsbDeviceControlContext::~FxUsbDeviceControlContext(FxUsbDeviceControlContext *this)
 {
   _URB *m_Urb; // rdx

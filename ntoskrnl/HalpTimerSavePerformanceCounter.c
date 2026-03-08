@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpTimerSavePerformanceCounter @ 0x1404FC950
+ * Callers:
+ *     HalpAcpiPreSleep @ 0x140A93820 (HalpAcpiPreSleep.c)
+ * Callees:
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 HalpTimerSavePerformanceCounter()
 {
   __int64 v0; // rdi

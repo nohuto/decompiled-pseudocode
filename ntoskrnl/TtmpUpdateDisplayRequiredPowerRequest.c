@@ -1,3 +1,15 @@
+/*
+ * XREFs of TtmpUpdateDisplayRequiredPowerRequest @ 0x1409A2D6C
+ * Callers:
+ *     TtmNotifySessionDisplayRequiredChange @ 0x1409A13E0 (TtmNotifySessionDisplayRequiredChange.c)
+ * Callees:
+ *     TtmpFindPowerRequestEntryById @ 0x1409A22B8 (TtmpFindPowerRequestEntryById.c)
+ *     TtmpSetDisplayRequestEnded @ 0x1409A2B80 (TtmpSetDisplayRequestEnded.c)
+ *     TtmpWriteDisplayRequiredPowerRequestUpdatedEvent @ 0x1409A2F00 (TtmpWriteDisplayRequiredPowerRequestUpdatedEvent.c)
+ *     TtmiLogError @ 0x1409A536C (TtmiLogError.c)
+ *     TtmiLogSessionDisplayRequiredPowerRequestUpdated @ 0x1409A6524 (TtmiLogSessionDisplayRequiredPowerRequestUpdated.c)
+ */
+
 __int64 __fastcall TtmpUpdateDisplayRequiredPowerRequest(unsigned int *a1, unsigned int a2, char a3)
 {
   char v4; // bl

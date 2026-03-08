@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ThrottleRawMouseInputToBackgroundListener@@YA_NPEAUtagPROCESS_HID_TABLE@@PEAXPEBUtagRAWMOUSE@@_KK@Z @ 0x1C01AC4B4
+ * Callers:
+ *     EditionPostRawMouseInputMessage @ 0x1C0142A40 (EditionPostRawMouseInputMessage.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?CanCoalesceRawInputPayload@@YA_NPEAUtagPROCESS_HID_TABLE@@PEAXPEBUtagRAWMOUSE@@@Z @ 0x1C01ABD18 (-CanCoalesceRawInputPayload@@YA_NPEAUtagPROCESS_HID_TABLE@@PEAXPEBUtagRAWMOUSE@@@Z.c)
+ *     ?FlushThrottledRawMouseInput@@YAXPEAUtagPROCESS_HID_TABLE@@K@Z @ 0x1C01AC08C (-FlushThrottledRawMouseInput@@YAXPEAUtagPROCESS_HID_TABLE@@K@Z.c)
+ *     ?ThrottleRawInput@Mouse@InputTraceLogging@@SAXPEAUtagPROCESS_HID_TABLE@@_K1@Z @ 0x1C01AC3EC (-ThrottleRawInput@Mouse@InputTraceLogging@@SAXPEAUtagPROCESS_HID_TABLE@@_K1@Z.c)
+ */
+
 char __fastcall ThrottleRawMouseInputToBackgroundListener(
         struct tagPROCESS_HID_TABLE *a1,
         void *a2,

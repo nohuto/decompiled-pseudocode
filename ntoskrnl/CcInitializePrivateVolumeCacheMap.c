@@ -1,3 +1,22 @@
+/*
+ * XREFs of CcInitializePrivateVolumeCacheMap @ 0x1403BAB18
+ * Callers:
+ *     CcCreatePrivateVolumeCacheMap @ 0x1402DA2F4 (CcCreatePrivateVolumeCacheMap.c)
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcInitializeNumaNodeForVolume @ 0x1403BB12C (CcInitializeNumaNodeForVolume.c)
+ *     CcInitializeQuickLWSThreadItem @ 0x1403BB470 (CcInitializeQuickLWSThreadItem.c)
+ *     CcForEachNumaNode @ 0x1403BDC9C (CcForEachNumaNode.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PsCreateSystemThread @ 0x1407DE2E0 (PsCreateSystemThread.c)
+ *     MmGetNumberOfPhysicalPagesForPartitionObject @ 0x140868AE0 (MmGetNumberOfPhysicalPagesForPartitionObject.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ */
+
 char __fastcall CcInitializePrivateVolumeCacheMap(__int64 a1, __int64 a2, __int64 *a3, __int64 a4)
 {
   char v4; // si

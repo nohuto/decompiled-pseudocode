@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TestRectBogus@@YAHUtagRECT@@HHHH@Z @ 0x1C01A7408
+ * Callers:
+ *     ?IsRectBogus@@YAHHHHH@Z @ 0x1C01A70F0 (-IsRectBogus@@YAHHHHH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall TestRectBogus(struct tagRECT *a1, LONG a2, LONG a3, int a4, int a5)
 {
   LONG left; // ebx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of AslpFileQueryExportName @ 0x140A565BC
+ * Callers:
+ *     AslpFileGetExportName @ 0x140A558E0 (AslpFileGetExportName.c)
+ * Callees:
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     RtlStringCchCopyA @ 0x1403BD50C (RtlStringCchCopyA.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslpFileGetImageNtHeader @ 0x140A55E4C (AslpFileGetImageNtHeader.c)
+ *     AslpImageRvaToVa @ 0x140A5680C (AslpImageRvaToVa.c)
+ */
+
 __int64 __fastcall AslpFileQueryExportName(NTSTRSAFE_PSTR pszDest, __int64 a2)
 {
   int v4; // edx

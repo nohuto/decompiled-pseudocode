@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Record@UsageIndexes@details_abi@wil@@QEAAXXZ @ 0x180196000
+ * Callers:
+ *     ?ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x180195DC8 (-ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ.c)
+ *     ?RecordUsage@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x180196414 (-RecordUsage@FeatureStateData@details_abi@wil@@QEAAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     ?RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z @ 0x180196794 (-RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z.c)
+ */
+
 void __fastcall wil::details_abi::UsageIndexes::Record(
         wil::details_abi::UsageIndexes *this,
         __int64 a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Unlock@FxCallbackSpinLock@@UEAAXE@Z @ 0x1C0039580
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CheckOwnership@FxCallbackLock@@QEAAXXZ @ 0x1C0038FF0 (-CheckOwnership@FxCallbackLock@@QEAAXXZ.c)
+ *     ?Unlock@FxVerifierLock@@QEAAXEE@Z @ 0x1C0046FB8 (-Unlock@FxVerifierLock@@QEAAXEE@Z.c)
+ */
+
 void __fastcall FxCallbackSpinLock::Unlock(FxCallbackSpinLock *this, unsigned __int8 PreviousIrql)
 {
   unsigned __int8 v4; // r8

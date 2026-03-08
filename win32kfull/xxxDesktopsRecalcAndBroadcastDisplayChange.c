@@ -1,3 +1,18 @@
+/*
+ * XREFs of xxxDesktopsRecalcAndBroadcastDisplayChange @ 0x1C00F7660
+ * Callers:
+ *     xxxDeferredDesktopRotation @ 0x1C01F7030 (xxxDeferredDesktopRotation.c)
+ * Callees:
+ *     SelectWindowRgn @ 0x1C00275FC (SelectWindowRgn.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     xxxSendNotifyMessage @ 0x1C00D8320 (xxxSendNotifyMessage.c)
+ *     xxxBroadcastDisplaySettingsChange @ 0x1C00F7740 (xxxBroadcastDisplaySettingsChange.c)
+ *     ?OnMonitorRectsChanged@DesktopRecalc@@YAXPEAUtagWINDOWSTATION@@PEAVCMonitorTopology@@PEAU_DXGK_SET_DISPLAY_CONFIG_PARAMS_EX@@@Z @ 0x1C00F7820 (-OnMonitorRectsChanged@DesktopRecalc@@YAXPEAUtagWINDOWSTATION@@PEAVCMonitorTopology@@PEAU_DXGK_S.c)
+ *     ?xxxGetWorkAreasFromShell@@YA_NXZ @ 0x1C00F7B94 (-xxxGetWorkAreasFromShell@@YA_NXZ.c)
+ */
+
 void __fastcall xxxDesktopsRecalcAndBroadcastDisplayChange(
         __int64 a1,
         struct tagWINDOWSTATION *a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of InitDisplayBrokerMessage_DispBroker::AlpcRequest_8___lambda_2b831a354495e24a997c7e563732c286__&DxgkSampleDisplayState_ @ 0x1C0049100
+ * Callers:
+ *     DxgkIddHandleSetDisplayConfig2 @ 0x1C02F0840 (DxgkIddHandleSetDisplayConfig2.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ *     _lambda_2b831a354495e24a997c7e563732c286_::operator() @ 0x1C02EEE24 (_lambda_2b831a354495e24a997c7e563732c286_--operator().c)
+ *     DxgkSampleDisplayState @ 0x1C02EFA14 (DxgkSampleDisplayState.c)
+ */
+
 __int64 __fastcall InitDisplayBrokerMessage_DispBroker::AlpcRequest_8___lambda_2b831a354495e24a997c7e563732c286___DxgkSampleDisplayState_(
         _WORD *a1,
         __int64 a2,

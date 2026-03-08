@@ -1,3 +1,19 @@
+/*
+ * XREFs of PipProcessStartPhase2 @ 0x1406817A0
+ * Callers:
+ *     PipProcessDevNodeTree @ 0x1406CCD80 (PipProcessDevNodeTree.c)
+ * Callees:
+ *     PipSetDevNodeState @ 0x1402028D0 (PipSetDevNodeState.c)
+ *     IoRequestDeviceEject @ 0x14055D9B0 (IoRequestDeviceEject.c)
+ *     McTemplateK0dz_EtwWriteTransfer @ 0x1405620F8 (McTemplateK0dz_EtwWriteTransfer.c)
+ *     IopDoDeferredSetInterfaceState @ 0x140681E54 (IopDoDeferredSetInterfaceState.c)
+ *     PnpRequestDeviceRemoval @ 0x140862294 (PnpRequestDeviceRemoval.c)
+ *     PnpUpdateRebootRequiredReason @ 0x140955E50 (PnpUpdateRebootRequiredReason.c)
+ *     PpProfileCancelHardwareProfileTransition @ 0x140960B20 (PpProfileCancelHardwareProfileTransition.c)
+ *     PpProfileCommitTransitioningDock @ 0x140960C54 (PpProfileCommitTransitioningDock.c)
+ *     IopAllocateLegacyBootResources @ 0x140B359CC (IopAllocateLegacyBootResources.c)
+ */
+
 __int64 __fastcall PipProcessStartPhase2(__int64 a1, __int64 a2, __int64 a3)
 {
   int v4; // edi

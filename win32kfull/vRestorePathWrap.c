@@ -1,3 +1,11 @@
+/*
+ * XREFs of vRestorePathWrap @ 0x1C00D9A70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vRestorePathWrap(__int64 *a1)
 {
   __int64 v1; // rcx

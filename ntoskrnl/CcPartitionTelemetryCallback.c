@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcPartitionTelemetryCallback @ 0x14087BDB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmGetAvailablePagesForPartitionObject @ 0x1403026E8 (MmGetAvailablePagesForPartitionObject.c)
+ *     CcForEachPrivateVolumeCacheMap @ 0x1403CB270 (CcForEachPrivateVolumeCacheMap.c)
+ *     CcGetActiveWorkerCountInPartition @ 0x1403CE3C4 (CcGetActiveWorkerCountInPartition.c)
+ */
+
 char __fastcall CcPartitionTelemetryCallback(__int64 a1)
 {
   __int64 v1; // r9

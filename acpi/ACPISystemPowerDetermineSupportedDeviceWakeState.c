@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPISystemPowerDetermineSupportedDeviceWakeState @ 0x1C003DE10
+ * Callers:
+ *     ACPISystemPowerUpdateWakeCapabilitiesForFilters @ 0x1C003E7C8 (ACPISystemPowerUpdateWakeCapabilitiesForFilters.c)
+ *     ACPISystemPowerUpdateWakeCapabilitiesForPDOs @ 0x1C003EAE0 (ACPISystemPowerUpdateWakeCapabilitiesForPDOs.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPISystemPowerDetermineSupportedDeviceWakeState(__int64 a1)
 {
   __int64 *v1; // r8

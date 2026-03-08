@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vLine4Octant16@@YAXPEAU_DDALINE@@PEAEJK@Z @ 0x1C02FECB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vLine4Octant16(struct _DDALINE *a1, unsigned __int8 *a2, int a3, char a4)
 {
   unsigned int v4; // ebx

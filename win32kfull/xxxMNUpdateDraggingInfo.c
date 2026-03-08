@@ -1,3 +1,18 @@
+/*
+ * XREFs of xxxMNUpdateDraggingInfo @ 0x1C0234910
+ * Callers:
+ *     xxxMNMouseMove @ 0x1C021B510 (xxxMNMouseMove.c)
+ * Callees:
+ *     ??1?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ @ 0x1C00A11DC (--1-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ.c)
+ *     MNGetpItemFromIndex @ 0x1C00A266C (MNGetpItemFromIndex.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z @ 0x1C00E67A8 (-Init@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z.c)
+ *     safe_cast_fnid_to_PMENUWND @ 0x1C012D8B8 (safe_cast_fnid_to_PMENUWND.c)
+ *     IsMFMWFPWindow @ 0x1C02192F8 (IsMFMWFPWindow.c)
+ *     LockMFMWFPWindow @ 0x1C021931C (LockMFMWFPWindow.c)
+ *     MNGetpItem @ 0x1C02194AC (MNGetpItem.c)
+ *     xxxMNSetGapState @ 0x1C0234718 (xxxMNSetGapState.c)
+ */
+
 _QWORD *__fastcall xxxMNUpdateDraggingInfo(__int64 a1, __int64 a2, int a3)
 {
   __int64 *v3; // r14

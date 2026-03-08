@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiIsBranchConfusionPresent @ 0x14037F118
+ * Callers:
+ *     KiOptimizeSpecCtrlSettingsWorker @ 0x14037E220 (KiOptimizeSpecCtrlSettingsWorker.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x14037EC84 (KiDetectHardwareSpecControlFeatures.c)
+ *     KiIsSrsoMitigationDesired @ 0x14040AD28 (KiIsSrsoMitigationDesired.c)
+ * Callees:
+ *     HviIsAnyHypervisorPresent @ 0x14037F1D0 (HviIsAnyHypervisorPresent.c)
+ */
+
 __int64 __fastcall KiIsBranchConfusionPresent(__int64 a1)
 {
   char IsAnyHypervisorPresent; // al

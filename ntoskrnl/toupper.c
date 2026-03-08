@@ -1,3 +1,12 @@
+/*
+ * XREFs of toupper @ 0x1403D5BB0
+ * Callers:
+ *     AslStringPatternMatchExA @ 0x14075B5F0 (AslStringPatternMatchExA.c)
+ * Callees:
+ *     RtlAnsiCharToUnicodeChar @ 0x1406EA670 (RtlAnsiCharToUnicodeChar.c)
+ *     RtlUpcaseUnicodeToMultiByteN @ 0x1407A00A0 (RtlUpcaseUnicodeToMultiByteN.c)
+ */
+
 int __cdecl toupper(int C)
 {
   int result; // eax

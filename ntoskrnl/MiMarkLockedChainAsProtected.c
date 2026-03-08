@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiMarkLockedChainAsProtected @ 0x1402D3390
+ * Callers:
+ *     MiSharedInsertPfnChainInList @ 0x140288400 (MiSharedInsertPfnChainInList.c)
+ *     MiExclusiveInsertPfnChainInList @ 0x1402D3138 (MiExclusiveInsertPfnChainInList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiMarkLockedChainAsProtected(__int64 a1)
 {
   __int64 result; // rax

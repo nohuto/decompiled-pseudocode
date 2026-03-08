@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?OnUserLogin@PTPTelemetry@@SAXXZ @ 0x1C020EA60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PTPConfigUpdateEx@PTPTelemetry@@CAXQEAUDEVICEINFO@@@Z @ 0x1C020EABC (-PTPConfigUpdateEx@PTPTelemetry@@CAXQEAUDEVICEINFO@@@Z.c)
+ *     ?ShouldPtpSettingFire@PTPTelemetry@@CA_NXZ @ 0x1C020F4DC (-ShouldPtpSettingFire@PTPTelemetry@@CA_NXZ.c)
+ */
+
 void __fastcall PTPTelemetry::OnUserLogin(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdx

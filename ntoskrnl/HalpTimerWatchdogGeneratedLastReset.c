@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpTimerWatchdogGeneratedLastReset @ 0x140861860
+ * Callers:
+ *     HalpTimerWatchdogLogReset @ 0x140861838 (HalpTimerWatchdogLogReset.c)
+ * Callees:
+ *     <none>
+ */
+
 char HalpTimerWatchdogGeneratedLastReset()
 {
   char result; // al

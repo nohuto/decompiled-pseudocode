@@ -1,3 +1,17 @@
+/*
+ * XREFs of AlpcpInsertResourcePort @ 0x1406A0BC8
+ * Callers:
+ *     AlpcpCreateView @ 0x1406A0978 (AlpcpCreateView.c)
+ *     AlpcpCreateSecurityContext @ 0x1406D45F8 (AlpcpCreateSecurityContext.c)
+ *     AlpcpCreateSection @ 0x140712378 (AlpcpCreateSection.c)
+ *     AlpcpCreateReserve @ 0x140781384 (AlpcpCreateReserve.c)
+ *     AlpcpMapLegacyPortRemoteView @ 0x14079A3A0 (AlpcpMapLegacyPortRemoteView.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ */
+
 signed __int32 __fastcall AlpcpInsertResourcePort(__int64 a1, __int64 a2)
 {
   volatile signed __int64 *v2; // rsi

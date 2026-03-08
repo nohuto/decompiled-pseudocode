@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExDisableResourceBoostLite @ 0x1403BD190
+ * Callers:
+ *     CcAllocateInitializeBcb @ 0x14021BE20 (CcAllocateInitializeBcb.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __stdcall ExDisableResourceBoostLite(PERESOURCE Resource)
 {
   USHORT Flag; // ax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of _setjmp @ 0x140422480
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ *     setjmp @ 0x140422520 (setjmp.c)
+ * Callees:
+ *     <none>
+ */
+
 int __cdecl setjmp(jmp_buf Buf)
 {
   unsigned __int64 v1; // rdx

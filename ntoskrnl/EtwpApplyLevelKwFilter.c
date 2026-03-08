@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpApplyLevelKwFilter @ 0x1404626B2
+ * Callers:
+ *     EtwpEventWriteFull @ 0x1402319C0 (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x1406AA640 (EtwpWriteUserEvent.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpApplyLevelKwFilterInner @ 0x140601E70 (EtwpApplyLevelKwFilterInner.c)
+ */
+
 char __fastcall EtwpApplyLevelKwFilter(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, char a5)
 {
   char v5; // r10

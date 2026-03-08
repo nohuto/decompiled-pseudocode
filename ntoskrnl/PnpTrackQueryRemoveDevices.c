@@ -1,3 +1,14 @@
+/*
+ * XREFs of PnpTrackQueryRemoveDevices @ 0x140961AFC
+ * Callers:
+ *     PnpProcessQueryRemoveAndEject @ 0x1408625F0 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessCompletedEject @ 0x140956080 (PnpProcessCompletedEject.c)
+ * Callees:
+ *     PipSetDevNodeUserFlags @ 0x140680EF0 (PipSetDevNodeUserFlags.c)
+ *     PipClearDevNodeUserFlags @ 0x1406831A8 (PipClearDevNodeUserFlags.c)
+ *     IopEnumerateRelations @ 0x140863508 (IopEnumerateRelations.c)
+ */
+
 bool __fastcall PnpTrackQueryRemoveDevices(unsigned int **a1, char a2)
 {
   bool result; // al

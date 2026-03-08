@@ -1,3 +1,11 @@
+/*
+ * XREFs of PruneMode @ 0x1C0190C2C
+ * Callers:
+ *     PruneModesByDisplayDeviceCaps @ 0x1C0190E0C (PruneModesByDisplayDeviceCaps.c)
+ * Callees:
+ *     compModeCap @ 0x1C0192134 (compModeCap.c)
+ */
+
 __int64 __fastcall PruneMode(_DWORD *a1, __int64 a2, int a3, unsigned int *a4, int a5)
 {
   unsigned int v5; // ebp

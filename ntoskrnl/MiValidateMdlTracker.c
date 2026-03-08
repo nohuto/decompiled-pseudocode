@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiValidateMdlTracker @ 0x14061ABD8
+ * Callers:
+ *     MiFreeMdlTracker @ 0x14061A3EC (MiFreeMdlTracker.c)
+ *     MmUpdateMdlTrackerForMdlSwitch @ 0x14061AFA8 (MmUpdateMdlTrackerForMdlSwitch.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x1406797B0 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
+ */
+
 __int64 __fastcall MiValidateMdlTracker(ULONG_PTR BugCheckParameter3, int a2)
 {
   ULONG_PTR v2; // rsi

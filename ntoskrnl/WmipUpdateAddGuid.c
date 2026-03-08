@@ -1,3 +1,14 @@
+/*
+ * XREFs of WmipUpdateAddGuid @ 0x1409DED7C
+ * Callers:
+ *     WmipUpdateModifyGuid @ 0x1407FB638 (WmipUpdateModifyGuid.c)
+ * Callees:
+ *     WmipUnreferenceEntry @ 0x14069C9D0 (WmipUnreferenceEntry.c)
+ *     WmipBuildInstanceSet @ 0x140867C6C (WmipBuildInstanceSet.c)
+ *     WmipLinkDataSourceToList @ 0x1408681AC (WmipLinkDataSourceToList.c)
+ *     WmipAllocEntry @ 0x140868798 (WmipAllocEntry.c)
+ */
+
 __int64 __fastcall WmipUpdateAddGuid(__int64 a1, _DWORD *a2, __int64 a3, unsigned int a4, volatile signed __int64 **a5)
 {
   _QWORD *v9; // rax

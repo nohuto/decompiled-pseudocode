@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?NotifyInvalidResource@CCompSwapChain@@UEAAXPEBVIDeviceResource@@@Z @ 0x18029B200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x1800CE01C (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800FF6C0 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?ResetBackBuffer@CCompSwapChain@@IEAAJXZ @ 0x18029B6B4 (-ResetBackBuffer@CCompSwapChain@@IEAAJXZ.c)
+ */
+
 void __fastcall CCompSwapChain::NotifyInvalidResource(CCompSwapChain *this, const struct IDeviceResource *a2)
 {
   __int64 v3; // rcx

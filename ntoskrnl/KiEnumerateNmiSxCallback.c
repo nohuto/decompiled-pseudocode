@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiEnumerateNmiSxCallback @ 0x1403D0194
+ * Callers:
+ *     KiEnumerateCallback @ 0x1403D0130 (KiEnumerateCallback.c)
+ *     KeIsNmiCallbackRegisteredForDriver @ 0x14056A100 (KeIsNmiCallbackRegisteredForDriver.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KiEnumerateNmiSxCallback(PVOID **a1, unsigned __int8 *a2, _QWORD *a3)
 {
   unsigned __int8 CurrentIrql; // r8

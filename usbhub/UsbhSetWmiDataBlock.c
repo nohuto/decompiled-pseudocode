@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhSetWmiDataBlock @ 0x1C0049F40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhSetHubSelectiveSuspend @ 0x1C0046D00 (UsbhSetHubSelectiveSuspend.c)
+ *     UsbhSetPdoRegistryParameter @ 0x1C0046D44 (UsbhSetPdoRegistryParameter.c)
+ *     UsbhSshEnableDisable @ 0x1C005939C (UsbhSshEnableDisable.c)
+ */
+
 NTSTATUS __fastcall UsbhSetWmiDataBlock(
         PDEVICE_OBJECT DeviceObject,
         PIRP Irp,

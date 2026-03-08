@@ -1,3 +1,12 @@
+/*
+ * XREFs of DbgkpSuppressDbgMsg @ 0x14093650C
+ * Callers:
+ *     DbgkUnMapViewOfSection @ 0x1406A10EC (DbgkUnMapViewOfSection.c)
+ *     DbgkMapViewOfSection @ 0x1407D2C6C (DbgkMapViewOfSection.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DbgkpSuppressDbgMsg(__int64 a1)
 {
   _KPROCESS *Process; // rcx

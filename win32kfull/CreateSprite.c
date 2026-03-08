@@ -1,3 +1,15 @@
+/*
+ * XREFs of CreateSprite @ 0x1C002891C
+ * Callers:
+ *     xxxSetLayeredWindow @ 0x1C0028C1C (xxxSetLayeredWindow.c)
+ * Callees:
+ *     GreCreateSprite @ 0x1C0028A54 (GreCreateSprite.c)
+ *     IsWindowContentProtected @ 0x1C002E710 (IsWindowContentProtected.c)
+ *     ?InitializeMiniWinInfo@@YAXQEBUtagWND@@PEAUtagMINIWINDOWINFO@@@Z @ 0x1C0043D6C (-InitializeMiniWinInfo@@YAXQEBUtagWND@@PEAUtagMINIWINDOWINFO@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall CreateSprite(HDEV a1, __int64 a2, struct tagRECT *a3, __int64 *a4)
 {
   __int64 v8; // rdx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopCreateIoRingObjectType @ 0x140B71970
+ * Callers:
+ *     IoCreateObjectTypes @ 0x140B3F3D0 (IoCreateObjectTypes.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObCreateObjectType @ 0x14080CB00 (ObCreateObjectType.c)
+ */
+
 __int64 IopCreateIoRingObjectType()
 {
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-39h] BYREF

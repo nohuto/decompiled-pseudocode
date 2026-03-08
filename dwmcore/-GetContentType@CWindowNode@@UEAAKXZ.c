@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetContentType@CWindowNode@@UEAAKXZ @ 0x180253010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetContentType@CVisual@@UEAAKXZ @ 0x1801C0FF0 (-GetContentType@CVisual@@UEAAKXZ.c)
+ */
+
 __int64 __fastcall CWindowNode::GetContentType(CWindowNode *this)
 {
   char v1; // bl

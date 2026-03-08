@@ -1,3 +1,21 @@
+/*
+ * XREFs of HalpAllocateCommonBufferDmarThin @ 0x1405116E8
+ * Callers:
+ *     HalAllocateCommonBufferDmarThinEx @ 0x140511000 (HalAllocateCommonBufferDmarThinEx.c)
+ *     HalAllocateCommonBufferWithBoundsDmarThin @ 0x1405110A0 (HalAllocateCommonBufferWithBoundsDmarThin.c)
+ *     HalAllocateDomainCommonBufferDmarThin @ 0x140511120 (HalAllocateDomainCommonBufferDmarThin.c)
+ * Callees:
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     MmAllocatePagesForMdlEx @ 0x1402B3960 (MmAllocatePagesForMdlEx.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402B39C0 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     MiFreePagesFromMdl @ 0x1402C0DD0 (MiFreePagesFromMdl.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     HalpDmaReferenceDomainObject @ 0x14038D02C (HalpDmaReferenceDomainObject.c)
+ *     HalpAllocateCommonBufferEntry @ 0x14038D0B4 (HalpAllocateCommonBufferEntry.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpDmaDereferenceDomainObject @ 0x140510338 (HalpDmaDereferenceDomainObject.c)
+ */
+
 __int64 __fastcall HalpAllocateCommonBufferDmarThin(
         __int64 *BugCheckParameter3,
         __int64 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtAlpcConnectPortEx @ 0x140710E00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AlpcpConnectPort @ 0x140712F5C (AlpcpConnectPort.c)
+ */
+
 __int64 __fastcall NtAlpcConnectPortEx(
         int a1,
         int a2,

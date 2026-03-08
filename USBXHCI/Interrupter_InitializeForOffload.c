@@ -1,3 +1,15 @@
+/*
+ * XREFs of Interrupter_InitializeForOffload @ 0x1C003E028
+ * Callers:
+ *     Controller_IncrementNumberOfEndpointsOffloaded @ 0x1C0033878 (Controller_IncrementNumberOfEndpointsOffloaded.c)
+ * Callees:
+ *     Interrupter_UpdateERDP @ 0x1C0014AA0 (Interrupter_UpdateERDP.c)
+ *     XilRegister_WriteUlong64 @ 0x1C0014C68 (XilRegister_WriteUlong64.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 __int64 __fastcall Interrupter_InitializeForOffload(__int64 a1)
 {
   __int64 v2; // rbx

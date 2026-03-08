@@ -1,3 +1,16 @@
+/*
+ * XREFs of DrvProcessDxgkDisplayCallout @ 0x1C0194740
+ * Callers:
+ *     VideoPortCalloutThread @ 0x1C00D93A8 (VideoPortCalloutThread.c)
+ * Callees:
+ *     DrvQueryMDEVPowerState @ 0x1C0011490 (DrvQueryMDEVPowerState.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     ?DrvProcessSetDisplayConfigParameters@@YAJAEAU_D3DKMT_DISPLAY_CALLOUT_BATCH_ACTION@@IPEAUtagDESKTOP@@PEAEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C018E59C (-DrvProcessSetDisplayConfigParameters@@YAJAEAU_D3DKMT_DISPLAY_CALLOUT_BATCH_ACTION@@IPEAUtagDESK.c)
+ *     ?DrvUpdateDpiInfoOnOptimizedModeChange@@YAJPEAU_MDEV@@PEAE@Z @ 0x1C018F3A4 (-DrvUpdateDpiInfoOnOptimizedModeChange@@YAJPEAU_MDEV@@PEAE@Z.c)
+ */
+
 __int64 __fastcall DrvProcessDxgkDisplayCallout(
         struct _MDEV *a1,
         __int64 a2,

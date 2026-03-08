@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CKernelTransport@@UEAA@XZ @ 0x1801CE438
+ * Callers:
+ *     ??_ECKernelTransport@@UEAAPEAXI@Z @ 0x1801CE4A0 (--_ECKernelTransport@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CKernelTransport::~CKernelTransport(CKernelTransport *this)
 {
   void *v2; // rcx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiCheckFreeModifiedReservations @ 0x1406368F0
+ * Callers:
+ *     MiModifiedPageWriter @ 0x1403AD2B0 (MiModifiedPageWriter.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     MiInitializePagefileBitmapsCache @ 0x1403926D0 (MiInitializePagefileBitmapsCache.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFreeModifiedReservations @ 0x140637B1C (MiFreeModifiedReservations.c)
+ */
+
 __int64 __fastcall MiCheckFreeModifiedReservations(__int64 a1)
 {
   unsigned __int64 v1; // r9

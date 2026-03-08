@@ -1,3 +1,19 @@
+/*
+ * XREFs of KeRemoveSchedulingGroup @ 0x1402F1480
+ * Callers:
+ *     PspEstablishJobHierarchy @ 0x1407001E0 (PspEstablishJobHierarchy.c)
+ *     PspRemoveCpuRateControl @ 0x140783260 (PspRemoveCpuRateControl.c)
+ *     PspEstablishDfssHierarchy @ 0x1409AF340 (PspEstablishDfssHierarchy.c)
+ *     MiSessionObjectDelete @ 0x140A2F890 (MiSessionObjectDelete.c)
+ * Callees:
+ *     KiAssignSchedulingGroupWeights @ 0x1402F1A84 (KiAssignSchedulingGroupWeights.c)
+ *     KiUpdateMinimumWeight @ 0x1402F1B38 (KiUpdateMinimumWeight.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeRemoveSchedulingGroup(unsigned __int16 *a1)
 {
   __int64 v2; // rdx

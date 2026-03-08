@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?StubDispEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C00A3CE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     bDeleteSurface @ 0x1C0029640 (bDeleteSurface.c)
+ *     EngCreateDeviceSurface @ 0x1C00A3D40 (EngCreateDeviceSurface.c)
+ *     EngAssociateSurface @ 0x1C00A3DA0 (EngAssociateSurface.c)
+ */
+
 __int64 __fastcall StubDispEnableSurface(struct DHPDEV__ *a1)
 {
   HSURF DeviceSurface; // rax

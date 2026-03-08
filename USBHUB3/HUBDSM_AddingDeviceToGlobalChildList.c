@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBDSM_AddingDeviceToGlobalChildList @ 0x1C0023150
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     HUBMISC_LogDescriptorValidationErrorForDevice @ 0x1C0033F70 (HUBMISC_LogDescriptorValidationErrorForDevice.c)
+ *     HUBMISC_TypeCCompanionHasIdenticalDeviceAttached @ 0x1C0034144 (HUBMISC_TypeCCompanionHasIdenticalDeviceAttached.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBCONNECTOR_GetConnectorMapNodeForPort @ 0x1C0082C14 (HUBCONNECTOR_GetConnectorMapNodeForPort.c)
+ */
+
 __int64 __fastcall HUBDSM_AddingDeviceToGlobalChildList(__int64 a1)
 {
   __int64 v1; // rdi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PnpCopyDevProperty @ 0x140807610
+ * Callers:
+ *     PnpCopyDevPropertyArray @ 0x140807540 (PnpCopyDevPropertyArray.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PnpFreeDevProperty @ 0x1406CC4E0 (PnpFreeDevProperty.c)
+ *     PnpAllocatePWSTR @ 0x1406CD7F4 (PnpAllocatePWSTR.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PnpCopyDevProperty(__int64 a1, __int64 a2, __int64 a3)
 {
   int PWSTR; // edi

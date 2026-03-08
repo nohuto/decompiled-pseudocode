@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpApicTimerDiscover @ 0x14037614C
+ * Callers:
+ *     HalpTimerRegisterBuiltinPlugins @ 0x1403A08F8 (HalpTimerRegisterBuiltinPlugins.c)
+ * Callees:
+ *     HalSocRequestApi @ 0x1403737EC (HalSocRequestApi.c)
+ *     HalpTimerRegister @ 0x140373EB4 (HalpTimerRegister.c)
+ *     HalSocGetAcpiTable @ 0x14037601C (HalSocGetAcpiTable.c)
+ *     HalpApicTimerIsInvariant @ 0x1403AE858 (HalpApicTimerIsInvariant.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 HalpApicTimerDiscover()
 {
   __int64 v0; // rcx

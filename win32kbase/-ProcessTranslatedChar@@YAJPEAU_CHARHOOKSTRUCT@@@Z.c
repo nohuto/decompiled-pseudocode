@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ProcessTranslatedChar@@YAJPEAU_CHARHOOKSTRUCT@@@Z @ 0x1C0155770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Feature_WebThreatDefenseToggle__private_IsEnabledDeviceUsage @ 0x1C00DC8F8 (Feature_WebThreatDefenseToggle__private_IsEnabledDeviceUsage.c)
+ *     Feature_ClipboardCredentialMonitor__private_IsEnabledDeviceUsage @ 0x1C00DCA34 (Feature_ClipboardCredentialMonitor__private_IsEnabledDeviceUsage.c)
+ *     ImInspectChar @ 0x1C02746E0 (ImInspectChar.c)
+ */
+
 __int64 __fastcall ProcessTranslatedChar(struct _CHARHOOKSTRUCT *a1)
 {
   __int16 v2; // r8

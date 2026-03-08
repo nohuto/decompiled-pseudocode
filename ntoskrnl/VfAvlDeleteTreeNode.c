@@ -1,3 +1,23 @@
+/*
+ * XREFs of VfAvlDeleteTreeNode @ 0x140303394
+ * Callers:
+ *     VfTargetDriversRemove @ 0x140303260 (VfTargetDriversRemove.c)
+ *     ViDevObjRemove @ 0x140ACF4C0 (ViDevObjRemove.c)
+ *     ViRemLockDeleteFirstTreeNode @ 0x140ACF8CC (ViRemLockDeleteFirstTreeNode.c)
+ *     VfLookasideAdd @ 0x140ADF240 (VfLookasideAdd.c)
+ *     VfLookasideDelete @ 0x140ADF35C (VfLookasideDelete.c)
+ *     VfCheckForResource @ 0x140AE138C (VfCheckForResource.c)
+ *     VfDeleteResource @ 0x140AE14D0 (VfDeleteResource.c)
+ *     VfTrackResource @ 0x140AE15E4 (VfTrackResource.c)
+ * Callees:
+ *     RtlDeleteElementGenericTableAvl @ 0x140244F40 (RtlDeleteElementGenericTableAvl.c)
+ *     ViAvlNodeInitializeSessionId @ 0x14030399C (ViAvlNodeInitializeSessionId.c)
+ *     ViAvlTableIndex @ 0x140303AE4 (ViAvlTableIndex.c)
+ *     ViAvlReleaseTableLockFromDpcLevel @ 0x140303B00 (ViAvlReleaseTableLockFromDpcLevel.c)
+ *     ViAvlRaiseIrqlSafe @ 0x140303B34 (ViAvlRaiseIrqlSafe.c)
+ *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x140303B6C (ViAvlAcquireTableLockAtDpcLevelSafe.c)
+ */
+
 __int64 __fastcall VfAvlDeleteTreeNode(__int64 *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v6; // rbx

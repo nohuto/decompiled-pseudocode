@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Grow@?$CDynamicArray@PEAUtagWND@@$0HHHAHDFF@@@IEAAJI@Z @ 0x1C022F9B8
+ * Callers:
+ *     ?Add@?$CDynamicArray@PEAUtagWND@@$0HHHAHDFF@@@QEAAJAEBQEAUtagWND@@@Z @ 0x1C022F7FC (-Add@-$CDynamicArray@PEAUtagWND@@$0HHHAHDFF@@@QEAAJAEBQEAUtagWND@@@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall CDynamicArray<tagWND *,2003858261>::Grow(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v5; // esi

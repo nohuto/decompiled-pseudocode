@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopInitializeSystemIdleDetection @ 0x140B717E4
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     KeSetCoalescableTimer @ 0x140250440 (KeSetCoalescableTimer.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopPulseSystemIdleEvent @ 0x14073ADD8 (PopPulseSystemIdleEvent.c)
+ */
+
 void PopInitializeSystemIdleDetection()
 {
   PopAcquireRwLockExclusive((ULONG_PTR)&PopSystemIdleLock);

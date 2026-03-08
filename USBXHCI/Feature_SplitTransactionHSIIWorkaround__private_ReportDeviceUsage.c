@@ -1,3 +1,12 @@
+/*
+ * XREFs of Feature_SplitTransactionHSIIWorkaround__private_ReportDeviceUsage @ 0x1C001EE54
+ * Callers:
+ *     Endpoint_IsCandidateForSplitTransactionHSIIWorkaround @ 0x1C001EDF8 (Endpoint_IsCandidateForSplitTransactionHSIIWorkaround.c)
+ * Callees:
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C001F210 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C001F488 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ */
+
 __int64 Feature_SplitTransactionHSIIWorkaround__private_ReportDeviceUsage()
 {
   __int64 result; // rax

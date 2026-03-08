@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?MNDrawInsertionBar@@YAXPEAUHDC__@@PEAUtagITEM@@@Z @ 0x1C023656C
+ * Callers:
+ *     xxxDrawMenuItem @ 0x1C0237914 (xxxDrawMenuItem.c)
+ *     xxxMenuDraw @ 0x1C0238E5C (xxxMenuDraw.c)
+ * Callees:
+ *     GrePolyPatBlt @ 0x1C0088258 (GrePolyPatBlt.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall MNDrawInsertionBar(HDC a1, struct tagITEM *a2)
 {
   _DWORD *v2; // r9

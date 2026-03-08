@@ -1,3 +1,12 @@
+/*
+ * XREFs of _ungetwc_nolock @ 0x1403DD704
+ * Callers:
+ *     ReadString_0 @ 0x1403DC78C (ReadString_0.c)
+ *     _winput_s @ 0x1403DCC54 (_winput_s.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ */
+
 wint_t __cdecl ungetwc_nolock(wint_t Ch, FILE *File)
 {
   int flag; // r9d

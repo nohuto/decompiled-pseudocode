@@ -1,3 +1,12 @@
+/*
+ * XREFs of DwmAsyncNotifyIsInMoveSizeChange @ 0x1C026FC5C
+ * Callers:
+ *     ?xxxMoveSize@@YAXPEAUtagWND@@IK@Z @ 0x1C01F0DC4 (-xxxMoveSize@@YAXPEAUtagWND@@IK@Z.c)
+ *     EditionTouchResizeAction @ 0x1C01F33B0 (EditionTouchResizeAction.c)
+ * Callees:
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall DwmAsyncNotifyIsInMoveSizeChange(PVOID Object, __int64 a2, int a3, int a4, int a5)
 {
   unsigned int v9; // ebx

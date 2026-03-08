@@ -1,3 +1,18 @@
+/*
+ * XREFs of InitOnceScanIndexes @ 0x1407A16B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbReadDWORDTag @ 0x14079FC18 (SdbReadDWORDTag.c)
+ *     SdbFindNextTag @ 0x1407A0218 (SdbFindNextTag.c)
+ *     SdbReadWORDTag @ 0x1407A029C (SdbReadWORDTag.c)
+ *     SdbGetFirstChild @ 0x1407A2738 (SdbGetFirstChild.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ *     SdbGetTagFromTagID @ 0x1407A2A70 (SdbGetTagFromTagID.c)
+ */
+
 __int64 __fastcall InitOnceScanIndexes(PRTL_RUN_ONCE RunOnce, _DWORD *Parameter, PVOID *Context)
 {
   unsigned int v3; // esi

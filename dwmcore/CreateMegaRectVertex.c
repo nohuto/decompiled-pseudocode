@@ -1,3 +1,11 @@
+/*
+ * XREFs of CreateMegaRectVertex @ 0x180041DF0
+ * Callers:
+ *     ?UpdatePrimitive@CMegaRect@@QEAAJAEAUUpdatePrimitiveWorkingBuffers@1@@Z @ 0x180041868 (-UpdatePrimitive@CMegaRect@@QEAAJAEAUUpdatePrimitiveWorkingBuffers@1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CreateMegaRectVertex(__int64 a1, __int64 *a2, unsigned int a3, __int64 a4, __int64 a5)
 {
   __int64 v5; // r10

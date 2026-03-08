@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0qqqq_EtwWriteTransfer @ 0x1C0052358
+ * Callers:
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0022498 (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0qqqq_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

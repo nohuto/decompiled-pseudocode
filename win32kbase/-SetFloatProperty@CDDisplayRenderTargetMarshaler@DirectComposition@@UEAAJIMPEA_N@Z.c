@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetFloatProperty@CDDisplayRenderTargetMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C02666A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CDDisplayRenderTargetMarshaler::SetFloatProperty(
         DirectComposition::CDDisplayRenderTargetMarshaler *this,
         int a2,

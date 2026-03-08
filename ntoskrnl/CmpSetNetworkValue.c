@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpSetNetworkValue @ 0x140B95094
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ */
+
 __int64 __fastcall CmpSetNetworkValue(__int64 a1)
 {
   NTSTATUS v2; // ebx

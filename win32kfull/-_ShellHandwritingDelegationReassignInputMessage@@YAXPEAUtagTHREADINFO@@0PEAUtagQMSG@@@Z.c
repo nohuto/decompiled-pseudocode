@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?_ShellHandwritingDelegationReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01B7674
+ * Callers:
+ *     ?_HandleShellHandwritingDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z @ 0x1C01B7500 (-_HandleShellHandwritingDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z.c)
+ * Callees:
+ *     IsPointerInputMessage @ 0x1C0038580 (IsPointerInputMessage.c)
+ *     ?WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z @ 0x1C00388C0 (-WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z.c)
+ *     DelQEntry @ 0x1C0038CDC (DelQEntry.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003E858 (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qiqdd @ 0x1C0072420 (WPP_RECORDER_AND_TRACE_SF_qiqdd.c)
+ *     ?FindMsgInsertionPoint@@YAPEAUtagQMSG@@QEAUtagQ@@QEAU1@@Z @ 0x1C014331C (-FindMsgInsertionPoint@@YAPEAUtagQMSG@@QEAUtagQ@@QEAU1@@Z.c)
+ *     DelegateCoalescePointerMessage @ 0x1C01466D2 (DelegateCoalescePointerMessage.c)
+ *     ?ShellHandwritingDelegationReassignMessage@DManip@InputTraceLogging@@SAXPEBUtagQMSG@@@Z @ 0x1C01B6D20 (-ShellHandwritingDelegationReassignMessage@DManip@InputTraceLogging@@SAXPEBUtagQMSG@@@Z.c)
+ *     DelegateChainingResetAndCoalescePointerMessage @ 0x1C01C7A18 (DelegateChainingResetAndCoalescePointerMessage.c)
+ */
+
 void __fastcall _ShellHandwritingDelegationReassignInputMessage(
         struct tagTHREADINFO *a1,
         struct tagTHREADINFO *a2,

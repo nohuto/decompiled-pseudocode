@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ResetInputThreadMmcss@CGlobalInputManager@@UEAAJXZ @ 0x1800C8360
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ResetInputThreadMmcss@CInputManager@@UEAAJXZ @ 0x1800C83B0 (-ResetInputThreadMmcss@CInputManager@@UEAAJXZ.c)
+ *     ?TriggerMmcss@CKst@@QEAAJXZ @ 0x1800C83F4 (-TriggerMmcss@CKst@@QEAAJXZ.c)
+ */
+
 __int64 __fastcall CGlobalInputManager::ResetInputThreadMmcss(CKst **this)
 {
   int v2; // eax

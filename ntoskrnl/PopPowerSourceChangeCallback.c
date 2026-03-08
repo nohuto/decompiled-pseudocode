@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopPowerSourceChangeCallback @ 0x140380CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     TtmIsEnabled @ 0x14073C8BC (TtmIsEnabled.c)
+ *     PopGetSessionId @ 0x14081016C (PopGetSessionId.c)
+ *     PopBroadcastSessionInfo @ 0x1408294F4 (PopBroadcastSessionInfo.c)
+ *     PopPowerAggregatorForceSessionSwitch @ 0x140990844 (PopPowerAggregatorForceSessionSwitch.c)
+ *     TtmNotifySessionDisplayBurst @ 0x1409A1344 (TtmNotifySessionDisplayBurst.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopPowerSourceChangeCallback(__int64 *a1, int *a2, int a3)
 {
   __int64 v3; // rax

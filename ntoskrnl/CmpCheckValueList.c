@@ -1,3 +1,25 @@
+/*
+ * XREFs of CmpCheckValueList @ 0x1407B2930
+ * Callers:
+ *     CmpCheckKey @ 0x1407B4B80 (CmpCheckKey.c)
+ * Callees:
+ *     SetFailureLocation @ 0x140243E5C (SetFailureLocation.c)
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     CmpCompareCompressedName @ 0x140775138 (CmpCompareCompressedName.c)
+ *     CmpCompareUnicodeString @ 0x14077B3C0 (CmpCompareUnicodeString.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvIsCellAllocated @ 0x1407B0B10 (HvIsCellAllocated.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpMarkCellDirty @ 0x1407D2460 (HvpMarkCellDirty.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     HvpGetBinContextInitialize @ 0x140AF2644 (HvpGetBinContextInitialize.c)
+ *     HvpMapEntryGetBinAddress @ 0x140AF2654 (HvpMapEntryGetBinAddress.c)
+ *     HvpGetCellMap @ 0x140AF2670 (HvpGetCellMap.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x140AF26CC (HvpMapEntryReleaseBinAddress.c)
+ */
+
 __int64 __fastcall CmpCheckValueList(
         ULONG_PTR BugCheckParameter3,
         char a2,

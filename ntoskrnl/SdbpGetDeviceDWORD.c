@@ -1,3 +1,12 @@
+/*
+ * XREFs of SdbpGetDeviceDWORD @ 0x140A4E1B8
+ * Callers:
+ *     SdbpMatchDeviceDWORD @ 0x140A4E964 (SdbpMatchDeviceDWORD.c)
+ * Callees:
+ *     SdbReadDWORDTag @ 0x14079FC18 (SdbReadDWORDTag.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ */
+
 __int64 __fastcall SdbpGetDeviceDWORD(__int64 a1, __int64 a2, unsigned __int16 a3)
 {
   unsigned int v3; // edi

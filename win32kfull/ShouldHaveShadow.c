@@ -1,3 +1,12 @@
+/*
+ * XREFs of ShouldHaveShadow @ 0x1C00E512C
+ * Callers:
+ *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C0068640 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
+ * Callees:
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ */
+
 __int64 __fastcall ShouldHaveShadow(_QWORD *a1)
 {
   unsigned int v2; // ebx

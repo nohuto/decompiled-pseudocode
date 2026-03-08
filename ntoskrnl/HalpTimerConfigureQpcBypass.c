@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpTimerConfigureQpcBypass @ 0x1403ADC54
+ * Callers:
+ *     HalpTimerInitSystem @ 0x1403776D0 (HalpTimerInitSystem.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlSetSystemGlobalData @ 0x1402EF650 (RtlSetSystemGlobalData.c)
+ *     HalpFindTimer @ 0x140377CA8 (HalpFindTimer.c)
+ *     HalpGetCpuInfo @ 0x14037D1F0 (HalpGetCpuInfo.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     NtQuerySystemInformation @ 0x1406AC1E0 (NtQuerySystemInformation.c)
+ */
+
 __int64 HalpTimerConfigureQpcBypass()
 {
   char v0; // bl

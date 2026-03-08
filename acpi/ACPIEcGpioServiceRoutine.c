@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIEcGpioServiceRoutine @ 0x1C0024EE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIEcMaskInterrupt @ 0x1C0002CB0 (ACPIEcMaskInterrupt.c)
+ */
+
 char __fastcall ACPIEcGpioServiceRoutine(__int64 a1, __int64 a2)
 {
   if ( (*(_BYTE *)(a2 + 882) & 1) == 0 )

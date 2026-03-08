@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SetImeHotKey@@YAHKIIPEAUHKL__@@K@Z @ 0x1C00D8704
+ * Callers:
+ *     NtUserSetImeHotKey @ 0x1C00D8690 (NtUserSetImeHotKey.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?FindImeHotKeyByID@@YAPEAU_tagIMEHOTKEYOBJ@@PEBU1@K@Z @ 0x1C00D8894 (-FindImeHotKeyByID@@YAPEAU_tagIMEHOTKEYOBJ@@PEBU1@K@Z.c)
+ *     ?FindImeHotKeyByKeyWithLang@@YAPEAU_tagIMEHOTKEYOBJ@@PEAU1@IIIG@Z @ 0x1C00D88B4 (-FindImeHotKeyByKeyWithLang@@YAPEAU_tagIMEHOTKEYOBJ@@PEAU1@IIIG@Z.c)
+ *     ?GetHotKeyLangID@@YAGK@Z @ 0x1C00D8934 (-GetHotKeyLangID@@YAGK@Z.c)
+ */
+
 __int64 __fastcall SetImeHotKey(__int64 a1, int a2, unsigned int a3, HKL a4, unsigned int a5)
 {
   unsigned int v8; // edi

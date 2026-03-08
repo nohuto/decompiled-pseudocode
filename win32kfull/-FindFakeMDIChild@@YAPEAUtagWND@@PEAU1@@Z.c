@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FindFakeMDIChild@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C02249C4
+ * Callers:
+ *     ?FindFakeMDIChild@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C02249C4 (-FindFakeMDIChild@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     ?SetupFakeMDIAppStuff@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0224A84 (-SetupFakeMDIAppStuff@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ * Callees:
+ *     ?FindFakeMDIChild@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C02249C4 (-FindFakeMDIChild@@YAPEAUtagWND@@PEAU1@@Z.c)
+ */
+
 struct tagWND *__fastcall FindFakeMDIChild(struct tagWND *a1)
 {
   char v1; // dl

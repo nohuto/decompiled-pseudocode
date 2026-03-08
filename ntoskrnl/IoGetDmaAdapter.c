@@ -1,3 +1,19 @@
+/*
+ * XREFs of IoGetDmaAdapter @ 0x140821B20
+ * Callers:
+ *     DifIoGetDmaAdapterWrapper @ 0x1405DD570 (DifIoGetDmaAdapterWrapper.c)
+ *     VfGetDmaAdapter @ 0x140AC3560 (VfGetDmaAdapter.c)
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IoGetDeviceProperty @ 0x1406C5B00 (IoGetDeviceProperty.c)
+ *     PiGetDmaAdapterFromBusInterface @ 0x140821C18 (PiGetDmaAdapterFromBusInterface.c)
+ */
+
 struct _DMA_ADAPTER *__stdcall IoGetDmaAdapter(
         PDEVICE_OBJECT PhysicalDeviceObject,
         struct _DEVICE_DESCRIPTION *DeviceDescription,

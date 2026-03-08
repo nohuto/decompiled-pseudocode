@@ -1,3 +1,35 @@
+/*
+ * XREFs of MiMakeZeroedPageTablesEx @ 0x14020F130
+ * Callers:
+ *     MiExpandPtes @ 0x140210210 (MiExpandPtes.c)
+ *     MiExpandSystemCache @ 0x1402E9B28 (MiExpandSystemCache.c)
+ *     KasanTrackAddress @ 0x1402EA400 (KasanTrackAddress.c)
+ *     KasanDriverLoadImage @ 0x1402F4670 (KasanDriverLoadImage.c)
+ *     MiCommitPoolMemory @ 0x14032FC90 (MiCommitPoolMemory.c)
+ *     MiMakeZeroedPageTables @ 0x14036C240 (MiMakeZeroedPageTables.c)
+ *     MiGetPageTablesForLargeMap @ 0x14038A5B8 (MiGetPageTablesForLargeMap.c)
+ *     MiMapNewPfns @ 0x140A29C20 (MiMapNewPfns.c)
+ *     MiCreateTopLevelUltraMappings @ 0x140B38844 (MiCreateTopLevelUltraMappings.c)
+ *     MiInitializeDriverImages @ 0x140B3B090 (MiInitializeDriverImages.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiDeleteSystemPageTables @ 0x14020F540 (MiDeleteSystemPageTables.c)
+ *     MiCleanupPageTablePages @ 0x14020FD04 (MiCleanupPageTablePages.c)
+ *     MiInitializeColorBase @ 0x14020FE2C (MiInitializeColorBase.c)
+ *     MiWalkPageTables @ 0x140222CF0 (MiWalkPageTables.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiAsyncSlabReplenish @ 0x1402DF31C (MiAsyncSlabReplenish.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     MiInitializeLargePfnList @ 0x14035059C (MiInitializeLargePfnList.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiFastReplenishWithAsync @ 0x1406542D8 (MiFastReplenishWithAsync.c)
+ *     MiSetLeafFillToUninitializedWsle @ 0x14065F8B8 (MiSetLeafFillToUninitializedWsle.c)
+ *     MiGetLargePagesForSystemMapping @ 0x140A2F604 (MiGetLargePagesForSystemMapping.c)
+ */
+
 __int64 __fastcall MiMakeZeroedPageTablesEx(__int64 a1, __int64 a2, int a3, int a4, unsigned int a5)
 {
   int v9; // eax

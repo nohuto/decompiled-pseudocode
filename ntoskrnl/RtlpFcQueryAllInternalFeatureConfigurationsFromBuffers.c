@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpFcQueryAllInternalFeatureConfigurationsFromBuffers @ 0x14040C200
+ * Callers:
+ *     RtlQueryAllInternalFeatureConfigurations @ 0x14040BAE0 (RtlQueryAllInternalFeatureConfigurations.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall RtlpFcQueryAllInternalFeatureConfigurationsFromBuffers(__int64 a1, void *a2, unsigned __int64 *a3)
 {
   unsigned int v4; // ebx

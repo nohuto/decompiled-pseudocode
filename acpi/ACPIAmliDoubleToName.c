@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIAmliDoubleToName @ 0x1C000B48C
+ * Callers:
+ *     ACPIGetConvertToHardwareIDWide @ 0x1C002A12C (ACPIGetConvertToHardwareIDWide.c)
+ * Callees:
+ *     RtlStringCchPrintfA @ 0x1C000B5D8 (RtlStringCchPrintfA.c)
+ */
+
 NTSTATUS __fastcall ACPIAmliDoubleToName(_BYTE *a1, unsigned int a2)
 {
   *a1 = ((a2 >> 2) & 0x1F) + 64;

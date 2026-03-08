@@ -1,3 +1,11 @@
+/*
+ * XREFs of nullsub_8 @ 0x14003AD00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall nullsub_8(
         __int64 a1,
         __int64 a2,

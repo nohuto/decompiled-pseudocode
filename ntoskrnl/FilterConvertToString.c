@@ -1,3 +1,11 @@
+/*
+ * XREFs of FilterConvertToString @ 0x140A6C0C8
+ * Callers:
+ *     PiDqIrpQueryCreate @ 0x140745F08 (PiDqIrpQueryCreate.c)
+ * Callees:
+ *     ExpressionConvertToString @ 0x140A6BCC8 (ExpressionConvertToString.c)
+ */
+
 __int64 __fastcall FilterConvertToString(unsigned int a1, __int64 a2, unsigned int a3, wchar_t *a4, unsigned int *a5)
 {
   wchar_t *v5; // r14

@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserIsNonClientDpiScalingEnabled @ 0x1C004C410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall NtUserIsNonClientDpiScalingEnabled(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rax

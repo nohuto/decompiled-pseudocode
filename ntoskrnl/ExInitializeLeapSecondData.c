@@ -1,3 +1,21 @@
+/*
+ * XREFs of ExInitializeLeapSecondData @ 0x140850BB0
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     MiRemoveFromSystemSpace @ 0x14020E5C8 (MiRemoveFromSystemSpace.c)
+ *     MmProbeAndLockPages @ 0x140267B90 (MmProbeAndLockPages.c)
+ *     MmSizeOfMdl @ 0x1402CFFB0 (MmSizeOfMdl.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateSection @ 0x140412C50 (ZwCreateSection.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiMapViewInSystemSpace @ 0x1406A55B8 (MiMapViewInSystemSpace.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExpReadLeapSecondData @ 0x140850DB4 (ExpReadLeapSecondData.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 ExInitializeLeapSecondData()
 {
   int v0; // edi

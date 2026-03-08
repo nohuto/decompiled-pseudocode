@@ -1,3 +1,19 @@
+/*
+ * XREFs of zzzEnableDwmPointerSupport @ 0x1C007F1FC
+ * Callers:
+ *     xxxSwitchDesktop @ 0x1C00205D4 (xxxSwitchDesktop.c)
+ *     SetPointerMetaVisibility @ 0x1C007B75C (SetPointerMetaVisibility.c)
+ *     zzzDecomposeDesktop @ 0x1C007CC0C (zzzDecomposeDesktop.c)
+ *     zzzDwmStartRedirection @ 0x1C007CEC8 (zzzDwmStartRedirection.c)
+ *     zzzComposeDesktop @ 0x1C007D394 (zzzComposeDesktop.c)
+ * Callees:
+ *     ?zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z @ 0x1C001DD64 (-zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z.c)
+ *     SetPointer @ 0x1C00219A0 (SetPointer.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C002EF28 (zzzEndDeferWinEventNotify.c)
+ *     GreDwmHasSoftwareCursor @ 0x1C007F36C (GreDwmHasSoftwareCursor.c)
+ *     GreDwmEnableSoftwareCursorRendering @ 0x1C007F458 (GreDwmEnableSoftwareCursorRendering.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall zzzEnableDwmPointerSupport(unsigned int a1, int a2)
 {

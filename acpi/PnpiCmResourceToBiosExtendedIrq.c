@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpiCmResourceToBiosExtendedIrq @ 0x1C00931F4
+ * Callers:
+ *     PnpCmResourcesToBiosResources @ 0x1C0092820 (PnpCmResourcesToBiosResources.c)
+ * Callees:
+ *     ACPIInternalInterruptPolarityCacheGetPolarity @ 0x1C002E8C4 (ACPIInternalInterruptPolarityCacheGetPolarity.c)
+ */
+
 __int64 __fastcall PnpiCmResourceToBiosExtendedIrq(__int64 a1, __int64 a2, __int64 a3)
 {
   int v3; // ebx

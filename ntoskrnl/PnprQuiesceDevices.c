@@ -1,3 +1,17 @@
+/*
+ * XREFs of PnprQuiesceDevices @ 0x140A9A284
+ * Callers:
+ *     PnpReplacePartitionUnit @ 0x140961B80 (PnpReplacePartitionUnit.c)
+ *     PnprQuiesceWorker @ 0x140A9ADE0 (PnprQuiesceWorker.c)
+ * Callees:
+ *     PoBlockConsoleSwitch @ 0x14067F698 (PoBlockConsoleSwitch.c)
+ *     PoStartPartitionReplace @ 0x1409866A8 (PoStartPartitionReplace.c)
+ *     PoStartPowerStateTasks @ 0x1409866E4 (PoStartPowerStateTasks.c)
+ *     PoInitializeBroadcast @ 0x140988BE4 (PoInitializeBroadcast.c)
+ *     PnprGetMillisecondCounter @ 0x140A99834 (PnprGetMillisecondCounter.c)
+ *     PoBroadcastSystemState @ 0x140AA38F8 (PoBroadcastSystemState.c)
+ */
+
 __int64 __fastcall PnprQuiesceDevices(__int64 a1)
 {
   int MillisecondCounter; // eax

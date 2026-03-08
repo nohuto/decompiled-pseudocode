@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreCombineTransform @ 0x1C02D2210
+ * Callers:
+ *     NtGdiCombineTransform @ 0x1C02C4800 (NtGdiCombineTransform.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 int __fastcall GreCombineTransform(struct _XFORML *a1, __int64 a2, __int64 a3)
 {
   int result; // eax

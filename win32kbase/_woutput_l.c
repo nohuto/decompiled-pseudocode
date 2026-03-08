@@ -1,3 +1,18 @@
+/*
+ * XREFs of _woutput_l @ 0x1C00DB98C
+ * Callers:
+ *     _vsnwprintf_l @ 0x1C00DAA54 (_vsnwprintf_l.c)
+ * Callees:
+ *     ?MarkInvalid@CIgnoreInputQueue@@EEAAXXZ @ 0x1C006BF40 (-MarkInvalid@CIgnoreInputQueue@@EEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     write_char_0 @ 0x1C00DC2DC (write_char_0.c)
+ *     write_multi_char_0 @ 0x1C00DC330 (write_multi_char_0.c)
+ *     write_string_0 @ 0x1C00DC388 (write_string_0.c)
+ *     _get_printf_count_output @ 0x1C00DC4A4 (_get_printf_count_output.c)
+ *     mbtowc @ 0x1C00DC5DC (mbtowc.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 __fastcall woutput_l(__int64 a1, unsigned __int16 *a2, __int64 a3, unsigned __int16 *a4)
 {
   int v5; // edi

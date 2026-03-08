@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetTreeClientBounds@CRemoteAppRenderTarget@@UEBA_NPEAUMilRectF@@@Z @ 0x1801E7C50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     ?GetTreeBounds@CRemoteAppRenderTarget@@IEBA?AV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@XZ @ 0x1801E7B98 (-GetTreeBounds@CRemoteAppRenderTarget@@IEBA-AV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndS.c)
+ */
+
 bool __fastcall CRemoteAppRenderTarget::GetTreeClientBounds(CRemoteAppRenderTarget *this, struct MilRectF *a2)
 {
   __int128 v3; // xmm0

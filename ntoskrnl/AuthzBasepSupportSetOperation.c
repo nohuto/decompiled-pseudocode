@@ -1,3 +1,11 @@
+/*
+ * XREFs of AuthzBasepSupportSetOperation @ 0x1402DA7DC
+ * Callers:
+ *     AuthzBasepIsValidExpression @ 0x1402DA698 (AuthzBasepIsValidExpression.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall AuthzBasepSupportSetOperation(int a1)
 {
   __int64 v1; // rdx

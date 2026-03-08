@@ -1,3 +1,16 @@
+/*
+ * XREFs of PspInsertSyscallProvider @ 0x1409B1D44
+ * Callers:
+ *     PsRegisterSyscallProvider @ 0x1409B15C0 (PsRegisterSyscallProvider.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PspDereferenceSyscallProvider @ 0x1405A27AC (PspDereferenceSyscallProvider.c)
+ *     PspLookupSyscallProviderByIdNoLock @ 0x1409B1E1C (PspLookupSyscallProviderByIdNoLock.c)
+ */
+
 __int64 __fastcall PspInsertSyscallProvider(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

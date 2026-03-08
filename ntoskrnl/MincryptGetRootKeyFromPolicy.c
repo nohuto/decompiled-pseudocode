@@ -1,3 +1,11 @@
+/*
+ * XREFs of MincryptGetRootKeyFromPolicy @ 0x140A6E0D4
+ * Callers:
+ *     SecureDump_ValidateAmeCertChain @ 0x14055C3D0 (SecureDump_ValidateAmeCertChain.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MincryptGetRootKeyFromPolicy(__int64 a1)
 {
   __int64 v1; // rdx

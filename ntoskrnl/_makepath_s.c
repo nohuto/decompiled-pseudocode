@@ -1,3 +1,11 @@
+/*
+ * XREFs of _makepath_s @ 0x1403D8F30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ */
+
 errno_t __cdecl makepath_s(
         char *PathResult,
         size_t SizeInWords,

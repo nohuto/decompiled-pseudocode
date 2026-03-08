@@ -1,3 +1,21 @@
+/*
+ * XREFs of MmRemovePhysicalMemory @ 0x140A2A520
+ * Callers:
+ *     WheapClearPoison @ 0x140A05870 (WheapClearPoison.c)
+ * Callees:
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     MiFindContiguousPagesEx @ 0x1403B5CF8 (MiFindContiguousPagesEx.c)
+ *     MiFreeContiguousPages @ 0x1403BDABC (MiFreeContiguousPages.c)
+ *     MiReferenceRemovePartition @ 0x140619970 (MiReferenceRemovePartition.c)
+ *     MiRemoveBadPages @ 0x140628020 (MiRemoveBadPages.c)
+ *     MiReturnBadPagesToBadList @ 0x14062878C (MiReturnBadPagesToBadList.c)
+ *     MiAddRangeToPartitionTree @ 0x14065654C (MiAddRangeToPartitionTree.c)
+ *     MiDeletePartitionPageNodes @ 0x140656E28 (MiDeletePartitionPageNodes.c)
+ *     MiInsertPartitionPages @ 0x140657EB8 (MiInsertPartitionPages.c)
+ *     MiRemovePhysicalMemory @ 0x140A29F5C (MiRemovePhysicalMemory.c)
+ *     MiSpecialPurposeMemoryRemoved @ 0x140A44BE4 (MiSpecialPurposeMemoryRemoved.c)
+ */
+
 NTSTATUS __stdcall MmRemovePhysicalMemory(PPHYSICAL_ADDRESS StartAddress, PLARGE_INTEGER NumberOfBytes)
 {
   unsigned __int64 QuadPart; // rsi

@@ -1,3 +1,36 @@
+/*
+ * XREFs of IovpCallDriver1 @ 0x140AC9170
+ * Callers:
+ *     VfBeforeCallDriver @ 0x140ACA5AC (VfBeforeCallDriver.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     MdlInvariantPreProcessing1 @ 0x1405CD258 (MdlInvariantPreProcessing1.c)
+ *     ViErrorReport1 @ 0x1405CDA04 (ViErrorReport1.c)
+ *     IovpAdvanceStackDownwards @ 0x140AC8FE8 (IovpAdvanceStackDownwards.c)
+ *     IovpExamineDevObjForwarding @ 0x140AC9F60 (IovpExamineDevObjForwarding.c)
+ *     IovpExamineIrpStackForwarding @ 0x140ACA004 (IovpExamineIrpStackForwarding.c)
+ *     VfGetPristineDispatchRoutine @ 0x140ACA1FC (VfGetPristineDispatchRoutine.c)
+ *     VfPendingFinishLogging @ 0x140ACE828 (VfPendingFinishLogging.c)
+ *     VfPendingShouldForce @ 0x140ACEA8C (VfPendingShouldForce.c)
+ *     VfPendingStartLogging @ 0x140ACEB98 (VfPendingStartLogging.c)
+ *     VfDevObjMarkDeviceRemoved @ 0x140ACF118 (VfDevObjMarkDeviceRemoved.c)
+ *     IovUtilGetBottomDeviceObjectWithTag @ 0x140ACFA00 (IovUtilGetBottomDeviceObjectWithTag.c)
+ *     IovUtilGetLowerDeviceObjectWithTag @ 0x140ACFA64 (IovUtilGetLowerDeviceObjectWithTag.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x140ACFB14 (IovUtilIsDeviceObjectMarked.c)
+ *     IovUtilIsInFdoStack @ 0x140ACFB68 (IovUtilIsInFdoStack.c)
+ *     VfMajorIsNewRequest @ 0x140ACFFD8 (VfMajorIsNewRequest.c)
+ *     VfMajorVerifyIrpStackDownward @ 0x140AD0250 (VfMajorVerifyIrpStackDownward.c)
+ *     VfMajorVerifyNewIrp @ 0x140AD03E0 (VfMajorVerifyNewIrp.c)
+ *     VfMajorVerifyNewRequest @ 0x140AD0490 (VfMajorVerifyNewRequest.c)
+ *     VfIrpLogRecordEvent @ 0x140AD98FC (VfIrpLogRecordEvent.c)
+ *     VfPacketCreateAndLock @ 0x140ADA00C (VfPacketCreateAndLock.c)
+ *     IovpSessionDataCreate @ 0x140ADAEA8 (IovpSessionDataCreate.c)
+ *     IovpSessionDataReference @ 0x140ADB01C (IovpSessionDataReference.c)
+ *     ViWdBeforeCallDriver @ 0x140ADB1D4 (ViWdBeforeCallDriver.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x140ADE768 (VfIrpDatabaseEntryFindAndLock.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140ADE8EC (VfIrpDatabaseEntryReleaseLock.c)
+ */
+
 int __fastcall IovpCallDriver1(__int64 a1)
 {
   __int64 v1; // rsi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpComputeMergedAcl2 @ 0x1409B9A6C
+ * Callers:
+ *     RtlpComputeMergedAcl @ 0x1409B9944 (RtlpComputeMergedAcl.c)
+ * Callees:
+ *     RtlCreateAcl @ 0x1406DB640 (RtlCreateAcl.c)
+ *     RtlpCopyAces @ 0x1407BBF30 (RtlpCopyAces.c)
+ */
+
 __int64 __fastcall RtlpComputeMergedAcl2(
         _BYTE *a1,
         __int16 a2,

@@ -1,3 +1,23 @@
+/*
+ * XREFs of _ScaleSystemMetricForDPIWithoutCache @ 0x1C01C07C0
+ * Callers:
+ *     GetWindowBordersForDpiWithCompatFlags2 @ 0x1C00448E4 (GetWindowBordersForDpiWithCompatFlags2.c)
+ *     xxxCalcClientRect @ 0x1C00AAA20 (xxxCalcClientRect.c)
+ *     ?CalculateContentRect@@YA?AUtagRECT@@PEBUtagWND@@PEAH@Z @ 0x1C00AD290 (-CalculateContentRect@@YA-AUtagRECT@@PEBUtagWND@@PEAH@Z.c)
+ *     ?GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z @ 0x1C00D902C (-GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z.c)
+ *     ?GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z @ 0x1C00E2378 (-GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z.c)
+ *     _EnsureDpiDepSysMetCacheForPlateau @ 0x1C01C074C (_EnsureDpiDepSysMetCacheForPlateau.c)
+ *     _ScaleSystemMetricForDPIWithoutCache @ 0x1C01C07C0 (_ScaleSystemMetricForDPIWithoutCache.c)
+ *     NtUserScaleSystemMetricForDPIWithoutCache @ 0x1C01DB160 (NtUserScaleSystemMetricForDPIWithoutCache.c)
+ * Callees:
+ *     GetCursorSizeFromIndex @ 0x1C003AB10 (GetCursorSizeFromIndex.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     GetDPIMETRICSForDpi @ 0x1C00A11BC (GetDPIMETRICSForDpi.c)
+ *     GetDPIServerInfoForDpi @ 0x1C00A1E90 (GetDPIServerInfoForDpi.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     _ScaleSystemMetricForDPIWithoutCache @ 0x1C01C07C0 (_ScaleSystemMetricForDPIWithoutCache.c)
+ */
+
 __int64 __fastcall ScaleSystemMetricForDPIWithoutCache(int a1, __int64 a2)
 {
   unsigned int v2; // esi

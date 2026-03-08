@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhAsyncStartComplete @ 0x1C0042408
+ * Callers:
+ *     Usbh_FDO_WaitPnpStop_CB @ 0x1C0044A00 (Usbh_FDO_WaitPnpStop_CB.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhDispatch_BusEvent @ 0x1C001CF30 (UsbhDispatch_BusEvent.c)
+ *     UsbhFinishStart @ 0x1C00378F4 (UsbhFinishStart.c)
+ */
+
 __int64 __fastcall UsbhAsyncStartComplete(_QWORD *Tag)
 {
   _DWORD *v2; // rdi

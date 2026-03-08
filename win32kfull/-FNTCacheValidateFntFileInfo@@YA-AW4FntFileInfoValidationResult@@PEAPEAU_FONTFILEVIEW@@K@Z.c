@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FNTCacheValidateFntFileInfo@@YA?AW4FntFileInfoValidationResult@@PEAPEAU_FONTFILEVIEW@@K@Z @ 0x1C028C4DC
+ * Callers:
+ *     UmfdLoadFontFileView @ 0x1C011859C (UmfdLoadFontFileView.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FNTCacheValidateFntFileInfo(Gre::Base *a1, unsigned int a2)
 {
   Gre::Base *v3; // rdi

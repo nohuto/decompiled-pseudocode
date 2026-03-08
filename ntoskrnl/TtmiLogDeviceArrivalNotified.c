@@ -1,3 +1,14 @@
+/*
+ * XREFs of TtmiLogDeviceArrivalNotified @ 0x1409A4310
+ * Callers:
+ *     TtmNotifyDeviceArrival @ 0x14099F580 (TtmNotifyDeviceArrival.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetProcessSessionIdEx @ 0x1402BDFA0 (PsGetProcessSessionIdEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall TtmiLogDeviceArrivalNotified(int a1, __int64 a2, int a3, int a4, int a5)
 {
   _UNKNOWN **v5; // rax

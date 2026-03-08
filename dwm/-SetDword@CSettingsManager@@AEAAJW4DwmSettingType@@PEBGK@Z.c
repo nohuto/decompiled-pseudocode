@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetDword@CSettingsManager@@AEAAJW4DwmSettingType@@PEBGK@Z @ 0x14000BFEC
+ * Callers:
+ *     ?SetPreferenceDword@CSettingsManager@@UEAAJPEBGK@Z @ 0x14000C0A0 (-SetPreferenceDword@CSettingsManager@@UEAAJPEBGK@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x14000309C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CSettingsManager::SetDword(__int64 a1, __int64 a2, const WCHAR *a3, int a4)
 {
   RTL_SRWLOCK *v4; // rsi

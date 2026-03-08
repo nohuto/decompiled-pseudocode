@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspWow64SetupUserProcessAddressSpace @ 0x1402961B4
+ * Callers:
+ *     PspSetupUserProcessAddressSpace @ 0x14070733C (PspSetupUserProcessAddressSpace.c)
+ * Callees:
+ *     PspWow64ThunkProcessParameters @ 0x1402FC5B8 (PspWow64ThunkProcessParameters.c)
+ */
+
 __int64 __fastcall PspWow64SetupUserProcessAddressSpace(__int64 a1, __int64 a2)
 {
   __int64 *v2; // r8

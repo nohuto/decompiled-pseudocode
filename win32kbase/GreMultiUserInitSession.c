@@ -1,3 +1,13 @@
+/*
+ * XREFs of GreMultiUserInitSession @ 0x1C000FCA0
+ * Callers:
+ *     xxxRemoteConnect @ 0x1C000F480 (xxxRemoteConnect.c)
+ * Callees:
+ *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C005D430 (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0062994 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 __int64 __fastcall GreMultiUserInitSession(
         __int64 a1,
         __int64 a2,

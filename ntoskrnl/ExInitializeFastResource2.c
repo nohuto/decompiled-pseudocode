@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExInitializeFastResource2 @ 0x14040E2C0
+ * Callers:
+ *     ExInitializeFastResource @ 0x1403BEFD0 (ExInitializeFastResource.c)
+ *     ExInitializeFastResourceAcquired2 @ 0x14040E404 (ExInitializeFastResourceAcquired2.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlStdLogStackTrace @ 0x1405A70F4 (RtlStdLogStackTrace.c)
+ *     RtlStdReleaseStackTrace @ 0x1405A7180 (RtlStdReleaseStackTrace.c)
+ *     RtlpStdGetRecordedStackTraceIndex @ 0x1405A7574 (RtlpStdGetRecordedStackTraceIndex.c)
+ */
+
 __int16 __fastcall ExInitializeFastResource2(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
 {
   char v2; // bp

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtAccessCheckByTypeResultListAndAuditAlarmByHandle @ 0x1409CB010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SepAccessCheckAndAuditAlarm @ 0x1406973E0 (SepAccessCheckAndAuditAlarm.c)
+ */
+
 NTSTATUS __stdcall NtAccessCheckByTypeResultListAndAuditAlarmByHandle(
         PUNICODE_STRING SubsystemName,
         PVOID HandleId,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of CheckSystemIOAddressValidity @ 0x1C0051C58
+ * Callers:
+ *     WriteSystemIO @ 0x1C000624C (WriteSystemIO.c)
+ *     ReadSystemIO @ 0x1C0052EDC (ReadSystemIO.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ */
+
 char __fastcall CheckSystemIOAddressValidity(char a1, const char *a2, unsigned int a3, unsigned int *a4)
 {
   unsigned __int64 v5; // rdi

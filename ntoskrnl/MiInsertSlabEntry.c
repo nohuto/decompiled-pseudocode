@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiInsertSlabEntry @ 0x140349C90
+ * Callers:
+ *     MiReplenishSlabAllocator @ 0x1403496D8 (MiReplenishSlabAllocator.c)
+ *     MiCreateBootSlabEntries @ 0x140B3B858 (MiCreateBootSlabEntries.c)
+ *     MmUpdateSlabRangeType @ 0x140B9732C (MmUpdateSlabRangeType.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     RtlInterlockedSetClearRunEx @ 0x1403293B0 (RtlInterlockedSetClearRunEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiInsertSlabEntry(__int64 a1, __int64 a2, unsigned __int64 a3, int a4)
 {
   unsigned __int64 v5; // r13

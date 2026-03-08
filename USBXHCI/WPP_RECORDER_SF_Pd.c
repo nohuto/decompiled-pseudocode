@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_Pd @ 0x1C003EB7C
+ * Callers:
+ *     IoControl_WdfEvtIoDeviceControl @ 0x1C003E4C0 (IoControl_WdfEvtIoDeviceControl.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_Pd(__int64 a1, _DWORD a2, _DWORD a3, _DWORD a4, int a5, __int64 a6, ...)
 {
   int v8; // [rsp+20h] [rbp-48h]

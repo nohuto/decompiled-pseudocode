@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpHvSetMachineCheckRecoveryState @ 0x140509C70
+ * Callers:
+ *     HalpMemoryErrorDeferredHandler @ 0x1405173D0 (HalpMemoryErrorDeferredHandler.c)
+ *     HalpMemoryErrorDeferredRecovery @ 0x1405174A4 (HalpMemoryErrorDeferredRecovery.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpHvSetMachineCheckRecoveryState(int a1)
 {
   __int64 result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of KdRefreshDebuggerNotPresent @ 0x1403ACAF0
+ * Callers:
+ *     KiBugCheckShouldEnterPostBugCheckDebugger @ 0x140567644 (KiBugCheckShouldEnterPostBugCheckDebugger.c)
+ * Callees:
+ *     KdExitDebugger @ 0x140AAD2D0 (KdExitDebugger.c)
+ *     KdEnterDebugger @ 0x140AAD40C (KdEnterDebugger.c)
+ *     KdpPrintString @ 0x140AAF4EC (KdpPrintString.c)
+ */
+
 BOOLEAN KdRefreshDebuggerNotPresent(void)
 {
   __int64 v0; // rax

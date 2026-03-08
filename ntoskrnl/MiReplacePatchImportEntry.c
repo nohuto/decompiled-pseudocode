@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiReplacePatchImportEntry @ 0x140640AF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     MiReplaceImportEntry @ 0x14062A2A0 (MiReplaceImportEntry.c)
+ */
+
 __int64 __fastcall MiReplacePatchImportEntry(__int64 a1, __int64 a2)
 {
   __int64 v2; // rcx

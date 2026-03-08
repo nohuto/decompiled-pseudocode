@@ -1,3 +1,14 @@
+/*
+ * XREFs of BvgaDriverInitialize @ 0x140B476D0
+ * Callers:
+ *     InbvDriverInitialize @ 0x140B47614 (InbvDriverInitialize.c)
+ * Callees:
+ *     _strupr @ 0x1403D2DE0 (_strupr.c)
+ *     strstr @ 0x1403D3650 (strstr.c)
+ *     FindBitmapResource @ 0x140B477D0 (FindBitmapResource.c)
+ *     BvgaSaveResources @ 0x140B48554 (BvgaSaveResources.c)
+ */
+
 char __fastcall BvgaDriverInitialize(unsigned int a1, __int64 a2, unsigned int a3)
 {
   __int64 v5; // r8

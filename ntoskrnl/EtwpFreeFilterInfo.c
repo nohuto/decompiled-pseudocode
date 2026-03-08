@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpFreeFilterInfo @ 0x14068F950
+ * Callers:
+ *     EtwpNotifyGuid @ 0x14068EA84 (EtwpNotifyGuid.c)
+ *     EtwpEnableGuid @ 0x14068EEBC (EtwpEnableGuid.c)
+ * Callees:
+ *     EtwpFreeEventNameFilter @ 0x1409F2488 (EtwpFreeEventNameFilter.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwpFreeFilterInfo(_QWORD *a1)
 {
   void *v2; // rcx

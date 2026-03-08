@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiUpdateThreadCpuSets @ 0x140399EB4
+ * Callers:
+ *     KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x140399E74 (KiUpdateThreadCpuSetAffinitiesFromDpcLevel.c)
+ *     KeSetSelectedCpuSetsThread @ 0x140573640 (KeSetSelectedCpuSetsThread.c)
+ * Callees:
+ *     KiComputeThreadAffinity @ 0x140236FD4 (KiComputeThreadAffinity.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140255D00 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402ADF80 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x1402AFD1C (KiRescheduleThreadAfterAffinityChange.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     EtwTraceIdealProcessor @ 0x1405FA980 (EtwTraceIdealProcessor.c)
+ */
+
 char __fastcall KiUpdateThreadCpuSets(__int64 a1, _QWORD *a2)
 {
   int v3; // eax

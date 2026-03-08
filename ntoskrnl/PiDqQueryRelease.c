@@ -1,3 +1,16 @@
+/*
+ * XREFs of PiDqQueryRelease @ 0x140689C8C
+ * Callers:
+ *     PiDqObjectManagerServiceActionQueue @ 0x140688EF0 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqDispatch @ 0x140745C20 (PiDqDispatch.c)
+ *     PiDqObjectManagerUnregisterQuery @ 0x140747D8C (PiDqObjectManagerUnregisterQuery.c)
+ * Callees:
+ *     McTemplateK0p_EtwWriteTransfer @ 0x14055ED00 (McTemplateK0p_EtwWriteTransfer.c)
+ *     PiDqQueryFreeActiveData @ 0x1407910F8 (PiDqQueryFreeActiveData.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PiDqQueryRelease(PVOID P)
 {
   void *v2; // rcx

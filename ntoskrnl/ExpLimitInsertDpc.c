@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpLimitInsertDpc @ 0x1406060B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     ExpLimitDpcInsertEntry @ 0x140605DF0 (ExpLimitDpcInsertEntry.c)
+ */
+
 __int64 __fastcall ExpLimitInsertDpc(__int64 a1, unsigned int *a2, volatile signed __int32 *a3, __int64 a4)
 {
   signed __int32 v7; // eax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopReadSimulateProcessorClass @ 0x140B934E4
+ * Callers:
+ *     PopReadSimulateProcessorClasses @ 0x140B6D8DC (PopReadSimulateProcessorClasses.c)
+ * Callees:
+ *     KeGetProcessorIndexFromNumber @ 0x140236BF0 (KeGetProcessorIndexFromNumber.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwEnumerateValueKey @ 0x140412570 (ZwEnumerateValueKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ */
+
 char __fastcall PopReadSimulateProcessorClass(unsigned __int16 a1, void *a2, ULONG a3, __int64 a4)
 {
   char v5; // di

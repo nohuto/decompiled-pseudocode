@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?vSet@RGNOBJ@@QEAAXXZ @ 0x1C0053560
+ * Callers:
+ *     GreCombineRgn @ 0x1C0041BD0 (GreCombineRgn.c)
+ *     ??0RGNMEMOBJ@@QEAA@K@Z @ 0x1C00427F0 (--0RGNMEMOBJ@@QEAA@K@Z.c)
+ *     ?iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z @ 0x1C0044F90 (-iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z.c)
+ *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C0053220 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
+ *     ?iCombine@DC@@QEAAJPEAU_RECTL@@J@Z @ 0x1C0056850 (-iCombine@DC@@QEAAJPEAU_RECTL@@J@Z.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00DE3A0 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ *     ?iReduce@RGNMEMOBJ@@QEAAJAEAVRGNOBJ@@@Z @ 0x1C0184084 (-iReduce@RGNMEMOBJ@@QEAAJAEAVRGNOBJ@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall RGNOBJ::vSet(RGNOBJ *this)
 {
   __int64 v1; // rdx

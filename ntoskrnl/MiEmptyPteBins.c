@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiEmptyPteBins @ 0x140299F00
+ * Callers:
+ *     MiInsertCachedPte @ 0x14027D0C0 (MiInsertCachedPte.c)
+ *     MiAdjustPteBins @ 0x140299A90 (MiAdjustPteBins.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiCheckProcessorPteCache @ 0x140327B90 (MiCheckProcessorPteCache.c)
+ * Callees:
+ *     MiReleaseSmallPteMappings @ 0x14027D4D0 (MiReleaseSmallPteMappings.c)
+ *     MiTbFlushTimeStampMayNeedFlush @ 0x14029A144 (MiTbFlushTimeStampMayNeedFlush.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReleaseLargePdeMappings @ 0x14065D1F4 (MiReleaseLargePdeMappings.c)
+ */
+
 __int64 __fastcall MiEmptyPteBins(__int64 a1)
 {
   unsigned int v1; // ebp

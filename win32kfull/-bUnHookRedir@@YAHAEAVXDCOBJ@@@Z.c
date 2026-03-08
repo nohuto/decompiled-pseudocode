@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?bUnHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C02A8DD8
+ * Callers:
+ *     ?bUnMapTrgSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C004DD9C (-bUnMapTrgSurfaceView@DEVLOCKBLTOBJ@@QEAAHXZ.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C0050DA0 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ??1DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C0051480 (--1DEVLOCKBLTOBJ@@QEAA@XZ.c)
+ *     GreStretchBltInternal @ 0x1C0059930 (GreStretchBltInternal.c)
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     ?bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ @ 0x1C00E2260 (-bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ?bUndoMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C02A8F5C (-bUndoMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
+ *     ?vFindAndReplaceRFONT@@YAXAEAVPDEVOBJ@@00@Z @ 0x1C02A8FFC (-vFindAndReplaceRFONT@@YAXAEAVPDEVOBJ@@00@Z.c)
+ */
+
 __int64 __fastcall bUnHookRedir(struct XDCOBJ *a1)
 {
   Gre::Base *v2; // rcx

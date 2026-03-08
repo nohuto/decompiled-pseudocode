@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?vMovePointer@@YAXPEAUHDEV__@@HHJ@Z @ 0x1C001DC84
+ * Callers:
+ *     GreMovePointer @ 0x1C001E270 (GreMovePointer.c)
+ *     ?GreHidePointerInternal@@YAXPEAUHDEV__@@@Z @ 0x1C00F4D74 (-GreHidePointerInternal@@YAXPEAUHDEV__@@@Z.c)
+ * Callees:
+ *     EngpMovePointer @ 0x1C0127E08 (EngpMovePointer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall vMovePointer(_DWORD *a1, __int64 a2, __int64 a3, char a4)
 {
   int v5; // edi

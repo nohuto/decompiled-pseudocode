@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsOfType@?$CParticleColorBehaviorGeneratedT@VCParticleColorBehavior@@VCParticleBaseBehavior@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C1DE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsOfType@?$CParticleBaseBehaviorGeneratedT@VCParticleBaseBehavior@@VCPropertyChangeResource@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C1D80 (-IsOfType@-$CParticleBaseBehaviorGeneratedT@VCParticleBaseBehavior@@VCPropertyChangeResource@@@@.c)
+ */
+
 char __fastcall CParticleColorBehaviorGeneratedT<CParticleColorBehavior,CParticleBaseBehavior>::IsOfType(
         __int64 a1,
         int a2)

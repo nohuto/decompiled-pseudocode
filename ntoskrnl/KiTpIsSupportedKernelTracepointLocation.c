@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiTpIsSupportedKernelTracepointLocation @ 0x140973640
+ * Callers:
+ *     KeSetTracepoint @ 0x140972D40 (KeSetTracepoint.c)
+ * Callees:
+ *     RtlSectionTableFromVirtualAddress @ 0x14035D7C0 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     KiTpIsExcludedKernelTracepointLocation @ 0x140973550 (KiTpIsExcludedKernelTracepointLocation.c)
+ */
+
 _BOOL8 __fastcall KiTpIsSupportedKernelTracepointLocation(__int64 a1, __int64 a2)
 {
   unsigned __int64 v4; // rax

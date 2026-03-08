@@ -1,3 +1,11 @@
+/*
+ * XREFs of _EnableIAMThreadAccess @ 0x1C009A210
+ * Callers:
+ *     NtUserEnableIAMAccess @ 0x1C009A0C0 (NtUserEnableIAMAccess.c)
+ * Callees:
+ *     ?FindIAMThread@@YAPEAUtagIAM_THREAD@@QEBUtagTHREADINFO@@@Z @ 0x1C009A30C (-FindIAMThread@@YAPEAUtagIAM_THREAD@@QEBUtagTHREADINFO@@@Z.c)
+ */
+
 __int64 __fastcall EnableIAMThreadAccess(const struct tagTHREADINFO *a1, int a2)
 {
   unsigned int v2; // ebx

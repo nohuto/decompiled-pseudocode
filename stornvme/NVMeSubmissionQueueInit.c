@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeSubmissionQueueInit @ 0x1C00108FC
+ * Callers:
+ *     AdminQueueInitialize @ 0x1C0009254 (AdminQueueInitialize.c)
+ *     IoQueuesInitialize @ 0x1C000B04C (IoQueuesInitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NVMeSubmissionQueueInit(
         __int64 a1,
         __int64 a2,

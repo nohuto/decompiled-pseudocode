@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AllocateUrb@FxUsbDeviceStringContext@@QEAAJPEAUUSBD_HANDLE__@@@Z @ 0x1C005C6E0
+ * Callers:
+ *     ?FormatStringRequest@FxUsbDevice@@QEAAJPEAVFxRequestBase@@PEAUFxRequestBuffer@@EG@Z @ 0x1C005FB28 (-FormatStringRequest@FxUsbDevice@@QEAAJPEAVFxRequestBase@@PEAUFxRequestBuffer@@EG@Z.c)
+ * Callees:
+ *     USBD_UrbAllocate @ 0x1C008856C (USBD_UrbAllocate.c)
+ */
+
 int __fastcall FxUsbDeviceStringContext::AllocateUrb(FxUsbDeviceStringContext *this, USBD_HANDLE__ *USBDHandle)
 {
   _URB_CONTROL_DESCRIPTOR_REQUEST **p_m_Urb; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpIsHiveEligibleForLazyReconcile @ 0x140732BD4
+ * Callers:
+ *     CmpDoReconcileNextHive @ 0x140732AC0 (CmpDoReconcileNextHive.c)
+ * Callees:
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x140730814 (HvGetEffectiveLogSizeCapForHive.c)
+ */
+
 bool __fastcall CmpIsHiveEligibleForLazyReconcile(unsigned int *a1)
 {
   unsigned int EffectiveLogSizeCapForHive; // eax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0xxxxq_EventWriteTransfer @ 0x18012AA74
+ * Callers:
+ *     ?PresentFrame@CPartitionVerticalBlankScheduler@@AEAA_NPEAVCFrameInfo@@I@Z @ 0x1800509B0 (-PresentFrame@CPartitionVerticalBlankScheduler@@AEAA_NPEAVCFrameInfo@@I@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 __int64 McTemplateU0xxxxq_EventWriteTransfer(__int64 a1, __int64 a2, ...)
 {
   int v3; // [rsp+30h] [rbp-41h] BYREF

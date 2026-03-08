@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetBudgetAndVisibilityState@VIDMM_DEVICE@@QEAAXPEA_NPEAW4VIDMM_BUDGET_PRIORITY_BAND@@@Z @ 0x1C00ED514
+ * Callers:
+ *     ?CanSuspendThisDevice@VIDMM_DEVICE@@QEAA_NPEAV1@W4VIDMM_SUSPEND_CANDIDATE_PASS@@W4VIDMM_BUDGET_PRIORITY_BAND@@@Z @ 0x1C00EC800 (-CanSuspendThisDevice@VIDMM_DEVICE@@QEAA_NPEAV1@W4VIDMM_SUSPEND_CANDIDATE_PASS@@W4VIDMM_BUDGET_P.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VIDMM_DEVICE::GetBudgetAndVisibilityState(
         VIDMM_DEVICE *this,
         bool *a2,

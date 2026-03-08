@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoQueuesDeletion @ 0x1C000AB24
+ * Callers:
+ *     NVMeControllerPowerDown @ 0x1C000DF70 (NVMeControllerPowerDown.c)
+ *     NVMeControllerStop @ 0x1C000EBA8 (NVMeControllerStop.c)
+ * Callees:
+ *     NVMeIoCompletionQueueDelete @ 0x1C001F3A4 (NVMeIoCompletionQueueDelete.c)
+ *     NVMeIoSubmissionQueueDelete @ 0x1C001FAB4 (NVMeIoSubmissionQueueDelete.c)
+ */
+
 char __fastcall IoQueuesDeletion(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v5; // si

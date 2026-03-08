@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtUserShutdownBlockReasonCreate @ 0x1C00EA2E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     InternalRemoveProp @ 0x1C002484C (InternalRemoveProp.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _GetAncestor @ 0x1C00EA498 (_GetAncestor.c)
+ *     InternalSetProp @ 0x1C01011E0 (InternalSetProp.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C010A9B4 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     QueueShutdownData @ 0x1C01B44E8 (QueueShutdownData.c)
+ */
+
 __int64 __fastcall NtUserShutdownBlockReasonCreate(__int64 a1, volatile void *a2, unsigned int a3)
 {
   __int64 v6; // rcx

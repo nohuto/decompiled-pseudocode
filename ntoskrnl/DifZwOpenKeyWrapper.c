@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwOpenKeyWrapper @ 0x1405EFB00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifZwOpenKeyWrapper(
         PHANDLE KeyHandle,
         ACCESS_MASK DesiredAccess,

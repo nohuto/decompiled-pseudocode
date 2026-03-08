@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopEtAggregateGet @ 0x1407025B8
+ * Callers:
+ *     PopEtEnergyTrackerUpdateAggregate @ 0x140702020 (PopEtEnergyTrackerUpdateAggregate.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopEtAggregateFind @ 0x140702888 (PopEtAggregateFind.c)
+ *     PopEtAggregateKeyCleanup @ 0x140702A18 (PopEtAggregateKeyCleanup.c)
+ *     PopEtAggregateKeyCopy @ 0x140702A90 (PopEtAggregateKeyCopy.c)
+ *     PopEtBucketsAllocate @ 0x14079B534 (PopEtBucketsAllocate.c)
+ *     PopEtBucketsFree @ 0x14079BFE8 (PopEtBucketsFree.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopEtAggregateGet(_DWORD *a1, __int64 a2, __int64 *a3)
 {
   __int64 result; // rax

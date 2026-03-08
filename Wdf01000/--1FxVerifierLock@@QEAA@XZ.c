@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1FxVerifierLock@@QEAA@XZ @ 0x1C001ABC8
+ * Callers:
+ *     ??_GFxVerifierLock@@QEAAPEAXI@Z @ 0x1C001ACB0 (--_GFxVerifierLock@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_qqq @ 0x1C001C308 (WPP_IFR_SF_qqq.c)
+ */
+
 void __fastcall FxVerifierLock::~FxVerifierLock(FxVerifierLock *this)
 {
   _KTHREAD *m_OwningThread; // rcx

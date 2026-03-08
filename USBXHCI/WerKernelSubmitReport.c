@@ -1,3 +1,18 @@
+/*
+ * XREFs of WerKernelSubmitReport @ 0x1C00540E0
+ * Callers:
+ *     TelemetryData_SubmitReport @ 0x1C007AF58 (TelemetryData_SubmitReport.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     RtlStringCchCopyNW @ 0x1C0053DA0 (RtlStringCchCopyNW.c)
+ *     WerStartSystemErrorHandler @ 0x1C0054698 (WerStartSystemErrorHandler.c)
+ *     WerWaitForSystemErrorHandler @ 0x1C00547D0 (WerWaitForSystemErrorHandler.c)
+ *     WerpAllocateAndInitializeSid @ 0x1C00548A4 (WerpAllocateAndInitializeSid.c)
+ *     WerpGetRegistryKey @ 0x1C0054B0C (WerpGetRegistryKey.c)
+ *     WerpParseKeyName @ 0x1C0054C28 (WerpParseKeyName.c)
+ */
+
 __int64 __fastcall WerKernelSubmitReport(HANDLE KeyHandle)
 {
   __int64 v2; // rdx

@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiLargePagePromote @ 0x14034EC80
+ * Callers:
+ *     MiCoalesceFreeLargePages @ 0x1402C89C0 (MiCoalesceFreeLargePages.c)
+ *     MiCoalesceActivePagesIntoFree @ 0x14065AF0C (MiCoalesceActivePagesIntoFree.c)
+ * Callees:
+ *     MiDetermineCoalescedLargePageHeatState @ 0x1402DD078 (MiDetermineCoalescedLargePageHeatState.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiInsertLargePageInNodeList @ 0x14031C970 (MiInsertLargePageInNodeList.c)
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x14034FE70 (MiUnlinkNodeLargePageHelper.c)
+ *     MiPageToChannel @ 0x140370C10 (MiPageToChannel.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall MiLargePagePromote(__int64 a1, int a2, __int64 a3, int a4, _DWORD *a5)
 {
   __int64 v6; // rcx

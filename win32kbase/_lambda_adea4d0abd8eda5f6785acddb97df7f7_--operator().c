@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_adea4d0abd8eda5f6785acddb97df7f7_::operator() @ 0x1C005DF64
+ * Callers:
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_adea4d0abd8eda5f6785acddb97df7f7___ @ 0x1C005DEE4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_adea4d0abd8eda5f6785acddb97df7f.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall lambda_adea4d0abd8eda5f6785acddb97df7f7_::operator()(__int64 *a1, __int64 a2)
 {
   __int64 v2; // r8

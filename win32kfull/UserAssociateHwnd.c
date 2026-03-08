@@ -1,3 +1,13 @@
+/*
+ * XREFs of UserAssociateHwnd @ 0x1C01BEED0
+ * Callers:
+ *     EngCreateWnd @ 0x1C028A3A0 (EngCreateWnd.c)
+ *     EngDeleteWnd @ 0x1C028A830 (EngDeleteWnd.c)
+ * Callees:
+ *     InternalRemoveProp @ 0x1C002484C (InternalRemoveProp.c)
+ *     InternalSetProp @ 0x1C01011E0 (InternalSetProp.c)
+ */
+
 __int64 __fastcall UserAssociateHwnd(__int64 a1, __int64 a2)
 {
   unsigned int v3; // edi

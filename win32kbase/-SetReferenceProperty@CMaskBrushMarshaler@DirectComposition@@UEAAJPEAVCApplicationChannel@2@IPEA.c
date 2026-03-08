@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetReferenceProperty@CMaskBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1C0061D00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetBrushPropertyHelper@CBrushMarshaler@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAPEAV12@PEAVCResourceMarshaler@2@W4MIL_RESOURCE_TYPE@@KPEA_N@Z @ 0x1C0064ED0 (-SetBrushPropertyHelper@CBrushMarshaler@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAPEA.c)
+ */
+
 __int64 __fastcall DirectComposition::CMaskBrushMarshaler::SetReferenceProperty(
         DirectComposition::CMaskBrushMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

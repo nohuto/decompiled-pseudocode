@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlIsPartialPlaceholderFileInfo @ 0x1409BD350
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlIsPartialPlaceholderFileInfo(int *a1, int a2, bool *a3)
 {
   int v3; // eax

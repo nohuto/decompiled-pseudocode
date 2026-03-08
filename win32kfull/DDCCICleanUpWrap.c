@@ -1,3 +1,11 @@
+/*
+ * XREFs of DDCCICleanUpWrap @ 0x1C00F4770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1CMonitorAPI@@QEAA@XZ @ 0x1C00F47E0 (--1CMonitorAPI@@QEAA@XZ.c)
+ */
+
 void __fastcall DDCCICleanUpWrap(__int64 a1)
 {
   __int64 v1; // rcx

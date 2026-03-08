@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DxgkEngBltViaGDIApiExt@@YAHPEBU_D3DKMT_PRESENT@@PEAUHDC__@@PEBUtagRECT@@2QEAXIIIEEIP6AX22PEAU3@2II@ZP6AH4422@Z@Z @ 0x1C0195910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     DxgkEngBltViaGDI @ 0x1C0271354 (DxgkEngBltViaGDI.c)
+ */
+
 __int64 __fastcall DxgkEngBltViaGDIApiExt(
         const struct _D3DKMT_PRESENT *a1,
         HDC a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeIsAllowedWithinThrottleLimit @ 0x1C00168B4
+ * Callers:
+ *     NVMeValidateProtocolCommandRequest @ 0x1C0017ED0 (NVMeValidateProtocolCommandRequest.c)
+ *     NVMeMapError @ 0x1C00200A8 (NVMeMapError.c)
+ * Callees:
+ *     CalculateTimeDurationIn100ns @ 0x1C0007370 (CalculateTimeDurationIn100ns.c)
+ */
+
 char __fastcall NVMeIsAllowedWithinThrottleLimit(__int64 a1, int a2, _DWORD *a3)
 {
   __int64 v4; // rbx

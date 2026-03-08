@@ -1,3 +1,12 @@
+/*
+ * XREFs of BgpGxCopyRectangle @ 0x140AEF654
+ * Callers:
+ *     BgpRasPrintGlyph @ 0x140381CD4 (BgpRasPrintGlyph.c)
+ * Callees:
+ *     BgpGxMarkClean @ 0x1403031CC (BgpGxMarkClean.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 void __fastcall BgpGxCopyRectangle(__int64 a1, unsigned int *a2, _DWORD *a3, _DWORD *a4)
 {
   unsigned int v5; // r10d

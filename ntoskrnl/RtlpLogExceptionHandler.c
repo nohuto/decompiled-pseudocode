@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpLogExceptionHandler @ 0x1405A4AE0
+ * Callers:
+ *     RtlDispatchException @ 0x14027FA60 (RtlDispatchException.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpLogExceptionHandler(__int64 a1, _OWORD *a2, __int64 a3, __int64 a4)
 {
   __int64 v8; // rdx

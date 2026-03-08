@@ -1,3 +1,21 @@
+/*
+ * XREFs of SetWindowGroupBand @ 0x1C0025CE4
+ * Callers:
+ *     ?ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z @ 0x1C0025E8C (-ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z.c)
+ *     ?zzzImeSetOwnerWindow@@YAXPEAUtagWND@@0@Z @ 0x1C0026E94 (-zzzImeSetOwnerWindow@@YAXPEAUtagWND@@0@Z.c)
+ *     xxxEndDeferWindowPosEx @ 0x1C00698F0 (xxxEndDeferWindowPosEx.c)
+ *     ?zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z @ 0x1C009EC08 (-zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z.c)
+ *     xxxUpdateShadowZorder @ 0x1C02246CC (xxxUpdateShadowZorder.c)
+ * Callees:
+ *     ?GetRootOwner@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0022344 (-GetRootOwner@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     GetBandOrdinal @ 0x1C0025CC4 (GetBandOrdinal.c)
+ *     ?HasOwnedWindowInTree@@YAHPEAUtagWND@@0@Z @ 0x1C0025E38 (-HasOwnedWindowInTree@@YAHPEAUtagWND@@0@Z.c)
+ *     ?SetWindowTreeBand@@YAXPEAUtagWND@@W4ZBID@@@Z @ 0x1C0027F7C (-SetWindowTreeBand@@YAXPEAUtagWND@@W4ZBID@@@Z.c)
+ *     LinkWindow @ 0x1C00639C0 (LinkWindow.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     UnlinkWindow @ 0x1C00AB340 (UnlinkWindow.c)
+ */
+
 struct tagWND *__fastcall SetWindowGroupBand(struct tagWND *a1, unsigned int a2, int a3)
 {
   struct tagWND *RootOwner; // rdi

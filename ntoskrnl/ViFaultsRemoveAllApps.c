@@ -1,3 +1,14 @@
+/*
+ * XREFs of ViFaultsRemoveAllApps @ 0x140AD3C08
+ * Callers:
+ *     VfFaultsSetParameters @ 0x140AD3148 (VfFaultsSetParameters.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 ViFaultsRemoveAllApps()
 {
   KIRQL v0; // al

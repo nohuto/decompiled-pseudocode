@@ -1,3 +1,16 @@
+/*
+ * XREFs of LogOp2_32 @ 0x1C0057328
+ * Callers:
+ *     LogOp2 @ 0x1C00572D0 (LogOp2.c)
+ * Callees:
+ *     memcmp @ 0x1C0001C50 (memcmp.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     IsCompatableDSDTRevision @ 0x1C004BE28 (IsCompatableDSDTRevision.c)
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ */
+
 __int64 __fastcall LogOp2_32(__int64 a1, _QWORD *a2)
 {
   int v2; // ebx

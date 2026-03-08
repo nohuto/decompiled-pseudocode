@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiComputeFlipEntryStatusAfterFlip @ 0x1C0011290
+ * Callers:
+ *     VidSchiExecuteMmIoFlipAtPassiveLevel @ 0x1C0010D10 (VidSchiExecuteMmIoFlipAtPassiveLevel.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VidSchiComputeFlipEntryStatusAfterFlip(__int64 a1, __int64 a2, _DWORD *a3)
 {
   unsigned int v3; // r9d

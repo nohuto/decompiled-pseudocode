@@ -1,3 +1,21 @@
+/*
+ * XREFs of PfSnCheckActionsNeeded @ 0x1407E3F78
+ * Callers:
+ *     PfSnBeginScenario @ 0x1407E4764 (PfSnBeginScenario.c)
+ * Callees:
+ *     MmQueryMemoryListInformation @ 0x140236738 (MmQueryMemoryListInformation.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     PsGetPagePriorityThread @ 0x14028A290 (PsGetPagePriorityThread.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MmGetDefaultPagePriority @ 0x14035B470 (MmGetDefaultPagePriority.c)
+ *     MmQueryTransitionPagesMadeColdCount @ 0x14035B480 (MmQueryTransitionPagesMadeColdCount.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PfpGetPageListCount @ 0x1406A2EDC (PfpGetPageListCount.c)
+ *     PfSnPrefetchCacheEntryGet @ 0x1407E4284 (PfSnPrefetchCacheEntryGet.c)
+ */
+
 __int64 __fastcall PfSnCheckActionsNeeded(unsigned __int8 *a1, int a2, __int64 a3, int *a4, int *a5)
 {
   int v7; // edi

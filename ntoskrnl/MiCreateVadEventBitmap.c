@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiCreateVadEventBitmap @ 0x140756324
+ * Callers:
+ *     MiCreateWriteWatchView @ 0x140755EB4 (MiCreateWriteWatchView.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140756084 (MiAllocateNewSubAllocatedRegion.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiInsertVadEvent @ 0x14034C254 (MiInsertVadEvent.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x14034CCC0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiCreateVadEventBitmap(struct _KPROCESS *a1, __int64 a2, unsigned __int64 a3, int a4)
 {
   SIZE_T v8; // rdi

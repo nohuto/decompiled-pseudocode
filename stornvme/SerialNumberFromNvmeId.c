@@ -1,3 +1,11 @@
+/*
+ * XREFs of SerialNumberFromNvmeId @ 0x1C001AFFC
+ * Callers:
+ *     FormInquirySerialNumberData @ 0x1C0012548 (FormInquirySerialNumberData.c)
+ * Callees:
+ *     HexFromUchar @ 0x1C0012DC0 (HexFromUchar.c)
+ */
+
 __int64 __fastcall SerialNumberFromNvmeId(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4)
 {
   unsigned int v4; // r10d

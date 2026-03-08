@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExpWnfRegisterPermanentName @ 0x140799310
+ * Callers:
+ *     NtCreateWnfStateName @ 0x14071BBD0 (NtCreateWnfStateName.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExpWnfGetNameStoreRegistryRoot @ 0x14071C500 (ExpWnfGetNameStoreRegistryRoot.c)
+ *     ExpWnfComposeValueName @ 0x14071C674 (ExpWnfComposeValueName.c)
+ *     RtlLengthSecurityDescriptor @ 0x14071C8F0 (RtlLengthSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpWnfRegisterPermanentName(unsigned __int64 a1, __int64 a2)
 {
   NTSTATUS NameStoreRegistryRoot; // ebx

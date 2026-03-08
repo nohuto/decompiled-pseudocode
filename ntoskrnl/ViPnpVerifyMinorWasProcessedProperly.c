@@ -1,3 +1,18 @@
+/*
+ * XREFs of ViPnpVerifyMinorWasProcessedProperly @ 0x140AE4430
+ * Callers:
+ *     VfPnpVerifyIrpStackDownward @ 0x140AE3FB0 (VfPnpVerifyIrpStackDownward.c)
+ *     VfPnpVerifyIrpStackUpward @ 0x140AE4140 (VfPnpVerifyIrpStackUpward.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     MmIsNonPagedSystemAddressValid @ 0x140463620 (MmIsNonPagedSystemAddressValid.c)
+ *     IovUtilMarkDeviceObject @ 0x1405CD8C0 (IovUtilMarkDeviceObject.c)
+ *     ViErrorReport1 @ 0x1405CDA04 (ViErrorReport1.c)
+ *     ViErrorReport10 @ 0x1405CDA88 (ViErrorReport10.c)
+ *     IovUtilGetBottomDeviceObjectWithTag @ 0x140ACFA00 (IovUtilGetBottomDeviceObjectWithTag.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x140ACFB14 (IovUtilIsDeviceObjectMarked.c)
+ */
+
 char __fastcall ViPnpVerifyMinorWasProcessedProperly(__int64 a1, __int64 a2, int a3, int a4, const void *a5, int a6)
 {
   _UNKNOWN **v6; // rax

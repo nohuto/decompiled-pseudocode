@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bRemoveColorTransform@XDCOBJ@@QEAAHPEAX@Z @ 0x1C029D08C
+ * Callers:
+ *     ?bDelete@COLORTRANSFORMOBJ@@QEAAHAEAVXDCOBJ@@@Z @ 0x1C029CEC0 (-bDelete@COLORTRANSFORMOBJ@@QEAAHAEAVXDCOBJ@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall XDCOBJ::bRemoveColorTransform(XDCOBJ *this, void *a2)
 {
   __int64 v2; // r8

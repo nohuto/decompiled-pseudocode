@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiQueuePinDriverAddressLog @ 0x14030C9F8
+ * Callers:
+ *     MmBuildMdlForNonPagedPool @ 0x1402B5DB0 (MmBuildMdlForNonPagedPool.c)
+ *     MiGetPhysicalAddress @ 0x14030C890 (MiGetPhysicalAddress.c)
+ * Callees:
+ *     RtlInterlockedSetClearRun @ 0x14030CDB0 (RtlInterlockedSetClearRun.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiQueuePinDriverAddressLog(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v4; // r13

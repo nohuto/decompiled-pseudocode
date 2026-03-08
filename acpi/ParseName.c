@@ -1,3 +1,18 @@
+/*
+ * XREFs of ParseName @ 0x1C005B860
+ * Callers:
+ *     ParseAndGetNameSpaceObject @ 0x1C005A3B4 (ParseAndGetNameSpaceObject.c)
+ *     ParseFieldConnection @ 0x1C005AF60 (ParseFieldConnection.c)
+ *     ParseObjName @ 0x1C005BC04 (ParseObjName.c)
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     RtlStringCchCopyA @ 0x1C000B07C (RtlStringCchCopyA.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     ParseNameTail @ 0x1C005BA08 (ParseNameTail.c)
+ */
+
 __int64 __fastcall ParseName(__int64 a1, char **a2, char *a3)
 {
   char *v4; // rbx

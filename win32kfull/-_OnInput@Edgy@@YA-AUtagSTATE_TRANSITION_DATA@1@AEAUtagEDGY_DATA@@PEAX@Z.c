@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_OnInput@Edgy@@YA?AUtagSTATE_TRANSITION_DATA@1@AEAUtagEDGY_DATA@@PEAX@Z @ 0x1C01E9804
+ * Callers:
+ *     ?ProcessInput@Edgy@@YAHPEAXPEAPEAX@Z @ 0x1C0148E68 (-ProcessInput@Edgy@@YAHPEAXPEAPEAX@Z.c)
+ * Callees:
+ *     ?_GetArcData@Edgy@@YA?AUtagARC_DATA@1@AEAUtagEDGY_DATA@@QEAX@Z @ 0x1C01E8CF8 (-_GetArcData@Edgy@@YA-AUtagARC_DATA@1@AEAUtagEDGY_DATA@@QEAX@Z.c)
+ *     ?_OnStateTransition@Edgy@@YAQEAXAEAUtagEDGY_DATA@@W4tagEDGY_STATE@@AEBUtagARC_DATA@1@@Z @ 0x1C01E98E0 (-_OnStateTransition@Edgy@@YAQEAXAEAUtagEDGY_DATA@@W4tagEDGY_STATE@@AEBUtagARC_DATA@1@@Z.c)
+ */
+
 __int64 __fastcall Edgy::_OnInput(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 ArcData; // rax

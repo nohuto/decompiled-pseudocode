@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ContentAdded@CHolographicFrameProcessor@@UEAAJPEAUIFlipPropertySet@@PEAPEAUIFlipContentCallback@@@Z @ 0x1802AB1C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CHolographicFrameProcessor::ContentAdded(
         void (__fastcall ***this)(char *),
         struct IFlipPropertySet *a2,

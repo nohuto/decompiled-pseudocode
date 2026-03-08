@@ -1,3 +1,15 @@
+/*
+ * XREFs of McTemplateU0zqq_EventWriteTransfer @ 0x1801E43FC
+ * Callers:
+ *     ?CheckForMajorityScreenVideoNotifications@CLegacyRenderTarget@@AEAAXXZ @ 0x18008C1CC (-CheckForMajorityScreenVideoNotifications@CLegacyRenderTarget@@AEAAXXZ.c)
+ *     ??1CLegacyRenderTarget@@MEAA@XZ @ 0x1800C76E4 (--1CLegacyRenderTarget@@MEAA@XZ.c)
+ *     ??1CDDisplayRenderTarget@@UEAA@XZ @ 0x1801BEB48 (--1CDDisplayRenderTarget@@UEAA@XZ.c)
+ *     ?SignalSEB@CFSVPProvider@@AEAAX_NI@Z @ 0x1801E4340 (-SignalSEB@CFSVPProvider@@AEAAX_NI@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 ULONG __fastcall McTemplateU0zqq_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)
 {
   __int64 v5; // rax

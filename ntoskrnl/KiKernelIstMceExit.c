@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiKernelIstMceExit @ 0x140AF4CC0
+ * Callers:
+ *     KiMcheckAbort @ 0x140427E80 (KiMcheckAbort.c)
+ * Callees:
+ *     <none>
+ */
+
 // positive sp value has been detected, the output may be wrong!
 void KiKernelIstMceExit()
 {

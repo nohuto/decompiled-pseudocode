@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpMmAllocCtxMarkHiberPhase @ 0x140A9269C
+ * Callers:
+ *     HaliLocateHiberRanges @ 0x140A92C20 (HaliLocateHiberRanges.c)
+ * Callees:
+ *     RtlAreBitsClear @ 0x14036C910 (RtlAreBitsClear.c)
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ */
+
 void HalpMmAllocCtxMarkHiberPhase()
 {
   __int64 i; // rbx

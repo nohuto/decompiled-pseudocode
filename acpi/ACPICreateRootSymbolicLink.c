@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPICreateRootSymbolicLink @ 0x1C0083010
+ * Callers:
+ *     ACPIDispatchAddDevice @ 0x1C0023F30 (ACPIDispatchAddDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ACPICreateRootSymbolicLink(PDEVICE_OBJECT DeviceObject)
 {
   WCHAR *Pool2; // rbx

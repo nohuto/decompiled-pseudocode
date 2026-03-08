@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhFdoPnp_SurpriseRemove @ 0x1C00434D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     Usbh_FDO_Pnp_State @ 0x1C0044348 (Usbh_FDO_Pnp_State.c)
+ */
+
 NTSTATUS __fastcall UsbhFdoPnp_SurpriseRemove(__int64 a1, IRP *a2)
 {
   PDEVICE_OBJECT *v4; // rdi

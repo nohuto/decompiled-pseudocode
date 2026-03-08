@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Acquire@Git@Details@Internal@Windows@@QEAAJXZ @ 0x18028F9A0
+ * Callers:
+ *     ?Initialize@?$GitStorageType@UIInspectable@@@detail@XWinRT@@QEAAJPEAUIInspectable@@@Z @ 0x180293120 (-Initialize@-$GitStorageType@UIInspectable@@@detail@XWinRT@@QEAAJPEAUIInspectable@@@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C8D4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ */
+
 __int64 __fastcall Windows::Internal::Details::Git::Acquire(Windows::Internal::Details::Git *this)
 {
   HRESULT v1; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of Bulk_Stage_CalculateBytesTransferred @ 0x1C000DF50
+ * Callers:
+ *     Bulk_ProcessTransferEventWithED0 @ 0x1C000DAC4 (Bulk_ProcessTransferEventWithED0.c)
+ * Callees:
+ *     Bulk_Stage_ProcessSegment @ 0x1C000E054 (Bulk_Stage_ProcessSegment.c)
+ */
+
 __int64 __fastcall Bulk_Stage_CalculateBytesTransferred(__int64 a1, __int64 a2, int a3)
 {
   _QWORD *v3; // rdi

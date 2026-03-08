@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??$_Emplace_reallocate@AEBQEAVIDDisplayEventListener@@@?$vector@PEAVIDDisplayEventListener@@V?$allocator@PEAVIDDisplayEventListener@@@std@@@std@@QEAAPEAPEAVIDDisplayEventListener@@QEAPEAV2@AEBQEAV2@@Z @ 0x18028DE0C
+ * Callers:
+ *     ??0CDDisplaySwapChain@@IEAA@AEAV?$com_ptr_t@UIDisplayPrimaryDescription@Core@Display@Devices@Windows@@Uerr_returncode_policy@wil@@@wil@@AEAV?$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@2@AEAUDDisplayTaskPoolResources@@AEAUDDisplayTargetResources@@AEAV?$vector@UDDisplayPrimaryBufferResources@@V?$allocator@UDDisplayPrimaryBufferResources@@@std@@@std@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@@Z @ 0x18028E800 (--0CDDisplaySwapChain@@IEAA@AEAV-$com_ptr_t@UIDisplayPrimaryDescription@Core@Display@Devices@Win.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B9880 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     ?_Change_array@?$vector@PEAVIDDisplayEventListener@@V?$allocator@PEAVIDDisplayEventListener@@@std@@@std@@AEAAXQEAPEAVIDDisplayEventListener@@_K1@Z @ 0x18029506C (-_Change_array@-$vector@PEAVIDDisplayEventListener@@V-$allocator@PEAVIDDisplayEventListener@@@st.c)
+ */
+
 char *__fastcall std::vector<IDDisplayEventListener *>::_Emplace_reallocate<IDDisplayEventListener * const &>(
         const void **a1,
         _BYTE *a2,

@@ -1,3 +1,24 @@
+/*
+ * XREFs of CcQueueLazyWriteScanThread @ 0x140534A20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcPostWorkQueue @ 0x1402191C4 (CcPostWorkQueue.c)
+ *     CcAllocateWorkQueueEntry @ 0x140219880 (CcAllocateWorkQueueEntry.c)
+ *     CcDereferencePartition @ 0x140219EF0 (CcDereferencePartition.c)
+ *     CcSetLazyWriteScanQueuedInternal @ 0x1402EEE90 (CcSetLazyWriteScanQueuedInternal.c)
+ *     CcIsLazyWriteScanQueuedInternal @ 0x1402F0124 (CcIsLazyWriteScanQueuedInternal.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     CcNotifyExternalCachesInternal @ 0x1403CD5F8 (CcNotifyExternalCachesInternal.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140533834 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall CcQueueLazyWriteScanThread(_QWORD *StartContext)
 {
   _BYTE *v1; // r13

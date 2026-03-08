@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExpCovIsModulePresent @ 0x140A0382C
+ * Callers:
+ *     ExpCovIsLoadedModulePresent @ 0x140A037F4 (ExpCovIsLoadedModulePresent.c)
+ *     ExpCovIsUnLoadedModulePresent @ 0x140A038D4 (ExpCovIsUnLoadedModulePresent.c)
+ * Callees:
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     RtlCompareUnicodeString @ 0x1406EA3B0 (RtlCompareUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     ExpCovReadFriendlyName @ 0x140A0420C (ExpCovReadFriendlyName.c)
+ */
+
 bool __fastcall ExpCovIsModulePresent(__int64 a1, __int64 a2, int a3, const UNICODE_STRING *a4, void *Source1)
 {
   char v6; // bl

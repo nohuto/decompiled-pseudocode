@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpAuditAllocateRsdtArrayTable @ 0x140B8EDF4
+ * Callers:
+ *     HalpAuditEnumerateRsdts @ 0x140B8EE9C (HalpAuditEnumerateRsdts.c)
+ *     HalpAuditEnumerateRsdtsInRange @ 0x140B8EF48 (HalpAuditEnumerateRsdtsInRange.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall HalpAuditAllocateRsdtArrayTable(_DWORD **a1)
 {
   unsigned int v1; // ebx

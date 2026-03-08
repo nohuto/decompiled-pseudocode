@@ -1,3 +1,15 @@
+/*
+ * XREFs of HvlSharedIsr @ 0x140456D60
+ * Callers:
+ *     HvlEnlightenProcessor @ 0x14037F430 (HvlEnlightenProcessor.c)
+ *     KiHvInterruptSubDispatch @ 0x14041DE10 (KiHvInterruptSubDispatch.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     HvlpGetLpcbByLpIndex @ 0x1403C8E08 (HvlpGetLpcbByLpIndex.c)
+ *     HvlGetLpIndexFromProcessorIndex @ 0x140456E50 (HvlGetLpIndexFromProcessorIndex.c)
+ *     HvlpHandleIommuFaultMessage @ 0x140545E4C (HvlpHandleIommuFaultMessage.c)
+ */
+
 char __fastcall HvlSharedIsr(__int64 a1)
 {
   __int64 v1; // rax

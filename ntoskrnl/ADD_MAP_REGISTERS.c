@@ -1,3 +1,16 @@
+/*
+ * XREFs of ADD_MAP_REGISTERS @ 0x140AC1180
+ * Callers:
+ *     VfAllocateAdapterChannel @ 0x140AC1B90 (VfAllocateAdapterChannel.c)
+ *     VfAllocateAdapterChannelEx @ 0x140AC1DE0 (VfAllocateAdapterChannelEx.c)
+ *     VfAllocateCrashDumpRegisters @ 0x140AC2380 (VfAllocateCrashDumpRegisters.c)
+ *     VfHalAllocateMapRegisters @ 0x140AC3D60 (VfHalAllocateMapRegisters.c)
+ *     ViScatterGatherCallback @ 0x140AC6D90 (ViScatterGatherCallback.c)
+ * Callees:
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140AC62F4 (ViHalPreprocessOptions.c)
+ */
+
 void __fastcall ADD_MAP_REGISTERS(__int64 a1, unsigned int a2, char a3)
 {
   unsigned __int32 v5; // esi

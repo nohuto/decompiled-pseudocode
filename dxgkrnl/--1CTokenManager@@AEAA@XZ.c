@@ -1,3 +1,18 @@
+/*
+ * XREFs of ??1CTokenManager@@AEAA@XZ @ 0x1C00172B0
+ * Callers:
+ *     ??_GCTokenManager@@AEAAPEAXI@Z @ 0x1C0013A40 (--_GCTokenManager@@AEAAPEAXI@Z.c)
+ * Callees:
+ *     ?DeleteOutstandingAnalogToken@CTokenManager@@UEAAXXZ @ 0x1C00173C0 (-DeleteOutstandingAnalogToken@CTokenManager@@UEAAXXZ.c)
+ *     ?DeleteAllLegacyTokenBuffers@CTokenManager@@IEAAXXZ @ 0x1C00174D8 (-DeleteAllLegacyTokenBuffers@CTokenManager@@IEAAXXZ.c)
+ *     ?DeleteAllCompositionTokens@CTokenManager@@IEAAXXZ @ 0x1C0018D9C (-DeleteAllCompositionTokens@CTokenManager@@IEAAXXZ.c)
+ *     ?DeleteAllTokens@CTokenQueue@@AEAAXXZ @ 0x1C0018DE0 (-DeleteAllTokens@CTokenQueue@@AEAAXXZ.c)
+ *     ?DeleteAllTokenQueues@CTokenManager@@IEAAXXZ @ 0x1C0018E28 (-DeleteAllTokenQueues@CTokenManager@@IEAAXXZ.c)
+ *     ?DeleteAllFlipManagerTokens@CTokenManager@@IEAAXXZ @ 0x1C0018E74 (-DeleteAllFlipManagerTokens@CTokenManager@@IEAAXXZ.c)
+ *     ?InternalDiscard@CAdapterCollection@@AEAAXXZ @ 0x1C00192B0 (-InternalDiscard@CAdapterCollection@@AEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CTokenManager::~CTokenManager(CTokenManager *this)
 {
   void *v2; // rcx

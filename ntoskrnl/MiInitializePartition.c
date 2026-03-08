@@ -1,3 +1,28 @@
+/*
+ * XREFs of MiInitializePartition @ 0x140837D40
+ * Callers:
+ *     MmCreatePartition @ 0x1403A6A3C (MmCreatePartition.c)
+ *     MiCreatePfnDatabase @ 0x140B3A0B8 (MiCreatePfnDatabase.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeInitializeGate @ 0x1402A4FEC (KeInitializeGate.c)
+ *     RtlRandomEx @ 0x1402A6210 (RtlRandomEx.c)
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiInitializePfnListHead @ 0x140300ED8 (MiInitializePfnListHead.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     MiInitializeCommitment @ 0x140392394 (MiInitializeCommitment.c)
+ *     MiInitializeCombining @ 0x140393F0C (MiInitializeCombining.c)
+ *     MiProtectPageListLocks @ 0x140393F60 (MiProtectPageListLocks.c)
+ *     MiInitializeNuma @ 0x140394008 (MiInitializeNuma.c)
+ *     MiInitializeLargePageNodeLists @ 0x1408383C8 (MiInitializeLargePageNodeLists.c)
+ *     MiInitializeSections @ 0x1408385EC (MiInitializeSections.c)
+ */
+
 char __fastcall MiInitializePartition(unsigned __int64 a1, __int16 a2)
 {
   __int64 v3; // rbx

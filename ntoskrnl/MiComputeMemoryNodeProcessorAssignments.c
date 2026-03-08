@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiComputeMemoryNodeProcessorAssignments @ 0x140B5F834
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402A9460 (KeFindFirstSetRightGroupAffinity.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402AE860 (KeQueryNodeActiveAffinity.c)
+ *     KeQueryNodeActiveAffinity2 @ 0x140300670 (KeQueryNodeActiveAffinity2.c)
+ *     ExAllocatePoolMm @ 0x14034C1AC (ExAllocatePoolMm.c)
+ *     MiGetEngineType @ 0x14039580C (MiGetEngineType.c)
+ *     MiReassignProcessorsToMemoryOnlyNodes @ 0x140B971D4 (MiReassignProcessorsToMemoryOnlyNodes.c)
+ */
+
 void MiComputeMemoryNodeProcessorAssignments()
 {
   unsigned int v0; // ebx

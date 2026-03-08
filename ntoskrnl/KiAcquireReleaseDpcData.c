@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiAcquireReleaseDpcData @ 0x14057A058
+ * Callers:
+ *     KeRemoveQueueDpcEx @ 0x14028DB50 (KeRemoveQueueDpcEx.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KiAcquireReleaseDpcData(__int64 a1)
 {
   volatile signed __int64 *v1; // rdi

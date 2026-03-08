@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpVpptUpdatePhysicalTimer @ 0x140507DB0
+ * Callers:
+ *     HalpVpptAcknowledgeInterrupt @ 0x140507660 (HalpVpptAcknowledgeInterrupt.c)
+ *     HalpVpptArmTimer @ 0x140507810 (HalpVpptArmTimer.c)
+ *     HalpVpptStop @ 0x140507AE0 (HalpVpptStop.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExtEnvSetVpptTarget @ 0x1405066D8 (ExtEnvSetVpptTarget.c)
+ *     HalpSetTimerAnyMode @ 0x1405068F0 (HalpSetTimerAnyMode.c)
+ *     ExtEnvCriticalFailure @ 0x14051D068 (ExtEnvCriticalFailure.c)
+ */
+
 __int64 __fastcall HalpVpptUpdatePhysicalTimer(__int64 a1)
 {
   int v1; // ebx

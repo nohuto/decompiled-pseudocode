@@ -1,3 +1,21 @@
+/*
+ * XREFs of PiGetDeviceRegProperty @ 0x1406C6230
+ * Callers:
+ *     IoGetDeviceProperty @ 0x1406C5B00 (IoGetDeviceProperty.c)
+ *     IopPnPDispatch @ 0x1407F7890 (IopPnPDispatch.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcschr @ 0x1403D5D90 (wcschr.c)
+ *     wcsstr @ 0x1403D6020 (wcsstr.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _CmGetDeviceRegProp @ 0x1406C9884 (_CmGetDeviceRegProp.c)
+ *     PnpFindAlternateStringData @ 0x1407811C0 (PnpFindAlternateStringData.c)
+ *     RtlFormatMessageEx @ 0x1409B6C28 (RtlFormatMessageEx.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiGetDeviceRegProperty(int a1, __int64 a2, int a3, int a4, wchar_t *Src, int *a6)
 {
   size_t v8; // r13

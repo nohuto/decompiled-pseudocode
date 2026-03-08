@@ -1,3 +1,11 @@
+/*
+ * XREFs of sub_14076ACE0 @ 0x14076ACE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall sub_14076ACE0(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

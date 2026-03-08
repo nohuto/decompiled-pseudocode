@@ -1,3 +1,14 @@
+/*
+ * XREFs of SdbpCheckMatchingWildcardRegistryEntry @ 0x140A4DAFC
+ * Callers:
+ *     SdbpCheckMatchingWildcardRegistry @ 0x140A4D9D0 (SdbpCheckMatchingWildcardRegistry.c)
+ * Callees:
+ *     SdbpCheckMatchingRegistryValue @ 0x140A4CE9C (SdbpCheckMatchingRegistryValue.c)
+ *     AslRegWildcardFindClose @ 0x140A535F0 (AslRegWildcardFindClose.c)
+ *     AslRegWildcardFindFirst @ 0x140A53674 (AslRegWildcardFindFirst.c)
+ *     AslRegWildcardFindNext @ 0x140A53734 (AslRegWildcardFindNext.c)
+ */
+
 __int64 __fastcall SdbpCheckMatchingWildcardRegistryEntry(
         __int64 a1,
         wchar_t *a2,

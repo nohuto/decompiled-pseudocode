@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DeliverKeyboardInputToRim@@YAXPEAU_IVKeyboardInputPacket@@PEAURawInputManagerObject@@PEAURIMDEV@@@Z @ 0x1C021D05C
+ * Callers:
+ *     ?ivHandleKeyboardInputPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C021E800 (-ivHandleKeyboardInputPacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@.c)
+ * Callees:
+ *     RIMQueueKeyboardInput @ 0x1C0003A10 (RIMQueueKeyboardInput.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 void __fastcall DeliverKeyboardInputToRim(
         struct _IVKeyboardInputPacket *a1,
         struct RawInputManagerObject *a2,

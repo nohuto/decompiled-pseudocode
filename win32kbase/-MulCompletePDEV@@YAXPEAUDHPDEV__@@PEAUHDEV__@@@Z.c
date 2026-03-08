@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?MulCompletePDEV@@YAXPEAUDHPDEV__@@PEAUHDEV__@@@Z @ 0x1C018B0E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?vUnreferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C003C110 (-vUnreferencePdev@PDEVOBJ@@QEAAXXZ.c)
+ *     ?vReferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C00448F0 (-vReferencePdev@PDEVOBJ@@QEAAXXZ.c)
+ */
+
 void __fastcall MulCompletePDEV(struct DHPDEV__ *a1, HDEV a2)
 {
   HDEV v2; // rbp

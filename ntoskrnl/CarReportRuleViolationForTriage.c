@@ -1,3 +1,22 @@
+/*
+ * XREFs of CarReportRuleViolationForTriage @ 0x1405D1FA0
+ * Callers:
+ *     CarReportRuleViolation @ 0x1405D1F60 (CarReportRuleViolation.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ * Callees:
+ *     CarEtwWriteBugCheckEvent @ 0x1405D078C (CarEtwWriteBugCheckEvent.c)
+ *     CarCopyRuleViolationDetails @ 0x1405D1370 (CarCopyRuleViolationDetails.c)
+ *     CarCreateRuleViolationDetails @ 0x1405D15B0 (CarCreateRuleViolationDetails.c)
+ *     CarCreateTelemetryData @ 0x1405D161C (CarCreateTelemetryData.c)
+ *     CarDeleteTelemetryData @ 0x1405D16C4 (CarDeleteTelemetryData.c)
+ *     CarDeleteRuleViolationDetails @ 0x1405D1700 (CarDeleteRuleViolationDetails.c)
+ *     CarQueryReportActionForTriage @ 0x1405D1B40 (CarQueryReportActionForTriage.c)
+ *     CarInitiateBugcheck @ 0x1405D3464 (CarInitiateBugcheck.c)
+ *     CarpSaveViolationSnapshot @ 0x1405D3534 (CarpSaveViolationSnapshot.c)
+ *     CarWriteLivedump @ 0x1405D3880 (CarWriteLivedump.c)
+ *     VfUtilGetSigningLevel @ 0x140ABF6E0 (VfUtilGetSigningLevel.c)
+ */
+
 __int64 __fastcall CarReportRuleViolationForTriage(ULONG BugCheckCode, ULONG_PTR BugCheckParameter1, __int64 a3)
 {
   unsigned int v4; // r15d

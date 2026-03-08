@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifIoGetInitialStackWrapper @ 0x1405DD8E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     IoGetInitialStack @ 0x140944470 (IoGetInitialStack.c)
+ */
+
 PVOID DifIoGetInitialStackWrapper()
 {
   __int64 *APIThunkContextById; // rax

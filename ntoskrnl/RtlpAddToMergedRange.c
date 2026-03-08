@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpAddToMergedRange @ 0x14081F7E4
+ * Callers:
+ *     RtlpDeleteFromMergedRange @ 0x14081F234 (RtlpDeleteFromMergedRange.c)
+ *     RtlpAddIntersectingRanges @ 0x14081F70C (RtlpAddIntersectingRanges.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpAddToMergedRange(__int64 a1, __int64 *a2, char a3)
 {
   __int64 v3; // r11

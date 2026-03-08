@@ -1,3 +1,12 @@
+/*
+ * XREFs of MmWriteTriageInformation @ 0x14062E4BC
+ * Callers:
+ *     IoFillTriageDumpBuffer @ 0x14054DAD0 (IoFillTriageDumpBuffer.c)
+ * Callees:
+ *     RtlGetNtProductType @ 0x140303E90 (RtlGetNtProductType.c)
+ *     ExVerifySuite @ 0x1403A1420 (ExVerifySuite.c)
+ */
+
 __int64 __fastcall MmWriteTriageInformation(_OWORD *a1, __int64 a2)
 {
   int v3; // ebx

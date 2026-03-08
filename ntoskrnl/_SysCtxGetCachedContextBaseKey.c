@@ -1,3 +1,12 @@
+/*
+ * XREFs of _SysCtxGetCachedContextBaseKey @ 0x14078225C
+ * Callers:
+ *     _PnpCtxGetCachedNodeBaseKey @ 0x1406D370C (_PnpCtxGetCachedNodeBaseKey.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x140A6772C (_SysCtxRegOpenCurrentUserKey.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SysCtxGetCachedContextBaseKey(_QWORD *a1, int a2, _QWORD *a3)
 {
   unsigned int v3; // r9d

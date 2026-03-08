@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiGetLargePageChain @ 0x1402E98A8
+ * Callers:
+ *     MiInitializePoolCommitPacket @ 0x140330760 (MiInitializePoolCommitPacket.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     MiGetLargePagesDemoteAsNeeded @ 0x14034DF94 (MiGetLargePagesDemoteAsNeeded.c)
+ *     MiIsFreeZeroPfnCold @ 0x140350240 (MiIsFreeZeroPfnCold.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFreeLargePageChain @ 0x14064CB6C (MiFreeLargePageChain.c)
+ *     MiAddPageToHeatRanges @ 0x140651704 (MiAddPageToHeatRanges.c)
+ *     MiNotifyPageHeat @ 0x140652018 (MiNotifyPageHeat.c)
+ */
+
 __int64 __fastcall MiGetLargePageChain(unsigned int a1, unsigned __int64 a2)
 {
   __int64 v3; // rdi

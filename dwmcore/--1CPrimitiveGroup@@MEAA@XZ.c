@@ -1,3 +1,18 @@
+/*
+ * XREFs of ??1CPrimitiveGroup@@MEAA@XZ @ 0x1800134E4
+ * Callers:
+ *     ??_ECPrimitiveGroup@@MEAAPEAXI@Z @ 0x1800134A0 (--_ECPrimitiveGroup@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ?ReleaseHeatMap@CPrimitiveGroup@@AEAAXXZ @ 0x18001360C (-ReleaseHeatMap@CPrimitiveGroup@@AEAAXXZ.c)
+ *     ?ReleaseColorResources@CPrimitiveGroup@@AEAAXXZ @ 0x180013664 (-ReleaseColorResources@CPrimitiveGroup@@AEAAXXZ.c)
+ *     ?InternalRelease@CResource@@IEAAKXZ @ 0x180078858 (-InternalRelease@CResource@@IEAAKXZ.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097680 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DF2E0 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ?ReleaseSurfaceResources@CPrimitiveGroup@@AEAAXXZ @ 0x1800E08F0 (-ReleaseSurfaceResources@CPrimitiveGroup@@AEAAXXZ.c)
+ *     ?ReleasePrimitiveCaches@CPrimitiveGroup@@AEAAX_N@Z @ 0x1800E0D3C (-ReleasePrimitiveCaches@CPrimitiveGroup@@AEAAX_N@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CPrimitiveGroup::~CPrimitiveGroup(CPrimitiveGroup *this)
 {
   __int64 v2; // rcx

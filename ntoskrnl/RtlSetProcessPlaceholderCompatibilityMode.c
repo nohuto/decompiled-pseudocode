@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlSetProcessPlaceholderCompatibilityMode @ 0x1409BD440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RtlSetProcessPlaceholderCompatibilityMode(unsigned __int8 a1)
 {
   unsigned __int64 v1; // r8

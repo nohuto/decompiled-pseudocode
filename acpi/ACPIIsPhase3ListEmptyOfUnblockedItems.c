@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIIsPhase3ListEmptyOfUnblockedItems @ 0x1C0021D74
+ * Callers:
+ *     ACPIDevicePowerDpc @ 0x1C001E5C0 (ACPIDevicePowerDpc.c)
+ * Callees:
+ *     ACPIDevicePowerEnumerateAssociatedPowerNodes @ 0x1C001E980 (ACPIDevicePowerEnumerateAssociatedPowerNodes.c)
+ *     WPP_RECORDER_SF_sqL @ 0x1C0023338 (WPP_RECORDER_SF_sqL.c)
+ */
+
 bool ACPIIsPhase3ListEmptyOfUnblockedItems()
 {
   char v0; // bp

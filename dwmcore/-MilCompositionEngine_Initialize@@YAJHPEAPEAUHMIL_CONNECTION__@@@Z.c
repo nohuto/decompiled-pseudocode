@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?MilCompositionEngine_Initialize@@YAJHPEAPEAUHMIL_CONNECTION__@@@Z @ 0x1800CA9F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038C50 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ??0CInternalMilCmdConnection@@QEAA@XZ @ 0x1800CAA88 (--0CInternalMilCmdConnection@@QEAA@XZ.c)
+ *     ?StartCompositionThread@CConnection@@AEAAJH@Z @ 0x1800CCAB4 (-StartCompositionThread@CConnection@@AEAAJH@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??1?$unique_ptr@VCInternalMilCmdConnection@@U?$default_delete@VCInternalMilCmdConnection@@@std@@@std@@QEAA@XZ @ 0x18010E2F0 (--1-$unique_ptr@VCInternalMilCmdConnection@@U-$default_delete@VCInternalMilCmdConnection@@@std@@.c)
+ *     ??_GCInternalMilCmdConnection@@UEAAPEAXI@Z @ 0x1801B03B0 (--_GCInternalMilCmdConnection@@UEAAPEAXI@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ */
+
 __int64 __fastcall MilCompositionEngine_Initialize(int a1, struct HMIL_CONNECTION__ **a2)
 {
   CInternalMilCmdConnection *v4; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopEsUpdateState @ 0x1403C0334
+ * Callers:
+ *     PopEsWorker @ 0x140870CA0 (PopEsWorker.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopDiagTraceEsState @ 0x140590A18 (PopDiagTraceEsState.c)
+ *     PopCurrentPowerState @ 0x14078F3D0 (PopCurrentPowerState.c)
+ *     PopEsPublishState @ 0x1408600C0 (PopEsPublishState.c)
+ *     PopEsSnapTelemetry @ 0x140995498 (PopEsSnapTelemetry.c)
+ */
+
 __int64 __fastcall PopEsUpdateState(char a1)
 {
   __int64 v2; // rdx

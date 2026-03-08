@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0DXGDISPLAYMANAGEROBJECT@@QEAA@_N@Z @ 0x1C0181F7C
+ * Callers:
+ *     DxgkDispMgrCreate @ 0x1C0181D80 (DxgkDispMgrCreate.c)
+ * Callees:
+ *     <none>
+ */
+
 DXGDISPLAYMANAGEROBJECT *__fastcall DXGDISPLAYMANAGEROBJECT::DXGDISPLAYMANAGEROBJECT(
         DXGDISPLAYMANAGEROBJECT *this,
         char a2)

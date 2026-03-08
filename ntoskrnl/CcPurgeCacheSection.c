@@ -1,3 +1,27 @@
+/*
+ * XREFs of CcPurgeCacheSection @ 0x1402A0EA0
+ * Callers:
+ *     CcUnmapAndPurge @ 0x140217984 (CcUnmapAndPurge.c)
+ *     CcSetFileSizesEx @ 0x14029F9B0 (CcSetFileSizesEx.c)
+ *     CcPurgeAndClearCacheSection @ 0x14029FCE4 (CcPurgeAndClearCacheSection.c)
+ *     CcCoherencyFlushAndPurgeCache @ 0x14029FE90 (CcCoherencyFlushAndPurgeCache.c)
+ *     CcUninitializeCacheMap @ 0x140336C50 (CcUninitializeCacheMap.c)
+ *     CcZeroEndOfLastPage @ 0x140343FA8 (CcZeroEndOfLastPage.c)
+ * Callees:
+ *     CcDecrementOpenCount @ 0x14021B85C (CcDecrementOpenCount.c)
+ *     CcUnmapVacbArray @ 0x14021B910 (CcUnmapVacbArray.c)
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     MmPurgeSection @ 0x1402836F0 (MmPurgeSection.c)
+ *     MmTrimSection @ 0x14029FF98 (MmTrimSection.c)
+ *     MmGetControlAreaPartition @ 0x1402A1224 (MmGetControlAreaPartition.c)
+ *     MmCanFileBeTruncated @ 0x1402A48B0 (MmCanFileBeTruncated.c)
+ *     CcUninitializeCacheMap @ 0x140336C50 (CcUninitializeCacheMap.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 BOOLEAN __stdcall CcPurgeCacheSection(
         PSECTION_OBJECT_POINTERS SectionObjectPointer,
         PLARGE_INTEGER FileOffset,

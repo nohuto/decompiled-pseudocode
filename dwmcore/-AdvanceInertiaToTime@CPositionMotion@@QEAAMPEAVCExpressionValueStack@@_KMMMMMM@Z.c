@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AdvanceInertiaToTime@CPositionMotion@@QEAAMPEAVCExpressionValueStack@@_KMMMMMM@Z @ 0x18026BFF8
+ * Callers:
+ *     ?CalculateInertiaValueWorker@CInteractionTrackerPositionAnimation@@MEAAJPEAVCExpressionValueStack@@_KMPEAM@Z @ 0x180263450 (-CalculateInertiaValueWorker@CInteractionTrackerPositionAnimation@@MEAAJPEAVCExpressionValueStac.c)
+ * Callees:
+ *     ?AdvanceInertiaToTime@CMotion@@UEAAMPEAVCExpressionValueStack@@_KMMM@Z @ 0x18026B070 (-AdvanceInertiaToTime@CMotion@@UEAAMPEAVCExpressionValueStack@@_KMMM@Z.c)
+ *     ?AdvanceDeltaDueToScale@CPositionMotion@@AEAAXXZ @ 0x18026BFA0 (-AdvanceDeltaDueToScale@CPositionMotion@@AEAAXXZ.c)
+ */
+
 float __fastcall CPositionMotion::AdvanceInertiaToTime(
         CPositionMotion *this,
         struct CExpressionValueStack *a2,

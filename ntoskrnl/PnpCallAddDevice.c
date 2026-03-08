@@ -1,3 +1,22 @@
+/*
+ * XREFs of PnpCallAddDevice @ 0x14078CA58
+ * Callers:
+ *     PipCallDriverAddDevice @ 0x1406C644C (PipCallDriverAddDevice.c)
+ * Callees:
+ *     PnpSetDeviceAffinityThread @ 0x140202EAC (PnpSetDeviceAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     PpvUtilCallAddDevice @ 0x1402F8E78 (PpvUtilCallAddDevice.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x140552580 (McTemplateK0q_EtwWriteTransfer.c)
+ *     PnpWatchdogEtwWrite @ 0x14055E670 (PnpWatchdogEtwWrite.c)
+ *     McTemplateK0qhzr1z_EtwWriteTransfer @ 0x14055EE14 (McTemplateK0qhzr1z_EtwWriteTransfer.c)
+ *     PnpEnableWatchdog @ 0x14068A5EC (PnpEnableWatchdog.c)
+ *     PnpRecordBlackbox @ 0x14068A980 (PnpRecordBlackbox.c)
+ *     PnpWatchdogTimerPause @ 0x14068A9F4 (PnpWatchdogTimerPause.c)
+ *     WdtpCancelTimer @ 0x14068AA80 (WdtpCancelTimer.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpCallAddDevice(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExpAllocateHandleTableEntrySlow @ 0x14070644C
+ * Callers:
+ *     ObDuplicateObject @ 0x1406ED5C0 (ObDuplicateObject.c)
+ *     ExDupHandleTable @ 0x140705D54 (ExDupHandleTable.c)
+ *     ObpCreateHandle @ 0x1407C0130 (ObpCreateHandle.c)
+ *     ExpAllocateHandleTableEntry @ 0x1407D8B90 (ExpAllocateHandleTableEntry.c)
+ * Callees:
+ *     ExpFreeTablePagedPool @ 0x140704514 (ExpFreeTablePagedPool.c)
+ *     ExpAllocateTablePagedPool @ 0x1407045FC (ExpAllocateTablePagedPool.c)
+ *     ExpAllocateMidLevelTable @ 0x140704638 (ExpAllocateMidLevelTable.c)
+ *     ExpInsertLowLevelTableIntoFreeList @ 0x140706518 (ExpInsertLowLevelTableIntoFreeList.c)
+ *     ExpAllocateLowLevelTable @ 0x14070663C (ExpAllocateLowLevelTable.c)
+ */
+
 char __fastcall ExpAllocateHandleTableEntrySlow(unsigned int *a1, __int64 a2)
 {
   __int64 v2; // r14

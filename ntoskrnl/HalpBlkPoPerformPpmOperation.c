@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpBlkPoPerformPpmOperation @ 0x140B12DC4
+ * Callers:
+ *     HalpBlkHandleIpi @ 0x140B13190 (HalpBlkHandleIpi.c)
+ * Callees:
+ *     HalpBlkPoPerformPpmOperationForIoPort @ 0x140B12E4C (HalpBlkPoPerformPpmOperationForIoPort.c)
+ *     HalpBlkPoPerformPpmOperationForMsr @ 0x140B12EE4 (HalpBlkPoPerformPpmOperationForMsr.c)
+ */
+
 char HalpBlkPoPerformPpmOperation()
 {
   _EXCEPTION_REGISTRATION_RECORD *ExceptionList; // rbx

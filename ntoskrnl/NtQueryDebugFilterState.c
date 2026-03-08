@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtQueryDebugFilterState @ 0x1402BDF40
+ * Callers:
+ *     vDbgPrintExWithPrefixInternal @ 0x1402BDDE0 (vDbgPrintExWithPrefixInternal.c)
+ *     DbgQueryDebugFilterState @ 0x1405A53C0 (DbgQueryDebugFilterState.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall NtQueryDebugFilterState(unsigned int a1, unsigned int a2)
 {
   unsigned int v2; // r8d

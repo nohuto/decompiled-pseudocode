@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoUpdateThreadIoRateThrottle @ 0x140200B50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeAbProcessBaseIoPriorityChangeInternal @ 0x140357A54 (KeAbProcessBaseIoPriorityChangeInternal.c)
+ */
+
 __int64 __fastcall IoUpdateThreadIoRateThrottle(__int64 a1, unsigned int a2)
 {
   signed __int32 v2; // eax

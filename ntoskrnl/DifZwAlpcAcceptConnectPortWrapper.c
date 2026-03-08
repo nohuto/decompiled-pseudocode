@@ -1,3 +1,15 @@
+/*
+ * XREFs of DifZwAlpcAcceptConnectPortWrapper @ 0x1405EA900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwAlpcAcceptConnectPort @ 0x1404131F0 (ZwAlpcAcceptConnectPort.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 __int64 __fastcall DifZwAlpcAcceptConnectPortWrapper(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of bInitOneStockFont @ 0x1C03B6A80
+ * Callers:
+ *     bInitStockFontsInternal @ 0x1C03B63A8 (bInitStockFontsInternal.c)
+ * Callees:
+ *     ?bQueryValueKey@@YAHPEBGPEAXPEAU_KEY_VALUE_PARTIAL_INFORMATION@@K@Z @ 0x1C00BAA08 (-bQueryValueKey@@YAHPEBGPEAXPEAU_KEY_VALUE_PARTIAL_INFORMATION@@K@Z.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     bInitOneStockFontInternal @ 0x1C03B6790 (bInitOneStockFontInternal.c)
+ */
+
 __int64 __fastcall bInitOneStockFont(
         const WCHAR *a1,
         int a2,

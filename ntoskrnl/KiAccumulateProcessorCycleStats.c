@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiAccumulateProcessorCycleStats @ 0x14036A290
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PoGetFrequencyBucket @ 0x140254EC0 (PoGetFrequencyBucket.c)
+ *     KiGetProcessorEfficiencyClass @ 0x14036A2D4 (KiGetProcessorEfficiencyClass.c)
+ */
+
 __int64 __fastcall KiAccumulateProcessorCycleStats(__int64 a1)
 {
   unsigned int FrequencyBucket; // eax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of XilDeviceSlot_Create @ 0x1C001A6F4
+ * Callers:
+ *     DeviceSlot_Create @ 0x1C0070454 (DeviceSlot_Create.c)
+ * Callees:
+ *     DeviceSlot_GetXilCoreDeviceSlotData @ 0x1C0019E24 (DeviceSlot_GetXilCoreDeviceSlotData.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     XilDeviceSlot_CreateSecureObject @ 0x1C0037F1C (XilDeviceSlot_CreateSecureObject.c)
+ */
+
 __int64 __fastcall XilDeviceSlot_Create(__int64 a1, __int64 a2, int a3, int a4)
 {
   __int64 v5; // rcx

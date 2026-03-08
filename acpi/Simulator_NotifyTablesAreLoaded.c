@@ -1,3 +1,15 @@
+/*
+ * XREFs of Simulator_NotifyTablesAreLoaded @ 0x1C00AB360
+ * Callers:
+ *     ACPIInitializeDDBs @ 0x1C00A94A0 (ACPIInitializeDDBs.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     Simulator_AllocAndInitTestData @ 0x1C0048EC4 (Simulator_AllocAndInitTestData.c)
+ *     Simulator_TestNotify @ 0x1C0049970 (Simulator_TestNotify.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ *     CreateNameSpaceObject @ 0x1C004F10C (CreateNameSpaceObject.c)
+ */
+
 __int64 Simulator_NotifyTablesAreLoaded()
 {
   __int64 v0; // rbx

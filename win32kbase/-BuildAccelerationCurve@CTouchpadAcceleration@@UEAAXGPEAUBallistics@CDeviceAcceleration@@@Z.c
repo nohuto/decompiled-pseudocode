@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?BuildAccelerationCurve@CTouchpadAcceleration@@UEAAXGPEAUBallistics@CDeviceAcceleration@@@Z @ 0x1C00BE000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_BuildAccelerationCurve@CDeviceAcceleration@@IEAAXPEAUCurve@1@GI@Z @ 0x1C00BE068 (-_BuildAccelerationCurve@CDeviceAcceleration@@IEAAXPEAUCurve@1@GI@Z.c)
+ */
+
 void __fastcall CTouchpadAcceleration::BuildAccelerationCurve(
         CTouchpadAcceleration *this,
         __int64 a2,

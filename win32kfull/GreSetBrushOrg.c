@@ -1,3 +1,17 @@
+/*
+ * XREFs of GreSetBrushOrg @ 0x1C0007754
+ * Callers:
+ *     xxxPaintRect @ 0x1C0007680 (xxxPaintRect.c)
+ *     _DrawIconEx @ 0x1C003B618 (_DrawIconEx.c)
+ *     NtGdiSetBrushOrg @ 0x1C0150170 (NtGdiSetBrushOrg.c)
+ *     MNEraseBackground @ 0x1C023756C (MNEraseBackground.c)
+ *     xxxMNDrawFullNC @ 0x1C0237FB4 (xxxMNDrawFullNC.c)
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C0050C40 (--1DCOBJ@@QEAA@XZ.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ */
+
 __int64 __fastcall GreSetBrushOrg(HDC a1, int a2, int a3, _QWORD *a4)
 {
   __int64 v7; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TraceUpdatedConfiguration@CInteraction@@QEAAXW4Enum@InteractionConfigurationUpdateType@@W42InteractionInputType@@IPEBX@Z @ 0x180031764
+ * Callers:
+ *     ?ProcessUpdateConfiguration@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_UPDATECONFIGURATION@@PEBXI@Z @ 0x1800317DC (-ProcessUpdateConfiguration@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_UPD.c)
+ * Callees:
+ *     McTemplateU0pqqNR2_EventWriteTransfer @ 0x180209BD4 (McTemplateU0pqqNR2_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall CInteraction::TraceUpdatedConfiguration(int a1, int a2, int a3, int a4, __int64 a5)
 {
   int v5; // r8d

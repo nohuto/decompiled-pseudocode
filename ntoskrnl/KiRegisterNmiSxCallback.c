@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiRegisterNmiSxCallback @ 0x14056AA40
+ * Callers:
+ *     HvlpInitializeHvCrashdump @ 0x140545BF4 (HvlpInitializeHvCrashdump.c)
+ *     KeRegisterNmiCallback @ 0x14056A660 (KeRegisterNmiCallback.c)
+ *     DifKeRegisterNmiCallbackWrapper @ 0x1405E2170 (DifKeRegisterNmiCallbackWrapper.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 _QWORD *__fastcall KiRegisterNmiSxCallback(__int64 a1, __int64 a2)
 {
   _QWORD *result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiUpdateKernelShadowStackOwnerData @ 0x140642A9C
+ * Callers:
+ *     MmCreateKernelShadowStack @ 0x140642B98 (MmCreateKernelShadowStack.c)
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiValidateKernelShadowStackPage @ 0x140642B48 (MiValidateKernelShadowStackPage.c)
+ */
+
 void __fastcall MiUpdateKernelShadowStackOwnerData(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
 {
   unsigned __int64 v4; // rsi

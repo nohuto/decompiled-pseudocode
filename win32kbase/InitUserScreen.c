@@ -1,3 +1,28 @@
+/*
+ * XREFs of InitUserScreen @ 0x1C00127A8
+ * Callers:
+ *     InitVideo @ 0x1C0010AAC (InitVideo.c)
+ * Callees:
+ *     GreMarkDCUnreadable @ 0x1C0010A28 (GreMarkDCUnreadable.c)
+ *     ApiSetEditionInitGlobalCursorSizes @ 0x1C0011384 (ApiSetEditionInitGlobalCursorSizes.c)
+ *     ?CreateCachedMonitor@@YAPEAUtagMONITOR@@XZ @ 0x1C00121E8 (-CreateCachedMonitor@@YAPEAUtagMONITOR@@XZ.c)
+ *     GreGetSystemFont @ 0x1C0012D10 (GreGetSystemFont.c)
+ *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0014608 (-zzzUpdateUserScreen@@YAJXZ.c)
+ *     CreateProfileUserName @ 0x1C00173D0 (CreateProfileUserName.c)
+ *     xxxODI_ColorInit @ 0x1C0018A90 (xxxODI_ColorInit.c)
+ *     CreateCacheDC @ 0x1C003DC40 (CreateCacheDC.c)
+ *     GreSetDCOwnerEx @ 0x1C0041580 (GreSetDCOwnerEx.c)
+ *     CreateEmptyRgnPublic @ 0x1C0041F30 (CreateEmptyRgnPublic.c)
+ *     GreCreateCompatibleDC @ 0x1C0052510 (GreCreateCompatibleDC.c)
+ *     GreCreateDisplayDC @ 0x1C0055340 (GreCreateDisplayDC.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C007795C (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     GreLockVisRgn @ 0x1C00794E0 (GreLockVisRgn.c)
+ *     GreUnlockVisRgn @ 0x1C00795D0 (GreUnlockVisRgn.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00ABD88 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 InitUserScreen()
 {
   __int64 v0; // rdx

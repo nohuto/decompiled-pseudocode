@@ -1,3 +1,13 @@
+/*
+ * XREFs of RecordCommandTimingHistory @ 0x1C00251C0
+ * Callers:
+ *     NVMeCompletionDpcRoutine @ 0x1C00023F0 (NVMeCompletionDpcRoutine.c)
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     CalculateTimeDurationIn100ns @ 0x1C0007370 (CalculateTimeDurationIn100ns.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ */
+
 _UNKNOWN **__fastcall RecordCommandTimingHistory(__int64 a1, __int64 a2, unsigned __int64 a3)
 {
   _UNKNOWN **result; // rax

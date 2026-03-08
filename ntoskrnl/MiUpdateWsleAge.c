@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiUpdateWsleAge @ 0x1402CF54C
+ * Callers:
+ *     MiActOnPte @ 0x1402CF06C (MiActOnPte.c)
+ * Callees:
+ *     MiSetVaAgeList @ 0x14031AB40 (MiSetVaAgeList.c)
+ *     MiGetVaAge @ 0x140349610 (MiGetVaAge.c)
+ */
+
 __int64 __fastcall MiUpdateWsleAge(__int64 a1, _QWORD *a2, char a3)
 {
   __int64 v6; // rdi

@@ -1,3 +1,25 @@
+/*
+ * XREFs of CmpValidateHiveSecurityDescriptors @ 0x14071C9C4
+ * Callers:
+ *     CmCheckRegistry @ 0x14072DEB4 (CmCheckRegistry.c)
+ * Callees:
+ *     SetFailureLocation @ 0x140243E5C (SetFailureLocation.c)
+ *     CmpResetCachedSecurity @ 0x14067D510 (CmpResetCachedSecurity.c)
+ *     CmpAddSecurityCellToCache @ 0x14071CF00 (CmpAddSecurityCellToCache.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x14071D120 (RtlValidRelativeSecurityDescriptor.c)
+ *     CmpInitSecurityCache @ 0x14072CC90 (CmpInitSecurityCache.c)
+ *     CmpDestroySecurityCache @ 0x14074ADE4 (CmpDestroySecurityCache.c)
+ *     CmpCheckSecurityCellAccess @ 0x14074C9BC (CmpCheckSecurityCellAccess.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpAdjustSecurityCacheSize @ 0x14079179C (CmpAdjustSecurityCacheSize.c)
+ *     HvIsCellAllocated @ 0x1407B0B10 (HvIsCellAllocated.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpMarkCellDirty @ 0x1407D2460 (HvpMarkCellDirty.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     HvpGetBinContextInitialize @ 0x140AF2644 (HvpGetBinContextInitialize.c)
+ */
+
 __int64 __fastcall CmpValidateHiveSecurityDescriptors(
         ULONG_PTR BugCheckParameter3,
         int a2,

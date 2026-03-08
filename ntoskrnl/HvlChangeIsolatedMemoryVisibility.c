@@ -1,3 +1,14 @@
+/*
+ * XREFs of HvlChangeIsolatedMemoryVisibility @ 0x1406767D0
+ * Callers:
+ *     MiSwitchToPfns @ 0x140B37268 (MiSwitchToPfns.c)
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     HvlpHvToNtStatus @ 0x140456F16 (HvlpHvToNtStatus.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 __int64 __fastcall HvlChangeIsolatedMemoryVisibility(LONGLONG a1, unsigned __int64 a2, __int64 a3, _QWORD *a4)
 {
   unsigned int v7; // edi

@@ -1,3 +1,16 @@
+/*
+ * XREFs of Isoch_MappingLoop @ 0x1C0001D18
+ * Callers:
+ *     Isoch_MapTransfers @ 0x1C0001C9C (Isoch_MapTransfers.c)
+ * Callees:
+ *     Isoch_RetrieveNextStage @ 0x1C0003800 (Isoch_RetrieveNextStage.c)
+ *     Isoch_MapStage @ 0x1C0004810 (Isoch_MapStage.c)
+ *     Isoch_PrepareStage @ 0x1C0004AD0 (Isoch_PrepareStage.c)
+ *     TR_AttemptStateChange @ 0x1C0008120 (TR_AttemptStateChange.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C001E054 (WPP_RECORDER_SF_DDD.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Isoch_MappingLoop(_QWORD *a1)
 {
   char i; // di

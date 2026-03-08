@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPowerRequestStatsGetIdForBlocker @ 0x140798C04
+ * Callers:
+ *     PopPowerRequestStatsCreate @ 0x14073C194 (PopPowerRequestStatsCreate.c)
+ * Callees:
+ *     SleepstudyHelperGetBlockerVerboseDescription @ 0x140798D2C (SleepstudyHelperGetBlockerVerboseDescription.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PopPowerRequestStatsGetIdForBlocker(__int64 a1, __int64 *a2)
 {
   int v3; // edi

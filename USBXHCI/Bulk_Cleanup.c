@@ -1,3 +1,12 @@
+/*
+ * XREFs of Bulk_Cleanup @ 0x1C00469E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Bulk_DoesDriverOwnRequests @ 0x1C000E544 (Bulk_DoesDriverOwnRequests.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C001E054 (WPP_RECORDER_SF_DDD.c)
+ */
+
 void __fastcall Bulk_Cleanup(__int64 a1)
 {
   __int64 v2; // rdx

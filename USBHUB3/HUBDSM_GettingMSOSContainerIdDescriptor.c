@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBDSM_GettingMSOSContainerIdDescriptor @ 0x1C00218B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBDTX_GetMsOsFeatureDescriptor @ 0x1C002A50C (HUBDTX_GetMsOsFeatureDescriptor.c)
+ */
+
 __int64 __fastcall HUBDSM_GettingMSOSContainerIdDescriptor(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // rbx

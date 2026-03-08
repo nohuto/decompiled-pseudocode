@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z @ 0x1C018A3B0
+ * Callers:
+ *     ?pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z @ 0x1C018A9F0 (-pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z.c)
+ * Callees:
+ *     ?bIntersect@@YA_NPEAU_RECTFX@@0@Z @ 0x1C018A15C (-bIntersect@@YA_NPEAU_RECTFX@@0@Z.c)
+ *     ?vBoundBox@@YAXPEAU_POINTFIX@@PEAU_RECTFX@@@Z @ 0x1C018AC8C (-vBoundBox@@YAXPEAU_POINTFIX@@PEAU_RECTFX@@@Z.c)
+ *     ?vInit@HFDBASIS64@@QEAAXJJJJ@Z @ 0x1C018AEE8 (-vInit@HFDBASIS64@@QEAAXJJJJ@Z.c)
+ *     ?vParentError@HFDBASIS64@@QEBAXPEA_J@Z @ 0x1C018AF60 (-vParentError@HFDBASIS64@@QEBAXPEA_J@Z.c)
+ *     ?vUntransform@HFDBASIS64@@QEAAXPEAJ@Z @ 0x1C018B014 (-vUntransform@HFDBASIS64@@QEAAXPEAJ@Z.c)
+ */
+
 __int64 __fastcall BEZIER64::bNext(BEZIER64 *this, struct _POINTFIX *a2)
 {
   bool v2; // zf

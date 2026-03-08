@@ -1,3 +1,12 @@
+/*
+ * XREFs of TR_GetUsbdStatusFromTrbCompletionCode @ 0x1C0005FE4
+ * Callers:
+ *     Control_Transfer_Complete @ 0x1C0005E64 (Control_Transfer_Complete.c)
+ *     Bulk_Transfer_PrepareForCompletion @ 0x1C0011B14 (Bulk_Transfer_PrepareForCompletion.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TR_GetUsbdStatusFromTrbCompletionCode(__int64 a1, unsigned int a2, unsigned int a3)
 {
   unsigned int v3; // edx

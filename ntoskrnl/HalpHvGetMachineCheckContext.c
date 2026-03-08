@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpHvGetMachineCheckContext @ 0x140509A64
+ * Callers:
+ *     HalpMcaPopulateErrorData @ 0x14050135C (HalpMcaPopulateErrorData.c)
+ *     HalpHvMceConsumedMemoryErrorRecovery @ 0x1405092C0 (HalpHvMceConsumedMemoryErrorRecovery.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpHvGetMachineCheckContext(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

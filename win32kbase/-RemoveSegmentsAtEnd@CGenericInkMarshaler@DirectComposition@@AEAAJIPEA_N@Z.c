@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RemoveSegmentsAtEnd@CGenericInkMarshaler@DirectComposition@@AEAAJIPEA_N@Z @ 0x1C0250750
+ * Callers:
+ *     ?SetIntegerProperty@CGenericInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0250880 (-SetIntegerProperty@CGenericInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPE.c)
+ * Callees:
+ *     ?Shrink@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_K@Z @ 0x1C00C3930 (-Shrink@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_K@Z.c)
+ *     ?GetSegmentCount@CGenericInkMarshaler@DirectComposition@@AEBAIXZ @ 0x1C0250670 (-GetSegmentCount@CGenericInkMarshaler@DirectComposition@@AEBAIXZ.c)
+ */
+
 __int64 __fastcall DirectComposition::CGenericInkMarshaler::RemoveSegmentsAtEnd(
         DirectComposition::CGenericInkMarshaler *this,
         __int64 a2,

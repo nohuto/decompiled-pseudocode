@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopSetEnvironmentVariableSysEnv @ 0x14094E3E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IopIssueSystemEnvironmentRequest @ 0x14094E098 (IopIssueSystemEnvironmentRequest.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopSetEnvironmentVariableSysEnv(
         __int64 a1,
         struct _DEVICE_OBJECT *a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ComputeInverseMatrix3x3 @ 0x1C02556D8
+ * Callers:
+ *     HT_CreateDeviceHalftoneInfo @ 0x1C00195AC (HT_CreateDeviceHalftoneInfo.c)
+ *     ComputeColorSpaceXForm @ 0x1C0257078 (ComputeColorSpaceXForm.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     DivFD6 @ 0x1C014AF0C (DivFD6.c)
+ *     MulFD6 @ 0x1C014B146 (MulFD6.c)
+ */
+
 __int64 __fastcall ComputeInverseMatrix3x3(__int128 *a1, __int64 a2)
 {
   int v2; // eax

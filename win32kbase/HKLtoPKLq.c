@@ -1,3 +1,11 @@
+/*
+ * XREFs of HKLtoPKLq @ 0x1C0085E24
+ * Callers:
+ *     NtUserGetInputLocaleInfo @ 0x1C0085CC0 (NtUserGetInputLocaleInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HKLtoPKLq(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8

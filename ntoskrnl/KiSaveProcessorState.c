@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiSaveProcessorState @ 0x14036A140
+ * Callers:
+ *     KiFreezeTargetExecution @ 0x140369240 (KiFreezeTargetExecution.c)
+ *     KxNmiInterrupt @ 0x140424000 (KxNmiInterrupt.c)
+ * Callees:
+ *     KeContextFromKframes @ 0x1403620F0 (KeContextFromKframes.c)
+ *     KiSaveNpxState @ 0x14036A584 (KiSaveNpxState.c)
+ *     KiSaveProcessorControlState @ 0x140416350 (KiSaveProcessorControlState.c)
+ */
+
 __int64 __fastcall KiSaveProcessorState(__int64 a1, __int64 a2)
 {
   struct _KPRCB *CurrentPrcb; // rdi

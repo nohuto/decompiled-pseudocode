@@ -1,3 +1,12 @@
+/*
+ * XREFs of ShrinkMask_CY @ 0x1C0260610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall ShrinkMask_CY(__int64 a1)
 {
   __int64 v1; // rdx

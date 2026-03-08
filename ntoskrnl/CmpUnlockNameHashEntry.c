@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpUnlockNameHashEntry @ 0x140A1C95C
+ * Callers:
+ *     CmpGetNameControlBlock @ 0x1407B01F0 (CmpGetNameControlBlock.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ */
+
 signed __int32 __fastcall CmpUnlockNameHashEntry(unsigned int a1)
 {
   __int64 *v1; // rbx

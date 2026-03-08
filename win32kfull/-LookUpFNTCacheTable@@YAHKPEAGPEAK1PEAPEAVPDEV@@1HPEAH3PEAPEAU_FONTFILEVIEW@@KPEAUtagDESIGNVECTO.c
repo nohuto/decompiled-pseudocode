@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?LookUpFNTCacheTable@@YAHKPEAGPEAK1PEAPEAVPDEV@@1HPEAH3PEAPEAU_FONTFILEVIEW@@KPEAUtagDESIGNVECTOR@@K@Z @ 0x1C0118A8C
+ * Callers:
+ *     UmfdLoadFontFileView @ 0x1C011859C (UmfdLoadFontFileView.c)
+ * Callees:
+ *     ReadFileInfo @ 0x1C00DF234 (ReadFileInfo.c)
+ *     SearchFNTCacheHlink @ 0x1C0116040 (SearchFNTCacheHlink.c)
+ */
+
 __int64 __fastcall LookUpFNTCacheTable(
         Gre::Base *a1,
         unsigned __int16 *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of Feature_CcImprovementsForReFS__private_IsEnabledDeviceUsage @ 0x140409DF8
+ * Callers:
+ *     CcInitializeCacheManager @ 0x140B3EB44 (CcInitializeCacheManager.c)
+ * Callees:
+ *     Feature_CcImprovementsForReFS__private_IsEnabledFallback @ 0x140409E30 (Feature_CcImprovementsForReFS__private_IsEnabledFallback.c)
+ */
+
 __int64 Feature_CcImprovementsForReFS__private_IsEnabledDeviceUsage()
 {
   if ( (Feature_CcImprovementsForReFS__private_featureState & 0x10) != 0 )

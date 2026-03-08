@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpCreateEmptyHiveClone @ 0x140A19E20
+ * Callers:
+ *     CmpReorganizeHive @ 0x14072C970 (CmpReorganizeHive.c)
+ * Callees:
+ *     CmpAllocateForNonPagedHive @ 0x1406140E0 (CmpAllocateForNonPagedHive.c)
+ *     ObDuplicateObject @ 0x1406ED5C0 (ObDuplicateObject.c)
+ *     CmpAllocate @ 0x14072C880 (CmpAllocate.c)
+ *     CmpHiveInitialize @ 0x14072CBCC (CmpHiveInitialize.c)
+ *     CmpDestroyHive @ 0x140A19FFC (CmpDestroyHive.c)
+ *     HvHiveStartEmptyClone @ 0x140A1A7E0 (HvHiveStartEmptyClone.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmpCreateEmptyHiveClone(__int64 *a1, __int64 a2)
 {
   _QWORD *Pool2; // rbp

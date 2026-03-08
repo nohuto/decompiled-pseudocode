@@ -1,3 +1,13 @@
+/*
+ * XREFs of PsQueryActivityModerationUserSettings @ 0x1405A1920
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     ExGetExtensionTable @ 0x1402C57F0 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall PsQueryActivityModerationUserSettings(_QWORD *a1)
 {
   unsigned __int64 ExtensionTable; // rax

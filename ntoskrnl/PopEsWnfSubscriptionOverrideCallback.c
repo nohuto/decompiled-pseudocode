@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopEsWnfSubscriptionOverrideCallback @ 0x140995540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     ExQueryWnfStateData @ 0x140793060 (ExQueryWnfStateData.c)
+ *     PopEsWorkItemSchedule @ 0x14086E7F0 (PopEsWorkItemSchedule.c)
+ */
+
 __int64 __fastcall PopEsWnfSubscriptionOverrideCallback(__int64 a1)
 {
   int v1; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of EngHangNotification @ 0x1C026EDE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 ULONG __stdcall EngHangNotification(HDEV hDev, PVOID Reserved)
 {
   ULONG v3; // edi

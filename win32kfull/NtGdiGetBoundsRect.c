@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiGetBoundsRect @ 0x1C0009630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreGetBoundsRect @ 0x1C0009698 (GreGetBoundsRect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall NtGdiGetBoundsRect(HDC a1, _OWORD *a2)
 {
   __int64 result; // rax

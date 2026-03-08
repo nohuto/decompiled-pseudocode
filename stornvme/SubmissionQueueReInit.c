@@ -1,3 +1,11 @@
+/*
+ * XREFs of SubmissionQueueReInit @ 0x1C0010D50
+ * Callers:
+ *     NVMeQueuesReInit @ 0x1C0010588 (NVMeQueuesReInit.c)
+ * Callees:
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ */
+
 void *__fastcall SubmissionQueueReInit(__int64 a1, __int64 a2)
 {
   unsigned __int16 v2; // cx

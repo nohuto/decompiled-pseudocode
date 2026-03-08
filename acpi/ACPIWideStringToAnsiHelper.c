@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIWideStringToAnsiHelper @ 0x1C0043C58
+ * Callers:
+ *     ACPIGetConvertToCompatibleID @ 0x1C002983C (ACPIGetConvertToCompatibleID.c)
+ *     ACPIGetConvertToDeviceID @ 0x1C0029CB8 (ACPIGetConvertToDeviceID.c)
+ *     ACPIGetConvertToHardwareID @ 0x1C002A0C4 (ACPIGetConvertToHardwareID.c)
+ *     ACPIGetConvertToInstanceID @ 0x1C002A39C (ACPIGetConvertToInstanceID.c)
+ *     ACPIGetConvertToPnpID @ 0x1C002A5E8 (ACPIGetConvertToPnpID.c)
+ *     ACPIGetConvertToString @ 0x1C002A908 (ACPIGetConvertToString.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPIWideStringToAnsiHelper(_BYTE *a1, unsigned int a2)
 {
   unsigned int v2; // r10d

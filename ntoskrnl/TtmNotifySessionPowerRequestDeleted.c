@@ -1,3 +1,16 @@
+/*
+ * XREFs of TtmNotifySessionPowerRequestDeleted @ 0x1409A1578
+ * Callers:
+ *     PopPowerRequestDelete @ 0x14073B0E0 (PopPowerRequestDelete.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     TtmpAcquireSessionById @ 0x1409A1F50 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x1409A536C (TtmiLogError.c)
+ *     TtmiLogSessionPowerRequestDeleted @ 0x1409A6B44 (TtmiLogSessionPowerRequestDeleted.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall TtmNotifySessionPowerRequestDeleted(unsigned int a1, int a2)
 {
   unsigned __int64 v3; // rbp

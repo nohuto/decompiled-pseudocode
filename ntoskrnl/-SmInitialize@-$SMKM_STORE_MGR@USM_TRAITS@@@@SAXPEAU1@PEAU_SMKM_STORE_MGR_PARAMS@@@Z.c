@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x1403A340C
+ * Callers:
+ *     SmFirstTimeInit @ 0x1407DDCE0 (SmFirstTimeInit.c)
+ *     SmPartitionInitialize @ 0x14084CDAC (SmPartitionInitialize.c)
+ * Callees:
+ *     KiInitializeTimer2 @ 0x140203D9C (KiInitializeTimer2.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     ExInitializePushLock @ 0x140238200 (ExInitializePushLock.c)
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SmKmInitialize @ 0x14084CF40 (SmKmInitialize.c)
+ */
+
 __int64 (__fastcall *__fastcall SMKM_STORE_MGR<SM_TRAITS>::SmInitialize(__int64 a1, _OWORD *a2))()
 {
   _QWORD *v4; // rax

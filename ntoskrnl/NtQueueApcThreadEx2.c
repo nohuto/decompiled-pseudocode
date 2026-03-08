@@ -1,3 +1,17 @@
+/*
+ * XREFs of NtQueueApcThreadEx2 @ 0x1406F5AB0
+ * Callers:
+ *     NtQueueApcThread @ 0x1406F4EF0 (NtQueueApcThread.c)
+ *     NtQueueApcThreadEx @ 0x1406F5A60 (NtQueueApcThreadEx.c)
+ * Callees:
+ *     KeInitializeApc @ 0x140237E20 (KeInitializeApc.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeInsertQueueApc @ 0x14027DBF0 (KeInsertQueueApc.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 NTSTATUS __fastcall NtQueueApcThreadEx2(void *a1, void *a2, int a3, __int64 a4, __int64 a5, __int64 a6, _DWORD *a7)
 {
   char v10; // r15

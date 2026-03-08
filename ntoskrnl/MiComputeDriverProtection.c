@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiComputeDriverProtection @ 0x14080A918
+ * Callers:
+ *     MiProtectLargeKernelHalRange @ 0x14080A3F0 (MiProtectLargeKernelHalRange.c)
+ *     MiProtectSystemImage @ 0x14080A600 (MiProtectSystemImage.c)
+ *     MiGetBootImagePageProtection @ 0x140B3BD78 (MiGetBootImagePageProtection.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiComputeDriverProtection(int a1, int a2)
 {
   unsigned int v2; // r9d

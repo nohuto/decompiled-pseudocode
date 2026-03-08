@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpReadTimeZoneInformation @ 0x1409F51A8
+ * Callers:
+ *     ExpReadSiloTimeZoneMarker @ 0x1409F5178 (ExpReadSiloTimeZoneMarker.c)
+ *     ExpTimeZoneInitSiloState @ 0x1409F52D8 (ExpTimeZoneInitSiloState.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x14069B3C0 (RtlpQueryRegistryValues.c)
+ */
+
 __int64 __fastcall ExpReadTimeZoneInformation(__int64 a1, int a2, __int64 a3)
 {
   _QWORD v6[15]; // [rsp+30h] [rbp-78h] BYREF

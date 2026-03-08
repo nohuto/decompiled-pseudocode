@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpSizeHeapPool @ 0x14060D0F0
+ * Callers:
+ *     ViPostPoolAllocation @ 0x140ACE608 (ViPostPoolAllocation.c)
+ * Callees:
+ *     MiDeterminePoolType @ 0x14020DEF0 (MiDeterminePoolType.c)
+ *     ExpRemoveTagForBigPages @ 0x1402B6920 (ExpRemoveTagForBigPages.c)
+ */
+
 __int64 __fastcall ExpSizeHeapPool(unsigned __int64 a1)
 {
   int v1; // eax

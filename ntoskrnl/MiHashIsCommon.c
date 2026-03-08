@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiHashIsCommon @ 0x14022A360
+ * Callers:
+ *     MiCapturePfnVm @ 0x14022A10C (MiCapturePfnVm.c)
+ *     MiCombineInitialInstance @ 0x14029CD58 (MiCombineInitialInstance.c)
+ * Callees:
+ *     RtlCompareMemoryUlong @ 0x140420E50 (RtlCompareMemoryUlong.c)
+ */
+
 _BOOL8 __fastcall MiHashIsCommon(__int64 a1, __int64 a2, void *a3)
 {
   _QWORD *v3; // r9

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NPEAU_EPROCESS@@@Z @ 0x1C0093790
+ * Callers:
+ *     zzzCalcStartCursorHide @ 0x1C00612C0 (zzzCalcStartCursorHide.c)
+ *     GreIsProcessSystemCritical @ 0x1C009373C (GreIsProcessSystemCritical.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall UmfdHostLifeTimeManager::IsProcessUmfdHost(struct _EPROCESS *a1)
 {
   __int64 v2; // rdi

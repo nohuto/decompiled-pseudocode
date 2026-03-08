@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiReplaceRotateWithDemandZero @ 0x140A2E748
+ * Callers:
+ *     MmRotatePhysicalView @ 0x140A2EF10 (MmRotatePhysicalView.c)
+ * Callees:
+ *     MiIsPfn @ 0x14025F1D0 (MiIsPfn.c)
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiDereferenceIoPages @ 0x14029B654 (MiDereferenceIoPages.c)
+ *     MmBuildMdlForNonPagedPool @ 0x1402B5DB0 (MmBuildMdlForNonPagedPool.c)
+ *     MmSizeOfMdl @ 0x1402CFFB0 (MmSizeOfMdl.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiMarkMdlComplete @ 0x140630368 (MiMarkMdlComplete.c)
+ *     MiSlowRotateCopy @ 0x140630B44 (MiSlowRotateCopy.c)
+ *     MiSwitchToTransition @ 0x140630D6C (MiSwitchToTransition.c)
+ *     MiGetVadCacheAttribute @ 0x14065E5C4 (MiGetVadCacheAttribute.c)
+ *     MiLogVirtualRotateEvent @ 0x140A2E6F4 (MiLogVirtualRotateEvent.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiReplaceRotateWithDemandZero(
         __int64 a1,
         __int64 a2,

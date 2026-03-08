@@ -1,3 +1,15 @@
+/*
+ * XREFs of PspQueryWorkingSetWatch @ 0x1409AC5BC
+ * Callers:
+ *     NtQueryInformationProcess @ 0x1407215F0 (NtQueryInformationProcess.c)
+ * Callees:
+ *     KeWaitForGate @ 0x1402931D8 (KeWaitForGate.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ExIsRestrictedCaller @ 0x14078A078 (ExIsRestrictedCaller.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ */
+
 __int64 __fastcall PspQueryWorkingSetWatch(
         ULONG_PTR BugCheckParameter1,
         int a2,

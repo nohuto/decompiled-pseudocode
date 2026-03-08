@@ -1,3 +1,19 @@
+/*
+ * XREFs of VfPtAddStackInfoIfNotExist @ 0x140ADB5A0
+ * Callers:
+ *     ViPtLogStackCallout @ 0x140ADBF00 (ViPtLogStackCallout.c)
+ * Callees:
+ *     RtlInsertElementGenericTableAvl @ 0x1402451A0 (RtlInsertElementGenericTableAvl.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ViPtAcquireTreeLockAtDpcLevelSafe @ 0x1405CFEE0 (ViPtAcquireTreeLockAtDpcLevelSafe.c)
+ *     ViPtCleanupLockContext @ 0x1405CFF24 (ViPtCleanupLockContext.c)
+ *     ViPtInitializeLockContext @ 0x1405CFFC0 (ViPtInitializeLockContext.c)
+ *     ViPtRaiseIrqlSafe @ 0x1405CFFD4 (ViPtRaiseIrqlSafe.c)
+ *     ViPtReleaseTreeLockFromDpcLevel @ 0x1405D0044 (ViPtReleaseTreeLockFromDpcLevel.c)
+ *     MmDeterminePoolType @ 0x14063F644 (MmDeterminePoolType.c)
+ */
+
 _QWORD *__fastcall VfPtAddStackInfoIfNotExist(
         void *Src,
         unsigned int a2,

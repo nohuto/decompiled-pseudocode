@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiTpEmulateGroup1Instruction @ 0x140AF0754
+ * Callers:
+ *     KiTpEmulateInstruction @ 0x140AF0944 (KiTpEmulateInstruction.c)
+ * Callees:
+ *     KiTpAccessMemory @ 0x140AF0008 (KiTpAccessMemory.c)
+ *     KiTpDecodeModRm @ 0x140AF01F4 (KiTpDecodeModRm.c)
+ *     KiTpDecodeModRmOperand @ 0x140AF02E0 (KiTpDecodeModRmOperand.c)
+ *     KiTpFetchImmediateOperand @ 0x140AF1338 (KiTpFetchImmediateOperand.c)
+ *     KiTpReadOperandValue @ 0x140AF1594 (KiTpReadOperandValue.c)
+ *     KiTpSetFlagsAdd @ 0x140AF15F8 (KiTpSetFlagsAdd.c)
+ *     KiTpSetFlagsSub @ 0x140AF16E4 (KiTpSetFlagsSub.c)
+ *     KiTpSetFlagsZeroSignParity @ 0x140AF17E8 (KiTpSetFlagsZeroSignParity.c)
+ */
+
 __int64 __fastcall KiTpEmulateGroup1Instruction(__int64 a1, __int64 a2, int *a3)
 {
   int ImmediateOperand; // ebx

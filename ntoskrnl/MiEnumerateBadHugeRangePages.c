@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiEnumerateBadHugeRangePages @ 0x14061D628
+ * Callers:
+ *     MiEnumerateQuarantinedBadHugeRangePages @ 0x1406279E8 (MiEnumerateQuarantinedBadHugeRangePages.c)
+ *     MiGetListOfPendingBadPages @ 0x140627BD8 (MiGetListOfPendingBadPages.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiEnumerateBadHugeRangePages(__int64 a1, __int64 a2, char a3)
 {
   _QWORD *v3; // rax

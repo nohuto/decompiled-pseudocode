@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpInternEntryHash @ 0x14070351C
+ * Callers:
+ *     RtlInternTableIntern @ 0x1407015D8 (RtlInternTableIntern.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpInternEntryHash(__int64 *a1, __int64 *a2)
 {
   __int64 v2; // rsi

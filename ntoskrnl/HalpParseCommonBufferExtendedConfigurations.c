@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpParseCommonBufferExtendedConfigurations @ 0x14050DA4C
+ * Callers:
+ *     HalpCreateCommonBufferFromMdlVerifyParams @ 0x14050D904 (HalpCreateCommonBufferFromMdlVerifyParams.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpParseCommonBufferExtendedConfigurations(__int64 a1, unsigned int a2, __int64 a3)
 {
   int v4; // r9d

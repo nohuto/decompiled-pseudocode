@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhGetDeviceInformationEx @ 0x1C003DF90
+ * Callers:
+ *     UsbhGetNodeConnectionInfoForPdo @ 0x1C003E100 (UsbhGetNodeConnectionInfoForPdo.c)
+ *     UsbhGetDeviceNodeInfo @ 0x1C004910C (UsbhGetDeviceNodeInfo.c)
+ *     UsbhGetHubNodeInfo @ 0x1C00493A8 (UsbhGetHubNodeInfo.c)
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     Usbh_HubQueryDeviceInformation @ 0x1C002E3BC (Usbh_HubQueryDeviceInformation.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ */
+
 _DWORD *__fastcall UsbhGetDeviceInformationEx(__int64 a1, _DWORD *a2, __int64 a3)
 {
   unsigned int v6; // ebp

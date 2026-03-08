@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_CompareDescriptors@CCD_SET_STRING_ID@@AEBAHII@Z @ 0x1C03B7D00
+ * Callers:
+ *     ?_ParseMonitorDescriptors@CCD_SET_STRING_ID@@AEAAXXZ @ 0x1C01BB474 (-_ParseMonitorDescriptors@CCD_SET_STRING_ID@@AEAAXXZ.c)
+ * Callees:
+ *     memcmp @ 0x1C00270F0 (memcmp.c)
+ *     ?_GetDescriptorLength@CCD_SET_STRING_ID@@AEBAGI@Z @ 0x1C01BB5E4 (-_GetDescriptorLength@CCD_SET_STRING_ID@@AEBAGI@Z.c)
+ */
+
 int __fastcall CCD_SET_STRING_ID::_CompareDescriptors(CCD_SET_STRING_ID *this, unsigned int a2)
 {
   __int64 v2; // rbx

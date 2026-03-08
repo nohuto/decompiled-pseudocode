@@ -1,3 +1,17 @@
+/*
+ * XREFs of TtmiRetrieveEventFromQueue @ 0x1409A9170
+ * Callers:
+ *     TtmpDispatchGetTerminalEvent @ 0x1409A3728 (TtmpDispatchGetTerminalEvent.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     TtmiLogError @ 0x1409A536C (TtmiLogError.c)
+ *     TtmiLogQueueDequeueEvent @ 0x1409A5DF8 (TtmiLogQueueDequeueEvent.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall TtmiRetrieveEventFromQueue(__int64 a1, _OWORD *a2)
 {
   struct _KTHREAD *CurrentThread; // rax

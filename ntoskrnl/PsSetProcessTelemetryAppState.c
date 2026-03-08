@@ -1,3 +1,20 @@
+/*
+ * XREFs of PsSetProcessTelemetryAppState @ 0x1407E7C28
+ * Callers:
+ *     PsThawMultiProcess @ 0x1402FFE80 (PsThawMultiProcess.c)
+ *     PsSetProcessFaultInformation @ 0x14067FC50 (PsSetProcessFaultInformation.c)
+ *     PsFreezeProcess @ 0x1407DD068 (PsFreezeProcess.c)
+ *     PspExitProcess @ 0x1407E7B3C (PspExitProcess.c)
+ *     EtwpPsProvProcessEnumCallback @ 0x1409ECC80 (EtwpPsProvProcessEnumCallback.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PsGetProcessDeepFreezeStats @ 0x1407E844C (PsGetProcessDeepFreezeStats.c)
+ *     EtwTraceAppStateChange @ 0x1407E8520 (EtwTraceAppStateChange.c)
+ */
+
 __int64 __fastcall PsSetProcessTelemetryAppState(PRKPROCESS PROCESS, int a2)
 {
   struct _KTHREAD *CurrentThread; // r12

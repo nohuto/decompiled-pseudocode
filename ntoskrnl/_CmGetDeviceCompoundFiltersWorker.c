@@ -1,3 +1,18 @@
+/*
+ * XREFs of _CmGetDeviceCompoundFiltersWorker @ 0x140A6517C
+ * Callers:
+ *     _CmGetDeviceCompoundFilters @ 0x140751AEC (_CmGetDeviceCompoundFilters.c)
+ * Callees:
+ *     _PnpSetObjectProperty @ 0x140686C8C (_PnpSetObjectProperty.c)
+ *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1406C9418 (_CmGetDeviceMappedPropertyFromRegProp.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1408665AC (_PnpCtxRegQueryInfoKey.c)
+ *     _CmGetDeclarativeFilterList @ 0x140A64F80 (_CmGetDeclarativeFilterList.c)
+ *     _CmMergeFilterLists @ 0x140A667FC (_CmMergeFilterLists.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmGetDeviceCompoundFiltersWorker(
         __int64 a1,
         __int64 a2,

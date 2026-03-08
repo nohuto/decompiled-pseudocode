@@ -1,3 +1,15 @@
+/*
+ * XREFs of Crashdump_InitializeWithoutControllerReset @ 0x1C004CA8C
+ * Callers:
+ *     Crashdump_Initialize @ 0x1C004C350 (Crashdump_Initialize.c)
+ * Callees:
+ *     Crashdump_Register_PrepareForHibernate @ 0x1C004DA14 (Crashdump_Register_PrepareForHibernate.c)
+ *     Crashdump_EventRing_PrepareForHibernate @ 0x1C004E90C (Crashdump_EventRing_PrepareForHibernate.c)
+ *     Crashdump_Command_PrepareForDump @ 0x1C004EA78 (Crashdump_Command_PrepareForDump.c)
+ *     Crashdump_Command_TestCommandRingOperation @ 0x1C004EEF4 (Crashdump_Command_TestCommandRingOperation.c)
+ *     Crashdump_UsbDevice_PrepareForHibernate @ 0x1C00506E0 (Crashdump_UsbDevice_PrepareForHibernate.c)
+ */
+
 __int64 __fastcall Crashdump_InitializeWithoutControllerReset(char *Address)
 {
   _QWORD *v1; // rbx

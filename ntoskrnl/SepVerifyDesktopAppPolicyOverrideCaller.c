@@ -1,3 +1,17 @@
+/*
+ * XREFs of SepVerifyDesktopAppPolicyOverrideCaller @ 0x140302D18
+ * Callers:
+ *     SepDesktopAppxSubProcessToken @ 0x1402980AC (SepDesktopAppxSubProcessToken.c)
+ * Callees:
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     RtlQueryPackageClaims @ 0x1402983B0 (RtlQueryPackageClaims.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PsReferenceEffectiveToken @ 0x1406D657C (PsReferenceEffectiveToken.c)
+ *     RtlCompareUnicodeString @ 0x1406EA3B0 (RtlCompareUnicodeString.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ */
+
 char __fastcall SepVerifyDesktopAppPolicyOverrideCaller(int a1)
 {
   bool v2; // di

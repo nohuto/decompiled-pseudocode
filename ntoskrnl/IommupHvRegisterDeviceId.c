@@ -1,3 +1,11 @@
+/*
+ * XREFs of IommupHvRegisterDeviceId @ 0x140522F60
+ * Callers:
+ *     HalpIommuCreateDevice @ 0x140822B28 (HalpIommuCreateDevice.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall IommupHvRegisterDeviceId(__int64 a1, unsigned __int64 *a2)
 {
   unsigned __int64 v3; // rbx

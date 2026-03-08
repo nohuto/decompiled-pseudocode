@@ -1,3 +1,27 @@
+/*
+ * XREFs of PnpReallocateResources @ 0x14096A5D8
+ * Callers:
+ *     PiProcessResourceRequirementsChanged @ 0x140956564 (PiProcessResourceRequirementsChanged.c)
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     KeReleaseSemaphore @ 0x140292210 (KeReleaseSemaphore.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PipSetDevNodeFlags @ 0x1406857DC (PipSetDevNodeFlags.c)
+ *     PipClearDevNodeFlags @ 0x14068816C (PipClearDevNodeFlags.c)
+ *     PnpGetResourceRequirementsForAssignTable @ 0x1406F6080 (PnpGetResourceRequirementsForAssignTable.c)
+ *     PnpStartDeviceNode @ 0x1406F71A4 (PnpStartDeviceNode.c)
+ *     PnpFindBestConfiguration @ 0x140803704 (PnpFindBestConfiguration.c)
+ *     PnpBuildCmResourceLists @ 0x140803A38 (PnpBuildCmResourceLists.c)
+ *     PnpFreeResourceRequirementsForAssignTable @ 0x140803C30 (PnpFreeResourceRequirementsForAssignTable.c)
+ *     PnpReleaseResourcesInternal @ 0x140803D74 (PnpReleaseResourcesInternal.c)
+ *     IopCommitConfiguration @ 0x14084D8A8 (IopCommitConfiguration.c)
+ *     PnpRequestDeviceRemoval @ 0x140862294 (PnpRequestDeviceRemoval.c)
+ *     PnpUpdateRebootRequiredReason @ 0x140955E50 (PnpUpdateRebootRequiredReason.c)
+ *     PnpRestoreResourcesInternal @ 0x14096A7C4 (PnpRestoreResourcesInternal.c)
+ *     PnpRebalance @ 0x14096B948 (PnpRebalance.c)
+ */
+
 void __fastcall PnpReallocateResources(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

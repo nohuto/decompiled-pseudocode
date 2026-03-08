@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopPowerButtonSuppressionInit @ 0x140B72154
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     PopReadErrataDeviceAllowedForPowerButtonSuppression @ 0x140B93660 (PopReadErrataDeviceAllowedForPowerButtonSuppression.c)
+ */
+
 __int64 PopPowerButtonSuppressionInit()
 {
   __int64 result; // rax

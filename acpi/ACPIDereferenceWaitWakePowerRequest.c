@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIDereferenceWaitWakePowerRequest @ 0x1C00447C0
+ * Callers:
+ *     ACPIDeviceCancelWaitWakeIrpCallBack @ 0x1C001C450 (ACPIDeviceCancelWaitWakeIrpCallBack.c)
+ *     ACPIDeviceCompleteRequest @ 0x1C001C95C (ACPIDeviceCompleteRequest.c)
+ *     ACPIDeviceInitializePowerRequest @ 0x1C001CF98 (ACPIDeviceInitializePowerRequest.c)
+ *     ACPIDeviceIrpWaitWakeRequestPending @ 0x1C001E2A0 (ACPIDeviceIrpWaitWakeRequestPending.c)
+ *     ACPIWakeDisconnectWakeInterrupts @ 0x1C00450BC (ACPIWakeDisconnectWakeInterrupts.c)
+ * Callees:
+ *     ACPIFreeWaitWakePowerRequest @ 0x1C00449F0 (ACPIFreeWaitWakePowerRequest.c)
+ *     ACPIWakeEmulationDisable @ 0x1C0045254 (ACPIWakeEmulationDisable.c)
+ */
+
 void __fastcall ACPIDereferenceWaitWakePowerRequest(char *Entry)
 {
   KIRQL v2; // al

@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwTraceLayoutChangeStop @ 0x1C0098E78
+ * Callers:
+ *     NtUserLayoutCompleted @ 0x1C0098EE0 (NtUserLayoutCompleted.c)
+ * Callees:
+ *     _GetClientRect @ 0x1C01016A4 (_GetClientRect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     McTemplateK0qqzz_EtwWriteTransfer @ 0x1C01C2140 (McTemplateK0qqzz_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTraceLayoutChangeStop(__int64 a1, int a2, __int64 a3)
 {
   PEPROCESS *v6; // rcx

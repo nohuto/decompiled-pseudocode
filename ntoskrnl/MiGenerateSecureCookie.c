@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiGenerateSecureCookie @ 0x14085F580
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ */
+
 __int64 MiGenerateSecureCookie()
 {
   struct _KPRCB *CurrentPrcb; // r8

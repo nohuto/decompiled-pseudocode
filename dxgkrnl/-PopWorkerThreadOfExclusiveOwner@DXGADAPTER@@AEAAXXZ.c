@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?PopWorkerThreadOfExclusiveOwner@DXGADAPTER@@AEAAXXZ @ 0x1C00168C0
+ * Callers:
+ *     ??1ADAPTEROWNERTRACKER@@QEAA@XZ @ 0x1C0016884 (--1ADAPTEROWNERTRACKER@@QEAA@XZ.c)
+ *     ?DxgkCddPopWorkerThreadOfOwner@@YAXQEAX0@Z @ 0x1C01DCB20 (-DxgkCddPopWorkerThreadOfOwner@@YAXQEAX0@Z.c)
+ * Callees:
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00045F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 void __fastcall DXGADAPTER::PopWorkerThreadOfExclusiveOwner(PERESOURCE *this)
 {
   struct _ERESOURCE *v2; // rax

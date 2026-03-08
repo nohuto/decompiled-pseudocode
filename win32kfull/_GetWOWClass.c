@@ -1,3 +1,15 @@
+/*
+ * XREFs of _GetWOWClass @ 0x1C01BF328
+ * Callers:
+ *     NtUserGetWOWClass @ 0x1C01D5400 (NtUserGetWOWClass.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     GetClassPtr @ 0x1C00ECC80 (GetClassPtr.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C010A9B4 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 _QWORD *__fastcall GetWOWClass(__int64 a1, size_t *a2)
 {
   _QWORD *ClassPtr; // rdi

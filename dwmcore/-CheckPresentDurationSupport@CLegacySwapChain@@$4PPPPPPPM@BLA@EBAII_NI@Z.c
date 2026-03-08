@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CheckPresentDurationSupport@CLegacySwapChain@@$4PPPPPPPM@BLA@EBAII_NI@Z @ 0x18011B5B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned int __fastcall CLegacySwapChain::CheckPresentDurationSupport(
         __int64 a1,
         unsigned int a2,

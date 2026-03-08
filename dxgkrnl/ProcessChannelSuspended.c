@@ -1,3 +1,12 @@
+/*
+ * XREFs of ProcessChannelSuspended @ 0x1C0362920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?NotifyChannelSuspended@DXGVMBUSCHANNEL@@QEAAXXZ @ 0x1C03621BC (-NotifyChannelSuspended@DXGVMBUSCHANNEL@@QEAAXXZ.c)
+ */
+
 void ProcessChannelSuspended()
 {
   DXGVMBUSCHANNEL *v0; // rax

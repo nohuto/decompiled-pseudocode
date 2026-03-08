@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiGetDCPoint @ 0x1C0003280
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtGdiGetDCPoint(__int64 a1, __int64 a2, _QWORD *a3)
 {
   unsigned int DCPoint; // r9d

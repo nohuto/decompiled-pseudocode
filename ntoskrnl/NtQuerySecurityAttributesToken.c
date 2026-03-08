@@ -1,3 +1,19 @@
+/*
+ * XREFs of NtQuerySecurityAttributesToken @ 0x1406D5B30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x140247394 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SepReferenceTokenByHandle @ 0x140247A20 (SepReferenceTokenByHandle.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     SepCaptureUnicodeStringArray @ 0x1406D5840 (SepCaptureUnicodeStringArray.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtQuerySecurityAttributesToken(
         void *a1,
         ULONGLONG a2,

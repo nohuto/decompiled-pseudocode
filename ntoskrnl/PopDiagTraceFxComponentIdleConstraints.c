@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagTraceFxComponentIdleConstraints @ 0x140590AD4
+ * Callers:
+ *     PopPluginRequestComponentIdleConstraints @ 0x14058A4A0 (PopPluginRequestComponentIdleConstraints.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PopDiagTraceFxComponentIdleConstraints(__int64 a1, int a2, __int64 a3, int a4)
 {
   _UNKNOWN **v4; // rax

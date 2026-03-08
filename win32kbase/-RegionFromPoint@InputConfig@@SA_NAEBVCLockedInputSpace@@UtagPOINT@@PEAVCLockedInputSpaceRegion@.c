@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RegionFromPoint@InputConfig@@SA_NAEBVCLockedInputSpace@@UtagPOINT@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C0013AA8
+ * Callers:
+ *     ?RegionFromPoint@Mouse@InputConfig@@SA_NUtagPOINT@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C00159F0 (-RegionFromPoint@Mouse@InputConfig@@SA_NUtagPOINT@@PEAVCLockedInputSpaceRegion@@@Z.c)
+ *     NtInputSpaceRegionFromPoint @ 0x1C0169950 (NtInputSpaceRegionFromPoint.c)
+ * Callees:
+ *     PtInRect @ 0x1C00157B4 (PtInRect.c)
+ */
+
 char __fastcall InputConfig::RegionFromPoint(
         const struct CLockedInputSpace *a1,
         struct tagPOINT a2,

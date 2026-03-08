@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpConstructIptData @ 0x1409ED864
+ * Callers:
+ *     EtwpUpdateProcessorTraceConfiguration @ 0x1409ED8F8 (EtwpUpdateProcessorTraceConfiguration.c)
+ * Callees:
+ *     ExGetExtensionTable @ 0x1402C57F0 (ExGetExtensionTable.c)
+ *     ZwLoadDriver @ 0x140414490 (ZwLoadDriver.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpConstructIptData(__int64 a1)
 {
   NTSTATUS Driver; // eax

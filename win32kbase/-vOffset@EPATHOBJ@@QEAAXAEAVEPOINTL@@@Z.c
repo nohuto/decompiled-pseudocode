@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vOffset@EPATHOBJ@@QEAAXAEAVEPOINTL@@@Z @ 0x1C0181740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?bOffset@RGNOBJ@@QEAAHPEAU_POINTL@@@Z @ 0x1C00455F0 (-bOffset@RGNOBJ@@QEAAHPEAU_POINTL@@@Z.c)
+ */
+
 void __fastcall EPATHOBJ::vOffset(EPATHOBJ *this, struct _POINTL *a2)
 {
   _DWORD *v3; // rax

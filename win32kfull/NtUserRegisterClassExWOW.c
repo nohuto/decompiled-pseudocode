@@ -1,3 +1,18 @@
+/*
+ * XREFs of NtUserRegisterClassExWOW @ 0x1C0030020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RegisterDefaultClass @ 0x1C003124C (RegisterDefaultClass.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     RegisterIconTitleClass @ 0x1C00DBAB8 (RegisterIconTitleClass.c)
+ *     _RegisterClassEx @ 0x1C012DD34 (_RegisterClassEx.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall NtUserRegisterClassExWOW(
         __int128 *a1,
         ULONG64 a2,

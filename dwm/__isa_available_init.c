@@ -1,3 +1,11 @@
+/*
+ * XREFs of __isa_available_init @ 0x140005DFC
+ * Callers:
+ *     __scrt_initialize_crt @ 0x140005700 (__scrt_initialize_crt.c)
+ * Callees:
+ *     <none>
+ */
+
 int __cdecl _isa_available_init()
 {
   int v5; // r11d

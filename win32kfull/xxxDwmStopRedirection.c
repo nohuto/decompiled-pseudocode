@@ -1,3 +1,25 @@
+/*
+ * XREFs of xxxDwmStopRedirection @ 0x1C007B850
+ * Callers:
+ *     NtUserDwmKernelShutdown @ 0x1C01D0260 (NtUserDwmKernelShutdown.c)
+ * Callees:
+ *     bSetDevDragRect @ 0x1C001DE80 (bSetDevDragRect.c)
+ *     DeleteOrSetRedirectionBitmap @ 0x1C0021D34 (DeleteOrSetRedirectionBitmap.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C002EF28 (zzzEndDeferWinEventNotify.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     xxxRedrawWindow @ 0x1C0050700 (xxxRedrawWindow.c)
+ *     GreDwmUseDeviceBitmaps @ 0x1C007CA44 (GreDwmUseDeviceBitmaps.c)
+ *     DwmAsyncDesktopFree @ 0x1C007CB6C (DwmAsyncDesktopFree.c)
+ *     zzzDecomposeDesktop @ 0x1C007CC0C (zzzDecomposeDesktop.c)
+ *     DwmNotifyChildrenAddRemove @ 0x1C007E250 (DwmNotifyChildrenAddRemove.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     _GetProcessWindowStation @ 0x1C00BF460 (_GetProcessWindowStation.c)
+ *     GreDwmShutdown @ 0x1C00C3164 (GreDwmShutdown.c)
+ *     ChangeComposableCursor @ 0x1C01AA1C4 (ChangeComposableCursor.c)
+ *     StopFade @ 0x1C01BDEF0 (StopFade.c)
+ *     GreDxDwmShutdown @ 0x1C02728D0 (GreDxDwmShutdown.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 xxxDwmStopRedirection()
 {

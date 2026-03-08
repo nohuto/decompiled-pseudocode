@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CreateAndLinkComponent@InteractiveControlParser@@CAJPEAU_HIDP_VALUE_CAPS@@HPEAU_INTERACTIVECTRL_CAPABILITIES@@PEAPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@@Z @ 0x1C024D484
+ * Callers:
+ *     ?BuildComponentInformation@InteractiveControlParser@@CAJPEAU_HIDP_PREPARSED_DATA@@GPEAVInteractiveControlDevice@@@Z @ 0x1C024CE48 (-BuildComponentInformation@InteractiveControlParser@@CAJPEAU_HIDP_PREPARSED_DATA@@GPEAVInteracti.c)
+ * Callees:
+ *     ?GetComponentMultiplier@InteractiveControlParser@@SAXPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@PEAJ1@Z @ 0x1C024D910 (-GetComponentMultiplier@InteractiveControlParser@@SAXPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@PEA.c)
+ *     ?GetComponentType@InteractiveControlParser@@CA?AW4_INTERACTIVECTRL_COMPONENT_TYPE@@GG@Z @ 0x1C024D9C8 (-GetComponentType@InteractiveControlParser@@CA-AW4_INTERACTIVECTRL_COMPONENT_TYPE@@GG@Z.c)
+ *     ?GetScaledComponentValue@InteractiveControlParser@@SAJPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@J@Z @ 0x1C024DA70 (-GetScaledComponentValue@InteractiveControlParser@@SAJPEAUtagINTERACTIVECTRL_COMPONENT_ENTRY@@J@.c)
+ */
+
 __int64 __fastcall InteractiveControlParser::CreateAndLinkComponent(
         struct _HIDP_VALUE_CAPS *a1,
         int a2,

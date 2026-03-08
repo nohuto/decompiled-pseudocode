@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiCheckContiguityTradeEligible @ 0x140646880
+ * Callers:
+ *     MiQueryVaPhysicalContiguity @ 0x1406469A0 (MiQueryVaPhysicalContiguity.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x14065B0E0 (MiMakeVaRangePhysicallyContiguous.c)
+ * Callees:
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     MiActivePageClaimCandidate @ 0x1403B68D8 (MiActivePageClaimCandidate.c)
+ */
+
 __int64 __fastcall MiCheckContiguityTradeEligible(__int64 a1)
 {
   unsigned int v1; // ebx

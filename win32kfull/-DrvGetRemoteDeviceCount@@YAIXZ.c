@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DrvGetRemoteDeviceCount@@YAIXZ @ 0x1C01263F4
+ * Callers:
+ *     xxxRemoteReconnect @ 0x1C01267DC (xxxRemoteReconnect.c)
+ *     DxgkEngGetRemoteDeviceCount @ 0x1C02727A0 (DxgkEngGetRemoteDeviceCount.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DrvGetRemoteDeviceCount(Gre::Base *a1)
 {
   unsigned int v1; // ebx

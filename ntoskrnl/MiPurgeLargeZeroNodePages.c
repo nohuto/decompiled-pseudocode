@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiPurgeLargeZeroNodePages @ 0x14064D6A8
+ * Callers:
+ *     MiPurgeZeroList @ 0x14064B790 (MiPurgeZeroList.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiMoveLargeZeroToFree @ 0x14064D424 (MiMoveLargeZeroToFree.c)
+ */
+
 __int64 __fastcall MiPurgeLargeZeroNodePages(__int64 a1)
 {
   unsigned __int64 v1; // rbx

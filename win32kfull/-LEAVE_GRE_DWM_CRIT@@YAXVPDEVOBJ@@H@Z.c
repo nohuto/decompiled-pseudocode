@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z @ 0x1C001EE54
+ * Callers:
+ *     GreSfmCloseCompositorRef @ 0x1C001EC94 (GreSfmCloseCompositorRef.c)
+ *     GreDesktopSwitch @ 0x1C002026C (GreDesktopSwitch.c)
+ *     GreTransferDwmStateToSpriteState @ 0x1C007CDBC (GreTransferDwmStateToSpriteState.c)
+ *     GreTransferSpriteStateToDwmState @ 0x1C007DD9C (GreTransferSpriteStateToDwmState.c)
+ *     GreDwmStartup @ 0x1C00C2644 (GreDwmStartup.c)
+ *     GreDwmShutdown @ 0x1C00C3164 (GreDwmShutdown.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall LEAVE_GRE_DWM_CRIT(Gre::Base *a1, int a2)
 {
   struct Gre::Base::SESSION_GLOBALS *v4; // rsi

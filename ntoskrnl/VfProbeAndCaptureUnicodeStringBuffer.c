@@ -1,3 +1,14 @@
+/*
+ * XREFs of VfProbeAndCaptureUnicodeStringBuffer @ 0x140ABF27C
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ *     VfProbeAndCaptureUnicodeString @ 0x140ABF240 (VfProbeAndCaptureUnicodeString.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall VfProbeAndCaptureUnicodeStringBuffer(unsigned __int16 *a1, int a2)
 {
   __int64 v3; // rax

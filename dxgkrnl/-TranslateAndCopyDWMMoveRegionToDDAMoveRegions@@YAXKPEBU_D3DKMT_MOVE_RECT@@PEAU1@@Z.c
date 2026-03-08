@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?TranslateAndCopyDWMMoveRegionToDDAMoveRegions@@YAXKPEBU_D3DKMT_MOVE_RECT@@PEAU1@@Z @ 0x1C033C3CC
+ * Callers:
+ *     ?CopyPresentArgs@DXGPRESENT@@QEAAJPEAVDXGCONTEXT@@PEAU_D3DKMT_PRESENT@@@Z @ 0x1C01E38B0 (-CopyPresentArgs@DXGPRESENT@@QEAAJPEAVDXGCONTEXT@@PEAU_D3DKMT_PRESENT@@@Z.c)
+ *     NtDxgkOutputDuplPresentToHwQueue @ 0x1C031BA80 (NtDxgkOutputDuplPresentToHwQueue.c)
+ *     DxgkOutputDuplPresent @ 0x1C033CCD0 (DxgkOutputDuplPresent.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall TranslateAndCopyDWMMoveRegionToDDAMoveRegions(
         unsigned int a1,
         const struct _D3DKMT_MOVE_RECT *a2,

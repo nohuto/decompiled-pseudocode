@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlpHpHeapCompact @ 0x1402CC2D4
+ * Callers:
+ *     ExpHpCompactionRoutine @ 0x1402CC0B0 (ExpHpCompactionRoutine.c)
+ * Callees:
+ *     RtlpHpVsContextFreeList @ 0x140249050 (RtlpHpVsContextFreeList.c)
+ *     RtlpHpSegContextCompact @ 0x1402CC380 (RtlpHpSegContextCompact.c)
+ *     RtlpHpLfhContextCompact @ 0x140308C98 (RtlpHpLfhContextCompact.c)
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ */
+
 __int64 __fastcall RtlpHpHeapCompact(__int64 a1)
 {
   int v1; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetAlpcPortName@ServerPorts@CoreMessagingK@@CAJPEBU_GUID@@PEAU_UNICODE_STRING@@@Z @ 0x1C00C0604
+ * Callers:
+ *     ?CreatePort@ServerPorts@CoreMessagingK@@SAJDQEAXPEBGPEAPEAX@Z @ 0x1C00C03A8 (-CreatePort@ServerPorts@CoreMessagingK@@SAJDQEAXPEBGPEAPEAX@Z.c)
+ * Callees:
+ *     ?RtlStringCbLengthW@@YAJPEBG_KPEA_K@Z @ 0x1C00C069C (-RtlStringCbLengthW@@YAJPEBG_KPEA_K@Z.c)
+ *     ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00C0710 (-RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
+ */
+
 __int64 __fastcall CoreMessagingK::ServerPorts::GetAlpcPortName(const struct _GUID *a1, struct _UNICODE_STRING *a2)
 {
   NTSTATUS v3; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiCompareDDBCacheEntries @ 0x140785D10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlCompareUnicodeString @ 0x1406EA3B0 (RtlCompareUnicodeString.c)
+ */
+
 __int64 __fastcall PiCompareDDBCacheEntries(
         struct _RTL_AVL_TABLE *Table,
         const UNICODE_STRING *FirstStruct,

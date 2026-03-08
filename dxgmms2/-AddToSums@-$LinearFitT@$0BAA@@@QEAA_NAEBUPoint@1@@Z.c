@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AddToSums@?$LinearFitT@$0BAA@@@QEAA_NAEBUPoint@1@@Z @ 0x1C0016E34
+ * Callers:
+ *     ?RebaseSums@?$LinearFitT@$0BAA@@@QEAA_NXZ @ 0x1C0016DB4 (-RebaseSums@-$LinearFitT@$0BAA@@@QEAA_NXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall LinearFitT<256>::AddToSums(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // r8

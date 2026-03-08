@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpIommuConvertPciBusMasterDescriptorToDeviceId @ 0x14050B954
+ * Callers:
+ *     HalpIommuAllocateRemappingTableEntry @ 0x14050B7E8 (HalpIommuAllocateRemappingTableEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 __int16 __fastcall HalpIommuConvertPciBusMasterDescriptorToDeviceId(__int64 a1, char a2, __int64 a3)
 {
   __int16 result; // ax

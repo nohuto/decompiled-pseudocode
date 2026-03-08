@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhWmiDriverEntry @ 0x1C004A130
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0023580 (memmove.c)
+ */
+
 __int64 __fastcall UsbhWmiDriverEntry(__int64 a1, const void **a2)
 {
   __int64 v3; // rdx

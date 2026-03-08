@@ -1,3 +1,17 @@
+/*
+ * XREFs of PiUpdateDevicePanel @ 0x140683D74
+ * Callers:
+ *     PipProcessStartPhase3 @ 0x14068203C (PipProcessStartPhase3.c)
+ *     PiProcessNewDeviceNode @ 0x140685858 (PiProcessNewDeviceNode.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _CmUpdateDevicePanel @ 0x140683E30 (_CmUpdateDevicePanel.c)
+ *     PnpDeviceObjectToDeviceInstance @ 0x140685094 (PnpDeviceObjectToDeviceInstance.c)
+ */
+
 __int64 __fastcall PiUpdateDevicePanel(__int64 a1, HANDLE a2, __int64 a3, __int64 a4)
 {
   struct _KTHREAD *CurrentThread; // rax

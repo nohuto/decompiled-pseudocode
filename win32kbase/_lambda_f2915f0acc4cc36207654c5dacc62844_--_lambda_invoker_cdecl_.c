@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_f2915f0acc4cc36207654c5dacc62844_::_lambda_invoker_cdecl_ @ 0x1C019A790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall lambda_f2915f0acc4cc36207654c5dacc62844_::_lambda_invoker_cdecl_(void *a1, void *a2, _QWORD *a3)
 {
   unsigned __int64 v3; // r9

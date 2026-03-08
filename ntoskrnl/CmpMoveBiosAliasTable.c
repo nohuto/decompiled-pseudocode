@@ -1,3 +1,22 @@
+/*
+ * XREFs of CmpMoveBiosAliasTable @ 0x140A0E038
+ * Callers:
+ *     CmSetAcpiHwProfile @ 0x140813CE0 (CmSetAcpiHwProfile.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x1404125D0 (ZwQueryKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     ZwEnumerateKey @ 0x140412950 (ZwEnumerateKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     ZwDeleteKey @ 0x140413E50 (ZwDeleteKey.c)
+ *     CmpOpenDevicesControlSet @ 0x140814380 (CmpOpenDevicesControlSet.c)
+ *     CmDeleteKeyRecursive @ 0x140A0D158 (CmDeleteKeyRecursive.c)
+ */
+
 __int64 __fastcall CmpMoveBiosAliasTable(
         void *a1,
         void *a2,

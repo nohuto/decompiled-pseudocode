@@ -1,3 +1,18 @@
+/*
+ * XREFs of KeCaptureWaitChainHeadEx @ 0x1402D3E54
+ * Callers:
+ *     ExpReleaseResourceSharedForThreadLite @ 0x14025D990 (ExpReleaseResourceSharedForThreadLite.c)
+ *     CcUnpinFileDataEx @ 0x140337E50 (CcUnpinFileDataEx.c)
+ *     ExpPrepareToWakeResourceShared @ 0x14033A9D0 (ExpPrepareToWakeResourceShared.c)
+ *     ExpReleaseResourceForThreadLite @ 0x14033ABF0 (ExpReleaseResourceForThreadLite.c)
+ *     ExpReleaseResourceExclusiveForThreadLite @ 0x14033B5E0 (ExpReleaseResourceExclusiveForThreadLite.c)
+ *     ExpPrepareToWakeResourceExclusive @ 0x1403C611C (ExpPrepareToWakeResourceExclusive.c)
+ *     ExpPrepareToWakeFastResourceExclusive @ 0x140410920 (ExpPrepareToWakeFastResourceExclusive.c)
+ *     ExpPrepareToWakeFastResourceShared @ 0x1404109F0 (ExpPrepareToWakeFastResourceShared.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall KeCaptureWaitChainHeadEx(_QWORD **a1, __int64 *a2, _QWORD *a3)
 {
   _QWORD *result; // rax

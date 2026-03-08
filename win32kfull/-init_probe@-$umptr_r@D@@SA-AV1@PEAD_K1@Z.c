@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?init_probe@?$umptr_r@D@@SA?AV1@PEAD_K1@Z @ 0x1C02C43D0
+ * Callers:
+ *     NtGdiDrawEscape @ 0x1C02C49D0 (NtGdiDrawEscape.c)
+ * Callees:
+ *     ULongLongMult @ 0x1C014D830 (ULongLongMult.c)
+ */
+
 _QWORD *__fastcall umptr_r<char>::init_probe(__int64 a1, __int64 a2, ULONGLONG a3)
 {
   _QWORD *v4; // r10

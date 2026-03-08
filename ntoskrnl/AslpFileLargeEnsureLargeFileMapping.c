@@ -1,3 +1,15 @@
+/*
+ * XREFs of AslpFileLargeEnsureLargeFileMapping @ 0x140A56884
+ * Callers:
+ *     AslFileAllocAndGetAttributes @ 0x1407A11E8 (AslFileAllocAndGetAttributes.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslpFileMappingGetFileKind @ 0x1407A0340 (AslpFileMappingGetFileKind.c)
+ *     AslpFileLargeGetChecksumAttributes @ 0x140A56B28 (AslpFileLargeGetChecksumAttributes.c)
+ *     AslpFileLargeMapCreate @ 0x140A56DFC (AslpFileLargeMapCreate.c)
+ *     AslpFileLargeMapDelete @ 0x140A57074 (AslpFileLargeMapDelete.c)
+ */
+
 __int64 __fastcall AslpFileLargeEnsureLargeFileMapping(__int64 a1, __int64 a2)
 {
   _DWORD *v5; // r8

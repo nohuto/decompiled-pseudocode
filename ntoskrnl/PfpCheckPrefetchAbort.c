@@ -1,3 +1,17 @@
+/*
+ * XREFs of PfpCheckPrefetchAbort @ 0x14020C198
+ * Callers:
+ *     PfpPrefetchFilesTrickle @ 0x1406A2A70 (PfpPrefetchFilesTrickle.c)
+ *     PfpOpenHandleCreate @ 0x1406A5020 (PfpOpenHandleCreate.c)
+ *     PfpPrefetchRequestPerform @ 0x1407662E0 (PfpPrefetchRequestPerform.c)
+ *     PfpVolumePrefetchMetadata @ 0x1407667FC (PfpVolumePrefetchMetadata.c)
+ *     PfpPrefetchDirectoryStream @ 0x140766EA8 (PfpPrefetchDirectoryStream.c)
+ *     PfpPrefetchFiles @ 0x14097AEE4 (PfpPrefetchFiles.c)
+ *     PfpPrefetchPrivatePages @ 0x14097B268 (PfpPrefetchPrivatePages.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PfpCheckPrefetchAbort(_QWORD *a1)
 {
   __int64 v1; // rax

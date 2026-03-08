@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?vDestructorNULL@DEVLOCKOBJ@@QEAAXXZ @ 0x1C027A1EC
+ * Callers:
+ *     ??1DEVLOCKOBJ_WNDOBJ@@QEAA@XZ @ 0x1C027790C (--1DEVLOCKOBJ_WNDOBJ@@QEAA@XZ.c)
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     ?bDisposeTrgDco@DEVLOCKOBJ@@QEAAHXZ @ 0x1C0050FF4 (-bDisposeTrgDco@DEVLOCKOBJ@@QEAAHXZ.c)
+ *     ?UntrapAppContainerRendering@@YAXAEAPEAUHDC__@@AEAPEAUHSURF__@@1PEAK@Z @ 0x1C00510A0 (-UntrapAppContainerRendering@@YAXAEAPEAUHDC__@@AEAPEAUHSURF__@@1PEAK@Z.c)
+ */
+
 void __fastcall DEVLOCKOBJ::vDestructorNULL(DEVLOCKOBJ *this)
 {
   __int64 v2; // rdx

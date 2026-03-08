@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetInputs@CommonRenderingShaderBody@@YA?AV?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@W4Enum@1@@Z @ 0x1800FFD58
+ * Callers:
+ *     ?GetShaderLinkingBody@CommonRenderingShaderBody@@YA?AUShaderLinkingBody@@W4Enum@1@W4D3DShaderProfileVersion@@@Z @ 0x1800FFCC0 (-GetShaderLinkingBody@CommonRenderingShaderBody@@YA-AUShaderLinkingBody@@W4Enum@1@W4D3DShaderPro.c)
+ *     ?GetShaderLinkingBody@ProjectedShadowRenderingShaderBody@@YA?AUShaderLinkingBody@@W4Enum@CommonRenderingShaderBody@@W4D3DShaderProfileVersion@@@Z @ 0x180205D18 (-GetShaderLinkingBody@ProjectedShadowRenderingShaderBody@@YA-AUShaderLinkingBody@@W4Enum@CommonR.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall CommonRenderingShaderBody::GetInputs(_QWORD *a1, int a2)
 {
   int v2; // edx

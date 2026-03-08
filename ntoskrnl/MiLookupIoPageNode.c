@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiLookupIoPageNode @ 0x1403AB558
+ * Callers:
+ *     MiInsertPhysicalPteMapping @ 0x14029F690 (MiInsertPhysicalPteMapping.c)
+ *     MiMapMdlCommon @ 0x1403A2070 (MiMapMdlCommon.c)
+ *     MmGetCacheAttributeEx @ 0x14061C860 (MmGetCacheAttributeEx.c)
+ *     MmProtectMdlSystemAddress @ 0x14061C990 (MmProtectMdlSystemAddress.c)
+ * Callees:
+ *     MiUnlockIoPfnTree @ 0x14029B9B4 (MiUnlockIoPfnTree.c)
+ *     MiLockIoPfnTree @ 0x14029C1B0 (MiLockIoPfnTree.c)
+ *     MiIoSpaceGetBounds @ 0x14029C250 (MiIoSpaceGetBounds.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiLookupIoPageNode(ULONG_PTR BugCheckParameter2, int a2)
 {
   unsigned __int8 CurrentIrql; // di

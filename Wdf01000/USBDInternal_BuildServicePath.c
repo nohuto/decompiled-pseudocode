@@ -1,3 +1,13 @@
+/*
+ * XREFs of USBDInternal_BuildServicePath @ 0x1C00876A8
+ * Callers:
+ *     USBD_CreateHandle @ 0x1C0087C0C (USBD_CreateHandle.c)
+ * Callees:
+ *     memset @ 0x1C000AC00 (memset.c)
+ *     memmove @ 0x1C000B140 (memmove.c)
+ *     RtlStringCbCatW @ 0x1C0087454 (RtlStringCbCatW.c)
+ */
+
 __int64 __fastcall USBDInternal_BuildServicePath(
         _DEVICE_OBJECT *DeviceObject,
         wchar_t **RelativeServicePath,

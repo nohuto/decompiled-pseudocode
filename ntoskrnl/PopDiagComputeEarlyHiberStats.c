@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagComputeEarlyHiberStats @ 0x140AA472C
+ * Callers:
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PpmConvertTime @ 0x140235D70 (PpmConvertTime.c)
+ */
+
 __int64 PopDiagComputeEarlyHiberStats()
 {
   __int64 Prcb; // rax

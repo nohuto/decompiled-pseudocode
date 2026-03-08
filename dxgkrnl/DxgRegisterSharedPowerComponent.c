@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgRegisterSharedPowerComponent @ 0x1C02E0F4C
+ * Callers:
+ *     DpiSharedPowerRegister @ 0x1C03997D0 (DpiSharedPowerRegister.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?RegisterSharedPowerComponent@DXGGLOBAL@@QEAAJPEAXQEAXP6AX0W4_DEVICE_POWER_STATE@@E0@ZP6AX00@ZP6AX0KIE0@ZP6AX00KEIU_GUID@@I@Z@Z @ 0x1C0051060 (-RegisterSharedPowerComponent@DXGGLOBAL@@QEAAJPEAXQEAXP6AX0W4_DEVICE_POWER_STATE@@E0@ZP6AX00@ZP6.c)
+ */
+
 __int64 __fastcall DxgRegisterSharedPowerComponent(
         struct DXGADAPTER *a1,
         void *a2,

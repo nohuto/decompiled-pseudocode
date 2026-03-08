@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiDereferenceSubsectionProtos @ 0x14075B80C
+ * Callers:
+ *     MiWalkEntireImage @ 0x1402862C0 (MiWalkEntireImage.c)
+ *     MiDereferencePerSessionProtos @ 0x14075B72C (MiDereferencePerSessionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x14075B874 (MiCreatePerSessionProtos.c)
+ * Callees:
+ *     MiLocateSessionProtosInSubsection @ 0x1402CEC08 (MiLocateSessionProtosInSubsection.c)
+ *     MiUpdatePerSessionProto @ 0x1402CF620 (MiUpdatePerSessionProto.c)
+ */
+
 void __fastcall MiDereferenceSubsectionProtos(__int64 a1, unsigned int a2, __int64 *a3)
 {
   __int64 *SessionProtosInSubsection; // rax

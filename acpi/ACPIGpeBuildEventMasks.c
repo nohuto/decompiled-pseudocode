@@ -1,3 +1,18 @@
+/*
+ * XREFs of ACPIGpeBuildEventMasks @ 0x1C002BE44
+ * Callers:
+ *     ACPITableLoad @ 0x1C003F170 (ACPITableLoad.c)
+ *     ACPITableUnload @ 0x1C003F7F0 (ACPITableUnload.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     ACPIGpeEnableDisableEvents @ 0x1C002C29C (ACPIGpeEnableDisableEvents.c)
+ *     ACPIGpeInstallRemoveIndex @ 0x1C002C3F8 (ACPIGpeInstallRemoveIndex.c)
+ *     ACPIVectorBuildVectorMasks @ 0x1C0043D44 (ACPIVectorBuildVectorMasks.c)
+ *     AMLIGetFirstChild @ 0x1C00482EC (AMLIGetFirstChild.c)
+ *     AMLIGetNameSpaceObject @ 0x1C00483B8 (AMLIGetNameSpaceObject.c)
+ *     AMLIIterateSiblingsNext @ 0x1C00488D8 (AMLIIterateSiblingsNext.c)
+ */
+
 void ACPIGpeBuildEventMasks()
 {
   KIRQL v0; // di

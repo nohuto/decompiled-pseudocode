@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MarkInactive@CCompositionSwapchainBuffer@@UEAA_NXZ @ 0x1C0026F80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CCompositionSwapchainBuffer::MarkInactive(CCompositionSwapchainBuffer *this)
 {
   bool result; // al

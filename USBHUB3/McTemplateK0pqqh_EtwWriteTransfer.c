@@ -1,3 +1,16 @@
+/*
+ * XREFs of McTemplateK0pqqh_EtwWriteTransfer @ 0x1C000CF08
+ * Callers:
+ *     HUBFDO_EvtDeviceD0Entry @ 0x1C000D350 (HUBFDO_EvtDeviceD0Entry.c)
+ *     HUBFDO_EvtDeviceD0Exit @ 0x1C000D7D0 (HUBFDO_EvtDeviceD0Exit.c)
+ *     HUBPDO_EvtDeviceD0Entry @ 0x1C0019930 (HUBPDO_EvtDeviceD0Entry.c)
+ *     HUBPDO_EvtDeviceD0Exit @ 0x1C0019BA0 (HUBPDO_EvtDeviceD0Exit.c)
+ *     HUBDTX_ValidateInterfaceStatusForRemoteWakeCapability @ 0x1C002A628 (HUBDTX_ValidateInterfaceStatusForRemoteWakeCapability.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001680 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ */
+
 NTSTATUS McTemplateK0pqqh_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, const GUID *a3, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-21h] BYREF

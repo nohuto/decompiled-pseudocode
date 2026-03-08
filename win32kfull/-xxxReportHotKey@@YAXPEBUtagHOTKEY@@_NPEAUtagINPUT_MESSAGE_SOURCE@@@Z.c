@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?xxxReportHotKey@@YAXPEBUtagHOTKEY@@_NPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C000E95C
+ * Callers:
+ *     ?xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0097FCC (-xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ * Callees:
+ *     ?HotkeyInvoked@Keyboard@InputTraceLogging@@SAXIE_N@Z @ 0x1C000ECE4 (-HotkeyInvoked@Keyboard@InputTraceLogging@@SAXIE_N@Z.c)
+ *     ?xxxReportWindowHotKey@@YAXPEBUtagHOTKEY@@PEAUtagWND@@_N@Z @ 0x1C000ED34 (-xxxReportWindowHotKey@@YAXPEBUtagHOTKEY@@PEAUtagWND@@_N@Z.c)
+ *     ?xxxReportHotKeyToShell@@YAXPEAUtagWND@@_J_KPEAUHWND__@@_N@Z @ 0x1C000EE5C (-xxxReportHotKeyToShell@@YAXPEAUtagWND@@_J_KPEAUHWND__@@_N@Z.c)
+ *     ?IsPenQuickLaunchHotKey@@YA_NIE@Z @ 0x1C001425C (-IsPenQuickLaunchHotKey@@YA_NIE@Z.c)
+ *     _PostThreadMessageEx @ 0x1C0037298 (_PostThreadMessageEx.c)
+ *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C0048220 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
+ *     ?_GetShellWindow@@YAPEAUtagWND@@PEAUtagDESKTOP@@@Z @ 0x1C00D812C (-_GetShellWindow@@YAPEAUtagWND@@PEAUtagDESKTOP@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ?HKFindChildHotkeyForQueue@@YA_NPEAUtagQ@@PEBUtagHOTKEY@@PEAPEAUtagCHILDHOTKEY@@@Z @ 0x1C01C1254 (-HKFindChildHotkeyForQueue@@YA_NPEAUtagQ@@PEBUtagHOTKEY@@PEAPEAUtagCHILDHOTKEY@@@Z.c)
+ *     ?TraceLoggingYieldedHotkey@@YAXII@Z @ 0x1C0205448 (-TraceLoggingYieldedHotkey@@YAXII@Z.c)
+ */
+
 void __fastcall xxxReportHotKey(const struct tagHOTKEY *a1, bool a2, struct tagINPUT_MESSAGE_SOURCE *a3)
 {
   int v4; // r14d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of LinkNodeFindByNsObj @ 0x1C0099450
+ * Callers:
+ *     LinkNodeCrackPrt @ 0x1C005CE9C (LinkNodeCrackPrt.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall LinkNodeFindByNsObj(__int64 a1, __int64 *a2)
 {
   __int64 v2; // r8

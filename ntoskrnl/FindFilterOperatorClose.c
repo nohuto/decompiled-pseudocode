@@ -1,3 +1,11 @@
+/*
+ * XREFs of FindFilterOperatorClose @ 0x1407656E4
+ * Callers:
+ *     FilterEvalStrict @ 0x140762048 (FilterEvalStrict.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FindFilterOperatorClose(unsigned int a1, __int64 a2, _DWORD *a3)
 {
   int v3; // r9d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HasRenderingIntermediate@CMaskBrush@@UEBA_NXZ @ 0x180237FF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CMaskBrush::HasRenderingIntermediate(CMaskBrush *this)
 {
   char v2; // bl

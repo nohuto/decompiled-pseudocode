@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiIsLowestPageTablePage @ 0x140348E4C
+ * Callers:
+ *     MiUnlockPageTableCharges @ 0x140345720 (MiUnlockPageTableCharges.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall MiIsLowestPageTablePage(__int64 a1)
 {
   unsigned __int64 v1; // rcx

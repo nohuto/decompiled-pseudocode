@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiQueryLeafPte @ 0x14031D370
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiHyperSpaceSize @ 0x140222C78 (MiHyperSpaceSize.c)
+ *     MiIdentifyPfnWrapper @ 0x14025C920 (MiIdentifyPfnWrapper.c)
+ *     MiLocateCloneAddress @ 0x1402CF530 (MiLocateCloneAddress.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ */
+
 __int64 __fastcall MiQueryLeafPte(__int64 a1, unsigned __int64 a2, int a3)
 {
   __int64 v3; // rdi

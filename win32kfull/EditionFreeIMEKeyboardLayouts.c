@@ -1,3 +1,12 @@
+/*
+ * XREFs of EditionFreeIMEKeyboardLayouts @ 0x1C00E9CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0035F20 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     ?xxxImmUnloadThreadsLayout@@YAXPEAPEAUtagTHREADINFO@@IPEAUtagTLBLOCK@@K@Z @ 0x1C00E9D08 (-xxxImmUnloadThreadsLayout@@YAXPEAPEAUtagTHREADINFO@@IPEAUtagTLBLOCK@@K@Z.c)
+ */
+
 unsigned int __fastcall EditionFreeIMEKeyboardLayouts(__int64 a1)
 {
   unsigned int result; // eax

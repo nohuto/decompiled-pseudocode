@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopCoalescingInitialize @ 0x140B53A80
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     PoRegisterCoalescingCallback @ 0x140819500 (PoRegisterCoalescingCallback.c)
+ *     PopUpdateDiskIdleTimeoutSetting @ 0x1408197EC (PopUpdateDiskIdleTimeoutSetting.c)
+ */
+
 __int64 PopCoalescingInitialize()
 {
   __int64 result; // rax

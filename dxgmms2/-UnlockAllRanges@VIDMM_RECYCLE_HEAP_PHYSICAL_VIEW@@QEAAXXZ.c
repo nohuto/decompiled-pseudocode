@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UnlockAllRanges@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAXXZ @ 0x1C0097328
+ * Callers:
+ *     ?FinalizedUnlock@VIDMM_RECYCLE_RANGE@@QEAAXAEA_N@Z @ 0x1C00B3284 (-FinalizedUnlock@VIDMM_RECYCLE_RANGE@@QEAAXAEA_N@Z.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C0001A30 (--3@YAXPEAX@Z.c)
+ */
+
 void __fastcall VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW::UnlockAllRanges(VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW *this)
 {
   char *v1; // rdi

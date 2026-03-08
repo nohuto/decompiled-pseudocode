@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??4tagKERNELDISPLAYINFO@@QEAAAEAU0@AEAU0@@Z @ 0x1C01685BC
+ * Callers:
+ *     ?DrvDriverFailure@@YAJXZ @ 0x1C0168718 (-DrvDriverFailure@@YAJXZ.c)
+ * Callees:
+ *     ??4?$SharedMixedObjectPointerFieldpMonitorPrimary@UtagMONITOR@@@tagKERNELDISPLAYINFO@@QEAAPEAUtagMONITOR@@PEAU2@@Z @ 0x1C0014FDC (--4-$SharedMixedObjectPointerFieldpMonitorPrimary@UtagMONITOR@@@tagKERNELDISPLAYINFO@@QEAAPEAUta.c)
+ *     ??4?$SharedMixedObjectPointerFieldpMonitorFirst@UtagMONITOR@@@tagKERNELDISPLAYINFO@@QEAAPEAUtagMONITOR@@PEAU2@@Z @ 0x1C0016324 (--4-$SharedMixedObjectPointerFieldpMonitorFirst@UtagMONITOR@@@tagKERNELDISPLAYINFO@@QEAAPEAUtagM.c)
+ */
+
 __int64 __fastcall tagKERNELDISPLAYINFO::operator=(__int64 a1)
 {
   _QWORD *v1; // r9

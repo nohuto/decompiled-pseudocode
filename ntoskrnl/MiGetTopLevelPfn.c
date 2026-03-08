@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiGetTopLevelPfn @ 0x14022A3D0
+ * Callers:
+ *     MiCapturePfnVm @ 0x14022A10C (MiCapturePfnVm.c)
+ *     MiIdentifyPfn @ 0x14025E5D0 (MiIdentifyPfn.c)
+ *     MiRecheckCombineVm @ 0x14029F408 (MiRecheckCombineVm.c)
+ *     MiReferenceOwningSession @ 0x1402DE780 (MiReferenceOwningSession.c)
+ *     MiGetPagePrivilege @ 0x14032D3F0 (MiGetPagePrivilege.c)
+ *     MiRestoreTransitionPte @ 0x14036A9C4 (MiRestoreTransitionPte.c)
+ *     MiLockStealUserVm @ 0x1403B7F90 (MiLockStealUserVm.c)
+ *     MiStoreCheckCandidatePage @ 0x1404650E0 (MiStoreCheckCandidatePage.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall MiGetTopLevelPfn(ULONG_PTR BugCheckParameter2)
 {
   unsigned int v1; // edi

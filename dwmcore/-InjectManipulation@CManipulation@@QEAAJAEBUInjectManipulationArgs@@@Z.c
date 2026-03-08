@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?InjectManipulation@CManipulation@@QEAAJAEBUInjectManipulationArgs@@@Z @ 0x18020A87C
+ * Callers:
+ *     ?ProcessInjectManipulation@CManipulation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MANIPULATION_INJECTMANIPULATION@@PEBXI@Z @ 0x18020AAF4 (-ProcessInjectManipulation@CManipulation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MANIPULATION_IN.c)
+ *     ?CalculateValueWorker@CInjectionAnimation@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18022BAE0 (-CalculateValueWorker@CInjectionAnimation@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ * Callees:
+ *     ??0ManipulationData@@QEAA@XZ @ 0x18020A45C (--0ManipulationData@@QEAA@XZ.c)
+ *     ?Update@CManipulation@@QEAAJPEAUManipulationData@@@Z @ 0x18020B184 (-Update@CManipulation@@QEAAJPEAUManipulationData@@@Z.c)
+ */
+
 __int64 __fastcall CManipulation::InjectManipulation(CManipulation *this, const struct InjectManipulationArgs *a2)
 {
   int *v2; // r9

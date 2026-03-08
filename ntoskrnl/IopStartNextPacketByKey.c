@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopStartNextPacketByKey @ 0x140555718
+ * Callers:
+ *     IoStartNextPacketByKey @ 0x140554E90 (IoStartNextPacketByKey.c)
+ *     IopStartNextPacketByKeyEx @ 0x1405557DC (IopStartNextPacketByKeyEx.c)
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KeRemoveByKeyDeviceQueue @ 0x140570D20 (KeRemoveByKeyDeviceQueue.c)
+ */
+
 void __fastcall IopStartNextPacketByKey(__int64 a1, int a2, ULONG a3)
 {
   KIRQL v3; // si

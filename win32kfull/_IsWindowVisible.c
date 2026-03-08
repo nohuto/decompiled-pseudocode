@@ -1,3 +1,13 @@
+/*
+ * XREFs of _IsWindowVisible @ 0x1C002A980
+ * Callers:
+ *     SetVisible @ 0x1C002DB8C (SetVisible.c)
+ *     xxxSetWindowStyle @ 0x1C002DD90 (xxxSetWindowStyle.c)
+ *     ?xxxDWPPrint@@YAHPEAUtagWND@@PEAUHDC__@@_J@Z @ 0x1C0225290 (-xxxDWPPrint@@YAHPEAUtagWND@@PEAUHDC__@@_J@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IsWindowVisible(__int64 a1)
 {
   __int64 v1; // rdx

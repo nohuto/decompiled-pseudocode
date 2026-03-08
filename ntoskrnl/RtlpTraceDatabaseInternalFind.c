@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpTraceDatabaseInternalFind @ 0x1405AF3E4
+ * Callers:
+ *     RtlTraceDatabaseFind @ 0x1405AF0E0 (RtlTraceDatabaseFind.c)
+ *     RtlpTraceDatabaseInternalAdd @ 0x1405AF220 (RtlpTraceDatabaseInternalAdd.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall RtlpTraceDatabaseInternalFind(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4)
 {
   unsigned int v8; // eax

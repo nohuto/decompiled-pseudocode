@@ -1,3 +1,16 @@
+/*
+ * XREFs of RIMDeviceNotifyAsyncWorkItem @ 0x1C01CFE1C
+ * Callers:
+ *     RIMDoAsyncPnpWorkItem @ 0x1C0036418 (RIMDoAsyncPnpWorkItem.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     RIMDoOnPnpNotification @ 0x1C00872A8 (RIMDoOnPnpNotification.c)
+ *     RimDeviceTypeToRimInputType @ 0x1C00BC2F4 (RimDeviceTypeToRimInputType.c)
+ *     Feature_RIMUserCritOpt__private_ReportDeviceUsage @ 0x1C00DF02C (Feature_RIMUserCritOpt__private_ReportDeviceUsage.c)
+ *     RIMGetPnpActionBitsFromGuid @ 0x1C01C7928 (RIMGetPnpActionBitsFromGuid.c)
+ *     WPP_RECORDER_AND_TRACE_SF_Sd @ 0x1C01D1340 (WPP_RECORDER_AND_TRACE_SF_Sd.c)
+ */
+
 __int64 __fastcall RIMDeviceNotifyAsyncWorkItem(__int64 a1)
 {
   __int64 v2; // rbp

@@ -1,3 +1,30 @@
+/*
+ * XREFs of HUBUCX_SubmitUcxIoctl @ 0x1C00263DC
+ * Callers:
+ *     HUBDSM_ResettingPipeInUCXOnClientReset @ 0x1C001FE40 (HUBDSM_ResettingPipeInUCXOnClientReset.c)
+ *     HUBDSM_ResettingPipeInUCXOnClientSyncResetPipe @ 0x1C001FFE0 (HUBDSM_ResettingPipeInUCXOnClientSyncResetPipe.c)
+ *     HUBDSM_UpdatingDefaultEndpointMaxPacketSizeInEnum @ 0x1C0020DF0 (HUBDSM_UpdatingDefaultEndpointMaxPacketSizeInEnum.c)
+ *     HUBDSM_SettingNonZeroAddress @ 0x1C00221D0 (HUBDSM_SettingNonZeroAddress.c)
+ *     HUBDSM_AbortingDeviceIoInSuspendingBeforeArmingForWakeFailure @ 0x1C00241A0 (HUBDSM_AbortingDeviceIoInSuspendingBeforeArmingForWakeFailure.c)
+ *     HUBDSM_CheckingIf20LPMShouldBeEnabled @ 0x1C00257E0 (HUBDSM_CheckingIf20LPMShouldBeEnabled.c)
+ *     HUBUCX_AcquireAddress0OwnershipUsingUCXIoctl @ 0x1C0026654 (HUBUCX_AcquireAddress0OwnershipUsingUCXIoctl.c)
+ *     HUBUCX_NotifyDeviceResetUsingUCXIoctl @ 0x1C0026708 (HUBUCX_NotifyDeviceResetUsingUCXIoctl.c)
+ *     HUBUCX_EnableDisableEndpointsUsingUCXIoctl @ 0x1C00268D8 (HUBUCX_EnableDisableEndpointsUsingUCXIoctl.c)
+ *     HUBUCX_DisableDeviceAndDefaultEndpointUsingUCXIoctl @ 0x1C0026B64 (HUBUCX_DisableDeviceAndDefaultEndpointUsingUCXIoctl.c)
+ *     HUBUCX_EnableDeviceAndDefaultEndpointUsingUCXIoctl @ 0x1C0026CB0 (HUBUCX_EnableDeviceAndDefaultEndpointUsingUCXIoctl.c)
+ *     HUBUCX_UpdateDeviceInfoUsingUCXIoctl @ 0x1C0026F1C (HUBUCX_UpdateDeviceInfoUsingUCXIoctl.c)
+ *     HUBUCX_UpdateDeviceExitLatencyUsingUCXIoctl @ 0x1C00270F4 (HUBUCX_UpdateDeviceExitLatencyUsingUCXIoctl.c)
+ *     HUBUCX_PurgeDeviceIoUsingUCXIoctl @ 0x1C0028FC8 (HUBUCX_PurgeDeviceIoUsingUCXIoctl.c)
+ *     HUBUCX_PurgeDeviceIoForSuspendUsingUCXIoctl @ 0x1C0029078 (HUBUCX_PurgeDeviceIoForSuspendUsingUCXIoctl.c)
+ *     HUBUCX_PurgeDeviceTreeIoUsingUCXIoctl @ 0x1C002912C (HUBUCX_PurgeDeviceTreeIoUsingUCXIoctl.c)
+ *     HUBUCX_StartDeviceIoUsingUCXIoctl @ 0x1C00291DC (HUBUCX_StartDeviceIoUsingUCXIoctl.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBPDO_GetUSBDErrorFromNTStatus @ 0x1C0015618 (HUBPDO_GetUSBDErrorFromNTStatus.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBUCX_SubmitUcxIoctl(__int64 *a1, unsigned int a2)
 {
   __int64 v2; // rax

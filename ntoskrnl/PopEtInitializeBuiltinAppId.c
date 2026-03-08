@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopEtInitializeBuiltinAppId @ 0x1408532EC
+ * Callers:
+ *     PopEtInit @ 0x140B678A0 (PopEtInit.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopEtInitializeBuiltinAppId(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8

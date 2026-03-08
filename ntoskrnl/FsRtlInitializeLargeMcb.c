@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlInitializeLargeMcb @ 0x1402DFC20
+ * Callers:
+ *     FsRtlInitializeMcb @ 0x14093AA60 (FsRtlInitializeMcb.c)
+ * Callees:
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     FsRtlInitializeBaseMcbEx @ 0x1402DFC90 (FsRtlInitializeBaseMcbEx.c)
+ */
+
 void __stdcall FsRtlInitializeLargeMcb(PLARGE_MCB Mcb, POOL_TYPE PoolType)
 {
   struct _FAST_MUTEX *v3; // rax

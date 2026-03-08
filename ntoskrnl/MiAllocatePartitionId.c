@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiAllocatePartitionId @ 0x140A2CBB0
+ * Callers:
+ *     MmCreatePartition @ 0x1403A6A3C (MmCreatePartition.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlFindClearBitsAndSet @ 0x14030CEE0 (RtlFindClearBitsAndSet.c)
+ *     MiExpandPartitionIds @ 0x140A41CBC (MiExpandPartitionIds.c)
+ */
+
 __int64 __fastcall MiAllocatePartitionId(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rbx

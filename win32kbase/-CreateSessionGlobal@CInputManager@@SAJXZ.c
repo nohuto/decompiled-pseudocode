@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?CreateSessionGlobal@CInputManager@@SAJXZ @ 0x1C00CE140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0062994 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ?Initialize@CInputManager@@IEAAJXZ @ 0x1C00CE1E0 (-Initialize@CInputManager@@IEAAJXZ.c)
+ *     ??_GCInputManager@@IEAAPEAXI@Z @ 0x1C00D189C (--_GCInputManager@@IEAAPEAXI@Z.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 CInputManager::CreateSessionGlobal(void)
 {
   __int64 v0; // rax

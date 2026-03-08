@@ -1,3 +1,12 @@
+/*
+ * XREFs of __tailMerge_ext_ms_win_compositor_hosting_l1_2_0_dll @ 0x18010FA68
+ * Callers:
+ *     __imp_load_RegisterManipulationThread @ 0x18010FA5C (__imp_load_RegisterManipulationThread.c)
+ *     __imp_load_StopAndEndInertia @ 0x18010FB72 (__imp_load_StopAndEndInertia.c)
+ * Callees:
+ *     __delayLoadHelper2 @ 0x180100EB0 (__delayLoadHelper2.c)
+ */
+
 __int64 __fastcall _tailMerge_ext_ms_win_compositor_hosting_l1_2_0_dll(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rax

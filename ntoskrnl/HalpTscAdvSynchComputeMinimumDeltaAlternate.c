@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpTscAdvSynchComputeMinimumDeltaAlternate @ 0x140388478
+ * Callers:
+ *     HalpTscAdvSynchCalculateRemoteDelta @ 0x14038829C (HalpTscAdvSynchCalculateRemoteDelta.c)
+ *     HalpTscAdvSynchTarget @ 0x140388384 (HalpTscAdvSynchTarget.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpTscAdvSynchComputeMinimumDeltaAlternate(unsigned __int64 *a1, __int64 *a2)
 {
   unsigned int v2; // r11d

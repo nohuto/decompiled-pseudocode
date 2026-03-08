@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwCreateTransactionManagerWrapper @ 0x1405ECD20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwCreateTransactionManager @ 0x140413CD0 (ZwCreateTransactionManager.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifZwCreateTransactionManagerWrapper(
         PHANDLE TmHandle,
         ACCESS_MASK DesiredAccess,

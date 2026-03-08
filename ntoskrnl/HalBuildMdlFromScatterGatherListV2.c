@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalBuildMdlFromScatterGatherListV2 @ 0x1403CE3F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IopAllocateMdl @ 0x140241F90 (IopAllocateMdl.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ */
+
 __int64 __fastcall HalBuildMdlFromScatterGatherListV2(__int64 a1, unsigned int *a2, struct _MDL *a3, struct _MDL **a4)
 {
   __int64 v6; // rbx

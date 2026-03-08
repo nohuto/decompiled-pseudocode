@@ -1,3 +1,13 @@
+/*
+ * XREFs of XmInsOp @ 0x140531730
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmGetStringAddress @ 0x14039559C (XmGetStringAddress.c)
+ *     XmStoreResult @ 0x1403B42E8 (XmStoreResult.c)
+ *     x86BiosReadIoSpace @ 0x1403BC880 (x86BiosReadIoSpace.c)
+ */
+
 _WORD *__fastcall XmInsOp(__int64 a1)
 {
   _WORD *result; // rax

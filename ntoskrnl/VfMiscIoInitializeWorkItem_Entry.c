@@ -1,3 +1,15 @@
+/*
+ * XREFs of VfMiscIoInitializeWorkItem_Entry @ 0x140ADCD00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmIsSessionAddress @ 0x140239ED0 (MmIsSessionAddress.c)
+ *     IoSizeofWorkItem @ 0x1402F8D70 (IoSizeofWorkItem.c)
+ *     MmIsNonPagedSystemAddressValid @ 0x140463620 (MmIsNonPagedSystemAddressValid.c)
+ *     VfMiscCheckKernelAddress @ 0x1405D0078 (VfMiscCheckKernelAddress.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 BOOLEAN __fastcall VfMiscIoInitializeWorkItem_Entry(__int64 a1)
 {
   ULONG v2; // eax

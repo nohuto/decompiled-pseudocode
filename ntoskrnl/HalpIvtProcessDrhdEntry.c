@@ -1,3 +1,26 @@
+/*
+ * XREFs of HalpIvtProcessDrhdEntry @ 0x14037B514
+ * Callers:
+ *     HalpIvtProcessDmarTable @ 0x14037BB68 (HalpIvtProcessDmarTable.c)
+ * Callees:
+ *     HalSocRequestApi @ 0x1403737EC (HalSocRequestApi.c)
+ *     HalMapIoSpace @ 0x14037AD90 (HalMapIoSpace.c)
+ *     HalpUnmapVirtualAddress @ 0x14037ADE0 (HalpUnmapVirtualAddress.c)
+ *     DmrEnumerateRmrrDomains @ 0x14037BD30 (DmrEnumerateRmrrDomains.c)
+ *     DmrValidateDeviceScope @ 0x14037BE8C (DmrValidateDeviceScope.c)
+ *     DmrGetNextDrhdDeviceScope @ 0x14037BF80 (DmrGetNextDrhdDeviceScope.c)
+ *     HalpIvtAllocateReservedDomainList @ 0x14037C5A4 (HalpIvtAllocateReservedDomainList.c)
+ *     ExtEnvAllocateMemory @ 0x14037C828 (ExtEnvAllocateMemory.c)
+ *     HalRegisterPermanentAddressUsage @ 0x14037C950 (HalRegisterPermanentAddressUsage.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExtEnvFreeMemory @ 0x14051D13C (ExtEnvFreeMemory.c)
+ *     DmrFreeRmrrTree @ 0x140532C5C (DmrFreeRmrrTree.c)
+ *     ExtEnvRegisterIommu @ 0x140B3CFD4 (ExtEnvRegisterIommu.c)
+ */
+
 __int64 __fastcall HalpIvtProcessDrhdEntry(__int64 a1, __int64 a2)
 {
   char v4; // r12

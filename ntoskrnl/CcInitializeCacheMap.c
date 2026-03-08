@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcInitializeCacheMap @ 0x1402FF250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcInitializeCacheMapInternal @ 0x140338F10 (CcInitializeCacheMapInternal.c)
+ */
+
 void __stdcall CcInitializeCacheMap(
         PFILE_OBJECT FileObject,
         PCC_FILE_SIZES FileSizes,

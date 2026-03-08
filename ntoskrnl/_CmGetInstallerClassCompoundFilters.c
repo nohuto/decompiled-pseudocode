@@ -1,3 +1,15 @@
+/*
+ * XREFs of _CmGetInstallerClassCompoundFilters @ 0x14074DC9C
+ * Callers:
+ *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x14074DA38 (_CmGetInstallerClassMappedPropertyFromComposite.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _CmOpenInstallerClassRegKey @ 0x1406C4ED8 (_CmOpenInstallerClassRegKey.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14074DDF4 (_CmGetInstallerClassMappedPropertyFromRegProp.c)
+ *     _CmGetInstallerClassCompoundFiltersWorker @ 0x140A65A54 (_CmGetInstallerClassCompoundFiltersWorker.c)
+ */
+
 __int64 __fastcall CmGetInstallerClassCompoundFilters(
         __int64 a1,
         int a2,

@@ -1,3 +1,25 @@
+/*
+ * XREFs of LdrResSearchResource @ 0x1407EACB0
+ * Callers:
+ *     PopEtGetProcessVersionInfo @ 0x140701360 (PopEtGetProcessVersionInfo.c)
+ *     PspLocateInPEManifest @ 0x1407066D0 (PspLocateInPEManifest.c)
+ *     LdrResFindResourceDirectory @ 0x14079B240 (LdrResFindResourceDirectory.c)
+ *     AslpFileGetVersionBlock @ 0x1407A0528 (AslpFileGetVersionBlock.c)
+ *     LdrResFindResource @ 0x1407E9740 (LdrResFindResource.c)
+ *     SeRegisterElamCertResources @ 0x14081B8D0 (SeRegisterElamCertResources.c)
+ *     RtlLoadString @ 0x1409B7450 (RtlLoadString.c)
+ *     KeHwPolicyLocateResource @ 0x140B60C10 (KeHwPolicyLocateResource.c)
+ * Callees:
+ *     DownLevelLangIDToLanguageName @ 0x1402BEE08 (DownLevelLangIDToLanguageName.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x14035D07C (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpResSearchResourceMappedFile @ 0x14035DC3C (LdrpResSearchResourceMappedFile.c)
+ *     DownLevelLanguageNameToLangID @ 0x14036F74C (DownLevelLanguageNameToLangID.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     Feature_1875039550__private_IsEnabledDeviceUsage @ 0x14040BBB4 (Feature_1875039550__private_IsEnabledDeviceUsage.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     LdrpResGetMappingSize @ 0x1407EB0A8 (LdrpResGetMappingSize.c)
+ */
+
 __int64 __fastcall LdrResSearchResource(
         ULONGLONG a1,
         const void *a2,

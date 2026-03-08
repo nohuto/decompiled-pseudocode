@@ -1,3 +1,19 @@
+/*
+ * XREFs of ObpStopRuntimeStackTrace @ 0x14097AA20
+ * Callers:
+ *     ObSetRefTraceInformation @ 0x1409798A0 (ObSetRefTraceInformation.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObpDestroyStackAndObjectTables @ 0x140979AD4 (ObpDestroyStackAndObjectTables.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 ObpStopRuntimeStackTrace()
 {
   struct _KTHREAD *CurrentThread; // rax

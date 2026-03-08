@@ -1,3 +1,18 @@
+/*
+ * XREFs of LdrpMapResourceFile @ 0x1403A2E68
+ * Callers:
+ *     LdrLoadAlternateResourceModuleEx @ 0x14035D07C (LdrLoadAlternateResourceModuleEx.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateSection @ 0x140412C50 (ZwCreateSection.c)
+ *     ZwCreateFile @ 0x140412DB0 (ZwCreateFile.c)
+ *     MmMapViewInSessionSpace @ 0x14078FC80 (MmMapViewInSessionSpace.c)
+ *     MmUnmapViewInSystemSpace @ 0x140791780 (MmUnmapViewInSystemSpace.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall LdrpMapResourceFile(__int64 a1, UNICODE_STRING *a2, HANDLE *a3, _QWORD *a4, ULONG_PTR *a5)
 {
   PVOID v8; // rdi

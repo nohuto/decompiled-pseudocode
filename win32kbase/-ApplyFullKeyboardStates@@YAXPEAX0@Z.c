@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ApplyFullKeyboardStates@@YAXPEAX0@Z @ 0x1C021CF48
+ * Callers:
+ *     ?ivHandleKeyboardStatesPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C021E9C0 (-ivHandleKeyboardStatesPacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManagerObject.c)
+ * Callees:
+ *     PostUpdateKeyStateEvent @ 0x1C0092540 (PostUpdateKeyStateEvent.c)
+ */
+
 void __fastcall ApplyFullKeyboardStates(_OWORD *a1, _OWORD *a2, __int64 a3, __int64 a4)
 {
   __int64 v6; // rax

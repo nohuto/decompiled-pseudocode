@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBDTX_SetDeviceInterfaceUsingControlTransfer @ 0x1C002B7B0
+ * Callers:
+ *     HUBDSM_SettingDeviceInterfaceInSettingInterfaceOnFailureForCompat @ 0x1C0023D80 (HUBDSM_SettingDeviceInterfaceInSettingInterfaceOnFailureForCompat.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBMISC_ControlTransfer @ 0x1C0032664 (HUBMISC_ControlTransfer.c)
+ */
+
 __int64 __fastcall HUBDTX_SetDeviceInterfaceUsingControlTransfer(__int64 *a1)
 {
   __int64 v2; // rcx

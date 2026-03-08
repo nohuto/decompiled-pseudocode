@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InitializeDefaultDCAttributes@@YAXXZ @ 0x1C00CDFB8
+ * Callers:
+ *     InitializeGre @ 0x1C031D988 (InitializeGre.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall InitializeDefaultDCAttributes(__int64 a1)
 {
   __int64 v1; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopLiveDumpResetCorralContext @ 0x140A99498
+ * Callers:
+ *     IopLiveDumpAllocAndInitResources @ 0x1409495FC (IopLiveDumpAllocAndInitResources.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IopLiveDumpResetCorralContext(__int64 a1)
 {
   __int64 result; // rax

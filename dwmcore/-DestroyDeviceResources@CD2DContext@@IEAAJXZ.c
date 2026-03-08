@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?DestroyDeviceResources@CD2DContext@@IEAAJXZ @ 0x1800D0E70
+ * Callers:
+ *     ?DestroyAllResources@CD3DDevice@@AEAAXXZ @ 0x1800EE1EC (-DestroyAllResources@CD3DDevice@@AEAAXXZ.c)
+ *     ??1CD2DContext@@UEAA@XZ @ 0x1800EE258 (--1CD2DContext@@UEAA@XZ.c)
+ * Callees:
+ *     ?UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z @ 0x18003D244 (-UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z.c)
+ *     ?ReleaseEffectTable@CD2DContext@@AEAAXXZ @ 0x1800D0BF0 (-ReleaseEffectTable@CD2DContext@@AEAAXXZ.c)
+ *     ?ReleaseCachedD2DTarget@CD2DContext@@IEAAXXZ @ 0x1800D0FEC (-ReleaseCachedD2DTarget@CD2DContext@@IEAAXXZ.c)
+ *     ?DestroyDeviceResources@CDrawListBatchManager@@IEAAXXZ @ 0x1800D1140 (-DestroyDeviceResources@CDrawListBatchManager@@IEAAXXZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MarkInvalid@CD2DResource@@IEAAXXZ @ 0x180288A1C (-MarkInvalid@CD2DResource@@IEAAXXZ.c)
+ */
+
 __int64 __fastcall CD2DContext::DestroyDeviceResources(CD2DContext *this)
 {
   __int64 v2; // rsi

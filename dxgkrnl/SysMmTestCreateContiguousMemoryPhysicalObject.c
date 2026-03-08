@@ -1,3 +1,11 @@
+/*
+ * XREFs of SysMmTestCreateContiguousMemoryPhysicalObject @ 0x1C00716A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SysMmCreateContiguousMemoryPhysicalObject@@YAJPEAUSYSMM_ADAPTER@@_KT_LARGE_INTEGER@@22W4_MEMORY_CACHING_TYPE@@QEAXW4SYSMM_PHYSICAL_OBJECT_OWNER@@PEAPEAUSYSMM_PHYSICAL_OBJECT@@PEAPEAUSYSMM_ADAPTER_OBJECT@@PEAPEAX@Z @ 0x1C006F010 (-SysMmCreateContiguousMemoryPhysicalObject@@YAJPEAUSYSMM_ADAPTER@@_KT_LARGE_INTEGER@@22W4_MEMORY.c)
+ */
+
 __int64 __fastcall SysMmTestCreateContiguousMemoryPhysicalObject(
         struct SYSMM_ADAPTER *a1,
         SIZE_T a2,

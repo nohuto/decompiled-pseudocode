@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwSetInformationKeyWrapper @ 0x1405F4C80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwSetInformationKey @ 0x1404157F0 (ZwSetInformationKey.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifZwSetInformationKeyWrapper(
         HANDLE KeyHandle,
         KEY_SET_INFORMATION_CLASS KeySetInformationClass,

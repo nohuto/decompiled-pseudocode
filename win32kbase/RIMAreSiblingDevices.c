@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMAreSiblingDevices @ 0x1C01A4410
+ * Callers:
+ *     NtRIMAreSiblingDevices @ 0x1C01A1A50 (NtRIMAreSiblingDevices.c)
+ * Callees:
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0037330 (RawInputManagerDeviceObjectResolveHandle.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 __int64 __fastcall RIMAreSiblingDevices(char *a1, char *a2, _DWORD *a3, int a4)
 {
   _DWORD *v4; // rbx

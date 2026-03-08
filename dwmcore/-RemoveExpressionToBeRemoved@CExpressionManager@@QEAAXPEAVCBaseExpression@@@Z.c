@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?RemoveExpressionToBeRemoved@CExpressionManager@@QEAAXPEAVCBaseExpression@@@Z @ 0x180213B68
+ * Callers:
+ *     ?StartAsTriggeredAnimation@CNaturalAnimation@@UEAAJXZ @ 0x18023AD60 (-StartAsTriggeredAnimation@CNaturalAnimation@@UEAAJXZ.c)
+ * Callees:
+ *     ??$find@X@?$_Hash@V?$_Uset_traits@PEAVCBaseExpression@@V?$_Uhash_compare@PEAVCBaseExpression@@U?$hash@PEAVCBaseExpression@@@std@@U?$equal_to@PEAVCBaseExpression@@@3@@std@@V?$allocator@PEAVCBaseExpression@@@3@$0A@@std@@@std@@QEAA?AV?$_List_const_iterator@V?$_List_val@U?$_List_simple_types@PEAVCBaseExpression@@@std@@@std@@@1@AEBQEAVCBaseExpression@@@Z @ 0x1800BC14C (--$find@X@-$_Hash@V-$_Uset_traits@PEAVCBaseExpression@@V-$_Uhash_compare@PEAVCBaseExpression@@U-.c)
+ *     ?_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z @ 0x1800D7984 (-_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
 void __fastcall CExpressionManager::RemoveExpressionToBeRemoved(CExpressionManager *this, struct CBaseExpression *a2)
 {
   __int64 v3; // rcx

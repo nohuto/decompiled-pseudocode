@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiProbePacketContended @ 0x140347478
+ * Callers:
+ *     MiProbeAndLockPacket @ 0x140268C30 (MiProbeAndLockPacket.c)
+ *     MmProbeAndLockSelectedPages @ 0x1403CF7D0 (MmProbeAndLockSelectedPages.c)
+ * Callees:
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiWorkingSetIsContended @ 0x1403478E0 (MiWorkingSetIsContended.c)
+ *     MiPageTableLockIsContended @ 0x140347920 (MiPageTableLockIsContended.c)
+ */
+
 __int64 __fastcall MiProbePacketContended(__int64 a1)
 {
   __int64 v1; // rdx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of HvpViewMapMakeViewRangeInvalid @ 0x140880D20
+ * Callers:
+ *     HvpViewMapPromoteRangeToMapping @ 0x140779930 (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpViewMapShrinkStorage @ 0x140A1A654 (HvpViewMapShrinkStorage.c)
+ * Callees:
+ *     CmSiReleaseProcessLockedPagesCharge @ 0x14020C564 (CmSiReleaseProcessLockedPagesCharge.c)
+ *     CmSiUnlockViewOfSection @ 0x1402B3864 (CmSiUnlockViewOfSection.c)
+ *     CmSiProtectViewOfSection @ 0x14030D290 (CmSiProtectViewOfSection.c)
+ */
+
 __int64 __fastcall HvpViewMapMakeViewRangeInvalid(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
 {
   __int64 v7; // r13

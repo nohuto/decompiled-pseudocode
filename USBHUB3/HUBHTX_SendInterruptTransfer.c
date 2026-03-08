@@ -1,3 +1,16 @@
+/*
+ * XREFs of HUBHTX_SendInterruptTransfer @ 0x1C00039B0
+ * Callers:
+ *     HUBHSM_SendingInterruptTransfer @ 0x1C0009070 (HUBHSM_SendingInterruptTransfer.c)
+ *     HUBHSM_SendingInterruptTransferAfterResettingPipe @ 0x1C00090B0 (HUBHSM_SendingInterruptTransferAfterResettingPipe.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 __int64 __fastcall HUBHTX_SendInterruptTransfer(__int64 a1)
 {
   __int64 v1; // rsi

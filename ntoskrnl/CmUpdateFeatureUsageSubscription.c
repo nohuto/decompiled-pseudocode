@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmUpdateFeatureUsageSubscription @ 0x140A0F4A0
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     SeAccessCheck @ 0x140265330 (SeAccessCheck.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     CmpAllocatePoolWithQuota @ 0x1406140C4 (CmpAllocatePoolWithQuota.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x140A24A68 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ */
+
 __int64 __fastcall CmUpdateFeatureUsageSubscription(void *Src, size_t Size, KPROCESSOR_MODE AccessMode)
 {
   size_t v4; // rsi

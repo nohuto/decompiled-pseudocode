@@ -1,3 +1,13 @@
+/*
+ * XREFs of FindBGRMapCache @ 0x1C0257DE8
+ * Callers:
+ *     AAHalftoneBitmap @ 0x1C0253604 (AAHalftoneBitmap.c)
+ *     CreateDyesColorMappingTable @ 0x1C0257C98 (CreateDyesColorMappingTable.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     TrimBGRMapCache @ 0x1C02582A0 (TrimBGRMapCache.c)
+ */
+
 __int64 __fastcall FindBGRMapCache(__int64 a1, int a2)
 {
   __int64 v4; // rbp

@@ -1,3 +1,11 @@
+/*
+ * XREFs of SleepstudyHelperInitializeOnce @ 0x1C008F670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 __int64 __fastcall SleepstudyHelperInitializeOnce(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
   _OWORD *v3; // rdi

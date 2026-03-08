@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvlpLpComparison @ 0x14053EDD0
+ * Callers:
+ *     HvlpSelectLpSet @ 0x14053F128 (HvlpSelectLpSet.c)
+ *     HvlpSelectVpSet @ 0x14053F57C (HvlpSelectVpSet.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HvlpLpComparison(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
   unsigned int v4; // eax

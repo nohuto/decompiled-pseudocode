@@ -1,3 +1,11 @@
+/*
+ * XREFs of HsaSlConfigureLeafPhysicalPte @ 0x14052F670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HsaSlConfigureLeafPhysicalPte(unsigned __int64 *a1, unsigned __int64 a2, char a3, unsigned int a4)
 {
   unsigned int v5; // edi

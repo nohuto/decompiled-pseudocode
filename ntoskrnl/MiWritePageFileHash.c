@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiWritePageFileHash @ 0x1404670A6
+ * Callers:
+ *     MiMapPageFileHash @ 0x140663D0C (MiMapPageFileHash.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiGetPagingFileOffset @ 0x14029EA80 (MiGetPagingFileOffset.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiComputePageHash @ 0x140466BDC (MiComputePageHash.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiPageHashBugCheck @ 0x1406645D8 (MiPageHashBugCheck.c)
+ *     MiWriteEntirePageHashEntry @ 0x14066481C (MiWriteEntirePageHashEntry.c)
+ */
+
 _BOOL8 __fastcall MiWritePageFileHash(__int64 a1, _QWORD *a2, int a3, unsigned int a4)
 {
   unsigned int v4; // edi

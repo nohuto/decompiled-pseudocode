@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?SpiSetFilterKeys@@YAHKPEAXHHPEAH@Z @ 0x1C017B654
+ * Callers:
+ *     xxxSystemParametersInfo @ 0x1C009C980 (xxxSystemParametersInfo.c)
+ * Callees:
+ *     ?SetAccessEnabledFlag@@YAXXZ @ 0x1C0017820 (-SetAccessEnabledFlag@@YAXXZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     ?SetFilterKeys@@YAHPEAUtagFILTERKEYS@@@Z @ 0x1C017B1F4 (-SetFilterKeys@@YAHPEAUtagFILTERKEYS@@@Z.c)
+ *     ?StopFilterKeysTimers@@YAXXZ @ 0x1C01E4680 (-StopFilterKeysTimers@@YAXXZ.c)
+ *     ApiSetEditionCallAccessibilityHook @ 0x1C023C590 (ApiSetEditionCallAccessibilityHook.c)
+ *     ApiSetEditionPostShellHookMessages @ 0x1C0241F24 (ApiSetEditionPostShellHookMessages.c)
+ */
+
 __int64 __fastcall SpiSetFilterKeys(int a1, struct tagFILTERKEYS *a2, int a3, int a4, int *a5)
 {
   unsigned int v7; // r8d

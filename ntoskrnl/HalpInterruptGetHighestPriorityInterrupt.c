@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpInterruptGetHighestPriorityInterrupt @ 0x1403CA4E0
+ * Callers:
+ *     HalpTimerOnlyClockInterruptPending @ 0x1403CA490 (HalpTimerOnlyClockInterruptPending.c)
+ * Callees:
+ *     HalpInterruptFindLines @ 0x14028EE80 (HalpInterruptFindLines.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ */
+
 __int64 __fastcall HalpInterruptGetHighestPriorityInterrupt(_DWORD *a1, __int64 a2)
 {
   ULONG_PTR v2; // rbx

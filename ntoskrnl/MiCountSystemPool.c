@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiCountSystemPool @ 0x14020DF44
+ * Callers:
+ *     MmFreePoolMemory @ 0x14020DD58 (MmFreePoolMemory.c)
+ * Callees:
+ *     MiFreeExcessSegments @ 0x1406225DC (MiFreeExcessSegments.c)
+ */
+
 unsigned __int64 __fastcall MiCountSystemPool(int a1, unsigned __int64 a2, int a3)
 {
   unsigned __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vTrackObject@PDEVOBJ@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0182D50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00219D4 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     EngAcquireSemaphore @ 0x1C004B690 (EngAcquireSemaphore.c)
+ */
+
 void __fastcall PDEVOBJ::vTrackObject(struct _LIST_ENTRY **this, struct _LIST_ENTRY *a2)
 {
   struct _LIST_ENTRY *v4; // rax

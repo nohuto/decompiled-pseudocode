@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpCreateDirectoryFile @ 0x1407727E4
+ * Callers:
+ *     EtwpDelayCreate @ 0x1407725F4 (EtwpDelayCreate.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateFile @ 0x140412DB0 (ZwCreateFile.c)
+ */
+
 __int64 __fastcall EtwpCreateDirectoryFile(
         PCWSTR SourceString,
         char a2,

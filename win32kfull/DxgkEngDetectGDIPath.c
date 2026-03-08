@@ -1,3 +1,13 @@
+/*
+ * XREFs of DxgkEngDetectGDIPath @ 0x1C0272670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalSpritesCollision@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHRGN__@@@Z @ 0x1C0271694 (-InternalSpritesCollision@@YAHPEAUHDEV__@@PEAUHWND__@@PEAUHRGN__@@@Z.c)
+ *     ?OverlapCheck@@YAHPEAUHDEV__@@PEAUHRGN__@@@Z @ 0x1C0271A7C (-OverlapCheck@@YAHPEAUHDEV__@@PEAUHRGN__@@@Z.c)
+ *     ?StateFlags@PDEVOBJ@@QEBAKXZ @ 0x1C0271B50 (-StateFlags@PDEVOBJ@@QEBAKXZ.c)
+ */
+
 __int64 __fastcall DxgkEngDetectGDIPath(__int64 a1, HDEV a2, HWND a3, HRGN a4)
 {
   unsigned int v9; // edi

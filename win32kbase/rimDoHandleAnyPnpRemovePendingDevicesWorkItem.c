@@ -1,3 +1,12 @@
+/*
+ * XREFs of rimDoHandleAnyPnpRemovePendingDevicesWorkItem @ 0x1C01C8300
+ * Callers:
+ *     RIMOnAsyncPnpWorkNotification @ 0x1C0038B90 (RIMOnAsyncPnpWorkNotification.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     rimHandleAnyPnpRemovePendingDevices @ 0x1C003A13C (rimHandleAnyPnpRemovePendingDevices.c)
+ */
+
 void __fastcall rimDoHandleAnyPnpRemovePendingDevicesWorkItem(__int64 a1)
 {
   __int64 v1; // rdi

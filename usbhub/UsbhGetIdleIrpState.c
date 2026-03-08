@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhGetIdleIrpState @ 0x1C001BE10
+ * Callers:
+ *     UsbhCompletePdoIdleIrp @ 0x1C001BD28 (UsbhCompletePdoIdleIrp.c)
+ *     UsbhIdleIrp_Event @ 0x1C0057F68 (UsbhIdleIrp_Event.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ */
+
 __int64 __fastcall UsbhGetIdleIrpState(__int64 a1, __int64 a2, KIRQL *a3)
 {
   KSPIN_LOCK *v4; // rdi

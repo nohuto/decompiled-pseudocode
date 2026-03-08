@@ -1,3 +1,20 @@
+/*
+ * XREFs of IoSetIoCompletionEx2 @ 0x140341170
+ * Callers:
+ *     NtLockFile @ 0x1406B1EB0 (NtLockFile.c)
+ *     IoSetIoCompletion @ 0x14079AF00 (IoSetIoCompletion.c)
+ *     IopXxxControlFile @ 0x1407C1720 (IopXxxControlFile.c)
+ *     NtSetIoCompletion @ 0x1407D0060 (NtSetIoCompletion.c)
+ * Callees:
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     KiWakeOtherQueueWaiters @ 0x140293BF4 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x140340700 (KiWakeQueueWaiter.c)
+ *     KeIsThreadRunning @ 0x14056C7FC (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405FA8FC (EtwTraceEnqueueWork.c)
+ *     IopAllocateMiniCompletionPacket @ 0x1407D0108 (IopAllocateMiniCompletionPacket.c)
+ */
+
 __int64 __fastcall IoSetIoCompletionEx2(
         __int64 a1,
         __int64 a2,

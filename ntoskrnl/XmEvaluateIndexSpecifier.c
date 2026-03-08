@@ -1,3 +1,13 @@
+/*
+ * XREFs of XmEvaluateIndexSpecifier @ 0x1405324A8
+ * Callers:
+ *     XmEvaluateAddressSpecifier @ 0x1403B3F0C (XmEvaluateAddressSpecifier.c)
+ * Callees:
+ *     XmGetLongImmediate @ 0x140395F88 (XmGetLongImmediate.c)
+ *     XmGetCodeByte @ 0x1403B40F4 (XmGetCodeByte.c)
+ *     longjmp @ 0x1403D2360 (longjmp.c)
+ */
+
 __int64 __fastcall XmEvaluateIndexSpecifier(__int64 a1, int a2)
 {
   unsigned __int8 CodeByte; // al

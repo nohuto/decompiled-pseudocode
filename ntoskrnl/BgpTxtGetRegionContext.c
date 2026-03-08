@@ -1,3 +1,12 @@
+/*
+ * XREFs of BgpTxtGetRegionContext @ 0x140AE970C
+ * Callers:
+ *     AnFwDisplayFade @ 0x140AE99E8 (AnFwDisplayFade.c)
+ * Callees:
+ *     BgpFwAllocateMemory @ 0x140383BDC (BgpFwAllocateMemory.c)
+ *     BgpFoGetFontHandle @ 0x140AEABC4 (BgpFoGetFontHandle.c)
+ */
+
 __int64 __fastcall BgpTxtGetRegionContext(__int64 a1)
 {
   BOOL v2; // edi

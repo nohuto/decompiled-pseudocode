@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?xxxBMPtoDIB@@YAPEAUtagBITMAPINFOHEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@PEAK@Z @ 0x1C01FF33C
+ * Callers:
+ *     ?xxxBMPtoDIBV5@@YAPEAUBITMAPV5HEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@@Z @ 0x1C01FF600 (-xxxBMPtoDIBV5@@YAPEAUBITMAPV5HEADER@@PEAUHBITMAP__@@PEAUHPALETTE__@@@Z.c)
+ *     ?xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FFB98 (-xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     GreExtGetObjectW @ 0x1C0065580 (GreExtGetObjectW.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     _SelectPalette @ 0x1C0125A20 (_SelectPalette.c)
+ *     xxxRealizePalette @ 0x1C0217A18 (xxxRealizePalette.c)
+ *     GreGetDIBitsInternal @ 0x1C02E044C (GreGetDIBitsInternal.c)
+ */
+
 struct tagBITMAPINFOHEADER *__fastcall xxxBMPtoDIB(HBRUSH a1, __int64 a2, unsigned int *a3)
 {
   unsigned __int16 v5; // dx

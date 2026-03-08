@@ -1,3 +1,12 @@
+/*
+ * XREFs of MinAsn1ParseOIDSequence @ 0x140A6D858
+ * Callers:
+ *     I_MinCryptGetCertificateEKUs @ 0x140A6CAE0 (I_MinCryptGetCertificateEKUs.c)
+ * Callees:
+ *     MinAsn1ExtractContent @ 0x140A6EA28 (MinAsn1ExtractContent.c)
+ *     MinAsn1ExtractValues @ 0x140A6EB74 (MinAsn1ExtractValues.c)
+ */
+
 __int64 __fastcall MinAsn1ParseOIDSequence(unsigned int *a1, unsigned int *a2, __int64 a3)
 {
   __int64 v3; // rbp

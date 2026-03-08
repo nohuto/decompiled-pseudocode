@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpCpuStarvationProvEnableCallback @ 0x1403A8060
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeEtwInitializeCpuStarvationProvider @ 0x1403A807C (KeEtwInitializeCpuStarvationProvider.c)
+ */
+
 void __fastcall EtwpCpuStarvationProvEnableCallback(
         LPCGUID SourceId,
         __int64 ControlCode,

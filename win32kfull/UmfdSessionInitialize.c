@@ -1,3 +1,16 @@
+/*
+ * XREFs of UmfdSessionInitialize @ 0x1C00E6FB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Create@?$CSortedVector@_K_K@NSInstrumentation@@SAPEAV12@XZ @ 0x1C00E70A4 (-Create@-$CSortedVector@_K_K@NSInstrumentation@@SAPEAV12@XZ.c)
+ *     ?UmfdCallSessionInitialize@@YAJXZ @ 0x1C00E717C (-UmfdCallSessionInitialize@@YAJXZ.c)
+ *     bEnableFontDriver @ 0x1C00E7360 (bEnableFontDriver.c)
+ *     ?Initialize@UmfdAllocation@@SA_NXZ @ 0x1C00E7460 (-Initialize@UmfdAllocation@@SA_NXZ.c)
+ *     ?SessionInitialize@UmfdHostLifeTimeManager@@CA_NXZ @ 0x1C00E75F8 (-SessionInitialize@UmfdHostLifeTimeManager@@CA_NXZ.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall UmfdSessionInitialize(__int64 a1)
 {
   __int64 v1; // rdi

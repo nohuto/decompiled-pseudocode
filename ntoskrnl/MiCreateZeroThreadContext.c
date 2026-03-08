@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiCreateZeroThreadContext @ 0x1408384D8
+ * Callers:
+ *     MiStartZeroEngineThreads @ 0x14076C01C (MiStartZeroEngineThreads.c)
+ * Callees:
+ *     MiCreateUltraThreadContext @ 0x140244548 (MiCreateUltraThreadContext.c)
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     MiGetClosestNodeWithProcessors @ 0x1403028A8 (MiGetClosestNodeWithProcessors.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ExAllocatePoolMm @ 0x14034C1AC (ExAllocatePoolMm.c)
+ *     MiInitializeColorTable @ 0x140393FAC (MiInitializeColorTable.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 struct _KEVENT *__fastcall MiCreateZeroThreadContext(struct _LIST_ENTRY *a1)
 {
   int Blink; // esi

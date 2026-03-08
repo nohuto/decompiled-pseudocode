@@ -1,3 +1,26 @@
+/*
+ * XREFs of MiInsertPageFileInList @ 0x140835F30
+ * Callers:
+ *     MmStoreRegister @ 0x140834CA4 (MmStoreRegister.c)
+ *     MiCreatePagingFile @ 0x140834F7C (MiCreatePagingFile.c)
+ *     MiCreateSpecialPurposeMemoryPageFile @ 0x140A444FC (MiCreateSpecialPurposeMemoryPageFile.c)
+ * Callees:
+ *     MiUpdateReserveClusterInfo @ 0x14020B44C (MiUpdateReserveClusterInfo.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiMakePartitionActive @ 0x1402A6140 (MiMakePartitionActive.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     MiNumberWsSwapPagefiles @ 0x140361990 (MiNumberWsSwapPagefiles.c)
+ *     MiUpdatePageFileList @ 0x140392600 (MiUpdatePageFileList.c)
+ *     MiIncreaseCommitLimits @ 0x140392864 (MiIncreaseCommitLimits.c)
+ *     PsCreateSystemThreadEx @ 0x1407DE330 (PsCreateSystemThreadEx.c)
+ */
+
 __int64 __fastcall MiInsertPageFileInList(__int64 a1)
 {
   unsigned __int64 v1; // r15

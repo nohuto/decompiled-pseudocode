@@ -1,3 +1,11 @@
+/*
+ * XREFs of sub_14041BAAB @ 0x14041BAAB
+ * Callers:
+ *     sub_14041B994 @ 0x14041B994 (sub_14041B994.c)
+ * Callees:
+ *     <none>
+ */
+
 // positive sp value has been detected, the output may be wrong!
 int __fastcall sub_14041BAAB()
 {

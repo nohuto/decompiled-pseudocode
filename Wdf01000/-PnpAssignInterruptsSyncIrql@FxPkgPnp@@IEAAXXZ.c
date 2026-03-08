@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PnpAssignInterruptsSyncIrql@FxPkgPnp@@IEAAXXZ @ 0x1C006A108
+ * Callers:
+ *     ?PnpPrepareHardware@FxPkgPnp@@IEAAJPEAEPEAW4FxCxCallbackProgress@@@Z @ 0x1C006BCB4 (-PnpPrepareHardware@FxPkgPnp@@IEAAJPEAEPEAW4FxCxCallbackProgress@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxPkgPnp::PnpAssignInterruptsSyncIrql(FxPkgPnp *this)
 {
   _LIST_ENTRY *p_m_InterruptListHead; // r9

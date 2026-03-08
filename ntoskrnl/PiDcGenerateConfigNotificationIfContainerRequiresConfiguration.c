@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiDcGenerateConfigNotificationIfContainerRequiresConfiguration @ 0x14081D82C
+ * Callers:
+ *     PiDcHandleContainerEvent @ 0x1407F8458 (PiDcHandleContainerEvent.c)
+ *     PiDcInit @ 0x140B5A688 (PiDcInit.c)
+ * Callees:
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     _PnpSetObjectProperty @ 0x140686C8C (_PnpSetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ */
+
 __int64 __fastcall PiDcGenerateConfigNotificationIfContainerRequiresConfiguration(__int64 a1)
 {
   int ObjectProperty; // ebx

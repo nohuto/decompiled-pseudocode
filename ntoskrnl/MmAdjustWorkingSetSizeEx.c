@@ -1,3 +1,32 @@
+/*
+ * XREFs of MmAdjustWorkingSetSizeEx @ 0x14020C61C
+ * Callers:
+ *     CmSiReleaseProcessLockedPagesCharge @ 0x14020C564 (CmSiReleaseProcessLockedPagesCharge.c)
+ *     KiUpdateProcessConcurrencyCount @ 0x14022B7A0 (KiUpdateProcessConcurrencyCount.c)
+ *     CmSiAcquireProcessLockedPagesCharge @ 0x1402B2CD4 (CmSiAcquireProcessLockedPagesCharge.c)
+ *     CmSiSetProcessWorkingSetMaximum @ 0x1403889B4 (CmSiSetProcessWorkingSetMaximum.c)
+ *     SmKmVirtualLockContextIncreaseWsMin @ 0x1405C9B48 (SmKmVirtualLockContextIncreaseWsMin.c)
+ *     SmKmVirtualLockCtxMemoryUnlocked @ 0x1405C9DA4 (SmKmVirtualLockCtxMemoryUnlocked.c)
+ *     MmAdjustWorkingSetSize @ 0x14061A080 (MmAdjustWorkingSetSize.c)
+ *     PspSetQuotaLimits @ 0x140794940 (PspSetQuotaLimits.c)
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     MiCheckWsLimits @ 0x14020C974 (MiCheckWsLimits.c)
+ *     PsReturnProcessQuota @ 0x14020D064 (PsReturnProcessQuota.c)
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetCurrentMultiplexedVm @ 0x1402998AC (MiGetCurrentMultiplexedVm.c)
+ *     PsChargeProcessQuota @ 0x1402A61D8 (PsChargeProcessQuota.c)
+ *     MiEmptyWorkingSetInitiate @ 0x140301814 (MiEmptyWorkingSetInitiate.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     MiChargeResident @ 0x140348DE8 (MiChargeResident.c)
+ */
+
 __int64 __fastcall MmAdjustWorkingSetSizeEx(
         unsigned __int64 a1,
         unsigned __int64 a2,

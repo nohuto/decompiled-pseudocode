@@ -1,3 +1,11 @@
+/*
+ * XREFs of Controller_AddControllerToGlobalControllerList @ 0x1C001A530
+ * Callers:
+ *     Controller_WdfEvtDeviceAdd @ 0x1C006FA60 (Controller_WdfEvtDeviceAdd.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall Controller_AddControllerToGlobalControllerList(__int64 a1)
 {
   KIRQL v2; // al

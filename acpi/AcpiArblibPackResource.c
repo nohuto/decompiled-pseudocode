@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiArblibPackResource @ 0x1C007D230
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AcpiArblibPackResource(__int64 a1, __int64 a2, __int64 a3)
 {
   char v3; // r9

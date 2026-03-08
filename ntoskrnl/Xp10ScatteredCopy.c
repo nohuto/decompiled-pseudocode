@@ -1,3 +1,12 @@
+/*
+ * XREFs of Xp10ScatteredCopy @ 0x1409C5208
+ * Callers:
+ *     Xp10ScatteredCopyFromPrevious @ 0x1409C54BC (Xp10ScatteredCopyFromPrevious.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     Xp10ScatteredNextBuffer @ 0x1409C5514 (Xp10ScatteredNextBuffer.c)
+ */
+
 __int64 __fastcall Xp10ScatteredCopy(__int64 a1, __int64 a2, int a3)
 {
   unsigned int v6; // ebp

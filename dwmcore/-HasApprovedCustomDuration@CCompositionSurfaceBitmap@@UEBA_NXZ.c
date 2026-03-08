@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HasApprovedCustomDuration@CCompositionSurfaceBitmap@@UEBA_NXZ @ 0x1801C1AD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CCompositionSurfaceBitmap::HasApprovedCustomDuration(CCompositionSurfaceBitmap *this)
 {
   __int64 v1; // rcx

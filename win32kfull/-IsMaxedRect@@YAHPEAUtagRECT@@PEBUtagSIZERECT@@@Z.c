@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsMaxedRect@@YAHPEAUtagRECT@@PEBUtagSIZERECT@@@Z @ 0x1C00EA298
+ * Callers:
+ *     xxxCheckFullScreen @ 0x1C0033340 (xxxCheckFullScreen.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall IsMaxedRect(struct tagRECT *a1, const struct tagSIZERECT *a2)
 {
   LONG top; // r8d

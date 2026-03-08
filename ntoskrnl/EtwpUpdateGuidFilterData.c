@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpUpdateGuidFilterData @ 0x14068FCB8
+ * Callers:
+ *     EtwpUpdateGuidEnableInfo @ 0x14068FA30 (EtwpUpdateGuidEnableInfo.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x140695580 (EtwpClearSessionAndUnreferenceEntry.c)
+ * Callees:
+ *     KeGenericCallDpc @ 0x1403008E0 (KeGenericCallDpc.c)
+ *     EtwpFreeEventNameFilter @ 0x1409F2488 (EtwpFreeEventNameFilter.c)
+ *     EtwpUpdateEventFilterAndFree @ 0x1409F24B8 (EtwpUpdateEventFilterAndFree.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpUpdateGuidFilterData(__int64 a1, unsigned int a2, char a3, __int64 a4)
 {
   __int32 v4; // ebp

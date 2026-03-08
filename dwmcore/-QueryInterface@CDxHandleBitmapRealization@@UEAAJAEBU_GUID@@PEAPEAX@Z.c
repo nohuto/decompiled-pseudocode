@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?QueryInterface@CDxHandleBitmapRealization@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800524A0
+ * Callers:
+ *     ?QueryInterface@CDxHandleBitmapRealization@@$4PPPPPPPM@BKI@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18011E430 (-QueryInterface@CDxHandleBitmapRealization@@$4PPPPPPPM@BKI@EAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?QueryInterface@CDxHandleBitmapRealization@@$4PPPPPPPM@CBA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18011ECB0 (-QueryInterface@CDxHandleBitmapRealization@@$4PPPPPPPM@CBA@EAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CDxHandleBitmapRealization::QueryInterface(
         CDxHandleBitmapRealization *this,
         const struct _GUID *a2,

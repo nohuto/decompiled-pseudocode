@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_ddddddDDD @ 0x1C0014E70
+ * Callers:
+ *     HUBPDO_ReportDeviceFailure @ 0x1C001B588 (HUBPDO_ReportDeviceFailure.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_ddddddDDD(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
 {
   int v7; // [rsp+28h] [rbp-99h]

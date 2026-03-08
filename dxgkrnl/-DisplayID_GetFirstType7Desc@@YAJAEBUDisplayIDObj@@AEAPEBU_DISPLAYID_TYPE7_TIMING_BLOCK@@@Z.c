@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DisplayID_GetFirstType7Desc@@YAJAEBUDisplayIDObj@@AEAPEBU_DISPLAYID_TYPE7_TIMING_BLOCK@@@Z @ 0x1C0072B4C
+ * Callers:
+ *     ?DisplayID_GetPreferredMode@@YAJPEBUDisplayIDObj@@PEAUDISPLAY_PREFERRED_MODE_INFO@@@Z @ 0x1C0072DA4 (-DisplayID_GetPreferredMode@@YAJPEBUDisplayIDObj@@PEAUDISPLAY_PREFERRED_MODE_INFO@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DisplayID_GetFirstType7Desc(
         const struct DisplayIDObj *a1,
         const struct _DISPLAYID_TYPE7_TIMING_BLOCK **a2)

@@ -1,3 +1,13 @@
+/*
+ * XREFs of DxgkDdiQueryMitigatedRanges @ 0x1C0365DB0
+ * Callers:
+ *     DpiFdoDispatchIoctl @ 0x1C01D7C80 (DpiFdoDispatchIoctl.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005A55C (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?QueryMitigatedRanges@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_QUERYMITIGATEDRANGES@@@Z @ 0x1C0364300 (-QueryMitigatedRanges@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_QUERYMITIGATEDRA.c)
+ */
+
 __int64 __fastcall DxgkDdiQueryMitigatedRanges(_QWORD *a1, int a2, __int64 a3)
 {
   __int64 MitigatedRanges; // rsi

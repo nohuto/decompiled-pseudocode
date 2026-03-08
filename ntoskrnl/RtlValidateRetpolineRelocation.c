@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlValidateRetpolineRelocation @ 0x14036B93C
+ * Callers:
+ *     MiCaptureRetpolineRelocationTables @ 0x1407F5944 (MiCaptureRetpolineRelocationTables.c)
+ * Callees:
+ *     RtlSizeOfRetpolineRelocationEntry @ 0x14036BD84 (RtlSizeOfRetpolineRelocationEntry.c)
+ */
+
 __int64 __fastcall RtlValidateRetpolineRelocation(__int64 a1, unsigned int a2, unsigned int a3, unsigned int *a4)
 {
   char v8; // bp

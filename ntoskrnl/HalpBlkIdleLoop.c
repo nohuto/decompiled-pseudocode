@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpBlkIdleLoop @ 0x140B13530
+ * Callers:
+ *     HalpBlkProcessorStartup @ 0x140B11010 (HalpBlkProcessorStartup.c)
+ * Callees:
+ *     HalpBlkIdleHalt @ 0x140B11060 (HalpBlkIdleHalt.c)
+ *     HalpBlkIdlePortReadHalt @ 0x140B11070 (HalpBlkIdlePortReadHalt.c)
+ *     HalpBlkIdlePortRead @ 0x140B11080 (HalpBlkIdlePortRead.c)
+ *     HalpBlkIdleMonitorMWait @ 0x140B11090 (HalpBlkIdleMonitorMWait.c)
+ */
+
 void __noreturn HalpBlkIdleLoop()
 {
   _EXCEPTION_REGISTRATION_RECORD *i; // rbx

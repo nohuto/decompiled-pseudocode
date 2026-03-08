@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiDeleteEnclavePage @ 0x140645874
+ * Callers:
+ *     MiDecommitHardwareEnclavePages @ 0x140644F2C (MiDecommitHardwareEnclavePages.c)
+ *     MiDeleteEnclavePages @ 0x140AAA2F8 (MiDeleteEnclavePages.c)
+ * Callees:
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUpdateAwePageTable @ 0x140649AB0 (MiUpdateAwePageTable.c)
+ */
+
 __int64 __fastcall MiDeleteEnclavePage(unsigned __int64 a1, int a2)
 {
   unsigned __int64 v4; // rbx

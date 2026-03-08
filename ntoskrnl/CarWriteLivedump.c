@@ -1,3 +1,14 @@
+/*
+ * XREFs of CarWriteLivedump @ 0x1405D3880
+ * Callers:
+ *     CarReportRuleViolationForTriage @ 0x1405D1FA0 (CarReportRuleViolationForTriage.c)
+ * Callees:
+ *     CarDoLiveDump @ 0x1405D35B0 (CarDoLiveDump.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     VfUtilCaptureViolationKernelStack @ 0x140ABF490 (VfUtilCaptureViolationKernelStack.c)
+ */
+
 __int64 __fastcall CarWriteLivedump(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, __int64 a5, bool *a6)
 {
   struct _CONTEXT *Pool2; // rax

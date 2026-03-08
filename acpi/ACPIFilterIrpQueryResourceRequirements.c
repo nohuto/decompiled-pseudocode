@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIFilterIrpQueryResourceRequirements @ 0x1C0086660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDispatchForwardIrp @ 0x1C0001770 (ACPIDispatchForwardIrp.c)
+ *     WPP_RECORDER_SF_qLqss @ 0x1C0009C8C (WPP_RECORDER_SF_qLqss.c)
+ *     ACPIInternalSetProximityDomain @ 0x1C00883E8 (ACPIInternalSetProximityDomain.c)
+ *     ACPIInternalSetSpare @ 0x1C0088498 (ACPIInternalSetSpare.c)
+ *     PnpBiosGetDeviceResourceList @ 0x1C008ED68 (PnpBiosGetDeviceResourceList.c)
+ */
+
 __int64 __fastcall ACPIFilterIrpQueryResourceRequirements(ULONG_PTR BugCheckParameter3, PIRP Irp)
 {
   _QWORD *DeviceExtension; // rbx

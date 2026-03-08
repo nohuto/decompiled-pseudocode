@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HwndLookupCompareTableData@@YA?AW4_RTL_GENERIC_COMPARE_RESULTS@@PEAU_RTL_GENERIC_TABLE@@PEAX1@Z @ 0x1C00D21A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HwndLookupCompareTableData(
         struct _RTL_GENERIC_TABLE *Table,
         _QWORD *FirstStruct,

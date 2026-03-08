@@ -1,3 +1,11 @@
+/*
+ * XREFs of IvtMarkHiberMemoryScalableModePasidTables @ 0x140A95CE4
+ * Callers:
+ *     IvtMarkHiberRegions @ 0x140A95D80 (IvtMarkHiberRegions.c)
+ * Callees:
+ *     HalpIommuExtMarkHiberMemory @ 0x140512ED8 (HalpIommuExtMarkHiberMemory.c)
+ */
+
 void __fastcall IvtMarkHiberMemoryScalableModePasidTables(__int64 a1, __int64 a2)
 {
   void **v3; // rdi

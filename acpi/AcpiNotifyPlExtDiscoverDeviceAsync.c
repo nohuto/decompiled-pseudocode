@@ -1,3 +1,21 @@
+/*
+ * XREFs of AcpiNotifyPlExtDiscoverDeviceAsync @ 0x1C0037A5C
+ * Callers:
+ *     ACPIBuildProcessDevicePhasePep @ 0x1C000F780 (ACPIBuildProcessDevicePhasePep.c)
+ *     ACPIBuildProcessPowerResourcePhasePep @ 0x1C0010FD0 (ACPIBuildProcessPowerResourcePhasePep.c)
+ *     ACPIBuildProcessRunMethodPhaseCheckPep @ 0x1C00116D0 (ACPIBuildProcessRunMethodPhaseCheckPep.c)
+ *     ACPIBuildProcessThermalZonePep @ 0x1C0012CA0 (ACPIBuildProcessThermalZonePep.c)
+ *     ACPIAmliPreDefinedRootObjectsNotifyPepDiscoverDevice @ 0x1C003C8FC (ACPIAmliPreDefinedRootObjectsNotifyPepDiscoverDevice.c)
+ *     ACPIRootDeviceNotifyPepDiscoverDevice @ 0x1C003CE7C (ACPIRootDeviceNotifyPepDiscoverDevice.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C000B2B0 (ACPIAmliBuildObjectPathnameUnicode.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C001B508 (WPP_RECORDER_SF_qD.c)
+ *     AcpiCreateDiscoveryDeleteParameters @ 0x1C0037348 (AcpiCreateDiscoveryDeleteParameters.c)
+ *     AcpiNotifyDiscoverDeleteMainCompletion @ 0x1C0037710 (AcpiNotifyDiscoverDeleteMainCompletion.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ */
+
 __int64 __fastcall AcpiNotifyPlExtDiscoverDeviceAsync(__int64 a1, __int64 a2, __int64 a3)
 {
   PVOID v3; // rsi

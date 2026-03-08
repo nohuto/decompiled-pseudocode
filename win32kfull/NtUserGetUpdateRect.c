@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserGetUpdateRect @ 0x1C00FE640
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxGetUpdateRect @ 0x1C00FE78C (xxxGetUpdateRect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall NtUserGetUpdateRect(__int64 a1, _OWORD *a2, unsigned int a3)
 {
   __int64 v6; // rcx

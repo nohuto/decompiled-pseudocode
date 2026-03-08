@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopGetEnvironmentVariableSysEnv @ 0x14094DD60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IopIssueSystemEnvironmentRequest @ 0x14094E098 (IopIssueSystemEnvironmentRequest.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopGetEnvironmentVariableSysEnv(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bCaptureBitmapInfo@@YAHPEAUtagBITMAPINFO@@KIPEAPEAU1@@Z @ 0x1C008FA28
+ * Callers:
+ *     NtGdiStretchDIBitsInternal @ 0x1C008D400 (NtGdiStretchDIBitsInternal.c)
+ *     NtGdiCreateSessionMappedDIBSection @ 0x1C008FB00 (NtGdiCreateSessionMappedDIBSection.c)
+ * Callees:
+ *     ?GreGetBitmapSizeInternal@@YAKPEBUtagBITMAPINFO@@KI@Z @ 0x1C00CE804 (-GreGetBitmapSizeInternal@@YAKPEBUtagBITMAPINFO@@KI@Z.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall bCaptureBitmapInfo(
         struct tagBITMAPINFO *Src,
         unsigned int a2,

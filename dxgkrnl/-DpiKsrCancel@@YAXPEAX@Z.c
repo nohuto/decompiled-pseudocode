@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DpiKsrCancel@@YAXPEAX@Z @ 0x1C03A0EC8
+ * Callers:
+ *     DpiKsrCallback @ 0x1C03A1650 (DpiKsrCallback.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?DpIterateFdoContexts@@YAXP6AJPEAU_FDO_CONTEXT@@PEAX@Z1@Z @ 0x1C03A0834 (-DpIterateFdoContexts@@YAXP6AJPEAU_FDO_CONTEXT@@PEAX@Z1@Z.c)
+ */
+
 void __fastcall DpiKsrCancel(_WORD *a1)
 {
   __int64 v1; // rdx

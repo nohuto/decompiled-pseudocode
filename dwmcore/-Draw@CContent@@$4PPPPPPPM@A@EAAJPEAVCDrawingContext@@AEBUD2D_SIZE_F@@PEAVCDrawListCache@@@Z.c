@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Draw@CContent@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180117930
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CContent::Draw(
         __int64 a1,
         struct CDrawingContext *a2,

@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExpValidateWorkItem @ 0x14033F620
+ * Callers:
+ *     ExpTryQueueWorkItem @ 0x140308AAC (ExpTryQueueWorkItem.c)
+ *     ExQueueWorkItemFromIo @ 0x14033EDC0 (ExQueueWorkItemFromIo.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     ExQueueWorkItemToPartition @ 0x1403439E0 (ExQueueWorkItemToPartition.c)
+ *     ExQueueWorkItemEx @ 0x140353EB0 (ExQueueWorkItemEx.c)
+ *     ExQueueWorkItemToPrivatePool @ 0x1404631EE (ExQueueWorkItemToPrivatePool.c)
+ *     ExQueueWorkItemExFromIo @ 0x14060A7DC (ExQueueWorkItemExFromIo.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall ExpValidateWorkItem(_QWORD *BugCheckParameter2, int a2)
 {
   ULONG_PTR v2; // r9

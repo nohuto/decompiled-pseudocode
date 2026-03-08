@@ -1,3 +1,17 @@
+/*
+ * XREFs of KeSetPriorityBoost @ 0x14035112C
+ * Callers:
+ *     FsRtlpWaitForIoAtEof @ 0x140240CC0 (FsRtlpWaitForIoAtEof.c)
+ *     ExpApplyPriorityBoost @ 0x140282C50 (ExpApplyPriorityBoost.c)
+ *     KeGenericProcessorCallback @ 0x1402A9E48 (KeGenericProcessorCallback.c)
+ *     FsRtlpDoBoost @ 0x1402ECD68 (FsRtlpDoBoost.c)
+ * Callees:
+ *     KiProcessDeferredReadyList @ 0x140226BD0 (KiProcessDeferredReadyList.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiSetPriorityBoost @ 0x1403512FC (KiSetPriorityBoost.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeSetPriorityBoost(__int64 a1, int a2)
 {
   __int64 result; // rax

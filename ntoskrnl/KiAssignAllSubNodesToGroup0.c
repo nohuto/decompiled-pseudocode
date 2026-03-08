@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiAssignAllSubNodesToGroup0 @ 0x140B668B4
+ * Callers:
+ *     KiPerformGroupConfiguration @ 0x140B66804 (KiPerformGroupConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
 void KiAssignAllSubNodesToGroup0()
 {
   __int64 v0; // rdx

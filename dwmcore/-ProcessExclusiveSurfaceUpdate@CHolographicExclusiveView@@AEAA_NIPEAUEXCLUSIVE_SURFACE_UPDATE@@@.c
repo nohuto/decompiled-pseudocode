@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ProcessExclusiveSurfaceUpdate@CHolographicExclusiveView@@AEAA_NIPEAUEXCLUSIVE_SURFACE_UPDATE@@@Z @ 0x1802A5328
+ * Callers:
+ *     ?FrameUpdate@CHolographicClient@@UEAAJIII@Z @ 0x1802A96C0 (-FrameUpdate@CHolographicClient@@UEAAJIII@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     ?CloseSurfaceHandles@CHolographicExclusiveView@@AEAAXXZ @ 0x1802A4EF4 (-CloseSurfaceHandles@CHolographicExclusiveView@@AEAAXXZ.c)
+ *     ?OpenSurfaceHandles@CHolographicExclusiveView@@AEAAJXZ @ 0x1802A51CC (-OpenSurfaceHandles@CHolographicExclusiveView@@AEAAJXZ.c)
+ */
+
 char __fastcall CHolographicExclusiveView::ProcessExclusiveSurfaceUpdate(
         CHolographicExclusiveView *this,
         unsigned int a2,

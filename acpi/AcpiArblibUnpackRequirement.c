@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiArblibUnpackRequirement @ 0x1C007D320
+ * Callers:
+ *     AcpiArblibScoreRequirement @ 0x1C007D280 (AcpiArblibScoreRequirement.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AcpiArblibUnpackRequirement(
         PIO_RESOURCE_DESCRIPTOR Descriptor,
         PULONGLONG MinimumAddress,

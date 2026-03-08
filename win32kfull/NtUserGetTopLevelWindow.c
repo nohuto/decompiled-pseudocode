@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetTopLevelWindow @ 0x1C01D4F20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _GetTopLevelWindow @ 0x1C0035AF0 (_GetTopLevelWindow.c)
+ */
+
 __int64 __fastcall NtUserGetTopLevelWindow(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rax

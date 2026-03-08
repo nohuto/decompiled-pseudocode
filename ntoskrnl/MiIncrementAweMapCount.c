@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiIncrementAweMapCount @ 0x140648524
+ * Callers:
+ *     MiReferenceIncomingPhysicalPages @ 0x140A3F148 (MiReferenceIncomingPhysicalPages.c)
+ * Callees:
+ *     KeWaitForGate @ 0x1402931D8 (KeWaitForGate.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiChangePageAttribute @ 0x14036CE40 (MiChangePageAttribute.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiChangeAwePageAttributes @ 0x140646E94 (MiChangeAwePageAttributes.c)
+ *     MiValidateAndLockAweMapCountPage @ 0x140649BE0 (MiValidateAndLockAweMapCountPage.c)
+ *     MiWakeWaitersForAweCacheAttributeChange @ 0x140649E3C (MiWakeWaitersForAweCacheAttributeChange.c)
+ */
+
 __int64 __fastcall MiIncrementAweMapCount(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
 {
   _QWORD *v5; // rbx

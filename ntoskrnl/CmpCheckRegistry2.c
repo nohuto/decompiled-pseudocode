@@ -1,3 +1,21 @@
+/*
+ * XREFs of CmpCheckRegistry2 @ 0x1407B3F40
+ * Callers:
+ *     CmCheckRegistry @ 0x14072DEB4 (CmCheckRegistry.c)
+ * Callees:
+ *     SetFailureLocation @ 0x140243E5C (SetFailureLocation.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     CmpCheckAndFixSecurityCellsRefcount @ 0x140781788 (CmpCheckAndFixSecurityCellsRefcount.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpCheckLexicographicalOrder @ 0x1407B0610 (CmpCheckLexicographicalOrder.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     CmpCheckKey @ 0x1407B4B80 (CmpCheckKey.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpRemoveSubKeyCellNoCellRef @ 0x140A21A3C (CmpRemoveSubKeyCellNoCellRef.c)
+ */
+
 __int64 __fastcall CmpCheckRegistry2(
         ULONG_PTR BugCheckParameter3,
         int a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBPDO_GetLocationString @ 0x1C001B020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     RtlStringCchPrintfExW @ 0x1C001404C (RtlStringCchPrintfExW.c)
+ */
+
 __int64 __fastcall HUBPDO_GetLocationString(__int64 a1, wchar_t **a2)
 {
   unsigned int v2; // ebx

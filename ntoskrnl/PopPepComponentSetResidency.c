@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopPepComponentSetResidency @ 0x1403AE9C4
+ * Callers:
+ *     PoFxSetComponentResidency @ 0x1403AE930 (PoFxSetComponentResidency.c)
+ * Callees:
+ *     PopPepComponentGetResidencyIdleState @ 0x140304D38 (PopPepComponentGetResidencyIdleState.c)
+ *     PopPepUpdateIdleState @ 0x140304DB8 (PopPepUpdateIdleState.c)
+ *     PopPepCountReadyActivities @ 0x140307578 (PopPepCountReadyActivities.c)
+ *     PopPepRequestWork @ 0x1403075C4 (PopPepRequestWork.c)
+ *     PopPepReleaseActivityLink @ 0x140307608 (PopPepReleaseActivityLink.c)
+ *     PopPepLockActivityLink @ 0x14030768C (PopPepLockActivityLink.c)
+ *     PopPepPromoteActivities @ 0x140307780 (PopPepPromoteActivities.c)
+ */
+
 void __fastcall PopPepComponentSetResidency(unsigned int *a1, int a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // rbx

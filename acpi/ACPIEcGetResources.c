@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIEcGetResources @ 0x1C0083774
+ * Callers:
+ *     ACPIEcStartDeviceWorker @ 0x1C00256A0 (ACPIEcStartDeviceWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPIEcGetResources(_DWORD *a1, _DWORD *a2, __int64 a3)
 {
   int v3; // r9d

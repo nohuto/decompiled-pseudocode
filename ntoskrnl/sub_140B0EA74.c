@@ -1,3 +1,13 @@
+/*
+ * XREFs of sub_140B0EA74 @ 0x140B0EA74
+ * Callers:
+ *     sub_1403DFCC0 @ 0x1403DFCC0 (sub_1403DFCC0.c)
+ *     FsRtlMdlReadCompleteDevEx @ 0x140AF7010 (FsRtlMdlReadCompleteDevEx.c)
+ * Callees:
+ *     KiAccessPage @ 0x140B10480 (KiAccessPage.c)
+ *     KeGuardCheckICall @ 0x140B107B0 (KeGuardCheckICall.c)
+ */
+
 int __fastcall sub_140B0EA74(__int64 a1, __int64 *a2, unsigned int a3)
 {
   unsigned int v4; // r15d

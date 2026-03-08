@@ -1,3 +1,25 @@
+/*
+ * XREFs of EtwpGetLoggerInfoFromContext @ 0x1407458FC
+ * Callers:
+ *     EtwpTransitionToRealtime @ 0x1405FD178 (EtwpTransitionToRealtime.c)
+ *     EtwpStartLogger @ 0x140691964 (EtwpStartLogger.c)
+ *     EtwpUpdateTrace @ 0x140744D3C (EtwpUpdateTrace.c)
+ *     EtwpStopTrace @ 0x140745044 (EtwpStopTrace.c)
+ *     EtwpQueryTrace @ 0x1407456E0 (EtwpQueryTrace.c)
+ *     EtwpFlushTrace @ 0x140748AA8 (EtwpFlushTrace.c)
+ *     EtwpIncrementTraceFile @ 0x1409E5140 (EtwpIncrementTraceFile.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     EtwpMapEnableFlags @ 0x1407487E8 (EtwpMapEnableFlags.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall EtwpGetLoggerInfoFromContext(__int64 a1, __int64 a2)
 {
   unsigned int v4; // ecx

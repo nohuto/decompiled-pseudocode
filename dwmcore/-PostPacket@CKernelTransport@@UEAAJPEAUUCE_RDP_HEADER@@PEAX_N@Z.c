@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PostPacket@CKernelTransport@@UEAAJPEAUUCE_RDP_HEADER@@PEAX_N@Z @ 0x1800E69D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CKernelTransport::PostPacket(
         CKernelTransport *this,
         struct UCE_RDP_HEADER *a2,

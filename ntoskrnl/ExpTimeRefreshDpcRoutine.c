@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExpTimeRefreshDpcRoutine @ 0x1403C7B20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     _local_unwind @ 0x1403D3990 (_local_unwind.c)
+ *     RtlpComputeEpilogueOffset @ 0x1403ED6A8 (RtlpComputeEpilogueOffset.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiCustomAccessRoutine7 @ 0x140422B00 (KiCustomAccessRoutine7.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __fastcall ExpTimeRefreshDpcRoutine(__int64 a1, volatile signed __int32 *a2, __int64 a3, unsigned __int64 a4)
 {
   _QWORD v8[56]; // [rsp+0h] [rbp-1C8h] BYREF

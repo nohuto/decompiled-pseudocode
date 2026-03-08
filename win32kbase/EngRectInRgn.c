@@ -1,3 +1,13 @@
+/*
+ * XREFs of EngRectInRgn @ 0x1C0197930
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0EngModeState@@QEAA@XZ @ 0x1C0019C74 (--0EngModeState@@QEAA@XZ.c)
+ *     GreGetObjectOwner @ 0x1C0019E80 (GreGetObjectOwner.c)
+ *     GreRectInRegion @ 0x1C00A65A0 (GreRectInRegion.c)
+ */
+
 BOOL __stdcall EngRectInRgn(HANDLE hrgn, LPRECT prcl)
 {
   BOOL result; // eax

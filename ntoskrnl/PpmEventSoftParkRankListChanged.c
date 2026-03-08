@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmEventSoftParkRankListChanged @ 0x14038EC74
+ * Callers:
+ *     PpmParkReportParkedCores @ 0x1402E3AE0 (PpmParkReportParkedCores.c)
+ *     PpmParkApplyPolicy @ 0x14038E5E0 (PpmParkApplyPolicy.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void PpmEventSoftParkRankListChanged()
 {
   REGHANDLE v0; // rbx

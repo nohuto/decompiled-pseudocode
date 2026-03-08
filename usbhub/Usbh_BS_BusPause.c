@@ -1,3 +1,17 @@
+/*
+ * XREFs of Usbh_BS_BusPause @ 0x1C001D2E0
+ * Callers:
+ *     UsbhDispatch_BusEvent @ 0x1C001CF30 (UsbhDispatch_BusEvent.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhReleaseBusStateLock @ 0x1C001D7C0 (UsbhReleaseBusStateLock.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhBusDisconnect_Action @ 0x1C0031464 (UsbhBusDisconnect_Action.c)
+ *     UsbhBusPnpStop_Action @ 0x1C00314EC (UsbhBusPnpStop_Action.c)
+ *     Usbh_BusRemove_PdoEvent @ 0x1C003AD1C (Usbh_BusRemove_PdoEvent.c)
+ */
+
 __int64 __fastcall Usbh_BS_BusPause(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // rbp

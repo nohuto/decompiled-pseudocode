@@ -1,3 +1,17 @@
+/*
+ * XREFs of ParseScope @ 0x1C005C220
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ *     AMLIDebugger @ 0x1C004D630 (AMLIDebugger.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     PrintIndent @ 0x1C004E484 (PrintIndent.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     ParseOpcode @ 0x1C005BD40 (ParseOpcode.c)
+ */
+
 __int64 __fastcall ParseScope(__int64 *a1, __int64 a2, unsigned int a3)
 {
   unsigned int v3; // edi

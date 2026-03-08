@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopFxEnableWorkOrderWatchdog @ 0x140305580
+ * Callers:
+ *     PopFxDispatchPluginWorkOnce @ 0x14030541C (PopFxDispatchPluginWorkOnce.c)
+ *     PopFxHandleDirectedPowerTransition @ 0x140588000 (PopFxHandleDirectedPowerTransition.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetCoalescableTimer @ 0x140250440 (KeSetCoalescableTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PopFxEnableWorkOrderWatchdog(__int64 a1, unsigned int a2)
 {
   __int64 v2; // rbx

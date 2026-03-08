@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopLoadCrashdumpDriver @ 0x140392A70
+ * Callers:
+ *     IopInitializeCrashDump @ 0x140834B28 (IopInitializeCrashDump.c)
+ *     IoGetDumpStack @ 0x140940ABC (IoGetDumpStack.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     IopGetPhysicalMemoryBlock @ 0x140392BD0 (IopGetPhysicalMemoryBlock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ */
+
 __int64 IopLoadCrashdumpDriver()
 {
   __int64 result; // rax

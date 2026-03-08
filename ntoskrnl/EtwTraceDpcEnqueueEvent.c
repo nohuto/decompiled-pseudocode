@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceDpcEnqueueEvent @ 0x1405FA6DC
+ * Callers:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall EtwTraceDpcEnqueueEvent(__int64 a1, KDEFERRED_ROUTINE *a2, int a3, int a4, int a5, char a6, __int64 a7)
 {
   __int64 v7; // [rsp+30h] [rbp-40h] BYREF

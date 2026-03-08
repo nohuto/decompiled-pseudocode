@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhLogException @ 0x1C004B20C
+ * Callers:
+ *     UsbhExceptionWorker @ 0x1C004B000 (UsbhExceptionWorker.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ */
+
 _QWORD *__fastcall UsbhLogException(__int64 a1, __int64 a2)
 {
   _QWORD *v3; // rsi

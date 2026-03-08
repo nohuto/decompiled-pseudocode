@@ -1,3 +1,14 @@
+/*
+ * XREFs of WheapInitializeErrorSourceTable @ 0x140B3E058
+ * Callers:
+ *     WheaInitialize @ 0x140B3E1A0 (WheaInitialize.c)
+ * Callees:
+ *     WheapAddErrorSource @ 0x14037D97C (WheapAddErrorSource.c)
+ *     WheapInitializeErrorSource @ 0x14080C6B4 (WheapInitializeErrorSource.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WheapInitializeErrorSourceTable(unsigned int a1, unsigned int *a2)
 {
   int v2; // esi

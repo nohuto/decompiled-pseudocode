@@ -1,3 +1,12 @@
+/*
+ * XREFs of BgpConsoleGetState @ 0x140AEEA50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     BgpFwReleaseLock @ 0x140381C10 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140381C60 (BgpFwAcquireLock.c)
+ */
+
 __int64 __fastcall BgpConsoleGetState(_DWORD *a1)
 {
   _DWORD *v2; // rdx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_RemoveListenerCore@Edgy@@YAXAEAUtagEDGY_DATA@@PEAUtagEDGY_LISTENER@@@Z @ 0x1C01E99E8
+ * Callers:
+ *     ?OnDeviceRemoval@Edgy@@YAXPEAX@Z @ 0x1C01E8948 (-OnDeviceRemoval@Edgy@@YAXPEAX@Z.c)
+ *     EdgyUnregisterListener @ 0x1C01E9B74 (EdgyUnregisterListener.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 void __fastcall Edgy::_RemoveListenerCore(Edgy *this, struct tagEDGY_DATA *a2, struct tagEDGY_LISTENER *a3)
 {
   __int64 v4; // r10

@@ -1,3 +1,16 @@
+/*
+ * XREFs of CcAllocateInitializeBcb @ 0x14021BE20
+ * Callers:
+ *     CcPinFileData @ 0x14021E620 (CcPinFileData.c)
+ * Callees:
+ *     CcAdjustVacbLevelLockCount @ 0x14021BD70 (CcAdjustVacbLevelLockCount.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     ExDisableResourceBoostLite @ 0x1403BD190 (ExDisableResourceBoostLite.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ */
+
 _QWORD *__fastcall CcAllocateInitializeBcb(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4)
 {
   _QWORD *result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlpFcUpdateUsageTriggers @ 0x1409C05F0
+ * Callers:
+ *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x140A24A68 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ * Callees:
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     RtlpFcCompareUsageSubscriptionToUsageSubscription @ 0x1405B2730 (RtlpFcCompareUsageSubscriptionToUsageSubscription.c)
+ *     RtlpFcAddUsageSubscriptionFromUpdate @ 0x1409BFD94 (RtlpFcAddUsageSubscriptionFromUpdate.c)
+ *     RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable @ 0x1409C0054 (RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable.c)
+ */
+
 NTSTATUS __fastcall RtlpFcUpdateUsageTriggers(
         _DWORD *a1,
         __int64 a2,

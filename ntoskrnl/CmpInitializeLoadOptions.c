@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpInitializeLoadOptions @ 0x140388708
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 wchar_t *__fastcall CmpInitializeLoadOptions(ULONG_PTR BugCheckParameter3)
 {
   const char *v1; // rdx

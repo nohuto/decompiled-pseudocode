@@ -1,3 +1,11 @@
+/*
+ * XREFs of IvtDisableInterrupt @ 0x140933120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IvtDisableInterrupt(__int64 a1)
 {
   __int64 v1; // rdx

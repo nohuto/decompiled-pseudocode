@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheapWmiExecuteErrorInjectionMethod @ 0x1406116AC
+ * Callers:
+ *     WheapWmiExecuteMethod @ 0x140611BB0 (WheapWmiExecuteMethod.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WheapWmiExecuteErrorInjectionMethod(int a1, unsigned int a2, int *a3, unsigned int a4, int *a5)
 {
   int v7; // ecx

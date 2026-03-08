@@ -1,3 +1,13 @@
+/*
+ * XREFs of LdrCaptureDynamicRelocationTableHeader @ 0x1407F5778
+ * Callers:
+ *     MiParseImageLoadConfig @ 0x1407F4AEC (MiParseImageLoadConfig.c)
+ *     MiCaptureBootDriverRetpolineInfo @ 0x140828D60 (MiCaptureBootDriverRetpolineInfo.c)
+ *     MiApplyDynamicRelocations @ 0x140B39134 (MiApplyDynamicRelocations.c)
+ * Callees:
+ *     RtlImageNtHeaderEx @ 0x14035E850 (RtlImageNtHeaderEx.c)
+ */
+
 __int64 __fastcall LdrCaptureDynamicRelocationTableHeader(
         unsigned __int64 a1,
         unsigned int a2,

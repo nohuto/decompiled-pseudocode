@@ -1,3 +1,19 @@
+/*
+ * XREFs of ObCheckRefTraceProcess @ 0x14070E7D8
+ * Callers:
+ *     PspInsertProcess @ 0x14070E514 (PspInsertProcess.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     PsGetProcessImageFileName @ 0x1402E1550 (PsGetProcessImageFileName.c)
+ *     RtlPrefixUnicodeString @ 0x1406D5A70 (RtlPrefixUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ */
+
 NTSTATUS __fastcall ObCheckRefTraceProcess(__int64 a1)
 {
   NTSTATUS result; // eax

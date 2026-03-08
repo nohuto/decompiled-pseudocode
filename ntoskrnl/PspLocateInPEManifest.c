@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspLocateInPEManifest @ 0x1407066D0
+ * Callers:
+ *     PspSetupUserProcessAddressSpace @ 0x14070733C (PspSetupUserProcessAddressSpace.c)
+ * Callees:
+ *     MmCheckImageMapping @ 0x1407955BC (MmCheckImageMapping.c)
+ *     LdrResSearchResource @ 0x1407EACB0 (LdrResSearchResource.c)
+ */
+
 __int64 __fastcall PspLocateInPEManifest(__int64 a1, __int64 a2)
 {
   bool v2; // zf

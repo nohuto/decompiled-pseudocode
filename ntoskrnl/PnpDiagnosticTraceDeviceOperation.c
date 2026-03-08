@@ -1,3 +1,14 @@
+/*
+ * XREFs of PnpDiagnosticTraceDeviceOperation @ 0x1402B167C
+ * Callers:
+ *     PnpTraceStartDevice @ 0x1402B1628 (PnpTraceStartDevice.c)
+ *     PipCallDriverAddDeviceQueryRoutine @ 0x1406C3364 (PipCallDriverAddDeviceQueryRoutine.c)
+ *     PnpQueueQueryAndRemoveEvent @ 0x14096B0E0 (PnpQueueQueryAndRemoveEvent.c)
+ * Callees:
+ *     PnpDiagnosticTrace @ 0x1402B1760 (PnpDiagnosticTrace.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall PnpDiagnosticTraceDeviceOperation(
         PCEVENT_DESCRIPTOR EventDescriptor,
         unsigned __int16 *a2,

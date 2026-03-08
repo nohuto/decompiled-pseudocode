@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopNetUpdateCsConsumptionFlags @ 0x140857840
+ * Callers:
+ *     PopNetEvaluationWorkerCallback @ 0x1403A7BD0 (PopNetEvaluationWorkerCallback.c)
+ *     PopPdcCsDeviceNotification @ 0x140994E6C (PopPdcCsDeviceNotification.c)
+ * Callees:
+ *     <none>
+ */
+
 bool PopNetUpdateCsConsumptionFlags()
 {
   bool result; // al

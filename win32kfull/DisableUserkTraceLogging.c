@@ -1,3 +1,11 @@
+/*
+ * XREFs of DisableUserkTraceLogging @ 0x1C00EC040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     TlgUnregisterAggregateProvider @ 0x1C039C4B8 (TlgUnregisterAggregateProvider.c)
+ */
+
 NTSTATUS DisableUserkTraceLogging()
 {
   REGHANDLE v0; // rcx

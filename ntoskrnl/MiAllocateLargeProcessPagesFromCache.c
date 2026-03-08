@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiAllocateLargeProcessPagesFromCache @ 0x140664B5C
+ * Callers:
+ *     MiCreateLargePfnList @ 0x14066540C (MiCreateLargePfnList.c)
+ * Callees:
+ *     MiFreeLargeZeroPages @ 0x14020FD6C (MiFreeLargeZeroPages.c)
+ *     MiZeroLargePage @ 0x1402441E4 (MiZeroLargePage.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14032F834 (MiSetOriginalPtePfnFromFreeList.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiPopLargePfnList @ 0x140349C1C (MiPopLargePfnList.c)
+ *     MiInitializeLargePfnList @ 0x14035059C (MiInitializeLargePfnList.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiComputePreferredNode @ 0x140615350 (MiComputePreferredNode.c)
+ *     MiGetVadCacheAttribute @ 0x14065E5C4 (MiGetVadCacheAttribute.c)
+ *     MiAppendTailList @ 0x14066509C (MiAppendTailList.c)
+ *     MiCreateLargePfnList @ 0x14066540C (MiCreateLargePfnList.c)
+ *     MiCreateProcessLargePageCacheAnchor @ 0x1406657B8 (MiCreateProcessLargePageCacheAnchor.c)
+ */
+
 __int64 __fastcall MiAllocateLargeProcessPagesFromCache(
         __int64 a1,
         __int64 a2,

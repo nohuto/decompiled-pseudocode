@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpIrpQueryResourceRequirements @ 0x1406F6D48
+ * Callers:
+ *     IopQueryDeviceResources @ 0x1406F6440 (IopQueryDeviceResources.c)
+ *     PiQueryResourceRequirements @ 0x1406F6B60 (PiQueryResourceRequirements.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopSynchronousCall @ 0x14069DD78 (IopSynchronousCall.c)
+ */
+
 __int64 __fastcall PpIrpQueryResourceRequirements(_QWORD *a1, _QWORD *a2)
 {
   __int64 result; // rax

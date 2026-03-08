@@ -1,3 +1,26 @@
+/*
+ * XREFs of UsbhQueueWorkItemEx @ 0x1C001E320
+ * Callers:
+ *     UsbhPdoDevicePowerState @ 0x1C000A4C0 (UsbhPdoDevicePowerState.c)
+ *     UsbhHubProcessIsr @ 0x1C000B860 (UsbhHubProcessIsr.c)
+ *     UsbhFdoWakePoComplete_Action @ 0x1C000C3C0 (UsbhFdoWakePoComplete_Action.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C0019820 (UsbhSyncResetDeviceInternal.c)
+ *     UsbhFdoScheduleDeferredPowerRequest @ 0x1C001E494 (UsbhFdoScheduleDeferredPowerRequest.c)
+ *     UsbhFdoUnblockAllPendedPdoD0Irps @ 0x1C00212F4 (UsbhFdoUnblockAllPendedPdoD0Irps.c)
+ *     UsbhPindicatorTimer @ 0x1C002F3F0 (UsbhPindicatorTimer.c)
+ *     UsbhQueueDriverOvercurrent @ 0x1C002FF70 (UsbhQueueDriverOvercurrent.c)
+ *     UsbhQueueOvercurrentReset @ 0x1C00300F0 (UsbhQueueOvercurrentReset.c)
+ *     Usbh_HRS_Queued @ 0x1C003D9BC (Usbh_HRS_Queued.c)
+ *     UsbhDriverNotFoundTimer @ 0x1C0042800 (UsbhDriverNotFoundTimer.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhAllocWorkItem @ 0x1C001E570 (UsbhAllocWorkItem.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall UsbhQueueWorkItemEx(
         __int64 a1,
         unsigned int a2,

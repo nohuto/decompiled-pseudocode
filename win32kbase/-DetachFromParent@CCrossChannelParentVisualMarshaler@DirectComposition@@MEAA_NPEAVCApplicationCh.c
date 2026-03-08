@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DetachFromParent@CCrossChannelParentVisualMarshaler@DirectComposition@@MEAA_NPEAVCApplicationChannel@2@@Z @ 0x1C000D020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DirectComposition::CCrossChannelParentVisualMarshaler::DetachFromParent(
         DirectComposition::CCrossChannelParentVisualMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2)

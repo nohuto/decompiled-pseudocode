@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CGenericPropertyList@DirectComposition@@QEAA@XZ @ 0x1C024A320
+ * Callers:
+ *     ??_GCGenericMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C024A7E0 (--_GCGenericMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 void __fastcall DirectComposition::CGenericPropertyList::~CGenericPropertyList(char ***this)
 {
   char **v1; // rbx

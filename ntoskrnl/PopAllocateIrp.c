@@ -1,3 +1,31 @@
+/*
+ * XREFs of PopAllocateIrp @ 0x1402BA774
+ * Callers:
+ *     PopRequestPowerIrp @ 0x1402BA570 (PopRequestPowerIrp.c)
+ *     PopNotifyDevice @ 0x140AA415C (PopNotifyDevice.c)
+ * Callees:
+ *     IoAllocateIrp @ 0x140208CF0 (IoAllocateIrp.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140240954 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x140240A5C (IoGetAttachedDeviceReferenceWithTag.c)
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     IoReuseIrp @ 0x1402B1EB0 (IoReuseIrp.c)
+ *     PopFxLockDevice @ 0x1402B91F4 (PopFxLockDevice.c)
+ *     PopFxAllocatePowerIrp @ 0x1402BAC6C (PopFxAllocatePowerIrp.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     Feature_Servicing_b9g4B8t7__private_IsEnabledDeviceUsage @ 0x14040B4CC (Feature_Servicing_b9g4B8t7__private_IsEnabledDeviceUsage.c)
+ *     PopFxAllocatePowerIrpLegacy @ 0x14040B520 (PopFxAllocatePowerIrpLegacy.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopFxReleaseDevice @ 0x14045A79C (PopFxReleaseDevice.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     VfIrpWatermark @ 0x140ACAC28 (VfIrpWatermark.c)
+ */
+
 __int64 __fastcall PopAllocateIrp(
         _QWORD *a1,
         __int64 a2,

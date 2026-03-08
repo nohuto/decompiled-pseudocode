@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiHugeRangeFreeToZero @ 0x14061E83C
+ * Callers:
+ *     MiZeroPage @ 0x140275060 (MiZeroPage.c)
+ * Callees:
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiInsertHugeRangeInList @ 0x14061EB84 (MiInsertHugeRangeInList.c)
+ *     MiUnlinkHugeRange @ 0x140620680 (MiUnlinkHugeRange.c)
+ */
+
 void __fastcall MiHugeRangeFreeToZero(__int64 a1, __int64 a2)
 {
   __int64 v4; // rcx

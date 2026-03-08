@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlScrubMemory @ 0x1406789B8
+ * Callers:
+ *     MiScrubPage @ 0x14065CB10 (MiScrubPage.c)
+ * Callees:
+ *     RtlCompareMemoryUlong @ 0x140420E50 (RtlCompareMemoryUlong.c)
+ *     RtlpGenericInverseCouplingWorker @ 0x140678C68 (RtlpGenericInverseCouplingWorker.c)
+ *     RtlpGenericMATSPlusWorker @ 0x140678F44 (RtlpGenericMATSPlusWorker.c)
+ *     RtlpGenericRandomPatternWorker @ 0x140679048 (RtlpGenericRandomPatternWorker.c)
+ *     RtlpGenericStrideWorker @ 0x14067933C (RtlpGenericStrideWorker.c)
+ */
+
 __int64 __fastcall RtlScrubMemory(unsigned __int64 Source)
 {
   char *v2; // r10

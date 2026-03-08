@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpAcpiGetAllTablesWork @ 0x14037A8C8
+ * Callers:
+ *     HalpAcpiGetAllTables @ 0x14037A3B8 (HalpAcpiGetAllTables.c)
+ * Callees:
+ *     HalpAcpiCheckAndMapTable @ 0x14029AD4C (HalpAcpiCheckAndMapTable.c)
+ *     MmUnmapIoSpace @ 0x14029B230 (MmUnmapIoSpace.c)
+ *     HalpAcpiGetTableWork @ 0x14029C5D0 (HalpAcpiGetTableWork.c)
+ *     HalpAcpiCopyBiosTable @ 0x14037AA9C (HalpAcpiCopyBiosTable.c)
+ *     HalpAcpiAllocateMemory @ 0x14037AB24 (HalpAcpiAllocateMemory.c)
+ *     HalpAcpiCacheTable @ 0x14037ABF4 (HalpAcpiCacheTable.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall HalpAcpiGetAllTablesWork(__int64 a1)
 {
   unsigned int v1; // edi

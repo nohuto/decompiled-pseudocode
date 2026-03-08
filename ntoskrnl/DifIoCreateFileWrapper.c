@@ -1,3 +1,15 @@
+/*
+ * XREFs of DifIoCreateFileWrapper @ 0x1405DC150
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     IoCreateFile @ 0x140781BC0 (IoCreateFile.c)
+ */
+
 NTSTATUS __fastcall DifIoCreateFileWrapper(
         PHANDLE FileHandle,
         ACCESS_MASK DesiredAccess,

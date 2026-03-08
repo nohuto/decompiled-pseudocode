@@ -1,3 +1,11 @@
+/*
+ * XREFs of MmRaisePoolQuota @ 0x1402994E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiFreePoolPagesLeft @ 0x140299A08 (MiFreePoolPagesLeft.c)
+ */
+
 char __fastcall MmRaisePoolQuota(int a1)
 {
   unsigned __int64 v1; // rax

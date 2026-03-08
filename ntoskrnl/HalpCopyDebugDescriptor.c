@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpCopyDebugDescriptor @ 0x140B358A4
+ * Callers:
+ *     HalpDbgInitSystem @ 0x140A85F50 (HalpDbgInitSystem.c)
+ * Callees:
+ *     HalpMmAllocateMemoryInternal @ 0x14037A7A8 (HalpMmAllocateMemoryInternal.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 char *__fastcall HalpCopyDebugDescriptor(__int64 a1)
 {
   unsigned int v2; // ecx

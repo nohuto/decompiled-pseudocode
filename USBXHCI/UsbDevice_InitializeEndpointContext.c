@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbDevice_InitializeEndpointContext @ 0x1C000CD28
+ * Callers:
+ *     UsbDevice_InitializeInputContextForAddEndpoints @ 0x1C000BBEC (UsbDevice_InitializeInputContextForAddEndpoints.c)
+ *     UsbDevice_ReconfigureEndpoint @ 0x1C00495EC (UsbDevice_ReconfigureEndpoint.c)
+ * Callees:
+ *     Endpoint_GetDequeuePointer @ 0x1C000CEDC (Endpoint_GetDequeuePointer.c)
+ *     Endpoint_GetMaxPrimaryStreams @ 0x1C000CF3C (Endpoint_GetMaxPrimaryStreams.c)
+ */
+
 unsigned int __fastcall UsbDevice_InitializeEndpointContext(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v5; // r8d

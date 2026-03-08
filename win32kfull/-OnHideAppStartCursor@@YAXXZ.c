@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?OnHideAppStartCursor@@YAXXZ @ 0x1C0063860
+ * Callers:
+ *     <none>
+ * Callees:
+ *     zzzUpdateCursorImage @ 0x1C0061E20 (zzzUpdateCursorImage.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void OnHideAppStartCursor(void)
 {
   __int64 v0; // rcx

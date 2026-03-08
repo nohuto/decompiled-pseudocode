@@ -1,3 +1,12 @@
+/*
+ * XREFs of imp_WdfObjectGetTypedContextWorker @ 0x1C0008880
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_IFR_SF_sq @ 0x1C0021984 (WPP_IFR_SF_sq.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C0045BD8 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ */
+
 char *__fastcall imp_WdfObjectGetTypedContextWorker(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         unsigned __int64 Handle,

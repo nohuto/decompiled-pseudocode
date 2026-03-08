@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBID_BuildHubCompatibleID @ 0x1C001E488
+ * Callers:
+ *     HUBID_BuildCompatibleID @ 0x1C001E9A8 (HUBID_BuildCompatibleID.c)
+ * Callees:
+ *     HUBID_AssignIDString @ 0x1C001DBCC (HUBID_AssignIDString.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall HUBID_BuildHubCompatibleID(__int64 a1, __int64 a2, _OWORD *a3)
 {
   unsigned int v4; // edx

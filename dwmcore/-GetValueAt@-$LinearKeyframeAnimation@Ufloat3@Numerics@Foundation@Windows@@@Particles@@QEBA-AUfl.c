@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetValueAt@?$LinearKeyframeAnimation@Ufloat3@Numerics@Foundation@Windows@@@Particles@@QEBA?AUfloat3@Numerics@Foundation@Windows@@MAEBV?$span@M$0?0@gsl@@AEAV78@@Z @ 0x18023D728
+ * Callers:
+ *     ?AnimateSingle@?$LinearKeyframeAnimation@Ufloat3@Numerics@Foundation@Windows@@@Particles@@UEBAXAEAV?$span@M$0?0@gsl@@00@Z @ 0x18023CE00 (-AnimateSingle@-$LinearKeyframeAnimation@Ufloat3@Numerics@Foundation@Windows@@@Particles@@UEBAXA.c)
+ * Callees:
+ *     ?FindFirstFrameIndex@?$LinearKeyframeAnimation@Ufloat3@Numerics@Foundation@Windows@@@Particles@@IEBAIM@Z @ 0x18023D434 (-FindFirstFrameIndex@-$LinearKeyframeAnimation@Ufloat3@Numerics@Foundation@Windows@@@Particles@@.c)
+ *     ?GetValueForFrame@?$ParticleKeyframe@Ufloat3@Numerics@Foundation@Windows@@@Particles@@QEBA?AUfloat3@Numerics@Foundation@Windows@@AEBV?$span@M$0?0@gsl@@0@Z @ 0x18023D960 (-GetValueForFrame@-$ParticleKeyframe@Ufloat3@Numerics@Foundation@Windows@@@Particles@@QEBA-AUflo.c)
+ */
+
 __int64 __fastcall Particles::LinearKeyframeAnimation<Windows::Foundation::Numerics::float3>::GetValueAt(
         __int64 a1,
         __int64 a2,

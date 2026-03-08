@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_GetStackTraceSum@@YAKXZ @ 0x1C016932C
+ * Callers:
+ *     ?_IsStackThrottled@@YAHXZ @ 0x1C0169440 (-_IsStackThrottled@@YAHXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 _GetStackTraceSum(void)
 {
   unsigned int v0; // ebx

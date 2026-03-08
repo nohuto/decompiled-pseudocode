@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpLockTwoSecurityCachesExclusiveShared @ 0x14078F258
+ * Callers:
+ *     CmpCopyKeyPartial @ 0x14078ECB4 (CmpCopyKeyPartial.c)
+ *     CmpDoBuildVirtualStack @ 0x140A1641C (CmpDoBuildVirtualStack.c)
+ *     CmpSyncKeyValues @ 0x140A20124 (CmpSyncKeyValues.c)
+ * Callees:
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     CmLockHiveSecurityShared @ 0x140AF2590 (CmLockHiveSecurityShared.c)
+ */
+
 __int64 __fastcall CmpLockTwoSecurityCachesExclusiveShared(unsigned __int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 *v4; // rbx

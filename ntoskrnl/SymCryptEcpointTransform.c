@@ -1,3 +1,18 @@
+/*
+ * XREFs of SymCryptEcpointTransform @ 0x1403F98E4
+ * Callers:
+ *     SymCryptEcpointGetValue @ 0x1403F9550 (SymCryptEcpointGetValue.c)
+ *     SymCryptEcpointSetValue @ 0x1403F96E0 (SymCryptEcpointSetValue.c)
+ * Callees:
+ *     SymCryptModElementCopy @ 0x1403F3AD4 (SymCryptModElementCopy.c)
+ *     SymCryptModElementCreate @ 0x1403F3AEC (SymCryptModElementCreate.c)
+ *     SymCryptModElementIsZero @ 0x1403F3B50 (SymCryptModElementIsZero.c)
+ *     SymCryptModElementSetValueUint32 @ 0x1403F3C0C (SymCryptModElementSetValueUint32.c)
+ *     SymCryptModInv @ 0x1403F3D38 (SymCryptModInv.c)
+ *     SymCryptModMul @ 0x1403F3D74 (SymCryptModMul.c)
+ *     SymCryptEcpointCopy @ 0x1403F9464 (SymCryptEcpointCopy.c)
+ */
+
 __int64 __fastcall SymCryptEcpointTransform(
         __int64 a1,
         _BYTE *a2,

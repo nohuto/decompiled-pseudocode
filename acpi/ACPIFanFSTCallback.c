@@ -1,3 +1,18 @@
+/*
+ * XREFs of ACPIFanFSTCallback @ 0x1C0026F60
+ * Callers:
+ *     ACPIFanLoop @ 0x1C002759C (ACPIFanLoop.c)
+ * Callees:
+ *     AcpiDiagTraceFanStatusChange @ 0x1C00084F0 (AcpiDiagTraceFanStatusChange.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     WPP_RECORDER_SF_ddqss @ 0x1C0014AC8 (WPP_RECORDER_SF_ddqss.c)
+ *     WPP_RECORDER_SF_qss @ 0x1C0015444 (WPP_RECORDER_SF_qss.c)
+ *     ACPIFanLoop @ 0x1C002759C (ACPIFanLoop.c)
+ *     ACPISetDeviceWorker @ 0x1C00474D4 (ACPISetDeviceWorker.c)
+ *     AMLIEvalPkgDataElement @ 0x1C0047F38 (AMLIEvalPkgDataElement.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ */
+
 __int64 __fastcall ACPIFanFSTCallback(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // r9

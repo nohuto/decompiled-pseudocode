@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CreateInjectionDevice@@YAHXZ @ 0x1C0223278
+ * Callers:
+ *     SynthesizeMitTouchInput @ 0x1C0223400 (SynthesizeMitTouchInput.c)
+ *     SynthesizeTouchInputContainer @ 0x1C022370C (SynthesizeTouchInputContainer.c)
+ * Callees:
+ *     RIMIDE_InitializePointerDeviceInjection @ 0x1C01C6D10 (RIMIDE_InitializePointerDeviceInjection.c)
+ *     ?GetDeviceRects@@YA_NPEAXPEAUtagRECT@@1@Z @ 0x1C02232D0 (-GetDeviceRects@@YA_NPEAXPEAUtagRECT@@1@Z.c)
+ */
+
 __int64 CreateInjectionDevice(void)
 {
   unsigned int v0; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPresentCount@CLegacyRenderTarget@@UEBAIXZ @ 0x1800E3D50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CLegacyRenderTarget::GetPresentCount(CLegacyRenderTarget *this)
 {
   __int64 v1; // rcx

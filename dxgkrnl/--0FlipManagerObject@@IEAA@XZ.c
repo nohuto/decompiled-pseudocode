@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0FlipManagerObject@@IEAA@XZ @ 0x1C00816A0
+ * Callers:
+ *     ?ObjectInit@FlipManagerObject@@KAJPEAVDxgkCompositionObject@@PEAXPEAPEAVIDxgkCompositionObject@@@Z @ 0x1C0081740 (-ObjectInit@FlipManagerObject@@KAJPEAVDxgkCompositionObject@@PEAXPEAPEAVIDxgkCompositionObject@@.c)
+ * Callees:
+ *     <none>
+ */
+
 FlipManagerObject *__fastcall FlipManagerObject::FlipManagerObject(FlipManagerObject *this)
 {
   *(_QWORD *)this = &SetElement::`vftable';

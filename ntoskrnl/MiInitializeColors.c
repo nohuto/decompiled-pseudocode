@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiInitializeColors @ 0x140B6BC48
+ * Callers:
+ *     MiCreatePfnDatabase @ 0x140B3A0B8 (MiCreatePfnDatabase.c)
+ * Callees:
+ *     MiInitializeCacheSizes @ 0x140B6BCCC (MiInitializeCacheSizes.c)
+ */
+
 __int64 MiInitializeColors()
 {
   unsigned int v0; // ecx

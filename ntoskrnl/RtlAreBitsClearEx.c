@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlAreBitsClearEx @ 0x1402E4560
+ * Callers:
+ *     MiReturnPageTablePageCommitment @ 0x1406B6AF0 (MiReturnPageTablePageCommitment.c)
+ *     MiCommitPageTablesForVad @ 0x1407C74B0 (MiCommitPageTablesForVad.c)
+ *     MiMarkRetpolineBits @ 0x140A317C0 (MiMarkRetpolineBits.c)
+ *     MiPatchDataPagesCallback @ 0x140A37AC0 (MiPatchDataPagesCallback.c)
+ *     MiHotAddPartitionMemory @ 0x140A4203C (MiHotAddPartitionMemory.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall RtlAreBitsClearEx(unsigned __int64 *a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   bool result; // al

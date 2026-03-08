@@ -1,3 +1,13 @@
+/*
+ * XREFs of LeavePowerCrit @ 0x1C00B5640
+ * Callers:
+ *     ?xxxUserPowerStateCalloutWorker@@YAJXZ @ 0x1C00B3E28 (-xxxUserPowerStateCalloutWorker@@YAJXZ.c)
+ *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x1C00B4A78 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
+ *     QueuePowerRequest @ 0x1C00B7EA0 (QueuePowerRequest.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall LeavePowerCrit(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rax

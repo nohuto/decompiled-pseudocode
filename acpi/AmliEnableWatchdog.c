@@ -1,3 +1,11 @@
+/*
+ * XREFs of AmliEnableWatchdog @ 0x1C0046DC8
+ * Callers:
+ *     AsyncEvalObject @ 0x1C00544D0 (AsyncEvalObject.c)
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __fastcall AmliEnableWatchdog(char *DeferredContext)
 {
   __int64 v2; // rbp

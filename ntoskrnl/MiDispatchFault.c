@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiDispatchFault @ 0x14026A900
+ * Callers:
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ *     MiInPagePageTable @ 0x140345FA0 (MiInPagePageTable.c)
+ * Callees:
+ *     MiComputeMaximumFaultCluster @ 0x14026AFC0 (MiComputeMaximumFaultCluster.c)
+ *     MiResolveDemandZeroFault @ 0x14026B720 (MiResolveDemandZeroFault.c)
+ *     MiResolveProtoPteFault @ 0x140270A50 (MiResolveProtoPteFault.c)
+ *     MiResolveTransitionFault @ 0x140271760 (MiResolveTransitionFault.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiCheckProtoAccess @ 0x1402DF228 (MiCheckProtoAccess.c)
+ *     MiAdjustFaultList @ 0x1402E0A34 (MiAdjustFaultList.c)
+ *     MiAccessCheck @ 0x1402E4134 (MiAccessCheck.c)
+ *     KiRspInIstStack @ 0x1402EDCB0 (KiRspInIstStack.c)
+ *     MiPageTableLockIsContended @ 0x140347920 (MiPageTableLockIsContended.c)
+ *     MiAdvanceFaultList @ 0x140363F9C (MiAdvanceFaultList.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiResolvePageFileFault @ 0x140668EDC (MiResolvePageFileFault.c)
+ */
+
 __int64 __fastcall MiDispatchFault(__int64 a1, _QWORD *a2)
 {
   __m128i v3; // xmm3

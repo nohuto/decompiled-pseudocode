@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpFreePartitionMemory @ 0x1405FEFB0
+ * Callers:
+ *     EtwpFreeTraceBuffer @ 0x14028DAD0 (EtwpFreeTraceBuffer.c)
+ * Callees:
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     MiFreePagesFromMdl @ 0x1402C0DD0 (MiFreePagesFromMdl.c)
+ *     EtwpUnregisterPartitionPages @ 0x1405FF430 (EtwpUnregisterPartitionPages.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwpFreePartitionMemory(__int64 a1, void *a2)
 {
   struct _MDL *v3; // rax

@@ -1,3 +1,40 @@
+/*
+ * XREFs of PpmRegisterPerfStates @ 0x14082802C
+ * Callers:
+ *     PpmPerfRegisterNativePerfStates @ 0x140828C70 (PpmPerfRegisterNativePerfStates.c)
+ *     PpmPerfRegisterHvPerfStateCounters @ 0x14099AA30 (PpmPerfRegisterHvPerfStateCounters.c)
+ * Callees:
+ *     KiOrAffinityEx @ 0x14022B190 (KiOrAffinityEx.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     KeCheckProcessorAffinityEx @ 0x140234B10 (KeCheckProcessorAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     PpmConvertTime @ 0x140235D70 (PpmConvertTime.c)
+ *     KeIsEqualAffinityEx @ 0x140237260 (KeIsEqualAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402A9460 (KeFindFirstSetRightGroupAffinity.c)
+ *     KeFirstGroupAffinityEx @ 0x1402AEC40 (KeFirstGroupAffinityEx.c)
+ *     PpmReleaseLock @ 0x1402D1F40 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ *     PpmParkApplyPolicy @ 0x14038E5E0 (PpmParkApplyPolicy.c)
+ *     PpmInstallFeedbackCounters @ 0x14038F058 (PpmInstallFeedbackCounters.c)
+ *     PpmCheckResetProcessors @ 0x14038F23C (PpmCheckResetProcessors.c)
+ *     KeQueryActiveProcessorAffinity2 @ 0x14038F750 (KeQueryActiveProcessorAffinity2.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopDiagTraceProcessorThrottlePerfTrack @ 0x140591F00 (PopDiagTraceProcessorThrottlePerfTrack.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x14075DE18 (PpmPerfUpdateDomainPolicy.c)
+ *     PpmUpdateProcessorPolicy @ 0x140826290 (PpmUpdateProcessorPolicy.c)
+ *     PpmCheckReInit @ 0x1408265CC (PpmCheckReInit.c)
+ *     PpmAllocatePerfCheck @ 0x140828AF4 (PpmAllocatePerfCheck.c)
+ *     PpmReinitializeHeteroEngine @ 0x140828C88 (PpmReinitializeHeteroEngine.c)
+ *     PpmPerfResizeHistory @ 0x140983A10 (PpmPerfResizeHistory.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PpmRegisterPerfStates(__int64 a1, char a2)
 {
   __int64 v4; // r13

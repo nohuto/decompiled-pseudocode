@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetWin8StyleDpiSettingFromRegistry @ 0x1C00B9CB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall GetWin8StyleDpiSettingFromRegistry(BOOL *a1)
 {
   BOOL v1; // ebx

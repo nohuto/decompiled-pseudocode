@@ -1,3 +1,20 @@
+/*
+ * XREFs of PipFindDeviceOverrideEntry @ 0x14068092C
+ * Callers:
+ *     PiQueryRemovableDeviceOverride @ 0x140680570 (PiQueryRemovableDeviceOverride.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlHashUnicodeString @ 0x140680AE0 (RtlHashUnicodeString.c)
+ *     IopReplaceSeperatorWithPound @ 0x140680B88 (IopReplaceSeperatorWithPound.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     PipCallbackHasDeviceOverrides @ 0x14094EB88 (PipCallbackHasDeviceOverrides.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PipFindDeviceOverrideEntry(_WORD *Src, __int64 a2, __int64 a3, __int64 a4)
 {
   _WORD *v5; // rsi

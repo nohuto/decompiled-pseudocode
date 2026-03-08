@@ -1,3 +1,20 @@
+/*
+ * XREFs of PspFreezeJobTree @ 0x140751738
+ * Callers:
+ *     NtSetInformationJobObject @ 0x1406FC3C0 (NtSetInformationJobObject.c)
+ *     PspFreezeJobTree @ 0x140751738 (PspFreezeJobTree.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     Feature_Servicing_BypassGraphicsFreezeNotification__private_IsEnabledDeviceUsage @ 0x14040BA70 (Feature_Servicing_BypassGraphicsFreezeNotification__private_IsEnabledDeviceUsage.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FB7C8 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspComputeReportWakeFilter @ 0x1407516F4 (PspComputeReportWakeFilter.c)
+ *     PspFreezeJobTree @ 0x140751738 (PspFreezeJobTree.c)
+ *     PspDispatchWakeNotification @ 0x1407519CC (PspDispatchWakeNotification.c)
+ */
+
 __int64 __fastcall PspFreezeJobTree(__int64 a1, __int64 a2)
 {
   int v4; // r14d

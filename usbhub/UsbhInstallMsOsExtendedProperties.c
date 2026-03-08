@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhInstallMsOsExtendedProperties @ 0x1C003383C
+ * Callers:
+ *     UsbhPdoPnp_QueryResourceRequirements @ 0x1C0056240 (UsbhPdoPnp_QueryResourceRequirements.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     UsbhAcquireFdoPnpLock @ 0x1C0031BEC (UsbhAcquireFdoPnpLock.c)
+ *     UsbhReleaseFdoPnpLock @ 0x1C0031D14 (UsbhReleaseFdoPnpLock.c)
+ *     USBD_InstallExtPropDescSections @ 0x1C0032114 (USBD_InstallExtPropDescSections.c)
+ *     USBD_ValidateExtendedPropertyDescriptor @ 0x1C003286C (USBD_ValidateExtendedPropertyDescriptor.c)
+ *     UsbhExtPropDescSemaphorePresent @ 0x1C0032980 (UsbhExtPropDescSemaphorePresent.c)
+ *     UsbhGetMsOsFeatureDescriptor @ 0x1C003360C (UsbhGetMsOsFeatureDescriptor.c)
+ */
+
 LONG __fastcall UsbhInstallMsOsExtendedProperties(__int64 a1, struct _DEVICE_OBJECT *a2)
 {
   unsigned int *v3; // rdi

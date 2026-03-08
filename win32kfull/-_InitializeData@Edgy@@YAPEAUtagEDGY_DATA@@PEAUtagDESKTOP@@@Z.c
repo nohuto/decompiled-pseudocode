@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_InitializeData@Edgy@@YAPEAUtagEDGY_DATA@@PEAUtagDESKTOP@@@Z @ 0x1C01E9678
+ * Callers:
+ *     ?_AddOrUpdateListener@Edgy@@YAHPEAUtagDESKTOP@@PEAXW4tagEDGY_LOCATION@@PEAUHWND__@@@Z @ 0x1C01E8ADC (-_AddOrUpdateListener@Edgy@@YAHPEAUtagDESKTOP@@PEAXW4tagEDGY_LOCATION@@PEAUHWND__@@@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 struct tagEDGY_DATA *__fastcall Edgy::_InitializeData(Edgy *this, struct tagDESKTOP *a2)
 {
   struct tagEDGY_DATA *result; // rax

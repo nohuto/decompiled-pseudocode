@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CalculateOpacity@CProjectedShadowScene@@AEBAMM@Z @ 0x180005984
+ * Callers:
+ *     ?PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x180004F04 (-PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@.c)
+ *     ?IsEmptyProjection@CProjectedShadowScene@@QEBA_NXZ @ 0x180005910 (-IsEmptyProjection@CProjectedShadowScene@@QEBA_NXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 float __fastcall CProjectedShadowScene::CalculateOpacity(CProjectedShadowScene *this, float a2)
 {
   float v2; // xmm2_4

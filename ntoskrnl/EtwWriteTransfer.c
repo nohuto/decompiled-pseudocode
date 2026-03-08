@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwWriteTransfer @ 0x1402E1270
+ * Callers:
+ *     FlushEventEntryList @ 0x14087B4B8 (FlushEventEntryList.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ */
+
 NTSTATUS __stdcall EtwWriteTransfer(
         REGHANDLE RegHandle,
         PCEVENT_DESCRIPTOR EventDescriptor,

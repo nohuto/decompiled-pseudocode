@@ -1,3 +1,17 @@
+/*
+ * XREFs of PiSwDeviceInterfaceSetState @ 0x140808E84
+ * Callers:
+ *     PiSwIrpInterfaceRegister @ 0x1408086D4 (PiSwIrpInterfaceRegister.c)
+ *     PiSwIrpInterfaceSetState @ 0x140808FD8 (PiSwIrpInterfaceSetState.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     McTemplateK0zzzt_EtwWriteTransfer @ 0x140561C60 (McTemplateK0zzzt_EtwWriteTransfer.c)
+ *     IoSetDeviceInterfaceState @ 0x1406832E0 (IoSetDeviceInterfaceState.c)
+ *     _CmSetDeviceInterfacePathFormat @ 0x1406C3E94 (_CmSetDeviceInterfacePathFormat.c)
+ *     PnpAllocatePWSTR @ 0x1406CD7F4 (PnpAllocatePWSTR.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiSwDeviceInterfaceSetState(__int64 a1, __int64 a2, char a3)
 {
   WCHAR *v3; // rbx

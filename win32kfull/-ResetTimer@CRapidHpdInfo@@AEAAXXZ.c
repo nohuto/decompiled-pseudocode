@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ResetTimer@CRapidHpdInfo@@AEAAXXZ @ 0x1C0230878
+ * Callers:
+ *     ?ProcessModeChange@RapidHPD@@YA_NW4_DXGK_RAPID_HPD_TYPE@@PEAU_GUID@@PEAVCMonitorTopology@@@Z @ 0x1C00F7960 (-ProcessModeChange@RapidHPD@@YA_NW4_DXGK_RAPID_HPD_TYPE@@PEAU_GUID@@PEAVCMonitorTopology@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 void __fastcall CRapidHpdInfo::ResetTimer(CRapidHpdInfo *this)
 {
   struct _GUID *v1; // r8

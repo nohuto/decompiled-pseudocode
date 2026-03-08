@@ -1,3 +1,12 @@
+/*
+ * XREFs of SetWindowSubtreeCoreWindowStatus @ 0x1C0097A0C
+ * Callers:
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C0036908 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     NtUserSetCoreWindow @ 0x1C0097AA0 (NtUserSetCoreWindow.c)
+ * Callees:
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ */
+
 char __fastcall SetWindowSubtreeCoreWindowStatus(__int64 a1, int a2)
 {
   __int64 *v4; // rax

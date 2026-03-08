@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetSystemVisual@CHwndTargetProp@@QEAAJW4_HwndTargetType@@PEAUCompositionObject@@@Z @ 0x1C00BFB00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ApiSetEditionNotifyDwmForSystemVisualCreation @ 0x1C00BFB78 (ApiSetEditionNotifyDwmForSystemVisualCreation.c)
+ */
+
 __int64 __fastcall CHwndTargetProp::SetSystemVisual(__int64 a1, unsigned int a2, void *a3)
 {
   __int64 v3; // rsi

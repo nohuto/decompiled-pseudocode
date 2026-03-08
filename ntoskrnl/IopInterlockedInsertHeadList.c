@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopInterlockedInsertHeadList @ 0x140389054
+ * Callers:
+ *     IoRegisterLastChanceShutdownNotification @ 0x140819820 (IoRegisterLastChanceShutdownNotification.c)
+ *     IoRegisterShutdownNotification @ 0x1408198A0 (IoRegisterShutdownNotification.c)
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ */
+
 void __fastcall IopInterlockedInsertHeadList(__int64 *a1, _QWORD *a2)
 {
   KIRQL v4; // al

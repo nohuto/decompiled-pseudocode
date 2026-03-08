@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmSiProcessTupleStartFromHandle @ 0x140388A6C
+ * Callers:
+ *     CmpInitializeRegistryProcess @ 0x140817300 (CmpInitializeRegistryProcess.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     CmSipQueryProcessWorkingSetLimits @ 0x140388B3C (CmSipQueryProcessWorkingSetLimits.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall CmSiProcessTupleStartFromHandle(__int64 a1, void *a2)
 {
   NTSTATUS ProcessWorkingSetLimits; // ebx

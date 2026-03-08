@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpTraceHiveFlushStop @ 0x1406BF374
+ * Callers:
+ *     CmpFlushHive @ 0x1406BEA70 (CmpFlushHive.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 BOOLEAN __fastcall CmpTraceHiveFlushStop(int a1)
 {
   REGHANDLE v1; // rbx

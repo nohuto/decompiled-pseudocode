@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0qqzz_EtwWriteTransfer @ 0x1C01C2140
+ * Callers:
+ *     EtwTraceLayoutChangeStop @ 0x1C0098E78 (EtwTraceLayoutChangeStop.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C01C20D4 (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0qqzz_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

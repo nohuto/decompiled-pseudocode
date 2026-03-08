@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DpiFdoSetAdapterLuid@@YAJPEAU_FDO_CONTEXT@@@Z @ 0x1C001D270
+ * Callers:
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall DpiFdoSetAdapterLuid(struct _FDO_CONTEXT *a1)
 {
   int result; // eax

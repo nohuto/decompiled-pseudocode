@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetRedrawRects@CDirtyRegion@@AEAAXXZ @ 0x1801CB088
+ * Callers:
+ *     ?CleanTrees@CComposition@@IEAAJXZ @ 0x1800664C0 (-CleanTrees@CComposition@@IEAAJXZ.c)
+ *     ?Optimize@CDirtyRegion@@QEAAXXZ @ 0x180074E70 (-Optimize@CDirtyRegion@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CDirtyRegion::SetRedrawRects(CDirtyRegion *this)
 {
   __int64 v1; // r9

@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopEtEnergyTrackerUpdateAggregate @ 0x140702020
+ * Callers:
+ *     PopEtProcessSnapshotUpdate @ 0x140701D28 (PopEtProcessSnapshotUpdate.c)
+ * Callees:
+ *     PsAddProcessEnergyValues @ 0x14023820C (PsAddProcessEnergyValues.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopEtEnergyValuesDeltaCalculate @ 0x1407021E8 (PopEtEnergyValuesDeltaCalculate.c)
+ *     PopEtAggregateGet @ 0x1407025B8 (PopEtAggregateGet.c)
+ */
+
 __int64 __fastcall PopEtEnergyTrackerUpdateAggregate(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   __int64 result; // rax

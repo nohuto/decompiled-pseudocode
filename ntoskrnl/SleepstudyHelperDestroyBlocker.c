@@ -1,3 +1,19 @@
+/*
+ * XREFs of SleepstudyHelperDestroyBlocker @ 0x1403AFD80
+ * Callers:
+ *     SleepstudyHelper_UnregisterComponent @ 0x1405A1240 (SleepstudyHelper_UnregisterComponent.c)
+ *     PopPowerRequestStatsCleanup @ 0x14073C280 (PopPowerRequestStatsCleanup.c)
+ *     SleepstudyHelper_RegisterPdoWithParentPdo @ 0x140842C50 (SleepstudyHelper_RegisterPdoWithParentPdo.c)
+ *     SleepstudyHelper_RegisterComponentEx @ 0x14084DE70 (SleepstudyHelper_RegisterComponentEx.c)
+ *     SleepstudyHelper_RegisterPdoWithParentGuid @ 0x14099F2D0 (SleepstudyHelper_RegisterPdoWithParentGuid.c)
+ *     SleepstudyHelper_RegisterPdoWithParentHandle @ 0x14099F390 (SleepstudyHelper_RegisterPdoWithParentHandle.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     SshpBlockerActiveDereference @ 0x1402F102C (SshpBlockerActiveDereference.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall SleepstudyHelperDestroyBlocker(PKSPIN_LOCK SpinLock)
 {
   unsigned __int64 v2; // rbp

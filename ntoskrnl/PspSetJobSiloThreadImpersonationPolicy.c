@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspSetJobSiloThreadImpersonationPolicy @ 0x1409AFFC8
+ * Callers:
+ *     NtSetInformationJobObject @ 0x1406FC3C0 (NtSetInformationJobObject.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PspSetJobSiloThreadImpersonationPolicy(__int64 a1, int a2)
 {
   int v3; // r8d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspDispatchWakeNotification @ 0x1407519CC
+ * Callers:
+ *     PspAllocateAndQueryNotificationChannel @ 0x1407512E4 (PspAllocateAndQueryNotificationChannel.c)
+ *     PspFreezeJobTree @ 0x140751738 (PspFreezeJobTree.c)
+ * Callees:
+ *     PspSendWakeNotification @ 0x140751A40 (PspSendWakeNotification.c)
+ */
+
 __int64 __fastcall PspDispatchWakeNotification(PVOID Object, _DWORD *a2, __int64 a3)
 {
   __int64 result; // rax

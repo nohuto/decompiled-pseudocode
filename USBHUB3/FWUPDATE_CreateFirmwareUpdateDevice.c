@@ -1,3 +1,19 @@
+/*
+ * XREFs of FWUPDATE_CreateFirmwareUpdateDevice @ 0x1C008CAD8
+ * Callers:
+ *     HUBFDO_EvtDevicePrepareHardware @ 0x1C0078890 (HUBFDO_EvtDevicePrepareHardware.c)
+ *     FWUPDATE_EvtDeviceReportedMissing @ 0x1C008C600 (FWUPDATE_EvtDeviceReportedMissing.c)
+ * Callees:
+ *     McTemplateK0ppuq_EtwWriteTransfer @ 0x1C0001C10 (McTemplateK0ppuq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     RtlUnicodeStringPrintf @ 0x1C000C4DC (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ *     FWUPDATE_AddIdsForFirmwareUpdateDevice @ 0x1C008C704 (FWUPDATE_AddIdsForFirmwareUpdateDevice.c)
+ */
+
 __int64 __fastcall FWUPDATE_CreateFirmwareUpdateDevice(__int64 a1)
 {
   unsigned int v2; // r14d

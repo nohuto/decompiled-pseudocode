@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?CreateOutputDuplManager@@YAJIPEAVADAPTER_DISPLAY@@PEAU_LUID@@1PEAPEAVOUTPUTDUPL_MGR@@@Z @ 0x1C02140C4
+ * Callers:
+ *     ?Initialize@ADAPTER_DISPLAY@@QEAAJXZ @ 0x1C01F05EC (-Initialize@ADAPTER_DISPLAY@@QEAAJXZ.c)
+ *     ?CreateRemoteOutputDuplMgr@OUTPUTDUPL_SESSION_MGR@@QEAAJI@Z @ 0x1C03267E4 (-CreateRemoteOutputDuplMgr@OUTPUTDUPL_SESSION_MGR@@QEAAJI@Z.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ??0OUTPUTDUPL_MGR_INDIRECT@@QEAA@U_LUID@@0I@Z @ 0x1C0053434 (--0OUTPUTDUPL_MGR_INDIRECT@@QEAA@U_LUID@@0I@Z.c)
+ *     ??_GOUTPUTDUPL_MGR@@QEAAPEAXI@Z @ 0x1C00534EC (--_GOUTPUTDUPL_MGR@@QEAAPEAXI@Z.c)
+ *     ?Initialize@OUTPUTDUPL_MGR@@QEAAJXZ @ 0x1C0214204 (-Initialize@OUTPUTDUPL_MGR@@QEAAJXZ.c)
+ */
+
 __int64 __fastcall CreateOutputDuplManager(
         unsigned int a1,
         struct ADAPTER_DISPLAY *a2,

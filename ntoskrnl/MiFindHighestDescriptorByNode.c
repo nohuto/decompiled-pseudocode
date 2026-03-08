@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiFindHighestDescriptorByNode @ 0x1406155C8
+ * Callers:
+ *     MxSwitchDescriptors @ 0x140B964BC (MxSwitchDescriptors.c)
+ * Callees:
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ */
+
 _QWORD *__fastcall MiFindHighestDescriptorByNode(__int64 a1, unsigned int a2)
 {
   __int64 v2; // r8

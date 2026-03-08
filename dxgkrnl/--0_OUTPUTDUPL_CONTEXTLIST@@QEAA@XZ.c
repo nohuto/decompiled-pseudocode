@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0_OUTPUTDUPL_CONTEXTLIST@@QEAA@XZ @ 0x1C0024150
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _OUTPUTDUPL_CONTEXTLIST *__fastcall _OUTPUTDUPL_CONTEXTLIST::_OUTPUTDUPL_CONTEXTLIST(_OUTPUTDUPL_CONTEXTLIST *this)
 {
   *((_QWORD *)this + 1) = 0LL;

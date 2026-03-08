@@ -1,3 +1,11 @@
+/*
+ * XREFs of vNetworkedFontFileCleanup @ 0x1C00F6560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 vNetworkedFontFileCleanup()
 {
   __int64 result; // rax

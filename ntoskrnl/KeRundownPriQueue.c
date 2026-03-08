@@ -1,3 +1,14 @@
+/*
+ * XREFs of KeRundownPriQueue @ 0x14057C5D0
+ * Callers:
+ *     ExpWorkQueueDestroy @ 0x1409FDC74 (ExpWorkQueueDestroy.c)
+ * Callees:
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     KeRundownQueueCommon @ 0x140292D44 (KeRundownQueueCommon.c)
+ *     KiAcquireReleaseObjectRundownLockExclusive @ 0x14029319C (KiAcquireReleaseObjectRundownLockExclusive.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ */
+
 char __fastcall KeRundownPriQueue(unsigned __int64 a1)
 {
   unsigned __int8 CurrentIrql; // bl

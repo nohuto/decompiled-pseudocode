@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetMultiByteValue@@YAHPEAEKPEAKPEAHK1@Z @ 0x1C01C69DC
+ * Callers:
+ *     ?BuildMainItem@@YAHPEAEKPEAKUtagUSAGE_PROPERTIES@@PEAU1@W4_HIDP_REPORT_TYPE@@PEAH1@Z @ 0x1C01C5B84 (-BuildMainItem@@YAHPEAEKPEAKUtagUSAGE_PROPERTIES@@PEAU1@W4_HIDP_REPORT_TYPE@@PEAH1@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SetMultiByteValue(
         unsigned __int8 *a1,
         unsigned int a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of EngCombineRgn @ 0x1C0019AD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0EngModeState@@QEAA@XZ @ 0x1C0019C74 (--0EngModeState@@QEAA@XZ.c)
+ *     GreGetObjectOwner @ 0x1C0019E80 (GreGetObjectOwner.c)
+ *     GreCombineRgn @ 0x1C0041BD0 (GreCombineRgn.c)
+ */
+
 INT __stdcall EngCombineRgn(HANDLE hrgnTrg, HANDLE hrgnSrc1, HANDLE hrgnSrc2, INT iMode)
 {
   INT v8; // ecx

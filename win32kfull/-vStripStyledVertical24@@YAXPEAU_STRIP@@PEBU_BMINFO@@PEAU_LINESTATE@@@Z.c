@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vStripStyledVertical24@@YAXPEAU_STRIP@@PEBU_BMINFO@@PEAU_LINESTATE@@@Z @ 0x1C02FD470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vStripStyledVertical24(struct _STRIP *a1, const struct _BMINFO *a2, struct _LINESTATE *a3)
 {
   int *v3; // rbx

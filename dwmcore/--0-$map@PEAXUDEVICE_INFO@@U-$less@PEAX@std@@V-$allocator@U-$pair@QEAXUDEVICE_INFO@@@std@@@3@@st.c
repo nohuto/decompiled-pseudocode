@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0?$map@PEAXUDEVICE_INFO@@U?$less@PEAX@std@@V?$allocator@U?$pair@QEAXUDEVICE_INFO@@@std@@@3@@std@@QEAA@XZ @ 0x1800F7D04
+ * Callers:
+ *     _dynamic_initializer_for__CPointerDeviceCache::s_deviceCache__ @ 0x180001280 (_dynamic_initializer_for__CPointerDeviceCache--s_deviceCache__.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ */
+
 __int128 *std::map<void *,DEVICE_INFO>::map<void *,DEVICE_INFO>()
 {
   __int64 v0; // rax

@@ -1,3 +1,18 @@
+/*
+ * XREFs of PoLatencySensitivityHint @ 0x1402D2A30
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ *     PopPowerRequestCallbackPerfBoostRequired @ 0x14075DD70 (PopPowerRequestCallbackPerfBoostRequired.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     PpmCheckCustomRun @ 0x1402D1B4C (PpmCheckCustomRun.c)
+ *     PpmTryAcquireLock @ 0x1402D2BC8 (PpmTryAcquireLock.c)
+ *     PpmInterlockedUpdateTimeNoFence @ 0x140306BCC (PpmInterlockedUpdateTimeNoFence.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PoLatencySensitivityHint(int a1)
 {
   int v2; // r8d

@@ -1,3 +1,39 @@
+/*
+ * XREFs of ?FlushGpuVaTlb@VIDMM_GLOBAL@@QEAAXIU_D3DGPU_PHYSICAL_ADDRESS@@PEAVVIDMM_PROCESS@@PEAX_K3@Z @ 0x1C0090480
+ * Callers:
+ *     ?FlushGpuVaTlb@CVirtualAddressAllocator@@QEAAXI_K0@Z @ 0x1C0015230 (-FlushGpuVaTlb@CVirtualAddressAllocator@@QEAAXI_K0@Z.c)
+ *     ?MakeOneVirtualAddressRangeNotResident@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C008AEC0 (-MakeOneVirtualAddressRangeNotResident@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
+ *     ?UncommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@PEAPEAUVIDMM_ALLOC@@E@Z @ 0x1C0090130 (-UncommitVirtualAddressRange@CVirtualAddressAllocator@@QEAAJPEAUVIDMM_MAPPED_VA_RANGE@@PEAPEAUVI.c)
+ * Callees:
+ *     ??2@YAPEAX_KPEAVDXGK_LOG@@II@Z @ 0x1C0001830 (--2@YAPEAX_KPEAVDXGK_LOG@@II@Z.c)
+ *     ?DdiBuildPagingBuffer@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z @ 0x1C00018EC (-DdiBuildPagingBuffer@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z.c)
+ *     ?IsGpuVaPagingHistoryEnabled@VIDMM_GLOBAL@@QEAA_NXZ @ 0x1C0001910 (-IsGpuVaPagingHistoryEnabled@VIDMM_GLOBAL@@QEAA_NXZ.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0002198 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C00199C8 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C001BE4A (McTemplateK0q_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqqx_EtwWriteTransfer @ 0x1C003117C (McTemplateK0pptpqqx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxpx_EtwWriteTransfer @ 0x1C003123C (McTemplateK0pptpqxpx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxpxx_EtwWriteTransfer @ 0x1C003131C (McTemplateK0pptpqxpxx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxq_EtwWriteTransfer @ 0x1C0031410 (McTemplateK0pptpqxq_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxqqppqqxxpqx_EtwWriteTransfer @ 0x1C00314D0 (McTemplateK0pptpqxqqppqqxxpqx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxqxqxq_EtwWriteTransfer @ 0x1C003167C (McTemplateK0pptpqxqxqxq_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxqxqxqqq_EtwWriteTransfer @ 0x1C0031794 (McTemplateK0pptpqxqxqxqqq_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxxqt_EtwWriteTransfer @ 0x1C00318E0 (McTemplateK0pptpqxxqt_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxxt_EtwWriteTransfer @ 0x1C00319CC (McTemplateK0pptpqxxt_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxqqx_EtwWriteTransfer @ 0x1C0031AAC (McTemplateK0pptpxqqx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxx_EtwWriteTransfer @ 0x1C0031B8C (McTemplateK0pptpxx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxxpq_EtwWriteTransfer @ 0x1C0031C4C (McTemplateK0pptpxxpq_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxxqqxx_EtwWriteTransfer @ 0x1C0031D2C (McTemplateK0pptpxxqqxx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxxqqxxxqqxxx_EtwWriteTransfer @ 0x1C0031E30 (McTemplateK0pptpxxqqxxxqqxxx_EtwWriteTransfer.c)
+ *     McTemplateK0pptqx_EtwWriteTransfer @ 0x1C0031FC4 (McTemplateK0pptqx_EtwWriteTransfer.c)
+ *     ?WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C0087B88 (-WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z.c)
+ *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C008D8B0 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
+ *     ?GetOrGeneratePendingPagingBufferFence@VIDMM_GLOBAL@@IEAAXKPEA_K@Z @ 0x1C00E3D94 (-GetOrGeneratePendingPagingBufferFence@VIDMM_GLOBAL@@IEAAXKPEA_K@Z.c)
+ *     ?SuspendResumeProcessGpuMmuContexts@VIDMM_PROCESS@@QEAAXI_N@Z @ 0x1C00EF95C (-SuspendResumeProcessGpuMmuContexts@VIDMM_PROCESS@@QEAAXI_N@Z.c)
+ *     ?AllocateVaPagingHistoryEntry@VIDMM_GLOBAL@@QEAAPEAXW4VIDMM_PAGING_HISTORY_ENTRY_TYPE@@_K@Z @ 0x1C00F1D64 (-AllocateVaPagingHistoryEntry@VIDMM_GLOBAL@@QEAAPEAXW4VIDMM_PAGING_HISTORY_ENTRY_TYPE@@_K@Z.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall VIDMM_GLOBAL::FlushGpuVaTlb(
         VIDMM_GLOBAL *this,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PnpFindAlternateStringData @ 0x1407811C0
+ * Callers:
+ *     PiProcessNewDeviceNode @ 0x140685858 (PiProcessNewDeviceNode.c)
+ *     PiGetDeviceRegProperty @ 0x1406C6230 (PiGetDeviceRegProperty.c)
+ *     PiGetDeviceRegistryProperty @ 0x140951DA8 (PiGetDeviceRegistryProperty.c)
+ *     PiAuditDeviceOperation @ 0x14096C7A8 (PiAuditDeviceOperation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PnpFindAlternateStringData(_WORD *a1, unsigned int a2, _QWORD *a3, _DWORD *a4)
 {
   __int64 result; // rax

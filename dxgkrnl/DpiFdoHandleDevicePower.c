@@ -1,3 +1,27 @@
+/*
+ * XREFs of DpiFdoHandleDevicePower @ 0x1C01E1A70
+ * Callers:
+ *     DpiFdoDispatchPower @ 0x1C01E1A40 (DpiFdoDispatchPower.c)
+ * Callees:
+ *     DpiSetDevicePowerTransitionStateAtPassiveLevel @ 0x1C001A42C (DpiSetDevicePowerTransitionStateAtPassiveLevel.c)
+ *     DxgkReportDeviceDirectedPowerDown @ 0x1C0041FE4 (DxgkReportDeviceDirectedPowerDown.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     DpiIsPowerRuntimeDStateTransition @ 0x1C0180CF0 (DpiIsPowerRuntimeDStateTransition.c)
+ *     DpiFdoSetAdapterPowerState @ 0x1C01E1E80 (DpiFdoSetAdapterPowerState.c)
+ *     DpiRequestIoPowerState @ 0x1C01E2390 (DpiRequestIoPowerState.c)
+ *     DpiFdoStopMiracastSession @ 0x1C01E2B40 (DpiFdoStopMiracastSession.c)
+ *     DpiAcquirePostDisplayInfoFromBgfx @ 0x1C01E7D80 (DpiAcquirePostDisplayInfoFromBgfx.c)
+ *     DxgkStartPnPTransition @ 0x1C020ACBC (DxgkStartPnPTransition.c)
+ *     DxgkCompletePnPTransition @ 0x1C0214FC4 (DxgkCompletePnPTransition.c)
+ *     ?DxgCreateLiveDumpWithWdLogs2@@YAJK_K000UDXGK_LIVEREPORT_FLAGS@@@Z @ 0x1C02C935C (-DxgCreateLiveDumpWithWdLogs2@@YAJK_K000UDXGK_LIVEREPORT_FLAGS@@@Z.c)
+ *     DpiFdoDetermineAffectedSession @ 0x1C0396188 (DpiFdoDetermineAffectedSession.c)
+ *     DpiFdoIsDevicePresent @ 0x1C0397F70 (DpiFdoIsDevicePresent.c)
+ *     DpiFdoRebootForSurpriseRemoval @ 0x1C0398498 (DpiFdoRebootForSurpriseRemoval.c)
+ *     DpiLdaPowerDownAllAdaptersInChain @ 0x1C03A3D4C (DpiLdaPowerDownAllAdaptersInChain.c)
+ *     DpiLdaPowerUpAdapterInChain @ 0x1C03A3ED8 (DpiLdaPowerUpAdapterInChain.c)
+ *     DpiDxgkDdiNotifySurpriseRemoval @ 0x1C03A4724 (DpiDxgkDdiNotifySurpriseRemoval.c)
+ */
+
 __int64 __fastcall DpiFdoHandleDevicePower(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r15

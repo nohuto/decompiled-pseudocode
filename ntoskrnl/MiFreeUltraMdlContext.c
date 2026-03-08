@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiFreeUltraMdlContext @ 0x14065F358
+ * Callers:
+ *     MmMapMdl @ 0x14062CC90 (MmMapMdl.c)
+ * Callees:
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ */
+
 PSLIST_ENTRY __fastcall MiFreeUltraMdlContext(PSLIST_ENTRY ListEntry)
 {
   struct _KPRCB *CurrentPrcb; // rcx

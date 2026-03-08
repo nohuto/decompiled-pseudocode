@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetPointerProprietaryId@CTouchProcessor@@QEAA_NIPEAU_GUID@@@Z @ 0x1C01F9528
+ * Callers:
+ *     NtUserGetPointerProprietaryId @ 0x1C0170CC0 (NtUserGetPointerProprietaryId.c)
+ * Callees:
+ *     ?UnLock@CInpLockGuard@@QEAAXXZ @ 0x1C00C9BF0 (-UnLock@CInpLockGuard@@QEAAXXZ.c)
+ *     ?FindNodeById@CTouchProcessor@@AEAAPEAUCInputPointerNode@@GHH@Z @ 0x1C00F2348 (-FindNodeById@CTouchProcessor@@AEAAPEAUCInputPointerNode@@GHH@Z.c)
+ *     ??0CInpLockGuardShared@@IEAA@AEAUCInpLockGuard@@_N@Z @ 0x1C01E8508 (--0CInpLockGuardShared@@IEAA@AEAUCInpLockGuard@@_N@Z.c)
+ */
+
 char __fastcall CTouchProcessor::GetPointerProprietaryId(struct _KTHREAD **this, unsigned __int16 a2, struct _GUID *a3)
 {
   struct CInputPointerNode *NodeById; // rax

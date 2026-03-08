@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_G?$Vector@_K@@UEAAPEAXI@Z @ 0x1C006A240
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall Vector<unsigned __int64>::`scalar deleting destructor'(_QWORD *P, char a2)
 {
   void *v4; // rcx

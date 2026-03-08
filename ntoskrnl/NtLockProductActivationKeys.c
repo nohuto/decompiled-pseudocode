@@ -1,3 +1,20 @@
+/*
+ * XREFs of NtLockProductActivationKeys @ 0x140838E20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcscat_s @ 0x1403DA170 (wcscat_s.c)
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ *     wcsncat_s @ 0x1403DA2A0 (wcsncat_s.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x140412950 (ZwEnumerateKey.c)
+ *     ZwLockRegistryKey @ 0x140414590 (ZwLockRegistryKey.c)
+ *     IsRegistryKeyLocked @ 0x140839204 (IsRegistryKeyLocked.c)
+ */
+
 NTSTATUS __fastcall NtLockProductActivationKeys(__int64 a1, _DWORD *a2)
 {
   int v3; // ebx

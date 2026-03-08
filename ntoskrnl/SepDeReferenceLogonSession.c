@@ -1,3 +1,27 @@
+/*
+ * XREFs of SepDeReferenceLogonSession @ 0x1407DBBB8
+ * Callers:
+ *     SepDeReferenceLogonSessionDirect @ 0x1402BE52C (SepDeReferenceLogonSessionDirect.c)
+ *     SepTokenDeleteMethod @ 0x1407C3CB0 (SepTokenDeleteMethod.c)
+ *     SepDeReferenceLogonSession @ 0x1407DBBB8 (SepDeReferenceLogonSession.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     SepDeleteSessionLowboxEntries @ 0x140354B60 (SepDeleteSessionLowboxEntries.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ObDereferenceDeviceMap @ 0x14071E5A4 (ObDereferenceDeviceMap.c)
+ *     ObDestroyHandleRevocationBlock @ 0x1407DAD2C (ObDestroyHandleRevocationBlock.c)
+ *     SepDeleteLogonSessionClaims @ 0x1407DAFD8 (SepDeleteLogonSessionClaims.c)
+ *     SepDeReferenceLogonSession @ 0x1407DBBB8 (SepDeReferenceLogonSession.c)
+ *     SepInformLsaOfDeletedLogon @ 0x1407DBD7C (SepInformLsaOfDeletedLogon.c)
+ *     SepCleanupLUIDDeviceMapDirectory @ 0x1407DCB7C (SepCleanupLUIDDeviceMapDirectory.c)
+ *     SepDeleteLogonSessionSidValues @ 0x1409CC8AC (SepDeleteLogonSessionSidValues.c)
+ *     SepInformFileSystemsOfDeletedLogon @ 0x1409CD24C (SepInformFileSystemsOfDeletedLogon.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SepDeReferenceLogonSession(_DWORD *a1, __int64 a2)
 {
   unsigned __int64 v4; // r8

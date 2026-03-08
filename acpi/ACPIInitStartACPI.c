@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIInitStartACPI @ 0x1C00A8DE0
+ * Callers:
+ *     ACPIRootIrpStartDevice @ 0x1C00AA580 (ACPIRootIrpStartDevice.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     ACPIBuildSpecialSynchronizationRequest @ 0x1C00137D8 (ACPIBuildSpecialSynchronizationRequest.c)
+ *     ACPIPowerScheduleDpc @ 0x1C0022714 (ACPIPowerScheduleDpc.c)
+ *     ACPIInternalRegisterPowerCallBack @ 0x1C002ED94 (ACPIInternalRegisterPowerCallBack.c)
+ *     ACPIInitialize @ 0x1C00A8F78 (ACPIInitialize.c)
+ */
+
 __int64 __fastcall ACPIInitStartACPI(ULONG_PTR BugCheckParameter3)
 {
   volatile signed __int64 *DeviceExtension; // rsi

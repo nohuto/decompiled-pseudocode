@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ReportAllocationState@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@H@Z @ 0x1C02E7F58
+ * Callers:
+ *     ?ReportDeviceResources@DXGDEVICE@@QEAAXXZ @ 0x1C02E8164 (-ReportDeviceResources@DXGDEVICE@@QEAAXXZ.c)
+ *     ?ReportState@DXGDEVICE@@QEAAXXZ @ 0x1C02E82CC (-ReportState@DXGDEVICE@@QEAAXXZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0ppppppppppppq_EtwWriteTransfer @ 0x1C0046E74 (McTemplateK0ppppppppppppq_EtwWriteTransfer.c)
+ *     McTemplateK0pppqxqqqqqqqpppqqqqqqqqqqtpht_EtwWriteTransfer @ 0x1C0046FC8 (McTemplateK0pppqxqqqqqqqpppqqqqqqqqqqtpht_EtwWriteTransfer.c)
+ */
+
 void __fastcall DXGDEVICE::ReportAllocationState(DXGDEVICE *this, struct DXGALLOCATION *a2, int a3)
 {
   __int64 v3; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of Controller_InitiateBootRecovery @ 0x1C0033900
+ * Callers:
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_InternalReset @ 0x1C0033D04 (Controller_InternalReset.c)
+ */
+
 void __fastcall Controller_InitiateBootRecovery(_QWORD *a1, char a2)
 {
   ULONG_PTR v2; // rax

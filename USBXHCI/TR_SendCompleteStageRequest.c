@@ -1,3 +1,15 @@
+/*
+ * XREFs of TR_SendCompleteStageRequest @ 0x1C0041C60
+ * Callers:
+ *     Isoch_Stage_CompleteTD @ 0x1C00029D0 (Isoch_Stage_CompleteTD.c)
+ *     Control_TransferData_Free @ 0x1C0006034 (Control_TransferData_Free.c)
+ *     Bulk_Stage_FreeScatterGatherList @ 0x1C00118C4 (Bulk_Stage_FreeScatterGatherList.c)
+ *     Isoch_Stage_FreeScatterGatherList @ 0x1C0045238 (Isoch_Stage_FreeScatterGatherList.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ */
+
 __int64 __fastcall TR_SendCompleteStageRequest(__int64 a1, int a2)
 {
   __int64 v2; // rax

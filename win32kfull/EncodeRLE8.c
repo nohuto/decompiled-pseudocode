@@ -1,3 +1,12 @@
+/*
+ * XREFs of EncodeRLE8 @ 0x1C02F0CC0
+ * Callers:
+ *     ?GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@PEAUHBITMAP__@@IIAEAV?$umptr_w@E@@PEAUtagBITMAPINFO@@III@Z @ 0x1C008A530 (-GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@P.c)
+ * Callees:
+ *     ?WriteAbsolute8@@YAHPEBEPEAEH0@Z @ 0x1C02EF69C (-WriteAbsolute8@@YAHPEBEPEAEH0@Z.c)
+ *     ?WriteEncoded8@@YAHEPEAEIPEBE@Z @ 0x1C02EF798 (-WriteEncoded8@@YAHEPEAEIPEBE@Z.c)
+ */
+
 __int64 __fastcall EncodeRLE8(__int64 a1, unsigned __int8 *a2, int a3, unsigned int a4, int a5)
 {
   unsigned __int8 *v5; // rbx

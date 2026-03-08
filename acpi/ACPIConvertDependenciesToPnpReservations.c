@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIConvertDependenciesToPnpReservations @ 0x1C00143C8
+ * Callers:
+ *     ACPIAddInitializationDependencies @ 0x1C000BA98 (ACPIAddInitializationDependencies.c)
+ * Callees:
+ *     ACPIReserveDependencies @ 0x1C00145EC (ACPIReserveDependencies.c)
+ *     WPP_RECORDER_SF_sL @ 0x1C0015638 (WPP_RECORDER_SF_sL.c)
+ *     AMLIGetNameSpaceObject @ 0x1C00483B8 (AMLIGetNameSpaceObject.c)
+ */
+
 __int64 __fastcall ACPIConvertDependenciesToPnpReservations(__int64 a1, __int64 a2, __int64 a3)
 {
   int v3; // ebx

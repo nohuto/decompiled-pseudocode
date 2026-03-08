@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlGetNextEntryHashTable @ 0x1402CC980
+ * Callers:
+ *     SepRmReferenceFindCap @ 0x1405B7498 (SepRmReferenceFindCap.c)
+ *     SepGetCachedHandlesEntry @ 0x1407397EC (SepGetCachedHandlesEntry.c)
+ *     SepFindMatchingLowBoxNumberEntry @ 0x140739B6C (SepFindMatchingLowBoxNumberEntry.c)
+ *     SepFindMatchingLuidEntry @ 0x1409CE298 (SepFindMatchingLuidEntry.c)
+ *     SepFindSharedSidEntry @ 0x1409CE95C (SepFindSharedSidEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 PRTL_DYNAMIC_HASH_TABLE_ENTRY __stdcall RtlGetNextEntryHashTable(
         PRTL_DYNAMIC_HASH_TABLE HashTable,
         PRTL_DYNAMIC_HASH_TABLE_CONTEXT Context)

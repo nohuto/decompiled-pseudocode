@@ -1,3 +1,16 @@
+/*
+ * XREFs of FormInquiryDeviceIdentifiersData @ 0x1C00122F8
+ * Callers:
+ *     ScsiInquiryRequest @ 0x1C0019C74 (ScsiInquiryRequest.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     GetNamespaceId @ 0x1C0007A8C (GetNamespaceId.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     GUIDToSCSINameString @ 0x1C00129E8 (GUIDToSCSINameString.c)
+ *     NVMeSetSenseData @ 0x1C0024238 (NVMeSetSenseData.c)
+ */
+
 __int64 __fastcall FormInquiryDeviceIdentifiersData(__int64 a1, __int64 a2)
 {
   _WORD *v2; // rax

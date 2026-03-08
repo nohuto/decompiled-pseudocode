@@ -1,3 +1,21 @@
+/*
+ * XREFs of _RegisterRawInputDevices @ 0x1C00D5AC8
+ * Callers:
+ *     NtUserRegisterRawInputDevices @ 0x1C00D51E0 (NtUserRegisterRawInputDevices.c)
+ *     RegisterModernAppThreadForRawKeyboard @ 0x1C01AB1FC (RegisterModernAppThreadForRawKeyboard.c)
+ *     UnregisterModernAppThreadForRawKeyboard @ 0x1C01AB2A8 (UnregisterModernAppThreadForRawKeyboard.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     AllocateProcessHidTable @ 0x1C00D5128 (AllocateProcessHidTable.c)
+ *     ?AdjustLegacyDeviceFlags@@YAXPEAUtagPROCESSINFO@@@Z @ 0x1C00D5560 (-AdjustLegacyDeviceFlags@@YAXPEAUtagPROCESSINFO@@@Z.c)
+ *     FreeHidProcessRequest @ 0x1C00D58B8 (FreeHidProcessRequest.c)
+ *     ?HidRequestValidityCheck@@YAHQEAUtagRAWINPUTDEVICE@@PEBUtagPROCESS_HID_TABLE@@W4_REGISTER_RAW_INPUT_INTERNAL@@@Z @ 0x1C00D5C58 (-HidRequestValidityCheck@@YAHQEAUtagRAWINPUTDEVICE@@PEBUtagPROCESS_HID_TABLE@@W4_REGISTER_RAW_IN.c)
+ *     ?SearchProcessHidRequest@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESSINFO@@GGPEAK@Z @ 0x1C00D5DF8 (-SearchProcessHidRequest@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESSINFO@@GGPEAK@Z.c)
+ *     ?SetProcDeviceRequest@@YAHPEAUtagPROCESSINFO@@PEAUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KW4_REGISTER_RAW_INPUT_INTERNAL@@@Z @ 0x1C00D5E84 (-SetProcDeviceRequest@@YAHPEAUtagPROCESSINFO@@PEAUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@.c)
+ *     ?IsLegacyDevice@@YAHGG@Z @ 0x1C00D6024 (-IsLegacyDevice@@YAHGG@Z.c)
+ *     ?CleanupFreedTLCInfo@@YAXXZ @ 0x1C00D6558 (-CleanupFreedTLCInfo@@YAXXZ.c)
+ */
+
 __int64 __fastcall RegisterRawInputDevices(__int64 a1, unsigned int a2, unsigned int a3)
 {
   __int64 CurrentProcessWin32Process; // rax

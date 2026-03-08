@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CHolographicInteropTaskQueue@@AEAA@XZ @ 0x1802A8A48
+ * Callers:
+ *     ?Create@CHolographicInteropTaskQueue@@SAJPEAPEAV1@@Z @ 0x1802A8BB4 (-Create@CHolographicInteropTaskQueue@@SAJPEAPEAV1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 CHolographicInteropTaskQueue *__fastcall CHolographicInteropTaskQueue::CHolographicInteropTaskQueue(
         CHolographicInteropTaskQueue *this)
 {

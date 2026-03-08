@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMePowerSettingChangeNotification @ 0x1C0010430
+ * Callers:
+ *     NVMeHwAdapterControl @ 0x1C0003050 (NVMeHwAdapterControl.c)
+ * Callees:
+ *     NVMeUpdateResumeLatencyTolerance @ 0x1C0010AA0 (NVMeUpdateResumeLatencyTolerance.c)
+ *     NVMeSetNonOperationalPowerStatePermissiveMode @ 0x1C0023ED4 (NVMeSetNonOperationalPowerStatePermissiveMode.c)
+ */
+
 char __fastcall NVMePowerSettingChangeNotification(_DWORD *a1, __int64 a2)
 {
   __int64 v2; // rax

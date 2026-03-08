@@ -1,3 +1,13 @@
+/*
+ * XREFs of DifIoAllocateIrpExWrapper @ 0x1405DAB90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 __int64 __fastcall DifIoAllocateIrpExWrapper(
         __int64 a1,
         char a2,

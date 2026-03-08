@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DestroyVirtualGpuManager@DXGVIRTUALGPUMANAGER@@QEAAXXZ @ 0x1C0363370
+ * Callers:
+ *     ??_GDXGVIRTUALGPUMANAGER@@UEAAPEAXI@Z @ 0x1C005A510 (--_GDXGVIRTUALGPUMANAGER@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007104 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall DXGVIRTUALGPUMANAGER::DestroyVirtualGpuManager(DXGVIRTUALGPUMANAGER *this)
 {
   DXGVIRTUALGPUMANAGER *v2; // r15

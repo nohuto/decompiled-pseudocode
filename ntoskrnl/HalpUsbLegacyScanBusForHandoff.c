@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpUsbLegacyScanBusForHandoff @ 0x14038F7C4
+ * Callers:
+ *     HalpErrataInitSystem @ 0x140A87AA0 (HalpErrataInitSystem.c)
+ * Callees:
+ *     HalpUsbLegacyDeviceHandoff @ 0x1403A7544 (HalpUsbLegacyDeviceHandoff.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int16 HalpUsbLegacyScanBusForHandoff()
 {
   unsigned int v0; // ebx

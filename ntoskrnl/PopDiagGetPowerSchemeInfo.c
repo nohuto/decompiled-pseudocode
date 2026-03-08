@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopDiagGetPowerSchemeInfo @ 0x1403C2BA4
+ * Callers:
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopDiagGetPowerSchemeInfo(_QWORD *a1, _QWORD *a2, _DWORD *a3)
 {
   __int64 v3; // rax

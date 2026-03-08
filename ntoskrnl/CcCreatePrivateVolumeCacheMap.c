@@ -1,3 +1,21 @@
+/*
+ * XREFs of CcCreatePrivateVolumeCacheMap @ 0x1402DA2F4
+ * Callers:
+ *     CcInitializeCacheMapInternal @ 0x140338F10 (CcInitializeCacheMapInternal.c)
+ *     CcAddExternalCacheToVolume @ 0x1403D12A4 (CcAddExternalCacheToVolume.c)
+ * Callees:
+ *     CcDecrementPrivateVolumeUseCount @ 0x14021802C (CcDecrementPrivateVolumeUseCount.c)
+ *     CcFindPrivateVolumeCacheMap @ 0x1402DA3E8 (CcFindPrivateVolumeCacheMap.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcInitializePrivateVolumeCacheMap @ 0x1403BAB18 (CcInitializePrivateVolumeCacheMap.c)
+ *     CcDeletePrivateVolumeCacheMap @ 0x1403BC0E4 (CcDeletePrivateVolumeCacheMap.c)
+ *     CcInsertPrivateVolumeCacheMap @ 0x1403BDD18 (CcInsertPrivateVolumeCacheMap.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CcCreatePrivateVolumeCacheMap(__int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 PrivateVolumeCacheMap; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiAttemptCoalesce @ 0x14027E1A0
+ * Callers:
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiAdjustPteBins @ 0x140299A90 (MiAdjustPteBins.c)
+ * Callees:
+ *     MiReturnSystemPtes @ 0x1402EB3FC (MiReturnSystemPtes.c)
+ *     RtlInterlockedSetClearRunEx @ 0x1403293B0 (RtlInterlockedSetClearRunEx.c)
+ */
+
 char __fastcall MiAttemptCoalesce(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 v4; // rsi

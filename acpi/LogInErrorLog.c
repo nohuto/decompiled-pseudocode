@@ -1,3 +1,13 @@
+/*
+ * XREFs of LogInErrorLog @ 0x1C00523B8
+ * Callers:
+ *     DelayedLogInErrorLog @ 0x1C0051E50 (DelayedLogInErrorLog.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     RtlStringCchPrintfW @ 0x1C000B900 (RtlStringCchPrintfW.c)
+ *     ACPIWriteEventLogEntry @ 0x1C0025F5C (ACPIWriteEventLogEntry.c)
+ */
+
 void __fastcall LogInErrorLog(char a1, unsigned int a2, unsigned int a3)
 {
   __int64 v3; // r9

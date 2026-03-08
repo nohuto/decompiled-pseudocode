@@ -1,3 +1,19 @@
+/*
+ * XREFs of CcZeroDataInCache @ 0x140241DBC
+ * Callers:
+ *     CcZeroData @ 0x140243410 (CcZeroData.c)
+ * Callees:
+ *     CcPinFileData @ 0x14021E620 (CcPinFileData.c)
+ *     IopAllocateMdl @ 0x140241F90 (IopAllocateMdl.c)
+ *     MiProbeAndLockPages @ 0x140242114 (MiProbeAndLockPages.c)
+ *     CcSetDirtyPinnedData @ 0x140242420 (CcSetDirtyPinnedData.c)
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     MmSetAddressRangeModifiedEx @ 0x140329510 (MmSetAddressRangeModifiedEx.c)
+ *     CcUnpinFileDataEx @ 0x140337E50 (CcUnpinFileDataEx.c)
+ */
+
 char __fastcall CcZeroDataInCache(__int64 a1, __int64 *a2, unsigned int a3, unsigned __int8 a4)
 {
   unsigned int v4; // r14d

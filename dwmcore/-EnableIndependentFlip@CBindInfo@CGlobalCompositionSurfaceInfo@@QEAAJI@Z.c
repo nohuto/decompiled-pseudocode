@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EnableIndependentFlip@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJI@Z @ 0x1802579B4
+ * Callers:
+ *     ?EnableIndependentFlip@CGlobalCompositionSurfaceInfo@@UEAAJ_KII@Z @ 0x180257AE0 (-EnableIndependentFlip@CGlobalCompositionSurfaceInfo@@UEAAJ_KII@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     McTemplateU0xxqqqqq_EventWriteTransfer @ 0x180258A9C (McTemplateU0xxqqqqq_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall CGlobalCompositionSurfaceInfo::CBindInfo::EnableIndependentFlip(
         CGlobalCompositionSurfaceInfo::CBindInfo *this,
         int a2)

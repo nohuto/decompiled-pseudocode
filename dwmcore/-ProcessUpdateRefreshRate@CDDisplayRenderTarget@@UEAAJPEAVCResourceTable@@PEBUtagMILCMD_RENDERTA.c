@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ProcessUpdateRefreshRate@CDDisplayRenderTarget@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_RENDERTARGET_UPDATEREFRESHRATE@@@Z @ 0x1801E5530
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?UpdateMPOCaps@CDDisplayRenderTarget@@UEAAJXZ @ 0x1801C71C0 (-UpdateMPOCaps@CDDisplayRenderTarget@@UEAAJXZ.c)
+ *     ?reset@?$com_ptr_t@VCDDisplaySwapChain@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1801E65B4 (-reset@-$com_ptr_t@VCDDisplaySwapChain@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?UpdateRefreshRate@CDDisplaySwapChain@@UEAAJXZ @ 0x180288760 (-UpdateRefreshRate@CDDisplaySwapChain@@UEAAJXZ.c)
+ */
+
 __int64 __fastcall CDDisplayRenderTarget::ProcessUpdateRefreshRate(
         CDirectFlipInfo **this,
         struct CResourceTable *a2,

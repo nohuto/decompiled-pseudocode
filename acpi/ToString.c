@@ -1,3 +1,17 @@
+/*
+ * XREFs of ToString @ 0x1C0059450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     IsCompatableDSDTRevision @ 0x1C004BE28 (IsCompatableDSDTRevision.c)
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ *     ValidateTarget @ 0x1C004D4F0 (ValidateTarget.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     ConvertToString @ 0x1C0059B20 (ConvertToString.c)
+ */
+
 __int64 __fastcall ToString(__int64 a1, __int64 a2)
 {
   int v4; // edx

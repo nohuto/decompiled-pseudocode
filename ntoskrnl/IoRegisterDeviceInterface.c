@@ -1,3 +1,18 @@
+/*
+ * XREFs of IoRegisterDeviceInterface @ 0x14086A510
+ * Callers:
+ *     DifIoRegisterDeviceInterfaceWrapper @ 0x1405DE5E0 (DifIoRegisterDeviceInterfaceWrapper.c)
+ *     PiSwCompleteCreate @ 0x1408071C4 (PiSwCompleteCreate.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     wcspbrk @ 0x1403D64C0 (wcspbrk.c)
+ *     PnpUnicodeStringToWstr @ 0x1406D07D4 (PnpUnicodeStringToWstr.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1406D08F4 (PnpUnicodeStringToWstrFree.c)
+ *     ObQueryNameStringMode @ 0x14071EE84 (ObQueryNameStringMode.c)
+ *     IopRegisterDeviceInterface @ 0x14086A664 (IopRegisterDeviceInterface.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall IoRegisterDeviceInterface(
         PDEVICE_OBJECT PhysicalDeviceObject,
         const GUID *InterfaceClassGuid,

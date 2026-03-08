@@ -1,3 +1,11 @@
+/*
+ * XREFs of CreateDWordField @ 0x1C00501A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CreateXField @ 0x1C0050374 (CreateXField.c)
+ */
+
 __int64 __fastcall CreateDWordField(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8

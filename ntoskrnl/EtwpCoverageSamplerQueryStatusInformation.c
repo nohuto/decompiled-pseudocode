@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpCoverageSamplerQueryStatusInformation @ 0x1409F0414
+ * Callers:
+ *     EtwpQueryCoverageSamplerInformation @ 0x1409F0CA4 (EtwpQueryCoverageSamplerInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwpCoverageSamplerQueryStatusInformation(bool *a1)
 {
   __int64 result; // rax

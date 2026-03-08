@@ -1,3 +1,19 @@
+/*
+ * XREFs of HUBPDO_ReportDeviceFailure @ 0x1C001B588
+ * Callers:
+ *     HUBDSM_MarkingUnknownDeviceAsFailed @ 0x1C00234E0 (HUBDSM_MarkingUnknownDeviceAsFailed.c)
+ * Callees:
+ *     RtlStringCchPrintfA @ 0x1C00014E0 (RtlStringCchPrintfA.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0pqhhhqqqqqqhhqhqqqqqqqssshhh_EtwWriteTransfer @ 0x1C00144B8 (McTemplateK0pqhhhqqqqqqhhqhqqqqqqqssshhh_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_ddddddDDD @ 0x1C0014E70 (WPP_RECORDER_SF_ddddddDDD.c)
+ *     HUBPDO_GetPortPath @ 0x1C001A014 (HUBPDO_GetPortPath.c)
+ *     _tlgWriteAgg @ 0x1C00447BC (_tlgWriteAgg.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_GetVidPidRevForPort @ 0x1C0089858 (HUBREG_GetVidPidRevForPort.c)
+ */
+
 __int64 __fastcall HUBPDO_ReportDeviceFailure(__int64 *a1)
 {
   __int64 v1; // r15

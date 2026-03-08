@@ -1,3 +1,25 @@
+/*
+ * XREFs of SymCryptRsakeyCalculatePrivateFields @ 0x1403F1A48
+ * Callers:
+ *     SymCryptRsakeySetValue @ 0x1403F1F8C (SymCryptRsakeySetValue.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SymCryptDigitsFromBits @ 0x1403F36C0 (SymCryptDigitsFromBits.c)
+ *     SymCryptIntCopyMixedSize @ 0x1403F37B0 (SymCryptIntCopyMixedSize.c)
+ *     SymCryptIntCreate @ 0x1403F37C8 (SymCryptIntCreate.c)
+ *     SymCryptIntDivMod @ 0x1403F37E0 (SymCryptIntDivMod.c)
+ *     SymCryptIntFromDivisor @ 0x1403F3824 (SymCryptIntFromDivisor.c)
+ *     SymCryptIntFromModulus @ 0x1403F383C (SymCryptIntFromModulus.c)
+ *     SymCryptIntIsEqualUint32 @ 0x1403F389C (SymCryptIntIsEqualUint32.c)
+ *     SymCryptIntMulMixedSize @ 0x1403F38E4 (SymCryptIntMulMixedSize.c)
+ *     SymCryptIntSetValueUint32 @ 0x1403F3934 (SymCryptIntSetValueUint32.c)
+ *     SymCryptIntSetValueUint64 @ 0x1403F394C (SymCryptIntSetValueUint64.c)
+ *     SymCryptIntSubUint32 @ 0x1403F39AC (SymCryptIntSubUint32.c)
+ *     SymCryptIntToDivisor @ 0x1403F39C4 (SymCryptIntToDivisor.c)
+ *     SymCryptCrtGenerateInverses @ 0x1403F8190 (SymCryptCrtGenerateInverses.c)
+ *     SymCryptIntExtendedGcd @ 0x1403F81E4 (SymCryptIntExtendedGcd.c)
+ */
+
 __int64 __fastcall SymCryptRsakeyCalculatePrivateFields(
         __int64 a1,
         __int64 a2,

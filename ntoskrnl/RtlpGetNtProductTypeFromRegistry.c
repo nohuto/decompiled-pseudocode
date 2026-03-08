@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlpGetNtProductTypeFromRegistry @ 0x14087B034
+ * Callers:
+ *     RtlGetNtProductType @ 0x140303E90 (RtlGetNtProductType.c)
+ *     PspSiloInitializeUserSharedData @ 0x1409AA8E8 (PspSiloInitializeUserSharedData.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ */
+
 __int64 __fastcall RtlpGetNtProductTypeFromRegistry(_DWORD *a1)
 {
   NTSTATUS v2; // ebx

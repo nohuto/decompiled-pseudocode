@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlStringCchPrintfExA @ 0x1C002BB4C
+ * Callers:
+ *     ACPIGetProcessorIDWide @ 0x1C002ABD0 (ACPIGetProcessorIDWide.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     RtlStringExHandleOtherFlagsA @ 0x1C002BD04 (RtlStringExHandleOtherFlagsA.c)
+ *     RtlStringVPrintfWorkerA @ 0x1C002BDC0 (RtlStringVPrintfWorkerA.c)
+ */
+
 NTSTATUS RtlStringCchPrintfExA(
         NTSTRSAFE_PSTR pszDest,
         size_t cchDest,

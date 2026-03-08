@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmFcpIncrementChangeStamp @ 0x140818BB8
+ * Callers:
+ *     CmFcManagerStartBootPhase @ 0x140B537D8 (CmFcManagerStartBootPhase.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmFcpIncrementChangeStamp(__int64 a1)
 {
   bool v1; // zf

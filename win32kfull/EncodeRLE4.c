@@ -1,3 +1,12 @@
+/*
+ * XREFs of EncodeRLE4 @ 0x1C02F2C7C
+ * Callers:
+ *     ?GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@PEAUHBITMAP__@@IIAEAV?$umptr_w@E@@PEAUtagBITMAPINFO@@III@Z @ 0x1C008A530 (-GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@P.c)
+ * Callees:
+ *     ?WriteEncoded8@@YAHEPEAEIPEBE@Z @ 0x1C02EF798 (-WriteEncoded8@@YAHEPEAEIPEBE@Z.c)
+ *     ?WriteAbsolute4@@YAHPEBEPEAEH0@Z @ 0x1C02F0F14 (-WriteAbsolute4@@YAHPEBEPEAEH0@Z.c)
+ */
+
 __int64 __fastcall EncodeRLE4(__int64 a1, unsigned __int8 *a2, int a3, unsigned int a4, int a5)
 {
   unsigned int v5; // r10d

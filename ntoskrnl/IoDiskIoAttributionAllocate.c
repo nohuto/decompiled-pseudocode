@@ -1,3 +1,15 @@
+/*
+ * XREFs of IoDiskIoAttributionAllocate @ 0x1407532F4
+ * Callers:
+ *     PspSetJobIoAttribution @ 0x1407530A0 (PspSetJobIoAttribution.c)
+ *     PspIoRateEntryActivate @ 0x140753428 (PspIoRateEntryActivate.c)
+ * Callees:
+ *     ExInitializePushLock @ 0x140238200 (ExInitializePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     IoDiskIoAttributionReference @ 0x14045B478 (IoDiskIoAttributionReference.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 struct _EX_RUNDOWN_REF *__fastcall IoDiskIoAttributionAllocate(unsigned __int64 a1, __int64 a2)
 {
   struct _EX_RUNDOWN_REF *result; // rax

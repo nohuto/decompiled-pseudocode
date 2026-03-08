@@ -1,3 +1,19 @@
+/*
+ * XREFs of PiDrvDbUnregisterNode @ 0x14096E504
+ * Callers:
+ *     PiDrvDbUnmountNode @ 0x14096E4A8 (PiDrvDbUnmountNode.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x140412E10 (ZwOpenDirectoryObject.c)
+ *     ZwMakeTemporaryObject @ 0x1404145F0 (ZwMakeTemporaryObject.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1404149D0 (ZwOpenSymbolicLinkObject.c)
+ *     PiDrvDbDriverStoreNodesUpdated @ 0x14081C56C (PiDrvDbDriverStoreNodesUpdated.c)
+ *     PiDrvDbDestroyNode @ 0x14096CEBC (PiDrvDbDestroyNode.c)
+ *     _PnpCtxUnregisterMachineNode @ 0x140A5E08C (_PnpCtxUnregisterMachineNode.c)
+ *     DrvDbUnregisterDatabase @ 0x140A6AC64 (DrvDbUnregisterDatabase.c)
+ */
+
 __int64 __fastcall PiDrvDbUnregisterNode(char *P)
 {
   __int64 v2; // rcx

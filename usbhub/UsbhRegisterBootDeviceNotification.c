@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhRegisterBootDeviceNotification @ 0x1C005C0FC
+ * Callers:
+ *     UsbhPdoPnp_DeviceUsageNotification @ 0x1C0054E60 (UsbhPdoPnp_DeviceUsageNotification.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall UsbhRegisterBootDeviceNotification(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetAdapterPerfDataCaps@DXGADAPTER@@QEAAJPEAU_D3DKMT_ADAPTER_PERFDATACAPS@@@Z @ 0x1C02B2BB8
+ * Callers:
+ *     ?DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C018DC00 (-DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ *     DxgkQueryStatisticsInternal @ 0x1C02CF990 (DxgkQueryStatisticsInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DXGADAPTER::GetAdapterPerfDataCaps(DXGADAPTER *this, struct _D3DKMT_ADAPTER_PERFDATACAPS *a2)
 {
   __int64 PhysicalAdapterIndex; // rax

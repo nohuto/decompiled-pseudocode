@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcGetNumberOfMappedPages @ 0x1403D0CE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ */
+
 __int64 __fastcall CcGetNumberOfMappedPages(__int64 a1, _QWORD *a2, _QWORD *a3)
 {
   __int64 v3; // rdi

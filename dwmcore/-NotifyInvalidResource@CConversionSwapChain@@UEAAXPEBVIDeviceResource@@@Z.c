@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NotifyInvalidResource@CConversionSwapChain@@UEAAXPEBVIDeviceResource@@@Z @ 0x18029EED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E91E4 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ */
+
 void __fastcall CConversionSwapChain::NotifyInvalidResource(
         CConversionSwapChain *this,
         const struct IDeviceResource *a2)

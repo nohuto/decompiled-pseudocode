@@ -1,3 +1,20 @@
+/*
+ * XREFs of ExpReleaseDisownedFastResourceExclusive @ 0x1406082E4
+ * Callers:
+ *     ExReleaseDisownedFastResource @ 0x1403C5440 (ExReleaseDisownedFastResource.c)
+ *     ExReleaseDisownedFastResourceExclusive @ 0x1406079A0 (ExReleaseDisownedFastResourceExclusive.c)
+ *     ExReleaseDisownedFastResourceShared @ 0x140607AC0 (ExReleaseDisownedFastResourceShared.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAbCrossThreadRelease @ 0x1403C57F8 (KeAbCrossThreadRelease.c)
+ *     ExpRotateFastOwnerEntrySublistHead @ 0x1403C589C (ExpRotateFastOwnerEntrySublistHead.c)
+ *     ExpCommitWakeResourceExclusive @ 0x1403C60E0 (ExpCommitWakeResourceExclusive.c)
+ *     ExpPrepareToWakeResourceExclusive @ 0x1403C611C (ExpPrepareToWakeResourceExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExpReleaseDisownedFastResourceExclusive(__int64 a1, __int64 a2)
 {
   unsigned __int8 CurrentIrql; // di

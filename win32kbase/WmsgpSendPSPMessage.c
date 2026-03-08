@@ -1,3 +1,13 @@
+/*
+ * XREFs of WmsgpSendPSPMessage @ 0x1C0301E34
+ * Callers:
+ *     xxxSendWinlogonPowerMessage @ 0x1C0159AA0 (xxxSendWinlogonPowerMessage.c)
+ * Callees:
+ *     ClientI_WMsgkSendPSPMessage @ 0x1C00D6600 (ClientI_WMsgkSendPSPMessage.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 RPC_STATUS __fastcall WmsgpSendPSPMessage(__int64 a1, int a2, __int128 *a3, RPC_STATUS *a4)
 {
   __int128 v6; // xmm6

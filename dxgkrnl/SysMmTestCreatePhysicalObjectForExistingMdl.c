@@ -1,3 +1,11 @@
+/*
+ * XREFs of SysMmTestCreatePhysicalObjectForExistingMdl @ 0x1C00717D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SmmCreatePhysicalObject @ 0x1C00130BC (SmmCreatePhysicalObject.c)
+ */
+
 __int64 __fastcall SysMmTestCreatePhysicalObjectForExistingMdl(
         struct SYSMM_ADAPTER *a1,
         __int64 a2,

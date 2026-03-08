@@ -1,3 +1,12 @@
+/*
+ * XREFs of StringVPrintfWorkerW @ 0x1800AE294
+ * Callers:
+ *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1800AE258 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ?StringCchVPrintfW@@YAJPEAG_KPEBGPEAD@Z @ 0x180197060 (-StringCchVPrintfW@@YAJPEAG_KPEBGPEAD@Z.c)
+ * Callees:
+ *     _vsnwprintf @ 0x18010F5C0 (_vsnwprintf.c)
+ */
+
 HRESULT __stdcall StringVPrintfWorkerW(
         STRSAFE_LPWSTR pszDest,
         size_t cchDest,

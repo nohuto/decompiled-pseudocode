@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiNumberWsSwapPagefiles @ 0x140361990
+ * Callers:
+ *     MiWorkingSetManager @ 0x1403616C0 (MiWorkingSetManager.c)
+ *     MiContractWsSwapPageFile @ 0x14067E2A0 (MiContractWsSwapPageFile.c)
+ *     MiInsertPageFileInList @ 0x140835F30 (MiInsertPageFileInList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiNumberWsSwapPagefiles(__int64 a1)
 {
   unsigned int v1; // eax

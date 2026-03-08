@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBFDO_EvtDeviceUsageNotification @ 0x1C000DA00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBUCX_NotifyForwardProgress @ 0x1C00293F8 (HUBUCX_NotifyForwardProgress.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 volatile signed __int32 *__fastcall HUBFDO_EvtDeviceUsageNotification(__int64 a1, int a2, char a3)
 {
   volatile signed __int32 *result; // rax

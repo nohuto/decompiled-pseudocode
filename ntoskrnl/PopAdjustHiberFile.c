@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopAdjustHiberFile @ 0x140984CE4
+ * Callers:
+ *     PopUnlockAfterSleepWorker @ 0x140AA37E0 (PopUnlockAfterSleepWorker.c)
+ * Callees:
+ *     PopCalculateHiberFileSize @ 0x1407FC9FC (PopCalculateHiberFileSize.c)
+ *     PopResizeHiberFile @ 0x140985EE0 (PopResizeHiberFile.c)
+ */
+
 __int64 __fastcall PopAdjustHiberFile(__int64 a1)
 {
   __int64 result; // rax

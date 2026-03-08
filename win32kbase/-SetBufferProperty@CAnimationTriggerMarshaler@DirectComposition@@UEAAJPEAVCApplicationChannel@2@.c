@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CAnimationTriggerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C025BE00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CAnimationTriggerMarshaler::SetBufferProperty(
         DirectComposition::CAnimationTriggerMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

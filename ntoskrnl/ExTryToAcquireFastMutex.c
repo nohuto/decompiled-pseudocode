@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExTryToAcquireFastMutex @ 0x1402D5440
+ * Callers:
+ *     KeTryToAcquireGuardedMutex @ 0x1402D5420 (KeTryToAcquireGuardedMutex.c)
+ *     FsRtlTryToAcquireHeaderMutex @ 0x14053A460 (FsRtlTryToAcquireHeaderMutex.c)
+ *     DifExTryToAcquireFastMutexWrapper @ 0x1405D7B00 (DifExTryToAcquireFastMutexWrapper.c)
+ *     DifKeTryToAcquireGuardedMutexWrapper @ 0x1405E3A40 (DifKeTryToAcquireGuardedMutexWrapper.c)
+ *     RawScanDeletedList @ 0x1406F3E5C (RawScanDeletedList.c)
+ *     CreateMiniNtBootKey @ 0x140B8D580 (CreateMiniNtBootKey.c)
+ * Callees:
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 BOOLEAN __stdcall ExTryToAcquireFastMutex(PFAST_MUTEX FastMutex)
 {
   __int64 v2; // rax

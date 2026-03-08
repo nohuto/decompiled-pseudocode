@@ -1,3 +1,11 @@
+/*
+ * XREFs of Controller_GetQpcValueForFrameMicroFrameBoundary @ 0x1C00335E8
+ * Callers:
+ *     Controller_TranslateFrameNumberToQpcValue @ 0x1C003539C (Controller_TranslateFrameNumberToQpcValue.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Controller_GetQpcValueForFrameMicroFrameBoundary(
         __int64 a1,
         int a2,

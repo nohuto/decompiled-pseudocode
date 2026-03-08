@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserUpdatePerUserSystemParameters @ 0x1C010ACC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxUpdatePerUserSystemParameters @ 0x1C010AFDC (xxxUpdatePerUserSystemParameters.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall NtUserUpdatePerUserSystemParameters(unsigned int a1)
 {
   __int64 updated; // rbx

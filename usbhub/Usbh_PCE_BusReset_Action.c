@@ -1,3 +1,16 @@
+/*
+ * XREFs of Usbh_PCE_BusReset_Action @ 0x1C001B150
+ * Callers:
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0014330 (UsbhDispatch_PortChangeQueueEventEx.c)
+ * Callees:
+ *     UsbhFlushPortChangeQueue @ 0x1C00041C0 (UsbhFlushPortChangeQueue.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhLogSignalResumeEvent @ 0x1C001B7B8 (UsbhLogSignalResumeEvent.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     UsbhSetPcqEventStatus @ 0x1C0035294 (UsbhSetPcqEventStatus.c)
+ *     UsbhUnlockPcqWithTag @ 0x1C0035444 (UsbhUnlockPcqWithTag.c)
+ */
+
 void __fastcall Usbh_PCE_BusReset_Action(__int64 a1, __int64 a2)
 {
   _DWORD *v4; // rdx

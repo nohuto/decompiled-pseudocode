@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetGetUndimSourceInputTypeMask @ 0x1C0244B6C
+ * Callers:
+ *     ??0CInputGlobals@@AEAA@XZ @ 0x1C0097BCC (--0CInputGlobals@@AEAA@XZ.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 ApiSetGetUndimSourceInputTypeMask()
 {
   char v0; // bl

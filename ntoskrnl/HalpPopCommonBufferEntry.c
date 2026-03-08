@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpPopCommonBufferEntry @ 0x14050DB00
+ * Callers:
+ *     HalFreeCommonBufferV3 @ 0x14050FE10 (HalFreeCommonBufferV3.c)
+ *     HalFreeCommonBufferDmaThin @ 0x140510E60 (HalFreeCommonBufferDmaThin.c)
+ *     HalFreeCommonBufferDmarThin @ 0x140511580 (HalFreeCommonBufferDmarThin.c)
+ * Callees:
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall HalpPopCommonBufferEntry(unsigned __int64 a1, __int64 a2)
 {
   unsigned __int64 v2; // rbp

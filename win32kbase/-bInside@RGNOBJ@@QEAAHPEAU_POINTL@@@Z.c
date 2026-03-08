@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bInside@RGNOBJ@@QEAAHPEAU_POINTL@@@Z @ 0x1C0007080
+ * Callers:
+ *     GrePtInRegion @ 0x1C0007000 (GrePtInRegion.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RGNOBJ::bInside(RGNOBJ *this, struct _POINTL *a2)
 {
   __int64 v2; // rax

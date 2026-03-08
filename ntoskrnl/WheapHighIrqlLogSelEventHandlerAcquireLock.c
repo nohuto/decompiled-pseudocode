@@ -1,3 +1,13 @@
+/*
+ * XREFs of WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x140610F68
+ * Callers:
+ *     WheaHighIrqlLogSelEventHandlerRegister @ 0x140610CA0 (WheaHighIrqlLogSelEventHandlerRegister.c)
+ *     WheaHighIrqlLogSelEventHandlerUnregister @ 0x140610D10 (WheaHighIrqlLogSelEventHandlerUnregister.c)
+ *     WheapLogIpmiSELEventHighIrql @ 0x140611030 (WheapLogIpmiSELEventHighIrql.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall WheapHighIrqlLogSelEventHandlerAcquireLock(char a1)
 {
   char v1; // dl

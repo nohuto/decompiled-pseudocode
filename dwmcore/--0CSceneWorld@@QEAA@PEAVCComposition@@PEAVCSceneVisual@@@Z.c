@@ -1,3 +1,17 @@
+/*
+ * XREFs of ??0CSceneWorld@@QEAA@PEAVCComposition@@PEAVCSceneVisual@@@Z @ 0x18026000C
+ * Callers:
+ *     ?OnRootChanged@CSceneVisual@@QEAAJXZ @ 0x180216FD8 (-OnRootChanged@CSceneVisual@@QEAAJXZ.c)
+ * Callees:
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038C50 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ??0CContent@@IEAA@PEAVCComposition@@@Z @ 0x1800B8F68 (--0CContent@@IEAA@PEAVCComposition@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??2CParticleVector2Behavior@@CAPEAX_K@Z @ 0x18019A474 (--2CParticleVector2Behavior@@CAPEAX_K@Z.c)
+ *     ?RegisterSceneListener@CSceneResourceManager@@QEAAXPEAUISceneNotificationListener@@@Z @ 0x1801BA17C (-RegisterSceneListener@CSceneResourceManager@@QEAAXPEAUISceneNotificationListener@@@Z.c)
+ *     ??0CCompositionEnvironmentLight@@QEAA@PEAVCComposition@@@Z @ 0x18026AAE8 (--0CCompositionEnvironmentLight@@QEAA@PEAVCComposition@@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ */
+
 CSceneWorld *__fastcall CSceneWorld::CSceneWorld(CSceneWorld *this, struct CComposition *a2, struct CSceneVisual *a3)
 {
   __int64 v5; // rcx

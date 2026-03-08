@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$QueryInterface@VConnectionIndirector@BamoImpl@Microsoft@@UIMessageConversationHost@@UIMessageConversationBouncer@@@Util@BamoImpl@Microsoft@@YAJPEAVConnectionIndirector@12@AEBU_GUID@@PEAPEAX@Z @ 0x1800FEEF0
+ * Callers:
+ *     ?QueryInterface@ConnectionIndirector@BamoImpl@Microsoft@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800FEEE0 (-QueryInterface@ConnectionIndirector@BamoImpl@Microsoft@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Microsoft::BamoImpl::Util::QueryInterface<Microsoft::BamoImpl::ConnectionIndirector,IMessageConversationHost,IMessageConversationBouncer>(
         __int64 a1,
         _QWORD *a2,

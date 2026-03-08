@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMEnsureUsageWithinLogicalBoundary @ 0x1C00F11AE
+ * Callers:
+ *     rimExtractPointerDeviceUsages @ 0x1C01D78A0 (rimExtractPointerDeviceUsages.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RIMEnsureUsageWithinLogicalBoundary(__int64 a1)
 {
   int v1; // r9d

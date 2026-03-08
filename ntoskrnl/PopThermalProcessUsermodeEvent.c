@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopThermalProcessUsermodeEvent @ 0x140987DC8
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopThermalEventTransitionDisableDeepSleep @ 0x14058D4A8 (PopThermalEventTransitionDisableDeepSleep.c)
+ *     PopThermalWriteShutdownToRegistry @ 0x14058DC80 (PopThermalWriteShutdownToRegistry.c)
+ *     PopDiagTraceUsermodeThermalEvent @ 0x14098F074 (PopDiagTraceUsermodeThermalEvent.c)
+ *     PopDiagTraceUsermodeTripPointExceeded @ 0x14098F160 (PopDiagTraceUsermodeTripPointExceeded.c)
+ *     PopSqmThermalUsermodeEvent @ 0x14099DE7C (PopSqmThermalUsermodeEvent.c)
+ */
+
 __int64 __fastcall PopThermalProcessUsermodeEvent(__int64 a1)
 {
   __int64 v2; // r9

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PtInClipRegion@MOVESIZEDATA@@QEBA_NAEBUtagPOINT@@@Z @ 0x1C023D078
+ * Callers:
+ *     ?xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z @ 0x1C01EFBFC (-xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z.c)
+ * Callees:
+ *     PtInRect @ 0x1C00A34E8 (PtInRect.c)
+ *     TransformRegionBetweenCoordinateSpaces @ 0x1C01BB400 (TransformRegionBetweenCoordinateSpaces.c)
+ */
+
 bool __fastcall MOVESIZEDATA::PtInClipRegion(MOVESIZEDATA *this, const struct tagPOINT *a2)
 {
   __int64 v2; // r9

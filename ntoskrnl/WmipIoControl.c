@@ -1,3 +1,29 @@
+/*
+ * XREFs of WmipIoControl @ 0x140787290
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoIs32bitProcess @ 0x140245910 (IoIs32bitProcess.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     WmipReceiveNotifications @ 0x1402F642C (WmipReceiveNotifications.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     WmipOpenBlock @ 0x14069AF1C (WmipOpenBlock.c)
+ *     WmipQuerySetExecuteSI @ 0x14069C72C (WmipQuerySetExecuteSI.c)
+ *     WmipQueryAllData @ 0x14069DF2C (WmipQueryAllData.c)
+ *     WmipProbeWmiOpenGuidBlock @ 0x1407875E8 (WmipProbeWmiOpenGuidBlock.c)
+ *     WmipQueryGuidInfo @ 0x140787880 (WmipQueryGuidInfo.c)
+ *     WmipEnumerateMofResources @ 0x140787950 (WmipEnumerateMofResources.c)
+ *     WmipProbeWnodeSingleInstance @ 0x140787AE4 (WmipProbeWnodeSingleInstance.c)
+ *     ObOpenObjectByPointer @ 0x1407C93D0 (ObOpenObjectByPointer.c)
+ *     WmipEnumerateGuids @ 0x1409DD9FC (WmipEnumerateGuids.c)
+ *     WmipQueryAllDataMultiple @ 0x1409DDE84 (WmipQueryAllDataMultiple.c)
+ *     WmipQuerySingleMultiple @ 0x1409DE144 (WmipQuerySingleMultiple.c)
+ *     WmipProbeWnodeMethodItem @ 0x1409DE82C (WmipProbeWnodeMethodItem.c)
+ *     WmipProbeWnodeSingleItem @ 0x1409DE89C (WmipProbeWnodeSingleItem.c)
+ *     WmipTranslateFileHandle @ 0x1409DE90C (WmipTranslateFileHandle.c)
+ */
+
 __int64 __fastcall WmipIoControl(__int64 a1, IRP *a2, __int64 a3, __int64 a4)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rax

@@ -1,3 +1,19 @@
+/*
+ * XREFs of ??0CHMRefHwndByHandle@@QEAA@PEAUHWND__@@_N111@Z @ 0x1C008F460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IsGetDesktopViewSupported @ 0x1C003AA34 (IsGetDesktopViewSupported.c)
+ *     EtwTraceUIPIHandleValidationError @ 0x1C003CC40 (EtwTraceUIPIHandleValidationError.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     HMIsHandleEntrySecure @ 0x1C00ED28E (HMIsHandleEntrySecure.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqq @ 0x1C0153AA4 (WPP_RECORDER_AND_TRACE_SF_qqq.c)
+ */
+
 CHMRefHwndByHandle *__fastcall CHMRefHwndByHandle::CHMRefHwndByHandle(
         CHMRefHwndByHandle *this,
         HWND a2,

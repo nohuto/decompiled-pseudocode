@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlApplyFunctionOverrideFixups @ 0x140679570
+ * Callers:
+ *     MiPerformFixups @ 0x14069F3D0 (MiPerformFixups.c)
+ * Callees:
+ *     ?RtlpGetFunctionOverrideIndex@@YAPEBU_RTL_FUNCTION_OVERRIDE_INDEX@@PEBU_RTL_FUNCTION_OVERRIDE_INFORMATION@@K@Z @ 0x140679548 (-RtlpGetFunctionOverrideIndex@@YAPEBU_RTL_FUNCTION_OVERRIDE_INDEX@@PEBU_RTL_FUNCTION_OVERRIDE_IN.c)
+ */
+
 unsigned __int64 __fastcall RtlApplyFunctionOverrideFixups(
         const struct _RTL_FUNCTION_OVERRIDE_INFORMATION *a1,
         unsigned int a2,

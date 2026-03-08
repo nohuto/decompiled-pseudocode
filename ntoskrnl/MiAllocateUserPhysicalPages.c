@@ -1,3 +1,41 @@
+/*
+ * XREFs of MiAllocateUserPhysicalPages @ 0x140A3D6E8
+ * Callers:
+ *     NtAllocateUserPhysicalPages @ 0x140A3F670 (NtAllocateUserPhysicalPages.c)
+ *     NtAllocateUserPhysicalPagesEx @ 0x140A3F690 (NtAllocateUserPhysicalPagesEx.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MiAllocatePagesForMdl @ 0x1402B3B18 (MiAllocatePagesForMdl.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14031F590 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14031F600 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiGetProcessPartition @ 0x14031F9D4 (MiGetProcessPartition.c)
+ *     MiChargeProcessCommitment @ 0x14031FA10 (MiChargeProcessCommitment.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     MiHugePagesSupported @ 0x1403C1984 (MiHugePagesSupported.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KeGetIdealNodeNumberThread @ 0x14056E190 (KeGetIdealNodeNumberThread.c)
+ *     MiFreeAwePagesFromMdl @ 0x140647764 (MiFreeAwePagesFromMdl.c)
+ *     MiGetAweInfoPartition @ 0x1406482AC (MiGetAweInfoPartition.c)
+ *     MiGetAwePageSize @ 0x14064836C (MiGetAwePageSize.c)
+ *     MiLockAwePagesShared @ 0x140648A68 (MiLockAwePagesShared.c)
+ *     MiReferenceAweHandle @ 0x14064976C (MiReferenceAweHandle.c)
+ *     MiUnlockAweVadsShared @ 0x14064989C (MiUnlockAweVadsShared.c)
+ *     MiReturnProcessCommitment @ 0x140654090 (MiReturnProcessCommitment.c)
+ *     MiGetCrossPartitionCharges @ 0x1406579B0 (MiGetCrossPartitionCharges.c)
+ *     MiCaptureAllocateMapExtendedParameters @ 0x1407282D0 (MiCaptureAllocateMapExtendedParameters.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     MiAllocateFastAwePages @ 0x140A3D534 (MiAllocateFastAwePages.c)
+ *     MiAllocateUserPhysicalRanges @ 0x140A3E4C0 (MiAllocateUserPhysicalRanges.c)
+ *     MiCreateProcessDefaultAweInfo @ 0x140A3EA20 (MiCreateProcessDefaultAweInfo.c)
+ *     MiResizeAweBitMap @ 0x140A3F4A0 (MiResizeAweBitMap.c)
+ *     MiChargeProcessPhysicalPages @ 0x140A40C34 (MiChargeProcessPhysicalPages.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 int __fastcall MiAllocateUserPhysicalPages(
         HANDLE Handle,
         unsigned __int64 *a2,

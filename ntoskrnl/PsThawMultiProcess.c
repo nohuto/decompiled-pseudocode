@@ -1,3 +1,30 @@
+/*
+ * XREFs of PsThawMultiProcess @ 0x1402FFE80
+ * Callers:
+ *     DbgkpResumeProcess @ 0x140936438 (DbgkpResumeProcess.c)
+ *     DbgkpSendApiMessage @ 0x1409370E0 (DbgkpSendApiMessage.c)
+ *     DbgkpSendApiMessageLpc @ 0x1409371D8 (DbgkpSendApiMessageLpc.c)
+ *     DbgkpSendErrorMessage @ 0x14093730C (DbgkpSendErrorMessage.c)
+ *     NtChangeProcessState @ 0x1409ACD20 (NtChangeProcessState.c)
+ *     PspDeleteProcessStateChange @ 0x1409AE120 (PspDeleteProcessStateChange.c)
+ *     PsThawProcess @ 0x1409B31CC (PsThawProcess.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     KeThawMultiProcess @ 0x140356058 (KeThawMultiProcess.c)
+ *     PsWow64GetProcessNtdllType @ 0x140707820 (PsWow64GetProcessNtdllType.c)
+ *     PsInvokeWin32Callout @ 0x1407D2D10 (PsInvokeWin32Callout.c)
+ *     PsSetProcessTelemetryAppState @ 0x1407E7C28 (PsSetProcessTelemetryAppState.c)
+ *     PspWow64GetSharedInformation @ 0x14084AC08 (PspWow64GetSharedInformation.c)
+ *     VslUpdateFreezeTimeBias @ 0x14094055C (VslUpdateFreezeTimeBias.c)
+ *     EtwTraceFreezeThawProcess @ 0x1409E243C (EtwTraceFreezeThawProcess.c)
+ *     EtwTiLogSuspendResumeProcess @ 0x1409E5EB4 (EtwTiLogSuspendResumeProcess.c)
+ */
+
 __int64 __fastcall PsThawMultiProcess(__int64 a1, __int64 a2, unsigned int a3)
 {
   char v4; // si

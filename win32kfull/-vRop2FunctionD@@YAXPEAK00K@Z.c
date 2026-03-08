@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vRop2FunctionD@@YAXPEAK00K@Z @ 0x1C03078C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vRop2FunctionD(unsigned int *a1, char *a2, char *a3, int a4)
 {
   signed __int64 v4; // rdx

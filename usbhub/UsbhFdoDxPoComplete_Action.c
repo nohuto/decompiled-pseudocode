@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhFdoDxPoComplete_Action @ 0x1C000B5D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhEtwLogHubPowerEvent @ 0x1C00096F0 (UsbhEtwLogHubPowerEvent.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhReleasePowerContext @ 0x1C001BA68 (UsbhReleasePowerContext.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ */
+
 void __fastcall UsbhFdoDxPoComplete_Action(
         __int64 DeviceObject,
         UCHAR MinorFunction,

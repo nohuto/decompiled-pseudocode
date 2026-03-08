@@ -1,3 +1,12 @@
+/*
+ * XREFs of ObpUseSystemDeviceMap @ 0x14067CA7C
+ * Callers:
+ *     ObpLookupObjectName @ 0x1406E86B0 (ObpLookupObjectName.c)
+ * Callees:
+ *     RtlUpcaseUnicodeChar @ 0x1406EA4F0 (RtlUpcaseUnicodeChar.c)
+ *     RtlGetNtSystemRoot @ 0x1407F7270 (RtlGetNtSystemRoot.c)
+ */
+
 bool __fastcall ObpUseSystemDeviceMap(__int64 a1)
 {
   WCHAR *NtSystemRoot; // rax

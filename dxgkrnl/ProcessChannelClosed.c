@@ -1,3 +1,12 @@
+/*
+ * XREFs of ProcessChannelClosed @ 0x1C0362880
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?NotifyChannelClosed@DXGVMBUSCHANNEL@@QEAAXXZ @ 0x1C0361FF8 (-NotifyChannelClosed@DXGVMBUSCHANNEL@@QEAAXXZ.c)
+ */
+
 void ProcessChannelClosed()
 {
   struct _EX_RUNDOWN_REF *v0; // rax

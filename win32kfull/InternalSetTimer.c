@@ -1,3 +1,25 @@
+/*
+ * XREFs of InternalSetTimer @ 0x1C0061830
+ * Callers:
+ *     _SetSystemTimer @ 0x1C0006384 (_SetSystemTimer.c)
+ *     _anonymous_namespace_::AppStarting_Set @ 0x1C003EF54 (_anonymous_namespace_--AppStarting_Set.c)
+ *     ?zzzAnimateCursor@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C0061410 (-zzzAnimateCursor@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     NtUserSetTimer @ 0x1C00616A0 (NtUserSetTimer.c)
+ *     ?ConfigureRITDelayableTimers@@YAXW4RitTimerRate@@@Z @ 0x1C007933C (-ConfigureRITDelayableTimers@@YAXW4RitTimerRate@@@Z.c)
+ *     SetRITTimer @ 0x1C00793E0 (SetRITTimer.c)
+ *     SetJournalTimer @ 0x1C01C19C8 (SetJournalTimer.c)
+ *     _SetTimer @ 0x1C01C1BF4 (_SetTimer.c)
+ *     xxxSoundSentry @ 0x1C01F73D8 (xxxSoundSentry.c)
+ *     ?MNSetTimerToAutoDismiss@@YAXPEAUtagMENUSTATE@@PEAUtagWND@@@Z @ 0x1C0218490 (-MNSetTimerToAutoDismiss@@YAXPEAUtagMENUSTATE@@PEAUtagWND@@@Z.c)
+ *     ?MNSetTimerToOpenHierarchy@@YAIAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@@Z @ 0x1C02184EC (-MNSetTimerToOpenHierarchy@@YAIAEBV-$SmartObjStackRef@UtagPOPUPMENU@@@@@Z.c)
+ *     MNSetTimerToCloseHierarchy @ 0x1C0219500 (MNSetTimerToCloseHierarchy.c)
+ *     UserSetTimer @ 0x1C022FBB8 (UserSetTimer.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?DecTimerCount@@YAXPEAUtagTIMER@@@Z @ 0x1C00DDC4C (-DecTimerCount@@YAXPEAUtagTIMER@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall InternalSetTimer(unsigned __int64 a1, __int64 a2, unsigned int a3, __int64 a4, int a5, int a6)
 {

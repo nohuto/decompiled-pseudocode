@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??0CInteraction@@IEAA@PEAVCComposition@@@Z @ 0x1800E4C20
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     ?GetD3DMatrix@CMILMatrix@@QEBA?AU_D3DMATRIX@@XZ @ 0x1800E4D30 (-GetD3DMatrix@CMILMatrix@@QEBA-AU_D3DMATRIX@@XZ.c)
+ *     ??0CInteractionProcessor@@QEAA@XZ @ 0x1800E4D9C (--0CInteractionProcessor@@QEAA@XZ.c)
+ *     ?GetEntry@CInteraction@@CAPEAUHANDLE_ENTRY@1@I@Z @ 0x1800E5118 (-GetEntry@CInteraction@@CAPEAUHANDLE_ENTRY@1@I@Z.c)
+ *     ?GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z @ 0x1800E5158 (-GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z.c)
+ *     McTemplateU0ppq_EventWriteTransfer @ 0x18019F440 (McTemplateU0ppq_EventWriteTransfer.c)
+ */
+
 CInteraction *__fastcall CInteraction::CInteraction(CInteraction *this, struct CComposition *a2)
 {
   unsigned int *v3; // rdi

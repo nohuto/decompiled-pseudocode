@@ -1,3 +1,25 @@
+/*
+ * XREFs of GreGetRandomRgn @ 0x1C0125C40
+ * Callers:
+ *     _ExcludeUpdateRgn @ 0x1C000665C (_ExcludeUpdateRgn.c)
+ *     NtGdiGetRandomRgn @ 0x1C0050B90 (NtGdiGetRandomRgn.c)
+ *     ?GetTrueClipRgn@@YAHPEAUHDC__@@PEAUHRGN__@@@Z @ 0x1C0230CB0 (-GetTrueClipRgn@@YAHPEAUHDC__@@PEAUHRGN__@@@Z.c)
+ *     DrawTextExWorker @ 0x1C024FEBC (DrawTextExWorker.c)
+ * Callees:
+ *     ??0DEVLOCKOBJ@@QEAA@XZ @ 0x1C00272BC (--0DEVLOCKOBJ@@QEAA@XZ.c)
+ *     UserGetRedirectedWindowOrigin @ 0x1C0038F40 (UserGetRedirectedWindowOrigin.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C00508E4 (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C0050C40 (--1DCOBJ@@QEAA@XZ.c)
+ *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C0050D68 (--1DEVLOCKOBJ@@QEAA@XZ.c)
+ *     ??1?$lambda_call@V_lambda_d4ac050843a32da14874304f2689d2a8_@@@details@wil@@QEAA@XZ @ 0x1C012F82C (--1-$lambda_call@V_lambda_d4ac050843a32da14874304f2689d2a8_@@@details@wil@@QEAA@XZ.c)
+ *     ?AcquireDcVisRgnShared@DC@@QEAA@XZ @ 0x1C012F8A4 (-AcquireDcVisRgnShared@DC@@QEAA@XZ.c)
+ *     Feature_3160330556__private_IsEnabledDeviceUsage @ 0x1C012FB20 (Feature_3160330556__private_IsEnabledDeviceUsage.c)
+ *     _lambda_27add1e8d57a913bfbcc33c9b5f13734_::operator() @ 0x1C0130118 (_lambda_27add1e8d57a913bfbcc33c9b5f13734_--operator().c)
+ *     ?GreGetRandomRgn_Unpatched@@YAHPEAUHDC__@@PEAUHRGN__@@H@Z @ 0x1C013015C (-GreGetRandomRgn_Unpatched@@YAHPEAUHDC__@@PEAUHRGN__@@H@Z.c)
+ *     ?TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z @ 0x1C02910AC (-TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z.c)
+ */
+
 __int64 __fastcall GreGetRandomRgn(HDC a1, HRGN a2, int a3)
 {
   DC *v7; // rcx

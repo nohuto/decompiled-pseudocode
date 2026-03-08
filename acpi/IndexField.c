@@ -1,3 +1,19 @@
+/*
+ * XREFs of IndexField @ 0x1C0050740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ *     CreateNameSpaceObject @ 0x1C004F10C (CreateNameSpaceObject.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     GetNameSpaceObject @ 0x1C004F728 (GetNameSpaceObject.c)
+ *     ParseFieldList @ 0x1C005B230 (ParseFieldList.c)
+ */
+
 __int64 __fastcall IndexField(__int64 a1, _QWORD *a2)
 {
   __int64 v4; // rcx

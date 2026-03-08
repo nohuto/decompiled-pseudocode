@@ -1,3 +1,22 @@
+/*
+ * XREFs of ??1DXGPROCESS@@MEAA@XZ @ 0x1C01993E0
+ * Callers:
+ *     ??_GDXGPROCESS@@MEAAPEAXI@Z @ 0x1C0014E60 (--_GDXGPROCESS@@MEAAPEAXI@Z.c)
+ *     ??1DXGPROCESSVM@@UEAA@XZ @ 0x1C00555B0 (--1DXGPROCESSVM@@UEAA@XZ.c)
+ *     ??1DXGPROCESSVMWP@@UEAA@XZ @ 0x1C00555F4 (--1DXGPROCESSVMWP@@UEAA@XZ.c)
+ * Callees:
+ *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C00072DC (--1DXGFASTMUTEX@@QEAA@XZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?ReleaseDwmProcessReference@DXGSESSIONDATA@@QEAAXXZ @ 0x1C0016CCC (-ReleaseDwmProcessReference@DXGSESSIONDATA@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C01A8400 (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C01A9568 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ */
+
 void __fastcall DXGPROCESS::~DXGPROCESS(DXGPROCESS *this)
 {
   int v2; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetLayoutParameters@CVisualSurfaceRenderStrategy@@UEBAJPEBVCSurfaceBrush@@AEBUD2D_SIZE_F@@PEAU3@PEAUD2D_RECT_F@@PEAUD2D_MATRIX_3X2_F@@@Z @ 0x1800F7140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CVisualSurfaceRenderStrategy::GetLayoutParameters(
         CVisualSurfaceRenderStrategy *this,
         const struct CSurfaceBrush *a2,

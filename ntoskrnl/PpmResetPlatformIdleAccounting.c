@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmResetPlatformIdleAccounting @ 0x140583658
+ * Callers:
+ *     PpmInstallCoordinatedIdleStates @ 0x14097EDD0 (PpmInstallCoordinatedIdleStates.c)
+ *     PpmInstallPlatformIdleStates @ 0x14097F410 (PpmInstallPlatformIdleStates.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall PpmResetPlatformIdleAccounting(int *a1)
 {
   unsigned int v1; // edi

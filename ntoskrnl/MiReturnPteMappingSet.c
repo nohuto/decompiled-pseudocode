@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiReturnPteMappingSet @ 0x14032DFE8
+ * Callers:
+ *     MiCopyPage @ 0x14032DC70 (MiCopyPage.c)
+ *     MiSlowRotateCopy @ 0x140630B44 (MiSlowRotateCopy.c)
+ *     MiFillPageWithImageExtentContents @ 0x14063AC90 (MiFillPageWithImageExtentContents.c)
+ *     MiCopyMemoryPagefileData @ 0x14065D548 (MiCopyMemoryPagefileData.c)
+ * Callees:
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall MiReturnPteMappingSet(__int64 a1)
 {
   unsigned __int64 result; // rax

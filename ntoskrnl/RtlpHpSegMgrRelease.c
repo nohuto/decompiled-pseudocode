@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpHpSegMgrRelease @ 0x140308F28
+ * Callers:
+ *     RtlpHpSegMgrAllocate @ 0x14030853C (RtlpHpSegMgrAllocate.c)
+ *     RtlpHpSegSegmentFree @ 0x140308E54 (RtlpHpSegSegmentFree.c)
+ * Callees:
+ *     RtlpHpFreeVA @ 0x14020DC8C (RtlpHpFreeVA.c)
+ *     RtlpHpSegMgrCommit @ 0x140248BE0 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpSegMgrVaCtxFree @ 0x140309340 (RtlpHpSegMgrVaCtxFree.c)
+ *     RtlpHpQueryVA @ 0x140309578 (RtlpHpQueryVA.c)
+ */
+
 char __fastcall RtlpHpSegMgrRelease(__int64 a1, unsigned __int64 a2, int a3)
 {
   unsigned __int64 v3; // rdi

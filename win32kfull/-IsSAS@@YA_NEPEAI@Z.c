@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?IsSAS@@YA_NEPEAI@Z @ 0x1C0098AB0
+ * Callers:
+ *     EditionDoHotKeys @ 0x1C0097F80 (EditionDoHotKeys.c)
+ *     ?xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0097FCC (-xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ *     EditionKeyEventLLHook @ 0x1C00E83C0 (EditionKeyEventLLHook.c)
+ *     EditionIsSAS @ 0x1C0148E50 (EditionIsSAS.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall IsSAS(__int64 a1, unsigned int *a2)
 {
   int v2; // esi

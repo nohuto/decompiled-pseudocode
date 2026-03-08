@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ChangeState@TrackedWorkloadMonitor@@AEAAXW4TrackedWorkloadState@@PEAVRollingStats@@PEBUTrackedWorkloadStateInfo@@I@Z @ 0x1C0088068
+ * Callers:
+ *     ?Boost@TrackedWorkloadMonitor@@QEAAXPEAVRollingStats@@@Z @ 0x1C0088024 (-Boost@TrackedWorkloadMonitor@@QEAAXPEAVRollingStats@@@Z.c)
+ *     ?GetTargetPowerLevel@TrackedWorkloadMonitor@@QEAA_NPEAVRollingStats@@PEAI1@Z @ 0x1C0088258 (-GetTargetPowerLevel@TrackedWorkloadMonitor@@QEAA_NPEAVRollingStats@@PEAI1@Z.c)
+ * Callees:
+ *     ?Update@RollingStats@@QEAAXXZ @ 0x1C0088654 (-Update@RollingStats@@QEAAXXZ.c)
+ */
+
 char __fastcall TrackedWorkloadMonitor::ChangeState(__int64 a1, int a2, RollingStats *a3, __int64 a4, int a5)
 {
   unsigned int v8; // r10d

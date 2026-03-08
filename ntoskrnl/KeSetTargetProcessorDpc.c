@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeSetTargetProcessorDpc @ 0x14056FDF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     KeSetTargetProcessorDpcEx @ 0x1403007C0 (KeSetTargetProcessorDpcEx.c)
+ */
+
 void __stdcall KeSetTargetProcessorDpc(PRKDPC Dpc, CCHAR Number)
 {
   unsigned __int16 v4; // bx

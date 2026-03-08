@@ -1,3 +1,11 @@
+/*
+ * XREFs of ResumeThreadQueue @ 0x1C000A750
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ResumeThreadQueue(__int64 a1, int a2)
 {
   __int64 result; // rax

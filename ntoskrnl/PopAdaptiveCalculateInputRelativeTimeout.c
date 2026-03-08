@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopAdaptiveCalculateInputRelativeTimeout @ 0x14099871C
+ * Callers:
+ *     PopAdaptiveGetConsoleSessionState @ 0x14073C624 (PopAdaptiveGetConsoleSessionState.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopAdaptiveCalculateInputRelativeTimeout(unsigned __int64 a1, unsigned int a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // rcx

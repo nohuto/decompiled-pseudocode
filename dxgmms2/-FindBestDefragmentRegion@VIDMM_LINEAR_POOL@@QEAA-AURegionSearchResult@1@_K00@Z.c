@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FindBestDefragmentRegion@VIDMM_LINEAR_POOL@@QEAA?AURegionSearchResult@1@_K00@Z @ 0x1C0101FC8
+ * Callers:
+ *     ?MoveResourcesForAllocationPlacement@VIDMM_SEGMENT@@QEAAJPEAUVIDMM_ALLOC@@_K1W4VIDMM_DEFRAGMENT_DIRECTION@@PEA_NPEAPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00FE23C (-MoveResourcesForAllocationPlacement@VIDMM_SEGMENT@@QEAAJPEAUVIDMM_ALLOC@@_K1W4VIDMM_DEFRAGMENT_.c)
+ * Callees:
+ *     <none>
+ */
+
 _OWORD *__fastcall VIDMM_LINEAR_POOL::FindBestDefragmentRegion(
         __int64 a1,
         _OWORD *a2,

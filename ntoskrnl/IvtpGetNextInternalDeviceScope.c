@@ -1,3 +1,12 @@
+/*
+ * XREFs of IvtpGetNextInternalDeviceScope @ 0x14037C09C
+ * Callers:
+ *     IvtFindDevice @ 0x14037C000 (IvtFindDevice.c)
+ *     IvtCreateDevice @ 0x14037C4C0 (IvtCreateDevice.c)
+ * Callees:
+ *     DmrGetNextDeviceScope @ 0x14037C0D0 (DmrGetNextDeviceScope.c)
+ */
+
 __int64 __fastcall IvtpGetNextInternalDeviceScope(__int64 a1, __int64 a2)
 {
   unsigned __int64 v2; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiLogNonRetpolineImageLoadEvent @ 0x140850640
+ * Callers:
+ *     MiLogRetpolineImageLoadEvents @ 0x140784A44 (MiLogRetpolineImageLoadEvents.c)
+ *     MiFlushDeferredRetpolineImageLoadEvents @ 0x1408612A4 (MiFlushDeferredRetpolineImageLoadEvents.c)
+ * Callees:
+ *     _tlgWriteAgg @ 0x14035EDD0 (_tlgWriteAgg.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall MiLogNonRetpolineImageLoadEvent(__int64 a1, int a2)
 {
   unsigned __int16 *v3; // r9

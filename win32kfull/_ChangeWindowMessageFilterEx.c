@@ -1,3 +1,19 @@
+/*
+ * XREFs of _ChangeWindowMessageFilterEx @ 0x1C00CB9E8
+ * Callers:
+ *     NtUserChangeWindowMessageFilterEx @ 0x1C00CB850 (NtUserChangeWindowMessageFilterEx.c)
+ * Callees:
+ *     ?VWPLAddBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@KH@Z @ 0x1C003C318 (-VWPLAddBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@KH@Z.c)
+ *     ?VWPLRemoveBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@HPEA_K@Z @ 0x1C003E2AC (-VWPLRemoveBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@HPEA_K@Z.c)
+ *     ?IsMessageAlwaysAllowedAcrossIL@@YAHI@Z @ 0x1C004C87C (-IsMessageAlwaysAllowedAcrossIL@@YAHI@Z.c)
+ *     ?ValidateChangeMessageFilter@@YAHPEAUtagPROCESSINFO@@I@Z @ 0x1C00CBB6C (-ValidateChangeMessageFilter@@YAHPEAUtagPROCESSINFO@@I@Z.c)
+ *     ?GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z @ 0x1C00CBBC4 (-GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z.c)
+ *     ?AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C00CBC54 (-AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z.c)
+ *     ?RemoveMessageFromFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C00CBDD4 (-RemoveMessageFromFilter@@YAHPEAPEAPEAXIPEAH@Z.c)
+ *     ?IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z @ 0x1C00CBE58 (-IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z.c)
+ *     FreeWindowMessageFilter @ 0x1C012EDC4 (FreeWindowMessageFilter.c)
+ */
+
 __int64 __fastcall ChangeWindowMessageFilterEx(struct tagWND *a1, unsigned int a2, int a3, __int64 a4)
 {
   unsigned int v4; // esi

@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiReplenishSlabAllocator @ 0x1403496D8
+ * Callers:
+ *     MiSharePages @ 0x140228990 (MiSharePages.c)
+ *     MiAllocateMdlPagesByLists @ 0x14025B5F0 (MiAllocateMdlPagesByLists.c)
+ *     MiGetSlabPage @ 0x14025BA50 (MiGetSlabPage.c)
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ *     MiReplenishSlabAllocatorWorker @ 0x14034A100 (MiReplenishSlabAllocatorWorker.c)
+ *     MiInitialSlabPopulate @ 0x1403AFC60 (MiInitialSlabPopulate.c)
+ *     MiProtectDriverSectionPte @ 0x140618060 (MiProtectDriverSectionPte.c)
+ *     MiAllocateSlabPageForMdl @ 0x140620D1C (MiAllocateSlabPageForMdl.c)
+ *     MiFastReplenishWithAsync @ 0x1406542D8 (MiFastReplenishWithAsync.c)
+ *     MmAllocateSecureKernelPages @ 0x1406551DC (MmAllocateSecureKernelPages.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MiAllocateSlabEntry @ 0x140349850 (MiAllocateSlabEntry.c)
+ *     MiInsertSlabEntry @ 0x140349C90 (MiInsertSlabEntry.c)
+ *     MiFreeSlabEntry @ 0x1403B33B0 (MiFreeSlabEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiReplenishSlabAllocator(_QWORD *a1, unsigned __int64 a2)
 {
   __int64 v3; // rbp

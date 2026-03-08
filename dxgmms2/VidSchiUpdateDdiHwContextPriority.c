@@ -1,3 +1,15 @@
+/*
+ * XREFs of VidSchiUpdateDdiHwContextPriority @ 0x1C0109954
+ * Callers:
+ *     ?VidSchiCreateHwContextInternal@@YAPEAUVIDSCH_HW_CONTEXT@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_CONTEXT_DATA@@PEAVDXGCONTEXT@@@Z @ 0x1C0042114 (-VidSchiCreateHwContextInternal@@YAPEAUVIDSCH_HW_CONTEXT@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_CONTEX.c)
+ *     VidSchSetAbsolutePriorityHwContext @ 0x1C0109390 (VidSchSetAbsolutePriorityHwContext.c)
+ *     VidSchSetInProcessPriorityHwContext @ 0x1C0109510 (VidSchSetInProcessPriorityHwContext.c)
+ *     VidSchSetPriorityHwContext @ 0x1C01095C0 (VidSchSetPriorityHwContext.c)
+ * Callees:
+ *     ?DdiSetContextSchedulingProperties@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_SETCONTEXTSCHEDULINGPROPERTIES@@@Z @ 0x1C002C924 (-DdiSetContextSchedulingProperties@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_SETCONTEXTSCHEDULINGPROPERT.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C002EF9C (McTemplateK0pqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall VidSchiUpdateDdiHwContextPriority(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rax

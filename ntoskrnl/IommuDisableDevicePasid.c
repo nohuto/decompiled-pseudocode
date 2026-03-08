@@ -1,3 +1,21 @@
+/*
+ * XREFs of IommuDisableDevicePasid @ 0x14051FC00
+ * Callers:
+ *     IommupDomainAttachPasidDevice @ 0x14050BD20 (IommupDomainAttachPasidDevice.c)
+ *     IommupDomainDetachPasidDevice @ 0x14050C048 (IommupDomainDetachPasidDevice.c)
+ *     IommupDeviceDisableSvm @ 0x140930CBC (IommupDeviceDisableSvm.c)
+ *     IommupDeviceEnableSvm @ 0x140930DD4 (IommupDeviceEnableSvm.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IommuHvSetAddressSpace @ 0x140521E10 (IommuHvSetAddressSpace.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IommuDisableDevicePasid(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

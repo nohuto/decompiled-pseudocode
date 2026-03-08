@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpQueryRegistryDirect @ 0x14069E6E4
+ * Callers:
+ *     RtlpCallQueryRegistryRoutine @ 0x14069B8C4 (RtlpCallQueryRegistryRoutine.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ */
+
 __int64 __fastcall RtlpQueryRegistryDirect(unsigned int a1, unsigned int *a2, size_t a3, unsigned int *a4)
 {
   unsigned __int16 v4; // bx

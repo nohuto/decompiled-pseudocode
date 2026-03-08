@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBMISC_CheckIfDeviceProgrammingWasLost @ 0x1C0031064
+ * Callers:
+ *     HUBDSM_ClearingDeviceProgrammingLostFlagOnEnum @ 0x1C0020920 (HUBDSM_ClearingDeviceProgrammingLostFlagOnEnum.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBMISC_CheckIfDeviceProgrammingWasLost(__int64 a1)
 {
   unsigned int v1; // r9d

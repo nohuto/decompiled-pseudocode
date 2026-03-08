@@ -1,3 +1,29 @@
+/*
+ * XREFs of MmDeleteKernelStackEx @ 0x140318070
+ * Callers:
+ *     PspDeleteKernelStack @ 0x1402ED360 (PspDeleteKernelStack.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140317800 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     MmDeleteKernelStack @ 0x1403D0A50 (MmDeleteKernelStack.c)
+ *     KiFreeProcessorStacks @ 0x14056994C (KiFreeProcessorStacks.c)
+ *     KeEnableOptionalXStateFeaturesApc @ 0x14056FFF0 (KeEnableOptionalXStateFeaturesApc.c)
+ *     KiEnableOptionalXStateFeatures @ 0x14057033C (KiEnableOptionalXStateFeatures.c)
+ *     KeUninitThread @ 0x14079B04C (KeUninitThread.c)
+ *     KeUserModeCallback @ 0x1407DA1F0 (KeUserModeCallback.c)
+ *     PspEnableProcessOptionalXStateFeatures @ 0x1409AB970 (PspEnableProcessOptionalXStateFeatures.c)
+ *     KeInitThread @ 0x140A845D0 (KeInitThread.c)
+ * Callees:
+ *     MiClearStackOwners @ 0x1402D4AA0 (MiClearStackOwners.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiDeleteKernelStack @ 0x14032D7F0 (MiDeleteKernelStack.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLogKernelStackEvent @ 0x140642970 (MiLogKernelStackEvent.c)
+ */
+
 signed __int64 __fastcall MmDeleteKernelStackEx(ULONG_PTR a1, unsigned int a2, __int64 a3)
 {
   unsigned int v4; // r15d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionRimDeviceReadNotification @ 0x1C0242654
+ * Callers:
+ *     ?ProcessInput@CHidInput@@EEAAJPEAXKK0@Z @ 0x1C02120C0 (-ProcessInput@CHidInput@@EEAAJPEAXKK0@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 PDEVICE_OBJECT *__fastcall ApiSetEditionRimDeviceReadNotification(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v5; // esi

@@ -1,3 +1,17 @@
+/*
+ * XREFs of AlpcpSignalPortAndUnlock @ 0x1406F77CC
+ * Callers:
+ *     AlpcpCancelMessage @ 0x1407141F0 (AlpcpCancelMessage.c)
+ *     AlpcpDisconnectPort @ 0x140716FA8 (AlpcpDisconnectPort.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     AlpcpQueueIoCompletionPort @ 0x1402925F4 (AlpcpQueueIoCompletionPort.c)
+ *     KeReleaseSemaphoreEx @ 0x14033E940 (KeReleaseSemaphoreEx.c)
+ */
+
 signed __int32 __fastcall AlpcpSignalPortAndUnlock(__int64 a1)
 {
   ULONG_PTR v3; // rdi

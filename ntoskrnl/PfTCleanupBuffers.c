@@ -1,3 +1,11 @@
+/*
+ * XREFs of PfTCleanupBuffers @ 0x14097C31C
+ * Callers:
+ *     PfTCleanup @ 0x14097C168 (PfTCleanup.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PfTCleanupBuffers(__int64 a1)
 {
   _QWORD **v2; // rdi

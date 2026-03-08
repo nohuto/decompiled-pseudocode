@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiHeteroSelectIdleProcessor @ 0x140459852
+ * Callers:
+ *     KiHeteroChooseTargetProcessor @ 0x140459316 (KiHeteroChooseTargetProcessor.c)
+ * Callees:
+ *     KiFindBiasedSetMember @ 0x14045780C (KiFindBiasedSetMember.c)
+ *     KiHeteroIdleSetReduction @ 0x14045974C (KiHeteroIdleSetReduction.c)
+ */
+
 __int64 __fastcall KiHeteroSelectIdleProcessor(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, _QWORD *a6)
 {
   unsigned __int64 v9; // r8

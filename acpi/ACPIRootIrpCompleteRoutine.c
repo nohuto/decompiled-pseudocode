@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIRootIrpCompleteRoutine @ 0x1C0001410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ */
+
 __int64 __fastcall ACPIRootIrpCompleteRoutine(ULONG_PTR BugCheckParameter3, __int64 a2, struct _KEVENT *a3)
 {
   KIRQL v6; // al

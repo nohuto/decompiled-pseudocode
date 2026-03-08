@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiCheckPreemptionPolicy @ 0x1C00095E0
+ * Callers:
+ *     VidSchiSwitchContextWithCheck @ 0x1C0007A60 (VidSchiSwitchContextWithCheck.c)
+ * Callees:
+ *     VidSchiProfilePerformanceTick @ 0x1C0006E50 (VidSchiProfilePerformanceTick.c)
+ *     VidSchiUpdateNodeRunningTime @ 0x1C00187EC (VidSchiUpdateNodeRunningTime.c)
+ */
+
 _BOOL8 __fastcall VidSchiCheckPreemptionPolicy(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rbx

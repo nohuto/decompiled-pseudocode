@@ -1,3 +1,29 @@
+/*
+ * XREFs of HalSocRequestApi @ 0x1403737EC
+ * Callers:
+ *     HalpApicSetupRegisterAccess @ 0x14037301C (HalpApicSetupRegisterAccess.c)
+ *     HalpArtAvailable @ 0x1403733F0 (HalpArtAvailable.c)
+ *     HalpTscGetAttributes @ 0x1403736C4 (HalpTscGetAttributes.c)
+ *     HalpRtcDiscover @ 0x140374398 (HalpRtcDiscover.c)
+ *     HalpApicTimerDiscover @ 0x14037614C (HalpApicTimerDiscover.c)
+ *     HalpIvtProcessDrhdEntry @ 0x14037B514 (HalpIvtProcessDrhdEntry.c)
+ *     HalpHvDiscover @ 0x1403A09D8 (HalpHvDiscover.c)
+ *     HalpTscDiscover @ 0x1403A0B58 (HalpTscDiscover.c)
+ *     HalpApicGetCpuInfo @ 0x1403A84A4 (HalpApicGetCpuInfo.c)
+ *     HalpApicTimerIsInvariant @ 0x1403AE858 (HalpApicTimerIsInvariant.c)
+ *     HalpHvTimerInitialize @ 0x1403C8870 (HalpHvTimerInitialize.c)
+ *     HalpVpptTimerRegister @ 0x140507BF4 (HalpVpptTimerRegister.c)
+ *     HalpHvCounterUpdateCallback @ 0x14051C770 (HalpHvCounterUpdateCallback.c)
+ *     IvtInitializeIommu @ 0x140A87060 (IvtInitializeIommu.c)
+ *     HsaInitializeIommu @ 0x140A961E0 (HsaInitializeIommu.c)
+ * Callees:
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x14037333C (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpHvIsFrequencyAvailable @ 0x140374AFC (HalpHvIsFrequencyAvailable.c)
+ *     HalpMmAllocateMemoryInternal @ 0x14037A7A8 (HalpMmAllocateMemoryInternal.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall HalSocRequestApi(__int64 a1, __int64 a2, int a3, __int64 a4, void *a5)
 {
   unsigned int v5; // edi

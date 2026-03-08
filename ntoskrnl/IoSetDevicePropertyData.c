@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoSetDevicePropertyData @ 0x140863A80
+ * Callers:
+ *     HalpInterruptConnect @ 0x1405021F0 (HalpInterruptConnect.c)
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     PnpSetDevicePropertyData @ 0x140863B28 (PnpSetDevicePropertyData.c)
+ */
+
 NTSTATUS __stdcall IoSetDevicePropertyData(
         PDEVICE_OBJECT Pdo,
         const DEVPROPKEY *PropertyKey,

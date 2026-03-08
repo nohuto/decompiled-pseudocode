@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmPerfGetFrequencyBandStats @ 0x14083F534
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PpmReleaseLock @ 0x1402D1F40 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ */
+
 __int64 __fastcall PpmPerfGetFrequencyBandStats(__int64 a1)
 {
   unsigned int v1; // ebx

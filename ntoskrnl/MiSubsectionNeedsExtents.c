@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiSubsectionNeedsExtents @ 0x140633720
+ * Callers:
+ *     MmExtendSection @ 0x1407267DC (MmExtendSection.c)
+ *     MiExtendSection @ 0x140726AAC (MiExtendSection.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiSubsectionNeedsExtents(_DWORD *a1)
 {
   __int64 v1; // rbx

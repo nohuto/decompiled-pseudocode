@@ -1,3 +1,16 @@
+/*
+ * XREFs of GetActiveTrackPwnd @ 0x1C01B7A4C
+ * Callers:
+ *     xxxSystemTimerProc @ 0x1C0005A50 (xxxSystemTimerProc.c)
+ *     xxxTrackMouseMove @ 0x1C00BD950 (xxxTrackMouseMove.c)
+ *     xxxActiveWindowTracking @ 0x1C01B83D0 (xxxActiveWindowTracking.c)
+ *     zzzActiveCursorTracking @ 0x1C01B8530 (zzzActiveCursorTracking.c)
+ * Callees:
+ *     ?CompositeAppHasForeground@CoreWindowProp@@SAHPEBUtagWND@@@Z @ 0x1C000E6EC (-CompositeAppHasForeground@CoreWindowProp@@SAHPEBUtagWND@@@Z.c)
+ *     IsModelessMenuNotificationWindow @ 0x1C00236D8 (IsModelessMenuNotificationWindow.c)
+ *     DWP_GetEnabledPopup @ 0x1C014A64C (DWP_GetEnabledPopup.c)
+ */
+
 struct tagWND *__fastcall GetActiveTrackPwnd(const struct tagWND *a1)
 {
   struct tagWND *EnabledPopup; // rbx

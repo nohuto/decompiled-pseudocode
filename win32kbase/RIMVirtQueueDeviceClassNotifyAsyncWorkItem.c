@@ -1,3 +1,15 @@
+/*
+ * XREFs of RIMVirtQueueDeviceClassNotifyAsyncWorkItem @ 0x1C01D0EAC
+ * Callers:
+ *     RIMVirtDeviceClassNotifyUsingAsyncPnpWorkNotification @ 0x1C01D07BC (RIMVirtDeviceClassNotifyUsingAsyncPnpWorkNotification.c)
+ * Callees:
+ *     RIMAllocateAsyncPnpWorkItem @ 0x1C00364E8 (RIMAllocateAsyncPnpWorkItem.c)
+ *     RIMQueueAndSignalAsyncPnpWorkItem @ 0x1C00376B0 (RIMQueueAndSignalAsyncPnpWorkItem.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqqDSd @ 0x1C01BBF20 (WPP_RECORDER_AND_TRACE_SF_qqqDSd.c)
+ */
+
 __int64 __fastcall RIMVirtQueueDeviceClassNotifyAsyncWorkItem(void *a1, int a2, char *a3, const UNICODE_STRING *a4)
 {
   unsigned int v4; // ebx

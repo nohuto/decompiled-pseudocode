@@ -1,3 +1,13 @@
+/*
+ * XREFs of NVMeReservationReportCapabilitiesCompletion @ 0x1C0017400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     GetNamespaceId @ 0x1C0007A8C (GetNamespaceId.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ */
+
 char __fastcall NVMeReservationReportCapabilitiesCompletion(__int64 a1, __int64 a2, _BYTE *a3)
 {
   __int64 SrbExtension; // rax

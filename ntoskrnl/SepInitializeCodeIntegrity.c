@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepInitializeCodeIntegrity @ 0x1408105C8
+ * Callers:
+ *     SepInitializationPhase1 @ 0x140810320 (SepInitializationPhase1.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SepIsOptionPresent @ 0x140810688 (SepIsOptionPresent.c)
+ */
+
 __int64 SepInitializeCodeIntegrity()
 {
   unsigned int v0; // edi

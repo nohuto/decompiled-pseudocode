@@ -1,3 +1,14 @@
+/*
+ * XREFs of PubSebRegisterRpc @ 0x1800FCF58
+ * Callers:
+ *     ?CheckForMajorityScreenVideoNotifications@CLegacyRenderTarget@@AEAAXXZ @ 0x18008C1CC (-CheckForMajorityScreenVideoNotifications@CLegacyRenderTarget@@AEAAXXZ.c)
+ *     ?CheckForMajorityScreenVideoNotificationsWithCompSurfInfo@CFSVPProvider@@QEAAXPEAVCCompositionSurfaceInfo@@@Z @ 0x1801E4244 (-CheckForMajorityScreenVideoNotificationsWithCompSurfInfo@CFSVPProvider@@QEAAXPEAVCCompositionSu.c)
+ * Callees:
+ *     ?Insert@ContextTable@@QEAAKPEAU_SEB_RPC_PUBLISH_DATA@@PEAX@Z @ 0x1800FD070 (-Insert@ContextTable@@QEAAKPEAU_SEB_RPC_PUBLISH_DATA@@PEAX@Z.c)
+ *     ?PubSebiGetRpcBindingHandle@@YAJPEAPEAX@Z @ 0x1800FD0D0 (-PubSebiGetRpcBindingHandle@@YAJPEAPEAX@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgs @ 0x180279264 (MicrosoftTelemetryAssertTriggeredNoArgs.c)
+ */
+
 __int64 __fastcall PubSebRegisterRpc(__int64 a1, struct _SEB_RPC_PUBLISH_DATA **a2)
 {
   int RpcBindingHandle; // ebx

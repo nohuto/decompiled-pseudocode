@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmEventIdleDurationExpiration @ 0x140598428
+ * Callers:
+ *     PoExecuteIdleCheck @ 0x1403C65A0 (PoExecuteIdleCheck.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PpmEventIdleDurationExpiration(unsigned __int16 *a1)
 {
   unsigned __int16 v2; // r10

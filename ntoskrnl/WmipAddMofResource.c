@@ -1,3 +1,19 @@
+/*
+ * XREFs of WmipAddMofResource @ 0x1408199DC
+ * Callers:
+ *     WmipAddDataSource @ 0x140867978 (WmipAddDataSource.c)
+ *     WmipInitializeDataStructs @ 0x140B540A4 (WmipInitializeDataStructs.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     RtlStringCbCopyW @ 0x140244EC0 (RtlStringCbCopyW.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     WmipUnreferenceEntry @ 0x14069C9D0 (WmipUnreferenceEntry.c)
+ *     WmipFindMRByNames @ 0x140819B9C (WmipFindMRByNames.c)
+ *     WmipInsertMofResource @ 0x140819C64 (WmipInsertMofResource.c)
+ *     WmipAllocEntry @ 0x140868798 (WmipAllocEntry.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall WmipAddMofResource(__int64 a1, const wchar_t *a2, char a3, const wchar_t *a4, char *a5)
 {
   unsigned int inserted; // ebx

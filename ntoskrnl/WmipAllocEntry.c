@@ -1,3 +1,16 @@
+/*
+ * XREFs of WmipAllocEntry @ 0x140868798
+ * Callers:
+ *     WmipUpdateModifyGuid @ 0x1407FB638 (WmipUpdateModifyGuid.c)
+ *     WmipAddMofResource @ 0x1408199DC (WmipAddMofResource.c)
+ *     WmipAllocGuidEntry @ 0x140841224 (WmipAllocGuidEntry.c)
+ *     WmipAddDataSource @ 0x140867978 (WmipAddDataSource.c)
+ *     WmipUpdateAddGuid @ 0x1409DED7C (WmipUpdateAddGuid.c)
+ * Callees:
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 _QWORD *__fastcall WmipAllocEntry(__int64 a1)
 {
   _QWORD *v2; // rax

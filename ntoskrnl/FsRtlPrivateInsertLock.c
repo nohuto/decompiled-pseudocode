@@ -1,3 +1,15 @@
+/*
+ * XREFs of FsRtlPrivateInsertLock @ 0x1402C247C
+ * Callers:
+ *     FsRtlPrivateCheckWaitingLocks @ 0x1402C19B4 (FsRtlPrivateCheckWaitingLocks.c)
+ *     FsRtlPrivateLock @ 0x1402C21B0 (FsRtlPrivateLock.c)
+ * Callees:
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     FsRtlPrivateInsertExclusiveLock @ 0x1402C1C84 (FsRtlPrivateInsertExclusiveLock.c)
+ *     FsRtlPrivateInsertSharedLock @ 0x1402C25E0 (FsRtlPrivateInsertSharedLock.c)
+ */
+
 char __fastcall FsRtlPrivateInsertLock(_QWORD *a1, __int64 a2, _OWORD *a3)
 {
   char *v6; // rax

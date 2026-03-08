@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$_GetPixelFormatFromDevMode@U_devicemodeW@@@CDS_JOURNAL@@CAJAEBU_devicemodeW@@PEAW4_D3DDDIFORMAT@@@Z @ 0x1C006ABD8
+ * Callers:
+ *     ?_PreVerify@CDS_JOURNAL@@CAJAEBUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C03BB998 (-_PreVerify@CDS_JOURNAL@@CAJAEBUD3DKMT_AUGMENT_CDSJ@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CDS_JOURNAL::_GetPixelFormatFromDevMode<_devicemodeW>(__int64 a1, _DWORD *a2)
 {
   unsigned int v4; // eax

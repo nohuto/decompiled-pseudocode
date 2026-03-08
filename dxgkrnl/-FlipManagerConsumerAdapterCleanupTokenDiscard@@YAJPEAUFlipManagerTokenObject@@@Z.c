@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?FlipManagerConsumerAdapterCleanupTokenDiscard@@YAJPEAUFlipManagerTokenObject@@@Z @ 0x1C0081048
+ * Callers:
+ *     ?DeleteAllFlipManagerTokens@CTokenManager@@IEAAXXZ @ 0x1C0018E74 (-DeleteAllFlipManagerTokens@CTokenManager@@IEAAXXZ.c)
+ *     DxgkCleanupPresentHistoryInternal @ 0x1C01DE680 (DxgkCleanupPresentHistoryInternal.c)
+ * Callees:
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000E098 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?LockForWrite@FlipManagerTokenObject@@QEAAJPEAPEAVCFlipManagerToken@@@Z @ 0x1C0076058 (-LockForWrite@FlipManagerTokenObject@@QEAAJPEAPEAVCFlipManagerToken@@@Z.c)
+ *     ?NotifyAdapterCleanupTokenDiscard@FlipManagerObject@@QEAAJ_K@Z @ 0x1C0081450 (-NotifyAdapterCleanupTokenDiscard@FlipManagerObject@@QEAAJ_K@Z.c)
+ */
+
 __int64 __fastcall FlipManagerConsumerAdapterCleanupTokenDiscard(char *Object)
 {
   int v2; // edi

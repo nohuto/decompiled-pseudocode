@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiSearchChannelTable @ 0x14064319C
+ * Callers:
+ *     MiInsertLargePageInNodeList @ 0x14031C970 (MiInsertLargePageInNodeList.c)
+ *     MiRestrictRangeToNode @ 0x140370AB4 (MiRestrictRangeToNode.c)
+ *     MiPageToChannel @ 0x140370C10 (MiPageToChannel.c)
+ *     MxPageAlwaysHot @ 0x140B3864C (MxPageAlwaysHot.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 _QWORD *__fastcall MiSearchChannelTable(ULONG_PTR BugCheckParameter2)
 {
   int v1; // edx

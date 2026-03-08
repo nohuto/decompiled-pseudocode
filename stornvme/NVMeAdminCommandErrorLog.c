@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeAdminCommandErrorLog @ 0x1C001B794
+ * Callers:
+ *     NVMeMapError @ 0x1C00200A8 (NVMeMapError.c)
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     GetLunExtension @ 0x1C001B754 (GetLunExtension.c)
+ */
+
 __int64 __fastcall NVMeAdminCommandErrorLog(__int64 a1, __int64 a2)
 {
   __int64 SrbExtension; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetBlendMode@CD3DBatchExecutionContext@@EEAAXW4Enum@BlendMode@@@Z @ 0x1800D8250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EndAppend@CD3DDynamicAppendBuffer@@QEAAXXZ @ 0x1800900C4 (-EndAppend@CD3DDynamicAppendBuffer@@QEAAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CD3DBatchExecutionContext::SetBlendMode(__int64 a1, int a2)
 {
   __int64 v2; // rsi

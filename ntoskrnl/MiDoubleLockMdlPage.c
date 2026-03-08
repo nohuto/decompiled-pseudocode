@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiDoubleLockMdlPage @ 0x14029F950
+ * Callers:
+ *     MiMapLockedPagesInUserSpace @ 0x140725C90 (MiMapLockedPagesInUserSpace.c)
+ * Callees:
+ *     MiAddLockedPageCharge @ 0x1402A309C (MiAddLockedPageCharge.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiDoubleLockMdlPage(__int64 a1)
 {
   unsigned __int64 v2; // rdi

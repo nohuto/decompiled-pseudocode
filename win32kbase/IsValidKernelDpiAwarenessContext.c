@@ -1,3 +1,12 @@
+/*
+ * XREFs of IsValidKernelDpiAwarenessContext @ 0x1C009C500
+ * Callers:
+ *     CaptureAndValidateUserModeDpiAwarenessContext @ 0x1C0041B80 (CaptureAndValidateUserModeDpiAwarenessContext.c)
+ *     NtUserSetProcessDpiAwarenessContext @ 0x1C009C0A0 (NtUserSetProcessDpiAwarenessContext.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall IsValidKernelDpiAwarenessContext(int a1)
 {
   unsigned int v1; // ecx

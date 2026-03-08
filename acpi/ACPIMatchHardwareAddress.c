@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIMatchHardwareAddress @ 0x1C0088CE8
+ * Callers:
+ *     ACPIDetectCouldExtensionBeInRelation @ 0x1C00824A0 (ACPIDetectCouldExtensionBeInRelation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     ACPIInternalQueryExtendedAddress @ 0x1C002ECC0 (ACPIInternalQueryExtendedAddress.c)
+ *     WPP_RECORDER_SF_IqL @ 0x1C0032118 (WPP_RECORDER_SF_IqL.c)
+ *     WPP_RECORDER_SF_IqLL @ 0x1C0032210 (WPP_RECORDER_SF_IqLL.c)
+ *     ACPIInternalGetDeviceCapabilities @ 0x1C0087F60 (ACPIInternalGetDeviceCapabilities.c)
+ */
+
 __int64 __fastcall ACPIMatchHardwareAddress(PDEVICE_OBJECT DeviceObject, __int64 a2, _BYTE *a3)
 {
   __int64 v6; // rdx

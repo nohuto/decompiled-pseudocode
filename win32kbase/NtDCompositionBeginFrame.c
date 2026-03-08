@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtDCompositionBeginFrame @ 0x1C0098F20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?BeginFrame@CConnection@DirectComposition@@QEAAJAEBUCOMPOSITION_FRAME_INFO@@PEA_K@Z @ 0x1C00991C0 (-BeginFrame@CConnection@DirectComposition@@QEAAJAEBUCOMPOSITION_FRAME_INFO@@PEA_K@Z.c)
+ *     ??_GCConnection@DirectComposition@@AEAAPEAXI@Z @ 0x1C0099D20 (--_GCConnection@DirectComposition@@AEAAPEAXI@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C00EE6B4 (McTemplateK0pq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall NtDCompositionBeginFrame(unsigned __int64 a1, ULONG64 a2, _QWORD *a3, __int64 a4)
 {
   ULONG64 v5; // rbx

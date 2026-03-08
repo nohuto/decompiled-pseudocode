@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmIdleUpdateCoordinatedDependencies @ 0x14099AB44
+ * Callers:
+ *     PpmInstallCoordinatedIdleStates @ 0x14097EDD0 (PpmInstallCoordinatedIdleStates.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PpmIdleUpdateCoordinatedDependencies(_DWORD *a1)
 {
   unsigned int v1; // edx

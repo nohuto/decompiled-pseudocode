@@ -1,3 +1,23 @@
+/*
+ * XREFs of CmpConstructNameFromKeyNodes @ 0x1407B0C90
+ * Callers:
+ *     CmpConstructNameWithStatus @ 0x1407AF2E0 (CmpConstructNameWithStatus.c)
+ * Callees:
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     CmpSetKcbAtLayerHeight @ 0x140785EE8 (CmpSetKcbAtLayerHeight.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpCopyCompressedName @ 0x1407A47DC (CmpCopyCompressedName.c)
+ *     CmpStartKcbStack @ 0x1407AF450 (CmpStartKcbStack.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1407AF600 (CmpGetKcbAtLayerHeight.c)
+ *     CmpKeyFullNameLength @ 0x1407B0580 (CmpKeyFullNameLength.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpConstructNameFromKeyNodes(__int64 a1, __int64 *a2)
 {
   __int64 KcbAtLayerHeight; // rdi

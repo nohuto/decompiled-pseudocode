@@ -1,3 +1,11 @@
+/*
+ * XREFs of Crashdump_Endpoint_SetDequeuePointer @ 0x1C004F848
+ * Callers:
+ *     Crashdump_Endpoint_PrepareForHibernate @ 0x1C004F150 (Crashdump_Endpoint_PrepareForHibernate.c)
+ * Callees:
+ *     Crashdump_Command_SendCommand @ 0x1C004EB8C (Crashdump_Command_SendCommand.c)
+ */
+
 __int64 __fastcall Crashdump_Endpoint_SetDequeuePointer(__int64 a1)
 {
   __int64 v2; // rax

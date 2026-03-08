@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopDiagTracePerfTrackData @ 0x14098D168
+ * Callers:
+ *     PopIssueActionRequest @ 0x140986CA4 (PopIssueActionRequest.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PopReadRegKeyValue @ 0x140380F18 (PopReadRegKeyValue.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopComputeDerivedHiberStats @ 0x140988FC0 (PopComputeDerivedHiberStats.c)
+ *     PopQpcTimeInMs @ 0x140A84A40 (PopQpcTimeInMs.c)
+ */
+
 char __fastcall PopDiagTracePerfTrackData(__int16 a1)
 {
   char result; // al

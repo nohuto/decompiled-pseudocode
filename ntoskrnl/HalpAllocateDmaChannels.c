@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpAllocateDmaChannels @ 0x140513DE0
+ * Callers:
+ *     HalpAllocateDmaResourcesInternal @ 0x140512A4C (HalpAllocateDmaResourcesInternal.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall HalpAllocateDmaChannels(__int64 a1)
 {
   __int64 v1; // r14

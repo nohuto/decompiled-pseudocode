@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopPlInitPowerPlane @ 0x14099D7DC
+ * Callers:
+ *     PopPlRegisterPowerPlane @ 0x14059F404 (PopPlRegisterPowerPlane.c)
+ * Callees:
+ *     PopPlInitDevices @ 0x14099D660 (PopPlInitDevices.c)
+ *     PopPlInitWString @ 0x14099D8D0 (PopPlInitWString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopPlInitPowerPlane(__int64 a1, __int64 a2, unsigned __int64 a3, UNICODE_STRING **a4)
 {
   UNICODE_STRING *v4; // rbx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?WriteEFE@EFSOBJ@@QEAAXAEBU_EFENTRY@@AEAVPFEOBJ@@@Z @ 0x1C00041A0
+ * Callers:
+ *     ?bAdd@EFSOBJ@@QEAAHPEAVPFE@@W4_ENUMFONTSTYLE@@KK@Z @ 0x1C0003FE0 (-bAdd@EFSOBJ@@QEAAHPEAVPFE@@W4_ENUMFONTSTYLE@@KK@Z.c)
+ * Callees:
+ *     cjCopyFontDataW @ 0x1C0004330 (cjCopyFontDataW.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?bGrow@EFSOBJ@@QEAAHXZ @ 0x1C02E3290 (-bGrow@EFSOBJ@@QEAAHXZ.c)
+ */
+
 void __fastcall EFSOBJ::WriteEFE(wchar_t ***this, const struct _EFENTRY *a2, struct PFEOBJ *a3)
 {
   wchar_t **v6; // r9

@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwAlpcCreateSecurityContextWrapper @ 0x1405EB160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwAlpcCreateSecurityContext @ 0x1404132F0 (ZwAlpcCreateSecurityContext.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 __int64 __fastcall DifZwAlpcCreateSecurityContextWrapper(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 *APIThunkContextById; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PoDisableSleepStates @ 0x140980FB0
+ * Callers:
+ *     VslpIumPhase4Initialize @ 0x1403AB65C (VslpIumPhase4Initialize.c)
+ *     PopInitializeHibernateGlobals @ 0x14082ABAC (PopInitializeHibernateGlobals.c)
+ *     HalpLoadMicrocode @ 0x140931BD0 (HalpLoadMicrocode.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PoDisableSleepStates(int a1, int a2, _QWORD *a3)
 {
   __int64 Pool2; // rax

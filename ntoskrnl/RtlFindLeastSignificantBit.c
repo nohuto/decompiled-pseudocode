@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlFindLeastSignificantBit @ 0x1402EFE60
+ * Callers:
+ *     KiMaskToLength @ 0x140A8C418 (KiMaskToLength.c)
+ * Callees:
+ *     <none>
+ */
+
 CCHAR __stdcall RtlFindLeastSignificantBit(ULONGLONG Set)
 {
   bool v1; // zf

@@ -1,3 +1,22 @@
+/*
+ * XREFs of CcCopyReadEx @ 0x14021E070
+ * Callers:
+ *     CcCopyRead @ 0x1407998C0 (CcCopyRead.c)
+ *     CcFastCopyRead @ 0x140933BC0 (CcFastCopyRead.c)
+ *     FsRtlCopyRead @ 0x140939DF0 (FsRtlCopyRead.c)
+ * Callees:
+ *     CcScheduleReadAheadNuma @ 0x14020D0BC (CcScheduleReadAheadNuma.c)
+ *     IoReferenceIoAttributionFromThread @ 0x140216E60 (IoReferenceIoAttributionFromThread.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x1402E0460 (CcUpdateSharedCacheMapFlag.c)
+ *     IoDiskIoAttributionDereference @ 0x14030C4DC (IoDiskIoAttributionDereference.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     CcTelemetryBucketizeLatency @ 0x1406A74A0 (CcTelemetryBucketizeLatency.c)
+ *     CcMapAndCopyFromCache @ 0x1406A7510 (CcMapAndCopyFromCache.c)
+ *     CcSetTelemetryPeriodicTimer @ 0x140872D84 (CcSetTelemetryPeriodicTimer.c)
+ */
+
 __int64 __fastcall CcCopyReadEx(
         _QWORD *Object,
         __int64 *a2,

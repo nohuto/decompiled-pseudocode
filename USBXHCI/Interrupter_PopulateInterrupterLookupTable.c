@@ -1,3 +1,11 @@
+/*
+ * XREFs of Interrupter_PopulateInterrupterLookupTable @ 0x1C0072D44
+ * Callers:
+ *     Interrupter_PrepareHardware @ 0x1C0072C28 (Interrupter_PrepareHardware.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ */
+
 __int64 __fastcall Interrupter_PopulateInterrupterLookupTable(__int64 a1)
 {
   _DWORD *v1; // rsi

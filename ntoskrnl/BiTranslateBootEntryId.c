@@ -1,3 +1,13 @@
+/*
+ * XREFs of BiTranslateBootEntryId @ 0x14082F2D4
+ * Callers:
+ *     BiBindEfiBootManager @ 0x14082C288 (BiBindEfiBootManager.c)
+ *     BiTranslateBootOrder @ 0x14082D114 (BiTranslateBootOrder.c)
+ * Callees:
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiLookupObjectByBootEntry @ 0x14082F324 (BiLookupObjectByBootEntry.c)
+ */
+
 __int64 __fastcall BiTranslateBootEntryId(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

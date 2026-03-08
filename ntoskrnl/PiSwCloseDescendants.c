@@ -1,3 +1,16 @@
+/*
+ * XREFs of PiSwCloseDescendants @ 0x1408672DC
+ * Callers:
+ *     PiSwIrpCleanup @ 0x140807E94 (PiSwIrpCleanup.c)
+ *     PiSwCloseDescendants @ 0x1408672DC (PiSwCloseDescendants.c)
+ *     PiSwProcessParentRemoveIrp @ 0x140867324 (PiSwProcessParentRemoveIrp.c)
+ * Callees:
+ *     McTemplateK0z_EtwWriteTransfer @ 0x14055EEE8 (McTemplateK0z_EtwWriteTransfer.c)
+ *     PiSwFindBusRelations @ 0x140688540 (PiSwFindBusRelations.c)
+ *     PiSwCloseDescendants @ 0x1408672DC (PiSwCloseDescendants.c)
+ *     PiSwCloseDevice @ 0x140964150 (PiSwCloseDevice.c)
+ */
+
 int __fastcall PiSwCloseDescendants(__int64 a1, char a2)
 {
   _QWORD *BusRelations; // rax

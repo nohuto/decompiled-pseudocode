@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiResetAccessBitPteWorker @ 0x140463BAC
+ * Callers:
+ *     MiResetAccessBitsEPTCallback @ 0x140632BC0 (MiResetAccessBitsEPTCallback.c)
+ * Callees:
+ *     MiFlushTbListEarly @ 0x140229404 (MiFlushTbListEarly.c)
+ *     MiGetPfnPriority @ 0x14028A3F8 (MiGetPfnPriority.c)
+ *     MiSetVaAgeList @ 0x14031AB40 (MiSetVaAgeList.c)
+ *     MiClearPteAccessed @ 0x140326910 (MiClearPteAccessed.c)
+ *     MiLogPageAccess @ 0x140326EF0 (MiLogPageAccess.c)
+ *     MiGetVaAge @ 0x140349610 (MiGetVaAge.c)
+ */
+
 void __fastcall MiResetAccessBitPteWorker(
         __int64 a1,
         unsigned __int64 a2,

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?MulEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C018BB00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EngLockSurface @ 0x1C0044C20 (EngLockSurface.c)
+ *     ?vSet@RGNOBJ@@QEAAXQEBU_RECTL@@@Z @ 0x1C0051770 (-vSet@RGNOBJ@@QEAAXQEBU_RECTL@@@Z.c)
+ *     EngCreateDeviceSurface @ 0x1C00A3D40 (EngCreateDeviceSurface.c)
+ *     EngModifySurface @ 0x1C00A3E40 (EngModifySurface.c)
+ *     ?MulDisableSurface@@YAXPEAUDHPDEV__@@@Z @ 0x1C018B1D0 (-MulDisableSurface@@YAXPEAUDHPDEV__@@@Z.c)
+ *     EngCreateClip @ 0x1C0197B70 (EngCreateClip.c)
+ */
+
 HSURF __fastcall MulEnableSurface(struct DHPDEV__ *a1)
 {
   ULONG v2; // r8d

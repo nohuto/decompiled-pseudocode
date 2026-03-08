@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhQueryD3ColdSupport @ 0x1C0057418
+ * Callers:
+ *     UsbhPdoPnp_DeviceEnumerated @ 0x1C0054DA0 (UsbhPdoPnp_DeviceEnumerated.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0023880 (memset.c)
+ */
+
 void __fastcall UsbhQueryD3ColdSupport(PDEVICE_OBJECT DeviceObject, PDEVICE_OBJECT a2)
 {
   _NAMED_PIPE_CREATE_PARAMETERS *v4; // rax

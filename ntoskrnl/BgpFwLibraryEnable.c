@@ -1,3 +1,15 @@
+/*
+ * XREFs of BgpFwLibraryEnable @ 0x1403843F4
+ * Callers:
+ *     BgLibraryEnable @ 0x14066F498 (BgLibraryEnable.c)
+ *     BgpFwLibraryInitialize @ 0x140AEAC78 (BgpFwLibraryInitialize.c)
+ * Callees:
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x14029B230 (MmUnmapIoSpace.c)
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     ResFwBackgroundTransition @ 0x140AEBAF8 (ResFwBackgroundTransition.c)
+ */
+
 __int64 __fastcall BgpFwLibraryEnable(__int64 a1)
 {
   int v2; // ecx

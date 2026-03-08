@@ -1,3 +1,12 @@
+/*
+ * XREFs of WerKernelCreateReport @ 0x1C0053E44
+ * Callers:
+ *     TelemetryData_SubmitReport @ 0x1C007AF58 (TelemetryData_SubmitReport.c)
+ * Callees:
+ *     CheckSpaceAvailable @ 0x1C0053C40 (CheckSpaceAvailable.c)
+ *     WerpCreateRegistryKey @ 0x1C00549D4 (WerpCreateRegistryKey.c)
+ */
+
 __int64 __fastcall WerKernelCreateReport(__int64 a1, __int64 a2, HANDLE *a3)
 {
   unsigned __int64 v6; // rax

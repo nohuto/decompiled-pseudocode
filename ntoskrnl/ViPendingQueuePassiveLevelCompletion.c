@@ -1,3 +1,15 @@
+/*
+ * XREFs of ViPendingQueuePassiveLevelCompletion @ 0x140ACEEB0
+ * Callers:
+ *     ViPendingDelayCompletion @ 0x140ACED48 (ViPendingDelayCompletion.c)
+ * Callees:
+ *     KeSetPriorityThread @ 0x1402261B0 (KeSetPriorityThread.c)
+ *     KeQueryPriorityThread @ 0x140240EA0 (KeQueryPriorityThread.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ViPendingTryReserveWorker @ 0x1405CD854 (ViPendingTryReserveWorker.c)
+ */
+
 __int64 __fastcall ViPendingQueuePassiveLevelCompletion(signed __int64 a1)
 {
   KPRIORITY PriorityThread; // eax

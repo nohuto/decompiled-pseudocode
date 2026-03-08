@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpOpenSystemSessionKey @ 0x1409B5E68
+ * Callers:
+ *     RtlQueryImageXfgFilter @ 0x1405A4CF4 (RtlQueryImageXfgFilter.c)
+ * Callees:
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ */
+
 NTSTATUS __fastcall RtlpOpenSystemSessionKey(__int64 a1, HANDLE *a2)
 {
   char PreviousMode; // cl

@@ -1,3 +1,18 @@
+/*
+ * XREFs of IopConnectMessageBasedInterrupt @ 0x1408502F8
+ * Callers:
+ *     IoConnectInterruptEx @ 0x1406F4AE0 (IoConnectInterruptEx.c)
+ * Callees:
+ *     HalGetMessageRoutingInfo @ 0x14028F220 (HalGetMessageRoutingInfo.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IoDisconnectInterrupt @ 0x1406F41C0 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x1406F43D8 (IopConnectInterrupt.c)
+ *     IopGetInterruptConnectionData @ 0x1406F5728 (IopGetInterruptConnectionData.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopConnectMessageBasedInterrupt(
         int a1,
         struct _DEVICE_OBJECT *a2,

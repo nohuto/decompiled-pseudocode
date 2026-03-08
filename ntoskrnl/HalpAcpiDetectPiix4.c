@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpAcpiDetectPiix4 @ 0x140B62B08
+ * Callers:
+ *     HalpAcpiInitSystem @ 0x140A8D770 (HalpAcpiInitSystem.c)
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ */
+
 __int64 __fastcall HalpAcpiDetectPiix4(__int64 a1)
 {
   unsigned int v1; // ebx

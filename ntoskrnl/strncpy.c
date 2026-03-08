@@ -1,3 +1,11 @@
+/*
+ * XREFs of strncpy @ 0x1403D58D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char *__cdecl strncpy(char *Dest, const char *Source, size_t Count)
 {
   signed __int64 v4; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpRegTraceEnableCallback @ 0x1409F16F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     CmRegisterCallbackEx @ 0x14084E720 (CmRegisterCallbackEx.c)
+ *     CmUnRegisterCallback @ 0x140A0C560 (CmUnRegisterCallback.c)
+ */
+
 void __fastcall EtwpRegTraceEnableCallback(
         LPCGUID SourceId,
         ULONG ControlCode,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsNativeOrientationPortrait@@YAHXZ @ 0x1C00F8248
+ * Callers:
+ *     ?xxxUserReinitializeAutoRotation@CLegacyRotationMgr@@UEAAXXZ @ 0x1C00F8410 (-xxxUserReinitializeAutoRotation@CLegacyRotationMgr@@UEAAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 IsNativeOrientationPortrait(void)
 {
   unsigned int v0; // ebx

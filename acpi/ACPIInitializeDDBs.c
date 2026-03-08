@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIInitializeDDBs @ 0x1C00A94A0
+ * Callers:
+ *     ACPIInitialize @ 0x1C00A8F78 (ACPIInitialize.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     ACPITableLoad @ 0x1C003F170 (ACPITableLoad.c)
+ *     ACPIInitializeDDB @ 0x1C00A93C4 (ACPIInitializeDDB.c)
+ *     Simulator_NotifyTablesAreLoaded @ 0x1C00AB360 (Simulator_NotifyTablesAreLoaded.c)
+ */
+
 __int64 ACPIInitializeDDBs()
 {
   int v0; // ebx

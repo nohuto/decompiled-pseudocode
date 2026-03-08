@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkSuspendMemorySegments @ 0x1C02BE73C
+ * Callers:
+ *     DpiPowerArbiterThread @ 0x1C0210150 (DpiPowerArbiterThread.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?SuspendMemorySegments@ADAPTER_RENDER@@QEAAJXZ @ 0x1C02BD4FC (-SuspendMemorySegments@ADAPTER_RENDER@@QEAAJXZ.c)
+ */
+
 __int64 __fastcall DxgkSuspendMemorySegments(__int64 a1)
 {
   ADAPTER_RENDER *v3; // rcx

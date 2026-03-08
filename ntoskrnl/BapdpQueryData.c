@@ -1,3 +1,22 @@
+/*
+ * XREFs of BapdpQueryData @ 0x140B44D10
+ * Callers:
+ *     BapdpProcessSpacesBootInformation @ 0x1403800A8 (BapdpProcessSpacesBootInformation.c)
+ *     BapdpProcessEtwEvents @ 0x140380170 (BapdpProcessEtwEvents.c)
+ *     BapdpProcessEDrvHintInfo @ 0x140B42A34 (BapdpProcessEDrvHintInfo.c)
+ *     BapdpProcessFwUpdateResults @ 0x140B42AC4 (BapdpProcessFwUpdateResults.c)
+ *     BapdpProcessWmdResults @ 0x140B42B54 (BapdpProcessWmdResults.c)
+ *     BapdpProcessBootMetadata @ 0x140B42C3C (BapdpProcessBootMetadata.c)
+ *     BapdpProcessBCDCache @ 0x140B44668 (BapdpProcessBCDCache.c)
+ *     BapdpProcessResumeInformation @ 0x140B44768 (BapdpProcessResumeInformation.c)
+ *     BapdpProcessBitlockerStatus @ 0x140B4483C (BapdpProcessBitlockerStatus.c)
+ *     BapdpProcessHSTIResults @ 0x140B44910 (BapdpProcessHSTIResults.c)
+ *     BapdpRegisterWbclData @ 0x140B449E4 (BapdpRegisterWbclData.c)
+ *     BapdpProcessVsmKeyBlobs @ 0x140B44AFC (BapdpProcessVsmKeyBlobs.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall BapdpQueryData(__int64 a1, _QWORD *a2, int a3, void *a4, unsigned int *a5)
 {
   __int64 *v8; // rdx

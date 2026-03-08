@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiIntSteerCalculateUniformDistribution @ 0x140577AE0
+ * Callers:
+ *     KiIntSteerCalculateDistribution @ 0x1402A8E00 (KiIntSteerCalculateDistribution.c)
+ * Callees:
+ *     KiIntSteerGetNextProcessorTarget @ 0x1402A92E4 (KiIntSteerGetNextProcessorTarget.c)
+ */
+
 _QWORD *__fastcall KiIntSteerCalculateUniformDistribution(_QWORD **a1, __int64 *a2)
 {
   _QWORD *v2; // rbx

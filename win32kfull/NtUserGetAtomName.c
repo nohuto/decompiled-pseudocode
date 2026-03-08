@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetAtomName @ 0x1C00D6920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserGetAtomName(__int64 a1, ULONG64 a2, __int64 a3)
 {
   ULONG64 v3; // rbx

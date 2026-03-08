@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhPdo_IsDeviceExternal @ 0x1C0073B34
+ * Callers:
+ *     UsbhPdoPnp_DeviceUsageNotification @ 0x1C0054E60 (UsbhPdoPnp_DeviceUsageNotification.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall UsbhPdo_IsDeviceExternal(struct _DEVICE_OBJECT *a1)
 {
   char v1; // bl

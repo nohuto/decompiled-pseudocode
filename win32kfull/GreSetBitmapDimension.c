@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreSetBitmapDimension @ 0x1C02E04B8
+ * Callers:
+ *     NtGdiSetBitmapDimension @ 0x1C02C7430 (NtGdiSetBitmapDimension.c)
+ * Callees:
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002A694 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002A6E0 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall GreSetBitmapDimension(__int64 a1, unsigned int a2, unsigned int a3, _QWORD *a4)
 {
   unsigned int v8; // edi

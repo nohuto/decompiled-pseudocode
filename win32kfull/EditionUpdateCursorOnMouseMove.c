@@ -1,3 +1,13 @@
+/*
+ * XREFs of EditionUpdateCursorOnMouseMove @ 0x1C00D6E10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IsToplevelWindowDesktopComposed @ 0x1C002D900 (IsToplevelWindowDesktopComposed.c)
+ *     PtInRect @ 0x1C00A34E8 (PtInRect.c)
+ *     DwmAsyncTopLevelMouseLeave @ 0x1C02706E0 (DwmAsyncTopLevelMouseLeave.c)
+ */
+
 __int64 __fastcall EditionUpdateCursorOnMouseMove(__int64 a1, unsigned __int64 a2)
 {
   _DWORD *v4; // rax

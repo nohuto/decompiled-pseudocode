@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiForceCrashForInvalidAccess @ 0x140A28438
+ * Callers:
+ *     MiKernelWriteToExecutableMemory @ 0x140643DB8 (MiKernelWriteToExecutableMemory.c)
+ * Callees:
+ *     PsGetProcessId @ 0x140236D10 (PsGetProcessId.c)
+ *     IoThreadToProcess @ 0x140248470 (IoThreadToProcess.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ZwCreateThreadEx @ 0x140413BF0 (ZwCreateThreadEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     PsTerminateProcess @ 0x1407DC8A0 (PsTerminateProcess.c)
+ *     PsFreezeProcess @ 0x1407DD068 (PsFreezeProcess.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x14087EC10 (DbgkWerCaptureLiveKernelDump.c)
+ *     DbgkQueueUserExceptionReport @ 0x14093679C (DbgkQueueUserExceptionReport.c)
+ *     KeRequestTerminationProcess @ 0x140971344 (KeRequestTerminationProcess.c)
+ */
+
 char __fastcall MiForceCrashForInvalidAccess(PEPROCESS Process)
 {
   struct _KTHREAD *CurrentThread; // rbx

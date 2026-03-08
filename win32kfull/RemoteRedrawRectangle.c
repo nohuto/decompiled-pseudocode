@@ -1,3 +1,15 @@
+/*
+ * XREFs of RemoteRedrawRectangle @ 0x1C01F6C78
+ * Callers:
+ *     NtUserRemoteRedrawRectangle @ 0x1C01DABB0 (NtUserRemoteRedrawRectangle.c)
+ *     CtxDisplayIOCtl @ 0x1C0205B4C (CtxDisplayIOCtl.c)
+ * Callees:
+ *     GetThreadDesktopWindow @ 0x1C003BE08 (GetThreadDesktopWindow.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     xxxRedrawWindow @ 0x1C0050700 (xxxRedrawWindow.c)
+ *     vDrvInvalidateRect @ 0x1C02DF91C (vDrvInvalidateRect.c)
+ */
+
 __int64 __fastcall RemoteRedrawRectangle(int *a1)
 {
   bool v2; // dl

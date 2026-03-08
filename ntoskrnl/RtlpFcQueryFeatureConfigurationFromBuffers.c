@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpFcQueryFeatureConfigurationFromBuffers @ 0x140782330
+ * Callers:
+ *     RtlQueryFeatureConfigurationFromBuffers @ 0x140388D7C (RtlQueryFeatureConfigurationFromBuffers.c)
+ *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x1407822BC (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
+ * Callees:
+ *     RtlFindLowerBoundInSortedArray @ 0x1407AF6D0 (RtlFindLowerBoundInSortedArray.c)
+ *     RtlpFcLinearSearchInSortedArray @ 0x1409C0310 (RtlpFcLinearSearchInSortedArray.c)
+ */
+
 __int64 __fastcall RtlpFcQueryFeatureConfigurationFromBuffers(int a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int *v4; // rbp

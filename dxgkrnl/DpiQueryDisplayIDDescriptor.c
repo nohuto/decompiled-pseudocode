@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiQueryDisplayIDDescriptor @ 0x1C02192A4
+ * Callers:
+ *     ?GetDisplayIdDescriptor@KernelDriver@@UEBAJPEAIPEAE@Z @ 0x1C0219280 (-GetDisplayIdDescriptor@KernelDriver@@UEBAJPEAIPEAE@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     ?DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z @ 0x1C01B473C (-DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z.c)
+ */
+
 __int64 __fastcall DpiQueryDisplayIDDescriptor(__int64 a1, unsigned int *a2, void *a3)
 {
   __int64 v3; // rsi

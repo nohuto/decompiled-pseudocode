@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlDeleteTunnelCache @ 0x140870270
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __stdcall FsRtlDeleteTunnelCache(TUNNEL *Cache)
 {
   LIST_ENTRY *p_TimerQueue; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpSetRespectIoPriorityThread @ 0x140243A40
+ * Callers:
+ *     CmpDoFileWrite @ 0x1406BC078 (CmpDoFileWrite.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CmpSetRespectIoPriorityThread(__int64 a1, char a2)
 {
   bool result; // al

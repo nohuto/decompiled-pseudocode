@@ -1,3 +1,12 @@
+/*
+ * XREFs of KasanMarkAddressValid @ 0x140562EA0
+ * Callers:
+ *     MmFreeIsrStack @ 0x140A39B00 (MmFreeIsrStack.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void *__fastcall KasanMarkAddressValid(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4)
 {
   char v2; // bl

@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiFlushReadyLists @ 0x14057B934
+ * Callers:
+ *     KiFlushSharedReadyQueueReadyLists @ 0x14057BA1C (KiFlushSharedReadyQueueReadyLists.c)
+ *     KiParkCurrentProcessor @ 0x14057BAA4 (KiParkCurrentProcessor.c)
+ * Callees:
+ *     KiUpdateSoftParkElectionStatisticsOnRemoval @ 0x1402AE1AC (KiUpdateSoftParkElectionStatisticsOnRemoval.c)
+ *     KiInsertDeferredReadyList @ 0x140343778 (KiInsertDeferredReadyList.c)
+ *     KiAcquireSoftParkElectionLock @ 0x14040A5D8 (KiAcquireSoftParkElectionLock.c)
+ */
+
 void __fastcall KiFlushReadyLists(__int64 a1, unsigned int *a2, __int64 a3, __int64 a4)
 {
   unsigned int v8; // esi

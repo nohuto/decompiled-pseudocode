@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DxgkPowerRuntimeControlCallback@@YAJPEAXPEBU_GUID@@0_K02PEA_K@Z @ 0x1C00457B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DdiPowerRuntimeControlRequest@DXGADAPTER@@QEAAJPEBU_GUID@@PEAX_K12PEA_K@Z @ 0x1C0020BD4 (-DdiPowerRuntimeControlRequest@DXGADAPTER@@QEAAJPEBU_GUID@@PEAX_K12PEA_K@Z.c)
+ *     McTemplateK0pj_EtwWriteTransfer @ 0x1C003FC2C (McTemplateK0pj_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DxgkPowerRuntimeControlCallback(
         DXGADAPTER *this,
         const struct _GUID *a2,

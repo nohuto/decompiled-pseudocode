@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopGetLegacyVetoListDeviceNode @ 0x140760B58
+ * Callers:
+ *     IoGetLegacyVetoList @ 0x1407609A0 (IoGetLegacyVetoList.c)
+ *     IopGetLegacyVetoListDeviceNode @ 0x140760B58 (IopGetLegacyVetoListDeviceNode.c)
+ * Callees:
+ *     IopGetLegacyVetoListDeviceNode @ 0x140760B58 (IopGetLegacyVetoListDeviceNode.c)
+ *     IopAppendLegacyVeto @ 0x1409696E4 (IopAppendLegacyVeto.c)
+ */
+
 char __fastcall IopGetLegacyVetoListDeviceNode(__int64 a1, __int64 a2)
 {
   _QWORD *i; // rbx

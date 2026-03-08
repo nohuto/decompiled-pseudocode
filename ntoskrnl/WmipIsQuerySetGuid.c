@@ -1,3 +1,12 @@
+/*
+ * XREFs of WmipIsQuerySetGuid @ 0x14069C39C
+ * Callers:
+ *     WmipOpenBlock @ 0x14069AF1C (WmipOpenBlock.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ */
+
 char __fastcall WmipIsQuerySetGuid(__int64 a1)
 {
   char v2; // di

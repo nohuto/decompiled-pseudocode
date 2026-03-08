@@ -1,3 +1,15 @@
+/*
+ * XREFs of KGetUnlockSetting @ 0x140792DC4
+ * Callers:
+ *     KIsUnlockSettingEnabled @ 0x140792C9C (KIsUnlockSettingEnabled.c)
+ *     KIsSideloadingEnabled @ 0x140A077B0 (KIsSideloadingEnabled.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ */
+
 __int64 __fastcall KGetUnlockSetting(UNICODE_STRING *a1, UNICODE_STRING *a2, _DWORD *a3)
 {
   NTSTATUS v5; // ebx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of BmlCompareRegionsWithPivot @ 0x1C016E1AC
+ * Callers:
+ *     BmlCompareTargetModes @ 0x1C016E704 (BmlCompareTargetModes.c)
+ *     BmlCompareTargetModesWithConstraint @ 0x1C017116C (BmlCompareTargetModesWithConstraint.c)
+ *     BmlCompareSourceModesWithConstraint @ 0x1C03B88CC (BmlCompareSourceModesWithConstraint.c)
+ *     BmlGetRecommendedContentSizeForPath @ 0x1C03B8D90 (BmlGetRecommendedContentSizeForPath.c)
+ * Callees:
+ *     ??$DIFF@H@@YAHHH@Z @ 0x1C00028F0 (--$DIFF@H@@YAHHH@Z.c)
+ *     ?BmlGetScaledAspectRatio@@YAHAEBU_D3DKMDT_2DREGION@@@Z @ 0x1C0170E38 (-BmlGetScaledAspectRatio@@YAHAEBU_D3DKMDT_2DREGION@@@Z.c)
+ *     ??$BmlCompareValues@H@@YA?AW4BML_COMPARISON_RESULT@@HH@Z @ 0x1C0170E6C (--$BmlCompareValues@H@@YA-AW4BML_COMPARISON_RESULT@@HH@Z.c)
+ */
+
 __int64 __fastcall BmlCompareRegionsWithPivot(
         struct _D3DKMDT_2DREGION *a1,
         struct _D3DKMDT_2DREGION *a2,

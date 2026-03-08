@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Start@CLongPowerButtonHoldListener@BlackScreenDiagnostics@@QEAAXP6AXAEBU_GUID@@@ZH@Z @ 0x140003F80
+ * Callers:
+ *     ?Run@CDwmAppHost@@QEAAJXZ @ 0x140003700 (-Run@CDwmAppHost@@QEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall BlackScreenDiagnostics::CLongPowerButtonHoldListener::Start(
         BlackScreenDiagnostics::CLongPowerButtonHoldListener *this,
         void (*a2)(const struct _GUID *))

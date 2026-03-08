@@ -1,3 +1,19 @@
+/*
+ * XREFs of HmgAllocateObjectAttr @ 0x1C001CC34
+ * Callers:
+ *     GreSetBrushOwner @ 0x1C001BD80 (GreSetBrushOwner.c)
+ *     NtGdiCreateRectRgn @ 0x1C001C0B0 (NtGdiCreateRectRgn.c)
+ *     ??0BRUSHMEMOBJ@@QEAA@KKHH@Z @ 0x1C001C2B0 (--0BRUSHMEMOBJ@@QEAA@KKHH@Z.c)
+ * Callees:
+ *     ?HmgAllocateSecureUserMemory@@YAPEAXPEAPEAX@Z @ 0x1C001CDA0 (-HmgAllocateSecureUserMemory@@YAPEAXPEAPEAX@Z.c)
+ *     GreReleaseHmgrSemaphore @ 0x1C0049700 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C0049780 (GreAcquireHmgrSemaphore.c)
+ *     W32GetThreadWin32Thread @ 0x1C004E3B0 (W32GetThreadWin32Thread.c)
+ *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0062994 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?HmgFreeAllocateSecureUserMemory@@YAXPEAX0@Z @ 0x1C0185ACC (-HmgFreeAllocateSecureUserMemory@@YAXPEAX0@Z.c)
+ */
+
 __int64 HmgAllocateObjectAttr()
 {
   __int64 ThreadWin32Thread; // rax

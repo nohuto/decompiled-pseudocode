@@ -1,3 +1,18 @@
+/*
+ * XREFs of MmDeleteKernelShadowStack @ 0x140643030
+ * Callers:
+ *     KeUninitThread @ 0x14079B04C (KeUninitThread.c)
+ *     KeUserModeCallback @ 0x1407DA1F0 (KeUserModeCallback.c)
+ *     KiDeleteKernelShadowStack @ 0x14097141C (KiDeleteKernelShadowStack.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     MiDeleteKernelShadowStack @ 0x140641FD4 (MiDeleteKernelShadowStack.c)
+ *     MiKernelShadowStackIdealForCaching @ 0x140642840 (MiKernelShadowStackIdealForCaching.c)
+ *     VslResetKernelShadowStack @ 0x14093FF18 (VslResetKernelShadowStack.c)
+ */
+
 PSLIST_ENTRY MmDeleteKernelShadowStack(unsigned __int64 a1, int a2, char a3, ...)
 {
   __int64 v4; // rdi

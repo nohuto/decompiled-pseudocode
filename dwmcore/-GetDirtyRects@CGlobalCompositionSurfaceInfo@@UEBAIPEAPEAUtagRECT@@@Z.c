@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDirtyRects@CGlobalCompositionSurfaceInfo@@UEBAIPEAPEAUtagRECT@@@Z @ 0x180130270
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CGlobalCompositionSurfaceInfo::GetDirtyRects(
         CGlobalCompositionSurfaceInfo *this,
         struct tagRECT **a2)

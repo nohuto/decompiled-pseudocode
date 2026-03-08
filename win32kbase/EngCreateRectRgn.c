@@ -1,3 +1,13 @@
+/*
+ * XREFs of EngCreateRectRgn @ 0x1C0019B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0EngModeState@@QEAA@XZ @ 0x1C0019C74 (--0EngModeState@@QEAA@XZ.c)
+ *     GreCreateRectRgn @ 0x1C0019F70 (GreCreateRectRgn.c)
+ *     GreSetRegionOwner @ 0x1C0052260 (GreSetRegionOwner.c)
+ */
+
 HANDLE __stdcall EngCreateRectRgn(INT left, INT top, INT right, INT bottom)
 {
   __int64 RectRgn; // rax

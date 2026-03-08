@@ -1,3 +1,12 @@
+/*
+ * XREFs of _lambda_ba9a8767fe334596bf562779960bba36_::operator() @ 0x1C02EF4CC
+ * Callers:
+ *     DxgkIddHandleSetDisplayConfig @ 0x1C02EFC88 (DxgkIddHandleSetDisplayConfig.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     MonitorIsMonitorConnected @ 0x1C0167278 (MonitorIsMonitorConnected.c)
+ */
+
 __int64 __fastcall lambda_ba9a8767fe334596bf562779960bba36_::operator()(__int64 **a1, unsigned int a2, _DWORD *a3)
 {
   __int64 v3; // rsi

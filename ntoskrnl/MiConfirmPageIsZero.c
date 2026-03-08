@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiConfirmPageIsZero @ 0x140213880
+ * Callers:
+ *     MiSharePages @ 0x140228990 (MiSharePages.c)
+ * Callees:
+ *     MiMapPageInHyperSpaceWorker @ 0x140214870 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140214A54 (MiUnmapPageInHyperSpaceWorker.c)
+ */
+
 _BOOL8 __fastcall MiConfirmPageIsZero(__int64 a1)
 {
   __int64 v1; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of _CmAppendDeclarativeDefaultFilters @ 0x140A642C4
+ * Callers:
+ *     _CmGetDeclarativeFilterList @ 0x140A64F80 (_CmGetDeclarativeFilterList.c)
+ * Callees:
+ *     _PnpMultiSzAppend @ 0x140839FAC (_PnpMultiSzAppend.c)
+ *     _CmAppendDeclarativeFilterLevel @ 0x140A643AC (_CmAppendDeclarativeFilterLevel.c)
+ */
+
 __int64 __fastcall CmAppendDeclarativeDefaultFilters(
         __int64 a1,
         __int64 a2,

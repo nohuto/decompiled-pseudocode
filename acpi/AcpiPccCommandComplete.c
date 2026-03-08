@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiPccCommandComplete @ 0x1C0004760
+ * Callers:
+ *     AcpiPccWatchdog @ 0x1C0004900 (AcpiPccWatchdog.c)
+ *     ACPIPccProcessSci @ 0x1C0033B3C (ACPIPccProcessSci.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall AcpiPccCommandComplete(__int64 a1)
 {
   LARGE_INTEGER PerformanceCounter; // rbx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MmFreeBootRegistry @ 0x140820DAC
+ * Callers:
+ *     CmpFreeBootRegistry @ 0x140615338 (CmpFreeBootRegistry.c)
+ *     HvpDropPagedBins @ 0x140820B14 (HvpDropPagedBins.c)
+ *     MmFreeLoaderBlock @ 0x140B5C404 (MmFreeLoaderBlock.c)
+ * Callees:
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiDeleteBootRange @ 0x14038BEB8 (MiDeleteBootRange.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void MmFreeBootRegistry()
 {
   size_t *v0; // rax

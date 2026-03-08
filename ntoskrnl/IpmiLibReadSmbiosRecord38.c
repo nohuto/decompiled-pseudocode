@@ -1,3 +1,13 @@
+/*
+ * XREFs of IpmiLibReadSmbiosRecord38 @ 0x1406754B4
+ * Callers:
+ *     IpmiHwInitializeContext @ 0x1406751C8 (IpmiHwInitializeContext.c)
+ * Callees:
+ *     ExGetSystemFirmwareTable @ 0x14085CED0 (ExGetSystemFirmwareTable.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IpmiLibReadSmbiosRecord38(__int64 a1)
 {
   char *Pool2; // rdi

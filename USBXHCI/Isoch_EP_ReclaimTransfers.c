@@ -1,3 +1,11 @@
+/*
+ * XREFs of Isoch_EP_ReclaimTransfers @ 0x1C0044220
+ * Callers:
+ *     <none>
+ * Callees:
+ *     TR_QueueDpcForTransferCompletion @ 0x1C000F284 (TR_QueueDpcForTransferCompletion.c)
+ */
+
 __int64 __fastcall Isoch_EP_ReclaimTransfers(__int64 a1)
 {
   KIRQL v2; // al

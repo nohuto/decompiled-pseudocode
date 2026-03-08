@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpiBiosMemoryToIoDescriptor @ 0x1C0091A50
+ * Callers:
+ *     PnpBiosResourcesToNtResources @ 0x1C008EFDC (PnpBiosResourcesToNtResources.c)
+ * Callees:
+ *     PnpiUpdateResourceList @ 0x1C0092328 (PnpiUpdateResourceList.c)
+ */
+
 __int64 __fastcall PnpiBiosMemoryToIoDescriptor(unsigned __int8 *a1, __int64 a2, unsigned int a3)
 {
   bool v4; // al

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIThermalGetOverrideHandle @ 0x1C00958FC
+ * Callers:
+ *     ACPIThermalWorker @ 0x1C00962E0 (ACPIThermalWorker.c)
+ * Callees:
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C000B2B0 (ACPIAmliBuildObjectPathnameUnicode.c)
+ *     OSOpenHandle @ 0x1C008DF10 (OSOpenHandle.c)
+ *     OSOpenUnicodeHandle @ 0x1C008E3DC (OSOpenUnicodeHandle.c)
+ */
+
 void *__fastcall ACPIThermalGetOverrideHandle(__int64 a1)
 {
   struct _UNICODE_STRING v2; // [rsp+20h] [rbp-18h] BYREF

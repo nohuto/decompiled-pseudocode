@@ -1,3 +1,11 @@
+/*
+ * XREFs of FreeObjOwnerTimeout @ 0x1C004B7C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FreeObjOwnerTimeout(
         struct _KDPC *Dpc,
         PVOID DeferredContext,

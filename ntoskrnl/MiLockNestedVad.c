@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiLockNestedVad @ 0x140A44F48
+ * Callers:
+ *     MiFreeVadRange @ 0x1402D5634 (MiFreeVadRange.c)
+ *     MiPerformVadSplitting @ 0x1402D581C (MiPerformVadSplitting.c)
+ *     MiUpControlAreaRefs @ 0x140623ABC (MiUpControlAreaRefs.c)
+ * Callees:
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ */
+
 __int64 __fastcall MiLockNestedVad(__int64 a1)
 {
   unsigned __int64 *v1; // rdi

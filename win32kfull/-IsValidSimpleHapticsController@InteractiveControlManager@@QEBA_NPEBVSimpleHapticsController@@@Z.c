@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsValidSimpleHapticsController@InteractiveControlManager@@QEBA_NPEBVSimpleHapticsController@@@Z @ 0x1C012F5D8
+ * Callers:
+ *     ?HapticsDeviceNotify@SimpleHapticsController@@KAJPEAU_PLUGPLAY_NOTIFY_HDR@@PEAX@Z @ 0x1C024B170 (-HapticsDeviceNotify@SimpleHapticsController@@KAJPEAU_PLUGPLAY_NOTIFY_HDR@@PEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall InteractiveControlManager::IsValidSimpleHapticsController(
         InteractiveControlManager *this,
         const struct SimpleHapticsController *a2)

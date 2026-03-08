@@ -1,3 +1,19 @@
+/*
+ * XREFs of VfPnpVerifyIrpStackUpward @ 0x140AE4140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ViErrorReport1 @ 0x1405CDA04 (ViErrorReport1.c)
+ *     ViErrorReport10 @ 0x1405CDA88 (ViErrorReport10.c)
+ *     PpvUtilIsPdo @ 0x140ABF024 (PpvUtilIsPdo.c)
+ *     IovUtilGetBottomDeviceObjectWithTag @ 0x140ACFA00 (IovUtilGetBottomDeviceObjectWithTag.c)
+ *     IovUtilGetLowerDeviceObjectWithTag @ 0x140ACFA64 (IovUtilGetLowerDeviceObjectWithTag.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x140ACFB14 (IovUtilIsDeviceObjectMarked.c)
+ *     IovUtilIsWdmStack @ 0x140ACFCB0 (IovUtilIsWdmStack.c)
+ *     ViPnpVerifyMinorWasProcessedProperly @ 0x140AE4430 (ViPnpVerifyMinorWasProcessedProperly.c)
+ */
+
 __int64 __fastcall VfPnpVerifyIrpStackUpward(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, int a5)
 {
   __int64 result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MmTryIdentifyPage @ 0x140624300
+ * Callers:
+ *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x140A98F10 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
+ * Callees:
+ *     MiIdentifyPfn @ 0x14025E5D0 (MiIdentifyPfn.c)
+ *     MiIsPageSecured @ 0x1402A27F0 (MiIsPageSecured.c)
+ *     MiIsPageOnBadList @ 0x14034B1D0 (MiIsPageOnBadList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MmTryIdentifyPage(unsigned __int64 a1, _QWORD *a2)
 {
   unsigned int v4; // esi

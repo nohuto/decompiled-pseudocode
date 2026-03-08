@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?GetBufferedOutputRaw@CInteractionContextWrapper@@UEAAI_K0PEAUInteractionOutput@@@Z @ 0x180280E50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _anonymous_namespace_::ResetInteractionOutput @ 0x180039D10 (_anonymous_namespace_--ResetInteractionOutput.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetCurrentMicroSecTime@QpcTimeConverter@@QEBA_KXZ @ 0x180281040 (-GetCurrentMicroSecTime@QpcTimeConverter@@QEBA_KXZ.c)
+ *     ?PeekFirst@?$CQueue@PEAVCBufferedInteractionOutput@@@@QEAAPEAXPEAXPEAPEAVCBufferedInteractionOutput@@@Z @ 0x180281684 (-PeekFirst@-$CQueue@PEAVCBufferedInteractionOutput@@@@QEAAPEAXPEAXPEAPEAVCBufferedInteractionOut.c)
+ *     ?_UpdateInteractionOutput@CInteractionContextWrapper@@AEAAXPEBUINTERACTION_CONTEXT_OUTPUT@@PEAUInteractionOutput@@@Z @ 0x180281FF4 (-_UpdateInteractionOutput@CInteractionContextWrapper@@AEAAXPEBUINTERACTION_CONTEXT_OUTPUT@@PEAUI.c)
+ */
+
 __int64 __fastcall CInteractionContextWrapper::GetBufferedOutputRaw(
         struct _RTL_CRITICAL_SECTION *this,
         unsigned __int64 a2,

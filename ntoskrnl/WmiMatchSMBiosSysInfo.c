@@ -1,3 +1,12 @@
+/*
+ * XREFs of WmiMatchSMBiosSysInfo @ 0x1409DC7D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WmipReadSMBiosSysInfo @ 0x1405F9660 (WmipReadSMBiosSysInfo.c)
+ *     WmipCheckSMBiosSysInfoString @ 0x1409DC878 (WmipCheckSMBiosSysInfoString.c)
+ */
+
 __int64 __fastcall WmiMatchSMBiosSysInfo(__int64 a1, __int64 a2, PCSZ *a3, int a4)
 {
   unsigned int v4; // ebx

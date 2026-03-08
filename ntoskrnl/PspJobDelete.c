@@ -1,3 +1,41 @@
+/*
+ * XREFs of PspJobDelete @ 0x140291AD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140283390 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ExDeleteResourceLite @ 0x140336580 (ExDeleteResourceLite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwDeleteWnfStateName @ 0x140413EF0 (ZwDeleteWnfStateName.c)
+ *     PsReturnSharedPoolQuota @ 0x140696A48 (PsReturnSharedPoolQuota.c)
+ *     IoFreeMiniCompletionPacket @ 0x1406F4D80 (IoFreeMiniCompletionPacket.c)
+ *     PspGetJobLockHierarchyForDeletion @ 0x1406F6DC0 (PspGetJobLockHierarchyForDeletion.c)
+ *     PspJobIoRateControlDisable @ 0x1406F6E38 (PspJobIoRateControlDisable.c)
+ *     PspJobDeleteStorageArrays @ 0x1406F6E9C (PspJobDeleteStorageArrays.c)
+ *     PspUnlockJobListExclusive @ 0x1406F8070 (PspUnlockJobListExclusive.c)
+ *     PspUnlockJobConditionally @ 0x1406FB418 (PspUnlockJobConditionally.c)
+ *     PspLockJobConditionally @ 0x1406FB448 (PspLockJobConditionally.c)
+ *     PspUnlockJob @ 0x1406FBF7C (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x1406FC178 (PspLockJobExclusive.c)
+ *     PspLockJobsAndProcessExclusive @ 0x140700CC4 (PspLockJobsAndProcessExclusive.c)
+ *     PspUnlockJobsAndProcessExclusive @ 0x140700DD0 (PspUnlockJobsAndProcessExclusive.c)
+ *     PspLockRootJobExclusive @ 0x14075168C (PspLockRootJobExclusive.c)
+ *     PspRemoveIoAttribution @ 0x14075339C (PspRemoveIoAttribution.c)
+ *     PspRemoveCpuRateControl @ 0x140783260 (PspRemoveCpuRateControl.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     PsInvokeWin32Callout @ 0x1407D2D10 (PsInvokeWin32Callout.c)
+ *     ExDestroyHandle @ 0x1407D76E4 (ExDestroyHandle.c)
+ *     ExMapHandleToPointer @ 0x1407D80C0 (ExMapHandleToPointer.c)
+ *     PspEmptyPropertySet @ 0x1407D9CEC (PspEmptyPropertySet.c)
+ *     PspDeleteSilo @ 0x1409AA08C (PspDeleteSilo.c)
+ *     PspNetRateControlDispatch @ 0x1409AF644 (PspNetRateControlDispatch.c)
+ *     PspRemoveRateControl @ 0x1409AF8BC (PspRemoveRateControl.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 LONG_PTR __fastcall PspJobDelete(char *Object)
 {
   struct _KTHREAD *CurrentThread; // rdi

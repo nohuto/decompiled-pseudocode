@@ -1,3 +1,12 @@
+/*
+ * XREFs of IoCapturePristineTriageDump @ 0x14054D368
+ * Callers:
+ *     KiCaptureDumpPreRecovery @ 0x14057886C (KiCaptureDumpPreRecovery.c)
+ * Callees:
+ *     IoFillDumpHeader @ 0x14054D7C8 (IoFillDumpHeader.c)
+ *     IopCollectTriageDumpData @ 0x14054FEF0 (IopCollectTriageDumpData.c)
+ */
+
 __int64 __fastcall IoCapturePristineTriageDump(
         int a1,
         int a2,

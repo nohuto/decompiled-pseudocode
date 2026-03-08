@@ -1,3 +1,12 @@
+/*
+ * XREFs of KdpIsBreakpoint @ 0x140565C58
+ * Callers:
+ *     KdpLowRestoreBreakpoint @ 0x140AB2934 (KdpLowRestoreBreakpoint.c)
+ *     KdpLowWriteContent @ 0x140AB29EC (KdpLowWriteContent.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KdpIsBreakpoint(__int64 a1, _BYTE *a2)
 {
   unsigned int v4; // edx

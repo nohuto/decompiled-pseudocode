@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiCreatePagefile @ 0x140835934
+ * Callers:
+ *     MmStoreRegister @ 0x140834CA4 (MmStoreRegister.c)
+ *     MiCreatePagingFile @ 0x140834F7C (MiCreatePagingFile.c)
+ *     MiCreateSpecialPurposeMemoryPageFile @ 0x140A444FC (MiCreateSpecialPurposeMemoryPageFile.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlSetAllBits @ 0x14028BD00 (RtlSetAllBits.c)
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     MiAllocateModWriterEntry @ 0x1402E4458 (MiAllocateModWriterEntry.c)
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     MiReservePageHash @ 0x140392518 (MiReservePageHash.c)
+ *     MiInitializePagefileBitmapsCache @ 0x1403926D0 (MiInitializePagefileBitmapsCache.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiCreatePageFileSpaceBitmaps @ 0x140835CAC (MiCreatePageFileSpaceBitmaps.c)
+ *     MiDeletePagefile @ 0x140A2FB40 (MiDeletePagefile.c)
+ */
+
 _BYTE *__fastcall MiCreatePagefile(
         __int64 a1,
         __int64 a2,

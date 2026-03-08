@@ -1,3 +1,13 @@
+/*
+ * XREFs of TtmpDeactivateSessionWorker @ 0x1409A220C
+ * Callers:
+ *     TtmpSessionWorker @ 0x1409A2950 (TtmpSessionWorker.c)
+ * Callees:
+ *     TtmpInitiateModernStandbyTransition @ 0x1409A23F0 (TtmpInitiateModernStandbyTransition.c)
+ *     TtmpSessionPowerControl @ 0x1409A28A4 (TtmpSessionPowerControl.c)
+ *     TtmiLogSessionDeactivate @ 0x1409A62E0 (TtmiLogSessionDeactivate.c)
+ */
+
 __int64 __fastcall TtmpDeactivateSessionWorker(__int64 a1, __int64 a2)
 {
   int v2; // eax

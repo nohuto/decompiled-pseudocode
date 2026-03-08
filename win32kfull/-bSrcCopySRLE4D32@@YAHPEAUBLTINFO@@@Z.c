@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bSrcCopySRLE4D32@@YAHPEAUBLTINFO@@@Z @ 0x1C02F1F60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bSrcCopySRLE4D32(struct BLTINFO *a1)
 {
   struct BLTINFO *v1; // r9

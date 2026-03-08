@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Trace@CFrameInfo@@QEAAXK_K0@Z @ 0x18004E320
+ * Callers:
+ *     ?UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ @ 0x18004DFB0 (-UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ.c)
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x18004E7F8 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
+ * Callees:
+ *     McTemplateU0qxqxxxqxxxxqxxxxxxxxxxqqqxqxxxx_EventWriteTransfer @ 0x18012CE88 (McTemplateU0qxqxxxqxxxxqxxxxxxxxxxqqqxqxxxx_EventWriteTransfer.c)
+ */
+
 void __fastcall CFrameInfo::Trace(CFrameInfo *this, int a2)
 {
   unsigned __int64 v2; // [rsp+110h] [rbp-58h]

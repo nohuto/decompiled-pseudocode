@@ -1,3 +1,20 @@
+/*
+ * XREFs of IoSaveBugCheckProgress @ 0x14054E5E0
+ * Callers:
+ *     IoWriteCrashDump @ 0x14054EF00 (IoWriteCrashDump.c)
+ *     IoAddPagesForPartialKernelDump @ 0x140559F94 (IoAddPagesForPartialKernelDump.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14055A46C (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     KeBugCheck2 @ 0x140565E90 (KeBugCheck2.c)
+ *     KiBugCheckWriteCrashDump @ 0x1405676EC (KiBugCheckWriteCrashDump.c)
+ *     KiDisplayBlueScreen @ 0x140567D34 (KiDisplayBlueScreen.c)
+ *     KiUpdateBugcheckRecoveryProgress @ 0x1405793F8 (KiUpdateBugcheckRecoveryProgress.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140670AE4 (BgpFwDisplayBugCheckScreen.c)
+ * Callees:
+ *     WheaLogInternalEvent @ 0x14037D610 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IoUpdateBugCheckProgressEnvVariable @ 0x14054EC04 (IoUpdateBugCheckProgressEnvVariable.c)
+ */
+
 LONG __fastcall IoSaveBugCheckProgress(int a1)
 {
   int v2; // ecx

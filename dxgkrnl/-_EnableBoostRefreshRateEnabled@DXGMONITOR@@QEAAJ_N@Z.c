@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?_EnableBoostRefreshRateEnabled@DXGMONITOR@@QEAAJ_N@Z @ 0x1C03C4D50
+ * Callers:
+ *     MonitorEnableBoostRefreshRateEnabledByDefault @ 0x1C03BF704 (MonitorEnableBoostRefreshRateEnabledByDefault.c)
+ * Callees:
+ *     ?DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z @ 0x1C000A280 (-DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?_UpdateMonitorConfigurationToMonitorStore@DXGMONITOR@@AEAAJK@Z @ 0x1C03CAB00 (-_UpdateMonitorConfigurationToMonitorStore@DXGMONITOR@@AEAAJK@Z.c)
+ */
+
 __int64 __fastcall DXGMONITOR::_EnableBoostRefreshRateEnabled(DXGMONITOR *this, unsigned __int8 a2)
 {
   unsigned int v2; // edi

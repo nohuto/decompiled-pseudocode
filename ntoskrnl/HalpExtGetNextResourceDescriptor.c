@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpExtGetNextResourceDescriptor @ 0x14050B520
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpExtGetNextResourceDescriptor(
         __int64 a1,
         unsigned int *a2,

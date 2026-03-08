@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiInsertPageFileMemoryExtents @ 0x14065E138
+ * Callers:
+ *     MiCreatePagefileMemoryExtents @ 0x140A44298 (MiCreatePagefileMemoryExtents.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiMovePageFileMemoryExtents @ 0x14065E2B8 (MiMovePageFileMemoryExtents.c)
+ */
+
 void __fastcall MiInsertPageFileMemoryExtents(__int64 a1, __int64 a2)
 {
   volatile LONG *v2; // r14

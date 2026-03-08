@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AllocateElements@?$PagedPoolZeroedArray@U_D3DKMT_DDISPLAY_ENUM_TARGET@@$00@@QEAAPEAU_D3DKMT_DDISPLAY_ENUM_TARGET@@I@Z @ 0x1C01BCFDC
+ * Callers:
+ *     DxgkDDisplayEnumInternal @ 0x1C01BC500 (DxgkDDisplayEnumInternal.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall PagedPoolZeroedArray<_D3DKMT_DDISPLAY_ENUM_TARGET,1>::AllocateElements(__int64 *a1, unsigned int a2)
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of TimeoutCallback @ 0x1C00551A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RestartContext @ 0x1C00512E8 (RestartContext.c)
+ */
+
 void __fastcall TimeoutCallback(
         struct _KDPC *Dpc,
         _DWORD *DeferredContext,

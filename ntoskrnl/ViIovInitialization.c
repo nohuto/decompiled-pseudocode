@@ -1,3 +1,17 @@
+/*
+ * XREFs of ViIovInitialization @ 0x140AD9358
+ * Callers:
+ *     VfIovPluginEntry @ 0x1405CF810 (VfIovPluginEntry.c)
+ * Callees:
+ *     ExInitializeNPagedLookasideListInternal @ 0x1403BD3B0 (ExInitializeNPagedLookasideListInternal.c)
+ *     VfAvlInitializeTree @ 0x1405CF7F0 (VfAvlInitializeTree.c)
+ *     ExSetPoolFlags @ 0x1406056B8 (ExSetPoolFlags.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     IoVerifierInit @ 0x140ABDCAC (IoVerifierInit.c)
+ *     VfMajorRegisterHandlers @ 0x140AD00D4 (VfMajorRegisterHandlers.c)
+ *     VfWdInit @ 0x140ADB0B8 (VfWdInit.c)
+ */
+
 void ViIovInitialization()
 {
   _QWORD *Pool2; // rax

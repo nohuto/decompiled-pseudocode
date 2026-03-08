@@ -1,3 +1,12 @@
+/*
+ * XREFs of Interrupter_CmResList_GetInterrupterCountAndType @ 0x1C0072438
+ * Callers:
+ *     Interrupter_PrepareHardware @ 0x1C0072C28 (Interrupter_PrepareHardware.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dD @ 0x1C0018184 (WPP_RECORDER_SF_dD.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Interrupter_CmResList_GetInterrupterCountAndType(__int64 a1, __int64 a2, _DWORD *a3, int *a4)
 {
   int v4; // ebx

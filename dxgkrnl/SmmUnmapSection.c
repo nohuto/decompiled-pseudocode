@@ -1,3 +1,11 @@
+/*
+ * XREFs of SmmUnmapSection @ 0x1C03D2DEC
+ * Callers:
+ *     ?SysMmUnmapPhysicalObject@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@PEAX_K@Z @ 0x1C0071130 (-SysMmUnmapPhysicalObject@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@PEAX_K@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 char __fastcall SmmUnmapSection(PVOID a1)
 {
   __int64 CurrentProcess; // rax

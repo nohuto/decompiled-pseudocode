@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopRemoveDeviceRelationsFromList @ 0x14087FF84
+ * Callers:
+ *     PnpProcessQueryRemoveAndEject @ 0x1408625F0 (PnpProcessQueryRemoveAndEject.c)
+ * Callees:
+ *     PipDeviceObjectListElementAt @ 0x1408702B8 (PipDeviceObjectListElementAt.c)
+ *     PipDeviceObjectListRemove @ 0x14087FFE4 (PipDeviceObjectListRemove.c)
+ */
+
 __int64 __fastcall IopRemoveDeviceRelationsFromList(unsigned int **a1)
 {
   unsigned int *v1; // rax

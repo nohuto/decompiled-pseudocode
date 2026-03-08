@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiPrmNotifyInterfaceChange @ 0x1C008CC20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiAcquirePrmInterface @ 0x1C008CAB8 (AcpiAcquirePrmInterface.c)
+ */
+
 __int64 __fastcall AcpiPrmNotifyInterfaceChange(char *NotificationStructure, PVOID Context)
 {
   __int64 v2; // rax

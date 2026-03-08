@@ -1,3 +1,13 @@
+/*
+ * XREFs of MapGpadl @ 0x1C03916D0
+ * Callers:
+ *     ?SetSharedPage@DXGVIRTUALMACHINE@@QEAAJI@Z @ 0x1C0341638 (-SetSharedPage@DXGVIRTUALMACHINE@@QEAAJI@Z.c)
+ *     ?VmBusReadDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C037FD20 (-VmBusReadDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall MapGpadl(__int64 a1, unsigned int a2, unsigned __int64 a3)
 {
   int v3; // eax

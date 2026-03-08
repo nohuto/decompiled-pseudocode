@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?StDmEtwRegionRundown@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x1405C3808
+ * Callers:
+ *     ?StGetStats@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1405C62AC (-StGetStats@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ * Callees:
+ *     SmEtwEnabled @ 0x14035911C (SmEtwEnabled.c)
+ *     SmEtwLogRegionOp @ 0x1405C8A9C (SmEtwLogRegionOp.c)
+ */
+
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmEtwRegionRundown(__int64 a1)
 {
   unsigned __int64 v2; // rax

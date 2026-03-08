@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpSetVirtualRtc @ 0x1402D13F0
+ * Callers:
+ *     HalQueryRealTimeClock @ 0x1402D0F30 (HalQueryRealTimeClock.c)
+ *     HalCalibratePerformanceCounter @ 0x1404FC150 (HalCalibratePerformanceCounter.c)
+ *     HalSetRealTimeClock @ 0x1404FCC40 (HalSetRealTimeClock.c)
+ *     HalpSetResumeTime @ 0x14051A258 (HalpSetResumeTime.c)
+ * Callees:
+ *     RtlGetSystemTimePrecise @ 0x140205310 (RtlGetSystemTimePrecise.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     RtlpTimeToTimeFields @ 0x1402D14C8 (RtlpTimeToTimeFields.c)
+ */
+
 char __fastcall HalpSetVirtualRtc(__int64 *a1)
 {
   __int64 SystemTimePrecise; // rbx

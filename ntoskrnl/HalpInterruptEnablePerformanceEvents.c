@@ -1,3 +1,22 @@
+/*
+ * XREFs of HalpInterruptEnablePerformanceEvents @ 0x1403789F8
+ * Callers:
+ *     EmonPreOverflowHandler @ 0x14051BB30 (EmonPreOverflowHandler.c)
+ *     HalpInterruptInitSystem @ 0x140A86CD0 (HalpInterruptInitSystem.c)
+ *     HalpPostSleepMP @ 0x140A93F28 (HalpPostSleepMP.c)
+ *     HalpDpPostReplaceInitialization @ 0x140A94574 (HalpDpPostReplaceInitialization.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     HalpInterruptFindLines @ 0x14028EE80 (HalpInterruptFindLines.c)
+ *     HalpInterruptGsiToLine @ 0x14028EF10 (HalpInterruptGsiToLine.c)
+ *     HalpInterruptGetPriority @ 0x1403792F0 (HalpInterruptGetPriority.c)
+ *     HalpInterruptSetLineState @ 0x1403793AC (HalpInterruptSetLineState.c)
+ *     HalpInterruptSetLineStateInternal @ 0x1403796D0 (HalpInterruptSetLineStateInternal.c)
+ *     HalpAcquireHighLevelLock @ 0x140379818 (HalpAcquireHighLevelLock.c)
+ *     HalpGetProcessorStateByNtIndex @ 0x1403810E8 (HalpGetProcessorStateByNtIndex.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpInterruptEnablePerformanceEvents(__int64 a1)
 {
   ULONG_PTR v1; // rbx

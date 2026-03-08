@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhMakePdoName @ 0x1C0043BAC
+ * Callers:
+ *     UsbhCreatePdo @ 0x1C0053530 (UsbhCreatePdo.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     memset @ 0x1C0023880 (memset.c)
+ */
+
 __int64 __fastcall UsbhMakePdoName(__int64 a1, struct _UNICODE_STRING *a2, ULONG a3)
 {
   __int64 Pool2; // rax

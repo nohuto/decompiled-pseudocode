@@ -1,3 +1,11 @@
+/*
+ * XREFs of IrqArbScoreRequirement @ 0x1C009D8D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IrqArbScoreRequirement(__int64 a1)
 {
   unsigned int v1; // edx

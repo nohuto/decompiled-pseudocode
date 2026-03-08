@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiGetStats @ 0x1C01867F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z @ 0x1C006F140 (-GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z.c)
+ */
+
 __int64 __fastcall NtGdiGetStats(__int64 a1, int a2, unsigned int a3, volatile void *a4, SIZE_T Length)
 {
   int v8; // esi

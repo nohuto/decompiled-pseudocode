@@ -1,3 +1,18 @@
+/*
+ * XREFs of PiDrvDbMountNode @ 0x14096D0E0
+ * Callers:
+ *     PiPnpRtlObjectActionCallback @ 0x1406CFC70 (PiPnpRtlObjectActionCallback.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     PiDrvDbFindNode @ 0x140562C40 (PiDrvDbFindNode.c)
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PiDrvDbRegisterNode @ 0x14081C38C (PiDrvDbRegisterNode.c)
+ *     PiDrvDbQueryHiveFileName @ 0x14096DBF4 (PiDrvDbQueryHiveFileName.c)
+ */
+
 __int64 __fastcall PiDrvDbMountNode(PCWSTR SourceString)
 {
   int appended; // ebx

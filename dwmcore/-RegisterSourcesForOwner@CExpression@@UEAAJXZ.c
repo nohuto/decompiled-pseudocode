@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RegisterSourcesForOwner@CExpression@@UEAAJXZ @ 0x1800BC660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AddSourceAnimation@CResource@@QEAAJPEAVCBaseExpression@@I@Z @ 0x1800BC710 (-AddSourceAnimation@CResource@@QEAAJPEAVCBaseExpression@@I@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CExpression::RegisterSourcesForOwner(CExpression *this)
 {
   struct CBaseExpression *v1; // rbp

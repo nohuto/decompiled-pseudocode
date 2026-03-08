@@ -1,3 +1,22 @@
+/*
+ * XREFs of ExCovReadjustUnloadedModuleEntry @ 0x1407F6CC8
+ * Callers:
+ *     MiConstructLoaderEntry @ 0x14072CE24 (MiConstructLoaderEntry.c)
+ *     MiUnloadSystemImage @ 0x1407F627C (MiUnloadSystemImage.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusive @ 0x1402411A0 (ExfAcquirePushLockExclusive.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlCompareUnicodeString @ 0x1406EA3B0 (RtlCompareUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     ExpCovCreateUnloadedModuleEntry @ 0x140A034B4 (ExpCovCreateUnloadedModuleEntry.c)
+ *     ExpCovDeleteUnloadedModuleEntry @ 0x140A03718 (ExpCovDeleteUnloadedModuleEntry.c)
+ *     ExpCovReadFriendlyName @ 0x140A0420C (ExpCovReadFriendlyName.c)
+ */
+
 void __fastcall ExCovReadjustUnloadedModuleEntry(__int64 a1, char a2)
 {
   struct _KTHREAD *CurrentThread; // rax

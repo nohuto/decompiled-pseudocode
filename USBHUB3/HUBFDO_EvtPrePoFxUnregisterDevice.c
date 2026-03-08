@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBFDO_EvtPrePoFxUnregisterDevice @ 0x1C000F020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     TUNNEL_UnregisterForPnPNotifications @ 0x1C008E9B8 (TUNNEL_UnregisterForPnPNotifications.c)
+ */
+
 __int64 __fastcall HUBFDO_EvtPrePoFxUnregisterDevice(__int64 a1)
 {
   __int64 v1; // rax

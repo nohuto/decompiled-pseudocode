@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiTryLockProtoPoolPageAtDpc @ 0x1402A2850
+ * Callers:
+ *     MiGetPageProtection @ 0x14031C310 (MiGetPageProtection.c)
+ *     MiCopyDataPageToImagePage @ 0x140334490 (MiCopyDataPageToImagePage.c)
+ *     MiCopyHeaderIfResident @ 0x140368D84 (MiCopyHeaderIfResident.c)
+ *     MiCopyFileOnlyGlobalSubsectionPage @ 0x140639EB8 (MiCopyFileOnlyGlobalSubsectionPage.c)
+ * Callees:
+ *     MiWriteValidPteVolatile @ 0x140229800 (MiWriteValidPteVolatile.c)
+ *     MiTryLockLeafPage @ 0x1402A29B8 (MiTryLockLeafPage.c)
+ *     MiAddLockedPageCharge @ 0x1402A309C (MiAddLockedPageCharge.c)
+ */
+
 __int64 __fastcall MiTryLockProtoPoolPageAtDpc(unsigned __int64 a1, __int64 a2, __int64 *a3, __int64 a4)
 {
   volatile signed __int64 *v7; // r10

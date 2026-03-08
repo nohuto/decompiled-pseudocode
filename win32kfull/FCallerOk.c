@@ -1,3 +1,11 @@
+/*
+ * XREFs of FCallerOk @ 0x1C023014C
+ * Callers:
+ *     ?xxxSetWindowWord@@YAGPEAUtagWND@@HG@Z @ 0x1C022FC24 (-xxxSetWindowWord@@YAGPEAUtagWND@@HG@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FCallerOk(__int64 a1)
 {
   __int64 v2; // rcx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiTraceLogHeteroRundown @ 0x1403AB22C
+ * Callers:
+ *     KiConfigureHeteroProcessorsTarget @ 0x140569250 (KiConfigureHeteroProcessorsTarget.c)
+ *     KiTraceLogControlCallback @ 0x14085BEF0 (KiTraceLogControlCallback.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeIsMultiCoreClassesEnabled @ 0x14038E410 (KeIsMultiCoreClassesEnabled.c)
+ *     _tlgCreate1Sz_char @ 0x1403BE3FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiEnumerateNextSchedulerSubNodeInSystem @ 0x14056E2D8 (KiEnumerateNextSchedulerSubNodeInSystem.c)
+ */
+
 NTSTATUS __fastcall KiTraceLogHeteroRundown(_DWORD *a1, __int64 a2)
 {
   NTSTATUS result; // eax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PpmEventTraceProcessorPerformanceDomainRundown @ 0x140996930
+ * Callers:
+ *     PpmEventTraceControlCallback @ 0x140860AA0 (PpmEventTraceControlCallback.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     KeAndGroupAffinityEx @ 0x140233690 (KeAndGroupAffinityEx.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     KeQueryGroupAffinity @ 0x140296080 (KeQueryGroupAffinity.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PpmEventTraceProcessorPerformanceDomainRundown(__int64 a1)
 {
   _DWORD *Pool2; // r14

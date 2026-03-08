@@ -1,3 +1,27 @@
+/*
+ * XREFs of MultiUserNtGreCleanup @ 0x1C009EFD4
+ * Callers:
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C015C290 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ * Callees:
+ *     ?MultiUserGreCleanupEngResources@@YAXXZ @ 0x1C002AD20 (-MultiUserGreCleanupEngResources@@YAXXZ.c)
+ *     ?Free@PDEV@@SAXPEAV1@H@Z @ 0x1C002B370 (-Free@PDEV@@SAXPEAV1@H@Z.c)
+ *     ?GrepCloseCurrentProcess@@YAHXZ @ 0x1C006D158 (-GrepCloseCurrentProcess@@YAHXZ.c)
+ *     ?FreePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B774 (-FreePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     DrvNotifySessionStateChange @ 0x1C009F810 (DrvNotifySessionStateChange.c)
+ *     ?IsSessionGlobalsAreaAllocated@Base@Gre@@YA_NXZ @ 0x1C009FBB0 (-IsSessionGlobalsAreaAllocated@Base@Gre@@YA_NXZ.c)
+ *     ?FreeSessionGlobalsArea@Base@Gre@@YAXXZ @ 0x1C009FBD4 (-FreeSessionGlobalsArea@Base@Gre@@YAXXZ.c)
+ *     ?Destroy@GdiHandleManager@@SAXPEAV1@@Z @ 0x1C009FC10 (-Destroy@GdiHandleManager@@SAXPEAV1@@Z.c)
+ *     ?vDestroyScanLookAsideList@RGNMEMOBJ@@SAXXZ @ 0x1C009FC50 (-vDestroyScanLookAsideList@RGNMEMOBJ@@SAXXZ.c)
+ *     ?UninitializeTypeIsolation@@YAXXZ @ 0x1C009FE38 (-UninitializeTypeIsolation@@YAXXZ.c)
+ *     ?MultiUserGreDeleteXLATE@@YAXXZ @ 0x1C009FEE4 (-MultiUserGreDeleteXLATE@@YAXXZ.c)
+ *     ?UninitializeReferenceTracker@@YAXXZ @ 0x1C00A0090 (-UninitializeReferenceTracker@@YAXXZ.c)
+ *     ?MultiUserDrvCleanupGraphicsDeviceList@@YAXXZ @ 0x1C00A0118 (-MultiUserDrvCleanupGraphicsDeviceList@@YAXXZ.c)
+ *     ?MultiUserGreHmgOwnAll@@YAXXZ @ 0x1C00A0B00 (-MultiUserGreHmgOwnAll@@YAXXZ.c)
+ *     ?MultiUserGreCleanupDrivers@@YAXXZ @ 0x1C00A0BB4 (-MultiUserGreCleanupDrivers@@YAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall MultiUserNtGreCleanup(Gre::Base *a1)
 {
   __int64 v1; // rcx

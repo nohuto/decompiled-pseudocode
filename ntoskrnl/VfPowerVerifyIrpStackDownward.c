@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfPowerVerifyIrpStackDownward @ 0x140AE47C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ViErrorReport1 @ 0x1405CDA04 (ViErrorReport1.c)
+ *     VfGetPristineDriverInit @ 0x140ACA24C (VfGetPristineDriverInit.c)
+ */
+
 __int64 __fastcall VfPowerVerifyIrpStackDownward(
         _QWORD *a1,
         __int64 a2,

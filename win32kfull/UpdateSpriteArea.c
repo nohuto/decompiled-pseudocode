@@ -1,3 +1,15 @@
+/*
+ * XREFs of UpdateSpriteArea @ 0x1C00DC4C4
+ * Callers:
+ *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C0068A60 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
+ * Callees:
+ *     UpdateSprite @ 0x1C002E7A8 (UpdateSprite.c)
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     GreConvertMemToRedirectionDC @ 0x1C00DC7AC (GreConvertMemToRedirectionDC.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     GreConvertRedirectionToMemDC @ 0x1C02AFFC4 (GreConvertRedirectionToMemDC.c)
+ */
+
 _UNKNOWN **__fastcall UpdateSpriteArea(
         const struct tagWND *a1,
         __int64 a2,

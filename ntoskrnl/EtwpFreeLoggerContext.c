@@ -1,3 +1,38 @@
+/*
+ * XREFs of EtwpFreeLoggerContext @ 0x1406F29FC
+ * Callers:
+ *     EtwpStartLogger @ 0x140691964 (EtwpStartLogger.c)
+ *     EtwpLogger @ 0x1406926A0 (EtwpLogger.c)
+ *     EtwpStopTrace @ 0x140745044 (EtwpStopTrace.c)
+ * Callees:
+ *     ExDeleteTimer @ 0x140203F60 (ExDeleteTimer.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402331B0 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     KeCancelTimer @ 0x140250B60 (KeCancelTimer.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     EtwpClearPartitionContext @ 0x14028DAAC (EtwpClearPartitionContext.c)
+ *     KeRemoveQueueDpc @ 0x14028DB30 (KeRemoveQueueDpc.c)
+ *     EtwpFreeStackWalkApcs @ 0x14028DCA0 (EtwpFreeStackWalkApcs.c)
+ *     ExWaitForRundownProtectionReleaseCacheAware @ 0x14028E0C0 (ExWaitForRundownProtectionReleaseCacheAware.c)
+ *     ExReInitializeRundownProtectionCacheAware @ 0x14028E180 (ExReInitializeRundownProtectionCacheAware.c)
+ *     EtwpCancelPendingStackWalkApcs @ 0x14028E24C (EtwpCancelPendingStackWalkApcs.c)
+ *     EtwpFreeCompression @ 0x14028E2C4 (EtwpFreeCompression.c)
+ *     ExReleaseExtensionTable @ 0x1402C5820 (ExReleaseExtensionTable.c)
+ *     KeGenericCallDpc @ 0x1403008E0 (KeGenericCallDpc.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ObDereferenceSecurityDescriptor @ 0x140696920 (ObDereferenceSecurityDescriptor.c)
+ *     SeDeleteClientSecurity @ 0x1406D4FF0 (SeDeleteClientSecurity.c)
+ *     EtwpFreeTraceBufferPool @ 0x1406F2CFC (EtwpFreeTraceBufferPool.c)
+ *     EtwpRealtimeDisconnectAllConsumers @ 0x1406F4184 (EtwpRealtimeDisconnectAllConsumers.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     EtwpFreeStackCache @ 0x1408A39B8 (EtwpFreeStackCache.c)
+ *     EtwpCancelMemoryPreservation @ 0x1409EA4E0 (EtwpCancelMemoryPreservation.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwpFreeLoggerContext(char *P)
 {
   __int64 v1; // r14

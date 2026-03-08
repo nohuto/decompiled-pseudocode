@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_dqLD @ 0x1C003C7E4
+ * Callers:
+ *     PnpBiosResourcesToNtResources @ 0x1C008EFDC (PnpBiosResourcesToNtResources.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_dqLD(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
 {
   int v7; // [rsp+20h] [rbp-58h]

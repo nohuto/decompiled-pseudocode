@@ -1,3 +1,37 @@
+/*
+ * XREFs of CmpConstructNameWithStatus @ 0x1407AF2E0
+ * Callers:
+ *     CmQueryLayeredKey @ 0x1402F262C (CmQueryLayeredKey.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1406B845C (CmpSetSecurityDescriptorInfo.c)
+ *     CmpTraceSecurityChanging @ 0x1406B8AF8 (CmpTraceSecurityChanging.c)
+ *     CmpConstructName @ 0x1406BD1BC (CmpConstructName.c)
+ *     CmLoadAppKey @ 0x1406BDA5C (CmLoadAppKey.c)
+ *     CmpDoParseKey @ 0x1406E1D90 (CmpDoParseKey.c)
+ *     CmpLinkHiveToMaster @ 0x140731250 (CmpLinkHiveToMaster.c)
+ *     CmAddLogForAction @ 0x14073485C (CmAddLogForAction.c)
+ *     CmpConstructAndCacheName @ 0x1407929C4 (CmpConstructAndCacheName.c)
+ *     CmCallbackGetKeyObjectIDEx @ 0x1407AAEC0 (CmCallbackGetKeyObjectIDEx.c)
+ *     CmQueryKey @ 0x1407AE5C0 (CmQueryKey.c)
+ *     CmpDoWritethroughReparse @ 0x1407B6860 (CmpDoWritethroughReparse.c)
+ *     CmpEtwDumpKcb @ 0x1408A6EE6 (CmpEtwDumpKcb.c)
+ *     CmpLoadHiveVolatile @ 0x140A096F0 (CmpLoadHiveVolatile.c)
+ *     CmEtwRunDown @ 0x140A0F788 (CmEtwRunDown.c)
+ *     CmpTraceHiveSaveStart @ 0x140A101D4 (CmpTraceHiveSaveStart.c)
+ *     CmpIsHiveAlreadyLoaded @ 0x140A13C04 (CmpIsHiveAlreadyLoaded.c)
+ *     CmpDumpKeyBodyList @ 0x140A143F8 (CmpDumpKeyBodyList.c)
+ *     CmRealKCBToVirtualPath @ 0x140A15968 (CmRealKCBToVirtualPath.c)
+ *     CmVirtualKCBToRealPath @ 0x140A15B68 (CmVirtualKCBToRealPath.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x140A18D84 (CmpReportAuditVirtualizationEvent.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     CmpSetKcbAtLayerHeight @ 0x140785EE8 (CmpSetKcbAtLayerHeight.c)
+ *     CmpStartKcbStack @ 0x1407AF450 (CmpStartKcbStack.c)
+ *     CmpConstructNameFromKeyNodes @ 0x1407B0C90 (CmpConstructNameFromKeyNodes.c)
+ *     CmpConstructNameFromKcbNameBlocks @ 0x140A142C8 (CmpConstructNameFromKcbNameBlocks.c)
+ *     CmpAcquireShutdownRundown @ 0x140AF23A0 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140AF23F0 (CmpReleaseShutdownRundown.c)
+ */
+
 __int64 __fastcall CmpConstructNameWithStatus(__int64 a1, _QWORD *a2, __int64 a3)
 {
   char v5; // bp

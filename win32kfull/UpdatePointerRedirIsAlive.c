@@ -1,3 +1,14 @@
+/*
+ * XREFs of UpdatePointerRedirIsAlive @ 0x1C0020078
+ * Callers:
+ *     UpdateInUserCritUpdatedPointerRedirectedGlobalsOnDesktopSwitch @ 0x1C001FFC4 (UpdateInUserCritUpdatedPointerRedirectedGlobalsOnDesktopSwitch.c)
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ *     IsPointerInputRedirected @ 0x1C014695A (IsPointerInputRedirected.c)
+ *     _RegisterPointerInputTarget @ 0x1C01C8158 (_RegisterPointerInputTarget.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall UpdatePointerRedirIsAlive(__int64 a1)
 {
   __int64 *v2; // rdi

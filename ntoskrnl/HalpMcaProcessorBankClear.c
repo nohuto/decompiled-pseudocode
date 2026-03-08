@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpMcaProcessorBankClear @ 0x140503EFC
+ * Callers:
+ *     HalpMcaClearError @ 0x140500FC0 (HalpMcaClearError.c)
+ * Callees:
+ *     HalpWheaReadMsrStatus @ 0x14037D160 (HalpWheaReadMsrStatus.c)
+ *     HalpGetCpuVendor @ 0x14037D1B4 (HalpGetCpuVendor.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall HalpMcaProcessorBankClear(__int64 a1, int a2)
 {
   __int64 MsrStatus; // rax

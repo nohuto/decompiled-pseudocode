@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?_TTUpdateRankWithSegment@@YAXJJJJ_NPEAUtagPOINT@@PEAGUtagRECT@@3PEBUtagTOUCHTARGETINGCONTACT@@@Z @ 0x1C02507C8
+ * Callers:
+ *     TouchTargetingRankForRect @ 0x1C0251150 (TouchTargetingRankForRect.c)
+ * Callees:
+ *     TouchTargetingIntersectSegment @ 0x1C0250F30 (TouchTargetingIntersectSegment.c)
+ *     TouchTargetingRank @ 0x1C02510D8 (TouchTargetingRank.c)
+ *     TouchTargetingSnapToSegment @ 0x1C0251998 (TouchTargetingSnapToSegment.c)
+ */
+
 void __fastcall _TTUpdateRankWithSegment(
         int a1,
         int a2,

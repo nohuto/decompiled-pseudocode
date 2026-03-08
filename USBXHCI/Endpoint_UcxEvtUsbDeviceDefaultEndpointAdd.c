@@ -1,3 +1,14 @@
+/*
+ * XREFs of Endpoint_UcxEvtUsbDeviceDefaultEndpointAdd @ 0x1C00725A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     Controller_IsSecureDevice @ 0x1C000B0F8 (Controller_IsSecureDevice.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Endpoint_Create @ 0x1C006D624 (Endpoint_Create.c)
+ */
+
 __int64 __fastcall Endpoint_UcxEvtUsbDeviceDefaultEndpointAdd(__int64 a1, __int64 a2, __int16 a3, __int64 a4)
 {
   __int64 v8; // rbx

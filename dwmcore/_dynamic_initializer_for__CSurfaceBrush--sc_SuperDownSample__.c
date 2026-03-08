@@ -1,3 +1,11 @@
+/*
+ * XREFs of _dynamic_initializer_for__CSurfaceBrush::sc_SuperDownSample__ @ 0x180003000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 dynamic_initializer_for__CSurfaceBrush::sc_SuperDownSample__()
 {
   __int64 result; // rax

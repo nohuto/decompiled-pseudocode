@@ -1,3 +1,12 @@
+/*
+ * XREFs of rimHidP_GetLinkCollectionNodes @ 0x1C01B2000
+ * Callers:
+ *     RIMIsParallelDevice @ 0x1C01B8C44 (RIMIsParallelDevice.c)
+ *     RIMRetrieveLinkCollection @ 0x1C01B9AA4 (RIMRetrieveLinkCollection.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall rimHidP_GetLinkCollectionNodes(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v7; // rdx

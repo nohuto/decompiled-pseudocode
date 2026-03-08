@@ -1,3 +1,14 @@
+/*
+ * XREFs of KdpWriteBreakPointEx @ 0x140AB1D94
+ * Callers:
+ *     KdpSendWaitContinue @ 0x140AAD824 (KdpSendWaitContinue.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KdpCopyMemoryChunks @ 0x140AAD0F4 (KdpCopyMemoryChunks.c)
+ *     KdpDeleteBreakpoint @ 0x140AAEB50 (KdpDeleteBreakpoint.c)
+ *     KdpAddBreakpoint @ 0x140AB2738 (KdpAddBreakpoint.c)
+ */
+
 __int64 __fastcall KdpWriteBreakPointEx(_DWORD *a1, char **a2)
 {
   __int64 v2; // rsi

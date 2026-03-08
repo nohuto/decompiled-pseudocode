@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiNodeAvailablePages @ 0x140464746
+ * Callers:
+ *     MiLogSlabEntryAllocateFailure @ 0x140654B1C (MiLogSlabEntryAllocateFailure.c)
+ *     MiAddPhysicalMemoryChunks @ 0x140A2919C (MiAddPhysicalMemoryChunks.c)
+ * Callees:
+ *     MiNodeFreeZeroPages @ 0x14034EAD4 (MiNodeFreeZeroPages.c)
+ */
+
 __int64 __fastcall MiNodeAvailablePages(_QWORD *a1)
 {
   __int64 v1; // rbx

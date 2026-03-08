@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopInitShutdownList @ 0x140B43FE0
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 PopInitShutdownList()
 {
   __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of SmKmKeyGenKeyFind @ 0x1409D61C4
+ * Callers:
+ *     SmKmKeyGenGenerate @ 0x1409D601C (SmKmKeyGenGenerate.c)
+ *     SmKmKeyGenNewKey @ 0x1409D6384 (SmKmKeyGenNewKey.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall SmKmKeyGenKeyFind(__int64 a1, unsigned __int16 *a2)
 {
   _QWORD *v2; // r8

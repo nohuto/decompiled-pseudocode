@@ -1,3 +1,18 @@
+/*
+ * XREFs of PpmTestAndLockProcessor @ 0x140583A5C
+ * Callers:
+ *     PpmTestAndLockProcessors @ 0x140235EAC (PpmTestAndLockProcessors.c)
+ *     PpmIdleCheckCoordinatedDependency @ 0x1405821CC (PpmIdleCheckCoordinatedDependency.c)
+ *     PpmIdleCheckCoordinatedProcessorDependency @ 0x1405824E0 (PpmIdleCheckCoordinatedProcessorDependency.c)
+ * Callees:
+ *     KeCheckProcessorAffinityEx @ 0x140234B10 (KeCheckProcessorAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KeInterlockedClearProcessorAffinityEx @ 0x1402DA1D0 (KeInterlockedClearProcessorAffinityEx.c)
+ *     KeInterlockedSetProcessorAffinityEx @ 0x1402DE1C0 (KeInterlockedSetProcessorAffinityEx.c)
+ *     PpmIdleLockProcessor @ 0x140582D5C (PpmIdleLockProcessor.c)
+ *     PpmIdleTransitionStall @ 0x1405831B0 (PpmIdleTransitionStall.c)
+ */
+
 __int64 __fastcall PpmTestAndLockProcessor(__int64 a1, unsigned __int16 *a2, __int64 a3)
 {
   unsigned __int32 *v3; // r13

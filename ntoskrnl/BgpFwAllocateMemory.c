@@ -1,3 +1,34 @@
+/*
+ * XREFs of BgpFwAllocateMemory @ 0x140383BDC
+ * Callers:
+ *     BcpGetProgressMessages @ 0x1403811E0 (BcpGetProgressMessages.c)
+ *     BgpFwQueryBootGraphicsInformation @ 0x1403812F4 (BgpFwQueryBootGraphicsInformation.c)
+ *     BgpRasPrintGlyph @ 0x140381CD4 (BgpRasPrintGlyph.c)
+ *     RaspAllocateMemory @ 0x140383B7C (RaspAllocateMemory.c)
+ *     BgpTxtGetRegionContext @ 0x140AE970C (BgpTxtGetRegionContext.c)
+ *     TxtpAddCacheEntry @ 0x140AEA9C8 (TxtpAddCacheEntry.c)
+ *     BgpGxRectangleCreate @ 0x140AEAA94 (BgpGxRectangleCreate.c)
+ *     BgpFwLibraryInitialize @ 0x140AEAC78 (BgpFwLibraryInitialize.c)
+ *     BgpTxtCreateRegion @ 0x140AEB2AC (BgpTxtCreateRegion.c)
+ *     BgpDisplayCharacterGetContext @ 0x140AEB4B8 (BgpDisplayCharacterGetContext.c)
+ *     BgpConsoleInitialize @ 0x140AEB6E0 (BgpConsoleInitialize.c)
+ *     ResFwBackgroundTransition @ 0x140AEBAF8 (ResFwBackgroundTransition.c)
+ *     BgpBcInitializeCriticalMode @ 0x140B991D4 (BgpBcInitializeCriticalMode.c)
+ *     FopReadNamingTable @ 0x140B9952C (FopReadNamingTable.c)
+ *     FopReadMappingTable @ 0x140B99898 (FopReadMappingTable.c)
+ *     FopValidateFontNameTable @ 0x140B99A68 (FopValidateFontNameTable.c)
+ *     FopReadCmapTable @ 0x140B99BEC (FopReadCmapTable.c)
+ *     FopInitializeFonts @ 0x140B99D48 (FopInitializeFonts.c)
+ *     BgpFoInitialize @ 0x140B99E88 (BgpFoInitialize.c)
+ * Callees:
+ *     MmAllocatePagesForMdlEx @ 0x1402B3960 (MmAllocatePagesForMdlEx.c)
+ *     MiFreePagesFromMdl @ 0x1402C0DD0 (MiFreePagesFromMdl.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     BgpFwReserveAllocate @ 0x140384344 (BgpFwReserveAllocate.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BgpFwAllocateMemory(unsigned __int64 a1)
 {
   int v1; // ebp

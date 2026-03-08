@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpandMask_CX @ 0x1C025F710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ExpandMask_CX(__int64 a1)
 {
   int v1; // r11d

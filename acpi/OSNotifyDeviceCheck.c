@@ -1,3 +1,18 @@
+/*
+ * XREFs of OSNotifyDeviceCheck @ 0x1C0032C80
+ * Callers:
+ *     NotifyHandler @ 0x1C0004EE0 (NotifyHandler.c)
+ * Callees:
+ *     ACPIDockIsDockDevice @ 0x1C0009A34 (ACPIDockIsDockDevice.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     ACPIBuildSynchronizationRequestInternal @ 0x1C0013BE0 (ACPIBuildSynchronizationRequestInternal.c)
+ *     WPP_RECORDER_SF_qs @ 0x1C00152B8 (WPP_RECORDER_SF_qs.c)
+ *     OSNotifyDeviceEject @ 0x1C0032E08 (OSNotifyDeviceEject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetParent @ 0x1C0048724 (AMLIGetParent.c)
+ *     AMLIIterateParentNext @ 0x1C00488A4 (AMLIIterateParentNext.c)
+ */
+
 __int64 __fastcall OSNotifyDeviceCheck(__int64 a1)
 {
   int v2; // edx

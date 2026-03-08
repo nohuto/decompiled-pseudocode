@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ApplyEmissiveFactorToSpectreResource@CScenePbrMaterial@@AEAAXPEAUISpectreMaterial@@@Z @ 0x18024CF04
+ * Callers:
+ *     ?IntializeSpectreResource@CScenePbrMaterial@@MEAAXPEAUISpectreMaterial@@PEA_N@Z @ 0x18024D08C (-IntializeSpectreResource@CScenePbrMaterial@@MEAAXPEAUISpectreMaterial@@PEA_N@Z.c)
+ *     ?OnEmissiveFactorChanged@CScenePbrMaterial@@QEAAXXZ @ 0x18024D2C8 (-OnEmissiveFactorChanged@CScenePbrMaterial@@QEAAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CScenePbrMaterial::ApplyEmissiveFactorToSpectreResource(
         CScenePbrMaterial *this,
         struct ISpectreMaterial *a2)

@@ -1,3 +1,18 @@
+/*
+ * XREFs of CopyObject @ 0x1C0056550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     DupObjData @ 0x1C004AF04 (DupObjData.c)
+ *     MatchObjType @ 0x1C004C064 (MatchObjType.c)
+ *     MoveObjData @ 0x1C004C164 (MoveObjData.c)
+ *     ValidateTarget @ 0x1C004D4F0 (ValidateTarget.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     WriteObject @ 0x1C00532A0 (WriteObject.c)
+ */
+
 __int64 __fastcall CopyObject(__int64 a1, __int64 a2)
 {
   char v4; // bp

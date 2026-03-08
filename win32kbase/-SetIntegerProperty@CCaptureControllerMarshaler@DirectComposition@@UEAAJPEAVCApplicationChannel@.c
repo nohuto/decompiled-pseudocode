@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetIntegerProperty@CCaptureControllerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C026D830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CCaptureControllerMarshaler::SetIntegerProperty(
         DirectComposition::CCaptureControllerMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

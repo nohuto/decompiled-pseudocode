@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpMcExportAllData @ 0x14085CB80
+ * Callers:
+ *     HalpMcExportAndChargeNeededData @ 0x14085CB10 (HalpMcExportAndChargeNeededData.c)
+ *     HalpLoadMicrocode @ 0x140931BD0 (HalpLoadMicrocode.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void *__fastcall HalpMcExportAllData(unsigned int *a1, __int64 a2)
 {
   unsigned int v2; // ebx

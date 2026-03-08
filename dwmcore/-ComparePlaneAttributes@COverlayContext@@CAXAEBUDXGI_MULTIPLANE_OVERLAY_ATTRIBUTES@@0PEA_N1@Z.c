@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ComparePlaneAttributes@COverlayContext@@CAXAEBUDXGI_MULTIPLANE_OVERLAY_ATTRIBUTES@@0PEA_N1@Z @ 0x1801D9B38
+ * Callers:
+ *     ?HaveOverlayCandidatesChanged@COverlayContext@@AEAA_NXZ @ 0x180052DC0 (-HaveOverlayCandidatesChanged@COverlayContext@@AEAA_NXZ.c)
+ *     ?EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z @ 0x180087264 (-EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     memcmp_0 @ 0x1801177DC (memcmp_0.c)
+ */
+
 void __fastcall COverlayContext::ComparePlaneAttributes(
         const struct DXGI_MULTIPLANE_OVERLAY_ATTRIBUTES *a1,
         const struct DXGI_MULTIPLANE_OVERLAY_ATTRIBUTES *a2,

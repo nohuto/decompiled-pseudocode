@@ -1,3 +1,15 @@
+/*
+ * XREFs of ViDeadlockRemoveResource @ 0x140AD6A68
+ * Callers:
+ *     ViDeadlockRemoveMemoryRangeResources @ 0x1405CF408 (ViDeadlockRemoveMemoryRangeResources.c)
+ *     ViDeadlockAddResource @ 0x140AD53DC (ViDeadlockAddResource.c)
+ *     ViDeadlockEmptyDatabase @ 0x140AD5E40 (ViDeadlockEmptyDatabase.c)
+ * Callees:
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     ViDeadlockPreprocessOptions @ 0x140AD6830 (ViDeadlockPreprocessOptions.c)
+ *     ViDeadlockRemoveNode @ 0x140AD6934 (ViDeadlockRemoveNode.c)
+ */
+
 unsigned __int64 __fastcall ViDeadlockRemoveResource(int *a1, int a2, int **a3)
 {
   int v6; // ebp

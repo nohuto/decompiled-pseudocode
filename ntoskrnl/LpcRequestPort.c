@@ -1,3 +1,14 @@
+/*
+ * XREFs of LpcRequestPort @ 0x1407DA880
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ *     PspExitThread @ 0x1407D9464 (PspExitThread.c)
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AlpcpSendMessage @ 0x1407CAFB0 (AlpcpSendMessage.c)
+ */
+
 __int64 __fastcall LpcRequestPort(__int64 a1, __m256i *a2)
 {
   struct _KTHREAD *CurrentThread; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of LNot @ 0x1C0056DF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IsCompatableDSDTRevision @ 0x1C004BE28 (IsCompatableDSDTRevision.c)
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ */
+
 __int64 __fastcall LNot(__int64 a1, __int64 a2)
 {
   unsigned int v3; // edi

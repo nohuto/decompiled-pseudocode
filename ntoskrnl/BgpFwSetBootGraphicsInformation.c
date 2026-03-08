@@ -1,3 +1,11 @@
+/*
+ * XREFs of BgpFwSetBootGraphicsInformation @ 0x14066F7B0
+ * Callers:
+ *     BgSetBootGraphicsInformation @ 0x140AEE394 (BgSetBootGraphicsInformation.c)
+ * Callees:
+ *     BgpFwMapFrameBuffer @ 0x14066F710 (BgpFwMapFrameBuffer.c)
+ */
+
 __int64 __fastcall BgpFwSetBootGraphicsInformation(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

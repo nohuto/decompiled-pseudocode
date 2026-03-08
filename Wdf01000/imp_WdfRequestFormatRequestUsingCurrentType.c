@@ -1,3 +1,13 @@
+/*
+ * XREFs of imp_WdfRequestFormatRequestUsingCurrentType @ 0x1C0001270
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?VerifierSetFormatted@FxRequestBase@@QEAAXXZ @ 0x1C0001F54 (-VerifierSetFormatted@FxRequestBase@@QEAAXXZ.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0045B6C (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ */
+
 void __fastcall imp_WdfRequestFormatRequestUsingCurrentType(_WDF_DRIVER_GLOBALS *DriverGlobals, WDFREQUEST__ *Request)
 {
   _IRP *m_Irp; // r9

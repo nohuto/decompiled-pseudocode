@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMIsEssentialUsage @ 0x1C01B8B10
+ * Callers:
+ *     RIMPopulatePointerDevice @ 0x1C01AF510 (RIMPopulatePointerDevice.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C01B3FEC (RIMCreatePointerDeviceInfo.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 __int64 __fastcall RIMIsEssentialUsage(unsigned __int16 a1)
 {
   unsigned int v1; // ebx

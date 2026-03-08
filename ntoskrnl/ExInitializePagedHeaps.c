@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExInitializePagedHeaps @ 0x140374F94
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     ExCreateHeap @ 0x14037523C (ExCreateHeap.c)
+ *     RtlpDynamicLookasideInitialize @ 0x14039D5B0 (RtlpDynamicLookasideInitialize.c)
+ */
+
 __int64 ExInitializePagedHeaps()
 {
   int v0; // esi

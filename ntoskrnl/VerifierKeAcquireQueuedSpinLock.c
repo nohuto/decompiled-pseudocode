@@ -1,3 +1,13 @@
+/*
+ * XREFs of VerifierKeAcquireQueuedSpinLock @ 0x140ACC5D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ViTargetIncrementCounter @ 0x140AC8BDC (ViTargetIncrementCounter.c)
+ *     ViKeIrqlLogAndTrimMemory @ 0x140AD2DA8 (ViKeIrqlLogAndTrimMemory.c)
+ */
+
 __int64 __fastcall VerifierKeAcquireQueuedSpinLock(__int64 a1)
 {
   __int64 v1; // rbx

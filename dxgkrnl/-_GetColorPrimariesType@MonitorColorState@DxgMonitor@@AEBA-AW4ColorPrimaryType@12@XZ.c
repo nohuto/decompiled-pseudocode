@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_GetColorPrimariesType@MonitorColorState@DxgMonitor@@AEBA?AW4ColorPrimaryType@12@XZ @ 0x1C01FCC08
+ * Callers:
+ *     ?_UpdateHDRParamsIfRequired@MonitorColorState@DxgMonitor@@AEAAXXZ @ 0x1C01FA1E0 (-_UpdateHDRParamsIfRequired@MonitorColorState@DxgMonitor@@AEAAXXZ.c)
+ * Callees:
+ *     ?_GetColorGamutTriangleArea@MonitorColorState@DxgMonitor@@CANNNNNNN@Z @ 0x1C01FCA8C (-_GetColorGamutTriangleArea@MonitorColorState@DxgMonitor@@CANNNNNNN@Z.c)
+ *     ?_GetDeltaBetweenPoints@MonitorColorState@DxgMonitor@@CANNNNN@Z @ 0x1C01FCE68 (-_GetDeltaBetweenPoints@MonitorColorState@DxgMonitor@@CANNNNN@Z.c)
+ */
+
 __int64 __fastcall DxgMonitor::MonitorColorState::_GetColorPrimariesType(_DWORD *a1)
 {
   int v1; // eax

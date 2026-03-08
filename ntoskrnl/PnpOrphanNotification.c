@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpOrphanNotification @ 0x14087E510
+ * Callers:
+ *     PpDevNodeRemoveFromTree @ 0x1403CF61C (PpDevNodeRemoveFromTree.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ */
+
 void __fastcall PnpOrphanNotification(__int64 a1)
 {
   _QWORD *v2; // rdi

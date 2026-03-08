@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopFxUpdatePlatformIdleState @ 0x140589F60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     IoAcquireRemoveLockEx @ 0x140305F80 (IoAcquireRemoveLockEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall PopFxUpdatePlatformIdleState(__int64 a1, int a2, _DWORD *a3)
 {
   NTSTATUS v6; // ebx

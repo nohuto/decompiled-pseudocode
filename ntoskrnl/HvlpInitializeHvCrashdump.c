@@ -1,3 +1,17 @@
+/*
+ * XREFs of HvlpInitializeHvCrashdump @ 0x140545BF4
+ * Callers:
+ *     HvlPhase1Initialize @ 0x140384654 (HvlPhase1Initialize.c)
+ * Callees:
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x1402E8DA0 (KeRegisterBugCheckReasonCallback.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRegisterNmiSxCallback @ 0x14056AA40 (KiRegisterNmiSxCallback.c)
+ *     MmAllocateIndependentPages @ 0x140869AC0 (MmAllocateIndependentPages.c)
+ *     MmAllocateMappingAddress @ 0x140869D00 (MmAllocateMappingAddress.c)
+ *     MmFreeIndependentPages @ 0x14087B250 (MmFreeIndependentPages.c)
+ */
+
 __int64 __fastcall HvlpInitializeHvCrashdump(__int64 a1)
 {
   int v1; // edx

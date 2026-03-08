@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Create@?$TypeIsolationFactory@V?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@@@SA_NPEAPEAE@Z @ 0x1C00C8630
+ * Callers:
+ *     ?Create@?$TypeIsolationFactory@V?$CTypeIsolation@$0GAAA@$0GA@@NSInstrumentation@@V?$CTypeIsolation@$0HAAA@$0HA@@2@@@SA_NPEAPEAE@Z @ 0x1C00C85B4 (-Create@-$TypeIsolationFactory@V-$CTypeIsolation@$0GAAA@$0GA@@NSInstrumentation@@V-$CTypeIsolati.c)
+ * Callees:
+ *     ??1?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAA@XZ @ 0x1C00A0740 (--1-$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAA@XZ.c)
+ *     ?Initialize@?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAA_NXZ @ 0x1C00C86A8 (-Initialize@-$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAA_NXZ.c)
+ */
+
 char __fastcall TypeIsolationFactory<NSInstrumentation::CTypeIsolation<28672,112>>::Create(__int64 a1)
 {
   __int64 Pool2; // rax

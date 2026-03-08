@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ReserveUserSessionViewsWorker@@YAJPEAPEAX0@Z @ 0x1C00DA130
+ * Callers:
+ *     ?UserInitialize@@YAJXZ @ 0x1C002D838 (-UserInitialize@@YAJXZ.c)
+ * Callees:
+ *     Win32CreateSection @ 0x1C002D5F4 (Win32CreateSection.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ReserveUserSessionViewsWorker(void **a1, void **a2, __int64 a3)
 {
   int v5; // r14d

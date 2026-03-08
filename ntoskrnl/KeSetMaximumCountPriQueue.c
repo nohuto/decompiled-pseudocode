@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeSetMaximumCountPriQueue @ 0x14057C694
+ * Callers:
+ *     ExpWorkQueueManagerThread @ 0x140839860 (ExpWorkQueueManagerThread.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall KeSetMaximumCountPriQueue(__int64 a1, int a2)
 {
   if ( !a2 )

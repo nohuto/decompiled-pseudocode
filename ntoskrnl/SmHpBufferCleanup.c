@@ -1,3 +1,13 @@
+/*
+ * XREFs of SmHpBufferCleanup @ 0x1405C7E38
+ * Callers:
+ *     SmHpChunkHeapCleanup @ 0x1402E71E4 (SmHpChunkHeapCleanup.c)
+ *     SmHpChunkFree @ 0x1405C81A8 (SmHpChunkFree.c)
+ * Callees:
+ *     SmHpBufferUpdateFullness @ 0x1405C7FD0 (SmHpBufferUpdateFullness.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SmHpBufferCleanup(__int64 a1, _WORD *a2)
 {
   int v4; // ebx

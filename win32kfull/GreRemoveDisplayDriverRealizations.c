@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreRemoveDisplayDriverRealizations @ 0x1C001B31C
+ * Callers:
+ *     zzzDecomposeDesktop @ 0x1C007CC0C (zzzDecomposeDesktop.c)
+ *     zzzComposeDesktop @ 0x1C007D394 (zzzComposeDesktop.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall GreRemoveDisplayDriverRealizations(__int64 a1)
 {
   __int64 v2; // rdi

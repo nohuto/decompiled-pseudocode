@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpLoadSystemVersionData @ 0x14081469C
+ * Callers:
+ *     CmpFinishSystemHivesLoad @ 0x140815160 (CmpFinishSystemHivesLoad.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlCompareUnicodeString @ 0x1406EA3B0 (RtlCompareUnicodeString.c)
+ *     CmpMergeVersionDescriptors @ 0x14081323C (CmpMergeVersionDescriptors.c)
+ *     CmpLoadLayerVersions @ 0x1408148C4 (CmpLoadLayerVersions.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS CmpLoadSystemVersionData()
 {
   __int64 *v0; // rdi

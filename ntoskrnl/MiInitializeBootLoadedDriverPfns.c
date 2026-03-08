@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiInitializeBootLoadedDriverPfns @ 0x140B38DFC
+ * Callers:
+ *     MiInitializeDriverImages @ 0x140B3B090 (MiInitializeDriverImages.c)
+ * Callees:
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14032E710 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiAcquireNonPagedResources @ 0x140348D54 (MiAcquireNonPagedResources.c)
+ *     MiInitializeBootLoadedDriverPfnRange @ 0x140370D54 (MiInitializeBootLoadedDriverPfnRange.c)
+ *     MiActOnLargeKernelHalPages @ 0x140809AB8 (MiActOnLargeKernelHalPages.c)
+ */
+
 __int64 __fastcall MiInitializeBootLoadedDriverPfns(__int64 a1)
 {
   __int64 *v1; // r14

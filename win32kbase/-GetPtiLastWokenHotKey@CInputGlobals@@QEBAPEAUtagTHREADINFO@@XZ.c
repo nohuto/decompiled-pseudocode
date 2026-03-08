@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPtiLastWokenHotKey@CInputGlobals@@QEBAPEAUtagTHREADINFO@@XZ @ 0x1C00C1100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 struct tagTHREADINFO *__fastcall CInputGlobals::GetPtiLastWokenHotKey(CInputGlobals *this)
 {
   __int64 v2; // rdi

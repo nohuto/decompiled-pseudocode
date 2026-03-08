@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidMmReportMultiAlloc @ 0x1C00F1C40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0ppppppppppppq_EtwWriteTransfer @ 0x1C002E560 (McTemplateK0ppppppppppppq_EtwWriteTransfer.c)
+ */
+
 int __fastcall VidMmReportMultiAlloc(__int64 a1, __int64 a2)
 {
   _UNKNOWN **v2; // rax

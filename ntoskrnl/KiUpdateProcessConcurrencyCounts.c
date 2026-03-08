@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiUpdateProcessConcurrencyCounts @ 0x14022BAA0
+ * Callers:
+ *     KiIdealProcessorRebalancerWorker @ 0x1402EA780 (KiIdealProcessorRebalancerWorker.c)
+ * Callees:
+ *     KiUpdateProcessConcurrencyCount @ 0x14022B7A0 (KiUpdateProcessConcurrencyCount.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     HalpTimerScaleCounter @ 0x1403BE604 (HalpTimerScaleCounter.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PsGetNextProcess @ 0x1406AA530 (PsGetNextProcess.c)
+ */
+
 __int64 KiUpdateProcessConcurrencyCounts()
 {
   __int64 result; // rax

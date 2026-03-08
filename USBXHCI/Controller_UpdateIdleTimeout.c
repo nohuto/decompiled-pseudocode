@@ -1,3 +1,17 @@
+/*
+ * XREFs of Controller_UpdateIdleTimeout @ 0x1C006E734
+ * Callers:
+ *     Controller_IdleTimeoutUpdateWorker @ 0x1C0013830 (Controller_IdleTimeoutUpdateWorker.c)
+ *     Controller_UpdateIdleTimeoutOnControllerFDOD0Entry @ 0x1C006E388 (Controller_UpdateIdleTimeoutOnControllerFDOD0Entry.c)
+ *     Controller_ConfigureS0IdleSettings @ 0x1C006EC7C (Controller_ConfigureS0IdleSettings.c)
+ * Callees:
+ *     WPP_RECORDER_SF_D @ 0x1C00180C4 (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ */
+
 void __fastcall Controller_UpdateIdleTimeout(__int64 *a1, int a2)
 {
   __int64 v4; // rdx

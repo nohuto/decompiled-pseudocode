@@ -1,3 +1,18 @@
+/*
+ * XREFs of SepGetCachedHandlesEntry @ 0x1407397EC
+ * Callers:
+ *     SepSetTokenCachedHandles @ 0x140739630 (SepSetTokenCachedHandles.c)
+ * Callees:
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ *     RtlInsertEntryHashTable @ 0x1402989F0 (RtlInsertEntryHashTable.c)
+ *     RtlLookupEntryHashTable @ 0x1402B7DA0 (RtlLookupEntryHashTable.c)
+ *     RtlGetNextEntryHashTable @ 0x1402CC980 (RtlGetNextEntryHashTable.c)
+ *     RtlHashUnicodeString @ 0x140680AE0 (RtlHashUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     SepAllocateAndInitializeCachedHandleEntry @ 0x140739C2C (SepAllocateAndInitializeCachedHandleEntry.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepGetCachedHandlesEntry(__int64 a1, int *a2, _BYTE *a3, _QWORD *a4)
 {
   struct _RTL_DYNAMIC_HASH_TABLE *v4; // r12

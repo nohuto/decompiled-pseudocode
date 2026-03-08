@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIBuildProcessNotifyPepDeleteDevice @ 0x1C0010E04
+ * Callers:
+ *     ACPIBuildSurpriseRemovedExtension @ 0x1C0013960 (ACPIBuildSurpriseRemovedExtension.c)
+ *     ACPIInitResetDeviceExtension @ 0x1C002D7B0 (ACPIInitResetDeviceExtension.c)
+ *     ACPITableNotifyFreeObject @ 0x1C003F540 (ACPITableNotifyFreeObject.c)
+ * Callees:
+ *     AcpiNotifyPlExtDeleteDeviceSync @ 0x1C00379D8 (AcpiNotifyPlExtDeleteDeviceSync.c)
+ *     AMLIRemoveNativeObjectsFromNamespace @ 0x1C0049C4C (AMLIRemoveNativeObjectsFromNamespace.c)
+ */
+
 char __fastcall ACPIBuildProcessNotifyPepDeleteDevice(__int64 a1, char a2)
 {
   int v2; // eax

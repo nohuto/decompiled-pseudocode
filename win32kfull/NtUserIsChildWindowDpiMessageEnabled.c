@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserIsChildWindowDpiMessageEnabled @ 0x1C0035930
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsChildWindowDpiMessageEnabledX@@YA_NPEAUtagWND@@@Z @ 0x1C00359DC (-IsChildWindowDpiMessageEnabledX@@YA_NPEAUtagWND@@@Z.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ */
+
 _BOOL8 __fastcall NtUserIsChildWindowDpiMessageEnabled(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rax

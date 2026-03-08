@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpRecordBootStatusData @ 0x14073D990
+ * Callers:
+ *     RtlpGetSetBootStatusData @ 0x14073D77C (RtlpGetSetBootStatusData.c)
+ *     RtlInitializeBootStatusDataBlackBox @ 0x14085A8FC (RtlInitializeBootStatusDataBlackBox.c)
+ *     RtlRestoreBootStatusDefaults @ 0x1409BAB20 (RtlRestoreBootStatusDefaults.c)
+ * Callees:
+ *     ZwPowerInformation @ 0x140412EF0 (ZwPowerInformation.c)
+ */
+
 NTSTATUS __fastcall RtlpRecordBootStatusData(char a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _QWORD InputBuffer[3]; // [rsp+30h] [rbp-28h] BYREF

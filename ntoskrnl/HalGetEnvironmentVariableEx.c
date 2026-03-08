@@ -1,3 +1,20 @@
+/*
+ * XREFs of HalGetEnvironmentVariableEx @ 0x1402AF770
+ * Callers:
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403AEE1C (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ *     IoSaveInitialBugCheckProgress @ 0x14054E7F0 (IoSaveInitialBugCheckProgress.c)
+ *     IopGetEnvironmentVariableHal @ 0x140729DB0 (IopGetEnvironmentVariableHal.c)
+ *     NtQueryDriverEntryOrder @ 0x1409FC490 (NtQueryDriverEntryOrder.c)
+ *     PopSetMemoryOverwriteRequestAction @ 0x140A9D8B4 (PopSetMemoryOverwriteRequestAction.c)
+ * Callees:
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402ABED0 (KeSetSystemGroupAffinityThread.c)
+ *     HalEfiGetEnvironmentVariable @ 0x1402AF8BC (HalEfiGetEnvironmentVariable.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ *     _alloca_probe @ 0x1404210C0 (_alloca_probe.c)
+ */
+
 __int64 __fastcall HalGetEnvironmentVariableEx(const wchar_t *a1, int a2, __int64 a3, _DWORD *a4, __int64 a5)
 {
   __int64 v9; // rax

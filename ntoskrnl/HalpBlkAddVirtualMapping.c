@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpBlkAddVirtualMapping @ 0x140B8E880
+ * Callers:
+ *     HalpBlkAllocateAndShadowMemory @ 0x140B8E9BC (HalpBlkAllocateAndShadowMemory.c)
+ *     HalpBlkAllocateShadowCode @ 0x140B8EB3C (HalpBlkAllocateShadowCode.c)
+ *     HalpBlkShadowApic @ 0x140B8ED40 (HalpBlkShadowApic.c)
+ *     HalpBlkShadowStartupBlock @ 0x140B8ED94 (HalpBlkShadowStartupBlock.c)
+ * Callees:
+ *     HalpRemapVirtualAddress64 @ 0x1402D7C00 (HalpRemapVirtualAddress64.c)
+ *     HalpBlkAllocatePageTablePage @ 0x140B8EAB4 (HalpBlkAllocatePageTablePage.c)
+ */
+
 __int64 __fastcall HalpBlkAddVirtualMapping(__int64 PageTablePage, __int64 a2, unsigned __int64 a3, int a4, int a5)
 {
   unsigned int v5; // edi

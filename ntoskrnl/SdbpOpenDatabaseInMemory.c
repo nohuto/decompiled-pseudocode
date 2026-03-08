@@ -1,3 +1,16 @@
+/*
+ * XREFs of SdbpOpenDatabaseInMemory @ 0x14079D050
+ * Callers:
+ *     SdbInitDatabaseInMemory @ 0x14079CFC8 (SdbInitDatabaseInMemory.c)
+ *     SdbpOpenCompressedDatabase @ 0x140A505A8 (SdbpOpenCompressedDatabase.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbpValidateAndApplyCompatFlags @ 0x14079D0F4 (SdbpValidateAndApplyCompatFlags.c)
+ *     SdbpReadMappedData @ 0x1407A22CC (SdbpReadMappedData.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void *__fastcall SdbpOpenDatabaseInMemory(__int64 a1, int a2, unsigned int a3)
 {
   __int64 v6; // rax

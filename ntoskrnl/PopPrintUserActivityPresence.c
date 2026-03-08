@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPrintUserActivityPresence @ 0x14073C9D8
+ * Callers:
+ *     PopSetSessionUserStatus @ 0x14073C8E4 (PopSetSessionUserStatus.c)
+ *     PopEvaluateGlobalUserStatus @ 0x14073CA7C (PopEvaluateGlobalUserStatus.c)
+ * Callees:
+ *     <none>
+ */
+
 const wchar_t *__fastcall PopPrintUserActivityPresence(int a1)
 {
   int v2; // ecx

@@ -1,3 +1,23 @@
+/*
+ * XREFs of RtlTimeFieldsToTime @ 0x1402D1150
+ * Callers:
+ *     ExpRefreshTimeZoneInformation @ 0x140811500 (ExpRefreshTimeZoneInformation.c)
+ *     RtlCutoverTimeToSystemTime @ 0x1408119D0 (RtlCutoverTimeToSystemTime.c)
+ *     ExpRefreshSystemTime @ 0x1408132EC (ExpRefreshSystemTime.c)
+ *     ExGetExpirationDate @ 0x14081A9F4 (ExGetExpirationDate.c)
+ *     HalpAcpiRealTimeToUtcTime @ 0x14092FEC0 (HalpAcpiRealTimeToUtcTime.c)
+ *     PiDevCfgSplitDriverConfigurationId @ 0x14095F6CC (PiDevCfgSplitDriverConfigurationId.c)
+ *     NtSetSystemTime @ 0x1409F54B0 (NtSetSystemTime.c)
+ *     I_MinAsn1AdjustFileTime @ 0x140A6E108 (I_MinAsn1AdjustFileTime.c)
+ *     MinAsn1DecodeGeneralizedTime @ 0x140A6E30C (MinAsn1DecodeGeneralizedTime.c)
+ *     MinAsn1DecodeUtcTime @ 0x140A6E7D4 (MinAsn1DecodeUtcTime.c)
+ *     ExUpdateSystemTimeFromCmos @ 0x140A850B4 (ExUpdateSystemTimeFromCmos.c)
+ *     HaliSetWakeAlarm @ 0x140A93480 (HaliSetWakeAlarm.c)
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x1402D11E0 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ */
+
 BOOLEAN __stdcall RtlTimeFieldsToTime(PTIME_FIELDS TimeFields, PLARGE_INTEGER Time)
 {
   char *v2; // rdi

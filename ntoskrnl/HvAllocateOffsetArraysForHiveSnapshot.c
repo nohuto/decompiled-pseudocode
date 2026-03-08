@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvAllocateOffsetArraysForHiveSnapshot @ 0x140A22D18
+ * Callers:
+ *     CmDumpKeyToFile @ 0x140A07E64 (CmDumpKeyToFile.c)
+ *     CmpFlushBackupHive @ 0x140A17C48 (CmpFlushBackupHive.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall HvAllocateOffsetArraysForHiveSnapshot(__int64 a1, _DWORD *a2, PVOID **a3, unsigned int *a4)
 {
   PVOID **v4; // rdi

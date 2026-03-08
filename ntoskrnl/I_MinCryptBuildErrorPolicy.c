@@ -1,3 +1,11 @@
+/*
+ * XREFs of I_MinCryptBuildErrorPolicy @ 0x140A6DC44
+ * Callers:
+ *     MincrypK_ParseCertificateChainWithPolicy2 @ 0x14067DCCC (MincrypK_ParseCertificateChainWithPolicy2.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall I_MinCryptBuildErrorPolicy(unsigned int a1, __int64 a2, int a3)
 {
   int v3; // eax

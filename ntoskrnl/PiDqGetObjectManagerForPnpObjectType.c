@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiDqGetObjectManagerForPnpObjectType @ 0x140778DF0
+ * Callers:
+ *     PiPnpRtlObjectEventWorker @ 0x1406CC6A0 (PiPnpRtlObjectEventWorker.c)
+ *     PiPnpRtlObjectEventDispatch @ 0x1406CCCB0 (PiPnpRtlObjectEventDispatch.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _ERESOURCE *__fastcall PiDqGetObjectManagerForPnpObjectType(int a1)
 {
   __int64 v1; // rdx

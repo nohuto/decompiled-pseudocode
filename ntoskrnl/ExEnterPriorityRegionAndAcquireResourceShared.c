@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExEnterPriorityRegionAndAcquireResourceShared @ 0x1402CD140
+ * Callers:
+ *     DifExEnterPriorityRegionAndAcquireResourceSharedWrapper @ 0x1405D6690 (DifExEnterPriorityRegionAndAcquireResourceSharedWrapper.c)
+ * Callees:
+ *     ExpAcquireResourceSharedLite @ 0x14025DED0 (ExpAcquireResourceSharedLite.c)
+ *     PsBoostThreadIoEx @ 0x1402634D0 (PsBoostThreadIoEx.c)
+ *     ExpFastResourceLegacyAcquireShared @ 0x1403C33D4 (ExpFastResourceLegacyAcquireShared.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 PVOID __fastcall ExEnterPriorityRegionAndAcquireResourceShared(ULONG_PTR BugCheckParameter2)
 {
   struct _KTHREAD *CurrentThread; // rdi

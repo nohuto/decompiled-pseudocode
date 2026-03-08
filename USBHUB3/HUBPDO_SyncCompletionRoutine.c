@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPDO_SyncCompletionRoutine @ 0x1C0017650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HUBPDO_GetUSBDErrorFromNTStatus @ 0x1C0015618 (HUBPDO_GetUSBDErrorFromNTStatus.c)
+ */
+
 __int64 __fastcall HUBPDO_SyncCompletionRoutine(__int64 a1, __int64 a2, struct _KEVENT *a3)
 {
   int v3; // ecx

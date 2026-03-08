@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiPdoHandleQueryDeviceRelations @ 0x1C01DC170
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ */
+
 __int64 __fastcall DpiPdoHandleQueryDeviceRelations(_QWORD *Object, __int64 a2)
 {
   __int64 v4; // rbx

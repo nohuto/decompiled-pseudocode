@@ -1,3 +1,12 @@
+/*
+ * XREFs of KsepMatchInitAcpiOemInfo @ 0x140B351B8
+ * Callers:
+ *     KsepMatchInitMachineInfo @ 0x140B35058 (KsepMatchInitMachineInfo.c)
+ * Callees:
+ *     HalpAcpiGetTable @ 0x14029C550 (HalpAcpiGetTable.c)
+ *     KsepStringAnsiToUnicode @ 0x1407FFFD0 (KsepStringAnsiToUnicode.c)
+ */
+
 __int64 __fastcall KsepMatchInitAcpiOemInfo(__int64 a1)
 {
   NTSTATUS v1; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EtwpGetWaitCursorType@@YAKQEAUtagCURSOR@@@Z @ 0x1C00EDB70
+ * Callers:
+ *     EtwTraceWaitCursor @ 0x1C00BED80 (EtwTraceWaitCursor.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwpGetWaitCursorType(struct tagCURSOR *const a1)
 {
   __int64 result; // rax

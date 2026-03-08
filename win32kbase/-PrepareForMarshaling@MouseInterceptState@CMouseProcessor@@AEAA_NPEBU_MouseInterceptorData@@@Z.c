@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PrepareForMarshaling@MouseInterceptState@CMouseProcessor@@AEAA_NPEBU_MouseInterceptorData@@@Z @ 0x1C022F320
+ * Callers:
+ *     ?Marshal@MouseInterceptState@CMouseProcessor@@AEAA?AW4_MOUSE_INTERCEPTION_RESULT@@PEBU_MouseInterceptorData@@PEAU_MouseProcessorData@@@Z @ 0x1C022EB38 (-Marshal@MouseInterceptState@CMouseProcessor@@AEAA-AW4_MOUSE_INTERCEPTION_RESULT@@PEBU_MouseInte.c)
+ * Callees:
+ *     CreateKernelEvent @ 0x1C002E010 (CreateKernelEvent.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 char __fastcall CMouseProcessor::MouseInterceptState::PrepareForMarshaling(
         CMouseProcessor::MouseInterceptState *this,
         const struct _MouseInterceptorData *a2)

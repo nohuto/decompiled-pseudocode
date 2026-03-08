@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserDisableProcessWindowsGhosting @ 0x1C00F5A60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 NtUserDisableProcessWindowsGhosting()
 {
   __int64 v0; // rcx

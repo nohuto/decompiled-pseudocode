@@ -1,3 +1,13 @@
+/*
+ * XREFs of _SafeAllocBlob @ 0x14039C924
+ * Callers:
+ *     RtlpMuiRegCreateLanguages @ 0x1408440DC (RtlpMuiRegCreateLanguages.c)
+ *     RtlpMuiRegCreateLanguageConfigList @ 0x140844284 (RtlpMuiRegCreateLanguageConfigList.c)
+ *     RtlpMuiRegCreateStringPool @ 0x1408442EC (RtlpMuiRegCreateStringPool.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SafeAllocBlob(
         unsigned int a1,
         unsigned int a2,

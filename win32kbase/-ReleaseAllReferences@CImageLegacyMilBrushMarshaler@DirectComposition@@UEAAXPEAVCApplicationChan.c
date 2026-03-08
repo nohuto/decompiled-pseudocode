@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReleaseAllReferences@CImageLegacyMilBrushMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C025B740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z @ 0x1C0068750 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z.c)
+ *     ?ReleaseAllReferences@CLegacyMilBrushMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C025B7BC (-ReleaseAllReferences@CLegacyMilBrushMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2.c)
+ */
+
 void __fastcall DirectComposition::CImageLegacyMilBrushMarshaler::ReleaseAllReferences(
         DirectComposition::CImageLegacyMilBrushMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2)

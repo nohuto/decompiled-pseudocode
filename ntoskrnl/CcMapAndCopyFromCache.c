@@ -1,3 +1,18 @@
+/*
+ * XREFs of CcMapAndCopyFromCache @ 0x1406A7510
+ * Callers:
+ *     CcCompleteAsyncRead @ 0x14020A77C (CcCompleteAsyncRead.c)
+ *     CcPerformReadAhead @ 0x14020B9E0 (CcPerformReadAhead.c)
+ *     CcCopyReadEx @ 0x14021E070 (CcCopyReadEx.c)
+ * Callees:
+ *     CcCopyBytesToUserBuffer @ 0x14021E4C0 (CcCopyBytesToUserBuffer.c)
+ *     CcFreeVirtualAddress @ 0x14021E5D0 (CcFreeVirtualAddress.c)
+ *     CcGetVirtualAddress @ 0x14021FB80 (CcGetVirtualAddress.c)
+ *     CcFetchDataForRead @ 0x140221EE0 (CcFetchDataForRead.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x1402E0460 (CcUpdateSharedCacheMapFlag.c)
+ */
+
 char __fastcall CcMapAndCopyFromCache(
         __int64 a1,
         __int64 a2,

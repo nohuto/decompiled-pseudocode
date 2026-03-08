@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIInitGlobalHeapSize @ 0x1C00878B8
+ * Callers:
+ *     ACPIInitializeAMLI @ 0x1C00A92D4 (ACPIInitializeAMLI.c)
+ * Callees:
+ *     OSOpenHandle @ 0x1C008DF10 (OSOpenHandle.c)
+ *     OSReadRegValue @ 0x1C008E6A0 (OSReadRegValue.c)
+ */
+
 __int64 ACPIInitGlobalHeapSize()
 {
   __int64 v0; // rdx

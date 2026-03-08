@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiWorkerThread @ 0x1C00B9FA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VidSchiSetSchedulerStatus @ 0x1C00BA074 (VidSchiSetSchedulerStatus.c)
+ *     VidSchiRun_PriorityTable @ 0x1C00BA0C0 (VidSchiRun_PriorityTable.c)
+ */
+
 void __fastcall __noreturn VidSchiWorkerThread(_QWORD *StartContext)
 {
   int ThreadInformation; // [rsp+48h] [rbp+10h] BYREF

@@ -1,3 +1,17 @@
+/*
+ * XREFs of MmStoreFlushOutstandingEvictions @ 0x14065AA54
+ * Callers:
+ *     MiStoreDeletePartition @ 0x140659A64 (MiStoreDeletePartition.c)
+ *     SmStoreCompressionStart @ 0x1409D4A38 (SmStoreCompressionStart.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 NTSTATUS __fastcall MmStoreFlushOutstandingEvictions(_QWORD *a1)
 {
   __int64 v1; // rdi

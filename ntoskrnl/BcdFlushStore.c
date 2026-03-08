@@ -1,3 +1,17 @@
+/*
+ * XREFs of BcdFlushStore @ 0x140A595E4
+ * Callers:
+ *     PoInitHiberServices @ 0x14082B1B0 (PoInitHiberServices.c)
+ *     PopBcdClearPendingResume @ 0x14082B2FC (PopBcdClearPendingResume.c)
+ * Callees:
+ *     BiSanitizeHandle @ 0x1402FDDE8 (BiSanitizeHandle.c)
+ *     BiIsOfflineHandle @ 0x1403903FC (BiIsOfflineHandle.c)
+ *     ZwFlushKey @ 0x140414110 (ZwFlushKey.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiAcquireBcdSyncMutant @ 0x14082ED10 (BiAcquireBcdSyncMutant.c)
+ *     BiReleaseBcdSyncMutant @ 0x14082EDB8 (BiReleaseBcdSyncMutant.c)
+ */
+
 __int64 __fastcall BcdFlushStore(__int64 a1)
 {
   char IsOfflineHandle; // di

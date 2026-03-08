@@ -1,3 +1,13 @@
+/*
+ * XREFs of UserGetHipDeviceInfo @ 0x1C01C4660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetMonitorRect @ 0x1C0101788 (GetMonitorRect.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C010A9B4 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1C0145F3A (-RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z.c)
+ */
+
 __int64 __fastcall UserGetHipDeviceInfo(_DWORD *a1)
 {
   unsigned int v1; // edi

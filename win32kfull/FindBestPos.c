@@ -1,3 +1,22 @@
+/*
+ * XREFs of FindBestPos @ 0x1C0234EF4
+ * Callers:
+ *     NtUserCalculatePopupWindowPosition @ 0x1C01CE090 (NtUserCalculatePopupWindowPosition.c)
+ *     xxxMenuWindowProc @ 0x1C021D3D0 (xxxMenuWindowProc.c)
+ *     xxxTrackPopupMenuEx @ 0x1C02353CC (xxxTrackPopupMenuEx.c)
+ * Callees:
+ *     PtInRect @ 0x1C00A34E8 (PtInRect.c)
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ *     GetMonitorWorkRectForWindow @ 0x1C00FF4A0 (GetMonitorWorkRectForWindow.c)
+ *     GetMonitorRectForWindow @ 0x1C00FF4DC (GetMonitorRectForWindow.c)
+ *     GetMonitorWorkRect @ 0x1C0101744 (GetMonitorWorkRect.c)
+ *     GetMonitorRect @ 0x1C0101788 (GetMonitorRect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?TryRect@@YAHIHHHHPEAUtagRECT@@PEAUtagPOINT@@PEAUtagMONITOR@@@Z @ 0x1C0234DEC (-TryRect@@YAHIHHHHPEAUtagRECT@@PEAUtagPOINT@@PEAUtagMONITOR@@@Z.c)
+ *     GetMonitorMenuRect @ 0x1C024E934 (GetMonitorMenuRect.c)
+ *     GetMonitorMenuRectForWindow @ 0x1C024E978 (GetMonitorMenuRectForWindow.c)
+ */
+
 __int64 __fastcall FindBestPos(
         LONG a1,
         LONG a2,

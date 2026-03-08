@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBDESC_ValidateDeviceDescriptor @ 0x1C003C5E8
+ * Callers:
+ *     HUBDTX_ValidateAndCacheDeviceDescriptor @ 0x1C002BF44 (HUBDTX_ValidateAndCacheDeviceDescriptor.c)
+ *     HUBDTX_ValidateFirstDeviceDescriptorFor20 @ 0x1C002C21C (HUBDTX_ValidateFirstDeviceDescriptorFor20.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     HUBDESC_ShouldEnforceWin8ValidationMutable @ 0x1C0035964 (HUBDESC_ShouldEnforceWin8ValidationMutable.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall HUBDESC_ValidateDeviceDescriptor(
         unsigned __int8 *a1,
         unsigned int a2,

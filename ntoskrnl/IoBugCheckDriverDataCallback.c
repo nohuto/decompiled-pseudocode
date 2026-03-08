@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoBugCheckDriverDataCallback @ 0x14054D2F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall IoBugCheckDriverDataCallback(
         KBUGCHECK_CALLBACK_REASON Reason,
         struct _KBUGCHECK_REASON_CALLBACK_RECORD *Record,

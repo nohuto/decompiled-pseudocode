@@ -1,3 +1,12 @@
+/*
+ * XREFs of DbgkpInitializePhase1SiloState @ 0x14080FA00
+ * Callers:
+ *     DbgkInitializeServerSilo @ 0x140933D20 (DbgkInitializeServerSilo.c)
+ *     DbgkpInitializePhase1 @ 0x140B44FC0 (DbgkpInitializePhase1.c)
+ * Callees:
+ *     DbgkpCreateNotificationEvent @ 0x140857EAC (DbgkpCreateNotificationEvent.c)
+ */
+
 __int64 __fastcall DbgkpInitializePhase1SiloState(__int64 a1)
 {
   int NotificationEvent; // eax

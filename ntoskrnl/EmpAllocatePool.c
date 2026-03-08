@@ -1,3 +1,12 @@
+/*
+ * XREFs of EmpAllocatePool @ 0x1402463F4
+ * Callers:
+ *     EmpEvaluateNodeLink @ 0x140245FF4 (EmpEvaluateNodeLink.c)
+ *     EmpEvaluateTargetRule @ 0x1402D6300 (EmpEvaluateTargetRule.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall EmpAllocatePool(__int64 a1, __int64 *a2, _DWORD *a3)
 {
   __int64 result; // rax

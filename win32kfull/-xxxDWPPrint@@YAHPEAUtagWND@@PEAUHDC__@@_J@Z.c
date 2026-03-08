@@ -1,3 +1,22 @@
+/*
+ * XREFs of ?xxxDWPPrint@@YAHPEAUtagWND@@PEAUHDC__@@_J@Z @ 0x1C0225290
+ * Callers:
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ * Callees:
+ *     _IsWindowVisible @ 0x1C002A980 (_IsWindowVisible.c)
+ *     SetVisible @ 0x1C002DB8C (SetVisible.c)
+ *     BuildHwndList @ 0x1C0041A10 (BuildHwndList.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     FreeHwndList @ 0x1C00680B0 (FreeHwndList.c)
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     xxxDrawWindowFrame @ 0x1C00A64E4 (xxxDrawWindowFrame.c)
+ *     GreSaveDCInternal @ 0x1C00C6CB0 (GreSaveDCInternal.c)
+ *     GreGetLayout @ 0x1C0111738 (GreGetLayout.c)
+ *     GreSetWindowOrg @ 0x1C02D25C4 (GreSetWindowOrg.c)
+ */
+
 __int64 __fastcall xxxDWPPrint(struct tagWND *a1, Gre::Base *a2, char a3)
 {
   char v3; // si

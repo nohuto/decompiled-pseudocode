@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwQueryInstallUILanguageWrapper @ 0x1405F2BF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwQueryInstallUILanguage @ 0x140414E50 (ZwQueryInstallUILanguage.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 __int64 __fastcall DifZwQueryInstallUILanguageWrapper(__int64 a1)
 {
   __int64 *APIThunkContextById; // rax

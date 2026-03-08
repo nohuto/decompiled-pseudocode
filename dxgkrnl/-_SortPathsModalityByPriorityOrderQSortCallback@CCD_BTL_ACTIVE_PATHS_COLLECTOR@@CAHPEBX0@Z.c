@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_SortPathsModalityByPriorityOrderQSortCallback@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@CAHPEBX0@Z @ 0x1C01D2910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memcmp @ 0x1C00270F0 (memcmp.c)
+ */
+
 int __fastcall CCD_BTL_ACTIVE_PATHS_COLLECTOR::_SortPathsModalityByPriorityOrderQSortCallback(_DWORD *a1, _DWORD *a2)
 {
   unsigned __int64 v4; // rcx

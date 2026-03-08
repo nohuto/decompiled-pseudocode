@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vLineCallbackOctant16@@YAXPEAU_DDALINE@@PEAEJK@Z @ 0x1C02FEFD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall vLineCallbackOctant16(struct _DDALINE *a1, unsigned __int8 *a2, int a3, unsigned int a4)
 {
   int v5; // esi

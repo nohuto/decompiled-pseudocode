@@ -1,3 +1,14 @@
+/*
+ * XREFs of DpiOpenPnpRegistryKey @ 0x1C01F1750
+ * Callers:
+ *     DpiGetAdapterInfo @ 0x1C01ECB58 (DpiGetAdapterInfo.c)
+ *     DpiReadPnpRegistryValue @ 0x1C01F1618 (DpiReadPnpRegistryValue.c)
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ *     ??0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z @ 0x1C02067E8 (--0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z.c)
+ * Callees:
+ *     DpiGetPnpRegistryKeyName @ 0x1C01DC130 (DpiGetPnpRegistryKeyName.c)
+ */
+
 __int64 __fastcall DpiOpenPnpRegistryKey(__int64 a1, int a2, ACCESS_MASK a3, void **a4)
 {
   __int64 v5; // rdi

@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiMapContiguousMemory @ 0x14029AF58
+ * Callers:
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     MiAllocateContiguousMemory @ 0x1403B49B4 (MiAllocateContiguousMemory.c)
+ * Callees:
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiSanitizePage @ 0x14029B170 (MiSanitizePage.c)
+ *     MiMappingHasIoReferences @ 0x14029B1A0 (MiMappingHasIoReferences.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiFillSystemPtes @ 0x140328C00 (MiFillSystemPtes.c)
+ *     MiMapContiguousMemoryLarge @ 0x14038A3C4 (MiMapContiguousMemoryLarge.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiInsertPteTracker @ 0x14065EDA4 (MiInsertPteTracker.c)
+ */
+
 __int64 __fastcall MiMapContiguousMemory(unsigned __int64 a1, __int64 a2, __int64 a3, unsigned int a4, unsigned int a5)
 {
   unsigned int v5; // esi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagTraceIllegalProcessorThrottle @ 0x140591AC8
+ * Callers:
+ *     PpmPerfCheckForIllegalProcessorThrottle @ 0x140235DF8 (PpmPerfCheckForIllegalProcessorThrottle.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PopDiagTraceIllegalProcessorThrottle(int a1, __int64 a2, _QWORD *a3)
 {
   char v3; // si

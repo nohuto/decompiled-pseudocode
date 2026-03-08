@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopPotsGetActionEntryReason @ 0x14099D9A0
+ * Callers:
+ *     PopIssueActionRequest @ 0x140986CA4 (PopIssueActionRequest.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopPotsGetActionEntryReason(int a1, int a2)
 {
   unsigned int v2; // r8d

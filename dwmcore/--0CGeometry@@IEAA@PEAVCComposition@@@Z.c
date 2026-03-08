@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CGeometry@@IEAA@PEAVCComposition@@@Z @ 0x180022D9C
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     <none>
+ */
+
 CGeometry *__fastcall CGeometry::CGeometry(CGeometry *this, struct CComposition *a2)
 {
   CGeometry *result; // rax

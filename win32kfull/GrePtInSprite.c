@@ -1,3 +1,16 @@
+/*
+ * XREFs of GrePtInSprite @ 0x1C00A307C
+ * Callers:
+ *     ?LayerHitTest@@YA_NPEAUtagWND@@UtagPOINT@@@Z @ 0x1C0011B6C (-LayerHitTest@@YA_NPEAUtagWND@@UtagPOINT@@@Z.c)
+ *     ?DCELayerHitTest@@YA_NPEAUtagWND@@UtagPOINT@@@Z @ 0x1C00A2FC8 (-DCELayerHitTest@@YA_NPEAUtagWND@@UtagPOINT@@@Z.c)
+ * Callees:
+ *     PtInRect @ 0x1C00A34E8 (PtInRect.c)
+ *     EngAlphaBlend @ 0x1C00B4820 (EngAlphaBlend.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?crSpGetShapePixel@@YAKPEAU_SURFOBJ@@HHH@Z @ 0x1C0269520 (-crSpGetShapePixel@@YAKPEAU_SURFOBJ@@HHH@Z.c)
+ *     ?GdiPtInSprite@@YAHPEAUHDEV__@@PEAUHWND__@@HH@Z @ 0x1C027D22C (-GdiPtInSprite@@YAHPEAUHDEV__@@PEAUHWND__@@HH@Z.c)
+ */
+
 __int64 __fastcall GrePtInSprite(SURFOBJ **a1, HWND a2, LONG a3, int a4, int a5, int a6)
 {
   unsigned int left; // r12d

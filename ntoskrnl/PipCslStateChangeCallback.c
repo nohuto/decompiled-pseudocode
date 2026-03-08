@@ -1,3 +1,12 @@
+/*
+ * XREFs of PipCslStateChangeCallback @ 0x14079BB00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     PipCslUpdateState @ 0x14079BB30 (PipCslUpdateState.c)
+ */
+
 void __fastcall PipCslStateChangeCallback(PVOID CallbackContext, _BYTE *Argument1, PVOID Argument2)
 {
   __int64 v3; // rcx

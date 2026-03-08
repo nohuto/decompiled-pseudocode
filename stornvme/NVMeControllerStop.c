@@ -1,3 +1,19 @@
+/*
+ * XREFs of NVMeControllerStop @ 0x1C000EBA8
+ * Callers:
+ *     NVMeHwAdapterControl @ 0x1C0003050 (NVMeHwAdapterControl.c)
+ * Callees:
+ *     memset @ 0x1C0004580 (memset.c)
+ *     AdminQueuesFreeResources @ 0x1C000941C (AdminQueuesFreeResources.c)
+ *     FreeMsiInfo @ 0x1C0009978 (FreeMsiInfo.c)
+ *     FreeProcessorInfo @ 0x1C0009A38 (FreeProcessorInfo.c)
+ *     IoQueuesDeletion @ 0x1C000AB24 (IoQueuesDeletion.c)
+ *     IoQueuesFreeResources @ 0x1C000ADC4 (IoQueuesFreeResources.c)
+ *     NVMeDisableThrottling @ 0x1C000EC7C (NVMeDisableThrottling.c)
+ *     NVMeFreeHostMemoryBuffer @ 0x1C000EE60 (NVMeFreeHostMemoryBuffer.c)
+ *     NVMePowerCleanUp @ 0x1C000FC34 (NVMePowerCleanUp.c)
+ */
+
 char __fastcall NVMeControllerStop(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v5; // si

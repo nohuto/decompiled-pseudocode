@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlCheckSystemBootStatusIntegrity @ 0x140858A40
+ * Callers:
+ *     PopCheckShutdownMarker @ 0x140B6B05C (PopCheckShutdownMarker.c)
+ * Callees:
+ *     ZwPowerInformation @ 0x140412EF0 (ZwPowerInformation.c)
+ */
+
 NTSTATUS __fastcall RtlCheckSystemBootStatusIntegrity(__int64 a1)
 {
   _QWORD v2[3]; // [rsp+30h] [rbp-38h] BYREF

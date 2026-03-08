@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ReportState@DXGHWQUEUE@@IEAAXXZ @ 0x1C0316654
+ * Callers:
+ *     ?ReportState@DXGCONTEXT@@QEAAXXZ @ 0x1C02DFB44 (-ReportState@DXGCONTEXT@@QEAAXXZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0ppp_EtwWriteTransfer @ 0x1C0051A38 (McTemplateK0ppp_EtwWriteTransfer.c)
+ *     ?ReportState@DXGDEVICESYNCOBJECT@@QEAAXXZ @ 0x1C034FDA8 (-ReportState@DXGDEVICESYNCOBJECT@@QEAAXXZ.c)
+ */
+
 void __fastcall DXGHWQUEUE::ReportState(DXGHWQUEUE *this, __int64 a2, __int64 a3)
 {
   __int64 v4; // rcx

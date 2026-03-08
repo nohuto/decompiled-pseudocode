@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?OnProcessCreation@CProcessData@DirectComposition@@SAJPEAU_W32PROCESS@@@Z @ 0x1C006BB5C
+ * Callers:
+ *     DCompositionProcessCallout @ 0x1C006BB30 (DCompositionProcessCallout.c)
+ * Callees:
+ *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0068568 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ?OnProcessCreation@CConnection@DirectComposition@@SAJPEAVCProcessData@2@@Z @ 0x1C006BBE0 (-OnProcessCreation@CConnection@DirectComposition@@SAJPEAVCProcessData@2@@Z.c)
+ *     ?OnProcessCreation@CChannel@DirectComposition@@SAJPEAVCProcessData@2@@Z @ 0x1C006BC68 (-OnProcessCreation@CChannel@DirectComposition@@SAJPEAVCProcessData@2@@Z.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     ??_GCProcessData@DirectComposition@@AEAAPEAXI@Z @ 0x1C0248E24 (--_GCProcessData@DirectComposition@@AEAAPEAXI@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CProcessData::OnProcessCreation(struct _W32PROCESS *a1, unsigned __int64 a2)
 {
   struct DirectComposition::CProcessData *QuotaZInit; // rax

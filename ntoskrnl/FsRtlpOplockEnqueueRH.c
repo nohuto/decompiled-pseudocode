@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlpOplockEnqueueRH @ 0x14023FA34
+ * Callers:
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x14023AB60 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpRequestShareableOplock @ 0x14023EEF0 (FsRtlpRequestShareableOplock.c)
+ * Callees:
+ *     FsRtlpOplockDequeueRH @ 0x14023EA10 (FsRtlpOplockDequeueRH.c)
+ *     IoSetOplockPrivateFoExt @ 0x14023FA98 (IoSetOplockPrivateFoExt.c)
+ */
+
 __int64 __fastcall FsRtlpOplockEnqueueRH(__int64 *a1, _QWORD *a2)
 {
   __int64 v2; // rax

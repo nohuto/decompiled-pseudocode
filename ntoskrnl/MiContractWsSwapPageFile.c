@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiContractWsSwapPageFile @ 0x14067E2A0
+ * Callers:
+ *     MmInSwapWorkingSet @ 0x1402000BC (MmInSwapWorkingSet.c)
+ *     MiTrimUnusedPageFileRegionsWorker @ 0x1406392E0 (MiTrimUnusedPageFileRegionsWorker.c)
+ *     MmCleanProcessAddressSpace @ 0x1407D4924 (MmCleanProcessAddressSpace.c)
+ *     MmInSwapVirtualAddresses @ 0x140A407F0 (MmInSwapVirtualAddresses.c)
+ * Callees:
+ *     PsReferencePartitionSafe @ 0x140295BC8 (PsReferencePartitionSafe.c)
+ *     MiWsSwapPageFileNumber @ 0x1402DBEE4 (MiWsSwapPageFileNumber.c)
+ *     ExQueueWorkItemToPartition @ 0x1403439E0 (ExQueueWorkItemToPartition.c)
+ *     MiNumberWsSwapPagefiles @ 0x140361990 (MiNumberWsSwapPagefiles.c)
+ */
+
 char __fastcall MiContractWsSwapPageFile(__int64 a1)
 {
   unsigned __int64 v1; // rax

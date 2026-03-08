@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhSsh_CheckPortChangeQueuesIdle @ 0x1C00045F0
+ * Callers:
+ *     UsbhSsh_CheckHubIdle @ 0x1C0004570 (UsbhSsh_CheckHubIdle.c)
+ *     Usbh_SSH_Event @ 0x1C0007220 (Usbh_SSH_Event.c)
+ * Callees:
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ */
+
 __int64 __fastcall UsbhSsh_CheckPortChangeQueuesIdle(__int64 a1)
 {
   _DWORD *v2; // rdx

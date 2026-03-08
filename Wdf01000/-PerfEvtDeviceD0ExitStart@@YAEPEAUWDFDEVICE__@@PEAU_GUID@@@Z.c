@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PerfEvtDeviceD0ExitStart@@YAEPEAUWDFDEVICE__@@PEAU_GUID@@@Z @ 0x1C002E4C0
+ * Callers:
+ *     VfEvtDeviceD0Exit @ 0x1C00B8790 (VfEvtDeviceD0Exit.c)
+ * Callees:
+ *     ?_GetObjectFromHandle@FxObject@@SAPEAV1@PEAXPEAG@Z @ 0x1C0017C04 (-_GetObjectFromHandle@FxObject@@SAPEAV1@PEAXPEAG@Z.c)
+ *     McTemplateK0pp_EtwWriteTransfer @ 0x1C002E7C4 (McTemplateK0pp_EtwWriteTransfer.c)
+ */
+
 char __fastcall PerfEvtDeviceD0ExitStart(WDFDEVICE__ *Handle, _GUID *pActivityId)
 {
   char v3; // bl

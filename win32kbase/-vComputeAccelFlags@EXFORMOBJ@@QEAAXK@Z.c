@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?vComputeAccelFlags@EXFORMOBJ@@QEAAXK@Z @ 0x1C0059750
+ * Callers:
+ *     ?bMultiply@EXFORMOBJ@@QEAAHPEAVMATRIX@@0K@Z @ 0x1C000E0A0 (-bMultiply@EXFORMOBJ@@QEAAHPEAVMATRIX@@0K@Z.c)
+ *     GreExtCreateRegion @ 0x1C0019830 (GreExtCreateRegion.c)
+ * Callees:
+ *     ?bIs1@EFLOAT@@QEBAHXZ @ 0x1C000DFC8 (-bIs1@EFLOAT@@QEBAHXZ.c)
+ *     ?bIs16@EFLOAT@@QEBAHXZ @ 0x1C00D35A0 (-bIs16@EFLOAT@@QEBAHXZ.c)
+ *     ?bIs1Over16@EFLOAT@@QEBAHXZ @ 0x1C017FD98 (-bIs1Over16@EFLOAT@@QEBAHXZ.c)
+ */
+
 void __fastcall EXFORMOBJ::vComputeAccelFlags(float **this, int a2)
 {
   float *v3; // rax

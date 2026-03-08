@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpApplyEventIdPayloadFilterOnUserEvent @ 0x140793FCC
+ * Callers:
+ *     EtwpWriteUserEvent @ 0x1406AA640 (EtwpWriteUserEvent.c)
+ * Callees:
+ *     EtwpApplyEventIdPayloadFilter @ 0x140233900 (EtwpApplyEventIdPayloadFilter.c)
+ */
+
 char __fastcall EtwpApplyEventIdPayloadFilterOnUserEvent(
         __int64 a1,
         unsigned int a2,

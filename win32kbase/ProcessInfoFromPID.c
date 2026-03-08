@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcessInfoFromPID @ 0x1C00840AC
+ * Callers:
+ *     NtMITSetInputDelegationMode @ 0x1C016BD10 (NtMITSetInputDelegationMode.c)
+ * Callees:
+ *     LockProcessByClientId @ 0x1C0084110 (LockProcessByClientId.c)
+ */
+
 __int64 __fastcall ProcessInfoFromPID(int a1)
 {
   __int64 v1; // rbx

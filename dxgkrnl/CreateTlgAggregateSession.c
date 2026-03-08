@@ -1,3 +1,12 @@
+/*
+ * XREFs of CreateTlgAggregateSession @ 0x1C0210C04
+ * Callers:
+ *     TlgRegisterAggregateProviderEx @ 0x1C0210A1C (TlgRegisterAggregateProviderEx.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DestroyAggregateSession @ 0x1C03D3654 (DestroyAggregateSession.c)
+ */
+
 _QWORD *__fastcall CreateTlgAggregateSession(char a1, char a2)
 {
   _QWORD *PoolWithTag; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpTimerPropagateQpcBiasUpdate @ 0x1403773C0
+ * Callers:
+ *     HalpTimerSelectRoles @ 0x140376F4C (HalpTimerSelectRoles.c)
+ *     HalpTimerCalibratePerformanceCounter @ 0x1403772B8 (HalpTimerCalibratePerformanceCounter.c)
+ *     HalpTimerInitSystem @ 0x1403776D0 (HalpTimerInitSystem.c)
+ * Callees:
+ *     RtlSetSystemGlobalData @ 0x1402EF650 (RtlSetSystemGlobalData.c)
+ *     HalpTimerScaleCounter @ 0x1403BE604 (HalpTimerScaleCounter.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __fastcall HalpTimerPropagateQpcBiasUpdate(__int64 a1)
 {
   __int64 v2; // rcx

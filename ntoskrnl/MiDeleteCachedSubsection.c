@@ -1,3 +1,35 @@
+/*
+ * XREFs of MiDeleteCachedSubsection @ 0x140621708
+ * Callers:
+ *     MiRemoveUnusedSegments @ 0x1406236E4 (MiRemoveUnusedSegments.c)
+ * Callees:
+ *     MiDestroySection @ 0x1402017AC (MiDestroySection.c)
+ *     MiDecrementModifiedWriteCount @ 0x140212BE4 (MiDecrementModifiedWriteCount.c)
+ *     MiReduceUnusedSubsectionCount @ 0x140214D4C (MiReduceUnusedSubsectionCount.c)
+ *     MiReleaseControlAreaWaiters @ 0x140214DCC (MiReleaseControlAreaWaiters.c)
+ *     MiDeleteControlArea @ 0x140215028 (MiDeleteControlArea.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiInsertUnusedSubsection @ 0x1402D4DE8 (MiInsertUnusedSubsection.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140305AB0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     MiFlushSectionInternal @ 0x14031FA90 (MiFlushSectionInternal.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDecrementSubsectionViewCount @ 0x140334C10 (MiDecrementSubsectionViewCount.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1403441C0 (ObFastDereferenceObjectDeferDelete.c)
+ *     MiRemoveUnusedSegment @ 0x14034C47C (MiRemoveUnusedSegment.c)
+ *     MiInsertUnusedSegment @ 0x14034C75C (MiInsertUnusedSegment.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140368AE0 (MiUpdateSystemProtoPtesTree.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiIsSubsectionClean @ 0x140622654 (MiIsSubsectionClean.c)
+ *     MiPreventControlAreaDelete @ 0x14062297C (MiPreventControlAreaDelete.c)
+ *     MiPurgeSubsection @ 0x140623294 (MiPurgeSubsection.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x140668DD4 (MiReturnCrossPartitionSectionCharges.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x14075EFA8 (FsRtlAcquireFileForCcFlushEx.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x14075F248 (FsRtlReleaseFileForCcFlush.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiDeleteCachedSubsection(__int64 a1)
 {
   volatile LONG *v1; // rbp

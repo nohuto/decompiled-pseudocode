@@ -1,3 +1,11 @@
+/*
+ * XREFs of unsafe_cast_fnid_zero_to_PDIALOG @ 0x1C00F9F78
+ * Callers:
+ *     SetDialogPointer @ 0x1C00F9E74 (SetDialogPointer.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall unsafe_cast_fnid_zero_to_PDIALOG(__int64 a1)
 {
   __int64 v2; // rax

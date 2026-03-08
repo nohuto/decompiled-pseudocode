@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspIsSiloContext @ 0x1407387C4
+ * Callers:
+ *     PsInsertSiloContext @ 0x140738510 (PsInsertSiloContext.c)
+ *     PsInsertPermanentSiloContextEx @ 0x14073858C (PsInsertPermanentSiloContextEx.c)
+ *     PsReplaceSiloContext @ 0x1409A9740 (PsReplaceSiloContext.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall PspIsSiloContext(__int64 a1)
 {
   PVOID v1; // rax

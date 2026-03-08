@@ -1,3 +1,16 @@
+/*
+ * XREFs of SdbpGetPathAppPatchPreRS3 @ 0x14066BB30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlStringCchCopyW @ 0x1402470F0 (RtlStringCchCopyW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbpGetPathAppPatch @ 0x140A4FFD0 (SdbpGetPathAppPatch.c)
+ *     SdbpGetProcessHostGuestArchitectures @ 0x140A503E0 (SdbpGetProcessHostGuestArchitectures.c)
+ *     AslPathCombine @ 0x140A524A8 (AslPathCombine.c)
+ */
+
 __int64 __fastcall SdbpGetPathAppPatchPreRS3(wchar_t *a1, size_t a2, const wchar_t *a3, __int64 a4)
 {
   NTSTATUS ProcessHostGuestArchitectures; // ebx

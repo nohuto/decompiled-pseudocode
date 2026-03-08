@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiGetPastDueIRTimerInfo @ 0x14057B0D4
+ * Callers:
+ *     KeResumeClockTimerFromIdle @ 0x14022E860 (KeResumeClockTimerFromIdle.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x140328330 (KiGetNextTimerExpirationDueTime.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiGetPastDueIRTimerInfo(unsigned __int64 a1, _BYTE *a2, _BYTE *a3)
 {
   unsigned __int64 v3; // rax

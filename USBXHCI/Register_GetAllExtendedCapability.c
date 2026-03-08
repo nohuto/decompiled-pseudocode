@@ -1,3 +1,13 @@
+/*
+ * XREFs of Register_GetAllExtendedCapability @ 0x1C001A838
+ * Callers:
+ *     Wmi_CreateControllerCapabilities @ 0x1C00151B4 (Wmi_CreateControllerCapabilities.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     XilRegister_ReadBufferUlong @ 0x1C001A920 (XilRegister_ReadBufferUlong.c)
+ */
+
 void __fastcall Register_GetAllExtendedCapability(__int64 a1, __int64 a2)
 {
   unsigned int *v2; // rdi

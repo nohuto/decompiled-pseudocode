@@ -1,3 +1,18 @@
+/*
+ * XREFs of ACPIBusIrpStartDeviceWorker @ 0x1C0081770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIInternalEvaluateOST @ 0x1C002E560 (ACPIInternalEvaluateOST.c)
+ *     EnableDisableIPMIRegions @ 0x1C008879C (EnableDisableIPMIRegions.c)
+ *     EnableDisableRegions @ 0x1C008A57C (EnableDisableRegions.c)
+ *     IsNsobjPciBus @ 0x1C008A678 (IsNsobjPciBus.c)
+ *     ACPIPepInitializePlatformNotificationSupport @ 0x1C008A9B0 (ACPIPepInitializePlatformNotificationSupport.c)
+ */
+
 _UNKNOWN **__fastcall ACPIBusIrpStartDeviceWorker(__int64 a1)
 {
   __int64 DeviceExtension; // rax

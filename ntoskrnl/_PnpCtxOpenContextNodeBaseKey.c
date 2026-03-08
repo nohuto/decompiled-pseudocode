@@ -1,3 +1,12 @@
+/*
+ * XREFs of _PnpCtxOpenContextNodeBaseKey @ 0x140A5DD70
+ * Callers:
+ *     PiDevCfgEnumDeviceKeys @ 0x140876FB8 (PiDevCfgEnumDeviceKeys.c)
+ * Callees:
+ *     _PnpCtxGetCachedNodeBaseKey @ 0x1406D370C (_PnpCtxGetCachedNodeBaseKey.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ */
+
 __int64 __fastcall PnpCtxOpenContextNodeBaseKey(__int64 a1, __int64 a2, __int64 a3, int a4, int a5, int a6, __int64 a7)
 {
   __int64 v7; // rdi

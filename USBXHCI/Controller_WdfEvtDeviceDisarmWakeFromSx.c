@@ -1,3 +1,12 @@
+/*
+ * XREFs of Controller_WdfEvtDeviceDisarmWakeFromSx @ 0x1C0036A00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 _UNKNOWN **__fastcall Controller_WdfEvtDeviceDisarmWakeFromSx(__int64 a1)
 {
   char v1; // di

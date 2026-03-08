@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiGetAggregateWorkingSetSize @ 0x14065EA58
+ * Callers:
+ *     MmLogSystemShareablePfnInfo @ 0x140A3D248 (MmLogSystemShareablePfnInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiGetAggregateWorkingSetSize(__int64 a1)
 {
   __int64 v1; // rdx

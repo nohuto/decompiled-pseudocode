@@ -1,3 +1,13 @@
+/*
+ * XREFs of DrvDxgkDisplayOnOff @ 0x1C00CE2F0
+ * Callers:
+ *     DrvEnableMDEV @ 0x1C001D978 (DrvEnableMDEV.c)
+ *     GreSuspendDirectDraw @ 0x1C001F220 (GreSuspendDirectDraw.c)
+ *     ?DrvDisableMDEVChildren@@YAHPEAU_MDEV@@HK@Z @ 0x1C00CE230 (-DrvDisableMDEVChildren@@YAHPEAU_MDEV@@HK@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DrvDxgkDisplayOnOff(__int64 a1, unsigned __int8 a2, unsigned int a3)
 {
   __int64 v3; // rsi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PiUEventDequeuePendingEventWorker @ 0x14068DE6C
+ * Callers:
+ *     PiUEventNotifyClient @ 0x14068032C (PiUEventNotifyClient.c)
+ *     PiUEventHandleGetEvent @ 0x14068E028 (PiUEventHandleGetEvent.c)
+ *     PiUEventFreeClientRegistrationContext @ 0x14078DA7C (PiUEventFreeClientRegistrationContext.c)
+ *     PiUEventHandleVetoEvent @ 0x14087E074 (PiUEventHandleVetoEvent.c)
+ * Callees:
+ *     PiUEventDereferenceEventEntry @ 0x14068DA18 (PiUEventDereferenceEventEntry.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PiUEventDequeuePendingEventWorker(__int64 a1, void *a2, char a3)
 {
   void **v4; // rdx

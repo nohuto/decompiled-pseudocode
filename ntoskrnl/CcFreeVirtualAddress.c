@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcFreeVirtualAddress @ 0x14021E5D0
+ * Callers:
+ *     CcMdlRead @ 0x1406A3B50 (CcMdlRead.c)
+ *     CcMapAndCopyFromCache @ 0x1406A7510 (CcMapAndCopyFromCache.c)
+ *     CcPinMappedData @ 0x1406A7750 (CcPinMappedData.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ */
+
 LONG __fastcall CcFreeVirtualAddress(__int64 a1)
 {
   __int64 v1; // rbx

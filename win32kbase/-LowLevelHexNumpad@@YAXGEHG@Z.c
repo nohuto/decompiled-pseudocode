@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?LowLevelHexNumpad@@YAXGEHG@Z @ 0x1C0219C84
+ * Callers:
+ *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C008097C (xxxUpdateGlobalsAndSendKeyEvent.c)
+ * Callees:
+ *     ApiSetEditionIsHotKey @ 0x1C023F838 (ApiSetEditionIsHotKey.c)
+ */
+
 void __fastcall LowLevelHexNumpad(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int16 v4; // di

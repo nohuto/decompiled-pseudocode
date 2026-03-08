@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsBoundingBoxOverlappingXY@CVisualDepthGeometry@@AEBA_NAEBV1@@Z @ 0x180008CAC
+ * Callers:
+ *     ?GetRelativeOrder@CVisualDepthGeometry@@QEBA?AW4RelativeOrder@@AEBV1@@Z @ 0x180008BB8 (-GetRelativeOrder@CVisualDepthGeometry@@QEBA-AW4RelativeOrder@@AEBV1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CVisualDepthGeometry::IsBoundingBoxOverlappingXY(
         CVisualDepthGeometry *this,
         const struct CVisualDepthGeometry *a2)

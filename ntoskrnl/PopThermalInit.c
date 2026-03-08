@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopThermalInit @ 0x140B62494
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     KiInitializeTimer2 @ 0x140203D9C (KiInitializeTimer2.c)
+ *     PopInitializeWorkItem @ 0x14080FA3C (PopInitializeWorkItem.c)
+ *     PopInitializeTimer @ 0x14084747C (PopInitializeTimer.c)
+ */
+
 __int64 PopThermalInit()
 {
   _BYTE *v0; // r8

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpAuditSelectRsdtOrXsdt @ 0x140B8F248
+ * Callers:
+ *     HalpAuditEnumerateRsdtsInRange @ 0x140B8EF48 (HalpAuditEnumerateRsdtsInRange.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpAuditSelectRsdtOrXsdt(__int64 a1, __int64 a2)
 {
   int v3; // r11d

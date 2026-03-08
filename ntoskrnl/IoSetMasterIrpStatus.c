@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoSetMasterIrpStatus @ 0x1402CB0B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IoSetMasterIrpStatus(__int64 a1, signed __int32 a2)
 {
   signed __int32 v2; // r8d

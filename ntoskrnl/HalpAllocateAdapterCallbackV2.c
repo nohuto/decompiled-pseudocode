@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpAllocateAdapterCallbackV2 @ 0x140455060
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IopMapTransfer @ 0x1404FFB20 (IopMapTransfer.c)
+ */
+
 __int64 __fastcall HalpAllocateAdapterCallbackV2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 *v4; // rdi

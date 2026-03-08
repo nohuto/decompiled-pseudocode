@@ -1,3 +1,31 @@
+/*
+ * XREFs of ?DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C0094CDC
+ * Callers:
+ *     ?xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C0094570 (-xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
+ * Callees:
+ *     ?ClearWakeBit@@YAXPEAUtagTHREADINFO@@IH@Z @ 0x1C0016900 (-ClearWakeBit@@YAXPEAUtagTHREADINFO@@IH@Z.c)
+ *     xxxSwitchDesktop @ 0x1C00205D4 (xxxSwitchDesktop.c)
+ *     xxxSetWindowPos @ 0x1C0028F4C (xxxSetWindowPos.c)
+ *     xxxSetThreadDesktop @ 0x1C00361B8 (xxxSetThreadDesktop.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     xxxDestroyWindow @ 0x1C004B7F0 (xxxDestroyWindow.c)
+ *     DwmAsyncShellWindowChange @ 0x1C007DD0C (DwmAsyncShellWindowChange.c)
+ *     xxxCleanupMotherDesktopWindow @ 0x1C00929C4 (xxxCleanupMotherDesktopWindow.c)
+ *     ?GetDesktopName@@YAPEBGPEAUtagDESKTOP@@@Z @ 0x1C0095610 (-GetDesktopName@@YAPEBGPEAUtagDESKTOP@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_Sq @ 0x1C0095678 (WPP_RECORDER_AND_TRACE_SF_Sq.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqS @ 0x1C0095C04 (WPP_RECORDER_AND_TRACE_SF_qqS.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00A6450 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     _DestroyMenu @ 0x1C00A77C0 (_DestroyMenu.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C00D3DA0 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00D5030 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     UnlockDesktopSysMenu @ 0x1C00F390C (UnlockDesktopSysMenu.c)
+ *     UnlockDesktopMenu @ 0x1C00F3930 (UnlockDesktopMenu.c)
+ *     RemoteDisableScreen @ 0x1C00F7460 (RemoteDisableScreen.c)
+ */
+
 void __fastcall DestroyPendingDesktops(struct tagTHREADINFO *a1, struct tagTERMINAL *a2)
 {
   struct tagTERMINAL *v2; // r14

@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpFlsCallbackEntryGetContext @ 0x1402CAA5C
+ * Callers:
+ *     PsTlsGetValue @ 0x1407564B0 (PsTlsGetValue.c)
+ *     PsTlsSetValue @ 0x14076B4A0 (PsTlsSetValue.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpFlsCallbackEntryGetContext(__int64 a1, int a2, _QWORD *a3)
 {
   unsigned int v3; // r9d

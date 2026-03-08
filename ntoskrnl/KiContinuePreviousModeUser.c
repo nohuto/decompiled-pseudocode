@@ -1,3 +1,20 @@
+/*
+ * XREFs of KiContinuePreviousModeUser @ 0x1403647F4
+ * Callers:
+ *     KiContinueEx @ 0x140364520 (KiContinueEx.c)
+ * Callees:
+ *     KeVerifyContextXStateCetU @ 0x1403649C8 (KeVerifyContextXStateCetU.c)
+ *     RtlInitializeExtendedContext @ 0x140364A10 (RtlInitializeExtendedContext.c)
+ *     RtlGetExtendedContextLength @ 0x140364A90 (RtlGetExtendedContextLength.c)
+ *     RtlpSanitizeContextFlags @ 0x140364D9C (RtlpSanitizeContextFlags.c)
+ *     KeVerifyContextRecord @ 0x1403653D4 (KeVerifyContextRecord.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeContextToKframes @ 0x140416130 (KeContextToKframes.c)
+ *     _alloca_probe @ 0x1404210C0 (_alloca_probe.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpReadExtendedContext @ 0x1407EDC30 (RtlpReadExtendedContext.c)
+ */
+
 __int64 __fastcall KiContinuePreviousModeUser(__int64 a1, __int64 a2, int a3, unsigned __int64 a4)
 {
   int v5; // r12d

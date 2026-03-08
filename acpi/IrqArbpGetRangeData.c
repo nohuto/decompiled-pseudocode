@@ -1,3 +1,11 @@
+/*
+ * XREFs of IrqArbpGetRangeData @ 0x1C009E418
+ * Callers:
+ *     IrqArbPackResource @ 0x1C009D6F0 (IrqArbPackResource.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IrqArbpGetRangeData(__int64 a1, PVOID *a2)
 {
   struct _RANGE_LIST_ITERATOR Iterator; // [rsp+20h] [rbp-28h] BYREF

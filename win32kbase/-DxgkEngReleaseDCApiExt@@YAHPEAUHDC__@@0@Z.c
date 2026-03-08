@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DxgkEngReleaseDCApiExt@@YAHPEAUHDC__@@0@Z @ 0x1C0195D60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DxgkEngReleaseDCApiExt(HDC a1, HDC a2)
 {
   unsigned int v2; // ebx

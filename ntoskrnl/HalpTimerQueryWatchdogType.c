@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpTimerQueryWatchdogType @ 0x1404FC830
+ * Callers:
+ *     HaliQuerySystemInformation @ 0x140A85470 (HaliQuerySystemInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpTimerQueryWatchdogType(_DWORD *a1)
 {
   int v1; // eax

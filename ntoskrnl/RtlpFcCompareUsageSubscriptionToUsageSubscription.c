@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpFcCompareUsageSubscriptionToUsageSubscription @ 0x1405B2730
+ * Callers:
+ *     RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable @ 0x1409C0054 (RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable.c)
+ *     RtlpFcUpdateUsageTriggers @ 0x1409C05F0 (RtlpFcUpdateUsageTriggers.c)
+ *     RtlpFcValidateFeatureUsageSubscriptionBuffer @ 0x1409C08B4 (RtlpFcValidateFeatureUsageSubscriptionBuffer.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpFcCompareUsageSubscriptionToUsageSubscription(__int64 a1, __int64 a2)
 {
   unsigned __int16 v2; // ax

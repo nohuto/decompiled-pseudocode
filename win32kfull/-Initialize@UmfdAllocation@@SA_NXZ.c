@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Initialize@UmfdAllocation@@SA_NXZ @ 0x1C00E7460
+ * Callers:
+ *     UmfdSessionInitialize @ 0x1C00E6FB0 (UmfdSessionInitialize.c)
+ * Callees:
+ *     ?Uninitialize@UmfdAllocation@@SAXXZ @ 0x1C0092938 (-Uninitialize@UmfdAllocation@@SAXXZ.c)
+ *     ?Create@CPointerHashTable@NSInstrumentation@@SAPEAV12@_N@Z @ 0x1C00E74C4 (-Create@CPointerHashTable@NSInstrumentation@@SAPEAV12@_N@Z.c)
+ */
+
 char __fastcall UmfdAllocation::Initialize(__int64 a1)
 {
   struct NSInstrumentation::CPointerHashTable **v1; // rbx

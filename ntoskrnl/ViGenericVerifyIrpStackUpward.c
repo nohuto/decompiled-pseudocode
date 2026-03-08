@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViGenericVerifyIrpStackUpward @ 0x140AC02C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ViErrorReport1 @ 0x1405CDA04 (ViErrorReport1.c)
+ *     ViErrorReport6 @ 0x1405CDBC0 (ViErrorReport6.c)
+ *     VfMajorIsValidIrpStatus @ 0x140AD0058 (VfMajorIsValidIrpStatus.c)
+ */
+
 __int64 __fastcall ViGenericVerifyIrpStackUpward(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _QWORD *v4; // rdi

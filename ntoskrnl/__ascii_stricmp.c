@@ -1,3 +1,11 @@
+/*
+ * XREFs of __ascii_stricmp @ 0x1403D3B7C
+ * Callers:
+ *     _stricmp @ 0x1403D3BD0 (_stricmp.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall _ascii_stricmp(unsigned __int8 *a1, unsigned __int8 *a2)
 {
   int v4; // r8d

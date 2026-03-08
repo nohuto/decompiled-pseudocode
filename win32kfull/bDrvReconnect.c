@@ -1,3 +1,14 @@
+/*
+ * XREFs of bDrvReconnect @ 0x1C02DF36C
+ * Callers:
+ *     RemotePassthruDisable @ 0x1C0205C9C (RemotePassthruDisable.c)
+ *     xxxRemoteConsoleShadowStart @ 0x1C02063C0 (xxxRemoteConsoleShadowStart.c)
+ * Callees:
+ *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C0129084 (--1SEMOBJEX@@QEAA@XZ.c)
+ *     ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C0129160 (--0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall bDrvReconnect(Gre::Base *a1, __int64 a2, __int64 a3, int a4)
 {
   HSEMAPHORE *v7; // rax

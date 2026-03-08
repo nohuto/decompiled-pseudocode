@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceIdleStatus @ 0x1C00BA040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetLastInputTime@CInputGlobals@@QEBA_KXZ @ 0x1C0016B10 (-GetLastInputTime@CInputGlobals@@QEBA_KXZ.c)
+ *     McTemplateK0qqqqqqq_EtwWriteTransfer @ 0x1C01669C4 (McTemplateK0qqqqqqq_EtwWriteTransfer.c)
+ */
+
 void EtwTraceIdleStatus()
 {
   __int64 v0; // r15

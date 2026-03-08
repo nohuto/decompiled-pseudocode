@@ -1,3 +1,14 @@
+/*
+ * XREFs of CreateMonitorRegionForDpi @ 0x1C003B6D0
+ * Callers:
+ *     ?SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z @ 0x1C003B638 (-SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z.c)
+ *     GetMonitorDC @ 0x1C003D41C (GetMonitorDC.c)
+ * Callees:
+ *     GetMonitorRectForDpi @ 0x1C003BDD8 (GetMonitorRectForDpi.c)
+ *     GreCreateRectRgnIndirect @ 0x1C0050B70 (GreCreateRectRgnIndirect.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 __int64 __fastcall CreateMonitorRegionForDpi(__int64 a1, unsigned __int16 a2)
 {
   int v2; // edx

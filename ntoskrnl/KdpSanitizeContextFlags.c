@@ -1,3 +1,12 @@
+/*
+ * XREFs of KdpSanitizeContextFlags @ 0x140AAE938
+ * Callers:
+ *     KdpSetContextEx @ 0x140392008 (KdpSetContextEx.c)
+ *     KdpSetContext @ 0x140AB1BA8 (KdpSetContext.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _KPRCB *__fastcall KdpSanitizeContextFlags(_DWORD *a1, unsigned int a2, int *a3)
 {
   int v3; // edi

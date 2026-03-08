@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZombieCursor @ 0x1C01C1ED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?UnlinkCursor@@YAXPEAUtagCURSOR@@@Z @ 0x1C00E1474 (-UnlinkCursor@@YAXPEAUtagCURSOR@@@Z.c)
+ */
+
 __int64 __fastcall ZombieCursor(__int64 a1)
 {
   int v2; // edi

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiSignalNonPagedPoolWatchers @ 0x140394AB8
+ * Callers:
+ *     MiInitializeNonPagedPoolThresholds @ 0x140394A40 (MiInitializeNonPagedPoolThresholds.c)
+ *     MiInitializeMemoryEvents @ 0x1408096D8 (MiInitializeMemoryEvents.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 MiSignalNonPagedPoolWatchers()
 {
   __int64 v0; // rdi

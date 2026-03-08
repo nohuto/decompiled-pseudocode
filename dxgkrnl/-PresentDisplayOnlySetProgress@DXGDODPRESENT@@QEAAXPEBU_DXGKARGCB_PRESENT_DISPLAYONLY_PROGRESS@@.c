@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PresentDisplayOnlySetProgress@DXGDODPRESENT@@QEAAXPEBU_DXGKARGCB_PRESENT_DISPLAYONLY_PROGRESS@@@Z @ 0x1C006D50C
+ * Callers:
+ *     DxgPresentDisplayOnlyProgressCB @ 0x1C0048010 (DxgPresentDisplayOnlyProgressCB.c)
+ *     ?NotifyDpc@DXGDODPRESENT@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C006D2EC (-NotifyDpc@DXGDODPRESENT@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ * Callees:
+ *     ?PresentDisplayOnlySetProgress@BLTQUEUE@@QEAAXPEBU_DXGKARGCB_PRESENT_DISPLAYONLY_PROGRESS@@@Z @ 0x1C006D494 (-PresentDisplayOnlySetProgress@BLTQUEUE@@QEAAXPEBU_DXGKARGCB_PRESENT_DISPLAYONLY_PROGRESS@@@Z.c)
+ */
+
 void __fastcall DXGDODPRESENT::PresentDisplayOnlySetProgress(
         DXGDODPRESENT *this,
         const struct _DXGKARGCB_PRESENT_DISPLAYONLY_PROGRESS *a2)

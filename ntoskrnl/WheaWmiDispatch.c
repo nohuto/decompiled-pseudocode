@@ -1,3 +1,14 @@
+/*
+ * XREFs of WheaWmiDispatch @ 0x1403AA290
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WheapWmiRegisterInfo @ 0x1403AA2EC (WheapWmiRegisterInfo.c)
+ *     WheapWmiExecuteMethod @ 0x140611BB0 (WheapWmiExecuteMethod.c)
+ *     WheapWmiGetAllData @ 0x140611FFC (WheapWmiGetAllData.c)
+ *     WheapWmiGetSingleInstance @ 0x140612060 (WheapWmiGetSingleInstance.c)
+ */
+
 __int64 __fastcall WheaWmiDispatch(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int a5, _DWORD *a6)
 {
   int v6; // ecx

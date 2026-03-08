@@ -1,3 +1,16 @@
+/*
+ * XREFs of _PnpRegQueryValueIndirect @ 0x140769420
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlUnalignedStringCbLengthW @ 0x140202B38 (RtlUnalignedStringCbLengthW.c)
+ *     _RegRtlQueryValue @ 0x1406D3E98 (_RegRtlQueryValue.c)
+ *     _PnpParseIndirectResourceString @ 0x140751C48 (_PnpParseIndirectResourceString.c)
+ *     _PnpParseIndirectInfString @ 0x14077B4AC (_PnpParseIndirectInfString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpRegQueryValueIndirect(
         size_t a1,
         void *a2,

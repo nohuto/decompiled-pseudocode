@@ -1,3 +1,13 @@
+/*
+ * XREFs of AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x140247720
+ * Callers:
+ *     AuthzBasepQuerySecurityAttributesToken @ 0x1402475E0 (AuthzBasepQuerySecurityAttributesToken.c)
+ * Callees:
+ *     AuthzBasepGetSecurityAttributeValueCopyoutBufferSize @ 0x140246650 (AuthzBasepGetSecurityAttributeValueCopyoutBufferSize.c)
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x1402478D0 (AuthzBasepFindSecurityAttribute.c)
+ */
+
 __int64 __fastcall AuthzBasepGetSecurityAttributesCopyoutBufferSize(
         unsigned int *a1,
         __int64 a2,

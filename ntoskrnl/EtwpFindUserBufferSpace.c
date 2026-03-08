@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpFindUserBufferSpace @ 0x1406A1E50
+ * Callers:
+ *     EtwpRealtimeInjectEtwBuffer @ 0x1406A2090 (EtwpRealtimeInjectEtwBuffer.c)
+ * Callees:
+ *     RtlFindNextAlignedForwardRunClear @ 0x14020B170 (RtlFindNextAlignedForwardRunClear.c)
+ *     RtlInterlockedSetClearRun @ 0x14030CDB0 (RtlInterlockedSetClearRun.c)
+ *     ZwAllocateVirtualMemory @ 0x140412610 (ZwAllocateVirtualMemory.c)
+ */
+
 __int64 __fastcall EtwpFindUserBufferSpace(__int64 a1, __int64 a2, int a3, PVOID *a4)
 {
   unsigned int v6; // ebx

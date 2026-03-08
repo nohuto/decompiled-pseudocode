@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeControllerAsyncResetWorker @ 0x1C000CBD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0004200 (_guard_dispatch_icall_nop.c)
+ *     NVMeControllerReset @ 0x1C000E4D8 (NVMeControllerReset.c)
+ */
+
 __int64 __fastcall NVMeControllerAsyncResetWorker(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v6; // rdx

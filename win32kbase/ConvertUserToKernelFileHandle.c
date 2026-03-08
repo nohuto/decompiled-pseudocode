@@ -1,3 +1,11 @@
+/*
+ * XREFs of ConvertUserToKernelFileHandle @ 0x1C0159460
+ * Callers:
+ *     PopulateUMKMHandlePair @ 0x1C000FBD0 (PopulateUMKMHandlePair.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall ConvertUserToKernelFileHandle(void *a1, void **a2)
 {
   NTSTATUS v3; // eax

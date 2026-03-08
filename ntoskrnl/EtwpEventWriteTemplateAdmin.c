@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpEventWriteTemplateAdmin @ 0x1409E0BD0
+ * Callers:
+ *     EtwpRealtimeSaveBuffer @ 0x14069113C (EtwpRealtimeSaveBuffer.c)
+ *     EtwpFlushBufferToLogfile @ 0x140691270 (EtwpFlushBufferToLogfile.c)
+ *     EtwpStartLogger @ 0x140691964 (EtwpStartLogger.c)
+ *     EtwpLogger @ 0x1406926A0 (EtwpLogger.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall EtwpEventWriteTemplateAdmin(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

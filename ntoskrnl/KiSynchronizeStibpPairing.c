@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiSynchronizeStibpPairing @ 0x1404583F6
+ * Callers:
+ *     KiUpdateSpeculationControl @ 0x1402BEF60 (KiUpdateSpeculationControl.c)
+ * Callees:
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KiIpiStallOnPacketTargetsPrcb @ 0x140237680 (KiIpiStallOnPacketTargetsPrcb.c)
+ *     KiIpiSendPacket @ 0x1402376C0 (KiIpiSendPacket.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KiSynchronizeStibpPairing(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // di

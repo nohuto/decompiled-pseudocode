@@ -1,3 +1,19 @@
+/*
+ * XREFs of FsRtlUninitializeFileLock @ 0x1402FFA90
+ * Callers:
+ *     FsRtlFreeFileLock @ 0x1402FFA60 (FsRtlFreeFileLock.c)
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     RtlDeleteNoSplay @ 0x1402C1BB0 (RtlDeleteNoSplay.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     FsRtlCompleteLockIrpReal @ 0x140456B80 (FsRtlCompleteLockIrpReal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __stdcall FsRtlUninitializeFileLock(PFILE_LOCK FileLock)
 {
   char *LockInformation; // rbx

@@ -1,3 +1,26 @@
+/*
+ * XREFs of ObpDeleteNameCheck @ 0x1407D85E0
+ * Callers:
+ *     ObpDereferenceNamedObject @ 0x1402EF5F8 (ObpDereferenceNamedObject.c)
+ *     ObOpenObjectByNameEx @ 0x1406E7F70 (ObOpenObjectByNameEx.c)
+ *     ObMakeTemporaryObject @ 0x140791C40 (ObMakeTemporaryObject.c)
+ *     ObpIncrementHandleCountEx @ 0x1407C1090 (ObpIncrementHandleCountEx.c)
+ *     ObpDecrementHandleCount @ 0x1407D8404 (ObpDecrementHandleCount.c)
+ * Callees:
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     PsDereferenceSiloContext @ 0x1402FEB00 (PsDereferenceSiloContext.c)
+ *     ObpUnlockDirectory @ 0x140699588 (ObpUnlockDirectory.c)
+ *     ObpLookupDirectoryEntry @ 0x14076161C (ObpLookupDirectoryEntry.c)
+ *     ObpDeleteDirectoryEntry @ 0x14076F100 (ObpDeleteDirectoryEntry.c)
+ *     ObpLockDirectoryExclusive @ 0x14076F3D0 (ObpLockDirectoryExclusive.c)
+ *     ObpDeleteSymbolicLinkName @ 0x14076F408 (ObpDeleteSymbolicLinkName.c)
+ */
+
 void __fastcall ObpDeleteNameCheck(__int64 a1)
 {
   __int64 v2; // rax

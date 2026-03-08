@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlStringCbCopyNW @ 0x14039301C
+ * Callers:
+ *     HalpMcEnumerateAndSetPatchConfig @ 0x140519160 (HalpMcEnumerateAndSetPatchConfig.c)
+ *     PopDiagGetDriverName @ 0x14058F424 (PopDiagGetDriverName.c)
+ *     LocalConvertSidToStringSidW @ 0x1408368E8 (LocalConvertSidToStringSidW.c)
+ *     AslPathWildcardFindFirst @ 0x140A52910 (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindNext @ 0x140A52E68 (AslPathWildcardFindNext.c)
+ *     AuthzBasepCopyoutClaimAttributeValues @ 0x140A571D4 (AuthzBasepCopyoutClaimAttributeValues.c)
+ *     AuthzBasepCopyoutClaimAttributes @ 0x140A57408 (AuthzBasepCopyoutClaimAttributes.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlStringCbCopyNW(NTSTRSAFE_PWSTR pszDest, size_t cbDest, STRSAFE_PCNZWCH pszSrc, size_t cbToCopy)
 {
   size_t v4; // rdx

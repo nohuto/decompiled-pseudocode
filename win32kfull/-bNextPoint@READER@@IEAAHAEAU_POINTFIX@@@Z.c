@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bNextPoint@READER@@IEAAHAEAU_POINTFIX@@@Z @ 0x1C0150C84
+ * Callers:
+ *     ??0STYLER@@QEAA@AEAVEPATHOBJ@@PEBU_LINEATTRS@@@Z @ 0x1C02F2F10 (--0STYLER@@QEAA@AEAVEPATHOBJ@@PEBU_LINEATTRS@@@Z.c)
+ *     ?vNextPoint@LINER@@AEAAXXZ @ 0x1C02F49C0 (-vNextPoint@LINER@@AEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall READER::bNextPoint(READER *this, struct _POINTFIX *a2)
 {
   struct _POINTFIX *v2; // r8

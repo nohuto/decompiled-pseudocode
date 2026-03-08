@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlSubtreeSuccessor @ 0x1405AC0A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 PRTL_SPLAY_LINKS __stdcall RtlSubtreeSuccessor(PRTL_SPLAY_LINKS Links)
 {
   PRTL_SPLAY_LINKS result; // rax

@@ -1,3 +1,24 @@
+/*
+ * XREFs of PpmParkApplyPolicy @ 0x14038E5E0
+ * Callers:
+ *     PpmParkRegisterParking @ 0x14038D880 (PpmParkRegisterParking.c)
+ *     PpmParkSetLpiCap @ 0x14059ADFC (PpmParkSetLpiCap.c)
+ *     PpmReapplyPerfPolicy @ 0x1408261A0 (PpmReapplyPerfPolicy.c)
+ *     PpmRegisterPerfStates @ 0x14082802C (PpmRegisterPerfStates.c)
+ *     PpmParkApplyForcedMask @ 0x140996E54 (PpmParkApplyForcedMask.c)
+ *     PpmParkClearForcedMask @ 0x140996F54 (PpmParkClearForcedMask.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PpmConvertTime @ 0x140235D70 (PpmConvertTime.c)
+ *     PpmEventSoftParkRankListChanged @ 0x14038EC74 (PpmEventSoftParkRankListChanged.c)
+ *     KeUpdateSoftParkRankList @ 0x14038ECCC (KeUpdateSoftParkRankList.c)
+ *     PpmParkEvalualteSmtUnparkPolicy @ 0x14038EE6C (PpmParkEvalualteSmtUnparkPolicy.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PpmEventParkNodeCapChange @ 0x14059864C (PpmEventParkNodeCapChange.c)
+ *     PpmEventParkNodeParkHintChanged @ 0x140598868 (PpmEventParkNodeParkHintChanged.c)
+ */
+
 __int64 __fastcall PpmParkApplyPolicy(__int64 a1)
 {
   __int64 result; // rax

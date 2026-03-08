@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiGetNativeMethodHandleFromAcpiObject @ 0x1C0043C98
+ * Callers:
+ *     AcpiSetupNativeMethodContext @ 0x1C0037EA0 (AcpiSetupNativeMethodContext.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AcpiGetNativeMethodHandleFromAcpiObject(__int64 *a1, _QWORD *a2)
 {
   __int64 v2; // rax

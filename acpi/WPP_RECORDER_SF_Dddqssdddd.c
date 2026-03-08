@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_Dddqssdddd @ 0x1C0042658
+ * Callers:
+ *     ACPIThermalWorker @ 0x1C00962E0 (ACPIThermalWorker.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_Dddqssdddd(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
 {
   const char *v5; // rsi

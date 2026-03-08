@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExRngInitializeSystem @ 0x140B6A0B8
+ * Callers:
+ *     KiInitializeBootStructures @ 0x140A887E0 (KiInitializeBootStructures.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 ExRngInitializeSystem()
 {
   _DWORD *v0; // r8

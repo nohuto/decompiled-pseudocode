@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtQueryCompositionInputIsImplicit @ 0x1C00BC9E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C00A7D70 (-ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ */
+
 __int64 __fastcall NtQueryCompositionInputIsImplicit(void *a1, int *a2, __int64 a3)
 {
   int v4; // esi

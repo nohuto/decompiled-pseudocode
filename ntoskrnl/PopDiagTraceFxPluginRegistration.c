@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopDiagTraceFxPluginRegistration @ 0x14084D450
+ * Callers:
+ *     PopFxRegisterPluginEx @ 0x1403A37D8 (PopFxRegisterPluginEx.c)
+ *     PopDiagTraceFxRundown @ 0x140586438 (PopDiagTraceFxRundown.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PopDiagTraceFxPluginRegistration(__int64 a1, __int64 a2, char a3)
 {
   const EVENT_DESCRIPTOR *v3; // rax

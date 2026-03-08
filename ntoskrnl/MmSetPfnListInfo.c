@@ -1,3 +1,26 @@
+/*
+ * XREFs of MmSetPfnListInfo @ 0x140387180
+ * Callers:
+ *     PfpPfnPrioRequest @ 0x1406AE8C4 (PfpPfnPrioRequest.c)
+ * Callees:
+ *     MiRelinkStandbyPage @ 0x140225A14 (MiRelinkStandbyPage.c)
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     MiIdentifyPfn @ 0x14025E5D0 (MiIdentifyPfn.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiColdPageSizeSupported @ 0x1402DD100 (MiColdPageSizeSupported.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAddPageToHeatRanges @ 0x140651704 (MiAddPageToHeatRanges.c)
+ *     MiNotifyPageHeat @ 0x140652018 (MiNotifyPageHeat.c)
+ *     MiSetActivePfnHeat @ 0x1406522D8 (MiSetActivePfnHeat.c)
+ */
+
 __int64 __fastcall MmSetPfnListInfo(__int64 a1, unsigned __int64 *a2, int a3)
 {
   __int64 v6; // rax

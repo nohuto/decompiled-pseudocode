@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetMatrix@CMILMatrix@@QEAAXMMMMMMMMMMMMMMMM@Z @ 0x180130648
+ * Callers:
+ *     ?SetToZeroMatrix@CMILMatrix@@QEAAXXZ @ 0x180092384 (-SetToZeroMatrix@CMILMatrix@@QEAAXXZ.c)
+ *     ?Set2DAffineMatrix@CMILMatrix@@QEAAXMMMMMM@Z @ 0x1800B0E5C (-Set2DAffineMatrix@CMILMatrix@@QEAAXMMMMMM@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CMILMatrix::SetMatrix(
         CMILMatrix *this,
         float a2,

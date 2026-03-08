@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpVolumeManagerGetContextForGuidUnsafe @ 0x14072BADC
+ * Callers:
+ *     CmpVolumeManagerGetContextForFile @ 0x14072B8A0 (CmpVolumeManagerGetContextForFile.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall CmpVolumeManagerGetContextForGuidUnsafe(__int64 a1, _QWORD *a2)
 {
   __int64 *v2; // r10

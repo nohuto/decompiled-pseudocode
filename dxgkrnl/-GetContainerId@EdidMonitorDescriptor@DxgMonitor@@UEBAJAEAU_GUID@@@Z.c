@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetContainerId@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAU_GUID@@@Z @ 0x1C0219520
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     ?EDID_V1_GetContainerID@@YAJKPEBEPEAU_GUID@@@Z @ 0x1C0023DB8 (-EDID_V1_GetContainerID@@YAJKPEBEPEAU_GUID@@@Z.c)
+ *     ?GetRawDescriptor@EdidMonitorDescriptor@DxgMonitor@@UEBA?AV?$unique_ptr@$$BY0A@EU?$default_delete@$$BY0A@E@wistd@@@wistd@@PEAI@Z @ 0x1C01CFB00 (-GetRawDescriptor@EdidMonitorDescriptor@DxgMonitor@@UEBA-AV-$unique_ptr@$$BY0A@EU-$default_delet.c)
+ */
+
 __int64 __fastcall DxgMonitor::EdidMonitorDescriptor::GetContainerId(
         DxgMonitor::EdidMonitorDescriptor *this,
         struct _GUID *a2)

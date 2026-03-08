@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsValid@CD2DInk@@UEBAJXZ @ 0x1802995EC
+ * Callers:
+ *     ?IsValid@CD2DInk@@$4PPPPPPPM@A@EBAJXZ @ 0x18011BC30 (-IsValid@CD2DInk@@$4PPPPPPPM@A@EBAJXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CD2DInk::IsValid(CD2DInk *this)
 {
   char *v1; // rcx

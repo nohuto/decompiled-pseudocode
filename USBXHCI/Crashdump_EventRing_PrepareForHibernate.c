@@ -1,3 +1,11 @@
+/*
+ * XREFs of Crashdump_EventRing_PrepareForHibernate @ 0x1C004E90C
+ * Callers:
+ *     Crashdump_InitializeWithoutControllerReset @ 0x1C004CA8C (Crashdump_InitializeWithoutControllerReset.c)
+ * Callees:
+ *     <none>
+ */
+
 ULONG __fastcall Crashdump_EventRing_PrepareForHibernate(__int64 a1, __int64 a2)
 {
   unsigned int v2; // esi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ComputeUnicodeNameLength @ 0x1407524A8
+ * Callers:
+ *     RtlInsertUnicodePrefix @ 0x1407520F0 (RtlInsertUnicodePrefix.c)
+ *     RtlFindUnicodePrefix @ 0x140752230 (RtlFindUnicodePrefix.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ComputeUnicodeNameLength(unsigned __int16 *a1)
 {
   __int64 result; // rax

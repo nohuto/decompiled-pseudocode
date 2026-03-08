@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiPfCompleteInPageSupport @ 0x14020DAF4
+ * Callers:
+ *     MiPfCompletePrefetchIos @ 0x14020DA48 (MiPfCompletePrefetchIos.c)
+ *     MiPfCompleteCoalescedIo @ 0x14062F780 (MiPfCompleteCoalescedIo.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiFinishHardFault @ 0x140284200 (MiFinishHardFault.c)
+ *     MiFillPteHierarchy @ 0x140333AE0 (MiFillPteHierarchy.c)
+ *     MiWaitForInPageComplete @ 0x140342A90 (MiWaitForInPageComplete.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiPfCompleteInPageSupport(__int64 a1, __int64 a2)
 {
   __int64 AnyMultiplexedVm; // rbx

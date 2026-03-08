@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopPowerRequestUnrevokeRequests @ 0x1403A5A90
+ * Callers:
+ *     PopPowerRequestHandleExecutionEnablementUpdate @ 0x1408525A4 (PopPowerRequestHandleExecutionEnablementUpdate.c)
+ *     PopPowerRequestNotifyTtmSessionInitialized @ 0x14097E750 (PopPowerRequestNotifyTtmSessionInitialized.c)
+ * Callees:
+ *     PopQueueWorkItem @ 0x1402BCCB4 (PopQueueWorkItem.c)
+ *     PopPowerRequestEvaluatePendingRequestStatus @ 0x1402BCCE4 (PopPowerRequestEvaluatePendingRequestStatus.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PopPowerRequestUnrevokeRequests(int a1)
 {
   int v2; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?applyBoost@GroupedFGBoostProp@@AEAAXW4BoostFlag@@@Z @ 0x1C000D768
+ * Callers:
+ *     ?applyBoostIfNeeded@GroupedFGBoostProp@@SAXPEBUtagWND@@W4BoostFlag@@@Z @ 0x1C008F128 (-applyBoostIfNeeded@GroupedFGBoostProp@@SAXPEBUtagWND@@W4BoostFlag@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GroupedFGBoostProp::applyBoost(__int64 a1, int a2)
 {
   __int64 v2; // rbx

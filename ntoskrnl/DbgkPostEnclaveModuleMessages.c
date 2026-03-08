@@ -1,3 +1,11 @@
+/*
+ * XREFs of DbgkPostEnclaveModuleMessages @ 0x140539580
+ * Callers:
+ *     DbgkpPostModuleMessages @ 0x140934C44 (DbgkpPostModuleMessages.c)
+ * Callees:
+ *     DbgkPostModuleMessage @ 0x1405395FC (DbgkPostModuleMessage.c)
+ */
+
 __int64 __fastcall DbgkPostEnclaveModuleMessages(void *a1, void *a2, struct _KEVENT *a3, __int64 a4, unsigned int a5)
 {
   __int64 result; // rax

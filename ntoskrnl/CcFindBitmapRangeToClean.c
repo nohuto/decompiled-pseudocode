@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcFindBitmapRangeToClean @ 0x1402A34FC
+ * Callers:
+ *     CcAcquireByteRangeForWrite @ 0x14021A220 (CcAcquireByteRangeForWrite.c)
+ *     CcGetFlushedValidData @ 0x1402A1120 (CcGetFlushedValidData.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall CcFindBitmapRangeToClean(__int64 a1, signed __int64 a2)
 {
   __int64 *v2; // r8

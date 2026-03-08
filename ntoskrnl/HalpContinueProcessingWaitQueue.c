@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpContinueProcessingWaitQueue @ 0x14050D774
+ * Callers:
+ *     HalPutScatterGatherListV3 @ 0x14050CE18 (HalPutScatterGatherListV3.c)
+ *     IoFreeAdapterChannelV3 @ 0x14050DD90 (IoFreeAdapterChannelV3.c)
+ * Callees:
+ *     HalpDmaGetNextWcb @ 0x1404FDF04 (HalpDmaGetNextWcb.c)
+ *     IoFreeAdapterChannelV3Internal @ 0x14050DDE4 (IoFreeAdapterChannelV3Internal.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x140512A4C (HalpAllocateDmaResourcesInternal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpContinueProcessingWaitQueue(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // di

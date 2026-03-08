@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CleanupChannelObject@DXG_GUEST_COMPOSITIONOBJECTCHANNEL@@UEAAXW4_HMGRENTRY_TYPE@@PEAX@Z @ 0x1C02DC7F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Release@DXGCOMPOSITIONSURFACEPROXY@@QEAAJXZ @ 0x1C02DE9BC (-Release@DXGCOMPOSITIONSURFACEPROXY@@QEAAJXZ.c)
+ */
+
 __int64 __fastcall DXG_GUEST_COMPOSITIONOBJECTCHANNEL::CleanupChannelObject(__int64 a1, int a2, __int64 a3)
 {
   __int64 result; // rax

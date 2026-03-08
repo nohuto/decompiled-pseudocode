@@ -1,3 +1,17 @@
+/*
+ * XREFs of Command_PrepareHardware @ 0x1C0072DA0
+ * Callers:
+ *     Controller_WdfEvtDevicePrepareHardware @ 0x1C0072A30 (Controller_WdfEvtDevicePrepareHardware.c)
+ * Callees:
+ *     RtlStringCchPrintfA @ 0x1C000C294 (RtlStringCchPrintfA.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     XilCommand_GetLinkTrbPointer @ 0x1C001BB9C (XilCommand_GetLinkTrbPointer.c)
+ *     XilCommand_GetMaxTrbIndex @ 0x1C001BBC0 (XilCommand_GetMaxTrbIndex.c)
+ *     XilCommand_AllocateResources @ 0x1C001BBE0 (XilCommand_AllocateResources.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     XilCommand_FreeResources @ 0x1C00316D4 (XilCommand_FreeResources.c)
+ */
+
 __int64 __fastcall Command_PrepareHardware(__int64 a1)
 {
   int Resources; // edi

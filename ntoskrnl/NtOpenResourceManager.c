@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtOpenResourceManager @ 0x1403D2550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // attributes: thunk
 NTSTATUS __stdcall NtOpenResourceManager(
         PHANDLE ResourceManagerHandle,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopSetDeviceSecurityDescriptors @ 0x140750EA4
+ * Callers:
+ *     IopGetSetSecurityObject @ 0x14074EA70 (IopGetSetSecurityObject.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     IopSetDeviceSecurityDescriptor @ 0x140750F44 (IopSetDeviceSecurityDescriptor.c)
+ */
+
 __int64 __fastcall IopSetDeviceSecurityDescriptors(
         PVOID *a1,
         PVOID *a2,

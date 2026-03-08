@@ -1,3 +1,12 @@
+/*
+ * XREFs of __asan_alloca_poison @ 0x1405630B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 char __fastcall _asan_alloca_poison(ULONG_PTR BugCheckParameter3, ULONG_PTR a2)
 {
   char v2; // r15

@@ -1,3 +1,11 @@
+/*
+ * XREFs of DifUtilDbgPrint @ 0x1405D2720
+ * Callers:
+ *     DifRegisterKernelPlugin @ 0x1405D2B20 (DifRegisterKernelPlugin.c)
+ * Callees:
+ *     vDbgPrintExWithPrefixInternal @ 0x1402BDDE0 (vDbgPrintExWithPrefixInternal.c)
+ */
+
 __int64 DifUtilDbgPrint(const char *a1, ...)
 {
   __int64 result; // rax

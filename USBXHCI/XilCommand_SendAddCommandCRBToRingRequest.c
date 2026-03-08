@@ -1,3 +1,15 @@
+/*
+ * XREFs of XilCommand_SendAddCommandCRBToRingRequest @ 0x1C0031B20
+ * Callers:
+ *     XilCommand_AddCommandCRBToRing @ 0x1C000AB9C (XilCommand_AddCommandCRBToRing.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     memmove @ 0x1C0020400 (memmove.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ */
+
 __int64 __fastcall XilCommand_SendAddCommandCRBToRingRequest(__int64 a1, __int64 a2)
 {
   unsigned int v3; // r9d

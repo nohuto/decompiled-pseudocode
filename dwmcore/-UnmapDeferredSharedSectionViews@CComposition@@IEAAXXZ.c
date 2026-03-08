@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UnmapDeferredSharedSectionViews@CComposition@@IEAAXXZ @ 0x1801B202C
+ * Callers:
+ *     ??1CComposition@@MEAA@XZ @ 0x1801B0AEC (--1CComposition@@MEAA@XZ.c)
+ * Callees:
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D4A28 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ */
+
 void __fastcall CComposition::UnmapDeferredSharedSectionViews(CComposition *this)
 {
   __int64 v2; // rsi

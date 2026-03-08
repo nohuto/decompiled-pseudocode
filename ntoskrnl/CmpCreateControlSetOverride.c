@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpCreateControlSetOverride @ 0x140B94EB4
+ * Callers:
+ *     CmpCreateExtendedControlSets @ 0x140B51D50 (CmpCreateExtendedControlSets.c)
+ * Callees:
+ *     RtlUnicodeStringPrintf @ 0x1403BEBCC (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ */
+
 __int64 __fastcall CmpCreateControlSetOverride(__int64 a1)
 {
   __int64 v1; // r9

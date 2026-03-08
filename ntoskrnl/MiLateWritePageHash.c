@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiLateWritePageHash @ 0x140663AE8
+ * Callers:
+ *     MiArePagefileContentsCorrupted @ 0x1406633DC (MiArePagefileContentsCorrupted.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReadEntirePageHashEntry @ 0x140664630 (MiReadEntirePageHashEntry.c)
+ *     MiWriteEntirePageHashEntry @ 0x14066481C (MiWriteEntirePageHashEntry.c)
+ */
+
 __int64 __fastcall MiLateWritePageHash(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
   volatile LONG *v4; // r12

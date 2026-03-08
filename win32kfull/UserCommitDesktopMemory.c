@@ -1,3 +1,13 @@
+/*
+ * XREFs of UserCommitDesktopMemory @ 0x1C00DDB90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MapDesktop @ 0x1C003E450 (MapDesktop.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     GetDesktopView @ 0x1C0099840 (GetDesktopView.c)
+ */
+
 __int64 __fastcall UserCommitDesktopMemory(__int64 a1, _QWORD *a2, _QWORD *a3)
 {
   __int64 v6; // rcx

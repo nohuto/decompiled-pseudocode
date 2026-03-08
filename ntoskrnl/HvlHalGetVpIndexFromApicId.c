@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlHalGetVpIndexFromApicId @ 0x140542220
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HvlpGetVpIndexFromApicId @ 0x14053EBC8 (HvlpGetVpIndexFromApicId.c)
+ */
+
 __int64 __fastcall HvlHalGetVpIndexFromApicId(ULONG a1, _DWORD *a2)
 {
   __int64 result; // rax

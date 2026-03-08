@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetProcessAttributionNoRef@CResource@@UEBAPEAVCProcessAttribution@@XZ @ 0x1800BAD00
+ * Callers:
+ *     ?SetSurfaceInfo@CCompositionSurfaceBitmap@@AEAAXPEAVCCompositionSurfaceInfo@@@Z @ 0x1800BAC20 (-SetSurfaceInfo@CCompositionSurfaceBitmap@@AEAAXPEAVCCompositionSurfaceInfo@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct CProcessAttribution *__fastcall CResource::GetProcessAttributionNoRef(CResource *this)
 {
   struct CProcessAttribution *result; // rax

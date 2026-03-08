@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpAllocateLevelKwFilter @ 0x1409F1B68
+ * Callers:
+ *     EtwpAllocateFilter @ 0x14077F2A4 (EtwpAllocateFilter.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall EtwpAllocateLevelKwFilter(__int64 a1, __int64 *a2)
 {
   __int64 Pool2; // rdx

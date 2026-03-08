@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpPmemErrorDeferredRecovery @ 0x1405176AC
+ * Callers:
+ *     HalpGenericErrorSourceRecovery @ 0x140517230 (HalpGenericErrorSourceRecovery.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HalpAcquireDrsPool @ 0x14051711C (HalpAcquireDrsPool.c)
+ *     HalpFreeDrsPool @ 0x140517200 (HalpFreeDrsPool.c)
+ *     WheaRequestDeferredRecovery @ 0x140610910 (WheaRequestDeferredRecovery.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall HalpPmemErrorDeferredRecovery(_DWORD *Src)
 {
   unsigned int v2; // ebx

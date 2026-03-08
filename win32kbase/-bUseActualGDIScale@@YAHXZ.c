@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bUseActualGDIScale@@YAHXZ @ 0x1C00D1BA8
+ * Callers:
+ *     InitializeGre @ 0x1C031D988 (InitializeGre.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 bUseActualGDIScale(void)
 {
   unsigned int v0; // ebx

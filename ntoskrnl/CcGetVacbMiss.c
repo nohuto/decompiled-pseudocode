@@ -1,3 +1,31 @@
+/*
+ * XREFs of CcGetVacbMiss @ 0x140335850
+ * Callers:
+ *     CcGetVirtualAddress @ 0x14021FB80 (CcGetVirtualAddress.c)
+ * Callees:
+ *     SetVacb @ 0x14021804C (SetVacb.c)
+ *     CcGetVacbLargeOffset @ 0x14021BBE0 (CcGetVacbLargeOffset.c)
+ *     CcSetVacbInFreeList @ 0x14021BC58 (CcSetVacbInFreeList.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x14021BCF0 (CcReleaseBcbLockAndVacbLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402ECFB0 (FsRtlIsNtstatusExpected.c)
+ *     MmMapViewInSystemCache @ 0x140334FD0 (MmMapViewInSystemCache.c)
+ *     CcGetVacbFromFreeList @ 0x140335C94 (CcGetVacbFromFreeList.c)
+ *     CcIncrementVacbActiveCount @ 0x140335D80 (CcIncrementVacbActiveCount.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x140336C10 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     CcUnmapInactiveViews @ 0x140535E58 (CcUnmapInactiveViews.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcUnmapVacb @ 0x1406A7150 (CcUnmapVacb.c)
+ */
+
 unsigned __int64 *__fastcall CcGetVacbMiss(__int64 a1, __int64 a2, int a3, int a4)
 {
   __int64 v4; // r13

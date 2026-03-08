@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1FxNPagedLookasideList@@MEAA@XZ @ 0x1C0041344
+ * Callers:
+ *     ??_EFxNPagedLookasideList@@MEAAPEAXI@Z @ 0x1C0041400 (--_EFxNPagedLookasideList@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1FxObject@@UEAA@XZ @ 0x1C0004920 (--1FxObject@@UEAA@XZ.c)
+ */
+
 void __fastcall FxNPagedLookasideList::~FxNPagedLookasideList(
         FxNPagedLookasideList *this,
         unsigned int a2,

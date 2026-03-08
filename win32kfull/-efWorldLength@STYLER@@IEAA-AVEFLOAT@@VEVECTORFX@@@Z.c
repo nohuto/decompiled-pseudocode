@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?efWorldLength@STYLER@@IEAA?AVEFLOAT@@VEVECTORFX@@@Z @ 0x1C02F3F58
+ * Callers:
+ *     ?vNextStyleEvent@STYLER@@QEAAXXZ @ 0x1C02F4D64 (-vNextStyleEvent@STYLER@@QEAAXXZ.c)
+ *     ?vVecSquareCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C02F538C (-vVecSquareCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z.c)
+ * Callees:
+ *     ?vSqrt@EFLOAT@@QEAAXXZ @ 0x1C0309A08 (-vSqrt@EFLOAT@@QEAAXXZ.c)
+ */
+
 EFLOAT *__fastcall STYLER::efWorldLength(__int64 a1, EFLOAT *a2, __int64 a3)
 {
   int v4; // ecx

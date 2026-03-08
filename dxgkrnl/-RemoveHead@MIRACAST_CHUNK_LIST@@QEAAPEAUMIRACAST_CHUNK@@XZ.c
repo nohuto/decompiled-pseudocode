@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?RemoveHead@MIRACAST_CHUNK_LIST@@QEAAPEAUMIRACAST_CHUNK@@XZ @ 0x1C005F208
+ * Callers:
+ *     DxgNotifyDpcCB @ 0x1C000E390 (DxgNotifyDpcCB.c)
+ *     ??_GMIRACAST_CHUNK_LIST@@QEAAPEAXI@Z @ 0x1C005ED78 (--_GMIRACAST_CHUNK_LIST@@QEAAPEAXI@Z.c)
+ *     ?ProcessMiracastAPIChunk@@YAJPEAU_MIRACAST_DEVICE_CONTEXT@@PEAU_FDO_CONTEXT@@PEAKPEAUD3DKMT_MIRACAST_CHUNK_DATA@@2@Z @ 0x1C005F0CC (-ProcessMiracastAPIChunk@@YAJPEAU_MIRACAST_DEVICE_CONTEXT@@PEAU_FDO_CONTEXT@@PEAKPEAUD3DKMT_MIRA.c)
+ *     DpiProcessMiracastNotifyInterrupt @ 0x1C006108C (DpiProcessMiracastNotifyInterrupt.c)
+ * Callees:
+ *     <none>
+ */
+
 struct MIRACAST_CHUNK *__fastcall MIRACAST_CHUNK_LIST::RemoveHead(MIRACAST_CHUNK_LIST *this)
 {
   struct MIRACAST_CHUNK *result; // rax

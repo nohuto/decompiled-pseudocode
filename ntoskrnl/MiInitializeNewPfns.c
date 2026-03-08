@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiInitializeNewPfns @ 0x140370B10
+ * Callers:
+ *     MiDoGangAssignment @ 0x140386D14 (MiDoGangAssignment.c)
+ *     MiInitializeDynamicPfns @ 0x140618AB8 (MiInitializeDynamicPfns.c)
+ *     MiCreateDescriptorPfns @ 0x140B373F4 (MiCreateDescriptorPfns.c)
+ * Callees:
+ *     MiCreateInitialLargeLeafPfns @ 0x140213A50 (MiCreateInitialLargeLeafPfns.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiSetNonResidentPteHeat @ 0x140287A90 (MiSetNonResidentPteHeat.c)
+ *     MiGetContainingPageTable @ 0x140289FE0 (MiGetContainingPageTable.c)
+ *     MiDetermineNewPfnHeatState @ 0x1402DD0B8 (MiDetermineNewPfnHeatState.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 __int64 __fastcall MiInitializeNewPfns(
         __m128i *a1,
         unsigned __int64 a2,

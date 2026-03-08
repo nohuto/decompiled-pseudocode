@@ -1,3 +1,42 @@
+/*
+ * XREFs of ?xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z @ 0x1C01ED7C0
+ * Callers:
+ *     xxxReleaseCapture @ 0x1C00108E8 (xxxReleaseCapture.c)
+ *     ?xxxDrawDragRect@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I@Z @ 0x1C01ED7A4 (-xxxDrawDragRect@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I@Z.c)
+ *     ?xxxTM_MoveDragRect@@YAXPEAUMOVESIZEDATA@@_J@Z @ 0x1C01F27AC (-xxxTM_MoveDragRect@@YAXPEAUMOVESIZEDATA@@_J@Z.c)
+ *     xxxCancelTrackingForThread @ 0x1C01F3CF0 (xxxCancelTrackingForThread.c)
+ * Callees:
+ *     _SetSystemTimer @ 0x1C0006384 (_SetSystemTimer.c)
+ *     FreeSpb @ 0x1C000B520 (FreeSpb.c)
+ *     bSetDevDragRect @ 0x1C001DE80 (bSetDevDragRect.c)
+ *     xxxSetWindowPos @ 0x1C0028F4C (xxxSetWindowPos.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ *     LockW32Thread @ 0x1C00A1BCC (LockW32Thread.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ *     FindTimer @ 0x1C00DEEDC (FindTimer.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00E3308 (WPP_RECORDER_AND_TRACE_SF_dd.c)
+ *     _ScreenToClient @ 0x1C00E8E64 (_ScreenToClient.c)
+ *     WPP_RECORDER_AND_TRACE_SF_sdddddd @ 0x1C00FACBC (WPP_RECORDER_AND_TRACE_SF_sdddddd.c)
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ *     ?ReduceRect@WindowMargins@@YA?AUtagRECT@@PEBUtagWND@@AEBU2@I@Z @ 0x1C00FF518 (-ReduceRect@WindowMargins@@YA-AUtagRECT@@PEBUtagWND@@AEBU2@I@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?xxxUpdateThreadsWindows@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C014A486 (-xxxUpdateThreadsWindows@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@PEAUHRGN__@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dddddd @ 0x1C01A7638 (WPP_RECORDER_AND_TRACE_SF_dddddd.c)
+ *     ?DetectNewMonitor@@YAHPEAUMOVESIZEDATA@@PEAUtagRECT@@@Z @ 0x1C01B9BC8 (-DetectNewMonitor@@YAHPEAUMOVESIZEDATA@@PEAUtagRECT@@@Z.c)
+ *     ?DoesQualifyForResizeOptimization@@YAHPEAUMOVESIZEDATA@@@Z @ 0x1C01EA548 (-DoesQualifyForResizeOptimization@@YAHPEAUMOVESIZEDATA@@@Z.c)
+ *     ?DoesRequireResizeLayoutSynchronization@@YAHPEAUtagWND@@@Z @ 0x1C01EA5A4 (-DoesRequireResizeLayoutSynchronization@@YAHPEAUtagWND@@@Z.c)
+ *     ?xxxMS_FlushWigglies@@YAXXZ @ 0x1C01EFB44 (-xxxMS_FlushWigglies@@YAXXZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ddddddD @ 0x1C01F3630 (WPP_RECORDER_AND_TRACE_SF_ddddddD.c)
+ *     FindSpb @ 0x1C01FA54C (FindSpb.c)
+ *     GreWindowResizeComplete @ 0x1C026ADA0 (GreWindowResizeComplete.c)
+ *     GreWindowResizeStarted @ 0x1C026AFE4 (GreWindowResizeStarted.c)
+ *     bMoveDevDragRect @ 0x1C02866B0 (bMoveDevDragRect.c)
+ *     bMoveDevPreviewRect @ 0x1C028698C (bMoveDevPreviewRect.c)
+ *     bSetDevPreviewRect @ 0x1C0286B70 (bSetDevPreviewRect.c)
+ */
+
 void __fastcall xxxDrawDragRectEx(struct MOVESIZEDATA *a1, struct tagRECT *a2, int a3, struct tagRECT *a4)
 {
   __int64 v8; // rcx

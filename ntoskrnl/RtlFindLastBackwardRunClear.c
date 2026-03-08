@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlFindLastBackwardRunClear @ 0x14020AE50
+ * Callers:
+ *     MiReduceMappedFileReadAhead @ 0x140209EEC (MiReduceMappedFileReadAhead.c)
+ *     MiAttemptPageFileReductionApc @ 0x140635960 (MiAttemptPageFileReductionApc.c)
+ * Callees:
+ *     <none>
+ */
+
 ULONG __stdcall RtlFindLastBackwardRunClear(PRTL_BITMAP BitMapHeader, ULONG FromIndex, PULONG StartingRunIndex)
 {
   unsigned int *Buffer; // r9

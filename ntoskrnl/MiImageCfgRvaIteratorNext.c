@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiImageCfgRvaIteratorNext @ 0x140749A30
+ * Callers:
+ *     MiImageCfgRvaIteratorFirst @ 0x140749A00 (MiImageCfgRvaIteratorFirst.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiImageCfgRvaIteratorNext(_DWORD *a1, unsigned int **a2, int *a3)
 {
   int v3; // r9d

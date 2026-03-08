@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpUpdateLockWordForRelease @ 0x1404112C0
+ * Callers:
+ *     ExpConvertFastResourceExclusiveToShared2 @ 0x14040FE4C (ExpConvertFastResourceExclusiveToShared2.c)
+ *     ExpPrepareToWakeFastResourceExclusive @ 0x140410920 (ExpPrepareToWakeFastResourceExclusive.c)
+ *     ExpReleaseFastResourceExclusiveSlow @ 0x140410F34 (ExpReleaseFastResourceExclusiveSlow.c)
+ * Callees:
+ *     <none>
+ */
+
 signed __int64 __fastcall ExpUpdateLockWordForRelease(signed __int64 *a1, int a2, char a3)
 {
   __int64 v4; // r10

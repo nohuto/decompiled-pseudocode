@@ -1,3 +1,15 @@
+/*
+ * XREFs of FsRtlPrivateCheckForExclusiveLockAccess @ 0x1402C30F4
+ * Callers:
+ *     FsRtlPrivateCheckWaitingLocks @ 0x1402C19B4 (FsRtlPrivateCheckWaitingLocks.c)
+ *     FsRtlPrivateLock @ 0x1402C21B0 (FsRtlPrivateLock.c)
+ * Callees:
+ *     FsRtlFindFirstOverlappingSharedNode @ 0x1402C272C (FsRtlFindFirstOverlappingSharedNode.c)
+ *     RtlSplay @ 0x1402C2B50 (RtlSplay.c)
+ *     FsRtlFindFirstOverlappingExclusiveNode @ 0x1402C3018 (FsRtlFindFirstOverlappingExclusiveNode.c)
+ *     FsRtlFindFirstOverlapInNode @ 0x14053AFE4 (FsRtlFindFirstOverlapInNode.c)
+ */
+
 char __fastcall FsRtlPrivateCheckForExclusiveLockAccess(__int64 a1, unsigned __int64 *a2)
 {
   RTL_SPLAY_LINKS *v4; // rcx

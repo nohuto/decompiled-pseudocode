@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiFillPageWithImageExtentContents @ 0x14063AC90
+ * Callers:
+ *     MiCopyImageExtentContents @ 0x14063A258 (MiCopyImageExtentContents.c)
+ *     MiCopyFromDirectMapExtent @ 0x140A30C8C (MiCopyFromDirectMapExtent.c)
+ * Callees:
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiReturnPteMappingSet @ 0x14032DFE8 (MiReturnPteMappingSet.c)
+ *     MiGetPteMappingSet @ 0x14032E050 (MiGetPteMappingSet.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 unsigned __int64 __fastcall MiFillPageWithImageExtentContents(
         char *BugCheckParameter3,
         __int64 a2,

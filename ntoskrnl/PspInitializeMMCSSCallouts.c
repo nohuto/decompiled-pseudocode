@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspInitializeMMCSSCallouts @ 0x140B42470
+ * Callers:
+ *     PspInitPhase1 @ 0x140B422C8 (PspInitPhase1.c)
+ * Callees:
+ *     ExRegisterHost @ 0x14080EEF0 (ExRegisterHost.c)
+ */
+
 __int64 __fastcall PspInitializeMMCSSCallouts(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

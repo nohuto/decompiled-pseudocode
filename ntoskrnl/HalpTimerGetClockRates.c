@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpTimerGetClockRates @ 0x1403AE2D0
+ * Callers:
+ *     HalpTimerFindIdealWatchdog @ 0x140376AFC (HalpTimerFindIdealWatchdog.c)
+ *     HalpTimerGetClockConfiguration @ 0x1403AE220 (HalpTimerGetClockConfiguration.c)
+ *     HalpTimerInitializeSystemWatchdog @ 0x14050956C (HalpTimerInitializeSystemWatchdog.c)
+ *     HalpTimerWatchdogTriggerSystemReset @ 0x1405097B0 (HalpTimerWatchdogTriggerSystemReset.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall HalpTimerGetClockRates(__int64 a1, unsigned __int64 *a2, _DWORD *a3)
 {
   unsigned __int64 v3; // r10

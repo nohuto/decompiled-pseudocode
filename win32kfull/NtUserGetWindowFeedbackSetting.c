@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserGetWindowFeedbackSetting @ 0x1C01D5620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     FeedbackGetWindowSetting @ 0x1C01AEDEC (FeedbackGetWindowSetting.c)
+ */
+
 __int64 __fastcall NtUserGetWindowFeedbackSetting(
         __int64 a1,
         __int64 a2,

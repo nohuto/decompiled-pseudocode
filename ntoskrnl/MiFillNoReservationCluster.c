@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiFillNoReservationCluster @ 0x140637058
+ * Callers:
+ *     MiGatherPagefilePages @ 0x140637D34 (MiGatherPagefilePages.c)
+ * Callees:
+ *     MiReferencePageForModifiedWrite @ 0x140213038 (MiReferencePageForModifiedWrite.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiReservePageFileSpace @ 0x14032E800 (MiReservePageFileSpace.c)
+ *     MiSufficientAvailablePages @ 0x1403643E4 (MiSufficientAvailablePages.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiIsStoreVirtualPagefileFull @ 0x1406599F8 (MiIsStoreVirtualPagefileFull.c)
+ */
+
 __int64 __fastcall MiFillNoReservationCluster(__int64 a1, __int64 a2, _QWORD *a3, unsigned int a4)
 {
   __int16 v4; // ax

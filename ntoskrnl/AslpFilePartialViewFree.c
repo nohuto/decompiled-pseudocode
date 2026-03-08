@@ -1,3 +1,12 @@
+/*
+ * XREFs of AslpFilePartialViewFree @ 0x140A570D4
+ * Callers:
+ *     AslpFileLargeMapDelete @ 0x140A57074 (AslpFileLargeMapDelete.c)
+ * Callees:
+ *     ZwUnmapViewOfSection @ 0x140412850 (ZwUnmapViewOfSection.c)
+ *     MmUnsecureVirtualMemory @ 0x1407D48C0 (MmUnsecureVirtualMemory.c)
+ */
+
 void __fastcall AslpFilePartialViewFree(__int64 a1)
 {
   void *v2; // rcx

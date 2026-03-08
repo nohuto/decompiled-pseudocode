@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CRemoteAppRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0264810
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 __int64 __fastcall DirectComposition::CRemoteAppRenderTargetMarshaler::SetBufferProperty(
         DirectComposition::CRemoteAppRenderTargetMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

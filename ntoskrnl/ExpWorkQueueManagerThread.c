@@ -1,3 +1,28 @@
+/*
+ * XREFs of ExpWorkQueueManagerThread @ 0x140839860
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeIsEqualAffinityEx @ 0x140237260 (KeIsEqualAffinityEx.c)
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     KeSetCoalescableTimer @ 0x140250440 (KeSetCoalescableTimer.c)
+ *     KeQueryNodeActiveAffinityEx @ 0x1402AAE68 (KeQueryNodeActiveAffinityEx.c)
+ *     KeSetUserAffinityThread @ 0x1402B0FA0 (KeSetUserAffinityThread.c)
+ *     KeTimeOutQueueWaiters @ 0x1402E1F60 (KeTimeOutQueueWaiters.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     ExpNewThreadNecessary @ 0x14033F670 (ExpNewThreadNecessary.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     KeSetActualBasePriorityThread @ 0x140357730 (KeSetActualBasePriorityThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KeSetMaximumCountPriQueue @ 0x14057C694 (KeSetMaximumCountPriQueue.c)
+ *     ExpCreateWorkerThread @ 0x1407DE0C4 (ExpCreateWorkerThread.c)
+ *     ExpPartitionCreatePoolDelayed @ 0x1409FDA04 (ExpPartitionCreatePoolDelayed.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall ExpWorkQueueManagerThread(_QWORD *a1)
 {
   char v2; // r12

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CD2DSharedBuffer@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802991F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CD2DSharedBuffer::HrFindInterface(CD2DSharedBuffer *this, const struct _GUID *a2, void **a3)
 {
   __int64 result; // rax

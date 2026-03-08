@@ -1,3 +1,35 @@
+/*
+ * XREFs of xxxDrawCaptionBar @ 0x1C0021730
+ * Callers:
+ *     xxxDWP_DoNCActivate @ 0x1C00245B8 (xxxDWP_DoNCActivate.c)
+ *     xxxDrawWindowFrame @ 0x1C00A64E4 (xxxDrawWindowFrame.c)
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ *     xxxRedrawTitle @ 0x1C01097D0 (xxxRedrawTitle.c)
+ * Callees:
+ *     PrepareHDCBITSBitmap @ 0x1C00162BC (PrepareHDCBITSBitmap.c)
+ *     GetWindowBorders @ 0x1C0021910 (GetWindowBorders.c)
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     GetRect @ 0x1C0067778 (GetRect.c)
+ *     GrePolyPatBlt @ 0x1C0088258 (GrePolyPatBlt.c)
+ *     DrawEdge @ 0x1C0088404 (DrawEdge.c)
+ *     NtGdiPatBlt @ 0x1C008B370 (NtGdiPatBlt.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     GetWindowDpiLastNotify @ 0x1C00A3A34 (GetWindowDpiLastNotify.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     xxxMNCanClose @ 0x1C00A4C44 (xxxMNCanClose.c)
+ *     IsVisible @ 0x1C00A66A0 (IsVisible.c)
+ *     BitBltSysBmp @ 0x1C00D04B0 (BitBltSysBmp.c)
+ *     GetOemBitmapInfoForDpi @ 0x1C00D05EC (GetOemBitmapInfoForDpi.c)
+ *     IS_UI_LANGID @ 0x1C00D0648 (IS_UI_LANGID.c)
+ *     GetResizeBorderWidthForDpi @ 0x1C00D8FEC (GetResizeBorderWidthForDpi.c)
+ *     GetWindowFrameMetricForDpi @ 0x1C00E2334 (GetWindowFrameMetricForDpi.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     xxxDrawCaptionTemp @ 0x1C022EDB4 (xxxDrawCaptionTemp.c)
+ *     DrawFrame @ 0x1C024F2F8 (DrawFrame.c)
+ */
+
 char __fastcall xxxDrawCaptionBar(struct tagWND *a1, HDC a2, int a3)
 {
   char v3; // bl

@@ -1,3 +1,19 @@
+/*
+ * XREFs of AslpPathWildcardAllocMatchNode @ 0x140A539A4
+ * Callers:
+ *     AslPathWildcardFindFirst @ 0x140A52910 (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindNext @ 0x140A52E68 (AslPathWildcardFindNext.c)
+ * Callees:
+ *     RtlUShortAdd @ 0x140202574 (RtlUShortAdd.c)
+ *     RtlUnicodeStringCopy @ 0x1402B3164 (RtlUnicodeStringCopy.c)
+ *     RtlUnicodeStringCatString @ 0x1402BD420 (RtlUnicodeStringCatString.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     RtlUnicodeStringCbCatStringN @ 0x14066BEEC (RtlUnicodeStringCbCatStringN.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     AslpPathWildcardFreeMatchNode @ 0x140A53C98 (AslpPathWildcardFreeMatchNode.c)
+ */
+
 __int64 __fastcall AslpPathWildcardAllocMatchNode(
         PUNICODE_STRING DestinationString,
         PCUNICODE_STRING SourceString,

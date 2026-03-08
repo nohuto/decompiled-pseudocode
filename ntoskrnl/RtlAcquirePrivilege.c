@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlAcquirePrivilege @ 0x140783964
+ * Callers:
+ *     VhdiAutoAttachOneVhd @ 0x14067E088 (VhdiAutoAttachOneVhd.c)
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ * Callees:
+ *     ZwSetInformationThread @ 0x1404124B0 (ZwSetInformationThread.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenProcessTokenEx @ 0x140412910 (ZwOpenProcessTokenEx.c)
+ *     ZwAdjustPrivilegesToken @ 0x140412B30 (ZwAdjustPrivilegesToken.c)
+ *     RtlImpersonateSelfEx @ 0x140783B34 (RtlImpersonateSelfEx.c)
+ *     RtlpOpenThreadToken @ 0x140783C68 (RtlpOpenThreadToken.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlAcquirePrivilege(unsigned int *a1, unsigned int a2, int a3, __int64 *a4)
 {
   __int64 v5; // rbp

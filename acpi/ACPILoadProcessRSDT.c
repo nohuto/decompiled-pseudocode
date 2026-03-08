@@ -1,3 +1,19 @@
+/*
+ * XREFs of ACPILoadProcessRSDT @ 0x1C00A9AC4
+ * Callers:
+ *     ACPIInitialize @ 0x1C00A8F78 (ACPIInitialize.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_i @ 0x1C002293C (WPP_RECORDER_SF_i.c)
+ *     ACPIPccInitialize @ 0x1C00894D8 (ACPIPccInitialize.c)
+ *     ACPIRegReadAMLRegistryEntry @ 0x1C008D3DC (ACPIRegReadAMLRegistryEntry.c)
+ *     ACPILoadAddDynamicDataBlockTable @ 0x1C00A95C0 (ACPILoadAddDynamicDataBlockTable.c)
+ *     ACPILoadProcessFADT @ 0x1C00A999C (ACPILoadProcessFADT.c)
+ *     ACPIRegDumpAcpiTables @ 0x1C00AA17C (ACPIRegDumpAcpiTables.c)
+ */
+
 __int64 ACPILoadProcessRSDT()
 {
   char v0; // r12

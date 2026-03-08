@@ -1,3 +1,30 @@
+/*
+ * XREFs of HalpMap @ 0x14037AE88
+ * Callers:
+ *     HalpAcpiCheckAndMapTable @ 0x14029AD4C (HalpAcpiCheckAndMapTable.c)
+ *     HalpAcpiGetRsdt @ 0x14029C328 (HalpAcpiGetRsdt.c)
+ *     HalpPciMapMmConfigPhysicalAddress @ 0x1402D7B28 (HalpPciMapMmConfigPhysicalAddress.c)
+ *     HalpMmAllocateMemoryInternal @ 0x14037A7A8 (HalpMmAllocateMemoryInternal.c)
+ *     HalpAcpiAllocateMemory @ 0x14037AB24 (HalpAcpiAllocateMemory.c)
+ *     HalMapIoSpace @ 0x14037AD90 (HalMapIoSpace.c)
+ *     HalpMapPhysicalMemoryWriteThrough64 @ 0x14037C490 (HalpMapPhysicalMemoryWriteThrough64.c)
+ *     HalpMapPhysicalMemory64 @ 0x140409B90 (HalpMapPhysicalMemory64.c)
+ *     HalpAllocateEarlyPages @ 0x140503580 (HalpAllocateEarlyPages.c)
+ *     HalpMapEarlyPages @ 0x140503660 (HalpMapEarlyPages.c)
+ *     HalpPowerWriteResetCommand @ 0x140504AEC (HalpPowerWriteResetCommand.c)
+ *     HalpInterruptMapParkedPage @ 0x1405182F0 (HalpInterruptMapParkedPage.c)
+ *     HalpUsbLegacyStopOhciInterrupt @ 0x14051EC00 (HalpUsbLegacyStopOhciInterrupt.c)
+ *     HalpAcpiTableCacheInit @ 0x140B3DDE0 (HalpAcpiTableCacheInit.c)
+ *     HalpSetupAcpiPhase0 @ 0x140B62CA8 (HalpSetupAcpiPhase0.c)
+ *     HalpBlkAllocateAndShadowMemory @ 0x140B8E9BC (HalpBlkAllocateAndShadowMemory.c)
+ *     HalpBlkAllocatePageTablePage @ 0x140B8EAB4 (HalpBlkAllocatePageTablePage.c)
+ *     HalpBlkInitializeVirtualAddressSpace @ 0x140B8ECAC (HalpBlkInitializeVirtualAddressSpace.c)
+ * Callees:
+ *     HalpMmGetPteAddressSafe @ 0x14037B04C (HalpMmGetPteAddressSafe.c)
+ *     HalpFlushTLB @ 0x14037B0FC (HalpFlushTLB.c)
+ *     HalpIsHeap64KRegionExecutable @ 0x1405035F0 (HalpIsHeap64KRegionExecutable.c)
+ */
+
 unsigned __int64 __fastcall HalpMap(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, unsigned int a5)
 {
   char v6; // r12

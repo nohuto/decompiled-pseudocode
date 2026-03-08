@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMInitOneCoreEditionData @ 0x1C008BA70
+ * Callers:
+ *     RIMInitialize @ 0x1C008B310 (RIMInitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RIMInitOneCoreEditionData(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax

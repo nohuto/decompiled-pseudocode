@@ -1,3 +1,12 @@
+/*
+ * XREFs of SshSessionManagerTracePreSleepNotification @ 0x14099EB00
+ * Callers:
+ *     PopDiagTracePreSleepNotification @ 0x14098E348 (PopDiagTracePreSleepNotification.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SshpSessionManagerSendControlEvent @ 0x1408717B8 (SshpSessionManagerSendControlEvent.c)
+ */
+
 signed __int32 __fastcall SshSessionManagerTracePreSleepNotification(int a1, int a2, int a3, int a4, char a5)
 {
   _QWORD v6[10]; // [rsp+20h] [rbp-60h] BYREF

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpReserveHalPtes @ 0x140B3DD8C
+ * Callers:
+ *     HalpWheaInitDiscard @ 0x140B60A80 (HalpWheaInitDiscard.c)
+ * Callees:
+ *     HalpMmGetPteAddressSafe @ 0x14037B04C (HalpMmGetPteAddressSafe.c)
+ */
+
 unsigned __int64 HalpReserveHalPtes()
 {
   unsigned __int64 v0; // rbx

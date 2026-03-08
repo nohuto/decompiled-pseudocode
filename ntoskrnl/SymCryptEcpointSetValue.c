@@ -1,3 +1,21 @@
+/*
+ * XREFs of SymCryptEcpointSetValue @ 0x1403F96E0
+ * Callers:
+ *     SymCryptEcurveAllocate @ 0x1403F252C (SymCryptEcurveAllocate.c)
+ *     SymCryptEckeySetValue @ 0x1403F2F18 (SymCryptEckeySetValue.c)
+ * Callees:
+ *     SymCryptFdefSizeofModElementFromModulus @ 0x1403F2C88 (SymCryptFdefSizeofModElementFromModulus.c)
+ *     SymCryptEcurveSizeofFieldElement @ 0x1403F2CDC (SymCryptEcurveSizeofFieldElement.c)
+ *     SymCryptIntCreate @ 0x1403F37C8 (SymCryptIntCreate.c)
+ *     SymCryptIntFromModulus @ 0x1403F383C (SymCryptIntFromModulus.c)
+ *     SymCryptIntIsLessThan @ 0x1403F38B4 (SymCryptIntIsLessThan.c)
+ *     SymCryptIntSetValue @ 0x1403F391C (SymCryptIntSetValue.c)
+ *     SymCryptModElementSetValue @ 0x1403F3B80 (SymCryptModElementSetValue.c)
+ *     SymCryptSizeofIntFromDigits @ 0x1403F3EF0 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptEcpointCreateEx @ 0x1403F94C0 (SymCryptEcpointCreateEx.c)
+ *     SymCryptEcpointTransform @ 0x1403F98E4 (SymCryptEcpointTransform.c)
+ */
+
 __int64 __fastcall SymCryptEcpointSetValue(
         __int64 a1,
         int a2,

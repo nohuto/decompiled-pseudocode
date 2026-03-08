@@ -1,3 +1,12 @@
+/*
+ * XREFs of WmipSMBiosHideMachine @ 0x1409DD3A8
+ * Callers:
+ *     WmipGetSMBiosTableData @ 0x140725AEC (WmipGetSMBiosTableData.c)
+ * Callees:
+ *     WmipSMBiosFindStringAndZero @ 0x1409DD298 (WmipSMBiosFindStringAndZero.c)
+ *     WmipSMBiosFindStructure @ 0x1409DD320 (WmipSMBiosFindStructure.c)
+ */
+
 void __fastcall WmipSMBiosHideMachine(_BYTE *a1, int a2)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?Init@VIDMM_DMA_POOL@@QEAAJXZ @ 0x1C00B112C
+ * Callers:
+ *     VidMmInitDmaPool @ 0x1C0016F10 (VidMmInitDmaPool.c)
+ *     ?InitDmaPools@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C00C2308 (-InitDmaPools@VIDMM_GLOBAL@@QEAAJXZ.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     ?AddDmaBufferToPool@VIDMM_DMA_POOL@@IEAAJ_KII@Z @ 0x1C00B1224 (-AddDmaBufferToPool@VIDMM_DMA_POOL@@IEAAJ_KII@Z.c)
+ *     ?LockAllPoolForAddRemove@VIDMM_DMA_POOL@@KAXE@Z @ 0x1C00B1F2C (-LockAllPoolForAddRemove@VIDMM_DMA_POOL@@KAXE@Z.c)
+ *     ?UpdateFairResourceUsage@VIDMM_DMA_POOL@@IEAAXXZ @ 0x1C00B209C (-UpdateFairResourceUsage@VIDMM_DMA_POOL@@IEAAXXZ.c)
+ *     ?VerifySegmentSet@VIDMM_GLOBAL@@QEAAEKKKPEAK@Z @ 0x1C00B2114 (-VerifySegmentSet@VIDMM_GLOBAL@@QEAAEKKKPEAK@Z.c)
+ */
+
 __int64 __fastcall VIDMM_DMA_POOL::Init(VIDMM_DMA_POOL *this)
 {
   __int64 v2; // rsi

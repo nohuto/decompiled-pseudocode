@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPixelFormatInfo@CDxHandleYUVBitmapRealization@@UEBA?AUPixelFormatInfo@@XZ @ 0x180131DB2
+ * Callers:
+ *     ?GetPixelFormatInfo@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x18011EED0 (-GetPixelFormatInfo@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 _DWORD *__fastcall CDxHandleYUVBitmapRealization::GetPixelFormatInfo(__int64 a1, _DWORD *a2)
 {
   __int64 v2; // rax

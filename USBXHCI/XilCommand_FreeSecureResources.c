@@ -1,3 +1,14 @@
+/*
+ * XREFs of XilCommand_FreeSecureResources @ 0x1C0031700
+ * Callers:
+ *     XilCommand_FreeResources @ 0x1C00316D4 (XilCommand_FreeResources.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ */
+
 char __fastcall XilCommand_FreeSecureResources(__int64 a1)
 {
   __int64 v1; // rdi

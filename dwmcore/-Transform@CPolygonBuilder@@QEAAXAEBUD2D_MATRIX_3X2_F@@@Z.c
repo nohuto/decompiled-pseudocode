@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Transform@CPolygonBuilder@@QEAAXAEBUD2D_MATRIX_3X2_F@@@Z @ 0x180014910
+ * Callers:
+ *     ?AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@@Z @ 0x18005F2F0 (-AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAtt.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CPolygonBuilder::Transform(CPolygonBuilder *this, const struct D2D_MATRIX_3X2_F *a2)
 {
   __int64 v2; // r9

@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlReleasePrivilege @ 0x140790154
+ * Callers:
+ *     VhdiAutoAttachOneVhd @ 0x14067E088 (VhdiAutoAttachOneVhd.c)
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ * Callees:
+ *     ZwSetInformationThread @ 0x1404124B0 (ZwSetInformationThread.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwAdjustPrivilegesToken @ 0x140412B30 (ZwAdjustPrivilegesToken.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall RtlReleasePrivilege(__int64 *P)
 {
   void *v2; // rcx

@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiMarkBootGuardPage @ 0x14080B0BC
+ * Callers:
+ *     MmAllocateIsrStack @ 0x14080AFF0 (MmAllocateIsrStack.c)
+ *     MiInitializeKernelStacks @ 0x140B3B3A4 (MiInitializeKernelStacks.c)
+ * Callees:
+ *     MiLockAndDecrementShareCount @ 0x140210114 (MiLockAndDecrementShareCount.c)
+ *     KeFlushSingleTb @ 0x140211E60 (KeFlushSingleTb.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiReturnResident @ 0x1402A52C8 (MiReturnResident.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiPartitionIdToPointer @ 0x14036CC64 (MiPartitionIdToPointer.c)
+ */
+
 void __fastcall MiMarkBootGuardPage(unsigned __int64 a1)
 {
   unsigned __int64 v2; // rbp

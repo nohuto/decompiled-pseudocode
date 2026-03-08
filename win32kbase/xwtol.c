@@ -1,3 +1,11 @@
+/*
+ * XREFs of xwtol @ 0x1C0192154
+ * Callers:
+ *     ParseModeCap @ 0x1C0190A98 (ParseModeCap.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall xwtol(unsigned __int16 *a1)
 {
   unsigned int v1; // edx

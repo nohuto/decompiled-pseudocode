@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsDisjointCapableSku@DisjointExperienceConfig@DefaultMultiScreenConfig@@YA_NXZ @ 0x1C0049CB8
+ * Callers:
+ *     ?DetermineMultiScreenCapabilities@DefaultMultiScreenConfig@@YAJPEAW4MultiScreenShellCapabilities@@@Z @ 0x1C0049A9C (-DetermineMultiScreenCapabilities@DefaultMultiScreenConfig@@YAJPEAW4MultiScreenShellCapabilities.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DefaultMultiScreenConfig::DisjointExperienceConfig::IsDisjointCapableSku(
         DefaultMultiScreenConfig::DisjointExperienceConfig *this)
 {

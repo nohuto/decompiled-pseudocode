@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtTerminateJobObject @ 0x140791E00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PspTerminateAllProcessesInJobHierarchy @ 0x140791E78 (PspTerminateAllProcessesInJobHierarchy.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     EtwTraceJob @ 0x1409E2518 (EtwTraceJob.c)
+ */
+
 __int64 __fastcall NtTerminateJobObject(void *a1)
 {
   NTSTATUS v1; // eax

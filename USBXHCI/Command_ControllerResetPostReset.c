@@ -1,3 +1,16 @@
+/*
+ * XREFs of Command_ControllerResetPostReset @ 0x1C002F8B4
+ * Callers:
+ *     Controller_InternalReset @ 0x1C0033D04 (Controller_InternalReset.c)
+ * Callees:
+ *     DynamicLock_Acquire @ 0x1C000A918 (DynamicLock_Acquire.c)
+ *     DynamicLock_Release @ 0x1C000A958 (DynamicLock_Release.c)
+ *     Command_Initialize @ 0x1C001438C (Command_Initialize.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_qL @ 0x1C0030E00 (WPP_RECORDER_SF_qL.c)
+ *     Etw_CommandCompleteError @ 0x1C004A868 (Etw_CommandCompleteError.c)
+ */
+
 char __fastcall Command_ControllerResetPostReset(__int64 a1)
 {
   __int64 v2; // rcx

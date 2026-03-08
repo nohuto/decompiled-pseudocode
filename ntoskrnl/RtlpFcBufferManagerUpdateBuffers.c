@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlpFcBufferManagerUpdateBuffers @ 0x14081811C
+ * Callers:
+ *     CmFcManagerOverwriteFeatureConfigurationSection @ 0x140A2416C (CmFcManagerOverwriteFeatureConfigurationSection.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x140A24640 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x140A24A68 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140B53284 (CmFcManagerStartRuntimePhase.c)
+ *     CmFcManagerStartBootPhase @ 0x140B537D8 (CmFcManagerStartBootPhase.c)
+ * Callees:
+ *     RtlpFcInitializeBuffers @ 0x14030305C (RtlpFcInitializeBuffers.c)
+ *     RtlUpdateSwapReference @ 0x140818560 (RtlUpdateSwapReference.c)
+ */
+
 void *__fastcall RtlpFcBufferManagerUpdateBuffers(_QWORD *a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rax

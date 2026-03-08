@@ -1,3 +1,11 @@
+/*
+ * XREFs of ArrayContains @ 0x140671B04
+ * Callers:
+ *     PropertyEval @ 0x1407622B0 (PropertyEval.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ArrayContains(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4)
 {
   unsigned int v4; // r10d

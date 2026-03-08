@@ -1,3 +1,11 @@
+/*
+ * XREFs of ShrinkMask_CX @ 0x1C0260550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ShrinkMask_CX(__int64 a1)
 {
   char *v1; // r9

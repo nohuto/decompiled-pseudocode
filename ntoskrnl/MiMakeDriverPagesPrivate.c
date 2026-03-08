@@ -1,3 +1,46 @@
+/*
+ * XREFs of MiMakeDriverPagesPrivate @ 0x1402A6440
+ * Callers:
+ *     MmProtectDriverSection @ 0x140302930 (MmProtectDriverSection.c)
+ *     MiLockCode @ 0x14032C9C0 (MiLockCode.c)
+ *     MiSetSystemCodeProtection @ 0x14032E170 (MiSetSystemCodeProtection.c)
+ *     MiLockDriverPageRange @ 0x1406179F0 (MiLockDriverPageRange.c)
+ *     MiBackSingleImageWithPagefile @ 0x14086FBD4 (MiBackSingleImageWithPagefile.c)
+ *     MiSplitDriverPage @ 0x140A289BC (MiSplitDriverPage.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ *     MiLockPageTableInternal @ 0x14026A0D0 (MiLockPageTableInternal.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140286264 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiAddLockedPageCharge @ 0x1402A309C (MiAddLockedPageCharge.c)
+ *     MiUnlockLoaderEntry @ 0x1402A6ACC (MiUnlockLoaderEntry.c)
+ *     MiLockLoaderEntry @ 0x1402A6B58 (MiLockLoaderEntry.c)
+ *     MiUseProtectedSlabAllocatorForDriverPage @ 0x1402A6DA0 (MiUseProtectedSlabAllocatorForDriverPage.c)
+ *     MiCheckSlabPage @ 0x1402A6DE4 (MiCheckSlabPage.c)
+ *     MiDriverPageMustStayResident @ 0x1402B0248 (MiDriverPageMustStayResident.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiCopyOnWrite @ 0x140319F00 (MiCopyOnWrite.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     MiReleaseFreshPage @ 0x14034E570 (MiReleaseFreshPage.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     MiGetSessionVm @ 0x14036C17C (MiGetSessionVm.c)
+ *     MiSessionLookupImage @ 0x14036C7B8 (MiSessionLookupImage.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiMakeDriverPageStayResident @ 0x140617F48 (MiMakeDriverPageStayResident.c)
+ *     MiAllocateDriverPage @ 0x1407290FC (MiAllocateDriverPage.c)
+ */
+
 __int64 __fastcall MiMakeDriverPagesPrivate(__int64 a1, ULONG_PTR *a2, unsigned __int64 a3, char a4)
 {
   unsigned int v4; // r13d

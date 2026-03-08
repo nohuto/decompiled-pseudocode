@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiRestoreProcessorState @ 0x14036A318
+ * Callers:
+ *     KiFreezeTargetExecution @ 0x140369240 (KiFreezeTargetExecution.c)
+ * Callees:
+ *     RtlXRestore @ 0x14036A500 (RtlXRestore.c)
+ *     KeContextToKframes @ 0x140416130 (KeContextToKframes.c)
+ *     KiRestoreProcessorControlState @ 0x140416280 (KiRestoreProcessorControlState.c)
+ */
+
 __int64 __fastcall KiRestoreProcessorState(int a1, int a2)
 {
   struct _KPRCB *CurrentPrcb; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcIsLazyWriteScanQueuedInternal @ 0x1402F0124
+ * Callers:
+ *     CcQueueLazyWriteScanThreadForVolume @ 0x1403BA4E0 (CcQueueLazyWriteScanThreadForVolume.c)
+ *     CcQueueLazyWriteScanThread @ 0x140534A20 (CcQueueLazyWriteScanThread.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CcIsLazyWriteScanQueuedInternal(_BYTE *a1, int a2)
 {
   char result; // al

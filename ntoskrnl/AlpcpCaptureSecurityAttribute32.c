@@ -1,3 +1,11 @@
+/*
+ * XREFs of AlpcpCaptureSecurityAttribute32 @ 0x14077DE30
+ * Callers:
+ *     AlpcpCaptureAttributes @ 0x1407CAAD0 (AlpcpCaptureAttributes.c)
+ * Callees:
+ *     AlpcpCaptureSecurityAttributeInternal @ 0x1406D3584 (AlpcpCaptureSecurityAttributeInternal.c)
+ */
+
 __int64 __fastcall AlpcpCaptureSecurityAttribute32(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 *v4; // rax

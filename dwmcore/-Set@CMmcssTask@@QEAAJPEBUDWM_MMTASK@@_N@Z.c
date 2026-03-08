@@ -1,3 +1,22 @@
+/*
+ * XREFs of ?Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z @ 0x1800CD9D0
+ * Callers:
+ *     ?InitializeMmcssTask@CGlobalMit@@MEAAJXZ @ 0x1800CBC70 (-InitializeMmcssTask@CGlobalMit@@MEAAJXZ.c)
+ *     ?InitializeMMCSSTask@CGlobalManipulationManager@@EEAAJXZ @ 0x1800CBD60 (-InitializeMMCSSTask@CGlobalManipulationManager@@EEAAJXZ.c)
+ *     ?InitializeMmcssTask@CKst@@AEAAJXZ @ 0x1800CBDF4 (-InitializeMmcssTask@CKst@@AEAAJXZ.c)
+ *     ?Partition_SetCurrentMmTask@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_SETCURRENTMMTASK@@@Z @ 0x1800CD668 (-Partition_SetCurrentMmTask@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagM.c)
+ *     ?ProcessKernelTokens@CGlobalSurfaceManager@@AEAAJXZ @ 0x1800CDC70 (-ProcessKernelTokens@CGlobalSurfaceManager@@AEAAJXZ.c)
+ * Callees:
+ *     ??2@YAPEAX_K@Z @ 0x180034790 (--2@YAPEAX_K@Z.c)
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034BB4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AreEqualMmTask@CMmcssTask@@CA_NPEBUDWM_MMTASK@@0@Z @ 0x1800CE33C (-AreEqualMmTask@CMmcssTask@@CA_NPEBUDWM_MMTASK@@0@Z.c)
+ *     ?LoadRuntime@CMmcssTask@@AEAAJXZ @ 0x1800CE410 (-LoadRuntime@CMmcssTask@@AEAAJXZ.c)
+ *     ?Revert@CMmcssTask@@QEAAXXZ @ 0x1800F90B8 (-Revert@CMmcssTask@@QEAAXXZ.c)
+ *     ?Apply@CMmcssTask@@QEAAJ_N@Z @ 0x180102FFC (-Apply@CMmcssTask@@QEAAJ_N@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ */
+
 __int64 __fastcall CMmcssTask::Set(struct _RTL_CRITICAL_SECTION *this, const struct DWM_MMTASK *a2, char a3)
 {
   const struct DWM_MMTASK *v3; // rdi

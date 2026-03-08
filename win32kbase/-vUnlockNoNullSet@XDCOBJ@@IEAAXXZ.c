@@ -1,3 +1,26 @@
+/*
+ * XREFs of ?vUnlockNoNullSet@XDCOBJ@@IEAAXXZ @ 0x1C0054EF8
+ * Callers:
+ *     hbmSelectBitmap @ 0x1C000A040 (hbmSelectBitmap.c)
+ *     GreGetNearestColor @ 0x1C001A710 (GreGetNearestColor.c)
+ *     GreGetClipBox @ 0x1C001AB40 (GreGetClipBox.c)
+ *     GreSelectBitmap @ 0x1C0043B10 (GreSelectBitmap.c)
+ *     ?bCleanDC@XDCOBJ@@QEAAHH@Z @ 0x1C0046C90 (-bCleanDC@XDCOBJ@@QEAAHH@Z.c)
+ *     ??0PDEVOBJ@@QEAA@PEAUHDEV__@@K@Z @ 0x1C0181D80 (--0PDEVOBJ@@QEAA@PEAUHDEV__@@K@Z.c)
+ *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C018277C (--1DEVLOCKOBJ@@QEAA@XZ.c)
+ *     ?vClearSurface@PDEVOBJ@@QEAAXXZ @ 0x1C0182C68 (-vClearSurface@PDEVOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C0182DE8 (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     pProcessDfbSurfacesInternal @ 0x1C01878E0 (pProcessDfbSurfacesInternal.c)
+ *     GreSetMagicColors @ 0x1C01995FC (GreSetMagicColors.c)
+ * Callees:
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C004A440 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C004A680 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     ?ReleaseEntryLock@GdiHandleManager@@QEAAXPEAVOBJECT@@@Z @ 0x1C004ABC0 (-ReleaseEntryLock@GdiHandleManager@@QEAAXPEAVOBJECT@@@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C004B5B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     GrepDeleteDC @ 0x1C00549D0 (GrepDeleteDC.c)
+ *     ?RestoreAttributesHelper@XDCOBJ@@AEAAXXZ @ 0x1C0056684 (-RestoreAttributesHelper@XDCOBJ@@AEAAXXZ.c)
+ */
+
 void __fastcall XDCOBJ::vUnlockNoNullSet(XDCOBJ *this)
 {
   __int64 v2; // rsi

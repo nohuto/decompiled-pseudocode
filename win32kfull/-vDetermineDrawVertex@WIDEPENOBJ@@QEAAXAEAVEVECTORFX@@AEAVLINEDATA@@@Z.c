@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vDetermineDrawVertex@WIDEPENOBJ@@QEAAXAEAVEVECTORFX@@AEAVLINEDATA@@@Z @ 0x1C02F4430
+ * Callers:
+ *     ?vVecDrawCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C0151848 (-vVecDrawCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall WIDEPENOBJ::vDetermineDrawVertex(WIDEPENOBJ *this, struct EVECTORFX *a2, struct LINEDATA *a3)
 {
   _DWORD *v4; // r9

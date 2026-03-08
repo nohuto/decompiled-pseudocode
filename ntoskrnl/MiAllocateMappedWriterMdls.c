@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiAllocateMappedWriterMdls @ 0x1403AA5DC
+ * Callers:
+ *     MiEnablePartitionMappedWrites @ 0x1406A6ABC (MiEnablePartitionMappedWrites.c)
+ * Callees:
+ *     MiAllocateModWriterEntry @ 0x1402E4458 (MiAllocateModWriterEntry.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiAllocateMappedWriterMdls(_QWORD *a1)
 {
   __int64 v1; // rdx

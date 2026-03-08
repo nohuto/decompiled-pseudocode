@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ArrangeActionCompatibleWithStyle@@YAHPEAUtagWND@@W4_WARR_ACTIONS@@@Z @ 0x1C01EA310
+ * Callers:
+ *     ?xxxArrangeWindow@@YAXPEAUtagWND@@W4_WINDOW_ARRANGEMENT_COMMAND@@@Z @ 0x1C01ECD18 (-xxxArrangeWindow@@YAXPEAUtagWND@@W4_WINDOW_ARRANGEMENT_COMMAND@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ArrangeActionCompatibleWithStyle(__int64 a1, int a2)
 {
   char *v2; // r9

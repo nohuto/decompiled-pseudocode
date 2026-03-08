@@ -1,3 +1,14 @@
+/*
+ * XREFs of XilCommand_SendAdvanceDequeuePointerRequest @ 0x1C0031E04
+ * Callers:
+ *     XilCommand_AdvanceCommandRingControlDequeuePointer @ 0x1C0031388 (XilCommand_AdvanceCommandRingControlDequeuePointer.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ */
+
 char __fastcall XilCommand_SendAdvanceDequeuePointerRequest(__int64 a1, int a2)
 {
   __int64 v2; // rdi

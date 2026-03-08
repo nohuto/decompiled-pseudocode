@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtInputSpaceRegionFromPoint @ 0x1C0169950
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?RegionFromPoint@InputConfig@@SA_NAEBVCLockedInputSpace@@UtagPOINT@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C0013AA8 (-RegionFromPoint@InputConfig@@SA_NAEBVCLockedInputSpace@@UtagPOINT@@PEAVCLockedInputSpaceRegion@.c)
+ *     ??0CLockedInputSpace@@QEAA@XZ @ 0x1C00157DC (--0CLockedInputSpace@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     ??1CLockedInputSpace@@QEAA@XZ @ 0x1C00DDEF8 (--1CLockedInputSpace@@QEAA@XZ.c)
+ *     ?GetInputSpace@InputConfig@@SA_NU_LUID@@PEAVCLockedInputSpace@@@Z @ 0x1C0213630 (-GetInputSpace@InputConfig@@SA_NU_LUID@@PEAVCLockedInputSpace@@@Z.c)
+ */
+
 __int64 __fastcall NtInputSpaceRegionFromPoint(struct _LUID a1, struct tagPOINT a2, _OWORD *a3)
 {
   bool InputSpace; // al

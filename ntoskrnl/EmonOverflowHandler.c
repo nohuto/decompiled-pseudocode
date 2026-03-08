@@ -1,3 +1,16 @@
+/*
+ * XREFs of EmonOverflowHandler @ 0x14051B1E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     EmonIsModifiedByBadActorInternal @ 0x1404563E0 (EmonIsModifiedByBadActorInternal.c)
+ *     EmonPebsOverflowHandler @ 0x14051BA84 (EmonPebsOverflowHandler.c)
+ *     KeProfileInterruptWithSource @ 0x140571A20 (KeProfileInterruptWithSource.c)
+ *     PoGetProcessorIdleAccounting @ 0x140581850 (PoGetProcessorIdleAccounting.c)
+ */
+
 __int64 (__fastcall **__fastcall EmonOverflowHandler(__int64 a1))()
 {
   __int64 v1; // rsi

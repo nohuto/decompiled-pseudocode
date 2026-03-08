@@ -1,3 +1,13 @@
+/*
+ * XREFs of _UnregisterClass @ 0x1C0040D80
+ * Callers:
+ *     NtUserUnregisterClass @ 0x1C0040C10 (NtUserUnregisterClass.c)
+ * Callees:
+ *     DestroyClass @ 0x1C0033D18 (DestroyClass.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall UnregisterClass(_WORD *a1, __int64 a2, _QWORD *a3)
 {
   unsigned __int64 v5; // rbx

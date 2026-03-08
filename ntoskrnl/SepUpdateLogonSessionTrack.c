@@ -1,3 +1,16 @@
+/*
+ * XREFs of SepUpdateLogonSessionTrack @ 0x140777E54
+ * Callers:
+ *     SepRmAddLogonSessionInfoWrkr @ 0x140777E30 (SepRmAddLogonSessionInfoWrkr.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepUpdateLogonSessionTrack(__int64 a1)
 {
   unsigned int v1; // edx

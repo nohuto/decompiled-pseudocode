@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiInitializeTimer2Data @ 0x1403AC764
+ * Callers:
+ *     KeInitializeTimerTable @ 0x14080B438 (KeInitializeTimerTable.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *KiInitializeTimer2Data()
 {
   _QWORD *result; // rax

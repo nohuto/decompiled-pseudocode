@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpGetServiceStartType @ 0x14078C7C0
+ * Callers:
+ *     PipCallDriverAddDeviceQueryRoutine @ 0x1406C3364 (PipCallDriverAddDeviceQueryRoutine.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _RegRtlQueryValue @ 0x1406D3E98 (_RegRtlQueryValue.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ */
+
 __int64 __fastcall PnpGetServiceStartType(__int64 a1, void *a2, _DWORD *a3)
 {
   int v6; // ebx

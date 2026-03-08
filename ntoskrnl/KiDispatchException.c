@@ -1,3 +1,41 @@
+/*
+ * XREFs of KiDispatchException @ 0x140362740
+ * Callers:
+ *     KiInitializeUserApc @ 0x1403664E8 (KiInitializeUserApc.c)
+ *     KxExceptionDispatchOnExceptionStack @ 0x140417210 (KxExceptionDispatchOnExceptionStack.c)
+ *     KiExceptionDispatch @ 0x14042BF40 (KiExceptionDispatch.c)
+ *     KiFastFailDispatch @ 0x14042C440 (KiFastFailDispatch.c)
+ *     KiRaiseException @ 0x140576490 (KiRaiseException.c)
+ *     PspInitializeThunkContext @ 0x1407EDF4C (PspInitializeThunkContext.c)
+ *     PspFreeUserFiberShadowStack @ 0x1409AE1B8 (PspFreeUserFiberShadowStack.c)
+ * Callees:
+ *     ObGetCurrentIrql @ 0x140205E10 (ObGetCurrentIrql.c)
+ *     RtlDispatchException @ 0x14027FA60 (RtlDispatchException.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KeContextFromKframes @ 0x1403620F0 (KeContextFromKframes.c)
+ *     KiPreprocessFault @ 0x140362554 (KiPreprocessFault.c)
+ *     KdTrap @ 0x140362700 (KdTrap.c)
+ *     RtlpCopyExtendedContext @ 0x140364B00 (RtlpCopyExtendedContext.c)
+ *     RtlGetExtendedContextLength2 @ 0x140364DF0 (RtlGetExtendedContextLength2.c)
+ *     RtlInitializeExtendedContext2 @ 0x140364EE0 (RtlInitializeExtendedContext2.c)
+ *     KePopulateContinuationContext @ 0x140365578 (KePopulateContinuationContext.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwTerminateProcess @ 0x140412890 (ZwTerminateProcess.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KeContextToKframes @ 0x140416130 (KeContextToKframes.c)
+ *     _alloca_probe @ 0x1404210C0 (_alloca_probe.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetupForInstrumentationReturn @ 0x14056E9C0 (KiSetupForInstrumentationReturn.c)
+ *     KeCopyExceptionRecord @ 0x140576430 (KeCopyExceptionRecord.c)
+ *     KiTpHandleTrap @ 0x14057C800 (KiTpHandleTrap.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     PsWow64GetProcessMachine @ 0x1407EE9F0 (PsWow64GetProcessMachine.c)
+ *     DbgkForwardException @ 0x1409365F4 (DbgkForwardException.c)
+ *     KdIsThisAKdTrap @ 0x140AB2ED4 (KdIsThisAKdTrap.c)
+ */
+
 char __fastcall KiDispatchException(NTSTATUS *a1, __int64 a2, __int64 a3, unsigned __int8 a4, char a5)
 {
   _KPROCESS *Process; // rdx

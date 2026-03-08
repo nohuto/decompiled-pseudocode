@@ -1,3 +1,19 @@
+/*
+ * XREFs of xxxCallCtfHook @ 0x1C00D6FB4
+ * Callers:
+ *     xxxDestroyWindow @ 0x1C004B7F0 (xxxDestroyWindow.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00725D0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ * Callees:
+ *     fnHkINLPMOUSEHOOKSTRUCTEX @ 0x1C0008DAC (fnHkINLPMOUSEHOOKSTRUCTEX.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     fnHkINLPMSG @ 0x1C00C5E60 (fnHkINLPMSG.c)
+ *     fnHkINDWORD @ 0x1C00D7148 (fnHkINDWORD.c)
+ *     fnHkINLPCHARHOOKSTRUCT @ 0x1C00D72A8 (fnHkINLPCHARHOOKSTRUCT.c)
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C01098A8 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     fnHkINLPCBTACTIVATESTRUCT @ 0x1C0212EA8 (fnHkINLPCBTACTIVATESTRUCT.c)
+ */
+
 __int64 __fastcall xxxCallCtfHook(int a1, int a2, __int64 a3, __int128 *a4)
 {
   unsigned int v4; // ebx

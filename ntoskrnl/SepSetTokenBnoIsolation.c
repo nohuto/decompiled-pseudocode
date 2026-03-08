@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepSetTokenBnoIsolation @ 0x140296F14
+ * Callers:
+ *     SeSubProcessToken @ 0x14070B29C (SeSubProcessToken.c)
+ * Callees:
+ *     SepSetTokenCachedHandles @ 0x140739630 (SepSetTokenCachedHandles.c)
+ *     SepDereferenceCachedHandlesEntry @ 0x140744278 (SepDereferenceCachedHandlesEntry.c)
+ */
+
 __int64 __fastcall SepSetTokenBnoIsolation(__int64 a1, char a2, __int128 *a3, unsigned int a4, __int64 a5)
 {
   unsigned int v5; // ebx

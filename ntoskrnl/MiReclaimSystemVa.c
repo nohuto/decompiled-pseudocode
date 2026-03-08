@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiReclaimSystemVa @ 0x1402FBD7C
+ * Callers:
+ *     MiObtainDynamicVa @ 0x1402105DC (MiObtainDynamicVa.c)
+ *     MiExtendDynamicBitMap @ 0x1403A5570 (MiExtendDynamicBitMap.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ */
+
 LONG __fastcall MiReclaimSystemVa(int a1)
 {
   LONG result; // eax

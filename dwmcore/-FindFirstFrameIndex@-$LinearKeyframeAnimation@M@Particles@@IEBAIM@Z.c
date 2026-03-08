@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FindFirstFrameIndex@?$LinearKeyframeAnimation@M@Particles@@IEBAIM@Z @ 0x18023D38C
+ * Callers:
+ *     ?GetValueAt@?$LinearKeyframeAnimation@M@Particles@@QEBAMMAEBV?$span@M$0?0@gsl@@AEAV34@@Z @ 0x18023D4E4 (-GetValueAt@-$LinearKeyframeAnimation@M@Particles@@QEBAMMAEBV-$span@M$0-0@gsl@@AEAV34@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Particles::LinearKeyframeAnimation<float>::FindFirstFrameIndex(__int64 a1, float a2)
 {
   __int64 v2; // r8

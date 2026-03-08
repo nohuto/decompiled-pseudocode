@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeHardwareReset @ 0x1C000F26C
+ * Callers:
+ *     NVMeControllerReset @ 0x1C000E4D8 (NVMeControllerReset.c)
+ *     NVMeControllerPanicResetActionWorkItem @ 0x1C001C690 (NVMeControllerPanicResetActionWorkItem.c)
+ * Callees:
+ *     IsNVMeResetComplete @ 0x1C000C0A0 (IsNVMeResetComplete.c)
+ */
+
 __int64 NVMeHardwareReset(__int64 a1, unsigned int a2, __int64 a3, ...)
 {
   __int64 v3; // r9

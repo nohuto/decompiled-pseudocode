@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EmitGeometryForGroup@CGroupBatchCommand@@QEBAJPEAVCD3DBatchExecutionContext@@PEBQEBVCBatchCommand@@@Z @ 0x18020759C
+ * Callers:
+ *     ?FillVertexAndIndexBuffers@CD3DBatchExecutionContext@@QEAAJPEAPEBQEBVCBatchCommand@@PEBVCRenderingEffect@@@Z @ 0x18020238C (-FillVertexAndIndexBuffers@CD3DBatchExecutionContext@@QEAAJPEAPEBQEBVCBatchCommand@@PEBVCRenderi.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CGroupBatchCommand::EmitGeometryForGroup(
         CGroupBatchCommand *this,
         struct CD3DBatchExecutionContext *a2,

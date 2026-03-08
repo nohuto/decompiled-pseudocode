@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ReevaluateQFrameHasDelegation@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@K@Z @ 0x1C0200AF4
+ * Callers:
+ *     ?DelegateChainingResetSetPointerInfoNodeDelegateAction@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@KI@Z @ 0x1C01EFDC8 (-DelegateChainingResetSetPointerInfoNodeDelegateAction@CTouchProcessor@@AEAAXPEBUCPointerInputFr.c)
+ *     ?SetPointerInfoNodeDelegateAction@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@KIHH@Z @ 0x1C0204A94 (-SetPointerInfoNodeDelegateAction@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@KIHH@Z.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?IsAnyMessageDelegated@CPointerInfoNode@@QEBAHXZ @ 0x1C01FB65C (-IsAnyMessageDelegated@CPointerInfoNode@@QEBAHXZ.c)
+ */
+
 __int64 __fastcall CTouchProcessor::ReevaluateQFrameHasDelegation(
         CTouchProcessor *this,
         const struct CPointerInputFrame *a2,

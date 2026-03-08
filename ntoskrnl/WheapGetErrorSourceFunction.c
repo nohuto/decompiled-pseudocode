@@ -1,3 +1,16 @@
+/*
+ * XREFs of WheapGetErrorSourceFunction @ 0x14037D8DC
+ * Callers:
+ *     WheapCallErrorSourceCorrect @ 0x14037D824 (WheapCallErrorSourceCorrect.c)
+ *     WheapCallErrorSourceInitialize @ 0x14037D864 (WheapCallErrorSourceInitialize.c)
+ *     WheapReportBootError @ 0x14060E01C (WheapReportBootError.c)
+ *     WheaReportHwError @ 0x14060E280 (WheaReportHwError.c)
+ *     WheapCallErrorSourceRecover @ 0x1406103F8 (WheapCallErrorSourceRecover.c)
+ *     WheapCallErrorSourceUninitialize @ 0x140610450 (WheapCallErrorSourceUninitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WheapGetErrorSourceFunction(__int64 a1, int a2, char a3)
 {
   __int64 v3; // r10

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vPatternCopyLoopRow@@YAXJPEAKPEAU_PATBLTFRAME@@HKKKKJPEBK@Z @ 0x1C02E9D1C
+ * Callers:
+ *     ?vPatCpyRow4_8x8@@YAXPEAU_PATBLTFRAME@@JH@Z @ 0x1C02E8914 (-vPatCpyRow4_8x8@@YAXPEAU_PATBLTFRAME@@JH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vPatternCopyLoopRow(
         int a1,
         unsigned int *a2,

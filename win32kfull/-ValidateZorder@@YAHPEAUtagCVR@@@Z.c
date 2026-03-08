@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?ValidateZorder@@YAHPEAUtagCVR@@@Z @ 0x1C00A5428
+ * Callers:
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C00669E0 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C006A610 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
+ * Callees:
+ *     GetLastTopMostWindow @ 0x1C0044610 (GetLastTopMostWindow.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     ?GetLastNonBottomMostWindow@@YAPEAUtagWND@@PEAU1@H@Z @ 0x1C012A388 (-GetLastNonBottomMostWindow@@YAPEAUtagWND@@PEAU1@H@Z.c)
+ *     HWInsertAfter @ 0x1C01A7610 (HWInsertAfter.c)
+ */
+
 __int64 __fastcall ValidateZorder(struct tagCVR *a1)
 {
   unsigned int v2; // ebx

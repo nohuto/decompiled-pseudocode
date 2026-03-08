@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmGetExitSamplingCountdown @ 0x1402D20B4
+ * Callers:
+ *     PpmIdleExecuteTransition @ 0x14022D7D0 (PpmIdleExecuteTransition.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x1402D1FF0 (PoFxSendSystemLatencyUpdate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 PpmGetExitSamplingCountdown()
 {
   unsigned int v0; // ecx

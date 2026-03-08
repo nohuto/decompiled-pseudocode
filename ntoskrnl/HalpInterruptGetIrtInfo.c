@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpInterruptGetIrtInfo @ 0x14080BB74
+ * Callers:
+ *     HalpQueryAcpiResourceRequirements @ 0x14080BBE4 (HalpQueryAcpiResourceRequirements.c)
+ *     HaliQuerySystemInformation @ 0x140A85470 (HaliQuerySystemInformation.c)
+ * Callees:
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x14037333C (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalQueryMaximumProcessorCount @ 0x140375910 (HalQueryMaximumProcessorCount.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HalpHvCpuid @ 0x140508E4C (HalpHvCpuid.c)
+ */
+
 __int64 __fastcall HalpInterruptGetIrtInfo(int *a1)
 {
   int v1; // eax

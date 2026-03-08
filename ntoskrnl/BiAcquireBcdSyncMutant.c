@@ -1,3 +1,26 @@
+/*
+ * XREFs of BiAcquireBcdSyncMutant @ 0x14082ED10
+ * Callers:
+ *     BcdQueryObject @ 0x14082B5C0 (BcdQueryObject.c)
+ *     BcdDeleteObject @ 0x14082C47C (BcdDeleteObject.c)
+ *     BcdCreateObject @ 0x14082C4D8 (BcdCreateObject.c)
+ *     BcdCloseStore @ 0x14082C570 (BcdCloseStore.c)
+ *     BcdOpenStore @ 0x14082C814 (BcdOpenStore.c)
+ *     BiDeleteElement @ 0x14082CDF8 (BiDeleteElement.c)
+ *     BcdSetElementDataWithFlags @ 0x14082D894 (BcdSetElementDataWithFlags.c)
+ *     BcdGetElementDataWithFlags @ 0x14082E398 (BcdGetElementDataWithFlags.c)
+ *     BcdCloseObject @ 0x14082E5DC (BcdCloseObject.c)
+ *     BcdOpenObject @ 0x14082E620 (BcdOpenObject.c)
+ *     SepSecureBootCorrectBcd @ 0x1409CDB74 (SepSecureBootCorrectBcd.c)
+ *     BcdFlushStore @ 0x140A595E4 (BcdFlushStore.c)
+ *     BcdForciblyUnloadStore @ 0x140A5964C (BcdForciblyUnloadStore.c)
+ *     BcdSetSystemStore @ 0x140A5972C (BcdSetSystemStore.c)
+ *     BcdEnumerateObjects @ 0x140A597EC (BcdEnumerateObjects.c)
+ * Callees:
+ *     ZwWaitForSingleObject @ 0x140412390 (ZwWaitForSingleObject.c)
+ *     BiGetCurrentBcdMutantHandle @ 0x14082ED70 (BiGetCurrentBcdMutantHandle.c)
+ */
+
 NTSTATUS __fastcall BiAcquireBcdSyncMutant(char a1)
 {
   NTSTATUS result; // eax

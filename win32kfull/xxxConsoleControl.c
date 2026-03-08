@@ -1,3 +1,17 @@
+/*
+ * XREFs of xxxConsoleControl @ 0x1C003C5E8
+ * Callers:
+ *     NtUserConsoleControl @ 0x1C003C4D0 (NtUserConsoleControl.c)
+ * Callees:
+ *     xxxClientFreeWindowClassExtraBytes @ 0x1C0034440 (xxxClientFreeWindowClassExtraBytes.c)
+ *     ?xxxSetConsoleCaretInfo@@YAHPEAU_CONSOLE_CARET_INFO@@@Z @ 0x1C0039EBC (-xxxSetConsoleCaretInfo@@YAHPEAU_CONSOLE_CARET_INFO@@@Z.c)
+ *     ?xxxUserNotifyConsoleApplication@@YAJPEAU_CONSOLE_PROCESS_INFO@@@Z @ 0x1C003C924 (-xxxUserNotifyConsoleApplication@@YAJPEAU_CONSOLE_PROCESS_INFO@@@Z.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     DesktopAlloc @ 0x1C00A09E0 (DesktopAlloc.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall xxxConsoleControl(int a1, struct _CONSOLE_PROCESS_INFO *a2, int a3)
 {
   unsigned int v5; // edi

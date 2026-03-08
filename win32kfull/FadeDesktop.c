@@ -1,3 +1,11 @@
+/*
+ * XREFs of FadeDesktop @ 0x1C01BFAF0
+ * Callers:
+ *     xxxSwitchDesktopWithFade @ 0x1C00EA72C (xxxSwitchDesktopWithFade.c)
+ * Callees:
+ *     <none>
+ */
+
 LARGE_INTEGER __fastcall FadeDesktop(unsigned int a1, unsigned int *a2, DWORD a3, int a4)
 {
   LARGE_INTEGER result; // rax

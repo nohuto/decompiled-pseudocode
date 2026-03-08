@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiIncrementCombinedPte @ 0x14034A354
+ * Callers:
+ *     MiCreateCombineAnchor @ 0x14034A2A4 (MiCreateCombineAnchor.c)
+ *     MiBuildForkPte @ 0x14065FC20 (MiBuildForkPte.c)
+ * Callees:
+ *     MiReferenceCloneProto @ 0x14034A39C (MiReferenceCloneProto.c)
+ */
+
 __int64 __fastcall MiIncrementCombinedPte(int a1, __int64 a2)
 {
   __int64 v2; // rbx

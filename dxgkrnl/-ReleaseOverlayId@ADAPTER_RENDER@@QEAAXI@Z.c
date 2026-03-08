@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReleaseOverlayId@ADAPTER_RENDER@@QEAAXI@Z @ 0x1C02BCAE8
+ * Callers:
+ *     ?Destroy@DXGOVERLAY@@QEAAXXZ @ 0x1C032FDE8 (-Destroy@DXGOVERLAY@@QEAAXXZ.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 void __fastcall ADAPTER_RENDER::ReleaseOverlayId(ADAPTER_RENDER *this, unsigned int a2)
 {
   __int64 v3; // rdi

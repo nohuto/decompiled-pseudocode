@@ -1,3 +1,21 @@
+/*
+ * XREFs of AnFwDisplayProgressIndicator @ 0x140AEA598
+ * Callers:
+ *     BgDisplayProgressIndicator @ 0x140AE9040 (BgDisplayProgressIndicator.c)
+ *     BgpFwLibraryDisable @ 0x140AE91EC (BgpFwLibraryDisable.c)
+ * Callees:
+ *     KeInitializeTimerEx @ 0x140237DB0 (KeInitializeTimerEx.c)
+ *     KeSetCoalescableTimer @ 0x140250440 (KeSetCoalescableTimer.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     BgpTxtDisplayCharacter @ 0x140381538 (BgpTxtDisplayCharacter.c)
+ *     BgpFwFreeMemory @ 0x140382650 (BgpFwFreeMemory.c)
+ *     RaspClearCache @ 0x140AEA540 (RaspClearCache.c)
+ *     LogFwStat @ 0x140AEA85C (LogFwStat.c)
+ *     BgpGxRectangleDestroy @ 0x140AEAA70 (BgpGxRectangleDestroy.c)
+ *     AnFwpDisableProgressTimer @ 0x140AEC610 (AnFwpDisableProgressTimer.c)
+ *     AnFwpProgressAnimationManual @ 0x140AEF2AC (AnFwpProgressAnimationManual.c)
+ */
+
 __int64 __fastcall AnFwDisplayProgressIndicator(__int64 a1, __int64 a2, __int64 a3)
 {
   bool v3; // al

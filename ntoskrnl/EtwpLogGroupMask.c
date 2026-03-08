@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpLogGroupMask @ 0x14080D970
+ * Callers:
+ *     EtwpUpdateSelectedGroupMasks @ 0x14037F908 (EtwpUpdateSelectedGroupMasks.c)
+ *     EtwpLogKernelTraceRundown @ 0x1409EBEA0 (EtwpLogKernelTraceRundown.c)
+ * Callees:
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall EtwpLogGroupMask(__int64 a1, unsigned int a2, __int128 *a3, unsigned __int16 a4)
 {
   __int128 v4; // xmm1

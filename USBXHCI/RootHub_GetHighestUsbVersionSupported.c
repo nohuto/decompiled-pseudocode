@@ -1,3 +1,11 @@
+/*
+ * XREFs of RootHub_GetHighestUsbVersionSupported @ 0x1C001C740
+ * Callers:
+ *     Controller_SetDeviceDescription @ 0x1C0073EEC (Controller_SetDeviceDescription.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RootHub_GetHighestUsbVersionSupported(__int64 a1)
 {
   unsigned int v1; // r10d

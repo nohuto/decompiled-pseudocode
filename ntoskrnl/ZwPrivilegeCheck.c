@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwPrivilegeCheck @ 0x140414B10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwPrivilegeCheck(__int64 a1, __int64 a2)
 {
   _disable();

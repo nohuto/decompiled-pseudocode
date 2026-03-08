@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_IFR_SF_qqDqq @ 0x1C003B568
+ * Callers:
+ *     ?CompleteInternal@FxRequest@@AEAAJJ@Z @ 0x1C0003A80 (-CompleteInternal@FxRequest@@AEAAJJ@Z.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_qqDqq(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 _a1,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkMiracastQueryMiracastStatus @ 0x1C039BE64
+ * Callers:
+ *     DxgkNetDispQueryMiracastDisplayDeviceStatus @ 0x1C02CE9A0 (DxgkNetDispQueryMiracastDisplayDeviceStatus.c)
+ * Callees:
+ *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C005FF40 (DpiMiracastReleaseMiracastDeviceContext.c)
+ *     DpiMiracastGetDeviceContextFromName @ 0x1C039A854 (DpiMiracastGetDeviceContextFromName.c)
+ */
+
 __int64 __fastcall DxgkMiracastQueryMiracastStatus(const WCHAR *a1, _DWORD *a2, _DWORD *a3)
 {
   __int64 DeviceContextFromName; // rax

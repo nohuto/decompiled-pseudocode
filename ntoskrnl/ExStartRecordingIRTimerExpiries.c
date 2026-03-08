@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExStartRecordingIRTimerExpiries @ 0x140879C0C
+ * Callers:
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void ExStartRecordingIRTimerExpiries()
 {
   int v0; // edx

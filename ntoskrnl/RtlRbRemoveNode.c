@@ -1,3 +1,49 @@
+/*
+ * XREFs of RtlRbRemoveNode @ 0x14024C010
+ * Callers:
+ *     MiInvalidatePageFileBitmapsCache @ 0x14020A3E4 (MiInvalidatePageFileBitmapsCache.c)
+ *     MiCoalescePageFileBitmapsCache @ 0x14020B47C (MiCoalescePageFileBitmapsCache.c)
+ *     MiBitmapsCachedEntryLengthChanged @ 0x14020B884 (MiBitmapsCachedEntryLengthChanged.c)
+ *     KiRemoveTimer2 @ 0x140248860 (KiRemoveTimer2.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x1402493A0 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpVsChunkSplit @ 0x14024AB60 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpVsChunkCoalesce @ 0x14024B8C0 (RtlpHpVsChunkCoalesce.c)
+ *     KiAbEntryRemoveFromTree @ 0x14024BC30 (KiAbEntryRemoveFromTree.c)
+ *     RtlpHpVsFreeChunkRemove @ 0x14024E660 (RtlpHpVsFreeChunkRemove.c)
+ *     RtlpHpSegFreeRangeRemove @ 0x14024E804 (RtlpHpSegFreeRangeRemove.c)
+ *     KiRemoveSchedulingGroupQueue @ 0x1402AEF44 (KiRemoveSchedulingGroupQueue.c)
+ *     RtlpHpLargeFree @ 0x1402B6B40 (RtlpHpLargeFree.c)
+ *     IoStopDiskIoAttributionForContext @ 0x1402C4224 (IoStopDiskIoAttributionForContext.c)
+ *     MiRescanPageFileBitmapPortion @ 0x1402DF480 (MiRescanPageFileBitmapPortion.c)
+ *     PfSnNameRemove @ 0x1402E820C (PfSnNameRemove.c)
+ *     RtlpHpVaMgrRangeCoalesce @ 0x1402F136C (RtlpHpVaMgrRangeCoalesce.c)
+ *     RtlpHpVaMgrAlloc @ 0x14030424C (RtlpHpVaMgrAlloc.c)
+ *     KiAbEntryUpdateWaiterTreePosition @ 0x140358150 (KiAbEntryUpdateWaiterTreePosition.c)
+ *     KiAbEntryUpdateOwnerTreePosition @ 0x14035827C (KiAbEntryUpdateOwnerTreePosition.c)
+ *     KasanDriverUnloadImage @ 0x14036C820 (KasanDriverUnloadImage.c)
+ *     KiSetClockInterval @ 0x1403ACBC4 (KiSetClockInterval.c)
+ *     MiRemoveSlabEntry @ 0x1403BC4FC (MiRemoveSlabEntry.c)
+ *     VmpFaultEntryRemove @ 0x14045E3A6 (VmpFaultEntryRemove.c)
+ *     HalpPopCommonBufferEntry @ 0x14050DB00 (HalpPopCommonBufferEntry.c)
+ *     KiResetClockInterval @ 0x14056D814 (KiResetClockInterval.c)
+ *     PspJobIoRateVolumeEntryRemove @ 0x1405A2268 (PspJobIoRateVolumeEntryRemove.c)
+ *     RtlRemovePointerMapping @ 0x1405A8600 (RtlRemovePointerMapping.c)
+ *     VmpMergeMemoryRanges @ 0x1405F7BB4 (VmpMergeMemoryRanges.c)
+ *     VmpRemoveMemoryRange @ 0x1405F88E4 (VmpRemoveMemoryRange.c)
+ *     EtwpReleaseProviderTraitsReference @ 0x140695900 (EtwpReleaseProviderTraitsReference.c)
+ *     EtwpSetProviderTraitsCommon @ 0x140695C68 (EtwpSetProviderTraitsCommon.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x140779930 (HvpViewMapPromoteRangeToMapping.c)
+ *     PfProcessExitNotification @ 0x1407E6B80 (PfProcessExitNotification.c)
+ *     EtwpDeleteSessionDemuxObject @ 0x1409E9610 (EtwpDeleteSessionDemuxObject.c)
+ *     EtwpRegisterPrivateSession @ 0x1409E9A6C (EtwpRegisterPrivateSession.c)
+ *     HvpViewMapShrinkStorage @ 0x140A1A654 (HvpViewMapShrinkStorage.c)
+ *     MiLimitLoaderBlockHighMemory @ 0x140B5FB90 (MiLimitLoaderBlockHighMemory.c)
+ *     MiLimitLoaderBlockTotalMemory @ 0x140B5FCCC (MiLimitLoaderBlockTotalMemory.c)
+ *     MiRemoveLargeFreeLoaderDescriptors @ 0x140B69ECC (MiRemoveLargeFreeLoaderDescriptors.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RtlRbRemoveNode(unsigned __int64 *a1, unsigned __int64 a2)
 {
   char v2; // bl

@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpCovSampImageNotify @ 0x1408A4E40
+ * Callers:
+ *     EtwpCovSampEnumerateDriver @ 0x1409EF570 (EtwpCovSampEnumerateDriver.c)
+ *     EtwpCovSampEnumerateProcess @ 0x1409EF5D0 (EtwpCovSampEnumerateProcess.c)
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     EtwpCovSampAcquireSamplerRundown @ 0x1408A3A8C (EtwpCovSampAcquireSamplerRundown.c)
+ *     EtwpCovSampModuleDereference @ 0x1408A4F50 (EtwpCovSampModuleDereference.c)
+ *     EtwpCovSampProcessEnsureContext @ 0x1408A4FD0 (EtwpCovSampProcessEnsureContext.c)
+ *     EtwpCovSampContextGetModule @ 0x1409EE4AC (EtwpCovSampContextGetModule.c)
+ *     EtwpCovSampProcessAddModule @ 0x1409EFA84 (EtwpCovSampProcessAddModule.c)
+ */
+
 void __fastcall EtwpCovSampImageNotify(PUNICODE_STRING FullImageName, struct _LIST_ENTRY *ProcessId, char *ImageInfo)
 {
   __int64 v3; // rbx

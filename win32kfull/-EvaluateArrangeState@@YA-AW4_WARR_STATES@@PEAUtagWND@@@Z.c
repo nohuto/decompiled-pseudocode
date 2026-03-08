@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?EvaluateArrangeState@@YA?AW4_WARR_STATES@@PEAUtagWND@@@Z @ 0x1C01EAA3C
+ * Callers:
+ *     ?xxxArrangeWindow@@YAXPEAUtagWND@@W4_WINDOW_ARRANGEMENT_COMMAND@@@Z @ 0x1C01ECD18 (-xxxArrangeWindow@@YAXPEAUtagWND@@W4_WINDOW_ARRANGEMENT_COMMAND@@@Z.c)
+ *     ?xxxSetSnapArrangementPos@WindowArrangement@@YA_NPEAUtagWND@@PEAUtagRECT@@W4ArrangementPosOptions@1@K@Z @ 0x1C01F1F6C (-xxxSetSnapArrangementPos@WindowArrangement@@YA_NPEAUtagWND@@PEAUtagRECT@@W4ArrangementPosOption.c)
+ * Callees:
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     ?IsVerticallyMaximized@@YA_NPEBUtagWND@@@Z @ 0x1C0101D14 (-IsVerticallyMaximized@@YA_NPEBUtagWND@@@Z.c)
+ *     ?IsLeftSemiMaximized@@YA_NPEBUtagWND@@@Z @ 0x1C0101D30 (-IsLeftSemiMaximized@@YA_NPEBUtagWND@@@Z.c)
+ *     ?IsRightSemiMaximized@@YA_NPEBUtagWND@@@Z @ 0x1C0101D4C (-IsRightSemiMaximized@@YA_NPEBUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall EvaluateArrangeState(__int64 a1)
 {
   __int64 DesktopWindow; // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?xxxPollAndWaitForSingleObject@@YAKPEAU_KEVENT@@PEAXK@Z @ 0x1C0095CF4
+ * Callers:
+ *     xxxWaitForInputIdle @ 0x1C009604C (xxxWaitForInputIdle.c)
+ * Callees:
+ *     xxxReceiveMessage @ 0x1C006DB60 (xxxReceiveMessage.c)
+ *     ?ClearQueueServerEvent@@YAXG@Z @ 0x1C0094494 (-ClearQueueServerEvent@@YAXG@Z.c)
+ *     xxxRemoveQueueCompletion @ 0x1C00946F4 (xxxRemoveQueueCompletion.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ *     ClientDeliverUserApc @ 0x1C00B8288 (ClientDeliverUserApc.c)
+ */
+
 __int64 __fastcall xxxPollAndWaitForSingleObject(PVOID Object, void *a2, unsigned int a3)
 {
   __int64 v6; // rax

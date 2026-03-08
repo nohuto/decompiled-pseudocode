@@ -1,3 +1,15 @@
+/*
+ * XREFs of Interrupter_InterrupterRegisterIntialize @ 0x1C0014B54
+ * Callers:
+ *     Interrupter_D0Entry @ 0x1C0014924 (Interrupter_D0Entry.c)
+ *     Interrupter_ControllerResetPostReset @ 0x1C003DC84 (Interrupter_ControllerResetPostReset.c)
+ * Callees:
+ *     Interrupter_UpdateERDP @ 0x1C0014AA0 (Interrupter_UpdateERDP.c)
+ *     XilRegister_WriteUlong64 @ 0x1C0014C68 (XilRegister_WriteUlong64.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ *     WPP_RECORDER_SF_qqdddi @ 0x1C00189F8 (WPP_RECORDER_SF_qqdddi.c)
+ */
+
 __int64 __fastcall Interrupter_InterrupterRegisterIntialize(__int64 a1)
 {
   __int64 i; // rdi

@@ -1,3 +1,42 @@
+/*
+ * XREFs of xxxCreateDesktopEx @ 0x1C00C03D4
+ * Callers:
+ *     EditionCreateDesktopEntryPoint @ 0x1C00BF140 (EditionCreateDesktopEntryPoint.c)
+ *     xxxResolveDesktop @ 0x1C00BF660 (xxxResolveDesktop.c)
+ *     ?xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z @ 0x1C00C1594 (-xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z.c)
+ *     xxxConnectService @ 0x1C012B764 (xxxConnectService.c)
+ * Callees:
+ *     xxxSetWindowPos @ 0x1C0028F4C (xxxSetWindowPos.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C002EF28 (zzzEndDeferWinEventNotify.c)
+ *     zzzSetDesktop @ 0x1C0036340 (zzzSetDesktop.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     MapDesktop @ 0x1C003E450 (MapDesktop.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxDestroyWindow @ 0x1C004B7F0 (xxxDestroyWindow.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     LinkWindow @ 0x1C00639C0 (LinkWindow.c)
+ *     DwmAsyncDesktopFree @ 0x1C007CB6C (DwmAsyncDesktopFree.c)
+ *     zzzDecomposeDesktop @ 0x1C007CC0C (zzzDecomposeDesktop.c)
+ *     DwmAsyncDesktopCreate @ 0x1C007D0B8 (DwmAsyncDesktopCreate.c)
+ *     zzzComposeDesktop @ 0x1C007D394 (zzzComposeDesktop.c)
+ *     _CloseDesktop @ 0x1C00938E8 (_CloseDesktop.c)
+ *     CloseProtectedHandle @ 0x1C0094854 (CloseProtectedHandle.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     xxxInheritWindowMonitor @ 0x1C00ADDA0 (xxxInheritWindowMonitor.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ *     OpenDesktopCompletion @ 0x1C00C119C (OpenDesktopCompletion.c)
+ *     ?LockPointer@@YA?AU_LOCKASSIGNPAIR@@PEAV?$SharedUserObjPointerFieldspwndParent@UtagWND@@@tagWND@@PEAX@Z @ 0x1C00C131C (-LockPointer@@YA-AU_LOCKASSIGNPAIR@@PEAV-$SharedUserObjPointerFieldspwndParent@UtagWND@@@tagWND@.c)
+ *     ?xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z @ 0x1C00C1594 (-xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z.c)
+ *     ??0LeaveEnterCrit@@QEAA@XZ @ 0x1C012C5E4 (--0LeaveEnterCrit@@QEAA@XZ.c)
+ *     ??1LeaveEnterCrit@@QEAA@XZ @ 0x1C012C60C (--1LeaveEnterCrit@@QEAA@XZ.c)
+ *     ??0?$SmartObjStackRef@UtagMENU@@@@QEAA@H@Z @ 0x1C012D7EC (--0-$SmartObjStackRef@UtagMENU@@@@QEAA@H@Z.c)
+ *     ??1?$SmartObjStackRef@UtagMENU@@@@QEAA@XZ @ 0x1C012D81C (--1-$SmartObjStackRef@UtagMENU@@@@QEAA@XZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?CleanupDirtyDesktops@@YAXXZ @ 0x1C01BF744 (-CleanupDirtyDesktops@@YAXXZ.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall xxxCreateDesktopEx(union _LARGE_INTEGER *a1, unsigned int a2, int a3, int a4, HANDLE *a5, int a6)
 {

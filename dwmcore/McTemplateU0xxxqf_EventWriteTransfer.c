@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0xxxqf_EventWriteTransfer @ 0x18012E10E
+ * Callers:
+ *     ?UpdateAnimateValues@CAnimation@@UEAA_NXZ @ 0x1800C51A0 (-UpdateAnimateValues@CAnimation@@UEAA_NXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 __int64 McTemplateU0xxxqf_EventWriteTransfer(__int64 a1, __int64 a2, ...)
 {
   _BYTE v3[16]; // [rsp+30h] [rbp-31h] BYREF

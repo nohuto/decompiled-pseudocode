@@ -1,3 +1,19 @@
+/*
+ * XREFs of SepIsParentOfChildAppContainer @ 0x1409CEBF4
+ * Callers:
+ *     SeIsParentOfChildAppContainer @ 0x1409C65F0 (SeIsParentOfChildAppContainer.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     SepGetTokenSessionMapEntry @ 0x14045C46E (SepGetTokenSessionMapEntry.c)
+ *     RtlIsParentOfChildAppContainer @ 0x1409B9428 (RtlIsParentOfChildAppContainer.c)
+ *     SepFindMatchingLowBoxNumberEntries @ 0x1409CE86C (SepFindMatchingLowBoxNumberEntries.c)
+ */
+
 char __fastcall SepIsParentOfChildAppContainer(unsigned int a1, int a2, int a3)
 {
   char IsParentOfChildAppContainer; // r15

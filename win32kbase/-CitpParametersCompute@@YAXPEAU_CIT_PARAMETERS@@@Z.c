@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CitpParametersCompute@@YAXPEAU_CIT_PARAMETERS@@@Z @ 0x1C00C5BF0
+ * Callers:
+ *     ?CitpContextUserLogon@@YAJPEAU_CIT_IMPACT_CONTEXT@@PEBU_LUID@@@Z @ 0x1C00C5594 (-CitpContextUserLogon@@YAJPEAU_CIT_IMPACT_CONTEXT@@PEBU_LUID@@@Z.c)
+ *     ?CitpInitialize@@YAJPEBG@Z @ 0x1C00C57B0 (-CitpInitialize@@YAJPEBG@Z.c)
+ *     ?CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z @ 0x1C00C5978 (-CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CitpParametersCompute(struct _CIT_PARAMETERS *a1)
 {
   int v2; // edx

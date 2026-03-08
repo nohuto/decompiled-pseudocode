@@ -1,3 +1,17 @@
+/*
+ * XREFs of HvlpInvokeGetPageListHypercall @ 0x140547EC8
+ * Callers:
+ *     HvlpMarkHypervisorPagesForHibernation @ 0x140544D14 (HvlpMarkHypervisorPagesForHibernation.c)
+ *     HvlAddPagesCallbackRoutine @ 0x140544F20 (HvlAddPagesCallbackRoutine.c)
+ *     HvlpGetEncryptedDataFromHypervisor @ 0x1405458B8 (HvlpGetEncryptedDataFromHypervisor.c)
+ *     HvlpGetPageList @ 0x140547DF4 (HvlpGetPageList.c)
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 char __fastcall HvlpInvokeGetPageListHypercall(__int64 a1, LONGLONG a2)
 {
   PHYSICAL_ADDRESS *v4; // rax

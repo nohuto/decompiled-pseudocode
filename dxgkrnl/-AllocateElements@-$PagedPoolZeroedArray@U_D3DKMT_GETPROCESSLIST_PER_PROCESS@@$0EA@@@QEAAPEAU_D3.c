@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AllocateElements@?$PagedPoolZeroedArray@U_D3DKMT_GETPROCESSLIST_PER_PROCESS@@$0EA@@@QEAAPEAU_D3DKMT_GETPROCESSLIST_PER_PROCESS@@I@Z @ 0x1C02C8FB4
+ * Callers:
+ *     NtDxgkGetProcessList @ 0x1C02D1A80 (NtDxgkGetProcessList.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall PagedPoolZeroedArray<_D3DKMT_GETPROCESSLIST_PER_PROCESS,64>::AllocateElements(
         __int64 *a1,
         unsigned int a2)

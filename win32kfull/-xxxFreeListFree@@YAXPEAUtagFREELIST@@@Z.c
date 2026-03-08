@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z @ 0x1C01FC75C
+ * Callers:
+ *     ?xxxCleanupDdeConv@@YAXPEAUtagWND@@@Z @ 0x1C01FBC54 (-xxxCleanupDdeConv@@YAXPEAUtagWND@@@Z.c)
+ *     xxxDDETrackGetMessageHook @ 0x1C01FD7B8 (xxxDDETrackGetMessageHook.c)
+ *     xxxDDETrackPostHook @ 0x1C01FDCA4 (xxxDDETrackPostHook.c)
+ *     xxxDDETrackWindowDying @ 0x1C01FE184 (xxxDDETrackWindowDying.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     xxxClientFreeDDEHandle @ 0x1C0215308 (xxxClientFreeDDEHandle.c)
+ */
+
 void __fastcall xxxFreeListFree(struct tagFREELIST *a1)
 {
   struct tagFREELIST *v1; // rbx

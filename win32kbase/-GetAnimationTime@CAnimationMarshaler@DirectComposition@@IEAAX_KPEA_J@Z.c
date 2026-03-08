@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetAnimationTime@CAnimationMarshaler@DirectComposition@@IEAAX_KPEA_J@Z @ 0x1C024CEF8
+ * Callers:
+ *     ?GetAnimationTime@CApplicationChannel@DirectComposition@@QEAAJI_KPEA_J@Z @ 0x1C024AEE4 (-GetAnimationTime@CApplicationChannel@DirectComposition@@QEAAJI_KPEA_J@Z.c)
+ * Callees:
+ *     ?GetAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEA_NPEA_JPEA_K@Z @ 0x1C024CF60 (-GetAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEA_NPEA_JPEA_K@Z.c)
+ */
+
 void __fastcall DirectComposition::CAnimationMarshaler::GetAnimationTime(
         DirectComposition::CAnimationMarshaler *this,
         unsigned __int64 a2,

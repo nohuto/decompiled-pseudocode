@@ -1,3 +1,26 @@
+/*
+ * XREFs of CcCompleteAsyncRead @ 0x14020A77C
+ * Callers:
+ *     CcCompleteAsyncReadWorker @ 0x14020A670 (CcCompleteAsyncReadWorker.c)
+ *     CcPostWorkQueueAsyncRead @ 0x140216768 (CcPostWorkQueueAsyncRead.c)
+ *     CcAsyncReadWorker @ 0x1403B8B70 (CcAsyncReadWorker.c)
+ * Callees:
+ *     PsSetPagePriorityThread @ 0x14020AA94 (PsSetPagePriorityThread.c)
+ *     CcDecrementOpenCount @ 0x14021B85C (CcDecrementOpenCount.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     PsGetPagePriorityThread @ 0x14028A290 (PsGetPagePriorityThread.c)
+ *     IoDiskIoAttributionDereference @ 0x14030C4DC (IoDiskIoAttributionDereference.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     CcCopyReadExceptionFilter @ 0x140535030 (CcCopyReadExceptionFilter.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcTelemetryBucketizeLatency @ 0x1406A74A0 (CcTelemetryBucketizeLatency.c)
+ *     CcMapAndCopyFromCache @ 0x1406A7510 (CcMapAndCopyFromCache.c)
+ */
+
 __int64 __fastcall CcCompleteAsyncRead(__int64 a1)
 {
   __int64 v2; // r13

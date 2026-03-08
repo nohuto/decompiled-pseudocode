@@ -1,3 +1,11 @@
+/*
+ * XREFs of SeOpenObjectForDeleteAuditAlarm @ 0x1409CB310
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1409CB370 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ */
+
 void __stdcall SeOpenObjectForDeleteAuditAlarm(
         PUNICODE_STRING ObjectTypeName,
         PVOID Object,

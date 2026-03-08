@@ -1,3 +1,11 @@
+/*
+ * XREFs of SetThreadName @ 0x1C00CDE80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall SetThreadName(HANDLE ThreadHandle, const WCHAR *a2)
 {
   int result; // eax

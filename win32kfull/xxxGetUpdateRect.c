@@ -1,3 +1,17 @@
+/*
+ * XREFs of xxxGetUpdateRect @ 0x1C00FE78C
+ * Callers:
+ *     NtUserGetUpdateRect @ 0x1C00FE640 (NtUserGetUpdateRect.c)
+ * Callees:
+ *     GreTransformPoints @ 0x1C0006C84 (GreTransformPoints.c)
+ *     xxxSimpleDoSyncPaint @ 0x1C0038E64 (xxxSimpleDoSyncPaint.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     IntersectWithParents @ 0x1C00FEB48 (IntersectWithParents.c)
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall xxxGetUpdateRect(struct tagWND *a1, _OWORD *a2, int a3)
 {
   __int64 v5; // rax

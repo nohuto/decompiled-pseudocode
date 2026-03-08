@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??_GCGeometry2D@@MEAAPEAXI@Z @ 0x1801BFD80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801046B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??1CGeometry2D@@MEAA@XZ @ 0x18012A262 (--1CGeometry2D@@MEAA@XZ.c)
+ */
+
 CGeometry2D *__fastcall CGeometry2D::`scalar deleting destructor'(CGeometry2D *this, char a2)
 {
   CGeometry2D::~CGeometry2D(this);

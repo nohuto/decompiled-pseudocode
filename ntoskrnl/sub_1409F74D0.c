@@ -1,3 +1,12 @@
+/*
+ * XREFs of sub_1409F74D0 @ 0x1409F74D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExpGetLicenseTamperState @ 0x140606C7C (ExpGetLicenseTamperState.c)
+ *     sub_1409F6ABC @ 0x1409F6ABC (sub_1409F6ABC.c)
+ */
+
 __int64 __fastcall sub_1409F74D0(__int64 a1, _DWORD *a2, _DWORD *a3, unsigned int a4, _DWORD *a5, _BYTE *a6)
 {
   unsigned int v9; // ecx

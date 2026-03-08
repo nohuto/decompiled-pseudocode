@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpRotateCompressionTarget @ 0x1406006D8
+ * Callers:
+ *     EtwpCompressBuffer @ 0x1405FFD70 (EtwpCompressBuffer.c)
+ *     EtwpRotateCompressionTargetIfNeeded @ 0x140600744 (EtwpRotateCompressionTargetIfNeeded.c)
+ * Callees:
+ *     EtwpGetLoggerTimeStamp @ 0x140205F68 (EtwpGetLoggerTimeStamp.c)
+ *     EtwpDequeueFreeBuffer @ 0x14020620C (EtwpDequeueFreeBuffer.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x1402063C4 (EtwpEnqueueAvailableBuffer.c)
+ */
+
 unsigned int *__fastcall EtwpRotateCompressionTarget(__int64 a1)
 {
   unsigned int *v1; // rdi

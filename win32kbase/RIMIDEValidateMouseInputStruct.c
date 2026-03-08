@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMIDEValidateMouseInputStruct @ 0x1C01C54C4
+ * Callers:
+ *     RIMIDEInjectMouseFromMouseInputStruct @ 0x1C01C4968 (RIMIDEInjectMouseFromMouseInputStruct.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00052A0 (WPP_RECORDER_AND_TRACE_SF_dd.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C000F0BC (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     WPP_RECORDER_AND_TRACE_SF_i @ 0x1C00EF71A (WPP_RECORDER_AND_TRACE_SF_i.c)
+ */
+
 __int64 __fastcall RIMIDEValidateMouseInputStruct(__int64 a1)
 {
   int v1; // r8d

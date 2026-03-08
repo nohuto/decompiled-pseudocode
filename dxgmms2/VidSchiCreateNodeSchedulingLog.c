@@ -1,3 +1,18 @@
+/*
+ * XREFs of VidSchiCreateNodeSchedulingLog @ 0x1C0045370
+ * Callers:
+ *     ?VidSchiProcessAsyncOperation@@YAXPEAX@Z @ 0x1C0042B10 (-VidSchiProcessAsyncOperation@@YAXPEAX@Z.c)
+ *     VidSchCreateSchedulingLogs @ 0x1C00C20D0 (VidSchCreateSchedulingLogs.c)
+ * Callees:
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0013414 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00134D8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     ?VidSchiCalibrateHwClock@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C001C7BC (-VidSchiCalibrateHwClock@@YAXPEAU_VIDSCH_NODE@@@Z.c)
+ *     ??_GVIDMM_SCH_LOG@@AEAAPEAXI@Z @ 0x1C004CE98 (--_GVIDMM_SCH_LOG@@AEAAPEAXI@Z.c)
+ *     ?CreateSchLog@VIDMM_SCH_LOG@@SAJPEAVVIDMM_GLOBAL@@I_KPEAPEAV1@PEAPEAXPEA_K@Z @ 0x1C004CECC (-CreateSchLog@VIDMM_SCH_LOG@@SAJPEAVVIDMM_GLOBAL@@I_KPEAPEAV1@PEAPEAXPEA_K@Z.c)
+ *     VidSchiSerializeSchedulingLog @ 0x1C010977C (VidSchiSerializeSchedulingLog.c)
+ */
+
 __int64 __fastcall VidSchiCreateNodeSchedulingLog(struct _VIDSCH_NODE *a1, unsigned int a2)
 {
   __int64 v2; // rdi

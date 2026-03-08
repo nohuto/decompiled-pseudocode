@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?D3DXVec3TransformNormal@@YAPEAUD2DVector3@@PEAU1@PEBU1@PEBUD2DMatrix@@@Z @ 0x18027B7C0
+ * Callers:
+ *     ?InitializeForces@CNaturalAnimation@@AEAAXXZ @ 0x1802398F8 (-InitializeForces@CNaturalAnimation@@AEAAXXZ.c)
+ *     ?Vector3TransformNormal@CExpressionValueStack@@QEAAJXZ @ 0x18025F4EC (-Vector3TransformNormal@CExpressionValueStack@@QEAAJXZ.c)
+ *     _lambda_c2661e01401ae061a9dc9ee442c48f39_::operator() @ 0x180273934 (_lambda_c2661e01401ae061a9dc9ee442c48f39_--operator().c)
+ * Callees:
+ *     <none>
+ */
+
 struct D2DVector3 *__fastcall D3DXVec3TransformNormal(
         struct D2DVector3 *a1,
         const struct D2DVector3 *a2,

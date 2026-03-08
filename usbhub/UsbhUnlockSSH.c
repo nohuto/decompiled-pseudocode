@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhUnlockSSH @ 0x1C0022790
+ * Callers:
+ *     Usbh_SSH_HubPendingSuspend @ 0x1C0004B88 (Usbh_SSH_HubPendingSuspend.c)
+ *     Usbh_SSH_HubSuspended @ 0x1C00050BC (Usbh_SSH_HubSuspended.c)
+ *     Usbh_SSH_Event @ 0x1C0007220 (Usbh_SSH_Event.c)
+ *     Usbh_SSH_HubPendingResume @ 0x1C00076A0 (Usbh_SSH_HubPendingResume.c)
+ *     UsbhFdoReturnPortStatus @ 0x1C0015DF0 (UsbhFdoReturnPortStatus.c)
+ *     Usbh_SSH_HubFailedResume @ 0x1C0059640 (Usbh_SSH_HubFailedResume.c)
+ *     Usbh_SSH_HubPendingResumeAfterSuspend @ 0x1C00596BC (Usbh_SSH_HubPendingResumeAfterSuspend.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ */
+
 LONG __fastcall UsbhUnlockSSH(__int64 a1, int a2)
 {
   _DWORD *v4; // rax

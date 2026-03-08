@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiDevCfgGetMigrationDeviceIdScore @ 0x14055FA3C
+ * Callers:
+ *     PiDevCfgFindDeviceMigrationNode @ 0x14095AB1C (PiDevCfgFindDeviceMigrationNode.c)
+ * Callees:
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ */
+
 __int64 __fastcall PiDevCfgGetMigrationDeviceIdScore(wchar_t *Str1, wchar_t *Str2)
 {
   const wchar_t *v2; // rbx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhGetTtDeviceHandle @ 0x1C0038740
+ * Callers:
+ *     UsbhCreateDevice @ 0x1C0002364 (UsbhCreateDevice.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ */
+
 __int64 __fastcall UsbhGetTtDeviceHandle(__int64 a1, __int64 *a2, __int64 a3, _NAMED_PIPE_CREATE_PARAMETERS *a4)
 {
   PDEVICE_OBJECT *v8; // rbp

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CThreadContext@@AEAA@XZ @ 0x18026E3D8
+ * Callers:
+ *     ?FreeCurrent@CThreadContext@@SAXXZ @ 0x1800AD820 (-FreeCurrent@CThreadContext@@SAXXZ.c)
+ * Callees:
+ *     ?Destroy@CObjectCache@@QEAAXXZ @ 0x18026E4F8 (-Destroy@CObjectCache@@QEAAXXZ.c)
+ */
+
 void __fastcall CThreadContext::~CThreadContext(CThreadContext *this)
 {
   CObjectCache::Destroy((CThreadContext *)((char *)this + 384));

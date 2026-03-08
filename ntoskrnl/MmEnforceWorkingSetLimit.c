@@ -1,3 +1,21 @@
+/*
+ * XREFs of MmEnforceWorkingSetLimit @ 0x140294980
+ * Callers:
+ *     PspApplyWorkingSetLimitsToProcess @ 0x1406FEF9C (PspApplyWorkingSetLimitsToProcess.c)
+ *     PspSetQuotaLimits @ 0x140794940 (PspSetQuotaLimits.c)
+ *     PspAddProcessToWorkingSetChangeList @ 0x1409AEE48 (PspAddProcessToWorkingSetChangeList.c)
+ *     PspApplyWorkingSetLimits @ 0x1409AEF10 (PspApplyWorkingSetLimits.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall MmEnforceWorkingSetLimit(struct _KPROCESS *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rbp

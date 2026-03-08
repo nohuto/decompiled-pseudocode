@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlLengthCurrentClearRunBackward @ 0x14020B26C
+ * Callers:
+ *     MiCoalescePageFileBitmapsCache @ 0x14020B47C (MiCoalescePageFileBitmapsCache.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlLengthCurrentClearRunBackward(__int64 a1, unsigned int a2, unsigned int a3)
 {
   _DWORD *v3; // rbx

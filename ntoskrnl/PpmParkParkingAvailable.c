@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmParkParkingAvailable @ 0x1408266FC
+ * Callers:
+ *     PpmParkRegisterParking @ 0x14038D880 (PpmParkRegisterParking.c)
+ *     PpmCheckReInit @ 0x1408265CC (PpmCheckReInit.c)
+ *     PpmParkApplyForcedMask @ 0x140996E54 (PpmParkApplyForcedMask.c)
+ *     PpmParkClearForcedMask @ 0x140996F54 (PpmParkClearForcedMask.c)
+ * Callees:
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ */
+
 unsigned __int8 PpmParkParkingAvailable()
 {
   unsigned __int8 v0; // bl

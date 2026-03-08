@@ -1,3 +1,11 @@
+/*
+ * XREFs of CLIPOBJ_GetRgn @ 0x1C0268090
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ @ 0x1C0029D50 (-hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ.c)
+ */
+
 HANDLE __stdcall CLIPOBJ_GetRgn(CLIPOBJ *pco)
 {
   struct RGNOBJ *v1; // rdi

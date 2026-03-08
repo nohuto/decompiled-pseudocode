@@ -1,3 +1,11 @@
+/*
+ * XREFs of Crashdump_EventRing_AsyncPoll @ 0x1C004E190
+ * Callers:
+ *     Crashdump_PollForCompletion @ 0x1C004CC90 (Crashdump_PollForCompletion.c)
+ * Callees:
+ *     Crashdump_EventRing_UpdateDequeuePointer @ 0x1C004E9FC (Crashdump_EventRing_UpdateDequeuePointer.c)
+ */
+
 __int64 __fastcall Crashdump_EventRing_AsyncPoll(__int64 a1, __int64 *a2)
 {
   unsigned int v4; // ebx

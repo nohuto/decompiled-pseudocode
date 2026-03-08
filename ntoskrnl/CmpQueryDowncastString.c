@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpQueryDowncastString @ 0x14078C9F4
+ * Callers:
+ *     CmQueryBuildVersionInformation @ 0x14078C8A8 (CmQueryBuildVersionInformation.c)
+ * Callees:
+ *     RtlUnicodeStringToAnsiString @ 0x1407A34D0 (RtlUnicodeStringToAnsiString.c)
+ */
+
 NTSTATUS __fastcall CmpQueryDowncastString(char *a1, unsigned __int16 a2, const UNICODE_STRING *a3)
 {
   NTSTATUS result; // eax

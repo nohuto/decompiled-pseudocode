@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiVerifyContextXStateCetUEnabled @ 0x140457B0C
+ * Callers:
+ *     KeVerifyContextXStateCetU @ 0x1403649C8 (KeVerifyContextXStateCetU.c)
+ *     KiUnwindUserSspForApcContextCopyBypass @ 0x14057E274 (KiUnwindUserSspForApcContextCopyBypass.c)
+ * Callees:
+ *     ZwQueryVirtualMemory @ 0x140412770 (ZwQueryVirtualMemory.c)
+ */
+
 __int64 __fastcall KiVerifyContextXStateCetUEnabled(_QWORD *a1, void *a2)
 {
   bool v2; // zf

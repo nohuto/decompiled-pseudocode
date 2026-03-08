@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?QueryResourceInterface@CChannel@@UEAAJIAEBU_GUID@@PEAPEAX@Z @ 0x1801CD330
+ * Callers:
+ *     ?VisualTargetSetRoot@CChannel@@UEAAJII@Z @ 0x18003FF00 (-VisualTargetSetRoot@CChannel@@UEAAJII@Z.c)
+ *     ?VisualRemoveAllChildren@CChannel@@UEAAJI@Z @ 0x180040450 (-VisualRemoveAllChildren@CChannel@@UEAAJI@Z.c)
+ *     ?VisualRemoveChild@CChannel@@UEAAJII@Z @ 0x180043A30 (-VisualRemoveChild@CChannel@@UEAAJII@Z.c)
+ *     ?VisualInsertChild@CChannel@@UEAAJIII_N@Z @ 0x180043D90 (-VisualInsertChild@CChannel@@UEAAJIII_N@Z.c)
+ * Callees:
+ *     ??0CChannelLock@CChannel@@QEAA@PEAV1@@Z @ 0x18004407C (--0CChannelLock@CChannel@@QEAA@PEAV1@@Z.c)
+ *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800441FC (--1CChannelLock@CChannel@@QEAA@XZ.c)
+ *     ?IsValidHandle@CChannel@@AEAA_NI@Z @ 0x1800442E0 (-IsValidHandle@CChannel@@AEAA_NI@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CChannel::QueryResourceInterface(CChannel *this, unsigned int a2, const struct _GUID *a3, void **a4)
 {
   unsigned int v8; // ebx

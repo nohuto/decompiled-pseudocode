@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmIdleLockProcessor @ 0x140582D5C
+ * Callers:
+ *     PpmTestAndLockProcessor @ 0x140583A5C (PpmTestAndLockProcessor.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PpmIdleLockProcessor(unsigned __int32 *a1)
 {
   unsigned int v1; // r9d

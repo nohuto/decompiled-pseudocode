@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserChangeWindowMessageFilterEx @ 0x1C00CB850
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _ChangeWindowMessageFilterEx @ 0x1C00CB9E8 (_ChangeWindowMessageFilterEx.c)
+ */
+
 __int64 __fastcall NtUserChangeWindowMessageFilterEx(__int64 a1, unsigned int a2, unsigned int a3, __int64 *a4)
 {
   __int64 v8; // rcx

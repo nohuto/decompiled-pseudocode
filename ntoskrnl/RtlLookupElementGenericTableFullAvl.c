@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlLookupElementGenericTableFullAvl @ 0x140245840
+ * Callers:
+ *     VfAvlLookupTreeNode @ 0x140303680 (VfAvlLookupTreeNode.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1406CBBDC (PiDmAddCacheReferenceForObject.c)
+ *     PiPnpRtlObjectEventCreate @ 0x1406CEB28 (PiPnpRtlObjectEventCreate.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 PVOID __stdcall RtlLookupElementGenericTableFullAvl(
         PRTL_AVL_TABLE Table,
         PVOID Buffer,

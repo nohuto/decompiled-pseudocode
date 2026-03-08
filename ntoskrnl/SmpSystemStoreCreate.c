@@ -1,3 +1,16 @@
+/*
+ * XREFs of SmpSystemStoreCreate @ 0x140858420
+ * Callers:
+ *     SmProcessConfigRequest @ 0x1408582AC (SmProcessConfigRequest.c)
+ *     SmInitSystem @ 0x140B427B4 (SmInitSystem.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     SmpDirtyStoreCreate @ 0x1407DD540 (SmpDirtyStoreCreate.c)
+ */
+
 __int64 __fastcall SmpSystemStoreCreate(__int64 a1)
 {
   volatile signed __int64 *v1; // rdi

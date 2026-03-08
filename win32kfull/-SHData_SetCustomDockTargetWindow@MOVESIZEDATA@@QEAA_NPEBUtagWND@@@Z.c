@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?SHData_SetCustomDockTargetWindow@MOVESIZEDATA@@QEAA_NPEBUtagWND@@@Z @ 0x1C023D518
+ * Callers:
+ *     NtUserRegisterForCustomDockTargets @ 0x1C01DA3D0 (NtUserRegisterForCustomDockTargets.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C00200C4 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     IsMessageOnlyWindow @ 0x1C00967C0 (IsMessageOnlyWindow.c)
+ *     ?SHData_GetCustomDockTargetWindow@MOVESIZEDATA@@QEBAPEAUtagWND@@XZ @ 0x1C023D1DC (-SHData_GetCustomDockTargetWindow@MOVESIZEDATA@@QEBAPEAUtagWND@@XZ.c)
+ */
+
 bool __fastcall MOVESIZEDATA::SHData_SetCustomDockTargetWindow(MOVESIZEDATA *this, const struct tagWND *a2)
 {
   int v4; // eax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpSysModuleRunDown @ 0x14080E368
+ * Callers:
+ *     EtwpProcessEnumCallback @ 0x14080DD60 (EtwpProcessEnumCallback.c)
+ * Callees:
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     HvlQueryConnection @ 0x14037FC40 (HvlQueryConnection.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MmEnumerateSystemImages @ 0x14080E4B0 (MmEnumerateSystemImages.c)
+ */
+
 __int64 __fastcall EtwpSysModuleRunDown(__int64 a1, char a2)
 {
   __int16 v4; // ax

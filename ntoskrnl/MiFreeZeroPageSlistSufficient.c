@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiFreeZeroPageSlistSufficient @ 0x14064B2AC
+ * Callers:
+ *     MiZeroPage @ 0x140275060 (MiZeroPage.c)
+ * Callees:
+ *     MiNodeFreeZeroPages @ 0x14034EAD4 (MiNodeFreeZeroPages.c)
+ */
+
 _BOOL8 __fastcall MiFreeZeroPageSlistSufficient(__int64 a1, unsigned int a2, int a3)
 {
   if ( (*(_DWORD *)(a1 + 4) & 0x10) != 0

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopSetSessionDisplayStatus @ 0x14079A2F0
+ * Callers:
+ *     PopSessionDisconnected @ 0x14067FF58 (PopSessionDisconnected.c)
+ *     PopSessionConnected @ 0x14079A204 (PopSessionConnected.c)
+ *     PopSetDisplayStatus @ 0x140880858 (PopSetDisplayStatus.c)
+ * Callees:
+ *     PopPrintEx @ 0x1402BDCD4 (PopPrintEx.c)
+ *     PopSetPowerSettingValue @ 0x14068CFA0 (PopSetPowerSettingValue.c)
+ *     PopDiagTraceSessionState @ 0x14073CA10 (PopDiagTraceSessionState.c)
+ */
+
 __int64 __fastcall PopSetSessionDisplayStatus(unsigned int a1, int a2, char a3)
 {
   const char *v6; // r8

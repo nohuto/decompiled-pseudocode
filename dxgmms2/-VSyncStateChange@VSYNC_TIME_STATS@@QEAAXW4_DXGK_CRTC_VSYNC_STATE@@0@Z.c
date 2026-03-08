@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VSyncStateChange@VSYNC_TIME_STATS@@QEAAXW4_DXGK_CRTC_VSYNC_STATE@@0@Z @ 0x1C004829C
+ * Callers:
+ *     ?VidSchiSetInterruptTargetPresentId@@YAJPEAU_VIDSCH_GLOBAL@@II_K_NI@Z @ 0x1C004A448 (-VidSchiSetInterruptTargetPresentId@@YAJPEAU_VIDSCH_GLOBAL@@II_K_NI@Z.c)
+ * Callees:
+ *     McTemplateK0qxxx_EtwWriteTransfer @ 0x1C00323F4 (McTemplateK0qxxx_EtwWriteTransfer.c)
+ */
+
 void __fastcall VSYNC_TIME_STATS::VSyncStateChange(VSYNC_TIME_STATS *this, enum _DXGK_CRTC_VSYNC_STATE a2, int a3)
 {
   LARGE_INTEGER v6; // rax

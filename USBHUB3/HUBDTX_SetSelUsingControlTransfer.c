@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBDTX_SetSelUsingControlTransfer @ 0x1C002D548
+ * Callers:
+ *     HUBDSM_SettingSEL @ 0x1C0024DC0 (HUBDSM_SettingSEL.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBMISC_ControlTransfer @ 0x1C0032664 (HUBMISC_ControlTransfer.c)
+ */
+
 __int64 __fastcall HUBDTX_SetSelUsingControlTransfer(__int64 *a1)
 {
   __int64 v1; // r9

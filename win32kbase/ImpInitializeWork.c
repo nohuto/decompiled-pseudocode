@@ -1,3 +1,19 @@
+/*
+ * XREFs of ImpInitializeWork @ 0x1C0089C08
+ * Callers:
+ *     ImSessionStart @ 0x1C008BE98 (ImSessionStart.c)
+ * Callees:
+ *     ImpAllocate @ 0x1C0089EE4 (ImpAllocate.c)
+ *     ImpReleaseLock @ 0x1C008A6FC (ImpReleaseLock.c)
+ *     ImpAcquireLock @ 0x1C008A74C (ImpAcquireLock.c)
+ *     ImpInitializeLock @ 0x1C008BE24 (ImpInitializeLock.c)
+ *     ImpRpcAsyncInit @ 0x1C008C754 (ImpRpcAsyncInit.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C008D2C0 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ImpCleanupLock @ 0x1C008D638 (ImpCleanupLock.c)
+ *     ImpRpcAsyncUnInit @ 0x1C008D848 (ImpRpcAsyncUnInit.c)
+ *     Feature_IMRespectWTDToggle__private_IsEnabledDeviceUsage @ 0x1C00E1674 (Feature_IMRespectWTDToggle__private_IsEnabledDeviceUsage.c)
+ */
+
 __int64 __fastcall ImpInitializeWork(PVOID Object, struct _KEVENT **a2, __int64 a3)
 {
   char v4; // r13

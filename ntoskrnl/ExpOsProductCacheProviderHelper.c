@@ -1,3 +1,20 @@
+/*
+ * XREFs of ExpOsProductCacheProviderHelper @ 0x140859E94
+ * Callers:
+ *     ExpCloudbookHardwareLockedProvider @ 0x140859D80 (ExpCloudbookHardwareLockedProvider.c)
+ *     ExpCloudbookHardwareIDProvider @ 0x1409F6AF0 (ExpCloudbookHardwareIDProvider.c)
+ *     ExpGenuinePolicyPostProcess @ 0x1409F6FF0 (ExpGenuinePolicyPostProcess.c)
+ *     ExpOsProductContentIdCacheProvider @ 0x1409F7240 (ExpOsProductContentIdCacheProvider.c)
+ *     ExpOsProductPfnCacheProvider @ 0x1409F7280 (ExpOsProductPfnCacheProvider.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SpRegOpenRedirectedKey @ 0x140859F40 (SpRegOpenRedirectedKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpOsProductCacheProviderHelper(
         __int64 a1,
         UNICODE_STRING *a2,

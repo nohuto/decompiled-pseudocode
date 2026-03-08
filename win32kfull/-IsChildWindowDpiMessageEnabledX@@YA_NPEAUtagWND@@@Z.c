@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsChildWindowDpiMessageEnabledX@@YA_NPEAUtagWND@@@Z @ 0x1C00359DC
+ * Callers:
+ *     NtUserIsChildWindowDpiMessageEnabled @ 0x1C0035930 (NtUserIsChildWindowDpiMessageEnabled.c)
+ *     xxxTrackPopupMenuEx @ 0x1C02353CC (xxxTrackPopupMenuEx.c)
+ * Callees:
+ *     _GetTopLevelWindow @ 0x1C0035AF0 (_GetTopLevelWindow.c)
+ */
+
 char __fastcall IsChildWindowDpiMessageEnabledX(struct tagWND *a1)
 {
   char v1; // bl

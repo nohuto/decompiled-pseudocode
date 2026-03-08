@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsInMotion@CMotion@@QEBA_NXZ @ 0x18026B694
+ * Callers:
+ *     ?IsInMotion@CScrollAnimation@@UEBA_NXZ @ 0x180261B60 (-IsInMotion@CScrollAnimation@@UEBA_NXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?HasImpulse@CMotion@@QEBA_NXZ @ 0x180261990 (-HasImpulse@CMotion@@QEBA_NXZ.c)
+ */
+
 char __fastcall CMotion::IsInMotion(CMotion *this)
 {
   char v2; // bl

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpRemoveEventFromQueue @ 0x140961638
+ * Callers:
+ *     PnpQueueQueryAndRemoveEvent @ 0x14096B0E0 (PnpQueueQueryAndRemoveEvent.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpRemoveEventFromQueue(PVOID P)
 {
   unsigned int v2; // edi

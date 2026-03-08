@@ -1,3 +1,17 @@
+/*
+ * XREFs of PfCalculateProcessHash @ 0x1407E7450
+ * Callers:
+ *     PfProcessCreateNotification @ 0x1407E6CA0 (PfProcessCreateNotification.c)
+ *     PfSnBeginAppLaunch @ 0x1407E6D34 (PfSnBeginAppLaunch.c)
+ *     PfSnOperationProcess @ 0x14097C840 (PfSnOperationProcess.c)
+ *     PfSnSetAltPrefetchParam @ 0x14097C9F8 (PfSnSetAltPrefetchParam.c)
+ * Callees:
+ *     PfpLogApplicationEvent @ 0x14035B9B8 (PfpLogApplicationEvent.c)
+ *     RtlUpcaseUnicodeString @ 0x1407A3D00 (RtlUpcaseUnicodeString.c)
+ *     PsGetAllocatedFullProcessImageName @ 0x1407E764C (PsGetAllocatedFullProcessImageName.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfCalculateProcessHash(__int64 a1, unsigned __int64 a2)
 {
   _QWORD *v2; // rdi

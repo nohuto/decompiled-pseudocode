@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhGetDescriptor @ 0x1C002B9AC
+ * Callers:
+ *     UsbhGetHubClassDescriptor @ 0x1C002C09C (UsbhGetHubClassDescriptor.c)
+ *     UsbhGetHubConfigurationDescriptor @ 0x1C002C234 (UsbhGetHubConfigurationDescriptor.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhSyncSendCommand @ 0x1C0016EE0 (UsbhSyncSendCommand.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 __int64 __fastcall UsbhGetDescriptor(__int64 a1, unsigned __int16 *a2, __int64 a3, char a4, int a5, char a6)
 {
   bool v10; // cf

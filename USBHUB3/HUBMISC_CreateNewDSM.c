@@ -1,3 +1,16 @@
+/*
+ * XREFs of HUBMISC_CreateNewDSM @ 0x1C0031308
+ * Callers:
+ *     HUBPSM30_CreatingDeviceInConnectedWithResetInProgress @ 0x1C0011C10 (HUBPSM30_CreatingDeviceInConnectedWithResetInProgress.c)
+ * Callees:
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001CA0 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C00154F0 (WPP_RECORDER_SF_qq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 __int64 __fastcall HUBMISC_CreateNewDSM(__int64 *a1)
 {
   __int64 v2; // rdi

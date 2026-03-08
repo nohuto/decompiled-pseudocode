@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpSubtreeEnumeratorReset @ 0x140A1DA20
+ * Callers:
+ *     CmRenameKey @ 0x140A1170C (CmRenameKey.c)
+ * Callees:
+ *     CmpResetKeyNodeStack @ 0x140A1D48C (CmpResetKeyNodeStack.c)
+ *     CmpKeyEnumStackReset @ 0x140A2152C (CmpKeyEnumStackReset.c)
+ */
+
 void __fastcall CmpSubtreeEnumeratorReset(__int64 a1)
 {
   __int64 v2; // rdi

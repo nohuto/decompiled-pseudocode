@@ -1,3 +1,18 @@
+/*
+ * XREFs of UsbhDeleteUxdSettings @ 0x1C0059BF8
+ * Callers:
+ *     Usbh_PdoRemove_PdoEvent @ 0x1C003B22C (Usbh_PdoRemove_PdoEvent.c)
+ *     UsbhPortDisconnect @ 0x1C004D690 (UsbhPortDisconnect.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhDeleteUxdDeviceKey @ 0x1C0059A68 (UsbhDeleteUxdDeviceKey.c)
+ *     UsbhDeleteUxdPortSettings @ 0x1C0059B28 (UsbhDeleteUxdPortSettings.c)
+ *     UsbhGetGlobalUxdSettings @ 0x1C0059EA0 (UsbhGetGlobalUxdSettings.c)
+ *     UsbhOpenUxdPortHandle @ 0x1C005A6D0 (UsbhOpenUxdPortHandle.c)
+ */
+
 __int64 __fastcall UsbhDeleteUxdSettings(__int64 a1, __int64 a2, int a3)
 {
   _DWORD *v6; // rsi

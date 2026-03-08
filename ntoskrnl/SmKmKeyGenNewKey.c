@@ -1,3 +1,23 @@
+/*
+ * XREFs of SmKmKeyGenNewKey @ 0x1409D6384
+ * Callers:
+ *     SmKmKeyGenGenerate @ 0x1409D601C (SmKmKeyGenGenerate.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402A4AEC (SSHSupportAllocateNonPaged.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x140413EB0 (ZwDeleteValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SmCrGenRandom @ 0x1405CB86C (SmCrGenRandom.c)
+ *     SmKmKeyGenKeyFind @ 0x1409D61C4 (SmKmKeyGenKeyFind.c)
+ *     SmKmKeyGenLoadKey @ 0x1409D6208 (SmKmKeyGenLoadKey.c)
+ */
+
 __int64 __fastcall SmKmKeyGenNewKey(ULONG_PTR BugCheckParameter2, _WORD *Src, ULONG cbBuffer)
 {
   __int64 v3; // r14

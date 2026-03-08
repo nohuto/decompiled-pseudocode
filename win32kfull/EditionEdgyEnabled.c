@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionEdgyEnabled @ 0x1C0148FE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 EditionEdgyEnabled()
 {
   unsigned int v0; // edx

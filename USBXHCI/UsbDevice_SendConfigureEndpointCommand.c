@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbDevice_SendConfigureEndpointCommand @ 0x1C0008824
+ * Callers:
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0008958 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     UsbDevice_HandleAddAndDropEndpointsState @ 0x1C000AE18 (UsbDevice_HandleAddAndDropEndpointsState.c)
+ *     UsbDevice_HandleAddEndpointsState @ 0x1C0049038 (UsbDevice_HandleAddEndpointsState.c)
+ *     UsbDevice_HandleDropEndpointsState @ 0x1C0049228 (UsbDevice_HandleDropEndpointsState.c)
+ * Callees:
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0008958 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 __int64 __fastcall UsbDevice_SendConfigureEndpointCommand(__int64 a1, int a2)
 {
   __int64 v3; // rsi

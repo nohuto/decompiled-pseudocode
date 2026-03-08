@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpMcaReadErrorPresence @ 0x14037D0E4
+ * Callers:
+ *     HalpCmcPollProcessor @ 0x14037CF58 (HalpCmcPollProcessor.c)
+ *     HalpMceHandlerCore @ 0x140501B48 (HalpMceHandlerCore.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140A920B0 (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ * Callees:
+ *     HalpWheaReadMsrStatus @ 0x14037D160 (HalpWheaReadMsrStatus.c)
+ */
+
 __int64 __fastcall HalpMcaReadErrorPresence(__int64 a1, __int64 a2)
 {
   unsigned int v3; // ebp

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PsReturnPoolQuota @ 0x140294F80
+ * Callers:
+ *     ExpReturnPoolQuota @ 0x140294F44 (ExpReturnPoolQuota.c)
+ * Callees:
+ *     PspReturnResourceQuota @ 0x1402953A0 (PspReturnResourceQuota.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void __stdcall PsReturnPoolQuota(PEPROCESS Process, POOL_TYPE PoolType, ULONG_PTR Amount)
 {
   char *v5; // r13

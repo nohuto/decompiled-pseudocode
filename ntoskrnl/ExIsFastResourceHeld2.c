@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExIsFastResourceHeld2 @ 0x14040E5CC
+ * Callers:
+ *     ExIsFastResourceHeld @ 0x1403C4F80 (ExIsFastResourceHeld.c)
+ * Callees:
+ *     ExpFindFastOwnerEntryForThread2 @ 0x140410518 (ExpFindFastOwnerEntryForThread2.c)
+ *     ExpIsFastResourceOwned @ 0x14041057C (ExpIsFastResourceOwned.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall ExIsFastResourceHeld2(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   unsigned int CurrentThread; // ebp

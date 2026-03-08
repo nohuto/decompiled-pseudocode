@@ -1,3 +1,14 @@
+/*
+ * XREFs of FsRtlDedupChangeInit @ 0x14093B690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     FsRtlpDedupChangeQueryValueKey @ 0x14093B864 (FsRtlpDedupChangeQueryValueKey.c)
+ *     FsRtlpDedupChangeRegisterVolume @ 0x14093B9A0 (FsRtlpDedupChangeRegisterVolume.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall FsRtlDedupChangeInit(_QWORD *a1, __int64 a2, __int64 a3)
 {
   int v6; // eax

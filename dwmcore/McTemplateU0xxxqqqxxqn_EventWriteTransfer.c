@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0xxxqqqxxqn_EventWriteTransfer @ 0x180253794
+ * Callers:
+ *     ?DxFlipConsumedTelemetry@CWindowNode@@AEBAXPEAVCDrawingContext@@PEAVCCompositionSurfaceBitmap@@@Z @ 0x180252EA8 (-DxFlipConsumedTelemetry@CWindowNode@@AEBAXPEAVCDrawingContext@@PEAVCCompositionSurfaceBitmap@@@.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 ULONG McTemplateU0xxxqqqxxqn_EventWriteTransfer(
         _DWORD a1,
         _DWORD a2,

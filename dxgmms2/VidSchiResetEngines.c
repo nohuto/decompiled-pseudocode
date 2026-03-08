@@ -1,3 +1,17 @@
+/*
+ * XREFs of VidSchiResetEngines @ 0x1C01067A8
+ * Callers:
+ *     VidSchiCheckHwProgress @ 0x1C00A5940 (VidSchiCheckHwProgress.c)
+ *     VidSchWaitForCompletionEvent @ 0x1C00ADD4C (VidSchWaitForCompletionEvent.c)
+ * Callees:
+ *     VidSchIsTDRPending @ 0x1C0007920 (VidSchIsTDRPending.c)
+ *     VidSchiDriverNodeEngineToSchedulerNode @ 0x1C001471C (VidSchiDriverNodeEngineToSchedulerNode.c)
+ *     VidSchiSchedulerNodeToDriverEngine @ 0x1C00196B8 (VidSchiSchedulerNodeToDriverEngine.c)
+ *     VidSchiCompletePreemption @ 0x1C003A5D8 (VidSchiCompletePreemption.c)
+ *     VidSchiResetEngine @ 0x1C003B96C (VidSchiResetEngine.c)
+ *     VidSchiResetHwEngine @ 0x1C00460A0 (VidSchiResetHwEngine.c)
+ */
+
 char __fastcall VidSchiResetEngines(__int64 a1, unsigned __int64 a2)
 {
   __int64 v5; // rsi

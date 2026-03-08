@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ADAPTER_RENDER_DdiCreateProcess@@YAJPEAVADAPTER_RENDER@@PEAU_DXGKARG_CREATEPROCESS@@@Z @ 0x1C0047B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DdiCreateProcess@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_CREATEPROCESS@@@Z @ 0x1C01B8A08 (-DdiCreateProcess@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_CREATEPROCESS@@@Z.c)
+ */
+
 __int64 __fastcall ADAPTER_RENDER_DdiCreateProcess(struct ADAPTER_RENDER *a1, struct _DXGKARG_CREATEPROCESS *a2)
 {
   return ADAPTER_RENDER::DdiCreateProcess(a1, a2);

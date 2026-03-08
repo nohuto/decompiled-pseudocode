@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpWorkItemInitialize @ 0x140818A3C
+ * Callers:
+ *     CmFcManagerInitialize @ 0x140B536B4 (CmFcManagerInitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 void (__fastcall *__fastcall CmpWorkItemInitialize(__int64 a1, int a2, __int64 a3, __int64 a4))(__int64 a1)
 {
   void (__fastcall *result)(__int64); // rax

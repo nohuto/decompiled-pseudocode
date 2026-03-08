@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpLMStubVmTarget @ 0x140411D46
+ * Callers:
+ *     HalpLMStubForVM @ 0x140411C80 (HalpLMStubForVM.c)
+ * Callees:
+ *     <none>
+ */
+
 // positive sp value has been detected, the output may be wrong!
 __int64 __fastcall HalpLMStubVmTarget()
 {

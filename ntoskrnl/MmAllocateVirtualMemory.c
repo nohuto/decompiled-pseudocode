@@ -1,3 +1,15 @@
+/*
+ * XREFs of MmAllocateVirtualMemory @ 0x140728160
+ * Callers:
+ *     PsDispatchIumService @ 0x1405A2A44 (PsDispatchIumService.c)
+ *     NtAllocateVirtualMemoryEx @ 0x140728100 (NtAllocateVirtualMemoryEx.c)
+ *     WbAllocateMemoryBlock @ 0x140753534 (WbAllocateMemoryBlock.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiCaptureAllocateMapExtendedParameters @ 0x1407282D0 (MiCaptureAllocateMapExtendedParameters.c)
+ *     MiAllocateVirtualMemoryCommon @ 0x1407C4A70 (MiAllocateVirtualMemoryCommon.c)
+ */
+
 __int64 __fastcall MmAllocateVirtualMemory(
         int a1,
         __int64 *a2,

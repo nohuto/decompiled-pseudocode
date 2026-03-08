@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiEnableXSave @ 0x140A89800
+ * Callers:
+ *     KiInitializeKernel @ 0x140A89160 (KiInitializeKernel.c)
+ *     KiRestoreXSaveSupport @ 0x140A9C5D4 (KiRestoreXSaveSupport.c)
+ *     KiConfigureDynamicProcessor @ 0x140A9C7FC (KiConfigureDynamicProcessor.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall KiEnableXSave(unsigned __int64 *a1)
 {
   unsigned __int64 v1; // rdx

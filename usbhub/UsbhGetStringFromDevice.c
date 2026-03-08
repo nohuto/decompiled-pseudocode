@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhGetStringFromDevice @ 0x1C0054830
+ * Callers:
+ *     UsbhGetMSOS_Descriptor @ 0x1C0032C40 (UsbhGetMSOS_Descriptor.c)
+ *     UsbhGetBillboardInfo @ 0x1C0037E7C (UsbhGetBillboardInfo.c)
+ *     UsbhGetLanguageIdString @ 0x1C00503F4 (UsbhGetLanguageIdString.c)
+ *     UsbhGetProductIdString @ 0x1C00507E0 (UsbhGetProductIdString.c)
+ *     UsbhGetSerialNumber @ 0x1C00509A4 (UsbhGetSerialNumber.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhSyncSendCommandToDevice @ 0x1C001A250 (UsbhSyncSendCommandToDevice.c)
+ */
+
 __int64 __fastcall UsbhGetStringFromDevice(
         __int64 a1,
         __int64 a2,

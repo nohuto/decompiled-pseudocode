@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?DestroyResources@CAtlasTexture@@AEAAXXZ @ 0x180018550
+ * Callers:
+ *     ??1CAtlasTexture@@QEAA@XZ @ 0x1800184C8 (--1CAtlasTexture@@QEAA@XZ.c)
+ *     ?NotifyInvalidResource@CAtlasTexture@@UEAAXPEBVIDeviceResource@@@Z @ 0x180299230 (-NotifyInvalidResource@CAtlasTexture@@UEAAXPEBVIDeviceResource@@@Z.c)
+ * Callees:
+ *     ?NotifyOwner@CAtlasEntry@@AEBAXXZ @ 0x18001E050 (-NotifyOwner@CAtlasEntry@@AEBAXXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@IEAAKXZ @ 0x1800FE6F4 (-InternalRelease@-$ComPtr@VIRenderTargetBitmap@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CAtlasTexture::DestroyResources(CAtlasTexture *this)
 {
   __int64 v1; // rax

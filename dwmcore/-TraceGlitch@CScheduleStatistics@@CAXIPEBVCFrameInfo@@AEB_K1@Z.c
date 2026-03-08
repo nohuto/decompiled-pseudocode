@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TraceGlitch@CScheduleStatistics@@CAXIPEBVCFrameInfo@@AEB_K1@Z @ 0x1800E6C40
+ * Callers:
+ *     ?RetireFrame@CPartitionVerticalBlankScheduler@@AEAAJPEAVCFrameInfo@@IPEA_N_N@Z @ 0x18004D474 (-RetireFrame@CPartitionVerticalBlankScheduler@@AEAAJPEAVCFrameInfo@@IPEA_N_N@Z.c)
+ * Callees:
+ *     McTemplateU0xxxtxxxxxxxxqN16_EventWriteTransfer @ 0x1801EFD3C (McTemplateU0xxxtxxxxxxxxqN16_EventWriteTransfer.c)
+ */
+
 void __fastcall CScheduleStatistics::TraceGlitch(
         char a1,
         const struct CFrameInfo *a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_GCCustomKernelEffect@@EEAAPEAXI@Z @ 0x1800D1410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ */
+
 CCustomKernelEffect *__fastcall CCustomKernelEffect::`scalar deleting destructor'(CCustomKernelEffect *this, char a2)
 {
   __int64 v4; // rcx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of Endpoint_OnResetSetDequeuePointer @ 0x1C003B64C
+ * Callers:
+ *     Endpoint_OnResetEndpointResetCompletion @ 0x1C003B410 (Endpoint_OnResetEndpointResetCompletion.c)
+ * Callees:
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     Endpoint_GetDequeuePointer @ 0x1C000CEDC (Endpoint_GetDequeuePointer.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     Endpoint_IsTransferRingEmpty @ 0x1C003A75C (Endpoint_IsTransferRingEmpty.c)
+ *     Endpoint_StreamsOnResetSetDequeuePointerComplete @ 0x1C003C4D0 (Endpoint_StreamsOnResetSetDequeuePointerComplete.c)
+ */
+
 char __fastcall Endpoint_OnResetSetDequeuePointer(__int64 *a1, unsigned int a2)
 {
   __int64 v2; // rdi

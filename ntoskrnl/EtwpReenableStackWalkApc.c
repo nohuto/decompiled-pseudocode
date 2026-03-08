@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpReenableStackWalkApc @ 0x140300E00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwpReenableStackWalkApc(int a1)
 {
   struct _KTHREAD *CurrentThread; // r8

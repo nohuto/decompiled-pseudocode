@@ -1,3 +1,11 @@
+/*
+ * XREFs of Crashdump_Register_StartController @ 0x1C004DF54
+ * Callers:
+ *     Crashdump_InitializeWithControllerReset @ 0x1C004C868 (Crashdump_InitializeWithControllerReset.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Crashdump_Register_StartController(__int64 a1)
 {
   _DWORD *v1; // rsi

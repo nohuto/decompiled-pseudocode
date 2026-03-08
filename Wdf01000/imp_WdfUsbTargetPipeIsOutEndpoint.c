@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_WdfUsbTargetPipeIsOutEndpoint @ 0x1C0056DE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ */
+
 unsigned __int8 __fastcall imp_WdfUsbTargetPipeIsOutEndpoint(_WDF_DRIVER_GLOBALS *DriverGlobals, WDFUSBPIPE__ *Pipe)
 {
   FxUsbPipe *pUsbPipe; // [rsp+30h] [rbp+8h] BYREF

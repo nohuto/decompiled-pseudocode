@@ -1,3 +1,29 @@
+/*
+ * XREFs of HvLoadHive @ 0x14072F5C0
+ * Callers:
+ *     HvHiveStartFileBacked @ 0x14072F1D4 (HvHiveStartFileBacked.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     SetFailureLocation @ 0x140243E5C (SetFailureLocation.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvpAdjustHiveFreeDisplay @ 0x1407300D8 (HvpAdjustHiveFreeDisplay.c)
+ *     HvpViewMapStart @ 0x140730468 (HvpViewMapStart.c)
+ *     HvpMapHiveImageFromViewMap @ 0x14073051C (HvpMapHiveImageFromViewMap.c)
+ *     CmpInitializeActualFileSizes @ 0x140730684 (CmpInitializeActualFileSizes.c)
+ *     HvpGetHiveHeader @ 0x140730880 (HvpGetHiveHeader.c)
+ *     HvpInitMap @ 0x1407309B8 (HvpInitMap.c)
+ *     CmpTraceHiveMountBaseFileMounted @ 0x1407311D4 (CmpTraceHiveMountBaseFileMounted.c)
+ *     CmpFileFlush @ 0x140731EC0 (CmpFileFlush.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x1407A488C (HvpRemapAndEnlistHiveBins.c)
+ *     HvAnalyzeLogFiles @ 0x1407F9528 (HvAnalyzeLogFiles.c)
+ *     HvpPerformLogFileRecovery @ 0x1407FBCAC (HvpPerformLogFileRecovery.c)
+ *     HvpMapHiveImageFromFile @ 0x140A1B1D4 (HvpMapHiveImageFromFile.c)
+ */
+
 __int64 __fastcall HvLoadHive(ULONG_PTR BugCheckParameter2, __int64 a2, int a3, __int64 a4)
 {
   __int64 v5; // r13

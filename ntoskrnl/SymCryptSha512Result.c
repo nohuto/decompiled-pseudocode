@@ -1,3 +1,13 @@
+/*
+ * XREFs of SymCryptSha512Result @ 0x1403F61C8
+ * Callers:
+ *     SymCryptSha384Result @ 0x1403F49DC (SymCryptSha384Result.c)
+ *     HashpHashMemory @ 0x140A7438C (HashpHashMemory.c)
+ * Callees:
+ *     SymCryptWipe @ 0x1403F0988 (SymCryptWipe.c)
+ *     SymCryptSha512AppendBlocks_ull @ 0x1403F4B50 (SymCryptSha512AppendBlocks_ull.c)
+ */
+
 __int64 __fastcall SymCryptSha512Result(unsigned int *a1, _QWORD *a2)
 {
   __int64 v3; // rcx

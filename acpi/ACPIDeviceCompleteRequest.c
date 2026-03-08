@@ -1,3 +1,17 @@
+/*
+ * XREFs of ACPIDeviceCompleteRequest @ 0x1C001C95C
+ * Callers:
+ *     ACPIDevicePowerDpc @ 0x1C001E5C0 (ACPIDevicePowerDpc.c)
+ *     ACPIDevicePowerProcessGenericPhase @ 0x1C001EC1C (ACPIDevicePowerProcessGenericPhase.c)
+ *     ACPIDevicePowerProcessInvalid @ 0x1C001EDB0 (ACPIDevicePowerProcessInvalid.c)
+ *     ACPIDevicePowerProcessPhase4 @ 0x1C00203FC (ACPIDevicePowerProcessPhase4.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_qLqss @ 0x1C0009C8C (WPP_RECORDER_SF_qLqss.c)
+ *     ACPIPowerScheduleDpc @ 0x1C0022714 (ACPIPowerScheduleDpc.c)
+ *     ACPIDereferenceWaitWakePowerRequest @ 0x1C00447C0 (ACPIDereferenceWaitWakePowerRequest.c)
+ */
+
 void __fastcall ACPIDeviceCompleteRequest(_QWORD *Entry)
 {
   __int64 v1; // rdi

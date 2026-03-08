@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIBuildCompleteGeneric @ 0x1C000BC80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIBuildCompleteCommon @ 0x1C000BC30 (ACPIBuildCompleteCommon.c)
+ */
+
 void __fastcall ACPIBuildCompleteGeneric(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
   signed __int32 v4; // eax

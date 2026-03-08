@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NlsNumpadModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C021C680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?NlsTestKeyStateToggle@@YAHE@Z @ 0x1C021C97C (-NlsTestKeyStateToggle@@YAHE@Z.c)
+ */
+
 __int64 __fastcall NlsNumpadModeProc(struct tagKE *a1)
 {
   unsigned int v1; // edi

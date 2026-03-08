@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InitializeSubmitData@CVidSchSubmitData@@QEAAXXZ @ 0x1C00116BC
+ * Callers:
+ *     ?VidSchiSubmitDisablePlanesFlip@@YAJPEAU_VIDSCH_DEVICE@@I@Z @ 0x1C0011358 (-VidSchiSubmitDisablePlanesFlip@@YAJPEAU_VIDSCH_DEVICE@@I@Z.c)
+ * Callees:
+ *     memset @ 0x1C001AC80 (memset.c)
+ */
+
 void __fastcall CVidSchSubmitData::InitializeSubmitData(CVidSchSubmitData *this)
 {
   PVOID v2; // rax

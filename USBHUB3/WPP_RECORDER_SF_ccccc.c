@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_ccccc @ 0x1C0002890
+ * Callers:
+ *     HUBHTX_PortControlTransferComplete @ 0x1C0003E90 (HUBHTX_PortControlTransferComplete.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_ccccc(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
 {
   int v7; // [rsp+20h] [rbp-68h]

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetManufactureDate@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAEAEAG@Z @ 0x1C03CBFD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DisplayID_GetManufactureDate@@YAJPEBUDisplayIDObj@@PEAEPEAG@Z @ 0x1C0071E94 (-DisplayID_GetManufactureDate@@YAJPEBUDisplayIDObj@@PEAEPEAG@Z.c)
+ */
+
 __int64 __fastcall DxgMonitor::DisplayIdMonitorDescriptor::GetManufactureDate(
         DxgMonitor::DisplayIdMonitorDescriptor *this,
         unsigned __int8 *a2,

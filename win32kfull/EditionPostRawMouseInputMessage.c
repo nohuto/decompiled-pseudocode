@@ -1,3 +1,20 @@
+/*
+ * XREFs of EditionPostRawMouseInputMessage @ 0x1C0142A40
+ * Callers:
+ *     ?xxxMoveEventAbsolute@@YA?AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHPEAU_MousePacketPerf@@@Z @ 0x1C0142474 (-xxxMoveEventAbsolute@@YA-AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHP.c)
+ * Callees:
+ *     AllocateHidData @ 0x1C0009078 (AllocateHidData.c)
+ *     FreeHidData @ 0x1C000DC20 (FreeHidData.c)
+ *     PtiMouseFromQ @ 0x1C0037050 (PtiMouseFromQ.c)
+ *     PostInputMessage @ 0x1C0037A48 (PostInputMessage.c)
+ *     Feature_ThrottleBackgroundRawMouseInput__private_IsEnabledDeviceUsage @ 0x1C012C794 (Feature_ThrottleBackgroundRawMouseInput__private_IsEnabledDeviceUsage.c)
+ *     ?DeliverRawInput@Mouse@InputTraceLogging@@SAX_K_N@Z @ 0x1C01423C6 (-DeliverRawInput@Mouse@InputTraceLogging@@SAX_K_N@Z.c)
+ *     ?FlushThrottledRawMouseInput@@YAXPEAUtagPROCESS_HID_TABLE@@K@Z @ 0x1C01AC08C (-FlushThrottledRawMouseInput@@YAXPEAUtagPROCESS_HID_TABLE@@K@Z.c)
+ *     ?PostRawMouseInputToBackgroundListener@@YAXPEAUtagPROCESS_HID_TABLE@@PEAXPEBUtagRAWMOUSE@@_KK@Z @ 0x1C01AC288 (-PostRawMouseInputToBackgroundListener@@YAXPEAUtagPROCESS_HID_TABLE@@PEAXPEBUtagRAWMOUSE@@_KK@Z.c)
+ *     ?ThrottleRawMouseInputToBackgroundListener@@YA_NPEAUtagPROCESS_HID_TABLE@@PEAXPEBUtagRAWMOUSE@@_KK@Z @ 0x1C01AC4B4 (-ThrottleRawMouseInputToBackgroundListener@@YA_NPEAUtagPROCESS_HID_TABLE@@PEAXPEBUtagRAWMOUSE@@_.c)
+ *     RawInputRequestedForMouse @ 0x1C01AD860 (RawInputRequestedForMouse.c)
+ */
+
 __int64 __fastcall EditionPostRawMouseInputMessage(
         __int64 a1,
         unsigned __int64 a2,

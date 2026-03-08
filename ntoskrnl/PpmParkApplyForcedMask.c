@@ -1,3 +1,15 @@
+/*
+ * XREFs of PpmParkApplyForcedMask @ 0x140996E54
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ * Callees:
+ *     PpmReleaseLock @ 0x1402D1F40 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ *     PpmParkApplyPolicy @ 0x14038E5E0 (PpmParkApplyPolicy.c)
+ *     PpmCheckApplyParkConstraints @ 0x14038F03C (PpmCheckApplyParkConstraints.c)
+ *     PpmParkParkingAvailable @ 0x1408266FC (PpmParkParkingAvailable.c)
+ */
+
 __int64 __fastcall PpmParkApplyForcedMask(__int64 *a1, __int64 *a2)
 {
   unsigned __int16 v2; // r14

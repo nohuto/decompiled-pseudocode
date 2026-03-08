@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiLinkPoolCommitChain @ 0x140330100
+ * Callers:
+ *     MiCommitPoolMemory @ 0x14032FC90 (MiCommitPoolMemory.c)
+ * Callees:
+ *     MiWriteTopLevelPxe @ 0x140201C64 (MiWriteTopLevelPxe.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiGetContainingPageTable @ 0x140289FE0 (MiGetContainingPageTable.c)
+ *     MiInitializeLargeNonPagedPoolLeafFrames @ 0x1402E5F48 (MiInitializeLargeNonPagedPoolLeafFrames.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiFlushTbAsNeeded @ 0x140324290 (MiFlushTbAsNeeded.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiLockAndIncrementShareCount @ 0x14034824C (MiLockAndIncrementShareCount.c)
+ *     MiIsPoolPteInUse @ 0x14034837C (MiIsPoolPteInUse.c)
+ *     MiUpdateLargePageBitMap @ 0x14034D79C (MiUpdateLargePageBitMap.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 char __fastcall MiLinkPoolCommitChain(__int64 a1, ULONG_PTR a2)
 {
   unsigned __int64 v2; // rdi

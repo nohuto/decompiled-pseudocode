@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserCallMsgFilter @ 0x1C01471C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0EnterLeaveCritByVelocity@@QEAA@W4CritOptType@@W4HandleToObjILCheck@@@Z @ 0x1C00399AC (--0EnterLeaveCritByVelocity@@QEAA@W4CritOptType@@W4HandleToObjILCheck@@@Z.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxCallMsgFilter @ 0x1C014538E (xxxCallMsgFilter.c)
+ */
+
 __int64 __fastcall NtUserCallMsgFilter(_OWORD *a1, unsigned int a2)
 {
   _BYTE *v4; // rdx

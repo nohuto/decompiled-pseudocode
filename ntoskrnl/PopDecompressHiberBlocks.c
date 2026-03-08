@@ -1,3 +1,25 @@
+/*
+ * XREFs of PopDecompressHiberBlocks @ 0x140A9F1C4
+ * Callers:
+ *     PopRestoreHiberContext @ 0x140AA139C (PopRestoreHiberContext.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopInternalAddToDumpFile @ 0x140580CC0 (PopInternalAddToDumpFile.c)
+ *     RtlDecompressBufferProgress @ 0x1405B1154 (RtlDecompressBufferProgress.c)
+ *     MmMapMemoryDumpMdlEx2 @ 0x14062E298 (MmMapMemoryDumpMdlEx2.c)
+ *     ConsumerPeekAndConsumeBuffer @ 0x140A9E684 (ConsumerPeekAndConsumeBuffer.c)
+ *     PopHiberCheckForDebugBreak @ 0x140A9FCE4 (PopHiberCheckForDebugBreak.c)
+ *     PopReadProducerConsumerBuffer @ 0x140AA08AC (PopReadProducerConsumerBuffer.c)
+ *     ProducerConsumerBufferComplete @ 0x140AA2D38 (ProducerConsumerBufferComplete.c)
+ *     ProducerConsumerCopyFromContextBuffer @ 0x140AA2E0C (ProducerConsumerCopyFromContextBuffer.c)
+ *     PopCheckpointSystemSleep @ 0x140AA7378 (PopCheckpointSystemSleep.c)
+ *     BgDisplayProgressIndicator @ 0x140AE9040 (BgDisplayProgressIndicator.c)
+ */
+
 __int64 __fastcall PopDecompressHiberBlocks(
         _DWORD *BugCheckParameter3,
         _QWORD *a2,

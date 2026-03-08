@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiTpDecodeModRmOperand @ 0x140AF02E0
+ * Callers:
+ *     KiTpEmulateGroup0Instruction @ 0x140AF043C (KiTpEmulateGroup0Instruction.c)
+ *     KiTpEmulateGroup11Instruction @ 0x140AF0694 (KiTpEmulateGroup11Instruction.c)
+ *     KiTpEmulateGroup1Instruction @ 0x140AF0754 (KiTpEmulateGroup1Instruction.c)
+ *     KiTpEmulateInstruction @ 0x140AF0944 (KiTpEmulateInstruction.c)
+ *     KiTpEmulateMovzx @ 0x140AF115C (KiTpEmulateMovzx.c)
+ * Callees:
+ *     KiTpGetRegisterAddressByIndex @ 0x140AF13F8 (KiTpGetRegisterAddressByIndex.c)
+ */
+
 __int64 __fastcall KiTpDecodeModRmOperand(__int64 a1, __int64 a2, __int64 *a3, _BYTE *a4, _BYTE *a5)
 {
   __int64 v5; // rbx

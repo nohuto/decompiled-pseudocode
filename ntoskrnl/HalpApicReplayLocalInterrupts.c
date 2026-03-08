@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpApicReplayLocalInterrupts @ 0x1405305E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpApicReplaySendSelfIpi @ 0x140530670 (HalpApicReplaySendSelfIpi.c)
+ */
+
 __int64 __fastcall HalpApicReplayLocalInterrupts(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

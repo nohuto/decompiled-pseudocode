@@ -1,3 +1,19 @@
+/*
+ * XREFs of HsaFreeRemappingTableEntry @ 0x14052D9F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140379818 (HalpAcquireHighLevelLock.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExtEnvCriticalFailure @ 0x14051D068 (ExtEnvCriticalFailure.c)
+ *     ExtEnvFreeMemory @ 0x14051D13C (ExtEnvFreeMemory.c)
+ *     ExtEnvFreePhysicalMemory @ 0x14051D17C (ExtEnvFreePhysicalMemory.c)
+ *     HsaGetDeviceAperture @ 0x14052DBF0 (HsaGetDeviceAperture.c)
+ *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x14052F02C (HsaUpdateRemappingTableInDeviceTableEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HsaFreeRemappingTableEntry(__int64 a1, unsigned int a2, int a3)
 {
   unsigned int v3; // ebx

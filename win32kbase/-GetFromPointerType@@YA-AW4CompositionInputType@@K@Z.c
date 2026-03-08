@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetFromPointerType@@YA?AW4CompositionInputType@@K@Z @ 0x1C00051E4
+ * Callers:
+ *     ?ResolveInputSinkToINPUTDEST@CSpatialProcessor@@KA_NPEAXKPEAUtagINPUTDEST@@@Z @ 0x1C000E224 (-ResolveInputSinkToINPUTDEST@CSpatialProcessor@@KA_NPEAXKPEAUtagINPUTDEST@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00052A0 (WPP_RECORDER_AND_TRACE_SF_dd.c)
+ */
+
 __int64 __fastcall GetFromPointerType(int a1)
 {
   unsigned int v1; // ebx

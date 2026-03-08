@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlCopySidAndAttributesArray @ 0x1406D47D0
+ * Callers:
+ *     SepCreateTokenEx @ 0x1402079F0 (SepCreateTokenEx.c)
+ *     NtQueryInformationToken @ 0x1406D6780 (NtQueryInformationToken.c)
+ *     SepFilterToken @ 0x14073FED0 (SepFilterToken.c)
+ *     SepCopyTokenAccessInformation @ 0x14077104C (SepCopyTokenAccessInformation.c)
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ *     CmpBuildAdminInformation @ 0x140A15CBC (CmpBuildAdminInformation.c)
+ * Callees:
+ *     RtlCopySid @ 0x1406D4890 (RtlCopySid.c)
+ */
+
 __int64 __fastcall RtlCopySidAndAttributesArray(
         unsigned int a1,
         __int64 a2,

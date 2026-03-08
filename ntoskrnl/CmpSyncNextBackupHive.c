@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpSyncNextBackupHive @ 0x140A18168
+ * Callers:
+ *     NtInitializeRegistry @ 0x140799FB0 (NtInitializeRegistry.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     CmpFlushBackupHive @ 0x140A17C48 (CmpFlushBackupHive.c)
+ *     CmpReleaseHiveLoadUnloadRundown @ 0x140AF2034 (CmpReleaseHiveLoadUnloadRundown.c)
+ *     CmpAcquireHiveLoadUnloadRundown @ 0x140AF2058 (CmpAcquireHiveLoadUnloadRundown.c)
+ */
+
 __int64 CmpSyncNextBackupHive()
 {
   unsigned int v0; // ebx

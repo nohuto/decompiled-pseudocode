@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiMarkLargePagePte @ 0x140B5E0C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUpdateLargePageBitMap @ 0x14034D79C (MiUpdateLargePageBitMap.c)
+ */
+
 __int64 __fastcall MiMarkLargePagePte(__int64 a1, unsigned __int64 a2, int a3)
 {
   __int64 v4; // rax

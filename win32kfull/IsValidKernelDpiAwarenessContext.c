@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsValidKernelDpiAwarenessContext @ 0x1C01CDB90
+ * Callers:
+ *     NtUserTransformPoint @ 0x1C01E01A0 (NtUserTransformPoint.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall IsValidKernelDpiAwarenessContext(int a1)
 {
   unsigned int v1; // ecx

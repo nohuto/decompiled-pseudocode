@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiCountNodeZeroSetBitsGroupAffinity @ 0x140B3AB7C
+ * Callers:
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402AB030 (KeEnumerateNextSchedulerSubNodeInNode.c)
+ */
+
 __int64 KiCountNodeZeroSetBitsGroupAffinity()
 {
   unsigned int v0; // r10d

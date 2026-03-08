@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vDirectStretch16@@YAXPEAU_STR_BLT@@@Z @ 0x1C0304410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vDirectStretch16(struct _STR_BLT *a1)
 {
   __int64 v1; // r8

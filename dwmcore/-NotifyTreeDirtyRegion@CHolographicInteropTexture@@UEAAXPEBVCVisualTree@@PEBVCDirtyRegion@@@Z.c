@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NotifyTreeDirtyRegion@CHolographicInteropTexture@@UEAAXPEBVCVisualTree@@PEBVCDirtyRegion@@@Z @ 0x1802A7C20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CHolographicInteropTexture::NotifyTreeDirtyRegion(
         RTL_SRWLOCK *this,
         const struct CVisualTree *a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiStoreModifiedWriteDereference @ 0x14065A280
+ * Callers:
+ *     MiStoreWriteModifiedPages @ 0x14046554A (MiStoreWriteModifiedPages.c)
+ *     MiStoreModifiedWriteComplete @ 0x14065A174 (MiStoreModifiedWriteComplete.c)
+ * Callees:
+ *     KeInitializeApc @ 0x140237E20 (KeInitializeApc.c)
+ *     KeInsertQueueApc @ 0x14027DBF0 (KeInsertQueueApc.c)
+ */
+
 __int64 __fastcall MiStoreModifiedWriteDereference(__int64 a1)
 {
   __int64 result; // rax

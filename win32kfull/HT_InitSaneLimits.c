@@ -1,3 +1,12 @@
+/*
+ * XREFs of HT_InitSaneLimits @ 0x1C00EFE68
+ * Callers:
+ *     EnableHalftone @ 0x1C00EFD70 (EnableHalftone.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HT_InitSaneLimits(__int64 a1)
 {
   int v1; // ebx

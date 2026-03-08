@@ -1,3 +1,21 @@
+/*
+ * XREFs of EtwpCovSampCaptureContextStop @ 0x140600CB8
+ * Callers:
+ *     EtwpCoverageSamplerStop @ 0x1409F08E4 (EtwpCoverageSamplerStop.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpCovSampCaptureCancelApcs @ 0x140600A20 (EtwpCovSampCaptureCancelApcs.c)
+ *     EtwpCovSampCaptureCleanupLookasides @ 0x140600B88 (EtwpCovSampCaptureCleanupLookasides.c)
+ *     EtwpCovSampCaptureFlushSampleBuffers @ 0x140600E90 (EtwpCovSampCaptureFlushSampleBuffers.c)
+ *     EtwpCovSampCaptureFreeLookasides @ 0x1409EE1B0 (EtwpCovSampCaptureFreeLookasides.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall EtwpCovSampCaptureContextStop(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiGdiSyncDisplayCallout @ 0x1C021A310
+ * Callers:
+ *     DpiGdiHandleAsyncDisplayCallout @ 0x1C021A2C0 (DpiGdiHandleAsyncDisplayCallout.c)
+ *     ?RequestSyncCallout@DXGDISPLAYCALLOUTQUEUE@@QEAAJPEAUDISPLAY_CALLOUT_ENTRY@@_K@Z @ 0x1C03103F4 (-RequestSyncCallout@DXGDISPLAYCALLOUTQUEUE@@QEAAJPEAUDISPLAY_CALLOUT_ENTRY@@_K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiGdiSyncDisplayCallout(__int64 a1, char a2, __int64 a3)
 {
   int v3; // eax

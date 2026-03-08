@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetWeakReference@CMILCOMBaseWeakRef@@UEAAJPEAPEAVIUnknownWeakRef@@@Z @ 0x180287370
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044B4C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CMILCOMBaseWeakRef::GetWeakReference(CMILCOMBaseWeakRef *this, struct IUnknownWeakRef **a2)
 {
   char *v4; // rax

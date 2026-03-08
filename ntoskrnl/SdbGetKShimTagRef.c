@@ -1,3 +1,13 @@
+/*
+ * XREFs of SdbGetKShimTagRef @ 0x14080030C
+ * Callers:
+ *     KsepDbGetShimInfo @ 0x140800448 (KsepDbGetShimInfo.c)
+ * Callees:
+ *     SdbFindFirstStringIndexedTag @ 0x14079F36C (SdbFindFirstStringIndexedTag.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ *     SdbTagIDToTagRef @ 0x1408003AC (SdbTagIDToTagRef.c)
+ */
+
 __int64 __fastcall SdbGetKShimTagRef(__int64 a1, const WCHAR *a2)
 {
   void *v2; // rbx

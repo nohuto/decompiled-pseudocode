@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkAllocatePagesForMdlCB @ 0x1C0012E90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiGetSysMmAdapterFromDevice @ 0x1C0012F3C (DpiGetSysMmAdapterFromDevice.c)
+ *     ?SysMmCreateMdlPhysicalObject@@YAJPEAUSYSMM_ADAPTER@@_KT_LARGE_INTEGER@@22W4_MEMORY_CACHING_TYPE@@IQEAXW4SYSMM_PHYSICAL_OBJECT_OWNER@@PEAPEAUSYSMM_PHYSICAL_OBJECT@@PEAPEAUSYSMM_ADAPTER_OBJECT@@PEAPEAU_MDL@@@Z @ 0x1C0012FB4 (-SysMmCreateMdlPhysicalObject@@YAJPEAUSYSMM_ADAPTER@@_KT_LARGE_INTEGER@@22W4_MEMORY_CACHING_TYPE.c)
+ */
+
 __int64 __fastcall DxgkAllocatePagesForMdlCB(__int64 a1, __int64 a2)
 {
   int v2; // edi

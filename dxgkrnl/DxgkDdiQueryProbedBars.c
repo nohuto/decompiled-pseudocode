@@ -1,3 +1,13 @@
+/*
+ * XREFs of DxgkDdiQueryProbedBars @ 0x1C0365F4C
+ * Callers:
+ *     ?DpiDdiQueryProbedBars2@@YAJPEAXGPEAK@Z @ 0x1C0064C90 (-DpiDdiQueryProbedBars2@@YAJPEAXGPEAK@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005A55C (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?QueryProbedBars@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_QUERYPROBEDBARS@@@Z @ 0x1C0364418 (-QueryProbedBars@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_QUERYPROBEDBARS@@@Z.c)
+ */
+
 __int64 __fastcall DxgkDdiQueryProbedBars(_QWORD *a1, int a2, unsigned __int16 a3, int *a4)
 {
   __int64 v5; // rcx

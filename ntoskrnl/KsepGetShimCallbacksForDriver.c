@@ -1,3 +1,16 @@
+/*
+ * XREFs of KsepGetShimCallbacksForDriver @ 0x14079D47C
+ * Callers:
+ *     KseShimDriverIoCallbacks @ 0x14079D690 (KseShimDriverIoCallbacks.c)
+ * Callees:
+ *     KsepLogError @ 0x140303450 (KsepLogError.c)
+ *     KsepLogInfo @ 0x14036F8F4 (KsepLogInfo.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KsepDebugPrint @ 0x14057E834 (KsepDebugPrint.c)
+ *     RtlAssert @ 0x1405A7CA0 (RtlAssert.c)
+ *     KsepIsModuleShimmed @ 0x14079E588 (KsepIsModuleShimmed.c)
+ */
+
 __int64 __fastcall KsepGetShimCallbacksForDriver(__int64 a1, _QWORD *a2)
 {
   unsigned int v2; // ebx

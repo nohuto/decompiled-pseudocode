@@ -1,3 +1,18 @@
+/*
+ * XREFs of TtmpDispatchCreateEventQueue @ 0x1409A3450
+ * Callers:
+ *     TtmDispatchApi @ 0x1409A2FAC (TtmDispatchApi.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObInsertObject @ 0x1407F0A20 (ObInsertObject.c)
+ *     TtmiWriteEnumerationEventsToQueue @ 0x1409A1E3C (TtmiWriteEnumerationEventsToQueue.c)
+ *     TtmpAcquireSessionFromTerminalHandle @ 0x1409A3258 (TtmpAcquireSessionFromTerminalHandle.c)
+ *     TtmiLogError @ 0x1409A536C (TtmiLogError.c)
+ *     TtmiCreateEventQueue @ 0x1409A901C (TtmiCreateEventQueue.c)
+ */
+
 __int64 __fastcall TtmpDispatchCreateEventQueue(__int64 a1, _QWORD *a2)
 {
   void *v2; // rcx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpDoReadTxRBigLogRecord @ 0x140A1BD4C
+ * Callers:
+ *     CmpRmReDoPhase @ 0x140A1C1E0 (CmpRmReDoPhase.c)
+ * Callees:
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     CmpVerifyBigLogRecordChunk @ 0x140A1C548 (CmpVerifyBigLogRecordChunk.c)
+ */
+
 __int64 __fastcall CmpDoReadTxRBigLogRecord(void *a1, void *a2, ULONG a3, struct _PRIVILEGE_SET **a4, unsigned int *a5)
 {
   _DWORD *v5; // rdi

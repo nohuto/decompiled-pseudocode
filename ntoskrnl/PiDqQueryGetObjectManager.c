@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiDqQueryGetObjectManager @ 0x140746CE4
+ * Callers:
+ *     PiDqDispatch @ 0x140745C20 (PiDqDispatch.c)
+ *     PiDqQuerySerializeActionQueue @ 0x140746290 (PiDqQuerySerializeActionQueue.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _ERESOURCE *__fastcall PiDqQueryGetObjectManager(__int64 a1)
 {
   __int64 v1; // r8

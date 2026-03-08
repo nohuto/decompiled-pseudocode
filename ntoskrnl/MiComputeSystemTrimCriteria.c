@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiComputeSystemTrimCriteria @ 0x14035FE9C
+ * Callers:
+ *     MiProcessWorkingSets @ 0x14035F6F0 (MiProcessWorkingSets.c)
+ * Callees:
+ *     MiGetAvailablePagesBelowPriority @ 0x140224C00 (MiGetAvailablePagesBelowPriority.c)
+ *     MiComputeAgeDistribution @ 0x1402CFD44 (MiComputeAgeDistribution.c)
+ *     MiGetStandbyRepurposed @ 0x1403601DC (MiGetStandbyRepurposed.c)
+ *     MiPruneProcessLargePageCaches @ 0x1403614A0 (MiPruneProcessLargePageCaches.c)
+ *     MiPulseLowAvailableEvent @ 0x140651230 (MiPulseLowAvailableEvent.c)
+ */
+
 __int64 __fastcall MiComputeSystemTrimCriteria(_QWORD *a1, __int64 a2)
 {
   __int64 v2; // rbx

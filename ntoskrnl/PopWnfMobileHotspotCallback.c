@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopWnfMobileHotspotCallback @ 0x140584EE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExQueryWnfStateData @ 0x140793060 (ExQueryWnfStateData.c)
+ *     PopPowerRequestNotifyMobileHotspotChanged @ 0x14097E708 (PopPowerRequestNotifyMobileHotspotChanged.c)
+ */
+
 __int64 __fastcall PopWnfMobileHotspotCallback(__int64 a1)
 {
   int v1; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpIndicateConnectorChange @ 0x1C001C790
+ * Callers:
+ *     DpiFdoHandleDisplayDetectControl @ 0x1C001BDEC (DpiFdoHandleDisplayDetectControl.c)
+ *     DpiFdoQueueConnectionChangePackage @ 0x1C005EB78 (DpiFdoQueueConnectionChangePackage.c)
+ *     ?DmmHandleSetTimingsResult@@YAXPEAXPEAU_DMM_SET_TIMING_RESULT@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01676B0 (-DmmHandleSetTimingsResult@@YAXPEAXPEAU_DMM_SET_TIMING_RESULT@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEX.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpIndicateConnectorChange(PDEVICE_OBJECT DeviceObject)
 {
   unsigned int v1; // ebx

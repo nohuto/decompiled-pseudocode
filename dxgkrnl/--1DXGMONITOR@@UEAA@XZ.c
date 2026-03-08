@@ -1,3 +1,23 @@
+/*
+ * XREFs of ??1DXGMONITOR@@UEAA@XZ @ 0x1C03C45DC
+ * Callers:
+ *     ??_GDXGMONITOR@@UEAAPEAXI@Z @ 0x1C002A280 (--_GDXGMONITOR@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C00072DC (--1DXGFASTMUTEX@@QEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ??_GMonitorDataStore@DxgMonitor@@UEAAPEAXI@Z @ 0x1C006BAF0 (--_GMonitorDataStore@DxgMonitor@@UEAAPEAXI@Z.c)
+ *     ?LogMonitorObjectOnOffState@DXGMONITOR@@QEAAXAEBU_GUID@@IW4Enum@MONITOR_ON_OFF_CALLER_ORIGIN@@@Z @ 0x1C01691C4 (-LogMonitorObjectOnOffState@DXGMONITOR@@QEAAXAEBU_GUID@@IW4Enum@MONITOR_ON_OFF_CALLER_ORIGIN@@@Z.c)
+ *     ?_CleanupMonitorCCDName@DXGMONITOR@@AEAAXXZ @ 0x1C03C4988 (-_CleanupMonitorCCDName@DXGMONITOR@@AEAAXXZ.c)
+ *     ?_DestroyTtmDevice@DXGMONITOR@@QEAAXXZ @ 0x1C03C4C30 (-_DestroyTtmDevice@DXGMONITOR@@QEAAXXZ.c)
+ *     ??1MonitorUsb4State@DxgMonitor@@QEAA@XZ @ 0x1C03C54BC (--1MonitorUsb4State@DxgMonitor@@QEAA@XZ.c)
+ *     ??1MonitorPnpState@DxgMonitor@@QEAA@XZ @ 0x1C03C7054 (--1MonitorPnpState@DxgMonitor@@QEAA@XZ.c)
+ *     ??1MonitorDescriptorState@DxgMonitor@@QEAA@XZ @ 0x1C03C720C (--1MonitorDescriptorState@DxgMonitor@@QEAA@XZ.c)
+ *     ??1MonitorGammaState@DxgMonitor@@QEAA@XZ @ 0x1C03C7968 (--1MonitorGammaState@DxgMonitor@@QEAA@XZ.c)
+ *     ??1MonitorModes@DxgMonitor@@QEAA@XZ @ 0x1C03C7CA8 (--1MonitorModes@DxgMonitor@@QEAA@XZ.c)
+ */
+
 void __fastcall DXGMONITOR::~DXGMONITOR(DXGMONITOR *this)
 {
   void *v2; // rcx

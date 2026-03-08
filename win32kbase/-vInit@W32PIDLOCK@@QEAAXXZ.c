@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vInit@W32PIDLOCK@@QEAAXXZ @ 0x1C00BF9BC
+ * Callers:
+ *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C0057B80 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
+ * Callees:
+ *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0062994 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ */
+
 void __fastcall W32PIDLOCK::vInit(W32PIDLOCK *this)
 {
   struct _KSEMAPHORE *v2; // rax

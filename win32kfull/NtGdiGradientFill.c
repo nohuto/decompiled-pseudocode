@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiGradientFill @ 0x1C0001410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreGradientFill @ 0x1C0001610 (GreGradientFill.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall NtGdiGradientFill(int a1, char *a2, unsigned int a3, const void *a4, unsigned int a5, int a6)
 {
   char *v8; // r9

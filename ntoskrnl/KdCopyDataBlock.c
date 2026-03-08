@@ -1,3 +1,14 @@
+/*
+ * XREFs of KdCopyDataBlock @ 0x140564CD0
+ * Callers:
+ *     IoFillTriageDumpBuffer @ 0x14054DAD0 (IoFillTriageDumpBuffer.c)
+ *     IopInitializeInMemoryDumpData @ 0x140550F70 (IopInitializeInMemoryDumpData.c)
+ *     KeCapturePersistentThreadState @ 0x140551EC0 (KeCapturePersistentThreadState.c)
+ *     KdDecodeDataBlock @ 0x140564DA0 (KdDecodeDataBlock.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KdCopyDataBlock(_OWORD *a1)
 {
   _OWORD *v1; // r8

@@ -1,3 +1,25 @@
+/*
+ * XREFs of HalGetAdapterV3 @ 0x140821010
+ * Callers:
+ *     HalpGetAdapter @ 0x1408212E4 (HalpGetAdapter.c)
+ * Callees:
+ *     ObReferenceObjectByPointer @ 0x140208C70 (ObReferenceObjectByPointer.c)
+ *     IoAllocateMdl @ 0x14020CAD0 (IoAllocateMdl.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     HalpDmaFindAdapterByDeviceObject @ 0x14038CAF8 (HalpDmaFindAdapterByDeviceObject.c)
+ *     HalpAddAdapterToList @ 0x14038CBA8 (HalpAddAdapterToList.c)
+ *     HalpDmaIsAutomaticDomain @ 0x14038CD80 (HalpDmaIsAutomaticDomain.c)
+ *     HalpDmaGetAdapterVersion @ 0x1403B4514 (HalpDmaGetAdapterVersion.c)
+ *     HalpAddAdapterToSystemList @ 0x140513C8C (HalpAddAdapterToSystemList.c)
+ *     HalpDmaControllerValidateRequestLineBinding @ 0x140514940 (HalpDmaControllerValidateRequestLineBinding.c)
+ *     HalpFindAdapterByRequestLine @ 0x140514C70 (HalpFindAdapterByRequestLine.c)
+ *     HalpFindDmaControllerByRequestLine @ 0x140514DC0 (HalpFindDmaControllerByRequestLine.c)
+ *     HalpGetCacheCoherency @ 0x140821A84 (HalpGetCacheCoherency.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x140822570 (HalpDmaAllocateChildAdapterV3.c)
+ */
+
 _QWORD *__fastcall HalGetAdapterV3(__int64 a1, __int64 a2, int a3, _DWORD *a4)
 {
   __int64 v4; // r10

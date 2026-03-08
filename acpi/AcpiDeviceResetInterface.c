@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiDeviceResetInterface @ 0x1C00237D0
+ * Callers:
+ *     ACPIBusIrpQueryInterface @ 0x1C00165F0 (ACPIBusIrpQueryInterface.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C002D594 (ACPIInitReferenceDeviceExtension.c)
+ */
+
 __int64 __fastcall AcpiDeviceResetInterface(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PipCreateEntry @ 0x140B59460
+ * Callers:
+ *     PipLookupGroupName @ 0x140B5935C (PipLookupGroupName.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PipCreateEntry(const void **a1)
 {
   __int64 result; // rax

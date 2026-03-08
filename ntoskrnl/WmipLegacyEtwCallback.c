@@ -1,3 +1,15 @@
+/*
+ * XREFs of WmipLegacyEtwCallback @ 0x1409DEAD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     WmipReferenceEntry @ 0x14069C27C (WmipReferenceEntry.c)
+ *     WmipQueueLegacyEtwWork @ 0x1408507E0 (WmipQueueLegacyEtwWork.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void __fastcall WmipLegacyEtwCallback(__int64 a1, unsigned __int8 a2, _QWORD *a3, _QWORD *a4)
 {
   int v7; // ebx

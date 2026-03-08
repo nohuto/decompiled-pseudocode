@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?INIT_CRIT_RESOURCE@@YA?AT_USERCRIT_TYPE@@XZ @ 0x1C00C30B4
+ * Callers:
+ *     InitCreateUserCrit @ 0x1C031F55C (InitCreateUserCrit.c)
+ * Callees:
+ *     <none>
+ */
+
 PVOID *__fastcall INIT_CRIT_RESOURCE(PVOID *a1)
 {
   struct _ERESOURCE *Pool2; // rax

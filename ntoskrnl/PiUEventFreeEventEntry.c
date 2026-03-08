@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiUEventFreeEventEntry @ 0x14068DE0C
+ * Callers:
+ *     PiUEventNotifyUserMode @ 0x14068C2D0 (PiUEventNotifyUserMode.c)
+ *     PiUEventDereferenceEventEntry @ 0x14068DA18 (PiUEventDereferenceEventEntry.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PiUEventFreeEventEntry(_QWORD *P)
 {
   void *v2; // rcx

@@ -1,3 +1,20 @@
+/*
+ * XREFs of UsbhIoctlGetHubCapsEx @ 0x1C003F180
+ * Callers:
+ *     UsbhFdoDeviceControl @ 0x1C002A630 (UsbhFdoDeviceControl.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhAcquireApiLock @ 0x1C003DE98 (UsbhAcquireApiLock.c)
+ *     UsbhIoctlTraceOutput @ 0x1C0040FD4 (UsbhIoctlTraceOutput.c)
+ *     UsbhIoctlValidateParameters @ 0x1C0041218 (UsbhIoctlValidateParameters.c)
+ *     UsbhReleaseApiLock @ 0x1C00415A8 (UsbhReleaseApiLock.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 __int64 __fastcall UsbhIoctlGetHubCapsEx(__int64 a1, PIRP Irp)
 {
   _DWORD *v4; // rax

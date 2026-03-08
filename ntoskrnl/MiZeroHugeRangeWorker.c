@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiZeroHugeRangeWorker @ 0x140620990
+ * Callers:
+ *     MiZeroHugeRangeCore @ 0x140A2B20C (MiZeroHugeRangeCore.c)
+ * Callees:
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     KeSignalGate @ 0x1402F0524 (KeSignalGate.c)
+ *     RtlFindClearBitsAndSet @ 0x14030CEE0 (RtlFindClearBitsAndSet.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KeZeroPages @ 0x14041BBF0 (KeZeroPages.c)
+ *     RtlCompareMemoryUlong @ 0x140420E50 (RtlCompareMemoryUlong.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDereferenceHugeIoRange @ 0x14061D51C (MiDereferenceHugeIoRange.c)
+ *     MiLockHugePfn @ 0x14061EFAC (MiLockHugePfn.c)
+ *     MiDeleteAcceleratorDescriptor @ 0x14065241C (MiDeleteAcceleratorDescriptor.c)
+ */
+
 void __fastcall MiZeroHugeRangeWorker(PRTL_BITMAP BitMapHeader)
 {
   unsigned int *Buffer; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhPdoPnp_QueryBusInfo @ 0x1C00552E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall UsbhPdoPnp_QueryBusInfo(__int64 a1, IRP *a2)
 {
   __int64 Pool2; // rax

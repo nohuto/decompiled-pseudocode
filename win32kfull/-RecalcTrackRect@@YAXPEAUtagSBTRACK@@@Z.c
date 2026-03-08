@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C022BEFC
+ * Callers:
+ *     DrawThumb2 @ 0x1C0013FB8 (DrawThumb2.c)
+ *     ?InvertScrollHilite@@YAXPEAUtagWND@@PEAUtagSBTRACK@@@Z @ 0x1C022BE5C (-InvertScrollHilite@@YAXPEAUtagWND@@PEAUtagSBTRACK@@@Z.c)
+ *     ?zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z @ 0x1C022C83C (-zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z.c)
+ *     xxxTrackBox @ 0x1C022E110 (xxxTrackBox.c)
+ *     xxxTrackThumb @ 0x1C022E280 (xxxTrackThumb.c)
+ * Callees:
+ *     CalcSBStuff @ 0x1C00D9FC8 (CalcSBStuff.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?CalcTrackDragRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C022B780 (-CalcTrackDragRect@@YAXPEAUtagSBTRACK@@@Z.c)
+ */
+
 void __fastcall RecalcTrackRect(struct tagSBTRACK *a1)
 {
   unsigned int v1; // r8d

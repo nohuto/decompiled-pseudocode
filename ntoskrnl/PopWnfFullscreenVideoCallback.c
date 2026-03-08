@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopWnfFullscreenVideoCallback @ 0x140981610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PpmReleaseLock @ 0x1402D1F40 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x1402D1FF0 (PoFxSendSystemLatencyUpdate.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExQueryWnfStateData @ 0x140793060 (ExQueryWnfStateData.c)
+ */
+
 __int64 __fastcall PopWnfFullscreenVideoCallback(__int64 a1)
 {
   int v1; // ebx

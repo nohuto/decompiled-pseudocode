@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiInitializeZeroEngineCurrentPassDpcAffinity @ 0x14038A0B8
+ * Callers:
+ *     MiStartDpcZeroingRound @ 0x140389F08 (MiStartDpcZeroingRound.c)
+ * Callees:
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402A9460 (KeFindFirstSetRightGroupAffinity.c)
+ */
+
 __int64 __fastcall MiInitializeZeroEngineCurrentPassDpcAffinity(_QWORD *a1, unsigned int a2)
 {
   _QWORD *v2; // rdi

@@ -1,3 +1,25 @@
+/*
+ * XREFs of KiUpdateRunTime @ 0x14022ECE0
+ * Callers:
+ *     KiUpdateTime @ 0x14022BD80 (KiUpdateTime.c)
+ *     KeClockInterruptNotify @ 0x14022CD80 (KeClockInterruptNotify.c)
+ * Callees:
+ *     KiSetClockTimer @ 0x14022AC78 (KiSetClockTimer.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KeAccumulateTicks @ 0x14022F310 (KeAccumulateTicks.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x14022FC90 (KiCheckPreferredHeteroProcessor.c)
+ *     HalRequestSoftwareInterrupt @ 0x140230830 (HalRequestSoftwareInterrupt.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KiShouldScanSharedReadyQueue @ 0x1402AC388 (KiShouldScanSharedReadyQueue.c)
+ *     KiSetDpcRequestFlag @ 0x1402B791C (KiSetDpcRequestFlag.c)
+ *     KiRequestSoftwareInterrupt @ 0x1402B7A24 (KiRequestSoftwareInterrupt.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeCheckAndApplyBamQos @ 0x140458D70 (KeCheckAndApplyBamQos.c)
+ *     KeUpdatePendingQosRequest @ 0x140458E7C (KeUpdatePendingQosRequest.c)
+ *     PoSetProcessorQoS @ 0x14045A860 (PoSetProcessorQoS.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall KiUpdateRunTime(char a1, unsigned __int8 a2, int a3)
 {
   struct _KPRCB *CurrentPrcb; // rdi

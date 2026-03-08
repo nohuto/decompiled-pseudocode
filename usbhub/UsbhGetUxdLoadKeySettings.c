@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhGetUxdLoadKeySettings @ 0x1C005A460
+ * Callers:
+ *     UsbhDeleteUxdSubKeys @ 0x1C0059D10 (UsbhDeleteUxdSubKeys.c)
+ *     UsbhGetUxdPortKey @ 0x1C005A540 (UsbhGetUxdPortKey.c)
+ * Callees:
+ *     memmove @ 0x1C0023580 (memmove.c)
+ */
+
 __int64 __fastcall UsbhGetUxdLoadKeySettings(__int64 a1, void *a2, const WCHAR *a3, void *a4)
 {
   _DWORD *Pool2; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiCheckFlipQueueTimeout @ 0x1C0007940
+ * Callers:
+ *     VidSchiReportHwHang @ 0x1C00475B8 (VidSchiReportHwHang.c)
+ *     VidSchiCheckHwProgress @ 0x1C00A5940 (VidSchiCheckHwProgress.c)
+ * Callees:
+ *     ?VidSchiCheckHeadTimeout@@YAHPEAU_VIDSCH_GLOBAL@@IPEAHPEA_KPEAT_ULARGE_INTEGER@@@Z @ 0x1C0008B70 (-VidSchiCheckHeadTimeout@@YAHPEAU_VIDSCH_GLOBAL@@IPEAHPEA_KPEAT_ULARGE_INTEGER@@@Z.c)
+ */
+
 __int64 __fastcall VidSchiCheckFlipQueueTimeout(
         KSPIN_LOCK *a1,
         int *a2,

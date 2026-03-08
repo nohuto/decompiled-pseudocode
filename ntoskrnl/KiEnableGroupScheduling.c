@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiEnableGroupScheduling @ 0x1403AA6A4
+ * Callers:
+ *     KeInsertSchedulingGroup @ 0x1402F161C (KeInsertSchedulingGroup.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeUpdateGroupSchedulingConstants @ 0x1403AA794 (KeUpdateGroupSchedulingConstants.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 KiEnableGroupScheduling()
 {
   __int64 v0; // rcx

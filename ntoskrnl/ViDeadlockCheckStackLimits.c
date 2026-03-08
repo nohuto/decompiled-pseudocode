@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViDeadlockCheckStackLimits @ 0x140AD5CDC
+ * Callers:
+ *     ViDeadlockCanProceed @ 0x140ABD79A (ViDeadlockCanProceed.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     IoGetStackLimits @ 0x1403129C0 (IoGetStackLimits.c)
+ */
+
 ULONG ViDeadlockCheckStackLimits()
 {
   ULONG result; // eax

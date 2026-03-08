@@ -1,3 +1,16 @@
+/*
+ * XREFs of HUBPDO_GetHubName @ 0x1C00160D8
+ * Callers:
+ *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0018550 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     HUBPDO_GetHubSymbolicLinkName @ 0x1C001A990 (HUBPDO_GetHubSymbolicLinkName.c)
+ *     HUBMISC_StripSymbolicNamePrefix @ 0x1C0033784 (HUBMISC_StripSymbolicNamePrefix.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 __int64 __fastcall HUBPDO_GetHubName(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rdi

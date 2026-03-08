@@ -1,3 +1,20 @@
+/*
+ * XREFs of Interrupter_PrepareInterrupter @ 0x1C007275C
+ * Callers:
+ *     Interrupter_PrepareHardware @ 0x1C0072C28 (Interrupter_PrepareHardware.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     Debug_FreAssertMsg @ 0x1C000880C (Debug_FreAssertMsg.c)
+ *     RtlStringCchPrintfA @ 0x1C000C294 (RtlStringCchPrintfA.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ *     XilCommonBuffer_AcquireBufferEx @ 0x1C001BAFC (XilCommonBuffer_AcquireBufferEx.c)
+ *     WPP_RECORDER_SF_qDD @ 0x1C001BD94 (WPP_RECORDER_SF_qDD.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     XilCommonBuffer_ReleaseBuffer @ 0x1C001E9A8 (XilCommonBuffer_ReleaseBuffer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Interrupter_DetermineSegmentSizeAndCount @ 0x1C0073748 (Interrupter_DetermineSegmentSizeAndCount.c)
+ */
+
 __int64 __fastcall Interrupter_PrepareInterrupter(__int64 a1, unsigned __int8 a2)
 {
   _QWORD *v2; // rdi

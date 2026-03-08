@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpNotifyChangeKey @ 0x1406B4A70
+ * Callers:
+ *     NtNotifyChangeMultipleKeys @ 0x1406B40B0 (NtNotifyChangeMultipleKeys.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     CmpPostNotify @ 0x1406B3790 (CmpPostNotify.c)
+ *     CmpFreePostBlock @ 0x1406B5600 (CmpFreePostBlock.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140AF21E0 (CmpIsKeyDeletedForKeyBody.c)
+ */
+
 __int64 __fastcall CmpNotifyChangeKey(__int64 a1, _QWORD *a2, int a3, char a4, __int64 a5, __int64 a6, __int64 a7)
 {
   __int64 v11; // r8

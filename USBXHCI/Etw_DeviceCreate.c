@@ -1,3 +1,12 @@
+/*
+ * XREFs of Etw_DeviceCreate @ 0x1C001E5C8
+ * Callers:
+ *     UsbDevice_UcxEvtDeviceAdd @ 0x1C0070FD0 (UsbDevice_UcxEvtDeviceAdd.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer @ 0x1C004B0B8 (McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall Etw_DeviceCreate(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

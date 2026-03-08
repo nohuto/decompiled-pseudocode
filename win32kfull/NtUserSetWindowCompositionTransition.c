@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserSetWindowCompositionTransition @ 0x1C00EC250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastStatus @ 0x1C0012568 (UserSetLastStatus.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ *     DwmAsyncSetTransition @ 0x1C00EC4B8 (DwmAsyncSetTransition.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 _BOOL8 __fastcall NtUserSetWindowCompositionTransition(
         __int64 a1,
         __int64 a2,

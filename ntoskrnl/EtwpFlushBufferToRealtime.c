@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpFlushBufferToRealtime @ 0x140692B74
+ * Callers:
+ *     EtwpFlushBuffer @ 0x140692C18 (EtwpFlushBuffer.c)
+ * Callees:
+ *     EtwpRealtimeSaveBuffer @ 0x14069113C (EtwpRealtimeSaveBuffer.c)
+ *     EtwpRealtimeDeliverBuffer @ 0x1406A1F30 (EtwpRealtimeDeliverBuffer.c)
+ */
+
 __int64 __fastcall EtwpFlushBufferToRealtime(__int64 a1, __int64 a2, char a3)
 {
   __int64 result; // rax

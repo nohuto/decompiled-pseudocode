@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpFreeKeyValues @ 0x140A1F1C0
+ * Callers:
+ *     CmDeleteLayeredKey @ 0x1406144A0 (CmDeleteLayeredKey.c)
+ *     CmpSyncKeyValues @ 0x140A20124 (CmpSyncKeyValues.c)
+ * Callees:
+ *     CmpFreeValue @ 0x1406BAA4C (CmpFreeValue.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvFreeCell @ 0x1407A6A90 (HvFreeCell.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpMarkKeyValuesDirty @ 0x140A1F3D8 (CmpMarkKeyValuesDirty.c)
+ */
+
 __int64 __fastcall CmpFreeKeyValues(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

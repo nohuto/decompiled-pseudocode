@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBMUX_QueueResetToAllPSMs @ 0x1C0010CF0
+ * Callers:
+ *     HUBHSM_NotifyingHubResetToPortsOnResetOnResume @ 0x1C0008A80 (HUBHSM_NotifyingHubResetToPortsOnResetOnResume.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBMUX_QueueResetToAllPSMs(__int64 a1)
 {
   __int64 v1; // rdi

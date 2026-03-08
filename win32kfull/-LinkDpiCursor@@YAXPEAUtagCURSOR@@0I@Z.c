@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?LinkDpiCursor@@YAXPEAUtagCURSOR@@0I@Z @ 0x1C01A9B34
+ * Callers:
+ *     ?xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z @ 0x1C0108704 (-xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z.c)
+ *     NtUserLinkDpiCursor @ 0x1C01D7000 (NtUserLinkDpiCursor.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall LinkDpiCursor(struct tagCURSOR *a1, struct tagCURSOR *a2, int a3)
 {
   int v4; // eax

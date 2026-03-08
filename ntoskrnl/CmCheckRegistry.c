@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmCheckRegistry @ 0x14072DEB4
+ * Callers:
+ *     CmpCreateHive @ 0x14072C06C (CmpCreateHive.c)
+ *     CmpReorganizeHive @ 0x14072C970 (CmpReorganizeHive.c)
+ * Callees:
+ *     SetFailureLocation @ 0x140243E5C (SetFailureLocation.c)
+ *     RtlClearAllBits @ 0x1402B24A0 (RtlClearAllBits.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x14071C9C4 (CmpValidateHiveSecurityDescriptors.c)
+ *     HvCheckHive @ 0x1407A6080 (HvCheckHive.c)
+ *     CmpCheckRegistry2 @ 0x1407B3F40 (CmpCheckRegistry2.c)
+ */
+
 __int64 __fastcall CmCheckRegistry(ULONG_PTR BugCheckParameter3, int a2, __int64 a3)
 {
   unsigned int v3; // ebx

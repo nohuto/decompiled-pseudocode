@@ -1,3 +1,13 @@
+/*
+ * XREFs of sub_1407559C8 @ 0x1407559C8
+ * Callers:
+ *     WbAddWarbirdEncryptionSegment @ 0x14075554C (WbAddWarbirdEncryptionSegment.c)
+ *     WbGetWarbirdEncryptionSegment @ 0x140755824 (WbGetWarbirdEncryptionSegment.c)
+ * Callees:
+ *     sub_1406AF180 @ 0x1406AF180 (sub_1406AF180.c)
+ *     sub_140755BBC @ 0x140755BBC (sub_140755BBC.c)
+ */
+
 __int64 __fastcall sub_1407559C8(__int64 a1, __int64 a2, _QWORD *a3, int *a4)
 {
   __int64 result; // rax

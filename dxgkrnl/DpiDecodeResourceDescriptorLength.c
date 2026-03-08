@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiDecodeResourceDescriptorLength @ 0x1C01E7D58
+ * Callers:
+ *     DpiFdoDetectPostDevice @ 0x1C01E7AF0 (DpiFdoDetectPostDevice.c)
+ *     DpiVerifyResources @ 0x1C0212368 (DpiVerifyResources.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall DpiDecodeResourceDescriptorLength(unsigned __int8 *a1)
 {
   __int64 v1; // rax

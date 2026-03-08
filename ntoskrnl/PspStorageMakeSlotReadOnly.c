@@ -1,3 +1,16 @@
+/*
+ * XREFs of PspStorageMakeSlotReadOnly @ 0x1407359D8
+ * Callers:
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x140735A88 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     PsMakeSiloContextPermanent @ 0x1409A96D0 (PsMakeSiloContextPermanent.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PspGetStorageArray @ 0x140738754 (PspGetStorageArray.c)
+ */
+
 __int64 __fastcall PspStorageMakeSlotReadOnly(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

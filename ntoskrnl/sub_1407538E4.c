@@ -1,3 +1,16 @@
+/*
+ * XREFs of sub_1407538E4 @ 0x1407538E4
+ * Callers:
+ *     WbDecryptWarbirdEncryptionSegment @ 0x1407537B0 (WbDecryptWarbirdEncryptionSegment.c)
+ * Callees:
+ *     ApplyRelocations @ 0x1402C4590 (ApplyRelocations.c)
+ *     ZwFlushInstructionCache @ 0x1404140F0 (ZwFlushInstructionCache.c)
+ *     sub_1406B6FF4 @ 0x1406B6FF4 (sub_1406B6FF4.c)
+ *     sub_14075424C @ 0x14075424C (sub_14075424C.c)
+ *     sub_14075435C @ 0x14075435C (sub_14075435C.c)
+ *     sub_140754E6C @ 0x140754E6C (sub_140754E6C.c)
+ */
+
 __int64 __fastcall sub_1407538E4(__int64 *a1, int a2, _DWORD *a3)
 {
   void *v6; // rbp

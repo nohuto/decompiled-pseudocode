@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkEngVisRgnUniq @ 0x1C000D310
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwTraceGreLockAcquireSemaphoreShared @ 0x1C0047AF0 (EtwTraceGreLockAcquireSemaphoreShared.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0049E20 (EtwTraceGreLockReleaseSemaphore.c)
+ */
+
 __int64 DxgkEngVisRgnUniq()
 {
   __int64 v0; // rbx

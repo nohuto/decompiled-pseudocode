@@ -1,3 +1,11 @@
+/*
+ * XREFs of PfSnCaptureParamBlockString @ 0x1407E5060
+ * Callers:
+ *     PfSnScanCommandLine @ 0x1407E4F40 (PfSnScanCommandLine.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PfSnCaptureParamBlockString(__int64 a1, _OWORD *a2, __int64 a3)
 {
   __int64 v3; // r9

@@ -1,3 +1,13 @@
+/*
+ * XREFs of AslpFileLargeGetChecksumAttributes @ 0x140A56B28
+ * Callers:
+ *     AslpFileLargeEnsureLargeFileMapping @ 0x140A56884 (AslpFileLargeEnsureLargeFileMapping.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslpFileLargeGetChecksum @ 0x140A56A34 (AslpFileLargeGetChecksum.c)
+ *     AslpFileLargeGetCrcChecksum @ 0x140A56C1C (AslpFileLargeGetCrcChecksum.c)
+ */
+
 __int64 __fastcall AslpFileLargeGetChecksumAttributes(__int64 a1, _QWORD *a2)
 {
   int Checksum; // edi

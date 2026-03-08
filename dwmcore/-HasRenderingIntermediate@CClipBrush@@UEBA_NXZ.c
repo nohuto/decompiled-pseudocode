@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HasRenderingIntermediate@CClipBrush@@UEBA_NXZ @ 0x18021E0E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CClipBrush::HasRenderingIntermediate(CClipBrush *this)
 {
   __int64 v1; // rcx

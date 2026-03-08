@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserSetObjectInformation @ 0x1C01DD570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     _SetUserObjectInformation @ 0x1C01AA334 (_SetUserObjectInformation.c)
+ */
+
 __int64 __fastcall NtUserSetObjectInformation(HANDLE Handle, int a2, _DWORD *a3, unsigned int a4)
 {
   SIZE_T v4; // rbx

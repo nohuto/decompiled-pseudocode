@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMRetrieveRealAngularPhysicalValues @ 0x1C01DF1D4
+ * Callers:
+ *     RIMRetrieveNormalizationRange @ 0x1C01DF08C (RIMRetrieveNormalizationRange.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMComputePower @ 0x1C01DEF68 (RIMComputePower.c)
+ */
+
 __int64 __fastcall RIMRetrieveRealAngularPhysicalValues(__int64 a1, int *a2)
 {
   unsigned int v2; // ebx

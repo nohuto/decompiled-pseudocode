@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExCopyWakeTimerInfo @ 0x140609150
+ * Callers:
+ *     PopHandleWakeSources @ 0x140A9DD6C (PopHandleWakeSources.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall ExCopyWakeTimerInfo(_QWORD *Src, _QWORD *a2)
 {
   void *Pool2; // rax

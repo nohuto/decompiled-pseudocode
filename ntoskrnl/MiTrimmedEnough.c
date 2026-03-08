@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiTrimmedEnough @ 0x140349244
+ * Callers:
+ *     MiTrimWorkingSetTail @ 0x1402E29B0 (MiTrimWorkingSetTail.c)
+ *     MiTrimPte @ 0x140349060 (MiTrimPte.c)
+ *     MiTrimWorkingSetEPTCallback @ 0x1406330B0 (MiTrimWorkingSetEPTCallback.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall MiTrimmedEnough(__int64 a1, __int64 a2)
 {
   unsigned __int64 v2; // rax

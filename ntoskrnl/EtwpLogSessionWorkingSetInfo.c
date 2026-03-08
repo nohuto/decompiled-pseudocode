@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpLogSessionWorkingSetInfo @ 0x1408A25EC
+ * Callers:
+ *     EtwpLogMemInfoWs @ 0x1408A21C4 (EtwpLogMemInfoWs.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MmQuerySessionWorkingSetInformation @ 0x140463F64 (MmQuerySessionWorkingSetInformation.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwpLogSessionWorkingSetInfo(__int64 a1)
 {
   void *v2; // rbx

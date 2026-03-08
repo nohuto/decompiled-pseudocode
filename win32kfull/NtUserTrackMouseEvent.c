@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserTrackMouseEvent @ 0x1C00E0060
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     QueryTrackMouseEvent @ 0x1C00E0158 (QueryTrackMouseEvent.c)
+ *     TrackMouseEvent @ 0x1C00E01E4 (TrackMouseEvent.c)
+ */
+
 __int64 __fastcall NtUserTrackMouseEvent(__m128i *a1)
 {
   __m128i *v2; // rax

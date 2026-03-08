@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceFlipManagerPresentCanceled @ 0x1C0162840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetQpcFrequency @ 0x1C0161710 (GetQpcFrequency.c)
+ *     McTemplateK0qxxxxxi_EtwWriteTransfer @ 0x1C01678E8 (McTemplateK0qxxxxxi_EtwWriteTransfer.c)
+ */
+
 _UNKNOWN **__fastcall EtwTraceFlipManagerPresentCanceled(
         int a1,
         char a2,

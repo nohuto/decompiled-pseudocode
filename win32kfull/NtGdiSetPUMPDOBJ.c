@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtGdiSetPUMPDOBJ @ 0x1C02CFA80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00D1B64 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ?bIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z @ 0x1C028BA40 (-bIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z.c)
+ *     ?bSandboxedCurrentProcess@@YAHXZ @ 0x1C029C37C (-bSandboxedCurrentProcess@@YAHXZ.c)
+ *     ?bTryAcquireExclussiveAccess@UMPDOBJ@@QEAA_NXZ @ 0x1C02C18B8 (-bTryAcquireExclussiveAccess@UMPDOBJ@@QEAA_NXZ.c)
+ *     ??1UMPDREF@@QEAA@XZ @ 0x1C02C96FC (--1UMPDREF@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall NtGdiSetPUMPDOBJ(Gre::Base *a1, __int64 a2, _QWORD *a3, _DWORD *a4)
 {
   int v6; // esi

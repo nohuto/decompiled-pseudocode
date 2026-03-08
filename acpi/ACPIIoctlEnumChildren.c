@@ -1,3 +1,17 @@
+/*
+ * XREFs of ACPIIoctlEnumChildren @ 0x1C002FA10
+ * Callers:
+ *     ACPIIrpDispatchDeviceControl @ 0x1C0001290 (ACPIIrpDispatchDeviceControl.c)
+ *     ACPIThermalDeviceControl @ 0x1C0040410 (ACPIThermalDeviceControl.c)
+ *     ACPIProcessorDeviceControl @ 0x1C008C570 (ACPIProcessorDeviceControl.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     ACPIIoctlEnumChildrenPopulateOutputBuffer @ 0x1C002FC78 (ACPIIoctlEnumChildrenPopulateOutputBuffer.c)
+ *     AMLIFindNameSpaceObject @ 0x1C0048110 (AMLIFindNameSpaceObject.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ */
+
 __int64 __fastcall ACPIIoctlEnumChildren(ULONG_PTR a1, IRP *a2, __int64 a3)
 {
   bool v4; // cf

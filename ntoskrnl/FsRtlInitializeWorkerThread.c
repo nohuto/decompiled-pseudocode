@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlInitializeWorkerThread @ 0x140B65C4C
+ * Callers:
+ *     FsRtlInitSystem @ 0x140B65B14 (FsRtlInitSystem.c)
+ * Callees:
+ *     KeInitializeQueue @ 0x1402A8580 (KeInitializeQueue.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     PsCreateSystemThread @ 0x1407DE2E0 (PsCreateSystemThread.c)
+ */
+
 NTSTATUS FsRtlInitializeWorkerThread()
 {
   unsigned int v0; // edi

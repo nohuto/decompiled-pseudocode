@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_GetDWordFromRegistry@Edgy@@YAHPEBG0PEAK@Z @ 0x1C01E9128
+ * Callers:
+ *     ?_IsLegacyDevice@Edgy@@YAHPEAX@Z @ 0x1C0148F26 (-_IsLegacyDevice@Edgy@@YAHPEAX@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall Edgy::_GetDWordFromRegistry(
         Edgy *this,
         const unsigned __int16 *a2,

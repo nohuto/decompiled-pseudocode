@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetWin32kSilo@@YAPEAU_EJOB@@AEAPEAX@Z @ 0x1C00B264C
+ * Callers:
+ *     UnloadWin32kCall @ 0x1C00B1C18 (UnloadWin32kCall.c)
+ *     InitializeWin32kCall @ 0x1C00B2080 (InitializeWin32kCall.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _EJOB *__fastcall SetWin32kSilo(void **a1)
 {
   __int64 v2; // rbx

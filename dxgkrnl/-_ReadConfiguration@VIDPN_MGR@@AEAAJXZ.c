@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?_ReadConfiguration@VIDPN_MGR@@AEAAJXZ @ 0x1C01F120C
+ * Callers:
+ *     ??0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z @ 0x1C02067E8 (--0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     Feature_45195632__private_IsEnabledDeviceUsage @ 0x1C0026904 (Feature_45195632__private_IsEnabledDeviceUsage.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiReadPnpRegistryValue @ 0x1C01F1618 (DpiReadPnpRegistryValue.c)
+ */
+
 __int64 __fastcall VIDPN_MGR::_ReadConfiguration(VIDPN_MGR *this)
 {
   int RegistryValues; // eax

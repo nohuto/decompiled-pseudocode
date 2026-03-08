@@ -1,3 +1,16 @@
+/*
+ * XREFs of DestroyKL @ 0x1C00CF5A8
+ * Callers:
+ *     _lambda_2ad0db6ebdddb84bde70c96348b25c2b_::operator() @ 0x1C008E99C (_lambda_2ad0db6ebdddb84bde70c96348b25c2b_--operator().c)
+ *     ?DestroyKLIfSupported@@YAXPEAUtagKL@@@Z @ 0x1C00CF590 (-DestroyKLIfSupported@@YAXPEAUtagKL@@@Z.c)
+ * Callees:
+ *     HMAssignmentUnlockWorker @ 0x1C007294C (HMAssignmentUnlockWorker.c)
+ *     HMFreeObject @ 0x1C0077F50 (HMFreeObject.c)
+ *     ??0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z @ 0x1C0086878 (--0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     DestroyKF @ 0x1C00CF66C (DestroyKF.c)
+ */
+
 __int64 __fastcall DestroyKL(_QWORD *a1)
 {
   __int64 *v2; // rcx

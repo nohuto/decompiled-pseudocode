@@ -1,3 +1,13 @@
+/*
+ * XREFs of ValidateHbwndOwnedByCallingThread @ 0x1C0157830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C004FE50 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     ValidateHbwnd @ 0x1C01576D0 (ValidateHbwnd.c)
+ */
+
 __int64 __fastcall ValidateHbwndOwnedByCallingThread(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rax

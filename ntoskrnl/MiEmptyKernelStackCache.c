@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiEmptyKernelStackCache @ 0x1406423A0
+ * Callers:
+ *     MiFindContiguousPagesEx @ 0x1403B5CF8 (MiFindContiguousPagesEx.c)
+ *     MiDeletePartitionResources @ 0x140656EBC (MiDeletePartitionResources.c)
+ *     MmRelocatePfnList @ 0x140A39D10 (MmRelocatePfnList.c)
+ *     MiScrubNode @ 0x140A43A10 (MiScrubNode.c)
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     MiPruneCachedStackList @ 0x140236C6C (MiPruneCachedStackList.c)
+ *     MiDeleteCachedKernelStack @ 0x140236DFC (MiDeleteCachedKernelStack.c)
+ *     MiDeleteCachedKernelShadowStack @ 0x140641F64 (MiDeleteCachedKernelShadowStack.c)
+ */
+
 __int64 __fastcall MiEmptyKernelStackCache(union _SLIST_HEADER *a1, int a2)
 {
   __int64 result; // rax

@@ -1,3 +1,24 @@
+/*
+ * XREFs of PiControlGetSetDeviceStatus @ 0x1406CD670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PiControlFreeUserModeCallersBuffer @ 0x1402459EC (PiControlFreeUserModeCallersBuffer.c)
+ *     PnpRequestDeviceAction @ 0x1402F5074 (PnpRequestDeviceAction.c)
+ *     PnpDeleteDeviceActionRequest @ 0x1402FDD5C (PnpDeleteDeviceActionRequest.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PnpCancelDeviceActionRequest @ 0x140560204 (PnpCancelDeviceActionRequest.c)
+ *     PnpRemoveDeviceActionRequestFromQueue @ 0x14056025C (PnpRemoveDeviceActionRequestFromQueue.c)
+ *     PiControlGetUserFlagsFromDeviceNode @ 0x1406CD404 (PiControlGetUserFlagsFromDeviceNode.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CDF08 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x1406CFA10 (PiControlMakeUserModeCallersCopy.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiControlGetSetDeviceStatus(__int64 a1, int *a2, unsigned int a3, char a4)
 {
   unsigned int v4; // ecx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmWmiDispatch @ 0x14084C650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x140250B60 (KeCancelTimer.c)
+ *     PpmWmiRegisterInfo @ 0x14084C6B0 (PpmWmiRegisterInfo.c)
+ *     PpmWmiGetAllData @ 0x1409931AC (PpmWmiGetAllData.c)
+ */
+
 __int64 __fastcall PpmWmiDispatch(int a1, __int64 *a2, int a3, int a4, __int64 a5, _DWORD *a6)
 {
   char v6; // bl

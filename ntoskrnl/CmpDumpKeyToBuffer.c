@@ -1,3 +1,22 @@
+/*
+ * XREFs of CmpDumpKeyToBuffer @ 0x140AF28C4
+ * Callers:
+ *     CmSaveKeyToBuffer @ 0x140AF2780 (CmSaveKeyToBuffer.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     CmSiRWLockReleaseExclusive @ 0x1406A3848 (CmSiRWLockReleaseExclusive.c)
+ *     CmSiRWLockAcquireExclusive @ 0x1406A419C (CmSiRWLockAcquireExclusive.c)
+ *     CmpUnlockKcb @ 0x140AF2140 (CmpUnlockKcb.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ *     CmpIsKeyBodyEligibleForDump @ 0x140AF2AB0 (CmpIsKeyBodyEligibleForDump.c)
+ *     CmpDoAccessCheckOnSubtree @ 0x140AF2AFC (CmpDoAccessCheckOnSubtree.c)
+ *     HvSnapshotHiveToOffsetArray @ 0x140AF2D84 (HvSnapshotHiveToOffsetArray.c)
+ */
+
 __int64 __fastcall CmpDumpKeyToBuffer(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
 {
   ULONG_PTR v7; // rbx

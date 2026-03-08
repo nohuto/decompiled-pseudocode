@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspSetMinimalProcessName @ 0x140817F50
+ * Callers:
+ *     PsCreateMinimalProcess @ 0x140817C28 (PsCreateMinimalProcess.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PspSetProcessShortName @ 0x1407069F8 (PspSetProcessShortName.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PspSetMinimalProcessName(__int64 a1, const void **a2)
 {
   __int64 Pool2; // rax

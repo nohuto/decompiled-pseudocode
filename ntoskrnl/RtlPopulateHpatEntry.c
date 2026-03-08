@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlPopulateHpatEntry @ 0x140678894
+ * Callers:
+ *     RtlApplyHotPatch @ 0x140AAA600 (RtlApplyHotPatch.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlPopulateHpatEntry(
         __int64 a1,
         _QWORD *a2,

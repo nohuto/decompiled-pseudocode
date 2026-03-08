@@ -1,3 +1,12 @@
+/*
+ * XREFs of PfpLogPageAccess @ 0x1407E6160
+ * Callers:
+ *     PfpCopyEvent @ 0x1407E5C10 (PfpCopyEvent.c)
+ *     PfpFlushBuffers @ 0x1407E5E50 (PfpFlushBuffers.c)
+ * Callees:
+ *     PfTReplaceCurrentBuffer @ 0x1407E6840 (PfTReplaceCurrentBuffer.c)
+ */
+
 unsigned __int64 __fastcall PfpLogPageAccess(__int64 a1, _DWORD *a2, _BYTE *a3, __int64 a4, int a5)
 {
   unsigned __int64 v5; // rdi

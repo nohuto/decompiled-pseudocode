@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlStringLengthWorkerW @ 0x1C004ED4C
+ * Callers:
+ *     RtlStringCbCatW @ 0x1C004EC84 (RtlStringCbCatW.c)
+ *     UsbhBuildContainerID @ 0x1C004F3E8 (UsbhBuildContainerID.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlStringLengthWorkerW(STRSAFE_PCNZWCH psz, size_t cchMax, size_t *pcchLength)
 {
   size_t i; // r9

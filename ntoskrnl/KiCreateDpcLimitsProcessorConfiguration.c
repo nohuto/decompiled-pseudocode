@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiCreateDpcLimitsProcessorConfiguration @ 0x14037FEF0
+ * Callers:
+ *     KeUpdateDpcWatchdogConfiguration @ 0x140568BB0 (KeUpdateDpcWatchdogConfiguration.c)
+ *     KiInitializeProcessor @ 0x140A8BBD4 (KiInitializeProcessor.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall KiCreateDpcLimitsProcessorConfiguration(__int64 a1, int a2, int a3)
 {
   unsigned __int64 v3; // r8

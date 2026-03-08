@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CitpProgDataFind@@YAPEAU_CIT_PROG_DATA@@PEBU_CIT_IMPACT_CONTEXT@@PEBU_CIT_PROGRAM_ID@@@Z @ 0x1C027306C
+ * Callers:
+ *     ?CitpProgDataEnsure@@YAPEAU_CIT_PROG_DATA@@PEAU_CIT_IMPACT_CONTEXT@@PEBU_CIT_PROGRAM_ID@@@Z @ 0x1C0272D88 (-CitpProgDataEnsure@@YAPEAU_CIT_PROG_DATA@@PEAU_CIT_IMPACT_CONTEXT@@PEBU_CIT_PROGRAM_ID@@@Z.c)
+ * Callees:
+ *     ?CitpProgramIdIsEqual@@YAEPEBU_CIT_PROGRAM_ID@@0@Z @ 0x1C0273440 (-CitpProgramIdIsEqual@@YAEPEBU_CIT_PROGRAM_ID@@0@Z.c)
+ */
+
 struct _CIT_PROG_DATA *__fastcall CitpProgDataFind(
         const struct _CIT_IMPACT_CONTEXT *a1,
         const struct _CIT_PROGRAM_ID *a2)

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlDissectName @ 0x1402C3D80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __stdcall RtlDissectName(UNICODE_STRING *Path, PUNICODE_STRING FirstName, PUNICODE_STRING RemainingName)
 {
   __int64 v3; // r10

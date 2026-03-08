@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiPreventControlAreaDeletion @ 0x1403A10A8
+ * Callers:
+ *     MiTrimSharedPage @ 0x1403A0EBC (MiTrimSharedPage.c)
+ *     MiLocateSharedPageViews @ 0x1406340C0 (MiLocateSharedPageViews.c)
+ *     MiPurgeBadFileOnlyPages @ 0x14063C678 (MiPurgeBadFileOnlyPages.c)
+ * Callees:
+ *     MiReferenceSubsection @ 0x1403327C0 (MiReferenceSubsection.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiBuildWakeList @ 0x140332B34 (MiBuildWakeList.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiRemoveUnusedSegment @ 0x14034C47C (MiRemoveUnusedSegment.c)
+ */
+
 __int64 __fastcall MiPreventControlAreaDeletion(__int64 a1, ULONG_PTR *a2, __int64 **a3)
 {
   __int64 v5; // rbx

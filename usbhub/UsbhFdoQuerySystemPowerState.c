@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhFdoQuerySystemPowerState @ 0x1C0020640
+ * Callers:
+ *     UsbhFdoPower_QueryPower @ 0x1C0020470 (UsbhFdoPower_QueryPower.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhPoStartNextPowerIrp_Fdo @ 0x1C003C7C0 (UsbhPoStartNextPowerIrp_Fdo.c)
+ */
+
 __int64 __fastcall UsbhFdoQuerySystemPowerState(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 {
   _DWORD *v4; // rbp

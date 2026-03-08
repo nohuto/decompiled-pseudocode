@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiTriggerForegroundBoostDpc @ 0x1403CF580
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ */
+
 void __fastcall KiTriggerForegroundBoostDpc(
         struct _KDPC *Dpc,
         PVOID DeferredContext,

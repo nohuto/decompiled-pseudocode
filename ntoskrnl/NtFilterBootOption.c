@@ -1,3 +1,17 @@
+/*
+ * XREFs of NtFilterBootOption @ 0x1409CD700
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlCheckTokenMembership @ 0x1402BDFD0 (RtlCheckTokenMembership.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     SepSecureBootCorrectBcd @ 0x1409CDB74 (SepSecureBootCorrectBcd.c)
+ *     SepSecureBootValidateBcdDataAgainstBcdRule @ 0x1409CE184 (SepSecureBootValidateBcdDataAgainstBcdRule.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtFilterBootOption(int a1, int a2, unsigned int a3, _QWORD *a4, size_t Size)
 {
   int v7; // r15d

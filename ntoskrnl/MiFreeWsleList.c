@@ -1,3 +1,32 @@
+/*
+ * XREFs of MiFreeWsleList @ 0x14032B2B0
+ * Callers:
+ *     MiSharePages @ 0x140228990 (MiSharePages.c)
+ *     MiTrimSharedPageFromViews @ 0x1402A031C (MiTrimSharedPageFromViews.c)
+ *     MiAgeWorkingSetTail @ 0x1402C9E50 (MiAgeWorkingSetTail.c)
+ *     MiEmptyWorkingSetHelper @ 0x1402DE91C (MiEmptyWorkingSetHelper.c)
+ *     MiTrimWorkingSetBuildup @ 0x1402E2A60 (MiTrimWorkingSetBuildup.c)
+ *     MiMakeVaRangeNoAccess @ 0x1402EF244 (MiMakeVaRangeNoAccess.c)
+ *     MiEmptyWorkingSetTail @ 0x1402F7470 (MiEmptyWorkingSetTail.c)
+ *     MmProtectPool @ 0x14030B7D8 (MmProtectPool.c)
+ *     MiSetProtectionOnSection @ 0x140321FC0 (MiSetProtectionOnSection.c)
+ *     MiAgePteWorker @ 0x140326530 (MiAgePteWorker.c)
+ *     NtUnlockVirtualMemory @ 0x1403479C0 (NtUnlockVirtualMemory.c)
+ *     MiConvertAndFlushWsleVas @ 0x14036C29C (MiConvertAndFlushWsleVas.c)
+ *     MiStealPage @ 0x1403B70BC (MiStealPage.c)
+ *     MiUpdateOldWorkingSetPagesTail @ 0x140463EE0 (MiUpdateOldWorkingSetPagesTail.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x14062B2BC (MiDeprioritizeVirtualAddresses.c)
+ * Callees:
+ *     MiTbFlushType @ 0x140224BDC (MiTbFlushType.c)
+ *     MiRemoveWsleList @ 0x1402824E0 (MiRemoveWsleList.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiRebuildPageTableLeafAges @ 0x14032AD30 (MiRebuildPageTableLeafAges.c)
+ *     MiWsleFlush @ 0x14032B4A0 (MiWsleFlush.c)
+ *     MiWsleFree @ 0x14032BA30 (MiWsleFree.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiFreeWsleList(__int64 a1, __int64 a2, unsigned int a3)
 {
   unsigned __int64 v6; // rdi

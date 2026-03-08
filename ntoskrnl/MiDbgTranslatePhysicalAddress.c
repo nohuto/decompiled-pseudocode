@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiDbgTranslatePhysicalAddress @ 0x140641B08
+ * Callers:
+ *     MiDbgCopyMemory @ 0x140347088 (MiDbgCopyMemory.c)
+ * Callees:
+ *     KeFlushSingleTb @ 0x140211E60 (KeFlushSingleTb.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14034A974 (MiMakeProtectionPfnCompatible.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeFlushSingleCurrentTb @ 0x140387AD4 (KeFlushSingleCurrentTb.c)
+ *     MiFreezeIoPfnNode @ 0x14062BCF8 (MiFreezeIoPfnNode.c)
+ *     MiCheckPhysicalAddressRange @ 0x1406415CC (MiCheckPhysicalAddressRange.c)
+ *     MiDbgUnTranslatePhysicalAddress @ 0x140641E70 (MiDbgUnTranslatePhysicalAddress.c)
+ */
+
 unsigned __int64 __fastcall MiDbgTranslatePhysicalAddress(unsigned __int64 a1, unsigned __int8 a2, __int64 a3)
 {
   __int64 v3; // r12

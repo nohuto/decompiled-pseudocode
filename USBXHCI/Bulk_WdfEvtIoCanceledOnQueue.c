@@ -1,3 +1,13 @@
+/*
+ * XREFs of Bulk_WdfEvtIoCanceledOnQueue @ 0x1C00473D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     TR_QueueDpcForTransferCompletion @ 0x1C000F284 (TR_QueueDpcForTransferCompletion.c)
+ *     Bulk_TransferData_Initialize @ 0x1C00128DC (Bulk_TransferData_Initialize.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Bulk_WdfEvtIoCanceledOnQueue(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdi

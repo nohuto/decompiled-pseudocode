@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Create@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@SAPEAV123@PEAU_LIST_ENTRY@@K@Z @ 0x1C019BA80
+ * Callers:
+ *     ?InitializeReferenceTracker@@YA_NXZ @ 0x1C00CF19C (-InitializeReferenceTracker@@YA_NXZ.c)
+ * Callees:
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     ??1CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAA@XZ @ 0x1C019B8B0 (--1CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAA@XZ.c)
+ *     ?Create@CPointerHashTable@NSInstrumentation@@SAPEAV12@_N@Z @ 0x1C019BEDC (-Create@CPointerHashTable@NSInstrumentation@@SAPEAV12@_N@Z.c)
+ *     ?Create@CBackTraceStoreEx@NSInstrumentation@@SAPEAV12@XZ @ 0x1C019CB14 (-Create@CBackTraceStoreEx@NSInstrumentation@@SAPEAV12@XZ.c)
+ */
+
 struct NSInstrumentation::CReferenceTracker::CReferenceCountedType *__fastcall NSInstrumentation::CReferenceTracker::CReferenceCountedType::Create(
         struct _LIST_ENTRY *a1,
         int a2)

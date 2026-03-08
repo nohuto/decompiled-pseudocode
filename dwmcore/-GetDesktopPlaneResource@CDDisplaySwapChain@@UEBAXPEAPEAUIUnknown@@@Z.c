@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDesktopPlaneResource@CDDisplaySwapChain@@UEBAXPEAPEAUIUnknown@@@Z @ 0x180286B90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CDDisplaySwapChain::GetDesktopPlaneResource(CDDisplaySwapChain *this, struct IUnknown **a2)
 {
   struct IUnknown *v3; // rbx

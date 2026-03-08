@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpUpdateNumaConfiguration @ 0x140518DA4
+ * Callers:
+ *     HalStartDynamicProcessor @ 0x140502C20 (HalStartDynamicProcessor.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpUpdateNumaConfiguration(int a1, unsigned __int16 a2)
 {
   unsigned int v2; // r8d

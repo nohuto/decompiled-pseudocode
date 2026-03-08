@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiPfnRangeIsZero @ 0x14038B144
+ * Callers:
+ *     MiFreedUnusedPfnPagesWorker @ 0x14038ACDC (MiFreedUnusedPfnPagesWorker.c)
+ * Callees:
+ *     MiFreeLargeZeroPages @ 0x14020FD6C (MiFreeLargeZeroPages.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiGetContainingPageTable @ 0x140289FE0 (MiGetContainingPageTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14032E710 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     MiInitializeLargePfnList @ 0x14035059C (MiInitializeLargePfnList.c)
+ *     MiReplacePfnWithGapMapping @ 0x14038B4B8 (MiReplacePfnWithGapMapping.c)
+ *     MiPreparePfnDatabasePageForFree @ 0x14038B564 (MiPreparePfnDatabasePageForFree.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x14038B664 (MiDemoteValidLargePageOneLevel.c)
+ *     MiClearSystemAccessBits @ 0x14038BBC4 (MiClearSystemAccessBits.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __fastcall MiPfnRangeIsZero(unsigned __int64 LeafVa, unsigned __int64 a2)
 {
   unsigned __int64 v4; // rdi

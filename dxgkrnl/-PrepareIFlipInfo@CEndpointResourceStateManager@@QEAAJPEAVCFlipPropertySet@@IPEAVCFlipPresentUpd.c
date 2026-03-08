@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?PrepareIFlipInfo@CEndpointResourceStateManager@@QEAAJPEAVCFlipPropertySet@@IPEAVCFlipPresentUpdate@@PEAPEAUFlipManagerTokenIFlipInfo@@@Z @ 0x1C0085E84
+ * Callers:
+ *     ?CreatePresentUpdateForProducer@CFlipManager@@QEAAJ_N_K0PEAVCFlipPropertySet@@PEAPEAVCFlipPresentUpdate@@PEAPEAUFlipManagerTokenIFlipInfo@@@Z @ 0x1C0082C58 (-CreatePresentUpdateForProducer@CFlipManager@@QEAAJ_N_K0PEAVCFlipPropertySet@@PEAPEAVCFlipPresen.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ??_GFlipManagerTokenIFlipInfo@@QEAAPEAXI@Z @ 0x1C0075634 (--_GFlipManagerTokenIFlipInfo@@QEAAPEAXI@Z.c)
+ *     ?GetIndependentFlipNotifyDwm@CompositionSurfaceObject@@QEAAJ_KPEA_N@Z @ 0x1C0078CD4 (-GetIndependentFlipNotifyDwm@CompositionSurfaceObject@@QEAAJ_KPEA_N@Z.c)
+ *     ??$FindProperty@UPresentParametersInfo@@@CFlipPropertySetBase@@QEAAXPEAPEAUPresentParametersInfo@@@Z @ 0x1C0084FAC (--$FindProperty@UPresentParametersInfo@@@CFlipPropertySetBase@@QEAAXPEAPEAUPresentParametersInfo.c)
+ *     ??$FindProperty@UPresentedContentUpdateHDR10Info@@@CFlipPropertySetBase@@QEAAXPEAPEAUPresentedContentUpdateHDR10Info@@@Z @ 0x1C0085010 (--$FindProperty@UPresentedContentUpdateHDR10Info@@@CFlipPropertySetBase@@QEAAXPEAPEAUPresentedCo.c)
+ *     ??$FindProperty@UPresentedContentUpdateHDR10PlusInfo@@@CFlipPropertySetBase@@QEAAXPEAPEAUPresentedContentUpdateHDR10PlusInfo@@@Z @ 0x1C0085074 (--$FindProperty@UPresentedContentUpdateHDR10PlusInfo@@@CFlipPropertySetBase@@QEAAXPEAPEAUPresent.c)
+ *     ??$FindProperty@UPresentedContentUpdateInfo@@@CFlipPropertySetBase@@QEAAXPEAPEAUPresentedContentUpdateInfo@@@Z @ 0x1C00850D8 (--$FindProperty@UPresentedContentUpdateInfo@@@CFlipPropertySetBase@@QEAAXPEAPEAUPresentedContent.c)
+ *     ?FindPoolBufferIndex@CEndpointResourceStateManager@@QEAAI_K@Z @ 0x1C008562C (-FindPoolBufferIndex@CEndpointResourceStateManager@@QEAAI_K@Z.c)
+ *     ?FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@@@Z @ 0x1C0085680 (-FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@.c)
+ *     ?IsSimpleUpdatePresent@CEndpointResourceStateManager@@SA_NPEAVCFlipPresentUpdate@@@Z @ 0x1C00857EC (-IsSimpleUpdatePresent@CEndpointResourceStateManager@@SA_NPEAVCFlipPresentUpdate@@@Z.c)
+ */
+
 __int64 __fastcall CEndpointResourceStateManager::PrepareIFlipInfo(
         struct _LIST_ENTRY *this,
         struct CFlipPropertySet *a2,

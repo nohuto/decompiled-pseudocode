@@ -1,3 +1,11 @@
+/*
+ * XREFs of XmRclOp @ 0x140531220
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmStoreResult @ 0x1403B42E8 (XmStoreResult.c)
+ */
+
 _WORD *__fastcall XmRclOp(_DWORD *a1)
 {
   int v1; // edx

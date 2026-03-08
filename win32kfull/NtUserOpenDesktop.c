@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserOpenDesktop @ 0x1C00BF250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _OpenDesktop @ 0x1C00BF4B0 (_OpenDesktop.c)
+ */
+
 __int64 __fastcall NtUserOpenDesktop(int a1, int a2, int a3)
 {
   __int64 v5; // rbp

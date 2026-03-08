@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtDCompositionCreateChannel @ 0x1C005C970
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Create@CApplicationChannel@DirectComposition@@SAJPEAI0PEAPEAX@Z @ 0x1C005CAC0 (-Create@CApplicationChannel@DirectComposition@@SAJPEAI0PEAPEAX@Z.c)
+ *     ?DestroyHandle@CChannel@DirectComposition@@SAJI@Z @ 0x1C0098528 (-DestroyHandle@CChannel@DirectComposition@@SAJI@Z.c)
+ */
+
 __int64 __fastcall NtDCompositionCreateChannel(unsigned int *a1, unsigned int *a2, _QWORD *a3)
 {
   _QWORD *v3; // r14

@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlDoesDbcsContainWildCards @ 0x1408A0090
+ * Callers:
+ *     FsRtlIsFatDbcsLegal @ 0x1407F1480 (FsRtlIsFatDbcsLegal.c)
+ *     FsRtlIsDbcsInExpression @ 0x14093C0C0 (FsRtlIsDbcsInExpression.c)
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall FsRtlDoesDbcsContainWildCards(PANSI_STRING Name)
 {
   int v1; // edx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiSelectIdealProcessorSetForProcessGroup @ 0x140296B48
+ * Callers:
+ *     KiAdjustProcessIdealProcessorSetsForThreadCreation @ 0x140238A7C (KiAdjustProcessIdealProcessorSetsForThreadCreation.c)
+ *     KiSelectIdealProcessorSetsForProcess @ 0x140296A4C (KiSelectIdealProcessorSetsForProcess.c)
+ * Callees:
+ *     KiSelectIdealProcessorSetForGroup @ 0x140296BAC (KiSelectIdealProcessorSetForGroup.c)
+ */
+
 __int64 __fastcall KiSelectIdealProcessorSetForProcessGroup(
         unsigned __int64 a1,
         unsigned __int16 a2,

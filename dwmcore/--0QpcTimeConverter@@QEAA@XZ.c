@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0QpcTimeConverter@@QEAA@XZ @ 0x180039B88
+ * Callers:
+ *     ??0CInteractionContextWrapper@@QEAA@XZ @ 0x180039AB8 (--0CInteractionContextWrapper@@QEAA@XZ.c)
+ *     ??0CManipulationManager@@IEAA@PEAVCComposition@@@Z @ 0x1800CBFC0 (--0CManipulationManager@@IEAA@PEAVCComposition@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 QpcTimeConverter *__fastcall QpcTimeConverter::QpcTimeConverter(QpcTimeConverter *this)
 {
   BOOL v2; // eax

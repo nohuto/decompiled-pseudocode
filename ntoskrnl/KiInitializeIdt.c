@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiInitializeIdt @ 0x140A8C270
+ * Callers:
+ *     KiEnableKvaShadowing @ 0x140A864CC (KiEnableKvaShadowing.c)
+ *     KiInitializeBootStructures @ 0x140A887E0 (KiInitializeBootStructures.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall KiInitializeIdt(__int64 a1, char a2)
 {
   __int64 *v2; // r9

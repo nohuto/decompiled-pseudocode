@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiCreateClientObj @ 0x1C02AA9E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@EK@Z @ 0x1C0029D88 (-Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@EK@Z.c)
+ */
+
 struct HOBJ__ *__fastcall NtGdiCreateClientObj(unsigned int a1)
 {
   struct HOBJ__ *v1; // rbx

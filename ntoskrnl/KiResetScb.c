@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiResetScb @ 0x1402F24DC
+ * Callers:
+ *     KiUpdateCpuTargetByWeight @ 0x1402F1C6C (KiUpdateCpuTargetByWeight.c)
+ *     KiUpdateCpuTargetByRate @ 0x1402F1E28 (KiUpdateCpuTargetByRate.c)
+ * Callees:
+ *     KiMoveScbThreadsToNewReadylist @ 0x1402AB444 (KiMoveScbThreadsToNewReadylist.c)
+ *     KiRemoveSchedulingGroupQueue @ 0x1402AEF44 (KiRemoveSchedulingGroupQueue.c)
+ */
+
 char __fastcall KiResetScb(__int64 a1, __int64 a2)
 {
   unsigned __int64 v2; // rax

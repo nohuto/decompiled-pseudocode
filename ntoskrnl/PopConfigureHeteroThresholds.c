@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopConfigureHeteroThresholds @ 0x140827BD0
+ * Callers:
+ *     PopConfigureHeteroPolicies @ 0x1408273AC (PopConfigureHeteroPolicies.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopConfigureHeteroThresholds(__int64 a1, unsigned __int8 a2)
 {
   __int64 result; // rax

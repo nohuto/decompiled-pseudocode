@@ -1,3 +1,14 @@
+/*
+ * XREFs of DispBroker::DispBrokerClient::AsyncMessageNoAlloc_5__lambda_080e8f3c9a2b96fa8c06ab1b08e75502___ @ 0x1C015662C
+ * Callers:
+ *     ?DispBrokerAsyncRotationLockToggleKey@@YAJXZ @ 0x1C0156E30 (-DispBrokerAsyncRotationLockToggleKey@@YAJXZ.c)
+ * Callees:
+ *     DrvDxgkSendDisplayBrokerMessage @ 0x1C001070C (DrvDxgkSendDisplayBrokerMessage.c)
+ *     DrvSampleDisplayState @ 0x1C0022700 (DrvSampleDisplayState.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 DispBroker::DispBrokerClient::AsyncMessageNoAlloc_5__lambda_080e8f3c9a2b96fa8c06ab1b08e75502___()
 {
   __int64 result; // rax

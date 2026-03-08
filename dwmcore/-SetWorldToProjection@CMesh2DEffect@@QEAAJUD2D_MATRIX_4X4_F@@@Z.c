@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetWorldToProjection@CMesh2DEffect@@QEAAJUD2D_MATRIX_4X4_F@@@Z @ 0x1801087D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CMesh2DEffect::SetWorldToProjection(CMesh2DEffect *this, struct D2D_MATRIX_4X4_F *a2)
 {
   __int64 result; // rax

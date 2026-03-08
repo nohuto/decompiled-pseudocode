@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlQueryL1tfMitigationInformation @ 0x14053D758
+ * Callers:
+ *     KeQuerySpeculationControlInformation @ 0x14097183C (KeQuerySpeculationControlInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HvlQueryL1tfMitigationInformation(int *a1)
 {
   int v2; // edx

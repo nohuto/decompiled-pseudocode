@@ -1,3 +1,21 @@
+/*
+ * XREFs of UsbhExceptionTrace @ 0x1C004AC64
+ * Callers:
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C002E6BC (WPP_RECORDER_SF_dD.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002E98C (WPP_RECORDER_SF_dq.c)
+ *     WPP_RECORDER_SF__HEX_ @ 0x1C0041698 (WPP_RECORDER_SF__HEX_.c)
+ *     log_xstr @ 0x1C00417B8 (log_xstr.c)
+ *     WPP_RECORDER_SF_dDD @ 0x1C00484FC (WPP_RECORDER_SF_dDD.c)
+ *     WPP_RECORDER_SF_Dd @ 0x1C004B4E0 (WPP_RECORDER_SF_Dd.c)
+ *     WPP_RECORDER_SF_ds @ 0x1C004B5A8 (WPP_RECORDER_SF_ds.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C004B6E8 (WPP_RECORDER_SF_qq.c)
+ *     WPP_RECORDER_SF_sd @ 0x1C004B7B0 (WPP_RECORDER_SF_sd.c)
+ */
+
 void __fastcall UsbhExceptionTrace(char a1, __int64 a2, __int64 a3, int a4)
 {
   __int64 v4; // rdi

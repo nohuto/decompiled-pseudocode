@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpTimerCaptureCloestAuxiliaryQpcPair @ 0x1403A6C3C
+ * Callers:
+ *     HalpTimerFinalizeAuxiliaryCounter @ 0x1403A6BC0 (HalpTimerFinalizeAuxiliaryCounter.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 _UNKNOWN **HalpTimerCaptureCloestAuxiliaryQpcPair()
 {
   _UNKNOWN **result; // rax

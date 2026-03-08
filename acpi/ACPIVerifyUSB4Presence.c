@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIVerifyUSB4Presence @ 0x1C003D85C
+ * Callers:
+ *     ACPIRootInitialize @ 0x1C0093768 (ACPIRootInitialize.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_i @ 0x1C002293C (WPP_RECORDER_SF_i.c)
+ *     ACPIAmliEvaluateOsc @ 0x1C007C7D8 (ACPIAmliEvaluateOsc.c)
+ */
+
 __int64 __fastcall ACPIVerifyUSB4Presence(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // rcx

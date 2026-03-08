@@ -1,3 +1,13 @@
+/*
+ * XREFs of WdipSemWriteScenarioLimitExceededEvent @ 0x1409DB6F4
+ * Callers:
+ *     WdipSemLoadScenarioTable @ 0x140832BA4 (WdipSemLoadScenarioTable.c)
+ *     WdipSemLoadNextScenario @ 0x140832FB0 (WdipSemLoadNextScenario.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     WdipSemWriteEvent @ 0x140833CFC (WdipSemWriteEvent.c)
+ */
+
 NTSTATUS __fastcall WdipSemWriteScenarioLimitExceededEvent(const EVENT_DESCRIPTOR *a1, ULONGLONG a2, __int16 a3)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-38h] BYREF

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?WritePointerDeviceCfgSetting@@YAJPEAXPEBGIPEAEI@Z @ 0x1C01F4A30
+ * Callers:
+ *     ?SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z @ 0x1C01F48B4 (-SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z.c)
+ *     ?WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z @ 0x1C01F4AA0 (-WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall WritePointerDeviceCfgSetting(
         HANDLE KeyHandle,
         const unsigned __int16 *a2,

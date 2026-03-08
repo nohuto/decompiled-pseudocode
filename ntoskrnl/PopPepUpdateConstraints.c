@@ -1,3 +1,22 @@
+/*
+ * XREFs of PopPepUpdateConstraints @ 0x1402B9328
+ * Callers:
+ *     PopPepDeviceWaitWake @ 0x1402B8FC8 (PopPepDeviceWaitWake.c)
+ *     PopPepDeviceDState @ 0x1402B9C4C (PopPepDeviceDState.c)
+ *     PopPluginDevicePower @ 0x140306D00 (PopPluginDevicePower.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PopPepUpdateIdleState @ 0x140304DB8 (PopPepUpdateIdleState.c)
+ *     PopPepCancelActivityRange @ 0x140307328 (PopPepCancelActivityRange.c)
+ *     PopPepCountReadyActivities @ 0x140307578 (PopPepCountReadyActivities.c)
+ *     PopPepRequestWork @ 0x1403075C4 (PopPepRequestWork.c)
+ *     PopPepReleaseActivityLink @ 0x140307608 (PopPepReleaseActivityLink.c)
+ *     PopPepLockActivityLink @ 0x14030768C (PopPepLockActivityLink.c)
+ *     PopPepPromoteActivities @ 0x140307780 (PopPepPromoteActivities.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ */
+
 NTSTATUS __fastcall PopPepUpdateConstraints(__int64 a1, int a2, char a3)
 {
   __int64 v3; // r12

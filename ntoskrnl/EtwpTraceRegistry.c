@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpTraceRegistry @ 0x1408A2820
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwpLogRegistryEvent @ 0x1408A24EC (EtwpLogRegistryEvent.c)
+ */
+
 __int64 __fastcall EtwpTraceRegistry(unsigned __int8 a1, __int64 a2, int a3, int a4, __int64 a5, __int64 a6)
 {
   __int64 result; // rax

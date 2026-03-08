@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetCurrentBackBuffer@CCompSwapChain@@UEBAPEAVIDeviceTarget@@XZ @ 0x18029AE20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 struct IDeviceTarget *__fastcall CCompSwapChain::GetCurrentBackBuffer(CCompSwapChain *this)
 {
   __int64 v1; // rdx

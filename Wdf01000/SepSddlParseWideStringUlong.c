@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepSddlParseWideStringUlong @ 0x1C00B0FD0
+ * Callers:
+ *     SepSddlGetAclForString @ 0x1C00B0AE0 (SepSddlGetAclForString.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SepSddlParseWideStringUlong(wchar_t *Buffer, wchar_t **FinalPosition, unsigned int *Value)
 {
   wchar_t v3; // r9

@@ -1,3 +1,14 @@
+/*
+ * XREFs of VerifierPortKeReleaseSpinLockNoXdv @ 0x140AD2B10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     VfKeIrqlTransitionReserveLogEntry @ 0x140ABD5B0 (VfKeIrqlTransitionReserveLogEntry.c)
+ *     VfKeIrqlLogLower @ 0x140AD2C84 (VfKeIrqlLogLower.c)
+ */
+
 __int64 __fastcall VerifierPortKeReleaseSpinLockNoXdv(volatile signed __int64 *a1, unsigned __int8 a2)
 {
   char *v2; // rdi

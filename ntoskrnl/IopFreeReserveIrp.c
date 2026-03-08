@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopFreeReserveIrp @ 0x1405531AC
+ * Callers:
+ *     IopFreeIrp @ 0x14030EC30 (IopFreeIrp.c)
+ *     IopCompleteRequest @ 0x140312C80 (IopCompleteRequest.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     IopFreeBackpocketIrp @ 0x14055313C (IopFreeBackpocketIrp.c)
+ */
+
 LONG __fastcall IopFreeReserveIrp(IRP *a1)
 {
   struct _KEVENT *v1; // rcx

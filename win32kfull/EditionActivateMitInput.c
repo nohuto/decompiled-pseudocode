@@ -1,3 +1,14 @@
+/*
+ * XREFs of EditionActivateMitInput @ 0x1C00DB420
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WakeRIT @ 0x1C00DB568 (WakeRIT.c)
+ *     WaitForRitToCompleteLastCommand @ 0x1C00DB5C8 (WaitForRitToCompleteLastCommand.c)
+ *     DitTakeOver @ 0x1C00DB624 (DitTakeOver.c)
+ *     ?ForceSetCurrentCursorShape@CursorApiRouter@@QEAAXXZ @ 0x1C00DB69C (-ForceSetCurrentCursorShape@CursorApiRouter@@QEAAXXZ.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 EditionActivateMitInput()
 {

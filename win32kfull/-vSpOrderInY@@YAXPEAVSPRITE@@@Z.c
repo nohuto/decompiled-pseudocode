@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vSpOrderInY@@YAXPEAVSPRITE@@@Z @ 0x1C010E2C8
+ * Callers:
+ *     ?pSpCreateSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAU_RECTL@@PEAUHWND__@@PEAU_POINTL@@@Z @ 0x1C010D1FC (-pSpCreateSprite@@YAPEAVSPRITE@@PEAUHDEV__@@PEAU_RECTL@@PEAUHWND__@@PEAU_POINTL@@@Z.c)
+ *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C0110C1C (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vSpOrderInY(struct SPRITE *a1)
 {
   __int64 v1; // rax

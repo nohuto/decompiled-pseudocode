@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiObtainPagefileHashes @ 0x140466CF4
+ * Callers:
+ *     MiValidatePagefilePageHash @ 0x140466E1A (MiValidatePagefilePageHash.c)
+ *     MiArePagefileContentsCorrupted @ 0x1406633DC (MiArePagefileContentsCorrupted.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReadEntirePageHashEntry @ 0x140664630 (MiReadEntirePageHashEntry.c)
+ */
+
 void __fastcall MiObtainPagefileHashes(__int64 a1, int a2, unsigned int a3, __int64 a4)
 {
   volatile LONG *v4; // r14

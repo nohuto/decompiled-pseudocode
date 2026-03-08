@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserWindowFromPoint @ 0x1C00D6AD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxWindowFromPoint @ 0x1C00D6B18 (xxxWindowFromPoint.c)
+ */
+
 __int64 __fastcall NtUserWindowFromPoint(struct tagPOINT a1)
 {
   __int64 *v2; // rax

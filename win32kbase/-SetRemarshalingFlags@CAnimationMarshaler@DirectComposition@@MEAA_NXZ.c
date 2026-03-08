@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CAnimationMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C024D080
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DirectComposition::CAnimationMarshaler::SetRemarshalingFlags(
         DirectComposition::CAnimationMarshaler *this)
 {

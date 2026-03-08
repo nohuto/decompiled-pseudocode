@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtQueryCompositionSurfaceFrameRate @ 0x1C002A7A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?LockForRead@CompositionSurfaceObject@@QEBAJPEAPEBVCCompositionSurface@@@Z @ 0x1C000D6B0 (-LockForRead@CompositionSurfaceObject@@QEBAJPEAPEBVCCompositionSurface@@@Z.c)
+ *     ?UnlockAndRelease@CCompositionSurface@@QEBA_NXZ @ 0x1C000D954 (-UnlockAndRelease@CCompositionSurface@@QEBA_NXZ.c)
+ *     ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z @ 0x1C001375C (-ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAV1@@Z.c)
+ */
+
 __int64 __fastcall NtQueryCompositionSurfaceFrameRate(void *a1, unsigned int *a2)
 {
   unsigned int v4; // r14d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpYDIB_ExpCX @ 0x1C0261904
+ * Callers:
+ *     ExpandDIB_CY_ExpCX @ 0x1C0262870 (ExpandDIB_CY_ExpCX.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ExpYDIB_ExpCX(unsigned __int64 *a1, unsigned __int8 *a2, _BYTE *a3, _BYTE *a4)
 {
   unsigned __int64 v8; // rax

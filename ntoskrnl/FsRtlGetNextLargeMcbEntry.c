@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlGetNextLargeMcbEntry @ 0x1403A1210
+ * Callers:
+ *     FsRtlGetNextMcbEntry @ 0x14053A690 (FsRtlGetNextMcbEntry.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     FsRtlGetNextBaseMcbEntry @ 0x1402D6970 (FsRtlGetNextBaseMcbEntry.c)
+ */
+
 BOOLEAN __stdcall FsRtlGetNextLargeMcbEntry(
         PLARGE_MCB Mcb,
         ULONG RunIndex,

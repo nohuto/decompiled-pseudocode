@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalBugCheckSystem @ 0x1404FFD10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void __stdcall __noreturn HalBugCheckSystem(PWHEA_ERROR_SOURCE_DESCRIPTOR ErrorSource, PWHEA_ERROR_RECORD ErrorRecord)
 {
   ULONG_PTR v2; // r9

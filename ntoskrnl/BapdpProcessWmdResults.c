@@ -1,3 +1,15 @@
+/*
+ * XREFs of BapdpProcessWmdResults @ 0x140B42B54
+ * Callers:
+ *     BootApplicationPersistentDataProcess @ 0x140B44538 (BootApplicationPersistentDataProcess.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     BapdpQueryData @ 0x140B44D10 (BapdpQueryData.c)
+ *     BapdpRegisterWmdResult @ 0x140B94A14 (BapdpRegisterWmdResult.c)
+ */
+
 void BapdpProcessWmdResults()
 {
   unsigned __int64 v0; // rcx

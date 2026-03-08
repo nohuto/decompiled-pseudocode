@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopComputeDerivedHiberStats @ 0x140988FC0
+ * Callers:
+ *     PopDiagTraceHiberStats @ 0x14098C828 (PopDiagTraceHiberStats.c)
+ *     PopDiagTracePerfTrackData @ 0x14098D168 (PopDiagTracePerfTrackData.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall PopComputeDerivedHiberStats(unsigned __int64 *a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 v5; // rax

@@ -1,3 +1,25 @@
+/*
+ * XREFs of SdbMergeIsEntryUpdated @ 0x140A50A7C
+ * Callers:
+ *     SdbpIsEntryIdAvailableInOtherDb @ 0x140A4F5AC (SdbpIsEntryIdAvailableInOtherDb.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbMakeIndexKeyFromStringEx @ 0x14079F418 (SdbMakeIndexKeyFromStringEx.c)
+ *     SdbpGetFirstIndexedRecord @ 0x14079F5A8 (SdbpGetFirstIndexedRecord.c)
+ *     SdbReadDWORDTag @ 0x14079FC18 (SdbReadDWORDTag.c)
+ *     SdbFindNextTag @ 0x1407A0218 (SdbFindNextTag.c)
+ *     SdbReadWORDTag @ 0x1407A029C (SdbReadWORDTag.c)
+ *     SdbGetStringTagPtr @ 0x1407A20E8 (SdbGetStringTagPtr.c)
+ *     SdbpGetMappedTagData @ 0x1407A2238 (SdbpGetMappedTagData.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ *     SdbGetTagDataSize @ 0x1407A2980 (SdbGetTagDataSize.c)
+ *     SdbGetTagFromTagID @ 0x1407A2A70 (SdbGetTagFromTagID.c)
+ *     SdbpGetNextIndexedRecord @ 0x140848BC4 (SdbpGetNextIndexedRecord.c)
+ *     SdbFindParentTagFromAncestors @ 0x140A4EE80 (SdbFindParentTagFromAncestors.c)
+ *     __SdbpFindTagFromAncestors @ 0x140A4F0E8 (__SdbpFindTagFromAncestors.c)
+ *     SdbpMergeAreTagValuesEqual @ 0x140A50E64 (SdbpMergeAreTagValuesEqual.c)
+ */
+
 __int64 __fastcall SdbMergeIsEntryUpdated(__int64 a1, unsigned int a2, __int64 a3, unsigned int *a4)
 {
   int TagFromTagID; // r12d

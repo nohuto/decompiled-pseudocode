@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiEnumerateQuarantinedBadHugeRangePages @ 0x1406279E8
+ * Callers:
+ *     MmEnumerateBadPages @ 0x140A2CF14 (MmEnumerateBadPages.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiEnumerateBadHugeRangePages @ 0x14061D628 (MiEnumerateBadHugeRangePages.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiEnumerateQuarantinedBadHugeRangePages(__int64 a1)
 {
   unsigned __int64 v1; // rsi

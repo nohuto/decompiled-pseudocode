@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01AE304
+ * Callers:
+ *     EditionContactVisualization @ 0x1C0143210 (EditionContactVisualization.c)
+ * Callees:
+ *     IsCurrentDesktopComposed @ 0x1C001FD80 (IsCurrentDesktopComposed.c)
+ *     ?DeferPointerCursorOperation@@YAXPEBUtagPOINTER_INFO@@AEBUtagPOINTERCURSORDATA@@@Z @ 0x1C0142F44 (-DeferPointerCursorOperation@@YAXPEBUtagPOINTER_INFO@@AEBUtagPOINTERCURSORDATA@@@Z.c)
+ *     _GetPointerDeviceType @ 0x1C0146218 (_GetPointerDeviceType.c)
+ *     DwmAsyncSendTouchContacts @ 0x1C014D056 (DwmAsyncSendTouchContacts.c)
+ *     ?GetWindowBarrelVisualizationSetting@Feedback@@YAHAEBUtagPOINTER_INFO@@H@Z @ 0x1C01AE700 (-GetWindowBarrelVisualizationSetting@Feedback@@YAHAEBUtagPOINTER_INFO@@H@Z.c)
+ *     ?GetWindowVisualizationSetting@Feedback@@YAHAEBUtagPOINTER_INFO@@HHHPEAH@Z @ 0x1C01AE7D0 (-GetWindowVisualizationSetting@Feedback@@YAHAEBUtagPOINTER_INFO@@HHHPEAH@Z.c)
+ *     ?PointerEventIntToDigitizerContactInfo@Feedback@@YAXPEBUtagPOINTEREVENTINT@@HHHPEAUtagDIGITIZER_CONTACT_INFO@@@Z @ 0x1C01AE9A8 (-PointerEventIntToDigitizerContactInfo@Feedback@@YAXPEBUtagPOINTEREVENTINT@@HHHPEAUtagDIGITIZER_.c)
+ *     ?SwitchMouseCursors@@YAXK_N@Z @ 0x1C01AEB28 (-SwitchMouseCursors@@YAXK_N@Z.c)
+ *     FeedbackGetWindowSetting @ 0x1C01AEDEC (FeedbackGetWindowSetting.c)
+ */
+
 _BOOL8 __fastcall ContactVisualizationWorker(unsigned int a1, char *a2, __int64 a3, int a4, unsigned int a5)
 {
   __int64 v5; // rbx

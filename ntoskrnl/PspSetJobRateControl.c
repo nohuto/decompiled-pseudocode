@@ -1,3 +1,15 @@
+/*
+ * XREFs of PspSetJobRateControl @ 0x1409AFE3C
+ * Callers:
+ *     PspSetNetRateControl @ 0x1409B0054 (PspSetNetRateControl.c)
+ * Callees:
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FB7C8 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspFreeRateControl @ 0x1407832C0 (PspFreeRateControl.c)
+ *     PspAllocateRateControl @ 0x14078330C (PspAllocateRateControl.c)
+ *     PspModifyAncestorBits @ 0x1409AF60C (PspModifyAncestorBits.c)
+ *     PspRemoveRateControl @ 0x1409AF8BC (PspRemoveRateControl.c)
+ */
+
 __int64 __fastcall PspSetJobRateControl(_QWORD *Object, __int64 a2, char a3)
 {
   int v3; // r15d

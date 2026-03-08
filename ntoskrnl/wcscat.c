@@ -1,3 +1,11 @@
+/*
+ * XREFs of wcscat @ 0x1403D5D20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 wchar_t *__cdecl wcscat(wchar_t *Dest, const wchar_t *Source)
 {
   wchar_t *i; // r8

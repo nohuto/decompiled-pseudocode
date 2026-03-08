@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIGpeValidIndex @ 0x1C002C6DC
+ * Callers:
+ *     ACPIGpeIndexToByteIndex @ 0x1C0003564 (ACPIGpeIndexToByteIndex.c)
+ *     ACPIBuildProcessDevicePhasePrw @ 0x1C000FDA0 (ACPIBuildProcessDevicePhasePrw.c)
+ *     ACPIGpeIndexToGpeRegister @ 0x1C002C39C (ACPIGpeIndexToGpeRegister.c)
+ *     ACPIGpeInstallRemoveIndex @ 0x1C002C3F8 (ACPIGpeInstallRemoveIndex.c)
+ *     ACPIVectorConnect @ 0x1C0043E40 (ACPIVectorConnect.c)
+ * Callees:
+ *     ACPIValidateGPEEventIndex @ 0x1C002C71C (ACPIValidateGPEEventIndex.c)
+ */
+
 bool __fastcall ACPIGpeValidIndex(__int64 a1)
 {
   __int64 v1; // rcx

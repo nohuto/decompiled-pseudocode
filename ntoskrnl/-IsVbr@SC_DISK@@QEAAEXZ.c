@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsVbr@SC_DISK@@QEAAEXZ @ 0x14067346C
+ * Callers:
+ *     ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x1406735F0 (-ResetPartitionCache@SC_DISK@@QEAAJXZ.c)
+ * Callees:
+ *     ?Validate@MBR_ENTRY@@QEAAEK_K@Z @ 0x140673F3C (-Validate@MBR_ENTRY@@QEAAEK_K@Z.c)
+ */
+
 char __fastcall SC_DISK::IsVbr(SC_DISK *this)
 {
   __int64 v1; // rsi

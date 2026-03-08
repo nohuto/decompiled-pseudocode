@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpIommuSetupMessageInterruptRouting @ 0x140A8DD50
+ * Callers:
+ *     HalpIommuConfigureInterrupt @ 0x1403A4968 (HalpIommuConfigureInterrupt.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpIommuSetupMessageInterruptRouting(__int64 a1, __int64 a2)
 {
   LOBYTE(a2) = 1;

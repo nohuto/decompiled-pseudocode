@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopQueryDeviceState @ 0x140683218
+ * Callers:
+ *     PiProcessQueryDeviceState @ 0x140683054 (PiProcessQueryDeviceState.c)
+ *     IopMarkDeviceToBeReset @ 0x140954500 (IopMarkDeviceToBeReset.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopSynchronousCall @ 0x14069DD78 (IopSynchronousCall.c)
+ */
+
 __int64 __fastcall IopQueryDeviceState(int a1, _DWORD *a2)
 {
   __int64 result; // rax

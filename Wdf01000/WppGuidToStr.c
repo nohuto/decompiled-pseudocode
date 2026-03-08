@@ -1,3 +1,11 @@
+/*
+ * XREFs of WppGuidToStr @ 0x1C00229F8
+ * Callers:
+ *     WppInitGlobalLoggerWdf @ 0x1C0022AFC (WppInitGlobalLoggerWdf.c)
+ * Callees:
+ *     WppIntToHex @ 0x1C0022EC0 (WppIntToHex.c)
+ */
+
 wchar_t *__fastcall WppGuidToStr(wchar_t *buf, const _GUID *guid)
 {
   __int64 v2; // rcx

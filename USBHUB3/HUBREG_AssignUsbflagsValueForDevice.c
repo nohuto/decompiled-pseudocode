@@ -1,3 +1,18 @@
+/*
+ * XREFs of HUBREG_AssignUsbflagsValueForDevice @ 0x1C00842FC
+ * Callers:
+ *     HUBDSM_MarkingDeviceAsNotSupportingContainerIdBasedOnMSOSDescriptor @ 0x1C0021CE0 (HUBDSM_MarkingDeviceAsNotSupportingContainerIdBasedOnMSOSDescriptor.c)
+ *     HUBPDO_EvtDevicePrepareHardware @ 0x1C007CF20 (HUBPDO_EvtDevicePrepareHardware.c)
+ *     HUBMISC_MarkDeviceAsNotSupportingMSOSDescriptor @ 0x1C0083090 (HUBMISC_MarkDeviceAsNotSupportingMSOSDescriptor.c)
+ *     HUBMISC_StoreDeviceMSOSVendorCodeInRegsitry @ 0x1C00830C8 (HUBMISC_StoreDeviceMSOSVendorCodeInRegsitry.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBMISC_ConvertUsbDeviceIdsToString @ 0x1C0033EEC (HUBMISC_ConvertUsbDeviceIdsToString.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_OpenCreateUsbflagsDeviceKey @ 0x1C00838E4 (HUBREG_OpenCreateUsbflagsDeviceKey.c)
+ */
+
 __int64 __fastcall HUBREG_AssignUsbflagsValueForDevice(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   __int64 v8; // rax

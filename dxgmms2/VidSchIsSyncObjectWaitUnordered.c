@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchIsSyncObjectWaitUnordered @ 0x1C0086310
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ */
+
 char __fastcall VidSchIsSyncObjectWaitUnordered(__int64 a1, unsigned __int64 a2)
 {
   int v3; // edx

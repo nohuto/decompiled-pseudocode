@@ -1,3 +1,14 @@
+/*
+ * XREFs of WmipAllocateSingleInstanceWnode @ 0x1409DC6D4
+ * Callers:
+ *     IoWMIExecuteMethod @ 0x1409DBE40 (IoWMIExecuteMethod.c)
+ *     IoWMISetSingleInstance @ 0x1409DC1B0 (IoWMISetSingleInstance.c)
+ *     IoWMISetSingleItem @ 0x1409DC2E0 (IoWMISetSingleItem.c)
+ * Callees:
+ *     WmipAlign @ 0x1402092D8 (WmipAlign.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall WmipAllocateSingleInstanceWnode(
         int a1,
         __int64 a2,

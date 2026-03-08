@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CD3DSurface@@MEAA@XZ @ 0x1802988F0
+ * Callers:
+ *     ??_ECD3DSurface@@MEAAPEAXI@Z @ 0x180298A20 (--_ECD3DSurface@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CD3DSurface::~CD3DSurface(CD3DSurface *this)
 {
   __int64 v2; // rdx

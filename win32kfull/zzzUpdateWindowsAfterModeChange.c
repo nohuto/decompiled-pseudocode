@@ -1,3 +1,27 @@
+/*
+ * XREFs of zzzUpdateWindowsAfterModeChange @ 0x1C0097D18
+ * Callers:
+ *     zzzResetSharedDesktops @ 0x1C0096870 (zzzResetSharedDesktops.c)
+ * Callees:
+ *     DeleteOrSetRedirectionBitmap @ 0x1C0021D34 (DeleteOrSetRedirectionBitmap.c)
+ *     IsDesktopWindow @ 0x1C002C460 (IsDesktopWindow.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C002EF28 (zzzEndDeferWinEventNotify.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     GetRedirectionBitmap @ 0x1C0043F00 (GetRedirectionBitmap.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00519F0 (zzzLockDisplayAreaAndInvalidateDCCache.c)
+ *     xxxInternalInvalidate @ 0x1C0053270 (xxxInternalInvalidate.c)
+ *     RecreateRedirectionBitmap @ 0x1C0096A48 (RecreateRedirectionBitmap.c)
+ *     GreIsReusedDeviceDependentBitmap @ 0x1C00974AC (GreIsReusedDeviceDependentBitmap.c)
+ *     UpdateMonitorForWindowAndChildren @ 0x1C00991CC (UpdateMonitorForWindowAndChildren.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     GetNewMonitor @ 0x1C00AB0FC (GetNewMonitor.c)
+ *     ?RestoreOldRedirectionBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@@Z @ 0x1C01BDB10 (-RestoreOldRedirectionBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@@Z.c)
+ *     GreGetBitmapDpiScaleValue @ 0x1C02AA444 (GreGetBitmapDpiScaleValue.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall zzzUpdateWindowsAfterModeChange(int a1, int a2)
 {

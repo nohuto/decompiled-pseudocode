@@ -1,3 +1,14 @@
+/*
+ * XREFs of MNSetupAnimationDC @ 0x1C00C1D98
+ * Callers:
+ *     FinalUserInit @ 0x1C00C1B24 (FinalUserInit.c)
+ *     MNAllocMenuState @ 0x1C0201C50 (MNAllocMenuState.c)
+ * Callees:
+ *     GreSelectFont @ 0x1C0050B00 (GreSelectFont.c)
+ *     GetDPIMetrics @ 0x1C009FD5C (GetDPIMetrics.c)
+ *     Feature_439792958__private_IsEnabledDeviceUsage @ 0x1C012EE90 (Feature_439792958__private_IsEnabledDeviceUsage.c)
+ */
+
 __int64 __fastcall MNSetupAnimationDC(__int64 a1)
 {
   __int64 result; // rax

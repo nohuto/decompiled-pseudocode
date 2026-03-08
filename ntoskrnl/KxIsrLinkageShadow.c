@@ -1,3 +1,11 @@
+/*
+ * XREFs of KxIsrLinkageShadow @ 0x140AF4B00
+ * Callers:
+ *     KiIsrThunkShadow @ 0x140AF42C0 (KiIsrThunkShadow.c)
+ * Callees:
+ *     <none>
+ */
+
 // positive sp value has been detected, the output may be wrong!
 __int64 __fastcall KxIsrLinkageShadow(int a1, int a2, int a3, int a4, __int16 a5)
 {

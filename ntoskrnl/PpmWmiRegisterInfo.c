@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmWmiRegisterInfo @ 0x14084C6B0
+ * Callers:
+ *     PpmWmiDispatch @ 0x14084C650 (PpmWmiDispatch.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 NTSTATUS __fastcall PpmWmiRegisterInfo(int a1, __int64 a2, unsigned int a3, _DWORD *a4, int *a5)
 {
   int v5; // ebx

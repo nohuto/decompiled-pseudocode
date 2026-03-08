@@ -1,3 +1,21 @@
+/*
+ * XREFs of RemoteRedrawScreen @ 0x1C0126610
+ * Callers:
+ *     xxxRemoteDisconnect @ 0x1C00F7034 (xxxRemoteDisconnect.c)
+ *     xxxRemoteReconnect @ 0x1C01267DC (xxxRemoteReconnect.c)
+ *     NtUserRemoteRedrawScreen @ 0x1C01DAC50 (NtUserRemoteRedrawScreen.c)
+ *     RemotePassthruDisable @ 0x1C0205C9C (RemotePassthruDisable.c)
+ *     RemoteShadowCleanup @ 0x1C0205DF0 (RemoteShadowCleanup.c)
+ *     RemoteShadowStart @ 0x1C0205FFC (RemoteShadowStart.c)
+ * Callees:
+ *     xxxSwitchDesktop @ 0x1C00205D4 (xxxSwitchDesktop.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall RemoteRedrawScreen(__int64 a1, __int64 a2, __int64 a3)
 {

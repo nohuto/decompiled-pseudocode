@@ -1,3 +1,17 @@
+/*
+ * XREFs of RIMPopulateExtendedMouseDeviceProperties @ 0x1C0030B48
+ * Callers:
+ *     RIMCreateDev @ 0x1C0036CBC (RIMCreateDev.c)
+ * Callees:
+ *     ?ReadDevicePropertyFromRegistry@@YA_NPEBGPEAX1JPEAJ@Z @ 0x1C002EDC4 (-ReadDevicePropertyFromRegistry@@YA_NPEBGPEAX1JPEAJ@Z.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x1C003098C (RtlUnicodeStringValidateDestWorker.c)
+ *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0030A10 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     RIMRegOpenKey @ 0x1C0030AE8 (RIMRegOpenKey.c)
+ *     RIMRegOpenDeviceInstanceKey @ 0x1C0030CF0 (RIMRegOpenDeviceInstanceKey.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 char __fastcall RIMPopulateExtendedMouseDeviceProperties(__int64 a1)
 {
   void *v2; // rdi

@@ -1,3 +1,22 @@
+/*
+ * XREFs of DestroyClass @ 0x1C0033D18
+ * Callers:
+ *     ?ClassUnlockWorker@@YAPEAUtagCLS@@PEAU1@@Z @ 0x1C0012890 (-ClassUnlockWorker@@YAPEAUtagCLS@@PEAU1@@Z.c)
+ *     DestroyProcessesClasses @ 0x1C0031B80 (DestroyProcessesClasses.c)
+ *     DestroyClass @ 0x1C0033D18 (DestroyClass.c)
+ *     _UnregisterClass @ 0x1C0040D80 (_UnregisterClass.c)
+ *     FinalUserInit @ 0x1C00C1B24 (FinalUserInit.c)
+ *     DereferenceClass @ 0x1C010AA40 (DereferenceClass.c)
+ * Callees:
+ *     ?UnlockAndFreeCPDs@@YAXPEAPEAU_CALLPROCDATA@@@Z @ 0x1C00132A0 (-UnlockAndFreeCPDs@@YAXPEAPEAU_CALLPROCDATA@@@Z.c)
+ *     ?IsClassAtomRegistered@@YA_NPEAUtagPROCESSINFO@@G@Z @ 0x1C0033820 (-IsClassAtomRegistered@@YA_NPEAUtagPROCESSINFO@@G@Z.c)
+ *     ?DestroyClassBrush@@YAXAEBV?$SmartObjStackRef@UtagCLS@@@@@Z @ 0x1C0033A6C (-DestroyClassBrush@@YAXAEBV-$SmartObjStackRef@UtagCLS@@@@@Z.c)
+ *     DestroyClass @ 0x1C0033D18 (DestroyClass.c)
+ *     ?DecrementCountAndTryFree@?$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ @ 0x1C003409C (-DecrementCountAndTryFree@-$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ.c)
+ *     DestroyClassSmIcon @ 0x1C00343D0 (DestroyClassSmIcon.c)
+ *     ?Free@?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C00CF5C8 (-Free@-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@IEAAXPEAX@Z.c)
+ */
+
 __int64 __fastcall DestroyClass(struct tagPROCESSINFO *a1, struct _CALLPROCDATA ***a2)
 {
   struct _CALLPROCDATA **v2; // rbx

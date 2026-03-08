@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIEcRunQueryMethod @ 0x1C0025AC4
+ * Callers:
+ *     ACPIEcDispatchQueries @ 0x1C0025958 (ACPIEcDispatchQueries.c)
+ * Callees:
+ *     ACPIEcCompleteQueryMethod @ 0x1C00258E0 (ACPIEcCompleteQueryMethod.c)
+ *     AMLIAsyncEvalObject @ 0x1C00478E8 (AMLIAsyncEvalObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ */
+
 __int64 __fastcall ACPIEcRunQueryMethod(__int64 a1, unsigned int a2)
 {
   __int64 v3; // rsi

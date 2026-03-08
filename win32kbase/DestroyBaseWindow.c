@@ -1,3 +1,17 @@
+/*
+ * XREFs of DestroyBaseWindow @ 0x1C017BDE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HMDestroyObject @ 0x1C0086830 (HMDestroyObject.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     CleanupInputDelegation @ 0x1C00A91F0 (CleanupInputDelegation.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ?DeleteBaseWindowProperties@@YAXPEAUtagBWND@@@Z @ 0x1C017BC2C (-DeleteBaseWindowProperties@@YAXPEAUtagBWND@@@Z.c)
+ *     ?UnreferenceMsgDataExternal@CTouchProcessor@@QEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z @ 0x1C0207790 (-UnreferenceMsgDataExternal@CTouchProcessor@@QEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z.c)
+ *     HandleBaseWindowDestruction @ 0x1C0217B50 (HandleBaseWindowDestruction.c)
+ */
+
 __int64 __fastcall DestroyBaseWindow(_DWORD *a1, char *a2, __int64 a3, __int64 a4)
 {
   char **v5; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FlushAllTemporaryAllocation@VIDMM_GLOBAL@@IEAAXI@Z @ 0x1C00E3264
+ * Callers:
+ *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C008D8B0 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VIDMM_GLOBAL::FlushAllTemporaryAllocation(VIDMM_GLOBAL *this, int a2)
 {
   char *v2; // rsi

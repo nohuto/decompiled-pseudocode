@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhFdoPower @ 0x1C001EA90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     Usbh_HubDeferIrpProcessing @ 0x1C003C8F4 (Usbh_HubDeferIrpProcessing.c)
+ */
+
 NTSTATUS __fastcall UsbhFdoPower(struct _DEVICE_OBJECT *a1, IRP *a2)
 {
   volatile signed __int32 *DeviceExtension; // r8

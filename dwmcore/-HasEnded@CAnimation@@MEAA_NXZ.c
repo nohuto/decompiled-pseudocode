@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HasEnded@CAnimation@@MEAA_NXZ @ 0x1800E9020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CAnimation::HasEnded(CAnimation *this)
 {
   char result; // al

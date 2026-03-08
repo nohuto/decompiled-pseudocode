@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EDID_V1_GetColorDataRaw@@YAJKPEBEPEAUDISPLAY_COLOR_DATA_RAW@@@Z @ 0x1C002370C
+ * Callers:
+ *     ?GetColorDataRaw@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAUDISPLAY_COLOR_DATA_RAW@@@Z @ 0x1C0217830 (-GetColorDataRaw@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAUDISPLAY_COLOR_DATA_RAW@@@Z.c)
+ * Callees:
+ *     ?Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z @ 0x1C0011258 (-Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z.c)
+ */
+
 __int64 __fastcall EDID_V1_GetColorDataRaw(unsigned int a1, unsigned __int8 *a2, struct DISPLAY_COLOR_DATA_RAW *a3)
 {
   __int64 result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiCheckSystemPageTables @ 0x140222830
+ * Callers:
+ *     MiSystemFault @ 0x1402220A0 (MiSystemFault.c)
+ * Callees:
+ *     KeInvalidAccessAllowed @ 0x1402DA5E0 (KeInvalidAccessAllowed.c)
+ *     MiCheckSystemNxFault @ 0x1402EB3C8 (MiCheckSystemNxFault.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiGenerateAccessViolation @ 0x1406439D8 (MiGenerateAccessViolation.c)
+ */
+
 __int64 __fastcall MiCheckSystemPageTables(ULONG_PTR *a1)
 {
   __int64 v2; // rdx

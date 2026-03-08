@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlWCSMessageWParamCharToMB @ 0x1C024EB88
+ * Callers:
+ *     xxxDispatchMessage @ 0x1C0038064 (xxxDispatchMessage.c)
+ *     fnHkINLPMSG @ 0x1C00C5E60 (fnHkINLPMSG.c)
+ *     SfnINWPARAMCHAR @ 0x1C02100D0 (SfnINWPARAMCHAR.c)
+ *     SfnINWPARAMDBCSCHAR @ 0x1C02103E0 (SfnINWPARAMDBCSCHAR.c)
+ * Callees:
+ *     ?ConvertToAndFromWideChar@@YAHIPEAGHPEADHH@Z @ 0x1C00BCE20 (-ConvertToAndFromWideChar@@YAHIPEAGHPEADHH@Z.c)
+ *     ?THREAD_CODEPAGE@@YAGXZ @ 0x1C0207F9C (-THREAD_CODEPAGE@@YAGXZ.c)
+ */
+
 __int64 __fastcall RtlWCSMessageWParamCharToMB(int a1, unsigned __int16 *a2)
 {
   int v3; // ecx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of MxMapVa @ 0x140B3819C
+ * Callers:
+ *     MxMapPfnRange @ 0x140B37F18 (MxMapPfnRange.c)
+ * Callees:
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiFillPhysicalPages @ 0x1402CE820 (MiFillPhysicalPages.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiFillPteHierarchy @ 0x140333AE0 (MiFillPteHierarchy.c)
+ *     KeZeroPages @ 0x14041BBF0 (KeZeroPages.c)
+ *     MxGetNextPage @ 0x140B383A4 (MxGetNextPage.c)
+ */
+
 __int64 __fastcall MxMapVa(__int64 a1)
 {
   unsigned __int64 v2; // rcx

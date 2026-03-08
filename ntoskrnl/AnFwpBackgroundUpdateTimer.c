@@ -1,3 +1,19 @@
+/*
+ * XREFs of AnFwpBackgroundUpdateTimer @ 0x140AEF1E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     BgpFwReleaseLock @ 0x140381C10 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140381C60 (BgpFwAcquireLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     BgpClearScreen @ 0x14066F510 (BgpClearScreen.c)
+ *     AnFwpDisableProgressTimer @ 0x140AEC610 (AnFwpDisableProgressTimer.c)
+ *     AnFwDisableBackgroundUpdateTimer @ 0x140AEC6DC (AnFwDisableBackgroundUpdateTimer.c)
+ *     BgpGxDrawBitmapImage @ 0x140AEF720 (BgpGxDrawBitmapImage.c)
+ */
+
 void __fastcall AnFwpBackgroundUpdateTimer(
         struct _KDPC *Dpc,
         PVOID DeferredContext,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiAdjustPteBins @ 0x140299A90
+ * Callers:
+ *     MiWorkingSetManager @ 0x1403616C0 (MiWorkingSetManager.c)
+ * Callees:
+ *     MiAttemptCoalesce @ 0x14027E1A0 (MiAttemptCoalesce.c)
+ *     MiEmptyPteBins @ 0x140299F00 (MiEmptyPteBins.c)
+ *     MiPteBinsNeedTrimming @ 0x14029A168 (MiPteBinsNeedTrimming.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall MiAdjustPteBins(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rdi

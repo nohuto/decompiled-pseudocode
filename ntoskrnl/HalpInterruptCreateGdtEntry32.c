@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpInterruptCreateGdtEntry32 @ 0x1403A3ECC
+ * Callers:
+ *     HalpInterruptBuildStartupStub @ 0x1403A3CC8 (HalpInterruptBuildStartupStub.c)
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall HalpInterruptCreateGdtEntry32(__int64 a1, int a2, __int64 a3, unsigned int a4, __int16 a5, char a6)
 {
   __int64 v6; // r8

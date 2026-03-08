@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?WriteEncoded8@@YAHEPEAEIPEBE@Z @ 0x1C02EF798
+ * Callers:
+ *     EncodeRLE8 @ 0x1C02F0CC0 (EncodeRLE8.c)
+ *     EncodeRLE4 @ 0x1C02F2C7C (EncodeRLE4.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WriteEncoded8(unsigned __int8 a1, unsigned __int8 *a2, unsigned __int8 a3, unsigned __int8 *a4)
 {
   if ( !a2 )

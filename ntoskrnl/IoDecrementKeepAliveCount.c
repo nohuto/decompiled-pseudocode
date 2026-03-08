@@ -1,3 +1,16 @@
+/*
+ * XREFs of IoDecrementKeepAliveCount @ 0x140555BC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KeAlertThread @ 0x140354F40 (KeAlertThread.c)
+ *     IopAdjustFileObjectKeepAliveCount @ 0x14055606C (IopAdjustFileObjectKeepAliveCount.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IoDecrementKeepAliveCount(int a1, int a2)
 {
   int v2; // esi

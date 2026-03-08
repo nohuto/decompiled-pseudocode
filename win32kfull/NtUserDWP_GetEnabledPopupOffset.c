@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserDWP_GetEnabledPopupOffset @ 0x1C01CF3A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DWP_GetEnabledPopup @ 0x1C014A64C (DWP_GetEnabledPopup.c)
+ */
+
 __int64 __fastcall NtUserDWP_GetEnabledPopupOffset(__int64 a1)
 {
   __int64 v2; // rax

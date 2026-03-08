@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlInitializeTunnels @ 0x140B65FF0
+ * Callers:
+ *     FsRtlInitSystem @ 0x140B65B14 (FsRtlInitSystem.c)
+ * Callees:
+ *     ExInitializePagedLookasideList @ 0x140787D60 (ExInitializePagedLookasideList.c)
+ *     FsRtlGetTunnelParameterValue @ 0x14084DC18 (FsRtlGetTunnelParameterValue.c)
+ */
+
 void FsRtlInitializeTunnels()
 {
   USHORT Depth; // ax

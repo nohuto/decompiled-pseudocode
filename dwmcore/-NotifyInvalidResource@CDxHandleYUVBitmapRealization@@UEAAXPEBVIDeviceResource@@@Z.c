@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NotifyInvalidResource@CDxHandleYUVBitmapRealization@@UEAAXPEBVIDeviceResource@@@Z @ 0x1802B0F6C
+ * Callers:
+ *     ?NotifyInvalidResource@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EAAXPEBVIDeviceResource@@@Z @ 0x18011F1B0 (-NotifyInvalidResource@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EAAXPEBVIDeviceResource@@@Z.c)
+ * Callees:
+ *     ?ReleaseTexture@CDxHandleYUVBitmapRealization@@IEAAXXZ @ 0x1802B0FC0 (-ReleaseTexture@CDxHandleYUVBitmapRealization@@IEAAXXZ.c)
+ */
+
 void __fastcall CDxHandleYUVBitmapRealization::NotifyInvalidResource(
         CDxHandleYUVBitmapRealization *this,
         const struct IDeviceResource *a2)

@@ -1,3 +1,22 @@
+/*
+ * XREFs of ACPIBusIrpStopDevice @ 0x1C0081900
+ * Callers:
+ *     ACPIEcStopDevice @ 0x1C0025840 (ACPIEcStopDevice.c)
+ * Callees:
+ *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIFanStopDevice @ 0x1C0027980 (ACPIFanStopDevice.c)
+ *     EnableDisableRegionSpacesForDevice @ 0x1C0039ADC (EnableDisableRegionSpacesForDevice.c)
+ *     ACPIThermalReleaseCoolingInterfaces @ 0x1C0041C30 (ACPIThermalReleaseCoolingInterfaces.c)
+ *     ACPIThermalStopZone @ 0x1C0041F54 (ACPIThermalStopZone.c)
+ *     ACPIInitStopDevice @ 0x1C0087AE4 (ACPIInitStopDevice.c)
+ *     EnableDisableIPMIRegions @ 0x1C008879C (EnableDisableIPMIRegions.c)
+ *     EnableDisableRegions @ 0x1C008A57C (EnableDisableRegions.c)
+ *     IsNsobjPciBus @ 0x1C008A678 (IsNsobjPciBus.c)
+ *     ACPIPepCleanupPlatformNotificationSupport @ 0x1C008A784 (ACPIPepCleanupPlatformNotificationSupport.c)
+ */
+
 __int64 __fastcall ACPIBusIrpStopDevice(ULONG_PTR a1, IRP *a2)
 {
   unsigned __int8 MinorFunction; // r14

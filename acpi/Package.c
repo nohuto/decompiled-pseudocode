@@ -1,3 +1,17 @@
+/*
+ * XREFs of Package @ 0x1C0057FF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ *     PushFrame @ 0x1C0053C34 (PushFrame.c)
+ */
+
 __int64 __fastcall Package(__int64 a1, _QWORD *a2)
 {
   unsigned int v4; // ebx

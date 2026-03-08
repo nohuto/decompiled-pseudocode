@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpApplyLevelKwFilterInner @ 0x140601E70
+ * Callers:
+ *     EtwpApplyLevelKwFilter @ 0x1404626B2 (EtwpApplyLevelKwFilter.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall EtwpApplyLevelKwFilterInner(__int64 a1, unsigned int a2, unsigned __int8 a3, __int64 a4)
 {
   __int64 v4; // r10

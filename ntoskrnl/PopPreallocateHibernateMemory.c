@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopPreallocateHibernateMemory @ 0x1407FC7F4
+ * Callers:
+ *     PopEnableHiberFile @ 0x14082ADA4 (PopEnableHiberFile.c)
+ * Callees:
+ *     MmGetHighestPhysicalPage @ 0x140236718 (MmGetHighestPhysicalPage.c)
+ *     MmObtainChargesToLockPagedPool @ 0x14085CC30 (MmObtainChargesToLockPagedPool.c)
+ *     HvlpPreallocatePageListResources @ 0x14093E770 (HvlpPreallocatePageListResources.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 PopPreallocateHibernateMemory()
 {
   __int64 v0; // rsi

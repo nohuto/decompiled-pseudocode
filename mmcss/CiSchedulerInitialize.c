@@ -1,3 +1,11 @@
+/*
+ * XREFs of CiSchedulerInitialize @ 0x1C000E3B0
+ * Callers:
+ *     CsInitialize @ 0x1C000E0B0 (CsInitialize.c)
+ * Callees:
+ *     WPP_SF_ @ 0x1C0004634 (WPP_SF_.c)
+ */
+
 __int64 CiSchedulerInitialize()
 {
   NTSTATUS v0; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GreGetBaseUFIBits@@YAHPEAU_UNIVERSAL_FONT_ID@@PEAU_FONTFILEVIEW@@@Z @ 0x1C02788F0
+ * Callers:
+ *     NtGdiAddRemoteMMInstanceToDC @ 0x1C027A930 (NtGdiAddRemoteMMInstanceToDC.c)
+ * Callees:
+ *     ?ppfeGetPFEFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z @ 0x1C0279F50 (-ppfeGetPFEFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z.c)
+ */
+
 __int64 __fastcall GreGetBaseUFIBits(struct _UNIVERSAL_FONT_ID *a1, struct _FONTFILEVIEW *a2)
 {
   __int64 result; // rax

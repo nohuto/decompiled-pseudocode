@@ -1,3 +1,17 @@
+/*
+ * XREFs of PiCreateServiceStateKey @ 0x14086F264
+ * Callers:
+ *     IoOpenDriverRegistryKey @ 0x140771840 (IoOpenDriverRegistryKey.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     PiCreateDriverRedirectedStateKey @ 0x14086F37C (PiCreateDriverRedirectedStateKey.c)
+ *     PiCreateUniqueServiceStateKey @ 0x140952F14 (PiCreateUniqueServiceStateKey.c)
+ *     PiAuGetServiceStateSecurityObject @ 0x1409589E4 (PiAuGetServiceStateSecurityObject.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiCreateServiceStateKey(
         ULONG CreateOptions,
         char a2,

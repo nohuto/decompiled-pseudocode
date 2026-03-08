@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopEtProcessSnapshotFind @ 0x140701F10
+ * Callers:
+ *     PopEtProcessSnapshotUpdate @ 0x140701D28 (PopEtProcessSnapshotUpdate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopEtProcessSnapshotFind(__int64 a1)
 {
   __int64 v1; // r9

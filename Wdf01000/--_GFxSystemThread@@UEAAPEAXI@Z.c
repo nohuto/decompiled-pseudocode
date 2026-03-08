@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_GFxSystemThread@@UEAAPEAXI@Z @ 0x1C0089240
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0002D30 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ */
+
 FxSystemThread *__fastcall FxSystemThread::`scalar deleting destructor'(FxSystemThread *this, unsigned int a2)
 {
   char v2; // bl

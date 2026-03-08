@@ -1,3 +1,16 @@
+/*
+ * XREFs of TtmpDispatchSetDefaultDeviceAssignment @ 0x1409A3890
+ * Callers:
+ *     TtmDispatchApi @ 0x1409A2FAC (TtmDispatchApi.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     TtmpAcquireSessionFromTerminalHandle @ 0x1409A3258 (TtmpAcquireSessionFromTerminalHandle.c)
+ *     TtmiLogError @ 0x1409A536C (TtmiLogError.c)
+ *     TtmiLogSessionDeviceAssignmentPolicySet @ 0x1409A6388 (TtmiLogSessionDeviceAssignmentPolicySet.c)
+ */
+
 __int64 __fastcall TtmpDispatchSetDefaultDeviceAssignment(__int64 a1)
 {
   int v2; // eax

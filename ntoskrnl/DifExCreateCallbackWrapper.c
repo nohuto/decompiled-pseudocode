@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifExCreateCallbackWrapper @ 0x1405D5D00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     ExCreateCallback @ 0x14078D4A0 (ExCreateCallback.c)
+ */
+
 NTSTATUS __fastcall DifExCreateCallbackWrapper(
         PCALLBACK_OBJECT *CallbackObject,
         POBJECT_ATTRIBUTES ObjectAttributes,

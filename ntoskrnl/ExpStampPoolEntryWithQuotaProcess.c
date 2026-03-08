@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpStampPoolEntryWithQuotaProcess @ 0x1402951BC
+ * Callers:
+ *     ExpStampPoolWithQuotaProcess @ 0x140295114 (ExpStampPoolWithQuotaProcess.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ExpStampPoolEntryWithQuotaProcess(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

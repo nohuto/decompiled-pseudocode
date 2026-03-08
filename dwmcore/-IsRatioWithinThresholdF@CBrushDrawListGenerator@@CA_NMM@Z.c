@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsRatioWithinThresholdF@CBrushDrawListGenerator@@CA_NMM@Z @ 0x1801FA178
+ * Callers:
+ *     ?CanUseWarpFastPath@CBrushDrawListGenerator@@AEBA_NAEBUGenerateDrawListParameters@1@@Z @ 0x1801F9208 (-CanUseWarpFastPath@CBrushDrawListGenerator@@AEBA_NAEBUGenerateDrawListParameters@1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CBrushDrawListGenerator::IsRatioWithinThresholdF(float a1, float a2)
 {
   float v2; // xmm1_4

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_GCCpuClipAntialiasSink@@UEAAPEAXI@Z @ 0x1800EE070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1CCpuClipAntialiasSink@@UEAA@XZ @ 0x1800EE0AC (--1CCpuClipAntialiasSink@@UEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ */
+
 CCpuClipAntialiasSink *__fastcall CCpuClipAntialiasSink::`scalar deleting destructor'(
         CCpuClipAntialiasSink *this,
         char a2)

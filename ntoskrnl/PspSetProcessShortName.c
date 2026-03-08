@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspSetProcessShortName @ 0x1407069F8
+ * Callers:
+ *     PspInitializeFullProcessImageName @ 0x140707B78 (PspInitializeFullProcessImageName.c)
+ *     PspSetMinimalProcessName @ 0x140817F50 (PspSetMinimalProcessName.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PspSetProcessShortName(__int64 a1, unsigned __int16 *a2)
 {
   unsigned __int64 v2; // r9

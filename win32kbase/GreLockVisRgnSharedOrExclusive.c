@@ -1,3 +1,15 @@
+/*
+ * XREFs of GreLockVisRgnSharedOrExclusive @ 0x1C0197440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?bAllowShareAccess@PDEVOBJ@@QEAAHXZ @ 0x1C0020580 (-bAllowShareAccess@PDEVOBJ@@QEAAHXZ.c)
+ *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C0041EF8 (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C00467B8 (-vAltUnlockFast@XDCOBJ@@QEAAXXZ.c)
+ *     EtwTraceGreLockAcquireSemaphoreShared @ 0x1C0047AF0 (EtwTraceGreLockAcquireSemaphoreShared.c)
+ *     GreLockVisRgn @ 0x1C00794E0 (GreLockVisRgn.c)
+ */
+
 __int64 __fastcall GreLockVisRgnSharedOrExclusive(__int64 a1, HDC a2)
 {
   __int64 v2; // rdi

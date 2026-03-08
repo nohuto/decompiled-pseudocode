@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheapWmiGetAllData @ 0x140611FFC
+ * Callers:
+ *     WheaWmiDispatch @ 0x1403AA290 (WheaWmiDispatch.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WheapWmiGetAllData(__int64 a1, unsigned int a2, __int64 a3, int *a4)
 {
   int v4; // ecx

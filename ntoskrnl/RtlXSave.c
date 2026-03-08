@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlXSave @ 0x14036A800
+ * Callers:
+ *     RtlXSaveS @ 0x140302524 (RtlXSaveS.c)
+ *     KiSaveNpxState @ 0x14036A584 (KiSaveNpxState.c)
+ *     KeSaveExtendedAndSupervisorState @ 0x14036A62C (KeSaveExtendedAndSupervisorState.c)
+ *     ViCtxCaptureInitialIsrState @ 0x140AE1AB8 (ViCtxCaptureInitialIsrState.c)
+ *     ViCtxCheckAndReleaseIsrState @ 0x140AE1B58 (ViCtxCheckAndReleaseIsrState.c)
+ * Callees:
+ *     XSaveCHelper @ 0x140421740 (XSaveCHelper.c)
+ */
+
 __int64 __fastcall RtlXSave(_DWORD *a1, unsigned __int64 a2, __int64 a3)
 {
   __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of DmrFreeRmrrTree @ 0x140532C5C
+ * Callers:
+ *     HalpIvtProcessDrhdEntry @ 0x14037B514 (HalpIvtProcessDrhdEntry.c)
+ *     DmrEnumerateRmrrDomains @ 0x14037BD30 (DmrEnumerateRmrrDomains.c)
+ * Callees:
+ *     ExtEnvFreeMemory @ 0x14051D13C (ExtEnvFreeMemory.c)
+ */
+
 void __fastcall DmrFreeRmrrTree(__int64 a1)
 {
   _QWORD *v1; // rbx

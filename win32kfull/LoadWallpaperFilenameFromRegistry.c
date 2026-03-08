@@ -1,3 +1,15 @@
+/*
+ * XREFs of LoadWallpaperFilenameFromRegistry @ 0x1C00D8520
+ * Callers:
+ *     xxxSetDeskWallpaper @ 0x1C00D7F38 (xxxSetDeskWallpaper.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ * Callees:
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C010A9B4 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?GetDefaultWallpaperName@@YAXPEAGI@Z @ 0x1C0203894 (-GetDefaultWallpaperName@@YAXPEAGI@Z.c)
+ */
+
 __int64 __fastcall LoadWallpaperFilenameFromRegistry(__int64 a1, unsigned __int16 *a2, unsigned int a3)
 {
   unsigned __int64 v3; // rsi

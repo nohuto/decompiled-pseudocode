@@ -1,3 +1,17 @@
+/*
+ * XREFs of SepLogTokenSidManagement @ 0x1409C6C70
+ * Callers:
+ *     SepDereferenceSidValuesBlock @ 0x1409CC964 (SepDereferenceSidValuesBlock.c)
+ *     SepSetTokenUserAndGroups @ 0x1409CCB0C (SepSetTokenUserAndGroups.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlConvertLuidToUlonglong @ 0x1405B5F90 (RtlConvertLuidToUlonglong.c)
+ *     SepGetSidValuesDump @ 0x1405B6728 (SepGetSidValuesDump.c)
+ *     SepGetSidManagementActionName @ 0x1409C6BF4 (SepGetSidManagementActionName.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SepLogTokenSidManagement(int a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v6; // r10d

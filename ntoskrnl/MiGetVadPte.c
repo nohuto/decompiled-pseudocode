@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiGetVadPte @ 0x14066641C
+ * Callers:
+ *     MiComputeIdealLargePage @ 0x140665140 (MiComputeIdealLargePage.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MiGetVadPte(__int64 a1, unsigned __int64 a2)
 {
   unsigned int v2; // ecx

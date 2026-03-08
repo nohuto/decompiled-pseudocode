@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetCurrentVirtualMode@ADAPTER_DISPLAY@@QEAAXIPEBU_D3DKMT_DISPLAYMODE@@@Z @ 0x1C0002104
+ * Callers:
+ *     ?ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C016A260 (-ApplyTopologyOnAdapter@CCD_TOPOLOGY@@AEAAJPEAVDXGPROCESS@@IKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ADAPTER_DISPLAY::SetCurrentVirtualMode(
         ADAPTER_DISPLAY *this,
         unsigned int a2,

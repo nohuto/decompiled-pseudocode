@@ -1,3 +1,33 @@
+/*
+ * XREFs of SepInitializationPhase1 @ 0x140810320
+ * Callers:
+ *     SeInitServerSilo @ 0x1409C5E50 (SeInitServerSilo.c)
+ *     SeInitSystem @ 0x140B48368 (SeInitSystem.c)
+ * Callees:
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     SddlBaseInitialize @ 0x140384A24 (SddlBaseInitialize.c)
+ *     SepInitProcessAuditSd @ 0x140384A3C (SepInitProcessAuditSd.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateEvent @ 0x140412C10 (ZwCreateEvent.c)
+ *     ZwCreateDirectoryObject @ 0x140413850 (ZwCreateDirectoryObject.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D26A0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x1406D3290 (RtlpAddKnownAce.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406DB5A0 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406DB640 (RtlCreateAcl.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     SepInitializeCodeIntegrity @ 0x1408105C8 (SepInitializeCodeIntegrity.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     SepInitializeAuthorizationCallbacks @ 0x140B426C0 (SepInitializeAuthorizationCallbacks.c)
+ *     SeMakeAnonymousLogonTokenNoEveryone @ 0x140B48710 (SeMakeAnonymousLogonTokenNoEveryone.c)
+ *     SeMakeAnonymousLogonToken @ 0x140B489A0 (SeMakeAnonymousLogonToken.c)
+ *     SepInitializeSingletonAttributesStructures @ 0x140B49204 (SepInitializeSingletonAttributesStructures.c)
+ */
+
 char __fastcall SepInitializationPhase1(__int64 a1, __int64 a2)
 {
   bool IsCurrentThreadInServerSilo; // di

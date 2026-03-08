@@ -1,3 +1,19 @@
+/*
+ * XREFs of InitVideo @ 0x1C0010AAC
+ * Callers:
+ *     xxxRemoteConnect @ 0x1C000F480 (xxxRemoteConnect.c)
+ *     ?UserInitialize@@YAJXZ @ 0x1C002D838 (-UserInitialize@@YAJXZ.c)
+ * Callees:
+ *     DrvCloseGraphicsDevices @ 0x1C000F140 (DrvCloseGraphicsDevices.c)
+ *     UpdateExternalMonitorConnectedStatus @ 0x1C000F1C0 (UpdateExternalMonitorConnectedStatus.c)
+ *     ?DispBrokerUpdateKernelDisplayPolicies@@YAXXZ @ 0x1C001077C (-DispBrokerUpdateKernelDisplayPolicies@@YAXXZ.c)
+ *     GreUpdateSharedDevCaps @ 0x1C0010C8C (GreUpdateSharedDevCaps.c)
+ *     DrvInitConsole @ 0x1C0010EB8 (DrvInitConsole.c)
+ *     InitUserScreen @ 0x1C00127A8 (InitUserScreen.c)
+ *     DrvSetDisplayConfig @ 0x1C0025C00 (DrvSetDisplayConfig.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 _QWORD *__fastcall InitVideo(__int64 a1)
 {
   __int16 v1; // di

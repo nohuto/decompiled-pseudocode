@@ -1,3 +1,14 @@
+/*
+ * XREFs of VidSchiRewindPacket @ 0x1C0010730
+ * Callers:
+ *     VidSchiSubmitMmIoFlipCommand @ 0x1C000EAF0 (VidSchiSubmitMmIoFlipCommand.c)
+ *     VidSchiProcessDpcPreemptedPacket @ 0x1C000FCEC (VidSchiProcessDpcPreemptedPacket.c)
+ *     VidSchiSubmitWaitCommand @ 0x1C00105F4 (VidSchiSubmitWaitCommand.c)
+ *     VidSchiRun_PriorityTable @ 0x1C00BA0C0 (VidSchiRun_PriorityTable.c)
+ * Callees:
+ *     VidSchiCompleteRewindPacket @ 0x1C00107E8 (VidSchiCompleteRewindPacket.c)
+ */
+
 void __fastcall VidSchiRewindPacket(__int64 a1, int a2, int a3, unsigned int a4)
 {
   __int64 v4; // rbx

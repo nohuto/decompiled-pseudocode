@@ -1,3 +1,26 @@
+/*
+ * XREFs of RtlUnicodeStringToInteger @ 0x140751D60
+ * Callers:
+ *     RtlpMuiRegAddAlternateCodePage @ 0x14039C354 (RtlpMuiRegAddAlternateCodePage.c)
+ *     RtlQueryImageFileKeyOption @ 0x140709A50 (RtlQueryImageFileKeyOption.c)
+ *     _PnpParseIndirectResourceString @ 0x140751C48 (_PnpParseIndirectResourceString.c)
+ *     PspReadIFEONodeOptions @ 0x140796300 (PspReadIFEONodeOptions.c)
+ *     RtlGetIntegerAtom @ 0x1407DA7D0 (RtlGetIntegerAtom.c)
+ *     RtlpQueryNlsSystemCodePages @ 0x14080E878 (RtlpQueryNlsSystemCodePages.c)
+ *     PspIsDfssEnabled @ 0x140812B34 (PspIsDfssEnabled.c)
+ *     CmpGetAcpiProfileInformation @ 0x140813588 (CmpGetAcpiProfileInformation.c)
+ *     WdipSemLoadNextEndEvent @ 0x140832620 (WdipSemLoadNextEndEvent.c)
+ *     WdipSemLoadNextScenario @ 0x140832FB0 (WdipSemLoadNextScenario.c)
+ *     PiDcInitUpdateProperties @ 0x14084CF78 (PiDcInitUpdateProperties.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x140864664 (_PnpGetGenericStorePropertyKeys.c)
+ *     PiCMDeleteDeviceKey @ 0x140966320 (PiCMDeleteDeviceKey.c)
+ *     PspReadIFEOPerfOptions @ 0x1409AE40C (PspReadIFEOPerfOptions.c)
+ *     PopReadSimulateProcessorClasses @ 0x140B6D8DC (PopReadSimulateProcessorClasses.c)
+ *     PsInitializeBootCpuPartitions @ 0x140B6EAD4 (PsInitializeBootCpuPartitions.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlUnicodeStringToInteger(PCUNICODE_STRING String, ULONG Base, PULONG Value)
 {
   ULONG v5; // r9d

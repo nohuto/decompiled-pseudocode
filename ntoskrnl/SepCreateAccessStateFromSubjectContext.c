@@ -1,3 +1,18 @@
+/*
+ * XREFs of SepCreateAccessStateFromSubjectContext @ 0x140266820
+ * Callers:
+ *     SeCreateAccessStateEx @ 0x1406991E0 (SeCreateAccessStateEx.c)
+ *     PsOpenProcess @ 0x1406ABCC0 (PsOpenProcess.c)
+ *     ObOpenObjectByNameEx @ 0x1406E7F70 (ObOpenObjectByNameEx.c)
+ *     SeSubProcessToken @ 0x14070B29C (SeSubProcessToken.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     ObOpenObjectByPointer @ 0x1407C93D0 (ObOpenObjectByPointer.c)
+ *     NtOpenProcessTokenEx @ 0x1407C95D0 (NtOpenProcessTokenEx.c)
+ *     SeCreateAccessStateFromSubjectContext @ 0x1409C6FC8 (SeCreateAccessStateFromSubjectContext.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall SepCreateAccessStateFromSubjectContext(_OWORD *a1, _QWORD *a2, _QWORD *a3, int a4, _DWORD *a5)
 {
   int v5; // edi

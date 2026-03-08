@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiMarkFlipQueuesRunningStateOnPresentInfo @ 0x1C0017D1C
+ * Callers:
+ *     VidSchiSuspendFlipQueues @ 0x1C00B4208 (VidSchiSuspendFlipQueues.c)
+ *     VidSchiResumeFlipQueues @ 0x1C00B42DC (VidSchiResumeFlipQueues.c)
+ * Callees:
+ *     <none>
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall VidSchiMarkFlipQueuesRunningStateOnPresentInfo(__int64 a1, __int64 a2, unsigned __int8 a3, bool *a4)
 {

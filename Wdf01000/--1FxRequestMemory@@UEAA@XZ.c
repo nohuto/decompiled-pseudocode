@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1FxRequestMemory@@UEAA@XZ @ 0x1C0042360
+ * Callers:
+ *     ??_EFxRequestMemory@@UEAAPEAXI@Z @ 0x1C0042410 (--_EFxRequestMemory@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1FxObject@@UEAA@XZ @ 0x1C0004920 (--1FxObject@@UEAA@XZ.c)
+ *     ?ReleaseIrpReference@FxRequest@@QEAAXXZ @ 0x1C003ACFC (-ReleaseIrpReference@FxRequest@@QEAAXXZ.c)
+ *     ?FxMdlFreeDebug@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAU_MDL@@@Z @ 0x1C0048258 (-FxMdlFreeDebug@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAU_MDL@@@Z.c)
+ */
+
 void __fastcall FxRequestMemory::~FxRequestMemory(FxRequestMemory *this, unsigned int a2, unsigned int a3)
 {
   _MDL *m_Mdl; // rcx

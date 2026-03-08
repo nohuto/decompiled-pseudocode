@@ -1,3 +1,19 @@
+/*
+ * XREFs of IoIs32bitProcess @ 0x140245910
+ * Callers:
+ *     IoIsInitiator32bitProcess @ 0x1403B14D0 (IoIsInitiator32bitProcess.c)
+ *     FsRtlGetMarkHandleInfo @ 0x14053B83C (FsRtlGetMarkHandleInfo.c)
+ *     EtwpGetScsiPassThroughCdb @ 0x1405FB950 (EtwpGetScsiPassThroughCdb.c)
+ *     PiCMFastIoDeviceDispatch @ 0x1406CEFD0 (PiCMFastIoDeviceDispatch.c)
+ *     PiDqDispatch @ 0x140745C20 (PiDqDispatch.c)
+ *     WmipIoControl @ 0x140787290 (WmipIoControl.c)
+ *     WmipProbeWmiOpenGuidBlock @ 0x1407875E8 (WmipProbeWmiOpenGuidBlock.c)
+ *     WmipProbeAndCaptureGuidObjectAttributes @ 0x14078768C (WmipProbeAndCaptureGuidObjectAttributes.c)
+ *     NtCopyFileChunk @ 0x1407DEE00 (NtCopyFileChunk.c)
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall IoIs32bitProcess(PIRP Irp)
 {
   PETHREAD Thread; // rdx

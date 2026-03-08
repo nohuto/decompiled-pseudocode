@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopBatteryRemove @ 0x140992740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     IoCancelIrp @ 0x1402E4F50 (IoCancelIrp.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     PopBatteryQueueWork @ 0x1403C0538 (PopBatteryQueueWork.c)
+ *     PopResetCurrentPolicies @ 0x140829F88 (PopResetCurrentPolicies.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 void __fastcall PopBatteryRemove(__int64 a1)
 {
   __int64 *v2; // rbx

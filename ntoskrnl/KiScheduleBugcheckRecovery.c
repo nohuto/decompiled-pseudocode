@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiScheduleBugcheckRecovery @ 0x140579014
+ * Callers:
+ *     KiAttemptBugcheckRecovery @ 0x140577FAC (KiAttemptBugcheckRecovery.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KeAreInterruptsEnabled @ 0x140312C60 (KeAreInterruptsEnabled.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRecordRecoveryFailure @ 0x140578E50 (KiRecordRecoveryFailure.c)
+ *     KiStallBugcheckThread @ 0x140579138 (KiStallBugcheckThread.c)
+ */
+
 char KiScheduleBugcheckRecovery()
 {
   bool v0; // al

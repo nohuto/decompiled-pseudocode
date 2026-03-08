@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiObtainParkedCoreMasks @ 0x1402A7130
+ * Callers:
+ *     MiSelectBestZeroingProcessor @ 0x140274D20 (MiSelectBestZeroingProcessor.c)
+ *     MiInitializeAffinityWalker @ 0x1402A7028 (MiInitializeAffinityWalker.c)
+ *     MiComputeIdealDpcGang @ 0x1403867CC (MiComputeIdealDpcGang.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiObtainParkedCoreMasks(_OWORD *a1)
 {
   KIRQL v2; // al

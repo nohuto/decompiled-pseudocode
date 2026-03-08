@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifMmFreeContiguousMemoryWrapper @ 0x1405E4BC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmFreeContiguousMemory @ 0x1403BD6E0 (MmFreeContiguousMemory.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 void __fastcall DifMmFreeContiguousMemoryWrapper(PVOID BaseAddress)
 {
   __int64 *APIThunkContextById; // rax

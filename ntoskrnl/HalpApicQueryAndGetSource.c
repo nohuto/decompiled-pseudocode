@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpApicQueryAndGetSource @ 0x1403C9AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpApicQueryAndGetSource(__int64 a1, __int64 a2, _DWORD *a3, _BYTE *a4)
 {
   int v4; // ebx

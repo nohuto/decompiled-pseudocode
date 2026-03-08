@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RecordIdle@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ @ 0x1C00548DC
+ * Callers:
+ *     ?SetPowerComponentIdleCBWorker@DXGADAPTER@@QEAAXIK@Z @ 0x1C000F9C0 (-SetPowerComponentIdleCBWorker@DXGADAPTER@@QEAAXIK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DXGPOWERSTATISTICSTRANSITIONENGINE::RecordIdle(LARGE_INTEGER *this)
 {
   LARGE_INTEGER PerformanceCounter; // rax

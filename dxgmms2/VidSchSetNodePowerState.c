@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchSetNodePowerState @ 0x1C000BB50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VidSchiUpdateContextStatus @ 0x1C0008230 (VidSchiUpdateContextStatus.c)
+ *     ?ProcessHwQueue@HwQueueStagingList@@AEAAXPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C001C63A (-ProcessHwQueue@HwQueueStagingList@@AEAAXPEAUVIDSCH_HW_QUEUE@@@Z.c)
+ */
+
 void __fastcall VidSchSetNodePowerState(__int64 a1, unsigned int a2, int a3, char a4)
 {
   __int64 *v5; // rax

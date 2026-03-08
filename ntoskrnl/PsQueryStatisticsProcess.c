@@ -1,3 +1,21 @@
+/*
+ * XREFs of PsQueryStatisticsProcess @ 0x1406A8F30
+ * Callers:
+ *     PspQueryProcessAccountingInformationCallback @ 0x1406F92F0 (PspQueryProcessAccountingInformationCallback.c)
+ *     PspRemoveProcessFromJobChain @ 0x1406FB110 (PspRemoveProcessFromJobChain.c)
+ *     PspEnforceLimitsProcessCallback @ 0x1406FB480 (PspEnforceLimitsProcessCallback.c)
+ *     ExpCopyProcessInfo @ 0x140711514 (ExpCopyProcessInfo.c)
+ *     NtQueryInformationProcess @ 0x1407215F0 (NtQueryInformationProcess.c)
+ *     EtwTraceAppStateChange @ 0x1407E8520 (EtwTraceAppStateChange.c)
+ *     EtwpPsProvTraceProcess @ 0x1407E8D90 (EtwpPsProvTraceProcess.c)
+ * Callees:
+ *     KeQueryValuesThread @ 0x14022B320 (KeQueryValuesThread.c)
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 __int64 __fastcall PsQueryStatisticsProcess(__int64 a1, _QWORD *a2)
 {
   unsigned int v4; // ebp

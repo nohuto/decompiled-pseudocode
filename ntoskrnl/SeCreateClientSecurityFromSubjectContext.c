@@ -1,3 +1,14 @@
+/*
+ * XREFs of SeCreateClientSecurityFromSubjectContext @ 0x140796E30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlSidDominatesForTrust @ 0x140247D00 (RtlSidDominatesForTrust.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     SepCreateClientSecurityEx @ 0x1406D5F10 (SepCreateClientSecurityEx.c)
+ */
+
 NTSTATUS __stdcall SeCreateClientSecurityFromSubjectContext(
         PSECURITY_SUBJECT_CONTEXT SubjectContext,
         PSECURITY_QUALITY_OF_SERVICE ClientSecurityQos,

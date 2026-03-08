@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vComputeCallTables@XEPALOBJ@@QEAAXXZ @ 0x1C0184C70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall XEPALOBJ::vComputeCallTables(XEPALOBJ *this)
 {
   __int64 v1; // r8

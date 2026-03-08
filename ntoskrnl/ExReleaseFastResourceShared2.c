@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExReleaseFastResourceShared2 @ 0x14040EF54
+ * Callers:
+ *     ExReleaseFastResourceShared @ 0x140607D40 (ExReleaseFastResourceShared.c)
+ * Callees:
+ *     ExpReleaseFastResourceExclusive2 @ 0x140410E88 (ExpReleaseFastResourceExclusive2.c)
+ *     ExpReleaseFastResourceShared2 @ 0x14041109C (ExpReleaseFastResourceShared2.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall ExReleaseFastResourceShared2(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)
 {
   unsigned __int8 CurrentIrql; // al

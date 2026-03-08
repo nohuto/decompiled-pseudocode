@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiCheckPatchesInSupportedSections @ 0x140A336F0
+ * Callers:
+ *     MiApplyDriverHotPatch @ 0x140A31BB8 (MiApplyDriverHotPatch.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlSetBits @ 0x14028BC50 (RtlSetBits.c)
+ *     RtlClearAllBits @ 0x1402B24A0 (RtlClearAllBits.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     RtlEnumerateHotPatchPatches @ 0x140A73774 (RtlEnumerateHotPatchPatches.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiCheckPatchesInSupportedSections(__int64 a1)
 {
   unsigned __int64 v2; // rbx

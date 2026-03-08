@@ -1,3 +1,18 @@
+/*
+ * XREFs of KdPullRemoteFileEx @ 0x140AADD80
+ * Callers:
+ *     KdPullRemoteFile @ 0x140AADD28 (KdPullRemoteFile.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     KdpCreateRemoteFile @ 0x140AADE64 (KdpCreateRemoteFile.c)
+ *     KdpCloseRemoteFile @ 0x140AB0A58 (KdpCloseRemoteFile.c)
+ *     KdpReadRemoteFile @ 0x140AB0CC0 (KdpReadRemoteFile.c)
+ */
+
 __int64 __fastcall KdPullRemoteFileEx(
         const void **a1,
         __int64 (__fastcall *a2)(__int64, const void **, unsigned __int64),

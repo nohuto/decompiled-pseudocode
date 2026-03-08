@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?xxxWrapCallWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C01B9940
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SfnDWORD @ 0x1C00385D0 (SfnDWORD.c)
+ *     ?CheckProcessIdentity@@YAHPEAUtagWND@@I_K_J@Z @ 0x1C00F9A30 (-CheckProcessIdentity@@YAHPEAUtagWND@@I_K_J@Z.c)
+ *     HMValidateHandleNoRip @ 0x1C01083AC (HMValidateHandleNoRip.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall xxxWrapCallWindowProc(
         struct tagWND *a1,
         unsigned int a2,

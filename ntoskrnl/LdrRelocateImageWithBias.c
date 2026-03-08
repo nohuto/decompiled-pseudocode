@@ -1,3 +1,13 @@
+/*
+ * XREFs of LdrRelocateImageWithBias @ 0x1409BF024
+ * Callers:
+ *     MiMapSystemImageWithLargePage @ 0x140A46F04 (MiMapSystemImageWithLargePage.c)
+ * Callees:
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageNtHeaderEx @ 0x14035E850 (RtlImageNtHeaderEx.c)
+ *     LdrProcessRelocationBlockLongLong @ 0x1409BEF68 (LdrProcessRelocationBlockLongLong.c)
+ */
+
 __int64 __fastcall LdrRelocateImageWithBias(unsigned __int64 a1)
 {
   unsigned int v1; // ebx

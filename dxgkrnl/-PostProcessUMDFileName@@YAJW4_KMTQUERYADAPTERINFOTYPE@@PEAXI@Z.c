@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PostProcessUMDFileName@@YAJW4_KMTQUERYADAPTERINFOTYPE@@PEAXI@Z @ 0x1C02CB0CC
+ * Callers:
+ *     ?DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C018DC00 (-DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ * Callees:
+ *     ?TranslateUmdFileNameToVm@@YAJPEAGIPEAK@Z @ 0x1C02CB87C (-TranslateUmdFileNameToVm@@YAJPEAGIPEAK@Z.c)
+ *     ?TranslateUmdFileNameToVmMultiString@@YAJPEAGIPEAK@Z @ 0x1C02CB98C (-TranslateUmdFileNameToVmMultiString@@YAJPEAGIPEAK@Z.c)
+ */
+
 __int64 __fastcall PostProcessUMDFileName(enum _KMTQUERYADAPTERINFOTYPE a1, char *a2, unsigned int a3)
 {
   unsigned int v3; // r9d

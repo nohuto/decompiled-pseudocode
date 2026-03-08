@@ -1,3 +1,44 @@
+/*
+ * XREFs of SetFailureLocation @ 0x140243E5C
+ * Callers:
+ *     CmpLoadKeyCommon @ 0x1402B2DEC (CmpLoadKeyCommon.c)
+ *     CmpDoFileRead @ 0x1402F6880 (CmpDoFileRead.c)
+ *     CmLoadAppKey @ 0x1406BDA5C (CmLoadAppKey.c)
+ *     CmpOpenHiveFiles @ 0x1406C02C8 (CmpOpenHiveFiles.c)
+ *     CmpOpenHiveFile @ 0x1406C05C4 (CmpOpenHiveFile.c)
+ *     CmpGetCompleteFileName @ 0x1406C0B40 (CmpGetCompleteFileName.c)
+ *     CmpInitHiveFromFile @ 0x1406C0BF0 (CmpInitHiveFromFile.c)
+ *     HvCheckBin @ 0x1406ED190 (HvCheckBin.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x14071C9C4 (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpCreateHive @ 0x14072C06C (CmpCreateHive.c)
+ *     CmCheckRegistry @ 0x14072DEB4 (CmCheckRegistry.c)
+ *     HvHiveStartFileBacked @ 0x14072F1D4 (HvHiveStartFileBacked.c)
+ *     HvLoadHive @ 0x14072F5C0 (HvLoadHive.c)
+ *     HvpInitMap @ 0x1407309B8 (HvpInitMap.c)
+ *     CmpLinkHiveToMaster @ 0x140731250 (CmpLinkHiveToMaster.c)
+ *     CmLoadKey @ 0x140732FF8 (CmLoadKey.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x1407A488C (HvpRemapAndEnlistHiveBins.c)
+ *     HvpEnlistFreeCells @ 0x1407A4A50 (HvpEnlistFreeCells.c)
+ *     HvCheckHive @ 0x1407A6080 (HvCheckHive.c)
+ *     CmpCheckLeaf @ 0x1407B0800 (CmpCheckLeaf.c)
+ *     CmpCheckValueList @ 0x1407B2930 (CmpCheckValueList.c)
+ *     CmpCheckRegistry2 @ 0x1407B3F40 (CmpCheckRegistry2.c)
+ *     CmpCheckKey @ 0x1407B4B80 (CmpCheckKey.c)
+ *     HvpPerformLogFileRecovery @ 0x1407FBCAC (HvpPerformLogFileRecovery.c)
+ *     HvHiveStartMemoryBacked @ 0x1407FF060 (HvHiveStartMemoryBacked.c)
+ *     HvpBuildMapForMemoryBackedHive @ 0x1407FF548 (HvpBuildMapForMemoryBackedHive.c)
+ *     CmpMountPreloadedHives @ 0x140812EF4 (CmpMountPreloadedHives.c)
+ *     CmpLoadHiveThread @ 0x140820360 (CmpLoadHiveThread.c)
+ *     CmpResolveHiveLoadConflict @ 0x140A13D78 (CmpResolveHiveLoadConflict.c)
+ *     CmpOpenFileWithExtremePrejudice @ 0x140A1A060 (CmpOpenFileWithExtremePrejudice.c)
+ *     CmpRecoverFlushProtocolStateFromFiles @ 0x140A1A1E0 (CmpRecoverFlushProtocolStateFromFiles.c)
+ *     HvRecoverFlushProtocolStateFromFiles @ 0x140A1A9B4 (HvRecoverFlushProtocolStateFromFiles.c)
+ *     HvpMapHiveImage @ 0x140A1B050 (HvpMapHiveImage.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall SetFailureLocation(__int64 a1, int a2, int a3, int a4, int a5)
 {
   __int64 v9; // rax

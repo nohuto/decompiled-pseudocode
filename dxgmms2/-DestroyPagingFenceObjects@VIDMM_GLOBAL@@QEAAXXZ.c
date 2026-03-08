@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DestroyPagingFenceObjects@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E1A38
+ * Callers:
+ *     ?CreatePagingFenceObjects@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C00C2140 (-CreatePagingFenceObjects@VIDMM_GLOBAL@@QEAAJXZ.c)
+ *     ??1VIDMM_GLOBAL@@QEAA@XZ @ 0x1C00E0158 (--1VIDMM_GLOBAL@@QEAA@XZ.c)
+ * Callees:
+ *     ?UnmapGpuVA@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@I_N@Z @ 0x1C00A8AFC (-UnmapGpuVA@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@I_N@Z.c)
+ *     VidSchDestroySyncObject @ 0x1C00AA4A0 (VidSchDestroySyncObject.c)
+ */
+
 void __fastcall VIDMM_GLOBAL::DestroyPagingFenceObjects(struct VIDMM_PROCESS **this, __int64 a2)
 {
   __int64 i; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiImageCantMove @ 0x140653990
+ * Callers:
+ *     MiValidateSectionCreate @ 0x14069F890 (MiValidateSectionCreate.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiImageCantMove(__int64 a1)
 {
   KIRQL v2; // al

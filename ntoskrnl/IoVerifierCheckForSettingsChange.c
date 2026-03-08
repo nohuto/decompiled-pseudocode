@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoVerifierCheckForSettingsChange @ 0x140ABDBF0
+ * Callers:
+ *     IoVerifierInit @ 0x140ABDCAC (IoVerifierInit.c)
+ *     ViSettingsIoCheckForChanges @ 0x140AD7F18 (ViSettingsIoCheckForChanges.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool3 @ 0x140AAB320 (ExAllocatePool3.c)
+ */
+
 void __fastcall IoVerifierCheckForSettingsChange(char a1)
 {
   unsigned int i; // eax

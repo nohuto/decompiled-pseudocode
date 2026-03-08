@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiComputeImagePteIndex @ 0x140344304
+ * Callers:
+ *     MiReferenceInPageFile @ 0x140343354 (MiReferenceInPageFile.c)
+ * Callees:
+ *     MiGetSharedProtos @ 0x1402CCDF8 (MiGetSharedProtos.c)
+ *     MiGetSubsectionDriverProtos @ 0x1403443A4 (MiGetSubsectionDriverProtos.c)
+ */
+
 __int64 __fastcall MiComputeImagePteIndex(__int64 a1, unsigned int a2)
 {
   __int64 v2; // rdi

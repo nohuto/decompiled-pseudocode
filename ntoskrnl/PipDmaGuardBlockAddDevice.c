@@ -1,3 +1,13 @@
+/*
+ * XREFs of PipDmaGuardBlockAddDevice @ 0x1409681DC
+ * Callers:
+ *     PipDmgEnforceEnumerationPolicy @ 0x140968304 (PipDmgEnforceEnumerationPolicy.c)
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     PnpRequestDeviceRemoval @ 0x140862294 (PnpRequestDeviceRemoval.c)
+ */
+
 __int64 __fastcall PipDmaGuardBlockAddDevice(ULONG_PTR BugCheckParameter2)
 {
   unsigned __int16 *v2; // rdi

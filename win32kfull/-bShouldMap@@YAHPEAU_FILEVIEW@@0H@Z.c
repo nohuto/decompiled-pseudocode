@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bShouldMap@@YAHPEAU_FILEVIEW@@0H@Z @ 0x1C00BBF58
+ * Callers:
+ *     ?bMapRoutine@@YAHPEAU_FONTFILEVIEW@@PEAU_FILEVIEW@@W4_MAP_MODE@@H@Z @ 0x1C00BBE98 (-bMapRoutine@@YAHPEAU_FONTFILEVIEW@@PEAU_FILEVIEW@@W4_MAP_MODE@@H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bShouldMap(struct _FILEVIEW *a1, struct _FILEVIEW *a2, int a3)
 {
   unsigned int v3; // ebx

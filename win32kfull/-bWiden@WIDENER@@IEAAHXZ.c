@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?bWiden@WIDENER@@IEAAHXZ @ 0x1C0150E1A
+ * Callers:
+ *     ??0WIDENER@@QEAA@AEAVEPATHOBJ@@AEAVEXFORMOBJ@@PEBU_LINEATTRS@@@Z @ 0x1C02F2FFC (--0WIDENER@@QEAA@AEAVEPATHOBJ@@AEAVEXFORMOBJ@@PEBU_LINEATTRS@@@Z.c)
+ * Callees:
+ *     ?bBeginFigure@WIDEPATHOBJ@@QEAAHXZ @ 0x1C01509EA (-bBeginFigure@WIDEPATHOBJ@@QEAAHXZ.c)
+ *     ?bValid@WIDENER@@QEBAHXZ @ 0x1C0150D64 (-bValid@WIDENER@@QEBAHXZ.c)
+ *     ?vAddEndCap@WIDENER@@IEAAXXZ @ 0x1C01511BA (-vAddEndCap@WIDENER@@IEAAXXZ.c)
+ *     ?vAddStartCap@WIDENER@@IEAAXXZ @ 0x1C01515D0 (-vAddStartCap@WIDENER@@IEAAXXZ.c)
+ *     ?vEndFigure@WIDEPATHOBJ@@QEAAXXZ @ 0x1C0151742 (-vEndFigure@WIDEPATHOBJ@@QEAAXXZ.c)
+ *     ?vReverseConcatenate@WIDEPATHOBJ@@QEAAXAEAV1@@Z @ 0x1C0151792 (-vReverseConcatenate@WIDEPATHOBJ@@QEAAXAEAV1@@Z.c)
+ *     ?vAddJoin@WIDENER@@IEAAXH@Z @ 0x1C02F3FE8 (-vAddJoin@WIDENER@@IEAAXH@Z.c)
+ *     ?vNextStyleEvent@STYLER@@QEAAXXZ @ 0x1C02F4D64 (-vNextStyleEvent@STYLER@@QEAAXXZ.c)
+ *     ?vPrependBeforeFigure@WIDEPATHOBJ@@QEAAXXZ @ 0x1C02F5004 (-vPrependBeforeFigure@WIDEPATHOBJ@@QEAAXXZ.c)
+ *     ?vPrependBeforeSubpath@WIDEPATHOBJ@@QEAAXXZ @ 0x1C02F5078 (-vPrependBeforeSubpath@WIDEPATHOBJ@@QEAAXXZ.c)
+ */
+
 _BOOL8 __fastcall WIDENER::bWiden(WIDENER *this)
 {
   int v2; // ecx

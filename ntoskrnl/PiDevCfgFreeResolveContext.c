@@ -1,3 +1,16 @@
+/*
+ * XREFs of PiDevCfgFreeResolveContext @ 0x1408771F0
+ * Callers:
+ *     PiDevCfgConfigureDeviceKeys @ 0x140876A38 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgInitResolveContext @ 0x140876E48 (PiDevCfgInitResolveContext.c)
+ *     PiDevCfgVerifyDeviceAllowed @ 0x14087FC64 (PiDevCfgVerifyDeviceAllowed.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140868B00 (_RegRtlDeleteTreeInternal.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PiDevCfgFreeResolveContext(__int64 a1)
 {
   void *v2; // rcx

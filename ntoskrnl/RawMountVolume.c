@@ -1,3 +1,21 @@
+/*
+ * XREFs of RawMountVolume @ 0x1406F37D0
+ * Callers:
+ *     RawFileSystemControl @ 0x1406F36F8 (RawFileSystemControl.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IoDeleteDevice @ 0x140368010 (IoDeleteDevice.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IoCreateStreamFileObjectLite @ 0x1406B4FD0 (IoCreateStreamFileObjectLite.c)
+ *     FsRtlNotifyVolumeEventEx @ 0x1406F3A30 (FsRtlNotifyVolumeEventEx.c)
+ *     RawInitializeVcb @ 0x1406F3B48 (RawInitializeVcb.c)
+ *     RawScanDeletedList @ 0x1406F3E5C (RawScanDeletedList.c)
+ *     RawCleanupVcb @ 0x1406F3EA0 (RawCleanupVcb.c)
+ *     IoCreateDevice @ 0x1407F0460 (IoCreateDevice.c)
+ */
+
 NTSTATUS __fastcall RawMountVolume(_QWORD *a1)
 {
   __int64 v2; // r15

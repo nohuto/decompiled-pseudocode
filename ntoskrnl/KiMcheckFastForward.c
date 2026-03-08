@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiMcheckFastForward @ 0x1402EDB10
+ * Callers:
+ *     KiNmiInterruptStart @ 0x140423B80 (KiNmiInterruptStart.c)
+ *     KiMcheckAbort @ 0x140427E80 (KiMcheckAbort.c)
+ * Callees:
+ *     KiRspInIstStack @ 0x1402EDCB0 (KiRspInIstStack.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall KiMcheckFastForward(ULONG_PTR BugCheckParameter4, char a2, __int64 a3, __int64 a4)
 {
   unsigned int v6; // r11d

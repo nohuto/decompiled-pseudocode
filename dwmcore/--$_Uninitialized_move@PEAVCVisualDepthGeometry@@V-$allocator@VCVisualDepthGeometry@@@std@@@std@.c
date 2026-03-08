@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$_Uninitialized_move@PEAVCVisualDepthGeometry@@V?$allocator@VCVisualDepthGeometry@@@std@@@std@@YAPEAVCVisualDepthGeometry@@QEAV1@0PEAV1@AEAV?$allocator@VCVisualDepthGeometry@@@0@@Z @ 0x180256870
+ * Callers:
+ *     ??$_Emplace_reallocate@VCVisualDepthGeometry@@@?$vector@VCVisualDepthGeometry@@V?$allocator@VCVisualDepthGeometry@@@std@@@std@@QEAAPEAVCVisualDepthGeometry@@QEAV2@$$QEAV2@@Z @ 0x18025663C (--$_Emplace_reallocate@VCVisualDepthGeometry@@@-$vector@VCVisualDepthGeometry@@V-$allocator@VCVi.c)
+ * Callees:
+ *     <none>
+ */
+
 _OWORD *__fastcall std::_Uninitialized_move<CVisualDepthGeometry *>(_OWORD *a1, _OWORD *a2, _OWORD *a3)
 {
   _OWORD *result; // rax

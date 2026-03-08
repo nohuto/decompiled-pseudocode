@@ -1,3 +1,22 @@
+/*
+ * XREFs of PopUpdateSystemIdleContext @ 0x14082A808
+ * Callers:
+ *     PopInitSIdle @ 0x14082A7A4 (PopInitSIdle.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopIdleCancelAoAcDozeS4Timer @ 0x14036D07C (PopIdleCancelAoAcDozeS4Timer.c)
+ *     Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x14040B89C (Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopIdleArmAoAcDozeS4Timer @ 0x14059BCE8 (PopIdleArmAoAcDozeS4Timer.c)
+ *     PopPulseSystemIdleEvent @ 0x14073ADD8 (PopPulseSystemIdleEvent.c)
+ *     PopAcquireAdaptiveLock @ 0x14073CCB4 (PopAcquireAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x14073CD60 (PopReleaseAdaptiveLock.c)
+ *     PopFilterCapabilities @ 0x140760774 (PopFilterCapabilities.c)
+ *     PopDiagTraceSystemIdleContextUpdate @ 0x14082A9FC (PopDiagTraceSystemIdleContextUpdate.c)
+ *     PopIsDozeSupported @ 0x14097DB04 (PopIsDozeSupported.c)
+ */
+
 void __fastcall PopUpdateSystemIdleContext(int a1)
 {
   __int64 v2; // rdx

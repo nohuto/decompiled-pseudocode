@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Initialize@CDisplayManager@@IEAAJXZ @ 0x1800AEDB0
+ * Callers:
+ *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800AE4F0 (-Initialize@CComposition@@MEAAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?UpdateDXGIFactory@CDisplayManager@@AEAAJXZ @ 0x1800CD738 (-UpdateDXGIFactory@CDisplayManager@@AEAAJXZ.c)
+ */
+
 __int64 __fastcall CDisplayManager::Initialize(CDisplayManager *this)
 {
   int updated; // eax

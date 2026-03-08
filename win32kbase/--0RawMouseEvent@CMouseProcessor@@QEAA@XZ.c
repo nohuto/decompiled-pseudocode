@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0RawMouseEvent@CMouseProcessor@@QEAA@XZ @ 0x1C00A53B0
+ * Callers:
+ *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C007AB10 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 CMouseProcessor::RawMouseEvent *__fastcall CMouseProcessor::RawMouseEvent::RawMouseEvent(
         CMouseProcessor::RawMouseEvent *this)
 {

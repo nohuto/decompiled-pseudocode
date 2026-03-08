@@ -1,3 +1,19 @@
+/*
+ * XREFs of DpiMiracastInterfaceChange @ 0x1C005F540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DxgkFreeUnicodeString @ 0x1C020EA5C (DxgkFreeUnicodeString.c)
+ *     DpiGetDevicePropertyString @ 0x1C02163CC (DpiGetDevicePropertyString.c)
+ *     DpiGetDevicePropertyDataString @ 0x1C02164D8 (DpiGetDevicePropertyDataString.c)
+ *     DpiGetDeviceInstanceId @ 0x1C0396228 (DpiGetDeviceInstanceId.c)
+ *     DpiMiracastSendSyncUserModeRequest @ 0x1C039B354 (DpiMiracastSendSyncUserModeRequest.c)
+ */
+
 __int64 __fastcall DpiMiracastInterfaceChange(char *NotificationStructure, PVOID Context)
 {
   __int64 v3; // rax

@@ -1,3 +1,19 @@
+/*
+ * XREFs of SecureDump_SymmetricEncryptionSetup @ 0x14055C294
+ * Callers:
+ *     SecureDump_Init @ 0x1403AB908 (SecureDump_Init.c)
+ *     SecureDump_ReInitialize @ 0x14055C0B8 (SecureDump_ReInitialize.c)
+ * Callees:
+ *     SecureDump_LogErrorEvent @ 0x14055C088 (SecureDump_LogErrorEvent.c)
+ *     BCryptGenRandom @ 0x1405B53D8 (BCryptGenRandom.c)
+ *     BCryptGetProperty @ 0x140754608 (BCryptGetProperty.c)
+ *     BCryptOpenAlgorithmProvider @ 0x14081B624 (BCryptOpenAlgorithmProvider.c)
+ *     BCryptGenerateSymmetricKey @ 0x1409C5FE4 (BCryptGenerateSymmetricKey.c)
+ *     BCryptSetProperty @ 0x1409C610C (BCryptSetProperty.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 SecureDump_SymmetricEncryptionSetup()
 {
   __int64 v0; // rdx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of WmipProcessWmiRegInfo @ 0x140867FA4
+ * Callers:
+ *     WmipRegisterOrUpdateDS @ 0x14086785C (WmipRegisterOrUpdateDS.c)
+ * Callees:
+ *     WmipUpdateDataSource @ 0x1407FB4E8 (WmipUpdateDataSource.c)
+ *     WmipAddDataSource @ 0x140867978 (WmipAddDataSource.c)
+ *     WmipValidateWmiRegInfoString @ 0x1408680AC (WmipValidateWmiRegInfoString.c)
+ */
+
 __int64 __fastcall WmipProcessWmiRegInfo(__int64 a1, unsigned int *a2, unsigned int a3, char a4)
 {
   unsigned int v4; // ebx

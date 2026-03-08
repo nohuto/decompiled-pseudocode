@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpGetSchematizedFilterSize @ 0x140694C98
+ * Callers:
+ *     EtwpBuildNotificationPacket @ 0x14068ECF4 (EtwpBuildNotificationPacket.c)
+ *     EtwpCalculateUpdateNotification @ 0x140690658 (EtwpCalculateUpdateNotification.c)
+ *     EtwpRegisterKMProvider @ 0x140690D64 (EtwpRegisterKMProvider.c)
+ *     EtwpAddRegEntryToGroup @ 0x140693640 (EtwpAddRegEntryToGroup.c)
+ *     EtwpRegisterUMProvider @ 0x140694950 (EtwpRegisterUMProvider.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x140695580 (EtwpClearSessionAndUnreferenceEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwpGetSchematizedFilterSize(__int64 a1, unsigned __int8 a2)
 {
   __int64 v2; // r11

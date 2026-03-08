@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCheckVadSequential @ 0x1402C37F0
+ * Callers:
+ *     MiZeroFault @ 0x140266000 (MiZeroFault.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiCheckVadSequential(__int64 a1)
 {
   unsigned __int64 v1; // rbp

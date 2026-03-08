@@ -1,3 +1,17 @@
+/*
+ * XREFs of PsMultiResumeProcess @ 0x1402FF188
+ * Callers:
+ *     PsResumeProcess @ 0x1407978E0 (PsResumeProcess.c)
+ *     NtResumeProcess @ 0x1409B2FE0 (NtResumeProcess.c)
+ * Callees:
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KeResumeThread @ 0x140354130 (KeResumeThread.c)
+ *     PsGetNextProcessThread @ 0x1406A8E30 (PsGetNextProcessThread.c)
+ *     EtwTiLogSuspendResumeProcess @ 0x1409E5EB4 (EtwTiLogSuspendResumeProcess.c)
+ */
+
 __int64 __fastcall PsMultiResumeProcess(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rbp

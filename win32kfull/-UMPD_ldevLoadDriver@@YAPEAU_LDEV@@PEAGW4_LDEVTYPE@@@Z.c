@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?UMPD_ldevLoadDriver@@YAPEAU_LDEV@@PEAGW4_LDEVTYPE@@@Z @ 0x1C02C2CB8
+ * Callers:
+ *     UMPD_ldevLoadDriverWrap @ 0x1C02C2E70 (UMPD_ldevLoadDriverWrap.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?UMPDDrvDriverFn@@YAHPEAXPEAH@Z @ 0x1C02BBDDC (-UMPDDrvDriverFn@@YAHPEAXPEAH@Z.c)
+ *     ?UMPDDrvEnableDriver@@YAHPEAGPEAPEAX@Z @ 0x1C02BBE8C (-UMPDDrvEnableDriver@@YAHPEAGPEAPEAX@Z.c)
+ *     ?UMPD_ldevFillTable@@YAHPEAU_LDEV@@PEBH@Z @ 0x1C02C2C24 (-UMPD_ldevFillTable@@YAHPEAU_LDEV@@PEBH@Z.c)
+ */
+
 _QWORD *__fastcall UMPD_ldevLoadDriver(unsigned __int16 *a1, int a2)
 {
   _QWORD *v4; // rbx

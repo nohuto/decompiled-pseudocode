@@ -1,3 +1,11 @@
+/*
+ * XREFs of WppLoadTracingSupport @ 0x1C039CB30
+ * Callers:
+ *     EditionInitializeWppLogging @ 0x1C00ECAC0 (EditionInitializeWppLogging.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 PVOID WppLoadTracingSupport()
 {
   PVOID result; // rax

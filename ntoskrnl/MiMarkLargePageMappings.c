@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiMarkLargePageMappings @ 0x140B4F638
+ * Callers:
+ *     MiMarkLargePageRanges @ 0x140B4F274 (MiMarkLargePageRanges.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiWalkPageTables @ 0x140222CF0 (MiWalkPageTables.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 MiMarkLargePageMappings()
 {
   char *AnyMultiplexedVm; // rbx

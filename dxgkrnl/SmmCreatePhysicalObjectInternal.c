@@ -1,3 +1,14 @@
+/*
+ * XREFs of SmmCreatePhysicalObjectInternal @ 0x1C0013170
+ * Callers:
+ *     SmmCreatePhysicalObject @ 0x1C00130BC (SmmCreatePhysicalObject.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     SmmInitializePhysicalObject @ 0x1C00133B8 (SmmInitializePhysicalObject.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     McTemplateK0xxqqtpqp_EtwWriteTransfer @ 0x1C006F2E0 (McTemplateK0xxqqtpqp_EtwWriteTransfer.c)
+ */
+
 _QWORD *__fastcall SmmCreatePhysicalObjectInternal(int a1, int a2, int a3, int a4, char a5, __int64 a6, int a7)
 {
   __int64 v11; // rdi

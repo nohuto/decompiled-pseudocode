@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopEtAggregateKeyCopy @ 0x140702A90
+ * Callers:
+ *     PopEtAggregateGet @ 0x1407025B8 (PopEtAggregateGet.c)
+ *     PopEtAggregateKeyCopyFromProcess @ 0x14070336C (PopEtAggregateKeyCopyFromProcess.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall PopEtAggregateKeyCopy(__int64 *a1, _OWORD *a2)
 {
   __int64 v3; // rdx

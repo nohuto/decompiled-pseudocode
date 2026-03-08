@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpMmUpdateTiledMemoryMapTargetStub @ 0x1405190D8
+ * Callers:
+ *     HalpInterruptStartProcessor @ 0x140A86180 (HalpInterruptStartProcessor.c)
+ *     HalpBuildResumeStructures @ 0x140A92E78 (HalpBuildResumeStructures.c)
+ * Callees:
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x14029B230 (MmUnmapIoSpace.c)
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ */
+
 __int64 HalpMmUpdateTiledMemoryMapTargetStub()
 {
   unsigned int v0; // ebx

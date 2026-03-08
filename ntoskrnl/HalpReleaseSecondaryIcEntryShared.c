@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpReleaseSecondaryIcEntryShared @ 0x140379B70
+ * Callers:
+ *     HalpDisableSecondaryInterrupt @ 0x140517908 (HalpDisableSecondaryInterrupt.c)
+ *     HalpHandleMaskUnmaskSecondaryInterrupt @ 0x140517A94 (HalpHandleMaskUnmaskSecondaryInterrupt.c)
+ *     HalpInterruptRequestSecondaryInterrupt @ 0x140517DEC (HalpInterruptRequestSecondaryInterrupt.c)
+ *     HalpUnregisterSecondaryIcInterface @ 0x1405180D0 (HalpUnregisterSecondaryIcInterface.c)
+ *     HalpQueryPrimaryInterruptInformation @ 0x14080BECC (HalpQueryPrimaryInterruptInformation.c)
+ *     HalpEnableSecondaryInterrupt @ 0x14085E574 (HalpEnableSecondaryInterrupt.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     HalpInsertSecondarySignalList @ 0x140517B78 (HalpInsertSecondarySignalList.c)
+ */
+
 LONG __fastcall HalpReleaseSecondaryIcEntryShared(__int64 a1, __int64 a2)
 {
   LONG result; // eax

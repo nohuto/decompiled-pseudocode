@@ -1,3 +1,15 @@
+/*
+ * XREFs of ProtocolCommandCompletion @ 0x1C0018650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     GetNamespaceId @ 0x1C0007A8C (GetNamespaceId.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C000C1C0 (NVMeAllocateDmaBuffer.c)
+ *     BuildGetLogPageCommand @ 0x1C0010E14 (BuildGetLogPageCommand.c)
+ */
+
 __int64 __fastcall ProtocolCommandCompletion(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

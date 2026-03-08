@@ -1,3 +1,16 @@
+/*
+ * XREFs of TlgRegisterAggregateProviderEx @ 0x1C0090534
+ * Callers:
+ *     TlgRegisterAggregateProvider @ 0x1C009051C (TlgRegisterAggregateProvider.c)
+ * Callees:
+ *     RunningHash @ 0x1C0043E88 (RunningHash.c)
+ *     FinishHash @ 0x1C0043EBC (FinishHash.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C008F5C0 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     DestroyAggregateSession @ 0x1C008FD6C (DestroyAggregateSession.c)
+ *     CreateTlgAggregateSession @ 0x1C008FDB8 (CreateTlgAggregateSession.c)
+ */
+
 __int64 __fastcall TlgRegisterAggregateProviderEx(__int64 a1)
 {
   unsigned __int64 TlgAggregateSession; // rax

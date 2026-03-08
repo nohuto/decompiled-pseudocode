@@ -1,3 +1,16 @@
+/*
+ * XREFs of rimExtractScantime @ 0x1C01D7F80
+ * Callers:
+ *     rimUpdatePointerDeviceFrameScanTime @ 0x1C00F18F6 (rimUpdatePointerDeviceFrameScanTime.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimHidP_GetUsageValue @ 0x1C00EF9AA (rimHidP_GetUsageValue.c)
+ *     ?UpdateScantime@RIM@InputTraceLogging@@SAXPEBUtagHPD_FRAME_SCAN_TIME@@_NK@Z @ 0x1C00F0F66 (-UpdateScantime@RIM@InputTraceLogging@@SAXPEBUtagHPD_FRAME_SCAN_TIME@@_NK@Z.c)
+ *     RIMDivideToCeilingOrNearestInt @ 0x1C00F1096 (RIMDivideToCeilingOrNearestInt.c)
+ */
+
 void __fastcall rimExtractScantime(__int64 a1, __int64 a2, __int64 a3, int a4, _QWORD *a5, _DWORD *a6)
 {
   __int64 v6; // rdi

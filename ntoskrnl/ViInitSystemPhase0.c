@@ -1,3 +1,21 @@
+/*
+ * XREFs of ViInitSystemPhase0 @ 0x140B49D78
+ * Callers:
+ *     VerifierInitSystem @ 0x140B48334 (VerifierInitSystem.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KiInitializeMutant @ 0x1402D981C (KiInitializeMutant.c)
+ *     strstr @ 0x1403D3650 (strstr.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     ViSetDifPluginMode @ 0x140ABA460 (ViSetDifPluginMode.c)
+ *     VfInitSystemNoRebootNeeded @ 0x140ABFCE8 (VfInitSystemNoRebootNeeded.c)
+ *     VfDisableCodeIntegrityBreaks @ 0x140AC09BC (VfDisableCodeIntegrityBreaks.c)
+ *     VfSetVerifierRunningMode @ 0x140AD7D3C (VfSetVerifierRunningMode.c)
+ *     ViInitPickRandomTargets @ 0x140B49F94 (ViInitPickRandomTargets.c)
+ *     VfTriageSystem @ 0x140B49FDC (VfTriageSystem.c)
+ *     VfInitSetVerifyDriverTargets @ 0x140B93A90 (VfInitSetVerifyDriverTargets.c)
+ */
+
 void __fastcall ViInitSystemPhase0(__int64 a1)
 {
   __int64 v1; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?EmitViewData@CHolographicExclusiveViewMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02651FC
+ * Callers:
+ *     ?EmitUpdateCommands@CHolographicExclusiveViewMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02651A0 (-EmitUpdateCommands@CHolographicExclusiveViewMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@.c)
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0064740 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ReferenceDwmProcess @ 0x1C00918D0 (ReferenceDwmProcess.c)
+ *     CheckOrAcquireDwmStateLock @ 0x1C0091914 (CheckOrAcquireDwmStateLock.c)
+ *     GreUnlockDwmState @ 0x1C0091AF0 (GreUnlockDwmState.c)
+ */
+
 char __fastcall DirectComposition::CHolographicExclusiveViewMarshaler::EmitViewData(
         DirectComposition::CHolographicExclusiveViewMarshaler *this,
         struct DirectComposition::CBatch ***a2,

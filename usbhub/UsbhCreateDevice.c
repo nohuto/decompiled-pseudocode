@@ -1,3 +1,23 @@
+/*
+ * XREFs of UsbhCreateDevice @ 0x1C0002364
+ * Callers:
+ *     UsbhReset1Complete @ 0x1C0002B20 (UsbhReset1Complete.c)
+ * Callees:
+ *     UsbhLinkPdoDeviceHandle @ 0x1C0002540 (UsbhLinkPdoDeviceHandle.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0023880 (memset.c)
+ *     Usbh_HubDerefDeviceHandle @ 0x1C002E238 (Usbh_HubDerefDeviceHandle.c)
+ *     UsbhGetDeviceHandle @ 0x1C0038178 (UsbhGetDeviceHandle.c)
+ *     UsbhGetTtDeviceHandle @ 0x1C0038740 (UsbhGetTtDeviceHandle.c)
+ *     Usbh_HubRemoveUsbDevice @ 0x1C003B1EC (Usbh_HubRemoveUsbDevice.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhEtwLogHubEventWithExtraData @ 0x1C005B848 (UsbhEtwLogHubEventWithExtraData.c)
+ */
+
 __int64 __fastcall UsbhCreateDevice(__int64 a1, void *a2, unsigned __int16 a3, unsigned __int16 a4)
 {
   __int64 v4; // rdi

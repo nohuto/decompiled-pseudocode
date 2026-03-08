@@ -1,3 +1,14 @@
+/*
+ * XREFs of IommupProcessPhysicalAddress @ 0x140524798
+ * Callers:
+ *     IommuMapIdentityRangeEx @ 0x140523AE0 (IommuMapIdentityRangeEx.c)
+ *     IommuMapLogicalRangeEx @ 0x140523D00 (IommuMapLogicalRangeEx.c)
+ *     IommuMapReservedLogicalRange @ 0x140523E20 (IommuMapReservedLogicalRange.c)
+ *     IommuUnmapIdentityRangeEx @ 0x1405243D0 (IommuUnmapIdentityRangeEx.c)
+ * Callees:
+ *     IommupValidateMdl @ 0x140524838 (IommupValidateMdl.c)
+ */
+
 __int64 __fastcall IommupProcessPhysicalAddress(__int64 a1, _QWORD *a2, _BYTE *a3, _QWORD *a4, _QWORD *a5)
 {
   __int64 v5; // rax

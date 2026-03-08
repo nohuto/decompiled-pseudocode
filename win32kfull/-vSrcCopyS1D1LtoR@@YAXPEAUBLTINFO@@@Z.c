@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vSrcCopyS1D1LtoR@@YAXPEAUBLTINFO@@@Z @ 0x1C00C4950
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 void __fastcall vSrcCopyS1D1LtoR(struct BLTINFO *a1)
 {
   struct BLTINFO *v1; // r13

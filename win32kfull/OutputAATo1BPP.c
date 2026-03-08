@@ -1,3 +1,11 @@
+/*
+ * XREFs of OutputAATo1BPP @ 0x1C014B390
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall OutputAATo1BPP(
         int *a1,
         __int64 a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of CcScheduleLazyWriteScanVolume @ 0x140242B4C
+ * Callers:
+ *     CcScheduleLazyWriteScan @ 0x140242B0C (CcScheduleLazyWriteScan.c)
+ *     CcRescheduleLazyWriteScanOnVolume @ 0x1402EB4A8 (CcRescheduleLazyWriteScanOnVolume.c)
+ * Callees:
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     CcNotifyWriteBehindVolume @ 0x1403BBE2C (CcNotifyWriteBehindVolume.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 char __fastcall CcScheduleLazyWriteScanVolume(_BYTE *a1, char a2, char a3)
 {
   char result; // al

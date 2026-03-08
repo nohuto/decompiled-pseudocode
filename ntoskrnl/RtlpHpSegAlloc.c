@@ -1,3 +1,21 @@
+/*
+ * XREFs of RtlpHpSegAlloc @ 0x1402491F0
+ * Callers:
+ *     RtlpHpAllocateHeap @ 0x14024A2B0 (RtlpHpAllocateHeap.c)
+ *     RtlpHpMetadataAlloc @ 0x1402B71FC (RtlpHpMetadataAlloc.c)
+ *     RtlpHpSegSubAllocate @ 0x1402E28AC (RtlpHpSegSubAllocate.c)
+ *     ExAllocateHeapPool @ 0x1403101C0 (ExAllocateHeapPool.c)
+ *     ExAllocateHeapPages @ 0x1403B489C (ExAllocateHeapPages.c)
+ *     ExAllocateContiguousHeapPool @ 0x1403B4DF4 (ExAllocateContiguousHeapPool.c)
+ *     ExAllocateHeapSpecialPool @ 0x14060C980 (ExAllocateHeapSpecialPool.c)
+ * Callees:
+ *     RtlpHpSegPageRangeAllocate @ 0x1402493A0 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegPageRangeCommit @ 0x1402499A0 (RtlpHpSegPageRangeCommit.c)
+ *     RtlpHpSegPageRangeComputeLargePageCost @ 0x14024E860 (RtlpHpSegPageRangeComputeLargePageCost.c)
+ *     RtlHeapZero @ 0x1403D2D10 (RtlHeapZero.c)
+ *     RtlpHpSegPageRangeFree @ 0x1405B4660 (RtlpHpSegPageRangeFree.c)
+ */
+
 __int64 __fastcall RtlpHpSegAlloc(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
 {
   unsigned __int64 v5; // r14

@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserSetWindowBand @ 0x1C00999F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?ValidateHWNDIA@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z @ 0x1C009A010 (-ValidateHWNDIA@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z.c)
+ *     ?xxxSetWindowBand@@YAHPEAUtagWND@@0W4ZBID@@W4WindowBandOptions@@@Z @ 0x1C009BB98 (-xxxSetWindowBand@@YAHPEAUtagWND@@0W4ZBID@@W4WindowBandOptions@@@Z.c)
+ */
+
 __int64 __fastcall NtUserSetWindowBand(__int64 a1, HWND a2, unsigned int a3)
 {
   __int64 v6; // rax

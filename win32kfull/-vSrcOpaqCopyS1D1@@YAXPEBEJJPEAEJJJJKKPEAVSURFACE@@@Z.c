@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vSrcOpaqCopyS1D1@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x1C0296590
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vSrcOpaqCopyS1D1(
         const unsigned __int8 *a1,
         int a2,

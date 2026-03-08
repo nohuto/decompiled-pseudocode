@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?PanUnlockDisplayArea@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z @ 0x1C029F760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C0083D50 (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
+ *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C0088198 (-vOrder@ERECTL@@QEAAXXZ.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C008D3C0 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ?ShadowUnLock@@YAXPEAU_PANDEV@@@Z @ 0x1C029F890 (-ShadowUnLock@@YAXPEAU_PANDEV@@@Z.c)
+ */
+
 void __fastcall PanUnlockDisplayArea(struct DHPDEV__ *a1, struct _RECTL *a2)
 {
   __int64 v3; // rdx

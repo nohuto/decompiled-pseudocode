@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?sizl@PDEVOBJ@@QEAA?AUtagSIZE@@XZ @ 0x1C00BAADC
+ * Callers:
+ *     GreCreateDisplayDC @ 0x1C0055340 (GreCreateDisplayDC.c)
+ *     DrvpDisplayConfigGetDisplayDeviceInfo @ 0x1C006CAF8 (DrvpDisplayConfigGetDisplayDeviceInfo.c)
+ *     bDynamicModeChange @ 0x1C006DF9C (bDynamicModeChange.c)
+ *     ?bMakeInfoDC@DC@@QEAAHH@Z @ 0x1C017F7A0 (-bMakeInfoDC@DC@@QEAAHH@Z.c)
+ *     ?UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z @ 0x1C01828EC (-UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct tagSIZE __fastcall PDEVOBJ::sizl(PDEVOBJ *this, _QWORD *a2)
 {
   __int64 v2; // r8

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?VidMmReferenceWrittenPrimaries@VIDMM_GLOBAL@@QEAAJPEAVDXGDEVICE@@IQEBIIPEAU_VIDMM_PRIMARIES_REFERENCES@@PEAUVIDSCH_HW_QUEUE@@PEAPEAVDXGCONTEXT@@@Z @ 0x1C009F0F0
+ * Callers:
+ *     VidMmReferenceWrittenPrimaries @ 0x1C0002310 (VidMmReferenceWrittenPrimaries.c)
+ * Callees:
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0002338 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C001BE4A (McTemplateK0q_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall VIDMM_GLOBAL::VidMmReferenceWrittenPrimaries(
         VIDMM_GLOBAL *this,
         struct DXGDEVICE *a2,

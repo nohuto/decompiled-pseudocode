@@ -1,3 +1,20 @@
+/*
+ * XREFs of KeInvalidateRangeAllCachesNoIpi @ 0x1402149F0
+ * Callers:
+ *     MiFlushCacheForAttributeChange @ 0x140214754 (MiFlushCacheForAttributeChange.c)
+ *     HalpIommuMapLogicalRange @ 0x14037A478 (HalpIommuMapLogicalRange.c)
+ *     HalpIommuAllocateAndZeroPageTable @ 0x14037AC5C (HalpIommuAllocateAndZeroPageTable.c)
+ *     HalpIommuInitializeDmarPageTable @ 0x14037C398 (HalpIommuInitializeDmarPageTable.c)
+ *     KeInvalidateRangeAllCaches @ 0x1404580A0 (KeInvalidateRangeAllCaches.c)
+ *     HalpIommuMapLogical @ 0x140524B74 (HalpIommuMapLogical.c)
+ *     HalpIommuUnmapLogicalRange @ 0x140524F80 (HalpIommuUnmapLogicalRange.c)
+ *     IvtInitializeIdentityMappings @ 0x14052ABF4 (IvtInitializeIdentityMappings.c)
+ *     MiFlushGraphicsPtes @ 0x140623FF8 (MiFlushGraphicsPtes.c)
+ * Callees:
+ *     KeInvalidateAllCaches @ 0x1403010D0 (KeInvalidateAllCaches.c)
+ *     KiFlushCacheLines @ 0x14041BC40 (KiFlushCacheLines.c)
+ */
+
 char __fastcall KeInvalidateRangeAllCachesNoIpi(__int64 a1, unsigned int a2)
 {
   struct _KPRCB *CurrentPrcb; // rax

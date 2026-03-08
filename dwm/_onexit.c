@@ -1,3 +1,12 @@
+/*
+ * XREFs of _onexit @ 0x1400058E0
+ * Callers:
+ *     atexit @ 0x140005920 (atexit.c)
+ * Callees:
+ *     _crt_atexit @ 0x1400062AC (_crt_atexit.c)
+ *     _o__register_onexit_function_0 @ 0x14000630C (_o__register_onexit_function_0.c)
+ */
+
 _onexit_t __cdecl onexit(_onexit_t Func)
 {
   int v2; // eax

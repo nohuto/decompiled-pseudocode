@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfMiscObReferenceObjectByPointer_Entry @ 0x140ADD5E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VfMiscCheckKernelAddress @ 0x1405D0078 (VfMiscCheckKernelAddress.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 unsigned __int64 __fastcall VfMiscObReferenceObjectByPointer_Entry(__int64 a1)
 {
   unsigned __int64 result; // rax

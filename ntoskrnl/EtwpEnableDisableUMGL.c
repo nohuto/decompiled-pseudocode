@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpEnableDisableUMGL @ 0x1409E4568
+ * Callers:
+ *     EtwpEnableDisableSpecialGuids @ 0x14068FF34 (EtwpEnableDisableSpecialGuids.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     PsLookupProcessByProcessId @ 0x1406AC100 (PsLookupProcessByProcessId.c)
+ *     EtwpUpdateProcessTracingCallback @ 0x1409E4CA0 (EtwpUpdateProcessTracingCallback.c)
+ */
+
 __int64 __fastcall EtwpEnableDisableUMGL(
         __int64 a1,
         char a2,

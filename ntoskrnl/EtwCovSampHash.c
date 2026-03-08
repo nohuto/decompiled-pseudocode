@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwCovSampHash @ 0x140461748
+ * Callers:
+ *     EtwpCovSampContextAddSamples @ 0x1408A4190 (EtwpCovSampContextAddSamples.c)
+ *     EtwpCovSampContextGetModule @ 0x1409EE4AC (EtwpCovSampContextGetModule.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwCovSampHash(unsigned __int64 a1, __int64 a2)
 {
   int v2; // r9d

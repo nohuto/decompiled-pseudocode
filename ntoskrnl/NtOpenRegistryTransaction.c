@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtOpenRegistryTransaction @ 0x140A0AC80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CmCleanupThreadInfo @ 0x140263740 (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x140263760 (CmpInitializeThreadInfo.c)
+ *     ObOpenObjectByName @ 0x1406C39E0 (ObOpenObjectByName.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     CmpAcquireShutdownRundown @ 0x140AF23A0 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140AF23F0 (CmpReleaseShutdownRundown.c)
+ */
+
 __int64 __fastcall NtOpenRegistryTransaction(HANDLE *a1, int a2, __int64 a3)
 {
   __int64 v6; // rdx

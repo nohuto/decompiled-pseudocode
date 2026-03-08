@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvApplyLogFiles @ 0x1407F9454
+ * Callers:
+ *     HvpPerformLogFileRecovery @ 0x1407FBCAC (HvpPerformLogFileRecovery.c)
+ * Callees:
+ *     HvpApplyIncrementalLogFile @ 0x1407F9948 (HvpApplyIncrementalLogFile.c)
+ *     HvpApplyLegacyLogFile @ 0x140A2755C (HvpApplyLegacyLogFile.c)
+ *     HvpHeaderCheckSum @ 0x140AF2414 (HvpHeaderCheckSum.c)
+ */
+
 __int64 __fastcall HvApplyLogFiles(
         _DWORD *a1,
         __int64 a2,

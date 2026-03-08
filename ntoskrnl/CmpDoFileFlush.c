@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpDoFileFlush @ 0x1402B3284
+ * Callers:
+ *     CmpFileFlush @ 0x140731EC0 (CmpFileFlush.c)
+ * Callees:
+ *     ZwFlushBuffersFile @ 0x140412C70 (ZwFlushBuffersFile.c)
+ */
+
 NTSTATUS __fastcall CmpDoFileFlush(void *a1)
 {
   NTSTATUS result; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vGetCoefficient@EXFORMOBJ@@QEAAXPEAUtagFLOATOBJ_XFORM@@@Z @ 0x1C00CE440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall EXFORMOBJ::vGetCoefficient(EXFORMOBJ *this, struct tagFLOATOBJ_XFORM *a2)
 {
   _OWORD *v3; // rcx

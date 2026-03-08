@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopDirectedDripsResumeDevices @ 0x140980BC4
+ * Callers:
+ *     PopDirectedDripsWorkerRoutine @ 0x1407FFD30 (PopDirectedDripsWorkerRoutine.c)
+ *     PopDirectedDripsHandleResiliencyNotification @ 0x140980530 (PopDirectedDripsHandleResiliencyNotification.c)
+ * Callees:
+ *     PopFxClearDirectedDripsCandidateDeviceList @ 0x14058703C (PopFxClearDirectedDripsCandidateDeviceList.c)
+ *     PopDirectedDripsDiagTraceNotifyDevices @ 0x14059E404 (PopDirectedDripsDiagTraceNotifyDevices.c)
+ *     PopDirectedDripsDestroyBroadcast @ 0x1409804A8 (PopDirectedDripsDestroyBroadcast.c)
+ *     PopDirectedDripsReleaseTransitionLock @ 0x140980B94 (PopDirectedDripsReleaseTransitionLock.c)
+ *     PoBroadcastSystemState @ 0x140AA38F8 (PoBroadcastSystemState.c)
+ */
+
 char __fastcall PopDirectedDripsResumeDevices(signed __int32 *a1, char a2)
 {
   __int64 v4; // rbp

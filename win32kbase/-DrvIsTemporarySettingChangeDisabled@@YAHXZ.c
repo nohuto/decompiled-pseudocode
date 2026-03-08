@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DrvIsTemporarySettingChangeDisabled@@YAHXZ @ 0x1C018E498
+ * Callers:
+ *     DrvSetDisplayConfigValidateParams @ 0x1C00E2170 (DrvSetDisplayConfigValidateParams.c)
+ *     DrvChangeDisplaySettingsPreValidate @ 0x1C019288C (DrvChangeDisplaySettingsPreValidate.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 DrvIsTemporarySettingChangeDisabled(void)
 {
   struct _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+30h] [rbp-19h] BYREF

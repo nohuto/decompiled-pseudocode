@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiStartPrcbThread @ 0x14037F580
+ * Callers:
+ *     KiCompleteBootProcessorContextInitialization @ 0x14037226C (KiCompleteBootProcessorContextInitialization.c)
+ *     KiStartPrcbThreads @ 0x14037F410 (KiStartPrcbThreads.c)
+ *     KiStartIdleThread @ 0x14037F474 (KiStartIdleThread.c)
+ * Callees:
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KeStartThread @ 0x1402385C4 (KeStartThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 _QWORD *__fastcall KiStartPrcbThread(__int64 a1, __int64 a2)
 {
   unsigned __int16 *v4; // rbx

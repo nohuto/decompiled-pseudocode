@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiDeletePteWsleCluster @ 0x14032A9F0
+ * Callers:
+ *     MiDecommitPages @ 0x140329B10 (MiDecommitPages.c)
+ * Callees:
+ *     MiDeletePteList @ 0x140276AC0 (MiDeletePteList.c)
+ *     MiTerminateWsleCluster @ 0x1403234E0 (MiTerminateWsleCluster.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiDeletePteWsleCluster(__int64 *a1, __int64 a2, unsigned __int64 a3, __int64 a4)
 {
   __int64 v8; // rdx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?QueryForD3ColdInterface@FxPkgPnp@@QEAAXXZ @ 0x1C0078F64
+ * Callers:
+ *     ?Initialize@FxPkgPnp@@UEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0073160 (-Initialize@FxPkgPnp@@UEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ * Callees:
+ *     memset @ 0x1C000AC00 (memset.c)
+ *     WPP_IFR_SF_q @ 0x1C0018194 (WPP_IFR_SF_q.c)
+ *     ?SendIrpSynchronously@FxIrp@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C002BA14 (-SendIrpSynchronously@FxIrp@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ */
+
 void __fastcall FxPkgPnp::QueryForD3ColdInterface(FxPkgPnp *this)
 {
   _IRP *v1; // rbx

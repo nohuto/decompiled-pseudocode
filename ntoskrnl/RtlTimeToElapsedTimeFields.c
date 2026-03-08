@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlTimeToElapsedTimeFields @ 0x1409B5F60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     TimeToDaysAndFraction @ 0x1402D178C (TimeToDaysAndFraction.c)
+ */
+
 __int64 __fastcall RtlTimeToElapsedTimeFields(LARGE_INTEGER *a1, __int64 a2)
 {
   unsigned int v3; // kr00_4

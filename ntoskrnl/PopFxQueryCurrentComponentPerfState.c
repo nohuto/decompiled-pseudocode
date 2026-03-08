@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopFxQueryCurrentComponentPerfState @ 0x1405890BC
+ * Callers:
+ *     PoFxQueryCurrentComponentPerfState @ 0x140585C10 (PoFxQueryCurrentComponentPerfState.c)
+ *     PopFxUpdateComponentPerfStateNominalChange @ 0x140589C50 (PopFxUpdateComponentPerfStateNominalChange.c)
+ * Callees:
+ *     PopPluginQueryCurrentComponentPerfState @ 0x14058A3DC (PopPluginQueryCurrentComponentPerfState.c)
+ */
+
 _BYTE *__fastcall PopFxQueryCurrentComponentPerfState(
         __int64 a1,
         __int64 a2,

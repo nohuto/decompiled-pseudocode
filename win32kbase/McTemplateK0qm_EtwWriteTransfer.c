@@ -1,3 +1,13 @@
+/*
+ * XREFs of McTemplateK0qm_EtwWriteTransfer @ 0x1C0166120
+ * Callers:
+ *     EtwTraceUiAuditWriteClipboard @ 0x1C0164BE0 (EtwTraceUiAuditWriteClipboard.c)
+ *     EtwTraceUiLimitWriteClipboard @ 0x1C0164C10 (EtwTraceUiLimitWriteClipboard.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0qm_EtwWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

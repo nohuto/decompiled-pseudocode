@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiInitializeModifiedWriterParameters @ 0x140B721EC
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 MiInitializeModifiedWriterParameters()
 {
   int v0; // eax

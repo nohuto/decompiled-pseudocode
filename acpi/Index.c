@@ -1,3 +1,17 @@
+/*
+ * XREFs of Index @ 0x1C0056C00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ *     ValidateTarget @ 0x1C004D4F0 (ValidateTarget.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ *     WriteObject @ 0x1C00532A0 (WriteObject.c)
+ */
+
 __int64 __fastcall Index(__int64 a1, __int64 a2)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of XmCwdOp @ 0x140531F90
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmStoreResult @ 0x1403B42E8 (XmStoreResult.c)
+ */
+
 _WORD *__fastcall XmCwdOp(__int64 a1)
 {
   bool v1; // zf

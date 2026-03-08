@@ -1,3 +1,12 @@
+/*
+ * XREFs of FxGetNextClassBindInfo @ 0x1C001CFDC
+ * Callers:
+ *     ?FxStubBindClasses@@YAJPEAU_WDF_BIND_INFO@@@Z @ 0x1C001CF34 (-FxStubBindClasses@@YAJPEAU_WDF_BIND_INFO@@@Z.c)
+ *     ?FxStubUnbindClasses@@YAXPEAU_WDF_BIND_INFO@@@Z @ 0x1C00529C4 (-FxStubUnbindClasses@@YAXPEAU_WDF_BIND_INFO@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall FxGetNextClassBindInfo(_QWORD *a1, unsigned __int64 a2)
 {
   _QWORD *v2; // r8

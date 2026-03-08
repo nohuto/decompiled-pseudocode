@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifPoFxReportDevicePoweredOnWrapper @ 0x1405E7660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopFxHandleReportDevicePoweredOn @ 0x1402B90C0 (PopFxHandleReportDevicePoweredOn.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 void __fastcall DifPoFxReportDevicePoweredOnWrapper(ULONG_PTR a1)
 {
   __int64 *APIThunkContextById; // rax

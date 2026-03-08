@@ -1,3 +1,24 @@
+/*
+ * XREFs of CmpCreateHardwareProfiles @ 0x140B50B04
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     RtlUnicodeStringPrintf @ 0x1403BEBCC (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     CmSetAcpiHwProfile @ 0x140813CE0 (CmSetAcpiHwProfile.c)
+ *     CmpOpenDevicesControlSet @ 0x140814380 (CmpOpenDevicesControlSet.c)
+ *     CmDeleteKeyRecursive @ 0x140A0D158 (CmDeleteKeyRecursive.c)
+ *     CmpCloneHwProfile @ 0x140A0D554 (CmpCloneHwProfile.c)
+ *     CmpAddDockingInfo @ 0x140B50F94 (CmpAddDockingInfo.c)
+ *     CmpAddAliasEntry @ 0x140B94C88 (CmpAddAliasEntry.c)
+ */
+
 __int64 __fastcall CmpCreateHardwareProfiles(__int64 a1)
 {
   char v2; // r12

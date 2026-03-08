@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalEnumerateProcessors @ 0x140371430
+ * Callers:
+ *     HvlpSelectLpSet @ 0x14053F128 (HvlpSelectLpSet.c)
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     HalpInterruptModel @ 0x14028EADC (HalpInterruptModel.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x140372460 (HalpQueryMaximumRegisteredProcessorCount.c)
+ */
+
 __int64 __fastcall HalEnumerateProcessors(unsigned int a1)
 {
   unsigned int v2; // ebx

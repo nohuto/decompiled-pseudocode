@@ -1,3 +1,12 @@
+/*
+ * XREFs of HdlspUTF8Encode @ 0x140604540
+ * Callers:
+ *     HdlspPutString @ 0x140AE8194 (HdlspPutString.c)
+ *     HdlspPutWideString @ 0x140AE830C (HdlspPutWideString.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HdlspUTF8Encode(unsigned __int16 a1, _BYTE *a2)
 {
   char result; // al

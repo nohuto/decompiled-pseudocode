@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CConnection@DirectComposition@@AEAA@XZ @ 0x1C009595C
+ * Callers:
+ *     ?OnSessionCreation@CConnection@DirectComposition@@SAJH@Z @ 0x1C009582C (-OnSessionCreation@CConnection@DirectComposition@@SAJH@Z.c)
+ * Callees:
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C00968E4 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ */
+
 DirectComposition::CConnection *__fastcall DirectComposition::CConnection::CConnection(
         DirectComposition::CConnection *this)
 {

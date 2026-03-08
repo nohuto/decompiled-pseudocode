@@ -1,3 +1,21 @@
+/*
+ * XREFs of IvtAllocateScalableModePasidTables @ 0x140529000
+ * Callers:
+ *     IvtAllocateTranslationStructures @ 0x1405292FC (IvtAllocateTranslationStructures.c)
+ *     IvtGrowPasidTable @ 0x14052A880 (IvtGrowPasidTable.c)
+ *     IvtSetupScalableModeDefaultPasidTables @ 0x140A95F30 (IvtSetupScalableModeDefaultPasidTables.c)
+ * Callees:
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     ExtEnvAllocateMemory @ 0x14037C828 (ExtEnvAllocateMemory.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExtEnvAllocatePhysicalMemory @ 0x14051CE10 (ExtEnvAllocatePhysicalMemory.c)
+ *     IvtExtendScalableModePasidTables @ 0x14052A0B4 (IvtExtendScalableModePasidTables.c)
+ *     IvtFreeScalableModePasidTables @ 0x14052A358 (IvtFreeScalableModePasidTables.c)
+ *     IvtGetScalableModePasidTables @ 0x14052A834 (IvtGetScalableModePasidTables.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IvtAllocateScalableModePasidTables(
         __int64 a1,
         unsigned int a2,

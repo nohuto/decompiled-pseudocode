@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwQueryQuotaInformationFile @ 0x140414F90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall ZwQueryQuotaInformationFile(
         HANDLE FileHandle,
         PIO_STATUS_BLOCK IoStatusBlock,

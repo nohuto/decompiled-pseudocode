@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?FBitsTouch@@YAHPEAUtagWND@@PEAUtagRECT@@PEAUtagSPB@@K@Z @ 0x1C000B42C
+ * Callers:
+ *     ?SpbCheckRect2@@YAHPEAUtagSPB@@PEAUtagWND@@PEAUtagRECT@@K@Z @ 0x1C000B34C (-SpbCheckRect2@@YAHPEAUtagSPB@@PEAUtagWND@@PEAUtagRECT@@K@Z.c)
+ * Callees:
+ *     IsVisible @ 0x1C00A66A0 (IsVisible.c)
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ *     SubtractRect @ 0x1C024E530 (SubtractRect.c)
+ */
+
 __int64 __fastcall FBitsTouch(struct tagWND *a1, struct tagRECT *a2, struct tagSPB *a3)
 {
   _QWORD *v5; // rcx

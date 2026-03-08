@@ -1,3 +1,11 @@
+/*
+ * XREFs of memcmp @ 0x1C001A750
+ * Callers:
+ *     CompareEventEntry @ 0x1C004BD28 (CompareEventEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 int __cdecl memcmp(const void *Buf1, const void *Buf2, size_t Size)
 {
   signed __int64 v3; // rdx

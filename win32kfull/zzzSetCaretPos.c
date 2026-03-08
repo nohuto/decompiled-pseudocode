@@ -1,3 +1,19 @@
+/*
+ * XREFs of zzzSetCaretPos @ 0x1C0005ED8
+ * Callers:
+ *     NtUserSetCaretPos @ 0x1C0005E60 (NtUserSetCaretPos.c)
+ *     ?zzzSetSBCaretPos@@YAXPEAUtagSBWND@@@Z @ 0x1C022CA90 (-zzzSetSBCaretPos@@YAXPEAUtagSBWND@@@Z.c)
+ * Callees:
+ *     ?UT_CaretSet@@YAHPEAUtagWND@@@Z @ 0x1C0006130 (-UT_CaretSet@@YAHPEAUtagWND@@@Z.c)
+ *     ?CreateCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z @ 0x1C0006294 (-CreateCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z.c)
+ *     ?UT_InvertCaret@@YAXXZ @ 0x1C0006508 (-UT_InvertCaret@@YAXXZ.c)
+ *     GreTransformPoints @ 0x1C0006C84 (GreTransformPoints.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ *     ?RemoveCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z @ 0x1C00E8804 (-RemoveCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall zzzSetCaretPos(int a1, int a2)
 {
   __int64 v4; // rdi

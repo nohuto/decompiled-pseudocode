@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiProcessDisconnectList @ 0x14039E548
+ * Callers:
+ *     KiInterruptDispatchCommon @ 0x14039E224 (KiInterruptDispatchCommon.c)
+ *     KiProcessSecondarySignalList @ 0x14056F7E0 (KiProcessSecondarySignalList.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ */
+
 _QWORD *__fastcall KiProcessDisconnectList(_QWORD *a1)
 {
   _QWORD *result; // rax

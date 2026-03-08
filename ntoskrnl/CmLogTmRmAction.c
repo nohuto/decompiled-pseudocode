@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmLogTmRmAction @ 0x14073478C
+ * Callers:
+ *     CmKtmNotification @ 0x140734290 (CmKtmNotification.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HvBufferCheckSum @ 0x140734F0C (HvBufferCheckSum.c)
+ *     CmpTransWriteLog @ 0x140734F84 (CmpTransWriteLog.c)
+ */
+
 NTSTATUS __fastcall CmLogTmRmAction(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int128 v4; // xmm0

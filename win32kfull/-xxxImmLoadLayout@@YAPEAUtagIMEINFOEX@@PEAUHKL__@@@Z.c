@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?xxxImmLoadLayout@@YAPEAUtagIMEINFOEX@@PEAUHKL__@@@Z @ 0x1C00EE480
+ * Callers:
+ *     EditionResetIMELayout @ 0x1C00EE410 (EditionResetIMELayout.c)
+ * Callees:
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0035F20 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     ClientImmLoadLayout @ 0x1C00EE528 (ClientImmLoadLayout.c)
+ */
+
 struct tagIMEINFOEX *__fastcall xxxImmLoadLayout(HKL a1)
 {
   __int64 v2; // rax

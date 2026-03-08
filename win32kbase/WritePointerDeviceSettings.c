@@ -1,3 +1,12 @@
+/*
+ * XREFs of WritePointerDeviceSettings @ 0x1C01680C0
+ * Callers:
+ *     xxxSystemParametersInfo @ 0x1C009C980 (xxxSystemParametersInfo.c)
+ * Callees:
+ *     SetTouchInputStatus @ 0x1C0168090 (SetTouchInputStatus.c)
+ *     WriteSettingValues @ 0x1C01681F0 (WriteSettingValues.c)
+ */
+
 __int64 __fastcall WritePointerDeviceSettings(int a1, _DWORD *a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExInitPoolLookasidePointers @ 0x140A885BC
+ * Callers:
+ *     KiInitializeBootStructures @ 0x140A887E0 (KiInitializeBootStructures.c)
+ * Callees:
+ *     ExInitializeSystemLookasideList @ 0x140A886F8 (ExInitializeSystemLookasideList.c)
+ */
+
 __int64 ExInitPoolLookasidePointers()
 {
   struct _KPRCB *CurrentPrcb; // rbx

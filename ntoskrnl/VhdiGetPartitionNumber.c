@@ -1,3 +1,11 @@
+/*
+ * XREFs of VhdiGetPartitionNumber @ 0x140B97900
+ * Callers:
+ *     VhdiInitializeBootDisk @ 0x140B97B20 (VhdiInitializeBootDisk.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VhdiGetPartitionNumber(int *a1, _QWORD *a2, _DWORD *a3)
 {
   unsigned int v3; // edi

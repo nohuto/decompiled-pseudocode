@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalReadDmaCounterV2 @ 0x1404FF410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalReadDmaCounterV2(__int64 a1)
 {
   KSPIN_LOCK *v2; // rcx

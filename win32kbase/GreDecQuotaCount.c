@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreDecQuotaCount @ 0x1C00A6EF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0pqz_EtwWriteTransfer @ 0x1C0198958 (McTemplateK0pqz_EtwWriteTransfer.c)
+ *     McTemplateK0pz_EtwWriteTransfer @ 0x1C0198A10 (McTemplateK0pz_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall GreDecQuotaCount(__int64 a1)
 {
   __int64 v2; // rcx

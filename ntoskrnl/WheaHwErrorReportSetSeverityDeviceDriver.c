@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheaHwErrorReportSetSeverityDeviceDriver @ 0x14060EFF0
+ * Callers:
+ *     WheaHwErrorReportSetFatalSeverityDeviceDriver @ 0x14060EF40 (WheaHwErrorReportSetFatalSeverityDeviceDriver.c)
+ *     WheaReportHwErrorDeviceDriverEx @ 0x14060F270 (WheaReportHwErrorDeviceDriverEx.c)
+ * Callees:
+ *     WheapErrorHandleIsValid @ 0x14060F428 (WheapErrorHandleIsValid.c)
+ */
+
 __int64 WheaHwErrorReportSetSeverityDeviceDriver()
 {
   int v0; // edx

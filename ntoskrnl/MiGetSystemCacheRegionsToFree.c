@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiGetSystemCacheRegionsToFree @ 0x1402DD624
+ * Callers:
+ *     MiObtainSystemCacheView @ 0x140335220 (MiObtainSystemCacheView.c)
+ *     MiReleaseSystemCacheView @ 0x1403354D0 (MiReleaseSystemCacheView.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall MiGetSystemCacheRegionsToFree(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rcx

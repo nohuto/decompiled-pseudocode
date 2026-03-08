@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiInitializeZeroGroup @ 0x1402F4E60
+ * Callers:
+ *     MiZeroInParallel @ 0x140242EB8 (MiZeroInParallel.c)
+ *     MiZeroHugeRangeCore @ 0x140A2B20C (MiZeroHugeRangeCore.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiInitializeZeroGroup(_WORD *a1, __int64 a2, int a3, unsigned int a4, int a5)
 {
   if ( a3

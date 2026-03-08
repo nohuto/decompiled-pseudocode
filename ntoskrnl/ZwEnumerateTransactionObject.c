@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwEnumerateTransactionObject @ 0x140414010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwEnumerateTransactionObject(
         HANDLE RootObjectHandle,

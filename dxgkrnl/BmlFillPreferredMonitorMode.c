@@ -1,3 +1,16 @@
+/*
+ * XREFs of BmlFillPreferredMonitorMode @ 0x1C016EB6C
+ * Callers:
+ *     ?BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSMODALITY@@GGW4DXGK_DIAG_CCD_BML_ORIGIN@@I@Z @ 0x1C016F270 (-BmlPreparePathOrderAndVidPn@@YAJPEAPEAUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@PEBUD3DKMT_GETPATHSM.c)
+ * Callees:
+ *     MonitorGetNextMonitorSourceMode @ 0x1C016EEF0 (MonitorGetNextMonitorSourceMode.c)
+ *     BmlGetMonitorModePreference @ 0x1C016F008 (BmlGetMonitorModePreference.c)
+ *     BmlIsEDIDCapableOutputTechonology @ 0x1C016F144 (BmlIsEDIDCapableOutputTechonology.c)
+ *     MonitorGetNextFrequencyRange @ 0x1C016F178 (MonitorGetNextFrequencyRange.c)
+ *     ?BmlCompareModeExtents@@YA?AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z @ 0x1C01710A4 (-BmlCompareModeExtents@@YA-AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z.c)
+ *     BmlIsLowResAnalogTvOutput @ 0x1C0171D0C (BmlIsLowResAnalogTvOutput.c)
+ */
+
 __int64 __fastcall BmlFillPreferredMonitorMode(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 v3; // r10

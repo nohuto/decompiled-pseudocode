@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlLookupLastBaseMcbEntryAndIndex @ 0x1402F56F0
+ * Callers:
+ *     FsRtlLookupLastLargeMcbEntryAndIndex @ 0x1403A6B20 (FsRtlLookupLastLargeMcbEntryAndIndex.c)
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall FsRtlLookupLastBaseMcbEntryAndIndex(
         PBASE_MCB OpaqueMcb,
         PLONGLONG LargeVbn,

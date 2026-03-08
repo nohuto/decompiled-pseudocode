@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReadWorkingSetConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C0088
+ * Callers:
+ *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C0968 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ */
+
 void VIDMM_GLOBAL::ReadWorkingSetConfiguration(void)
 {
   int v0; // [rsp+30h] [rbp-79h] BYREF

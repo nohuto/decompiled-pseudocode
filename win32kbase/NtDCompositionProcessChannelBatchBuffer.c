@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtDCompositionProcessChannelBatchBuffer @ 0x1C0065F60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C0066180 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall NtDCompositionProcessChannelBatchBuffer(__int64 a1, unsigned int a2, unsigned int *a3, bool *a4)
 {
   unsigned int v4; // ebx

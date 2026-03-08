@@ -1,3 +1,13 @@
+/*
+ * XREFs of VidMmCreateProcess @ 0x1C0001A60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??_GVIDMM_PROCESS@@QEAAPEAXI@Z @ 0x1C002C7A8 (--_GVIDMM_PROCESS@@QEAAPEAXI@Z.c)
+ *     ??0VIDMM_PROCESS@@QEAA@XZ @ 0x1C0093FEC (--0VIDMM_PROCESS@@QEAA@XZ.c)
+ *     ?Init@VIDMM_PROCESS@@QEAAJPEAVDXGPROCESS@@@Z @ 0x1C0094260 (-Init@VIDMM_PROCESS@@QEAAJPEAVDXGPROCESS@@@Z.c)
+ */
+
 VIDMM_PROCESS *__fastcall VidMmCreateProcess(struct DXGPROCESS *a1)
 {
   VIDMM_PROCESS *Pool2; // rax

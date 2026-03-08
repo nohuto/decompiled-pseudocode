@@ -1,3 +1,19 @@
+/*
+ * XREFs of HalpMiscGetParameters @ 0x140B672C8
+ * Callers:
+ *     HalpMiscInitSystem @ 0x140A8E290 (HalpMiscInitSystem.c)
+ * Callees:
+ *     HalpInterruptModel @ 0x14028EADC (HalpInterruptModel.c)
+ *     HalpIsPartitionCpuManager @ 0x1403732F8 (HalpIsPartitionCpuManager.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x14037333C (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpIsHvPresent @ 0x14037337C (HalpIsHvPresent.c)
+ *     HalpIsXboxNanovisorPresent @ 0x140373A1C (HalpIsXboxNanovisorPresent.c)
+ *     strstr @ 0x1403D3650 (strstr.c)
+ *     atoi @ 0x1403D36E0 (atoi.c)
+ *     HalpInterruptSetMsiOverride @ 0x14050354C (HalpInterruptSetMsiOverride.c)
+ *     HalpIsHvUsedForReboot @ 0x1405093D8 (HalpIsHvUsedForReboot.c)
+ */
+
 char __fastcall HalpMiscGetParameters(__int64 a1)
 {
   char *v2; // rax

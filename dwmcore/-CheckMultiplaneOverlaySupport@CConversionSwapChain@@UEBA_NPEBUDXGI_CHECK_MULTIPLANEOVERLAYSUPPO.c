@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CheckMultiplaneOverlaySupport@CConversionSwapChain@@UEBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z @ 0x18029D6B0
+ * Callers:
+ *     ?CheckMultiplaneOverlaySupport@CConversionSwapChain@@$4PPPPPPPM@DFI@EBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z @ 0x18011CCD0 (-CheckMultiplaneOverlaySupport@CConversionSwapChain@@$4PPPPPPPM@DFI@EBA_NPEBUDXGI_CHECK_MULTIPLA.c)
+ * Callees:
+ *     ??8@YA_NAEBUtagRECT@@0@Z @ 0x1800E4910 (--8@YA_NAEBUtagRECT@@0@Z.c)
+ *     ?IsDesktopRect@CConversionSwapChain@@IEBA_NAEBUtagRECT@@@Z @ 0x18029EE48 (-IsDesktopRect@CConversionSwapChain@@IEBA_NAEBUtagRECT@@@Z.c)
+ *     ?IsSupportedFakeOverlayColorSpace@CConversionSwapChain@@SA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x18029EEB0 (-IsSupportedFakeOverlayColorSpace@CConversionSwapChain@@SA_NW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
+ */
+
 char __fastcall CConversionSwapChain::CheckMultiplaneOverlaySupport(
         CConversionSwapChain *this,
         const struct DXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO *a2,

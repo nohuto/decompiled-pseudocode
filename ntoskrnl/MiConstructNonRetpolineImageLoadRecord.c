@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiConstructNonRetpolineImageLoadRecord @ 0x140A31548
+ * Callers:
+ *     MiLogRetpolineImageLoadEvents @ 0x140784A44 (MiLogRetpolineImageLoadEvents.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlUnicodeStringCopy @ 0x1402B3164 (RtlUnicodeStringCopy.c)
+ */
+
 char *__fastcall MiConstructNonRetpolineImageLoadRecord(__int64 a1)
 {
   const UNICODE_STRING *v1; // rsi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiDmaGuardQueueRemoveEntry @ 0x140562CC8
+ * Callers:
+ *     PiDmaGuardProcessPostRemove @ 0x140867254 (PiDmaGuardProcessPostRemove.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     PipDgqFreeEntry @ 0x14096F0C8 (PipDgqFreeEntry.c)
+ */
+
 void __fastcall PiDmaGuardQueueRemoveEntry(PVOID a1)
 {
   struct _KTHREAD *CurrentThread; // rax

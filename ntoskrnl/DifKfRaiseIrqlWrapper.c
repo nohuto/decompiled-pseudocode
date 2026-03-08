@@ -1,3 +1,13 @@
+/*
+ * XREFs of DifKfRaiseIrqlWrapper @ 0x1405E4180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 unsigned __int8 __fastcall DifKfRaiseIrqlWrapper(unsigned __int8 a1)
 {
   unsigned __int64 v1; // rsi

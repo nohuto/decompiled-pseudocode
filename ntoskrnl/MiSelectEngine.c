@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiSelectEngine @ 0x1402B4AF8
+ * Callers:
+ *     MiZeroInParallel @ 0x140242EB8 (MiZeroInParallel.c)
+ *     MiCreatePageChains @ 0x1402B4A2C (MiCreatePageChains.c)
+ *     MiHugePageOperation @ 0x14061E158 (MiHugePageOperation.c)
+ *     MiZeroHugeRangeCore @ 0x140A2B20C (MiZeroHugeRangeCore.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A416B8 (MiAllocatePartitionPhysicalPages.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiSelectEngine(int a1, int a2, _DWORD *a3, unsigned int *a4)
 {
   __int64 v4; // r10

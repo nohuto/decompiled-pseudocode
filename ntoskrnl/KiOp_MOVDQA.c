@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiOp_MOVDQA @ 0x14057D630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiOpPatchCode @ 0x14057CF80 (KiOpPatchCode.c)
+ */
+
 __int64 __fastcall KiOp_MOVDQA(__int64 a1)
 {
   __int64 CurrentThread; // rcx

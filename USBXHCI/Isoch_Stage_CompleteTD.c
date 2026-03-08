@@ -1,3 +1,20 @@
+/*
+ * XREFs of Isoch_Stage_CompleteTD @ 0x1C00029D0
+ * Callers:
+ *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001EC0 (Isoch_ProcessTransferEventWithED1.c)
+ *     Isoch_ProcessTransferEventWithED0 @ 0x1C0044CF4 (Isoch_ProcessTransferEventWithED0.c)
+ *     Isoch_Transfer_CompleteStaleStages @ 0x1C00457D8 (Isoch_Transfer_CompleteStaleStages.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DDqdDDDD @ 0x1C0002F20 (WPP_RECORDER_SF_DDqdDDDD.c)
+ *     WPP_RECORDER_SF_DDqqD @ 0x1C0003050 (WPP_RECORDER_SF_DDqqD.c)
+ *     WPP_RECORDER_SF_DDqq @ 0x1C0006DF0 (WPP_RECORDER_SF_DDqq.c)
+ *     WPP_RECORDER_SF_DDqd @ 0x1C0007E70 (WPP_RECORDER_SF_DDqd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     TR_SendCompleteStageRequest @ 0x1C0041C60 (TR_SendCompleteStageRequest.c)
+ *     SecureDmaEnabler_ReleaseResourcesAfterDma @ 0x1C00521B0 (SecureDmaEnabler_ReleaseResourcesAfterDma.c)
+ */
+
 __int64 __fastcall Isoch_Stage_CompleteTD(unsigned __int8 *a1, int a2, int a3, char a4, _BYTE *a5, _DWORD *a6)
 {
   __int64 *v6; // rbx

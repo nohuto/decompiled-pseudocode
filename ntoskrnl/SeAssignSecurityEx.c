@@ -1,3 +1,11 @@
+/*
+ * XREFs of SeAssignSecurityEx @ 0x14076D890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SeAssignSecurityEx2 @ 0x14030FDC0 (SeAssignSecurityEx2.c)
+ */
+
 NTSTATUS __stdcall SeAssignSecurityEx(
         PSECURITY_DESCRIPTOR ParentDescriptor,
         PSECURITY_DESCRIPTOR ExplicitDescriptor,

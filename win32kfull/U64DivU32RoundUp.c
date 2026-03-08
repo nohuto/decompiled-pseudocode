@@ -1,3 +1,12 @@
+/*
+ * XREFs of U64DivU32RoundUp @ 0x1C0255DA0
+ * Callers:
+ *     DivFD6 @ 0x1C014AF0C (DivFD6.c)
+ *     MulDivFD6Pairs @ 0x1C0255BE8 (MulDivFD6Pairs.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall U64DivU32RoundUp(unsigned int a1, unsigned int a2, unsigned int a3)
 {
   unsigned int v3; // r9d

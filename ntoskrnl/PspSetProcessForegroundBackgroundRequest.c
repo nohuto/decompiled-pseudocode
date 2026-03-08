@@ -1,3 +1,16 @@
+/*
+ * XREFs of PspSetProcessForegroundBackgroundRequest @ 0x14076ECB0
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ *     PsSetProcessPriorityByClass @ 0x14076EC80 (PsSetProcessPriorityByClass.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PspSetProcessPriorityByClass @ 0x1402E2DD8 (PspSetProcessPriorityByClass.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 char __fastcall PspSetProcessForegroundBackgroundRequest(__int64 a1, char a2, char a3)
 {
   struct _KTHREAD *CurrentThread; // r15

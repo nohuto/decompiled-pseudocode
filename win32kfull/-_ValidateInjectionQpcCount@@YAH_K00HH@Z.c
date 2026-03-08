@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_ValidateInjectionQpcCount@@YAH_K00HH@Z @ 0x1C01B0F3C
+ * Callers:
+ *     xxxInjectTouchInput @ 0x1C01B19B4 (xxxInjectTouchInput.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall _ValidateInjectionQpcCount(__int64 a1, __int64 a2, unsigned __int64 a3, int a4, int a5)
 {
   unsigned int v5; // ebx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of _PnpCtxOpenMachine @ 0x140851D74
+ * Callers:
+ *     PiPnpRtlInit @ 0x14081BE64 (PiPnpRtlInit.c)
+ *     PiDevCfgInitDriverDatabaseCallback @ 0x14095B6D8 (PiDevCfgInitDriverDatabaseCallback.c)
+ *     PipMigratePnpState @ 0x140B5AC14 (PipMigratePnpState.c)
+ * Callees:
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     _PnpCtxCreateNode @ 0x140851F88 (_PnpCtxCreateNode.c)
+ *     _PnpCtxDestroyNode @ 0x140A5DBA8 (_PnpCtxDestroyNode.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpCtxOpenMachine(
         __int64 a1,
         __int64 a2,

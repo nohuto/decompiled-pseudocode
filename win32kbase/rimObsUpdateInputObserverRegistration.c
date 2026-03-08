@@ -1,3 +1,18 @@
+/*
+ * XREFs of rimObsUpdateInputObserverRegistration @ 0x1C01DD920
+ * Callers:
+ *     NtRIMUpdateInputObserverRegistration @ 0x1C01A3010 (NtRIMUpdateInputObserverRegistration.c)
+ *     RIMUpdateInputObserverRegistration @ 0x1C01A80D0 (RIMUpdateInputObserverRegistration.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     RawInputManagerInputObserverObjectResolveHandle @ 0x1C01BF998 (RawInputManagerInputObserverObjectResolveHandle.c)
+ *     rimObsCheckForRegistrationConflicts @ 0x1C01DA69C (rimObsCheckForRegistrationConflicts.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dddq @ 0x1C01DAA3C (WPP_RECORDER_AND_TRACE_SF_dddq.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qD @ 0x1C01DAB54 (WPP_RECORDER_AND_TRACE_SF_qD.c)
+ */
+
 __int64 __fastcall rimObsUpdateInputObserverRegistration(
         char *Handle,
         __int64 a2,

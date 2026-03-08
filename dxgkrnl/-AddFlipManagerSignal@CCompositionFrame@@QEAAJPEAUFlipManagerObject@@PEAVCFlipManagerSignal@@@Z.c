@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AddFlipManagerSignal@CCompositionFrame@@QEAAJPEAUFlipManagerObject@@PEAVCFlipManagerSignal@@@Z @ 0x1C0077434
+ * Callers:
+ *     ?ConsumerDwmApplyUpdate@CFlipManager@@AEAAXPEAUFlipManagerTokenObject@@PEAVCCompositionFrame@@PEAPEAVCFlipPresentUpdate@@@Z @ 0x1C0082018 (-ConsumerDwmApplyUpdate@CFlipManager@@AEAAXPEAUFlipManagerTokenObject@@PEAVCCompositionFrame@@PE.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall CCompositionFrame::AddFlipManagerSignal(
         CCompositionFrame *this,
         struct FlipManagerObject *a2,

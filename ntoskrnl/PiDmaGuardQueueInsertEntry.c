@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiDmaGuardQueueInsertEntry @ 0x14096F04C
+ * Callers:
+ *     PiDmaGuardProcessPostRemove @ 0x140867254 (PiDmaGuardProcessPostRemove.c)
+ *     PipDmgEnforceEnumerationPolicy @ 0x140968304 (PipDmgEnforceEnumerationPolicy.c)
+ * Callees:
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     PipDgqInsertEntry @ 0x14096F100 (PipDgqInsertEntry.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PiDmaGuardQueueInsertEntry(PVOID Object, int a2)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of VfDeadlockPluginEntry @ 0x140AD48C8
+ * Callers:
+ *     DifRegisterKernelPlugin @ 0x1405D2B20 (DifRegisterKernelPlugin.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     DifRegisterPlugin @ 0x1405D2C50 (DifRegisterPlugin.c)
+ *     VfDeadlockInitialize @ 0x140AD447C (VfDeadlockInitialize.c)
+ *     ViDeadlockDetectionApplySettings @ 0x140AD5D8C (ViDeadlockDetectionApplySettings.c)
+ */
+
 __int64 VfDeadlockPluginEntry()
 {
   int v0; // ebx

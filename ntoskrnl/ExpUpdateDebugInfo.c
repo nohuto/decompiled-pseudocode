@@ -1,3 +1,22 @@
+/*
+ * XREFs of ExpUpdateDebugInfo @ 0x1409F6478
+ * Callers:
+ *     ExHandleLogBadReference @ 0x140604648 (ExHandleLogBadReference.c)
+ *     ObDuplicateObject @ 0x1406ED5C0 (ObDuplicateObject.c)
+ *     ExDupHandleTable @ 0x140705D54 (ExDupHandleTable.c)
+ *     ObpCreateHandle @ 0x1407C0130 (ObpCreateHandle.c)
+ *     ObpCloseHandle @ 0x1407C2500 (ObpCloseHandle.c)
+ *     ExDestroyHandle @ 0x1407D76E4 (ExDestroyHandle.c)
+ *     ExCreateHandleEx @ 0x1407D8ABC (ExCreateHandleEx.c)
+ * Callees:
+ *     RtlWalkFrameChain @ 0x140205CA0 (RtlWalkFrameChain.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExDereferenceHandleDebugInfo @ 0x1409F5EC0 (ExDereferenceHandleDebugInfo.c)
+ *     ExReferenceHandleDebugInfo @ 0x1409F62F8 (ExReferenceHandleDebugInfo.c)
+ */
+
 void __fastcall ExpUpdateDebugInfo(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   volatile signed __int32 *v8; // rax

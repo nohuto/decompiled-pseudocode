@@ -1,3 +1,12 @@
+/*
+ * XREFs of PfpSectInfoHandleFullBuffer @ 0x1407E5A60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PfTTraceListAdd @ 0x1407E797C (PfTTraceListAdd.c)
+ */
+
 __int64 __fastcall PfpSectInfoHandleFullBuffer(_DWORD *a1)
 {
   int v2; // ebx

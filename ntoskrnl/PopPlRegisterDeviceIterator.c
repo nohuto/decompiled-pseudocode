@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopPlRegisterDeviceIterator @ 0x14059F270
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     PopPlRegisterComponent @ 0x140393310 (PopPlRegisterComponent.c)
+ *     PopPlRegisterDevice @ 0x1403937A4 (PopPlRegisterDevice.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopPlCalculateDevicePowerDraw @ 0x14059ED14 (PopPlCalculateDevicePowerDraw.c)
+ */
+
 char __fastcall PopPlRegisterDeviceIterator(__int64 a1, _DWORD *a2, __int64 a3)
 {
   __int64 v3; // rbx

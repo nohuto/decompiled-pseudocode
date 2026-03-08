@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FailFast_UnexpectedMsg@in1diag3@details@wil@@YAXPEAXIPEBD1ZZ @ 0x18021203C
+ * Callers:
+ *     ?DeferredSendDebugStart@CAnimationLoggingManager@@AEAAXI_KI@Z @ 0x180211EE8 (-DeferredSendDebugStart@CAnimationLoggingManager@@AEAAXI_KI@Z.c)
+ * Callees:
+ *     ??$ReportFailure_HrMsg@$02@details@wil@@YAXPEAXIPEBD110J1PEAD@Z @ 0x180210F30 (--$ReportFailure_HrMsg@$02@details@wil@@YAXPEAXIPEBD110J1PEAD@Z.c)
+ */
+
 void __noreturn wil::details::in1diag3::FailFast_UnexpectedMsg(
         wil::details::in1diag3 *this,
         __int64 a2,

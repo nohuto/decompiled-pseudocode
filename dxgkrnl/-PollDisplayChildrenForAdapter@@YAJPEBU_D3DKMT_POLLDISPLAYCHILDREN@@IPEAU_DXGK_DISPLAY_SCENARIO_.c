@@ -1,3 +1,23 @@
+/*
+ * XREFs of ?PollDisplayChildrenForAdapter@@YAJPEBU_D3DKMT_POLLDISPLAYCHILDREN@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02CAC10
+ * Callers:
+ *     DxgkPollDisplayChildrenInternal @ 0x1C02CF1D0 (DxgkPollDisplayChildrenInternal.c)
+ * Callees:
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0003BCC (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z @ 0x1C0003E44 (-AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEAD@Z.c)
+ *     ??0DXGADAPTERBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGADAPTER@@_N@Z @ 0x1C0006DA4 (--0DXGADAPTERBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGADAPTER@@_N@Z.c)
+ *     ?Release@COREADAPTERACCESS@@QEAAXXZ @ 0x1C0007398 (-Release@COREADAPTERACCESS@@QEAAXXZ.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0009800 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0009930 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01A3640 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     DpiPollDisplayChildren @ 0x1C0394D00 (DpiPollDisplayChildren.c)
+ *     ?DmmEnableModeResetOnMonitorEvent@@YAJQEAXE@Z @ 0x1C03A81C0 (-DmmEnableModeResetOnMonitorEvent@@YAJQEAXE@Z.c)
+ *     MonitorAcquireMonitorPendingEvent @ 0x1C03BF0BC (MonitorAcquireMonitorPendingEvent.c)
+ *     MonitorReleaseMonitorPendingEvent @ 0x1C03BFF94 (MonitorReleaseMonitorPendingEvent.c)
+ */
+
 __int64 __fastcall PollDisplayChildrenForAdapter(
         const struct _D3DKMT_POLLDISPLAYCHILDREN *a1,
         unsigned int a2,

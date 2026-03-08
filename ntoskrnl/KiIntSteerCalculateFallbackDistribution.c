@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiIntSteerCalculateFallbackDistribution @ 0x140577A5C
+ * Callers:
+ *     KiIntSteerCalculateDistribution @ 0x1402A8E00 (KiIntSteerCalculateDistribution.c)
+ * Callees:
+ *     KiIntPartGetLowestClassProcessorInMask @ 0x1402A9324 (KiIntPartGetLowestClassProcessorInMask.c)
+ */
+
 void __fastcall KiIntSteerCalculateFallbackDistribution(_QWORD **a1)
 {
   _QWORD *v2; // rbx

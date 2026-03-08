@@ -1,3 +1,19 @@
+/*
+ * XREFs of PfpFileBuildReadSupport @ 0x140767138
+ * Callers:
+ *     PfpPrefetchFilesTrickle @ 0x1406A2A70 (PfpPrefetchFilesTrickle.c)
+ *     PfpPrefetchFiles @ 0x14097AEE4 (PfpPrefetchFiles.c)
+ * Callees:
+ *     PfpFileCheckAttributesForPrefetch @ 0x1402DC2D0 (PfpFileCheckAttributesForPrefetch.c)
+ *     PfpOpenHandleCreate @ 0x1406A5020 (PfpOpenHandleCreate.c)
+ *     PfpOpenHandleClose @ 0x1406A5824 (PfpOpenHandleClose.c)
+ *     PfpFileBuildReadList @ 0x1407673D4 (PfpFileBuildReadList.c)
+ *     PfpFileSetupObjectAttributes @ 0x1407674E0 (PfpFileSetupObjectAttributes.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     NtCreateSection @ 0x1407D1770 (NtCreateSection.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfpFileBuildReadSupport(_QWORD *a1, _DWORD *a2, int a3, char a4, __int64 a5)
 {
   void *v5; // r15

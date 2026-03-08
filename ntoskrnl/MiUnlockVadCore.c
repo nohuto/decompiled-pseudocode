@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiUnlockVadCore @ 0x1402CA9D4
+ * Callers:
+ *     MiCaptureWriteWatchDirtyBit @ 0x140228730 (MiCaptureWriteWatchDirtyBit.c)
+ *     NtGetWriteWatch @ 0x1402CA150 (NtGetWriteWatch.c)
+ *     MiMoveDirtyBitsToPfns @ 0x14032F870 (MiMoveDirtyBitsToPfns.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiUnlockVadCore(__int64 a1, unsigned __int8 a2)
 {
   signed __int32 v2; // eax

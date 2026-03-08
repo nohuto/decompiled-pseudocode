@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpIsEventNameFilterEnabled @ 0x14023389C
+ * Callers:
+ *     EtwpWriteUserEvent @ 0x1406AA640 (EtwpWriteUserEvent.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall EtwpIsEventNameFilterEnabled(__int64 a1, unsigned int a2, unsigned __int8 a3, __int64 a4, char a5)
 {
   __int64 v5; // rcx

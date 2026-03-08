@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiDeleteSessionPdes @ 0x140200F38
+ * Callers:
+ *     MiUnloadSystemImage @ 0x1407F627C (MiUnloadSystemImage.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiReturnSystemCharges @ 0x1402D8C88 (MiReturnSystemCharges.c)
+ *     MiDeletePagablePteRange @ 0x1403244A0 (MiDeletePagablePteRange.c)
+ *     MiGetSessionVm @ 0x14036C17C (MiGetSessionVm.c)
+ */
+
 __int64 MiDeleteSessionPdes()
 {
   __int64 SessionVm; // rax

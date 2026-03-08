@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CopyToPtr@IFxMemory@@QEAAJPEAU_WDFMEMORY_OFFSET@@PEAX_K0@Z @ 0x1C003F2C0
+ * Callers:
+ *     imp_WdfMemoryCopyToBuffer @ 0x1C0033B50 (imp_WdfMemoryCopyToBuffer.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ?_CopyPtrToPtr@IFxMemory@@KAJPEAX_KPEAU_WDFMEMORY_OFFSET@@012@Z @ 0x1C000DDB2 (-_CopyPtrToPtr@IFxMemory@@KAJPEAX_KPEAU_WDFMEMORY_OFFSET@@012@Z.c)
+ */
+
 __int64 __fastcall IFxMemory::CopyToPtr(
         IFxMemory *this,
         _WDFMEMORY_OFFSET *SourceOffsets,

@@ -1,3 +1,20 @@
+/*
+ * XREFs of GreSetRectRgn @ 0x1C0041FD0
+ * Callers:
+ *     EngSetRectRgn @ 0x1C0019BF0 (EngSetRectRgn.c)
+ *     ?SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z @ 0x1C003B638 (-SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z.c)
+ *     GetMonitorDC @ 0x1C003D41C (GetMonitorDC.c)
+ *     SetEmptyRgn @ 0x1C003E1E0 (SetEmptyRgn.c)
+ *     _GetDCEx @ 0x1C003F6E0 (_GetDCEx.c)
+ *     UserSetDCVisRgn @ 0x1C0044E20 (UserSetDCVisRgn.c)
+ *     ?ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z @ 0x1C0048B20 (-ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z.c)
+ *     NtGdiSetRectRgn @ 0x1C0185A10 (NtGdiSetRectRgn.c)
+ * Callees:
+ *     ?vSet@RGNCOREOBJ@@QEAAXQEBU_RECTL@@@Z @ 0x1C0051B70 (-vSet@RGNCOREOBJ@@QEAAXQEBU_RECTL@@@Z.c)
+ *     ?UpdateUserRgn@RGNOBJ@@QEAAXXZ @ 0x1C0051CB0 (-UpdateUserRgn@RGNOBJ@@QEAAXXZ.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00DE3A0 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ */
+
 __int64 __fastcall GreSetRectRgn(HRGN a1, LONG a2, LONG a3, LONG a4, LONG a5)
 {
   __int64 v8; // rbx

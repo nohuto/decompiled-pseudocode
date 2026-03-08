@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiPerformSoftParkElection @ 0x14057BE58
+ * Callers:
+ *     KiSoftParkElectionDpcRoutine @ 0x14057BEC0 (KiSoftParkElectionDpcRoutine.c)
+ * Callees:
+ *     KiPerformSoftParkElectionRound @ 0x14040B194 (KiPerformSoftParkElectionRound.c)
+ */
+
 __int64 __fastcall KiPerformSoftParkElection(__int64 a1, __int64 a2)
 {
   int v3; // ecx

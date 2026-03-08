@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?dwSetLayout@DC@@QEAAKJK@Z @ 0x1C00D1CB0
+ * Callers:
+ *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C0044400 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
+ *     GreSetLayout @ 0x1C00D1C50 (GreSetLayout.c)
+ * Callees:
+ *     ?MirrorWindowOrg@DC@@QEAAXXZ @ 0x1C018C300 (-MirrorWindowOrg@DC@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall DC::dwSetLayout(DC *this, int a2, int a3)
 {
   __int64 v3; // r9

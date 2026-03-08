@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiUpdateSharedReadyQueueAffinityThread @ 0x140238A10
+ * Callers:
+ *     KiComputeThreadAffinity @ 0x140236FD4 (KiComputeThreadAffinity.c)
+ *     KeStartThread @ 0x1402385C4 (KeStartThread.c)
+ *     KiSetSystemAffinityThread @ 0x1402AC3AC (KiSetSystemAffinityThread.c)
+ *     KiUpdateThreadSchedulingProperties @ 0x1402AF670 (KiUpdateThreadSchedulingProperties.c)
+ *     KiSetAffinityThread @ 0x1402AFA28 (KiSetAffinityThread.c)
+ *     KiSetIdealProcessorThread @ 0x1403C93BC (KiSetIdealProcessorThread.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiUpdateSharedReadyQueueAffinityThread(__int64 a1, __int64 a2)
 {
   int v2; // r8d

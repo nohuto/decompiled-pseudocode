@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetGeometryBounds@CMeshGeometry2D@@UEAAXPEAV?$CRectF@ULocalRenderingHPC@CoordinateSpace@@@@@Z @ 0x1802552C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CMeshGeometry2D::GetGeometryBounds(__int64 a1, _OWORD *a2)
 {
   float *v3; // r8

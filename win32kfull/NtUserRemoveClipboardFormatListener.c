@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserRemoveClipboardFormatListener @ 0x1C00BD5E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00BD7B8 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ *     ?_RemoveClipboardFormatListener@@YAXPEAUtagWND@@@Z @ 0x1C00BDC8C (-_RemoveClipboardFormatListener@@YAXPEAUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall NtUserRemoveClipboardFormatListener(__int64 a1)
 {
   __int64 v2; // rax

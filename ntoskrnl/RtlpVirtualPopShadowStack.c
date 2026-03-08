@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpVirtualPopShadowStack @ 0x140302EB0
+ * Callers:
+ *     RtlpxVirtualUnwind @ 0x140281720 (RtlpxVirtualUnwind.c)
+ *     RtlpUnwindPrologue @ 0x140281BF0 (RtlpUnwindPrologue.c)
+ *     RtlpUnwindEpilogue @ 0x14045BDC0 (RtlpUnwindEpilogue.c)
+ * Callees:
+ *     RtlLocateExtendedFeature2 @ 0x14045BC40 (RtlLocateExtendedFeature2.c)
+ */
+
 void __fastcall RtlpVirtualPopShadowStack(__int64 a1, int a2, int a3)
 {
   __int64 ExtendedFeature2; // rax

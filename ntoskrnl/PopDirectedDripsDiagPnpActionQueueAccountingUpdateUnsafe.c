@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe @ 0x14059E05C
+ * Callers:
+ *     PopDirectedDripsDiagPnpActionQueueAccountingUpdate @ 0x14059DFB8 (PopDirectedDripsDiagPnpActionQueueAccountingUpdate.c)
+ *     PopDirectedDripsDiagQueryAndResetPnpAccounting @ 0x14059E120 (PopDirectedDripsDiagQueryAndResetPnpAccounting.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe(__int64 a1, char a2)
 {
   __int64 v2; // r9

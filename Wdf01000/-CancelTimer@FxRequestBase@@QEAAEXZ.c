@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CancelTimer@FxRequestBase@@QEAAEXZ @ 0x1C0006B8C
+ * Callers:
+ *     ?RequestCompletionRoutine@FxIoTarget@@IEAAXPEAVFxRequestBase@@@Z @ 0x1C0006AA0 (-RequestCompletionRoutine@FxIoTarget@@IEAAXPEAVFxRequestBase@@@Z.c)
+ *     ?DrainPendedRequestsLocked@FxIoTarget@@IEAAXPEAU_LIST_ENTRY@@E@Z @ 0x1C0052A48 (-DrainPendedRequestsLocked@FxIoTarget@@IEAAXPEAU_LIST_ENTRY@@E@Z.c)
+ * Callees:
+ *     ?Stop@MxTimer@@QEAAEXZ @ 0x1C00057E8 (-Stop@MxTimer@@QEAAEXZ.c)
+ *     WPP_IFR_SF_q @ 0x1C0018194 (WPP_IFR_SF_q.c)
+ */
+
 unsigned __int8 __fastcall FxRequestBase::CancelTimer(FxRequestBase *this)
 {
   BOOLEAN v3; // al

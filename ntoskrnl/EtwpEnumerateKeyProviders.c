@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpEnumerateKeyProviders @ 0x1407FD288
+ * Callers:
+ *     EtwpEnableKeyProviders @ 0x14083D574 (EtwpEnableKeyProviders.c)
+ * Callees:
+ *     RtlInsertElementGenericTableAvl @ 0x1402451A0 (RtlInsertElementGenericTableAvl.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x140412950 (ZwEnumerateKey.c)
+ *     RtlWriteRegistryValue @ 0x14069EDB0 (RtlWriteRegistryValue.c)
+ *     RtlNtStatusToDosError @ 0x140755BE0 (RtlNtStatusToDosError.c)
+ *     EtwpEnableAutoLoggerProvider @ 0x1407FD3E8 (EtwpEnableAutoLoggerProvider.c)
+ */
+
 int __fastcall EtwpEnumerateKeyProviders(
         __int64 a1,
         unsigned int a2,

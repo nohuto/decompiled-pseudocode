@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiRebuildLargePage @ 0x140466288
+ * Callers:
+ *     MiRebuildLargePages @ 0x14065B810 (MiRebuildLargePages.c)
+ *     MmManagePartitionCreateLargePages @ 0x140A42970 (MmManagePartitionCreateLargePages.c)
+ *     MmBuildLargePages @ 0x140A43304 (MmBuildLargePages.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiReferencePageRuns @ 0x1402EB520 (MiReferencePageRuns.c)
+ *     MiDereferencePageRunsEx @ 0x1402EBA28 (MiDereferencePageRunsEx.c)
+ *     MiInsertLargePageInNodeList @ 0x14031C970 (MiInsertLargePageInNodeList.c)
+ *     MiUpdateLargePageBitMap @ 0x14034D79C (MiUpdateLargePageBitMap.c)
+ *     MiNodeFreeZeroPages @ 0x14034EAD4 (MiNodeFreeZeroPages.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiConvertSmallPageRangeToLarge @ 0x1403B3040 (MiConvertSmallPageRangeToLarge.c)
+ *     MiFindContiguousPagesEx @ 0x1403B5CF8 (MiFindContiguousPagesEx.c)
+ *     MiGetNodeStandbyPageCount @ 0x1404648CA (MiGetNodeStandbyPageCount.c)
+ *     MiFindRebuildCandidate @ 0x140466112 (MiFindRebuildCandidate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall MiRebuildLargePage(
         __int64 a1,
         unsigned int a2,

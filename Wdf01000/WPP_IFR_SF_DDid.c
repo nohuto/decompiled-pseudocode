@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_IFR_SF_DDid @ 0x1C004357C
+ * Callers:
+ *     ?FxCalculateObjectTotalSize2@@YAJPEAU_FX_DRIVER_GLOBALS@@GG_KPEA_K@Z @ 0x1C00028FC (-FxCalculateObjectTotalSize2@@YAJPEAU_FX_DRIVER_GLOBALS@@GG_KPEA_K@Z.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_DDid(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 _a1,

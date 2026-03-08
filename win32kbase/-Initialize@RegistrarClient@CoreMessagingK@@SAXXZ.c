@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Initialize@RegistrarClient@CoreMessagingK@@SAXXZ @ 0x1C00CD124
+ * Callers:
+ *     CoreMsgInitialize @ 0x1C00CD050 (CoreMsgInitialize.c)
+ * Callees:
+ *     CoreUICallComputeMaximumMessageSize @ 0x1C00AE174 (CoreUICallComputeMaximumMessageSize.c)
+ *     ?BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z @ 0x1C0273D34 (-BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z.c)
+ */
+
 void __fastcall CoreMessagingK::RegistrarClient::Initialize(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // eax

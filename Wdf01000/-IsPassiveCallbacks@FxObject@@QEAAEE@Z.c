@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsPassiveCallbacks@FxObject@@QEAAEE@Z @ 0x1C0046380
+ * Callers:
+ *     ?_GetEffectiveLock@FxObject@@SAJPEAV1@PEAVIFxHasCallbacks@@EEPEAPEAVFxCallbackLock@@PEAPEAV1@@Z @ 0x1C00465C0 (-_GetEffectiveLock@FxObject@@SAJPEAV1@PEAVIFxHasCallbacks@@EEPEAPEAVFxCallbackLock@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall FxObject::IsPassiveCallbacks(FxObject *this, unsigned __int8 AcquireLock)
 {
   unsigned __int64 *p_m_Lock; // rdi

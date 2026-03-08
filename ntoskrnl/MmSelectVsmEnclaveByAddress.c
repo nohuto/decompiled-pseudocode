@@ -1,3 +1,12 @@
+/*
+ * XREFs of MmSelectVsmEnclaveByAddress @ 0x140A3BD94
+ * Callers:
+ *     PsCallEnclave @ 0x1409B3880 (PsCallEnclave.c)
+ * Callees:
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ */
+
 __int64 __fastcall MmSelectVsmEnclaveByAddress(__int64 a1, unsigned __int64 a2, _QWORD *a3)
 {
   __int64 v4; // rax

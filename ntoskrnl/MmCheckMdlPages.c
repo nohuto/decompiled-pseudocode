@@ -1,3 +1,12 @@
+/*
+ * XREFs of MmCheckMdlPages @ 0x140AE5264
+ * Callers:
+ *     ViMmMapLockedPagesSanityChecks @ 0x140AE0A58 (ViMmMapLockedPagesSanityChecks.c)
+ * Callees:
+ *     MiIsPfn @ 0x14025F1D0 (MiIsPfn.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 __int64 __fastcall MmCheckMdlPages(ULONG_PTR BugCheckParameter2)
 {
   unsigned __int64 *v1; // rbx

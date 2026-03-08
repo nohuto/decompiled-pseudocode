@@ -1,3 +1,11 @@
+/*
+ * XREFs of WriteIoMemRaw @ 0x1C00344E8
+ * Callers:
+ *     AcpiPccRingDoorbell @ 0x1C0034340 (AcpiPccRingDoorbell.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ */
+
 char __fastcall WriteIoMemRaw(_BYTE *a1, int a2, int a3, __int64 a4)
 {
   _UNKNOWN **v4; // rax

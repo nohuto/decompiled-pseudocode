@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?SpiSetStickyKeys@@YAHKPEAXHHPEAH@Z @ 0x1C017B7A0
+ * Callers:
+ *     xxxSystemParametersInfo @ 0x1C009C980 (xxxSystemParametersInfo.c)
+ * Callees:
+ *     ?SetAccessEnabledFlag@@YAXXZ @ 0x1C0017820 (-SetAccessEnabledFlag@@YAXXZ.c)
+ *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00CD374 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     FastWriteProfileValue @ 0x1C015D3A0 (FastWriteProfileValue.c)
+ *     ?xxxTurnOffStickyKeys@@YAXXZ @ 0x1C01E6170 (-xxxTurnOffStickyKeys@@YAXXZ.c)
+ *     ApiSetEditionCallAccessibilityHook @ 0x1C023C590 (ApiSetEditionCallAccessibilityHook.c)
+ *     ApiSetEditionPostShellHookMessages @ 0x1C0241F24 (ApiSetEditionPostShellHookMessages.c)
+ */
+
 __int64 __fastcall SpiSetStickyKeys(int a1, _WORD *a2, int a3, unsigned int a4, int *a5)
 {
   int v9; // ebp

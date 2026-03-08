@@ -1,3 +1,15 @@
+/*
+ * XREFs of MmImageSectionPagable @ 0x14072A4B0
+ * Callers:
+ *     MmResetDriverPaging @ 0x14072A050 (MmResetDriverPaging.c)
+ *     MiSnapDriverRange @ 0x14072A118 (MiSnapDriverRange.c)
+ *     sub_140B15070 @ 0x140B15070 (sub_140B15070.c)
+ *     sub_140B16730 @ 0x140B16730 (sub_140B16730.c)
+ *     MiLockPagableSections @ 0x140B5F628 (MiLockPagableSections.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MmImageSectionPagable(__int64 a1)
 {
   unsigned int v1; // edx

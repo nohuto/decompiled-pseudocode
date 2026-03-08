@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReadCommitLimitInformation@VIDMM_GLOBAL@@KAXXZ @ 0x1C00BFE58
+ * Callers:
+ *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C0968 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ */
+
 void VIDMM_GLOBAL::ReadCommitLimitInformation(void)
 {
   int v0; // ecx

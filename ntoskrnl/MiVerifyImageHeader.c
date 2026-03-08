@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiVerifyImageHeader @ 0x1407F2374
+ * Callers:
+ *     MiCreateImageFileMap @ 0x1407F1C28 (MiCreateImageFileMap.c)
+ * Callees:
+ *     MiLegacyImageArchitecture @ 0x140368540 (MiLegacyImageArchitecture.c)
+ *     MiComputeBadImageHeaderType @ 0x140A2C608 (MiComputeBadImageHeaderType.c)
+ */
+
 __int64 __fastcall MiVerifyImageHeader(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int16 v6; // cx

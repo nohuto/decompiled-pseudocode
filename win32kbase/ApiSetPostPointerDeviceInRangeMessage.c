@@ -1,3 +1,15 @@
+/*
+ * XREFs of ApiSetPostPointerDeviceInRangeMessage @ 0x1C0245C80
+ * Callers:
+ *     RIMOnAsyncPnpWorkNotification @ 0x1C0038B90 (RIMOnAsyncPnpWorkNotification.c)
+ *     RIMAddToActiveDevices @ 0x1C01B31F4 (RIMAddToActiveDevices.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     EtwTracePointerDeviceInRangeMessageStart @ 0x1C0163D30 (EtwTracePointerDeviceInRangeMessageStart.c)
+ *     EtwTracePointerDeviceInRangeMessageStop @ 0x1C0163D60 (EtwTracePointerDeviceInRangeMessageStop.c)
+ */
+
 void __fastcall ApiSetPostPointerDeviceInRangeMessage(__int64 a1)
 {
   PDEVICE_OBJECT v2; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vGetInfo@RFONTOBJ@@QEBAXPEAU_FONTINFO@@@Z @ 0x1C02B99D4
+ * Callers:
+ *     FONTOBJ_vGetInfo @ 0x1C029B1A0 (FONTOBJ_vGetInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall RFONTOBJ::vGetInfo(RFONTOBJ *this, struct _FONTINFO *a2)
 {
   _DWORD *v2; // r8

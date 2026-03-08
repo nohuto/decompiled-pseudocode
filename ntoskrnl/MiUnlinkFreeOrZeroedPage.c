@@ -1,3 +1,28 @@
+/*
+ * XREFs of MiUnlinkFreeOrZeroedPage @ 0x140276500
+ * Callers:
+ *     MiGetPerfectColorHeadPage @ 0x140270750 (MiGetPerfectColorHeadPage.c)
+ *     MiZeroPage @ 0x140275060 (MiZeroPage.c)
+ *     MiCoalesceFreePages @ 0x140278FE0 (MiCoalesceFreePages.c)
+ *     MiTradePage @ 0x1403B5640 (MiTradePage.c)
+ *     MiPurgeZeroList @ 0x14064B790 (MiPurgeZeroList.c)
+ *     MiTransferPartitionPageRun @ 0x140659030 (MiTransferPartitionPageRun.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MiSetPfnBlink @ 0x140289900 (MiSetPfnBlink.c)
+ *     MiPageListCollision @ 0x1402FD02C (MiPageListCollision.c)
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140350400 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiPageToChannel @ 0x140370C10 (MiPageToChannel.c)
+ *     MiUpdateAvailableEvents @ 0x1403A9340 (MiUpdateAvailableEvents.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140462ED8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140608CDC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiObtainFreePages @ 0x140632B0C (MiObtainFreePages.c)
+ *     MiArePageContentsZero @ 0x14064AE74 (MiArePageContentsZero.c)
+ */
+
 __int64 __fastcall MiUnlinkFreeOrZeroedPage(ULONG_PTR BugCheckParameter2, __int64 a2, __int16 a3)
 {
   ULONG_PTR v4; // r10

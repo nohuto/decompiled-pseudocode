@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?OpenEndpoint@FlipManagerObject@@QEAAJ_NPEAPEAX1@Z @ 0x1C0081770
+ * Callers:
+ *     NtFlipObjectOpen @ 0x1C0080400 (NtFlipObjectOpen.c)
+ * Callees:
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000E098 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C000E344 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?CreateHandle@DxgkCompositionObject@@QEBAJK_NDPEAPEAX@Z @ 0x1C006CA8C (-CreateHandle@DxgkCompositionObject@@QEBAJK_NDPEAPEAX@Z.c)
+ *     ?OpenEndpoint@CFlipManager@@QEAAJHPEAPEAX@Z @ 0x1C00839D8 (-OpenEndpoint@CFlipManager@@QEAAJHPEAPEAX@Z.c)
+ */
+
 __int64 __fastcall FlipManagerObject::OpenEndpoint(FlipManagerObject *this, unsigned __int8 a2, void **a3, void **a4)
 {
   int v5; // ebp

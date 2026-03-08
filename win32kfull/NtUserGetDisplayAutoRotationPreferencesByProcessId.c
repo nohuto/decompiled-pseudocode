@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserGetDisplayAutoRotationPreferencesByProcessId @ 0x1C01D21D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     LockProcessByClientId @ 0x1C0099860 (LockProcessByClientId.c)
+ */
+
 __int64 __fastcall NtUserGetDisplayAutoRotationPreferencesByProcessId(__int64 a1, _DWORD *a2, _DWORD *a3)
 {
   _DWORD *v3; // r14

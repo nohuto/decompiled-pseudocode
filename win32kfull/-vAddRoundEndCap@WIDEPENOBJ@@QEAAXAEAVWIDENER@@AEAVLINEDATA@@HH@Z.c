@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vAddRoundEndCap@WIDEPENOBJ@@QEAAXAEAVWIDENER@@AEAVLINEDATA@@HH@Z @ 0x1C0151478
+ * Callers:
+ *     ?vAddEndCap@WIDENER@@IEAAXXZ @ 0x1C01511BA (-vAddEndCap@WIDENER@@IEAAXXZ.c)
+ *     ?vAddStartCap@WIDENER@@IEAAXXZ @ 0x1C01515D0 (-vAddStartCap@WIDENER@@IEAAXXZ.c)
+ * Callees:
+ *     ?vAddNice@@YAXAEAVWIDEPATHOBJ@@PEAU_POINTFIX@@PEAVEVECTORFX@@H@Z @ 0x1C0151358 (-vAddNice@@YAXAEAVWIDEPATHOBJ@@PEAU_POINTFIX@@PEAVEVECTORFX@@H@Z.c)
+ */
+
 void __fastcall WIDEPENOBJ::vAddRoundEndCap(WIDEPENOBJ *this, struct WIDENER *a2, struct LINEDATA *a3, int a4, int a5)
 {
   _QWORD *v6; // rsi

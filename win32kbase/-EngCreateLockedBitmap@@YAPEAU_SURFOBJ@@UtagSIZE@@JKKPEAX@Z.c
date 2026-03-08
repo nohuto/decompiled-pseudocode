@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?EngCreateLockedBitmap@@YAPEAU_SURFOBJ@@UtagSIZE@@JKKPEAX@Z @ 0x1C000A360
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EngLockSurface @ 0x1C0044C20 (EngLockSurface.c)
+ *     ??1SURFMEM@@QEAA@XZ @ 0x1C0055BB0 (--1SURFMEM@@QEAA@XZ.c)
+ *     ?CreateDriverSurfMem@@YA?AVSURFMEM@@KPEAUDHSURF__@@UtagSIZE@@JKKPEAX@Z @ 0x1C005AD80 (-CreateDriverSurfMem@@YA-AVSURFMEM@@KPEAUDHSURF__@@UtagSIZE@@JKKPEAX@Z.c)
+ */
+
 struct _SURFOBJ *__fastcall EngCreateLockedBitmap(struct tagSIZE a1, int a2, int a3, int a4, void *a5)
 {
   SURFOBJ *v5; // rbx

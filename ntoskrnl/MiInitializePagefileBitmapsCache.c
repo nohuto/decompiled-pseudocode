@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiInitializePagefileBitmapsCache @ 0x1403926D0
+ * Callers:
+ *     MiRescanPagefileBitmaps @ 0x140392140 (MiRescanPagefileBitmaps.c)
+ *     MiCheckFreeModifiedReservations @ 0x1406368F0 (MiCheckFreeModifiedReservations.c)
+ *     MiCreatePagefile @ 0x140835934 (MiCreatePagefile.c)
+ * Callees:
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 char __fastcall MiInitializePagefileBitmapsCache(__int64 a1)
 {
   bool v1; // bl

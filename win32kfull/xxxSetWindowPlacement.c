@@ -1,3 +1,21 @@
+/*
+ * XREFs of xxxSetWindowPlacement @ 0x1C00FF7C8
+ * Callers:
+ *     NtUserSetWindowPlacement @ 0x1C00FF670 (NtUserSetWindowPlacement.c)
+ * Callees:
+ *     ?CheckPlacementBounds@@YAXPEAUtagRECT@@PEAUtagPOINT@@1PEAUtagMONITOR@@@Z @ 0x1C000F544 (-CheckPlacementBounds@@YAXPEAUtagRECT@@PEAUtagPOINT@@1PEAUtagMONITOR@@@Z.c)
+ *     ?_ShowWindowAsync@@YAHPEAUtagWND@@W4QEVENT_SHOWINDOW_MESSAGE_ID@@H_K@Z @ 0x1C00121FC (-_ShowWindowAsync@@YAHPEAUtagWND@@W4QEVENT_SHOWINDOW_MESSAGE_ID@@H_K@Z.c)
+ *     xxxSetWindowPos @ 0x1C0028F4C (xxxSetWindowPos.c)
+ *     ?xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z @ 0x1C002AE4C (-xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     _MonitorFromRect @ 0x1C00AEE80 (_MonitorFromRect.c)
+ *     UpdateCheckpoint @ 0x1C01009F4 (UpdateCheckpoint.c)
+ *     GetMonitorWorkRect @ 0x1C0101744 (GetMonitorWorkRect.c)
+ *     GetMonitorRect @ 0x1C0101788 (GetMonitorRect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     WPUpdateCheckPointSettings @ 0x1C01F3F38 (WPUpdateCheckPointSettings.c)
+ */
+
 __int64 __fastcall xxxSetWindowPlacement(struct tagWND *a1, __int64 a2)
 {
   struct tagMONITOR *v2; // rdi

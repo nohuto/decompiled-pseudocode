@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CNineGridBrushMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C0253B80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DirectComposition::CNineGridBrushMarshaler::SetRemarshalingFlags(
         DirectComposition::CNineGridBrushMarshaler *this)
 {

@@ -1,3 +1,17 @@
+/*
+ * XREFs of NtDebugContinue @ 0x140935970
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     EtwTraceDebuggerEvent @ 0x1405FA5D0 (EtwTraceDebuggerEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     DbgkpWakeTarget @ 0x1409354D4 (DbgkpWakeTarget.c)
+ */
+
 NTSTATUS __fastcall NtDebugContinue(void *a1, __int128 *a2, int a3)
 {
   KPROCESSOR_MODE PreviousMode; // r9

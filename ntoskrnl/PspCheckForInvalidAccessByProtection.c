@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspCheckForInvalidAccessByProtection @ 0x14070C7CC
+ * Callers:
+ *     PsTestProtectedProcessIncompatibility @ 0x14070C774 (PsTestProtectedProcessIncompatibility.c)
+ *     NtCreateUserProcess @ 0x14070C850 (NtCreateUserProcess.c)
+ * Callees:
+ *     RtlTestProtectedAccess @ 0x14070C7FC (RtlTestProtectedAccess.c)
+ */
+
 bool __fastcall PspCheckForInvalidAccessByProtection(__int64 a1, __int64 a2, char a3)
 {
   char v3; // r9

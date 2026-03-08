@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_WdfDmaTransactionInitializeUsingOffset @ 0x1C000C2A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     imp_WdfDmaTransactionInitialize @ 0x1C000C080 (imp_WdfDmaTransactionInitialize.c)
+ */
+
 __int64 __fastcall imp_WdfDmaTransactionInitializeUsingOffset(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFDMATRANSACTION__ *DmaTransaction,

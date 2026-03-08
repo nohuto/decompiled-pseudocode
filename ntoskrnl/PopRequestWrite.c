@@ -1,3 +1,24 @@
+/*
+ * XREFs of PopRequestWrite @ 0x140AA0E40
+ * Callers:
+ *     PopCompressCallback @ 0x140A9EDE0 (PopCompressCallback.c)
+ *     PopWriteHiberImage @ 0x140AA272C (PopWriteHiberImage.c)
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopInternalAddToDumpFile @ 0x140580CC0 (PopInternalAddToDumpFile.c)
+ *     MmGetNumberOfPhysicalPages @ 0x140768AB0 (MmGetNumberOfPhysicalPages.c)
+ *     ConsumerGetBuffer @ 0x140A9E584 (ConsumerGetBuffer.c)
+ *     PopGetIoLocation @ 0x140A9FBBC (PopGetIoLocation.c)
+ *     PopGetRemainingHibernateRangeDataSize @ 0x140A9FC4C (PopGetRemainingHibernateRangeDataSize.c)
+ *     PopHiberChecksumHiberFileData @ 0x140A9FFDC (PopHiberChecksumHiberFileData.c)
+ *     PopRecordHibernateDiagnosticInfo @ 0x140AA0920 (PopRecordHibernateDiagnosticInfo.c)
+ *     ProducerConsumerBufferComplete @ 0x140AA2D38 (ProducerConsumerBufferComplete.c)
+ *     PopCheckpointSystemSleep @ 0x140AA7378 (PopCheckpointSystemSleep.c)
+ */
+
 char __fastcall PopRequestWrite(ULONG_PTR BugCheckParameter3, __int64 a2, char a3)
 {
   __int64 v3; // r15

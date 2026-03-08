@@ -1,3 +1,12 @@
+/*
+ * XREFs of EngFntCacheFault @ 0x1C028CD90
+ * Callers:
+ *     UmfdDispatchEscape @ 0x1C00BB270 (UmfdDispatchEscape.c)
+ *     ?FntCacheAllocate@UmfdFontCacheEntry@@SA_NPEAEIIW4FontDriverType@@@Z @ 0x1C0308F48 (-FntCacheAllocate@UmfdFontCacheEntry@@SA_NPEAEIIW4FontDriverType@@@Z.c)
+ * Callees:
+ *     bSetFntCacheReg @ 0x1C00B9774 (bSetFntCacheReg.c)
+ */
+
 void __stdcall EngFntCacheFault(ULONG ulFastCheckSum, ULONG iFaultMode)
 {
   __int64 v3; // r8

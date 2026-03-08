@@ -1,3 +1,24 @@
+/*
+ * XREFs of FsRtlAcquireFileExclusiveCommon @ 0x1407D1AF0
+ * Callers:
+ *     FsRtlAcquireToCreateMappedSection @ 0x1407D17DC (FsRtlAcquireToCreateMappedSection.c)
+ *     FsRtlAcquireFileExclusive @ 0x1407D18B0 (FsRtlAcquireFileExclusive.c)
+ * Callees:
+ *     IoGetDeviceAttachmentBaseRef @ 0x1402409C0 (IoGetDeviceAttachmentBaseRef.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     IoGetBaseFileSystemDeviceObject @ 0x140343B10 (IoGetBaseFileSystemDeviceObject.c)
+ *     FsFilterCtrlInit @ 0x140343B50 (FsFilterCtrlInit.c)
+ *     FsFilterPerformCompletionCallbacks @ 0x140343BE0 (FsFilterPerformCompletionCallbacks.c)
+ *     FsFilterPerformCallbacks @ 0x140343C70 (FsFilterPerformCallbacks.c)
+ *     FsFilterCtrlFree @ 0x140343F88 (FsFilterCtrlFree.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall FsRtlAcquireFileExclusiveCommon(
         PFILE_OBJECT FileObject,
         unsigned int a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?__move@?$__func@V_lambda_8db0ce862824541f40dfb767113f1e28_@@$$A6A_NPEAX_K01I@Z@__function@wistd@@UEAAXPEAV?$__base@$$A6A_NPEAX_K01I@Z@23@@Z @ 0x14000BB30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void **__fastcall wistd::__function::__func<_lambda_8db0ce862824541f40dfb767113f1e28_,bool (void *,unsigned __int64,void *,unsigned __int64,unsigned int)>::__move(
         __int64 a1,
         __int64 a2)

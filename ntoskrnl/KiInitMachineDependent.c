@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiInitMachineDependent @ 0x140396928
+ * Callers:
+ *     KeInitSystem @ 0x140B42FB8 (KeInitSystem.c)
+ * Callees:
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     KiSetSystemAffinityThreadToProcessor @ 0x140396BD0 (KiSetSystemAffinityThreadToProcessor.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiInitializeMTRR @ 0x140B5FED0 (KiInitializeMTRR.c)
+ *     KiInitializeCacheErrataSupport @ 0x140B9302C (KiInitializeCacheErrataSupport.c)
+ */
+
 char KiInitMachineDependent()
 {
   int v0; // ebp

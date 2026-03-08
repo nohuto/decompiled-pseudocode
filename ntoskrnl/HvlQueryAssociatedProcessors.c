@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvlQueryAssociatedProcessors @ 0x140542D90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 __int64 __fastcall HvlQueryAssociatedProcessors(ULONG a1, ULONG *a2, _DWORD *a3)
 {
   unsigned int v7; // edi

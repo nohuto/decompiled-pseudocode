@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiFindDriverNonPagedSections @ 0x14072715C
+ * Callers:
+ *     MiHandleDriverNonPagedSections @ 0x140726FEC (MiHandleDriverNonPagedSections.c)
+ * Callees:
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiUnlockLoaderEntry @ 0x1402A6ACC (MiUnlockLoaderEntry.c)
+ *     MiLockLoaderEntry @ 0x1402A6B58 (MiLockLoaderEntry.c)
+ *     RtlFindSetBits @ 0x14030D990 (RtlFindSetBits.c)
+ *     RtlFindNextForwardRunClear @ 0x14035D2F0 (RtlFindNextForwardRunClear.c)
+ */
+
 __int64 __fastcall MiFindDriverNonPagedSections(__int64 a1, ULONG *a2, __int64 *a3, _QWORD *a4)
 {
   __int64 v4; // r13

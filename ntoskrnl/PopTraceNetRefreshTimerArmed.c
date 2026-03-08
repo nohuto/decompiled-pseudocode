@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopTraceNetRefreshTimerArmed @ 0x14098FA38
+ * Callers:
+ *     PopNetArmRefreshTimer @ 0x1409935C0 (PopNetArmRefreshTimer.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PopTraceNetRefreshTimerArmed(unsigned __int64 a1)
 {
   REGHANDLE v2; // rbx

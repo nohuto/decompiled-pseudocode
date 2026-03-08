@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserRedrawTitle @ 0x1C01DA040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxRedrawTitle @ 0x1C01097D0 (xxxRedrawTitle.c)
+ */
+
 __int64 __fastcall NtUserRedrawTitle(__int64 a1, int a2)
 {
   __int64 v4; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpiCmResourceToBiosIoFixedPort @ 0x1C009332C
+ * Callers:
+ *     PnpCmResourcesToBiosResources @ 0x1C0092820 (PnpCmResourcesToBiosResources.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PnpiCmResourceToBiosIoFixedPort(__int64 a1, __int64 a2)
 {
   int v3; // r8d

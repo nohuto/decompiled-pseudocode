@@ -1,3 +1,14 @@
+/*
+ * XREFs of NewLocalHeap @ 0x1C004F05C
+ * Callers:
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ */
+
 __int64 __fastcall NewLocalHeap(_QWORD *a1)
 {
   unsigned int v2; // esi

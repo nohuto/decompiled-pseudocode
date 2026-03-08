@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiCreateResidentPfnTemplate @ 0x140B7089C
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiCreateResidentPfnTemplate(__int64 a1)
 {
   __int64 v2; // rcx

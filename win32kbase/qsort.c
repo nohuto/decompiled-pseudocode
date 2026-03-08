@@ -1,3 +1,15 @@
+/*
+ * XREFs of qsort @ 0x1C00DA4E0
+ * Callers:
+ *     ?Update@GroupedProcessForegroundBoost@@YA_NPEAUtagWND@@KPEAPEAU_EPROCESS@@@Z @ 0x1C008ECEC (-Update@GroupedProcessForegroundBoost@@YA_NPEAUtagWND@@KPEAPEAU_EPROCESS@@@Z.c)
+ * Callees:
+ *     ?MarkInvalid@CIgnoreInputQueue@@EEAAXXZ @ 0x1C006BF40 (-MarkInvalid@CIgnoreInputQueue@@EEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     _guard_check_icall @ 0x1C00DC71C (_guard_check_icall.c)
+ *     _guard_dispatch_icall @ 0x1C00E18F0 (_guard_dispatch_icall.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 void __cdecl qsort(
         void *Base,
         size_t NumOfElements,

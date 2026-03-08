@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoGetRequestorProcessId @ 0x1402C8380
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 ULONG __stdcall IoGetRequestorProcessId(PIRP Irp)
 {
   PETHREAD Thread; // rdx

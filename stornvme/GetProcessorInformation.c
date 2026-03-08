@@ -1,3 +1,14 @@
+/*
+ * XREFs of GetProcessorInformation @ 0x1C0009EC0
+ * Callers:
+ *     NVMeControllerFilterResourceRequirements @ 0x1C000CD5C (NVMeControllerFilterResourceRequirements.c)
+ *     NVMeControllerInitPart1 @ 0x1C000D7A8 (NVMeControllerInitPart1.c)
+ * Callees:
+ *     memset @ 0x1C0004580 (memset.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     FreeProcessorInfo @ 0x1C0009A38 (FreeProcessorInfo.c)
+ */
+
 char __fastcall GetProcessorInformation(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // esi

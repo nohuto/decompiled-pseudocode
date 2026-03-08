@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspDeleteThreadStateChange @ 0x1409AE180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     PsMultiResumeThread @ 0x140354658 (PsMultiResumeThread.c)
+ */
+
 LONG_PTR __fastcall PspDeleteThreadStateChange(__int64 a1)
 {
   unsigned int v1; // r8d

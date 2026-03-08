@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepAdtOpenEtwReadyEvent @ 0x1408414C0
+ * Callers:
+ *     SepRmCallLsa @ 0x1402E8690 (SepRmCallLsa.c)
+ *     SepAdtInitializeAuditingOptions @ 0x140B615C0 (SepAdtInitializeAuditingOptions.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     NtCreateEvent @ 0x1407D0E20 (NtCreateEvent.c)
+ */
+
 __int64 __fastcall SepAdtOpenEtwReadyEvent(unsigned __int64 a1)
 {
   __int64 result; // rax

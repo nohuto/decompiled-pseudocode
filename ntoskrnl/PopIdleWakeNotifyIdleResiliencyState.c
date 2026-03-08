@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopIdleWakeNotifyIdleResiliencyState @ 0x14059B504
+ * Callers:
+ *     PopPdcIdleResiliencyCallback @ 0x14099507C (PopPdcIdleResiliencyCallback.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopIdleWakeInsertTimeInterval @ 0x14059B3B0 (PopIdleWakeInsertTimeInterval.c)
+ */
+
 __int64 __fastcall PopIdleWakeNotifyIdleResiliencyState(char a1)
 {
   KIRQL v2; // al

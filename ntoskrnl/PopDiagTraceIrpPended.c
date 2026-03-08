@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagTraceIrpPended @ 0x140591D10
+ * Callers:
+ *     PopSystemIrpCompletion @ 0x140AA4450 (PopSystemIrpCompletion.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PopDiagTraceIrpPended(__int64 a1)
 {
   REGHANDLE v1; // rbx

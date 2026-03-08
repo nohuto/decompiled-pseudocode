@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpFindSubKeyByNumberFromMergedView @ 0x140A16968
+ * Callers:
+ *     CmEnumerateKey @ 0x1407ACAE0 (CmEnumerateKey.c)
+ *     CmQueryKey @ 0x1407AE5C0 (CmQueryKey.c)
+ * Callees:
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1407ACFB0 (CmpFindSubKeyByNumberEx.c)
+ *     CmpDelayDerefKeyControlBlock @ 0x1407AF9B0 (CmpDelayDerefKeyControlBlock.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpCompareKeysByName @ 0x140A1CA20 (CmpCompareKeysByName.c)
+ */
+
 __int64 __fastcall CmpFindSubKeyByNumberFromMergedView(
         __int64 a1,
         __int64 a2,

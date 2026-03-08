@@ -1,3 +1,11 @@
+/*
+ * XREFs of PsQueryProcessSignatureMitigationPolicy @ 0x140872660
+ * Callers:
+ *     NtQueryInformationProcess @ 0x1407215F0 (NtQueryInformationProcess.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __fastcall PsQueryProcessSignatureMitigationPolicy(__int64 a1, _DWORD *a2)
 {
   __int64 v2; // rsi

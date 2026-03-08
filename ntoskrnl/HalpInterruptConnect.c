@@ -1,3 +1,20 @@
+/*
+ * XREFs of HalpInterruptConnect @ 0x1405021F0
+ * Callers:
+ *     HalpTimerInitializeSystemWatchdog @ 0x14050956C (HalpTimerInitializeSystemWatchdog.c)
+ *     HalpRegisterPeiErrorSource @ 0x140516778 (HalpRegisterPeiErrorSource.c)
+ *     HalpDmaConfigureInterrupt @ 0x140525184 (HalpDmaConfigureInterrupt.c)
+ * Callees:
+ *     HalpInterruptGsiToLine @ 0x14028EF10 (HalpInterruptGsiToLine.c)
+ *     HalpInterruptRemap @ 0x140378D78 (HalpInterruptRemap.c)
+ *     HalpInterruptApplyOverrides @ 0x140379748 (HalpInterruptApplyOverrides.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpInterruptLineToGsi @ 0x140503150 (HalpInterruptLineToGsi.c)
+ *     IoConnectInterruptEx @ 0x1406F4AE0 (IoConnectInterruptEx.c)
+ *     IoSetDevicePropertyData @ 0x140863A80 (IoSetDevicePropertyData.c)
+ */
+
 int __fastcall HalpInterruptConnect(
         __int128 *a1,
         unsigned int a2,

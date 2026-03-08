@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreStartTimers @ 0x1C007B498
+ * Callers:
+ *     RawInputThread @ 0x1C007A0C0 (RawInputThread.c)
+ * Callees:
+ *     UserSetTimer @ 0x1C022FBB8 (UserSetTimer.c)
+ */
+
 __int64 GreStartTimers()
 {
   __int64 v0; // rcx

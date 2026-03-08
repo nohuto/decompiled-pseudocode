@@ -1,3 +1,25 @@
+/*
+ * XREFs of ACPIDeviceInitializePowerRequest @ 0x1C001CF98
+ * Callers:
+ *     ACPIDeviceInternalDelayedDeviceRequest @ 0x1C001D2C8 (ACPIDeviceInternalDelayedDeviceRequest.c)
+ *     ACPIDeviceInternalDeviceRequest @ 0x1C001D3A8 (ACPIDeviceInternalDeviceRequest.c)
+ *     ACPIDeviceInternalSynchronizeRequest @ 0x1C001D594 (ACPIDeviceInternalSynchronizeRequest.c)
+ *     ACPIDeviceIrpDeviceFilterRequest @ 0x1C001DA90 (ACPIDeviceIrpDeviceFilterRequest.c)
+ *     ACPIDeviceIrpDeviceRequest @ 0x1C001DBF8 (ACPIDeviceIrpDeviceRequest.c)
+ *     ACPIDeviceIrpSystemRequest @ 0x1C001DE48 (ACPIDeviceIrpSystemRequest.c)
+ *     ACPIDeviceIrpWaitWakeRequest @ 0x1C001DFB8 (ACPIDeviceIrpWaitWakeRequest.c)
+ *     ACPIDeviceIrpWarmEjectRequest @ 0x1C001E474 (ACPIDeviceIrpWarmEjectRequest.c)
+ *     AcpiDeviceResetInvokeReset @ 0x1C0023ABC (AcpiDeviceResetInvokeReset.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     ACPIDeviceInternalQueueRequest @ 0x1C001D4A0 (ACPIDeviceInternalQueueRequest.c)
+ *     ACPIDereferenceWaitWakePowerRequest @ 0x1C00447C0 (ACPIDereferenceWaitWakePowerRequest.c)
+ *     ACPIWakeEmulationEnable @ 0x1C00452A4 (ACPIWakeEmulationEnable.c)
+ *     ACPIWakeEnableDisableAsync @ 0x1C0045348 (ACPIWakeEnableDisableAsync.c)
+ *     ACPIWakeEmulationPrepare @ 0x1C0098BFC (ACPIWakeEmulationPrepare.c)
+ */
+
 __int64 __fastcall ACPIDeviceInitializePowerRequest(
         __int64 a1,
         int a2,

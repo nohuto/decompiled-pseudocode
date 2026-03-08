@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIDeviceInternalSynchronizeRequest @ 0x1C001D594
+ * Callers:
+ *     ACPIFlushQueuesUnload @ 0x1C0014558 (ACPIFlushQueuesUnload.c)
+ *     ACPIDevicePowerFlushQueue @ 0x1C001EABC (ACPIDevicePowerFlushQueue.c)
+ *     AcpiDeviceResetInvokeReset @ 0x1C0023ABC (AcpiDeviceResetInvokeReset.c)
+ *     ACPITableLoadCallBack @ 0x1C003F3C0 (ACPITableLoadCallBack.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qss @ 0x1C0015444 (WPP_RECORDER_SF_qss.c)
+ *     ACPIDeviceInitializePowerRequest @ 0x1C001CF98 (ACPIDeviceInitializePowerRequest.c)
+ */
+
 __int64 __fastcall ACPIDeviceInternalSynchronizeRequest(
         _QWORD *a1,
         void (__fastcall *a2)(__int64, __int64, __int64),

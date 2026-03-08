@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitClipFormatExceptionList @ 0x1C00ED4F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 int InitClipFormatExceptionList()
 {

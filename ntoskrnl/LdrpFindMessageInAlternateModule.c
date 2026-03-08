@@ -1,3 +1,12 @@
+/*
+ * XREFs of LdrpFindMessageInAlternateModule @ 0x14035C884
+ * Callers:
+ *     LdrpLoadResourceFromAlternativeModule @ 0x14035CFA0 (LdrpLoadResourceFromAlternativeModule.c)
+ *     LdrpResSearchResourceMappedFile @ 0x14035DC3C (LdrpResSearchResourceMappedFile.c)
+ * Callees:
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x1407EA480 (LdrpAccessResourceDataNoMultipleLanguage.c)
+ */
+
 __int64 __fastcall LdrpFindMessageInAlternateModule(
         __int64 a1,
         unsigned int *a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpRealtimeDeliverBuffer @ 0x1406A1F30
+ * Callers:
+ *     EtwpRealtimeFlushSavedBuffers @ 0x1406917BC (EtwpRealtimeFlushSavedBuffers.c)
+ *     EtwpFlushBufferToRealtime @ 0x140692B74 (EtwpFlushBufferToRealtime.c)
+ *     EtwpRealtimeSendEmptyMarker @ 0x1407933A8 (EtwpRealtimeSendEmptyMarker.c)
+ *     EtwpRealtimeUpdateReferenceTime @ 0x1408815D8 (EtwpRealtimeUpdateReferenceTime.c)
+ * Callees:
+ *     EtwpDisassociateConsumer @ 0x14067F51C (EtwpDisassociateConsumer.c)
+ *     EtwpRealtimeInjectEtwBuffer @ 0x1406A2090 (EtwpRealtimeInjectEtwBuffer.c)
+ */
+
 __int64 __fastcall EtwpRealtimeDeliverBuffer(__int64 a1, __int64 a2)
 {
   __int16 *v2; // rdi

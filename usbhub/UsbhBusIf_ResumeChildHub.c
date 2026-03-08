@@ -1,3 +1,21 @@
+/*
+ * XREFs of UsbhBusIf_ResumeChildHub @ 0x1C0004460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhUnlatchPdo @ 0x1C0001380 (UsbhUnlatchPdo.c)
+ *     UsbhDecHubBusy @ 0x1C0003DB0 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0007050 (UsbhIncHubBusy.c)
+ *     Usbh_SSH_Event @ 0x1C0007220 (Usbh_SSH_Event.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     UsbhClearPdoIdleReady @ 0x1C000A20C (UsbhClearPdoIdleReady.c)
+ *     UsbhSshSetPortsBusyState @ 0x1C000ABD0 (UsbhSshSetPortsBusyState.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhLatchPdo @ 0x1C0019420 (UsbhLatchPdo.c)
+ *     UsbhSshPropagateResume @ 0x1C0021BE4 (UsbhSshPropagateResume.c)
+ *     UsbhSyncResumePort @ 0x1C003A460 (UsbhSyncResumePort.c)
+ */
+
 __int64 __fastcall UsbhBusIf_ResumeChildHub(__int64 a1)
 {
   __int64 v2; // rsi

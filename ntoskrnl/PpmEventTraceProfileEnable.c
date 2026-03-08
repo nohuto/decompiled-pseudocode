@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmEventTraceProfileEnable @ 0x140825884
+ * Callers:
+ *     PpmEnableProfile @ 0x140825808 (PpmEnableProfile.c)
+ *     PpmDisableProfile @ 0x14099A1A4 (PpmDisableProfile.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PpmEventTraceProfileEnable(char a1, char a2)
 {
   const EVENT_DESCRIPTOR *v2; // rax

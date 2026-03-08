@@ -1,3 +1,15 @@
+/*
+ * XREFs of PoRegisterDeviceForIdleDetection @ 0x140368240
+ * Callers:
+ *     PoRunDownDeviceObject @ 0x140368158 (PoRunDownDeviceObject.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopCheckForWork @ 0x1402BCB88 (PopCheckForWork.c)
+ *     PopGetDope @ 0x1403BF328 (PopGetDope.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 PULONG __stdcall PoRegisterDeviceForIdleDetection(
         PDEVICE_OBJECT DeviceObject,
         ULONG ConservationIdleTime,

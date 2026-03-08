@@ -1,3 +1,12 @@
+/*
+ * XREFs of VerifierExAllocatePoolEx @ 0x140ACDC40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     VfCheckPoolType @ 0x140AC08F0 (VfCheckPoolType.c)
+ */
+
 __int64 __fastcall VerifierExAllocatePoolEx(int a1, __int64 a2, int a3)
 {
   __int64 retaddr; // [rsp+58h] [rbp+0h]

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CGdiSpriteBitmapMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C025C010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Copy@CMarshaledArrayBase@DirectComposition@@IEAAJPEBX_K1K@Z @ 0x1C0252730 (-Copy@CMarshaledArrayBase@DirectComposition@@IEAAJPEBX_K1K@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CGdiSpriteBitmapMarshaler::SetBufferProperty(
         DirectComposition::CGdiSpriteBitmapMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

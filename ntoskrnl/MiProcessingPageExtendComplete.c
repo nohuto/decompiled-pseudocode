@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiProcessingPageExtendComplete @ 0x140623220
+ * Callers:
+ *     MiProcessDereferenceList @ 0x140622C74 (MiProcessDereferenceList.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ */
+
 KIRQL __fastcall MiProcessingPageExtendComplete(__int64 a1, struct _KEVENT *a2, __int64 a3)
 {
   volatile LONG *v5; // rcx

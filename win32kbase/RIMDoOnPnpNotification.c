@@ -1,3 +1,26 @@
+/*
+ * XREFs of RIMDoOnPnpNotification @ 0x1C00872A8
+ * Callers:
+ *     RIMDeviceClassNotifyAsyncWorkItem @ 0x1C0037820 (RIMDeviceClassNotifyAsyncWorkItem.c)
+ *     RIMOnPnpNotification @ 0x1C00383E0 (RIMOnPnpNotification.c)
+ *     RIMDeviceNotifyAsyncWorkItem @ 0x1C01CFE1C (RIMDeviceNotifyAsyncWorkItem.c)
+ *     RIMVirtDeviceClassNotifyAsyncWorkItem @ 0x1C01D032C (RIMVirtDeviceClassNotifyAsyncWorkItem.c)
+ *     RIMVirtDeviceNotifyAsyncWorkItem @ 0x1C01D09D8 (RIMVirtDeviceNotifyAsyncWorkItem.c)
+ *     RIMVirtDeviceRootPnpEndSyncAsyncWorkItem @ 0x1C01D0D80 (RIMVirtDeviceRootPnpEndSyncAsyncWorkItem.c)
+ *     RIMDiscoverSpecificDevice @ 0x1C01D1704 (RIMDiscoverSpecificDevice.c)
+ * Callees:
+ *     rimOnPnpRemoveComplete @ 0x1C0030730 (rimOnPnpRemoveComplete.c)
+ *     rimOnPnpArrived @ 0x1C00889C0 (rimOnPnpArrived.c)
+ *     rimQueueRimDevChangeAsyncWorkItem @ 0x1C00895B0 (rimQueueRimDevChangeAsyncWorkItem.c)
+ *     rimDoRimDevChange @ 0x1C00BC1AC (rimDoRimDevChange.c)
+ *     Feature_RIMUserCritOpt__private_ReportDeviceUsage @ 0x1C00DF02C (Feature_RIMUserCritOpt__private_ReportDeviceUsage.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMFreeDev @ 0x1C019DE20 (RIMFreeDev.c)
+ *     rimOnPnpQueryRemove @ 0x1C01C854C (rimOnPnpQueryRemove.c)
+ *     rimOnPnpRemoveCancelled @ 0x1C01C8770 (rimOnPnpRemoveCancelled.c)
+ *     rimOnPnpRemoveCompleteInUserCrit @ 0x1C01C89B8 (rimOnPnpRemoveCompleteInUserCrit.c)
+ */
+
 __int64 __fastcall RIMDoOnPnpNotification(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v6; // r8

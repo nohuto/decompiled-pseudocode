@@ -1,3 +1,11 @@
+/*
+ * XREFs of InverseXformMPORect3 @ 0x1C031FB78
+ * Callers:
+ *     ?PresentMultiPlaneOverlay3@DXGCONTEXT@@QEAAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY3@@PEAVCOREDEVICEACCESS@@PEAPEAV1@@Z @ 0x1C019A6A0 (-PresentMultiPlaneOverlay3@DXGCONTEXT@@QEAAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY3@@PEAVCOREDEV.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall InverseXformMPORect3(unsigned int *a1, unsigned int *a2, int *a3)
 {
   __int64 result; // rax

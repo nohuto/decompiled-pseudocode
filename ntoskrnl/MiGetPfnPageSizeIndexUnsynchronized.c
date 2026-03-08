@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiGetPfnPageSizeIndexUnsynchronized @ 0x14035094C
+ * Callers:
+ *     MiProbeLeafPteAccess @ 0x140269620 (MiProbeLeafPteAccess.c)
+ *     MiSetProbePagesAhead @ 0x1402699A0 (MiSetProbePagesAhead.c)
+ *     MiLegitimatePageForDriversToMap @ 0x14029F8D0 (MiLegitimatePageForDriversToMap.c)
+ *     MiFillSystemPtes @ 0x140328C00 (MiFillSystemPtes.c)
+ *     MiPfnsWorthTrying @ 0x1403B6374 (MiPfnsWorthTrying.c)
+ *     MiActivePageClaimCandidate @ 0x1403B68D8 (MiActivePageClaimCandidate.c)
+ *     MiGetPagesRemainingInResidentPage @ 0x14064CC94 (MiGetPagesRemainingInResidentPage.c)
+ *     MiZeroPageMakeHot @ 0x140653630 (MiZeroPageMakeHot.c)
+ *     MiCombineAllPhysicalMemory @ 0x1407C7D50 (MiCombineAllPhysicalMemory.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiGetPfnPageSizeIndex @ 0x14034D770 (MiGetPfnPageSizeIndex.c)
+ *     MiGetBaseResidentPage @ 0x140350A30 (MiGetBaseResidentPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiGetPfnPageSizeIndexUnsynchronized(__int64 a1, int *a2, int *a3)
 {
   unsigned int PfnPageSizeIndex; // r15d

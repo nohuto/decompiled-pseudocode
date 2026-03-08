@@ -1,3 +1,17 @@
+/*
+ * XREFs of xxxProcessTSFEvent @ 0x1C01C1198
+ * Callers:
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ *     xxxProcessEventMessage @ 0x1C006B460 (xxxProcessEventMessage.c)
+ *     xxxFlushDeferredWindowEvents @ 0x1C00D8F74 (xxxFlushDeferredWindowEvents.c)
+ * Callees:
+ *     ?RemoveNotify@@YAXPEAUtagNOTIFY@@@Z @ 0x1C000F7B0 (-RemoveNotify@@YAXPEAUtagNOTIFY@@@Z.c)
+ *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C00394B4 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     ?TSFRangeFromEvent@@YAKKW4TSFLocality@@@Z @ 0x1C01C0E28 (-TSFRangeFromEvent@@YAKKW4TSFLocality@@@Z.c)
+ *     ?xxxCallTSFNotifyHook@@YAXPEAUtagNOTIFY@@@Z @ 0x1C01C0EB4 (-xxxCallTSFNotifyHook@@YAXPEAUtagNOTIFY@@@Z.c)
+ */
+
 void __fastcall xxxProcessTSFEvent(struct tagNOTIFY *a1)
 {
   __int64 v2; // rcx

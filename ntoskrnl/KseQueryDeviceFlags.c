@@ -1,3 +1,13 @@
+/*
+ * XREFs of KseQueryDeviceFlags @ 0x1408014E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     KsepEvntLogFlagsApplied @ 0x14036F7E8 (KsepEvntLogFlagsApplied.c)
+ *     KseQueryDeviceData @ 0x1408016F0 (KseQueryDeviceData.c)
+ */
+
 __int64 __fastcall KseQueryDeviceFlags(PCWSTR SourceString, PCWSTR a2, _QWORD *a3)
 {
   int v6; // edi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of VrpPreFlushKey @ 0x140A6FFDC
+ * Callers:
+ *     VrpRegistryCallback @ 0x1406C2D60 (VrpRegistryCallback.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwActivityIdControl @ 0x140244870 (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall VrpPreFlushKey(__int64 a1, __int64 a2)
 {
   GUID ActivityId; // [rsp+30h] [rbp-48h] BYREF

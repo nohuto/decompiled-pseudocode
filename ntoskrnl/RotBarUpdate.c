@@ -1,3 +1,12 @@
+/*
+ * XREFs of RotBarUpdate @ 0x14054C56C
+ * Callers:
+ *     InbvRotateGuiBootDisplay @ 0x14054C410 (InbvRotateGuiBootDisplay.c)
+ * Callees:
+ *     InbvGetDisplayState @ 0x14054C18C (InbvGetDisplayState.c)
+ *     FadePalette @ 0x14054C32C (FadePalette.c)
+ */
+
 void RotBarUpdate()
 {
   int v0; // ecx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiFreePartitionNodePages @ 0x1406576A8
+ * Callers:
+ *     MiFreePartitionTree @ 0x1406578D0 (MiFreePartitionTree.c)
+ *     MiInsertPartitionPages @ 0x140657EB8 (MiInsertPartitionPages.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiActOnPartitionNodePages @ 0x140655AB0 (MiActOnPartitionNodePages.c)
+ */
+
 __int64 __fastcall MiFreePartitionNodePages(__int16 *a1, __int64 a2, int a3)
 {
   unsigned int v6; // edx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DxgkCleanupTelemetry@@YAXXZ @ 0x1C004E140
+ * Callers:
+ *     DxgkUnload @ 0x1C0305A60 (DxgkUnload.c)
+ * Callees:
+ *     TlgUnregisterAggregateProvider @ 0x1C03D3898 (TlgUnregisterAggregateProvider.c)
+ */
+
 void DxgkCleanupTelemetry(void)
 {
   REGHANDLE v0; // rcx

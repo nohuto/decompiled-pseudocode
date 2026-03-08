@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpInterruptRestoreAllControllerState @ 0x140A92630
+ * Callers:
+ *     HalpInterruptMaskLevelTriggeredLines @ 0x14051E900 (HalpInterruptMaskLevelTriggeredLines.c)
+ *     HalpInterruptUnmaskLevelTriggeredLines @ 0x14051EB00 (HalpInterruptUnmaskLevelTriggeredLines.c)
+ *     HalpInterruptSwapProcessorIdentifiers @ 0x140A94CE0 (HalpInterruptSwapProcessorIdentifiers.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HalpInterruptRestoreController @ 0x140518478 (HalpInterruptRestoreController.c)
+ */
+
 void HalpInterruptRestoreAllControllerState()
 {
   ULONG_PTR *v0; // rbx

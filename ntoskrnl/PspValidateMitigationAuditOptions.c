@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspValidateMitigationAuditOptions @ 0x140848974
+ * Callers:
+ *     PspReadIFEOMitigationAuditOptions @ 0x14070A47C (PspReadIFEOMitigationAuditOptions.c)
+ *     PspBuildCreateProcessContext @ 0x1407EEDE0 (PspBuildCreateProcessContext.c)
+ *     PspInitPhase0 @ 0x140B3F968 (PspInitPhase0.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall PspValidateMitigationAuditOptions(__int128 *a1)
 {
   char *v1; // rdx

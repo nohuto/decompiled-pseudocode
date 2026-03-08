@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiPerformHeteroSoftParkElection @ 0x14057BD18
+ * Callers:
+ *     KiPerformSoftParkElectionRound @ 0x14040B194 (KiPerformSoftParkElectionRound.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiBuildShareCountsForSmtSiblings @ 0x14057B89C (KiBuildShareCountsForSmtSiblings.c)
+ *     KiTallyHeteroSoftParkElectionVotes @ 0x14057C0D8 (KiTallyHeteroSoftParkElectionVotes.c)
+ */
+
 __int64 __fastcall KiPerformHeteroSoftParkElection(__int64 a1, int a2, __int64 a3, int a4, unsigned __int64 a5)
 {
   int v7; // edi

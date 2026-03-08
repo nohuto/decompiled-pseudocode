@@ -1,3 +1,16 @@
+/*
+ * XREFs of DpiMiracastQueryMiracastSupportForFDO @ 0x1C01F7F50
+ * Callers:
+ *     DxgkMiracastQueryMiracastSupportInternal @ 0x1C01F7DCC (DxgkMiracastQueryMiracastSupportInternal.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ??0AUTO_PNPPOWER_LOCK@@QEAA@PEAU_COMMON_PNP_CONTEXT@@_N11@Z @ 0x1C001D6C8 (--0AUTO_PNPPOWER_LOCK@@QEAA@PEAU_COMMON_PNP_CONTEXT@@_N11@Z.c)
+ *     ?Acquire@AUTO_REMOVE_LOCK@@QEAAJXZ @ 0x1C001D6F8 (-Acquire@AUTO_REMOVE_LOCK@@QEAAJXZ.c)
+ *     ?Acquire@AUTO_PNPPOWER_LOCK@@QEAAXXZ @ 0x1C0023EE4 (-Acquire@AUTO_PNPPOWER_LOCK@@QEAAXXZ.c)
+ *     ?Release@AUTO_PNPPOWER_LOCK@@QEAAXXZ @ 0x1C0024094 (-Release@AUTO_PNPPOWER_LOCK@@QEAAXXZ.c)
+ *     ?Release@AUTO_REMOVE_LOCK@@QEAAXXZ @ 0x1C00241A0 (-Release@AUTO_REMOVE_LOCK@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall DpiMiracastQueryMiracastSupportForFDO(struct _IO_REMOVE_LOCK *a1, __int64 a2)
 {
   unsigned int v2; // ebx

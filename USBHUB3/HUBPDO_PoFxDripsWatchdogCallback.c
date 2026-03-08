@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBPDO_PoFxDripsWatchdogCallback @ 0x1C001D300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0pqhhh_EtwWriteTransfer @ 0x1C0014418 (McTemplateK0pqhhh_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall HUBPDO_PoFxDripsWatchdogCallback(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

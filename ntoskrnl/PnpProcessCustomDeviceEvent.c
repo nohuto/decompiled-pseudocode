@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpProcessCustomDeviceEvent @ 0x140688B68
+ * Callers:
+ *     PnpDeviceEventWorker @ 0x1406892C0 (PnpDeviceEventWorker.c)
+ * Callees:
+ *     PiDcHandleCustomDeviceEvent @ 0x140688AC8 (PiDcHandleCustomDeviceEvent.c)
+ *     PiUEventNotifyUserMode @ 0x14068C2D0 (PiUEventNotifyUserMode.c)
+ *     PnpNotifyTargetDeviceChange @ 0x14068C820 (PnpNotifyTargetDeviceChange.c)
+ */
+
 __int64 __fastcall PnpProcessCustomDeviceEvent(__int64 *a1)
 {
   __int64 v1; // rbx

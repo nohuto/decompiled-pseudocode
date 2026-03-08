@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiRaisedIrqlFault @ 0x1402DA4D0
+ * Callers:
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ * Callees:
+ *     MiNoFaultFound @ 0x1402D3500 (MiNoFaultFound.c)
+ *     KeInvalidAccessAllowed @ 0x1402DA5E0 (KeInvalidAccessAllowed.c)
+ *     MiCheckSystemNxFault @ 0x1402EB3C8 (MiCheckSystemNxFault.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiGenerateAccessViolation @ 0x1406439D8 (MiGenerateAccessViolation.c)
+ *     MiTransientCombineAddress @ 0x140651114 (MiTransientCombineAddress.c)
+ */
+
 __int64 __fastcall MiRaisedIrqlFault(ULONG_PTR *a1)
 {
   ULONG_PTR v2; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ObpDeferPushRefDerefInfo @ 0x140580638
+ * Callers:
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ */
+
 void __fastcall ObpDeferPushRefDerefInfo(__int64 a1, char a2, __int16 a3, int a4, struct _SLIST_ENTRY *a5, int a6)
 {
   PSLIST_ENTRY v10; // rax

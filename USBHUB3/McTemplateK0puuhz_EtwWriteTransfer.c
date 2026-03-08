@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0puuhz_EtwWriteTransfer @ 0x1C00296B0
+ * Callers:
+ *     HUBDTX_LogBillboardEvent @ 0x1C002D020 (HUBDTX_LogBillboardEvent.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001680 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ */
+
 NTSTATUS McTemplateK0puuhz_EtwWriteTransfer(__int64 a1, __int64 a2, const GUID *a3, ...)
 {
   __int64 v3; // rax

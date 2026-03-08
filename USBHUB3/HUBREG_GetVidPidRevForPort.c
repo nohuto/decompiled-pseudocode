@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBREG_GetVidPidRevForPort @ 0x1C0089858
+ * Callers:
+ *     HUBPDO_ReportDeviceFailure @ 0x1C001B588 (HUBPDO_ReportDeviceFailure.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_OpenPortSubkey @ 0x1C00892DC (HUBREG_OpenPortSubkey.c)
+ */
+
 __int64 __fastcall HUBREG_GetVidPidRevForPort(__int64 a1, _WORD *a2, _WORD *a3, _WORD *a4)
 {
   int v8; // ebx

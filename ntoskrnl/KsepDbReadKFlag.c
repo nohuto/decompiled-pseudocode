@@ -1,3 +1,13 @@
+/*
+ * XREFs of KsepDbReadKFlag @ 0x140800CD0
+ * Callers:
+ *     KsepDbCacheReadDeviceInternal @ 0x1408012E8 (KsepDbCacheReadDeviceInternal.c)
+ * Callees:
+ *     SdbGetStringTagPtr @ 0x1407A20E8 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ *     SdbReadQWORDTag @ 0x140800D70 (SdbReadQWORDTag.c)
+ */
+
 __int64 __fastcall KsepDbReadKFlag(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v4; // ebx

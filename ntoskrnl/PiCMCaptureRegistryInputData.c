@@ -1,3 +1,16 @@
+/*
+ * XREFs of PiCMCaptureRegistryInputData @ 0x14076CA6C
+ * Callers:
+ *     PiCMOpenDeviceInterfaceKey @ 0x14067E994 (PiCMOpenDeviceInterfaceKey.c)
+ *     PiCMOpenDeviceKey @ 0x14076C7C4 (PiCMOpenDeviceKey.c)
+ *     PiCMOpenClassKey @ 0x14085C868 (PiCMOpenClassKey.c)
+ *     PiCMOpenObjectKey @ 0x14086B97C (PiCMOpenObjectKey.c)
+ * Callees:
+ *     PiControlFreeUserModeCallersBuffer @ 0x1402459EC (PiControlFreeUserModeCallersBuffer.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x1406CFA10 (PiControlMakeUserModeCallersCopy.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall PiCMCaptureRegistryInputData(_DWORD *a1, unsigned int a2, int a3, __int64 a4)
 {
   int v6; // r12d

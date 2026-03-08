@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbDevice_RemoveEndpointFromDeviceEndpointList @ 0x1C0049924
+ * Callers:
+ *     Endpoint_EvtEndpointCleanupCallback @ 0x1C003A520 (Endpoint_EvtEndpointCleanupCallback.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall UsbDevice_RemoveEndpointFromDeviceEndpointList(__int64 a1, __int64 a2, _QWORD *a3)
 {
   KIRQL v6; // al

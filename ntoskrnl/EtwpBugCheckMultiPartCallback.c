@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpBugCheckMultiPartCallback @ 0x1405FDF10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeTestSpinLock @ 0x1402053F0 (KeTestSpinLock.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 void __fastcall EtwpBugCheckMultiPartCallback(
         KBUGCHECK_CALLBACK_REASON Reason,
         struct _KBUGCHECK_REASON_CALLBACK_RECORD *Record,

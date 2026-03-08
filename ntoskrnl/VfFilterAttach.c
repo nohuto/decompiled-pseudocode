@@ -1,3 +1,20 @@
+/*
+ * XREFs of VfFilterAttach @ 0x140ADC20C
+ * Callers:
+ *     VfDevObjPostAddDevice @ 0x140ACF174 (VfDevObjPostAddDevice.c)
+ *     VfDevObjPreAddDevice @ 0x140ACF1C8 (VfDevObjPreAddDevice.c)
+ * Callees:
+ *     IoAttachDeviceToDeviceStack @ 0x1402F3E00 (IoAttachDeviceToDeviceStack.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     IoGetAttachedDevice @ 0x14030EE00 (IoGetAttachedDevice.c)
+ *     IoDeleteDevice @ 0x140368010 (IoDeleteDevice.c)
+ *     HviIsAnyHypervisorPresent @ 0x14037F1D0 (HviIsAnyHypervisorPresent.c)
+ *     IoInitializeRemoveLockEx @ 0x1403BF180 (IoInitializeRemoveLockEx.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     IoCreateDevice @ 0x1407F0460 (IoCreateDevice.c)
+ *     IoCreateDriver @ 0x14081AF70 (IoCreateDriver.c)
+ */
+
 void __fastcall VfFilterAttach(PDEVICE_OBJECT TargetDevice, int a2)
 {
   PDRIVER_OBJECT v4; // rdi

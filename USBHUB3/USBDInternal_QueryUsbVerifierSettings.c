@@ -1,3 +1,12 @@
+/*
+ * XREFs of USBDInternal_QueryUsbVerifierSettings @ 0x1C0041FD4
+ * Callers:
+ *     USBD_CreateHandle @ 0x1C004247C (USBD_CreateHandle.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 void __fastcall USBDInternal_QueryUsbVerifierSettings(__int64 a1, __int64 a2, __int64 a3)
 {
   LOGICAL *v3; // rsi

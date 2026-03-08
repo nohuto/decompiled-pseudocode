@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspUnlockJobListShared @ 0x1406FB768
+ * Callers:
+ *     NtQueryInformationJobObject @ 0x1406F9480 (NtQueryInformationJobObject.c)
+ *     PspGetNextJob @ 0x1406FB6B8 (PspGetNextJob.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ */
+
 char __fastcall PspUnlockJobListShared(__int64 a1)
 {
   _QWORD *v2; // rax

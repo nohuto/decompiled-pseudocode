@@ -1,3 +1,13 @@
+/*
+ * XREFs of DelegateCoalescePointerMessage @ 0x1C01466D2
+ * Callers:
+ *     DelegateReleasePointerMessage @ 0x1C01464D8 (DelegateReleasePointerMessage.c)
+ *     ?ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01B68A8 (-ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z.c)
+ *     ?_ShellHandwritingDelegationReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01B7674 (-_ShellHandwritingDelegationReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z.c)
+ * Callees:
+ *     DelQEntry @ 0x1C0038CDC (DelQEntry.c)
+ */
+
 __int64 __fastcall DelegateCoalescePointerMessage(__int64 a1, int a2, __int64 a3)
 {
   int v6; // ebx

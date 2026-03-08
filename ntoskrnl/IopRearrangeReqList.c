@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopRearrangeReqList @ 0x14085097C
+ * Callers:
+ *     PnpGetResourceRequirementsForAssignTable @ 0x1406F6080 (PnpGetResourceRequirementsForAssignTable.c)
+ *     PnpRestoreResourcesInternal @ 0x14096A7C4 (PnpRestoreResourcesInternal.c)
+ * Callees:
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ */
+
 unsigned __int64 __fastcall IopRearrangeReqList(__int64 a1)
 {
   unsigned __int64 *v1; // rdi

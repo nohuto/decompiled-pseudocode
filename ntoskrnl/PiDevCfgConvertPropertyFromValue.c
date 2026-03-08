@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiDevCfgConvertPropertyFromValue @ 0x14095A774
+ * Callers:
+ *     PiDevCfgCopyDeviceKey @ 0x140877A34 (PiDevCfgCopyDeviceKey.c)
+ * Callees:
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDevCfgConvertPropertyFromValue(int a1, int a2, wchar_t *a3, unsigned int a4, int *a5, GUID **a6)
 {
   unsigned int v6; // edi

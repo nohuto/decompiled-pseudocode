@@ -1,3 +1,15 @@
+/*
+ * XREFs of ObjTypeSizeOf @ 0x1C00067D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetBaseData @ 0x1C00055CA (GetBaseData.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     GetObjectTypeName @ 0x1C004BD50 (GetObjectTypeName.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ */
+
 __int64 __fastcall ObjTypeSizeOf(__int64 a1, __int64 a2)
 {
   unsigned int v3; // edi

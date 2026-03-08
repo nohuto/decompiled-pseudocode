@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIInternalInterruptPolarityCacheGetPolarity @ 0x1C002E8C4
+ * Callers:
+ *     PnpiCmResourceToBiosExtendedIrq @ 0x1C00931F4 (PnpiCmResourceToBiosExtendedIrq.c)
+ *     IrqArbAddAllocation @ 0x1C009C4B0 (IrqArbAddAllocation.c)
+ *     IrqArbpFindSuitableRangeIsa @ 0x1C009DDC0 (IrqArbpFindSuitableRangeIsa.c)
+ * Callees:
+ *     ACPIInternalFindDeviceExtensionNoLock @ 0x1C002E754 (ACPIInternalFindDeviceExtensionNoLock.c)
+ *     WPP_RECORDER_SF_Dqqss @ 0x1C002F168 (WPP_RECORDER_SF_Dqqss.c)
+ */
+
 char __fastcall ACPIInternalInterruptPolarityCacheGetPolarity(__int64 a1, int a2, _DWORD *a3)
 {
   char v3; // di

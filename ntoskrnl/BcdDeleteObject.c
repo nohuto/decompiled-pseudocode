@@ -1,3 +1,18 @@
+/*
+ * XREFs of BcdDeleteObject @ 0x14082C47C
+ * Callers:
+ *     BiBindEfiBootManager @ 0x14082C288 (BiBindEfiBootManager.c)
+ *     BiBindEfiEntries @ 0x14082D024 (BiBindEfiEntries.c)
+ *     PopBcdRegenerateResumeObject @ 0x140999C24 (PopBcdRegenerateResumeObject.c)
+ * Callees:
+ *     BiSetFirmwareModifiedFromObject @ 0x1403902F4 (BiSetFirmwareModifiedFromObject.c)
+ *     BiIsOfflineHandle @ 0x1403903FC (BiIsOfflineHandle.c)
+ *     BiDeleteKey @ 0x14082CF64 (BiDeleteKey.c)
+ *     BiIsLinkedToFirmwareVariable @ 0x14082D76C (BiIsLinkedToFirmwareVariable.c)
+ *     BiAcquireBcdSyncMutant @ 0x14082ED10 (BiAcquireBcdSyncMutant.c)
+ *     BiReleaseBcdSyncMutant @ 0x14082EDB8 (BiReleaseBcdSyncMutant.c)
+ */
+
 __int64 __fastcall BcdDeleteObject(void *a1)
 {
   __int64 v2; // rcx

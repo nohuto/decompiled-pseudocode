@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CleanupPvtData@@YAXPEAVPFF@@@Z @ 0x1C02D7CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CleanupPvtData(struct PFF *a1)
 {
   unsigned int CurrentThreadId; // eax

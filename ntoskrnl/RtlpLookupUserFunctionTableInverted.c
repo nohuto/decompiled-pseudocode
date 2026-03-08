@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpLookupUserFunctionTableInverted @ 0x14039DBC0
+ * Callers:
+ *     RtlpLookupUserFunctionTable @ 0x14039DB7C (RtlpLookupUserFunctionTable.c)
+ *     RtlGetImageBaseAndLoadConfig @ 0x1405AF9E0 (RtlGetImageBaseAndLoadConfig.c)
+ * Callees:
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 unsigned __int64 __fastcall RtlpLookupUserFunctionTableInverted(unsigned __int64 a1, __int64 a2)
 {
   __int64 v4; // rsi

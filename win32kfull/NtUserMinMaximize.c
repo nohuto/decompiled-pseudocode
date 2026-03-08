@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserMinMaximize @ 0x1C01D8A10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxMinMaximize@@YAXPEAUtagWND@@IW4MinMaxOptions@@@Z @ 0x1C00FF588 (-xxxMinMaximize@@YAXPEAUtagWND@@IW4MinMaxOptions@@@Z.c)
+ */
+
 __int64 __fastcall NtUserMinMaximize(__int64 a1, unsigned int a2, int a3)
 {
   __int64 v6; // rax

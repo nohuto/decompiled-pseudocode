@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagTraceSkipTick @ 0x14098E53C
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PopDiagTraceSkipTick(unsigned __int8 a1, unsigned __int8 a2)
 {
   int v2; // edi

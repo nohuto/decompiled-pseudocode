@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpAddBinaryInfoEvents @ 0x1409E933C
+ * Callers:
+ *     EtwpFinalizeHeader @ 0x140771D34 (EtwpFinalizeHeader.c)
+ *     EtwpAddLogHeader @ 0x140772F04 (EtwpAddLogHeader.c)
+ *     EtwpRealtimeNotifyConsumers @ 0x140790D3C (EtwpRealtimeNotifyConsumers.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     EtwpAddEventToBuffer @ 0x1407721F0 (EtwpAddEventToBuffer.c)
+ */
+
 __int64 __fastcall EtwpAddBinaryInfoEvents(__int64 a1, __int64 a2, int a3, char a4)
 {
   unsigned int v4; // esi

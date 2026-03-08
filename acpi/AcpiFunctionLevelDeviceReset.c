@@ -1,3 +1,13 @@
+/*
+ * XREFs of AcpiFunctionLevelDeviceReset @ 0x1C0082E50
+ * Callers:
+ *     AcpiDeviceBusSpecificReset @ 0x1C0082CF0 (AcpiDeviceBusSpecificReset.c)
+ *     AcpiDeviceReset @ 0x1C0082DA0 (AcpiDeviceReset.c)
+ * Callees:
+ *     AMLIAsyncEvalObject @ 0x1C00478E8 (AMLIAsyncEvalObject.c)
+ *     AcpiFunctionLevelDeviceResetComplete @ 0x1C0082F30 (AcpiFunctionLevelDeviceResetComplete.c)
+ */
+
 __int64 __fastcall AcpiFunctionLevelDeviceReset(__int64 a1, __int64 a2)
 {
   __int64 v2; // rsi

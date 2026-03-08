@@ -1,3 +1,15 @@
+/*
+ * XREFs of AcpiQueryPciDeviceChassisLabel @ 0x1C0089EB4
+ * Callers:
+ *     ACPIBusIrpDeviceEnumerated @ 0x1C007E480 (ACPIBusIrpDeviceEnumerated.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     ACPIInternalSetFlags @ 0x1C002F068 (ACPIInternalSetFlags.c)
+ *     AMLIFreeDataBuffs @ 0x1C00482C4 (AMLIFreeDataBuffs.c)
+ *     ACPIAmliEvaluateDsm @ 0x1C007C65C (ACPIAmliEvaluateDsm.c)
+ *     ACPIInternalPciDeviceLabel @ 0x1C0088180 (ACPIInternalPciDeviceLabel.c)
+ */
+
 __int64 __fastcall AcpiQueryPciDeviceChassisLabel(__int64 a1)
 {
   __int64 result; // rax

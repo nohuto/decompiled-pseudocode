@@ -1,3 +1,17 @@
+/*
+ * XREFs of IommupDeviceEnablePasidTaggedDma @ 0x140822E44
+ * Callers:
+ *     HalpIommuCreateDevice @ 0x140822B28 (HalpIommuCreateDevice.c)
+ * Callees:
+ *     Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage @ 0x140409C64 (Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpDmaGetIommuInterface @ 0x1404FDDF4 (HalpDmaGetIommuInterface.c)
+ *     HalpIommuIsDmarStageCompatible @ 0x140515E88 (HalpIommuIsDmarStageCompatible.c)
+ *     IommupHvIsStage1DmarCompatible @ 0x140522BE4 (IommupHvIsStage1DmarCompatible.c)
+ *     IommupDeviceGetPasidSettings @ 0x140822F74 (IommupDeviceGetPasidSettings.c)
+ *     IommupDeviceEnableSvm @ 0x140930DD4 (IommupDeviceEnableSvm.c)
+ */
+
 __int64 __fastcall IommupDeviceEnablePasidTaggedDma(__int64 a1, __int64 a2)
 {
   int PasidSettings; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of sub_140B31784 @ 0x140B31784
+ * Callers:
+ *     sub_140B16730 @ 0x140B16730 (sub_140B16730.c)
+ * Callees:
+ *     KiErrata671Present @ 0x140B105F0 (KiErrata671Present.c)
+ */
+
 __int64 sub_140B31784()
 {
   unsigned __int8 CurrentIrql; // al

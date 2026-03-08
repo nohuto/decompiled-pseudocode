@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMFindConfigDeviceForInput @ 0x1C01ADC20
+ * Callers:
+ *     RIMConfigurePointerDevice @ 0x1C01AD4A0 (RIMConfigurePointerDevice.c)
+ *     RIMApiSetSetUserPTPEnabledPreference @ 0x1C01C0898 (RIMApiSetSetUserPTPEnabledPreference.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMIsParentCommon @ 0x1C01AF3D0 (RIMIsParentCommon.c)
+ */
+
 __int64 __fastcall RIMFindConfigDeviceForInput(__int64 a1, int a2, int a3, _QWORD *a4)
 {
   unsigned int v4; // edi

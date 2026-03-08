@@ -1,3 +1,15 @@
+/*
+ * XREFs of IoSaveBugCheckRecoveryStatus @ 0x14054E6BC
+ * Callers:
+ *     KiSaveBugCheckRecoveryStatusMultipleBugChecks @ 0x140578E88 (KiSaveBugCheckRecoveryStatusMultipleBugChecks.c)
+ *     KiSaveBugCheckRecoveryStatusPhase0 @ 0x140578EE4 (KiSaveBugCheckRecoveryStatusPhase0.c)
+ *     KiSaveBugCheckRecoveryStatusPhase1 @ 0x140578F68 (KiSaveBugCheckRecoveryStatusPhase1.c)
+ *     KiSaveBugCheckRecoveryStatusPhase2 @ 0x140578FBC (KiSaveBugCheckRecoveryStatusPhase2.c)
+ * Callees:
+ *     WheaLogInternalEvent @ 0x14037D610 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 LONG __fastcall IoSaveBugCheckRecoveryStatus(int *a1)
 {
   int v2; // ecx

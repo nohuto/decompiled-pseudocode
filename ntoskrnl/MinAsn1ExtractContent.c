@@ -1,3 +1,16 @@
+/*
+ * XREFs of MinAsn1ExtractContent @ 0x140A6EA28
+ * Callers:
+ *     MinAsn1ParseAndDecodeRDNComponent @ 0x140A6D6CC (MinAsn1ParseAndDecodeRDNComponent.c)
+ *     MinAsn1ParseOIDSequence @ 0x140A6D858 (MinAsn1ParseOIDSequence.c)
+ *     MinAsn1ParseSignedDataCertificatesEx @ 0x140A6D9C8 (MinAsn1ParseSignedDataCertificatesEx.c)
+ *     MinAsn1ParseSingleExtensionValue @ 0x140A6DAB8 (MinAsn1ParseSingleExtensionValue.c)
+ *     MinAsn1DecodeTime @ 0x140A6E75C (MinAsn1DecodeTime.c)
+ *     MinAsn1ExtractValues @ 0x140A6EB74 (MinAsn1ExtractValues.c)
+ * Callees:
+ *     MinAsn1DecodeLength @ 0x140A6E6E4 (MinAsn1DecodeLength.c)
+ */
+
 __int64 __fastcall MinAsn1ExtractContent(_BYTE *a1, int a2, unsigned int *a3, _QWORD *a4)
 {
   unsigned int v6; // ebx

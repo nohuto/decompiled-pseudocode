@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiConvertPrivateToProto @ 0x14034A20C
+ * Callers:
+ *     MiSharePages @ 0x140228990 (MiSharePages.c)
+ * Callees:
+ *     MiCombineInitialInstance @ 0x14029CD58 (MiCombineInitialInstance.c)
+ *     MiDecrementCombinedPteEx @ 0x14029DAF4 (MiDecrementCombinedPteEx.c)
+ *     MiCreateCombineAnchor @ 0x14034A2A4 (MiCreateCombineAnchor.c)
+ *     MiCombineWithExisting @ 0x14034A4C4 (MiCombineWithExisting.c)
+ */
+
 __int64 __fastcall MiConvertPrivateToProto(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // r14

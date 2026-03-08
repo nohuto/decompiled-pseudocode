@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeSetIdealProcessorThread @ 0x1403C9190
+ * Callers:
+ *     NtSetInformationThread @ 0x1406D8E90 (NtSetInformationThread.c)
+ * Callees:
+ *     KeSetIdealProcessorThreadByNumber @ 0x1403C91E4 (KeSetIdealProcessorThreadByNumber.c)
+ */
+
 UCHAR __stdcall KeSetIdealProcessorThread(PKTHREAD Thread, UCHAR Processor)
 {
   unsigned __int16 AffinityPrimaryGroup; // ax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpCoverageSamplerUnloadImage @ 0x1409F0BAC
+ * Callers:
+ *     PerfLogImageUnload @ 0x1407EA8E0 (PerfLogImageUnload.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     EtwpCovSampAcquireSamplerRundown @ 0x1408A3A8C (EtwpCovSampAcquireSamplerRundown.c)
+ *     EtwpCovSampProcessRemoveModule @ 0x1408A528C (EtwpCovSampProcessRemoveModule.c)
+ */
+
 void __fastcall EtwpCoverageSamplerUnloadImage(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   __int64 v6; // rdi

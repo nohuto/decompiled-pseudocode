@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?DelegateDiscardMessages@@YAXPEAUtagQ@@HPEAUtagDELEGATEPOINTERMAP@@@Z @ 0x1C01C4E48
+ * Callers:
+ *     _DelegateCapturePointers @ 0x1C01C5C88 (_DelegateCapturePointers.c)
+ * Callees:
+ *     IsPointerInputMessage @ 0x1C0038580 (IsPointerInputMessage.c)
+ *     DelQEntry @ 0x1C0038CDC (DelQEntry.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003E858 (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?GetPwndFromPointerMsgId@@YAPEAUtagWND@@_K@Z @ 0x1C01C52D0 (-GetPwndFromPointerMsgId@@YAPEAUtagWND@@_K@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_HL @ 0x1C01C57FC (WPP_RECORDER_AND_TRACE_SF_HL.c)
+ *     WPP_RECORDER_AND_TRACE_SF_L @ 0x1C01C58D4 (WPP_RECORDER_AND_TRACE_SF_L.c)
+ *     WPP_RECORDER_AND_TRACE_SF_LqLL @ 0x1C01C5B70 (WPP_RECORDER_AND_TRACE_SF_LqLL.c)
+ */
+
 void __fastcall DelegateDiscardMessages(struct tagQ *a1, int a2, struct tagDELEGATEPOINTERMAP *a3, int a4)
 {
   struct tagDELEGATEPOINTERMAP *v4; // r14

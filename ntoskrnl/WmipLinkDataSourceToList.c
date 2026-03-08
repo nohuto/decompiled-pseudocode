@@ -1,3 +1,14 @@
+/*
+ * XREFs of WmipLinkDataSourceToList @ 0x1408681AC
+ * Callers:
+ *     WmipAddDataSource @ 0x140867978 (WmipAddDataSource.c)
+ *     WmipUpdateAddGuid @ 0x1409DED7C (WmipUpdateAddGuid.c)
+ * Callees:
+ *     WmipFindGEByGuid @ 0x14069BDF4 (WmipFindGEByGuid.c)
+ *     WmipAllocGuidEntry @ 0x140841224 (WmipAllocGuidEntry.c)
+ *     WmipRegisterEtwProvider @ 0x14085074C (WmipRegisterEtwProvider.c)
+ */
+
 __int64 __fastcall WmipLinkDataSourceToList(__int64 a1, char a2, __int64 a3)
 {
   _QWORD *v3; // r15

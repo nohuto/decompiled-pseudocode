@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiFreeEnclaveModules @ 0x140A3B1B0
+ * Callers:
+ *     MiCanDeleteEnclave @ 0x140644B94 (MiCanDeleteEnclave.c)
+ *     MmFreeVirtualMemory @ 0x1406EC820 (MmFreeVirtualMemory.c)
+ * Callees:
+ *     DbgkUnMapViewOfSection @ 0x1406A10EC (DbgkUnMapViewOfSection.c)
+ *     MiDereferenceEnclaveModule @ 0x140A3B18C (MiDereferenceEnclaveModule.c)
+ */
+
 void __fastcall MiFreeEnclaveModules(volatile signed __int32 **a1, _KPROCESS *a2)
 {
   volatile signed __int32 *v4; // rbx

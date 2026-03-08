@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserSetDisplayMapping @ 0x1C01DC8D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     _SetDisplayMapping @ 0x1C01C4A90 (_SetDisplayMapping.c)
+ */
+
 __int64 __fastcall NtUserSetDisplayMapping(__int64 a1, __int64 a2)
 {
   int v4; // ebx

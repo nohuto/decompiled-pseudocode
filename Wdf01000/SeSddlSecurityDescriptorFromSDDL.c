@@ -1,3 +1,13 @@
+/*
+ * XREFs of SeSddlSecurityDescriptorFromSDDL @ 0x1C00B0820
+ * Callers:
+ *     IoDevObjCreateDeviceSecure @ 0x1C00B05A0 (IoDevObjCreateDeviceSecure.c)
+ * Callees:
+ *     memset @ 0x1C000AC00 (memset.c)
+ *     memmove @ 0x1C000B140 (memmove.c)
+ *     SepSddlSecurityDescriptorFromSDDLString @ 0x1C00B10DC (SepSddlSecurityDescriptorFromSDDLString.c)
+ */
+
 int __fastcall SeSddlSecurityDescriptorFromSDDL(
         const _UNICODE_STRING *SecurityDescriptorString,
         unsigned int SecurityDescriptor,

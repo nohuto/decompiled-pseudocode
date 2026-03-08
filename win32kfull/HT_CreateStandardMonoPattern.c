@@ -1,3 +1,14 @@
+/*
+ * XREFs of HT_CreateStandardMonoPattern @ 0x1C0252C14
+ * Callers:
+ *     ?bCreateHalftoneBrushes@PDEVOBJ@@QEAAHXZ @ 0x1C028E978 (-bCreateHalftoneBrushes@PDEVOBJ@@QEAAHXZ.c)
+ * Callees:
+ *     GetCachedSMP @ 0x1C0252734 (GetCachedSMP.c)
+ *     HT_CreateHalftoneBrush @ 0x1C0252A88 (HT_CreateHalftoneBrush.c)
+ *     ComputeBytesPerScanLine @ 0x1C0253E3C (ComputeBytesPerScanLine.c)
+ *     pDCIAdjClr @ 0x1C02583A8 (pDCIAdjClr.c)
+ */
+
 __int64 __fastcall HT_CreateStandardMonoPattern(int a1, __int64 a2)
 {
   unsigned __int8 v2; // si

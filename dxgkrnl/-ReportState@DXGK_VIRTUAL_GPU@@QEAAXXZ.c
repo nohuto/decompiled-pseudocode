@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?ReportState@DXGK_VIRTUAL_GPU@@QEAAXXZ @ 0x1C0364818
+ * Callers:
+ *     ?ReportState@DXGVIRTUALGPUMANAGER@@QEAAXXZ @ 0x1C0364924 (-ReportState@DXGVIRTUALGPUMANAGER@@QEAAXXZ.c)
+ *     ?CreateVirtualGpu@DXGVIRTUALGPUMANAGER_PARAV@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@EEEPEAX@Z @ 0x1C036A030 (-CreateVirtualGpu@DXGVIRTUALGPUMANAGER_PARAV@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@EEEPEAX@Z.c)
+ *     ?CreateVirtualGpu@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@EEEPEAX@Z @ 0x1C036B9E0 (-CreateVirtualGpu@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@EEEPEAX@Z.c)
+ * Callees:
+ *     McTemplateK0ppq_EtwWriteTransfer @ 0x1C005A62C (McTemplateK0ppq_EtwWriteTransfer.c)
+ *     McTemplateK0ppxxqq_EtwWriteTransfer @ 0x1C005A6B0 (McTemplateK0ppxxqq_EtwWriteTransfer.c)
+ *     McTemplateK0pxppqq_EtwWriteTransfer @ 0x1C005A770 (McTemplateK0pxppqq_EtwWriteTransfer.c)
+ */
+
 void __fastcall DXGK_VIRTUAL_GPU::ReportState(DXGK_VIRTUAL_GPU *this, __int64 a2, __int64 a3)
 {
   unsigned int v3; // edi

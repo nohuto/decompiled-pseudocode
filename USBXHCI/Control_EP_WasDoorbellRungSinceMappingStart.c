@@ -1,3 +1,11 @@
+/*
+ * XREFs of Control_EP_WasDoorbellRungSinceMappingStart @ 0x1C0042570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall Control_EP_WasDoorbellRungSinceMappingStart(__int64 a1)
 {
   KSPIN_LOCK *v1; // rdi

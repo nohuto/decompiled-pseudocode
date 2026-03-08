@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpAddKeyHashToEntry @ 0x14074B194
+ * Callers:
+ *     CmpInsertKeyHash @ 0x140A147E0 (CmpInsertKeyHash.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpAddKeyHashToEntry(__int64 a1, __int64 a2, char a3)
 {
   __int64 v3; // r10

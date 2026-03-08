@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NlsHomeOrClearProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C021C460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NlsHomeOrClearProc(struct tagKE *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int16 v4; // ax

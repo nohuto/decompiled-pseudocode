@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtReadRequestData @ 0x1409756F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     LpcpCopyRequestData @ 0x14097523C (LpcpCopyRequestData.c)
+ */
+
 __int64 __fastcall NtReadRequestData(void *a1, unsigned __int64 a2, unsigned int a3, char *a4, SIZE_T a5, __int64 *a6)
 {
   struct _KTHREAD *CurrentThread; // rax

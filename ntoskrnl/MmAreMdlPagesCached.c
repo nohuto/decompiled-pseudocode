@@ -1,3 +1,11 @@
+/*
+ * XREFs of MmAreMdlPagesCached @ 0x1403D2040
+ * Callers:
+ *     ?StDmPageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x1405C4B6C (-StDmPageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAU_S.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MmAreMdlPagesCached(_DWORD *a1)
 {
   __int64 *v1; // r8

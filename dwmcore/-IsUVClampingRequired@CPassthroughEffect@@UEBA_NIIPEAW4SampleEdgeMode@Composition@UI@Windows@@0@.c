@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsUVClampingRequired@CPassthroughEffect@@UEBA_NIIPEAW4SampleEdgeMode@Composition@UI@Windows@@0@Z @ 0x180101080
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CPassthroughEffect::IsUVClampingRequired(
         CPassthroughEffect *this,
         __int64 a2,

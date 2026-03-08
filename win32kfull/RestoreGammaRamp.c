@@ -1,3 +1,11 @@
+/*
+ * XREFs of RestoreGammaRamp @ 0x1C00EAA70
+ * Callers:
+ *     xxxSwitchDesktopWithFade @ 0x1C00EA72C (xxxSwitchDesktopWithFade.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall RestoreGammaRamp(unsigned int *a1)
 {
   unsigned int i; // edi

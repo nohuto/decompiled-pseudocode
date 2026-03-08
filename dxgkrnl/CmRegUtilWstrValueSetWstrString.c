@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmRegUtilWstrValueSetWstrString @ 0x1C0393E90
+ * Callers:
+ *     PpRegStateReadCreateClassCreationSettings @ 0x1C0393598 (PpRegStateReadCreateClassCreationSettings.c)
+ * Callees:
+ *     WdmlibRtlInitUnicodeStringEx @ 0x1C005D324 (WdmlibRtlInitUnicodeStringEx.c)
+ *     CmRegUtilUcValueSetUcString @ 0x1C0393CE4 (CmRegUtilUcValueSetUcString.c)
+ */
+
 NTSTATUS __fastcall CmRegUtilWstrValueSetWstrString(__int64 a1, __int64 a2, const WCHAR *a3)
 {
   NTSTATUS result; // eax

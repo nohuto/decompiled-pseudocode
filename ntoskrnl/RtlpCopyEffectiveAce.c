@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpCopyEffectiveAce @ 0x1407BB1F0
+ * Callers:
+ *     RtlpGenerateInheritedAce @ 0x140699FA0 (RtlpGenerateInheritedAce.c)
+ *     RtlpCopyAces @ 0x1407BBF30 (RtlpCopyAces.c)
+ * Callees:
+ *     RtlLengthSid @ 0x140245EC0 (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlEqualPrefixSid @ 0x1407943FC (RtlEqualPrefixSid.c)
+ */
+
 char __fastcall RtlpCopyEffectiveAce(
         char *Src,
         char a2,

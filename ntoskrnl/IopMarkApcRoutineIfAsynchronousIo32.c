@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopMarkApcRoutineIfAsynchronousIo32 @ 0x14023EE94
+ * Callers:
+ *     NtLockFile @ 0x1406B1EB0 (NtLockFile.c)
+ *     BuildQueryDirectoryIrp @ 0x1406B22C0 (BuildQueryDirectoryIrp.c)
+ *     NtNotifyChangeDirectoryFileEx @ 0x14077B8F0 (NtNotifyChangeDirectoryFileEx.c)
+ *     NtReadFileScatter @ 0x140798190 (NtReadFileScatter.c)
+ *     NtWriteFileGather @ 0x140799670 (NtWriteFileGather.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall IopMarkApcRoutineIfAsynchronousIo32(unsigned int **a1, __int64 *a2, char a3)
 {
   unsigned __int64 result; // rax

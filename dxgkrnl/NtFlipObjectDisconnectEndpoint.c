@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtFlipObjectDisconnectEndpoint @ 0x1C00802C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DisconnectEndpoint@FlipManagerObject@@QEAAJ_N@Z @ 0x1C007F368 (-DisconnectEndpoint@FlipManagerObject@@QEAAJ_N@Z.c)
+ *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C00817F8 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ */
+
 __int64 __fastcall NtFlipObjectDisconnectEndpoint(void *a1, int a2)
 {
   int v4; // ebx

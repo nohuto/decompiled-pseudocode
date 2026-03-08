@@ -1,3 +1,22 @@
+/*
+ * XREFs of NVMeControllerRemove @ 0x1C000E18C
+ * Callers:
+ *     NVMeHwAdapterControl @ 0x1C0003050 (NVMeHwAdapterControl.c)
+ * Callees:
+ *     NVMeControllerDeleteLocalCommandPool @ 0x1C0003484 (NVMeControllerDeleteLocalCommandPool.c)
+ *     Feature_Servicing_Huawei22H2BluescreenAfterSleep__private_IsEnabledDeviceUsage @ 0x1C000361C (Feature_Servicing_Huawei22H2BluescreenAfterSleep__private_IsEnabledDeviceUsage.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ *     AdminQueuesFreeResources @ 0x1C000941C (AdminQueuesFreeResources.c)
+ *     FreeMsiInfo @ 0x1C0009978 (FreeMsiInfo.c)
+ *     FreeProcessorGroupInfo @ 0x1C00099EC (FreeProcessorGroupInfo.c)
+ *     FreeProcessorInfo @ 0x1C0009A38 (FreeProcessorInfo.c)
+ *     IoQueuesFreeResources @ 0x1C000ADC4 (IoQueuesFreeResources.c)
+ *     NVMeDisableThrottling @ 0x1C000EC7C (NVMeDisableThrottling.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ *     NVMeFreeHostMemoryBuffer @ 0x1C000EE60 (NVMeFreeHostMemoryBuffer.c)
+ *     NVMePowerCleanUp @ 0x1C000FC34 (NVMePowerCleanUp.c)
+ */
+
 char __fastcall NVMeControllerRemove(__int64 a1)
 {
   __int64 v1; // rbp

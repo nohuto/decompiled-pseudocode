@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Thunk_Update2DVisualTransform_128@?$IManipulation_Receive@VCManipulationManager@@@@SAJPEAXPEAPEAX@Z @ 0x18019EED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall IManipulation_Receive<CManipulationManager>::Thunk_Update2DVisualTransform_128(
         __int64 a1,
         __int64 ***a2)

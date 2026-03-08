@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiFinalizeDriverCfgState @ 0x140794094
+ * Callers:
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ * Callees:
+ *     MiProcessKernelCfgImage @ 0x1402FCCC4 (MiProcessKernelCfgImage.c)
+ *     MiCompleteSecureDriverLoad @ 0x140880F78 (MiCompleteSecureDriverLoad.c)
+ */
+
 __int64 __fastcall MiFinalizeDriverCfgState(__int64 a1, char a2, __int64 a3)
 {
   __int64 result; // rax

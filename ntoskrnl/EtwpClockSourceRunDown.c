@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpClockSourceRunDown @ 0x1409EBC38
+ * Callers:
+ *     EtwpKernelTraceRundown @ 0x14080D9F8 (EtwpKernelTraceRundown.c)
+ * Callees:
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KeGetDynamicTickDisableReason @ 0x14056D328 (KeGetDynamicTickDisableReason.c)
+ */
+
 void __fastcall EtwpClockSourceRunDown(__int64 a1, char a2)
 {
   unsigned __int8 DynamicTickDisableReason; // al

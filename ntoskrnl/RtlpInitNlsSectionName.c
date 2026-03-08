@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpInitNlsSectionName @ 0x14069EBAC
+ * Callers:
+ *     NtGetNlsSectionPtr @ 0x14069E7D0 (NtGetNlsSectionPtr.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ */
+
 NTSTATUS __fastcall RtlpInitNlsSectionName(
         int a1,
         unsigned int a2,

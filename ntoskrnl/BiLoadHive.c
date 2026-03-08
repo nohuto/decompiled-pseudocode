@@ -1,3 +1,21 @@
+/*
+ * XREFs of BiLoadHive @ 0x1408306AC
+ * Callers:
+ *     BiAddStoreFromFile @ 0x14082BDE4 (BiAddStoreFromFile.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwLoadKey @ 0x1404144D0 (ZwLoadKey.c)
+ *     ZwLoadKey2 @ 0x1404144F0 (ZwLoadKey2.c)
+ *     ZwUnloadKey @ 0x140415DF0 (ZwUnloadKey.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiAcquirePrivilege @ 0x14082F784 (BiAcquirePrivilege.c)
+ *     BiReleasePrivilege @ 0x14082F810 (BiReleasePrivilege.c)
+ *     BiOpenKeyNonBcd @ 0x1408310F8 (BiOpenKeyNonBcd.c)
+ *     BiDoesHiveExist @ 0x140831414 (BiDoesHiveExist.c)
+ */
+
 __int64 __fastcall BiLoadHive(PCWSTR SourceString, __int64 a2, HANDLE *a3)
 {
   unsigned int i; // esi

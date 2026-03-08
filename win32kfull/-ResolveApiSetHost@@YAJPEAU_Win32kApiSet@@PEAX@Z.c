@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ResolveApiSetHost@@YAJPEAU_Win32kApiSet@@PEAX@Z @ 0x1C00E2644
+ * Callers:
+ *     InitializeWin32kCall @ 0x1C00E255C (InitializeWin32kCall.c)
+ * Callees:
+ *     ?ResolveApiSetFunction@@YAJPEAU_Win32kApiSetFunction@@PEAD1HPEAX@Z @ 0x1C00E2728 (-ResolveApiSetFunction@@YAJPEAU_Win32kApiSetFunction@@PEAD1HPEAX@Z.c)
+ *     ApiSetResolveToHost @ 0x1C00E27BC (ApiSetResolveToHost.c)
+ *     ?LoadApiSetHost@@YAJPEAU_Win32kApiSetHost@@PEAU_UNICODE_STRING@@@Z @ 0x1C00E29A4 (-LoadApiSetHost@@YAJPEAU_Win32kApiSetHost@@PEAU_UNICODE_STRING@@@Z.c)
+ */
+
 __int64 __fastcall ResolveApiSetHost(struct _Win32kApiSet *a1, void *a2)
 {
   int v2; // edi

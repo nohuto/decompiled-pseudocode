@@ -1,3 +1,13 @@
+/*
+ * XREFs of WbSetWowTrapFrame @ 0x140A4AFE0
+ * Callers:
+ *     WbSetTrapFrame @ 0x1406AF9A4 (WbSetTrapFrame.c)
+ * Callees:
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     PspWow64GetContextThread @ 0x14077BF00 (PspWow64GetContextThread.c)
+ *     PspWow64SetContextThread @ 0x14077C1CC (PspWow64SetContextThread.c)
+ */
+
 __int64 __fastcall WbSetWowTrapFrame(unsigned int *a1, unsigned int *a2)
 {
   _KPROCESS *Process; // rcx

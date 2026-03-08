@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExpConvertFastResourceExclusiveToShared @ 0x1403C5DA8
+ * Callers:
+ *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x1403C50F0 (ExpFastResourceLegacyConvertExclusiveToShared.c)
+ *     ExConvertFastResourceExclusiveToShared @ 0x140607790 (ExConvertFastResourceExclusiveToShared.c)
+ * Callees:
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeWakeWaitChain @ 0x14033AF30 (KeWakeWaitChain.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExpConvertFastResourceExclusiveToShared(__int64 a1, __int64 a2)
 {
   unsigned __int8 CurrentIrql; // bl

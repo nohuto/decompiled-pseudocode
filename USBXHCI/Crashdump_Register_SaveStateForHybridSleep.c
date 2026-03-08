@@ -1,3 +1,11 @@
+/*
+ * XREFs of Crashdump_Register_SaveStateForHybridSleep @ 0x1C004DE3C
+ * Callers:
+ *     Crashdump_Cleanup @ 0x1C004BE10 (Crashdump_Cleanup.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Crashdump_Register_SaveStateForHybridSleep(__int64 a1)
 {
   _DWORD *v1; // rdi

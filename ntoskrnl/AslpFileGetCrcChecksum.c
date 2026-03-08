@@ -1,3 +1,12 @@
+/*
+ * XREFs of AslpFileGetCrcChecksum @ 0x140A556A4
+ * Callers:
+ *     AslpFileGetChecksumAttributes @ 0x140A55198 (AslpFileGetChecksumAttributes.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslComputeCrc32 @ 0x140A513EC (AslComputeCrc32.c)
+ */
+
 __int64 __fastcall AslpFileGetCrcChecksum(_DWORD *a1, __int64 a2)
 {
   int v3; // ecx

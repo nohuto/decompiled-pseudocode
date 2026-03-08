@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?GreGetBitmapSizeInternal@@YAKPEBUtagBITMAPINFO@@KI@Z @ 0x1C00CE804
+ * Callers:
+ *     NtGdiSetDIBitsToDeviceInternal @ 0x1C008D600 (NtGdiSetDIBitsToDeviceInternal.c)
+ *     ?bCaptureBitmapInfo@@YAHPEAUtagBITMAPINFO@@KIPEAPEAU1@@Z @ 0x1C008FA28 (-bCaptureBitmapInfo@@YAHPEAUtagBITMAPINFO@@KIPEAPEAU1@@Z.c)
+ *     NtGdiCreateDIBitmapInternal @ 0x1C008FD90 (NtGdiCreateDIBitmapInternal.c)
+ *     ?xxxDIBtoBMP@@YAPEAUHBITMAP__@@PEAUtagBITMAPINFOHEADER@@PEAUHPALETTE__@@K@Z @ 0x1C01FF654 (-xxxDIBtoBMP@@YAPEAUHBITMAP__@@PEAUtagBITMAPINFOHEADER@@PEAUHPALETTE__@@K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GreGetBitmapSizeInternal(const struct tagBITMAPINFO *a1, int a2, unsigned int a3)
 {
   int v4; // edi

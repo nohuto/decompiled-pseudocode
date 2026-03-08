@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBDTX_GetConfigDescriptorWithDefaultSizeUsingControlTransfer @ 0x1C002A9A4
+ * Callers:
+ *     HUBDSM_GettingConfigDescriptorWhileRenuemrating @ 0x1C00212F0 (HUBDSM_GettingConfigDescriptorWhileRenuemrating.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBDTX_GetDescriptor @ 0x1C002A598 (HUBDTX_GetDescriptor.c)
+ */
+
 __int64 __fastcall HUBDTX_GetConfigDescriptorWithDefaultSizeUsingControlTransfer(_QWORD *a1)
 {
   void *v2; // rcx

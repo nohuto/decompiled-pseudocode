@@ -1,3 +1,13 @@
+/*
+ * XREFs of NVMeLogTelemetryWaitForCmdComplete @ 0x1C001FED4
+ * Callers:
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     NVMeLogTelemetry @ 0x1C0008A04 (NVMeLogTelemetry.c)
+ *     GetLunExtension @ 0x1C001B754 (GetLunExtension.c)
+ */
+
 __int64 __fastcall NVMeLogTelemetryWaitForCmdComplete(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
   __int64 v5; // rbp

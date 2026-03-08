@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpMuiRegCreateLanguages @ 0x1408440DC
+ * Callers:
+ *     _RtlpMuiRegLoadInstalled @ 0x140844000 (_RtlpMuiRegLoadInstalled.c)
+ * Callees:
+ *     _SafeAllocBlob @ 0x14039C924 (_SafeAllocBlob.c)
+ */
+
 __int64 RtlpMuiRegCreateLanguages()
 {
   __int64 result; // rax

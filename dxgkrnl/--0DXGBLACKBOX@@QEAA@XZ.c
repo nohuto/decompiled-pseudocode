@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0DXGBLACKBOX@@QEAA@XZ @ 0x1C02086A0
+ * Callers:
+ *     ??0DXGGLOBAL@@AEAA@XZ @ 0x1C0207C44 (--0DXGGLOBAL@@AEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 DXGBLACKBOX *__fastcall DXGBLACKBOX::DXGBLACKBOX(DXGBLACKBOX *this)
 {
   *((_QWORD *)this + 2) = 0LL;

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C0127334
+ * Callers:
+ *     GreMultiUserSetDisplayDriverName @ 0x1C0127298 (GreMultiUserSetDisplayDriverName.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall StringCchCopyNW(char *a1, __int64 a2, char *a3, unsigned __int64 a4)
 {
   __int64 v4; // r10

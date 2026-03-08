@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiStartReadyQueueEnumeratorForRescheduleContext @ 0x140261010
+ * Callers:
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x140227C10 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiExecuteAllDpcs @ 0x140252F60 (KiExecuteAllDpcs.c)
+ *     KeYieldExecution @ 0x140256BE0 (KeYieldExecution.c)
+ *     KiSearchForNewThread @ 0x140260460 (KiSearchForNewThread.c)
+ * Callees:
+ *     KiIsThreadConstrainedBySchedulingGroup @ 0x1402280CC (KiIsThreadConstrainedBySchedulingGroup.c)
+ *     KiShouldPreemptionBeDeferred @ 0x1402ADF34 (KiShouldPreemptionBeDeferred.c)
+ *     KiCheckForMaxOverQuotaScb @ 0x140342A68 (KiCheckForMaxOverQuotaScb.c)
+ */
+
 __int64 __fastcall KiStartReadyQueueEnumeratorForRescheduleContext(__int64 a1, unsigned __int8 *a2)
 {
   unsigned int v2; // ebx

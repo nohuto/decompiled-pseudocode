@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Create@UmfdTls@@CAPEAV1@XZ @ 0x1C00BC724
+ * Callers:
+ *     ?UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00BB490 (-UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ *     ?EnsureTls@UmfdTls@@SAPEAV1@XZ @ 0x1C00BBD4C (-EnsureTls@UmfdTls@@SAPEAV1@XZ.c)
+ * Callees:
+ *     ?Create@UmfdUMBuffer@@SAPEAV1@XZ @ 0x1C00BC784 (-Create@UmfdUMBuffer@@SAPEAV1@XZ.c)
+ *     ?Destroy@UmfdTls@@CAXPEAV1@@Z @ 0x1C00BCAB0 (-Destroy@UmfdTls@@CAXPEAV1@@Z.c)
+ */
+
 struct UmfdTls *UmfdTls::Create(void)
 {
   _OWORD *v0; // rbx

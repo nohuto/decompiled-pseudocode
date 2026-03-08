@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?xxxMoveFocusAway@@YAXPEBUtagWND@@@Z @ 0x1C0027B98
+ * Callers:
+ *     xxxDW_SendDestroyMessages @ 0x1C0027A4C (xxxDW_SendDestroyMessages.c)
+ *     ?xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z @ 0x1C002AE4C (-xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z.c)
+ * Callees:
+ *     zzzDestroyCaret @ 0x1C0005EAC (zzzDestroyCaret.c)
+ *     ?xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C009A3E0 (-xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z.c)
+ */
+
 void __fastcall xxxMoveFocusAway(const struct tagWND *a1)
 {
   __int64 v2; // rax

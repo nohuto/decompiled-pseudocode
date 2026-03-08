@@ -1,3 +1,21 @@
+/*
+ * XREFs of DumpObject @ 0x1C0051E98
+ * Callers:
+ *     RunMethodCallBack @ 0x1C004E5F0 (RunMethodCallBack.c)
+ *     DumpObject @ 0x1C0051E98 (DumpObject.c)
+ *     WriteObject @ 0x1C00532A0 (WriteObject.c)
+ *     ProcessEvalObj @ 0x1C0054C60 (ProcessEvalObj.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     RtlStringCchCopyNA @ 0x1C002BADC (RtlStringCchCopyNA.c)
+ *     GetObjectPath @ 0x1C004BB70 (GetObjectPath.c)
+ *     GetObjectTypeName @ 0x1C004BD50 (GetObjectTypeName.c)
+ *     GetRegionSpaceName @ 0x1C004BD9C (GetRegionSpaceName.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     PrintBuffData @ 0x1C004E408 (PrintBuffData.c)
+ *     DumpObject @ 0x1C0051E98 (DumpObject.c)
+ */
+
 ULONG __fastcall DumpObject(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v3; // rdi

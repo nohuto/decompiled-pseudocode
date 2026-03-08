@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiPdoSetMonitorDriverInterfaceStateWorker @ 0x1C03A58E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DpiPdoSetMonitorDriverInterfaceStateWorker(PVOID IoObject, PVOID Context, PIO_WORKITEM IoWorkItem)
 {
   PDEVICE_OBJECT *v4; // rbx

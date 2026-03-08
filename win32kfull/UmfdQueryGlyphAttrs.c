@@ -1,3 +1,14 @@
+/*
+ * XREFs of UmfdQueryGlyphAttrs @ 0x1C0308090
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FONTOBJ_GetCachedGlyphAttrs @ 0x1C00EB9D4 (FONTOBJ_GetCachedGlyphAttrs.c)
+ *     ??0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z @ 0x1C011E760 (--0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z.c)
+ *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C011ED74 (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
+ *     FONTOBJ_SetCachedGlyphAttrs @ 0x1C02B9CE8 (FONTOBJ_SetCachedGlyphAttrs.c)
+ */
+
 __int64 __fastcall UmfdQueryGlyphAttrs(__int64 a1, unsigned int a2)
 {
   __int64 result; // rax

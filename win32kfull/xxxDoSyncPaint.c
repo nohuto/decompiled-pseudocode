@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxxDoSyncPaint @ 0x1C00FDA04
+ * Callers:
+ *     xxxInternalInvalidate @ 0x1C0053270 (xxxInternalInvalidate.c)
+ *     xxxEndDeferWindowPosEx @ 0x1C00698F0 (xxxEndDeferWindowPosEx.c)
+ * Callees:
+ *     ?DoQueuedSyncPaint@@YAXPEAUtagWND@@KPEAUtagTHREADINFO@@@Z @ 0x1C00FDA70 (-DoQueuedSyncPaint@@YAXPEAUtagWND@@KPEAUtagTHREADINFO@@@Z.c)
+ *     xxxInternalDoSyncPaint @ 0x1C00FDB80 (xxxInternalDoSyncPaint.c)
+ */
+
 __int64 __fastcall xxxDoSyncPaint(struct tagWND *a1, unsigned int a2)
 {
   __int64 i; // r8

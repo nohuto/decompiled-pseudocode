@@ -1,3 +1,11 @@
+/*
+ * XREFs of ivrFindImageProcAddress @ 0x1C022209C
+ * Callers:
+ *     ?ivrInitAllwin32knsDelayLoads@@YAXPEAX@Z @ 0x1C022102C (-ivrInitAllwin32knsDelayLoads@@YAXPEAX@Z.c)
+ * Callees:
+ *     strncmp @ 0x1C00DADE0 (strncmp.c)
+ */
+
 __int64 __fastcall ivrFindImageProcAddress(__int64 a1, const char *a2)
 {
   _DWORD *v2; // r8

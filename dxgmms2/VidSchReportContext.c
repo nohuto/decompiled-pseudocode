@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchReportContext @ 0x1C0108460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C002EF9C (McTemplateK0pqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall VidSchReportContext(__int64 a1)
 {
   __int64 v1; // rcx

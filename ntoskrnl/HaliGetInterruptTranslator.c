@@ -1,3 +1,11 @@
+/*
+ * XREFs of HaliGetInterruptTranslator @ 0x1408605F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HaliGetInterruptTranslator(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, __int64 a6)
 {
   if ( a3 != 1 && a3 != -1 && a3 != 2 )

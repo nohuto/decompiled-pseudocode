@@ -1,3 +1,15 @@
+/*
+ * XREFs of PspAddProcessToWorkingSetChangeList @ 0x1409AEE48
+ * Callers:
+ *     NtSetInformationJobObject @ 0x1406FC3C0 (NtSetInformationJobObject.c)
+ *     PspSetJobLimitsProcessCallback @ 0x1409AFC30 (PspSetJobLimitsProcessCallback.c)
+ * Callees:
+ *     ObReferenceObjectSafeWithTag @ 0x14022BD30 (ObReferenceObjectSafeWithTag.c)
+ *     MmEnforceWorkingSetLimit @ 0x140294980 (MmEnforceWorkingSetLimit.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 char __fastcall PspAddProcessToWorkingSetChangeList(struct _KPROCESS *Object, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 Pool2; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of VfThunkApplyThunksCurrentSession @ 0x140AD83AC
+ * Callers:
+ *     VfSuspectDriversLoadCallback @ 0x140AD7704 (VfSuspectDriversLoadCallback.c)
+ * Callees:
+ *     VfTargetDriversGetNode @ 0x140303628 (VfTargetDriversGetNode.c)
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     ViIsDriverSuspectForVerifier @ 0x140ABFB4C (ViIsDriverSuspectForVerifier.c)
+ *     ViThunkReplaceAllSharedExports @ 0x140AD8E64 (ViThunkReplaceAllSharedExports.c)
+ *     ViThunkReplaceAllThunkedImports @ 0x140AD8EC8 (ViThunkReplaceAllThunkedImports.c)
+ */
+
 __int64 __fastcall VfThunkApplyThunksCurrentSession(__int64 a1)
 {
   __int64 v1; // rsi

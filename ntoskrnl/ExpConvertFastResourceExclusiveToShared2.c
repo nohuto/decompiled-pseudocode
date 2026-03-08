@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExpConvertFastResourceExclusiveToShared2 @ 0x14040FE4C
+ * Callers:
+ *     ExConvertFastResourceExclusiveToShared2 @ 0x14040DE60 (ExConvertFastResourceExclusiveToShared2.c)
+ *     ExpFastResourceLegacyConvertExclusiveToShared2 @ 0x140410128 (ExpFastResourceLegacyConvertExclusiveToShared2.c)
+ * Callees:
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402916B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeWakeWaitChain @ 0x14033AF30 (KeWakeWaitChain.c)
+ *     ExpAddFastOwnerEntryToThreadList2 @ 0x14040FD90 (ExpAddFastOwnerEntryToThreadList2.c)
+ *     ExpRemoveEntryListAndClear2 @ 0x14041128C (ExpRemoveEntryListAndClear2.c)
+ *     ExpUpdateLockWordForRelease @ 0x1404112C0 (ExpUpdateLockWordForRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExpConvertFastResourceExclusiveToShared2(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rbp

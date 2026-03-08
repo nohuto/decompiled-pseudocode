@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIIsSystemStartOptionPresent @ 0x1C00A9564
+ * Callers:
+ *     ACPIInitGetPlatformOverrides @ 0x1C00A87E8 (ACPIInitGetPlatformOverrides.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall ACPIIsSystemStartOptionPresent(const wchar_t *a1)
 {
   char v2; // bl

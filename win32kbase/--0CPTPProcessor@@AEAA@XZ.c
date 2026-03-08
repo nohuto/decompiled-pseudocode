@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CPTPProcessor@@AEAA@XZ @ 0x1C020CBAC
+ * Callers:
+ *     ?AddProcessor@CPTPProcessorFactory@@SAJPEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C020CD14 (-AddProcessor@CPTPProcessorFactory@@SAJPEAUtagHID_POINTER_DEVICE_INFO@@@Z.c)
+ * Callees:
+ *     ??0CTouchProcessor@@QEAA@XZ @ 0x1C0097188 (--0CTouchProcessor@@QEAA@XZ.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 CPTPProcessor *__fastcall CPTPProcessor::CPTPProcessor(CPTPProcessor *this)
 {
   __int64 v2; // rdx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of DpiPdoRemovePdoObjects @ 0x1C03A5670
+ * Callers:
+ *     DpiFdoCreateRelatedObjects @ 0x1C0202548 (DpiFdoCreateRelatedObjects.c)
+ *     DpiFdoDestroyRelatedObjects @ 0x1C0396844 (DpiFdoDestroyRelatedObjects.c)
+ * Callees:
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C0180684 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C0180B30 (DpiAcquireCoreSyncAccessSafe.c)
+ *     DpiPdoDestroyPendingPdoObjects @ 0x1C03A4D90 (DpiPdoDestroyPendingPdoObjects.c)
+ *     DpiPdoRemovePdo @ 0x1C03A53EC (DpiPdoRemovePdo.c)
+ */
+
 __int64 __fastcall DpiPdoRemovePdoObjects(__int64 a1, char a2, union _LARGE_INTEGER *a3)
 {
   __int64 v3; // rbx

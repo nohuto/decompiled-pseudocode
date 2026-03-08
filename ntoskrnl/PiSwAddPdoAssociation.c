@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiSwAddPdoAssociation @ 0x1408471B8
+ * Callers:
+ *     PiSwGetChildPdo @ 0x140846F50 (PiSwGetChildPdo.c)
+ * Callees:
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PiSwAddPdoAssociation(__int64 a1, void *a2, void *a3)
 {
   unsigned int v6; // edi

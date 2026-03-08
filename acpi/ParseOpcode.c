@@ -1,3 +1,24 @@
+/*
+ * XREFs of ParseOpcode @ 0x1C005BD40
+ * Callers:
+ *     ParsePackage @ 0x1C0058160 (ParsePackage.c)
+ *     ParseArg @ 0x1C005A46C (ParseArg.c)
+ *     ParseScope @ 0x1C005C220 (ParseScope.c)
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     FindOpcodeTerm @ 0x1C004B404 (FindOpcodeTerm.c)
+ *     AMLIDebugger @ 0x1C004D630 (AMLIDebugger.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     PushTerm @ 0x1C0053E18 (PushTerm.c)
+ *     ParseArgObj @ 0x1C005A5E0 (ParseArgObj.c)
+ *     ParseIntObj @ 0x1C005B3A0 (ParseIntObj.c)
+ *     ParseLocalObj @ 0x1C005B7EC (ParseLocalObj.c)
+ *     ParseNameObj @ 0x1C005B96C (ParseNameObj.c)
+ *     ParseString @ 0x1C005C440 (ParseString.c)
+ */
+
 __int64 __fastcall ParseOpcode(__int64 a1, __int64 a2, __int64 a3)
 {
   const void **v3; // rsi

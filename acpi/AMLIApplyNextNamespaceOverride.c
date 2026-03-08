@@ -1,3 +1,16 @@
+/*
+ * XREFs of AMLIApplyNextNamespaceOverride @ 0x1C004A71C
+ * Callers:
+ *     AMLIApplyNamespaceOverride @ 0x1C004A6B0 (AMLIApplyNamespaceOverride.c)
+ *     AMLIApplyNextNamespaceOverride @ 0x1C004A71C (AMLIApplyNextNamespaceOverride.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     AMLIApplyNextNamespaceOverride @ 0x1C004A71C (AMLIApplyNextNamespaceOverride.c)
+ *     CreateNameSpaceObject @ 0x1C004F10C (CreateNameSpaceObject.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     GetNameSpaceObject @ 0x1C004F728 (GetNameSpaceObject.c)
+ */
+
 __int64 __fastcall AMLIApplyNextNamespaceOverride(__int64 a1, __int64 a2)
 {
   __int64 *v2; // rsi

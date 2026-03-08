@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CGlobalInputManager@@UEAA@XZ @ 0x18027FCCC
+ * Callers:
+ *     ??_ECGlobalInputManager@@UEAAPEAXI@Z @ 0x18027FD20 (--_ECGlobalInputManager@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??_GCKst@@QEAAPEAXI@Z @ 0x18027FD6C (--_GCKst@@QEAAPEAXI@Z.c)
+ *     ?Stop@CKstBase@@QEAAXXZ @ 0x1802824E0 (-Stop@CKstBase@@QEAAXXZ.c)
+ */
+
 void __fastcall CGlobalInputManager::~CGlobalInputManager(CGlobalInputManager *this)
 {
   CKstBase *v2; // rcx

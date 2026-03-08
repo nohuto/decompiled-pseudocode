@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserSetWindowRgnEx @ 0x1C01DE310
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SelectWindowRgn @ 0x1C00275FC (SelectWindowRgn.c)
+ *     MirrorRegion @ 0x1C002779C (MirrorRegion.c)
+ *     xxxSetWindowRgn @ 0x1C0028E44 (xxxSetWindowRgn.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserSetWindowRgnEx(__int64 a1, __int64 a2, char a3)
 {
   unsigned int v5; // edi

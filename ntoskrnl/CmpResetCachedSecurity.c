@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpResetCachedSecurity @ 0x14067D510
+ * Callers:
+ *     CmpValidateHiveSecurityDescriptors @ 0x14071C9C4 (CmpValidateHiveSecurityDescriptors.c)
+ * Callees:
+ *     CmpFindSecurityCellCacheIndex @ 0x14030DD50 (CmpFindSecurityCellCacheIndex.c)
+ */
+
 __int64 __fastcall CmpResetCachedSecurity(__int64 a1, int a2)
 {
   unsigned int v4; // [rsp+40h] [rbp+18h] BYREF

@@ -1,3 +1,26 @@
+/*
+ * XREFs of CreateOrGetRedirectionBitmap @ 0x1C002B8C8
+ * Callers:
+ *     SetRedirectedWindow @ 0x1C002BE1C (SetRedirectedWindow.c)
+ *     zzzDwmStartRedirection @ 0x1C007CEC8 (zzzDwmStartRedirection.c)
+ *     RecreateRedirectionBitmap @ 0x1C0096A48 (RecreateRedirectionBitmap.c)
+ * Callees:
+ *     GreGetDxSharedSurface @ 0x1C000A248 (GreGetDxSharedSurface.c)
+ *     GreSetRedirection @ 0x1C0021DE4 (GreSetRedirection.c)
+ *     IsDesktopWindow @ 0x1C002C460 (IsDesktopWindow.c)
+ *     IsWindowContentProtected @ 0x1C002E710 (IsWindowContentProtected.c)
+ *     _GetTopLevelWindow @ 0x1C0035AF0 (_GetTopLevelWindow.c)
+ *     GreDereferenceObject @ 0x1C00447CC (GreDereferenceObject.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C007BB00 (GreCreateCompatibleBitmapInternal.c)
+ *     DesktopFromDesktopWindow @ 0x1C00BF0C8 (DesktopFromDesktopWindow.c)
+ *     GreReferenceObject @ 0x1C00D7C78 (GreReferenceObject.c)
+ *     GreSetBitmapContentOwner @ 0x1C00DFBB4 (GreSetBitmapContentOwner.c)
+ *     GetWindowMonitorAdapterLuid @ 0x1C00E98A4 (GetWindowMonitorAdapterLuid.c)
+ *     GreGetSpriteAttributes @ 0x1C010CF4C (GreGetSpriteAttributes.c)
+ */
+
 __int64 __fastcall CreateOrGetRedirectionBitmap(__int64 a1, int a2, int a3, __int64 *a4)
 {
   __int64 v4; // r13

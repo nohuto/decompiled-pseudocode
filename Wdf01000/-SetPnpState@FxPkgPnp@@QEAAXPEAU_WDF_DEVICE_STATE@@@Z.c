@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetPnpState@FxPkgPnp@@QEAAXPEAU_WDF_DEVICE_STATE@@@Z @ 0x1C0075D68
+ * Callers:
+ *     imp_WdfDeviceSetDeviceState @ 0x1C0033370 (imp_WdfDeviceSetDeviceState.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxPkgPnp::SetPnpState(FxPkgPnp *this, _WDF_DEVICE_STATE *State)
 {
   _WDF_TRI_STATE Disabled; // r9d

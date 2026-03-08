@@ -1,3 +1,16 @@
+/*
+ * XREFs of IommupDeviceGetPasidDevice @ 0x14050BC5C
+ * Callers:
+ *     IommuDomainAttachDeviceEx @ 0x1405234A0 (IommuDomainAttachDeviceEx.c)
+ *     IommuDomainDetachDeviceEx @ 0x1405238E0 (IommuDomainDetachDeviceEx.c)
+ *     IommupDeviceDisableSvm @ 0x140930CBC (IommupDeviceDisableSvm.c)
+ *     IommuDeviceDelete @ 0x140932530 (IommuDeviceDelete.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ */
+
 char __fastcall IommupDeviceGetPasidDevice(__int64 a1, __int64 a2, char a3, _QWORD *a4)
 {
   volatile signed __int64 *v4; // rsi

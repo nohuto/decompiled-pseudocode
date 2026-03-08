@@ -1,3 +1,14 @@
+/*
+ * XREFs of AdtpBuildIPv6Strings @ 0x140A57B80
+ * Callers:
+ *     AdtpBuildSockAddrString @ 0x140A5877C (AdtpBuildSockAddrString.c)
+ * Callees:
+ *     StringCchPrintfW @ 0x1402FAA78 (StringCchPrintfW.c)
+ *     RtlIpv6AddressToStringW @ 0x14039F060 (RtlIpv6AddressToStringW.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AdtpBuildIPv6Strings(__int64 a1, __int64 a2, _BYTE *a3, __int64 a4, _BYTE *a5)
 {
   unsigned int v9; // ebx

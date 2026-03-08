@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifPoFxUnregisterDeviceWrapper @ 0x1405E7CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     PoFxUnregisterDevice @ 0x140981B50 (PoFxUnregisterDevice.c)
+ */
+
 __int64 __fastcall DifPoFxUnregisterDeviceWrapper(__int64 a1)
 {
   __int64 *APIThunkContextById; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of BCryptImportKeyPair @ 0x1409C6084
+ * Callers:
+ *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x14055B7B4 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
+ * Callees:
+ *     ExGetExtensionTable @ 0x1402C57F0 (ExGetExtensionTable.c)
+ *     ExReleaseExtensionTable @ 0x1402C5820 (ExReleaseExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 NTSTATUS __stdcall BCryptImportKeyPair(
         BCRYPT_ALG_HANDLE hAlgorithm,
         BCRYPT_KEY_HANDLE hImportKey,

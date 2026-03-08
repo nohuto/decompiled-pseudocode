@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiClonePteReadonly @ 0x140660C44
+ * Callers:
+ *     MiWsleFlush @ 0x14032B4A0 (MiWsleFlush.c)
+ * Callees:
+ *     MiLocateCloneAddress @ 0x1402CF530 (MiLocateCloneAddress.c)
+ */
+
 _BOOL8 __fastcall MiClonePteReadonly(unsigned __int64 a1)
 {
   _KPROCESS *Process; // rcx

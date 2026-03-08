@@ -1,3 +1,23 @@
+/*
+ * XREFs of PiDmObjectUpdateCachedObjectProperty @ 0x1406D0A64
+ * Callers:
+ *     PiDmObjectUpdateCachedCmProperty @ 0x1406CE9F8 (PiDmObjectUpdateCachedCmProperty.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1406CFC70 (PiPnpRtlObjectActionCallback.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     PnpGetObjectProperty @ 0x1406CEE90 (PnpGetObjectProperty.c)
+ *     PiDmObjectRelease @ 0x1406D0328 (PiDmObjectRelease.c)
+ *     PiDmGetObject @ 0x1406D0370 (PiDmGetObject.c)
+ *     PiDmGetCacheKeys @ 0x1406D071C (PiDmGetCacheKeys.c)
+ *     PiDmGetCachedKeyIndex @ 0x1406D0770 (PiDmGetCachedKeyIndex.c)
+ *     PiDmCacheDataEncode @ 0x14077DC74 (PiDmCacheDataEncode.c)
+ *     PiDmCacheDataFree @ 0x14078C870 (PiDmCacheDataFree.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PiDmObjectUpdateCachedObjectProperty(
         unsigned int a1,
         __int64 a2,

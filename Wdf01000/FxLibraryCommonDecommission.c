@@ -1,3 +1,12 @@
+/*
+ * XREFs of FxLibraryCommonDecommission @ 0x1C002C154
+ * Callers:
+ *     LibraryDecommission @ 0x1C0017680 (LibraryDecommission.c)
+ * Callees:
+ *     McGenEventUnregister_EtwUnregister @ 0x1C002CB2C (McGenEventUnregister_EtwUnregister.c)
+ *     UninitializeTelemetryAssertsKM @ 0x1C008729C (UninitializeTelemetryAssertsKM.c)
+ */
+
 __int64 __fastcall FxLibraryCommonDecommission()
 {
   REGHANDLE RegHandle; // rcx

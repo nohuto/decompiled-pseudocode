@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiAllocatePrcbThread @ 0x140371F98
+ * Callers:
+ *     KiAllocateDpcDelegateThread @ 0x140371F1C (KiAllocateDpcDelegateThread.c)
+ *     KiAllocateIdleThread @ 0x140A86300 (KiAllocateIdleThread.c)
+ * Callees:
+ *     RtlUnicodeStringCopy @ 0x1402B3164 (RtlUnicodeStringCopy.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObCreateObject @ 0x140709D30 (ObCreateObject.c)
+ *     KeInitThread @ 0x140A845D0 (KeInitThread.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall KiAllocatePrcbThread(
         _QWORD *a1,
         __int64 a2,

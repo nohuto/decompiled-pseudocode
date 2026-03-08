@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?QPCFromGPUTimestamp@DXGTRACKEDWORKLOAD@@IEAA_N_K00PEA_K@Z @ 0x1C0058EE0
+ * Callers:
+ *     ?ProcessActiveInstancePairs@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@_KPEA_K@Z @ 0x1C03599A0 (-ProcessActiveInstancePairs@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@_KPEA_.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DXGTRACKEDWORKLOAD::QPCFromGPUTimestamp(
         DXGTRACKEDWORKLOAD *this,
         unsigned __int64 a2,

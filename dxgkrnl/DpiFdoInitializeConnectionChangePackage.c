@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiFdoInitializeConnectionChangePackage @ 0x1C005EA28
+ * Callers:
+ *     DpiFdoHandleDisplayDetectControl @ 0x1C001BDEC (DpiFdoHandleDisplayDetectControl.c)
+ *     DpIndicateChildStatus @ 0x1C005D370 (DpIndicateChildStatus.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 _DWORD *__fastcall DpiFdoInitializeConnectionChangePackage(
         __int64 a1,
         int a2,

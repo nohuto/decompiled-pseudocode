@@ -1,3 +1,15 @@
+/*
+ * XREFs of VfMiscMmUnmapLockedPages_Entry @ 0x140ADD2B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsGetProcessExitProcessCalled @ 0x1402FAB80 (PsGetProcessExitProcessCalled.c)
+ *     ZwQueryVirtualMemory @ 0x140412770 (ZwQueryVirtualMemory.c)
+ *     VfUtilCheckRuleEnforcement @ 0x140ABF634 (VfUtilCheckRuleEnforcement.c)
+ *     ViTargetAddToCounter @ 0x140AC8994 (ViTargetAddToCounter.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 void __fastcall VfMiscMmUnmapLockedPages_Entry(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // al

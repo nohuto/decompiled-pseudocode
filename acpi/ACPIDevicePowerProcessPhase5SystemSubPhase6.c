@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIDevicePowerProcessPhase5SystemSubPhase6 @ 0x1C0021720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C000518C (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     WPP_RECORDER_SF_qqss @ 0x1C000A374 (WPP_RECORDER_SF_qqss.c)
+ *     ACPIDeviceCompletePhase3Common @ 0x1C001C4F4 (ACPIDeviceCompletePhase3Common.c)
+ */
+
 __int64 __fastcall ACPIDevicePowerProcessPhase5SystemSubPhase6(__int64 a1)
 {
   _QWORD *v1; // rbx

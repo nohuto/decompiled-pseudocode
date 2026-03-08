@@ -1,3 +1,16 @@
+/*
+ * XREFs of SetPrpFromBuffer @ 0x1C001B45C
+ * Callers:
+ *     BuildGetLogPageCommand @ 0x1C0010E14 (BuildGetLogPageCommand.c)
+ *     NVMeReservationReportStatus @ 0x1C0017528 (NVMeReservationReportStatus.c)
+ *     NVMeDirectiveIdentifyReturnParameters @ 0x1C001CCC0 (NVMeDirectiveIdentifyReturnParameters.c)
+ *     NVMeDirectiveStreamsGetStatus @ 0x1C001CEE4 (NVMeDirectiveStreamsGetStatus.c)
+ *     NVMeDirectiveStreamsReturnParameters @ 0x1C001D150 (NVMeDirectiveStreamsReturnParameters.c)
+ *     NVMeSyncHostTime @ 0x1C0024318 (NVMeSyncHostTime.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SetPrpFromBuffer(__int64 a1, _QWORD *a2, __int64 a3, unsigned int a4)
 {
   _QWORD *v4; // rbx

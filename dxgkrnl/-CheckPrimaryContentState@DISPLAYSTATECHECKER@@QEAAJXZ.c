@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CheckPrimaryContentState@DISPLAYSTATECHECKER@@QEAAJXZ @ 0x1C02F21A0
+ * Callers:
+ *     DxgkCheckDisplayState @ 0x1C02F49D0 (DxgkCheckDisplayState.c)
+ * Callees:
+ *     ?GetDisplayAdapterDiagData@DISPLAYSTATECHECKER@@AEAAPEAVDISPLAYDIAGNOSTICADAPTERDATA@@I@Z @ 0x1C0049800 (-GetDisplayAdapterDiagData@DISPLAYSTATECHECKER@@AEAAPEAVDISPLAYDIAGNOSTICADAPTERDATA@@I@Z.c)
+ *     ?CheckPrimaryContent@VIDPNSOURCEINFO@@QEAAJXZ @ 0x1C02F1F88 (-CheckPrimaryContent@VIDPNSOURCEINFO@@QEAAJXZ.c)
+ */
+
 __int64 __fastcall DISPLAYSTATECHECKER::CheckPrimaryContentState(DISPLAYSTATECHECKER *this)
 {
   unsigned int i; // ebx

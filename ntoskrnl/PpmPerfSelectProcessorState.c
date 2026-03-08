@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmPerfSelectProcessorState @ 0x140235830
+ * Callers:
+ *     PpmPerfSelectProcessorStates @ 0x140235BE0 (PpmPerfSelectProcessorStates.c)
+ * Callees:
+ *     PpmEventPerfSelectProcessorState @ 0x14023579C (PpmEventPerfSelectProcessorState.c)
+ *     PpmGetPerfPolicyClass @ 0x140235B9C (PpmGetPerfPolicyClass.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall PpmPerfSelectProcessorState(__int64 a1)
 {
   __int64 v1; // rdi

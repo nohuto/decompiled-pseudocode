@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?or_all_3_wide_rotated_no_last@@YAXJJJPEAE0J@Z @ 0x1C00D68B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall or_all_3_wide_rotated_no_last(int a1, char a2, int a3, unsigned __int8 *a4, unsigned __int8 *a5)
 {
   unsigned __int8 *v5; // r11

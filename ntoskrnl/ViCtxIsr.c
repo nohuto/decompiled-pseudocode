@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViCtxIsr @ 0x140AE1DA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ViCtxCaptureInitialIsrState @ 0x140AE1AB8 (ViCtxCaptureInitialIsrState.c)
+ *     ViCtxCheckAndReleaseIsrState @ 0x140AE1B58 (ViCtxCheckAndReleaseIsrState.c)
+ */
+
 char __fastcall ViCtxIsr(__int64 a1, __int64 a2, __int64 a3)
 {
   volatile signed __int32 *v5; // rsi

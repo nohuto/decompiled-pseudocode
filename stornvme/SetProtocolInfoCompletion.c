@@ -1,3 +1,13 @@
+/*
+ * XREFs of SetProtocolInfoCompletion @ 0x1C001B0B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     memmove @ 0x1C0004280 (memmove.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ */
+
 __int64 __fastcall SetProtocolInfoCompletion(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiSearchSdevTable @ 0x1C0094DF8
+ * Callers:
+ *     PnpBiosGetDeviceResourceList @ 0x1C008ED68 (PnpBiosGetDeviceResourceList.c)
+ *     AcpiIsDeviceSecure @ 0x1C0094C68 (AcpiIsDeviceSecure.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall AcpiSearchSdevTable(__int64 a1, const UNICODE_STRING *a2, _DWORD *a3)
 {
   __int64 v3; // rdi

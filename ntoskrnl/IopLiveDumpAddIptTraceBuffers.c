@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopLiveDumpAddIptTraceBuffers @ 0x140A96FB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     MmAddRangeToCrashDump @ 0x14062DD30 (MmAddRangeToCrashDump.c)
+ */
+
 __int64 __fastcall IopLiveDumpAddIptTraceBuffers(__int64 a1, __int64 a2)
 {
   unsigned int v3; // ebx

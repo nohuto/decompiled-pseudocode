@@ -1,3 +1,14 @@
+/*
+ * XREFs of IpmiHwpReadSpmiConfiguration @ 0x1406753FC
+ * Callers:
+ *     IpmiHwInitializeContext @ 0x1406751C8 (IpmiHwInitializeContext.c)
+ * Callees:
+ *     IpmiHwpParseSpmiTable @ 0x140675344 (IpmiHwpParseSpmiTable.c)
+ *     ExGetSystemFirmwareTable @ 0x14085CED0 (ExGetSystemFirmwareTable.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IpmiHwpReadSpmiConfiguration(__int64 a1)
 {
   void *Pool2; // rdi

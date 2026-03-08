@@ -1,3 +1,36 @@
+/*
+ * XREFs of xxxHandleMenuMessages @ 0x1C0216988
+ * Callers:
+ *     xxxMNLoop @ 0x1C021726C (xxxMNLoop.c)
+ *     xxxCallHandleMenuMessages @ 0x1C0219674 (xxxCallHandleMenuMessages.c)
+ * Callees:
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     ??1?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ @ 0x1C00A11DC (--1-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ.c)
+ *     PtInRect @ 0x1C00A34E8 (PtInRect.c)
+ *     ??4?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z @ 0x1C00E0FE0 (--4-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z.c)
+ *     xxxTranslateMessage @ 0x1C00E4F1C (xxxTranslateMessage.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z @ 0x1C00E67A8 (-Init@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     safe_cast_fnid_to_PMENUWND @ 0x1C012D8B8 (safe_cast_fnid_to_PMENUWND.c)
+ *     IsPointerPrimary @ 0x1C01C7C44 (IsPointerPrimary.c)
+ *     ?AdjustMouseCoordinates@@YAXPEAUtagWND@@PEA_J@Z @ 0x1C02166D0 (-AdjustMouseCoordinates@@YAXPEAUtagWND@@PEA_J@Z.c)
+ *     ?xxxMNRemoveMessage@@YAHII@Z @ 0x1C0216788 (-xxxMNRemoveMessage@@YAHII@Z.c)
+ *     GetMenuStateWindow @ 0x1C02192C4 (GetMenuStateWindow.c)
+ *     IsMFMWFPWindow @ 0x1C02192F8 (IsMFMWFPWindow.c)
+ *     LockMFMWFPWindow @ 0x1C021931C (LockMFMWFPWindow.c)
+ *     UnlockMFMWFPWindow @ 0x1C02195D4 (UnlockMFMWFPWindow.c)
+ *     xxxMNButtonDown @ 0x1C02197A8 (xxxMNButtonDown.c)
+ *     xxxMNButtonUp @ 0x1C02198AC (xxxMNButtonUp.c)
+ *     xxxMNCancel @ 0x1C02199C4 (xxxMNCancel.c)
+ *     xxxMNChar @ 0x1C0219CB8 (xxxMNChar.c)
+ *     xxxMNDoubleClick @ 0x1C021A56C (xxxMNDoubleClick.c)
+ *     xxxMNFindWindowFromPoint @ 0x1C021A850 (xxxMNFindWindowFromPoint.c)
+ *     xxxMNKeyDown @ 0x1C021ABF8 (xxxMNKeyDown.c)
+ *     xxxMNMouseMove @ 0x1C021B510 (xxxMNMouseMove.c)
+ *     xxxMNSwitchToAlternateMenu @ 0x1C021D0B4 (xxxMNSwitchToAlternateMenu.c)
+ */
+
 __int64 __fastcall xxxHandleMenuMessages(__int64 a1, __int64 a2, __int64 **a3)
 {
   __int64 *v3; // rax

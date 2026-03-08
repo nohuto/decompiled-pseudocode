@@ -1,3 +1,16 @@
+/*
+ * XREFs of ActivateKSTInputProcessingHelper @ 0x1C009A400
+ * Callers:
+ *     UserKSTInitialize @ 0x1C009A090 (UserKSTInitialize.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     InitializeSensorExplicitly @ 0x1C009A520 (InitializeSensorExplicitly.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 ActivateKSTInputProcessingHelper()
 {
   unsigned int v0; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HandleSystemThreadCreationFailure @ 0x1C015CEF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CSTPop@@YAHPEAIPEAPEAX@Z @ 0x1C008E8E4 (-CSTPop@@YAHPEAIPEAPEAX@Z.c)
+ */
+
 __int64 __fastcall HandleSystemThreadCreationFailure(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   struct _KEVENT *v4; // rcx

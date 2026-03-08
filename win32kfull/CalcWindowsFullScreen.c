@@ -1,3 +1,11 @@
+/*
+ * XREFs of CalcWindowsFullScreen @ 0x1C00F5D10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CalcWindowFullScreen @ 0x1C006789C (CalcWindowFullScreen.c)
+ */
+
 _QWORD *__fastcall CalcWindowsFullScreen(__int64 a1)
 {
   _QWORD *result; // rax

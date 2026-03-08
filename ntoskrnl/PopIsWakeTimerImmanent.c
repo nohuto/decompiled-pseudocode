@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopIsWakeTimerImmanent @ 0x140988900
+ * Callers:
+ *     PopDeferDoze @ 0x140988614 (PopDeferDoze.c)
+ * Callees:
+ *     ExGetNextWakeTime @ 0x140AA7D7C (ExGetNextWakeTime.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 bool __fastcall PopIsWakeTimerImmanent(int a1, int a2, int a3, unsigned __int64 *a4, _QWORD *a5)
 {
   unsigned __int64 v5; // r15

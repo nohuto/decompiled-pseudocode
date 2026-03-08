@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bSubOverflow@@YAH_J0@Z @ 0x1C0151E8E
+ * Callers:
+ *     ?bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z @ 0x1C02FFF14 (-bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall bSubOverflow(__int64 a1, __int64 a2)
 {
   if ( (a2 ^ a1) < 0 )

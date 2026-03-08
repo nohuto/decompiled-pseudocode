@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserEnableMouseInPointerForWindow @ 0x1C00E7D50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserEnableMouseInPointerForWindow(__int64 a1, int a2)
 {
   __int64 v4; // rax

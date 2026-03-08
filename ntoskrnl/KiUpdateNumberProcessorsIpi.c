@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiUpdateNumberProcessorsIpi @ 0x140A9C500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiUpdateProcessorCount @ 0x140A860DC (KiUpdateProcessorCount.c)
+ */
+
 ULONG_PTR __fastcall KiUpdateNumberProcessorsIpi(volatile signed __int32 *Argument)
 {
   __int64 v2; // rcx

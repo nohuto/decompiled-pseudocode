@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcMdlWriteComplete @ 0x14079B3A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcMdlWriteComplete2 @ 0x1403002DC (CcMdlWriteComplete2.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __stdcall CcMdlWriteComplete(PFILE_OBJECT FileObject, PLARGE_INTEGER FileOffset, PMDL MdlChain)
 {
   PDEVICE_OBJECT RelatedDeviceObject; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of IcCopyInputStateToDeviceState @ 0x1C009F1D0
+ * Callers:
+ *     AcpiIrqLibSetupSciInterrupt @ 0x1C0098DAC (AcpiIrqLibSetupSciInterrupt.c)
+ *     IrqArbCommitAllocation @ 0x1C009D040 (IrqArbCommitAllocation.c)
+ * Callees:
+ *     IrqArbGsivFromIrq @ 0x1C009D69C (IrqArbGsivFromIrq.c)
+ */
+
 NTSTATUS __fastcall IcCopyInputStateToDeviceState(__int64 a1, int a2)
 {
   struct _RTL_RANGE_LIST *v2; // rcx

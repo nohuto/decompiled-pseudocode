@@ -1,3 +1,15 @@
+/*
+ * XREFs of MagpComposeDesktop @ 0x1C007EC4C
+ * Callers:
+ *     zzzComposeDesktop @ 0x1C007D394 (zzzComposeDesktop.c)
+ * Callees:
+ *     DwmAsyncMagnCreate @ 0x1C026F2B4 (DwmAsyncMagnCreate.c)
+ *     DwmAsyncMagnSetDesktopColorTransform @ 0x1C026F43C (DwmAsyncMagnSetDesktopColorTransform.c)
+ *     DwmAsyncMagnSetWindowColorTransform @ 0x1C026F91C (DwmAsyncMagnSetWindowColorTransform.c)
+ *     DwmAsyncMagnSetWindowFilterList @ 0x1C026FA1C (DwmAsyncMagnSetWindowFilterList.c)
+ *     DwmAsyncMagnSetWindowSharedTextures @ 0x1C026FB30 (DwmAsyncMagnSetWindowSharedTextures.c)
+ */
+
 void __fastcall MagpComposeDesktop(_QWORD *a1, __int64 a2)
 {
   _QWORD **v2; // rsi

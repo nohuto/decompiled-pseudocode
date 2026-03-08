@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopBuildMemoryImageHeader @ 0x140A9EA28
+ * Callers:
+ *     PopEndMirroring @ 0x140A9F6B0 (PopEndMirroring.c)
+ * Callees:
+ *     MmGetHighestPhysicalPage @ 0x140236718 (MmGetHighestPhysicalPage.c)
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ *     PopAllocatePages @ 0x140A9E958 (PopAllocatePages.c)
+ *     PopCopyFirmwareRuntimeInformationPfnList @ 0x140A9EEEC (PopCopyFirmwareRuntimeInformationPfnList.c)
+ */
+
 __int64 __fastcall PopBuildMemoryImageHeader(_QWORD *MemoryMap, int a2)
 {
   __int64 v3; // rbx

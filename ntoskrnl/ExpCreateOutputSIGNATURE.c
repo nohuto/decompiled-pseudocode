@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExpCreateOutputSIGNATURE @ 0x1409F9388
+ * Callers:
+ *     ExpTranslateEfiPath @ 0x14083EF60 (ExpTranslateEfiPath.c)
+ *     ExpTranslateNtPath @ 0x1409FB67C (ExpTranslateNtPath.c)
+ * Callees:
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     wcscat_s @ 0x1403DA170 (wcscat_s.c)
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ *     RtlStringFromGUIDEx @ 0x140733E90 (RtlStringFromGUIDEx.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpCreateOutputSIGNATURE(
         __int64 a1,
         unsigned int *a2,

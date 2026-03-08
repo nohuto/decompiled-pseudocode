@@ -1,3 +1,11 @@
+/*
+ * XREFs of EngQueryFileTimeStamp @ 0x1C027C190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 LARGE_INTEGER __stdcall EngQueryFileTimeStamp(LPWSTR pwsz)
 {
   NTSTATUS v1; // ebx

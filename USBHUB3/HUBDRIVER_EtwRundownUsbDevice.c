@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBDRIVER_EtwRundownUsbDevice @ 0x1C0076D58
+ * Callers:
+ *     HUBDRIVER_EtwEnableCallback @ 0x1C0077368 (HUBDRIVER_EtwEnableCallback.c)
+ * Callees:
+ *     McTemplateK0ppqzznhUR6zuqQ6qqqqqqqqqsssuuxttqq_EtwWriteTransfer @ 0x1C000180C (McTemplateK0ppqzznhUR6zuqQ6qqqqqqqqqsssuuxttqq_EtwWriteTransfer.c)
+ *     HUBMISC_GetDeviceInterfacePath @ 0x1C0033628 (HUBMISC_GetDeviceInterfacePath.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ */
+
 void __fastcall HUBDRIVER_EtwRundownUsbDevice(const GUID *a1, __int64 a2)
 {
   __int64 v3; // r14

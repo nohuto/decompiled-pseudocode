@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CreateSection@CSharedSectionMarshaler@DirectComposition@@EEAAJ_KPEAPEAX@Z @ 0x1C00BF770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall DirectComposition::CSharedSectionMarshaler::CreateSection(
         DirectComposition::CSharedSectionMarshaler *this,
         union _LARGE_INTEGER a2,

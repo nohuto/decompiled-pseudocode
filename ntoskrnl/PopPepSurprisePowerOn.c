@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopPepSurprisePowerOn @ 0x14059D930
+ * Callers:
+ *     PoFxNotifySurprisePowerOn @ 0x140585B10 (PoFxNotifySurprisePowerOn.c)
+ * Callees:
+ *     PopPepRequestWork @ 0x1403075C4 (PopPepRequestWork.c)
+ *     PopPepReleaseActivityLink @ 0x140307608 (PopPepReleaseActivityLink.c)
+ *     PopPepLockActivityLink @ 0x14030768C (PopPepLockActivityLink.c)
+ *     PopPepPromoteActivities @ 0x140307780 (PopPepPromoteActivities.c)
+ *     PopPepTriggerActivity @ 0x140307C1C (PopPepTriggerActivity.c)
+ */
+
 void __fastcall PopPepSurprisePowerOn(__int64 a1)
 {
   char v2; // si

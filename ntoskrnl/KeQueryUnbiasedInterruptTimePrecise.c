@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeQueryUnbiasedInterruptTimePrecise @ 0x1402947D0
+ * Callers:
+ *     IoDiskIoAttributionQuery @ 0x1402946F0 (IoDiskIoAttributionQuery.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ */
+
 ULONG64 __stdcall KeQueryUnbiasedInterruptTimePrecise(PULONG64 QpcTimeStamp)
 {
   __int64 v2; // r14

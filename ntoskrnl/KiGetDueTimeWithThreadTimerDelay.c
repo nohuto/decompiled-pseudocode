@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiGetDueTimeWithThreadTimerDelay @ 0x140577DA8
+ * Callers:
+ *     KeRemovePriQueue @ 0x140352720 (KeRemovePriQueue.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiGetDueTimeWithThreadTimerDelay(__int64 a1, int a2, __int64 a3, _BYTE *a4)
 {
   __int64 v4; // rax

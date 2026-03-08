@@ -1,3 +1,21 @@
+/*
+ * XREFs of ImSessionStart @ 0x1C008BE98
+ * Callers:
+ *     _RegisterLogonProcess @ 0x1C008CF70 (_RegisterLogonProcess.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ImpInitializeWork @ 0x1C0089C08 (ImpInitializeWork.c)
+ *     ImpRpcConnect @ 0x1C008CAE8 (ImpRpcConnect.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C008D2C0 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ImpCleanupWork @ 0x1C008D2F0 (ImpCleanupWork.c)
+ *     ImpWaitForWorkerShutdown @ 0x1C008D694 (ImpWaitForWorkerShutdown.c)
+ *     ImpShutdownWorker @ 0x1C008D758 (ImpShutdownWorker.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     Feature_IMRespectWTDToggle__private_IsEnabledDeviceUsage @ 0x1C00E1674 (Feature_IMRespectWTDToggle__private_IsEnabledDeviceUsage.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C03017E0 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ */
+
 __int64 ImSessionStart()
 {
   PVOID v0; // rdi

@@ -1,3 +1,24 @@
+/*
+ * XREFs of PopFxStopDeviceAccounting @ 0x14058975C
+ * Callers:
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxPauseDeviceAccounting @ 0x140588B84 (PopFxPauseDeviceAccounting.c)
+ *     PopDiagTraceFxDeviceAccounting @ 0x140590CC4 (PopDiagTraceFxDeviceAccounting.c)
+ *     PopDiagTraceFxGlobalDeviceAccounting @ 0x1405912FC (PopDiagTraceFxGlobalDeviceAccounting.c)
+ *     PopDiagTraceFxComponentAccounting @ 0x14098C04C (PopDiagTraceFxComponentAccounting.c)
+ */
+
 __int64 PopFxStopDeviceAccounting()
 {
   __int64 result; // rax

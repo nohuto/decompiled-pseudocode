@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalEfiQueryVariableInfo @ 0x14050AC9C
+ * Callers:
+ *     HalQueryEnvironmentVariableInfoEx @ 0x1405028B0 (HalQueryEnvironmentVariableInfoEx.c)
+ * Callees:
+ *     HalpEfiDecrementEfiCall @ 0x1402AF954 (HalpEfiDecrementEfiCall.c)
+ *     HalpConvertEfiToNtStatus @ 0x1402AF97C (HalpConvertEfiToNtStatus.c)
+ *     HalpEfiIncrementEfiCall @ 0x1402AF9B0 (HalpEfiIncrementEfiCall.c)
+ *     HalpEfiStartRuntimeCode @ 0x1402AF9D8 (HalpEfiStartRuntimeCode.c)
+ */
+
 __int64 __fastcall HalEfiQueryVariableInfo(unsigned int a1)
 {
   __int64 v2; // r10

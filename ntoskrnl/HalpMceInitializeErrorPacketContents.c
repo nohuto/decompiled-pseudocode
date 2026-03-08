@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpMceInitializeErrorPacketContents @ 0x140A87D98
+ * Callers:
+ *     HalpMceInitializeErrorPacket @ 0x140A87D2C (HalpMceInitializeErrorPacket.c)
+ *     HalpHandlePreviousMcaErrors @ 0x140A91F70 (HalpHandlePreviousMcaErrors.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140A920B0 (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 GUID *__fastcall HalpMceInitializeErrorPacketContents(GUID *a1)
 {
   GUID *result; // rax

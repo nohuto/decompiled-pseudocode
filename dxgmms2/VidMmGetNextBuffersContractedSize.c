@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidMmGetNextBuffersContractedSize @ 0x1C001BB20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetNextBuffersContractedSize@VIDMM_DMA_POOL@@QEAAXPEA_KPEAI1@Z @ 0x1C00EFC00 (-GetNextBuffersContractedSize@VIDMM_DMA_POOL@@QEAAXPEA_KPEAI1@Z.c)
+ */
+
 void __fastcall VidMmGetNextBuffersContractedSize(
         VIDMM_DMA_POOL *a1,
         unsigned __int64 *a2,

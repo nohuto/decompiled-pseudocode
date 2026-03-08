@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiDqQueryGetNextIoctlInfo @ 0x14074715C
+ * Callers:
+ *     PiDqIrpQueryCreate @ 0x140745F08 (PiDqIrpQueryCreate.c)
+ *     PiDqIrpQueryGetResult @ 0x1407480E0 (PiDqIrpQueryGetResult.c)
+ *     PiDqQueryCompletePendedIrp @ 0x1407491B0 (PiDqQueryCompletePendedIrp.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PiDqQueryGetNextIoctlInfo(__int64 a1, unsigned int a2, unsigned int a3, _DWORD *a4)
 {
   __int64 result; // rax

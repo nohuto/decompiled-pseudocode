@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiComputeHash64 @ 0x14032D5D0
+ * Callers:
+ *     MiCombineInitialInstance @ 0x14029CD58 (MiCombineInitialInstance.c)
+ *     MiPerformCombineScan @ 0x14032D550 (MiPerformCombineScan.c)
+ *     MiCombinePte @ 0x140650CA0 (MiCombinePte.c)
+ *     MiMapDummyPages @ 0x140B389FC (MiMapDummyPages.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MiComputeHash64(__int64 a1)
 {
   unsigned __int64 result; // rax

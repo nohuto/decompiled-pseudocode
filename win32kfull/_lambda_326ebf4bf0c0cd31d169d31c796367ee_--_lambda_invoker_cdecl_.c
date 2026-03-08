@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_326ebf4bf0c0cd31d169d31c796367ee_::_lambda_invoker_cdecl_ @ 0x1C00E5970
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z @ 0x1C003B140 (-NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z.c)
+ */
+
 void __fastcall lambda_326ebf4bf0c0cd31d169d31c796367ee_::_lambda_invoker_cdecl_(__int64 a1)
 {
   unsigned int v1; // edi

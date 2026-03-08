@@ -1,3 +1,20 @@
+/*
+ * XREFs of IopInitializeOfflineCrashDump @ 0x1403AB95C
+ * Callers:
+ *     IopInitCrashDumpDuringSysInit @ 0x140B6E3C0 (IopInitCrashDumpDuringSysInit.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IopConstructInMemoryDumpHeader @ 0x14055003C (IopConstructInMemoryDumpHeader.c)
+ *     IopInitializeInMemoryDumpData @ 0x140550F70 (IopInitializeInMemoryDumpData.c)
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ *     IoGetEnvironmentVariableEx @ 0x14075D3B0 (IoGetEnvironmentVariableEx.c)
+ *     IopOpenRegistryKey @ 0x1407803E0 (IopOpenRegistryKey.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     IoSetEnvironmentVariableEx @ 0x14094D504 (IoSetEnvironmentVariableEx.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     IopCachePreviousBootData @ 0x140B90728 (IopCachePreviousBootData.c)
+ */
+
 void __fastcall IopInitializeOfflineCrashDump(__int64 a1)
 {
   int v1; // ebx

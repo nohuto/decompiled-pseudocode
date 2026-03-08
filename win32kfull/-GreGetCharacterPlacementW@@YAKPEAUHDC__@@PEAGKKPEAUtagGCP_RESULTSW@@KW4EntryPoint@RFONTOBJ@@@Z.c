@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?GreGetCharacterPlacementW@@YAKPEAUHDC__@@PEAGKKPEAUtagGCP_RESULTSW@@KW4EntryPoint@RFONTOBJ@@@Z @ 0x1C02D90CC
+ * Callers:
+ *     NtGdiGetCharacterPlacementW @ 0x1C02C4E40 (NtGdiGetCharacterPlacementW.c)
+ * Callees:
+ *     ?GrepGetTextExtentW@@YAHPEAUHDC__@@PEAGHPEAUtagSIZE@@IW4EntryPoint@RFONTOBJ@@@Z @ 0x1C010F854 (-GrepGetTextExtentW@@YAHPEAUHDC__@@PEAGHPEAUtagSIZE@@IW4EntryPoint@RFONTOBJ@@@Z.c)
+ *     ?GreGetTextExtentExW@@YAHPEAUHDC__@@PEAGKKPEAK2PEAUtagSIZE@@KW4EntryPoint@RFONTOBJ@@@Z @ 0x1C0112B88 (-GreGetTextExtentExW@@YAHPEAUHDC__@@PEAGKKPEAK2PEAUtagSIZE@@KW4EntryPoint@RFONTOBJ@@@Z.c)
+ *     ?GreGetGlyphIndicesW@@YAKPEAUHDC__@@PEBGKPEAGKHW4EntryPoint@RFONTOBJ@@@Z @ 0x1C0130590 (-GreGetGlyphIndicesW@@YAKPEAUHDC__@@PEBGKPEAGKHW4EntryPoint@RFONTOBJ@@@Z.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?GreGetKerningPairs@@YAKPEAUHDC__@@KPEAUtagKERNINGPAIR@@W4EntryPoint@RFONTOBJ@@@Z @ 0x1C02906A8 (-GreGetKerningPairs@@YAKPEAUHDC__@@KPEAUtagKERNINGPAIR@@W4EntryPoint@RFONTOBJ@@@Z.c)
+ *     ?nCalcJustInArray@@YAKPEAPEAIGPEAXHI@Z @ 0x1C02D98FC (-nCalcJustInArray@@YAKPEAPEAIGPEAXHI@Z.c)
+ */
+
 __int64 __fastcall GreGetCharacterPlacementW(
         HDC a1,
         unsigned __int16 *a2,

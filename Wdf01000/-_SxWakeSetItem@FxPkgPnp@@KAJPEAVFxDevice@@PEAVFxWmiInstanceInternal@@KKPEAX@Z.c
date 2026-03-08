@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_SxWakeSetItem@FxPkgPnp@@KAJPEAVFxDevice@@PEAVFxWmiInstanceInternal@@KKPEAX@Z @ 0x1C00766B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PowerPolicySetSxWakeState@FxPkgPnp@@QEAAXE@Z @ 0x1C0075088 (-PowerPolicySetSxWakeState@FxPkgPnp@@QEAAXE@Z.c)
+ */
+
 __int64 __fastcall FxPkgPnp::_SxWakeSetItem(
         FxDevice *Device,
         FxWmiInstanceInternal *__formal,

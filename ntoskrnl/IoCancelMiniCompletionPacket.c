@@ -1,3 +1,14 @@
+/*
+ * XREFs of IoCancelMiniCompletionPacket @ 0x1405559D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeRemoveQueueEntry @ 0x1402DF000 (KeRemoveQueueEntry.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall IoCancelMiniCompletionPacket(__int64 a1, _QWORD *a2)
 {
   char v4; // di

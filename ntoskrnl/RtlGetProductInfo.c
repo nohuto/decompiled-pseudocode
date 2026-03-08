@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlGetProductInfo @ 0x1402FF290
+ * Callers:
+ *     ExGetSuiteMask @ 0x140810AB8 (ExGetSuiteMask.c)
+ *     ExpInitSystemPhase1 @ 0x140B3F0B8 (ExpInitSystemPhase1.c)
+ * Callees:
+ *     CompareVersions @ 0x1402FF3D0 (CompareVersions.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQueryLicenseValue @ 0x140414ED0 (ZwQueryLicenseValue.c)
+ */
+
 BOOLEAN __stdcall RtlGetProductInfo(
         ULONG OSMajorVersion,
         ULONG OSMinorVersion,

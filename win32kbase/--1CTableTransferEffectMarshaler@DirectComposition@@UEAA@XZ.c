@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CTableTransferEffectMarshaler@DirectComposition@@UEAA@XZ @ 0x1C024F144
+ * Callers:
+ *     ??_GCTableTransferEffectMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C024AAC0 (--_GCTableTransferEffectMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ??1CFilterEffectMarshaler@DirectComposition@@UEAA@XZ @ 0x1C024D39C (--1CFilterEffectMarshaler@DirectComposition@@UEAA@XZ.c)
+ */
+
 void __fastcall DirectComposition::CTableTransferEffectMarshaler::~CTableTransferEffectMarshaler(
         DirectComposition::CTableTransferEffectMarshaler *this)
 {

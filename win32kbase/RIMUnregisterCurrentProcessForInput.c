@@ -1,3 +1,15 @@
+/*
+ * XREFs of RIMUnregisterCurrentProcessForInput @ 0x1C0039554
+ * Callers:
+ *     RIMOnProcessDestroy @ 0x1C00394C0 (RIMOnProcessDestroy.c)
+ * Callees:
+ *     RIMUnregisterForInput @ 0x1C00326C0 (RIMUnregisterForInput.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall RIMUnregisterCurrentProcessForInput(__int64 a1)
 {
   int v1; // ebx

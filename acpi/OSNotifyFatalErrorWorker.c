@@ -1,3 +1,11 @@
+/*
+ * XREFs of OSNotifyFatalErrorWorker @ 0x1C00337C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall OSNotifyFatalErrorWorker(__int64 a1)
 {
   __int64 v1; // rdx

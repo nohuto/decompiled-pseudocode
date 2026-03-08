@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?DxgkNetDispAccessCheck@@YAJPEAVDXGPROCESS@@@Z @ 0x1C0045498
+ * Callers:
+ *     DxgkNetDispQueryMiracastDisplayDeviceStatus @ 0x1C02CE9A0 (DxgkNetDispQueryMiracastDisplayDeviceStatus.c)
+ *     DxgkNetDispStartMiracastDisplayDevice @ 0x1C02CEC90 (DxgkNetDispStartMiracastDisplayDevice.c)
+ *     DxgkNetDispStopMiracastDisplayDevice @ 0x1C02CEF20 (DxgkNetDispStopMiracastDisplayDevice.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ?IsRemoteConnection@DXGPROCESS@@QEBAEXZ @ 0x1C0009F04 (-IsRemoteConnection@DXGPROCESS@@QEBAEXZ.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall DxgkNetDispAccessCheck(struct DXGPROCESS *this)
 {
   NTSTATUS Acl; // ebx

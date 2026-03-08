@@ -1,3 +1,15 @@
+/*
+ * XREFs of SepSecureBootSetRegistryKey @ 0x140B41FF4
+ * Callers:
+ *     SeSecureBootRegisterPolicy @ 0x140B42958 (SeSecureBootRegisterPolicy.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     RtlStringFromGUID @ 0x140733E70 (RtlStringFromGUID.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ */
+
 __int64 __fastcall SepSecureBootSetRegistryKey(__int64 a1)
 {
   NTSTATUS v2; // ebx

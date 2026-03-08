@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpResetProblemDevices @ 0x1409568E4
+ * Callers:
+ *     PpSystemHiveLimitCallback @ 0x140955610 (PpSystemHiveLimitCallback.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PpDevNodeUnlockTree @ 0x1406CB8B0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406CB944 (PpDevNodeLockTree.c)
+ *     PipForDeviceNodeSubtree @ 0x1407855F8 (PipForDeviceNodeSubtree.c)
+ */
+
 void PpResetProblemDevices()
 {
   PVOID v0; // rbx

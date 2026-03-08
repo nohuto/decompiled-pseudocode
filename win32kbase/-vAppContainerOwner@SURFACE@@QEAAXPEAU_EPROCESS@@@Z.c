@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?vAppContainerOwner@SURFACE@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C00D27E8
+ * Callers:
+ *     bMigrateSurfaceForConversion @ 0x1C0186E60 (bMigrateSurfaceForConversion.c)
+ * Callees:
+ *     GreReleaseHmgrSemaphore @ 0x1C0049700 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C0049780 (GreAcquireHmgrSemaphore.c)
+ *     ?GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z @ 0x1C004A2C0 (-GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z.c)
+ *     UserIsProcessImmersiveAppContainer @ 0x1C00841C0 (UserIsProcessImmersiveAppContainer.c)
+ */
+
 void __fastcall SURFACE::vAppContainerOwner(SURFACE *this, struct _EPROCESS *a2)
 {
   struct _EPROCESS *v2; // rbx

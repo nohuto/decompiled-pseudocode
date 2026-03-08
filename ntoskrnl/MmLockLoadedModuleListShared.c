@@ -1,3 +1,16 @@
+/*
+ * XREFs of MmLockLoadedModuleListShared @ 0x1402280EC
+ * Callers:
+ *     MiAddWorkingSetEntries @ 0x14026D700 (MiAddWorkingSetEntries.c)
+ *     RtlpxLookupFunctionTable @ 0x1402CB3A0 (RtlpxLookupFunctionTable.c)
+ *     MiIsDriverPage @ 0x1402D38C0 (MiIsDriverPage.c)
+ *     MiLookupDataTableEntry @ 0x14035ECF0 (MiLookupDataTableEntry.c)
+ *     RtlPcToFileName @ 0x1403A4E70 (RtlPcToFileName.c)
+ *     MiIsAddressInDriverView @ 0x140631A9C (MiIsAddressInDriverView.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ */
+
 void __fastcall MmLockLoadedModuleListShared(unsigned __int8 *a1)
 {
   unsigned __int8 CurrentIrql; // bl

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vConvertAndSaveBGRATo4@@YAXPEAEPEBKJJPEAU_XLATEOBJ@@VXEPALOBJ@@3@Z @ 0x1C02E66A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?XLATEOBJ_BGR32ToPalSurf@@YAEPEAU_XLATEOBJ@@PEBEK@Z @ 0x1C02DDF80 (-XLATEOBJ_BGR32ToPalSurf@@YAEPEAU_XLATEOBJ@@PEBEK@Z.c)
+ *     ?XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z @ 0x1C02DE1EC (-XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z.c)
+ */
+
 char __fastcall vConvertAndSaveBGRATo4(__int64 a1, unsigned int *a2, int a3, int a4, struct _XLATEOBJ *a5)
 {
   char v5; // bl

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpOptimizePushLockList @ 0x1402416E0
+ * Callers:
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ * Callees:
+ *     ExpWakePushLock @ 0x140238F70 (ExpWakePushLock.c)
+ */
+
 int __fastcall ExpOptimizePushLockList(volatile signed __int64 *a1, signed __int64 a2)
 {
   signed __int64 v2; // rax

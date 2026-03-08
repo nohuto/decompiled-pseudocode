@@ -1,3 +1,11 @@
+/*
+ * XREFs of DitTakeOver @ 0x1C00DB624
+ * Callers:
+ *     EditionActivateMitInput @ 0x1C00DB420 (EditionActivateMitInput.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DitTakeOver(__int64 a1)
 {
   __int64 v1; // rax

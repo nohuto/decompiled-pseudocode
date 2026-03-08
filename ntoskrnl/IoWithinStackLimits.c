@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoWithinStackLimits @ 0x1402B7B60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 LOGICAL __stdcall IoWithinStackLimits(ULONG_PTR RegionStart, SIZE_T RegionSize)
 {
   struct _KTHREAD *CurrentThread; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of EditionDoHotKeys @ 0x1C0097F80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0097FCC (-xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ *     ?IsSAS@@YA_NEPEAI@Z @ 0x1C0098AB0 (-IsSAS@@YA_NEPEAI@Z.c)
+ */
+
 __int64 __fastcall EditionDoHotKeys(
         unsigned __int8 a1,
         unsigned __int8 a2,

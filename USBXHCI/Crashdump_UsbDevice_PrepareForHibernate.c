@@ -1,3 +1,12 @@
+/*
+ * XREFs of Crashdump_UsbDevice_PrepareForHibernate @ 0x1C00506E0
+ * Callers:
+ *     Crashdump_InitializeWithoutControllerReset @ 0x1C004CA8C (Crashdump_InitializeWithoutControllerReset.c)
+ * Callees:
+ *     memset @ 0x1C0020700 (memset.c)
+ *     Crashdump_Endpoint_PrepareForHibernate @ 0x1C004F150 (Crashdump_Endpoint_PrepareForHibernate.c)
+ */
+
 __int64 __fastcall Crashdump_UsbDevice_PrepareForHibernate(__int64 a1)
 {
   unsigned int v2; // esi

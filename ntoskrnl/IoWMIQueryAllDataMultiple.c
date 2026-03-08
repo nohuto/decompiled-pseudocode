@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoWMIQueryAllDataMultiple @ 0x1409DBFC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WmipQueryAllDataMultiple @ 0x1409DDE84 (WmipQueryAllDataMultiple.c)
+ */
+
 NTSTATUS __stdcall IoWMIQueryAllDataMultiple(
         PVOID *DataBlockObjectList,
         ULONG ObjectCount,

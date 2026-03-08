@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0xd_EventWriteTransfer @ 0x18012BDFC
+ * Callers:
+ *     ?EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z @ 0x180087264 (-EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall McTemplateU0xd_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   _QWORD v5[3]; // [rsp+30h] [rbp-48h] BYREF

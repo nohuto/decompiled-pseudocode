@@ -1,3 +1,11 @@
+/*
+ * XREFs of HviGetHypervisorFeatures @ 0x1C0274644
+ * Callers:
+ *     ShouldEnableInputVirtualization @ 0x1C00982F4 (ShouldEnableInputVirtualization.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall HviGetHypervisorFeatures(_DWORD *a1)
 {
   __int64 result; // rax

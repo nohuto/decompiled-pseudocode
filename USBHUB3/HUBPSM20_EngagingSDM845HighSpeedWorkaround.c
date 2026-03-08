@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBPSM20_EngagingSDM845HighSpeedWorkaround @ 0x1C0011DC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBACPI_ExecuteDSM @ 0x1C0089994 (HUBACPI_ExecuteDSM.c)
+ */
+
 __int64 __fastcall HUBPSM20_EngagingSDM845HighSpeedWorkaround(__int64 a1, __int64 a2, __int64 a3)
 {
   _QWORD *v3; // rbx

@@ -1,3 +1,21 @@
+/*
+ * XREFs of Endpoint_OnResetEndpointConfigureCompletion_EpDropped @ 0x1C003B190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     Endpoint_GetDequeuePointer @ 0x1C000CEDC (Endpoint_GetDequeuePointer.c)
+ *     Endpoint_InitializeTransferRing @ 0x1C0013AB4 (Endpoint_InitializeTransferRing.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C001E754 (CommonBuffer_ReleaseBuffer.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0030BE4 (WPP_RECORDER_SF_ddL.c)
+ *     XilEndpoint_CommitStreamContextArrayUpdates @ 0x1C0038E24 (XilEndpoint_CommitStreamContextArrayUpdates.c)
+ *     XilEndpoint_FetchStreamContextArray @ 0x1C00390E8 (XilEndpoint_FetchStreamContextArray.c)
+ *     Endpoint_SetUpConfigureEndpointCommand @ 0x1C003C168 (Endpoint_SetUpConfigureEndpointCommand.c)
+ */
+
 void __fastcall Endpoint_OnResetEndpointConfigureCompletion_EpDropped(__int64 a1, int a2)
 {
   __int64 *v2; // rsi

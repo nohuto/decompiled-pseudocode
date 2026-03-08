@@ -1,3 +1,12 @@
+/*
+ * XREFs of MxCreatePfn @ 0x140B5002C
+ * Callers:
+ *     MxCreatePfnsForPtes @ 0x140B4FD40 (MxCreatePfnsForPtes.c)
+ * Callees:
+ *     MiSetPfnPteFrame @ 0x14028A310 (MiSetPfnPteFrame.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ */
+
 __int64 __fastcall MxCreatePfn(__int64 a1, __int64 a2, char a3, __int64 a4, int a5, int a6)
 {
   __int64 v9; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetVBlankDuration@CLegacyRenderTarget@@UEBA_KXZ @ 0x1800DE2A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CLegacyRenderTarget::GetVBlankDuration(CLegacyRenderTarget *this)
 {
   __int64 v1; // rcx

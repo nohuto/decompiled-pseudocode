@@ -1,3 +1,39 @@
+/*
+ * XREFs of SetVisible @ 0x1C002DB8C
+ * Callers:
+ *     ?xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z @ 0x1C002AE4C (-xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z.c)
+ *     ?xxxFW_DestroyAllChildren@@YAXPEAUtagWND@@@Z @ 0x1C00331B0 (-xxxFW_DestroyAllChildren@@YAXPEAUtagWND@@@Z.c)
+ *     xxxDestroyWindow @ 0x1C004B7F0 (xxxDestroyWindow.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C00669E0 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     xxxProcessEventMessage @ 0x1C006B460 (xxxProcessEventMessage.c)
+ *     xxxCleanupMotherDesktopWindow @ 0x1C00929C4 (xxxCleanupMotherDesktopWindow.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ *     xxxCreateWindowStation @ 0x1C00BE56C (xxxCreateWindowStation.c)
+ *     ?xxxDWP_SetRedraw@@YAXPEAUtagWND@@H@Z @ 0x1C0100930 (-xxxDWP_SetRedraw@@YAXPEAUtagWND@@H@Z.c)
+ *     xxxShowOwnedWindows @ 0x1C010189C (xxxShowOwnedWindows.c)
+ *     zzzActiveCursorTracking @ 0x1C01B8530 (zzzActiveCursorTracking.c)
+ *     NtUserSetVisible @ 0x1C01DE050 (NtUserSetVisible.c)
+ *     ?xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C01F5BBC (-xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z.c)
+ *     ?xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C01F687C (-xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z.c)
+ *     ?xxxDWPPrint@@YAHPEAUtagWND@@PEAUHDC__@@_J@Z @ 0x1C0225290 (-xxxDWPPrint@@YAHPEAUtagWND@@PEAUHDC__@@_J@Z.c)
+ *     xxxMinimizeHungWindow @ 0x1C02278C0 (xxxMinimizeHungWindow.c)
+ * Callees:
+ *     IncrementCompositedCount @ 0x1C00059EC (IncrementCompositedCount.c)
+ *     DecrementCompositedCount @ 0x1C0016BB4 (DecrementCompositedCount.c)
+ *     DecVisWindows @ 0x1C002A17C (DecVisWindows.c)
+ *     _IsWindowVisible @ 0x1C002A980 (_IsWindowVisible.c)
+ *     ComposeWindowIfNeeded @ 0x1C002D850 (ComposeWindowIfNeeded.c)
+ *     ?IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z @ 0x1C002E354 (-IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z.c)
+ *     IncVisWindows @ 0x1C002E484 (IncVisWindows.c)
+ *     ?zzzSetWindowCompositionCloak@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@K@Z @ 0x1C002E920 (-zzzSetWindowCompositionCloak@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@K@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     CalcWindowFullScreen @ 0x1C006789C (CalcWindowFullScreen.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     PostIAMShellHookMessage @ 0x1C009C174 (PostIAMShellHookMessage.c)
+ *     ClrFTrueVis @ 0x1C00FED00 (ClrFTrueVis.c)
+ *     PostShellHookMessagesEx @ 0x1C0109A90 (PostShellHookMessagesEx.c)
+ */
+
 __int64 __fastcall SetVisible(struct tagWND *a1, unsigned int a2)
 {
   unsigned int v4; // edi

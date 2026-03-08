@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiAddSystemPageTableToList @ 0x14029A218
+ * Callers:
+ *     MiDeleteSystemPageTable @ 0x140299BA0 (MiDeleteSystemPageTable.c)
+ * Callees:
+ *     MiDecrementShareCount @ 0x14032AE40 (MiDecrementShareCount.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 char __fastcall MiAddSystemPageTableToList(_QWORD *a1, __int64 a2, __int64 a3)
 {
   char result; // al

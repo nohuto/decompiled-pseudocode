@@ -1,3 +1,29 @@
+/*
+ * XREFs of PiDqObjectManagerServiceActionQueue @ 0x140688EF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoSetActivityIdThread @ 0x140203940 (IoSetActivityIdThread.c)
+ *     IoClearActivityIdThread @ 0x140203960 (IoClearActivityIdThread.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x14055ED00 (McTemplateK0p_EtwWriteTransfer.c)
+ *     PnpIsNullGuid @ 0x140689294 (PnpIsNullGuid.c)
+ *     PiDqQueryApplyObjectEvent @ 0x1406896F4 (PiDqQueryApplyObjectEvent.c)
+ *     PiDqQueryRelease @ 0x140689C8C (PiDqQueryRelease.c)
+ *     PiPnpRtlObjectEventRelease @ 0x1406CCCF8 (PiPnpRtlObjectEventRelease.c)
+ *     PiDqQueryCompletePendedIrp @ 0x1407491B0 (PiDqQueryCompletePendedIrp.c)
+ *     PiDqQueryFreeActiveData @ 0x1407910F8 (PiDqQueryFreeActiveData.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall PiDqObjectManagerServiceActionQueue(PERESOURCE Resource)
 {
   struct _FAST_MUTEX *v1; // rbx

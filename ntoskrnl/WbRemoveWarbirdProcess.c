@@ -1,3 +1,21 @@
+/*
+ * XREFs of WbRemoveWarbirdProcess @ 0x14070546C
+ * Callers:
+ *     WbDispatchOperation @ 0x1406AECD0 (WbDispatchOperation.c)
+ *     PspProcessDelete @ 0x140704DD0 (PspProcessDelete.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     sub_1406AF0D8 @ 0x1406AF0D8 (sub_1406AF0D8.c)
+ *     sub_1406AF110 @ 0x1406AF110 (sub_1406AF110.c)
+ *     sub_140770F08 @ 0x140770F08 (sub_140770F08.c)
+ */
+
 __int64 __fastcall WbRemoveWarbirdProcess(int a1)
 {
   struct _KTHREAD *CurrentThread; // rax

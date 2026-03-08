@@ -1,3 +1,15 @@
+/*
+ * XREFs of PpmEventProcessorPerfStateChange @ 0x1402ED92C
+ * Callers:
+ *     PpmPerfArbitratorApplyProcessorState @ 0x1402ED6EC (PpmPerfArbitratorApplyProcessorState.c)
+ *     PpmPerfApplyHiddenProcessorState @ 0x14058AB3C (PpmPerfApplyHiddenProcessorState.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     PpmEventGetEventDescriptorAndProcessorId @ 0x140233B18 (PpmEventGetEventDescriptorAndProcessorId.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PpmEventProcessorPerfStateChange(__int64 a1, int a2, int a3)
 {
   const EVENT_DESCRIPTOR *EventDescriptorAndProcessorId; // rax

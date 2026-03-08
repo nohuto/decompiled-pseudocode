@@ -1,3 +1,39 @@
+/*
+ * XREFs of IopUnloadDriver @ 0x1408549C8
+ * Callers:
+ *     PnpUnloadAttachedDriver @ 0x140866C04 (PnpUnloadAttachedDriver.c)
+ *     NtUnloadDriver @ 0x14094EB70 (NtUnloadDriver.c)
+ *     PipUnloadEarlyLaunchDrivers @ 0x140B68368 (PipUnloadEarlyLaunchDrivers.c)
+ * Callees:
+ *     PnpDiagnosticTraceObject @ 0x140202BAC (PnpDiagnosticTraceObject.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PnpDiagnosticTraceDriverFullInfo @ 0x1402B153C (PnpDiagnosticTraceDriverFullInfo.c)
+ *     DbgPrint @ 0x1402BDD20 (DbgPrint.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     IopCheckUnloadDriver @ 0x1403A623C (IopCheckUnloadDriver.c)
+ *     IopCleanupNotifications @ 0x1403A62E8 (IopCleanupNotifications.c)
+ *     ZwUnloadDriver @ 0x140415DD0 (ZwUnloadDriver.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopGetDriverNameFromKeyNode @ 0x1406C1730 (IopGetDriverNameFromKeyNode.c)
+ *     ObOpenObjectByName @ 0x1406C39E0 (ObOpenObjectByName.c)
+ *     IopOpenRegistryKey @ 0x1407803E0 (IopOpenRegistryKey.c)
+ *     ObMakeTemporaryObject @ 0x140791C40 (ObMakeTemporaryObject.c)
+ *     PnpIsLegacyDriver @ 0x1407976A8 (PnpIsLegacyDriver.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     EtwTiLogDriverObjectUnLoad @ 0x140854C60 (EtwTiLogDriverObjectUnLoad.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopUnloadDriver(UNICODE_STRING *a1, char a2)
 {
   __int16 v4; // r14

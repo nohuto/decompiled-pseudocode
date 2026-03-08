@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiClearLoaderDescriptorFlags @ 0x140B61FE4
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MiClearLoaderDescriptorFlags(__int64 a1)
 {
   __int64 v1; // rcx

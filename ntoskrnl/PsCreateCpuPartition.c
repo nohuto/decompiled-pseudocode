@@ -1,3 +1,16 @@
+/*
+ * XREFs of PsCreateCpuPartition @ 0x140853FE4
+ * Callers:
+ *     PspInitializeCpuPartitionsPhase0 @ 0x140B68074 (PspInitializeCpuPartitionsPhase0.c)
+ *     PsInitializeBootCpuPartitions @ 0x140B6EAD4 (PsInitializeBootCpuPartitions.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeInitializeCpuPartition @ 0x1403A5F58 (KeInitializeCpuPartition.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ */
+
 __int64 __fastcall PsCreateCpuPartition(__int64 a1, __int64 a2, __int64 a3, PVOID *a4)
 {
   void *v4; // rdi

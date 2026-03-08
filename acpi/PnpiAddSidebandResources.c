@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpiAddSidebandResources @ 0x1C008FF78
+ * Callers:
+ *     PnpBiosUpdateResourceListWithSidebandResources @ 0x1C008FBC8 (PnpBiosUpdateResourceListWithSidebandResources.c)
+ * Callees:
+ *     memcmp @ 0x1C0001C50 (memcmp.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     PnpiValidateSidebandResources @ 0x1C0092548 (PnpiValidateSidebandResources.c)
+ */
+
 __int64 __fastcall PnpiAddSidebandResources(
         __int64 a1,
         __int64 a2,

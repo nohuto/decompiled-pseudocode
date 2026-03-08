@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIThermalCancelRequest @ 0x1C003FEE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_qqssdddd @ 0x1C00433B0 (WPP_RECORDER_SF_qqssdddd.c)
+ */
+
 void __fastcall ACPIThermalCancelRequest(ULONG_PTR BugCheckParameter3, PIRP Irp)
 {
   KIRQL v4; // al

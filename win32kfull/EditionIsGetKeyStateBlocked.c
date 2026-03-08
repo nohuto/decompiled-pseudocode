@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionIsGetKeyStateBlocked @ 0x1C00D14B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall EditionIsGetKeyStateBlocked(__int64 a1)
 {
   __int64 v1; // rax

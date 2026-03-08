@@ -1,3 +1,14 @@
+/*
+ * XREFs of ViFaultsInitializeAppsList @ 0x140AD37A8
+ * Callers:
+ *     VfFaultsInitPhase0 @ 0x140AD2E18 (VfFaultsInitPhase0.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ViFaultsAddAllApps @ 0x140AD3354 (ViFaultsAddAllApps.c)
+ */
+
 __int64 ViFaultsInitializeAppsList()
 {
   unsigned int v0; // ebx

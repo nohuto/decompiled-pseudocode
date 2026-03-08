@@ -1,3 +1,18 @@
+/*
+ * XREFs of RtlpHpHeapDestroy @ 0x1405B4210
+ * Callers:
+ *     RtlpHpHeapCreate @ 0x140375288 (RtlpHpHeapCreate.c)
+ * Callees:
+ *     RtlpHpFreeVA @ 0x14020DC8C (RtlpHpFreeVA.c)
+ *     RtlpHpMetadataFree @ 0x1402B6D30 (RtlpHpMetadataFree.c)
+ *     RtlpHpVsSubsegmentCleanup @ 0x1402E55D8 (RtlpHpVsSubsegmentCleanup.c)
+ *     RtlpHpVsSubsegmentFree @ 0x1402EAA68 (RtlpHpVsSubsegmentFree.c)
+ *     RtlpHpRegisterEnvironment @ 0x1403759F0 (RtlpHpRegisterEnvironment.c)
+ *     RtlpHpSegContextCleanup @ 0x1405B4600 (RtlpHpSegContextCleanup.c)
+ *     RtlpHpLfhContextCleanup @ 0x1405B4838 (RtlpHpLfhContextCleanup.c)
+ *     RtlpHpLargeAllocationDestroy @ 0x1405B4EA0 (RtlpHpLargeAllocationDestroy.c)
+ */
+
 __int64 __fastcall RtlpHpHeapDestroy(__int64 a1)
 {
   __int64 v1; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PipUnpackMetadata @ 0x14055D7BC
+ * Callers:
+ *     PipGetPersistentMemory @ 0x1409503F8 (PipGetPersistentMemory.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PipUnpackMetadata(__int64 a1, _WORD *a2, _DWORD *a3)
 {
   __int64 result; // rax

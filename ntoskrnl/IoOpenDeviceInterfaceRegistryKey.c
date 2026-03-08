@@ -1,3 +1,18 @@
+/*
+ * XREFs of IoOpenDeviceInterfaceRegistryKey @ 0x1408478E0
+ * Callers:
+ *     DifIoOpenDeviceInterfaceRegistryKeyWrapper @ 0x1405DDE90 (DifIoOpenDeviceInterfaceRegistryKeyWrapper.c)
+ *     IoWMISuggestInstanceName @ 0x1409DC410 (IoWMISuggestInstanceName.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x1406C9E28 (_CmOpenDeviceInterfaceRegKey.c)
+ *     PnpUnicodeStringToWstr @ 0x1406D07D4 (PnpUnicodeStringToWstr.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1406D08F4 (PnpUnicodeStringToWstrFree.c)
+ *     IopApplyMutableTagToRegistryKey @ 0x140771C20 (IopApplyMutableTagToRegistryKey.c)
+ */
+
 NTSTATUS __stdcall IoOpenDeviceInterfaceRegistryKey(
         PUNICODE_STRING SymbolicLinkName,
         ACCESS_MASK DesiredAccess,

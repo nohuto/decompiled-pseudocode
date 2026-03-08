@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExpWorkQueueManagerInitialize @ 0x140848580
+ * Callers:
+ *     ExpPartitionInitialize @ 0x1408481F8 (ExpPartitionInitialize.c)
+ * Callees:
+ *     KeInitializeTimer2 @ 0x140203D80 (KeInitializeTimer2.c)
+ *     KeInitializeTimerEx @ 0x140237DB0 (KeInitializeTimerEx.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402AE860 (KeQueryNodeActiveAffinity.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeSelectIdealProcessor @ 0x140359930 (KeSelectIdealProcessor.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 int __fastcall ExpWorkQueueManagerInitialize(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 Mask; // rdx

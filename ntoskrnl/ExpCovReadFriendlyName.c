@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExpCovReadFriendlyName @ 0x140A0420C
+ * Callers:
+ *     ExCovReadjustUnloadedModuleEntry @ 0x1407F6CC8 (ExCovReadjustUnloadedModuleEntry.c)
+ *     ExpCovCreateUnloadedModuleEntry @ 0x140A034B4 (ExpCovCreateUnloadedModuleEntry.c)
+ *     ExpCovIsModulePresent @ 0x140A0382C (ExpCovIsModulePresent.c)
+ *     ExpCovQueryLoadedModule @ 0x140A04090 (ExpCovQueryLoadedModule.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     RtlInitAnsiStringEx @ 0x140388C60 (RtlInitAnsiStringEx.c)
+ *     RtlDuplicateUnicodeString @ 0x140761970 (RtlDuplicateUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ */
+
 int __fastcall ExpCovReadFriendlyName(__int64 a1, const UNICODE_STRING *a2, UNICODE_STRING *a3)
 {
   __int64 v3; // rax

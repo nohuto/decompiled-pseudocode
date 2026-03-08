@@ -1,3 +1,11 @@
+/*
+ * XREFs of x86BiosWritePciDataPort @ 0x1405063A4
+ * Callers:
+ *     x86BiosWriteIoSpace @ 0x1403BC9E0 (x86BiosWriteIoSpace.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall x86BiosWritePciDataPort(int a1, unsigned __int16 a2, int a3)
 {
   int v4; // [rsp+50h] [rbp+18h] BYREF

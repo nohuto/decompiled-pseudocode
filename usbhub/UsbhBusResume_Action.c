@@ -1,3 +1,19 @@
+/*
+ * XREFs of UsbhBusResume_Action @ 0x1C0012650
+ * Callers:
+ *     UsbhReleaseBusStateLock @ 0x1C001D7C0 (UsbhReleaseBusStateLock.c)
+ * Callees:
+ *     UsbhRefPdo @ 0x1C00012A0 (UsbhRefPdo.c)
+ *     UsbhDerefPdo @ 0x1C00019F0 (UsbhDerefPdo.c)
+ *     UsbhDecHubBusy @ 0x1C0003DB0 (UsbhDecHubBusy.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0014330 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     UsbhPostInterrupt @ 0x1C001F320 (UsbhPostInterrupt.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ */
+
 LONG __fastcall UsbhBusResume_Action(PDEVICE_OBJECT DeviceObject, int a2)
 {
   _DWORD *DeviceExtension; // rbx

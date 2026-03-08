@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbDevice_EvtUsbDeviceCleanupCallback @ 0x1C0048CB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_RemoveDeviceFromControllerDeviceList @ 0x1C0034680 (Controller_RemoveDeviceFromControllerDeviceList.c)
+ *     XilUsbDevice_DestroySecureObject @ 0x1C00480C8 (XilUsbDevice_DestroySecureObject.c)
+ *     XilUsbDevice_FreeResources @ 0x1C004814C (XilUsbDevice_FreeResources.c)
+ *     WPP_RECORDER_SF_dqqq @ 0x1C004A750 (WPP_RECORDER_SF_dqqq.c)
+ *     Etw_DeviceDelete @ 0x1C004AAF0 (Etw_DeviceDelete.c)
+ */
+
 __int64 __fastcall UsbDevice_EvtUsbDeviceCleanupCallback(__int64 a1)
 {
   __int64 result; // rax

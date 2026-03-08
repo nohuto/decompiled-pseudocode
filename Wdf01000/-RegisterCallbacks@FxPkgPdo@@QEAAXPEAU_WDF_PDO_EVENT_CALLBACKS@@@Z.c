@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RegisterCallbacks@FxPkgPdo@@QEAAXPEAU_WDF_PDO_EVENT_CALLBACKS@@@Z @ 0x1C00696C8
+ * Callers:
+ *     ?PdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C003CC64 (-PdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxPkgPdo::RegisterCallbacks(FxPkgPdo *this, _WDF_PDO_EVENT_CALLBACKS *DispatchTable)
 {
   this->m_DeviceResourcesQuery.m_Method = DispatchTable->EvtDeviceResourcesQuery;

@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiFindRankBiasedIdleSmtSet @ 0x140574DA8
+ * Callers:
+ *     KiChooseTargetProcessor @ 0x140258FC0 (KiChooseTargetProcessor.c)
+ *     KiTryLocalThreadSchedule @ 0x140259D60 (KiTryLocalThreadSchedule.c)
+ *     KiSelectIdleProcessor @ 0x14057528C (KiSelectIdleProcessor.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KiFindRankBiasedIdleSmtSet(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // r9

@@ -1,3 +1,20 @@
+/*
+ * XREFs of ViCreateProcessCallbackInternal @ 0x140AD3224
+ * Callers:
+ *     ViCreateProcessCallback @ 0x14045DE30 (ViCreateProcessCallback.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PsLookupProcessByProcessId @ 0x1406AC100 (PsLookupProcessByProcessId.c)
+ *     RtlUpcaseUnicodeString @ 0x1407A3D00 (RtlUpcaseUnicodeString.c)
+ *     PsGetAllocatedFullProcessImageName @ 0x1407E764C (PsGetAllocatedFullProcessImageName.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     ViFaultsGetBaseImageName @ 0x140AD3750 (ViFaultsGetBaseImageName.c)
+ *     ViFaultsIsAppTarget @ 0x140AD3A00 (ViFaultsIsAppTarget.c)
+ */
+
 void __fastcall ViCreateProcessCallbackInternal(void *a1, char a2)
 {
   PEPROCESS v2; // rbx

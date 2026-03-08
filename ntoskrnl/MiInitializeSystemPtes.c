@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiInitializeSystemPtes @ 0x140B391FC
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiObtainSystemVa @ 0x140210534 (MiObtainSystemVa.c)
+ *     MiSystemVaToDynamicBitmap @ 0x14021055C (MiSystemVaToDynamicBitmap.c)
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiBuildDynamicRegion @ 0x1403715AC (MiBuildDynamicRegion.c)
+ *     MiInitializeSystemWorkingSetList @ 0x140726074 (MiInitializeSystemWorkingSetList.c)
+ *     MiInitializeDynamicBitmap @ 0x14080A0E4 (MiInitializeDynamicBitmap.c)
+ *     MiInitializePteInfo @ 0x140B3B548 (MiInitializePteInfo.c)
+ */
+
 __int64 MiInitializeSystemPtes()
 {
   __int64 v0; // r14

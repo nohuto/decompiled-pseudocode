@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPairedSurfaceInfo@DXGCOMPOSITIONSURFACEPROXY@@UEBAJAEAIAEA_K@Z @ 0x1C02DD160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DXGCOMPOSITIONSURFACEPROXY::GetPairedSurfaceInfo(
         DXGCOMPOSITIONSURFACEPROXY *this,
         unsigned int *a2,

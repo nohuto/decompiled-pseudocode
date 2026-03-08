@@ -1,3 +1,15 @@
+/*
+ * XREFs of Controller_WdfEvtCleanupCallback @ 0x1C0036620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_DeallocateIrqlTrackingArray @ 0x1C0032D9C (Controller_DeallocateIrqlTrackingArray.c)
+ *     Controller_RemoveControllerFromGlobalControllerList @ 0x1C00345B4 (Controller_RemoveControllerFromGlobalControllerList.c)
+ *     Etw_ControllerDelete @ 0x1C004A8F0 (Etw_ControllerDelete.c)
+ *     Controller_DestroySecureObject @ 0x1C0078080 (Controller_DestroySecureObject.c)
+ */
+
 void __fastcall Controller_WdfEvtCleanupCallback(__int64 a1)
 {
   _QWORD *v1; // rbx

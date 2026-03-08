@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CompareDeviceVIDPID@@YAHU_UNICODE_STRING@@PEAU_KEY_VALUE_FULL_INFORMATION@@K@Z @ 0x1C01C001C
+ * Callers:
+ *     ?IsDeviceOnRegistryList@@YAHU_UNICODE_STRING@@0H@Z @ 0x1C0030DD8 (-IsDeviceOnRegistryList@@YAHU_UNICODE_STRING@@0H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CompareDeviceVIDPID(struct _UNICODE_STRING *a1, struct _KEY_VALUE_FULL_INFORMATION *a2, int a3)
 {
   unsigned int v3; // edi

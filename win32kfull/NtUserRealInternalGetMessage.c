@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserRealInternalGetMessage @ 0x1C0004ED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxRealInternalGetMessage @ 0x1C006F2F0 (xxxRealInternalGetMessage.c)
+ */
+
 __int64 __fastcall NtUserRealInternalGetMessage(_OWORD *a1, int a2, int a3, int a4, int a5, int a6)
 {
   int Message; // ebx

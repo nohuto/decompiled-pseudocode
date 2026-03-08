@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiInitializeNuma @ 0x140394008
+ * Callers:
+ *     MiInitializePartition @ 0x140837D40 (MiInitializePartition.c)
+ * Callees:
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     MiInitializeSlabAllocator @ 0x14039425C (MiInitializeSlabAllocator.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiInitializeChannelOrdering @ 0x140838724 (MiInitializeChannelOrdering.c)
+ */
+
 __int64 __fastcall MiInitializeNuma(__int64 a1)
 {
   unsigned int v1; // ebx

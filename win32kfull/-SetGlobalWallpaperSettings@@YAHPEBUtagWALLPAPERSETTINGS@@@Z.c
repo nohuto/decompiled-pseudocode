@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetGlobalWallpaperSettings@@YAHPEBUtagWALLPAPERSETTINGS@@@Z @ 0x1C00D81C4
+ * Callers:
+ *     xxxSetDeskWallpaper @ 0x1C00D7F38 (xxxSetDeskWallpaper.c)
+ * Callees:
+ *     <none>
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall SetGlobalWallpaperSettings(const struct tagWALLPAPERSETTINGS *a1)
 {

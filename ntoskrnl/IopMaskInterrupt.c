@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopMaskInterrupt @ 0x1403AE79C
+ * Callers:
+ *     IoReportInterruptInactive @ 0x1403AE750 (IoReportInterruptInactive.c)
+ * Callees:
+ *     KeMaskInterrupt @ 0x14028E5A8 (KeMaskInterrupt.c)
+ */
+
 __int64 __fastcall IopMaskInterrupt(__int64 a1)
 {
   unsigned __int64 v1; // rdx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of SdbpGetPathSystem @ 0x140A50320
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbpGetProcessHostGuestArchitectures @ 0x140A503E0 (SdbpGetProcessHostGuestArchitectures.c)
+ *     AslEnvGetSystem32DirPathBuf @ 0x140A547B8 (AslEnvGetSystem32DirPathBuf.c)
+ */
+
 __int64 __fastcall SdbpGetPathSystem(NTSTRSAFE_PWSTR pszDest, size_t cchDest, __int64 a3, __int64 a4)
 {
   int ProcessHostGuestArchitectures; // ebx

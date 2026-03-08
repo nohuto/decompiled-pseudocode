@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$As@UIDXGIResource1@@@?$ComPtr@UID3D11Texture2D@@@WRL@Microsoft@@QEBAJV?$ComPtrRef@V?$ComPtr@UIDXGIResource1@@@WRL@Microsoft@@@Details@12@@Z @ 0x1802A68EC
+ * Callers:
+ *     ?EnsureRenderBuffers@CHolographicInteropTexture@@QEAAJPEAVCD3DDevice@@W4DXGI_FORMAT@@@Z @ 0x1802A74D0 (-EnsureRenderBuffers@CHolographicInteropTexture@@QEAAJPEAVCD3DDevice@@W4DXGI_FORMAT@@@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C8D4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ */
+
 __int64 __fastcall Microsoft::WRL::ComPtr<ID3D11Texture2D>::As<IDXGIResource1>(
         __int64 (__fastcall ****a1)(_QWORD, GUID *, __int64 *),
         __int64 *a2)

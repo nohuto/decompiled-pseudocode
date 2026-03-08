@@ -1,3 +1,11 @@
+/*
+ * XREFs of Crashdump_Register_ResetController @ 0x1C004DAA0
+ * Callers:
+ *     Crashdump_InitializeWithControllerReset @ 0x1C004C868 (Crashdump_InitializeWithControllerReset.c)
+ * Callees:
+ *     Crashdump_Register_StopController @ 0x1C004E020 (Crashdump_Register_StopController.c)
+ */
+
 __int64 __fastcall Crashdump_Register_ResetController(__int64 a1)
 {
   __int64 result; // rax

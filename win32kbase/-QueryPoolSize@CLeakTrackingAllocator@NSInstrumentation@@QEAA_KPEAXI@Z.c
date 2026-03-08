@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?QueryPoolSize@CLeakTrackingAllocator@NSInstrumentation@@QEAA_KPEAXI@Z @ 0x1C019B744
+ * Callers:
+ *     Win32QueryPoolSize @ 0x1C017D7F0 (Win32QueryPoolSize.c)
+ * Callees:
+ *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C019B518 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
+ *     ?Lookup@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z @ 0x1C019C360 (-Lookup@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z.c)
+ */
+
 SIZE_T __fastcall NSInstrumentation::CLeakTrackingAllocator::QueryPoolSize(
         NSInstrumentation::CLeakTrackingAllocator *this,
         char *a2,

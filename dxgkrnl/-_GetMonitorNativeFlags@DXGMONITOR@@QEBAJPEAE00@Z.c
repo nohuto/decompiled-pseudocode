@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_GetMonitorNativeFlags@DXGMONITOR@@QEBAJPEAE00@Z @ 0x1C01B03D0
+ * Callers:
+ *     DxgkGetAdapterDeviceDesc @ 0x1C01AE290 (DxgkGetAdapterDeviceDesc.c)
+ *     MonitorGetNativeFlags @ 0x1C01D7E10 (MonitorGetNativeFlags.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DXGMONITOR::_GetMonitorNativeFlags(DXGMONITOR *this, unsigned __int8 *a2, bool *a3, bool *a4)
 {
   char v8; // al

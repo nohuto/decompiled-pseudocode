@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlQueryImageFileExecutionOptions @ 0x140812A34
+ * Callers:
+ *     PsBootPhaseComplete @ 0x140812760 (PsBootPhaseComplete.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     RtlQueryImageFileKeyOption @ 0x140709A50 (RtlQueryImageFileKeyOption.c)
+ *     RtlpOpenBaseImageFileOptionsKey @ 0x14077EF8C (RtlpOpenBaseImageFileOptionsKey.c)
+ */
+
 __int64 __fastcall RtlQueryImageFileExecutionOptions(__int64 a1, const WCHAR *a2, __int64 a3, ULONG *a4)
 {
   int ImageFileKeyOption; // ebx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlpHpVaMgrCtxAllocatorReference @ 0x140375AC8
+ * Callers:
+ *     RtlpHpVaMgrCtxStart @ 0x140375148 (RtlpHpVaMgrCtxStart.c)
+ *     RtlpHpRegisterEnvironment @ 0x1403759F0 (RtlpHpRegisterEnvironment.c)
+ * Callees:
+ *     RtlpHpAcquireLockExclusive @ 0x14030ABA4 (RtlpHpAcquireLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlpHpVaMgrCtxAllocatorFind @ 0x140375BE8 (RtlpHpVaMgrCtxAllocatorFind.c)
+ *     RtlpHpVaMgrStart @ 0x140375DF8 (RtlpHpVaMgrStart.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall RtlpHpVaMgrCtxAllocatorReference(__int64 a1, __int64 a2, unsigned int a3)
 {
   volatile LONG *v3; // rbp

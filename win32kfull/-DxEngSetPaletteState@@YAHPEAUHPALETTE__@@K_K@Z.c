@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DxEngSetPaletteState@@YAHPEAUHPALETTE__@@K_K@Z @ 0x1C0007418
+ * Callers:
+ *     NtGdiDdDDICreateDCFromMemory @ 0x1C0006F30 (NtGdiDdDDICreateDCFromMemory.c)
+ *     DxgkEngBltViaGDI @ 0x1C0271CF0 (DxgkEngBltViaGDI.c)
+ * Callees:
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C007CA7C (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ */
+
 __int64 __fastcall DxEngSetPaletteState(HPALETTE a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

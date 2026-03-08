@@ -1,3 +1,38 @@
+/*
+ * XREFs of BcdOpenObject @ 0x14082E620
+ * Callers:
+ *     PopAdaptivePersistSystemInitatedRebootState @ 0x14059B9D8 (PopAdaptivePersistSystemInitatedRebootState.c)
+ *     WheaPersistBadPageToBcd @ 0x14060F9E0 (WheaPersistBadPageToBcd.c)
+ *     PoInitHiberServices @ 0x14082B1B0 (PoInitHiberServices.c)
+ *     PopBcdClearPendingResume @ 0x14082B2FC (PopBcdClearPendingResume.c)
+ *     PopBcdEstablishResumeObject @ 0x14082B658 (PopBcdEstablishResumeObject.c)
+ *     BiBindEfiBootManager @ 0x14082C288 (BiBindEfiBootManager.c)
+ *     BiBindEfiEntries @ 0x14082D024 (BiBindEfiEntries.c)
+ *     BiUpdateBcdObject @ 0x14082DA80 (BiUpdateBcdObject.c)
+ *     BiBuildIdentifierList @ 0x14082DD44 (BiBuildIdentifierList.c)
+ *     PopAdaptiveGetSystemInitiatedRebootTargetBootEntry @ 0x1409987C0 (PopAdaptiveGetSystemInitiatedRebootTargetBootEntry.c)
+ *     PopBcdSetPendingResume @ 0x140999E60 (PopBcdSetPendingResume.c)
+ *     SepSecureBootCorrectBcd @ 0x1409CDB74 (SepSecureBootCorrectBcd.c)
+ *     BiGetDefaultBootEntryIdentifier @ 0x140A59AB0 (BiGetDefaultBootEntryIdentifier.c)
+ *     BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x140A5AB4C (BiAddBootEntryToEfiBootManagerDisplayOrder.c)
+ *     BiCreateEfiEntry @ 0x140A5B13C (BiCreateEfiEntry.c)
+ *     BiExportEfiBootManager @ 0x140A5B928 (BiExportEfiBootManager.c)
+ *     BiUpdateEfiEntry @ 0x140A5C248 (BiUpdateEfiEntry.c)
+ *     PopAdaptiveInitializeBootContext @ 0x140B5DFE8 (PopAdaptiveInitializeBootContext.c)
+ * Callees:
+ *     BiIsOfflineHandle @ 0x1403903FC (BiIsOfflineHandle.c)
+ *     RtlStringFromGUIDEx @ 0x140733E90 (RtlStringFromGUIDEx.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     BiOpenKey @ 0x14082E7AC (BiOpenKey.c)
+ *     BiCloseKey @ 0x14082E938 (BiCloseKey.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiAcquireBcdSyncMutant @ 0x14082ED10 (BiAcquireBcdSyncMutant.c)
+ *     BiReleaseBcdSyncMutant @ 0x14082EDB8 (BiReleaseBcdSyncMutant.c)
+ *     BiIsObjectAliased @ 0x14082EDE0 (BiIsObjectAliased.c)
+ *     BiGetCurrentBootEntryIdentifier @ 0x1408305A4 (BiGetCurrentBootEntryIdentifier.c)
+ *     BiGetDefaultBootEntryIdentifier @ 0x140A59AB0 (BiGetDefaultBootEntryIdentifier.c)
+ */
+
 __int64 __fastcall BcdOpenObject(__int64 a1, unsigned int *a2, _QWORD *a3)
 {
   __int64 v6; // rcx

@@ -1,3 +1,35 @@
+/*
+ * XREFs of MmCreateProcessAddressSpace @ 0x1407289B8
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ * Callees:
+ *     MiCheckWsLimits @ 0x14020C974 (MiCheckWsLimits.c)
+ *     PsReturnProcessQuota @ 0x14020D064 (PsReturnProcessQuota.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiReturnResident @ 0x1402A52C8 (MiReturnResident.c)
+ *     MiDeleteProcessShadow @ 0x1402A5828 (MiDeleteProcessShadow.c)
+ *     MiInsertNewProcess @ 0x1402A5E9C (MiInsertNewProcess.c)
+ *     MiCreateNewProcessTopLevelMappings @ 0x1402A604C (MiCreateNewProcessTopLevelMappings.c)
+ *     MiSyncSystemPdes @ 0x1402A60BC (MiSyncSystemPdes.c)
+ *     MiSetProcessPartitionId @ 0x1402A6130 (MiSetProcessPartitionId.c)
+ *     MiMakePartitionActive @ 0x1402A6140 (MiMakePartitionActive.c)
+ *     PsChargeProcessQuota @ 0x1402A61D8 (PsChargeProcessQuota.c)
+ *     RtlRandomEx @ 0x1402A6210 (RtlRandomEx.c)
+ *     PsGetDefaultWsMaximum @ 0x1402A6238 (PsGetDefaultWsMaximum.c)
+ *     KeMakeKernelDirectoryTableBase @ 0x1402A6248 (KeMakeKernelDirectoryTableBase.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiChargeResident @ 0x140348DE8 (MiChargeResident.c)
+ *     MiJoinSession @ 0x140728960 (MiJoinSession.c)
+ *     MiAllocateProcessShadow @ 0x140728E84 (MiAllocateProcessShadow.c)
+ *     MiAllocateTopLevelPage @ 0x140728F6C (MiAllocateTopLevelPage.c)
+ */
+
 char __fastcall MmCreateProcessAddressSpace(
         __int64 a1,
         __int64 a2,

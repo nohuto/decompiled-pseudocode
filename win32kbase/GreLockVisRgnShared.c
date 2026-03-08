@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreLockVisRgnShared @ 0x1C00A8670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0pz_EtwWriteTransfer @ 0x1C0198A10 (McTemplateK0pz_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall GreLockVisRgnShared(__int64 a1)
 {
   _QWORD *v1; // rbx

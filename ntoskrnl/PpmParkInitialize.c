@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmParkInitialize @ 0x140B31A10
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 PpmParkInitialize()
 {
   int v0; // eax

@@ -1,3 +1,20 @@
+/*
+ * XREFs of ParsePackage @ 0x1C0058160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintIndent @ 0x1C004E484 (PrintIndent.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ *     ParseIntObj @ 0x1C005B3A0 (ParseIntObj.c)
+ *     ParseObjName @ 0x1C005BC04 (ParseObjName.c)
+ *     ParseOpcode @ 0x1C005BD40 (ParseOpcode.c)
+ *     ParseString @ 0x1C005C440 (ParseString.c)
+ */
+
 __int64 __fastcall ParsePackage(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
 {
   unsigned int v4; // esi

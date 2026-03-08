@@ -1,3 +1,14 @@
+/*
+ * XREFs of CacheRGBToXYZ @ 0x1C0256490
+ * Callers:
+ *     ComputeBGRMappingTable @ 0x1C0256580 (ComputeBGRMappingTable.c)
+ * Callees:
+ *     ComputeChecksum @ 0x1C0019A58 (ComputeChecksum.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     DivFD6 @ 0x1C014AF0C (DivFD6.c)
+ *     MulFD6 @ 0x1C014B146 (MulFD6.c)
+ */
+
 __int64 __fastcall CacheRGBToXYZ(__int64 a1, _DWORD *a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PpmIdleCheckCoordinatedDependencies @ 0x14058205C
+ * Callers:
+ *     PpmIdleCheckCoordinatedDependency @ 0x1405821CC (PpmIdleCheckCoordinatedDependency.c)
+ *     PpmIdleCheckCoordinatedStateEligibility @ 0x140582574 (PpmIdleCheckCoordinatedStateEligibility.c)
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PpmIdleCheckCoordinatedDependency @ 0x1405821CC (PpmIdleCheckCoordinatedDependency.c)
+ *     PpmIdleCheckCoordinatedProcessorDependency @ 0x1405824E0 (PpmIdleCheckCoordinatedProcessorDependency.c)
+ *     PpmIdleSelectCoordinatedProcessorDependency @ 0x140582FD0 (PpmIdleSelectCoordinatedProcessorDependency.c)
+ */
+
 __int64 __fastcall PpmIdleCheckCoordinatedDependencies(
         __int64 a1,
         int a2,

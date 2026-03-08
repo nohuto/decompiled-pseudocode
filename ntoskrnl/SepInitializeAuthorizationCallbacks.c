@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepInitializeAuthorizationCallbacks @ 0x140B426C0
+ * Callers:
+ *     SepInitializationPhase1 @ 0x140810320 (SepInitializationPhase1.c)
+ * Callees:
+ *     ExRegisterHost @ 0x14080EEF0 (ExRegisterHost.c)
+ */
+
 __int64 __fastcall SepInitializeAuthorizationCallbacks(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdx

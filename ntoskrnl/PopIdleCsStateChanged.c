@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopIdleCsStateChanged @ 0x140998E5C
+ * Callers:
+ *     PdcPoCurrentPdcPhase @ 0x140597320 (PdcPoCurrentPdcPhase.c)
+ * Callees:
+ *     PopIdleCancelAoAcDozeS4Timer @ 0x14036D07C (PopIdleCancelAoAcDozeS4Timer.c)
+ *     PopGetModernStandbyTransitionReason @ 0x1403C2A80 (PopGetModernStandbyTransitionReason.c)
+ *     PopIdleArmAoAcDozeS4Timer @ 0x14059BCE8 (PopIdleArmAoAcDozeS4Timer.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopIdleCsStateChanged(int a1)
 {
   char v1; // bl

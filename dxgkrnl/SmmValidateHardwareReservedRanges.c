@@ -1,3 +1,11 @@
+/*
+ * XREFs of SmmValidateHardwareReservedRanges @ 0x1C020CAB4
+ * Callers:
+ *     SmmCreateHardwareReservedRanges @ 0x1C020A6E4 (SmmCreateHardwareReservedRanges.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall SmmValidateHardwareReservedRanges(unsigned __int64 *a1, unsigned int a2)
 {
   unsigned int v4; // ebx

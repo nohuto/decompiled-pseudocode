@@ -1,3 +1,13 @@
+/*
+ * XREFs of TR_IsUrbUsingChainedMdl @ 0x1C0007484
+ * Callers:
+ *     Control_MapTransfer @ 0x1C00071B4 (Control_MapTransfer.c)
+ *     Bulk_Stage_EstimateRequiredTrbs @ 0x1C00125B8 (Bulk_Stage_EstimateRequiredTrbs.c)
+ *     Bulk_TransferData_DetermineTransferMechanism @ 0x1C00126B0 (Bulk_TransferData_DetermineTransferMechanism.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall TR_IsUrbUsingChainedMdl(__int64 a1)
 {
   _QWORD *v1; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIDeviceIrpWaitWakeRequestPending @ 0x1C001E2A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C000518C (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     WPP_RECORDER_SF_qLqss @ 0x1C0009C8C (WPP_RECORDER_SF_qLqss.c)
+ *     ACPIDeviceCancelWaitWakeIrp @ 0x1C001C150 (ACPIDeviceCancelWaitWakeIrp.c)
+ *     ACPIDeviceIrpWaitWakeRequestComplete @ 0x1C001E0B8 (ACPIDeviceIrpWaitWakeRequestComplete.c)
+ *     ACPIDereferenceWaitWakePowerRequest @ 0x1C00447C0 (ACPIDereferenceWaitWakePowerRequest.c)
+ */
+
 __int64 __fastcall ACPIDeviceIrpWaitWakeRequestPending(__int64 a1, int a2, __int64 a3, _DWORD *a4)
 {
   _QWORD *v4; // rdi

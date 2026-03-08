@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetEdidDescriptorRaw@MonitorDescriptorState@DxgMonitor@@QEBAJIPEAIPEAE@Z @ 0x1C01D9D4C
+ * Callers:
+ *     MonitorGetEdidFromMonitor @ 0x1C01D9C9C (MonitorGetEdidFromMonitor.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ */
+
 __int64 __fastcall DxgMonitor::MonitorDescriptorState::GetEdidDescriptorRaw(
         DxgMonitor::MonitorDescriptorState *this,
         unsigned int a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?WorkItemThunk@FxWorkItem@@CAXPEAU_DEVICE_OBJECT@@PEAX@Z @ 0x1C00068F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?WorkItemHandler@FxWorkItem@@AEAAXXZ @ 0x1C0005A28 (-WorkItemHandler@FxWorkItem@@AEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxWorkItem::WorkItemThunk(_DEVICE_OBJECT *DeviceObject, FxWorkItem *Context)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rdi

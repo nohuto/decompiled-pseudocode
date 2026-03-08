@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiSwitchBaseAddress @ 0x14069F7C4
+ * Callers:
+ *     MiRelocateImageAgain @ 0x1406A160C (MiRelocateImageAgain.c)
+ * Callees:
+ *     MiWalkEntireImage @ 0x1402862C0 (MiWalkEntireImage.c)
+ *     MiApplyBytestreamFixup @ 0x140302E3C (MiApplyBytestreamFixup.c)
+ *     DbgUnLoadImageSymbolsUnicode @ 0x14036CBB4 (DbgUnLoadImageSymbolsUnicode.c)
+ */
+
 __int64 __fastcall MiSwitchBaseAddress(_QWORD *a1, __int64 a2, ULONG_PTR a3, unsigned int a4)
 {
   __int64 v4; // rdi

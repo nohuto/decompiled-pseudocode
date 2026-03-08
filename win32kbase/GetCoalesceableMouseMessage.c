@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetCoalesceableMouseMessage @ 0x1C00C1F20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IsEqualInputSource @ 0x1C007EDD0 (IsEqualInputSource.c)
+ */
+
 __int64 __fastcall GetCoalesceableMouseMessage(int a1, unsigned __int64 *a2, __int64 a3, _DWORD *a4)
 {
   unsigned __int64 v4; // rsi

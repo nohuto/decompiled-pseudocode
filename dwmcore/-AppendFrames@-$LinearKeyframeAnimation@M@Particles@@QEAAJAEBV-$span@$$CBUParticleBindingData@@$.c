@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AppendFrames@?$LinearKeyframeAnimation@M@Particles@@QEAAJAEBV?$span@$$CBUParticleBindingData@@$0?0@gsl@@@Z @ 0x18023D068
+ * Callers:
+ *     ?OnBindingsChanged@CParticleScalarBehavior@@MEAAXXZ @ 0x180244650 (-OnBindingsChanged@CParticleScalarBehavior@@MEAAXXZ.c)
+ * Callees:
+ *     ??$_Emplace_reallocate@U?$ParticleKeyframe@M@Particles@@@?$vector@U?$ParticleKeyframe@M@Particles@@V?$allocator@U?$ParticleKeyframe@M@Particles@@@std@@@std@@QEAAPEAU?$ParticleKeyframe@M@Particles@@QEAU23@$$QEAU23@@Z @ 0x18023C740 (--$_Emplace_reallocate@U-$ParticleKeyframe@M@Particles@@@-$vector@U-$ParticleKeyframe@M@Particle.c)
+ */
+
 __int64 __fastcall Particles::LinearKeyframeAnimation<float>::AppendFrames(char **a1, _QWORD *a2)
 {
   __int64 v2; // rbx

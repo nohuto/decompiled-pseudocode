@@ -1,3 +1,16 @@
+/*
+ * XREFs of FsRtlpAllocateOplock @ 0x140773FDC
+ * Callers:
+ *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x14023BBE0 (FsRtlpOplockStoreKeyForDeleteOperation.c)
+ *     FsRtlpRequestShareableOplock @ 0x14023EEF0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x1403B9C94 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1406B3240 (FsRtlpOplockFsctrlInternal.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 FsRtlpAllocateOplock()
 {
   __int64 v0; // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of RIMQueryDev @ 0x1C0089258
+ * Callers:
+ *     rimOnPnpArrived @ 0x1C00889C0 (rimOnPnpArrived.c)
+ *     RIMRefreshDeviceAttributes @ 0x1C01A7490 (RIMRefreshDeviceAttributes.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_qd @ 0x1C000431C (WPP_RECORDER_AND_TRACE_SF_qd.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qDD @ 0x1C006F8F8 (WPP_RECORDER_AND_TRACE_SF_qDD.c)
+ *     RIMGetKbdExId @ 0x1C008C900 (RIMGetKbdExId.c)
+ *     WPP_RECORDER_AND_TRACE_SF_DDDD @ 0x1C00D305C (WPP_RECORDER_AND_TRACE_SF_DDDD.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall RIMQueryDev(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

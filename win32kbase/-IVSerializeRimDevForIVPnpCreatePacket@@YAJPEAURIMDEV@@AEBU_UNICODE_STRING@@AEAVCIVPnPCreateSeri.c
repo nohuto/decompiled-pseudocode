@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?IVSerializeRimDevForIVPnpCreatePacket@@YAJPEAURIMDEV@@AEBU_UNICODE_STRING@@AEAVCIVPnPCreateSerializer@@@Z @ 0x1C021DB1C
+ * Callers:
+ *     ?SendRootPnpCreated@PnP@IVRootDeliver@@YAJPEAURawInputManagerDeviceObject@@AEBUCONTAINER_ID@@@Z @ 0x1C0227610 (-SendRootPnpCreated@PnP@IVRootDeliver@@YAJPEAURawInputManagerDeviceObject@@AEBUCONTAINER_ID@@@Z.c)
+ * Callees:
+ *     ?IVPopulateDeviceUIPIInfo@@YAXAEBURawInputManagerDeviceObject@@PEAU_IV_UIPI_INFO_INT@@@Z @ 0x1C021D70C (-IVPopulateDeviceUIPIInfo@@YAXAEBURawInputManagerDeviceObject@@PEAU_IV_UIPI_INFO_INT@@@Z.c)
+ *     ?Serialize@CIVPnPCreateSerializer@@QEAAJAEAU_IV_HID_DEVICE_INFO@@AEBUtagHID_DEVICE_INFO@@_N@Z @ 0x1C0233F84 (-Serialize@CIVPnPCreateSerializer@@QEAAJAEAU_IV_HID_DEVICE_INFO@@AEBUtagHID_DEVICE_INFO@@_N@Z.c)
+ *     ?Serialize@CIVPnPCreateSerializer@@QEAAXAEAU_IV_KEYBOARD_DEVICE_INFO@@AEBUtagKEYBOARD_DEVICE_INFO@@@Z @ 0x1C0234040 (-Serialize@CIVPnPCreateSerializer@@QEAAXAEAU_IV_KEYBOARD_DEVICE_INFO@@AEBUtagKEYBOARD_DEVICE_INF.c)
+ *     ?Serialize@CIVSerializer@@IEAAJAEAU_UNICODE_STRING@@AEBU2@_N@Z @ 0x1C02340D0 (-Serialize@CIVSerializer@@IEAAJAEAU_UNICODE_STRING@@AEBU2@_N@Z.c)
+ *     ?Serialize@CIVSerializer@@IEAAJPEAPEAXQEAX_K_N@Z @ 0x1C0234168 (-Serialize@CIVSerializer@@IEAAJPEAPEAXQEAX_K_N@Z.c)
+ */
+
 int __fastcall IVSerializeRimDevForIVPnpCreatePacket(
         struct RIMDEV *a1,
         const struct _UNICODE_STRING *a2,

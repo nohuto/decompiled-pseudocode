@@ -1,3 +1,18 @@
+/*
+ * XREFs of zzzStartSonar @ 0x1C01BE79C
+ * Callers:
+ *     EditionHandleSonarKeyEvent @ 0x1C00E8310 (EditionHandleSonarKeyEvent.c)
+ * Callees:
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z @ 0x1C01BD154 (-CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z.c)
+ *     ?DrawSonar@@YAXPEAUHDC__@@@Z @ 0x1C01BD6A4 (-DrawSonar@@YAXPEAUHDC__@@@Z.c)
+ *     StopFade @ 0x1C01BDEF0 (StopFade.c)
+ *     zzzAnimateFade @ 0x1C01BE518 (zzzAnimateFade.c)
+ *     zzzStartFade @ 0x1C01BE6C0 (zzzStartFade.c)
+ */
+
 HDC __fastcall zzzStartSonar(__int64 a1)
 {
   __int64 v1; // rbx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of IsSmallerThanScreen @ 0x1C0224BC0
+ * Callers:
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C00669E0 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     xxxSetSysMenu @ 0x1C0224F64 (xxxSetSysMenu.c)
+ * Callees:
+ *     ?_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z @ 0x1C00D2B90 (-_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z.c)
+ *     GetMonitorWorkRectForWindow @ 0x1C00FF4A0 (GetMonitorWorkRectForWindow.c)
+ */
+
 _BOOL8 __fastcall IsSmallerThanScreen(struct tagWND *a1)
 {
   struct tagMONITOR *v2; // rax

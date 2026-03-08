@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhPoStartNextPowerIrp_Pdo @ 0x1C001E7C8
+ * Callers:
+ *     UsbhPdoDevicePowerState @ 0x1C000A4C0 (UsbhPdoDevicePowerState.c)
+ *     UsbhFdoScheduleDeferredPowerRequest @ 0x1C001E494 (UsbhFdoScheduleDeferredPowerRequest.c)
+ *     UsbhPdoPower_SetPower @ 0x1C00208E0 (UsbhPdoPower_SetPower.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 void __fastcall UsbhPoStartNextPowerIrp_Pdo(__int64 a1, __int64 a2, IRP *a3, int a4)
 {
   _DWORD *v7; // rax

@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiSetHugeRangePartitionId @ 0x1406203CC
+ * Callers:
+ *     MiActOnPartitionNodePages @ 0x140655AB0 (MiActOnPartitionNodePages.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiRestrictRangeToNode @ 0x140370AB4 (MiRestrictRangeToNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockHugePfnInternal @ 0x14061F020 (MiLockHugePfnInternal.c)
+ *     MiUpdateHugePageCounts @ 0x14062090C (MiUpdateHugePageCounts.c)
+ */
+
 __int64 __fastcall MiSetHugeRangePartitionId(unsigned __int16 *a1, __int64 a2, ULONG_PTR a3, ULONG_PTR a4)
 {
   unsigned __int16 *v4; // r14

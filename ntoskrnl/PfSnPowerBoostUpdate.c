@@ -1,3 +1,12 @@
+/*
+ * XREFs of PfSnPowerBoostUpdate @ 0x140797E78
+ * Callers:
+ *     PfSnPowerBoost @ 0x140797DFC (PfSnPowerBoost.c)
+ *     PfSnPowerBoostWorker @ 0x140881720 (PfSnPowerBoostWorker.c)
+ * Callees:
+ *     ExpNtUpdateWnfStateData @ 0x14071943C (ExpNtUpdateWnfStateData.c)
+ */
+
 __int64 __fastcall PfSnPowerBoostUpdate(int a1)
 {
   __int64 result; // rax

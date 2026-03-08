@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiKmdDodInitialize @ 0x1C0021050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiInitializeEx @ 0x1C020F728 (DpiInitializeEx.c)
+ */
+
 __int64 __fastcall DpiKmdDodInitialize(void *a1, const UNICODE_STRING *a2, __int64 a3)
 {
   if ( *(_DWORD *)a3 >= 0x3001u

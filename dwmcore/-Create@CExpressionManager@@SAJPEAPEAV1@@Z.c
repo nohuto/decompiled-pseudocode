@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?Create@CExpressionManager@@SAJPEAPEAV1@@Z @ 0x180024894
+ * Callers:
+ *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800AE4F0 (-Initialize@CComposition@@MEAAJXZ.c)
+ * Callees:
+ *     ?PreInitClass@Time@@SAJXZ @ 0x18002480C (-PreInitClass@Time@@SAJXZ.c)
+ *     ??0CExpressionManager@@AEAA@XZ @ 0x180024A50 (--0CExpressionManager@@AEAA@XZ.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038C50 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ */
+
 __int64 __fastcall CExpressionManager::Create(struct CExpressionManager **a1)
 {
   unsigned int v2; // ebx

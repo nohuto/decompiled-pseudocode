@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDefaultWallpaperName@@YAXPEAGI@Z @ 0x1C0203894
+ * Callers:
+ *     LoadWallpaperFilenameFromRegistry @ 0x1C00D8520 (LoadWallpaperFilenameFromRegistry.c)
+ * Callees:
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C010A9B4 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ */
+
 void __fastcall GetDefaultWallpaperName(unsigned __int16 *a1, unsigned int a2)
 {
   __int64 v3; // rbx

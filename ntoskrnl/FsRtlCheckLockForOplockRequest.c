@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlCheckLockForOplockRequest @ 0x14053AE50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall FsRtlCheckLockForOplockRequest(__int64 a1, _QWORD *a2)
 {
   unsigned __int64 *v2; // rsi

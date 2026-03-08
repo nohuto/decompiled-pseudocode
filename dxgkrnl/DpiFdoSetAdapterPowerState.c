@@ -1,3 +1,24 @@
+/*
+ * XREFs of DpiFdoSetAdapterPowerState @ 0x1C01E1E80
+ * Callers:
+ *     DpiFdoHandleDevicePower @ 0x1C01E1A70 (DpiFdoHandleDevicePower.c)
+ *     DpiLdaPowerDownAllAdaptersInChain @ 0x1C03A3D4C (DpiLdaPowerDownAllAdaptersInChain.c)
+ *     DpiLdaPowerUpAdapterInChain @ 0x1C03A3ED8 (DpiLdaPowerUpAdapterInChain.c)
+ * Callees:
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0007FCC (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0008010 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     DxgkReportAdapterPowerRapidHpdTrigerEvent @ 0x1C001A3FC (DxgkReportAdapterPowerRapidHpdTrigerEvent.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C002463C (McTemplateK0q_EtwWriteTransfer.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiIsPowerRuntimeDStateTransition @ 0x1C0180CF0 (DpiIsPowerRuntimeDStateTransition.c)
+ *     DpiDxgkDdiSetPowerState @ 0x1C01E22D4 (DpiDxgkDdiSetPowerState.c)
+ *     DpiRequestIoPowerState @ 0x1C01E2390 (DpiRequestIoPowerState.c)
+ *     DpiFdoDetectPostDevice @ 0x1C01E7AF0 (DpiFdoDetectPostDevice.c)
+ *     DpiAcquirePostDisplayInfoFromBgfx @ 0x1C01E7D80 (DpiAcquirePostDisplayInfoFromBgfx.c)
+ *     DpiFdoRebootForSurpriseRemoval @ 0x1C0398498 (DpiFdoRebootForSurpriseRemoval.c)
+ */
+
 __int64 __fastcall DpiFdoSetAdapterPowerState(PDEVICE_OBJECT DeviceObject, __int64 State, __int64 a3, int a4, int a5)
 {
   char *DeviceExtension; // rdi

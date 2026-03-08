@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtCreateCpuPartition @ 0x1409AD120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtCreateCpuPartition(unsigned __int64 a1)
 {
   __int64 v1; // rdx

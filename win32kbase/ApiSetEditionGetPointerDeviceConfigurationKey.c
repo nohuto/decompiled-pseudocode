@@ -1,3 +1,16 @@
+/*
+ * XREFs of ApiSetEditionGetPointerDeviceConfigurationKey @ 0x1C009D4F4
+ * Callers:
+ *     AccessPTPEnabledStatus @ 0x1C009D120 (AccessPTPEnabledStatus.c)
+ *     ?UpdateWakeOnInputDeviceTypesFromRegistry@CInputGlobals@@QEAAXXZ @ 0x1C009D2B0 (-UpdateWakeOnInputDeviceTypesFromRegistry@CInputGlobals@@QEAAXXZ.c)
+ *     GetDWORDSettingValuesEx @ 0x1C009D450 (GetDWORDSettingValuesEx.c)
+ *     WriteSettingValues @ 0x1C01681F0 (WriteSettingValues.c)
+ *     ?SetWakeableInputTypesToRegistry@CInputGlobals@@QEAA_NKK@Z @ 0x1C020B7DC (-SetWakeableInputTypesToRegistry@CInputGlobals@@QEAA_NKK@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ApiSetEditionGetPointerDeviceConfigurationKey(unsigned int a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // esi

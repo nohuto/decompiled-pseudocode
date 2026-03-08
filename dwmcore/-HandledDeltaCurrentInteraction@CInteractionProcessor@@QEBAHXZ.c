@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?HandledDeltaCurrentInteraction@CInteractionProcessor@@QEBAHXZ @ 0x1801AB974
+ * Callers:
+ *     ?HandledDeltaCurrentInteraction@CInteractionRoot@@UEBAHXZ @ 0x1801A1170 (-HandledDeltaCurrentInteraction@CInteractionRoot@@UEBAHXZ.c)
+ *     ?HandledDeltaCurrentInteraction@CInteraction@@UEBAHXZ @ 0x180208DF0 (-HandledDeltaCurrentInteraction@CInteraction@@UEBAHXZ.c)
+ * Callees:
+ *     ?AllowPenGestureDetection@CInteractionProcessor@@AEBA_NXZ @ 0x1801298BC (-AllowPenGestureDetection@CInteractionProcessor@@AEBA_NXZ.c)
+ */
+
 __int64 __fastcall CInteractionProcessor::HandledDeltaCurrentInteraction(CInteractionProcessor *this)
 {
   int v2; // ecx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtGdiPlgBlt @ 0x1C0293E20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     GrePlgBlt @ 0x1C0293740 (GrePlgBlt.c)
+ */
+
 __int64 __fastcall NtGdiPlgBlt(
         HDC a1,
         const void *a2,

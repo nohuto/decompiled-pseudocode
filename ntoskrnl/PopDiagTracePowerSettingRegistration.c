@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopDiagTracePowerSettingRegistration @ 0x14098DD00
+ * Callers:
+ *     PopGetSettingNotificationName @ 0x14068CCC4 (PopGetSettingNotificationName.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x140244050 (_tlgCreate1Sz_wchar_t.c)
+ *     PsGetCurrentThreadProcess @ 0x1402C0BB0 (PsGetCurrentThreadProcess.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PopDiagTracePowerSettingRegistration(__int64 a1, int a2, char a3)
 {
   _KPROCESS *CurrentThreadProcess; // rax

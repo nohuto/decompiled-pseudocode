@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIDeviceIrpForwardRequest @ 0x1C00027E0
+ * Callers:
+ *     ACPIDeviceIrpSystemRequest @ 0x1C001DE48 (ACPIDeviceIrpSystemRequest.c)
+ * Callees:
+ *     ACPIDispatchForwardPowerIrp @ 0x1C0002AF0 (ACPIDispatchForwardPowerIrp.c)
+ *     WPP_RECORDER_SF_qLqss @ 0x1C0009C8C (WPP_RECORDER_SF_qLqss.c)
+ *     ACPIInternalDecrementIrpReferenceCount @ 0x1C002E528 (ACPIInternalDecrementIrpReferenceCount.c)
+ */
+
 __int64 __fastcall ACPIDeviceIrpForwardRequest(__int64 a1, IRP *a2, int a3)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // rbp

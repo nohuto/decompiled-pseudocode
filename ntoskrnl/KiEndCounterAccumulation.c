@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiEndCounterAccumulation @ 0x140571E54
+ * Callers:
+ *     KiEndThreadAccountingPeriodEx @ 0x140256710 (KiEndThreadAccountingPeriodEx.c)
+ *     KiSwapThread @ 0x14025F500 (KiSwapThread.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall KiEndCounterAccumulation(__int64 a1)
 {
   __int64 v1; // r8

@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlpLangNameInMultiSzString @ 0x140843B4C
+ * Callers:
+ *     RtlpIsALicensedRegularLanguage @ 0x140843AD4 (RtlpIsALicensedRegularLanguage.c)
+ *     RtlpIsALicensedLIPLanguage @ 0x140A71638 (RtlpIsALicensedLIPLanguage.c)
+ *     _RtlpMuiRegAddBaseLanguage @ 0x140A726D0 (_RtlpMuiRegAddBaseLanguage.c)
+ *     _RtlpMuiRegValidateAndGetInstallFallbackBase @ 0x140A730F0 (_RtlpMuiRegValidateAndGetInstallFallbackBase.c)
+ * Callees:
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ */
+
 char __fastcall RtlpLangNameInMultiSzString(wchar_t *Str1, wchar_t *Str2)
 {
   char v2; // bl

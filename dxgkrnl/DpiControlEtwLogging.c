@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiControlEtwLogging @ 0x1C03946E8
+ * Callers:
+ *     ?DxgkEtwEnableCallback@@YAXKK_K@Z @ 0x1C0020F18 (-DxgkEtwEnableCallback@@YAXKK_K@Z.c)
+ * Callees:
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 LONG __fastcall DpiControlEtwLogging(char a1, unsigned int a2, char a3)
 {
   __int64 v6; // rcx

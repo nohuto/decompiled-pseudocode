@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiDevCfgConfigureDeviceFilters @ 0x140876BD0
+ * Callers:
+ *     PiDevCfgConfigureDeviceKeys @ 0x140876A38 (PiDevCfgConfigureDeviceKeys.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     _RegRtlCopyTreeInternal @ 0x140A67A08 (_RegRtlCopyTreeInternal.c)
+ */
+
 __int64 __fastcall PiDevCfgConfigureDeviceFilters(int a1, void *a2)
 {
   NTSTATUS v3; // eax

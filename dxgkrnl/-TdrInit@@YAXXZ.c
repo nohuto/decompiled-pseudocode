@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?TdrInit@@YAXXZ @ 0x1C0213610
+ * Callers:
+ *     DriverEntry @ 0x1C03D9E6C (DriverEntry.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     ?TdrHistoryInit@@YAXPEAU_TDR_HISTORY@@@Z @ 0x1C01D30C0 (-TdrHistoryInit@@YAXPEAU_TDR_HISTORY@@@Z.c)
+ */
+
 void TdrInit(void)
 {
   int v0; // eax

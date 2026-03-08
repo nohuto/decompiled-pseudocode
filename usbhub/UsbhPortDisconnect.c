@@ -1,3 +1,21 @@
+/*
+ * XREFs of UsbhPortDisconnect @ 0x1C004D690
+ * Callers:
+ *     UsbhHandleSuspend @ 0x1C001A5BC (UsbhHandleSuspend.c)
+ *     UsbhPortCycle @ 0x1C004D4D0 (UsbhPortCycle.c)
+ *     UsbhReset1Debounce @ 0x1C004DC10 (UsbhReset1Debounce.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhSignalResumeEvent @ 0x1C001B710 (UsbhSignalResumeEvent.c)
+ *     UsbhUnlinkPdoDeviceHandle @ 0x1C001BEDC (UsbhUnlinkPdoDeviceHandle.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhSignalSuspendEvent @ 0x1C00353B4 (UsbhSignalSuspendEvent.c)
+ *     Usbh_Disconnect_PdoEvent @ 0x1C003AFBC (Usbh_Disconnect_PdoEvent.c)
+ *     UsbhBusUnlatchPdo @ 0x1C004C9E8 (UsbhBusUnlatchPdo.c)
+ *     UsbhDeleteUxdSettings @ 0x1C0059BF8 (UsbhDeleteUxdSettings.c)
+ */
+
 __int64 __fastcall UsbhPortDisconnect(__int64 a1, __int64 a2, __int64 a3)
 {
   _DWORD *v6; // rbx

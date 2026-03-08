@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMDevChangeDoUsermodeCallback @ 0x1C01A7A1C
+ * Callers:
+ *     Win32kRIMDevChangeCallback @ 0x1C01A7C60 (Win32kRIMDevChangeCallback.c)
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     xxxClientRimDevCallback @ 0x1C02161B8 (xxxClientRimDevCallback.c)
+ */
+
 _UNKNOWN **__fastcall RIMDevChangeDoUsermodeCallback(__int64 a1)
 {
   _UNKNOWN **result; // rax

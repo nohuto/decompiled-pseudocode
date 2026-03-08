@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopQueryLastStateTransitionInfo @ 0x140AA30B4
+ * Callers:
+ *     PopStateTransitionTimeoutDispatch @ 0x14058D1B0 (PopStateTransitionTimeoutDispatch.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ */
+
 __int64 __fastcall PopQueryLastStateTransitionInfo(__int64 a1)
 {
   unsigned int v1; // ebx

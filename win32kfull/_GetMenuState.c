@@ -1,3 +1,14 @@
+/*
+ * XREFs of _GetMenuState @ 0x1C024E814
+ * Callers:
+ *     ?xxxDWP_SetCursor@@YAHPEAUtagWND@@PEAUHWND__@@HI@Z @ 0x1C00A5C50 (-xxxDWP_SetCursor@@YAHPEAUtagWND@@PEAUHWND__@@HI@Z.c)
+ *     xxxHandleNCMouseGuys @ 0x1C02035C0 (xxxHandleNCMouseGuys.c)
+ *     xxxMNLoop @ 0x1C021726C (xxxMNLoop.c)
+ *     ?xxxDWP_NCMouse@@YAXPEAUtagWND@@II_J@Z @ 0x1C02257E8 (-xxxDWP_NCMouse@@YAXPEAUtagWND@@II_J@Z.c)
+ * Callees:
+ *     MNLookUpItem @ 0x1C00A75F0 (MNLookUpItem.c)
+ */
+
 __int64 __fastcall GetMenuState(__int64 a1, unsigned int a2)
 {
   _QWORD *v2; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of _PnpInstallerClassRaisePropertyChangeEventWorker @ 0x140A629D0
+ * Callers:
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x140687404 (_PnpObjectRaisePropertyChangeEvent.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall PnpInstallerClassRaisePropertyChangeEventWorker(
         __int64 a1,
         __int64 a2,

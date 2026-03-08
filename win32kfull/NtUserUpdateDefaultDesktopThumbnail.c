@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserUpdateDefaultDesktopThumbnail @ 0x1C01E0500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastStatus @ 0x1C0012568 (UserSetLastStatus.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ *     DwmAsyncUpdateDefaultDesktopThumbnail @ 0x1C0270780 (DwmAsyncUpdateDefaultDesktopThumbnail.c)
+ */
+
 __int64 __fastcall NtUserUpdateDefaultDesktopThumbnail(__int64 a1, __int64 a2, __int64 a3, char a4, int a5)
 {
   __int64 v7; // rcx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PnpQueryDeviceText @ 0x1406850F0
+ * Callers:
+ *     PiProcessNewDeviceNode @ 0x140685858 (PiProcessNewDeviceNode.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopSynchronousCall @ 0x14069DD78 (IopSynchronousCall.c)
+ *     PiNormalizeDeviceText @ 0x14086EE68 (PiNormalizeDeviceText.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpQueryDeviceText(int a1, int a2, __int64 a3, PVOID *a4)
 {
   unsigned int v7; // ebx

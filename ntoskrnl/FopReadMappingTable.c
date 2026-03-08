@@ -1,3 +1,15 @@
+/*
+ * XREFs of FopReadMappingTable @ 0x140B99898
+ * Callers:
+ *     FopInitializeFonts @ 0x140B99D48 (FopInitializeFonts.c)
+ * Callees:
+ *     BgpFwFreeMemory @ 0x140382650 (BgpFwFreeMemory.c)
+ *     FioFwReadBytesAtOffset @ 0x140383778 (FioFwReadBytesAtOffset.c)
+ *     BgpFwAllocateMemory @ 0x140383BDC (BgpFwAllocateMemory.c)
+ *     FopFreeMappingTable @ 0x140AE92E8 (FopFreeMappingTable.c)
+ *     FopReadCmapTable @ 0x140B99BEC (FopReadCmapTable.c)
+ */
+
 __int64 __fastcall FopReadMappingTable(__int64 a1, __int64 a2, __int64 *a3)
 {
   int v4; // edi

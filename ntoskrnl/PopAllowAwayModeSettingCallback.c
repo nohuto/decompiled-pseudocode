@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopAllowAwayModeSettingCallback @ 0x140860360
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopSetSystemState @ 0x14058BA7C (PopSetSystemState.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopAllowAwayModeSettingCallback(_QWORD *a1, _DWORD *a2, int a3)
 {
   unsigned int v6; // ebx

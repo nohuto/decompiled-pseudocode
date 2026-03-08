@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiLogHotPatchOperationStatus @ 0x140A36298
+ * Callers:
+ *     MiActOnPatchInAllSessions @ 0x140A31950 (MiActOnPatchInAllSessions.c)
+ *     MiApplyDriverHotPatch @ 0x140A31BB8 (MiApplyDriverHotPatch.c)
+ *     MiApplyHotPatchToDriver @ 0x140A321B0 (MiApplyHotPatchToDriver.c)
+ *     MiApplyImageHotPatchRequest @ 0x140A32920 (MiApplyImageHotPatchRequest.c)
+ *     MiApplySingleSessionPatch @ 0x140A333E0 (MiApplySingleSessionPatch.c)
+ *     MiInjectThreadForHotPatch @ 0x140A34C94 (MiInjectThreadForHotPatch.c)
+ *     MiLoadHotPatch @ 0x140A352A0 (MiLoadHotPatch.c)
+ *     MiUnloadHotPatch @ 0x140A392C0 (MiUnloadHotPatch.c)
+ *     MmRegisterHotPatches @ 0x140B7092C (MmRegisterHotPatches.c)
+ * Callees:
+ *     MiFillLogProcessInfo @ 0x140224D68 (MiFillLogProcessInfo.c)
+ *     PsGetProcessId @ 0x140236D10 (PsGetProcessId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x1403BE3FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall MiLogHotPatchOperationStatus(
         unsigned int a1,
         unsigned int a2,

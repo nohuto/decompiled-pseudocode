@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIBuildProcessDeviceGenericEval @ 0x1C000E740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIBuildCompleteCommon @ 0x1C000BC30 (ACPIBuildCompleteCommon.c)
+ *     WPP_RECORDER_SF_LLqss @ 0x1C0014D18 (WPP_RECORDER_SF_LLqss.c)
+ *     AMLIAsyncEvalObject @ 0x1C00478E8 (AMLIAsyncEvalObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessDeviceGenericEval(__int64 a1)
 {
   __int64 v1; // rax

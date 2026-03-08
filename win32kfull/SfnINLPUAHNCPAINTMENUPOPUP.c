@@ -1,3 +1,15 @@
+/*
+ * XREFs of SfnINLPUAHNCPAINTMENUPOPUP @ 0x1C020D400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00344F8 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0034558 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     _ServerFixupMenuDC @ 0x1C0237764 (_ServerFixupMenuDC.c)
+ */
+
 __int64 __fastcall SfnINLPUAHNCPAINTMENUPOPUP(
         __int64 *a1,
         int a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpIvtCheckIdPathMatch @ 0x14037C118
+ * Callers:
+ *     IvtFindDevice @ 0x14037C000 (IvtFindDevice.c)
+ *     IvtCreateDevice @ 0x14037C4C0 (IvtCreateDevice.c)
+ *     IvtCheckForReservedRegion @ 0x14080BF70 (IvtCheckForReservedRegion.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HalpIvtCheckIdPathMatch(__int64 a1, char *a2)
 {
   char v2; // r8

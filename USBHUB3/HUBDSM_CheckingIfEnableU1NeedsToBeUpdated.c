@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_CheckingIfEnableU1NeedsToBeUpdated @ 0x1C0024EE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBDSM_CheckingIfEnableU1NeedsToBeUpdated(__int64 a1)
 {
   unsigned int v1; // edx

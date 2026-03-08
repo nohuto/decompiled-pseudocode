@@ -1,3 +1,13 @@
+/*
+ * XREFs of XFORMOBJ_bApplyXform @ 0x1C02DDBF0
+ * Callers:
+ *     NtGdiXFORMOBJ_bApplyXform @ 0x1C02CFEE0 (NtGdiXFORMOBJ_bApplyXform.c)
+ * Callees:
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z @ 0x1C00881C4 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z @ 0x1C02900F0 (--0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z.c)
+ */
+
 // local variable allocation has failed, the output may be wrong!
 BOOL __stdcall XFORMOBJ_bApplyXform(XFORMOBJ *pxo, ULONG iMode, ULONG cPoints, PVOID pvIn, PVOID pvOut)
 {

@@ -1,3 +1,20 @@
+/*
+ * XREFs of HvlPhase1Initialize @ 0x140384654
+ * Callers:
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x1402E8DA0 (KeRegisterBugCheckReasonCallback.c)
+ *     HviIsAnyHypervisorPresent @ 0x14037F1D0 (HviIsAnyHypervisorPresent.c)
+ *     HvlConfigureMemoryZeroingOnReset @ 0x14053D15C (HvlConfigureMemoryZeroingOnReset.c)
+ *     HvlpMapStatisticsPage @ 0x14053EE40 (HvlpMapStatisticsPage.c)
+ *     HvlpSetupCachedHypercallPages @ 0x14053FCEC (HvlpSetupCachedHypercallPages.c)
+ *     HvlpInitializePowerStatistics @ 0x140544B4C (HvlpInitializePowerStatistics.c)
+ *     HvlpInitializeHvCrashdump @ 0x140545BF4 (HvlpInitializeHvCrashdump.c)
+ *     VslpIumPhase0Initialize @ 0x140B903AC (VslpIumPhase0Initialize.c)
+ *     MmMarkHypercallPageRetpolineBit @ 0x140B9685C (MmMarkHypercallPageRetpolineBit.c)
+ */
+
 __int64 __fastcall HvlPhase1Initialize(__int64 a1)
 {
   __int64 v3; // rcx

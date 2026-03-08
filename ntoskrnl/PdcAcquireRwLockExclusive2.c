@@ -1,3 +1,12 @@
+/*
+ * XREFs of PdcAcquireRwLockExclusive2 @ 0x140857778
+ * Callers:
+ *     Pdcv2ActivationClientRegister @ 0x140857554 (Pdcv2ActivationClientRegister.c)
+ *     Pdcv2pActivationClientCallback @ 0x1409C5AA0 (Pdcv2pActivationClientCallback.c)
+ * Callees:
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ */
+
 struct _KTHREAD *__fastcall PdcAcquireRwLockExclusive2(__int64 a1, _BYTE *a2)
 {
   NTSTATUS v4; // eax

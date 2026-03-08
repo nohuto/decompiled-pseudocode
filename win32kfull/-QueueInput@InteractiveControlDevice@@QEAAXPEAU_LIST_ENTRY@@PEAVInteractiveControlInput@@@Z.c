@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?QueueInput@InteractiveControlDevice@@QEAAXPEAU_LIST_ENTRY@@PEAVInteractiveControlInput@@@Z @ 0x1C0248D40
+ * Callers:
+ *     ?QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z @ 0x1C0248B64 (-QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z.c)
+ *     ?SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z @ 0x1C02492DC (-SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z.c)
+ * Callees:
+ *     ?CleanQueue@InteractiveControlDevice@@QEAAXK@Z @ 0x1C0247B90 (-CleanQueue@InteractiveControlDevice@@QEAAXK@Z.c)
+ */
+
 void __fastcall InteractiveControlDevice::QueueInput(
         InteractiveControlDevice *this,
         struct _LIST_ENTRY *a2,

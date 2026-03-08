@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?zzzShowCursor@@YAH_N@Z @ 0x1C00F2A60
+ * Callers:
+ *     NtUserShowCursor @ 0x1C00F2A20 (NtUserShowCursor.c)
+ *     ?xxxMoveSize@@YAXPEAUtagWND@@IK@Z @ 0x1C01F0DC4 (-xxxMoveSize@@YAXPEAUtagWND@@IK@Z.c)
+ *     xxxDragObject @ 0x1C023257C (xxxDragObject.c)
+ * Callees:
+ *     ?_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0022318 (-_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C002EF28 (zzzEndDeferWinEventNotify.c)
+ *     zzzUpdateCursorImage @ 0x1C0061E20 (zzzUpdateCursorImage.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall zzzShowCursor(char a1)
 {

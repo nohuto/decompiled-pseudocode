@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?UT_InvertCaret@@YAXXZ @ 0x1C0006508
+ * Callers:
+ *     zzzSetCaretPos @ 0x1C0005ED8 (zzzSetCaretPos.c)
+ *     zzzInternalShowCaret @ 0x1C00061E4 (zzzInternalShowCaret.c)
+ *     CaretBlinkProc @ 0x1C0006450 (CaretBlinkProc.c)
+ *     zzzInternalHideCaret @ 0x1C00E877C (zzzInternalHideCaret.c)
+ * Callees:
+ *     _ExcludeUpdateRgn @ 0x1C000665C (_ExcludeUpdateRgn.c)
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     GrePolyPatBlt @ 0x1C0088258 (GrePolyPatBlt.c)
+ *     IsVisible @ 0x1C00A66A0 (IsVisible.c)
+ *     GreSaveDCInternal @ 0x1C00C6CB0 (GreSaveDCInternal.c)
+ */
+
 void UT_InvertCaret(void)
 {
   __int64 v0; // rdi

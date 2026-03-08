@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_MarkingDeviceAsNotSupportingContainerIdBasedOnMSOSDescriptor @ 0x1C0021CE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HUBREG_AssignUsbflagsValueForDevice @ 0x1C00842FC (HUBREG_AssignUsbflagsValueForDevice.c)
+ */
+
 __int64 __fastcall HUBDSM_MarkingDeviceAsNotSupportingContainerIdBasedOnMSOSDescriptor(__int64 a1)
 {
   __int64 v1; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiSetHardwareSpeculationControlFeatures @ 0x14037DE1C
+ * Callers:
+ *     KiInitializeKernel @ 0x140A89160 (KiInitializeKernel.c)
+ * Callees:
+ *     KiDetectHardwareSpecControlFeatures @ 0x14037EC84 (KiDetectHardwareSpecControlFeatures.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 char __fastcall KiSetHardwareSpeculationControlFeatures(__int64 a1, __int64 a2)
 {
   unsigned int v3; // r8d

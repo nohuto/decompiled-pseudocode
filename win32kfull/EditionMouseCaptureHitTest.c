@@ -1,3 +1,12 @@
+/*
+ * XREFs of EditionMouseCaptureHitTest @ 0x1C01E74A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IsThreadDesktopComposed @ 0x1C0101360 (IsThreadDesktopComposed.c)
+ *     TransformVectorWithInputTargetPrecedence @ 0x1C01442D8 (TransformVectorWithInputTargetPrecedence.c)
+ */
+
 __int64 EditionMouseCaptureHitTest()
 {
   __int64 result; // rax

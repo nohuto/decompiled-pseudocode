@@ -1,3 +1,12 @@
+/*
+ * XREFs of CarReportRuleViolation @ 0x1405D1F60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CarFindRuleClassConfigurationEntryByRuleClassId @ 0x1405D186C (CarFindRuleClassConfigurationEntryByRuleClassId.c)
+ *     CarReportRuleViolationForTriage @ 0x1405D1FA0 (CarReportRuleViolationForTriage.c)
+ */
+
 __int64 __fastcall CarReportRuleViolation(__int64 a1)
 {
   __int64 *RuleClassConfigurationEntryByRuleClassId; // rax

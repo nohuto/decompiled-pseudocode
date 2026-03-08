@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiAllocateFastAwePages @ 0x140A3D534
+ * Callers:
+ *     MiAllocateUserPhysicalPages @ 0x140A3D6E8 (MiAllocateUserPhysicalPages.c)
+ * Callees:
+ *     MiFreeLargeZeroPages @ 0x14020FD6C (MiFreeLargeZeroPages.c)
+ *     MiAcquireNonPagedResources @ 0x140348D54 (MiAcquireNonPagedResources.c)
+ *     MiInitializeLargePfnList @ 0x14035059C (MiInitializeLargePfnList.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiFillUserPhysicalMdl @ 0x140647538 (MiFillUserPhysicalMdl.c)
+ *     MiGetAweInfoPartition @ 0x1406482AC (MiGetAweInfoPartition.c)
+ *     MiGetAwePageSize @ 0x14064836C (MiGetAwePageSize.c)
+ *     MiReleaseNonPagedResources @ 0x14065EA8C (MiReleaseNonPagedResources.c)
+ *     MiCreateLargePfnList @ 0x14066540C (MiCreateLargePfnList.c)
+ */
+
 __int64 __fastcall MiAllocateFastAwePages(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, unsigned __int64 a5)
 {
   unsigned int v8; // edi

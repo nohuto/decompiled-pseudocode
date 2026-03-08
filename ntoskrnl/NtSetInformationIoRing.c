@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtSetInformationIoRing @ 0x1409479B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IopExceptionFilter @ 0x1405530E8 (IopExceptionFilter.c)
+ *     IopIoRingUpdateCompletionUserEvent @ 0x1405573C0 (IopIoRingUpdateCompletionUserEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall NtSetInformationIoRing(HANDLE Handle, int a2, unsigned int a3, void **a4)
 {
   KPROCESSOR_MODE PreviousMode; // r15

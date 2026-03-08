@@ -1,3 +1,22 @@
+/*
+ * XREFs of DxgkEnumerateModesForPathsModality @ 0x1C02FD6F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0007FCC (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0008010 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C002463C (McTemplateK0q_EtwWriteTransfer.c)
+ *     ??1CCD_MODE_RESULT_SET@@QEAA@XZ @ 0x1C0026080 (--1CCD_MODE_RESULT_SET@@QEAA@XZ.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ??0CCD_TOPOLOGY@@QEAA@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C01BE5A8 (--0CCD_TOPOLOGY@@QEAA@PEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
+ *     ??1CCD_TOPOLOGY@@QEAA@XZ @ 0x1C01BE894 (--1CCD_TOPOLOGY@@QEAA@XZ.c)
+ *     DMMVideoSignalInfoToDisplayConfigVideoSignalInfo @ 0x1C01D8530 (DMMVideoSignalInfoToDisplayConfigVideoSignalInfo.c)
+ *     ??0CCD_MODE_RESULT_SET@@QEAA@XZ @ 0x1C03B6268 (--0CCD_MODE_RESULT_SET@@QEAA@XZ.c)
+ *     ?EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z @ 0x1C03B6954 (-EnumerateFunctionalModesWorker@CCD_TOPOLOGY@@AEAAJIKAEAVCCD_MODE_RESULT_SET@@@Z.c)
+ *     ?PopLastMode@CCD_MODE_RESULT_SET@@QEAA_NAEAUD3DKMT_PATHMODALITY_MODE_RESULT@@@Z @ 0x1C03B6F1C (-PopLastMode@CCD_MODE_RESULT_SET@@QEAA_NAEAUD3DKMT_PATHMODALITY_MODE_RESULT@@@Z.c)
+ */
+
 __int64 __fastcall DxgkEnumerateModesForPathsModality(
         __int64 a1,
         struct D3DKMT_GETPATHSMODALITY *a2,

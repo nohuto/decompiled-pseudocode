@@ -1,3 +1,13 @@
+/*
+ * XREFs of rimAbIsPointerSuppressedByGlobalPenDeadzone @ 0x1C01A89E4
+ * Callers:
+ *     rimAbSuppressLowerRankActivityInFrame @ 0x1C01A98C0 (rimAbSuppressLowerRankActivityInFrame.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimAbIsPointInGlobalPenDeadzone @ 0x1C01A8710 (rimAbIsPointInGlobalPenDeadzone.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dDdd @ 0x1C01AB10C (WPP_RECORDER_AND_TRACE_SF_dDdd.c)
+ */
+
 __int64 __fastcall rimAbIsPointerSuppressedByGlobalPenDeadzone(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int IsPointInGlobalPenDeadzone; // edi

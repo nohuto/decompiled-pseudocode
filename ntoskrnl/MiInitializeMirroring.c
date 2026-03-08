@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiInitializeMirroring @ 0x140B3AF20
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiLockDynamicMemoryExclusive @ 0x140619164 (MiLockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x140619B70 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiInitializeDynamicBitmap @ 0x14080A0E4 (MiInitializeDynamicBitmap.c)
+ *     MiUpdateMirrorBitmaps @ 0x140A2C418 (MiUpdateMirrorBitmaps.c)
+ */
+
 __int64 MiInitializeMirroring()
 {
   _QWORD *v0; // rsi

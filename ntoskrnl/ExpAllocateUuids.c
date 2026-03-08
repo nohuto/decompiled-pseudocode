@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpAllocateUuids @ 0x140792ED8
+ * Callers:
+ *     NtAllocateUuids @ 0x14067EB00 (NtAllocateUuids.c)
+ *     ExpUuidGetValues @ 0x1408701E8 (ExpUuidGetValues.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     ExpUuidLoadSequenceNumber @ 0x14085B194 (ExpUuidLoadSequenceNumber.c)
+ */
+
 __int64 __fastcall ExpAllocateUuids(__int64 a1, _DWORD *a2, _DWORD *a3)
 {
   __int64 v6; // rcx

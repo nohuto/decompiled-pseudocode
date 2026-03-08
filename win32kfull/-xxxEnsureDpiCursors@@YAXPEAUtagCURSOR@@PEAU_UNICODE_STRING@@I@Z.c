@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z @ 0x1C0108704
+ * Callers:
+ *     ?xxxEnsureDpiCursorsForSysCur@@YAXI@Z @ 0x1C01086B4 (-xxxEnsureDpiCursorsForSysCur@@YAXI@Z.c)
+ *     ?xxxEnsureAllDpiCursors@@YAXXZ @ 0x1C0109FBC (-xxxEnsureAllDpiCursors@@YAXXZ.c)
+ * Callees:
+ *     ?FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z @ 0x1C003AB4C (-FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z.c)
+ *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C0041464 (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00DBE14 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     xxxClientCopyImage @ 0x1C0107FC0 (xxxClientCopyImage.c)
+ *     xxxClientLoadImage @ 0x1C01080C0 (xxxClientLoadImage.c)
+ *     ?zzzFixupGlobalCursorWhenChanged@@YAXPEAUtagCURSOR@@@Z @ 0x1C0108B80 (-zzzFixupGlobalCursorWhenChanged@@YAXPEAUtagCURSOR@@@Z.c)
+ *     ?EnsureDpiCursor@Cursor@InputTraceLogging@@SAXPEAUtagCURSOR@@@Z @ 0x1C01A99C0 (-EnsureDpiCursor@Cursor@InputTraceLogging@@SAXPEAUtagCURSOR@@@Z.c)
+ *     ?LinkDpiCursor@@YAXPEAUtagCURSOR@@0I@Z @ 0x1C01A9B34 (-LinkDpiCursor@@YAXPEAUtagCURSOR@@0I@Z.c)
+ */
+
 void __fastcall xxxEnsureDpiCursors(struct tagCURSOR *a1, struct _UNICODE_STRING *a2, unsigned int a3)
 {
   _DWORD *v3; // r14

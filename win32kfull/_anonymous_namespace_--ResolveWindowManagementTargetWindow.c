@@ -1,3 +1,12 @@
+/*
+ * XREFs of _anonymous_namespace_::ResolveWindowManagementTargetWindow @ 0x1C009BA28
+ * Callers:
+ *     _anonymous_namespace_::NotifyIAMWindowManagementEvent @ 0x1C009B94C (_anonymous_namespace_--NotifyIAMWindowManagementEvent.c)
+ *     _anonymous_namespace_::xxxCallIAMWindowManagementHandler @ 0x1C0220E14 (_anonymous_namespace_--xxxCallIAMWindowManagementHandler.c)
+ * Callees:
+ *     ?SHData_GetCustomDockTargetWindow@MOVESIZEDATA@@QEBAPEAUtagWND@@XZ @ 0x1C023D1DC (-SHData_GetCustomDockTargetWindow@MOVESIZEDATA@@QEBAPEAUtagWND@@XZ.c)
+ */
+
 struct tagWND *__fastcall anonymous_namespace_::ResolveWindowManagementTargetWindow(int a1)
 {
   __int64 v1; // rdx

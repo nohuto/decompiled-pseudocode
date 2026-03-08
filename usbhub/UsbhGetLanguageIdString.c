@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhGetLanguageIdString @ 0x1C00503F4
+ * Callers:
+ *     UsbhSetupDevice @ 0x1C0039728 (UsbhSetupDevice.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C002E6BC (WPP_RECORDER_SF_dD.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhValidateStringDescriptor @ 0x1C00530B4 (UsbhValidateStringDescriptor.c)
+ *     UsbhGetStringFromDevice @ 0x1C0054830 (UsbhGetStringFromDevice.c)
+ */
+
 __int64 __fastcall UsbhGetLanguageIdString(__int64 a1, __int64 a2, __int64 a3)
 {
   int v5; // edi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpDoReDoRenameKey @ 0x140A27D14
+ * Callers:
+ *     CmpDoReDoRecord @ 0x140A27C2C (CmpDoReDoRecord.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwRenameKey @ 0x1404152F0 (ZwRenameKey.c)
+ *     CmpDoReOpenTransKey @ 0x140A27F24 (CmpDoReOpenTransKey.c)
+ */
+
 __int64 __fastcall CmpDoReDoRenameKey(__int64 a1, UNICODE_STRING *a2)
 {
   NTSTATUS v3; // ebx

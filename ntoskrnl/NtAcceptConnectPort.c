@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtAcceptConnectPort @ 0x140791CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     AlpcpAcceptConnectPort @ 0x140713844 (AlpcpAcceptConnectPort.c)
+ */
+
 __int64 __fastcall NtAcceptConnectPort(
         unsigned __int64 a1,
         void *a2,

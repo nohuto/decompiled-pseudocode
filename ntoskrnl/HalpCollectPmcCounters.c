@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpCollectPmcCounters @ 0x140453010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpCollectPmcCounters(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

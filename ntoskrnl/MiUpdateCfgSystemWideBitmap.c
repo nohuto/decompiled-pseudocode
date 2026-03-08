@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiUpdateCfgSystemWideBitmap @ 0x1406A1180
+ * Callers:
+ *     MiUpdateImageSystemWideBitmaps @ 0x1406A190C (MiUpdateImageSystemWideBitmaps.c)
+ * Callees:
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x1406A5EE0 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiGetImageWowSubsystemIndex @ 0x140791C98 (MiGetImageWowSubsystemIndex.c)
+ */
+
 __int64 __fastcall MiUpdateCfgSystemWideBitmap(__int64 *a1, unsigned __int64 a2, __int64 a3)
 {
   __int64 v3; // rdi

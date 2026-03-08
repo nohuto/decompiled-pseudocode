@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwAlpcDeleteResourceReserve @ 0x140413330
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwAlpcDeleteResourceReserve(__int64 a1, __int64 a2)
 {
   _disable();

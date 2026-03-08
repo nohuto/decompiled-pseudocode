@@ -1,3 +1,13 @@
+/*
+ * XREFs of WheaCrashDumpInitializationComplete @ 0x14086086C
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     WheapReportDeferredLiveDumps @ 0x140A06534 (WheapReportDeferredLiveDumps.c)
+ */
+
 __int64 WheaCrashDumpInitializationComplete()
 {
   unsigned int v0; // edi

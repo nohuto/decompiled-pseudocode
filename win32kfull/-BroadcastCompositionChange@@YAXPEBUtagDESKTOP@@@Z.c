@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?BroadcastCompositionChange@@YAXPEBUtagDESKTOP@@@Z @ 0x1C007ECB0
+ * Callers:
+ *     zzzDecomposeDesktop @ 0x1C007CC0C (zzzDecomposeDesktop.c)
+ *     zzzComposeDesktop @ 0x1C007D394 (zzzComposeDesktop.c)
+ * Callees:
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     xxxSendMessageBSM @ 0x1C00A48F0 (xxxSendMessageBSM.c)
+ */
+
 void __fastcall BroadcastCompositionChange(const struct tagDESKTOP *a1)
 {
   _DWORD v2[2]; // [rsp+30h] [rbp-38h] BYREF

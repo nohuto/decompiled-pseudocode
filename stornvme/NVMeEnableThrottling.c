@@ -1,3 +1,11 @@
+/*
+ * XREFs of NVMeEnableThrottling @ 0x1C000ECF4
+ * Callers:
+ *     NVMeControllerInitPart3 @ 0x1C000DCDC (NVMeControllerInitPart3.c)
+ * Callees:
+ *     NVMeRegisterThrottling @ 0x1C0016BF8 (NVMeRegisterThrottling.c)
+ */
+
 __int64 __fastcall NVMeEnableThrottling(__int64 a1)
 {
   __int64 result; // rax

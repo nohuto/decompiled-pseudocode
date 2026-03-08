@@ -1,3 +1,12 @@
+/*
+ * XREFs of CiTaskAllocate @ 0x1C000EBA0
+ * Callers:
+ *     CiConfigInitializeFromRegistry @ 0x1C000E8D0 (CiConfigInitializeFromRegistry.c)
+ * Callees:
+ *     WPP_SF_d @ 0x1C0004884 (WPP_SF_d.c)
+ *     CiTaskLocate @ 0x1C000ACF0 (CiTaskLocate.c)
+ */
+
 __int64 __fastcall CiTaskAllocate(wchar_t *P, _OWORD *a2, __int64 *a3)
 {
   __int64 Pool2; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of _SafeReallocBlob @ 0x140677D74
+ * Callers:
+ *     RtlpMuiRegResizeLanguageConfigList @ 0x140A7233C (RtlpMuiRegResizeLanguageConfigList.c)
+ *     RtlpMuiRegResizeLanguages @ 0x140A723A8 (RtlpMuiRegResizeLanguages.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void *__fastcall SafeReallocBlob(
         unsigned int *P,
         unsigned int a2,

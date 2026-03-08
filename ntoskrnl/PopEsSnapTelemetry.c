@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopEsSnapTelemetry @ 0x140995498
+ * Callers:
+ *     PopEsUpdateState @ 0x1403C0334 (PopEsUpdateState.c)
+ *     PopEsEnterSleepShutdown @ 0x1409952F8 (PopEsEnterSleepShutdown.c)
+ * Callees:
+ *     PopTraceEsState @ 0x140592F90 (PopTraceEsState.c)
+ */
+
 char __fastcall PopEsSnapTelemetry(__int64 a1)
 {
   int v1; // ebx

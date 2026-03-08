@@ -1,3 +1,34 @@
+/*
+ * XREFs of KiInitializeBootStructures @ 0x140A887E0
+ * Callers:
+ *     KiSystemStartup @ 0x140A84010 (KiSystemStartup.c)
+ * Callees:
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     HalInitializeProcessor @ 0x14037DBF0 (HalInitializeProcessor.c)
+ *     KiDetectTsx @ 0x14038002C (KiDetectTsx.c)
+ *     HalInitializeBios @ 0x14039A4D0 (HalInitializeBios.c)
+ *     KiDetermineRetpolineEnablement @ 0x1403ACCB4 (KiDetermineRetpolineEnablement.c)
+ *     KasanInitSystem @ 0x1403B0E00 (KasanInitSystem.c)
+ *     strstr @ 0x1403D3650 (strstr.c)
+ *     atoi @ 0x1403D36E0 (atoi.c)
+ *     KiSaveInitialProcessorControlState @ 0x140416230 (KiSaveInitialProcessorControlState.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiEnableKvaShadowing @ 0x140A864CC (KiEnableKvaShadowing.c)
+ *     ExInitPoolLookasidePointers @ 0x140A885BC (ExInitPoolLookasidePointers.c)
+ *     KiGetProcessorSignature @ 0x140A88C44 (KiGetProcessorSignature.c)
+ *     KiInitPrcb @ 0x140A88DD8 (KiInitPrcb.c)
+ *     KiSetFeatureBits @ 0x140A8A714 (KiSetFeatureBits.c)
+ *     KiSetProcessorSignature @ 0x140A8B504 (KiSetProcessorSignature.c)
+ *     KiInitializeIdt @ 0x140A8C270 (KiInitializeIdt.c)
+ *     InitializeBuildStrings @ 0x140B31CFC (InitializeBuildStrings.c)
+ *     MmInitSystem @ 0x140B393A4 (MmInitSystem.c)
+ *     InbvDriverInitialize @ 0x140B47614 (InbvDriverInitialize.c)
+ *     CmInitBootFeatureConfigurations @ 0x140B5388C (CmInitBootFeatureConfigurations.c)
+ *     ExRngInitializeSystem @ 0x140B6A0B8 (ExRngInitializeSystem.c)
+ *     KiInitializeNxSupportDiscard @ 0x140B6FE18 (KiInitializeNxSupportDiscard.c)
+ *     HvlEnableVsmCalls @ 0x140B7294C (HvlEnableVsmCalls.c)
+ */
+
 __int64 __fastcall KiInitializeBootStructures(__int64 a1)
 {
   KPCR *Pcr; // r14

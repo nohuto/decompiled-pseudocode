@@ -1,3 +1,14 @@
+/*
+ * XREFs of PipLookupGroupName @ 0x140B5935C
+ * Callers:
+ *     IopInitializeSystemDrivers @ 0x140B57B44 (IopInitializeSystemDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140B57F78 (IopInitializeBootDrivers.c)
+ *     PipCheckDependencies @ 0x140B59300 (PipCheckDependencies.c)
+ * Callees:
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     PipCreateEntry @ 0x140B59460 (PipCreateEntry.c)
+ */
+
 __int64 __fastcall PipLookupGroupName(PCUNICODE_STRING String1, int a2)
 {
   __int64 v2; // rbx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of GetWindowFrameMetricForDpi @ 0x1C00E2334
+ * Callers:
+ *     xxxDrawCaptionBar @ 0x1C0021730 (xxxDrawCaptionBar.c)
+ *     GetWindowNCMetrics @ 0x1C00A40A8 (GetWindowNCMetrics.c)
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     ?GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z @ 0x1C00E2378 (-GetWindowFrameMetricForDpiWithCompatFlags2@@YAHHIK@Z.c)
+ */
+
 __int64 __fastcall GetWindowFrameMetricForDpi(__int64 a1, unsigned int a2)
 {
   __int64 ThreadWin32Thread; // rax

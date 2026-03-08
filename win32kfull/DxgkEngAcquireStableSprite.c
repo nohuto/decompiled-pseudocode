@@ -1,3 +1,11 @@
+/*
+ * XREFs of DxgkEngAcquireStableSprite @ 0x1C014D190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?vLockExclusive@SPRITERANGELOCK@@QEAAXXZ @ 0x1C001884C (-vLockExclusive@SPRITERANGELOCK@@QEAAXXZ.c)
+ */
+
 void __fastcall DxgkEngAcquireStableSprite(Gre::Base *a1, int a2)
 {
   struct Gre::Base::SESSION_GLOBALS *v3; // rbx

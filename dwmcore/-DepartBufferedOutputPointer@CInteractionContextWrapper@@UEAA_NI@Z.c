@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DepartBufferedOutputPointer@CInteractionContextWrapper@@UEAA_NI@Z @ 0x180280D70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FindBufferedOutputPointer@CInteractionContextWrapper@@AEBAPEAVCBufferedOutputPointer@@I@Z @ 0x180280DF8 (-FindBufferedOutputPointer@CInteractionContextWrapper@@AEBAPEAVCBufferedOutputPointer@@I@Z.c)
+ */
+
 bool __fastcall CInteractionContextWrapper::DepartBufferedOutputPointer(
         CInteractionContextWrapper *this,
         unsigned int a2)

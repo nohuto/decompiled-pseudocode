@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPepCancelActivityRange @ 0x140307328
+ * Callers:
+ *     PopPepUpdateConstraints @ 0x1402B9328 (PopPepUpdateConstraints.c)
+ *     PopPepCancelActivities @ 0x140307390 (PopPepCancelActivities.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall PopPepCancelActivityRange(__int64 a1, int a2, int a3, int a4, volatile signed __int32 *a5)
 {
   __int64 **v5; // r11

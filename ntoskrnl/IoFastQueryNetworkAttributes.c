@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoFastQueryNetworkAttributes @ 0x140944400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IopFastQueryNetworkAttributes @ 0x1409449B8 (IopFastQueryNetworkAttributes.c)
+ */
+
 BOOLEAN __stdcall IoFastQueryNetworkAttributes(
         POBJECT_ATTRIBUTES ObjectAttributes,
         ACCESS_MASK DesiredAccess,

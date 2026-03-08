@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetInfo@CCompositionSwapchainBuffer@@UEBAJPEAUCSM_BUFFER_INFO@@@Z @ 0x1C0089500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CreateHandle@DxgkCompositionObject@@QEBAJK_NDPEAPEAX@Z @ 0x1C006CA8C (-CreateHandle@DxgkCompositionObject@@QEBAJK_NDPEAPEAX@Z.c)
+ */
+
 __int64 __fastcall CCompositionSwapchainBuffer::GetInfo(CCompositionSwapchainBuffer *this, struct CSM_BUFFER_INFO *a2)
 {
   NTSTATUS Handle; // r8d

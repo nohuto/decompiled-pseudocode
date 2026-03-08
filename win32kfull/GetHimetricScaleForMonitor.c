@@ -1,3 +1,13 @@
+/*
+ * XREFs of GetHimetricScaleForMonitor @ 0x1C01BAE08
+ * Callers:
+ *     NtUserGetHimetricScaleFactorFromPixelLocation @ 0x1C01D2900 (NtUserGetHimetricScaleFactorFromPixelLocation.c)
+ * Callees:
+ *     GetMonitorRect @ 0x1C0101788 (GetMonitorRect.c)
+ *     ExpandedMonitorSpace @ 0x1C01BA230 (ExpandedMonitorSpace.c)
+ *     ?ReduceFraction@@YAXPEAK0@Z @ 0x1C01BA51C (-ReduceFraction@@YAXPEAK0@Z.c)
+ */
+
 __int64 __fastcall GetHimetricScaleForMonitor(__int64 a1, _DWORD *a2, unsigned int *a3)
 {
   __int64 result; // rax

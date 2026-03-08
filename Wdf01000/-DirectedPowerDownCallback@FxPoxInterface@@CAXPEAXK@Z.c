@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DirectedPowerDownCallback@FxPoxInterface@@CAXPEAXK@Z @ 0x1C0084150
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?DprProcessEventFromPoxCallback@FxPoxInterface@@AEAAXW4FxDevicePwrRequirementEvents@@@Z @ 0x1C0010136 (-DprProcessEventFromPoxCallback@FxPoxInterface@@AEAAXW4FxDevicePwrRequirementEvents@@@Z.c)
+ *     WPP_IFR_SF_qq @ 0x1C001828C (WPP_IFR_SF_qq.c)
+ */
+
 void __fastcall FxPoxInterface::DirectedPowerDownCallback(FxPoxInterface *Context, unsigned int Flags)
 {
   const void *_a1; // rax

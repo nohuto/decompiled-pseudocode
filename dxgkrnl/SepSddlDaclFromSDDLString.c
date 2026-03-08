@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepSddlDaclFromSDDLString @ 0x1C0392994
+ * Callers:
+ *     SepSddlSecurityDescriptorFromSDDLString @ 0x1C0393064 (SepSddlSecurityDescriptorFromSDDLString.c)
+ * Callees:
+ *     SepSddlGetAclForString @ 0x1C0392A80 (SepSddlGetAclForString.c)
+ */
+
 __int64 __fastcall SepSddlDaclFromSDDLString(_WORD *a1, __int64 a2, int *a3, PVOID *a4)
 {
   _WORD *v6; // rcx

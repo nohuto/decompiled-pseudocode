@@ -1,3 +1,13 @@
+/*
+ * XREFs of PoDiagCaptureUsermodeStack @ 0x140860F38
+ * Callers:
+ *     NtSetTimerResolution @ 0x1407DFD50 (NtSetTimerResolution.c)
+ * Callees:
+ *     RtlWalkFrameChain @ 0x140205CA0 (RtlWalkFrameChain.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 _DWORD *PoDiagCaptureUsermodeStack()
 {
   __int64 Pool2; // rax

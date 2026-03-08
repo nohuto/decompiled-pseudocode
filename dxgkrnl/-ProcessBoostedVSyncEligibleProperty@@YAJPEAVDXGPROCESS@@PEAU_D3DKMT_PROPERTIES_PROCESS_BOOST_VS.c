@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ProcessBoostedVSyncEligibleProperty@@YAJPEAVDXGPROCESS@@PEAU_D3DKMT_PROPERTIES_PROCESS_BOOST_VSYNC_ELIGIBLE@@_N@Z @ 0x1C030F9E8
+ * Callers:
+ *     NtDxgkGetProperties @ 0x1C01A8E80 (NtDxgkGetProperties.c)
+ *     NtDxgkSetProperties @ 0x1C01D32D0 (NtDxgkSetProperties.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall ProcessBoostedVSyncEligibleProperty(
         struct DXGPROCESS *a1,
         struct _D3DKMT_PROPERTIES_PROCESS_BOOST_VSYNC_ELIGIBLE *a2,

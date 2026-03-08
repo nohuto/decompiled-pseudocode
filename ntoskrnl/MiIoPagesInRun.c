@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiIoPagesInRun @ 0x1402F4788
+ * Callers:
+ *     MiFillSystemPtes @ 0x140328C00 (MiFillSystemPtes.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiIoPagesInRun(unsigned __int64 a1, __int64 a2)
 {
   __int64 v2; // r9

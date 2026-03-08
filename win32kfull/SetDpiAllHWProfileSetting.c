@@ -1,3 +1,11 @@
+/*
+ * XREFs of SetDpiAllHWProfileSetting @ 0x1C00B9AC0
+ * Callers:
+ *     SetDpiSetting @ 0x1C00B9880 (SetDpiSetting.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall SetDpiAllHWProfileSetting(int a1)
 {
   ULONG v1; // ebx

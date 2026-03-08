@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopSwitchUpdateUserShutdownScenarioState @ 0x14067EF08
+ * Callers:
+ *     PoUserShutdownCancelled @ 0x14067EEB0 (PoUserShutdownCancelled.c)
+ *     PoUserShutdownInitiated @ 0x14067EEE0 (PoUserShutdownInitiated.c)
+ * Callees:
+ *     PpmEndHighPerfRequest @ 0x1402B884C (PpmEndHighPerfRequest.c)
+ *     PpmBeginHighPerfRequest @ 0x1402B8BBC (PpmBeginHighPerfRequest.c)
+ *     PopQueueWorkItem @ 0x1402BCCB4 (PopQueueWorkItem.c)
+ *     Feature_DisableAutoUserShutdownTimeout__private_ReportDeviceUsage @ 0x14040B7EC (Feature_DisableAutoUserShutdownTimeout__private_ReportDeviceUsage.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PdcTaskClientRequest @ 0x14067F048 (PdcTaskClientRequest.c)
+ *     PopTransitionCheckpoint @ 0x14067F1CC (PopTransitionCheckpoint.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopSwitchUpdateUserShutdownScenarioState(int a1, char a2)
 {
   int v3; // ebx

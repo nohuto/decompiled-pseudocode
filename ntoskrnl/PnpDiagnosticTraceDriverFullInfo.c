@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpDiagnosticTraceDriverFullInfo @ 0x1402B153C
+ * Callers:
+ *     IopLoadDriver @ 0x14072A9DC (IopLoadDriver.c)
+ *     IopUnloadDriver @ 0x1408549C8 (IopUnloadDriver.c)
+ * Callees:
+ *     PnpDiagnosticTrace @ 0x1402B1760 (PnpDiagnosticTrace.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall PnpDiagnosticTraceDriverFullInfo(
         PCEVENT_DESCRIPTOR EventDescriptor,
         unsigned __int16 *a2,

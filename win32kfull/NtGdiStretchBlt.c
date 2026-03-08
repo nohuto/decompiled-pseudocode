@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiStretchBlt @ 0x1C00CC010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreStretchBltInternal @ 0x1C0059930 (GreStretchBltInternal.c)
+ */
+
 __int64 __fastcall NtGdiStretchBlt(
         HDC a1,
         int a2,

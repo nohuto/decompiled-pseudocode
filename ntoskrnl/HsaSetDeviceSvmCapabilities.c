@@ -1,3 +1,11 @@
+/*
+ * XREFs of HsaSetDeviceSvmCapabilities @ 0x14052E830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HsaSetDeviceSvmCapabilities(__int64 a1, unsigned __int64 a2)
 {
   if ( a2 >= 0x10000 )

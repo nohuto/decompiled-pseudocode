@@ -1,3 +1,14 @@
+/*
+ * XREFs of VidSchCreateContext @ 0x1C00AC500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VidSchiCreateContextInternal @ 0x1C0013B3C (VidSchiCreateContextInternal.c)
+ *     VidSchiDriverNodeEngineToSchedulerNode @ 0x1C001471C (VidSchiDriverNodeEngineToSchedulerNode.c)
+ *     VidSchiGetSoftwareOnlyNodeForDriverEngine @ 0x1C0014FEC (VidSchiGetSoftwareOnlyNodeForDriverEngine.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall VidSchCreateContext(__int64 a1, unsigned int *a2)
 {
   __int64 v3; // rbx

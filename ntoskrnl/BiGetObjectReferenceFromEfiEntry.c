@@ -1,3 +1,21 @@
+/*
+ * XREFs of BiGetObjectReferenceFromEfiEntry @ 0x14082F354
+ * Callers:
+ *     BiBuildIdentifierList @ 0x14082DD44 (BiBuildIdentifierList.c)
+ *     BiUpdateObjectReferenceInEfiEntry @ 0x140A5C414 (BiUpdateObjectReferenceInEfiEntry.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     strncmp @ 0x1403D3310 (strncmp.c)
+ *     _wcsupr @ 0x1403D41F0 (_wcsupr.c)
+ *     wcsnlen @ 0x1403D5F60 (wcsnlen.c)
+ *     wcsstr @ 0x1403D6020 (wcsstr.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiGetObjectReferenceFromEfiEntry(__int64 a1, GUID *a2)
 {
   bool v2; // cf

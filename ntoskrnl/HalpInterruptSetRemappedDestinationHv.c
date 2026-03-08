@@ -1,3 +1,19 @@
+/*
+ * XREFs of HalpInterruptSetRemappedDestinationHv @ 0x1405025EC
+ * Callers:
+ *     HalpInterruptSetDestination @ 0x14028E950 (HalpInterruptSetDestination.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     HalpInterruptFindControllerAndLineState @ 0x14028EDE8 (HalpInterruptFindControllerAndLineState.c)
+ *     HalpInterruptGsiToLine @ 0x14028EF10 (HalpInterruptGsiToLine.c)
+ *     HalpInterruptSetLineStateInternal @ 0x1403796D0 (HalpInterruptSetLineStateInternal.c)
+ *     HalpAcquireHighLevelLock @ 0x140379818 (HalpAcquireHighLevelLock.c)
+ *     HalpHvRetargetDeviceMsiInterrupt @ 0x140509AEC (HalpHvRetargetDeviceMsiInterrupt.c)
+ *     HalpHvRetargetIoApicDeviceInterrupt @ 0x140509B68 (HalpHvRetargetIoApicDeviceInterrupt.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpInterruptSetRemappedDestinationHv(unsigned int *a1, int *a2, __int64 a3)
 {
   int v5; // eax

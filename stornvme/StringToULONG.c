@@ -1,3 +1,11 @@
+/*
+ * XREFs of StringToULONG @ 0x1C0027A9C
+ * Callers:
+ *     CompareId @ 0x1C0025AD8 (CompareId.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall StringToULONG(char *a1, unsigned int *a2)
 {
   unsigned int v2; // r10d

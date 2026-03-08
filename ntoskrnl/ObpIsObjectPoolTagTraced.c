@@ -1,3 +1,11 @@
+/*
+ * XREFs of ObpIsObjectPoolTagTraced @ 0x14097A0D4
+ * Callers:
+ *     ObpRegisterObject @ 0x14097A3B4 (ObpRegisterObject.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall ObpIsObjectPoolTagTraced(__int64 a1)
 {
   int v1; // edx

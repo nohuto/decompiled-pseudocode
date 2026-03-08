@@ -1,3 +1,12 @@
+/*
+ * XREFs of CancelTimerCallbacksAndDeleteTimer @ 0x140A6C404
+ * Callers:
+ *     DestroyAggregateSession @ 0x140A6C488 (DestroyAggregateSession.c)
+ * Callees:
+ *     ExDeleteTimer @ 0x140203F60 (ExDeleteTimer.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ */
+
 __int64 __fastcall CancelTimerCallbacksAndDeleteTimer(__int64 a1)
 {
   __int64 v2; // rax

@@ -1,3 +1,19 @@
+/*
+ * XREFs of DownLevelLangIDToLanguageName @ 0x1402BEE08
+ * Callers:
+ *     LdrLoadAlternateResourceModuleEx @ 0x14035D07C (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpResSearchResourceMappedFile @ 0x14035DC3C (LdrpResSearchResourceMappedFile.c)
+ *     LdrpGetParentLangId @ 0x1403C1878 (LdrpGetParentLangId.c)
+ *     ExpSetPendingUILanguage @ 0x140749238 (ExpSetPendingUILanguage.c)
+ *     LdrResSearchResource @ 0x1407EACB0 (LdrResSearchResource.c)
+ *     RtlLCIDToCultureName @ 0x1409BBD70 (RtlLCIDToCultureName.c)
+ *     CmSelectQualifiedInstallLanguage @ 0x140B333A8 (CmSelectQualifiedInstallLanguage.c)
+ * Callees:
+ *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1402BEED8 (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     ?IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z @ 0x1402BEF40 (-IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z.c)
+ *     bsearch @ 0x1403D4280 (bsearch.c)
+ */
+
 __int64 __fastcall DownLevelLangIDToLanguageName(__int16 a1, unsigned __int16 *a2, int a3, int a4)
 {
   unsigned __int64 v4; // rsi

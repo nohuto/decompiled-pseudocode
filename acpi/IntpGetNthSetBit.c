@@ -1,3 +1,11 @@
+/*
+ * XREFs of IntpGetNthSetBit @ 0x1C005F030
+ * Callers:
+ *     IntpArbGetNextAffinity @ 0x1C00A323C (IntpArbGetNextAffinity.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IntpGetNthSetBit(unsigned __int64 a1, int a2)
 {
   __int64 v2; // r8

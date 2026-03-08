@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlDecompressBuffer @ 0x14045B4E0
+ * Callers:
+ *     RtlDecompressChunks @ 0x1409B6290 (RtlDecompressChunks.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 NTSTATUS __stdcall RtlDecompressBuffer(
         USHORT CompressionFormat,
         PUCHAR UncompressedBuffer,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetFloatProperty@CCaptureControllerMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C026D7A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CCaptureControllerMarshaler::SetFloatProperty(
         DirectComposition::CCaptureControllerMarshaler *this,
         int a2,

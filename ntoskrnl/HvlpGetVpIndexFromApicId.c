@@ -1,3 +1,14 @@
+/*
+ * XREFs of HvlpGetVpIndexFromApicId @ 0x14053EBC8
+ * Callers:
+ *     HvlpEnableNextLogicalProcessor @ 0x14053E9B4 (HvlpEnableNextLogicalProcessor.c)
+ *     HvlHalGetVpIndexFromApicId @ 0x140542220 (HvlHalGetVpIndexFromApicId.c)
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 __int64 __fastcall HvlpGetVpIndexFromApicId(ULONG a1, ULONG *a2)
 {
   PHYSICAL_ADDRESS *v4; // rbx

@@ -1,3 +1,31 @@
+/*
+ * XREFs of UsbhHubDispatchPortEvent @ 0x1C0017430
+ * Callers:
+ *     UsbhHubRunPortChangeQueue @ 0x1C0013CC0 (UsbhHubRunPortChangeQueue.c)
+ *     UsbhHubProcessTimeoutObj @ 0x1C0033D48 (UsbhHubProcessTimeoutObj.c)
+ * Callees:
+ *     UsbhSignalSyncDeviceResetPdo @ 0x1C0001CD0 (UsbhSignalSyncDeviceResetPdo.c)
+ *     UsbhSignalDriverResetEvent @ 0x1C0001DA8 (UsbhSignalDriverResetEvent.c)
+ *     UsbhReleaseEnumBusLockEx @ 0x1C0003BCC (UsbhReleaseEnumBusLockEx.c)
+ *     UsbhAcquireEnumBusLock @ 0x1C0004C60 (UsbhAcquireEnumBusLock.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhWaitConnect @ 0x1C0018530 (UsbhWaitConnect.c)
+ *     UsbhEnumerate1 @ 0x1C001A4E8 (UsbhEnumerate1.c)
+ *     UsbhHandleSuspend @ 0x1C001A5BC (UsbhHandleSuspend.c)
+ *     UsbhSignalResumeEvent @ 0x1C001B710 (UsbhSignalResumeEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C002E6BC (WPP_RECORDER_SF_dD.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002E98C (WPP_RECORDER_SF_dq.c)
+ *     UsbhSignalSuspendEvent @ 0x1C00353B4 (UsbhSignalSuspendEvent.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhEnumerate2 @ 0x1C004C770 (UsbhEnumerate2.c)
+ *     UsbhDropDevice @ 0x1C004CAEC (UsbhDropDevice.c)
+ *     UsbhHandleOvercurrent @ 0x1C004CC94 (UsbhHandleOvercurrent.c)
+ */
+
 __int64 __fastcall UsbhHubDispatchPortEvent(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 *a4)
 {
   __int64 v7; // r12

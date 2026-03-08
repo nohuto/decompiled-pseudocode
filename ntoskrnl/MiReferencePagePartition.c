@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiReferencePagePartition @ 0x1406271E4
+ * Callers:
+ *     MiReferenceRemovePartition @ 0x140619970 (MiReferenceRemovePartition.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x1406291A0 (MmMarkPhysicalMemoryAsBad.c)
+ *     MmIdentifyPhysicalMemory @ 0x140A2C028 (MmIdentifyPhysicalMemory.c)
+ * Callees:
+ *     PsReferencePartitionSafe @ 0x140295BC8 (PsReferencePartitionSafe.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiReferencePagePartition(__int64 a1, int a2)
 {
   unsigned __int8 v2; // bl

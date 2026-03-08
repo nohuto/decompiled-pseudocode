@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpFinalizeTimerDeletion @ 0x1402F5460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall ExpFinalizeTimerDeletion(unsigned __int64 P)
 {
   void (__fastcall *v2)(unsigned __int64); // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiInitializeFaultVaListCore @ 0x140463644
+ * Callers:
+ *     MiInitializePrototypePtes @ 0x1407F3F04 (MiInitializePrototypePtes.c)
+ *     MmVirtualAccessFault @ 0x1408A7758 (MmVirtualAccessFault.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiInitializeFaultVaListCore(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
   __int64 result; // rax

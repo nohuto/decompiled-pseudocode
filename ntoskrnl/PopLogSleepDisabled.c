@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopLogSleepDisabled @ 0x14087118C
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ *     PopFilterCapabilities @ 0x140760774 (PopFilterCapabilities.c)
+ *     PopLogDisabledSleepReason @ 0x140760A60 (PopLogDisabledSleepReason.c)
+ *     PopEnableHiberFile @ 0x14082ADA4 (PopEnableHiberFile.c)
+ *     PopUpdateUpgradeInProgress @ 0x14085E230 (PopUpdateUpgradeInProgress.c)
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ *     PopInitPlatformSettings @ 0x140B4743C (PopInitPlatformSettings.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PopGetReasonListByReasonCode @ 0x140760968 (PopGetReasonListByReasonCode.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PopLogSleepDisabled(int a1, char a2, const void *a3, size_t a4)
 {
   unsigned int v8; // edi

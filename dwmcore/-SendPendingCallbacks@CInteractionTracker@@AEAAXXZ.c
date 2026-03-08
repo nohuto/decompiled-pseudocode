@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SendPendingCallbacks@CInteractionTracker@@AEAAXXZ @ 0x18012EA46
+ * Callers:
+ *     ?NotifyExpressionProcessingComplete@CInteractionTracker@@QEAAXXZ @ 0x18012E9A8 (-NotifyExpressionProcessingComplete@CInteractionTracker@@QEAAXXZ.c)
+ * Callees:
+ *     ?SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z @ 0x18012ECB2 (-SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z.c)
+ *     ?ShouldNotify@CInteractionTracker@@AEAA_NI@Z @ 0x18012F300 (-ShouldNotify@CInteractionTracker@@AEAA_NI@Z.c)
+ *     ?SendValuesChangedCallbackIfNecessary@CInteractionTracker@@AEAA_NUD2DVector3@@M_N@Z @ 0x1802312E8 (-SendValuesChangedCallbackIfNecessary@CInteractionTracker@@AEAA_NUD2DVector3@@M_N@Z.c)
+ */
+
 void __fastcall CInteractionTracker::SendPendingCallbacks(CInteractionTracker *this)
 {
   __int64 v2; // rcx

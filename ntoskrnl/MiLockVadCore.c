@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiLockVadCore @ 0x140330E20
+ * Callers:
+ *     MiCaptureWriteWatchDirtyBit @ 0x140228730 (MiCaptureWriteWatchDirtyBit.c)
+ *     NtGetWriteWatch @ 0x1402CA150 (NtGetWriteWatch.c)
+ *     MiMoveDirtyBitsToPfns @ 0x14032F870 (MiMoveDirtyBitsToPfns.c)
+ *     MiSetVadFlags @ 0x140330D00 (MiSetVadFlags.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 __int64 __fastcall MiLockVadCore(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // bl

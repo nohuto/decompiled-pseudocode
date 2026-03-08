@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsPrimaryPathInCloneGroup@@YAEPEBUD3DKMT_GETPATHSMODALITY@@I@Z @ 0x1C00D369C
+ * Callers:
+ *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0022E20 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall IsPrimaryPathInCloneGroup(const struct D3DKMT_GETPATHSMODALITY *a1, unsigned int a2)
 {
   int v2; // eax

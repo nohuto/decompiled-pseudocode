@@ -1,3 +1,16 @@
+/*
+ * XREFs of KsepIsModuleShimmed @ 0x14079E588
+ * Callers:
+ *     KsepGetShimCallbacksForDriver @ 0x14079D47C (KsepGetShimCallbacksForDriver.c)
+ *     KsepGetShimsForDriver @ 0x14079E39C (KsepGetShimsForDriver.c)
+ *     KseDriverUnloadImage @ 0x1407F7364 (KseDriverUnloadImage.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ */
+
 __int64 __fastcall KsepIsModuleShimmed(__int64 a1, __int64 a2, _QWORD *a3)
 {
   unsigned int v3; // edi

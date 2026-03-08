@@ -1,3 +1,20 @@
+/*
+ * XREFs of ParseFieldConnection @ 0x1C005AF60
+ * Callers:
+ *     ParseField @ 0x1C005AB30 (ParseField.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ *     ParseIntObj @ 0x1C005B3A0 (ParseIntObj.c)
+ *     ParseName @ 0x1C005B860 (ParseName.c)
+ *     ParsePackageLen @ 0x1C005BEFC (ParsePackageLen.c)
+ */
+
 __int64 __fastcall ParseFieldConnection(__int64 a1, __int64 *a2)
 {
   unsigned __int64 *v2; // rsi

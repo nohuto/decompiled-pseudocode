@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0pz_EtwWriteTransfer @ 0x14055ED64
+ * Callers:
+ *     PiProcessNewDeviceNode @ 0x140685858 (PiProcessNewDeviceNode.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1403BE3A0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS McTemplateK0pz_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
 {
   const wchar_t *v3; // rcx

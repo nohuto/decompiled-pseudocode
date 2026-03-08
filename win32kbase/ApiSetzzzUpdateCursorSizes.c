@@ -1,3 +1,13 @@
+/*
+ * XREFs of ApiSetzzzUpdateCursorSizes @ 0x1C0015BF4
+ * Callers:
+ *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0014608 (-zzzUpdateUserScreen@@YAJXZ.c)
+ *     DestroyMonitor @ 0x1C00B5C00 (DestroyMonitor.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (*ApiSetzzzUpdateCursorSizes())(void)
 {
   char v0; // bl

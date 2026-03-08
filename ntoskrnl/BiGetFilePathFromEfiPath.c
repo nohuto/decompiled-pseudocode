@@ -1,3 +1,14 @@
+/*
+ * XREFs of BiGetFilePathFromEfiPath @ 0x14082F3C8
+ * Callers:
+ *     BiUpdateBcdObject @ 0x14082DA80 (BiUpdateBcdObject.c)
+ *     BiCreateMergedBootEntry @ 0x140A5B328 (BiCreateMergedBootEntry.c)
+ * Callees:
+ *     RtlULongSub @ 0x1402FD448 (RtlULongSub.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 NTSTATUS __fastcall BiGetFilePathFromEfiPath(__int64 a1, __int64 *a2, unsigned int *a3)
 {
   char v3; // al

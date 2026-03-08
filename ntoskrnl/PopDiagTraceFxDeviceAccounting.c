@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopDiagTraceFxDeviceAccounting @ 0x140590CC4
+ * Callers:
+ *     PopFxStopDeviceAccounting @ 0x14058975C (PopFxStopDeviceAccounting.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopDiagQueryDevicePropertyString @ 0x140989088 (PopDiagQueryDevicePropertyString.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void PopDiagTraceFxDeviceAccounting(__int64 a1, __int64 *a2, unsigned __int16 *a3, ...)
 {
   REGHANDLE v5; // rbx

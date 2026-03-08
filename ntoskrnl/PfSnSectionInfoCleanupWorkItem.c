@@ -1,3 +1,15 @@
+/*
+ * XREFs of PfSnSectionInfoCleanupWorkItem @ 0x1406A41F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PsSetCurrentThreadPrefetching @ 0x1406A47E0 (PsSetCurrentThreadPrefetching.c)
+ *     PfSnCleanupPrefetchSectionInfo @ 0x1406A4DB4 (PfSnCleanupPrefetchSectionInfo.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PfSnSectionInfoCleanupWorkItem(__int64 a1)
 {
   __int64 v1; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViThunkReplaceAllSharedExports @ 0x140AD8E64
+ * Callers:
+ *     VfThunkApplyThunksCurrentSession @ 0x140AD83AC (VfThunkApplyThunksCurrentSession.c)
+ * Callees:
+ *     RtlNumberOfClearBits @ 0x14035C4F0 (RtlNumberOfClearBits.c)
+ *     ViThunkReplaceSharedExports @ 0x140AD9108 (ViThunkReplaceSharedExports.c)
+ */
+
 __int64 __fastcall ViThunkReplaceAllSharedExports(_QWORD *a1)
 {
   ULONG v2; // eax

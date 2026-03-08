@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpValidatePayloadFilter @ 0x1409F29F0
+ * Callers:
+ *     EtwpAllocatePayloadFilterData @ 0x1409F1BEC (EtwpAllocatePayloadFilterData.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwpValidatePayloadFilter(_QWORD *a1, __int16 *a2, unsigned int a3)
 {
   __int16 v5; // dx

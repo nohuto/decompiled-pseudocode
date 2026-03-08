@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetTransforms@CProjectedShadow@@QEAAXAEBVCMILMatrix@@00@Z @ 0x180247D48
+ * Callers:
+ *     ?PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@Z @ 0x180004F04 (-PrepareShadows@CProjectedShadowScene@@AEAAJPEAVCDrawingContext@@PEAVCProjectedShadowReceiver@@@.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CProjectedShadow::SetTransforms(
         CProjectedShadow *this,
         const struct CMILMatrix *a2,

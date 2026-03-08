@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?CheckForMajorityScreenVideoNotificationsWithCompSurfInfo@CFSVPProvider@@QEAAXPEAVCCompositionSurfaceInfo@@@Z @ 0x1801E4244
+ * Callers:
+ *     ?CheckForFullscreenVideoNotifications@CFSVPProvider@@QEAAXXZ @ 0x1801E41C0 (-CheckForFullscreenVideoNotifications@CFSVPProvider@@QEAAXXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     PubSebRegisterRpc @ 0x1800FCF58 (PubSebRegisterRpc.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?SignalSEB@CFSVPProvider@@AEAAX_NI@Z @ 0x1801E4340 (-SignalSEB@CFSVPProvider@@AEAAX_NI@Z.c)
+ */
+
 void __fastcall CFSVPProvider::CheckForMajorityScreenVideoNotificationsWithCompSurfInfo(
         struct _SEB_RPC_PUBLISH_DATA **this,
         struct CCompositionSurfaceInfo *a2)

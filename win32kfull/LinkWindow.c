@@ -1,3 +1,28 @@
+/*
+ * XREFs of LinkWindow @ 0x1C00639C0
+ * Callers:
+ *     SetWindowGroupBand @ 0x1C0025CE4 (SetWindowGroupBand.c)
+ *     ?ImeSetTopmost@@YAXPEAUtagWND@@H0@Z @ 0x1C0026C68 (-ImeSetTopmost@@YAXPEAUtagWND@@H0@Z.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C0036908 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C00669E0 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ *     xxxCreateDesktopEx @ 0x1C00C03D4 (xxxCreateDesktopEx.c)
+ * Callees:
+ *     GetBandOrdinal @ 0x1C0025CC4 (GetBandOrdinal.c)
+ *     TrackLayeredZorder @ 0x1C002C250 (TrackLayeredZorder.c)
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C0044080 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     GetLastTopMostWindow @ 0x1C0044610 (GetLastTopMostWindow.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     ?MarkDirty@CVisRgnTrackerProp@@QEAAXXZ @ 0x1C007B4F0 (-MarkDirty@CVisRgnTrackerProp@@QEAAXXZ.c)
+ *     DwmAsyncChildLink @ 0x1C007E580 (DwmAsyncChildLink.c)
+ *     DirtyVisRgnTrackers @ 0x1C00AEA8C (DirtyVisRgnTrackers.c)
+ *     ?MarkDirtyWorker@@YAXPEAUtagWND@@@Z @ 0x1C00AED30 (-MarkDirtyWorker@@YAXPEAUtagWND@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     HWInsertAfter @ 0x1C01A7610 (HWInsertAfter.c)
+ */
+
 void __fastcall LinkWindow(struct tagWND *a1, struct tagWND *a2, _QWORD *a3)
 {
   int v3; // r14d

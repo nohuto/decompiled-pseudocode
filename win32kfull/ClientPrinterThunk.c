@@ -1,3 +1,12 @@
+/*
+ * XREFs of ClientPrinterThunk @ 0x1C02089FC
+ * Callers:
+ *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C02BA998 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
+ * Callees:
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C0044080 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     ?pppUserModeCallback@@YAJKPEAXK0K@Z @ 0x1C020800C (-pppUserModeCallback@@YAJKPEAXK0K@Z.c)
+ */
+
 __int64 __fastcall ClientPrinterThunk(_DWORD *a1, unsigned int a2, void *a3, unsigned int a4)
 {
   __int64 v8; // rcx

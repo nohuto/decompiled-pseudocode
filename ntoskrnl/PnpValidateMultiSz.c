@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpValidateMultiSz @ 0x14079F300
+ * Callers:
+ *     PiDqQueryValidateQueryData @ 0x140746B18 (PiDqQueryValidateQueryData.c)
+ *     PiSwValidateCreateData @ 0x14080780C (PiSwValidateCreateData.c)
+ * Callees:
+ *     RtlStringCchLengthW @ 0x140247080 (RtlStringCchLengthW.c)
+ */
+
 NTSTATUS __fastcall PnpValidateMultiSz(size_t a1, __int64 a2)
 {
   unsigned __int64 v2; // r11

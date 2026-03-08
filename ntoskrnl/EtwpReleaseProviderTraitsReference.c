@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpReleaseProviderTraitsReference @ 0x140695900
+ * Callers:
+ *     EtwpDeleteRegistrationObject @ 0x140693BC0 (EtwpDeleteRegistrationObject.c)
+ *     EtwpSetProviderTraitsCommon @ 0x140695C68 (EtwpSetProviderTraitsCommon.c)
+ *     EtwUnregister @ 0x14076F9E0 (EtwUnregister.c)
+ * Callees:
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpReleaseProviderTraitsReference(__int64 a1)
 {
   _DWORD *v1; // rbx

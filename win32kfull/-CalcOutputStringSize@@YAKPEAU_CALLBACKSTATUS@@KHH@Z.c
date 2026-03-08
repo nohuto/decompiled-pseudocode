@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?CalcOutputStringSize@@YAKPEAU_CALLBACKSTATUS@@KHH@Z @ 0x1C0109294
+ * Callers:
+ *     SfnGETDBCSTEXTLENGTHS @ 0x1C0010D80 (SfnGETDBCSTEXTLENGTHS.c)
+ *     SfnOUTSTRING @ 0x1C00EAB40 (SfnOUTSTRING.c)
+ *     xxxClientExpandStringW @ 0x1C0108BE4 (xxxClientExpandStringW.c)
+ *     xxxClientLoadStringW @ 0x1C0108F88 (xxxClientLoadStringW.c)
+ *     ClientGetListboxString @ 0x1C020833C (ClientGetListboxString.c)
+ *     SfnINCNTOUTSTRING @ 0x1C020A090 (SfnINCNTOUTSTRING.c)
+ *     SfnINCNTOUTSTRINGNULL @ 0x1C020A610 (SfnINCNTOUTSTRINGNULL.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CalcOutputStringSize(struct _CALLBACKSTATUS *a1, unsigned int a2, int a3, int a4)
 {
   unsigned int v5; // ecx

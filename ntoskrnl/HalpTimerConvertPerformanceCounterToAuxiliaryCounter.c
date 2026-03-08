@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpTimerConvertPerformanceCounterToAuxiliaryCounter @ 0x1404FC550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     HalpTimerCaptureCurrentAuxiliaryQpcPair @ 0x1404FC260 (HalpTimerCaptureCurrentAuxiliaryQpcPair.c)
+ *     HalpTimerConvertAuxiliaryCounter @ 0x1404FC324 (HalpTimerConvertAuxiliaryCounter.c)
+ */
+
 __int64 __fastcall HalpTimerConvertPerformanceCounterToAuxiliaryCounter(unsigned __int64 a1, _QWORD *a2, _QWORD *a3)
 {
   unsigned __int64 v6; // rsi

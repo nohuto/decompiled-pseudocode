@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopPolicyWorkerAction @ 0x140987130
+ * Callers:
+ *     PopPolicyWorkerThread @ 0x1402F6DE0 (PopPolicyWorkerThread.c)
+ * Callees:
+ *     PopGetPolicyWorker @ 0x1402BCB34 (PopGetPolicyWorker.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopSetPowerActionState @ 0x14058D024 (PopSetPowerActionState.c)
+ *     PopThermalSxExit @ 0x14058D8D4 (PopThermalSxExit.c)
+ *     PopCompleteAction @ 0x140986760 (PopCompleteAction.c)
+ *     PopIssueActionRequest @ 0x140986CA4 (PopIssueActionRequest.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopPolicyWorkerAction(int a1)
 {
   char v1; // si

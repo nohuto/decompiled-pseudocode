@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpSetProcessorStateByNtIndex @ 0x140371C1C
+ * Callers:
+ *     HalpInterruptStartProcessor @ 0x140A86180 (HalpInterruptStartProcessor.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpSetProcessorStateByNtIndex(unsigned int a1, int a2)
 {
   __int64 v3; // r9

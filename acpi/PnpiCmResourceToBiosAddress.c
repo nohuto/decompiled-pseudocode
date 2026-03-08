@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpiCmResourceToBiosAddress @ 0x1C0092F0C
+ * Callers:
+ *     PnpCmResourcesToBiosResources @ 0x1C0092820 (PnpCmResourcesToBiosResources.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PnpiCmResourceToBiosAddress(__int64 a1, __int64 a2)
 {
   int v4; // ecx

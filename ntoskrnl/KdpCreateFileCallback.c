@@ -1,3 +1,12 @@
+/*
+ * XREFs of KdpCreateFileCallback @ 0x140AB0BD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     ZwCreateFile @ 0x140412DB0 (ZwCreateFile.c)
+ */
+
 __int64 __fastcall KdpCreateFileCallback(__int64 a1, UNICODE_STRING *a2, LARGE_INTEGER a3)
 {
   ULONG v3; // eax

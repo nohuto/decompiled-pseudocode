@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?HMAllocateIsolatedType@@YAPEAXE@Z @ 0x1C0078690
+ * Callers:
+ *     ?HMAllocateUserOrIsolatedType@@YAPEAX_KGE@Z @ 0x1C0077BD8 (-HMAllocateUserOrIsolatedType@@YAPEAX_KGE@Z.c)
+ * Callees:
+ *     ?Allocate@?$CTypeIsolation@$0BFAAA@$0BFA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C00296B0 (-Allocate@-$CTypeIsolation@$0BFAAA@$0BFA@@NSInstrumentation@@IEAAPEAXXZ.c)
+ *     ?HMTagToIsolatedType@@YA?AW4UserTypeIsolationCountedType@@E@Z @ 0x1C0078704 (-HMTagToIsolatedType@@YA-AW4UserTypeIsolationCountedType@@E@Z.c)
+ *     ?Allocate@?$CTypeIsolation@$0BEAAA@$0KA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C00A8440 (-Allocate@-$CTypeIsolation@$0BEAAA@$0KA@@NSInstrumentation@@IEAAPEAXXZ.c)
+ *     ?Allocate@?$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C00ACBC4 (-Allocate@-$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@IEAAPEAXXZ.c)
+ */
+
 PVOID __fastcall HMAllocateIsolatedType()
 {
   int v0; // eax

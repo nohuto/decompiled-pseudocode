@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeCopyFirmwareRevision @ 0x1C0014F40
+ * Callers:
+ *     FormInquiryStandardData @ 0x1C0012754 (FormInquiryStandardData.c)
+ *     NVMeGetRichDeviceDescription @ 0x1C001651C (NVMeGetRichDeviceDescription.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NVMeCopyFirmwareRevision(__int64 a1, __int64 a2, unsigned int a3)
 {
   unsigned int v3; // r10d

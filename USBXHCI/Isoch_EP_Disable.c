@@ -1,3 +1,11 @@
+/*
+ * XREFs of Isoch_EP_Disable @ 0x1C0001E40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Controller_IsControllerAccessible @ 0x1C000A8E4 (Controller_IsControllerAccessible.c)
+ */
+
 __int64 __fastcall Isoch_EP_Disable(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of SeShutdownServerSilo @ 0x1409C5F40
+ * Callers:
+ *     PspDeleteExternalServerSiloState @ 0x1409A9DE8 (PspDeleteExternalServerSiloState.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     SepDeReferenceLogonSessionDirect @ 0x1402BE52C (SepDeReferenceLogonSessionDirect.c)
+ *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x1409CD120 (SepDeleteUnreferencedLogonSessionsInSilo.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SeShutdownServerSilo(__int64 a1, __int64 a2)
 {
   void *v4; // rcx

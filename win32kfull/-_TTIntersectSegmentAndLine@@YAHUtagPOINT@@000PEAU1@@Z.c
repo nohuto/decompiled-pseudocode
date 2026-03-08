@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_TTIntersectSegmentAndLine@@YAHUtagPOINT@@000PEAU1@@Z @ 0x1C02505FC
+ * Callers:
+ *     ?_TTAddLineAndSegmentIntersection@@YAXUtagPOINT@@0JJJJPEAU1@PEAH@Z @ 0x1C025028C (-_TTAddLineAndSegmentIntersection@@YAXUtagPOINT@@0JJJJPEAU1@PEAH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall _TTIntersectSegmentAndLine(
         struct tagPOINT a1,
         struct tagPOINT a2,

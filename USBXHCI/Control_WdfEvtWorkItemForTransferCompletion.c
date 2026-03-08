@@ -1,3 +1,14 @@
+/*
+ * XREFs of Control_WdfEvtWorkItemForTransferCompletion @ 0x1C0043460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Controller_LowerAndTrackIrql @ 0x1C00074BC (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0007558 (Controller_RaiseAndTrackIrql.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Control_ProcessTransferCompletion @ 0x1C0042704 (Control_ProcessTransferCompletion.c)
+ */
+
 void __fastcall Control_WdfEvtWorkItemForTransferCompletion(__int64 a1)
 {
   __int64 v2; // rax

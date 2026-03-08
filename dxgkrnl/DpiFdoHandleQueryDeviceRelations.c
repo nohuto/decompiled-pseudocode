@@ -1,3 +1,17 @@
+/*
+ * XREFs of DpiFdoHandleQueryDeviceRelations @ 0x1C01E64B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     DpiFdoInvalidateChildRelations @ 0x1C01E67E0 (DpiFdoInvalidateChildRelations.c)
+ *     DpiFdoHandleQueryPowerRelations @ 0x1C021A898 (DpiFdoHandleQueryPowerRelations.c)
+ */
+
 __int64 __fastcall DpiFdoHandleQueryDeviceRelations(__int64 a1, IRP *a2)
 {
   int PowerRelations; // esi

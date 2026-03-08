@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetCurrentBackBuffer@CDDASwapChain@@UEBAPEAVIDeviceTarget@@XZ @ 0x180131690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 struct IDeviceTarget *__fastcall CDDASwapChain::GetCurrentBackBuffer(CDDASwapChain *this)
 {
   __int64 v1; // rdx

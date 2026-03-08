@@ -1,3 +1,14 @@
+/*
+ * XREFs of MmCheckForSafeExecution @ 0x140A3989C
+ * Callers:
+ *     KiEmulateAtlThunk @ 0x14057E514 (KiEmulateAtlThunk.c)
+ * Callees:
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14031F590 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14031F600 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MmValidateUserCallTarget @ 0x140A410E4 (MmValidateUserCallTarget.c)
+ */
+
 bool __fastcall MmCheckForSafeExecution(unsigned __int64 a1, unsigned __int64 a2, unsigned __int64 a3, char a4)
 {
   struct _KTHREAD *CurrentThread; // rbp

@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtReleaseSemaphore @ 0x1406F76C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeReleaseSemaphoreEx @ 0x14033E940 (KeReleaseSemaphoreEx.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall NtReleaseSemaphore(HANDLE Handle, int a2, _DWORD *a3)
 {
   KPROCESSOR_MODE PreviousMode; // r14

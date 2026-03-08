@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeQueryEffectivePriorityThread @ 0x1403A9A40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiIsThreadRankNonZero @ 0x140228010 (KiIsThreadRankNonZero.c)
+ *     KiUpdateVpBackingThreadPriorityOnPriorityQuery @ 0x14056C4D8 (KiUpdateVpBackingThreadPriorityOnPriorityQuery.c)
+ */
+
 __int64 __fastcall KeQueryEffectivePriorityThread(ULONG_PTR a1)
 {
   bool v2; // zf

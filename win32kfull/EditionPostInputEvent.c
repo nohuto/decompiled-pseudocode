@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionPostInputEvent @ 0x1C00F0A60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0044D58 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ */
+
 __int64 __fastcall EditionPostInputEvent(
         unsigned int a1,
         __int64 a2,

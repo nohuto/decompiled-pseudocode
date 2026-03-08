@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_GFxLookasideList@@MEAAPEAXI@Z @ 0x1C0042ED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1FxObject@@UEAA@XZ @ 0x1C0004920 (--1FxObject@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ */
+
 FxLookasideList *__fastcall FxLookasideList::`scalar deleting destructor'(
         FxLookasideList *this,
         unsigned int a2,

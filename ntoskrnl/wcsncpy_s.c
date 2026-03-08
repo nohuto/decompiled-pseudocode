@@ -1,3 +1,22 @@
+/*
+ * XREFs of wcsncpy_s @ 0x1403DA3B0
+ * Callers:
+ *     _wsplitpath_s @ 0x1403D97E0 (_wsplitpath_s.c)
+ *     EmonAddProfileSource @ 0x14051A480 (EmonAddProfileSource.c)
+ *     Amd64AddProfileSource @ 0x1405263A0 (Amd64AddProfileSource.c)
+ *     CarInitializeTelemetryData @ 0x1405D1970 (CarInitializeTelemetryData.c)
+ *     LocalGetAclForString @ 0x14074F18C (LocalGetAclForString.c)
+ *     LocalGetStringForControl @ 0x140750814 (LocalGetStringForControl.c)
+ *     GetOperatorIndexByName @ 0x1409D0DC8 (GetOperatorIndexByName.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1409DF094 (EtwSetPerformanceTraceInformation.c)
+ *     EtwpLoadMicroarchitecturalProfileSource @ 0x1409E183C (EtwpLoadMicroarchitecturalProfileSource.c)
+ *     ExpFindArcName @ 0x1409F9550 (ExpFindArcName.c)
+ *     ExpParseSignatureName @ 0x1409FA090 (ExpParseSignatureName.c)
+ *     HalpKdEnumerateDebuggingDevices @ 0x140AAF060 (HalpKdEnumerateDebuggingDevices.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ */
+
 errno_t __cdecl wcsncpy_s(wchar_t *Dst, rsize_t SizeInWords, const wchar_t *Src, rsize_t MaxCount)
 {
   errno_t v5; // ebx

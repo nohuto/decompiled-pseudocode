@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpScanGeneralLookasideList @ 0x1402C5C30
+ * Callers:
+ *     KeBalanceSetManager @ 0x140390D00 (KeBalanceSetManager.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExpScanGeneralLookasideList(_QWORD *a1, KSPIN_LOCK *a2)
 {
   KIRQL v4; // al

@@ -1,3 +1,12 @@
+/*
+ * XREFs of TlgAggregateFlush @ 0x1C02745A4
+ * Callers:
+ *     ?PowerMonitorDimStateTelemetry@@YAXPEAU_DIM_UNDIM_TELEMETRY_DATA@@@Z @ 0x1C0086BD0 (-PowerMonitorDimStateTelemetry@@YAXPEAU_DIM_UNDIM_TELEMETRY_DATA@@@Z.c)
+ * Callees:
+ *     ?TlgAggregateInternalFlushTimerCallbackKernelMode@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1C0274560 (-TlgAggregateInternalFlushTimerCallbackKernelMode@@YAXPEAU_EX_TIMER@@PEAX@Z.c)
+ *     LookUpTableFlushComplete @ 0x1C0301AEC (LookUpTableFlushComplete.c)
+ */
+
 void TlgAggregateFlush()
 {
   __int64 v0; // rbx

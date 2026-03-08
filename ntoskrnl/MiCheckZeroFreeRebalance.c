@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiCheckZeroFreeRebalance @ 0x14027DFA0
+ * Callers:
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ * Callees:
+ *     MiNodeLargeFreeZeroPages @ 0x14027DEB0 (MiNodeLargeFreeZeroPages.c)
+ *     PsReferencePartitionSafe @ 0x140295BC8 (PsReferencePartitionSafe.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExQueueWorkItemToPartition @ 0x1403439E0 (ExQueueWorkItemToPartition.c)
+ *     MiGetNodeStandbyPageCount @ 0x1404648CA (MiGetNodeStandbyPageCount.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall MiCheckZeroFreeRebalance(__int64 a1, unsigned int a2)
 {
   unsigned int v2; // r12d

@@ -1,3 +1,16 @@
+/*
+ * XREFs of PfpFlushEventBuffers @ 0x1407E5B18
+ * Callers:
+ *     PfpFlushBuffers @ 0x1407E5E50 (PfpFlushBuffers.c)
+ * Callees:
+ *     PfTFullEventListAdd @ 0x1402EE12C (PfTFullEventListAdd.c)
+ *     PfFbBufferListInsertInFree @ 0x14035B6E4 (PfFbBufferListInsertInFree.c)
+ *     PfFbBufferListFlushStandby @ 0x14035B78C (PfFbBufferListFlushStandby.c)
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PfpCopyEvent @ 0x1407E5C10 (PfpCopyEvent.c)
+ */
+
 __int64 PfpFlushEventBuffers()
 {
   struct _SLIST_ENTRY *v0; // rbx

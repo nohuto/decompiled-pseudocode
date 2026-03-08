@@ -1,3 +1,15 @@
+/*
+ * XREFs of DpiFdoCreateChildDescriptor @ 0x1C0208C54
+ * Callers:
+ *     DpiFdoEnumChildDevices @ 0x1C02088D0 (DpiFdoEnumChildDevices.c)
+ *     DpiFdoHandleTargetConnectionState @ 0x1C0397A98 (DpiFdoHandleTargetConnectionState.c)
+ * Callees:
+ *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C000A240 (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiAcpiGetAcpiChildName @ 0x1C0208DD8 (DpiAcpiGetAcpiChildName.c)
+ *     DpiFdoReleaseChildDescriptor @ 0x1C03985D0 (DpiFdoReleaseChildDescriptor.c)
+ */
+
 __int64 __fastcall DpiFdoCreateChildDescriptor(__int64 a1, int a2, char a3, int *a4, __int64 a5, unsigned int a6)
 {
   unsigned int v6; // ebx

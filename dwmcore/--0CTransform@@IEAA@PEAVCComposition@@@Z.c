@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CTransform@@IEAA@PEAVCComposition@@@Z @ 0x180111540
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     <none>
+ */
+
 CTransform *__fastcall CTransform::CTransform(CTransform *this, struct CComposition *a2)
 {
   CTransform *result; // rax

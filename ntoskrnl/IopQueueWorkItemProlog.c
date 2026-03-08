@@ -1,3 +1,18 @@
+/*
+ * XREFs of IopQueueWorkItemProlog @ 0x140341380
+ * Callers:
+ *     PnpDeviceCompletionRequestDestroy @ 0x140202754 (PnpDeviceCompletionRequestDestroy.c)
+ *     IoTryQueueWorkItem @ 0x140300920 (IoTryQueueWorkItem.c)
+ *     IoQueueWorkItemEx @ 0x140341350 (IoQueueWorkItemEx.c)
+ *     IoQueueWorkItem @ 0x140342ED0 (IoQueueWorkItem.c)
+ *     IoQueueWorkItemToNode @ 0x140555E90 (IoQueueWorkItemToNode.c)
+ * Callees:
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     PsGetWorkOnBehalfThread @ 0x14033E134 (PsGetWorkOnBehalfThread.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ */
+
 __int64 __fastcall IopQueueWorkItemProlog(__int64 a1, __int64 a2, __int64 a3)
 {
   ULONG_PTR v6; // r15

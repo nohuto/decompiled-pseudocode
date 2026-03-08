@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?SmmCreateLogicalAllocator@@YAJ_KPEAPEAUSYSMM_LOGICAL_ALLOCATOR@@@Z @ 0x1C03D262C
+ * Callers:
+ *     ?SysMmCreateAdapter@@YAJPEAU_DEVICE_OBJECT@@PEBQEAU1@IPEBU_DXGK_PHYSICAL_MEMORY_RANGE@@IIPEBUSYSMM_ADAPTER_CREATE_PARAMS@@PEAPEAUSYSMM_ADAPTER@@@Z @ 0x1C020A220 (-SysMmCreateAdapter@@YAJPEAU_DEVICE_OBJECT@@PEBQEAU1@IPEBU_DXGK_PHYSICAL_MEMORY_RANGE@@IIPEBUSYS.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     SmmAddBlockToPool @ 0x1C006FEC8 (SmmAddBlockToPool.c)
+ *     SmmAllocateBlock @ 0x1C006FEF8 (SmmAllocateBlock.c)
+ *     SmmGetLogicalPool @ 0x1C0070454 (SmmGetLogicalPool.c)
+ *     SmmGetLowerOrderFromPageCount @ 0x1C0070468 (SmmGetLowerOrderFromPageCount.c)
+ *     SmmGetOrderBlockSizeInPages @ 0x1C0070484 (SmmGetOrderBlockSizeInPages.c)
+ *     SmmInitializeLogicalBlock @ 0x1C0070494 (SmmInitializeLogicalBlock.c)
+ *     ?SmmAllocateLogicalAddressAt@@YAJPEAUSYSMM_LOGICAL_ALLOCATOR@@_K1PEBXPEAPEAUSYSMM_LOGICAL_BLOCK@@@Z @ 0x1C03D24BC (-SmmAllocateLogicalAddressAt@@YAJPEAUSYSMM_LOGICAL_ALLOCATOR@@_K1PEBXPEAPEAUSYSMM_LOGICAL_BLOCK@.c)
+ *     ?SmmDestroyLogicalAllocator@@YAXPEAUSYSMM_LOGICAL_ALLOCATOR@@@Z @ 0x1C03D2830 (-SmmDestroyLogicalAllocator@@YAXPEAUSYSMM_LOGICAL_ALLOCATOR@@@Z.c)
+ *     SmmInitializeLogicalAllocator @ 0x1C03D2A9C (SmmInitializeLogicalAllocator.c)
+ */
+
 __int64 __fastcall SmmCreateLogicalAllocator(unsigned __int64 a1, struct SYSMM_LOGICAL_ALLOCATOR **a2)
 {
   __int64 result; // rax

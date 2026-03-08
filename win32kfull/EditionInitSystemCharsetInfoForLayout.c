@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionInitSystemCharsetInfoForLayout @ 0x1C00EDC40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxClientGetCharsetInfo @ 0x1C00EDCF8 (xxxClientGetCharsetInfo.c)
+ */
+
 __int64 __fastcall EditionInitSystemCharsetInfoForLayout(__int64 a1, __int64 a2)
 {
   struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF

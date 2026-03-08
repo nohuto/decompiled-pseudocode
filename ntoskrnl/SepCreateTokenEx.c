@@ -1,3 +1,37 @@
+/*
+ * XREFs of SepCreateTokenEx @ 0x1402079F0
+ * Callers:
+ *     NtCreateTokenEx @ 0x14070F880 (NtCreateTokenEx.c)
+ *     SepCreateToken @ 0x1408106D4 (SepCreateToken.c)
+ * Callees:
+ *     RtlWalkFrameChain @ 0x140205CA0 (RtlWalkFrameChain.c)
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ *     SeCaptureObjectAttributeSecurityDescriptorPresent @ 0x140247D80 (SeCaptureObjectAttributeSecurityDescriptorPresent.c)
+ *     DbgPrint @ 0x1402BDD20 (DbgPrint.c)
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     RtlSidHashInitialize @ 0x140310020 (RtlSidHashInitialize.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SeCreateAccessState @ 0x1406991A0 (SeCreateAccessState.c)
+ *     RtlIdentifierAuthoritySid @ 0x14069A404 (RtlIdentifierAuthoritySid.c)
+ *     SepFinalizeTokenAcls @ 0x1406D1E60 (SepFinalizeTokenAcls.c)
+ *     SepSetTokenTrust @ 0x1406D33D8 (SepSetTokenTrust.c)
+ *     RtlCopySidAndAttributesArray @ 0x1406D47D0 (RtlCopySidAndAttributesArray.c)
+ *     RtlCopySid @ 0x1406D4890 (RtlCopySid.c)
+ *     ObCreateObject @ 0x140709D30 (ObCreateObject.c)
+ *     SepReferenceLogonSession @ 0x140773DC0 (SepReferenceLogonSession.c)
+ *     SepSetTokenClaims @ 0x1407808B8 (SepSetTokenClaims.c)
+ *     RtlLengthRequiredSid @ 0x140782B90 (RtlLengthRequiredSid.c)
+ *     SeDeleteAccessState @ 0x14078C5D0 (SeDeleteAccessState.c)
+ *     ObInsertObject @ 0x1407F0A20 (ObInsertObject.c)
+ *     SepSetTokenUserAndGroups @ 0x1409CCB0C (SepSetTokenUserAndGroups.c)
+ *     SepAddTokenLogonSession @ 0x1409CD020 (SepAddTokenLogonSession.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepCreateTokenEx(
         HANDLE *a1,
         char a2,

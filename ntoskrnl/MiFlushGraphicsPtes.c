@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiFlushGraphicsPtes @ 0x140623FF8
+ * Callers:
+ *     MiCommitExistingVad @ 0x140320D70 (MiCommitExistingVad.c)
+ *     MiDeleteVaTail @ 0x140323460 (MiDeleteVaTail.c)
+ *     MiDecommitPages @ 0x140329B10 (MiDecommitPages.c)
+ *     MiProtectPrivateMemory @ 0x140344540 (MiProtectPrivateMemory.c)
+ *     MiProtectAweRegion @ 0x140648DF8 (MiProtectAweRegion.c)
+ *     MiWriteAwePtes @ 0x14064A010 (MiWriteAwePtes.c)
+ *     MiMapUserLargePages @ 0x1406667E0 (MiMapUserLargePages.c)
+ * Callees:
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x1402149F0 (KeInvalidateRangeAllCachesNoIpi.c)
+ */
+
 char __fastcall MiFlushGraphicsPtes(__int64 a1, unsigned __int64 a2)
 {
   int v2; // eax

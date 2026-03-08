@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CDDisplayRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0266530
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CDDisplayRenderTargetMarshaler::SetBufferProperty(
         DirectComposition::CDDisplayRenderTargetMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

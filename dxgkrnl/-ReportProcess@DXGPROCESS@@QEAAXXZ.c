@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReportProcess@DXGPROCESS@@QEAAXXZ @ 0x1C0340F88
+ * Callers:
+ *     ?ReportState@DXGGLOBAL@@QEAAXXZ @ 0x1C031007C (-ReportState@DXGGLOBAL@@QEAAXXZ.c)
+ * Callees:
+ *     McTemplateK0pxqt_EtwWriteTransfer @ 0x1C0053D58 (McTemplateK0pxqt_EtwWriteTransfer.c)
+ *     McTemplateK0ppqqpppz_EtwWriteTransfer @ 0x1C0055B94 (McTemplateK0ppqqpppz_EtwWriteTransfer.c)
+ */
+
 void __fastcall DXGPROCESS::ReportProcess(DXGPROCESS *this)
 {
   __int64 v1; // r8

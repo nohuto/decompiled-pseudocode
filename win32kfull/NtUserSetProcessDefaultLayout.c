@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetProcessDefaultLayout @ 0x1C01DD700
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserSetProcessDefaultLayout(int a1)
 {
   __int64 v2; // rcx

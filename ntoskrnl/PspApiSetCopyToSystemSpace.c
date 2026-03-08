@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspApiSetCopyToSystemSpace @ 0x1409A98F8
+ * Callers:
+ *     PspSiloLoadApiSets @ 0x1409AAA20 (PspSiloLoadApiSets.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     MiMapViewInSystemSpace @ 0x1406A55B8 (MiMapViewInSystemSpace.c)
+ *     MmCreateSection @ 0x140711DC0 (MmCreateSection.c)
+ */
+
 __int64 __fastcall PspApiSetCopyToSystemSpace(void *Src, size_t Size, _QWORD *a3, _QWORD *a4)
 {
   int v8; // eax

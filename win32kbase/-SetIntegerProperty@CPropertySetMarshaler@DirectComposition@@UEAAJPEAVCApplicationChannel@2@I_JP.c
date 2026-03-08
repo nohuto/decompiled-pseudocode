@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetIntegerProperty@CPropertySetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00A68E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetIntegerProperty@CPropertyChangeResourceMarshaler@DirectComposition@@MEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00A6C00 (-SetIntegerProperty@CPropertyChangeResourceMarshaler@DirectComposition@@MEAAJPEAVCApplicationCha.c)
+ */
+
 __int64 __fastcall DirectComposition::CPropertySetMarshaler::SetIntegerProperty(
         DirectComposition::CPropertySetMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

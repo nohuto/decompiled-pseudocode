@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmProfileAcDcUpdate @ 0x14099A59C
+ * Callers:
+ *     PopBatteryApplyCompositeState @ 0x14086E430 (PopBatteryApplyCompositeState.c)
+ * Callees:
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ *     PpmCompareAndApplyPolicySettings @ 0x14098FE4C (PpmCompareAndApplyPolicySettings.c)
+ */
+
 void PpmProfileAcDcUpdate()
 {
   __int64 v0; // rdi

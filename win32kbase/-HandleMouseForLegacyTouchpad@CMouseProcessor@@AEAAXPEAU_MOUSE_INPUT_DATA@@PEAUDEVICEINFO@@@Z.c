@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HandleMouseForLegacyTouchpad@CMouseProcessor@@AEAAXPEAU_MOUSE_INPUT_DATA@@PEAUDEVICEINFO@@@Z @ 0x1C00F4A70
+ * Callers:
+ *     ?ProcessInput@CMouseProcessor@@QEAA?AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_MOUSE_INPUT_DATA@@K_N@Z @ 0x1C00F4B20 (-ProcessInput@CMouseProcessor@@QEAA-AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_MOUSE_INPUT_D.c)
+ * Callees:
+ *     ApiSetEditionLegacyTouchPadMouseAllowTap @ 0x1C0240590 (ApiSetEditionLegacyTouchPadMouseAllowTap.c)
+ */
+
 void __fastcall CMouseProcessor::HandleMouseForLegacyTouchpad(
         CMouseProcessor *this,
         struct _MOUSE_INPUT_DATA *a2,

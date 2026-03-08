@@ -1,3 +1,16 @@
+/*
+ * XREFs of XilDeviceSlot_SetDeviceContext @ 0x1C0019D94
+ * Callers:
+ *     UsbDevice_EnableCompletion @ 0x1C0019560 (UsbDevice_EnableCompletion.c)
+ * Callees:
+ *     Controller_IsControllerAccessible @ 0x1C000A8E4 (Controller_IsControllerAccessible.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     DeviceSlot_GetXilCoreDeviceSlotData @ 0x1C0019E24 (DeviceSlot_GetXilCoreDeviceSlotData.c)
+ *     XilCoreDeviceSlot_SetDeviceContext @ 0x1C0019E44 (XilCoreDeviceSlot_SetDeviceContext.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     XilDeviceSlot_SendSetDeviceContextRequest @ 0x1C00389B8 (XilDeviceSlot_SendSetDeviceContextRequest.c)
+ */
+
 __int64 __fastcall XilDeviceSlot_SetDeviceContext(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v3; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Convert_32bppARGB_64bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802B9E70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall Convert_32bppARGB_64bppABGR(const struct PipelineParams *a1, const struct ScanOpParams *a2)
 {
   int v2; // r8d

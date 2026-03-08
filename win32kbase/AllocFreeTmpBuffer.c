@@ -1,3 +1,14 @@
+/*
+ * XREFs of AllocFreeTmpBuffer @ 0x1C003C6A0
+ * Callers:
+ *     NtGdiPolyPolyDraw @ 0x1C000C360 (NtGdiPolyPolyDraw.c)
+ *     NtGdiExtCreateRegion @ 0x1C0019720 (NtGdiExtCreateRegion.c)
+ *     NtGdiGetRegionData @ 0x1C003C400 (NtGdiGetRegionData.c)
+ *     NtGdiOpenDCW @ 0x1C003D110 (NtGdiOpenDCW.c)
+ * Callees:
+ *     AllocThreadBufferWithTag @ 0x1C003C700 (AllocThreadBufferWithTag.c)
+ */
+
 __int64 __fastcall AllocFreeTmpBuffer(__int64 a1)
 {
   unsigned int v1; // ebx

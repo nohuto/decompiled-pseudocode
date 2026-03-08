@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtFsControlFile @ 0x1407696A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IopXxxControlFile @ 0x1407C1720 (IopXxxControlFile.c)
+ */
+
 NTSTATUS __stdcall NtFsControlFile(
         HANDLE FileHandle,
         HANDLE Event,

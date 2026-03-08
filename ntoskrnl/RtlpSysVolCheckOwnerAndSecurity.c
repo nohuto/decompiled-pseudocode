@@ -1,3 +1,24 @@
+/*
+ * XREFs of RtlpSysVolCheckOwnerAndSecurity @ 0x1409BB734
+ * Callers:
+ *     RtlCreateSystemVolumeInformationFolder @ 0x1409BB470 (RtlCreateSystemVolumeInformationFolder.c)
+ * Callees:
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ *     RtlGetAce @ 0x140245EE0 (RtlGetAce.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x140299320 (RtlGetDaclSecurityDescriptor.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x14068E3D0 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D26A0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlMakeSelfRelativeSD @ 0x14074E624 (RtlMakeSelfRelativeSD.c)
+ *     RtlGetOwnerSecurityDescriptor @ 0x140750BE0 (RtlGetOwnerSecurityDescriptor.c)
+ *     NtQuerySecurityObject @ 0x140758E90 (NtQuerySecurityObject.c)
+ *     NtSetSecurityObject @ 0x14076A550 (NtSetSecurityObject.c)
+ *     RtlSelfRelativeToAbsoluteSD2 @ 0x1409B7DD0 (RtlSelfRelativeToAbsoluteSD2.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlpSysVolCheckOwnerAndSecurity(HANDLE Handle, PACL Dacl)
 {
   unsigned int v2; // ebx

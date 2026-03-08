@@ -1,3 +1,19 @@
+/*
+ * XREFs of IopIoRingDispatchRegisterBuffers @ 0x140946620
+ * Callers:
+ *     IopProcessIoRingEntry @ 0x140947008 (IopProcessIoRingEntry.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopExceptionFilter @ 0x1405530E8 (IopExceptionFilter.c)
+ *     IopCompleteIoRingEntry @ 0x140556F5C (IopCompleteIoRingEntry.c)
+ *     IopMcCreateBufferEntry @ 0x14055C938 (IopMcCreateBufferEntry.c)
+ *     IopMcWaitAndCleanupBufferEntry @ 0x14055D068 (IopMcWaitAndCleanupBufferEntry.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     IopIoRingCleanupRegBufferArray @ 0x1409462B4 (IopIoRingCleanupRegBufferArray.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 LONG_PTR __fastcall IopIoRingDispatchRegisterBuffers(__int64 a1, __int64 a2)
 {
   char PreviousMode; // r10

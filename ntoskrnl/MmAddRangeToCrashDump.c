@@ -1,3 +1,43 @@
+/*
+ * XREFs of MmAddRangeToCrashDump @ 0x14062DD30
+ * Callers:
+ *     IoAddProcessThreadsToDump @ 0x14055A100 (IoAddProcessThreadsToDump.c)
+ *     IoAddProcessesToDump @ 0x14055A1A4 (IoAddProcessesToDump.c)
+ *     IoAddThreadStackToDump @ 0x14055A270 (IoAddThreadStackToDump.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14055A46C (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopAddMiniDumpPagesToPartialKernelDump @ 0x14055A768 (IopAddMiniDumpPagesToPartialKernelDump.c)
+ *     IopAddTriageDumpDataToPartialKernelDump @ 0x14055A8F4 (IopAddTriageDumpDataToPartialKernelDump.c)
+ *     IopMarkPagesForDeviceNode @ 0x14055AC8C (IopMarkPagesForDeviceNode.c)
+ *     IopMarkPagesForDpcData @ 0x14055ACEC (IopMarkPagesForDpcData.c)
+ *     IopMarkPagesForLoadedDriverInformation @ 0x14055B12C (IopMarkPagesForLoadedDriverInformation.c)
+ *     IopMarkPagesForProcessorData @ 0x14055B1E8 (IopMarkPagesForProcessorData.c)
+ *     IopMarkPagesForRunTimeTriageDataBlocks @ 0x14055B39C (IopMarkPagesForRunTimeTriageDataBlocks.c)
+ *     ExAddPrivateDataToCrashDump @ 0x1406047DC (ExAddPrivateDataToCrashDump.c)
+ *     MiAddPartitionDataToCrashDump @ 0x14062CFF0 (MiAddPartitionDataToCrashDump.c)
+ *     MiAddPartitionToCrashDump @ 0x14062D1FC (MiAddPartitionToCrashDump.c)
+ *     MiAddUnicodeStringToCrashDump @ 0x14062D4C4 (MiAddUnicodeStringToCrashDump.c)
+ *     MmAddPrivateDataToCrashDump @ 0x14062DBE0 (MmAddPrivateDataToCrashDump.c)
+ *     MmAddUnloadedDriverInformationToCrashDump @ 0x14062DEE0 (MmAddUnloadedDriverInformationToCrashDump.c)
+ *     MmGetDumpRange @ 0x14062DF70 (MmGetDumpRange.c)
+ *     IopLiveDumpAddIptTraceBuffers @ 0x140A96FB0 (IopLiveDumpAddIptTraceBuffers.c)
+ *     IopLiveDumpAddTriageDumpData @ 0x140A97160 (IopLiveDumpAddTriageDumpData.c)
+ *     IopLiveDumpMarkDeviceNode @ 0x140A98920 (IopLiveDumpMarkDeviceNode.c)
+ *     IopLiveDumpMarkLoadedModuleList @ 0x140A98AFC (IopLiveDumpMarkLoadedModuleList.c)
+ *     IopLiveDumpMarkProcessorData @ 0x140A98C10 (IopLiveDumpMarkProcessorData.c)
+ *     IopLiveDumpMarkRequiredDumpData @ 0x140A98D24 (IopLiveDumpMarkRequiredDumpData.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiWalkPageTables @ 0x140222CF0 (MiWalkPageTables.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiIsWorkingSetTrimThread @ 0x1402E7920 (MiIsWorkingSetTrimThread.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiGetSessionVm @ 0x14036C17C (MiGetSessionVm.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiSystemInSingleProcessorMode @ 0x140619F5C (MiSystemInSingleProcessorMode.c)
+ */
+
 __int64 __fastcall MmAddRangeToCrashDump(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   _KPROCESS *Process; // rdi

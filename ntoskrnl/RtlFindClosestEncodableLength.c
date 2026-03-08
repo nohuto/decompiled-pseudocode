@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlFindClosestEncodableLength @ 0x1405A7E20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlFindClosestEncodableLength(ULONGLONG SourceLength, PULONGLONG TargetLength)
 {
   ULONGLONG v2; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPISystemPowerInitializeRootMapping @ 0x1C003DEA4
+ * Callers:
+ *     ACPIRootIrpQueryCapabilities @ 0x1C0093FA0 (ACPIRootIrpQueryCapabilities.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPISystemPowerProcessRootMapping @ 0x1C00950C0 (ACPISystemPowerProcessRootMapping.c)
+ *     ACPISystemPowerProcessSxD @ 0x1C00951C8 (ACPISystemPowerProcessSxD.c)
+ */
+
 __int64 __fastcall ACPISystemPowerInitializeRootMapping(__int64 a1, __int64 a2)
 {
   __int128 v5; // xmm0

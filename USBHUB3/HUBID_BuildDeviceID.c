@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBID_BuildDeviceID @ 0x1C001DE14
+ * Callers:
+ *     HUBPDO_AssignPDOIds @ 0x1C007EB7C (HUBPDO_AssignPDOIds.c)
+ * Callees:
+ *     RtlUnicodeStringPrintf @ 0x1C000C4DC (RtlUnicodeStringPrintf.c)
+ *     HUBID_AssignIDString @ 0x1C001DBCC (HUBID_AssignIDString.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall HUBID_BuildDeviceID(__int64 a1, __int64 a2)
 {
   int v4; // eax

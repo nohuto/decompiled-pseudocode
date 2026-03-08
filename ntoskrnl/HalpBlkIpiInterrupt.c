@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpBlkIpiInterrupt @ 0x140B12100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpBlkApicEndOfInterrupt @ 0x140B12F90 (HalpBlkApicEndOfInterrupt.c)
+ *     HalpBlkHandleIpi @ 0x140B13190 (HalpBlkHandleIpi.c)
+ */
+
 void HalpBlkIpiInterrupt()
 {
   _mm_setcsr(0x1F80u);

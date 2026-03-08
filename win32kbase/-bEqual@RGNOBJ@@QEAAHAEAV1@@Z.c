@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bEqual@RGNOBJ@@QEAAHAEAV1@@Z @ 0x1C00AD770
+ * Callers:
+ *     ?GreEqualRgn@@YAHAEAVRGNOBJAPI@@0@Z @ 0x1C00AD744 (-GreEqualRgn@@YAHAEAVRGNOBJAPI@@0@Z.c)
+ *     EngUpdateDeviceSurface @ 0x1C018BD80 (EngUpdateDeviceSurface.c)
+ * Callees:
+ *     memcmp @ 0x1C00E17D0 (memcmp.c)
+ */
+
 __int64 __fastcall RGNOBJ::bEqual(RGNOBJ *this, struct RGNOBJ *a2)
 {
   __int64 v2; // rdx

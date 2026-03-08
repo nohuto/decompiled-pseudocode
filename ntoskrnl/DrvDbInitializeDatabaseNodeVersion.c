@@ -1,3 +1,13 @@
+/*
+ * XREFs of DrvDbInitializeDatabaseNodeVersion @ 0x140A6B0E0
+ * Callers:
+ *     DrvDbLoadDatabaseNode @ 0x140865BC0 (DrvDbLoadDatabaseNode.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x1407FFABC (DrvDbSetDriverDatabaseMappedProperty.c)
+ */
+
 __int64 __fastcall DrvDbInitializeDatabaseNodeVersion(__int64 a1, __int64 a2)
 {
   __int64 v4; // rdx

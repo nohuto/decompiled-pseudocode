@@ -1,3 +1,14 @@
+/*
+ * XREFs of GreCreateDIBBrush @ 0x1C02D2D2C
+ * Callers:
+ *     GreExtCreatePen @ 0x1C00E8994 (GreExtCreatePen.c)
+ *     NtGdiCreateDIBBrush @ 0x1C02D30C0 (NtGdiCreateDIBBrush.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ??1BRUSHMEMOBJ@@QEAA@XZ @ 0x1C02D2C88 (--1BRUSHMEMOBJ@@QEAA@XZ.c)
+ *     GreCreateDIBitmapReal @ 0x1C02E02CC (GreCreateDIBitmapReal.c)
+ */
+
 __int64 __fastcall GreCreateDIBBrush(unsigned int *a1, unsigned int a2, unsigned int a3, int a4, int a5, HBITMAP a6)
 {
   __int64 v6; // rsi

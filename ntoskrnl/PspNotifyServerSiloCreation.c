@@ -1,3 +1,18 @@
+/*
+ * XREFs of PspNotifyServerSiloCreation @ 0x1409B1374
+ * Callers:
+ *     PspInitializeServerSiloDeferred @ 0x1409AA0D0 (PspInitializeServerSiloDeferred.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PspGetServerSiloStatePointer @ 0x1405A14C4 (PspGetServerSiloStatePointer.c)
+ *     PspInvokeCreateCallback @ 0x140848EA0 (PspInvokeCreateCallback.c)
+ *     PspGetNextMonitor @ 0x1409B1240 (PspGetNextMonitor.c)
+ *     EtwTraceJobServerSiloStateChange @ 0x1409E27EC (EtwTraceJobServerSiloStateChange.c)
+ */
+
 __int64 __fastcall PspNotifyServerSiloCreation(__int64 a1)
 {
   char v2; // di

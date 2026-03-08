@@ -1,3 +1,19 @@
+/*
+ * XREFs of HvlInitializeProcessor @ 0x14080AFA0
+ * Callers:
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     KeGetProcessorNodeNumber @ 0x1402FC5A0 (KeGetProcessorNodeNumber.c)
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvlpSetupCachedHypercallPages @ 0x14053FCEC (HvlpSetupCachedHypercallPages.c)
+ *     HvlpAllocateOverlayPages @ 0x1405473DC (HvlpAllocateOverlayPages.c)
+ *     HvlpFreeOverlayPages @ 0x140547440 (HvlpFreeOverlayPages.c)
+ *     MmAllocateIndependentPagesEx @ 0x140869ADC (MmAllocateIndependentPagesEx.c)
+ *     HvlpEnableRootVirtualProcessor @ 0x14093E468 (HvlpEnableRootVirtualProcessor.c)
+ */
+
 __int64 __fastcall HvlInitializeProcessor(union _SLIST_HEADER *a1)
 {
   __int64 result; // rax

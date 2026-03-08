@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionResetIMELayout @ 0x1C00EE410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxImmLoadLayout@@YAPEAUtagIMEINFOEX@@PEAUHKL__@@@Z @ 0x1C00EE480 (-xxxImmLoadLayout@@YAPEAUtagIMEINFOEX@@PEAUHKL__@@@Z.c)
+ */
+
 __int64 __fastcall EditionResetIMELayout(int a1, int a2, struct tagIMEINFOEX **a3)
 {
   struct tagIMEINFOEX *Layout; // rax

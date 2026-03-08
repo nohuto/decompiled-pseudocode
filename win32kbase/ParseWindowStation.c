@@ -1,3 +1,12 @@
+/*
+ * XREFs of ParseWindowStation @ 0x1C00AA220
+ * Callers:
+ *     W32CalloutDispatch @ 0x1C00ED390 (W32CalloutDispatch.c)
+ * Callees:
+ *     ApiSetEditionParseDesktop @ 0x1C00AA310 (ApiSetEditionParseDesktop.c)
+ *     wcschr @ 0x1C00DA918 (wcschr.c)
+ */
+
 __int64 __fastcall ParseWindowStation(__int64 a1)
 {
   void *v1; // rdi

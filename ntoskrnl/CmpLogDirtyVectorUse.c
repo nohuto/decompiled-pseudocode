@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpLogDirtyVectorUse @ 0x1406918DC
+ * Callers:
+ *     HvpGenerateLogEntryDirtyData @ 0x14030C5F8 (HvpGenerateLogEntryDirtyData.c)
+ *     HvpGenerateLogEntry @ 0x14072DD08 (HvpGenerateLogEntry.c)
+ *     HvpMarkDirty @ 0x1407D25D0 (HvpMarkDirty.c)
+ * Callees:
+ *     RtlCaptureStackBackTrace @ 0x140205C20 (RtlCaptureStackBackTrace.c)
+ */
+
 USHORT __fastcall CmpLogDirtyVectorUse(__int64 a1, int a2, int a3, int a4)
 {
   unsigned __int32 i; // ecx

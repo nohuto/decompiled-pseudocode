@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIModuleIsValidSpare @ 0x1C0089340
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIFreeDataBuffs @ 0x1C00482C4 (AMLIFreeDataBuffs.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ *     ACPIEvaluateSpareDsm @ 0x1C0089068 (ACPIEvaluateSpareDsm.c)
+ */
+
 char __fastcall ACPIModuleIsValidSpare(__int64 a1, unsigned __int64 a2)
 {
   _QWORD *v2; // rcx

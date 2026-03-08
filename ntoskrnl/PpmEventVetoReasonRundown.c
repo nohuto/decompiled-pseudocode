@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmEventVetoReasonRundown @ 0x140599ED4
+ * Callers:
+ *     PpmEventTraceControlCallback @ 0x140860AA0 (PpmEventTraceControlCallback.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void PpmEventVetoReasonRundown()
 {
   _QWORD *v0; // rdx

@@ -1,3 +1,21 @@
+/*
+ * XREFs of EtwpFixBootLoggers @ 0x140B6569C
+ * Callers:
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ * Callees:
+ *     KeReleaseMutant @ 0x14030E920 (KeReleaseMutant.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     EtwpStartLoggerThread @ 0x14035980C (EtwpStartLoggerThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpReleaseLoggerContext @ 0x14069349C (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140693AFC (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpFreeSecurityDescriptor @ 0x140696014 (EtwpFreeSecurityDescriptor.c)
+ *     EtwpGetSecurityDescriptorByGuid @ 0x1406972D0 (EtwpGetSecurityDescriptorByGuid.c)
+ *     SeCreateClientSecurity @ 0x1406D61E0 (SeCreateClientSecurity.c)
+ *     EtwpEnableKernelTrace @ 0x140786150 (EtwpEnableKernelTrace.c)
+ *     EtwpInitializeLoggerSecurityDescriptor @ 0x140796D6C (EtwpInitializeLoggerSecurityDescriptor.c)
+ */
+
 __int64 EtwpFixBootLoggers()
 {
   __int64 v0; // rbx

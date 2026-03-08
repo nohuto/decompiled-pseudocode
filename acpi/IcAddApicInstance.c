@@ -1,3 +1,11 @@
+/*
+ * XREFs of IcAddApicInstance @ 0x1C00AC1C4
+ * Callers:
+ *     IrqLibpParseMadt @ 0x1C00ABC98 (IrqLibpParseMadt.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall IcAddApicInstance(int a1)
 {
   unsigned int v2; // eax

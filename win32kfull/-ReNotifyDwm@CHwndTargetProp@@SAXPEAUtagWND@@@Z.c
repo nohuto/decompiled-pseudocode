@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReNotifyDwm@CHwndTargetProp@@SAXPEAUtagWND@@@Z @ 0x1C007D70C
+ * Callers:
+ *     zzzComposeDesktop @ 0x1C007D394 (zzzComposeDesktop.c)
+ * Callees:
+ *     ??$GetProp@VCHwndTargetProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCHwndTargetProp@@@Z @ 0x1C007DC28 (--$GetProp@VCHwndTargetProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCHwndTargetProp@@@Z.c)
+ *     DwmAsyncCreateDCompositionHwndTarget @ 0x1C00E6368 (DwmAsyncCreateDCompositionHwndTarget.c)
+ */
+
 void __fastcall CHwndTargetProp::ReNotifyDwm(struct tagWND *a1)
 {
   __int64 v1; // rbp

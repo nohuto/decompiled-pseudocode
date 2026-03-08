@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIThermalStopZoneWorker @ 0x1C0041F9C
+ * Callers:
+ *     ACPIThermalWorker @ 0x1C00962E0 (ACPIThermalWorker.c)
+ * Callees:
+ *     ACPIUnregisterForDeviceNotifications @ 0x1C0039880 (ACPIUnregisterForDeviceNotifications.c)
+ *     ACPIThermalCompletePendingIrps @ 0x1C00400B0 (ACPIThermalCompletePendingIrps.c)
+ *     ACPIThermalLoopEx @ 0x1C00410F0 (ACPIThermalLoopEx.c)
+ *     AcpiThermalDestroyContraints @ 0x1C0042508 (AcpiThermalDestroyContraints.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ */
+
 LONG __fastcall ACPIThermalStopZoneWorker(__int64 a1)
 {
   __int64 v1; // rbx

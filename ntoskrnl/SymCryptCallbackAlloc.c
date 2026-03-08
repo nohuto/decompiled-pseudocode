@@ -1,3 +1,16 @@
+/*
+ * XREFs of SymCryptCallbackAlloc @ 0x14067B400
+ * Callers:
+ *     SymCryptRsakeySetValue @ 0x1403F1F8C (SymCryptRsakeySetValue.c)
+ *     SymCryptEcurveAllocate @ 0x1403F252C (SymCryptEcurveAllocate.c)
+ *     SymCryptEckeyAllocate @ 0x1403F2CF4 (SymCryptEckeyAllocate.c)
+ *     SymCryptEckeySetValue @ 0x1403F2F18 (SymCryptEckeySetValue.c)
+ *     SymCryptEcDsaVerify @ 0x1403F4010 (SymCryptEcDsaVerify.c)
+ *     SymCryptRsaPkcs1Verify @ 0x1403F4830 (SymCryptRsaPkcs1Verify.c)
+ * Callees:
+ *     MincryptAlloc @ 0x140A6F07C (MincryptAlloc.c)
+ */
+
 unsigned __int64 __fastcall SymCryptCallbackAlloc(__int64 a1)
 {
   unsigned __int64 v1; // rbx

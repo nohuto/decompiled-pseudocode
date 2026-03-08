@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?StartTimer@FxPowerIdleMachine@@KA?AW4FxPowerIdleStates@@PEAV1@@Z @ 0x1C0077640
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Start@MxTimer@@QEAAXT_LARGE_INTEGER@@K@Z @ 0x1C003FB68 (-Start@MxTimer@@QEAAXT_LARGE_INTEGER@@K@Z.c)
+ */
+
 __int64 __fastcall FxPowerIdleMachine::StartTimer(FxPowerIdleMachine *This)
 {
   _LARGE_INTEGER m_PowerTimeout; // rdx

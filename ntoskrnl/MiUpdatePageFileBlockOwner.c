@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiUpdatePageFileBlockOwner @ 0x1406646BC
+ * Callers:
+ *     MiTransferPageFileOwnership @ 0x14029D878 (MiTransferPageFileOwnership.c)
+ *     MiDemoteCombinedPte @ 0x14029DF88 (MiDemoteCombinedPte.c)
+ *     MiBuildForkPte @ 0x14065FC20 (MiBuildForkPte.c)
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiPageHashBugCheck @ 0x1406645D8 (MiPageHashBugCheck.c)
+ *     MiWriteEntirePageHashEntry @ 0x14066481C (MiWriteEntirePageHashEntry.c)
+ */
+
 void __fastcall MiUpdatePageFileBlockOwner(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, int a5)
 {
   volatile LONG *v8; // r14

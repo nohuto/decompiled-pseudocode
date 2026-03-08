@@ -1,3 +1,14 @@
+/*
+ * XREFs of PfSnIsVolumeMounted @ 0x14077AECC
+ * Callers:
+ *     PfSnOpenVolumesForPrefetch @ 0x14077A964 (PfSnOpenVolumesForPrefetch.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     NtQueryVolumeInformationFile @ 0x1406B2A90 (NtQueryVolumeInformationFile.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     NtCreateFile @ 0x1407CE510 (NtCreateFile.c)
+ */
+
 __int64 __fastcall PfSnIsVolumeMounted(PCWSTR SourceString, int *a2, int *a3)
 {
   NTSTATUS v5; // ebx

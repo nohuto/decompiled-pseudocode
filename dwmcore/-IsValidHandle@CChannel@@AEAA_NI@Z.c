@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?IsValidHandle@CChannel@@AEAA_NI@Z @ 0x1800442E0
+ * Callers:
+ *     ?ReleaseResource@CChannel@@UEAAJI@Z @ 0x180043FC0 (-ReleaseResource@CChannel@@UEAAJI@Z.c)
+ *     ?CreateNewHandleTableEntry@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@PEAUIUnknown@@@Z @ 0x180044220 (-CreateNewHandleTableEntry@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@PEAUIUnknown@@@Z.c)
+ *     ?AddRefResource@CChannel@@UEAAJI@Z @ 0x1800EF940 (-AddRefResource@CChannel@@UEAAJI@Z.c)
+ *     ?QueryResourceInterface@CChannel@@UEAAJIAEBU_GUID@@PEAPEAX@Z @ 0x1801CD330 (-QueryResourceInterface@CChannel@@UEAAJIAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CChannel::IsValidHandle(CChannel *this, unsigned int a2)
 {
   __int64 v2; // r10

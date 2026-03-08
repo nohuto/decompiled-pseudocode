@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?QueryDriverRecommendedMonitorModes@KernelDriver@@UEBAJXZ @ 0x1C0217620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DdiRecommendMonitorModes@ADAPTER_DISPLAY@@QEAAJPEAU_DXGKARG_RECOMMENDMONITORMODES@@@Z @ 0x1C0217684 (-DdiRecommendMonitorModes@ADAPTER_DISPLAY@@QEAAJPEAU_DXGKARG_RECOMMENDMONITORMODES@@@Z.c)
+ */
+
 __int64 __fastcall KernelDriver::QueryDriverRecommendedMonitorModes(KernelDriver *this)
 {
   ADAPTER_DISPLAY *v2; // rcx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhGetRegUsbHubFlags @ 0x1C0045B18
+ * Callers:
+ *     UsbhCheckHubErrata @ 0x1C005182C (UsbhCheckHubErrata.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003B830 (WPP_RECORDER_SF_S.c)
+ *     WPP_RECORDER_SF_dDD @ 0x1C00484FC (WPP_RECORDER_SF_dDD.c)
+ */
+
 void __fastcall UsbhGetRegUsbHubFlags(unsigned __int16 *a1)
 {
   __int64 Pool2; // rax

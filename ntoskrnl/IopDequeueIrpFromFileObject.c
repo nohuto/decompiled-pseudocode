@@ -1,3 +1,17 @@
+/*
+ * XREFs of IopDequeueIrpFromFileObject @ 0x140293F0C
+ * Callers:
+ *     IopDropIrp @ 0x140293E48 (IopDropIrp.c)
+ *     IopCopyCompleteReadRequest @ 0x1402F9BA0 (IopCopyCompleteReadRequest.c)
+ *     IopCompleteRequest @ 0x140312C80 (IopCompleteRequest.c)
+ *     IopIoRingCompleteIrp @ 0x1405570DC (IopIoRingCompleteIrp.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IopDequeueIrpFromFileObject(__int64 a1, __int64 a2)
 {
   volatile signed __int64 *v2; // rsi

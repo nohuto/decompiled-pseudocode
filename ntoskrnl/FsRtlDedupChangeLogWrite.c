@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlDedupChangeLogWrite @ 0x14093B7C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0xxxqq_EtwWriteTransfer @ 0x14053CCF4 (McTemplateK0xxxqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall FsRtlDedupChangeLogWrite(int *a1, __int64 a2, int a3, _QWORD *a4, const GUID *a5)
 {
   int v7; // [rsp+38h] [rbp-10h]

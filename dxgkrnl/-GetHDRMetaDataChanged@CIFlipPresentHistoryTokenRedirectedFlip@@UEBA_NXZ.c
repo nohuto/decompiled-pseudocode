@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetHDRMetaDataChanged@CIFlipPresentHistoryTokenRedirectedFlip@@UEBA_NXZ @ 0x1C00197F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CIFlipPresentHistoryTokenRedirectedFlip::GetHDRMetaDataChanged(
         CIFlipPresentHistoryTokenRedirectedFlip *this)
 {

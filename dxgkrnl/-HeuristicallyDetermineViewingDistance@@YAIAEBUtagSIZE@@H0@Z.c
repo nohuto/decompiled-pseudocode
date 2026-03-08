@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HeuristicallyDetermineViewingDistance@@YAIAEBUtagSIZE@@H0@Z @ 0x1C0001D14
+ * Callers:
+ *     ?DetermineViewDistance@@YA_NQEAXAEBUtagSIZE@@H1PEAI@Z @ 0x1C016771C (-DetermineViewDistance@@YA_NQEAXAEBUtagSIZE@@H1PEAI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HeuristicallyDetermineViewingDistance(const struct tagSIZE *a1, int a2, const struct tagSIZE *a3)
 {
   unsigned __int64 v3; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDirectedDripsDiagBroadcastTreeEnd @ 0x14099AE4C
+ * Callers:
+ *     PopDirectedDripsBuildBroadcastTreePartial @ 0x14099CDB8 (PopDirectedDripsBuildBroadcastTreePartial.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ */
+
 signed __int32 __fastcall PopDirectedDripsDiagBroadcastTreeEnd(__int64 a1, int a2, int a3, char a4)
 {
   int v8; // ebx

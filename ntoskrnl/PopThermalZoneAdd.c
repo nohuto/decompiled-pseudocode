@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopThermalZoneAdd @ 0x1408296E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeInitializeTimer2 @ 0x140203D80 (KeInitializeTimer2.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KeInitializeIRTimer @ 0x14036D61C (KeInitializeIRTimer.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x1403901F8 (PopThermalUpdateTelemetryClientCount.c)
+ *     PopResetCurrentPolicies @ 0x140829F88 (PopResetCurrentPolicies.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 void __fastcall PopThermalZoneAdd(__int64 a1)
 {
   unsigned __int64 v2; // rcx

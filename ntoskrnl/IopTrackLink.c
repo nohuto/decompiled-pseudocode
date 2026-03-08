@@ -1,3 +1,28 @@
+/*
+ * XREFs of IopTrackLink @ 0x140795688
+ * Callers:
+ *     NtSetInformationFile @ 0x14027E490 (NtSetInformationFile.c)
+ *     IopTrackLink @ 0x140795688 (IopTrackLink.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IoGetTransactionParameterBlock @ 0x1402C3D50 (IoGetTransactionParameterBlock.c)
+ *     RtlULongSub @ 0x1402FD448 (RtlULongSub.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlCompareMemoryUlong @ 0x140420E50 (RtlCompareMemoryUlong.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopTrackLink @ 0x140795688 (IopTrackLink.c)
+ *     IopGetSetObjectId @ 0x14079602C (IopGetSetObjectId.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     IopGetVolumeId @ 0x140941CCC (IopGetVolumeId.c)
+ *     IopMarshalIds @ 0x140942350 (IopMarshalIds.c)
+ *     IopSendMessageToTrackService @ 0x140942874 (IopSendMessageToTrackService.c)
+ *     IopSetRemoteLink @ 0x140943484 (IopSetRemoteLink.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopTrackLink(
         struct _FILE_OBJECT *Object,
         __int64 a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsSoftDisconnectCapable@FxInterrupt@@QEAAEXZ @ 0x1C007F79C
+ * Callers:
+ *     ?Connect@FxInterrupt@@QEAAJK@Z @ 0x1C007E91C (-Connect@FxInterrupt@@QEAAJK@Z.c)
+ *     ?Disconnect@FxInterrupt@@QEAAJK@Z @ 0x1C007ED80 (-Disconnect@FxInterrupt@@QEAAJK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall FxInterrupt::IsSoftDisconnectCapable(FxInterrupt *this)
 {
   bool result; // al

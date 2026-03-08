@@ -1,3 +1,22 @@
+/*
+ * XREFs of ?InputCoreProviderCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C0161760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?TraceCurrentConfig@InputConfig@@SAXXZ @ 0x1C00138F4 (-TraceCurrentConfig@InputConfig@@SAXXZ.c)
+ *     ??0CTempW32ThreadNonPaged@@QEAA@XZ @ 0x1C0036710 (--0CTempW32ThreadNonPaged@@QEAA@XZ.c)
+ *     ??1CTempW32ThreadNonPaged@@QEAA@XZ @ 0x1C007012C (--1CTempW32ThreadNonPaged@@QEAA@XZ.c)
+ *     _anonymous_namespace_::GetMouseProcessor @ 0x1C0079E3C (_anonymous_namespace_--GetMouseProcessor.c)
+ *     ?Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z @ 0x1C007D0EC (-Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z.c)
+ *     RIMSyncWalkRimObjList @ 0x1C00BDC0C (RIMSyncWalkRimObjList.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     Feature_ThrottleBackgroundRawMouseInput__private_IsEnabledDeviceUsage @ 0x1C00DDE50 (Feature_ThrottleBackgroundRawMouseInput__private_IsEnabledDeviceUsage.c)
+ *     ?SessionInfo@Win32k@InputTraceLogging@@SAXXZ @ 0x1C0161810 (-SessionInfo@Win32k@InputTraceLogging@@SAXXZ.c)
+ *     ?TraceCurrentState@CCursorClip@@SAXXZ @ 0x1C020B300 (-TraceCurrentState@CCursorClip@@SAXXZ.c)
+ *     TraceRawMouseThrottlingThresholds @ 0x1C0218C28 (TraceRawMouseThrottlingThresholds.c)
+ *     ?ButtonState@Mouse@InputTraceLogging@@SAXK@Z @ 0x1C022B1BC (-ButtonState@Mouse@InputTraceLogging@@SAXK@Z.c)
+ */
+
 void __fastcall InputCoreProviderCallback(const struct _GUID *a1)
 {
   __int64 v1; // rdx

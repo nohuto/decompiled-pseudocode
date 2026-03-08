@@ -1,3 +1,17 @@
+/*
+ * XREFs of BgpFwDisplayBugCheckProgressUpdate @ 0x140670928
+ * Callers:
+ *     KiBugCheckProgress @ 0x140567430 (KiBugCheckProgress.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x140670928 (BgpFwDisplayBugCheckProgressUpdate.c)
+ * Callees:
+ *     KeStallExecutionProcessor @ 0x14022B710 (KeStallExecutionProcessor.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     BcpConvertProgressToString @ 0x14066FB5C (BcpConvertProgressToString.c)
+ *     BcpDisplayProgress @ 0x140670320 (BcpDisplayProgress.c)
+ *     BcpGetDisplayType @ 0x1406706C0 (BcpGetDisplayType.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x140670928 (BgpFwDisplayBugCheckProgressUpdate.c)
+ */
+
 __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, UNICODE_STRING **a2, char a3)
 {
   unsigned int v3; // ebp

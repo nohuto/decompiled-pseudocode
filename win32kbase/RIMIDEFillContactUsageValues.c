@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMIDEFillContactUsageValues @ 0x1C01C3188
+ * Callers:
+ *     RIMIDEInjectHIDReportFromPointerInfo @ 0x1C01C3E48 (RIMIDEInjectHIDReportFromPointerInfo.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00052A0 (WPP_RECORDER_AND_TRACE_SF_dd.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall RIMIDEFillContactUsageValues(_DWORD *a1, unsigned int a2, int *a3)
 {
   int v3; // edi

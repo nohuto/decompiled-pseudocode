@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpShutdown @ 0x140504C74
+ * Callers:
+ *     HalpCheckPowerButton @ 0x140409BC0 (HalpCheckPowerButton.c)
+ *     HalReturnToFirmware @ 0x140504990 (HalReturnToFirmware.c)
+ *     HaliHaltSystem @ 0x140504A30 (HaliHaltSystem.c)
+ * Callees:
+ *     HalpAcpiPmRegisterWrite @ 0x1402F76E0 (HalpAcpiPmRegisterWrite.c)
+ *     HalpAcpiPmRegisterRead @ 0x14039CF90 (HalpAcpiPmRegisterRead.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpHvEnterSleepState @ 0x140509A3C (HalpHvEnterSleepState.c)
+ *     HalEfiResetSystem @ 0x14050AD20 (HalEfiResetSystem.c)
+ */
+
 __int64 HalpShutdown()
 {
   __int64 result; // rax

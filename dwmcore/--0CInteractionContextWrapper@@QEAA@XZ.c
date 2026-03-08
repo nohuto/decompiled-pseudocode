@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??0CInteractionContextWrapper@@QEAA@XZ @ 0x180039AB8
+ * Callers:
+ *     ?Initialize@CInteraction@@MEAAJXZ @ 0x1800399A0 (-Initialize@CInteraction@@MEAAJXZ.c)
+ *     ?Initialize@CInteractionRoot@@QEAAJPEAUIManipulationContext@@_N@Z @ 0x180208E24 (-Initialize@CInteractionRoot@@QEAAJPEAUIManipulationContext@@_N@Z.c)
+ * Callees:
+ *     ??0QpcTimeConverter@@QEAA@XZ @ 0x180039B88 (--0QpcTimeConverter@@QEAA@XZ.c)
+ *     ??0CInteractionContextTransformHelper@@QEAA@XZ @ 0x180039BDC (--0CInteractionContextTransformHelper@@QEAA@XZ.c)
+ *     ?ResetCachedInteractionOutput@CInteractionContextWrapper@@AEAAX_N@Z @ 0x180039CE0 (-ResetCachedInteractionOutput@CInteractionContextWrapper@@AEAAX_N@Z.c)
+ *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DA10 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
+ */
+
 CInteractionContextWrapper *__fastcall CInteractionContextWrapper::CInteractionContextWrapper(
         CInteractionContextWrapper *this)
 {

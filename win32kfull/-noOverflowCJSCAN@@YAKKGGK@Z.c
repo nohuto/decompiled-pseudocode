@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?noOverflowCJSCAN@@YAKKGGK@Z @ 0x1C0091284
+ * Callers:
+ *     NtGdiCreateDIBSection @ 0x1C008FFA0 (NtGdiCreateDIBSection.c)
+ *     GreGetBitmapBitsSize @ 0x1C0091230 (GreGetBitmapBitsSize.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall noOverflowCJSCAN(unsigned int a1, unsigned __int16 a2, unsigned __int16 a3, unsigned int a4)
 {
   unsigned __int64 v4; // r10

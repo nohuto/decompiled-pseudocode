@@ -1,3 +1,12 @@
+/*
+ * XREFs of IommupHvValidatePageRequestGpa @ 0x140523148
+ * Callers:
+ *     IommuProcessPageRequestQueue @ 0x140520C90 (IommuProcessPageRequestQueue.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall IommupHvValidatePageRequestGpa(int a1, __int64 a2, __int64 a3, char a4)
 {
   _QWORD v5[4]; // [rsp+20h] [rbp-38h] BYREF

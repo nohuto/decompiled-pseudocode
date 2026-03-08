@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlLocateExtendedFeature2 @ 0x14045BC40
+ * Callers:
+ *     KiInitializeContextThread @ 0x140237E9C (KiInitializeContextThread.c)
+ *     RtlpWalkFrameChain @ 0x14027FF40 (RtlpWalkFrameChain.c)
+ *     RtlpUnwindPrologue @ 0x140281BF0 (RtlpUnwindPrologue.c)
+ *     RtlpVirtualPopShadowStack @ 0x140302EB0 (RtlpVirtualPopShadowStack.c)
+ *     KeVerifyContextXStateCetU @ 0x1403649C8 (KeVerifyContextXStateCetU.c)
+ *     RtlLocateExtendedFeature @ 0x14045BC10 (RtlLocateExtendedFeature.c)
+ *     KiUnwindUserSspForApcContextCopyBypass @ 0x14057E274 (KiUnwindUserSspForApcContextCopyBypass.c)
+ * Callees:
+ *     <none>
+ */
+
 char *__fastcall RtlLocateExtendedFeature2(_DWORD *a1, unsigned int a2, __int64 a3, _DWORD *a4)
 {
   __int64 v4; // r10

@@ -1,3 +1,18 @@
+/*
+ * XREFs of VslValidateDynamicCodePages @ 0x14087A498
+ * Callers:
+ *     MmChangeImageProtection @ 0x1407D1E10 (MmChangeImageProtection.c)
+ * Callees:
+ *     MmProbeAndLockPages @ 0x140267B90 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ *     MmSizeOfMdl @ 0x1402CFFB0 (MmSizeOfMdl.c)
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     VslpLockPagesForTransfer @ 0x1403C8E74 (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x1403C90EC (VslpUnlockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall VslValidateDynamicCodePages(__int64 a1, struct _MDL *a2, unsigned int a3)
 {
   SIZE_T v6; // rax

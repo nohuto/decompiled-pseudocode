@@ -1,3 +1,17 @@
+/*
+ * XREFs of xxxAddFullScreen @ 0x1C00E6AF8
+ * Callers:
+ *     xxxCheckFullScreen @ 0x1C0033340 (xxxCheckFullScreen.c)
+ *     xxxAddFullScreen @ 0x1C00E6AF8 (xxxAddFullScreen.c)
+ * Callees:
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ *     xxxAddFullScreen @ 0x1C00E6AF8 (xxxAddFullScreen.c)
+ *     ?RemoveSemiMaximizedState@@YAXPEAUtagWND@@@Z @ 0x1C00E6C30 (-RemoveSemiMaximizedState@@YAXPEAUtagWND@@@Z.c)
+ *     xxxSetTrayWindow @ 0x1C0109D38 (xxxSetTrayWindow.c)
+ */
+
 __int64 __fastcall xxxAddFullScreen(__int64 *a1)
 {
   _QWORD *v1; // rdi

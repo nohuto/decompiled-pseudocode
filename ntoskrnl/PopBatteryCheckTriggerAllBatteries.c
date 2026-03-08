@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopBatteryCheckTriggerAllBatteries @ 0x140992038
+ * Callers:
+ *     PopBatteryApplyCompositeState @ 0x14086E430 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryCheckTrigger @ 0x14086E6E0 (PopBatteryCheckTrigger.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PopBatteryCheckTriggerAllBatteries(__int64 a1, int a2)
 {
   __int64 v2; // r8

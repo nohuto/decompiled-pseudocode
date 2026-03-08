@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CreateUsermodeParameters@UnloadFontFileRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C0308EF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C011EA58 (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
+ */
+
 __int64 __fastcall UnloadFontFileRequest::CreateUsermodeParameters(
         UnloadFontFileRequest *this,
         UmfdUMBuffer **a2,

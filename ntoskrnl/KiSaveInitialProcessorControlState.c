@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiSaveInitialProcessorControlState @ 0x140416230
+ * Callers:
+ *     KiInitializeBootStructures @ 0x140A887E0 (KiInitializeBootStructures.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiSaveInitialProcessorControlState(__int64 _RCX)
 {
   unsigned __int64 v1; // rax

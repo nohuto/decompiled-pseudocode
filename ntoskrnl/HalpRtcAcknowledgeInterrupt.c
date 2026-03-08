@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpRtcAcknowledgeInterrupt @ 0x14051D550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpRtcStop @ 0x14051D7A0 (HalpRtcStop.c)
+ */
+
 __int64 __fastcall HalpRtcAcknowledgeInterrupt(_QWORD *a1)
 {
   bool v1; // zf

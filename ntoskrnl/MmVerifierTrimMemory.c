@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmVerifierTrimMemory @ 0x140AE50D0
+ * Callers:
+ *     ViKeIrqlLogAndTrimMemory @ 0x140AD2DA8 (ViKeIrqlLogAndTrimMemory.c)
+ * Callees:
+ *     RtlpGetStackLimits @ 0x1403129F0 (RtlpGetStackLimits.c)
+ *     KeGetCurrentStackPointer @ 0x1404166E0 (KeGetCurrentStackPointer.c)
+ *     MiTrimAllSystemPagableMemory @ 0x140632E70 (MiTrimAllSystemPagableMemory.c)
+ */
+
 char *MmVerifierTrimMemory()
 {
   char *result; // rax

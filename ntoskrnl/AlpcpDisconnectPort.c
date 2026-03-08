@@ -1,3 +1,24 @@
+/*
+ * XREFs of AlpcpDisconnectPort @ 0x140716FA8
+ * Callers:
+ *     AlpcpDoPortCleanup @ 0x140716E08 (AlpcpDoPortCleanup.c)
+ *     NtAlpcDisconnectPort @ 0x140787CB0 (NtAlpcDisconnectPort.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectSafe @ 0x1402CBCB0 (ObReferenceObjectSafe.c)
+ *     AlpcpSignalPortAndUnlock @ 0x1406F77CC (AlpcpSignalPortAndUnlock.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     AlpcpCancelMessagesByRequestor @ 0x1407172DC (AlpcpCancelMessagesByRequestor.c)
+ *     AlpcpWalkConnectionList @ 0x14079100C (AlpcpWalkConnectionList.c)
+ *     AlpcpInsertMessageCanceledQueue @ 0x1407950AC (AlpcpInsertMessageCanceledQueue.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1407CBD44 (AlpcpLockForCachedReferenceBlob.c)
+ */
+
 __int64 __fastcall AlpcpDisconnectPort(__int64 a1, char a2)
 {
   __int64 *v2; // r15

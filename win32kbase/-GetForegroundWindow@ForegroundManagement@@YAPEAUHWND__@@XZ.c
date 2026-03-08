@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetForegroundWindow@ForegroundManagement@@YAPEAUHWND__@@XZ @ 0x1C0155F90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C006AE58 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C00B9120 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
+ */
+
 __int64 __fastcall ForegroundManagement::GetForegroundWindow(ForegroundManagement *this)
 {
   __int64 v1; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlIoEncodeMemIoResource @ 0x14039FEF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlIoEncodeMemIoResource(
         PIO_RESOURCE_DESCRIPTOR Descriptor,
         UCHAR Type,

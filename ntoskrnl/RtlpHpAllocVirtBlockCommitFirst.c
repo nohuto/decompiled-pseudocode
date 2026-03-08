@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpHpAllocVirtBlockCommitFirst @ 0x1405AB400
+ * Callers:
+ *     RtlpAllocateHeap @ 0x1405A8E28 (RtlpAllocateHeap.c)
+ * Callees:
+ *     ZwAllocateVirtualMemory @ 0x140412610 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x1404126D0 (ZwFreeVirtualMemory.c)
+ */
+
 char *__fastcall RtlpHpAllocVirtBlockCommitFirst(void *a1, _QWORD *a2, ULONG_PTR a3, ULONG_PTR *a4)
 {
   char *v6; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_InitializeTag@FxDriver@@SAXPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_DRIVER_CONFIG@@@Z @ 0x1C0040578
+ * Callers:
+ *     imp_WdfDriverCreate @ 0x1C0037350 (imp_WdfDriverCreate.c)
+ * Callees:
+ *     memmove @ 0x1C000B140 (memmove.c)
+ */
+
 void __fastcall FxDriver::_InitializeTag(_FX_DRIVER_GLOBALS *FxDriverGlobals, _WDF_DRIVER_CONFIG *a2)
 {
   char *DriverName; // rdx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of NormBuffer__GetCurrentOutputChar @ 0x1405AE16C
+ * Callers:
+ *     NormBuffer__IsBlocked @ 0x1405AE32C (NormBuffer__IsBlocked.c)
+ *     NormBuffer__RecheckStartCombinations @ 0x1405AE434 (NormBuffer__RecheckStartCombinations.c)
+ *     NormBuffer__SortBeforeSameClass @ 0x1405AE6BC (NormBuffer__SortBeforeSameClass.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NormBuffer__GetCurrentOutputChar(__int64 a1, unsigned __int16 **a2)
 {
   unsigned __int16 *v2; // r9

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpCmcInitializeErrorPacketContents @ 0x14037D248
+ * Callers:
+ *     HalpCmciInitializeErrorPacket @ 0x14037CCA4 (HalpCmciInitializeErrorPacket.c)
+ *     HalpCmcInitializePolling @ 0x1403AF0C8 (HalpCmcInitializePolling.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 GUID *__fastcall HalpCmcInitializeErrorPacketContents(GUID *a1)
 {
   GUID *result; // rax

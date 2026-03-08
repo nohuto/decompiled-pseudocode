@@ -1,3 +1,17 @@
+/*
+ * XREFs of VidSchiSubmitPreemptionCommand @ 0x1C00ADB04
+ * Callers:
+ *     VidSchiScheduleCommandToRun @ 0x1C0006850 (VidSchiScheduleCommandToRun.c)
+ *     VidSchiSwitchFromSuspendedDevices @ 0x1C0014360 (VidSchiSwitchFromSuspendedDevices.c)
+ *     VidSchiResetEngine @ 0x1C003B96C (VidSchiResetEngine.c)
+ *     VidSchiCheckHwProgress @ 0x1C00A5940 (VidSchiCheckHwProgress.c)
+ *     VidSchiPreemptEngineNodes @ 0x1C0106530 (VidSchiPreemptEngineNodes.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     VidSchiAllocateDmaPacket @ 0x1C00ADBDC (VidSchiAllocateDmaPacket.c)
+ *     VidSchiSendToExecutionQueueWithWait @ 0x1C00ADC80 (VidSchiSendToExecutionQueueWithWait.c)
+ */
+
 __int64 __fastcall VidSchiSubmitPreemptionCommand(__int64 a1)
 {
   __int64 v1; // rdi

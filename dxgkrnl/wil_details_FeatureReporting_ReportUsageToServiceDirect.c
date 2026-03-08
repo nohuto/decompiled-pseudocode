@@ -1,3 +1,13 @@
+/*
+ * XREFs of wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x1C0024BB8
+ * Callers:
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0024B30 (wil_details_FeatureReporting_ReportUsageToService.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     wil_details_FeatureReporting_RecordUsageInCache @ 0x1C00249C0 (wil_details_FeatureReporting_RecordUsageInCache.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall wil_details_FeatureReporting_ReportUsageToServiceDirect(__int64 a1, __int64 a2, __int64 a3)
 {
   __int16 v3; // bx

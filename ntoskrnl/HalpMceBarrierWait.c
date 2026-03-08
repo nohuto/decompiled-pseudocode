@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpMceBarrierWait @ 0x14050196C
+ * Callers:
+ *     HalpMceHandlerWithRendezvous @ 0x140501CF0 (HalpMceHandlerWithRendezvous.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HalpMceBarrierWait(_DWORD *a1, int a2, int a3)
 {
   unsigned __int64 v3; // r8

@@ -1,3 +1,11 @@
+/*
+ * XREFs of DrvFindRemoteDriverhdevInMDEV @ 0x1C026E9E8
+ * Callers:
+ *     GetRemoteHDEV @ 0x1C0205C54 (GetRemoteHDEV.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DrvFindRemoteDriverhdevInMDEV(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v5; // rbx

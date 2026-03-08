@@ -1,3 +1,14 @@
+/*
+ * XREFs of ApiSetEditionIsUsermodeRIMAccessAllowed @ 0x1C023FFB0
+ * Callers:
+ *     NtRIMAreSiblingDevices @ 0x1C01A1A50 (NtRIMAreSiblingDevices.c)
+ *     NtRIMGetPhysicalDeviceRect @ 0x1C01A2040 (NtRIMGetPhysicalDeviceRect.c)
+ *     NtRIMSetTestModeStatus @ 0x1C01A2B80 (NtRIMSetTestModeStatus.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 ApiSetEditionIsUsermodeRIMAccessAllowed()
 {
   char v0; // bl

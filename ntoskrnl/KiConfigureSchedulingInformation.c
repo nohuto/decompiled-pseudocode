@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiConfigureSchedulingInformation @ 0x140A8B1B4
+ * Callers:
+ *     KiInitializeDynamicProcessorDpc @ 0x140A9C260 (KiInitializeDynamicProcessorDpc.c)
+ *     KiConfigureAllSchedulingInformation @ 0x140B41844 (KiConfigureAllSchedulingInformation.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KiQuerySubNodeActiveAffinity @ 0x1402AE38C (KiQuerySubNodeActiveAffinity.c)
+ *     KiInitializePriorityState @ 0x14037F530 (KiInitializePriorityState.c)
+ *     KiConfigureCpuSetSchedulingInformation @ 0x14037F6F0 (KiConfigureCpuSetSchedulingInformation.c)
+ *     KiFreeLocalSharedReadyQueue @ 0x14037F864 (KiFreeLocalSharedReadyQueue.c)
+ *     KeDoesSystemHaveHeterogeneousCoreTypes @ 0x14037F8D8 (KeDoesSystemHaveHeterogeneousCoreTypes.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KiConfigureSchedulingInformation(__int64 a1, char a2)
 {
   __int64 v2; // r14

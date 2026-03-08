@@ -1,3 +1,11 @@
+/*
+ * XREFs of AlpcpViewSearchCallbackFunction @ 0x140776A6C
+ * Callers:
+ *     AlpcpEnumerateResourcesPort @ 0x140715088 (AlpcpEnumerateResourcesPort.c)
+ * Callees:
+ *     AlpcpReferenceBlob @ 0x1407CAA30 (AlpcpReferenceBlob.c)
+ */
+
 __int64 __fastcall AlpcpViewSearchCallbackFunction(ULONG_PTR a1, _QWORD *a2)
 {
   if ( *(_QWORD *)(a1 + 40) != *a2 )

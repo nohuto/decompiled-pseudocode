@@ -1,3 +1,18 @@
+/*
+ * XREFs of NewObjData @ 0x1C004C19C
+ * Callers:
+ *     AMLICreateNativeNamespaceObject @ 0x1C00499F8 (AMLICreateNativeNamespaceObject.c)
+ *     AMLICreateOverrideObjectDefault @ 0x1C004A82C (AMLICreateOverrideObjectDefault.c)
+ *     AMLICreateOverrideObjectDep @ 0x1C004A920 (AMLICreateOverrideObjectDep.c)
+ *     DupObjData @ 0x1C004AF04 (DupObjData.c)
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     GetObjectTypeName @ 0x1C004BD50 (GetObjectTypeName.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ */
+
 __int64 __fastcall NewObjData(__int64 a1, __int64 a2)
 {
   unsigned int v2; // r8d

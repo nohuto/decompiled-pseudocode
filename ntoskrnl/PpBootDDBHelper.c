@@ -1,3 +1,16 @@
+/*
+ * XREFs of PpBootDDBHelper @ 0x14081D504
+ * Callers:
+ *     PpInitializeBootDDB @ 0x140B5A6EC (PpInitializeBootDDB.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SdbInitDatabaseInMemory @ 0x14079CFC8 (SdbInitDatabaseInMemory.c)
+ *     PnpLogEvent @ 0x140955B40 (PnpLogEvent.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PpBootDDBHelper(void *Src, size_t Size, _QWORD *a3, __int64 *a4)
 {
   unsigned int v6; // edi

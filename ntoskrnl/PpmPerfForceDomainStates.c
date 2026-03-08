@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmPerfForceDomainStates @ 0x1403ABE20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char PpmPerfForceDomainStates()
 {
   __int64 i; // r8

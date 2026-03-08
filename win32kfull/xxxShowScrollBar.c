@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxxShowScrollBar @ 0x1C0234CF4
+ * Callers:
+ *     NtUserShowScrollBar @ 0x1C01DFC80 (NtUserShowScrollBar.c)
+ * Callees:
+ *     xxxSetWindowPos @ 0x1C0028F4C (xxxSetWindowPos.c)
+ *     ?xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z @ 0x1C002AE4C (-xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z.c)
+ *     _InitPwSB @ 0x1C00DA0E8 (_InitPwSB.c)
+ */
+
 __int64 __fastcall xxxShowScrollBar(struct tagWND *a1, int a2, int a3)
 {
   int v3; // ebx

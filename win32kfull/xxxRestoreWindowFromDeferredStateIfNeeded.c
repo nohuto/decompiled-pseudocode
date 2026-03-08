@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxRestoreWindowFromDeferredStateIfNeeded @ 0x1C0012344
+ * Callers:
+ *     NtUserRestoreWindowDpiChanges @ 0x1C0012260 (NtUserRestoreWindowDpiChanges.c)
+ * Callees:
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     _SetDeferredDpiStateForWindowAndChildren @ 0x1C0041748 (_SetDeferredDpiStateForWindowAndChildren.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ *     xxxNotifyMonitorChanged @ 0x1C0099554 (xxxNotifyMonitorChanged.c)
+ */
+
 __int64 __fastcall xxxRestoreWindowFromDeferredStateIfNeeded(struct tagWND *a1)
 {
   struct tagRECT *v1; // rdi

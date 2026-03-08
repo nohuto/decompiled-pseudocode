@@ -1,3 +1,18 @@
+/*
+ * XREFs of KeLoadMTRR @ 0x140A8C4C0
+ * Callers:
+ *     KiLoadMTRRTarget @ 0x140A8C4A0 (KiLoadMTRRTarget.c)
+ *     HalpPostSleepMP @ 0x140A93F28 (HalpPostSleepMP.c)
+ * Callees:
+ *     KeFlushCurrentTbImmediately @ 0x140396EE0 (KeFlushCurrentTbImmediately.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiLockStepExecution @ 0x140A8C6F4 (KiLockStepExecution.c)
+ *     KiCompareVarMtrr @ 0x140A8C73C (KiCompareVarMtrr.c)
+ *     KiWriteFixedMtrr @ 0x140A8C7FC (KiWriteFixedMtrr.c)
+ *     KiReadFixedMtrr @ 0x140A8C908 (KiReadFixedMtrr.c)
+ */
+
 __int64 __fastcall KeLoadMTRR(__int64 a1)
 {
   __int64 v2; // rdx

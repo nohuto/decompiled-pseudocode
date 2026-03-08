@@ -1,3 +1,11 @@
+/*
+ * XREFs of Controller_QuerySupportedDSMs @ 0x1C001E6D4
+ * Callers:
+ *     Controller_Create @ 0x1C00712C4 (Controller_Create.c)
+ * Callees:
+ *     Controller_ExecuteDSM @ 0x1C006E4A4 (Controller_ExecuteDSM.c)
+ */
+
 __int64 __fastcall Controller_QuerySupportedDSMs(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PsRemoveVirtualizedTimer @ 0x1402F5D70
+ * Callers:
+ *     ExpDeleteTimer @ 0x1402F5CD0 (ExpDeleteTimer.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 LONG_PTR __fastcall PsRemoveVirtualizedTimer(PVOID *a1, _QWORD *a2, volatile signed __int64 *a3, unsigned __int8 a4)
 {
   KSPIN_LOCK *v4; // rbp

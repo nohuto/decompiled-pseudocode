@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlpDiscoverTopologyComplete @ 0x140B8FE94
+ * Callers:
+ *     HvlPhase2Initialize @ 0x1403AF870 (HvlPhase2Initialize.c)
+ * Callees:
+ *     HvlpDiscoverTopologyWorker @ 0x14093E438 (HvlpDiscoverTopologyWorker.c)
+ */
+
 int *HvlpDiscoverTopologyComplete()
 {
   int *result; // rax

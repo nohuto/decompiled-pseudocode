@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UnLink@CVisualTreeData@@MEAAXXZ @ 0x1800E05A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CVisualTreeData::UnLink(CVisualTreeData *this)
 {
   __int64 v1; // r9

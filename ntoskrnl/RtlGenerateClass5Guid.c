@@ -1,3 +1,20 @@
+/*
+ * XREFs of RtlGenerateClass5Guid @ 0x14081B430
+ * Callers:
+ *     PipCreateComputerId @ 0x140B56980 (PipCreateComputerId.c)
+ * Callees:
+ *     BCryptCloseAlgorithmProvider @ 0x1403892D4 (BCryptCloseAlgorithmProvider.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     BCryptGetProperty @ 0x140754608 (BCryptGetProperty.c)
+ *     BCryptCreateHash @ 0x140754694 (BCryptCreateHash.c)
+ *     BCryptDestroyHash @ 0x140754728 (BCryptDestroyHash.c)
+ *     BCryptFinishHash @ 0x14075477C (BCryptFinishHash.c)
+ *     BCryptHashData @ 0x1407547F0 (BCryptHashData.c)
+ *     BCryptOpenAlgorithmProvider @ 0x14081B624 (BCryptOpenAlgorithmProvider.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlGenerateClass5Guid(__int64 a1, UCHAR *a2, ULONG a3, __int64 a4)
 {
   UCHAR *v4; // rdi

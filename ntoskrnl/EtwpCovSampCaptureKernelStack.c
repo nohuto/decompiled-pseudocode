@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpCovSampCaptureKernelStack @ 0x140600FD8
+ * Callers:
+ *     EtwpCovSampCaptureSample @ 0x140601340 (EtwpCovSampCaptureSample.c)
+ * Callees:
+ *     RtlWalkFrameChain @ 0x140205CA0 (RtlWalkFrameChain.c)
+ *     KeQueryCurrentStackInformation @ 0x1402E1E00 (KeQueryCurrentStackInformation.c)
+ *     EtwpCovSampCaptureBufferOptimizeIP @ 0x140461A24 (EtwpCovSampCaptureBufferOptimizeIP.c)
+ */
+
 __int64 __fastcall EtwpCovSampCaptureKernelStack(__int64 a1, unsigned int a2)
 {
   unsigned int v2; // ebx

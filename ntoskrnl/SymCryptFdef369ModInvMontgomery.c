@@ -1,3 +1,14 @@
+/*
+ * XREFs of SymCryptFdef369ModInvMontgomery @ 0x140403B80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SymCryptWipe @ 0x1403F0988 (SymCryptWipe.c)
+ *     SymCryptFdefModInvGeneric @ 0x1403FE960 (SymCryptFdefModInvGeneric.c)
+ *     SymCryptFdef369MontgomeryReduceAsm @ 0x1404098A0 (SymCryptFdef369MontgomeryReduceAsm.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall SymCryptFdef369ModInvMontgomery(__int64 a1, const void *a2, void *a3, char a4, void *a5, __int64 a6)
 {
   size_t v9; // rdi

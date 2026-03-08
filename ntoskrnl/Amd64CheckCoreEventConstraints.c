@@ -1,3 +1,11 @@
+/*
+ * XREFs of Amd64CheckCoreEventConstraints @ 0x140526950
+ * Callers:
+ *     Amd64AllocateCounter @ 0x140526678 (Amd64AllocateCounter.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall Amd64CheckCoreEventConstraints(int a1, unsigned __int64 a2, _BYTE *a3)
 {
   int v3; // r10d

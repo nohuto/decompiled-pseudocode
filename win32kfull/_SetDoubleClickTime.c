@@ -1,3 +1,14 @@
+/*
+ * XREFs of _SetDoubleClickTime @ 0x1C00F9C04
+ * Callers:
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ *     NtUserSetDoubleClickTime @ 0x1C01DCA50 (NtUserSetDoubleClickTime.c)
+ * Callees:
+ *     CheckWinstaAttributeAccess @ 0x1C003B230 (CheckWinstaAttributeAccess.c)
+ *     safe_cast_fnid_to_PTOOLTIPWND @ 0x1C00F9CD8 (safe_cast_fnid_to_PTOOLTIPWND.c)
+ *     InitTooltipDelay @ 0x1C00F9D58 (InitTooltipDelay.c)
+ */
+
 __int64 __fastcall SetDoubleClickTime(__int64 a1)
 {
   unsigned int v1; // ebx

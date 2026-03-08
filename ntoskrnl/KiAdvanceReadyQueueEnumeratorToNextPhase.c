@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiAdvanceReadyQueueEnumeratorToNextPhase @ 0x1402EECB8
+ * Callers:
+ *     KiAdvanceReadyQueueEnumeratorToNextList @ 0x1402EE9E4 (KiAdvanceReadyQueueEnumeratorToNextList.c)
+ * Callees:
+ *     KiReadyQueueEnumeratorStartNormalQueuesPhase @ 0x140260ED0 (KiReadyQueueEnumeratorStartNormalQueuesPhase.c)
+ *     KiReadyQueueEnumeratorStartScbQueuesPhase @ 0x140261910 (KiReadyQueueEnumeratorStartScbQueuesPhase.c)
+ */
+
 __int64 __fastcall KiAdvanceReadyQueueEnumeratorToNextPhase(__int64 a1)
 {
   unsigned __int8 i; // bl

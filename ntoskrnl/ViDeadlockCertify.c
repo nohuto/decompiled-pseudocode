@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViDeadlockCertify @ 0x140AD59AC
+ * Callers:
+ *     ViDeadlockAnalyze @ 0x140AD5740 (ViDeadlockAnalyze.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ViDeadlockCertify(unsigned __int64 a1, __int64 a2)
 {
   __int64 v3; // r9

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBFDO_EvtDeviceShutdownPreprocess @ 0x1C000D2F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_UxdShutdown @ 0x1C0087BB0 (HUBREG_UxdShutdown.c)
+ */
+
 __int64 __fastcall HUBFDO_EvtDeviceShutdownPreprocess(__int64 a1, IRP *a2)
 {
   __int64 v3; // rax

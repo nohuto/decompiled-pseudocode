@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?BoostFrameRate@CLegacySwapChain@@UEAA_N_N@Z @ 0x180297200
+ * Callers:
+ *     ?BoostFrameRate@CLegacySwapChain@@$4PPPPPPPM@BLA@EAA_N_N@Z @ 0x18011B510 (-BoostFrameRate@CLegacySwapChain@@$4PPPPPPPM@BLA@EAA_N_N@Z.c)
+ *     ?BoostFrameRate@CLegacySwapChain@@$4PPPPPPPM@BLI@EAA_N_N@Z @ 0x18011C590 (-BoostFrameRate@CLegacySwapChain@@$4PPPPPPPM@BLI@EAA_N_N@Z.c)
+ *     ?BoostFrameRate@CLegacySwapChain@@$4PPPPPPPM@DFI@EAA_N_N@Z @ 0x18011CC70 (-BoostFrameRate@CLegacySwapChain@@$4PPPPPPPM@DFI@EAA_N_N@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18008F164 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?IsValidVariableRefreshDuration@CLegacySwapChain@@IEBA_N_K@Z @ 0x180297F8C (-IsValidVariableRefreshDuration@CLegacySwapChain@@IEBA_N_K@Z.c)
+ */
+
 char __fastcall CLegacySwapChain::BoostFrameRate(CLegacySwapChain *this, char a2)
 {
   __int64 v3; // r8

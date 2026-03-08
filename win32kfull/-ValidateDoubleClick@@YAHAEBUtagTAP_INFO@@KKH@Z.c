@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ValidateDoubleClick@@YAHAEBUtagTAP_INFO@@KKH@Z @ 0x1C01F97B8
+ * Callers:
+ *     ?PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C01F93F8 (-PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall ValidateDoubleClick(const struct tagTAP_INFO *a1, unsigned int a2, int a3, int a4)
 {
   int v4; // r11d

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PiUEventNotifyClientPendingEvent @ 0x1406804B0
+ * Callers:
+ *     PiUEventNotifyClient @ 0x14068032C (PiUEventNotifyClient.c)
+ *     PiUEventHandleGetEvent @ 0x14068E028 (PiUEventHandleGetEvent.c)
+ * Callees:
+ *     PiUEventEstimateRequiredClientBufferSize @ 0x140201E10 (PiUEventEstimateRequiredClientBufferSize.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ */
+
 __int64 __fastcall PiUEventNotifyClientPendingEvent(__int64 a1)
 {
   int v2; // eax

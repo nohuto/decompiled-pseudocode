@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIDockIrpEject @ 0x1C007AAC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qqss @ 0x1C000A374 (WPP_RECORDER_SF_qqss.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     ACPIInternalClearFlags @ 0x1C002E508 (ACPIInternalClearFlags.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ */
+
 __int64 __fastcall ACPIDockIrpEject(ULONG_PTR a1, IRP *a2)
 {
   __int64 DeviceExtension; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlApplyFunctionOverrideFixupsToImage @ 0x1403712F4
+ * Callers:
+ *     MiMapSystemImageWithLargePage @ 0x140A46F04 (MiMapSystemImageWithLargePage.c)
+ *     MiApplyFunctionOverrideToBootDrivers @ 0x140B3AAB0 (MiApplyFunctionOverrideToBootDrivers.c)
+ * Callees:
+ *     RtlImageNtHeaderEx @ 0x14035E850 (RtlImageNtHeaderEx.c)
+ *     RtlpCaptureDynamicRelocationTableRva @ 0x140371360 (RtlpCaptureDynamicRelocationTableRva.c)
+ */
+
 __int64 __fastcall RtlApplyFunctionOverrideFixupsToImage(unsigned __int64 a1, unsigned int a2)
 {
   __int64 result; // rax

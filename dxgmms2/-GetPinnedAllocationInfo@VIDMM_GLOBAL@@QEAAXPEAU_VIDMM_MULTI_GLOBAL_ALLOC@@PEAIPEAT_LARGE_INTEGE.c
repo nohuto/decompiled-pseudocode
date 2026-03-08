@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPinnedAllocationInfo@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_GLOBAL_ALLOC@@PEAIPEAT_LARGE_INTEGER@@PEA_K@Z @ 0x1C0086634
+ * Callers:
+ *     VidMmGetPinnedAllocationInfo @ 0x1C0001260 (VidMmGetPinnedAllocationInfo.c)
+ * Callees:
+ *     ?DriverId@VIDMM_SEGMENT@@QEAAKXZ @ 0x1C0001414 (-DriverId@VIDMM_SEGMENT@@QEAAKXZ.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall VIDMM_GLOBAL::GetPinnedAllocationInfo(
         VIDMM_GLOBAL *this,

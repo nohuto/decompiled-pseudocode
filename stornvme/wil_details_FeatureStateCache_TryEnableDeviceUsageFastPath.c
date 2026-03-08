@@ -1,3 +1,11 @@
+/*
+ * XREFs of wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0003CD4
+ * Callers:
+ *     wil_details_IsEnabledFallback @ 0x1C0003E74 (wil_details_IsEnabledFallback.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath(unsigned __int8 a1, int a2)
 {
   int v2; // edx

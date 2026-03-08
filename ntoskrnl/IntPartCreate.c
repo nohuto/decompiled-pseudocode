@@ -1,3 +1,16 @@
+/*
+ * XREFs of IntPartCreate @ 0x140B43808
+ * Callers:
+ *     KiIntPartInit @ 0x140B437B4 (KiIntPartInit.c)
+ * Callees:
+ *     IntPartCriticalFailure @ 0x140572584 (IntPartCriticalFailure.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     IntpAllocateProcessorContext @ 0x140B439C8 (IntpAllocateProcessorContext.c)
+ *     IntpInitClassContext @ 0x140B43B54 (IntpInitClassContext.c)
+ *     IntpAssignProcessorsToPartitions @ 0x140B43C54 (IntpAssignProcessorsToPartitions.c)
+ */
+
 __int64 __fastcall IntPartCreate(__int64 a1, char a2, __int64 a3)
 {
   char *v4; // r14

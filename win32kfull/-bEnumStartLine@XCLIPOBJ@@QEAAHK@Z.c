@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bEnumStartLine@XCLIPOBJ@@QEAAHK@Z @ 0x1C02F56CC
+ * Callers:
+ *     ?bGetLine@XCLIPOBJ@@IEAAHPEAVEPATHOBJ@@PEBK@Z @ 0x1C02DB0F4 (-bGetLine@XCLIPOBJ@@IEAAHPEAVEPATHOBJ@@PEBK@Z.c)
+ * Callees:
+ *     ?vUnflip@DDA_CLIPLINE@@QEBAXPEAJ0@Z @ 0x1C01519D0 (-vUnflip@DDA_CLIPLINE@@QEBAXPEAJ0@Z.c)
+ *     ?vUpdateStyleState@XCLIPOBJ@@QEAAXXZ @ 0x1C02F64C0 (-vUpdateStyleState@XCLIPOBJ@@QEAAXXZ.c)
+ *     ?bInit@DDA_CLIPLINE@@QEAAHPEAU_POINTFIX@@0@Z @ 0x1C0307990 (-bInit@DDA_CLIPLINE@@QEAAHPEAU_POINTFIX@@0@Z.c)
+ */
+
 __int64 __fastcall XCLIPOBJ::bEnumStartLine(XCLIPOBJ *this, int a2)
 {
   __int64 result; // rax

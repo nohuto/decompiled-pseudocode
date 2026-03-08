@@ -1,3 +1,18 @@
+/*
+ * XREFs of _PnpCtxDestroyNode @ 0x140A5DBA8
+ * Callers:
+ *     PiPnpRtlInit @ 0x14081BE64 (PiPnpRtlInit.c)
+ *     _PnpCtxOpenMachine @ 0x140851D74 (_PnpCtxOpenMachine.c)
+ *     _PnpCtxCloseMachine @ 0x140A5DAE0 (_PnpCtxCloseMachine.c)
+ *     _PnpCtxRegisterMachineNode @ 0x140A5DF28 (_PnpCtxRegisterMachineNode.c)
+ *     _PnpCtxUnregisterMachineNode @ 0x140A5E08C (_PnpCtxUnregisterMachineNode.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     _SysCtxCloseMachine @ 0x140A676C4 (_SysCtxCloseMachine.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpCtxDestroyNode(UNICODE_STRING *P)
 {
   char *v2; // rcx

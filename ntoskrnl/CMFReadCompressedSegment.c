@@ -1,3 +1,18 @@
+/*
+ * XREFs of CMFReadCompressedSegment @ 0x1409FF980
+ * Callers:
+ *     CMFSystemThreadRoutine @ 0x1409FFE80 (CMFSystemThreadRoutine.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x140412810 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x140412850 (ZwUnmapViewOfSection.c)
+ *     ZwCreateSection @ 0x140412C50 (ZwCreateSection.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     XpressDecode @ 0x140677638 (XpressDecode.c)
+ *     XpressDecodeClose @ 0x14067775C (XpressDecodeClose.c)
+ *     XpressDecodeCreate @ 0x140677788 (XpressDecodeCreate.c)
+ */
+
 __int64 __fastcall CMFReadCompressedSegment(HANDLE FileHandle, char *a2, unsigned int a3, _DWORD *a4)
 {
   _DWORD *v8; // r14

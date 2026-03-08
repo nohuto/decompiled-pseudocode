@@ -1,3 +1,14 @@
+/*
+ * XREFs of PfpPowerActionDpcRoutine @ 0x140580860
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PfpPowerActionDpcRoutine(
         struct _KDPC *Dpc,
         _DWORD *DeferredContext,

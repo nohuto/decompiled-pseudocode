@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpRestoreDmaControllerState @ 0x140A92288
+ * Callers:
+ *     HalpAcpiPostSleep @ 0x140A93580 (HalpAcpiPostSleep.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpMiscIsLegacyPcType @ 0x140508E18 (HalpMiscIsLegacyPcType.c)
+ *     HalpRestoreLegacyDmaControllerState @ 0x140A933D0 (HalpRestoreLegacyDmaControllerState.c)
+ */
+
 char HalpRestoreDmaControllerState()
 {
   __int64 i; // rbx

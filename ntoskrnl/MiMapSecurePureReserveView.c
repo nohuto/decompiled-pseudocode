@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiMapSecurePureReserveView @ 0x140727644
+ * Callers:
+ *     MiCfgInitializeProcess @ 0x140727724 (MiCfgInitializeProcess.c)
+ * Callees:
+ *     MmMapViewOfSectionEx @ 0x1402A5B98 (MmMapViewOfSectionEx.c)
+ */
+
 __int64 __fastcall MiMapSecurePureReserveView(__int64 a1, __int64 a2, int a3, unsigned __int64 *a4)
 {
   int v5; // edx

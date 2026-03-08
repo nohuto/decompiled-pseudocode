@@ -1,3 +1,15 @@
+/*
+ * XREFs of IoEnumerateRegisteredFiltersList @ 0x14078CE50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     IopGetFsRegistrationInProgress @ 0x1405552A8 (IopGetFsRegistrationInProgress.c)
+ */
+
 NTSTATUS __stdcall IoEnumerateRegisteredFiltersList(
         PDRIVER_OBJECT *DriverObjectList,
         ULONG DriverObjectListSize,

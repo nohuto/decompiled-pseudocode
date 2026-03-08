@@ -1,3 +1,11 @@
+/*
+ * XREFs of NlsKbdSendIMENotification @ 0x1C00C7120
+ * Callers:
+ *     NlsKbdSendIMEProc @ 0x1C021C9E0 (NlsKbdSendIMEProc.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall NlsKbdSendIMENotification(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // ebx

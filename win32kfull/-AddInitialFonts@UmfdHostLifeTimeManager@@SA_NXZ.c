@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00B842C
+ * Callers:
+ *     NtGdiAddInitialFonts @ 0x1C00B7D80 (NtGdiAddInitialFonts.c)
+ * Callees:
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C0018890 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C001F240 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
+ *     UserOnGreTextReady @ 0x1C00B8554 (UserOnGreTextReady.c)
+ *     ?bInitializeEUDCInternal@@YAHXZ @ 0x1C00B8C30 (-bInitializeEUDCInternal@@YAHXZ.c)
+ *     FinishStockFontInit @ 0x1C00B9D70 (FinishStockFontInit.c)
+ */
+
 char __fastcall UmfdHostLifeTimeManager::AddInitialFonts(__int64 a1)
 {
   __int64 v1; // rdi

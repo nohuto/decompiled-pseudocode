@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@CBrightnessEffectMarshaler@DirectComposition@@UEAAJXZ @ 0x1C024DA90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ @ 0x1C024D3E0 (-Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ.c)
+ */
+
 __int64 __fastcall DirectComposition::CBrightnessEffectMarshaler::Initialize(
         DirectComposition::CBrightnessEffectMarshaler *this)
 {

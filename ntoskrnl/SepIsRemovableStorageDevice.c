@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepIsRemovableStorageDevice @ 0x1409CE430
+ * Callers:
+ *     SepAdtClassifyObjectIntoSubCategory @ 0x1408A1798 (SepAdtClassifyObjectIntoSubCategory.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall SepIsRemovableStorageDevice(__int64 a1)
 {
   int v1; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnDeactivated@CSynchronousSuperWetInk@@UEAAXXZ @ 0x180250780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CSynchronousSuperWetInk::OnDeactivated(CSynchronousSuperWetInk *this)
 {
   __int64 v1; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_27add1e8d57a913bfbcc33c9b5f13734_::operator() @ 0x1C0130118
+ * Callers:
+ *     GreGetRandomRgn @ 0x1C0125C40 (GreGetRandomRgn.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall lambda_27add1e8d57a913bfbcc33c9b5f13734_::operator()(__int64 a1, RGNOBJAPI *a2, __int64 a3)
 {
   __int64 result; // rax

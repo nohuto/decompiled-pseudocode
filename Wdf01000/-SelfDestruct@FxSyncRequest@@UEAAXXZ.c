@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SelfDestruct@FxSyncRequest@@UEAAXXZ @ 0x1C0089CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_IFR_SF_qq @ 0x1C001828C (WPP_IFR_SF_qq.c)
+ */
+
 void __fastcall FxSyncRequest::SelfDestruct(FxSyncRequest *this)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rax

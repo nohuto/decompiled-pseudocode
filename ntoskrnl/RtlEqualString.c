@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlEqualString @ 0x1402D0DA0
+ * Callers:
+ *     HalMatchAcpiOemId @ 0x140395040 (HalMatchAcpiOemId.c)
+ *     IopInitializeBuiltinDriver @ 0x140B58C28 (IopInitializeBuiltinDriver.c)
+ *     IopGetBootDiskInformation @ 0x140B907EC (IopGetBootDiskInformation.c)
+ * Callees:
+ *     RtlUpperChar @ 0x14075DD40 (RtlUpperChar.c)
+ */
+
 BOOLEAN __stdcall RtlEqualString(const STRING *String1, const STRING *String2, BOOLEAN CaseInSensitive)
 {
   __int64 Length; // rax

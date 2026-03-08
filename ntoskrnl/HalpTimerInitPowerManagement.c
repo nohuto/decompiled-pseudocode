@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpTimerInitPowerManagement @ 0x1403931E8
+ * Callers:
+ *     HalpTimerInitSystem @ 0x1403776D0 (HalpTimerInitSystem.c)
+ * Callees:
+ *     PoFxActivateComponent @ 0x140305CE0 (PoFxActivateComponent.c)
+ *     PoFxStartDevicePowerManagement @ 0x140393C70 (PoFxStartDevicePowerManagement.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PoFxRegisterCoreDevice @ 0x140836AB0 (PoFxRegisterCoreDevice.c)
+ */
+
 __int64 HalpTimerInitPowerManagement()
 {
   ULONG_PTR v0; // rbx

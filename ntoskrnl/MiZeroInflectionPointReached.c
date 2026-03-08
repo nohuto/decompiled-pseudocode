@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiZeroInflectionPointReached @ 0x140389F8C
+ * Callers:
+ *     MiZeroPageCalibrateLastDpcProcessorDone @ 0x140389E3C (MiZeroPageCalibrateLastDpcProcessorDone.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiZeroInflectionPointReached(__int64 a1)
 {
   __int64 v1; // rdi

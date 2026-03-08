@@ -1,3 +1,11 @@
+/*
+ * XREFs of LogFwInitialize @ 0x140AEFA18
+ * Callers:
+ *     BgpFwLibraryInitialize @ 0x140AEAC78 (BgpFwLibraryInitialize.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void *LogFwInitialize()
 {
   dword_140C0E3B0 |= 0x80u;

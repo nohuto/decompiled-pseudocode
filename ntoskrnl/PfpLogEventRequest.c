@@ -1,3 +1,15 @@
+/*
+ * XREFs of PfpLogEventRequest @ 0x14097ADD8
+ * Callers:
+ *     PfSetSuperfetchInformation @ 0x1407E2A94 (PfSetSuperfetchInformation.c)
+ * Callees:
+ *     PfLogEvent @ 0x14028D0D0 (PfLogEvent.c)
+ *     MmGetDefaultPagePriority @ 0x14035B470 (MmGetDefaultPagePriority.c)
+ *     PfGenerateTrace @ 0x14073A870 (PfGenerateTrace.c)
+ *     MmIssueMemoryListCommand @ 0x14085E358 (MmIssueMemoryListCommand.c)
+ *     PfTSetTracingPriority @ 0x140A9D61C (PfTSetTracingPriority.c)
+ */
+
 __int64 __fastcall PfpLogEventRequest(__int64 a1)
 {
   __int64 v2; // rcx

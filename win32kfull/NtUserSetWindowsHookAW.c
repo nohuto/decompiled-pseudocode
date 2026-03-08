@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserSetWindowsHookAW @ 0x1C01DE970
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     zzzSetWindowsHookEx @ 0x1C009C8B4 (zzzSetWindowsHookEx.c)
+ *     Feature_UseSharedCreateDestroyWindowsHooks__private_ReportDeviceUsage @ 0x1C012EA18 (Feature_UseSharedCreateDestroyWindowsHooks__private_ReportDeviceUsage.c)
+ */
+
 __int64 __fastcall NtUserSetWindowsHookAW(int a1, __int64 a2, char a3)
 {
   __int64 v4; // rbp

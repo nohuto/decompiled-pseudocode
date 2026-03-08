@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmSetPermanentCacheAttribute @ 0x140A2DAD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     KeGenericCallDpcEx @ 0x1403C07D0 (KeGenericCallDpcEx.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MmSetPermanentCacheAttribute(unsigned __int64 a1, unsigned __int64 a2, int a3, int a4)
 {
   __int64 result; // rax

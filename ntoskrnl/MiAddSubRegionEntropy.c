@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiAddSubRegionEntropy @ 0x140B609A8
+ * Callers:
+ *     MiAssignTopLevelRanges @ 0x140B604AC (MiAssignTopLevelRanges.c)
+ * Callees:
+ *     MiHyperSpaceSize @ 0x140222C78 (MiHyperSpaceSize.c)
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ */
+
 __int64 MiAddSubRegionEntropy()
 {
   __int64 v0; // rdi

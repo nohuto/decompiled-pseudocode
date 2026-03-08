@@ -1,3 +1,16 @@
+/*
+ * XREFs of HvpBuildMapForMemoryBackedHive @ 0x1407FF548
+ * Callers:
+ *     HvHiveStartMemoryBacked @ 0x1407FF060 (HvHiveStartMemoryBacked.c)
+ * Callees:
+ *     SetFailureLocation @ 0x140243E5C (SetFailureLocation.c)
+ *     CmpClaimGlobalQuota @ 0x14072C8EC (CmpClaimGlobalQuota.c)
+ *     HvpPointMapEntriesToBuffer @ 0x140730010 (HvpPointMapEntriesToBuffer.c)
+ *     HvpInitMap @ 0x1407309B8 (HvpInitMap.c)
+ *     HvpEnlistFreeCells @ 0x1407A4A50 (HvpEnlistFreeCells.c)
+ *     HvpValidateLoadedBin @ 0x1407A4B30 (HvpValidateLoadedBin.c)
+ */
+
 __int64 __fastcall HvpBuildMapForMemoryBackedHive(ULONG_PTR BugCheckParameter2, __int64 a2, int a3)
 {
   __int64 v3; // rbx

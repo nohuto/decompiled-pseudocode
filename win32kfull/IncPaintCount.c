@@ -1,3 +1,11 @@
+/*
+ * XREFs of IncPaintCount @ 0x1C0225AE0
+ * Callers:
+ *     InternalInvalidate3 @ 0x1C0054B50 (InternalInvalidate3.c)
+ * Callees:
+ *     SetWakeBit @ 0x1C0038B60 (SetWakeBit.c)
+ */
+
 int __fastcall IncPaintCount(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rbx

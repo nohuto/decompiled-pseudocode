@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlCreateSystemVolumeInformationFolder @ 0x1409BB470
+ * Callers:
+ *     DifRtlCreateSystemVolumeInformationFolderWrapper @ 0x1405E8C50 (DifRtlCreateSystemVolumeInformationFolderWrapper.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     NtCreateFile @ 0x1407CE510 (NtCreateFile.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x1409BB734 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     RtlpSysVolCreateSecurityDescriptor @ 0x1409BBA64 (RtlpSysVolCreateSecurityDescriptor.c)
+ *     RtlpSysVolTakeOwnership @ 0x1409BBBD8 (RtlpSysVolTakeOwnership.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall RtlCreateSystemVolumeInformationFolder(PCUNICODE_STRING VolumeRootPath)
 {
   unsigned int Length; // eax

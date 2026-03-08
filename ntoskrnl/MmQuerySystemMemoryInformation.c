@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmQuerySystemMemoryInformation @ 0x1402FCE88
+ * Callers:
+ *     EtwpLogMemInfoTimerCallback @ 0x14045F4B0 (EtwpLogMemInfoTimerCallback.c)
+ *     PfpPrivSourceEnum @ 0x1407E7DC0 (PfpPrivSourceEnum.c)
+ *     EtwpLogMemInfoRundown @ 0x1409EBF14 (EtwpLogMemInfoRundown.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MmQuerySystemMemoryInformation(_OWORD *a1)
 {
   __int64 result; // rax

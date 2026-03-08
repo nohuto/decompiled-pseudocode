@@ -1,3 +1,13 @@
+/*
+ * XREFs of MxSwitchDescriptors @ 0x140B964BC
+ * Callers:
+ *     MxGetNextPage @ 0x140B383A4 (MxGetNextPage.c)
+ * Callees:
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiFindHighestDescriptorByNode @ 0x1406155C8 (MiFindHighestDescriptorByNode.c)
+ *     MiInitializeBootMemoryDescriptor @ 0x140B38670 (MiInitializeBootMemoryDescriptor.c)
+ */
+
 __int64 *__fastcall MxSwitchDescriptors(unsigned int a1)
 {
   unsigned __int64 v1; // rdi

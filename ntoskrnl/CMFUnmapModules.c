@@ -1,3 +1,12 @@
+/*
+ * XREFs of CMFUnmapModules @ 0x140A004F0
+ * Callers:
+ *     NtMapCMFModule @ 0x140A005D0 (NtMapCMFModule.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CMFUnmapModules(__int16 a1)
 {
   PVOID *v2; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CProjectedShadowCaster@@QEAA@PEAVCComposition@@@Z @ 0x180004BB4
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ */
+
 CProjectedShadowCaster *__fastcall CProjectedShadowCaster::CProjectedShadowCaster(
         CProjectedShadowCaster *this,
         struct CComposition *a2)

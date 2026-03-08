@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?Free@?$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C00AEAB8
+ * Callers:
+ *     ?HMFreeIsolatedType@@YAXEPEAX@Z @ 0x1C0075514 (-HMFreeIsolatedType@@YAXEPEAX@Z.c)
+ *     ?FreeBrushMemory@@YAXPEAVBRUSH@@@Z @ 0x1C00C1C1C (-FreeBrushMemory@@YAXPEAVBRUSH@@@Z.c)
+ * Callees:
+ *     ?Free@?$CSectionBitmapAllocator@$0KAAA@$0KA@@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00A8994 (-Free@-$CSectionBitmapAllocator@$0KAAA@$0KA@@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?CheckAllocationStatus@?$CSectionBitmapAllocator@$0KAAA@$0KA@@NSInstrumentation@@QEAA?AW4AllocationStatus@2@PEBX@Z @ 0x1C00AEB84 (-CheckAllocationStatus@-$CSectionBitmapAllocator@$0KAAA@$0KA@@NSInstrumentation@@QEAA-AW4Allocat.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     ?PlatformAbort@NSInstrumentation@@YAXW4PLATFORMABORTREASON@1@PEAX11@Z @ 0x1C019A620 (-PlatformAbort@NSInstrumentation@@YAXW4PLATFORMABORTREASON@1@PEAX11@Z.c)
+ */
+
 void __fastcall NSInstrumentation::CTypeIsolation<40960,160>::Free(__int64 a1, void *a2)
 {
   __int64 v4; // rbx

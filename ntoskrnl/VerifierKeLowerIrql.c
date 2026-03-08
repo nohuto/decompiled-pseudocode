@@ -1,3 +1,13 @@
+/*
+ * XREFs of VerifierKeLowerIrql @ 0x140ABD380
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     VfKeIrqlTransitionReserveLogEntry @ 0x140ABD5B0 (VfKeIrqlTransitionReserveLogEntry.c)
+ *     VfKeIrqlLogLower @ 0x140AD2C84 (VfKeIrqlLogLower.c)
+ */
+
 __int64 __fastcall VerifierKeLowerIrql(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

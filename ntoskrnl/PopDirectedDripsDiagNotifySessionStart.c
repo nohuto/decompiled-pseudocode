@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDirectedDripsDiagNotifySessionStart @ 0x140880E7C
+ * Callers:
+ *     PopDirectedDripsNotify @ 0x140872AF4 (PopDirectedDripsNotify.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ */
+
 ULONG __fastcall PopDirectedDripsDiagNotifySessionStart(__int64 a1, int a2)
 {
   ULONG result; // eax

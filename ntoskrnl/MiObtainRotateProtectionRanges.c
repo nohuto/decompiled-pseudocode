@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiObtainRotateProtectionRanges @ 0x1406304A8
+ * Callers:
+ *     MiRotateToFrameBufferNoCopy @ 0x140A2ECE4 (MiRotateToFrameBufferNoCopy.c)
+ * Callees:
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiQueryAddressState @ 0x14031B4F0 (MiQueryAddressState.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiObtainRotateProtectionRanges(ULONG_PTR a1, unsigned __int64 a2, unsigned __int64 a3, __int64 a4)
 {
   int v7; // edi

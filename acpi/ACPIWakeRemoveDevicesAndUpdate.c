@@ -1,3 +1,25 @@
+/*
+ * XREFs of ACPIWakeRemoveDevicesAndUpdate @ 0x1C000518C
+ * Callers:
+ *     ACPIDeviceCancelWaitWakeIrp @ 0x1C001C150 (ACPIDeviceCancelWaitWakeIrp.c)
+ *     ACPIDeviceIrpWaitWakeRequestPending @ 0x1C001E2A0 (ACPIDeviceIrpWaitWakeRequestPending.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase6 @ 0x1C0021720 (ACPIDevicePowerProcessPhase5SystemSubPhase6.c)
+ *     OSNotifyDeviceWake @ 0x1C0032FFC (OSNotifyDeviceWake.c)
+ *     OSNotifyDeviceWakeByGPEEvent @ 0x1C0033280 (OSNotifyDeviceWakeByGPEEvent.c)
+ *     OSNotifyDeviceWakeByInterrupt @ 0x1C003348C (OSNotifyDeviceWakeByInterrupt.c)
+ *     ACPIRootPowerCallBack @ 0x1C003D600 (ACPIRootPowerCallBack.c)
+ *     ACPITableLoadCallBack @ 0x1C003F3C0 (ACPITableLoadCallBack.c)
+ *     ACPIWakeDisconnectWakeInterrupts @ 0x1C00450BC (ACPIWakeDisconnectWakeInterrupts.c)
+ *     ACPIWakeEmptyRequestQueue @ 0x1C00451C0 (ACPIWakeEmptyRequestQueue.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     ACPIGpeIndexToByteIndex @ 0x1C0003564 (ACPIGpeIndexToByteIndex.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIGpeIndexToGpeRegister @ 0x1C002C39C (ACPIGpeIndexToGpeRegister.c)
+ *     ACPIWriteGpeEnableRegister @ 0x1C0038AE4 (ACPIWriteGpeEnableRegister.c)
+ *     ACPIWriteGpeStatusRegister @ 0x1C0038B84 (ACPIWriteGpeStatusRegister.c)
+ */
+
 void __fastcall ACPIWakeRemoveDevicesAndUpdate(__int64 a1, __int64 a2)
 {
   char v4; // bp

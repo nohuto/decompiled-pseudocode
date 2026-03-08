@@ -1,3 +1,21 @@
+/*
+ * XREFs of Isoch_ProcessTransferEventWithED0 @ 0x1C0044CF4
+ * Callers:
+ *     Isoch_EP_TransferEventHandler @ 0x1C0001E90 (Isoch_EP_TransferEventHandler.c)
+ * Callees:
+ *     Isoch_Stage_CompleteTD @ 0x1C00029D0 (Isoch_Stage_CompleteTD.c)
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Isoch_CompleteStaleTransfers @ 0x1C0043B94 (Isoch_CompleteStaleTransfers.c)
+ *     Isoch_FindTrbMatch @ 0x1C0044330 (Isoch_FindTrbMatch.c)
+ *     Isoch_ProcessTransferRingEmptyEvent @ 0x1C004503C (Isoch_ProcessTransferRingEmptyEvent.c)
+ *     Isoch_Transfer_CompleteStaleStages @ 0x1C00457D8 (Isoch_Transfer_CompleteStaleStages.c)
+ *     WPP_RECORDER_SF_DDL @ 0x1C0046238 (WPP_RECORDER_SF_DDL.c)
+ *     WPP_RECORDER_SF_DDLDDi @ 0x1C0046334 (WPP_RECORDER_SF_DDLDDi.c)
+ *     WPP_RECORDER_SF_DDLi @ 0x1C0046494 (WPP_RECORDER_SF_DDLi.c)
+ */
+
 char __fastcall Isoch_ProcessTransferEventWithED0(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   char v4; // si

@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtRemoveIoCompletion @ 0x1407C3E90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IoRemoveIoCompletion @ 0x140315A70 (IoRemoveIoCompletion.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 NTSTATUS __fastcall NtRemoveIoCompletion(HANDLE Handle, _QWORD *a2, _QWORD *a3, _OWORD *a4, unsigned __int64 a5)
 {
   KPROCESSOR_MODE PreviousMode; // si

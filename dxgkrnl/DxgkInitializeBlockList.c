@@ -1,3 +1,17 @@
+/*
+ * XREFs of DxgkInitializeBlockList @ 0x1C020DD10
+ * Callers:
+ *     DpiInitializeBlockList @ 0x1C020D7F4 (DpiInitializeBlockList.c)
+ *     ?InitializeDriverWorkarounds@DXGADAPTER@@AEAAXXZ @ 0x1C020D8B0 (-InitializeDriverWorkarounds@DXGADAPTER@@AEAAXXZ.c)
+ * Callees:
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0007FCC (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0008010 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     DxgkConvertWddmVersionToD3DKMTDriverVersion @ 0x1C002096C (DxgkConvertWddmVersionToD3DKMTDriverVersion.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C002463C (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?CheckRuntimeBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z @ 0x1C020DE30 (-CheckRuntimeBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z.c)
+ *     ?CheckKernelBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z @ 0x1C020DEBC (-CheckKernelBlockList@@YAJPEAU_FDO_CONTEXT@@IIPEBGW4_QAI_DRIVERVERSION@@@Z.c)
+ */
+
 __int64 __fastcall DxgkInitializeBlockList(__int64 a1, int a2, _QWORD *a3)
 {
   __int64 v3; // rbx

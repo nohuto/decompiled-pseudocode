@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpTimerClockPowerChange @ 0x140506414
+ * Callers:
+ *     HalpTimerPowerChange @ 0x1405071C0 (HalpTimerPowerChange.c)
+ * Callees:
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     HalpTimerClockStop @ 0x1402E0FD0 (HalpTimerClockStop.c)
+ *     HalpTimerClockInitialize @ 0x1402E3FB0 (HalpTimerClockInitialize.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpSetTimerAnyMode @ 0x1405068F0 (HalpSetTimerAnyMode.c)
+ *     KeGetNextClockTickDuration @ 0x14056D340 (KeGetNextClockTickDuration.c)
+ */
+
 __int64 __fastcall HalpTimerClockPowerChange(ULONG_PTR BugCheckParameter3, char a2)
 {
   struct _KPRCB *CurrentPrcb; // rsi

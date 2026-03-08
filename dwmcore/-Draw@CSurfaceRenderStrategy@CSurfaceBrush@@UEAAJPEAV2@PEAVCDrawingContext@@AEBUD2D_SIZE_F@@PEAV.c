@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Draw@CSurfaceRenderStrategy@CSurfaceBrush@@UEAAJPEAV2@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18001BBF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CSurfaceBrush::CSurfaceRenderStrategy::Draw(
         CSurfaceBrush::CSurfaceRenderStrategy *this,
         struct CSurfaceBrush *a2,

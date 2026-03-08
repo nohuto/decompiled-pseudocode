@@ -1,3 +1,11 @@
+/*
+ * XREFs of Uart16550SetBaudCommon @ 0x14067AA80
+ * Callers:
+ *     Uart16550SetBaud @ 0x14067AA60 (Uart16550SetBaud.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall Uart16550SetBaudCommon(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rdx

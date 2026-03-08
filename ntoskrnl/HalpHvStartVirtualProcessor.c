@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpHvStartVirtualProcessor @ 0x140509CD0
+ * Callers:
+ *     HalpHvStartProcessor @ 0x140518EF8 (HalpHvStartProcessor.c)
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     HalpIsXboxNanovisorPresent @ 0x140373A1C (HalpIsXboxNanovisorPresent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1404210C0 (_alloca_probe.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpHvStartVirtualProcessor(unsigned int a1)
 {
   _DWORD *v1; // rbp

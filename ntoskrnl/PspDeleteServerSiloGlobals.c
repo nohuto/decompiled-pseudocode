@@ -1,3 +1,23 @@
+/*
+ * XREFs of PspDeleteServerSiloGlobals @ 0x1409A9EC0
+ * Callers:
+ *     PspConvertSiloToServerSilo @ 0x1409A9C14 (PspConvertSiloToServerSilo.c)
+ *     PspDeleteSilo @ 0x1409AA08C (PspDeleteSilo.c)
+ * Callees:
+ *     MiRemoveFromSystemSpace @ 0x14020E5C8 (MiRemoveFromSystemSpace.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExpDeleteSiloState @ 0x140606BA0 (ExpDeleteSiloState.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     ObCleanupSiloState @ 0x140977DD0 (ObCleanupSiloState.c)
+ *     EtwCleanupSiloState @ 0x1409DEED0 (EtwCleanupSiloState.c)
+ *     ExWnfCleanupServerSiloState @ 0x140A03430 (ExWnfCleanupServerSiloState.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PspDeleteServerSiloGlobals(char *P)
 {
   void *v2; // rcx

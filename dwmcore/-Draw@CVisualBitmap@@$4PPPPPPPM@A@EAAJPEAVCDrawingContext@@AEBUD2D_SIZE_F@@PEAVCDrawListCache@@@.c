@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Draw@CVisualBitmap@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1801181F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall CVisualBitmap::Draw(
         __int64 a1,
         struct CDrawingContext *a2,

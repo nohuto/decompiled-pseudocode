@@ -1,3 +1,15 @@
+/*
+ * XREFs of Controller_WdfEvtDeviceSelfManagedIoCleanup @ 0x1C00796C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     XilCommonBuffer_ReleaseBuffer @ 0x1C001E9A8 (XilCommonBuffer_ReleaseBuffer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_ReleaseWdfPowerReferenceForDebugger @ 0x1C0034540 (Controller_ReleaseWdfPowerReferenceForDebugger.c)
+ *     Controller_UpdateSqmDatapoints @ 0x1C0079270 (Controller_UpdateSqmDatapoints.c)
+ */
+
 __int64 __fastcall Controller_WdfEvtDeviceSelfManagedIoCleanup(__int64 a1)
 {
   char v1; // di

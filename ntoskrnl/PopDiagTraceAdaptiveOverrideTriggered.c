@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopDiagTraceAdaptiveOverrideTriggered @ 0x14098966C
+ * Callers:
+ *     PopSessionConnected @ 0x14079A204 (PopSessionConnected.c)
+ *     PopAdaptiveWnfCallback @ 0x140998A20 (PopAdaptiveWnfCallback.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PopDiagTraceAdaptiveOverrideTriggered(__int64 a1)
 {
   int v2; // r9d

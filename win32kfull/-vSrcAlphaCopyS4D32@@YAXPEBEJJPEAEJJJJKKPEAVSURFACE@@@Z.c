@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vSrcAlphaCopyS4D32@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x1C0274310
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vSrcAlphaCopyS4D32(
         const unsigned __int8 *a1,
         int a2,

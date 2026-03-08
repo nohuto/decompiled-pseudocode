@@ -1,3 +1,13 @@
+/*
+ * XREFs of imp_WdfChildListUpdateAllChildDescriptionsAsPresent @ 0x1C00217C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0018194 (WPP_IFR_SF_q.c)
+ *     ?UpdateAllAsPresent@FxChildList@@QEAAXPEAK@Z @ 0x1C00264EC (-UpdateAllAsPresent@FxChildList@@QEAAXPEAK@Z.c)
+ */
+
 void __fastcall imp_WdfChildListUpdateAllChildDescriptionsAsPresent(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFCHILDLIST__ *DeviceList)

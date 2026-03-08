@@ -1,3 +1,13 @@
+/*
+ * XREFs of McTemplateK0txqqqtxtx_EtwWriteTransfer @ 0x1C003E23C
+ * Callers:
+ *     VidSchEnterIndependentFlip @ 0x1C003F270 (VidSchEnterIndependentFlip.c)
+ *     VidSchExitIndependentFlipInternal @ 0x1C003FABC (VidSchExitIndependentFlipInternal.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BDEC (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0txqqqtxtx_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

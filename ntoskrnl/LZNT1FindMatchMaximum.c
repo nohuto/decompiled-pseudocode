@@ -1,3 +1,11 @@
+/*
+ * XREFs of LZNT1FindMatchMaximum @ 0x1409C0B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall LZNT1FindMatchMaximum(_BYTE *a1, __int64 a2)
 {
   unsigned __int64 v2; // r9

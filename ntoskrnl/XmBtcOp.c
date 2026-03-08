@@ -1,3 +1,11 @@
+/*
+ * XREFs of XmBtcOp @ 0x140531E80
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmStoreResult @ 0x1403B42E8 (XmStoreResult.c)
+ */
+
 _WORD *__fastcall XmBtcOp(_DWORD *a1)
 {
   unsigned int v1; // r8d

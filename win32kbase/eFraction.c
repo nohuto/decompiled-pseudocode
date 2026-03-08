@@ -1,3 +1,11 @@
+/*
+ * XREFs of eFraction @ 0x1C000D098
+ * Callers:
+ *     efSin @ 0x1C000BE30 (efSin.c)
+ * Callees:
+ *     <none>
+ */
+
 double __fastcall eFraction(double result)
 {
   double v1; // xmm1_8

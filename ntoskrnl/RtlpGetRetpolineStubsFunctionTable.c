@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpGetRetpolineStubsFunctionTable @ 0x1405AFE24
+ * Callers:
+ *     RtlCopyRetpolineStubsUnwindInfo @ 0x1405AFC40 (RtlCopyRetpolineStubsUnwindInfo.c)
+ *     RtlCreateRetpolineStubsFunctionTable @ 0x1405AFD28 (RtlCreateRetpolineStubsFunctionTable.c)
+ * Callees:
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ */
+
 __int64 __fastcall RtlpGetRetpolineStubsFunctionTable(int a1, __int64 a2, __int64 a3, unsigned int a4, int *a5)
 {
   __int64 v6; // rdi

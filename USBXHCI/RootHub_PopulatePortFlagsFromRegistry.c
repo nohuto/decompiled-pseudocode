@@ -1,3 +1,14 @@
+/*
+ * XREFs of RootHub_PopulatePortFlagsFromRegistry @ 0x1C00750D4
+ * Callers:
+ *     RootHub_PrepareHardware @ 0x1C00706C0 (RootHub_PrepareHardware.c)
+ * Callees:
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     WPP_RECORDER_SF_D @ 0x1C00180C4 (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall RootHub_PopulatePortFlagsFromRegistry(__int64 a1)
 {
   _QWORD *v1; // rdi

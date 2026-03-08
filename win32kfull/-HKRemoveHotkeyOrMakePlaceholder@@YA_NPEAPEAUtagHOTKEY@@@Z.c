@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?HKRemoveHotkeyOrMakePlaceholder@@YA_NPEAPEAUtagHOTKEY@@@Z @ 0x1C0039F6C
+ * Callers:
+ *     ?HKRemoveMatchingHotkeys@@YA_NPEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z @ 0x1C00B6390 (-HKRemoveMatchingHotkeys@@YA_NPEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z.c)
+ *     DestroyThreadsHotKeys @ 0x1C00B6540 (DestroyThreadsHotKeys.c)
+ * Callees:
+ *     ?NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z @ 0x1C003B140 (-NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z.c)
+ *     ?RemoveSasKey@@YA_NII@Z @ 0x1C00F4CD8 (-RemoveSasKey@@YA_NII@Z.c)
+ */
+
 char __fastcall HKRemoveHotkeyOrMakePlaceholder(struct tagHOTKEY **a1)
 {
   struct tagHOTKEY *v1; // rbx

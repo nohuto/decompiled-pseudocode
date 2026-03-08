@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlUnicodeStringExHandleOtherFlags @ 0x14055D498
+ * Callers:
+ *     RtlUnicodeStringPrintfEx @ 0x1403C1A7C (RtlUnicodeStringPrintfEx.c)
+ *     PiDevCfgBuildDriverConfigurationId @ 0x140874BA8 (PiDevCfgBuildDriverConfigurationId.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x140875198 (PiDevCfgLogDeviceConfigured.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 NTSTATUS __stdcall RtlUnicodeStringExHandleOtherFlags(
         wchar_t *pszDest,
         size_t cchDest,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?zzzAnimateCursor@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C0061410
+ * Callers:
+ *     ?Cursor_DaemonTimeRateChanged@@YAXW4RitTimerRate@@@Z @ 0x1C00F5260 (-Cursor_DaemonTimeRateChanged@@YAXW4RitTimerRate@@@Z.c)
+ * Callees:
+ *     InternalSetTimer @ 0x1C0061830 (InternalSetTimer.c)
+ *     zzzUpdateCursorImage @ 0x1C0061E20 (zzzUpdateCursorImage.c)
+ */
+
 void __fastcall zzzAnimateCursor(struct tagWND *a1, __int64 a2, __int64 a3)
 {
   struct tagCURSOR *v3; // rbp

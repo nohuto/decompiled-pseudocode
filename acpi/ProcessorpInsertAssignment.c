@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcessorpInsertAssignment @ 0x1C009BB90
+ * Callers:
+ *     ProcessorCopyData @ 0x1C009A964 (ProcessorCopyData.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ProcessorpInsertAssignment(PVOID a1, _DWORD *a2, int a3)
 {
   __int64 v4; // rbx

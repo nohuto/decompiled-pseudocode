@@ -1,3 +1,21 @@
+/*
+ * XREFs of InternalInvalidate3 @ 0x1C0054B50
+ * Callers:
+ *     ?InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z @ 0x1C0052B80 (-InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z.c)
+ *     NtUserEndPaint @ 0x1C00CC490 (NtUserEndPaint.c)
+ *     xxxEndPaint @ 0x1C00FE504 (xxxEndPaint.c)
+ * Callees:
+ *     DwmAsyncChildStyleChange @ 0x1C002E648 (DwmAsyncChildStyleChange.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     ?CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z @ 0x1C00AD734 (-CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z.c)
+ *     DirtyVisRgnTrackers @ 0x1C00AEA8C (DirtyVisRgnTrackers.c)
+ *     CalcWindowRgn @ 0x1C00FE594 (CalcWindowRgn.c)
+ *     DecPaintCount @ 0x1C00FE604 (DecPaintCount.c)
+ *     IncPaintCount @ 0x1C0225AE0 (IncPaintCount.c)
+ *     IncPaintCountInterMoveSize @ 0x1C0225B30 (IncPaintCountInterMoveSize.c)
+ */
+
 void __fastcall InternalInvalidate3(__int64 *a1, __int64 a2, __int64 a3)
 {
   int v3; // esi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiCancelSuspendAdapterTimer @ 0x1C001B010
+ * Callers:
+ *     ?DpiFinishSuspendAdapter@@YAXPEAU_FDO_CONTEXT@@@Z @ 0x1C001AAEC (-DpiFinishSuspendAdapter@@YAXPEAU_FDO_CONTEXT@@@Z.c)
+ *     DpiRequestDevicePowerState @ 0x1C001AC34 (DpiRequestDevicePowerState.c)
+ * Callees:
+ *     McTemplateK0pt_EtwWriteTransfer @ 0x1C003FF7C (McTemplateK0pt_EtwWriteTransfer.c)
+ */
+
 void __fastcall DpiCancelSuspendAdapterTimer(__int64 a1)
 {
   char v2; // di

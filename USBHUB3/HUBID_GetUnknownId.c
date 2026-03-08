@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBID_GetUnknownId @ 0x1C001DFAC
+ * Callers:
+ *     HUBID_BuildHardwareID @ 0x1C001E034 (HUBID_BuildHardwareID.c)
+ *     HUBID_BuildCompatibleID @ 0x1C001E9A8 (HUBID_BuildCompatibleID.c)
+ * Callees:
+ *     <none>
+ */
+
 const wchar_t *__fastcall HUBID_GetUnknownId(__int64 a1)
 {
   switch ( *(_DWORD *)(a1 + 2432) )

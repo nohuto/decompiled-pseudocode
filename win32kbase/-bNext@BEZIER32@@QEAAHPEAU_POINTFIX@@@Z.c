@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bNext@BEZIER32@@QEAAHPEAU_POINTFIX@@@Z @ 0x1C018A190
+ * Callers:
+ *     ?pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z @ 0x1C018A9F0 (-pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z.c)
+ * Callees:
+ *     ?lParentErrorDividedBy4@HFDBASIS32@@QEBAJXZ @ 0x1C018A8FC (-lParentErrorDividedBy4@HFDBASIS32@@QEBAJXZ.c)
+ */
+
 __int64 __fastcall BEZIER32::bNext(BEZIER32 *this, struct _POINTFIX *a2)
 {
   BEZIER32 *v2; // r10

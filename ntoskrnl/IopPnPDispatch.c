@@ -1,3 +1,21 @@
+/*
+ * XREFs of IopPnPDispatch @ 0x1407F7890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     IoInvalidateDeviceRelations @ 0x1402F4FC0 (IoInvalidateDeviceRelations.c)
+ *     IoDeleteDevice @ 0x140368010 (IoDeleteDevice.c)
+ *     IopPnPCompleteRequest @ 0x14036CC7C (IopPnPCompleteRequest.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     PiGetDeviceRegProperty @ 0x1406C6230 (PiGetDeviceRegProperty.c)
+ *     _CmGetDeviceRegProp @ 0x1406C9884 (_CmGetDeviceRegProp.c)
+ *     PnpGetDeviceResourcesFromRegistry @ 0x1406F67F8 (PnpGetDeviceResourcesFromRegistry.c)
+ *     IopGetRootDevices @ 0x14081CBA8 (IopGetRootDevices.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopPnPDispatch(PDEVICE_OBJECT DeviceObject, IRP *a2)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r13

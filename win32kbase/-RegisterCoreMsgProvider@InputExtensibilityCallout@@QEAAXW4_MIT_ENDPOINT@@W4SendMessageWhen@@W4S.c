@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RegisterCoreMsgProvider@InputExtensibilityCallout@@QEAAXW4_MIT_ENDPOINT@@W4SendMessageWhen@@W4StateOfInterest@@PEAXP6AX23@Z@Z @ 0x1C009809C
+ * Callers:
+ *     RegisterCoreMsgProviderPreferences @ 0x1C0098030 (RegisterCoreMsgProviderPreferences.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall InputExtensibilityCallout::RegisterCoreMsgProvider(
         __int64 a1,
         int a2,

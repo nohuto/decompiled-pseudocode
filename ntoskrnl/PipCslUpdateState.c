@@ -1,3 +1,11 @@
+/*
+ * XREFs of PipCslUpdateState @ 0x14079BB30
+ * Callers:
+ *     PipCslStateChangeCallback @ 0x14079BB00 (PipCslStateChangeCallback.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall PipCslUpdateState(__int32 a1)
 {
   __int64 result; // rax

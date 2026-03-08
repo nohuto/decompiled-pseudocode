@@ -1,3 +1,26 @@
+/*
+ * XREFs of PopPowerAggregatorInvokeStateMachine @ 0x140872018
+ * Callers:
+ *     PopPowerAggregatorWorker @ 0x140871F90 (PopPowerAggregatorWorker.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopPowerAggregatorAllocateLogEntry @ 0x140757580 (PopPowerAggregatorAllocateLogEntry.c)
+ *     PopPowerAggregatorDiagTraceEvent @ 0x1407577FC (PopPowerAggregatorDiagTraceEvent.c)
+ *     xHalGetInterruptTranslator @ 0x140794500 (xHalGetInterruptTranslator.c)
+ *     PopPowerAggregatorInvalidStateHandler @ 0x1407F92D0 (PopPowerAggregatorInvalidStateHandler.c)
+ *     PopPowerAggregatorScreenOffActiveToScreenOffStateHandler @ 0x140879470 (PopPowerAggregatorScreenOffActiveToScreenOffStateHandler.c)
+ *     PopPowerAggregatorActiveToScreenOffStateHandler @ 0x140879490 (PopPowerAggregatorActiveToScreenOffStateHandler.c)
+ *     PopPowerAggregatorScreenOffEnterStateHandler @ 0x140880F30 (PopPowerAggregatorScreenOffEnterStateHandler.c)
+ *     PopPowerAggregatorDisplayPoweringOnStateHandler @ 0x140990660 (PopPowerAggregatorDisplayPoweringOnStateHandler.c)
+ *     PopPowerAggregatorModernStandbyEnterStateHandler @ 0x140990A90 (PopPowerAggregatorModernStandbyEnterStateHandler.c)
+ *     PopPowerAggregatorModernStandbyExitStateHandler @ 0x140990AE0 (PopPowerAggregatorModernStandbyExitStateHandler.c)
+ *     PopPowerAggregatorScreenOffActiveToActiveStateHandler @ 0x140990E50 (PopPowerAggregatorScreenOffActiveToActiveStateHandler.c)
+ *     PopPowerAggregatorScreenOffExitStateHandler @ 0x140990EA0 (PopPowerAggregatorScreenOffExitStateHandler.c)
+ *     PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x140990FE0 (PopPowerAggregatorSystemTransitionEnterStateHandler.c)
+ *     PopPowerAggregatorSystemTransitionExitStateHandler @ 0x140991090 (PopPowerAggregatorSystemTransitionExitStateHandler.c)
+ */
+
 __int64 PopPowerAggregatorInvokeStateMachine()
 {
   __int64 LogEntry; // rax

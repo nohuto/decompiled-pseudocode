@@ -1,3 +1,15 @@
+/*
+ * XREFs of InkProcessorIsInkDevice @ 0x1C02010B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F8FF0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?GetInkProcessor@@YAJPEAPEAVInkProcessor@@@Z @ 0x1C0200C34 (-GetInkProcessor@@YAJPEAPEAVInkProcessor@@@Z.c)
+ *     ?IsEnabled@InkProcessor@@QEBA_NXZ @ 0x1C0240CBC (-IsEnabled@InkProcessor@@QEBA_NXZ.c)
+ *     ?IsInkDevice@InkDeviceParser@@SA_NGGPEBG0@Z @ 0x1C0241A50 (-IsInkDevice@InkDeviceParser@@SA_NGGPEBG0@Z.c)
+ */
+
 __int64 __fastcall InkProcessorIsInkDevice(
         unsigned __int16 a1,
         unsigned __int16 a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of IrqArbpFindSuitableRangeMsi @ 0x1C009E028
+ * Callers:
+ *     IrqArbFindSuitableRange @ 0x1C009D270 (IrqArbFindSuitableRange.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_i @ 0x1C002293C (WPP_RECORDER_SF_i.c)
+ *     ProcessorMsiSupported @ 0x1C009AE88 (ProcessorMsiSupported.c)
+ *     ArbFindSuitableRange @ 0x1C00A18C0 (ArbFindSuitableRange.c)
+ */
+
 char __fastcall IrqArbpFindSuitableRangeMsi(__int64 a1, _DWORD *a2)
 {
   _QWORD *v3; // rdx

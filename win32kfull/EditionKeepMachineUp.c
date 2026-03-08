@@ -1,3 +1,13 @@
+/*
+ * XREFs of EditionKeepMachineUp @ 0x1C00790A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MapInputToMonitorOnReason@@YA?AW4POWER_MONITOR_REQUEST_REASON@@W4_LINP_SOURCE@@@Z @ 0x1C0079130 (-MapInputToMonitorOnReason@@YA-AW4POWER_MONITOR_REQUEST_REASON@@W4_LINP_SOURCE@@@Z.c)
+ *     ?KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z @ 0x1C0079188 (-KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall EditionKeepMachineUp(__int64 a1, unsigned int a2, __int64 a3, char a4)
 {
   enum POWER_MONITOR_REQUEST_REASON v5; // eax

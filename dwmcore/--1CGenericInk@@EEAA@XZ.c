@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??1CGenericInk@@EEAA@XZ @ 0x18022971C
+ * Callers:
+ *     ??_GCGenericInk@@EEAAPEAXI@Z @ 0x1801BFD30 (--_GCGenericInk@@EEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097680 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DF2E0 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ??1?$CDeviceResourceTable@VCD2DGenericInk@@VCGenericInk@@@@QEAA@XZ @ 0x1801BE6D4 (--1-$CDeviceResourceTable@VCD2DGenericInk@@VCGenericInk@@@@QEAA@XZ.c)
+ *     ?RemoveSource@CSuperWetInkManager@@QEAAXPEAVCSuperWetSource@@@Z @ 0x1801C926C (-RemoveSource@CSuperWetInkManager@@QEAAXPEAVCSuperWetSource@@@Z.c)
+ */
+
 void __fastcall CGenericInk::~CGenericInk(CGenericInk *this)
 {
   __int64 v2; // rcx

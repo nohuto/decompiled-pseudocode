@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpBuddyAllocatorBltRemove @ 0x14052FEF4
+ * Callers:
+ *     HalpBuddyAllocatorDeleteSubtree @ 0x1405301B8 (HalpBuddyAllocatorDeleteSubtree.c)
+ *     HalpBuddyAllocatorReserveLogicalAddress @ 0x140530290 (HalpBuddyAllocatorReserveLogicalAddress.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpBuddyAllocatorBltRemove(_QWORD *a1, __int64 a2)
 {
   volatile signed __int64 *v2; // rsi

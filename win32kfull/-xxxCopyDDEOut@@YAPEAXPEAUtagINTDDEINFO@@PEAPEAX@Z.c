@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?xxxCopyDDEOut@@YAPEAXPEAUtagINTDDEINFO@@PEAPEAX@Z @ 0x1C01FBE90
+ * Callers:
+ *     xxxDDETrackGetMessageHook @ 0x1C01FD7B8 (xxxDDETrackGetMessageHook.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqq @ 0x1C0072510 (WPP_RECORDER_AND_TRACE_SF_qqq.c)
+ *     WPP_RECORDER_AND_TRACE_SF_DDD @ 0x1C01FD458 (WPP_RECORDER_AND_TRACE_SF_DDD.c)
+ *     xxxClientCopyDDEOut1 @ 0x1C02148C8 (xxxClientCopyDDEOut1.c)
+ */
+
 __int64 __fastcall xxxCopyDDEOut(struct tagINTDDEINFO *a1, void **a2, __int64 a3, int a4)
 {
   void **v4; // r14

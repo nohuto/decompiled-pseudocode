@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlIsElevatedRid @ 0x140743CF0
+ * Callers:
+ *     NtQueryInformationToken @ 0x1406D6780 (NtQueryInformationToken.c)
+ *     SepRemoveDisabledGroupsAndPrivileges @ 0x14074380C (SepRemoveDisabledGroupsAndPrivileges.c)
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ * Callees:
+ *     RtlSubAuthorityCountSid @ 0x1402BE730 (RtlSubAuthorityCountSid.c)
+ *     RtlSubAuthoritySid @ 0x1402BE740 (RtlSubAuthoritySid.c)
+ */
+
 char __fastcall RtlIsElevatedRid(__int64 a1)
 {
   PSID v1; // rbx

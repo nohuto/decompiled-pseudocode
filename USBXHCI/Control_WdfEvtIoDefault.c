@@ -1,3 +1,19 @@
+/*
+ * XREFs of Control_WdfEvtIoDefault @ 0x1C0005C60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_DDqDq @ 0x1C00060E0 (WPP_RECORDER_SF_DDqDq.c)
+ *     Control_Transfer_CompleteCancelable @ 0x1C0006FBC (Control_Transfer_CompleteCancelable.c)
+ *     Control_TransferData_Initialize @ 0x1C00070AC (Control_TransferData_Initialize.c)
+ *     Control_MapTransfer @ 0x1C00071B4 (Control_MapTransfer.c)
+ *     Controller_LowerAndTrackIrql @ 0x1C00074BC (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0007558 (Controller_RaiseAndTrackIrql.c)
+ *     WPP_RECORDER_SF_DDd @ 0x1C001BCB0 (WPP_RECORDER_SF_DDd.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall Control_WdfEvtIoDefault(__int64 a1, __int64 a2)
 {
   __int64 v3; // rbx

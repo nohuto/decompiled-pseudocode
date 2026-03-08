@@ -1,3 +1,30 @@
+/*
+ * XREFs of Controller_Create @ 0x1C00712C4
+ * Callers:
+ *     Controller_WdfEvtDeviceAdd @ 0x1C006FA60 (Controller_WdfEvtDeviceAdd.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     RtlStringCchPrintfA @ 0x1C000C294 (RtlStringCchPrintfA.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     Device_IsSecureDevice @ 0x1C001A478 (Device_IsSecureDevice.c)
+ *     DynamicLock_Create @ 0x1C001AA74 (DynamicLock_Create.c)
+ *     RtlStringCopyWorkerA @ 0x1C001E1D4 (RtlStringCopyWorkerA.c)
+ *     Controller_AllocateIrqlTrackingArray @ 0x1C001E644 (Controller_AllocateIrqlTrackingArray.c)
+ *     Controller_QuerySupportedDSMs @ 0x1C001E6D4 (Controller_QuerySupportedDSMs.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     RtlStringCchCopyA @ 0x1C0030B80 (RtlStringCchCopyA.c)
+ *     Controller_ReferenceTrustletProcess @ 0x1C0034428 (Controller_ReferenceTrustletProcess.c)
+ *     Controller_PopulateDeviceFlags @ 0x1C00738B4 (Controller_PopulateDeviceFlags.c)
+ *     Controller_RetrievePciData @ 0x1C0074ACC (Controller_RetrievePciData.c)
+ *     Controller_GetDeviceEnumerator @ 0x1C007530C (Controller_GetDeviceEnumerator.c)
+ *     Controller_SetLogIdentifier @ 0x1C007541C (Controller_SetLogIdentifier.c)
+ *     Controller_CreateSecureObject @ 0x1C0077FC8 (Controller_CreateSecureObject.c)
+ *     Controller_RetrieveAcpiData @ 0x1C00785D8 (Controller_RetrieveAcpiData.c)
+ *     Controller_RetrieveUrsData @ 0x1C007882C (Controller_RetrieveUrsData.c)
+ */
+
 __int64 __fastcall Controller_Create(__int64 a1, __int64 a2, int a3, __int64 *a4)
 {
   __int64 v8; // rax

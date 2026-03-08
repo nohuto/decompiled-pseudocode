@@ -1,3 +1,21 @@
+/*
+ * XREFs of PspApplyJobChainLimitsToProcess @ 0x1406FF27C
+ * Callers:
+ *     PspAssignProcessToJob @ 0x1406FFA20 (PspAssignProcessToJob.c)
+ *     PspImplicitAssignProcessToJob @ 0x140797010 (PspImplicitAssignProcessToJob.c)
+ * Callees:
+ *     RtlInterlockedSetClearBits @ 0x140294B08 (RtlInterlockedSetClearBits.c)
+ *     PsUpdateComponentPower @ 0x140294B40 (PsUpdateComponentPower.c)
+ *     PspNotifyProcessEffectiveIoLimitChanged @ 0x140356E2C (PspNotifyProcessEffectiveIoLimitChanged.c)
+ *     Feature_Servicing_BypassGraphicsFreezeNotification__private_IsEnabledDeviceUsage @ 0x14040BA70 (Feature_Servicing_BypassGraphicsFreezeNotification__private_IsEnabledDeviceUsage.c)
+ *     PspComputeExecutionStateOld @ 0x14067CD7C (PspComputeExecutionStateOld.c)
+ *     PspRequestProcessExecutionStateOld @ 0x14067CE2C (PspRequestProcessExecutionStateOld.c)
+ *     PspApplyJobLimitsToProcess @ 0x1406FF17C (PspApplyJobLimitsToProcess.c)
+ *     PspRequestProcessExecutionState @ 0x1406FF388 (PspRequestProcessExecutionState.c)
+ *     PspComputeExecutionState @ 0x1406FF3AC (PspComputeExecutionState.c)
+ *     PspSetProcessSchedulingGroup @ 0x1407DCF7C (PspSetProcessSchedulingGroup.c)
+ */
+
 __int64 __fastcall PspApplyJobChainLimitsToProcess(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v6; // rdx

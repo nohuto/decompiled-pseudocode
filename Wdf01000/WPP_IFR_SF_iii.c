@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_IFR_SF_iii @ 0x1C004DFCC
+ * Callers:
+ *     IsLoggingEnabledAndNeeded @ 0x1C004D728 (IsLoggingEnabledAndNeeded.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_iii(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 _a1,

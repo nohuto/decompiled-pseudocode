@@ -1,3 +1,32 @@
+/*
+ * XREFs of IopSynchronousCall @ 0x14069DD78
+ * Callers:
+ *     PnpSendIrp @ 0x140202E04 (PnpSendIrp.c)
+ *     PnpIrpDeviceEnumerated @ 0x1402FD3F8 (PnpIrpDeviceEnumerated.c)
+ *     PpIrpQueryCapabilities @ 0x140682520 (PpIrpQueryCapabilities.c)
+ *     IopQueryDeviceState @ 0x140683218 (IopQueryDeviceState.c)
+ *     PnpQueryDeviceText @ 0x1406850F0 (PnpQueryDeviceText.c)
+ *     PnpIrpQueryID @ 0x1406883A8 (PnpIrpQueryID.c)
+ *     IopQueryDeviceResources @ 0x1406F6440 (IopQueryDeviceResources.c)
+ *     PpIrpQueryResourceRequirements @ 0x1406F6D48 (PpIrpQueryResourceRequirements.c)
+ *     PnpQueryBusInformation @ 0x14078CB9C (PnpQueryBusInformation.c)
+ *     IopQueryLegacyBusInformation @ 0x14079344C (IopQueryLegacyBusInformation.c)
+ *     IopQueryResourceHandlerInterface @ 0x140805F74 (IopQueryResourceHandlerInterface.c)
+ *     IopRemoveDevice @ 0x140866E38 (IopRemoveDevice.c)
+ *     IopQueryDockRemovalInterface @ 0x140969FF4 (IopQueryDockRemovalInterface.c)
+ *     IopQueryReconfiguration @ 0x14096A0F4 (IopQueryReconfiguration.c)
+ * Callees:
+ *     IoAllocateIrp @ 0x140208CF0 (IoAllocateIrp.c)
+ *     IovUtilWatermarkIrp @ 0x1402092B8 (IovUtilWatermarkIrp.c)
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x140240A5C (IoGetAttachedDeviceReferenceWithTag.c)
+ *     IoGetLowerDeviceObjectWithTag @ 0x1402FAAFC (IoGetLowerDeviceObjectWithTag.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     IopQueueThreadIrp @ 0x140312720 (IopQueueThreadIrp.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ */
+
 __int64 __fastcall IopSynchronousCall(_QWORD *a1, __int64 a2, NTSTATUS a3, ULONG_PTR a4, _QWORD *a5)
 {
   struct _DEVICE_OBJECT *AttachedDeviceReferenceWithTag; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PoExecutePerfCheck @ 0x14022C5E0
+ * Callers:
+ *     KiUpdateTime @ 0x14022BD80 (KiUpdateTime.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void PoExecutePerfCheck()
 {
   signed __int64 v0; // rbx

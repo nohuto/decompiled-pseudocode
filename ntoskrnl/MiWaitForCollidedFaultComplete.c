@@ -1,3 +1,31 @@
+/*
+ * XREFs of MiWaitForCollidedFaultComplete @ 0x1402A2D3C
+ * Callers:
+ *     MiWalkEntireImage @ 0x1402862C0 (MiWalkEntireImage.c)
+ *     MiTranslatePageForCopy @ 0x1402A1FD4 (MiTranslatePageForCopy.c)
+ *     MiHandleCollidedFault @ 0x1402A2AC4 (MiHandleCollidedFault.c)
+ *     MiFlushWaitForReadInProgress @ 0x140633B18 (MiFlushWaitForReadInProgress.c)
+ * Callees:
+ *     MiRelockFaultState @ 0x14022853C (MiRelockFaultState.c)
+ *     KeAbPreWait @ 0x140241620 (KeAbPreWait.c)
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140286264 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiFreeInPageSupportBlock @ 0x140287B5C (MiFreeInPageSupportBlock.c)
+ *     MiRelockProtoPoolPage @ 0x1402A2F78 (MiRelockProtoPoolPage.c)
+ *     MiReleaseFaultState @ 0x1402A2FD4 (MiReleaseFaultState.c)
+ *     MiAddLockedPageCharge @ 0x1402A309C (MiAddLockedPageCharge.c)
+ *     MiIsFaultPteIntact @ 0x1402A30FC (MiIsFaultPteIntact.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiLockNestedPageAtDpcInline @ 0x1402DDE90 (MiLockNestedPageAtDpcInline.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     MiImagePageOk @ 0x14034B09C (MiImagePageOk.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiWaitForCollidedFaultComplete(_QWORD *a1, __int64 a2, __int64 a3, unsigned __int8 a4, _DWORD *a5)
 {
   __int64 v8; // rax

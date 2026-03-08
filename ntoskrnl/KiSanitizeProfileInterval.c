@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiSanitizeProfileInterval @ 0x1405770C8
+ * Callers:
+ *     KeSetIntervalProfile @ 0x140972128 (KeSetIntervalProfile.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiSanitizeProfileInterval(int *a1)
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpEcReadPolicyState @ 0x14040BC60
+ * Callers:
+ *     RtlIsFeatureEnabledForEnterprise @ 0x14040BC10 (RtlIsFeatureEnabledForEnterprise.c)
+ * Callees:
+ *     RtlpEtcGetDwordFromPersistedState @ 0x14040BD88 (RtlpEtcGetDwordFromPersistedState.c)
+ */
+
 __int64 __fastcall RtlpEcReadPolicyState(bool *a1)
 {
   int DwordFromPersistedState; // edx

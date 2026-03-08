@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlCSparseBitmapBitmaskRead @ 0x1402B689C
+ * Callers:
+ *     ExFreeHeapPool @ 0x1402B61C0 (ExFreeHeapPool.c)
+ *     ExGetHeapFromVA @ 0x140313BF0 (ExGetHeapFromVA.c)
+ *     RtlpHpFreeHeap @ 0x140313CC0 (RtlpHpFreeHeap.c)
+ *     RtlpHpMetadataCommit @ 0x1403C1314 (RtlpHpMetadataCommit.c)
+ *     RtlpHpExtrasSetPresent @ 0x1405B4174 (RtlpHpExtrasSetPresent.c)
+ *     RtlpHpSizeHeapInternal @ 0x1405B4430 (RtlpHpSizeHeapInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlCSparseBitmapBitmaskRead(__int64 a1, unsigned __int64 a2)
 {
   int v2; // eax

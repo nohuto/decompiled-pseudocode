@@ -1,3 +1,11 @@
+/*
+ * XREFs of vAlphaConstOnly16_555 @ 0x1C02E6030
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int16 __fastcall vAlphaConstOnly16_555(__int64 a1, unsigned __int16 *a2, int a3, unsigned int a4)
 {
   __int16 result; // ax

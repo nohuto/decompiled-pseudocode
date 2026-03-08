@@ -1,3 +1,11 @@
+/*
+ * XREFs of CreatePhysicalMonitorWrap @ 0x1C026CAB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CreatePhysicalMonitor@CMonitorAPI@@QEAAJAEAU_LUID@@KPEAPEAX@Z @ 0x1C026B6A8 (-CreatePhysicalMonitor@CMonitorAPI@@QEAAJAEAU_LUID@@KPEAPEAX@Z.c)
+ */
+
 __int64 __fastcall CreatePhysicalMonitorWrap(struct _LUID *a1, unsigned int a2, void **a3)
 {
   __int64 v6; // rax

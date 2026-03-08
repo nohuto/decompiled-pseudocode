@@ -1,3 +1,23 @@
+/*
+ * XREFs of CmpCleanUpKcbCacheWithLock @ 0x1407AF820
+ * Callers:
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x1406B7100 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpDoParseKey @ 0x1406E1D90 (CmpDoParseKey.c)
+ *     CmpDeleteKeyObject @ 0x1406E5C50 (CmpDeleteKeyObject.c)
+ *     CmpCleanUpKCBCacheTable @ 0x14074B9E4 (CmpCleanUpKCBCacheTable.c)
+ *     CmpDelayCloseWorker @ 0x1407AB950 (CmpDelayCloseWorker.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x140A14AA4 (CmpSearchKeyControlBlockTreeEx.c)
+ * Callees:
+ *     CmpRemoveKeyHashFromDeletedKcbTable @ 0x14074B040 (CmpRemoveKeyHashFromDeletedKcbTable.c)
+ *     CmpLockDeletedHashEntryExclusiveByKcb @ 0x14074B1B8 (CmpLockDeletedHashEntryExclusiveByKcb.c)
+ *     CmpUnlockDeletedHashEntryByKcb @ 0x14074B268 (CmpUnlockDeletedHashEntryByKcb.c)
+ *     CmpRemoveKeyHashFromTableEntry @ 0x1407AF7E4 (CmpRemoveKeyHashFromTableEntry.c)
+ *     CmpDelayDerefKeyControlBlock @ 0x1407AF9B0 (CmpDelayDerefKeyControlBlock.c)
+ *     CmpDereferenceNameControlBlockWithLock @ 0x1407B00A0 (CmpDereferenceNameControlBlockWithLock.c)
+ *     CmpEtwDumpKcb @ 0x1408A6EE6 (CmpEtwDumpKcb.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall CmpCleanUpKcbCacheWithLock(ULONG_PTR BugCheckParameter4, __int64 a2)
 {
   ULONG_PTR v3; // rbp

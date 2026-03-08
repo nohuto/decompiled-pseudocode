@@ -1,3 +1,12 @@
+/*
+ * XREFs of WmipValidateWmiRegInfoString @ 0x1408680AC
+ * Callers:
+ *     WmipBuildInstanceSet @ 0x140867C6C (WmipBuildInstanceSet.c)
+ *     WmipProcessWmiRegInfo @ 0x140867FA4 (WmipProcessWmiRegInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WmipValidateWmiRegInfoString(__int64 a1, unsigned int a2, unsigned int a3, _QWORD *a4)
 {
   unsigned __int16 *v4; // r10

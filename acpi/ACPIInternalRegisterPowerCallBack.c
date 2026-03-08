@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIInternalRegisterPowerCallBack @ 0x1C002ED94
+ * Callers:
+ *     ACPICMButtonStartWorker @ 0x1C0018F20 (ACPICMButtonStartWorker.c)
+ *     ACPIInitStartACPI @ 0x1C00A8DE0 (ACPIInitStartACPI.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ */
+
 __int64 __fastcall ACPIInternalRegisterPowerCallBack(
         volatile signed __int64 *CallbackContext,
         PCALLBACK_FUNCTION CallbackFunction)

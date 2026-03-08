@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiDevCfgParseInterfaceKeyName @ 0x14055FC84
+ * Callers:
+ *     PiDevCfgConfigureDeviceInterfaces @ 0x140876D34 (PiDevCfgConfigureDeviceInterfaces.c)
+ * Callees:
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ */
+
 bool __fastcall PiDevCfgParseInterfaceKeyName(__int64 a1, GUID *a2, __int64 *a3)
 {
   unsigned __int16 v5; // ax

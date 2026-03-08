@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpCovSampCaptureBufferOptimizeIP @ 0x140461A24
+ * Callers:
+ *     EtwpCovSampCaptureKernelStack @ 0x140600FD8 (EtwpCovSampCaptureKernelStack.c)
+ *     EtwpCovSampCaptureUserStack @ 0x1408A3DD6 (EtwpCovSampCaptureUserStack.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall EtwpCovSampCaptureBufferOptimizeIP(__int64 a1)
 {
   __int64 result; // rax

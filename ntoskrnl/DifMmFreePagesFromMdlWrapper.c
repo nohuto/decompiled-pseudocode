@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifMmFreePagesFromMdlWrapper @ 0x1405E4DE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiFreePagesFromMdl @ 0x1402C0DD0 (MiFreePagesFromMdl.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 __int64 (__fastcall **__fastcall DifMmFreePagesFromMdlWrapper(ULONG_PTR BugCheckParameter2))(_OWORD *)
 {
   __int64 *APIThunkContextById; // rax

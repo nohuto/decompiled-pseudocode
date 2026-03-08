@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CsExitInitiatedReleaseComponentReferences@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1C001BD60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CsExitInitiatedReleaseComponentReferences(
         struct _KDPC *Dpc,
         char *DeferredContext,

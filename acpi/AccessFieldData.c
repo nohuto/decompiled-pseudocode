@@ -1,3 +1,18 @@
+/*
+ * XREFs of AccessFieldData @ 0x1C0051AD8
+ * Callers:
+ *     WriteFieldObj @ 0x1C0006080 (WriteFieldObj.c)
+ *     ReadFieldObj @ 0x1C0052CB0 (ReadFieldObj.c)
+ * Callees:
+ *     GetFieldUnitRegionObj @ 0x1C004B944 (GetFieldUnitRegionObj.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     AccessBaseField @ 0x1C00517B0 (AccessBaseField.c)
+ *     PushAccFieldObj @ 0x1C00525E8 (PushAccFieldObj.c)
+ *     PushPreserveWriteObj @ 0x1C00526F4 (PushPreserveWriteObj.c)
+ *     ReadBuffField @ 0x1C0052A14 (ReadBuffField.c)
+ *     WriteBuffField @ 0x1C0052FBC (WriteBuffField.c)
+ */
+
 __int64 __fastcall AccessFieldData(__int64 a1, __int64 a2, unsigned int *a3, unsigned int *a4, char a5)
 {
   __int64 v5; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of WmipHexStringToDword @ 0x14069B340
+ * Callers:
+ *     WmipUuidFromString @ 0x14069B1D8 (WmipUuidFromString.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall WmipHexStringToDword(_WORD *a1, _DWORD *a2, unsigned int a3, __int16 a4)
 {
   int v4; // edi

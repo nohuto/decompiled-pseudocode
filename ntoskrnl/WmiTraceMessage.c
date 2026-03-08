@@ -1,3 +1,11 @@
+/*
+ * XREFs of WmiTraceMessage @ 0x1402051F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwpTraceMessageVa @ 0x140205450 (EtwpTraceMessageVa.c)
+ */
+
 __int64 WmiTraceMessage(int a1, int a2, int a3, int a4, ...)
 {
   va_list va; // [rsp+70h] [rbp+28h] BYREF

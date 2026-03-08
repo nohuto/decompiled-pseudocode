@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpInitializePreloadedHives @ 0x140B51BF0
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x140816360 (CmpHiveRootSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmpInitializeSystemHive @ 0x140B528D4 (CmpInitializeSystemHive.c)
+ *     CmpInitializePreloadedHive @ 0x140B52F50 (CmpInitializePreloadedHive.c)
+ */
+
 __int64 __fastcall CmpInitializePreloadedHives(__int64 a1, int a2)
 {
   unsigned int v2; // ebx

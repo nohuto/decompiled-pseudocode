@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagInterruptTimeToSystemTime @ 0x140A85B30
+ * Callers:
+ *     PopDiagTraceRtcWakeInfo @ 0x140592130 (PopDiagTraceRtcWakeInfo.c)
+ *     PopTraceSystemIdleS0LowPowerDozeTimerArmed @ 0x14098FCB8 (PopTraceSystemIdleS0LowPowerDozeTimerArmed.c)
+ *     PopDiagTraceDirtyTransition @ 0x140B32210 (PopDiagTraceDirtyTransition.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopDiagInterruptTimeToSystemTime(__int64 a1, _QWORD *a2)
 {
   __int64 result; // rax

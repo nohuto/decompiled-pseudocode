@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpBiosScanForWakeInterrupt @ 0x1C003C104
+ * Callers:
+ *     PnpBiosSetFlagsForNotableInterrupts @ 0x1C003C200 (PnpBiosSetFlagsForNotableInterrupts.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PnpBiosScanForWakeInterrupt(unsigned __int64 a1, unsigned int a2)
 {
   __int64 v2; // rdi

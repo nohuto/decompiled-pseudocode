@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiMakeProtoAddressValid @ 0x1402A419C
+ * Callers:
+ *     MiLockProtoPage @ 0x1402A4008 (MiLockProtoPage.c)
+ * Callees:
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ *     MiAddLockedPageCharge @ 0x1402A309C (MiAddLockedPageCharge.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall MiMakeProtoAddressValid(ULONG_PTR BugCheckParameter1)
 {
   unsigned __int64 *v2; // r14

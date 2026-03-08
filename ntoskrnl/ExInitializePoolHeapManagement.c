@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExInitializePoolHeapManagement @ 0x140374D0C
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     RtlHpHeapManagerInitialize @ 0x140374BD0 (RtlHpHeapManagerInitialize.c)
+ *     ExCreateHeap @ 0x14037523C (ExCreateHeap.c)
+ *     RtlHpHeapManagerStart @ 0x1403762C8 (RtlHpHeapManagerStart.c)
+ *     RtlpDynamicLookasideInitialize @ 0x14039D5B0 (RtlpDynamicLookasideInitialize.c)
+ *     RtlHpGlobalsInitialize @ 0x1403AE028 (RtlHpGlobalsInitialize.c)
+ *     ExpDetermineLargePagePolicy @ 0x1403AFB34 (ExpDetermineLargePagePolicy.c)
+ *     ExInitializePoolTracker @ 0x140B63C80 (ExInitializePoolTracker.c)
+ */
+
 __int64 __fastcall ExInitializePoolHeapManagement(unsigned int a1)
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSignalRedirectionStartComplete @ 0x1C00F4900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreGetRedirectionEvent @ 0x1C00F4978 (GreGetRedirectionEvent.c)
+ */
+
 unsigned __int64 NtUserSignalRedirectionStartComplete()
 {
   __int64 v0; // rdx

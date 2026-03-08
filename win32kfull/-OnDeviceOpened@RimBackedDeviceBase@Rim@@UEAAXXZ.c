@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnDeviceOpened@RimBackedDeviceBase@Rim@@UEAAXXZ @ 0x1C022AB10
+ * Callers:
+ *     ?OnDeviceOpened@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z @ 0x1C02410A0 (-OnDeviceOpened@InkProcessor@@QEAAXPEAURawInputManagerDeviceObject@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall Rim::RimBackedDeviceBase::OnDeviceOpened(Rim::RimBackedDeviceBase *this)
 {
   __int64 v2; // rcx

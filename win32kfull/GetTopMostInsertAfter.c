@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetTopMostInsertAfter @ 0x1C01A7564
+ * Callers:
+ *     ?CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z @ 0x1C0026674 (-CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ * Callees:
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ */
+
 _QWORD *__fastcall GetTopMostInsertAfter(__int64 a1)
 {
   PVOID v1; // rax

@@ -1,3 +1,18 @@
+/*
+ * XREFs of HdlspKernelAddLogEntry @ 0x140AE7A40
+ * Callers:
+ *     HeadlessKernelAddLogEntry @ 0x1402B17D0 (HeadlessKernelAddLogEntry.c)
+ *     PipInitializeCoreDriversByGroup @ 0x140B5780C (PipInitializeCoreDriversByGroup.c)
+ *     IopInitializeBootDrivers @ 0x140B57F78 (IopInitializeBootDrivers.c)
+ *     IopInitializeBuiltinDriver @ 0x140B58C28 (IopInitializeBuiltinDriver.c)
+ *     IoInitSystem @ 0x140B5E3E0 (IoInitSystem.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HdlspDispatch @ 0x140AE6EB0 (HdlspDispatch.c)
+ */
+
 __int64 __fastcall HdlspKernelAddLogEntry(unsigned int a1, unsigned __int16 *a2)
 {
   const wchar_t *v4; // rbx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxSetClassLongPtr @ 0x1C00ED0A8
+ * Callers:
+ *     NtUserSetClassLongPtr @ 0x1C00ECF90 (NtUserSetClassLongPtr.c)
+ * Callees:
+ *     ??1?$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ @ 0x1C0031BF4 (--1-$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z @ 0x1C00E02D4 (-Init@-$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z.c)
+ *     xxxSetClassData @ 0x1C00ED168 (xxxSetClassData.c)
+ */
+
 __int64 __fastcall xxxSetClassLongPtr(struct tagWND *a1, int a2, __int64 a3)
 {
   __int64 v3; // rdi

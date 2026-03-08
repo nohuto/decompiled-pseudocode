@@ -1,3 +1,11 @@
+/*
+ * XREFs of ArbOverrideConflict @ 0x1C00A20A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall ArbOverrideConflict(__int64 a1, __int64 a2)
 {
   char v2; // di

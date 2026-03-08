@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiChangePageAttributeContiguous @ 0x140214270
+ * Callers:
+ *     MiZeroAndReleasePages @ 0x1402776A0 (MiZeroAndReleasePages.c)
+ *     MiGetFastLargePages @ 0x14034D588 (MiGetFastLargePages.c)
+ *     MiAllocateLargeZeroPages @ 0x14034DCB0 (MiAllocateLargeZeroPages.c)
+ *     MiDemoteLocalLargePage @ 0x14034E760 (MiDemoteLocalLargePage.c)
+ *     MiReleaseLargePageAllocationLocks @ 0x14034F6B0 (MiReleaseLargePageAllocationLocks.c)
+ *     MiChangePageAttributeLargeFreeZeroPage @ 0x14064C4F4 (MiChangePageAttributeLargeFreeZeroPage.c)
+ *     MiZeroAndConvertPage @ 0x14064DA84 (MiZeroAndConvertPage.c)
+ * Callees:
+ *     MiAbortCombineScan @ 0x14021467C (MiAbortCombineScan.c)
+ *     MiFlushCacheForAttributeChange @ 0x140214754 (MiFlushCacheForAttributeChange.c)
+ *     MiPfnZeroingNeeded @ 0x140214AC4 (MiPfnZeroingNeeded.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     KeInvalidateAllCaches @ 0x1403010D0 (KeInvalidateAllCaches.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14032F834 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036D020 (MiFlushEntireTbDueToAttributeChange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall MiChangePageAttributeContiguous(__int64 a1, __int64 a2, unsigned int a3, char a4)
 {
   unsigned int v4; // r12d

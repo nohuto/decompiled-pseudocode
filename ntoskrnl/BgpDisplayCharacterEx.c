@@ -1,3 +1,19 @@
+/*
+ * XREFs of BgpDisplayCharacterEx @ 0x14066F654
+ * Callers:
+ *     BcpDisplayCriticalCharacter @ 0x14066FC60 (BcpDisplayCriticalCharacter.c)
+ *     BcpDisplayCriticalString @ 0x14066FD2C (BcpDisplayCriticalString.c)
+ *     BcpDisplayProgress @ 0x140670320 (BcpDisplayProgress.c)
+ *     BcpPrintSpaces @ 0x1406706FC (BcpPrintSpaces.c)
+ *     BgpConsoleDisplayCharacter @ 0x140AEE4C0 (BgpConsoleDisplayCharacter.c)
+ *     BgpConsoleDisplayCharacterEx @ 0x140AEE5D4 (BgpConsoleDisplayCharacterEx.c)
+ *     BgpConsoleDrawCursor @ 0x140AEE928 (BgpConsoleDrawCursor.c)
+ *     BgpConsoleScrollScreen @ 0x140AEEAC0 (BgpConsoleScrollScreen.c)
+ * Callees:
+ *     BgpTxtDisplayCharacter @ 0x140381538 (BgpTxtDisplayCharacter.c)
+ *     BgpTxtAdjustStaticRegion @ 0x14066FA50 (BgpTxtAdjustStaticRegion.c)
+ */
+
 __int64 __fastcall BgpDisplayCharacterEx(
         unsigned __int16 a1,
         __int64 *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RtlStringCchCatA@@YAJPEAD_KPEBD@Z @ 0x1C00F304E
+ * Callers:
+ *     flagString @ 0x1C0209370 (flagString.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlStringCchCatA(char *a1, __int64 a2, const char *a3)
 {
   __int64 v4; // r9

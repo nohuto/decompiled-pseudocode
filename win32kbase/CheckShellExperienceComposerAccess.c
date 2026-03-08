@@ -1,3 +1,11 @@
+/*
+ * XREFs of CheckShellExperienceComposerAccess @ 0x1C0248DBC
+ * Callers:
+ *     NtDCompositionSetMaterialProperty @ 0x1C00BE150 (NtDCompositionSetMaterialProperty.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 CheckShellExperienceComposerAccess()
 {
   struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF

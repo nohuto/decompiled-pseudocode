@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GotoParent@?$CGraphWalker@VCVectorShape@@@@QEAAXPEAPEAVCVectorShape@@@Z @ 0x1800D8C74
+ * Callers:
+ *     ??$Walk@VCShapeBoundingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeBoundingContext@@@Z @ 0x1800D89A0 (--$Walk@VCShapeBoundingContext@@@CShapeTreeIterator@@QEAAJPEAVCVectorShape@@PEAVCShapeBoundingCo.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CGraphWalker<CVectorShape>::GotoParent(__int64 a1, _QWORD *a2)
 {
   int v2; // r10d

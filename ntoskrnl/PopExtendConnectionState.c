@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopExtendConnectionState @ 0x14082AC74
+ * Callers:
+ *     PopSetSessionUserStatus @ 0x14073C8E4 (PopSetSessionUserStatus.c)
+ *     PopInitializeAdpm @ 0x140B5DF58 (PopInitializeAdpm.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopExtendConnectionState(unsigned int a1)
 {
   unsigned int v1; // ebx

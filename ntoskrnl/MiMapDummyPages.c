@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiMapDummyPages @ 0x140B389FC
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiComputeHash64 @ 0x14032D5D0 (MiComputeHash64.c)
+ */
+
 ULONG_PTR MiMapDummyPages()
 {
   ULONG_PTR result; // rax

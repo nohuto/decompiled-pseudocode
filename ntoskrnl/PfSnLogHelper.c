@@ -1,3 +1,15 @@
+/*
+ * XREFs of PfSnLogHelper @ 0x1407A3FD0
+ * Callers:
+ *     PfSnLogVolumeCreate @ 0x14078C1D0 (PfSnLogVolumeCreate.c)
+ *     PfSnLogStreamCreate @ 0x1407A3E7C (PfSnLogStreamCreate.c)
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     PfSnReferenceProcessTrace @ 0x14028D560 (PfSnReferenceProcessTrace.c)
+ *     PfSnTraceGetLogEntry @ 0x14030841C (PfSnTraceGetLogEntry.c)
+ *     PfSnFailProcessTrace @ 0x14097C804 (PfSnFailProcessTrace.c)
+ */
+
 struct _EX_RUNDOWN_REF *__fastcall PfSnLogHelper(__int64 a1, unsigned int a2, _QWORD *a3)
 {
   __int64 v5; // rbx

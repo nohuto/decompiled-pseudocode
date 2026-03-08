@@ -1,3 +1,13 @@
+/*
+ * XREFs of CommonBuffer_AcquireSecureBuffer @ 0x1C00321B8
+ * Callers:
+ *     XilCommonBuffer_AcquireBufferEx @ 0x1C001BAFC (XilCommonBuffer_AcquireBufferEx.c)
+ *     XilEndpoint_AllocateStreamContextArray @ 0x1C0038BDC (XilEndpoint_AllocateStreamContextArray.c)
+ * Callees:
+ *     memset @ 0x1C0020700 (memset.c)
+ *     SecureDmaEnabler_AllocateCommonBufferPage @ 0x1C007A6EC (SecureDmaEnabler_AllocateCommonBufferPage.c)
+ */
+
 __int64 __fastcall CommonBuffer_AcquireSecureBuffer(__int64 a1, unsigned int a2, __int64 a3, int a4)
 {
   __int64 v4; // rdi

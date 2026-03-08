@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PutBackReservedRequest@FxIoQueue@@AEAAXPEAVFxRequest@@@Z @ 0x1C00678EC
+ * Callers:
+ *     ?ReturnReservedRequest@FxIoQueue@@QEAAXPEAVFxRequest@@@Z @ 0x1C0067A34 (-ReturnReservedRequest@FxIoQueue@@QEAAXPEAVFxRequest@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxIoQueue::PutBackReservedRequest(FxIoQueue *this, FxRequest *ReservedRequest)
 {
   _LIST_ENTRY *p_m_ForwardProgressList; // rbx

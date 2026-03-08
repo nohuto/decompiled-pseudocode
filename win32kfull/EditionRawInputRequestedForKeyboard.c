@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionRawInputRequestedForKeyboard @ 0x1C01E8850
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HasHidTable @ 0x1C0038CB0 (HasHidTable.c)
+ */
+
 __int64 __fastcall EditionRawInputRequestedForKeyboard(__int64 a1)
 {
   unsigned int v2; // ebx

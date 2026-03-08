@@ -1,3 +1,11 @@
+/*
+ * XREFs of MmIsVerifierEnabled @ 0x140AB9E10
+ * Callers:
+ *     PopVerifierFlushMemoryBeforeSleep @ 0x140AA46C4 (PopVerifierFlushMemoryBeforeSleep.c)
+ * Callees:
+ *     VfIsVerifierEnabled @ 0x14036B1B0 (VfIsVerifierEnabled.c)
+ */
+
 NTSTATUS __stdcall MmIsVerifierEnabled(PULONG VerifierFlags)
 {
   NTSTATUS v1; // ebx

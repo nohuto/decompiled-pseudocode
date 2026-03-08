@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpUpdateGlobalQuotaAllowed @ 0x14072C940
+ * Callers:
+ *     CmpClaimGlobalQuota @ 0x14072C8EC (CmpClaimGlobalQuota.c)
+ *     CmQueryRegistryQuotaInformation @ 0x14087FE90 (CmQueryRegistryQuotaInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 CmpUpdateGlobalQuotaAllowed()
 {
   unsigned __int64 result; // rax

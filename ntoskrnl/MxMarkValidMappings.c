@@ -1,3 +1,14 @@
+/*
+ * XREFs of MxMarkValidMappings @ 0x140B4FB8C
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ *     MxMarkValidMappings @ 0x140B4FB8C (MxMarkValidMappings.c)
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MxMarkValidMappings @ 0x140B4FB8C (MxMarkValidMappings.c)
+ *     MiIsRegularMemory @ 0x140B4FF44 (MiIsRegularMemory.c)
+ */
+
 void __fastcall MxMarkValidMappings(unsigned __int64 a1, unsigned __int64 a2, int a3, __int64 a4)
 {
   unsigned __int64 v7; // rsi

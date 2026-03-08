@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepCloseCachedTokenHandles @ 0x140300274
+ * Callers:
+ *     SepSetTokenCachedHandles @ 0x140739630 (SepSetTokenCachedHandles.c)
+ *     SepDereferenceCachedHandlesEntry @ 0x140744278 (SepDereferenceCachedHandlesEntry.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ */
+
 __int64 __fastcall SepCloseCachedTokenHandles(unsigned int a1, HANDLE *a2)
 {
   unsigned int v2; // ebx

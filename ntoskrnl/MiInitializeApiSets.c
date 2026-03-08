@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiInitializeApiSets @ 0x140B3A510
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     MmCreateSection @ 0x140711DC0 (MmCreateSection.c)
+ *     MmMapViewInSessionSpace @ 0x14078FC80 (MmMapViewInSessionSpace.c)
+ */
+
 __int64 __fastcall MiInitializeApiSets(__int64 a1)
 {
   __int64 v1; // rax

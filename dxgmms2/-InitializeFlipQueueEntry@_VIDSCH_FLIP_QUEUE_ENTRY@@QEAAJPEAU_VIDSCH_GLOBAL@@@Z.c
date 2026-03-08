@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InitializeFlipQueueEntry@_VIDSCH_FLIP_QUEUE_ENTRY@@QEAAJPEAU_VIDSCH_GLOBAL@@@Z @ 0x1C0017538
+ * Callers:
+ *     VidSchiSetFlipDevice @ 0x1C0002730 (VidSchiSetFlipDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall _VIDSCH_FLIP_QUEUE_ENTRY::InitializeFlipQueueEntry(
         _VIDSCH_FLIP_QUEUE_ENTRY *this,
         struct _VIDSCH_GLOBAL *a2)

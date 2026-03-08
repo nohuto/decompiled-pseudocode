@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CheckIfDmaInformationPresent@VIDMM_DMA_POOL@@QEAAHPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_K_JKKKKKKK@Z @ 0x1C00EFB08
+ * Callers:
+ *     ?WriteDmaHistoryToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_KK2K@Z @ 0x1C00F0B74 (-WriteDmaHistoryToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_KK2K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VIDMM_DMA_POOL::CheckIfDmaInformationPresent(
         VIDMM_DMA_POOL *this,
         struct _VIDMM_MINIDUMP_HEADER *a2,

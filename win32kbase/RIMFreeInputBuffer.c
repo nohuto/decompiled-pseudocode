@@ -1,3 +1,15 @@
+/*
+ * XREFs of RIMFreeInputBuffer @ 0x1C01A4D80
+ * Callers:
+ *     NtRIMFreeInputBuffer @ 0x1C01A1FA0 (NtRIMFreeInputBuffer.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     RawInputManagerObjectResolveHandle @ 0x1C0039E60 (RawInputManagerObjectResolveHandle.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RIMFreeUserMem @ 0x1C01AB5D0 (RIMFreeUserMem.c)
+ */
+
 __int64 __fastcall RIMFreeInputBuffer(char *a1, __int64 a2)
 {
   __int64 v2; // r14

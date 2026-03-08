@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiUpdateTimeAssist @ 0x1403C9BA8
+ * Callers:
+ *     KeClockInterruptNotify @ 0x14022CD80 (KeClockInterruptNotify.c)
+ *     KeResumeClockTimerFromIdle @ 0x14022E860 (KeResumeClockTimerFromIdle.c)
+ *     KeSynchronizeTimeToQpc @ 0x140568B80 (KeSynchronizeTimeToQpc.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     RtlBeginReadTickLock @ 0x140236FBC (RtlBeginReadTickLock.c)
+ *     KiComputeNewSystemTime @ 0x1403BB6DC (KiComputeNewSystemTime.c)
+ *     RtlWriteAcquireTickLock @ 0x1403BB750 (RtlWriteAcquireTickLock.c)
+ *     KiComputeNewInterruptTime @ 0x1403C9D04 (KiComputeNewInterruptTime.c)
+ */
+
 __int64 __fastcall KiUpdateTimeAssist(LARGE_INTEGER *a1, char a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rdi

@@ -1,3 +1,21 @@
+/*
+ * XREFs of CmpDoFileWrite @ 0x1406BC078
+ * Callers:
+ *     CmpFileWrite @ 0x1406BC460 (CmpFileWrite.c)
+ *     CmpWriteOffsetArrayToFile @ 0x140A182CC (CmpWriteOffsetArrayToFile.c)
+ * Callees:
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     CmpSetRespectIoPriorityThread @ 0x140243A40 (CmpSetRespectIoPriorityThread.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     CmpSetPriorityThread @ 0x140357508 (CmpSetPriorityThread.c)
+ *     CmpSetIoPriorityThread @ 0x140357520 (CmpSetIoPriorityThread.c)
+ *     ZwWriteFile @ 0x140412410 (ZwWriteFile.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     CmpCreateEvent @ 0x1406BC374 (CmpCreateEvent.c)
+ */
+
 __int64 __fastcall CmpDoFileWrite(void *a1, __int64 a2, __int64 a3, unsigned int a4, char a5)
 {
   ULONG v7; // esi

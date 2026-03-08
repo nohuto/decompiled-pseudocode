@@ -1,3 +1,19 @@
+/*
+ * XREFs of ObpCreateDosDevicesDirectory @ 0x140855150
+ * Callers:
+ *     ObpInitializeRootNamespace @ 0x1408093C4 (ObpInitializeRootNamespace.c)
+ * Callees:
+ *     RtlGetDaclSecurityDescriptor @ 0x140299320 (RtlGetDaclSecurityDescriptor.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     PsIsHostSilo @ 0x14030F2E0 (PsIsHostSilo.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateDirectoryObjectEx @ 0x140413870 (ZwCreateDirectoryObjectEx.c)
+ *     ZwCreateSymbolicLinkObject @ 0x140413BD0 (ZwCreateSymbolicLinkObject.c)
+ *     ObpSetSiloDeviceMap @ 0x140855394 (ObpSetSiloDeviceMap.c)
+ *     ObpGetDosDevicesProtection @ 0x140855400 (ObpGetDosDevicesProtection.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ObpCreateDosDevicesDirectory(__int64 a1, void *a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax

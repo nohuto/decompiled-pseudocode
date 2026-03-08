@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhInitializeTtHub @ 0x1C002D268
+ * Callers:
+ *     UsbhInitialize @ 0x1C002CE20 (UsbhInitialize.c)
+ *     UsbhReinitialize @ 0x1C002D73C (UsbhReinitialize.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     Usbh_HubDerefDeviceHandle @ 0x1C002E238 (Usbh_HubDerefDeviceHandle.c)
+ *     Usbh_HubInitialize20Hub @ 0x1C002E2F4 (Usbh_HubInitialize20Hub.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhGetDeviceHandle @ 0x1C0038178 (UsbhGetDeviceHandle.c)
+ */
+
 __int64 __fastcall UsbhInitializeTtHub(__int64 a1, __int64 a2)
 {
   _DWORD *v4; // rbx

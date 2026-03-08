@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBMUX_ReleaseDevicePowerReference @ 0x1C0011940
+ * Callers:
+ *     HUBDSM_FlushingHubPowerDownEventsForFailedDevice @ 0x1C001F460 (HUBDSM_FlushingHubPowerDownEventsForFailedDevice.c)
+ *     HUBDSM_FailedDeviceHubSuspended @ 0x1C001F540 (HUBDSM_FailedDeviceHubSuspended.c)
+ * Callees:
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ */
+
 void __fastcall HUBMUX_ReleaseDevicePowerReference(volatile signed __int32 *a1)
 {
   __int64 v1; // rsi

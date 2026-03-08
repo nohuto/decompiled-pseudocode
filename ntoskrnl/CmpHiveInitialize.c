@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpHiveInitialize @ 0x14072CBCC
+ * Callers:
+ *     CmpCreateHive @ 0x14072C06C (CmpCreateHive.c)
+ *     CmpCreateEmptyHiveClone @ 0x140A19E20 (CmpCreateEmptyHiveClone.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpInitSecurityCache @ 0x14072CC90 (CmpInitSecurityCache.c)
+ *     HvHiveInitialize @ 0x14072CCCC (HvHiveInitialize.c)
+ */
+
 __int64 (__fastcall *__fastcall CmpHiveInitialize(__int64 a1, _QWORD *a2))(PVOID P)
 {
   __int64 v4; // rdx

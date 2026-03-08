@@ -1,3 +1,14 @@
+/*
+ * XREFs of BCryptDestroyHash @ 0x140754728
+ * Callers:
+ *     WbHashData @ 0x1407544E8 (WbHashData.c)
+ *     RtlGenerateClass5Guid @ 0x14081B430 (RtlGenerateClass5Guid.c)
+ * Callees:
+ *     ExGetExtensionTable @ 0x1402C57F0 (ExGetExtensionTable.c)
+ *     ExReleaseExtensionTable @ 0x1402C5820 (ExReleaseExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 NTSTATUS __stdcall BCryptDestroyHash(BCRYPT_HASH_HANDLE hHash)
 {
   NTSTATUS v2; // ebx

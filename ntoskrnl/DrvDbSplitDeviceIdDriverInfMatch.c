@@ -1,3 +1,14 @@
+/*
+ * XREFs of DrvDbSplitDeviceIdDriverInfMatch @ 0x140878AAC
+ * Callers:
+ *     PiDevCfgFindDeviceDriver @ 0x14087867C (PiDevCfgFindDeviceDriver.c)
+ *     DrvDbSetDeviceIdDriverInfMatches @ 0x140A69D68 (DrvDbSetDeviceIdDriverInfMatches.c)
+ * Callees:
+ *     RtlStringCchCopyNExW @ 0x140245AC0 (RtlStringCchCopyNExW.c)
+ *     wcschr @ 0x1403D5D90 (wcschr.c)
+ *     wcstol @ 0x1403D630C (wcstol.c)
+ */
+
 __int64 __fastcall DrvDbSplitDeviceIdDriverInfMatch(STRSAFE_PCNZWCH pszSrc, wchar_t *a2, unsigned int a3, __int64 a4)
 {
   NTSTATUS v4; // r12d

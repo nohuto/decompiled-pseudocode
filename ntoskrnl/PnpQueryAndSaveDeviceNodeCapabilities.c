@@ -1,3 +1,17 @@
+/*
+ * XREFs of PnpQueryAndSaveDeviceNodeCapabilities @ 0x1406824BC
+ * Callers:
+ *     PipProcessStartPhase3 @ 0x14068203C (PipProcessStartPhase3.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14081CE14 (IopInitializeDeviceInstanceKey.c)
+ *     PiInitializeDevice @ 0x14096AB74 (PiInitializeDevice.c)
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PpIrpQueryCapabilities @ 0x140682520 (PpIrpQueryCapabilities.c)
+ *     PnpSaveDeviceCapabilities @ 0x140684D74 (PnpSaveDeviceCapabilities.c)
+ */
+
 __int64 __fastcall PnpQueryAndSaveDeviceNodeCapabilities(__int64 a1)
 {
   __int64 result; // rax

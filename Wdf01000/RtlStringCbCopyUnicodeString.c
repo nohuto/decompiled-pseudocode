@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlStringCbCopyUnicodeString @ 0x1C002DAB0
+ * Callers:
+ *     ?LoadCompanion@FxCompanionLibrary@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_DEVICE_OBJECT@@PEAUIDeviceCompanionCallbacks@@PEAPEAUIDeviceCompanion@@@Z @ 0x1C002D3FC (-LoadCompanion@FxCompanionLibrary@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_DEVICE_OBJECT@@PEAUIDeviceC.c)
+ * Callees:
+ *     RtlUnicodeStringValidateSrcWorker @ 0x1C0017A48 (RtlUnicodeStringValidateSrcWorker.c)
+ */
+
 int __fastcall RtlStringCbCopyUnicodeString(
         wchar_t *pszDest,
         unsigned __int64 cbDest,

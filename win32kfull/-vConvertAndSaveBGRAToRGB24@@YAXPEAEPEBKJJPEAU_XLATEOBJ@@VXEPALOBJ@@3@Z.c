@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vConvertAndSaveBGRAToRGB24@@YAXPEAEPEBKJJPEAU_XLATEOBJ@@VXEPALOBJ@@3@Z @ 0x1C02E6950
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall vConvertAndSaveBGRAToRGB24(__int64 a1, _DWORD *a2, int a3, int a4)
 {
   __int64 result; // rax

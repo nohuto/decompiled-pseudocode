@@ -1,3 +1,11 @@
+/*
+ * XREFs of xwcschr @ 0x1C01FF4E4
+ * Callers:
+ *     ParseModeCap @ 0x1C01FF3DC (ParseModeCap.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall xwcschr(unsigned __int64 a1, __int16 a2)
 {
   __int16 v2; // ax

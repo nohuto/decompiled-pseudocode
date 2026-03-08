@@ -1,3 +1,28 @@
+/*
+ * XREFs of PnpDeviceEventWorker @ 0x1406892C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoSetActivityIdThread @ 0x140203940 (IoSetActivityIdThread.c)
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PnpProcessTargetDeviceEvent @ 0x140681D34 (PnpProcessTargetDeviceEvent.c)
+ *     PnpProcessCustomDeviceEvent @ 0x140688B68 (PnpProcessCustomDeviceEvent.c)
+ *     PnpProcessDeferredRegistrations @ 0x1406895A4 (PnpProcessDeferredRegistrations.c)
+ *     PnpAllocateAndEnableEventWatchdog @ 0x140689D10 (PnpAllocateAndEnableEventWatchdog.c)
+ *     PnpDisableAndFreeEventWatchdog @ 0x14068A900 (PnpDisableAndFreeEventWatchdog.c)
+ *     PnpCompleteDeviceEvent @ 0x14068C1BC (PnpCompleteDeviceEvent.c)
+ *     PiUEventNotifyUserMode @ 0x14068C2D0 (PiUEventNotifyUserMode.c)
+ *     PnpNotifyDeviceClassChange @ 0x1406F5818 (PnpNotifyDeviceClassChange.c)
+ *     PnpNotifyHwProfileChange @ 0x14095372C (PnpNotifyHwProfileChange.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PnpDeviceEventWorker(PVOID P)
 {
   char v2; // si

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExReleaseSpinLockShared @ 0x1402CBAE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140608D0C (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ */
+
 void __stdcall ExReleaseSpinLockShared(PEX_SPIN_LOCK SpinLock, KIRQL OldIrql)
 {
   unsigned __int64 v2; // rbx

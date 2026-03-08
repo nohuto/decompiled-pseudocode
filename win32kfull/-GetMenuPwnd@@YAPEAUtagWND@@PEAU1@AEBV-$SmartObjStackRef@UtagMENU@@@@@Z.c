@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?GetMenuPwnd@@YAPEAUtagWND@@PEAU1@AEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C023A528
+ * Callers:
+ *     xxxGetMenuItemRect @ 0x1C023B35C (xxxGetMenuItemRect.c)
+ *     xxxMenuItemFromPoint @ 0x1C023C080 (xxxMenuItemFromPoint.c)
+ * Callees:
+ *     ??1?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ @ 0x1C00A11DC (--1-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ.c)
+ *     MNGetPopupFromMenu @ 0x1C00A69F0 (MNGetPopupFromMenu.c)
+ *     ??4?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z @ 0x1C00E0FE0 (--4-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z @ 0x1C00E67A8 (-Init@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z.c)
+ */
+
 __int64 __fastcall GetMenuPwnd(__int64 a1, __int64 a2)
 {
   __int64 v3; // rbx

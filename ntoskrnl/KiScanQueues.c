@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiScanQueues @ 0x14066B0A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiMcaDeferredRecoveryService @ 0x140422F50 (KiMcaDeferredRecoveryService.c)
+ */
+
 void __fastcall __noreturn KiScanQueues(
         struct _KDPC *Dpc,
         PVOID DeferredContext,

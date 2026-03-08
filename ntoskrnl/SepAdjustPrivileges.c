@@ -1,3 +1,15 @@
+/*
+ * XREFs of SepAdjustPrivileges @ 0x14070EDE0
+ * Callers:
+ *     NtAdjustPrivilegesToken @ 0x14070EA00 (NtAdjustPrivilegesToken.c)
+ * Callees:
+ *     SepCopyTokenIntegrity @ 0x14030FED0 (SepCopyTokenIntegrity.c)
+ *     RtlSidDominates @ 0x14030FF10 (RtlSidDominates.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SepAdtTokenRightAdjusted @ 0x14070F51C (SepAdtTokenRightAdjusted.c)
+ */
+
 __int64 __fastcall SepAdjustPrivileges(
         __int64 a1,
         unsigned __int8 a2,

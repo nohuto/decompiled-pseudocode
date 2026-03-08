@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoAssignResources @ 0x140950C10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     IopLegacyResourceAllocation @ 0x140801DA4 (IopLegacyResourceAllocation.c)
+ */
+
 NTSTATUS __stdcall IoAssignResources(
         PUNICODE_STRING RegistryPath,
         PUNICODE_STRING DriverClassName,

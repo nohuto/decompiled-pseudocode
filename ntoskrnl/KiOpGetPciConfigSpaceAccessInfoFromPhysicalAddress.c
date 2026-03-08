@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiOpGetPciConfigSpaceAccessInfoFromPhysicalAddress @ 0x14057CF34
+ * Callers:
+ *     KiOpCheckUnhandledSecurePciAccessViolation @ 0x14057CD3C (KiOpCheckUnhandledSecurePciAccessViolation.c)
+ *     KiOpPciConfigSpaceAccessCommon @ 0x14057D12C (KiOpPciConfigSpaceAccessCommon.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall KiOpGetPciConfigSpaceAccessInfoFromPhysicalAddress(
         __int16 a1,
         __int64 a2,

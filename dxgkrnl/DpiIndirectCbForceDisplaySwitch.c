@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiIndirectCbForceDisplaySwitch @ 0x1C039FF80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DxgkRequestAsyncDisplaySwitchCallout @ 0x1C0311340 (DxgkRequestAsyncDisplaySwitchCallout.c)
+ */
+
 __int64 __fastcall DpiIndirectCbForceDisplaySwitch(__int64 a1)
 {
   __int64 v1; // rbx

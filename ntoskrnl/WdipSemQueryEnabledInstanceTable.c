@@ -1,3 +1,12 @@
+/*
+ * XREFs of WdipSemQueryEnabledInstanceTable @ 0x140832008
+ * Callers:
+ *     WdipSemReserveInstanceTableEntry @ 0x140831D7C (WdipSemReserveInstanceTableEntry.c)
+ *     WdipSemMarkInstanceForDeletion @ 0x140831F8C (WdipSemMarkInstanceForDeletion.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall WdipSemQueryEnabledInstanceTable(_QWORD *a1)
 {
   __int64 v1; // r8

@@ -1,3 +1,15 @@
+/*
+ * XREFs of vAccNotifyDeleteSurfaceWrap @ 0x1C00CCD30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?vAccNotify@@YAXPEAU_SURFOBJ@@KPEAX@Z @ 0x1C00271A0 (-vAccNotify@@YAXPEAU_SURFOBJ@@KPEAX@Z.c)
+ *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C0050D68 (--1DEVLOCKOBJ@@QEAA@XZ.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C0050DA0 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C011354C (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ?bStockSurface@SURFACE@@QEAAHXZ @ 0x1C02A5A2C (-bStockSurface@SURFACE@@QEAAHXZ.c)
+ */
+
 void __fastcall vAccNotifyDeleteSurfaceWrap(SURFACE *this)
 {
   Gre::Base *v2; // rcx

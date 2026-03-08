@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CIndirectSwapchainRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18012A370
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801003B0 (-HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ */
+
 __int64 __fastcall CIndirectSwapchainRenderTarget::HrFindInterface(
         CIndirectSwapchainRenderTarget *this,
         const struct _GUID *a2,

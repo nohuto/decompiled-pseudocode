@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiConfigureMemoryRemoval @ 0x140A29A2C
+ * Callers:
+ *     MiRemovePhysicalMemory @ 0x140A29F5C (MiRemovePhysicalMemory.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ */
+
 __int64 __fastcall MiConfigureMemoryRemoval(_QWORD *a1, unsigned int *a2, _QWORD *a3)
 {
   __int64 v3; // r9

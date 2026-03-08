@@ -1,3 +1,26 @@
+/*
+ * XREFs of VrpPostOpenOrCreate @ 0x1406C2968
+ * Callers:
+ *     VrpRegistryCallback @ 0x1406C2D60 (VrpRegistryCallback.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwActivityIdControl @ 0x140244870 (EtwActivityIdControl.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     VrpCountPathComponents @ 0x1406C1E90 (VrpCountPathComponents.c)
+ *     VrpBuildKeyPath @ 0x1406C286C (VrpBuildKeyPath.c)
+ *     VrpFreeCallbackContext @ 0x1406C30F0 (VrpFreeCallbackContext.c)
+ *     CmRetrieveExtraParameter @ 0x1406C313C (CmRetrieveExtraParameter.c)
+ *     CmpFindExtraParameterInBlock @ 0x1406C3180 (CmpFindExtraParameterInBlock.c)
+ *     VrpAllocateKeyContext @ 0x140735DF0 (VrpAllocateKeyContext.c)
+ *     CmSetCallbackObjectContext @ 0x140738C30 (CmSetCallbackObjectContext.c)
+ *     VrpFreeKeyContext @ 0x14078D308 (VrpFreeKeyContext.c)
+ *     CmAllocateExtraParameter @ 0x140797310 (CmAllocateExtraParameter.c)
+ *     CmpFreeExtraParameter @ 0x140797DC0 (CmpFreeExtraParameter.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall VrpPostOpenOrCreate(__int64 *a1, void *a2)
 {
   __int64 v4; // rdx

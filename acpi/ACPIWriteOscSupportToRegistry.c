@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIWriteOscSupportToRegistry @ 0x1C0094AA0
+ * Callers:
+ *     ACPIRootInitialize @ 0x1C0093768 (ACPIRootInitialize.c)
+ * Callees:
+ *     OSCreateHandle @ 0x1C008DB54 (OSCreateHandle.c)
+ *     OSWriteRegValue @ 0x1C008EC30 (OSWriteRegValue.c)
+ */
+
 NTSTATUS ACPIWriteOscSupportToRegistry(int a1, int a2, int a3, __int64 a4, ...)
 {
   NTSTATUS result; // eax

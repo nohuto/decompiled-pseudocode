@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiDqObjectActionQueueEntryCreate @ 0x140778F34
+ * Callers:
+ *     PiDqObjectManagerHandleObjectEvent @ 0x140778E48 (PiDqObjectManagerHandleObjectEvent.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PiDqObjectActionQueueEntryCreate(volatile signed __int32 *a1, __int64 *a2)
 {
   unsigned int v4; // edi

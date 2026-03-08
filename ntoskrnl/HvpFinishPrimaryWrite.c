@@ -1,3 +1,15 @@
+/*
+ * XREFs of HvpFinishPrimaryWrite @ 0x140732380
+ * Callers:
+ *     HvWriteHivePrimaryFile @ 0x14073216C (HvWriteHivePrimaryFile.c)
+ * Callees:
+ *     CmpLogEvent @ 0x140A0CF74 (CmpLogEvent.c)
+ *     HvLockHiveFlusherExclusive @ 0x140AF2098 (HvLockHiveFlusherExclusive.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140AF20B4 (HvUnlockHiveFlusherExclusive.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ */
+
 __int64 __fastcall HvpFinishPrimaryWrite(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _DWORD *v4; // rbx

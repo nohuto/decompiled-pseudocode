@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ResetBackBuffer@CLegacyStereoSwapChain@@MEAAJXZ @ 0x18029CDA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ResetBackBuffer@CLegacySwapChain@@MEAAJXZ @ 0x180100BF0 (-ResetBackBuffer@CLegacySwapChain@@MEAAJXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CLegacyStereoSwapChain::ResetBackBuffer(CLegacyStereoSwapChain *this)
 {
   _QWORD *v1; // rdi

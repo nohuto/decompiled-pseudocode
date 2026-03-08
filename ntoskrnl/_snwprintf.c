@@ -1,3 +1,13 @@
+/*
+ * XREFs of _snwprintf @ 0x1403D3A90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     _flsbuf @ 0x1403D67F0 (_flsbuf.c)
+ *     _woutput_l @ 0x1403D6800 (_woutput_l.c)
+ */
+
 int snwprintf(wchar_t *Dest, size_t Count, const wchar_t *Format, ...)
 {
   int v4; // edi

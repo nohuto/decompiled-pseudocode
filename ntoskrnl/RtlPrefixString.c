@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlPrefixString @ 0x14075DBF0
+ * Callers:
+ *     IopCheckDiskName @ 0x140386144 (IopCheckDiskName.c)
+ *     MiSnapThunk @ 0x1407ECC30 (MiSnapThunk.c)
+ * Callees:
+ *     RtlUpperChar @ 0x14075DD40 (RtlUpperChar.c)
+ */
+
 BOOLEAN __stdcall RtlPrefixString(const STRING *String1, const STRING *String2, BOOLEAN CaseInSensitive)
 {
   __int64 Length; // rax

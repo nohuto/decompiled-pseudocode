@@ -1,3 +1,26 @@
+/*
+ * XREFs of AslFileMappingCreate @ 0x1407A2D8C
+ * Callers:
+ *     SdbGetDatabaseMatch @ 0x14079E090 (SdbGetDatabaseMatch.c)
+ *     SdbpCheckMatchingFiles @ 0x1407A0E80 (SdbpCheckMatchingFiles.c)
+ *     SdbpCheckKObject @ 0x1407A1BD8 (SdbpCheckKObject.c)
+ *     SdbOpenDatabaseEx @ 0x140A4B8F0 (SdbOpenDatabaseEx.c)
+ *     SdbpCheckMatchingTextEntry @ 0x140A4D2F4 (SdbpCheckMatchingTextEntry.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x140A4D6E0 (SdbpCheckMatchingWildcardFiles.c)
+ * Callees:
+ *     RtlFileMapInitializeByNtPath @ 0x140303FE4 (RtlFileMapInitializeByNtPath.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQueryInformationFile @ 0x140412530 (ZwQueryInformationFile.c)
+ *     AslStringDuplicate @ 0x1406D51D8 (AslStringDuplicate.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslpFileMappingGetFileKind @ 0x1407A0340 (AslpFileMappingGetFileKind.c)
+ *     AslFileNotFound @ 0x1407A0E50 (AslFileNotFound.c)
+ *     AslFileMappingDelete @ 0x1407A1D38 (AslFileMappingDelete.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ */
+
 __int64 __fastcall AslFileMappingCreate(wchar_t ***a1, const WCHAR *a2, void *a3, wchar_t *a4, wchar_t *a5)
 {
   __int64 v9; // rcx

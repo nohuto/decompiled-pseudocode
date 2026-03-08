@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetRealization@CTransform3DGroup@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x180251A70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CTransform3DGroup::GetRealization(
         CTransform3DGroup *this,
         const struct D2D_SIZE_F *a2,

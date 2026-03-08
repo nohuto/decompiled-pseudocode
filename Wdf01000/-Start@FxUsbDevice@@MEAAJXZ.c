@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?Start@FxUsbDevice@@MEAAJXZ @ 0x1C005E500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0006060 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0006094 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C0006470 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ?Start@FxIoTarget@@UEAAJXZ @ 0x1C0053990 (-Start@FxIoTarget@@UEAAJXZ.c)
+ *     ?SubmitPendedRequest@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z @ 0x1C0053AFC (-SubmitPendedRequest@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z.c)
+ */
+
 __int64 __fastcall FxUsbDevice::Start(FxUsbDevice *this, __int64 a2, __int64 a3)
 {
   int v4; // esi

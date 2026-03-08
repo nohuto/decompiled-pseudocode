@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpInitializeNotification @ 0x140B6A8AC
+ * Callers:
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     <none>
+ */
+
 LIST_ENTRY *PnpInitializeNotification()
 {
   __int64 v0; // rcx

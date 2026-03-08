@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?_IsLegacyDevice@Edgy@@YAHPEAX@Z @ 0x1C0148F26
+ * Callers:
+ *     ?_GetArcData@Edgy@@YA?AUtagARC_DATA@1@AEAUtagEDGY_DATA@@QEAX@Z @ 0x1C01E8CF8 (-_GetArcData@Edgy@@YA-AUtagARC_DATA@1@AEAUtagEDGY_DATA@@QEAX@Z.c)
+ *     ?_StoreLastUpDataAndPost@Edgy@@YAXAEAUtagEDGY_DATA@@QEAX@Z @ 0x1C01E9A50 (-_StoreLastUpDataAndPost@Edgy@@YAXAEAUtagEDGY_DATA@@QEAX@Z.c)
+ * Callees:
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     _GetTouchValidationStatus @ 0x1C01B3AD4 (_GetTouchValidationStatus.c)
+ *     ?_GetDWordFromRegistry@Edgy@@YAHPEBG0PEAK@Z @ 0x1C01E9128 (-_GetDWordFromRegistry@Edgy@@YAHPEBG0PEAK@Z.c)
+ */
+
 __int64 __fastcall Edgy::_IsLegacyDevice(Edgy *this, void *a2)
 {
   int v2; // esi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiProcessIsrFaultedPacket @ 0x1C003AE5C
+ * Callers:
+ *     VidSchDdiNotifyInterruptWorker @ 0x1C000B040 (VidSchDdiNotifyInterruptWorker.c)
+ * Callees:
+ *     VidSchiProfilePerformanceTick @ 0x1C0006E50 (VidSchiProfilePerformanceTick.c)
+ *     VidSchiUpdateContextRunningTimeAtISR @ 0x1C000B910 (VidSchiUpdateContextRunningTimeAtISR.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 PSLIST_ENTRY __fastcall VidSchiProcessIsrFaultedPacket(__int64 a1, int a2, int a3, __int64 a4)
 {

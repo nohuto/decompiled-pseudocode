@@ -1,3 +1,11 @@
+/*
+ * XREFs of KsepMatchInitCpuInfo @ 0x140B35128
+ * Callers:
+ *     KsepMatchInitMachineInfo @ 0x140B35058 (KsepMatchInitMachineInfo.c)
+ * Callees:
+ *     KsepStringAnsiToUnicode @ 0x1407FFFD0 (KsepStringAnsiToUnicode.c)
+ */
+
 NTSTATUS KsepMatchInitCpuInfo()
 {
   __int64 v0; // r9

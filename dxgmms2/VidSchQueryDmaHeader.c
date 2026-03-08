@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchQueryDmaHeader @ 0x1C010A2F0
+ * Callers:
+ *     VidSchCollectDbgInfo @ 0x1C0109A80 (VidSchCollectDbgInfo.c)
+ * Callees:
+ *     VidSchiBlockDriverCallback @ 0x1C010A3BC (VidSchiBlockDriverCallback.c)
+ */
+
 __int64 __fastcall VidSchQueryDmaHeader(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
 {
   unsigned int v6; // ebx

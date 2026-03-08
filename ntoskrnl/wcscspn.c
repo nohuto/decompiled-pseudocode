@@ -1,3 +1,11 @@
+/*
+ * XREFs of wcscspn @ 0x1403D5E10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 size_t __cdecl wcscspn(const wchar_t *Str, const wchar_t *Control)
 {
   const wchar_t *v3; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpCompareKnownObjectAces @ 0x1409B97E8
+ * Callers:
+ *     RtlpIsDuplicateAce @ 0x140699C50 (RtlpIsDuplicateAce.c)
+ *     RtlpGenerateInheritedAce @ 0x140699FA0 (RtlpGenerateInheritedAce.c)
+ * Callees:
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ */
+
 bool __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 *a2)
 {
   __int64 v3; // rdx

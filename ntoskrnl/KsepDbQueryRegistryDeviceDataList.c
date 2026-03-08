@@ -1,3 +1,19 @@
+/*
+ * XREFs of KsepDbQueryRegistryDeviceDataList @ 0x140973D58
+ * Callers:
+ *     KseQueryDeviceDataList @ 0x140973910 (KseQueryDeviceDataList.c)
+ * Callees:
+ *     KsepPoolFreePaged @ 0x140303C7C (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x140303CA4 (KsepPoolAllocatePaged.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     KsepRegistryOpenKey @ 0x14079E858 (KsepRegistryOpenKey.c)
+ *     KsepStringFree @ 0x14079EC60 (KsepStringFree.c)
+ *     KsepStringTransform @ 0x140801918 (KsepStringTransform.c)
+ *     KsepRegistryEnumValue @ 0x140974A3C (KsepRegistryEnumValue.c)
+ *     KsepRegistryQueryKeyInformation @ 0x140974B38 (KsepRegistryQueryKeyInformation.c)
+ */
+
 __int64 __fastcall KsepDbQueryRegistryDeviceDataList(_WORD *a1, char *a2, unsigned int a3, _DWORD *a4)
 {
   ULONG v4; // r15d

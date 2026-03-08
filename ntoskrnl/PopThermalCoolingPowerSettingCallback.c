@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopThermalCoolingPowerSettingCallback @ 0x1403C18F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopThermalZoneUpdateCoolingPolicy @ 0x14098816C (PopThermalZoneUpdateCoolingPolicy.c)
+ */
+
 __int64 __fastcall PopThermalCoolingPowerSettingCallback(_QWORD *a1, int *a2, int a3)
 {
   __int64 v6; // r9

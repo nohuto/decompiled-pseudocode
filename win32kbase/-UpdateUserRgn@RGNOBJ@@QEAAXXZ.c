@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?UpdateUserRgn@RGNOBJ@@QEAAXXZ @ 0x1C0051CB0
+ * Callers:
+ *     GreGetRegionData @ 0x1C003C510 (GreGetRegionData.c)
+ *     GreSetRectRgn @ 0x1C0041FD0 (GreSetRectRgn.c)
+ *     GreOffsetRgn @ 0x1C0042C20 (GreOffsetRgn.c)
+ *     GreDeleteObject @ 0x1C0043CD0 (GreDeleteObject.c)
+ *     ?ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z @ 0x1C0048B20 (-ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C005173C (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     SetOrCreateRectRgnIndirectPublic @ 0x1C00517A0 (SetOrCreateRectRgnIndirectPublic.c)
+ *     SetRectRgnIndirect @ 0x1C0051A40 (SetRectRgnIndirect.c)
+ *     bDeleteRegion @ 0x1C0053FA0 (bDeleteRegion.c)
+ *     GreRectInRegion @ 0x1C00A65A0 (GreRectInRegion.c)
+ *     GreGetRgnBox @ 0x1C00A70C0 (GreGetRgnBox.c)
+ * Callees:
+ *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C004AE10 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
+ */
+
 void __fastcall RGNOBJ::UpdateUserRgn(RGNOBJ *this)
 {
   _DWORD *v2; // rsi

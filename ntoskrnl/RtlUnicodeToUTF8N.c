@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlUnicodeToUTF8N @ 0x1407A3750
+ * Callers:
+ *     EtwpQueryPartitionRegistryInformation @ 0x140395114 (EtwpQueryPartitionRegistryInformation.c)
+ *     UpcaseUnicodeToUTF8NHelper @ 0x14039FDA4 (UpcaseUnicodeToUTF8NHelper.c)
+ *     RtlUnicodeToCustomCPN @ 0x14079F6F0 (RtlUnicodeToCustomCPN.c)
+ *     RtlUnicodeToMultiByteSize @ 0x1407A35C0 (RtlUnicodeToMultiByteSize.c)
+ *     RtlUnicodeToMultiByteN @ 0x1407A3650 (RtlUnicodeToMultiByteN.c)
+ *     EtwpGetAutoLoggerEventNameFilter @ 0x14084A370 (EtwpGetAutoLoggerEventNameFilter.c)
+ *     RtlUnicodeStringToUTF8String @ 0x1409BF4C0 (RtlUnicodeStringToUTF8String.c)
+ * Callees:
+ *     CountUnicodeToUTF8 @ 0x1403040B8 (CountUnicodeToUTF8.c)
+ */
+
 NTSTATUS __stdcall RtlUnicodeToUTF8N(
         PCHAR UTF8StringDestination,
         ULONG UTF8StringMaxByteCount,

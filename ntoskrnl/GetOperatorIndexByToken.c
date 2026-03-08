@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetOperatorIndexByToken @ 0x1409D0F50
+ * Callers:
+ *     LocalGetConditionForString @ 0x1409D1B24 (LocalGetConditionForString.c)
+ *     LocalpGetStringForCondition @ 0x1409D3684 (LocalpGetStringForCondition.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetOperatorIndexByToken(char a1)
 {
   __int64 result; // rax

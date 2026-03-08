@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpIsBeingRemovedSafely @ 0x14087F540
+ * Callers:
+ *     PnpBuildUnsafeRemovalDeviceList @ 0x14087F410 (PnpBuildUnsafeRemovalDeviceList.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall PnpIsBeingRemovedSafely(_DWORD *a1, int a2)
 {
   int v3; // ecx

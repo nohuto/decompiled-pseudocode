@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ObjectInit@CompositionTokenObject@@KAJPEAVDxgkCompositionObject@@PEAXPEAPEAVIDxgkCompositionObject@@@Z @ 0x1C00115E0
+ * Callers:
+ *     NtTokenManagerCreateCompositionTokenHandle @ 0x1C00119D0 (NtTokenManagerCreateCompositionTokenHandle.c)
+ * Callees:
+ *     ?InitializeUpdates@CCompositionToken@@IEAAJAEBUCompositionTokenInitInfo@@@Z @ 0x1C00116F0 (-InitializeUpdates@CCompositionToken@@IEAAJAEBUCompositionTokenInitInfo@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CompositionTokenObject::ObjectInit(
         struct DxgkCompositionObject *a1,
         const struct CompositionTokenInitInfo *a2,

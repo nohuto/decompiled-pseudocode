@@ -1,3 +1,12 @@
+/*
+ * XREFs of Controller_CreateSecureObject @ 0x1C0077FC8
+ * Callers:
+ *     Controller_Create @ 0x1C00712C4 (Controller_Create.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ */
+
 __int64 __fastcall Controller_CreateSecureObject(__int64 a1)
 {
   __int64 v2; // rcx

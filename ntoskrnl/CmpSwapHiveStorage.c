@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpSwapHiveStorage @ 0x140A1A31C
+ * Callers:
+ *     CmpReorganizeHive @ 0x14072C970 (CmpReorganizeHive.c)
+ *     CmpRefreshHive @ 0x140A09C50 (CmpRefreshHive.c)
+ * Callees:
+ *     HvSwapHiveStorage @ 0x140A1ACB4 (HvSwapHiveStorage.c)
+ */
+
 __int64 __fastcall CmpSwapHiveStorage(__int64 a1, __int64 a2)
 {
   _QWORD *v4; // rdx

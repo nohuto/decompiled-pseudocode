@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiHaltOnAddress @ 0x14057DA08
+ * Callers:
+ *     KxWaitForLockOwnerShip @ 0x14033B510 (KxWaitForLockOwnerShip.c)
+ *     KxWaitForLockOwnerShipWithIrql @ 0x140457CE8 (KxWaitForLockOwnerShipWithIrql.c)
+ * Callees:
+ *     HalProcessorIdle @ 0x140411C30 (HalProcessorIdle.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14057DAC8 (KiHaltOnAddressWakeEntireList.c)
+ */
+
 __int64 __fastcall KiHaltOnAddress(unsigned __int64 a1, _QWORD *a2)
 {
   __int64 v2; // r8

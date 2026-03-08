@@ -1,3 +1,15 @@
+/*
+ * XREFs of Etw_ReportControllerHealthWithPortInfo @ 0x1C001F980
+ * Callers:
+ *     Controller_WdfEvtWatchdogTimerFunc @ 0x1C0004FE0 (Controller_WdfEvtWatchdogTimerFunc.c)
+ *     Controller_WdfEvtDeviceD0Exit @ 0x1C000E9C0 (Controller_WdfEvtDeviceD0Exit.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_char @ 0x1C004BCA0 (_tlgCreate1Sz_char.c)
+ *     _tlgKeywordOn @ 0x1C004BCD4 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C004BD00 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall Etw_ReportControllerHealthWithPortInfo(__int64 a1, int a2, __int64 a3, unsigned __int8 a4)
 {
   _DWORD *v4; // rax

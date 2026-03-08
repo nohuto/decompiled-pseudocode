@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpCovSampSampleBufferReserve @ 0x140461E06
+ * Callers:
+ *     EtwpCovSampCaptureBufferQueue @ 0x140461A8C (EtwpCovSampCaptureBufferQueue.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     EtwpCovSampLookasidePop @ 0x140461CA8 (EtwpCovSampLookasidePop.c)
+ *     EtwpCovSampTryAcquireBufferLock @ 0x140462188 (EtwpCovSampTryAcquireBufferLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpCovSampSampleBufferDecRef @ 0x140601840 (EtwpCovSampSampleBufferDecRef.c)
+ */
+
 __int64 __fastcall EtwpCovSampSampleBufferReserve(__int64 a1, __int16 a2, PSLIST_ENTRY *a3)
 {
   unsigned __int64 v4; // r10

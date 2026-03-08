@@ -1,3 +1,19 @@
+/*
+ * XREFs of InitCreateUserCrit @ 0x1C031F55C
+ * Callers:
+ *     Win32kBaseDriverEntry @ 0x1C0320F10 (Win32kBaseDriverEntry.c)
+ * Callees:
+ *     CreateKernelSemaphore @ 0x1C0035610 (CreateKernelSemaphore.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     ?CLEANUP_CRIT_RESOURCE@@YAXAEAT_USERCRIT_TYPE@@@Z @ 0x1C008E3E4 (-CLEANUP_CRIT_RESOURCE@@YAXAEAT_USERCRIT_TYPE@@@Z.c)
+ *     ?INIT_CRIT_RESOURCE@@YA?AT_USERCRIT_TYPE@@XZ @ 0x1C00C30B4 (-INIT_CRIT_RESOURCE@@YA-AT_USERCRIT_TYPE@@XZ.c)
+ *     ?InitDomainLocks@@YAJXZ @ 0x1C00C310C (-InitDomainLocks@@YAJXZ.c)
+ *     ?CleanupDomainLocks@@YAXXZ @ 0x1C00CB204 (-CleanupDomainLocks@@YAXXZ.c)
+ *     ?UnInitialize@EnterLeaveCritMitRitHandOffHazard@@SAXXZ @ 0x1C00D46DC (-UnInitialize@EnterLeaveCritMitRitHandOffHazard@@SAXXZ.c)
+ */
+
 __int64 InitCreateUserCrit()
 {
   bool v0; // dl

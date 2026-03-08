@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeHwInterrupt @ 0x1C0008420
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RequestPendingCompletion @ 0x1C0002EA0 (RequestPendingCompletion.c)
+ *     ProcessCompletionQueues @ 0x1C0002F50 (ProcessCompletionQueues.c)
+ */
+
 char __fastcall NVMeHwInterrupt(__int64 a1)
 {
   char v2; // di

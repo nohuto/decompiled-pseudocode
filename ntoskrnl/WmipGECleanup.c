@@ -1,3 +1,12 @@
+/*
+ * XREFs of WmipGECleanup @ 0x1409DE780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwUnregister @ 0x14076F9E0 (EtwUnregister.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall WmipGECleanup(__int64 a1)
 {
   REGHANDLE v2; // rcx

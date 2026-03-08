@@ -1,3 +1,21 @@
+/*
+ * XREFs of HalpIrtAllocateIndex @ 0x14080BD48
+ * Callers:
+ *     HalpInterruptRemap @ 0x140378D78 (HalpInterruptRemap.c)
+ *     HalpInterruptRemapFixedLines @ 0x1403A9F64 (HalpInterruptRemapFixedLines.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     RtlSetBits @ 0x14028BC50 (RtlSetBits.c)
+ *     RtlFindClearBitsAndSet @ 0x14030CEE0 (RtlFindClearBitsAndSet.c)
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ *     RtlFindNextForwardRunClear @ 0x14035D2F0 (RtlFindNextForwardRunClear.c)
+ *     HalpIommuAllocateRemappingTableEntry @ 0x14050B7E8 (HalpIommuAllocateRemappingTableEntry.c)
+ *     HalpIrtExtendRemappingRange @ 0x14085A40C (HalpIrtExtendRemappingRange.c)
+ *     HalpIrtAllocateDeviceAperture @ 0x140931740 (HalpIrtAllocateDeviceAperture.c)
+ *     HalpIrtReleaseDeviceAperture @ 0x140931AF0 (HalpIrtReleaseDeviceAperture.c)
+ */
+
 __int64 __fastcall HalpIrtAllocateIndex(
         unsigned int *a1,
         ULONG a2,

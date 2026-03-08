@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiDmCmObjectMatchCallback @ 0x14076C390
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall PiDmCmObjectMatchCallback(__int64 a1, __int64 a2, char *a3)
 {
   char v4; // al

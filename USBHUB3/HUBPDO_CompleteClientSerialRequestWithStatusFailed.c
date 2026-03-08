@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBPDO_CompleteClientSerialRequestWithStatusFailed @ 0x1C00158E0
+ * Callers:
+ *     HUBDSM_CompletingClientRequestOnFailureInDisabled @ 0x1C001F3B0 (HUBDSM_CompletingClientRequestOnFailureInDisabled.c)
+ *     HUBDSM_IssuingPortCycleAndCompletingClientRequestOnEnumFailue @ 0x1C001F980 (HUBDSM_IssuingPortCycleAndCompletingClientRequestOnEnumFailue.c)
+ * Callees:
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000CE90 (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBPDO_CompleteClientSerialRequestWithStatusFailed(__int64 a1)
 {
   __int64 v1; // rbp

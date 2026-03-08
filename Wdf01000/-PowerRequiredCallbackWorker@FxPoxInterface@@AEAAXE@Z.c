@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?PowerRequiredCallbackWorker@FxPoxInterface@@AEAAXE@Z @ 0x1C0010236
+ * Callers:
+ *     ?PowerRequiredCallback@FxPoxInterface@@CAXPEAX@Z @ 0x1C0010300 (-PowerRequiredCallback@FxPoxInterface@@CAXPEAX@Z.c)
+ *     ?SimulateDevicePowerRequired@FxPoxInterface@@QEAAXXZ @ 0x1C0083F0C (-SimulateDevicePowerRequired@FxPoxInterface@@QEAAXXZ.c)
+ * Callees:
+ *     ?DprProcessEventFromPoxCallback@FxPoxInterface@@AEAAXW4FxDevicePwrRequirementEvents@@@Z @ 0x1C0010136 (-DprProcessEventFromPoxCallback@FxPoxInterface@@AEAAXW4FxDevicePwrRequirementEvents@@@Z.c)
+ *     ?ProcessEvent@FxDevicePwrRequirementMachine@@QEAAXW4FxDevicePwrRequirementEvents@@@Z @ 0x1C008485C (-ProcessEvent@FxDevicePwrRequirementMachine@@QEAAXW4FxDevicePwrRequirementEvents@@@Z.c)
+ */
+
 void __fastcall FxPoxInterface::PowerRequiredCallbackWorker(
         FxPoxInterface *this,
         unsigned __int8 InvokedFromPoxCallback)

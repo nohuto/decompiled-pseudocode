@@ -1,3 +1,12 @@
+/*
+ * XREFs of FxVerifyAllocateDebugInfo @ 0x1C0044E50
+ * Callers:
+ *     FxVerifierReadObjectDebugInfo @ 0x1C0044CF0 (FxVerifierReadObjectDebugInfo.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ *     memset @ 0x1C000AC00 (memset.c)
+ */
+
 __int64 __fastcall FxVerifyAllocateDebugInfo(
         FxObjectDebugInfo **Info,
         wchar_t *HandleNameList,

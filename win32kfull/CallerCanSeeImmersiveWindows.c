@@ -1,3 +1,11 @@
+/*
+ * XREFs of CallerCanSeeImmersiveWindows @ 0x1C003FA30
+ * Callers:
+ *     NtUserBuildHwndList @ 0x1C003FD60 (NtUserBuildHwndList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CallerCanSeeImmersiveWindows(__int64 a1)
 {
   __int64 CurrentProcessWin32Process; // rax

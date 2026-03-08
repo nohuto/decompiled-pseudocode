@@ -1,3 +1,19 @@
+/*
+ * XREFs of PnprGetPluginDriverImagePath @ 0x140962EC8
+ * Callers:
+ *     PnprLoadPluginDriver @ 0x1409635F8 (PnprLoadPluginDriver.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ *     wcsncat_s @ 0x1403DA2A0 (wcsncat_s.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406D3680 (_PnpCtxGetCachedContextBaseKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnprGetPluginDriverImagePath(PUNICODE_STRING DestinationString)
 {
   __int64 Pool2; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlInitializeRangeList @ 0x14081E6B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlInitializeRangeList(__int64 a1)
 {
   __int64 result; // rax

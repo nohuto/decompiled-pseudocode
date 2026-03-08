@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PostNewMessage@CDWMBackchannelManager@@UEAAXPEAVCFlipConsumerMessage@@@Z @ 0x1C0087250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PostNewMessage@CBackchannelManager@@UEAAXPEAVCFlipConsumerMessage@@@Z @ 0x1C00873D0 (-PostNewMessage@CBackchannelManager@@UEAAXPEAVCFlipConsumerMessage@@@Z.c)
+ */
+
 void __fastcall CDWMBackchannelManager::PostNewMessage(CDWMBackchannelManager *this, struct CFlipConsumerMessage *a2)
 {
   unsigned int v2; // ebx

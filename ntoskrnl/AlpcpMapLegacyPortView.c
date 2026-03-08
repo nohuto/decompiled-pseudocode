@@ -1,3 +1,20 @@
+/*
+ * XREFs of AlpcpMapLegacyPortView @ 0x1407829D0
+ * Callers:
+ *     AlpcpFormatConnectionRequest @ 0x140712838 (AlpcpFormatConnectionRequest.c)
+ *     AlpcpAcceptConnectPort @ 0x140713844 (AlpcpAcceptConnectPort.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     AlpcpCreateSectionView @ 0x1406A050C (AlpcpCreateSectionView.c)
+ *     AlpcpCreateSection @ 0x140712378 (AlpcpCreateSection.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071550C (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteBlob @ 0x140715630 (AlpcpDeleteBlob.c)
+ *     MmGetSectionInformation @ 0x140720B20 (MmGetSectionInformation.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1407CBD44 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x1407CDB50 (AlpcpUnlockBlob.c)
+ */
+
 __int64 __fastcall AlpcpMapLegacyPortView(char *Object, __int64 a2, __int64 a3)
 {
   void *v3; // rsi

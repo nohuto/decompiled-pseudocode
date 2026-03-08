@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpConvertLdrEntryToModuleInfo @ 0x14079FD98
+ * Callers:
+ *     ExpQueryModuleInformationEx @ 0x14079FC88 (ExpQueryModuleInformationEx.c)
+ *     ExpQuerySingleModuleInformation @ 0x1409F4608 (ExpQuerySingleModuleInformation.c)
+ * Callees:
+ *     RtlUnicodeStringToAnsiString @ 0x1407A34D0 (RtlUnicodeStringToAnsiString.c)
+ */
+
 __int64 __fastcall ExpConvertLdrEntryToModuleInfo(__int64 a1, __int16 a2, __int64 a3)
 {
   char *v5; // rcx

@@ -1,3 +1,32 @@
+/*
+ * XREFs of MiSetVaAgeList @ 0x14031AB40
+ * Callers:
+ *     MiProcessWsInSwapFault @ 0x140200008 (MiProcessWsInSwapFault.c)
+ *     MiActOnPte @ 0x1402CF06C (MiActOnPte.c)
+ *     MiUpdateWsleAge @ 0x1402CF54C (MiUpdateWsleAge.c)
+ *     MiTrimWorkingSetBuildup @ 0x1402E2A60 (MiTrimWorkingSetBuildup.c)
+ *     MiResetAccessBitPte @ 0x140325D60 (MiResetAccessBitPte.c)
+ *     MiAgePteWorker @ 0x140326530 (MiAgePteWorker.c)
+ *     MiClearPteAccessed @ 0x140326910 (MiClearPteAccessed.c)
+ *     MiUnlockWsle @ 0x1403443C0 (MiUnlockWsle.c)
+ *     NtLockVirtualMemory @ 0x140344C50 (NtLockVirtualMemory.c)
+ *     MiResetAccessBitPteWorker @ 0x140463BAC (MiResetAccessBitPteWorker.c)
+ * Callees:
+ *     MiLockPageTableInternal @ 0x14026A0D0 (MiLockPageTableInternal.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiCountWslesInPageTable @ 0x1402B4D30 (MiCountWslesInPageTable.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14030AD60 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140462F92 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140608D0C (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ */
+
 __int64 __fastcall MiSetVaAgeList(__int64 a1, unsigned __int64 a2, unsigned int a3, __int64 a4)
 {
   unsigned __int64 v4; // r13

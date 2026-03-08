@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vSrcCopyS8D8IdentityLtoR@@YAXPEAUBLTINFO@@@Z @ 0x1C02ED580
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ?vSrcAlignCopyMemory@@YAXPEAE0K@Z @ 0x1C03078EC (-vSrcAlignCopyMemory@@YAXPEAE0K@Z.c)
+ */
+
 void __fastcall vSrcCopyS8D8IdentityLtoR(struct BLTINFO *a1)
 {
   unsigned __int8 *v2; // rdi

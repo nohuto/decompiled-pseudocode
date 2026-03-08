@@ -1,3 +1,16 @@
+/*
+ * XREFs of RegistryOverwriteCentralProcessor @ 0x140B8DAC4
+ * Callers:
+ *     StartFirstUserProcess @ 0x140B662B4 (StartFirstUserProcess.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x140412950 (ZwEnumerateKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ */
+
 __int64 RegistryOverwriteCentralProcessor()
 {
   NTSTATUS v0; // ebx

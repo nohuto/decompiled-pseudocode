@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtGdiTransformPoints @ 0x1C0006B30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreTransformPoints @ 0x1C0006C84 (GreTransformPoints.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall NtGdiTransformPoints(HDC a1, char *Src, char *a3, int a4, int a5)
 {
   __int64 v5; // rsi

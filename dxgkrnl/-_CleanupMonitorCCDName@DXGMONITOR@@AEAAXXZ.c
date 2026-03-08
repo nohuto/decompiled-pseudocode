@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_CleanupMonitorCCDName@DXGMONITOR@@AEAAXXZ @ 0x1C03C4988
+ * Callers:
+ *     ??1DXGMONITOR@@UEAA@XZ @ 0x1C03C45DC (--1DXGMONITOR@@UEAA@XZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ */
+
 void __fastcall DXGMONITOR::_CleanupMonitorCCDName(DXGMONITOR *this)
 {
   __int64 v2; // rax

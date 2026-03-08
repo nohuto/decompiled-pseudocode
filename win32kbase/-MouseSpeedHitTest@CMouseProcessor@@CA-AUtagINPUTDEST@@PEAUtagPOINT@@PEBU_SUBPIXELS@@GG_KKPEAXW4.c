@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?MouseSpeedHitTest@CMouseProcessor@@CA?AUtagINPUTDEST@@PEAUtagPOINT@@PEBU_SUBPIXELS@@GG_KKPEAXW4DIT_HITTESTATTRIBUTES@@KKPEAHPEAU_InputHitTestResult@@@Z @ 0x1C007C734
+ * Callers:
+ *     ?MouseHitTest@CMouseProcessor@@AEAA?AVCInputDest@@PEAUtagPOINT@@PEBU_SUBPIXELS@@AEBVCMouseEvent@1@W4MouseHitTestOptions@@PEAI@Z @ 0x1C007C470 (-MouseHitTest@CMouseProcessor@@AEAA-AVCInputDest@@PEAUtagPOINT@@PEBU_SUBPIXELS@@AEBVCMouseEvent@.c)
+ * Callees:
+ *     INPUTDEST_FROM_PWND @ 0x1C0079D90 (INPUTDEST_FROM_PWND.c)
+ *     MouseButtonToPointerFlags @ 0x1C007C950 (MouseButtonToPointerFlags.c)
+ *     CanHitTestInDwm @ 0x1C007CAF0 (CanHitTestInDwm.c)
+ *     DCompHitTest @ 0x1C007DF20 (DCompHitTest.c)
+ *     ?GetInputSpaceId@Mouse@InputConfig@@SA?AU_LUID@@XZ @ 0x1C007E54C (-GetInputSpaceId@Mouse@InputConfig@@SA-AU_LUID@@XZ.c)
+ *     ApiSetEditionPostDwmSpeedHitTest @ 0x1C007E8EC (ApiSetEditionPostDwmSpeedHitTest.c)
+ *     ApiSetEditionNonDwmSpeedHitTest @ 0x1C00BEB04 (ApiSetEditionNonDwmSpeedHitTest.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     ?GetExecutionEnvironment@CBaseProcessor@@KA?AW4_ProcessorExecutionEnvironment@@XZ @ 0x1C0226204 (-GetExecutionEnvironment@CBaseProcessor@@KA-AW4_ProcessorExecutionEnvironment@@XZ.c)
+ *     ApiSetEditionMouseCaptureHitTest @ 0x1C0240984 (ApiSetEditionMouseCaptureHitTest.c)
+ */
+
 __int64 __fastcall CMouseProcessor::MouseSpeedHitTest(
         __int64 a1,
         _QWORD *a2,

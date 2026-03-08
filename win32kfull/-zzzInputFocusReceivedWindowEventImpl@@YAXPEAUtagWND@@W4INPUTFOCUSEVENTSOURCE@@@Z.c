@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?zzzInputFocusReceivedWindowEventImpl@@YAXPEAUtagWND@@W4INPUTFOCUSEVENTSOURCE@@@Z @ 0x1C012DFD8
+ * Callers:
+ *     zzzInputFocusReceivedWindowEvent @ 0x1C009B35C (zzzInputFocusReceivedWindowEvent.c)
+ *     zzzDelegateInputFocusReceivedWindowEvent @ 0x1C012E06C (zzzDelegateInputFocusReceivedWindowEvent.c)
+ * Callees:
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ */
+
 void __fastcall zzzInputFocusReceivedWindowEventImpl(struct tagWND *a1, unsigned int a2)
 {
   __int64 v4; // r8

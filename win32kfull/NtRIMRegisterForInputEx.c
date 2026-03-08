@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtRIMRegisterForInputEx @ 0x1C00EEC90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtRIMRegisterForInputEx(
         unsigned int a1,
         __int64 a2,

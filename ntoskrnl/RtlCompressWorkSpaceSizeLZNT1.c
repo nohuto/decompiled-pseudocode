@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlCompressWorkSpaceSizeLZNT1 @ 0x140A857E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlCompressWorkSpaceSizeLZNT1(__int16 a1, _DWORD *a2, _DWORD *a3)
 {
   if ( !a1 )

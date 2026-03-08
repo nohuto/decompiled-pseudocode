@@ -1,3 +1,14 @@
+/*
+ * XREFs of PfSnTracingStateExWorkerRoutine @ 0x14097CF90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PfSnTracingStateExWorkerRoutine(PVOID P)
 {
   PVOID v2; // rcx

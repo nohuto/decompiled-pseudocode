@@ -1,3 +1,17 @@
+/*
+ * XREFs of PsCreatePartition @ 0x140855A0C
+ * Callers:
+ *     NtCreatePartition @ 0x1409B3520 (NtCreatePartition.c)
+ *     MiInitializePartitionSpecialPurposeMemory @ 0x140A4470C (MiInitializePartitionSpecialPurposeMemory.c)
+ *     PspInitializeSystemPartitionPhase0 @ 0x140B6869C (PspInitializeSystemPartitionPhase0.c)
+ * Callees:
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     PsReferencePartitionByHandle @ 0x14070591C (PsReferencePartitionByHandle.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     PspAllocatePartition @ 0x140855B00 (PspAllocatePartition.c)
+ */
+
 __int64 __fastcall PsCreatePartition(void *a1, HANDLE *a2, int a3, int a4, KPROCESSOR_MODE PreviousMode, int a6)
 {
   int v10; // r8d

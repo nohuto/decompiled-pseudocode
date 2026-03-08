@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopBatteryWakeDpc @ 0x1403B0980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     PopBatteryQueueWork @ 0x1403C0538 (PopBatteryQueueWork.c)
+ */
+
 void PopBatteryWakeDpc()
 {
   unsigned int v0; // edi

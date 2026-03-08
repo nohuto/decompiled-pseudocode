@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionIsPerJobObjectAtomTableSupported @ 0x1C023F9A4
+ * Callers:
+ *     UserGlobalAtomTableCallout @ 0x1C0072268 (UserGlobalAtomTableCallout.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 _BOOL8 ApiSetEditionIsPerJobObjectAtomTableSupported()
 {
   char v0; // bl

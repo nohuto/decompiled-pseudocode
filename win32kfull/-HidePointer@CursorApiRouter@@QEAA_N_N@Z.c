@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?HidePointer@CursorApiRouter@@QEAA_N_N@Z @ 0x1C002A470
+ * Callers:
+ *     EditionShowSystemCursor @ 0x1C002A450 (EditionShowSystemCursor.c)
+ *     SetPointerMetaVisibility @ 0x1C007B75C (SetPointerMetaVisibility.c)
+ *     ?RenderCursor@@YAXAEBUtagPOINTERCURSORDATA@@@Z @ 0x1C01430AC (-RenderCursor@@YAXAEBUtagPOINTERCURSORDATA@@@Z.c)
+ *     ?xxxSwitchCursors@@YAXHH@Z @ 0x1C01AECF8 (-xxxSwitchCursors@@YAXHH@Z.c)
+ * Callees:
+ *     GreHidePointer @ 0x1C002A524 (GreHidePointer.c)
+ *     GreUpdatePointerState @ 0x1C002A8E0 (GreUpdatePointerState.c)
+ *     ?ForceSetCurrentCursorShape@CursorApiRouter@@QEAAXXZ @ 0x1C00DB69C (-ForceSetCurrentCursorShape@CursorApiRouter@@QEAAXXZ.c)
+ *     ?DwmSetPointer@CursorApiRouter@@CA_NPEAU_CURSINFO@@K@Z @ 0x1C0225E48 (-DwmSetPointer@CursorApiRouter@@CA_NPEAU_CURSINFO@@K@Z.c)
+ */
+
 char __fastcall CursorApiRouter::HidePointer(CursorApiRouter *this, unsigned __int8 a2)
 {
   char v2; // bl

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmPerfGetCurrentFrequency @ 0x140342660
+ * Callers:
+ *     PpmCheckComputeEnergy @ 0x140233D90 (PpmCheckComputeEnergy.c)
+ *     PpmPerfGetCurrentState @ 0x1402F75F0 (PpmPerfGetCurrentState.c)
+ *     KiDirectSwitchThread @ 0x1403414A0 (KiDirectSwitchThread.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PpmPerfGetCurrentFrequency(__int64 a1, char a2)
 {
   __int64 v2; // r8

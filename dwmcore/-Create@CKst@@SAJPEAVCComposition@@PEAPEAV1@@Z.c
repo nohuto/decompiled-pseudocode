@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Create@CKst@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x1800CB0DC
+ * Callers:
+ *     ?Initialize@CGlobalInputManager@@UEAAJXZ @ 0x1800CB060 (-Initialize@CGlobalInputManager@@UEAAJXZ.c)
+ * Callees:
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044B4C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1?$unique_ptr@VCKst@@U?$default_delete@VCKst@@@std@@@std@@QEAA@XZ @ 0x1802823CC (--1-$unique_ptr@VCKst@@U-$default_delete@VCKst@@@std@@@std@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall CKst::Create(struct CComposition *a1, struct CKst **a2)
 {
   struct CKst *v4; // rax

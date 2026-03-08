@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiDeleteAcceleratorDescriptor @ 0x14065241C
+ * Callers:
+ *     MiZeroInParallel @ 0x140242EB8 (MiZeroInParallel.c)
+ *     MiDrainEngineDescriptors @ 0x1402A9904 (MiDrainEngineDescriptors.c)
+ *     MiZeroPageCalibrate @ 0x1403A50D0 (MiZeroPageCalibrate.c)
+ *     MiHugePageOperation @ 0x14061E158 (MiHugePageOperation.c)
+ *     MiReturnUnusedHugeDescriptors @ 0x1406202D4 (MiReturnUnusedHugeDescriptors.c)
+ *     MiZeroHugeRangeWorker @ 0x140620990 (MiZeroHugeRangeWorker.c)
+ *     MiFreeHardwareDescriptor @ 0x1406528BC (MiFreeHardwareDescriptor.c)
+ *     MiZeroNodeExiting @ 0x14065315C (MiZeroNodeExiting.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A416B8 (MiAllocatePartitionPhysicalPages.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWakeLargePageWaiters @ 0x14064DA54 (MiWakeLargePageWaiters.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiDeleteAcceleratorDescriptor(__int64 a1)
 {
   void *v1; // rsi

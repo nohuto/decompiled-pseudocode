@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopDirectedDripsInitializePhase3 @ 0x140B698FC
+ * Callers:
+ *     PopInitializeDirectedDrips @ 0x140B46FF8 (PopInitializeDirectedDrips.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406D8E50 (ObReferenceObjectByHandleWithTag.c)
+ *     PsCreateSystemThread @ 0x1407DE2E0 (PsCreateSystemThread.c)
+ *     PopDirectedDripsQueryEnabledMitigations @ 0x1408563FC (PopDirectedDripsQueryEnabledMitigations.c)
+ *     PopDiagTraceDirectedDripsInitialization @ 0x140856548 (PopDiagTraceDirectedDripsInitialization.c)
+ *     PopDirectedDripsDiagInitialize @ 0x140B4407C (PopDirectedDripsDiagInitialize.c)
+ */
+
 __int64 PopDirectedDripsInitializePhase3()
 {
   NTSTATUS v0; // ebx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of Amd64RemoveProfileSource @ 0x140527A10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeCheckProcessorAffinityEx @ 0x140234B10 (KeCheckProcessorAffinityEx.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     HalpAcquireHighLevelLock @ 0x140379818 (HalpAcquireHighLevelLock.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     HalpRemoveProfileSourceFromList @ 0x140505E80 (HalpRemoveProfileSourceFromList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall Amd64RemoveProfileSource(__int64 a1)
 {
   unsigned int v1; // ebp

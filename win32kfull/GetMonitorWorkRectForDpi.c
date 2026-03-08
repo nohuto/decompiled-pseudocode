@@ -1,3 +1,14 @@
+/*
+ * XREFs of GetMonitorWorkRectForDpi @ 0x1C00E1F04
+ * Callers:
+ *     ?UpdateDesktopMonitorNavigationOrder@@YAXXZ @ 0x1C00E1D58 (-UpdateDesktopMonitorNavigationOrder@@YAXXZ.c)
+ *     GetMonitorWorkRectForWindow @ 0x1C00FF4A0 (GetMonitorWorkRectForWindow.c)
+ *     GetMonitorWorkRect @ 0x1C0101744 (GetMonitorWorkRect.c)
+ * Callees:
+ *     ExpandMonitorSpaceVertex @ 0x1C00A3584 (ExpandMonitorSpaceVertex.c)
+ *     ScaleDPIRect @ 0x1C00A3890 (ScaleDPIRect.c)
+ */
+
 __m128i *__fastcall GetMonitorWorkRectForDpi(__m128i *a1, __int64 a2, unsigned __int16 a3)
 {
   __int64 v7; // rax

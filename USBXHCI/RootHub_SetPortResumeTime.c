@@ -1,3 +1,12 @@
+/*
+ * XREFs of RootHub_SetPortResumeTime @ 0x1C003FC7C
+ * Callers:
+ *     UsbDevice_UpdateUsbDevice @ 0x1C001D43C (UsbDevice_UpdateUsbDevice.c)
+ * Callees:
+ *     RootHub_ReleaseReadModifyWriteLock @ 0x1C00182B0 (RootHub_ReleaseReadModifyWriteLock.c)
+ *     RootHub_AcquireReadModifyWriteLock @ 0x1C00182F4 (RootHub_AcquireReadModifyWriteLock.c)
+ */
+
 char __fastcall RootHub_SetPortResumeTime(__int64 a1, int a2, __int16 a3)
 {
   unsigned int v3; // edi

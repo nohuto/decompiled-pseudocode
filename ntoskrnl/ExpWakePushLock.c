@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExpWakePushLock @ 0x140238F70
+ * Callers:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfReleasePushLockExclusive @ 0x140238EF0 (ExfReleasePushLockExclusive.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExpOptimizePushLockList @ 0x1402416E0 (ExpOptimizePushLockList.c)
+ *     ExfReleasePushLockSharedEx @ 0x140241CF0 (ExfReleasePushLockSharedEx.c)
+ * Callees:
+ *     KeAbPreWakeupHandle @ 0x1402390DC (KeAbPreWakeupHandle.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 int __fastcall ExpWakePushLock(volatile signed __int64 *a1, signed __int64 a2)
 {
   int v3; // r10d

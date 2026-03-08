@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepSecureBootBuildRules @ 0x140B93A1C
+ * Callers:
+ *     SeSecureBootRegisterPolicy @ 0x140B42958 (SeSecureBootRegisterPolicy.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 SepSecureBootBuildRules()
 {
   unsigned int v0; // edx

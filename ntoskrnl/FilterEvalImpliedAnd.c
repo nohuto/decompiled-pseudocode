@@ -1,3 +1,12 @@
+/*
+ * XREFs of FilterEvalImpliedAnd @ 0x140761F24
+ * Callers:
+ *     FilterEval @ 0x1406CC630 (FilterEval.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PropertyEval @ 0x1407622B0 (PropertyEval.c)
+ */
+
 __int64 __fastcall FilterEvalImpliedAnd(
         __int64 (__fastcall *a1)(__int64, __int64, unsigned int *, unsigned int *, _QWORD *),
         __int64 a2,

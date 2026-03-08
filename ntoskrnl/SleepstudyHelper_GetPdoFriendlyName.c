@@ -1,3 +1,13 @@
+/*
+ * XREFs of SleepstudyHelper_GetPdoFriendlyName @ 0x140842BD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CmpFreeTransientPoolWithTag @ 0x1402A4B0C (CmpFreeTransientPoolWithTag.c)
+ *     RtlUnicodeStringCopy @ 0x1402B3164 (RtlUnicodeStringCopy.c)
+ *     SshpGenerateDeviceFriendlyName @ 0x140842DE4 (SshpGenerateDeviceFriendlyName.c)
+ */
+
 __int64 __fastcall SleepstudyHelper_GetPdoFriendlyName(struct _DEVICE_OBJECT *a1, UNICODE_STRING *a2)
 {
   NTSTATUS DeviceFriendlyName; // ebx

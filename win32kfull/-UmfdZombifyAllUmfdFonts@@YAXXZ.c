@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?UmfdZombifyAllUmfdFonts@@YAXXZ @ 0x1C0125298
+ * Callers:
+ *     ?UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C01255E8 (-UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C0122F60 (-prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
+ *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C0123AD4 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
+ *     _lambda_97c9cca63d1bce585f2b122b4771693f_::operator() @ 0x1C0125488 (_lambda_97c9cca63d1bce585f2b122b4771693f_--operator().c)
+ */
+
 void __fastcall UmfdZombifyAllUmfdFonts(Gre::Base *a1)
 {
   struct Gre::Base::SESSION_GLOBALS *v1; // rdi

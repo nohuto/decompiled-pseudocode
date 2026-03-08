@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBHSM_WaitingForDevicesToReleaseReferenceOnD0ExitFinalFromReset @ 0x1C0009260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HUBFDO_ReleaseWdfPowerReference @ 0x1C000DFE0 (HUBFDO_ReleaseWdfPowerReference.c)
+ *     HUBMUX_QueuePowerDownEventToDSMs @ 0x1C0011084 (HUBMUX_QueuePowerDownEventToDSMs.c)
+ */
+
 __int64 __fastcall HUBHSM_WaitingForDevicesToReleaseReferenceOnD0ExitFinalFromReset(__int64 a1)
 {
   __int64 v1; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpRefreshParent @ 0x140A273A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x1406B6158 (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1407B05D8 (CmpReferenceKeyControlBlockUnsafe.c)
+ */
+
 __int64 __fastcall CmpRefreshParent(__int64 a1, __int64 a2, __int64 a3, volatile signed __int64 **a4)
 {
   volatile signed __int64 *v4; // rbx

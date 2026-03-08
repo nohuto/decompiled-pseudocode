@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??4?$Vector@VCFixPred@Prediction@@$02@Prediction@@QEAAAEAV01@AEBV01@@Z @ 0x1C0145D7E
+ * Callers:
+ *     ?Filter@tagRlsFilter@Prediction@@QEAA?AVCFixPred@2@V32@0PEAH@Z @ 0x1C01C2508 (-Filter@tagRlsFilter@Prediction@@QEAA-AVCFixPred@2@V32@0PEAH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall Prediction::Vector<Prediction::CFixPred,3>::operator=(_QWORD *a1, __int64 a2)
 {
   _QWORD *v2; // r8

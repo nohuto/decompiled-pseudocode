@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??_ECVirtualMonitorCaptureRenderTarget@@MEAAPEAXI@Z @ 0x1801C0B20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801046B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??1CVirtualMonitorCaptureRenderTarget@@MEAA@XZ @ 0x1801EB0EC (--1CVirtualMonitorCaptureRenderTarget@@MEAA@XZ.c)
+ */
+
 CVirtualMonitorCaptureRenderTarget *__fastcall CVirtualMonitorCaptureRenderTarget::`vector deleting destructor'(
         CVirtualMonitorCaptureRenderTarget *this,
         char a2)

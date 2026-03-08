@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepReferenceCachedTokenHandles @ 0x1402B7E88
+ * Callers:
+ *     SepSetTokenCachedHandles @ 0x140739630 (SepSetTokenCachedHandles.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwDuplicateObject @ 0x140412A90 (ZwDuplicateObject.c)
+ */
+
 __int64 __fastcall SepReferenceCachedTokenHandles(unsigned int a1, HANDLE *a2, __int64 a3)
 {
   NTSTATUS v3; // ebp

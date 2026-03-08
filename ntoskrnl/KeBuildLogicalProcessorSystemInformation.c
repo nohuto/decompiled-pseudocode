@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeBuildLogicalProcessorSystemInformation @ 0x140775954
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     KeFindFirstSetLeftGroupAffinity @ 0x1402E9A20 (KeFindFirstSetLeftGroupAffinity.c)
+ *     KiGetSubNodeForGroup @ 0x1402E9A50 (KiGetSubNodeForGroup.c)
+ */
+
 __int64 __fastcall KeBuildLogicalProcessorSystemInformation(
         unsigned __int16 a1,
         __int64 a2,

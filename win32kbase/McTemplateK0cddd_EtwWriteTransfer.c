@@ -1,3 +1,13 @@
+/*
+ * XREFs of McTemplateK0cddd_EtwWriteTransfer @ 0x1C0164CBC
+ * Callers:
+ *     EtwTraceBeginInjectMouse @ 0x1C0161A10 (EtwTraceBeginInjectMouse.c)
+ *     EtwTraceEndInjectMouse @ 0x1C0162290 (EtwTraceEndInjectMouse.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0cddd_EtwWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

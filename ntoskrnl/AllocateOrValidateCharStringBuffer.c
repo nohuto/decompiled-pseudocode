@@ -1,3 +1,15 @@
+/*
+ * XREFs of AllocateOrValidateCharStringBuffer @ 0x140303E1C
+ * Callers:
+ *     RtlUnicodeStringToCountedOemString @ 0x14079F7A0 (RtlUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1407A0140 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     RtlUnicodeStringToOemString @ 0x14085D450 (RtlUnicodeStringToOemString.c)
+ *     RtlUpcaseUnicodeStringToOemString @ 0x1408716E0 (RtlUpcaseUnicodeStringToOemString.c)
+ *     RtlUpcaseUnicodeStringToAnsiString @ 0x1409B5BB0 (RtlUpcaseUnicodeStringToAnsiString.c)
+ * Callees:
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ */
+
 __int64 __fastcall AllocateOrValidateCharStringBuffer(char a1, unsigned int a2, __int64 *a3, _WORD *a4)
 {
   unsigned int v4; // ebx

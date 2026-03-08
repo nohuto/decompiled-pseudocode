@@ -1,3 +1,13 @@
+/*
+ * XREFs of TR_Disable_Internal @ 0x1C0008044
+ * Callers:
+ *     Endpoint_Disable_Internal @ 0x1C000B8A4 (Endpoint_Disable_Internal.c)
+ * Callees:
+ *     XilCoreCommonBuffer_ReleaseBuffers @ 0x1C000E848 (XilCoreCommonBuffer_ReleaseBuffers.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     TR_FreeSecureTransferSegments @ 0x1C00418F0 (TR_FreeSecureTransferSegments.c)
+ */
+
 void __fastcall TR_Disable_Internal(__int64 a1, char a2)
 {
   __int64 v4; // rsi

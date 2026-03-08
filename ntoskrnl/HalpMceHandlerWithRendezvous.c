@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpMceHandlerWithRendezvous @ 0x140501CF0
+ * Callers:
+ *     HalpHandleMachineCheck @ 0x140500F10 (HalpHandleMachineCheck.c)
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     HalpMcaReportError @ 0x140501778 (HalpMcaReportError.c)
+ *     HalpMceBarrierWait @ 0x14050196C (HalpMceBarrierWait.c)
+ *     HalpMceHandler @ 0x140501A34 (HalpMceHandler.c)
+ */
+
 __int64 __fastcall HalpMceHandlerWithRendezvous(__int64 a1)
 {
   __int64 v2; // rdx

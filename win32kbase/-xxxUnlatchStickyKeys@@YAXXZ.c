@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?xxxUnlatchStickyKeys@@YAXXZ @ 0x1C01E6260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxUpdateModifierState@@YAXHH@Z @ 0x1C01E62D0 (-xxxUpdateModifierState@@YAXHH@Z.c)
+ *     ApiSetEditionPostAccessibilitySettingChangedEvent @ 0x1C0241574 (ApiSetEditionPostAccessibilitySettingChangedEvent.c)
+ */
+
 void xxxUnlatchStickyKeys(void)
 {
   unsigned int v0; // edx

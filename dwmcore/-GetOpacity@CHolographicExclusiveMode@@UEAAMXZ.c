@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetOpacity@CHolographicExclusiveMode@@UEAAMXZ @ 0x1802A49D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 float __fastcall CHolographicExclusiveMode::GetOpacity(RTL_SRWLOCK *this)
 {
   RTL_SRWLOCK *v1; // rdi

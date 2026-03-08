@@ -1,3 +1,14 @@
+/*
+ * XREFs of VidSchiDeferredVisibilityThread @ 0x1C0015070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C001BE4A (McTemplateK0q_EtwWriteTransfer.c)
+ *     VidSchResumeAdapter @ 0x1C00AD540 (VidSchResumeAdapter.c)
+ *     VidSchSuspendAdapter @ 0x1C00AE170 (VidSchSuspendAdapter.c)
+ */
+
 char __fastcall VidSchiDeferredVisibilityThread(__int64 a1)
 {
   __int64 v2; // r8

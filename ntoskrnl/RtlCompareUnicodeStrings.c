@@ -1,3 +1,23 @@
+/*
+ * XREFs of RtlCompareUnicodeStrings @ 0x140684CA0
+ * Callers:
+ *     ApiSetpSearchForApiSet @ 0x1402F3974 (ApiSetpSearchForApiSet.c)
+ *     EtwpAvlCompareKeyNames @ 0x140391230 (EtwpAvlCompareKeyNames.c)
+ *     ApiSetpSearchForApiSetHost @ 0x140612500 (ApiSetpSearchForApiSetHost.c)
+ *     AsiSortValueList @ 0x140612EA0 (AsiSortValueList.c)
+ *     PnpCheckDeviceIdsChanged @ 0x140684A9C (PnpCheckDeviceIdsChanged.c)
+ *     CmpFindNameInListFromIndex @ 0x1407B42D0 (CmpFindNameInListFromIndex.c)
+ *     sub_140831820 @ 0x140831820 (sub_140831820.c)
+ *     PiDevCfgResolveVariableExpression @ 0x14095D1E0 (PiDevCfgResolveVariableExpression.c)
+ *     PnpCompareMultiSz @ 0x140969650 (PnpCompareMultiSz.c)
+ *     PopDirectedDripsUmTestDeviceCompare @ 0x14099CAF0 (PopDirectedDripsUmTestDeviceCompare.c)
+ *     _RtlpMuiRegInitLIPLanguage @ 0x140A72A0C (_RtlpMuiRegInitLIPLanguage.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x140A72CB8 (_RtlpMuiRegPopulateBaseLanguages.c)
+ * Callees:
+ *     NLS_UPCASE @ 0x140267AD0 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ */
+
 LONG __stdcall RtlCompareUnicodeStrings(
         PCWCH String1,
         SIZE_T String1Length,

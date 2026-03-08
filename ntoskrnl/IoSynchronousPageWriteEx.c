@@ -1,3 +1,25 @@
+/*
+ * XREFs of IoSynchronousPageWriteEx @ 0x14024F830
+ * Callers:
+ *     IoSynchronousPageWrite @ 0x1402F0170 (IoSynchronousPageWrite.c)
+ *     MiFlushSectionInternal @ 0x14031FA90 (MiFlushSectionInternal.c)
+ *     MiSynchronousPageWrite @ 0x1403BBAD8 (MiSynchronousPageWrite.c)
+ *     IoWriteCapturedPristineTriageDumpToDedicatedDumpFile @ 0x14054ECE4 (IoWriteCapturedPristineTriageDumpToDedicatedDumpFile.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x14027F900 (IoSetDiskIoAttributionFromThread.c)
+ *     PsGetIoPriorityThread @ 0x1402832C0 (PsGetIoPriorityThread.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1402B1E30 (IopSetDiskIoAttributionExtension.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     IopAllocateIrpExReturn @ 0x140312290 (IopAllocateIrpExReturn.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     IopAllocateBackpocketIrp @ 0x1405525E0 (IopAllocateBackpocketIrp.c)
+ *     IopAllocateReserveIrp @ 0x140552878 (IopAllocateReserveIrp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmIsFileObjectAPagingFile @ 0x14063990C (MmIsFileObjectAPagingFile.c)
+ */
+
 NTSTATUS __fastcall IoSynchronousPageWriteEx(
         struct _FILE_OBJECT *a1,
         struct _MDL *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of Endpoint_EvtDestroyCallback @ 0x1C003A4C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall Endpoint_EvtDestroyCallback(__int64 a1)
 {
   __int64 v1; // rbx

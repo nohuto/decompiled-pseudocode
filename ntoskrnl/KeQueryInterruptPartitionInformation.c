@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeQueryInterruptPartitionInformation @ 0x14028F550
+ * Callers:
+ *     HalpInterruptAffinityIsSteerable @ 0x14028F404 (HalpInterruptAffinityIsSteerable.c)
+ *     IntPartIsInterruptSteerable @ 0x14028F4A8 (IntPartIsInterruptSteerable.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KeQueryInterruptPartitionInformation(__int16 a1, unsigned int a2, __int64 a3)
 {
   unsigned int v3; // r9d

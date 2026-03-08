@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfInitDifWithoutReboot @ 0x140ABFC04
+ * Callers:
+ *     VfVolatileSetDifRuleClass @ 0x140ADABEC (VfVolatileSetDifRuleClass.c)
+ * Callees:
+ *     MmUnlockPagableImageSection @ 0x140225D90 (MmUnlockPagableImageSection.c)
+ *     MmLockPagableDataSection @ 0x1407EBF70 (MmLockPagableDataSection.c)
+ */
+
 char VfInitDifWithoutReboot()
 {
   char v0; // bl

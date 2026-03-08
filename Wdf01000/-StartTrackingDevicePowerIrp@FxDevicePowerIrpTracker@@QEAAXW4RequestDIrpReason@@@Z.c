@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?StartTrackingDevicePowerIrp@FxDevicePowerIrpTracker@@QEAAXW4RequestDIrpReason@@@Z @ 0x1C008213C
+ * Callers:
+ *     ?PowerPolicySendDevicePowerRequest@FxPkgPnp@@IEAAJW4_DEVICE_POWER_STATE@@W4SendDeviceRequestAction@@W4RequestDIrpReason@@@Z @ 0x1C007DCA0 (-PowerPolicySendDevicePowerRequest@FxPkgPnp@@IEAAJW4_DEVICE_POWER_STATE@@W4SendDeviceRequestActi.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0086CA0 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall FxDevicePowerIrpTracker::StartTrackingDevicePowerIrp(
         FxDevicePowerIrpTracker *this,
         RequestDIrpReason Reason)

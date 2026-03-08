@@ -1,3 +1,14 @@
+/*
+ * XREFs of FsRtlInitializeSmssEvent @ 0x140B65D30
+ * Callers:
+ *     FsRtlInitSystem @ 0x140B65B14 (FsRtlInitSystem.c)
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     NtCreateEvent @ 0x1407D0E20 (NtCreateEvent.c)
+ */
+
 __int64 FsRtlInitializeSmssEvent()
 {
   __int64 result; // rax

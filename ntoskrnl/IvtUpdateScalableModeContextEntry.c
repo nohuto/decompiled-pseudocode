@@ -1,3 +1,19 @@
+/*
+ * XREFs of IvtUpdateScalableModeContextEntry @ 0x14052B844
+ * Callers:
+ *     IvtConfigureAts @ 0x140529B70 (IvtConfigureAts.c)
+ *     IvtSetDevicePasidTable @ 0x14052B160 (IvtSetDevicePasidTable.c)
+ *     IvtUpdateScalableModeTranslationStructures @ 0x14052BAEC (IvtUpdateScalableModeTranslationStructures.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IvtBuildScalableModeContextEntry @ 0x14052980C (IvtBuildScalableModeContextEntry.c)
+ *     IvtGetDomainId @ 0x14052A58C (IvtGetDomainId.c)
+ *     IvtGetScalableModePasidTables @ 0x14052A834 (IvtGetScalableModePasidTables.c)
+ *     IvtInvalidateContextEntry @ 0x14052AF68 (IvtInvalidateContextEntry.c)
+ *     IvtInvalidateScalableModePasidCache @ 0x14052AFF4 (IvtInvalidateScalableModePasidCache.c)
+ *     IvtSetScalableModeContextEntry @ 0x14052B470 (IvtSetScalableModeContextEntry.c)
+ */
+
 __int64 __fastcall IvtUpdateScalableModeContextEntry(
         __int64 a1,
         unsigned int *a2,

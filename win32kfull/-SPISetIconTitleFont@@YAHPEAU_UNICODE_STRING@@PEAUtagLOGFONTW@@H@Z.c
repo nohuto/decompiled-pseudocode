@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z @ 0x1C01C8BB4
+ * Callers:
+ *     ?xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z @ 0x1C00F0DE8 (-xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z.c)
+ * Callees:
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     GreExtGetObjectW @ 0x1C0065580 (GreExtGetObjectW.c)
+ *     InvalidateKMDpiMetricsCacheDPIMETRICS @ 0x1C010C82C (InvalidateKMDpiMetricsCacheDPIMETRICS.c)
+ *     UserSetAltScaleFont @ 0x1C010E47C (UserSetAltScaleFont.c)
+ *     CreateFontFromUserProfile @ 0x1C010E764 (CreateFontFromUserProfile.c)
+ *     GreMarkDeletableFont @ 0x1C010E8B4 (GreMarkDeletableFont.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall SPISetIconTitleFont(struct _UNICODE_STRING *a1, struct tagLOGFONTW *a2, int a3)
 {
   BOOL v6; // ebp

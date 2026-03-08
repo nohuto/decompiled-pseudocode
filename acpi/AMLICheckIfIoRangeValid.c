@@ -1,3 +1,11 @@
+/*
+ * XREFs of AMLICheckIfIoRangeValid @ 0x1C0047AE8
+ * Callers:
+ *     AcpiValidatePepDeviceControlResources @ 0x1C008B804 (AcpiValidatePepDeviceControlResources.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall AMLICheckIfIoRangeValid(__int64 a1, unsigned int a2)
 {
   char v2; // r9

@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiReleaseVadEventBlocks @ 0x1406ECE8C
+ * Callers:
+ *     MiRemoveVadCharges @ 0x1406ECCF0 (MiRemoveVadCharges.c)
+ *     MiMapViewOfImageSection @ 0x1407D3750 (MiMapViewOfImageSection.c)
+ *     MiReserveUserMemory @ 0x1407D4340 (MiReserveUserMemory.c)
+ * Callees:
+ *     MiGetVadWakeList @ 0x140289A20 (MiGetVadWakeList.c)
+ *     MiReturnResident @ 0x1402A52C8 (MiReturnResident.c)
+ *     MiGetProcessPartition @ 0x14031F9D4 (MiGetProcessPartition.c)
+ *     MiDereferenceControlArea @ 0x14036CC30 (MiDereferenceControlArea.c)
+ *     MiFreeVadEventBitmapCharges @ 0x140703AFC (MiFreeVadEventBitmapCharges.c)
+ *     MiFreeRotateVadEvent @ 0x140A2E600 (MiFreeRotateVadEvent.c)
+ *     MiComputeAweCharges @ 0x140A3E848 (MiComputeAweCharges.c)
+ *     MiFreePlaceholderVadEvent @ 0x140A45180 (MiFreePlaceholderVadEvent.c)
+ *     MiFreeLargePageView @ 0x140A46E40 (MiFreeLargePageView.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiReleaseVadEventBlocks(__int64 a1, int a2)
 {
   int v4; // r12d

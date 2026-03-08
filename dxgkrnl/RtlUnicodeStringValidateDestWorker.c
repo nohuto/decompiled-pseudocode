@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlUnicodeStringValidateDestWorker @ 0x1C000AE14
+ * Callers:
+ *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C000AE80 (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C003F918 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     ?DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ @ 0x1C02B14FC (-DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ.c)
+ *     ?VmBusGetRegistryKeys@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C037B110 (-VmBusGetRegistryKeys@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ * Callees:
+ *     RtlUnicodeStringValidateWorker @ 0x1C000AF44 (RtlUnicodeStringValidateWorker.c)
+ */
+
 NTSTATUS __stdcall RtlUnicodeStringValidateDestWorker(
         PCUNICODE_STRING DestinationString,
         wchar_t **ppszDest,

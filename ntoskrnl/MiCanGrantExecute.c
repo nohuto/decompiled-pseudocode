@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiCanGrantExecute @ 0x140643510
+ * Callers:
+ *     MiValidFault @ 0x1402C90E0 (MiValidFault.c)
+ *     MiLargePageFault @ 0x140643EB8 (MiLargePageFault.c)
+ * Callees:
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     MiUnlockVadTree @ 0x140330EC8 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x1403334B4 (MiLockVadTree.c)
+ */
+
 __int64 __fastcall MiCanGrantExecute(__int64 a1, unsigned __int64 a2)
 {
   unsigned int v2; // ebx

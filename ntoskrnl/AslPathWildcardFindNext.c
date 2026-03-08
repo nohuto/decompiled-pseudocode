@@ -1,3 +1,23 @@
+/*
+ * XREFs of AslPathWildcardFindNext @ 0x140A52E68
+ * Callers:
+ *     SdbpCheckMatchingWildcardFiles @ 0x140A4D6E0 (SdbpCheckMatchingWildcardFiles.c)
+ *     AslPathWildcardFindFirst @ 0x140A52910 (AslPathWildcardFindFirst.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlStringCbCopyNW @ 0x14039301C (RtlStringCbCopyNW.c)
+ *     ZwQueryDirectoryFile @ 0x1404129B0 (ZwQueryDirectoryFile.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlStringCbCatNW @ 0x14066BE34 (RtlStringCbCatNW.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     AslpPathWildcardAllocMatchNode @ 0x140A539A4 (AslpPathWildcardAllocMatchNode.c)
+ *     AslpPathWildcardFreeMatchNode @ 0x140A53C98 (AslpPathWildcardFreeMatchNode.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AslPathWildcardFindNext(wchar_t *a1, __int64 a2, unsigned __int64 *a3)
 {
   _WORD *FileInformation; // r15

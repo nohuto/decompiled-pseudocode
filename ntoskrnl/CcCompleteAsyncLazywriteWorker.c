@@ -1,3 +1,15 @@
+/*
+ * XREFs of CcCompleteAsyncLazywriteWorker @ 0x140538D80
+ * Callers:
+ *     CcCompleteAsyncLazywriteWorkerThread @ 0x140538F10 (CcCompleteAsyncLazywriteWorkerThread.c)
+ * Callees:
+ *     CcFindNextWorkQueueEntry @ 0x14021746C (CcFindNextWorkQueueEntry.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcCompleteAsyncWriteBehind @ 0x140539048 (CcCompleteAsyncWriteBehind.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall CcCompleteAsyncLazywriteWorker(__int64 a1)
 {
   unsigned int v1; // edx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CalcMinZOrder@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0101AC8
+ * Callers:
+ *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00FFAF8 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct tagWND *__fastcall CalcMinZOrder(struct tagWND *a1)
 {
   _QWORD *v2; // rdx

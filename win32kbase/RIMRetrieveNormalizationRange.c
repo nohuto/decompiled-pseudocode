@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMRetrieveNormalizationRange @ 0x1C01DF08C
+ * Callers:
+ *     RIMPopulatePointerDevice @ 0x1C01AF510 (RIMPopulatePointerDevice.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C01B3FEC (RIMCreatePointerDeviceInfo.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMRetrieveRealAngularPhysicalValues @ 0x1C01DF1D4 (RIMRetrieveRealAngularPhysicalValues.c)
+ */
+
 __int64 __fastcall RIMRetrieveNormalizationRange(unsigned __int16 a1, __int16 *a2, _QWORD *a3)
 {
   int v3; // r14d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of DmaEnabler_AllocateCommonBufferPage @ 0x1C0008244
+ * Callers:
+ *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0007A24 (XilCoreCommonBuffer_AllocateBuffers.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DmaEnabler_AllocateCommonBufferPage(__int64 *a1, __int64 a2, _QWORD *a3, _QWORD *a4)
 {
   __int64 v7; // rax

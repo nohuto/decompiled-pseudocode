@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionAllocAndLinkThreadPointerData @ 0x1C01C7AA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall EditionAllocAndLinkThreadPointerData(_DWORD *a1)
 {
   _QWORD *result; // rax

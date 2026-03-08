@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserPromotePointer @ 0x1C01D9BA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxPromotePointerToMouse @ 0x1C01C615C (xxxPromotePointerToMouse.c)
+ */
+
 __int64 __fastcall NtUserPromotePointer(int a1, unsigned int a2)
 {
   __int64 v4; // rcx

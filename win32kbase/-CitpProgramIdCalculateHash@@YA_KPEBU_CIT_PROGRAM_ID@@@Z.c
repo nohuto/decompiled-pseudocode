@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CitpProgramIdCalculateHash@@YA_KPEBU_CIT_PROGRAM_ID@@@Z @ 0x1C00B18D0
+ * Callers:
+ *     ?CitpProcessGetProgramId@@YAJPEAUtagPROCESSINFO@@PEAU_CIT_PROGRAM_ID@@@Z @ 0x1C00B14F0 (-CitpProcessGetProgramId@@YAJPEAUtagPROCESSINFO@@PEAU_CIT_PROGRAM_ID@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall CitpProgramIdCalculateHash(unsigned __int8 **a1)
 {
   unsigned __int8 *v1; // r10

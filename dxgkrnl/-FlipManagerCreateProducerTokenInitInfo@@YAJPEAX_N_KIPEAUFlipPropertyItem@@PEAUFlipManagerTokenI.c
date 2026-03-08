@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?FlipManagerCreateProducerTokenInitInfo@@YAJPEAX_N_KIPEAUFlipPropertyItem@@PEAUFlipManagerTokenInitInfo@@@Z @ 0x1C00811E8
+ * Callers:
+ *     NtTokenManagerCreateFlipObjectTokenHandle @ 0x1C0075960 (NtTokenManagerCreateFlipObjectTokenHandle.c)
+ * Callees:
+ *     DxgkGetWin32kImportTable @ 0x1C0007808 (DxgkGetWin32kImportTable.c)
+ *     Feature_Servicing_DCompBatchedPresentCompositionBuffers__private_IsEnabledDeviceUsage @ 0x1C0026DD8 (Feature_Servicing_DCompBatchedPresentCompositionBuffers__private_IsEnabledDeviceUsage.c)
+ *     Feature_CompositionTextures__private_IsEnabledDeviceUsage @ 0x1C0026E2C (Feature_CompositionTextures__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ??_GFlipManagerTokenIFlipInfo@@QEAAPEAXI@Z @ 0x1C0075634 (--_GFlipManagerTokenIFlipInfo@@QEAAPEAXI@Z.c)
+ *     ??$CreateFlipPropertySetWorker@VCFlipPropertySet@@@@YAJIPEAUFlipPropertyItem@@_NPEAPEAVCFlipPropertySet@@@Z @ 0x1C007E97C (--$CreateFlipPropertySetWorker@VCFlipPropertySet@@@@YAJIPEAUFlipPropertyItem@@_NPEAPEAVCFlipProp.c)
+ *     ?Release@CFlipPropertySetBase@@QEAAKXZ @ 0x1C007F6D4 (-Release@CFlipPropertySetBase@@QEAAKXZ.c)
+ *     ??$FindProperty@UBatchSyncInfo@@@CFlipPropertySetBase@@QEAAXPEAPEAUBatchSyncInfo@@@Z @ 0x1C0080EE8 (--$FindProperty@UBatchSyncInfo@@@CFlipPropertySetBase@@QEAAXPEAPEAUBatchSyncInfo@@@Z.c)
+ *     ?CreatePresentUpdateForProducer@FlipManagerObject@@QEAAJ_N_K0PEAVCFlipPropertySet@@PEAPEAVCFlipPresentUpdate@@PEAPEAUFlipManagerTokenIFlipInfo@@@Z @ 0x1C0080F4C (-CreatePresentUpdateForProducer@FlipManagerObject@@QEAAJ_N_K0PEAVCFlipPropertySet@@PEAPEAVCFlipP.c)
+ *     ?IsDwmBound@FlipManagerObject@@QEAAJPEA_N@Z @ 0x1C00813F0 (-IsDwmBound@FlipManagerObject@@QEAAJPEA_N@Z.c)
+ *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C00817F8 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ */
+
 __int64 __fastcall FlipManagerCreateProducerTokenInitInfo(
         void *a1,
         bool a2,

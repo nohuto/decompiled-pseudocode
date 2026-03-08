@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessSetPropertyIdSet@CPropertyChangeResource@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROPERTYCHANGERESOURCE_SETPROPERTYIDSET@@@Z @ 0x1800F9188
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F0A8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CPropertyChangeResource::ProcessSetPropertyIdSet(
         CPropertyChangeResource *this,
         struct CResourceTable *a2,

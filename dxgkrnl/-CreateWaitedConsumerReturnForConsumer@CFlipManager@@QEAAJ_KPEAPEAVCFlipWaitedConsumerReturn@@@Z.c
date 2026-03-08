@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CreateWaitedConsumerReturnForConsumer@CFlipManager@@QEAAJ_KPEAPEAVCFlipWaitedConsumerReturn@@@Z @ 0x1C0082E10
+ * Callers:
+ *     ?CreateWaitedConsumerReturnForConsumer@FlipManagerObject@@QEAAJ_KPEAPEAVCFlipWaitedConsumerReturn@@@Z @ 0x1C0080FE8 (-CreateWaitedConsumerReturnForConsumer@FlipManagerObject@@QEAAJ_KPEAPEAVCFlipWaitedConsumerRetur.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CFlipManager::CreateWaitedConsumerReturnForConsumer(
         CFlipManager *this,
         __int64 a2,

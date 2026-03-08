@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpHpVaMgrRegionAllocate @ 0x1402F97BC
+ * Callers:
+ *     RtlpHpVaMgrAlloc @ 0x14030424C (RtlpHpVaMgrAlloc.c)
+ * Callees:
+ *     RtlpHpEnvFreeVA @ 0x14020DD14 (RtlpHpEnvFreeVA.c)
+ *     RtlpHpVaMgrAllocAligned @ 0x140304644 (RtlpHpVaMgrAllocAligned.c)
+ *     RtlpHpVaMgrRangeCreate @ 0x140304A64 (RtlpHpVaMgrRangeCreate.c)
+ */
+
 __int64 __fastcall RtlpHpVaMgrRegionAllocate(__int64 a1)
 {
   __int64 v2; // rdi

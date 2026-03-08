@@ -1,3 +1,18 @@
+/*
+ * XREFs of RtlpComputeEpilogueOffset @ 0x1403ED6A8
+ * Callers:
+ *     CmpLazyFlushDpcRoutine @ 0x1402FA750 (CmpLazyFlushDpcRoutine.c)
+ *     ExpTimerDpcRoutine @ 0x1402FE790 (ExpTimerDpcRoutine.c)
+ *     PopThermalZoneDpc @ 0x1403C7A40 (PopThermalZoneDpc.c)
+ *     ExpTimeRefreshDpcRoutine @ 0x1403C7B20 (ExpTimeRefreshDpcRoutine.c)
+ *     IopTimerDispatch @ 0x1405538A0 (IopTimerDispatch.c)
+ *     FsRtlTruncateSmallMcb @ 0x14066A9B0 (FsRtlTruncateSmallMcb.c)
+ * Callees:
+ *     KeExitRetpoline @ 0x1402E3E6C (KeExitRetpoline.c)
+ *     sub_140B0F1A0 @ 0x140B0F1A0 (sub_140B0F1A0.c)
+ *     KeGuardDispatchICall @ 0x140B107A0 (KeGuardDispatchICall.c)
+ */
+
 __int64 __fastcall RtlpComputeEpilogueOffset(__int64 a1, _QWORD *a2, signed __int64 a3)
 {
   _QWORD *v3; // rbx

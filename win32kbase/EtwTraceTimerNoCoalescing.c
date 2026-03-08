@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceTimerNoCoalescing @ 0x1C0164110
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0szzqqq_EtwWriteTransfer @ 0x1C0167998 (McTemplateK0szzqqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall EtwTraceTimerNoCoalescing(int a1, __int64 a2, __int64 a3, char a4, char a5, char a6)
 {
   __int64 result; // rax

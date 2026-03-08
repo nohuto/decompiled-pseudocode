@@ -1,3 +1,12 @@
+/*
+ * XREFs of SymCryptFdefRawIsLessThanC @ 0x1403FDF94
+ * Callers:
+ *     SymCryptFdefIntIsLessThan @ 0x1403FD8D8 (SymCryptFdefIntIsLessThan.c)
+ *     SymCryptFdefRawIsLessThan @ 0x1403FDF7C (SymCryptFdefRawIsLessThan.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefRawIsLessThanC(__int64 a1, unsigned int *a2, int a3)
 {
   unsigned int v3; // r9d

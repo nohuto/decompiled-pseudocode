@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMGetDevicePropertiesLockfree @ 0x1C01A55D0
+ * Callers:
+ *     NtRIMGetDevicePropertiesLockfree @ 0x1C01A2020 (NtRIMGetDevicePropertiesLockfree.c)
+ *     RIMGetDeviceProperties @ 0x1C01A5390 (RIMGetDeviceProperties.c)
+ * Callees:
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0037330 (RawInputManagerDeviceObjectResolveHandle.c)
+ *     rimCopyInstancePathFromRimDev @ 0x1C01A14E8 (rimCopyInstancePathFromRimDev.c)
+ */
+
 __int64 __fastcall RIMGetDevicePropertiesLockfree(char *a1, ULONG64 a2, int a3)
 {
   int v5; // esi

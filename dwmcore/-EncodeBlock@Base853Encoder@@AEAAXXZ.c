@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?EncodeBlock@Base853Encoder@@AEAAXXZ @ 0x18010CB24
+ * Callers:
+ *     _anonymous_namespace_::GlobalResourceCountersEncoder::Serialize @ 0x18010B04C (_anonymous_namespace_--GlobalResourceCountersEncoder--Serialize.c)
+ *     _anonymous_namespace_::SendFramesReport @ 0x18010B170 (_anonymous_namespace_--SendFramesReport.c)
+ *     _anonymous_namespace_::ProcessAttributionResourceCountersEncoder::Serialize @ 0x18010BD54 (_anonymous_namespace_--ProcessAttributionResourceCountersEncoder--Serialize.c)
+ *     ?EncodeStringsList@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV?$set@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@U?$less@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@V?$allocator@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@2@@2@@Z @ 0x18010BE9C (-EncodeStringsList@@YA-AV-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@std@@AEBV-$set@.c)
+ *     _anonymous_namespace_::SequenceEncoder::Serialize @ 0x18010C1B8 (_anonymous_namespace_--SequenceEncoder--Serialize.c)
+ *     ?AppendByte@Base853Encoder@@QEAAXE@Z @ 0x18010CA74 (-AppendByte@Base853Encoder@@QEAAXE@Z.c)
+ * Callees:
+ *     ?push_back@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QEAAXD@Z @ 0x18010CC2C (-push_back@-$basic_string@DU-$char_traits@D@std@@V-$allocator@D@2@@std@@QEAAXD@Z.c)
+ */
+
 void __fastcall Base853Encoder::EncodeBlock(Base853Encoder *this)
 {
   unsigned int v1; // r8d

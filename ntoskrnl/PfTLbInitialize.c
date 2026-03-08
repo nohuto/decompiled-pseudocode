@@ -1,3 +1,12 @@
+/*
+ * XREFs of PfTLbInitialize @ 0x1407E5A08
+ * Callers:
+ *     PfTFreeBufferList @ 0x1407E5940 (PfTFreeBufferList.c)
+ *     PfTAllocateBuffers @ 0x140844D98 (PfTAllocateBuffers.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall PfTLbInitialize(_QWORD *a1, unsigned int a2, int a3)
 {
   __int64 result; // rax

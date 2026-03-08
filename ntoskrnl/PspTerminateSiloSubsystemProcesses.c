@@ -1,3 +1,16 @@
+/*
+ * XREFs of PspTerminateSiloSubsystemProcesses @ 0x1409AAAF0
+ * Callers:
+ *     PspCompleteServerSiloShutdownDeferred @ 0x1409A9B20 (PspCompleteServerSiloShutdownDeferred.c)
+ * Callees:
+ *     PsGetServerSiloServiceSessionId @ 0x1402456C0 (PsGetServerSiloServiceSessionId.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     PsGetProcessSessionId @ 0x140299380 (PsGetProcessSessionId.c)
+ *     PspGetNextJobProcess @ 0x1406F90E0 (PspGetNextJobProcess.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FB7C8 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspShutdownCsrProcess @ 0x1409AA2D8 (PspShutdownCsrProcess.c)
+ */
+
 int __fastcall PspTerminateSiloSubsystemProcesses(struct _LIST_ENTRY *a1)
 {
   struct _KTHREAD *CurrentThread; // rsi

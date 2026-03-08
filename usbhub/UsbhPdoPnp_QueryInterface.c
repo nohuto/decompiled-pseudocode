@@ -1,3 +1,22 @@
+/*
+ * XREFs of UsbhPdoPnp_QueryInterface @ 0x1C0055B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhUnlatchPdo @ 0x1C0001380 (UsbhUnlatchPdo.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhLatchPdo @ 0x1C0019420 (UsbhLatchPdo.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C0019820 (UsbhSyncResetDeviceInternal.c)
+ *     UsbhRefPdoDeviceHandle @ 0x1C0019C20 (UsbhRefPdoDeviceHandle.c)
+ *     UsbhDerefPdoDeviceHandle @ 0x1C0019ED0 (UsbhDerefPdoDeviceHandle.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhBusifGetLocationInterface @ 0x1C004C31C (UsbhBusifGetLocationInterface.c)
+ *     UsbhBusifGetSSHub @ 0x1C004C3A0 (UsbhBusifGetSSHub.c)
+ */
+
 __int64 __fastcall UsbhPdoPnp_QueryInterface(__int64 a1, IRP *a2)
 {
   _NAMED_PIPE_CREATE_PARAMETERS *v4; // rbx

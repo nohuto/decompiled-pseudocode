@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetWin32kDriverObject @ 0x1C00CF070
+ * Callers:
+ *     Win32kBaseDriverEntry @ 0x1C0320F10 (Win32kBaseDriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetWin32kDriverObject(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax

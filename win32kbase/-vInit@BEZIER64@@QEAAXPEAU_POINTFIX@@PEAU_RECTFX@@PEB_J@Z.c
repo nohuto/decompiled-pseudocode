@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vInit@BEZIER64@@QEAAXPEAU_POINTFIX@@PEAU_RECTFX@@PEB_J@Z @ 0x1C018AD70
+ * Callers:
+ *     ?pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z @ 0x1C018A9F0 (-pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z.c)
+ * Callees:
+ *     ?vInit@HFDBASIS64@@QEAAXJJJJ@Z @ 0x1C018AEE8 (-vInit@HFDBASIS64@@QEAAXJJJJ@Z.c)
+ */
+
 void __fastcall BEZIER64::vInit(struct _RECTFX *this, struct _POINTFIX *a2, struct _RECTFX *a3, const __int64 *a4)
 {
   struct _RECTFX *v8; // rax

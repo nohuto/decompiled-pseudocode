@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlFreeTunnelNode @ 0x1402C1B68
+ * Callers:
+ *     FsRtlRemoveNodeFromTunnel @ 0x1402C1A0C (FsRtlRemoveNodeFromTunnel.c)
+ *     FsRtlAddToTunnelCacheEx @ 0x1407524E0 (FsRtlAddToTunnelCacheEx.c)
+ * Callees:
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall FsRtlFreeTunnelNode(char *Entry, __int64 *a2)
 {
   __int64 v2; // rax

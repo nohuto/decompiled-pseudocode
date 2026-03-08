@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z @ 0x1C00B7040
+ * Callers:
+ *     ?bCleanupFontTable@@YAHPEAPEAVPFT@@@Z @ 0x1C00B6EE0 (-bCleanupFontTable@@YAHPEAPEAVPFT@@@Z.c)
+ * Callees:
+ *     prfntKillList @ 0x1C00B724C (prfntKillList.c)
+ *     bKillPFFOBJ @ 0x1C00B72FC (bKillPFFOBJ.c)
+ *     ?vCleanupFontFile@@YAXPEAVPFFCLEANUP@@@Z @ 0x1C00B75A4 (-vCleanupFontFile@@YAXPEAVPFFCLEANUP@@@Z.c)
+ *     ?vKill@PFFOBJ@@QEAAXXZ @ 0x1C00B75D8 (-vKill@PFFOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vRemoveHash@PFFOBJ@@QEAAXXZ @ 0x1C01172D8 (-vRemoveHash@PFFOBJ@@QEAAXXZ.c)
+ *     vKillRFONTList @ 0x1C026E230 (vKillRFONTList.c)
+ */
+
 __int64 __fastcall PFTOBJ::bUnloadAllButPermanentFonts(PFTOBJ *this)
 {
   int v2; // r13d

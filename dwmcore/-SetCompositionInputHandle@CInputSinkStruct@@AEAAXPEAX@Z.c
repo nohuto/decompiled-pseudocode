@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetCompositionInputHandle@CInputSinkStruct@@AEAAXPEAX@Z @ 0x1800E5644
+ * Callers:
+ *     ??$SAFE_DELETE@VCInputSinkStruct@@@@YAXAEAPEAVCInputSinkStruct@@@Z @ 0x1800E5448 (--$SAFE_DELETE@VCInputSinkStruct@@@@YAXAEAPEAVCInputSinkStruct@@@Z.c)
+ *     ?ReplaceInputHandle@CInputSinkStruct@@QEAAJPEAX@Z @ 0x1800E5568 (-ReplaceInputHandle@CInputSinkStruct@@QEAAJPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CInputSinkStruct::SetCompositionInputHandle(CInputSinkStruct *this, void *a2)
 {
   CInputSinkStruct *v2; // rdi

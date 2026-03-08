@@ -1,3 +1,40 @@
+/*
+ * XREFs of CreateNameSpaceObject @ 0x1C004F10C
+ * Callers:
+ *     AMLICreateNativeNamespaceObject @ 0x1C00499F8 (AMLICreateNativeNamespaceObject.c)
+ *     CreateNativeNameSpaceObject @ 0x1C0049D38 (CreateNativeNameSpaceObject.c)
+ *     AMLIAddNextNamespaceOverride @ 0x1C004A3CC (AMLIAddNextNamespaceOverride.c)
+ *     AMLIAddNextNamespaceOverrideObject @ 0x1C004A534 (AMLIAddNextNamespaceOverrideObject.c)
+ *     AMLIApplyNextNamespaceOverride @ 0x1C004A71C (AMLIApplyNextNamespaceOverride.c)
+ *     BankField @ 0x1C004FEB0 (BankField.c)
+ *     CreateXField @ 0x1C0050374 (CreateXField.c)
+ *     Device @ 0x1C0050490 (Device.c)
+ *     Event @ 0x1C0050550 (Event.c)
+ *     Field @ 0x1C00505B0 (Field.c)
+ *     IndexField @ 0x1C0050740 (IndexField.c)
+ *     Method @ 0x1C0050AE0 (Method.c)
+ *     Mutex @ 0x1C0050C50 (Mutex.c)
+ *     OpRegion @ 0x1C0050D00 (OpRegion.c)
+ *     PowerRes @ 0x1C0050E80 (PowerRes.c)
+ *     Processor @ 0x1C0050FF0 (Processor.c)
+ *     ThermalZone @ 0x1C0051160 (ThermalZone.c)
+ *     Alias @ 0x1C0055300 (Alias.c)
+ *     Name @ 0x1C00553B0 (Name.c)
+ *     ParseField @ 0x1C005AB30 (ParseField.c)
+ *     AMLIInitialize @ 0x1C00AAAB0 (AMLIInitialize.c)
+ *     Simulator_NotifyTablesAreLoaded @ 0x1C00AB360 (Simulator_NotifyTablesAreLoaded.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     Simulator_NotifyNamespaceCollision @ 0x1C00493A0 (Simulator_NotifyNamespaceCollision.c)
+ *     InsertOwnerObjList @ 0x1C004BDF0 (InsertOwnerObjList.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     GetNameSpaceObjectNoLock @ 0x1C004F840 (GetNameSpaceObjectNoLock.c)
+ *     NewNameSpaceObject @ 0x1C004FDF0 (NewNameSpaceObject.c)
+ */
+
 __int64 __fastcall CreateNameSpaceObject(
         __int64 a1,
         unsigned __int8 *a2,

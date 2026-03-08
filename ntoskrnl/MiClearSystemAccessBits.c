@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiClearSystemAccessBits @ 0x14038BBC4
+ * Callers:
+ *     MiPfnRangeIsZero @ 0x14038B144 (MiPfnRangeIsZero.c)
+ * Callees:
+ *     MiInsertLargeTbFlushEntry @ 0x140210194 (MiInsertLargeTbFlushEntry.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __fastcall MiClearSystemAccessBits(unsigned __int64 a1, __int64 a2, int a3)
 {
   signed __int64 v6; // rax

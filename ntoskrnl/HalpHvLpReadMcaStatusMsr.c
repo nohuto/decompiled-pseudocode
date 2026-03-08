@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpHvLpReadMcaStatusMsr @ 0x1405091B4
+ * Callers:
+ *     HalpHvEpReadMsr @ 0x140453390 (HalpHvEpReadMsr.c)
+ * Callees:
+ *     HalpGetCpuVendor @ 0x14037D1B4 (HalpGetCpuVendor.c)
+ *     HalpHvLpReadMultipleMsr @ 0x140509280 (HalpHvLpReadMultipleMsr.c)
+ */
+
 char __fastcall HalpHvLpReadMcaStatusMsr(unsigned int a1, unsigned int a2, __int64 *a3, _QWORD *a4)
 {
   char v8; // di

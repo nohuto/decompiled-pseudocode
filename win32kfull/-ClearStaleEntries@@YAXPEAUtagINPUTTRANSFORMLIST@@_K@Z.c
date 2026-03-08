@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ClearStaleEntries@@YAXPEAUtagINPUTTRANSFORMLIST@@_K@Z @ 0x1C0007E84
+ * Callers:
+ *     ?OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z @ 0x1C0007904 (-OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_i @ 0x1C0007FD4 (WPP_RECORDER_AND_TRACE_SF_i.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 void __fastcall ClearStaleEntries(struct tagINPUTTRANSFORMLIST *a1, __int64 a2, __int64 a3, int a4)
 {
   char *v4; // rdi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of DpiPdoRemovePdo @ 0x1C03A53EC
+ * Callers:
+ *     DpiPdoHandleChildConnectionChange @ 0x1C02009DC (DpiPdoHandleChildConnectionChange.c)
+ *     DpiPdoAddPdo @ 0x1C0201FA0 (DpiPdoAddPdo.c)
+ *     DpiPdoRemovePdoObjects @ 0x1C03A5670 (DpiPdoRemovePdoObjects.c)
+ * Callees:
+ *     ?DmmResetOrginalVideoOutputTechnologies@@YAJQEAXI@Z @ 0x1C03AA360 (-DmmResetOrginalVideoOutputTechnologies@@YAJQEAXI@Z.c)
+ *     MonitorRemovePhysicalMonitor @ 0x1C03BFFD0 (MonitorRemovePhysicalMonitor.c)
+ */
+
 __int64 __fastcall DpiPdoRemovePdo(__int64 a1, __int64 a2, char a3, __int64 a4, PLARGE_INTEGER a5)
 {
   __int64 v5; // rbp

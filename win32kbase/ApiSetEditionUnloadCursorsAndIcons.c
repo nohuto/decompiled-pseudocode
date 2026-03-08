@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionUnloadCursorsAndIcons @ 0x1C00B56A0
+ * Callers:
+ *     CleanupResources @ 0x1C00B38E0 (CleanupResources.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (*ApiSetEditionUnloadCursorsAndIcons())(void)
 {
   char v0; // bl

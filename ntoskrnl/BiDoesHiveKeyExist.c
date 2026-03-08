@@ -1,3 +1,13 @@
+/*
+ * XREFs of BiDoesHiveKeyExist @ 0x140A59FF0
+ * Callers:
+ *     BiAddStoreFromFile @ 0x14082BDE4 (BiAddStoreFromFile.c)
+ * Callees:
+ *     wcschr @ 0x1403D5D90 (wcschr.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     BiOpenKeyNonBcd @ 0x1408310F8 (BiOpenKeyNonBcd.c)
+ */
+
 bool __fastcall BiDoesHiveKeyExist(const WCHAR *a1)
 {
   HANDLE v1; // rbx

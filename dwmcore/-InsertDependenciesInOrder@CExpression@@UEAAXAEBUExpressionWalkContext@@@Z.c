@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InsertDependenciesInOrder@CExpression@@UEAAXAEBUExpressionWalkContext@@@Z @ 0x1800DA880
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InsertInOrder@CBaseExpression@@QEAAXAEBUExpressionWalkContext@@@Z @ 0x1800DA970 (-InsertInOrder@CBaseExpression@@QEAAXAEBUExpressionWalkContext@@@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ */
+
 void __fastcall CExpression::InsertDependenciesInOrder(CExpression *this, const struct ExpressionWalkContext *a2)
 {
   __int64 v2; // rdi

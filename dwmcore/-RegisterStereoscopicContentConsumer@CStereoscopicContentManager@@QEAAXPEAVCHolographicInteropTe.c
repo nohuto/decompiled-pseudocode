@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?RegisterStereoscopicContentConsumer@CStereoscopicContentManager@@QEAAXPEAVCHolographicInteropTexture@@@Z @ 0x1802A3C14
+ * Callers:
+ *     ?AddInteropTexture@CHolographicManager@@QEAA_NPEAVCHolographicInteropTexture@@@Z @ 0x1802A1580 (-AddInteropTexture@CHolographicManager@@QEAA_NPEAVCHolographicInteropTexture@@@Z.c)
+ * Callees:
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034BB4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     ??$_Try_emplace@AEBI$$V@?$map@IUStereoscopicSlateData@@U?$less@I@std@@V?$allocator@U?$pair@$$CBIUStereoscopicSlateData@@@std@@@3@@std@@AEAA?AU?$pair@PEAU?$_Tree_node@U?$pair@$$CBIUStereoscopicSlateData@@@std@@PEAX@std@@_N@1@AEBI@Z @ 0x1802A3320 (--$_Try_emplace@AEBI$$V@-$map@IUStereoscopicSlateData@@U-$less@I@std@@V-$allocator@U-$pair@$$CBI.c)
+ *     ??$_Try_emplace@AEBI$$V@?$map@IUStereoscopicViewData@@U?$less@I@std@@V?$allocator@U?$pair@$$CBIUStereoscopicViewData@@@std@@@3@@std@@AEAA?AU?$pair@PEAU?$_Tree_node@U?$pair@$$CBIUStereoscopicViewData@@@std@@PEAX@std@@_N@1@AEBI@Z @ 0x1802A33F4 (--$_Try_emplace@AEBI$$V@-$map@IUStereoscopicViewData@@U-$less@I@std@@V-$allocator@U-$pair@$$CBIU.c)
+ *     ??0StereoscopicViewData@@QEAA@XZ @ 0x1802A34F8 (--0StereoscopicViewData@@QEAA@XZ.c)
+ */
+
 void __fastcall CStereoscopicContentManager::RegisterStereoscopicContentConsumer(
         CStereoscopicContentManager *this,
         struct CHolographicInteropTexture *a2)

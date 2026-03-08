@@ -1,3 +1,12 @@
+/*
+ * XREFs of DebugQuit @ 0x1C004DDA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ */
+
 __int64 __fastcall DebugQuit(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

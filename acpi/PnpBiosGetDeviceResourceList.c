@@ -1,3 +1,21 @@
+/*
+ * XREFs of PnpBiosGetDeviceResourceList @ 0x1C008ED68
+ * Callers:
+ *     ACPIBusIrpQueryResourceRequirements @ 0x1C0080980 (ACPIBusIrpQueryResourceRequirements.c)
+ *     ACPIBusIrpQueryResources @ 0x1C0080E80 (ACPIBusIrpQueryResources.c)
+ *     ACPIFilterIrpQueryResourceRequirements @ 0x1C0086660 (ACPIFilterIrpQueryResourceRequirements.c)
+ *     PnpBiosUpdateResourceListWithSidebandResources @ 0x1C008FBC8 (PnpBiosUpdateResourceListWithSidebandResources.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     PnpDeviceBiosResourcesToNtResources @ 0x1C003C2C4 (PnpDeviceBiosResourcesToNtResources.c)
+ *     ACPIQueryDeviceBiosNameEx @ 0x1C0043BC4 (ACPIQueryDeviceBiosNameEx.c)
+ *     PnpiValidateSdevResources @ 0x1C0092454 (PnpiValidateSdevResources.c)
+ *     AcpiCheckSecureDevice @ 0x1C0094C08 (AcpiCheckSecureDevice.c)
+ *     AcpiSearchSdevTable @ 0x1C0094DF8 (AcpiSearchSdevTable.c)
+ */
+
 __int64 __fastcall PnpBiosGetDeviceResourceList(ULONG_PTR a1, char a2, _QWORD *a3)
 {
   void *BugCheckParameter4; // rsi

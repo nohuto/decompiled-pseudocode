@@ -1,3 +1,12 @@
+/*
+ * XREFs of TemperatureFromKelvinToCelsius @ 0x1C001B714
+ * Callers:
+ *     LogSenseTemperature @ 0x1C0014D00 (LogSenseTemperature.c)
+ *     NVMeGetLogPageHealthInfoCompletion @ 0x1C0015D20 (NVMeGetLogPageHealthInfoCompletion.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TemperatureFromKelvinToCelsius(unsigned __int16 a1)
 {
   if ( a1 == 0xFFFF )

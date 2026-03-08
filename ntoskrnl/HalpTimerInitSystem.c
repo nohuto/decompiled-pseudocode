@@ -1,3 +1,34 @@
+/*
+ * XREFs of HalpTimerInitSystem @ 0x1403776D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpInterruptModel @ 0x14028EADC (HalpInterruptModel.c)
+ *     HalQueryMaximumProcessorCount @ 0x140375910 (HalQueryMaximumProcessorCount.c)
+ *     HalpTimerPropagateQpcBiasUpdate @ 0x1403773C0 (HalpTimerPropagateQpcBiasUpdate.c)
+ *     HalpTimerInitializeProfiling @ 0x140377960 (HalpTimerInitializeProfiling.c)
+ *     HalpTimerSaveProcessorFrequency @ 0x140377B98 (HalpTimerSaveProcessorFrequency.c)
+ *     HalpInitializePnTimers @ 0x140377DCC (HalpInitializePnTimers.c)
+ *     HalpTimerInitializeClockPn @ 0x140379D5C (HalpTimerInitializeClockPn.c)
+ *     HalpTimerInitPowerManagement @ 0x1403931E8 (HalpTimerInitPowerManagement.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpTimerInitializeEarlyStallSource @ 0x1403A05F0 (HalpTimerInitializeEarlyStallSource.c)
+ *     HalpInitializeTimers @ 0x1403A06E0 (HalpInitializeTimers.c)
+ *     HalpTimerFinalizeAuxiliaryCounter @ 0x1403A6BC0 (HalpTimerFinalizeAuxiliaryCounter.c)
+ *     HalpTimerInitializeClock @ 0x1403AC5D0 (HalpTimerInitializeClock.c)
+ *     HalpTscReserveResources @ 0x1403AC968 (HalpTscReserveResources.c)
+ *     HalpTimerConfigureQpcBypass @ 0x1403ADC54 (HalpTimerConfigureQpcBypass.c)
+ *     HalpTimerSchedulePeriodicQueries @ 0x1403AE654 (HalpTimerSchedulePeriodicQueries.c)
+ *     HalpTimerInitializeHypervisorTimer @ 0x1403B13E0 (HalpTimerInitializeHypervisorTimer.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HalpTscFallbackToPlatformSource @ 0x1405082E4 (HalpTscFallbackToPlatformSource.c)
+ *     HalpTimerInitializeSystemWatchdog @ 0x14050956C (HalpTimerInitializeSystemWatchdog.c)
+ *     HalpTimerMeasureAllProcessorFrequencies @ 0x14050A60C (HalpTimerMeasureAllProcessorFrequencies.c)
+ *     HalpTimerTraceTimingHardware @ 0x14085D8D0 (HalpTimerTraceTimingHardware.c)
+ *     HalpTscReportSyncStatus @ 0x14085DD54 (HalpTscReportSyncStatus.c)
+ *     HalpTimerWatchdogLogReset @ 0x140861838 (HalpTimerWatchdogLogReset.c)
+ */
+
 __int64 __fastcall HalpTimerInitSystem(int a1, __int64 a2, __int64 a3)
 {
   unsigned int inited; // ebx

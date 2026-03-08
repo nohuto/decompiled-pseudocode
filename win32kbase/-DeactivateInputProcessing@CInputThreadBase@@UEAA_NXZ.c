@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?DeactivateInputProcessing@CInputThreadBase@@UEAA_NXZ @ 0x1C009AB20
+ * Callers:
+ *     ?DeactivateInputProcessing@CKernelSensorThread@@UEAA_NXZ @ 0x1C0099B50 (-DeactivateInputProcessing@CKernelSensorThread@@UEAA_NXZ.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     ?_CalledOnInputThread@CInputThreadBase@@IEBA_NXZ @ 0x1C007CD2C (-_CalledOnInputThread@CInputThreadBase@@IEBA_NXZ.c)
+ *     ?IsEmpty@InputThreadState@CInputThreadBase@@QEBA_NXZ @ 0x1C009AD00 (-IsEmpty@InputThreadState@CInputThreadBase@@QEBA_NXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 char __fastcall CInputThreadBase::DeactivateInputProcessing(CInputThreadBase *this)
 {
   char v2; // di

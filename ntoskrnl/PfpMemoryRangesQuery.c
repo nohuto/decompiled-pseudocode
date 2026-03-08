@@ -1,3 +1,13 @@
+/*
+ * XREFs of PfpMemoryRangesQuery @ 0x140392CCC
+ * Callers:
+ *     PfQuerySuperfetchInformation @ 0x1406AE494 (PfQuerySuperfetchInformation.c)
+ * Callees:
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     MmGetPhysicalMemoryRangesEx2 @ 0x1408362B0 (MmGetPhysicalMemoryRangesEx2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfpMemoryRangesQuery(__int64 a1, char a2, _DWORD *a3)
 {
   void *v5; // rdi

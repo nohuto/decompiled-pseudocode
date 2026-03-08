@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CProcessAttributionReporter@@AEAA@XZ @ 0x1801CF284
+ * Callers:
+ *     ?RunCompositionThread@CConnection@@AEAAJXZ @ 0x1800D5BCC (-RunCompositionThread@CConnection@@AEAAJXZ.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CProcessAttributionReporter::~CProcessAttributionReporter(CProcessAttributionReporter *this)
 {
   void (__fastcall ***v2)(_QWORD, __int64); // rcx

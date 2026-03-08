@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TryMapAllFileViews@UmfdClientSideFileViewMapper@@AEAAIXZ @ 0x1C02B8A34
+ * Callers:
+ *     ??0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z @ 0x1C02A0ACC (--0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z.c)
+ * Callees:
+ *     EngMapFontFileFDInternal @ 0x1C0115154 (EngMapFontFileFDInternal.c)
+ */
+
 __int64 __fastcall UmfdClientSideFileViewMapper::TryMapAllFileViews(UmfdClientSideFileViewMapper *this)
 {
   __int64 v1; // rax

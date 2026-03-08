@@ -1,3 +1,11 @@
+/*
+ * XREFs of _tlgCreate1Sz_char @ 0x1C0088E60
+ * Callers:
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C0088914 (MicrosoftTelemetryAssertTriggeredWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall tlgCreate1Sz_char(__int64 a1, const CHAR *a2)
 {
   __int64 v2; // rax

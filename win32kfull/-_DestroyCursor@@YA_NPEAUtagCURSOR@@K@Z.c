@@ -1,3 +1,27 @@
+/*
+ * XREFs of ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C0041464
+ * Callers:
+ *     DestroyClassSmIcon @ 0x1C00343D0 (DestroyClassSmIcon.c)
+ *     NtUserDestroyCursor @ 0x1C003FAC0 (NtUserDestroyCursor.c)
+ *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C0041464 (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
+ *     ?DestroyAniIcon@@YAHPEAUtagACON@@@Z @ 0x1C00E6CB4 (-DestroyAniIcon@@YAHPEAUtagACON@@@Z.c)
+ *     DestroyUnlockedCursor @ 0x1C00F1640 (DestroyUnlockedCursor.c)
+ *     ?xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z @ 0x1C0107A14 (-xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z.c)
+ *     ?xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z @ 0x1C0108704 (-xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z.c)
+ *     ?zzzSetSystemImage@@YAXPEAUtagCURSOR@@0@Z @ 0x1C0108808 (-zzzSetSystemImage@@YAXPEAUtagCURSOR@@0@Z.c)
+ *     DestroyWindowSmIcon @ 0x1C012F204 (DestroyWindowSmIcon.c)
+ *     ?_CleanupUnneededSystemCursorSizes@@YAXI@Z @ 0x1C0141A3E (-_CleanupUnneededSystemCursorSizes@@YAXI@Z.c)
+ *     ?_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z @ 0x1C01C1D64 (-_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C0041464 (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C0044080 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     ?CleanupCursorObject@@YAXPEAUtagCURSOR@@@Z @ 0x1C0044690 (-CleanupCursorObject@@YAXPEAUtagCURSOR@@@Z.c)
+ *     ?UnlinkCursor@@YAXPEAUtagCURSOR@@@Z @ 0x1C00E1474 (-UnlinkCursor@@YAXPEAUtagCURSOR@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?DestroyEmptyCursorObject@@YAXPEAUtagCURSOR@@@Z @ 0x1C01C1C90 (-DestroyEmptyCursorObject@@YAXPEAUtagCURSOR@@@Z.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 bool __fastcall _DestroyCursor(struct tagCURSOR *a1, unsigned int a2)
 {

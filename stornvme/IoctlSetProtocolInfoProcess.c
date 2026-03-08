@@ -1,3 +1,12 @@
+/*
+ * XREFs of IoctlSetProtocolInfoProcess @ 0x1C0013FD8
+ * Callers:
+ *     IoctlToNVMe @ 0x1C0014800 (IoctlToNVMe.c)
+ * Callees:
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     SetProtocolInfoFeatureData @ 0x1C001B16C (SetProtocolInfoFeatureData.c)
+ */
+
 __int64 __fastcall IoctlSetProtocolInfoProcess(__int64 a1, __int64 a2)
 {
   _DWORD *SrbDataBuffer; // rdx

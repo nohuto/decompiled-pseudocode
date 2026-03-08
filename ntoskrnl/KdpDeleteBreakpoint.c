@@ -1,3 +1,14 @@
+/*
+ * XREFs of KdpDeleteBreakpoint @ 0x140AAEB50
+ * Callers:
+ *     KdpSendWaitContinue @ 0x140AAD824 (KdpSendWaitContinue.c)
+ *     KdpDeleteBreakpointRange @ 0x140AADCBC (KdpDeleteBreakpointRange.c)
+ *     KdpRestoreBreakPointEx @ 0x140AB1530 (KdpRestoreBreakPointEx.c)
+ *     KdpWriteBreakPointEx @ 0x140AB1D94 (KdpWriteBreakPointEx.c)
+ * Callees:
+ *     KdpLowWriteContent @ 0x140AB29EC (KdpLowWriteContent.c)
+ */
+
 char __fastcall KdpDeleteBreakpoint(int a1)
 {
   __int64 v1; // rdx

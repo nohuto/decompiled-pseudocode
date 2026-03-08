@@ -1,3 +1,13 @@
+/*
+ * XREFs of UnregisterDeviceClassNotifications @ 0x1C00F68FC
+ * Callers:
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C0078068 (-InitiateWin32kCleanup@@YAHXZ.c)
+ *     xxxRemoteDisconnect @ 0x1C00F7034 (xxxRemoteDisconnect.c)
+ *     xxxRemoteReconnect @ 0x1C01267DC (xxxRemoteReconnect.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 UnregisterDeviceClassNotifications()
 {
   PVOID v0; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMPbuttonToCursor @ 0x1C01B903C
+ * Callers:
+ *     RIMGetDeviceButtons @ 0x1C01B5D38 (RIMGetDeviceButtons.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RIMPbuttonToCursor(__int16 a1)
 {
   __int64 result; // rax

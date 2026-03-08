@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpMceInit @ 0x140A87B68
+ * Callers:
+ *     HalpInitializeMce @ 0x140A87FF0 (HalpInitializeMce.c)
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402ABED0 (KeSetSystemGroupAffinityThread.c)
+ *     HalpHvInitMcaPcrContext @ 0x14037CEA4 (HalpHvInitMcaPcrContext.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HalpHvInitMcaStatusMsrCache @ 0x140509010 (HalpHvInitMcaStatusMsrCache.c)
+ *     HalpHvSetMachineCheckHandlerState @ 0x140509C30 (HalpHvSetMachineCheckHandlerState.c)
+ *     HalpMceInitProcessor @ 0x140A87C98 (HalpMceInitProcessor.c)
+ */
+
 void __fastcall HalpMceInit(__int64 a1)
 {
   ULONG v2; // edi

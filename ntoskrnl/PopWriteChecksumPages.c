@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopWriteChecksumPages @ 0x140AA23E0
+ * Callers:
+ *     PopSaveHiberContext @ 0x140AA1810 (PopSaveHiberContext.c)
+ * Callees:
+ *     PopWriteHiberPages @ 0x140AA2874 (PopWriteHiberPages.c)
+ */
+
 ULONG_PTR __fastcall PopWriteChecksumPages(_QWORD *a1)
 {
   __int64 v1; // r11

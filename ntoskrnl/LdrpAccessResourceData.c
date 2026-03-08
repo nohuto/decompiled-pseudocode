@@ -1,3 +1,16 @@
+/*
+ * XREFs of LdrpAccessResourceData @ 0x1407E987C
+ * Callers:
+ *     RtlFindMessage @ 0x1407E97C0 (RtlFindMessage.c)
+ *     LdrAccessResource @ 0x140810240 (LdrAccessResource.c)
+ *     RtlLoadString @ 0x1409B7450 (RtlLoadString.c)
+ * Callees:
+ *     LdrpGetAlternateResourceModuleHandleEx @ 0x14035C910 (LdrpGetAlternateResourceModuleHandleEx.c)
+ *     LdrpGetImageSize @ 0x14035D8E8 (LdrpGetImageSize.c)
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x1407EA480 (LdrpAccessResourceDataNoMultipleLanguage.c)
+ */
+
 __int64 __fastcall LdrpAccessResourceData(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned __int64 v6; // rbx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpKeyEnumStackEntryCleanup @ 0x140A210E4
+ * Callers:
+ *     CmpKeyEnumStackCleanup @ 0x140A20CD0 (CmpKeyEnumStackCleanup.c)
+ *     CmpKeyEnumStackReset @ 0x140A2152C (CmpKeyEnumStackReset.c)
+ * Callees:
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ */
+
 __int64 __fastcall CmpKeyEnumStackEntryCleanup(__int64 *a1)
 {
   unsigned int *v2; // rdx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetColorValue@DataSourceProxy@@MEAAJIMMMM@Z @ 0x1801E04F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$SetProperty@U_D3DCOLORVALUE@@@DataSourcePropertySet@@QEAAJIPEBU_D3DCOLORVALUE@@W4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1801DEE00 (--$SetProperty@U_D3DCOLORVALUE@@@DataSourcePropertySet@@QEAAJIPEBU_D3DCOLORVALUE@@W4DCOMPOSITION.c)
+ *     ?CheckAndReportError@DataSourceProxy@@AEAAJJ@Z @ 0x1801DF6BC (-CheckAndReportError@DataSourceProxy@@AEAAJJ@Z.c)
+ *     ?InvalidateReadersAnimationSources@DataSourceProxy@@AEAAXI@Z @ 0x1801DFD5C (-InvalidateReadersAnimationSources@DataSourceProxy@@AEAAXI@Z.c)
+ */
+
 __int64 __fastcall DataSourceProxy::SetColorValue(
         DataSourceProxy *this,
         int a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AlphaDivide_128bppPABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802BA300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall AlphaDivide_128bppPABGR(const struct PipelineParams *a1, const struct ScanOpParams *a2)
 {
   int v2; // eax

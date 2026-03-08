@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?UpdateInputTarget@InteractiveControlDevice@@QEAAPEAUtagWND@@I@Z @ 0x1C02495D4
+ * Callers:
+ *     ?FlushBufferedInput@InteractiveControlDevice@@QEAAXI@Z @ 0x1C0248350 (-FlushBufferedInput@InteractiveControlDevice@@QEAAXI@Z.c)
+ *     ?QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z @ 0x1C0248B64 (-QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z.c)
+ * Callees:
+ *     ?SetDeviceFocus@InteractiveControlManager@@QEAAJKW4tagINTERACTIVECTRL_PROMOTION_TYPE@@PEAUtagWND@@@Z @ 0x1C00151C8 (-SetDeviceFocus@InteractiveControlManager@@QEAAJKW4tagINTERACTIVECTRL_PROMOTION_TYPE@@PEAUtagWND.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C007A05C (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     ?ClearBackgroundAccessors@InteractiveControlManager@@QEAAJK@Z @ 0x1C02431E0 (-ClearBackgroundAccessors@InteractiveControlManager@@QEAAJK@Z.c)
+ *     ?ClearDeviceFocus@InteractiveControlManager@@QEAAJK@Z @ 0x1C02432D8 (-ClearDeviceFocus@InteractiveControlManager@@QEAAJK@Z.c)
+ */
+
 struct tagWND *__fastcall InteractiveControlDevice::UpdateInputTarget(InteractiveControlDevice *this, int a2)
 {
   __int64 v3; // rbx

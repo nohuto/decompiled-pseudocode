@@ -1,3 +1,14 @@
+/*
+ * XREFs of CreateField @ 0x1C0050200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     CreateXField @ 0x1C0050374 (CreateXField.c)
+ */
+
 __int64 __fastcall CreateField(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8

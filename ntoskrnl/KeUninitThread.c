@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeUninitThread @ 0x14079B04C
+ * Callers:
+ *     KiFreeProcessorStateInitializationParameters @ 0x140569A34 (KiFreeProcessorStateInitializationParameters.c)
+ *     PspInsertThread @ 0x1406B0F50 (PspInsertThread.c)
+ * Callees:
+ *     MmDeleteKernelStackEx @ 0x140318070 (MmDeleteKernelStackEx.c)
+ *     MmDeleteKernelShadowStack @ 0x140643030 (MmDeleteKernelShadowStack.c)
+ */
+
 signed __int64 __fastcall KeUninitThread(__int64 a1)
 {
   signed __int64 result; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ViPtRaiseIrqlSafe @ 0x1405CFFD4
+ * Callers:
+ *     VfPtAddStackInfoIfNotExist @ 0x140ADB5A0 (VfPtAddStackInfoIfNotExist.c)
+ *     VfPtGenerateTraceInformation @ 0x140ADB7D8 (VfPtGenerateTraceInformation.c)
+ *     VfPtProcessAllocPoolInfo @ 0x140ADBA18 (VfPtProcessAllocPoolInfo.c)
+ *     VfPtProcessFreePoolInfo @ 0x140ADBAD0 (VfPtProcessFreePoolInfo.c)
+ *     ViPtDeleteAvlTrees @ 0x140ADBBF0 (ViPtDeleteAvlTrees.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ViPtRaiseIrqlSafe(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // r9

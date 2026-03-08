@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiUnmapImageInSystemSpace @ 0x1406A556C
+ * Callers:
+ *     MiSetPagesModified @ 0x1406264CC (MiSetPagesModified.c)
+ *     MiValidateSectionCreate @ 0x14069F890 (MiValidateSectionCreate.c)
+ *     MiRelocateImage @ 0x1407F2760 (MiRelocateImage.c)
+ *     MiParseComAndCetHeaders @ 0x1407F4604 (MiParseComAndCetHeaders.c)
+ *     MiGetSystemAddressForImage @ 0x1407F6010 (MiGetSystemAddressForImage.c)
+ *     MiApplyImageHotPatchRequest @ 0x140A32920 (MiApplyImageHotPatchRequest.c)
+ *     MiOpenHotPatchFile @ 0x140A376D4 (MiOpenHotPatchFile.c)
+ *     MiCreateSessionDriverProtos @ 0x140A4316C (MiCreateSessionDriverProtos.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MiRemoveFromSystemSpace @ 0x14020E5C8 (MiRemoveFromSystemSpace.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x1406238BC (MiReturnCrossPartitionControlAreaCharges.c)
+ *     MiUnmapViewOfSection @ 0x1406A2570 (MiUnmapViewOfSection.c)
+ */
+
 void __fastcall MiUnmapImageInSystemSpace(__int64 a1)
 {
   unsigned __int64 v1; // rax

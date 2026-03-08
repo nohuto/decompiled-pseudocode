@@ -1,3 +1,19 @@
+/*
+ * XREFs of FsRtlSetKernelEaFile @ 0x140786AA0
+ * Callers:
+ *     SPCallServerHandleFileIntegrityUpdate @ 0x1407FA154 (SPCallServerHandleFileIntegrityUpdate.c)
+ * Callees:
+ *     IoCancelIrp @ 0x1402E4F50 (IoCancelIrp.c)
+ *     IoFreeIrp @ 0x14030EC00 (IoFreeIrp.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     IoAllocateIrpEx @ 0x140352E90 (IoAllocateIrpEx.c)
+ *     FsRtlCancellableWaitForMultipleObjects @ 0x1407D7750 (FsRtlCancellableWaitForMultipleObjects.c)
+ *     FsRtlpFreeMdlChain @ 0x14093BF98 (FsRtlpFreeMdlChain.c)
+ */
+
 __int64 __fastcall FsRtlSetKernelEaFile(PFILE_OBJECT FileObject, void *a2, int a3)
 {
   IRP *v6; // rbx

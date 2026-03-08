@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserUpdateWindowInputSinkHints @ 0x1C00E65B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserUpdateWindowInputSinkHints(__int64 a1, unsigned int a2)
 {
   __int64 v3; // rbx

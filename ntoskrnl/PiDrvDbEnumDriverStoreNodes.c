@@ -1,3 +1,17 @@
+/*
+ * XREFs of PiDrvDbEnumDriverStoreNodes @ 0x14081DAA0
+ * Callers:
+ *     PiDrvDbInit @ 0x14081C014 (PiDrvDbInit.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x140412E10 (ZwOpenDirectoryObject.c)
+ *     ZwQueryDirectoryObject @ 0x140414C90 (ZwQueryDirectoryObject.c)
+ *     PiDrvDbRegisterNodeCallback @ 0x140860D8C (PiDrvDbRegisterNodeCallback.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDrvDbEnumDriverStoreNodes(__int64 a1, __int64 a2)
 {
   _QWORD *Pool2; // rdi

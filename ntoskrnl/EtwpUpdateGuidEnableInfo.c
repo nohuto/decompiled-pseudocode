@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpUpdateGuidEnableInfo @ 0x14068FA30
+ * Callers:
+ *     EtwpEnableGuid @ 0x14068EEBC (EtwpEnableGuid.c)
+ * Callees:
+ *     EtwpGetEnableInfoIndex @ 0x1402068FC (EtwpGetEnableInfoIndex.c)
+ *     EtwpUpdateGuidFilterData @ 0x14068FCB8 (EtwpUpdateGuidFilterData.c)
+ *     EtwpReferenceGuidEntry @ 0x140695054 (EtwpReferenceGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x140695094 (EtwpUnreferenceGuidEntry.c)
+ */
+
 __int64 __fastcall EtwpUpdateGuidEnableInfo(
         ULONG_PTR BugCheckParameter2,
         __int64 a2,

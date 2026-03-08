@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhReleaseHubNumber @ 0x1C0043EA0
+ * Callers:
+ *     UsbhAddDevice @ 0x1C0041E10 (UsbhAddDevice.c)
+ *     UsbhFdoPnp_RemoveDevice @ 0x1C0043010 (UsbhFdoPnp_RemoveDevice.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ */
+
 LONG __fastcall UsbhReleaseHubNumber(__int64 a1)
 {
   _DWORD *v1; // rbx

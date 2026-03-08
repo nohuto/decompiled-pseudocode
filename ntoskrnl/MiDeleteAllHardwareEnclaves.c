@@ -1,3 +1,26 @@
+/*
+ * XREFs of MiDeleteAllHardwareEnclaves @ 0x140AAA0D0
+ * Callers:
+ *     KeRebootSystemForRecovery @ 0x140577F2C (KeRebootSystemForRecovery.c)
+ *     MiShutdownSystem @ 0x140AA8A00 (MiShutdownSystem.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeRemoveEnclavePage @ 0x14056E0D0 (KeRemoveEnclavePage.c)
+ *     MiDeleteEnclavePages @ 0x140AAA2F8 (MiDeleteEnclavePages.c)
+ */
+
 char MiDeleteAllHardwareEnclaves()
 {
   struct _KTHREAD *CurrentThread; // rdi

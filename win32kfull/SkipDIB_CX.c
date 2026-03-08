@@ -1,3 +1,11 @@
+/*
+ * XREFs of SkipDIB_CX @ 0x1C0267470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall SkipDIB_CX(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
 {
   unsigned __int16 *v5; // r10

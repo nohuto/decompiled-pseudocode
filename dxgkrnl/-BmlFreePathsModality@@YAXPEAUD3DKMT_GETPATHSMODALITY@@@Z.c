@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?BmlFreePathsModality@@YAXPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C01BE8E8
+ * Callers:
+ *     DxgkDisplayConfigDeviceInfo @ 0x1C01AB2A0 (DxgkDisplayConfigDeviceInfo.c)
+ *     ??1CCD_TOPOLOGY@@QEAA@XZ @ 0x1C01BE894 (--1CCD_TOPOLOGY@@QEAA@XZ.c)
+ *     DxgkFreePathsModality @ 0x1C01BF7F0 (DxgkFreePathsModality.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 void __fastcall BmlFreePathsModality(struct D3DKMT_GETPATHSMODALITY *a1)
 {
   bool v2; // zf

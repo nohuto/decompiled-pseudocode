@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlRemoveUnicodePrefix @ 0x140752010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlDelete @ 0x1402C2940 (RtlDelete.c)
+ */
+
 void __stdcall RtlRemoveUnicodePrefix(PUNICODE_PREFIX_TABLE PrefixTable, PUNICODE_PREFIX_TABLE_ENTRY PrefixTableEntry)
 {
   struct _UNICODE_PREFIX_TABLE_ENTRY *CaseMatch; // r8

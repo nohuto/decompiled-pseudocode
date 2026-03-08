@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserRegisterShellPTPListener @ 0x1C00F1C40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     IsShellProcess @ 0x1C009C278 (IsShellProcess.c)
+ *     _RegisterShellPTPListener @ 0x1C00F1D18 (_RegisterShellPTPListener.c)
+ */
+
 __int64 __fastcall NtUserRegisterShellPTPListener(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rax

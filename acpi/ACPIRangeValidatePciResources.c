@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIRangeValidatePciResources @ 0x1C003B3A4
+ * Callers:
+ *     ACPIBusIrpQueryResourceRequirements @ 0x1C0080980 (ACPIBusIrpQueryResourceRequirements.c)
+ *     ACPIBusIrpQueryResources @ 0x1C0080E80 (ACPIBusIrpQueryResources.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     ACPIIgnoreResourceMapValidation @ 0x1C003AF14 (ACPIIgnoreResourceMapValidation.c)
+ *     ACPIRangeValidatePciMemoryResource @ 0x1C003B0EC (ACPIRangeValidatePciMemoryResource.c)
+ *     WPP_RECORDER_SF_dDDL @ 0x1C003B734 (WPP_RECORDER_SF_dDDL.c)
+ *     WPP_RECORDER_SF_diiii @ 0x1C003BC58 (WPP_RECORDER_SF_diiii.c)
+ */
+
 void __fastcall ACPIRangeValidatePciResources(
         ULONG_PTR BugCheckParameter2,
         ULONG_PTR BugCheckParameter3,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhSendMsOs20AltEnumCommand @ 0x1C0033AEC
+ * Callers:
+ *     UsbhSetupDevice @ 0x1C0039728 (UsbhSetupDevice.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhSyncSendCommandToDevice @ 0x1C001A250 (UsbhSyncSendCommandToDevice.c)
+ */
+
 __int64 __fastcall UsbhSendMsOs20AltEnumCommand(__int64 a1, __int64 a2, __int64 a3)
 {
   _DWORD *v6; // rsi

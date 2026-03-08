@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiDispatchCallout @ 0x14066AE40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeExitRetpoline @ 0x1402E3E6C (KeExitRetpoline.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KiDispatchCallout(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
 {
   __int64 v6; // r9

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIWakeEmptyRequestQueue @ 0x1C00451C0
+ * Callers:
+ *     ACPIDispatchIrp @ 0x1C0001010 (ACPIDispatchIrp.c)
+ * Callees:
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C000518C (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     ACPIWakeCompleteRequestQueue @ 0x1C0044B4C (ACPIWakeCompleteRequestQueue.c)
+ */
+
 __int64 __fastcall ACPIWakeEmptyRequestQueue(__int64 a1)
 {
   _QWORD *v3[3]; // [rsp+20h] [rbp-18h] BYREF

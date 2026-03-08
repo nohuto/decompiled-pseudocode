@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z @ 0x1C0026330
+ * Callers:
+ *     ?ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z @ 0x1C0025E8C (-ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z.c)
+ * Callees:
+ *     ?GetRootOwner@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0022344 (-GetRootOwner@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     CalcForegroundInsertAfter @ 0x1C0041090 (CalcForegroundInsertAfter.c)
+ *     GetLastTopMostWindow @ 0x1C0044610 (GetLastTopMostWindow.c)
+ *     ?IsLastTopMostWindow@@YAHPEBUtagWND@@@Z @ 0x1C00F4E38 (-IsLastTopMostWindow@@YAHPEBUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall TrackBackground(
         struct tagWINDOWPOS *a1,
         struct tagWND *a2,

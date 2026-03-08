@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpKeyEnumStackCleanup @ 0x140A20CD0
+ * Callers:
+ *     CmpEnumerateLayeredKey @ 0x140A13774 (CmpEnumerateLayeredKey.c)
+ *     CmpSubtreeEnumeratorCleanup @ 0x140A1D970 (CmpSubtreeEnumeratorCleanup.c)
+ *     CmpGetSubKeyCountForKeyNodeStack @ 0x140A20904 (CmpGetSubKeyCountForKeyNodeStack.c)
+ *     CmpPartialPromoteSubkeys @ 0x140A236F0 (CmpPartialPromoteSubkeys.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     CmpCleanupKeyNodeStack @ 0x140783738 (CmpCleanupKeyNodeStack.c)
+ *     CmpKeyEnumStackEntryCleanup @ 0x140A210E4 (CmpKeyEnumStackEntryCleanup.c)
+ *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x140A213F8 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
+ */
+
 void __fastcall CmpKeyEnumStackCleanup(__int64 a1)
 {
   __int16 i; // di

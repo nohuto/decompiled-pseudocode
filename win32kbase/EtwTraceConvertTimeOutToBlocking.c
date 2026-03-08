@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceConvertTimeOutToBlocking @ 0x1C0161CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetCallbackCount@@YACXZ @ 0x1C00EDBA8 (-GetCallbackCount@@YACXZ.c)
+ *     McTemplateK0c_EtwWriteTransfer @ 0x1C0164C50 (McTemplateK0c_EtwWriteTransfer.c)
+ */
+
 void EtwTraceConvertTimeOutToBlocking()
 {
   __int64 v0; // r9

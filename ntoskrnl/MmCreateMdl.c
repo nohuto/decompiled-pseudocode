@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmCreateMdl @ 0x1402CCD20
+ * Callers:
+ *     MiPfAllocateMdls @ 0x14075A230 (MiPfAllocateMdls.c)
+ *     SmKmStoreFileWriteHeader @ 0x1409D7778 (SmKmStoreFileWriteHeader.c)
+ *     MiLockRetpolineStubs @ 0x140B967E0 (MiLockRetpolineStubs.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ */
+
 PMDL __stdcall MmCreateMdl(PMDL MemoryDescriptorList, PVOID Base, SIZE_T Length)
 {
   struct _MDL *Pool; // r9

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?sizeSave@RGNOBJ@@QEAAKXZ @ 0x1C0184150
+ * Callers:
+ *     ?GrepGetRegionPtrData@@YAKPEAVREGION@@KPEAU_RGNDATA@@@Z @ 0x1C00EF31A (-GrepGetRegionPtrData@@YAKPEAVREGION@@KPEAU_RGNDATA@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RGNOBJ::sizeSave(RGNOBJ *this)
 {
   int v1; // r8d

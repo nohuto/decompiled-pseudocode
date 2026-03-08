@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDeviceTexture@CDxHandleBitmapRealization@@$4PPPPPPPM@A@EAAJAEBVRenderTargetInfo@@PEAPEAVIDeviceTexture@@@Z @ 0x18011E170
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CDxHandleBitmapRealization::GetDeviceTexture(
         __int64 a1,
         const struct RenderTargetInfo *a2,

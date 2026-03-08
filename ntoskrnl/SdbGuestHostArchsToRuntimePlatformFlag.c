@@ -1,3 +1,12 @@
+/*
+ * XREFs of SdbGuestHostArchsToRuntimePlatformFlag @ 0x140A4F678
+ * Callers:
+ *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x140A4F724 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslEnvGetProcessWowInfo @ 0x140A54488 (AslEnvGetProcessWowInfo.c)
+ */
+
 __int64 __fastcall SdbGuestHostArchsToRuntimePlatformFlag(__int16 a1, __int16 *a2)
 {
   __int64 v3; // rbx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of GreCancelSynchronizedWindowResize @ 0x1C0269DDC
+ * Callers:
+ *     ?ResizeTimerFunc@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01EB7C0 (-ResizeTimerFunc@@YAXPEAUtagWND@@I_K_J@Z.c)
+ * Callees:
+ *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C00296D4 (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
+ *     IsDwmActive @ 0x1C002CF30 (IsDwmActive.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z @ 0x1C026821C (-CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z.c)
+ */
+
 void __fastcall GreCancelSynchronizedWindowResize(Gre::Base *a1)
 {
   struct Gre::Base::SESSION_GLOBALS *v2; // rdi

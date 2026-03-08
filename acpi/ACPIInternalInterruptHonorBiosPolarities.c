@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIInternalInterruptHonorBiosPolarities @ 0x1C002E828
+ * Callers:
+ *     ACPIInitialize @ 0x1C00A8F78 (ACPIInitialize.c)
+ * Callees:
+ *     ACPIGetTableVersion @ 0x1C0031D50 (ACPIGetTableVersion.c)
+ */
+
 bool ACPIInternalInterruptHonorBiosPolarities()
 {
   unsigned int v1; // [rsp+30h] [rbp+8h] BYREF

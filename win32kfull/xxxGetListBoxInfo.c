@@ -1,3 +1,12 @@
+/*
+ * XREFs of xxxGetListBoxInfo @ 0x1C0233904
+ * Callers:
+ *     NtUserGetListBoxInfo @ 0x1C01D3350 (NtUserGetListBoxInfo.c)
+ * Callees:
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ *     unsafe_cast_fnid_or_class_to_PLBWND_LISTBOX @ 0x1C01BC510 (unsafe_cast_fnid_or_class_to_PLBWND_LISTBOX.c)
+ */
+
 __int64 __fastcall xxxGetListBoxInfo(struct tagWND *a1)
 {
   __int64 v2; // rbx

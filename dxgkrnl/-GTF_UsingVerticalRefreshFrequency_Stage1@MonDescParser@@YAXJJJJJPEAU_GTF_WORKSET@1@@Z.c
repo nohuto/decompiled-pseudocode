@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GTF_UsingVerticalRefreshFrequency_Stage1@MonDescParser@@YAXJJJJJPEAU_GTF_WORKSET@1@@Z @ 0x1C001E8AC
+ * Callers:
+ *     ?GTF_GetVideoModeDescriptor@@YAJGGKKEPEAU_VideoModeDescriptor@@@Z @ 0x1C001E4F4 (-GTF_GetVideoModeDescriptor@@YAJGGKKEPEAU_VideoModeDescriptor@@@Z.c)
+ * Callees:
+ *     ?GTF_InitWorkset@MonDescParser@@YAXPEAU_GTF_WORKSET@1@@Z @ 0x1C001EB2C (-GTF_InitWorkset@MonDescParser@@YAXPEAU_GTF_WORKSET@1@@Z.c)
+ */
+
 void __fastcall MonDescParser::GTF_UsingVerticalRefreshFrequency_Stage1(
         MonDescParser *this,
         struct MonDescParser::_GTF_WORKSET *a2,

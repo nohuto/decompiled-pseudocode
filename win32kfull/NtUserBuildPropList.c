@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserBuildPropList @ 0x1C0102310
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0EnterLeaveCritByVelocity@@QEAA@W4CritOptType@@W4HandleToObjILCheck@@@Z @ 0x1C00399AC (--0EnterLeaveCritByVelocity@@QEAA@W4CritOptType@@W4HandleToObjILCheck@@@Z.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     _BuildPropList @ 0x1C01023EC (_BuildPropList.c)
+ */
+
 __int64 __fastcall NtUserBuildPropList(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
   __int64 v8; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CRecalcState@@UEAA@XZ @ 0x1C00FC3F0
+ * Callers:
+ *     ??_GCRecalcState@@UEAAPEAXI@Z @ 0x1C00FC3B0 (--_GCRecalcState@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CRecalcState::~CRecalcState(CRecalcState *this)
 {
   void *v2; // rcx

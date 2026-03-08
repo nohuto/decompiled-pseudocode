@@ -1,3 +1,12 @@
+/*
+ * XREFs of MNDrawEdge @ 0x1C0237488
+ * Callers:
+ *     xxxMenuWindowProc @ 0x1C021D3D0 (xxxMenuWindowProc.c)
+ *     xxxMNDrawFullNC @ 0x1C0237FB4 (xxxMNDrawFullNC.c)
+ * Callees:
+ *     ?DrawOutline@@YAXPEAUHDC__@@HHHHHPEAUHBRUSH__@@@Z @ 0x1C0236338 (-DrawOutline@@YAXPEAUHDC__@@HHHHHPEAUHBRUSH__@@@Z.c)
+ */
+
 void __fastcall MNDrawEdge(__int64 a1, HDC a2, _DWORD *a3, int a4)
 {
   int v7; // esi

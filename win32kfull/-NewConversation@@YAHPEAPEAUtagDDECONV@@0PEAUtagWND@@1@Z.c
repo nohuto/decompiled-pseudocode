@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NewConversation@@YAHPEAPEAUtagDDECONV@@0PEAUtagWND@@1@Z @ 0x1C01FAD3C
+ * Callers:
+ *     xxxDDETrackSendHook @ 0x1C01FDFB0 (xxxDDETrackSendHook.c)
+ * Callees:
+ *     ?AddConvProp@@YAHPEAUtagWND@@0KPEAUtagDDECONV@@1@Z @ 0x1C01FA810 (-AddConvProp@@YAHPEAUtagWND@@0KPEAUtagDDECONV@@1@Z.c)
+ */
+
 __int64 __fastcall NewConversation(
         struct tagDDECONV **a1,
         struct tagDDECONV **a2,

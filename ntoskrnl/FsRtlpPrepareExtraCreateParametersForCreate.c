@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlpPrepareExtraCreateParametersForCreate @ 0x14070DB70
+ * Callers:
+ *     IoCreateFileEx @ 0x14070DA20 (IoCreateFileEx.c)
+ *     IoQueryInformationByName @ 0x14076D210 (IoQueryInformationByName.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall FsRtlpPrepareExtraCreateParametersForCreate(ULONG_PTR BugCheckParameter4)
 {
   int v1; // edx

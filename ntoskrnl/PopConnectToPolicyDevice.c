@@ -1,3 +1,21 @@
+/*
+ * XREFs of PopConnectToPolicyDevice @ 0x14084A820
+ * Callers:
+ *     PopNotifyPolicyDevice @ 0x14084A7A0 (PopNotifyPolicyDevice.c)
+ *     PopPolicyDeviceTargetChange @ 0x1409919D0 (PopPolicyDeviceTargetChange.c)
+ * Callees:
+ *     IoAllocateIrp @ 0x140208CF0 (IoAllocateIrp.c)
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     IoFreeIrp @ 0x14030EC00 (IoFreeIrp.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     RtlCompareUnicodeString @ 0x1406EA3B0 (RtlCompareUnicodeString.c)
+ *     IoRegisterPlugPlayNotification @ 0x1406F4F30 (IoRegisterPlugPlayNotification.c)
+ *     PopGetPolicyDeviceObject @ 0x14084A990 (PopGetPolicyDeviceObject.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PopConnectToPolicyDevice(int a1, const UNICODE_STRING *a2)
 {
   unsigned int *v4; // rsi

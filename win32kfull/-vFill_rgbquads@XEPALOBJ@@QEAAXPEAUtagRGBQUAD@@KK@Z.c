@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vFill_rgbquads@XEPALOBJ@@QEAAXPEAUtagRGBQUAD@@KK@Z @ 0x1C00CF250
+ * Callers:
+ *     GreGetDIBColorTable @ 0x1C00CF020 (GreGetDIBColorTable.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall XEPALOBJ::vFill_rgbquads(XEPALOBJ *this, struct tagRGBQUAD *a2, unsigned int a3, int a4)
 {
   __int64 v4; // r11

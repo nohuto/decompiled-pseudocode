@@ -1,3 +1,21 @@
+/*
+ * XREFs of ExpTimerDpcRoutine @ 0x1402FE790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KeSetCoalescableTimer @ 0x140250440 (KeSetCoalescableTimer.c)
+ *     KeInsertQueueApc @ 0x14027DBF0 (KeInsertQueueApc.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     _local_unwind @ 0x1403D3990 (_local_unwind.c)
+ *     RtlpComputeEpilogueOffset @ 0x1403ED6A8 (RtlpComputeEpilogueOffset.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiCustomAccessRoutine0 @ 0x140422D40 (KiCustomAccessRoutine0.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __fastcall ExpTimerDpcRoutine(
         struct _KDPC *Dpc,
         __int64 DeferredContext,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmTranslateIdleAccounting @ 0x140595AC0
+ * Callers:
+ *     PpmWmiFireIdleAccountingEvent @ 0x140596990 (PpmWmiFireIdleAccountingEvent.c)
+ *     PpmEventTraceProcessorIdleAccounting @ 0x140599C40 (PpmEventTraceProcessorIdleAccounting.c)
+ * Callees:
+ *     PpmConvertTime @ 0x140235D70 (PpmConvertTime.c)
+ *     PpmUpdateProcessorIdleAccounting @ 0x14039B154 (PpmUpdateProcessorIdleAccounting.c)
+ */
+
 unsigned __int64 __fastcall PpmTranslateIdleAccounting(_QWORD *a1, __int64 a2, unsigned __int64 *a3)
 {
   int *v6; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RebaseSums@?$LinearFitT@$0BAA@@@QEAA_NXZ @ 0x1801CEB04
+ * Callers:
+ *     ?Update@?$LinearFitT@$0BAA@@@QEAA_N_J0@Z @ 0x18004D8A4 (-Update@-$LinearFitT@$0BAA@@@QEAA_N_J0@Z.c)
+ * Callees:
+ *     ?AddToSums@?$LinearFitT@$0BAA@@@QEAA_NAEBUPoint@1@@Z @ 0x18004A494 (-AddToSums@-$LinearFitT@$0BAA@@@QEAA_NAEBUPoint@1@@Z.c)
+ */
+
 char __fastcall LinearFitT<256>::RebaseSums(__int64 a1)
 {
   int v1; // ebp

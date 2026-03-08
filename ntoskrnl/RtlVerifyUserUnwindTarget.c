@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlVerifyUserUnwindTarget @ 0x1409BF8B0
+ * Callers:
+ *     KiVerifyContextIpForUserCet @ 0x14056EA00 (KiVerifyContextIpForUserCet.c)
+ * Callees:
+ *     bsearch_s @ 0x1403D4390 (bsearch_s.c)
+ *     RtlGetImageBaseAndLoadConfig @ 0x1405AF9E0 (RtlGetImageBaseAndLoadConfig.c)
+ *     RtlpFindDynamicEHContinuationTarget @ 0x1409BFAD8 (RtlpFindDynamicEHContinuationTarget.c)
+ */
+
 __int64 __fastcall RtlVerifyUserUnwindTarget(unsigned __int64 a1, int a2, __int64 a3)
 {
   __int64 result; // rax

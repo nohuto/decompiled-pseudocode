@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiGetCurrentDpiInfo @ 0x1C003CB50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DrvGetCurrentDpiInfo @ 0x1C003CBE8 (DrvGetCurrentDpiInfo.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 __fastcall NtGdiGetCurrentDpiInfo(__int64 a1, _OWORD *a2)
 {
   __int64 result; // rax

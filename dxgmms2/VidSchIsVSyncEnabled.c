@@ -1,3 +1,20 @@
+/*
+ * XREFs of VidSchIsVSyncEnabled @ 0x1C00A5F00
+ * Callers:
+ *     VidSchiSendToExecutionQueue @ 0x1C0008D50 (VidSchiSendToExecutionQueue.c)
+ *     VidSchiSubmitMmIoFlipCommand @ 0x1C000EAF0 (VidSchiSubmitMmIoFlipCommand.c)
+ *     ?VidSchiSubmitDisablePlanesFlip@@YAJPEAU_VIDSCH_DEVICE@@I@Z @ 0x1C0011358 (-VidSchiSubmitDisablePlanesFlip@@YAJPEAU_VIDSCH_DEVICE@@I@Z.c)
+ *     VidSchiRedirectedFlipWaitOnSyncObject @ 0x1C003B608 (VidSchiRedirectedFlipWaitOnSyncObject.c)
+ *     VidSchiEnsureVSyncEnabled @ 0x1C00A5160 (VidSchiEnsureVSyncEnabled.c)
+ * Callees:
+ *     ?NumberOfVSyncWaiter@DXGADAPTER@@QEAAKI@Z @ 0x1C000EA94 (-NumberOfVSyncWaiter@DXGADAPTER@@QEAAKI@Z.c)
+ *     VidSchiGetVSyncSuspended @ 0x1C000F7C0 (VidSchiGetVSyncSuspended.c)
+ *     VidSchiSetVSyncSuspended @ 0x1C000F7DC (VidSchiSetVSyncSuspended.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     ?VidSchiSetInterruptTargetPresentId@@YAJPEAU_VIDSCH_GLOBAL@@II_K_NI@Z @ 0x1C004A448 (-VidSchiSetInterruptTargetPresentId@@YAJPEAU_VIDSCH_GLOBAL@@II_K_NI@Z.c)
+ *     VidSchiControlVSync @ 0x1C00A5D30 (VidSchiControlVSync.c)
+ */
+
 char __fastcall VidSchIsVSyncEnabled(struct _VIDSCH_GLOBAL *a1, unsigned int a2)
 {
   __int64 v2; // rdi

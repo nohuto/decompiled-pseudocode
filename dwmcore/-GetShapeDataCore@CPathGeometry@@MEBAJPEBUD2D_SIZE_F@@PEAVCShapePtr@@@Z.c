@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?GetShapeDataCore@CPathGeometry@@MEBAJPEBUD2D_SIZE_F@@PEAVCShapePtr@@@Z @ 0x1800F83A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044B4C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800DBA68 (-Release@CShapePtr@@QEAAXXZ.c)
+ *     ??0CPathSegmentsShape@@QEAA@PEBVCPathData@@@Z @ 0x1800F8414 (--0CPathSegmentsShape@@QEAA@PEBVCPathData@@@Z.c)
+ */
+
 __int64 __fastcall CPathGeometry::GetShapeDataCore(
         const struct CPathData **this,
         const struct D2D_SIZE_F *a2,

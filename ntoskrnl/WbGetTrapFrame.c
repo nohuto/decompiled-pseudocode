@@ -1,3 +1,12 @@
+/*
+ * XREFs of WbGetTrapFrame @ 0x1406AF738
+ * Callers:
+ *     WbHeapExecuteCall @ 0x1406AF56C (WbHeapExecuteCall.c)
+ * Callees:
+ *     PspGetContextThreadInternal @ 0x1407EE524 (PspGetContextThreadInternal.c)
+ *     WbGetWowTrapFrame @ 0x140A4AD58 (WbGetWowTrapFrame.c)
+ */
+
 __int64 __fastcall WbGetTrapFrame(__int64 a1, __int64 a2)
 {
   _KPROCESS *Process; // rcx

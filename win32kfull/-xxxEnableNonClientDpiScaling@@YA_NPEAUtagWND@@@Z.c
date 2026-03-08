@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?xxxEnableNonClientDpiScaling@@YA_NPEAUtagWND@@@Z @ 0x1C0015434
+ * Callers:
+ *     NtUserEnableNonClientDpiScaling @ 0x1C0015380 (NtUserEnableNonClientDpiScaling.c)
+ * Callees:
+ *     xxxSetWindowPos @ 0x1C0028F4C (xxxSetWindowPos.c)
+ *     UpdateWindowSpriteMonitor @ 0x1C002C598 (UpdateWindowSpriteMonitor.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ */
+
 char __fastcall xxxEnableNonClientDpiScaling(struct tagWND *a1)
 {
   __int64 v2; // rcx

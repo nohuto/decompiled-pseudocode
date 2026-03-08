@@ -1,3 +1,11 @@
+/*
+ * XREFs of MmManagePartitionCombineMemory @ 0x140A42904
+ * Callers:
+ *     NtManagePartition @ 0x140705650 (NtManagePartition.c)
+ * Callees:
+ *     MiCombineIdenticalPages @ 0x1407F7D84 (MiCombineIdenticalPages.c)
+ */
+
 __int64 __fastcall MmManagePartitionCombineMemory(unsigned __int16 **a1, __int64 a2, __int64 a3, KPROCESSOR_MODE a4)
 {
   unsigned __int16 *v5; // rcx

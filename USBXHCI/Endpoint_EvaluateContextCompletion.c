@@ -1,3 +1,16 @@
+/*
+ * XREFs of Endpoint_EvaluateContextCompletion @ 0x1C001B8D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     WPP_RECORDER_SF_dddL @ 0x1C00108D8 (WPP_RECORDER_SF_dddL.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0017FB0 (WPP_RECORDER_SF_ddd.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C001E754 (CommonBuffer_ReleaseBuffer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pppnnn_EtwWriteTransfer @ 0x1C004B00C (McTemplateK0pppnnn_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall Endpoint_EvaluateContextCompletion(__int64 a1, int a2)
 {
   _WORD *v2; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CCompositionBuffer@@UEAA@XZ @ 0x1C000DA04
+ * Callers:
+ *     ??1CFlipExBuffer@@MEAA@XZ @ 0x1C000BAE4 (--1CFlipExBuffer@@MEAA@XZ.c)
+ *     ??_GCCompositionBuffer@@UEAAPEAXI@Z @ 0x1C007C7B0 (--_GCCompositionBuffer@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CCompositionBuffer::~CCompositionBuffer(CCompositionBuffer *this)
 {
   bool v1; // zf

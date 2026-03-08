@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiInitializeIdleProcess @ 0x140B5F2B8
+ * Callers:
+ *     KiInitSystem @ 0x140B5EFDC (KiInitSystem.c)
+ * Callees:
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KeInitializeIdealProcessorAssignmentBlock @ 0x1402969F4 (KeInitializeIdealProcessorAssignmentBlock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KeInitializeProcess @ 0x14070A0C8 (KeInitializeProcess.c)
+ */
+
 __int64 __fastcall KiInitializeIdleProcess(__int64 a1)
 {
   __int64 result; // rax

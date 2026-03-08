@@ -1,3 +1,17 @@
+/*
+ * XREFs of rimQueueCompleteFrame @ 0x1C01D2F84
+ * Callers:
+ *     rimProcessCompleteFrame @ 0x1C00F0D94 (rimProcessCompleteFrame.c)
+ * Callees:
+ *     isChildPartition @ 0x1C0078FF0 (isChildPartition.c)
+ *     RawInputManagerDeviceObjectReference @ 0x1C0088EF0 (RawInputManagerDeviceObjectReference.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?QueueFrame@RIM@InputTraceLogging@@SAXPEBURIMDEV@@PEBURIMCOMPLETEFRAME@@@Z @ 0x1C01D2130 (-QueueFrame@RIM@InputTraceLogging@@SAXPEBURIMDEV@@PEBURIMCOMPLETEFRAME@@@Z.c)
+ *     ?QueueFrame@RIM@TelemetryDebug@InputTraceLogging@@SAXAEBUTELEMETRY_POINTER_FRAME_TIMES@@@Z @ 0x1C01D2214 (-QueueFrame@RIM@TelemetryDebug@InputTraceLogging@@SAXAEBUTELEMETRY_POINTER_FRAME_TIMES@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qi @ 0x1C01D2494 (WPP_RECORDER_AND_TRACE_SF_qi.c)
+ */
+
 void __fastcall rimQueueCompleteFrame(__int64 a1, __int64 a2, __int64 a3)
 {
   LARGE_INTEGER PerformanceCounter; // rbx

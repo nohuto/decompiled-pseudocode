@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CCompositionGlyphRunMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C025BF10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetBufferProperty@CTextObjectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C025C6D0 (-SetBufferProperty@CTextObjectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_.c)
+ */
+
 __int64 __fastcall DirectComposition::CCompositionGlyphRunMarshaler::SetBufferProperty(
         DirectComposition::CCompositionGlyphRunMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

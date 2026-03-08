@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsTimeFromLastInputEvent@CInputGlobals@@QEBA_NK@Z @ 0x1C00AFD90
+ * Callers:
+ *     PowerIsDisplayIdleExpired @ 0x1C00ABE40 (PowerIsDisplayIdleExpired.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CInputGlobals::IsTimeFromLastInputEvent(CInputGlobals *this, unsigned int a2)
 {
   unsigned __int64 v2; // rbx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiFindEmptyAddressRange @ 0x1407D6F10
+ * Callers:
+ *     MiSelectUserAddress @ 0x1407D6D30 (MiSelectUserAddress.c)
+ * Callees:
+ *     RtlFindClearBitsEx @ 0x14034D0A0 (RtlFindClearBitsEx.c)
+ *     MiExpandVadBitMap @ 0x1407295BC (MiExpandVadBitMap.c)
+ *     MiFindEmptyAddressRangeInTree @ 0x140769234 (MiFindEmptyAddressRangeInTree.c)
+ *     MiFindClearVadBitsAligned @ 0x14076D150 (MiFindClearVadBitsAligned.c)
+ */
+
 __int64 __fastcall MiFindEmptyAddressRange(
         __int64 a1,
         unsigned __int64 a2,

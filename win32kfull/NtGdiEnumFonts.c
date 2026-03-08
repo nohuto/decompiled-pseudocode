@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiEnumFonts @ 0x1C00035F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreEnumFonts @ 0x1C00037BC (GreEnumFonts.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall NtGdiEnumFonts(
         HDC a1,
         ULONG64 a2,

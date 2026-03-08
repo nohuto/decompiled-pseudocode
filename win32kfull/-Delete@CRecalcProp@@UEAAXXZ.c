@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Delete@CRecalcProp@@UEAAXXZ @ 0x1C00FAB80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ??_GCRecalcProp@@AEAAPEAXI@Z @ 0x1C00FC324 (--_GCRecalcProp@@AEAAPEAXI@Z.c)
+ */
+
 void __fastcall CRecalcProp::Delete(CRecalcProp *this)
 {
   char v2; // r8

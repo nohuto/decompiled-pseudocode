@@ -1,3 +1,25 @@
+/*
+ * XREFs of CmDumpKeyToFile @ 0x140A07E64
+ * Callers:
+ *     NtSaveKeyEx @ 0x140A0BF70 (NtSaveKeyEx.c)
+ * Callees:
+ *     CmSaveKey @ 0x140A08D50 (CmSaveKey.c)
+ *     CmpFreeOffsetArray @ 0x140A17FE0 (CmpFreeOffsetArray.c)
+ *     CmpWriteOffsetArrayToFile @ 0x140A182CC (CmpWriteOffsetArrayToFile.c)
+ *     HvAllocateOffsetArraysForHiveSnapshot @ 0x140A22D18 (HvAllocateOffsetArraysForHiveSnapshot.c)
+ *     HvLockHiveFlusherExclusive @ 0x140AF2098 (HvLockHiveFlusherExclusive.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140AF20B4 (HvUnlockHiveFlusherExclusive.c)
+ *     CmpLockKcbShared @ 0x140AF20D0 (CmpLockKcbShared.c)
+ *     CmpUnlockKcb @ 0x140AF2140 (CmpUnlockKcb.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ *     CmLockHiveSecurityShared @ 0x140AF2590 (CmLockHiveSecurityShared.c)
+ *     CmUnlockHiveSecurity @ 0x140AF25F0 (CmUnlockHiveSecurity.c)
+ *     CmpIsKeyBodyEligibleForDump @ 0x140AF2AB0 (CmpIsKeyBodyEligibleForDump.c)
+ *     CmpDoAccessCheckOnSubtree @ 0x140AF2AFC (CmpDoAccessCheckOnSubtree.c)
+ *     HvSnapshotHiveToOffsetArray @ 0x140AF2D84 (HvSnapshotHiveToOffsetArray.c)
+ */
+
 __int64 __fastcall CmDumpKeyToFile(__int64 a1, __int64 a2, void *a3, __int64 a4)
 {
   char v5; // r14

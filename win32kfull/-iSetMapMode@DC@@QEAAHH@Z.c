@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?iSetMapMode@DC@@QEAAHH@Z @ 0x1C02D18C8
+ * Callers:
+ *     NtGdiGetAndSetDCDword @ 0x1C02AC920 (NtGdiGetAndSetDCDword.c)
+ * Callees:
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C0050DA0 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C011354C (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ?vMarkTransformDirty@DC@@QEAAXXZ @ 0x1C0269660 (-vMarkTransformDirty@DC@@QEAAXXZ.c)
+ *     ?vComputePageXform@DC@@QEAAXXZ @ 0x1C02D2088 (-vComputePageXform@DC@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall DC::iSetMapMode(DC *this, int a2)
 {
   unsigned int v2; // r15d

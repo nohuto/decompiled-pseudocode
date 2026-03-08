@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiIntSteerDetermineSteeringEnabled @ 0x140B713C0
+ * Callers:
+ *     KiIntSteerInit @ 0x140B43678 (KiIntSteerInit.c)
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     HviIsXboxNanovisorPresent @ 0x1402E4648 (HviIsXboxNanovisorPresent.c)
+ *     HviIsAnyHypervisorPresent @ 0x14037F1D0 (HviIsAnyHypervisorPresent.c)
+ */
+
 char KiIntSteerDetermineSteeringEnabled()
 {
   bool v0; // zf

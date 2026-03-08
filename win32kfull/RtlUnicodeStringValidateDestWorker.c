@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlUnicodeStringValidateDestWorker @ 0x1C0107828
+ * Callers:
+ *     ?_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z @ 0x1C0079E10 (-_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z.c)
+ *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0107898 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C0107950 (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ * Callees:
+ *     RtlUnicodeStringValidateWorker @ 0x1C0107584 (RtlUnicodeStringValidateWorker.c)
+ */
+
 NTSTATUS __stdcall RtlUnicodeStringValidateDestWorker(
         PCUNICODE_STRING DestinationString,
         wchar_t **ppszDest,

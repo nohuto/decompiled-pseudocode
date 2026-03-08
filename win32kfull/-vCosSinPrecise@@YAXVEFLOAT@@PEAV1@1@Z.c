@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vCosSinPrecise@@YAXVEFLOAT@@PEAV1@1@Z @ 0x1C02C8D74
+ * Callers:
+ *     GreAngleArc @ 0x1C02ADE64 (GreAngleArc.c)
+ *     NtGdiArcInternal @ 0x1C02C8EE0 (NtGdiArcInternal.c)
+ * Callees:
+ *     eFraction @ 0x1C0309AC4 (eFraction.c)
+ */
+
 __int64 __fastcall vCosSinPrecise(__int64 a1, float *a2)
 {
   int v3; // r8d

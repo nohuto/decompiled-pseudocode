@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBHSM_HasResetCountReachedMaximum @ 0x1C00088F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBHSM_HasResetCountReachedMaximum(__int64 a1)
 {
   __int64 v1; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NpiRebaseCallback@NP_CONTEXT@@SAJPEAX0PEA_K@Z @ 0x1405BC020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NP_CONTEXT::NpiRebaseCallback(void *a1, void *a2, unsigned __int64 *a3)
 {
   unsigned int v3; // r9d

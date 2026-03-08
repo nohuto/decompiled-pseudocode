@@ -1,3 +1,12 @@
+/*
+ * XREFs of SetProtocolType @ 0x1C000FE10
+ * Callers:
+ *     xxxRemoteConnect @ 0x1C000F480 (xxxRemoteConnect.c)
+ * Callees:
+ *     RetrieveCurrentDisplayState @ 0x1C000FEC8 (RetrieveCurrentDisplayState.c)
+ *     ?UpdateLastInputTime@CInputGlobals@@QEAAX_KW4_LINP_SOURCE@@@Z @ 0x1C0016C10 (-UpdateLastInputTime@CInputGlobals@@QEAAX_KW4_LINP_SOURCE@@@Z.c)
+ */
+
 __int64 __fastcall SetProtocolType(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?VSyncStateChange@VSYNC_TIME_STATS@@QEAAXW4_DXGK_CRTC_VSYNC_STATE@@0@Z @ 0x1C0044CDC
+ * Callers:
+ *     ?DdiControlInterrupt2@DXGADAPTER@@QEAAJU_DXGKARG_CONTROLINTERRUPT2@@EI@Z @ 0x1C0003F70 (-DdiControlInterrupt2@DXGADAPTER@@QEAAJU_DXGKARG_CONTROLINTERRUPT2@@EI@Z.c)
+ * Callees:
+ *     ?RtlULongLongMult@@YAJ_K0PEA_K@Z @ 0x1C0025258 (-RtlULongLongMult@@YAJ_K0PEA_K@Z.c)
+ *     McTemplateK0qxxx_EtwWriteTransfer @ 0x1C0044FB8 (McTemplateK0qxxx_EtwWriteTransfer.c)
+ */
+
 void __fastcall VSYNC_TIME_STATS::VSyncStateChange(
         VSYNC_TIME_STATS *this,
         enum _DXGK_CRTC_VSYNC_STATE a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIBusReenumerateSelfInterface @ 0x1C0081AD4
+ * Callers:
+ *     ACPIBusIrpQueryInterface @ 0x1C00165F0 (ACPIBusIrpQueryInterface.c)
+ * Callees:
+ *     ACPIInitReferenceDeviceExtension @ 0x1C002D594 (ACPIInitReferenceDeviceExtension.c)
+ */
+
 __int64 __fastcall ACPIBusReenumerateSelfInterface(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ecx

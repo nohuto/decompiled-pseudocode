@@ -1,3 +1,16 @@
+/*
+ * XREFs of ??1FxRequestBase@@MEAA@XZ @ 0x1C0002EE8
+ * Callers:
+ *     ??_GFxRequest@@UEAAPEAXI@Z @ 0x1C0006A60 (--_GFxRequest@@UEAAPEAXI@Z.c)
+ *     ??_EFxRequestFromLookaside@@UEAAPEAXI@Z @ 0x1C003A7D0 (--_EFxRequestFromLookaside@@UEAAPEAXI@Z.c)
+ *     ??1FxSyncRequest@@UEAA@XZ @ 0x1C0089B74 (--1FxSyncRequest@@UEAA@XZ.c)
+ * Callees:
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0002D30 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ??_GFxRequestTimer@@QEAAPEAXI@Z @ 0x1C000DE42 (--_GFxRequestTimer@@QEAAPEAXI@Z.c)
+ *     ?FxMdlFreeDebug@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAU_MDL@@@Z @ 0x1C0048258 (-FxMdlFreeDebug@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAU_MDL@@@Z.c)
+ */
+
 void __fastcall FxRequestBase::~FxRequestBase(FxRequestBase *this, unsigned int a2)
 {
   _MDL *m_AllocatedMdl; // rcx

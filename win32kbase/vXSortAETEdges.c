@@ -1,3 +1,11 @@
+/*
+ * XREFs of vXSortAETEdges @ 0x1C01849C0
+ * Callers:
+ *     ?vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z @ 0x1C0184190 (-vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall vXSortAETEdges(__int64 ***a1)
 {
   __int64 **v1; // rdx

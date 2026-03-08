@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bContain@RGNOBJ@@QEAAHAEAV1@@Z @ 0x1C00448AC
+ * Callers:
+ *     ?bCompute@DC@@QEAAHXZ @ 0x1C001B660 (-bCompute@DC@@QEAAHXZ.c)
+ *     ?iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z @ 0x1C0044F90 (-iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall RGNOBJ::bContain(RGNOBJ *this, struct RGNOBJ *a2)
 {
   _DWORD *v2; // r8

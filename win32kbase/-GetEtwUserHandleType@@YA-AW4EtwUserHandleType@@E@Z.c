@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?GetEtwUserHandleType@@YA?AW4EtwUserHandleType@@E@Z @ 0x1C00785AC
+ * Callers:
+ *     HMAllocObjectEx @ 0x1C00122BC (HMAllocObjectEx.c)
+ *     ?HMDestroyUnlockedObjectWorkerAtomic@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C00779D0 (-HMDestroyUnlockedObjectWorkerAtomic@@YAXPEAU_HANDLEENTRY@@@Z.c)
+ *     HMFreeObject @ 0x1C0077F50 (HMFreeObject.c)
+ *     HMCreateHandleForObject @ 0x1C0088D60 (HMCreateHandleForObject.c)
+ *     HMRemoveHandleForObject @ 0x1C00896E0 (HMRemoveHandleForObject.c)
+ *     HMChangeOwnerThreadWorker @ 0x1C00AEC48 (HMChangeOwnerThreadWorker.c)
+ *     HMChangeOwnerPheProcessWorker @ 0x1C00AEF58 (HMChangeOwnerPheProcessWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetEtwUserHandleType(unsigned __int8 a1)
 {
   __int64 result; // rax

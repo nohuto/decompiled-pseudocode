@@ -1,3 +1,29 @@
+/*
+ * XREFs of BootApplicationPersistentDataProcess @ 0x140B44538
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ *     Phase1InitializationIoReady @ 0x140B42D0C (Phase1InitializationIoReady.c)
+ *     ExInitSystemPhase2 @ 0x140B64A84 (ExInitSystemPhase2.c)
+ * Callees:
+ *     BapdpProcessSpacesBootInformation @ 0x1403800A8 (BapdpProcessSpacesBootInformation.c)
+ *     BapdpProcessEtwEvents @ 0x140380170 (BapdpProcessEtwEvents.c)
+ *     BapdpMarshallBootDataToRegistry @ 0x1403A5FC4 (BapdpMarshallBootDataToRegistry.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     BapdpProcessEDrvHintInfo @ 0x140B42A34 (BapdpProcessEDrvHintInfo.c)
+ *     BapdpProcessFwUpdateResults @ 0x140B42AC4 (BapdpProcessFwUpdateResults.c)
+ *     BapdpProcessWmdResults @ 0x140B42B54 (BapdpProcessWmdResults.c)
+ *     BapdpProcessBootMetadata @ 0x140B42C3C (BapdpProcessBootMetadata.c)
+ *     BapdpRecordIumStatus @ 0x140B44430 (BapdpRecordIumStatus.c)
+ *     BapdpProcessBCDCache @ 0x140B44668 (BapdpProcessBCDCache.c)
+ *     BapdpProcessResumeInformation @ 0x140B44768 (BapdpProcessResumeInformation.c)
+ *     BapdpProcessBitlockerStatus @ 0x140B4483C (BapdpProcessBitlockerStatus.c)
+ *     BapdpProcessHSTIResults @ 0x140B44910 (BapdpProcessHSTIResults.c)
+ *     BapdpRegisterWbclData @ 0x140B449E4 (BapdpRegisterWbclData.c)
+ *     BapdpProcessVsmKeyBlobs @ 0x140B44AFC (BapdpProcessVsmKeyBlobs.c)
+ *     ExpInitializeMemoryMirroring @ 0x140B7267C (ExpInitializeMemoryMirroring.c)
+ */
+
 void __fastcall BootApplicationPersistentDataProcess(int a1)
 {
   __int64 v1; // rcx

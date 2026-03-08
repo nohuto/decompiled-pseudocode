@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopPepIterateDeviceList @ 0x14059D408
+ * Callers:
+ *     PopPlRegisterPowerPlane @ 0x14059F404 (PopPlRegisterPowerPlane.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall PopPepIterateDeviceList(
         void (__fastcall *a1)(__int64),
         unsigned __int8 (__fastcall *a2)(__int64 *, __int64),

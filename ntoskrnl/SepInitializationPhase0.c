@@ -1,3 +1,16 @@
+/*
+ * XREFs of SepInitializationPhase0 @ 0x140B48678
+ * Callers:
+ *     SeInitSystem @ 0x140B48368 (SeInitSystem.c)
+ * Callees:
+ *     ObInitializeFastReference @ 0x14070A3AC (ObInitializeFastReference.c)
+ *     SeMakeSystemToken @ 0x140B48C50 (SeMakeSystemToken.c)
+ *     SepInitializeWorkList @ 0x140B49464 (SepInitializeWorkList.c)
+ *     SepTokenInitialization @ 0x140B49514 (SepTokenInitialization.c)
+ *     SepVariableInitialization @ 0x140B4A3A0 (SepVariableInitialization.c)
+ *     SepRmDbInitialization @ 0x140B69A18 (SepRmDbInitialization.c)
+ */
+
 bool SepInitializationPhase0()
 {
   struct _KTHREAD *CurrentThread; // rax

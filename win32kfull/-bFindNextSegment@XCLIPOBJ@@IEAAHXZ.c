@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bFindNextSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C02F5C24
+ * Callers:
+ *     ?bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z @ 0x1C02F5534 (-bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z.c)
+ *     ?bSetup@XCLIPOBJ@@IEAAHXZ @ 0x1C02F5D98 (-bSetup@XCLIPOBJ@@IEAAHXZ.c)
+ * Callees:
+ *     ?bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z @ 0x1C02F5CA8 (-bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z.c)
+ */
+
 __int64 __fastcall XCLIPOBJ::bFindNextSegment(XCLIPOBJ *this)
 {
   struct _POINTL *v1; // r9

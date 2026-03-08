@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?xxxCallGenerateIAMKey@@YAJPEAUtagIAM_KKEY@@@Z @ 0x1C01AF1AC
+ * Callers:
+ *     xxxGenerateIAMKey @ 0x1C0092EA4 (xxxGenerateIAMKey.c)
+ * Callees:
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall xxxCallGenerateIAMKey(union _LARGE_INTEGER *a1)
 {
   NTSTATUS result; // eax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of InsertOwnerObjList @ 0x1C004BDF0
+ * Callers:
+ *     InitializeNativeNamespace @ 0x1C0049FD4 (InitializeNativeNamespace.c)
+ *     AMLIAddNamespaceOverride @ 0x1C004A2A8 (AMLIAddNamespaceOverride.c)
+ *     MigrateDefunctObjectsToNewOwner @ 0x1C004C0DC (MigrateDefunctObjectsToNewOwner.c)
+ *     CreateNameSpaceObject @ 0x1C004F10C (CreateNameSpaceObject.c)
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __fastcall InsertOwnerObjList(struct _EX_RUNDOWN_REF *a1, struct _EX_RUNDOWN_REF *a2)
 {
   BOOLEAN result; // al

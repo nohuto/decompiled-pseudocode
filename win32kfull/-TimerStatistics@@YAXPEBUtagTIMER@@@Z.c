@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TimerStatistics@@YAXPEBUtagTIMER@@@Z @ 0x1C01C1744
+ * Callers:
+ *     ?xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z @ 0x1C01C18D4 (-xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z.c)
+ * Callees:
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 void __fastcall TimerStatistics(const struct tagTIMER *a1)
 {
   __int64 v2; // rsi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??$_Emplace_reallocate@AEBUCompositionFrameInstance@@@?$vector@UCompositionFrameInstance@@V?$allocator@UCompositionFrameInstance@@@std@@@std@@QEAAPEAUCompositionFrameInstance@@QEAU2@AEBU2@@Z @ 0x180269D58
+ * Callers:
+ *     ?BeginNewStatsInstance@CCompositionSwapchainStatistics@@UEAAX_KPEBUtagCOMPOSITION_TARGET_ID@@@Z @ 0x18026A0B0 (-BeginNewStatsInstance@CCompositionSwapchainStatistics@@UEAAX_KPEBUtagCOMPOSITION_TARGET_ID@@@Z.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     ?_Throw_bad_array_new_length@std@@YAXXZ @ 0x1801A3990 (-_Throw_bad_array_new_length@std@@YAXXZ.c)
+ *     ?_Change_array@?$vector@UCompositionFrameInstance@@V?$allocator@UCompositionFrameInstance@@@std@@@std@@AEAAXQEAUCompositionFrameInstance@@_K1@Z @ 0x18026A6B4 (-_Change_array@-$vector@UCompositionFrameInstance@@V-$allocator@UCompositionFrameInstance@@@std@.c)
+ */
+
 char *__fastcall std::vector<CompositionFrameInstance>::_Emplace_reallocate<CompositionFrameInstance const &>(
         const void **a1,
         _BYTE *a2,

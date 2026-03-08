@@ -1,3 +1,20 @@
+/*
+ * XREFs of HvlpDepositPages @ 0x14053E7A4
+ * Callers:
+ *     HvlpHandleInsufficientMemory @ 0x14053DA58 (HvlpHandleInsufficientMemory.c)
+ *     HvlpStartLogicalProcessor @ 0x14053FE30 (HvlpStartLogicalProcessor.c)
+ *     PsDispatchIumService @ 0x1405A2A44 (PsDispatchIumService.c)
+ *     HvlpAddRemovePhysicalMemory @ 0x140676630 (HvlpAddRemovePhysicalMemory.c)
+ *     HvlpCreateRootVirtualProcessor @ 0x14093E334 (HvlpCreateRootVirtualProcessor.c)
+ * Callees:
+ *     MmAllocateNodePagesForMdlEx @ 0x1403BE0E0 (MmAllocateNodePagesForMdlEx.c)
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall HvlpDepositPages(unsigned __int16 a1, __int64 a2, char a3, char a4)
 {
   unsigned int v4; // ebp

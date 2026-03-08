@@ -1,3 +1,23 @@
+/*
+ * XREFs of SmKmStoreDelete @ 0x1407DD27C
+ * Callers:
+ *     SmKmStoreDeleteWhenEmptyWorker @ 0x140358810 (SmKmStoreDeleteWhenEmptyWorker.c)
+ *     SmProcessCreateRequest @ 0x1407DD648 (SmProcessCreateRequest.c)
+ *     SmProcessDeleteRequest @ 0x1409D3F3C (SmProcessDeleteRequest.c)
+ *     SmKmCleanup @ 0x1409D58F8 (SmKmCleanup.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140356594 (SmKmStoreRefFromStoreIndex.c)
+ *     SmEtwEnabled @ 0x14035911C (SmEtwEnabled.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     SmKmEtwLogStoreChange @ 0x1409D5984 (SmKmEtwLogStoreChange.c)
+ *     SmKmEtwLogStoreStats @ 0x1409D5A94 (SmKmEtwLogStoreStats.c)
+ */
+
 __int64 __fastcall SmKmStoreDelete(__int64 a1, unsigned int a2, char a3)
 {
   unsigned int v4; // r12d

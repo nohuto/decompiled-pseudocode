@@ -1,3 +1,19 @@
+/*
+ * XREFs of SshInitialize @ 0x140B46C1C
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     ExUnsubscribeWnfStateChange @ 0x140791FA0 (ExUnsubscribeWnfStateChange.c)
+ *     CmSiRWLockInitialize @ 0x14080BCF0 (CmSiRWLockInitialize.c)
+ *     SSHSupportEtwRegister @ 0x1408101DC (SSHSupportEtwRegister.c)
+ *     SleepstudyHelperDestroyLibrary @ 0x14099EEB0 (SleepstudyHelperDestroyLibrary.c)
+ *     SSHSupportEtwUnregister @ 0x14099F498 (SSHSupportEtwUnregister.c)
+ *     SSHSupportUnregisterPowerSettingCallback @ 0x14099F4B4 (SSHSupportUnregisterPowerSettingCallback.c)
+ *     SshpSubscribeCallbacks @ 0x140B5DEEC (SshpSubscribeCallbacks.c)
+ *     SshpAlpcInitialize @ 0x140B6437C (SshpAlpcInitialize.c)
+ *     SshpSessionManagerInitialize @ 0x140B71F74 (SshpSessionManagerInitialize.c)
+ */
+
 __int64 __fastcall SshInitialize(int a1)
 {
   NTSTATUS v1; // ebx

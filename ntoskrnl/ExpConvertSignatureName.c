@@ -1,3 +1,20 @@
+/*
+ * XREFs of ExpConvertSignatureName @ 0x1409F8E7C
+ * Callers:
+ *     ExpTranslateArcPath @ 0x1409FB1E4 (ExpTranslateArcPath.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     ExpCreateOutputNT @ 0x14083F22C (ExpCreateOutputNT.c)
+ *     ExpTranslateSymbolicLink @ 0x14083F2E8 (ExpTranslateSymbolicLink.c)
+ *     ExpCreateOutputARC @ 0x1409F90C0 (ExpCreateOutputARC.c)
+ *     ExpCreateOutputEFI @ 0x1409F91B8 (ExpCreateOutputEFI.c)
+ *     ExpFindDiskSignature @ 0x1409F983C (ExpFindDiskSignature.c)
+ *     ExpParseSignatureName @ 0x1409FA090 (ExpParseSignatureName.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpConvertSignatureName(int a1, void *a2, unsigned int *a3, wchar_t *a4, void *Src)
 {
   __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhEtwGetDeviceInfo @ 0x1C005B56C
+ * Callers:
+ *     UsbhEtwLogDeviceDescription @ 0x1C005B5DC (UsbhEtwLogDeviceDescription.c)
+ *     UsbhEtwLogDeviceInformation @ 0x1C005B6F8 (UsbhEtwLogDeviceInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall UsbhEtwGetDeviceInfo(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

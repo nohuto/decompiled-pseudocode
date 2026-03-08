@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpDmaGetNextTranslatedDevice @ 0x1404FDE54
+ * Callers:
+ *     HalpIommuGetNextTranslatedDevice @ 0x140409CB8 (HalpIommuGetNextTranslatedDevice.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxTryToAcquireSpinLock @ 0x14036B144 (KxTryToAcquireSpinLock.c)
+ */
+
 __int64 __fastcall HalpDmaGetNextTranslatedDevice(__int64 ***a1, _QWORD *a2, _QWORD *a3, char a4)
 {
   __int64 **v5; // rcx

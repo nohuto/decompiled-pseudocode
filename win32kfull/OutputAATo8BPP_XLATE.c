@@ -1,3 +1,11 @@
+/*
+ * XREFs of OutputAATo8BPP_XLATE @ 0x1C025BF70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall OutputAATo8BPP_XLATE(
         __int64 a1,
         __int64 a2,

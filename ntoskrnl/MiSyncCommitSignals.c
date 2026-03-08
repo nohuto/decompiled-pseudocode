@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiSyncCommitSignals @ 0x1403929E0
+ * Callers:
+ *     MiZeroAndReleasePages @ 0x1402776A0 (MiZeroAndReleasePages.c)
+ *     MiProbeUnlockPage @ 0x14027C720 (MiProbeUnlockPage.c)
+ *     MiCanBatchHardFaultPages @ 0x140284A30 (MiCanBatchHardFaultPages.c)
+ *     MiRemoveLockedPageCharge @ 0x140286E00 (MiRemoveLockedPageCharge.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiReplenishLocalCommit @ 0x1402E64D4 (MiReplenishLocalCommit.c)
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     MiComputeCommitThresholds @ 0x140392978 (MiComputeCommitThresholds.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 int __fastcall MiSyncCommitSignals(__int64 a1, int a2)
 {
   unsigned __int64 v4; // rax

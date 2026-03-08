@@ -1,3 +1,19 @@
+/*
+ * XREFs of HalFlushAdapterBuffersEx @ 0x140511F70
+ * Callers:
+ *     HalPutScatterGatherListV3 @ 0x14050CE18 (HalPutScatterGatherListV3.c)
+ * Callees:
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1403B44EC (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaCheckMdlAccessibility @ 0x1404FD754 (HalpDmaCheckMdlAccessibility.c)
+ *     HalpDmaFlushContiguousTransferV3 @ 0x1404FDA54 (HalpDmaFlushContiguousTransferV3.c)
+ *     HalpDmaFlushDriverMdl @ 0x1404FDB64 (HalpDmaFlushDriverMdl.c)
+ *     HalpDmaFlushScatterTransferV3 @ 0x1404FDBA4 (HalpDmaFlushScatterTransferV3.c)
+ *     HalpDmaFreeLa @ 0x1404FDD64 (HalpDmaFreeLa.c)
+ *     HalpDmaControllerFlushChannel @ 0x140514184 (HalpDmaControllerFlushChannel.c)
+ */
+
 __int64 __fastcall HalFlushAdapterBuffersEx(
         __int64 a1,
         __int64 a2,

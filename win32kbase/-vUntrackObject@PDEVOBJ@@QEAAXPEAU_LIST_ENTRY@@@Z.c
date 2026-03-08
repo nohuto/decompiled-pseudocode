@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vUntrackObject@PDEVOBJ@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0182E20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00219D4 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     EngAcquireSemaphore @ 0x1C004B690 (EngAcquireSemaphore.c)
+ */
+
 void __fastcall PDEVOBJ::vUntrackObject(PDEVOBJ *this, struct _LIST_ENTRY *a2)
 {
   struct _LIST_ENTRY **v4; // rcx

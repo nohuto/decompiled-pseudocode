@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?InitPhysicalHeap@VIDMM_GLOBAL@@CAXXZ @ 0x1C00BE6E8
+ * Callers:
+ *     ?InitGlobals@VIDMM_GLOBAL@@SAJXZ @ 0x1C00BDE54 (-InitGlobals@VIDMM_GLOBAL@@SAJXZ.c)
+ * Callees:
+ *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0002360 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     ??0VIDMM_LINEAR_POOL@@QEAA@XZ @ 0x1C00BAC98 (--0VIDMM_LINEAR_POOL@@QEAA@XZ.c)
+ *     ?Init@VIDMM_LINEAR_POOL@@QEAAJ_KEP6AXPEAX@ZP6AH1@Z@Z @ 0x1C00BAD44 (-Init@VIDMM_LINEAR_POOL@@QEAAJ_KEP6AXPEAX@ZP6AH1@Z@Z.c)
+ *     ?DeInitPhysicalHeap@VIDMM_GLOBAL@@CAXXZ @ 0x1C00E13F4 (-DeInitPhysicalHeap@VIDMM_GLOBAL@@CAXXZ.c)
+ */
+
 void VIDMM_GLOBAL::InitPhysicalHeap(void)
 {
   __int64 v0; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlGetMarkHandleInfo @ 0x14053B83C
+ * Callers:
+ *     FsRtlCheckOplockEx2 @ 0x14023AE40 (FsRtlCheckOplockEx2.c)
+ * Callees:
+ *     IoIs32bitProcess @ 0x140245910 (IoIs32bitProcess.c)
+ */
+
 __int64 __fastcall FsRtlGetMarkHandleInfo(IRP *a1)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rax

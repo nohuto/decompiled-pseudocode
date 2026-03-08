@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserGetMinuserIdForBaseWindow @ 0x1C0170360
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ *     HMValidateHandleNoSecure @ 0x1C007A1CC (HMValidateHandleNoSecure.c)
+ */
+
 __int64 __fastcall NtUserGetMinuserIdForBaseWindow(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // ebx

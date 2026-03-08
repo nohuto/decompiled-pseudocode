@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpRevokeBootLoaderPagePrivileges @ 0x140B8D858
+ * Callers:
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     KeSetPagePrivilege @ 0x1403CF124 (KeSetPagePrivilege.c)
+ */
+
 _UNKNOWN **__fastcall ExpRevokeBootLoaderPagePrivileges(__int64 a1)
 {
   _UNKNOWN **result; // rax

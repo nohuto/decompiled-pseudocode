@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlStringCchPrintfExW @ 0x1C004B8F0
+ * Callers:
+ *     UsbhBusIfLocationGetLocationStrings @ 0x1C004BFB0 (UsbhBusIfLocationGetLocationStrings.c)
+ * Callees:
+ *     memset @ 0x1C0023880 (memset.c)
+ *     RtlStringExHandleOtherFlagsW @ 0x1C004BAC0 (RtlStringExHandleOtherFlagsW.c)
+ *     RtlStringVPrintfWorkerW @ 0x1C004BB80 (RtlStringVPrintfWorkerW.c)
+ */
+
 NTSTATUS RtlStringCchPrintfExW(
         NTSTRSAFE_PWSTR pszDest,
         size_t cchDest,

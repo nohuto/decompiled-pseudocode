@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?NotifyPresent@CSynchronizationManager@DirectComposition@@SAX_K_N@Z @ 0x1C00A8FFC
+ * Callers:
+ *     DCompositionNotifyPresent @ 0x1C00099C0 (DCompositionNotifyPresent.c)
+ *     DCompositionNotifyCompositionTokenPresent @ 0x1C00A8FE0 (DCompositionNotifyCompositionTokenPresent.c)
+ * Callees:
+ *     ?FindObject@?$CGenericTable@_KVCBatch@DirectComposition@@$0GFHDEDEE@$0A@@DirectComposition@@QEAAPEAVCBatch@2@_K@Z @ 0x1C00A909C (-FindObject@-$CGenericTable@_KVCBatch@DirectComposition@@$0GFHDEDEE@$0A@@DirectComposition@@QEAA.c)
+ */
+
 void __fastcall DirectComposition::CSynchronizationManager::NotifyPresent(__int64 a1, char a2)
 {
   struct _ERESOURCE *v2; // rbx

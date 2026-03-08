@@ -1,3 +1,15 @@
+/*
+ * XREFs of _CmCreateOrdinalInstanceKey @ 0x14087B610
+ * Callers:
+ *     _CmGetDeviceSoftwareKey @ 0x1406C8A54 (_CmGetDeviceSoftwareKey.c)
+ * Callees:
+ *     wcstoul @ 0x1403D6370 (wcstoul.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     _ultow_s @ 0x1403D8C70 (_ultow_s.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _PnpCtxRegCreateKey @ 0x140687FD0 (_PnpCtxRegCreateKey.c)
+ */
+
 __int64 __fastcall CmCreateOrdinalInstanceKey(__int64 a1, __int64 a2, wchar_t *a3)
 {
   unsigned int v6; // ebp

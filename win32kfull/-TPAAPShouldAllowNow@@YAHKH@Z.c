@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TPAAPShouldAllowNow@@YAHKH@Z @ 0x1C01F7794
+ * Callers:
+ *     EditionLegacyTouchPadMouseAllowTap @ 0x1C01F7BA0 (EditionLegacyTouchPadMouseAllowTap.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TPAAPShouldAllowNow()
 {
   unsigned int v0; // ebx

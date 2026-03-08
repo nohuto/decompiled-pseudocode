@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?_SerializeMonitor@DXGMONITOR@@QEBAJPEA_KPEAU_DMM_MONITOR_SERIALIZATION@@@Z @ 0x1C03C520C
+ * Callers:
+ *     ?SerializeConnectedMonitors@DMMVIDEOPRESENTTARGETSET@@QEBAJPEAV?$AutoBuffer@U_DMM_MONITORSET_SERIALIZATION@@@DMM@@@Z @ 0x1C03AEDC4 (-SerializeConnectedMonitors@DMMVIDEOPRESENTTARGETSET@@QEBAJPEAV-$AutoBuffer@U_DMM_MONITORSET_SER.c)
+ * Callees:
+ *     ?GetAddress@MonitorDisplayPortState@DxgMonitor@@QEBA?AU_DXGKARG_GETDPADDRESS@@XZ @ 0x1C0016ED8 (-GetAddress@MonitorDisplayPortState@DxgMonitor@@QEBA-AU_DXGKARG_GETDPADDRESS@@XZ.c)
+ *     ?IsAddressValid@MonitorDisplayPortState@DxgMonitor@@QEBA_NXZ @ 0x1C0016F74 (-IsAddressValid@MonitorDisplayPortState@DxgMonitor@@QEBA_NXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?_SupportSyncLockIdentical@DXGMONITOR@@QEBA_NXZ @ 0x1C02120B4 (-_SupportSyncLockIdentical@DXGMONITOR@@QEBA_NXZ.c)
+ *     ?SerializeToBuffer@MonitorDescriptorState@DxgMonitor@@QEBAXPEAU_DMM_MONITORDESCRIPTORSET_SERIALIZATION@@I@Z @ 0x1C03C7754 (-SerializeToBuffer@MonitorDescriptorState@DxgMonitor@@QEBAXPEAU_DMM_MONITORDESCRIPTORSET_SERIALI.c)
+ *     ?GetFrequencyRangeSerializationSizeInBytes@MonitorModes@DxgMonitor@@QEBAIXZ @ 0x1C03C7F8C (-GetFrequencyRangeSerializationSizeInBytes@MonitorModes@DxgMonitor@@QEBAIXZ.c)
+ *     ?GetModesSerializationSizeInBytes@MonitorModes@DxgMonitor@@QEBAIXZ @ 0x1C03C7FEC (-GetModesSerializationSizeInBytes@MonitorModes@DxgMonitor@@QEBAIXZ.c)
+ *     ?SerializeFrequencyRangesToBuffer@MonitorModes@DxgMonitor@@QEBAXPEAU_DMM_MONITORFREQUENCYRANGESET_SERIALIZATION@@I@Z @ 0x1C03C8048 (-SerializeFrequencyRangesToBuffer@MonitorModes@DxgMonitor@@QEBAXPEAU_DMM_MONITORFREQUENCYRANGESE.c)
+ *     ?SerializeModesToBuffer@MonitorModes@DxgMonitor@@QEBAXPEAU_DMM_MONITORSOURCEMODESET_SERIALIZATION@@I@Z @ 0x1C03C8108 (-SerializeModesToBuffer@MonitorModes@DxgMonitor@@QEBAXPEAU_DMM_MONITORSOURCEMODESET_SERIALIZATIO.c)
+ */
+
 __int64 __fastcall DXGMONITOR::_SerializeMonitor(
         DxgMonitor::MonitorModes **this,
         unsigned __int64 *a2,

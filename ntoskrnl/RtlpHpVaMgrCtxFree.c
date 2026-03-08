@@ -1,3 +1,23 @@
+/*
+ * XREFs of RtlpHpVaMgrCtxFree @ 0x14030BD10
+ * Callers:
+ *     RtlpHpFreeVA @ 0x14020DC8C (RtlpHpFreeVA.c)
+ * Callees:
+ *     RtlpHpEnvFreeVA @ 0x14020DD14 (RtlpHpEnvFreeVA.c)
+ *     MmFreePoolMemory @ 0x14020DD58 (MmFreePoolMemory.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpVaMgrFree @ 0x1402F12D4 (RtlpHpVaMgrFree.c)
+ *     RtlpHpVaMgrRangeSplit @ 0x1402F95FC (RtlpHpVaMgrRangeSplit.c)
+ *     RtlSparseArrayElementAllocated @ 0x14030967C (RtlSparseArrayElementAllocated.c)
+ *     RtlpHpAcquireLockExclusive @ 0x14030ABA4 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpVaMgrRangeFree @ 0x14030C074 (RtlpHpVaMgrRangeFree.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlSparseArrayElementFindCapped @ 0x1405B4B40 (RtlSparseArrayElementFindCapped.c)
+ */
+
 char __fastcall RtlpHpVaMgrCtxFree(__int64 a1, ULONG_PTR *a2, ULONG_PTR *a3)
 {
   ULONG_PTR v6; // rsi

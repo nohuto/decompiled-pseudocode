@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserDisableThreadIme @ 0x1C00D96C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?UserDisableImeForProcess@@YAXPEAUtagPROCESSINFO@@@Z @ 0x1C00D975C (-UserDisableImeForProcess@@YAXPEAUtagPROCESSINFO@@@Z.c)
+ *     ?UserDisableImeForThread@@YAXPEAUtagTHREADINFO@@_N@Z @ 0x1C00D9794 (-UserDisableImeForThread@@YAXPEAUtagTHREADINFO@@_N@Z.c)
+ */
+
 __int64 __fastcall NtUserDisableThreadIme(unsigned int a1)
 {
   struct tagTHREADINFO *v2; // rcx

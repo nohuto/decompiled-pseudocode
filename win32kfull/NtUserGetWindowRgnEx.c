@@ -1,3 +1,18 @@
+/*
+ * XREFs of NtUserGetWindowRgnEx @ 0x1C01D57F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetExplicitClipRgn@tagWND@@QEBAPEAUHRGN__@@XZ @ 0x1C002772C (-GetExplicitClipRgn@tagWND@@QEBAPEAUHRGN__@@XZ.c)
+ *     MirrorRegion @ 0x1C002779C (MirrorRegion.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     CalcVisRgn @ 0x1C00535C0 (CalcVisRgn.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     GreScaleRgnToDestLogPixel @ 0x1C02AA790 (GreScaleRgnToDestLogPixel.c)
+ */
+
 __int64 __fastcall NtUserGetWindowRgnEx(__int64 a1, HRGN a2, __int64 a3)
 {
   int v3; // esi

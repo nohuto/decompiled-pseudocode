@@ -1,3 +1,22 @@
+/*
+ * XREFs of HUBHTX_Get30PortChangeEvent @ 0x1C000569C
+ * Callers:
+ *     HUBPSM30_EnablingInterruptsAndGettingPortEvent @ 0x1C0013A50 (HUBPSM30_EnablingInterruptsAndGettingPortEvent.c)
+ *     HUBPSM30_EnablingInterruptsAndGettingPortEventInNoChange @ 0x1C0013A90 (HUBPSM30_EnablingInterruptsAndGettingPortEventInNoChange.c)
+ *     HUBPSM30_AcquiringPortReferenceAndGettingPortEvent @ 0x1C0013AB0 (HUBPSM30_AcquiringPortReferenceAndGettingPortEvent.c)
+ * Callees:
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001CA0 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0qhhhqhhh_EtwWriteTransfer @ 0x1C00024BC (McTemplateK0qhhhqhhh_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     WPP_RECORDER_SF_dDDD @ 0x1C0002FBC (WPP_RECORDER_SF_dDDD.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C00031FC (WPP_RECORDER_SF_qd.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C0032FCC (HUBMISC_VerifierDbgBreak.c)
+ *     HUBREG_UpdateSqmHubOvercurrentDetected @ 0x1C0034B00 (HUBREG_UpdateSqmHubOvercurrentDetected.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBHTX_Get30PortChangeEvent(__int64 a1, __int64 a2, __int64 a3)
 {
   _QWORD *v3; // r14

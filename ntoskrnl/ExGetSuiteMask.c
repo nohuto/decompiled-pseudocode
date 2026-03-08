@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExGetSuiteMask @ 0x140810AB8
+ * Callers:
+ *     PspSiloInitializeSuiteMask @ 0x1409AA6D8 (PspSiloInitializeSuiteMask.c)
+ *     ExpInitSystemPhase0 @ 0x140B49BD0 (ExpInitSystemPhase0.c)
+ * Callees:
+ *     RtlGetProductInfo @ 0x1402FF290 (RtlGetProductInfo.c)
+ *     ExpParseSuiteMask @ 0x140810B5C (ExpParseSuiteMask.c)
+ *     ExpGetProductInfoSuiteTypeMap @ 0x140810CB4 (ExpGetProductInfoSuiteTypeMap.c)
+ */
+
 __int64 __fastcall ExGetSuiteMask(__int64 a1, char a2)
 {
   int v3; // ebx

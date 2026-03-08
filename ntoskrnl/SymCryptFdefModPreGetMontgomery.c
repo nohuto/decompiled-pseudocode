@@ -1,3 +1,13 @@
+/*
+ * XREFs of SymCryptFdefModPreGetMontgomery @ 0x1403FF180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SymCryptWipe @ 0x1403F0988 (SymCryptWipe.c)
+ *     SymCryptFdefMontgomeryReduce @ 0x1403FF8C4 (SymCryptFdefMontgomeryReduce.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 void *__fastcall SymCryptFdefModPreGetMontgomery(__int64 a1, const void *a2, void *a3)
 {
   int v3; // edi

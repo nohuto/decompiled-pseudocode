@@ -1,3 +1,12 @@
+/*
+ * XREFs of HmgIsGarbageCollectibleType @ 0x1C0185FA4
+ * Callers:
+ *     HmgSetOwner @ 0x1C00522C0 (HmgSetOwner.c)
+ *     ?MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z @ 0x1C006D528 (-MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z.c)
+ * Callees:
+ *     Feature_1626422585__private_IsEnabledDeviceUsage @ 0x1C00DDF7C (Feature_1626422585__private_IsEnabledDeviceUsage.c)
+ */
+
 __int64 __fastcall HmgIsGarbageCollectibleType(unsigned __int8 a1)
 {
   int v1; // ebx

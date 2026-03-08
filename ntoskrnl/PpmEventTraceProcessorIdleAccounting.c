@@ -1,3 +1,16 @@
+/*
+ * XREFs of PpmEventTraceProcessorIdleAccounting @ 0x140599C40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PpmTranslateIdleAccounting @ 0x140595AC0 (PpmTranslateIdleAccounting.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PpmEventTraceProcessorIdleAccounting(__int64 a1)
 {
   void *v2; // rbx

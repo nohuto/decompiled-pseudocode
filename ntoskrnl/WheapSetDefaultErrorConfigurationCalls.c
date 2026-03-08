@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheapSetDefaultErrorConfigurationCalls @ 0x14061085C
+ * Callers:
+ *     WheaUnconfigureErrorSource @ 0x140AA8760 (WheaUnconfigureErrorSource.c)
+ * Callees:
+ *     <none>
+ */
+
 void (*__fastcall WheapSetDefaultErrorConfigurationCalls(_QWORD *a1))()
 {
   void (*result)(); // rax

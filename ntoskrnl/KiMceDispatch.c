@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiMceDispatch @ 0x140B0A550
+ * Callers:
+ *     KiMceLinkage @ 0x140B10710 (KiMceLinkage.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiMceDispatch(_QWORD *a1, unsigned int a2)
 {
   __m128i *IdtBase; // r8

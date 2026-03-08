@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiLocateLowestConflictingVad @ 0x1402A6F9C
+ * Callers:
+ *     MiUpdateVadBits @ 0x140729534 (MiUpdateVadBits.c)
+ *     MiExpandVadBitMap @ 0x1407295BC (MiExpandVadBitMap.c)
+ * Callees:
+ *     MiCheckForConflictingVad @ 0x14034C30C (MiCheckForConflictingVad.c)
+ */
+
 __int64 __fastcall MiLocateLowestConflictingVad(__int64 a1, unsigned __int64 a2)
 {
   __int64 result; // rax

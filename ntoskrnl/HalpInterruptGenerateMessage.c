@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpInterruptGenerateMessage @ 0x1403799C4
+ * Callers:
+ *     HalpPopulateMsiMessages @ 0x140379854 (HalpPopulateMsiMessages.c)
+ *     HalpIommuConfigureInterrupt @ 0x1403A4968 (HalpIommuConfigureInterrupt.c)
+ * Callees:
+ *     HalpInterruptDestinationToTarget @ 0x14028EC7C (HalpInterruptDestinationToTarget.c)
+ *     HalGetProcessorIdByNtNumber @ 0x1403810B0 (HalGetProcessorIdByNtNumber.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ */
+
 __int64 __fastcall HalpInterruptGenerateMessage(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *a4)
 {
   ULONG_PTR v4; // rdi

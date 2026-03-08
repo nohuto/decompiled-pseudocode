@@ -1,3 +1,11 @@
+/*
+ * XREFs of BgpFmSqrt @ 0x140382F80
+ * Callers:
+ *     RaspTestIntersection @ 0x140382C60 (RaspTestIntersection.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall BgpFmSqrt(__int64 a1)
 {
   __int64 v1; // r8

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExFreeSvmAsid @ 0x1402FB294
+ * Callers:
+ *     MmCleanProcessAddressSpace @ 0x1407D4924 (MmCleanProcessAddressSpace.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExpFreeAsid @ 0x14060B464 (ExpFreeAsid.c)
+ *     ExpSvmDereferenceDevice @ 0x14060C208 (ExpSvmDereferenceDevice.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 struct _KTHREAD *ExFreeSvmAsid()
 {
   struct _KTHREAD *result; // rax

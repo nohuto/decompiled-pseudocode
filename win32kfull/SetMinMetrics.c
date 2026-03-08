@@ -1,3 +1,15 @@
+/*
+ * XREFs of SetMinMetrics @ 0x1C010CA78
+ * Callers:
+ *     UserOnGreTextReady @ 0x1C00B8554 (UserOnGreTextReady.c)
+ *     xxxInitWindowStation @ 0x1C00C1348 (xxxInitWindowStation.c)
+ *     ?xxxSetAndDrawMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@@Z @ 0x1C00F0EF0 (-xxxSetAndDrawMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@@Z.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x1C010AFDC (xxxUpdatePerUserSystemParameters.c)
+ * Callees:
+ *     ?GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z @ 0x1C010CE38 (-GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall SetMinMetrics(struct _UNICODE_STRING *a1, __int128 *a2)
 {
   __int128 *v2; // r8

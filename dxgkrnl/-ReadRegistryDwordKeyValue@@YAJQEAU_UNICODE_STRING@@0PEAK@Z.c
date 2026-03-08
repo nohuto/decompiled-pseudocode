@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ReadRegistryDwordKeyValue@@YAJQEAU_UNICODE_STRING@@0PEAK@Z @ 0x1C02134F0
+ * Callers:
+ *     ?Initialize@DXGGLOBAL@@QEAAJXZ @ 0x1C0205878 (-Initialize@DXGGLOBAL@@QEAAJXZ.c)
+ *     DxgDetermineBootImageMode @ 0x1C0213318 (DxgDetermineBootImageMode.c)
+ *     ?SetModeBehavior@DXGADAPTER@@AEAAXEE@Z @ 0x1C0216098 (-SetModeBehavior@DXGADAPTER@@AEAAXEE@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall ReadRegistryDwordKeyValue(
         struct _UNICODE_STRING *const a1,
         struct _UNICODE_STRING *const a2,

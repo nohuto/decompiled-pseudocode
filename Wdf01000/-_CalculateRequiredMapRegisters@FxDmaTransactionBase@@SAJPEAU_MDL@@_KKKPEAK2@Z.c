@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?_CalculateRequiredMapRegisters@FxDmaTransactionBase@@SAJPEAU_MDL@@_KKKPEAK2@Z @ 0x1C000CE60
+ * Callers:
+ *     ?InitializeResources@FxDmaScatterGatherTransaction@@UEAAJXZ @ 0x1C000C530 (-InitializeResources@FxDmaScatterGatherTransaction@@UEAAJXZ.c)
+ *     ?ReserveAdapter@FxDmaPacketTransaction@@QEAAJKW4_WDF_DMA_DIRECTION@@P6AXPEAUWDFDMATRANSACTION__@@PEAX@Z2@Z @ 0x1C001C9D4 (-ReserveAdapter@FxDmaPacketTransaction@@QEAAJKW4_WDF_DMA_DIRECTION@@P6AXPEAUWDFDMATRANSACTION__@.c)
+ *     ?StageTransfer@FxDmaScatterGatherTransaction@@UEAAJXZ @ 0x1C001E730 (-StageTransfer@FxDmaScatterGatherTransaction@@UEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FxDmaTransactionBase::_CalculateRequiredMapRegisters(
         _MDL *Mdl,
         unsigned __int64 CurrentOffset,

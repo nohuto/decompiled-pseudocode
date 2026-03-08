@@ -1,3 +1,18 @@
+/*
+ * XREFs of RtlpCapabilityCheckSystemCapability @ 0x1407445E8
+ * Callers:
+ *     RtlCapabilityCheck @ 0x140741730 (RtlCapabilityCheck.c)
+ * Callees:
+ *     RtlCheckTokenMembershipEx @ 0x140204B90 (RtlCheckTokenMembershipEx.c)
+ *     RtlSubAuthoritySid @ 0x1402BE740 (RtlSubAuthoritySid.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlInitializeSid @ 0x14068E3A0 (RtlInitializeSid.c)
+ *     RtlCompareUnicodeString @ 0x1406EA3B0 (RtlCompareUnicodeString.c)
+ *     RtlpGetPolicyValueForSystemCapability @ 0x140744670 (RtlpGetPolicyValueForSystemCapability.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     RtlpIsAppContainer @ 0x1409BA41C (RtlpIsAppContainer.c)
+ */
+
 __int64 __fastcall RtlpCapabilityCheckSystemCapability(HANDLE ExistingTokenHandle, const UNICODE_STRING *a2, _BYTE *a3)
 {
   int PolicyValueForSystemCapability; // eax

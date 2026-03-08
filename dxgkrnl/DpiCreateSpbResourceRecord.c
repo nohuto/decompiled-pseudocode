@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiCreateSpbResourceRecord @ 0x1C03A35B0
+ * Callers:
+ *     DpOpenSpbResource @ 0x1C03A2E10 (DpOpenSpbResource.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiCreateSpbResourceRecord(__int64 a1, __int64 a2, struct _EX_RUNDOWN_REF **a3)
 {
   __int64 Pool2; // rax

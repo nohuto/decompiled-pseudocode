@@ -1,3 +1,17 @@
+/*
+ * XREFs of sub_140773AA8 @ 0x140773AA8
+ * Callers:
+ *     sub_1406AFC38 @ 0x1406AFC38 (sub_1406AFC38.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     sub_1406AF180 @ 0x1406AF180 (sub_1406AF180.c)
+ *     WbFreeMemoryBlockRegion @ 0x140773BBC (WbFreeMemoryBlockRegion.c)
+ */
+
 __int64 __fastcall sub_140773AA8(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax

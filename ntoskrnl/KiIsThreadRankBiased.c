@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiIsThreadRankBiased @ 0x14045A388
+ * Callers:
+ *     KiDeferredReadySingleThread @ 0x140259FB0 (KiDeferredReadySingleThread.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KiIsThreadRankBiased(__int64 a1, struct _KPRCB *CurrentPrcb)
 {
   char v2; // r8

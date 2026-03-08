@@ -1,3 +1,18 @@
+/*
+ * XREFs of WmipQuerySingleMultiple @ 0x1409DE144
+ * Callers:
+ *     WmipIoControl @ 0x140787290 (WmipIoControl.c)
+ *     IoWMIQuerySingleInstanceMultiple @ 0x1409DC0B0 (IoWMIQuerySingleInstanceMultiple.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WmipQuerySetExecuteSI @ 0x14069C72C (WmipQuerySetExecuteSI.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WmipQuerySingleMultiple(
         IRP *a1,
         KPROCESSOR_MODE a2,

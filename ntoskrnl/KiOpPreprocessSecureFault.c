@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiOpPreprocessSecureFault @ 0x14056A954
+ * Callers:
+ *     KiPreprocessFault @ 0x140362554 (KiPreprocessFault.c)
+ * Callees:
+ *     Feature_Servicing_AllowSecureQcPagesCopy__private_IsEnabledNoReporting @ 0x14040A5A0 (Feature_Servicing_AllowSecureQcPagesCopy__private_IsEnabledNoReporting.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 char __fastcall KiOpPreprocessSecureFault(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4, _QWORD *a3)
 {
   struct _KPRCB *CurrentPrcb; // rbx

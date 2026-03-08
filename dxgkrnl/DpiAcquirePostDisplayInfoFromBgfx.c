@@ -1,3 +1,17 @@
+/*
+ * XREFs of DpiAcquirePostDisplayInfoFromBgfx @ 0x1C01E7D80
+ * Callers:
+ *     DpiFdoHandleDevicePower @ 0x1C01E1A70 (DpiFdoHandleDevicePower.c)
+ *     DpiFdoSetAdapterPowerState @ 0x1C01E1E80 (DpiFdoSetAdapterPowerState.c)
+ *     DpiFdoHandleSystemPower @ 0x1C01E2484 (DpiFdoHandleSystemPower.c)
+ *     DpiFdoDetectPostDevice @ 0x1C01E7AF0 (DpiFdoDetectPostDevice.c)
+ *     DpiFdoStartAdapterThreadImpl @ 0x1C0209A10 (DpiFdoStartAdapterThreadImpl.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DxgDetermineBootImageMode @ 0x1C0213318 (DxgDetermineBootImageMode.c)
+ */
+
 __int64 __fastcall DpiAcquirePostDisplayInfoFromBgfx(__int64 a1, char a2, char a3)
 {
   char v3; // r15

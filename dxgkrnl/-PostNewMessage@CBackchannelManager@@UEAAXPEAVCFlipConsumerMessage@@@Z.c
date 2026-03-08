@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PostNewMessage@CBackchannelManager@@UEAAXPEAVCFlipConsumerMessage@@@Z @ 0x1C00873D0
+ * Callers:
+ *     ?PostNewMessage@CDWMBackchannelManager@@UEAAXPEAVCFlipConsumerMessage@@@Z @ 0x1C0087250 (-PostNewMessage@CDWMBackchannelManager@@UEAAXPEAVCFlipConsumerMessage@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CBackchannelManager::PostNewMessage(PRKEVENT *this, struct CFlipConsumerMessage *a2)
 {
   _QWORD *v4; // rdi

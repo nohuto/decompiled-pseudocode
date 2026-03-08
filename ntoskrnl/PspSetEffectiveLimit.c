@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspSetEffectiveLimit @ 0x14078B77C
+ * Callers:
+ *     PspSetEffectiveJobLimits @ 0x14078B504 (PspSetEffectiveJobLimits.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PspSetEffectiveLimit(int a1, _DWORD *a2)
 {
   char v2; // r9

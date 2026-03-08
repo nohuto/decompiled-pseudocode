@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvpViewMapGetLastView @ 0x140732E04
+ * Callers:
+ *     HvpViewMapExtendStorage @ 0x140732D5C (HvpViewMapExtendStorage.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall HvpViewMapGetLastView(__int64 a1)
 {
   unsigned __int64 result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlGetNextRange @ 0x140823670
+ * Callers:
+ *     RtlpIsRangeAvailable @ 0x1408235A0 (RtlpIsRangeAvailable.c)
+ *     ArbOverrideConflict @ 0x1409332E0 (ArbOverrideConflict.c)
+ *     ArbShareDriverExclusive @ 0x14093394C (ArbShareDriverExclusive.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlGetNextRange(__int64 *a1, _QWORD *a2, char a3)
 {
   __int64 v3; // r11

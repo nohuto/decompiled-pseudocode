@@ -1,3 +1,14 @@
+/*
+ * XREFs of PfSnCheckModernApp @ 0x1407E49F8
+ * Callers:
+ *     PfSnCalculateScenarioNameAndHash @ 0x1407E4DC0 (PfSnCalculateScenarioNameAndHash.c)
+ * Callees:
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     RtlQueryPackageIdentity @ 0x140298300 (RtlQueryPackageIdentity.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, unsigned __int8 *a3, _QWORD *a4)
 {
   int v8; // ebp

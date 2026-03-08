@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??1FxDpc@@UEAA@XZ @ 0x1C0023110
+ * Callers:
+ *     ??_GFxDpc@@UEAAPEAXI@Z @ 0x1C0023180 (--_GFxDpc@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0002D30 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0018194 (WPP_IFR_SF_q.c)
+ */
+
 void __fastcall FxDpc::~FxDpc(FxDpc *this, unsigned int a2)
 {
   bool v2; // zf

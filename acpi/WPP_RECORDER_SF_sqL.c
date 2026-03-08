@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_RECORDER_SF_sqL @ 0x1C0023338
+ * Callers:
+ *     ACPIIsPhase3ListEmptyOfUnblockedItems @ 0x1C0021D74 (ACPIIsPhase3ListEmptyOfUnblockedItems.c)
+ *     ACPIInternalNotifyAvailableDeviceObject @ 0x1C008310C (ACPIInternalNotifyAvailableDeviceObject.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_sqL(
         __int64 a1,
         unsigned __int8 a2,

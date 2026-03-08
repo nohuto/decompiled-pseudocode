@@ -1,3 +1,15 @@
+/*
+ * XREFs of ViDeadlockRemoveThread @ 0x140AD6C20
+ * Callers:
+ *     ViDeadlockRemoveMemoryRangeThreads @ 0x1405CF568 (ViDeadlockRemoveMemoryRangeThreads.c)
+ *     VfDeadlockAcquireResource @ 0x140AD3DAC (VfDeadlockAcquireResource.c)
+ *     VfDeadlockReleaseResource @ 0x140AD4ECC (VfDeadlockReleaseResource.c)
+ *     ViDeadlockEmptyDatabase @ 0x140AD5E40 (ViDeadlockEmptyDatabase.c)
+ * Callees:
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     ViDeadlockPreprocessOptions @ 0x140AD6830 (ViDeadlockPreprocessOptions.c)
+ */
+
 unsigned __int64 __fastcall ViDeadlockRemoveThread(ULONG_PTR a1, int a2)
 {
   _QWORD *v3; // r9

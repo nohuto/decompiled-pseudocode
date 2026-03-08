@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiMarkKernelPageTablePte @ 0x140624680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ */
+
 __int64 __fastcall MiMarkKernelPageTablePte(__int64 a1, unsigned __int64 a2)
 {
   __int64 v2; // rax

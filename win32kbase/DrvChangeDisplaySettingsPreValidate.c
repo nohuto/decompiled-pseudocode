@@ -1,3 +1,15 @@
+/*
+ * XREFs of DrvChangeDisplaySettingsPreValidate @ 0x1C019288C
+ * Callers:
+ *     ?xxxUserChangeDisplaySettingsInternal@@YAJPEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAUtagDESKTOP@@KPEAXW4_MODE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C015DB90 (-xxxUserChangeDisplaySettingsInternal@@YAJPEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAUtagDESKTOP@.c)
+ *     DrvChangeDisplaySettings @ 0x1C019249C (DrvChangeDisplaySettings.c)
+ * Callees:
+ *     UserIsWddmConnectedSession @ 0x1C0022420 (UserIsWddmConnectedSession.c)
+ *     DrvGetDeviceFromName @ 0x1C003C370 (DrvGetDeviceFromName.c)
+ *     ?DrvIsPermanentSettingChangesDisabled@@YAHXZ @ 0x1C018E3F0 (-DrvIsPermanentSettingChangesDisabled@@YAHXZ.c)
+ *     ?DrvIsTemporarySettingChangeDisabled@@YAHXZ @ 0x1C018E498 (-DrvIsTemporarySettingChangeDisabled@@YAHXZ.c)
+ */
+
 __int64 __fastcall DrvChangeDisplaySettingsPreValidate(
         PCUNICODE_STRING String1,
         __int64 a2,

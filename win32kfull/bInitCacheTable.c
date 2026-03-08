@@ -1,3 +1,13 @@
+/*
+ * XREFs of bInitCacheTable @ 0x1C028C900
+ * Callers:
+ *     InitFNTCache @ 0x1C00B9300 (InitFNTCache.c)
+ * Callees:
+ *     vUnmapFontCacheFile @ 0x1C00B812C (vUnmapFontCacheFile.c)
+ *     ?bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z @ 0x1C00BACFC (-bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall bInitCacheTable(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6, int a7)
 {
   __int64 v7; // r13

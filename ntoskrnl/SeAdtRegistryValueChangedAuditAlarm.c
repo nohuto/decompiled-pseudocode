@@ -1,3 +1,28 @@
+/*
+ * XREFs of SeAdtRegistryValueChangedAuditAlarm @ 0x1409C7074
+ * Callers:
+ *     CmDeleteValueKey @ 0x1406B9764 (CmDeleteValueKey.c)
+ *     CmSetValueKey @ 0x1407A9870 (CmSetValueKey.c)
+ * Callees:
+ *     PsGetCurrentThreadProcess @ 0x1402C0BB0 (PsGetCurrentThreadProcess.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ObpIsKernelHandle @ 0x1403521C8 (ObpIsKernelHandle.c)
+ *     SepAdtLogAuditRecord @ 0x140397890 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x14070F610 (SeAuditingWithTokenForSubcategory.c)
+ *     SepQueryNameString @ 0x140744C84 (SepQueryNameString.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1407E7618 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SeExamineSacl @ 0x1408A18B0 (SeExamineSacl.c)
+ *     SeExamineGlobalSacl @ 0x1408A1D6A (SeExamineGlobalSacl.c)
+ *     SepAuditFailed @ 0x1409CEE50 (SepAuditFailed.c)
+ *     AdtpBuildRegistryValueString @ 0x140A57FA4 (AdtpBuildRegistryValueString.c)
+ *     AdtpBuildReplacementString @ 0x140A59338 (AdtpBuildReplacementString.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SeAdtRegistryValueChangedAuditAlarm(
         __int64 a1,
         __int64 a2,

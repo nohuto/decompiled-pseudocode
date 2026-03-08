@@ -1,3 +1,13 @@
+/*
+ * XREFs of sub_140B16300 @ 0x140B16300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSignalGate @ 0x1402F0524 (KeSignalGate.c)
+ *     sub_1403EC068 @ 0x1403EC068 (sub_1403EC068.c)
+ *     ExFreePool @ 0x140AAB270 (ExFreePool.c)
+ */
+
 void __fastcall sub_140B16300(_QWORD **a1)
 {
   void *v1; // rsi

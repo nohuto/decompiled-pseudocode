@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlLookupElementGenericTable @ 0x1402C2820
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlSplay @ 0x1402C2B50 (RtlSplay.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 PVOID __stdcall RtlLookupElementGenericTable(PRTL_GENERIC_TABLE Table, PVOID Buffer)
 {
   PRTL_SPLAY_LINKS TableRoot; // rbx

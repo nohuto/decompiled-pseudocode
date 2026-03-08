@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReleaseAndRestore@FxUsbDeviceControlContext@@UEAAXPEAVFxRequestBase@@@Z @ 0x1C000F680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReleaseAndRestore@FxRequestContext@@UEAAXPEAVFxRequestBase@@@Z @ 0x1C0008E40 (-ReleaseAndRestore@FxRequestContext@@UEAAXPEAVFxRequestBase@@@Z.c)
+ *     ?FxMdlFreeDebug@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAU_MDL@@@Z @ 0x1C0048258 (-FxMdlFreeDebug@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAU_MDL@@@Z.c)
+ */
+
 void __fastcall FxUsbDeviceControlContext::ReleaseAndRestore(FxUsbDeviceControlContext *this, FxRequestBase *Request)
 {
   _MDL *m_PartialMdl; // rcx

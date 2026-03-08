@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiAddProcessorToGroupSchedulingDatabase @ 0x140A9CCE4
+ * Callers:
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ * Callees:
+ *     KeReleaseInStackQueuedSpinLock @ 0x14025C890 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiAddProcessorToGroupSchedulingList @ 0x14057AFB0 (KiAddProcessorToGroupSchedulingList.c)
+ *     KiInitializeProcessorGroupSchedulingData @ 0x14057B04C (KiInitializeProcessorGroupSchedulingData.c)
+ */
+
 void __fastcall KiAddProcessorToGroupSchedulingDatabase(__int64 a1)
 {
   __int64 v2; // rcx

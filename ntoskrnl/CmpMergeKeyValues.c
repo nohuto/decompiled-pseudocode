@@ -1,3 +1,22 @@
+/*
+ * XREFs of CmpMergeKeyValues @ 0x140A1F628
+ * Callers:
+ *     CmSaveMergedKeys @ 0x140A09144 (CmSaveMergedKeys.c)
+ *     CmpCopySyncTree2 @ 0x140A1E7F8 (CmpCopySyncTree2.c)
+ * Callees:
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     CmpInitializeValueNameString @ 0x1407845C0 (CmpInitializeValueNameString.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpAddValueToListEx @ 0x1407A5A94 (CmpAddValueToListEx.c)
+ *     CmpFindNameInListWithStatus @ 0x1407A8DA0 (CmpFindNameInListWithStatus.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpCopyValue @ 0x1408A6FF4 (CmpCopyValue.c)
+ *     CmpSyncKeyValues @ 0x140A20124 (CmpSyncKeyValues.c)
+ */
+
 __int64 CmpMergeKeyValues(ULONG_PTR BugCheckParameter3, int a2, _DWORD *a3, ULONG_PTR a4, unsigned int a5, ...)
 {
   unsigned int v5; // r15d

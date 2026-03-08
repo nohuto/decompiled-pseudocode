@@ -1,3 +1,17 @@
+/*
+ * XREFs of RIMPopulateExtendedPointerDeviceProperties @ 0x1C01C74DC
+ * Callers:
+ *     RIMCreatePointerDeviceInfo @ 0x1C01B3FEC (RIMCreatePointerDeviceInfo.c)
+ * Callees:
+ *     RtlUnicodeStringValidateDestWorker @ 0x1C003098C (RtlUnicodeStringValidateDestWorker.c)
+ *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0030A10 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     RIMRegOpenKey @ 0x1C0030AE8 (RIMRegOpenKey.c)
+ *     RIMRegOpenDeviceInstanceKey @ 0x1C0030CF0 (RIMRegOpenDeviceInstanceKey.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?PopulatePTPProperties@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAX1@Z @ 0x1C01C70F8 (-PopulatePTPProperties@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAX1@Z.c)
+ */
+
 void __fastcall RIMPopulateExtendedPointerDeviceProperties(__int64 a1, __int64 a2, int a3)
 {
   int v4; // ebx

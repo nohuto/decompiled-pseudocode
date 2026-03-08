@@ -1,3 +1,21 @@
+/*
+ * XREFs of KeInvalidateAllCaches @ 0x1403010D0
+ * Callers:
+ *     MiChangePageAttributeBatch @ 0x140211998 (MiChangePageAttributeBatch.c)
+ *     MiChangePageAttributeContiguous @ 0x140214270 (MiChangePageAttributeContiguous.c)
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x1402149F0 (KeInvalidateRangeAllCachesNoIpi.c)
+ *     KeFlushIoBuffers @ 0x1402DCDE0 (KeFlushIoBuffers.c)
+ *     KeInvalidateRangeAllCaches @ 0x1404580A0 (KeInvalidateRangeAllCaches.c)
+ *     MiRemovePhysicalMemoryBatchComplete @ 0x140619B48 (MiRemovePhysicalMemoryBatchComplete.c)
+ *     MiFlushCacheMdl @ 0x14065E8C0 (MiFlushCacheMdl.c)
+ *     MiFlushCacheRange @ 0x14065E91C (MiFlushCacheRange.c)
+ *     MiInitializeCacheFlushing @ 0x140B675DC (MiInitializeCacheFlushing.c)
+ * Callees:
+ *     KiIpiSendRequestEx @ 0x14021238C (KiIpiSendRequestEx.c)
+ *     KxSetTimeStampBusy @ 0x1402DC0CC (KxSetTimeStampBusy.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 BOOLEAN KeInvalidateAllCaches(void)
 {
   unsigned __int8 CurrentIrql; // bl

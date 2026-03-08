@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0q_EtwEventWriteTransfer @ 0x14000B0CC
+ * Callers:
+ *     ?StartComposition@CDwmAppHost@@AEAAJXZ @ 0x1400038B0 (-StartComposition@CDwmAppHost@@AEAAJXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x140005510 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwEventWriteTransfer @ 0x14000B068 (McGenEventWrite_EtwEventWriteTransfer.c)
+ */
+
 __int64 __fastcall McTemplateU0q_EtwEventWriteTransfer(__int64 a1, __int64 a2, __int64 a3)
 {
   int v4; // [rsp+30h] [rbp-38h] BYREF

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?vCleanUpFntCacheInternal@@YAXXZ @ 0x1C00B8080
+ * Callers:
+ *     GdiMultiUserFontCleanup @ 0x1C00B6E30 (GdiMultiUserFontCleanup.c)
+ *     EngCloseFNTCache @ 0x1C00B83B8 (EngCloseFNTCache.c)
+ *     InitFNTCache @ 0x1C00B9300 (InitFNTCache.c)
+ * Callees:
+ *     vUnmapFontCacheFile @ 0x1C00B812C (vUnmapFontCacheFile.c)
+ */
+
 void __fastcall vCleanUpFntCacheInternal(__int64 a1)
 {
   __int64 v1; // rbx

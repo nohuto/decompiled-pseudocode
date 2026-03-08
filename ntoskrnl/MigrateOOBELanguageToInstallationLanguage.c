@@ -1,3 +1,18 @@
+/*
+ * XREFs of MigrateOOBELanguageToInstallationLanguage @ 0x14060D19C
+ * Callers:
+ *     NtGetMUIRegistryInfo @ 0x140779C90 (NtGetMUIRegistryInfo.c)
+ *     NtFlushInstallUILanguage @ 0x14085B740 (NtFlushInstallUILanguage.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 MigrateOOBELanguageToInstallationLanguage()
 {
   NTSTATUS v0; // ebx

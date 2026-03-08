@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UpdateFrameStatistics@CTelemetryFrameStatistics@@QEAAX_K00II_N@Z @ 0x180050AE8
+ * Callers:
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x18004E7F8 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CTelemetryFrameStatistics::UpdateFrameStatistics(
         CTelemetryFrameStatistics *this,
         unsigned __int64 a2,

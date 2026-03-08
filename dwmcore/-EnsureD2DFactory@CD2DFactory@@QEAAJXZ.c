@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?EnsureD2DFactory@CD2DFactory@@QEAAJXZ @ 0x1800AD964
+ * Callers:
+ *     ?Startup@@YAJXZ @ 0x1800AD854 (-Startup@@YAJXZ.c)
+ * Callees:
+ *     ?Register@CMesh2DEffect@@SAJPEAVCD2DFactory@@@Z @ 0x1800ADA40 (-Register@CMesh2DEffect@@SAJPEAVCD2DFactory@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CD2DFactory::EnsureD2DFactory(CD2DFactory *this)
 {
   unsigned int v1; // ebx

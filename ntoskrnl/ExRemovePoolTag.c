@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExRemovePoolTag @ 0x1403BD8EC
+ * Callers:
+ *     MmFreeContiguousMemory @ 0x1403BD6E0 (MmFreeContiguousMemory.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     ExpPoolTrackerReturnLimit @ 0x140313B50 (ExpPoolTrackerReturnLimit.c)
+ *     ExpFreePoolChecks @ 0x140313BA0 (ExpFreePoolChecks.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x140462C3A (ExpRemovePoolTrackerExpansion.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTracePool @ 0x1405FAD80 (EtwTracePool.c)
+ */
+
 __int64 __fastcall ExRemovePoolTag(ULONG_PTR BugCheckParameter2, unsigned int *a2, __int64 *a3, int *a4)
 {
   KIRQL v8; // al

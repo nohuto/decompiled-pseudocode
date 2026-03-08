@@ -1,3 +1,16 @@
+/*
+ * XREFs of xxxSetClipboardViewer @ 0x1C0200B44
+ * Callers:
+ *     NtUserSetClipboardViewer @ 0x1C01DC2E0 (NtUserSetClipboardViewer.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00BD7B8 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ *     ?xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C01FF92C (-xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ */
+
 __int64 __fastcall xxxSetClipboardViewer(__int64 a1)
 {
   struct tagWINDOWSTATION *v2; // rax

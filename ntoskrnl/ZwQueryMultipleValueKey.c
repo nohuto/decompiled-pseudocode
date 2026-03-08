@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwQueryMultipleValueKey @ 0x140414EF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwQueryMultipleValueKey(__int64 a1, __int64 a2)
 {
   _disable();

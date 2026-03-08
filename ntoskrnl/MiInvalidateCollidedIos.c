@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiInvalidateCollidedIos @ 0x1402C6204
+ * Callers:
+ *     MiDeleteTransitionPte @ 0x1402833F0 (MiDeleteTransitionPte.c)
+ *     MiFinishHardFault @ 0x140284200 (MiFinishHardFault.c)
+ *     MiPurgeImageSection @ 0x1402FECC8 (MiPurgeImageSection.c)
+ * Callees:
+ *     MiReleaseInPageRefs @ 0x1402C6460 (MiReleaseInPageRefs.c)
+ *     MiUpdateTransitionPteFrame @ 0x1402C6CD0 (MiUpdateTransitionPteFrame.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ */
+
 __int64 __fastcall MiInvalidateCollidedIos(__int64 a1)
 {
   int v1; // edx

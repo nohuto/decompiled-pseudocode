@@ -1,3 +1,11 @@
+/*
+ * XREFs of PciConfigSpaceHandler @ 0x1C0035F80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PciConfigSpaceHandlerWorker @ 0x1C0036080 (PciConfigSpaceHandlerWorker.c)
+ */
+
 __int64 __fastcall PciConfigSpaceHandler(
         int a1,
         volatile signed __int32 *a2,

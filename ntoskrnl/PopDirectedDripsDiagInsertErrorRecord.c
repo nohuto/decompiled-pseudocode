@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopDirectedDripsDiagInsertErrorRecord @ 0x14099B210
+ * Callers:
+ *     PopDirectedDripsDiagTraceBroadcastFailureDevice @ 0x14099C0DC (PopDirectedDripsDiagTraceBroadcastFailureDevice.c)
+ *     PopDirectedDripsDiagTraceProblemDevice @ 0x14099C45C (PopDirectedDripsDiagTraceProblemDevice.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PopDirectedDripsDiagInsertErrorRecord(__int64 a1, __int64 a2, int a3)
 {
   __int64 *v3; // rbx

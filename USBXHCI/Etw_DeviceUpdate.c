@@ -1,3 +1,17 @@
+/*
+ * XREFs of Etw_DeviceUpdate @ 0x1C001D724
+ * Callers:
+ *     UsbDevice_UcxEvtHubInfo @ 0x1C001D220 (UsbDevice_UcxEvtHubInfo.c)
+ *     UsbDevice_UpdateUsbDevice @ 0x1C001D43C (UsbDevice_UpdateUsbDevice.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     XilUsbDevice_QueryAttributes @ 0x1C00481C4 (XilUsbDevice_QueryAttributes.c)
+ *     McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer @ 0x1C004B0B8 (McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_char @ 0x1C004BCA0 (_tlgCreate1Sz_char.c)
+ *     _tlgKeywordOn @ 0x1C004BCD4 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C004BD00 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ */
+
 _UNKNOWN **__fastcall Etw_DeviceUpdate(__int64 a1, __int64 a2)
 {
   _UNKNOWN **result; // rax

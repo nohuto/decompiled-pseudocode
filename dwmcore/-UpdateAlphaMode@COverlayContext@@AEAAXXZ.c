@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UpdateAlphaMode@COverlayContext@@AEAAXXZ @ 0x1800C8C70
+ * Callers:
+ *     ?ComputeOverlayConfigurationForAdapter@COverlayContext@@CAJAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@@Z @ 0x180052C10 (-ComputeOverlayConfigurationForAdapter@COverlayContext@@CAJAEBV-$span@PEAVCOverlayContext@@$0-0@.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall COverlayContext::UpdateAlphaMode(COverlayContext *this)
 {
   unsigned int v2; // edi

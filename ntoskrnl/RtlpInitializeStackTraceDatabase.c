@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpInitializeStackTraceDatabase @ 0x1409B77E8
+ * Callers:
+ *     RtlControlStackTraceDataBase @ 0x1405A70C4 (RtlControlStackTraceDataBase.c)
+ * Callees:
+ *     NtFreeVirtualMemory @ 0x1406EC750 (NtFreeVirtualMemory.c)
+ *     RtlStdInitializeStackDatabase @ 0x1409B76AC (RtlStdInitializeStackDatabase.c)
+ */
+
 __int64 __fastcall RtlpInitializeStackTraceDatabase(__int64 a1, __int64 a2, unsigned __int64 a3)
 {
   int v4; // edx

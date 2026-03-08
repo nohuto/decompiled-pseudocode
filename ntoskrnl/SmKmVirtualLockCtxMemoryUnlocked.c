@@ -1,3 +1,17 @@
+/*
+ * XREFs of SmKmVirtualLockCtxMemoryUnlocked @ 0x1405C9DA4
+ * Callers:
+ *     SmKmStoreHelperCommandProcess @ 0x1405C93E8 (SmKmStoreHelperCommandProcess.c)
+ *     SmKmVirtualLockCtxLockMemory @ 0x1405C9C84 (SmKmVirtualLockCtxLockMemory.c)
+ * Callees:
+ *     MmAdjustWorkingSetSizeEx @ 0x14020C61C (MmAdjustWorkingSetSizeEx.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     MmQueryWorkingSetInformation @ 0x140299640 (MmQueryWorkingSetInformation.c)
+ */
+
 void __fastcall SmKmVirtualLockCtxMemoryUnlocked(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   unsigned __int64 v3; // rcx

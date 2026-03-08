@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FindContactToBreakSuperCurtains@CPTPEngine@@AEAAHPEAUPTPInput@@PEAUCContactState@@@Z @ 0x1C02376F4
+ * Callers:
+ *     ?RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C0238AD8 (-RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CPTPEngine::FindContactToBreakSuperCurtains(
         CPTPEngine *this,
         struct PTPInput *a2,

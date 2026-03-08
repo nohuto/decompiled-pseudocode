@@ -1,3 +1,19 @@
+/*
+ * XREFs of Controller_UcxEvtGetFrameNumberAndQpcForTimeSync @ 0x1C0035620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_D @ 0x1C00180C4 (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C001A2FC (WPP_RECORDER_SF_qq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_IsHandlePresentInCollection @ 0x1C0034130 (Controller_IsHandlePresentInCollection.c)
+ *     Controller_TranslateFrameNumberToQpcValue @ 0x1C003539C (Controller_TranslateFrameNumberToQpcValue.c)
+ *     WPP_RECORDER_SF_II @ 0x1C0037144 (WPP_RECORDER_SF_II.c)
+ *     WPP_RECORDER_SF_qqqd @ 0x1C00377F0 (WPP_RECORDER_SF_qqqd.c)
+ */
+
 __int64 __fastcall Controller_UcxEvtGetFrameNumberAndQpcForTimeSync(
         __int64 a1,
         __int64 a2,

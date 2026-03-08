@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiStoreUpdatePagefileHash @ 0x14065A508
+ * Callers:
+ *     MiStoreWriteModifiedPages @ 0x14046554A (MiStoreWriteModifiedPages.c)
+ * Callees:
+ *     MiGetPagingFileOffset @ 0x14029EA80 (MiGetPagingFileOffset.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiMapPageFileHash @ 0x140663D0C (MiMapPageFileHash.c)
+ */
+
 __int64 __fastcall MiStoreUpdatePagefileHash(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   __int64 result; // rax

@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiRotateToFrameBufferNoCopy @ 0x140A2ECE4
+ * Callers:
+ *     MmRotatePhysicalView @ 0x140A2EF10 (MmRotatePhysicalView.c)
+ * Callees:
+ *     MiIsPfn @ 0x14025F1D0 (MiIsPfn.c)
+ *     MiSanitizePage @ 0x14029B170 (MiSanitizePage.c)
+ *     MiDereferenceIoPages @ 0x14029B654 (MiDereferenceIoPages.c)
+ *     MiReferenceIoPages @ 0x14029BA60 (MiReferenceIoPages.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x14029F4D8 (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiLegitimatePageForDriversToMap @ 0x14029F8D0 (MiLegitimatePageForDriversToMap.c)
+ *     MiDeleteRotateAndStopFaults @ 0x140630198 (MiDeleteRotateAndStopFaults.c)
+ *     MiObtainRotateProtectionRanges @ 0x1406304A8 (MiObtainRotateProtectionRanges.c)
+ *     MiRotateComplete @ 0x1406309AC (MiRotateComplete.c)
+ *     MiGetVadCacheAttribute @ 0x14065E5C4 (MiGetVadCacheAttribute.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiRotateToFrameBufferNoCopy(ULONG_PTR a1, unsigned __int64 a2, __int64 a3, unsigned __int64 a4)
 {
   __int64 result; // rax

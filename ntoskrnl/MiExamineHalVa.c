@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiExamineHalVa @ 0x140B370D8
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 MiExamineHalVa()
 {
   unsigned __int64 v0; // rdx

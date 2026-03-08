@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiAddCpuToSystemCpuPartition @ 0x140A89F80
+ * Callers:
+ *     KiCompleteKernelInit @ 0x140A89D30 (KiCompleteKernelInit.c)
+ * Callees:
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ */
+
 __int64 __fastcall KiAddCpuToSystemCpuPartition(__int64 a1)
 {
   int v2; // edx

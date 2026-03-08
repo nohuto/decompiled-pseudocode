@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpGetTraceGuidList @ 0x1409E4FB4
+ * Callers:
+ *     NtTraceControl @ 0x140694040 (NtTraceControl.c)
+ * Callees:
+ *     EtwpCopyMetaProviderGuids @ 0x140462B1C (EtwpCopyMetaProviderGuids.c)
+ *     EtwpMetaProviderCount @ 0x140462BA6 (EtwpMetaProviderCount.c)
+ *     EtwpGetGuidList @ 0x1408A28F6 (EtwpGetGuidList.c)
+ */
+
 __int64 __fastcall EtwpGetTraceGuidList(__int64 a1, __int64 a2, unsigned int a3, unsigned int *a4)
 {
   int GuidList; // r10d

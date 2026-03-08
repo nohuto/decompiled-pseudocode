@@ -1,3 +1,17 @@
+/*
+ * XREFs of KseLookupHardwareId @ 0x140974398
+ * Callers:
+ *     AhcCacheQueryHwId @ 0x140A6F0BC (AhcCacheQueryHwId.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     AslStringPatternMatchExW @ 0x14077790C (AslStringPatternMatchExW.c)
+ *     KsepCacheLookup @ 0x14079CC94 (KsepCacheLookup.c)
+ */
+
 __int64 __fastcall KseLookupHardwareId(WCHAR *SourceString)
 {
   WCHAR v1; // r15

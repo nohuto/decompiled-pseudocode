@@ -1,3 +1,20 @@
+/*
+ * XREFs of IoConvertFileHandleToKernelHandle @ 0x140944030
+ * Callers:
+ *     CmpNameFromAttributes @ 0x1406BD314 (CmpNameFromAttributes.c)
+ *     IopOpenLinkOrRenameTarget @ 0x140783F08 (IopOpenLinkOrRenameTarget.c)
+ *     ExpQueryCodeIntegrityCertificateInfo @ 0x1409F3A80 (ExpQueryCodeIntegrityCertificateInfo.c)
+ *     ExpQueryElamCertInfo @ 0x1409F3CC0 (ExpQueryElamCertInfo.c)
+ *     NtRestoreKey @ 0x140A0BBB0 (NtRestoreKey.c)
+ *     NtSaveKeyEx @ 0x140A0BF70 (NtSaveKeyEx.c)
+ *     NtSaveMergedKeys @ 0x140A0C200 (NtSaveMergedKeys.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObDuplicateObject @ 0x1406ED5C0 (ObDuplicateObject.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ */
+
 NTSTATUS __fastcall IoConvertFileHandleToKernelHandle(void *a1, KPROCESSOR_MODE a2, int a3, char a4, PVOID Object)
 {
   _QWORD *v5; // r14

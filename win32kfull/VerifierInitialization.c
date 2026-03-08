@@ -1,3 +1,11 @@
+/*
+ * XREFs of VerifierInitialization @ 0x1C03B8070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VerifierInitialization(Gre::Base *a1)
 {
   unsigned int v1; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpStartDevice @ 0x140292160
+ * Callers:
+ *     PnpStartDeviceNode @ 0x1406F71A4 (PnpStartDeviceNode.c)
+ * Callees:
+ *     PnpSendIrp @ 0x140202E04 (PnpSendIrp.c)
+ *     PoFxPrepareDevice @ 0x140291E3C (PoFxPrepareDevice.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall PnpStartDevice(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v6; // rdi

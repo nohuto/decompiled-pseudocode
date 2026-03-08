@@ -1,3 +1,14 @@
+/*
+ * XREFs of sub_140A4B34C @ 0x140A4B34C
+ * Callers:
+ *     WbReEncryptWarbirdEncryptionSegment @ 0x140753868 (WbReEncryptWarbirdEncryptionSegment.c)
+ * Callees:
+ *     sub_1406B6FF4 @ 0x1406B6FF4 (sub_1406B6FF4.c)
+ *     sub_14075424C @ 0x14075424C (sub_14075424C.c)
+ *     sub_14075435C @ 0x14075435C (sub_14075435C.c)
+ *     sub_140754E6C @ 0x140754E6C (sub_140754E6C.c)
+ */
+
 __int64 __fastcall sub_140A4B34C(__int64 a1, unsigned int *a2)
 {
   unsigned int v2; // esi

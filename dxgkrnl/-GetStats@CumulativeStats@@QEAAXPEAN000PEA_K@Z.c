@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetStats@CumulativeStats@@QEAAXPEAN000PEA_K@Z @ 0x1C00881E4
+ * Callers:
+ *     ?GetTrackedWorkloadUserStatistics@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAU_D3DKMT_GETTRACKEDWORKLOADSTATISTICS@@@Z @ 0x1C0359864 (-GetTrackedWorkloadUserStatistics@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAU_D3DKMT_GETTRACKED.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CumulativeStats::GetStats(
         CumulativeStats *this,
         double *a2,

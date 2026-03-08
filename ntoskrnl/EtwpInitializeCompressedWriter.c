@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpInitializeCompressedWriter @ 0x1409EA65C
+ * Callers:
+ *     EtwpSavePersistedLogger @ 0x1409EAC60 (EtwpSavePersistedLogger.c)
+ * Callees:
+ *     RtlGetCompressionWorkSpaceSize @ 0x14035AEA0 (RtlGetCompressionWorkSpaceSize.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall EtwpInitializeCompressedWriter(__int64 a1, int a2, __int64 a3)
 {
   unsigned int v3; // ebx

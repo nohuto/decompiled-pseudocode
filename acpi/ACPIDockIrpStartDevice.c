@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIDockIrpStartDevice @ 0x1C007BA10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qLqss @ 0x1C0009C8C (WPP_RECORDER_SF_qLqss.c)
+ *     WPP_RECORDER_SF_qqss @ 0x1C000A374 (WPP_RECORDER_SF_qqss.c)
+ *     ACPIBuildSynchronizationRequest @ 0x1C0013BC0 (ACPIBuildSynchronizationRequest.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     ACPIInternalClearFlags @ 0x1C002E508 (ACPIInternalClearFlags.c)
+ */
+
 __int64 __fastcall ACPIDockIrpStartDevice(ULONG_PTR a1, IRP *a2)
 {
   int v3; // edi

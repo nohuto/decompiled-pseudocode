@@ -1,3 +1,11 @@
+/*
+ * XREFs of NVMeRegisterThrottling @ 0x1C0016BF8
+ * Callers:
+ *     NVMeEnableThrottling @ 0x1C000ECF4 (NVMeEnableThrottling.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NVMeRegisterThrottling(__int64 a1, int a2, unsigned int a3)
 {
   __int64 v4; // rbp

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReleaseAllReferences@CCaptureControllerMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C026D710
+ * Callers:
+ *     ?ReleaseAllReferences@?$CSharedResourceMarshaler@VCCaptureControllerMarshaler@DirectComposition@@$01@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C024CAF0 (-ReleaseAllReferences@-$CSharedResourceMarshaler@VCCaptureControllerMarshaler@DirectComposition@.c)
+ * Callees:
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z @ 0x1C0068750 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z.c)
+ */
+
 void __fastcall DirectComposition::CCaptureControllerMarshaler::ReleaseAllReferences(
         DirectComposition::CCaptureControllerMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2)

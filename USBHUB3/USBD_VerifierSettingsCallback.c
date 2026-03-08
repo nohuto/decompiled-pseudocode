@@ -1,3 +1,11 @@
+/*
+ * XREFs of USBD_VerifierSettingsCallback @ 0x1C0041FA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall USBD_VerifierSettingsCallback(__int64 a1, int a2, _DWORD *a3, int a4, int a5, _DWORD *a6)
 {
   if ( a2 != 4 )

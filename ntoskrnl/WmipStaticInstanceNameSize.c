@@ -1,3 +1,13 @@
+/*
+ * XREFs of WmipStaticInstanceNameSize @ 0x14069E658
+ * Callers:
+ *     WmipQueryAllData @ 0x14069DF2C (WmipQueryAllData.c)
+ *     WmipInsertStaticNames @ 0x14069E478 (WmipInsertStaticNames.c)
+ *     WmipIncludeStaticNames @ 0x1409DDB94 (WmipIncludeStaticNames.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WmipStaticInstanceNameSize(__int64 a1)
 {
   unsigned int v1; // edx

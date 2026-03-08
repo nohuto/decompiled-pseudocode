@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiObtainFaultCharges @ 0x14031EEE0
+ * Callers:
+ *     MiGetPageForHeader @ 0x1402140A4 (MiGetPageForHeader.c)
+ *     MiMigratePfn @ 0x140272370 (MiMigratePfn.c)
+ *     MiResolveMappedFileFault @ 0x14028A780 (MiResolveMappedFileFault.c)
+ *     MiPickClusterForMappedFileFault @ 0x14028B0C0 (MiPickClusterForMappedFileFault.c)
+ *     MiPrivateFixup @ 0x1402A180C (MiPrivateFixup.c)
+ *     MiPrefetchPagesViable @ 0x1402FCD14 (MiPrefetchPagesViable.c)
+ *     MiSwitchToTransition @ 0x140630D6C (MiSwitchToTransition.c)
+ *     MiResolvePageFileFault @ 0x140668EDC (MiResolvePageFileFault.c)
+ *     MiPfPrepareSequentialReadList @ 0x1406EBE40 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x1407C42F0 (MiPfPrepareReadList.c)
+ * Callees:
+ *     MiReturnFaultCharges @ 0x1402F4480 (MiReturnFaultCharges.c)
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     MiChargeResident @ 0x140348DE8 (MiChargeResident.c)
+ *     MiChargePartitionResidentAvailable @ 0x140348ED0 (MiChargePartitionResidentAvailable.c)
+ */
+
 unsigned __int64 __fastcall MiObtainFaultCharges(void *a1, unsigned __int64 a2, char a3)
 {
   struct _KPRCB *CurrentPrcb; // r8

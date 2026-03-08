@@ -1,3 +1,26 @@
+/*
+ * XREFs of ExpSetDriverEntry @ 0x1409FAB20
+ * Callers:
+ *     NtAddDriverEntry @ 0x1409FBA20 (NtAddDriverEntry.c)
+ *     NtModifyDriverEntry @ 0x1409FC460 (NtModifyDriverEntry.c)
+ * Callees:
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     ZwTranslateFilePath @ 0x140415D90 (ZwTranslateFilePath.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IoGetEnvironmentVariableEx @ 0x14075D3B0 (IoGetEnvironmentVariableEx.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     ExpSafeWcslen @ 0x14083EB44 (ExpSafeWcslen.c)
+ *     ExpVerifyFilePath @ 0x14083EE50 (ExpVerifyFilePath.c)
+ *     IoSetEnvironmentVariableEx @ 0x14094D504 (IoSetEnvironmentVariableEx.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpSetDriverEntry(int a1, const void *a2, unsigned __int64 a3)
 {
   _DWORD *v3; // r12

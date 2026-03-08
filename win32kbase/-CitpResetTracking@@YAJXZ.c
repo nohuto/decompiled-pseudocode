@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?CitpResetTracking@@YAJXZ @ 0x1C02734F8
+ * Callers:
+ *     ?CitEtwEnableCallback@@YAXPEBU_GUID@@I_K@Z @ 0x1C02728BC (-CitEtwEnableCallback@@YAXPEBU_GUID@@I_K@Z.c)
+ * Callees:
+ *     ?CitpCleanup@@YAXXZ @ 0x1C00B02F4 (-CitpCleanup@@YAXXZ.c)
+ *     ?CitpContextFlush@@YAJPEAU_CIT_IMPACT_CONTEXT@@I@Z @ 0x1C00B03A4 (-CitpContextFlush@@YAJPEAU_CIT_IMPACT_CONTEXT@@I@Z.c)
+ *     ?CitpContextTrackingDataCleanup@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C00B0D10 (-CitpContextTrackingDataCleanup@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
+ *     ?CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z @ 0x1C00C5978 (-CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z.c)
+ *     ?CitpContextTrackingDataStart@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C00C5C50 (-CitpContextTrackingDataStart@@YAJPEAU_CIT_IMPACT_CONTEXT@@@Z.c)
+ *     ?CitpInvalidateAllWeakReferences@@YAXXZ @ 0x1C0272B98 (-CitpInvalidateAllWeakReferences@@YAXXZ.c)
+ */
+
 __int64 CitpResetTracking(void)
 {
   struct _CIT_IMPACT_CONTEXT *v0; // rbx

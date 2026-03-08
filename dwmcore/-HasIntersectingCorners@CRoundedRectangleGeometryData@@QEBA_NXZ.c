@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?HasIntersectingCorners@CRoundedRectangleGeometryData@@QEBA_NXZ @ 0x18007F070
+ * Callers:
+ *     ?GetOutline@CRoundedRectangleShape@@UEBAJPEAUID2D1GeometrySink@@@Z @ 0x18007F000 (-GetOutline@CRoundedRectangleShape@@UEBAJPEAUID2D1GeometrySink@@@Z.c)
+ *     ?AllowsOcclusion@CRoundedRectangleShape@@UEBA_NXZ @ 0x18007F050 (-AllowsOcclusion@CRoundedRectangleShape@@UEBA_NXZ.c)
+ *     ?EnsureD2DGeometry@CRoundedRectangleShape@@AEBAJXZ @ 0x1800D2F98 (-EnsureD2DGeometry@CRoundedRectangleShape@@AEBAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CRoundedRectangleGeometryData::HasIntersectingCorners(CRoundedRectangleGeometryData *this)
 {
   float v1; // xmm3_4

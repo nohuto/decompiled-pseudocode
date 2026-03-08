@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@FxUsbIdleInfo@@QEAAJXZ @ 0x1C0083434
+ * Callers:
+ *     ?InitUsbSS@FxPowerPolicyMachine@@QEAAJXZ @ 0x1C007A6F4 (-InitUsbSS@FxPowerPolicyMachine@@QEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FxUsbIdleInfo::Initialize(FxUsbIdleInfo *this)
 {
   _IRP *Irp; // rax

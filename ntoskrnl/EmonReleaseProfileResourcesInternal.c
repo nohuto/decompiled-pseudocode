@@ -1,3 +1,17 @@
+/*
+ * XREFs of EmonReleaseProfileResourcesInternal @ 0x14051BCC0
+ * Callers:
+ *     EmonAllocateResources @ 0x14051A90C (EmonAllocateResources.c)
+ *     EmonReleaseProfileResources @ 0x14051BBE0 (EmonReleaseProfileResources.c)
+ * Callees:
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpPmuReservedResourcesProcessorCallback @ 0x140505958 (HalpPmuReservedResourcesProcessorCallback.c)
+ */
+
 __int64 __fastcall EmonReleaseProfileResourcesInternal(__int64 a1)
 {
   unsigned int v2; // ebx

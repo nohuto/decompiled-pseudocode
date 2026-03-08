@@ -1,3 +1,21 @@
+/*
+ * XREFs of PopWnfAudioCallback @ 0x140852480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopGetDozeTimerSource @ 0x1403A5B00 (PopGetDozeTimerSource.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14073B7D4 (PopAcquirePowerRequestPushLock.c)
+ *     ExQueryWnfStateData @ 0x140793060 (ExQueryWnfStateData.c)
+ *     PopAudioAccountingCallback @ 0x140852568 (PopAudioAccountingCallback.c)
+ *     PopPowerRequestHandleExecutionEnablementUpdate @ 0x1408525A4 (PopPowerRequestHandleExecutionEnablementUpdate.c)
+ *     PopPowerRequestStatsNotifyScenarioStateChange @ 0x1408525EC (PopPowerRequestStatsNotifyScenarioStateChange.c)
+ *     PopUpdateSmartUserPresencePredictions @ 0x140998F8C (PopUpdateSmartUserPresencePredictions.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopWnfAudioCallback(__int64 a1)
 {
   int v1; // ecx

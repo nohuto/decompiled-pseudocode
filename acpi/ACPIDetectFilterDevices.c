@@ -1,3 +1,26 @@
+/*
+ * XREFs of ACPIDetectFilterDevices @ 0x1C001AA10
+ * Callers:
+ *     ACPIFilterIrpQueryDeviceRelations @ 0x1C007A330 (ACPIFilterIrpQueryDeviceRelations.c)
+ *     ACPIBusIrpQueryBusRelations @ 0x1C007EC78 (ACPIBusIrpQueryBusRelations.c)
+ *     ACPIRootIrpQueryDeviceRelations @ 0x1C0094220 (ACPIRootIrpQueryDeviceRelations.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIBuildFilter @ 0x1C000D1F8 (ACPIBuildFilter.c)
+ *     ACPIBuildMissingChildren @ 0x1C000D8BC (ACPIBuildMissingChildren.c)
+ *     ACPIDevicePowerFlushQueue @ 0x1C001EABC (ACPIDevicePowerFlushQueue.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     ACPIInitDereferenceDeviceExtensionUnlocked @ 0x1C002D0C0 (ACPIInitDereferenceDeviceExtensionUnlocked.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C002D594 (ACPIInitReferenceDeviceExtension.c)
+ *     ACPIBuildFlushQueue @ 0x1C007D42C (ACPIBuildFlushQueue.c)
+ *     ACPIDetectFilterMatch @ 0x1C0082650 (ACPIDetectFilterMatch.c)
+ *     ACPIFilterQueryBusD3ColdSupport @ 0x1C0086F38 (ACPIFilterQueryBusD3ColdSupport.c)
+ *     ACPIInternalIsPci @ 0x1C0088074 (ACPIInternalIsPci.c)
+ *     AcpiQueryPciBusInterface @ 0x1C008A38C (AcpiQueryPciBusInterface.c)
+ *     EnableDisableRegions @ 0x1C008A57C (EnableDisableRegions.c)
+ */
+
 __int64 __fastcall ACPIDetectFilterDevices(ULONG_PTR a1, __int64 a2)
 {
   __int64 DeviceExtension; // rax

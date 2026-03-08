@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpConvertSvmDevice @ 0x14060B3A8
+ * Callers:
+ *     ExpShareAddressSpaceWithDevice @ 0x14060B7D4 (ExpShareAddressSpaceWithDevice.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall ExpConvertSvmDevice(__int64 a1, _QWORD *a2)
 {
   __int64 (__fastcall *v4)(_QWORD, int *); // rax

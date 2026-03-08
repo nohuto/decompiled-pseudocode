@@ -1,3 +1,14 @@
+/*
+ * XREFs of VslRevertHotPatch @ 0x14054A16C
+ * Callers:
+ *     MiUnapplyDriverHotPatch @ 0x140A390F8 (MiUnapplyDriverHotPatch.c)
+ *     MiUnloadHotPatch @ 0x140A392C0 (MiUnloadHotPatch.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall VslRevertHotPatch(__int64 a1, unsigned int a2, unsigned int a3)
 {
   __int64 v3; // rdi

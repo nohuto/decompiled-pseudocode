@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiDetermineDeleteType @ 0x1408639D4
+ * Callers:
+ *     PnpProcessQueryRemoveAndEject @ 0x1408625F0 (PnpProcessQueryRemoveAndEject.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PiDetermineDeleteType(__int64 a1)
 {
   __int64 v1; // r9

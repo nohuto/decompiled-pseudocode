@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PowerSettingCallback@DXGADAPTER@@SAJPEBU_GUID@@PEAXK1@Z @ 0x1C01E86C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?NotifyPrimaryMonitorPowerChange@DXGADAPTER@@QEAAXE@Z @ 0x1C001CCF4 (-NotifyPrimaryMonitorPowerChange@DXGADAPTER@@QEAAXE@Z.c)
+ */
+
 __int64 __fastcall DXGADAPTER::PowerSettingCallback(
         LPCGUID SettingGuid,
         _DWORD *Value,

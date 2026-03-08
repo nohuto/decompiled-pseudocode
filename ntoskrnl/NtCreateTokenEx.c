@@ -1,3 +1,24 @@
+/*
+ * XREFs of NtCreateTokenEx @ 0x14070F880
+ * Callers:
+ *     NtCreateToken @ 0x1409CC260 (NtCreateToken.c)
+ * Callees:
+ *     SepCreateTokenEx @ 0x1402079F0 (SepCreateTokenEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SeCaptureSecurityQos @ 0x1406DB070 (SeCaptureSecurityQos.c)
+ *     SeReleaseAcl @ 0x14070E89C (SeReleaseAcl.c)
+ *     SeCaptureAcl @ 0x14070E8B8 (SeCaptureAcl.c)
+ *     SeCaptureLuidAndAttributesArray @ 0x14070F414 (SeCaptureLuidAndAttributesArray.c)
+ *     SeReleaseLuidAndAttributesArray @ 0x14070F4F8 (SeReleaseLuidAndAttributesArray.c)
+ *     SeCaptureSidAndAttributesArray @ 0x140710470 (SeCaptureSidAndAttributesArray.c)
+ *     SeCaptureSid @ 0x140710930 (SeCaptureSid.c)
+ *     SeReleaseSid @ 0x140710A34 (SeReleaseSid.c)
+ *     SepCaptureTokenSecurityAttributesInformation @ 0x140742D6C (SepCaptureTokenSecurityAttributesInformation.c)
+ *     SepFreeCapturedTokenSecurityAttributesInformation @ 0x14074339C (SepFreeCapturedTokenSecurityAttributesInformation.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall NtCreateTokenEx(
         _QWORD *a1,
         unsigned int a2,

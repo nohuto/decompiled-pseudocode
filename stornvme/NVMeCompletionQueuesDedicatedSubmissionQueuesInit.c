@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeCompletionQueuesDedicatedSubmissionQueuesInit @ 0x1C000C96C
+ * Callers:
+ *     NVMeCleanUpSqCqMapping @ 0x1C000C4EC (NVMeCleanUpSqCqMapping.c)
+ *     NVMeCompletionQueueInit @ 0x1C000C768 (NVMeCompletionQueueInit.c)
+ * Callees:
+ *     GetMaxDedicatedSqPerCqCount @ 0x1C0009CF4 (GetMaxDedicatedSqPerCqCount.c)
+ */
+
 __int64 __fastcall NVMeCompletionQueuesDedicatedSubmissionQueuesInit(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // r11

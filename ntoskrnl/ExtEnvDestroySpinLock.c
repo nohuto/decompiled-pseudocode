@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExtEnvDestroySpinLock @ 0x14051D088
+ * Callers:
+ *     IvtFreeDomain @ 0x14052A260 (IvtFreeDomain.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExtEnvDestroySpinLock(_QWORD *a1)
 {
   KIRQL v2; // al

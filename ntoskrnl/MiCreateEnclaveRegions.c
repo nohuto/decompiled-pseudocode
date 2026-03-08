@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiCreateEnclaveRegions @ 0x140B3A434
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     MiUpdateLargePageBitMap @ 0x14034D79C (MiUpdateLargePageBitMap.c)
+ *     MiInitializeEnclaveMetadataPage @ 0x140B96A34 (MiInitializeEnclaveMetadataPage.c)
+ */
+
 __int64 __fastcall MiCreateEnclaveRegions(__int64 a1)
 {
   unsigned int v1; // edi

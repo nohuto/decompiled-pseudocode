@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlCompareString @ 0x14075DC90
+ * Callers:
+ *     KsepGetModuleInfoByName @ 0x1409745B4 (KsepGetModuleInfoByName.c)
+ * Callees:
+ *     RtlUpperChar @ 0x14075DD40 (RtlUpperChar.c)
+ */
+
 LONG __stdcall RtlCompareString(const STRING *String1, const STRING *String2, BOOLEAN CaseInSensitive)
 {
   unsigned int Length; // esi

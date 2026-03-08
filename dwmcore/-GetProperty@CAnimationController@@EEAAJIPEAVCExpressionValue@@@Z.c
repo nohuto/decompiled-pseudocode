@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetProperty@CAnimationController@@EEAAJIPEAVCExpressionValue@@@Z @ 0x1800F85D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CAnimationController::GetProperty(CAnimationController *this, int a2, struct CExpressionValue *a3)
 {
   int v3; // edx

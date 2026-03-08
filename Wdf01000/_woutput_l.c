@@ -1,3 +1,18 @@
+/*
+ * XREFs of _woutput_l @ 0x1C0009C9C
+ * Callers:
+ *     _vsnwprintf_l @ 0x1C0009B94 (_vsnwprintf_l.c)
+ * Callees:
+ *     ?AddChildList@FxDeviceBase@@UEAAXPEAVFxChildList@@@Z @ 0x1C0009470 (-AddChildList@FxDeviceBase@@UEAAXPEAVFxChildList@@@Z.c)
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ *     write_char @ 0x1C000A5EC (write_char.c)
+ *     write_multi_char @ 0x1C000A640 (write_multi_char.c)
+ *     write_string @ 0x1C000A698 (write_string.c)
+ *     _get_printf_count_output @ 0x1C000A70C (_get_printf_count_output.c)
+ *     mbtowc @ 0x1C000A778 (mbtowc.c)
+ *     memset @ 0x1C000AC00 (memset.c)
+ */
+
 __int64 __fastcall woutput_l(_iobuf *stream, wchar_t *format, localeinfo_struct *plocinfo, char *argptr)
 {
   int v5; // edi

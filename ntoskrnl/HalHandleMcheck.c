@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalHandleMcheck @ 0x1405036F0
+ * Callers:
+ *     KiHandleMcheck @ 0x140569BF0 (KiHandleMcheck.c)
+ * Callees:
+ *     HalpHandleMachineCheck @ 0x140500F10 (HalpHandleMachineCheck.c)
+ */
+
 char __fastcall HalHandleMcheck(__int64 a1, __int64 a2, int *a3)
 {
   char result; // al

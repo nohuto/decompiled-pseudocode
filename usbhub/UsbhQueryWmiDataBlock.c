@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhQueryWmiDataBlock @ 0x1C0049CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhGetHubNodeInfo @ 0x1C00493A8 (UsbhGetHubNodeInfo.c)
+ */
+
 __int64 __fastcall UsbhQueryWmiDataBlock(
         PDEVICE_OBJECT DeviceObject,
         PIRP Irp,

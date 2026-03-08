@@ -1,3 +1,15 @@
+/*
+ * XREFs of KitpInitAitSampleRate @ 0x140B6EF0C
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     strstr @ 0x1403D3650 (strstr.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwSetSystemInformation @ 0x140415A30 (ZwSetSystemInformation.c)
+ *     KitpOpenRegKey @ 0x14085D780 (KitpOpenRegKey.c)
+ *     KitpReadUlongFromKey @ 0x14085D7D4 (KitpReadUlongFromKey.c)
+ */
+
 NTSTATUS __fastcall KitpInitAitSampleRate(__int64 a1, __int64 a2)
 {
   const char *v2; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MapInputToMonitorOnReason@@YA?AW4POWER_MONITOR_REQUEST_REASON@@W4_LINP_SOURCE@@@Z @ 0x1C0079130
+ * Callers:
+ *     EditionKeepMachineUp @ 0x1C00790A0 (EditionKeepMachineUp.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MapInputToMonitorOnReason(int a1)
 {
   unsigned int v1; // edx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of VerifierExAllocatePool3 @ 0x140ACDB20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExAllocatePool3 @ 0x140AAB320 (ExAllocatePool3.c)
+ */
+
 __int64 __fastcall VerifierExAllocatePool3(__int64 a1, ULONG_PTR a2, unsigned int a3, __int64 a4, unsigned int a5)
 {
   __int64 v6; // rbx

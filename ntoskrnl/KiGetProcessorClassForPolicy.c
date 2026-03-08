@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiGetProcessorClassForPolicy @ 0x140459166
+ * Callers:
+ *     KiCheckPreferredHeteroProcessor @ 0x14022FC90 (KiCheckPreferredHeteroProcessor.c)
+ *     KiHeteroReduceToMaximallyPreferredByClass @ 0x140574EC0 (KiHeteroReduceToMaximallyPreferredByClass.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KiGetProcessorClassForPolicy(__int64 a1, int a2, unsigned __int8 a3)
 {
   __int64 v3; // r9

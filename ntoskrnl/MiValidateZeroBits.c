@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiValidateZeroBits @ 0x1407D4DF0
+ * Callers:
+ *     MiAllocateVirtualMemoryPrepare @ 0x1407C4C00 (MiAllocateVirtualMemoryPrepare.c)
+ *     NtMapViewOfSection @ 0x1407D4B90 (NtMapViewOfSection.c)
+ *     NtCreateEnclave @ 0x140A3BE40 (NtCreateEnclave.c)
+ * Callees:
+ *     RtlFindMostSignificantBit @ 0x1402EA370 (RtlFindMostSignificantBit.c)
+ */
+
 ULONGLONG __fastcall MiValidateZeroBits(ULONGLONG *a1)
 {
   ULONGLONG result; // rax

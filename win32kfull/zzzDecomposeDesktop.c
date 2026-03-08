@@ -1,3 +1,22 @@
+/*
+ * XREFs of zzzDecomposeDesktop @ 0x1C007CC0C
+ * Callers:
+ *     xxxDwmStopRedirection @ 0x1C007B850 (xxxDwmStopRedirection.c)
+ *     zzzDwmStartRedirection @ 0x1C007CEC8 (zzzDwmStartRedirection.c)
+ *     xxxCreateDesktopEx @ 0x1C00C03D4 (xxxCreateDesktopEx.c)
+ * Callees:
+ *     GreRemoveDisplayDriverRealizations @ 0x1C001B31C (GreRemoveDisplayDriverRealizations.c)
+ *     ComposeWindow @ 0x1C002297C (ComposeWindow.c)
+ *     IsDesktopWindow @ 0x1C002C460 (IsDesktopWindow.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0044D58 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     ?IsWindowComposedOnDesktop@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z @ 0x1C007CD8C (-IsWindowComposedOnDesktop@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z.c)
+ *     GreTransferDwmStateToSpriteState @ 0x1C007CDBC (GreTransferDwmStateToSpriteState.c)
+ *     ?BroadcastCompositionChange@@YAXPEBUtagDESKTOP@@@Z @ 0x1C007ECB0 (-BroadcastCompositionChange@@YAXPEBUtagDESKTOP@@@Z.c)
+ *     GreUpdateSpriteVisRgn @ 0x1C007ED24 (GreUpdateSpriteVisRgn.c)
+ *     MagpDecomposeDesktop @ 0x1C007F098 (MagpDecomposeDesktop.c)
+ *     zzzEnableDwmPointerSupport @ 0x1C007F1FC (zzzEnableDwmPointerSupport.c)
+ */
+
 __int64 __fastcall zzzDecomposeDesktop(struct tagDESKTOP *a1, int a2)
 {
   int v3; // edi

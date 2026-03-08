@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetNextStaticDevice@FxChildList@@QEAAPEAUWDFDEVICE__@@PEAU2@K@Z @ 0x1C0024BE8
+ * Callers:
+ *     imp_WdfFdoRetrieveNextStaticChild @ 0x1C0022370 (imp_WdfFdoRetrieveNextStaticChild.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?MatchStateToFlags@FxDeviceDescriptionEntry@@QEAAEK@Z @ 0x1C0025224 (-MatchStateToFlags@FxDeviceDescriptionEntry@@QEAAEK@Z.c)
+ */
+
 WDFDEVICE__ *__fastcall FxChildList::GetNextStaticDevice(
         FxChildList *this,
         WDFDEVICE__ *PreviousDevice,

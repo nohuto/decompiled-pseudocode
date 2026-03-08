@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bUnMap@SURFACE@@QEAAHPEAXPEAVDC@@@Z @ 0x1C00A32E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SURFACE::bUnMap(SURFACE *this, void *a2, struct DC *a3)
 {
   LONG v6; // r8d

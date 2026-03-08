@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMHandleAnySignalledReadsOnDestroyed @ 0x1C002F794
+ * Callers:
+ *     ?RIMCallBack@CBaseInput@@AEAAXPEAURIMDevChangeStruct@@@Z @ 0x1C002F3AC (-RIMCallBack@CBaseInput@@AEAAXPEAURIMDevChangeStruct@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 void __fastcall RIMHandleAnySignalledReadsOnDestroyed(__int64 a1)
 {
   bool v2; // dl

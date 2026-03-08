@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspEnforceLimitsProcessCallback @ 0x1406FB480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObReferenceObjectSafeWithTag @ 0x14022BD30 (ObReferenceObjectSafeWithTag.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsQueryStatisticsProcess @ 0x1406A8F30 (PsQueryStatisticsProcess.c)
+ *     PspAddAccountingValues @ 0x1406FC264 (PspAddAccountingValues.c)
+ */
+
 __int64 __fastcall PspEnforceLimitsProcessCallback(__int64 a1, _QWORD *a2)
 {
   _QWORD v5[15]; // [rsp+20h] [rbp-78h] BYREF

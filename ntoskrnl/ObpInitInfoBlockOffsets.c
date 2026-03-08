@@ -1,3 +1,11 @@
+/*
+ * XREFs of ObpInitInfoBlockOffsets @ 0x140B61628
+ * Callers:
+ *     ObInitSystem @ 0x140B403CC (ObInitSystem.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 ObpInitInfoBlockOffsets()
 {
   unsigned int v0; // r9d

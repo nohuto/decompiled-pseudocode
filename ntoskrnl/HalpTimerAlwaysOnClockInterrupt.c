@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpTimerAlwaysOnClockInterrupt @ 0x14051C3E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     KeClockInterruptNotify @ 0x14022CD80 (KeClockInterruptNotify.c)
+ *     HalpMcaQueueDpc @ 0x1402FDD84 (HalpMcaQueueDpc.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpScanForProfilingCorruption @ 0x1404532C4 (HalpScanForProfilingCorruption.c)
+ *     HalpTimerSwitchToNormalClock @ 0x140506594 (HalpTimerSwitchToNormalClock.c)
+ *     HalpTimerWatchdogTriggerSystemReset @ 0x1405097B0 (HalpTimerWatchdogTriggerSystemReset.c)
+ */
+
 char __fastcall HalpTimerAlwaysOnClockInterrupt(__int64 a1)
 {
   __int64 v1; // rdi

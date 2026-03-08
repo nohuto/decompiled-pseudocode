@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIBuildProcessDelayedDependencyExternalTriggerFilterPowerCheck @ 0x1C000E254
+ * Callers:
+ *     ACPIDispatchIrp @ 0x1C0001010 (ACPIDispatchIrp.c)
+ * Callees:
+ *     ACPIBuildProcessDelayedDependencyShouldDelayRequest @ 0x1C000E5D0 (ACPIBuildProcessDelayedDependencyShouldDelayRequest.c)
+ *     ACPIBuildScheduleDpc @ 0x1C0013794 (ACPIBuildScheduleDpc.c)
+ *     ACPIDevicePowerFlushQueue @ 0x1C001EABC (ACPIDevicePowerFlushQueue.c)
+ *     ACPIBuildFlushQueue @ 0x1C007D42C (ACPIBuildFlushQueue.c)
+ */
+
 void __fastcall ACPIBuildProcessDelayedDependencyExternalTriggerFilterPowerCheck(__int64 a1)
 {
   char v2; // di

@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserGetPointerDeviceInputSpace @ 0x1C01704E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ *     ?GetInputSpaceId@Mouse@InputConfig@@SA?AU_LUID@@XZ @ 0x1C007E54C (-GetInputSpaceId@Mouse@InputConfig@@SA-AU_LUID@@XZ.c)
+ *     ResolveMouseOrPointerDevice @ 0x1C00CA750 (ResolveMouseOrPointerDevice.c)
+ */
+
 __int64 __fastcall NtUserGetPointerDeviceInputSpace(__int64 a1, struct _LUID *a2, __int64 a3, __int64 a4)
 {
   struct _LUID *v4; // rsi

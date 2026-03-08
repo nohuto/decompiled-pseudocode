@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopPowerButtonTimerCallback @ 0x140596BF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     PopQueueWorkItem @ 0x1402BCCB4 (PopQueueWorkItem.c)
+ */
+
 __int64 __fastcall PopPowerButtonTimerCallback(__int64 a1, int a2)
 {
   KxAcquireSpinLock(&PopPowerButtonHold);

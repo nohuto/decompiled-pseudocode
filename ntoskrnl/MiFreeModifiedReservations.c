@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiFreeModifiedReservations @ 0x140637B1C
+ * Callers:
+ *     MiCheckFreeModifiedReservations @ 0x1406368F0 (MiCheckFreeModifiedReservations.c)
+ *     MiPageFileNoFreeSpace @ 0x140638D04 (MiPageFileNoFreeSpace.c)
+ * Callees:
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiFreeModifiedReservations(__int64 a1, int a2)
 {
   __int16 v2; // ax

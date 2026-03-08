@@ -1,3 +1,16 @@
+/*
+ * XREFs of KzReleaseAdditionalPrcbLocks @ 0x14056AD34
+ * Callers:
+ *     KiQuantumEnd @ 0x140254F30 (KiQuantumEnd.c)
+ *     KeYieldExecution @ 0x140256BE0 (KeYieldExecution.c)
+ *     KiSearchForNewThread @ 0x140260460 (KiSearchForNewThread.c)
+ *     KiSearchForNewThreadOnProcessor @ 0x1402AC810 (KiSearchForNewThreadOnProcessor.c)
+ *     KiDowngradeIsolationUnitLockHandle @ 0x1402ADC00 (KiDowngradeIsolationUnitLockHandle.c)
+ *     KiTryUpgradeIsolationUnitLockHandle @ 0x14056AC40 (KiTryUpgradeIsolationUnitLockHandle.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall KzReleaseAdditionalPrcbLocks(__int64 a1, __int64 a2, __int64 *a3, int a4)
 {
   __int64 v4; // r11

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?TraceLoggingSendMixedModeTelemetry@@YAHXZ @ 0x1C001189C
+ * Callers:
+ *     NtUserTraceLoggingSendMixedModeTelemetry @ 0x1C0011860 (NtUserTraceLoggingSendMixedModeTelemetry.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F8FF0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1C0102BC4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 TraceLoggingSendMixedModeTelemetry(void)
 {
   __int64 v1; // [rsp+30h] [rbp-48h] BYREF

@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiMapSystemImage @ 0x1407F5DFC
+ * Callers:
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ * Callees:
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     MiMakeZeroedPageTables @ 0x14036C240 (MiMakeZeroedPageTables.c)
+ *     MiDeleteSessionDriverProtos @ 0x14067F83C (MiDeleteSessionDriverProtos.c)
+ *     MiAddMappedPtes @ 0x1406A56B0 (MiAddMappedPtes.c)
+ *     MiDereferencePerSessionProtos @ 0x14075B72C (MiDereferencePerSessionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x14075B874 (MiCreatePerSessionProtos.c)
+ *     MiChargeSystemImageCommitment @ 0x1407F5F44 (MiChargeSystemImageCommitment.c)
+ *     MiBytesToMapSystemImage @ 0x1407F6A64 (MiBytesToMapSystemImage.c)
+ *     MiMapPatchTable @ 0x140A375E4 (MiMapPatchTable.c)
+ *     MiUnmapPatchTable @ 0x140A3953C (MiUnmapPatchTable.c)
+ */
+
 __int64 __fastcall MiMapSystemImage(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   __int64 v6; // rcx

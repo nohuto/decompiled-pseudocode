@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CPathGeometry@@QEAA@PEAVCComposition@@@Z @ 0x1801112E4
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     <none>
+ */
+
 CPathGeometry *__fastcall CPathGeometry::CPathGeometry(CPathGeometry *this, struct CComposition *a2)
 {
   CPathGeometry *result; // rax

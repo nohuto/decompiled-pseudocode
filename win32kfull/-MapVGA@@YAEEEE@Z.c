@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MapVGA@@YAEEEE@Z @ 0x1C02A600C
+ * Callers:
+ *     ?MakeITableVGA@@YAHPEAE@Z @ 0x1C02A5F9C (-MakeITableVGA@@YAHPEAE@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall MapVGA(unsigned __int8 a1, unsigned __int8 a2, unsigned __int8 a3)
 {
   int v3; // esi

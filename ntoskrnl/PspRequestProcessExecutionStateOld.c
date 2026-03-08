@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspRequestProcessExecutionStateOld @ 0x14067CE2C
+ * Callers:
+ *     PspRemoveProcessFromJobChain @ 0x1406FB110 (PspRemoveProcessFromJobChain.c)
+ *     PspApplyJobChainLimitsToProcess @ 0x1406FF27C (PspApplyJobChainLimitsToProcess.c)
+ *     PsSwapProcessWorkingSet @ 0x1409AB6DC (PsSwapProcessWorkingSet.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspRequestProcessExecutionStateOld(__int64 a1, int a2, char a3)
 {
   bool v3; // zf

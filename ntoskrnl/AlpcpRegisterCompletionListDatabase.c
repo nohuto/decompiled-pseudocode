@@ -1,3 +1,13 @@
+/*
+ * XREFs of AlpcpRegisterCompletionListDatabase @ 0x140976F00
+ * Callers:
+ *     AlpcpInitializeCompletionList @ 0x14097672C (AlpcpInitializeCompletionList.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ */
+
 __int64 __fastcall AlpcpRegisterCompletionListDatabase(__int64 **a1)
 {
   __int64 *v2; // rdx

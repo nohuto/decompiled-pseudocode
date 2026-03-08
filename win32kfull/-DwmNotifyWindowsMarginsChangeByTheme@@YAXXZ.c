@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DwmNotifyWindowsMarginsChangeByTheme@@YAXXZ @ 0x1C01BD8AC
+ * Callers:
+ *     ?SetHighContrastWorker@@YAHPEAUtagINTERNALSETHIGHCONTRAST@@HPEAH@Z @ 0x1C01C8DCC (-SetHighContrastWorker@@YAHPEAUtagINTERNALSETHIGHCONTRAST@@HPEAH@Z.c)
+ * Callees:
+ *     IsMotherDesktopWindow @ 0x1C007E8EC (IsMotherDesktopWindow.c)
+ *     ?CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z @ 0x1C00AD734 (-CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z.c)
+ */
+
 void DwmNotifyWindowsMarginsChangeByTheme(void)
 {
   unsigned __int64 v0; // rbx

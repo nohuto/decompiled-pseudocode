@@ -1,3 +1,11 @@
+/*
+ * XREFs of MmMdlPagesAreZero @ 0x1403CED70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MmMdlPagesAreZero(__int64 a1)
 {
   _QWORD *v1; // r8

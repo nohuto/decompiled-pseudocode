@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtUserProcessConnect @ 0x1C003DB30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InitMapSharedSection@@YAJPEAU_EPROCESS@@PEAU_USERCONNECT@@@Z @ 0x1C003D768 (-InitMapSharedSection@@YAJPEAU_EPROCESS@@PEAU_USERCONNECT@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 NTSTATUS __fastcall NtUserProcessConnect(HANDLE Handle, size_t Size, int *Address)
 {
   unsigned int v4; // r13d

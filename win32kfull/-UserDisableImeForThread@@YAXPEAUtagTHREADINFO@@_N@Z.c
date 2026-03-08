@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?UserDisableImeForThread@@YAXPEAUtagTHREADINFO@@_N@Z @ 0x1C00D9794
+ * Callers:
+ *     NtUserDisableThreadIme @ 0x1C00D96C0 (NtUserDisableThreadIme.c)
+ *     ?UserDisableImeForProcess@@YAXPEAUtagPROCESSINFO@@@Z @ 0x1C00D975C (-UserDisableImeForProcess@@YAXPEAUtagPROCESSINFO@@@Z.c)
+ * Callees:
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0044D58 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     xxxDestroyWindow @ 0x1C004B7F0 (xxxDestroyWindow.c)
+ */
+
 void __fastcall UserDisableImeForThread(struct tagTHREADINFO *a1, char a2)
 {
   unsigned __int64 *v2; // rax

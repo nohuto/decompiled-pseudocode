@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPixelFormatInfo@CBitmapLock@@UEBA?AUPixelFormatInfo@@XZ @ 0x1800F8490
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034BB4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall CBitmapLock::GetPixelFormatInfo(__int64 a1, __int64 a2)
 {
   int v4; // eax

@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiSpecialPurposeMemoryRemoved @ 0x140A44BE4
+ * Callers:
+ *     MmRemovePhysicalMemory @ 0x140A2A520 (MmRemovePhysicalMemory.c)
+ *     MiAddSpecialPurposeMemoryComplete @ 0x140A440DC (MiAddSpecialPurposeMemoryComplete.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KeGenericCallDpcEx @ 0x1403C07D0 (KeGenericCallDpcEx.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     MiFindSpecialPurposeMemoryTypeByPartition @ 0x140A445E8 (MiFindSpecialPurposeMemoryTypeByPartition.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiSpecialPurposeMemoryRemoved(__int64 a1)
 {
   HANDLE *v1; // rsi

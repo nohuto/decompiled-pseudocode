@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlAnsiCharToUnicodeChar @ 0x1406EA670
+ * Callers:
+ *     _safecrt_mbtowc @ 0x1403D4730 (_safecrt_mbtowc.c)
+ *     toupper @ 0x1403D5BB0 (toupper.c)
+ *     _mbstrlen @ 0x1403D7BF4 (_mbstrlen.c)
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpIsUtf8Process @ 0x1406EA7A0 (RtlpIsUtf8Process.c)
+ *     RtlUTF8ToUnicodeN @ 0x14075A870 (RtlUTF8ToUnicodeN.c)
+ */
+
 __int64 __fastcall RtlAnsiCharToUnicodeChar(const CHAR **a1)
 {
   int v2; // ebp

@@ -1,3 +1,15 @@
+/*
+ * XREFs of SdbGetFirstChild @ 0x1407A2738
+ * Callers:
+ *     InitOnceScanIndexes @ 0x1407A16B0 (InitOnceScanIndexes.c)
+ *     SdbpMatchList @ 0x1407A2310 (SdbpMatchList.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ *     SdbpFindFirstNamedTagHelper @ 0x140A4EEE0 (SdbpFindFirstNamedTagHelper.c)
+ * Callees:
+ *     SdbpGetNextTagId @ 0x1407A2880 (SdbpGetNextTagId.c)
+ *     SdbGetTagFromTagID @ 0x1407A2A70 (SdbGetTagFromTagID.c)
+ */
+
 __int64 __fastcall SdbGetFirstChild(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnprRecopyAddress @ 0x140560E30
+ * Callers:
+ *     PnprRecopyMappingReserve @ 0x140560E88 (PnprRecopyMappingReserve.c)
+ *     PnprRecopyMirrorPages @ 0x140560F5C (PnprRecopyMirrorPages.c)
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     PnprMarkOrMirrorPages @ 0x140A99F48 (PnprMarkOrMirrorPages.c)
+ */
+
 __int64 __fastcall PnprRecopyAddress(__int64 a1, unsigned int a2)
 {
   char *v2; // rdi

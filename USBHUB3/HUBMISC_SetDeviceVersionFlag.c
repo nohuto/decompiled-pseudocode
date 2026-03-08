@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBMISC_SetDeviceVersionFlag @ 0x1C00305F8
+ * Callers:
+ *     HUBDSM_UpdatingDefaultEndpointMaxPacketSizeInEnum @ 0x1C0020DF0 (HUBDSM_UpdatingDefaultEndpointMaxPacketSizeInEnum.c)
+ *     HUBDSM_SettingVersionFlagInEnumerating @ 0x1C0021470 (HUBDSM_SettingVersionFlagInEnumerating.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ */
+
 __int16 __fastcall HUBMISC_SetDeviceVersionFlag(__int64 a1)
 {
   int v2; // ecx

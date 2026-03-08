@@ -1,3 +1,17 @@
+/*
+ * XREFs of InitSafeBoot @ 0x140B8D8D4
+ * Callers:
+ *     Phase1InitializationIoReady @ 0x140B42D0C (Phase1InitializationIoReady.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     NtQueryValueKey @ 0x1406E6C50 (NtQueryValueKey.c)
+ *     NtSetValueKey @ 0x1407A9030 (NtSetValueKey.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ */
+
 int __fastcall InitSafeBoot(char a1)
 {
   int result; // eax

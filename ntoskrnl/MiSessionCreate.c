@@ -1,3 +1,28 @@
+/*
+ * XREFs of MiSessionCreate @ 0x140756EC8
+ * Callers:
+ *     MiMapProcessExecutable @ 0x14072787C (MiMapProcessExecutable.c)
+ *     MmInitializeProcessAddressSpace @ 0x1407291A8 (MmInitializeProcessAddressSpace.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     MiReturnResident @ 0x1402A52C8 (MiReturnResident.c)
+ *     MiMarkSessionReferenceProcess @ 0x1402CB794 (MiMarkSessionReferenceProcess.c)
+ *     MiGetProcessPartition @ 0x14031F9D4 (MiGetProcessPartition.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     MiChargeResident @ 0x140348DE8 (MiChargeResident.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiInitializeSystemWorkingSetList @ 0x140726074 (MiInitializeSystemWorkingSetList.c)
+ *     MiGetNewSessionId @ 0x140757858 (MiGetNewSessionId.c)
+ *     MiInitializeSessionGlobals @ 0x14075793C (MiInitializeSessionGlobals.c)
+ *     MiSessionObjectCreate @ 0x140757A78 (MiSessionObjectCreate.c)
+ *     MiDereferenceSession @ 0x140791B70 (MiDereferenceSession.c)
+ *     MiFreeSessionId @ 0x140A2F7B4 (MiFreeSessionId.c)
+ */
+
 __int64 MiSessionCreate()
 {
   __int64 result; // rax

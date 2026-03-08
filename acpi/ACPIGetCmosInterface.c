@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIGetCmosInterface @ 0x1C0019B00
+ * Callers:
+ *     OSInitializeCallbacks @ 0x1C00A8160 (OSInitializeCallbacks.c)
+ * Callees:
+ *     ACPIInitReferenceDeviceExtension @ 0x1C002D594 (ACPIInitReferenceDeviceExtension.c)
+ *     CmosGetInterface @ 0x1C008231C (CmosGetInterface.c)
+ */
+
 __int64 ACPIGetCmosInterface()
 {
   ULONG_PTR v0; // rbx

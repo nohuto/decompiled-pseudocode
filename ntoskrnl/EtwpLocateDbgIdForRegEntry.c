@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpLocateDbgIdForRegEntry @ 0x140775328
+ * Callers:
+ *     EtwpProviderArrivalCallback @ 0x140775208 (EtwpProviderArrivalCallback.c)
+ * Callees:
+ *     RtlImageNtHeaderEx @ 0x14035E850 (RtlImageNtHeaderEx.c)
+ *     RtlPcToFileHeader @ 0x1403BE120 (RtlPcToFileHeader.c)
+ *     VslGetEtwDebugId @ 0x140548CD0 (VslGetEtwDebugId.c)
+ *     EtwpFindDebugId @ 0x140775478 (EtwpFindDebugId.c)
+ *     MmGetImageInformation @ 0x14077582C (MmGetImageInformation.c)
+ *     EtwpGetImageSize @ 0x140872A60 (EtwpGetImageSize.c)
+ */
+
 __int64 __fastcall EtwpLocateDbgIdForRegEntry(char a1, __int64 a2, void **a3, unsigned int *a4)
 {
   unsigned __int64 v7; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?xxxHandleDestroyGhostWindow@@YAHPEAUtagWND@@@Z @ 0x1C01F59A8
+ * Callers:
+ *     ?xxxHandleGhostRelatedWindowDestruction@@YAXPEAUtagWND@@@Z @ 0x1C012EBFC (-xxxHandleGhostRelatedWindowDestruction@@YAXPEAUtagWND@@@Z.c)
+ * Callees:
+ *     InternalRemoveProp @ 0x1C002484C (InternalRemoveProp.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     ?xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C01F5BBC (-xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z.c)
+ */
+
 __int64 __fastcall xxxHandleDestroyGhostWindow(struct tagWND *a1)
 {
   int v1; // edi

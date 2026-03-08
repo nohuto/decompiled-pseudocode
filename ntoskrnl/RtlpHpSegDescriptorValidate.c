@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpHpSegDescriptorValidate @ 0x14030A740
+ * Callers:
+ *     RtlpHpSegFree @ 0x140308DBC (RtlpHpSegFree.c)
+ *     RtlpHpSegLfhVsDecommit @ 0x14030A650 (RtlpHpSegLfhVsDecommit.c)
+ *     RtlpHpMetadataCommit @ 0x1403C1314 (RtlpHpMetadataCommit.c)
+ *     RtlpHpSizeHeapInternal @ 0x1405B4430 (RtlpHpSizeHeapInternal.c)
+ *     RtlpHpSegSetExtraPresent @ 0x1405B4720 (RtlpHpSegSetExtraPresent.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall RtlpHpSegDescriptorValidate(__int64 a1, unsigned __int64 a2)
 {
   __int64 v3; // r8

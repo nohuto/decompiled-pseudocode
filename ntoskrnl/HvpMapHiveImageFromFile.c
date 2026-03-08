@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvpMapHiveImageFromFile @ 0x140A1B1D4
+ * Callers:
+ *     HvLoadHive @ 0x14072F5C0 (HvLoadHive.c)
+ * Callees:
+ *     HvpMapHiveImage @ 0x140A1B050 (HvpMapHiveImage.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall HvpMapHiveImageFromFile(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, unsigned int a4)
 {
   unsigned int v4; // eax

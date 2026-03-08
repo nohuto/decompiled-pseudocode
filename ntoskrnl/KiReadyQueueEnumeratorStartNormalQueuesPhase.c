@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiReadyQueueEnumeratorStartNormalQueuesPhase @ 0x140260ED0
+ * Callers:
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x140227C10 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiExecuteAllDpcs @ 0x140252F60 (KiExecuteAllDpcs.c)
+ *     KeYieldExecution @ 0x140256BE0 (KeYieldExecution.c)
+ *     KiSearchForNewThread @ 0x140260460 (KiSearchForNewThread.c)
+ *     KiAdvanceReadyQueueEnumeratorToNextPhase @ 0x1402EECB8 (KiAdvanceReadyQueueEnumeratorToNextPhase.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiReadyQueueEnumeratorStartNormalQueuesPhase(__int64 a1, char a2)
 {
   unsigned int v2; // r9d

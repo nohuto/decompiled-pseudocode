@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Reset@CMit@@QEAAJXZ @ 0x1800CB458
+ * Callers:
+ *     ?Initialize@CInputManager@@UEAAJXZ @ 0x1800CB370 (-Initialize@CInputManager@@UEAAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Start@CMit@@QEAAJXZ @ 0x1800CB4A8 (-Start@CMit@@QEAAJXZ.c)
+ */
+
 __int64 __fastcall CMit::Reset(HANDLE *this)
 {
   unsigned int v1; // edi

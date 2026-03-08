@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiUnlockKobjectArray @ 0x140293BB8
+ * Callers:
+ *     KiWaitForAllObjects @ 0x1402936D0 (KiWaitForAllObjects.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall KiUnlockKobjectArray(volatile signed __int32 **a1, unsigned int a2)
 {
   volatile signed __int32 *v2; // r8

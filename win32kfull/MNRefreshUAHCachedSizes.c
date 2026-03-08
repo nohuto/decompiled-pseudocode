@@ -1,3 +1,12 @@
+/*
+ * XREFs of MNRefreshUAHCachedSizes @ 0x1C023B230
+ * Callers:
+ *     xxxMNOpenHierarchy @ 0x1C021B7B0 (xxxMNOpenHierarchy.c)
+ *     MNClearCachedPopupSizes @ 0x1C023B1B0 (MNClearCachedPopupSizes.c)
+ * Callees:
+ *     MNUpdateUAHMaxPopupWidths @ 0x1C023B280 (MNUpdateUAHMaxPopupWidths.c)
+ */
+
 __int64 __fastcall MNRefreshUAHCachedSizes(__int64 a1)
 {
   unsigned int v1; // ebx

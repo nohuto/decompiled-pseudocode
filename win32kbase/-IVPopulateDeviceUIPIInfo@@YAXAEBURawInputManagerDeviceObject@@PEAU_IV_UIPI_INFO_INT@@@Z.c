@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IVPopulateDeviceUIPIInfo@@YAXAEBURawInputManagerDeviceObject@@PEAU_IV_UIPI_INFO_INT@@@Z @ 0x1C021D70C
+ * Callers:
+ *     ?IVSerializeRimDevForIVPnpCreatePacket@@YAJPEAURIMDEV@@AEBU_UNICODE_STRING@@AEAVCIVPnPCreateSerializer@@@Z @ 0x1C021DB1C (-IVSerializeRimDevForIVPnpCreatePacket@@YAJPEAURIMDEV@@AEBU_UNICODE_STRING@@AEAVCIVPnPCreateSeri.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall IVPopulateDeviceUIPIInfo(const struct RawInputManagerDeviceObject *a1, struct _IV_UIPI_INFO_INT *a2)
 {
   int v3; // ebx

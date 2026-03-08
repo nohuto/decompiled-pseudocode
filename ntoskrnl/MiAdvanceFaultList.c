@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiAdvanceFaultList @ 0x140363F9C
+ * Callers:
+ *     MiDispatchFault @ 0x14026A900 (MiDispatchFault.c)
+ *     MiResolvePrivateZeroFault @ 0x14026BD60 (MiResolvePrivateZeroFault.c)
+ *     MiCompletePrivateZeroFault @ 0x14026C360 (MiCompletePrivateZeroFault.c)
+ *     MiCreateSharedZeroPages @ 0x14028A420 (MiCreateSharedZeroPages.c)
+ *     MiBuildMdlForMappedFileFault @ 0x14028B490 (MiBuildMdlForMappedFileFault.c)
+ *     MiCopyDataPageToImagePage @ 0x140334490 (MiCopyDataPageToImagePage.c)
+ *     MiInPagePageTable @ 0x140345FA0 (MiInPagePageTable.c)
+ *     MiPrefetchVirtualMemory @ 0x140363970 (MiPrefetchVirtualMemory.c)
+ *     MiComputeFaultCluster @ 0x140363DD0 (MiComputeFaultCluster.c)
+ *     MiCopyFileOnlyGlobalSubsectionPage @ 0x140639EB8 (MiCopyFileOnlyGlobalSubsectionPage.c)
+ *     MiResolvePageFileFault @ 0x140668EDC (MiResolvePageFileFault.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiAdvanceFaultList(_QWORD *a1)
 {
   __int64 v2; // rcx

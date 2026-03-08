@@ -1,3 +1,11 @@
+/*
+ * XREFs of PfHardFaultRecord @ 0x140344BD4
+ * Callers:
+ *     MiIssueHardFault @ 0x140342F00 (MiIssueHardFault.c)
+ * Callees:
+ *     EtwGetKernelTraceTimestampSilo @ 0x140250570 (EtwGetKernelTraceTimestampSilo.c)
+ */
+
 __int64 __fastcall PfHardFaultRecord(
         LARGE_INTEGER *a1,
         LARGE_INTEGER a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of SymCryptSha256Result @ 0x1403EF390
+ * Callers:
+ *     SymCryptSha256 @ 0x1403ED8FC (SymCryptSha256.c)
+ *     HashpHashMemory @ 0x140A7438C (HashpHashMemory.c)
+ * Callees:
+ *     SymCryptSha256AppendBlocks @ 0x1403EDA50 (SymCryptSha256AppendBlocks.c)
+ *     SymCryptWipe @ 0x1403F0988 (SymCryptWipe.c)
+ */
+
 __int64 __fastcall SymCryptSha256Result(unsigned int *a1, _QWORD *a2)
 {
   __int64 v3; // rcx

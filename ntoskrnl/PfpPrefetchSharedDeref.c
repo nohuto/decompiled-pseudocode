@@ -1,3 +1,14 @@
+/*
+ * XREFs of PfpPrefetchSharedDeref @ 0x140766630
+ * Callers:
+ *     PfpPrefetchSharedConflictNotifyEnd @ 0x14067FEF0 (PfpPrefetchSharedConflictNotifyEnd.c)
+ *     PfSnCleanupPrefetchHeader @ 0x1406A4CAC (PfSnCleanupPrefetchHeader.c)
+ *     PfpPrefetchRequestPerform @ 0x1407662E0 (PfpPrefetchRequestPerform.c)
+ *     PfpQueryFileExtentsRequest @ 0x14097B4F0 (PfpQueryFileExtentsRequest.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PfpPrefetchSharedDeref(volatile signed __int64 *a1)
 {
   signed __int64 v1; // rax

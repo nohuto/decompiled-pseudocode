@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspGetProcessProtectionRequirementsFromImage @ 0x14070D5FC
+ * Callers:
+ *     NtCreateUserProcess @ 0x14070C850 (NtCreateUserProcess.c)
+ *     PspCreateProcess @ 0x140858F60 (PspCreateProcess.c)
+ * Callees:
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     RtlTestProtectedAccess @ 0x14070C7FC (RtlTestProtectedAccess.c)
+ */
+
 __int64 __fastcall PspGetProcessProtectionRequirementsFromImage(__int64 a1)
 {
   unsigned __int8 v1; // r9

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiConfigureNodeSchedulingInformation @ 0x1403AC474
+ * Callers:
+ *     KiConfigureAllSchedulingInformation @ 0x140B41844 (KiConfigureAllSchedulingInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiConfigureNodeSchedulingInformation(__int64 a1)
 {
   int v1; // eax

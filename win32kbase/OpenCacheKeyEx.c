@@ -1,3 +1,30 @@
+/*
+ * XREFs of OpenCacheKeyEx @ 0x1C00760E0
+ * Callers:
+ *     InitScancodeMap @ 0x1C00178C0 (InitScancodeMap.c)
+ *     CheckDesktopPolicy @ 0x1C0017BD0 (CheckDesktopPolicy.c)
+ *     xxxUpdatePerUserAccessPackSettings @ 0x1C0017E70 (xxxUpdatePerUserAccessPackSettings.c)
+ *     FastGetProfileValue @ 0x1C0018890 (FastGetProfileValue.c)
+ *     ?UserInitialize@@YAJXZ @ 0x1C002D838 (-UserInitialize@@YAJXZ.c)
+ *     InitializeWin32KSyscallFilter @ 0x1C002E260 (InitializeWin32KSyscallFilter.c)
+ *     FastGetProfileDwordEx @ 0x1C002E9B0 (FastGetProfileDwordEx.c)
+ *     FastGetProfileStringW @ 0x1C0074270 (FastGetProfileStringW.c)
+ *     FastWriteProfileStringW @ 0x1C00D1720 (FastWriteProfileStringW.c)
+ *     Initialize @ 0x1C00D1ECC (Initialize.c)
+ *     ?IsDesktopHeapLoggingOn@@YAHXZ @ 0x1C00D2B3C (-IsDesktopHeapLoggingOn@@YAHXZ.c)
+ *     CheckDesktopPolicyChange @ 0x1C015CF60 (CheckDesktopPolicyChange.c)
+ *     FastGetProfileKeysW @ 0x1C015D0F0 (FastGetProfileKeysW.c)
+ *     FastWriteProfileValue @ 0x1C015D3A0 (FastWriteProfileValue.c)
+ *     Win32UserInitialize @ 0x1C031E444 (Win32UserInitialize.c)
+ *     InitCreateUserSubsystem @ 0x1C032009C (InitCreateUserSubsystem.c)
+ * Callees:
+ *     ?InitPreviousUserString@@YAXXZ @ 0x1C007271C (-InitPreviousUserString@@YAXXZ.c)
+ *     ApiSetEditionOpenProfileKey @ 0x1C0078748 (ApiSetEditionOpenProfileKey.c)
+ *     AccessCheckObject @ 0x1C00C3CE0 (AccessCheckObject.c)
+ *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00CD374 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 void *__fastcall OpenCacheKeyEx(PCUNICODE_STRING Source, __int64 a2, __int64 a3, int *a4)
 {
   __int64 v4; // rsi

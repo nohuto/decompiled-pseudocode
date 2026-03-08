@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIEcQueueEcIrp @ 0x1C0024F24
+ * Callers:
+ *     ACPIEcOpRegionHandler @ 0x1C0002BC0 (ACPIEcOpRegionHandler.c)
+ *     ACPIEcReadWrite @ 0x1C0083300 (ACPIEcReadWrite.c)
+ * Callees:
+ *     ACPIEcLogAction @ 0x1C0002D3C (ACPIEcLogAction.c)
+ *     ACPIEcServiceDevice @ 0x1C0025C50 (ACPIEcServiceDevice.c)
+ */
+
 __int64 __fastcall ACPIEcQueueEcIrp(
         __int64 a1,
         char a2,

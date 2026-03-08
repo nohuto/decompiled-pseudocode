@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z @ 0x1C01C0BD4
+ * Callers:
+ *     RIMQueueKeyboardInput @ 0x1C0003A10 (RIMQueueKeyboardInput.c)
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0003AE4 (rimProcessDeviceBufferAndStartRead.c)
+ *     rimSignalReadComplete @ 0x1C0003CE8 (rimSignalReadComplete.c)
+ *     rimObsDeliverToExclusiveObservers @ 0x1C0003FAC (rimObsDeliverToExclusiveObservers.c)
+ *     rimProcessInjectedDeviceBuffers @ 0x1C0004228 (rimProcessInjectedDeviceBuffers.c)
+ *     RIMQueueMouseInput @ 0x1C01C581C (RIMQueueMouseInput.c)
+ *     rimProcessHidInput @ 0x1C01D2DF8 (rimProcessHidInput.c)
+ *     RIMProcessAnyPointerDeviceInput @ 0x1C01D517C (RIMProcessAnyPointerDeviceInput.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@D@@@Z @ 0x1C00EE9F4 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ?DropReasonToString@InputTraceLogging@@CAPEBDW4DropReason@RIM@1@@Z @ 0x1C01C0CFC (-DropReasonToString@InputTraceLogging@@CAPEBDW4DropReason@RIM@1@@Z.c)
+ */
+
 char __fastcall InputTraceLogging::RIM::DropInput(__int64 a1)
 {
   int v1; // eax

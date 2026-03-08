@@ -1,3 +1,19 @@
+/*
+ * XREFs of BgpBcInitializeCriticalMode @ 0x140B991D4
+ * Callers:
+ *     BgpFwLibraryInitialize @ 0x140AEAC78 (BgpFwLibraryInitialize.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     BcpGetProgressMessages @ 0x1403811E0 (BcpGetProgressMessages.c)
+ *     BgpFwFreeMemory @ 0x140382650 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x140383BDC (BgpFwAllocateMemory.c)
+ *     BcpGetMaxResourceProfile @ 0x140391310 (BcpGetMaxResourceProfile.c)
+ *     BgpDisplayCharacterGetContext @ 0x140AEB4B8 (BgpDisplayCharacterGetContext.c)
+ *     BgpDisplayCharacterDestroyContext @ 0x140AEC564 (BgpDisplayCharacterDestroyContext.c)
+ *     BcpFindMessage @ 0x140B99148 (BcpFindMessage.c)
+ *     BgpFoDetermineFontInformation @ 0x140B997C4 (BgpFoDetermineFontInformation.c)
+ */
+
 __int64 __fastcall BgpBcInitializeCriticalMode(__int64 a1, int a2)
 {
   int v3; // eax

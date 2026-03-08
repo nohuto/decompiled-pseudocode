@@ -1,3 +1,19 @@
+/*
+ * XREFs of ACPIBuildDevicePowerNodes @ 0x1C000C5A4
+ * Callers:
+ *     ACPIBuildProcessDevicePhasePr3 @ 0x1C000F930 (ACPIBuildProcessDevicePhasePr3.c)
+ *     ACPIBuildProcessDevicePhasePrw @ 0x1C000FDA0 (ACPIBuildProcessDevicePhasePrw.c)
+ *     ACPIBuildProcessDevicePhasePrx @ 0x1C0010300 (ACPIBuildProcessDevicePhasePrx.c)
+ * Callees:
+ *     WPP_RECORDER_SF_sLqss @ 0x1C00157B4 (WPP_RECORDER_SF_sLqss.c)
+ *     WPP_RECORDER_SF_sqss @ 0x1C0015EC4 (WPP_RECORDER_SF_sqss.c)
+ *     ACPIInitDereferenceDeviceExtensionLocked @ 0x1C002D060 (ACPIInitDereferenceDeviceExtensionLocked.c)
+ *     ACPIInitRemovePowerNodes @ 0x1C002D6CC (ACPIInitRemovePowerNodes.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNameSpaceObject @ 0x1C00483B8 (AMLIGetNameSpaceObject.c)
+ *     AMLIIsEqualHandle @ 0x1C0048794 (AMLIIsEqualHandle.c)
+ */
+
 __int64 __fastcall ACPIBuildDevicePowerNodes(
         ULONG_PTR BugCheckParameter2,
         ULONG_PTR BugCheckParameter3,

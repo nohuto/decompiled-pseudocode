@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiCheckReservePageFileSpace @ 0x14032D670
+ * Callers:
+ *     MiWsleFlush @ 0x14032B4A0 (MiWsleFlush.c)
+ * Callees:
+ *     MiGetWorkingSetSwapSupport @ 0x1402DBD74 (MiGetWorkingSetSwapSupport.c)
+ *     MiReservePageFileSpace @ 0x14032E800 (MiReservePageFileSpace.c)
+ *     MI_IS_RESET_PTE @ 0x14032F190 (MI_IS_RESET_PTE.c)
+ */
+
 char __fastcall MiCheckReservePageFileSpace(__int64 a1, __int64 a2, __int64 a3)
 {
   _BYTE *v3; // rdi

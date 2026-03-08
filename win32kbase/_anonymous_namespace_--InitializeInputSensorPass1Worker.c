@@ -1,3 +1,14 @@
+/*
+ * XREFs of _anonymous_namespace_::InitializeInputSensorPass1Worker @ 0x1C009A5B4
+ * Callers:
+ *     InitializeSensorExplicitly @ 0x1C009A520 (InitializeSensorExplicitly.c)
+ *     InitializeInputSensorsOnSharedThread @ 0x1C0217BF4 (InitializeInputSensorsOnSharedThread.c)
+ * Callees:
+ *     ?InitializeSensor@CBaseInput@@QEAAJXZ @ 0x1C0032000 (-InitializeSensor@CBaseInput@@QEAAJXZ.c)
+ *     ?RegisterDispatcherObject@CBaseInput@@QEAAJPEAVIRegisterInputDispatcherObjects@@@Z @ 0x1C009A640 (-RegisterDispatcherObject@CBaseInput@@QEAAJPEAVIRegisterInputDispatcherObjects@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_sd @ 0x1C0217150 (WPP_RECORDER_AND_TRACE_SF_sd.c)
+ */
+
 __int64 __fastcall anonymous_namespace_::InitializeInputSensorPass1Worker(
         __int64 a1,
         struct IRegisterInputDispatcherObjects *a2,

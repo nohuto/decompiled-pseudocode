@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vUpdateScaledRegions@DC@@QEAAXXZ @ 0x1C001A820
+ * Callers:
+ *     ?bCompute@DC@@QEAAHXZ @ 0x1C001B660 (-bCompute@DC@@QEAAHXZ.c)
+ * Callees:
+ *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C00558E0 (-vDeleteREGION@REGION@@QEAAXXZ.c)
+ *     ?vDuplicateAndScaleRegion@@YAXPEAVREGION@@PEAPEAV1@VPOINTFL@@@Z @ 0x1C0189D98 (-vDuplicateAndScaleRegion@@YAXPEAVREGION@@PEAPEAV1@VPOINTFL@@@Z.c)
+ */
+
 void __fastcall DC::vUpdateScaledRegions(DC *this)
 {
   __int64 v1; // rax

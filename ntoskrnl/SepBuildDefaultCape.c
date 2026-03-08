@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepBuildDefaultCape @ 0x1403A74D4
+ * Callers:
+ *     SepBuildDefaultCap @ 0x1408567F4 (SepBuildDefaultCap.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SepBuildDefaultCape(__int64 *a1)
 {
   unsigned int v2; // ebx

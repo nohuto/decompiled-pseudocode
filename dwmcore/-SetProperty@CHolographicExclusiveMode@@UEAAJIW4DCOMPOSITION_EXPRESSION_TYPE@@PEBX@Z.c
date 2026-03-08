@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetProperty@CHolographicExclusiveMode@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1802A4B60
+ * Callers:
+ *     ?ProcessSetExclusiveOpacity@CHolographicExclusiveMode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICEXCLUSIVEMODE_SETEXCLUSIVEOPACITY@@@Z @ 0x1802A4B44 (-ProcessSetExclusiveOpacity@CHolographicExclusiveMode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HO.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CHolographicExclusiveMode::SetProperty(__int64 a1, int a2, int a3, int *a4)
 {
   int v5; // xmm6_4

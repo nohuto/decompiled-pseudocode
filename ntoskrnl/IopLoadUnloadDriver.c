@@ -1,3 +1,19 @@
+/*
+ * XREFs of IopLoadUnloadDriver @ 0x140780340
+ * Callers:
+ *     IopLoadDriverImage @ 0x1402EE2DC (IopLoadDriverImage.c)
+ *     IopCompleteUnloadOrDelete @ 0x1402F0CC4 (IopCompleteUnloadOrDelete.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     VfIsVerifierEnabled @ 0x14036B1B0 (VfIsVerifierEnabled.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     VfDriverProcessUnload @ 0x1405CCA00 (VfDriverProcessUnload.c)
+ *     DifIsPluginRunningWithoutReboot @ 0x1405D2A54 (DifIsPluginRunningWithoutReboot.c)
+ *     IopLoadDriver @ 0x14072A9DC (IopLoadDriver.c)
+ *     IopOpenRegistryKey @ 0x1407803E0 (IopOpenRegistryKey.c)
+ *     IopCallDriverReinitializationRoutines @ 0x140780438 (IopCallDriverReinitializationRoutines.c)
+ */
+
 LONG __fastcall IopLoadUnloadDriver(__int64 a1)
 {
   __int64 v2; // rcx

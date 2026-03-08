@@ -1,3 +1,19 @@
+/*
+ * XREFs of SshpWriteBlocker @ 0x1405A0960
+ * Callers:
+ *     SshpSendSessionData @ 0x140879EBC (SshpSendSessionData.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     SshpStopBlockerAccounting @ 0x1402F1228 (SshpStopBlockerAccounting.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     SSHSupportAllocatePaged @ 0x140732420 (SSHSupportAllocatePaged.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 int __fastcall SshpWriteBlocker(PKSPIN_LOCK SpinLock, PVOID *a2, unsigned int *a3)
 {
   KSPIN_LOCK v6; // rdi

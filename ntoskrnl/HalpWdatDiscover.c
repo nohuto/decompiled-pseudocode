@@ -1,3 +1,19 @@
+/*
+ * XREFs of HalpWdatDiscover @ 0x140375F28
+ * Callers:
+ *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1403A08C4 (HalpTimerRegisterBuiltinPluginsCommon.c)
+ * Callees:
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x14037333C (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpTimerRegister @ 0x140373EB4 (HalpTimerRegister.c)
+ *     HalSocGetAcpiTable @ 0x14037601C (HalSocGetAcpiTable.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpWdatExecuteActionBeforeInitialize @ 0x14051C944 (HalpWdatExecuteActionBeforeInitialize.c)
+ *     HalpWdatProcessWdatInternalData @ 0x14051CCB8 (HalpWdatProcessWdatInternalData.c)
+ *     HalpWdatProcessWdrtInternalData @ 0x14051CD14 (HalpWdatProcessWdrtInternalData.c)
+ *     HviGetHardwareFeatures @ 0x140612F60 (HviGetHardwareFeatures.c)
+ */
+
 __int64 HalpWdatDiscover()
 {
   __int64 AcpiTable; // rdi

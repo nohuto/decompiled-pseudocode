@@ -1,3 +1,15 @@
+/*
+ * XREFs of __scrt_fastfail @ 0x18010F204
+ * Callers:
+ *     __scrt_initialize_onexit_tables @ 0x18010E788 (__scrt_initialize_onexit_tables.c)
+ *     dllmain_crt_process_attach @ 0x18010E9E8 (dllmain_crt_process_attach.c)
+ *     dllmain_crt_process_detach @ 0x18010EB10 (dllmain_crt_process_detach.c)
+ *     __scrt_initialize_thread_safe_statics @ 0x18010ED70 (__scrt_initialize_thread_safe_statics.c)
+ * Callees:
+ *     __crt_debugger_hook @ 0x18010F1F4 (__crt_debugger_hook.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ */
+
 void __fastcall _scrt_fastfail(unsigned int a1)
 {
   ULONG64 Rip; // rbx

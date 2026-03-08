@@ -1,3 +1,22 @@
+/*
+ * XREFs of PipMigratePnpState @ 0x140B5AC14
+ * Callers:
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     _PnpCtxRegCreateKey @ 0x140687FD0 (_PnpCtxRegCreateKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406D3680 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x14081D410 (_PnpCtxRegOpenKey.c)
+ *     _CmGetMatchingDeviceList @ 0x140823774 (_CmGetMatchingDeviceList.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x140824EA0 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     _PnpCtxOpenMachine @ 0x140851D74 (_PnpCtxOpenMachine.c)
+ *     _PnpCtxRegCloseKey @ 0x1408653B4 (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegQueryValue @ 0x14086617C (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxCloseMachine @ 0x140A5DAE0 (_PnpCtxCloseMachine.c)
+ *     _PnpCtxRegCopyTree @ 0x140A5DE1C (_PnpCtxRegCopyTree.c)
+ *     _PnpCtxRegSetValue @ 0x140A5DEF4 (_PnpCtxRegSetValue.c)
+ */
+
 __int64 PipMigratePnpState()
 {
   PERESOURCE *v0; // rdi

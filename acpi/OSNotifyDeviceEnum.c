@@ -1,3 +1,15 @@
+/*
+ * XREFs of OSNotifyDeviceEnum @ 0x1C0032E9C
+ * Callers:
+ *     NotifyHandler @ 0x1C0004EE0 (NotifyHandler.c)
+ * Callees:
+ *     ACPIDockIsDockDevice @ 0x1C0009A34 (ACPIDockIsDockDevice.c)
+ *     ACPIBuildSynchronizationRequestInternal @ 0x1C0013BE0 (ACPIBuildSynchronizationRequestInternal.c)
+ *     WPP_RECORDER_SF_qs @ 0x1C00152B8 (WPP_RECORDER_SF_qs.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIIterateParentNext @ 0x1C00488A4 (AMLIIterateParentNext.c)
+ */
+
 __int64 __fastcall OSNotifyDeviceEnum(volatile signed __int32 *a1)
 {
   volatile signed __int32 *v1; // rdi

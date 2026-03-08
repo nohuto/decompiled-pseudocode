@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopDoesCompletionNeedsApc @ 0x140552F8C
+ * Callers:
+ *     IopfCompleteRequest @ 0x14027B2C0 (IopfCompleteRequest.c)
+ * Callees:
+ *     IoGetRequestorProcess @ 0x1402C80C0 (IoGetRequestorProcess.c)
+ */
+
 bool __fastcall IopDoesCompletionNeedsApc(__int64 a1)
 {
   int v1; // eax

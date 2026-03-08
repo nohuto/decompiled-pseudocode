@@ -1,3 +1,16 @@
+/*
+ * XREFs of FreeNameSpaceObjects @ 0x1C0005600
+ * Callers:
+ *     Simulator_RemoveNode @ 0x1C00498D0 (Simulator_RemoveNode.c)
+ *     CreateNativeNameSpaceObject @ 0x1C0049D38 (CreateNativeNameSpaceObject.c)
+ *     FreeOwnedObjects @ 0x1C004B81C (FreeOwnedObjects.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ * Callees:
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ */
+
 void __fastcall FreeNameSpaceObjects(__int64 *a1)
 {
   KIRQL v2; // al

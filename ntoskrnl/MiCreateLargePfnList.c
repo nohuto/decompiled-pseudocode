@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiCreateLargePfnList @ 0x14066540C
+ * Callers:
+ *     MiCommitExistingVad @ 0x140320D70 (MiCommitExistingVad.c)
+ *     MiAllocateLargeProcessPagesFromCache @ 0x140664B5C (MiAllocateLargeProcessPagesFromCache.c)
+ *     MiMapUserLargePages @ 0x1406667E0 (MiMapUserLargePages.c)
+ *     MiAllocateFastAwePages @ 0x140A3D534 (MiAllocateFastAwePages.c)
+ * Callees:
+ *     MiFreeLargeZeroPages @ 0x14020FD6C (MiFreeLargeZeroPages.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     MiChargeResident @ 0x140348DE8 (MiChargeResident.c)
+ *     MiAllocateLargeZeroPages @ 0x14034DCB0 (MiAllocateLargeZeroPages.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiComputePreferredNode @ 0x140615350 (MiComputePreferredNode.c)
+ *     MiGetCrossPartitionCharges @ 0x1406579B0 (MiGetCrossPartitionCharges.c)
+ *     MiReturnCrossPartitionCharges @ 0x140658D80 (MiReturnCrossPartitionCharges.c)
+ *     MiAllocateLargeProcessPagesFromCache @ 0x140664B5C (MiAllocateLargeProcessPagesFromCache.c)
+ *     MiComputeIdealLargePage @ 0x140665140 (MiComputeIdealLargePage.c)
+ */
+
 __int64 __fastcall MiCreateLargePfnList(
         __int64 a1,
         __int64 a2,

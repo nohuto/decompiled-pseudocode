@@ -1,3 +1,12 @@
+/*
+ * XREFs of BuildShrinkAAInfo @ 0x1C025D3C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _ALIGN_MEM @ 0x1C014B81A (_ALIGN_MEM.c)
+ *     BuildRepData @ 0x1C025D17C (BuildRepData.c)
+ */
+
 _DWORD *BuildShrinkAAInfo(__int64 a1, __int16 a2, int *a3, int *a4, int a5, int a6, int a7, int *a8, int *a9, ...)
 {
   int v9; // r12d

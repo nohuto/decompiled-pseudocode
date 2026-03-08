@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhResetPortData @ 0x1C0057774
+ * Callers:
+ *     UsbhDeregisterPdo @ 0x1C0037578 (UsbhDeregisterPdo.c)
+ *     UsbhDeletePdo @ 0x1C005409C (UsbhDeletePdo.c)
+ * Callees:
+ *     UsbhDerefPdo @ 0x1C00019F0 (UsbhDerefPdo.c)
+ *     UsbhSignalSyncDeviceResetPdo @ 0x1C0001CD0 (UsbhSignalSyncDeviceResetPdo.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ */
+
 void __fastcall UsbhResetPortData(__int64 a1, __int64 a2, __int64 a3)
 {
   _DWORD *v5; // rax

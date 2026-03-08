@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetChildWindowNoActivate @ 0x1C00F20B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserSetChildWindowNoActivate(__int64 a1)
 {
   __int64 v2; // rax

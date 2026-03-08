@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetDword@CSettingsManager@@AEAAJW4DwmSettingType@@PEBGPEAK@Z @ 0x140004440
+ * Callers:
+ *     ?ReadRegistryBitfields@CSettingsManager@@AEAAXW4DwmSettingType@@PEAUBitfieldRegistrySetting@@IPEAK@Z @ 0x140004330 (-ReadRegistryBitfields@CSettingsManager@@AEAAXW4DwmSettingType@@PEAUBitfieldRegistrySetting@@IPE.c)
+ *     ?ReadRegistryDwords@CSettingsManager@@UEAAJW4DwmSettingType@@PEAUDwordRegistrySetting@@I@Z @ 0x1400043D0 (-ReadRegistryDwords@CSettingsManager@@UEAAJW4DwmSettingType@@PEAUDwordRegistrySetting@@I@Z.c)
+ *     ?GetPolicyDword@CSettingsManager@@UEAAJPEBGPEAK@Z @ 0x14000BEE0 (-GetPolicyDword@CSettingsManager@@UEAAJPEBGPEAK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CSettingsManager::GetDword(__int64 a1, int a2, const WCHAR *a3, BYTE *a4)
 {
   LSTATUS v8; // ebx

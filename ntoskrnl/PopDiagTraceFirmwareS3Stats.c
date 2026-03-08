@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopDiagTraceFirmwareS3Stats @ 0x140AA4A40
+ * Callers:
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void PopDiagTraceFirmwareS3Stats()
 {
   unsigned int *Pool2; // rbx

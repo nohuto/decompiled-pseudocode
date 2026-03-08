@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiProcessMiracastNotifyInterrupt @ 0x1C006108C
+ * Callers:
+ *     DxgNotifyInterruptCB @ 0x1C000F6F0 (DxgNotifyInterruptCB.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     ?RemoveHead@MIRACAST_CHUNK_LIST@@QEAAPEAUMIRACAST_CHUNK@@XZ @ 0x1C005F208 (-RemoveHead@MIRACAST_CHUNK_LIST@@QEAAPEAUMIRACAST_CHUNK@@XZ.c)
+ *     McTemplateK0xqqqqqqqq_EtwWriteTransfer @ 0x1C0062B54 (McTemplateK0xqqqqqqqq_EtwWriteTransfer.c)
+ */
+
 void __fastcall DpiProcessMiracastNotifyInterrupt(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // rbx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of CcInsertIntoDirtySharedCacheMapList @ 0x140242BEC
+ * Callers:
+ *     CcWriteBehindPostProcess @ 0x140219248 (CcWriteBehindPostProcess.c)
+ *     CcDecrementOpenCount @ 0x14021B85C (CcDecrementOpenCount.c)
+ *     CcSetDirtyInMask @ 0x14021C370 (CcSetDirtyInMask.c)
+ *     CcSetDirtyPinnedData @ 0x140242420 (CcSetDirtyPinnedData.c)
+ *     CcUninitializeCacheMap @ 0x140336C50 (CcUninitializeCacheMap.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall CcInsertIntoDirtySharedCacheMapList(__int64 a1)
 {
   __int64 v1; // rax

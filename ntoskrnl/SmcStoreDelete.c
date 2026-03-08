@@ -1,3 +1,22 @@
+/*
+ * XREFs of SmcStoreDelete @ 0x1409D86C8
+ * Callers:
+ *     SmcProcessStoreCreateRequest @ 0x1409D56AC (SmcProcessStoreCreateRequest.c)
+ *     SmcProcessStoreDeleteRequest @ 0x1409D5818 (SmcProcessStoreDeleteRequest.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     ExRundownCompleted @ 0x140294280 (ExRundownCompleted.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     SmStoreDelete @ 0x1409D4D34 (SmStoreDelete.c)
+ *     SmcCacheReference @ 0x1409D8000 (SmcCacheReference.c)
+ *     SmcStoreEntryFind @ 0x1409D8838 (SmcStoreEntryFind.c)
+ */
+
 __int64 __fastcall SmcStoreDelete(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)
 {
   char v6; // r12

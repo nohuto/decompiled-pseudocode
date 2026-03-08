@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeDetectHeterogeneousSets @ 0x14067C998
+ * Callers:
+ *     KeDoesSystemHaveHeterogeneousCoreTypes @ 0x14037F8D8 (KeDoesSystemHaveHeterogeneousCoreTypes.c)
+ *     PopInitializeHeteroProcessors @ 0x140826970 (PopInitializeHeteroProcessors.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KeDetectHeterogeneousSets(__int64 a1)
 {
   __int64 v1; // rbx

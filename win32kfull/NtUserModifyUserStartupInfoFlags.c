@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserModifyUserStartupInfoFlags @ 0x1C01D8B20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtUserModifyUserStartupInfoFlags(int a1, int a2)
 {
   __int64 v4; // rcx

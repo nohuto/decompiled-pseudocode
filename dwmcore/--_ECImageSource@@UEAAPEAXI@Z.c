@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??_ECImageSource@@UEAAPEAXI@Z @ 0x1801BFE20
+ * Callers:
+ *     ??_ECParticleAttractor@@WFI@EAAPEAXI@Z @ 0x180117B10 (--_ECParticleAttractor@@WFI@EAAPEAXI@Z.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ??1CResource@@MEAA@XZ @ 0x18009A0B0 (--1CResource@@MEAA@XZ.c)
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801046B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ */
+
 CImageSource *__fastcall CImageSource::`vector deleting destructor'(CImageSource *this, char a2)
 {
   CResource::~CResource(this);

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ClearDeviceObject@DXGADAPTER@@QEAAXXZ @ 0x1C0041F44
+ * Callers:
+ *     DxgkReleaseAdapterFdoReference @ 0x1C02BE328 (DxgkReleaseAdapterFdoReference.c)
+ * Callees:
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007104 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ */
+
 void __fastcall DXGADAPTER::ClearDeviceObject(DXGADAPTER *this)
 {
   DXGPUSHLOCK::AcquireExclusive((DXGADAPTER *)((char *)this + 104));

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PfSnCleanupTrace @ 0x1407E3630
+ * Callers:
+ *     PfSnBeginTrace @ 0x1407E31A8 (PfSnBeginTrace.c)
+ *     PfSnEndTrace @ 0x1407E37B8 (PfSnEndTrace.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PfSnCleanupTrace(__int64 a1)
 {
   __int64 v1; // rbx

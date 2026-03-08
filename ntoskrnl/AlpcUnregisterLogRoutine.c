@@ -1,3 +1,14 @@
+/*
+ * XREFs of AlpcUnregisterLogRoutine @ 0x140977128
+ * Callers:
+ *     EtwpDisableKernelTrace @ 0x1407864C4 (EtwpDisableKernelTrace.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 AlpcUnregisterLogRoutine()
 {
   unsigned int v0; // ebx

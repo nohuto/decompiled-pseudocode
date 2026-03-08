@@ -1,3 +1,21 @@
+/*
+ * XREFs of UpdateSprite @ 0x1C002E7A8
+ * Callers:
+ *     xxxCompositedPaint @ 0x1C0015794 (xxxCompositedPaint.c)
+ *     UnsetLayeredWindow @ 0x1C00240E0 (UnsetLayeredWindow.c)
+ *     _SetLayeredWindowAttributes @ 0x1C002BBFC (_SetLayeredWindowAttributes.c)
+ *     OffsetWindow @ 0x1C004C918 (OffsetWindow.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C00669E0 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     UpdateSpriteArea @ 0x1C00DC4C4 (UpdateSpriteArea.c)
+ *     zzzUpdateLayeredWindow @ 0x1C01BE8C0 (zzzUpdateLayeredWindow.c)
+ * Callees:
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     GreUpdateSprite @ 0x1C002F030 (GreUpdateSprite.c)
+ *     ?InitializeMiniWinInfo@@YAXQEBUtagWND@@PEAUtagMINIWINDOWINFO@@@Z @ 0x1C0043D6C (-InitializeMiniWinInfo@@YAXQEBUtagWND@@PEAUtagMINIWINDOWINFO@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall UpdateSprite(
         HDEV a1,
         const struct tagWND *a2,

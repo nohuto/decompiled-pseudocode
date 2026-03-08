@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiFlushFileOnlyMdl @ 0x14063B100
+ * Callers:
+ *     MiGatherMappedPages @ 0x140215150 (MiGatherMappedPages.c)
+ *     MiFlushSectionInternal @ 0x14031FA90 (MiFlushSectionInternal.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiPersistMdl @ 0x14063C214 (MiPersistMdl.c)
+ *     MiTransferFileExtent @ 0x14063D474 (MiTransferFileExtent.c)
+ */
+
 __int64 __fastcall MiFlushFileOnlyMdl(
         __int64 a1,
         ULONG_PTR a2,

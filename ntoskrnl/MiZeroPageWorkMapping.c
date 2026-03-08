@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiZeroPageWorkMapping @ 0x1402FD0C4
+ * Callers:
+ *     MiPageListCollision @ 0x1402FD02C (MiPageListCollision.c)
+ *     MiReleaseLargeZeroingVa @ 0x140652CD8 (MiReleaseLargeZeroingVa.c)
+ * Callees:
+ *     MiInsertLargeTbFlushEntry @ 0x140210194 (MiInsertLargeTbFlushEntry.c)
+ *     MiWriteLargePte @ 0x1402443C4 (MiWriteLargePte.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     MiVaIsUltra @ 0x14036448C (MiVaIsUltra.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiZeroPageWorkMapping(unsigned int a1, __int64 a2, char a3)
 {
   __int64 v4; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBHTX_CancelControlTransfer @ 0x1C0004464
+ * Callers:
+ *     HUBPSM20_CancellingDisableOnHubStopSuspend @ 0x1C0011AC0 (HUBPSM20_CancellingDisableOnHubStopSuspend.c)
+ *     HUBPSM30_CancellingResetOnSurpriseRemove @ 0x1C0011AF0 (HUBPSM30_CancellingResetOnSurpriseRemove.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 _UNKNOWN **__fastcall HUBHTX_CancelControlTransfer(__int64 a1)
 {
   _UNKNOWN **result; // rax

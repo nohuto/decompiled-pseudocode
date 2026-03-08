@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvlpStartVirtualProcessor @ 0x14053FF84
+ * Callers:
+ *     HvlHalStartVirtualProcessor @ 0x140542250 (HvlHalStartVirtualProcessor.c)
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 __int64 __fastcall HvlpStartVirtualProcessor(ULONG a1, _OWORD *a2)
 {
   PHYSICAL_ADDRESS *v4; // rax

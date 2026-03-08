@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C00188A4
+ * Callers:
+ *     ?InitAdapterCollection@CTokenManager@@IEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C00187A4 (-InitAdapterCollection@CTokenManager@@IEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
+ * Callees:
+ *     ?UpdateRenderFence@CAdapter@@QEAAJPEAX@Z @ 0x1C0018A08 (-UpdateRenderFence@CAdapter@@QEAAJPEAX@Z.c)
+ *     ?Release@CPushLockCriticalSection@@QEAAXXZ @ 0x1C0018BE8 (-Release@CPushLockCriticalSection@@QEAAXXZ.c)
+ *     ?InternalDiscard@CAdapterCollection@@AEAAXXZ @ 0x1C00192B0 (-InternalDiscard@CAdapterCollection@@AEAAXXZ.c)
+ *     DxgkGetDeviceStateInternal @ 0x1C0193CE0 (DxgkGetDeviceStateInternal.c)
+ */
+
 char __fastcall CAdapterCollection::UpdateCollection(
         CAdapterCollection *this,
         struct CSM_TOKEN_ADAPTER_INFO *a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpApicSetupRegisterAccess @ 0x14037301C
+ * Callers:
+ *     HalpApicInitializeLocalUnit @ 0x140372980 (HalpApicInitializeLocalUnit.c)
+ *     HalpApicDiscover @ 0x140375E78 (HalpApicDiscover.c)
+ *     HalpApicHvUpdateCallback @ 0x1405186D0 (HalpApicHvUpdateCallback.c)
+ * Callees:
+ *     HalSocRequestConfigurationData @ 0x1403731C8 (HalSocRequestConfigurationData.c)
+ *     HalSocRequestApi @ 0x1403737EC (HalSocRequestApi.c)
+ *     HalpIsXboxNanovisorPresent @ 0x140373A1C (HalpIsXboxNanovisorPresent.c)
+ */
+
 __int64 HalpApicSetupRegisterAccess()
 {
   bool v0; // bl

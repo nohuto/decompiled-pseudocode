@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Convert3dTo2dMatrix@CPalmRejectZoneInfo@@AEAAJPEBUtagINPUT_TRANSFORM@@PEAUD2D_MATRIX_3X2_F@@@Z @ 0x1C02156C4
+ * Callers:
+ *     ?GetInputRectFromInputSinkInScreenSpace@CPalmRejectZoneInfo@@AEAA?AUtagRECT@@PEBUCompositionInputObject@@U2@@Z @ 0x1C02159E0 (-GetInputRectFromInputSinkInScreenSpace@CPalmRejectZoneInfo@@AEAA-AUtagRECT@@PEBUCompositionInpu.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CPalmRejectZoneInfo::Convert3dTo2dMatrix(
         CPalmRejectZoneInfo *this,
         const struct tagINPUT_TRANSFORM *a2,

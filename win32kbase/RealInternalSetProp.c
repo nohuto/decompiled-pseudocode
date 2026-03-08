@@ -1,3 +1,13 @@
+/*
+ * XREFs of RealInternalSetProp @ 0x1C00798E0
+ * Callers:
+ *     ?SetProp@CWindowProp@@QEAAHPEAUtagWND@@@Z @ 0x1C008EA50 (-SetProp@CWindowProp@@QEAAHPEAUtagWND@@@Z.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C004E3E0 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     CreateProp @ 0x1C0079AA8 (CreateProp.c)
+ */
+
 __int64 __fastcall RealInternalSetProp(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int16 v4; // bp

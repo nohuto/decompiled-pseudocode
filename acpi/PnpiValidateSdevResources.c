@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpiValidateSdevResources @ 0x1C0092454
+ * Callers:
+ *     PnpBiosGetDeviceResourceList @ 0x1C008ED68 (PnpBiosGetDeviceResourceList.c)
+ * Callees:
+ *     PnpiValidateSdevMemoryResourceEntry @ 0x1C0092398 (PnpiValidateSdevMemoryResourceEntry.c)
+ */
+
 __int64 __fastcall PnpiValidateSdevResources(__int64 a1, int a2, __int64 a3)
 {
   unsigned __int64 v3; // rbx

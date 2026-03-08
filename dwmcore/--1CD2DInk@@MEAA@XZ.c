@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CD2DInk@@MEAA@XZ @ 0x1802993F8
+ * Callers:
+ *     ??_ECD2DInk@@MEAAPEAXI@Z @ 0x1802994B0 (--_ECD2DInk@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CD2DInk::~CD2DInk(CD2DInk *this)
 {
   __int64 v2; // rcx

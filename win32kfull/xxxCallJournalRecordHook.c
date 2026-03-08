@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxxCallJournalRecordHook @ 0x1C01BCCF4
+ * Callers:
+ *     ?xxxSkipSysMsgEx@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@PEAU1@H@Z @ 0x1C003768C (-xxxSkipSysMsgEx@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@PEAU1@H@Z.c)
+ * Callees:
+ *     PhkFirstGlobalValid @ 0x1C001D640 (PhkFirstGlobalValid.c)
+ *     ?xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z @ 0x1C006C010 (-xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ */
+
 __int16 __fastcall xxxCallJournalRecordHook(__int64 a1)
 {
   int v1; // eax

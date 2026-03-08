@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheapLogPolicyTelemetry @ 0x140A06CB4
+ * Callers:
+ *     WheapCommitPolicy @ 0x140A06A08 (WheapCommitPolicy.c)
+ * Callees:
+ *     WheaLogInternalEvent @ 0x14037D610 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 LONG WheapLogPolicyTelemetry()
 {
   _DWORD Src[9]; // [rsp+20h] [rbp-40h] BYREF

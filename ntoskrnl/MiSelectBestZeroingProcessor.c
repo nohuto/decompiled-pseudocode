@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiSelectBestZeroingProcessor @ 0x140274D20
+ * Callers:
+ *     MiReadyToZeroNextLargePage @ 0x140274AB0 (MiReadyToZeroNextLargePage.c)
+ *     MiZeroNodePages @ 0x14038FAA0 (MiZeroNodePages.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiObtainParkedCoreMasks @ 0x1402A7130 (MiObtainParkedCoreMasks.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetUserGroupAffinityThread @ 0x1403A8A60 (KeSetUserGroupAffinityThread.c)
+ *     MiGetNextAffinityWalker @ 0x1403B9938 (MiGetNextAffinityWalker.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUnlinkZeroThreadFromActiveDomain @ 0x140652FA8 (MiUnlinkZeroThreadFromActiveDomain.c)
+ */
+
 void __fastcall MiSelectBestZeroingProcessor(__int64 a1, ULONG_PTR a2)
 {
   ULONG_PTR v2; // rbx

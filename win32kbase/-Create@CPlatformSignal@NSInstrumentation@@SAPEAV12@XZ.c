@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Create@CPlatformSignal@NSInstrumentation@@SAPEAV12@XZ @ 0x1C019A5D0
+ * Callers:
+ *     ?BeginTrack@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@QEAAPEAXPEAX@Z @ 0x1C019B9AC (-BeginTrack@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@QEAAPEAXPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _KEVENT *NSInstrumentation::CPlatformSignal::Create(void)
 {
   struct _KEVENT *Pool2; // rax

@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiZeroNodeExiting @ 0x14065315C
+ * Callers:
+ *     MiNodeZeroConductor @ 0x1408314C0 (MiNodeZeroConductor.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiWakeZeroingThreads @ 0x1402A7E98 (MiWakeZeroingThreads.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDeleteAcceleratorDescriptor @ 0x14065241C (MiDeleteAcceleratorDescriptor.c)
+ *     MiDeleteZeroThreadContext @ 0x140652704 (MiDeleteZeroThreadContext.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiZeroNodeExiting(__int64 a1)
 {
   __int64 v2; // r14

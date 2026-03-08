@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DrawDiagonal@@YAHPEAUHDC__@@PEAUtagRECT@@PEAUHBRUSH__@@2I@Z @ 0x1C024ED7C
+ * Callers:
+ *     DrawEdge @ 0x1C0088404 (DrawEdge.c)
+ * Callees:
+ *     ?DrawDiagonalLine@@YAKPEAUHDC__@@PEAUtagRECT@@HHI@Z @ 0x1C024EE44 (-DrawDiagonalLine@@YAKPEAUHDC__@@PEAUtagRECT@@HHI@Z.c)
+ */
+
 _BOOL8 __fastcall DrawDiagonal(HDC a1, struct tagRECT *a2, HBRUSH a3, HBRUSH a4, unsigned int a5)
 {
   int v7; // esi

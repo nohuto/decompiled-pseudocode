@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpPicDiscover @ 0x140374634
+ * Callers:
+ *     HalpInitializeInterrupts @ 0x140B3D448 (HalpInitializeInterrupts.c)
+ * Callees:
+ *     HalpInterruptRegisterController @ 0x140373AE4 (HalpInterruptRegisterController.c)
+ *     HalpInterruptRegisterLine @ 0x1403748A0 (HalpInterruptRegisterLine.c)
+ *     HalSocGetAcpiTable @ 0x14037601C (HalSocGetAcpiTable.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 HalpPicDiscover()
 {
   __int64 AcpiTable; // rax

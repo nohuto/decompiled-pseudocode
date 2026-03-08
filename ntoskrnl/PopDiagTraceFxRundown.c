@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopDiagTraceFxRundown @ 0x140586438
+ * Callers:
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ *     PopDiagTraceControlCallback @ 0x14085EC40 (PopDiagTraceControlCallback.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PopFxTraceDeviceRegistration @ 0x140837C28 (PopFxTraceDeviceRegistration.c)
+ *     PopDiagTraceFxPluginRegistration @ 0x14084D450 (PopDiagTraceFxPluginRegistration.c)
+ *     PopDiagTraceDeviceVerboseRundown @ 0x14098B3E8 (PopDiagTraceDeviceVerboseRundown.c)
+ */
+
 char __fastcall PopDiagTraceFxRundown(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

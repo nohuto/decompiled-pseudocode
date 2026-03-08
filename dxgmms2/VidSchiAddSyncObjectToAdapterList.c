@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiAddSyncObjectToAdapterList @ 0x1C003A280
+ * Callers:
+ *     VidSchCreateSyncObject @ 0x1C00AA640 (VidSchCreateSyncObject.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidSchiAddSyncObjectToAdapterList(__int64 a1, __int64 a2)
 {
   __int64 *v4; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Swap@RawUsageIndex@details_abi@wil@@QEAAXAEAV123@@Z @ 0x14000212C
+ * Callers:
+ *     ?RetrieveUsageUnderLock@FeatureStateData@details_abi@wil@@AEAAXAEAUUsageIndexes@23@@Z @ 0x140001EE0 (-RetrieveUsageUnderLock@FeatureStateData@details_abi@wil@@AEAAXAEAUUsageIndexes@23@@Z.c)
+ * Callees:
+ *     ?FreeProcessHeap@details@wil@@YAXPEAX@Z @ 0x140002398 (-FreeProcessHeap@details@wil@@YAXPEAX@Z.c)
+ */
+
 void __fastcall wil::details_abi::RawUsageIndex::Swap(
         wil::details_abi::RawUsageIndex *this,
         struct wil::details_abi::RawUsageIndex *a2)

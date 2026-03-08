@@ -1,3 +1,35 @@
+/*
+ * XREFs of MmCopyToCachedPage @ 0x14021DBE0
+ * Callers:
+ *     CcMapAndCopyInToCache @ 0x14021CD00 (CcMapAndCopyInToCache.c)
+ * Callees:
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ *     MiMakePageAvoidRead @ 0x140272670 (MiMakePageAvoidRead.c)
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiLockProtoPoolPageForce @ 0x14028331C (MiLockProtoPoolPageForce.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140286264 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiAddLockedPageCharge @ 0x1402A309C (MiAddLockedPageCharge.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiUnlinkStandbyPfn @ 0x1402D69FC (MiUnlinkStandbyPfn.c)
+ *     MiMakeSystemCachePteValid @ 0x1402DA87C (MiMakeSystemCachePteValid.c)
+ *     MiDirtySystemCachePte @ 0x1402E46F8 (MiDirtySystemCachePte.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiLockLeafPage @ 0x14034AF20 (MiLockLeafPage.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     RtlCopyMemoryNonTemporal @ 0x140420E80 (RtlCopyMemoryNonTemporal.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiMapFrame @ 0x14062C794 (MiMapFrame.c)
+ *     MiMapSystemCachePage @ 0x14062C834 (MiMapSystemCachePage.c)
+ *     MiFreeTransitionPageHeatList @ 0x1406518B8 (MiFreeTransitionPageHeatList.c)
+ *     MiMakeTransitionHeatBatch @ 0x140651CD4 (MiMakeTransitionHeatBatch.c)
+ *     MiProcessTransitionHeatBatch @ 0x140652050 (MiProcessTransitionHeatBatch.c)
+ *     MiReplenishTransitionPageHeatList @ 0x14065227C (MiReplenishTransitionPageHeatList.c)
+ *     MiHandleSpecialPurposeMemoryCachedFault @ 0x14065DE28 (MiHandleSpecialPurposeMemoryCachedFault.c)
+ *     MiMapCacheExceptionFilter @ 0x140A2DBCC (MiMapCacheExceptionFilter.c)
+ */
+
 __int64 __fastcall MmCopyToCachedPage(
         ULONG_PTR BugCheckParameter2,
         const void *a2,

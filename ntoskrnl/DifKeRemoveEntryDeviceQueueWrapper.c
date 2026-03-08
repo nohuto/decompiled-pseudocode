@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifKeRemoveEntryDeviceQueueWrapper @ 0x1405E3000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     KeRemoveEntryDeviceQueue @ 0x140570F70 (KeRemoveEntryDeviceQueue.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 BOOLEAN __fastcall DifKeRemoveEntryDeviceQueueWrapper(
         PKDEVICE_QUEUE DeviceQueue,
         PKDEVICE_QUEUE_ENTRY DeviceQueueEntry)

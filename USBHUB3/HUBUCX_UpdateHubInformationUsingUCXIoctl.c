@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBUCX_UpdateHubInformationUsingUCXIoctl @ 0x1C00289B0
+ * Callers:
+ *     HUBHSM_UpdatingHubInfoInUCX @ 0x1C00099F0 (HUBHSM_UpdatingHubInfoInUCX.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBDESC_ParseConfigurationDescriptor @ 0x1C003599C (HUBDESC_ParseConfigurationDescriptor.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBUCX_UpdateHubInformationUsingUCXIoctl(__int64 a1)
 {
   __int64 v1; // rsi

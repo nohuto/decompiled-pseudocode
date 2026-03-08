@@ -1,3 +1,13 @@
+/*
+ * XREFs of Endpoint_EvtStaticStreamsCleanupCallback @ 0x1C003A6C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     XilEndpoint_FreeStreamContextArray @ 0x1C003915C (XilEndpoint_FreeStreamContextArray.c)
+ *     WPP_RECORDER_SF_ddqqq @ 0x1C003DB44 (WPP_RECORDER_SF_ddqqq.c)
+ */
+
 void __fastcall Endpoint_EvtStaticStreamsCleanupCallback(__int64 a1)
 {
   _QWORD *v1; // rbx

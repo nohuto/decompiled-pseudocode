@@ -1,3 +1,16 @@
+/*
+ * XREFs of RIMHandleTTMDeviceArrival @ 0x1C01E273C
+ * Callers:
+ *     RIMHandlePowerDeviceArrival @ 0x1C00BC314 (RIMHandlePowerDeviceArrival.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     RawInputManagerDeviceObjectReference @ 0x1C0088EF0 (RawInputManagerDeviceObjectReference.c)
+ *     RimDeviceTypeToRimInputType @ 0x1C00BC2F4 (RimDeviceTypeToRimInputType.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dqqdS @ 0x1C01E2B90 (WPP_RECORDER_AND_TRACE_SF_dqqdS.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qdSD @ 0x1C01E2D7C (WPP_RECORDER_AND_TRACE_SF_qdSD.c)
+ */
+
 __int64 __fastcall RIMHandleTTMDeviceArrival(__int64 a1)
 {
   int v2; // edx

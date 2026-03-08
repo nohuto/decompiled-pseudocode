@@ -1,3 +1,19 @@
+/*
+ * XREFs of HalpInterruptReinitialize @ 0x140A923CC
+ * Callers:
+ *     HalpAcpiPostSleep @ 0x140A93580 (HalpAcpiPostSleep.c)
+ * Callees:
+ *     KeGetProcessorIndexFromNumber @ 0x140236BF0 (KeGetProcessorIndexFromNumber.c)
+ *     HalStartNextProcessor @ 0x140371EB0 (HalStartNextProcessor.c)
+ *     HalpInterruptInitializeController @ 0x14037B24C (HalpInterruptInitializeController.c)
+ *     HalGetProcessorIdByNtNumber @ 0x1403810B0 (HalGetProcessorIdByNtNumber.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HalStartDynamicProcessor @ 0x140502C20 (HalStartDynamicProcessor.c)
+ *     HalpInterruptControllerInUse @ 0x14051829C (HalpInterruptControllerInUse.c)
+ *     HalpInterruptStartBlockedProcessors @ 0x1405185E4 (HalpInterruptStartBlockedProcessors.c)
+ *     HalpIommuInitializeAll @ 0x140A8DA7C (HalpIommuInitializeAll.c)
+ */
+
 __int64 __fastcall HalpInterruptReinitialize(int a1, __int64 a2, __int64 a3, __int64 a4)
 {
   ULONG_PTR *v4; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of rimProcessKeyboardInput @ 0x1C0004290
+ * Callers:
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0003AE4 (rimProcessDeviceBufferAndStartRead.c)
+ * Callees:
+ *     rimStackAttachAndProcessInput @ 0x1C00044C4 (rimStackAttachAndProcessInput.c)
+ */
+
 NTSTATUS __fastcall rimProcessKeyboardInput(__int64 a1, __int64 a2)
 {
   NTSTATUS result; // eax

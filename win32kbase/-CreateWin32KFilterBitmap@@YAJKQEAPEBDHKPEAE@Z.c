@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CreateWin32KFilterBitmap@@YAJKQEAPEBDHKPEAE@Z @ 0x1C002E6D0
+ * Callers:
+ *     InitializeWin32KSyscallFilter @ 0x1C002E260 (InitializeWin32KSyscallFilter.c)
+ * Callees:
+ *     ?RtlStringCbPrintfA@@YAJPEAD_KPEBDZZ @ 0x1C002E7F4 (-RtlStringCbPrintfA@@YAJPEAD_KPEBDZZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 __fastcall CreateWin32KFilterBitmap(
         unsigned int a1,
         const char **const a2,

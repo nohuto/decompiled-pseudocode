@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?BeginScan@FxChildList@@QEAAXPEAK@Z @ 0x1C0023A88
+ * Callers:
+ *     imp_WdfChildListBeginScan @ 0x1C0020CC0 (imp_WdfChildListBeginScan.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qd @ 0x1C0007FCC (WPP_IFR_SF_qd.c)
+ */
+
 void __fastcall FxChildList::BeginScan(FxChildList *this, unsigned int *ScanTag)
 {
   unsigned __int64 *p_m_ListLock; // rdi

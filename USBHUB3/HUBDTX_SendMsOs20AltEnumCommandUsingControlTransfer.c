@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBDTX_SendMsOs20AltEnumCommandUsingControlTransfer @ 0x1C002AC88
+ * Callers:
+ *     HUBDSM_SendingMsOs20AltEnumCmdOnReenum @ 0x1C00213A0 (HUBDSM_SendingMsOs20AltEnumCmdOnReenum.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBMISC_ControlTransfer @ 0x1C0032664 (HUBMISC_ControlTransfer.c)
+ */
+
 __int64 __fastcall HUBDTX_SendMsOs20AltEnumCommandUsingControlTransfer(__int64 a1)
 {
   __int64 result; // rax

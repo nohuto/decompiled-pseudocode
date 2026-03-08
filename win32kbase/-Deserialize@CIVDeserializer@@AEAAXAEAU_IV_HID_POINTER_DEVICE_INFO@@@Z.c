@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Deserialize@CIVDeserializer@@AEAAXAEAU_IV_HID_POINTER_DEVICE_INFO@@@Z @ 0x1C0233318
+ * Callers:
+ *     ?ivHandlePnpCreatePacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C021F510 (-ivHandlePnpCreatePacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CIVDeserializer::Deserialize(CIVDeserializer *this, struct _IV_HID_POINTER_DEVICE_INFO *a2)
 {
   __int64 v2; // rax

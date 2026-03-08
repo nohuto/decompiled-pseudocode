@@ -1,3 +1,11 @@
+/*
+ * XREFs of FreeIndex @ 0x1C01596E4
+ * Callers:
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C015C290 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 PVOID __fastcall FreeIndex(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   PVOID result; // rax

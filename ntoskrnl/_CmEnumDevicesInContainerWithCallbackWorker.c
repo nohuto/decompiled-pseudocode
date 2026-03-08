@@ -1,3 +1,18 @@
+/*
+ * XREFs of _CmEnumDevicesInContainerWithCallbackWorker @ 0x140A611A4
+ * Callers:
+ *     _CmEnumDevicesInContainerWithCallback @ 0x140A61054 (_CmEnumDevicesInContainerWithCallback.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     _PnpOpenObjectRegKey @ 0x1406CECB8 (_PnpOpenObjectRegKey.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumValue @ 0x140866444 (_PnpCtxRegEnumValue.c)
+ *     _RegRtlEnumKey @ 0x140868D44 (_RegRtlEnumKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmEnumDevicesInContainerWithCallbackWorker(
         __int64 a1,
         __int64 a2,

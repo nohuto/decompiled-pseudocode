@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetOp_AlphaMultiply@@YAP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZW4DXGI_FORMAT@@@Z @ 0x1802B9A74
+ * Callers:
+ *     ?Append_Convert@ScanPipelineBuilder@@QEAAJAEBUPixelFormatInfo@@0W4Subpipe@1@@Z @ 0x1802B94C0 (-Append_Convert@ScanPipelineBuilder@@QEAAJAEBUPixelFormatInfo@@0W4Subpipe@1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void (__fastcall *__fastcall GetOp_AlphaMultiply(
         enum DXGI_FORMAT a1))(const struct PipelineParams *, const struct ScanOpParams *)
 {

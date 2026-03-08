@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ActivateTelemetrySession@RIMDeadzone@@QEAAXH@Z @ 0x1C01C8CB8
+ * Callers:
+ *     RIMActivatePointerDeviceDeadzone @ 0x1C01AA570 (RIMActivatePointerDeviceDeadzone.c)
+ * Callees:
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     ?ClearSession@DeadzonePalmTelemetry@@QEAAXXZ @ 0x1C01DF358 (-ClearSession@DeadzonePalmTelemetry@@QEAAXXZ.c)
+ */
+
 void __fastcall RIMDeadzone::ActivateTelemetrySession(RIMDeadzone *this, int a2)
 {
   __int64 v2; // rdi

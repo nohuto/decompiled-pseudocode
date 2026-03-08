@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ReleaseEntryLock@GdiHandleManager@@QEAAXPEAVOBJECT@@@Z @ 0x1C004ABC0
+ * Callers:
+ *     EngUnlockSurface @ 0x1C00449E0 (EngUnlockSurface.c)
+ *     HmgLock @ 0x1C0049C00 (HmgLock.c)
+ *     ?vUnlockNoNullSet@XDCOBJ@@IEAAXXZ @ 0x1C0054EF8 (-vUnlockNoNullSet@XDCOBJ@@IEAAXXZ.c)
+ *     HmgShareLock @ 0x1C00A3060 (HmgShareLock.c)
+ * Callees:
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C004B5B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ */
+
 void __fastcall GdiHandleManager::ReleaseEntryLock(GdiHandleManager *this, struct OBJECT *a2)
 {
   unsigned int v3; // eax

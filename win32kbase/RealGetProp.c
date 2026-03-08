@@ -1,3 +1,11 @@
+/*
+ * XREFs of RealGetProp @ 0x1C008F240
+ * Callers:
+ *     ??$GetProp@VGroupedFGBoostProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVGroupedFGBoostProp@@@Z @ 0x1C008F1DC (--$GetProp@VGroupedFGBoostProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVGroupedFGBoostProp@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RealGetProp(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // esi

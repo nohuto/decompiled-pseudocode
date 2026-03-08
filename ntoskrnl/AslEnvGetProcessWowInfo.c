@@ -1,3 +1,17 @@
+/*
+ * XREFs of AslEnvGetProcessWowInfo @ 0x140A54488
+ * Callers:
+ *     SdbpResolveMatchingFile @ 0x140A4EB00 (SdbpResolveMatchingFile.c)
+ *     SdbGuestHostArchsToRuntimePlatformFlag @ 0x140A4F678 (SdbGuestHostArchsToRuntimePlatformFlag.c)
+ *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x140A4F724 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
+ *     SdbpGetProcessHostGuestArchitectures @ 0x140A503E0 (SdbpGetProcessHostGuestArchitectures.c)
+ *     AslEnvVerifyGuestProcessorSupport @ 0x140A54AAC (AslEnvVerifyGuestProcessorSupport.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ */
+
 __int64 __fastcall AslEnvGetProcessWowInfo(_WORD *a1, _WORD *a2)
 {
   int SystemInformation; // ebx

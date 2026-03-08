@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Thunk_UpdateHoverPointer_136@?$IManipulation_Receive@VCManipulationManager@@@@SAJPEAXPEAPEAX@Z @ 0x180101890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x180098D74 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall IManipulation_Receive<CManipulationManager>::Thunk_UpdateHoverPointer_136(__int64 a1, __int64 **a2)
 {
   __int64 *v2; // rcx

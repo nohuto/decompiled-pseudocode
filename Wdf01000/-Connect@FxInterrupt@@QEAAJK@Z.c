@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?Connect@FxInterrupt@@QEAAJK@Z @ 0x1C007E91C
+ * Callers:
+ *     ?NotifyResourceObjectsD0@FxPkgPnp@@AEAAJK@Z @ 0x1C0073480 (-NotifyResourceObjectsD0@FxPkgPnp@@AEAAJK@Z.c)
+ *     ?ForceReconnect@FxInterrupt@@QEAAJXZ @ 0x1C007F0E8 (-ForceReconnect@FxInterrupt@@QEAAJXZ.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qqqd @ 0x1C00183B0 (WPP_IFR_SF_qqqd.c)
+ *     ?InterruptEnable@FxInterrupt@@AEAAJXZ @ 0x1C007F65C (-InterruptEnable@FxInterrupt@@AEAAJXZ.c)
+ *     ?IsActiveForWake@FxInterrupt@@QEAAEXZ @ 0x1C007F77C (-IsActiveForWake@FxInterrupt@@QEAAEXZ.c)
+ *     ?IsSoftDisconnectCapable@FxInterrupt@@QEAAEXZ @ 0x1C007F79C (-IsSoftDisconnectCapable@FxInterrupt@@QEAAEXZ.c)
+ *     WPP_IFR_SF_qDDDDsdisd @ 0x1C007FC98 (WPP_IFR_SF_qDDDDsdisd.c)
+ *     ?ConnectInternal@FxInterrupt@@QEAAJXZ @ 0x1C007FF50 (-ConnectInternal@FxInterrupt@@QEAAJXZ.c)
+ *     ?ReportActive@FxInterrupt@@QEAAXE@Z @ 0x1C00800F8 (-ReportActive@FxInterrupt@@QEAAXE@Z.c)
+ */
+
 int __fastcall FxInterrupt::Connect(FxInterrupt *this, char NotifyFlags)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rbp

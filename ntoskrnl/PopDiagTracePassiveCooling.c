@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopDiagTracePassiveCooling @ 0x14098CF00
+ * Callers:
+ *     PopThermalWorker @ 0x140846460 (PopThermalWorker.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140240954 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     ExSystemTimeToLocalTime @ 0x1402D10F0 (ExSystemTimeToLocalTime.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PopDiagTracePassiveCooling(__int64 a1, __int64 a2, char a3, int a4, unsigned int a5)
 {
   _UNKNOWN **DeviceAttachmentBaseRefWithTag; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpDequeueBufferPendingCompressionFromQueue @ 0x140600428
+ * Callers:
+ *     EtwpDequeueBufferPendingCompression @ 0x140600328 (EtwpDequeueBufferPendingCompression.c)
+ * Callees:
+ *     <none>
+ */
+
 char *__fastcall EtwpDequeueBufferPendingCompressionFromQueue(_QWORD *a1, volatile signed __int32 *a2, __int64 a3)
 {
   _QWORD **v3; // r9

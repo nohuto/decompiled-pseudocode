@@ -1,3 +1,13 @@
+/*
+ * XREFs of Crashdump_Command_PrepareForDump @ 0x1C004EA78
+ * Callers:
+ *     Crashdump_InitializeWithControllerReset @ 0x1C004C868 (Crashdump_InitializeWithControllerReset.c)
+ *     Crashdump_InitializeWithoutControllerReset @ 0x1C004CA8C (Crashdump_InitializeWithoutControllerReset.c)
+ * Callees:
+ *     memset @ 0x1C0020700 (memset.c)
+ *     Crashdump_Command_Stop @ 0x1C004ED20 (Crashdump_Command_Stop.c)
+ */
+
 __int64 __fastcall Crashdump_Command_PrepareForDump(__int64 a1)
 {
   _DWORD *v2; // rcx

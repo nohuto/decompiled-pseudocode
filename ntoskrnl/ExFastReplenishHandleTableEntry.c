@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExFastReplenishHandleTableEntry @ 0x1402F8548
+ * Callers:
+ *     NtWriteFile @ 0x1406B3A60 (NtWriteFile.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObWaitForMultipleObjects @ 0x1407D79B0 (ObWaitForMultipleObjects.c)
+ *     ObpReferenceObjectByHandle @ 0x1407DF424 (ObpReferenceObjectByHandle.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ExFastReplenishHandleTableEntry(volatile signed __int64 *a1, signed __int64 *a2, int a3)
 {
   __int64 v4; // r11

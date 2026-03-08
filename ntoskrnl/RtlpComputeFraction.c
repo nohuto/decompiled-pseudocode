@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpComputeFraction @ 0x1403BCAB8
+ * Callers:
+ *     KiSetupTimeIncrement @ 0x1403A5E18 (KiSetupTimeIncrement.c)
+ *     RtlGenerateQpcToIncrementConstants @ 0x1403BCA7C (RtlGenerateQpcToIncrementConstants.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall RtlpComputeFraction(unsigned int a1, unsigned int a2, _BYTE *a3)
 {
   __int64 v3; // rax

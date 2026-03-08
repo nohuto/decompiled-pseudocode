@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bCreateDefaultBrushes@PDEVOBJ@@QEAAHXZ @ 0x1C00ECEC8
+ * Callers:
+ *     PDEVOBJ_bCreateDefaultBrushesWrap @ 0x1C00ECEB0 (PDEVOBJ_bCreateDefaultBrushesWrap.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PDEVOBJ::bCreateDefaultBrushes(PDEVOBJ *this)
 {
   int v2; // ebx

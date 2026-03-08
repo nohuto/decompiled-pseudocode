@@ -1,3 +1,16 @@
+/*
+ * XREFs of NVMeHwPassiveInitialize @ 0x1C0008480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     NVMeControllerStartFailureEventLog @ 0x1C0007C08 (NVMeControllerStartFailureEventLog.c)
+ *     NVMeLogEtwControllerInfo @ 0x1C000880C (NVMeLogEtwControllerInfo.c)
+ *     NVMeLogTelemetryControllerInfo @ 0x1C0008CF4 (NVMeLogTelemetryControllerInfo.c)
+ *     NVMeControllerInitPart2 @ 0x1C000D9F0 (NVMeControllerInitPart2.c)
+ *     NVMeControllerInitPart3 @ 0x1C000DCDC (NVMeControllerInitPart3.c)
+ *     NVMePowerInitialize @ 0x1C000FCC4 (NVMePowerInitialize.c)
+ */
+
 char __fastcall NVMeHwPassiveInitialize(__int64 a1)
 {
   __int64 v1; // rsi

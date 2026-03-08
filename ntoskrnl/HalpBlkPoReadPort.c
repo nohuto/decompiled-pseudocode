@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpBlkPoReadPort @ 0x140B12F4C
+ * Callers:
+ *     HalpBlkPoPerformPpmOperationForIoPort @ 0x140B12E4C (HalpBlkPoPerformPpmOperationForIoPort.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int32 __fastcall HalpBlkPoReadPort(unsigned __int16 a1, __int16 a2)
 {
   unsigned __int32 result; // eax

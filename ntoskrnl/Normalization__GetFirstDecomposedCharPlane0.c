@@ -1,3 +1,13 @@
+/*
+ * XREFs of Normalization__GetFirstDecomposedCharPlane0 @ 0x1409BD81C
+ * Callers:
+ *     NormBuffer__LastStartBase @ 0x1405AE3B8 (NormBuffer__LastStartBase.c)
+ *     Normalization__CanCombineWithStartBase @ 0x1409BD708 (Normalization__CanCombineWithStartBase.c)
+ *     Normalization__CanCombineWithStartFirstPair @ 0x1409BD754 (Normalization__CanCombineWithStartFirstPair.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Normalization__GetFirstDecomposedCharPlane0(__int64 a1, int a2)
 {
   __int16 v4; // r9

@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiWsSwapPageFileNumber @ 0x1402DBEE4
+ * Callers:
+ *     MiFindBestOutswapPagefile @ 0x1402DBE44 (MiFindBestOutswapPagefile.c)
+ *     MiContractWsSwapPageFileWorker @ 0x140650250 (MiContractWsSwapPageFileWorker.c)
+ *     MiContractWsSwapPageFile @ 0x14067E2A0 (MiContractWsSwapPageFile.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiWsSwapPageFileNumber(__int64 a1)
 {
   unsigned int v1; // r9d

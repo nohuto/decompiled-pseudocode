@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0BLTENTRY@@QEAA@XZ @ 0x1C0016620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ??0DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C01DC370 (--0DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
+ */
+
 BLTENTRY *__fastcall BLTENTRY::BLTENTRY(BLTENTRY *this)
 {
   BLTENTRY *result; // rax

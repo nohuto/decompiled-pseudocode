@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIRegReadEntireAcpiTable @ 0x1C008D69C
+ * Callers:
+ *     ACPIRegReadAMLRegistryEntry @ 0x1C008D3DC (ACPIRegReadAMLRegistryEntry.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     RtlStringCchPrintfA @ 0x1C000B5D8 (RtlStringCchPrintfA.c)
+ *     OSReadRegValue @ 0x1C008E6A0 (OSReadRegValue.c)
+ */
+
 __int64 __fastcall ACPIRegReadEntireAcpiTable(__int64 a1, const void **a2)
 {
   _DWORD *v2; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheaHwErrorReportGetLogDataBufferDeviceDriver @ 0x14060EEC0
+ * Callers:
+ *     WheaReportFatalHwErrorDeviceDriverEx @ 0x14060F150 (WheaReportFatalHwErrorDeviceDriverEx.c)
+ *     WheaReportHwErrorDeviceDriverEx @ 0x14060F270 (WheaReportHwErrorDeviceDriverEx.c)
+ * Callees:
+ *     WheapErrorHandleIsValid @ 0x14060F428 (WheapErrorHandleIsValid.c)
+ */
+
 __int64 WheaHwErrorReportGetLogDataBufferDeviceDriver()
 {
   unsigned int v0; // edx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of MNUnlinkDelayedFreePopups @ 0x1C02024A0
+ * Callers:
+ *     xxxMNEndMenuState @ 0x1C0202580 (xxxMNEndMenuState.c)
+ * Callees:
+ *     ??1?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ @ 0x1C00A11DC (--1-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ.c)
+ *     ??4?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z @ 0x1C00E0FE0 (--4-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z @ 0x1C00E67A8 (-Init@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z.c)
+ */
+
 _QWORD *__fastcall MNUnlinkDelayedFreePopups(__int64 a1)
 {
   _QWORD v3[2]; // [rsp+20h] [rbp-20h] BYREF

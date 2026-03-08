@@ -1,3 +1,12 @@
+/*
+ * XREFs of xxxClientEnableMMCSS @ 0x1C0214C30
+ * Callers:
+ *     RawInputThread @ 0x1C007A0C0 (RawInputThread.c)
+ *     _lambda_dc20bfb5fb2414edf034afb823885887_::operator() @ 0x1C012DEB8 (_lambda_dc20bfb5fb2414edf034afb823885887_--operator().c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall xxxClientEnableMMCSS(int a1)
 {
   int v1; // ebx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlInsertElementGenericTableFullAvl @ 0x140245260
+ * Callers:
+ *     RtlInsertElementGenericTableAvl @ 0x1402451A0 (RtlInsertElementGenericTableAvl.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1406CBBDC (PiDmAddCacheReferenceForObject.c)
+ *     PiPnpRtlObjectEventCreate @ 0x1406CEB28 (PiPnpRtlObjectEventCreate.c)
+ * Callees:
+ *     RebalanceNode @ 0x1402453A0 (RebalanceNode.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 PVOID __stdcall RtlInsertElementGenericTableFullAvl(
         PRTL_AVL_TABLE Table,
         PVOID Buffer,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpCoverageSamplerCleanup @ 0x1409F0174
+ * Callers:
+ *     EtwpCoverageSamplerDelete @ 0x1409F0310 (EtwpCoverageSamplerDelete.c)
+ * Callees:
+ *     MiRemoveFromSystemSpace @ 0x14020E5C8 (MiRemoveFromSystemSpace.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     EtwpCovSampContextCleanup @ 0x1409EE264 (EtwpCovSampContextCleanup.c)
+ *     EtwpCoverageSamplerFreeTable @ 0x1409F0328 (EtwpCoverageSamplerFreeTable.c)
+ */
+
 void __fastcall EtwpCoverageSamplerCleanup(__int64 a1)
 {
   _QWORD **v2; // rdi

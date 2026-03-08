@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeGetTbSize @ 0x140B5CBF8
+ * Callers:
+ *     MiInitializeTbFlushing @ 0x140B5CBA8 (MiInitializeTbFlushing.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiGetTbLeafInfo @ 0x140B92F78 (KiGetTbLeafInfo.c)
+ */
+
 __int64 KeGetTbSize()
 {
   unsigned __int8 CpuVendor; // cl

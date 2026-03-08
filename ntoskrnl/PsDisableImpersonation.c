@@ -1,3 +1,17 @@
+/*
+ * XREFs of PsDisableImpersonation @ 0x1406D2C20
+ * Callers:
+ *     NtOpenThreadTokenEx @ 0x1406D2730 (NtOpenThreadTokenEx.c)
+ *     CmpStartCLFSLog @ 0x14086411C (CmpStartCLFSLog.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x140864428 (CmpAddRemoveContainerToCLFSLog.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 BOOLEAN __stdcall PsDisableImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STATE ImpersonationState)
 {
   char v2; // r14

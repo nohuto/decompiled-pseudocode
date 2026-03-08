@@ -1,3 +1,16 @@
+/*
+ * XREFs of IoQueryEnvironmentVariableInfoEx @ 0x14094D37C
+ * Callers:
+ *     NtQueryEnvironmentVariableInfoEx @ 0x1409FC710 (NtQueryEnvironmentVariableInfoEx.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IopOpenSystemVariableDevice @ 0x14075D4AC (IopOpenSystemVariableDevice.c)
+ */
+
 __int64 __fastcall IoQueryEnvironmentVariableInfoEx(unsigned int a1, PDEVICE_OBJECT *a2, __int64 *a3, __int64 *a4)
 {
   int v8; // ebx

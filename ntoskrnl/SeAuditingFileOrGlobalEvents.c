@@ -1,3 +1,13 @@
+/*
+ * XREFs of SeAuditingFileOrGlobalEvents @ 0x1409CA720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140699810 (SepAdtAuditThisEventWithContext.c)
+ *     SepRmGlobalSaclFind @ 0x1408A1C12 (SepRmGlobalSaclFind.c)
+ */
+
 BOOLEAN __stdcall SeAuditingFileOrGlobalEvents(
         BOOLEAN AccessGranted,
         PSECURITY_DESCRIPTOR SecurityDescriptor,

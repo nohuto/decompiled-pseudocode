@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopReadRegKeyValue @ 0x140380F18
+ * Callers:
+ *     PopReadUlongPowerKey @ 0x140380EC0 (PopReadUlongPowerKey.c)
+ *     PopDiagTracePerfTrackData @ 0x14098D168 (PopDiagTracePerfTrackData.c)
+ *     PopCheckShutdownMarker @ 0x140B6B05C (PopCheckShutdownMarker.c)
+ *     PopBatteryReadOscBits @ 0x140B7219C (PopBatteryReadOscBits.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopReadRegKeyValue(PCWSTR SourceString, PCWSTR a2, size_t Size, int a4, void *a5)
 {
   _DWORD *Pool2; // rdi

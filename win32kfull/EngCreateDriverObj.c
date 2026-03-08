@@ -1,3 +1,11 @@
+/*
+ * XREFs of EngCreateDriverObj @ 0x1C0287040
+ * Callers:
+ *     VerifierEngCreateDriverObj @ 0x1C02A9680 (VerifierEngCreateDriverObj.c)
+ * Callees:
+ *     ?Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@EK@Z @ 0x1C0029D88 (-Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@EK@Z.c)
+ */
+
 HDRVOBJ __stdcall EngCreateDriverObj(PVOID pvObj, FREEOBJPROC pFreeObjProc, HDEV hdev)
 {
   struct HOBJ__ *v3; // rdi

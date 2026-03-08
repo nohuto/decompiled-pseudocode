@@ -1,3 +1,17 @@
+/*
+ * XREFs of ObpReferenceProcessObjectByHandle @ 0x1407118C4
+ * Callers:
+ *     ObCaptureObjectStateForDuplication @ 0x1407111A4 (ObCaptureObjectStateForDuplication.c)
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExGetHandlePointer @ 0x1403120A0 (ExGetHandlePointer.c)
+ *     ObpIncrPointerCount @ 0x14033BAEC (ObpIncrPointerCount.c)
+ *     ExfUnblockPushLock @ 0x14040CCE0 (ExfUnblockPushLock.c)
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ *     ExMapHandleToPointer @ 0x1407D80C0 (ExMapHandleToPointer.c)
+ *     ExpGetHandleExtraInfo @ 0x1408A6B3A (ExpGetHandleExtraInfo.c)
+ */
+
 __int64 __fastcall ObpReferenceProcessObjectByHandle(
         unsigned __int64 a1,
         struct _KTHREAD *a2,

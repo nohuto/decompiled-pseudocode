@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiIssuePageExtendRequest @ 0x14063890C
+ * Callers:
+ *     MmResourcesAvailable @ 0x140311DB0 (MmResourcesAvailable.c)
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     MiPageFileNoFreeSpace @ 0x140638D04 (MiPageFileNoFreeSpace.c)
+ *     MiCreatePagingFile @ 0x140834F7C (MiCreatePagingFile.c)
+ *     MiExtendWorkingSetSwapPagefile @ 0x140A40524 (MiExtendWorkingSetSwapPagefile.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiQueuePageFileExtension @ 0x140638ECC (MiQueuePageFileExtension.c)
+ */
+
 __int64 __fastcall MiIssuePageExtendRequest(__int64 a1, unsigned __int64 a2, char a3, unsigned int a4)
 {
   struct _KTHREAD *CurrentThread; // rax

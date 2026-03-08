@@ -1,3 +1,13 @@
+/*
+ * XREFs of AppendCondition @ 0x1409CFE44
+ * Callers:
+ *     LocalGetConditionForString @ 0x1409D1B24 (LocalGetConditionForString.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SddlpAlloc @ 0x1407507C8 (SddlpAlloc.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AppendCondition(const void **a1, unsigned int *a2, unsigned int *a3, const void *a4, size_t Size)
 {
   unsigned int v5; // edi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ComputeBytesPerScanLine @ 0x1C0253E3C
+ * Callers:
+ *     GetCachedSMP @ 0x1C0252734 (GetCachedSMP.c)
+ *     HT_CreateHalftoneBrush @ 0x1C0252A88 (HT_CreateHalftoneBrush.c)
+ *     HT_CreateStandardMonoPattern @ 0x1C0252C14 (HT_CreateStandardMonoPattern.c)
+ *     CreateStandardMonoPattern @ 0x1C0254780 (CreateStandardMonoPattern.c)
+ *     SetupAAHeader @ 0x1C025E588 (SetupAAHeader.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ComputeBytesPerScanLine(unsigned int a1, unsigned int a2, unsigned int a3)
 {
   unsigned int v4; // ecx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of sub_140A4AE60 @ 0x140A4AE60
+ * Callers:
+ *     sub_1406B6FF4 @ 0x1406B6FF4 (sub_1406B6FF4.c)
+ * Callees:
+ *     IoAllocateMdl @ 0x14020CAD0 (IoAllocateMdl.c)
+ *     MmProbeAndLockPages @ 0x140267B90 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     ZwProtectVirtualMemory @ 0x140412D10 (ZwProtectVirtualMemory.c)
+ */
+
 __int64 __fastcall sub_140A4AE60(PVOID VirtualAddress, ULONG Length, struct _MDL **a3, _QWORD *a4)
 {
   struct _MDL *v8; // rbx

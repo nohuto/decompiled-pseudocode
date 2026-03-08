@@ -1,3 +1,13 @@
+/*
+ * XREFs of rimDoScheduledUserModeRimPnpRegistration @ 0x1C00D751C
+ * Callers:
+ *     RIMOnPnpNotification @ 0x1C00383E0 (RIMOnPnpNotification.c)
+ * Callees:
+ *     RIMDiscoverDevicesOfInputType @ 0x1C00374F8 (RIMDiscoverDevicesOfInputType.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall rimDoScheduledUserModeRimPnpRegistration(char *Object)
 {
   char v2; // dl

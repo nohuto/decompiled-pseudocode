@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkShareObjects @ 0x1C01861C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     DxgkShareObjectsInternal @ 0x1C0186240 (DxgkShareObjectsInternal.c)
+ */
+
 __int64 __fastcall DxgkShareObjects(int a1, void *Src, __int64 a3, ACCESS_MASK DesiredAccess, __int64 a5)
 {
   int v9; // edx

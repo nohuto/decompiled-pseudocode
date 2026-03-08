@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopPluginComponentActive @ 0x14030721C
+ * Callers:
+ *     PopFxActivateComponentWorker @ 0x140305EB4 (PopFxActivateComponentWorker.c)
+ *     PopFxIdleWorkerTail @ 0x140306748 (PopFxIdleWorkerTail.c)
+ *     PopFxActivateComponentDependents @ 0x14030819C (PopFxActivateComponentDependents.c)
+ * Callees:
+ *     PopPepProcessEvent @ 0x140307424 (PopPepProcessEvent.c)
+ *     PopPluginNotifyActive @ 0x1403082D4 (PopPluginNotifyActive.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ */
+
 __int64 __fastcall PopPluginComponentActive(__int64 a1, unsigned int a2, __int64 a3, void *a4)
 {
   char v6; // si

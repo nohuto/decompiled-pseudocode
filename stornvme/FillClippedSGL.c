@@ -1,3 +1,13 @@
+/*
+ * XREFs of FillClippedSGL @ 0x1C00115F0
+ * Callers:
+ *     FirmwareDownload @ 0x1C0011914 (FirmwareDownload.c)
+ *     NVMeWriteBufferFirmwareDownload @ 0x1C00183BC (NVMeWriteBufferFirmwareDownload.c)
+ *     ProtocolCommandToNVMe @ 0x1C00187F4 (ProtocolCommandToNVMe.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall FillClippedSGL(unsigned int *a1, unsigned int *a2, unsigned int a3, unsigned int a4)
 {
   unsigned int v6; // r10d

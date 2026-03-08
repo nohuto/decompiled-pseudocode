@@ -1,3 +1,19 @@
+/*
+ * XREFs of ViDeadlockRemoveMemoryRangeThreads @ 0x1405CF568
+ * Callers:
+ *     VfDeadlockDeleteMemoryRange @ 0x140ABD6EC (VfDeadlockDeleteMemoryRange.c)
+ * Callees:
+ *     ViDeadlockDetectionTryConvertSharedToExclusive @ 0x1405CF3B8 (ViDeadlockDetectionTryConvertSharedToExclusive.c)
+ *     ViLowerIrql @ 0x1405CF698 (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x1405CF710 (ViRaiseIrqlToDpcLevel.c)
+ *     VfUtilAddressRangeFit @ 0x140ABF3C4 (VfUtilAddressRangeFit.c)
+ *     ViDeadlockDatabaseHashIndex @ 0x140AD5D54 (ViDeadlockDatabaseHashIndex.c)
+ *     ViDeadlockDetectionLock @ 0x140AD5DD8 (ViDeadlockDetectionLock.c)
+ *     ViDeadlockDetectionUnlock @ 0x140AD5E10 (ViDeadlockDetectionUnlock.c)
+ *     ViDeadlockFree @ 0x140AD6280 (ViDeadlockFree.c)
+ *     ViDeadlockRemoveThread @ 0x140AD6C20 (ViDeadlockRemoveThread.c)
+ */
+
 __int64 __fastcall ViDeadlockRemoveMemoryRangeThreads(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
 {
   __int64 v4; // rsi

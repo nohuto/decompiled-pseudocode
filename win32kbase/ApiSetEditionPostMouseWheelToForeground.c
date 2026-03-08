@@ -1,3 +1,13 @@
+/*
+ * XREFs of ApiSetEditionPostMouseWheelToForeground @ 0x1C0241A54
+ * Callers:
+ *     ?ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z @ 0x1C023042C (-ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     EditionPostMouseWheelToForeground @ 0x1C0271D3C (EditionPostMouseWheelToForeground.c)
+ */
+
 PDEVICE_OBJECT *__fastcall ApiSetEditionPostMouseWheelToForeground(
         int a1,
         __int64 a2,

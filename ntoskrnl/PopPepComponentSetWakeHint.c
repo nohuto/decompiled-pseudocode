@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopPepComponentSetWakeHint @ 0x14059C820
+ * Callers:
+ *     PoFxSetComponentWake @ 0x1405863F0 (PoFxSetComponentWake.c)
+ * Callees:
+ *     PopPepUpdateIdleState @ 0x140304DB8 (PopPepUpdateIdleState.c)
+ *     PopPepCountReadyActivities @ 0x140307578 (PopPepCountReadyActivities.c)
+ *     PopPepRequestWork @ 0x1403075C4 (PopPepRequestWork.c)
+ *     PopPepReleaseActivityLink @ 0x140307608 (PopPepReleaseActivityLink.c)
+ *     PopPepLockActivityLink @ 0x14030768C (PopPepLockActivityLink.c)
+ *     PopPepPromoteActivities @ 0x140307780 (PopPepPromoteActivities.c)
+ */
+
 void __fastcall PopPepComponentSetWakeHint(unsigned int *a1, int a2, char a3)
 {
   __int64 v4; // rdi

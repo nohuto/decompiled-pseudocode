@@ -1,3 +1,19 @@
+/*
+ * XREFs of EtwTraceUIPIInputError @ 0x1C003A560
+ * Callers:
+ *     NtUserSetKeyboardState @ 0x1C0009040 (NtUserSetKeyboardState.c)
+ *     NtUserGetKeyState @ 0x1C0078A00 (NtUserGetKeyState.c)
+ *     NtUserGetKeyboardState @ 0x1C007F9C0 (NtUserGetKeyboardState.c)
+ *     NtUserGetAsyncKeyState @ 0x1C007FBB0 (NtUserGetAsyncKeyState.c)
+ *     ?PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerInfoNode@@_KIKHH@Z @ 0x1C01FDB10 (-PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerIn.c)
+ *     _anonymous_namespace_::ValidateUIPI @ 0x1C0231A3C (_anonymous_namespace_--ValidateUIPI.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003A4AC (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     ?EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@KPEAUtagTHREADINFO@@PEBUtagPROCESSINFO@@PEBU3@2@Z @ 0x1C003CD2C (-EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     McTemplateK0nqqq_EtwWriteTransfer @ 0x1C0165800 (McTemplateK0nqqq_EtwWriteTransfer.c)
+ */
+
 _UNKNOWN **__fastcall EtwTraceUIPIInputError(
         struct tagTHREADINFO *a1,
         struct tagTHREADINFO *a2,

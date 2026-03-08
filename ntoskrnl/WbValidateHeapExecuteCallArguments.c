@@ -1,3 +1,11 @@
+/*
+ * XREFs of WbValidateHeapExecuteCallArguments @ 0x1406AFDA4
+ * Callers:
+ *     WbHeapExecuteCall @ 0x1406AF56C (WbHeapExecuteCall.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall WbValidateHeapExecuteCallArguments(__int64 a1, unsigned int a2, int *a3)
 {
   unsigned int v6; // esi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of AslEnvVerifyGuestProcessorSupport @ 0x140A54AAC
+ * Callers:
+ *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x140A4F724 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslEnvGetProcessWowInfo @ 0x140A54488 (AslEnvGetProcessWowInfo.c)
+ */
+
 __int64 __fastcall AslEnvVerifyGuestProcessorSupport(__int16 *a1, __int16 a2)
 {
   __int16 v3; // r8

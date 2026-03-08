@@ -1,3 +1,21 @@
+/*
+ * XREFs of IrqArbpFindSuitableRangePci @ 0x1C009E1A4
+ * Callers:
+ *     IrqArbFindSuitableRange @ 0x1C009D270 (IrqArbFindSuitableRange.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C00149A0 (WPP_RECORDER_SF_DD.c)
+ *     LinkNodeCrackPrt @ 0x1C005CE9C (LinkNodeCrackPrt.c)
+ *     LinkNodeGetPossibleGsiv @ 0x1C0099494 (LinkNodeGetPossibleGsiv.c)
+ *     IrqArbGsivFromIrq @ 0x1C009D69C (IrqArbGsivFromIrq.c)
+ *     IrqArbIrqFromGsiv @ 0x1C009D6BC (IrqArbIrqFromGsiv.c)
+ *     IrqArbpAssignIrqFromLinkNode @ 0x1C009DB0C (IrqArbpAssignIrqFromLinkNode.c)
+ *     IcGetPossibleInput @ 0x1C009F314 (IcGetPossibleInput.c)
+ *     IcIsInputValid @ 0x1C009F424 (IcIsInputValid.c)
+ */
+
 char __fastcall IrqArbpFindSuitableRangePci(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rcx

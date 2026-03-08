@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifExfTryToWakePushLockWrapper @ 0x1405D8340
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 signed __int64 __fastcall DifExfTryToWakePushLockWrapper(volatile signed __int64 *a1)
 {
   __int64 *APIThunkContextById; // rax

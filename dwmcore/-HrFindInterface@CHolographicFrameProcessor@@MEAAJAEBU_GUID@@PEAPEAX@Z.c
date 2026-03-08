@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CHolographicFrameProcessor@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802AB4F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CHolographicFrameProcessor::HrFindInterface(
         CHolographicFrameProcessor *this,
         const struct _GUID *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of StEtaIoStart @ 0x1405C8538
+ * Callers:
+ *     ?StDeviceIoIssue@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_PF_QUEUE@@@Z @ 0x1405C1E04 (-StDeviceIoIssue@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_PF_QUEUE@@@Z.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ */
+
 __int64 __fastcall StEtaIoStart(LARGE_INTEGER *a1, unsigned int a2, int a3, unsigned __int64 a4)
 {
   unsigned int v4; // esi

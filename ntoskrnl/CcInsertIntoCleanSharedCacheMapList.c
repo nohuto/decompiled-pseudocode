@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcInsertIntoCleanSharedCacheMapList @ 0x1402DC58C
+ * Callers:
+ *     CcAcquireByteRangeForWrite @ 0x14021A220 (CcAcquireByteRangeForWrite.c)
+ *     CcUnpinFileDataEx @ 0x140337E50 (CcUnpinFileDataEx.c)
+ *     CcInitializeCacheMapInternal @ 0x140338F10 (CcInitializeCacheMapInternal.c)
+ * Callees:
+ *     DbgPrint @ 0x1402BDD20 (DbgPrint.c)
+ */
+
 _QWORD *__fastcall CcInsertIntoCleanSharedCacheMapList(__int64 a1)
 {
   __int64 v2; // rax

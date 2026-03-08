@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MulSurfaceComplete@@YAHPEAUDHPDEV__@@PEAX@Z @ 0x1C02B3A70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall MulSurfaceComplete(struct DHPDEV__ *a1, void *a2)
 {
   _QWORD *v2; // r8

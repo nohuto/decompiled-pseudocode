@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Resolve@WeakReferenceImpl@Details@WRL@Microsoft@@UEAAJAEBU_GUID@@PEAPEAUIInspectable@@@Z @ 0x14000AF90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x140007200 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Microsoft::WRL::Details::WeakReferenceImpl::Resolve(
         Microsoft::WRL::Details::WeakReferenceImpl *this,
         const struct _GUID *a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of _PopulatePropertyUsageValues @ 0x1C01B272C
+ * Callers:
+ *     RIMGetPointerDeviceProperties @ 0x1C01B70A0 (RIMGetPointerDeviceProperties.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimHidP_GetSpecificValueCaps @ 0x1C01B2114 (rimHidP_GetSpecificValueCaps.c)
+ */
+
 __int64 __fastcall PopulatePropertyUsageValues(
         __int64 a1,
         unsigned int *a2,

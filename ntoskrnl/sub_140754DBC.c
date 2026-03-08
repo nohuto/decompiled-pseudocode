@@ -1,3 +1,11 @@
+/*
+ * XREFs of sub_140754DBC @ 0x140754DBC
+ * Callers:
+ *     WbAllocateSlots @ 0x140754BA0 (WbAllocateSlots.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall sub_140754DBC(__int64 a1, unsigned int a2, int a3)
 {
   unsigned int v3; // r9d

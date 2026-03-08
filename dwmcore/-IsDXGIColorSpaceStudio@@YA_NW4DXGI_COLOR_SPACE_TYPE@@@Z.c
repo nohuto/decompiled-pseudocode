@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsDXGIColorSpaceStudio@@YA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1801DAA40
+ * Callers:
+ *     ?IsHigherProprity@COverlayContext@@CA_NAEBVOverlayPlaneInfo@1@0@Z @ 0x1801DAB88 (-IsHigherProprity@COverlayContext@@CA_NAEBVOverlayPlaneInfo@1@0@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall IsDXGIColorSpaceStudio(int a1)
 {
   char v1; // dl

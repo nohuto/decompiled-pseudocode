@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpKeyEnumStackStart @ 0x140A2158C
+ * Callers:
+ *     CmpSubtreeEnumeratorStart @ 0x140A1DA80 (CmpSubtreeEnumeratorStart.c)
+ *     CmpKeyEnumStackStartFromKeyNodeStack @ 0x140A216EC (CmpKeyEnumStackStartFromKeyNodeStack.c)
+ * Callees:
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     CmpStartKeyNodeStack @ 0x140A1D5E8 (CmpStartKeyNodeStack.c)
+ *     CmpKeyEnumStackEntryInitialize @ 0x140A2119C (CmpKeyEnumStackEntryInitialize.c)
+ */
+
 __int64 __fastcall CmpKeyEnumStackStart(__int64 a1, __int16 a2)
 {
   __int64 v4; // rbp

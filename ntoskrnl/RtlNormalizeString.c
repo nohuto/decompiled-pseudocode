@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlNormalizeString @ 0x1409BECD0
+ * Callers:
+ *     RtlpNameprepAsciiRealWorker @ 0x1405ADAEC (RtlpNameprepAsciiRealWorker.c)
+ * Callees:
+ *     RtlpNormalizeStringWorker @ 0x1409BED54 (RtlpNormalizeStringWorker.c)
+ *     RtlpGetNormalization @ 0x1409C5918 (RtlpGetNormalization.c)
+ */
+
 NTSTATUS __stdcall RtlNormalizeString(
         ULONG NormForm,
         PCWSTR SourceString,

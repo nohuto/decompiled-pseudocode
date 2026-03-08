@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiMonitorCacheErrata @ 0x140576EC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObReferenceObjectSafeWithTag @ 0x14022BD30 (ObReferenceObjectSafeWithTag.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140283390 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmReadProcessPageTables @ 0x14064325C (MmReadProcessPageTables.c)
+ */
+
 __int64 KiMonitorCacheErrata()
 {
   struct _KPRCB *CurrentPrcb; // rcx

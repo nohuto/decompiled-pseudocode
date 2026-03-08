@@ -1,3 +1,17 @@
+/*
+ * XREFs of KeWaitForAlertByThreadId @ 0x140293354
+ * Callers:
+ *     PsDispatchIumService @ 0x1405A2A44 (PsDispatchIumService.c)
+ *     NtWaitForAlertByThreadId @ 0x1406F7AD0 (NtWaitForAlertByThreadId.c)
+ *     RtlpRunOnceWaitForInit @ 0x140881418 (RtlpRunOnceWaitForInit.c)
+ * Callees:
+ *     KiCheckWaitNext @ 0x14022AE00 (KiCheckWaitNext.c)
+ *     KiFastExitThreadWait @ 0x140239300 (KiFastExitThreadWait.c)
+ *     KiCommitThreadWait @ 0x140261290 (KiCommitThreadWait.c)
+ *     KiBeginThreadWait @ 0x1402934C0 (KiBeginThreadWait.c)
+ *     KiCheckDueTimeExpired @ 0x140293640 (KiCheckDueTimeExpired.c)
+ */
+
 __int64 __fastcall KeWaitForAlertByThreadId(char a1, _QWORD *a2, void *a3)
 {
   struct _KTHREAD *CurrentThread; // rdi

@@ -1,3 +1,16 @@
+/*
+ * XREFs of GrayExpandDIB_CY @ 0x1C02640E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     GetFixupScan @ 0x1C014BF50 (GetFixupScan.c)
+ *     AlphaBlendBGRF @ 0x1C0260824 (AlphaBlendBGRF.c)
+ *     MappingBGRF @ 0x1C0265A54 (MappingBGRF.c)
+ */
+
 __int64 __fastcall GrayExpandDIB_CY(_OWORD *a1)
 {
   __int64 v1; // rax

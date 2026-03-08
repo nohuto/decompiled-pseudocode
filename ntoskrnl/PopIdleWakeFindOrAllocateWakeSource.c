@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopIdleWakeFindOrAllocateWakeSource @ 0x14059B27C
+ * Callers:
+ *     PopIdleWakeNotifyWakeSource @ 0x14059B75C (PopIdleWakeNotifyWakeSource.c)
+ * Callees:
+ *     PopIdleWakeAreIdenticalWakeSources @ 0x14059B030 (PopIdleWakeAreIdenticalWakeSources.c)
+ *     PopIdleWakeAssignAccountingToSource @ 0x14059B0CC (PopIdleWakeAssignAccountingToSource.c)
+ */
+
 __int64 __fastcall PopIdleWakeFindOrAllocateWakeSource(__int64 a1, int a2, __int64 a3)
 {
   __int64 i; // rbx

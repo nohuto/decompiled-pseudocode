@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetListBoxInfo @ 0x1C01D3350
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxGetListBoxInfo @ 0x1C0233904 (xxxGetListBoxInfo.c)
+ */
+
 __int64 __fastcall NtUserGetListBoxInfo(__int64 a1)
 {
   __int64 v2; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopTraceThermalStandbyComplete @ 0x140593754
+ * Callers:
+ *     PopThermalStandbyEndTracking @ 0x14058D6F8 (PopThermalStandbyEndTracking.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void PopTraceThermalStandbyComplete()
 {
   int v0; // r9d

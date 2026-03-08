@@ -1,3 +1,19 @@
+/*
+ * XREFs of RootHub_D0Exit @ 0x1C0010338
+ * Callers:
+ *     Controller_WdfEvtDeviceD0Exit @ 0x1C000E9C0 (Controller_WdfEvtDeviceD0Exit.c)
+ * Callees:
+ *     Controller_NotifyPortStateToPep @ 0x1C000FB7C (Controller_NotifyPortStateToPep.c)
+ *     RootHub_HandleResumedPorts @ 0x1C0010220 (RootHub_HandleResumedPorts.c)
+ *     RootHub_WaitForPendingU3TransitionCompletion @ 0x1C00105D0 (RootHub_WaitForPendingU3TransitionCompletion.c)
+ *     RootHub_DumpPortData @ 0x1C0017D40 (RootHub_DumpPortData.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     RootHub_ReleaseReadModifyWriteLock @ 0x1C00182B0 (RootHub_ReleaseReadModifyWriteLock.c)
+ *     RootHub_AcquireReadModifyWriteLock @ 0x1C00182F4 (RootHub_AcquireReadModifyWriteLock.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 _UNKNOWN **__fastcall RootHub_D0Exit(__int64 a1, int a2, int a3)
 {
   int v4; // ebx

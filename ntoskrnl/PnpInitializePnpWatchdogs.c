@@ -1,3 +1,14 @@
+/*
+ * XREFs of PnpInitializePnpWatchdogs @ 0x140B6180C
+ * Callers:
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     PnpGetRegistryDword @ 0x14039BC5C (PnpGetRegistryDword.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     PnpQueryWatchdogTimeoutConfiguration @ 0x140B61878 (PnpQueryWatchdogTimeoutConfiguration.c)
+ *     PnpOpenCCSPnpRegKey @ 0x140B618DC (PnpOpenCCSPnpRegKey.c)
+ */
+
 NTSTATUS PnpInitializePnpWatchdogs()
 {
   NTSTATUS result; // eax

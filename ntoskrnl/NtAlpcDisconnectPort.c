@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtAlpcDisconnectPort @ 0x140787CB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     AlpcpDisconnectPort @ 0x140716FA8 (AlpcpDisconnectPort.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall NtAlpcDisconnectPort(void *a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rax

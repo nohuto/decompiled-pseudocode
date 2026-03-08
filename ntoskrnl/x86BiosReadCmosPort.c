@@ -1,3 +1,11 @@
+/*
+ * XREFs of x86BiosReadCmosPort @ 0x140506154
+ * Callers:
+ *     x86BiosReadIoSpace @ 0x1403BC880 (x86BiosReadIoSpace.c)
+ * Callees:
+ *     x86BiosReadCmosPortByte @ 0x1405061D4 (x86BiosReadCmosPortByte.c)
+ */
+
 __int64 __fastcall x86BiosReadCmosPort(int a1, unsigned __int16 a2)
 {
   int v3; // esi

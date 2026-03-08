@@ -1,3 +1,11 @@
+/*
+ * XREFs of UserDCompositionCreateSynchronizationObject @ 0x1C020119C
+ * Callers:
+ *     GreWindowResizeStarted @ 0x1C026AFE4 (GreWindowResizeStarted.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall UserDCompositionCreateSynchronizationObject(_QWORD *a1)
 {
   unsigned int v2; // ebx

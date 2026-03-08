@@ -1,3 +1,18 @@
+/*
+ * XREFs of NtCreateTimer @ 0x140777040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeInitializeTimerEx @ 0x140237DB0 (KeInitializeTimerEx.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     PsInsertVirtualizedTimer @ 0x1402EA69C (PsInsertVirtualizedTimer.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ */
+
 __int64 __fastcall NtCreateTimer(__int64 a1, __int64 a2, int a3, unsigned int a4)
 {
   TIMER_TYPE v4; // edi

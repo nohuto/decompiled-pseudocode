@@ -1,3 +1,14 @@
+/*
+ * XREFs of SepReferenceTokenByHandle @ 0x140247A20
+ * Callers:
+ *     NtQuerySecurityAttributesToken @ 0x1406D5B30 (NtQuerySecurityAttributesToken.c)
+ *     NtQueryInformationToken @ 0x1406D6780 (NtQueryInformationToken.c)
+ *     SeSetSessionIdTokenWithLinked @ 0x1409C66C0 (SeSetSessionIdTokenWithLinked.c)
+ * Callees:
+ *     SepReferenceTokenUsingPseudoHandle @ 0x140247AA0 (SepReferenceTokenUsingPseudoHandle.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406D8E50 (ObReferenceObjectByHandleWithTag.c)
+ */
+
 NTSTATUS __fastcall SepReferenceTokenByHandle(
         void *a1,
         ACCESS_MASK a2,

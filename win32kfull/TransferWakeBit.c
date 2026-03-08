@@ -1,3 +1,12 @@
+/*
+ * XREFs of TransferWakeBit @ 0x1C00CCF54
+ * Callers:
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00725D0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ * Callees:
+ *     CalcWakeMask @ 0x1C0071660 (CalcWakeMask.c)
+ *     UpdateRawMouseMode @ 0x1C00CE364 (UpdateRawMouseMode.c)
+ */
+
 int __fastcall TransferWakeBit(__int64 a1, unsigned int a2)
 {
   __int64 v3; // rax

@@ -1,3 +1,28 @@
+/*
+ * XREFs of xxxCreateWindowStation @ 0x1C00BE56C
+ * Callers:
+ *     EditionCreateWindowStationEntryPoint @ 0x1C00BDD10 (EditionCreateWindowStationEntryPoint.c)
+ *     xxxConnectService @ 0x1C012B764 (xxxConnectService.c)
+ * Callees:
+ *     SetVisible @ 0x1C002DB8C (SetVisible.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C002EF28 (zzzEndDeferWinEventNotify.c)
+ *     zzzSetDesktop @ 0x1C0036340 (zzzSetDesktop.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     xxxCleanupMotherDesktopWindow @ 0x1C00929C4 (xxxCleanupMotherDesktopWindow.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00A6450 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ *     ?xxxInitTerminal@@YAJPEAUtagTERMINAL@@@Z @ 0x1C00BEB78 (-xxxInitTerminal@@YAJPEAUtagTERMINAL@@@Z.c)
+ *     xxxInitWindowStation @ 0x1C00C1348 (xxxInitWindowStation.c)
+ *     ?CreateDesktopNotificationEvent@@YAJPEAX@Z @ 0x1C00C18D0 (-CreateDesktopNotificationEvent@@YAJPEAX@Z.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00D5030 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall xxxCreateWindowStation(
         __int64 a1,

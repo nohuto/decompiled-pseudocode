@@ -1,3 +1,14 @@
+/*
+ * XREFs of VerifierMmAllocateNonCachedMemory @ 0x140ADFA80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ViTargetTrackContiguousMemory @ 0x140AC8D80 (ViTargetTrackContiguousMemory.c)
+ *     VfFaultsInjectResourceFailure @ 0x140AD2FAC (VfFaultsInjectResourceFailure.c)
+ *     VfFillAllocatedMemory @ 0x140AD700C (VfFillAllocatedMemory.c)
+ */
+
 _SLIST_ENTRY *__fastcall VerifierMmAllocateNonCachedMemory(size_t a1)
 {
   _SLIST_ENTRY *v3; // rax

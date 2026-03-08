@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AddRealization@CCompositionBuffer@@MEAAJPEAVCBufferRealization@@@Z @ 0x1C007C800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CCompositionBuffer::AddRealization(CCompositionBuffer *this, struct CBufferRealization *a2)
 {
   unsigned int v2; // r8d

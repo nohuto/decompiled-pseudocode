@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlUnicodeStringValidateDestWorker @ 0x1402BD9D8
+ * Callers:
+ *     RtlUnicodeStringCatString @ 0x1402BD420 (RtlUnicodeStringCatString.c)
+ *     RtlUnicodeStringCat @ 0x1402BD900 (RtlUnicodeStringCat.c)
+ *     PopPowerRequestStatsIdConcat @ 0x14079ABEC (PopPowerRequestStatsIdConcat.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x14079B2C8 (CmpLogTransactionAbortedWithChildName.c)
+ *     PopIdleWakeGenerateInterruptDescriptionString @ 0x1409975B8 (PopIdleWakeGenerateInterruptDescriptionString.c)
+ * Callees:
+ *     RtlUnicodeStringValidateWorker_0 @ 0x1402BDA84 (RtlUnicodeStringValidateWorker_0.c)
+ */
+
 NTSTATUS __stdcall RtlUnicodeStringValidateDestWorker(
         PCUNICODE_STRING DestinationString,
         wchar_t **ppszDest,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PrepareMessage@SendProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallSendHost@@IGGPEBEPEADPEAI@Z @ 0x1C00AE348
+ * Callers:
+ *     CoreUICallSendVaList @ 0x1C00AE220 (CoreUICallSendVaList.c)
+ * Callees:
+ *     ?PrepareMessageWorker@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@GGPEBEPEADHIII@Z @ 0x1C00AE4C8 (-PrepareMessageWorker@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@GGPEBE.c)
+ *     ?NotifyInvalidHelper@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@PEAUMsgCallState@@@Z @ 0x1C02756B4 (-NotifyInvalidHelper@SendProcessor@Calling@CoreMessaging@@AEAAJPEAUIMessageCallSendHost@@PEAUMsg.c)
+ */
+
 __int64 __fastcall CoreMessaging::Calling::SendProcessor::PrepareMessage(
         CoreMessaging::Calling::SendProcessor *this,
         struct IMessageCallSendHost *a2,

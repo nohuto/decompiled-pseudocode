@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?BeginTemporaryResourceAccess@VIDMM_SYSMEM_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAU_MDL@@@Z @ 0x1C00F7560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SysMmGetLogicalAddress@@YA_KQEAX@Z @ 0x1C0001754 (-SysMmGetLogicalAddress@@YA_KQEAX@Z.c)
+ */
+
 __int64 __fastcall VIDMM_SYSMEM_SEGMENT::BeginTemporaryResourceAccess(
         VIDMM_SYSMEM_SEGMENT *this,
         void *const *a2,

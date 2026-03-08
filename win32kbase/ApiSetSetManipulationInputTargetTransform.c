@@ -1,3 +1,13 @@
+/*
+ * XREFs of ApiSetSetManipulationInputTargetTransform @ 0x1C024675C
+ * Callers:
+ *     ?SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAXPEAUTELEMETRY_POINTER_FRAME_TIMES@@H@Z @ 0x1C0202354 (-SetManipulationInputTarget@CTouchProcessor@@QEAAHIIPEAIPEAXPEAUTELEMETRY_POINTER_FRAME_TIMES@@H.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     SetManipulationInputTargetTransform @ 0x1C0272074 (SetManipulationInputTargetTransform.c)
+ */
+
 __int64 __fastcall ApiSetSetManipulationInputTargetTransform(_OWORD *a1, __int64 a2, __int64 a3, int a4, int a5)
 {
   int v6; // r14d

@@ -1,3 +1,13 @@
+/*
+ * XREFs of DbgkCreateMinimalThread @ 0x14093621C
+ * Callers:
+ *     PspUserThreadStartup @ 0x1407ED430 (PspUserThreadStartup.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     DbgkpSendApiMessage @ 0x1409370E0 (DbgkpSendApiMessage.c)
+ */
+
 void *__fastcall DbgkCreateMinimalThread(__int64 a1)
 {
   void *result; // rax

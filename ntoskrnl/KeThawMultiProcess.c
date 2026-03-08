@@ -1,3 +1,16 @@
+/*
+ * XREFs of KeThawMultiProcess @ 0x140356058
+ * Callers:
+ *     PsThawMultiProcess @ 0x1402FFE80 (PsThawMultiProcess.c)
+ * Callees:
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     KiThawSingleThread @ 0x140355DCC (KiThawSingleThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeThawMultiProcess(__int64 a1, char a2, unsigned int a3)
 {
   _QWORD **v4; // rsi

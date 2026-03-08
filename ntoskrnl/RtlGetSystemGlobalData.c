@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlGetSystemGlobalData @ 0x1402D9300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ */
+
 __int64 __fastcall RtlGetSystemGlobalData(int a1, _WORD *a2, int a3)
 {
   int v4; // ecx

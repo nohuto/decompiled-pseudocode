@@ -1,3 +1,27 @@
+/*
+ * XREFs of xxxTooltipWndProc @ 0x1C00FA000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ *     xxxDefWindowProc @ 0x1C00A66F0 (xxxDefWindowProc.c)
+ *     ?DestroyTooltipBitmap@@YAXPEAUtagTOOLTIPWND@@@Z @ 0x1C00F9314 (-DestroyTooltipBitmap@@YAXPEAUtagTOOLTIPWND@@@Z.c)
+ *     ?InitTooltipAnimation@@YAXPEAUtagTOOLTIPWND@@@Z @ 0x1C00F9B18 (-InitTooltipAnimation@@YAXPEAUtagTOOLTIPWND@@@Z.c)
+ *     InitTooltipDelay @ 0x1C00F9D58 (InitTooltipDelay.c)
+ *     xxxValidateClassAndSize @ 0x1C00FA3E4 (xxxValidateClassAndSize.c)
+ *     xxxBeginPaint @ 0x1C00FD4C0 (xxxBeginPaint.c)
+ *     xxxEndPaint @ 0x1C00FE504 (xxxEndPaint.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z @ 0x1C01BD154 (-CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z.c)
+ *     StopFade @ 0x1C01BDEF0 (StopFade.c)
+ *     zzzStartFade @ 0x1C01BE6C0 (zzzStartFade.c)
+ *     ?CreateTooltipBitmap@@YAHPEAUtagTOOLTIPWND@@II@Z @ 0x1C0228074 (-CreateTooltipBitmap@@YAHPEAUtagTOOLTIPWND@@II@Z.c)
+ *     ?SetTooltipTimer@@YAXPEAUtagTOOLTIPWND@@II@Z @ 0x1C02282E0 (-SetTooltipTimer@@YAXPEAUtagTOOLTIPWND@@II@Z.c)
+ *     ?xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z @ 0x1C0228AA4 (-xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z.c)
+ *     ?xxxTooltipRender@@YAXPEAUtagTOOLTIPWND@@PEAUHDC__@@@Z @ 0x1C0228B58 (-xxxTooltipRender@@YAXPEAUtagTOOLTIPWND@@PEAUHDC__@@@Z.c)
+ */
+
 __int64 __fastcall xxxTooltipWndProc(struct tagWND *a1, unsigned int a2, HDC a3, __int64 a4)
 {
   __int64 v8; // rbx

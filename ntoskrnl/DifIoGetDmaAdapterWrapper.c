@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifIoGetDmaAdapterWrapper @ 0x1405DD570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     IoGetDmaAdapter @ 0x140821B20 (IoGetDmaAdapter.c)
+ */
+
 struct _DMA_ADAPTER *__fastcall DifIoGetDmaAdapterWrapper(
         PDEVICE_OBJECT PhysicalDeviceObject,
         struct _DEVICE_DESCRIPTION *DeviceDescription,

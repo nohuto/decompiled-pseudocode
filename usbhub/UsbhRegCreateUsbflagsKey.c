@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhRegCreateUsbflagsKey @ 0x1C004650C
+ * Callers:
+ *     UsbhGetMSOS_Descriptor @ 0x1C0032C40 (UsbhGetMSOS_Descriptor.c)
+ *     UsbhRegDriverEntry @ 0x1C0046560 (UsbhRegDriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS UsbhRegCreateUsbflagsKey()
 {
   NTSTATUS result; // eax

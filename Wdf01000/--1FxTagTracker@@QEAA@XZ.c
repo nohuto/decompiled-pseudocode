@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1FxTagTracker@@QEAA@XZ @ 0x1C004779C
+ * Callers:
+ *     ??_GFxTagTracker@@QEAAPEAXI@Z @ 0x1C0045FBC (--_GFxTagTracker@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C0016BA8 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     ??_GFxTagTrackingBlock@@QEAAPEAXI@Z @ 0x1C0047898 (--_GFxTagTrackingBlock@@QEAAPEAXI@Z.c)
+ *     ?CheckForAbandondedTags@FxTagTracker@@QEAAXXZ @ 0x1C00478C4 (-CheckForAbandondedTags@FxTagTracker@@QEAAXXZ.c)
+ */
+
 void __fastcall FxTagTracker::~FxTagTracker(FxTagTracker *this)
 {
   FxDriverGlobalsDebugExtension *DebugExtension; // rbx

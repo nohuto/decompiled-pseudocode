@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpHotAddProcessorToWorkers @ 0x14060AA78
+ * Callers:
+ *     ExInitializeProcessor @ 0x14037DB20 (ExInitializeProcessor.c)
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ */
+
 void __fastcall ExpHotAddProcessorToWorkers(__int64 a1)
 {
   unsigned __int16 *v1; // rdx

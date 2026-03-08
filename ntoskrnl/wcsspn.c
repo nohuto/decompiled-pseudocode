@@ -1,3 +1,11 @@
+/*
+ * XREFs of wcsspn @ 0x1403D5FD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 size_t __cdecl wcsspn(const wchar_t *Str, const wchar_t *Control)
 {
   wchar_t v2; // r8

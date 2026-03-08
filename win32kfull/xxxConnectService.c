@@ -1,3 +1,15 @@
+/*
+ * XREFs of xxxConnectService @ 0x1C012B764
+ * Callers:
+ *     xxxResolveDesktop @ 0x1C00BF660 (xxxResolveDesktop.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     xxxCreateWindowStation @ 0x1C00BE56C (xxxCreateWindowStation.c)
+ *     xxxCreateDesktopEx @ 0x1C00C03D4 (xxxCreateDesktopEx.c)
+ */
+
 __int64 __fastcall xxxConnectService(__int64 a1, HANDLE *a2, _QWORD *a3)
 {
   __int64 result; // rax

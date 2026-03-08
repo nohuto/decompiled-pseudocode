@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CopyFromBuffer@DXGDIAGNOSTICS@@AEBAXIIQEAE@Z @ 0x1C004FC74
+ * Callers:
+ *     ?ReadDiagnosticsInternal@DXGDIAGNOSTICS@@AEBAJIIQEAEPEAI@Z @ 0x1C004FFF8 (-ReadDiagnosticsInternal@DXGDIAGNOSTICS@@AEBAJIIQEAEPEAI@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ */
+
 void __fastcall DXGDIAGNOSTICS::CopyFromBuffer(
         DXGDIAGNOSTICS *this,
         unsigned int a2,

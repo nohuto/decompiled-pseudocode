@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetFloat@CSettingsManager@@AEAAJPEBGPEAM@Z @ 0x14000BDA8
+ * Callers:
+ *     ?GetPreferenceFloat@CSettingsManager@@UEAAJPEBGPEAM@Z @ 0x14000BF00 (-GetPreferenceFloat@CSettingsManager@@UEAAJPEBGPEAM@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x140005510 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall CSettingsManager::GetFloat(CSettingsManager *this, const unsigned __int16 *a2, float *a3)
 {
   RTL_SRWLOCK *v3; // rdi

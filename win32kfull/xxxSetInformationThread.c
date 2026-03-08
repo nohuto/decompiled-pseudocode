@@ -1,3 +1,24 @@
+/*
+ * XREFs of xxxSetInformationThread @ 0x1C0093B70
+ * Callers:
+ *     NtUserSetInformationThread @ 0x1C0093A50 (NtUserSetInformationThread.c)
+ *     xxxSetInformationThread @ 0x1C0093B70 (xxxSetInformationThread.c)
+ * Callees:
+ *     xxxBroadcastMessageEx @ 0x1C0045EF0 (xxxBroadcastMessageEx.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     xxxSetInformationThread @ 0x1C0093B70 (xxxSetInformationThread.c)
+ *     xxxRestoreCsrssThreadDesktop @ 0x1C0093CF0 (xxxRestoreCsrssThreadDesktop.c)
+ *     xxxSetCsrssThreadDesktop @ 0x1C00948B0 (xxxSetCsrssThreadDesktop.c)
+ *     ?InitiateShutdownW@@YAJPEAU_ETHREAD@@PEAK@Z @ 0x1C00958A8 (-InitiateShutdownW@@YAJPEAU_ETHREAD@@PEAK@Z.c)
+ *     ?EndShutdown@@YAXJ@Z @ 0x1C0095B2C (-EndShutdown@@YAXJ@Z.c)
+ *     RtlInitLargeUnicodeString @ 0x1C00A0F84 (RtlInitLargeUnicodeString.c)
+ *     PostShellHookMessagesEx @ 0x1C0109A90 (PostShellHookMessagesEx.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     QueueShutdownData @ 0x1C01B44E8 (QueueShutdownData.c)
+ *     ?TraceLoggingBSDRRaceConditionEvent@@YAXHH@Z @ 0x1C02044EC (-TraceLoggingBSDRRaceConditionEvent@@YAXHH@Z.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 NTSTATUS __fastcall xxxSetInformationThread(void *a1, int a2, __int64 *a3, int a4)
 {

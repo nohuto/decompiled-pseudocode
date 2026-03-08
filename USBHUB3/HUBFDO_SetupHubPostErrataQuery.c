@@ -1,3 +1,19 @@
+/*
+ * XREFs of HUBFDO_SetupHubPostErrataQuery @ 0x1C000F068
+ * Callers:
+ *     HUBHSM_SettingUpHubPostErrataQuery @ 0x1C00090E0 (HUBHSM_SettingUpHubPostErrataQuery.c)
+ * Callees:
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001CA0 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C0032FCC (HUBMISC_VerifierDbgBreak.c)
+ *     USBD_CreateHandle @ 0x1C004247C (USBD_CreateHandle.c)
+ *     USBD_QueryUsbCapability @ 0x1C00428D0 (USBD_QueryUsbCapability.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 __int64 __fastcall HUBFDO_SetupHubPostErrataQuery(char *Context)
 {
   __int64 v2; // r14

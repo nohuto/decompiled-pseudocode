@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TryToAcquireLock@FxInterrupt@@QEAAEXZ @ 0x1C007F86C
+ * Callers:
+ *     imp_WdfInterruptTryToAcquireLock @ 0x1C0068530 (imp_WdfInterruptTryToAcquireLock.c)
+ * Callees:
+ *     ?AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z @ 0x1C000134C (-AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z.c)
+ */
+
 bool __fastcall FxInterrupt::TryToAcquireLock(FxInterrupt *this, _FX_DRIVER_GLOBALS *a2)
 {
   char v2; // bl

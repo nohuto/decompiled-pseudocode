@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpEventWriteRegistrationStatus @ 0x1409E0B4C
+ * Callers:
+ *     EtwpSetProviderTraitsUm @ 0x140695AC4 (EtwpSetProviderTraitsUm.c)
+ *     EtwpSetProviderTraitsKm @ 0x140788328 (EtwpSetProviderTraitsKm.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall EtwpEventWriteRegistrationStatus(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+30h] [rbp-38h] BYREF

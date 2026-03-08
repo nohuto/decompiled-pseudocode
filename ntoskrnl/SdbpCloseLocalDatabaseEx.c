@@ -1,3 +1,12 @@
+/*
+ * XREFs of SdbpCloseLocalDatabaseEx @ 0x140A4F7D4
+ * Callers:
+ *     SdbpCleanupLocalDatabaseSupport @ 0x14079C9C0 (SdbpCleanupLocalDatabaseSupport.c)
+ *     SdbpOpenLocalDatabaseEx @ 0x140A4F86C (SdbpOpenLocalDatabaseEx.c)
+ * Callees:
+ *     SdbCloseDatabaseRead @ 0x14079CA28 (SdbCloseDatabaseRead.c)
+ */
+
 __int64 __fastcall SdbpCloseLocalDatabaseEx(__int64 a1, __int64 a2, unsigned int a3)
 {
   int v5; // ebp

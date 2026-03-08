@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiConstructLoaderEntry @ 0x14072CE24
+ * Callers:
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ *     MiInitializeLoadedModuleList @ 0x140B5D84C (MiInitializeLoadedModuleList.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiProcessLoaderEntry @ 0x1402B2790 (MiProcessLoaderEntry.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     MiManageSubsectionView @ 0x140335DC0 (MiManageSubsectionView.c)
+ *     MiChargeResident @ 0x140348DE8 (MiChargeResident.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExpCovGetSectionInfo @ 0x14072D598 (ExpCovGetSectionInfo.c)
+ *     MiCaptureImageExceptionValues @ 0x14072D5FC (MiCaptureImageExceptionValues.c)
+ *     MiLockdownSections @ 0x14072E408 (MiLockdownSections.c)
+ *     ExCovReadjustUnloadedModuleEntry @ 0x1407F6CC8 (ExCovReadjustUnloadedModuleEntry.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiConstructLoaderEntry(
         __int64 a1,
         const void **a2,

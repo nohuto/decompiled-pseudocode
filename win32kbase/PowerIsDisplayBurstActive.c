@@ -1,3 +1,11 @@
+/*
+ * XREFs of PowerIsDisplayBurstActive @ 0x1C015B940
+ * Callers:
+ *     PowerIsDisplayIdleExpired @ 0x1C00ABE40 (PowerIsDisplayIdleExpired.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PowerIsDisplayBurstActive(int *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _QWORD *v5; // r8

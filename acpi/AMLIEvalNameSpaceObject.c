@@ -1,3 +1,47 @@
+/*
+ * XREFs of AMLIEvalNameSpaceObject @ 0x1C0047B9C
+ * Callers:
+ *     ACPIIoctlEvalControlMethod @ 0x1C0004232 (ACPIIoctlEvalControlMethod.c)
+ *     ACPIBuildMissingEjectionRelations @ 0x1C000D9B4 (ACPIBuildMissingEjectionRelations.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     ACPIInitDosDeviceName @ 0x1C002D140 (ACPIInitDosDeviceName.c)
+ *     ACPIInitStartDevice @ 0x1C002DA2C (ACPIInitStartDevice.c)
+ *     ACPIIoctlGetDeviceSpecificData @ 0x1C0030F58 (ACPIIoctlGetDeviceSpecificData.c)
+ *     EnableDisableDeviceRegionSpace @ 0x1C0039900 (EnableDisableDeviceRegionSpace.c)
+ *     ACPIProcessorContainerEvaluateLpiObject @ 0x1C003A614 (ACPIProcessorContainerEvaluateLpiObject.c)
+ *     ACPIThermalGetSensorDevice @ 0x1C0040BB0 (ACPIThermalGetSensorDevice.c)
+ *     Simulator_EvaluateNode @ 0x1C00491A0 (Simulator_EvaluateNode.c)
+ *     LinkNodeCrackPrt @ 0x1C005CE9C (LinkNodeCrackPrt.c)
+ *     ACPIAmliEvaluateDsm @ 0x1C007C65C (ACPIAmliEvaluateDsm.c)
+ *     ACPIAmliEvaluateOsc @ 0x1C007C7D8 (ACPIAmliEvaluateOsc.c)
+ *     ACPIAmliEvaluatePcch @ 0x1C007C968 (ACPIAmliEvaluatePcch.c)
+ *     ACPIQueryCacheCoherencyAttribute @ 0x1C0081C08 (ACPIQueryCacheCoherencyAttribute.c)
+ *     AcpiGetIdleWakeInfo @ 0x1C0082BD0 (AcpiGetIdleWakeInfo.c)
+ *     ACPIEcGetGpeVector @ 0x1C00835C4 (ACPIEcGetGpeVector.c)
+ *     ACPIEcGetUid @ 0x1C0083668 (ACPIEcGetUid.c)
+ *     ACPIInitStopDevice @ 0x1C0087AE4 (ACPIInitStopDevice.c)
+ *     ACPIEvaluateSpareDsm @ 0x1C0089068 (ACPIEvaluateSpareDsm.c)
+ *     ACPIGetUniqueId @ 0x1C0089190 (ACPIGetUniqueId.c)
+ *     EnableDisableRegions @ 0x1C008A57C (EnableDisableRegions.c)
+ *     UnRegisterOperationRegionHandler @ 0x1C008BDF0 (UnRegisterOperationRegionHandler.c)
+ *     ACPIProcessorDeviceControl @ 0x1C008C570 (ACPIProcessorDeviceControl.c)
+ *     ACPIThermalBuildConstraints @ 0x1C0095638 (ACPIThermalBuildConstraints.c)
+ *     LinkNodeWriteStateToHardware @ 0x1C00995D0 (LinkNodeWriteStateToHardware.c)
+ *     LinkNodepAddLinkNodeWorker @ 0x1C0099720 (LinkNodepAddLinkNodeWorker.c)
+ *     NotifyHalWithMachineStatesAndRetrieveInterruptModel @ 0x1C00A7BFC (NotifyHalWithMachineStatesAndRetrieveInterruptModel.c)
+ * Callees:
+ *     Simulator_Free_Arguments @ 0x1C0049214 (Simulator_Free_Arguments.c)
+ *     Simulator_Pre_EvalNameSpaceObject @ 0x1C00496F8 (Simulator_Pre_EvalNameSpaceObject.c)
+ *     Simulator_TestNotifyRet @ 0x1C00499A8 (Simulator_TestNotifyRet.c)
+ *     GetBaseObject @ 0x1C004B918 (GetBaseObject.c)
+ *     GetObjectPath @ 0x1C004BB70 (GetObjectPath.c)
+ *     AMLIDebugger @ 0x1C004D630 (AMLIDebugger.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     SyncEvalObject @ 0x1C0054E8C (SyncEvalObject.c)
+ */
+
 __int64 AMLIEvalNameSpaceObject(__int64 *a1, __int64 a2, unsigned int a3, ...)
 {
   __int64 v3; // rbx

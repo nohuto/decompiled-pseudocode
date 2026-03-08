@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopDiagInitialize @ 0x140B442C4
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     PopThermalDeferedTraceThermalZoneEnumeration @ 0x14039CB48 (PopThermalDeferedTraceThermalZoneEnumeration.c)
+ *     EtwRegister @ 0x140690D20 (EtwRegister.c)
+ *     EtwSetInformation @ 0x1407882D0 (EtwSetInformation.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14080F6BC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     PdcTaskClientRegister @ 0x14080F930 (PdcTaskClientRegister.c)
+ *     PopDiagSleepStudyInitialize @ 0x140810194 (PopDiagSleepStudyInitialize.c)
+ *     PopTransitionTelemetryOsState @ 0x140855C64 (PopTransitionTelemetryOsState.c)
+ */
+
 __int64 PopDiagInitialize()
 {
   __int64 UnbiasedInterruptTime; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBMUX_AcquireDevicePowerReference @ 0x1C00118B4
+ * Callers:
+ *     HUBDSM_AcquiringPowerReferenceOnHubResume @ 0x1C001F110 (HUBDSM_AcquiringPowerReferenceOnHubResume.c)
+ * Callees:
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ */
+
 void __fastcall HUBMUX_AcquireDevicePowerReference(volatile signed __int32 *a1)
 {
   __int64 v1; // rsi

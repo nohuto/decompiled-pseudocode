@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBMISC_GetGenericErrorResponseOnDescriptorFailure @ 0x1C002D49C
+ * Callers:
+ *     HUBDSM_ReturningErrorResponseOnProductStringQuery @ 0x1C0021650 (HUBDSM_ReturningErrorResponseOnProductStringQuery.c)
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x1C0015204 (WPP_RECORDER_SF_q.c)
+ */
+
 __int64 __fastcall HUBMISC_GetGenericErrorResponseOnDescriptorFailure(__int64 a1)
 {
   unsigned int v1; // ebx

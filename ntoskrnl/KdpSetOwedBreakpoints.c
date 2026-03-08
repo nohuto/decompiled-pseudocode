@@ -1,3 +1,15 @@
+/*
+ * XREFs of KdpSetOwedBreakpoints @ 0x140AB2B80
+ * Callers:
+ *     KdSetOwedBreakpoints @ 0x140565C30 (KdSetOwedBreakpoints.c)
+ * Callees:
+ *     KdExitDebugger @ 0x140AAD2D0 (KdExitDebugger.c)
+ *     KdEnterDebugger @ 0x140AAD40C (KdEnterDebugger.c)
+ *     KdpCopyCodeStream @ 0x140AB2660 (KdpCopyCodeStream.c)
+ *     KdpInsertBreakpoint @ 0x140AB28D0 (KdpInsertBreakpoint.c)
+ *     KdpRemoveBreakpoint @ 0x140AB2ABC (KdpRemoveBreakpoint.c)
+ */
+
 _UNKNOWN **__fastcall KdpSetOwedBreakpoints(__int64 a1)
 {
   _UNKNOWN **result; // rax

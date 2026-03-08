@@ -1,3 +1,15 @@
+/*
+ * XREFs of xxxDW_SendDestroyMessages @ 0x1C0027A4C
+ * Callers:
+ *     xxxDW_SendDestroyMessages @ 0x1C0027A4C (xxxDW_SendDestroyMessages.c)
+ *     xxxDestroyWindow @ 0x1C004B7F0 (xxxDestroyWindow.c)
+ * Callees:
+ *     xxxDW_SendDestroyMessages @ 0x1C0027A4C (xxxDW_SendDestroyMessages.c)
+ *     ?xxxMoveFocusAway@@YAXPEBUtagWND@@@Z @ 0x1C0027B98 (-xxxMoveFocusAway@@YAXPEBUtagWND@@@Z.c)
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     ?xxxDisownClipboard@@YAXPEAUtagWND@@@Z @ 0x1C01FF7D8 (-xxxDisownClipboard@@YAXPEAUtagWND@@@Z.c)
+ */
+
 void __fastcall xxxDW_SendDestroyMessages(const struct tagWND *a1)
 {
   __int64 v2; // rcx

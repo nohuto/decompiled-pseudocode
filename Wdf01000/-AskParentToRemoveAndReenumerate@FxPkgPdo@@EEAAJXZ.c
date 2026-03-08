@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AskParentToRemoveAndReenumerate@FxPkgPdo@@EEAAJXZ @ 0x1C00689E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReenumerateEntry@FxChildList@@QEAAXPEAUFxDeviceDescriptionEntry@@@Z @ 0x1C00261C4 (-ReenumerateEntry@FxChildList@@QEAAXPEAUFxDeviceDescriptionEntry@@@Z.c)
+ */
+
 __int64 __fastcall FxPkgPdo::AskParentToRemoveAndReenumerate(FxPkgPdo *this)
 {
   FxDeviceDescriptionEntry *m_Description; // rcx

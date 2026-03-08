@@ -1,3 +1,11 @@
+/*
+ * XREFs of EngUnmapFile @ 0x1C028DF10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C011CC6C (-vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z.c)
+ */
+
 BOOL __stdcall EngUnmapFile(ULONG_PTR iFile)
 {
   BOOL v2; // esi

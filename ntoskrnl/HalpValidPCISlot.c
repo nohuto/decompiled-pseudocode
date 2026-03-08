@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpValidPCISlot @ 0x140370554
+ * Callers:
+ *     HalpWritePCIConfig @ 0x1403702A0 (HalpWritePCIConfig.c)
+ *     HalpReadPCIConfig @ 0x1403704C4 (HalpReadPCIConfig.c)
+ * Callees:
+ *     HalpWritePCIConfig @ 0x1403702A0 (HalpWritePCIConfig.c)
+ *     HalpReadPCIConfig @ 0x1403704C4 (HalpReadPCIConfig.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall HalpValidPCISlot(unsigned __int16 a1, unsigned __int8 a2, unsigned int a3)
 {
   unsigned int v6; // ebx

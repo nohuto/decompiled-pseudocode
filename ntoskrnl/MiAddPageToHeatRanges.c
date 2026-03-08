@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiAddPageToHeatRanges @ 0x140651704
+ * Callers:
+ *     MiWalkEntireImage @ 0x1402862C0 (MiWalkEntireImage.c)
+ *     MiGetLargePageChain @ 0x1402E98A8 (MiGetLargePageChain.c)
+ *     MiUpdatePfnForPrefetchByPte @ 0x14031D5F0 (MiUpdatePfnForPrefetchByPte.c)
+ *     MiAllocateLargeZeroPages @ 0x14034DCB0 (MiAllocateLargeZeroPages.c)
+ *     MiDemoteLocalLargePage @ 0x14034E760 (MiDemoteLocalLargePage.c)
+ *     MiGetLargePage @ 0x14034EF30 (MiGetLargePage.c)
+ *     MmSetPfnListInfo @ 0x140387180 (MmSetPfnListInfo.c)
+ *     MiSplitDirectMapPage @ 0x14063CE6C (MiSplitDirectMapPage.c)
+ *     MiChangePageHeatImmediate @ 0x1406517FC (MiChangePageHeatImmediate.c)
+ *     MiMakeTransitionHeatBatch @ 0x140651CD4 (MiMakeTransitionHeatBatch.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiAddPageToHeatRanges(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // rsi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of BcpGetDisplayType @ 0x1406706C0
+ * Callers:
+ *     BgpDisplaySafeToPowerOffScreen @ 0x140670864 (BgpDisplaySafeToPowerOffScreen.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x140670928 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140670AE4 (BgpFwDisplayBugCheckScreen.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall BcpGetDisplayType(_DWORD *a1)
 {
   __int64 result; // rax

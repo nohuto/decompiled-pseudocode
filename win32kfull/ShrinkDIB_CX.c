@@ -1,3 +1,11 @@
+/*
+ * XREFs of ShrinkDIB_CX @ 0x1C0266000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ShrinkDIB_CX(__int64 a1, unsigned __int8 *a2, _BYTE *a3, __int64 a4, int a5)
 {
   unsigned __int8 *v5; // r11

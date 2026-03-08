@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FormatWriteParams@FxRequestContext@@QEAAXPEAVIFxMemory@@PEAU_WDFMEMORY_OFFSET@@@Z @ 0x1C0010554
+ * Callers:
+ *     FxIoTargetFormatIo @ 0x1C00503FC (FxIoTargetFormatIo.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxRequestContext::FormatWriteParams(
         FxRequestContext *this,
         IFxMemory *WriteMemory,

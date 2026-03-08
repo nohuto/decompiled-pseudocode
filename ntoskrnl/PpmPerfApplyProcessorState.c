@@ -1,3 +1,23 @@
+/*
+ * XREFs of PpmPerfApplyProcessorState @ 0x1402ED59C
+ * Callers:
+ *     PpmPerfAction @ 0x140236430 (PpmPerfAction.c)
+ *     PpmPerfApplyProcessorStates @ 0x1402ED3A0 (PpmPerfApplyProcessorStates.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     PpmUpdatePerformanceFeedback @ 0x14022E540 (PpmUpdatePerformanceFeedback.c)
+ *     PpmGetIdleGenerationCounter @ 0x14023602C (PpmGetIdleGenerationCounter.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x140236CD0 (PpmContinueActiveTimeAccumulation.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     PpmPerfArbitratorApplyProcessorState @ 0x1402ED6EC (PpmPerfArbitratorApplyProcessorState.c)
+ *     PpmScaleIdleStateValues @ 0x1402ED878 (PpmScaleIdleStateValues.c)
+ *     PpmEventLegacyProcessorPerfStateChange @ 0x1402ED898 (PpmEventLegacyProcessorPerfStateChange.c)
+ *     PpmEventTraceExpectedUtility @ 0x1402ED9CC (PpmEventTraceExpectedUtility.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall PpmPerfApplyProcessorState(struct _KPRCB *a1, char a2)
 {
   _PROC_PERF_CONSTRAINT *Constraint; // r15

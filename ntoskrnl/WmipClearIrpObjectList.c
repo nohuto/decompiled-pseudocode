@@ -1,3 +1,14 @@
+/*
+ * XREFs of WmipClearIrpObjectList @ 0x1402FEABC
+ * Callers:
+ *     WmipReceiveNotifications @ 0x1402F642C (WmipReceiveNotifications.c)
+ *     WmipCompleteGuidIrpWithError @ 0x1402FE9B0 (WmipCompleteGuidIrpWithError.c)
+ *     WmipNotificationIrpCancel @ 0x1402FEA50 (WmipNotificationIrpCancel.c)
+ *     WmipWriteWnodeToObject @ 0x1405F97A4 (WmipWriteWnodeToObject.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall WmipClearIrpObjectList(__int64 a1)
 {
   _QWORD *v1; // rdx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of IoSetDiskIoAttributionOnProcess @ 0x140295634
+ * Callers:
+ *     PspEstablishJobHierarchy @ 0x1407001E0 (PspEstablishJobHierarchy.c)
+ *     PspProcessDelete @ 0x140704DD0 (PspProcessDelete.c)
+ *     PspSetJobIoAttributionProcessCallback @ 0x14079ABB0 (PspSetJobIoAttributionProcessCallback.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     IoDiskIoAttributionDereference @ 0x14030C4DC (IoDiskIoAttributionDereference.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall IoSetDiskIoAttributionOnProcess(__int64 a1, __int64 a2)
 {
   KIRQL v4; // al

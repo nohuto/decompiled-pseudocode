@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvlpPreallocatePageListResources @ 0x14093E770
+ * Callers:
+ *     PopPreallocateHibernateMemory @ 0x1407FC7F4 (PopPreallocateHibernateMemory.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MmAllocateIndependentPagesEx @ 0x140869ADC (MmAllocateIndependentPagesEx.c)
+ */
+
 __int64 HvlpPreallocatePageListResources()
 {
   unsigned int v0; // ebx

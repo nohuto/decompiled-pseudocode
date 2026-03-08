@@ -1,3 +1,11 @@
+/*
+ * XREFs of _anonymous_namespace_::StoreIfChanged_D2DVector3_ @ 0x180209C94
+ * Callers:
+ *     ?UpdateOnManipulationThread@CManipulation@@UEAAJAEBUUpdateOnManipulationThreadArgs@@AEBUManipulationThreadTelemetryData@@PEAVIDCompositionInteractionStats@@@Z @ 0x18020B620 (-UpdateOnManipulationThread@CManipulation@@UEAAJAEBUUpdateOnManipulationThreadArgs@@AEBUManipula.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall anonymous_namespace_::StoreIfChanged_D2DVector3_(__int64 a1, __int64 a2)
 {
   char v2; // r9

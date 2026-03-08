@@ -1,3 +1,16 @@
+/*
+ * XREFs of _CmRemovePanelDevice @ 0x140A63F30
+ * Callers:
+ *     _CmUpdateDevicePanel @ 0x140683E30 (_CmUpdateDevicePanel.c)
+ *     _CmDeleteDeviceWorker @ 0x140A5F74C (_CmDeleteDeviceWorker.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _PnpObjectRaiseDevicesChangeEvent @ 0x14087DBE4 (_PnpObjectRaiseDevicesChangeEvent.c)
+ *     _CmRemovePanelDeviceWorker @ 0x140A64074 (_CmRemovePanelDeviceWorker.c)
+ */
+
 __int64 __fastcall CmRemovePanelDevice(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 (__fastcall *v6)(__int64, __int64, __int64); // rdi

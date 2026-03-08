@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiSetVadBits @ 0x1407D6BE0
+ * Callers:
+ *     MiUpdateVadBits @ 0x140729534 (MiUpdateVadBits.c)
+ *     MiInsertVadCharges @ 0x1407D6A70 (MiInsertVadCharges.c)
+ * Callees:
+ *     RtlSetBitsEx @ 0x14034CE90 (RtlSetBitsEx.c)
+ */
+
 void __fastcall MiSetVadBits(__int64 a1)
 {
   unsigned int v1; // ebp

@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?Present@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I_N@Z @ 0x1800C9168
+ * Callers:
+ *     ?Present@CLegacyRenderTarget@@UEAAJ_N@Z @ 0x1800C8F1C (-Present@CLegacyRenderTarget@@UEAAJ_N@Z.c)
+ *     ?Present@CDDisplayRenderTarget@@UEAAJ_N@Z @ 0x1801E52AC (-Present@CDDisplayRenderTarget@@UEAAJ_N@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?LegacyPresentRequired@COverlayContext@@AEBA_NXZ @ 0x1800C92B0 (-LegacyPresentRequired@COverlayContext@@AEBA_NXZ.c)
+ *     ?PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@PEAI@Z @ 0x1800C9300 (-PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV-$vector@UtagRECT@@V-$allocator@Ut.c)
+ *     ?ClearDirectFlip@COverlayContext@@AEAAXXZ @ 0x1800CA25C (-ClearDirectFlip@COverlayContext@@AEAAXXZ.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0nqq_EventWriteTransfer @ 0x1801DBCB8 (McTemplateU0nqq_EventWriteTransfer.c)
+ *     McTemplateU0nqqt_EventWriteTransfer @ 0x1801DBD34 (McTemplateU0nqqt_EventWriteTransfer.c)
+ *     McTemplateU0nqxxxq_EventWriteTransfer @ 0x1801DBDCC (McTemplateU0nqxxxq_EventWriteTransfer.c)
+ *     ?Present@CDirectFlipInfo@@IEAAJPEAVIOverlaySwapChain@@IAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@1@Z @ 0x1801F4068 (-Present@CDirectFlipInfo@@IEAAJPEAVIOverlaySwapChain@@IAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@U.c)
+ */
+
 __int64 __fastcall COverlayContext::Present(
         CDirectFlipInfo **this,
         struct IOverlaySwapChain *a2,

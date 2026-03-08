@@ -1,3 +1,18 @@
+/*
+ * XREFs of ObpAdjustCreatorAccessState @ 0x140698E40
+ * Callers:
+ *     ObpGrantAccess @ 0x14069DD08 (ObpGrantAccess.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ * Callees:
+ *     SeComputeCreatorDeniedRights @ 0x140311EB0 (SeComputeCreatorDeniedRights.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ObpReferenceSecurityDescriptor @ 0x140698F3C (ObpReferenceSecurityDescriptor.c)
+ *     ObpDereferenceSecurityDescriptorForObject @ 0x14069941C (ObpDereferenceSecurityDescriptorForObject.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x140699B5C (SePrivilegedServiceAuditAlarm.c)
+ *     SeAppendPrivileges @ 0x140761800 (SeAppendPrivileges.c)
+ *     SePrivilegeCheck @ 0x1407B9710 (SePrivilegeCheck.c)
+ */
+
 __int64 __fastcall ObpAdjustCreatorAccessState(PACCESS_STATE AccessState, KPROCESSOR_MODE a2, _DWORD *a3, __int64 a4)
 {
   int RemainingDesiredAccess; // eax

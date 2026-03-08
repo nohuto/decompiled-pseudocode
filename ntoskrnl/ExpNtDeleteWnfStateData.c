@@ -1,3 +1,26 @@
+/*
+ * XREFs of ExpNtDeleteWnfStateData @ 0x14085860C
+ * Callers:
+ *     NtDeleteWnfStateData @ 0x1408585F0 (NtDeleteWnfStateData.c)
+ *     ExWnfCrossVmCallback @ 0x1409FD720 (ExWnfCrossVmCallback.c)
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExpCaptureWnfStateName @ 0x14071A22C (ExpCaptureWnfStateName.c)
+ *     ExpWnfReleaseCapturedScopeInstanceId @ 0x14071A2DC (ExpWnfReleaseCapturedScopeInstanceId.c)
+ *     ExpWnfLookupNameInstance @ 0x14071A330 (ExpWnfLookupNameInstance.c)
+ *     ExpWnfCaptureScopeInstanceId @ 0x14071A42C (ExpWnfCaptureScopeInstanceId.c)
+ *     ExpWnfResolveScopeInstance @ 0x14071A508 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfCheckCallerAccess @ 0x14071A9D4 (ExpWnfCheckCallerAccess.c)
+ *     ExpWnfLookupPermanentName @ 0x14071C320 (ExpWnfLookupPermanentName.c)
+ *     ExpCrossVmWnfPush @ 0x140753680 (ExpCrossVmWnfPush.c)
+ *     ExpWnfDeleteStateData @ 0x14077968C (ExpWnfDeleteStateData.c)
+ *     ExpWnfCheckCrossScopeAccess @ 0x1407947E0 (ExpWnfCheckCrossScopeAccess.c)
+ *     ExpWnfDeletePermanentStateData @ 0x140A046AC (ExpWnfDeletePermanentStateData.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpNtDeleteWnfStateData(__int64 *a1, char *a2, int a3)
 {
   struct _KTHREAD *CurrentThread; // rax

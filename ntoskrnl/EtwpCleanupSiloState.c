@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpCleanupSiloState @ 0x1409E04E0
+ * Callers:
+ *     EtwpPreInitializeSiloState @ 0x14084497C (EtwpPreInitializeSiloState.c)
+ *     EtwCleanupSiloState @ 0x1409DEED0 (EtwCleanupSiloState.c)
+ *     EtwInitializeSiloState @ 0x1409DF038 (EtwInitializeSiloState.c)
+ * Callees:
+ *     ExFreeCacheAwareRundownProtection @ 0x14028E220 (ExFreeCacheAwareRundownProtection.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwpCleanupSiloState(_QWORD *P)
 {
   void *v2; // rcx

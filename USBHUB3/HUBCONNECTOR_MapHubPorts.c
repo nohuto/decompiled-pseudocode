@@ -1,3 +1,16 @@
+/*
+ * XREFs of HUBCONNECTOR_MapHubPorts @ 0x1C0082A18
+ * Callers:
+ *     HUBFDO_EvtDevicePrepareHardware @ 0x1C0078890 (HUBFDO_EvtDevicePrepareHardware.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBCONNECTOR_RegisterPort @ 0x1C0081CF0 (HUBCONNECTOR_RegisterPort.c)
+ *     HUBCONNECTOR_MapRootHubPorts @ 0x1C0082524 (HUBCONNECTOR_MapRootHubPorts.c)
+ *     HUBCONNECTOR_MapIntegratedHubPorts @ 0x1C0082838 (HUBCONNECTOR_MapIntegratedHubPorts.c)
+ *     HUBCONNECTOR_MapExternalHubPorts @ 0x1C0082934 (HUBCONNECTOR_MapExternalHubPorts.c)
+ *     HUBCONNECTOR_UnMapHubPorts @ 0x1C0082B58 (HUBCONNECTOR_UnMapHubPorts.c)
+ */
+
 void __fastcall HUBCONNECTOR_MapHubPorts(__int64 a1)
 {
   __int64 v2; // rsi

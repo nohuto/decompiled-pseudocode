@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiDelayReadyRoutine @ 0x1C00128A0
+ * Callers:
+ *     VidSchiCancelDelayTimerContext @ 0x1C0012824 (VidSchiCancelDelayTimerContext.c)
+ * Callees:
+ *     VidSchiUnwaitContext @ 0x1C00136BC (VidSchiUnwaitContext.c)
+ */
+
 void __fastcall VidSchiDelayReadyRoutine(
         struct _KDPC *Dpc,
         _QWORD *DeferredContext,

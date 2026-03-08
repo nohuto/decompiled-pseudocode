@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpCmdRenameHive @ 0x140A0ED14
+ * Callers:
+ *     CmReplaceKey @ 0x140A12A54 (CmReplaceKey.c)
+ *     CmpFlushBackupHive @ 0x140A17C48 (CmpFlushBackupHive.c)
+ * Callees:
+ *     ZwQueryObject @ 0x140412510 (ZwQueryObject.c)
+ *     ZwSetInformationFile @ 0x1404127F0 (ZwSetInformationFile.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall CmpCmdRenameHive(HANDLE FileHandle, PVOID ObjectInformation, const void **a3, ULONG a4, char a5)
 {
   NTSTATUS result; // eax

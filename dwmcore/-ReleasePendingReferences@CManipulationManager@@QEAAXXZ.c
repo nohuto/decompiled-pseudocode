@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReleasePendingReferences@CManipulationManager@@QEAAXXZ @ 0x18019D2E8
+ * Callers:
+ *     ?ShutDownManipulationThread@CManipulationManager@@IEAAXXZ @ 0x18019E1EC (-ShutDownManipulationThread@CManipulationManager@@IEAAXXZ.c)
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CManipulationManager::ReleasePendingReferences(CManipulationManager *this)
 {
   char *v1; // rbx

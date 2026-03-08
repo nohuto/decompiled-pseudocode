@@ -1,3 +1,11 @@
+/*
+ * XREFs of TR_CalculateTDSize @ 0x1C0012DD0
+ * Callers:
+ *     Bulk_Stage_MapIntoRing @ 0x1C0012A00 (Bulk_Stage_MapIntoRing.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TR_CalculateTDSize(__int64 a1, int a2, unsigned int a3, char a4)
 {
   unsigned int v4; // r10d

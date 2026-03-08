@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopChildToRootTranslation @ 0x140805284
+ * Callers:
+ *     PnpBuildCmResourceList @ 0x140804D9C (PnpBuildCmResourceList.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IopFindLegacyBusDeviceNode @ 0x140805E30 (IopFindLegacyBusDeviceNode.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopChildToRootTranslation(
         _QWORD *a1,
         unsigned int a2,

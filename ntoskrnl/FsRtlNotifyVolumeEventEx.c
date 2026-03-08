@@ -1,3 +1,15 @@
+/*
+ * XREFs of FsRtlNotifyVolumeEventEx @ 0x1406F3A30
+ * Callers:
+ *     RawMountVolume @ 0x1406F37D0 (RawMountVolume.c)
+ *     FsRtlNotifyVolumeEvent @ 0x1408722A0 (FsRtlNotifyVolumeEvent.c)
+ * Callees:
+ *     IoReportTargetDeviceChangeAsynchronous @ 0x140204780 (IoReportTargetDeviceChangeAsynchronous.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IoGetRelatedTargetDevice @ 0x1406F3B0C (IoGetRelatedTargetDevice.c)
+ *     IoReportTargetDeviceChange @ 0x14087D430 (IoReportTargetDeviceChange.c)
+ */
+
 NTSTATUS __stdcall FsRtlNotifyVolumeEventEx(
         PFILE_OBJECT FileObject,
         ULONG EventCode,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetBinaryOperandLen @ 0x1409D055C
+ * Callers:
+ *     GetOperandValue @ 0x1409D07DC (GetOperandValue.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetBinaryOperandLen(_WORD *a1, _DWORD *a2)
 {
   bool v3; // zf

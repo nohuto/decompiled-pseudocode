@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifCcDeferWriteWrapper @ 0x1405D3D90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     CcDeferWrite @ 0x140535060 (CcDeferWrite.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 void __fastcall DifCcDeferWriteWrapper(
         PFILE_OBJECT FileObject,
         PCC_POST_DEFERRED_WRITE PostRoutine,

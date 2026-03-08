@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??_E?$ListProxy@I@dataprovider_AutoBamos@Lib@Bamo@Microsoft@@UEAAPEAXI@Z @ 0x1801F4600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 _QWORD *__fastcall Microsoft::Bamo::Lib::dataprovider_AutoBamos::ListProxy<unsigned int>::`vector deleting destructor'(
         _QWORD *a1,
         char a2)

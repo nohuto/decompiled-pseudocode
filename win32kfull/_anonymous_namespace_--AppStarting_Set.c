@@ -1,3 +1,13 @@
+/*
+ * XREFs of _anonymous_namespace_::AppStarting_Set @ 0x1C003EF54
+ * Callers:
+ *     EditionApplyForegroundPolicyStartingApp @ 0x1C003EF30 (EditionApplyForegroundPolicyStartingApp.c)
+ *     ?ApplyForegroundPolicyConsole@ForegroundLaunch@@YAXPEAU_EPROCESS@@@Z @ 0x1C003F218 (-ApplyForegroundPolicyConsole@ForegroundLaunch@@YAXPEAU_EPROCESS@@@Z.c)
+ * Callees:
+ *     InternalSetTimer @ 0x1C0061830 (InternalSetTimer.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall anonymous_namespace_::AppStarting_Set(__int64 a1)
 {

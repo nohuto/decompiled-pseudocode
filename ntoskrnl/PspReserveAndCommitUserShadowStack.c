@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspReserveAndCommitUserShadowStack @ 0x1409AE7B0
+ * Callers:
+ *     PspSetupUserFiberShadowStack @ 0x1409AEA90 (PspSetupUserFiberShadowStack.c)
+ *     PspSetupUserShadowStack @ 0x1409AEB6C (PspSetupUserShadowStack.c)
+ * Callees:
+ *     ZwAllocateVirtualMemory @ 0x140412610 (ZwAllocateVirtualMemory.c)
+ *     MmFreeVirtualMemory @ 0x1406EC820 (MmFreeVirtualMemory.c)
+ *     MmAllocateUserStack @ 0x14077409C (MmAllocateUserStack.c)
+ */
+
 __int64 __fastcall PspReserveAndCommitUserShadowStack(
         unsigned __int64 a1,
         ULONG_PTR a2,

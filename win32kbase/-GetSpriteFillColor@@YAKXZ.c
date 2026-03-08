@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?GetSpriteFillColor@@YAKXZ @ 0x1C0070B50
+ * Callers:
+ *     xxxInitProcessInfo @ 0x1C0070EFC (xxxInitProcessInfo.c)
+ * Callees:
+ *     ?RtlStringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1C0070DEC (-RtlStringCchCatW@@YAJPEAG_KPEBG@Z.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0070E78 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 GetSpriteFillColor(void)
 {
   unsigned int v0; // edi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CContainerVectorShape@@QEAA@PEAVCComposition@@@Z @ 0x1800B8A24
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ??0CShapeTree@@QEAA@PEAVCComposition@@@Z @ 0x1800B8124 (--0CShapeTree@@QEAA@PEAVCComposition@@@Z.c)
+ * Callees:
+ *     ??0CVectorShape@@IEAA@PEAVCComposition@@@Z @ 0x1800B8E0C (--0CVectorShape@@IEAA@PEAVCComposition@@@Z.c)
+ */
+
 CContainerVectorShape *__fastcall CContainerVectorShape::CContainerVectorShape(
         CContainerVectorShape *this,
         struct CComposition *a2,

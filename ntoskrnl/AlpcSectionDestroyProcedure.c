@@ -1,3 +1,13 @@
+/*
+ * XREFs of AlpcSectionDestroyProcedure @ 0x140785050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     AlpcDeleteBlobByHandle @ 0x1406A0400 (AlpcDeleteBlobByHandle.c)
+ *     AlpcpRemoveResourcePort @ 0x1406A293C (AlpcpRemoveResourcePort.c)
+ */
+
 __int64 __fastcall AlpcSectionDestroyProcedure(__int64 a1)
 {
   _QWORD *v2; // rcx

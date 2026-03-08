@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopGetModernStandbyTransitionReason @ 0x1403C2A80
+ * Callers:
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ *     PopCalculateCsSummary @ 0x14058EE94 (PopCalculateCsSummary.c)
+ *     PopDiagTraceSleepStudyStart @ 0x140879BB0 (PopDiagTraceSleepStudyStart.c)
+ *     PopIdleCsStateChanged @ 0x140998E5C (PopIdleCsStateChanged.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PopGetModernStandbyTransitionReason(char a1)
 {
   KIRQL v2; // al

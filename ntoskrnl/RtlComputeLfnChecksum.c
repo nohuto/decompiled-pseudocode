@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlComputeLfnChecksum @ 0x14076891C
+ * Callers:
+ *     RtlGenerate8dot3Name @ 0x1407684A0 (RtlGenerate8dot3Name.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlComputeLfnChecksum(unsigned __int16 *a1)
 {
   unsigned __int16 v1; // r8

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AddQuadraticBeziers@CPathData@@EEAAXPEBUD2D1_QUADRATIC_BEZIER_SEGMENT@@I@Z @ 0x18027CA10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0Segment@Path@@IEAA@W4SegmentType@1@@Z @ 0x18001FA90 (--0Segment@Path@@IEAA@W4SegmentType@1@@Z.c)
+ *     ?AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z @ 0x18027CA74 (-AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z.c)
+ */
+
 void __fastcall CPathData::AddQuadraticBeziers(
         CPathData *this,
         const struct D2D1_QUADRATIC_BEZIER_SEGMENT *a2,

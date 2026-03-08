@@ -1,3 +1,18 @@
+/*
+ * XREFs of wWinMain @ 0x140003430
+ * Callers:
+ *     __scrt_common_main_seh @ 0x140005350 (__scrt_common_main_seh.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x14000309C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Shutdown@CDwmAppHost@@QEAAXJ@Z @ 0x140003170 (-Shutdown@CDwmAppHost@@QEAAXJ@Z.c)
+ *     McGenEventRegister_EtwEventRegister @ 0x1400035E4 (McGenEventRegister_EtwEventRegister.c)
+ *     ?CheckForDwmGroupSid@@YAJXZ @ 0x140003610 (-CheckForDwmGroupSid@@YAJXZ.c)
+ *     ?Run@CDwmAppHost@@QEAAJXZ @ 0x140003700 (-Run@CDwmAppHost@@QEAAJXZ.c)
+ *     ?ModifyTokenPrivileges@@YAJXZ @ 0x140003BA4 (-ModifyTokenPrivileges@@YAJXZ.c)
+ *     ?Initialize@CDwmAppHost@@QEAAJPEAUHINSTANCE__@@@Z @ 0x140003CD4 (-Initialize@CDwmAppHost@@QEAAJPEAUHINSTANCE__@@@Z.c)
+ *     IsImmDisableIMEPresent @ 0x1400068E8 (IsImmDisableIMEPresent.c)
+ */
+
 int __stdcall wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nShowCmd)
 {
   HANDLE CurrentProcess; // rax

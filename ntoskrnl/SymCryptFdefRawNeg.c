@@ -1,3 +1,12 @@
+/*
+ * XREFs of SymCryptFdefRawNeg @ 0x1403FE128
+ * Callers:
+ *     SymCryptFdefIntNeg @ 0x1403FDA4C (SymCryptFdefIntNeg.c)
+ *     SymCryptFdefIntSubMixedSize @ 0x1403FDAC8 (SymCryptFdefIntSubMixedSize.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefRawNeg(__int64 a1, unsigned int a2, _DWORD *a3, int a4)
 {
   unsigned int v4; // r9d

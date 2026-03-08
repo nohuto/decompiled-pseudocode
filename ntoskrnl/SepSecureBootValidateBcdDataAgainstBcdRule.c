@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepSecureBootValidateBcdDataAgainstBcdRule @ 0x1409CE184
+ * Callers:
+ *     NtFilterBootOption @ 0x1409CD700 (NtFilterBootOption.c)
+ *     SepSecureBootUpdateBcdDataForRule @ 0x1409CE004 (SepSecureBootUpdateBcdDataForRule.c)
+ * Callees:
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     SepSecureBootGetQWordPolicyValue @ 0x1409CDF60 (SepSecureBootGetQWordPolicyValue.c)
+ */
+
 __int64 __fastcall SepSecureBootValidateBcdDataAgainstBcdRule(__int64 a1, _BYTE *a2, unsigned int a3)
 {
   _WORD *v4; // rcx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpAddFastOwnerEntryToThreadList @ 0x1403C4DC8
+ * Callers:
+ *     ExAcquireFastResourceShared @ 0x1403C3C70 (ExAcquireFastResourceShared.c)
+ *     ExAcquireFastResourceSharedStarveExclusive @ 0x1403C43D0 (ExAcquireFastResourceSharedStarveExclusive.c)
+ *     ExAcquireFastResourceExclusive @ 0x1403C48B0 (ExAcquireFastResourceExclusive.c)
+ *     ExDisownFastResource @ 0x1403C6EF0 (ExDisownFastResource.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall ExpAddFastOwnerEntryToThreadList(__int64 a1, __int64 a2, char a3, __int64 a4)
 {
   __int64 *result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserShowStartGlass @ 0x1C01DFD80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     zzzShowStartGlass @ 0x1C01B48F8 (zzzShowStartGlass.c)
+ */
+
 __int64 __fastcall NtUserShowStartGlass(unsigned int a1)
 {
   __int64 started; // rbx

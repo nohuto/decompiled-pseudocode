@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidMmGetDevicePagingQueue@@YAXPEAVVIDMM_DEVICE@@IPEAPEAVVIDMM_PAGING_QUEUE@@PEAPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1C00189C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidMmGetDevicePagingQueue(
         struct VIDMM_DEVICE *a1,
         unsigned int a2,

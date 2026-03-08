@@ -1,3 +1,17 @@
+/*
+ * XREFs of AhcCacheQueryHwId @ 0x140A6F0BC
+ * Callers:
+ *     NtApphelpCacheControl @ 0x1406C31C0 (NtApphelpCacheControl.c)
+ * Callees:
+ *     ExGetPreviousMode @ 0x1402449F0 (ExGetPreviousMode.c)
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KseLookupHardwareId @ 0x140974398 (KseLookupHardwareId.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AhcCacheQueryHwId(unsigned __int64 a1)
 {
   unsigned int v2; // edi

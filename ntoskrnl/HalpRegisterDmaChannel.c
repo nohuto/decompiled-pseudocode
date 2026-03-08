@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpRegisterDmaChannel @ 0x140514FFC
+ * Callers:
+ *     HalpExtRegisterResourceDescriptor @ 0x14050B5F0 (HalpExtRegisterResourceDescriptor.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpRegisterDmaChannel(__int64 a1)
 {
   __int64 v2; // rax

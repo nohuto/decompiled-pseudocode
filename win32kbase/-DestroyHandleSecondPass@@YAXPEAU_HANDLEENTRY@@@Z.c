@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DestroyHandleSecondPass@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C015C200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     HMDestroyUnlockedObject @ 0x1C01538C0 (HMDestroyUnlockedObject.c)
+ */
+
 void __fastcall DestroyHandleSecondPass(struct _HANDLEENTRY *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _QWORD *v4; // rsi

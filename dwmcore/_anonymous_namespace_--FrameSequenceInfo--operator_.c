@@ -1,3 +1,12 @@
+/*
+ * XREFs of _anonymous_namespace_::FrameSequenceInfo::operator_ @ 0x180037050
+ * Callers:
+ *     _anonymous_namespace_::SealCurrentFrameSequence @ 0x180035F64 (_anonymous_namespace_--SealCurrentFrameSequence.c)
+ * Callees:
+ *     std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Move_assign @ 0x180036FE0 (std--_Tree_std--_Tmap_traits__anonymous_namespace_--AnimationId_unsigned_int_A0x155_ea_180036FE0.c)
+ *     ?_Move_assign@?$_Tree@V?$_Tset_traits@_KU?$less@_K@std@@V?$allocator@_K@2@$0A@@std@@@std@@AEAAXAEAV12@U_Equal_allocators@2@@Z @ 0x180037468 (-_Move_assign@-$_Tree@V-$_Tset_traits@_KU-$less@_K@std@@V-$allocator@_K@2@$0A@@std@@@std@@AEAAXA.c)
+ */
+
 __int64 __fastcall anonymous_namespace_::FrameSequenceInfo::operator_(__int64 a1, __int64 a2)
 {
   *(_DWORD *)a1 = *(_DWORD *)a2;

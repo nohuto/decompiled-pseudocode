@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlExtendCorrelationVector @ 0x1409BBE00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpGetCorrelationVectorEndPosition @ 0x1405AD304 (RtlpGetCorrelationVectorEndPosition.c)
+ *     RtlpGetCorrelationVectorBufferLength @ 0x1409BC190 (RtlpGetCorrelationVectorBufferLength.c)
+ */
+
 __int64 __fastcall RtlExtendCorrelationVector(__int64 a1, __int64 a2)
 {
   int CorrelationVectorEndPosition; // eax

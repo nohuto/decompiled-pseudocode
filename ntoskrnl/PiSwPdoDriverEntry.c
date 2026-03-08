@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiSwPdoDriverEntry @ 0x140B32190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PiSwPdoDriverEntry(struct _DRIVER_OBJECT *a1)
 {
   PDRIVER_EXTENSION DriverExtension; // rax

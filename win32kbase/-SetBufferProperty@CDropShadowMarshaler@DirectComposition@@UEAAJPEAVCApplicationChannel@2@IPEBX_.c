@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CDropShadowMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C000B1F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CDropShadowMarshaler::SetBufferProperty(
         DirectComposition::CDropShadowMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

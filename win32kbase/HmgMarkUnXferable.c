@@ -1,3 +1,12 @@
+/*
+ * XREFs of HmgMarkUnXferable @ 0x1C0186000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C004A440 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C004A680 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ */
+
 __int64 __fastcall HmgMarkUnXferable(unsigned int a1, char a2)
 {
   unsigned int v3; // esi

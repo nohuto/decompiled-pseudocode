@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlCSparseBitmapEnterLockingRegion @ 0x140307000
+ * Callers:
+ *     RtlpCSparseBitmapPageDecommit @ 0x1403046C4 (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x140306EB8 (RtlpCSparseBitmapPageCommit.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall RtlCSparseBitmapEnterLockingRegion(_QWORD *a1, __int64 a2)
 {
   unsigned __int8 CurrentIrql; // r9

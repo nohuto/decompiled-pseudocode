@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?vSpDisableSprites@@YAXPEAUHDEV__@@@Z @ 0x1C00EF6B8
+ * Callers:
+ *     vSpDisableSpritesWrap @ 0x1C00EF6A0 (vSpDisableSpritesWrap.c)
+ * Callees:
+ *     ?vSpDeleteExMirror@@YAXPEAUHDEV__@@@Z @ 0x1C00EF824 (-vSpDeleteExMirror@@YAXPEAUHDEV__@@@Z.c)
+ *     ?vSpDeleteSprite@@YAXPEAVSPRITE@@@Z @ 0x1C010C4F0 (-vSpDeleteSprite@@YAXPEAVSPRITE@@@Z.c)
+ *     ?vSpDeleteSurface@@YAXPEAU_SURFOBJ@@@Z @ 0x1C010C70C (-vSpDeleteSurface@@YAXPEAU_SURFOBJ@@@Z.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 void __fastcall vSpDisableSprites(_QWORD *a1)
 {
   HDEV v1; // rdi

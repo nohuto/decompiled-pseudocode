@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ReadCalibrationDataImp@@YAJU_UNICODE_STRING@@0PEAKPEAPEAE@Z @ 0x1C01A59F4
+ * Callers:
+ *     ReadTiltCalibrationData @ 0x1C01A678C (ReadTiltCalibrationData.c)
+ * Callees:
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?RegQueryValueCal@@YAJPEAXU_UNICODE_STRING@@KPEAEKPEAK@Z @ 0x1C01A60F0 (-RegQueryValueCal@@YAJPEAXU_UNICODE_STRING@@KPEAEKPEAK@Z.c)
+ *     ValidateCalibrationData @ 0x1C01A6BA0 (ValidateCalibrationData.c)
+ */
+
 __int64 __fastcall ReadCalibrationDataImp(
         struct _UNICODE_STRING *a1,
         struct _UNICODE_STRING *a2,

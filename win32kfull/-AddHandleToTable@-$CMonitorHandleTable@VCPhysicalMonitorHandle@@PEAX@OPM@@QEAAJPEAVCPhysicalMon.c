@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AddHandleToTable@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAVCPhysicalMonitorHandle@@PEAPEAX@Z @ 0x1C026B5A4
+ * Callers:
+ *     ?CreatePhysicalMonitor@CMonitorAPI@@QEAAJAEAU_LUID@@KPEAPEAX@Z @ 0x1C026B6A8 (-CreatePhysicalMonitor@CMonitorAPI@@QEAAJAEAU_LUID@@KPEAPEAX@Z.c)
+ * Callees:
+ *     ?AddElement@?$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAJPEAVCPhysicalMonitorHandle@@PEAK@Z @ 0x1C026B498 (-AddElement@-$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAJPEAVCPhysicalMonitorHandle@@PEAK@Z.c)
+ */
+
 __int64 __fastcall OPM::CMonitorHandleTable<CPhysicalMonitorHandle,void *>::AddHandleToTable(
         __int64 a1,
         __int64 a2,

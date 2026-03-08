@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MapOutputRectToInputRects@CMesh2DEffect@@UEBAJPEBUtagRECT@@PEAU2@I@Z @ 0x1802BBB80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CMesh2DEffect::MapOutputRectToInputRects(
         CMesh2DEffect *this,
         const struct tagRECT *a2,

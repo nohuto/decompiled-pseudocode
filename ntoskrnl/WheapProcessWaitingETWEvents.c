@@ -1,3 +1,16 @@
+/*
+ * XREFs of WheapProcessWaitingETWEvents @ 0x14085D1A0
+ * Callers:
+ *     WheaProcessWaitingETWEvents @ 0x140610D50 (WheaProcessWaitingETWEvents.c)
+ *     WheapEtwEnableCallback @ 0x14085D170 (WheapEtwEnableCallback.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     WheaLogInternalEvent @ 0x14037D610 (WheaLogInternalEvent.c)
+ *     WheapFreeErrorRecord @ 0x14060EAB0 (WheapFreeErrorRecord.c)
+ *     WheapGenerateETWEvents @ 0x140610F18 (WheapGenerateETWEvents.c)
+ */
+
 LONG WheapProcessWaitingETWEvents()
 {
   __int64 *v0; // rbx

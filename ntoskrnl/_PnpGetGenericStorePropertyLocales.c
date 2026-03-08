@@ -1,3 +1,17 @@
+/*
+ * XREFs of _PnpGetGenericStorePropertyLocales @ 0x14083AA64
+ * Callers:
+ *     PiDqPnPGetObjectPropertyLocales @ 0x14083A6B4 (PiDqPnPGetObjectPropertyLocales.c)
+ *     _PnpGetObjectPropertyLocalesWorker @ 0x14083A898 (_PnpGetObjectPropertyLocalesWorker.c)
+ * Callees:
+ *     RtlStringCchCopyExW @ 0x140244A08 (RtlStringCchCopyExW.c)
+ *     RtlStringCchPrintfExW @ 0x140245C80 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _PnpOpenPropertiesKey @ 0x1406D1610 (_PnpOpenPropertiesKey.c)
+ *     _PnpCtxRegEnumValue @ 0x140866444 (_PnpCtxRegEnumValue.c)
+ */
+
 __int64 __fastcall PnpGetGenericStorePropertyLocales(
         __int64 a1,
         __int64 a2,

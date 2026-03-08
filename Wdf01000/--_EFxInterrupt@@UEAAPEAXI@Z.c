@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_EFxInterrupt@@UEAAPEAXI@Z @ 0x1C007E6F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxInterrupt@@UEAA@XZ @ 0x1C007E644 (--1FxInterrupt@@UEAA@XZ.c)
+ */
+
 FxInterrupt *__fastcall FxInterrupt::`vector deleting destructor'(FxInterrupt *this, unsigned int a2)
 {
   char v2; // bl

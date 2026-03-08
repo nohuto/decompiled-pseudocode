@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoIsValidIrpStatus @ 0x140ABFF50
+ * Callers:
+ *     ViGenericIsValidIrpStatus @ 0x140AC00A0 (ViGenericIsValidIrpStatus.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall IoIsValidIrpStatus(unsigned int a1)
 {
   unsigned int v1; // r8d

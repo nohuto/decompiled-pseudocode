@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiWakeAllZeroConductors @ 0x140653030
+ * Callers:
+ *     MiDeleteHardwareAccelerators @ 0x140652540 (MiDeleteHardwareAccelerators.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PsGetNextPartition @ 0x1402FF5F0 (PsGetNextPartition.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 *MiWakeAllZeroConductors()
 {
   __int64 *result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_TTIntersectLine@@YAHUtagPOINT@@0PEBUtagTOUCHTARGETINGCONTACT@@PEAU1@2@Z @ 0x1C02504C0
+ * Callers:
+ *     TouchTargetingIntersectSegment @ 0x1C0250F30 (TouchTargetingIntersectSegment.c)
+ *     TouchTargetingRankForRectDeep @ 0x1C025169C (TouchTargetingRankForRectDeep.c)
+ * Callees:
+ *     ?_TTAddLineAndSegmentIntersection@@YAXUtagPOINT@@0JJJJPEAU1@PEAH@Z @ 0x1C025028C (-_TTAddLineAndSegmentIntersection@@YAXUtagPOINT@@0JJJJPEAU1@PEAH@Z.c)
+ */
+
 __int64 __fastcall _TTIntersectLine(
         struct tagPOINT a1,
         struct tagPOINT a2,

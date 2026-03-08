@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OpenCurrentThreadToken@DXGPROCESS@@SAJPEAPEAX@Z @ 0x1C0340C64
+ * Callers:
+ *     ?IsCurrentThreadAppContainer@DXGPROCESS@@SA_NXZ @ 0x1C0340B60 (-IsCurrentThreadAppContainer@DXGPROCESS@@SA_NXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DXGPROCESS::OpenCurrentThreadToken(void **a1)
 {
   NTSTATUS v2; // eax

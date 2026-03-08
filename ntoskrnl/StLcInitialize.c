@@ -1,3 +1,11 @@
+/*
+ * XREFs of StLcInitialize @ 0x140358F18
+ * Callers:
+ *     ?StInitialize@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1403589B4 (-StInitialize@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ */
+
 LARGE_INTEGER __fastcall StLcInitialize(__int64 a1, __int64 a2, unsigned int *a3)
 {
   LARGE_INTEGER result; // rax

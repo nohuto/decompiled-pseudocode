@@ -1,3 +1,39 @@
+/*
+ * XREFs of MiInPagePageTable @ 0x140345FA0
+ * Callers:
+ *     MiResolvePageTablePage @ 0x1402689F0 (MiResolvePageTablePage.c)
+ * Callees:
+ *     MiCheckVirtualAddress @ 0x140225600 (MiCheckVirtualAddress.c)
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ *     MiDispatchFault @ 0x14026A900 (MiDispatchFault.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiIsVadLarge @ 0x1402899E4 (MiIsVadLarge.c)
+ *     MiNodeFromFaultPacket @ 0x14028B000 (MiNodeFromFaultPacket.c)
+ *     MiIncreaseUsedPtesCount @ 0x14029F850 (MiIncreaseUsedPtesCount.c)
+ *     MiReleaseFaultState @ 0x1402A2FD4 (MiReleaseFaultState.c)
+ *     MiCheckFatalAccessViolation @ 0x1402FCEDC (MiCheckFatalAccessViolation.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiVadPureReserve @ 0x140321EB0 (MiVadPureReserve.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiUnlockVadTree @ 0x140330EC8 (MiUnlockVadTree.c)
+ *     MiFillPteHierarchy @ 0x140333AE0 (MiFillPteHierarchy.c)
+ *     MiIssueHardFault @ 0x140342F00 (MiIssueHardFault.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     MiGetUsedPtesHandle @ 0x140346CA0 (MiGetUsedPtesHandle.c)
+ *     MiGetClosestImplicitNode @ 0x140346FCC (MiGetClosestImplicitNode.c)
+ *     MmIsAddressValidEx @ 0x1403471E0 (MmIsAddressValidEx.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiAdvanceFaultList @ 0x140363F9C (MiAdvanceFaultList.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiLeapPrefetch @ 0x14062F4D4 (MiLeapPrefetch.c)
+ *     MiGetLargeVadMappingIndex @ 0x140643AE4 (MiGetLargeVadMappingIndex.c)
+ *     MiInsertLargeVadMapping @ 0x140643BA8 (MiInsertLargeVadMapping.c)
+ *     MiLargePageFault @ 0x140643EB8 (MiLargePageFault.c)
+ */
+
 __int64 __fastcall MiInPagePageTable(_QWORD *a1, int a2)
 {
   __int64 v2; // rbx

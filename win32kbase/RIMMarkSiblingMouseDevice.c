@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMMarkSiblingMouseDevice @ 0x1C01AF440
+ * Callers:
+ *     RIMCreateDev @ 0x1C0036CBC (RIMCreateDev.c)
+ *     RIMVirtCreateDev @ 0x1C019DFF8 (RIMVirtCreateDev.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     RIMCAUsageToLegacyFlag @ 0x1C01BF4A4 (RIMCAUsageToLegacyFlag.c)
+ */
+
 __int16 __fastcall RIMMarkSiblingMouseDevice(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int16 v3; // di

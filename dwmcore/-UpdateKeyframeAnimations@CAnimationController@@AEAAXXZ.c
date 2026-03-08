@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?UpdateKeyframeAnimations@CAnimationController@@AEAAXXZ @ 0x1800D5A94
+ * Callers:
+ *     ?OnPlaybackRateChanged@CAnimationController@@QEAAXXZ @ 0x180022DE8 (-OnPlaybackRateChanged@CAnimationController@@QEAAXXZ.c)
+ *     ?NotifyBatchProcessingComplete@CAnimationController@@UEAAXXZ @ 0x1800D5990 (-NotifyBatchProcessingComplete@CAnimationController@@UEAAXXZ.c)
+ *     ?OnProgressChanged@CAnimationController@@QEAAXXZ @ 0x1800D5A3C (-OnProgressChanged@CAnimationController@@QEAAXXZ.c)
+ * Callees:
+ *     ?Create@?$CWeakReference@VCResource@@@@SAJPEAVCResource@@PEAPEAV1@@Z @ 0x18009990C (-Create@-$CWeakReference@VCResource@@@@SAJPEAVCResource@@PEAPEAV1@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B44D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
 void __fastcall CAnimationController::UpdateKeyframeAnimations(CAnimationController *this)
 {
   __int64 *v1; // rdi

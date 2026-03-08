@@ -1,3 +1,14 @@
+/*
+ * XREFs of UmfdDispatchWinLogonEscape @ 0x1C00BD1C4
+ * Callers:
+ *     NtGdiExtEscape @ 0x1C00BB120 (NtGdiExtEscape.c)
+ * Callees:
+ *     ?InitializeUmfdAndRegisterHost@UmfdHostLifeTimeManager@@SAHPEAX@Z @ 0x1C00BAEC0 (-InitializeUmfdAndRegisterHost@UmfdHostLifeTimeManager@@SAHPEAX@Z.c)
+ *     ??0ExclusiveWinlognRequestLock@@QEAA@XZ @ 0x1C00BD25C (--0ExclusiveWinlognRequestLock@@QEAA@XZ.c)
+ *     ?TerminateUmfdHost@UmfdHostLifeTimeManager@@SAX_N@Z @ 0x1C0125770 (-TerminateUmfdHost@UmfdHostLifeTimeManager@@SAX_N@Z.c)
+ *     ??1ExclusiveWinlognRequestLock@@QEAA@XZ @ 0x1C013006C (--1ExclusiveWinlognRequestLock@@QEAA@XZ.c)
+ */
+
 void __fastcall UmfdDispatchWinLogonEscape(unsigned __int64 a1)
 {
   HANDLE Handle[2]; // [rsp+28h] [rbp-20h]

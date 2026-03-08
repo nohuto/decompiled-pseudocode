@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HasContent@CSpriteVisual@@UEBA_NXZ @ 0x1800DAF00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CSpriteVisual::HasContent(CSpriteVisual *this)
 {
   char v1; // dl

@@ -1,3 +1,13 @@
+/*
+ * XREFs of SecureDump_PrepareForInit @ 0x1403AAFA4
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     SecureDump_ReadRegistry @ 0x1403AB0B8 (SecureDump_ReadRegistry.c)
+ *     SecureDump_LogErrorEvent @ 0x14055C088 (SecureDump_LogErrorEvent.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SecureDump_PrepareForInit(__int64 a1, _BYTE *a2)
 {
   unsigned int v3; // ebx

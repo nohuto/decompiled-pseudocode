@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_RECORDER_SF_sqqDqss @ 0x1C0015C08
+ * Callers:
+ *     ACPIBuildDiscoverDeviceCompletion @ 0x1C000CD20 (ACPIBuildDiscoverDeviceCompletion.c)
+ *     ACPIRootDeviceNotifyPepDiscoverDevice @ 0x1C003CE7C (ACPIRootDeviceNotifyPepDiscoverDevice.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF_sqqDqss(
         __int64 a1,
         __int64 a2,

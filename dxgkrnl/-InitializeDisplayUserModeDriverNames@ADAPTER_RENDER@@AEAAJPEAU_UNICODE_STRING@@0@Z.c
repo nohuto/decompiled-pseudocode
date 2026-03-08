@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InitializeDisplayUserModeDriverNames@ADAPTER_RENDER@@AEAAJPEAU_UNICODE_STRING@@0@Z @ 0x1C02048F0
+ * Callers:
+ *     ?Initialize@ADAPTER_RENDER@@QEAAJXZ @ 0x1C02031F0 (-Initialize@ADAPTER_RENDER@@QEAAJXZ.c)
+ * Callees:
+ *     ?RtlStringCbLengthW@@YAJPEBG_KPEA_K@Z @ 0x1C001F920 (-RtlStringCbLengthW@@YAJPEBG_KPEA_K@Z.c)
+ */
+
 __int64 __fastcall ADAPTER_RENDER::InitializeDisplayUserModeDriverNames(
         ADAPTER_RENDER *this,
         struct _UNICODE_STRING *a2,

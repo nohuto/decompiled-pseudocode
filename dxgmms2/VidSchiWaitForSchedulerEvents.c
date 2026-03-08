@@ -1,3 +1,17 @@
+/*
+ * XREFs of VidSchiWaitForSchedulerEvents @ 0x1C00A5590
+ * Callers:
+ *     VidSchiScheduleCommandToRun @ 0x1C0006850 (VidSchiScheduleCommandToRun.c)
+ * Callees:
+ *     VidSchiAcceptsIncomingWork @ 0x1C0006830 (VidSchiAcceptsIncomingWork.c)
+ *     VidSchiProfilePerformanceTick @ 0x1C0006E50 (VidSchiProfilePerformanceTick.c)
+ *     VidSchIsTDRPending @ 0x1C0007920 (VidSchIsTDRPending.c)
+ *     VidSchiIsFlipQueueBusy @ 0x1C0008100 (VidSchiIsFlipQueueBusy.c)
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     VidSchiCheckHwProgress @ 0x1C00A5940 (VidSchiCheckHwProgress.c)
+ *     VidSchiHandleControlEvent @ 0x1C01063DC (VidSchiHandleControlEvent.c)
+ */
+
 __int64 __fastcall VidSchiWaitForSchedulerEvents(__int64 a1)
 {
   unsigned int v2; // edx

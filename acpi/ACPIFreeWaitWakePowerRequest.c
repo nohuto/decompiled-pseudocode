@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIFreeWaitWakePowerRequest @ 0x1C00449F0
+ * Callers:
+ *     ACPIDereferenceWaitWakePowerRequest @ 0x1C00447C0 (ACPIDereferenceWaitWakePowerRequest.c)
+ * Callees:
+ *     ACPIDelayedFreeWakeInterrupt @ 0x1C0044668 (ACPIDelayedFreeWakeInterrupt.c)
+ */
+
 void __fastcall ACPIFreeWaitWakePowerRequest(_DWORD *Entry)
 {
   unsigned int v1; // edi

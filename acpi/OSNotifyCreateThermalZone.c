@@ -1,3 +1,15 @@
+/*
+ * XREFs of OSNotifyCreateThermalZone @ 0x1C0032BC0
+ * Callers:
+ *     ACPIBuildMissingChildren @ 0x1C000D8BC (ACPIBuildMissingChildren.c)
+ *     OSNotifyCreate @ 0x1C00325E0 (OSNotifyCreate.c)
+ * Callees:
+ *     ACPIBuildThermalZoneExtension @ 0x1C0013D70 (ACPIBuildThermalZoneExtension.c)
+ *     ACPIBuildThermalZoneRequest @ 0x1C0013FE0 (ACPIBuildThermalZoneRequest.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C001B508 (WPP_RECORDER_SF_qD.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C002D594 (ACPIInitReferenceDeviceExtension.c)
+ */
+
 __int64 __fastcall OSNotifyCreateThermalZone(volatile signed __int32 *a1, unsigned __int64 a2)
 {
   char v3; // di

@@ -1,3 +1,13 @@
+/*
+ * XREFs of KseVersionLieInitialize @ 0x140B35488
+ * Callers:
+ *     KseInitialize @ 0x140B3E688 (KseInitialize.c)
+ * Callees:
+ *     KsepLogError @ 0x140303450 (KsepLogError.c)
+ *     KsepDebugPrint @ 0x14057E834 (KsepDebugPrint.c)
+ *     KseRegisterShim @ 0x140800EC0 (KseRegisterShim.c)
+ */
+
 __int64 KseVersionLieInitialize()
 {
   int v0; // eax

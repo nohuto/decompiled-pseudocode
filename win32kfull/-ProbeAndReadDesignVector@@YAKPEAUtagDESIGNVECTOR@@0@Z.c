@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ProbeAndReadDesignVector@@YAKPEAUtagDESIGNVECTOR@@0@Z @ 0x1C02C435C
+ * Callers:
+ *     NtGdiAddFontResourceW @ 0x1C00D0870 (NtGdiAddFontResourceW.c)
+ *     NtGdiRemoveFontResourceW @ 0x1C02C6D80 (NtGdiRemoveFontResourceW.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall ProbeAndReadDesignVector(struct tagDESIGNVECTOR *a1, struct tagDESIGNVECTOR *a2)
 {
   struct tagDESIGNVECTOR *v2; // rax

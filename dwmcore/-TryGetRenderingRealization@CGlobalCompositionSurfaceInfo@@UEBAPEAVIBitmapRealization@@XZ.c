@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TryGetRenderingRealization@CGlobalCompositionSurfaceInfo@@UEBAPEAVIBitmapRealization@@XZ @ 0x1800DB790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 struct IBitmapRealization *__fastcall CGlobalCompositionSurfaceInfo::TryGetRenderingRealization(
         CGlobalCompositionSurfaceInfo *this)
 {

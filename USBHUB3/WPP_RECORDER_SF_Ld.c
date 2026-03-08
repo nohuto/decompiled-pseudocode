@@ -1,3 +1,13 @@
+/*
+ * XREFs of WPP_RECORDER_SF_Ld @ 0x1C00258CC
+ * Callers:
+ *     HUBDSM_ResettingPipeInUCXOnClientSyncResetPipe @ 0x1C001FFE0 (HUBDSM_ResettingPipeInUCXOnClientSyncResetPipe.c)
+ *     HUBUCX_UCXIoctlComplete @ 0x1C0025AA0 (HUBUCX_UCXIoctlComplete.c)
+ *     GetPersistedKeyPath @ 0x1C0042E20 (GetPersistedKeyPath.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_Ld(__int64 a1, __int64 a2, unsigned int a3, unsigned __int16 a4, __int64 a5, ...)
 {
   unsigned __int64 v7; // rbx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of PoFxRegisterCoreDevice @ 0x140836AB0
+ * Callers:
+ *     HalpInterruptInitPowerManagement @ 0x1403930CC (HalpInterruptInitPowerManagement.c)
+ *     HalpTimerInitPowerManagement @ 0x1403931E8 (HalpTimerInitPowerManagement.c)
+ *     HalpDmaInitPowerManagement @ 0x14039826C (HalpDmaInitPowerManagement.c)
+ *     PoFxRegisterDebugger @ 0x140B5E498 (PoFxRegisterDebugger.c)
+ * Callees:
+ *     PopFxInsertDevice @ 0x140393B3C (PopFxInsertDevice.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopFxConvertV1Components @ 0x140836BD8 (PopFxConvertV1Components.c)
+ *     PopFxRegisterDeviceWorker @ 0x14083714C (PopFxRegisterDeviceWorker.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PoFxRegisterCoreDevice(__int64 a1, __int64 a2, _QWORD *a3)
 {
   int v5; // esi

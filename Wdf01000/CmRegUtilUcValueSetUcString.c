@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmRegUtilUcValueSetUcString @ 0x1C00B1D5C
+ * Callers:
+ *     PpRegStateReadCreateClassCreationSettings @ 0x1C00B1610 (PpRegStateReadCreateClassCreationSettings.c)
+ *     CmRegUtilWstrValueSetWstrString @ 0x1C00B1F08 (CmRegUtilWstrValueSetWstrString.c)
+ * Callees:
+ *     memmove @ 0x1C000B140 (memmove.c)
+ *     CmpRegUtilAllocateUnicodeString @ 0x1C00B1F64 (CmpRegUtilAllocateUnicodeString.c)
+ */
+
 __int64 __fastcall CmRegUtilUcValueSetUcString(void *KeyHandle, _UNICODE_STRING *ValueName, _UNICODE_STRING *ValueData)
 {
   unsigned __int64 Length; // rdx

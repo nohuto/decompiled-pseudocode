@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiSelectImageBase @ 0x1406A1934
+ * Callers:
+ *     MiRelocateImageAgain @ 0x1406A160C (MiRelocateImageAgain.c)
+ *     MiRelocateImage @ 0x1407F2760 (MiRelocateImage.c)
+ * Callees:
+ *     MiGetImageBitMapInfo @ 0x14020AF24 (MiGetImageBitMapInfo.c)
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     MiSetControlAreaSystemVa @ 0x1402FCD9C (MiSetControlAreaSystemVa.c)
+ *     MiSelectRelocationStartHint @ 0x1406A1BE8 (MiSelectRelocationStartHint.c)
+ *     MiObtainRelocationBits @ 0x1406A1D10 (MiObtainRelocationBits.c)
+ *     MiGetImageWowSubsystemIndex @ 0x140791C98 (MiGetImageWowSubsystemIndex.c)
+ *     MiBytesToMapSystemImage @ 0x1407F6A64 (MiBytesToMapSystemImage.c)
+ *     MiSelectSystemImageAddress @ 0x1407F6D24 (MiSelectSystemImageAddress.c)
+ *     MiImageCanUseHighOverflowArea @ 0x140A45530 (MiImageCanUseHighOverflowArea.c)
+ *     MiSelectOverflowDllBase @ 0x140A4555C (MiSelectOverflowDllBase.c)
+ */
+
 __int64 __fastcall MiSelectImageBase(__int64 a1, __int64 a2, __int64 a3, int a4, unsigned __int64 *a5)
 {
   __int64 v5; // rbp

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PlatformRetrieveConfig32@NSInstrumentation@@YAXPEAGQEAPEBGPEAIPEA_N_K@Z @ 0x1C00D5054
+ * Callers:
+ *     ?RetrievePreviouslyPersistedState@CLeakTrackingAllocator@NSInstrumentation@@CAXPEAW4TrackingMode@LeakTrackingAllocatorCore@2@PEAW4PoolLeakState@12@PEAII2@Z @ 0x1C00D4F44 (-RetrievePreviouslyPersistedState@CLeakTrackingAllocator@NSInstrumentation@@CAXPEAW4TrackingMode.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 void __fastcall NSInstrumentation::PlatformRetrieveConfig32(
         NSInstrumentation *this,
         PCWSTR *a2,

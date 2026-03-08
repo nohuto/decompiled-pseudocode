@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Reset@?$CDynamicArray@PEAVIInputQueue@@$0HHHAHDFF@@@QEAAX_N@Z @ 0x1C00E4DA4
+ * Callers:
+ *     ?InvalidateInputQueues@CInputQueueProp@@IEAAXXZ @ 0x1C00E4D1C (-InvalidateInputQueues@CInputQueueProp@@IEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CDynamicArray<IInputQueue *,2003858261>::Reset(__int64 a1)
 {
   void *v2; // rcx

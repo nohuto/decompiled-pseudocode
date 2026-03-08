@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpUpdateConfigurationFromMsct @ 0x140B8E444
+ * Callers:
+ *     HalpNumaInitializeStaticConfiguration @ 0x140B63268 (HalpNumaInitializeStaticConfiguration.c)
+ *     HalpGetNumaProcMemoryCount @ 0x140B8DF8C (HalpGetNumaProcMemoryCount.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall HalpUpdateConfigurationFromMsct(
         unsigned int *a1,
         unsigned int a2,

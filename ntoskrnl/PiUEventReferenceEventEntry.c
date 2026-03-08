@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiUEventReferenceEventEntry @ 0x140680474
+ * Callers:
+ *     PiUEventNotifyClient @ 0x14068032C (PiUEventNotifyClient.c)
+ *     PiUEventNotifyUserMode @ 0x14068C2D0 (PiUEventNotifyUserMode.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ */
+
 __int64 __fastcall PiUEventReferenceEventEntry(__int64 a1)
 {
   struct _FAST_MUTEX *v2; // rcx

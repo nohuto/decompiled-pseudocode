@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcTelemetryBucketizeLatency @ 0x1406A74A0
+ * Callers:
+ *     CcCompleteAsyncRead @ 0x14020A77C (CcCompleteAsyncRead.c)
+ *     CcCopyWriteEx @ 0x14021C0A0 (CcCopyWriteEx.c)
+ *     CcCopyReadEx @ 0x14021E070 (CcCopyReadEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CcTelemetryBucketizeLatency(unsigned __int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of FsRtlPrivateInsertSharedLock @ 0x1402C25E0
+ * Callers:
+ *     FsRtlPrivateInsertLock @ 0x1402C247C (FsRtlPrivateInsertLock.c)
+ * Callees:
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     RtlRealSuccessor @ 0x1402C1970 (RtlRealSuccessor.c)
+ *     RtlDeleteNoSplay @ 0x1402C1BB0 (RtlDeleteNoSplay.c)
+ *     FsRtlFindFirstOverlappingSharedNode @ 0x1402C272C (FsRtlFindFirstOverlappingSharedNode.c)
+ *     RtlSplay @ 0x1402C2B50 (RtlSplay.c)
+ *     FsRtlSplitLocks @ 0x1402C31DC (FsRtlSplitLocks.c)
+ */
+
 char __fastcall FsRtlPrivateInsertSharedLock(__int64 a1, _RTL_SPLAY_LINKS *a2)
 {
   _RTL_SPLAY_LINKS **p_Parent; // r14

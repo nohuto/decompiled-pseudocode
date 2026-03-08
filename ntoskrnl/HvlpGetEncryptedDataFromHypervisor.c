@@ -1,3 +1,15 @@
+/*
+ * XREFs of HvlpGetEncryptedDataFromHypervisor @ 0x1405458B8
+ * Callers:
+ *     HvlGetEncryptedData @ 0x140545650 (HvlGetEncryptedData.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HvlpEndPageListIteration @ 0x140547D2C (HvlpEndPageListIteration.c)
+ *     HvlpGetPageList @ 0x140547DF4 (HvlpGetPageList.c)
+ *     HvlpInvokeGetPageListHypercall @ 0x140547EC8 (HvlpInvokeGetPageListHypercall.c)
+ *     HvlpSetupPageListIteration @ 0x140547F78 (HvlpSetupPageListIteration.c)
+ */
+
 __int64 __fastcall HvlpGetEncryptedDataFromHypervisor(__int64 a1, char *a2, unsigned int a3, _QWORD *a4, _DWORD *a5)
 {
   __int64 result; // rax

@@ -1,3 +1,23 @@
+/*
+ * XREFs of RtlGetExtendedContextLength2 @ 0x140364DF0
+ * Callers:
+ *     RtlDispatchException @ 0x14027FA60 (RtlDispatchException.c)
+ *     RtlpWalkFrameChain @ 0x14027FF40 (RtlpWalkFrameChain.c)
+ *     RtlUnwindEx @ 0x1402809E0 (RtlUnwindEx.c)
+ *     KiDispatchException @ 0x140362740 (KiDispatchException.c)
+ *     RtlGetExtendedContextLength @ 0x140364A90 (RtlGetExtendedContextLength.c)
+ *     RtlRaiseException @ 0x140364BF0 (RtlRaiseException.c)
+ *     RtlUnwind @ 0x1403BE7D0 (RtlUnwind.c)
+ *     NtCreateUserProcess @ 0x14070C850 (NtCreateUserProcess.c)
+ *     PspInitializeThunkContext @ 0x1407EDF4C (PspInitializeThunkContext.c)
+ *     NtCreateThreadEx @ 0x1407EEB00 (NtCreateThreadEx.c)
+ * Callees:
+ *     RtlpValidateContextFlags @ 0x1403650A0 (RtlpValidateContextFlags.c)
+ *     RtlpGetLegacyContextLength @ 0x140365130 (RtlpGetLegacyContextLength.c)
+ *     RtlpGetEntireXStateAreaLength @ 0x1403D1A20 (RtlpGetEntireXStateAreaLength.c)
+ *     RtlpRemoveArchDisallowedXStateFeatures @ 0x1403D1FAC (RtlpRemoveArchDisallowedXStateFeatures.c)
+ */
+
 __int64 __fastcall RtlGetExtendedContextLength2(__int64 a1, _DWORD *a2, unsigned __int64 a3)
 {
   unsigned int v5; // r14d

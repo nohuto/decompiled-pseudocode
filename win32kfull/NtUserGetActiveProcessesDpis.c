@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetActiveProcessesDpis @ 0x1C00EC1E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetDpiCacheSlot @ 0x1C0045E2C (GetDpiCacheSlot.c)
+ */
+
 __int64 __fastcall NtUserGetActiveProcessesDpis(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rcx

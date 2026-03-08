@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlQueryElevationFlags @ 0x140785410
+ * Callers:
+ *     SeTokenCanImpersonate @ 0x1406DA880 (SeTokenCanImpersonate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlQueryElevationFlags(int *a1)
 {
   int v1; // edx

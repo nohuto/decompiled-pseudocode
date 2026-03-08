@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiClearPteAccessedBitRange @ 0x1403BFD84
+ * Callers:
+ *     MiInitializeSystemPageTable @ 0x1403483AC (MiInitializeSystemPageTable.c)
+ * Callees:
+ *     MiTbFlushType @ 0x140224BDC (MiTbFlushType.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __fastcall MiClearPteAccessedBitRange(__int64 a1, unsigned int a2, unsigned __int64 a3)
 {
   unsigned __int64 v6; // rbp

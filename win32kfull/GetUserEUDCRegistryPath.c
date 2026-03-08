@@ -1,3 +1,13 @@
+/*
+ * XREFs of GetUserEUDCRegistryPath @ 0x1C00B79B4
+ * Callers:
+ *     bReadUserSystemEUDCRegistry @ 0x1C00B8E10 (bReadUserSystemEUDCRegistry.c)
+ *     bAddAllFlEntry @ 0x1C00B8F0C (bAddAllFlEntry.c)
+ *     bWriteUserSystemEUDCRegistry @ 0x1C02A2A34 (bWriteUserSystemEUDCRegistry.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetUserEUDCRegistryPath(WCHAR *a1)
 {
   __int64 v1; // rdi

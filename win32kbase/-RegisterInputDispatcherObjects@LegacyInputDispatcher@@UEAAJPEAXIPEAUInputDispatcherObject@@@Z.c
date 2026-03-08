@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RegisterInputDispatcherObjects@LegacyInputDispatcher@@UEAAJPEAXIPEAUInputDispatcherObject@@@Z @ 0x1C00317F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?HasInputDispatcherObjects@LegacyInputDispatcher@@AEBA_NXZ @ 0x1C0033684 (-HasInputDispatcherObjects@LegacyInputDispatcher@@AEBA_NXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall LegacyInputDispatcher::RegisterInputDispatcherObjects(
         LegacyInputDispatcher *this,
         void *a2,

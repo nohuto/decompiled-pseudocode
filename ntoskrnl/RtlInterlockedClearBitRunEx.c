@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlInterlockedClearBitRunEx @ 0x14045B8C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlInterlockedClearBitRunEx(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   volatile signed __int32 *v4; // r10

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReportGetAsyncKeyStateAnomaly@CAsyncKeyEventMonitor@@AEAAXK@Z @ 0x1C00CFFB8
+ * Callers:
+ *     ?OnKeyEvent@CAsyncKeyEventMonitor@@QEAAXXZ @ 0x1C0081090 (-OnKeyEvent@CAsyncKeyEventMonitor@@QEAAXXZ.c)
+ * Callees:
+ *     McTemplateK0qqq_EtwWriteTransfer @ 0x1C00EE3C8 (McTemplateK0qqq_EtwWriteTransfer.c)
+ */
+
 void __fastcall CAsyncKeyEventMonitor::ReportGetAsyncKeyStateAnomaly(
         CAsyncKeyEventMonitor *this,
         unsigned int a2,

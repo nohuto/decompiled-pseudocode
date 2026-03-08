@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiSegmentNotPresentFault @ 0x140426400
+ * Callers:
+ *     KiSegmentNotPresentFaultShadow @ 0x140AF36C0 (KiSegmentNotPresentFaultShadow.c)
+ * Callees:
+ *     KiSaveDebugRegisterState @ 0x140416550 (KiSaveDebugRegisterState.c)
+ *     KiSegmentNotPresentFault @ 0x140426400 (KiSegmentNotPresentFault.c)
+ *     KiBugCheckDispatch @ 0x14042BEC0 (KiBugCheckDispatch.c)
+ *     KiExceptionDispatch @ 0x14042BF40 (KiExceptionDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x14042C900 (KiFlushBhbDuringTrapEntryOrExit.c)
+ */
+
 void __fastcall __noreturn KiSegmentNotPresentFault(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // r10

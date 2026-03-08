@@ -1,3 +1,15 @@
+/*
+ * XREFs of zzzInternalDestroyCaret @ 0x1C00E8694
+ * Callers:
+ *     zzzDestroyCaret @ 0x1C0005EAC (zzzDestroyCaret.c)
+ *     xxxCreateCaret @ 0x1C000F3B4 (xxxCreateCaret.c)
+ *     xxxDestroyWindow @ 0x1C004B7F0 (xxxDestroyWindow.c)
+ * Callees:
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ *     FindTimer @ 0x1C00DEEDC (FindTimer.c)
+ *     zzzInternalHideCaret @ 0x1C00E877C (zzzInternalHideCaret.c)
+ */
+
 __int64 zzzInternalDestroyCaret()
 {
   __int64 result; // rax

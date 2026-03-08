@@ -1,3 +1,12 @@
+/*
+ * XREFs of UMPDCachedResourceCleanupWrap @ 0x1C00DAE00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DestroyUMPDHeap@@YAXPEAU_UMPDHEAP@@@Z @ 0x1C029B570 (-DestroyUMPDHeap@@YAXPEAU_UMPDHEAP@@@Z.c)
+ *     ?Close@PROXYPORT@@QEAAXXZ @ 0x1C02C1E80 (-Close@PROXYPORT@@QEAAXXZ.c)
+ */
+
 void __fastcall UMPDCachedResourceCleanupWrap(__int64 a1)
 {
   struct _UMPDHEAP *v2; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of CalcWindowRgn @ 0x1C00FE594
+ * Callers:
+ *     InternalInvalidate3 @ 0x1C0054B50 (InternalInvalidate3.c)
+ *     xxxBeginPaint @ 0x1C00FD4C0 (xxxBeginPaint.c)
+ *     ?GetNCUpdateRgn@@YAPEAUHRGN__@@PEAUtagWND@@H@Z @ 0x1C00FE114 (-GetNCUpdateRgn@@YAPEAUHRGN__@@PEAUtagWND@@H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CalcWindowRgn(__int64 a1, __int64 a2, int a3)
 {
   __int64 v5; // r8

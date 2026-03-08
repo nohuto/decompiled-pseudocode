@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiComputeIdealLargePage @ 0x140665140
+ * Callers:
+ *     MiCreateLargePfnList @ 0x14066540C (MiCreateLargePfnList.c)
+ * Callees:
+ *     MiLockLowestValidPageTable @ 0x140225DB0 (MiLockLowestValidPageTable.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiGetVadPte @ 0x14066641C (MiGetVadPte.c)
+ */
+
 __int64 __fastcall MiComputeIdealLargePage(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
 {
   unsigned int v4; // r10d

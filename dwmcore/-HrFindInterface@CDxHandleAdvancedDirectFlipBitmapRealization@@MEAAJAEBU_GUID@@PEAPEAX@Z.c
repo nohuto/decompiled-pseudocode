@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CDxHandleAdvancedDirectFlipBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802AECF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?HrFindInterface@CDxHandleBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180077370 (-HrFindInterface@CDxHandleBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ */
+
 __int64 __fastcall CDxHandleAdvancedDirectFlipBitmapRealization::HrFindInterface(
         CDxHandleAdvancedDirectFlipBitmapRealization *this,
         const struct _GUID *a2,

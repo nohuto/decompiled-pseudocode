@@ -1,3 +1,14 @@
+/*
+ * XREFs of DwmSyncGetTitleBarInfo @ 0x1C000B84C
+ * Callers:
+ *     xxxGetTitleBarInfoEx @ 0x1C000B72C (xxxGetTitleBarInfoEx.c)
+ * Callees:
+ *     ?DwmSyncLPCAllowed@@YAJXZ @ 0x1C001D800 (-DwmSyncLPCAllowed@@YAJXZ.c)
+ *     ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C001D830 (-SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall DwmSyncGetTitleBarInfo(PVOID Object, __int64 a2, __int128 *a3, _DWORD *a4)
 {
   int v8; // edi

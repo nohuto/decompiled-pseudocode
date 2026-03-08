@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtGdiGetDCObject @ 0x1C004CC30
+ * Callers:
+ *     CreateCompatiblePublicDC @ 0x1C02421AC (CreateCompatiblePublicDC.c)
+ * Callees:
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C0050DA0 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C011354C (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     ?vMarkTransformDirty@DC@@QEAAXXZ @ 0x1C0269660 (-vMarkTransformDirty@DC@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall NtGdiGetDCObject(__int64 a1, int a2)
 {
   __int64 v3; // rsi

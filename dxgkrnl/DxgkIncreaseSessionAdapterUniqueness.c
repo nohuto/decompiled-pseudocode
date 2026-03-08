@@ -1,3 +1,16 @@
+/*
+ * XREFs of DxgkIncreaseSessionAdapterUniqueness @ 0x1C01C5F08
+ * Callers:
+ *     DxgkSessionDisconnected @ 0x1C01C5D50 (DxgkSessionDisconnected.c)
+ *     DxgkSessionConnected @ 0x1C01C5E00 (DxgkSessionConnected.c)
+ *     DxgkSessionReconnected @ 0x1C01E5250 (DxgkSessionReconnected.c)
+ *     ?IncreaseAdapterUniquenessCallback@@YAEPEAXW4_SESSION_CALLBACK_REASON@@K@Z @ 0x1C02BC6D0 (-IncreaseAdapterUniquenessCallback@@YAEPEAXW4_SESSION_CALLBACK_REASON@@K@Z.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C01A9568 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ */
+
 __int64 DxgkIncreaseSessionAdapterUniqueness()
 {
   __int64 v0; // rdx

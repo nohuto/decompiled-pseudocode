@@ -1,3 +1,13 @@
+/*
+ * XREFs of McTemplateK0zztt_EtwWriteTransfer @ 0x140561768
+ * Callers:
+ *     PiSwIrpStartCreateWorker @ 0x140806A2C (PiSwIrpStartCreateWorker.c)
+ *     PiSwGetChildPdo @ 0x140846F50 (PiSwGetChildPdo.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1403BE3A0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0zztt_EtwWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

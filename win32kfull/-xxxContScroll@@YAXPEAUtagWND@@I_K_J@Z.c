@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?xxxContScroll@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C022BFF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _SetSystemTimer @ 0x1C0006384 (_SetSystemTimer.c)
+ *     _GetMessagePos @ 0x1C00E6844 (_GetMessagePos.c)
+ *     ?xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z @ 0x1C022C0E0 (-xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z.c)
+ *     xxxTrackBox @ 0x1C022E110 (xxxTrackBox.c)
+ */
+
 void __fastcall xxxContScroll(struct tagWND *a1)
 {
   __int64 v2; // rbx

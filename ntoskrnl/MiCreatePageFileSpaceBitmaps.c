@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCreatePageFileSpaceBitmaps @ 0x140835CAC
+ * Callers:
+ *     MiCreatePagingFile @ 0x140834F7C (MiCreatePagingFile.c)
+ *     MiCreatePagefile @ 0x140835934 (MiCreatePagefile.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ */
+
 _QWORD *__fastcall MiCreatePageFileSpaceBitmaps(unsigned int a1)
 {
   unsigned int v2; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvlpUseExtendedProcessorSetHypercalls @ 0x1403C6E70
+ * Callers:
+ *     HvlFlushRangeListTb @ 0x1403C689C (HvlFlushRangeListTb.c)
+ *     HvlFlushAddressSpaceTb @ 0x1403C6A88 (HvlFlushAddressSpaceTb.c)
+ * Callees:
+ *     <none>
+ */
+
 bool HvlpUseExtendedProcessorSetHypercalls()
 {
   bool result; // al

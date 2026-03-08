@@ -1,3 +1,20 @@
+/*
+ * XREFs of ACPISetDeviceWorker @ 0x1C00474D4
+ * Callers:
+ *     ACPICMButtonNotify @ 0x1C0018AC8 (ACPICMButtonNotify.c)
+ *     ACPICMButtonStartWorker @ 0x1C0018F20 (ACPICMButtonStartWorker.c)
+ *     ACPICMExperienceButtonHandleEvent @ 0x1C001961C (ACPICMExperienceButtonHandleEvent.c)
+ *     ACPIFanDeviceControl @ 0x1C00269A0 (ACPIFanDeviceControl.c)
+ *     ACPIFanFSTCallback @ 0x1C0026F60 (ACPIFanFSTCallback.c)
+ *     ACPIFanLoop @ 0x1C002759C (ACPIFanLoop.c)
+ *     ACPIRootPowerCallBack @ 0x1C003D600 (ACPIRootPowerCallBack.c)
+ *     ACPIThermalLoopEx @ 0x1C00410F0 (ACPIThermalLoopEx.c)
+ *     ACPIPepCleanupPlatformNotificationSupport @ 0x1C008A784 (ACPIPepCleanupPlatformNotificationSupport.c)
+ *     ACPIPepQueueWorker @ 0x1C008AF08 (ACPIPepQueueWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ACPISetDeviceWorker(__int64 a1, int a2)
 {
   KIRQL v4; // al

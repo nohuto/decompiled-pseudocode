@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiCaptureDumpPostRecovery @ 0x140578810
+ * Callers:
+ *     KiDeferredBugcheckRecoveryWorker @ 0x140578960 (KiDeferredBugcheckRecoveryWorker.c)
+ * Callees:
+ *     KiBugCheckWriteCrashDump @ 0x1405676EC (KiBugCheckWriteCrashDump.c)
+ *     KiInvokeBugCheckEntryCallbacks @ 0x1405684CC (KiInvokeBugCheckEntryCallbacks.c)
+ *     KiBugCheckRecoveryCleanupFromCrashDump @ 0x140578228 (KiBugCheckRecoveryCleanupFromCrashDump.c)
+ *     KiBugCheckRecoveryPrepareForCrashDump @ 0x1405786C8 (KiBugCheckRecoveryPrepareForCrashDump.c)
+ */
+
 char __fastcall KiCaptureDumpPostRecovery(__int64 a1)
 {
   char v1; // bl

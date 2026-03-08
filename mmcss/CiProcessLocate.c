@@ -1,3 +1,13 @@
+/*
+ * XREFs of CiProcessLocate @ 0x1C000AFF0
+ * Callers:
+ *     CiProcessNotification @ 0x1C00027C0 (CiProcessNotification.c)
+ *     CiThreadCreate @ 0x1C000AD80 (CiThreadCreate.c)
+ *     CiDispatchCreateNotificationClient @ 0x1C000C320 (CiDispatchCreateNotificationClient.c)
+ * Callees:
+ *     CiProcessComparer @ 0x1C000A210 (CiProcessComparer.c)
+ */
+
 __int64 __fastcall CiProcessLocate(unsigned __int64 a1)
 {
   __int64 v2; // rbp

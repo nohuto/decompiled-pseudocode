@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??0DCMEMOBJ@@QEAA@AEAVDCOBJ@@@Z @ 0x1C00EEC00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C0045394 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     W32GetCurrentThread @ 0x1C004DBF0 (W32GetCurrentThread.c)
+ *     HmgAlloc @ 0x1C0052E60 (HmgAlloc.c)
+ *     ?vCopyTo@DC@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C005A080 (-vCopyTo@DC@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C008D2C0 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ */
+
 DCMEMOBJ *__fastcall DCMEMOBJ::DCMEMOBJ(DCMEMOBJ *this, DC **a2)
 {
   struct HOBJ__ *v4; // rax

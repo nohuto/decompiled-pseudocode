@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiDeleteTopLevelPage @ 0x1402A568C
+ * Callers:
+ *     MiDeleteFinalPageTables @ 0x1402A54F4 (MiDeleteFinalPageTables.c)
+ *     MiDeleteProcessShadow @ 0x1402A5828 (MiDeleteProcessShadow.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiClearContainingMapping @ 0x1402A5720 (MiClearContainingMapping.c)
+ *     MiDecrementShareCount @ 0x14032AE40 (MiDecrementShareCount.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiDeleteTopLevelPage(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

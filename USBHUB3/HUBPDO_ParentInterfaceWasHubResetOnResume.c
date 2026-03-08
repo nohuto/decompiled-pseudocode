@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPDO_ParentInterfaceWasHubResetOnResume @ 0x1C001AA00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HUBPDO_ParentInterfaceWasHubResetOnResume(__int64 a1)
 {
   if ( (*(_DWORD *)(a1 + 32) & 0x40) == 0 )

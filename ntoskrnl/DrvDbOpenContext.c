@@ -1,3 +1,18 @@
+/*
+ * XREFs of DrvDbOpenContext @ 0x14081D690
+ * Callers:
+ *     PiDrvDbInit @ 0x14081C014 (PiDrvDbInit.c)
+ * Callees:
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     ExDeleteResourceLite @ 0x140336580 (ExDeleteResourceLite.c)
+ *     DrvDbRegisterObjects @ 0x14081D7C4 (DrvDbRegisterObjects.c)
+ *     DrvDbCreateDatabaseNode @ 0x14081DF10 (DrvDbCreateDatabaseNode.c)
+ *     DrvDbLoadDatabaseNode @ 0x140865BC0 (DrvDbLoadDatabaseNode.c)
+ *     DrvDbDestroyDatabaseNode @ 0x140A6ACC0 (DrvDbDestroyDatabaseNode.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 DrvDbOpenContext()
 {
   __int64 v0; // r14

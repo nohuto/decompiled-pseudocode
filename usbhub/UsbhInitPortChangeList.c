@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhInitPortChangeList @ 0x1C0034048
+ * Callers:
+ *     UsbhBusPnpStart @ 0x1C00369F0 (UsbhBusPnpStart.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall UsbhInitPortChangeList(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

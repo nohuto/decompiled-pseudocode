@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GatherKeyboardDeviceSummaryInfo@CKeyboardProcessor@@QEAAXPEAUDEVICEINFO@@PEAK@Z @ 0x1C002EEE8
+ * Callers:
+ *     ?GatherDeviceInfoSummaryInformation@CBaseInput@@AEAAXPEAUDEVICEINFO@@PEAK1PEAH11@Z @ 0x1C002F9CC (-GatherDeviceInfoSummaryInformation@CBaseInput@@AEAAXPEAUDEVICEINFO@@PEAK1PEAH11@Z.c)
+ * Callees:
+ *     wcsncmp @ 0x1C00DAD28 (wcsncmp.c)
+ */
+
 void __fastcall CKeyboardProcessor::GatherKeyboardDeviceSummaryInfo(
         CKeyboardProcessor *this,
         struct DEVICEINFO *a2,

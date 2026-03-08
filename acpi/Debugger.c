@@ -1,3 +1,17 @@
+/*
+ * XREFs of Debugger @ 0x1C004E9A4
+ * Callers:
+ *     AMLIDebugger @ 0x1C004D630 (AMLIDebugger.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     _stricmp_0 @ 0x1C0001AF7 (_stricmp_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     RtlStringCchCopyA @ 0x1C000B07C (RtlStringCchCopyA.c)
+ *     RtlStringCchCatA @ 0x1C003BD94 (RtlStringCchCatA.c)
+ *     DbgExecuteCmd @ 0x1C004E878 (DbgExecuteCmd.c)
+ */
+
 __int64 Debugger()
 {
   char *v0; // rsi

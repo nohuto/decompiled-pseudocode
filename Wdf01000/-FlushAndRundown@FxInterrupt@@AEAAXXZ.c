@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FlushAndRundown@FxInterrupt@@AEAAXXZ @ 0x1C007EF98
+ * Callers:
+ *     ?Dispose@FxInterrupt@@UEAAEXZ @ 0x1C007EF80 (-Dispose@FxInterrupt@@UEAAEXZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxInterrupt::FlushAndRundown(FxInterrupt *this)
 {
   FxSystemWorkItem *m_SystemWorkItem; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of _dynamic_initializer_for__CComponentTransform3D::sc_Center__ @ 0x180001980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 dynamic_initializer_for__CComponentTransform3D::sc_Center__()
 {
   __int64 result; // rax

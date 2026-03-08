@@ -1,3 +1,19 @@
+/*
+ * XREFs of KeCpuPartitionMoveCpus @ 0x140572954
+ * Callers:
+ *     KeDeleteCpuPartition @ 0x140972338 (KeDeleteCpuPartition.c)
+ *     PsCpuPartitionMoveCpus @ 0x1409ADAF8 (PsCpuPartitionMoveCpus.c)
+ * Callees:
+ *     KiOrAffinityEx @ 0x14022B190 (KiOrAffinityEx.c)
+ *     KeIsEqualAffinityEx @ 0x140237260 (KeIsEqualAffinityEx.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KeIsSubsetAffinityEx @ 0x1402B13D0 (KeIsSubsetAffinityEx.c)
+ *     KiSubtractAffinityEx @ 0x1402D4CBC (KiSubtractAffinityEx.c)
+ *     KiModifySystemAllowedCpuSetsWithLock @ 0x1403991C4 (KiModifySystemAllowedCpuSetsWithLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeCpuPartitionMoveCpus(__int64 a1, __int64 a2, char *a3, char a4)
 {
   int v8; // edi

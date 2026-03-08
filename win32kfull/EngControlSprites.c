@@ -1,3 +1,11 @@
+/*
+ * XREFs of EngControlSprites @ 0x1C0285FF0
+ * Callers:
+ *     ?iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z @ 0x1C0279714 (-iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z.c)
+ * Callees:
+ *     ?vSpDeviceControlSprites@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@K@Z @ 0x1C0283608 (-vSpDeviceControlSprites@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@K@Z.c)
+ */
+
 BOOL __stdcall EngControlSprites(WNDOBJ *pwo, FLONG fl)
 {
   __int64 v5; // rbp

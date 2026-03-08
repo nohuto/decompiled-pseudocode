@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsOfType@CRectangleGeometry@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800E0170
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsOfType@CGeometry@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800E019C (-IsOfType@CGeometry@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ */
+
 char __fastcall CRectangleGeometry::IsOfType(__int64 a1, int a2)
 {
   char v2; // cl

@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiUnmapLockedPagesInUserSpace @ 0x140797184
+ * Callers:
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ * Callees:
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiLocateOldestSecure @ 0x1402FE90C (MiLocateOldestSecure.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ *     MiDeleteVirtualAddresses @ 0x140332E60 (MiDeleteVirtualAddresses.c)
+ *     MiRemoveSecureEntry @ 0x14034D404 (MiRemoveSecureEntry.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiCheckSecuredVad @ 0x1406A0F38 (MiCheckSecuredVad.c)
+ *     MiDeleteVad @ 0x1407C82E0 (MiDeleteVad.c)
+ */
+
 void __fastcall MiUnmapLockedPagesInUserSpace(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   __int64 PteAddress; // rbp

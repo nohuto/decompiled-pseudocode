@@ -1,3 +1,22 @@
+/*
+ * XREFs of CmpFindControlSet @ 0x1407FEB10
+ * Callers:
+ *     CmpGetSystemControlValues @ 0x140B33800 (CmpGetSystemControlValues.c)
+ *     CmpAcquireSystemDriverHiveContext @ 0x140B5AAAC (CmpAcquireSystemDriverHiveContext.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     sprintf_s @ 0x1403D9BA0 (sprintf_s.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ *     CmpFindValueByName @ 0x1407A74A0 (CmpFindValueByName.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x1407FE740 (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpValueToData @ 0x1407FEFF8 (CmpValueToData.c)
+ */
+
 __int64 __fastcall CmpFindControlSet(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4, int a3, _BYTE *a4)
 {
   unsigned int v7; // r15d

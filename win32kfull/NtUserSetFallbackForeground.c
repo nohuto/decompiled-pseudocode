@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtUserSetFallbackForeground @ 0x1C01DCB60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ *     IAMThreadAccessGranted @ 0x1C009A2DC (IAMThreadAccessGranted.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     _SetFallbackForeground @ 0x1C01AFA70 (_SetFallbackForeground.c)
+ */
+
 __int64 __fastcall NtUserSetFallbackForeground(__int64 a1, int a2)
 {
   int v4; // eax

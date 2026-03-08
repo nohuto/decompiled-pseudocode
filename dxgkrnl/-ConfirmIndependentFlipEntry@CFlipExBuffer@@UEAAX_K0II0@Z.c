@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ConfirmIndependentFlipEntry@CFlipExBuffer@@UEAAX_K0II0@Z @ 0x1C007D1A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkConfirmToken @ 0x1C02E0508 (DxgkConfirmToken.c)
+ */
+
 void __fastcall CFlipExBuffer::ConfirmIndependentFlipEntry(
         CFlipExBuffer *this,
         struct DXGADAPTER *a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxxActivateDebugger @ 0x1C0230364
+ * Callers:
+ *     ?xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0097FCC (-xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ * Callees:
+ *     LockProcessByClientId @ 0x1C0099860 (LockProcessByClientId.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 _BOOL8 __fastcall xxxActivateDebugger(char a1)
 {
   int v2; // edi

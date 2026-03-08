@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?SendTaskSynchronously@FxCompanionTarget@@QEAAJGKPEAU_WDF_MEMORY_DESCRIPTOR@@0PEA_JPEA_K@Z @ 0x1C002E22C
+ * Callers:
+ *     imp_WdfCompanionTargetSendTaskSynchronously @ 0x1C002CC30 (imp_WdfCompanionTargetSendTaskSynchronously.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_q @ 0x1C0018194 (WPP_IFR_SF_q.c)
+ *     ?DecrementPendingTaskCount@FxCompanionTarget@@AEAAXXZ @ 0x1C002DD84 (-DecrementPendingTaskCount@FxCompanionTarget@@AEAAXXZ.c)
+ *     ?IncrementPendingTaskCountWithFloor@FxCompanionTarget@@AEAAJXZ @ 0x1C002DF40 (-IncrementPendingTaskCountWithFloor@FxCompanionTarget@@AEAAJXZ.c)
+ */
+
 __int64 __fastcall FxCompanionTarget::SendTaskSynchronously(
         FxCompanionTarget *this,
         unsigned __int16 TaskType,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIEcConnectGpioInterrupt @ 0x1C00833F4
+ * Callers:
+ *     ACPIEcInitOpRegionHandler @ 0x1C00251B0 (ACPIEcInitOpRegionHandler.c)
+ *     ACPIEcConnectInterrupt @ 0x1C00834C0 (ACPIEcConnectInterrupt.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ */
+
 NTSTATUS __fastcall ACPIEcConnectGpioInterrupt(char *DeferredContext)
 {
   KINTERRUPT_MODE v2; // eax

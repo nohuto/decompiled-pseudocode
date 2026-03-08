@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopCancelIrpsInThreadListForCurrentProcess @ 0x1407700F8
+ * Callers:
+ *     IopRevokeFileObjectForProcess @ 0x1405566CC (IopRevokeFileObjectForProcess.c)
+ *     IopCancelIoFile @ 0x14077006C (IopCancelIoFile.c)
+ * Callees:
+ *     IopCancelApcRequired @ 0x1402E4CF0 (IopCancelApcRequired.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsGetNextProcessThread @ 0x1406A8E30 (PsGetNextProcessThread.c)
+ *     IopCancelIrpsInThreadList @ 0x1407701C8 (IopCancelIrpsInThreadList.c)
+ */
+
 __int64 __fastcall IopCancelIrpsInThreadListForCurrentProcess(__int64 a1, __int64 a2)
 {
   unsigned int v4; // edi

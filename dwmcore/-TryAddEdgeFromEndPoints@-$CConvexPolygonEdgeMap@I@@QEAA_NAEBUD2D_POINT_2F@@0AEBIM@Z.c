@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?TryAddEdgeFromEndPoints@?$CConvexPolygonEdgeMap@I@@QEAA_NAEBUD2D_POINT_2F@@0AEBIM@Z @ 0x1801FDF84
+ * Callers:
+ *     ?AddEdgeFlags@CPolygonMapStrategy@CEdgeFlagsMap@@QEAAXAEBUD2D_RECT_F@@W4D2D1_EDGE_FLAGS@@PEBVMatrix3x3@@M@Z @ 0x1801FC384 (-AddEdgeFlags@CPolygonMapStrategy@CEdgeFlagsMap@@QEAAXAEBUD2D_RECT_F@@W4D2D1_EDGE_FLAGS@@PEBVMat.c)
+ * Callees:
+ *     ?IsClosePointF@@YA_NAEBUMilPoint2F@@0M@Z @ 0x1801AF7A0 (-IsClosePointF@@YA_NAEBUMilPoint2F@@0M@Z.c)
+ *     ?CalcDirectionVector@@YA?AUD2D_VECTOR_2F@@AEBUD2D_POINT_2F@@0@Z @ 0x1801FDBA0 (-CalcDirectionVector@@YA-AUD2D_VECTOR_2F@@AEBUD2D_POINT_2F@@0@Z.c)
+ *     ?TryAddEdge@?$CConvexPolygonEdgeMap@I@@QEAA_NAEBUD2D_VECTOR_2F@@AEBUD2D_POINT_2F@@AEBIM@Z @ 0x1801FDE94 (-TryAddEdge@-$CConvexPolygonEdgeMap@I@@QEAA_NAEBUD2D_VECTOR_2F@@AEBUD2D_POINT_2F@@AEBIM@Z.c)
+ */
+
 char __fastcall CConvexPolygonEdgeMap<unsigned int>::TryAddEdgeFromEndPoints(
         __int64 *a1,
         struct D2D_POINT_2F *a2,

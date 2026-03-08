@@ -1,3 +1,16 @@
+/*
+ * XREFs of XilCoreDeviceSlot_SetDeviceContext @ 0x1C0019E44
+ * Callers:
+ *     XilDeviceSlot_SetDeviceContext @ 0x1C0019D94 (XilDeviceSlot_SetDeviceContext.c)
+ * Callees:
+ *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C0007FC0 (XilUsbDevice_GetDeviceContextBufferVA.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0019330 (WPP_RECORDER_SF_dq.c)
+ *     XilUsbDevice_GetDeviceContextBufferLA @ 0x1C0019F3C (XilUsbDevice_GetDeviceContextBufferLA.c)
+ *     WPP_RECORDER_SF_qdi @ 0x1C0019F68 (WPP_RECORDER_SF_qdi.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ */
+
 __int64 __fastcall XilCoreDeviceSlot_SetDeviceContext(
         _QWORD *a1,
         __int64 a2,

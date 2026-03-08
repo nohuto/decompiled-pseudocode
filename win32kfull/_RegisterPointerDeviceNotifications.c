@@ -1,3 +1,11 @@
+/*
+ * XREFs of _RegisterPointerDeviceNotifications @ 0x1C00F2894
+ * Callers:
+ *     NtUserRegisterPointerDeviceNotifications @ 0x1C00F27B0 (NtUserRegisterPointerDeviceNotifications.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RegisterPointerDeviceNotifications(__int64 a1, int a2)
 {
   unsigned int v2; // edi

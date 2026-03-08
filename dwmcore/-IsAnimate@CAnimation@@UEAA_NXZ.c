@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsAnimate@CAnimation@@UEAA_NXZ @ 0x1800E86D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CAnimation::IsAnimate(CAnimation *this)
 {
   char v2; // al

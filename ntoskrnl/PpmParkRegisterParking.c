@@ -1,3 +1,26 @@
+/*
+ * XREFs of PpmParkRegisterParking @ 0x14038D880
+ * Callers:
+ *     PpmCheckInitProcessors @ 0x140827DA4 (PpmCheckInitProcessors.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PopExecuteOnTargetProcessors @ 0x140236D20 (PopExecuteOnTargetProcessors.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x14025E560 (KeReleaseSpinLock.c)
+ *     KeQueryNodeActiveAffinity2 @ 0x140300670 (KeQueryNodeActiveAffinity2.c)
+ *     PpmHeteroIsMultiClassParkingEnabled @ 0x14038E12C (PpmHeteroIsMultiClassParkingEnabled.c)
+ *     PpmParkApplyPolicy @ 0x14038E5E0 (PpmParkApplyPolicy.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PpmParkFreeAllParkNodes @ 0x14067CCA8 (PpmParkFreeAllParkNodes.c)
+ *     PpmIdleInitializeConcurrency @ 0x1408258E4 (PpmIdleInitializeConcurrency.c)
+ *     PpmParkParkingAvailable @ 0x1408266FC (PpmParkParkingAvailable.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 PpmParkRegisterParking()
 {
   __m128i *v0; // r15

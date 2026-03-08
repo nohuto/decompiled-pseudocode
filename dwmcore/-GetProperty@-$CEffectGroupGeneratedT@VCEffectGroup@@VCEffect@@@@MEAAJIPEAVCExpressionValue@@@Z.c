@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetProperty@?$CEffectGroupGeneratedT@VCEffectGroup@@VCEffect@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801C15B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CEffectGroupGeneratedT<CEffectGroup,CEffect>::GetProperty(__int64 a1, int a2, __int64 a3)
 {
   __int64 result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtDeletePrivateNamespace @ 0x140881680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObpVerifyCreatorAccessCheck @ 0x140741CB8 (ObpVerifyCreatorAccessCheck.c)
+ *     ObpRemoveNamespaceFromTable @ 0x14077B7BC (ObpRemoveNamespaceFromTable.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 NTSTATUS __fastcall NtDeletePrivateNamespace(void *a1)
 {
   NTSTATUS result; // eax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of RootHub_DumpPortData @ 0x1C0017D40
+ * Callers:
+ *     RootHub_D0Exit @ 0x1C0010338 (RootHub_D0Exit.c)
+ *     RootHub_HandlePortStatusChangeEvent @ 0x1C0014E60 (RootHub_HandlePortStatusChangeEvent.c)
+ *     RootHub_PrepareHardware @ 0x1C00706C0 (RootHub_PrepareHardware.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ddd @ 0x1C0017FB0 (WPP_RECORDER_SF_ddd.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C001835C (WPP_RECORDER_SF_qD.c)
+ */
+
 __int64 __fastcall RootHub_DumpPortData(__int64 a1, __int64 a2)
 {
   char v3; // si

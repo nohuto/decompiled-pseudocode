@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Offset@CRgnData@Internal@FastRegion@@QEAA_NHH@Z @ 0x1801AF32C
+ * Callers:
+ *     ?AddDirtyRegion@CGDISubSectionBitmapRealization@@EEAAXAEBVCRegion@@@Z @ 0x1802AD49C (-AddDirtyRegion@CGDISubSectionBitmapRealization@@EEAAXAEBVCRegion@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall FastRegion::Internal::CRgnData::Offset(FastRegion::Internal::CRgnData *this, int a2, int a3)
 {
   int v3; // edi

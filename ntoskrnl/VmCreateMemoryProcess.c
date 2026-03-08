@@ -1,3 +1,15 @@
+/*
+ * XREFs of VmCreateMemoryProcess @ 0x1409D9550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwAllocateVirtualMemory @ 0x140412610 (ZwAllocateVirtualMemory.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     PsCreateMinimalProcess @ 0x140817C28 (PsCreateMinimalProcess.c)
+ */
+
 __int64 __fastcall VmCreateMemoryProcess(__int64 a1, __int64 a2, void *a3, int a4, ULONG_PTR a5, _QWORD *a6)
 {
   char v9; // r9

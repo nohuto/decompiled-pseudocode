@@ -1,3 +1,12 @@
+/*
+ * XREFs of imp_WdfFdoInitWdmGetPhysicalDevice @ 0x1C0030680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_IFR_SF_ @ 0x1C001BC64 (WPP_IFR_SF_.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C0045BD8 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ */
+
 _DEVICE_OBJECT *__fastcall imp_WdfFdoInitWdmGetPhysicalDevice(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFDEVICE_INIT *DeviceInit)

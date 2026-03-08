@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlImpersonateSelfEx @ 0x140783B34
+ * Callers:
+ *     CmpCmdHiveOpen @ 0x1406C0FC8 (CmpCmdHiveOpen.c)
+ *     RtlAcquirePrivilege @ 0x140783964 (RtlAcquirePrivilege.c)
+ *     BiAcquirePrivilege @ 0x14082F784 (BiAcquirePrivilege.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwSetInformationThread @ 0x1404124B0 (ZwSetInformationThread.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenProcessTokenEx @ 0x140412910 (ZwOpenProcessTokenEx.c)
+ *     ZwDuplicateToken @ 0x140412B50 (ZwDuplicateToken.c)
+ */
+
 __int64 __fastcall RtlImpersonateSelfEx(int a1, int a2, HANDLE *a3)
 {
   NTSTATUS v5; // ebx

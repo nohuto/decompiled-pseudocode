@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmCheckArmPeriod @ 0x14038E300
+ * Callers:
+ *     PpmCheckReInit @ 0x1408265CC (PpmCheckReInit.c)
+ * Callees:
+ *     PpmCheckResetProcessors @ 0x14038F23C (PpmCheckResetProcessors.c)
+ */
+
 char PpmCheckArmPeriod()
 {
   char result; // al

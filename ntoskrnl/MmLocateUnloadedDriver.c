@@ -1,3 +1,12 @@
+/*
+ * XREFs of MmLocateUnloadedDriver @ 0x14062A668
+ * Callers:
+ *     KeBugCheck2 @ 0x140565E90 (KeBugCheck2.c)
+ *     KiDumpParameterImages @ 0x1405680C8 (KiDumpParameterImages.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall MmLocateUnloadedDriver(unsigned __int64 a1)
 {
   int v1; // edx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExpInitializeCallbacks @ 0x140B68930
+ * Callers:
+ *     ExpInitSystemPhase1 @ 0x140B3F0B8 (ExpInitSystemPhase1.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     NtCreateDirectoryObject @ 0x14073DEB0 (NtCreateDirectoryObject.c)
+ *     ExCreateCallback @ 0x14078D4A0 (ExCreateCallback.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     ObCreateObjectType @ 0x14080CB00 (ObCreateObjectType.c)
+ */
+
 char ExpInitializeCallbacks()
 {
   int v0; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of Bulk_EP_FSEReceived @ 0x1C000FC40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Bulk_ProcessStreamOnEndpointStopOrHalt @ 0x1C0046E58 (Bulk_ProcessStreamOnEndpointStopOrHalt.c)
+ */
+
 void __fastcall Bulk_EP_FSEReceived(__int64 a1)
 {
   KSPIN_LOCK *v2; // rdi

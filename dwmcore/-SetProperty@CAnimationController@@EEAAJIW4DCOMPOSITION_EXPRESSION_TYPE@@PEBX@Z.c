@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetProperty@CAnimationController@@EEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1800D59C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?OnPlaybackRateChanged@CAnimationController@@QEAAXXZ @ 0x180022DE8 (-OnPlaybackRateChanged@CAnimationController@@QEAAXXZ.c)
+ *     ?SetProgress@?$CAnimationControllerGeneratedT@VCAnimationController@@VCPropertyChangeResource@@@@QEAAJM@Z @ 0x1800D5A04 (-SetProgress@-$CAnimationControllerGeneratedT@VCAnimationController@@VCPropertyChangeResource@@@.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
 __int64 __fastcall CAnimationController::SetProperty(__int64 a1, int a2, int a3, _DWORD *a4)
 {
   int v4; // edx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ValidateUserEvent@CInputManager@@CAJPEAXPEAPEAX@Z @ 0x1C02701E8
+ * Callers:
+ *     ?DwmInputThread@CInputManager@@IEAAJPEAX0H@Z @ 0x1C026F804 (-DwmInputThread@CInputManager@@IEAAJPEAX0H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CInputManager::ValidateUserEvent(void *a1, void **a2)
 {
   NTSTATUS v3; // eax

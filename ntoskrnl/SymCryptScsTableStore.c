@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptScsTableStore @ 0x14040954C
+ * Callers:
+ *     SymCryptModExpWindowed @ 0x140403800 (SymCryptModExpWindowed.c)
+ * Callees:
+ *     SymCryptScsTableStoreC @ 0x1404095CC (SymCryptScsTableStoreC.c)
+ */
+
 __m128i *__fastcall SymCryptScsTableStore(__int64 a1, int a2, const __m128i *a3)
 {
   __m128i *result; // rax

@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiLockIoPfnTree @ 0x14029C1B0
+ * Callers:
+ *     MiDereferenceIoPages @ 0x14029B654 (MiDereferenceIoPages.c)
+ *     MiReferenceIoPages @ 0x14029BA60 (MiReferenceIoPages.c)
+ *     MiLookupIoPageNode @ 0x1403AB558 (MiLookupIoPageNode.c)
+ *     MiDeleteStaleCacheMaps @ 0x14062B5C0 (MiDeleteStaleCacheMaps.c)
+ *     MiFreezeIoPfnNode @ 0x14062BCF8 (MiFreezeIoPfnNode.c)
+ *     MiIsProbeActive @ 0x14062BDE8 (MiIsProbeActive.c)
+ *     MiMakeIoRangePermanent @ 0x14062C04C (MiMakeIoRangePermanent.c)
+ *     MiMarkHugeRangeIoPfnDeleted @ 0x14062C34C (MiMarkHugeRangeIoPfnDeleted.c)
+ *     MiMarkHugeRangeTransition @ 0x14062C4CC (MiMarkHugeRangeTransition.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ */
+
 unsigned __int8 __fastcall MiLockIoPfnTree(char a1)
 {
   __int64 v1; // r8

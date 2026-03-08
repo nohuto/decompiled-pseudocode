@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetFirstMode@DMMVIDPNSOURCEMODESET@@QEAAPEAVDMMVIDPNSOURCEMODE@@XZ @ 0x1C00242B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 struct DMMVIDPNSOURCEMODE *__fastcall DMMVIDPNSOURCEMODESET::GetFirstMode(DMMVIDPNSOURCEMODESET *this)
 {
   _QWORD *v1; // rcx

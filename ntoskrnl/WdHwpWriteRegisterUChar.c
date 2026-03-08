@@ -1,3 +1,11 @@
+/*
+ * XREFs of WdHwpWriteRegisterUChar @ 0x14036DA60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall WdHwpWriteRegisterUChar(_BYTE *a1, char a2)
 {
   _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h] BYREF

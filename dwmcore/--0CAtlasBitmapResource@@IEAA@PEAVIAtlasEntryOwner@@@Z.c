@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CAtlasBitmapResource@@IEAA@PEAVIAtlasEntryOwner@@@Z @ 0x1800B73F0
+ * Callers:
+ *     ?Create@CAtlasBitmapResource@@SAJPEAVIAtlasEntryOwner@@PEAVCD3DDevice@@PEAPEAV1@@Z @ 0x1800B72EC (-Create@CAtlasBitmapResource@@SAJPEAVIAtlasEntryOwner@@PEAVCD3DDevice@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 CAtlasBitmapResource *__fastcall CAtlasBitmapResource::CAtlasBitmapResource(
         CAtlasBitmapResource *this,
         struct IAtlasEntryOwner *a2)

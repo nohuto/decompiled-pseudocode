@@ -1,3 +1,13 @@
+/*
+ * XREFs of ulCharsetToCodePage @ 0x1C01525CA
+ * Callers:
+ *     ?ppfeSynthesizeAMatch@MAPPER@@QEAAPEAVPFE@@PEAK0PEAU_POINTL@@@Z @ 0x1C011CCCC (-ppfeSynthesizeAMatch@MAPPER@@QEAAPEAVPFE@@PEAK0PEAU_POINTL@@@Z.c)
+ *     ?vEmergency@MAPPER@@QEAAXXZ @ 0x1C014DD80 (-vEmergency@MAPPER@@QEAAXXZ.c)
+ *     ?vAttemptDeviceMatch@MAPPER@@QEAAXXZ @ 0x1C029D774 (-vAttemptDeviceMatch@MAPPER@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ulCharsetToCodePage(Gre::Base *a1)
 {
   __int64 v1; // rax

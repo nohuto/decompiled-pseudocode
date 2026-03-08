@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpSetPCIData @ 0x1403701C4
+ * Callers:
+ *     HalSetBusDataByOffset @ 0x140370180 (HalSetBusDataByOffset.c)
+ * Callees:
+ *     HalpWritePCIConfig @ 0x1403702A0 (HalpWritePCIConfig.c)
+ *     HalpReadPCIConfig @ 0x1403704C4 (HalpReadPCIConfig.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall HalpSetPCIData(__int64 a1, __int64 a2, __int64 a3, const void *a4, unsigned int a5, size_t Size)
 {
   unsigned int v6; // r12d

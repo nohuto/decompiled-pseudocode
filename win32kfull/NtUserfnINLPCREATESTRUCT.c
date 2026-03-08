@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserfnINLPCREATESTRUCT @ 0x1C00A0D20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitLargeUnicodeString @ 0x1C00A0F84 (RtlInitLargeUnicodeString.c)
+ *     RtlInitLargeAnsiString @ 0x1C00F4F04 (RtlInitLargeAnsiString.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall NtUserfnINLPCREATESTRUCT(
         __int64 a1,
         unsigned int a2,

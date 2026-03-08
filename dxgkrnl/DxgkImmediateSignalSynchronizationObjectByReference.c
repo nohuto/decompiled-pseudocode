@@ -1,3 +1,16 @@
+/*
+ * XREFs of DxgkImmediateSignalSynchronizationObjectByReference @ 0x1C034E2AC
+ * Callers:
+ *     ?NotifyOfDwmTermination@CFlipExBuffer@@UEAAXXZ @ 0x1C000B430 (-NotifyOfDwmTermination@CFlipExBuffer@@UEAAXXZ.c)
+ *     ??1CFlipExBuffer@@MEAA@XZ @ 0x1C000BAE4 (--1CFlipExBuffer@@MEAA@XZ.c)
+ *     ?InsertCascadedTokenSignal@CFlipExBuffer@@QEAAJ_K@Z @ 0x1C007D7AC (-InsertCascadedTokenSignal@CFlipExBuffer@@QEAAJ_K@Z.c)
+ *     ?SignalGpuFence@CFlipExBuffer@@UEAAJ_K_N@Z @ 0x1C007DD00 (-SignalGpuFence@CFlipExBuffer@@UEAAJ_K_N@Z.c)
+ *     ?IssueAndFreeSignal@CFlipManager@@AEAAXPEAVCFlipManagerSignal@@_K@Z @ 0x1C008382C (-IssueAndFreeSignal@CFlipManager@@AEAAXPEAVCFlipManagerSignal@@_K@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?SignalFence@DXGSYNCOBJECT@@QEAAJ_KIW4SIGNAL_FENCE_HANDLE_TYPE@@@Z @ 0x1C034CBB0 (-SignalFence@DXGSYNCOBJECT@@QEAAJ_KIW4SIGNAL_FENCE_HANDLE_TYPE@@@Z.c)
+ */
+
 __int64 __fastcall DxgkImmediateSignalSynchronizationObjectByReference(__int64 a1, __int64 a2)
 {
   int v3; // eax

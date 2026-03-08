@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SendAckProxyReference@BamoPeerImpl@DiagnosticCallbacks_AutoBamos@BamoImpl@@UEAAXI_N@Z @ 0x1801B78D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B44D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
 void __fastcall BamoImpl::DiagnosticCallbacks_AutoBamos::BamoPeerImpl::SendAckProxyReference(
         BamoImpl::DiagnosticCallbacks_AutoBamos::BamoPeerImpl *this,
         int a2)

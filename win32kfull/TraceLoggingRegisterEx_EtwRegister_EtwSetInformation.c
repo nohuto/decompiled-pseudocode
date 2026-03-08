@@ -1,3 +1,15 @@
+/*
+ * XREFs of TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C039C928
+ * Callers:
+ *     ??0InteractiveControlManager@@AEAA@XZ @ 0x1C0079FB4 (--0InteractiveControlManager@@AEAA@XZ.c)
+ *     EnableUserkTraceLogging @ 0x1C00EC650 (EnableUserkTraceLogging.c)
+ *     InitializeTelemetryAssertsKMWorkerInternal @ 0x1C00F0134 (InitializeTelemetryAssertsKMWorkerInternal.c)
+ *     ??0InkProcessor@@AEAA@XZ @ 0x1C00F8120 (--0InkProcessor@@AEAA@XZ.c)
+ *     TlgRegisterAggregateProviderEx @ 0x1C039C844 (TlgRegisterAggregateProviderEx.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(char *CallbackContext, __int64 a2, __int64 a3)
 {
   ULONGLONG *v3; // rsi

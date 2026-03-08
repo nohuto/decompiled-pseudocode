@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefIntCreate @ 0x1403FFD14
+ * Callers:
+ *     SymCryptIntCreate @ 0x1403F37C8 (SymCryptIntCreate.c)
+ * Callees:
+ *     <none>
+ */
+
 _DWORD *__fastcall SymCryptFdefIntCreate(_DWORD *a1, unsigned __int64 a2, int a3)
 {
   _DWORD *v3; // r9

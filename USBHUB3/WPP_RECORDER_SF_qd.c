@@ -1,3 +1,20 @@
+/*
+ * XREFs of WPP_RECORDER_SF_qd @ 0x1C00031FC
+ * Callers:
+ *     HUBHTX_Get30PortChangeEvent @ 0x1C000569C (HUBHTX_Get30PortChangeEvent.c)
+ *     HUBHSM_WaitingForOvercurrentToClear @ 0x1C0009300 (HUBHSM_WaitingForOvercurrentToClear.c)
+ *     HUBUCX_EvtResetActionCompletion @ 0x1C0025A00 (HUBUCX_EvtResetActionCompletion.c)
+ *     HUBMISC_IncrementEnumRetryCountAndCheckIfReachedMax @ 0x1C002EA10 (HUBMISC_IncrementEnumRetryCountAndCheckIfReachedMax.c)
+ *     HUBMISC_StartOverCurrentTimer @ 0x1C0032480 (HUBMISC_StartOverCurrentTimer.c)
+ *     HUBMISC_StartD3ColdReconnectTimer @ 0x1C0032598 (HUBMISC_StartD3ColdReconnectTimer.c)
+ *     TUNNEL_RegisterUsb4HostForPort @ 0x1C008D404 (TUNNEL_RegisterUsb4HostForPort.c)
+ *     TUNNEL_UpdateUsb4HostPowerRelations @ 0x1C008ECD8 (TUNNEL_UpdateUsb4HostPowerRelations.c)
+ *     TUNNEL_AcquireUsb4HostPowerReference @ 0x1C008EE94 (TUNNEL_AcquireUsb4HostPowerReference.c)
+ *     TUNNEL_ReleaseUsb4HostPowerReference @ 0x1C008F058 (TUNNEL_ReleaseUsb4HostPowerReference.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_qd(__int64 a1, unsigned __int8 a2, unsigned int a3, unsigned __int16 a4, __int64 a5, ...)
 {
   unsigned __int64 v7; // rdi

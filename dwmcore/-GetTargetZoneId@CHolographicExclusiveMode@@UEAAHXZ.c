@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetTargetZoneId@CHolographicExclusiveMode@@UEAAHXZ @ 0x1802A4A30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CHolographicExclusiveMode::GetTargetZoneId(RTL_SRWLOCK *this)
 {
   RTL_SRWLOCK *v1; // rdi

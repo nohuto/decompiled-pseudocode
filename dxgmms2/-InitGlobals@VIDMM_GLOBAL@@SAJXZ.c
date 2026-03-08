@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?InitGlobals@VIDMM_GLOBAL@@SAJXZ @ 0x1C00BDE54
+ * Callers:
+ *     DriverEntry @ 0x1C010D1E8 (DriverEntry.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0001AD8 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetMaximumGlobalAdapterCount@DXGGLOBAL@@QEAAKXZ @ 0x1C0001AFC (-GetMaximumGlobalAdapterCount@DXGGLOBAL@@QEAAKXZ.c)
+ *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0002360 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C00023B8 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     McGenEventRegister_EtwRegister @ 0x1C0019624 (McGenEventRegister_EtwRegister.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     ?InitGlobalStorage@VIDMM_PROCESS_FENCE_STORAGE@@SAJXZ @ 0x1C00BE18C (-InitGlobalStorage@VIDMM_PROCESS_FENCE_STORAGE@@SAJXZ.c)
+ *     TlgRegisterAggregateProviderEx @ 0x1C00BE1D4 (TlgRegisterAggregateProviderEx.c)
+ *     ?InitGlobals@VIDMM_DMA_POOL@@SAJXZ @ 0x1C00BE568 (-InitGlobals@VIDMM_DMA_POOL@@SAJXZ.c)
+ *     ?InitPhysicalHeap@VIDMM_GLOBAL@@CAXXZ @ 0x1C00BE6E8 (-InitPhysicalHeap@VIDMM_GLOBAL@@CAXXZ.c)
+ *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C0968 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ */
+
 __int64 VIDMM_GLOBAL::InitGlobals(void)
 {
   DXGGLOBAL *Global; // rax

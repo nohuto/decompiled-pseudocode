@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPICMLidSetPowerCompletion @ 0x1C00198C0
+ * Callers:
+ *     ACPICMLidSetPower @ 0x1C0019820 (ACPICMLidSetPower.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIBusIrpSetSystemPower @ 0x1C0016FF4 (ACPIBusIrpSetSystemPower.c)
+ *     ACPIButtonEvent @ 0x1C00189F0 (ACPIButtonEvent.c)
+ *     ACPICMButtonSetPower @ 0x1C0018C10 (ACPICMButtonSetPower.c)
+ */
+
 __int64 __fastcall ACPICMLidSetPowerCompletion(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdi

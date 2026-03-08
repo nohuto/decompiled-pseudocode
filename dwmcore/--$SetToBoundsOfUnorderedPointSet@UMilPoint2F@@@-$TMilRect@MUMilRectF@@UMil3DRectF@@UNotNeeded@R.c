@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$SetToBoundsOfUnorderedPointSet@UMilPoint2F@@@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAAXV?$span@$$CBUMilPoint2F@@$0?0@gsl@@@Z @ 0x18026C7D8
+ * Callers:
+ *     ??$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800C35E0 (--$Transform2DBoundsHelper@$00@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
+ * Callees:
+ *     ??A?$span@$$CBUMilPoint2F@@$0?0@gsl@@QEBAAEBUMilPoint2F@@_K@Z @ 0x18026C8B8 (--A-$span@$$CBUMilPoint2F@@$0-0@gsl@@QEBAAEBUMilPoint2F@@_K@Z.c)
+ */
+
 __int64 __fastcall TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::SetToBoundsOfUnorderedPointSet<MilPoint2F>(
         float *a1,
         unsigned __int64 *a2)

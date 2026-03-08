@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF__guid_d @ 0x1C00373EC
+ * Callers:
+ *     Controller_ExecuteDSM @ 0x1C006E4A4 (Controller_ExecuteDSM.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF__guid_d(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, __int64 a6)
 {
   int v8; // [rsp+20h] [rbp-48h]

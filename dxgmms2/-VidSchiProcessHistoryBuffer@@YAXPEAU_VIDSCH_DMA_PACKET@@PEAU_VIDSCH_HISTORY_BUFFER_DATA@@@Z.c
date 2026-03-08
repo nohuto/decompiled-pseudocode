@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?VidSchiProcessHistoryBuffer@@YAXPEAU_VIDSCH_DMA_PACKET@@PEAU_VIDSCH_HISTORY_BUFFER_DATA@@@Z @ 0x1C0036034
+ * Callers:
+ *     VidSchiProcessDpcCompletedPacket @ 0x1C0004B90 (VidSchiProcessDpcCompletedPacket.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqqqqUR4_EtwWriteTransfer @ 0x1C0038D08 (McTemplateK0pqqqqUR4_EtwWriteTransfer.c)
+ */
+
 void __fastcall VidSchiProcessHistoryBuffer(struct _VIDSCH_DMA_PACKET *a1, __m128i **a2)
 {
   struct _VIDSCH_DMA_PACKET *v2; // r11

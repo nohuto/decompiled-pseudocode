@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtRIMDeviceIoControl @ 0x1C01A1AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RIMDeviceIoControl @ 0x1C00336C0 (RIMDeviceIoControl.c)
+ */
+
 __int64 __fastcall NtRIMDeviceIoControl(
         __int64 a1,
         __int64 a2,

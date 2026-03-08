@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPresentDurationTolerance@CGlobalCompositionSurfaceInfo@@UEBA_NPEAI@Z @ 0x1801302A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CGlobalCompositionSurfaceInfo::GetPresentDurationTolerance(
         CGlobalCompositionSurfaceInfo *this,
         unsigned int *a2)

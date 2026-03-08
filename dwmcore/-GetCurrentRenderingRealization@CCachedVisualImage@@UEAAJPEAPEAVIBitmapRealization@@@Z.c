@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetCurrentRenderingRealization@CCachedVisualImage@@UEAAJPEAPEAVIBitmapRealization@@@Z @ 0x1800E1B8C
+ * Callers:
+ *     ?GetCurrentRenderingRealization@CCachedVisualImage@@$4PPPPPPPM@A@EAAJPEAPEAVIBitmapRealization@@@Z @ 0x1801183B0 (-GetCurrentRenderingRealization@CCachedVisualImage@@$4PPPPPPPM@A@EAAJPEAPEAVIBitmapRealization@@.c)
+ *     ?GetCurrentRenderingRealization@CCachedVisualImage@@$4PPPPPPPM@NA@EAAJPEAPEAVIBitmapRealization@@@Z @ 0x180119A90 (-GetCurrentRenderingRealization@CCachedVisualImage@@$4PPPPPPPM@NA@EAAJPEAPEAVIBitmapRealization@.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CCachedVisualImage::GetCurrentRenderingRealization(
         CCachedVisualImage *this,
         struct IBitmapRealization **a2)

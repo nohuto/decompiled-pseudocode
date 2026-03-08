@@ -1,3 +1,17 @@
+/*
+ * XREFs of SepGetSingletonEntryFromIndexNumber @ 0x1402988C8
+ * Callers:
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x140247394 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SepInitSingletonEntry @ 0x140298864 (SepInitSingletonEntry.c)
+ *     SepCleanupMarkedForDeletionEntries @ 0x1402B7F18 (SepCleanupMarkedForDeletionEntries.c)
+ *     SepSetSingletonEntry @ 0x14039D204 (SepSetSingletonEntry.c)
+ *     SepValidateAndCopyGlobalEntry @ 0x1405B710C (SepValidateAndCopyGlobalEntry.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall SepGetSingletonEntryFromIndexNumber(unsigned int a1)
 {
   __int64 v1; // rsi

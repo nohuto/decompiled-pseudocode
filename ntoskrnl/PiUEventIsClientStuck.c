@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiUEventIsClientStuck @ 0x140680508
+ * Callers:
+ *     PiUEventNotifyClient @ 0x14068032C (PiUEventNotifyClient.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall PiUEventIsClientStuck(__int64 a1)
 {
   char v1; // r8

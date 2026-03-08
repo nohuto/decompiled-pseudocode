@@ -1,3 +1,12 @@
+/*
+ * XREFs of IcCheckIrqConflict @ 0x1C009ECDC
+ * Callers:
+ *     ProcessorpFindAffinitizedIdtEntries @ 0x1C009B1A8 (ProcessorpFindAffinitizedIdtEntries.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     IcIsActiveBothPrimaryInterrupt @ 0x1C009F3F0 (IcIsActiveBothPrimaryInterrupt.c)
+ */
+
 __int64 __fastcall IcCheckIrqConflict(unsigned int a1, int a2, unsigned __int8 a3, _BYTE *a4)
 {
   __int64 v4; // r10

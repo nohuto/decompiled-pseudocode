@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopCombineLegacyResources @ 0x140956E34
+ * Callers:
+ *     IopLegacyResourceAllocation @ 0x140801DA4 (IopLegacyResourceAllocation.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PnpDetermineResourceListSize @ 0x1406F69E8 (PnpDetermineResourceListSize.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 _DWORD *__fastcall IopCombineLegacyResources(__int64 a1)
 {
   _DWORD *v1; // rsi

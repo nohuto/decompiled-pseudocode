@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepSddlAddAceToAcl @ 0x1C0392894
+ * Callers:
+ *     SepSddlGetAclForString @ 0x1C0392A80 (SepSddlGetAclForString.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 NTSTATUS __fastcall SepSddlAddAceToAcl(
         const void **a1,
         _DWORD *a2,

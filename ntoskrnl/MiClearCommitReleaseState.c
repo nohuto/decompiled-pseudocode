@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiClearCommitReleaseState @ 0x140615BBC
+ * Callers:
+ *     MmCleanProcessAddressSpace @ 0x1407D4924 (MmCleanProcessAddressSpace.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ */
+
 void __fastcall MiClearCommitReleaseState(__int64 a1)
 {
   volatile LONG *SharedVm; // rbx

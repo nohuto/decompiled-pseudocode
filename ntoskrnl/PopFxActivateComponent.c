@@ -1,3 +1,22 @@
+/*
+ * XREFs of PopFxActivateComponent @ 0x140305D50
+ * Callers:
+ *     PopFxNotifyPreDIrpIssue @ 0x1402BA338 (PopFxNotifyPreDIrpIssue.c)
+ *     PoFxActivateComponent @ 0x140305CE0 (PoFxActivateComponent.c)
+ *     PopFxActivateComponentDependencies @ 0x140306004 (PopFxActivateComponentDependencies.c)
+ *     PoFxAddComponentRelation @ 0x1405851D0 (PoFxAddComponentRelation.c)
+ *     PoFxAddDeviceRelation @ 0x1405855F0 (PoFxAddDeviceRelation.c)
+ *     PoFxRemoveComponentRelation @ 0x140585C70 (PoFxRemoveComponentRelation.c)
+ *     PopFxRegisterDeviceWorker @ 0x14083714C (PopFxRegisterDeviceWorker.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     PopFxActivateComponentWorker @ 0x140305EB4 (PopFxActivateComponentWorker.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall PopFxActivateComponent(__int64 a1, __int64 a2, char a3, unsigned __int8 a4)
 {
   $C71981A45BEB2B45F82C232A7085991E *v6; // rax

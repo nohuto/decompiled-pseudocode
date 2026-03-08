@@ -1,3 +1,15 @@
+/*
+ * XREFs of VslGetSecureSpeculationControlInformation @ 0x140384704
+ * Callers:
+ *     KeQuerySecureSpeculationInformation @ 0x140571664 (KeQuerySecureSpeculationInformation.c)
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x1402D8618 (HvlQueryVsmConnection.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 VslGetSecureSpeculationControlInformation()
 {
   int v0; // ecx

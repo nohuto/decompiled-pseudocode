@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiLogOutswappedProcessCommitRelease @ 0x140615F48
+ * Callers:
+ *     MiReleaseOutSwappedProcessCommit @ 0x140616E38 (MiReleaseOutSwappedProcessCommit.c)
+ * Callees:
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x1403BE3FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall MiLogOutswappedProcessCommitRelease(__int64 a1, __int64 a2)
 {
   __int64 v3; // r9

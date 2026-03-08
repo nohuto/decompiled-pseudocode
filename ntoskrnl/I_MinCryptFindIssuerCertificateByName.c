@@ -1,3 +1,14 @@
+/*
+ * XREFs of I_MinCryptFindIssuerCertificateByName @ 0x140A6C8E0
+ * Callers:
+ *     MinCryptCheckCertsAndKeys @ 0x140674F10 (MinCryptCheckCertsAndKeys.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6CBC8 (MinCryptVerifyCertificateWithPolicy2.c)
+ * Callees:
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     I_MinCryptGetCertificateEKUs @ 0x140A6CAE0 (I_MinCryptGetCertificateEKUs.c)
+ *     I_MinCryptCheckEKURequirements @ 0x140A6DC80 (I_MinCryptCheckEKURequirements.c)
+ */
+
 __int64 __fastcall I_MinCryptFindIssuerCertificateByName(
         unsigned int *a1,
         unsigned int a2,

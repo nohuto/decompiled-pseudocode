@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?SmmIommuSwitchToPassthrough@@YAJPEAUSYSMM_ADAPTER@@@Z @ 0x1C03D13E8
+ * Callers:
+ *     ?SmmUnblockDevice@@YAJPEAUSYSMM_ADAPTER@@@Z @ 0x1C03D17F8 (-SmmUnblockDevice@@YAJPEAUSYSMM_ADAPTER@@@Z.c)
+ *     ?SysMmDisableIommu@@YAJPEAUSYSMM_ADAPTER@@W4SYSMM_IOMMU_ENABLEMENT_REASON@@@Z @ 0x1C03D19B0 (-SysMmDisableIommu@@YAJPEAUSYSMM_ADAPTER@@W4SYSMM_IOMMU_ENABLEMENT_REASON@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     SmmAssignDomain @ 0x1C006DD94 (SmmAssignDomain.c)
+ *     SmmClearPageManager @ 0x1C006DE28 (SmmClearPageManager.c)
+ *     SmmIommuDeleteDomain @ 0x1C03D1194 (SmmIommuDeleteDomain.c)
+ *     SmmSwapDomains @ 0x1C03D1710 (SmmSwapDomains.c)
+ */
+
 __int64 __fastcall SmmIommuSwitchToPassthrough(struct SYSMM_ADAPTER *a1)
 {
   int v2; // edi

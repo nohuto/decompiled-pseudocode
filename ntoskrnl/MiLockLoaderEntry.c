@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiLockLoaderEntry @ 0x1402A6B58
+ * Callers:
+ *     MiMakeDriverPagesPrivate @ 0x1402A6440 (MiMakeDriverPagesPrivate.c)
+ *     MiSetPagingOfDriver @ 0x1402AFF28 (MiSetPagingOfDriver.c)
+ *     MmProtectDriverSection @ 0x140302930 (MmProtectDriverSection.c)
+ *     MiProtectDriverSectionPte @ 0x140618060 (MiProtectDriverSectionPte.c)
+ *     MiFindDriverNonPagedSections @ 0x14072715C (MiFindDriverNonPagedSections.c)
+ *     MiFreeInitializationCode @ 0x14072A51C (MiFreeInitializationCode.c)
+ *     MiLockdownSections @ 0x14072E408 (MiLockdownSections.c)
+ * Callees:
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x14023A860 (ExAcquireAutoExpandPushLockExclusive.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 signed __int64 __fastcall MiLockLoaderEntry(__int64 a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rax

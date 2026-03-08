@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopFxWorkOrderWatchdog @ 0x14058A180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ */
+
 void __fastcall __noreturn PopFxWorkOrderWatchdog(__int64 a1, ULONG_PTR a2)
 {
   ULONG_PTR v2; // r8

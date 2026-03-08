@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AddEdgeToGET@@YAPEAVEDGE@@PEAV1@0PEAU_POINTFIX@@1PEAU_RECTL@@@Z @ 0x1C0182F70
+ * Callers:
+ *     bConstructGET @ 0x1C01847D0 (bConstructGET.c)
+ * Callees:
+ *     <none>
+ */
+
 struct EDGE *__fastcall AddEdgeToGET(
         struct EDGE *a1,
         struct EDGE *a2,

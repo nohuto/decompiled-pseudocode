@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPILoadProcessFACS @ 0x1C00A9840
+ * Callers:
+ *     ACPILoadProcessFADT @ 0x1C00A999C (ACPILoadProcessFADT.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_i @ 0x1C002293C (WPP_RECORDER_SF_i.c)
+ */
+
 __int64 ACPILoadProcessFACS()
 {
   unsigned int v0; // edi

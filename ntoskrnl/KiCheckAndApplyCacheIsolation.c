@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiCheckAndApplyCacheIsolation @ 0x140574B00
+ * Callers:
+ *     SwapContext @ 0x14041F970 (SwapContext.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiCheckAndApplyCacheIsolation(__int64 a1, __int64 a2)
 {
   int v2; // r10d

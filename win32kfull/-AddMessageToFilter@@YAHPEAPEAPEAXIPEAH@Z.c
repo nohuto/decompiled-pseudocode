@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C00CBC54
+ * Callers:
+ *     _ChangeWindowMessageFilter @ 0x1C00CB7AC (_ChangeWindowMessageFilter.c)
+ *     _ChangeWindowMessageFilterEx @ 0x1C00CB9E8 (_ChangeWindowMessageFilterEx.c)
+ * Callees:
+ *     ?MsgLookupTableAlloc@@YAPEAXI@Z @ 0x1C00CBD80 (-MsgLookupTableAlloc@@YAPEAXI@Z.c)
+ */
+
 __int64 __fastcall AddMessageToFilter(void ***a1, unsigned int a2, int *a3)
 {
   void **v3; // rdi

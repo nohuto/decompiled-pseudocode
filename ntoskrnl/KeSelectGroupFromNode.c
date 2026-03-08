@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeSelectGroupFromNode @ 0x140296028
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KeSelectGroupFromNode(__int64 a1)
 {
   char v2; // cl

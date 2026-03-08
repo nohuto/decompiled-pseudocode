@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetAndClearCurrentDirty@CCompositionBuffer@@QEAAXPEAPEAUHRGN__@@PEAUScrollOptimization@@@Z @ 0x1C007CAC4
+ * Callers:
+ *     ?GetSurfaceUpdate@CCompositionSurface@@QEBAJ_KPEAUCSM_SURFACE_UPDATE_@@@Z @ 0x1C007BB6C (-GetSurfaceUpdate@CCompositionSurface@@QEBAJ_KPEAUCSM_SURFACE_UPDATE_@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CCompositionBuffer::GetAndClearCurrentDirty(
         CCompositionBuffer *this,
         HRGN *a2,

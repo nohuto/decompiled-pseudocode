@@ -1,3 +1,17 @@
+/*
+ * XREFs of rimCreateAndProcessPointerDeviceButtonOnlyFrame @ 0x1C01D5FD0
+ * Callers:
+ *     rimDoProcessAnyPointerDeviceInput @ 0x1C01D6420 (rimDoProcessAnyPointerDeviceInput.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RIMAbArbitratePointerDeviceFrame @ 0x1C01AA284 (RIMAbArbitratePointerDeviceFrame.c)
+ *     RIMCompletePointerDeviceFrame @ 0x1C01CD424 (RIMCompletePointerDeviceFrame.c)
+ *     RIMStartPointerDeviceFrame @ 0x1C01CDC44 (RIMStartPointerDeviceFrame.c)
+ *     RIMStoreRawDataInPointerDeviceFrame @ 0x1C01CDF34 (RIMStoreRawDataInPointerDeviceFrame.c)
+ *     rimProcessMissingPointerDeviceContacts @ 0x1C01D9470 (rimProcessMissingPointerDeviceContacts.c)
+ *     rimProcessPointerDeviceButtonContact @ 0x1C01D99D4 (rimProcessPointerDeviceButtonContact.c)
+ */
+
 __int64 __fastcall rimCreateAndProcessPointerDeviceButtonOnlyFrame(
         struct RawInputManagerObject *a1,
         LARGE_INTEGER *a2,

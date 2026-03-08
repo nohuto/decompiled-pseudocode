@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiCreateTopLevelUltraMappings @ 0x140B38844
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     MiMakeZeroedPageTablesEx @ 0x14020F130 (MiMakeZeroedPageTablesEx.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     MiInitializeUltraSpace @ 0x140B38940 (MiInitializeUltraSpace.c)
+ */
+
 __int64 MiCreateTopLevelUltraMappings()
 {
   __int64 v0; // rdi

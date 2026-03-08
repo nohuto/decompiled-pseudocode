@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??4CBspPreComputeHelper@@QEAAAEAV0@$$QEAV0@@Z @ 0x1801B2CDC
+ * Callers:
+ *     ??4SubTreeContext@CPreComputeContext@@QEAAAEAV01@$$QEAV01@@Z @ 0x1801B2FE8 (--4SubTreeContext@CPreComputeContext@@QEAAAEAV01@$$QEAV01@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CBspPreComputeHelper::operator=(__int64 a1, __int64 a2)
 {
   _DWORD *v2; // r8

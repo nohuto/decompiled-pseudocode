@@ -1,3 +1,19 @@
+/*
+ * XREFs of IopQueryNameInternal @ 0x140720054
+ * Callers:
+ *     IopQueryName @ 0x14071E9C0 (IopQueryName.c)
+ *     IoQueryFileDosDeviceName @ 0x14071FFB0 (IoQueryFileDosDeviceName.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IopExceptionFilterMode @ 0x14055312C (IopExceptionFilterMode.c)
+ *     IopQueryXxxInformation @ 0x14071E6CC (IopQueryXxxInformation.c)
+ *     ObQueryNameStringMode @ 0x14071EE84 (ObQueryNameStringMode.c)
+ *     IopGetFileInformation @ 0x14072054C (IopGetFileInformation.c)
+ *     IoVolumeDeviceToDosName @ 0x140720680 (IoVolumeDeviceToDosName.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopQueryNameInternal(
         struct _FILE_OBJECT *a1,
         __int64 a2,

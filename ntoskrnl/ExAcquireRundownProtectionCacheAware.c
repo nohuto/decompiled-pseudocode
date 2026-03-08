@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExAcquireRundownProtectionCacheAware @ 0x1402C3B80
+ * Callers:
+ *     MiProbeLockFrame @ 0x140268ED0 (MiProbeLockFrame.c)
+ *     MiSwitchToTransition @ 0x140630D6C (MiSwitchToTransition.c)
+ * Callees:
+ *     ExfAcquireRundownProtection @ 0x1402C3BD0 (ExfAcquireRundownProtection.c)
+ */
+
 BOOLEAN __stdcall ExAcquireRundownProtectionCacheAware(PEX_RUNDOWN_REF_CACHE_AWARE RunRefCacheAware)
 {
   struct _EX_RUNDOWN_REF *v1; // rcx

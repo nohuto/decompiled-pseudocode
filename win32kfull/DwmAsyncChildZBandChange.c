@@ -1,3 +1,11 @@
+/*
+ * XREFs of DwmAsyncChildZBandChange @ 0x1C0027FF8
+ * Callers:
+ *     ?SetWindowTreeBand@@YAXPEAUtagWND@@W4ZBID@@@Z @ 0x1C0027F7C (-SetWindowTreeBand@@YAXPEAUtagWND@@W4ZBID@@@Z.c)
+ * Callees:
+ *     ?IncrementDWMWindowUniqueness@@YA_JXZ @ 0x1C0028164 (-IncrementDWMWindowUniqueness@@YA_JXZ.c)
+ */
+
 __int64 __fastcall DwmAsyncChildZBandChange(PVOID Object, __int64 a2, int a3)
 {
   unsigned int v6; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SatisfyMinResolutionBarForScaleIdx@DpiInternal@@YAKHHUtagSIZE@@QEBU_DPI_SCALE_FACTOR_COLLECTION@@H@Z @ 0x1C0191750
+ * Callers:
+ *     ?FillDpiInfo@@YAXAEBUtagSIZE@@0PEBU_DPI_SCALE_FACTOR_COLLECTION@@IIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C00D7854 (-FillDpiInfo@@YAXAEBUtagSIZE@@0PEBU_DPI_SCALE_FACTOR_COLLECTION@@IIIHPEAU_DPI_INFORMATION@@@Z.c)
+ * Callees:
+ *     ??PDpiInternal@@YA_NAEBUtagSIZE@@0@Z @ 0x1C018C888 (--PDpiInternal@@YA_NAEBUtagSIZE@@0@Z.c)
+ */
+
 __int64 __fastcall DpiInternal::SatisfyMinResolutionBarForScaleIdx(
         DpiInternal *this,
         int a2,

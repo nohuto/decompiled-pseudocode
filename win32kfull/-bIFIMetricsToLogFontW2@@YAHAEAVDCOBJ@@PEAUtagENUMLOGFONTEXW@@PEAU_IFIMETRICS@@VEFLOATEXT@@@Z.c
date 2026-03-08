@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?bIFIMetricsToLogFontW2@@YAHAEAVDCOBJ@@PEAUtagENUMLOGFONTEXW@@PEAU_IFIMETRICS@@VEFLOATEXT@@@Z @ 0x1C00045C8
+ * Callers:
+ *     cjCopyFontDataW @ 0x1C0004330 (cjCopyFontDataW.c)
+ * Callees:
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00CFF10 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     bFToL @ 0x1C00D1C50 (bFToL.c)
+ *     ?vIFIMetricsToEnumLogFontW@@YAXPEAUtagENUMLOGFONTW@@PEAU_IFIMETRICS@@@Z @ 0x1C01122D8 (-vIFIMetricsToEnumLogFontW@@YAXPEAUtagENUMLOGFONTW@@PEAU_IFIMETRICS@@@Z.c)
+ *     ?pptlBaseline@IFIOBJ@@QEAAPEAU_POINTL@@XZ @ 0x1C01225D4 (-pptlBaseline@IFIOBJ@@QEAAPEAU_POINTL@@XZ.c)
+ */
+
 __int64 __fastcall bIFIMetricsToLogFontW2(struct XDCOBJ *a1, struct tagENUMLOGFONTW *a2, struct _IFIMETRICS *a3)
 {
   __int64 v5; // rcx

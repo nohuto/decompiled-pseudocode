@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C005A860
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetRectangleHelper@CRectangleClipMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@PEBUD2D_RECT_F@@PEA_N@Z @ 0x1C005A258 (-SetRectangleHelper@CRectangleClipMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@PE.c)
+ */
+
 __int64 __fastcall DirectComposition::CRectangleClipMarshaler::SetBufferProperty(
         DirectComposition::CRectangleClipMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

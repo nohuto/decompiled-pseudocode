@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpCoverageFreeStringBuffers @ 0x1409E55C0
+ * Callers:
+ *     EtwpCoverageEnsureContext @ 0x1408537B4 (EtwpCoverageEnsureContext.c)
+ *     EtwpCoverageReset @ 0x1409E566C (EtwpCoverageReset.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwpCoverageFreeStringBuffers(__int64 a1, int a2)
 {
   _QWORD *v2; // r14

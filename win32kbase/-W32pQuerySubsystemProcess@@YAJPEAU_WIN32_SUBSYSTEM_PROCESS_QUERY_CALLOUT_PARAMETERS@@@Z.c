@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?W32pQuerySubsystemProcess@@YAJPEAU_WIN32_SUBSYSTEM_PROCESS_QUERY_CALLOUT_PARAMETERS@@@Z @ 0x1C01599EC
+ * Callers:
+ *     W32CalloutDispatch @ 0x1C00ED390 (W32CalloutDispatch.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall W32pQuerySubsystemProcess(struct _WIN32_SUBSYSTEM_PROCESS_QUERY_CALLOUT_PARAMETERS *a1)
 {
   unsigned __int64 v1; // rbx

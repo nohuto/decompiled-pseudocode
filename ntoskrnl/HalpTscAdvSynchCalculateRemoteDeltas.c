@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpTscAdvSynchCalculateRemoteDeltas @ 0x140388048
+ * Callers:
+ *     HalpTscAdvSynchLeader @ 0x140387D38 (HalpTscAdvSynchLeader.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     HalpTscAdvSynchCalculateRemoteDelta @ 0x14038829C (HalpTscAdvSynchCalculateRemoteDelta.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall HalpTscAdvSynchCalculateRemoteDeltas(
         __int64 *a1,
         __int64 *a2,

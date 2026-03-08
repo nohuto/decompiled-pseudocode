@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlStringCopyWorkerW_0 @ 0x1C0029258
+ * Callers:
+ *     ?RtlStringCbCatW@@YAJPEAG_KPEBG@Z @ 0x1C003F868 (-RtlStringCbCatW@@YAJPEAG_KPEBG@Z.c)
+ *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x1C003F8DC (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlStringCopyWorkerW_0(
         NTSTRSAFE_PWSTR pszDest,
         size_t cchDest,

@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiLockAndInsertPageInFreeList @ 0x140387CB4
+ * Callers:
+ *     MiMakePageAvoidRead @ 0x140272670 (MiMakePageAvoidRead.c)
+ *     MiTradePage @ 0x1403B5640 (MiTradePage.c)
+ *     MiBuildForkPte @ 0x14065FC20 (MiBuildForkPte.c)
+ *     MiComputeCacheAttributeSpeeds @ 0x140811138 (MiComputeCacheAttributeSpeeds.c)
+ *     MiFreeBootPageTable @ 0x140B50684 (MiFreeBootPageTable.c)
+ *     MiFreeEmptyBootPageTable @ 0x140B961A8 (MiFreeEmptyBootPageTable.c)
+ * Callees:
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiLockAndInsertPageInFreeList(__int64 a1)
 {
   ULONG_PTR v2; // rbx

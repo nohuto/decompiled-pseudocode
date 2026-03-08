@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Remove@DXGFIXEDQUEUE@@QEAAJPEAI@Z @ 0x1C0058644
+ * Callers:
+ *     ?AcquireBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_ACQUIRESWAPCHAIN@@PEAI@Z @ 0x1C02247B4 (-AcquireBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_ACQUIRESWAPCHAIN@@PEAI@Z.c)
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DXGFIXEDQUEUE::Remove(DXGFIXEDQUEUE *this, unsigned int *a2)
 {
   __int64 v3; // rcx

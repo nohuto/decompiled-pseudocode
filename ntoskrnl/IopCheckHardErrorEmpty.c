@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopCheckHardErrorEmpty @ 0x140552AE0
+ * Callers:
+ *     IopHardErrorThread @ 0x140941E20 (IopHardErrorThread.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char IopCheckHardErrorEmpty()
 {
   char v0; // di

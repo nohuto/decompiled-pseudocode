@@ -1,3 +1,14 @@
+/*
+ * XREFs of VfSuspectDifRemoveEntry @ 0x140AD734C
+ * Callers:
+ *     VfDriverRemoveDifVerification @ 0x140AC7778 (VfDriverRemoveDifVerification.c)
+ *     VfSuspectRemoveDifVolatileVerification @ 0x140AD7C74 (VfSuspectRemoveDifVolatileVerification.c)
+ *     VfVolatileApplyDifVerification @ 0x140ADAA10 (VfVolatileApplyDifVerification.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     ViSuspectDriversLookupEntry @ 0x140AD7CE0 (ViSuspectDriversLookupEntry.c)
+ */
+
 void __fastcall VfSuspectDifRemoveEntry(const UNICODE_STRING *a1)
 {
   _QWORD *v1; // rax

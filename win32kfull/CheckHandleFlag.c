@@ -1,3 +1,13 @@
+/*
+ * XREFs of CheckHandleFlag @ 0x1C00D1900
+ * Callers:
+ *     _GetUserObjectInformation @ 0x1C00C7720 (_GetUserObjectInformation.c)
+ *     OkayToCloseWindowStation @ 0x1C00D17E0 (OkayToCloseWindowStation.c)
+ *     OkayToCloseDesktop @ 0x1C00D1870 (OkayToCloseDesktop.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall CheckHandleFlag(PRKPROCESS PROCESS, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // r14d

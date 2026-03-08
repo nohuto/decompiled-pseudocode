@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiBuildNewCloneDescriptor @ 0x140A45B98
+ * Callers:
+ *     MiCloneVads @ 0x140660C98 (MiCloneVads.c)
+ *     MiCloneProcessAddressSpace @ 0x140A45CF4 (MiCloneProcessAddressSpace.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1402955D0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x14034CCC0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     MiGetVmPartition @ 0x140626FC4 (MiGetVmPartition.c)
+ *     MiLockPagedRange @ 0x14072601C (MiLockPagedRange.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 _QWORD *__fastcall MiBuildNewCloneDescriptor(struct _KPROCESS *a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // r15

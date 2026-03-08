@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpTimerPrepareClockInterrupt @ 0x140379B9C
+ * Callers:
+ *     HalpTimerClockActivate @ 0x140378000 (HalpTimerClockActivate.c)
+ * Callees:
+ *     HalpTimerConfigureInterrupt @ 0x140379C34 (HalpTimerConfigureInterrupt.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall HalpTimerPrepareClockInterrupt(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   unsigned int Number; // eax

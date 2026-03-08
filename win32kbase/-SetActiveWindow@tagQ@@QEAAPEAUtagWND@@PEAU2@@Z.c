@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetActiveWindow@tagQ@@QEAAPEAUtagWND@@PEAU2@@Z @ 0x1C00DC7D0
+ * Callers:
+ *     zzzDestroyQueue @ 0x1C01553C0 (zzzDestroyQueue.c)
+ * Callees:
+ *     HMAssignmentUnlock @ 0x1C0072910 (HMAssignmentUnlock.c)
+ *     HMAssignmentLock @ 0x1C00788D0 (HMAssignmentLock.c)
+ *     Feature_BackportGetActiveWindowInUserMode__private_IsEnabledDeviceUsage @ 0x1C00DC8A4 (Feature_BackportGetActiveWindowInUserMode__private_IsEnabledDeviceUsage.c)
+ */
+
 struct tagWND *__fastcall tagQ::SetActiveWindow(tagQ *this, struct tagWND *a2)
 {
   __int64 v4; // rdx

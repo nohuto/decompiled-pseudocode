@@ -1,3 +1,19 @@
+/*
+ * XREFs of XilEndpoint_AllocateStreamContextArray @ 0x1C0038BDC
+ * Callers:
+ *     Endpoint_Enable @ 0x1C000BDC0 (Endpoint_Enable.c)
+ *     Endpoint_UcxEvtEndpointStaticStreamsDisable @ 0x1C003CE40 (Endpoint_UcxEvtEndpointStaticStreamsDisable.c)
+ *     Endpoint_UcxEvtEndpointStaticStreamsEnable @ 0x1C003D100 (Endpoint_UcxEvtEndpointStaticStreamsEnable.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     Debug_FreAssertMsg @ 0x1C000880C (Debug_FreAssertMsg.c)
+ *     XilCommonBuffer_AcquireBufferEx @ 0x1C001BAFC (XilCommonBuffer_AcquireBufferEx.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C001E754 (CommonBuffer_ReleaseBuffer.c)
+ *     CommonBuffer_AcquireSecureBuffer @ 0x1C00321B8 (CommonBuffer_AcquireSecureBuffer.c)
+ *     CommonBuffer_AcquireShadowBuffer @ 0x1C003229C (CommonBuffer_AcquireShadowBuffer.c)
+ *     XilEndpoint_SendRequestToAllocateSecureStreamContextArray @ 0x1C0039250 (XilEndpoint_SendRequestToAllocateSecureStreamContextArray.c)
+ */
+
 __int64 __fastcall XilEndpoint_AllocateStreamContextArray(__int64 a1)
 {
   __int64 *v1; // rbx

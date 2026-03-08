@@ -1,3 +1,12 @@
+/*
+ * XREFs of wil_RtlStagingConfig_QueryFeatureState @ 0x14092FDE0
+ * Callers:
+ *     wil_details_GetCurrentFeatureEnabledState @ 0x1404FC00C (wil_details_GetCurrentFeatureEnabledState.c)
+ * Callees:
+ *     RtlQueryFeatureConfiguration @ 0x1402F02B0 (RtlQueryFeatureConfiguration.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall wil_RtlStagingConfig_QueryFeatureState(__int64 a1, int a2, int a3, _DWORD *a4)
 {
   int v4; // edi

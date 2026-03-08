@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpDmaGetReservedRegionsForHybridPassthroughDomain @ 0x140510488
+ * Callers:
+ *     HalpDmaAllocateDomain @ 0x14038C660 (HalpDmaAllocateDomain.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     RtlCmDecodeMemIoResource @ 0x1403706C0 (RtlCmDecodeMemIoResource.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpDmaGetIommuInterface @ 0x1404FDDF4 (HalpDmaGetIommuInterface.c)
+ *     IoGetDeviceProperty @ 0x1406C5B00 (IoGetDeviceProperty.c)
+ */
+
 __int64 __fastcall HalpDmaGetReservedRegionsForHybridPassthroughDomain(__int64 a1)
 {
   __int64 v2; // rdi

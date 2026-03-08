@@ -1,3 +1,13 @@
+/*
+ * XREFs of RealSuccessor @ 0x1402457FC
+ * Callers:
+ *     RtlEnumerateGenericTableLikeADirectory @ 0x1402456F0 (RtlEnumerateGenericTableLikeADirectory.c)
+ *     RtlEnumerateGenericTableWithoutSplayingAvl @ 0x1402EF180 (RtlEnumerateGenericTableWithoutSplayingAvl.c)
+ *     RtlGetElementGenericTableAvl @ 0x1405AC190 (RtlGetElementGenericTableAvl.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall RealSuccessor(_QWORD *a1)
 {
   _QWORD *result; // rax

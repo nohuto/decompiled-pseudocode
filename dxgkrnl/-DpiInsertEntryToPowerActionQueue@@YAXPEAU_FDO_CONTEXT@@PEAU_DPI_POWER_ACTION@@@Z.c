@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DpiInsertEntryToPowerActionQueue@@YAXPEAU_FDO_CONTEXT@@PEAU_DPI_POWER_ACTION@@@Z @ 0x1C001A380
+ * Callers:
+ *     DpiRequestIoPowerState @ 0x1C01E2390 (DpiRequestIoPowerState.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DpiInsertEntryToPowerActionQueue(KSPIN_LOCK *a1, struct _DPI_POWER_ACTION *a2)
 {
   char *v4; // rbx

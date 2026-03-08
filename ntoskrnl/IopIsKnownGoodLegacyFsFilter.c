@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopIsKnownGoodLegacyFsFilter @ 0x1405555D4
+ * Callers:
+ *     IopAttachDeviceToDeviceStackSafe @ 0x1402F3E44 (IopAttachDeviceToDeviceStackSafe.c)
+ *     IoRegisterFsRegistrationChangeMountAware @ 0x1408535C0 (IoRegisterFsRegistrationChangeMountAware.c)
+ * Callees:
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ */
+
 bool __fastcall IopIsKnownGoodLegacyFsFilter(const void **a1)
 {
   __int16 v1; // bp

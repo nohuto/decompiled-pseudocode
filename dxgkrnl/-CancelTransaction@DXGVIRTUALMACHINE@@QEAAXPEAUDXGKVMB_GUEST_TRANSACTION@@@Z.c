@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CancelTransaction@DXGVIRTUALMACHINE@@QEAAXPEAUDXGKVMB_GUEST_TRANSACTION@@@Z @ 0x1C039213C
+ * Callers:
+ *     ?DxgkpDuplicateHandleToVm@@YAJPEAU_D3DKMT_DUPLICATEHANDLE@@@Z @ 0x1C03222E4 (-DxgkpDuplicateHandleToVm@@YAJPEAU_D3DKMT_DUPLICATEHANDLE@@@Z.c)
+ * Callees:
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007104 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ */
+
 void __fastcall DXGVIRTUALMACHINE::CancelTransaction(DXGVIRTUALMACHINE *this, struct DXGKVMB_GUEST_TRANSACTION ***a2)
 {
   char *v2; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of UpdateSavedPoint @ 0x1C0218D90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _anonymous_namespace_::GetMouseProcessor @ 0x1C0079E3C (_anonymous_namespace_--GetMouseProcessor.c)
+ */
+
 _DWORD *__fastcall UpdateSavedPoint(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _DWORD *result; // rax

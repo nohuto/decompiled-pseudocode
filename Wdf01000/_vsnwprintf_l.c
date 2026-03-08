@@ -1,3 +1,13 @@
+/*
+ * XREFs of _vsnwprintf_l @ 0x1C0009B94
+ * Callers:
+ *     _vsnwprintf @ 0x1C0009B74 (_vsnwprintf.c)
+ * Callees:
+ *     ?AddChildList@FxDeviceBase@@UEAAXPEAVFxChildList@@@Z @ 0x1C0009470 (-AddChildList@FxDeviceBase@@UEAAXPEAVFxChildList@@@Z.c)
+ *     _flsbuf @ 0x1C0009C8C (_flsbuf.c)
+ *     _woutput_l @ 0x1C0009C9C (_woutput_l.c)
+ */
+
 __int64 __fastcall vsnwprintf_l(
         wchar_t *string,
         unsigned __int64 count,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiAdjustCachedStacks @ 0x1402364D4
+ * Callers:
+ *     MiWorkingSetManager @ 0x1403616C0 (MiWorkingSetManager.c)
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     MiAdjustCachedStackList @ 0x140236608 (MiAdjustCachedStackList.c)
+ *     MiDeleteCachedKernelStack @ 0x140236DFC (MiDeleteCachedKernelStack.c)
+ *     MiDeleteCachedKernelShadowStack @ 0x140641F64 (MiDeleteCachedKernelShadowStack.c)
+ */
+
 __int64 __fastcall MiAdjustCachedStacks(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionGetThreadPointerHookData @ 0x1C0146880
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EditionGetThreadPointerHookData(__int64 a1, __int16 a2)
 {
   __int64 v2; // r8

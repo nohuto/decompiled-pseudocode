@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopWnfUserAwayPredictionCallback @ 0x1409816B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExQueryWnfStateData @ 0x140793060 (ExQueryWnfStateData.c)
+ *     PopUpdateSmartUserPresencePredictions @ 0x140998F8C (PopUpdateSmartUserPresencePredictions.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopWnfUserAwayPredictionCallback(__int64 a1)
 {
   int v1; // ecx

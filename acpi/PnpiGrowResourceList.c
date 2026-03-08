@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpiGrowResourceList @ 0x1C0091EBC
+ * Callers:
+ *     PnpBiosResourcesToNtResources @ 0x1C008EFDC (PnpBiosResourcesToNtResources.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dL @ 0x1C003C5C4 (WPP_RECORDER_SF_dL.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C003C6E8 (WPP_RECORDER_SF_ddL.c)
+ *     ACPIInternalGrowBuffer @ 0x1C0087FDC (ACPIInternalGrowBuffer.c)
+ */
+
 __int64 __fastcall PnpiGrowResourceList(const void **a1, int *a2, int a3)
 {
   int *v3; // rbx

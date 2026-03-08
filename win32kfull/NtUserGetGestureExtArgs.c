@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserGetGestureExtArgs @ 0x1C01D2600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     _FreeGestureInfo @ 0x1C0207760 (_FreeGestureInfo.c)
+ */
+
 __int64 __fastcall NtUserGetGestureExtArgs(__int64 a1, unsigned int a2, volatile void *a3)
 {
   int v6; // ecx

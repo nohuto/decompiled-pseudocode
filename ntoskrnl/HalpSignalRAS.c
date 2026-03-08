@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpSignalRAS @ 0x14051681C
+ * Callers:
+ *     HalpCheckAndReportGhes @ 0x14029AA2C (HalpCheckAndReportGhes.c)
+ * Callees:
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ */
+
 __int64 __fastcall HalpSignalRAS(__int64 a1)
 {
   _DWORD *v2; // rcx

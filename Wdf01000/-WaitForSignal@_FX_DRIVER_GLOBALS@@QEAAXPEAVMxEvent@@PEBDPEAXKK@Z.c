@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?WaitForSignal@_FX_DRIVER_GLOBALS@@QEAAXPEAVMxEvent@@PEBDPEAXKK@Z @ 0x1C0043890
+ * Callers:
+ *     ?CancelRepeaters@FxUsbPipeContinuousReader@@QEAAXXZ @ 0x1C0059BD8 (-CancelRepeaters@FxUsbPipeContinuousReader@@QEAAXXZ.c)
+ *     ?Dispose@FxIoQueue@@UEAAEXZ @ 0x1C0063C50 (-Dispose@FxIoQueue@@UEAAEXZ.c)
+ *     ?QueueDrainSynchronously@FxIoQueue@@QEAAJXZ @ 0x1C00657E8 (-QueueDrainSynchronously@FxIoQueue@@QEAAJXZ.c)
+ *     ?QueueIdleSynchronously@FxIoQueue@@QEAAJE@Z @ 0x1C0065C54 (-QueueIdleSynchronously@FxIoQueue@@QEAAJE@Z.c)
+ *     ?QueuePurgeSynchronously@FxIoQueue@@QEAAJXZ @ 0x1C006602C (-QueuePurgeSynchronously@FxIoQueue@@QEAAJXZ.c)
+ *     ?StartPowerTransitionOff@FxIoQueue@@QEAAXXZ @ 0x1C0066984 (-StartPowerTransitionOff@FxIoQueue@@QEAAXXZ.c)
+ *     ?StopProcessingForPower@FxIoQueue@@QEAAXW4FxIoStopProcessingForPowerAction@@@Z @ 0x1C0066A68 (-StopProcessingForPower@FxIoQueue@@QEAAXW4FxIoStopProcessingForPowerAction@@@Z.c)
+ *     ?WakeInterruptIsr@FxInterrupt@@QEAAEXZ @ 0x1C007F8B8 (-WakeInterruptIsr@FxInterrupt@@QEAAEXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall _FX_DRIVER_GLOBALS::WaitForSignal(
         _FX_DRIVER_GLOBALS *this,
         MxEvent *Event,

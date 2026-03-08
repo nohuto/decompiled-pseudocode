@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpConvertLangId @ 0x140B33E74
+ * Callers:
+ *     CmpGetSystemControlValues @ 0x140B33800 (CmpGetSystemControlValues.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpConvertLangId(__int64 a1, unsigned int a2)
 {
   unsigned __int16 v2; // r8

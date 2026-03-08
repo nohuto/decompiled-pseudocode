@@ -1,3 +1,11 @@
+/*
+ * XREFs of WindowStationOpenProcedure @ 0x1C00D6DA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WindowStationOpenProcedure(__int64 a1)
 {
   _DWORD *v2; // rbx

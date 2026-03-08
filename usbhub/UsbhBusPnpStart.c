@@ -1,3 +1,19 @@
+/*
+ * XREFs of UsbhBusPnpStart @ 0x1C00369F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhDispatch_BusEvent @ 0x1C001CF30 (UsbhDispatch_BusEvent.c)
+ *     UsbhNumberOfPorts @ 0x1C0029904 (UsbhNumberOfPorts.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhInitPortPindicator @ 0x1C002F27C (UsbhInitPortPindicator.c)
+ *     UsbhInitPortChangeList @ 0x1C0034048 (UsbhInitPortChangeList.c)
+ *     UsbhAllocateTimerObject @ 0x1C003B9F4 (UsbhAllocateTimerObject.c)
+ *     UsbhFreeTimerObject @ 0x1C003BC10 (UsbhFreeTimerObject.c)
+ */
+
 __int64 __fastcall UsbhBusPnpStart(PDEVICE_OBJECT DeviceObject, __int64 a2)
 {
   _DWORD *v4; // rbx

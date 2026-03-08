@@ -1,3 +1,16 @@
+/*
+ * XREFs of EmonInitializeProfiling @ 0x140A868F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x140372460 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     EmonFreeCounter @ 0x14037818C (EmonFreeCounter.c)
+ *     HalpMmAllocateMemory @ 0x14037A380 (HalpMmAllocateMemory.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EmonInitializePebs @ 0x140A8ECE8 (EmonInitializePebs.c)
+ */
+
 __int64 EmonInitializeProfiling()
 {
   unsigned int Number; // ebp

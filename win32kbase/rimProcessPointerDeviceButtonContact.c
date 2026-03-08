@@ -1,3 +1,21 @@
+/*
+ * XREFs of rimProcessPointerDeviceButtonContact @ 0x1C01D99D4
+ * Callers:
+ *     rimCreateAndProcessPointerDeviceButtonOnlyFrame @ 0x1C01D5FD0 (rimCreateAndProcessPointerDeviceButtonOnlyFrame.c)
+ *     rimDoProcessAnyPointerDeviceInput @ 0x1C01D6420 (rimDoProcessAnyPointerDeviceInput.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMGetPointerInputType @ 0x1C00EFC04 (RIMGetPointerInputType.c)
+ *     rimExtractButtonPageButtonUsages @ 0x1C00F1382 (rimExtractButtonPageButtonUsages.c)
+ *     RIMCmGetButtonContact @ 0x1C00F1A60 (RIMCmGetButtonContact.c)
+ *     RIMCmIsContactSuppressed @ 0x1C00F1A7A (RIMCmIsContactSuppressed.c)
+ *     RIMCmIsContactSuppressedByArbitrationOnly @ 0x1C00F1ACC (RIMCmIsContactSuppressedByArbitrationOnly.c)
+ *     RIMAddToActiveDevices @ 0x1C01B31F4 (RIMAddToActiveDevices.c)
+ *     RIMCmActivateButtonContact @ 0x1C01DDD6C (RIMCmActivateButtonContact.c)
+ *     RIMCmIsContactDeliveringPointerData @ 0x1C01DEB84 (RIMCmIsContactDeliveringPointerData.c)
+ */
+
 _UNKNOWN **__fastcall rimProcessPointerDeviceButtonContact(__int64 a1, LARGE_INTEGER *a2, __int64 a3, int a4, DWORD a5)
 {
   __int64 QuadPart; // rdi

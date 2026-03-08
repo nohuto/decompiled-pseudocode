@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetFloatProperty@CAffineTransform2DEffectMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0251020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0006C90 (-SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CAffineTransform2DEffectMarshaler::SetFloatProperty(
         DirectComposition::CAffineTransform2DEffectMarshaler *this,
         unsigned int a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIQueryGedDeviceInterface @ 0x1C002E2DC
+ * Callers:
+ *     ACPIBusIrpStartDevice @ 0x1C00814F0 (ACPIBusIrpStartDevice.c)
+ *     ACPIFilterIrpStartDevice @ 0x1C00867A0 (ACPIFilterIrpStartDevice.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     WPP_RECORDER_SF_qqss @ 0x1C000A374 (WPP_RECORDER_SF_qqss.c)
+ *     WPP_RECORDER_SF_qss @ 0x1C0015444 (WPP_RECORDER_SF_qss.c)
+ *     ACPIInternalSendSynchronousIrp @ 0x1C008822C (ACPIInternalSendSynchronousIrp.c)
+ */
+
 __int64 __fastcall ACPIQueryGedDeviceInterface(_QWORD *a1)
 {
   __int64 v2; // rax

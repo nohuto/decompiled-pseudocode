@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopLogBlockedDriverEvent @ 0x1409422E4
+ * Callers:
+ *     IopLoadDriver @ 0x14072A9DC (IopLoadDriver.c)
+ * Callees:
+ *     RtlStringCchCopyNW @ 0x140303EF8 (RtlStringCchCopyNW.c)
+ *     IoWriteErrorLogEntry @ 0x1403C13F0 (IoWriteErrorLogEntry.c)
+ *     IoAllocateGenericErrorLogEntry @ 0x140554348 (IoAllocateGenericErrorLogEntry.c)
+ */
+
 void __fastcall IopLogBlockedDriverEvent(__int64 a1, __int64 a2, int a3)
 {
   __int64 GenericErrorLogEntry; // rax

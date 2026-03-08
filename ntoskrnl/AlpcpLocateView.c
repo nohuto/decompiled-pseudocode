@@ -1,3 +1,12 @@
+/*
+ * XREFs of AlpcpLocateView @ 0x1406A0954
+ * Callers:
+ *     AlpcpExposeViewAttributeInSenderContext @ 0x1406A07CC (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcpQueryRemoteView @ 0x140774F54 (AlpcpQueryRemoteView.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall AlpcpLocateView(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // rcx

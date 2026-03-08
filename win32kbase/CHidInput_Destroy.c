@@ -1,3 +1,12 @@
+/*
+ * XREFs of CHidInput_Destroy @ 0x1C0095310
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??9?$SGDHIDgpHidInput@PEAVCHidInput@@@@QEBA_NAEBQEAVCHidInput@@@Z @ 0x1C0031EDC (--9-$SGDHIDgpHidInput@PEAVCHidInput@@@@QEBA_NAEBQEAVCHidInput@@@Z.c)
+ *     ??_GCHidInput@@UEAAPEAXI@Z @ 0x1C0095370 (--_GCHidInput@@UEAAPEAXI@Z.c)
+ */
+
 char __fastcall CHidInput_Destroy(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rax

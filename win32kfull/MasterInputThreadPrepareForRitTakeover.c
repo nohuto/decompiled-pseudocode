@@ -1,3 +1,15 @@
+/*
+ * XREFs of MasterInputThreadPrepareForRitTakeover @ 0x1C00DB6BC
+ * Callers:
+ *     EditionDeactivateMitInput @ 0x1C00DB260 (EditionDeactivateMitInput.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_s @ 0x1C002574C (WPP_RECORDER_AND_TRACE_SF_s.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     Feature_Servicing_PointerInputIncorrectlyWakingSystem__private_IsEnabledDeviceUsage @ 0x1C012D214 (Feature_Servicing_PointerInputIncorrectlyWakingSystem__private_IsEnabledDeviceUsage.c)
+ *     EndPointerDeviceContacts @ 0x1C012E2F8 (EndPointerDeviceContacts.c)
+ *     ResetPointerDevicesOld @ 0x1C012E3BC (ResetPointerDevicesOld.c)
+ */
+
 __int64 MasterInputThreadPrepareForRitTakeover()
 {
   char v0; // bl

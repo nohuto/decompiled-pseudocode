@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vPatXorRect8@@YAXPEAU_PATBLTFRAME@@@Z @ 0x1C0005800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     vFetchAndMerge @ 0x1C0005994 (vFetchAndMerge.c)
+ *     vFetchShiftAndMerge @ 0x1C0305FF0 (vFetchShiftAndMerge.c)
+ */
+
 void __fastcall vPatXorRect8(struct _PATBLTFRAME *a1)
 {
   _DWORD *v1; // r8

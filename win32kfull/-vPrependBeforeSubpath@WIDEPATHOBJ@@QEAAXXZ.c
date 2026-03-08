@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vPrependBeforeSubpath@WIDEPATHOBJ@@QEAAXXZ @ 0x1C02F5078
+ * Callers:
+ *     ?bWiden@WIDENER@@IEAAHXZ @ 0x1C0150E1A (-bWiden@WIDENER@@IEAAHXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall WIDEPATHOBJ::vPrependBeforeSubpath(WIDEPATHOBJ *this)
 {
   __int64 v1; // rbx

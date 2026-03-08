@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiVadRangeIsIoSpace @ 0x14062F2D4
+ * Callers:
+ *     MiCopyVirtualMemory @ 0x1407C5950 (MiCopyVirtualMemory.c)
+ * Callees:
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeSystemAddressValid @ 0x140321770 (MiMakeSystemAddressValid.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiWorkingSetIsContended @ 0x1403478E0 (MiWorkingSetIsContended.c)
+ *     MiPageTableLockIsContended @ 0x140347920 (MiPageTableLockIsContended.c)
+ */
+
 __int64 __fastcall MiVadRangeIsIoSpace(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   unsigned __int64 v3; // r12

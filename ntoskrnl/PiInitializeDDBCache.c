@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiInitializeDDBCache @ 0x140B5A928
+ * Callers:
+ *     PpInitializeBootDDB @ 0x140B5A6EC (PpInitializeBootDDB.c)
+ * Callees:
+ *     RtlInitializeGenericTableAvl @ 0x140245560 (RtlInitializeGenericTableAvl.c)
+ */
+
 __int64 PiInitializeDDBCache()
 {
   RtlInitializeGenericTableAvl(

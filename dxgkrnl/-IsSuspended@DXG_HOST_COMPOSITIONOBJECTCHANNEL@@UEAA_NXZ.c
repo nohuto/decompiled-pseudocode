@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsSuspended@DXG_HOST_COMPOSITIONOBJECTCHANNEL@@UEAA_NXZ @ 0x1C035D610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DXG_HOST_COMPOSITIONOBJECTCHANNEL::IsSuspended(DXG_HOST_COMPOSITIONOBJECTCHANNEL *this)
 {
   char result; // al

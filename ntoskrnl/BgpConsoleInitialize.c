@@ -1,3 +1,21 @@
+/*
+ * XREFs of BgpConsoleInitialize @ 0x140AEB6E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     BgpGetResolution @ 0x1403029E8 (BgpGetResolution.c)
+ *     BgpConsoleSetPointSize @ 0x1403813EC (BgpConsoleSetPointSize.c)
+ *     BgpFwReleaseLock @ 0x140381C10 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140381C60 (BgpFwAcquireLock.c)
+ *     BgpFwFreeMemory @ 0x140382650 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x140383BDC (BgpFwAllocateMemory.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     BgpFoGetFontHandle @ 0x140AEABC4 (BgpFoGetFontHandle.c)
+ *     BgpDisplayCharacterGetContext @ 0x140AEB4B8 (BgpDisplayCharacterGetContext.c)
+ *     BgpConsoleClearScreenEx @ 0x140AEE428 (BgpConsoleClearScreenEx.c)
+ *     BgpConsoleGetFontName @ 0x140B9A090 (BgpConsoleGetFontName.c)
+ */
+
 __int64 __fastcall BgpConsoleInitialize(unsigned int a1, unsigned int a2, unsigned int a3)
 {
   _DWORD *Memory; // rax

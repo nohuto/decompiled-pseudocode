@@ -1,3 +1,11 @@
+/*
+ * XREFs of _GetDeviceRects @ 0x1C0218E90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HMValidateHandleNoSecure @ 0x1C007A1CC (HMValidateHandleNoSecure.c)
+ */
+
 __int64 __fastcall GetDeviceRects(__int64 a1, _OWORD *a2, _OWORD *a3)
 {
   __int64 v3; // rcx

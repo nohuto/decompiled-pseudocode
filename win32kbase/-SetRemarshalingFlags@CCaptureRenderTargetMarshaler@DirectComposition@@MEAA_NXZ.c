@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C026CE90
+ * Callers:
+ *     ?SetRemarshalingFlags@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C026D380 (-SetRemarshalingFlags@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DirectComposition::CCaptureRenderTargetMarshaler::SetRemarshalingFlags(
         DirectComposition::CCaptureRenderTargetMarshaler *this)
 {

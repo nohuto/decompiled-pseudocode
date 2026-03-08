@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopFireThermalWmiEvent @ 0x14058D2A4
+ * Callers:
+ *     PopThermalWorker @ 0x140846460 (PopThermalWorker.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmFireWmiEvent @ 0x140596908 (PpmFireWmiEvent.c)
+ */
+
 __int64 __fastcall PopFireThermalWmiEvent(char a1)
 {
   unsigned __int8 CurrentIrql; // bl

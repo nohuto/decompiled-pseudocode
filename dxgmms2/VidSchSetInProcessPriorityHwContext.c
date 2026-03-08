@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchSetInProcessPriorityHwContext @ 0x1C0109510
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     VidSchiUpdateDdiHwContextPriority @ 0x1C0109954 (VidSchiUpdateDdiHwContextPriority.c)
+ */
+
 __int64 __fastcall VidSchSetInProcessPriorityHwContext(__int64 a1, int a2)
 {
   __int64 v3; // rcx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpEnumerateWorkingSet @ 0x1409EBD00
+ * Callers:
+ *     EtwpProcessEnumCallback @ 0x14080DD60 (EtwpProcessEnumCallback.c)
+ * Callees:
+ *     MiGetWorkingSetInfoEx @ 0x1402F7DFC (MiGetWorkingSetInfoEx.c)
+ *     EtwLogPfnInfoRundown @ 0x1409EB914 (EtwLogPfnInfoRundown.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 _QWORD *__fastcall EtwpEnumerateWorkingSet(__int64 a1, __int64 a2)
 {
   __int64 v4; // rdi

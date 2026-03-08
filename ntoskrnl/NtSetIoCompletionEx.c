@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtSetIoCompletionEx @ 0x1406F7950
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IoSetIoCompletionEx @ 0x140292850 (IoSetIoCompletionEx.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall NtSetIoCompletionEx(void *a1, void *a2, int a3, int a4, int a5, __int64 a6)
 {
   NTSTATUS v9; // eax

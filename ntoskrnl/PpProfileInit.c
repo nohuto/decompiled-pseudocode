@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpProfileInit @ 0x140B7174C
+ * Callers:
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     <none>
+ */
+
 LIST_ENTRY *PpProfileInit()
 {
   LIST_ENTRY *result; // rax

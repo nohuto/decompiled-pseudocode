@@ -1,3 +1,13 @@
+/*
+ * XREFs of VmpPrefetchForVirtualFault @ 0x1409DA7AC
+ * Callers:
+ *     VmAccessFault @ 0x1409D9200 (VmAccessFault.c)
+ * Callees:
+ *     MmPrefetchVirtualAddresses @ 0x14067E600 (MmPrefetchVirtualAddresses.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall VmpPrefetchForVirtualFault(unsigned __int64 a1, __int64 *a2, __int64 a3)
 {
   __int64 Pool2; // rax

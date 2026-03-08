@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeAddProcessorGroupAffinity @ 0x14037B4F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KeAddProcessorGroupAffinity(__int64 *a1, int a2)
 {
   __int64 result; // rax

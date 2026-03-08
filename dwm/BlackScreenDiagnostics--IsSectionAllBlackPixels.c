@@ -1,3 +1,11 @@
+/*
+ * XREFs of BlackScreenDiagnostics::IsSectionAllBlackPixels @ 0x14000D090
+ * Callers:
+ *     BlackScreenDiagnostics::GetDwmFrontBufferBitsColor @ 0x14000CB84 (BlackScreenDiagnostics--GetDwmFrontBufferBitsColor.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgs @ 0x14000DF68 (MicrosoftTelemetryAssertTriggeredArgs.c)
+ */
+
 __int64 __fastcall BlackScreenDiagnostics::IsSectionAllBlackPixels(void *a1)
 {
   int v1; // edi

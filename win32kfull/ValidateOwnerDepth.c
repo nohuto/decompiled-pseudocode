@@ -1,3 +1,12 @@
+/*
+ * XREFs of ValidateOwnerDepth @ 0x1C00DDC94
+ * Callers:
+ *     xxxSetWindowData @ 0x1C002F9C8 (xxxSetWindowData.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ValidateOwnerDepth(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

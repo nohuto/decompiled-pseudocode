@@ -1,3 +1,38 @@
+/*
+ * XREFs of RIMCreateHidDesc @ 0x1C0035100
+ * Callers:
+ *     RIMCreateDev @ 0x1C0036CBC (RIMCreateDev.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_qd @ 0x1C000431C (WPP_RECORDER_AND_TRACE_SF_qd.c)
+ *     IsProcessHidRawInputSupported @ 0x1C0031CA4 (IsProcessHidRawInputSupported.c)
+ *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C0032C40 (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C0033950 (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
+ *     ?DbgPrintWarning@@YAXPEADZZ @ 0x1C0034DB0 (-DbgPrintWarning@@YAXPEADZZ.c)
+ *     RIMHidGetUsageAndPage @ 0x1C0034DF0 (RIMHidGetUsageAndPage.c)
+ *     RIMHidGetVendorAndProductID @ 0x1C0034EF4 (RIMHidGetVendorAndProductID.c)
+ *     rimCheckForExplicitRimConflictInProcess @ 0x1C0034FF8 (rimCheckForExplicitRimConflictInProcess.c)
+ *     rimIsExplicitRimUsagesMatchingUsages @ 0x1C00350D4 (rimIsExplicitRimUsagesMatchingUsages.c)
+ *     WPP_RECORDER_AND_TRACE_SF_DD @ 0x1C0035414 (WPP_RECORDER_AND_TRACE_SF_DD.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qDD @ 0x1C006F8F8 (WPP_RECORDER_AND_TRACE_SF_qDD.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     RIMAllocateHidConfigDesc @ 0x1C01ABC58 (RIMAllocateHidConfigDesc.c)
+ *     RIMAllocateHidDesc @ 0x1C01AC4D4 (RIMAllocateHidDesc.c)
+ *     RIMFreeHidDesc @ 0x1C01ADFC4 (RIMFreeHidDesc.c)
+ *     RIMHidGetCaps @ 0x1C01AE480 (RIMHidGetCaps.c)
+ *     RIMHidGetPreparsedData @ 0x1C01AEB00 (RIMHidGetPreparsedData.c)
+ *     WPP_RECORDER_AND_TRACE_SF_DDq @ 0x1C01B1B90 (WPP_RECORDER_AND_TRACE_SF_DDq.c)
+ *     rimHidP_GetCollectionDescription @ 0x1C01B1F8C (rimHidP_GetCollectionDescription.c)
+ *     RIMAllocateAndLinkHidTLCInfo @ 0x1C01BF13C (RIMAllocateAndLinkHidTLCInfo.c)
+ *     RIMSearchHidTLCInfo @ 0x1C01BF788 (RIMSearchHidTLCInfo.c)
+ *     RIMIDECreateHIDDesc @ 0x1C01C16CC (RIMIDECreateHIDDesc.c)
+ *     ApiSetInkProcessorIsInkDevice @ 0x1C0244F58 (ApiSetInkProcessorIsInkDevice.c)
+ */
+
 void *__fastcall RIMCreateHidDesc(__int64 a1, __int64 a2, __int64 a3)
 {
   int v6; // edx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpMcLoadMicrocodeWorker @ 0x140519630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpInterruptGetIdentifiers @ 0x140379900 (HalpInterruptGetIdentifiers.c)
+ *     HalpMcUpdateMicrocode @ 0x14037CB18 (HalpMcUpdateMicrocode.c)
+ */
+
 ULONG_PTR __fastcall HalpMcLoadMicrocodeWorker(ULONG_PTR Argument)
 {
   unsigned int Number; // ecx

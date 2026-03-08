@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiConsumeSystemCacheTbFlushNeededView @ 0x1402F5E60
+ * Callers:
+ *     MiObtainSystemCacheView @ 0x140335220 (MiObtainSystemCacheView.c)
+ * Callees:
+ *     KeFlushTb @ 0x140323CB0 (KeFlushTb.c)
+ *     MiRebalanceSystemCacheFreedViews @ 0x1403356A0 (MiRebalanceSystemCacheFreedViews.c)
+ */
+
 _QWORD *__fastcall MiConsumeSystemCacheTbFlushNeededView(__int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 v2; // rax

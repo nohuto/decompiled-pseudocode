@@ -1,3 +1,16 @@
+/*
+ * XREFs of DebugExpr @ 0x1C004D830
+ * Callers:
+ *     DebugRunMethod @ 0x1C004DE10 (DebugRunMethod.c)
+ * Callees:
+ *     _strtoui64_0 @ 0x1C0001A79 (_strtoui64_0.c)
+ *     _strupr_0 @ 0x1C0001A8B (_strupr_0.c)
+ *     FindObjSymbol @ 0x1C004E110 (FindObjSymbol.c)
+ *     IsNumber @ 0x1C004E1D4 (IsNumber.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     GetNameSpaceObject @ 0x1C004F728 (GetNameSpaceObject.c)
+ */
+
 __int64 DebugExpr(char *Src, unsigned __int64 *a2, _QWORD *a3, ...)
 {
   unsigned int v3; // ebx

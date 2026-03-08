@@ -1,3 +1,14 @@
+/*
+ * XREFs of sub_1403ED020 @ 0x1403ED020
+ * Callers:
+ *     sub_1403DFCC0 @ 0x1403DFCC0 (sub_1403DFCC0.c)
+ *     FsRtlMdlReadCompleteDevEx @ 0x140AF7010 (FsRtlMdlReadCompleteDevEx.c)
+ * Callees:
+ *     sub_1403EC00C @ 0x1403EC00C (sub_1403EC00C.c)
+ *     $$ba @ 0x140B0E898 ($$ba.c)
+ *     KeGuardDispatchICall @ 0x140B107A0 (KeGuardDispatchICall.c)
+ */
+
 unsigned __int64 __fastcall sub_1403ED020(__int64 a1, int *a2, __int64 a3)
 {
   unsigned __int64 result; // rax

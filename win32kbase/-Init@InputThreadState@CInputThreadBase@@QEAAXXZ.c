@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Init@InputThreadState@CInputThreadBase@@QEAAXXZ @ 0x1C009AD58
+ * Callers:
+ *     ?DeclareThreadAsInput@CInputThreadBase@@QEAA_NXZ @ 0x1C009AC60 (-DeclareThreadAsInput@CInputThreadBase@@QEAA_NXZ.c)
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C004FE50 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ */
+
 void __fastcall CInputThreadBase::InputThreadState::Init(
         CInputThreadBase::InputThreadState *this,
         __int64 a2,

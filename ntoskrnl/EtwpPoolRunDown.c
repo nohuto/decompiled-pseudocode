@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpPoolRunDown @ 0x1409EC76C
+ * Callers:
+ *     EtwpKernelTraceRundown @ 0x14080D9F8 (EtwpKernelTraceRundown.c)
+ * Callees:
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExGetBigPoolInfo @ 0x140604B70 (ExGetBigPoolInfo.c)
+ *     ExGetPoolTagInfo @ 0x14083163C (ExGetPoolTagInfo.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwpPoolRunDown(__int64 a1, char a2)
 {
   _DWORD *v2; // rbx

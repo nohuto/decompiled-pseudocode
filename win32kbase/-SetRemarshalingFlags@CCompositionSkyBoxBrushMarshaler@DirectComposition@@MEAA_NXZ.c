@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CCompositionSkyBoxBrushMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C026C420
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CCompositionSkyBoxBrushMarshaler::SetRemarshalingFlags(
         DirectComposition::CCompositionSkyBoxBrushMarshaler *this)
 {

@@ -1,3 +1,13 @@
+/*
+ * XREFs of _PnpCtxUnregisterMachineNode @ 0x140A5E08C
+ * Callers:
+ *     PiDrvDbUnregisterNode @ 0x14096E504 (PiDrvDbUnregisterNode.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _PnpCtxDestroyNode @ 0x140A5DBA8 (_PnpCtxDestroyNode.c)
+ *     _PnpCtxFindNode @ 0x140A5DCA8 (_PnpCtxFindNode.c)
+ */
+
 __int64 __fastcall PnpCtxUnregisterMachineNode(__int64 a1, const WCHAR *a2)
 {
   __int64 v2; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OverlapCheck@@YAHPEAUHDEV__@@PEAUHRGN__@@@Z @ 0x1C0271A7C
+ * Callers:
+ *     DxgkEngDetectGDIPath @ 0x1C0272670 (DxgkEngDetectGDIPath.c)
+ * Callees:
+ *     ?sizl@PDEVOBJ@@QEAA?AUtagSIZE@@XZ @ 0x1C0271BE4 (-sizl@PDEVOBJ@@QEAA-AUtagSIZE@@XZ.c)
+ */
+
 _BOOL8 __fastcall OverlapCheck(_DWORD *a1, HRGN a2)
 {
   BOOL v4; // ebx

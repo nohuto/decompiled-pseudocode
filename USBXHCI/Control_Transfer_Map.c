@@ -1,3 +1,18 @@
+/*
+ * XREFs of Control_Transfer_Map @ 0x1C0007318
+ * Callers:
+ *     Control_MapTransfer @ 0x1C00071B4 (Control_MapTransfer.c)
+ * Callees:
+ *     Control_Transfer_MapIntoRing @ 0x1C00062A0 (Control_Transfer_MapIntoRing.c)
+ *     Controller_LowerAndTrackIrql @ 0x1C00074BC (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0007558 (Controller_RaiseAndTrackIrql.c)
+ *     WPP_RECORDER_SF_DDd @ 0x1C001BCB0 (WPP_RECORDER_SF_DDd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     TR_EnsureInputBufferForTrbs @ 0x1C0041850 (TR_EnsureInputBufferForTrbs.c)
+ *     SecureDmaEnabler_PrepareMemoryForDma @ 0x1C0052050 (SecureDmaEnabler_PrepareMemoryForDma.c)
+ */
+
 __int64 __fastcall Control_Transfer_Map(__int64 a1)
 {
   __int64 v1; // rdi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?OnPresentComplete@CaptureBitsResponse@@UEAAJXZ @ 0x1801DCD50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MapSectionBitmap@CaptureBitsResponse@@IEAAJXZ @ 0x1800207D8 (-MapSectionBitmap@CaptureBitsResponse@@IEAAJXZ.c)
+ *     ?GetBits@CaptureBitsResponse@@IEAAJXZ @ 0x180020904 (-GetBits@CaptureBitsResponse@@IEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?CreateSectionBitmap@CaptureBitsResponse@@IEAAJXZ @ 0x1801DCC64 (-CreateSectionBitmap@CaptureBitsResponse@@IEAAJXZ.c)
+ */
+
 __int64 __fastcall CaptureBitsResponse::OnPresentComplete(CaptureBitsResponse *this)
 {
   int SectionBitmap; // eax

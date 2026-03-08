@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlUnicodeStringValidateEx @ 0x1405A4CA8
+ * Callers:
+ *     NtSetCachedSigningLevel2 @ 0x1407FAFF0 (NtSetCachedSigningLevel2.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlUnicodeStringValidateEx(PCUNICODE_STRING SourceString, ULONG dwFlags)
 {
   NTSTATUS result; // eax

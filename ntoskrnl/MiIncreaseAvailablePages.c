@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiIncreaseAvailablePages @ 0x140288238
+ * Callers:
+ *     MiInsertPagesInList @ 0x140287DB0 (MiInsertPagesInList.c)
+ *     MiReplenishPageSlist @ 0x14034E120 (MiReplenishPageSlist.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x14034FE70 (MiUnlinkNodeLargePageHelper.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     MiUpdateAvailableEvents @ 0x1403A9340 (MiUpdateAvailableEvents.c)
+ */
+
 unsigned __int64 __fastcall MiIncreaseAvailablePages(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   signed int v4; // ebp

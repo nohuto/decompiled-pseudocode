@@ -1,3 +1,12 @@
+/*
+ * XREFs of _ReassociateQueueEventCompletionPacket @ 0x1C01B47C4
+ * Callers:
+ *     NtUserMsgWaitForMultipleObjectsEx @ 0x1C00470E0 (NtUserMsgWaitForMultipleObjectsEx.c)
+ *     NtUserReassociateQueueEventCompletionPacket @ 0x1C01D9E70 (NtUserReassociateQueueEventCompletionPacket.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 ReassociateQueueEventCompletionPacket()
 {
   ZwAssociateWaitCompletionPacket(

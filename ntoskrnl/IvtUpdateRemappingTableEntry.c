@@ -1,3 +1,13 @@
+/*
+ * XREFs of IvtUpdateRemappingTableEntry @ 0x1402FA880
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IvtUpdateInterruptDestination @ 0x1402FAA1C (IvtUpdateInterruptDestination.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 char __fastcall IvtUpdateRemappingTableEntry(__int64 a1, char a2, unsigned int a3, _DWORD *a4)
 {
   __int64 v5; // rbx

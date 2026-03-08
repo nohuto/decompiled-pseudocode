@@ -1,3 +1,15 @@
+/*
+ * XREFs of XmLoadSegment @ 0x140530BB0
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmGetOffsetAddress @ 0x14039F39C (XmGetOffsetAddress.c)
+ *     XmEvaluateAddressSpecifier @ 0x1403B3F0C (XmEvaluateAddressSpecifier.c)
+ *     XmSetSourceValue @ 0x1403B41A0 (XmSetSourceValue.c)
+ *     XmSetDestinationValue @ 0x1403B4248 (XmSetDestinationValue.c)
+ *     longjmp @ 0x1403D2360 (longjmp.c)
+ */
+
 __int64 __fastcall XmLoadSegment(__int64 a1)
 {
   int v2; // esi

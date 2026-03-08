@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbDevice_SetAddress @ 0x1C0018EE0
+ * Callers:
+ *     UsbDevice_UcxEvtAddress @ 0x1C0019410 (UsbDevice_UcxEvtAddress.c)
+ *     UsbDevice_EnableCompletion @ 0x1C0019560 (UsbDevice_EnableCompletion.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     Endpoint_GetDequeuePointer @ 0x1C000CEDC (Endpoint_GetDequeuePointer.c)
+ *     WPP_RECORDER_SF_dqq @ 0x1C0019284 (WPP_RECORDER_SF_dqq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 __int64 __fastcall UsbDevice_SetAddress(__int64 a1, char a2)
 {
   __int64 v2; // rax

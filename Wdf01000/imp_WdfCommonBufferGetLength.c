@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_WdfCommonBufferGetLength @ 0x1C001A900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ */
+
 unsigned __int64 __fastcall imp_WdfCommonBufferGetLength(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFCOMMONBUFFER__ *CommonBuffer)

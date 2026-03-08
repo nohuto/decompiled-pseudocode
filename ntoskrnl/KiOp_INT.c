@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiOp_INT @ 0x14057D4E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiOp_INT(__int64 a1)
 {
   __int64 v1; // rax

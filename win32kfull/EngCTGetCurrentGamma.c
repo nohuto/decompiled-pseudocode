@@ -1,3 +1,11 @@
+/*
+ * XREFs of EngCTGetCurrentGamma @ 0x1C0013630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 ULONG __stdcall EngCTGetCurrentGamma(HDEV hdev)
 {
   ULONG result; // eax

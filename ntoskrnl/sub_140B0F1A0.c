@@ -1,3 +1,14 @@
+/*
+ * XREFs of sub_140B0F1A0 @ 0x140B0F1A0
+ * Callers:
+ *     RtlpComputeEpilogueOffset @ 0x1403ED6A8 (RtlpComputeEpilogueOffset.c)
+ * Callees:
+ *     $$ba @ 0x140B0E898 ($$ba.c)
+ *     SdbpCheckDll @ 0x140B104F0 (SdbpCheckDll.c)
+ *     KeGuardDispatchICall @ 0x140B107A0 (KeGuardDispatchICall.c)
+ *     KeGuardCheckICall @ 0x140B107B0 (KeGuardCheckICall.c)
+ */
+
 __int64 __fastcall sub_140B0F1A0(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmInitSystem0 @ 0x140B485E0
+ * Callers:
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     RtlRegisterFeatureConfigurationChangeNotification @ 0x140388D20 (RtlRegisterFeatureConfigurationChangeNotification.c)
+ *     wil_details_ShouldRegisterFeatureStagingChangeNotification @ 0x14067CE9C (wil_details_ShouldRegisterFeatureStagingChangeNotification.c)
+ *     CmpGetSystemControlValues @ 0x140B33800 (CmpGetSystemControlValues.c)
+ */
+
 __int64 __fastcall CmInitSystem0(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdx

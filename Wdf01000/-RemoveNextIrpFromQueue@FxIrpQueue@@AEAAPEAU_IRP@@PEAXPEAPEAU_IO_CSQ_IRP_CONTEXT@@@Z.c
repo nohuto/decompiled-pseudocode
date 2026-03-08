@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?RemoveNextIrpFromQueue@FxIrpQueue@@AEAAPEAU_IRP@@PEAXPEAPEAU_IO_CSQ_IRP_CONTEXT@@@Z @ 0x1C0008C90
+ * Callers:
+ *     ?GetNextRequest@FxRequest@@SAPEAV1@PEAVFxIrpQueue@@@Z @ 0x1C00035CC (-GetNextRequest@FxRequest@@SAPEAV1@PEAVFxIrpQueue@@@Z.c)
+ *     ?GetNextRequest@FxRequest@@SAJPEAVFxIrpQueue@@PEAU_FILE_OBJECT@@PEAV1@PEAPEAV1@@Z @ 0x1C003AA58 (-GetNextRequest@FxRequest@@SAJPEAVFxIrpQueue@@PEAU_FILE_OBJECT@@PEAV1@PEAPEAV1@@Z.c)
+ *     ?DrainPendedRequestsLocked@FxIoTarget@@IEAAXPEAU_LIST_ENTRY@@E@Z @ 0x1C0052A48 (-DrainPendedRequestsLocked@FxIoTarget@@IEAAXPEAU_LIST_ENTRY@@E@Z.c)
+ * Callees:
+ *     ?PeekNextIrpFromQueue@FxIrpQueue@@AEAAPEAU_IRP@@PEAU2@PEAX@Z @ 0x1C0008D10 (-PeekNextIrpFromQueue@FxIrpQueue@@AEAAPEAU_IRP@@PEAU2@PEAX@Z.c)
+ *     ?RemoveIrpFromListEntry@FxIrpQueue@@AEAAXPEAVFxIrp@@@Z @ 0x1C0008D44 (-RemoveIrpFromListEntry@FxIrpQueue@@AEAAXPEAVFxIrp@@@Z.c)
+ */
+
 _IRP *__fastcall FxIrpQueue::RemoveNextIrpFromQueue(
         FxIrpQueue *this,
         void *PeekContext,

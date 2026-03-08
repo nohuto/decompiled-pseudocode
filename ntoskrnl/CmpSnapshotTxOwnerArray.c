@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpSnapshotTxOwnerArray @ 0x140A1E144
+ * Callers:
+ *     CmDeleteKey @ 0x1406B762C (CmDeleteKey.c)
+ *     CmpSetKeySecurity @ 0x1406B7E3C (CmpSetKeySecurity.c)
+ *     CmDeleteValueKey @ 0x1406B9764 (CmDeleteValueKey.c)
+ *     CmpCreateChild @ 0x1407A7590 (CmpCreateChild.c)
+ *     CmSetValueKey @ 0x1407A9870 (CmSetValueKey.c)
+ * Callees:
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall CmpSnapshotTxOwnerArray(unsigned int *a1, _DWORD *a2, void ***a3)
 {
   __int64 v3; // rdi

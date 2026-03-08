@@ -1,3 +1,11 @@
+/*
+ * XREFs of Feature_Servicing_DCompBatchedPresentCompositionBuffers__private_IsEnabledFallback @ 0x1C0026E10
+ * Callers:
+ *     Feature_Servicing_DCompBatchedPresentCompositionBuffers__private_IsEnabledDeviceUsage @ 0x1C0026DD8 (Feature_Servicing_DCompBatchedPresentCompositionBuffers__private_IsEnabledDeviceUsage.c)
+ * Callees:
+ *     wil_details_IsEnabledFallback @ 0x1C0024F58 (wil_details_IsEnabledFallback.c)
+ */
+
 __int64 __fastcall Feature_Servicing_DCompBatchedPresentCompositionBuffers__private_IsEnabledFallback(
         __int64 a1,
         unsigned int a2)

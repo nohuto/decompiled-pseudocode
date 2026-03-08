@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpIommuFreeDmaDomain @ 0x140515CC0
+ * Callers:
+ *     HalpIommuAllocateDmaDomain @ 0x1403A43AC (HalpIommuAllocateDmaDomain.c)
+ *     IommuDomainDelete @ 0x140932760 (IommuDomainDelete.c)
+ * Callees:
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpIommuCleanupPageTable @ 0x140524854 (HalpIommuCleanupPageTable.c)
+ */
+
 __int64 __fastcall HalpIommuFreeDmaDomain(__int64 a1)
 {
   _BYTE *v3; // rdi

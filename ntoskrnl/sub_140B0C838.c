@@ -1,3 +1,20 @@
+/*
+ * XREFs of sub_140B0C838 @ 0x140B0C838
+ * Callers:
+ *     sub_1403DFCC0 @ 0x1403DFCC0 (sub_1403DFCC0.c)
+ *     FsRtlMdlReadCompleteDevEx @ 0x140AF7010 (FsRtlMdlReadCompleteDevEx.c)
+ *     sub_140B0A7A8 @ 0x140B0A7A8 (sub_140B0A7A8.c)
+ *     sub_140B16730 @ 0x140B16730 (sub_140B16730.c)
+ * Callees:
+ *     KeWaitForGate @ 0x1402931D8 (KeWaitForGate.c)
+ *     KeInitializeGate @ 0x1402A4FEC (KeInitializeGate.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     sub_140B0E020 @ 0x140B0E020 (sub_140B0E020.c)
+ *     $$ba @ 0x140B0E898 ($$ba.c)
+ *     KeGuardDispatchICall @ 0x140B107A0 (KeGuardDispatchICall.c)
+ */
+
 __int64 __fastcall sub_140B0C838(
         __int64 a1,
         unsigned int *a2,

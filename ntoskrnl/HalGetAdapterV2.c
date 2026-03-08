@@ -1,3 +1,22 @@
+/*
+ * XREFs of HalGetAdapterV2 @ 0x1408215A0
+ * Callers:
+ *     HalpGetAdapter @ 0x1408212E4 (HalpGetAdapter.c)
+ * Callees:
+ *     ObReferenceObjectByPointer @ 0x140208C70 (ObReferenceObjectByPointer.c)
+ *     IoAllocateMdl @ 0x14020CAD0 (IoAllocateMdl.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     HalpDmaFindAdapterByDeviceObject @ 0x14038CAF8 (HalpDmaFindAdapterByDeviceObject.c)
+ *     HalpAddAdapterToList @ 0x14038CBA8 (HalpAddAdapterToList.c)
+ *     HalpDmaIsAutomaticDomain @ 0x14038CD80 (HalpDmaIsAutomaticDomain.c)
+ *     HalpDmaGetAdapterVersion @ 0x1403B4514 (HalpDmaGetAdapterVersion.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpDmaAllocateChildAdapterV2 @ 0x140821840 (HalpDmaAllocateChildAdapterV2.c)
+ *     HalpGetCacheCoherency @ 0x140821A84 (HalpGetCacheCoherency.c)
+ */
+
 __int64 __fastcall HalGetAdapterV2(__int64 a1, __int64 a2, _DWORD *a3)
 {
   bool v4; // cc

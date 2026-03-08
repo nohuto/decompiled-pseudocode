@@ -1,3 +1,17 @@
+/*
+ * XREFs of KeAlertThread @ 0x140354F40
+ * Callers:
+ *     IopCancelIrpsInCurrentThreadListSpecialApc @ 0x1402FA4B0 (IopCancelIrpsInCurrentThreadListSpecialApc.c)
+ *     KeRequestTerminationThread @ 0x140354D78 (KeRequestTerminationThread.c)
+ *     IoDecrementKeepAliveCount @ 0x140555BC0 (IoDecrementKeepAliveCount.c)
+ *     KeAlertResumeThread @ 0x14056C6FC (KeAlertResumeThread.c)
+ *     NtAlertThread @ 0x1409B2F60 (NtAlertThread.c)
+ * Callees:
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     KiSignalThread @ 0x14033FD70 (KiSignalThread.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 char __fastcall KeAlertThread(__int64 a1, char a2)
 {
   __int64 v2; // r15

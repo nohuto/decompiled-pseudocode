@@ -1,3 +1,13 @@
+/*
+ * XREFs of GreSfmRegisterLogicalSurfaceForSignaling @ 0x1C001F308
+ * Callers:
+ *     NtGdiHLSurfSetInformation @ 0x1C001E5D0 (NtGdiHLSurfSetInformation.c)
+ * Callees:
+ *     ?SignalOnDirty@SFMLOGICALSURFACE@@QEAAJH@Z @ 0x1C001F3EC (-SignalOnDirty@SFMLOGICALSURFACE@@QEAAJH@Z.c)
+ *     ??1SFMLOGICALSURFACEREF@@QEAA@XZ @ 0x1C002A404 (--1SFMLOGICALSURFACEREF@@QEAA@XZ.c)
+ *     ?LockLogicalSurfaceObj@SFMLOGICALSURFACEREF@@AEAAXPEAUHLSURF__@@@Z @ 0x1C002D794 (-LockLogicalSurfaceObj@SFMLOGICALSURFACEREF@@AEAAXPEAUHLSURF__@@@Z.c)
+ */
+
 __int64 __fastcall GreSfmRegisterLogicalSurfaceForSignaling(Gre::Base *a1, int a2)
 {
   struct Gre::Base::SESSION_GLOBALS *v4; // rdi

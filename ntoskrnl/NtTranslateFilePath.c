@@ -1,3 +1,20 @@
+/*
+ * XREFs of NtTranslateFilePath @ 0x14083EB70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     ExpVerifyFilePath @ 0x14083EE50 (ExpVerifyFilePath.c)
+ *     ExpTranslateEfiPath @ 0x14083EF60 (ExpTranslateEfiPath.c)
+ *     ExpTranslateArcPath @ 0x1409FB1E4 (ExpTranslateArcPath.c)
+ *     ExpTranslateNtPath @ 0x1409FB67C (ExpTranslateNtPath.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtTranslateFilePath(char *Src, unsigned int a2, volatile void *a3, unsigned int *a4)
 {
   void *v6; // rsi

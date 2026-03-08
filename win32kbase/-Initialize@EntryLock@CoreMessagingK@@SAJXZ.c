@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@EntryLock@CoreMessagingK@@SAJXZ @ 0x1C00CD0C8
+ * Callers:
+ *     CoreMsgInitialize @ 0x1C00CD050 (CoreMsgInitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 CoreMessagingK::EntryLock::Initialize(void)
 {
   struct _KMUTANT *Pool2; // rax

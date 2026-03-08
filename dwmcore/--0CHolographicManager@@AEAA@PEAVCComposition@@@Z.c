@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CHolographicManager@@AEAA@PEAVCComposition@@@Z @ 0x1801016EC
+ * Callers:
+ *     ?Create@CHolographicManager@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x18010165C (-Create@CHolographicManager@@SAJPEAVCComposition@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 CHolographicManager *__fastcall CHolographicManager::CHolographicManager(
         CHolographicManager *this,
         struct CComposition *a2)

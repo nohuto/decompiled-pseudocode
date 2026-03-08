@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxxClientShutdown @ 0x1C00DAFFC
+ * Callers:
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ * Callees:
+ *     BuildHwndList @ 0x1C0041A10 (BuildHwndList.c)
+ *     FreeHwndList @ 0x1C00680B0 (FreeHwndList.c)
+ *     ?xxxClientShutdown2@@YAJPEAUtagBWL@@I_K@Z @ 0x1C00DB088 (-xxxClientShutdown2@@YAJPEAUtagBWL@@I_K@Z.c)
+ */
+
 __int64 __fastcall xxxClientShutdown(__int64 a1, unsigned __int64 a2)
 {
   unsigned int v2; // ebx

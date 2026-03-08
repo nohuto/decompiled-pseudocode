@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpCompareNumaMemoryRanges @ 0x140518930
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpCompareNumaMemoryRanges(_QWORD *a1, _QWORD *a2)
 {
   unsigned __int64 v2; // r8

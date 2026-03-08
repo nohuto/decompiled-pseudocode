@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtDCompositionDuplicateSwapchainHandleToDwm @ 0x1C0248570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ReferenceDwmProcess @ 0x1C00918D0 (ReferenceDwmProcess.c)
+ *     CheckOrAcquireDwmStateLock @ 0x1C0091914 (CheckOrAcquireDwmStateLock.c)
+ *     GreUnlockDwmState @ 0x1C0091AF0 (GreUnlockDwmState.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall NtDCompositionDuplicateSwapchainHandleToDwm(__int64 a1, HANDLE *a2, __int64 a3, __int64 a4)
 {
   struct _KPROCESS *v6; // rsi

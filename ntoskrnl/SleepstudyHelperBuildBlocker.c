@@ -1,3 +1,21 @@
+/*
+ * XREFs of SleepstudyHelperBuildBlocker @ 0x1407261A0
+ * Callers:
+ *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x140726450 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
+ *     SleepstudyHelper_RegisterPdoWithParentPdo @ 0x140842C50 (SleepstudyHelper_RegisterPdoWithParentPdo.c)
+ *     SleepstudyHelper_RegisterComponentEx @ 0x14084DE70 (SleepstudyHelper_RegisterComponentEx.c)
+ *     SleepstudyHelper_RegisterPdoWithParentGuid @ 0x14099F2D0 (SleepstudyHelper_RegisterPdoWithParentGuid.c)
+ *     SleepstudyHelper_RegisterPdoWithParentHandle @ 0x14099F390 (SleepstudyHelper_RegisterPdoWithParentHandle.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     SSHSupportQueryInterruptTime @ 0x1402A4AA4 (SSHSupportQueryInterruptTime.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1402A4AB8 (SSHSupportReleasePushLockExclusive.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402A4AEC (SSHSupportAllocateNonPaged.c)
+ *     CmpFreeTransientPoolWithTag @ 0x1402A4B0C (CmpFreeTransientPoolWithTag.c)
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x140726370 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SleepstudyHelperBuildBlocker(__int64 *a1, _QWORD *a2)
 {
   __int64 v2; // r13

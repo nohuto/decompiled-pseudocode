@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIBuildDelayedDependencyRequest @ 0x1C000BD28
+ * Callers:
+ *     ACPIBuildProcessDevicePhasePr3 @ 0x1C000F930 (ACPIBuildProcessDevicePhasePr3.c)
+ *     ACPIBuildProcessThermalZoneCheckType @ 0x1C00124A0 (ACPIBuildProcessThermalZoneCheckType.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ */
+
 __int64 __fastcall ACPIBuildDelayedDependencyRequest(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbp

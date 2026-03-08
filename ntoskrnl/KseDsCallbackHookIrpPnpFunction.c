@@ -1,3 +1,12 @@
+/*
+ * XREFs of KseDsCallbackHookIrpPnpFunction @ 0x14057EBB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KsepDsEventPnpIrp @ 0x14057F87C (KsepDsEventPnpIrp.c)
+ */
+
 __int64 __fastcall KseDsCallbackHookIrpPnpFunction(__int64 a1, __int64 a2)
 {
   unsigned __int8 *v2; // rax

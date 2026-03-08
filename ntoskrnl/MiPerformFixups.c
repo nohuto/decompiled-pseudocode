@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiPerformFixups @ 0x14069F3D0
+ * Callers:
+ *     MiRevertRelocatedImagePfn @ 0x14069F1D0 (MiRevertRelocatedImagePfn.c)
+ *     MiRevertRelocations @ 0x14069F300 (MiRevertRelocations.c)
+ *     MiRelocateImagePfn @ 0x1406EBA20 (MiRelocateImagePfn.c)
+ * Callees:
+ *     MiApplyRetpolineFixups @ 0x140209950 (MiApplyRetpolineFixups.c)
+ *     MiApplyStraddleFixups @ 0x140209DD4 (MiApplyStraddleFixups.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     RtlApplyFunctionOverrideFixups @ 0x140679570 (RtlApplyFunctionOverrideFixups.c)
+ *     RtlDoesRequireFunctionOverrideFixups @ 0x140679788 (RtlDoesRequireFunctionOverrideFixups.c)
+ *     MiApplyCompressedFixups @ 0x14069F690 (MiApplyCompressedFixups.c)
+ *     MiApplyRawFixups @ 0x140A45280 (MiApplyRawFixups.c)
+ */
+
 void __fastcall MiPerformFixups(
         ULONG_PTR BugCheckParameter3,
         __int64 *BugCheckParameter2,

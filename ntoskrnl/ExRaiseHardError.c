@@ -1,3 +1,26 @@
+/*
+ * XREFs of ExRaiseHardError @ 0x1409FDD30
+ * Callers:
+ *     CmpMountPreloadedHives @ 0x140812EF4 (CmpMountPreloadedHives.c)
+ *     CmpLoadHiveThread @ 0x140820360 (CmpLoadHiveThread.c)
+ *     IopHardErrorThread @ 0x140941E20 (IopHardErrorThread.c)
+ *     IopRaiseHardError @ 0x1409423B0 (IopRaiseHardError.c)
+ *     IopRaiseInformationalHardError @ 0x140942650 (IopRaiseInformationalHardError.c)
+ *     ExpExpirationThread @ 0x1409F4E30 (ExpExpirationThread.c)
+ *     NtRaiseHardError @ 0x1409FE610 (NtRaiseHardError.c)
+ *     CmpQuotaWarningWorker @ 0x140A0D0E0 (CmpQuotaWarningWorker.c)
+ *     CmpDiskFullWarningWorker @ 0x140A0EE60 (CmpDiskFullWarningWorker.c)
+ * Callees:
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     Feature_3974530366__private_IsEnabledDeviceUsage @ 0x14040D3C0 (Feature_3974530366__private_IsEnabledDeviceUsage.c)
+ *     ZwAllocateVirtualMemory @ 0x140412610 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x1404126D0 (ZwFreeVirtualMemory.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExpRaiseHardError @ 0x1409FE27C (ExpRaiseHardError.c)
+ */
+
 NTSTATUS __fastcall ExRaiseHardError(int a1, unsigned int a2, int a3, char *a4, int a5, int *a6)
 {
   __int64 v8; // rsi

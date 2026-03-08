@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiInitializeSlabAllocator @ 0x14039425C
+ * Callers:
+ *     MiInitializeNuma @ 0x140394008 (MiInitializeNuma.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void (__fastcall *__fastcall MiInitializeSlabAllocator(__int64 a1, int a2, int a3, __int64 a4))(__int64 a1)
 {
   void (__fastcall *result)(__int64); // rax

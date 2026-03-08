@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CFlipPropertySet@@QEAA@IPEAUFlipPropertyItem@@PEAXI@Z @ 0x1C0026EF0
+ * Callers:
+ *     ??$CreateFlipPropertySetWorker@VCFlipPropertySet@@@@YAJIPEAUFlipPropertyItem@@_NPEAPEAVCFlipPropertySet@@@Z @ 0x1C007E97C (--$CreateFlipPropertySetWorker@VCFlipPropertySet@@@@YAJIPEAUFlipPropertyItem@@_NPEAPEAVCFlipProp.c)
+ * Callees:
+ *     <none>
+ */
+
 CFlipPropertySet *__fastcall CFlipPropertySet::CFlipPropertySet(
         CFlipPropertySet *this,
         int a2,

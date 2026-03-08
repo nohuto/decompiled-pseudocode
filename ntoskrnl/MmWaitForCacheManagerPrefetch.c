@@ -1,3 +1,16 @@
+/*
+ * XREFs of MmWaitForCacheManagerPrefetch @ 0x14020D9A0
+ * Callers:
+ *     CcPerformReadAhead @ 0x14020B9E0 (CcPerformReadAhead.c)
+ *     MmWaitMultipleForCacheManagerPrefetch @ 0x14020D7C0 (MmWaitMultipleForCacheManagerPrefetch.c)
+ *     CcFetchDataForRead @ 0x140221EE0 (CcFetchDataForRead.c)
+ * Callees:
+ *     MiPfCompletePrefetchIos @ 0x14020DA48 (MiPfCompletePrefetchIos.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiReleaseReadListResources @ 0x1406A4E80 (MiReleaseReadListResources.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MmWaitForCacheManagerPrefetch(_DWORD *P)
 {
   unsigned int v1; // ebp

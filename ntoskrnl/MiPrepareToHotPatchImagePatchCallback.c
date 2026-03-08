@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiPrepareToHotPatchImagePatchCallback @ 0x140A38200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ *     RtlDetermineHotPatchExtent @ 0x140A736B4 (RtlDetermineHotPatchExtent.c)
+ */
+
 char __fastcall MiPrepareToHotPatchImagePatchCallback(_DWORD *a1, int *a2, int a3, unsigned __int8 a4)
 {
   int v4; // edx

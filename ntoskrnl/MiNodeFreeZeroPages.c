@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiNodeFreeZeroPages @ 0x14034EAD4
+ * Callers:
+ *     MiReplenishPageSlist @ 0x14034E120 (MiReplenishPageSlist.c)
+ *     MiDemoteLocalLargePage @ 0x14034E760 (MiDemoteLocalLargePage.c)
+ *     MiSignalLargePageRebuild @ 0x1403609B4 (MiSignalLargePageRebuild.c)
+ *     MiNodeAvailablePages @ 0x140464746 (MiNodeAvailablePages.c)
+ *     MiFreeZeroPagesNeeded @ 0x140464858 (MiFreeZeroPagesNeeded.c)
+ *     MiPruneStandbyPages @ 0x140464A50 (MiPruneStandbyPages.c)
+ *     MiRebuildLargePage @ 0x140466288 (MiRebuildLargePage.c)
+ *     MiFreeZeroPageSlistSufficient @ 0x14064B2AC (MiFreeZeroPageSlistSufficient.c)
+ *     MiRebuildLargePages @ 0x14065B810 (MiRebuildLargePages.c)
+ * Callees:
+ *     MiNodeLargeFreeZeroPages @ 0x14027DEB0 (MiNodeLargeFreeZeroPages.c)
+ */
+
 __int64 __fastcall MiNodeFreeZeroPages(_QWORD *a1, unsigned int a2, int a3)
 {
   __int64 v3; // r13

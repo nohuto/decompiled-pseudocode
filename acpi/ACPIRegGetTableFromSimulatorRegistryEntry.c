@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIRegGetTableFromSimulatorRegistryEntry @ 0x1C008D15C
+ * Callers:
+ *     ACPIMapNamedTable @ 0x1C00018A0 (ACPIMapNamedTable.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_s @ 0x1C000AEC4 (WPP_RECORDER_SF_s.c)
+ *     ACPIRegLocalCopyString @ 0x1C008D388 (ACPIRegLocalCopyString.c)
+ *     ACPIRegReadEntireSimulatorAcpiTable @ 0x1C008D920 (ACPIRegReadEntireSimulatorAcpiTable.c)
+ *     OSOpenHandle @ 0x1C008DF10 (OSOpenHandle.c)
+ *     OSOpenLargestSubkey @ 0x1C008DFE0 (OSOpenLargestSubkey.c)
+ */
+
 bool __fastcall ACPIRegGetTableFromSimulatorRegistryEntry(__int64 *a1)
 {
   __int64 v1; // rbp

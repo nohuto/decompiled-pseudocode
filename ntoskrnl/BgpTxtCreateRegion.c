@@ -1,3 +1,21 @@
+/*
+ * XREFs of BgpTxtCreateRegion @ 0x140AEB2AC
+ * Callers:
+ *     BgpDisplayCharacterGetContext @ 0x140AEB4B8 (BgpDisplayCharacterGetContext.c)
+ *     ResFwConfigureDisplayStringResources @ 0x140AEB630 (ResFwConfigureDisplayStringResources.c)
+ *     AnFwConfigureProgressResources @ 0x140AEB920 (AnFwConfigureProgressResources.c)
+ * Callees:
+ *     BgpGetResolution @ 0x1403029E8 (BgpGetResolution.c)
+ *     BgpFoGetTextMetrics @ 0x140382160 (BgpFoGetTextMetrics.c)
+ *     BgpFwFreeMemory @ 0x140382650 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x140383BDC (BgpFwAllocateMemory.c)
+ *     BgpGxFillRectangle @ 0x1403842E4 (BgpGxFillRectangle.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     BgpGxRectangleDestroy @ 0x140AEAA70 (BgpGxRectangleDestroy.c)
+ *     BgpGxRectangleCreate @ 0x140AEAA94 (BgpGxRectangleCreate.c)
+ *     BgpFoGetFontHandle @ 0x140AEABC4 (BgpFoGetFontHandle.c)
+ */
+
 __int64 __fastcall BgpTxtCreateRegion(_DWORD *a1, _DWORD *a2, __int64 a3, _QWORD *a4, __int64 *a5, char a6)
 {
   __int64 v6; // r15

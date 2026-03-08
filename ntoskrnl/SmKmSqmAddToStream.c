@@ -1,3 +1,12 @@
+/*
+ * XREFs of SmKmSqmAddToStream @ 0x1405CB888
+ * Callers:
+ *     SmKmStoreTerminateWorker @ 0x1405C9740 (SmKmStoreTerminateWorker.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall SmKmSqmAddToStream(REGHANDLE RegHandle, __int64 a2, __int64 a3, _DWORD *a4)
 {
   char *v4; // rdx

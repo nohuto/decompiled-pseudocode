@@ -1,3 +1,11 @@
+/*
+ * XREFs of ESM_CheckingIfEndpointShouldBeStopped @ 0x1C000F8E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     TR_WasDoorbellRungSinceMappingStart @ 0x1C000FC6C (TR_WasDoorbellRungSinceMappingStart.c)
+ */
+
 __int64 __fastcall ESM_CheckingIfEndpointShouldBeStopped(__int64 a1)
 {
   __int64 v1; // rbx

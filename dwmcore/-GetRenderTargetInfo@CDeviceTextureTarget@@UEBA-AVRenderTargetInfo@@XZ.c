@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetRenderTargetInfo@CDeviceTextureTarget@@UEBA?AVRenderTargetInfo@@XZ @ 0x1800D4704
+ * Callers:
+ *     ?GetRenderTargetInfo@CDeviceTextureTarget@@$4PPPPPPPM@A@EBA?AVRenderTargetInfo@@XZ @ 0x18011C2B0 (-GetRenderTargetInfo@CDeviceTextureTarget@@$4PPPPPPPM@A@EBA-AVRenderTargetInfo@@XZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CDeviceTextureTarget::GetRenderTargetInfo(__int64 a1, __int64 a2)
 {
   __int64 v4; // rcx

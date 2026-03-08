@@ -1,3 +1,11 @@
+/*
+ * XREFs of HMFindEntry @ 0x1C0153920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 char *__fastcall HMFindEntry(__int64 a1, unsigned int (__fastcall *a2)(__int64, char *))
 {
   unsigned int v4; // edi

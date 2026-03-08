@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?Initialize@CInteraction@@MEAAJXZ @ 0x1800399A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??2CInteractionContextWrapper@@SAPEAX_K@Z @ 0x180039A94 (--2CInteractionContextWrapper@@SAPEAX_K@Z.c)
+ *     ??0CInteractionContextWrapper@@QEAA@XZ @ 0x180039AB8 (--0CInteractionContextWrapper@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Initialize@CInteractionProcessor@@QEAAJPEAUIInteractionContextWrapper@@000_N@Z @ 0x1800EBF60 (-Initialize@CInteractionProcessor@@QEAAJPEAUIInteractionContextWrapper@@000_N@Z.c)
+ *     ??$SAFE_DELETE@UIInteractionContextWrapper@@@@YAXAEAPEAUIInteractionContextWrapper@@@Z @ 0x18020844C (--$SAFE_DELETE@UIInteractionContextWrapper@@@@YAXAEAPEAUIInteractionContextWrapper@@@Z.c)
+ */
+
 __int64 __fastcall CInteraction::Initialize(CInteraction *this)
 {
   CInteractionContextWrapper *v2; // rax

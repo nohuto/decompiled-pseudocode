@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CSpriteShapeMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00A5DB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_d25a963956e1670a7cfd33afd3cf0b1e___ @ 0x1C000B548 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_d25a963956e1670a7cfd33afd3cf0b1.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_df232ff61ccf1a0a0c16d6761a3443fd___ @ 0x1C000B67C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_df232ff61ccf1a0a0c16d6761a3443f.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_646288f05bee1401ea06992b48c2c4cf___ @ 0x1C000BBA4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_646288f05bee1401ea06992b48c2c4c.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_0ab9db7d951295de9dd6a16f6853e308___ @ 0x1C000D970 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_0ab9db7d951295de9dd6a16f6853e30.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_504b2e656b0331c347eaff34b8484def___ @ 0x1C00A5F40 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_504b2e656b0331c347eaff34b8484de.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_5ce2fe6f990ac47f2725c8575fa29775___ @ 0x1C00A5FC4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_5ce2fe6f990ac47f2725c8575fa2977.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_bf15618fbaad4d23893fd555b605b03c___ @ 0x1C00A6048 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_bf15618fbaad4d23893fd555b605b03.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_7cab402ceb8a6f13c948e41cb9fe91ad___lambda_d84e1ed4b8f486922f9c1a79d2402bc2___ @ 0x1C02540CC (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_7cab402ceb8a6f13c948e41cb9fe91a.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_a48ca398a10ed819118b82cb8db7e38e___ @ 0x1C02541F0 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_a48ca398a10ed819118b82cb8db7e38.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ecc0cdef9f9f524bc0c2351e4f1e5493___ @ 0x1C0254268 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_ecc0cdef9f9f524bc0c2351e4f1e549.c)
+ */
+
 char __fastcall DirectComposition::CSpriteShapeMarshaler::EmitUpdateCommands(
         DirectComposition::CSpriteShapeMarshaler *this,
         struct DirectComposition::CBatch **a2)

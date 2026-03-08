@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlFxToFnFrame @ 0x1402ECAF0
+ * Callers:
+ *     RtlpWow64CtxFromAmd64 @ 0x14077CCA8 (RtlpWow64CtxFromAmd64.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlFxToFnFrame(_DWORD *a1, unsigned __int16 *a2)
 {
   unsigned int v3; // r9d

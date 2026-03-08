@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?D2DMatrixScaling@@YAPEAUD2DMatrix@@PEAU1@MMMUD2DVector3@@@Z @ 0x18027AAD4
+ * Callers:
+ *     ?Matrix4x4FromScale@CExpressionValueStack@@QEAAJI@Z @ 0x18025C3FC (-Matrix4x4FromScale@CExpressionValueStack@@QEAAJI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall D2DMatrixScaling(__int64 a1, float a2, float a3, float a4, float *a5)
 {
   float v5; // xmm1_4

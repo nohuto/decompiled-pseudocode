@@ -1,3 +1,15 @@
+/*
+ * XREFs of PspJobNotificationWorker @ 0x14067EDE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     PspSendReliableJobNotification @ 0x1406F4D9C (PspSendReliableJobNotification.c)
+ *     PspUnlockJob @ 0x1406FBF7C (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x1406FC178 (PspLockJobExclusive.c)
+ */
+
 signed __int64 PspJobNotificationWorker()
 {
   __int64 v0; // rbx

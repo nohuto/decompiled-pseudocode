@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiInitializeMemoryEvents @ 0x1408096D8
+ * Callers:
+ *     MmCreatePartition @ 0x1403A6A3C (MmCreatePartition.c)
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     RtlGetDaclSecurityDescriptor @ 0x140299320 (RtlGetDaclSecurityDescriptor.c)
+ *     MiSignalNonPagedPoolWatchers @ 0x140394AB8 (MiSignalNonPagedPoolWatchers.c)
+ *     MiUpdateAvailableEvents @ 0x1403A9340 (MiUpdateAvailableEvents.c)
+ *     MiCreateMemoryEvent @ 0x140809804 (MiCreateMemoryEvent.c)
+ *     MiCreatePartitionNamespace @ 0x140809994 (MiCreatePartitionNamespace.c)
+ *     MiCreateMemoryEventSD @ 0x14085B500 (MiCreateMemoryEventSD.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     MiInitializePagedPoolEvents @ 0x140B6FC8C (MiInitializePagedPoolEvents.c)
+ */
+
 _BOOL8 __fastcall MiInitializeMemoryEvents(unsigned __int16 *a1)
 {
   int MemoryEventSD; // ebx

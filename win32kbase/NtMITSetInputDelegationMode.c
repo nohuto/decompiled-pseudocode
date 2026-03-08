@@ -1,3 +1,21 @@
+/*
+ * XREFs of NtMITSetInputDelegationMode @ 0x1C016BD10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterCritInternal @ 0x1C004FB50 (PrivateAPI--_anonymous_namespace_--EnterCritInternal.c)
+ *     PrivateAPI::_anonymous_namespace_::IsValidGuiContext @ 0x1C004FD4C (PrivateAPI--_anonymous_namespace_--IsValidGuiContext.c)
+ *     HMUnlockObject @ 0x1C0072980 (HMUnlockObject.c)
+ *     IsInputThread @ 0x1C007CC40 (IsInputThread.c)
+ *     ProcessInfoFromPID @ 0x1C00840AC (ProcessInfoFromPID.c)
+ *     CitEnableKeyboardDelegation @ 0x1C00B0154 (CitEnableKeyboardDelegation.c)
+ *     Feature_KIDV2__private_IsEnabledDeviceUsage @ 0x1C00DDF28 (Feature_KIDV2__private_IsEnabledDeviceUsage.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     SetInputDelegationModeImpl @ 0x1C021882C (SetInputDelegationModeImpl.c)
+ */
+
 __int64 __fastcall NtMITSetInputDelegationMode(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)
 {
   unsigned int v4; // ebp

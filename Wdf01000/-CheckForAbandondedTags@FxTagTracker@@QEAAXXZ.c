@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?CheckForAbandondedTags@FxTagTracker@@QEAAXXZ @ 0x1C00478C4
+ * Callers:
+ *     ?ProcessDestroy@FxObject@@AEAAXXZ @ 0x1C00053A0 (-ProcessDestroy@FxObject@@AEAAXXZ.c)
+ *     ?Release@FxRequest@@UEAAKPEAXJPEBD@Z @ 0x1C0008570 (-Release@FxRequest@@UEAAKPEAXJPEBD@Z.c)
+ *     ??1FxTagTracker@@QEAA@XZ @ 0x1C004779C (--1FxTagTracker@@QEAA@XZ.c)
+ * Callees:
+ *     WPP_IFR_SF_q @ 0x1C0018194 (WPP_IFR_SF_q.c)
+ *     WPP_IFR_SF_qqsd @ 0x1C0047D18 (WPP_IFR_SF_qqsd.c)
+ */
+
 void __fastcall FxTagTracker::CheckForAbandondedTags(FxTagTracker *this)
 {
   FxTagTrackingBlock **p_m_Next; // rdi

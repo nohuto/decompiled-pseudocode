@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIRootIrpSetPower @ 0x1C003D4C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDispatchForwardPowerIrp @ 0x1C0002AF0 (ACPIDispatchForwardPowerIrp.c)
+ *     WPP_RECORDER_SF_qdqss @ 0x1C0009EDC (WPP_RECORDER_SF_qdqss.c)
+ *     ACPIDeviceIrpSystemRequest @ 0x1C001DE48 (ACPIDeviceIrpSystemRequest.c)
+ */
+
 __int64 __fastcall ACPIRootIrpSetPower(ULONG_PTR a1, IRP *a2)
 {
   __int64 DeviceExtension; // rax

@@ -1,3 +1,20 @@
+/*
+ * XREFs of WheaAttemptPhysicalPageOffline @ 0x140A05140
+ * Callers:
+ *     HalpMemoryErrorDeferredHandler @ 0x1405173D0 (HalpMemoryErrorDeferredHandler.c)
+ *     HalpPmemErrorDeferredHandler @ 0x1405175AC (HalpPmemErrorDeferredHandler.c)
+ *     KiAltContextProcessMcheckAltReturn @ 0x14057DCA0 (KiAltContextProcessMcheckAltReturn.c)
+ *     KiMcheckAlternateReturn @ 0x14057DEF0 (KiMcheckAlternateReturn.c)
+ *     WheapExecuteRowFailureCheck @ 0x140A05D80 (WheapExecuteRowFailureCheck.c)
+ *     WheapPfaMemoryCheck @ 0x140A06078 (WheapPfaMemoryCheck.c)
+ *     WheapPredictiveFailureAnalysis @ 0x140A063BC (WheapPredictiveFailureAnalysis.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x140A0555C (WheapAttemptPhysicalPageOffline.c)
+ */
+
 __int64 __fastcall WheaAttemptPhysicalPageOffline(__int64 a1, char a2, char a3, char a4)
 {
   unsigned __int64 v6; // rcx

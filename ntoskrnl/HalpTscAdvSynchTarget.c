@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpTscAdvSynchTarget @ 0x140388384
+ * Callers:
+ *     HalpTscSynchronizationWorker @ 0x140387F60 (HalpTscSynchronizationWorker.c)
+ * Callees:
+ *     HalpTscAdvSynchComputeMinimumDeltaAlternate @ 0x140388478 (HalpTscAdvSynchComputeMinimumDeltaAlternate.c)
+ *     HalpTscAdvSynchSkewCounter @ 0x140507EF0 (HalpTscAdvSynchSkewCounter.c)
+ */
+
 __int64 HalpTscAdvSynchTarget()
 {
   __int64 i; // rbx

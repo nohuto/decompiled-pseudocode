@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiRemoveFaultNode @ 0x1403D0F48
+ * Callers:
+ *     MiZeroLocalPages @ 0x140273BB0 (MiZeroLocalPages.c)
+ *     MiDecrementHugeContext @ 0x1403D0A68 (MiDecrementHugeContext.c)
+ *     MiScrubLargePage @ 0x14065C38C (MiScrubLargePage.c)
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ */
+
 void __fastcall MiRemoveFaultNode(__int64 a1)
 {
   volatile LONG *v2; // rdi

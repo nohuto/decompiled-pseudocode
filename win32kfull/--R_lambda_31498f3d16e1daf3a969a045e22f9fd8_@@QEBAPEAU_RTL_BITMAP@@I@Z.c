@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??R_lambda_31498f3d16e1daf3a969a045e22f9fd8_@@QEBAPEAU_RTL_BITMAP@@I@Z @ 0x1C000DB70
+ * Callers:
+ *     ?Initialize@?$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@AEAA_NPEAE@Z @ 0x1C000DAAC (-Initialize@-$CSectionBitmapAllocator@$0JAAA@$0JA@@NSInstrumentation@@AEAA_NPEAE@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _RTL_BITMAP *__fastcall _lambda_31498f3d16e1daf3a969a045e22f9fd8_::operator()(__int64 a1, unsigned int a2)
 {
   __int64 v2; // rax

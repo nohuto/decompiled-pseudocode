@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??$TryReadData@K@MonitorDataStore@DxgMonitor@@AEBA_NPEAXPEBGAEAK@Z @ 0x1C01D1D10
+ * Callers:
+ *     ??$TryReadData@K@MonitorDataStore@DxgMonitor@@AEBA_NW4MonitorDataStoreBehavior@1@PEBGAEAK@Z @ 0x1C01D1BA4 (--$TryReadData@K@MonitorDataStore@DxgMonitor@@AEBA_NW4MonitorDataStoreBehavior@1@PEBGAEAK@Z.c)
+ *     ?ReadBoolWithDefault@MonitorDataStore@DxgMonitor@@UEBA_NPEAXPEBG_N@Z @ 0x1C03CA630 (-ReadBoolWithDefault@MonitorDataStore@DxgMonitor@@UEBA_NPEAXPEBG_N@Z.c)
+ *     ?ReadDWordWithDefault@MonitorDataStore@DxgMonitor@@UEBAKPEAXPEBGK@Z @ 0x1C03CA670 (-ReadDWordWithDefault@MonitorDataStore@DxgMonitor@@UEBAKPEAXPEBGK@Z.c)
+ *     ?TryReadBool@MonitorDataStore@DxgMonitor@@UEBA_NPEAXPEBGAEA_N@Z @ 0x1C03CA6A0 (-TryReadBool@MonitorDataStore@DxgMonitor@@UEBA_NPEAXPEBGAEA_N@Z.c)
+ *     ?TryReadDWord@MonitorDataStore@DxgMonitor@@UEBA_NPEAXPEBGAEAK@Z @ 0x1C03CA6E0 (-TryReadDWord@MonitorDataStore@DxgMonitor@@UEBA_NPEAXPEBGAEAK@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 char __fastcall DxgMonitor::MonitorDataStore::TryReadData<unsigned long>(
         __int64 a1,
         void *a2,

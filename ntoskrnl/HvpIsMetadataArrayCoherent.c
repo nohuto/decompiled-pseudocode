@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvpIsMetadataArrayCoherent @ 0x1407F9D58
+ * Callers:
+ *     HvpIncrementalLogFileEnumeratorAdvance @ 0x1407F9A98 (HvpIncrementalLogFileEnumeratorAdvance.c)
+ *     HvpApplyLegacyLogFile @ 0x140A2755C (HvpApplyLegacyLogFile.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HvpIsMetadataArrayCoherent(unsigned int *a1, __int64 a2, unsigned int a3)
 {
   __int64 v3; // r9

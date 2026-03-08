@@ -1,3 +1,22 @@
+/*
+ * XREFs of DpiFdoInitializeFdo @ 0x1C01F5A64
+ * Callers:
+ *     DpiAddDevice @ 0x1C01F38A0 (DpiAddDevice.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiGetDevicePropertyDataBoolean @ 0x1C017A6F8 (DpiGetDevicePropertyDataBoolean.c)
+ *     DpiRequestIoPowerState @ 0x1C01E2390 (DpiRequestIoPowerState.c)
+ *     DpiQueryMiniportInterface @ 0x1C01F65F4 (DpiQueryMiniportInterface.c)
+ *     DpiQueryBusInterface @ 0x1C01F6760 (DpiQueryBusInterface.c)
+ *     DpiFdoInitializeAdapterUniqueString @ 0x1C01F8548 (DpiFdoInitializeAdapterUniqueString.c)
+ *     DpiInitializeBlockList @ 0x1C020D7F4 (DpiInitializeBlockList.c)
+ *     DpiFdoValidateKmdAndPnpVersionMatch @ 0x1C020F290 (DpiFdoValidateKmdAndPnpVersionMatch.c)
+ *     DpiGetDevicePropertyString @ 0x1C02163CC (DpiGetDevicePropertyString.c)
+ *     DpiGetDevicePropertyDataString @ 0x1C02164D8 (DpiGetDevicePropertyDataString.c)
+ *     ?SysMmDestroyAdapter@@YAXPEAUSYSMM_ADAPTER@@@Z @ 0x1C03D1DB8 (-SysMmDestroyAdapter@@YAXPEAUSYSMM_ADAPTER@@@Z.c)
+ */
+
 __int64 __fastcall DpiFdoInitializeFdo(_QWORD *StartContext)
 {
   __int64 v1; // rbx

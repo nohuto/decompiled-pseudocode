@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??1BLTRECORD@@QEAA@XZ @ 0x1C007F564
+ * Callers:
+ *     GreStretchBltInternal @ 0x1C0059930 (GreStretchBltInternal.c)
+ *     GreMaskBlt @ 0x1C007F6E8 (GreMaskBlt.c)
+ *     GrePlgBlt @ 0x1C0293740 (GrePlgBlt.c)
+ *     ?GreRectBlt@@YAHAEAVDCOBJ@@PEAVERECTL@@@Z @ 0x1C029CA5C (-GreRectBlt@@YAHAEAVDCOBJ@@PEAVERECTL@@@Z.c)
+ * Callees:
+ *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C007F50C (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
+ */
+
 void __fastcall BLTRECORD::~BLTRECORD(BLTRECORD *this)
 {
   int v1; // eax

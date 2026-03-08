@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifExDeleteResourceLiteWrapper @ 0x1405D6140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExDeleteResourceLite @ 0x140336580 (ExDeleteResourceLite.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifExDeleteResourceLiteWrapper(PERESOURCE Resource)
 {
   __int64 *APIThunkContextById; // rax

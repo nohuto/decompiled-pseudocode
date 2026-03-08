@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiStoreModifiedWriteComplete @ 0x14065A174
+ * Callers:
+ *     SmIoRequestComplete @ 0x1405CB06C (SmIoRequestComplete.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiStoreFreeWriteSupport @ 0x140659CD0 (MiStoreFreeWriteSupport.c)
+ *     MiStoreLogWriteCompleteFailure @ 0x140659DA0 (MiStoreLogWriteCompleteFailure.c)
+ *     MiStoreModifiedWriteDereference @ 0x14065A280 (MiStoreModifiedWriteDereference.c)
+ */
+
 __int64 __fastcall MiStoreModifiedWriteComplete(struct _SLIST_ENTRY *P)
 {
   __int64 v1; // r14

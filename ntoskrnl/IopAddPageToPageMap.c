@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopAddPageToPageMap @ 0x14054FD30
+ * Callers:
+ *     IoSetDumpRange @ 0x14054E9E0 (IoSetDumpRange.c)
+ * Callees:
+ *     IopSearchAndAddPageRangeToPageMaps @ 0x1405514B8 (IopSearchAndAddPageRangeToPageMaps.c)
+ *     IopFilterAndAddPageRangeToPageMaps @ 0x14055AB78 (IopFilterAndAddPageRangeToPageMaps.c)
+ */
+
 __int64 __fastcall IopAddPageToPageMap(
         int a1,
         unsigned __int64 *a2,

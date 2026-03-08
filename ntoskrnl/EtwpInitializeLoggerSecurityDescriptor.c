@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpInitializeLoggerSecurityDescriptor @ 0x140796D6C
+ * Callers:
+ *     EtwpStartLogger @ 0x140691964 (EtwpStartLogger.c)
+ *     EtwpFixBootLoggers @ 0x140B6569C (EtwpFixBootLoggers.c)
+ * Callees:
+ *     ObLogSecurityDescriptor @ 0x1406965B0 (ObLogSecurityDescriptor.c)
+ */
+
 __int64 __fastcall EtwpInitializeLoggerSecurityDescriptor(__int64 a1, __int16 *a2)
 {
   int v3; // ecx

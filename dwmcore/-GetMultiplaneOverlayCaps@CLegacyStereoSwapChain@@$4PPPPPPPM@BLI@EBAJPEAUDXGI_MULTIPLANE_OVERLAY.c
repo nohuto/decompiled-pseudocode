@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetMultiplaneOverlayCaps@CLegacyStereoSwapChain@@$4PPPPPPPM@BLI@EBAJPEAUDXGI_MULTIPLANE_OVERLAY_CAPS@@@Z @ 0x18011C790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CLegacyStereoSwapChain::GetMultiplaneOverlayCaps(
         __int64 a1,
         struct DXGI_MULTIPLANE_OVERLAY_CAPS *a2)

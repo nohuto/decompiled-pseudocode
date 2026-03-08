@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0phhhxxqqx_EtwWriteTransfer @ 0x1C0032AAC
+ * Callers:
+ *     ?CurateVPR@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00FCB90 (-CurateVPR@VIDMM_SEGMENT@@QEAAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BDEC (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS McTemplateK0phhhxxqqx_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
 {
   __int16 v4; // [rsp+30h] [rbp-A9h] BYREF

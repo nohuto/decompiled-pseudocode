@@ -1,3 +1,14 @@
+/*
+ * XREFs of ObpInitObjectTypeSD @ 0x14080D154
+ * Callers:
+ *     ObCreateObjectTypeEx @ 0x14080CB20 (ObCreateObjectTypeEx.c)
+ *     ObInitSystem @ 0x140B403CC (ObInitSystem.c)
+ * Callees:
+ *     ObLogSecurityDescriptor @ 0x1406965B0 (ObLogSecurityDescriptor.c)
+ *     ObpCreateDefaultObjectTypeSD @ 0x14080D1E8 (ObpCreateDefaultObjectTypeSD.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ObpInitObjectTypeSD(__int64 a1, void *a2)
 {
   __int16 *v4; // rbx

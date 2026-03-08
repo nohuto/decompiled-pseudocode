@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsCreateHolographicCompositorPresent @ 0x180110664
+ * Callers:
+ *     ?EnsureHolographicCompositor@CHolographicClient@@AEAAJXZ @ 0x1802A9590 (-EnsureHolographicCompositor@CHolographicClient@@AEAAJXZ.c)
+ * Callees:
+ *     ApiSetQueryApiSetPresence_0 @ 0x1801103F0 (ApiSetQueryApiSetPresence_0.c)
+ */
+
 char IsCreateHolographicCompositorPresent()
 {
   char result; // al

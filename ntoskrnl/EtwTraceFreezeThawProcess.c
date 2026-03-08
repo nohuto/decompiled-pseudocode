@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwTraceFreezeThawProcess @ 0x1409E243C
+ * Callers:
+ *     PsThawMultiProcess @ 0x1402FFE80 (PsThawMultiProcess.c)
+ *     PsFreezeProcess @ 0x1407DD068 (PsFreezeProcess.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall EtwTraceFreezeThawProcess(__int64 a1, char a2)
 {
   const EVENT_DESCRIPTOR *v3; // rdx

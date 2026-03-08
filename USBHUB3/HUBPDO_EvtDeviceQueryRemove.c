@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPDO_EvtDeviceQueryRemove @ 0x1C007CEE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBPDO_EvtDeviceQueryRemove(__int64 a1)
 {
   _InterlockedOr(

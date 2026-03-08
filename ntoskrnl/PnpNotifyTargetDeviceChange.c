@@ -1,3 +1,27 @@
+/*
+ * XREFs of PnpNotifyTargetDeviceChange @ 0x14068C820
+ * Callers:
+ *     PnpProcessCustomDeviceEvent @ 0x140688B68 (PnpProcessCustomDeviceEvent.c)
+ *     PiSendTargetDeviceRemoveCompleteNotification @ 0x140861D4C (PiSendTargetDeviceRemoveCompleteNotification.c)
+ *     PiSendTargetDeviceRemoveCanceledNotification @ 0x14096EB08 (PiSendTargetDeviceRemoveCanceledNotification.c)
+ *     PipSendTargetDeviceQueryRemoveNotification @ 0x14096EEA8 (PipSendTargetDeviceQueryRemoveNotification.c)
+ * Callees:
+ *     PsGetServerSiloServiceSessionId @ 0x1402456C0 (PsGetServerSiloServiceSessionId.c)
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     PnpNotifyDriverCallback @ 0x1406F55F4 (PnpNotifyDriverCallback.c)
+ *     PnpDereferenceNotify @ 0x1406F59C0 (PnpDereferenceNotify.c)
+ *     IopGetSessionIdFromPDO @ 0x1406F72F8 (IopGetSessionIdFromPDO.c)
+ */
+
 __int64 __fastcall PnpNotifyTargetDeviceChange(GUID *Source1, PVOID Object, __int64 a3, _QWORD *a4)
 {
   unsigned int v6; // esi

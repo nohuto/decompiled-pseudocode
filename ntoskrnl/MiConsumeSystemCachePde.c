@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiConsumeSystemCachePde @ 0x1402E6674
+ * Callers:
+ *     MiObtainSystemCacheView @ 0x140335220 (MiObtainSystemCacheView.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall MiConsumeSystemCachePde(__int64 a1)
 {
   _QWORD *v1; // rdx

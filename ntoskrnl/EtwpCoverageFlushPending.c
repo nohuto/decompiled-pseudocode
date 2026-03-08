@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpCoverageFlushPending @ 0x140799B84
+ * Callers:
+ *     EtwpCoverageRecord @ 0x14078E9DC (EtwpCoverageRecord.c)
+ *     EtwpCoverageFlushWorkItemCallback @ 0x140799AB0 (EtwpCoverageFlushWorkItemCallback.c)
+ *     EtwpCoverageReset @ 0x1409E566C (EtwpCoverageReset.c)
+ *     EtwpCoverageResetCP @ 0x1409E5850 (EtwpCoverageResetCP.c)
+ *     EtwpFlushCoverage @ 0x1409E5BAC (EtwpFlushCoverage.c)
+ * Callees:
+ *     KeCancelTimer2 @ 0x140204390 (KeCancelTimer2.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 int *__fastcall EtwpCoverageFlushPending(int **a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   int *result; // rax

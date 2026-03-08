@@ -1,3 +1,22 @@
+/*
+ * XREFs of PspCreatePicoThread @ 0x1409B27F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PspAllocateThread @ 0x1406B00F4 (PspAllocateThread.c)
+ *     PspInsertThread @ 0x1406B0F50 (PspInsertThread.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspCreateUserContext @ 0x1407EEA8C (PspCreateUserContext.c)
+ */
+
 __int64 __fastcall PspCreatePicoThread(__int64 a1, __int64 a2, __int64 *a3)
 {
   struct _EX_RUNDOWN_REF *v6; // rdi

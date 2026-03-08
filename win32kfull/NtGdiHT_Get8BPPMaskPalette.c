@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtGdiHT_Get8BPPMaskPalette @ 0x1C02CF1B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HT_Get8BPPMaskPalette @ 0x1C0252E90 (HT_Get8BPPMaskPalette.c)
+ *     ?bSafeCopyBits@@YAHPEAX0K@Z @ 0x1C02CA494 (-bSafeCopyBits@@YAHPEAX0K@Z.c)
+ *     ?bSafeReadBits@@YAHPEAX0K@Z @ 0x1C02CA4E8 (-bSafeReadBits@@YAHPEAX0K@Z.c)
+ */
+
 __int64 __fastcall NtGdiHT_Get8BPPMaskPalette(
         char *a1,
         BOOL Use8BPPMaskPal,

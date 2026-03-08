@@ -1,3 +1,14 @@
+/*
+ * XREFs of DpiMiracastCbSendUserModeMessage @ 0x1C039A080
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiMiracastAddRefMiracastDeviceContext @ 0x1C005F23C (DpiMiracastAddRefMiracastDeviceContext.c)
+ *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C005FF40 (DpiMiracastReleaseMiracastDeviceContext.c)
+ *     McTemplateK0xqqppq_EtwWriteTransfer @ 0x1C00629D0 (McTemplateK0xqqppq_EtwWriteTransfer.c)
+ *     DpiMiracastSendAsyncUserModeRequest @ 0x1C039B048 (DpiMiracastSendAsyncUserModeRequest.c)
+ */
+
 __int64 __fastcall DpiMiracastCbSendUserModeMessage(
         int *P,
         size_t Size,

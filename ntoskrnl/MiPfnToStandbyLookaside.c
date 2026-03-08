@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiPfnToStandbyLookaside @ 0x140288780
+ * Callers:
+ *     MiSharedInsertPfnChainInList @ 0x140288400 (MiSharedInsertPfnChainInList.c)
+ *     MiReplaceStandbyLookaside @ 0x1402C6D1C (MiReplaceStandbyLookaside.c)
+ *     MiRebuildStandbyLookasideList @ 0x1402C6EB0 (MiRebuildStandbyLookasideList.c)
+ *     MiUnlinkNumaStandbyPage @ 0x1402C77BC (MiUnlinkNumaStandbyPage.c)
+ *     MiExclusiveInsertPfnChainInList @ 0x1402D3138 (MiExclusiveInsertPfnChainInList.c)
+ *     MiInsertNumaStandbyPage @ 0x14064E1CC (MiInsertNumaStandbyPage.c)
+ * Callees:
+ *     MiGetPfnPriority @ 0x14028A3F8 (MiGetPfnPriority.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiPageToChannel @ 0x140370C10 (MiPageToChannel.c)
+ */
+
 __int64 __fastcall MiPfnToStandbyLookaside(__int64 a1, __int64 a2, __int64 *a3)
 {
   __int64 v4; // rsi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of BiGetVolumeDiskExtentsInformation @ 0x140A5A870
+ * Callers:
+ *     BiGetPhysicalDriveName @ 0x140A5A720 (BiGetPhysicalDriveName.c)
+ * Callees:
+ *     ZwDeviceIoControlFile @ 0x1404123F0 (ZwDeviceIoControlFile.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiGetVolumeDiskExtentsInformation(HANDLE FileHandle, _QWORD *a2)
 {
   ULONG OutputBufferLength; // esi

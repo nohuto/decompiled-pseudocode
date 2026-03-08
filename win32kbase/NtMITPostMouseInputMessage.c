@@ -1,3 +1,17 @@
+/*
+ * XREFs of NtMITPostMouseInputMessage @ 0x1C016B720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterCritInternal @ 0x1C004FB50 (PrivateAPI--_anonymous_namespace_--EnterCritInternal.c)
+ *     HMUnlockObject @ 0x1C0072980 (HMUnlockObject.c)
+ *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C007CCB8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     PostMouseInputMessage @ 0x1C0218238 (PostMouseInputMessage.c)
+ */
+
 __int64 __fastcall NtMITPostMouseInputMessage(__int64 *a1, unsigned int a2, __int64 a3, _QWORD *a4)
 {
   __int64 *v7; // rsi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopInsertRemoveDevice @ 0x140241748
+ * Callers:
+ *     IopCompleteUnloadOrDelete @ 0x1402F0CC4 (IopCompleteUnloadOrDelete.c)
+ *     IoCreateDevice @ 0x1407F0460 (IoCreateDevice.c)
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ */
+
 void __fastcall IopInsertRemoveDevice(__int64 a1, __int64 a2, char a3)
 {
   KIRQL v6; // dl

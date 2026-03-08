@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiLockOwnedProtoPage @ 0x1402871A0
+ * Callers:
+ *     MmCheckCachedPageStates @ 0x1402200B0 (MmCheckCachedPageStates.c)
+ *     MiMakePageAvoidRead @ 0x140272670 (MiMakePageAvoidRead.c)
+ *     MiLockProtoPoolPage @ 0x140283CA0 (MiLockProtoPoolPage.c)
+ *     MiFinishHardFault @ 0x140284200 (MiFinishHardFault.c)
+ *     MiRelockProtoPoolPage @ 0x1402A2F78 (MiRelockProtoPoolPage.c)
+ * Callees:
+ *     MiWriteValidPteVolatile @ 0x140229800 (MiWriteValidPteVolatile.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403C8140 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403C8170 (HvlNotifyLongSpinWait.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall MiLockOwnedProtoPage(__int64 CurrentIrql, unsigned __int8 a2)
 {
   volatile signed __int64 *v2; // rdi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpCmcInitializePolling @ 0x1403AF0C8
+ * Callers:
+ *     HalpInitializeCmc @ 0x140A87F7C (HalpInitializeCmc.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpCmcInitializeErrorPacketContents @ 0x14037D248 (HalpCmcInitializeErrorPacketContents.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpCmcInitializePolling(__int64 a1)
 {
   unsigned __int64 v2; // rbx

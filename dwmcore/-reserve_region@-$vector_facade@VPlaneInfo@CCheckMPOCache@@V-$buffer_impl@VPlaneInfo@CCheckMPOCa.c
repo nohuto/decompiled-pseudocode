@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?reserve_region@?$vector_facade@VPlaneInfo@CCheckMPOCache@@V?$buffer_impl@VPlaneInfo@CCheckMPOCache@@$05$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAVPlaneInfo@CCheckMPOCache@@_K0@Z @ 0x18011727C
+ * Callers:
+ *     ??0CCheckMPOCache@@QEAA@PEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@I_N@Z @ 0x180116B94 (--0CCheckMPOCache@@QEAA@PEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@I_N@Z.c)
+ * Callees:
+ *     ??$move_backward@V?$move_iterator@PEAVPlaneInfo@CCheckMPOCache@@@std@@V?$checked_array_iterator@PEAVPlaneInfo@CCheckMPOCache@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAVPlaneInfo@CCheckMPOCache@@@stdext@@V?$move_iterator@PEAVPlaneInfo@CCheckMPOCache@@@0@0V12@@Z @ 0x180116930 (--$move_backward@V-$move_iterator@PEAVPlaneInfo@CCheckMPOCache@@@std@@V-$checked_array_iterator@.c)
+ *     ??$move_backward_uninitialized@V?$basic_iterator@VPlaneInfo@CCheckMPOCache@@@detail@@V?$checked_array_iterator@PEAVPlaneInfo@CCheckMPOCache@@@stdext@@@detail@@YAXV?$basic_iterator@VPlaneInfo@CCheckMPOCache@@@0@0V?$checked_array_iterator@PEAVPlaneInfo@CCheckMPOCache@@@stdext@@@Z @ 0x1801169CC (--$move_backward_uninitialized@V-$basic_iterator@VPlaneInfo@CCheckMPOCache@@@detail@@V-$checked_.c)
+ *     ?ensure_extra_capacity@?$buffer_impl@VPlaneInfo@CCheckMPOCache@@$05$00Vliberal_expansion_policy@detail@@@detail@@QEAAX_K@Z @ 0x180117154 (-ensure_extra_capacity@-$buffer_impl@VPlaneInfo@CCheckMPOCache@@$05$00Vliberal_expansion_policy@.c)
+ */
+
 char *__fastcall detail::vector_facade<CCheckMPOCache::PlaneInfo,detail::buffer_impl<CCheckMPOCache::PlaneInfo,6,1,detail::liberal_expansion_policy>>::reserve_region(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetProximityBlocking@@YAXXZ @ 0x1C015A7C0
+ * Callers:
+ *     ?UpdateDisplayState@@YAXW4_MONITOR_DISPLAY_STATE@@W4POWER_MONITOR_REQUEST_REASON@@HH@Z @ 0x1C015A9DC (-UpdateDisplayState@@YAXW4_MONITOR_DISPLAY_STATE@@W4POWER_MONITOR_REQUEST_REASON@@HH@Z.c)
+ *     PowerOffMonitor @ 0x1C015BA60 (PowerOffMonitor.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall SetProximityBlocking(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdx

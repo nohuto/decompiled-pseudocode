@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIBuildProcessDevicePhaseCrs @ 0x1C000F000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIBuildCompleteCommon @ 0x1C000BC30 (ACPIBuildCompleteCommon.c)
+ *     ACPIMatchKernelPorts @ 0x1C0031DD0 (ACPIMatchKernelPorts.c)
+ *     PnpBiosSetFlagsForNotableInterrupts @ 0x1C003C200 (PnpBiosSetFlagsForNotableInterrupts.c)
+ *     AMLIIsNamedChildPresent @ 0x1C00487BC (AMLIIsNamedChildPresent.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessDevicePhaseCrs(__int64 a1)
 {
   __int64 v1; // rbx

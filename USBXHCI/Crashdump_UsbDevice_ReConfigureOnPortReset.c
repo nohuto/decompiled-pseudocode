@@ -1,3 +1,12 @@
+/*
+ * XREFs of Crashdump_UsbDevice_ReConfigureOnPortReset @ 0x1C0050940
+ * Callers:
+ *     Crashdump_ResetDevice @ 0x1C004CD40 (Crashdump_ResetDevice.c)
+ * Callees:
+ *     Crashdump_UsbDevice_Configure @ 0x1C004FC34 (Crashdump_UsbDevice_Configure.c)
+ *     Crashdump_UsbDevice_SendResetDeviceCommand @ 0x1C0050F78 (Crashdump_UsbDevice_SendResetDeviceCommand.c)
+ */
+
 __int64 __fastcall Crashdump_UsbDevice_ReConfigureOnPortReset(__int64 a1, int a2)
 {
   __int64 v4; // r9

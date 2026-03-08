@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?xxxInitTerminal@@YAJPEAUtagTERMINAL@@@Z @ 0x1C00BEB78
+ * Callers:
+ *     xxxCreateWindowStation @ 0x1C00BE56C (xxxCreateWindowStation.c)
+ * Callees:
+ *     xxxInitInput @ 0x1C00C1438 (xxxInitInput.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 NTSTATUS __fastcall xxxInitTerminal(struct tagTERMINAL *a1)
 {
   NTSTATUS result; // eax

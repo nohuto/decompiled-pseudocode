@@ -1,3 +1,12 @@
+/*
+ * XREFs of DrvOcclusionStateChangeNotify @ 0x1C0020148
+ * Callers:
+ *     xxxSwitchDesktop @ 0x1C00205D4 (xxxSwitchDesktop.c)
+ *     xxxRemoteReconnect @ 0x1C01267DC (xxxRemoteReconnect.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DrvOcclusionStateChangeNotify(__int64 a1, __int64 a2)
 {
   __int64 DxgkWin32kInterface; // rax

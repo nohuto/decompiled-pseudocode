@@ -1,3 +1,14 @@
+/*
+ * XREFs of DpiDxgkDdiQueryDeviceDescriptor @ 0x1C0201770
+ * Callers:
+ *     DpiPdoGetDeviceDescriptor @ 0x1C02014BC (DpiPdoGetDeviceDescriptor.c)
+ *     DpiGetMonitorDescriptor @ 0x1C0201694 (DpiGetMonitorDescriptor.c)
+ *     DpiFdoQueryAdapterInfoIntegratedDisplay2 @ 0x1C039828C (DpiFdoQueryAdapterInfoIntegratedDisplay2.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0qqbr1pqqp_EtwWriteTransfer @ 0x1C0065E2C (McTemplateK0qqbr1pqqp_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiDxgkDdiQueryDeviceDescriptor(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
 {
   int v4; // ebx

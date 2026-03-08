@@ -1,3 +1,20 @@
+/*
+ * XREFs of HUBFDO_IoctlGetDescriptorFromNodeConnection @ 0x1C007A918
+ * Callers:
+ *     HUBFDO_EvtIoDeviceControl @ 0x1C007C520 (HUBFDO_EvtIoDeviceControl.c)
+ * Callees:
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001CA0 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddDsmEvent @ 0x1C000A740 (HUBSM_AddDsmEvent.c)
+ *     HUBFDO_CompleteGetDescriptorRequest @ 0x1C000EA68 (HUBFDO_CompleteGetDescriptorRequest.c)
+ *     HUBMISC_GetActivityIdIrp @ 0x1C0033758 (HUBMISC_GetActivityIdIrp.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ *     HUBFDO_IoctlValidateParameters @ 0x1C00796AC (HUBFDO_IoctlValidateParameters.c)
+ */
+
 __int64 __fastcall HUBFDO_IoctlGetDescriptorFromNodeConnection(
         __int64 a1,
         __int64 a2,

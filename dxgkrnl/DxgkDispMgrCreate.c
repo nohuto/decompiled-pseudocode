@@ -1,3 +1,14 @@
+/*
+ * XREFs of DxgkDispMgrCreate @ 0x1C0181D80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?reset@?$auto_rc@VDXGDISPLAYMANAGEROBJECT@@@@QEAAXPEAVDXGDISPLAYMANAGEROBJECT@@@Z @ 0x1C001632C (-reset@-$auto_rc@VDXGDISPLAYMANAGEROBJECT@@@@QEAAXPEAVDXGDISPLAYMANAGEROBJECT@@@Z.c)
+ *     ??0DXGDISPLAYMANAGEROBJECT@@QEAA@_N@Z @ 0x1C0181F7C (--0DXGDISPLAYMANAGEROBJECT@@QEAA@_N@Z.c)
+ */
+
 __int64 __fastcall DxgkDispMgrCreate(ULONG64 a1)
 {
   ULONG64 v2; // rcx

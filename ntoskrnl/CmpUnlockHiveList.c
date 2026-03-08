@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpUnlockHiveList @ 0x140731774
+ * Callers:
+ *     CmpLoadKeyCommon @ 0x1402B2DEC (CmpLoadKeyCommon.c)
+ *     CmpJoinClassOfTrust @ 0x1402B38BC (CmpJoinClassOfTrust.c)
+ *     CmpUnJoinClassOfTrust @ 0x1402BFCE8 (CmpUnJoinClassOfTrust.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ */
+
 signed __int32 CmpUnlockHiveList()
 {
   signed __int64 v0; // rdx

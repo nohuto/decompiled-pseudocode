@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCauseOverCommitPopup @ 0x140653D38
+ * Callers:
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     MiPageFileNoFreeSpace @ 0x140638D04 (MiPageFileNoFreeSpace.c)
+ * Callees:
+ *     IoRaiseInformationalHardError @ 0x140554960 (IoRaiseInformationalHardError.c)
+ */
+
 char __fastcall MiCauseOverCommitPopup(__int64 a1)
 {
   int v1; // eax

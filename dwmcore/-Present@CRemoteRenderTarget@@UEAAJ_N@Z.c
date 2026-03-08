@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Present@CRemoteRenderTarget@@UEAAJ_N@Z @ 0x180109700
+ * Callers:
+ *     ?Present@CRemoteRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z @ 0x180118990 (-Present@CRemoteRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?IsPrimaryMonitor@CRemoteRenderTarget@@UEBA_NXZ @ 0x180109AA0 (-IsPrimaryMonitor@CRemoteRenderTarget@@UEBA_NXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CRemoteRenderTarget::Present(CRemoteRenderTarget *this, char a2)
 {
   __int64 v2; // r14

@@ -1,3 +1,15 @@
+/*
+ * XREFs of MmIsSessionInCurrentServerSilo @ 0x1402019D8
+ * Callers:
+ *     PopGetSettingNotificationName @ 0x14068CCC4 (PopGetSettingNotificationName.c)
+ * Callees:
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall MmIsSessionInCurrentServerSilo(unsigned int a1)
 {
   int SessionId; // eax

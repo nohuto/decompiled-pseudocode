@@ -1,3 +1,15 @@
+/*
+ * XREFs of PiDqQueryAppendActionEntry @ 0x140747108
+ * Callers:
+ *     PiDqQueryApplyObjectEvent @ 0x1406896F4 (PiDqQueryApplyObjectEvent.c)
+ *     PiDqQueryEnumObject @ 0x1406CBF24 (PiDqQueryEnumObject.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x140746D28 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ * Callees:
+ *     PiDqGetPnpObjectType @ 0x1406CCB4C (PiDqGetPnpObjectType.c)
+ *     PiDqQueryFreeActiveData @ 0x1407910F8 (PiDqQueryFreeActiveData.c)
+ *     PiDmGetObjectCount @ 0x140957DA0 (PiDmGetObjectCount.c)
+ */
+
 __int64 __fastcall PiDqQueryAppendActionEntry(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rax

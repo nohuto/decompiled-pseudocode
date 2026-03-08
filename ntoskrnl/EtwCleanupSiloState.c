@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwCleanupSiloState @ 0x1409DEED0
+ * Callers:
+ *     PspDeleteServerSiloGlobals @ 0x1409A9EC0 (PspDeleteServerSiloGlobals.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     KeBugCheck @ 0x140415FE0 (KeBugCheck.c)
+ *     EtwpCleanupSiloState @ 0x1409E04E0 (EtwpCleanupSiloState.c)
+ */
+
 __int64 __fastcall EtwCleanupSiloState(_DWORD *P)
 {
   unsigned int v2; // edx

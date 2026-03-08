@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?redloop@INVCMAP@@QEAAHXZ @ 0x1C02A667C
+ * Callers:
+ *     ?inv_cmap@INVCMAP@@QEAAXHPEAURGBX@@HPEAKPEAE@Z @ 0x1C02A64DC (-inv_cmap@INVCMAP@@QEAAXHPEAURGBX@@HPEAKPEAE@Z.c)
+ * Callees:
+ *     ?greenloop@INVCMAP@@QEAAHH@Z @ 0x1C02A627C (-greenloop@INVCMAP@@QEAAHH@Z.c)
+ */
+
 __int64 __fastcall INVCMAP::redloop(INVCMAP *this)
 {
   unsigned int v1; // edi

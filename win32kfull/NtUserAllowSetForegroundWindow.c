@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserAllowSetForegroundWindow @ 0x1C0099BD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     IAMThreadAccessGranted @ 0x1C009A2DC (IAMThreadAccessGranted.c)
+ *     ?_AllowSetForegroundWindow@@YA?AW4AllowSetForegroundWindowResult@@KW4AllowSetForegroundWindowPolicy@@@Z @ 0x1C009B4EC (-_AllowSetForegroundWindow@@YA-AW4AllowSetForegroundWindowResult@@KW4AllowSetForegroundWindowPol.c)
+ */
+
 __int64 __fastcall NtUserAllowSetForegroundWindow(unsigned int a1)
 {
   int v2; // eax

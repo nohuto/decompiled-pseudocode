@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?_SwapMouseButton@@YAHH@Z @ 0x1C01C0578
+ * Callers:
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ *     NtUserSwapMouseButton @ 0x1C01DFE60 (NtUserSwapMouseButton.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     CheckGrantedAccess @ 0x1C00D7810 (CheckGrantedAccess.c)
+ */
+
 __int64 __fastcall _SwapMouseButton(__int64 a1)
 {
   int v1; // edi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of Wmi_WdfEvtCleanupCallback @ 0x1C004BDB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall Wmi_WdfEvtCleanupCallback(__int64 a1)
 {
   __int64 v1; // rbx

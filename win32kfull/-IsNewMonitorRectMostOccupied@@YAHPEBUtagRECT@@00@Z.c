@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsNewMonitorRectMostOccupied@@YAHPEBUtagRECT@@00@Z @ 0x1C01BA484
+ * Callers:
+ *     GetNewMonitor @ 0x1C00AB0FC (GetNewMonitor.c)
+ *     ?DetectNewMonitor@@YAHPEAUMOVESIZEDATA@@PEAUtagRECT@@@Z @ 0x1C01B9BC8 (-DetectNewMonitor@@YAHPEAUMOVESIZEDATA@@PEAUtagRECT@@@Z.c)
+ * Callees:
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ */
+
 _BOOL8 __fastcall IsNewMonitorRectMostOccupied(
         const struct tagRECT *a1,
         const struct tagRECT *a2,

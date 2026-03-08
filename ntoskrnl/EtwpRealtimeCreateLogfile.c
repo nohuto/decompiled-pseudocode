@@ -1,3 +1,23 @@
+/*
+ * XREFs of EtwpRealtimeCreateLogfile @ 0x14069152C
+ * Callers:
+ *     EtwpLogger @ 0x1406926A0 (EtwpLogger.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlCreateUnicodeString @ 0x140747D00 (RtlCreateUnicodeString.c)
+ *     EtwpSendSessionNotification @ 0x1407489B8 (EtwpSendSessionNotification.c)
+ *     EtwpDelayCreate @ 0x1407725F4 (EtwpDelayCreate.c)
+ *     EtwpExpandFileName @ 0x140772920 (EtwpExpandFileName.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     EtwpRealtimeResetReferenceTime @ 0x1407FCBFC (EtwpRealtimeResetReferenceTime.c)
+ *     EtwpRealtimeRestoreState @ 0x14084FCD8 (EtwpRealtimeRestoreState.c)
+ *     EtwpRealtimeZeroTruncateLogfile @ 0x1408540C0 (EtwpRealtimeZeroTruncateLogfile.c)
+ *     EtwpRealtimeUpdateReferenceTime @ 0x1408815D8 (EtwpRealtimeUpdateReferenceTime.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpRealtimeCreateLogfile(__int64 a1)
 {
   __int64 v1; // r14

@@ -1,3 +1,25 @@
+/*
+ * XREFs of KiInitializeMutant @ 0x1402D981C
+ * Callers:
+ *     KeInitializeMutex @ 0x1402D97E0 (KeInitializeMutex.c)
+ *     KeInitializeMutantEx @ 0x1402D9800 (KeInitializeMutantEx.c)
+ *     NtdllRunOnceInitMuiCrits @ 0x1403B1180 (NtdllRunOnceInitMuiCrits.c)
+ *     KeInitializeMutant @ 0x1403D1610 (KeInitializeMutant.c)
+ *     DifKeInitializeMutantWrapper @ 0x1405E1040 (DifKeInitializeMutantWrapper.c)
+ *     DifKeInitializeMutexWrapper @ 0x1405E1160 (DifKeInitializeMutexWrapper.c)
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ *     ViInitSystemPhase0 @ 0x140B49D78 (ViInitSystemPhase0.c)
+ *     sub_140B53C00 @ 0x140B53C00 (sub_140B53C00.c)
+ *     WmipDriverEntry @ 0x140B53F10 (WmipDriverEntry.c)
+ *     PnpInitializeDeviceEvents @ 0x140B705C0 (PnpInitializeDeviceEvents.c)
+ *     EtwpInitializeRegistration @ 0x140B70A04 (EtwpInitializeRegistration.c)
+ *     ExpProfileInitialization @ 0x140B71264 (ExpProfileInitialization.c)
+ * Callees:
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall KiInitializeMutant(__int64 a1, char a2, char a3, char a4)
 {
   __int64 v8; // rax

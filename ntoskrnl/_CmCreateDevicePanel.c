@@ -1,3 +1,16 @@
+/*
+ * XREFs of _CmCreateDevicePanel @ 0x140A62EC8
+ * Callers:
+ *     _CmUpdateDevicePanel @ 0x140683E30 (_CmUpdateDevicePanel.c)
+ *     _CmAddPanelDeviceWorker @ 0x140A62D10 (_CmAddPanelDeviceWorker.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _CmCreateDevicePanelWorker @ 0x140A63028 (_CmCreateDevicePanelWorker.c)
+ */
+
 __int64 __fastcall CmCreateDevicePanel(__int64 a1, __int64 a2, __int64 a3, HANDLE *a4, _BYTE *a5)
 {
   __int64 (__fastcall *v8)(__int64, __int64, __int64); // rdi

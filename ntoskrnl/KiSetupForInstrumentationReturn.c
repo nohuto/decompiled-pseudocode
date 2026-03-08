@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiSetupForInstrumentationReturn @ 0x14056E9C0
+ * Callers:
+ *     KiDispatchException @ 0x140362740 (KiDispatchException.c)
+ *     KiInitializeUserApc @ 0x1403664E8 (KiInitializeUserApc.c)
+ *     KeRaiseUserException @ 0x14056E8C0 (KeRaiseUserException.c)
+ *     KiRaiseException @ 0x140576490 (KiRaiseException.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _KTHREAD *__fastcall KiSetupForInstrumentationReturn(__int64 a1)
 {
   struct _KTHREAD *result; // rax

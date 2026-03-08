@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpPreInitializeSiloState @ 0x14084497C
+ * Callers:
+ *     EtwInitializeSiloState @ 0x1409DF038 (EtwInitializeSiloState.c)
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ * Callees:
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     KeInitializeMutex @ 0x1402D97E0 (KeInitializeMutex.c)
+ *     ExAllocateCacheAwareRundownProtection @ 0x1406F3D20 (ExAllocateCacheAwareRundownProtection.c)
+ *     EtwpCleanupSiloState @ 0x1409E04E0 (EtwpCleanupSiloState.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall EtwpPreInitializeSiloState(__int64 a1, unsigned int a2)
 {
   unsigned int v4; // esi

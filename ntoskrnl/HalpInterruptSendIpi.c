@@ -1,3 +1,27 @@
+/*
+ * XREFs of HalpInterruptSendIpi @ 0x140230870
+ * Callers:
+ *     KiCheckForTimerExpiration @ 0x14022F940 (KiCheckForTimerExpiration.c)
+ *     HalSendSoftwareInterrupt @ 0x140230250 (HalSendSoftwareInterrupt.c)
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     HalRequestSoftwareInterrupt @ 0x140230830 (HalRequestSoftwareInterrupt.c)
+ *     HalRequestIpiSpecifyVector @ 0x140230C90 (HalRequestIpiSpecifyVector.c)
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     KiForwardTick @ 0x1403C61D0 (KiForwardTick.c)
+ *     HalRequestDeferredRecoveryServiceInterrupt @ 0x140504950 (HalRequestDeferredRecoveryServiceInterrupt.c)
+ * Callees:
+ *     KeAndGroupAffinityEx @ 0x140233690 (KeAndGroupAffinityEx.c)
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140236BF0 (KeGetProcessorIndexFromNumber.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140237640 (KeRemoveProcessorAffinityEx.c)
+ *     KiAndAffinityEx @ 0x140237720 (KiAndAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall HalpInterruptSendIpi(_DWORD *a1, unsigned int a2)
 {
   int v4; // ecx

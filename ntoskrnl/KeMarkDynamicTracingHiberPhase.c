@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeMarkDynamicTracingHiberPhase @ 0x14057C6AC
+ * Callers:
+ *     PopMarkComponentsBootPhase @ 0x140AA049C (PopMarkComponentsBootPhase.c)
+ * Callees:
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ *     KiTpCompletionContextSize @ 0x140973714 (KiTpCompletionContextSize.c)
+ */
+
 void KeMarkDynamicTracingHiberPhase()
 {
   __int64 v0; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMIDECheckScanTimeSupport @ 0x1C01C160C
+ * Callers:
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C01C21B8 (RIMIDECreatePointerDeviceInfo.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     rimHidP_GetSpecificValueCaps @ 0x1C01B2114 (rimHidP_GetSpecificValueCaps.c)
+ */
+
 __int64 __fastcall RIMIDECheckScanTimeSupport(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

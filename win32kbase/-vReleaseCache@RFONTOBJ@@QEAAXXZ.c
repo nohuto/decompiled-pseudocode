@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?vReleaseCache@RFONTOBJ@@QEAAXXZ @ 0x1C017F900
+ * Callers:
+ *     ?bCleanDC@XDCOBJ@@QEAAHH@Z @ 0x1C0046C90 (-bCleanDC@XDCOBJ@@QEAAHH@Z.c)
+ *     ?vDeleteCore@XDCOBJ@@QEAAXXZ @ 0x1C0059910 (-vDeleteCore@XDCOBJ@@QEAAXXZ.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C005A234 (--1RFONTOBJ@@QEAA@XZ.c)
+ * Callees:
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0049E20 (EtwTraceGreLockReleaseSemaphore.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 void __fastcall RFONTOBJ::vReleaseCache(RFONTOBJ *this)
 {
   char *v2; // rdx

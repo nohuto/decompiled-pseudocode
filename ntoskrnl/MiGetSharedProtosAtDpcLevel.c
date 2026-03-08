@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiGetSharedProtosAtDpcLevel @ 0x1402CCE88
+ * Callers:
+ *     MiImageProtoChargedCommit @ 0x1402B0EDC (MiImageProtoChargedCommit.c)
+ *     MiGetSharedProtos @ 0x1402CCDF8 (MiGetSharedProtos.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ */
+
 __int64 *__fastcall MiGetSharedProtosAtDpcLevel(__int64 a1, unsigned int a2, __int64 a3)
 {
   volatile LONG *v3; // rsi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of WdipSemDisableContextProviders @ 0x1408321DC
+ * Callers:
+ *     WdipTimeoutCheckRoutine @ 0x14078BFD0 (WdipTimeoutCheckRoutine.c)
+ *     WdipSemDisableScenario @ 0x140831E48 (WdipSemDisableScenario.c)
+ * Callees:
+ *     WdipSemDisableContextProvider @ 0x140832344 (WdipSemDisableContextProvider.c)
+ */
+
 void __fastcall WdipSemDisableContextProviders(__int64 a1, __int64 a2)
 {
   __int64 v2; // rsi

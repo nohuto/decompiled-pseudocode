@@ -1,3 +1,11 @@
+/*
+ * XREFs of DrvDbRegisterObjects @ 0x14081D7C4
+ * Callers:
+ *     DrvDbOpenContext @ 0x14081D690 (DrvDbOpenContext.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DrvDbRegisterObjects(__int64 a1, __int64 a2)
 {
   unsigned int v2; // r8d

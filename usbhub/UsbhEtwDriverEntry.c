@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhEtwDriverEntry @ 0x1C005B460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 UsbhEtwDriverEntry()
 {
   NTSTATUS v0; // ebx

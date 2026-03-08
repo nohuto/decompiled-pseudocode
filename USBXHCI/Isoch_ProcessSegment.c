@@ -1,3 +1,13 @@
+/*
+ * XREFs of Isoch_ProcessSegment @ 0x1C0044714
+ * Callers:
+ *     Isoch_CalculateBytesTransferred @ 0x1C0043A14 (Isoch_CalculateBytesTransferred.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DDDD @ 0x1C000E120 (WPP_RECORDER_SF_DDDD.c)
+ *     WPP_RECORDER_SF_DDDDL @ 0x1C0045FF4 (WPP_RECORDER_SF_DDDDL.c)
+ *     WPP_RECORDER_SF_DDL @ 0x1C0046238 (WPP_RECORDER_SF_DDL.c)
+ */
+
 char __fastcall Isoch_ProcessSegment(
         _QWORD *a1,
         __int64 *a2,

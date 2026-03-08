@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CleanupForSession@DXGVALIDATION@@QEAAXPEAVDXGSESSIONDATA@@@Z @ 0x1C001622C
+ * Callers:
+ *     ??1DXGSESSIONDATA@@QEAA@XZ @ 0x1C01D9450 (--1DXGSESSIONDATA@@QEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DXGVALIDATION::CleanupForSession(DXGVALIDATION *this, struct DXGSESSIONDATA *a2)
 {
   void *v3; // rcx

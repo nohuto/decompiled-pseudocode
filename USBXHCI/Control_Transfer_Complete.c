@@ -1,3 +1,15 @@
+/*
+ * XREFs of Control_Transfer_Complete @ 0x1C0005E64
+ * Callers:
+ *     Control_Transfer_CompleteCancelable @ 0x1C0006FBC (Control_Transfer_CompleteCancelable.c)
+ *     Control_WdfDpcForCanceledOnQueueTransferCompletion @ 0x1C0042E30 (Control_WdfDpcForCanceledOnQueueTransferCompletion.c)
+ * Callees:
+ *     TR_GetUsbdStatusFromTrbCompletionCode @ 0x1C0005FE4 (TR_GetUsbdStatusFromTrbCompletionCode.c)
+ *     Control_TransferData_Free @ 0x1C0006034 (Control_TransferData_Free.c)
+ *     WPP_RECORDER_SF_DDqdDD @ 0x1C00061BC (WPP_RECORDER_SF_DDqdDD.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 KIRQL __fastcall Control_Transfer_Complete(__int64 a1, __int64 a2)
 {
   int v4; // r8d

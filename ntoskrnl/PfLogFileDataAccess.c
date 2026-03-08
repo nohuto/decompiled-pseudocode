@@ -1,3 +1,13 @@
+/*
+ * XREFs of PfLogFileDataAccess @ 0x14028C67C
+ * Callers:
+ *     PfFileInfoNotify @ 0x14028C770 (PfFileInfoNotify.c)
+ *     MiLogRelocationRva @ 0x1407F4A00 (MiLogRelocationRva.c)
+ * Callees:
+ *     PsGetPagePriorityThread @ 0x14028A290 (PsGetPagePriorityThread.c)
+ *     PfLogEvent @ 0x14028D0D0 (PfLogEvent.c)
+ */
+
 __int64 __fastcall PfLogFileDataAccess(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
 {
   unsigned int PagePriorityThread; // eax

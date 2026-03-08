@@ -1,3 +1,16 @@
+/*
+ * XREFs of Xp10CompressBuffer @ 0x1409C2808
+ * Callers:
+ *     RtlCompressBufferXp10 @ 0x1409C0E50 (RtlCompressBufferXp10.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     Xp10ComputeAndWriteCrc @ 0x1409C2DAC (Xp10ComputeAndWriteCrc.c)
+ *     Xp10ExecuteHuffmanEncode @ 0x1409C34F4 (Xp10ExecuteHuffmanEncode.c)
+ *     Xp10ExecuteLz77PassMinMatchLen3 @ 0x1409C3990 (Xp10ExecuteLz77PassMinMatchLen3.c)
+ *     Xp10ExecuteLz77PassMinMatchLen4 @ 0x1409C40D4 (Xp10ExecuteLz77PassMinMatchLen4.c)
+ *     Xp10ValidateParametersAndFillFrameHeader @ 0x1409C57AC (Xp10ValidateParametersAndFillFrameHeader.c)
+ */
+
 __int64 __fastcall Xp10CompressBuffer(
         _WORD *a1,
         __int64 a2,

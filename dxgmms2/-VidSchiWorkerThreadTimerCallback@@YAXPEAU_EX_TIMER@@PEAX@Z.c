@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?VidSchiWorkerThreadTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1C0018D10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VidSchiCheckYieldExitCondition @ 0x1C0018E4C (VidSchiCheckYieldExitCondition.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C002E4FC (McTemplateK0p_EtwWriteTransfer.c)
+ */
+
 void __fastcall VidSchiWorkerThreadTimerCallback(struct _EX_TIMER *a1, char *a2)
 {
   LARGE_INTEGER v3; // r14

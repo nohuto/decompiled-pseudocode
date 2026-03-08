@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpBuddyAllocatorCreateAllocator @ 0x14053000C
+ * Callers:
+ *     HalpIommuAllocateDmaDomain @ 0x1403A43AC (HalpIommuAllocateDmaDomain.c)
+ * Callees:
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ */
+
 __int64 __fastcall HalpBuddyAllocatorCreateAllocator(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

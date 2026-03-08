@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetCaretBlinkTime @ 0x1C00D7770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CheckGrantedAccess @ 0x1C00D7810 (CheckGrantedAccess.c)
+ */
+
 __int64 __fastcall NtUserGetCaretBlinkTime(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rcx

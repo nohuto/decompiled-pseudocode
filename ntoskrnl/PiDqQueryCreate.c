@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiDqQueryCreate @ 0x140745E44
+ * Callers:
+ *     PiDqDispatch @ 0x140745C20 (PiDqDispatch.c)
+ * Callees:
+ *     RtlInitializeGenericTableAvl @ 0x140245560 (RtlInitializeGenericTableAvl.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PiDqQueryCreate(char a1, __int64 *a2)
 {
   unsigned int v4; // edi

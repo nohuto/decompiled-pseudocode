@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_InitializeMonitorManager@MONITOR_MGR@@QEAAJXZ @ 0x1C0216378
+ * Callers:
+ *     MonitorCreateMonitorManager @ 0x1C02162DC (MonitorCreateMonitorManager.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MONITOR_MGR::_InitializeMonitorManager(MONITOR_MGR *this, __int64 a2, __int64 a3, __int64 a4)
 {
   int v6; // [rsp+40h] [rbp+8h] BYREF

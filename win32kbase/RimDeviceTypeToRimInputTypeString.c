@@ -1,3 +1,18 @@
+/*
+ * XREFs of RimDeviceTypeToRimInputTypeString @ 0x1C00877F0
+ * Callers:
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0003AE4 (rimProcessDeviceBufferAndStartRead.c)
+ *     RIMStartDeviceSpecificRead @ 0x1C0087454 (RIMStartDeviceSpecificRead.c)
+ *     ?ReportRimDevice@RimTelemetry@@SAXHHQEAURIMDEV@@@Z @ 0x1C00875D8 (-ReportRimDevice@RimTelemetry@@SAXHHQEAURIMDEV@@@Z.c)
+ *     rimInputApc @ 0x1C00CB830 (rimInputApc.c)
+ *     RIMLogDeviceHealthTelemetry @ 0x1C01A6EE8 (RIMLogDeviceHealthTelemetry.c)
+ *     RIMDeliverConfigRequest @ 0x1C01AD678 (RIMDeliverConfigRequest.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C01B3FEC (RIMCreatePointerDeviceInfo.c)
+ *     RIMVirtCreatePointerDeviceInfo @ 0x1C01BA8B0 (RIMVirtCreatePointerDeviceInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 const wchar_t *__fastcall RimDeviceTypeToRimInputTypeString(__int64 a1, int a2)
 {
   const wchar_t *result; // rax

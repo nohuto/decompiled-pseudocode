@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpInitializeNameCache @ 0x14081347C
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 _QWORD *CmpInitializeNameCache()
 {
   _QWORD *result; // rax

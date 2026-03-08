@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeQueryCycleTimeStatsProcessor @ 0x1402F04F0
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ *     PopEtIsrDpcQuery @ 0x1407824C0 (PopEtIsrDpcQuery.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KeQueryCycleTimeStatsProcessor(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rcx

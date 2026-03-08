@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiRefPageFileSpaceBitmaps @ 0x140639084
+ * Callers:
+ *     MiStoreEvictThread @ 0x1403A3150 (MiStoreEvictThread.c)
+ *     MiStoreWriteModifiedPages @ 0x14046554A (MiStoreWriteModifiedPages.c)
+ *     MiBuildReservationCluster @ 0x140635ED4 (MiBuildReservationCluster.c)
+ *     MiFindPageFileWriteCluster @ 0x1406374E0 (MiFindPageFileWriteCluster.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiRefPageFileSpaceBitmaps(int *a1, __int64 a2)
 {
   volatile LONG *v2; // rbx

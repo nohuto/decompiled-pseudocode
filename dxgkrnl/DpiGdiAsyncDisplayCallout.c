@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiGdiAsyncDisplayCallout @ 0x1C02168F4
+ * Callers:
+ *     ?SubmitSingleEntry@DXGDISPLAYCALLOUTQUEUE@@QEAAJPEAUDISPLAY_CALLOUT_ENTRY@@_K@Z @ 0x1C0216854 (-SubmitSingleEntry@DXGDISPLAYCALLOUTQUEUE@@QEAAJPEAUDISPLAY_CALLOUT_ENTRY@@_K@Z.c)
+ *     ?SubmitBatch@DXGDISPLAYCALLOUTQUEUE@@QEAAJPEAU_LIST_ENTRY@@_K@Z @ 0x1C0310D24 (-SubmitBatch@DXGDISPLAYCALLOUTQUEUE@@QEAAJPEAU_LIST_ENTRY@@_K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiGdiAsyncDisplayCallout(__int64 a1)
 {
   unsigned int v2; // ebx

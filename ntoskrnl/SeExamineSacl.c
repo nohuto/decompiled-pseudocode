@@ -1,3 +1,23 @@
+/*
+ * XREFs of SeExamineSacl @ 0x1408A18B0
+ * Callers:
+ *     SeObjectReferenceAuditAlarm @ 0x140699510 (SeObjectReferenceAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x14069A700 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     NtOpenObjectAuditAlarm @ 0x140790670 (NtOpenObjectAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmForNonObObject @ 0x14085ED00 (SeOpenObjectAuditAlarmForNonObObject.c)
+ *     SeExamineGlobalSacl @ 0x1408A1D6A (SeExamineGlobalSacl.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x1409C7074 (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1409CB370 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ *     CmpExamineSaclForAuditEvent @ 0x140A18BC8 (CmpExamineSaclForAuditEvent.c)
+ * Callees:
+ *     AuthzBasepEvaluateAceCondition @ 0x140246980 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1402975A8 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402B8730 (AuthzBasepFreeSecurityAttributesList.c)
+ *     SepSidInToken @ 0x1402EF7EC (SepSidInToken.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 // local variable allocation has failed, the output may be wrong!
 void __stdcall SeExamineSacl(
         PACL Sacl,

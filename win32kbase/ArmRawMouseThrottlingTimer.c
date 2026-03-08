@@ -1,3 +1,11 @@
+/*
+ * XREFs of ArmRawMouseThrottlingTimer @ 0x1C02175A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ArmRawMouseThrottlingTimer@CMouseSensor@@QEAAX_NK@Z @ 0x1C0214AE4 (-ArmRawMouseThrottlingTimer@CMouseSensor@@QEAAX_NK@Z.c)
+ */
+
 void __fastcall ArmRawMouseThrottlingTimer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // ebx

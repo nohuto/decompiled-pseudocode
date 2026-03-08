@@ -1,3 +1,13 @@
+/*
+ * XREFs of CiLookupTask @ 0x1C000AC70
+ * Callers:
+ *     CiDispatchCreateTaskIndexClient @ 0x1C000A240 (CiDispatchCreateTaskIndexClient.c)
+ *     CiDispatchCreateMmThreadClient @ 0x1C000AB00 (CiDispatchCreateMmThreadClient.c)
+ * Callees:
+ *     WPP_SF_Sd @ 0x1C0004664 (WPP_SF_Sd.c)
+ *     CiTaskLocate @ 0x1C000ACF0 (CiTaskLocate.c)
+ */
+
 __int64 __fastcall CiLookupTask(wchar_t *a1, wchar_t *a2, __int64 a3, char a4, _QWORD *a5)
 {
   const wchar_t *v7; // rsi

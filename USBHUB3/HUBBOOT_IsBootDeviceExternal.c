@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBBOOT_IsBootDeviceExternal @ 0x1C003FAF4
+ * Callers:
+ *     HUBPDO_EvtDeviceUsageNotificationEx @ 0x1C001CA80 (HUBPDO_EvtDeviceUsageNotificationEx.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 bool __fastcall HUBBOOT_IsBootDeviceExternal(__int64 a1)
 {
   char v1; // bl

@@ -1,3 +1,12 @@
+/*
+ * XREFs of TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C007A840
+ * Callers:
+ *     AcpiDiagInitialize @ 0x1C00A71E8 (AcpiDiagInitialize.c)
+ *     AcpiIrqLibConfigureLibrary @ 0x1C00ABA48 (AcpiIrqLibConfigureLibrary.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(char *CallbackContext)
 {
   ULONGLONG *v1; // rsi

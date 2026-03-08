@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopExecuteProcessorCallback @ 0x1402E1A10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopQueueTargetDpc @ 0x140235F8C (PopQueueTargetDpc.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 LONG __fastcall PopExecuteProcessorCallback(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   int v4; // eax

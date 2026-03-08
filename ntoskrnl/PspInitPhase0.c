@@ -1,3 +1,37 @@
+/*
+ * XREFs of PspInitPhase0 @ 0x140B3F968
+ * Callers:
+ *     PsInitSystem @ 0x140B42F74 (PsInitSystem.c)
+ * Callees:
+ *     ExInitializePushLock @ 0x140238200 (ExInitializePushLock.c)
+ *     VslGetNestedPageProtectionFlags @ 0x1402D85B0 (VslGetNestedPageProtectionFlags.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x1402E8DA0 (KeRegisterBugCheckReasonCallback.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     SeRegisterObjectTypeMandatoryPolicy @ 0x14037D9FC (SeRegisterObjectTypeMandatoryPolicy.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     strcpy_s @ 0x1403D9D10 (strcpy_s.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsIumResumeAfterHibernate @ 0x1405A34C4 (PsIumResumeAfterHibernate.c)
+ *     ExCreateHandleTable @ 0x140706274 (ExCreateHandleTable.c)
+ *     PsChangeQuantumTable @ 0x14076EDA4 (PsChangeQuantumTable.c)
+ *     PspValidateMitigationOptions @ 0x140776EEC (PspValidateMitigationOptions.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     PsCreateSystemThread @ 0x1407DE2E0 (PsCreateSystemThread.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     CmSiRWLockInitialize @ 0x14080BCF0 (CmSiRWLockInitialize.c)
+ *     ObCreateObjectType @ 0x14080CB00 (ObCreateObjectType.c)
+ *     PspValidateMitigationAuditOptions @ 0x140848974 (PspValidateMitigationAuditOptions.c)
+ *     PspCreateProcess @ 0x140858F60 (PspCreateProcess.c)
+ *     MmAllocateIndependentPagesEx @ 0x140869ADC (MmAllocateIndependentPagesEx.c)
+ *     MmAllocateMappingAddress @ 0x140869D00 (MmAllocateMappingAddress.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     PspInitializeSiloStructures @ 0x140B3E8CC (PspInitializeSiloStructures.c)
+ *     PspTlsInitialize @ 0x140B641FC (PspTlsInitialize.c)
+ *     PspInitializeCpuPartitionsPhase0 @ 0x140B68074 (PspInitializeCpuPartitionsPhase0.c)
+ *     PspInitializeSystemPartitionPhase0 @ 0x140B6869C (PspInitializeSystemPartitionPhase0.c)
+ *     PspInitializeJobStructures @ 0x140B6FB58 (PspInitializeJobStructures.c)
+ */
+
 char __fastcall PspInitPhase0(PVOID StartContext)
 {
   char *v1; // r9

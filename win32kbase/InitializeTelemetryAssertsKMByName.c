@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitializeTelemetryAssertsKMByName @ 0x1C008C56C
+ * Callers:
+ *     Win32kBaseDriverEntry @ 0x1C0320F10 (Win32kBaseDriverEntry.c)
+ * Callees:
+ *     InitializeTelemetryAssertsKMWorkerInternal @ 0x1C008C5C4 (InitializeTelemetryAssertsKMWorkerInternal.c)
+ */
+
 __int64 InitializeTelemetryAssertsKMByName()
 {
   struct _STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF

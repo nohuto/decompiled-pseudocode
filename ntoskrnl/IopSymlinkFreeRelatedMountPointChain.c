@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopSymlinkFreeRelatedMountPointChain @ 0x14078B018
+ * Callers:
+ *     IopSymlinkCleanupECP @ 0x14078B000 (IopSymlinkCleanupECP.c)
+ *     IopParseDevice @ 0x1407B6A30 (IopParseDevice.c)
+ *     IopSymlinkRememberJunction @ 0x14087A7D0 (IopSymlinkRememberJunction.c)
+ *     IopSymlinkUpdateECP @ 0x14087BDFC (IopSymlinkUpdateECP.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall IopSymlinkFreeRelatedMountPointChain(__int64 a1)
 {
   _QWORD *v2; // rcx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlQueryPropertyStore @ 0x1405A8510
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     bsearch @ 0x1403D4280 (bsearch.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpAcquirePropStoreLockShared @ 0x1405A8904 (RtlpAcquirePropStoreLockShared.c)
+ */
+
 __int64 __fastcall RtlQueryPropertyStore(void *Key, _QWORD *a2)
 {
   unsigned __int64 v4; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vInit@tagRlsFilter@Prediction@@QEAAXVCFixPred@2@000@Z @ 0x1C01C40C0
+ * Callers:
+ *     ?InitializeContactPrediction@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@UtagPOINT@@1PEAUtagHPD_PREDICTION_INFO@@PEAU2@3@Z @ 0x1C01C2BA0 (-InitializeContactPrediction@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@UtagPOINT@@1PEAUtagHPD_PREDICTI.c)
+ * Callees:
+ *     ?Div128by64@@YA_J_J_K0AEA_J@Z @ 0x1C0145DFA (-Div128by64@@YA_J_J_K0AEA_J@Z.c)
+ *     ?diag@?$SquareMatrix@VCFixPred@Prediction@@$02@Prediction@@QEAAXAEBVCFixPred@2@@Z @ 0x1C01C3EF8 (-diag@-$SquareMatrix@VCFixPred@Prediction@@$02@Prediction@@QEAAXAEBVCFixPred@2@@Z.c)
+ */
+
 __int64 __fastcall Prediction::tagRlsFilter::vInit(__int64 *a1, __int64 *a2, __int64 *a3, __int64 *a4, __int64 *a5)
 {
   __int64 *v5; // rdi

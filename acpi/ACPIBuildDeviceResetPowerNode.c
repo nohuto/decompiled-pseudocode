@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIBuildDeviceResetPowerNode @ 0x1C000CAD0
+ * Callers:
+ *     ACPIBuildProcessDevicePhasePrr @ 0x1C000FB40 (ACPIBuildProcessDevicePhasePrr.c)
+ * Callees:
+ *     WPP_RECORDER_SF_sLqss @ 0x1C00157B4 (WPP_RECORDER_SF_sLqss.c)
+ *     WPP_RECORDER_SF_sqss @ 0x1C0015EC4 (WPP_RECORDER_SF_sqss.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNameSpaceObject @ 0x1C00483B8 (AMLIGetNameSpaceObject.c)
+ */
+
 __int64 __fastcall ACPIBuildDeviceResetPowerNode(_QWORD *BugCheckParameter2, ULONG_PTR BugCheckParameter3, __int64 a3)
 {
   __int64 Pool2; // rsi

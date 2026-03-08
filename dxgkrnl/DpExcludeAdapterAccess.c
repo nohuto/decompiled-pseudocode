@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpExcludeAdapterAccess @ 0x1C03941A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DxgkIsAdapterCoreSyncAcquired @ 0x1C01E5204 (DxgkIsAdapterCoreSyncAcquired.c)
+ */
+
 __int64 __fastcall DpExcludeAdapterAccess(PDEVICE_OBJECT DeviceObject, int a2, __int64 a3, __int64 a4)
 {
   PVOID DeviceExtension; // rdi

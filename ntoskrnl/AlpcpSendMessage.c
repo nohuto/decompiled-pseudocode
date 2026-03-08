@@ -1,3 +1,38 @@
+/*
+ * XREFs of AlpcpSendMessage @ 0x1407CAFB0
+ * Callers:
+ *     AlpciSendDeferredMessageBeforeWait @ 0x14033E1E0 (AlpciSendDeferredMessageBeforeWait.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x140715930 (AlpcpSendLegacySynchronousRequest.c)
+ *     NtReplyWaitReceivePortEx @ 0x140716750 (NtReplyWaitReceivePortEx.c)
+ *     NtRequestPort @ 0x14077B630 (NtRequestPort.c)
+ *     NtReplyPort @ 0x140789820 (NtReplyPort.c)
+ *     NtAlpcSendWaitReceivePort @ 0x1407CCAC0 (NtAlpcSendWaitReceivePort.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1407CF500 (AlpcpProcessSynchronousRequest.c)
+ *     LpcRequestPort @ 0x1407DA880 (LpcRequestPort.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AlpcpChargePagedPoolQuota @ 0x1406D477C (AlpcpChargePagedPoolQuota.c)
+ *     PsReleaseProcessWakeCounter @ 0x140711BD0 (PsReleaseProcessWakeCounter.c)
+ *     AlpcpCancelMessage @ 0x1407141F0 (AlpcpCancelMessage.c)
+ *     AlpcpDispatchReplyToPort @ 0x140715F0C (AlpcpDispatchReplyToPort.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     AlpcpValidateMessage @ 0x140716CC8 (AlpcpValidateMessage.c)
+ *     AlpcpDispatchReplyToWaitingThread @ 0x1407C9EE0 (AlpcpDispatchReplyToWaitingThread.c)
+ *     AlpcpReleaseAttributes @ 0x1407CA744 (AlpcpReleaseAttributes.c)
+ *     AlpcpLookupMessage @ 0x1407CA7C0 (AlpcpLookupMessage.c)
+ *     AlpcpCaptureAttributes @ 0x1407CAAD0 (AlpcpCaptureAttributes.c)
+ *     AlpcpDispatchNewMessage @ 0x1407CB7E0 (AlpcpDispatchNewMessage.c)
+ *     AlpcpAllocateBlob @ 0x1407CBB50 (AlpcpAllocateBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1407CBD44 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpCaptureMessageData @ 0x1407CC930 (AlpcpCaptureMessageData.c)
+ *     AlpcpValidateDataInformation @ 0x140975FAC (AlpcpValidateDataInformation.c)
+ *     AlpcpEnterAllocationEventMessageLog @ 0x1409778E8 (AlpcpEnterAllocationEventMessageLog.c)
+ */
+
 __int64 __fastcall AlpcpSendMessage(__int64 a1, __m256i *a2, unsigned __int64 a3, char a4)
 {
   _QWORD *v7; // r13

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpIommuMarkHiberPhase @ 0x140A93000
+ * Callers:
+ *     HaliLocateHiberRanges @ 0x140A92C20 (HaliLocateHiberRanges.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ */
+
 void __fastcall HalpIommuMarkHiberPhase(PVOID MemoryMap)
 {
   ULONG_PTR *i; // rbx

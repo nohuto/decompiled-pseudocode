@@ -1,3 +1,12 @@
+/*
+ * XREFs of SupportsOnlyRawAccess @ 0x1C0052F58
+ * Callers:
+ *     ReadField @ 0x1C0052AE0 (ReadField.c)
+ *     WriteField @ 0x1C0053090 (WriteField.c)
+ * Callees:
+ *     FindRSAccess @ 0x1C004B438 (FindRSAccess.c)
+ */
+
 bool __fastcall SupportsOnlyRawAccess(__int64 a1)
 {
   char v1; // bl

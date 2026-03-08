@@ -1,3 +1,18 @@
+/*
+ * XREFs of ACPIThermalReleaseCoolingInterfaces @ 0x1C0041C30
+ * Callers:
+ *     ACPIDispatchIrp @ 0x1C0001010 (ACPIDispatchIrp.c)
+ *     ACPIFanStopDevice @ 0x1C0027980 (ACPIFanStopDevice.c)
+ *     ACPIFilterRemoveNonPresentDevices @ 0x1C0028FE8 (ACPIFilterRemoveNonPresentDevices.c)
+ *     ACPIBusIrpQueryRemoveOrStopDevice @ 0x1C0080820 (ACPIBusIrpQueryRemoveOrStopDevice.c)
+ *     ACPIBusIrpStopDevice @ 0x1C0081900 (ACPIBusIrpStopDevice.c)
+ *     ACPIRootIrpQueryRemoveOrStopDevice @ 0x1C00946F0 (ACPIRootIrpQueryRemoveOrStopDevice.c)
+ * Callees:
+ *     AcpiDiagTraceActiveCoolingConstraint @ 0x1C0007500 (AcpiDiagTraceActiveCoolingConstraint.c)
+ *     AcpiDiagTracePassiveCoolingConstraint @ 0x1C0008720 (AcpiDiagTracePassiveCoolingConstraint.c)
+ *     ACPIThermalReevaluateConstraints @ 0x1C0041A74 (ACPIThermalReevaluateConstraints.c)
+ */
+
 __int64 __fastcall ACPIThermalReleaseCoolingInterfaces(__int64 a1)
 {
   KIRQL v2; // al

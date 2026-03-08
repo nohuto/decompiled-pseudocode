@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpWnfEnumeratePermanentDataStoreHandles @ 0x140A04A04
+ * Callers:
+ *     ExpWnfDeletePermanentStateData @ 0x140A046AC (ExpWnfDeletePermanentStateData.c)
+ * Callees:
+ *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x140851C0C (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
+ */
+
 NTSTATUS __fastcall ExpWnfEnumeratePermanentDataStoreHandles(int a1, int a2, int a3, HANDLE *a4)
 {
   if ( a1 == 2 || a3 )

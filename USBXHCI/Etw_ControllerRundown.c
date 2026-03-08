@@ -1,3 +1,13 @@
+/*
+ * XREFs of Etw_ControllerRundown @ 0x1C0013EAC
+ * Callers:
+ *     Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled @ 0x1C0013F90 (Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled.c)
+ *     Etw_EnableCallback @ 0x1C001C8E0 (Etw_EnableCallback.c)
+ * Callees:
+ *     Etw_DeviceListRundown @ 0x1C0013C10 (Etw_DeviceListRundown.c)
+ *     McTemplateK0pquuqqqqqqsssxqqqttqqqtxxqqqqqqqqqqnn_EtwWriteTransfer @ 0x1C004B7EC (McTemplateK0pquuqqqqqqsssxqqqttqqqtxxqqqqqqqqqqnn_EtwWriteTransfer.c)
+ */
+
 void __fastcall Etw_ControllerRundown(__int64 a1, __int64 a2)
 {
   _DWORD *v2; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmPerfSelectProcessorStates @ 0x140235BE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PpmPerfSelectProcessorState @ 0x140235830 (PpmPerfSelectProcessorState.c)
+ */
+
 char PpmPerfSelectProcessorStates()
 {
   __int64 i; // rbx

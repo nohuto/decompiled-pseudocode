@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?UnmarshalReceive@ReceiveProcessor@Calling@CoreMessaging@@QEAAJPEAUIMessageCallReceiveHost@@PEBUMsgCallTypeDefinition@@PEBEIIPEBXI@Z @ 0x1C0083380
+ * Callers:
+ *     CoreUICallReceive @ 0x1C00832C8 (CoreUICallReceive.c)
+ * Callees:
+ *     ?ReadExpectedParameterSize@ReceiveProcessor@Calling@CoreMessaging@@AEAAJPEAIPEA_N0@Z @ 0x1C008364C (-ReadExpectedParameterSize@ReceiveProcessor@Calling@CoreMessaging@@AEAAJPEAIPEA_N0@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ?Error@FailFast@Calling@CoreMessaging@@SAXPEBDI@Z @ 0x1C02756E4 (-Error@FailFast@Calling@CoreMessaging@@SAXPEBDI@Z.c)
+ */
+
 __int64 __fastcall CoreMessaging::Calling::ReceiveProcessor::UnmarshalReceive(
         CoreMessaging::Calling::ReceiveProcessor *this,
         struct IMessageCallReceiveHost *a2,

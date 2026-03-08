@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CColorMatrixEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C024DFF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CColorMatrixEffectMarshaler::SetRemarshalingFlags(
         DirectComposition::CColorMatrixEffectMarshaler *this)
 {

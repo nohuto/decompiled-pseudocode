@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TdrHistoryUpdate@@YAXPEAU_TDR_HISTORY@@PEBU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030A440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall TdrHistoryUpdate(struct _TDR_HISTORY *a1, const struct _TDR_RECOVERY_CONTEXT *a2)
 {
   __int64 v2; // r8

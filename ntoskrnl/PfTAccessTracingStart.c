@@ -1,3 +1,19 @@
+/*
+ * XREFs of PfTAccessTracingStart @ 0x140A858C4
+ * Callers:
+ *     PfGetCompletedTrace @ 0x1407E76DC (PfGetCompletedTrace.c)
+ *     PfTStart @ 0x140844B00 (PfTStart.c)
+ *     PfpPowerActionStartScenarioTracing @ 0x140A9CFDC (PfpPowerActionStartScenarioTracing.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     MmSetAccessLogging @ 0x1402FF710 (MmSetAccessLogging.c)
+ *     MmGetDefaultPagePriority @ 0x14035B470 (MmGetDefaultPagePriority.c)
+ *     MmEnablePeriodicAccessClearing @ 0x140A85978 (MmEnablePeriodicAccessClearing.c)
+ */
+
 void __fastcall PfTAccessTracingStart(__int64 a1, __int64 a2, int a3)
 {
   struct _KTHREAD *CurrentThread; // rax

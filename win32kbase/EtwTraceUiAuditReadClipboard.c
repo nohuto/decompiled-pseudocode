@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceUiAuditReadClipboard @ 0x1C0164BA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0qmqmq_EtwWriteTransfer @ 0x1C016619C (McTemplateK0qmqmq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall EtwTraceUiAuditReadClipboard(int a1, __int64 a2, int a3, __int64 a4, char a5)
 {
   __int64 result; // rax

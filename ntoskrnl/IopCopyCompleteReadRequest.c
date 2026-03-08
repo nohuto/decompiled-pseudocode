@@ -1,3 +1,17 @@
+/*
+ * XREFs of IopCopyCompleteReadRequest @ 0x1402F9BA0
+ * Callers:
+ *     IopCopyCompleteReadIrp @ 0x1402F99A0 (IopCopyCompleteReadIrp.c)
+ *     IopCopyAbortCopyReadRequest @ 0x1405578B0 (IopCopyAbortCopyReadRequest.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     IopDropIrp @ 0x140293E48 (IopDropIrp.c)
+ *     IopDequeueIrpFromFileObject @ 0x140293F0C (IopDequeueIrpFromFileObject.c)
+ *     IopUpdateIrpTransferCount @ 0x1402F9C50 (IopUpdateIrpTransferCount.c)
+ *     IopDequeueIrpFromThread @ 0x14030F160 (IopDequeueIrpFromThread.c)
+ *     IopProcessBufferedIoCompletion @ 0x140313AA0 (IopProcessBufferedIoCompletion.c)
+ */
+
 void __fastcall IopCopyCompleteReadRequest(__int64 a1, __int64 a2, __int64 a3, ULONG_PTR *a4)
 {
   struct _KTHREAD *CurrentThread; // rbp

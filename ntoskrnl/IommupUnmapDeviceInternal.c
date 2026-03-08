@@ -1,3 +1,20 @@
+/*
+ * XREFs of IommupUnmapDeviceInternal @ 0x140521AB8
+ * Callers:
+ *     IommuUnmapDevice @ 0x140521620 (IommuUnmapDevice.c)
+ *     IommupDeviceDisableSvm @ 0x140930CBC (IommupDeviceDisableSvm.c)
+ *     IommupDeviceEnableSvm @ 0x140930DD4 (IommupDeviceEnableSvm.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     ExRundownCompleted @ 0x140294280 (ExRundownCompleted.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IommupHvUnmapDevice @ 0x140522FF8 (IommupHvUnmapDevice.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IommupUnmapDeviceInternal(__int64 a1, __int64 a2, __int64 a3)
 {
   _QWORD *v4; // rsi

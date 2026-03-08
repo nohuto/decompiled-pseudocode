@@ -1,3 +1,15 @@
+/*
+ * XREFs of EmpParseTargetRuleStringIndexList @ 0x140B4E30C
+ * Callers:
+ *     EmpParseTargetRules @ 0x140B4E0F0 (EmpParseTargetRules.c)
+ * Callees:
+ *     strchr @ 0x1403D5520 (strchr.c)
+ *     RtlCharToInteger @ 0x140811070 (RtlCharToInteger.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     EmpInfParseGetStringIndexFromName @ 0x140B4E5AC (EmpInfParseGetStringIndexFromName.c)
+ */
+
 bool __fastcall EmpParseTargetRuleStringIndexList(
         __int64 a1,
         _BYTE *a2,

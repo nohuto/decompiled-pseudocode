@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopPowerAggregatorNotifyPdcSleepTransition @ 0x140990C08
+ * Callers:
+ *     PdcPoCurrentPdcPhase @ 0x140597320 (PdcPoCurrentPdcPhase.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorScheduleWorker @ 0x140873100 (PopPowerAggregatorScheduleWorker.c)
+ *     PopPowerAggregatorDiagTracePdcSleepTransition @ 0x14099DF84 (PopPowerAggregatorDiagTracePdcSleepTransition.c)
+ */
+
 __int64 __fastcall PopPowerAggregatorNotifyPdcSleepTransition(char a1, int a2, int a3)
 {
   int v6; // ecx

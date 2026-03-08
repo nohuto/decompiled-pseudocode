@@ -1,3 +1,13 @@
+/*
+ * XREFs of ApiSetRetrieveCalibrationData @ 0x1C0246200
+ * Callers:
+ *     RIMCreatePointerDeviceInfo @ 0x1C01B3FEC (RIMCreatePointerDeviceInfo.c)
+ *     RIMVirtCreatePointerDeviceInfo @ 0x1C01BA8B0 (RIMVirtCreatePointerDeviceInfo.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (__fastcall *__fastcall ApiSetRetrieveCalibrationData(__int64 a1, __int128 *a2, __int64 a3))(_QWORD, _QWORD)
 {
   __int128 *v3; // rdi

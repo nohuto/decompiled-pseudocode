@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlPatchContainsCallTarget @ 0x140A73A04
+ * Callers:
+ *     MiApplyDriverHotPatch @ 0x140A31BB8 (MiApplyDriverHotPatch.c)
+ * Callees:
+ *     RtlGetHotPatchSize @ 0x1406786D8 (RtlGetHotPatchSize.c)
+ */
+
 __int64 __fastcall RtlPatchContainsCallTarget(_DWORD *a1)
 {
   _DWORD *v1; // rdx

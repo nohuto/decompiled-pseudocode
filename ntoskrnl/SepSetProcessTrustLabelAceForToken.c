@@ -1,3 +1,24 @@
+/*
+ * XREFs of SepSetProcessTrustLabelAceForToken @ 0x140247DF0
+ * Callers:
+ *     SepFinalizeTokenAcls @ 0x1406D1E60 (SepFinalizeTokenAcls.c)
+ *     NtDuplicateToken @ 0x1406DAB50 (NtDuplicateToken.c)
+ * Callees:
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlQueryInformationAcl @ 0x1406DB160 (RtlQueryInformationAcl.c)
+ *     ObGetObjectSecurity @ 0x1406DB220 (ObGetObjectSecurity.c)
+ *     ObReleaseObjectSecurity @ 0x1406DB450 (ObReleaseObjectSecurity.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406DB5A0 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x1406DB5D0 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406DB640 (RtlCreateAcl.c)
+ *     ObSetSecurityObjectByPointer @ 0x1406DB6C0 (ObSetSecurityObjectByPointer.c)
+ *     RtlAddAce @ 0x1406DB760 (RtlAddAce.c)
+ *     RtlAddProcessTrustLabelAce @ 0x1406DB8A0 (RtlAddProcessTrustLabelAce.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall SepSetProcessTrustLabelAceForToken(_QWORD *Object)
 {
   char *v2; // rbp

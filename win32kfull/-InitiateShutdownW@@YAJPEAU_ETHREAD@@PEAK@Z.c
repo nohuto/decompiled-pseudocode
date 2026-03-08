@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?InitiateShutdownW@@YAJPEAU_ETHREAD@@PEAK@Z @ 0x1C00958A8
+ * Callers:
+ *     xxxSetInformationThread @ 0x1C0093B70 (xxxSetInformationThread.c)
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     ?NotifyLogon@@YAHK@Z @ 0x1C0095BD0 (-NotifyLogon@@YAHK@Z.c)
+ *     IsPrivileged @ 0x1C00DD9E0 (IsPrivileged.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall InitiateShutdownW(PETHREAD Thread, unsigned int *a2)
 {

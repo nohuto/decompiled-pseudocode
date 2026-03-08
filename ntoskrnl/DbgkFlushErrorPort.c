@@ -1,3 +1,18 @@
+/*
+ * XREFs of DbgkFlushErrorPort @ 0x1407E7AEC
+ * Callers:
+ *     PspExitProcess @ 0x1407E7B3C (PspExitProcess.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsGetProcessServerSilo @ 0x1402637E0 (PsGetProcessServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     DbgkpDereferenceErrorPort @ 0x140539768 (DbgkpDereferenceErrorPort.c)
+ *     DbgkpRemoveErrorPort @ 0x140937000 (DbgkpRemoveErrorPort.c)
+ */
+
 char __fastcall DbgkFlushErrorPort(__int64 a1)
 {
   __int64 ProcessServerSilo; // rax

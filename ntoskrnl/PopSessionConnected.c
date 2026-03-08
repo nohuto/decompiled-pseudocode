@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopSessionConnected @ 0x14079A204
+ * Callers:
+ *     PopSessionConnectionChange @ 0x14079A150 (PopSessionConnectionChange.c)
+ * Callees:
+ *     PopAdaptiveGetSessionStateUnsafe @ 0x14073CBB8 (PopAdaptiveGetSessionStateUnsafe.c)
+ *     PopDiagTraceSessionStates @ 0x14079A284 (PopDiagTraceSessionStates.c)
+ *     PopSetSessionDisplayStatus @ 0x14079A2F0 (PopSetSessionDisplayStatus.c)
+ *     PopDiagTraceAdaptiveOverrideTriggered @ 0x14098966C (PopDiagTraceAdaptiveOverrideTriggered.c)
+ */
+
 char __fastcall PopSessionConnected(unsigned int a1, __int64 a2, __int64 a3)
 {
   PopDiagTraceSessionStates(&POP_ETW_ADPM_SESSION_CONNECTED);

@@ -1,3 +1,12 @@
+/*
+ * XREFs of EdgyUnregisterListener @ 0x1C01E9B74
+ * Callers:
+ *     NtUserRegisterEdgy @ 0x1C01DA110 (NtUserRegisterEdgy.c)
+ * Callees:
+ *     ?_FindListener@Edgy@@YAPEAUtagEDGY_LISTENER@@AEAUtagEDGY_DATA@@PEAXW4tagEDGY_LOCATION@@@Z @ 0x1C01E8CC0 (-_FindListener@Edgy@@YAPEAUtagEDGY_LISTENER@@AEAUtagEDGY_DATA@@PEAXW4tagEDGY_LOCATION@@@Z.c)
+ *     ?_RemoveListenerCore@Edgy@@YAXAEAUtagEDGY_DATA@@PEAUtagEDGY_LISTENER@@@Z @ 0x1C01E99E8 (-_RemoveListenerCore@Edgy@@YAXAEAUtagEDGY_DATA@@PEAUtagEDGY_LISTENER@@@Z.c)
+ */
+
 __int64 __fastcall EdgyUnregisterListener(__int64 a1)
 {
   unsigned int v1; // ebx

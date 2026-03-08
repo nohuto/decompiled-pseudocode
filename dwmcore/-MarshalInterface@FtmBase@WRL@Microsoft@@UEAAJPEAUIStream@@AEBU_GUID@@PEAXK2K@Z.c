@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MarshalInterface@FtmBase@WRL@Microsoft@@UEAAJPEAUIStream@@AEBU_GUID@@PEAXK2K@Z @ 0x180293D10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Microsoft::WRL::FtmBase::MarshalInterface(
         Microsoft::WRL::FtmBase *this,
         struct IStream *a2,

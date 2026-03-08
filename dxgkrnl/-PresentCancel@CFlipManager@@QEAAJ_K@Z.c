@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?PresentCancel@CFlipManager@@QEAAJ_K@Z @ 0x1C0083CE0
+ * Callers:
+ *     ?PresentCancel@FlipManagerObject@@QEAAJ_K@Z @ 0x1C007F4C0 (-PresentCancel@FlipManagerObject@@QEAAJ_K@Z.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?GetNextEntry@PresentHistory@CFlipManager@@QEAAAEAUEntry@12@XZ @ 0x1C008332C (-GetNextEntry@PresentHistory@CFlipManager@@QEAAAEAUEntry@12@XZ.c)
+ */
+
 __int64 __fastcall CFlipManager::PresentCancel(CFlipManager *this, __int64 a2)
 {
   unsigned int v4; // edi

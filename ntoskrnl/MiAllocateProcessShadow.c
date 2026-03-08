@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiAllocateProcessShadow @ 0x140728E84
+ * Callers:
+ *     MmCreateProcessAddressSpace @ 0x1407289B8 (MmCreateProcessAddressSpace.c)
+ *     MmInitializeHandBuiltProcess @ 0x1408598B8 (MmInitializeHandBuiltProcess.c)
+ * Callees:
+ *     KeMakeUserDirectoryTableBase @ 0x1402A6428 (KeMakeUserDirectoryTableBase.c)
+ *     MiMarkPfnTradable @ 0x1402A7E34 (MiMarkPfnTradable.c)
+ *     MiGetProcessPartition @ 0x14031F9D4 (MiGetProcessPartition.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiAcquireNonPagedResources @ 0x140348D54 (MiAcquireNonPagedResources.c)
+ *     MiReleaseNonPagedResources @ 0x14065EA8C (MiReleaseNonPagedResources.c)
+ *     MiAllocateTopLevelPage @ 0x140728F6C (MiAllocateTopLevelPage.c)
+ */
+
 __int64 __fastcall MiAllocateProcessShadow(__int64 a1, unsigned int a2)
 {
   __int64 ProcessPartition; // rsi

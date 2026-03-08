@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?cTotalPts@EPATHOBJ@@QEAAKXZ @ 0x1C0181160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EPATHOBJ::cTotalPts(EPATHOBJ *this)
 {
   __int64 result; // rax

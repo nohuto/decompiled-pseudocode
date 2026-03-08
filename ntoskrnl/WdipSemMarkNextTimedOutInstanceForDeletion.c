@@ -1,3 +1,13 @@
+/*
+ * XREFs of WdipSemMarkNextTimedOutInstanceForDeletion @ 0x14078C080
+ * Callers:
+ *     WdipTimeoutCheckRoutine @ 0x14078BFD0 (WdipTimeoutCheckRoutine.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 __int64 *__fastcall WdipSemMarkNextTimedOutInstanceForDeletion(__int64 **a1)
 {
   struct _KTHREAD *CurrentThread; // rax

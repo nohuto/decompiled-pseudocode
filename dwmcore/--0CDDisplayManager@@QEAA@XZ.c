@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CDDisplayManager@@QEAA@XZ @ 0x1800B012C
+ * Callers:
+ *     _dynamic_initializer_for__g_DDisplayManager__ @ 0x180003E80 (_dynamic_initializer_for__g_DDisplayManager__.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$0DA@@std@@YA_K_K@Z @ 0x1800B1E44 (--$_Get_size_of_n@$0DA@@std@@YA_K_K@Z.c)
+ */
+
 CDDisplayManager *__fastcall CDDisplayManager::CDDisplayManager(CDDisplayManager *this)
 {
   SIZE_T size_of; // rax

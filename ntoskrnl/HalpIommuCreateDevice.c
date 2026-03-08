@@ -1,3 +1,36 @@
+/*
+ * XREFs of HalpIommuCreateDevice @ 0x140822B28
+ * Callers:
+ *     HalpIommuUnblockDevice @ 0x140516330 (HalpIommuUnblockDevice.c)
+ *     IommuCreateAtsDevice @ 0x14051F820 (IommuCreateAtsDevice.c)
+ *     IommuMapDevice @ 0x140520BC0 (IommuMapDevice.c)
+ *     IommuDomainAttachDevice @ 0x140523210 (IommuDomainAttachDevice.c)
+ *     IommuDeviceCreate @ 0x140820F90 (IommuDeviceCreate.c)
+ * Callees:
+ *     ExInitializePushLock @ 0x140238200 (ExInitializePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExRundownCompleted @ 0x140294280 (ExRundownCompleted.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     HalpIommuCloneDeviceId @ 0x14038D3A8 (HalpIommuCloneDeviceId.c)
+ *     HalpIommuCreateDeviceInternal @ 0x14038D414 (HalpIommuCreateDeviceInternal.c)
+ *     HalpIommuCheckDpptException @ 0x14038D4B4 (HalpIommuCheckDpptException.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     HalpIommuQueryAcpiDeviceMapping @ 0x1403AF2F4 (HalpIommuQueryAcpiDeviceMapping.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IommupHvRegisterDeviceId @ 0x140522F60 (IommupHvRegisterDeviceId.c)
+ *     IommupHvUnregisterDeviceId @ 0x14052312C (IommupHvUnregisterDeviceId.c)
+ *     IidAreIdsStrictlyEqual @ 0x14067175C (IidAreIdsStrictlyEqual.c)
+ *     IommupDeviceEnablePasidTaggedDma @ 0x140822E44 (IommupDeviceEnablePasidTaggedDma.c)
+ *     IommupDeviceGetPasidSettings @ 0x140822F74 (IommupDeviceGetPasidSettings.c)
+ *     IommupDeviceDisablePasidTaggedDma @ 0x140930C20 (IommupDeviceDisablePasidTaggedDma.c)
+ */
+
 __int64 __fastcall HalpIommuCreateDevice(_DWORD *Src, void *a2, __int64 a3, __int32 a4, __int64 *a5)
 {
   _DWORD *v5; // r14

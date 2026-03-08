@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HasCompositionSurface@CSurfaceBrush@@UEBA_NXZ @ 0x18024F450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CSurfaceBrush::HasCompositionSurface(CSurfaceBrush *this)
 {
   __int64 v1; // rcx

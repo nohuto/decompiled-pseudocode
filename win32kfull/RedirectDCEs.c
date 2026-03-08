@@ -1,3 +1,13 @@
+/*
+ * XREFs of RedirectDCEs @ 0x1C002B7EC
+ * Callers:
+ *     UnsetLayeredWindow @ 0x1C00240E0 (UnsetLayeredWindow.c)
+ *     SetRedirectedWindow @ 0x1C002BE1C (SetRedirectedWindow.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C0036908 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ * Callees:
+ *     UpdateRedirectedDCE @ 0x1C0096EF0 (UpdateRedirectedDCE.c)
+ */
+
 __int64 __fastcall RedirectDCEs(__int64 a1)
 {
   __int64 *i; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ValidateParentDepth @ 0x1C0039CD8
+ * Callers:
+ *     ValidateNewParent @ 0x1C0039AAC (ValidateNewParent.c)
+ * Callees:
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ */
+
 __int64 __fastcall ValidateParentDepth(_QWORD *a1, __int64 a2)
 {
   unsigned int v2; // ebx

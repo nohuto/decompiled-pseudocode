@@ -1,3 +1,16 @@
+/*
+ * XREFs of IncVisWindows @ 0x1C002E484
+ * Callers:
+ *     SetVisible @ 0x1C002DB8C (SetVisible.c)
+ *     xxxSetWindowStyle @ 0x1C002DD90 (xxxSetWindowStyle.c)
+ *     SetMinimize @ 0x1C010182C (SetMinimize.c)
+ * Callees:
+ *     FVisCountable @ 0x1C002E5C0 (FVisCountable.c)
+ *     ?_GetWindowCompositionInfo@@YAHPEBUtagWND@@PEAUWINDOWCOMPOSITIONINFO@@@Z @ 0x1C0043348 (-_GetWindowCompositionInfo@@YAHPEBUtagWND@@PEAUWINDOWCOMPOSITIONINFO@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall IncVisWindows(struct tagWND *a1)
 {
   __int64 result; // rax

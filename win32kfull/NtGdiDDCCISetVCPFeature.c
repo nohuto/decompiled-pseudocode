@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiDDCCISetVCPFeature @ 0x1C026CE60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DdcciSetVCPFeature@CPhysicalMonitorHandle@@QEAAJKK@Z @ 0x1C026C504 (-DdcciSetVCPFeature@CPhysicalMonitorHandle@@QEAAJKK@Z.c)
+ *     ?GetHandleObject@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysicalMonitorHandle@@@Z @ 0x1C026C760 (-GetHandleObject@-$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysi.c)
+ */
+
 __int64 __fastcall NtGdiDDCCISetVCPFeature(void *a1, char a2, __int16 a3)
 {
   struct OPM::CMutex *v6; // rbx

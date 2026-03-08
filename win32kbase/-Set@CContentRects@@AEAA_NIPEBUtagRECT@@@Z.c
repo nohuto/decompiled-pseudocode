@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Set@CContentRects@@AEAA_NIPEBUtagRECT@@@Z @ 0x1C0157B84
+ * Callers:
+ *     ?SetContentRects@CContentRects@@SA_NIPEBUtagRECT@@@Z @ 0x1C0157C48 (-SetContentRects@CContentRects@@SA_NIPEBUtagRECT@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 bool __fastcall CContentRects::Set(CContentRects *this, unsigned int a2, const struct tagRECT *a3)
 {
   const struct tagRECT *v3; // rsi

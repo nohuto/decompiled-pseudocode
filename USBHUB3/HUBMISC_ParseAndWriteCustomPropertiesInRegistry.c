@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBMISC_ParseAndWriteCustomPropertiesInRegistry @ 0x1C008334C
+ * Callers:
+ *     HUBDSM_WritingCustomPropertiesInRegistry @ 0x1C0024BF0 (HUBDSM_WritingCustomPropertiesInRegistry.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBREG_WriteValueToDeviceHardwareKey @ 0x1C00867FC (HUBREG_WriteValueToDeviceHardwareKey.c)
+ */
+
 __int64 __fastcall HUBMISC_ParseAndWriteCustomPropertiesInRegistry(__int64 a1)
 {
   __int64 v1; // rbp

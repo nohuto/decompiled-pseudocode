@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBHTX_AckPortChangeUsingControlTransfer @ 0x1C000462C
+ * Callers:
+ *     HUBPSM20_AckingConnectChangeOnResume @ 0x1C0012930 (HUBPSM20_AckingConnectChangeOnResume.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dL @ 0x1C0003130 (WPP_RECORDER_SF_dL.c)
+ *     HUBMISC_ControlTransfer @ 0x1C0032664 (HUBMISC_ControlTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBHTX_AckPortChangeUsingControlTransfer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v5; // al

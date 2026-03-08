@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCollapseRunTopDown @ 0x1403B62B0
+ * Callers:
+ *     MiFindContiguousPagesEx @ 0x1403B5CF8 (MiFindContiguousPagesEx.c)
+ *     MiFindRebuildCandidate @ 0x140466112 (MiFindRebuildCandidate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiCollapseRunTopDown(__int64 a1)
 {
   unsigned __int64 v1; // r9

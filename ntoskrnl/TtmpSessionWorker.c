@@ -1,3 +1,26 @@
+/*
+ * XREFs of TtmpSessionWorker @ 0x1409A2950
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmGetSessionById @ 0x14022A4F0 (MmGetSessionById.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     MmDetachSession @ 0x1402EA460 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1402EA500 (MmAttachSession.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     TtmiSessionDeviceListWorker @ 0x14099FD30 (TtmiSessionDeviceListWorker.c)
+ *     TtmpActivateSessionWorker @ 0x1409A2018 (TtmpActivateSessionWorker.c)
+ *     TtmpDeactivateSessionWorker @ 0x1409A220C (TtmpDeactivateSessionWorker.c)
+ *     TtmpDereferenceSessionMaybeLast @ 0x1409A228C (TtmpDereferenceSessionMaybeLast.c)
+ *     TtmiLogError @ 0x1409A536C (TtmiLogError.c)
+ *     TtmiLogSessionWorkerPass @ 0x1409A6E64 (TtmiLogSessionWorkerPass.c)
+ *     TtmiLogSessionWorkerStart @ 0x1409A6F2C (TtmiLogSessionWorkerStart.c)
+ *     TtmiLogSessionWorkerStop @ 0x1409A6FC0 (TtmiLogSessionWorkerStop.c)
+ *     TtmiSessionTerminalListWorker @ 0x1409A82BC (TtmiSessionTerminalListWorker.c)
+ */
+
 __int64 __fastcall TtmpSessionWorker(volatile unsigned __int32 *a1)
 {
   struct _KTHREAD *CurrentThread; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfIoAllocateIrp2 @ 0x140ACA760
+ * Callers:
+ *     IovAllocateIrp @ 0x140ABDCE0 (IovAllocateIrp.c)
+ * Callees:
+ *     VfPacketCreateAndLock @ 0x140ADA00C (VfPacketCreateAndLock.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140ADE8EC (VfIrpDatabaseEntryReleaseLock.c)
+ */
+
 __int64 __fastcall VfIoAllocateIrp2(__int64 a1, _OWORD *a2)
 {
   __int64 result; // rax

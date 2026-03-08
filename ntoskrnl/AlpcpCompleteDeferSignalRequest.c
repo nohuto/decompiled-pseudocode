@@ -1,3 +1,12 @@
+/*
+ * XREFs of AlpcpCompleteDeferSignalRequest @ 0x140716B9C
+ * Callers:
+ *     NtReplyWaitReceivePortEx @ 0x140716750 (NtReplyWaitReceivePortEx.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     AlpcpSignal @ 0x14033E410 (AlpcpSignal.c)
+ */
+
 void __fastcall AlpcpCompleteDeferSignalRequest(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   void *v5; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_SS @ 0x1C0042B30
+ * Callers:
+ *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C004353C (ReadUSBFnFeaturesFromCurrentConfiguration.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF_SS(
         __int64 a1,
         __int64 a2,

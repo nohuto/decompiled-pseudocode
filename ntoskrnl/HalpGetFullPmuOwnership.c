@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpGetFullPmuOwnership @ 0x1404FFC7C
+ * Callers:
+ *     HalAllocateHardwareCounters @ 0x140930360 (HalAllocateHardwareCounters.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpGetFullPmuOwnership(__int64 *a1)
 {
   __int64 v1; // r8

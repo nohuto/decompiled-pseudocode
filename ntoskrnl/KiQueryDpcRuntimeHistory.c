@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiQueryDpcRuntimeHistory @ 0x1402ECEB4
+ * Callers:
+ *     KiTryLocalThreadSchedule @ 0x140259D60 (KiTryLocalThreadSchedule.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KiQueryDpcRuntimeHistory(__int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 v3; // rbx

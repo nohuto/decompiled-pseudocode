@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PresentMPO@CLegacyStereoSwapChain@@$4PPPPPPPM@BLI@EAAJIIW4DXGI_HDR_METADATA_TYPE@@PEBXPEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@I@Z @ 0x18011CA10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CLegacyStereoSwapChain::PresentMPO(
         __int64 a1,
         __int64 a2,

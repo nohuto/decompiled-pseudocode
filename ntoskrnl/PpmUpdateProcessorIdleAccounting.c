@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmUpdateProcessorIdleAccounting @ 0x14039B154
+ * Callers:
+ *     PpmInstallNewIdleStates @ 0x14039AA50 (PpmInstallNewIdleStates.c)
+ *     PpmTranslateIdleAccounting @ 0x140595AC0 (PpmTranslateIdleAccounting.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall PpmUpdateProcessorIdleAccounting(_QWORD *a1)
 {
   __int64 v1; // r9

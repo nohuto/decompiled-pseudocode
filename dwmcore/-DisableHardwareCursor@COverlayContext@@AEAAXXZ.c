@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DisableHardwareCursor@COverlayContext@@AEAAXXZ @ 0x1800CA2C8
+ * Callers:
+ *     ?Reset@COverlayContext@@QEAAXXZ @ 0x1800C9844 (-Reset@COverlayContext@@QEAAXXZ.c)
+ * Callees:
+ *     ?InternalRelease@CResource@@IEAAKXZ @ 0x180078858 (-InternalRelease@CResource@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?DisableHardwareCursor@CCursorState@@QEAAXU_LUID@@I@Z @ 0x180276828 (-DisableHardwareCursor@CCursorState@@QEAAXU_LUID@@I@Z.c)
+ */
+
 void __fastcall COverlayContext::DisableHardwareCursor(COverlayContext *this)
 {
   __int64 v2; // rax

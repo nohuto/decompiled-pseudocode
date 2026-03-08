@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RemovePublicObject@@YAHIPEAX@Z @ 0x1C01FAEC8
+ * Callers:
+ *     ?xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z @ 0x1C01FBD3C (-xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z.c)
+ *     FreeDdeXact @ 0x1C01FD370 (FreeDdeXact.c)
+ * Callees:
+ *     ?GiveObject@@YAHIPEAXK@Z @ 0x1C01FACC8 (-GiveObject@@YAHIPEAXK@Z.c)
+ */
+
 __int64 __fastcall RemovePublicObject(int a1, void *a2)
 {
   __int64 v2; // rbx

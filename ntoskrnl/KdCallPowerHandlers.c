@@ -1,3 +1,15 @@
+/*
+ * XREFs of KdCallPowerHandlers @ 0x140564F44
+ * Callers:
+ *     PpmIdleExecuteTransition @ 0x14022D7D0 (PpmIdleExecuteTransition.c)
+ *     PopFxDebuggerPowerCriticalTransitionCallback @ 0x1405976B0 (PopFxDebuggerPowerCriticalTransitionCallback.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KdCallPowerHandlers(unsigned int a1)
 {
   unsigned __int8 CurrentIrql; // bl

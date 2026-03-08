@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifKeRemoveQueueDpcWrapper @ 0x1405E3120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeRemoveQueueDpcEx @ 0x14028DB50 (KeRemoveQueueDpcEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 char __fastcall DifKeRemoveQueueDpcWrapper(__int64 a1)
 {
   __int64 *APIThunkContextById; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CheckMultiplaneOverlaySupport@CLegacyStereoSwapChain@@$4PPPPPPPM@BLI@EBA_NPEBUDXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO@@IPEA_N@Z @ 0x18011C5F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CLegacyStereoSwapChain::CheckMultiplaneOverlaySupport(
         __int64 a1,
         const struct DXGI_CHECK_MULTIPLANEOVERLAYSUPPORT_PLANE_INFO *a2,

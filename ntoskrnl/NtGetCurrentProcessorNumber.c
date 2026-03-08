@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGetCurrentProcessorNumber @ 0x1409AB570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 NtGetCurrentProcessorNumber()
 {
   unsigned int GroupIndex; // ecx

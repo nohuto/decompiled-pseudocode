@@ -1,3 +1,14 @@
+/*
+ * XREFs of SmmUnmapIommu @ 0x1C002A53E
+ * Callers:
+ *     SmmIoMmuUnmapStagingMdl @ 0x1C006E17C (SmmIoMmuUnmapStagingMdl.c)
+ *     ?SmmUnmapMdlFromIommu@@YAXPEAUSYSMM_IOMMU@@_KPEAU_MDL@@_N@Z @ 0x1C006ECC4 (-SmmUnmapMdlFromIommu@@YAXPEAUSYSMM_IOMMU@@_KPEAU_MDL@@_N@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     SmmIommuUnmapIdentityRange @ 0x1C006E570 (SmmIommuUnmapIdentityRange.c)
+ */
+
 char __fastcall SmmUnmapIommu(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rcx

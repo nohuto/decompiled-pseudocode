@@ -1,3 +1,12 @@
+/*
+ * XREFs of bDeleteFont @ 0x1C00BA960
+ * Callers:
+ *     ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00BA144 (-FinishStockFontInitInternal@@YAXPEBGH@Z.c)
+ *     vCleanupFonts @ 0x1C00BA900 (vCleanupFonts.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bDeleteFont(__int64 a1, __int64 a2)
 {
   unsigned int v2; // esi

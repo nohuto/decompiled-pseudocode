@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIBuildFilter @ 0x1C000D1F8
+ * Callers:
+ *     ACPIDetectFilterDevices @ 0x1C001AA10 (ACPIDetectFilterDevices.c)
+ * Callees:
+ *     ACPIAddInitializationDependencies @ 0x1C000BA98 (ACPIAddInitializationDependencies.c)
+ *     ACPIIsFilterDebuggingDevice @ 0x1C009811C (ACPIIsFilterDebuggingDevice.c)
+ */
+
 NTSTATUS __fastcall ACPIBuildFilter(struct _DRIVER_OBJECT *a1, __int64 a2, struct _DEVICE_OBJECT *a3)
 {
   NTSTATUS result; // eax

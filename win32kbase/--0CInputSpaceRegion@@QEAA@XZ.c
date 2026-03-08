@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??0CInputSpaceRegion@@QEAA@XZ @ 0x1C0013370
+ * Callers:
+ *     ?_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ @ 0x1C00130D0 (-_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ.c)
+ *     ??0CInputSpace@@QEAA@AEBUINPUT_SPACE@@_N@Z @ 0x1C0013300 (--0CInputSpace@@QEAA@AEBUINPUT_SPACE@@_N@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 CInputSpaceRegion *__fastcall CInputSpaceRegion::CInputSpaceRegion(CInputSpaceRegion *this)
 {
   __int128 v2; // xmm1

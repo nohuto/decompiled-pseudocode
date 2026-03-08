@@ -1,3 +1,16 @@
+/*
+ * XREFs of Bulk_FindStage @ 0x1C000E218
+ * Callers:
+ *     Bulk_ProcessTransferEventWithED0 @ 0x1C000DAC4 (Bulk_ProcessTransferEventWithED0.c)
+ *     Bulk_ProcessTransferEventWithED1 @ 0x1C0011324 (Bulk_ProcessTransferEventWithED1.c)
+ *     Bulk_ProcessStreamOnEndpointStopOrHalt @ 0x1C0046E58 (Bulk_ProcessStreamOnEndpointStopOrHalt.c)
+ * Callees:
+ *     TR_DoesSegmentContainDequeuePointer @ 0x1C000E350 (TR_DoesSegmentContainDequeuePointer.c)
+ *     WPP_RECORDER_SF_DDDqq @ 0x1C00127F0 (WPP_RECORDER_SF_DDDqq.c)
+ *     StageQueue_ForwardScanGetNextStage @ 0x1C0012EEC (StageQueue_ForwardScanGetNextStage.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C001E054 (WPP_RECORDER_SF_DDD.c)
+ */
+
 char __fastcall Bulk_FindStage(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4)
 {
   char v5; // di

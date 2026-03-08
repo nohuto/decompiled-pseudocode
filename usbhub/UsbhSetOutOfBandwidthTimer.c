@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhSetOutOfBandwidthTimer @ 0x1C002DA9C
+ * Callers:
+ *     UsbhSelectConfigOrInterfaceComplete @ 0x1C002D820 (UsbhSelectConfigOrInterfaceComplete.c)
+ * Callees:
+ *     UsbhReferenceListAdd @ 0x1C0002650 (UsbhReferenceListAdd.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     UsbhSetTimer @ 0x1C002DD38 (UsbhSetTimer.c)
+ */
+
 void __fastcall UsbhSetOutOfBandwidthTimer(__int64 a1, unsigned __int16 a2, int a3, int a4)
 {
   __int64 PortData; // rbp

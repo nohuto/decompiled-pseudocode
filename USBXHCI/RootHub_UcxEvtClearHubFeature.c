@@ -1,3 +1,15 @@
+/*
+ * XREFs of RootHub_UcxEvtClearHubFeature @ 0x1C003FCE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     WPP_RECORDER_SF_DDDDDDDD @ 0x1C0040A98 (WPP_RECORDER_SF_DDDDDDDD.c)
+ */
+
 __int64 __fastcall RootHub_UcxEvtClearHubFeature(__int64 a1, __int64 a2)
 {
   unsigned int v3; // ebx

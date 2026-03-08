@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_IsMsOs20DescriptorSupported @ 0x1C0022800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBDSM_IsMsOs20DescriptorSupported(__int64 a1)
 {
   __int64 v1; // rdx

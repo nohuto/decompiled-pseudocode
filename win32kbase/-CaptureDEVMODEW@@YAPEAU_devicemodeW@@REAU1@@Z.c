@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?CaptureDEVMODEW@@YAPEAU_devicemodeW@@REAU1@@Z @ 0x1C0185410
+ * Callers:
+ *     NtGdiOpenDCW @ 0x1C003D110 (NtGdiOpenDCW.c)
+ * Callees:
+ *     AllocThreadBufferWithTag @ 0x1C003C700 (AllocThreadBufferWithTag.c)
+ *     PopThreadGuardedObject @ 0x1C00453C0 (PopThreadGuardedObject.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 struct _devicemodeW *__fastcall CaptureDEVMODEW(struct _devicemodeW *volatile a1)
 {
   int dmSize; // esi

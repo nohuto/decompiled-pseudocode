@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?Release@CLegacyRenderTarget@@UEAAKXZ @ 0x1800DE0B0
+ * Callers:
+ *     ?Release@CLegacyRenderTarget@@$4PPPPPPPM@EJBI@EAAKXZ @ 0x180118E30 (-Release@CLegacyRenderTarget@@$4PPPPPPPM@EJBI@EAAKXZ.c)
+ *     ?Release@CLegacyRenderTarget@@$4PPPPPPPM@EJCI@EAAKXZ @ 0x180118E50 (-Release@CLegacyRenderTarget@@$4PPPPPPPM@EJCI@EAAKXZ.c)
+ * Callees:
+ *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x1800789A0 (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
+ *     ?SetReleasingResources@CThreadContext@@SAX_N@Z @ 0x18007B580 (-SetReleasingResources@CThreadContext@@SAX_N@Z.c)
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CLegacyRenderTarget::Release(CLegacyRenderTarget *this)
 {
   CLegacyRenderTarget *v1; // rbx

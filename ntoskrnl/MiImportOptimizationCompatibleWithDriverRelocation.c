@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiImportOptimizationCompatibleWithDriverRelocation @ 0x140B3C2F8
+ * Callers:
+ *     MiHandleBootImage @ 0x140B3BA98 (MiHandleBootImage.c)
+ * Callees:
+ *     RtlIsImageFullyRetpolined @ 0x1402F4538 (RtlIsImageFullyRetpolined.c)
+ *     MiDoesDriverProvideBaseImageImports @ 0x140B3C350 (MiDoesDriverProvideBaseImageImports.c)
+ */
+
 __int64 __fastcall MiImportOptimizationCompatibleWithDriverRelocation(__int64 a1)
 {
   unsigned int v2; // ebx

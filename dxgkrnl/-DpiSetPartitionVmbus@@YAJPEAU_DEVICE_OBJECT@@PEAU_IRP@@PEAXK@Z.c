@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?DpiSetPartitionVmbus@@YAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAXK@Z @ 0x1C005E698
+ * Callers:
+ *     DpiFdoDispatchIoctl @ 0x1C01D7C80 (DpiFdoDispatchIoctl.c)
+ * Callees:
+ *     ??0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z @ 0x1C005D778 (--0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z.c)
+ *     ??1CInterfaceCallContext@@QEAA@XZ @ 0x1C005D8F0 (--1CInterfaceCallContext@@QEAA@XZ.c)
+ *     DxgkDdiSetVirtualGpuVmBus @ 0x1C0366540 (DxgkDdiSetVirtualGpuVmBus.c)
+ *     DpiFdoGetVirtualGpuType @ 0x1C0396F0C (DpiFdoGetVirtualGpuType.c)
+ */
+
 __int64 __fastcall DpiSetPartitionVmbus(struct _DEVICE_OBJECT *a1, struct _IRP *a2, void *a3, unsigned int a4)
 {
   void **DeviceExtension; // rbp

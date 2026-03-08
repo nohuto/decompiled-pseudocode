@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpGetContextFlagsLocation @ 0x140365178
+ * Callers:
+ *     RtlWow64GetCpuAreaInfo @ 0x14077C93C (RtlWow64GetCpuAreaInfo.c)
+ *     RtlCopyContext @ 0x1407EE220 (RtlCopyContext.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpGetContextFlagsLocation(__int64 a1, int a2)
 {
   __int64 v2; // rax

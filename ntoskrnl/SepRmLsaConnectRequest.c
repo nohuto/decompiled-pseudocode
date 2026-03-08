@@ -1,3 +1,29 @@
+/*
+ * XREFs of SepRmLsaConnectRequest @ 0x1408254BC
+ * Callers:
+ *     SepRmCommandServerThread @ 0x140825260 (SepRmCommandServerThread.c)
+ * Callees:
+ *     PsGetProcessServerSilo @ 0x1402637E0 (PsGetProcessServerSilo.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     PsAttachSiloToCurrentThread @ 0x1402993A0 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x1402993C0 (PsDetachSiloFromCurrentThread.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     PsIsHostSilo @ 0x14030F2E0 (PsIsHostSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwAcceptConnectPort @ 0x140412350 (ZwAcceptConnectPort.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenProcess @ 0x1404127D0 (ZwOpenProcess.c)
+ *     ZwCreateSection @ 0x140412C50 (ZwCreateSection.c)
+ *     ZwCompleteConnectPort @ 0x140413710 (ZwCompleteConnectPort.c)
+ *     ZwConnectPort @ 0x140413750 (ZwConnectPort.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     SepRmVerifyLsaProtectionLevel @ 0x140825764 (SepRmVerifyLsaProtectionLevel.c)
+ *     SepRmCleanupRmLsaState @ 0x1409C5E00 (SepRmCleanupRmLsaState.c)
+ */
+
 __int64 __fastcall SepRmLsaConnectRequest(__int64 a1)
 {
   PVOID v1; // r14

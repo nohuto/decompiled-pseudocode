@@ -1,3 +1,17 @@
+/*
+ * XREFs of BcpDisplayProgress @ 0x140670320
+ * Callers:
+ *     BcpGetComponentOffsets @ 0x140670530 (BcpGetComponentOffsets.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x140670928 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140670AE4 (BgpFwDisplayBugCheckScreen.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     BgpDisplayCharacterEx @ 0x14066F654 (BgpDisplayCharacterEx.c)
+ *     BcpConvertProgressToString @ 0x14066FB5C (BcpConvertProgressToString.c)
+ *     BcpCursorLessThan @ 0x14066FC38 (BcpCursorLessThan.c)
+ *     BcpDisplayCriticalString @ 0x14066FD2C (BcpDisplayCriticalString.c)
+ */
+
 __int64 __fastcall BcpDisplayProgress(unsigned int a1, int a2, __int64 a3)
 {
   UNICODE_STRING *v5; // rcx

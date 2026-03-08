@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepFreePrimaryGroup @ 0x1409C6958
+ * Callers:
+ *     NtSetInformationToken @ 0x140741E70 (NtSetInformationToken.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall SepFreePrimaryGroup(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of SymCryptFdefModMulGeneric @ 0x1403FEE60
+ * Callers:
+ *     SymCryptFdefModInvGeneric @ 0x1403FE960 (SymCryptFdefModInvGeneric.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     SymCryptFdefRawDivMod @ 0x1403FDD28 (SymCryptFdefRawDivMod.c)
+ *     SymCryptFdefRawMul @ 0x1403FE01C (SymCryptFdefRawMul.c)
+ */
+
 void __fastcall SymCryptFdefModMulGeneric(__int64 a1, int a2, int a3, void *a4, char *Src)
 {
   int v5; // r14d

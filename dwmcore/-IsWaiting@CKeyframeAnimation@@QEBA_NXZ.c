@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsWaiting@CKeyframeAnimation@@QEBA_NXZ @ 0x1800BCF48
+ * Callers:
+ *     ?OnAnimationEvent@CKeyframeAnimation@@QEAAJW4AnimationEventType@@PEAVCExpressionValueStack@@@Z @ 0x1800BCEB4 (-OnAnimationEvent@CKeyframeAnimation@@QEAAJW4AnimationEventType@@PEAVCExpressionValueStack@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CKeyframeAnimation::IsWaiting(CKeyframeAnimation *this)
 {
   char v1; // dl

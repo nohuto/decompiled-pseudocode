@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?InternalQueryInterface@?$CMILCOMBaseT@VIUnknownWeakRefSource@@@@IEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180102AEC
+ * Callers:
+ *     ?InternalQueryInterface@CMILCOMBaseWeakRef@@IEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180102AAC (-InternalQueryInterface@CMILCOMBaseWeakRef@@IEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?QueryInterface@?$CMILCOMBaseT@VIUnknownWeakRefSource@@@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180288420 (-QueryInterface@-$CMILCOMBaseT@VIUnknownWeakRefSource@@@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CMILCOMBaseT<IUnknownWeakRefSource>::InternalQueryInterface(__int64 a1, _QWORD *a2, _QWORD *a3)
 {
   int v5; // edi

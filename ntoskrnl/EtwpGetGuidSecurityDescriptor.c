@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpGetGuidSecurityDescriptor @ 0x14069707C
+ * Callers:
+ *     EtwpGetSecurityDescriptorByGuid @ 0x1406972D0 (EtwpGetSecurityDescriptorByGuid.c)
+ *     EtwpInitializeSecurity @ 0x140B70760 (EtwpInitializeSecurity.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlQueryRegistryValueWithFallback @ 0x1406971B0 (RtlQueryRegistryValueWithFallback.c)
+ *     SeValidSecurityDescriptor @ 0x14075EA40 (SeValidSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpGetGuidSecurityDescriptor(PUNICODE_STRING ValueName, _QWORD *a2)
 {
   void *ValueData; // rdi

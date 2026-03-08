@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiPartitionWorkingSetManager @ 0x140627130
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetPriorityThread @ 0x1402261B0 (KeSetPriorityThread.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     MiWorkingSetManager @ 0x1403616C0 (MiWorkingSetManager.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall MiPartitionWorkingSetManager(__int64 a1)
 {
   NTSTATUS result; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopLiveDumpValidateCancelObject @ 0x14094C244
+ * Callers:
+ *     IopLiveDumpValidateParameters @ 0x14094C310 (IopLiveDumpValidateParameters.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IopLiveDumpValidateCancelObject(__int64 a1)
 {
   unsigned int v1; // r8d

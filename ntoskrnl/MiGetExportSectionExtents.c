@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiGetExportSectionExtents @ 0x14035E1BC
+ * Callers:
+ *     MmDecodeExportSection @ 0x14035D424 (MmDecodeExportSection.c)
+ *     MmEncodeExportSection @ 0x14035D5C0 (MmEncodeExportSection.c)
+ * Callees:
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ */
+
 __int64 __fastcall MiGetExportSectionExtents(_QWORD *a1)
 {
   __int64 v2; // rax

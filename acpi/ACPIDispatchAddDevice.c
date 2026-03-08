@@ -1,3 +1,21 @@
+/*
+ * XREFs of ACPIDispatchAddDevice @ 0x1C0023F30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     RtlStringCchCopyA @ 0x1C000B07C (RtlStringCchCopyA.c)
+ *     WPP_RECORDER_SF_sL @ 0x1C0015638 (WPP_RECORDER_SF_sL.c)
+ *     ACPIGetPortRangeInterfaces @ 0x1C00246AC (ACPIGetPortRangeInterfaces.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C0024980 (WPP_RECORDER_SF_qq.c)
+ *     ACPICreateRootSymbolicLink @ 0x1C0083010 (ACPICreateRootSymbolicLink.c)
+ *     AcpiSetupNativeMethodInterface @ 0x1C008B2CC (AcpiSetupNativeMethodInterface.c)
+ *     ACPIWmiInitLog @ 0x1C00AA8C0 (ACPIWmiInitLog.c)
+ */
+
 __int64 __fastcall ACPIDispatchAddDevice(PDRIVER_OBJECT DriverObject, PDEVICE_OBJECT DeviceObject)
 {
   char v2; // bl

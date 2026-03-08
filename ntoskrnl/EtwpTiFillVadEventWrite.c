@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpTiFillVadEventWrite @ 0x1402FC438
+ * Callers:
+ *     EtwpTiVadQueryEventWrite @ 0x1402F8AE4 (EtwpTiVadQueryEventWrite.c)
+ *     EtwpTiVadQueryEventWriteCallback @ 0x140793510 (EtwpTiVadQueryEventWriteCallback.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwpTiFillZeroVad @ 0x1402F83D0 (EtwpTiFillZeroVad.c)
+ *     EtwpTiFillVad @ 0x1402FC4F4 (EtwpTiFillVad.c)
+ */
+
 NTSTATUS __fastcall EtwpTiFillVadEventWrite(
         PEVENT_DATA_DESCRIPTOR UserData,
         ULONG UserDataCount,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HsaSlGetPermissions @ 0x14052F730
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HsaSlGetPermissions(unsigned __int64 *a1)
 {
   unsigned __int64 v1; // rcx

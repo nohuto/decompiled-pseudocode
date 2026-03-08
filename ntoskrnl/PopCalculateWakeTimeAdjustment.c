@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopCalculateWakeTimeAdjustment @ 0x140984168
+ * Callers:
+ *     PopValidateRTCWake @ 0x140A9E3E4 (PopValidateRTCWake.c)
+ * Callees:
+ *     PpmConvertTime @ 0x140235D70 (PpmConvertTime.c)
+ *     PopPowerTransitionTimesInMs @ 0x140581020 (PopPowerTransitionTimesInMs.c)
+ */
+
 unsigned __int64 PopCalculateWakeTimeAdjustment()
 {
   unsigned __int64 result; // rax

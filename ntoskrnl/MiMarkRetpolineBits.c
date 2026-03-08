@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiMarkRetpolineBits @ 0x140A317C0
+ * Callers:
+ *     MiMarkKernelImageRetpolineBits @ 0x140A31774 (MiMarkKernelImageRetpolineBits.c)
+ *     MiInitializeRetpoline @ 0x140B39F78 (MiInitializeRetpoline.c)
+ *     MiApplyBootLoadedDriversFixups @ 0x140B3ACB4 (MiApplyBootLoadedDriversFixups.c)
+ *     MmMarkHypercallPageRetpolineBit @ 0x140B9685C (MmMarkHypercallPageRetpolineBit.c)
+ * Callees:
+ *     RtlClearBitsEx @ 0x14020FC50 (RtlClearBitsEx.c)
+ *     RtlAreBitsClearEx @ 0x1402E4560 (RtlAreBitsClearEx.c)
+ *     RtlSetBitsEx @ 0x14034CE90 (RtlSetBitsEx.c)
+ *     MiSplitBitmapPages @ 0x14036C1A8 (MiSplitBitmapPages.c)
+ *     MiAddressToRetpolineBit @ 0x140411694 (MiAddressToRetpolineBit.c)
+ */
+
 __int64 __fastcall MiMarkRetpolineBits(__int64 a1)
 {
   __int64 v1; // rcx

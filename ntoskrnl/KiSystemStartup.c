@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiSystemStartup @ 0x140A84010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiIdleLoop @ 0x14041AF70 (KiIdleLoop.c)
+ *     KzSetIrqlUnsafe @ 0x140569C60 (KzSetIrqlUnsafe.c)
+ *     KiInitializeBootStructures @ 0x140A887E0 (KiInitializeBootStructures.c)
+ *     KiInitializeKernel @ 0x140A89160 (KiInitializeKernel.c)
+ *     KiInitializeXSave @ 0x140A8CAA0 (KiInitializeXSave.c)
+ *     KiInitializeKernelShadowStacks @ 0x140A8EB30 (KiInitializeKernelShadowStacks.c)
+ *     KdInitSystem @ 0x140AAE040 (KdInitSystem.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 NTSTATUS __stdcall __noreturn KiSystemStartup(PDRIVER_OBJECT DriverObject, PUNICODE_STRING RegistryPath)
 {

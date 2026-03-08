@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiDeleteExtentPfns @ 0x14063A660
+ * Callers:
+ *     MiAddPhysicalMemory @ 0x140A289D8 (MiAddPhysicalMemory.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiPurgeBadFileOnlyPages @ 0x14063C678 (MiPurgeBadFileOnlyPages.c)
+ *     MiWaitForExtentDeletions @ 0x14063DE84 (MiWaitForExtentDeletions.c)
+ *     MiWakeExtentDeletionWaiters @ 0x14063DFA4 (MiWakeExtentDeletionWaiters.c)
+ *     MiRemovePhysicalMemory @ 0x140A29F5C (MiRemovePhysicalMemory.c)
+ */
+
 void __fastcall MiDeleteExtentPfns(__int64 a1)
 {
   __int64 v2; // rax

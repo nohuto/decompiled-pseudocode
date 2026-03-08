@@ -1,3 +1,14 @@
+/*
+ * XREFs of _RegisterClassEx @ 0x1C012DD34
+ * Callers:
+ *     NtUserRegisterClassExWOW @ 0x1C0030020 (NtUserRegisterClassExWOW.c)
+ * Callees:
+ *     InternalRegisterClassEx @ 0x1C0030830 (InternalRegisterClassEx.c)
+ *     ??1?$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ @ 0x1C0031BF4 (--1-$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z @ 0x1C00E02D4 (-Init@-$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z.c)
+ *     HMValidateHandleNoRip @ 0x1C01083AC (HMValidateHandleNoRip.c)
+ */
+
 __int64 __fastcall RegisterClassEx(__int64 a1, _QWORD *a2, unsigned __int16 a3, __int16 a4)
 {
   __int64 v8; // rax

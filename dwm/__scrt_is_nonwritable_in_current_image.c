@@ -1,3 +1,11 @@
+/*
+ * XREFs of __scrt_is_nonwritable_in_current_image @ 0x1400057E4
+ * Callers:
+ *     __scrt_common_main_seh @ 0x140005350 (__scrt_common_main_seh.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall _scrt_is_nonwritable_in_current_image(__int64 a1)
 {
   unsigned __int64 v1; // r8

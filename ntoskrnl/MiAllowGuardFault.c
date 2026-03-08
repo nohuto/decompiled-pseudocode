@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiAllowGuardFault @ 0x1402DA480
+ * Callers:
+ *     MiZeroFault @ 0x140266000 (MiZeroFault.c)
+ *     MiUserFault @ 0x140268260 (MiUserFault.c)
+ *     MiResolveProtoPteFault @ 0x140270A50 (MiResolveProtoPteFault.c)
+ *     MiAccessCheck @ 0x1402E4134 (MiAccessCheck.c)
+ * Callees:
+ *     KeInvalidAccessAllowed @ 0x1402DA5E0 (KeInvalidAccessAllowed.c)
+ */
+
 _BOOL8 __fastcall MiAllowGuardFault(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rbx

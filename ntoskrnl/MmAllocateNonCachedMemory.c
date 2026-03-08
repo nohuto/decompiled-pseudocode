@@ -1,3 +1,19 @@
+/*
+ * XREFs of MmAllocateNonCachedMemory @ 0x140A2AC20
+ * Callers:
+ *     DifMmAllocateNonCachedMemoryWrapper @ 0x1405E4710 (DifMmAllocateNonCachedMemoryWrapper.c)
+ * Callees:
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiAllocatePagesForMdl @ 0x1402B3B18 (MiAllocatePagesForMdl.c)
+ *     MmFreePagesFromMdl @ 0x1402C0DB0 (MmFreePagesFromMdl.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     KeGetIdealNodeNumberThread @ 0x14056E190 (KeGetIdealNodeNumberThread.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 PVOID __stdcall MmAllocateNonCachedMemory(SIZE_T NumberOfBytes)
 {
   SIZE_T v1; // rbp

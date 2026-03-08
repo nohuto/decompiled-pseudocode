@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExGetCurrentProcessorCounts @ 0x1402D8D80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ExGetCurrentProcessorCounts(ULONG *a1, _DWORD *a2, _DWORD *a3)
 {
   struct _KPRCB *CurrentPrcb; // r10

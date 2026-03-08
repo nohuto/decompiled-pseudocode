@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiReleaseControlAreaCharges @ 0x14034C8D8
+ * Callers:
+ *     MiInsertUnusedSegment @ 0x14034C75C (MiInsertUnusedSegment.c)
+ *     MiSegmentDelete @ 0x1406A6FD4 (MiSegmentDelete.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiAweControlArea @ 0x14034C968 (MiAweControlArea.c)
+ *     MiIncludeSharedCommit @ 0x14034C990 (MiIncludeSharedCommit.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiComputeCrossPartitionSectionCharges @ 0x140668AE8 (MiComputeCrossPartitionSectionCharges.c)
+ */
+
 __int64 __fastcall MiReleaseControlAreaCharges(__int64 a1, __int64 a2)
 {
   __int64 v3; // rcx

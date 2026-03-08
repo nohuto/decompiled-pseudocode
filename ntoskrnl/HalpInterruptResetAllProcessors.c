@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpInterruptResetAllProcessors @ 0x140502DCC
+ * Callers:
+ *     HalReturnToFirmware @ 0x140504990 (HalReturnToFirmware.c)
+ * Callees:
+ *     HalRequestIpiSpecifyVector @ 0x140230C90 (HalRequestIpiSpecifyVector.c)
+ *     HalpPowerWriteResetCommand @ 0x140504AEC (HalpPowerWriteResetCommand.c)
+ *     HalpNmiReboot @ 0x1405198E0 (HalpNmiReboot.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __noreturn HalpInterruptResetAllProcessors()
 {
   unsigned __int8 CurrentIrql; // al

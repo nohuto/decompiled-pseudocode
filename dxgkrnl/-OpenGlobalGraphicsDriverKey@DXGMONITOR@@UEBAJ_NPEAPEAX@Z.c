@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OpenGlobalGraphicsDriverKey@DXGMONITOR@@UEBAJ_NPEAPEAX@Z @ 0x1C0213A50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DxgkOpenRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z @ 0x1C00105E0 (-DxgkOpenRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z.c)
+ */
+
 __int64 __fastcall DXGMONITOR::OpenGlobalGraphicsDriverKey(DXGMONITOR *this, char a2, void **a3)
 {
   NTSTATUS v5; // eax

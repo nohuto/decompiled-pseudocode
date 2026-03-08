@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExpDeleteSiloState @ 0x140606BA0
+ * Callers:
+ *     PspDeleteServerSiloGlobals @ 0x1409A9EC0 (PspDeleteServerSiloGlobals.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     sub_14075B378 @ 0x14075B378 (sub_14075B378.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x14078FD20 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     MmUnmapViewInSystemSpace @ 0x140791780 (MmUnmapViewInSystemSpace.c)
+ *     ExWaitForCallBacks @ 0x1409F8740 (ExWaitForCallBacks.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall ExpDeleteSiloState(PVOID P)
 {
   void *v2; // rcx

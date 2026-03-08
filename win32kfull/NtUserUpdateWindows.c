@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserUpdateWindows @ 0x1C01E0EA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxUpdateWindows @ 0x1C0217D90 (xxxUpdateWindows.c)
+ */
+
 __int64 __fastcall NtUserUpdateWindows(__int64 a1, HRGN a2)
 {
   __int64 v4; // rax

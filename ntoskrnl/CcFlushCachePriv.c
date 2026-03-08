@@ -1,3 +1,27 @@
+/*
+ * XREFs of CcFlushCachePriv @ 0x140219F20
+ * Callers:
+ *     CcFlushCache @ 0x140216740 (CcFlushCache.c)
+ *     CcWriteBehindInternal @ 0x140219990 (CcWriteBehindInternal.c)
+ *     CcMapAndCopyInToCache @ 0x14021CD00 (CcMapAndCopyInToCache.c)
+ *     CcZeroData @ 0x140243410 (CcZeroData.c)
+ *     CcCoherencyFlushAndPurgeCache @ 0x14029FE90 (CcCoherencyFlushAndPurgeCache.c)
+ *     CcZeroEndOfLastPage @ 0x140343FA8 (CcZeroEndOfLastPage.c)
+ *     MiFlushDataSection @ 0x140368CA0 (MiFlushDataSection.c)
+ *     CcFlushCacheToLsn @ 0x1403CE930 (CcFlushCacheToLsn.c)
+ * Callees:
+ *     CcFlushCacheAcquireRange @ 0x14021A0CC (CcFlushCacheAcquireRange.c)
+ *     CcFlushCachePostProcess @ 0x14021AF2C (CcFlushCachePostProcess.c)
+ *     CcFlushCacheOneRange @ 0x14021B070 (CcFlushCacheOneRange.c)
+ *     CcFlushCachePostProcessOneRange @ 0x14021B410 (CcFlushCachePostProcessOneRange.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x140310130 (ExpAllocatePoolWithTagFromNode.c)
+ *     CcFlushCachePreProcess @ 0x1403373A0 (CcFlushCachePreProcess.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall CcFlushCachePriv(const void *a1, __int64 a2, int a3, _QWORD *a4, char a5, __int128 *a6, __int64 a7)
 {
   __int128 *v7; // rdi

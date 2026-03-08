@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiTrimSharedPage @ 0x1403A0EBC
+ * Callers:
+ *     MiWalkEntireImage @ 0x1402862C0 (MiWalkEntireImage.c)
+ *     MiTradePage @ 0x1403B5640 (MiTradePage.c)
+ *     MiMarkFileOnlyPfnBad @ 0x14063BC40 (MiMarkFileOnlyPfnBad.c)
+ * Callees:
+ *     MiDecrementModifiedWriteCount @ 0x140212BE4 (MiDecrementModifiedWriteCount.c)
+ *     MiReleaseControlAreaWaiters @ 0x140214DCC (MiReleaseControlAreaWaiters.c)
+ *     MiTrimSection @ 0x1402A0034 (MiTrimSection.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiPreventControlAreaDeletion @ 0x1403A10A8 (MiPreventControlAreaDeletion.c)
+ *     MiDecrementSubsection @ 0x1403A118C (MiDecrementSubsection.c)
+ *     MiClusterVadFull @ 0x1404674C0 (MiClusterVadFull.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReferencePfBackedSection @ 0x140667510 (MiReferencePfBackedSection.c)
+ */
+
 __int64 __fastcall MiTrimSharedPage(__int64 a1, unsigned __int8 a2, unsigned int a3)
 {
   __int64 v3; // r12

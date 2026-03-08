@@ -1,3 +1,11 @@
+/*
+ * XREFs of QDIV @ 0x1C02FFE00
+ * Callers:
+ *     ?bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z @ 0x1C02FFF14 (-bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall QDIV(unsigned __int64 *a1, unsigned __int64 *a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // r10

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopNetCompliantNicUpdate @ 0x1409936D4
+ * Callers:
+ *     PopPdcCsDeviceNotification @ 0x140994E6C (PopPdcCsDeviceNotification.c)
+ * Callees:
+ *     PopNetSetConnectivityConstraint @ 0x140860708 (PopNetSetConnectivityConstraint.c)
+ *     PopNetClearConnectivityConstraint @ 0x140993680 (PopNetClearConnectivityConstraint.c)
+ */
+
 char __fastcall PopNetCompliantNicUpdate(char a1)
 {
   int v1; // eax

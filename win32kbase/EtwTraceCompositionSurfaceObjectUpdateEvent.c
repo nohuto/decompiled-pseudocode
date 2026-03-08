@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceCompositionSurfaceObjectUpdateEvent @ 0x1C000B290
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C00EE6B4 (McTemplateK0pq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall EtwTraceCompositionSurfaceObjectUpdateEvent(__int64 a1, int a2, __int64 a3)
 {
   __int64 result; // rax

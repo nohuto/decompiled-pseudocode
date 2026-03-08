@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlQueryInformationAcl @ 0x1406DB160
+ * Callers:
+ *     SepSetProcessTrustLabelAceForToken @ 0x140247DF0 (SepSetProcessTrustLabelAceForToken.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x1402BE754 (SepAppendAceToTokenDefaultDacl.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x1406D22B0 (SepAppendAceToTokenObjectAcl.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlQueryInformationAcl(unsigned __int8 *a1, unsigned int *a2, unsigned int a3, int a4)
 {
   unsigned int v4; // r10d

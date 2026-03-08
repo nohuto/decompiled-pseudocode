@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlLookupLastBaseMcbEntry @ 0x1402DA240
+ * Callers:
+ *     FsRtlLookupLastLargeMcbEntry @ 0x14053A730 (FsRtlLookupLastLargeMcbEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall FsRtlLookupLastBaseMcbEntry(PBASE_MCB Mcb, PLONGLONG Vbn, PLONGLONG Lbn)
 {
   ULONG PairCount; // eax

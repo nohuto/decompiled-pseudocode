@@ -1,3 +1,15 @@
+/*
+ * XREFs of VfDifCaptureDriverEntry @ 0x1403035E8
+ * Callers:
+ *     IopLoadDriver @ 0x14072A9DC (IopLoadDriver.c)
+ *     IopInitializeBuiltinDriver @ 0x140B58C28 (IopInitializeBuiltinDriver.c)
+ * Callees:
+ *     VfTargetDriversGetNode @ 0x140303628 (VfTargetDriversGetNode.c)
+ *     ViDifCheckCallbackInterception @ 0x140303BC8 (ViDifCheckCallbackInterception.c)
+ *     ViDifCaptureDriverEntry @ 0x1405CCB2C (ViDifCaptureDriverEntry.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 char __fastcall VfDifCaptureDriverEntry(__int64 a1)
 {
   __int64 Node; // rax

@@ -1,3 +1,19 @@
+/*
+ * XREFs of GreOffsetRgn @ 0x1C0042C20
+ * Callers:
+ *     ?SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z @ 0x1C003B638 (-SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z.c)
+ *     GetMonitorDC @ 0x1C003D41C (GetMonitorDC.c)
+ *     _GetDCEx @ 0x1C003F6E0 (_GetDCEx.c)
+ *     UserSetDCVisRgn @ 0x1C0044E20 (UserSetDCVisRgn.c)
+ *     NtGdiOffsetRgn @ 0x1C00CBFE0 (NtGdiOffsetRgn.c)
+ *     EngOffsetRgn @ 0x1C01978C0 (EngOffsetRgn.c)
+ * Callees:
+ *     ?bOffset@RGNOBJ@@QEAAHPEAU_POINTL@@@Z @ 0x1C00455F0 (-bOffset@RGNOBJ@@QEAAHPEAU_POINTL@@@Z.c)
+ *     ?iComplexity@RGNCOREOBJ@@QEBAJXZ @ 0x1C004832C (-iComplexity@RGNCOREOBJ@@QEBAJXZ.c)
+ *     ?UpdateUserRgn@RGNOBJ@@QEAAXXZ @ 0x1C0051CB0 (-UpdateUserRgn@RGNOBJ@@QEAAXXZ.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00DE3A0 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ */
+
 __int64 __fastcall GreOffsetRgn(HRGN a1, LONG a2, LONG a3)
 {
   unsigned int v5; // esi

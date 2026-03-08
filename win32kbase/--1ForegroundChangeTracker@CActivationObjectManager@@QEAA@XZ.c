@@ -1,3 +1,23 @@
+/*
+ * XREFs of ??1ForegroundChangeTracker@CActivationObjectManager@@QEAA@XZ @ 0x1C005BD48
+ * Callers:
+ *     ?DestroyActivationObject@CActivationObjectManager@@QEAAJAEBU_LUID@@@Z @ 0x1C000C19C (-DestroyActivationObject@CActivationObjectManager@@QEAAJAEBU_LUID@@@Z.c)
+ *     ?OnThreadTermination@CActivationObjectManager@@QEAAXXZ @ 0x1C005BBB8 (-OnThreadTermination@CActivationObjectManager@@QEAAXXZ.c)
+ *     ?ConfigureActivationObject@CActivationObjectManager@@QEAAJAEBU_LUID@@W4ACTIVATIONOBJECTSTATECHANGE_REASON@@W4ACTIVATION_OBJECT_CONFIG_BEHAVIOR@@W4ACTIVATION_OBJECT_STATE@@3@Z @ 0x1C00C2680 (-ConfigureActivationObject@CActivationObjectManager@@QEAAJAEBU_LUID@@W4ACTIVATIONOBJECTSTATECHAN.c)
+ *     ?SetForegroundRedirectionLuid@CActivationObjectManager@@QEAAJAEBU_LUID@@0@Z @ 0x1C01562F8 (-SetForegroundRedirectionLuid@CActivationObjectManager@@QEAAJAEBU_LUID@@0@Z.c)
+ * Callees:
+ *     ?ClearClip@CCursorClip@@QEAAXXZ @ 0x1C0015530 (-ClearClip@CCursorClip@@QEAAXXZ.c)
+ *     isRootPartition @ 0x1C007B02C (isRootPartition.c)
+ *     EtwTraceFocusChange @ 0x1C00C2FD0 (EtwTraceFocusChange.c)
+ *     EtwTraceFocusedProcessChange @ 0x1C00C35C0 (EtwTraceFocusedProcessChange.c)
+ *     Feature_KeyboardInputVirtualization__private_ReportDeviceUsage @ 0x1C00E1194 (Feature_KeyboardInputVirtualization__private_ReportDeviceUsage.c)
+ *     PpiFromProcessId @ 0x1C01544D0 (PpiFromProcessId.c)
+ *     MarkQueuesForKeyStateUpdate @ 0x1C02180C0 (MarkQueuesForKeyStateUpdate.c)
+ *     ?SendFullKeyboardStates@Detail@Keyboard@IVRootDeliver@@YAJAEBUCONTAINER_ID@@@Z @ 0x1C02265A4 (-SendFullKeyboardStates@Detail@Keyboard@IVRootDeliver@@YAJAEBUCONTAINER_ID@@@Z.c)
+ *     ?ContainerConnected@CIVChannel@@SA_NK@Z @ 0x1C0228560 (-ContainerConnected@CIVChannel@@SA_NK@Z.c)
+ *     CitModerncoreProcessForegroundChange @ 0x1C0273840 (CitModerncoreProcessForegroundChange.c)
+ */
+
 void __fastcall CActivationObjectManager::ForegroundChangeTracker::~ForegroundChangeTracker(
         CActivationObjectManager::ForegroundChangeTracker *this)
 {

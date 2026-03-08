@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlUnicodeStringCbCatStringN @ 0x1C001D9D4
+ * Callers:
+ *     HUBID_BuildContainerID @ 0x1C001EA90 (HUBID_BuildContainerID.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlUnicodeStringCbCatStringN(
         PUNICODE_STRING DestinationString,
         NTSTRSAFE_PCWSTR pszSrc,

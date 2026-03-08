@@ -1,3 +1,16 @@
+/*
+ * XREFs of PsSetIoPriorityThread @ 0x1403579A4
+ * Callers:
+ *     CcApplyLowIoPriorityToThread @ 0x140219DB8 (CcApplyLowIoPriorityToThread.c)
+ *     CmpSetIoPriorityThread @ 0x140357520 (CmpSetIoPriorityThread.c)
+ *     IoSetIoPriorityHintIntoThread @ 0x140357980 (IoSetIoPriorityHintIntoThread.c)
+ *     NtSetInformationThread @ 0x1406D8E90 (NtSetInformationThread.c)
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ * Callees:
+ *     KeAbProcessBaseIoPriorityChange @ 0x140357A24 (KeAbProcessBaseIoPriorityChange.c)
+ *     EtwTracePriority @ 0x14045EE2A (EtwTracePriority.c)
+ */
+
 __int64 __fastcall PsSetIoPriorityThread(__int64 a1, unsigned int a2)
 {
   signed __int32 v4; // eax

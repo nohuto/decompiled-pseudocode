@@ -1,3 +1,21 @@
+/*
+ * XREFs of EtwpGetNextGuidEntry @ 0x140693F10
+ * Callers:
+ *     EtwpDisableTraceProviders @ 0x140693E28 (EtwpDisableTraceProviders.c)
+ *     EtwpTracingProvEnableCallback @ 0x140861AF0 (EtwpTracingProvEnableCallback.c)
+ *     EtwpGetGuidList @ 0x1408A28F6 (EtwpGetGuidList.c)
+ *     EtwpEnumerateTraceGuids @ 0x1409E4D98 (EtwpEnumerateTraceGuids.c)
+ *     EtwpSetProviderBinaryTracking @ 0x1409F260C (EtwpSetProviderBinaryTracking.c)
+ *     EtwpEventTracingCounterSetCallback @ 0x140A73C40 (EtwpEventTracingCounterSetCallback.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     EtwpReferenceGuidEntry @ 0x140695054 (EtwpReferenceGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x140695094 (EtwpUnreferenceGuidEntry.c)
+ */
+
 signed __int64 *__fastcall EtwpGetNextGuidEntry(__int64 a1, _DWORD *a2, int a3)
 {
   __int64 v3; // r15

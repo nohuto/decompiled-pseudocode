@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiInitializeColorTable @ 0x140393FAC
+ * Callers:
+ *     MiInitializeLargePageNodeLists @ 0x1408383C8 (MiInitializeLargePageNodeLists.c)
+ *     MiCreateZeroThreadContext @ 0x1408384D8 (MiCreateZeroThreadContext.c)
+ * Callees:
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ */
+
 __int64 __fastcall MiInitializeColorTable(_DWORD *a1, int a2)
 {
   _DWORD *v2; // rdi

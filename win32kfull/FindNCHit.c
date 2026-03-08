@@ -1,3 +1,18 @@
+/*
+ * XREFs of FindNCHit @ 0x1C00E609C
+ * Callers:
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ *     xxxMNLoop @ 0x1C021726C (xxxMNLoop.c)
+ * Callees:
+ *     GetWindowBordersForDpi @ 0x1C0021944 (GetWindowBordersForDpi.c)
+ *     PtInRect @ 0x1C00A34E8 (PtInRect.c)
+ *     GetWindowDpiLastNotify @ 0x1C00A3A34 (GetWindowDpiLastNotify.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     _HasCaptionIcon @ 0x1C00A47EC (_HasCaptionIcon.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     SizeBoxHwnd @ 0x1C024E490 (SizeBoxHwnd.c)
+ */
+
 __int64 __fastcall FindNCHit(__int64 a1, int a2)
 {
   _DWORD *v2; // r8

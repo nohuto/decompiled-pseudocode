@@ -1,3 +1,15 @@
+/*
+ * XREFs of PspGetNextJob @ 0x1406FB6B8
+ * Callers:
+ *     PspGetNextSilo @ 0x1406FB574 (PspGetNextSilo.c)
+ *     PspEnforceLimits @ 0x1406FB5C0 (PspEnforceLimits.c)
+ * Callees:
+ *     ObReferenceObjectSafeWithTag @ 0x14022BD30 (ObReferenceObjectSafeWithTag.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     PspUnlockJobListShared @ 0x1406FB768 (PspUnlockJobListShared.c)
+ */
+
 __int64 *__fastcall PspGetNextJob(_QWORD *Object)
 {
   struct _KTHREAD *CurrentThread; // rsi

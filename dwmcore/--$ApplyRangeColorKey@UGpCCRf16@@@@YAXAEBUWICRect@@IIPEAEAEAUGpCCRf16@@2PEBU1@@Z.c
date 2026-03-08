@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$ApplyRangeColorKey@UGpCCRf16@@@@YAXAEBUWICRect@@IIPEAEAEAUGpCCRf16@@2PEBU1@@Z @ 0x1802B2D6C
+ * Callers:
+ *     ?ApplyColorKeyToBuffer@CColorKeyBitmap@@IEBAJAEBUWICRect@@IIPEAE@Z @ 0x1802B317C (-ApplyColorKeyToBuffer@CColorKeyBitmap@@IEBAJAEBUWICRect@@IIPEAE@Z.c)
+ * Callees:
+ *     ??BCFloat16@@QEAAMXZ @ 0x1802B30A4 (--BCFloat16@@QEAAMXZ.c)
+ */
+
 void __fastcall ApplyRangeColorKey<GpCCRf16>(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
 {
   int v6; // r11d

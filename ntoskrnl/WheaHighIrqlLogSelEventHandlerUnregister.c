@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheaHighIrqlLogSelEventHandlerUnregister @ 0x140610D10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x140610F68 (WheapHighIrqlLogSelEventHandlerAcquireLock.c)
+ */
+
 __int64 __fastcall WheaHighIrqlLogSelEventHandlerUnregister(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcWriteBehindReleaseFile @ 0x140219638
+ * Callers:
+ *     CcWriteBehindPostProcess @ 0x140219248 (CcWriteBehindPostProcess.c)
+ *     CcQueueAsyncLazywriteCompletion @ 0x1405392F4 (CcQueueAsyncLazywriteCompletion.c)
+ * Callees:
+ *     CcApplyLowIoPriorityToThread @ 0x140219DB8 (CcApplyLowIoPriorityToThread.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall CcWriteBehindReleaseFile(__int64 a1)
 {
   __int64 v1; // rax

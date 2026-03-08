@@ -1,3 +1,17 @@
+/*
+ * XREFs of BiMapEfiDeviceForSpaces @ 0x140390584
+ * Callers:
+ *     BiUpdateBcdObject @ 0x14082DA80 (BiUpdateBcdObject.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     SyspartGetSystemPartition @ 0x140A5C67C (SyspartGetSystemPartition.c)
+ *     SyspartIsSpace @ 0x140A5C6E8 (SyspartIsSpace.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiMapEfiDeviceForSpaces(__int64 a1, const void **a2, unsigned int *a3)
 {
   int v3; // eax

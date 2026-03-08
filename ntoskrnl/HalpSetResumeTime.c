@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpSetResumeTime @ 0x14051A258
+ * Callers:
+ *     HalpEfiInitializeOnResume @ 0x14050B390 (HalpEfiInitializeOnResume.c)
+ *     HalpPostSleepMP @ 0x140A93F28 (HalpPostSleepMP.c)
+ * Callees:
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     ExLocalTimeToSystemTime @ 0x1402D10A0 (ExLocalTimeToSystemTime.c)
+ *     HalpSetVirtualRtc @ 0x1402D13F0 (HalpSetVirtualRtc.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpQueryVirtualRtc @ 0x1405094B0 (HalpQueryVirtualRtc.c)
+ */
+
 void __fastcall HalpSetResumeTime(LARGE_INTEGER *a1, int a2)
 {
   __int64 v2; // rax

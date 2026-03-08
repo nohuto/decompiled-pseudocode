@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiUpdateOldWorkingSetPagesTail @ 0x140463EE0
+ * Callers:
+ *     MiUpdateOldPte @ 0x140463D20 (MiUpdateOldPte.c)
+ * Callees:
+ *     MiFreeWsleList @ 0x14032B2B0 (MiFreeWsleList.c)
+ *     MiProcessVmAccessedInfo @ 0x140463A5E (MiProcessVmAccessedInfo.c)
+ *     MiQueryEPTAccessedState @ 0x140463B2C (MiQueryEPTAccessedState.c)
+ */
+
 __int64 __fastcall MiUpdateOldWorkingSetPagesTail(__int64 a1)
 {
   __int64 i; // rbx

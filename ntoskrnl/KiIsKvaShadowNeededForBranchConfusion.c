@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiIsKvaShadowNeededForBranchConfusion @ 0x14037E13C
+ * Callers:
+ *     KiDetectKvaLeakage @ 0x140A8AF68 (KiDetectKvaLeakage.c)
+ * Callees:
+ *     KiDetectHardwareSpecControlFeatures @ 0x14037EC84 (KiDetectHardwareSpecControlFeatures.c)
+ *     KiIsBranchConfusionMitigationDesired @ 0x14057187C (KiIsBranchConfusionMitigationDesired.c)
+ *     KiIsBranchConfusionMitigationSupported @ 0x1405718BC (KiIsBranchConfusionMitigationSupported.c)
+ */
+
 __int64 __fastcall KiIsKvaShadowNeededForBranchConfusion(__int64 a1)
 {
   unsigned int v3; // ebx

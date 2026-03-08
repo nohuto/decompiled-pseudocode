@@ -1,3 +1,12 @@
+/*
+ * XREFs of LZNT1CompressChunk @ 0x140A84DD0
+ * Callers:
+ *     RtlCompressBufferLZNT1 @ 0x140A84CD0 (RtlCompressBufferLZNT1.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall LZNT1CompressChunk(
         __int64 (__fastcall *a1)(char *, __int64),
         char *a2,

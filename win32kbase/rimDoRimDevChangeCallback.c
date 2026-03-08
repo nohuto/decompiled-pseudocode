@@ -1,3 +1,12 @@
+/*
+ * XREFs of rimDoRimDevChangeCallback @ 0x1C00BC28C
+ * Callers:
+ *     rimDoRimDevChange @ 0x1C00BC1AC (rimDoRimDevChange.c)
+ * Callees:
+ *     RimDeviceTypeToRimInputType @ 0x1C00BC2F4 (RimDeviceTypeToRimInputType.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall rimDoRimDevChangeCallback(__int64 a1, __int64 a2, int a3)
 {
   int v3; // eax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlFindNextClearRunUlong @ 0x1402DF69C
+ * Callers:
+ *     MiRescanPageFileBitmapPortion @ 0x1402DF480 (MiRescanPageFileBitmapPortion.c)
+ *     MiRescanPagefileBitmaps @ 0x140392140 (MiRescanPagefileBitmaps.c)
+ *     MiFindFreePageFileSpaceForward @ 0x1406373A0 (MiFindFreePageFileSpaceForward.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlFindNextClearRunUlong(unsigned int *a1, unsigned int a2, __int64 a3, unsigned int a4, _DWORD *a5)
 {
   unsigned int v5; // ebx

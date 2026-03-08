@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AlphaMultiply_32bppARGB@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802BA9C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall AlphaMultiply_32bppARGB(const struct PipelineParams *a1, const struct ScanOpParams *a2)
 {
   unsigned int *v2; // r11

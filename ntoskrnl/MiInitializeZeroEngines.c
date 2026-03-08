@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiInitializeZeroEngines @ 0x140729A34
+ * Callers:
+ *     MiNodeZeroConductor @ 0x1408314C0 (MiNodeZeroConductor.c)
+ * Callees:
+ *     MiAbsorbPossibleEngineChanges @ 0x1402A87C4 (MiAbsorbPossibleEngineChanges.c)
+ *     MiGetOptimalProcessorWriteCount @ 0x140303004 (MiGetOptimalProcessorWriteCount.c)
+ *     MiZeroPageCalibrate @ 0x1403A50D0 (MiZeroPageCalibrate.c)
+ *     MiZeroEngineSetOptimalCount @ 0x1403AF760 (MiZeroEngineSetOptimalCount.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiComputeCacheAttributeSpeeds @ 0x140811138 (MiComputeCacheAttributeSpeeds.c)
+ */
+
 __int64 __fastcall MiInitializeZeroEngines(__int64 a1)
 {
   int v2; // ebp

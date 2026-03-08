@@ -1,3 +1,19 @@
+/*
+ * XREFs of HUBFDO_IoctlTestPortPLDRRecovery @ 0x1C007BFE4
+ * Callers:
+ *     HUBFDO_EvtIoDeviceControl @ 0x1C007C520 (HUBFDO_EvtIoDeviceControl.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C000C97C (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C000CD94 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBPDO_InvokePortPLDRRecovery @ 0x1C0081794 (HUBPDO_InvokePortPLDRRecovery.c)
+ *     HUBMISC_VerifyCallerIsAdmin @ 0x1C0083448 (HUBMISC_VerifyCallerIsAdmin.c)
+ *     HUBREG_IsPortPLDRCapable @ 0x1C00895D4 (HUBREG_IsPortPLDRCapable.c)
+ */
+
 __int64 __fastcall HUBFDO_IoctlTestPortPLDRRecovery(__int64 a1, __int64 a2, unsigned __int64 a3)
 {
   __int64 v5; // rax

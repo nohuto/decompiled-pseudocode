@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiTpParseInstructionPrefix @ 0x140AF147C
+ * Callers:
+ *     KiTpParseInstruction @ 0x140AF1450 (KiTpParseInstruction.c)
+ * Callees:
+ *     KiTpFetchInstructionBytes @ 0x140AF13B4 (KiTpFetchInstructionBytes.c)
+ */
+
 __int64 __fastcall KiTpParseInstructionPrefix(char *a1)
 {
   __int64 result; // rax

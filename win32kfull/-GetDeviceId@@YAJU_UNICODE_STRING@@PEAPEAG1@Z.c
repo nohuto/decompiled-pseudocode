@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetDeviceId@@YAJU_UNICODE_STRING@@PEAPEAG1@Z @ 0x1C01A57DC
+ * Callers:
+ *     ?GetTiltKeyName@@YAJU_UNICODE_STRING@@PEAPEAGH@Z @ 0x1C01A590C (-GetTiltKeyName@@YAJU_UNICODE_STRING@@PEAPEAGH@Z.c)
+ *     ?ReadLinearityData@@YAHPEAUtagHID_POINTER_DEVICE_INFO@@U_UNICODE_STRING@@PEAX@Z @ 0x1C01A5B7C (-ReadLinearityData@@YAHPEAUtagHID_POINTER_DEVICE_INFO@@U_UNICODE_STRING@@PEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetDeviceId(struct _UNICODE_STRING *a1, unsigned __int16 **a2, unsigned __int16 **a3)
 {
   const wchar_t *Buffer; // rcx

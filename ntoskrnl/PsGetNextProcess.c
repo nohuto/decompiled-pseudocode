@@ -1,3 +1,38 @@
+/*
+ * XREFs of PsGetNextProcess @ 0x1406AA530
+ * Callers:
+ *     MiEmptyAccessLogs @ 0x1402005B0 (MiEmptyAccessLogs.c)
+ *     KiUpdateProcessConcurrencyCounts @ 0x14022BAA0 (KiUpdateProcessConcurrencyCounts.c)
+ *     KeTraceHgsPlusRundown @ 0x140574738 (KeTraceHgsPlusRundown.c)
+ *     ExGetNextProcess @ 0x1406A8CF4 (ExGetNextProcess.c)
+ *     PsEnumProcesses @ 0x1407809CC (PsEnumProcesses.c)
+ *     NtGetNextProcess @ 0x140784C70 (NtGetNextProcess.c)
+ *     PfpRpControlRequestReset @ 0x14084C784 (PfpRpControlRequestReset.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x14085C154 (EtwQueryPerformanceTraceInformation.c)
+ *     EtwpLogMemInfoWs @ 0x1408A21C4 (EtwpLogMemInfoWs.c)
+ *     DbgkpCloseObject @ 0x1409341B0 (DbgkpCloseObject.c)
+ *     IopQueryProcessIdsUsingFile @ 0x1409481C8 (IopQueryProcessIdsUsingFile.c)
+ *     IopLiveDumpExcludeProtectedProcesses @ 0x14094B038 (IopLiveDumpExcludeProtectedProcesses.c)
+ *     PnpHandleEnumerateHandlesAgainstDeviceObject @ 0x140955108 (PnpHandleEnumerateHandlesAgainstDeviceObject.c)
+ *     PsUpdateActiveProcessAffinity @ 0x1409AB80C (PsUpdateActiveProcessAffinity.c)
+ *     PsShutdownSystem @ 0x1409B05A4 (PsShutdownSystem.c)
+ *     PsWaitForAllProcesses @ 0x1409B099C (PsWaitForAllProcesses.c)
+ *     PspProcessRundownWorker @ 0x1409B0CD0 (PspProcessRundownWorker.c)
+ *     EtwpCoverageSamplerStop @ 0x1409F08E4 (EtwpCoverageSamplerStop.c)
+ *     MiHotPatchAllProcesses @ 0x140A34748 (MiHotPatchAllProcesses.c)
+ *     MiLogHotPatchRundown @ 0x140A36A34 (MiLogHotPatchRundown.c)
+ *     MiReferenceNonPagedMemoryProcessList @ 0x140A434AC (MiReferenceNonPagedMemoryProcessList.c)
+ *     ExpDebuggerWorker @ 0x140AAED30 (ExpDebuggerWorker.c)
+ *     PopEtInit @ 0x140B678A0 (PopEtInit.c)
+ * Callees:
+ *     ObReferenceObjectSafeWithTag @ 0x14022BD30 (ObReferenceObjectSafeWithTag.c)
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ */
+
 __int64 *__fastcall PsGetNextProcess(_QWORD *Object)
 {
   struct _KTHREAD *CurrentThread; // rsi

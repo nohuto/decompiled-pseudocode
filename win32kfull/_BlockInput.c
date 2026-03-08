@@ -1,3 +1,11 @@
+/*
+ * XREFs of _BlockInput @ 0x1C01AD9CC
+ * Callers:
+ *     NtUserBlockInput @ 0x1C01CDF80 (NtUserBlockInput.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall BlockInput(__int64 a1, __int64 a2, __int64 a3)
 {

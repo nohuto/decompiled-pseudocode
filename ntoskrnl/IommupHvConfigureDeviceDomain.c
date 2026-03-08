@@ -1,3 +1,11 @@
+/*
+ * XREFs of IommupHvConfigureDeviceDomain @ 0x1405222C4
+ * Callers:
+ *     IommuDomainConfigure @ 0x1409326E0 (IommuDomainConfigure.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall IommupHvConfigureDeviceDomain(int a1, char a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // [rsp+20h] [rbp-38h] BYREF

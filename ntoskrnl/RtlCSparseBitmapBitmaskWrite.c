@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlCSparseBitmapBitmaskWrite @ 0x140305C10
+ * Callers:
+ *     RtlpHpSegSegmentAllocate @ 0x140305B38 (RtlpHpSegSegmentAllocate.c)
+ * Callees:
+ *     RtlpCSparseBitmapPageCommit @ 0x140306EB8 (RtlpCSparseBitmapPageCommit.c)
+ *     RtlCSparseBitmapLeaveLockingRegion @ 0x140308370 (RtlCSparseBitmapLeaveLockingRegion.c)
+ *     RtlpCSparseBitmapUnlock @ 0x1403083A8 (RtlpCSparseBitmapUnlock.c)
+ *     RtlCSparseBitmapBitsClear @ 0x140309068 (RtlCSparseBitmapBitsClear.c)
+ */
+
 __int64 __fastcall RtlCSparseBitmapBitmaskWrite(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
 {
   int v7; // ebx

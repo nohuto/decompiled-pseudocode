@@ -1,3 +1,15 @@
+/*
+ * XREFs of PpmParkReportUnparkedCores @ 0x1402EAA30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PpmPerfQueueAction @ 0x1402363D4 (PpmPerfQueueAction.c)
+ *     KeCountSetBitsAffinityEx @ 0x140237550 (KeCountSetBitsAffinityEx.c)
+ *     KiSubtractAffinityEx @ 0x1402D4CBC (KiSubtractAffinityEx.c)
+ */
+
 char PpmParkReportUnparkedCores()
 {
   __int64 Prcb; // rax

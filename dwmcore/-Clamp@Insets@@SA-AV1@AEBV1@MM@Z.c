@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Clamp@Insets@@SA?AV1@AEBV1@MM@Z @ 0x18002F9B0
+ * Callers:
+ *     ?AddNineGrid@CoordMap@@QEAAJHAEBUD2D_RECT_F@@AEBVInsets@@01_N@Z @ 0x18002F33C (-AddNineGrid@CoordMap@@QEAAJHAEBUD2D_RECT_F@@AEBVInsets@@01_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 float *__fastcall Insets::Clamp(float *a1, float *a2, float a3, float a4)
 {
   float *result; // rax

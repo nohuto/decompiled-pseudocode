@@ -1,3 +1,11 @@
+/*
+ * XREFs of KvfInitFeatureStates @ 0x14038483C
+ * Callers:
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KvfInitFeatureStates(__int64 a1)
 {
   int v1; // edx

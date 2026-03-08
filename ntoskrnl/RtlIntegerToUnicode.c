@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlIntegerToUnicode @ 0x140747BC0
+ * Callers:
+ *     RtlConvertSidToUnicodeString @ 0x1407479E0 (RtlConvertSidToUnicodeString.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall RtlIntegerToUnicode(unsigned int a1, unsigned int a2, int a3, char *a4)
 {
   unsigned int v6; // r8d

@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpInitBackupHive @ 0x140A18034
+ * Callers:
+ *     CmpLoadHiveThread @ 0x140820360 (CmpLoadHiveThread.c)
+ *     CmpFlushBackupHive @ 0x140A17C48 (CmpFlushBackupHive.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwCreateFile @ 0x140412DB0 (ZwCreateFile.c)
+ *     RtlAppendStringToString @ 0x14078E880 (RtlAppendStringToString.c)
+ */
+
 NTSTATUS __fastcall CmpInitBackupHive(__int64 a1, const WCHAR *a2)
 {
   STRING Destination; // [rsp+60h] [rbp-A0h] BYREF

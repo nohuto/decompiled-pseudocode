@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpPicInitializeIoUnit @ 0x1403AE1C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpPicInitializeIoUnit(int *a1)
 {
   int v1; // r8d

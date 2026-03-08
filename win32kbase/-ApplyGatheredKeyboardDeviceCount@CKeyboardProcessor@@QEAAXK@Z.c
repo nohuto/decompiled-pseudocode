@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ApplyGatheredKeyboardDeviceCount@CKeyboardProcessor@@QEAAXK@Z @ 0x1C00D2550
+ * Callers:
+ *     ApplyGatheredKeyboardDeviceCount @ 0x1C00D2520 (ApplyGatheredKeyboardDeviceCount.c)
+ * Callees:
+ *     UpdateKeyLights @ 0x1C0031B40 (UpdateKeyLights.c)
+ */
+
 void __fastcall CKeyboardProcessor::ApplyGatheredKeyboardDeviceCount(
         CKeyboardProcessor *this,
         __int64 a2,

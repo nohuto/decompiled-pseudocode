@@ -1,3 +1,11 @@
+/*
+ * XREFs of IcUpdateInterruptProperties @ 0x1C009F848
+ * Callers:
+ *     AcpiUpdateInterruptProperties @ 0x1C0084160 (AcpiUpdateInterruptProperties.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IcUpdateInterruptProperties(unsigned int a1, int a2, int a3)
 {
   __int64 v3; // r9

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViFindTriageRule @ 0x140B94010
+ * Callers:
+ *     VfTriageSystem @ 0x140B49FDC (VfTriageSystem.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ */
+
 _DWORD *__fastcall ViFindTriageRule(_DWORD *a1, __int64 a2, int a3)
 {
   unsigned __int64 v3; // r9

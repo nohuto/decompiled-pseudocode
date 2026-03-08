@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OpenCollection@@YAHPEAEKW4tagHID_IDE_COL_TYPE@@PEAK@Z @ 0x1C01C68D8
+ * Callers:
+ *     ?BuildMainItem@@YAHPEAEKPEAKUtagUSAGE_PROPERTIES@@PEAU1@W4_HIDP_REPORT_TYPE@@PEAH1@Z @ 0x1C01C5B84 (-BuildMainItem@@YAHPEAEKPEAKUtagUSAGE_PROPERTIES@@PEAU1@W4_HIDP_REPORT_TYPE@@PEAH1@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall OpenCollection(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   __int64 v4; // rbx

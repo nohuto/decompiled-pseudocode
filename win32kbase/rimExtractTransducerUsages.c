@@ -1,3 +1,13 @@
+/*
+ * XREFs of rimExtractTransducerUsages @ 0x1C01D4BB4
+ * Callers:
+ *     rimPopulateContactFrameData @ 0x1C01D906C (rimPopulateContactFrameData.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     rimHidP_GetUsageValue @ 0x1C00EF9AA (rimHidP_GetUsageValue.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U1@U?$_tlgWrapperByVal@$01@@U2@U1@U1@U1@U1@U1@U1@U?$_tlgWrapperByVal@$07@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@33AEBU?$_tlgWrapperByVal@$01@@4333333AEBU?$_tlgWrapperByVal@$07@@@Z @ 0x1C01D32FC (--$Write@U-$_tlgWrapperByVal@$03@@U1@U1@U-$_tlgWrapperByVal@$01@@U2@U1@U1@U1@U1@U1@U1@U-$_tlgWra.c)
+ */
+
 __int64 __fastcall rimExtractTransducerUsages(__int64 a1, unsigned __int16 a2, __int64 a3, int a4, __int64 a5)
 {
   int v5; // esi

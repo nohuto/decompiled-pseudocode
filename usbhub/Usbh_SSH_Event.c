@@ -1,3 +1,39 @@
+/*
+ * XREFs of Usbh_SSH_Event @ 0x1C0007220
+ * Callers:
+ *     UsbhInternalIoctlPropagateResume @ 0x1C00043C4 (UsbhInternalIoctlPropagateResume.c)
+ *     UsbhBusIf_ResumeChildHub @ 0x1C0004460 (UsbhBusIf_ResumeChildHub.c)
+ *     UsbhAcquireEnumBusLock @ 0x1C0004C60 (UsbhAcquireEnumBusLock.c)
+ *     UsbhSshResumeUpstream @ 0x1C0004F34 (UsbhSshResumeUpstream.c)
+ *     Usbh_SSH_HubSuspended @ 0x1C00050BC (Usbh_SSH_HubSuspended.c)
+ *     UsbhHubSSH_Worker @ 0x1C00052F0 (UsbhHubSSH_Worker.c)
+ *     UsbhIncHubBusy @ 0x1C0007050 (UsbhIncHubBusy.c)
+ *     UsbhQueryBusRelations @ 0x1C0008DD0 (UsbhQueryBusRelations.c)
+ *     UsbhSshSuspendHub @ 0x1C000DEF0 (UsbhSshSuspendHub.c)
+ *     UsbhSshResumeDownstream @ 0x1C000E1B0 (UsbhSshResumeDownstream.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C0019820 (UsbhSyncResetDeviceInternal.c)
+ *     UsbhFdoDeviceControl @ 0x1C002A630 (UsbhFdoDeviceControl.c)
+ *     UsbhHardReset_Action @ 0x1C003D0C8 (UsbhHardReset_Action.c)
+ *     UsbhAsyncStop @ 0x1C00424CC (UsbhAsyncStop.c)
+ *     UsbhFdoPnp_QueryStop @ 0x1C0042F50 (UsbhFdoPnp_QueryStop.c)
+ *     Usbh_FDO_WaitPnpStop @ 0x1C0044890 (Usbh_FDO_WaitPnpStop.c)
+ *     UsbhSShResumeWorker @ 0x1C0059260 (UsbhSShResumeWorker.c)
+ * Callees:
+ *     UsbhSsh_CheckPortChangeQueuesIdle @ 0x1C00045F0 (UsbhSsh_CheckPortChangeQueuesIdle.c)
+ *     Usbh_SSH_HubPendingSuspend @ 0x1C0004B88 (Usbh_SSH_HubPendingSuspend.c)
+ *     Usbh_SSH_HubSuspended @ 0x1C00050BC (Usbh_SSH_HubSuspended.c)
+ *     Usbh_SSH_HubPendingResume @ 0x1C00076A0 (Usbh_SSH_HubPendingResume.c)
+ *     UsbhEnableTimerObject @ 0x1C0008770 (UsbhEnableTimerObject.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhSshSuspendHub @ 0x1C000DEF0 (UsbhSshSuspendHub.c)
+ *     UsbhUnlockSSH @ 0x1C0022790 (UsbhUnlockSSH.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     Usbh_SSH_HubFailedResume @ 0x1C0059640 (Usbh_SSH_HubFailedResume.c)
+ *     Usbh_SSH_HubPendingResumeAfterSuspend @ 0x1C00596BC (Usbh_SSH_HubPendingResumeAfterSuspend.c)
+ */
+
 __int64 __fastcall Usbh_SSH_Event(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 v6; // rcx

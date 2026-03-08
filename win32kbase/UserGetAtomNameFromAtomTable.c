@@ -1,3 +1,11 @@
+/*
+ * XREFs of UserGetAtomNameFromAtomTable @ 0x1C00BAE20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ */
+
 __int64 __fastcall UserGetAtomNameFromAtomTable(struct _RTL_ATOM_TABLE *a1, RTL_ATOM a2, WCHAR *AtomName, int a4)
 {
   int v4; // eax

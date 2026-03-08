@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspIsSetJobIoAttribution @ 0x140753294
+ * Callers:
+ *     PspAssignProcessToJob @ 0x1406FFA20 (PspAssignProcessToJob.c)
+ *     PspSetJobIoAttribution @ 0x1407530A0 (PspSetJobIoAttribution.c)
+ * Callees:
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FB7C8 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ */
+
 char __fastcall PspIsSetJobIoAttribution(_QWORD *a1, __int64 a2, char a3)
 {
   __int64 v3; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpTimerGetClockConfiguration @ 0x1403AE220
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpTimerGetClockRates @ 0x1403AE2D0 (HalpTimerGetClockRates.c)
+ */
+
 __int64 __fastcall HalpTimerGetClockConfiguration(__int64 a1)
 {
   ULONG_PTR v1; // r9

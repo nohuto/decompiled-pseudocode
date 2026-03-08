@@ -1,3 +1,12 @@
+/*
+ * XREFs of rimFindLastDeviceFrame @ 0x1C01D256C
+ * Callers:
+ *     RIMRemoveFromActiveDevices @ 0x1C01B9190 (RIMRemoveFromActiveDevices.c)
+ *     RIMCmDeactivateContact @ 0x1C01DE86C (RIMCmDeactivateContact.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall rimFindLastDeviceFrame(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

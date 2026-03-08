@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TraceMoveRemovedMoveRegions@METAREGION@@AEAAXPEAU_RECTL@@@Z @ 0x1C02E2048
+ * Callers:
+ *     ?bIntersectMoveWithDirty@METAREGION@@AEAAHPEAU_RECTL@@@Z @ 0x1C02E20D0 (-bIntersectMoveWithDirty@METAREGION@@AEAAHPEAU_RECTL@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall METAREGION::TraceMoveRemovedMoveRegions(METAREGION *this, struct _RECTL *a2)
 {
   __int64 v3; // rcx

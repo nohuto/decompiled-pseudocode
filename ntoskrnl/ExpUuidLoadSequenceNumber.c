@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExpUuidLoadSequenceNumber @ 0x14085B194
+ * Callers:
+ *     ExpAllocateUuids @ 0x140792ED8 (ExpAllocateUuids.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlGetPersistedStateLocation @ 0x14069ADC0 (RtlGetPersistedStateLocation.c)
+ */
+
 __int64 ExpUuidLoadSequenceNumber()
 {
   int PersistedStateLocation; // ebx

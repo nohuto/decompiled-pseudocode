@@ -1,3 +1,17 @@
+/*
+ * XREFs of PnpCancelStopDeviceNode @ 0x14096B484
+ * Callers:
+ *     PnpCancelStopDeviceSubtree @ 0x14096B514 (PnpCancelStopDeviceSubtree.c)
+ *     PnpQueryRebalanceWorker @ 0x14096B728 (PnpQueryRebalanceWorker.c)
+ * Callees:
+ *     PoFxIdleDevice @ 0x14020259C (PoFxIdleDevice.c)
+ *     PipRestoreDevNodeState @ 0x1403B1C68 (PipRestoreDevNodeState.c)
+ *     PnpUnlockMountableDevice @ 0x1403CFA9C (PnpUnlockMountableDevice.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     PipClearDevNodeFlags @ 0x14068816C (PipClearDevNodeFlags.c)
+ *     IopQueryReconfiguration @ 0x14096A0F4 (IopQueryReconfiguration.c)
+ */
+
 __int64 __fastcall PnpCancelStopDeviceNode(ULONG_PTR BugCheckParameter2)
 {
   _QWORD *v2; // rdx

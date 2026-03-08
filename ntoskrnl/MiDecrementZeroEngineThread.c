@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiDecrementZeroEngineThread @ 0x1402F0700
+ * Callers:
+ *     MiReduceZeroingThreads @ 0x1402A81E4 (MiReduceZeroingThreads.c)
+ *     MiZeroNodePages @ 0x14038FAA0 (MiZeroNodePages.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall MiDecrementZeroEngineThread(__int64 a1)
 {
   __int64 v2; // r8

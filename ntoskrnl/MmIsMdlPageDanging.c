@@ -1,3 +1,11 @@
+/*
+ * XREFs of MmIsMdlPageDanging @ 0x140621470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MmIsMdlPageDanging(unsigned __int64 a1)
 {
   __int64 v1; // rdx

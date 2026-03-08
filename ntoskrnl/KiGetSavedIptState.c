@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiGetSavedIptState @ 0x140570400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiGetSavedSupervisorState @ 0x1405704D0 (KiGetSavedSupervisorState.c)
+ *     RtlLocateSupervisorFeature @ 0x1405AD630 (RtlLocateSupervisorFeature.c)
+ */
+
 __int64 __fastcall KiGetSavedIptState(__int64 a1, _QWORD *a2, _DWORD *a3)
 {
   __int64 result; // rax

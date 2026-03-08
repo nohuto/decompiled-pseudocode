@@ -1,3 +1,14 @@
+/*
+ * XREFs of AslpFileLargeMapDelete @ 0x140A57074
+ * Callers:
+ *     AslpFileLargeEnsureLargeFileMapping @ 0x140A56884 (AslpFileLargeEnsureLargeFileMapping.c)
+ *     AslpFileLargeMapCreate @ 0x140A56DFC (AslpFileLargeMapCreate.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     AslpFilePartialViewFree @ 0x140A570D4 (AslpFilePartialViewFree.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall AslpFileLargeMapDelete(_QWORD **a1)
 {
   _QWORD *v1; // rbx

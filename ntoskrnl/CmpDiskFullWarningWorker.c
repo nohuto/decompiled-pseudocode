@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpDiskFullWarningWorker @ 0x140A0EE60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExRaiseHardError @ 0x1409FDD30 (ExRaiseHardError.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall CmpDiskFullWarningWorker(void *a1)
 {
   int v2; // [rsp+48h] [rbp+10h] BYREF

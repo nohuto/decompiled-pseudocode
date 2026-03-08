@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?Startup@@YAJXZ @ 0x1800AD854
+ * Callers:
+ *     ?DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z @ 0x1800AD788 (-DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z.c)
+ * Callees:
+ *     ?EnsureD2DFactory@CD2DFactory@@QEAAJXZ @ 0x1800AD964 (-EnsureD2DFactory@CD2DFactory@@QEAAJXZ.c)
+ *     ?InitializeDWMKeysFromRegistry@CCommonRegistryData@@CAXXZ @ 0x1800ADEF8 (-InitializeDWMKeysFromRegistry@CCommonRegistryData@@CAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     ?RegReadDWORD@@YA_NPEAUHKEY__@@PEBGPEAK@Z @ 0x18026E940 (-RegReadDWORD@@YA_NPEAUHKEY__@@PEBGPEAK@Z.c)
+ */
+
 __int64 Startup(void)
 {
   CD2DFactory *v0; // rcx

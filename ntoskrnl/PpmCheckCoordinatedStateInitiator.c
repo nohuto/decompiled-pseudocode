@@ -1,13 +1,21 @@
-char __fastcall PpmCheckCoordinatedStateInitiator(unsigned int a1, unsigned int a2, __int64 a3)
+/*
+ * XREFs of PpmCheckCoordinatedStateInitiator @ 0x140581A80
+ * Callers:
+ *     PpmCheckCoordinatedStateInitiator @ 0x140581A80 (PpmCheckCoordinatedStateInitiator.c)
+ *     PpmInstallCoordinatedIdleStates @ 0x14097EDD0 (PpmInstallCoordinatedIdleStates.c)
+ * Callees:
+ *     PpmCheckCoordinatedStateInitiator @ 0x140581A80 (PpmCheckCoordinatedStateInitiator.c)
+ */
+
+char __fastcall PpmCheckCoordinatedStateInitiator(unsigned int a1, unsigned int a2, __int64 a3, __int64 a4)
 {
-  char v3; // r9
   int v4; // esi
   __int64 i; // rbx
   int v8; // eax
   __int64 v9; // rdi
   __int64 v10; // rax
 
-  v3 = 0;
+  LOBYTE(a4) = 0;
   v4 = 0;
   if ( a2 )
   {
@@ -22,7 +30,7 @@ char __fastcall PpmCheckCoordinatedStateInitiator(unsigned int a1, unsigned int 
       }
 LABEL_10:
       if ( ++v4 >= a2 )
-        return v3;
+        return a4;
     }
     while ( 1 )
     {
@@ -30,18 +38,22 @@ LABEL_10:
       if ( *(_BYTE *)(v10 + 24 * v9 + 1) )
       {
         if ( *(_DWORD *)(i - 8) != -1 )
-          return 1;
-        v3 = PpmCheckCoordinatedStateInitiator(
-               a1,
-               *(unsigned int *)(v10 + 24 * v9 + 8),
-               *(_QWORD *)(v10 + 24 * v9 + 16));
-        if ( v3 )
-          return v3;
+        {
+          LOBYTE(a4) = 1;
+          return a4;
+        }
+        LOBYTE(a4) = PpmCheckCoordinatedStateInitiator(
+                       a1,
+                       *(unsigned int *)(v10 + 24 * v9 + 8),
+                       *(_QWORD *)(v10 + 24 * v9 + 16),
+                       a4);
+        if ( (_BYTE)a4 )
+          return a4;
       }
       v9 = (unsigned int)(v9 + 1);
       if ( (unsigned int)v9 >= *(_DWORD *)i )
         goto LABEL_10;
     }
   }
-  return v3;
+  return a4;
 }

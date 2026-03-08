@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmUpdateTargetProcessorPolicy @ 0x14038E1DC
+ * Callers:
+ *     PpmUpdateProcessorPolicyCallback @ 0x14038E1B0 (PpmUpdateProcessorPolicyCallback.c)
+ *     PpmUpdateProcessorPolicy @ 0x140826290 (PpmUpdateProcessorPolicy.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PpmEventAutonomousModeChange @ 0x140597710 (PpmEventAutonomousModeChange.c)
+ */
+
 __int64 (__fastcall *__fastcall PpmUpdateTargetProcessorPolicy(
         __int64 a1,
         _QWORD *a2,

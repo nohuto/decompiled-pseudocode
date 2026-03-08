@@ -1,3 +1,11 @@
+/*
+ * XREFs of AuthzBasepPushResult @ 0x140245DC0
+ * Callers:
+ *     AuthzBasepEvaluateAceCondition @ 0x140246980 (AuthzBasepEvaluateAceCondition.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AuthzBasepPushResult(__int64 a1, _DWORD *a2, int a3)
 {
   __int64 v3; // r9

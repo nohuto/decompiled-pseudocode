@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvlpMarkHvlPagesForHibernation @ 0x140544C40
+ * Callers:
+ *     HvlMarkHiberPhase @ 0x140544504 (HvlMarkHiberPhase.c)
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ */
+
 void HvlpMarkHvlPagesForHibernation()
 {
   ULONG_PTR v0; // r9

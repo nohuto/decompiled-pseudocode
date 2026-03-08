@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitializeHidRequestList @ 0x1C00F5870
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall InitializeHidRequestList(__int64 a1)
 {
   _QWORD *v1; // rax

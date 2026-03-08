@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetMiPInputTransform @ 0x1C01440E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?GetTransformList@InputTransform@@YAHPEAUtagWND@@IPEA_KPEAUtagINPUT_TRANSFORM@@D@Z @ 0x1C0146BFE (-GetTransformList@InputTransform@@YAHPEAUtagWND@@IPEA_KPEAUtagINPUT_TRANSFORM@@D@Z.c)
+ */
+
 __int64 __fastcall GetMiPInputTransform(__int64 a1, unsigned __int64 *a2)
 {
   __int64 v4; // rcx

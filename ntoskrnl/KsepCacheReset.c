@@ -1,3 +1,11 @@
+/*
+ * XREFs of KsepCacheReset @ 0x14097472C
+ * Callers:
+ *     KseResetDeviceCache @ 0x140973ABC (KseResetDeviceCache.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 _QWORD *__fastcall KsepCacheReset(__int64 a1)
 {
   _QWORD *v1; // rbx

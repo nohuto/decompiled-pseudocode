@@ -1,3 +1,13 @@
+/*
+ * XREFs of Bulk_EP_StartMapping @ 0x1C0011CB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Controller_LowerAndTrackIrql @ 0x1C00074BC (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0007558 (Controller_RaiseAndTrackIrql.c)
+ *     Bulk_MapTransfers @ 0x1C0011EA8 (Bulk_MapTransfers.c)
+ */
+
 void __fastcall Bulk_EP_StartMapping(__int64 a1)
 {
   char v2; // si

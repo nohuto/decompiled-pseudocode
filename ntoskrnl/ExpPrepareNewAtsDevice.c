@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpPrepareNewAtsDevice @ 0x14060A384
+ * Callers:
+ *     ExInitializeDeviceAts @ 0x140609E90 (ExInitializeDeviceAts.c)
+ * Callees:
+ *     ExpAtsConfigureSecureDevice @ 0x14040D320 (ExpAtsConfigureSecureDevice.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpPrepareNewAtsDevice(__int64 a1, char a2, __int64 a3, __int64 a4, __int64 a5)
 {
   _QWORD *v5; // r12

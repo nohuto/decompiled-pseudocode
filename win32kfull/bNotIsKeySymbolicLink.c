@@ -1,3 +1,13 @@
+/*
+ * XREFs of bNotIsKeySymbolicLink @ 0x1C00B7A98
+ * Callers:
+ *     bReadUserSystemEUDCRegistry @ 0x1C00B8E10 (bReadUserSystemEUDCRegistry.c)
+ *     bAddAllFlEntry @ 0x1C00B8F0C (bAddAllFlEntry.c)
+ *     bWriteUserSystemEUDCRegistry @ 0x1C02A2A34 (bWriteUserSystemEUDCRegistry.c)
+ * Callees:
+ *     IsRegNameEqual @ 0x1C02A186C (IsRegNameEqual.c)
+ */
+
 __int64 __fastcall bNotIsKeySymbolicLink(PCWSTR SourceString, PHANDLE KeyHandle, PHANDLE a3)
 {
   unsigned int v3; // ebx

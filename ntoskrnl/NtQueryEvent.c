@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtQueryEvent @ 0x1407868C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     ExpQueryCrossVmEvent @ 0x140A032B0 (ExpQueryCrossVmEvent.c)
+ */
+
 __int64 __fastcall NtQueryEvent(HANDLE Handle, int a2, int *a3, int a4, unsigned __int64 a5)
 {
   KPROCESSOR_MODE PreviousMode; // r12

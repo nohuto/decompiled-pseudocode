@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?RectInClipRegion@MOVESIZEDATA@@QEBA_NAEBUtagRECT@@@Z @ 0x1C023D110
+ * Callers:
+ *     ?MoveDragRect@@YA_NPEBUMOVESIZEDATA@@UtagPOINT@@_NPEAUtagRECT@@@Z @ 0x1C01EB508 (-MoveDragRect@@YA_NPEBUMOVESIZEDATA@@UtagPOINT@@_NPEAUtagRECT@@@Z.c)
+ * Callees:
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     TransformRegionBetweenCoordinateSpaces @ 0x1C01BB400 (TransformRegionBetweenCoordinateSpaces.c)
+ */
+
 bool __fastcall MOVESIZEDATA::RectInClipRegion(MOVESIZEDATA *this, const struct tagRECT *a2)
 {
   __int64 v2; // r9

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CGlobalSurfaceManager@@IEAA@XZ @ 0x1800CBB24
+ * Callers:
+ *     ?Create@CGlobalSurfaceManager@@SAJPEAPEAX0PEAPEAVCSurfaceManager@@@Z @ 0x1800CB5F8 (-Create@CGlobalSurfaceManager@@SAJPEAPEAX0PEAPEAVCSurfaceManager@@@Z.c)
+ * Callees:
+ *     ??0CMmcssTask@@QEAA@XZ @ 0x1800CBEC8 (--0CMmcssTask@@QEAA@XZ.c)
+ *     ??0CLegacySurfaceManager@@QEAA@XZ @ 0x1800CBF08 (--0CLegacySurfaceManager@@QEAA@XZ.c)
+ */
+
 CGlobalSurfaceManager *__fastcall CGlobalSurfaceManager::CGlobalSurfaceManager(CGlobalSurfaceManager *this)
 {
   CGlobalSurfaceManager *result; // rax

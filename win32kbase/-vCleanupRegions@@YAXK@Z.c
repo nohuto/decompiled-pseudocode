@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?vCleanupRegions@@YAXK@Z @ 0x1C006DC30
+ * Callers:
+ *     ?GrepCloseCurrentProcess@@YAHXZ @ 0x1C006D158 (-GrepCloseCurrentProcess@@YAHXZ.c)
+ * Callees:
+ *     ?GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z @ 0x1C004A2C0 (-GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z.c)
+ *     HmgLockEx @ 0x1C004AED0 (HmgLockEx.c)
+ *     bDeleteRegion @ 0x1C0053FA0 (bDeleteRegion.c)
+ *     HmgNextOwned @ 0x1C006DD80 (HmgNextOwned.c)
+ */
+
 void __fastcall vCleanupRegions(unsigned int a1)
 {
   unsigned int v2; // esi

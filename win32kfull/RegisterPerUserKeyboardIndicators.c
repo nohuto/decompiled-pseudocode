@@ -1,3 +1,11 @@
+/*
+ * XREFs of RegisterPerUserKeyboardIndicators @ 0x1C00EEE88
+ * Callers:
+ *     PrepareForLogoff @ 0x1C00EEDCC (PrepareForLogoff.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RegisterPerUserKeyboardIndicators(__int64 a1)
 {
   __int64 v2; // rax

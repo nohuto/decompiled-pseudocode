@@ -1,3 +1,17 @@
+/*
+ * XREFs of PiProcessNewDeviceNodeAsync @ 0x140793334
+ * Callers:
+ *     PipProcessDevNodeTree @ 0x1406CCD80 (PipProcessDevNodeTree.c)
+ * Callees:
+ *     PipSetDevNodeState @ 0x1402028D0 (PipSetDevNodeState.c)
+ *     PnpDeviceCompletionQueueAddDispatchedRequest @ 0x140202C70 (PnpDeviceCompletionQueueAddDispatchedRequest.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     PiProcessNewDeviceNode @ 0x140685858 (PiProcessNewDeviceNode.c)
+ *     PnpDeviceCompletionRequestCreate @ 0x140688CA4 (PnpDeviceCompletionRequestCreate.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiProcessNewDeviceNodeAsync(__int64 a1, int a2)
 {
   unsigned int v3; // ebp

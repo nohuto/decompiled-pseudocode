@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NotifyOnChanged@CDropShadow@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800FFAF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?OnChanged@ShadowIntermediates@CDropShadow@@QEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1802271E4 (-OnChanged@ShadowIntermediates@CDropShadow@@QEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ */
+
 __int64 __fastcall CDropShadow::NotifyOnChanged(__int64 a1, unsigned int a2, __int64 a3)
 {
   _QWORD **v6; // r14

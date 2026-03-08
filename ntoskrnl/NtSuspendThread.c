@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtSuspendThread @ 0x1407DC8F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     PsSuspendThread @ 0x1407DC9C0 (PsSuspendThread.c)
+ */
+
 __int64 __fastcall NtSuspendThread(ULONG_PTR BugCheckParameter1, _DWORD *a2)
 {
   char PreviousMode; // r9

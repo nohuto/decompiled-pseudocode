@@ -1,3 +1,28 @@
+/*
+ * XREFs of MiDriverLoadSucceeded @ 0x1407F6FFC
+ * Callers:
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x140A323A8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiMapAndApplyPatchInSession @ 0x140A37338 (MiMapAndApplyPatchInSession.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     MiReferenceControlAreaFile @ 0x140344094 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1403441A0 (MiDereferenceControlAreaFile.c)
+ *     DbgLoadImageSymbolsUnicode @ 0x14036C5E8 (DbgLoadImageSymbolsUnicode.c)
+ *     MiSessionUpdateImageCharges @ 0x14036C724 (MiSessionUpdateImageCharges.c)
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ *     PsCallImageNotifyRoutines @ 0x1407D30D0 (PsCallImageNotifyRoutines.c)
+ *     MiCacheImageSymbols @ 0x1407F7234 (MiCacheImageSymbols.c)
+ *     RtlGetNtSystemRoot @ 0x1407F7270 (RtlGetNtSystemRoot.c)
+ *     MiProtectSystemImage @ 0x14080A600 (MiProtectSystemImage.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     VfDriverLoadSucceeded @ 0x140ABA300 (VfDriverLoadSucceeded.c)
+ */
+
 __int64 __fastcall MiDriverLoadSucceeded(__int64 a1, __int64 a2, __int128 *a3, __int64 a4, __int64 a5, char a6)
 {
   __int64 *v9; // rdi

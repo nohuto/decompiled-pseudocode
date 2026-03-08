@@ -1,3 +1,20 @@
+/*
+ * XREFs of NtAdjustPrivilegesToken @ 0x14070EA00
+ * Callers:
+ *     RtlpSysVolTakeOwnership @ 0x1409BBBD8 (RtlpSysVolTakeOwnership.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     SepAdjustPrivileges @ 0x14070EDE0 (SepAdjustPrivileges.c)
+ *     SeCaptureLuidAndAttributesArray @ 0x14070F414 (SeCaptureLuidAndAttributesArray.c)
+ *     SeReleaseLuidAndAttributesArray @ 0x14070F4F8 (SeReleaseLuidAndAttributesArray.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 NTSTATUS __stdcall NtAdjustPrivilegesToken(
         HANDLE TokenHandle,
         BOOLEAN DisableAllPrivileges,

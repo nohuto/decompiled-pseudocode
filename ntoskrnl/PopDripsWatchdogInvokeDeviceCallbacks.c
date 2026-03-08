@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopDripsWatchdogInvokeDeviceCallbacks @ 0x14099E11C
+ * Callers:
+ *     PopDripsWatchdogCallbackHandler @ 0x140999010 (PopDripsWatchdogCallbackHandler.c)
+ * Callees:
+ *     PopFxInvokeDripsWatchdogCallback @ 0x140981FD0 (PopFxInvokeDripsWatchdogCallback.c)
+ */
+
 _UNKNOWN **__fastcall PopDripsWatchdogInvokeDeviceCallbacks(__int64 a1, unsigned int a2)
 {
   _UNKNOWN **result; // rax

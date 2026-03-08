@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InsertInDriverOwnedList@FxIoQueue@@AEAAXPEAVFxRequest@@@Z @ 0x1C0064530
+ * Callers:
+ *     ?CancelForQueue@FxIoQueue@@QEAAXPEAVFxRequest@@E@Z @ 0x1C00636B4 (-CancelForQueue@FxIoQueue@@QEAAXPEAVFxRequest@@E@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxIoQueue::InsertInDriverOwnedList(FxIoQueue *this, FxRequest *Request)
 {
   _LIST_ENTRY *p_m_OwnerListEntry2; // rdx

@@ -1,3 +1,19 @@
+/*
+ * XREFs of xxxCloseClipboard @ 0x1C0010580
+ * Callers:
+ *     NtUserCloseClipboard @ 0x1C0010170 (NtUserCloseClipboard.c)
+ *     FreeWindowStation @ 0x1C00F1160 (FreeWindowStation.c)
+ *     xxxSnapWindow @ 0x1C022AF08 (xxxSnapWindow.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00BD7B8 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ *     ?CloseClipboardToken@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C00F13DC (-CloseClipboardToken@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     ?MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C01FEEDC (-MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     ?xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C01FF92C (-xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ */
+
 __int64 __fastcall xxxCloseClipboard(struct tagWINDOWSTATION *a1)
 {
   struct tagWINDOWSTATION *v1; // rbx

@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x1C01183E8
+ * Callers:
+ *     ?CleanUpEUDC@@YAXXZ @ 0x1C00B76C0 (-CleanUpEUDC@@YAXXZ.c)
+ *     ?vInitializeFontAssocStatus@@YAXXZ @ 0x1C00B7C2C (-vInitializeFontAssocStatus@@YAXXZ.c)
+ *     bAddAllFlEntry @ 0x1C00B8F0C (bAddAllFlEntry.c)
+ *     bUnloadEudcFont @ 0x1C01162DC (bUnloadEudcFont.c)
+ *     bAddFlEntry @ 0x1C0119070 (bAddFlEntry.c)
+ *     ?bSetupDefaultFlEntry@@YAHXZ @ 0x1C02A0B3C (-bSetupDefaultFlEntry@@YAHXZ.c)
+ * Callees:
+ *     cCapString @ 0x1C0117F80 (cCapString.c)
+ *     ?iHash@@YAIPEBGI@Z @ 0x1C01181D0 (-iHash@@YAIPEBGI@Z.c)
+ *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C01181FC (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
+ *     memcmp @ 0x1C012BEF0 (memcmp.c)
+ */
+
 _BOOL8 __fastcall PFTOBJ::bUnloadEUDCFont(PFTOBJ *this, unsigned __int16 *a2)
 {
   BOOL v2; // esi

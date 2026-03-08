@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwReferenceSpinLockCounters @ 0x1409E91F4
+ * Callers:
+ *     KiSynchCounterSetCallback @ 0x140970F10 (KiSynchCounterSetCallback.c)
+ *     KiSynchNumaCounterSetCallback @ 0x140971030 (KiSynchNumaCounterSetCallback.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x140785F3C (EtwpUpdateGlobalGroupMasks.c)
+ */
+
 LONG EtwReferenceSpinLockCounters()
 {
   __int64 v0; // rcx

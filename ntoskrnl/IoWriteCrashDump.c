@@ -1,3 +1,27 @@
+/*
+ * XREFs of IoWriteCrashDump @ 0x14054EF00
+ * Callers:
+ *     KiBugCheckWriteCrashDump @ 0x1405676EC (KiBugCheckWriteCrashDump.c)
+ * Callees:
+ *     KeStallExecutionProcessor @ 0x14022B710 (KeStallExecutionProcessor.c)
+ *     KdCheckForDebugBreak @ 0x1402C7D64 (KdCheckForDebugBreak.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IoSaveBugCheckProgress @ 0x14054E5E0 (IoSaveBugCheckProgress.c)
+ *     IoSetBugCheckProgressAndFlag @ 0x14054E990 (IoSetBugCheckProgressAndFlag.c)
+ *     IoUpdateBugCheckProgressEnvVariable @ 0x14054EC04 (IoUpdateBugCheckProgressEnvVariable.c)
+ *     IopCollectTriageDumpData @ 0x14054FEF0 (IopCollectTriageDumpData.c)
+ *     IopDumpCallAddPagesCallbacks @ 0x140550198 (IopDumpCallAddPagesCallbacks.c)
+ *     IopDumpCallRemovePagesCallbacks @ 0x1405502F0 (IopDumpCallRemovePagesCallbacks.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x140551A98 (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     IopWriteTriageDumpToFirmware @ 0x140551DD0 (IopWriteTriageDumpToFirmware.c)
+ *     IoAddPagesForPartialKernelDump @ 0x140559F94 (IoAddPagesForPartialKernelDump.c)
+ *     RtlNumberOfSetBitsEx @ 0x1405A6770 (RtlNumberOfSetBitsEx.c)
+ *     MmGetDumpRange @ 0x14062DF70 (MmGetDumpRange.c)
+ *     MmSnapTriageDumpInformation @ 0x14062E39C (MmSnapTriageDumpInformation.c)
+ */
+
 char __fastcall IoWriteCrashDump(
         unsigned int a1,
         __int64 a2,

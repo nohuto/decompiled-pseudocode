@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoInvalidateDeviceState @ 0x1403A2700
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PnpRequestDeviceAction @ 0x1402F5074 (PnpRequestDeviceAction.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void __stdcall IoInvalidateDeviceState(PDEVICE_OBJECT PhysicalDeviceObject)
 {
   _DWORD *DeviceNode; // rcx

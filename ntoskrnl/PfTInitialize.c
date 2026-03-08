@@ -1,3 +1,23 @@
+/*
+ * XREFs of PfTInitialize @ 0x140845B5C
+ * Callers:
+ *     PfSetSuperfetchInformation @ 0x1407E2A94 (PfSetSuperfetchInformation.c)
+ *     PfTStart @ 0x140844B00 (PfTStart.c)
+ *     PfpParametersPropagate @ 0x14097D050 (PfpParametersPropagate.c)
+ *     PfInitializeSuperfetch @ 0x140B619EC (PfInitializeSuperfetch.c)
+ * Callees:
+ *     KeInitializeGuardedMutex @ 0x140204750 (KeInitializeGuardedMutex.c)
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeQueryTimeIncrement @ 0x140351FF0 (KeQueryTimeIncrement.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PfFbBufferListInitialize @ 0x140845D94 (PfFbBufferListInitialize.c)
+ *     PfTAccessTracingInitialize @ 0x140A85A48 (PfTAccessTracingInitialize.c)
+ */
+
 __int64 __fastcall PfTInitialize(_QWORD *a1, unsigned __int64 *a2, char a3)
 {
   struct _FAST_MUTEX *v3; // rdi

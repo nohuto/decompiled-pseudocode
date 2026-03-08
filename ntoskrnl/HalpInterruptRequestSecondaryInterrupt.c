@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpInterruptRequestSecondaryInterrupt @ 0x140517DEC
+ * Callers:
+ *     HalpInterruptRequestInterrupt @ 0x1405031A0 (HalpInterruptRequestInterrupt.c)
+ * Callees:
+ *     HalpFindSecondaryIcEntry @ 0x140379320 (HalpFindSecondaryIcEntry.c)
+ *     HalpReleaseSecondaryIcEntryShared @ 0x140379B70 (HalpReleaseSecondaryIcEntryShared.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpInterruptRequestSecondaryInterrupt(unsigned int a1)
 {
   __int64 SecondaryIcEntry; // rax

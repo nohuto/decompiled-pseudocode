@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetBitsPerPixel@@YAIW4_D3DDDIFORMAT@@@Z @ 0x1C0002764
+ * Callers:
+ *     ?GetBitsPerPixel@DMMVIDPNSOURCEMODE@@QEBAIXZ @ 0x1C00687FC (-GetBitsPerPixel@DMMVIDPNSOURCEMODE@@QEBAIXZ.c)
+ *     DxgkCddVerifyCddDevMode @ 0x1C016AE20 (DxgkCddVerifyCddDevMode.c)
+ *     ?SaveTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEBVCCD_TOPOLOGY@@_N@Z @ 0x1C03BE870 (-SaveTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEBVCCD_TOPOLOGY@@_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetBitsPerPixel(enum _D3DDDIFORMAT a1)
 {
   int v1; // ecx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchQueryAdapterStatistics @ 0x1C0107C90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VidSchQueryAdapterStatistics(__int64 a1, _DWORD *a2)
 {
   unsigned int v2; // r9d

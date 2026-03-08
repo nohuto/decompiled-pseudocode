@@ -1,3 +1,12 @@
+/*
+ * XREFs of PoSessionBuiltinPanelState @ 0x14059BAF0
+ * Callers:
+ *     TtmpCallSetBuiltinPanelState @ 0x1409A0098 (TtmpCallSetBuiltinPanelState.c)
+ * Callees:
+ *     PopInvokeWin32Callout @ 0x14073A52C (PopInvokeWin32Callout.c)
+ *     PopBlockSessionSwitch @ 0x140994CF0 (PopBlockSessionSwitch.c)
+ */
+
 __int64 __fastcall PoSessionBuiltinPanelState(__int64 a1, int a2)
 {
   int v2; // ebx

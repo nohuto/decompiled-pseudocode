@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwTraceMemoryAcg @ 0x140367DD8
+ * Callers:
+ *     MiArbitraryCodeBlocked @ 0x1407F1204 (MiArbitraryCodeBlocked.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwProviderEnabled @ 0x140367E30 (EtwProviderEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 BOOLEAN __fastcall EtwTraceMemoryAcg(int a1)
 {
   REGHANDLE v1; // rbx

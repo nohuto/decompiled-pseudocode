@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0qqxqN8_EventWriteTransfer @ 0x1801B2328
+ * Callers:
+ *     ?CleanTrees@CComposition@@IEAAJXZ @ 0x1800664C0 (-CleanTrees@CComposition@@IEAAJXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 ULONG __fastcall McTemplateU0qqxqN8_EventWriteTransfer(
         __int64 a1,
         __int64 a2,

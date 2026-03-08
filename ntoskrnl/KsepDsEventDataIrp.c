@@ -1,3 +1,14 @@
+/*
+ * XREFs of KsepDsEventDataIrp @ 0x14057F1E4
+ * Callers:
+ *     KseDsCallbackHookIrpDeviceControlFunction @ 0x14057EAA0 (KseDsCallbackHookIrpDeviceControlFunction.c)
+ *     KseDsCallbackHookIrpFunction @ 0x14057EB20 (KseDsCallbackHookIrpFunction.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall KsepDsEventDataIrp(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)
 {
   _UNKNOWN **v5; // rax

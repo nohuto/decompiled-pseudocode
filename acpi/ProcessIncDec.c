@@ -1,3 +1,17 @@
+/*
+ * XREFs of ProcessIncDec @ 0x1C0058510
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ *     GetObjectTypeName @ 0x1C004BD50 (GetObjectTypeName.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ *     WriteObject @ 0x1C00532A0 (WriteObject.c)
+ */
+
 __int64 __fastcall ProcessIncDec(__int64 a1, __int64 a2, unsigned int a3)
 {
   unsigned int v3; // edi

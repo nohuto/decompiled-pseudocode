@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmSetRegistryQuotaInformation @ 0x140A0CDF8
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmSetRegistryQuotaInformation(unsigned int *a1)
 {
   unsigned __int64 v1; // rcx

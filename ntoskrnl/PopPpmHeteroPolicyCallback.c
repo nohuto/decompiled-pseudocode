@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopPpmHeteroPolicyCallback @ 0x1408601B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PpmReleaseLock @ 0x1402D1F40 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ *     PpmReinitializeHeteroEngine @ 0x140828C88 (PpmReinitializeHeteroEngine.c)
+ */
+
 __int64 __fastcall PopPpmHeteroPolicyCallback(_QWORD *a1, int *a2, int a3)
 {
   unsigned int v3; // ebx

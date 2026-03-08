@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UpdateInputContext@@YAHPEAUtagIMC@@W4_UPDATEINPUTCONTEXTCLASS@@_K@Z @ 0x1C003B518
+ * Callers:
+ *     NtUserUpdateInputContext @ 0x1C003B580 (NtUserUpdateInputContext.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall UpdateInputContext(__int64 a1, int a2, __int64 a3)
 {
   __int64 v4; // rax

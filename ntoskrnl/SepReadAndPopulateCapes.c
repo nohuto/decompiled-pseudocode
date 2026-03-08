@@ -1,3 +1,22 @@
+/*
+ * XREFs of SepReadAndPopulateCapes @ 0x1408597BC
+ * Callers:
+ *     SepBuildCapPolicyTable @ 0x1403A918C (SepBuildCapPolicyTable.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryKey @ 0x1404125D0 (ZwQueryKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SepRmCapPoolExpand @ 0x1405B7464 (SepRmCapPoolExpand.c)
+ *     SepRegOpenKey @ 0x140739428 (SepRegOpenKey.c)
+ *     SeValidSecurityDescriptor @ 0x14075EA40 (SeValidSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepReadAndPopulateCapes(HANDLE KeyHandle, int a2, _DWORD *a3, char **a4)
 {
   ULONG v5; // r15d

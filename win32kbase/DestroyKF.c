@@ -1,3 +1,18 @@
+/*
+ * XREFs of DestroyKF @ 0x1C00CF66C
+ * Callers:
+ *     ?xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_INTERNAL@@PEBGII@Z @ 0x1C0085310 (-xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_IN.c)
+ *     DestroyKL @ 0x1C00CF5A8 (DestroyKL.c)
+ *     ?DestroyKFIfSupported@@YAXPEAUtagKBDFILE@@@Z @ 0x1C01534D0 (-DestroyKFIfSupported@@YAXPEAUtagKBDFILE@@@Z.c)
+ * Callees:
+ *     HMFreeObject @ 0x1C0077F50 (HMFreeObject.c)
+ *     ??0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z @ 0x1C0086878 (--0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z.c)
+ *     ?HMMarkObjectDestroyWorker@@YAHPEAX@Z @ 0x1C0086908 (-HMMarkObjectDestroyWorker@@YAHPEAX@Z.c)
+ *     ?LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z @ 0x1C0086944 (-LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     RemoveKeyboardLayoutFile @ 0x1C00CF6D0 (RemoveKeyboardLayoutFile.c)
+ */
+
 __int64 __fastcall DestroyKF(_DWORD *a1)
 {
   __int64 v2; // rdx

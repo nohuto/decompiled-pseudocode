@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserTranslateAccelerator @ 0x1C000BAD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxTranslateAccelerator @ 0x1C000BC34 (xxxTranslateAccelerator.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ */
+
 __int64 __fastcall NtUserTranslateAccelerator(__int64 a1, __int64 a2, __int128 *a3)
 {
   __int64 v6; // rdx

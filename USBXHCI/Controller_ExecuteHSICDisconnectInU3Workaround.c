@@ -1,3 +1,15 @@
+/*
+ * XREFs of Controller_ExecuteHSICDisconnectInU3Workaround @ 0x1C006E400
+ * Callers:
+ *     Controller_WdfEvtDeviceD0Exit @ 0x1C000E9C0 (Controller_WdfEvtDeviceD0Exit.c)
+ *     Controller_WdfEvtDeviceD0Entry @ 0x1C00144B0 (Controller_WdfEvtDeviceD0Entry.c)
+ * Callees:
+ *     Controller_IsSecureDevice @ 0x1C000B0F8 (Controller_IsSecureDevice.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     Controller_ExecuteDSM @ 0x1C006E4A4 (Controller_ExecuteDSM.c)
+ *     Controller_ExecuteHSICDisconnectInU3WorkaroundDirect @ 0x1C0078104 (Controller_ExecuteHSICDisconnectInU3WorkaroundDirect.c)
+ */
+
 void __fastcall Controller_ExecuteHSICDisconnectInU3Workaround(__int64 a1, char a2)
 {
   int v4; // [rsp+28h] [rbp-10h]

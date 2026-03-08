@@ -1,3 +1,11 @@
+/*
+ * XREFs of MakeExportSuppressedPfnValid @ 0x1C00D28D0
+ * Callers:
+ *     ?xxxGetEventProc@@YAP6AXPEAUHWINEVENTHOOK__@@KPEAUHWND__@@JJKK@ZPEAUtagEVENTHOOK@@@Z @ 0x1C00D25FC (-xxxGetEventProc@@YAP6AXPEAUHWINEVENTHOOK__@@KPEAUHWND__@@JJKK@ZPEAUtagEVENTHOOK@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall MakeExportSuppressedPfnValid(__int64 a1)
 {
   NTSTATUS result; // eax

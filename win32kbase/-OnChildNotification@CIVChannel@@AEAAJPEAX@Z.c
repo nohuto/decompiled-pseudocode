@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?OnChildNotification@CIVChannel@@AEAAJPEAX@Z @ 0x1C02289FC
+ * Callers:
+ *     ?sOnChildNotification@CIVChannel@@CAJPEAX@Z @ 0x1C0229A50 (-sOnChildNotification@CIVChannel@@CAJPEAX@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00052A0 (WPP_RECORDER_AND_TRACE_SF_dd.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     isRootPartition @ 0x1C007B02C (isRootPartition.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dddd @ 0x1C0209E10 (WPP_RECORDER_AND_TRACE_SF_dddd.c)
+ *     ?Reconnect@CIVChannel@@AEAAJXZ @ 0x1C022951C (-Reconnect@CIVChannel@@AEAAJXZ.c)
+ */
+
 __int64 __fastcall CIVChannel::OnChildNotification(CIVChannel *this, _DWORD *a2, __int64 a3, __int64 a4)
 {
   int v6; // edx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?_DeferWindowPosAndBand@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@W4WindowBandOptions@@@Z @ 0x1C0099DE8
+ * Callers:
+ *     _lambda_febfd44819ec4f1448c7d434538d8b97_::operator() @ 0x1C0099B60 (_lambda_febfd44819ec4f1448c7d434538d8b97_--operator().c)
+ *     NtUserDeferWindowPosAndBand @ 0x1C0099C50 (NtUserDeferWindowPosAndBand.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     ?_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z @ 0x1C0067EB8 (-_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z.c)
+ *     IAMThreadAccessGranted @ 0x1C009A2DC (IAMThreadAccessGranted.c)
+ *     IsValidBand @ 0x1C009BB20 (IsValidBand.c)
+ *     IsValidBandForProcess @ 0x1C009BB4C (IsValidBandForProcess.c)
+ */
+
 __int64 __fastcall _DeferWindowPosAndBand(
         __int64 a1,
         __int64 a2,

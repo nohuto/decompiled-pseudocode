@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?XformRect@DXGPRESENT@@SAXPEBUtagRECT@@0PEAU2@0II@Z @ 0x1C033C950
+ * Callers:
+ *     ?CombineRectList@DXGPRESENT@@QEAAJPEBU_D3DKMT_PRESENT@@QEAUHDC__@@PEBVDXGDEVICE@@II@Z @ 0x1C0338EE0 (-CombineRectList@DXGPRESENT@@QEAAJPEBU_D3DKMT_PRESENT@@QEAUHDC__@@PEBVDXGDEVICE@@II@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DXGPRESENT::XformRect(
         const struct tagRECT *a1,
         const struct tagRECT *a2,

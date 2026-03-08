@@ -1,3 +1,21 @@
+/*
+ * XREFs of PopDiagTraceHiberStats @ 0x14098C828
+ * Callers:
+ *     PopIssueActionRequest @ 0x140986CA4 (PopIssueActionRequest.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     PpmConvertTime @ 0x140235D70 (PpmConvertTime.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     PopOpenPowerKey @ 0x1403900C8 (PopOpenPowerKey.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     PopComputeDerivedHiberStats @ 0x140988FC0 (PopComputeDerivedHiberStats.c)
+ *     PopQpcTimeInMs @ 0x140A84A40 (PopQpcTimeInMs.c)
+ *     PopSstDiagQueryResumeTimestamp @ 0x140AA75E0 (PopSstDiagQueryResumeTimestamp.c)
+ */
+
 char PopDiagTraceHiberStats()
 {
   int v0; // eax

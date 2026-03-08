@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??$emplace_back@AEBUFigure@CPathEmitterEdge@EmitterShapes@@@?$vector@UFigure@CPathEmitterEdge@EmitterShapes@@V?$allocator@UFigure@CPathEmitterEdge@EmitterShapes@@@std@@@std@@QEAA?A_TAEBUFigure@CPathEmitterEdge@EmitterShapes@@@Z @ 0x180265F74
+ * Callers:
+ *     ?BeginFigure@CPathEmitterEdge@EmitterShapes@@EEAAXUD2D_POINT_2F@@W4D2D1_FIGURE_BEGIN@@@Z @ 0x1802663C0 (-BeginFigure@CPathEmitterEdge@EmitterShapes@@EEAAXUD2D_POINT_2F@@W4D2D1_FIGURE_BEGIN@@@Z.c)
+ * Callees:
+ *     ??$_Construct_n@AEBQEAMAEBQEAM@?$vector@MV?$allocator@M@std@@@std@@AEAAX_KAEBQEAM1@Z @ 0x180264FAC (--$_Construct_n@AEBQEAMAEBQEAM@-$vector@MV-$allocator@M@std@@@std@@AEAAX_KAEBQEAM1@Z.c)
+ *     ??$_Construct_n@AEBQEAUfloat2@Numerics@Foundation@Windows@@AEBQEAU1234@@?$vector@Ufloat2@Numerics@Foundation@Windows@@V?$allocator@Ufloat2@Numerics@Foundation@Windows@@@std@@@std@@AEAAX_KAEBQEAUfloat2@Numerics@Foundation@Windows@@1@Z @ 0x180265054 (--$_Construct_n@AEBQEAUfloat2@Numerics@Foundation@Windows@@AEBQEAU1234@@-$vector@Ufloat2@Numeric.c)
+ *     ??$_Emplace_reallocate@AEBUFigure@CPathEmitterEdge@EmitterShapes@@@?$vector@UFigure@CPathEmitterEdge@EmitterShapes@@V?$allocator@UFigure@CPathEmitterEdge@EmitterShapes@@@std@@@std@@QEAAPEAUFigure@CPathEmitterEdge@EmitterShapes@@QEAU234@AEBU234@@Z @ 0x180265298 (--$_Emplace_reallocate@AEBUFigure@CPathEmitterEdge@EmitterShapes@@@-$vector@UFigure@CPathEmitter.c)
+ */
+
 __int64 __fastcall std::vector<EmitterShapes::CPathEmitterEdge::Figure>::emplace_back<EmitterShapes::CPathEmitterEdge::Figure const &>(
         __int64 *a1,
         __int64 a2)

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ParseInteger @ 0x1C005B588
+ * Callers:
+ *     ParseArg @ 0x1C005A46C (ParseArg.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ */
+
 __int64 __fastcall ParseInteger(const void **a1, __int64 a2, unsigned int a3)
 {
   _QWORD *v3; // rsi

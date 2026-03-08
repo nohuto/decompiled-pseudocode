@@ -1,3 +1,27 @@
+/*
+ * XREFs of PfPowerActionNotify @ 0x140A9CD7C
+ * Callers:
+ *     PfpProcessScenarioPhase @ 0x14073A2C8 (PfpProcessScenarioPhase.c)
+ *     PopUmpoProcessPowerMessage @ 0x14073B5A4 (PopUmpoProcessPowerMessage.c)
+ *     PopDispatchSuperfetchNotification @ 0x140986790 (PopDispatchSuperfetchNotification.c)
+ *     PopIssueActionRequest @ 0x140986CA4 (PopIssueActionRequest.c)
+ *     PopUmpoSendLegacyEvent @ 0x1409948A0 (PopUmpoSendLegacyEvent.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     PfLogEvent @ 0x14028D0D0 (PfLogEvent.c)
+ *     PfTSetTraceWorkerPriority @ 0x1402B896C (PfTSetTraceWorkerPriority.c)
+ *     PfTAccessTracingCheck @ 0x1402B8A04 (PfTAccessTracingCheck.c)
+ *     PfpServiceMainThreadUnboost @ 0x140580A80 (PfpServiceMainThreadUnboost.c)
+ *     PfpLogScenarioEvent @ 0x14073A758 (PfpLogScenarioEvent.c)
+ *     PfGenerateTrace @ 0x14073A870 (PfGenerateTrace.c)
+ *     PfpScenCtxScenarioSet @ 0x140A84910 (PfpScenCtxScenarioSet.c)
+ *     MmPerformMemoryListCommand @ 0x140A849F4 (MmPerformMemoryListCommand.c)
+ *     PfSnBeginBootPhase @ 0x140A859AC (PfSnBeginBootPhase.c)
+ *     PfpPowerActionStartScenarioTracing @ 0x140A9CFDC (PfpPowerActionStartScenarioTracing.c)
+ *     PfpScenCtxPrefetchWait @ 0x140A9D25C (PfpScenCtxPrefetchWait.c)
+ *     PfpStartLoggingHardFaultEvents @ 0x140A9D4FC (PfpStartLoggingHardFaultEvents.c)
+ */
+
 void __fastcall PfPowerActionNotify(int a1, char a2, int a3)
 {
   int v3; // edi

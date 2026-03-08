@@ -1,3 +1,11 @@
+/*
+ * XREFs of WmsgpConnect @ 0x1C0301300
+ * Callers:
+ *     _RegisterLogonProcess @ 0x1C008CF70 (_RegisterLogonProcess.c)
+ * Callees:
+ *     StringCchPrintfW @ 0x1C008D258 (StringCchPrintfW.c)
+ */
+
 __int64 __fastcall WmsgpConnect(_DWORD *a1, int a2)
 {
   unsigned int v2; // ebx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of AslpFileLargeMapCreate @ 0x140A56DFC
+ * Callers:
+ *     AslpFileLargeEnsureLargeFileMapping @ 0x140A56884 (AslpFileLargeEnsureLargeFileMapping.c)
+ * Callees:
+ *     ZwMapViewOfSection @ 0x140412810 (ZwMapViewOfSection.c)
+ *     ZwCreateSection @ 0x140412C50 (ZwCreateSection.c)
+ *     MmSecureVirtualMemoryEx @ 0x140769030 (MmSecureVirtualMemoryEx.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     AslpFileLargeMapDelete @ 0x140A57074 (AslpFileLargeMapDelete.c)
+ */
+
 __int64 __fastcall AslpFileLargeMapCreate(HANDLE **a1, HANDLE *a2)
 {
   HANDLE *v4; // rax

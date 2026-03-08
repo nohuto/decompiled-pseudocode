@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpCreatePerfKeys @ 0x14081300C
+ * Callers:
+ *     CmpFinishSystemHivesLoad @ 0x140815160 (CmpFinishSystemHivesLoad.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     CmpCreatePredefined @ 0x1408130D4 (CmpCreatePredefined.c)
+ */
+
 int CmpCreatePerfKeys()
 {
   int result; // eax

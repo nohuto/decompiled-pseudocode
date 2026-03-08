@@ -1,3 +1,18 @@
+/*
+ * XREFs of GreTransformPoints @ 0x1C0006C84
+ * Callers:
+ *     zzzSetCaretPos @ 0x1C0005ED8 (zzzSetCaretPos.c)
+ *     NtGdiTransformPoints @ 0x1C0006B30 (NtGdiTransformPoints.c)
+ *     xxxGetUpdateRect @ 0x1C00FE78C (xxxGetUpdateRect.c)
+ *     xxxSoundSentry @ 0x1C01F73D8 (xxxSoundSentry.c)
+ *     ?InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z @ 0x1C0230DA0 (-InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z.c)
+ *     xxxScrollWindowEx @ 0x1C0231B34 (xxxScrollWindowEx.c)
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00CFF10 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ */
+
 __int64 __fastcall GreTransformPoints(HDC a1, struct _POINTL *a2, struct _POINTL *a3, int a4, int a5)
 {
   unsigned __int64 v6; // rsi

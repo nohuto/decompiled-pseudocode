@@ -1,3 +1,16 @@
+/*
+ * XREFs of GreBeginGdiRenderingToDxSurface @ 0x1C0009468
+ * Callers:
+ *     NtGdiBeginGdiRendering @ 0x1C0009450 (NtGdiBeginGdiRendering.c)
+ * Callees:
+ *     ?bReset@DC@@QEAAHXZ @ 0x1C00095B0 (-bReset@DC@@QEAAHXZ.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002A694 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002A6E0 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall GreBeginGdiRenderingToDxSurface(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 v6; // rdx

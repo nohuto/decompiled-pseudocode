@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiUnfreezeIoPfnNode @ 0x14062C658
+ * Callers:
+ *     MiDbgUnTranslatePhysicalAddress @ 0x140641E70 (MiDbgUnTranslatePhysicalAddress.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ */
+
 void __fastcall MiUnfreezeIoPfnNode(__int64 *a1)
 {
   __int64 v1; // rcx

@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?CheckForIdle@CInteractionTracker@@AEAAXXZ @ 0x18022E664
+ * Callers:
+ *     ?NotifyExpressionProcessingComplete@CInteractionTracker@@QEAAXXZ @ 0x18012E9A8 (-NotifyExpressionProcessingComplete@CInteractionTracker@@QEAAXXZ.c)
+ *     ?OnChanged@CInteractionTracker@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18022FD00 (-OnChanged@CInteractionTracker@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?SetCustomAnimation@CInteractionTracker@@AEAA_NPEAVCBaseExpression@@W4CustomAnimationTarget@@@Z @ 0x180231420 (-SetCustomAnimation@CInteractionTracker@@AEAA_NPEAVCBaseExpression@@W4CustomAnimationTarget@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ @ 0x18012E802 (-AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?HasActiveCustomAnimation@CInteractionTracker@@AEAA_NXZ @ 0x18012E92E (-HasActiveCustomAnimation@CInteractionTracker@@AEAA_NXZ.c)
+ *     ?HasRunningDefaultPositionAnimation@CInteractionTracker@@QEBA_NXZ @ 0x18022F8EC (-HasRunningDefaultPositionAnimation@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?HasRunningDefaultScaleAnimation@CInteractionTracker@@QEBA_NXZ @ 0x18022F90C (-HasRunningDefaultScaleAnimation@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?IsOutOfBounds@CInteractionTracker@@QEAA_NXZ @ 0x18022FBA8 (-IsOutOfBounds@CInteractionTracker@@QEAA_NXZ.c)
+ *     ?TransitionToIdle@CInteractionTracker@@AEAAXXZ @ 0x1802325C4 (-TransitionToIdle@CInteractionTracker@@AEAAXXZ.c)
+ *     ?BoundTrackersHaveActiveCustomAnimations@CInteractionTrackerBindingManager@@QEAA_NPEAVCInteractionTracker@@@Z @ 0x180234280 (-BoundTrackersHaveActiveCustomAnimations@CInteractionTrackerBindingManager@@QEAA_NPEAVCInteracti.c)
+ */
+
 void __fastcall CInteractionTracker::CheckForIdle(CInteractionTracker *this)
 {
   int v2; // ecx

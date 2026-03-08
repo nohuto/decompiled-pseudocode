@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetEmbedFonts@PUBLIC_PFTOBJ@@QEAAKXZ @ 0x1C026D2B0
+ * Callers:
+ *     NtGdiGetEmbedFonts @ 0x1C02C56A0 (NtGdiGetEmbedFonts.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?bIsPrivatePFT@PFTOBJ@@QEBAHXZ @ 0x1C026D7EC (-bIsPrivatePFT@PFTOBJ@@QEBAHXZ.c)
+ */
+
 __int64 __fastcall PUBLIC_PFTOBJ::GetEmbedFonts(PUBLIC_PFTOBJ *this)
 {
   unsigned int v2; // ebx

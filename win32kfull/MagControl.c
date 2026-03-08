@@ -1,3 +1,12 @@
+/*
+ * XREFs of MagControl @ 0x1C01A42B4
+ * Callers:
+ *     NtUserMagControl @ 0x1C01D7860 (NtUserMagControl.c)
+ * Callees:
+ *     MagpFindThreadContext @ 0x1C0141978 (MagpFindThreadContext.c)
+ *     MagContextThreadCallout @ 0x1C01A4070 (MagContextThreadCallout.c)
+ */
+
 __int64 __fastcall MagControl(_QWORD *a1, __int64 a2, int a3, __int64 a4)
 {
   unsigned int v4; // ebx

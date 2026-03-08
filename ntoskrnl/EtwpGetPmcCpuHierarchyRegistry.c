@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpGetPmcCpuHierarchyRegistry @ 0x1409E1400
+ * Callers:
+ *     EtwpFindMatchingPmcRegistryGroup @ 0x1409E10E8 (EtwpFindMatchingPmcRegistryGroup.c)
+ *     EtwpLoadMicroarchitecturalProfileGroup @ 0x1409E1528 (EtwpLoadMicroarchitecturalProfileGroup.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x14069B3C0 (RtlpQueryRegistryValues.c)
+ */
+
 __int64 __fastcall EtwpGetPmcCpuHierarchyRegistry(const WCHAR *a1, _DWORD *a2, __int64 a3)
 {
   char *v6; // rdx

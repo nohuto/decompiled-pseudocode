@@ -1,3 +1,15 @@
+/*
+ * XREFs of DbgkpSectionToFileHandle @ 0x140936458
+ * Callers:
+ *     DbgkMapViewOfSection @ 0x1407D2C6C (DbgkMapViewOfSection.c)
+ *     DbgkCreateThread @ 0x1407ED96C (DbgkCreateThread.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140934820 (DbgkpPostFakeThreadMessages.c)
+ * Callees:
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     MmGetFileNameForSection @ 0x140A2BA04 (MmGetFileNameForSection.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 HANDLE __fastcall DbgkpSectionToFileHandle(__int64 a1)
 {
   PVOID v1; // rdi

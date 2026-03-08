@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIIommuGetDeviceId @ 0x1C0087EE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ */
+
 __int64 __fastcall ACPIIommuGetDeviceId(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned __int64 *a4)
 {
   __int64 v6; // r8

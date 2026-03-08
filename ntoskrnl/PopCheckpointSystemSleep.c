@@ -1,3 +1,33 @@
+/*
+ * XREFs of PopCheckpointSystemSleep @ 0x140AA7378
+ * Callers:
+ *     PopPrepareSleep @ 0x14058CFDC (PopPrepareSleep.c)
+ *     PopAllocateHiberContext @ 0x140984D38 (PopAllocateHiberContext.c)
+ *     PopDispatchSuperfetchNotification @ 0x140986790 (PopDispatchSuperfetchNotification.c)
+ *     PopIssueActionRequest @ 0x140986CA4 (PopIssueActionRequest.c)
+ *     PopResumeApps @ 0x140987434 (PopResumeApps.c)
+ *     PopResumeServices @ 0x1409874AC (PopResumeServices.c)
+ *     PopSuspendApps @ 0x140987A14 (PopSuspendApps.c)
+ *     PopSuspendServices @ 0x140987A68 (PopSuspendServices.c)
+ *     PopNotifyCallbacksPreSleep @ 0x140988A7C (PopNotifyCallbacksPreSleep.c)
+ *     PopDecompressHiberBlocks @ 0x140A9F1C4 (PopDecompressHiberBlocks.c)
+ *     PopHiberCheckResume @ 0x140A9FD30 (PopHiberCheckResume.c)
+ *     PopHiberChecksumHiberFileData @ 0x140A9FFDC (PopHiberChecksumHiberFileData.c)
+ *     PopRequestRead @ 0x140AA0A10 (PopRequestRead.c)
+ *     PopRequestWrite @ 0x140AA0E40 (PopRequestWrite.c)
+ *     PopRestoreHiberContext @ 0x140AA139C (PopRestoreHiberContext.c)
+ *     PopSaveHiberContext @ 0x140AA1810 (PopSaveHiberContext.c)
+ *     PopWriteHiberPages @ 0x140AA2874 (PopWriteHiberPages.c)
+ *     PoBroadcastSystemState @ 0x140AA38F8 (PoBroadcastSystemState.c)
+ *     PopInvokeSystemStateHandler @ 0x140AA542C (PopInvokeSystemStateHandler.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopRecordSleepCheckpoint @ 0x14097E410 (PopRecordSleepCheckpoint.c)
+ *     PopCheckpointSystemSleepUnsafe @ 0x140AA7484 (PopCheckpointSystemSleepUnsafe.c)
+ */
+
 unsigned __int64 __fastcall PopCheckpointSystemSleep(int a1)
 {
   ULONG_PTR v1; // rbx

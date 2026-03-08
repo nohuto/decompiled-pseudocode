@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpSecondaryInterruptQueryPrimaryInformation @ 0x14080BE70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HalpQueryPrimaryInterruptInformation @ 0x14080BECC (HalpQueryPrimaryInterruptInformation.c)
+ */
+
 __int64 __fastcall HalpSecondaryInterruptQueryPrimaryInformation(__int64 a1, _DWORD *a2)
 {
   __int64 result; // rax

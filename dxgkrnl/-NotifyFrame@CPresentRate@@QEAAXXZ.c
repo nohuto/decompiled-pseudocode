@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?NotifyFrame@CPresentRate@@QEAAXXZ @ 0x1C007C728
+ * Callers:
+ *     ?NotifyTokenCompleted@CCompositionSurface@@IEAAJAEBVCFlipToken@@@Z @ 0x1C007BE28 (-NotifyTokenCompleted@CCompositionSurface@@IEAAJAEBVCFlipToken@@@Z.c)
+ *     ?ApplyIncrementalUpdate@CEndpointResourceStateManager@@QEAAJPEBVCFlipPresentUpdate@@@Z @ 0x1C00851B4 (-ApplyIncrementalUpdate@CEndpointResourceStateManager@@QEAAJPEBVCFlipPresentUpdate@@@Z.c)
+ * Callees:
+ *     ?AddPresent@CInterval@CPresentRate@@QEAA_NK@Z @ 0x1C007C6FC (-AddPresent@CInterval@CPresentRate@@QEAA_NK@Z.c)
+ */
+
 void __fastcall CPresentRate::NotifyFrame(CPresentRate *this)
 {
   CPresentRate::CInterval *v1; // r9

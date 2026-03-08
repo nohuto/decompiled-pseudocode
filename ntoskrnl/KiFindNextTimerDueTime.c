@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiFindNextTimerDueTime @ 0x140328600
+ * Callers:
+ *     KePrepareNonClockOwnerForIdle @ 0x1402D4634 (KePrepareNonClockOwnerForIdle.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x140328330 (KiGetNextTimerExpirationDueTime.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiFindNextTimerDueTime(__int64 a1, unsigned __int64 a2, char a3, unsigned __int64 *a4)
 {
   unsigned int v4; // r15d

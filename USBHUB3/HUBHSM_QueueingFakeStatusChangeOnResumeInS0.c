@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBHSM_QueueingFakeStatusChangeOnResumeInS0 @ 0x1C0008C90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HUBFDO_SignalPnpPowerEvent @ 0x1C000E0F4 (HUBFDO_SignalPnpPowerEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBHSM_QueueingFakeStatusChangeOnResumeInS0(__int64 a1)
 {
   __int64 v1; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtWaitForAlertByThreadId @ 0x1406F7AD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeWaitForAlertByThreadId @ 0x140293354 (KeWaitForAlertByThreadId.c)
+ */
+
 __int64 __fastcall NtWaitForAlertByThreadId(void *a1, __int64 *a2)
 {
   char PreviousMode; // cl

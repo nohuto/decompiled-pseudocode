@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiInitializeNxSupportDiscard @ 0x140B6FE18
+ * Callers:
+ *     KiInitializeBootStructures @ 0x140A887E0 (KiInitializeBootStructures.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     strstr @ 0x1403D3650 (strstr.c)
+ *     KiGetCpuVendor @ 0x140A85800 (KiGetCpuVendor.c)
+ *     KiIsNXSupported @ 0x140A8EA38 (KiIsNXSupported.c)
+ */
+
 char KiInitializeNxSupportDiscard()
 {
   char result; // al

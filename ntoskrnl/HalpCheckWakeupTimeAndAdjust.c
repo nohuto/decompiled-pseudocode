@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpCheckWakeupTimeAndAdjust @ 0x140519F14
+ * Callers:
+ *     HaliAcpiSleep @ 0x140525AD0 (HaliAcpiSleep.c)
+ * Callees:
+ *     HalQueryRealTimeClock @ 0x1402D0F30 (HalQueryRealTimeClock.c)
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x1402D11E0 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     RtlpTimeToTimeFields @ 0x1402D14C8 (RtlpTimeToTimeFields.c)
+ *     HalpAcpiPmRegisterWrite @ 0x1402F76E0 (HalpAcpiPmRegisterWrite.c)
+ *     HalpSetWakeAlarm @ 0x140508C04 (HalpSetWakeAlarm.c)
+ */
+
 char HalpCheckWakeupTimeAndAdjust()
 {
   signed __int64 v0; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpLfhIncrementDataSlot @ 0x14040C250
+ * Callers:
+ *     RtlpHpLfhSlotAllocate @ 0x140310BA0 (RtlpHpLfhSlotAllocate.c)
+ * Callees:
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ */
+
 __int64 RtlpLfhIncrementDataSlot()
 {
   struct _KTHREAD *CurrentThread; // rdi

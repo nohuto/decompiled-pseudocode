@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiPccExecuteCommandAsync @ 0x1C0033FB0
+ * Callers:
+ *     AcpiPccExecuteCommand @ 0x1C0089A00 (AcpiPccExecuteCommand.c)
+ * Callees:
+ *     AcpiPccRingDoorbell @ 0x1C0034340 (AcpiPccRingDoorbell.c)
+ */
+
 __int64 __fastcall AcpiPccExecuteCommandAsync(char *DeferredContext, char a2, __int64 a3, __int64 a4)
 {
   KSPIN_LOCK *v4; // r14

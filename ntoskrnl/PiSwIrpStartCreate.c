@@ -1,3 +1,15 @@
+/*
+ * XREFs of PiSwIrpStartCreate @ 0x1408085B8
+ * Callers:
+ *     PiSwDispatch @ 0x140785720 (PiSwDispatch.c)
+ * Callees:
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x14055253C (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0d_EtwWriteTransfer @ 0x14055D19C (McTemplateK0d_EtwWriteTransfer.c)
+ *     PiSwIrpStartCreateWorker @ 0x140806A2C (PiSwIrpStartCreateWorker.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiSwIrpStartCreate(__int64 Irp, __int64 a2, __int64 a3)
 {
   struct _IO_STACK_LOCATION *v4; // rbx

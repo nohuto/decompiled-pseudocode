@@ -1,3 +1,13 @@
+/*
+ * XREFs of BiFreeIdentifierList @ 0x14082B53C
+ * Callers:
+ *     BiBindEfiNamespaceObjects @ 0x14082BF38 (BiBindEfiNamespaceObjects.c)
+ *     BiBuildIdentifierList @ 0x14082DD44 (BiBuildIdentifierList.c)
+ *     BiExportStoreAlterationsToEfi @ 0x140A5BC98 (BiExportStoreAlterationsToEfi.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall BiFreeIdentifierList(_QWORD **a1)
 {
   _QWORD *v1; // rdi

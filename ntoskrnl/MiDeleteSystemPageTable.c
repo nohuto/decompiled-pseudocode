@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiDeleteSystemPageTable @ 0x140299BA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiWriteTopLevelPxe @ 0x140201C64 (MiWriteTopLevelPxe.c)
+ *     MiInsertLargeTbFlushEntry @ 0x140210194 (MiInsertLargeTbFlushEntry.c)
+ *     MiTbFlushTimeStampMayNeedFlush @ 0x14029A144 (MiTbFlushTimeStampMayNeedFlush.c)
+ *     MiAddSystemPageTableToList @ 0x14029A218 (MiAddSystemPageTableToList.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiEvictPageTableLock @ 0x140346460 (MiEvictPageTableLock.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     RtlCompareMemoryUlong @ 0x140420E50 (RtlCompareMemoryUlong.c)
+ */
+
 __int64 __fastcall MiDeleteSystemPageTable(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // r13

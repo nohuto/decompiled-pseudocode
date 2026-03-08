@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcCopyReadExceptionFilter @ 0x140535030
+ * Callers:
+ *     CcCompleteAsyncRead @ 0x14020A77C (CcCompleteAsyncRead.c)
+ *     CcMapAndCopyInToCache @ 0x14021CD00 (CcMapAndCopyInToCache.c)
+ *     CcCopyBytesToUserBuffer @ 0x14021E4C0 (CcCopyBytesToUserBuffer.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CcCopyReadExceptionFilter(int **a1, _DWORD *a2)
 {
   int v2; // r8d

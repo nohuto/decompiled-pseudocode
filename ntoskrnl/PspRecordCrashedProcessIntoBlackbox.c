@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspRecordCrashedProcessIntoBlackbox @ 0x1409AC84C
+ * Callers:
+ *     PsSetProcessFaultInformation @ 0x14067FC50 (PsSetProcessFaultInformation.c)
+ * Callees:
+ *     ZwPowerInformation @ 0x140412EF0 (ZwPowerInformation.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PspRecordCrashedProcessIntoBlackbox(__int64 a1)
 {
   unsigned __int16 *v1; // rbx

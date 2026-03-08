@@ -1,3 +1,15 @@
+/*
+ * XREFs of WheapWmiExecuteMethod @ 0x140611BB0
+ * Callers:
+ *     WheaWmiDispatch @ 0x1403AA290 (WheaWmiDispatch.c)
+ * Callees:
+ *     WheapWmiExecuteErrorInjectionMethod @ 0x1406116AC (WheapWmiExecuteErrorInjectionMethod.c)
+ *     WheapWmiExecuteErrorSourceMethod @ 0x140611798 (WheapWmiExecuteErrorSourceMethod.c)
+ *     WheapWmiExecutePageOfflineMethod @ 0x140611D54 (WheapWmiExecutePageOfflineMethod.c)
+ *     WheapWmiExecutePluginCtlMethod @ 0x140611DE4 (WheapWmiExecutePluginCtlMethod.c)
+ *     WheapWmiExecutePolicyManagementMethod @ 0x140611EEC (WheapWmiExecutePolicyManagementMethod.c)
+ */
+
 __int64 __fastcall WheapWmiExecuteMethod(__int64 *a1, unsigned int a2, int *a3, int *a4)
 {
   __int64 v4; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DxgkPowerRuntimeComponentIdleStateCallback@@YAXPEAXKK@Z @ 0x1C00125A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PowerRuntimeComponentIdleStateCallback_Worker@DXGADAPTER@@QEAAXKKE@Z @ 0x1C00125F4 (-PowerRuntimeComponentIdleStateCallback_Worker@DXGADAPTER@@QEAAXKKE@Z.c)
+ */
+
 void __fastcall DxgkPowerRuntimeComponentIdleStateCallback(DXGADAPTER *this, unsigned int a2, unsigned int a3)
 {
   PSLIST_ENTRY v6; // rax

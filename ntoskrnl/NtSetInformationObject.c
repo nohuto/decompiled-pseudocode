@@ -1,3 +1,18 @@
+/*
+ * XREFs of NtSetInformationObject @ 0x1407DA9A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     MmGetSessionObjectById @ 0x1402BE684 (MmGetSessionObjectById.c)
+ *     PsGetCurrentProcessSessionId @ 0x140343AA0 (PsGetCurrentProcessSessionId.c)
+ *     ObpUnlockDirectory @ 0x140699588 (ObpUnlockDirectory.c)
+ *     ObpLockDirectoryExclusive @ 0x14076F3D0 (ObpLockDirectoryExclusive.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     ObSetHandleAttributes @ 0x1407D8910 (ObSetHandleAttributes.c)
+ */
+
 __int64 __fastcall NtSetInformationObject(HANDLE Handle, int a2, __int16 *a3, int a4)
 {
   NTSTATUS v5; // edi

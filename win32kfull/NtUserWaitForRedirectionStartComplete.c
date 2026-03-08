@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserWaitForRedirectionStartComplete @ 0x1C01E12D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreGetRedirectionEvent @ 0x1C00F4978 (GreGetRedirectionEvent.c)
+ */
+
 unsigned __int64 NtUserWaitForRedirectionStartComplete()
 {
   NTSTATUS v0; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of XmAccumImmediate @ 0x1403B37B0
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmSetDataType @ 0x1403B41C8 (XmSetDataType.c)
+ *     XmGetImmediateSourceValue @ 0x1403B41F4 (XmGetImmediateSourceValue.c)
+ *     XmSetDestinationValue @ 0x1403B4248 (XmSetDestinationValue.c)
+ */
+
 __int64 __fastcall XmAccumImmediate(__int64 a1)
 {
   __int64 result; // rax

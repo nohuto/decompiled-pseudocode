@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExpWnfGetNameStoreRegistryRoot @ 0x14071C500
+ * Callers:
+ *     ExpWnfLookupPermanentName @ 0x14071C320 (ExpWnfLookupPermanentName.c)
+ *     ExpWnfDeletePermanentName @ 0x140779838 (ExpWnfDeletePermanentName.c)
+ *     ExpWnfRegisterPermanentName @ 0x140799310 (ExpWnfRegisterPermanentName.c)
+ *     ExpWnfAllocateNextPersistentNameSequence @ 0x14079B558 (ExpWnfAllocateNextPersistentNameSequence.c)
+ *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x140851C0C (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ */
+
 NTSTATUS __fastcall ExpWnfGetNameStoreRegistryRoot(int a1, volatile signed __int64 *a2)
 {
   __int64 v3; // rdi

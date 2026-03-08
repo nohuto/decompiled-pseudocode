@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DisconnectObject@FtmBase@WRL@Microsoft@@UEAAJK@Z @ 0x180291040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Microsoft::WRL::FtmBase::DisconnectObject(Microsoft::WRL::FtmBase *this)
 {
   __int64 v1; // rcx

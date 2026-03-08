@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiUpdateCfgSystemWideBitmapWorker @ 0x1406A5EE0
+ * Callers:
+ *     MiUpdateCfgSystemWideBitmap @ 0x1406A1180 (MiUpdateCfgSystemWideBitmap.c)
+ * Callees:
+ *     MiRemoveFromSystemSpace @ 0x14020E5C8 (MiRemoveFromSystemSpace.c)
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     RtlClearAllBitsEx @ 0x1402D4520 (RtlClearAllBitsEx.c)
+ *     MiLocatePagefileSubsection @ 0x14031DDB0 (MiLocatePagefileSubsection.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     RtlSetBitsEx @ 0x14034CE90 (RtlSetBitsEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiMapViewInSystemSpace @ 0x1406A55B8 (MiMapViewInSystemSpace.c)
+ *     RtlEnumRvaListFirst @ 0x14076FC8C (RtlEnumRvaListFirst.c)
+ *     MiChargeSegmentCommit @ 0x1407F1988 (MiChargeSegmentCommit.c)
+ *     MiEliminateZeroPages @ 0x1407F6B10 (MiEliminateZeroPages.c)
+ */
+
 __int64 __fastcall MiUpdateCfgSystemWideBitmapWorker(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
 {
   unsigned int v4; // r12d

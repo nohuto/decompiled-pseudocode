@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EnsureRenderFenceWait@CAdapter@@AEAAJAEA_K@Z @ 0x1C00784EC
+ * Callers:
+ *     ?SignalTokenSync@CAdapter@@UEAAJPEAX_K_N@Z @ 0x1C0078600 (-SignalTokenSync@CAdapter@@UEAAJPEAX_K_N@Z.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DxgkKernelModeWaitForSynchronizationObjectFromGpu @ 0x1C034FE90 (DxgkKernelModeWaitForSynchronizationObjectFromGpu.c)
+ */
+
 __int64 __fastcall CAdapter::EnsureRenderFenceWait(CAdapter *this, unsigned __int64 *a2)
 {
   __int64 v2; // rsi

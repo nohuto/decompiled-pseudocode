@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpAuditQuerySlicAddresses @ 0x140B8F0AC
+ * Callers:
+ *     HalpAuditAcpiTables @ 0x140B63138 (HalpAuditAcpiTables.c)
+ * Callees:
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x14029B230 (MmUnmapIoSpace.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall HalpAuditQuerySlicAddresses(__int64 a1)
 {
   unsigned int v1; // edi

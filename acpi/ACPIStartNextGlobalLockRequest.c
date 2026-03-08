@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIStartNextGlobalLockRequest @ 0x1C0039504
+ * Callers:
+ *     ACPIInterruptServiceRoutineDPC @ 0x1C0003E70 (ACPIInterruptServiceRoutineDPC.c)
+ *     ACPIReleaseGlobalLock @ 0x1C003937C (ACPIReleaseGlobalLock.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C0024980 (WPP_RECORDER_SF_qq.c)
+ *     ACPIReleaseHardwareGlobalLock @ 0x1C00394BC (ACPIReleaseHardwareGlobalLock.c)
+ */
+
 void ACPIStartNextGlobalLockRequest()
 {
   int v0; // edx

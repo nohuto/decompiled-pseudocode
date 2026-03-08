@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiComputeDueTime @ 0x140251110
+ * Callers:
+ *     KeSetTimerEx @ 0x140250F30 (KeSetTimerEx.c)
+ *     KiCommitThreadWait @ 0x140261290 (KiCommitThreadWait.c)
+ *     KiResumeThread @ 0x1403538F8 (KiResumeThread.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiComputeDueTime(int *a1, __int64 a2, char a3, _DWORD *a4)
 {
   __int64 v5; // r9

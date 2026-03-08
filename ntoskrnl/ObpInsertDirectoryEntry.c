@@ -1,3 +1,14 @@
+/*
+ * XREFs of ObpInsertDirectoryEntry @ 0x14076F04C
+ * Callers:
+ *     ObpLookupObjectName @ 0x1406E86B0 (ObpLookupObjectName.c)
+ *     ObCreateObjectTypeEx @ 0x14080CB20 (ObCreateObjectTypeEx.c)
+ *     ObInitSystem @ 0x140B403CC (ObInitSystem.c)
+ * Callees:
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 char __fastcall ObpInsertDirectoryEntry(char *Object, char *a2, __int64 a3)
 {
   __int64 Pool2; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ControllerConfigure @ 0x1C0009528
+ * Callers:
+ *     NVMeControllerInitPart1 @ 0x1C000D7A8 (NVMeControllerInitPart1.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ControllerConfigure(__int64 a1)
 {
   __int64 v1; // r8

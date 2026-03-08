@@ -1,3 +1,13 @@
+/*
+ * XREFs of KasanValidateAddress @ 0x140562FB0
+ * Callers:
+ *     AsanWrapperMemcmp @ 0x140562D60 (AsanWrapperMemcmp.c)
+ *     __asan_memcpy @ 0x140563EE0 (__asan_memcpy.c)
+ *     __asan_memset @ 0x140563F50 (__asan_memset.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall KasanValidateAddress(
         ULONG_PTR BugCheckParameter1,
         ULONG_PTR BugCheckParameter2,

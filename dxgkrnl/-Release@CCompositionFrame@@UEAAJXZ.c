@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Release@CCompositionFrame@@UEAAJXZ @ 0x1C0017920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReturnLegacyTokenBuffer@CCompositionFrame@@IEAAXXZ @ 0x1C0017A2C (-ReturnLegacyTokenBuffer@CCompositionFrame@@IEAAXXZ.c)
+ *     ?FlipManagerDwmProcessFlipManagerSignal@@YAXPEAU_LIST_ENTRY@@_K@Z @ 0x1C0017A54 (-FlipManagerDwmProcessFlipManagerSignal@@YAXPEAU_LIST_ENTRY@@_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CCompositionFrame::Release(CCompositionFrame *this)
 {
   unsigned __int32 v2; // ebx

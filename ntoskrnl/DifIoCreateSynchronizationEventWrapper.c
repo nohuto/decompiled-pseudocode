@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifIoCreateSynchronizationEventWrapper @ 0x1405DC580
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     IoCreateSynchronizationEvent @ 0x140860570 (IoCreateSynchronizationEvent.c)
+ */
+
 PKEVENT __fastcall DifIoCreateSynchronizationEventWrapper(PUNICODE_STRING EventName, PHANDLE EventHandle)
 {
   __int64 *APIThunkContextById; // rax

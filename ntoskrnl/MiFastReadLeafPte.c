@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiFastReadLeafPte @ 0x140321CA0
+ * Callers:
+ *     MiMakeHyperRangeAccessible @ 0x1403219F0 (MiMakeHyperRangeAccessible.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiFastReadLeafPte(unsigned __int64 a1, _QWORD *a2)
 {
   unsigned __int64 v3; // r8

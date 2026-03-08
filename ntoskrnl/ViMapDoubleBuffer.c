@@ -1,3 +1,21 @@
+/*
+ * XREFs of ViMapDoubleBuffer @ 0x140AC678C
+ * Callers:
+ *     VfBuildScatterGatherList @ 0x140AC2650 (VfBuildScatterGatherList.c)
+ *     VfGetScatterGatherList @ 0x140AC3800 (VfGetScatterGatherList.c)
+ *     VfMapTransfer @ 0x140AC3F00 (VfMapTransfer.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeFlushIoBuffers @ 0x1402DCDE0 (KeFlushIoBuffers.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     ViAllocateMapRegistersFromFile @ 0x140AC4E8C (ViAllocateMapRegistersFromFile.c)
+ *     ViHalPreprocessOptions @ 0x140AC62F4 (ViHalPreprocessOptions.c)
+ */
+
 __int64 __fastcall ViMapDoubleBuffer(__int64 a1, PMDL MemoryDescriptorList, ULONG_PTR a3, unsigned int a4, char a5)
 {
   unsigned int v5; // esi

@@ -1,3 +1,18 @@
+/*
+ * XREFs of PushTerm @ 0x1C0053E18
+ * Callers:
+ *     ParseArg @ 0x1C005A46C (ParseArg.c)
+ *     ParseOpcode @ 0x1C005BD40 (ParseOpcode.c)
+ *     ParseSuperName @ 0x1C005C56C (ParseSuperName.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ *     PushFrame @ 0x1C0053C34 (PushFrame.c)
+ */
+
 __int64 __fastcall PushTerm(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   unsigned int v9; // edi

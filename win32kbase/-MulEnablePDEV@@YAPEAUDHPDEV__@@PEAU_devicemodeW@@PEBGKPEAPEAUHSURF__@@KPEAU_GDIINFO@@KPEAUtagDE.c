@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C018B320
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?bAllowShareAccess@PDEVOBJ@@QEAAHXZ @ 0x1C0020580 (-bAllowShareAccess@PDEVOBJ@@QEAAHXZ.c)
+ *     EngFreeMem @ 0x1C002AE00 (EngFreeMem.c)
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C002D3CC (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ *     ?vReferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C00448F0 (-vReferencePdev@PDEVOBJ@@QEAAXXZ.c)
+ *     HmgDecrementShareReferenceCountEx @ 0x1C00483B0 (HmgDecrementShareReferenceCountEx.c)
+ *     ?bRenderLddmDriver@PDEVOBJ@@QEAAHXZ @ 0x1C006BF4C (-bRenderLddmDriver@PDEVOBJ@@QEAAHXZ.c)
+ *     EngAllocMem @ 0x1C009EBD0 (EngAllocMem.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ?pRenderAdapter@PDEVOBJ@@QEAAPEAXXZ @ 0x1C018BCA8 (-pRenderAdapter@PDEVOBJ@@QEAAPEAXXZ.c)
+ *     bIntersect @ 0x1C018BD50 (bIntersect.c)
+ */
+
 struct HDEV__ *__fastcall MulEnablePDEV(
         struct _devicemodeW *a1,
         const unsigned __int16 *a2,

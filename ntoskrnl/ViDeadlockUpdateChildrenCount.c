@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViDeadlockUpdateChildrenCount @ 0x140AD6F60
+ * Callers:
+ *     VfDeadlockAcquireResource @ 0x140AD3DAC (VfDeadlockAcquireResource.c)
+ *     ViDeadlockMergeNodes @ 0x140AD65B4 (ViDeadlockMergeNodes.c)
+ *     ViDeadlockRemoveNode @ 0x140AD6934 (ViDeadlockRemoveNode.c)
+ * Callees:
+ *     <none>
+ */
+
 PVOID __fastcall ViDeadlockUpdateChildrenCount(__int64 **a1, int a2)
 {
   __int64 *i; // r8

@@ -1,3 +1,11 @@
+/*
+ * XREFs of Bulk_EP_Disable @ 0x1C000F980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Controller_IsControllerAccessible @ 0x1C000A8E4 (Controller_IsControllerAccessible.c)
+ */
+
 char __fastcall Bulk_EP_Disable(__int64 a1)
 {
   char result; // al

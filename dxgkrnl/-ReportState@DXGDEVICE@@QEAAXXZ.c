@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?ReportState@DXGDEVICE@@QEAAXXZ @ 0x1C02E82CC
+ * Callers:
+ *     ?ReportState@ADAPTER_RENDER@@QEAAXXZ @ 0x1C02BCBFC (-ReportState@ADAPTER_RENDER@@QEAAXXZ.c)
+ * Callees:
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0006F40 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007104 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00095A8 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0ppqpttqpqp_EtwWriteTransfer @ 0x1C0048ABC (McTemplateK0ppqpttqpqp_EtwWriteTransfer.c)
+ *     ?ReportState@DXGCONTEXT@@QEAAXXZ @ 0x1C02DFB44 (-ReportState@DXGCONTEXT@@QEAAXXZ.c)
+ *     ?ReportAllocationState@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@H@Z @ 0x1C02E7F58 (-ReportAllocationState@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@H@Z.c)
+ *     ?ReportDeviceResources@DXGDEVICE@@QEAAXXZ @ 0x1C02E8164 (-ReportDeviceResources@DXGDEVICE@@QEAAXXZ.c)
+ *     ?ReportDeviceSyncObjects@DXGDEVICE@@QEAAXXZ @ 0x1C02E822C (-ReportDeviceSyncObjects@DXGDEVICE@@QEAAXXZ.c)
+ */
+
 void __fastcall DXGDEVICE::ReportState(DXGDEVICE *this, __int64 a2, __int64 a3)
 {
   int v4; // r10d

@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmManagePartitionCreateLargePages @ 0x140A42970
+ * Callers:
+ *     NtManagePartition @ 0x140705650 (NtManagePartition.c)
+ * Callees:
+ *     MiGetLargestPageIndex @ 0x14027DE94 (MiGetLargestPageIndex.c)
+ *     MiRebuildLargePage @ 0x140466288 (MiRebuildLargePage.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ */
+
 __int64 __fastcall MmManagePartitionCreateLargePages(__int64 *a1, __int64 a2, KPROCESSOR_MODE a3)
 {
   unsigned int v5; // ebx

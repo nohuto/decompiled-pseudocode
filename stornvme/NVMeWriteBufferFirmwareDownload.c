@@ -1,3 +1,18 @@
+/*
+ * XREFs of NVMeWriteBufferFirmwareDownload @ 0x1C00183BC
+ * Callers:
+ *     ScsiToNVMe @ 0x1C00010C0 (ScsiToNVMe.c)
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     GetControllerMaxTransferSize @ 0x1C0007A5C (GetControllerMaxTransferSize.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     FillClippedSGL @ 0x1C00115F0 (FillClippedSGL.c)
+ *     GetFirmwareGranularity @ 0x1C0012A5C (GetFirmwareGranularity.c)
+ *     NVMeQueueWorkItem @ 0x1C0016B88 (NVMeQueueWorkItem.c)
+ *     NVMeSetSenseData @ 0x1C0024238 (NVMeSetSenseData.c)
+ */
+
 __int64 __fastcall NVMeWriteBufferFirmwareDownload(_DWORD *a1, __int64 a2)
 {
   unsigned int v3; // ebx

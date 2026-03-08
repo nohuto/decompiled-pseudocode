@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??$_Emplace_reallocate@$$V@?$vector@UVailSuperWetStroke@CSuperWetInkManager@@V?$allocator@UVailSuperWetStroke@CSuperWetInkManager@@@std@@@std@@QEAAPEAUVailSuperWetStroke@CSuperWetInkManager@@QEAU23@@Z @ 0x1801C82F0
+ * Callers:
+ *     ??$emplace_back@$$V@?$vector@UVailSuperWetStroke@CSuperWetInkManager@@V?$allocator@UVailSuperWetStroke@CSuperWetInkManager@@@std@@@std@@QEAA?A_TXZ @ 0x1801C85A0 (--$emplace_back@$$V@-$vector@UVailSuperWetStroke@CSuperWetInkManager@@V-$allocator@UVailSuperWet.c)
+ * Callees:
+ *     ??$_Get_size_of_n@$0HI@@std@@YA_K_K@Z @ 0x180007524 (--$_Get_size_of_n@$0HI@@std@@YA_K_K@Z.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     ??$_Uninitialized_move@PEAUVailSuperWetStroke@CSuperWetInkManager@@V?$allocator@UVailSuperWetStroke@CSuperWetInkManager@@@std@@@std@@YAPEAUVailSuperWetStroke@CSuperWetInkManager@@QEAU12@0PEAU12@AEAV?$allocator@UVailSuperWetStroke@CSuperWetInkManager@@@0@@Z @ 0x1801C84DC (--$_Uninitialized_move@PEAUVailSuperWetStroke@CSuperWetInkManager@@V-$allocator@UVailSuperWetStr.c)
+ *     ?_Change_array@?$vector@UVailSuperWetStroke@CSuperWetInkManager@@V?$allocator@UVailSuperWetStroke@CSuperWetInkManager@@@std@@@std@@AEAAXQEAUVailSuperWetStroke@CSuperWetInkManager@@_K1@Z @ 0x1801CA1C4 (-_Change_array@-$vector@UVailSuperWetStroke@CSuperWetInkManager@@V-$allocator@UVailSuperWetStrok.c)
+ */
+
 __int64 __fastcall std::vector<CSuperWetInkManager::VailSuperWetStroke>::_Emplace_reallocate<>(__int64 *a1, __int64 a2)
 {
   unsigned __int64 v3; // rbx

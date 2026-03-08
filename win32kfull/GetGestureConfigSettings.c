@@ -1,3 +1,16 @@
+/*
+ * XREFs of GetGestureConfigSettings @ 0x1C02071A8
+ * Callers:
+ *     NtUserGetGestureConfig @ 0x1C01D2300 (NtUserGetGestureConfig.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ *     ?GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z @ 0x1C00CB534 (-GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z.c)
+ *     ?GetWindowGCList@@YAPEAPEAXPEAUtagWND@@@Z @ 0x1C00CBF8C (-GetWindowGCList@@YAPEAPEAXPEAUtagWND@@@Z.c)
+ *     ?IsBitSet@@YAHPEAEI@Z @ 0x1C00CBFD8 (-IsBitSet@@YAHPEAEI@Z.c)
+ *     ?FindGID@@YAHPEAPEAUtagGESTURECONFIGLIST@@I0@Z @ 0x1C0206FD0 (-FindGID@@YAHPEAPEAUtagGESTURECONFIGLIST@@I0@Z.c)
+ */
+
 __int64 __fastcall GetGestureConfigSettings(struct tagWND *a1, __int64 a2, char a3, unsigned int *a4, _DWORD *a5)
 {
   __int64 v5; // rsi

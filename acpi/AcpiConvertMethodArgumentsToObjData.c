@@ -1,3 +1,17 @@
+/*
+ * XREFs of AcpiConvertMethodArgumentsToObjData @ 0x1C0036CA4
+ * Callers:
+ *     AcpiConvertPackageArgumentToPackageObj @ 0x1C00370FC (AcpiConvertPackageArgumentToPackageObj.c)
+ *     AcpiNativeMethodEvalRequestHandler @ 0x1C00375E0 (AcpiNativeMethodEvalRequestHandler.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C00149A0 (WPP_RECORDER_SF_DD.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C001B508 (WPP_RECORDER_SF_qD.c)
+ *     AcpiCleanupObjDataArguments @ 0x1C0036C18 (AcpiCleanupObjDataArguments.c)
+ *     AcpiConvertPackageArgumentToPackageObj @ 0x1C00370FC (AcpiConvertPackageArgumentToPackageObj.c)
+ *     WPP_RECORDER_SF_DDPP @ 0x1C0038244 (WPP_RECORDER_SF_DDPP.c)
+ */
+
 __int64 __fastcall AcpiConvertMethodArgumentsToObjData(
         unsigned __int16 *a1,
         unsigned __int64 a2,

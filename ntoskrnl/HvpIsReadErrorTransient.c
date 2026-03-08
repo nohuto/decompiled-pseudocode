@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvpIsReadErrorTransient @ 0x140A27790
+ * Callers:
+ *     HvAnalyzeLogFiles @ 0x1407F9528 (HvAnalyzeLogFiles.c)
+ * Callees:
+ *     _tlgWriteAgg @ 0x14035EDD0 (_tlgWriteAgg.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall HvpIsReadErrorTransient(int a1)
 {
   __int64 v1; // r8

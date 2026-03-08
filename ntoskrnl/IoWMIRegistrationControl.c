@@ -1,3 +1,22 @@
+/*
+ * XREFs of IoWMIRegistrationControl @ 0x140869750
+ * Callers:
+ *     DifIoWMIRegistrationControlWrapper @ 0x1405DF740 (DifIoWMIRegistrationControlWrapper.c)
+ *     PpmEnableWmiInterface @ 0x14084E6B0 (PpmEnableWmiInterface.c)
+ *     ViDdiDriverEntry @ 0x140AC0E40 (ViDdiDriverEntry.c)
+ *     WheaInitialize @ 0x140B3E1A0 (WheaInitialize.c)
+ *     WmipDriverEntry @ 0x140B53F10 (WmipDriverEntry.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     WmipUnreferenceRegEntry @ 0x140208DE4 (WmipUnreferenceRegEntry.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     WmipFindRegEntryByDevice @ 0x1403BC634 (WmipFindRegEntryByDevice.c)
+ *     WmipUpdateRegistration @ 0x14085F310 (WmipUpdateRegistration.c)
+ *     WmipSetTraceNotify @ 0x140869620 (WmipSetTraceNotify.c)
+ *     WmipRegisterDevice @ 0x140869828 (WmipRegisterDevice.c)
+ *     WmipDeregisterDevice @ 0x14087DDC8 (WmipDeregisterDevice.c)
+ */
+
 NTSTATUS __stdcall IoWMIRegistrationControl(PDEVICE_OBJECT DeviceObject, ULONG Action)
 {
   int v2; // ebp

@@ -1,3 +1,20 @@
+/*
+ * XREFs of HsaInitializeIommu @ 0x140A961E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     HalSocRequestApi @ 0x1403737EC (HalSocRequestApi.c)
+ *     HalMapIoSpace @ 0x14037AD90 (HalMapIoSpace.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HsaBuildDeviceTableEntry @ 0x14052CE78 (HsaBuildDeviceTableEntry.c)
+ *     HsaGetBlockedDomain @ 0x14052DB9C (HsaGetBlockedDomain.c)
+ *     HsaProcessDeviceExceptions @ 0x14052E418 (HsaProcessDeviceExceptions.c)
+ *     HsaInitializeInterruptRemapping @ 0x140A96048 (HsaInitializeInterruptRemapping.c)
+ */
+
 __int64 __fastcall HsaInitializeIommu(__int64 a1, int a2, char a3)
 {
   int v3; // esi

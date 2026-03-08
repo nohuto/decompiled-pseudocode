@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?NotifySharedPowerGraphicsFStateTransition@DXGGLOBAL@@QEAAXQEAXKIE@Z @ 0x1C0050E04
+ * Callers:
+ *     DxgkNotifySharedPowerGraphicsFStateTransition @ 0x1C0051530 (DxgkNotifySharedPowerGraphicsFStateTransition.c)
+ * Callees:
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0006FA0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall DXGGLOBAL::NotifySharedPowerGraphicsFStateTransition(
         DXGGLOBAL *this,
         __int64 *a2,

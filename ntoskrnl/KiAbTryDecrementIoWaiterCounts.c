@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiAbTryDecrementIoWaiterCounts @ 0x1402D7D78
+ * Callers:
+ *     KiAbEntryRemoveFromTree @ 0x14024BC30 (KiAbEntryRemoveFromTree.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KiAbTryDecrementIoWaiterCounts(__int64 a1, __int64 a2)
 {
   char result; // al

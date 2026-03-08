@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopCreateHiberFileSecurityDescriptor @ 0x1407FC318
+ * Callers:
+ *     PopCreateHiberFile @ 0x1407FBF00 (PopCreateHiberFile.c)
+ * Callees:
+ *     RtlGetAce @ 0x140245EE0 (RtlGetAce.c)
+ *     RtlSubAuthoritySid @ 0x1402BE740 (RtlSubAuthoritySid.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlInitializeSid @ 0x14068E3A0 (RtlInitializeSid.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D26A0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x1406D3290 (RtlpAddKnownAce.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406DB5A0 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406DB640 (RtlCreateAcl.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 ACL *PopCreateHiberFileSecurityDescriptor()
 {
   ACL *v0; // rbx

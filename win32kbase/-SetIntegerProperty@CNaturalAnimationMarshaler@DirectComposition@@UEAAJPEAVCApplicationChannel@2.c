@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetIntegerProperty@CNaturalAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C026B880
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetIntegerProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C009E0C0 (-SetIntegerProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I.c)
+ */
+
 __int64 __fastcall DirectComposition::CNaturalAnimationMarshaler::SetIntegerProperty(
         DirectComposition::CNaturalAnimationMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

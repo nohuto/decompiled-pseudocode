@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpReadCmosTime @ 0x1402D181C
+ * Callers:
+ *     HalQueryRealTimeClock @ 0x1402D0F30 (HalQueryRealTimeClock.c)
+ * Callees:
+ *     HalpAcquireCmosSpinLockAndWait @ 0x1402D19D8 (HalpAcquireCmosSpinLockAndWait.c)
+ */
+
 __int64 __fastcall HalpReadCmosTime(_WORD *a1)
 {
   unsigned __int8 v2; // al

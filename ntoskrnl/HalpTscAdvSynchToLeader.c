@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpTscAdvSynchToLeader @ 0x140388164
+ * Callers:
+ *     HalpTscAdvSynchLeader @ 0x140387D38 (HalpTscAdvSynchLeader.c)
+ * Callees:
+ *     HalpTscAdvSynchCalculateRemoteDelta @ 0x14038829C (HalpTscAdvSynchCalculateRemoteDelta.c)
+ *     HalpTscTraceProcessorSynchronization @ 0x1403884E4 (HalpTscTraceProcessorSynchronization.c)
+ */
+
 __int64 __fastcall HalpTscAdvSynchToLeader(unsigned int a1)
 {
   __int64 v1; // rdi

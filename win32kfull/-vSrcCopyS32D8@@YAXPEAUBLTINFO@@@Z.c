@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vSrcCopyS32D8@@YAXPEAUBLTINFO@@@Z @ 0x1C02ED170
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ?XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z @ 0x1C02DE1EC (-XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z.c)
+ */
+
 void __fastcall vSrcCopyS32D8(struct BLTINFO *a1)
 {
   unsigned __int8 (__fastcall *v1)(struct _XLATEOBJ *, const unsigned __int8 *, unsigned int); // r13

@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExWnfHiveUnloaded @ 0x14074B598
+ * Callers:
+ *     CmUnloadKey @ 0x140749BD8 (CmUnloadKey.c)
+ * Callees:
+ *     RtlLengthSid @ 0x140245EC0 (RtlLengthSid.c)
+ *     SeConvertStringSidToSid @ 0x1402C0AD0 (SeConvertStringSidToSid.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExpWnfInvalidateDataStores @ 0x14067F77C (ExpWnfInvalidateDataStores.c)
+ *     RtlPrefixUnicodeString @ 0x1406D5A70 (RtlPrefixUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall ExWnfHiveUnloaded(PCUNICODE_STRING String2)
 {
   struct _KTHREAD *CurrentThread; // rax

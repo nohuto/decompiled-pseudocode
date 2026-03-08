@@ -1,3 +1,11 @@
+/*
+ * XREFs of CarSetCustomRuleIdRange @ 0x1405D2240
+ * Callers:
+ *     DifRegisterKernelPlugin @ 0x1405D2B20 (DifRegisterKernelPlugin.c)
+ * Callees:
+ *     CarFindRuleClassConfigurationEntryByRuleClassId @ 0x1405D186C (CarFindRuleClassConfigurationEntryByRuleClassId.c)
+ */
+
 __int64 __fastcall CarSetCustomRuleIdRange(__int64 a1)
 {
   __int64 *RuleClassConfigurationEntryByRuleClassId; // rax

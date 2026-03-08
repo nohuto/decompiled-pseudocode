@@ -1,3 +1,26 @@
+/*
+ * XREFs of rimDoProcessAnyPointerDeviceInput @ 0x1C01D6420
+ * Callers:
+ *     RIMProcessAnyPointerDeviceInput @ 0x1C01D517C (RIMProcessAnyPointerDeviceInput.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00052A0 (WPP_RECORDER_AND_TRACE_SF_dd.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1C007AF8C (--0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
+ *     ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x1C007B050 (--1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     WPP_RECORDER_AND_TRACE_SF_i @ 0x1C00EF71A (WPP_RECORDER_AND_TRACE_SF_i.c)
+ *     rimExtractFrameInfoAndAbandonIncompleteFrame @ 0x1C00F1544 (rimExtractFrameInfoAndAbandonIncompleteFrame.c)
+ *     rimUpdatePointerDeviceFrameScanTime @ 0x1C00F18F6 (rimUpdatePointerDeviceFrameScanTime.c)
+ *     RIMAbArbitratePointerDeviceFrame @ 0x1C01AA284 (RIMAbArbitratePointerDeviceFrame.c)
+ *     RIMCompletePointerDeviceFrame @ 0x1C01CD424 (RIMCompletePointerDeviceFrame.c)
+ *     RIMStartPointerDeviceFrame @ 0x1C01CDC44 (RIMStartPointerDeviceFrame.c)
+ *     RIMStoreRawDataInPointerDeviceFrame @ 0x1C01CDF34 (RIMStoreRawDataInPointerDeviceFrame.c)
+ *     rimCreateAndProcessPointerDeviceButtonOnlyFrame @ 0x1C01D5FD0 (rimCreateAndProcessPointerDeviceButtonOnlyFrame.c)
+ *     rimProcessMissingPointerDeviceContacts @ 0x1C01D9470 (rimProcessMissingPointerDeviceContacts.c)
+ *     rimProcessPointerDeviceButtonContact @ 0x1C01D99D4 (rimProcessPointerDeviceButtonContact.c)
+ *     rimProcessPointerDeviceContact @ 0x1C01D9C8C (rimProcessPointerDeviceContact.c)
+ */
+
 void __fastcall rimDoProcessAnyPointerDeviceInput(struct RawInputManagerObject *a1, LARGE_INTEGER *a2)
 {
   int v3; // edx

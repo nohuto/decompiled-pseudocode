@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TryGlyphSetHasSameContent@QueryFontTreeRequest@@CA_NPEAX0I@Z @ 0x1C00D39F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall QueryFontTreeRequest::TryGlyphSetHasSameContent(char *Source2, char *Source1, unsigned int a3)
 {
   __int64 v3; // rsi

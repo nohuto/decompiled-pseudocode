@@ -1,3 +1,12 @@
+/*
+ * XREFs of Command_ASMediaGetFirmwareVersionHighCommandCompletion @ 0x1C002F6B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C001E054 (WPP_RECORDER_SF_DDD.c)
+ */
+
 LONG __fastcall Command_ASMediaGetFirmwareVersionHighCommandCompletion(__int64 a1)
 {
   __int64 *v1; // rbx

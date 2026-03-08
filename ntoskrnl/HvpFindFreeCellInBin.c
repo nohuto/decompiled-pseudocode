@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvpFindFreeCellInBin @ 0x1407A6930
+ * Callers:
+ *     HvpFindFreeCell @ 0x1407A6710 (HvpFindFreeCell.c)
+ * Callees:
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpMarkCellDirty @ 0x1407D2460 (HvpMarkCellDirty.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall HvpFindFreeCellInBin(
         ULONG_PTR BugCheckParameter3,
         unsigned int a2,

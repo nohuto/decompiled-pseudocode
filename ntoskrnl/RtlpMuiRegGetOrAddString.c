@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlpMuiRegGetOrAddString @ 0x140844498
+ * Callers:
+ *     _RtlpMuiRegValidateInstalled @ 0x140843870 (_RtlpMuiRegValidateInstalled.c)
+ *     _RtlpMuiRegInitAnyLanguage @ 0x140844394 (_RtlpMuiRegInitAnyLanguage.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x140A716A4 (RtlpLoadPolicyLanguageSpec.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x140A71F24 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
+ *     RtlpMuiRegGetLanguageSpec @ 0x140A72004 (RtlpMuiRegGetLanguageSpec.c)
+ *     _RtlMuiRegAddLIPParent @ 0x140A724F4 (_RtlMuiRegAddLIPParent.c)
+ * Callees:
+ *     RtlpMuiRegGetOrAddStringToPool @ 0x140844538 (RtlpMuiRegGetOrAddStringToPool.c)
+ *     RtlpMuiRegGrowStringPool @ 0x140A720D0 (RtlpMuiRegGrowStringPool.c)
+ */
+
 __int64 __fastcall RtlpMuiRegGetOrAddString(__int64 a1, _WORD *a2, __int64 a3, __int16 *a4)
 {
   __int16 v4; // bp

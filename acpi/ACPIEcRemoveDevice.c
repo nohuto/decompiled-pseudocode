@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIEcRemoveDevice @ 0x1C00253C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIBusIrpRemoveDevice @ 0x1C0016C30 (ACPIBusIrpRemoveDevice.c)
+ *     ACPIEcStopRemoveDeviceCommon @ 0x1C0025890 (ACPIEcStopRemoveDeviceCommon.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ */
+
 __int64 __fastcall ACPIEcRemoveDevice(ULONG_PTR a1, IRP *a2)
 {
   __int64 DeviceExtension; // rbp

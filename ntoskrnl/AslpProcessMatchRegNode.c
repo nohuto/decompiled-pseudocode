@@ -1,3 +1,18 @@
+/*
+ * XREFs of AslpProcessMatchRegNode @ 0x140A53E9C
+ * Callers:
+ *     AslRegWildcardFindNext @ 0x140A53734 (AslRegWildcardFindNext.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     AslStringPatternMatchExW @ 0x14077790C (AslStringPatternMatchExW.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     AslRegistryGetKey @ 0x14084BF1C (AslRegistryGetKey.c)
+ *     AslRegistryEnumKey @ 0x140A515C0 (AslRegistryEnumKey.c)
+ *     AslRegistryOpenSubKey @ 0x140A51990 (AslRegistryOpenSubKey.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AslpProcessMatchRegNode(__int64 a1, __int64 a2)
 {
   _QWORD *v3; // rsi

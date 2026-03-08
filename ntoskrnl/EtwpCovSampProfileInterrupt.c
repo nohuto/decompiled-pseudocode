@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpCovSampProfileInterrupt @ 0x140601680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwpCovSampCaptureSample @ 0x140601340 (EtwpCovSampCaptureSample.c)
+ */
+
 __int64 __fastcall EtwpCovSampProfileInterrupt(__int64 a1, __int64 a2)
 {
   struct _KPRCB *CurrentPrcb; // r8

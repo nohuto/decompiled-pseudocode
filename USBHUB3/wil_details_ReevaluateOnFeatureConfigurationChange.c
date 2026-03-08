@@ -1,3 +1,12 @@
+/*
+ * XREFs of wil_details_ReevaluateOnFeatureConfigurationChange @ 0x1C0076010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     wil_details_EvaluateFeatureDependencies @ 0x1C0076138 (wil_details_EvaluateFeatureDependencies.c)
+ */
+
 __int64 wil_details_ReevaluateOnFeatureConfigurationChange()
 {
   _UNKNOWN **i; // rbx

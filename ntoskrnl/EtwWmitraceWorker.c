@@ -1,3 +1,23 @@
+/*
+ * XREFs of EtwWmitraceWorker @ 0x1409E8BFC
+ * Callers:
+ *     ExpDebuggerWorker @ 0x140AAED30 (ExpDebuggerWorker.c)
+ * Callees:
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsGetSiloBySessionId @ 0x1406CDDA8 (PsGetSiloBySessionId.c)
+ *     EtwpUpdateTrace @ 0x140744D3C (EtwpUpdateTrace.c)
+ *     EtwpStopTrace @ 0x140745044 (EtwpStopTrace.c)
+ *     EtwpQueryTrace @ 0x1407456E0 (EtwpQueryTrace.c)
+ *     EtwpStartTrace @ 0x140796150 (EtwpStartTrace.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     EtwEnableTrace @ 0x140833BA0 (EtwEnableTrace.c)
+ *     EtwpPrepareWmitraceLoggerInfo @ 0x1409E8F24 (EtwpPrepareWmitraceLoggerInfo.c)
+ */
+
 void EtwWmitraceWorker()
 {
   __int64 v0; // rdi

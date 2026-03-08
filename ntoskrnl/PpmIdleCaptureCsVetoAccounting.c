@@ -1,3 +1,16 @@
+/*
+ * XREFs of PpmIdleCaptureCsVetoAccounting @ 0x140581E30
+ * Callers:
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmIdleCsVetoAccountingUpdateBlock @ 0x140582B3C (PpmIdleCsVetoAccountingUpdateBlock.c)
+ *     PopDiagTraceSleepStudyBlocker @ 0x1405926F0 (PopDiagTraceSleepStudyBlocker.c)
+ */
+
 __int64 __fastcall PpmIdleCaptureCsVetoAccounting(__int64 a1, unsigned int a2)
 {
   __int64 result; // rax

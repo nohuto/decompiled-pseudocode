@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopCheckGetQuotaBufferValidity @ 0x1409415E0
+ * Callers:
+ *     NtQueryQuotaInformationFile @ 0x140948300 (NtQueryQuotaInformationFile.c)
+ * Callees:
+ *     RtlLengthSid @ 0x140245EC0 (RtlLengthSid.c)
+ *     RtlValidSid @ 0x1407C92A0 (RtlValidSid.c)
+ */
+
 __int64 __fastcall IopCheckGetQuotaBufferValidity(unsigned int *a1, int a2, _QWORD *a3)
 {
   int v4; // edi

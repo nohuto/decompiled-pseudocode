@@ -1,3 +1,11 @@
+/*
+ * XREFs of Isoch_InsertLinkTrb @ 0x1C00445F4
+ * Callers:
+ *     Isoch_Stage_MapIntoRing @ 0x1C0001050 (Isoch_Stage_MapIntoRing.c)
+ * Callees:
+ *     TR_InitializeLinkTrb @ 0x1C0007F3C (TR_InitializeLinkTrb.c)
+ */
+
 char __fastcall Isoch_InsertLinkTrb(__int64 a1, _QWORD *a2, int a3, char a4)
 {
   _QWORD *v4; // rax

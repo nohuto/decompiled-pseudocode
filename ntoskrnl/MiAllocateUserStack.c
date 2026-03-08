@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiAllocateUserStack @ 0x14077B2C0
+ * Callers:
+ *     MiAllocateVirtualMemoryCommon @ 0x1407C4A70 (MiAllocateVirtualMemoryCommon.c)
+ * Callees:
+ *     MiAllocateVirtualMemory @ 0x1407C5270 (MiAllocateVirtualMemory.c)
+ */
+
 __int64 __fastcall MiAllocateUserStack(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // rbx

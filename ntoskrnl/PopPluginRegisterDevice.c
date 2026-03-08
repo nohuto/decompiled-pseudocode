@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPluginRegisterDevice @ 0x140393A00
+ * Callers:
+ *     PopFxRegisterDeviceWithPep @ 0x1403938B8 (PopFxRegisterDeviceWithPep.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ */
+
 __int64 __fastcall PopPluginRegisterDevice(
         ULONG_PTR BugCheckParameter3,
         __int64 a2,

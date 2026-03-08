@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExReleaseResourceAndLeaveCriticalRegion @ 0x14033AA70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     ExpReleaseResourceForThreadLite @ 0x14033ABF0 (ExpReleaseResourceForThreadLite.c)
+ *     ExpFastResourceLegacyRelease @ 0x1403C5290 (ExpFastResourceLegacyRelease.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void __stdcall ExReleaseResourceAndLeaveCriticalRegion(PERESOURCE Resource)
 {
   USHORT Flag; // dx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of sub_14084DF70 @ 0x14084DF70
+ * Callers:
+ *     ExpSetKernelDataProtection @ 0x14075B0D0 (ExpSetKernelDataProtection.c)
+ * Callees:
+ *     sub_14084DFBC @ 0x14084DFBC (sub_14084DFBC.c)
+ */
+
 __int64 __fastcall sub_14084DF70(__int64 *a1)
 {
   unsigned int v1; // ebx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?EnqueueSetEvent@CD3DDevice@@QEAAJPEAX@Z @ 0x180289FD8
+ * Callers:
+ *     ?EnqueueSetEvent@CVisualCapture@@IEAAJXZ @ 0x18025254C (-EnqueueSetEvent@CVisualCapture@@IEAAJXZ.c)
+ *     ?Present@CDummyRemotingSwapChain@@UEAAJPEBVCRegion@@@Z @ 0x180296410 (-Present@CDummyRemotingSwapChain@@UEAAJPEBVCRegion@@@Z.c)
+ *     ?Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1802A6068 (-Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CD3DDevice::EnqueueSetEvent(CD3DDevice *this, void *a2)
 {
   int v2; // ebx

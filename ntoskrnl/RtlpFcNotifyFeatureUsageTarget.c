@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpFcNotifyFeatureUsageTarget @ 0x1409C0968
+ * Callers:
+ *     RtlpFcSendFeatureUsageNotifications @ 0x1409C0AC8 (RtlpFcSendFeatureUsageNotifications.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQueryWnfStateData @ 0x1404150D0 (ZwQueryWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlpFcNotifyFeatureUsageTarget(__int64 a1, _DWORD *a2)
 {
   _DWORD *Pool2; // rdi

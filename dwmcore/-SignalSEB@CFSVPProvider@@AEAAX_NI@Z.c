@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SignalSEB@CFSVPProvider@@AEAAX_NI@Z @ 0x1801E4340
+ * Callers:
+ *     ?CheckForMajorityScreenVideoNotifications@CLegacyRenderTarget@@AEAAXXZ @ 0x18008C1CC (-CheckForMajorityScreenVideoNotifications@CLegacyRenderTarget@@AEAAXXZ.c)
+ *     ?CheckForMajorityScreenVideoNotificationsWithCompSurfInfo@CFSVPProvider@@QEAAXPEAVCCompositionSurfaceInfo@@@Z @ 0x1801E4244 (-CheckForMajorityScreenVideoNotificationsWithCompSurfInfo@CFSVPProvider@@QEAAXPEAVCCompositionSu.c)
+ * Callees:
+ *     McTemplateU0zqq_EventWriteTransfer @ 0x1801E43FC (McTemplateU0zqq_EventWriteTransfer.c)
+ *     ?PubSebiUpdateLevelEventRpc@@YAJPEAXE@Z @ 0x180279114 (-PubSebiUpdateLevelEventRpc@@YAJPEAXE@Z.c)
+ */
+
 void __fastcall CFSVPProvider::SignalSEB(CFSVPProvider *this, char a2, unsigned int a3)
 {
   char updated; // di

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Confirm@CCompositionFrame@@UEAAXXZ @ 0x1C0017AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000E098 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C000E344 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?ProcessSignal@CFlipManager@@QEAAXPEAVCFlipManagerSignal@@_K@Z @ 0x1C0084098 (-ProcessSignal@CFlipManager@@QEAAXPEAVCFlipManagerSignal@@_K@Z.c)
+ */
+
 void __fastcall CCompositionFrame::Confirm(CCompositionFrame *this)
 {
   CCompositionFrame *v1; // rdi

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiDecreaseAvailablePages @ 0x1403504C0
+ * Callers:
+ *     MiReplaceTransitionPage @ 0x1402C6784 (MiReplaceTransitionPage.c)
+ *     MiReplenishPageSlist @ 0x14034E120 (MiReplenishPageSlist.c)
+ *     MiUnlinkStandbyPage @ 0x140464E9A (MiUnlinkStandbyPage.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MiPageAvailableEx @ 0x140350274 (MiPageAvailableEx.c)
+ *     MiUpdateAvailableEvents @ 0x1403A9340 (MiUpdateAvailableEvents.c)
+ *     MiObtainFreePages @ 0x140632B0C (MiObtainFreePages.c)
+ */
+
 __int64 __fastcall MiDecreaseAvailablePages(__int64 a1, __int64 a2, unsigned __int64 a3, __int16 a4)
 {
   unsigned __int64 v7; // rbp

@@ -1,3 +1,12 @@
+/*
+ * XREFs of Interrupter_Create @ 0x1C006FDC8
+ * Callers:
+ *     Controller_WdfEvtDeviceAdd @ 0x1C006FA60 (Controller_WdfEvtDeviceAdd.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     Interrupter_CreateInterrupter @ 0x1C0070198 (Interrupter_CreateInterrupter.c)
+ */
+
 __int64 __fastcall Interrupter_Create(int a1, __int64 a2, _QWORD *a3)
 {
   int v5; // edx

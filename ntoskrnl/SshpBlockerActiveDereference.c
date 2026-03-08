@@ -1,3 +1,15 @@
+/*
+ * XREFs of SshpBlockerActiveDereference @ 0x1402F102C
+ * Callers:
+ *     SleepstudyHelperBlockerActiveDereference @ 0x1402F1010 (SleepstudyHelperBlockerActiveDereference.c)
+ *     SleepstudyHelperDestroyBlocker @ 0x1403AFD80 (SleepstudyHelperDestroyBlocker.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     SshpSetBlockerActive @ 0x1402F11C8 (SshpSetBlockerActive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall SshpBlockerActiveDereference(PKSPIN_LOCK SpinLock, int a2)
 {
   PKSPIN_LOCK v4; // rbx

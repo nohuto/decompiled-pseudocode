@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiPreserveBootDecisions @ 0x1403905EC
+ * Callers:
+ *     MiNodeZeroConductor @ 0x1408314C0 (MiNodeZeroConductor.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 _OWORD *__fastcall MiPreserveBootDecisions(__int64 a1, _OWORD *a2)
 {
   _OWORD *result; // rax

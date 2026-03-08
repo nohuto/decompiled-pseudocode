@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpIommuAcquireNewDomain @ 0x1403A4294
+ * Callers:
+ *     HalpIommuGetHardwareDomain @ 0x1403A414C (HalpIommuGetHardwareDomain.c)
+ * Callees:
+ *     HalpIommuGetDomainId @ 0x1403A4310 (HalpIommuGetDomainId.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpIommuAcquireNewDomain(__int64 a1, __int64 a2, _DWORD *a3)
 {
   int DomainId; // edx

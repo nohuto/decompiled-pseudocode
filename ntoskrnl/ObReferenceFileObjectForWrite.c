@@ -1,3 +1,18 @@
+/*
+ * XREFs of ObReferenceFileObjectForWrite @ 0x1407DF2CC
+ * Callers:
+ *     NtCopyFileChunk @ 0x1407DEE00 (NtCopyFileChunk.c)
+ *     IopIoRingReferenceFileObject @ 0x140946F94 (IopIoRingReferenceFileObject.c)
+ * Callees:
+ *     PsDereferenceSiloContext @ 0x1402FEB00 (PsDereferenceSiloContext.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ *     ObpHandlesToObjectAreRevoked @ 0x1407DEA60 (ObpHandlesToObjectAreRevoked.c)
+ *     ObpReferenceObjectByHandle @ 0x1407DF424 (ObpReferenceObjectByHandle.c)
+ *     IoComputeDesiredAccessFileObject @ 0x1407DF4AC (IoComputeDesiredAccessFileObject.c)
+ *     ObpAuditObjectAccess @ 0x140979114 (ObpAuditObjectAccess.c)
+ */
+
 __int64 __fastcall ObReferenceFileObjectForWrite(ULONG_PTR BugCheckParameter1, char a2, _QWORD *a3, _DWORD *a4)
 {
   struct _KTHREAD *CurrentThread; // rdi

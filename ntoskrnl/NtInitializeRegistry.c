@@ -1,3 +1,18 @@
+/*
+ * XREFs of NtInitializeRegistry @ 0x140799FB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CmCleanupThreadInfo @ 0x140263740 (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x140263760 (CmpInitializeThreadInfo.c)
+ *     ZwInitializeRegistry @ 0x1404143F0 (ZwInitializeRegistry.c)
+ *     CmpAcceptBoot @ 0x14079A058 (CmpAcceptBoot.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     CmCompleteRegistryInitialization @ 0x1408174BC (CmCompleteRegistryInitialization.c)
+ *     CmpHandlePageFileOpenNotification @ 0x140851670 (CmpHandlePageFileOpenNotification.c)
+ *     CmpSyncNextBackupHive @ 0x140A18168 (CmpSyncNextBackupHive.c)
+ */
+
 __int64 NtInitializeRegistry()
 {
   unsigned __int16 v0; // r9

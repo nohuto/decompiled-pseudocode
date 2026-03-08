@@ -1,3 +1,15 @@
+/*
+ * XREFs of IoSqToIoCqMapping @ 0x1C000B78C
+ * Callers:
+ *     NVMeControllerInitPart2 @ 0x1C000D9F0 (NVMeControllerInitPart2.c)
+ * Callees:
+ *     IsIntelChatham @ 0x1C0007B94 (IsIntelChatham.c)
+ *     NVMeLogTelemetry @ 0x1C0008A04 (NVMeLogTelemetry.c)
+ *     NVMeCleanUpSqCqMapping @ 0x1C000C4EC (NVMeCleanUpSqCqMapping.c)
+ *     NVMeGetCompletionQueueForAssignment @ 0x1C000EF80 (NVMeGetCompletionQueueForAssignment.c)
+ *     NVMeLogHeterogeneousQueueMappingFallback @ 0x1C000F954 (NVMeLogHeterogeneousQueueMappingFallback.c)
+ */
+
 char __fastcall IoSqToIoCqMapping(__int64 a1)
 {
   unsigned int v1; // r15d

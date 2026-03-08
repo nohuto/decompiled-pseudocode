@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiCanPageMove @ 0x1403B7F24
+ * Callers:
+ *     MiProbeLeafPteAccess @ 0x140269620 (MiProbeLeafPteAccess.c)
+ *     MiReferenceInPageFile @ 0x140343354 (MiReferenceInPageFile.c)
+ *     MiTradeTransitionPage @ 0x1403B7C98 (MiTradeTransitionPage.c)
+ *     MiReplaceLockedPage @ 0x14063487C (MiReplaceLockedPage.c)
+ *     MiSwapNumaStandbyPage @ 0x14064F7E0 (MiSwapNumaStandbyPage.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall MiCanPageMove(__int64 a1)
 {
   __int64 v1; // rax

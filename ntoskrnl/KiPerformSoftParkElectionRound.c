@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiPerformSoftParkElectionRound @ 0x14040B194
+ * Callers:
+ *     KiPerformMultiRoundSoftParkElection @ 0x14040B0E8 (KiPerformMultiRoundSoftParkElection.c)
+ *     KiPerformSoftParkElection @ 0x14057BE58 (KiPerformSoftParkElection.c)
+ * Callees:
+ *     Feature_Servicing_SoftParkFixes__private_IsEnabledNoReporting @ 0x14040AF08 (Feature_Servicing_SoftParkFixes__private_IsEnabledNoReporting.c)
+ *     KiPerformHeteroSoftParkElection @ 0x14057BD18 (KiPerformHeteroSoftParkElection.c)
+ */
+
 __int64 __fastcall KiPerformSoftParkElectionRound(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v8; // ebx

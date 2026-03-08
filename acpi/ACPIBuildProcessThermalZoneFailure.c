@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIBuildProcessThermalZoneFailure @ 0x1C0012A90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIBuildProcessGenericComplete @ 0x1C0010C40 (ACPIBuildProcessGenericComplete.c)
+ *     WPP_RECORDER_SF_LLqss @ 0x1C0014D18 (WPP_RECORDER_SF_LLqss.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessThermalZoneFailure(_QWORD *Entry)
 {
   __int64 v1; // rbx

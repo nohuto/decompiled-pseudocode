@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIWaitWakeEnableOnPowerUp @ 0x1C0044AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ACPIWakeEnableDisablePciDevice @ 0x1C0045BB4 (ACPIWakeEnableDisablePciDevice.c)
+ */
+
 void __fastcall ACPIWaitWakeEnableOnPowerUp(__int64 a1, __int64 a2, int a3)
 {
   KIRQL v5; // al

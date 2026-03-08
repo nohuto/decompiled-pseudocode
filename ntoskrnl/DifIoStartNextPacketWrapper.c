@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifIoStartNextPacketWrapper @ 0x1405DF2D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     IoStartNextPacket @ 0x140554E40 (IoStartNextPacket.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 void __fastcall DifIoStartNextPacketWrapper(PDEVICE_OBJECT DeviceObject, BOOLEAN a2)
 {
   __int64 *APIThunkContextById; // rax

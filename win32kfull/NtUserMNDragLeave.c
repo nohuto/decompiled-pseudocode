@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserMNDragLeave @ 0x1C01D76E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxUnlockMenuStateInternal@@YAHPEAUtagMENUSTATE@@H@Z @ 0x1C0201C0C (-xxxUnlockMenuStateInternal@@YAHPEAUtagMENUSTATE@@H@Z.c)
+ *     UnlockMFMWFPWindow @ 0x1C02195D4 (UnlockMFMWFPWindow.c)
+ *     xxxMNSetGapState @ 0x1C0234718 (xxxMNSetGapState.c)
+ */
+
 __int64 NtUserMNDragLeave()
 {
   __int64 v0; // rsi

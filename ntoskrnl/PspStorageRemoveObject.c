@@ -1,3 +1,17 @@
+/*
+ * XREFs of PspStorageRemoveObject @ 0x1409B4F94
+ * Callers:
+ *     PsRemoveSiloContext @ 0x1409A9700 (PsRemoveSiloContext.c)
+ *     PsUnregisterSiloMonitor @ 0x1409B1070 (PsUnregisterSiloMonitor.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PspGetStorageArrayIfPossible @ 0x1402995E4 (PspGetStorageArrayIfPossible.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 __int64 __fastcall PspStorageRemoveObject(__int64 a1, unsigned int a2, char a3, unsigned __int64 *a4)
 {
   __int64 result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MmTrimSection @ 0x14029FF98
+ * Callers:
+ *     CcCoherencyFlushAndPurgeCache @ 0x14029FE90 (CcCoherencyFlushAndPurgeCache.c)
+ *     CcPurgeCacheSection @ 0x1402A0EA0 (CcPurgeCacheSection.c)
+ * Callees:
+ *     MiTrimSection @ 0x1402A0034 (MiTrimSection.c)
+ *     MiComputeFlushRange @ 0x140331078 (MiComputeFlushRange.c)
+ *     MiFlushRelease @ 0x140334AC0 (MiFlushRelease.c)
+ */
+
 __int64 __fastcall MmTrimSection(int a1, __int64 *a2, int a3, char a4)
 {
   unsigned int v4; // ebx

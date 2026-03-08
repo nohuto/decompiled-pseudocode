@@ -1,3 +1,11 @@
+/*
+ * XREFs of DbgkpLkmdSqmStatus @ 0x1409384AC
+ * Callers:
+ *     DbgkCaptureLiveDump @ 0x1409378F8 (DbgkCaptureLiveDump.c)
+ * Callees:
+ *     DbgkpLkmdSqmIncrementDword @ 0x140539C38 (DbgkpLkmdSqmIncrementDword.c)
+ */
+
 NTSTATUS __fastcall DbgkpLkmdSqmStatus(REGHANDLE a1, int *a2)
 {
   if ( (a2[1] & 2) != 0 )

@@ -1,3 +1,18 @@
+/*
+ * XREFs of UsbDevice_DeviceResetCompletion @ 0x1C0048620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Endpoint_Disable @ 0x1C000B0AC (Endpoint_Disable.c)
+ *     UsbDevice_GetEndpointState @ 0x1C00111B4 (UsbDevice_GetEndpointState.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0019330 (WPP_RECORDER_SF_dq.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ *     WPP_RECORDER_SF_dLL @ 0x1C004A0B0 (WPP_RECORDER_SF_dLL.c)
+ *     WPP_RECORDER_SF_dqLL @ 0x1C004A520 (WPP_RECORDER_SF_dqLL.c)
+ */
+
 __int64 __fastcall UsbDevice_DeviceResetCompletion(__int64 a1, int a2, __int128 *a3, int a4)
 {
   __int64 v4; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBMISC_PsmResetCompletePollingTimer @ 0x1C002E880
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBMISC_PsmResetCompletePollingTimer(__int64 a1)
 {
   __int64 v1; // rax

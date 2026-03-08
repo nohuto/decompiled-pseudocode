@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetCurrentRealization@CCompositionBuffer@@MEBAJPEAPEAVCBufferRealization@@@Z @ 0x1C007CB30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CCompositionBuffer::GetCurrentRealization(CCompositionBuffer *this, struct CBufferRealization **a2)
 {
   *a2 = 0LL;

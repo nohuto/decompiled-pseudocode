@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeRelaxTimingConstraints @ 0x140568B0C
+ * Callers:
+ *     KdEnableDebugger @ 0x140565340 (KdEnableDebugger.c)
+ *     KiDeferDpcWatchdogViolation @ 0x140578914 (KiDeferDpcWatchdogViolation.c)
+ *     KeInitSystem @ 0x140B42FB8 (KeInitSystem.c)
+ * Callees:
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x140568F90 (KiResetGlobalDpcWatchdogProfiler.c)
+ */
+
 bool __fastcall KeRelaxTimingConstraints(int a1)
 {
   bool v1; // r9

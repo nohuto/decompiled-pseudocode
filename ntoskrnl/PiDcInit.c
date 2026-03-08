@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiDcInit @ 0x140B5A688
+ * Callers:
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     RtlInitializeGenericTableAvl @ 0x140245560 (RtlInitializeGenericTableAvl.c)
+ *     PiDcGenerateConfigNotificationIfContainerRequiresConfiguration @ 0x14081D82C (PiDcGenerateConfigNotificationIfContainerRequiresConfiguration.c)
+ *     PiDcInitUpdateProperties @ 0x14084CF78 (PiDcInitUpdateProperties.c)
+ */
+
 __int64 __fastcall PiDcInit(int a1)
 {
   int inited; // ebx

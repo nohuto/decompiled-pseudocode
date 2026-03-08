@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIGetConvertToCompatibleIDWide @ 0x1C00298A4
+ * Callers:
+ *     ACPIGetConvertToCompatibleID @ 0x1C002983C (ACPIGetConvertToCompatibleID.c)
+ *     ACPIGetWorkerForString @ 0x1C002B860 (ACPIGetWorkerForString.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     RtlStringCchPrintfA @ 0x1C000B5D8 (RtlStringCchPrintfA.c)
+ *     ACPIGetConvertToPnpIDWide @ 0x1C002A650 (ACPIGetConvertToPnpIDWide.c)
+ *     ACPIGetConvertToStringWideWithPrepend @ 0x1C002AA64 (ACPIGetConvertToStringWideWithPrepend.c)
+ *     ACPIAnsiStringToWideHelper @ 0x1C00438EC (ACPIAnsiStringToWideHelper.c)
+ */
+
 __int64 __fastcall ACPIGetConvertToCompatibleIDWide(
         __int64 a1,
         int a2,

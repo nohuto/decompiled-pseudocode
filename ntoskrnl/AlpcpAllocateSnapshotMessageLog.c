@@ -1,3 +1,11 @@
+/*
+ * XREFs of AlpcpAllocateSnapshotMessageLog @ 0x1409777D8
+ * Callers:
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x140977A1C (AlpcpEnterStateChangeEventMessageLog.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 AlpcpAllocateSnapshotMessageLog()
 {
   __int64 result; // rax

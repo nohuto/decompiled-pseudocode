@@ -1,3 +1,13 @@
+/*
+ * XREFs of INCREASE_MAPPED_TRANSFER_BYTE_COUNT @ 0x140AC1454
+ * Callers:
+ *     VfMapTransfer @ 0x140AC3F00 (VfMapTransfer.c)
+ *     VfMapTransferEx @ 0x140AC40B0 (VfMapTransferEx.c)
+ * Callees:
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140AC62F4 (ViHalPreprocessOptions.c)
+ */
+
 void __fastcall INCREASE_MAPPED_TRANSFER_BYTE_COUNT(__int64 a1, unsigned int a2, char a3)
 {
   unsigned __int32 v3; // r9d

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiSelfTrim @ 0x14064DCAC
+ * Callers:
+ *     MiPreUnlockWorkingSetShared @ 0x1402F0758 (MiPreUnlockWorkingSetShared.c)
+ *     MiHandleForceTrimWorkingSets @ 0x1406326A0 (MiHandleForceTrimWorkingSets.c)
+ * Callees:
+ *     MiReduceWs @ 0x1402F0810 (MiReduceWs.c)
+ *     MiForceAgeWorkingSet @ 0x140632480 (MiForceAgeWorkingSet.c)
+ *     MiForcedTrim @ 0x1406324C0 (MiForcedTrim.c)
+ */
+
 unsigned __int64 __fastcall MiSelfTrim(__int64 a1, __int8 a2)
 {
   unsigned __int64 result; // rax

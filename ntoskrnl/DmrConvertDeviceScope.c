@@ -1,3 +1,12 @@
+/*
+ * XREFs of DmrConvertDeviceScope @ 0x14037C78C
+ * Callers:
+ *     HalpIvtCreateReservedDevice @ 0x14037C6C0 (HalpIvtCreateReservedDevice.c)
+ * Callees:
+ *     ExtEnvAllocateMemory @ 0x14037C828 (ExtEnvAllocateMemory.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 _DWORD *__fastcall DmrConvertDeviceScope(__int64 a1, _BYTE *a2)
 {
   _DWORD *v2; // rbx

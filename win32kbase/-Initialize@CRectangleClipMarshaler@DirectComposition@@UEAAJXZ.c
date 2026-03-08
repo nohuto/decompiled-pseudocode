@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@CRectangleClipMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00BB7F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CRectangleClipMarshaler::Initialize(
         DirectComposition::CRectangleClipMarshaler *this)
 {

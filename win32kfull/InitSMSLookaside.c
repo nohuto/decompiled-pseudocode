@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitSMSLookaside @ 0x1C03B8100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 InitSMSLookaside()
 {

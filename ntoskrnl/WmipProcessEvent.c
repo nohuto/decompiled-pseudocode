@@ -1,3 +1,24 @@
+/*
+ * XREFs of WmipProcessEvent @ 0x1408686A8
+ * Callers:
+ *     WmipGenerateMofResourceNotification @ 0x14084DD30 (WmipGenerateMofResourceNotification.c)
+ *     WmipGenerateBinaryMofNotification @ 0x14084FEDC (WmipGenerateBinaryMofNotification.c)
+ *     WmipEventNotification @ 0x1408526D0 (WmipEventNotification.c)
+ *     WmipSendGuidUpdateNotifications @ 0x140868544 (WmipSendGuidUpdateNotifications.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectSafe @ 0x1402CBCB0 (ObReferenceObjectSafe.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     WmipWriteWnodeToObject @ 0x1405F97A4 (WmipWriteWnodeToObject.c)
+ *     WmipFindGEByGuid @ 0x14069BDF4 (WmipFindGEByGuid.c)
+ *     WmipUnreferenceEntry @ 0x14069C9D0 (WmipUnreferenceEntry.c)
+ *     WmipDereferenceEvent @ 0x1409DD790 (WmipDereferenceEvent.c)
+ *     WmipIncludeStaticNames @ 0x1409DDB94 (WmipIncludeStaticNames.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WmipProcessEvent(_DWORD *P, __int64 a2, char a3)
 {
   char v3; // bp

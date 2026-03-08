@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchIsSyncObjectSignaled @ 0x1C0040040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ */
+
 bool __fastcall VidSchIsSyncObjectSignaled(__int64 a1)
 {
   KSPIN_LOCK *v3; // rcx

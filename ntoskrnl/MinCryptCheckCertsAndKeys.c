@@ -1,3 +1,16 @@
+/*
+ * XREFs of MinCryptCheckCertsAndKeys @ 0x140674F10
+ * Callers:
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6CBC8 (MinCryptVerifyCertificateWithPolicy2.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MinCryptVerifySignedHash @ 0x140A6C678 (MinCryptVerifySignedHash.c)
+ *     I_MinCryptFindIssuerCertificateByName @ 0x140A6C8E0 (I_MinCryptFindIssuerCertificateByName.c)
+ *     MinAsn1ParseCertificate @ 0x140A6D7E0 (MinAsn1ParseCertificate.c)
+ */
+
 __int64 __fastcall MinCryptCheckCertsAndKeys(
         int a1,
         int a2,

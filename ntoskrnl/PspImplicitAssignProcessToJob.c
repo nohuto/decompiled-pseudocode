@@ -1,3 +1,20 @@
+/*
+ * XREFs of PspImplicitAssignProcessToJob @ 0x140797010
+ * Callers:
+ *     PspInsertProcess @ 0x14070E514 (PspInsertProcess.c)
+ * Callees:
+ *     PsGetEffectiveServerSilo @ 0x140294DF0 (PsGetEffectiveServerSilo.c)
+ *     PspUnlockJobChain @ 0x1406F8F60 (PspUnlockJobChain.c)
+ *     PspLockJobChain @ 0x1406F9018 (PspLockJobChain.c)
+ *     PspApplyWorkingSetLimitsToProcess @ 0x1406FEF9C (PspApplyWorkingSetLimitsToProcess.c)
+ *     PspApplyJobChainLimitsToProcess @ 0x1406FF27C (PspApplyJobChainLimitsToProcess.c)
+ *     PspValidateJobChainLimits @ 0x1406FFEBC (PspValidateJobChainLimits.c)
+ *     MmAssignProcessToJob @ 0x1407000C4 (MmAssignProcessToJob.c)
+ *     PspEstablishJobHierarchy @ 0x1407001E0 (PspEstablishJobHierarchy.c)
+ *     PspValidateJobAssignmentMemoryPartition @ 0x140700D44 (PspValidateJobAssignmentMemoryPartition.c)
+ *     PspIncrementJobChainProcessCounts @ 0x140700E68 (PspIncrementJobChainProcessCounts.c)
+ */
+
 __int64 __fastcall PspImplicitAssignProcessToJob(_DWORD *Object, __int64 a2, __int16 a3)
 {
   struct _KTHREAD *CurrentThread; // r15

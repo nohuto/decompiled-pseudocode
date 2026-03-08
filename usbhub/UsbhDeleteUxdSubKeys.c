@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhDeleteUxdSubKeys @ 0x1C0059D10
+ * Callers:
+ *     UsbhUxdShutdown @ 0x1C005B1D0 (UsbhUxdShutdown.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     memset @ 0x1C0023880 (memset.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003B830 (WPP_RECORDER_SF_S.c)
+ *     UsbhGetUxdLoadKeySettings @ 0x1C005A460 (UsbhGetUxdLoadKeySettings.c)
+ */
+
 __int64 __fastcall UsbhDeleteUxdSubKeys(__int64 a1, WCHAR *a2)
 {
   _DWORD *v3; // r15

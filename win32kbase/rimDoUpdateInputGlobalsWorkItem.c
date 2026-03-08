@@ -1,3 +1,13 @@
+/*
+ * XREFs of rimDoUpdateInputGlobalsWorkItem @ 0x1C01CDFBC
+ * Callers:
+ *     RIMOnAsyncPnpWorkNotification @ 0x1C0038B90 (RIMOnAsyncPnpWorkNotification.c)
+ * Callees:
+ *     ?UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z @ 0x1C0080790 (-UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z.c)
+ *     RIMGetPointerInputType @ 0x1C00EFC04 (RIMGetPointerInputType.c)
+ *     LINPSourceFromPointerType @ 0x1C01CD294 (LINPSourceFromPointerType.c)
+ */
+
 char __fastcall rimDoUpdateInputGlobalsWorkItem(__int64 a1)
 {
   __int64 v1; // rdx

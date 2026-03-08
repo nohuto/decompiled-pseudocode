@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiLdaStartAdapterInChain @ 0x1C03A4064
+ * Callers:
+ *     DpiFdoStartAdapterThreadImpl @ 0x1C0209A10 (DpiFdoStartAdapterThreadImpl.c)
+ * Callees:
+ *     DpiLdaPreStartChain @ 0x1C00658F4 (DpiLdaPreStartChain.c)
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ */
+
 __int64 __fastcall DpiLdaStartAdapterInChain(
         __int64 a1,
         char a2,

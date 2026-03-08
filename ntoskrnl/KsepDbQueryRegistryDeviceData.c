@@ -1,3 +1,15 @@
+/*
+ * XREFs of KsepDbQueryRegistryDeviceData @ 0x14080187C
+ * Callers:
+ *     KseQueryDeviceData @ 0x1408016F0 (KseQueryDeviceData.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     KsepRegistryOpenKey @ 0x14079E858 (KsepRegistryOpenKey.c)
+ *     KsepStringFree @ 0x14079EC60 (KsepStringFree.c)
+ *     KsepStringTransform @ 0x140801918 (KsepStringTransform.c)
+ *     KsepRegistryQueryValue @ 0x140974C2C (KsepRegistryQueryValue.c)
+ */
+
 __int64 __fastcall KsepDbQueryRegistryDeviceData(__int64 a1, const WCHAR *a2, _DWORD *a3, _DWORD *a4)
 {
   int Value; // ebx

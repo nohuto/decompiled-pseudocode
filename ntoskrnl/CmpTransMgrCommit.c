@@ -1,3 +1,19 @@
+/*
+ * XREFs of CmpTransMgrCommit @ 0x1406B5ED0
+ * Callers:
+ *     CmKtmNotification @ 0x140734290 (CmKtmNotification.c)
+ *     CmpLazyCommitWorker @ 0x140A19420 (CmpLazyCommitWorker.c)
+ *     CmpRmUnDoPhase @ 0x140A1C3B4 (CmpRmUnDoPhase.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     CmpCommitLightWeightTransaction @ 0x140A197CC (CmpCommitLightWeightTransaction.c)
+ *     CmpAttachToRegistryProcess @ 0x140AF26E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140AF2710 (CmpDetachFromRegistryProcess.c)
+ */
+
 __int64 __fastcall CmpTransMgrCommit(__int64 a1, __int64 a2, _DWORD *a3)
 {
   char v4; // si

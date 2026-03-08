@@ -1,3 +1,11 @@
+/*
+ * XREFs of EngGetFileChangeTime @ 0x1C027BFB0
+ * Callers:
+ *     ?UmfdEscEngGetFileChangeTime@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C02A9BE8 (-UmfdEscEngGetFileChangeTime@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 BOOL __stdcall EngGetFileChangeTime(HANDLE h, LARGE_INTEGER *pChangeTime)
 {
   BOOL v2; // ebx

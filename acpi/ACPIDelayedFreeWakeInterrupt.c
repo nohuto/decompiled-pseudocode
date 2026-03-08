@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIDelayedFreeWakeInterrupt @ 0x1C0044668
+ * Callers:
+ *     ACPIAssociateWakeInterrupt @ 0x1C004431C (ACPIAssociateWakeInterrupt.c)
+ *     ACPIFreeWaitWakePowerRequest @ 0x1C00449F0 (ACPIFreeWaitWakePowerRequest.c)
+ * Callees:
+ *     ACPIFindWakeInterruptForVector @ 0x1C00449AC (ACPIFindWakeInterruptForVector.c)
+ *     OSPowerTryAcquireWakeInterruptChangeStateLock @ 0x1C0046320 (OSPowerTryAcquireWakeInterruptChangeStateLock.c)
+ */
+
 void __fastcall ACPIDelayedFreeWakeInterrupt(unsigned int a1, __int64 a2)
 {
   KIRQL v4; // si

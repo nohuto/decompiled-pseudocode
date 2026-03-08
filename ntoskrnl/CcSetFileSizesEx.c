@@ -1,3 +1,25 @@
+/*
+ * XREFs of CcSetFileSizesEx @ 0x14029F9B0
+ * Callers:
+ *     CcSetFileSizes @ 0x14029F4C0 (CcSetFileSizes.c)
+ * Callees:
+ *     CcDecrementOpenCount @ 0x14021B85C (CcDecrementOpenCount.c)
+ *     CcUnmapVacbArray @ 0x14021B910 (CcUnmapVacbArray.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14025C890 (KeReleaseInStackQueuedSpinLock.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     CcDeleteMbcb @ 0x14029CBA4 (CcDeleteMbcb.c)
+ *     CcExtendVacbArray @ 0x14029E348 (CcExtendVacbArray.c)
+ *     CcPurgeAndClearCacheSection @ 0x14029FCE4 (CcPurgeAndClearCacheSection.c)
+ *     CcPurgeCacheSection @ 0x1402A0EA0 (CcPurgeCacheSection.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402ECFB0 (FsRtlIsNtstatusExpected.c)
+ *     MmFlushSection @ 0x140333F20 (MmFlushSection.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcDeleteBcbs @ 0x1403C0748 (CcDeleteBcbs.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmExtendSection @ 0x1407267DC (MmExtendSection.c)
+ */
+
 NTSTATUS __stdcall CcSetFileSizesEx(PFILE_OBJECT FileObject, PCC_FILE_SIZES FileSizes)
 {
   PSECTION_OBJECT_POINTERS SectionObjectPointer; // rsi

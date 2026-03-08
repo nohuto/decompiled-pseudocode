@@ -1,3 +1,11 @@
+/*
+ * XREFs of StringCopyWorkerW @ 0x14039A9CC
+ * Callers:
+ *     AdtpInitializeDriveLetters @ 0x140841630 (AdtpInitializeDriveLetters.c)
+ * Callees:
+ *     <none>
+ */
+
 HRESULT __stdcall StringCopyWorkerW(
         STRSAFE_LPWSTR pszDest,
         size_t cchDest,

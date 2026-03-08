@@ -1,3 +1,21 @@
+/*
+ * XREFs of NtCreateThreadEx @ 0x1407EEB00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     RtlGetExtendedContextLength2 @ 0x140364DF0 (RtlGetExtendedContextLength2.c)
+ *     RtlInitializeExtendedContext2 @ 0x140364EE0 (RtlInitializeExtendedContext2.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1404210C0 (_alloca_probe.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PspCreateThread @ 0x1406B1908 (PspCreateThread.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspCreateUserContext @ 0x1407EEA8C (PspCreateUserContext.c)
+ *     PspBuildCreateProcessContext @ 0x1407EEDE0 (PspBuildCreateProcessContext.c)
+ *     PspDeleteCreateProcessContext @ 0x1407F026C (PspDeleteCreateProcessContext.c)
+ */
+
 __int64 __fastcall NtCreateThreadEx(
         unsigned __int64 a1,
         int a2,

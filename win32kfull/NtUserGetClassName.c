@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetClassName @ 0x1C00CED90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserGetClassName(__int64 a1, __int64 a2, ULONG64 a3)
 {
   ULONG64 v3; // rsi

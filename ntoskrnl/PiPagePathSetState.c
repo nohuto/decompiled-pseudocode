@@ -1,3 +1,26 @@
+/*
+ * XREFs of PiPagePathSetState @ 0x1408512E8
+ * Callers:
+ *     MiCreatePagingFile @ 0x140834F7C (MiCreatePagingFile.c)
+ *     PpPagePathAssign @ 0x1408512D0 (PpPagePathAssign.c)
+ *     CmpVolumeContextSendDeviceUsageNotification @ 0x14085184C (CmpVolumeContextSendDeviceUsageNotification.c)
+ *     CmpVolumeContextCleanup @ 0x14085EE74 (CmpVolumeContextCleanup.c)
+ *     MiDeletePagefile @ 0x140A2FB40 (MiDeletePagefile.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     IoQueueThreadIrp @ 0x1403C1860 (IoQueueThreadIrp.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PpDevNodeUnlockTree @ 0x1406CB8B0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406CB944 (PpDevNodeLockTree.c)
+ *     IoGetRelatedTargetDevice @ 0x1406F3B0C (IoGetRelatedTargetDevice.c)
+ *     PpIrpAllocateDeviceUsageNotification @ 0x1408513D0 (PpIrpAllocateDeviceUsageNotification.c)
+ *     PoDirectedDripsNotifyPagingDeviceUsage @ 0x140851480 (PoDirectedDripsNotifyPagingDeviceUsage.c)
+ */
+
 __int64 __fastcall PiPagePathSetState(struct _FILE_OBJECT *Object, char a2)
 {
   IRP *DeviceUsageNotification; // rax

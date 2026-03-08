@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_DDDqLDDi @ 0x1C0011914
+ * Callers:
+ *     Bulk_ProcessTransferEventWithED1 @ 0x1C0011324 (Bulk_ProcessTransferEventWithED1.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_DDDqLDDi(__int64 a1, _DWORD a2, _DWORD a3, _DWORD a4, __int64 a5, ...)
 {
   int v7; // [rsp+28h] [rbp-81h]

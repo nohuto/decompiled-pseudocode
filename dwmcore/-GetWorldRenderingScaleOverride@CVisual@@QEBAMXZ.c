@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetWorldRenderingScaleOverride@CVisual@@QEBAMXZ @ 0x1800394A0
+ * Callers:
+ *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18006B3A0 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?ProcessSetContextOverrides@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETCONTEXTOVERRIDES@@@Z @ 0x1800FAF5C (-ProcessSetContextOverrides@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETCONTEXTOVE.c)
+ * Callees:
+ *     <none>
+ */
+
 float __fastcall CVisual::GetWorldRenderingScaleOverride(CVisual *this)
 {
   __int64 v1; // rcx

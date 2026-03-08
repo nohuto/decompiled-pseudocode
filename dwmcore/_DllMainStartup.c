@@ -1,3 +1,11 @@
+/*
+ * XREFs of _DllMainStartup @ 0x1800FC160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _DllMainCRTStartup @ 0x18010ECF4 (_DllMainCRTStartup.c)
+ */
+
 BOOL __stdcall DllMainStartup(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpReserved)
 {
   BOOL v3; // r9d

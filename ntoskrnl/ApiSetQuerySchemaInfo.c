@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetQuerySchemaInfo @ 0x1402F3630
+ * Callers:
+ *     RtlIsApiSetImplemented @ 0x1407848B0 (RtlIsApiSetImplemented.c)
+ * Callees:
+ *     ApiSetpSearchForApiSet @ 0x1402F3974 (ApiSetpSearchForApiSet.c)
+ *     RtlCompareUnicodeString @ 0x1406EA3B0 (RtlCompareUnicodeString.c)
+ */
+
 __int64 __fastcall ApiSetQuerySchemaInfo(__int64 a1, unsigned __int16 *a2, char *a3, bool *a4)
 {
   unsigned int v4; // ebx

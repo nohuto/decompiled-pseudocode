@@ -1,3 +1,13 @@
+/*
+ * XREFs of SymCryptSaveYmmEnvWindowsKernelmodeWin8_1nLater @ 0x1403ED898
+ * Callers:
+ *     SymCryptSaveYmm @ 0x14056AE14 (SymCryptSaveYmm.c)
+ * Callees:
+ *     SymCryptCpuFeaturesNeverPresent @ 0x1402FCE2C (SymCryptCpuFeaturesNeverPresent.c)
+ *     KeSaveExtendedProcessorState @ 0x14036A5E0 (KeSaveExtendedProcessorState.c)
+ *     SymCryptFatal @ 0x14056ADB4 (SymCryptFatal.c)
+ */
+
 __int64 __fastcall SymCryptSaveYmmEnvWindowsKernelmodeWin8_1nLater(PXSTATE_SAVE XStateSave)
 {
   unsigned int v2; // ebx

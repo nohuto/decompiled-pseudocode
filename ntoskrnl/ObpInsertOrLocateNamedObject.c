@@ -1,3 +1,28 @@
+/*
+ * XREFs of ObpInsertOrLocateNamedObject @ 0x140696BDC
+ * Callers:
+ *     ObpCreateHandle @ 0x1407C0130 (ObpCreateHandle.c)
+ * Callees:
+ *     PsGetCurrentSilo @ 0x1402640A0 (PsGetCurrentSilo.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x140299320 (RtlGetDaclSecurityDescriptor.c)
+ *     ObpReferenceNamedObject @ 0x1402EF5B8 (ObpReferenceNamedObject.c)
+ *     ObpDereferenceNamedObject @ 0x1402EF5F8 (ObpDereferenceNamedObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObReleaseObjectSecurityEx @ 0x1406993F0 (ObReleaseObjectSecurityEx.c)
+ *     ObpUnlockDirectory @ 0x140699588 (ObpUnlockDirectory.c)
+ *     ObpGrantAccess @ 0x14069DD08 (ObpGrantAccess.c)
+ *     ObpGetObjectSecurity @ 0x1406DB240 (ObpGetObjectSecurity.c)
+ *     ObpLookupObjectName @ 0x1406E86B0 (ObpLookupObjectName.c)
+ *     RtlGetControlSecurityDescriptor @ 0x140750B60 (RtlGetControlSecurityDescriptor.c)
+ *     ObpAssignSecurity @ 0x14076AFF0 (ObpAssignSecurity.c)
+ *     ObpDeleteDirectoryEntry @ 0x14076F100 (ObpDeleteDirectoryEntry.c)
+ *     ObpIncrementHandleCountEx @ 0x1407C1090 (ObpIncrementHandleCountEx.c)
+ *     SeReleaseSecurityDescriptor @ 0x1407C92D0 (SeReleaseSecurityDescriptor.c)
+ *     ObpDecrementHandleCount @ 0x1407D8404 (ObpDecrementHandleCount.c)
+ */
+
 __int64 __fastcall ObpInsertOrLocateNamedObject(
         PRKPROCESS PROCESS,
         char *a2,

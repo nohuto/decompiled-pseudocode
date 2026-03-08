@@ -1,3 +1,13 @@
+/*
+ * XREFs of GreDwmCreatedBitmapRemotingOutput @ 0x1C01297DC
+ * Callers:
+ *     NtGdiDwmCreatedBitmapRemotingOutput @ 0x1C01297C0 (NtGdiDwmCreatedBitmapRemotingOutput.c)
+ * Callees:
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C0018890 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C001F240 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
+ *     DrvModeChangeCompleteNotify @ 0x1C012988C (DrvModeChangeCompleteNotify.c)
+ */
+
 void __fastcall GreDwmCreatedBitmapRemotingOutput(Gre::Base *a1)
 {
   struct Gre::Base::SESSION_GLOBALS *v1; // rbx

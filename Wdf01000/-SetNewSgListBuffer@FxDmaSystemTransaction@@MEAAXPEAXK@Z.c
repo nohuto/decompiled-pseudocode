@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetNewSgListBuffer@FxDmaSystemTransaction@@MEAAXPEAXK@Z @ 0x1C001EE80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxDmaSystemTransaction::SetNewSgListBuffer(
         FxDmaSystemTransaction *this,
         unsigned __int64 Buffer,

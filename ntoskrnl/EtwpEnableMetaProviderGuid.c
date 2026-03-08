@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpEnableMetaProviderGuid @ 0x140204F18
+ * Callers:
+ *     EtwpEnableGuid @ 0x14068EEBC (EtwpEnableGuid.c)
+ * Callees:
+ *     EtwpGetMetaProviderContext @ 0x140204F94 (EtwpGetMetaProviderContext.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     KeReleaseMutant @ 0x14030E920 (KeReleaseMutant.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     EtwpUpdateSelectedGroupMasks @ 0x14037F908 (EtwpUpdateSelectedGroupMasks.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpUpdateTagFilter @ 0x1408589E8 (EtwpUpdateTagFilter.c)
+ */
+
 __int64 __fastcall EtwpEnableMetaProviderGuid(
         __int64 a1,
         __int64 a2,

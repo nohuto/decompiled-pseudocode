@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpPcwHostCallback @ 0x140855740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsIsDiskCountersEnabled @ 0x1403A6730 (PsIsDiskCountersEnabled.c)
+ *     EtwRegisterCounters @ 0x14085566C (EtwRegisterCounters.c)
+ *     ExpRegisterCounterSet @ 0x140855950 (ExpRegisterCounterSet.c)
+ *     PcwUnregister @ 0x1409FEC40 (PcwUnregister.c)
+ */
+
 void __fastcall ExpPcwHostCallback(int a1)
 {
   int v1; // ecx

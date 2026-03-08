@@ -1,3 +1,25 @@
+/*
+ * XREFs of ObReferenceObjectByPointer @ 0x140208C70
+ * Callers:
+ *     EtwpAddUmRegEntry @ 0x140695184 (EtwpAddUmRegEntry.c)
+ *     WmipQuerySetExecuteSI @ 0x14069C72C (WmipQuerySetExecuteSI.c)
+ *     ObpParseSymbolicLinkEx @ 0x14069CAB0 (ObpParseSymbolicLinkEx.c)
+ *     WmipQueryAllData @ 0x14069DF2C (WmipQueryAllData.c)
+ *     ObpLookupObjectName @ 0x1406E86B0 (ObpLookupObjectName.c)
+ *     IopAllocateFoExtensionsOnCreate @ 0x140700A20 (IopAllocateFoExtensionsOnCreate.c)
+ *     NtImpersonateAnonymousToken @ 0x1407390D0 (NtImpersonateAnonymousToken.c)
+ *     EtwpStopTrace @ 0x140745044 (EtwpStopTrace.c)
+ *     HalGetAdapterV3 @ 0x140821010 (HalGetAdapterV3.c)
+ *     HalGetAdapterV2 @ 0x1408215A0 (HalGetAdapterV2.c)
+ *     HalpDmaAllocateChildAdapterV2 @ 0x140821840 (HalpDmaAllocateChildAdapterV2.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x140822570 (HalpDmaAllocateChildAdapterV3.c)
+ *     WmipRegisterDevice @ 0x140869828 (WmipRegisterDevice.c)
+ *     EtwpRegisterPrivateSession @ 0x1409E9A6C (EtwpRegisterPrivateSession.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ */
+
 NTSTATUS __stdcall ObReferenceObjectByPointer(
         PVOID Object,
         ACCESS_MASK DesiredAccess,

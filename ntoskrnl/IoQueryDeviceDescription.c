@@ -1,3 +1,16 @@
+/*
+ * XREFs of IoQueryDeviceDescription @ 0x14077F960
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     pIoQueryBusDescription @ 0x14077FF18 (pIoQueryBusDescription.c)
+ *     IopOpenRegistryKey @ 0x1407803E0 (IopOpenRegistryKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall IoQueryDeviceDescription(
         PINTERFACE_TYPE BusType,
         PULONG BusNumber,

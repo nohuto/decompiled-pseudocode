@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiDqQueryValidateQueryData @ 0x140746B18
+ * Callers:
+ *     PiDqIrpQueryCreate @ 0x140745F08 (PiDqIrpQueryCreate.c)
+ * Callees:
+ *     _PnpValidatePropertyData @ 0x140686FC8 (_PnpValidatePropertyData.c)
+ *     PiDqGetPnpObjectType @ 0x1406CCB4C (PiDqGetPnpObjectType.c)
+ *     ValidFilter @ 0x1407483C4 (ValidFilter.c)
+ *     PnpValidateMultiSz @ 0x14079F300 (PnpValidateMultiSz.c)
+ */
+
 __int64 __fastcall PiDqQueryValidateQueryData(__int64 a1)
 {
   unsigned int v2; // esi

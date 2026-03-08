@@ -1,3 +1,15 @@
+/*
+ * XREFs of IoPerfInit @ 0x140556AD8
+ * Callers:
+ *     EtwpEnableKernelTrace @ 0x140786150 (EtwpEnableKernelTrace.c)
+ *     IoRegisterIoTracking @ 0x140946000 (IoRegisterIoTracking.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     IopUpdateFunctionPointers @ 0x140553FEC (IopUpdateFunctionPointers.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IoPerfInit(int a1)
 {
   bool v2; // dl

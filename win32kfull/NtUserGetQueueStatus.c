@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserGetQueueStatus @ 0x1C00B6720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxDrainQueueCompletions @ 0x1C00B6940 (xxxDrainQueueCompletions.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall NtUserGetQueueStatus(__int64 a1, __int64 a2, __int64 a3)
 {
   __int16 v3; // r14

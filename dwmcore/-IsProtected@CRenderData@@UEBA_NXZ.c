@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsProtected@CRenderData@@UEBA_NXZ @ 0x180111C60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CRenderData::IsProtected(CRenderData *this)
 {
   unsigned int v1; // eax

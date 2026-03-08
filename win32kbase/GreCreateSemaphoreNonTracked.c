@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreCreateSemaphoreNonTracked @ 0x1C002D54C
+ * Callers:
+ *     GreEngLoadModuleTrackInit @ 0x1C031E118 (GreEngLoadModuleTrackInit.c)
+ *     MultiUserGreCleanupInit @ 0x1C031E160 (MultiUserGreCleanupInit.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _ERESOURCE *GreCreateSemaphoreNonTracked()
 {
   struct _ERESOURCE *Pool2; // rax

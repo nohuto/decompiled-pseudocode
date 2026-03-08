@@ -1,3 +1,13 @@
+/*
+ * XREFs of PsTlsSetValue @ 0x14076B4A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpFlsCallbackEntryGetContext @ 0x1402CAA5C (RtlpFlsCallbackEntryGetContext.c)
+ *     RtlpFlsSetValue @ 0x14076B564 (RtlpFlsSetValue.c)
+ */
+
 __int64 __fastcall PsTlsSetValue(__int64 a1, int a2)
 {
   unsigned __int64 *EndPadding; // rdi

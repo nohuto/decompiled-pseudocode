@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?IsNoOp@CRenderingTechniqueFragment@@QEBA_NXZ @ 0x180030C4C
+ * Callers:
+ *     ?DoesBackdropInputContributeToSubgraph@CBrushRenderingGraph@@IEBA_NIPEA_N@Z @ 0x18002DF64 (-DoesBackdropInputContributeToSubgraph@CBrushRenderingGraph@@IEBA_NIPEA_N@Z.c)
+ *     ?IsNoOp@CRenderingTechniqueFragment@@QEBA_NXZ @ 0x180030C4C (-IsNoOp@CRenderingTechniqueFragment@@QEBA_NXZ.c)
+ *     ?RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBrush@@IPEAVCDrawListCache@@@Z @ 0x180093070 (-RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBr.c)
+ * Callees:
+ *     ?IsNoOp@CRenderingTechniqueFragment@@QEBA_NXZ @ 0x180030C4C (-IsNoOp@CRenderingTechniqueFragment@@QEBA_NXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CRenderingTechniqueFragment::IsNoOp(CRenderingTechniqueFragment *this)
 {
   char v2; // bl

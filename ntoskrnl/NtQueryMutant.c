@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtQueryMutant @ 0x140A02BD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeQueryOwnerMutant @ 0x14057116C (KeQueryOwnerMutant.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ */
+
 __int64 __fastcall NtQueryMutant(HANDLE Handle, int a2, CLIENT_ID *a3, unsigned int a4, unsigned __int64 a5)
 {
   KPROCESSOR_MODE PreviousMode; // r14

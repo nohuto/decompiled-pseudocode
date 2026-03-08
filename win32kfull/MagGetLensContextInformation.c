@@ -1,3 +1,14 @@
+/*
+ * XREFs of MagGetLensContextInformation @ 0x1C01A43C0
+ * Callers:
+ *     NtUserMagGetContextInformation @ 0x1C01D7910 (NtUserMagGetContextInformation.c)
+ * Callees:
+ *     MagpFindThreadContext @ 0x1C0141978 (MagpFindThreadContext.c)
+ *     ?MagpFindLensContext@@YAPEAU_MAG_LENS_CONTEXT@@PEAU_MAG_THREAD_CONTEXT@@PEAUtagWND@@@Z @ 0x1C01A4024 (-MagpFindLensContext@@YAPEAU_MAG_LENS_CONTEXT@@PEAU_MAG_THREAD_CONTEXT@@PEAUtagWND@@@Z.c)
+ *     _GetMagnificationInputTransform @ 0x1C01F7EE8 (_GetMagnificationInputTransform.c)
+ *     DwmSyncMagnUpdateWindowSharedTextures @ 0x1C0270C10 (DwmSyncMagnUpdateWindowSharedTextures.c)
+ */
+
 __int64 __fastcall MagGetLensContextInformation(
         _QWORD *a1,
         __int64 a2,

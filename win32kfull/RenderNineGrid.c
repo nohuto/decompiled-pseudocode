@@ -1,3 +1,15 @@
+/*
+ * XREFs of RenderNineGrid @ 0x1C0080A1C
+ * Callers:
+ *     xxEngNineGrid @ 0x1C00804C8 (xxEngNineGrid.c)
+ * Callees:
+ *     ?bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z @ 0x1C001CEF4 (-bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     RenderNineGridInternal @ 0x1C0080D30 (RenderNineGridInternal.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall RenderNineGrid(
         struct _SURFOBJ *a1,
         __int64 a2,

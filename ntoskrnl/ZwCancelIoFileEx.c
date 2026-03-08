@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwCancelIoFileEx @ 0x140413550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwCancelIoFileEx(__int64 a1, __int64 a2)
 {
   _disable();

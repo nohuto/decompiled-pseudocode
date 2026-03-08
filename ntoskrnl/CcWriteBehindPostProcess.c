@@ -1,3 +1,32 @@
+/*
+ * XREFs of CcWriteBehindPostProcess @ 0x140219248
+ * Callers:
+ *     CcWriteBehindInternal @ 0x140219990 (CcWriteBehindInternal.c)
+ *     CcWriteBehindAsync @ 0x140538060 (CcWriteBehindAsync.c)
+ *     CcCompleteAsyncWriteBehind @ 0x140539048 (CcCompleteAsyncWriteBehind.c)
+ * Callees:
+ *     CcSetValidData @ 0x140209160 (CcSetValidData.c)
+ *     CcDeleteSharedCacheMap @ 0x140217A10 (CcDeleteSharedCacheMap.c)
+ *     CcShouldIssueVDLUpdate @ 0x1402195B0 (CcShouldIssueVDLUpdate.c)
+ *     CcWriteBehindReleaseFile @ 0x140219638 (CcWriteBehindReleaseFile.c)
+ *     CcScheduleLazyWriteScan @ 0x140242B0C (CcScheduleLazyWriteScan.c)
+ *     CcInsertIntoDirtySharedCacheMapList @ 0x140242BEC (CcInsertIntoDirtySharedCacheMapList.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     CcGetFlushedValidData @ 0x1402A1120 (CcGetFlushedValidData.c)
+ *     CcIsFatalWriteError @ 0x1402EFE78 (CcIsFatalWriteError.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x140343320 (CcReferenceSharedCacheMapFileObject.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1403441C0 (ObFastDereferenceObjectDeferDelete.c)
+ *     CcCancelMmWaitForUninitializeCacheMap @ 0x140532CE0 (CcCancelMmWaitForUninitializeCacheMap.c)
+ *     CcMmLogLostDelayedWriteError @ 0x140535454 (CcMmLogLostDelayedWriteError.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     FsRtlAcquireFileExclusive @ 0x1407D18B0 (FsRtlAcquireFileExclusive.c)
+ *     FsRtlReleaseFile @ 0x1407D18E0 (FsRtlReleaseFile.c)
+ */
+
 char __fastcall CcWriteBehindPostProcess(__int64 a1, char a2)
 {
   __int64 v3; // r14

@@ -1,3 +1,25 @@
+/*
+ * XREFs of UsbhResetPort @ 0x1C0002918
+ * Callers:
+ *     UsbhReset1Complete @ 0x1C0002B20 (UsbhReset1Complete.c)
+ *     UsbhReset2Complete @ 0x1C0002D00 (UsbhReset2Complete.c)
+ *     UsbhDriverResetPort @ 0x1C001B8C0 (UsbhDriverResetPort.c)
+ *     UsbhPortConnect @ 0x1C004D100 (UsbhPortConnect.c)
+ *     UsbhReset1Timeout @ 0x1C004E0F0 (UsbhReset1Timeout.c)
+ *     UsbhReset2Timeout @ 0x1C004E6E0 (UsbhReset2Timeout.c)
+ * Callees:
+ *     UsbhReferenceListRemove @ 0x1C00018CC (UsbhReferenceListRemove.c)
+ *     Usbh_CheckPortHwPendingStatus @ 0x1C0001F1C (Usbh_CheckPortHwPendingStatus.c)
+ *     UsbhReferenceListAdd @ 0x1C0002650 (UsbhReferenceListAdd.c)
+ *     Usbh_UsbdReadFrameCounter @ 0x1C00031B0 (Usbh_UsbdReadFrameCounter.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhSyncSendCommand @ 0x1C0016EE0 (UsbhSyncSendCommand.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 void __fastcall UsbhResetPort(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v6; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MmStoreCheckPagefiles @ 0x140836214
+ * Callers:
+ *     SmFirstTimeInit @ 0x1407DDCE0 (SmFirstTimeInit.c)
+ *     MmStoreRegister @ 0x140834CA4 (MmStoreRegister.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MmStoreCheckPagefiles(__int64 *a1)
 {
   __int64 v1; // rdx

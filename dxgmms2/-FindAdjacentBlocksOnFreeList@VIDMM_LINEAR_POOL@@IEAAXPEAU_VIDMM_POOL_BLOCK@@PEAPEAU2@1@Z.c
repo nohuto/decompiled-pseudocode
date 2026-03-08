@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FindAdjacentBlocksOnFreeList@VIDMM_LINEAR_POOL@@IEAAXPEAU_VIDMM_POOL_BLOCK@@PEAPEAU2@1@Z @ 0x1C00B0A20
+ * Callers:
+ *     ?Free@VIDMM_LINEAR_POOL@@QEAAXPEAX@Z @ 0x1C00B06A8 (-Free@VIDMM_LINEAR_POOL@@QEAAXPEAX@Z.c)
+ *     ?MarkBlockForEviction@VIDMM_LINEAR_POOL@@QEAAXPEAXPEA_K1@Z @ 0x1C00B0924 (-MarkBlockForEviction@VIDMM_LINEAR_POOL@@QEAAXPEAXPEA_K1@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VIDMM_LINEAR_POOL::FindAdjacentBlocksOnFreeList(
         VIDMM_LINEAR_POOL *this,
         struct _VIDMM_POOL_BLOCK *a2,

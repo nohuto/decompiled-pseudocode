@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopBlackBoxUpdate @ 0x14068BFB0
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlTestProtectedAccess @ 0x14070C7FC (RtlTestProtectedAccess.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PopBlackBoxUpdate(char **a1, char *a2)
 {
   __int64 v3; // rax

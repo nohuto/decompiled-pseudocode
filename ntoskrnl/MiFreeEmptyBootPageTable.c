@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiFreeEmptyBootPageTable @ 0x140B961A8
+ * Callers:
+ *     MxCreateFreePfns @ 0x140B37690 (MxCreateFreePfns.c)
+ * Callees:
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiLockAndInsertPageInFreeList @ 0x140387CB4 (MiLockAndInsertPageInFreeList.c)
+ */
+
 __int64 __fastcall MiFreeEmptyBootPageTable(__int64 a1)
 {
   unsigned __int64 v1; // rdi

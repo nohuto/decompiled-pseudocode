@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1CDrawListEntryBatch@@EEAA@XZ @ 0x180207474
+ * Callers:
+ *     ??_GCDrawListEntryBatch@@EEAAPEAXI@Z @ 0x1802074D8 (--_GCDrawListEntryBatch@@EEAAPEAXI@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800DB0E4 (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
+ *     ?FreeBatchResources@CDrawListBatchManager@@QEAAXPEAVCDrawListEntryBatch@@@Z @ 0x1802020F4 (-FreeBatchResources@CDrawListBatchManager@@QEAAXPEAVCDrawListEntryBatch@@@Z.c)
+ *     ??1?$deque@VCMegaRect@@V?$allocator@VCMegaRect@@@std@@@std@@QEAA@XZ @ 0x180207448 (--1-$deque@VCMegaRect@@V-$allocator@VCMegaRect@@@std@@@std@@QEAA@XZ.c)
+ */
+
 void __fastcall CDrawListEntryBatch::~CDrawListEntryBatch(CDrawListEntryBatch *this)
 {
   bool v1; // zf

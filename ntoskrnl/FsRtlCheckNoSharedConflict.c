@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlCheckNoSharedConflict @ 0x140200DCC
+ * Callers:
+ *     FsRtlFastCheckLockForWrite @ 0x1402C8110 (FsRtlFastCheckLockForWrite.c)
+ * Callees:
+ *     FsRtlFindFirstOverlappingSharedNode @ 0x1402C272C (FsRtlFindFirstOverlappingSharedNode.c)
+ *     RtlSplay @ 0x1402C2B50 (RtlSplay.c)
+ *     FsRtlFindFirstOverlapInNode @ 0x14053AFE4 (FsRtlFindFirstOverlapInNode.c)
+ */
+
 bool __fastcall FsRtlCheckNoSharedConflict(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 FirstOverlappingSharedNode; // rbx

@@ -1,3 +1,19 @@
+/*
+ * XREFs of SeReportSecurityEventWithSubCategory @ 0x140299040
+ * Callers:
+ *     SeReportSecurityEvent @ 0x1405B6810 (SeReportSecurityEvent.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x140A18D84 (CmpReportAuditVirtualizationEvent.c)
+ * Callees:
+ *     SepAuditingForSubCategory @ 0x1402992A4 (SepAuditingForSubCategory.c)
+ *     SepAdtLogAuditRecord @ 0x140397890 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140699810 (SepAdtAuditThisEventWithContext.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ */
+
 NTSTATUS __stdcall SeReportSecurityEventWithSubCategory(
         ULONG Flags,
         PUNICODE_STRING SourceName,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiAddSynchCounters @ 0x140970ED0
+ * Callers:
+ *     KiSynchNumaCounterSetCallback @ 0x140971030 (KiSynchNumaCounterSetCallback.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiAddSynchCounters(_DWORD *a1, __int64 a2)
 {
   _DWORD *v2; // r8

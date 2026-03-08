@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiAbCompareSnappedEntryState @ 0x1402F456C
+ * Callers:
+ *     KiAbEntryGetLockedHeadEntry @ 0x14024CE30 (KiAbEntryGetLockedHeadEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall KiAbCompareSnappedEntryState(__m128i *a1, __int64 a2)
 {
   __int64 v3; // rax

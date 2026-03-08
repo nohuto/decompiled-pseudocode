@@ -1,3 +1,24 @@
+/*
+ * XREFs of ArbBuildAssignmentOrdering @ 0x14081E6C8
+ * Callers:
+ *     ArbInitializeArbiterInstance @ 0x14081E398 (ArbInitializeArbiterInstance.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ArbAddOrdering @ 0x14081EBA4 (ArbAddOrdering.c)
+ *     ArbpGetRegistryValue @ 0x14081EC78 (ArbpGetRegistryValue.c)
+ *     ArbInitializeOrderingList @ 0x14081ED44 (ArbInitializeOrderingList.c)
+ *     ArbFreeOrderingList @ 0x14081ED88 (ArbFreeOrderingList.c)
+ *     ArbPruneOrdering @ 0x14081EDC4 (ArbPruneOrdering.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ArbBuildAssignmentOrdering(__int64 a1, __int64 a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rax

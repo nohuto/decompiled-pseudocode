@@ -1,3 +1,19 @@
+/*
+ * XREFs of DbgkWerCaptureLiveKernelDump2 @ 0x14087EC90
+ * Callers:
+ *     DbgkWerCaptureLiveKernelDump @ 0x14087EC10 (DbgkWerCaptureLiveKernelDump.c)
+ * Callees:
+ *     RtlStringCchLengthW @ 0x140247080 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyW @ 0x1402470F0 (RtlStringCchCopyW.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     DbgkpWerIsFullLiveDumpDisabled @ 0x14087EE3C (DbgkpWerIsFullLiveDumpDisabled.c)
+ *     DbgkpWerCleanupContext @ 0x14087EEF4 (DbgkpWerCleanupContext.c)
+ *     DbgkpWerProcessPolicyResult @ 0x140938DC0 (DbgkpWerProcessPolicyResult.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall DbgkWerCaptureLiveKernelDump2(
         NTSTRSAFE_PCWSTR pszSrc,
         int a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ProcessCompletionQueues @ 0x1C0002F50
+ * Callers:
+ *     NVMeHwMSIInterrupt @ 0x1C0002E30 (NVMeHwMSIInterrupt.c)
+ *     NVMeHwInterrupt @ 0x1C0008420 (NVMeHwInterrupt.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ * Callees:
+ *     NVMeCompletionDpcRoutine @ 0x1C00023F0 (NVMeCompletionDpcRoutine.c)
+ *     NVMeMaskInterrupt @ 0x1C0021054 (NVMeMaskInterrupt.c)
+ */
+
 __int64 __fastcall ProcessCompletionQueues(__int64 a1, unsigned __int16 a2, __int64 a3)
 {
   __int64 result; // rax

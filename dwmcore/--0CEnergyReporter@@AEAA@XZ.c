@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CEnergyReporter@@AEAA@XZ @ 0x1800D618C
+ * Callers:
+ *     ?RunCompositionThread@CConnection@@AEAAJXZ @ 0x1800D5BCC (-RunCompositionThread@CConnection@@AEAAJXZ.c)
+ * Callees:
+ *     ?CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ @ 0x1800D6308 (-CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ.c)
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ */
+
 CEnergyReporter *__fastcall CEnergyReporter::CEnergyReporter(_DWORD *pv)
 {
   ULONGLONG TickCount64; // rax

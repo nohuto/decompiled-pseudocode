@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBPDO_EvtOutOfBandwidthTimer @ 0x1C001CD40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     WMI_FireNotification @ 0x1C008C428 (WMI_FireNotification.c)
+ */
+
 __int64 __fastcall HUBPDO_EvtOutOfBandwidthTimer(__int64 a1)
 {
   __int64 v1; // rax

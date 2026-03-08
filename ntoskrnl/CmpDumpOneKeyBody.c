@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpDumpOneKeyBody @ 0x140A14530
+ * Callers:
+ *     CmpDumpKeyBodyList @ 0x140A143F8 (CmpDumpKeyBodyList.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PsLookupProcessByProcessId @ 0x1406AC100 (PsLookupProcessByProcessId.c)
+ */
+
 int __fastcall CmpDumpOneKeyBody(struct _KPROCESS *a1, __int64 a2, const void **a3, __int64 a4)
 {
   unsigned __int64 v4; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopResumeDeviceIdle @ 0x140585124
+ * Callers:
+ *     PoClearBroadcast @ 0x140988B8C (PoClearBroadcast.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 PopResumeDeviceIdle()
 {
   unsigned __int64 v0; // rbx

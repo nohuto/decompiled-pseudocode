@@ -1,3 +1,12 @@
+/*
+ * XREFs of FormInquiryDeviceCharacteristicsData @ 0x1C0012284
+ * Callers:
+ *     ScsiInquiryRequest @ 0x1C0019C74 (ScsiInquiryRequest.c)
+ * Callees:
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeSetSenseData @ 0x1C0024238 (NVMeSetSenseData.c)
+ */
+
 __int64 __fastcall FormInquiryDeviceCharacteristicsData(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdx

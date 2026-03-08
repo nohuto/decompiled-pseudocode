@@ -1,3 +1,19 @@
+/*
+ * XREFs of PiCMGetDeviceInterfaceList @ 0x1406C46EC
+ * Callers:
+ *     PiCMHandleIoctl @ 0x1406CF040 (PiCMHandleIoctl.c)
+ * Callees:
+ *     PiControlFreeUserModeCallersBuffer @ 0x1402459EC (PiControlFreeUserModeCallersBuffer.c)
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     McTemplateK0d_EtwWriteTransfer @ 0x14055D19C (McTemplateK0d_EtwWriteTransfer.c)
+ *     McTemplateK0jzt_EtwWriteTransfer @ 0x1405621A8 (McTemplateK0jzt_EtwWriteTransfer.c)
+ *     PiCMCaptureInterfaceListInputData @ 0x1406C488C (PiCMCaptureInterfaceListInputData.c)
+ *     IopGetDeviceInterfaces @ 0x1406C4A94 (IopGetDeviceInterfaces.c)
+ *     PiCMReturnBufferResultData @ 0x1406D0ED4 (PiCMReturnBufferResultData.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiCMGetDeviceInterfaceList(
         __int64 a1,
         __int64 a2,

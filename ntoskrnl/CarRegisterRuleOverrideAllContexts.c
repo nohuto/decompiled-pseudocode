@@ -1,3 +1,13 @@
+/*
+ * XREFs of CarRegisterRuleOverrideAllContexts @ 0x1405D1E40
+ * Callers:
+ *     CarRegisterRuleOverridesAllContexts @ 0x1405D1F10 (CarRegisterRuleOverridesAllContexts.c)
+ * Callees:
+ *     CarCreateRuleOverrideEntry @ 0x1405D1544 (CarCreateRuleOverrideEntry.c)
+ *     CarDeregisterRuleOverride @ 0x1405D1800 (CarDeregisterRuleOverride.c)
+ *     CarFindRuleClassConfigurationEntryByRuleClassId @ 0x1405D186C (CarFindRuleClassConfigurationEntryByRuleClassId.c)
+ */
+
 __int64 __fastcall CarRegisterRuleOverrideAllContexts(__int64 a1, __int64 a2)
 {
   int v3; // ebx

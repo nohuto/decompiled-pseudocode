@@ -1,3 +1,11 @@
+/*
+ * XREFs of FontAssocCharsetRoutine @ 0x1C02A0C90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FontAssocCharsetRoutine(wchar_t *Str1, __int64 a2, const wchar_t *a3)
 {
   char v5; // di

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?HrFindInterface@CWICBitmapWrapper@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801043D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?HrFindInterface@CBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180104550 (-HrFindInterface@CBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CWICBitmapWrapper::HrFindInterface(CWICBitmapWrapper *this, const struct _GUID *a2, void **a3)
 {
   unsigned int v3; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PnpEnableInterfacesAndRegisterWmi@FxPkgPnp@@IEAAJXZ @ 0x1C006A2EC
+ * Callers:
+ *     ?PnpEventEnableInterfaces@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C006A5E0 (-PnpEventEnableInterfaces@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
+ * Callees:
+ *     ?AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z @ 0x1C000134C (-AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z.c)
+ *     ?Register@FxWmiIrpHandler@@QEAAJXZ @ 0x1C002A66C (-Register@FxWmiIrpHandler@@QEAAJXZ.c)
+ */
+
 __int64 __fastcall FxPkgPnp::PnpEnableInterfacesAndRegisterWmi(FxPkgPnp *this, _FX_DRIVER_GLOBALS *a2)
 {
   FxWaitLockInternal *p_m_DeviceInterfaceLock; // rsi

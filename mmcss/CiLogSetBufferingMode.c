@@ -1,3 +1,11 @@
+/*
+ * XREFs of CiLogSetBufferingMode @ 0x1C0004080
+ * Callers:
+ *     CiSchedulerSetMultimediaMode @ 0x1C0003178 (CiSchedulerSetMultimediaMode.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003050 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall CiLogSetBufferingMode(__int64 a1, int a2)
 {
   struct _EVENT_DATA_DESCRIPTOR v3; // [rsp+30h] [rbp-38h] BYREF

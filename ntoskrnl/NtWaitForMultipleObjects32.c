@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtWaitForMultipleObjects32 @ 0x140777FF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObWaitForMultipleObjects @ 0x1407D79B0 (ObWaitForMultipleObjects.c)
+ */
+
 __int64 __fastcall NtWaitForMultipleObjects32(
         unsigned int a1,
         unsigned __int64 a2,

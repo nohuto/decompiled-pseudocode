@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopGetFileVolumeNameInformation @ 0x1403C16A0
+ * Callers:
+ *     NtQueryInformationFile @ 0x1406EAEB0 (NtQueryInformationFile.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ObQueryNameString @ 0x14071EA00 (ObQueryNameString.c)
+ */
+
 NTSTATUS __fastcall IopGetFileVolumeNameInformation(void *a1, __int64 a2, _DWORD *a3, int a4)
 {
   unsigned int v6; // ebx

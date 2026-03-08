@@ -1,3 +1,12 @@
+/*
+ * XREFs of Controller_QueryControllerCapabilitiesFromACPI @ 0x1C001A3D0
+ * Callers:
+ *     Controller_WdfEvtDeviceAdd @ 0x1C006FA60 (Controller_WdfEvtDeviceAdd.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     Controller_ExecuteDSM @ 0x1C006E4A4 (Controller_ExecuteDSM.c)
+ */
+
 void __fastcall Controller_QueryControllerCapabilitiesFromACPI(__int64 a1)
 {
   int v2; // eax

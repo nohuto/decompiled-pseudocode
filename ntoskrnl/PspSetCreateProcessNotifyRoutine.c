@@ -1,3 +1,20 @@
+/*
+ * XREFs of PspSetCreateProcessNotifyRoutine @ 0x140819698
+ * Callers:
+ *     PsSetCreateProcessNotifyRoutineEx @ 0x140819490 (PsSetCreateProcessNotifyRoutineEx.c)
+ *     PsSetCreateProcessNotifyRoutine @ 0x1408194B0 (PsSetCreateProcessNotifyRoutine.c)
+ *     PsSetCreateProcessNotifyRoutineEx2 @ 0x1408194D0 (PsSetCreateProcessNotifyRoutineEx2.c)
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExReferenceCallBackBlock @ 0x14034C060 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x14034C120 (ExDereferenceCallBackBlock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     ExCompareExchangeCallBack @ 0x140388EF8 (ExCompareExchangeCallBack.c)
+ *     MmVerifyCallbackFunctionCheckFlags @ 0x140388FBC (MmVerifyCallbackFunctionCheckFlags.c)
+ *     ExAllocateCallBack @ 0x140819790 (ExAllocateCallBack.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PspSetCreateProcessNotifyRoutine(unsigned __int64 a1, unsigned int a2)
 {
   __int64 v2; // rbx

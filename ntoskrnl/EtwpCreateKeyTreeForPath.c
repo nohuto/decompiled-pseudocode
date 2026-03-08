@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpCreateKeyTreeForPath @ 0x1405FEE28
+ * Callers:
+ *     EtwStartAutoLogger @ 0x14083CA48 (EtwStartAutoLogger.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpCreateKey @ 0x1405FED84 (EtwpCreateKey.c)
+ */
+
 __int64 __fastcall EtwpCreateKeyTreeForPath(_WORD *a1)
 {
   int v2; // ebp

@@ -1,3 +1,11 @@
+/*
+ * XREFs of _SetKeyboardState @ 0x1C0009164
+ * Callers:
+ *     NtUserSetKeyboardState @ 0x1C0009040 (NtUserSetKeyboardState.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ */
+
 __int64 __fastcall SetKeyboardState(char *a1)
 {
   char *v1; // r8

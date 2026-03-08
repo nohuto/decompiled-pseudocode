@@ -1,3 +1,11 @@
+/*
+ * XREFs of ThreadLockExchangeWorker @ 0x1C01C1BAC
+ * Callers:
+ *     xxxTimersProc @ 0x1C007AFD0 (xxxTimersProc.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ThreadLockExchangeWorker(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

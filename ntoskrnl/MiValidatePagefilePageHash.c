@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiValidatePagefilePageHash @ 0x140466E1A
+ * Callers:
+ *     MiWaitForInPageComplete @ 0x140342A90 (MiWaitForInPageComplete.c)
+ *     MiMakeOutswappedPageResident @ 0x14061612C (MiMakeOutswappedPageResident.c)
+ * Callees:
+ *     MiGetPagingFileOffset @ 0x14029EA80 (MiGetPagingFileOffset.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiInPageSkipPage @ 0x140463664 (MiInPageSkipPage.c)
+ *     MiObtainPagefileHashes @ 0x140466CF4 (MiObtainPagefileHashes.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiArePagefileContentsCorrupted @ 0x1406633DC (MiArePagefileContentsCorrupted.c)
+ */
+
 __int64 __fastcall MiValidatePagefilePageHash(_QWORD *a1)
 {
   _QWORD *v1; // rax

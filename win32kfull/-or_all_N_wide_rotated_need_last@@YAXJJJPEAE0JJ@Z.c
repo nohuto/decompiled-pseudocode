@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?or_all_N_wide_rotated_need_last@@YAXJJJPEAE0JJ@Z @ 0x1C0305050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall or_all_N_wide_rotated_need_last(
         int a1,
         char a2,

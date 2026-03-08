@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?_LockSetForegroundWindow@@YA_NI@Z @ 0x1C01AEF00
+ * Callers:
+ *     NtUserLockSetForegroundWindow @ 0x1C01D70D0 (NtUserLockSetForegroundWindow.c)
+ * Callees:
+ *     ?CanForceForeground@@YA_NPEBUtagPROCESSINFO@@@Z @ 0x1C003D388 (-CanForceForeground@@YA_NPEBUtagPROCESSINFO@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     WPP_RECORDER_AND_TRACE_SF_DDdD @ 0x1C01AF81C (WPP_RECORDER_AND_TRACE_SF_DDdD.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 char __fastcall _LockSetForegroundWindow(__int64 a1)
 {

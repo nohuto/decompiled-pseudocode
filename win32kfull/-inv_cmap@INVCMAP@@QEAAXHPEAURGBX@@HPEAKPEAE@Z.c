@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?inv_cmap@INVCMAP@@QEAAXHPEAURGBX@@HPEAKPEAE@Z @ 0x1C02A64DC
+ * Callers:
+ *     ?inv_cmap@@YAXHPEAURGBX@@HPEAKPEAE@Z @ 0x1C02A647C (-inv_cmap@@YAXHPEAURGBX@@HPEAKPEAE@Z.c)
+ * Callees:
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?redloop@INVCMAP@@QEAAHXZ @ 0x1C02A667C (-redloop@INVCMAP@@QEAAHXZ.c)
+ */
+
 void __fastcall INVCMAP::inv_cmap(
         INVCMAP *this,
         int a2,

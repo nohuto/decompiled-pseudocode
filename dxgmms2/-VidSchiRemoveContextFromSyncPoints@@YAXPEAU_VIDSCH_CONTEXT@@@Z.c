@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidSchiRemoveContextFromSyncPoints@@YAXPEAU_VIDSCH_CONTEXT@@@Z @ 0x1C0011E64
+ * Callers:
+ *     VidSchTerminateContext @ 0x1C00A8F80 (VidSchTerminateContext.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidSchiRemoveContextFromSyncPoints(struct _VIDSCH_CONTEXT *a1)
 {
   __int64 v1; // rbx

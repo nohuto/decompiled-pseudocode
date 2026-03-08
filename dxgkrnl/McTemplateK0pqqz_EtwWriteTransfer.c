@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0pqqz_EtwWriteTransfer @ 0x1C0040564
+ * Callers:
+ *     ?ReportNodeMetadata@DXGADAPTER@@QEBAXXZ @ 0x1C020CA04 (-ReportNodeMetadata@DXGADAPTER@@QEBAXXZ.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002BBC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 NTSTATUS McTemplateK0pqqz_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
 {
   const wchar_t *v3; // rcx

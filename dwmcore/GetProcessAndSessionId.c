@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetProcessAndSessionId @ 0x1801EEA20
+ * Callers:
+ *     ?SendFrameStatisticsTelemetry@CTelemetryFrameStatistics@@AEAAX_K@Z @ 0x1801EEA94 (-SendFrameStatisticsTelemetry@CTelemetryFrameStatistics@@AEAAX_K@Z.c)
+ * Callees:
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ */
+
 BOOL __fastcall GetProcessAndSessionId(DWORD *a1, DWORD *a2)
 {
   DWORD CurrentProcessId; // eax

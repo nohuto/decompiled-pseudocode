@@ -1,3 +1,24 @@
+/*
+ * XREFs of IopValidateJunctionTarget @ 0x140943674
+ * Callers:
+ *     IopXxxControlFile @ 0x1407C1720 (IopXxxControlFile.c)
+ * Callees:
+ *     FsRtlValidateReparsePointBuffer @ 0x140202320 (FsRtlValidateReparsePointBuffer.c)
+ *     IopReferenceFileObject @ 0x14023EBCC (IopReferenceFileObject.c)
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlPrefixUnicodeString @ 0x1406D5A70 (RtlPrefixUnicodeString.c)
+ *     IopQueryXxxInformation @ 0x14071E6CC (IopQueryXxxInformation.c)
+ *     IoVolumeDeviceToDosName @ 0x140720680 (IoVolumeDeviceToDosName.c)
+ *     IoVolumeDeviceToGuidPath @ 0x14072BBD0 (IoVolumeDeviceToGuidPath.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopValidateJunctionTarget(
         int a1,
         _OWORD *a2,

@@ -1,3 +1,20 @@
+/*
+ * XREFs of KiReadGuestSchedulerAssistPriority @ 0x14040A618
+ * Callers:
+ *     KiQuantumEnd @ 0x140254F30 (KiQuantumEnd.c)
+ *     KeYieldExecution @ 0x140256BE0 (KeYieldExecution.c)
+ *     KiAddThreadToReadyQueue @ 0x140257FD0 (KiAddThreadToReadyQueue.c)
+ *     KiAddThreadToPrcbQueue @ 0x1402584D0 (KiAddThreadToPrcbQueue.c)
+ *     KiDeferredReadySingleThread @ 0x140259FB0 (KiDeferredReadySingleThread.c)
+ *     KiNormalPriorityReadyScan @ 0x1402AC070 (KiNormalPriorityReadyScan.c)
+ *     KiUpdateVpBackingThreadPriorityOnReadyQueueInsertion @ 0x1402AE770 (KiUpdateVpBackingThreadPriorityOnReadyQueueInsertion.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x1402E1338 (KiUpdateVPBackingThreadPriority.c)
+ *     KiDirectSwitchThread @ 0x1403414A0 (KiDirectSwitchThread.c)
+ *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x14056C0C8 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiReadGuestSchedulerAssistPriority(__int64 a1, _QWORD *a2)
 {
   unsigned int *v3; // r8

@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiVerifyLargeSectionLayout @ 0x140B64254
+ * Callers:
+ *     MiCheckLargePageOk @ 0x140B38B30 (MiCheckLargePageOk.c)
+ * Callees:
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 ULONG_PTR *__fastcall MiVerifyLargeSectionLayout(ULONG_PTR BugCheckParameter2)
 {
   __int64 v2; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PsSetVmProcessorHostProcess @ 0x1409ADB18
+ * Callers:
+ *     VmSetVpHostProcess @ 0x1409D9CD0 (VmSetVpHostProcess.c)
+ * Callees:
+ *     ExBlockOnAddressPushLock @ 0x1402BF8C0 (ExBlockOnAddressPushLock.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     ExfUnblockPushLock @ 0x14040CCE0 (ExfUnblockPushLock.c)
+ */
+
 void __fastcall PsSetVmProcessorHostProcess(_QWORD *a1)
 {
   volatile signed __int32 *v1; // rbx

@@ -1,3 +1,26 @@
+/*
+ * XREFs of BcdOpenStore @ 0x14082C814
+ * Callers:
+ *     WheaPersistBadPageToBcd @ 0x14060F9E0 (WheaPersistBadPageToBcd.c)
+ *     PoInitHiberServices @ 0x14082B1B0 (PoInitHiberServices.c)
+ *     PopBcdOpen @ 0x14082B4E4 (PopBcdOpen.c)
+ *     PopAllocateHiberContext @ 0x140984D38 (PopAllocateHiberContext.c)
+ *     PopFreeHiberContext @ 0x1409855F0 (PopFreeHiberContext.c)
+ *     BcdOpenStoreFromFile @ 0x140A59704 (BcdOpenStoreFromFile.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     BiMarkTreatAsSystemStore @ 0x14082B918 (BiMarkTreatAsSystemStore.c)
+ *     BiAddStoreFromFile @ 0x14082BDE4 (BiAddStoreFromFile.c)
+ *     BiOpenSystemStore @ 0x14082CC40 (BiOpenSystemStore.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiAcquireBcdSyncMutant @ 0x14082ED10 (BiAcquireBcdSyncMutant.c)
+ *     BiReleaseBcdSyncMutant @ 0x14082EDB8 (BiReleaseBcdSyncMutant.c)
+ *     BiDeleteRegistryValue @ 0x14083089C (BiDeleteRegistryValue.c)
+ *     BiCleanupLoadedStores @ 0x1408311C8 (BiCleanupLoadedStores.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BcdOpenStore(unsigned __int16 *a1, unsigned int a2, __int64 *a3)
 {
   unsigned __int16 *v3; // rbx

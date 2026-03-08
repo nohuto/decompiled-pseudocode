@@ -1,3 +1,13 @@
+/*
+ * XREFs of XilCommand_SendRequestToRingDoorbell @ 0x1C00320D8
+ * Callers:
+ *     XilCommand_WriteDoorbell @ 0x1C000ABF8 (XilCommand_WriteDoorbell.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ */
+
 __int64 __fastcall XilCommand_SendRequestToRingDoorbell(__int64 a1)
 {
   __int64 v1; // rbx

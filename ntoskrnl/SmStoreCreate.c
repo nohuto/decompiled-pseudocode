@@ -1,3 +1,14 @@
+/*
+ * XREFs of SmStoreCreate @ 0x1409D4C2C
+ * Callers:
+ *     SmcStoreCreate @ 0x1409D8464 (SmcStoreCreate.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwSetSystemInformation @ 0x140415A30 (ZwSetSystemInformation.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SmStorePhysicalRequestIssue @ 0x1409D4DC0 (SmStorePhysicalRequestIssue.c)
+ */
+
 __int64 __fastcall SmStoreCreate(__int64 a1, int a2, __int128 *a3, _DWORD *a4)
 {
   __int128 v8; // xmm0

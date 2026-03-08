@@ -1,3 +1,16 @@
+/*
+ * XREFs of GetWindowNCMetricsForDpi @ 0x1C00A43A0
+ * Callers:
+ *     _SystemParametersInfoForDpi @ 0x1C00A21BC (_SystemParametersInfoForDpi.c)
+ * Callees:
+ *     GreExtGetObjectW @ 0x1C0065580 (GreExtGetObjectW.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     GetScaledLogFontForDpi @ 0x1C00A4620 (GetScaledLogFontForDpi.c)
+ *     GetDPIMETRICSForDpiUnsafe @ 0x1C00A47B4 (GetDPIMETRICSForDpiUnsafe.c)
+ *     DeleteMetricsFont @ 0x1C00B8050 (DeleteMetricsFont.c)
+ *     CreateScaledFont @ 0x1C01C05F8 (CreateScaledFont.c)
+ */
+
 __int64 __fastcall GetWindowNCMetricsForDpi(__int64 a1, __int64 a2)
 {
   unsigned int v3; // ebx

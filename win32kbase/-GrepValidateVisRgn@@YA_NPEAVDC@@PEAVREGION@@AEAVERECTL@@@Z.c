@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?GrepValidateVisRgn@@YA_NPEAVDC@@PEAVREGION@@AEAVERECTL@@@Z @ 0x1C00DE9A0
+ * Callers:
+ *     GreValidateVisrgn @ 0x1C004145C (GreValidateVisrgn.c)
+ *     GreSetDCOwnerEx @ 0x1C0041580 (GreSetDCOwnerEx.c)
+ *     ?GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z @ 0x1C004592C (-GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z.c)
+ * Callees:
+ *     ?bEqual@ERECTL@@QEBAHAEBV1@@Z @ 0x1C0002C10 (-bEqual@ERECTL@@QEBAHAEBV1@@Z.c)
+ *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C001CD74 (-vOrder@ERECTL@@QEAAXXZ.c)
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C004344C (--1SURFREF@@QEAA@XZ.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C0043470 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ?bWrapped@ERECTL@@QEBAHXZ @ 0x1C0043490 (-bWrapped@ERECTL@@QEBAHXZ.c)
+ *     ?bContain@ERECTL@@QEBAHAEBU_RECTL@@@Z @ 0x1C00434B0 (-bContain@ERECTL@@QEBAHAEBU_RECTL@@@Z.c)
+ *     HmgShareLockCheck @ 0x1C0049E60 (HmgShareLockCheck.c)
+ *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C0078860 (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 char __fastcall GrepValidateVisRgn(struct DC *a1, struct REGION *a2, struct _RECTL *a3)
 {
   int v3; // eax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of NVMeCompletionQueueInit @ 0x1C000C768
+ * Callers:
+ *     AdminQueueInitialize @ 0x1C0009254 (AdminQueueInitialize.c)
+ *     IoQueuesInitialize @ 0x1C000B04C (IoQueuesInitialize.c)
+ * Callees:
+ *     NVMeCompletionQueuesDedicatedSubmissionQueuesInit @ 0x1C000C96C (NVMeCompletionQueuesDedicatedSubmissionQueuesInit.c)
+ *     NVMeCompletionQueuesSubmissionQueuesInit @ 0x1C000CA00 (NVMeCompletionQueuesSubmissionQueuesInit.c)
+ */
+
 __int64 __fastcall NVMeCompletionQueueInit(
         __int64 a1,
         __int64 a2,

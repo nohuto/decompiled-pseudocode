@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiInitializeLargeMdlLeafPfns @ 0x140386D90
+ * Callers:
+ *     MiDoGangAssignment @ 0x140386D14 (MiDoGangAssignment.c)
+ * Callees:
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiGetPfnPageSizeIndex @ 0x14034D770 (MiGetPfnPageSizeIndex.c)
+ *     MiInitializeLargePfnList @ 0x14035059C (MiInitializeLargePfnList.c)
+ *     MiGetLeafPfnBuddy @ 0x140386E8C (MiGetLeafPfnBuddy.c)
+ *     MiInitializeMdlLeafPfns @ 0x140386EC0 (MiInitializeMdlLeafPfns.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiDemotePfnListChain @ 0x140665964 (MiDemotePfnListChain.c)
+ */
+
 void __fastcall MiInitializeLargeMdlLeafPfns(__int64 *a1, __int64 a2)
 {
   __int64 v2; // r14

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiQueueControlAreaDelete @ 0x140623600
+ * Callers:
+ *     MiDereferenceControlAreaProbe @ 0x140214FAC (MiDereferenceControlAreaProbe.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 LONG __fastcall MiQueueControlAreaDelete(__int64 a1)
 {
   __int64 v2; // rbp

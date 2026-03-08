@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpUnregisterPartitionPages @ 0x1405FF430
+ * Callers:
+ *     EtwpFreePartitionMemory @ 0x1405FEFB0 (EtwpFreePartitionMemory.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpUnregisterPartitionPages(_QWORD *a1, __int64 a2)
 {
   __int64 v3; // r15

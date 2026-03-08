@@ -1,3 +1,25 @@
+/*
+ * XREFs of MmMapLockedPagesWithReservedMapping @ 0x1403A1EB0
+ * Callers:
+ *     sub_1403EBEF0 @ 0x1403EBEF0 (sub_1403EBEF0.c)
+ *     HalpDmaAcquireBufferMappings @ 0x140453764 (HalpDmaAcquireBufferMappings.c)
+ *     SmFpAllocate @ 0x14045D93E (SmFpAllocate.c)
+ *     HalpDmaFlushBufferWithEmergencyResources @ 0x14050E9D8 (HalpDmaFlushBufferWithEmergencyResources.c)
+ *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x14050F0B4 (HalpDmaSyncMapBuffersWithEmergencyResources.c)
+ *     PnprCopyReservedMapping @ 0x1405607AC (PnprCopyReservedMapping.c)
+ *     PspIumFreePhysicalPages @ 0x1405A3C30 (PspIumFreePhysicalPages.c)
+ *     EtwpSavePersistedLogger @ 0x1409EAC60 (EtwpSavePersistedLogger.c)
+ *     PnprMapPhysicalPages @ 0x140A99C68 (PnprMapPhysicalPages.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiLegitimatePageForDriversToMap @ 0x14029F8D0 (MiLegitimatePageForDriversToMap.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMapMdlCommon @ 0x1403A2070 (MiMapMdlCommon.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 PVOID __stdcall MmMapLockedPagesWithReservedMapping(
         PVOID MappingAddress,
         ULONG PoolTag,

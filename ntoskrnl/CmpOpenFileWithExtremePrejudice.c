@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpOpenFileWithExtremePrejudice @ 0x140A1A060
+ * Callers:
+ *     CmpOpenHiveFile @ 0x1406C05C4 (CmpOpenHiveFile.c)
+ * Callees:
+ *     SetFailureLocation @ 0x140243E5C (SetFailureLocation.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwSetInformationFile @ 0x1404127F0 (ZwSetInformationFile.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     ZwQueryAttributesFile @ 0x140412AB0 (ZwQueryAttributesFile.c)
+ *     ZwCreateFile @ 0x140412DB0 (ZwCreateFile.c)
+ */
+
 __int64 __fastcall CmpOpenFileWithExtremePrejudice(
         PHANDLE FileHandle,
         POBJECT_ATTRIBUTES ObjectAttributes,

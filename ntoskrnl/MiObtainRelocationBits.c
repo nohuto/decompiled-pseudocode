@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiObtainRelocationBits @ 0x1406A1D10
+ * Callers:
+ *     MiSelectImageBase @ 0x1406A1934 (MiSelectImageBase.c)
+ * Callees:
+ *     RtlFindClearBitsAndSetEx @ 0x14020C1E0 (RtlFindClearBitsAndSetEx.c)
+ *     RtlClearBitsEx @ 0x14020FC50 (RtlClearBitsEx.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlSetBitsEx @ 0x14034CE90 (RtlSetBitsEx.c)
+ *     MiSelectRelocationStartHint @ 0x1406A1BE8 (MiSelectRelocationStartHint.c)
+ */
+
 unsigned __int64 __fastcall MiObtainRelocationBits(__int64 a1, unsigned __int16 a2, unsigned __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // r14

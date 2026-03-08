@@ -1,3 +1,23 @@
+/*
+ * XREFs of KiSchedulerApc @ 0x140353560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     KiHandleDeferredPreemption @ 0x1402AE8D0 (KiHandleDeferredPreemption.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KiRemoveQueueApc @ 0x1402F742C (KiRemoveQueueApc.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiSignalThreadForApc @ 0x140353F08 (KiSignalThreadForApc.c)
+ *     KiInsertQueueApc @ 0x140354598 (KiInsertQueueApc.c)
+ *     KiIsProcessTerminationRequested @ 0x140354EE0 (KiIsProcessTerminationRequested.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     DbgkForwardException @ 0x1409365F4 (DbgkForwardException.c)
+ */
+
 char __fastcall KiSchedulerApc(ULONG_PTR a1)
 {
   char result; // al

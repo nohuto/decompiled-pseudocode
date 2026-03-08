@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpHpSegMgrApplyLargePagePolicy @ 0x14030C0DC
+ * Callers:
+ *     RtlpHpSegMgrCommitInitiate @ 0x14030ABDC (RtlpHpSegMgrCommitInitiate.c)
+ * Callees:
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ */
+
 _BOOL8 __fastcall RtlpHpSegMgrApplyLargePagePolicy(__int64 a1)
 {
   unsigned int v1; // eax

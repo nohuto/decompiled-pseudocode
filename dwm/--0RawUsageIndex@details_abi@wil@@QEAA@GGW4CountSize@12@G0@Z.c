@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0RawUsageIndex@details_abi@wil@@QEAA@GGW4CountSize@12@G0@Z @ 0x140001E2C
+ * Callers:
+ *     ?RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z @ 0x14000149C (-RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z.c)
+ *     ??0UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x1400017A4 (--0UsageIndexes@details_abi@wil@@QEAA@XZ.c)
+ * Callees:
+ *     ?GetSize@UsageIndexProperty@details_abi@wil@@QEBA_KXZ @ 0x140001EB0 (-GetSize@UsageIndexProperty@details_abi@wil@@QEBA_KXZ.c)
+ */
+
 __int64 __fastcall wil::details_abi::RawUsageIndex::RawUsageIndex(
         __int64 a1,
         __int16 a2,

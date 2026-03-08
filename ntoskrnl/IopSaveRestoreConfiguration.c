@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopSaveRestoreConfiguration @ 0x14080290C
+ * Callers:
+ *     PnpFindBestConfigurationWorker @ 0x14080375C (PnpFindBestConfigurationWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall IopSaveRestoreConfiguration(__int64 a1, unsigned int a2, _QWORD **a3, char a4)
 {
   __int64 *v4; // r10

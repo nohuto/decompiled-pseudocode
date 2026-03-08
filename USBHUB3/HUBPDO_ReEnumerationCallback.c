@@ -1,3 +1,16 @@
+/*
+ * XREFs of HUBPDO_ReEnumerationCallback @ 0x1C001D680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     McTemplateK0pthhhtq_EtwWriteTransfer @ 0x1C00148B8 (McTemplateK0pthhhtq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF__guid_dd @ 0x1C0014D74 (WPP_RECORDER_SF__guid_dd.c)
+ *     EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wrapper @ 0x1C001D0E0 (EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wrapper.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBPDO_ReEnumerationCallback(
         __int64 SettingGuid,
         unsigned __int8 *Value,

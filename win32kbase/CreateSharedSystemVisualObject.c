@@ -1,3 +1,11 @@
+/*
+ * XREFs of CreateSharedSystemVisualObject @ 0x1C00A12E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CreateSharedResourceObject @ 0x1C00A19E4 (CreateSharedResourceObject.c)
+ */
+
 __int64 __fastcall CreateSharedSystemVisualObject(_QWORD *a1)
 {
   __int64 result; // rax

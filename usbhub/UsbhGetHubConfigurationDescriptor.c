@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhGetHubConfigurationDescriptor @ 0x1C002C234
+ * Callers:
+ *     UsbhConfigureUsbHub @ 0x1C0029DB0 (UsbhConfigureUsbHub.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhGetDescriptor @ 0x1C002B9AC (UsbhGetDescriptor.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 __int64 __fastcall UsbhGetHubConfigurationDescriptor(__int64 a1, unsigned __int16 **a2)
 {
   int v4; // ebp

@@ -1,3 +1,21 @@
+/*
+ * XREFs of ExpLoadAndSortLicensingCacheDescriptors @ 0x14081A5DC
+ * Callers:
+ *     SLQueryLicenseValueInternal @ 0x14081A004 (SLQueryLicenseValueInternal.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     ExpSetLicenseTamperState @ 0x140607004 (ExpSetLicenseTamperState.c)
+ *     sub_14081A850 @ 0x14081A850 (sub_14081A850.c)
+ *     sub_14081A8B4 @ 0x14081A8B4 (sub_14081A8B4.c)
+ *     ntoskrnl_24 @ 0x1409F6C30 (ntoskrnl_24.c)
+ */
+
 __int64 __fastcall ExpLoadAndSortLicensingCacheDescriptors(__int64 a1)
 {
   signed __int64 *v2; // rdi

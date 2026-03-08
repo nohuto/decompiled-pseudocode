@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RemoveDisplaySource@SESSION_VIEW@@QEAAJPEAVDISPLAY_SOURCE@@PEAE@Z @ 0x1C0350FC8
+ * Callers:
+ *     ?RemoveSourceViewFromSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@IE@Z @ 0x1C01C55D8 (-RemoveSourceViewFromSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@IE@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall SESSION_VIEW::RemoveDisplaySource(SESSION_VIEW *this, struct DISPLAY_SOURCE *a2, bool *a3)
 {
   struct DISPLAY_SOURCE **v7; // r8

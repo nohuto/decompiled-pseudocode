@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ConvertInnerToOuterBounds@CVectorShape@@QEAAXAEBUD2D_MATRIX_3X2_F@@@Z @ 0x1800D8CE0
+ * Callers:
+ *     ?PostSubgraph@CShapeBoundingContext@@QEAAJPEA_N@Z @ 0x1800D8B74 (-PostSubgraph@CShapeBoundingContext@@QEAAJPEA_N@Z.c)
+ * Callees:
+ *     ?Transform2DBounds@MILMatrix3x2@@QEBAXAEBUMilRectF@@AEAU2@@Z @ 0x1800D8D20 (-Transform2DBounds@MILMatrix3x2@@QEBAXAEBUMilRectF@@AEAU2@@Z.c)
+ */
+
 void __fastcall CVectorShape::ConvertInnerToOuterBounds(CVectorShape *this, const struct D2D_MATRIX_3X2_F *a2)
 {
   FLOAT dy; // xmm1_4

@@ -1,3 +1,16 @@
+/*
+ * XREFs of WbFreeWarbirdProcess @ 0x140752CDC
+ * Callers:
+ *     sub_1406AF0D8 @ 0x1406AF0D8 (sub_1406AF0D8.c)
+ * Callees:
+ *     sub_1406AF488 @ 0x1406AF488 (sub_1406AF488.c)
+ *     sub_1406AFC38 @ 0x1406AFC38 (sub_1406AFC38.c)
+ *     sub_140752C94 @ 0x140752C94 (sub_140752C94.c)
+ *     sub_140752E20 @ 0x140752E20 (sub_140752E20.c)
+ *     WbFreeMemoryBlock @ 0x140754DEC (WbFreeMemoryBlock.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WbFreeWarbirdProcess(_DWORD *P)
 {
   unsigned int v1; // edi

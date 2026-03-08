@@ -1,3 +1,15 @@
+/*
+ * XREFs of SepLengthSidAndAttributesArray @ 0x1407103B8
+ * Callers:
+ *     SepSetTokenCapabilities @ 0x140710278 (SepSetTokenCapabilities.c)
+ *     SepCreateClaimAttributes @ 0x140780934 (SepCreateClaimAttributes.c)
+ *     SepDuplicateClaimAttributes @ 0x1409CE654 (SepDuplicateClaimAttributes.c)
+ * Callees:
+ *     SeCaptureSidAndAttributesArray @ 0x140710470 (SeCaptureSidAndAttributesArray.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepLengthSidAndAttributesArray(void *Src, __int64 a2, _DWORD *a3)
 {
   void *Pool2; // rdi

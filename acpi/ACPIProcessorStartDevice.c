@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIProcessorStartDevice @ 0x1C003A140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIProcessorStartDeviceWorker @ 0x1C003A1C0 (ACPIProcessorStartDeviceWorker.c)
+ */
+
 __int64 __fastcall ACPIProcessorStartDevice(ULONG_PTR a1, __int64 a2)
 {
   struct _WORK_QUEUE_ITEM *DeviceExtension; // rax

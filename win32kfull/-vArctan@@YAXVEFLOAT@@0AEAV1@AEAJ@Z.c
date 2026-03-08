@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?vArctan@@YAXVEFLOAT@@0AEAV1@AEAJ@Z @ 0x1C02C8A60
+ * Callers:
+ *     cjIFIMetricsToOTMW @ 0x1C010FC74 (cjIFIMetricsToOTMW.c)
+ *     ?lfOrientation@IFIOBJ@@QEAAJXZ @ 0x1C0115CEC (-lfOrientation@IFIOBJ@@QEAAJXZ.c)
+ *     GreAngleArc @ 0x1C02ADE64 (GreAngleArc.c)
+ *     NtGdiArcInternal @ 0x1C02C8EE0 (NtGdiArcInternal.c)
+ * Callees:
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0016964 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     bFToL @ 0x1C00D1C50 (bFToL.c)
+ *     eFraction @ 0x1C0309AC4 (eFraction.c)
+ */
+
 __int64 __fastcall vArctan(int a1, int a2, float *a3, int *a4)
 {
   float v4; // xmm1_4

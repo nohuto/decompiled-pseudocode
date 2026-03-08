@@ -1,3 +1,19 @@
+/*
+ * XREFs of SdbInitDatabaseInMemory @ 0x14079CFC8
+ * Callers:
+ *     PiInitializeDDB @ 0x14079CD80 (PiInitializeDDB.c)
+ *     KsepSdbMapToMemory @ 0x14079D24C (KsepSdbMapToMemory.c)
+ *     PpBootDDBHelper @ 0x14081D504 (PpBootDDBHelper.c)
+ *     KsepSdbBootInitialize @ 0x14085E0A8 (KsepSdbBootInitialize.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbCloseDatabaseRead @ 0x14079CA28 (SdbCloseDatabaseRead.c)
+ *     SdbpInitializeMatchers @ 0x14079CF54 (SdbpInitializeMatchers.c)
+ *     SdbpOpenDatabaseInMemory @ 0x14079D050 (SdbpOpenDatabaseInMemory.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SdbInitDatabaseInMemory(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rbx

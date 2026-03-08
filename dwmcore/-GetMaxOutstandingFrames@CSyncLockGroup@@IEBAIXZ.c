@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetMaxOutstandingFrames@CSyncLockGroup@@IEBAIXZ @ 0x1801E374C
+ * Callers:
+ *     ?SyncLockTargets@CSyncLockGroup@@UEAAX_N@Z @ 0x1801E3970 (-SyncLockTargets@CSyncLockGroup@@UEAAX_N@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CSyncLockGroup::GetMaxOutstandingFrames(CSyncLockGroup *this)
 {
   __int64 *v1; // rbx

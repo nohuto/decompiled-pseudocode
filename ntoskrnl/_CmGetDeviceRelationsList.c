@@ -1,3 +1,14 @@
+/*
+ * XREFs of _CmGetDeviceRelationsList @ 0x14084ECA4
+ * Callers:
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA2A4 (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     PiCMGetDeviceIdList @ 0x14077813C (PiCMGetDeviceIdList.c)
+ *     _CmGetMatchingFilteredDeviceListWorker @ 0x140A62368 (_CmGetMatchingFilteredDeviceListWorker.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     _NtPlugPlayGetDeviceRelationsList @ 0x14084ED50 (_NtPlugPlayGetDeviceRelationsList.c)
+ */
+
 NTSTATUS __fastcall CmGetDeviceRelationsList(int a1, const WCHAR *a2, int a3, int a4, int a5, __int64 a6)
 {
   int v6; // ebx

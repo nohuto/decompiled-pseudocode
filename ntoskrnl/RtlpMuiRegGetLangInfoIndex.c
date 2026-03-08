@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpMuiRegGetLangInfoIndex @ 0x14085B0F8
+ * Callers:
+ *     RtlpMuiRegGetOrAddLangInfo @ 0x14085B02C (RtlpMuiRegGetOrAddLangInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpMuiRegGetLangInfoIndex(__int64 a1, char *a2)
 {
   __int16 v3; // bx

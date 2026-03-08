@@ -1,3 +1,13 @@
+/*
+ * XREFs of IrqLibpParseMadt @ 0x1C00ABC98
+ * Callers:
+ *     AcpiIrqLibConfigureLibrary @ 0x1C00ABA48 (AcpiIrqLibConfigureLibrary.c)
+ * Callees:
+ *     ProcessorAddInstance @ 0x1C009A7C4 (ProcessorAddInstance.c)
+ *     IcAddGicInstance @ 0x1C009EAFC (IcAddGicInstance.c)
+ *     IcAddApicInstance @ 0x1C00AC1C4 (IcAddApicInstance.c)
+ */
+
 __int64 __fastcall IrqLibpParseMadt(__int64 a1)
 {
   __int64 v1; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CAutoMutex@OPM@@QEAA@XZ @ 0x1C00BB710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall OPM::CAutoMutex::~CAutoMutex(struct _KMUTANT ***this)
 {
   struct _KMUTANT *v2; // rcx

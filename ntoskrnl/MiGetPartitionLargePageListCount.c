@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiGetPartitionLargePageListCount @ 0x140370F84
+ * Callers:
+ *     MmCreatePartition @ 0x1403A6A3C (MmCreatePartition.c)
+ *     MiCreatePfnDatabase @ 0x140B3A0B8 (MiCreatePfnDatabase.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 MiGetPartitionLargePageListCount()
 {
   unsigned int v0; // ecx

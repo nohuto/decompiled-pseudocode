@@ -1,3 +1,14 @@
+/*
+ * XREFs of HT_HalftoneBitmap @ 0x1C025325C
+ * Callers:
+ *     EngHTBlt @ 0x1C02E0A38 (EngHTBlt.c)
+ * Callees:
+ *     SanityCheckDimension @ 0x1C014AEB8 (SanityCheckDimension.c)
+ *     CheckABInfo @ 0x1C02523FC (CheckABInfo.c)
+ *     AAHalftoneBitmap @ 0x1C0253604 (AAHalftoneBitmap.c)
+ *     pDCIAdjClr @ 0x1C02583A8 (pDCIAdjClr.c)
+ */
+
 __int64 __fastcall HT_HalftoneBitmap(int a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int16 *a6)
 {
   __int64 v6; // rdx

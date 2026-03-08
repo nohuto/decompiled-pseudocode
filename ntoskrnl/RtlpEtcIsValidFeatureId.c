@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlpEtcIsValidFeatureId @ 0x14040BEC0
+ * Callers:
+ *     RtlpIsEnterpriseTemporaryControl @ 0x14040C090 (RtlpIsEnterpriseTemporaryControl.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlpEtcGetDwordFromRegistry @ 0x14040BE44 (RtlpEtcGetDwordFromRegistry.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 bool __fastcall RtlpEtcIsValidFeatureId(unsigned int a1, int a2)
 {
   char v4; // di

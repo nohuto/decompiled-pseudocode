@@ -1,3 +1,39 @@
+/*
+ * XREFs of RtlpHpFreeHeap @ 0x140313CC0
+ * Callers:
+ *     RtlpHpAllocateHeap @ 0x14024A2B0 (RtlpHpAllocateHeap.c)
+ *     RtlpHpMetadataFree @ 0x1402B6D30 (RtlpHpMetadataFree.c)
+ *     ExpHpCompactionRoutine @ 0x1402CC0B0 (ExpHpCompactionRoutine.c)
+ *     ExAllocateHeapPool @ 0x1403101C0 (ExAllocateHeapPool.c)
+ *     ExAllocateContiguousHeapPool @ 0x1403B4DF4 (ExAllocateContiguousHeapPool.c)
+ *     ExGetBigPoolInfo @ 0x140604B70 (ExGetBigPoolInfo.c)
+ *     ExPoolCleanupExpansionTable @ 0x140604EC8 (ExPoolCleanupExpansionTable.c)
+ *     ExpFreeHeapSpecialPool @ 0x14060CCF8 (ExpFreeHeapSpecialPool.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ * Callees:
+ *     RtlpHpVsChunkAlignSplit @ 0x140248F60 (RtlpHpVsChunkAlignSplit.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x14024A580 (RtlpHpVsFreeChunkInsert.c)
+ *     RtlpHpVsChunkCoalesce @ 0x14024B8C0 (RtlpHpVsChunkCoalesce.c)
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ *     RtlpHpSegPageRangeShrink @ 0x14024DB00 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpVsChunkComputeCost @ 0x14024E230 (RtlpHpVsChunkComputeCost.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x1402B689C (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpLargeFree @ 0x1402B6B40 (RtlpHpLargeFree.c)
+ *     RtlpHpVsSubsegmentCommitPages @ 0x1402CB850 (RtlpHpVsSubsegmentCommitPages.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x1402CD080 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpVsSubsegmentCleanup @ 0x1402E55D8 (RtlpHpVsSubsegmentCleanup.c)
+ *     RtlpHpVsSubsegmentFree @ 0x1402EAA68 (RtlpHpVsSubsegmentFree.c)
+ *     RtlpHpLfhSubsegmentFreeBlock @ 0x140309BA0 (RtlpHpLfhSubsegmentFreeBlock.c)
+ *     RtlpHpLfhBucketUpdateStats @ 0x14030BFE0 (RtlpHpLfhBucketUpdateStats.c)
+ *     RtlpHpAcquireQueuedLockExclusive @ 0x140350330 (RtlpHpAcquireQueuedLockExclusive.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     RtlpLogHeapFailure @ 0x1405B2884 (RtlpLogHeapFailure.c)
+ *     RtlpHpExtrasGet @ 0x1405B4100 (RtlpHpExtrasGet.c)
+ *     RtlpHpSizeHeap @ 0x1405B4398 (RtlpHpSizeHeap.c)
+ */
+
 __int64 __fastcall RtlpHpFreeHeap(__int64 a1, unsigned __int64 a2, int a3, unsigned __int64 a4, unsigned __int64 a5)
 {
   int v5; // eax

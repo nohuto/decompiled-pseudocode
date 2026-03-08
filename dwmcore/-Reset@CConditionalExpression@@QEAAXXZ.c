@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Reset@CConditionalExpression@@QEAAXXZ @ 0x1802250C0
+ * Callers:
+ *     ??0CConditionalExpression@@QEAA@PEAVCComposition@@@Z @ 0x180223FEC (--0CConditionalExpression@@QEAA@PEAVCComposition@@@Z.c)
+ *     ?ProcessConditionalExpression@CConditionalExpression@@SAJPEAV1@PEAVCExpressionValueStack@@_KW4OutputCoordinate@@PEA_NPEAM@Z @ 0x180224F4C (-ProcessConditionalExpression@CConditionalExpression@@SAJPEAV1@PEAVCExpressionValueStack@@_KW4Ou.c)
+ *     ?SelectInertiaModifierForAxis@CInteractionTracker@@QEAAJW4ScrollAxis@@PEAVCExpressionValueStack@@_KPEAPEAUIScalarForce@@@Z @ 0x180230C64 (-SelectInertiaModifierForAxis@CInteractionTracker@@QEAAJW4ScrollAxis@@PEAVCExpressionValueStack@.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CConditionalExpression::Reset(CConditionalExpression *this)
 {
   _QWORD *v1; // rdi

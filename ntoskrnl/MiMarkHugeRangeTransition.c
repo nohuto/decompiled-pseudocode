@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiMarkHugeRangeTransition @ 0x14062C4CC
+ * Callers:
+ *     MiInsertHugeRangeInList @ 0x14061EB84 (MiInsertHugeRangeInList.c)
+ * Callees:
+ *     MiUnlockIoPfnTree @ 0x14029B9B4 (MiUnlockIoPfnTree.c)
+ *     MiLockIoPfnTree @ 0x14029C1B0 (MiLockIoPfnTree.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall MiMarkHugeRangeTransition(unsigned __int64 a1)
 {
   unsigned int v1; // ebx

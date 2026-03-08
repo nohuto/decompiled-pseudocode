@@ -1,3 +1,16 @@
+/*
+ * XREFs of EngCreateWnd @ 0x1C028A3A0
+ * Callers:
+ *     VerifierEngCreateWnd @ 0x1C02A97D0 (VerifierEngCreateWnd.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vStamp@REGION@@QEAAXXZ @ 0x1C010DE80 (-vStamp@REGION@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     UserAssociateHwnd @ 0x1C01BEED0 (UserAssociateHwnd.c)
+ *     ??1WO_CLEANUP@@QEAA@XZ @ 0x1C0289B14 (--1WO_CLEANUP@@QEAA@XZ.c)
+ *     ?vSetClip@EWNDOBJ@@QEAAXPEAVREGION@@VERECTL@@@Z @ 0x1C028A0F8 (-vSetClip@EWNDOBJ@@QEAAXPEAVREGION@@VERECTL@@@Z.c)
+ */
+
 WNDOBJ *__stdcall EngCreateWnd(SURFOBJ *pso, HWND hwnd, WNDOBJCHANGEPROC pfn, FLONG fl, INT iPixelFormat)
 {
   __int64 v5; // rbx

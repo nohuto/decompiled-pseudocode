@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CDropShadowMarshaler@DirectComposition@@QEAA@XZ @ 0x1C000B508
+ * Callers:
+ *     ?CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C00673F4 (-CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2.c)
+ * Callees:
+ *     <none>
+ */
+
 DirectComposition::CDropShadowMarshaler *__fastcall DirectComposition::CDropShadowMarshaler::CDropShadowMarshaler(
         DirectComposition::CDropShadowMarshaler *this)
 {

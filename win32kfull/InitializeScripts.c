@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitializeScripts @ 0x1C03B68E8
+ * Callers:
+ *     ?vLookupScript@@YAXKPEAGK@Z @ 0x1C00BA7B4 (-vLookupScript@@YAXKPEAGK@Z.c)
+ * Callees:
+ *     ?LOADSTRING@@YAHPEAXIPEAGH@Z @ 0x1C00BA838 (-LOADSTRING@@YAHPEAXIPEAGH@Z.c)
+ */
+
 __int64 __fastcall InitializeScripts(__int64 a1)
 {
   unsigned int v1; // edi

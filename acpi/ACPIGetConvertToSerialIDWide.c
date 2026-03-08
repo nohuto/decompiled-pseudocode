@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIGetConvertToSerialIDWide @ 0x1C002A834
+ * Callers:
+ *     ACPIGetWorkerForString @ 0x1C002B860 (ACPIGetWorkerForString.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x1C000B900 (RtlStringCchPrintfW.c)
+ *     ACPIGetConvertToStringWide @ 0x1C002A974 (ACPIGetConvertToStringWide.c)
+ */
+
 __int64 __fastcall ACPIGetConvertToSerialIDWide(__int64 a1, int a2, __int64 a3, int a4, wchar_t **a5, _DWORD *a6)
 {
   wchar_t *Pool2; // rax

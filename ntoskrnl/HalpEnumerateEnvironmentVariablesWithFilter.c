@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpEnumerateEnvironmentVariablesWithFilter @ 0x140398850
+ * Callers:
+ *     HalEnumerateEnvironmentVariablesEx @ 0x1405027F0 (HalEnumerateEnvironmentVariablesEx.c)
+ * Callees:
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402ABED0 (KeSetSystemGroupAffinityThread.c)
+ *     HalpEfiDecrementEfiCall @ 0x1402AF954 (HalpEfiDecrementEfiCall.c)
+ *     HalpEfiIncrementEfiCall @ 0x1402AF9B0 (HalpEfiIncrementEfiCall.c)
+ *     HalpEfiStartRuntimeCode @ 0x1402AF9D8 (HalpEfiStartRuntimeCode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall HalpEnumerateEnvironmentVariablesWithFilter(
         int a1,
         unsigned __int8 (__fastcall *a2)(__int128 *, _WORD *),

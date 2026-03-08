@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiFdoOpenDeviceFileObjectIfNeeded @ 0x1C01F3348
+ * Callers:
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ *     DpiFdoDispatchPnp @ 0x1C021AD40 (DpiFdoDispatchPnp.c)
+ * Callees:
+ *     DpiIndirectOpenDevice @ 0x1C03A0200 (DpiIndirectOpenDevice.c)
+ */
+
 __int64 __fastcall DpiFdoOpenDeviceFileObjectIfNeeded(__int64 a1)
 {
   __int64 v3; // rsi

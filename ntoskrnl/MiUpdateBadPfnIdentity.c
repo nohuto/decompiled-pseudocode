@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiUpdateBadPfnIdentity @ 0x140628ED0
+ * Callers:
+ *     MmQueryBadAddresses @ 0x140A2D108 (MmQueryBadAddresses.c)
+ * Callees:
+ *     MiIdentifyPfn @ 0x14025E5D0 (MiIdentifyPfn.c)
+ *     MiIsPageInHugePfn @ 0x14029C30C (MiIsPageInHugePfn.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetPageInHugePageBadStatus @ 0x14061DAC4 (MiGetPageInHugePageBadStatus.c)
+ *     MiLockHugePfn @ 0x14061EFAC (MiLockHugePfn.c)
+ */
+
 __int64 __fastcall MiUpdateBadPfnIdentity(unsigned __int64 a1, unsigned __int64 *a2)
 {
   unsigned int v3; // r14d

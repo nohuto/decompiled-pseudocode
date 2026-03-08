@@ -1,3 +1,19 @@
+/*
+ * XREFs of BiLogFileOwnerProcess @ 0x14066EEB0
+ * Callers:
+ *     BiLoadSystemStore @ 0x14082B7EC (BiLoadSystemStore.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x140412530 (ZwQueryInformationFile.c)
+ *     ZwQueryInformationProcess @ 0x140412630 (ZwQueryInformationProcess.c)
+ *     ZwOpenProcess @ 0x1404127D0 (ZwOpenProcess.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     IopDmaOverrideConflict @ 0x1407F90C0 (IopDmaOverrideConflict.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall BiLogFileOwnerProcess(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int *v3; // rsi

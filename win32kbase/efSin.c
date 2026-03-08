@@ -1,3 +1,13 @@
+/*
+ * XREFs of efSin @ 0x1C000BE30
+ * Callers:
+ *     efCos @ 0x1C000BE00 (efCos.c)
+ *     ?bComputeUnits@EXFORMOBJ@@QEAAHJPEAVPOINTFL@@PEAVEFLOAT@@1@Z @ 0x1C017FB70 (-bComputeUnits@EXFORMOBJ@@QEAAHJPEAVPOINTFL@@PEAVEFLOAT@@1@Z.c)
+ * Callees:
+ *     bFToL @ 0x1C0002B7C (bFToL.c)
+ *     eFraction @ 0x1C000D098 (eFraction.c)
+ */
+
 __int64 __fastcall efSin(int a1)
 {
   float v1; // xmm1_4

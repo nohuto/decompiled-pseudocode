@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopAssessSystemIdleEvent @ 0x14073BD8C
+ * Callers:
+ *     PopIsSystemIdle @ 0x14073BC88 (PopIsSystemIdle.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall PopAssessSystemIdleEvent(int *a1, unsigned int a2, unsigned __int64 *a3)
 {
   unsigned __int64 v3; // r10

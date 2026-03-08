@@ -1,3 +1,15 @@
+/*
+ * XREFs of DerefOf @ 0x1C0006500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetBaseData @ 0x1C00055CA (GetBaseData.c)
+ *     ReadObject @ 0x1C0005BEE (ReadObject.c)
+ *     GetBaseObject @ 0x1C004B918 (GetBaseObject.c)
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ */
+
 __int64 __fastcall DerefOf(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

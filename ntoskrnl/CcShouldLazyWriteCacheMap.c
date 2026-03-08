@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcShouldLazyWriteCacheMap @ 0x140219060
+ * Callers:
+ *     CcLazyWriteScanVolume @ 0x140218810 (CcLazyWriteScanVolume.c)
+ *     CcLazyWriteScan @ 0x140533B4C (CcLazyWriteScan.c)
+ * Callees:
+ *     CcIsCacheMapACursorInPrivateVCM @ 0x1402191A4 (CcIsCacheMapACursorInPrivateVCM.c)
+ *     CcCanIWriteStreamEx @ 0x140363460 (CcCanIWriteStreamEx.c)
+ */
+
 char __fastcall CcShouldLazyWriteCacheMap(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6)
 {
   __int64 v6; // r10

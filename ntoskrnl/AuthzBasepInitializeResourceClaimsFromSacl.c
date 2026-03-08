@@ -1,3 +1,27 @@
+/*
+ * XREFs of AuthzBasepInitializeResourceClaimsFromSacl @ 0x1402975A8
+ * Callers:
+ *     SepCommonAccessCheckEx @ 0x140206FC0 (SepCommonAccessCheckEx.c)
+ *     SepMaximumAccessCheck @ 0x140208450 (SepMaximumAccessCheck.c)
+ *     SepNormalAccessCheckEx @ 0x140208E18 (SepNormalAccessCheckEx.c)
+ *     SepFilterCheck @ 0x140263850 (SepFilterCheck.c)
+ *     SeAccessCheckWithHint @ 0x1402653A0 (SeAccessCheckWithHint.c)
+ *     SepNormalAccessCheck @ 0x140267220 (SepNormalAccessCheck.c)
+ *     SeAccessCheckByType @ 0x14033BB40 (SeAccessCheckByType.c)
+ *     SepMaximumAccessCheckEx @ 0x1403C8AF0 (SepMaximumAccessCheckEx.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1406973E0 (SepAccessCheckAndAuditAlarm.c)
+ *     SeExamineSacl @ 0x1408A18B0 (SeExamineSacl.c)
+ *     SepExamineSaclEx @ 0x1409CB8C4 (SepExamineSaclEx.c)
+ * Callees:
+ *     AuthzBasepQuerySecurityAttributesToken @ 0x1402475E0 (AuthzBasepQuerySecurityAttributesToken.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x14029705C (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepMemAlloc @ 0x140297BFC (AuthzBasepMemAlloc.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402B8730 (AuthzBasepFreeSecurityAttributesList.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     AuthzBasepConvertRelativeToAbsoluteTokenAttribute @ 0x14066BF9C (AuthzBasepConvertRelativeToAbsoluteTokenAttribute.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AuthzBasepInitializeResourceClaimsFromSacl(__int64 a1, __int64 *a2)
 {
   int v3; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpLbrClearStack @ 0x140456700
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char HalpLbrClearStack()
 {
   unsigned __int8 CurrentIrql; // bl

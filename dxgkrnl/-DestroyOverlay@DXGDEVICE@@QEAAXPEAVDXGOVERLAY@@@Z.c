@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DestroyOverlay@DXGDEVICE@@QEAAXPEAVDXGOVERLAY@@@Z @ 0x1C02E42F8
+ * Callers:
+ *     ?DestroyAllDeviceState@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C01B3FD8 (-DestroyAllDeviceState@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
+ *     DxgkDestroyOverlay @ 0x1C0331570 (DxgkDestroyOverlay.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ??_GDXGOVERLAY@@QEAAPEAXI@Z @ 0x1C00487F0 (--_GDXGOVERLAY@@QEAAPEAXI@Z.c)
+ */
+
 void __fastcall DXGDEVICE::DestroyOverlay(DXGDEVICE *this, struct DXGOVERLAY ***a2)
 {
   struct DXGOVERLAY **v3; // rcx

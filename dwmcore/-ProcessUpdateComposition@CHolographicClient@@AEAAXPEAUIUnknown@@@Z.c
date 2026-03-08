@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessUpdateComposition@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AAB84
+ * Callers:
+ *     ?ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z @ 0x1802AA1A4 (-ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CHolographicClient::ProcessUpdateComposition(CHolographicClient *this, struct IUnknown *a2)
 {
   __int64 v3; // [rsp+38h] [rbp+10h] BYREF

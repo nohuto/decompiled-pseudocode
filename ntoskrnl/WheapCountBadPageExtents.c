@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheapCountBadPageExtents @ 0x140A0597C
+ * Callers:
+ *     WheaPersistBadPageToBcd @ 0x14060F9E0 (WheaPersistBadPageToBcd.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WheapCountBadPageExtents(__int64 *a1, unsigned int a2)
 {
   unsigned int v2; // r9d

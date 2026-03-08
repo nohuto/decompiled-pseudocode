@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?CheckDirectFlipSupport@COverlaySwapChainBase@@UEBA_NPEAUIUnknown@@W4DXGI_COLOR_SPACE_TYPE@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@2@Z @ 0x180299C10
+ * Callers:
+ *     ?CheckDirectFlipSupport@CLegacySwapChain@@UEBA_NPEAUIUnknown@@W4DXGI_COLOR_SPACE_TYPE@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@2@Z @ 0x180297340 (-CheckDirectFlipSupport@CLegacySwapChain@@UEBA_NPEAUIUnknown@@W4DXGI_COLOR_SPACE_TYPE@@AEBV-$TMi.c)
+ *     ?CalcPresentMode@CConversionSwapChain@@IEAAJPEAI@Z @ 0x18029D494 (-CalcPresentMode@CConversionSwapChain@@IEAAJPEAI@Z.c)
+ * Callees:
+ *     ?ConvertSDRBoostToSDRWhiteLevel@@YAIMW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1800FA2C4 (-ConvertSDRBoostToSDRWhiteLevel@@YAIMW4DXGI_COLOR_SPACE_TYPE@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?DirectFlipRectRequiresPanelFitter@COverlaySwapChainBase@@IEBA_NAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180299CE4 (-DirectFlipRectRequiresPanelFitter@COverlaySwapChainBase@@IEBA_NAEBV-$TMilRect@IUMilRectU@@UMil3.c)
+ */
+
 __int64 __fastcall COverlaySwapChainBase::CheckDirectFlipSupport(
         __int64 a1,
         __int64 a2,

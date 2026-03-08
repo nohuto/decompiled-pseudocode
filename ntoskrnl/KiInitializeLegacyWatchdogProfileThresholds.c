@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiInitializeLegacyWatchdogProfileThresholds @ 0x140B6DCB4
+ * Callers:
+ *     KiInitDpcThresholds @ 0x140B6DBB4 (KiInitDpcThresholds.c)
+ * Callees:
+ *     <none>
+ */
+
 void KiInitializeLegacyWatchdogProfileThresholds()
 {
   unsigned int v0; // r8d

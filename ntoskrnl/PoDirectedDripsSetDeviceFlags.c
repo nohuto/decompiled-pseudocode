@@ -1,3 +1,11 @@
+/*
+ * XREFs of PoDirectedDripsSetDeviceFlags @ 0x1403A66E0
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PoDirectedDripsSetDeviceFlags(__int64 a1, int a2)
 {
   unsigned int v2; // r8d

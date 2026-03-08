@@ -1,3 +1,18 @@
+/*
+ * XREFs of FopInitializeFonts @ 0x140B99D48
+ * Callers:
+ *     BgpFoInitialize @ 0x140B99E88 (BgpFoInitialize.c)
+ * Callees:
+ *     BgpFwAllocateMemory @ 0x140383BDC (BgpFwAllocateMemory.c)
+ *     FioFwReadUlongAtOffset @ 0x1403843C4 (FioFwReadUlongAtOffset.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     FopFreeFontData @ 0x140AE9314 (FopFreeFontData.c)
+ *     BgpRasInitializeRasterizer @ 0x140B98F30 (BgpRasInitializeRasterizer.c)
+ *     FopGetTableOffsetAndSize @ 0x140B996C4 (FopGetTableOffsetAndSize.c)
+ *     FopReadMappingTable @ 0x140B99898 (FopReadMappingTable.c)
+ *     FopValidateFontNameTable @ 0x140B99A68 (FopValidateFontNameTable.c)
+ */
+
 __int64 __fastcall FopInitializeFonts(__int64 a1)
 {
   int v1; // esi

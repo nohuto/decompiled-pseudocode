@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsOfType@CLinearGradientBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800DDED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CLinearGradientBrush::IsOfType(__int64 a1, int a2)
 {
   unsigned __int64 v2; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhValidateConfigurationDescriptor @ 0x1C00525F0
+ * Callers:
+ *     UsbhConfigureUsbHub @ 0x1C0029DB0 (UsbhConfigureUsbHub.c)
+ *     UsbhFdoSelectConfigurationPdo @ 0x1C002AC9C (UsbhFdoSelectConfigurationPdo.c)
+ *     UsbhGetDeviceInformation @ 0x1C00382CC (UsbhGetDeviceInformation.c)
+ * Callees:
+ *     USBD_ValidateConfigurationDescriptorInternal @ 0x1C003223C (USBD_ValidateConfigurationDescriptorInternal.c)
+ */
+
 char __fastcall UsbhValidateConfigurationDescriptor(__int64 a1, unsigned int a2, _DWORD *a3, char a4)
 {
   char v5; // di

@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcDeleteNumaNode @ 0x1403BC424
+ * Callers:
+ *     CcDeletePrivateVolumeCacheMap @ 0x1403BC0E4 (CcDeletePrivateVolumeCacheMap.c)
+ *     CcDeletePartition @ 0x140536840 (CcDeletePartition.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall CcDeleteNumaNode(__int64 a1)
 {
   __int64 v1; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetItem@FxWmiInstanceExternal@@MEAAJKKPEAX@Z @ 0x1C0029210
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall FxWmiInstanceExternal::SetItem(
         FxWmiInstanceExternal *this,
         unsigned int DataItemId,

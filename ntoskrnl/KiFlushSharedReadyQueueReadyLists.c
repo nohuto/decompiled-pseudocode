@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiFlushSharedReadyQueueReadyLists @ 0x14057BA1C
+ * Callers:
+ *     KiParkCurrentProcessor @ 0x14057BAA4 (KiParkCurrentProcessor.c)
+ * Callees:
+ *     MmGetMinWsPagePriority @ 0x140242D60 (MmGetMinWsPagePriority.c)
+ *     Feature_Servicing_SoftParkFixes__private_IsEnabledWithReporting @ 0x14040AF98 (Feature_Servicing_SoftParkFixes__private_IsEnabledWithReporting.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiFlushReadyLists @ 0x14057B934 (KiFlushReadyLists.c)
+ */
+
 void __fastcall KiFlushSharedReadyQueueReadyLists(__int64 a1, __int64 a2)
 {
   __int64 v4; // rdi

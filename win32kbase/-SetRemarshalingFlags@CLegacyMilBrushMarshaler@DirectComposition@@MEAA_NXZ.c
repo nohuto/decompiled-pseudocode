@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CLegacyMilBrushMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025E260
+ * Callers:
+ *     ?SetRemarshalingFlags@CGradientLegacyMilBrushMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025E10C (-SetRemarshalingFlags@CGradientLegacyMilBrushMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CImageLegacyMilBrushMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025E170 (-SetRemarshalingFlags@CImageLegacyMilBrushMarshaler@DirectComposition@@MEAA_NXZ.c)
+ *     ?SetRemarshalingFlags@CSolidColorLegacyMilBrushMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025EC80 (-SetRemarshalingFlags@CSolidColorLegacyMilBrushMarshaler@DirectComposition@@MEAA_NXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DirectComposition::CLegacyMilBrushMarshaler::SetRemarshalingFlags(
         DirectComposition::CLegacyMilBrushMarshaler *this)
 {

@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiCompressImportList @ 0x14078AB10
+ * Callers:
+ *     MiResolveImageReferences @ 0x1407EC794 (MiResolveImageReferences.c)
+ *     MiAddEntryToImportList @ 0x140A282AC (MiAddEntryToImportList.c)
+ *     MiRemoveEntryFromImportList @ 0x140A2838C (MiRemoveEntryFromImportList.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     MiAllocateImportList @ 0x14078AC28 (MiAllocateImportList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 _QWORD *__fastcall MiCompressImportList(_QWORD *P, int a2)
 {
   __int64 v3; // rbx

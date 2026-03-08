@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiVerifyScopesExecute @ 0x140B5D050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiVerifyPdata @ 0x140B5D77C (KiVerifyPdata.c)
+ */
+
 __int64 KiVerifyScopesExecute()
 {
   int v0; // ebx

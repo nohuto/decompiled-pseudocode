@@ -1,3 +1,11 @@
+/*
+ * XREFs of Feature_Servicing_CcTelemetryCrashOnHPEFix__private_IsEnabledFallback @ 0x140409A64
+ * Callers:
+ *     Feature_Servicing_CcTelemetryCrashOnHPEFix__private_IsEnabledDeviceUsage @ 0x140409A2C (Feature_Servicing_CcTelemetryCrashOnHPEFix__private_IsEnabledDeviceUsage.c)
+ * Callees:
+ *     wil_details_IsEnabledFallback @ 0x140409AE0 (wil_details_IsEnabledFallback.c)
+ */
+
 __int64 __fastcall Feature_Servicing_CcTelemetryCrashOnHPEFix__private_IsEnabledFallback(__int64 a1, __int64 a2)
 {
   return wil_details_IsEnabledFallback(a1, a2, &wil_details_featureDescriptors_a);

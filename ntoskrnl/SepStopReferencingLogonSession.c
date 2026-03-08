@@ -1,3 +1,14 @@
+/*
+ * XREFs of SepStopReferencingLogonSession @ 0x140742B6C
+ * Callers:
+ *     SepLinkLogonSessions @ 0x1402E832C (SepLinkLogonSessions.c)
+ *     NtSetInformationToken @ 0x140741E70 (NtSetInformationToken.c)
+ *     SepSetLogonSessionToken @ 0x14079AF7C (SepSetLogonSessionToken.c)
+ * Callees:
+ *     SepConvertToOwnTokenClaims @ 0x1402BE4F0 (SepConvertToOwnTokenClaims.c)
+ *     SepDeReferenceLogonSessionDirect @ 0x1402BE52C (SepDeReferenceLogonSessionDirect.c)
+ */
+
 __int64 __fastcall SepStopReferencingLogonSession(__int64 a1)
 {
   __int64 result; // rax

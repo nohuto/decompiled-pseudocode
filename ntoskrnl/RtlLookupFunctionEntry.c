@@ -1,3 +1,22 @@
+/*
+ * XREFs of RtlLookupFunctionEntry @ 0x140281130
+ * Callers:
+ *     RtlDispatchException @ 0x14027FA60 (RtlDispatchException.c)
+ *     RtlUnwindEx @ 0x1402809E0 (RtlUnwindEx.c)
+ *     RtlRaiseException @ 0x140364BF0 (RtlRaiseException.c)
+ *     RtlpSameFunction @ 0x1405AF5A0 (RtlpSameFunction.c)
+ *     MmWriteSystemImageTracepoint @ 0x140640F7C (MmWriteSystemImageTracepoint.c)
+ *     KiTpBuildExcludedKernelTracepointBitmap @ 0x140973330 (KiTpBuildExcludedKernelTracepointBitmap.c)
+ *     sub_140B16730 @ 0x140B16730 (sub_140B16730.c)
+ *     RtlInitializeHistoryTable @ 0x140B687EC (RtlInitializeHistoryTable.c)
+ *     RtlpInitMachineFrameEntries @ 0x140B704B8 (RtlpInitMachineFrameEntries.c)
+ *     KiInitDynamicTraceSupport @ 0x140B724AC (KiInitDynamicTraceSupport.c)
+ * Callees:
+ *     RtlpConvertFunctionEntry @ 0x1402822F0 (RtlpConvertFunctionEntry.c)
+ *     RtlpxLookupFunctionTable @ 0x1402CB3A0 (RtlpxLookupFunctionTable.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 unsigned int *__fastcall RtlLookupFunctionEntry(unsigned __int64 a1, _QWORD *a2, unsigned int *a3)
 {
   unsigned int v6; // edx

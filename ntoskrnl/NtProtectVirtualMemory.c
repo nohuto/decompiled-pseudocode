@@ -1,3 +1,20 @@
+/*
+ * XREFs of NtProtectVirtualMemory @ 0x1407C7210
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     PsIsProcessLoggingEnabled @ 0x1402CD440 (PsIsProcessLoggingEnabled.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     MiMakeProtectionMask @ 0x140320CC0 (MiMakeProtectionMask.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     MmProtectVirtualMemory @ 0x1407C77B0 (MmProtectVirtualMemory.c)
+ *     EtwTiLogProtectExecVm @ 0x1408A2C4A (EtwTiLogProtectExecVm.c)
+ *     VslDebugProtectSecureProcessMemory @ 0x14093EE68 (VslDebugProtectSecureProcessMemory.c)
+ */
+
 __int64 __fastcall NtProtectVirtualMemory(ULONG_PTR a1, unsigned __int64 *a2, __int64 *a3, int a4, _DWORD *a5)
 {
   ULONG_PTR v8; // r10

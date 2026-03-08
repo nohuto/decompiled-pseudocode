@@ -1,3 +1,19 @@
+/*
+ * XREFs of NVMeHwBuildIo @ 0x1C0001010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ScsiToNVMe @ 0x1C00010C0 (ScsiToNVMe.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ *     GetNamespaceId @ 0x1C0007A8C (GetNamespaceId.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     IoctlToNVMe @ 0x1C0014800 (IoctlToNVMe.c)
+ *     ProtocolCommandToNVMe @ 0x1C00187F4 (ProtocolCommandToNVMe.c)
+ *     NVMeSetSenseData @ 0x1C0024238 (NVMeSetSenseData.c)
+ *     ProcessCommandNvmePacket @ 0x1C00244D0 (ProcessCommandNvmePacket.c)
+ */
+
 char __fastcall NVMeHwBuildIo(__int64 a1, __int64 a2)
 {
   __int64 v4; // rcx

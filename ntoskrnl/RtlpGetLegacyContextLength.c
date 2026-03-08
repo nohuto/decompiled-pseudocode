@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpGetLegacyContextLength @ 0x140365130
+ * Callers:
+ *     RtlGetExtendedContextLength2 @ 0x140364DF0 (RtlGetExtendedContextLength2.c)
+ *     PspWow64InitThread @ 0x14077BCB4 (PspWow64InitThread.c)
+ *     PspWow64SetupCpuArea @ 0x14077BE68 (PspWow64SetupCpuArea.c)
+ *     RtlWow64GetCpuAreaInfo @ 0x14077C93C (RtlWow64GetCpuAreaInfo.c)
+ *     RtlpWriteExtendedContext @ 0x14077CA08 (RtlpWriteExtendedContext.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpGetLegacyContextLength(int a1, int *a2, _DWORD *a3)
 {
   int v3; // r9d

@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeDispatchSecondaryInterrupt @ 0x14039E1A0
+ * Callers:
+ *     HalpInvokeIsrForGsiv @ 0x14039E150 (HalpInvokeIsrForGsiv.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KiInterruptDispatchCommon @ 0x14039E224 (KiInterruptDispatchCommon.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireSecondarySignalListLock @ 0x14056F3E8 (KiAcquireSecondarySignalListLock.c)
+ */
+
 char __fastcall KeDispatchSecondaryInterrupt(int a1, unsigned int a2, __int64 a3)
 {
   unsigned __int8 CurrentIrql; // bl

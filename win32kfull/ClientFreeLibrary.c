@@ -1,3 +1,13 @@
+/*
+ * XREFs of ClientFreeLibrary @ 0x1C00C966C
+ * Callers:
+ *     xxxLoadHmodIndex @ 0x1C006CD10 (xxxLoadHmodIndex.c)
+ *     xxxDoSysExpunge @ 0x1C00C9400 (xxxDoSysExpunge.c)
+ * Callees:
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00344F8 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0034558 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall ClientFreeLibrary(__int64 a1)
 {
   int v1; // ebx

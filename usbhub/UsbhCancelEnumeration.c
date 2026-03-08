@@ -1,3 +1,22 @@
+/*
+ * XREFs of UsbhCancelEnumeration @ 0x1C0022424
+ * Callers:
+ *     UsbhBusPause_Action @ 0x1C0012DC0 (UsbhBusPause_Action.c)
+ *     UsbhEnumerate1 @ 0x1C001A4E8 (UsbhEnumerate1.c)
+ *     UsbhPCE_Disable @ 0x1C0034550 (UsbhPCE_Disable.c)
+ *     UsbhEnumerate2 @ 0x1C004C770 (UsbhEnumerate2.c)
+ *     UsbhHandleOvercurrent @ 0x1C004CC94 (UsbhHandleOvercurrent.c)
+ * Callees:
+ *     UsbhCancelResetTimeout @ 0x1C00015A0 (UsbhCancelResetTimeout.c)
+ *     UsbhReleaseEnumBusLockEx @ 0x1C0003BCC (UsbhReleaseEnumBusLockEx.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhAssertBusLock @ 0x1C00367A4 (UsbhAssertBusLock.c)
+ *     Usbh_BusPause_PdoEvent @ 0x1C003A81C (Usbh_BusPause_PdoEvent.c)
+ *     UsbhBusUnlatchPdo @ 0x1C004C9E8 (UsbhBusUnlatchPdo.c)
+ */
+
 __int64 __fastcall UsbhCancelEnumeration(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
   int v9; // r9d

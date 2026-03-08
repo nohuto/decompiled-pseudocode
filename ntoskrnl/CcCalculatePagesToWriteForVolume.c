@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcCalculatePagesToWriteForVolume @ 0x1402EA204
+ * Callers:
+ *     CcLazyWriteScanVolume @ 0x140218810 (CcLazyWriteScanVolume.c)
+ *     CcNotifyExternalCachesInternal @ 0x1403CD5F8 (CcNotifyExternalCachesInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CcCalculatePagesToWriteForVolume(__int64 a1, int a2)
 {
   unsigned __int64 v2; // rbx

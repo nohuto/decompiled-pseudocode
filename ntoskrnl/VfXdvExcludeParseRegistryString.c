@@ -1,3 +1,13 @@
+/*
+ * XREFs of VfXdvExcludeParseRegistryString @ 0x140B93D2C
+ * Callers:
+ *     VfInitBootDriversLoaded @ 0x140B4EE44 (VfInitBootDriversLoaded.c)
+ * Callees:
+ *     VfDriverLock @ 0x140AC773C (VfDriverLock.c)
+ *     VfDriverUnlock @ 0x140AC7860 (VfDriverUnlock.c)
+ *     VfSuspectExcludedDriversAllocateEntry @ 0x140AD7C10 (VfSuspectExcludedDriversAllocateEntry.c)
+ */
+
 int VfXdvExcludeParseRegistryString()
 {
   unsigned __int64 Entry; // rax

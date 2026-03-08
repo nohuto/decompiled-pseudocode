@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcGetCachedDirtyPageCountForFile @ 0x140535570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CcGetCachedDirtyPageCountForFile(__int64 a1)
 {
   __int64 result; // rax

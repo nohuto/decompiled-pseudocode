@@ -1,3 +1,28 @@
+/*
+ * XREFs of EtwpRegisterKMProvider @ 0x140690D64
+ * Callers:
+ *     EtwRegister @ 0x140690D20 (EtwRegister.c)
+ *     EtwRegisterClassicProvider @ 0x140796FC0 (EtwRegisterClassicProvider.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     EtwpAddKmRegEntry @ 0x140691058 (EtwpAddKmRegEntry.c)
+ *     EtwpUpdateEnableMask @ 0x140692F88 (EtwpUpdateEnableMask.c)
+ *     EtwpComputeRegEntryEnableInfo @ 0x1406934E8 (EtwpComputeRegEntryEnableInfo.c)
+ *     EtwpGetSchematizedFilterSize @ 0x140694C98 (EtwpGetSchematizedFilterSize.c)
+ *     EtwpFindOrCreateGuidEntry @ 0x140694E30 (EtwpFindOrCreateGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x140695094 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpTrackProviderRegistration @ 0x1406952D0 (EtwpTrackProviderRegistration.c)
+ *     EtwpEventWriteTemplateSessAndProv @ 0x1408A20CA (EtwpEventWriteTemplateSessAndProv.c)
+ *     EtwpCopySchematizedFilters @ 0x1409F23CC (EtwpCopySchematizedFilters.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpRegisterKMProvider(
         int a1,
         _QWORD *a2,

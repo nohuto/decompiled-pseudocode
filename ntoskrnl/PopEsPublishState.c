@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopEsPublishState @ 0x1408600C0
+ * Callers:
+ *     PopEsUpdateState @ 0x1403C0334 (PopEsUpdateState.c)
+ *     PopEsWorker @ 0x140870CA0 (PopEsWorker.c)
+ * Callees:
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     PopSetPowerSettingValueAcDc @ 0x14073BE70 (PopSetPowerSettingValueAcDc.c)
+ */
+
 __int64 PopEsPublishState()
 {
   int v0; // eax

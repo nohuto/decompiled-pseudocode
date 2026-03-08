@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetDesktopName@@YAPEBGPEAUtagDESKTOP@@@Z @ 0x1C0095610
+ * Callers:
+ *     ?DestroyDesktop@@YAHPEAUtagDESKTOP@@@Z @ 0x1C0094B64 (-DestroyDesktop@@YAHPEAUtagDESKTOP@@@Z.c)
+ *     ?DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C0094CDC (-DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 const unsigned __int16 *__fastcall GetDesktopName(struct tagDESKTOP *a1)
 {
   ULONG ReturnLength; // [rsp+30h] [rbp+8h] BYREF

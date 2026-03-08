@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiEnablePagingTheExecutive @ 0x140B5F508
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     MiSetPagingOfDriver @ 0x1402AFF28 (MiSetPagingOfDriver.c)
+ *     MiSnapDriverRange @ 0x14072A118 (MiSnapDriverRange.c)
+ *     MiImagePagable @ 0x14072A7E0 (MiImagePagable.c)
+ *     MiLockPagableSections @ 0x140B5F628 (MiLockPagableSections.c)
+ */
+
 void MiEnablePagingTheExecutive()
 {
   PVOID *i; // rbx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpAllocateStackwalkApcPool @ 0x1409E5C44
+ * Callers:
+ *     EtwpEnableGuid @ 0x14068EEBC (EtwpEnableGuid.c)
+ *     EtwpInitializeClassicStackTracing @ 0x1409E5CE4 (EtwpInitializeClassicStackTracing.c)
+ * Callees:
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall EtwpAllocateStackwalkApcPool(__int64 a1)
 {
   struct _SLIST_ENTRY *Pool2; // rax

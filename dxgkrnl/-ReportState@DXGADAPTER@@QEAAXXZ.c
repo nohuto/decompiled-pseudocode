@@ -1,3 +1,25 @@
+/*
+ * XREFs of ?ReportState@DXGADAPTER@@QEAAXXZ @ 0x1C02B4808
+ * Callers:
+ *     ?ReportState@DXGGLOBAL@@QEAAXXZ @ 0x1C031007C (-ReportState@DXGGLOBAL@@QEAAXXZ.c)
+ * Callees:
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00045F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     McTemplateK0ppqxqxqqqqqqqqquuuuqqqqqQR23qqpx_EtwWriteTransfer @ 0x1C003FCA8 (McTemplateK0ppqxqxqqqqqqqqquuuuqqqqqQR23qqpx_EtwWriteTransfer.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C004006C (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     McTemplateK0pqtqq_EtwWriteTransfer @ 0x1C0040104 (McTemplateK0pqtqq_EtwWriteTransfer.c)
+ *     McTemplateK0pqqqqjzqqx_EtwWriteTransfer @ 0x1C00401AC (McTemplateK0pqqqqjzqqx_EtwWriteTransfer.c)
+ *     McTemplateK0pqqqxx_EtwWriteTransfer @ 0x1C00403A0 (McTemplateK0pqqqxx_EtwWriteTransfer.c)
+ *     McTemplateK0pqtq_EtwWriteTransfer @ 0x1C0040634 (McTemplateK0pqtq_EtwWriteTransfer.c)
+ *     ?GetAdapterType@DXGADAPTER@@QEAA?AU_D3DKMT_ADAPTERTYPE@@XZ @ 0x1C01A5DA4 (-GetAdapterType@DXGADAPTER@@QEAA-AU_D3DKMT_ADAPTERTYPE@@XZ.c)
+ *     DpiReportAdapter @ 0x1C020B4D4 (DpiReportAdapter.c)
+ *     ?ReportNodeMetadata@DXGADAPTER@@QEBAXXZ @ 0x1C020CA04 (-ReportNodeMetadata@DXGADAPTER@@QEBAXXZ.c)
+ *     ?ReportState@ADAPTER_DISPLAY@@QEAAXXZ @ 0x1C02BA640 (-ReportState@ADAPTER_DISPLAY@@QEAAXXZ.c)
+ *     ?ReportState@ADAPTER_RENDER@@QEAAXXZ @ 0x1C02BCBFC (-ReportState@ADAPTER_RENDER@@QEAAXXZ.c)
+ */
+
 void __fastcall DXGADAPTER::ReportState(DXGADAPTER *this)
 {
   __int64 v2; // rdi

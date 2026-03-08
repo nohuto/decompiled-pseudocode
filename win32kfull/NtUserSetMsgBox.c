@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetMsgBox @ 0x1C01DD4A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ */
+
 __int64 __fastcall NtUserSetMsgBox(__int64 a1)
 {
   __int64 v2; // rax

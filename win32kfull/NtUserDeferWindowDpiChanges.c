@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserDeferWindowDpiChanges @ 0x1C0012910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _SetDeferredDpiStateForWindowAndChildren @ 0x1C0041748 (_SetDeferredDpiStateForWindowAndChildren.c)
+ */
+
 __int64 __fastcall NtUserDeferWindowDpiChanges(__int64 a1)
 {
   __int64 v2; // rax

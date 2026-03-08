@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetAdapterLuid@COverlayContext@@AEBA?AU_LUID@@XZ @ 0x1801DA5A8
+ * Callers:
+ *     ?ComputeOverlayConfiguration@COverlayContext@@SAJAEBV?$span@PEAVCOverlayContext@@$0?0@gsl@@@Z @ 0x1800527B0 (-ComputeOverlayConfiguration@COverlayContext@@SAJAEBV-$span@PEAVCOverlayContext@@$0-0@gsl@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 struct _LUID __fastcall COverlayContext::GetAdapterLuid(COverlayContext *this, _QWORD *a2)
 {
   __int64 (__fastcall ***v3)(_QWORD, _BYTE *); // rcx

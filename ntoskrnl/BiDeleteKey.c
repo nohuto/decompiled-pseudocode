@@ -1,3 +1,21 @@
+/*
+ * XREFs of BiDeleteKey @ 0x14082CF64
+ * Callers:
+ *     BcdDeleteObject @ 0x14082C47C (BcdDeleteObject.c)
+ *     BiDeleteElement @ 0x14082CDF8 (BiDeleteElement.c)
+ *     BiDeleteKey @ 0x14082CF64 (BiDeleteKey.c)
+ *     BcdSetElementDataWithFlags @ 0x14082D894 (BcdSetElementDataWithFlags.c)
+ * Callees:
+ *     CmSiCloseSection @ 0x1402F8438 (CmSiCloseSection.c)
+ *     BiSanitizeHandle @ 0x1402FDDE8 (BiSanitizeHandle.c)
+ *     BiZwDeleteKey @ 0x1403902DC (BiZwDeleteKey.c)
+ *     BiDeleteKey @ 0x14082CF64 (BiDeleteKey.c)
+ *     BiEnumerateSubKeys @ 0x14082D288 (BiEnumerateSubKeys.c)
+ *     BiOpenKey @ 0x14082E7AC (BiOpenKey.c)
+ *     BiCloseKey @ 0x14082E938 (BiCloseKey.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiDeleteKey(__int64 a1)
 {
   unsigned __int64 v1; // rax

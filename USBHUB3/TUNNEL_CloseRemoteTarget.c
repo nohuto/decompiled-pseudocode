@@ -1,3 +1,14 @@
+/*
+ * XREFs of TUNNEL_CloseRemoteTarget @ 0x1C008E5D0
+ * Callers:
+ *     TUNNEL_EvtIoTargetRemoveComplete @ 0x1C008E4C0 (TUNNEL_EvtIoTargetRemoveComplete.c)
+ *     TUNNEL_CloseAllUsb4RemoteTargets @ 0x1C008E780 (TUNNEL_CloseAllUsb4RemoteTargets.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_qqq @ 0x1C0040E00 (WPP_RECORDER_SF_qqq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall TUNNEL_CloseRemoteTarget(_QWORD *a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbx

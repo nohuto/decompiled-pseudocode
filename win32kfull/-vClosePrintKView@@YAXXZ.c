@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vClosePrintKView@@YAXXZ @ 0x1C02B98F8
+ * Callers:
+ *     ?MapFontFileInKernel@@YAJPEAXPEAPEAX@Z @ 0x1C02B884C (-MapFontFileInKernel@@YAJPEAXPEAPEAX@Z.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ */
+
 void __fastcall vClosePrintKView(__int64 a1)
 {
   __int64 v1; // rbx

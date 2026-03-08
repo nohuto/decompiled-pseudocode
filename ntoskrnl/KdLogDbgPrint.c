@@ -1,3 +1,14 @@
+/*
+ * XREFs of KdLogDbgPrint @ 0x140AB2000
+ * Callers:
+ *     KdpPrint @ 0x140AB2368 (KdpPrint.c)
+ *     KdpPrompt @ 0x140AB24E8 (KdpPrompt.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KdpCopyMemoryChunks @ 0x140AAD0F4 (KdpCopyMemoryChunks.c)
+ */
+
 struct _KPRCB *__fastcall KdLogDbgPrint(char **a1)
 {
   struct _KPRCB *result; // rax

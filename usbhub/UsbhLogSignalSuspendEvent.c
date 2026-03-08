@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhLogSignalSuspendEvent @ 0x1C0034208
+ * Callers:
+ *     UsbhSignalSuspendEvent @ 0x1C00353B4 (UsbhSignalSuspendEvent.c)
+ *     UsbhiSignalSuspendEvent @ 0x1C0036644 (UsbhiSignalSuspendEvent.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 __int64 __fastcall UsbhLogSignalSuspendEvent(__int64 a1, __int64 a2)
 {
   unsigned int v4; // edi

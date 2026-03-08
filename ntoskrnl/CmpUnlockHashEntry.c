@@ -1,3 +1,19 @@
+/*
+ * XREFs of CmpUnlockHashEntry @ 0x1407AB010
+ * Callers:
+ *     CmpDrainDelayDerefContext @ 0x140262F30 (CmpDrainDelayDerefContext.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1406B6660 (CmpDereferenceKeyControlBlock.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1406E1630 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpDoParseKey @ 0x1406E1D90 (CmpDoParseKey.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x14074BC50 (CmpFindSubkeyInHashByChildCell.c)
+ *     CmpDelayCloseWorker @ 0x1407AB950 (CmpDelayCloseWorker.c)
+ *     CmpWalkOneLevel @ 0x1407B1C90 (CmpWalkOneLevel.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     CmpDeleteHive @ 0x14074C680 (CmpDeleteHive.c)
+ */
+
 void __fastcall CmpUnlockHashEntry(_QWORD *P, unsigned int a2)
 {
   __int64 *v3; // rbx

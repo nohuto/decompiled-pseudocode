@@ -1,3 +1,24 @@
+/*
+ * XREFs of PfSnBeginAppLaunch @ 0x1407E6D34
+ * Callers:
+ *     PfProcessCreateNotification @ 0x1407E6CA0 (PfProcessCreateNotification.c)
+ *     PfSnAppLaunchScenarioControl @ 0x14097C6E0 (PfSnAppLaunchScenarioControl.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PfSnLogScenarioDecision @ 0x1406BE5DC (PfSnLogScenarioDecision.c)
+ *     PfSnBeginScenario @ 0x1407E4764 (PfSnBeginScenario.c)
+ *     PfSnCalculateScenarioNameAndHash @ 0x1407E4DC0 (PfSnCalculateScenarioNameAndHash.c)
+ *     PfSnAltProfileFindByScenarioId @ 0x1407E50B0 (PfSnAltProfileFindByScenarioId.c)
+ *     PfSnCheckScenario @ 0x1407E6F8C (PfSnCheckScenario.c)
+ *     PfCalculateProcessHash @ 0x1407E7450 (PfCalculateProcessHash.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfSnBeginAppLaunch(void *a1, _OWORD *a2, int a3)
 {
   __int64 v6; // rcx

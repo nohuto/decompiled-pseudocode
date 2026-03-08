@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AnimateSingle@CParticleAttractor@@UEBAXMAEAV?$span@M$0?0@gsl@@0@Z @ 0x18023C630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sqrtf_0 @ 0x1801177AC (sqrtf_0.c)
+ */
+
 void __fastcall CParticleAttractor::AnimateSingle(__int64 a1, float a2, __int64 a3, __int64 a4)
 {
   float *v4; // rdx

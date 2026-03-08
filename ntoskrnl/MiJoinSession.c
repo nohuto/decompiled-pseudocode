@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiJoinSession @ 0x140728960
+ * Callers:
+ *     MmCreateProcessAddressSpace @ 0x1407289B8 (MmCreateProcessAddressSpace.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiJoinSession(volatile signed __int32 **a1)
 {
   struct _KTHREAD *CurrentThread; // rax

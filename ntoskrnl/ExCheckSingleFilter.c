@@ -1,3 +1,19 @@
+/*
+ * XREFs of ExCheckSingleFilter @ 0x140462BFE
+ * Callers:
+ *     ExAllocateHeapPool @ 0x1403101C0 (ExAllocateHeapPool.c)
+ *     EtwTraceObjectOperation @ 0x1405FAC04 (EtwTraceObjectOperation.c)
+ *     EtwTracePool @ 0x1405FAD80 (EtwTracePool.c)
+ *     EtwTraceDuplicateHandle @ 0x1409E22CC (EtwTraceDuplicateHandle.c)
+ *     EtwTraceObject @ 0x1409E2DE8 (EtwTraceObject.c)
+ *     EtwpTraceHandle @ 0x1409E3D9C (EtwpTraceHandle.c)
+ *     EtwpObjectHandleEnumCallback @ 0x1409EC330 (EtwpObjectHandleEnumCallback.c)
+ *     ViFaultsIsTagPresentInList @ 0x140AD3B50 (ViFaultsIsTagPresentInList.c)
+ *     ViFaultsIsTagTarget @ 0x140AD3B9C (ViFaultsIsTagTarget.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ExCheckSingleFilter(int a1, int a2)
 {
   unsigned int v2; // ecx

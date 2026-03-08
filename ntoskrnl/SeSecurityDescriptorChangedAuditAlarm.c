@@ -1,3 +1,23 @@
+/*
+ * XREFs of SeSecurityDescriptorChangedAuditAlarm @ 0x14076AA40
+ * Callers:
+ *     NtSetSecurityObject @ 0x14076A550 (NtSetSecurityObject.c)
+ * Callees:
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     SeMaximumAuditMask @ 0x1405B55B8 (SeMaximumAuditMask.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140699810 (SepAdtAuditThisEventWithContext.c)
+ *     SepQueryNameString @ 0x140744C84 (SepQueryNameString.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1409C9E48 (SepAdtSecurityDescriptorChangedAuditAlarm.c)
+ *     SepQueryTypeString @ 0x1409CA608 (SepQueryTypeString.c)
+ *     SepIsAclEqual @ 0x1409CE3E8 (SepIsAclEqual.c)
+ *     SepIsSidEqual @ 0x1409CE468 (SepIsSidEqual.c)
+ *     SepAuditFailed @ 0x1409CEE50 (SepAuditFailed.c)
+ *     SeMaximumAuditMaskFromGlobalSacl @ 0x1409CF634 (SeMaximumAuditMaskFromGlobalSacl.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SeSecurityDescriptorChangedAuditAlarm(
         __int64 a1,
         char *a2,

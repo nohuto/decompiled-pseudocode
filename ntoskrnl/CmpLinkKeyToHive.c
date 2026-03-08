@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpLinkKeyToHive @ 0x1408159D8
+ * Callers:
+ *     CmpFinishSystemHivesLoad @ 0x140815160 (CmpFinishSystemHivesLoad.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ */
+
 bool __fastcall CmpLinkKeyToHive(PCWSTR SourceString, PCWSTR a2)
 {
   NTSTATUS v3; // ebx

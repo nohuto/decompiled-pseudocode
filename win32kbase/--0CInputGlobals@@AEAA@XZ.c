@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??0CInputGlobals@@AEAA@XZ @ 0x1C0097BCC
+ * Callers:
+ *     ?Initialize@CInputGlobals@@SAJXZ @ 0x1C0097B48 (-Initialize@CInputGlobals@@SAJXZ.c)
+ * Callees:
+ *     ?UpdateWakeOnInputDeviceTypesFromRegistry@CInputGlobals@@QEAAXXZ @ 0x1C009D2B0 (-UpdateWakeOnInputDeviceTypesFromRegistry@CInputGlobals@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ApiSetGetUndimSourceInputTypeMask @ 0x1C0244B6C (ApiSetGetUndimSourceInputTypeMask.c)
+ */
+
 CInputGlobals *__fastcall CInputGlobals::CInputGlobals(CInputGlobals *this)
 {
   *((_QWORD *)this + 2) = 0LL;

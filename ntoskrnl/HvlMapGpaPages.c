@@ -1,3 +1,16 @@
+/*
+ * XREFs of HvlMapGpaPages @ 0x140676A60
+ * Callers:
+ *     VmpInvalidateSingleGpaRange @ 0x14045E678 (VmpInvalidateSingleGpaRange.c)
+ *     VmpFillSlat @ 0x1405F6C78 (VmpFillSlat.c)
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HvlpHvToNtStatus @ 0x140456F16 (HvlpHvToNtStatus.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 __int64 __fastcall HvlMapGpaPages(LONGLONG a1, __int64 a2, int a3, unsigned __int64 a4, __int64 a5, __int64 *a6)
 {
   unsigned int v6; // esi

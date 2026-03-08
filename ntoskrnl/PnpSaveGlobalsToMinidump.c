@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpSaveGlobalsToMinidump @ 0x14055E2C0
+ * Callers:
+ *     IopAddBugcheckTriageDataFromParameters @ 0x14054F674 (IopAddBugcheckTriageDataFromParameters.c)
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ */
+
 char PnpSaveGlobalsToMinidump()
 {
   IoAddTriageDumpDataBlock((ULONG)&PnpDeviceActionThread, (PVOID)8);

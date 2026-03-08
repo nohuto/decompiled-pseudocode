@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpExecutiveResourceConfigRunDown @ 0x1409EBDB8
+ * Callers:
+ *     EtwpKernelTraceRundown @ 0x14080D9F8 (EtwpKernelTraceRundown.c)
+ * Callees:
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall EtwpExecutiveResourceConfigRunDown(__int64 a1, char a2)
 {
   unsigned int v2; // r8d

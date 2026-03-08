@@ -1,3 +1,14 @@
+/*
+ * XREFs of DpiGetRegistryPathFromPDO @ 0x1C001D100
+ * Callers:
+ *     DpiGetDeviceRegistryPaths @ 0x1C001D038 (DpiGetDeviceRegistryPaths.c)
+ *     ?DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ @ 0x1C02B14FC (-DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ.c)
+ *     ?VmBusSendGetRegistryKeys@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAG@Z @ 0x1C03856B8 (-VmBusSendGetRegistryKeys@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAG@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall DpiGetRegistryPathFromPDO(struct _DEVICE_OBJECT *a1, int a2, unsigned __int16 *a3)
 {
   NTSTATUS v4; // eax

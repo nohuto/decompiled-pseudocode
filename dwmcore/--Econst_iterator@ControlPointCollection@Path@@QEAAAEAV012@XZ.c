@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??Econst_iterator@ControlPointCollection@Path@@QEAAAEAV012@XZ @ 0x1800D3D9C
+ * Callers:
+ *     ?IsEmpty@CPathSegmentsShape@@UEBA_NXZ @ 0x1800D3C70 (-IsEmpty@CPathSegmentsShape@@UEBA_NXZ.c)
+ *     ?Interpolate@CInterpolatePathsOperation@@QEAAJPEBVCPathData@@0MPEAPEAV2@@Z @ 0x1802ABE0C (-Interpolate@CInterpolatePathsOperation@@QEAAJPEBVCPathData@@0MPEAPEAV2@@Z.c)
+ * Callees:
+ *     ?GetControlPoints@Segment@Path@@QEBA?AV?$span@$$CBUD2D_POINT_2F@@$0?0@gsl@@XZ @ 0x1800D3DFC (-GetControlPoints@Segment@Path@@QEBA-AV-$span@$$CBUD2D_POINT_2F@@$0-0@gsl@@XZ.c)
+ *     ??Econst_iterator@SegmentCollection@Path@@QEAAAEAV012@XZ @ 0x1800D3E74 (--Econst_iterator@SegmentCollection@Path@@QEAAAEAV012@XZ.c)
+ */
+
 _QWORD *__fastcall Path::ControlPointCollection::const_iterator::operator++(_QWORD *a1)
 {
   int v2; // ebx

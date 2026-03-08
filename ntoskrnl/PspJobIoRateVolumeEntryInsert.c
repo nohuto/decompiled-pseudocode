@@ -1,3 +1,15 @@
+/*
+ * XREFs of PspJobIoRateVolumeEntryInsert @ 0x1405A2018
+ * Callers:
+ *     PspSetJobIoRateControlForVolume @ 0x1409AFB14 (PspSetJobIoRateControlForVolume.c)
+ * Callees:
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockTrackerCompare @ 0x1405A1F80 (MiLockTrackerCompare.c)
+ */
+
 void __fastcall PspJobIoRateVolumeEntryInsert(__int64 a1, unsigned __int64 a2)
 {
   volatile LONG *v2; // r12

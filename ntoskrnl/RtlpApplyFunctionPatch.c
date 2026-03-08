@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpApplyFunctionPatch @ 0x14067890C
+ * Callers:
+ *     RtlApplyHotPatch @ 0x140AAA600 (RtlApplyHotPatch.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpApplyFunctionPatch(_WORD *a1, int a2, __int64 a3, __int64 a4, int a5)
 {
   __int64 result; // rax

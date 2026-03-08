@@ -1,3 +1,19 @@
+/*
+ * XREFs of WPP_IFR_SF_dq @ 0x1C0018070
+ * Callers:
+ *     imp_WdfDmaEnablerGetFragmentLength @ 0x1C0018A50 (imp_WdfDmaEnablerGetFragmentLength.c)
+ *     imp_WdfDmaEnablerWdmGetDmaAdapter @ 0x1C0018C50 (imp_WdfDmaEnablerWdmGetDmaAdapter.c)
+ *     ?AllocateAdapterChannel@FxDmaPacketTransaction@@IEAAJE@Z @ 0x1C001C4BC (-AllocateAdapterChannel@FxDmaPacketTransaction@@IEAAJE@Z.c)
+ *     ?FreeMapRegistersAndAdapter@FxDmaPacketTransaction@@MEAAXXZ @ 0x1C001C680 (-FreeMapRegistersAndAdapter@FxDmaPacketTransaction@@MEAAXXZ.c)
+ *     UnlockVerifierSection @ 0x1C00450DC (UnlockVerifierSection.c)
+ *     ?QueueDrainSynchronously@FxIoQueue@@QEAAJXZ @ 0x1C00657E8 (-QueueDrainSynchronously@FxIoQueue@@QEAAJXZ.c)
+ *     ?QueueIdleSynchronously@FxIoQueue@@QEAAJE@Z @ 0x1C0065C54 (-QueueIdleSynchronously@FxIoQueue@@QEAAJE@Z.c)
+ *     ?QueuePurgeSynchronously@FxIoQueue@@QEAAJXZ @ 0x1C006602C (-QueuePurgeSynchronously@FxIoQueue@@QEAAJXZ.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_dq(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 level,

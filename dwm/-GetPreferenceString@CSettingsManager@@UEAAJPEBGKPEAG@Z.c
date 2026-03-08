@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPreferenceString@CSettingsManager@@UEAAJPEBGKPEAG@Z @ 0x14000BF10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CSettingsManager::GetPreferenceString(
         RTL_SRWLOCK *this,
         const unsigned __int16 *a2,

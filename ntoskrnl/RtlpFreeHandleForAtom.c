@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlpFreeHandleForAtom @ 0x1407DC658
+ * Callers:
+ *     RtlpFreeAllAtom @ 0x140355B04 (RtlpFreeAllAtom.c)
+ *     RtlEmptyAtomTable @ 0x1409B8EA0 (RtlEmptyAtomTable.c)
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExDestroyHandle @ 0x1407D76E4 (ExDestroyHandle.c)
+ *     ExMapHandleToPointer @ 0x1407D80C0 (ExMapHandleToPointer.c)
+ */
+
 void __fastcall RtlpFreeHandleForAtom(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExAddPrivateDataToCrashDump @ 0x1406047DC
+ * Callers:
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14055A46C (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopLiveDumpAddPoolTrackTables @ 0x140A970B0 (IopLiveDumpAddPoolTrackTables.c)
+ * Callees:
+ *     MmAddRangeToCrashDump @ 0x14062DD30 (MmAddRangeToCrashDump.c)
+ */
+
 __int64 __fastcall ExAddPrivateDataToCrashDump(__int64 a1)
 {
   unsigned int v1; // esi

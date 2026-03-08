@@ -1,3 +1,25 @@
+/*
+ * XREFs of WheapGetErrorSource @ 0x14060EAE8
+ * Callers:
+ *     HalpMcaReportError @ 0x140501778 (HalpMcaReportError.c)
+ *     HalHandleNMI @ 0x140504300 (HalHandleNMI.c)
+ *     KiMcheckAlternateReturn @ 0x14057DEF0 (KiMcheckAlternateReturn.c)
+ *     WheapReportBootError @ 0x14060E01C (WheapReportBootError.c)
+ *     WheaErrorSourceGetState @ 0x14060E190 (WheaErrorSourceGetState.c)
+ *     WheaGetErrorSource @ 0x14060E1E0 (WheaGetErrorSource.c)
+ *     WheaReportHwError @ 0x14060E280 (WheaReportHwError.c)
+ *     WheapAttemptErrorRecovery @ 0x14060E8B4 (WheapAttemptErrorRecovery.c)
+ *     WheaAddHwErrorReportSectionDeviceDriver @ 0x14060ED50 (WheaAddHwErrorReportSectionDeviceDriver.c)
+ *     WheaHwErrorReportSubmitDeviceDriver @ 0x14060F030 (WheaHwErrorReportSubmitDeviceDriver.c)
+ *     WheapFreeDriverPacketBuffer @ 0x14060F444 (WheapFreeDriverPacketBuffer.c)
+ *     WheapGetPreallocatedPacketBuffer @ 0x14060F4C0 (WheapGetPreallocatedPacketBuffer.c)
+ *     WheapInitErrorReportDeviceDriver @ 0x14060F578 (WheapInitErrorReportDeviceDriver.c)
+ *     WheapWmiExecuteErrorSourceMethod @ 0x140611798 (WheapWmiExecuteErrorSourceMethod.c)
+ *     WheaRemoveErrorSource @ 0x140A04C80 (WheaRemoveErrorSource.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall WheapGetErrorSource(__int64 a1, unsigned int a2)
 {
   int v2; // r10d

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ldevFillTable@@YAHPEAU_LDEV@@PEAUtagDRVENABLEDATA@@W4_LDEVTYPE@@@Z @ 0x1C00272A0
+ * Callers:
+ *     ldevLoadDriver @ 0x1C0024CA0 (ldevLoadDriver.c)
+ *     ?ldevBindDisplayStub@@YAPEAU_LDEV@@XZ @ 0x1C0024F5C (-ldevBindDisplayStub@@YAPEAU_LDEV@@XZ.c)
+ *     ldevLoadInternal @ 0x1C00CD9B0 (ldevLoadInternal.c)
+ * Callees:
+ *     ?bFillFunctionTable@@YAHPEAU_DRVFN@@KPEAP6A_JXZ@Z @ 0x1C0027350 (-bFillFunctionTable@@YAHPEAU_DRVFN@@KPEAP6A_JXZ@Z.c)
+ */
+
 __int64 __fastcall ldevFillTable(__int64 a1, int *a2)
 {
   struct _DRVFN *v3; // rcx

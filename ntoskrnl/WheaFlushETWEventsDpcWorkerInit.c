@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheaFlushETWEventsDpcWorkerInit @ 0x1403AC228
+ * Callers:
+ *     WheapEtwEnableCallback @ 0x14085D170 (WheapEtwEnableCallback.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 (__fastcall *WheaFlushETWEventsDpcWorkerInit())()
 {
   __int64 (__fastcall *result)(); // rax

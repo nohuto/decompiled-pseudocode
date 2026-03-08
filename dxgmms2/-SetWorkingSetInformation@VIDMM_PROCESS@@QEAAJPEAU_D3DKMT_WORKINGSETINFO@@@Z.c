@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetWorkingSetInformation@VIDMM_PROCESS@@QEAAJPEAU_D3DKMT_WORKINGSETINFO@@@Z @ 0x1C00EF8A8
+ * Callers:
+ *     VidMmSetWorkingSetInformation @ 0x1C002D4D0 (VidMmSetWorkingSetInformation.c)
+ * Callees:
+ *     McTemplateK0tqq_EtwWriteTransfer @ 0x1C002F978 (McTemplateK0tqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall VIDMM_PROCESS::SetWorkingSetInformation(
         VIDMM_PROCESS *this,
         struct _D3DKMT_WORKINGSETINFO *a2,

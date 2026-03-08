@@ -1,3 +1,23 @@
+/*
+ * XREFs of xxxRemoteDisconnect @ 0x1C00F7034
+ * Callers:
+ *     NtUserRemoteDisconnect @ 0x1C00F6DD0 (NtUserRemoteDisconnect.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RemoveInputDevices @ 0x1C00F6800 (RemoveInputDevices.c)
+ *     UnregisterDeviceClassNotifications @ 0x1C00F68FC (UnregisterDeviceClassNotifications.c)
+ *     ?xxxRemoteSetDisconnectDisplayMode@@YAJPEAUtagDESKTOP@@GPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00F69C0 (-xxxRemoteSetDisconnectDisplayMode@@YAJPEAUtagDESKTOP@@GPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     GreDxgkPreSessionDisconnected @ 0x1C00F6D80 (GreDxgkPreSessionDisconnected.c)
+ *     xxxRemoteStopScreenUpdates @ 0x1C00F6E08 (xxxRemoteStopScreenUpdates.c)
+ *     RemoteRedrawScreen @ 0x1C0126610 (RemoteRedrawScreen.c)
+ *     GreDrvDisconnect @ 0x1C0128FB4 (GreDrvDisconnect.c)
+ *     PowerOnGdi @ 0x1C0129280 (PowerOnGdi.c)
+ *     PowerOffGdi @ 0x1C01295B0 (PowerOffGdi.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 xxxRemoteDisconnect()
 {

@@ -1,3 +1,31 @@
+/*
+ * XREFs of PiDrvDbRegisterNode @ 0x14081C38C
+ * Callers:
+ *     PiDrvDbInit @ 0x14081C014 (PiDrvDbInit.c)
+ *     PiDrvDbRegisterNodeCallback @ 0x140860D8C (PiDrvDbRegisterNodeCallback.c)
+ *     PiDrvDbMountNode @ 0x14096D0E0 (PiDrvDbMountNode.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x140412E10 (ZwOpenDirectoryObject.c)
+ *     ZwCreateSymbolicLinkObject @ 0x140413BD0 (ZwCreateSymbolicLinkObject.c)
+ *     _PnpSetObjectProperty @ 0x140686C8C (_PnpSetObjectProperty.c)
+ *     RtlFindUnicodeSubstring @ 0x1406B8BB0 (RtlFindUnicodeSubstring.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ *     RtlDuplicateUnicodeString @ 0x140761970 (RtlDuplicateUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PiDrvDbDriverStoreNodesUpdated @ 0x14081C56C (PiDrvDbDriverStoreNodesUpdated.c)
+ *     PiDrvDbCreateNode @ 0x14081C92C (PiDrvDbCreateNode.c)
+ *     DrvDbRegisterDatabase @ 0x14081D5A8 (DrvDbRegisterDatabase.c)
+ *     PiDrvDbDestroyNode @ 0x14096CEBC (PiDrvDbDestroyNode.c)
+ *     _PnpCtxRegisterMachineNode @ 0x140A5DF28 (_PnpCtxRegisterMachineNode.c)
+ *     DrvDbUnregisterDatabase @ 0x140A6AC64 (DrvDbUnregisterDatabase.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDrvDbRegisterNode(PCWSTR Source, char a2, int a3)
 {
   const WCHAR *v4; // rsi

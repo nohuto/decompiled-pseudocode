@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1?$CQueue@PEAVCResource@@@@QEAA@XZ @ 0x18010DDF8
+ * Callers:
+ *     _dynamic_atexit_destructor_for__CManipulationManager::s_InteractionUpdateQueue__ @ 0x1801200E0 (_dynamic_atexit_destructor_for__CManipulationManager--s_InteractionUpdateQueue__.c)
+ *     ??1CManipulationManager@@MEAA@XZ @ 0x18027FDEC (--1CManipulationManager@@MEAA@XZ.c)
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ */
+
 void __fastcall CQueue<CResource *>::~CQueue<CResource *>(_DWORD *a1)
 {
   struct _RTL_CRITICAL_SECTION *v2; // rdi

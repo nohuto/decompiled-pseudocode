@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPISystemPowerUpdateDeviceCapabilities @ 0x1C003E114
+ * Callers:
+ *     ACPISystemPowerQueryDeviceCapabilities @ 0x1C00952EC (ACPISystemPowerQueryDeviceCapabilities.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPISystemPowerDetermineSupportedSystemState @ 0x1C003DE60 (ACPISystemPowerDetermineSupportedSystemState.c)
+ *     ACPIDevicePowerDetermineSupportedDeviceStates @ 0x1C0082888 (ACPIDevicePowerDetermineSupportedDeviceStates.c)
+ *     ACPISystemPowerGetSxD @ 0x1C0094FC0 (ACPISystemPowerGetSxD.c)
+ *     ACPISystemPowerUpdateWakeCapabilities @ 0x1C00955A4 (ACPISystemPowerUpdateWakeCapabilities.c)
+ */
+
 __int64 __fastcall ACPISystemPowerUpdateDeviceCapabilities(ULONG_PTR BugCheckParameter2, __m128i *a2, __int64 a3)
 {
   __int32 v3; // eax

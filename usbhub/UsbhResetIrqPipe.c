@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhResetIrqPipe @ 0x1C00393AC
+ * Callers:
+ *     UsbhHubResetIrqPipeWorker @ 0x1C0038B00 (UsbhHubResetIrqPipeWorker.c)
+ * Callees:
+ *     UsbhSyncSendInternalIoctl @ 0x1C0004A70 (UsbhSyncSendInternalIoctl.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 __int64 __fastcall UsbhResetIrqPipe(__int64 a1)
 {
   _DWORD *v2; // rbx

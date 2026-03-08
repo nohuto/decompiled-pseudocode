@@ -1,3 +1,24 @@
+/*
+ * XREFs of PpmCheckReInit @ 0x1408265CC
+ * Callers:
+ *     PopIntSteerSetMode @ 0x14038D810 (PopIntSteerSetMode.c)
+ *     PpmCheckPausePpmEngineForSx @ 0x140593EFC (PpmCheckPausePpmEngineForSx.c)
+ *     PpmCheckResumePpmEngineFromSx @ 0x140593F40 (PpmCheckResumePpmEngineFromSx.c)
+ *     PpmParkSetLpiCap @ 0x14059ADFC (PpmParkSetLpiCap.c)
+ *     PpmReapplyPerfPolicy @ 0x1408261A0 (PpmReapplyPerfPolicy.c)
+ *     PpmCheckInitProcessors @ 0x140827DA4 (PpmCheckInitProcessors.c)
+ *     PpmRegisterPerfStates @ 0x14082802C (PpmRegisterPerfStates.c)
+ * Callees:
+ *     PoEnergyEstimationEnabled @ 0x1402384C0 (PoEnergyEstimationEnabled.c)
+ *     PopInterruptSteeringEnabled @ 0x14038E288 (PopInterruptSteeringEnabled.c)
+ *     PpmPerfClearResponsivenessHints @ 0x14038E2A4 (PpmPerfClearResponsivenessHints.c)
+ *     PpmCheckArmPeriod @ 0x14038E300 (PpmCheckArmPeriod.c)
+ *     PpmPerfCheckRequired @ 0x14038E388 (PpmPerfCheckRequired.c)
+ *     PpmParkParkingAvailable @ 0x1408266FC (PpmParkParkingAvailable.c)
+ *     PpmParkUpdateConcurrencyTracking @ 0x14082681C (PpmParkUpdateConcurrencyTracking.c)
+ *     PpmPerfResetHistoryAll @ 0x140828CC4 (PpmPerfResetHistoryAll.c)
+ */
+
 __int64 (__fastcall ***PpmCheckReInit())()
 {
   char v0; // bl

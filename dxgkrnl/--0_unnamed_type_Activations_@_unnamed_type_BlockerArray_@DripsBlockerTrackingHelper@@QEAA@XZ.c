@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0_unnamed_type_Activations_@_unnamed_type_BlockerArray_@DripsBlockerTrackingHelper@@QEAA@XZ @ 0x1C001955C
+ * Callers:
+ *     ??0_unnamed_type_BlockerArray_@DripsBlockerTrackingHelper@@QEAA@XZ @ 0x1C001F7E0 (--0_unnamed_type_BlockerArray_@DripsBlockerTrackingHelper@@QEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 DripsBlockerTrackingHelper::_unnamed_type_BlockerArray_::_unnamed_type_Activations_ *__fastcall DripsBlockerTrackingHelper::_unnamed_type_BlockerArray_::_unnamed_type_Activations_::_unnamed_type_Activations_(
         DripsBlockerTrackingHelper::_unnamed_type_BlockerArray_::_unnamed_type_Activations_ *this)
 {

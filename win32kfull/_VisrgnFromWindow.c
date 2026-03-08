@@ -1,3 +1,14 @@
+/*
+ * XREFs of _VisrgnFromWindow @ 0x1C007EFB0
+ * Callers:
+ *     ?vSpUpdateSpriteVisRgn@@YAXPEAUHDEV__@@K@Z @ 0x1C00546FC (-vSpUpdateSpriteVisRgn@@YAXPEAUHDEV__@@K@Z.c)
+ *     UserVisrgnFromHwnd @ 0x1C007EF04 (UserVisrgnFromHwnd.c)
+ * Callees:
+ *     ?_GhostWindowFromHungWindow@@YAPEAUtagWND@@PEBU1@@Z @ 0x1C00255DC (-_GhostWindowFromHungWindow@@YAPEAUtagWND@@PEBU1@@Z.c)
+ *     IsWindowContentProtected @ 0x1C002E710 (IsWindowContentProtected.c)
+ *     CalcVisRgn @ 0x1C00535C0 (CalcVisRgn.c)
+ */
+
 __int64 __fastcall VisrgnFromWindow(const struct tagWND *a1, int a2, HRGN *a3)
 {
   __int64 v6; // rdx

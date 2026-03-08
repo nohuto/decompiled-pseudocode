@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwTiLogInsertQueueUserApc @ 0x1402F8804
+ * Callers:
+ *     KeInsertQueueApc @ 0x14027DBF0 (KeInsertQueueApc.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwpTiVadQueryEventWrite @ 0x1402F8AE4 (EtwpTiVadQueryEventWrite.c)
+ *     EtwpTiFillProcessIdentity @ 0x140367BF4 (EtwpTiFillProcessIdentity.c)
+ *     EtwProviderEnabled @ 0x140367E30 (EtwProviderEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void EtwTiLogInsertQueueUserApc(char a1, __int64 a2, __int64 a3, ...)
 {
   _KPROCESS *v6; // r14

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpIommuAllocateRemappingTableEntry @ 0x14050B7E8
+ * Callers:
+ *     HalpIrtAllocateIndex @ 0x14080BD48 (HalpIrtAllocateIndex.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpIommuConvertPciBusMasterDescriptorToDeviceId @ 0x14050B954 (HalpIommuConvertPciBusMasterDescriptorToDeviceId.c)
+ */
+
 __int64 __fastcall HalpIommuAllocateRemappingTableEntry(
         unsigned int a1,
         __int64 a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of rimFindReferencedRimObj @ 0x1C0004BC0
+ * Callers:
+ *     RIMIDECreatePseudoMouseOrKeyboardDevice @ 0x1C0004878 (RIMIDECreatePseudoMouseOrKeyboardDevice.c)
+ *     RIMIDECreatePseudoHIDDevice @ 0x1C01C2E38 (RIMIDECreatePseudoHIDDevice.c)
+ * Callees:
+ *     rimIsExplicitRimUsagesMatchingUsages @ 0x1C00350D4 (rimIsExplicitRimUsagesMatchingUsages.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall rimFindReferencedRimObj(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
   _QWORD *v5; // rdi

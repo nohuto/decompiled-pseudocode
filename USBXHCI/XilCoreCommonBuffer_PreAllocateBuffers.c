@@ -1,3 +1,12 @@
+/*
+ * XREFs of XilCoreCommonBuffer_PreAllocateBuffers @ 0x1C0007968
+ * Callers:
+ *     CommonBuffer_WorkItem @ 0x1C00078A0 (CommonBuffer_WorkItem.c)
+ * Callees:
+ *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0007A24 (XilCoreCommonBuffer_AllocateBuffers.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ */
+
 void __fastcall XilCoreCommonBuffer_PreAllocateBuffers(__int64 a1)
 {
   _DWORD *v1; // rbx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiScanBugCheckCallbackList @ 0x140568790
+ * Callers:
+ *     IopWriteTriageDumpToFirmware @ 0x140551DD0 (IopWriteTriageDumpToFirmware.c)
+ *     KeBugCheck2 @ 0x140565E90 (KeBugCheck2.c)
+ * Callees:
+ *     MmIsAddressValidEx @ 0x1403471E0 (MmIsAddressValidEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void KiScanBugCheckCallbackList()
 {
   __int64 v0; // rbx

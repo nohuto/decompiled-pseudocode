@@ -1,3 +1,34 @@
+/*
+ * XREFs of ?CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C00673F4
+ * Callers:
+ *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C0066180 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
+ *     ?CreateInternalPrivateResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C0069D34 (-CreateInternalPrivateResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMars.c)
+ * Callees:
+ *     ??0CDropShadowMarshaler@DirectComposition@@QEAA@XZ @ 0x1C000B508 (--0CDropShadowMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CProjectedShadowSceneMarshaler@DirectComposition@@QEAA@XZ @ 0x1C000CF38 (--0CProjectedShadowSceneMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0068568 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     NSInstrumentation::CLeakTrackingAllocator::AllocateCommon__lambda_a6c9ad8a3ccccec93018e691c2ba1200___ @ 0x1C0068680 (NSInstrumentation--CLeakTrackingAllocator--AllocateCommon__lambda_a6c9ad8a3ccccec93018e691c2ba12.c)
+ *     ??0CSpriteVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C00698D8 (--0CSpriteVisualMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ?GeneratedCreatePrivateMarshaler@DirectComposition@@YAJIPEAPEAVCResourceMarshaler@1@@Z @ 0x1C006A574 (-GeneratedCreatePrivateMarshaler@DirectComposition@@YAJIPEAPEAVCResourceMarshaler@1@@Z.c)
+ *     ??0CShapeVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C006B2A4 (--0CShapeVisualMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CInteractionMarshaler@DirectComposition@@QEAA@XZ @ 0x1C00A2E8C (--0CInteractionMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CAnimationLoggingManagerMarshaler@DirectComposition@@QEAA@XZ @ 0x1C00BDE80 (--0CAnimationLoggingManagerMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CGradientBrushMarshaler@DirectComposition@@IEAA@W4MIL_RESOURCE_TYPE@@@Z @ 0x1C00BF214 (--0CGradientBrushMarshaler@DirectComposition@@IEAA@W4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ??0CLayerVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C00C1044 (--0CLayerVisualMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CCaptureControllerMarshaler@DirectComposition@@QEAA@XZ @ 0x1C0249F44 (--0CCaptureControllerMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CFilterEffectMarshaler@DirectComposition@@IEAA@W4MIL_RESOURCE_TYPE@@@Z @ 0x1C0249F80 (--0CFilterEffectMarshaler@DirectComposition@@IEAA@W4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ??0CGenericMarshaler@DirectComposition@@QEAA@W4MIL_RESOURCE_TYPE@@@Z @ 0x1C0249FC0 (--0CGenericMarshaler@DirectComposition@@QEAA@W4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ??0CHolographicInteropTextureMarshaler@DirectComposition@@QEAA@XZ @ 0x1C0249FF8 (--0CHolographicInteropTextureMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CHolographicViewerMarshaler@DirectComposition@@QEAA@XZ @ 0x1C024A02C (--0CHolographicViewerMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CInteractionTrackerBindingManagerMarshaler@DirectComposition@@QEAA@XZ @ 0x1C024A084 (--0CInteractionTrackerBindingManagerMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CNaturalAnimationMarshaler@DirectComposition@@QEAA@XZ @ 0x1C024A0C0 (--0CNaturalAnimationMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CRedirectVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C024A128 (--0CRedirectVisualMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CRemoteAppRenderTargetMarshaler@DirectComposition@@QEAA@XZ @ 0x1C024A188 (--0CRemoteAppRenderTargetMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CSpatialRemarshalerMarshaler@DirectComposition@@QEAA@XZ @ 0x1C024A1BC (--0CSpatialRemarshalerMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CWindowNodeMarshaler@DirectComposition@@QEAA@XZ @ 0x1C024A21C (--0CWindowNodeMarshaler@DirectComposition@@QEAA@XZ.c)
+ *     ??0CInteractionTrackerMarshaler@DirectComposition@@QEAA@XZ @ 0x1C02669BC (--0CInteractionTrackerMarshaler@DirectComposition@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall DirectComposition::CApplicationChannel::CreatePrivateMarshaler(
         DirectComposition::CApplicationChannel *this,
         unsigned __int64 a2,

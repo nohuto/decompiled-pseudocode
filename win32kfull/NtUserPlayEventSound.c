@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserPlayEventSound @ 0x1C01D9890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxPlayEventSound @ 0x1C00DE8D0 (xxxPlayEventSound.c)
+ */
+
 __int64 __fastcall NtUserPlayEventSound(unsigned int a1)
 {
   __int64 v2; // rbx

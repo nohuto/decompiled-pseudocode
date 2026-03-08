@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpDoFindSubKeyByNumber @ 0x1407AD3EC
+ * Callers:
+ *     CmpFindSubKeyByNumberEx @ 0x1407ACFB0 (CmpFindSubKeyByNumberEx.c)
+ *     CmpFindSubKeyByNumber @ 0x1407AD320 (CmpFindSubKeyByNumber.c)
+ *     CmpKeyEnumStackEntryAdvance @ 0x140A20E5C (CmpKeyEnumStackEntryAdvance.c)
+ *     CmpKeyEnumStackEntryBegin @ 0x140A20F7C (CmpKeyEnumStackEntryBegin.c)
+ *     CmpKeyEnumStackEntryNotifyPromotion @ 0x140A2120C (CmpKeyEnumStackEntryNotifyPromotion.c)
+ * Callees:
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpDoFindSubKeyByNumber(ULONG_PTR BugCheckParameter3, _WORD *a2, unsigned int a3)
 {
   int v7; // ebp

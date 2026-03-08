@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiConstructLoaderMemoryTree @ 0x140B601A0
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ */
+
 void __fastcall MiConstructLoaderMemoryTree(__int64 a1)
 {
   _QWORD *v1; // rdi

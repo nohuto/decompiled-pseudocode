@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DrawOutline@@YAXPEAUHDC__@@HHHHHPEAUHBRUSH__@@@Z @ 0x1C0236338
+ * Callers:
+ *     MNDrawEdge @ 0x1C0237488 (MNDrawEdge.c)
+ *     xxxDrawMenuItem @ 0x1C0237914 (xxxDrawMenuItem.c)
+ * Callees:
+ *     GrePolyPatBlt @ 0x1C0088258 (GrePolyPatBlt.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall DrawOutline(HDC a1, int a2, int a3, int a4, int a5, int a6, HBRUSH a7)
 {
   int v7; // [rsp+20h] [rbp-41h]

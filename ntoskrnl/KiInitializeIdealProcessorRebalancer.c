@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiInitializeIdealProcessorRebalancer @ 0x1403AF398
+ * Callers:
+ *     KeInitSystem @ 0x140B42FB8 (KeInitSystem.c)
+ * Callees:
+ *     KiInitializeTimer2 @ 0x140203D9C (KiInitializeTimer2.c)
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 KiInitializeIdealProcessorRebalancer()
 {
   __int64 result; // rax

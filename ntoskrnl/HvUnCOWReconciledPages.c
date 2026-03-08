@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvUnCOWReconciledPages @ 0x1402D7168
+ * Callers:
+ *     CmpFlushHive @ 0x1406BEA70 (CmpFlushHive.c)
+ * Callees:
+ *     RtlMergeBitMaps @ 0x1402D7420 (RtlMergeBitMaps.c)
+ *     HvpViewMapUnCOWAndSealRange @ 0x140761148 (HvpViewMapUnCOWAndSealRange.c)
+ */
+
 void __fastcall HvUnCOWReconciledPages(__int64 a1)
 {
   __int64 v2; // r14

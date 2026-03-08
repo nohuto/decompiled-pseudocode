@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiCanLocalReadyThreadBeScheduledToRescheduleContext @ 0x1402C3E38
+ * Callers:
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x140227C10 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiExecuteAllDpcs @ 0x140252F60 (KiExecuteAllDpcs.c)
+ * Callees:
+ *     KiDoesThreadDominateRescheduleContextEntry @ 0x1402C3F04 (KiDoesThreadDominateRescheduleContextEntry.c)
+ *     KiCanLocalReadyThreadBeScheduledToRescheduleContextEntry @ 0x1402C3F90 (KiCanLocalReadyThreadBeScheduledToRescheduleContextEntry.c)
+ */
+
 __int64 __fastcall KiCanLocalReadyThreadBeScheduledToRescheduleContext(
         unsigned __int8 *a1,
         __int64 a2,

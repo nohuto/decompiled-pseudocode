@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExStopRecordingIRTimerExpiries @ 0x1409F87CC
+ * Callers:
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ * Callees:
+ *     PoDiagTraceIRTimerSleepStudyRundown @ 0x14058EA64 (PoDiagTraceIRTimerSleepStudyRundown.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void ExStopRecordingIRTimerExpiries()
 {
   _DWORD *v0; // rbx

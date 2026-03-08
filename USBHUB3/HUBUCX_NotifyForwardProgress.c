@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBUCX_NotifyForwardProgress @ 0x1C00293F8
+ * Callers:
+ *     HUBFDO_EvtDeviceUsageNotification @ 0x1C000DA00 (HUBFDO_EvtDeviceUsageNotification.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBUCX_NotifyForwardProgress(__int64 a1)
 {
   __int64 v1; // rdx

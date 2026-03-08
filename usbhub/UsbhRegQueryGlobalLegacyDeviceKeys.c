@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhRegQueryGlobalLegacyDeviceKeys @ 0x1C0046A7C
+ * Callers:
+ *     UsbhGetRegUsbDeviceFlags @ 0x1C0045828 (UsbhGetRegUsbDeviceFlags.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003B830 (WPP_RECORDER_SF_S.c)
+ *     RtlStringCbPrintfW @ 0x1C0044C1C (RtlStringCbPrintfW.c)
+ *     UsbhRegQueryGlobalKey @ 0x1C00468F0 (UsbhRegQueryGlobalKey.c)
+ */
+
 __int64 __fastcall UsbhRegQueryGlobalLegacyDeviceKeys(__int64 a1, __int64 a2)
 {
   _DWORD *v3; // rbx

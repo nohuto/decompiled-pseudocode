@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopLiveDumpExcludeProtectedProcesses @ 0x14094B038
+ * Callers:
+ *     IopLiveDumpAllocAndInitResources @ 0x1409495FC (IopLiveDumpAllocAndInitResources.c)
+ * Callees:
+ *     PsGetNextProcess @ 0x1406AA530 (PsGetNextProcess.c)
+ *     IopLiveDumpAddProcessFilter @ 0x1409494EC (IopLiveDumpAddProcessFilter.c)
+ */
+
 __int64 __fastcall IopLiveDumpExcludeProtectedProcesses(__int64 a1)
 {
   __int64 *i; // rcx

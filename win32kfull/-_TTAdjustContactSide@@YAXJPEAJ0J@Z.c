@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_TTAdjustContactSide@@YAXJPEAJ0J@Z @ 0x1C02503A0
+ * Callers:
+ *     TouchTargetingCreateContact @ 0x1C0250C6C (TouchTargetingCreateContact.c)
+ * Callees:
+ *     _TTHmToPixels @ 0x1C014AE1A (_TTHmToPixels.c)
+ *     _TTPixelsToHm @ 0x1C014AE60 (_TTPixelsToHm.c)
+ */
+
 void __fastcall _TTAdjustContactSide(int a1, int *a2, int *a3, int a4)
 {
   int v5; // ebp

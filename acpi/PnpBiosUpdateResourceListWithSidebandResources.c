@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpBiosUpdateResourceListWithSidebandResources @ 0x1C008FBC8
+ * Callers:
+ *     ACPIFilterIrpFilterResourceRequirements @ 0x1C0085A90 (ACPIFilterIrpFilterResourceRequirements.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     PnpBiosGetDeviceResourceList @ 0x1C008ED68 (PnpBiosGetDeviceResourceList.c)
+ *     PnpiAddSidebandResources @ 0x1C008FF78 (PnpiAddSidebandResources.c)
+ */
+
 __int64 __fastcall PnpBiosUpdateResourceListWithSidebandResources(ULONG_PTR a1, int a2, _QWORD *a3, _QWORD *a4)
 {
   void *v7; // rdi

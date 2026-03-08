@@ -1,3 +1,14 @@
+/*
+ * XREFs of WmipEventNotification @ 0x1408526D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WmipUnreferenceRegEntry @ 0x140208DE4 (WmipUnreferenceRegEntry.c)
+ *     ExInterlockedRemoveHeadList @ 0x1402C3C20 (ExInterlockedRemoveHeadList.c)
+ *     WmipProcessEvent @ 0x1408686A8 (WmipProcessEvent.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 WmipEventNotification()
 {
   PLIST_ENTRY v0; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_IFR_SF_qqsd @ 0x1C0047D18
+ * Callers:
+ *     ?CheckForAbandondedTags@FxTagTracker@@QEAAXXZ @ 0x1C00478C4 (-CheckForAbandondedTags@FxTagTracker@@QEAAXXZ.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_qqsd(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 level,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of VfIovPluginEntry @ 0x1405CF810
+ * Callers:
+ *     DifRegisterKernelPlugin @ 0x1405D2B20 (DifRegisterKernelPlugin.c)
+ *     VfInitVerifierComponents @ 0x140ABFE40 (VfInitVerifierComponents.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     DifRegisterPlugin @ 0x1405D2C50 (DifRegisterPlugin.c)
+ *     ViIovInitialization @ 0x140AD9358 (ViIovInitialization.c)
+ */
+
 __int64 VfIovPluginEntry()
 {
   int v0; // ebx

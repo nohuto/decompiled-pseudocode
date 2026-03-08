@@ -1,3 +1,11 @@
+/*
+ * XREFs of PsIsMachineSupportedNoWow @ 0x140707AAC
+ * Callers:
+ *     PspSelectMachineForProcess @ 0x14070797C (PspSelectMachineForProcess.c)
+ * Callees:
+ *     PsQuerySystemDllInfo @ 0x14076D124 (PsQuerySystemDllInfo.c)
+ */
+
 bool __fastcall PsIsMachineSupportedNoWow(__int16 a1)
 {
   bool result; // al

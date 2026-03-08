@@ -1,3 +1,14 @@
+/*
+ * XREFs of GreGetDpiDepDefaultGuiFont @ 0x1C018C110
+ * Callers:
+ *     GreGetStockObject @ 0x1C0041A00 (GreGetStockObject.c)
+ * Callees:
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C0041AF0 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     EngSetLastError @ 0x1C00BAB10 (EngSetLastError.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     GetDpiDepStockObjectPlateauSlot @ 0x1C018C0A0 (GetDpiDepStockObjectPlateauSlot.c)
+ */
+
 __int64 __fastcall GreGetDpiDepDefaultGuiFont(__int64 a1)
 {
   __int64 v1; // rbx

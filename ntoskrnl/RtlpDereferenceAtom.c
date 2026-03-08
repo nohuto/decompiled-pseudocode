@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpDereferenceAtom @ 0x140355550
+ * Callers:
+ *     RtlDestroyLowBoxAtoms @ 0x140355F84 (RtlDestroyLowBoxAtoms.c)
+ *     RtlDeleteAtomFromAtomTable @ 0x1407DBF30 (RtlDeleteAtomFromAtomTable.c)
+ * Callees:
+ *     RtlpFreeAllAtom @ 0x140355B04 (RtlpFreeAllAtom.c)
+ *     RtlpFreeAtom @ 0x1407DC628 (RtlpFreeAtom.c)
+ */
+
 char __fastcall RtlpDereferenceAtom(__int64 a1, __int64 *a2, __int64 a3)
 {
   bool v5; // zf

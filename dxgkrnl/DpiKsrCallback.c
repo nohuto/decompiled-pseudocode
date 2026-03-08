@@ -1,3 +1,16 @@
+/*
+ * XREFs of DpiKsrCallback @ 0x1C03A1650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     Feature_KsrDisplay__private_ReportDeviceUsage @ 0x1C002673C (Feature_KsrDisplay__private_ReportDeviceUsage.c)
+ *     DxgkStopAdapters @ 0x1C0311630 (DxgkStopAdapters.c)
+ *     ?DpiKsrCancel@@YAXPEAX@Z @ 0x1C03A0EC8 (-DpiKsrCancel@@YAXPEAX@Z.c)
+ *     ?DpiKsrComplete@@YAXPEAX@Z @ 0x1C03A0F70 (-DpiKsrComplete@@YAXPEAX@Z.c)
+ *     ?DpiKsrFinalize@@YAXPEAJ@Z @ 0x1C03A10A8 (-DpiKsrFinalize@@YAXPEAJ@Z.c)
+ */
+
 void __fastcall DpiKsrCallback(_BYTE *CallbackContext, PVOID Argument1, int *Argument2)
 {
   int v3; // edx

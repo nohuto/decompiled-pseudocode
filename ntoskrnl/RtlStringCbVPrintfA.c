@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlStringCbVPrintfA @ 0x14030355C
+ * Callers:
+ *     vDbgPrintExWithPrefixInternal @ 0x1402BDDE0 (vDbgPrintExWithPrefixInternal.c)
+ *     KsepLogEtwMessage @ 0x140303480 (KsepLogEtwMessage.c)
+ * Callees:
+ *     _vsnprintf @ 0x1403D2F50 (_vsnprintf.c)
+ */
+
 NTSTATUS __stdcall RtlStringCbVPrintfA(
         NTSTRSAFE_PSTR pszDest,
         size_t cbDest,

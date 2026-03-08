@@ -1,3 +1,21 @@
+/*
+ * XREFs of SmProcessListRequest @ 0x1409D3FBC
+ * Callers:
+ *     SmQueryStoreInformation @ 0x140840788 (SmQueryStoreInformation.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     SmpGetProcessPartition @ 0x14029622C (SmpGetProcessPartition.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402A4AEC (SSHSupportAllocateNonPaged.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsReferencePartitionByHandle @ 0x14070591C (PsReferencePartitionByHandle.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     SmProcessListRequestExtended @ 0x1409D4208 (SmProcessListRequestExtended.c)
+ *     SmKmGetStoreList @ 0x1409D5EB0 (SmKmGetStoreList.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall SmProcessListRequest(_OWORD *a1, unsigned int a2, unsigned int *a3, KPROCESSOR_MODE a4)
 {
   int v8; // ebx

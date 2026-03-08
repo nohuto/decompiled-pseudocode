@@ -1,3 +1,13 @@
+/*
+ * XREFs of KdRegisterDebuggerDataBlock @ 0x140AAE5A4
+ * Callers:
+ *     KdInitSystem @ 0x140AAE040 (KdInitSystem.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall KdRegisterDebuggerDataBlock(__int64 a1, __int64 a2)
 {
   unsigned __int64 v3; // rbx

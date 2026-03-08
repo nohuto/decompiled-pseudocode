@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBHTX_GetErrorResponseEventForInvalidPortStatusInPendingReset @ 0x1C00061A8
+ * Callers:
+ *     HUBPSM20_ErrorOnResettingPort @ 0x1C0011E70 (HUBPSM20_ErrorOnResettingPort.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dDD @ 0x1C0002ED0 (WPP_RECORDER_SF_dDD.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C0032FCC (HUBMISC_VerifierDbgBreak.c)
+ *     HUBREG_UpdateSqmHubOvercurrentDetected @ 0x1C0034B00 (HUBREG_UpdateSqmHubOvercurrentDetected.c)
+ */
+
 __int64 __fastcall HUBHTX_GetErrorResponseEventForInvalidPortStatusInPendingReset(
         __int64 *a1,
         __int64 a2,

@@ -1,3 +1,18 @@
+/*
+ * XREFs of WmipGenerateRegistrationNotification @ 0x1408682E0
+ * Callers:
+ *     WmipAddDataSource @ 0x140867978 (WmipAddDataSource.c)
+ *     WmipRemoveDS @ 0x14087DE68 (WmipRemoveDS.c)
+ * Callees:
+ *     WmipReferenceEntry @ 0x14069C27C (WmipReferenceEntry.c)
+ *     WmipUnreferenceEntry @ 0x14069C9D0 (WmipUnreferenceEntry.c)
+ *     WmipCachePtrs @ 0x1408683C0 (WmipCachePtrs.c)
+ *     WmipEnableCollectionForNewGuid @ 0x140868484 (WmipEnableCollectionForNewGuid.c)
+ *     WmipSendGuidUpdateNotifications @ 0x140868544 (WmipSendGuidUpdateNotifications.c)
+ *     WmipDisableCollectionForRemovedGuid @ 0x14087EB44 (WmipDisableCollectionForRemovedGuid.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WmipGenerateRegistrationNotification(ULONG_PTR a1, unsigned int a2)
 {
   __int64 v4; // rdx

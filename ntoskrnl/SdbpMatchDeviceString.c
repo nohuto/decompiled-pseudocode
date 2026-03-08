@@ -1,3 +1,16 @@
+/*
+ * XREFs of SdbpMatchDeviceString @ 0x140A4E9F0
+ * Callers:
+ *     SdbpMatchOem @ 0x14085F35C (SdbpMatchOem.c)
+ *     SdbpMatchCpu @ 0x14085F3B0 (SdbpMatchCpu.c)
+ *     SdbpMatchBios @ 0x14085F404 (SdbpMatchBios.c)
+ *     SdbpMatchAcpi @ 0x14085F458 (SdbpMatchAcpi.c)
+ * Callees:
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     SdbGetStringTagPtr @ 0x1407A20E8 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ */
+
 __int64 __fastcall SdbpMatchDeviceString(__int64 a1, const wchar_t *a2, unsigned int a3, unsigned __int16 a4)
 {
   unsigned int v6; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoCheckQuerySetFileInformation @ 0x14087B210
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall IoCheckQuerySetFileInformation(
         FILE_INFORMATION_CLASS FileInformationClass,
         ULONG Length,

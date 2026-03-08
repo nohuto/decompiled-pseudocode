@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopLiveDumpQueryIOSpaceRanges @ 0x14094BE00
+ * Callers:
+ *     IopLiveDumpAllocateFromIOSpace @ 0x14094A574 (IopLiveDumpAllocateFromIOSpace.c)
+ * Callees:
+ *     MmQueryMemoryRanges @ 0x140859AF0 (MmQueryMemoryRanges.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopLiveDumpQueryIOSpaceRanges(__int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 result; // rax

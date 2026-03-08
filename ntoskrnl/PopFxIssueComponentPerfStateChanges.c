@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopFxIssueComponentPerfStateChanges @ 0x140588718
+ * Callers:
+ *     PoFxIssueComponentPerfStateChangeMultiple @ 0x140585A60 (PoFxIssueComponentPerfStateChangeMultiple.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     PopFxQueueWorkOrder @ 0x1402B8CF4 (PopFxQueueWorkOrder.c)
+ *     PopFxAddLogEntry @ 0x140306584 (PopFxAddLogEntry.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ *     PopFxCompleteComponentPerfState @ 0x1405870F8 (PopFxCompleteComponentPerfState.c)
+ *     PopPluginRequestComponentPerfState @ 0x14058A548 (PopPluginRequestComponentPerfState.c)
+ *     PopDiagTraceFxPerfRequest @ 0x14059155C (PopDiagTraceFxPerfRequest.c)
+ *     PopDiagTraceFxPerfRequestProgress @ 0x140591744 (PopDiagTraceFxPerfRequestProgress.c)
+ */
+
 NTSTATUS __fastcall PopFxIssueComponentPerfStateChanges(
         ULONG_PTR BugCheckParameter2,
         __int64 a2,

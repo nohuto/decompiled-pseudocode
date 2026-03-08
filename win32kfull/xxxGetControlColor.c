@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxGetControlColor @ 0x1C0007848
+ * Callers:
+ *     xxxPaintRect @ 0x1C0007680 (xxxPaintRect.c)
+ *     NtUserGetControlColor @ 0x1C01D1F80 (NtUserGetControlColor.c)
+ *     xxxGetControlBrush @ 0x1C02269BC (xxxGetControlBrush.c)
+ * Callees:
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     xxxDefWindowProc @ 0x1C00A66F0 (xxxDefWindowProc.c)
+ */
+
 __int64 __fastcall xxxGetControlColor(struct tagWND *a1, __int64 *a2, HWND a3, unsigned int a4)
 {
   __int64 CurrentProcessWin32Process; // rax

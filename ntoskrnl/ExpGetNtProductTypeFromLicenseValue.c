@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpGetNtProductTypeFromLicenseValue @ 0x14084AD48
+ * Callers:
+ *     ExpWatchProductTypeInitialization @ 0x140B64AFC (ExpWatchProductTypeInitialization.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     NtQueryLicenseValue @ 0x14075C9B0 (NtQueryLicenseValue.c)
+ */
+
 char __fastcall ExpGetNtProductTypeFromLicenseValue(_DWORD *a1)
 {
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF

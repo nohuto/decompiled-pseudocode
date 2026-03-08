@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EtwpTraceAuditApiQueryAddressVADInformation@@YAJPEAXPEAU_MEMORY_BASIC_INFORMATION@@PEAPEAU_OBJECT_NAME_INFORMATION@@@Z @ 0x1C0033B98
+ * Callers:
+ *     EtwTraceAuditApiRegisterRawInputDevices @ 0x1C0033990 (EtwTraceAuditApiRegisterRawInputDevices.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwpTraceAuditApiQueryAddressVADInformation(
         PVOID BaseAddress,
         PVOID MemoryInformation,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpMceInitializeErrorPacket @ 0x140A87D2C
+ * Callers:
+ *     HalpMceInitProcessor @ 0x140A87C98 (HalpMceInitProcessor.c)
+ * Callees:
+ *     HalpGetMcaPcrContext @ 0x14037CEF4 (HalpGetMcaPcrContext.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HalpMceInitializeErrorPacketContents @ 0x140A87D98 (HalpMceInitializeErrorPacketContents.c)
+ */
+
 volatile __int64 *__fastcall HalpMceInitializeErrorPacket(__int64 a1, __int64 a2)
 {
   __int64 v4; // rax

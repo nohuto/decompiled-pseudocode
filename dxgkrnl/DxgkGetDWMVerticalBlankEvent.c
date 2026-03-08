@@ -1,3 +1,11 @@
+/*
+ * XREFs of DxgkGetDWMVerticalBlankEvent @ 0x1C01DA250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DxgkGetDWMVerticalBlankEventInternal@@YAJIIIPEAPEAU_KEVENT@@@Z @ 0x1C01DA364 (-DxgkGetDWMVerticalBlankEventInternal@@YAJIIIPEAPEAU_KEVENT@@@Z.c)
+ */
+
 __int64 __fastcall DxgkGetDWMVerticalBlankEvent(ULONG64 a1)
 {
   NTSTATUS DWMVerticalBlankEventInternal; // r8d

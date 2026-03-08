@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0RIMDropAndReAcquireSyncLock@@QEAA@PEAURawInputManagerObject@@@Z @ 0x1C0031E04
+ * Callers:
+ *     ?UpdateKeyboardLEDs@CKeyboardSensor@@QEAAXXZ @ 0x1C0032FF0 (-UpdateKeyboardLEDs@CKeyboardSensor@@QEAAXXZ.c)
+ *     RIMDeviceIoControl @ 0x1C00336C0 (RIMDeviceIoControl.c)
+ * Callees:
+ *     <none>
+ */
+
 RIMDropAndReAcquireSyncLock *__fastcall RIMDropAndReAcquireSyncLock::RIMDropAndReAcquireSyncLock(
         RIMDropAndReAcquireSyncLock *this,
         struct RawInputManagerObject *a2)

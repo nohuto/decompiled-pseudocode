@@ -1,3 +1,12 @@
+/*
+ * XREFs of SymCryptFdef369RawMulAsm @ 0x140409780
+ * Callers:
+ *     SymCryptFdef369ModMulMontgomery @ 0x140403C40 (SymCryptFdef369ModMulMontgomery.c)
+ *     SymCryptFdef369ModSetPostMontgomery @ 0x140403D40 (SymCryptFdef369ModSetPostMontgomery.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdef369RawMulAsm(unsigned __int64 *a1, int a2, unsigned __int64 *a3, int a4, _QWORD *a5)
 {
   __int64 v5; // r11

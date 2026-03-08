@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExInitializeFastResource @ 0x1403BEFD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExpInitializeResource @ 0x1403BF090 (ExpInitializeResource.c)
+ *     ExpAddResourceToSystemResourceList @ 0x1403BF104 (ExpAddResourceToSystemResourceList.c)
+ *     ExInitializeFastResource2 @ 0x14040E2C0 (ExInitializeFastResource2.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall ExInitializeFastResource(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
 {
   char v3; // di

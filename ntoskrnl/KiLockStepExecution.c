@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiLockStepExecution @ 0x140A8C6F4
+ * Callers:
+ *     KeLoadMTRR @ 0x140A8C4C0 (KeLoadMTRR.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiLockStepExecution(__int64 a1)
 {
   volatile signed __int32 *v1; // r8

@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiGetNextNonGapPfnPage @ 0x14038AF50
+ * Callers:
+ *     MiFreedUnusedPfnPagesWorker @ 0x14038ACDC (MiFreedUnusedPfnPagesWorker.c)
+ *     MiGetFileOnlyRanges @ 0x140618854 (MiGetFileOnlyRanges.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiGetNextPageTable @ 0x1403468E0 (MiGetNextPageTable.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ */
+
 __int64 __fastcall MiGetNextNonGapPfnPage(unsigned __int64 *a1, unsigned __int64 *a2, __int8 a3, int a4)
 {
   unsigned __int64 v4; // rbx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of LockCaptureWindow @ 0x1C0010C8C
+ * Callers:
+ *     xxxCapture @ 0x1C0010A5C (xxxCapture.c)
+ *     ?zzzAttachToQueue@tagQ@@QEAAXPEAUtagTHREADINFO@@PEAU1@_N@Z @ 0x1C00CD940 (-zzzAttachToQueue@tagQ@@QEAAXPEAUtagTHREADINFO@@PEAU1@_N@Z.c)
+ * Callees:
+ *     ?SetCapture@Mouse@InputTraceLogging@@SAXPEBUtagQ@@PEAUtagWND@@_N@Z @ 0x1C0010D24 (-SetCapture@Mouse@InputTraceLogging@@SAXPEBUtagQ@@PEAUtagWND@@_N@Z.c)
+ *     UpdateRawMouseMode @ 0x1C00CE364 (UpdateRawMouseMode.c)
+ */
+
 __int64 __fastcall LockCaptureWindow(struct tagQ *a1, struct tagWND *a2)
 {
   __int64 v4; // rbx

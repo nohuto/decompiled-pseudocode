@@ -1,3 +1,16 @@
+/*
+ * XREFs of NVMeGetAutoPowerStateTransition @ 0x1C001D454
+ * Callers:
+ *     NVMePowerInitialize @ 0x1C000FCC4 (NVMePowerInitialize.c)
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C000C1C0 (NVMeAllocateDmaBuffer.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 __int64 __fastcall NVMeGetAutoPowerStateTransition(__int64 a1)
 {
   __int64 result; // rax

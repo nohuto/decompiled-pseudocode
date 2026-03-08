@@ -1,3 +1,18 @@
+/*
+ * XREFs of GetCaptionHeight @ 0x1C0044AA4
+ * Callers:
+ *     xxxDrawWindowFrame @ 0x1C00A64E4 (xxxDrawWindowFrame.c)
+ *     xxxCalcClientRect @ 0x1C00AAA20 (xxxCalcClientRect.c)
+ *     ?xxxInitializeMoveSizeData@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@IK@Z @ 0x1C01EEA1C (-xxxInitializeMoveSizeData@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@IK@Z.c)
+ *     xxxMenuBarDraw @ 0x1C0238AB0 (xxxMenuBarDraw.c)
+ *     xxxMNRecomputeBarIfNeeded @ 0x1C023BD88 (xxxMNRecomputeBarIfNeeded.c)
+ * Callees:
+ *     GetDpiCacheSlot @ 0x1C0045E2C (GetDpiCacheSlot.c)
+ *     GetWindowDpiLastNotify @ 0x1C00A3A34 (GetWindowDpiLastNotify.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     _EnsureDpiDepSysMetCacheForPlateau @ 0x1C01C074C (_EnsureDpiDepSysMetCacheForPlateau.c)
+ */
+
 __int64 __fastcall GetCaptionHeight(__int64 a1)
 {
   __int64 v2; // rcx

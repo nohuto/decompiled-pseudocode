@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhHubIsrWorker @ 0x1C0021460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhHubProcessIsr @ 0x1C000B860 (UsbhHubProcessIsr.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 void __fastcall UsbhHubIsrWorker(struct _DEVICE_OBJECT *a1, unsigned int a2, __int64 a3)
 {
   __int64 v6; // r9

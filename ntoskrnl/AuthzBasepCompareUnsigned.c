@@ -1,3 +1,12 @@
+/*
+ * XREFs of AuthzBasepCompareUnsigned @ 0x14066D170
+ * Callers:
+ *     AuthzBasepCompareFQBNOperands @ 0x14066CC80 (AuthzBasepCompareFQBNOperands.c)
+ *     AuthzBasepCompareIntegerOperands @ 0x14066CF0C (AuthzBasepCompareIntegerOperands.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall AuthzBasepCompareUnsigned(unsigned __int8 a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   bool result; // al

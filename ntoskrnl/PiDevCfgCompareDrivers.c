@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiDevCfgCompareDrivers @ 0x14055F8CC
+ * Callers:
+ *     PiDevCfgFindDeviceDriver @ 0x14087867C (PiDevCfgFindDeviceDriver.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PiDevCfgCompareDrivers(__int64 a1, __int64 a2, char a3)
 {
   _DWORD *v3; // r9

@@ -1,3 +1,23 @@
+/*
+ * XREFs of Bulk_ProcessTransferEventWithED0 @ 0x1C000DAC4
+ * Callers:
+ *     Endpoint_TransferEventHandler @ 0x1C0009BA0 (Endpoint_TransferEventHandler.c)
+ *     Bulk_EP_TransferEventHandler @ 0x1C0011300 (Bulk_EP_TransferEventHandler.c)
+ *     TR_TransferEventHandler @ 0x1C0041CD4 (TR_TransferEventHandler.c)
+ * Callees:
+ *     Endpoint_HaltedCompletionCode @ 0x1C0006D98 (Endpoint_HaltedCompletionCode.c)
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     WPP_RECORDER_SF_dddqLddi @ 0x1C000D9B0 (WPP_RECORDER_SF_dddqLddi.c)
+ *     Bulk_Stage_CalculateBytesTransferred @ 0x1C000DF50 (Bulk_Stage_CalculateBytesTransferred.c)
+ *     Bulk_ProcessTransferEventWithStoppedCompletion @ 0x1C000DFBC (Bulk_ProcessTransferEventWithStoppedCompletion.c)
+ *     WPP_RECORDER_SF_DDDD @ 0x1C000E120 (WPP_RECORDER_SF_DDDD.c)
+ *     Bulk_FindStage @ 0x1C000E218 (Bulk_FindStage.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ *     WPP_RECORDER_SF_DDDDD @ 0x1C0041E20 (WPP_RECORDER_SF_DDDDD.c)
+ *     Bulk_ProcessTransferEventWithHaltedCompletion @ 0x1C0046FFC (Bulk_ProcessTransferEventWithHaltedCompletion.c)
+ *     Bulk_ValidateED0TrbPointerOnMismatch @ 0x1C00471E8 (Bulk_ValidateED0TrbPointerOnMismatch.c)
+ */
+
 char __fastcall Bulk_ProcessTransferEventWithED0(__int64 a1, __int64 a2)
 {
   char v2; // di

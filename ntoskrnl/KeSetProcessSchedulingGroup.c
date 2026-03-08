@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeSetProcessSchedulingGroup @ 0x1403556A4
+ * Callers:
+ *     PspTerminateProcess @ 0x1407DC198 (PspTerminateProcess.c)
+ *     PspSetProcessSchedulingGroup @ 0x1407DCF7C (PspSetProcessSchedulingGroup.c)
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiSetThreadSchedulingGroup @ 0x1403557B8 (KiSetThreadSchedulingGroup.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeSetProcessSchedulingGroup(__int64 a1, __int64 a2)
 {
   unsigned __int8 CurrentIrql; // bl

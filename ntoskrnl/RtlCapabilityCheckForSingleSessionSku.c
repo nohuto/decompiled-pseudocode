@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlCapabilityCheckForSingleSessionSku @ 0x1409B9140
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ * Callees:
+ *     RtlCapabilityCheck @ 0x140741730 (RtlCapabilityCheck.c)
+ *     RtlIsMultiSessionSku @ 0x1407447E0 (RtlIsMultiSessionSku.c)
+ */
+
 __int64 __fastcall RtlCapabilityCheckForSingleSessionSku(HANDLE ExistingTokenHandle, UNICODE_STRING *String2, char *a3)
 {
   unsigned int v3; // ebx

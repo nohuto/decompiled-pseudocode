@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiPerformCombineScan @ 0x14032D550
+ * Callers:
+ *     MiComputeCombineHash @ 0x14032C2E0 (MiComputeCombineHash.c)
+ * Callees:
+ *     MiComputeHash64 @ 0x14032D5D0 (MiComputeHash64.c)
+ */
+
 __int64 __fastcall MiPerformCombineScan(__int64 a1, __int64 a2)
 {
   unsigned int v2; // r8d

@@ -1,3 +1,20 @@
+/*
+ * XREFs of IovpCallDriver2 @ 0x140AC96CC
+ * Callers:
+ *     VfAfterCallDriver @ 0x140ACA3D8 (VfAfterCallDriver.c)
+ * Callees:
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ViErrorReport1 @ 0x1405CDA04 (ViErrorReport1.c)
+ *     ViErrorReport10 @ 0x1405CDA88 (ViErrorReport10.c)
+ *     ViErrorReport4 @ 0x1405CDB1C (ViErrorReport4.c)
+ *     ViErrorReport6 @ 0x1405CDBC0 (ViErrorReport6.c)
+ *     IovUtilGetLowerDeviceObjectWithTag @ 0x140ACFA64 (IovUtilGetLowerDeviceObjectWithTag.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x140ACFB14 (IovUtilIsDeviceObjectMarked.c)
+ *     IovpSessionDataDereference @ 0x140ADAFB4 (IovpSessionDataDereference.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140ADE8EC (VfIrpDatabaseEntryReleaseLock.c)
+ */
+
 _UNKNOWN **__fastcall IovpCallDriver2(__int64 a1, int *a2)
 {
   _UNKNOWN **result; // rax

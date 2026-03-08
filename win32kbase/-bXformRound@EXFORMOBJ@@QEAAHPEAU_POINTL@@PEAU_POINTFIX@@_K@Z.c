@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bXformRound@EXFORMOBJ@@QEAAHPEAU_POINTL@@PEAU_POINTFIX@@_K@Z @ 0x1C0180080
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?bXformRound@EXFORMOBJ@@QEAAHAEAV?$umptr_r@U_POINTL@@@@PEAU_POINTFIX@@_K@Z @ 0x1C017FF8C (-bXformRound@EXFORMOBJ@@QEAAHAEAV-$umptr_r@U_POINTL@@@@PEAU_POINTFIX@@_K@Z.c)
+ */
+
 __int64 __fastcall EXFORMOBJ::bXformRound(
         EXFORMOBJ *this,
         struct _POINTL *a2,

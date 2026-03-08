@@ -1,3 +1,12 @@
+/*
+ * XREFs of EmonIsModifiedByBadActorInternal @ 0x1404563E0
+ * Callers:
+ *     EmonIsModifiedByBadActor @ 0x140456380 (EmonIsModifiedByBadActor.c)
+ *     EmonOverflowHandler @ 0x14051B1E0 (EmonOverflowHandler.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EmonIsModifiedByBadActorInternal(unsigned int a1, __int64 a2, _BYTE *a3)
 {
   unsigned int Number; // eax

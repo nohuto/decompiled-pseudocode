@@ -1,3 +1,13 @@
+/*
+ * XREFs of DxgkEngGetRedirBitmapSharedHandle @ 0x1C014D550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0MDCOBJA@@QEAA@PEAUHDC__@@H@Z @ 0x1C0007358 (--0MDCOBJA@@QEAA@PEAUHDC__@@H@Z.c)
+ *     GreGetDxSharedSurface @ 0x1C000A248 (GreGetDxSharedSurface.c)
+ *     ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C00DC828 (-vAltUnlockFast@XDCOBJ@@QEAAXXZ.c)
+ */
+
 void __fastcall DxgkEngGetRedirBitmapSharedHandle(HDC a1, _QWORD *a2)
 {
   HWND v3; // rcx

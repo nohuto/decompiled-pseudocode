@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiGetListOfPendingBadPages @ 0x140627BD8
+ * Callers:
+ *     MmQueryBadAddresses @ 0x140A2D108 (MmQueryBadAddresses.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiReferencePageRuns @ 0x1402EB520 (MiReferencePageRuns.c)
+ *     MiDereferencePageRunsEx @ 0x1402EBA28 (MiDereferencePageRunsEx.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiEnumerateBadHugeRangePages @ 0x14061D628 (MiEnumerateBadHugeRangePages.c)
+ *     MiCheckLostBadPageNode @ 0x140627484 (MiCheckLostBadPageNode.c)
+ *     MiSortPageFramesRemoveDuplicates @ 0x140628888 (MiSortPageFramesRemoveDuplicates.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiGetListOfPendingBadPages(__int64 a1)
 {
   unsigned __int64 v2; // rdi

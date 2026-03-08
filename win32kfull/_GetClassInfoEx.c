@@ -1,3 +1,18 @@
+/*
+ * XREFs of _GetClassInfoEx @ 0x1C00314C8
+ * Callers:
+ *     NtUserGetClassInfoEx @ 0x1C002F120 (NtUserGetClassInfoEx.c)
+ * Callees:
+ *     GetCPD @ 0x1C000DFB4 (GetCPD.c)
+ *     MapClientNeuterToClientPfn @ 0x1C002FFC4 (MapClientNeuterToClientPfn.c)
+ *     _InnerGetClassPtr @ 0x1C0031A40 (_InnerGetClassPtr.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ??0?$SmartObjStackRef@UtagCLS@@@@QEAA@XZ @ 0x1C012DC6C (--0-$SmartObjStackRef@UtagCLS@@@@QEAA@XZ.c)
+ *     ??1?$SmartObjStackRef@UtagCLS@@@@QEAA@XZ @ 0x1C012DC8C (--1-$SmartObjStackRef@UtagCLS@@@@QEAA@XZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MapServerToClientPfn @ 0x1C024F514 (MapServerToClientPfn.c)
+ */
+
 __int64 __fastcall GetClassInfoEx(__int64 a1, unsigned __int64 a2, __int64 a3, _QWORD *a4, unsigned int a5)
 {
   unsigned __int16 v9; // bx

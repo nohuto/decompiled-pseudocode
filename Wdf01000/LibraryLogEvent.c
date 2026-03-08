@@ -1,3 +1,14 @@
+/*
+ * XREFs of LibraryLogEvent @ 0x1C002C8E8
+ * Callers:
+ *     LibraryRegisterClient @ 0x1C00176A0 (LibraryRegisterClient.c)
+ *     ?ReportDdiFunctionCountMismatch@@YAXPEBU_UNICODE_STRING@@KKE@Z @ 0x1C002BE40 (-ReportDdiFunctionCountMismatch@@YAXPEBU_UNICODE_STRING@@KKE@Z.c)
+ *     ?PostCreateDeviceInitialize@FxPkgPnp@@QEAAJXZ @ 0x1C00741DC (-PostCreateDeviceInitialize@FxPkgPnp@@QEAAJXZ.c)
+ * Callees:
+ *     memset @ 0x1C000AC00 (memset.c)
+ *     memmove @ 0x1C000B140 (memmove.c)
+ */
+
 void __fastcall LibraryLogEvent(
         _DRIVER_OBJECT *DriverObject,
         int ErrorCode,

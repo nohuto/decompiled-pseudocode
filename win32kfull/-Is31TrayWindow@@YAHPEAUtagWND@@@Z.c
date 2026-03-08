@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Is31TrayWindow@@YAHPEAUtagWND@@@Z @ 0x1C0222B6C
+ * Callers:
+ *     ?IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z @ 0x1C002E354 (-IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z.c)
+ *     ?xxxUpdateTray@@YAXPEAUtagWND@@@Z @ 0x1C009DE3C (-xxxUpdateTray@@YAXPEAUtagWND@@@Z.c)
+ * Callees:
+ *     ?IsVSlick@@YAHPEAUtagWND@@@Z @ 0x1C0222BCC (-IsVSlick@@YAHPEAUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall Is31TrayWindow(struct tagWND *a1)
 {
   struct tagWND *v1; // rdx

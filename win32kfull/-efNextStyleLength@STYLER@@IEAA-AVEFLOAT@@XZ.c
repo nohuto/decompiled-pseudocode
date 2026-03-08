@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?efNextStyleLength@STYLER@@IEAA?AVEFLOAT@@XZ @ 0x1C01510A6
+ * Callers:
+ *     ?vNextStyleEvent@STYLER@@QEAAXXZ @ 0x1C02F4D64 (-vNextStyleEvent@STYLER@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 _DWORD *__fastcall STYLER::efNextStyleLength(_QWORD *a1, _DWORD *a2)
 {
   int *v2; // rax

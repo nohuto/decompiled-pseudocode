@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpMceMemoryErrorRecovery @ 0x140516980
+ * Callers:
+ *     HalpMceRecoveryMemoryErrorAmd @ 0x140516BC0 (HalpMceRecoveryMemoryErrorAmd.c)
+ *     HalpMceRecoveryMemoryErrorIntel @ 0x140516CDC (HalpMceRecoveryMemoryErrorIntel.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpMceMemoryErrorRecovery(char a1, char a2, __int64 a3)
 {
   unsigned int v3; // r11d

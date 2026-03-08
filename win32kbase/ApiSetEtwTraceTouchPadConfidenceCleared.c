@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEtwTraceTouchPadConfidenceCleared @ 0x1C0244008
+ * Callers:
+ *     rimConfidenceBitPolicyUpdateStateAndApply @ 0x1C01D5E18 (rimConfidenceBitPolicyUpdateStateAndApply.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     EtwTraceTouchPadConfidenceCleared @ 0x1C0164240 (EtwTraceTouchPadConfidenceCleared.c)
+ */
+
 __int64 __fastcall ApiSetEtwTraceTouchPadConfidenceCleared(int a1, int a2, int a3)
 {
   int v3; // edi

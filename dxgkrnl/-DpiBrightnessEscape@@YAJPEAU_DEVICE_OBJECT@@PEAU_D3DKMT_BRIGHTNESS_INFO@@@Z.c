@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DpiBrightnessEscape@@YAJPEAU_DEVICE_OBJECT@@PEAU_D3DKMT_BRIGHTNESS_INFO@@@Z @ 0x1C039C3C0
+ * Callers:
+ *     DxgkEscape @ 0x1C01A3EE0 (DxgkEscape.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     DpiCallDrvSetBacklightOptimizationLevel @ 0x1C039DBB4 (DpiCallDrvSetBacklightOptimizationLevel.c)
+ *     DpiCallDrvSetBrightness @ 0x1C039DC30 (DpiCallDrvSetBrightness.c)
+ */
+
 __int64 __fastcall DpiBrightnessEscape(struct _DEVICE_OBJECT *a1, struct _D3DKMT_BRIGHTNESS_INFO *a2)
 {
   char *DeviceExtension; // r14

@@ -1,3 +1,15 @@
+/*
+ * XREFs of RIMGetCurrentPowerInputMode @ 0x1C00BC3E0
+ * Callers:
+ *     RIMHandlePowerDeviceArrival @ 0x1C00BC314 (RIMHandlePowerDeviceArrival.c)
+ * Callees:
+ *     ?LockExclusive@tagDomLock@@QEBAXXZ @ 0x1C003A300 (-LockExclusive@tagDomLock@@QEBAXXZ.c)
+ *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C003B380 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
+ *     ApiSetGetPowerTransitionsState @ 0x1C00BC570 (ApiSetGetPowerTransitionsState.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 RIMGetCurrentPowerInputMode()
 {
   char *v0; // rdi

@@ -1,3 +1,16 @@
+/*
+ * XREFs of SymCryptRsakeyCreateAllObjects @ 0x1403F1E6C
+ * Callers:
+ *     SymCryptRsakeySetValue @ 0x1403F1F8C (SymCryptRsakeySetValue.c)
+ * Callees:
+ *     SymCryptIntCreate @ 0x1403F37C8 (SymCryptIntCreate.c)
+ *     SymCryptModElementCreate @ 0x1403F3AEC (SymCryptModElementCreate.c)
+ *     SymCryptModulusCreate @ 0x1403F3EC0 (SymCryptModulusCreate.c)
+ *     SymCryptSizeofIntFromDigits @ 0x1403F3EF0 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x1403F3F08 (SymCryptSizeofModElementFromModulus.c)
+ *     SymCryptSizeofModulusFromDigits @ 0x1403F3F20 (SymCryptSizeofModulusFromDigits.c)
+ */
+
 __int64 __fastcall SymCryptRsakeyCreateAllObjects(_DWORD *a1, __int64 a2)
 {
   unsigned int v2; // eax

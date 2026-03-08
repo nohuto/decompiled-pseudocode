@@ -1,3 +1,14 @@
+/*
+ * XREFs of PnpFinalizeVetoedRemove @ 0x14096125C
+ * Callers:
+ *     PnpProcessQueryRemoveAndEject @ 0x1408625F0 (PnpProcessQueryRemoveAndEject.c)
+ *     PiEventBuildPdoList @ 0x140863160 (PiEventBuildPdoList.c)
+ *     PiProcessQueryAndCancelRemoval @ 0x14096E8C4 (PiProcessQueryAndCancelRemoval.c)
+ * Callees:
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     McTemplateK0zqz_EtwWriteTransfer @ 0x14056054C (McTemplateK0zqz_EtwWriteTransfer.c)
+ */
+
 __int16 __fastcall PnpFinalizeVetoedRemove(__int64 a1, unsigned __int64 a2, UNICODE_STRING *a3)
 {
   _DWORD *v3; // rax

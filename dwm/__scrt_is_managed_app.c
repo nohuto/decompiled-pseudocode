@@ -1,3 +1,11 @@
+/*
+ * XREFs of __scrt_is_managed_app @ 0x140005C68
+ * Callers:
+ *     __scrt_common_main_seh @ 0x140005350 (__scrt_common_main_seh.c)
+ * Callees:
+ *     <none>
+ */
+
 bool _scrt_is_managed_app()
 {
   HMODULE ModuleHandleW; // rax

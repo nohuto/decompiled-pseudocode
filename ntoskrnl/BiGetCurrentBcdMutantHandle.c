@@ -1,3 +1,12 @@
+/*
+ * XREFs of BiGetCurrentBcdMutantHandle @ 0x14082ED70
+ * Callers:
+ *     BiAcquireBcdSyncMutant @ 0x14082ED10 (BiAcquireBcdSyncMutant.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenMutant @ 0x1404148B0 (ZwOpenMutant.c)
+ */
+
 __int64 __fastcall BiGetCurrentBcdMutantHandle(_QWORD *a1)
 {
   __int64 result; // rax

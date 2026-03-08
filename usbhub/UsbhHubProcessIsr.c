@@ -1,3 +1,31 @@
+/*
+ * XREFs of UsbhHubProcessIsr @ 0x1C000B860
+ * Callers:
+ *     UsbhHubIsrWorker @ 0x1C0021460 (UsbhHubIsrWorker.c)
+ * Callees:
+ *     UsbhDecHubBusy @ 0x1C0003DB0 (UsbhDecHubBusy.c)
+ *     UsbhEtwWrite @ 0x1C0009AC0 (UsbhEtwWrite.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhHubAckPortChange @ 0x1C0018F90 (UsbhHubAckPortChange.c)
+ *     UsbhPCE_HardwareWake @ 0x1C0019178 (UsbhPCE_HardwareWake.c)
+ *     UsbhPCE_QueueChange @ 0x1C001922C (UsbhPCE_QueueChange.c)
+ *     UsbhQueryChange @ 0x1C0019300 (UsbhQueryChange.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     UsbhQueueWorkItemEx @ 0x1C001E320 (UsbhQueueWorkItemEx.c)
+ *     UsbhPostInterrupt @ 0x1C001F320 (UsbhPostInterrupt.c)
+ *     UsbhEtwGetHubInfo @ 0x1C0021B60 (UsbhEtwGetHubInfo.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhPCE_HW_Stop @ 0x1C003476C (UsbhPCE_HW_Stop.c)
+ *     UsbhQueuePauseChange @ 0x1C0034E90 (UsbhQueuePauseChange.c)
+ *     UsbhHubAckHubChange @ 0x1C00389CC (UsbhHubAckHubChange.c)
+ *     UsbhQueryHubState @ 0x1C003912C (UsbhQueryHubState.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 int __fastcall UsbhHubProcessIsr(struct _DEVICE_OBJECT *a1, unsigned int a2, __int64 a3)
 {
   __int64 v3; // r14

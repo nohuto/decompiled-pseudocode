@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepIsSandboxedToken @ 0x1402E9EFC
+ * Callers:
+ *     NtQueryInformationToken @ 0x1406D6780 (NtQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall SepIsSandboxedToken(_DWORD *a1, char a2)
 {
   if ( !a2 )

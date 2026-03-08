@@ -1,3 +1,18 @@
+/*
+ * XREFs of CarEtwRegister @ 0x1405D05C8
+ * Callers:
+ *     CarInitLogging @ 0x1405D0E40 (CarInitLogging.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x140244050 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     McGenEventRegister_EtwRegister @ 0x1403895F8 (McGenEventRegister_EtwRegister.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     CarTipLogDriverLoad @ 0x1405D10B0 (CarTipLogDriverLoad.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14080F6BC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 NTSTATUS CarEtwRegister()
 {
   __int64 v0; // rdx

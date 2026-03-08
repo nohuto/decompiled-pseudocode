@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpFlsInitialize @ 0x140849CB4
+ * Callers:
+ *     PspTlsInitialize @ 0x140B641FC (PspTlsInitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 void RtlpFlsInitialize()
 {
   *(_OWORD *)&PspTlsContext = 0LL;

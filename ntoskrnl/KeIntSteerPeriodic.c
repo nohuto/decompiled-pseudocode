@@ -1,3 +1,18 @@
+/*
+ * XREFs of KeIntSteerPeriodic @ 0x1402A8BB0
+ * Callers:
+ *     PpmParkSteerInterrupts @ 0x1402341D0 (PpmParkSteerInterrupts.c)
+ * Callees:
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiIntSteerDistributeInterrupts @ 0x1402A8CD8 (KiIntSteerDistributeInterrupts.c)
+ *     KiIntSteerCalculateDistribution @ 0x1402A8E00 (KiIntSteerCalculateDistribution.c)
+ *     KiIntSteerLogStatus @ 0x1402A8FAC (KiIntSteerLogStatus.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeIntSteerPeriodic(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned __int16 *v8; // rsi

@@ -1,3 +1,16 @@
+/*
+ * XREFs of Crashdump_Initialize @ 0x1C004C350
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     Crashdump_InitializeWithControllerReset @ 0x1C004C868 (Crashdump_InitializeWithControllerReset.c)
+ *     Crashdump_InitializeWithoutControllerReset @ 0x1C004CA8C (Crashdump_InitializeWithoutControllerReset.c)
+ *     Crashdump_Register_BiosHandoff @ 0x1C004D6FC (Crashdump_Register_BiosHandoff.c)
+ *     Crashdump_Register_LogRHPortInfo @ 0x1C004D8C4 (Crashdump_Register_LogRHPortInfo.c)
+ */
+
 __int64 __fastcall Crashdump_Initialize(_DWORD *Address)
 {
   const char *v2; // r9

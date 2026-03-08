@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpInterruptEnsureLineSwapComplete @ 0x140A94BF4
+ * Callers:
+ *     HalpInterruptSwapProcessorIdentifiers @ 0x140A94CE0 (HalpInterruptSwapProcessorIdentifiers.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void HalpInterruptEnsureLineSwapComplete()
 {
   ULONG_PTR *v0; // rcx

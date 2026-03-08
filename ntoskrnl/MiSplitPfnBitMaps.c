@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiSplitPfnBitMaps @ 0x140809F08
+ * Callers:
+ *     MiSplitPfnBitMapsForPartitionHierarchy @ 0x140658FCC (MiSplitPfnBitMapsForPartitionHierarchy.c)
+ *     MiCreatePfnBitMaps @ 0x140809BDC (MiCreatePfnBitMaps.c)
+ *     MiAddPhysicalMemory @ 0x140A289D8 (MiAddPhysicalMemory.c)
+ * Callees:
+ *     MiSplitBitmapPages @ 0x14036C1A8 (MiSplitBitmapPages.c)
+ */
+
 __int64 __fastcall MiSplitPfnBitMaps(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   __int64 v3; // r13

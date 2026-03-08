@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CitpContextReinitialize@@YAXPEAU_CIT_IMPACT_CONTEXT@@I@Z @ 0x1C02729F0
+ * Callers:
+ *     ?CitEtwEnableCallback@@YAXPEBU_GUID@@I_K@Z @ 0x1C02728BC (-CitEtwEnableCallback@@YAXPEBU_GUID@@I_K@Z.c)
+ * Callees:
+ *     ?CitpProgDataReinitialize@@YAXPEAU_CIT_PROG_DATA@@@Z @ 0x1C027330C (-CitpProgDataReinitialize@@YAXPEAU_CIT_PROG_DATA@@@Z.c)
+ */
+
 void __fastcall CitpContextReinitialize(struct _CIT_IMPACT_CONTEXT *a1, int a2)
 {
   char *v2; // rdi

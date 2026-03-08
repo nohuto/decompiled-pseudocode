@@ -1,3 +1,21 @@
+/*
+ * XREFs of ACPIAmliEvaluateOsc @ 0x1C007C7D8
+ * Callers:
+ *     ACPIIoctlEvaluateUsb4Osc @ 0x1C0030B4C (ACPIIoctlEvaluateUsb4Osc.c)
+ *     AcpiEvaluateOscMethodOnPciRootBus @ 0x1C0034694 (AcpiEvaluateOscMethodOnPciRootBus.c)
+ *     ACPIVerifyUSB4Presence @ 0x1C003D85C (ACPIVerifyUSB4Presence.c)
+ *     ACPIPccLegacyInitialize @ 0x1C00897A8 (ACPIPccLegacyInitialize.c)
+ *     ACPIEvaluateOscMethodOnRootBus @ 0x1C0093580 (ACPIEvaluateOscMethodOnRootBus.c)
+ *     ACPIEvaluateOscWheaMethodOnRootBus @ 0x1C00935E8 (ACPIEvaluateOscWheaMethodOnRootBus.c)
+ *     ACPIRootInitialize @ 0x1C0093768 (ACPIRootInitialize.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C0047B9C (AMLIEvalNameSpaceObject.c)
+ *     AMLIFreeDataBuffs @ 0x1C00482C4 (AMLIFreeDataBuffs.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ */
+
 __int64 __fastcall ACPIAmliEvaluateOsc(_QWORD *a1, __int64 a2, __int64 a3, unsigned int a4, _DWORD *a5)
 {
   __int64 v6; // rbx

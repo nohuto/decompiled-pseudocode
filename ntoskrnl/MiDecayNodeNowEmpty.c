@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiDecayNodeNowEmpty @ 0x1402D6BC0
+ * Callers:
+ *     MiEmptyDecayClusterTimers @ 0x140224EE0 (MiEmptyDecayClusterTimers.c)
+ *     MiUnlinkProtectedStandbyPfn @ 0x14032F4F0 (MiUnlinkProtectedStandbyPfn.c)
+ * Callees:
+ *     RtlSetBits @ 0x14028BC50 (RtlSetBits.c)
+ *     MiRemoveDecayClusterTimer @ 0x1402D6C5C (MiRemoveDecayClusterTimer.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ */
+
 void __fastcall MiDecayNodeNowEmpty(__int64 a1)
 {
   __int64 v2; // rbx

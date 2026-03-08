@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhInternalValidateCommonDescriptorHeader @ 0x1C0051D4C
+ * Callers:
+ *     UsbhValidateBOSDescriptorSet @ 0x1C00524CC (UsbhValidateBOSDescriptorSet.c)
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 char __fastcall UsbhInternalValidateCommonDescriptorHeader(
         __int64 a1,
         unsigned __int8 *a2,

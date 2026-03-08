@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpDmaFindDeviceObjectByToken @ 0x14038C8C4
+ * Callers:
+ *     HalPnpGetDmaAdapter @ 0x14038C880 (HalPnpGetDmaAdapter.c)
+ *     HalpDmaCheckAdapterToken @ 0x1404FF4E0 (HalpDmaCheckAdapterToken.c)
+ *     HaliGetDmaAdapter @ 0x140502FF0 (HaliGetDmaAdapter.c)
+ *     HalpDmaLinkDeviceObjectByToken @ 0x140821390 (HalpDmaLinkDeviceObjectByToken.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall HalpDmaFindDeviceObjectByToken(__int64 a1, char a2, char a3)
 {
   __int64 *v4; // rsi

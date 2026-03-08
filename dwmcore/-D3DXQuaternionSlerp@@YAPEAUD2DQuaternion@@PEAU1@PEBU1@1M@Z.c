@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?D3DXQuaternionSlerp@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@1M@Z @ 0x18027B15C
+ * Callers:
+ *     ?Slerp@CExpressionValueStack@@QEAAJXZ @ 0x18025E3E8 (-Slerp@CExpressionValueStack@@QEAAJXZ.c)
+ * Callees:
+ *     atan2f_0 @ 0x1801176D4 (atan2f_0.c)
+ *     sinf_0 @ 0x180117794 (sinf_0.c)
+ *     sqrtf_0 @ 0x1801177AC (sqrtf_0.c)
+ */
+
 struct D2DQuaternion *__fastcall D3DXQuaternionSlerp(
         struct D2DQuaternion *a1,
         const struct D2DQuaternion *a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhBuildClassCompatibleID @ 0x1C004EE18
+ * Callers:
+ *     UsbhBuildCompatibleID @ 0x1C004F2B4 (UsbhBuildCompatibleID.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhBuildVendorSpecificCompatibleIDs @ 0x1C0022B08 (UsbhBuildVendorSpecificCompatibleIDs.c)
+ *     UsbhMakeId @ 0x1C0050D48 (UsbhMakeId.c)
+ *     WPP_RECORDER_SF_Sd @ 0x1C005109C (WPP_RECORDER_SF_Sd.c)
+ */
+
 __int64 __fastcall UsbhBuildClassCompatibleID(__int64 a1, __int64 a2, __int64 a3)
 {
   _DWORD *v6; // rsi

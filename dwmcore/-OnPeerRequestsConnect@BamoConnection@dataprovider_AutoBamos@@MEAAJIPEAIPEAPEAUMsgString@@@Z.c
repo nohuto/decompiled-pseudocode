@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnPeerRequestsConnect@BamoConnection@dataprovider_AutoBamos@@MEAAJIPEAIPEAPEAUMsgString@@@Z @ 0x180105D50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall dataprovider_AutoBamos::BamoConnection::OnPeerRequestsConnect(
         dataprovider_AutoBamos::BamoConnection *this,
         __int64 a2,

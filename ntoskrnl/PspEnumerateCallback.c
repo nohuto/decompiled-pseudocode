@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspEnumerateCallback @ 0x14087CA20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspEnumerateCallback(int a1, _DWORD *a2, _QWORD *a3)
 {
   int v4; // ecx

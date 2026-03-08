@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpFunctionAddressTableEntry @ 0x140B688BC
+ * Callers:
+ *     RtlInitializeHistoryTable @ 0x140B687EC (RtlInitializeHistoryTable.c)
+ * Callees:
+ *     <none>
+ */
+
 void (__fastcall __noreturn *__fastcall RtlpFunctionAddressTableEntry(unsigned __int64 a1))(int a1)
 {
   int v1; // ecx

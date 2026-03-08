@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiGetPfnPidSafe @ 0x1406242B4
+ * Callers:
+ *     MiIdentifyPfn @ 0x14025E5D0 (MiIdentifyPfn.c)
+ *     MiLogMdlRangeEvent @ 0x140621060 (MiLogMdlRangeEvent.c)
+ * Callees:
+ *     MiGetLeafPfnBuddy @ 0x140386E8C (MiGetLeafPfnBuddy.c)
+ */
+
 __int64 __fastcall MiGetPfnPidSafe(_QWORD *a1, char a2)
 {
   unsigned __int64 LeafPfnBuddy; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of LdrpKrnGetDataTableEntry @ 0x14035CF08
+ * Callers:
+ *     LdrLoadAlternateResourceModuleEx @ 0x14035D07C (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpGetImageSize @ 0x14035D8E8 (LdrpGetImageSize.c)
+ *     LdrpResGetMappingSize @ 0x1407EB0A8 (LdrpResGetMappingSize.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 PVOID *__fastcall LdrpKrnGetDataTableEntry(unsigned __int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rdi

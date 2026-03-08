@@ -1,3 +1,15 @@
+/*
+ * XREFs of PoFxSetComponentResidency @ 0x1403AE930
+ * Callers:
+ *     DifPoFxSetComponentResidencyWrapper @ 0x1405E7880 (DifPoFxSetComponentResidencyWrapper.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     PopFxAddLogEntry @ 0x140306584 (PopFxAddLogEntry.c)
+ *     PopPepComponentSetResidency @ 0x1403AE9C4 (PopPepComponentSetResidency.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall PoFxSetComponentResidency(__int64 a1, unsigned int a2, __int64 a3)
 {
   REGHANDLE v7; // rsi

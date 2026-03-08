@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpDmaInitSystem @ 0x140A8D4D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpDmaInitPowerManagement @ 0x14039826C (HalpDmaInitPowerManagement.c)
+ *     HalpDmaInitEarly @ 0x140B60D2C (HalpDmaInitEarly.c)
+ *     HalpDmaInitDiscard @ 0x140B60DD0 (HalpDmaInitDiscard.c)
+ *     HalpDmaInit @ 0x140B60E78 (HalpDmaInit.c)
+ *     HalpDmaFinalizeDoubleBufferingDisposition @ 0x140B613CC (HalpDmaFinalizeDoubleBufferingDisposition.c)
+ */
+
 __int64 __fastcall HalpDmaInitSystem(int a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // edx

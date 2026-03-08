@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMVirtDeviceRootPnpEndSyncAsyncWorkItem @ 0x1C01D0D80
+ * Callers:
+ *     RIMOnAsyncPnpWorkNotification @ 0x1C0038B90 (RIMOnAsyncPnpWorkNotification.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_S @ 0x1C0037E30 (WPP_RECORDER_AND_TRACE_SF_S.c)
+ *     RIMDoOnPnpNotification @ 0x1C00872A8 (RIMDoOnPnpNotification.c)
+ *     RIMShouldVirtualDeviceBeClosed @ 0x1C01C7BC4 (RIMShouldVirtualDeviceBeClosed.c)
+ */
+
 char __fastcall RIMVirtDeviceRootPnpEndSyncAsyncWorkItem(__int64 a1)
 {
   __int64 v1; // rdi

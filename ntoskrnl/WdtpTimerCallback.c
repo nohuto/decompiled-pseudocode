@@ -1,3 +1,14 @@
+/*
+ * XREFs of WdtpTimerCallback @ 0x140671BB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WdtpArmTimer @ 0x140203F20 (WdtpArmTimer.c)
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __fastcall WdtpTimerCallback(__int64 a1, __int64 a2)
 {
   int v3; // eax

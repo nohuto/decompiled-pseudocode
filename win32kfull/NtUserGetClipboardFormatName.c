@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetClipboardFormatName @ 0x1C0012A10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserGetClipboardFormatName(unsigned __int16 a1, volatile void *a2, unsigned int a3)
 {
   unsigned int v6; // ebx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of WmipLegacyEtwWorker @ 0x14084D950
+ * Callers:
+ *     WmipProcessSynchronousEtw @ 0x1408689F0 (WmipProcessSynchronousEtw.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     WmipReferenceEntry @ 0x14069C27C (WmipReferenceEntry.c)
+ *     WmipUnreferenceEntry @ 0x14069C9D0 (WmipUnreferenceEntry.c)
+ *     EtwUnregister @ 0x14076F9E0 (EtwUnregister.c)
+ *     WmipProcessLegacyEtwRegister @ 0x14084DA68 (WmipProcessLegacyEtwRegister.c)
+ *     WmipProcessLegacyEtwCallback @ 0x1409DEC30 (WmipProcessLegacyEtwCallback.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WmipLegacyEtwWorker(ULONG_PTR a1)
 {
   __int64 v2; // rcx

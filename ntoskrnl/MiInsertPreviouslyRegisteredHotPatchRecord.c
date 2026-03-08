@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiInsertPreviouslyRegisteredHotPatchRecord @ 0x140A35010
+ * Callers:
+ *     MiDeleteHotPatchRecord @ 0x140A33BA4 (MiDeleteHotPatchRecord.c)
+ *     MiInsertHotPatchRecord @ 0x140A34E80 (MiInsertHotPatchRecord.c)
+ * Callees:
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     MiCompareHotPatchNodes @ 0x140A33944 (MiCompareHotPatchNodes.c)
+ */
+
 _BOOL8 __fastcall MiInsertPreviouslyRegisteredHotPatchRecord(const UNICODE_STRING *a1)
 {
   _QWORD *v1; // rsi

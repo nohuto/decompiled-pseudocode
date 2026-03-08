@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserDestroyDCompositionHwndTarget @ 0x1C007D170
+ * Callers:
+ *     NtUserCreateDCompositionHwndTarget @ 0x1C007D760 (NtUserCreateDCompositionHwndTarget.c)
+ * Callees:
+ *     UserSetLastStatus @ 0x1C0012568 (UserSetLastStatus.c)
+ *     ?DetachWindowCompositionTarget@@YAJPEAUHWND__@@K@Z @ 0x1C007D1DC (-DetachWindowCompositionTarget@@YAJPEAUHWND__@@K@Z.c)
+ */
+
 unsigned __int64 __fastcall NtUserDestroyDCompositionHwndTarget(HWND a1, unsigned int a2)
 {
   NTSTATUS v4; // ebx

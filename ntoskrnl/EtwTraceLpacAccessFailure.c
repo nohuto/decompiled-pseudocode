@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwTraceLpacAccessFailure @ 0x1409EA2C4
+ * Callers:
+ *     SepLogLpacAccessFailure @ 0x1405B5948 (SepLogLpacAccessFailure.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     KeQuerySystemTimePrecise @ 0x1402384E0 (KeQuerySystemTimePrecise.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall EtwTraceLpacAccessFailure(int a1)
 {
   NTSTATUS result; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnStateChange@EnabledStateManager@details@wil@@QEAAXXZ @ 0x180195D38
+ * Callers:
+ *     ?_lambda_invoker_cdecl_@_lambda_fee8cea507d2413a58be13acfb66740a_@@CA@PEAX@Z @ 0x180193DF0 (-_lambda_invoker_cdecl_@_lambda_fee8cea507d2413a58be13acfb66740a_@@CA@PEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall wil::details::EnabledStateManager::OnStateChange(RTL_SRWLOCK *this)
 {
   RTL_SRWLOCK *v2; // rdi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of sub_1403EC0EC @ 0x1403EC0EC
+ * Callers:
+ *     sub_1403DFCC0 @ 0x1403DFCC0 (sub_1403DFCC0.c)
+ *     FsRtlMdlReadCompleteDevEx @ 0x140AF7010 (FsRtlMdlReadCompleteDevEx.c)
+ * Callees:
+ *     sub_1403EC00C @ 0x1403EC00C (sub_1403EC00C.c)
+ *     sub_1403EC068 @ 0x1403EC068 (sub_1403EC068.c)
+ *     $$ba @ 0x140B0E898 ($$ba.c)
+ *     KeGuardDispatchICall @ 0x140B107A0 (KeGuardDispatchICall.c)
+ */
+
 void __fastcall sub_1403EC0EC(__int64 a1, int *a2)
 {
   int *v2; // r14

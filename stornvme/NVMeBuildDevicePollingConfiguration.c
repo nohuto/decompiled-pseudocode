@@ -1,3 +1,11 @@
+/*
+ * XREFs of NVMeBuildDevicePollingConfiguration @ 0x1C001C2B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ */
+
 char __fastcall NVMeBuildDevicePollingConfiguration(__int64 a1, __int64 a2)
 {
   __int64 SrbExtension; // rax

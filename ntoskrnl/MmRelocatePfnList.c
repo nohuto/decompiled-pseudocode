@@ -1,3 +1,22 @@
+/*
+ * XREFs of MmRelocatePfnList @ 0x140A39D10
+ * Callers:
+ *     PfpPfnPrioRequest @ 0x1406AE8C4 (PfpPfnPrioRequest.c)
+ * Callees:
+ *     MiCreateUltraThreadContext @ 0x140244548 (MiCreateUltraThreadContext.c)
+ *     MiIdentifyPfnWrapper @ 0x14025C920 (MiIdentifyPfnWrapper.c)
+ *     MiIsPfn @ 0x14025F1D0 (MiIsPfn.c)
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     MiLockDynamicMemoryShared @ 0x1402DAC90 (MiLockDynamicMemoryShared.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1402DC340 (MiUnlockDynamicMemoryShared.c)
+ *     MiDeleteUltraThreadContext @ 0x14035137C (MiDeleteUltraThreadContext.c)
+ *     MiClaimPhysicalRun @ 0x1403B545C (MiClaimPhysicalRun.c)
+ *     MiPfnsWorthTrying @ 0x1403B6374 (MiPfnsWorthTrying.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiEmptyKernelStackCache @ 0x1406423A0 (MiEmptyKernelStackCache.c)
+ */
+
 __int64 __fastcall MmRelocatePfnList(__int64 a1, _QWORD *a2, unsigned int a3, unsigned int a4)
 {
   int v9; // r13d

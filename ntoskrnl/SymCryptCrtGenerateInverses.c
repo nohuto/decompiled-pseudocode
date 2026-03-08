@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptCrtGenerateInverses @ 0x1403F8190
+ * Callers:
+ *     SymCryptRsakeyCalculatePrivateFields @ 0x1403F1A48 (SymCryptRsakeyCalculatePrivateFields.c)
+ * Callees:
+ *     SymCryptCrtGenerateForTwoCoprimes @ 0x1403F7FE0 (SymCryptCrtGenerateForTwoCoprimes.c)
+ */
+
 __int64 __fastcall SymCryptCrtGenerateInverses(
         int a1,
         PRKSEMAPHORE *a2,

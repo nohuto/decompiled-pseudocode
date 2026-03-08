@@ -1,3 +1,17 @@
+/*
+ * XREFs of NtDeleteObjectAuditAlarm @ 0x1409CB0D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SepProbeAndCaptureString_U @ 0x140698634 (SepProbeAndCaptureString_U.c)
+ *     SeCheckAuditPrivilege @ 0x140699908 (SeCheckAuditPrivilege.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     SepAdtDeleteObjectAuditAlarm @ 0x1409C8A64 (SepAdtDeleteObjectAuditAlarm.c)
+ *     SepAuditFailed @ 0x1409CEE50 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall NtDeleteObjectAuditAlarm(PUNICODE_STRING SubsystemName, PVOID HandleId, BOOLEAN GenerateOnClose)
 {
   char PreviousMode; // bl

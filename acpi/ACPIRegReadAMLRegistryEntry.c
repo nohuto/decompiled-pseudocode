@@ -1,3 +1,20 @@
+/*
+ * XREFs of ACPIRegReadAMLRegistryEntry @ 0x1C008D3DC
+ * Callers:
+ *     ACPIMapNamedTable @ 0x1C00018A0 (ACPIMapNamedTable.c)
+ *     ACPILoadProcessDSDT @ 0x1C00A9700 (ACPILoadProcessDSDT.c)
+ *     ACPILoadProcessRSDT @ 0x1C00A9AC4 (ACPILoadProcessRSDT.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_s @ 0x1C000AEC4 (WPP_RECORDER_SF_s.c)
+ *     WPP_RECORDER_SF_Ld @ 0x1C003BED8 (WPP_RECORDER_SF_Ld.c)
+ *     ACPIRegLocalCopyString @ 0x1C008D388 (ACPIRegLocalCopyString.c)
+ *     ACPIRegReadEntireAcpiTable @ 0x1C008D69C (ACPIRegReadEntireAcpiTable.c)
+ *     OSOpenHandle @ 0x1C008DF10 (OSOpenHandle.c)
+ *     OSOpenLargestSubkey @ 0x1C008DFE0 (OSOpenLargestSubkey.c)
+ *     OSReadRegValue @ 0x1C008E6A0 (OSReadRegValue.c)
+ */
+
 char __fastcall ACPIRegReadAMLRegistryEntry(__int64 *a1)
 {
   __int64 v1; // r15

@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpIsStackWalkingEnabled @ 0x14080E2D8
+ * Callers:
+ *     EtwpProcessThreadImageRundown @ 0x14080DC50 (EtwpProcessThreadImageRundown.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall EtwpIsStackWalkingEnabled(__int64 a1, __int16 a2)
 {
   char v2; // r8

@@ -1,3 +1,11 @@
+/*
+ * XREFs of Controller_EvtPostPoFxRegisterDevice @ 0x1C001E7C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Controller_EvtPostPoFxRegisterDevice(__int64 a1, __int64 a2)
 {
   __int64 v3; // rcx

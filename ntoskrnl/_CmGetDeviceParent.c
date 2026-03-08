@@ -1,3 +1,20 @@
+/*
+ * XREFs of _CmGetDeviceParent @ 0x1406C7D1C
+ * Callers:
+ *     PiCMGetRelatedDeviceInstance @ 0x1406C6068 (PiCMGetRelatedDeviceInstance.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA2A4 (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmIsDeviceSafeRemovalRequired @ 0x14078A594 (_CmIsDeviceSafeRemovalRequired.c)
+ *     _CmGetDeviceSiblings @ 0x140839C1C (_CmGetDeviceSiblings.c)
+ *     _CmGetParentDeviceContainerId @ 0x14085CA14 (_CmGetParentDeviceContainerId.c)
+ * Callees:
+ *     RtlStringCchCopyExW @ 0x140244A08 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _CmIsRootDevice @ 0x1406C7E80 (_CmIsRootDevice.c)
+ *     _NtPlugPlayGetDeviceRelatedDevice @ 0x1406C81CC (_NtPlugPlayGetDeviceRelatedDevice.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ */
+
 int __fastcall CmGetDeviceParent(int a1, const WCHAR *a2, wchar_t *a3, unsigned int *a4)
 {
   size_t v4; // rbx

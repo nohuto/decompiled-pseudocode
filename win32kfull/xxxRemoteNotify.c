@@ -1,3 +1,11 @@
+/*
+ * XREFs of xxxRemoteNotify @ 0x1C00F25F0
+ * Callers:
+ *     NtUserRemoteNotify @ 0x1C00F25B0 (NtUserRemoteNotify.c)
+ * Callees:
+ *     <none>
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall xxxRemoteNotify(_DWORD *a1, __int64 a2, __int64 a3)
 {

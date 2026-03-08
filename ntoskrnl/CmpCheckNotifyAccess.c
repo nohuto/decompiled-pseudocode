@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpCheckNotifyAccess @ 0x1406B39B4
+ * Callers:
+ *     CmpNotifyTriggerCheck @ 0x1406B3714 (CmpNotifyTriggerCheck.c)
+ * Callees:
+ *     SeAccessCheck @ 0x140265330 (SeAccessCheck.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x1407AF4E0 (CmpGetSecurityCacheEntryForKcbStack.c)
+ */
+
 BOOLEAN __fastcall CmpCheckNotifyAccess(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 SecurityCacheEntryForKcbStack; // rax

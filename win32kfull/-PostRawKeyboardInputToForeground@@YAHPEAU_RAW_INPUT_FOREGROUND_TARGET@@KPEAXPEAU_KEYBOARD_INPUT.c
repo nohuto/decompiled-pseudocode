@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?PostRawKeyboardInputToForeground@@YAHPEAU_RAW_INPUT_FOREGROUND_TARGET@@KPEAXPEAU_KEYBOARD_INPUT_DATA@@IG@Z @ 0x1C0008F6C
+ * Callers:
+ *     ?HandleRawInput@@YA?AW4RAW_INPUT_PROCESSING_RESULT@@PEAXPEAU_KEYBOARD_INPUT_DATA@@PEBURAW_INPUT_SUPPLEMENTAL_INFO@@@Z @ 0x1C009EED4 (-HandleRawInput@@YA-AW4RAW_INPUT_PROCESSING_RESULT@@PEAXPEAU_KEYBOARD_INPUT_DATA@@PEBURAW_INPUT_.c)
+ * Callees:
+ *     AllocateHidData @ 0x1C0009078 (AllocateHidData.c)
+ *     FreeHidData @ 0x1C000DC20 (FreeHidData.c)
+ *     PostInputMessage @ 0x1C0037A48 (PostInputMessage.c)
+ */
+
 __int64 __fastcall PostRawKeyboardInputToForeground(
         struct _RAW_INPUT_FOREGROUND_TARGET *a1,
         unsigned int a2,

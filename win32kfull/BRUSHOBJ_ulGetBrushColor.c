@@ -1,3 +1,11 @@
+/*
+ * XREFs of BRUSHOBJ_ulGetBrushColor @ 0x1C0267E20
+ * Callers:
+ *     NtGdiBRUSHOBJ_ulGetBrushColor @ 0x1C02CA930 (NtGdiBRUSHOBJ_ulGetBrushColor.c)
+ * Callees:
+ *     <none>
+ */
+
 ULONG __stdcall BRUSHOBJ_ulGetBrushColor(BRUSHOBJ *pbo)
 {
   FLONG flColorType; // eax

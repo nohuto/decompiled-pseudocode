@@ -1,3 +1,14 @@
+/*
+ * XREFs of PsGetVersion @ 0x1402FDA40
+ * Callers:
+ *     DifPsGetVersionWrapper @ 0x1405E8350 (DifPsGetVersionWrapper.c)
+ *     Win7PsGetVersion @ 0x140974EA0 (Win7PsGetVersion.c)
+ *     Win81PsGetVersion @ 0x140974F80 (Win81PsGetVersion.c)
+ *     Win8PsGetVersion @ 0x140975060 (Win8PsGetVersion.c)
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall PsGetVersion(
         PULONG MajorVersion,
         PULONG MinorVersion,

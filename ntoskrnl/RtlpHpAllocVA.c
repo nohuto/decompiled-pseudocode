@@ -1,3 +1,18 @@
+/*
+ * XREFs of RtlpHpAllocVA @ 0x140330920
+ * Callers:
+ *     RtlpHpSegMgrCommit @ 0x140248BE0 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpLargeAlloc @ 0x1402B6D70 (RtlpHpLargeAlloc.c)
+ *     RtlpHpHeapExtendContext @ 0x1402F8FAC (RtlpHpHeapExtendContext.c)
+ *     RtlpHpSegMgrReserve @ 0x1403085F4 (RtlpHpSegMgrReserve.c)
+ *     RtlpHpHeapAllocate @ 0x140375668 (RtlpHpHeapAllocate.c)
+ * Callees:
+ *     RtlpHpVaMgrCtxAlloc @ 0x1403041DC (RtlpHpVaMgrCtxAlloc.c)
+ *     RtlpHpEnvAllocVA @ 0x140330480 (RtlpHpEnvAllocVA.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlHeapZero @ 0x1403D2D10 (RtlHeapZero.c)
+ */
+
 __int64 __fastcall RtlpHpAllocVA(unsigned __int64 *a1, __int64 *a2, __int64 a3, int a4, int a5, __int128 *a6)
 {
   unsigned __int64 v6; // r10

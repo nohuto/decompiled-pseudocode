@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDirectedDripsNotifyTransitionFailed @ 0x140980AFC
+ * Callers:
+ *     PoBroadcastSystemState @ 0x140AA38F8 (PoBroadcastSystemState.c)
+ * Callees:
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140240954 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     PopDirectedDripsDiagTraceBroadcastFailureDevice @ 0x14099C0DC (PopDirectedDripsDiagTraceBroadcastFailureDevice.c)
+ */
+
 LONG_PTR __fastcall PopDirectedDripsNotifyTransitionFailed(__int64 a1)
 {
   LONG_PTR result; // rax

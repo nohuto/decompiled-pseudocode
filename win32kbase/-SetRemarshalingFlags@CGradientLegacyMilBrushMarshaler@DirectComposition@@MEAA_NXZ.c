@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CGradientLegacyMilBrushMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025E10C
+ * Callers:
+ *     ?SetRemarshalingFlags@CLinearGradientLegacyMilBrushMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025E2B0 (-SetRemarshalingFlags@CLinearGradientLegacyMilBrushMarshaler@DirectComposition@@MEAA_NXZ.c)
+ * Callees:
+ *     ?SetRemarshalingFlags@CLegacyMilBrushMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025E260 (-SetRemarshalingFlags@CLegacyMilBrushMarshaler@DirectComposition@@MEAA_NXZ.c)
+ */
+
 char __fastcall DirectComposition::CGradientLegacyMilBrushMarshaler::SetRemarshalingFlags(
         DirectComposition::CGradientLegacyMilBrushMarshaler *this)
 {

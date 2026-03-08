@@ -1,3 +1,20 @@
+/*
+ * XREFs of IopAddLiveDumpPagesToPartialKernelDump @ 0x14055A46C
+ * Callers:
+ *     IoAddPagesForPartialKernelDump @ 0x140559F94 (IoAddPagesForPartialKernelDump.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     IoSaveBugCheckProgress @ 0x14054E5E0 (IoSaveBugCheckProgress.c)
+ *     IopDumpCallAddPagesCallbacks @ 0x140550198 (IopDumpCallAddPagesCallbacks.c)
+ *     IoAddProcessesToDump @ 0x14055A1A4 (IoAddProcessesToDump.c)
+ *     IopAddKernelSpacePagesToPartialDump @ 0x14055A3F4 (IopAddKernelSpacePagesToPartialDump.c)
+ *     IopMarkPagesForDeviceNode @ 0x14055AC8C (IopMarkPagesForDeviceNode.c)
+ *     IopMarkPagesForProcessorData @ 0x14055B1E8 (IopMarkPagesForProcessorData.c)
+ *     ExAddPrivateDataToCrashDump @ 0x1406047DC (ExAddPrivateDataToCrashDump.c)
+ *     MmAddPrivateDataToCrashDump @ 0x14062DBE0 (MmAddPrivateDataToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x14062DD30 (MmAddRangeToCrashDump.c)
+ */
+
 __int64 __fastcall IopAddLiveDumpPagesToPartialKernelDump(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   __int64 v8; // r9

@@ -1,3 +1,13 @@
+/*
+ * XREFs of InitSecurity @ 0x1C031FB94
+ * Callers:
+ *     Win32UserInitialize @ 0x1C031E444 (Win32UserInitialize.c)
+ * Callees:
+ *     AllocAce @ 0x1C0065880 (AllocAce.c)
+ *     CreateSecurityDescriptor @ 0x1C0069170 (CreateSecurityDescriptor.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 __int64 InitSecurity()
 {
   unsigned int v0; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpRestartProfiling @ 0x140505F14
+ * Callers:
+ *     HalpPostSleepMP @ 0x140A93F28 (HalpPostSleepMP.c)
+ *     HalpDpPostReplaceInitialization @ 0x140A94574 (HalpDpPostReplaceInitialization.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 HalpRestartProfiling()
 {
   __int64 v0; // rax

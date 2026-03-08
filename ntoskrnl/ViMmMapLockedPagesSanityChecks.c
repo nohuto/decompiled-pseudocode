@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViMmMapLockedPagesSanityChecks @ 0x140AE0A58
+ * Callers:
+ *     VerifierMmMapLockedPages @ 0x140AE0180 (VerifierMmMapLockedPages.c)
+ *     VerifierMmMapLockedPagesSpecifyCache @ 0x140AE0250 (VerifierMmMapLockedPagesSpecifyCache.c)
+ * Callees:
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ *     MmCheckMdlPages @ 0x140AE5264 (MmCheckMdlPages.c)
+ */
+
 __int64 __fastcall ViMmMapLockedPagesSanityChecks(ULONG_PTR BugCheckParameter2, char a2)
 {
   __int64 result; // rax

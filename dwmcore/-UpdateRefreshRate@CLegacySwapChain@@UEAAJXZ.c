@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?UpdateRefreshRate@CLegacySwapChain@@UEAAJXZ @ 0x1802984E0
+ * Callers:
+ *     ?UpdateRefreshRate@CLegacySwapChain@@$4PPPPPPPM@BLA@EAAJXZ @ 0x18011BB10 (-UpdateRefreshRate@CLegacySwapChain@@$4PPPPPPPM@BLA@EAAJXZ.c)
+ *     ?UpdateRefreshRate@CLegacySwapChain@@$4PPPPPPPM@BLI@EAAJXZ @ 0x18011CBB0 (-UpdateRefreshRate@CLegacySwapChain@@$4PPPPPPPM@BLI@EAAJXZ.c)
+ *     ?UpdateRefreshRate@CLegacySwapChain@@$4PPPPPPPM@DFI@EAAJXZ @ 0x18011D270 (-UpdateRefreshRate@CLegacySwapChain@@$4PPPPPPPM@DFI@EAAJXZ.c)
+ * Callees:
+ *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18003CE64 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CalcVBlankDuration@CLegacySwapChain@@IEAA_NAEBUDXGI_RATIONAL@@_K1I@Z @ 0x1800C80F8 (-CalcVBlankDuration@CLegacySwapChain@@IEAA_NAEBUDXGI_RATIONAL@@_K1I@Z.c)
+ *     ?GetCompositorClockBoost@CComposition@@QEBA_NXZ @ 0x1800C81D8 (-GetCompositorClockBoost@CComposition@@QEBA_NXZ.c)
+ *     ?ValidateMinMaxVBlankDuration@@YAXAEBUDXGI_OUTPUT_DWM_DESC@@PEA_K1PEAI@Z @ 0x1800C8210 (-ValidateMinMaxVBlankDuration@@YAXAEBUDXGI_OUTPUT_DWM_DESC@@PEA_K1PEAI@Z.c)
+ *     ?reset@?$com_ptr_t@VCVisualTree@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800F5598 (-reset@-$com_ptr_t@VCVisualTree@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetDXGIOutput@CDisplayManager@@QEAAJU_LUID@@IPEAPEAUIDXGIOutputDWM@@@Z @ 0x18028BAFC (-GetDXGIOutput@CDisplayManager@@QEAAJU_LUID@@IPEAPEAUIDXGIOutputDWM@@@Z.c)
+ */
+
 __int64 __fastcall CLegacySwapChain::UpdateRefreshRate(CLegacySwapChain *this)
 {
   unsigned int v1; // ebx

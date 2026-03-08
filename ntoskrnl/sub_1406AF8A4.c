@@ -1,3 +1,14 @@
+/*
+ * XREFs of sub_1406AF8A4 @ 0x1406AF8A4
+ * Callers:
+ *     WbHeapExecuteCall @ 0x1406AF56C (WbHeapExecuteCall.c)
+ * Callees:
+ *     RtlUIntAdd @ 0x14022A638 (RtlUIntAdd.c)
+ *     ?RtlULongMult@@YAJKKPEAK@Z @ 0x14066B6E8 (-RtlULongMult@@YAJKKPEAK@Z.c)
+ *     sub_1406AF984 @ 0x1406AF984 (sub_1406AF984.c)
+ *     WbReAlloc @ 0x14075521C (WbReAlloc.c)
+ */
+
 NTSTATUS __fastcall sub_1406AF8A4(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4, int a5)
 {
   unsigned int v5; // r10d

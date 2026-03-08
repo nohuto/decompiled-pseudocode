@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpGetSystemBasicInformation @ 0x1402DCC68
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     MmGetNumberOfPhysicalPages @ 0x140768AB0 (MmGetNumberOfPhysicalPages.c)
+ *     ExSystemExceptionFilter @ 0x140861790 (ExSystemExceptionFilter.c)
+ */
+
 __int64 __fastcall ExpGetSystemBasicInformation(__int64 a1)
 {
   __int64 v2; // rsi

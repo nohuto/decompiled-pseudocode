@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpVirtualPathPresent @ 0x140A17B40
+ * Callers:
+ *     CmpReparseToVirtualPath @ 0x140A17264 (CmpReparseToVirtualPath.c)
+ * Callees:
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpBlockTwoHiveWrites @ 0x140A10BB8 (CmpBlockTwoHiveWrites.c)
+ *     CmpUnblockTwoHiveWrites @ 0x140A10D8C (CmpUnblockTwoHiveWrites.c)
+ *     CmpFindPathByName @ 0x140A16940 (CmpFindPathByName.c)
+ *     CmpGetCmHiveFromVirtualPath @ 0x140A16E8C (CmpGetCmHiveFromVirtualPath.c)
+ */
+
 bool __fastcall CmpVirtualPathPresent(__m128i *a1)
 {
   volatile signed __int32 *v1; // r14

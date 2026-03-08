@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiImageProtoChargedCommit @ 0x1402B0EDC
+ * Callers:
+ *     MiDeleteSystemPagableVm @ 0x1402B04B0 (MiDeleteSystemPagableVm.c)
+ * Callees:
+ *     MiGetSharedProtosAtDpcLevel @ 0x1402CCE88 (MiGetSharedProtosAtDpcLevel.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     MiGetSubsectionDriverProtos @ 0x1403443A4 (MiGetSubsectionDriverProtos.c)
+ */
+
 __int64 __fastcall MiImageProtoChargedCommit(__int64 a1, unsigned __int64 a2)
 {
   unsigned int SessionId; // r12d

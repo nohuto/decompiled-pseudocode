@@ -1,3 +1,11 @@
+/*
+ * XREFs of __tailMerge_api_ms_win_rtcore_ntuser_private_l1_1_4_dll @ 0x1801100F1
+ * Callers:
+ *     __imp_load_SetCITInfo @ 0x1801100E5 (__imp_load_SetCITInfo.c)
+ * Callees:
+ *     __delayLoadHelper2 @ 0x180100EB0 (__delayLoadHelper2.c)
+ */
+
 __int64 __fastcall _tailMerge_api_ms_win_rtcore_ntuser_private_l1_1_4_dll(
         __int64 a1,
         __int64 a2,

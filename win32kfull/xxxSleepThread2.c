@@ -1,3 +1,22 @@
+/*
+ * XREFs of xxxSleepThread2 @ 0x1C006D200
+ * Callers:
+ *     xxxRealInternalGetMessage @ 0x1C006F2F0 (xxxRealInternalGetMessage.c)
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ *     NtUserWaitMessage @ 0x1C00D78A0 (NtUserWaitMessage.c)
+ *     xxxSleepThread @ 0x1C01B48DC (xxxSleepThread.c)
+ *     xxxWaitMessageEx @ 0x1C01B84F0 (xxxWaitMessageEx.c)
+ *     xxxDCETrackCaptionButton @ 0x1C01BBA1C (xxxDCETrackCaptionButton.c)
+ *     NtUserRealWaitMessageEx @ 0x1C01D9DF0 (NtUserRealWaitMessageEx.c)
+ *     NtUserWaitAvailableMessageEx @ 0x1C01E1270 (NtUserWaitAvailableMessageEx.c)
+ *     xxxTrackCaptionButton @ 0x1C022F438 (xxxTrackCaptionButton.c)
+ *     xxxDragObject @ 0x1C023257C (xxxDragObject.c)
+ *     xxxIsDragging @ 0x1C0232C4C (xxxIsDragging.c)
+ * Callees:
+ *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C006D360 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
+ *     ?xxxHandleHealthyThread@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C01F5AA4 (-xxxHandleHealthyThread@@YAXPEAUtagTHREADINFO@@@Z.c)
+ */
+
 __int64 __fastcall xxxSleepThread2(unsigned int a1, unsigned int a2, int a3, int a4, enum SLEEP_STATUS *a5)
 {
   unsigned int v9; // esi

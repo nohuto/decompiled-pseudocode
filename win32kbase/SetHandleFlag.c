@@ -1,3 +1,13 @@
+/*
+ * XREFs of SetHandleFlag @ 0x1C00A4E60
+ * Callers:
+ *     CloseProtectedHandle @ 0x1C00A4E18 (CloseProtectedHandle.c)
+ * Callees:
+ *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0068568 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 __int64 __fastcall SetHandleFlag(unsigned int a1, int a2, int a3)
 {
   unsigned int v4; // esi

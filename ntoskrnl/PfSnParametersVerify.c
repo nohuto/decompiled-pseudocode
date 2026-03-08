@@ -1,3 +1,11 @@
+/*
+ * XREFs of PfSnParametersVerify @ 0x1408457D4
+ * Callers:
+ *     PfSnParametersRead @ 0x140845198 (PfSnParametersRead.c)
+ * Callees:
+ *     towupper @ 0x1403D5C50 (towupper.c)
+ */
+
 __int64 __fastcall PfSnParametersVerify(_DWORD *a1)
 {
   unsigned int v2; // esi

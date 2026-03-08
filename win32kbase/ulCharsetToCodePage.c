@@ -1,3 +1,11 @@
+/*
+ * XREFs of ulCharsetToCodePage @ 0x1C019A090
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ulCharsetToCodePage(__int64 a1)
 {
   __int64 v1; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoReportResourceUsage @ 0x140953DE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     IoReportResourceUsageInternal @ 0x140953FC8 (IoReportResourceUsageInternal.c)
+ */
+
 NTSTATUS __stdcall IoReportResourceUsage(
         PUNICODE_STRING DriverClassName,
         PDRIVER_OBJECT DriverObject,

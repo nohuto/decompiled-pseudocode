@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpQueryCapsuleCapabilities @ 0x14051EE50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402ABED0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HalEfiQueryCapsuleCapabilities @ 0x14050AC0C (HalEfiQueryCapsuleCapabilities.c)
+ */
+
 __int64 __fastcall HalpQueryCapsuleCapabilities(__int64 a1)
 {
   char v3; // bl

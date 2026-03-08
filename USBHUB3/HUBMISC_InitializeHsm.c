@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBMISC_InitializeHsm @ 0x1C0082D50
+ * Callers:
+ *     HUBFDO_EvtDeviceAdd @ 0x1C0077680 (HUBFDO_EvtDeviceAdd.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBMISC_InitializeHsm(__int64 a1)
 {
   unsigned __int64 v1; // rdx

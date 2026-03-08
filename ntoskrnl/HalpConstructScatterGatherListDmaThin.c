@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpConstructScatterGatherListDmaThin @ 0x1402B5C40
+ * Callers:
+ *     HalpBuildScatterGatherListDmaThin @ 0x1402B58B4 (HalpBuildScatterGatherListDmaThin.c)
+ *     HalBuildScatterGatherListDmaThin @ 0x1402B5A40 (HalBuildScatterGatherListDmaThin.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpConstructScatterGatherListDmaThin(__int64 a1)
 {
   __int64 v1; // rdi

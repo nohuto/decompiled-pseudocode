@@ -1,3 +1,20 @@
+/*
+ * XREFs of PiSwCloseDevice @ 0x140964150
+ * Callers:
+ *     PiSwIrpCleanup @ 0x140807E94 (PiSwIrpCleanup.c)
+ *     PiSwStopDestroy @ 0x140867198 (PiSwStopDestroy.c)
+ *     PiSwCloseDescendants @ 0x1408672DC (PiSwCloseDescendants.c)
+ * Callees:
+ *     RtlDeleteElementGenericTableAvl @ 0x140244F40 (RtlDeleteElementGenericTableAvl.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IoInvalidateDeviceRelations @ 0x1402F4FC0 (IoInvalidateDeviceRelations.c)
+ *     McTemplateK0zz_EtwWriteTransfer @ 0x1405613D4 (McTemplateK0zz_EtwWriteTransfer.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CDF08 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PiSwDeviceDereference @ 0x140807FA4 (PiSwDeviceDereference.c)
+ *     PiSwBusRelationRemove @ 0x140964098 (PiSwBusRelationRemove.c)
+ *     PiSwQueuedCreateInfoFree @ 0x140964BA0 (PiSwQueuedCreateInfoFree.c)
+ */
+
 void __fastcall PiSwCloseDevice(__int64 a1, __int64 a2, __int64 a3)
 {
   struct _DEVICE_OBJECT *v3; // rax

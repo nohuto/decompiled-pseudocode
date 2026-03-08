@@ -1,3 +1,15 @@
+/*
+ * XREFs of EmpRuleUpdateWorkerThread @ 0x14039F530
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     EmpUpdateRuleState @ 0x1402D6550 (EmpUpdateRuleState.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 signed __int32 EmpRuleUpdateWorkerThread()
 {
   __int64 v0; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlEnumerateGenericTableWithoutSplayingAvl @ 0x1402EF180
+ * Callers:
+ *     RtlEnumerateGenericTableAvl @ 0x1402EF150 (RtlEnumerateGenericTableAvl.c)
+ * Callees:
+ *     RealSuccessor @ 0x1402457FC (RealSuccessor.c)
+ */
+
 PVOID __stdcall RtlEnumerateGenericTableWithoutSplayingAvl(PRTL_AVL_TABLE Table, PVOID *RestartKey)
 {
   _RTL_BALANCED_LINKS *RightChild; // rax

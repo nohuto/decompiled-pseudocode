@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiSetSystemRegionTypes @ 0x140B6087C
+ * Callers:
+ *     MiInitializeSystemVa @ 0x140B60308 (MiInitializeSystemVa.c)
+ * Callees:
+ *     MiConvertAssignedRegionToVaType @ 0x140B6090C (MiConvertAssignedRegionToVaType.c)
+ */
+
 unsigned __int64 MiSetSystemRegionTypes()
 {
   unsigned int v0; // r8d

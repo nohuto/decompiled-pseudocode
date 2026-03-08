@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpIommuInitializeDmar @ 0x1403A409C
+ * Callers:
+ *     HalpIommuInitSystem @ 0x140A86E10 (HalpIommuInitSystem.c)
+ * Callees:
+ *     HalpIommuGetHardwareDomain @ 0x1403A414C (HalpIommuGetHardwareDomain.c)
+ *     HalpIommuAllocateDmaDomain @ 0x1403A43AC (HalpIommuAllocateDmaDomain.c)
+ */
+
 __int64 HalpIommuInitializeDmar()
 {
   __int64 result; // rax

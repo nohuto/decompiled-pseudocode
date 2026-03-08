@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetWinStationInfo @ 0x1C01D5520
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _GetWinStationInfo @ 0x1C020630C (_GetWinStationInfo.c)
+ */
+
 __int64 __fastcall NtUserGetWinStationInfo(__int64 a1)
 {
   __int64 WinStationInfo; // rbx

@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiRebuildLargePages @ 0x14065B810
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiNodeLargeFreeZeroPages @ 0x14027DEB0 (MiNodeLargeFreeZeroPages.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiNodeFreeZeroPages @ 0x14034EAD4 (MiNodeFreeZeroPages.c)
+ *     MiGetNodeStandbyPageCount @ 0x1404648CA (MiGetNodeStandbyPageCount.c)
+ *     MiRebuildLargePage @ 0x140466288 (MiRebuildLargePage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiRebuildLargePages(ULONG_PTR BugCheckParameter2)
 {
   __int64 v1; // r13

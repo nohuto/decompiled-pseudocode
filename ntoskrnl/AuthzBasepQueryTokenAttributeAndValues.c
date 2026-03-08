@@ -1,3 +1,12 @@
+/*
+ * XREFs of AuthzBasepQueryTokenAttributeAndValues @ 0x14066C748
+ * Callers:
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1402472F0 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ * Callees:
+ *     SepCopyTokenIntegrity @ 0x14030FED0 (SepCopyTokenIntegrity.c)
+ *     AuthzBasepFindTokenAttribute @ 0x14066C6D4 (AuthzBasepFindTokenAttribute.c)
+ */
+
 __int64 __fastcall AuthzBasepQueryTokenAttributeAndValues(__int64 a1)
 {
   __int64 v1; // rax

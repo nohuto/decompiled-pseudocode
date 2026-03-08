@@ -1,3 +1,15 @@
+/*
+ * XREFs of rimIsWakeablePointerFrame @ 0x1C01CF08C
+ * Callers:
+ *     RIMCompletePointerDeviceFrame @ 0x1C01CD424 (RIMCompletePointerDeviceFrame.c)
+ * Callees:
+ *     Feature_Servicing_SpuriousWakesFixPartOne__private_IsEnabledDeviceUsage @ 0x1C00DD67C (Feature_Servicing_SpuriousWakesFixPartOne__private_IsEnabledDeviceUsage.c)
+ *     ??9tagLIST_TABLE_ITERATOR@@QEBA_NAEBU0@@Z @ 0x1C00EF7D2 (--9tagLIST_TABLE_ITERATOR@@QEBA_NAEBU0@@Z.c)
+ *     RIMCmActiveContactsBegin @ 0x1C00F19A8 (RIMCmActiveContactsBegin.c)
+ *     RIMCmActiveContactsEnd @ 0x1C00F1A04 (RIMCmActiveContactsEnd.c)
+ *     RIMCmActiveContactsNext @ 0x1C01DE0AC (RIMCmActiveContactsNext.c)
+ */
+
 char __fastcall rimIsWakeablePointerFrame(__int64 a1)
 {
   char v2; // di

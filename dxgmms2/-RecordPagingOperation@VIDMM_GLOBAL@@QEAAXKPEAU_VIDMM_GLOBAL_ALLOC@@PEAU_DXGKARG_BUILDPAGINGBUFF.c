@@ -1,3 +1,25 @@
+/*
+ * XREFs of ?RecordPagingOperation@VIDMM_GLOBAL@@QEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@J_KHPEAX@Z @ 0x1C008A2EC
+ * Callers:
+ *     ?CompleteBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAA_NKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_BUILDPAGINGBUFFER@@JHPEAX@Z @ 0x1C008A1D0 (-CompleteBuildPagingBufferIteration@VIDMM_GLOBAL@@IEAA_NKPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_DXGKARG_B.c)
+ * Callees:
+ *     McTemplateK0pptpqqx_EtwWriteTransfer @ 0x1C003117C (McTemplateK0pptpqqx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxpx_EtwWriteTransfer @ 0x1C003123C (McTemplateK0pptpqxpx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxpxx_EtwWriteTransfer @ 0x1C003131C (McTemplateK0pptpqxpxx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxq_EtwWriteTransfer @ 0x1C0031410 (McTemplateK0pptpqxq_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxqqppqqxxpqx_EtwWriteTransfer @ 0x1C00314D0 (McTemplateK0pptpqxqqppqqxxpqx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxqxqxq_EtwWriteTransfer @ 0x1C003167C (McTemplateK0pptpqxqxqxq_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxqxqxqqq_EtwWriteTransfer @ 0x1C0031794 (McTemplateK0pptpqxqxqxqqq_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxxqt_EtwWriteTransfer @ 0x1C00318E0 (McTemplateK0pptpqxxqt_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxxt_EtwWriteTransfer @ 0x1C00319CC (McTemplateK0pptpqxxt_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxqqx_EtwWriteTransfer @ 0x1C0031AAC (McTemplateK0pptpxqqx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxx_EtwWriteTransfer @ 0x1C0031B8C (McTemplateK0pptpxx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxxpq_EtwWriteTransfer @ 0x1C0031C4C (McTemplateK0pptpxxpq_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxxqqxx_EtwWriteTransfer @ 0x1C0031D2C (McTemplateK0pptpxxqqxx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxxqqxxxqqxxx_EtwWriteTransfer @ 0x1C0031E30 (McTemplateK0pptpxxqqxxxqqxxx_EtwWriteTransfer.c)
+ *     McTemplateK0pptqx_EtwWriteTransfer @ 0x1C0031FC4 (McTemplateK0pptqx_EtwWriteTransfer.c)
+ */
+
 void __fastcall VIDMM_GLOBAL::RecordPagingOperation(
         VIDMM_GLOBAL *this,
         unsigned int a2,

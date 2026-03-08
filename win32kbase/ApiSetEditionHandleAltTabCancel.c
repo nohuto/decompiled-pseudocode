@@ -1,3 +1,13 @@
+/*
+ * XREFs of ApiSetEditionHandleAltTabCancel @ 0x1C00BA778
+ * Callers:
+ *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C008097C (xxxUpdateGlobalsAndSendKeyEvent.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     IsEditionHandleAltTabCancelSupported @ 0x1C00BA8BC (IsEditionHandleAltTabCancelSupported.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ApiSetEditionHandleAltTabCancel(
         __int64 a1,
         __int64 a2,

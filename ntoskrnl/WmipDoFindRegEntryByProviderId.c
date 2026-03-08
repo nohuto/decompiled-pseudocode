@@ -1,3 +1,12 @@
+/*
+ * XREFs of WmipDoFindRegEntryByProviderId @ 0x140208DB0
+ * Callers:
+ *     WmipFindRegEntryByProviderId @ 0x140208D1C (WmipFindRegEntryByProviderId.c)
+ *     IoWMIWriteEvent @ 0x1403A2D60 (IoWMIWriteEvent.c)
+ * Callees:
+ *     <none>
+ */
+
 _DWORD *__fastcall WmipDoFindRegEntryByProviderId(int a1)
 {
   _DWORD *result; // rax

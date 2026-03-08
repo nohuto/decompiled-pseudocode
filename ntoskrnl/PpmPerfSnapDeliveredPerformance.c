@@ -1,3 +1,18 @@
+/*
+ * XREFs of PpmPerfSnapDeliveredPerformance @ 0x140234BB0
+ * Callers:
+ *     PpmCheckSnapAllDeliveredPerformance @ 0x140234630 (PpmCheckSnapAllDeliveredPerformance.c)
+ *     PpmPerfAction @ 0x140236430 (PpmPerfAction.c)
+ * Callees:
+ *     PpmSnapPerformanceAccumulation @ 0x140234F00 (PpmSnapPerformanceAccumulation.c)
+ *     PpmEventTraceDeliveredPerfChange @ 0x1402356B4 (PpmEventTraceDeliveredPerfChange.c)
+ *     PpmPerfSnapProcessorCyclesWorkloadClass @ 0x140235748 (PpmPerfSnapProcessorCyclesWorkloadClass.c)
+ *     PpmPerfUpdateHwDebugData @ 0x140235DB0 (PpmPerfUpdateHwDebugData.c)
+ *     PpmPerfCheckForIllegalProcessorThrottle @ 0x140235DF8 (PpmPerfCheckForIllegalProcessorThrottle.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PpmHvSnapPerformanceAccumulation @ 0x14059DC74 (PpmHvSnapPerformanceAccumulation.c)
+ */
+
 char __fastcall PpmPerfSnapDeliveredPerformance(__int64 a1, char a2, int a3)
 {
   __int64 v3; // r15

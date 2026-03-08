@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhDecrementHubIsrWorkerReference @ 0x1C003750C
+ * Callers:
+ *     UsbhBusPnpStop_Action @ 0x1C00314EC (UsbhBusPnpStop_Action.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 void __fastcall UsbhDecrementHubIsrWorkerReference(__int64 a1)
 {
   _DWORD *v2; // rax

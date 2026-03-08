@@ -1,3 +1,14 @@
+/*
+ * XREFs of Bulk_WdfEvtIoQueueReadyNotification @ 0x1C0011E20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Controller_LowerAndTrackIrql @ 0x1C00074BC (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0007558 (Controller_RaiseAndTrackIrql.c)
+ *     Bulk_MapTransfers @ 0x1C0011EA8 (Bulk_MapTransfers.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ */
+
 void __fastcall Bulk_WdfEvtIoQueueReadyNotification(__int64 a1, __int64 a2)
 {
   char v3; // di

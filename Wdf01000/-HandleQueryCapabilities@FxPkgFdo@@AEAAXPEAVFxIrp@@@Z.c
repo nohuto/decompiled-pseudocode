@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HandleQueryCapabilities@FxPkgFdo@@AEAAXPEAVFxIrp@@@Z @ 0x1C0077C5C
+ * Callers:
+ *     ?_PnpQueryCapabilities@FxPkgFdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z @ 0x1C0078910 (-_PnpQueryCapabilities@FxPkgFdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z.c)
+ * Callees:
+ *     WPP_IFR_SF_ @ 0x1C001BC64 (WPP_IFR_SF_.c)
+ */
+
 void __fastcall FxPkgFdo::HandleQueryCapabilities(FxPkgFdo *this, FxIrp *Irp)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rcx

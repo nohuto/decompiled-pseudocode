@@ -1,3 +1,17 @@
+/*
+ * XREFs of FreeTimer @ 0x1C003A800
+ * Callers:
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C0078068 (-InitiateWin32kCleanup@@YAHXZ.c)
+ *     DestroyThreadsTimers @ 0x1C00C6480 (DestroyThreadsTimers.c)
+ *     DestroyWindowsTimers @ 0x1C00DB1CC (DestroyWindowsTimers.c)
+ *     FindTimer @ 0x1C00DEEDC (FindTimer.c)
+ * Callees:
+ *     ??0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z @ 0x1C003AA08 (--0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     ?DecTimerCount@@YAXPEAUtagTIMER@@@Z @ 0x1C00DDC4C (-DecTimerCount@@YAXPEAUtagTIMER@@@Z.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall FreeTimer(void ***a1)
 {

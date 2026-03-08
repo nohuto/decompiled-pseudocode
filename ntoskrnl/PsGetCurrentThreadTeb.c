@@ -1,3 +1,12 @@
+/*
+ * XREFs of PsGetCurrentThreadTeb @ 0x14035E230
+ * Callers:
+ *     EtwTraceThread @ 0x1407EBAB0 (EtwTraceThread.c)
+ *     EtwpPsProvTraceThread @ 0x1409E372C (EtwpPsProvTraceThread.c)
+ * Callees:
+ *     <none>
+ */
+
 PVOID PsGetCurrentThreadTeb(void)
 {
   struct _KTHREAD *CurrentThread; // rcx

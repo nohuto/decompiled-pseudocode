@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PowerPolStoppingCancelWake@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C007BA70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PowerPolicyCancelWaitWake@FxPkgPnp@@IEAAEXZ @ 0x1C007D094 (-PowerPolicyCancelWaitWake@FxPkgPnp@@IEAAEXZ.c)
+ */
+
 __int64 __fastcall FxPkgPnp::PowerPolStoppingCancelWake(FxPkgPnp *This)
 {
   if ( FxPkgPnp::PowerPolicyCancelWaitWake(This) )

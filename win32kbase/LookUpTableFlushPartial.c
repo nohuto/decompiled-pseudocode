@@ -1,3 +1,13 @@
+/*
+ * XREFs of LookUpTableFlushPartial @ 0x1C030292C
+ * Callers:
+ *     ?TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C0301AA0 (-TlgAggregateInternalRegisteredProviderEtwCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIP.c)
+ *     ?TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z @ 0x1C03029B0 (-TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z.c)
+ * Callees:
+ *     FlushLookUpTableBucket @ 0x1C00C6034 (FlushLookUpTableBucket.c)
+ *     UpdateInternalStatsOnFlush @ 0x1C0301C78 (UpdateInternalStatsOnFlush.c)
+ */
+
 void __fastcall LookUpTableFlushPartial(__int64 a1)
 {
   unsigned int v1; // esi

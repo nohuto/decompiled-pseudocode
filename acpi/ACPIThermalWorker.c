@@ -1,3 +1,28 @@
+/*
+ * XREFs of ACPIThermalWorker @ 0x1C00962E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     ACPIThermalLoop @ 0x1C00410D8 (ACPIThermalLoop.c)
+ *     ACPIThermalStopZoneWorker @ 0x1C0041F9C (ACPIThermalStopZoneWorker.c)
+ *     ACPIThermalUpdateConstraints @ 0x1C004221C (ACPIThermalUpdateConstraints.c)
+ *     WPP_RECORDER_SF_Dddqssdddd @ 0x1C0042658 (WPP_RECORDER_SF_Dddqssdddd.c)
+ *     WPP_RECORDER_SF_Dqssdddd @ 0x1C004292C (WPP_RECORDER_SF_Dqssdddd.c)
+ *     WPP_RECORDER_SF_ddqssdddd @ 0x1C0042BA0 (WPP_RECORDER_SF_ddqssdddd.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIFreeDataBuffs @ 0x1C00482C4 (AMLIFreeDataBuffs.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ *     ACPIAmliEvaluateDsm @ 0x1C007C65C (ACPIAmliEvaluateDsm.c)
+ *     ACPIThermalBuildConstraints @ 0x1C0095638 (ACPIThermalBuildConstraints.c)
+ *     ACPIThermalCheckNativeTemperatureSupport @ 0x1C00957B8 (ACPIThermalCheckNativeTemperatureSupport.c)
+ *     ACPIThermalCheckPolicySupport @ 0x1C0095848 (ACPIThermalCheckPolicySupport.c)
+ *     ACPIThermalGetOverrideHandle @ 0x1C00958FC (ACPIThermalGetOverrideHandle.c)
+ *     ACPIThermalGetParameter @ 0x1C00959A4 (ACPIThermalGetParameter.c)
+ *     ACPIThermalReadTemperature @ 0x1C0095B94 (ACPIThermalReadTemperature.c)
+ */
+
 LONG __fastcall ACPIThermalWorker(union _LARGE_INTEGER *a1, int a2)
 {
   int v2; // r12d

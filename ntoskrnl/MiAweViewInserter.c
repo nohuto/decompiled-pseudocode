@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiAweViewInserter @ 0x140A3E64C
+ * Callers:
+ *     MiPostInsertVad @ 0x1402D5DE4 (MiPostInsertVad.c)
+ *     MiInsertVad @ 0x1403312E0 (MiInsertVad.c)
+ * Callees:
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     MiLockAweVadsExclusive @ 0x140648A8C (MiLockAweVadsExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x1406498DC (MiUnlockAweVadsExclusive.c)
+ */
+
 char __fastcall MiAweViewInserter(__int64 a1, unsigned __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rsi

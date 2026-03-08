@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtOpenEvent @ 0x1406C37F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObOpenObjectByName @ 0x1406C39E0 (ObOpenObjectByName.c)
+ */
+
 __int64 __fastcall NtOpenEvent(_QWORD *a1, int a2, int a3)
 {
   int v3; // esi

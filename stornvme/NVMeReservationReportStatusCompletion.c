@@ -1,3 +1,17 @@
+/*
+ * XREFs of NVMeReservationReportStatusCompletion @ 0x1C00176E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     memmove @ 0x1C0004280 (memmove.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     GetScsiReservationType @ 0x1C0012B3C (GetScsiReservationType.c)
+ *     NVMeReservationReportStatus @ 0x1C0017528 (NVMeReservationReportStatus.c)
+ */
+
 __int64 __fastcall NVMeReservationReportStatusCompletion(__int64 a1, __int64 a2)
 {
   __int64 v3; // rsi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopInterlockedInsertTailList @ 0x1403A3A3C
+ * Callers:
+ *     IoRegisterBootDriverReinitialization @ 0x14084D4C0 (IoRegisterBootDriverReinitialization.c)
+ *     IoRegisterDriverReinitialization @ 0x14084D540 (IoRegisterDriverReinitialization.c)
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ */
+
 void __fastcall IopInterlockedInsertTailList(__int64 a1, _QWORD *a2)
 {
   KIRQL v4; // al

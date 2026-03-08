@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiUpdatePriorityTables @ 0x1C0018770
+ * Callers:
+ *     ?VidSchiEnqueueDeviceCommandToWorkerThreadAtDpc@@YAXPEBXW4_VIDSCH_DEVICE_COMMAND_TYPE@@@Z @ 0x1C001855C (-VidSchiEnqueueDeviceCommandToWorkerThreadAtDpc@@YAXPEBXW4_VIDSCH_DEVICE_COMMAND_TYPE@@@Z.c)
+ * Callees:
+ *     VidSchiInsertCommandToSoftwareQueue @ 0x1C00088B0 (VidSchiInsertCommandToSoftwareQueue.c)
+ */
+
 _BOOL8 __fastcall VidSchiUpdatePriorityTables(__int64 a1, __int64 a2, _DWORD *a3)
 {
   int v3; // r9d

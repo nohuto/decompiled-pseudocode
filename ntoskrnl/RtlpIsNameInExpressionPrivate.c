@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlpIsNameInExpressionPrivate @ 0x140365D60
+ * Callers:
+ *     RtlIsNameInExpression @ 0x140365B20 (RtlIsNameInExpression.c)
+ *     RtlIsNameInUnUpcasedExpression @ 0x140365CA0 (RtlIsNameInUnUpcasedExpression.c)
+ * Callees:
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     RtlDoesNameContainWildCards @ 0x140367FC0 (RtlDoesNameContainWildCards.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall RtlpIsNameInExpressionPrivate(unsigned __int16 *a1, unsigned __int16 *a2, char a3, char a4, __int64 a5)
 {
   unsigned __int16 v5; // r14

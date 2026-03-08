@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopGetCurrentWakeInfos @ 0x14058C028
+ * Callers:
+ *     PopGetWakeSource @ 0x140984368 (PopGetWakeSource.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PopGetCurrentWakeInfos(__int64 *a1)
 {
   __int64 v2; // rdi

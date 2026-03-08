@@ -1,3 +1,22 @@
+/*
+ * XREFs of KiHvEnlightenedGuestPriorityKick @ 0x140227EF4
+ * Callers:
+ *     KeSetPriorityThread @ 0x1402261B0 (KeSetPriorityThread.c)
+ *     KiSetPriorityThread @ 0x1402273F0 (KiSetPriorityThread.c)
+ *     KiRemoveBoostThread @ 0x140229890 (KiRemoveBoostThread.c)
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KiIpiEnlightenedGuestPriorityKick @ 0x140233850 (KiIpiEnlightenedGuestPriorityKick.c)
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     KiDeferredReadySingleThread @ 0x140259FB0 (KiDeferredReadySingleThread.c)
+ *     KiCompleteRescheduleContextEntry @ 0x1402AE2A0 (KiCompleteRescheduleContextEntry.c)
+ *     KiInsertTimer2 @ 0x1402DFF54 (KiInsertTimer2.c)
+ *     KiApplyForegroundBoostThread @ 0x1402E3178 (KiApplyForegroundBoostThread.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HvlSetGuestSchedulerEventRegister @ 0x14053E1C0 (HvlSetGuestSchedulerEventRegister.c)
+ */
+
 __int64 __fastcall KiHvEnlightenedGuestPriorityKick(__int64 a1, __int64 a2, int a3)
 {
   __int64 result; // rax

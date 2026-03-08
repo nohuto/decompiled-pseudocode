@@ -1,3 +1,16 @@
+/*
+ * XREFs of OpenGlobalizationUserSettingsKey @ 0x1402BEDA8
+ * Callers:
+ *     ExpSetPendingUILanguage @ 0x140749238 (ExpSetPendingUILanguage.c)
+ *     NtSetDefaultLocale @ 0x1407497C0 (NtSetDefaultLocale.c)
+ * Callees:
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x14060D690 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x14060D930 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
+ *     RtlIsMultiSessionSku @ 0x1407447E0 (RtlIsMultiSessionSku.c)
+ *     RtlOpenCurrentUser @ 0x140749100 (RtlOpenCurrentUser.c)
+ *     RtlIsMultiUsersInSessionSku @ 0x1409B9410 (RtlIsMultiUsersInSessionSku.c)
+ */
+
 __int64 __fastcall OpenGlobalizationUserSettingsKey(int a1, __int64 a2, HANDLE *a3)
 {
   int v4; // ecx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CalculateMouseTable@@YAXXZ @ 0x1C00176F0
+ * Callers:
+ *     xxxUpdatePerUserAccessPackSettings @ 0x1C0017E70 (xxxUpdatePerUserAccessPackSettings.c)
+ * Callees:
+ *     <none>
+ */
+
 void CalculateMouseTable(void)
 {
   signed int v0; // ebx

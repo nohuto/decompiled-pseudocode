@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiRegStateReadStackCreationSettingsFromKey @ 0x1C03933A4
+ * Callers:
+ *     PpRegStateReadCreateClassCreationSettings @ 0x1C0393598 (PpRegStateReadCreateClassCreationSettings.c)
+ * Callees:
+ *     WdmlibRtlInitUnicodeStringEx @ 0x1C005D324 (WdmlibRtlInitUnicodeStringEx.c)
+ *     SeUtilSecurityInfoFromSecurityDescriptor @ 0x1C0393830 (SeUtilSecurityInfoFromSecurityDescriptor.c)
+ *     CmRegUtilUcValueGetFullBuffer @ 0x1C0393B68 (CmRegUtilUcValueGetFullBuffer.c)
+ *     CmRegUtilWstrValueGetDword @ 0x1C0393DFC (CmRegUtilWstrValueGetDword.c)
+ */
+
 __int64 __fastcall PiRegStateReadStackCreationSettingsFromKey(HANDLE KeyHandle, __int64 a2)
 {
   _DWORD *v2; // r13

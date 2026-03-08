@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DxgkpCopyMonitorLinkInfoToFlags@@YAJPEAXPEAU_DISPLAYCONFIG_GET_DISPLAY_INFO@@@Z @ 0x1C01B0450
+ * Callers:
+ *     DxgkGetAdapterDeviceDesc @ 0x1C01AE290 (DxgkGetAdapterDeviceDesc.c)
+ * Callees:
+ *     MonitorGetLinkInfoFromTarget @ 0x1C01B0120 (MonitorGetLinkInfoFromTarget.c)
+ */
+
 __int64 __fastcall DxgkpCopyMonitorLinkInfoToFlags(_BYTE *a1, struct _DISPLAYCONFIG_GET_DISPLAY_INFO *a2)
 {
   unsigned int v3; // edx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of write_string_0 @ 0x1403D7B70
+ * Callers:
+ *     _output_l @ 0x1403D7270 (_output_l.c)
+ *     _output_s @ 0x1403DA5B8 (_output_s.c)
+ * Callees:
+ *     write_char_0 @ 0x1403D7AC8 (write_char_0.c)
+ */
+
 int __fastcall write_string_0(char *a1, int a2, FILE *a3, _DWORD *a4)
 {
   int result; // eax

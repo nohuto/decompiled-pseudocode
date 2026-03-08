@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBREG_DeleteUxdSettings @ 0x1C00878E8
+ * Callers:
+ *     HUBPDO_NotifyDeviceDisconnected @ 0x1C001743C (HUBPDO_NotifyDeviceDisconnected.c)
+ *     HUBPDO_EvtDeviceReleaseHardware @ 0x1C007DFC0 (HUBPDO_EvtDeviceReleaseHardware.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_QueryGlobalUxdSettings @ 0x1C0086AA4 (HUBREG_QueryGlobalUxdSettings.c)
+ *     HUBREG_DeleteUxdDeviceKey @ 0x1C00871F0 (HUBREG_DeleteUxdDeviceKey.c)
+ *     HUBREG_DeleteUxdPortKey @ 0x1C0087684 (HUBREG_DeleteUxdPortKey.c)
+ */
+
 __int64 __fastcall HUBREG_DeleteUxdSettings(__int64 a1, int a2)
 {
   __int64 v4; // rsi

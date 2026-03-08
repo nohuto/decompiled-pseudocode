@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiIsAddressGlobal @ 0x1402DD2F8
+ * Callers:
+ *     MiGetPageChain @ 0x14026E0E0 (MiGetPageChain.c)
+ *     MiResolveTransitionFault @ 0x140271760 (MiResolveTransitionFault.c)
+ *     MiMakePageAvoidRead @ 0x140272670 (MiMakePageAvoidRead.c)
+ * Callees:
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ */
+
 __int64 __fastcall MiIsAddressGlobal(unsigned __int64 a1)
 {
   if ( a1 < 0xFFFF800000000000uLL )

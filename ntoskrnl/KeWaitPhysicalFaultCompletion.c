@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeWaitPhysicalFaultCompletion @ 0x140576908
+ * Callers:
+ *     HvlNotifyPageHeat @ 0x140676D34 (HvlNotifyPageHeat.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiEpfDrainCompletionQueue @ 0x140576B0C (KiEpfDrainCompletionQueue.c)
+ *     KiEpfStart @ 0x140576BB4 (KiEpfStart.c)
+ */
+
 __int64 __fastcall KeWaitPhysicalFaultCompletion(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // bl

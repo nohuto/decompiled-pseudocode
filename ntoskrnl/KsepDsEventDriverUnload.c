@@ -1,3 +1,14 @@
+/*
+ * XREFs of KsepDsEventDriverUnload @ 0x14057F6B0
+ * Callers:
+ *     KseDsCallbackHookDriverUnload @ 0x14057EA60 (KseDsCallbackHookDriverUnload.c)
+ *     KseDsHookDriverUntargeted @ 0x14057EE10 (KseDsHookDriverUntargeted.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall KsepDsEventDriverUnload(__int64 a1, __int64 a2)
 {
   REGHANDLE v2; // rbx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopDispatchPowerSettingCallbacks @ 0x14068D630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopIncrementPowerSettingPendingUpdates @ 0x1402048C0 (PopIncrementPowerSettingPendingUpdates.c)
+ *     PopDecrementPowerSettingPendingUpdates @ 0x14020494C (PopDecrementPowerSettingPendingUpdates.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     PopUnregisterPowerSettingCallback @ 0x14058B784 (PopUnregisterPowerSettingCallback.c)
+ *     PopCallPowerSettingCallback @ 0x14068D754 (PopCallPowerSettingCallback.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 PopDispatchPowerSettingCallbacks()
 {
   __int64 v0; // rdi

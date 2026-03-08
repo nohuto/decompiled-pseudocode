@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?TouchTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJXZ @ 0x1C01C371C
+ * Callers:
+ *     _anonymous_namespace_::_UpdateTimestampTopologySetCallback @ 0x1C01C3B30 (_anonymous_namespace_--_UpdateTimestampTopologySetCallback.c)
+ *     ?SaveTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEBVCCD_TOPOLOGY@@_N@Z @ 0x1C03BE870 (-SaveTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEBVCCD_TOPOLOGY@@_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CCD_STORE::TOPOLOGY_SET_DESCRIPTOR::TouchTopology(CCD_STORE::TOPOLOGY_SET_DESCRIPTOR *this)
 {
   const WCHAR *v2; // rdx

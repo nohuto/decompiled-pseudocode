@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?InternalRelease@?$CMILRefCountBaseT@VIUnknownWeakRefSource@@@@IEAAKXZ @ 0x180102C6C
+ * Callers:
+ *     ?InternalRelease@CMILCOMBaseWeakRef@@IEAAKXZ @ 0x180102C1C (-InternalRelease@CMILCOMBaseWeakRef@@IEAAKXZ.c)
+ *     ?Release@?$CMILCOMBaseT@VIUnknownWeakRefSource@@@@UEAAKXZ @ 0x1802884C0 (-Release@-$CMILCOMBaseT@VIUnknownWeakRefSource@@@@UEAAKXZ.c)
+ * Callees:
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CMILRefCountBaseT<IUnknownWeakRefSource>::InternalRelease(volatile signed __int32 *a1)
 {
   volatile signed __int32 *v2; // rdi

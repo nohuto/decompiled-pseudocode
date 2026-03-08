@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpShouldRecoveryBeAttempted @ 0x14051702C
+ * Callers:
+ *     HalpMcaReportError @ 0x140501778 (HalpMcaReportError.c)
+ *     HalpMceRecovery @ 0x1405169E0 (HalpMceRecovery.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall HalpShouldRecoveryBeAttempted(int a1, const signed __int64 *a2)
 {
   if ( a1 == 1 )

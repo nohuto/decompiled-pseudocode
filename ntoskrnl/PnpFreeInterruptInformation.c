@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpFreeInterruptInformation @ 0x1407F15AC
+ * Callers:
+ *     IoDeleteDevice @ 0x140368010 (IoDeleteDevice.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpFreeInterruptInformation(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiReleaseSystemCacheView @ 0x1403354D0
+ * Callers:
+ *     MmUnmapViewInSystemCache @ 0x140285250 (MmUnmapViewInSystemCache.c)
+ *     MiObtainSystemCacheView @ 0x140335220 (MiObtainSystemCacheView.c)
+ *     MiWorkingSetManager @ 0x1403616C0 (MiWorkingSetManager.c)
+ *     MmFreeSystemCacheReserveView @ 0x140A2DC00 (MmFreeSystemCacheReserveView.c)
+ * Callees:
+ *     MiGetSystemCacheReverseMap @ 0x140222030 (MiGetSystemCacheReverseMap.c)
+ *     MiFreeSystemCacheView @ 0x1402D6B3C (MiFreeSystemCacheView.c)
+ *     MiGetSystemCacheRegionsToFree @ 0x1402DD624 (MiGetSystemCacheRegionsToFree.c)
+ *     MiRebalanceSystemCacheFreedViews @ 0x1403356A0 (MiRebalanceSystemCacheFreedViews.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x14033B510 (KxWaitForLockOwnerShip.c)
+ *     MiReturnSystemCacheRegionsToKva @ 0x1403CE458 (MiReturnSystemCacheRegionsToKva.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140457B8E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 _QWORD *__fastcall MiReleaseSystemCacheView(__int64 a1, unsigned __int64 a2)
 {
   _QWORD *result; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiLockStandbyOldestPage @ 0x14064E72C
+ * Callers:
+ *     MiRemoveLowestPriorityStandbyPage @ 0x14064F264 (MiRemoveLowestPriorityStandbyPage.c)
+ * Callees:
+ *     MiReplaceStandbyLookaside @ 0x1402C6D1C (MiReplaceStandbyLookaside.c)
+ *     MiRebuildStandbyLookasideList @ 0x1402C6EB0 (MiRebuildStandbyLookasideList.c)
+ *     MiIsDecayPfn @ 0x140319ED0 (MiIsDecayPfn.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiRepurposeDecayNode @ 0x14065F294 (MiRepurposeDecayNode.c)
+ */
+
 __int64 __fastcall MiLockStandbyOldestPage(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)
 {
   __int64 v5; // rsi

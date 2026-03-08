@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiUpdateThreadSchedulingProperties @ 0x1402AF670
+ * Callers:
+ *     KiRemoveThreadFromSchedulingGroup @ 0x1402AF3E4 (KiRemoveThreadFromSchedulingGroup.c)
+ *     KiSetThreadSchedulingGroup @ 0x1403557B8 (KiSetThreadSchedulingGroup.c)
+ * Callees:
+ *     KiIsThreadRankNonZero @ 0x140228010 (KiIsThreadRankNonZero.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x140238A10 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiSetSchedulerAssistPriority @ 0x14040A730 (KiSetSchedulerAssistPriority.c)
+ */
+
 char KiUpdateThreadSchedulingProperties(__int64 a1, __int64 a2, __int64 a3, ...)
 {
   _BYTE *v4; // rax

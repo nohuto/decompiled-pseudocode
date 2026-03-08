@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_RECORDER_SF_DDqdDDDD @ 0x1C0002F20
+ * Callers:
+ *     Isoch_Stage_CompleteTD @ 0x1C00029D0 (Isoch_Stage_CompleteTD.c)
+ *     Isoch_Transfer_PrepareForCompletion @ 0x1C0045868 (Isoch_Transfer_PrepareForCompletion.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_DDqdDDDD(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
 {
   int v7; // [rsp+20h] [rbp-98h]

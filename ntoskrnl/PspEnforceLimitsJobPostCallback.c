@@ -1,3 +1,27 @@
+/*
+ * XREFs of PspEnforceLimitsJobPostCallback @ 0x1406FBA00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PspSendJobNotification @ 0x14030201C (PspSendJobNotification.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PspSendReliableJobNotification @ 0x1406F4D9C (PspSendReliableJobNotification.c)
+ *     PspRemoveProcessFromJobChain @ 0x1406FB110 (PspRemoveProcessFromJobChain.c)
+ *     PspUnlockJob @ 0x1406FBF7C (PspUnlockJob.c)
+ *     PspLockJobShared @ 0x1406FBFC0 (PspLockJobShared.c)
+ *     PspLockJobExclusive @ 0x1406FC178 (PspLockJobExclusive.c)
+ *     PspRateControlLimitFlag @ 0x1406FC1A0 (PspRateControlLimitFlag.c)
+ *     PspGetEffectiveNoWakeCharge @ 0x1406FC1C4 (PspGetEffectiveNoWakeCharge.c)
+ *     PspAddAccountingValues @ 0x1406FC264 (PspAddAccountingValues.c)
+ *     PspGetJobMemoryUsageNotificationViolations @ 0x1406FC2C4 (PspGetJobMemoryUsageNotificationViolations.c)
+ *     PspLockJobMemoryLimitsShared @ 0x1406FC318 (PspLockJobMemoryLimitsShared.c)
+ *     PspUnlockJobMemoryLimitsShared @ 0x1406FC344 (PspUnlockJobMemoryLimitsShared.c)
+ *     PspTerminateAllProcessesInJobHierarchy @ 0x140791E78 (PspTerminateAllProcessesInJobHierarchy.c)
+ *     PspSendNoWakeChargeLimitNotification @ 0x1409AF954 (PspSendNoWakeChargeLimitNotification.c)
+ */
+
 __int64 __fastcall PspEnforceLimitsJobPostCallback(char *Object, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rsi

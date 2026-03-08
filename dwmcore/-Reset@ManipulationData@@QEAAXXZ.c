@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Reset@ManipulationData@@QEAAXXZ @ 0x18020AE68
+ * Callers:
+ *     ??0ManipulationData@@QEAA@XZ @ 0x18020A45C (--0ManipulationData@@QEAA@XZ.c)
+ *     ?_ResetManipulationThreadDataIfNecessary@CManipulation@@AEAAXW4InteractionState@@@Z @ 0x18020BDD4 (-_ResetManipulationThreadDataIfNecessary@CManipulation@@AEAAXW4InteractionState@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ManipulationData::Reset(ManipulationData *this)
 {
   unsigned __int64 v1; // xmm1_8

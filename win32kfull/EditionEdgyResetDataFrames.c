@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionEdgyResetDataFrames @ 0x1C01E9C10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EditionEdgyResetDataFrames(__int64 a1)
 {
   __int64 result; // rax

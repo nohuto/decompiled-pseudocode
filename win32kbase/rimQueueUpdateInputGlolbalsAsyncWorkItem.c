@@ -1,3 +1,13 @@
+/*
+ * XREFs of rimQueueUpdateInputGlolbalsAsyncWorkItem @ 0x1C01CF14C
+ * Callers:
+ *     RIMCompletePointerDeviceFrame @ 0x1C01CD424 (RIMCompletePointerDeviceFrame.c)
+ * Callees:
+ *     RIMAllocateAsyncPnpWorkItem @ 0x1C00364E8 (RIMAllocateAsyncPnpWorkItem.c)
+ *     RIMQueueAndSignalAsyncPnpWorkItem @ 0x1C00376B0 (RIMQueueAndSignalAsyncPnpWorkItem.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqqDSd @ 0x1C01BBF20 (WPP_RECORDER_AND_TRACE_SF_qqqDSd.c)
+ */
+
 void __fastcall rimQueueUpdateInputGlolbalsAsyncWorkItem(_DWORD *a1, __int64 a2)
 {
   _QWORD *v3; // rax

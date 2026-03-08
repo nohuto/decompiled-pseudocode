@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIAcquireHardwareGlobalLock @ 0x1C0004C30
+ * Callers:
+ *     ACPIInterruptServiceRoutineDPC @ 0x1C0003E70 (ACPIInterruptServiceRoutineDPC.c)
+ *     ACPIAsyncAcquireGlobalLock @ 0x1C0039130 (ACPIAsyncAcquireGlobalLock.c)
+ *     ACPIReleaseGlobalLock @ 0x1C003937C (ACPIReleaseGlobalLock.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall ACPIAcquireHardwareGlobalLock(volatile signed __int32 *a1)
 {
   signed __int32 v2; // edx

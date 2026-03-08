@@ -1,3 +1,11 @@
+/*
+ * XREFs of BmlIsSupportedByMonitorTargetMode @ 0x1C016E808
+ * Callers:
+ *     BmlDoesTargetModeObeyConstraint @ 0x1C016E538 (BmlDoesTargetModeObeyConstraint.c)
+ * Callees:
+ *     ?IsSupportedByMonitor@DMMVIDPNTARGETMODE@@QEBAJEQEAEQEAW4_D3DKMDT_MODE_PRUNING_REASON@@@Z @ 0x1C016E85C (-IsSupportedByMonitor@DMMVIDPNTARGETMODE@@QEBAJEQEAEQEAW4_D3DKMDT_MODE_PRUNING_REASON@@@Z.c)
+ */
+
 bool __fastcall BmlIsSupportedByMonitorTargetMode(__int64 a1, unsigned __int8 a2)
 {
   int IsSupportedByMonitor; // eax

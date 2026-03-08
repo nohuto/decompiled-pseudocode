@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBDTX_GetDescriptorForFdoRequestUsingPreformattedUrb @ 0x1C002D9F4
+ * Callers:
+ *     HUBDSM_QueryingDescriptorForFdoRequestFromStoppedEnumerated @ 0x1C001FB10 (HUBDSM_QueryingDescriptorForFdoRequestFromStoppedEnumerated.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBFDO_CompleteGetDescriptorRequest @ 0x1C000EA68 (HUBFDO_CompleteGetDescriptorRequest.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBDTX_GetDescriptorForFdoRequestUsingPreformattedUrb(__int64 *a1)
 {
   __int64 result; // rax

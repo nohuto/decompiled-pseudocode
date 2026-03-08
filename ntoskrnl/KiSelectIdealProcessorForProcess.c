@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiSelectIdealProcessorForProcess @ 0x1402968A0
+ * Callers:
+ *     KiSetIdealNodeProcessByGroup @ 0x140296818 (KiSetIdealNodeProcessByGroup.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiSelectIdealProcessorForProcess(__int64 a1, __int64 *a2)
 {
   __int64 v2; // rbx

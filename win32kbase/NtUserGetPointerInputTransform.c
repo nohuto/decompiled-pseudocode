@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserGetPointerInputTransform @ 0x1C0170B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ *     ?GetPointerTransform@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIPEAUtagINPUT_TRANSFORM@@@Z @ 0x1C01FA4B0 (-GetPointerTransform@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIPEAUtagINPUT_TRANSFORM@@@Z.c)
+ *     ApiSetGetMiPInputTransform @ 0x1C02445D8 (ApiSetGetMiPInputTransform.c)
+ */
+
 __int64 __fastcall NtUserGetPointerInputTransform(__int64 a1, __int64 a2, volatile void *a3, __int64 a4)
 {
   __int64 v5; // r14

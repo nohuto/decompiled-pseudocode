@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBHTX_CheckAndSelectIfAny20PortChangeSet @ 0x1C0005000
+ * Callers:
+ *     HUBPSM20_CheckIfThereIsAPortChangeOnPortStatusWhileWaitingForReconnect @ 0x1C0012960 (HUBPSM20_CheckIfThereIsAPortChangeOnPortStatusWhileWaitingForReconnect.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C0032FCC (HUBMISC_VerifierDbgBreak.c)
+ */
+
 __int64 __fastcall HUBHTX_CheckAndSelectIfAny20PortChangeSet(__int64 a1)
 {
   __int16 v2; // cx

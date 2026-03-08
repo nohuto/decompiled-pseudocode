@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiObtainFreePages @ 0x140632B0C
+ * Callers:
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x140276500 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x14034FE70 (MiUnlinkNodeLargePageHelper.c)
+ *     MiDecreaseAvailablePages @ 0x1403504C0 (MiDecreaseAvailablePages.c)
+ *     MiWaitForFreePage @ 0x140651458 (MiWaitForFreePage.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PsReferencePartitionSafe @ 0x140295BC8 (PsReferencePartitionSafe.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     CcNotifyWriteBehindEx @ 0x140534620 (CcNotifyWriteBehindEx.c)
+ *     MiWakeModifiedPageWriter @ 0x14063982C (MiWakeModifiedPageWriter.c)
+ */
+
 void __fastcall MiObtainFreePages(__int64 a1)
 {
   __int64 v1; // rdi

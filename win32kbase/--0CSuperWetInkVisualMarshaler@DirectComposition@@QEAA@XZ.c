@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CSuperWetInkVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C024C298
+ * Callers:
+ *     ?GeneratedCreatePrivateMarshaler@DirectComposition@@YAJIPEAPEAVCResourceMarshaler@1@@Z @ 0x1C006A574 (-GeneratedCreatePrivateMarshaler@DirectComposition@@YAJIPEAPEAVCResourceMarshaler@1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 DirectComposition::CSuperWetInkVisualMarshaler *__fastcall DirectComposition::CSuperWetInkVisualMarshaler::CSuperWetInkVisualMarshaler(
         DirectComposition::CSuperWetInkVisualMarshaler *this)
 {

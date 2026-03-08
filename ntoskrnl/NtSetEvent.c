@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtSetEvent @ 0x1407598A0
+ * Callers:
+ *     SepAdtInitializeAuditingOptions @ 0x140B615C0 (SepAdtInitializeAuditingOptions.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExpSetCrossVmEvent @ 0x140A033D4 (ExpSetCrossVmEvent.c)
+ */
+
 __int64 __fastcall NtSetEvent(HANDLE Handle, LONG *a2)
 {
   KPROCESSOR_MODE PreviousMode; // r15

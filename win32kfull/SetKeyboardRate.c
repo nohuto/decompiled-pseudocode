@@ -1,3 +1,12 @@
+/*
+ * XREFs of SetKeyboardRate @ 0x1C0102588
+ * Callers:
+ *     xxxInitWindowStation @ 0x1C00C1348 (xxxInitWindowStation.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SetKeyboardRate(__int64 a1)
 {
   unsigned int v1; // esi

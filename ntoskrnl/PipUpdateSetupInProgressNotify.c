@@ -1,3 +1,14 @@
+/*
+ * XREFs of PipUpdateSetupInProgressNotify @ 0x14094F158
+ * Callers:
+ *     PipUpdateSetupInProgressCallback @ 0x14094F140 (PipUpdateSetupInProgressCallback.c)
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwNotifyChangeKey @ 0x140414730 (ZwNotifyChangeKey.c)
+ *     PipUpdateSetupInProgress @ 0x14085E948 (PipUpdateSetupInProgress.c)
+ */
+
 void __fastcall PipUpdateSetupInProgressNotify(HANDLE KeyHandle, char a2)
 {
   HANDLE v4; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiResetAccessBitsEPTCallback @ 0x140632BC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiResetAccessBitPteWorker @ 0x140463BAC (MiResetAccessBitPteWorker.c)
+ */
+
 __int64 __fastcall MiResetAccessBitsEPTCallback(
         __int64 a1,
         __int64 *a2,

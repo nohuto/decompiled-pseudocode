@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpFillMemoryRandomUp @ 0x140678AF0
+ * Callers:
+ *     RtlpGenericRandomPatternWorker @ 0x140679048 (RtlpGenericRandomPatternWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpFillMemoryRandomUp(unsigned __int64 *a1, __int64 a2, unsigned __int64 a3, __int64 a4)
 {
   unsigned __int64 *v4; // rdx

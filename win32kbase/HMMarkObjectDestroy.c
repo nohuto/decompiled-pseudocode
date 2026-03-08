@@ -1,3 +1,12 @@
+/*
+ * XREFs of HMMarkObjectDestroy @ 0x1C00A5550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C003A360 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C004E3E0 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ */
+
 __int64 __fastcall HMMarkObjectDestroy(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // ebx

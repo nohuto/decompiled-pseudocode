@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetSessionTextStackStatus@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C00B7924
+ * Callers:
+ *     GreEnableEUDC @ 0x1C00B77A8 (GreEnableEUDC.c)
+ *     GreEudcLoadLinkW @ 0x1C02A10C8 (GreEudcLoadLinkW.c)
+ *     GreEudcUnloadLinkW @ 0x1C02A13F0 (GreEudcUnloadLinkW.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall UmfdHostLifeTimeManager::GetSessionTextStackStatus(__int64 a1)
 {
   __int64 v1; // rbx

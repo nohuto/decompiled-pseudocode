@@ -1,3 +1,11 @@
+/*
+ * XREFs of _CmGetDeviceContainerMappedPropertyLocales @ 0x140A615A4
+ * Callers:
+ *     _PnpDispatchDeviceContainer @ 0x140682AC0 (_PnpDispatchDeviceContainer.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmGetDeviceContainerMappedPropertyLocales(
         __int64 a1,
         __int64 a2,

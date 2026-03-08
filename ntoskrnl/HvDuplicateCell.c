@@ -1,3 +1,19 @@
+/*
+ * XREFs of HvDuplicateCell @ 0x1407890A4
+ * Callers:
+ *     CmpCloneKCBValueListForTrans @ 0x140788FC0 (CmpCloneKCBValueListForTrans.c)
+ *     CmpDuplicateIndex @ 0x140A20550 (CmpDuplicateIndex.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvAllocateCell @ 0x1407A63A8 (HvAllocateCell.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall HvDuplicateCell(
         ULONG_PTR BugCheckParameter3,
         ULONG_PTR BugCheckParameter4,

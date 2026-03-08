@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiSignalLargePageRebuild @ 0x1403609B4
+ * Callers:
+ *     MiWorkingSetManager @ 0x1403616C0 (MiWorkingSetManager.c)
+ * Callees:
+ *     MiPageCombiningActive @ 0x14021472C (MiPageCombiningActive.c)
+ *     MiNodeLargeFreeZeroPages @ 0x14027DEB0 (MiNodeLargeFreeZeroPages.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiNodeFreeZeroPages @ 0x14034EAD4 (MiNodeFreeZeroPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWakeLargePageRebuild @ 0x14065BC3C (MiWakeLargePageRebuild.c)
+ */
+
 char __fastcall MiSignalLargePageRebuild(__int64 a1)
 {
   int v1; // eax

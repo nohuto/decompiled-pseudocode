@@ -1,3 +1,17 @@
+/*
+ * XREFs of ??1CProjectedShadowScene@@UEAA@XZ @ 0x1800047D4
+ * Callers:
+ *     ??_GCProjectedShadowScene@@UEAAPEAXI@Z @ 0x1800042F0 (--_GCProjectedShadowScene@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??$_Free_non_head@V?$allocator@U?$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@std@@@std@@@?$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@std@@SAXAEAV?$allocator@U?$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@std@@@1@PEAU01@@Z @ 0x1800043B8 (--$_Free_non_head@V-$allocator@U-$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@std@@@std@.c)
+ *     ?ClearCasters@CProjectedShadowScene@@AEAAXXZ @ 0x1800044B8 (-ClearCasters@CProjectedShadowScene@@AEAAXXZ.c)
+ *     ?ClearReceivers@CProjectedShadowScene@@AEAAXXZ @ 0x180004850 (-ClearReceivers@CProjectedShadowScene@@AEAAXXZ.c)
+ *     ?ClearShadows@CProjectedShadowScene@@AEAAX_N@Z @ 0x180004C78 (-ClearShadows@CProjectedShadowScene@@AEAAX_N@Z.c)
+ *     ??$_Free_non_head@V?$allocator@U?$_List_node@UReceiverEntry@CProjectedShadowScene@@PEAX@std@@@std@@@?$_List_node@UReceiverEntry@CProjectedShadowScene@@PEAX@std@@SAXAEAV?$allocator@U?$_List_node@UReceiverEntry@CProjectedShadowScene@@PEAX@std@@@1@PEAU01@@Z @ 0x180009910 (--$_Free_non_head@V-$allocator@U-$_List_node@UReceiverEntry@CProjectedShadowScene@@PEAX@std@@@st.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800234BC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
 void __fastcall CProjectedShadowScene::~CProjectedShadowScene(CProjectedShadowScene *this)
 {
   __int64 v2; // rcx

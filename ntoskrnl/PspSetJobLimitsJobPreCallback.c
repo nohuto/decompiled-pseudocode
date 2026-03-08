@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspSetJobLimitsJobPreCallback @ 0x14078B4D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     PspSetEffectiveJobLimits @ 0x14078B504 (PspSetEffectiveJobLimits.c)
+ */
+
 __int64 __fastcall PspSetJobLimitsJobPreCallback(__int64 a1, __int64 a2)
 {
   PspSetEffectiveJobLimits(a1, a2);

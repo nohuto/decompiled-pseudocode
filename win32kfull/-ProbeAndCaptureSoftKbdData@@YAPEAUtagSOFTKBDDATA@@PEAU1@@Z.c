@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ProbeAndCaptureSoftKbdData@@YAPEAUtagSOFTKBDDATA@@PEAU1@@Z @ 0x1C01B8B58
+ * Callers:
+ *     NtUserfnIMECONTROL @ 0x1C01E1AA0 (NtUserfnIMECONTROL.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 struct tagSOFTKBDDATA *__fastcall ProbeAndCaptureSoftKbdData(struct tagSOFTKBDDATA *Src)
 {
   struct tagSOFTKBDDATA *v2; // rax

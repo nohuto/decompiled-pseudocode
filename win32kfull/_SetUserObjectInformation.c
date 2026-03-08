@@ -1,3 +1,11 @@
+/*
+ * XREFs of _SetUserObjectInformation @ 0x1C01AA334
+ * Callers:
+ *     NtUserSetObjectInformation @ 0x1C01DD570 (NtUserSetObjectInformation.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall SetUserObjectInformation(HANDLE Handle, int a2, _DWORD *a3, unsigned int a4)
 {
   unsigned int v8; // ebx

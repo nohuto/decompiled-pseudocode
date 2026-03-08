@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBCONNECTOR_GetCompanionPort @ 0x1C0082380
+ * Callers:
+ *     HUBMISC_TypeCCompanionHasIdenticalDeviceAttached @ 0x1C0034144 (HUBMISC_TypeCCompanionHasIdenticalDeviceAttached.c)
+ *     HUBFDO_IoctlGetPortConnectorProperties @ 0x1C007B17C (HUBFDO_IoctlGetPortConnectorProperties.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBCONNECTOR_GetCompanionPort(__int64 a1, unsigned __int16 a2)
 {
   __int64 v2; // rbx

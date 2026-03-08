@@ -1,3 +1,17 @@
+/*
+ * XREFs of IoQueuesInitialize @ 0x1C000B04C
+ * Callers:
+ *     NVMeControllerInitPart2 @ 0x1C000D9F0 (NVMeControllerInitPart2.c)
+ * Callees:
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     GetMaxDedicatedSqPerCqCount @ 0x1C0009CF4 (GetMaxDedicatedSqPerCqCount.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C000C1C0 (NVMeAllocateDmaBuffer.c)
+ *     NVMeCompletionQueueInit @ 0x1C000C768 (NVMeCompletionQueueInit.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ *     NVMeSubmissionQueueAssignmentPolicyInit @ 0x1C0010804 (NVMeSubmissionQueueAssignmentPolicyInit.c)
+ *     NVMeSubmissionQueueInit @ 0x1C00108FC (NVMeSubmissionQueueInit.c)
+ */
+
 char __fastcall IoQueuesInitialize(__int64 a1)
 {
   __int64 v2; // r8

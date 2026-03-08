@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViWdBeforeCancelIrp @ 0x140ADB23C
+ * Callers:
+ *     IovCancelIrp @ 0x140ABE448 (IovCancelIrp.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     ViWdInsertSortIrp @ 0x140ADB2E8 (ViWdInsertSortIrp.c)
+ */
+
 void __fastcall ViWdBeforeCancelIrp(__int64 *a1)
 {
   __int16 v1; // di

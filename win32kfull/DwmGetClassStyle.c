@@ -1,3 +1,16 @@
+/*
+ * XREFs of DwmGetClassStyle @ 0x1C007E918
+ * Callers:
+ *     xxxGetSystemMenu @ 0x1C0021498 (xxxGetSystemMenu.c)
+ *     ?DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z @ 0x1C007E644 (-DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z.c)
+ *     ?xxxRemoveDeleteMenuHelper@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@IKH@Z @ 0x1C00A4FB4 (-xxxRemoveDeleteMenuHelper@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@IKH@Z.c)
+ *     ?xxxRedrawForSetLPITEMInfo@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C00A6850 (-xxxRedrawForSetLPITEMInfo@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ *     xxxSetClassData @ 0x1C00ED168 (xxxSetClassData.c)
+ *     xxxEnableMenuItem @ 0x1C0224CA0 (xxxEnableMenuItem.c)
+ * Callees:
+ *     MNLookUpItem @ 0x1C00A75F0 (MNLookUpItem.c)
+ */
+
 __int64 __fastcall DwmGetClassStyle(__int64 a1)
 {
   __int64 v1; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of vFetchShiftNotAndCopy @ 0x1C030606C
+ * Callers:
+ *     ?vPatNotRect8@@YAXPEAU_PATBLTFRAME@@@Z @ 0x1C02E9040 (-vPatNotRect8@@YAXPEAU_PATBLTFRAME@@@Z.c)
+ *     ?vPatNotRow8@@YAXPEAU_PATBLTFRAME@@JH@Z @ 0x1C02E9340 (-vPatNotRow8@@YAXPEAU_PATBLTFRAME@@JH@Z.c)
+ * Callees:
+ *     ?CopyPattern@@YAXPEAKJJJ@Z @ 0x1C0305E48 (-CopyPattern@@YAXPEAKJJJ@Z.c)
+ */
+
 void __fastcall vFetchShiftNotAndCopy(__int64 a1)
 {
   unsigned int *v1; // r10

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?pxrlStrRead24@@YAPEAU_XRUNLEN@@PEAU_STRDDA@@PEAU_STRRUN@@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C02E4270
+ * Callers:
+ *     <none>
+ * Callees:
+ *     XLATEOBJ_iXlate @ 0x1C00C3AA0 (XLATEOBJ_iXlate.c)
+ */
+
 struct _XRUNLEN *__fastcall pxrlStrRead24(
         struct _STRDDA *a1,
         struct _STRRUN *a2,

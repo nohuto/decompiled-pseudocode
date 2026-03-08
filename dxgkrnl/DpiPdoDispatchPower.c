@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiPdoDispatchPower @ 0x1C001A100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     DpiPdoSetDevicePower @ 0x1C01E1140 (DpiPdoSetDevicePower.c)
+ */
+
 __int64 __fastcall DpiPdoDispatchPower(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rbp

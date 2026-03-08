@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetMessageExtraInfo @ 0x1C01DD340
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtUserSetMessageExtraInfo(__int64 a1)
 {
   __int64 v2; // r8

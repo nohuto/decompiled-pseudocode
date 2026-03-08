@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Suspend@VIDMM_PAGING_QUEUE@@QEAAXXZ @ 0x1C00A87E4
+ * Callers:
+ *     ?SuspendPagingQueues@VIDMM_DEVICE@@QEAAXXZ @ 0x1C00A8734 (-SuspendPagingQueues@VIDMM_DEVICE@@QEAAXXZ.c)
+ * Callees:
+ *     ?SetStatus@VIDMM_PAGING_QUEUE@@QEAAXW4VIDMM_PAGING_QUEUE_STATUS@@@Z @ 0x1C00A8870 (-SetStatus@VIDMM_PAGING_QUEUE@@QEAAXW4VIDMM_PAGING_QUEUE_STATUS@@@Z.c)
+ */
+
 void __fastcall VIDMM_PAGING_QUEUE::Suspend(VIDMM_PAGING_QUEUE *this)
 {
   __int64 v1; // rbx

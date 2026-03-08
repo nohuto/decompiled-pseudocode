@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopUmpoSendLegacyEvent @ 0x1409948A0
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ *     PopDirectedDripsSendSuspendResumeNotification @ 0x140980CF0 (PopDirectedDripsSendSuspendResumeNotification.c)
+ *     PopSendSuspendResumeServiceNotification @ 0x140987724 (PopSendSuspendResumeServiceNotification.c)
+ * Callees:
+ *     PopUmpoSendPowerMessage @ 0x1402BD1D0 (PopUmpoSendPowerMessage.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PfPowerActionNotify @ 0x140A9CD7C (PfPowerActionNotify.c)
+ */
+
 __int64 __fastcall PopUmpoSendLegacyEvent(__int128 *a1)
 {
   bool v2; // zf

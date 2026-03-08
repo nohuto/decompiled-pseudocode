@@ -1,3 +1,16 @@
+/*
+ * XREFs of IpmiLibpKcsSpinRegister @ 0x1406760E0
+ * Callers:
+ *     IpmiLibpKcsHandleError @ 0x140675B3C (IpmiLibpKcsHandleError.c)
+ *     IpmiLibpKcsReceiveResponseFromBmc @ 0x140675C88 (IpmiLibpKcsReceiveResponseFromBmc.c)
+ *     IpmiLibpKcsSendRequestToBMC @ 0x140675EF8 (IpmiLibpKcsSendRequestToBMC.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     IpmiLibReadOneByte @ 0x14067568C (IpmiLibReadOneByte.c)
+ *     IpmiLibpDelay @ 0x140675A4C (IpmiLibpDelay.c)
+ *     IpmiLibpTimeAfter @ 0x1406761D8 (IpmiLibpTimeAfter.c)
+ */
+
 __int64 __fastcall IpmiLibpKcsSpinRegister(__int64 a1, __int64 a2, unsigned __int16 a3)
 {
   unsigned int v3; // r14d

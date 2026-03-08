@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?STROBJ_bEnumPositionsOnlyLinked@@YAHPEAVESTROBJ@@PEAKPEAPEAU_GLYPHPOS@@@Z @ 0x1C02DB7F0
+ * Callers:
+ *     STROBJ_bEnumPositionsOnly @ 0x1C02DDAA0 (STROBJ_bEnumPositionsOnly.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall STROBJ_bEnumPositionsOnlyLinked(struct ESTROBJ *a1, unsigned int *a2, struct _GLYPHPOS **a3)
 {
   int v3; // r11d

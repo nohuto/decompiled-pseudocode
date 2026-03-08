@@ -1,3 +1,12 @@
+/*
+ * XREFs of XmImmediateEnter @ 0x140530A90
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmGetCodeByte @ 0x1403B40F4 (XmGetCodeByte.c)
+ *     XmGetWordImmediate @ 0x1403B4350 (XmGetWordImmediate.c)
+ */
+
 __int64 __fastcall XmImmediateEnter(__int64 a1)
 {
   __int64 result; // rax

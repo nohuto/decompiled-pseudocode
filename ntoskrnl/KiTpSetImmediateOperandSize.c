@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiTpSetImmediateOperandSize @ 0x140AF1858
+ * Callers:
+ *     KiTpEmulateInstruction @ 0x140AF0944 (KiTpEmulateInstruction.c)
+ *     KiTpEmulateMovRegImm @ 0x140AF10CC (KiTpEmulateMovRegImm.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall KiTpSetImmediateOperandSize(__int64 a1, char a2, char a3, char a4)
 {
   char v4; // r10

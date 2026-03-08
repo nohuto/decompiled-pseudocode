@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspIumGetSystemData @ 0x1409B3428
+ * Callers:
+ *     PsDispatchIumService @ 0x1405A2A44 (PsDispatchIumService.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspIumGetSystemData(_DWORD *a1)
 {
   __int64 result; // rax

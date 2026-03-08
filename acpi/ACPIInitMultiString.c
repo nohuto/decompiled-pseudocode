@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIInitMultiString @ 0x1C0087990
+ * Callers:
+ *     ACPIDockIrpQueryID @ 0x1C007B410 (ACPIDockIrpQueryID.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 ACPIInitMultiString(struct _UNICODE_STRING *a1, const char *a2, ...)
 {
   va_list v2; // rdi

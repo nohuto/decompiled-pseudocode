@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIButtonCancelRequest @ 0x1C00186B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ACPIButtonCancelRequest(__int64 a1, IRP *a2)
 {
   KIRQL v3; // al

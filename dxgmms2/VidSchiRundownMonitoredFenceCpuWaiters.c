@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiRundownMonitoredFenceCpuWaiters @ 0x1C001344C
+ * Callers:
+ *     VidSchDestroyDeviceSyncObject @ 0x1C0013340 (VidSchDestroyDeviceSyncObject.c)
+ * Callees:
+ *     VidSchiUnwaitMonitoredFences @ 0x1C00037C0 (VidSchiUnwaitMonitoredFences.c)
+ */
+
 void __fastcall VidSchiRundownMonitoredFenceCpuWaiters(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r13

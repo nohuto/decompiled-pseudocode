@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPreferenceFloat@CSettingsManager@@UEAAJPEBGPEAM@Z @ 0x14000BF00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // attributes: thunk
 __int64 __fastcall CSettingsManager::GetPreferenceFloat(CSettingsManager *this, const unsigned __int16 *a2, float *a3)
 {

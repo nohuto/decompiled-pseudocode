@@ -1,3 +1,13 @@
+/*
+ * XREFs of BuildReadWriteCommand @ 0x1C0010FC4
+ * Callers:
+ *     MdlToPrp @ 0x1C0001570 (MdlToPrp.c)
+ * Callees:
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     GetLbaFromCdb @ 0x1C0012AD0 (GetLbaFromCdb.c)
+ *     GetStreamId @ 0x1C0012CFC (GetStreamId.c)
+ */
+
 __int64 __fastcall BuildReadWriteCommand(
         __int64 a1,
         __int64 a2,

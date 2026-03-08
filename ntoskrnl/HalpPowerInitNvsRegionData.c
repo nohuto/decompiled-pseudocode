@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpPowerInitNvsRegionData @ 0x140B62300
+ * Callers:
+ *     HalpPowerInitDiscard @ 0x140B6204C (HalpPowerInitDiscard.c)
+ * Callees:
+ *     HalpMmAllocateMemoryInternal @ 0x14037A7A8 (HalpMmAllocateMemoryInternal.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 HalpPowerInitNvsRegionData()
 {
   __int64 v0; // rbx

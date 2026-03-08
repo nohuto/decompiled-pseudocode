@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcGetDirtyPages @ 0x140304A20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcForEachPartition @ 0x140305240 (CcForEachPartition.c)
+ */
+
 LARGE_INTEGER __stdcall CcGetDirtyPages(
         PVOID LogHandle,
         PDIRTY_PAGE_ROUTINE DirtyPageRoutine,

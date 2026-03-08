@@ -1,3 +1,24 @@
+/*
+ * XREFs of IopAllocateAndPopulateWriteIrp @ 0x140240590
+ * Callers:
+ *     IopPopulateCopyWriteWorkerData @ 0x14035A864 (IopPopulateCopyWriteWorkerData.c)
+ *     IopWriteFile @ 0x1406B3E10 (IopWriteFile.c)
+ * Callees:
+ *     IopAllocateMdl @ 0x140241F90 (IopAllocateMdl.c)
+ *     IopReleaseFileObjectLock @ 0x140267920 (IopReleaseFileObjectLock.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     IopAllocateIrpExReturn @ 0x140312290 (IopAllocateIrpExReturn.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     IopSetCopyInformationExtension @ 0x14035A9EC (IopSetCopyInformationExtension.c)
+ *     IopProbeAndLockPages_0 @ 0x1403CE574 (IopProbeAndLockPages_0.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopExceptionCleanupEx @ 0x140941A08 (IopExceptionCleanupEx.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall IopAllocateAndPopulateWriteIrp(__int64 a1, IRP **a2, _DWORD *SchedulerAssist)
 {
   int v4; // r12d

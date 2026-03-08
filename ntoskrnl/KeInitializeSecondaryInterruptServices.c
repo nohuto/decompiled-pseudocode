@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeInitializeSecondaryInterruptServices @ 0x140842B00
+ * Callers:
+ *     HalpAllocateGsivForSecondaryInterrupt @ 0x14039C2B0 (HalpAllocateGsivForSecondaryInterrupt.c)
+ * Callees:
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 KeInitializeSecondaryInterruptServices()
 {
   __int64 Pool2; // rax

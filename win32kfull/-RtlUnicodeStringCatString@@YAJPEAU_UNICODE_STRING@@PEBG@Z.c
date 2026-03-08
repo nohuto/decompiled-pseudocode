@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0107898
+ * Callers:
+ *     ?CreatePredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z @ 0x1C00F2284 (-CreatePredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z.c)
+ *     ?OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z @ 0x1C00F2C34 (-OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z.c)
+ *     ?GetPredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z @ 0x1C01026A0 (-GetPredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z.c)
+ *     GetLocalMachineRegistryDWORDValues @ 0x1C0102D80 (GetLocalMachineRegistryDWORDValues.c)
+ *     ReadTiltCalibrationData @ 0x1C01A678C (ReadTiltCalibrationData.c)
+ *     WriteTiltCalibrationData @ 0x1C01A6CF4 (WriteTiltCalibrationData.c)
+ *     ?WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z @ 0x1C01F4AA0 (-WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z.c)
+ * Callees:
+ *     RtlUnicodeStringValidateDestWorker @ 0x1C0107828 (RtlUnicodeStringValidateDestWorker.c)
+ */
+
 __int64 __fastcall RtlUnicodeStringCatString(struct _UNICODE_STRING *a1, wchar_t *a2)
 {
   NTSTATUS v4; // r8d

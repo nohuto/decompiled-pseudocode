@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CVisualCapture@@UEAA@XZ @ 0x1802523B0
+ * Callers:
+ *     ??_GCVisualCapture@@UEAAPEAXI@Z @ 0x180252480 (--_GCVisualCapture@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?UnRegisterNotifiers@CVisualCapture@@UEAAXXZ @ 0x18021EF70 (-UnRegisterNotifiers@CVisualCapture@@UEAAXXZ.c)
+ */
+
 void __fastcall CVisualCapture::~CVisualCapture(CVisualCapture *this)
 {
   __int64 v2; // rcx

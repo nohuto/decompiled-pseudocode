@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vReleaseCurrentpMapProcForSurfaces@@YAXXZ @ 0x1C00CE504
+ * Callers:
+ *     ?GrepCloseCurrentProcess@@YAHXZ @ 0x1C006D158 (-GrepCloseCurrentProcess@@YAHXZ.c)
+ * Callees:
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C004B5B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z @ 0x1C006F140 (-GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z.c)
+ */
+
 void __fastcall vReleaseCurrentpMapProcForSurfaces(__int64 a1)
 {
   unsigned int NextEntryIndex; // edi

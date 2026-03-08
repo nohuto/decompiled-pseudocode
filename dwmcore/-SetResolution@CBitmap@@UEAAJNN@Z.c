@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetResolution@CBitmap@@UEAAJNN@Z @ 0x18027E900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034BB4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall CBitmap::SetResolution(CBitmap *this, double a2, double a3)
 {
   float v4; // xmm0_4

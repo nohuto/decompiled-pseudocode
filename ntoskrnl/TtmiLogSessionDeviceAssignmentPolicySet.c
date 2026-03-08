@@ -1,3 +1,15 @@
+/*
+ * XREFs of TtmiLogSessionDeviceAssignmentPolicySet @ 0x1409A6388
+ * Callers:
+ *     TtmInitCurrentSession @ 0x1409A0FC0 (TtmInitCurrentSession.c)
+ *     TtmpDispatchSetDefaultDeviceAssignment @ 0x1409A3890 (TtmpDispatchSetDefaultDeviceAssignment.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetProcessSessionIdEx @ 0x1402BDFA0 (PsGetProcessSessionIdEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall TtmiLogSessionDeviceAssignmentPolicySet(char a1)
 {
   int ProcessSessionId; // eax

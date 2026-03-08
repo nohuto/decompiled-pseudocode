@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopDiagTraceDriverVeto @ 0x140AA48D0
+ * Callers:
+ *     PopCompleteNotifyTransitionCommon @ 0x14058DFFC (PopCompleteNotifyTransitionCommon.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopDiagGetDriverName @ 0x14058F424 (PopDiagGetDriverName.c)
+ */
+
 char __fastcall PopDiagTraceDriverVeto(__int64 a1, __int64 a2)
 {
   _UNKNOWN **v2; // rax

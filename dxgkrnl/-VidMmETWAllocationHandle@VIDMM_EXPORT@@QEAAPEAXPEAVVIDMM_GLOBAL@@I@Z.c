@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidMmETWAllocationHandle@VIDMM_EXPORT@@QEAAPEAXPEAVVIDMM_GLOBAL@@I@Z @ 0x1C00530DC
+ * Callers:
+ *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C01C8C80 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall VIDMM_EXPORT::VidMmETWAllocationHandle(VIDMM_EXPORT *this, struct VIDMM_GLOBAL *a2, unsigned int a3)
 {
   return (*(__int64 (__fastcall **)(struct VIDMM_GLOBAL *, _QWORD))(*((_QWORD *)this + 1) + 336LL))(a2, a3);

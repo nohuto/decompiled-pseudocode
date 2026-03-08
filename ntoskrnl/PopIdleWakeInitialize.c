@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopIdleWakeInitialize @ 0x14084E198
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     PpmConvertTimeFrom @ 0x1403A4058 (PpmConvertTimeFrom.c)
+ *     PopIdleWakeConvertIntervalBucketsFrom @ 0x14084E28C (PopIdleWakeConvertIntervalBucketsFrom.c)
+ */
+
 __int64 PopIdleWakeInitialize()
 {
   __int64 result; // rax

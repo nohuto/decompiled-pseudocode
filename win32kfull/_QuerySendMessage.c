@@ -1,3 +1,12 @@
+/*
+ * XREFs of _QuerySendMessage @ 0x1C01FE96C
+ * Callers:
+ *     NtUserQuerySendMessage @ 0x1C01D9CA0 (NtUserQuerySendMessage.c)
+ * Callees:
+ *     IsPointerInputMessageWithState @ 0x1C003855C (IsPointerInputMessageWithState.c)
+ *     TranslateSentPointerMessageForClient @ 0x1C01C55AC (TranslateSentPointerMessageForClient.c)
+ */
+
 __int64 __fastcall QuerySendMessage(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8

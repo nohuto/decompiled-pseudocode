@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiGetSlabStandbyListWorker @ 0x140654790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x140654130 (MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY.c)
+ */
+
 __int64 __fastcall MiGetSlabStandbyListWorker(__int64 a1, __int64 a2, __int64 *a3)
 {
   unsigned __int64 v4; // rax

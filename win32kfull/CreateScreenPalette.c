@@ -1,3 +1,13 @@
+/*
+ * XREFs of CreateScreenPalette @ 0x1C022ADA8
+ * Callers:
+ *     ?PasteScreenPalette@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C01FF19C (-PasteScreenPalette@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     xxxSnapWindow @ 0x1C022AF08 (xxxSnapWindow.c)
+ * Callees:
+ *     GreGetSystemPaletteUse @ 0x1C00FA6A8 (GreGetSystemPaletteUse.c)
+ *     GreGetSystemPaletteEntries @ 0x1C02D3540 (GreGetSystemPaletteEntries.c)
+ */
+
 __int64 __fastcall CreateScreenPalette(HDC a1, _QWORD *a2, __int64 *a3)
 {
   unsigned int v6; // ebx

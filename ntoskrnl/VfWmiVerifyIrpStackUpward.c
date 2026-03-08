@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfWmiVerifyIrpStackUpward @ 0x140AE4A70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ViErrorReport10 @ 0x1405CDA88 (ViErrorReport10.c)
+ *     VfDevObjIsDeviceRemoved @ 0x140ACF0A8 (VfDevObjIsDeviceRemoved.c)
+ */
+
 char __fastcall VfWmiVerifyIrpStackUpward(const void **a1, __int64 a2, __int64 a3, __int64 a4, int a5)
 {
   int v5; // eax

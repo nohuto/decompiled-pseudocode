@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsHandleEntrySecureWorker@@YAHPEAXPEAU_HANDLEENTRY@@@Z @ 0x1C0153678
+ * Callers:
+ *     HMIsHandleEntrySecure @ 0x1C00ED28E (HMIsHandleEntrySecure.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IsHandleEntrySecureWorker(void *a1, struct _HANDLEENTRY *a2)
 {
   _QWORD *v2; // rdi

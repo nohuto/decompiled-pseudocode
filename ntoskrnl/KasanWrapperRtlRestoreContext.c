@@ -1,3 +1,14 @@
+/*
+ * XREFs of KasanWrapperRtlRestoreContext @ 0x1402EA9A0
+ * Callers:
+ *     RtlRestoreContext @ 0x140420880 (RtlRestoreContext.c)
+ * Callees:
+ *     KeQueryCurrentStackInformationEx @ 0x140312A40 (KeQueryCurrentStackInformationEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KeGetCurrentStackPointer @ 0x1404166E0 (KeGetCurrentStackPointer.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall KasanWrapperRtlRestoreContext(__int64 a1)
 {
   __int64 result; // rax

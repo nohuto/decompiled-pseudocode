@@ -1,3 +1,39 @@
+/*
+ * XREFs of PnpBiosResourcesToNtResources @ 0x1C008EFDC
+ * Callers:
+ *     TranslateBindMutexResources @ 0x1C001C044 (TranslateBindMutexResources.c)
+ *     PnpDeviceBiosResourcesToNtResources @ 0x1C003C2C4 (PnpDeviceBiosResourcesToNtResources.c)
+ *     ACPIIoctlTranslateBiosResources @ 0x1C0088698 (ACPIIoctlTranslateBiosResources.c)
+ *     AcpiTranslatePepDeviceControlResourcesInternal @ 0x1C008B620 (AcpiTranslatePepDeviceControlResourcesInternal.c)
+ *     TranslateEjectInterface @ 0x1C0097A38 (TranslateEjectInterface.c)
+ *     LinkNodeGetPossibleResources @ 0x1C00994B8 (LinkNodeGetPossibleResources.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C00149A0 (WPP_RECORDER_SF_DD.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C001B508 (WPP_RECORDER_SF_qD.c)
+ *     PnpiBiosInterruptCombineToIoDescriptor @ 0x1C003C3D4 (PnpiBiosInterruptCombineToIoDescriptor.c)
+ *     WPP_RECORDER_SF_dL @ 0x1C003C5C4 (WPP_RECORDER_SF_dL.c)
+ *     WPP_RECORDER_SF_dqLD @ 0x1C003C7E4 (WPP_RECORDER_SF_dqLD.c)
+ *     PnpiBiosAddressDoubleToIoDescriptor @ 0x1C00904A0 (PnpiBiosAddressDoubleToIoDescriptor.c)
+ *     PnpiBiosAddressExtendedToIoDescriptor @ 0x1C0090830 (PnpiBiosAddressExtendedToIoDescriptor.c)
+ *     PnpiBiosAddressQuadToIoDescriptor @ 0x1C0090EAC (PnpiBiosAddressQuadToIoDescriptor.c)
+ *     PnpiBiosAddressToIoDescriptor @ 0x1C00912CC (PnpiBiosAddressToIoDescriptor.c)
+ *     PnpiBiosDmaToIoDescriptor @ 0x1C009168C (PnpiBiosDmaToIoDescriptor.c)
+ *     PnpiBiosDmaToIoDescriptorV3 @ 0x1C0091754 (PnpiBiosDmaToIoDescriptorV3.c)
+ *     PnpiBiosExtendedIrqToIoDescriptor @ 0x1C00917BC (PnpiBiosExtendedIrqToIoDescriptor.c)
+ *     PnpiBiosGpioInterruptIoToNtIoDescriptor @ 0x1C0091918 (PnpiBiosGpioInterruptIoToNtIoDescriptor.c)
+ *     PnpiBiosIrqToIoDescriptor @ 0x1C009197C (PnpiBiosIrqToIoDescriptor.c)
+ *     PnpiBiosMemoryToIoDescriptor @ 0x1C0091A50 (PnpiBiosMemoryToIoDescriptor.c)
+ *     PnpiBiosPortFixedToIoDescriptor @ 0x1C0091B5C (PnpiBiosPortFixedToIoDescriptor.c)
+ *     PnpiBiosPortToIoDescriptor @ 0x1C0091BE0 (PnpiBiosPortToIoDescriptor.c)
+ *     PnpiBiosVendorToNtIoDescriptor @ 0x1C0091C74 (PnpiBiosVendorToNtIoDescriptor.c)
+ *     PnpiClearAllocatedMemory @ 0x1C0091D48 (PnpiClearAllocatedMemory.c)
+ *     PnpiGrowResourceList @ 0x1C0091EBC (PnpiGrowResourceList.c)
+ */
+
 __int64 __fastcall PnpBiosResourcesToNtResources(ULONG_PTR a1, ULONG_PTR a2, unsigned int a3, __int64 *a4)
 {
   int v4; // esi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of GetCursorUpdateHandle @ 0x1C00CDCC8
+ * Callers:
+ *     NtMITGetCursorUpdateHandle @ 0x1C00CDC30 (NtMITGetCursorUpdateHandle.c)
+ * Callees:
+ *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C007CCB8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
+ *     ?GetCursorUpdateHandle@CMouseSensor@@QEBAPEAXXZ @ 0x1C00CDD24 (-GetCursorUpdateHandle@CMouseSensor@@QEBAPEAXXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void *GetCursorUpdateHandle()
 {
   __int64 v0; // rbx

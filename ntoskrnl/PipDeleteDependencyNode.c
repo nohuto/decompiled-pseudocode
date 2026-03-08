@@ -1,3 +1,20 @@
+/*
+ * XREFs of PipDeleteDependencyNode @ 0x140951668
+ * Callers:
+ *     PipProcessRebuildPowerRelationsQueue @ 0x1406819F4 (PipProcessRebuildPowerRelationsQueue.c)
+ *     PipSetDependency @ 0x1408387E4 (PipSetDependency.c)
+ *     PipCreateDependencyNode @ 0x140838A40 (PipCreateDependencyNode.c)
+ *     PipDereferenceDependencyNode @ 0x140838B30 (PipDereferenceDependencyNode.c)
+ *     IoDuplicateDependency @ 0x140951200 (IoDuplicateDependency.c)
+ *     PipDeleteAllDependencyRelations @ 0x1409514A0 (PipDeleteAllDependencyRelations.c)
+ *     PipMergeDependencyEdgeList @ 0x1409517A8 (PipMergeDependencyEdgeList.c)
+ *     PipMergeDependencyNodes @ 0x14095192C (PipMergeDependencyNodes.c)
+ *     PipUnlinkDeviceObjectAndDependencyNode @ 0x1409519A4 (PipUnlinkDeviceObjectAndDependencyNode.c)
+ * Callees:
+ *     PipDeleteBindingIds @ 0x140951624 (PipDeleteBindingIds.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PipDeleteDependencyNode(_QWORD *P)
 {
   _QWORD *v2; // rcx

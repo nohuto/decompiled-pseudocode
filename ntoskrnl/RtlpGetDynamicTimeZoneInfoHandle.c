@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpGetDynamicTimeZoneInfoHandle @ 0x140811DC4
+ * Callers:
+ *     RtlpCheckDynamicTimeZoneInformation @ 0x140811C80 (RtlpCheckDynamicTimeZoneInformation.c)
+ * Callees:
+ *     RtlStringCbCatW @ 0x1402092FC (RtlStringCbCatW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlpGetRegistryHandle @ 0x14069BBB0 (RtlpGetRegistryHandle.c)
+ */
+
 NTSTATUS __fastcall RtlpGetDynamicTimeZoneInfoHandle(NTSTRSAFE_PCWSTR pszSrc, HANDLE *a2)
 {
   __int64 v3; // r8

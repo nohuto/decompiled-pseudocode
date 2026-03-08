@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnKeyPress@CPTPProcessor@@CAX_N@Z @ 0x1C00F3574
+ * Callers:
+ *     ?OnKeyEvent@CPTPProcessor@@SAXE_N@Z @ 0x1C020E594 (-OnKeyEvent@CPTPProcessor@@SAXE_N@Z.c)
+ * Callees:
+ *     ApiSetTraceLoggingPTPAAPKeyPress @ 0x1C024692C (ApiSetTraceLoggingPTPAAPKeyPress.c)
+ */
+
 void __fastcall CPTPProcessor::OnKeyPress(unsigned __int8 a1)
 {
   __int64 v1; // rbx

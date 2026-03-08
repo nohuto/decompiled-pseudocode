@@ -1,3 +1,20 @@
+/*
+ * XREFs of CmpReportNotifyHelper @ 0x1407AF050
+ * Callers:
+ *     CmpReportNotifyForKcbStack @ 0x1407AEF5C (CmpReportNotifyForKcbStack.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     CmpTransIsTransActive @ 0x14061407C (CmpTransIsTransActive.c)
+ *     CmpNotifyTriggerCheck @ 0x1406B3714 (CmpNotifyTriggerCheck.c)
+ *     CmpPostNotify @ 0x1406B3790 (CmpPostNotify.c)
+ *     CmpDelayedDerefKeys @ 0x1407AEFE8 (CmpDelayedDerefKeys.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1407AF600 (CmpGetKcbAtLayerHeight.c)
+ */
+
 void __fastcall CmpReportNotifyHelper(__int64 a1, __int64 a2, __int64 a3, int a4, __int128 *a5)
 {
   volatile signed __int32 *v9; // r15

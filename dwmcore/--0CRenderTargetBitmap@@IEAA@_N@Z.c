@@ -1,3 +1,16 @@
+/*
+ * XREFs of ??0CRenderTargetBitmap@@IEAA@_N@Z @ 0x18003C200
+ * Callers:
+ *     ??0CDecodeBitmap@@QEAA@XZ @ 0x18001BCE4 (--0CDecodeBitmap@@QEAA@XZ.c)
+ *     ??0CScratchRenderTargetBitmap@@IEAA@XZ @ 0x18003BE3C (--0CScratchRenderTargetBitmap@@IEAA@XZ.c)
+ *     ?Create@CRenderTargetBitmap@@SAJPEAVIDeviceTarget@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x1800F2F48 (-Create@CRenderTargetBitmap@@SAJPEAVIDeviceTarget@@PEAPEAVIRenderTargetBitmap@@@Z.c)
+ *     ??0CStereoRenderTargetBitmap@@IEAA@PEAVIRenderTargetBitmap@@@Z @ 0x1802B2244 (--0CStereoRenderTargetBitmap@@IEAA@PEAVIRenderTargetBitmap@@@Z.c)
+ * Callees:
+ *     ??0CD2DBitmapCache@@IEAA@XZ @ 0x180032C6C (--0CD2DBitmapCache@@IEAA@XZ.c)
+ *     ??0CDeviceResource@@IEAA@XZ @ 0x18003C414 (--0CDeviceResource@@IEAA@XZ.c)
+ *     ??0IRenderTargetBitmap@@QEAA@XZ @ 0x18003C470 (--0IRenderTargetBitmap@@QEAA@XZ.c)
+ */
+
 CRenderTargetBitmap *__fastcall CRenderTargetBitmap::CRenderTargetBitmap(CRenderTargetBitmap *this, char a2, int a3)
 {
   char *v3; // rdi

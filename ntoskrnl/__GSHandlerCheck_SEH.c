@@ -1,3 +1,12 @@
+/*
+ * XREFs of __GSHandlerCheck_SEH @ 0x140411A40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __C_specific_handler @ 0x1403D2190 (__C_specific_handler.c)
+ *     __GSHandlerCheckCommon @ 0x1403D7CF8 (__GSHandlerCheckCommon.c)
+ */
+
 EXCEPTION_DISPOSITION __fastcall _GSHandlerCheck_SEH(
         struct _EXCEPTION_RECORD *ExceptionRecord,
         void *EstablisherFrame,

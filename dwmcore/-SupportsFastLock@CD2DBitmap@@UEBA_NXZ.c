@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SupportsFastLock@CD2DBitmap@@UEBA_NXZ @ 0x1800A8220
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18003CE64 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?TryFastWarpLock@CD2DBitmap@@IEBA_NPEAPEAEPEAI1PEAPEAUIUnknown@@@Z @ 0x1800A82B8 (-TryFastWarpLock@CD2DBitmap@@IEBA_NPEAPEAEPEAI1PEAPEAUIUnknown@@@Z.c)
+ */
+
 bool __fastcall CD2DBitmap::SupportsFastLock(CD2DBitmap *this)
 {
   unsigned int v3; // [rsp+40h] [rbp+8h] BYREF

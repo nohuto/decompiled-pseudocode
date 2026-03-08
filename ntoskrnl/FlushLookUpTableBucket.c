@@ -1,3 +1,21 @@
+/*
+ * XREFs of FlushLookUpTableBucket @ 0x1403CA80C
+ * Callers:
+ *     LookUpTableFlushComplete @ 0x140859480 (LookUpTableFlushComplete.c)
+ *     LookUpTableFlushPartial @ 0x14087B43C (LookUpTableFlushPartial.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     FlattenEventEntryTree @ 0x1403CA9EC (FlattenEventEntryTree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     FlushEventEntryList @ 0x14087B4B8 (FlushEventEntryList.c)
+ */
+
 __int64 __fastcall FlushLookUpTableBucket(__int64 a1, unsigned int a2)
 {
   __int64 v2; // r12

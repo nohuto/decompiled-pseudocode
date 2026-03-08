@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiCollectTriageDumpDataBlocks @ 0x140567894
+ * Callers:
+ *     KeBugCheck2 @ 0x140565E90 (KeBugCheck2.c)
+ * Callees:
+ *     MmIsAddressValidEx @ 0x1403471E0 (MmIsAddressValidEx.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KiIsAddressRangeValid @ 0x1403849BC (KiIsAddressRangeValid.c)
+ *     KiMarkBugCheckRegions @ 0x1403DE604 (KiMarkBugCheckRegions.c)
+ *     IopAddBugcheckTriageThread @ 0x140559D4C (IopAddBugcheckTriageThread.c)
+ *     KiCollectFullProcessName @ 0x14056784C (KiCollectFullProcessName.c)
+ *     KiSaveCurrentEtwTraceBuffer @ 0x140568664 (KiSaveCurrentEtwTraceBuffer.c)
+ *     PopInternalAddToDumpFile @ 0x140580CC0 (PopInternalAddToDumpFile.c)
+ */
+
 void __fastcall KiCollectTriageDumpDataBlocks(int a1, char a2)
 {
   int v4; // edi
@@ -59,11 +74,11 @@ LABEL_27:
     }
     else
     {
-      KiMarkBugCheckRegions(qword_140C42448, xmmword_140C42450, MEMORY[0x140C42458], qword_140C42460);
+      KiMarkBugCheckRegions(qword_140C42448, qword_140C42450, qword_140C42458, qword_140C42460);
       if ( qword_140C42460 == 47 )
       {
-        v10 = MEMORY[0x140C42458];
-        if ( MmIsAddressValidEx(MEMORY[0x140C42458] + 1928) )
+        v10 = qword_140C42458;
+        if ( MmIsAddressValidEx(qword_140C42458 + 1928) )
         {
           v8 = *(_QWORD *)(v10 + 1928);
           v9 = 4096LL;

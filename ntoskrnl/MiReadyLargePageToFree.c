@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiReadyLargePageToFree @ 0x140350860
+ * Callers:
+ *     MiFreeLargePageMemory @ 0x1403505C0 (MiFreeLargePageMemory.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiBadRefCount @ 0x14064B094 (MiBadRefCount.c)
+ *     MiPrepareLargePageSubPageForFree @ 0x140666E94 (MiPrepareLargePageSubPageForFree.c)
+ */
+
 __int64 __fastcall MiReadyLargePageToFree(unsigned __int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 v3; // r13

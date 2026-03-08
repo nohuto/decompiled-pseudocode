@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InvalidateAndReleaseQueues@CInputSink@@IEAAXXZ @ 0x1C00AB634
+ * Callers:
+ *     ?MarkInvalid@CInputSink@@UEAAXXZ @ 0x1C00AB530 (-MarkInvalid@CInputSink@@UEAAXXZ.c)
+ *     ?Initialize@CInputSink@@IEAAJAEBUCOMPOSITION_INPUT_SINK_V2@@@Z @ 0x1C00AB868 (-Initialize@CInputSink@@IEAAJAEBUCOMPOSITION_INPUT_SINK_V2@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CInputSink::InvalidateAndReleaseQueues(CInputSink *this)
 {
   __int64 v2; // rcx

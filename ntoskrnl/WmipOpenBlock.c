@@ -1,3 +1,19 @@
+/*
+ * XREFs of WmipOpenBlock @ 0x14069AF1C
+ * Callers:
+ *     IoWMIOpenBlock @ 0x14069C410 (IoWMIOpenBlock.c)
+ *     WmipIoControl @ 0x140787290 (WmipIoControl.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     WmipOpenGuidObject @ 0x14069B120 (WmipOpenGuidObject.c)
+ *     WmipFindGEByGuid @ 0x14069BDF4 (WmipFindGEByGuid.c)
+ *     WmipEnableCollectOrEvent @ 0x14069C2A8 (WmipEnableCollectOrEvent.c)
+ *     WmipIsQuerySetGuid @ 0x14069C39C (WmipIsQuerySetGuid.c)
+ *     WmipAllocGuidEntry @ 0x140841224 (WmipAllocGuidEntry.c)
+ */
+
 __int64 __fastcall WmipOpenBlock(int a1, __int64 a2, __int64 a3, unsigned int a4, _QWORD *a5)
 {
   unsigned __int64 v5; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetContentType@CVisual@@UEAAKXZ @ 0x1801C0FF0
+ * Callers:
+ *     ?GetContentType@CWindowNode@@UEAAKXZ @ 0x180253010 (-GetContentType@CWindowNode@@UEAAKXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CVisual::GetContentType(CVisual *this)
 {
   unsigned int v2; // ebx

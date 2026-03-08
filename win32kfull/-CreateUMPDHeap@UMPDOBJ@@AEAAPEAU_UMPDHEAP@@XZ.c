@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CreateUMPDHeap@UMPDOBJ@@AEAAPEAU_UMPDHEAP@@XZ @ 0x1C029B4D8
+ * Callers:
+ *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C029BE78 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
+ *     ?bInit@UMPDOBJ@@QEAAHXZ @ 0x1C029C0E4 (-bInit@UMPDOBJ@@QEAAHXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _UMPDHEAP *__fastcall UMPDOBJ::CreateUMPDHeap(UMPDOBJ *this)
 {
   _DWORD *v1; // rbx

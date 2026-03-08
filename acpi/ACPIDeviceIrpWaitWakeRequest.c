@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIDeviceIrpWaitWakeRequest @ 0x1C001DFB8
+ * Callers:
+ *     ACPIWakeWaitIrp @ 0x1C00460A0 (ACPIWakeWaitIrp.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qdqss @ 0x1C0009EDC (WPP_RECORDER_SF_qdqss.c)
+ *     ACPIDeviceInitializePowerRequest @ 0x1C001CF98 (ACPIDeviceInitializePowerRequest.c)
+ */
+
 __int64 __fastcall ACPIDeviceIrpWaitWakeRequest(ULONG_PTR a1, __int64 a2)
 {
   __int64 DeviceExtension; // rax

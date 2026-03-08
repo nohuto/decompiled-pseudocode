@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0InteractiveControlManager@@AEAA@XZ @ 0x1C0079FB4
+ * Callers:
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C007A05C (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ * Callees:
+ *     ?ReadSettings@InteractiveControlSettings@@QEAAJXZ @ 0x1C0079CC4 (-ReadSettings@InteractiveControlSettings@@QEAAJXZ.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C039C928 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ */
+
 InteractiveControlManager *__fastcall InteractiveControlManager::InteractiveControlManager(
         InteractiveControlManager *this)
 {

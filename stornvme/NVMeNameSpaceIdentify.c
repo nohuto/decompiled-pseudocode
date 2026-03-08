@@ -1,3 +1,22 @@
+/*
+ * XREFs of NVMeNameSpaceIdentify @ 0x1C002108C
+ * Callers:
+ *     NVMeControllerInitPart1 @ 0x1C000D7A8 (NVMeControllerInitPart1.c)
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ *     IsIntelChatham @ 0x1C0007B94 (IsIntelChatham.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C000C1C0 (NVMeAllocateDmaBuffer.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ *     NVMeGetActiveNameSpaceIdList @ 0x1C001D32C (NVMeGetActiveNameSpaceIdList.c)
+ *     NVMeLogNameSpaceIdentificationStatus @ 0x1C001FCC0 (NVMeLogNameSpaceIdentificationStatus.c)
+ *     NVMeParseNameSpaceIdentifyData @ 0x1C0021490 (NVMeParseNameSpaceIdentifyData.c)
+ *     NVMeVersionCheck @ 0x1C00244A8 (NVMeVersionCheck.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 __int64 __fastcall NVMeNameSpaceIdentify(__int64 a1)
 {
   __int64 v1; // rax

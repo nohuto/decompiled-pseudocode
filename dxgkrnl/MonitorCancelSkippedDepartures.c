@@ -1,3 +1,12 @@
+/*
+ * XREFs of MonitorCancelSkippedDepartures @ 0x1C0200D8C
+ * Callers:
+ *     DpiPdoHandleChildConnectionChange @ 0x1C02009DC (DpiPdoHandleChildConnectionChange.c)
+ * Callees:
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00045F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?_CancelSkippedDepartures@MONITOR_MGR@@QEAAJI@Z @ 0x1C0200E08 (-_CancelSkippedDepartures@MONITOR_MGR@@QEAAJI@Z.c)
+ */
+
 __int64 __fastcall MonitorCancelSkippedDepartures(PERESOURCE *this, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdi

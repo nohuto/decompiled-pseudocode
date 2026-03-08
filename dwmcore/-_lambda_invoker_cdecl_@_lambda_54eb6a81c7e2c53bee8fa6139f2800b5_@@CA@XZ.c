@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_lambda_invoker_cdecl_@_lambda_54eb6a81c7e2c53bee8fa6139f2800b5_@@CA@XZ @ 0x1802A0AE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??_ECompositorTracing@@UEAAPEAXI@Z @ 0x18019A5C0 (--_ECompositorTracing@@UEAAPEAXI@Z.c)
+ */
+
 unsigned int _lambda_54eb6a81c7e2c53bee8fa6139f2800b5_::_lambda_invoker_cdecl_(void)
 {
   unsigned int result; // eax

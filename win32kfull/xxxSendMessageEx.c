@@ -1,3 +1,11 @@
+/*
+ * XREFs of xxxSendMessageEx @ 0x1C00D1270
+ * Callers:
+ *     xxxSendMessageFF @ 0x1C00D1230 (xxxSendMessageFF.c)
+ * Callees:
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ */
+
 __int64 __fastcall xxxSendMessageEx(struct tagWND *a1, unsigned int a2, unsigned __int64 a3, __int128 *a4, ULONG64 a5)
 {
   _BYTE *v6; // rdx

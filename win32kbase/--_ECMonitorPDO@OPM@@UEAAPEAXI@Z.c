@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_ECMonitorPDO@OPM@@UEAAPEAXI@Z @ 0x1C017EA50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C0096938 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     ??1CMonitorPDO@OPM@@UEAA@XZ @ 0x1C017EA10 (--1CMonitorPDO@OPM@@UEAA@XZ.c)
+ */
+
 char *__fastcall OPM::CMonitorPDO::`vector deleting destructor'(char *P, char a2)
 {
   int v3; // esi

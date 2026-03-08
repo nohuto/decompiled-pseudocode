@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpFindBusAddressTranslation @ 0x1403B0910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HalpFindBusAddressTranslation(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *a4, char a5)
 {
   char result; // al

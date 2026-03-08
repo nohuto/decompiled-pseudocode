@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CompleteManipulation@CManipulation@@UEAAJW4InteractionState@@@Z @ 0x18020A5E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z @ 0x18020BE3C (-_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z.c)
+ *     ?_UpdateCaptureState@CManipulation@@AEAAX_N@Z @ 0x18020C3E4 (-_UpdateCaptureState@CManipulation@@AEAAX_N@Z.c)
+ */
+
 __int64 __fastcall CManipulation::CompleteManipulation(__int64 a1)
 {
   BOOL v1; // edx

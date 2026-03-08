@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopFxActivateComponentWorker @ 0x140305EB4
+ * Callers:
+ *     PopFxActivateComponent @ 0x140305D50 (PopFxActivateComponent.c)
+ *     PopFxIdleWorkerTail @ 0x140306748 (PopFxIdleWorkerTail.c)
+ * Callees:
+ *     PopFxAddRefDevice @ 0x140305F38 (PopFxAddRefDevice.c)
+ *     PopFxActivateComponentDependencies @ 0x140306004 (PopFxActivateComponentDependencies.c)
+ *     PopFxProcessWork @ 0x1403060C4 (PopFxProcessWork.c)
+ *     PopFxCompleteComponentActivation @ 0x14030698C (PopFxCompleteComponentActivation.c)
+ *     PopPluginComponentActive @ 0x14030721C (PopPluginComponentActive.c)
+ */
+
 __int64 __fastcall PopFxActivateComponentWorker(ULONG_PTR a1, __int64 a2, char a3, __int64 a4)
 {
   __int64 v8; // rdx

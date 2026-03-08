@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiDecrementCombinedPteEx @ 0x14029DAF4
+ * Callers:
+ *     MiDeletePteList @ 0x140276AC0 (MiDeletePteList.c)
+ *     MiDeletePteRun @ 0x140279760 (MiDeletePteRun.c)
+ *     MiDemoteCombinedPte @ 0x14029DF88 (MiDemoteCombinedPte.c)
+ *     MiConvertStandbyToProto @ 0x14029ED24 (MiConvertStandbyToProto.c)
+ *     MiDeleteSystemPagableVm @ 0x1402B04B0 (MiDeleteSystemPagableVm.c)
+ *     MiCopyOnWrite @ 0x140319F00 (MiCopyOnWrite.c)
+ *     MiDeleteVa @ 0x140324900 (MiDeleteVa.c)
+ *     MiDecommitPages @ 0x140329B10 (MiDecommitPages.c)
+ *     MiDeleteValidSystemPage @ 0x14032AEA0 (MiDeleteValidSystemPage.c)
+ *     MiConvertPrivateToProto @ 0x14034A20C (MiConvertPrivateToProto.c)
+ * Callees:
+ *     MiDecrementCloneBlock @ 0x14029DC04 (MiDecrementCloneBlock.c)
+ *     MiFreeCombineBlock @ 0x14029DDE0 (MiFreeCombineBlock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLogCombinedPteDelete @ 0x14065109C (MiLogCombinedPteDelete.c)
+ */
+
 __int64 __fastcall MiDecrementCombinedPteEx(int a1, __int64 a2, int a3)
 {
   volatile signed __int32 *v4; // r9

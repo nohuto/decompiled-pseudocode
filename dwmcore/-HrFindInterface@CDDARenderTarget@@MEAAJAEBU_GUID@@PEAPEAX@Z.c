@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CDDARenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18012D790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801003B0 (-HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ */
+
 __int64 __fastcall CDDARenderTarget::HrFindInterface(CDDARenderTarget *this, const struct _GUID *a2, void **a3)
 {
   __int64 result; // rax

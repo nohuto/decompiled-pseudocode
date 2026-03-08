@@ -1,3 +1,12 @@
+/*
+ * XREFs of bUMPD @ 0x1C02ACB14
+ * Callers:
+ *     NtGdiExtEscape @ 0x1C00BB120 (NtGdiExtEscape.c)
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ */
+
 __int64 __fastcall bUMPD(HDC a1)
 {
   unsigned int v1; // ebx

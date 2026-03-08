@@ -1,3 +1,11 @@
+/*
+ * XREFs of MmHardFaultBytesRequired @ 0x1406A7A10
+ * Callers:
+ *     CcFetchDataForRead @ 0x140221EE0 (CcFetchDataForRead.c)
+ * Callees:
+ *     MiGetSystemCacheReverseMap @ 0x140222030 (MiGetSystemCacheReverseMap.c)
+ */
+
 __int64 __fastcall MmHardFaultBytesRequired(__int64 a1)
 {
   unsigned __int64 v1; // rcx

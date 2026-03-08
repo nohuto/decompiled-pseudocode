@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_RECORDER_SF_dc @ 0x1C0036684
+ * Callers:
+ *     Usbh_PCE_QueueChange_Action @ 0x1C0010600 (Usbh_PCE_QueueChange_Action.c)
+ *     Usbh_PCE_QueueDriverReset_Action @ 0x1C001F8E0 (Usbh_PCE_QueueDriverReset_Action.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_dc(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4, int a5, ...)
 {
   int v8; // [rsp+20h] [rbp-38h]

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?IsForegroundShellFrameQueueAccessible@@YAHPEBUtagTHREADINFO@@@Z @ 0x1C00DCFF0
+ * Callers:
+ *     EditionIsGpqForegroundAccessibleCurrent @ 0x1C0044BD0 (EditionIsGpqForegroundAccessibleCurrent.c)
+ *     ?xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z @ 0x1C006C010 (-xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z.c)
+ *     ?IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z @ 0x1C00DCF88 (-IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IsForegroundShellFrameQueueAccessible(const struct tagTHREADINFO *a1)
 {
   int v2; // eax

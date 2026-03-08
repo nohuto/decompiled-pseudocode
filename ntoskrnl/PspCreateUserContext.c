@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspCreateUserContext @ 0x1407EEA8C
+ * Callers:
+ *     NtCreateUserProcess @ 0x14070C850 (NtCreateUserProcess.c)
+ *     PspInitializeThunkContext @ 0x1407EDF4C (PspInitializeThunkContext.c)
+ *     NtCreateThreadEx @ 0x1407EEB00 (NtCreateThreadEx.c)
+ *     PspCreatePicoThread @ 0x1409B27F0 (PspCreatePicoThread.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspCreateUserContext(__int64 a1, char a2, __int64 a3, __int64 a4, __int64 a5)
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetCurrentDpiInfoForWindow @ 0x1C00DC900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserGetCurrentDpiInfoForWindow(__int64 a1, _OWORD *a2, __int64 a3)
 {
   _OWORD *v3; // rdi

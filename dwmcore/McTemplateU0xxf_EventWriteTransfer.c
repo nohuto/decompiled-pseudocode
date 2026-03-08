@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0xxf_EventWriteTransfer @ 0x18012D2A4
+ * Callers:
+ *     ?TracePresentStats@CScheduleFrameInfoVolatileData@@QEBAXXZ @ 0x1800512B0 (-TracePresentStats@CScheduleFrameInfoVolatileData@@QEBAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 __int64 McTemplateU0xxf_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
 {
   __int64 v4; // [rsp+30h] [rbp-11h] BYREF

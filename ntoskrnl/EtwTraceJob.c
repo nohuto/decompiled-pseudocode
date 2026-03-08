@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwTraceJob @ 0x1409E2518
+ * Callers:
+ *     NtCreateJobObject @ 0x1406F7BA0 (NtCreateJobObject.c)
+ *     NtTerminateJobObject @ 0x140791E00 (NtTerminateJobObject.c)
+ *     PspTerminateAllProcessesInJobHierarchy @ 0x140791E78 (PspTerminateAllProcessesInJobHierarchy.c)
+ *     NtOpenJobObject @ 0x14079B7D0 (NtOpenJobObject.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpCopyJobGuidSafe @ 0x1408A21A4 (EtwpCopyJobGuidSafe.c)
+ *     EtwpPsProvTraceJob @ 0x1409E3668 (EtwpPsProvTraceJob.c)
+ */
+
 void __fastcall EtwTraceJob(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4)
 {
   int v5; // eax

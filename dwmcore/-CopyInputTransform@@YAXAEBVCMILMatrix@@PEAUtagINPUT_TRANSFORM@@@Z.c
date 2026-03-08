@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CopyInputTransform@@YAXAEBVCMILMatrix@@PEAUtagINPUT_TRANSFORM@@@Z @ 0x1800E3E38
+ * Callers:
+ *     ?s_HitTestRequest@CInputManager@@SAHPEAUtagDITCALLBACKSTRUCT@@@Z @ 0x180032400 (-s_HitTestRequest@CInputManager@@SAHPEAUtagDITCALLBACKSTRUCT@@@Z.c)
+ *     ?PostSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18006E820 (-PostSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CopyInputTransform(const struct CMILMatrix *a1, struct tagINPUT_TRANSFORM *a2)
 {
   *(_DWORD *)a2 = *(_DWORD *)a1;

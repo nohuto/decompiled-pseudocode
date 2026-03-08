@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??1ADAPTER_RENDER@@QEAA@XZ @ 0x1C02BB6EC
+ * Callers:
+ *     ??_GADAPTER_RENDER@@QEAAPEAXI@Z @ 0x1C003E788 (--_GADAPTER_RENDER@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C00072DC (--1DXGFASTMUTEX@@QEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ??1?$DXGNODELIST@VADAPTER_DISPLAY@@VDXGPROTECTEDSESSION@@@@AEAA@XZ @ 0x1C0040984 (--1-$DXGNODELIST@VADAPTER_DISPLAY@@VDXGPROTECTEDSESSION@@@@AEAA@XZ.c)
+ *     ?DestroyFormattingBuffer@ADAPTER_RENDER@@QEAAXXZ @ 0x1C0041A04 (-DestroyFormattingBuffer@ADAPTER_RENDER@@QEAAXXZ.c)
+ */
+
 void __fastcall ADAPTER_RENDER::~ADAPTER_RENDER(ADAPTER_RENDER *this)
 {
   void (__fastcall ***v2)(_QWORD, __int64); // rcx

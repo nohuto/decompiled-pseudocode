@@ -1,3 +1,12 @@
+/*
+ * XREFs of DwmAsyncUpdateDefaultDesktopThumbnail @ 0x1C0270780
+ * Callers:
+ *     NtUserUpdateDefaultDesktopThumbnail @ 0x1C01E0500 (NtUserUpdateDefaultDesktopThumbnail.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall DwmAsyncUpdateDefaultDesktopThumbnail(
         PVOID Object,
         __int64 a2,

@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpAllocateAdapterChannel @ 0x140512850
+ * Callers:
+ *     HalAllocateAdapterChannel @ 0x140452D00 (HalAllocateAdapterChannel.c)
+ *     HalpBuildScatterGatherList @ 0x14050D490 (HalpBuildScatterGatherList.c)
+ *     HalAllocateAdapterChannelEx @ 0x140511E50 (HalAllocateAdapterChannelEx.c)
+ *     HalRealAllocateAdapterChannelV3 @ 0x140512800 (HalRealAllocateAdapterChannelV3.c)
+ * Callees:
+ *     HalpDmaStartWcb @ 0x1404FE9F0 (HalpDmaStartWcb.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x140512A4C (HalpAllocateDmaResourcesInternal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpAllocateAdapterChannel(__int64 a1, __int64 a2, unsigned int a3, int a4, char a5, __int64 a6)
 {
   int v6; // esi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of BiExportStoreAlterationsToEfi @ 0x140A5BC98
+ * Callers:
+ *     BiExportStoreAlterationsToFirmware @ 0x140A59FB0 (BiExportStoreAlterationsToFirmware.c)
+ * Callees:
+ *     BiFreeIdentifierList @ 0x14082B53C (BiFreeIdentifierList.c)
+ *     BiBuildIdentifierList @ 0x14082DD44 (BiBuildIdentifierList.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiExportBcdObjects @ 0x140A5B800 (BiExportBcdObjects.c)
+ *     BiExportEfiBootManager @ 0x140A5B928 (BiExportEfiBootManager.c)
+ */
+
 __int64 __fastcall BiExportStoreAlterationsToEfi(_QWORD *a1)
 {
   __int64 v2; // rdx

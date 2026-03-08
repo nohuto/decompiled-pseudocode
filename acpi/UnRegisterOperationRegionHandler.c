@@ -1,3 +1,18 @@
+/*
+ * XREFs of UnRegisterOperationRegionHandler @ 0x1C008BDF0
+ * Callers:
+ *     ACPIIoctlUnRegisterOpRegionHandler @ 0x1C00314A4 (ACPIIoctlUnRegisterOpRegionHandler.c)
+ *     ACPIEcRemoveOpRegionHandler @ 0x1C0083734 (ACPIEcRemoveOpRegionHandler.c)
+ *     DeRegisterOpRegionHandler @ 0x1C008BA80 (DeRegisterOpRegionHandler.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     EnableDisableDeviceTreeRegionSpace @ 0x1C00399A0 (EnableDisableDeviceTreeRegionSpace.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C0047B9C (AMLIEvalNameSpaceObject.c)
+ *     AMLIGetNameSpaceObject @ 0x1C00483B8 (AMLIGetNameSpaceObject.c)
+ *     AMLIRegEventHandler @ 0x1C0048A7C (AMLIRegEventHandler.c)
+ */
+
 __int64 __fastcall UnRegisterOperationRegionHandler(__int64 a1, __int64 *a2)
 {
   __int64 *i; // rax

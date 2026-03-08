@@ -1,3 +1,11 @@
+/*
+ * XREFs of CiSchedulerPostSuspend @ 0x1C0004D88
+ * Callers:
+ *     CiProcessSuspend @ 0x1C0004AE8 (CiProcessSuspend.c)
+ * Callees:
+ *     CiSchedulerUpdateTimer @ 0x1C0002050 (CiSchedulerUpdateTimer.c)
+ */
+
 void __fastcall CiSchedulerPostSuspend(char a1, int a2, unsigned __int64 a3, bool *a4)
 {
   bool v7; // di

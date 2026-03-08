@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpCoverageSamplerInitialize @ 0x1409F0364
+ * Callers:
+ *     EtwpSetCoverageSamplerInformation @ 0x1409F0DFC (EtwpSetCoverageSamplerInformation.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall EtwpCoverageSamplerInitialize(__int64 a1)
 {
   __int64 result; // rax

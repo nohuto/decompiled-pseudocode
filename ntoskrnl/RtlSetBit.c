@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlSetBit @ 0x1402E1F40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __stdcall RtlSetBit(PRTL_BITMAP BitMapHeader, ULONG BitNumber)
 {
   _BYTE *v2; // r8

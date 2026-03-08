@@ -1,3 +1,15 @@
+/*
+ * XREFs of CarLiveDump @ 0x1405D3670
+ * Callers:
+ *     CarDoLiveDump @ 0x1405D35B0 (CarDoLiveDump.c)
+ * Callees:
+ *     CarEtwWriteLiveDumpEvent @ 0x1405D0A70 (CarEtwWriteLiveDumpEvent.c)
+ *     CarDeleteTelemetryData @ 0x1405D16C4 (CarDeleteTelemetryData.c)
+ *     DifiDbgPrint @ 0x1405D3224 (DifiDbgPrint.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x14087EC10 (DbgkWerCaptureLiveKernelDump.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall CarLiveDump(PVOID P)
 {
   int v2; // eax

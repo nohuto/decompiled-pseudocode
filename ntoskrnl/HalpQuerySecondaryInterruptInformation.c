@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpQuerySecondaryInterruptInformation @ 0x14085EDA0
+ * Callers:
+ *     HaliQuerySystemInformation @ 0x140A85470 (HaliQuerySystemInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpQuerySecondaryInterruptInformation(__int64 a1)
 {
   unsigned int v1; // edx

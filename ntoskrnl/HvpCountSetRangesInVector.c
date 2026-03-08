@@ -1,3 +1,14 @@
+/*
+ * XREFs of HvpCountSetRangesInVector @ 0x1407EA7B4
+ * Callers:
+ *     HvpGenerateLogEntryDirtyData @ 0x14030C5F8 (HvpGenerateLogEntryDirtyData.c)
+ *     HvStoreModifiedData @ 0x14072D6A8 (HvStoreModifiedData.c)
+ *     HvpGenerateLogMetadata @ 0x1407EA6F0 (HvpGenerateLogMetadata.c)
+ *     HvGetHiveLogFileStatus @ 0x1407F7674 (HvGetHiveLogFileStatus.c)
+ * Callees:
+ *     RtlFindNextForwardRunClear @ 0x14035D2F0 (RtlFindNextForwardRunClear.c)
+ */
+
 __int64 __fastcall HvpCountSetRangesInVector(PRTL_BITMAP BitMapHeader)
 {
   ULONG v1; // edi

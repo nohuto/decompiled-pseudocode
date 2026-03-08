@@ -1,3 +1,12 @@
+/*
+ * XREFs of CopyNodeStatistics @ 0x1C00C4A78
+ * Callers:
+ *     VidSchQueryNodeStatistics @ 0x1C0107D80 (VidSchQueryNodeStatistics.c)
+ *     VidSchQueryProcessNodeStatistics @ 0x1C0107E30 (VidSchQueryProcessNodeStatistics.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CopyNodeStatistics(__int64 a1, __int64 a2)
 {
   _DWORD *v2; // r8

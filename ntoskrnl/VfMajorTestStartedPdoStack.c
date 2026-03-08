@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfMajorTestStartedPdoStack @ 0x140AD0164
+ * Callers:
+ *     PpvUtilTestStartedPdoStack @ 0x140201FB8 (PpvUtilTestStartedPdoStack.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IovUtilIsVerifiedDeviceStack @ 0x140ACFBD0 (IovUtilIsVerifiedDeviceStack.c)
+ */
+
 __int64 (__fastcall *__fastcall VfMajorTestStartedPdoStack(__int64 a1))(_QWORD)
 {
   __int64 (__fastcall *result)(_QWORD); // rax

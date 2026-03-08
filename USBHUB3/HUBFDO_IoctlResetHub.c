@@ -1,3 +1,16 @@
+/*
+ * XREFs of HUBFDO_IoctlResetHub @ 0x1C007BE54
+ * Callers:
+ *     HUBFDO_EvtIoDeviceControl @ 0x1C007C520 (HUBFDO_EvtIoDeviceControl.c)
+ * Callees:
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000CE90 (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     HUBMUX_CheckAndQueueIfResetHubIsEnabled @ 0x1C0011000 (HUBMUX_CheckAndQueueIfResetHubIsEnabled.c)
+ *     HUBMISC_GetActivityIdIrp @ 0x1C0033758 (HUBMISC_GetActivityIdIrp.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBMISC_VerifyCallerIsAdmin @ 0x1C0083448 (HUBMISC_VerifyCallerIsAdmin.c)
+ */
+
 __int64 __fastcall HUBFDO_IoctlResetHub(__int64 a1, __int64 a2)
 {
   __int64 v4; // rax

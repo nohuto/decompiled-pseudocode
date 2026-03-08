@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopDirectedDripsBuildBroadcastTreeFull @ 0x14099CB70
+ * Callers:
+ *     PopDirectedDripsBuildBroadcastTreePartial @ 0x14099CDB8 (PopDirectedDripsBuildBroadcastTreePartial.c)
+ * Callees:
+ *     PopFxIsDirectedPowerTransitionSupported @ 0x1405884F8 (PopFxIsDirectedPowerTransitionSupported.c)
+ *     PopDirectedDripsIsPnpSoftwareDeviceNode @ 0x140980964 (PopDirectedDripsIsPnpSoftwareDeviceNode.c)
+ *     PopDirectedDripsDiagTraceProblemDevice @ 0x14099C45C (PopDirectedDripsDiagTraceProblemDevice.c)
+ *     PopDirectedDripsBuildPs4BroadcastTree @ 0x14099CEBC (PopDirectedDripsBuildPs4BroadcastTree.c)
+ *     PopDirectedDripsFlushDeviceQueue @ 0x14099D044 (PopDirectedDripsFlushDeviceQueue.c)
+ *     PopDirectedDripsInsertQueueDevice @ 0x14099D07C (PopDirectedDripsInsertQueueDevice.c)
+ *     PopDirectedDripsIsLikelySpecialDevice @ 0x14099D0BC (PopDirectedDripsIsLikelySpecialDevice.c)
+ *     PopDirectedDripsMarkDfxDevice @ 0x14099D104 (PopDirectedDripsMarkDfxDevice.c)
+ *     PopDirectedDripsVisitDevice @ 0x14099D230 (PopDirectedDripsVisitDevice.c)
+ */
+
 __int64 __fastcall PopDirectedDripsBuildBroadcastTreeFull(__int64 a1, __int64 a2, char a3, _DWORD *a4)
 {
   int v5; // esi

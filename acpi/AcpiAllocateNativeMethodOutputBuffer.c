@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiAllocateNativeMethodOutputBuffer @ 0x1C0036B40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qD @ 0x1C001B508 (WPP_RECORDER_SF_qD.c)
+ */
+
 __int64 __fastcall AcpiAllocateNativeMethodOutputBuffer(_QWORD *a1, void *a2, __int64 a3, __int64 *a4)
 {
   unsigned int v4; // ebx

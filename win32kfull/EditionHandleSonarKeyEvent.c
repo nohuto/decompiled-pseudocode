@@ -1,3 +1,12 @@
+/*
+ * XREFs of EditionHandleSonarKeyEvent @ 0x1C00E8310
+ * Callers:
+ *     <none>
+ * Callees:
+ *     StopFade @ 0x1C01BDEF0 (StopFade.c)
+ *     zzzStartSonar @ 0x1C01BE79C (zzzStartSonar.c)
+ */
+
 __int64 __fastcall EditionHandleSonarKeyEvent(__int64 a1, char a2)
 {
   __int64 result; // rax

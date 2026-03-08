@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Get@CContentRects@@AEAA_NIPEAUtagRECT@@PEAI@Z @ 0x1C01578D0
+ * Callers:
+ *     ?GetContentRects@CContentRects@@SA_NIPEAUtagRECT@@PEAI@Z @ 0x1C0157A30 (-GetContentRects@CContentRects@@SA_NIPEAUtagRECT@@PEAI@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00052A0 (WPP_RECORDER_AND_TRACE_SF_dd.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 char __fastcall CContentRects::Get(CContentRects *this, unsigned int a2, struct tagRECT *a3, unsigned int *a4)
 {
   struct tagRECT *v4; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InitializePowerGlobals@@YAJXZ @ 0x1C00CABB0
+ * Callers:
+ *     Win32kBaseDriverEntry @ 0x1C0320F10 (Win32kBaseDriverEntry.c)
+ * Callees:
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 NTSTATUS InitializePowerGlobals(void)
 {
   NTSTATUS result; // eax

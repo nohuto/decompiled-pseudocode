@@ -1,3 +1,14 @@
+/*
+ * XREFs of ImpRpcQueryEnabledStateAsync @ 0x1C0087020
+ * Callers:
+ *     ImpRpcAsyncResponseHandler @ 0x1C0089B28 (ImpRpcAsyncResponseHandler.c)
+ *     ImpWorkerRoutine @ 0x1C0089F90 (ImpWorkerRoutine.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C008D2C0 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 ImpRpcQueryEnabledStateAsync()
 {
   int v1; // [rsp+40h] [rbp-48h] BYREF

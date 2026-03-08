@@ -1,3 +1,13 @@
+/*
+ * XREFs of WindowRedirectionBitmapMatchesMonitorAdapter @ 0x1C000A1BC
+ * Callers:
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C00669E0 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     ?xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z @ 0x1C01EFBFC (-xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z.c)
+ * Callees:
+ *     GreGetDxSharedSurface @ 0x1C000A248 (GreGetDxSharedSurface.c)
+ *     GetWindowMonitorAdapterLuid @ 0x1C00E98A4 (GetWindowMonitorAdapterLuid.c)
+ */
+
 __int64 __fastcall WindowRedirectionBitmapMatchesMonitorAdapter(HWND *a1)
 {
   __int64 v2; // [rsp+38h] [rbp-8h] BYREF

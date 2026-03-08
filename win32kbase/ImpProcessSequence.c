@@ -1,3 +1,14 @@
+/*
+ * XREFs of ImpProcessSequence @ 0x1C027489C
+ * Callers:
+ *     ImpWorkerRoutine @ 0x1C0089F90 (ImpWorkerRoutine.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     ImpRpcSendString @ 0x1C027474C (ImpRpcSendString.c)
+ */
+
 __int64 __fastcall ImpProcessSequence(
         __int64 a1,
         __int64 a2,

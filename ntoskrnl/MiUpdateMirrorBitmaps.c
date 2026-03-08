@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiUpdateMirrorBitmaps @ 0x140A2C418
+ * Callers:
+ *     MmDuplicateMemory @ 0x140AA96DC (MmDuplicateMemory.c)
+ *     MiInitializeMirroring @ 0x140B3AF20 (MiInitializeMirroring.c)
+ * Callees:
+ *     MiActOnMirrorBitmap @ 0x140A2C318 (MiActOnMirrorBitmap.c)
+ */
+
 __int64 MiUpdateMirrorBitmaps()
 {
   int v0; // ebx

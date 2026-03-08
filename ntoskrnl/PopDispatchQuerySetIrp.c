@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopDispatchQuerySetIrp @ 0x1402B9B64
+ * Callers:
+ *     PoHandleIrp @ 0x1402B986C (PoHandleIrp.c)
+ * Callees:
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseSemaphoreEx @ 0x14033E940 (KeReleaseSemaphoreEx.c)
+ */
+
 __int64 __fastcall PopDispatchQuerySetIrp(_QWORD *a1)
 {
   __int64 v2; // rcx

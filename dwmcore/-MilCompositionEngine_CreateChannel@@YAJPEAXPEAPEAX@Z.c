@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?MilCompositionEngine_CreateChannel@@YAJPEAXPEAPEAX@Z @ 0x1800CCCE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CreateChannel@CInternalMilCmdConnection@@QEAAJPEAUIDwmChannelProvider@@PEAPEAVCChannel@@@Z @ 0x1800CCD3C (-CreateChannel@CInternalMilCmdConnection@@QEAAJPEAUIDwmChannelProvider@@PEAPEAVCChannel@@@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
 __int64 __fastcall MilCompositionEngine_CreateChannel(struct IDwmChannelProvider *a1, struct CChannel **a2)
 {
   int v3; // eax

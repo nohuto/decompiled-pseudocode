@@ -1,3 +1,16 @@
+/*
+ * XREFs of HUBFDO_EvtDeviceD0Exit @ 0x1C000D7D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000CE90 (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     McTemplateK0pqqh_EtwWriteTransfer @ 0x1C000CF08 (McTemplateK0pqqh_EtwWriteTransfer.c)
+ *     HUBMISC_WaitForSignal @ 0x1C0032DEC (HUBMISC_WaitForSignal.c)
+ *     SleepstudyHelper_ComponentInactive @ 0x1C0043DEC (SleepstudyHelper_ComponentInactive.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBFDO_EvtDeviceD0Exit(__int64 a1, int a2)
 {
   NTSTATUS v4; // ebx

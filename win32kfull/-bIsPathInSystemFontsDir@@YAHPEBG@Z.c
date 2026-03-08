@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bIsPathInSystemFontsDir@@YAHPEBG@Z @ 0x1C00E13F8
+ * Callers:
+ *     UmfdLoadFontFileView @ 0x1C011859C (UmfdLoadFontFileView.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bIsPathInSystemFontsDir(wchar_t *Str1)
 {
   unsigned int v2; // ebx

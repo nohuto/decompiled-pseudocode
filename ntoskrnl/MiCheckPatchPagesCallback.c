@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCheckPatchPagesCallback @ 0x140A33660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlAreBitsClear @ 0x14036C910 (RtlAreBitsClear.c)
+ *     RtlDetermineHotPatchExtent @ 0x140A736B4 (RtlDetermineHotPatchExtent.c)
+ */
+
 char __fastcall MiCheckPatchPagesCallback(__int64 a1, _DWORD *a2, int a3, char a4)
 {
   RTL_BITMAP *v5; // rdi

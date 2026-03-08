@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpStackWalkDpc @ 0x1405FD990
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402331B0 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     EtwpQueueStackWalkApc @ 0x140460526 (EtwpQueueStackWalkApc.c)
+ */
+
 void __fastcall EtwpStackWalkDpc(
         struct _KDPC *Dpc,
         PVOID DeferredContext,

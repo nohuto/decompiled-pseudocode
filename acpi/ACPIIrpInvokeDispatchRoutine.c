@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIIrpInvokeDispatchRoutine @ 0x1C007BEC0
+ * Callers:
+ *     ACPIBusIrpEject @ 0x1C007EA10 (ACPIBusIrpEject.c)
+ *     ACPIBusIrpQueryCapabilities @ 0x1C007EE60 (ACPIBusIrpQueryCapabilities.c)
+ *     ACPIBusIrpQueryPnpDeviceState @ 0x1C00807F0 (ACPIBusIrpQueryPnpDeviceState.c)
+ *     ACPIBusIrpSetLock @ 0x1C00814C0 (ACPIBusIrpSetLock.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ACPIIrpInvokeDispatchRoutine(
         ULONG_PTR a1,
         IRP *a2,

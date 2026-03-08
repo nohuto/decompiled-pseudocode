@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpAllocatePoolLookaside @ 0x1402EC980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall CmpAllocatePoolLookaside(
         POOL_TYPE PoolType,
         SIZE_T NumberOfBytes,

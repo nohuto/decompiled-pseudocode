@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheapErrorContainsMemorySection @ 0x14060FE88
+ * Callers:
+ *     WheapPersistPageForMemoryError @ 0x14060EC18 (WheapPersistPageForMemoryError.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WheapErrorContainsMemorySection(__int64 a1)
 {
   unsigned int v1; // eax

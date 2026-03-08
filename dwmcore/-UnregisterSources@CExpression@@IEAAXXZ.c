@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UnregisterSources@CExpression@@IEAAXXZ @ 0x1800BC564
+ * Callers:
+ *     ?SetOwner@CExpression@@UEAAXPEAVCBaseExpression@@@Z @ 0x1800BC110 (-SetOwner@CExpression@@UEAAXPEAVCBaseExpression@@@Z.c)
+ *     ??1CExpression@@MEAA@XZ @ 0x1800BC92C (--1CExpression@@MEAA@XZ.c)
+ * Callees:
+ *     ?RemoveSourceAnimation@CResource@@QEAAXPEAVCBaseExpression@@I@Z @ 0x1800BC5F8 (-RemoveSourceAnimation@CResource@@QEAAXPEAVCBaseExpression@@I@Z.c)
+ */
+
 void __fastcall CExpression::UnregisterSources(struct CBaseExpression **this)
 {
   struct CBaseExpression *v2; // rsi

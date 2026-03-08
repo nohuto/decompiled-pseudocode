@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_GFxPagedLookasideListFromPool@@MEAAPEAXI@Z @ 0x1C0041750
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxPagedLookasideListFromPool@@MEAA@XZ @ 0x1C004167C (--1FxPagedLookasideListFromPool@@MEAA@XZ.c)
+ */
+
 FxPagedLookasideListFromPool *__fastcall FxPagedLookasideListFromPool::`scalar deleting destructor'(
         FxPagedLookasideListFromPool *this,
         unsigned int a2,

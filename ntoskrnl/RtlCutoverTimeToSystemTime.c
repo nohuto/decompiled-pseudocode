@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlCutoverTimeToSystemTime @ 0x1408119D0
+ * Callers:
+ *     ExInitializeUtcTimeZoneBias @ 0x14080F488 (ExInitializeUtcTimeZoneBias.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140811500 (ExpRefreshTimeZoneInformation.c)
+ * Callees:
+ *     RtlTimeFieldsToTime @ 0x1402D1150 (RtlTimeFieldsToTime.c)
+ *     RtlTimeToTimeFields @ 0x1402D14B0 (RtlTimeToTimeFields.c)
+ */
+
 bool __fastcall RtlCutoverTimeToSystemTime(PTIME_FIELDS TimeFields, PLARGE_INTEGER Time, PLARGE_INTEGER a3)
 {
   __int16 Day; // r14

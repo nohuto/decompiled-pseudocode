@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0EnterLeaveCritByVelocityWithDispositionOverride@@QEAA@W4CritOptType@@_NW4HandleToObjILCheck@@@Z @ 0x1C009C860
+ * Callers:
+ *     NtUserSetWindowsHookEx @ 0x1C009C5F0 (NtUserSetWindowsHookEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EnterLeaveCritByVelocityWithDispositionOverride::EnterLeaveCritByVelocityWithDispositionOverride(
         __int64 a1,
         __int64 a2,

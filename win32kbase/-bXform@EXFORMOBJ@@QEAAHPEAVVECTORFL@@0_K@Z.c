@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bXform@EXFORMOBJ@@QEAAHPEAVVECTORFL@@0_K@Z @ 0x1C005A700
+ * Callers:
+ *     ?bComputeUnits@EXFORMOBJ@@QEAAHJPEAVPOINTFL@@PEAVEFLOAT@@1@Z @ 0x1C017FB70 (-bComputeUnits@EXFORMOBJ@@QEAAHJPEAVPOINTFL@@PEAVEFLOAT@@1@Z.c)
+ * Callees:
+ *     bCvtVts_FlToFl @ 0x1C005B430 (bCvtVts_FlToFl.c)
+ *     EngSetLastError @ 0x1C00BAB10 (EngSetLastError.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 __int64 __fastcall EXFORMOBJ::bXform(__m128 **this, struct VECTORFL *a2, struct VECTORFL *a3, __int64 a4)
 {
   __m128 *v5; // rcx

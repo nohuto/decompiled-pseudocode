@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlCopyBitMapEx @ 0x1402D6890
+ * Callers:
+ *     MiSelectRelocationStartHint @ 0x1406A1BE8 (MiSelectRelocationStartHint.c)
+ *     MiResizeAweBitMap @ 0x140A3F4A0 (MiResizeAweBitMap.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlpCopyBitMapTailToHeadEx @ 0x1405A6EF4 (RtlpCopyBitMapTailToHeadEx.c)
+ */
+
 unsigned __int64 __fastcall RtlCopyBitMapEx(__int64 a1, _QWORD *a2, unsigned __int64 a3)
 {
   unsigned __int64 result; // rax

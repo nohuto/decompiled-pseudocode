@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiGetClusterPage @ 0x140667A14
+ * Callers:
+ *     MiResolvePrivateZeroFault @ 0x14026BD60 (MiResolvePrivateZeroFault.c)
+ *     MiCreateSharedZeroPages @ 0x14028A420 (MiCreateSharedZeroPages.c)
+ * Callees:
+ *     MiGetPageChain @ 0x14026E0E0 (MiGetPageChain.c)
+ *     MiConvertEntireLargePageToSmall @ 0x140277140 (MiConvertEntireLargePageToSmall.c)
+ *     MiProtectionToCacheAttribute @ 0x14028A2D0 (MiProtectionToCacheAttribute.c)
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     MiIsPteEvaluated @ 0x14029EA24 (MiIsPteEvaluated.c)
+ *     MiComputeZeroClusterMaximum @ 0x14029EAD0 (MiComputeZeroClusterMaximum.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1402CF5DC (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetProtoPteAddress @ 0x14031C780 (MiGetProtoPteAddress.c)
+ *     MiGetLargePage @ 0x14034EF30 (MiGetLargePage.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiGetClusterPage(
         __int64 a1,
         unsigned __int64 a2,

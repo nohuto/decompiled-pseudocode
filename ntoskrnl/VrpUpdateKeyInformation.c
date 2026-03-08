@@ -1,3 +1,14 @@
+/*
+ * XREFs of VrpUpdateKeyInformation @ 0x140791490
+ * Callers:
+ *     VrpPostQueryKey @ 0x1406C14A4 (VrpPostQueryKey.c)
+ *     VrpPostEnumerateKey @ 0x140736428 (VrpPostEnumerateKey.c)
+ * Callees:
+ *     RtlUIntAdd @ 0x14022A638 (RtlUIntAdd.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall VrpUpdateKeyInformation(int a1, int *a2, UINT a3, UINT *a4, const void **a5, unsigned int a6)
 {
   unsigned int v6; // esi

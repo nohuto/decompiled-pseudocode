@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhGetHubPowerStatus @ 0x1C002C868
+ * Callers:
+ *     UsbhGetMaxPowerPerPort @ 0x1C002C9B4 (UsbhGetMaxPowerPerPort.c)
+ *     UsbhInitialize @ 0x1C002CE20 (UsbhInitialize.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhQueryHubState @ 0x1C003912C (UsbhQueryHubState.c)
+ */
+
 void __fastcall UsbhGetHubPowerStatus(__int64 a1)
 {
   _DWORD *v2; // rbx

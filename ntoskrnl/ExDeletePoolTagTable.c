@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExDeletePoolTagTable @ 0x140604960
+ * Callers:
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmFreeIndependentPages @ 0x14087B250 (MmFreeIndependentPages.c)
+ */
+
 __int64 __fastcall ExDeletePoolTagTable(unsigned int a1)
 {
   __int64 v1; // rsi

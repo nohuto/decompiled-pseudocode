@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspInitializeProtectedProcessParameters @ 0x14084AAB4
+ * Callers:
+ *     PspInitializeServerSiloDeferred @ 0x1409AA0D0 (PspInitializeServerSiloDeferred.c)
+ *     PspInitPhase2 @ 0x140B64880 (PspInitPhase2.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PspInitializeProtectedProcessParameters(__int64 a1)
 {
   __int128 v2; // xmm1

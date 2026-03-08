@@ -1,3 +1,21 @@
+/*
+ * XREFs of UsbhAddDevice @ 0x1C0041E10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhRawWait @ 0x1C0019670 (UsbhRawWait.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhReferenceListOpen @ 0x1C00418C8 (UsbhReferenceListOpen.c)
+ *     UsbhAssignHubNumber @ 0x1C0042370 (UsbhAssignHubNumber.c)
+ *     UsbhModuleDispatch @ 0x1C0043D00 (UsbhModuleDispatch.c)
+ *     UsbhReleaseHubNumber @ 0x1C0043EA0 (UsbhReleaseHubNumber.c)
+ *     Usbh_FDO_Pnp_State @ 0x1C0044348 (Usbh_FDO_Pnp_State.c)
+ *     UsbhLogAlloc @ 0x1C0048920 (UsbhLogAlloc.c)
+ */
+
 __int64 __fastcall UsbhAddDevice(PDRIVER_OBJECT DriverObject, PDEVICE_OBJECT TargetDevice)
 {
   struct _DEVICE_OBJECT *v3; // r14

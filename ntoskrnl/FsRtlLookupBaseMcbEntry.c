@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlLookupBaseMcbEntry @ 0x1402C5840
+ * Callers:
+ *     FsRtlLookupLargeMcbEntry @ 0x14039D700 (FsRtlLookupLargeMcbEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall FsRtlLookupBaseMcbEntry(
         PBASE_MCB Mcb,
         LONGLONG Vbn,

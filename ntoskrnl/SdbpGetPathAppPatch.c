@@ -1,3 +1,16 @@
+/*
+ * XREFs of SdbpGetPathAppPatch @ 0x140A4FFD0
+ * Callers:
+ *     SdbpGetPathAppPatchPreRS3 @ 0x14066BB30 (SdbpGetPathAppPatchPreRS3.c)
+ *     SdbpGetPathCustomSdbPreRS3 @ 0x14066BCC0 (SdbpGetPathCustomSdbPreRS3.c)
+ *     SdbpGetPathCustomSdb @ 0x140A50220 (SdbpGetPathCustomSdb.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslPathCombine @ 0x140A524A8 (AslPathCombine.c)
+ *     AslPathToSystemPathBuf @ 0x140A527A4 (AslPathToSystemPathBuf.c)
+ */
+
 __int64 __fastcall SdbpGetPathAppPatch(NTSTRSAFE_PWSTR pszDest, size_t cchDest)
 {
   int v5; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsWerReportCreatePresent @ 0x140006734
+ * Callers:
+ *     ??0CWatsonErrorReporting@BlackScreenDiagnostics@@QEAA@PEBG00@Z @ 0x14000DC38 (--0CWatsonErrorReporting@BlackScreenDiagnostics@@QEAA@PEBG00@Z.c)
+ * Callees:
+ *     ApiSetQueryApiSetPresence_0 @ 0x1400069D0 (ApiSetQueryApiSetPresence_0.c)
+ */
+
 char IsWerReportCreatePresent()
 {
   char result; // al

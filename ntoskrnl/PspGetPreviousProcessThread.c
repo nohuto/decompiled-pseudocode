@@ -1,3 +1,16 @@
+/*
+ * XREFs of PspGetPreviousProcessThread @ 0x1407DB974
+ * Callers:
+ *     PspTerminateAllThreads @ 0x1407DB73C (PspTerminateAllThreads.c)
+ * Callees:
+ *     ObReferenceObjectSafeWithTag @ 0x14022BD30 (ObReferenceObjectSafeWithTag.c)
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ */
+
 __int64 __fastcall PspGetPreviousProcessThread(__int64 a1, _QWORD *a2)
 {
   struct _KTHREAD *CurrentThread; // r12

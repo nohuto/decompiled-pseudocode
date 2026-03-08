@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_AckingPdoPreStartFromStoppedEnabled @ 0x1C001F010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBDSM_AckingPdoPreStartFromStoppedEnabled(__int64 a1)
 {
   __int64 v1; // rcx

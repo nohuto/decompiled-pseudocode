@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiApplyImportOptimizationToRuntimeDriver @ 0x14076CCAC
+ * Callers:
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ * Callees:
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiWalkEntireImage @ 0x1402862C0 (MiWalkEntireImage.c)
+ *     MiDoesControlAreaRequireRetpolineFixups @ 0x1402E1A60 (MiDoesControlAreaRequireRetpolineFixups.c)
+ *     MiUpdateImportRelocationsOnDriverPrivatePages @ 0x1402E1B88 (MiUpdateImportRelocationsOnDriverPrivatePages.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     MiIsImportOptimizationEnabled @ 0x140369044 (MiIsImportOptimizationEnabled.c)
+ *     MiCaptureRetpolineImportInfo @ 0x14076CDAC (MiCaptureRetpolineImportInfo.c)
+ *     VslCaptureSecureImageIat @ 0x14094081C (VslCaptureSecureImageIat.c)
+ */
+
 __int64 __fastcall MiApplyImportOptimizationToRuntimeDriver(__int64 a1, ULONG_PTR a2)
 {
   __int64 *v4; // rdi

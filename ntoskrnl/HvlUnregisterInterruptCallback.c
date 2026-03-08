@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlUnregisterInterruptCallback @ 0x14053D9B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 signed __int64 __fastcall HvlUnregisterInterruptCallback(unsigned int a1, signed __int64 a2)
 {
   signed __int64 result; // rax

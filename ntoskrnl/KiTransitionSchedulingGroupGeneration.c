@@ -1,3 +1,19 @@
+/*
+ * XREFs of KiTransitionSchedulingGroupGeneration @ 0x1402AB0D4
+ * Callers:
+ *     KiGroupSchedulingGenerationEnd @ 0x1402ABBFC (KiGroupSchedulingGenerationEnd.c)
+ *     KiParkCurrentProcessor @ 0x14057BAA4 (KiParkCurrentProcessor.c)
+ * Callees:
+ *     KiIsThreadRankNonZero @ 0x140228010 (KiIsThreadRankNonZero.c)
+ *     KiSetClockTimer @ 0x14022AC78 (KiSetClockTimer.c)
+ *     KiChargeSchedulingGroupCycleTime @ 0x1402AB400 (KiChargeSchedulingGroupCycleTime.c)
+ *     KiMoveScbThreadsToNewReadylist @ 0x1402AB444 (KiMoveScbThreadsToNewReadylist.c)
+ *     KiInsertNonMaxOverQuotaScb @ 0x1402AE41C (KiInsertNonMaxOverQuotaScb.c)
+ *     KeInterlockedClearProcessorAffinityEx @ 0x1402DA1D0 (KeInterlockedClearProcessorAffinityEx.c)
+ *     KiSetSchedulerAssistPriority @ 0x14040A730 (KiSetSchedulerAssistPriority.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall KiTransitionSchedulingGroupGeneration(struct _KPRCB *a1, __int64 a2, unsigned __int64 a3, char a4)
 {
   unsigned int v5; // r15d

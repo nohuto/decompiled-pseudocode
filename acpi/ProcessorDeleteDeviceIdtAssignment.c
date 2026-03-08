@@ -1,3 +1,15 @@
+/*
+ * XREFs of ProcessorDeleteDeviceIdtAssignment @ 0x1C005DFF0
+ * Callers:
+ *     IrqLibAllocateMessageTarget @ 0x1C0098FA0 (IrqLibAllocateMessageTarget.c)
+ *     IrqLibFreeMessageTarget @ 0x1C0099250 (IrqLibFreeMessageTarget.c)
+ *     IrqArbAddAllocation @ 0x1C009C4B0 (IrqArbAddAllocation.c)
+ *     IrqArbBacktrackAllocation @ 0x1C009CE20 (IrqArbBacktrackAllocation.c)
+ *     IrqArbpUnreferenceArbitrationList @ 0x1C009E890 (IrqArbpUnreferenceArbitrationList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ProcessorDeleteDeviceIdtAssignment(void *a1, int a2, unsigned int a3, int a4)
 {
   char v4; // si

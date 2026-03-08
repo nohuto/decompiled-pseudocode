@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetIsTrailEnabled@CCursorState@@UEAAX_N@Z @ 0x180277B00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ScheduleCompositionPass@CCursorState@@AEAAXXZ @ 0x180277A58 (-ScheduleCompositionPass@CCursorState@@AEAAXXZ.c)
+ */
+
 void __fastcall CCursorState::SetIsTrailEnabled(CCursorState *this, char a2)
 {
   EnterCriticalSection(&g_CursorManager);

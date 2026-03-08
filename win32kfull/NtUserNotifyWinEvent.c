@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserNotifyWinEvent @ 0x1C00D8CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ *     ?ExtendedBehaviorEnabled@ShellWindowManagement@@YA_NK@Z @ 0x1C00EFB10 (-ExtendedBehaviorEnabled@ShellWindowManagement@@YA_NK@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dq @ 0x1C00FF0A0 (WPP_RECORDER_AND_TRACE_SF_dq.c)
+ */
+
 __int64 __fastcall NtUserNotifyWinEvent(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   int v5; // esi

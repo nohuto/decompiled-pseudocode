@@ -1,3 +1,11 @@
+/*
+ * XREFs of TriagepGetPageSize @ 0x140B98E8C
+ * Callers:
+ *     TriagepVerifyDump @ 0x140B98EC0 (TriagepVerifyDump.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TriagepGetPageSize(int a1)
 {
   int v1; // ecx

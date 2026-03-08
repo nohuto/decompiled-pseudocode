@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetPresentCount@CLegacySwapChain@@UEBAIXZ @ 0x1800DC6E0
+ * Callers:
+ *     ?GetPresentCount@CLegacySwapChain@@$4PPPPPPPM@BLA@EBAIXZ @ 0x18011B750 (-GetPresentCount@CLegacySwapChain@@$4PPPPPPPM@BLA@EBAIXZ.c)
+ *     ?GetPresentCount@CLegacySwapChain@@$4PPPPPPPM@BLI@EBAIXZ @ 0x18011C7D0 (-GetPresentCount@CLegacySwapChain@@$4PPPPPPPM@BLI@EBAIXZ.c)
+ *     ?GetPresentCount@CLegacySwapChain@@$4PPPPPPPM@DFI@EBAIXZ @ 0x18011CE90 (-GetPresentCount@CLegacySwapChain@@$4PPPPPPPM@DFI@EBAIXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CLegacySwapChain::GetPresentCount(CLegacySwapChain *this)
 {
   __int64 v1; // rcx

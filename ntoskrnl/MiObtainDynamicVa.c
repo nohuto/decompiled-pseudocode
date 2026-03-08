@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiObtainDynamicVa @ 0x1402105DC
+ * Callers:
+ *     MiObtainSystemVa @ 0x140210534 (MiObtainSystemVa.c)
+ *     MiReservePoolMemory @ 0x1402EE008 (MiReservePoolMemory.c)
+ * Callees:
+ *     MiReclaimSystemVa @ 0x1402FBD7C (MiReclaimSystemVa.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlSetBitsEx @ 0x14034CE90 (RtlSetBitsEx.c)
+ *     MiExtendDynamicBitMap @ 0x1403A5570 (MiExtendDynamicBitMap.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFindNextAlignedForwardRunClearEx @ 0x140634A3C (MiFindNextAlignedForwardRunClearEx.c)
+ */
+
 unsigned __int64 __fastcall MiObtainDynamicVa(__int64 *a1, unsigned int a2, int a3)
 {
   unsigned __int64 v3; // rsi

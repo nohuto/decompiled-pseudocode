@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?AddContext@FxObject@@QEAAJPEAUFxContextHeader@@PEAPEAXPEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0045FE8
+ * Callers:
+ *     ?FxObjectAllocateContext@@YAJPEAVFxObject@@PEAU_WDF_OBJECT_ATTRIBUTES@@EPEAPEAX@Z @ 0x1C0043354 (-FxObjectAllocateContext@@YAJPEAVFxObject@@PEAU_WDF_OBJECT_ATTRIBUTES@@EPEAPEAX@Z.c)
+ *     ?MoveContexts@FxObject@@QEAAJPEAV1@@Z @ 0x1C00463CC (-MoveContexts@FxObject@@QEAAJPEAV1@@Z.c)
+ *     VfAddContextToHandle @ 0x1C00B8284 (VfAddContextToHandle.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FxObject::AddContext(
         FxObject *this,
         FxContextHeader *Header,

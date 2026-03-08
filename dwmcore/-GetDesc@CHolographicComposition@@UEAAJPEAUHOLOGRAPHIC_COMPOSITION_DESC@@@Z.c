@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDesc@CHolographicComposition@@UEAAJPEAUHOLOGRAPHIC_COMPOSITION_DESC@@@Z @ 0x180107D50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CHolographicComposition::GetDesc(
         CHolographicComposition *this,
         struct HOLOGRAPHIC_COMPOSITION_DESC *a2)

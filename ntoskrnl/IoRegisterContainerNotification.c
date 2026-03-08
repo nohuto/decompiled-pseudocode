@@ -1,3 +1,23 @@
+/*
+ * XREFs of IoRegisterContainerNotification @ 0x140945260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IopGetDevicePDO @ 0x14023FFC4 (IopGetDevicePDO.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     IopSetFileObjectExtensionFlag @ 0x140294D78 (IopSetFileObjectExtensionFlag.c)
+ *     MmGetSessionObjectById @ 0x1402BE684 (MmGetSessionObjectById.c)
+ *     ExRegisterCallback @ 0x1402FBE90 (ExRegisterCallback.c)
+ *     ExUnregisterCallback @ 0x140302720 (ExUnregisterCallback.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     IopGetSessionIdFromPDO @ 0x1406F72F8 (IopGetSessionIdFromPDO.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall IoRegisterContainerNotification(
         IO_CONTAINER_NOTIFICATION_CLASS NotificationClass,
         PIO_CONTAINER_NOTIFICATION_FUNCTION CallbackFunction,

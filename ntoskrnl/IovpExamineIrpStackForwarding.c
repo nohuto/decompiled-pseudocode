@@ -1,3 +1,13 @@
+/*
+ * XREFs of IovpExamineIrpStackForwarding @ 0x140ACA004
+ * Callers:
+ *     IovpCallDriver1 @ 0x140AC9170 (IovpCallDriver1.c)
+ * Callees:
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     ViErrorReport1 @ 0x1405CDA04 (ViErrorReport1.c)
+ *     IovUtilMultipleDevicesSameDriver @ 0x140ACFCE8 (IovUtilMultipleDevicesSameDriver.c)
+ */
+
 int *__fastcall IovpExamineIrpStackForwarding(
         __int64 a1,
         int a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpCleanupPathInfo @ 0x140A10E00
+ * Callers:
+ *     CmpDoParseKey @ 0x1406E1D90 (CmpDoParseKey.c)
+ * Callees:
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 PSLIST_ENTRY __fastcall CmpCleanupPathInfo(__int64 a1)
 {
   struct _SLIST_ENTRY *v1; // rdx

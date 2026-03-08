@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiUnlockAwePagesExclusive @ 0x14064985C
+ * Callers:
+ *     MiDeleteAweInfoPages @ 0x140A3EE20 (MiDeleteAweInfoPages.c)
+ *     MiResizeAweBitMap @ 0x140A3F4A0 (MiResizeAweBitMap.c)
+ * Callees:
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x14023A620 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ */
+
 char __fastcall MiUnlockAwePagesExclusive(__int64 a1, __int64 a2)
 {
   _QWORD *v3; // rax

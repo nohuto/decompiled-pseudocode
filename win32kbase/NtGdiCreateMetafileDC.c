@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtGdiCreateMetafileDC @ 0x1C0199440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserGetDesktopDC @ 0x1C003D300 (UserGetDesktopDC.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0053708 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C00550A0 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ *     GreCreateDisplayDC @ 0x1C0055340 (GreCreateDisplayDC.c)
+ */
+
 HDC __fastcall NtGdiCreateMetafileDC(HDC a1)
 {
   HDC DisplayDC; // rbx

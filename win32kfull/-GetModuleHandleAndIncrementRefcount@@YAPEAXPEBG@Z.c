@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetModuleHandleAndIncrementRefcount@@YAPEAXPEBG@Z @ 0x1C028D094
+ * Callers:
+ *     ?LoadModuleWorkHorse@@YAPEAXPEAGH@Z @ 0x1C028D170 (-LoadModuleWorkHorse@@YAPEAXPEAGH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall GetModuleHandleAndIncrementRefcount(wchar_t *Str1)
 {
   __int64 *v2; // rsi

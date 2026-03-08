@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpInterruptGetRemappedLineState @ 0x14028EBCC
+ * Callers:
+ *     HalpInterruptSetRemappedDestination @ 0x14028EB08 (HalpInterruptSetRemappedDestination.c)
+ * Callees:
+ *     HalpInterruptFindControllerAndLineState @ 0x14028EDE8 (HalpInterruptFindControllerAndLineState.c)
+ */
+
 __int64 __fastcall HalpInterruptGetRemappedLineState(unsigned int *a1, _DWORD *a2, _QWORD *a3, __int64 a4)
 {
   int v5; // eax

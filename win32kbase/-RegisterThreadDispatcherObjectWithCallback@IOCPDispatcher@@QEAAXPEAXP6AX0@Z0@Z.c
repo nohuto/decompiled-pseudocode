@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RegisterThreadDispatcherObjectWithCallback@IOCPDispatcher@@QEAAXPEAXP6AX0@Z0@Z @ 0x1C009A310
+ * Callers:
+ *     AddThreadWakeEventDispatcherToIOCP @ 0x1C0099E00 (AddThreadWakeEventDispatcherToIOCP.c)
+ *     UserKSTInitialize @ 0x1C009A090 (UserKSTInitialize.c)
+ * Callees:
+ *     ?SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z @ 0x1C007D9E0 (-SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z.c)
+ */
+
 void __fastcall IOCPDispatcher::RegisterThreadDispatcherObjectWithCallback(
         IOCPDispatcher *this,
         void *a2,

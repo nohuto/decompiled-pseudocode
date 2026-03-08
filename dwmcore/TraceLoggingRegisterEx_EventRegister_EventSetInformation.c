@@ -1,3 +1,12 @@
+/*
+ * XREFs of TraceLoggingRegisterEx_EventRegister_EventSetInformation @ 0x1800FDDB8
+ * Callers:
+ *     ?RegisterDwmGuidWithEtw@@YAXXZ @ 0x1800ADCF0 (-RegisterDwmGuidWithEtw@@YAXXZ.c)
+ *     ?Register@TraceLoggingProvider@wil@@IEAAXQEBU_tlgProvider_t@@P6AXPEBU_GUID@@KE_K2PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z@Z @ 0x1800FDD70 (-Register@TraceLoggingProvider@wil@@IEAAXQEBU_tlgProvider_t@@P6AXPEBU_GUID@@KE_K2PEAU_EVENT_FILT.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall TraceLoggingRegisterEx_EventRegister_EventSetInformation(ULONGLONG *CallbackContext)
 {
   ULONGLONG *v1; // rsi

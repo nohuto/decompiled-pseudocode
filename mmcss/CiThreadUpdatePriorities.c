@@ -1,3 +1,12 @@
+/*
+ * XREFs of CiThreadUpdatePriorities @ 0x1C000B1D0
+ * Callers:
+ *     CiThreadSetRelativePriority @ 0x1C000AA20 (CiThreadSetRelativePriority.c)
+ *     CiThreadCreate @ 0x1C000AD80 (CiThreadCreate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CiThreadUpdatePriorities(_BYTE *a1, _BYTE *a2, unsigned __int8 a3)
 {
   char v4; // dl

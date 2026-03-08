@@ -1,3 +1,11 @@
+/*
+ * XREFs of Isoch_EP_AreTransfersPending @ 0x1C0044040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall Isoch_EP_AreTransfersPending(__int64 a1)
 {
   KSPIN_LOCK *v1; // rdi

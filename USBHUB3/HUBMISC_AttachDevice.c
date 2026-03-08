@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBMISC_AttachDevice @ 0x1C00310F4
+ * Callers:
+ *     HUBPSM20_IssuingAttachDeviceToPort @ 0x1C0012090 (HUBPSM20_IssuingAttachDeviceToPort.c)
+ *     HUBPSM30_IssuingAttachDeviceToDsm @ 0x1C00132A0 (HUBPSM30_IssuingAttachDeviceToDsm.c)
+ *     HUBPSM30_IssuingAttachDeviceWithResetToDsm @ 0x1C00132D0 (HUBPSM30_IssuingAttachDeviceWithResetToDsm.c)
+ * Callees:
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ */
+
 __int64 __fastcall HUBMISC_AttachDevice(__int64 a1)
 {
   __int64 result; // rax

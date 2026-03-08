@@ -1,3 +1,11 @@
+/*
+ * XREFs of hCreateKernelEvent @ 0x1C00CFF40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ */
+
 void *__fastcall hCreateKernelEvent(EVENT_TYPE EventType, BOOLEAN a2)
 {
   NTSTATUS v2; // eax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?SetProperty@?$CScenePbrMaterialGeneratedT@VCScenePbrMaterial@@VCSceneMaterial@@@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801C6258
+ * Callers:
+ *     ?SetProperty@?$CSceneMetallicRoughnessMaterialGeneratedT@VCSceneMetallicRoughnessMaterial@@VCScenePbrMaterial@@@@MEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1801C6170 (-SetProperty@-$CSceneMetallicRoughnessMaterialGeneratedT@VCSceneMetallicRoughnessMaterial@@VCSce.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?OnAlphaCutoffChanged@CScenePbrMaterial@@QEAAXXZ @ 0x18024D164 (-OnAlphaCutoffChanged@CScenePbrMaterial@@QEAAXXZ.c)
+ *     ?OnEmissiveFactorChanged@CScenePbrMaterial@@QEAAXXZ @ 0x18024D2C8 (-OnEmissiveFactorChanged@CScenePbrMaterial@@QEAAXXZ.c)
+ *     ?OnNormalScaleChanged@CScenePbrMaterial@@QEAAXXZ @ 0x18024D3B0 (-OnNormalScaleChanged@CScenePbrMaterial@@QEAAXXZ.c)
+ *     ?OnOcclusionStrengthChanged@CScenePbrMaterial@@QEAAXXZ @ 0x18024D430 (-OnOcclusionStrengthChanged@CScenePbrMaterial@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall CScenePbrMaterialGeneratedT<CScenePbrMaterial,CSceneMaterial>::SetProperty(
         __int64 a1,
         int a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of Crashdump_UsbDevice_GetDeviceDescriptor @ 0x1C0050254
+ * Callers:
+ *     Crashdump_UsbDevice_Configure @ 0x1C004FC34 (Crashdump_UsbDevice_Configure.c)
+ * Callees:
+ *     memset @ 0x1C0020700 (memset.c)
+ *     Crashdump_Endpoint_SendControlTransfer @ 0x1C004F524 (Crashdump_Endpoint_SendControlTransfer.c)
+ */
+
 __int64 __fastcall Crashdump_UsbDevice_GetDeviceDescriptor(_QWORD *a1, unsigned __int8 **a2)
 {
   __int64 v3; // rbx

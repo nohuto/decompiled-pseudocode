@@ -1,3 +1,25 @@
+/*
+ * XREFs of UsbhReset1Complete @ 0x1C0002B20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhCancelResetTimeout @ 0x1C00015A0 (UsbhCancelResetTimeout.c)
+ *     UsbhCreateDevice @ 0x1C0002364 (UsbhCreateDevice.c)
+ *     UsbhResetPort @ 0x1C0002918 (UsbhResetPort.c)
+ *     UsbhReset2Complete @ 0x1C0002D00 (UsbhReset2Complete.c)
+ *     Usbh_UsbdReadFrameCounter @ 0x1C00031B0 (Usbh_UsbdReadFrameCounter.c)
+ *     UsbhEtwLogHubIrpEvent @ 0x1C00098E0 (UsbhEtwLogHubIrpEvent.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhRawWait @ 0x1C0019670 (UsbhRawWait.c)
+ *     UsbhAllocateTimeoutObject @ 0x1C001B9D8 (UsbhAllocateTimeoutObject.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     UsbhWait @ 0x1C002E204 (UsbhWait.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhClearTt @ 0x1C003708C (UsbhClearTt.c)
+ *     UsbhSetEnumerationFailed @ 0x1C004E9B8 (UsbhSetEnumerationFailed.c)
+ */
+
 __int64 __fastcall UsbhReset1Complete(__int64 a1, __int64 a2, void *a3)
 {
   unsigned int v6; // r14d

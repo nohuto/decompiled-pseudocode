@@ -1,3 +1,13 @@
+/*
+ * XREFs of KvfCommitFeatureStates @ 0x14030098C
+ * Callers:
+ *     CmpAcceptBoot @ 0x14079A058 (CmpAcceptBoot.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ */
+
 int KvfCommitFeatureStates()
 {
   int result; // eax

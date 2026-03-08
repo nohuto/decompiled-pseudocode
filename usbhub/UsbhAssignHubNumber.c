@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhAssignHubNumber @ 0x1C0042370
+ * Callers:
+ *     UsbhAddDevice @ 0x1C0041E10 (UsbhAddDevice.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ */
+
 LONG __fastcall UsbhAssignHubNumber(__int64 a1)
 {
   _DWORD *v1; // rbx

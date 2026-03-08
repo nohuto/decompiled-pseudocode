@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiDoesControlAreaHaveUserWritableReferences @ 0x1402DFDB4
+ * Callers:
+ *     MmDoesFileHaveUserWritableReferences @ 0x140330F30 (MmDoesFileHaveUserWritableReferences.c)
+ *     MiComputeFlushRange @ 0x140331078 (MiComputeFlushRange.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiDoesControlAreaHaveUserWritableReferences(__int64 a1)
 {
   unsigned int v1; // edx

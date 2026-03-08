@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DestroyVirtualGpu@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAUDXGK_VIRTUAL_GPU@@@Z @ 0x1C036CA50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007104 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DXGVIRTUALGPUMANAGER_GPUP::DestroyVirtualGpu(
         DXGVIRTUALGPUMANAGER_GPUP *this,
         struct DXGK_VIRTUAL_GPU *a2)

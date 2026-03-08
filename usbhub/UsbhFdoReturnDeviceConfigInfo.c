@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhFdoReturnDeviceConfigInfo @ 0x1C0030E68
+ * Callers:
+ *     UsbhPdoInternalDeviceControl @ 0x1C0015370 (UsbhPdoInternalDeviceControl.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhDecPdoIoCount @ 0x1C001BC4C (UsbhDecPdoIoCount.c)
+ *     memset @ 0x1C0023880 (memset.c)
+ *     UsbhFreeID @ 0x1C00503BC (UsbhFreeID.c)
+ *     UsbhCopyPnpString @ 0x1C00599F0 (UsbhCopyPnpString.c)
+ */
+
 __int64 __fastcall UsbhFdoReturnDeviceConfigInfo(__int64 a1, ULONG_PTR a2, IRP *a3)
 {
   _DWORD *v6; // rsi

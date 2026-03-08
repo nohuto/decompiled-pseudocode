@@ -1,3 +1,18 @@
+/*
+ * XREFs of AlpcpReturnMessageOnInsufficientBuffer @ 0x14077EC7C
+ * Callers:
+ *     AlpcpReceiveMessage @ 0x1407CCD50 (AlpcpReceiveMessage.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1407CF500 (AlpcpProcessSynchronousRequest.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     AlpcpRemoveMessageFromPendingQueue @ 0x140716D7C (AlpcpRemoveMessageFromPendingQueue.c)
+ *     AlpcpExposeContextAttribute @ 0x14077ED40 (AlpcpExposeContextAttribute.c)
+ *     AlpcpInsertMessageLargeMessageQueue @ 0x14077EDB8 (AlpcpInsertMessageLargeMessageQueue.c)
+ *     AlpcpInsertMessageCanceledQueue @ 0x1407950AC (AlpcpInsertMessageCanceledQueue.c)
+ */
+
 __int64 __fastcall AlpcpReturnMessageOnInsufficientBuffer(__int64 a1, _QWORD *a2, _OWORD *a3)
 {
   signed __int64 *v3; // rsi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopFxSetGlobalDeviceAccountingEnabled @ 0x140589680
+ * Callers:
+ *     PopFxPauseDeviceAccounting @ 0x140588B84 (PopFxPauseDeviceAccounting.c)
+ *     PopFxResumeDeviceAccounting @ 0x140589368 (PopFxResumeDeviceAccounting.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxUpdateGlobalDeviceAccountingInfo @ 0x140589EEC (PopFxUpdateGlobalDeviceAccountingInfo.c)
+ */
+
 __int64 __fastcall PopFxSetGlobalDeviceAccountingEnabled(char a1)
 {
   unsigned __int64 v2; // rbx

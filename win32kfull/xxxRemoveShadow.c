@@ -1,3 +1,12 @@
+/*
+ * XREFs of xxxRemoveShadow @ 0x1C00EBAE0
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C0068640 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
+ * Callees:
+ *     xxxDestroyWindow @ 0x1C004B7F0 (xxxDestroyWindow.c)
+ */
+
 __int64 __fastcall xxxRemoveShadow(__int64 a1)
 {
   struct tagSHADOW *v1; // rdi

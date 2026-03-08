@@ -1,3 +1,22 @@
+/*
+ * XREFs of HT_CreateDeviceHalftoneInfo @ 0x1C00195AC
+ * Callers:
+ *     ?bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z @ 0x1C0019BA8 (-bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z.c)
+ * Callees:
+ *     CleanUpDHI @ 0x1C00181B0 (CleanUpDHI.c)
+ *     ComputeHTCell @ 0x1C0019464 (ComputeHTCell.c)
+ *     ComputeChecksum @ 0x1C0019A58 (ComputeChecksum.c)
+ *     GetCIEPrims @ 0x1C0019AA4 (GetCIEPrims.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     DivFD6 @ 0x1C014AF0C (DivFD6.c)
+ *     MulFD6 @ 0x1C014B146 (MulFD6.c)
+ *     RaisePower @ 0x1C014B26A (RaisePower.c)
+ *     ComputeInverseMatrix3x3 @ 0x1C02556D8 (ComputeInverseMatrix3x3.c)
+ *     MulDivFD6Pairs @ 0x1C0255BE8 (MulDivFD6Pairs.c)
+ */
+
 __int64 __fastcall HT_CreateDeviceHalftoneInfo(_DWORD *Src, _QWORD *a2)
 {
   size_t v3; // rbx

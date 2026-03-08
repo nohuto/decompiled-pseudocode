@@ -1,3 +1,12 @@
+/*
+ * XREFs of AccessCheckObject @ 0x1C00C3CE0
+ * Callers:
+ *     OpenCacheKeyEx @ 0x1C00760E0 (OpenCacheKeyEx.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 _BOOL8 __fastcall AccessCheckObject(__int64 a1, unsigned int a2, char a3, void *a4)
 {
   __int64 v8; // r9

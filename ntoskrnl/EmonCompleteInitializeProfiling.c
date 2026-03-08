@@ -1,3 +1,13 @@
+/*
+ * XREFs of EmonCompleteInitializeProfiling @ 0x140A8DD80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x140372460 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     KeAllocateProcessorProfileStructures @ 0x1403A4C70 (KeAllocateProcessorProfileStructures.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __fastcall EmonCompleteInitializeProfiling()
 {
   __int64 v0; // rbx

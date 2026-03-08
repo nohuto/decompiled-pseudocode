@@ -1,3 +1,11 @@
+/*
+ * XREFs of CommitReadOnlyMemory @ 0x1C00ADE80
+ * Callers:
+ *     ?HMGrowHandleTable@@YAHXZ @ 0x1C00ADCB4 (-HMGrowHandleTable@@YAHXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CommitReadOnlyMemory(__int64 a1, ULONG_PTR *a2, __int64 a3, _DWORD *a4)
 {
   __int64 CurrentProcess; // rbp

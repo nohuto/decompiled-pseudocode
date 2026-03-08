@@ -1,3 +1,18 @@
+/*
+ * XREFs of VfTargetDriversAdd @ 0x140303834
+ * Callers:
+ *     VfDriverLoadImage @ 0x140AB9ED8 (VfDriverLoadImage.c)
+ *     VfSuspectDriversLoadCallback @ 0x140AD7704 (VfSuspectDriversLoadCallback.c)
+ * Callees:
+ *     VfAvlReserveNode @ 0x140303910 (VfAvlReserveNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403039F0 (VfAvlCleanupLockContext.c)
+ *     VfAvlInsertReservedTreeNode @ 0x140303A48 (VfAvlInsertReservedTreeNode.c)
+ *     DifAddPerDriverDataForPlugins @ 0x1405D253C (DifAddPerDriverDataForPlugins.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     VfThunkAddTargetNotify @ 0x140AB9F4C (VfThunkAddTargetNotify.c)
+ *     ViTargetDriversAllocateVerifiedData @ 0x140AC8A34 (ViTargetDriversAllocateVerifiedData.c)
+ */
+
 __int64 __fastcall VfTargetDriversAdd(__int64 a1, unsigned int a2, char a3, __int64 a4)
 {
   __int64 v4; // rdi

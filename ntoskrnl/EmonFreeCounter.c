@@ -1,3 +1,12 @@
+/*
+ * XREFs of EmonFreeCounter @ 0x14037818C
+ * Callers:
+ *     EmonDisableMonitoring @ 0x14051AD10 (EmonDisableMonitoring.c)
+ *     EmonInitializeProfiling @ 0x140A868F0 (EmonInitializeProfiling.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EmonFreeCounter(unsigned int a1)
 {
   __int64 v1; // rdx

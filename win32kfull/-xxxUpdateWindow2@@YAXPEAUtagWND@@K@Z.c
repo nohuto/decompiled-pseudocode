@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z @ 0x1C0102024
+ * Callers:
+ *     ?xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z @ 0x1C0101FD4 (-xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z.c)
+ *     ?xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z @ 0x1C0102024 (-xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z.c)
+ * Callees:
+ *     xxxCompositedPaint @ 0x1C0015794 (xxxCompositedPaint.c)
+ *     xxxSimpleDoSyncPaint @ 0x1C0038E64 (xxxSimpleDoSyncPaint.c)
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ *     DecPaintCount @ 0x1C00FE604 (DecPaintCount.c)
+ *     ?xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z @ 0x1C0102024 (-xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z.c)
+ *     ?ValidateParents@@YAHPEAUtagWND@@H@Z @ 0x1C010220C (-ValidateParents@@YAHPEAUtagWND@@H@Z.c)
+ */
+
 void __fastcall xxxUpdateWindow2(struct tagWND **a1, __int64 a2, __int64 a3)
 {
   int v3; // esi

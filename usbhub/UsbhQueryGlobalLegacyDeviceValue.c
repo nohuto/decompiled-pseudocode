@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhQueryGlobalLegacyDeviceValue @ 0x1C00460D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0023580 (memmove.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002EA5C (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003B830 (WPP_RECORDER_SF_S.c)
+ */
+
 __int64 __fastcall UsbhQueryGlobalLegacyDeviceValue(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,21 @@
+/*
+ * XREFs of SepCreateLogonSessionTrack @ 0x14076B35C
+ * Callers:
+ *     SepRmCreateLogonSessionWrkr @ 0x14076B330 (SepRmCreateLogonSessionWrkr.c)
+ *     SeInitServerSilo @ 0x1409C5E50 (SeInitServerSilo.c)
+ *     SepRmDbInitialization @ 0x140B69A18 (SepRmDbInitialization.c)
+ * Callees:
+ *     ExInitializePushLock @ 0x140238200 (ExInitializePushLock.c)
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepCreateLogonSessionTrack(__int64 a1)
 {
   struct _EX_RUNDOWN_REF *Pool2; // rax

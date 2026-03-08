@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?UpdateWindowRects@@YAXPEAUtagWND@@PEBUtagPOINT@@PEBUtagSIZE@@PEAH3@Z @ 0x1C01454BA
+ * Callers:
+ *     zzzUpdateLayeredWindow @ 0x1C01BE8C0 (zzzUpdateLayeredWindow.c)
+ * Callees:
+ *     ?GetExplicitClipRgn@tagWND@@QEBAPEAUHRGN__@@XZ @ 0x1C002772C (-GetExplicitClipRgn@tagWND@@QEBAPEAUHRGN__@@XZ.c)
+ *     CalcWindowFullScreen @ 0x1C006789C (CalcWindowFullScreen.c)
+ *     PostShellHookMessagesEx @ 0x1C0109A90 (PostShellHookMessagesEx.c)
+ */
+
 void __fastcall UpdateWindowRects(
         struct tagWND *a1,
         const struct tagPOINT *a2,

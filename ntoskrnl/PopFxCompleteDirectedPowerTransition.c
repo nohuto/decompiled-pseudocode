@@ -1,3 +1,21 @@
+/*
+ * XREFs of PopFxCompleteDirectedPowerTransition @ 0x1405871FC
+ * Callers:
+ *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x1405876D8 (PopFxDerefAndCompleteDirectedPowerTransition.c)
+ *     PopFxHandleDirectedPowerTransition @ 0x140588000 (PopFxHandleDirectedPowerTransition.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PopFxDisableWorkOrderWatchdog @ 0x140305680 (PopFxDisableWorkOrderWatchdog.c)
+ *     PopFxAddLogEntry @ 0x140306584 (PopFxAddLogEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ *     PopFxEnforceDirectedPowerTransition @ 0x140587E70 (PopFxEnforceDirectedPowerTransition.c)
+ *     PopCompleteDirectedPowerTransitionCallback @ 0x14058DF74 (PopCompleteDirectedPowerTransitionCallback.c)
+ *     PopDiagTraceFxDeviceDirectedCompletion @ 0x140591030 (PopDiagTraceFxDeviceDirectedCompletion.c)
+ */
+
 LONG __fastcall PopFxCompleteDirectedPowerTransition(ULONG_PTR BugCheckParameter3, char a2)
 {
   signed __int32 v4; // eax

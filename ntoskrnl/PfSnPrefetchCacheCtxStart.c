@@ -1,3 +1,11 @@
+/*
+ * XREFs of PfSnPrefetchCacheCtxStart @ 0x140850A14
+ * Callers:
+ *     PfSnPrefetchCacheEntryGet @ 0x1407E4284 (PfSnPrefetchCacheEntryGet.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PfSnPrefetchCacheCtxStart(__int64 a1)
 {
   char *Pool2; // rax

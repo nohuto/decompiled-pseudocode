@@ -1,3 +1,13 @@
+/*
+ * XREFs of SymCryptEckeyAllocate @ 0x1403F2CF4
+ * Callers:
+ *     HashpVerifyEcdsaSignature @ 0x140A74544 (HashpVerifyEcdsaSignature.c)
+ * Callees:
+ *     SymCryptEckeyCreate @ 0x1403F2D48 (SymCryptEckeyCreate.c)
+ *     SymCryptSizeofEckeyFromCurve @ 0x1403F339C (SymCryptSizeofEckeyFromCurve.c)
+ *     SymCryptCallbackAlloc @ 0x14067B400 (SymCryptCallbackAlloc.c)
+ */
+
 __int64 __fastcall SymCryptEckeyAllocate(__int64 a1)
 {
   __int64 v2; // rbx

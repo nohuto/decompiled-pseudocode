@@ -1,3 +1,17 @@
+/*
+ * XREFs of HUBDTX_ValidateAndCacheConfigDescriptor @ 0x1C002B98C
+ * Callers:
+ *     HUBDSM_ValidatingAlternateConfigurationDescriptor @ 0x1C00214A0 (HUBDSM_ValidatingAlternateConfigurationDescriptor.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBDESC_ParseConfigurationDescriptor @ 0x1C003599C (HUBDESC_ParseConfigurationDescriptor.c)
+ *     HUBDESC_ValidateConfigurationDescriptorSet @ 0x1C0038DB8 (HUBDESC_ValidateConfigurationDescriptorSet.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ */
+
 __int64 __fastcall HUBDTX_ValidateAndCacheConfigDescriptor(__int64 a1)
 {
   __int64 v1; // rsi

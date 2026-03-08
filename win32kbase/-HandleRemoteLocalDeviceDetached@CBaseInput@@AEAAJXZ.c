@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?HandleRemoteLocalDeviceDetached@CBaseInput@@AEAAJXZ @ 0x1C00B5DB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RIMDirectStopDeviceClassNotifications @ 0x1C00B5E60 (RIMDirectStopDeviceClassNotifications.c)
+ *     ?ExecutingInSensorHostingProcess@CBaseInput@@IEBA_NXZ @ 0x1C00B6004 (-ExecutingInSensorHostingProcess@CBaseInput@@IEBA_NXZ.c)
+ *     RawInputManagerObjectCreateKernelHandle @ 0x1C00B6080 (RawInputManagerObjectCreateKernelHandle.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall CBaseInput::HandleRemoteLocalDeviceDetached(CBaseInput *this)
 {
   unsigned int v2; // edi

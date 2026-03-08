@@ -1,3 +1,14 @@
+/*
+ * XREFs of MmIsDriverVerifyingByAddress @ 0x1407ECEE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MiLookupDataTableEntry @ 0x14035ECF0 (MiLookupDataTableEntry.c)
+ */
+
 LOGICAL __stdcall MmIsDriverVerifyingByAddress(PVOID AddressWithinSection)
 {
   struct _KTHREAD *CurrentThread; // rdi

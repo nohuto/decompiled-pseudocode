@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmIdleGetPackageIdleIntervalStats @ 0x14084C230
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ * Callees:
+ *     PpmReleaseLock @ 0x1402D1F40 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ *     PpmConvertTimeTo @ 0x1403A1D04 (PpmConvertTimeTo.c)
+ *     PpmParkGetParkNode @ 0x14040B904 (PpmParkGetParkNode.c)
+ */
+
 __int64 __fastcall PpmIdleGetPackageIdleIntervalStats(int a1, __int16 a2, unsigned __int64 *a3)
 {
   unsigned int v4; // edi

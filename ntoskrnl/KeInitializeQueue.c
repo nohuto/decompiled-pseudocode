@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeInitializeQueue @ 0x1402A8580
+ * Callers:
+ *     NtCreateIoCompletion @ 0x140729910 (NtCreateIoCompletion.c)
+ *     EtwpCreateUmReplyObject @ 0x14078BE14 (EtwpCreateUmReplyObject.c)
+ *     FsRtlInitializeWorkerThread @ 0x140B65C4C (FsRtlInitializeWorkerThread.c)
+ *     IopInitializePassiveInterruptServices @ 0x140B67854 (IopInitializePassiveInterruptServices.c)
+ *     ExpWorkerFactoryInitialization @ 0x140B6F290 (ExpWorkerFactoryInitialization.c)
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ */
+
 void __stdcall KeInitializeQueue(PRKQUEUE Queue, ULONG Count)
 {
   Queue->Header.Type = 4;

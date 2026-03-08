@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopEnsureErratumSubscribed @ 0x14058B594
+ * Callers:
+ *     PoRegisterPowerSettingCallback @ 0x14073B960 (PoRegisterPowerSettingCallback.c)
+ * Callees:
+ *     RtlpComputeCrcInternal @ 0x1403B8710 (RtlpComputeCrcInternal.c)
+ *     ExSubscribeWnfStateChange @ 0x14078C4C0 (ExSubscribeWnfStateChange.c)
+ */
+
 void __fastcall PopEnsureErratumSubscribed(unsigned __int64 *a1)
 {
   unsigned __int64 v2; // rbx

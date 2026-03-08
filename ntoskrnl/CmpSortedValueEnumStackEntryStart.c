@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpSortedValueEnumStackEntryStart @ 0x140A224F4
+ * Callers:
+ *     CmpSortedValueEnumStackStartFromKeyNodeStack @ 0x140A226D8 (CmpSortedValueEnumStackStartFromKeyNodeStack.c)
+ * Callees:
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpSortedValueEnumStackEntryStart(__int64 a1, ULONG_PTR a2, __int64 a3)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspSiloGetMultiUserTsFromRegistry @ 0x1409AA4F0
+ * Callers:
+ *     PspSiloInitializeSuiteMask @ 0x1409AA6D8 (PspSiloInitializeSuiteMask.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x14069B3C0 (RtlpQueryRegistryValues.c)
+ */
+
 __int64 __fastcall PspSiloGetMultiUserTsFromRegistry(_BYTE *a1)
 {
   char v1; // bl

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ProcessorGetDestinationMode @ 0x1C009ABB8
+ * Callers:
+ *     ProcessorGetMsiConnectionData @ 0x1C009ACE4 (ProcessorGetMsiConnectionData.c)
+ *     IrqArbAddAllocation @ 0x1C009C4B0 (IrqArbAddAllocation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ProcessorGetDestinationMode(__int64 a1, _DWORD *a2)
 {
   __int64 result; // rax

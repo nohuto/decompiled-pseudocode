@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiAgeWorkingSetTail @ 0x1402C9E50
+ * Callers:
+ *     MiAgePte @ 0x1403260A0 (MiAgePte.c)
+ * Callees:
+ *     KeFlushTb @ 0x140323CB0 (KeFlushTb.c)
+ *     MiFreeWsleList @ 0x14032B2B0 (MiFreeWsleList.c)
+ *     KeFlushMultipleRangeCurrentTb @ 0x140387610 (KeFlushMultipleRangeCurrentTb.c)
+ *     KeFlushCurrentTbOnly @ 0x1403876F4 (KeFlushCurrentTbOnly.c)
+ *     KeFlushMultipleRangeTb @ 0x14038C374 (KeFlushMultipleRangeTb.c)
+ *     MiProcessVmAccessedInfo @ 0x140463A5E (MiProcessVmAccessedInfo.c)
+ *     MiQueryEPTAccessedState @ 0x140463B2C (MiQueryEPTAccessedState.c)
+ */
+
 __int64 __fastcall MiAgeWorkingSetTail(__int64 a1)
 {
   __int64 v1; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MiracastProcessPendingDPCChunks@@YAEPEAX@Z @ 0x1C005EFF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AddChunkListToTail@MIRACAST_CHUNK_LIST@@QEAAXPEAV1@@Z @ 0x1C005EDC8 (-AddChunkListToTail@MIRACAST_CHUNK_LIST@@QEAAXPEAV1@@Z.c)
+ */
+
 unsigned __int8 __fastcall MiracastProcessPendingDPCChunks(_WORD *a1)
 {
   _WORD *v1; // r10

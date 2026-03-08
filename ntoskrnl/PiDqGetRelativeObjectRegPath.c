@@ -1,3 +1,18 @@
+/*
+ * XREFs of PiDqGetRelativeObjectRegPath @ 0x140747694
+ * Callers:
+ *     PiDqOpenUserObjectRegKey @ 0x140747298 (PiDqOpenUserObjectRegKey.c)
+ *     PiDqDeleteUserObject @ 0x1409592CC (PiDqDeleteUserObject.c)
+ * Callees:
+ *     _CmGetDeviceContainerRegKeyPath @ 0x1406C11CC (_CmGetDeviceContainerRegKeyPath.c)
+ *     _CmGetCommonClassRegKeyPath @ 0x1406C5348 (_CmGetCommonClassRegKeyPath.c)
+ *     _CmGetDeviceInterfaceRegKeyPath @ 0x1406D1834 (_CmGetDeviceInterfaceRegKeyPath.c)
+ *     _CmGetDeviceRegKeyPath @ 0x1406D3C6C (_CmGetDeviceRegKeyPath.c)
+ *     _CmGetDevicePanelRegKeyPath @ 0x140A63A70 (_CmGetDevicePanelRegKeyPath.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDqGetRelativeObjectRegPath(const WCHAR *a1, int a2, PVOID *a3)
 {
   wchar_t *pszDest; // rax

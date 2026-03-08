@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?OpenComposedEvent@@YAJIKPEAPEAX@Z @ 0x1800ADC48
+ * Callers:
+ *     ?GetComposedEventId@CInternalMilCmdConnection@@QEAAJPEAI@Z @ 0x1800ADB80 (-GetComposedEventId@CInternalMilCmdConnection@@QEAAJPEAI@Z.c)
+ * Callees:
+ *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1800AE258 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall OpenComposedEvent(int a1, __int64 a2, void **a3)
 {
   unsigned int v4; // ebx

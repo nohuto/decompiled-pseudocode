@@ -1,3 +1,15 @@
+/*
+ * XREFs of IoGetIoRateControl @ 0x140294410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     IopAcquireReferencesFromIoAttributionHandle @ 0x1402945B0 (IopAcquireReferencesFromIoAttributionHandle.c)
+ *     PsIoRateControlReference @ 0x140294624 (PsIoRateControlReference.c)
+ *     IoDiskIoAttributionQuery @ 0x1402946F0 (IoDiskIoAttributionQuery.c)
+ *     IoDiskIoAttributionDereference @ 0x14030C4DC (IoDiskIoAttributionDereference.c)
+ */
+
 __int64 __fastcall IoGetIoRateControl(
         __int64 a1,
         int a2,

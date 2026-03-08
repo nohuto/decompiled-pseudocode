@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpInitializeSvm @ 0x140B6DDB4
+ * Callers:
+ *     ExpInitSystemPhase1 @ 0x140B3F0B8 (ExpInitSystemPhase1.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 *ExpInitializeSvm()
 {
   unsigned int v0; // r8d

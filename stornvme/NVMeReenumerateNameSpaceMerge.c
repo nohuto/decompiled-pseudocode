@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeReenumerateNameSpaceMerge @ 0x1C00220C4
+ * Callers:
+ *     NVMeReenumerateNameSpaceIdentifyWorkItem @ 0x1C0021CA0 (NVMeReenumerateNameSpaceIdentifyWorkItem.c)
+ * Callees:
+ *     memset @ 0x1C0004580 (memset.c)
+ *     NVMeIsLunActive @ 0x1C001695C (NVMeIsLunActive.c)
+ */
+
 char __fastcall NVMeReenumerateNameSpaceMerge(__int64 a1, __int64 a2, unsigned int a3)
 {
   char v3; // r11

@@ -1,3 +1,20 @@
+/*
+ * XREFs of ExInterlockedInsertTailList @ 0x1402B8DC0
+ * Callers:
+ *     PopFxQueueWorkItem @ 0x1402B8D54 (PopFxQueueWorkItem.c)
+ *     CcCanIWrite @ 0x140362960 (CcCanIWrite.c)
+ *     IoWMIWriteEvent @ 0x1403A2D60 (IoWMIWriteEvent.c)
+ *     CcDeferWrite @ 0x140535060 (CcDeferWrite.c)
+ *     KiAltContextWorkQueueAddItem @ 0x14057DD74 (KiAltContextWorkQueueAddItem.c)
+ *     WheapWorkQueueAddItem @ 0x1406115E4 (WheapWorkQueueAddItem.c)
+ *     IoInitializeTimer @ 0x14085EA80 (IoInitializeTimer.c)
+ *     VfAllocateAdapterChannel @ 0x140AC1B90 (VfAllocateAdapterChannel.c)
+ *     VfAllocateAdapterChannelEx @ 0x140AC1DE0 (VfAllocateAdapterChannelEx.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 PLIST_ENTRY __stdcall ExInterlockedInsertTailList(PLIST_ENTRY ListHead, PLIST_ENTRY ListEntry, PKSPIN_LOCK Lock)
 {
   volatile signed __int32 *SchedulerAssist; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of rimConvertCoordinatesWithRounding @ 0x1C00EFE8A
+ * Callers:
+ *     RIMUpdatePointerDeviceScalingInfo @ 0x1C000FF84 (RIMUpdatePointerDeviceScalingInfo.c)
+ *     RIMConvertPointCoordinates @ 0x1C01BD270 (RIMConvertPointCoordinates.c)
+ * Callees:
+ *     LongLongToLong @ 0x1C00A7CFC (LongLongToLong.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall rimConvertCoordinatesWithRounding(int a1, int a2, int a3, int a4, int a5, LONG *plResult)
 {
   unsigned int v6; // ebx

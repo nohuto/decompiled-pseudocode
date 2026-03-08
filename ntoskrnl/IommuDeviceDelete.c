@@ -1,3 +1,15 @@
+/*
+ * XREFs of IommuDeviceDelete @ 0x140932530
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     IommupDeviceGetPasidDevice @ 0x14050BC5C (IommupDeviceGetPasidDevice.c)
+ *     HalpIommuDeleteDevice @ 0x140930ACC (HalpIommuDeleteDevice.c)
+ */
+
 __int64 __fastcall IommuDeviceDelete(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

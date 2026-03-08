@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagTraceIdleCheck @ 0x140591810
+ * Callers:
+ *     PopCheckForIdleness @ 0x1402BC5F0 (PopCheckForIdleness.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PopDiagTraceIdleCheck(__int64 a1, int a2, int a3)
 {
   _UNKNOWN **v3; // rax

@@ -1,3 +1,29 @@
+/*
+ * XREFs of ExpReadLeapSecondData @ 0x140850DB4
+ * Callers:
+ *     ExInitializeLeapSecondData @ 0x140850BB0 (ExInitializeLeapSecondData.c)
+ *     ExpLeapSecondDataRegistryNotifyHandler @ 0x1409F4E70 (ExpLeapSecondDataRegistryNotifyHandler.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     ZwNotifyChangeKey @ 0x140414730 (ZwNotifyChangeKey.c)
+ *     ExAcquireTimeRefreshLock @ 0x1407E2A54 (ExAcquireTimeRefreshLock.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140811500 (ExpRefreshTimeZoneInformation.c)
+ *     ExpGetLeapSecondDataRegistryKeyHandle @ 0x140851054 (ExpGetLeapSecondDataRegistryKeyHandle.c)
+ *     ExpParseAndUpdateLeapSecondData @ 0x1408510E0 (ExpParseAndUpdateLeapSecondData.c)
+ *     EtwTraceLeapSecondDataUpdate @ 0x140851178 (EtwTraceLeapSecondDataUpdate.c)
+ *     EtwTraceLeapSecondDataParseFailure @ 0x1409E2D08 (EtwTraceLeapSecondDataParseFailure.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall ExpReadLeapSecondData(bool *a1, char a2)
 {
   struct _KTHREAD *CurrentThread; // rax

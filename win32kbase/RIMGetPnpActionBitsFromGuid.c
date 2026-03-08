@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMGetPnpActionBitsFromGuid @ 0x1C01C7928
+ * Callers:
+ *     RIMDeviceNotifyAsyncWorkItem @ 0x1C01CFE1C (RIMDeviceNotifyAsyncWorkItem.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003A4AC (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     WPP_RECORDER_AND_TRACE_SF_LLLD @ 0x1C01C7D60 (WPP_RECORDER_AND_TRACE_SF_LLLD.c)
+ */
+
 _DWORD *__fastcall RIMGetPnpActionBitsFromGuid(char a1, char a2, __int64 a3, _DWORD *a4, _DWORD *a5, _DWORD *a6)
 {
   __int64 v7; // rax

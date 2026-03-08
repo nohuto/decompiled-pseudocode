@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmPerfQueryPackageProcessorCount @ 0x1403AEDC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ */
+
 __int64 __fastcall PpmPerfQueryPackageProcessorCount(int a1)
 {
   unsigned int v1; // ebx

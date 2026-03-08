@@ -1,3 +1,32 @@
+/*
+ * XREFs of MiActOnPartitionNodePages @ 0x140655AB0
+ * Callers:
+ *     MiClearPartitionPageBitMap @ 0x1406569F0 (MiClearPartitionPageBitMap.c)
+ *     MiFreePartitionNodePages @ 0x1406576A8 (MiFreePartitionNodePages.c)
+ *     MiInsertPartitionPages @ 0x140657EB8 (MiInsertPartitionPages.c)
+ *     MiReturnPartitionPagesToParent @ 0x140658E84 (MiReturnPartitionPagesToParent.c)
+ *     MiHotAddPartitionMemory @ 0x140A4203C (MiHotAddPartitionMemory.c)
+ *     MiMakePartitionMemoryBlock @ 0x140A4242C (MiMakePartitionMemoryBlock.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x140A42624 (MiUpdatePartitionLargePfnBitMap.c)
+ * Callees:
+ *     RtlClearBitsEx @ 0x14020FC50 (RtlClearBitsEx.c)
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     MiUpdateLargePageBitMap @ 0x14034D79C (MiUpdateLargePageBitMap.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiHotRemoveHugeRange @ 0x14061DC8C (MiHotRemoveHugeRange.c)
+ *     MiSetHugeRangePartitionId @ 0x1406203CC (MiSetHugeRangePartitionId.c)
+ *     MiMoveBadPageCrossPartition @ 0x14064B358 (MiMoveBadPageCrossPartition.c)
+ *     MiFreePartitionPageRun @ 0x140657734 (MiFreePartitionPageRun.c)
+ *     MiSplitPfnBitMapsForPartitionHierarchy @ 0x140658FCC (MiSplitPfnBitMapsForPartitionHierarchy.c)
+ *     MiTransferPartitionPageRun @ 0x140659030 (MiTransferPartitionPageRun.c)
+ *     MiUpdatePartitionChildPageCounts @ 0x140659730 (MiUpdatePartitionChildPageCounts.c)
+ *     MiAddPhysicalMemoryChunks @ 0x140A2919C (MiAddPhysicalMemoryChunks.c)
+ *     MiHotAddHugeRange @ 0x140A2B158 (MiHotAddHugeRange.c)
+ *     MiHotRemovePartitionPageRun @ 0x140A423B8 (MiHotRemovePartitionPageRun.c)
+ */
+
 void __fastcall MiActOnPartitionNodePages(__int64 a1, unsigned int a2, int a3, __int16 **a4)
 {
   int v5; // r10d

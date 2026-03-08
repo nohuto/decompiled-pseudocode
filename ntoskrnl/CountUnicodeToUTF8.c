@@ -1,3 +1,12 @@
+/*
+ * XREFs of CountUnicodeToUTF8 @ 0x1403040B8
+ * Callers:
+ *     RtlUnicodeToUTF8N @ 0x1407A3750 (RtlUnicodeToUTF8N.c)
+ *     RtlUnicodeStringToUTF8String @ 0x1409BF4C0 (RtlUnicodeStringToUTF8String.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CountUnicodeToUTF8(unsigned int *a1, unsigned int a2, unsigned int *a3)
 {
   unsigned int v3; // r11d

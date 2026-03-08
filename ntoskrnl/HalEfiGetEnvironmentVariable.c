@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalEfiGetEnvironmentVariable @ 0x1402AF8BC
+ * Callers:
+ *     HalGetEnvironmentVariableEx @ 0x1402AF770 (HalGetEnvironmentVariableEx.c)
+ * Callees:
+ *     HalpEfiDecrementEfiCall @ 0x1402AF954 (HalpEfiDecrementEfiCall.c)
+ *     HalpConvertEfiToNtStatus @ 0x1402AF97C (HalpConvertEfiToNtStatus.c)
+ *     HalpEfiIncrementEfiCall @ 0x1402AF9B0 (HalpEfiIncrementEfiCall.c)
+ *     HalpEfiStartRuntimeCode @ 0x1402AF9D8 (HalpEfiStartRuntimeCode.c)
+ */
+
 __int64 __fastcall HalEfiGetEnvironmentVariable(__int64 a1)
 {
   __int64 v2; // r10

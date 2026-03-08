@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiDeleteCloneZombies @ 0x1402FBC3C
+ * Callers:
+ *     MiCloneVads @ 0x140660C98 (MiCloneVads.c)
+ *     MiInsertClone @ 0x140662B2C (MiInsertClone.c)
+ *     MmCleanProcessAddressSpace @ 0x1407D4924 (MmCleanProcessAddressSpace.c)
+ *     MiDeleteInsertedCloneVads @ 0x140A46058 (MiDeleteInsertedCloneVads.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     MiDeleteDeferredCloneDescriptors @ 0x14066192C (MiDeleteDeferredCloneDescriptors.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiDeleteCloneZombies(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rbp

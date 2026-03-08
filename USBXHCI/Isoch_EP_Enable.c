@@ -1,3 +1,11 @@
+/*
+ * XREFs of Isoch_EP_Enable @ 0x1C0001DD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_DD @ 0x1C0007C90 (WPP_RECORDER_SF_DD.c)
+ */
+
 __int64 __fastcall Isoch_EP_Enable(__int64 a1)
 {
   int v2; // edx

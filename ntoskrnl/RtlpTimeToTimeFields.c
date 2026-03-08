@@ -1,3 +1,18 @@
+/*
+ * XREFs of RtlpTimeToTimeFields @ 0x1402D14C8
+ * Callers:
+ *     HalQueryRealTimeClock @ 0x1402D0F30 (HalQueryRealTimeClock.c)
+ *     HalpSetVirtualRtc @ 0x1402D13F0 (HalpSetVirtualRtc.c)
+ *     RtlTimeToTimeFields @ 0x1402D14B0 (RtlTimeToTimeFields.c)
+ *     HalpQueryVirtualRtc @ 0x1405094B0 (HalpQueryVirtualRtc.c)
+ *     HalEfiSetTime @ 0x14050AE70 (HalEfiSetTime.c)
+ *     HalpCheckWakeupTimeAndAdjust @ 0x140519F14 (HalpCheckWakeupTimeAndAdjust.c)
+ *     WheapGetTimestamp @ 0x14060FFA4 (WheapGetTimestamp.c)
+ *     GetBootSystemTime @ 0x140B70018 (GetBootSystemTime.c)
+ * Callees:
+ *     RtlpTimeToTimeFieldsNoLeapSeconds @ 0x1402D15A4 (RtlpTimeToTimeFieldsNoLeapSeconds.c)
+ */
+
 __int16 __fastcall RtlpTimeToTimeFields(__int64 *a1, _OWORD *a2, __int64 a3)
 {
   char *v3; // r8

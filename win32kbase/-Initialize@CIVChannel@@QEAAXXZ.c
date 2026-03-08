@@ -1,3 +1,22 @@
+/*
+ * XREFs of ?Initialize@CIVChannel@@QEAAXXZ @ 0x1C022858C
+ * Callers:
+ *     ?PostInitialize@CMouseSensor@@EEAAJXZ @ 0x1C002E140 (-PostInitialize@CMouseSensor@@EEAAJXZ.c)
+ *     ?PostInitialize@CKeyboardSensor@@EEAAJXZ @ 0x1C00D0580 (-PostInitialize@CKeyboardSensor@@EEAAJXZ.c)
+ *     ?PostInitialize@CHidInput@@EEAAJXZ @ 0x1C00D3CD0 (-PostInitialize@CHidInput@@EEAAJXZ.c)
+ *     IVWorkerThread @ 0x1C022118C (IVWorkerThread.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00052A0 (WPP_RECORDER_AND_TRACE_SF_dd.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     isChildPartition @ 0x1C0078FF0 (isChildPartition.c)
+ *     isRootPartition @ 0x1C007B02C (isRootPartition.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_AND_TRACE_SF_sd @ 0x1C0217150 (WPP_RECORDER_AND_TRACE_SF_sd.c)
+ *     ?Receive@CIVChannel@@AEAAJXZ @ 0x1C0229270 (-Receive@CIVChannel@@AEAAJXZ.c)
+ *     ?Reconnect@CIVChannel@@AEAAJXZ @ 0x1C022951C (-Reconnect@CIVChannel@@AEAAJXZ.c)
+ */
+
 void __fastcall CIVChannel::Initialize(CIVChannel *this, __int64 a2, __int64 a3, __int64 a4)
 {
   PDEVICE_OBJECT v5; // rcx

@@ -1,3 +1,20 @@
+/*
+ * XREFs of HalpTimerRegisterBuiltinPlugins @ 0x1403A08F8
+ * Callers:
+ *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1403A08C4 (HalpTimerRegisterBuiltinPluginsCommon.c)
+ * Callees:
+ *     HalpHpetDiscover @ 0x140372BE0 (HalpHpetDiscover.c)
+ *     HalSocRequestConfigurationData @ 0x1403731C8 (HalSocRequestConfigurationData.c)
+ *     HalpTimerRegister @ 0x140373EB4 (HalpTimerRegister.c)
+ *     HalpRtcDiscover @ 0x140374398 (HalpRtcDiscover.c)
+ *     HalpPmTimerDiscover @ 0x14037604C (HalpPmTimerDiscover.c)
+ *     HalpApicTimerDiscover @ 0x14037614C (HalpApicTimerDiscover.c)
+ *     HalpHvWatchdogDiscover @ 0x1403A097C (HalpHvWatchdogDiscover.c)
+ *     HalpTscDiscover @ 0x1403A0B58 (HalpTscDiscover.c)
+ *     HalpArtDiscover @ 0x1403A0C88 (HalpArtDiscover.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall HalpTimerRegisterBuiltinPlugins(int a1)
 {
   __int64 result; // rax

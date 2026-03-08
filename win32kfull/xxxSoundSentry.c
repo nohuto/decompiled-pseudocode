@@ -1,3 +1,23 @@
+/*
+ * XREFs of xxxSoundSentry @ 0x1C01F73D8
+ * Callers:
+ *     xxxProcessEventMessage @ 0x1C006B460 (xxxProcessEventMessage.c)
+ *     NtUserSoundSentry @ 0x1C01DFE20 (NtUserSoundSentry.c)
+ *     xxxMessageBeep @ 0x1C01F7F58 (xxxMessageBeep.c)
+ *     xxxOldMessageBeep @ 0x1C01F7FE8 (xxxOldMessageBeep.c)
+ *     ?xxxUserBeep@@YAHKK_N@Z @ 0x1C01FA214 (-xxxUserBeep@@YAHKK_N@Z.c)
+ * Callees:
+ *     xxxFlashWindow @ 0x1C0005B74 (xxxFlashWindow.c)
+ *     GreTransformPoints @ 0x1C0006C84 (GreTransformPoints.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     InternalSetTimer @ 0x1C0061830 (InternalSetTimer.c)
+ *     NtGdiPatBlt @ 0x1C008B370 (NtGdiPatBlt.c)
+ *     GetPrimaryMonitorRect @ 0x1C0101710 (GetPrimaryMonitorRect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     GreEnableAppContainerRestriction @ 0x1C026E83C (GreEnableAppContainerRestriction.c)
+ */
+
 __int64 xxxSoundSentry()
 {
   int v0; // ecx

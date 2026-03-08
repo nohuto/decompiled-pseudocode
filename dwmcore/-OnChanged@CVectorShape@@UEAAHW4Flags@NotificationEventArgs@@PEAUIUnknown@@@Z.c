@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnChanged@CVectorShape@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800E3EA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CVectorShape::OnChanged(__int64 a1, int a2)
 {
   unsigned int v3; // r8d

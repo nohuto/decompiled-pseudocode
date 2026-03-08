@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Wait@IOCPDispatcher@@QEAAJPEAT_LARGE_INTEGER@@EPEAU_FILE_IO_COMPLETION_INFORMATION@@@Z @ 0x1C007BF20
+ * Callers:
+ *     UserKSTWait @ 0x1C007BCBC (UserKSTWait.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 __int64 __fastcall IOCPDispatcher::Wait(
         IOCPDispatcher *this,
         union _LARGE_INTEGER *a2,

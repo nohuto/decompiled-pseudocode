@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?CheckOcclusionState@CCaptureRenderTarget@@UEAAJXZ @ 0x1801E9638
+ * Callers:
+ *     ?CheckOcclusionState@CCaptureRenderTarget@@$4PPPPPPPM@A@EAAJXZ @ 0x180117FD0 (-CheckOcclusionState@CCaptureRenderTarget@@$4PPPPPPPM@A@EAAJXZ.c)
+ *     ?CheckOcclusionState@CCaptureRenderTarget@@$4PPPPPPPM@FA@EAAJXZ @ 0x180117FF0 (-CheckOcclusionState@CCaptureRenderTarget@@$4PPPPPPPM@FA@EAAJXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z @ 0x1801E9CA4 (-EnsureResources@CCaptureRenderTarget@@IEAAJPEAVCD3DDevice@@@Z.c)
+ *     ?GetD3DDeviceNoRef@CDeviceManager@CCaptureRenderTarget@@QEAAPEAVCD3DDevice@@AEBU_LUID@@PEAUIFlipProducer@@@Z @ 0x1801EA094 (-GetD3DDeviceNoRef@CDeviceManager@CCaptureRenderTarget@@QEAAPEAVCD3DDevice@@AEBU_LUID@@PEAUIFlip.c)
+ *     ?GetNextBufferIndexAvailable@CCaptureRenderTarget@@IEAAHXZ @ 0x1801EA180 (-GetNextBufferIndexAvailable@CCaptureRenderTarget@@IEAAHXZ.c)
+ */
+
 __int64 __fastcall CCaptureRenderTarget::CheckOcclusionState(struct CD3DDevice **this)
 {
   CCaptureRenderTarget *v2; // rbp

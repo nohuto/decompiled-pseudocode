@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefMontgomeryReduceAsm @ 0x1404008B0
+ * Callers:
+ *     SymCryptFdefMontgomeryReduce @ 0x1403FF8C4 (SymCryptFdefMontgomeryReduce.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefMontgomeryReduceAsm(__int64 a1, const __m128i *a2, __m128i *a3)
 {
   int v4; // r9d

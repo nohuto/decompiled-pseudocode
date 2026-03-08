@@ -1,3 +1,12 @@
+/*
+ * XREFs of CiDispatchInitialize @ 0x1C000E300
+ * Callers:
+ *     CsInitialize @ 0x1C000E0B0 (CsInitialize.c)
+ * Callees:
+ *     WPP_SF_Zd @ 0x1C0004774 (WPP_SF_Zd.c)
+ *     WPP_SF_Zq @ 0x1C0004808 (WPP_SF_Zq.c)
+ */
+
 NTSTATUS __fastcall CiDispatchInitialize(struct _DRIVER_OBJECT *a1)
 {
   NTSTATUS result; // eax

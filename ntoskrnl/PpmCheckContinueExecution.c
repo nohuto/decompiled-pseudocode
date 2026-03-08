@@ -1,3 +1,19 @@
+/*
+ * XREFs of PpmCheckContinueExecution @ 0x140236E60
+ * Callers:
+ *     PpmPerfAction @ 0x140236430 (PpmPerfAction.c)
+ *     PpmPerfControlActionCallback @ 0x14045A9F0 (PpmPerfControlActionCallback.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KeCheckProcessorAffinityEx @ 0x140234B10 (KeCheckProcessorAffinityEx.c)
+ *     KeQuerySystemAllowedCpuSetAffinity @ 0x140236F18 (KeQuerySystemAllowedCpuSetAffinity.c)
+ *     PoCopyDeepIdleMask @ 0x1402AEFF0 (PoCopyDeepIdleMask.c)
+ *     KiSubtractAffinityEx @ 0x1402D4CBC (KiSubtractAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KeFindFirstSetRightAffinityEx @ 0x14056CE10 (KeFindFirstSetRightAffinityEx.c)
+ */
+
 __int64 PpmCheckContinueExecution()
 {
   unsigned int Number; // ebx

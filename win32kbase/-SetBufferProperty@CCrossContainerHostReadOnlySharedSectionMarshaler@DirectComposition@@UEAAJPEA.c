@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetBufferProperty@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0261D90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsReadyForMarshaling@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@AEAAJPEA_N@Z @ 0x1C0261D1C (-IsReadyForMarshaling@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@AEAAJ.c)
+ *     DirectComposition::SetGuidProperty @ 0x1C0261DEC (DirectComposition--SetGuidProperty.c)
+ */
+
 __int64 __fastcall DirectComposition::CCrossContainerHostReadOnlySharedSectionMarshaler::SetBufferProperty(
         DirectComposition::CCrossContainerHostReadOnlySharedSectionMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

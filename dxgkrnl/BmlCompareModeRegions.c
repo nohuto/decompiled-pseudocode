@@ -1,3 +1,13 @@
+/*
+ * XREFs of BmlCompareModeRegions @ 0x1C0171130
+ * Callers:
+ *     BmlGetNextBestSourceMode @ 0x1C01706B0 (BmlGetNextBestSourceMode.c)
+ *     BmlCompareMonitorRegions @ 0x1C03B85E8 (BmlCompareMonitorRegions.c)
+ *     BmlCompareSourceModes @ 0x1C03B86F4 (BmlCompareSourceModes.c)
+ * Callees:
+ *     ??$BmlCompareValues@I@@YA?AW4BML_COMPARISON_RESULT@@II@Z @ 0x1C0171118 (--$BmlCompareValues@I@@YA-AW4BML_COMPARISON_RESULT@@II@Z.c)
+ */
+
 __int64 __fastcall BmlCompareModeRegions(unsigned int *a1, unsigned int *a2)
 {
   __int64 v2; // r8

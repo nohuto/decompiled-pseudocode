@@ -1,3 +1,19 @@
+/*
+ * XREFs of Interrupter_WdfEvtInterruptIsr @ 0x1C0007760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Controller_LowerAndTrackIrql @ 0x1C00074BC (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0007558 (Controller_RaiseAndTrackIrql.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Interrupter_DeferToDpcOrWorkItem @ 0x1C00224FA (Interrupter_DeferToDpcOrWorkItem.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C002256A (McTemplateK0q_EtwWriteTransfer.c)
+ *     Controller_AreFrameAndTimeDeltaValuesValid @ 0x1C00325F4 (Controller_AreFrameAndTimeDeltaValuesValid.c)
+ *     Controller_GetFrameNumber @ 0x1C0033490 (Controller_GetFrameNumber.c)
+ */
+
 __int64 __fastcall Interrupter_WdfEvtInterruptIsr(__int64 a1, int a2)
 {
   char v4; // r15

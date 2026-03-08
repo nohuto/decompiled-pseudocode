@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifIoCheckShareAccessWrapper @ 0x1405DB6A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     IoCheckShareAccess @ 0x140792B20 (IoCheckShareAccess.c)
+ */
+
 NTSTATUS __fastcall DifIoCheckShareAccessWrapper(
         ACCESS_MASK DesiredAccess,
         ULONG DesiredShareAccess,

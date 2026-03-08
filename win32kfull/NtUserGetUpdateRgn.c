@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetUpdateRgn @ 0x1C00FAAB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxGetUpdateRgn @ 0x1C00FC22C (xxxGetUpdateRgn.c)
+ */
+
 __int64 __fastcall NtUserGetUpdateRgn(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v6; // rax

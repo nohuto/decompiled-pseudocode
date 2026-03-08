@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopGetSetStreamIdentifier @ 0x1405552DC
+ * Callers:
+ *     IoGetSfioStreamIdentifier @ 0x140457170 (IoGetSfioStreamIdentifier.c)
+ *     IoAllocateSfioStreamIdentifier @ 0x140554370 (IoAllocateSfioStreamIdentifier.c)
+ * Callees:
+ *     IopGetSetSpecificExtension @ 0x14023EA58 (IopGetSetSpecificExtension.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall IopGetSetStreamIdentifier(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4, char a5)
 {
   unsigned int v5; // ebx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?SearchForAndRemove@FxTransactionedList@@IEAAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C004FCE8
+ * Callers:
+ *     imp_WdfPdoRemoveEjectionRelationsPhysicalDevice @ 0x1C0021CC0 (imp_WdfPdoRemoveEjectionRelationsPhysicalDevice.c)
+ *     imp_WdfDeviceClearRemovalRelationsDevices @ 0x1C0033F40 (imp_WdfDeviceClearRemovalRelationsDevices.c)
+ *     imp_WdfDeviceRemoveDependentUsageDeviceObject @ 0x1C00340F0 (imp_WdfDeviceRemoveDependentUsageDeviceObject.c)
+ *     imp_WdfDeviceRemoveRemovalRelationsPhysicalDevice @ 0x1C0034160 (imp_WdfDeviceRemoveRemovalRelationsPhysicalDevice.c)
+ *     ?ClearEjectionDevicesList@FxPkgPdo@@QEAAXXZ @ 0x1C0068A20 (-ClearEjectionDevicesList@FxPkgPdo@@QEAAXXZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ?GetNextEntryLocked@FxTransactionedList@@IEAAPEAUFxTransactionedEntry@@PEAU2@@Z @ 0x1C004F900 (-GetNextEntryLocked@FxTransactionedList@@IEAAPEAUFxTransactionedEntry@@PEAU2@@Z.c)
+ *     ?RemoveLocked@FxTransactionedList@@IEAAEPEAUFxTransactionedEntry@@@Z @ 0x1C004FC18 (-RemoveLocked@FxTransactionedList@@IEAAEPEAUFxTransactionedEntry@@@Z.c)
+ */
+
 void __fastcall FxTransactionedList::SearchForAndRemove(
         FxTransactionedList *this,
         _FX_DRIVER_GLOBALS *FxDriverGlobals,

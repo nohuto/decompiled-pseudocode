@@ -1,3 +1,16 @@
+/*
+ * XREFs of CreateStandardMonoPattern @ 0x1C0254780
+ * Callers:
+ *     FindCachedSMP @ 0x1C0252520 (FindCachedSMP.c)
+ *     GetCachedSMP @ 0x1C0252734 (GetCachedSMP.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     DivFD6 @ 0x1C014AF0C (DivFD6.c)
+ *     ComputeBytesPerScanLine @ 0x1C0253E3C (ComputeBytesPerScanLine.c)
+ *     DrawCornerLine @ 0x1C0254C8C (DrawCornerLine.c)
+ */
+
 __int64 __fastcall CreateStandardMonoPattern(__int64 a1, __m128i *a2)
 {
   __m128i v2; // xmm1

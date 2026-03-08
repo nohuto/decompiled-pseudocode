@@ -1,3 +1,11 @@
+/*
+ * XREFs of XmAadOp @ 0x140530FF0
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall XmAadOp(__int64 a1)
 {
   char v1; // dl

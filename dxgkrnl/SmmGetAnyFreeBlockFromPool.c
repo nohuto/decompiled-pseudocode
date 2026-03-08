@@ -1,3 +1,12 @@
+/*
+ * XREFs of SmmGetAnyFreeBlockFromPool @ 0x1C007034C
+ * Callers:
+ *     SmmAcquireBlock @ 0x1C006FC8C (SmmAcquireBlock.c)
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     SmmRemoveBlockFromPool @ 0x1C00705E8 (SmmRemoveBlockFromPool.c)
+ */
+
 _QWORD *__fastcall SmmGetAnyFreeBlockFromPool(_QWORD *a1)
 {
   int v2; // edx

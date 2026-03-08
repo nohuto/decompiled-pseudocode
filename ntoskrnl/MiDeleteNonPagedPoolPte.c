@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiDeleteNonPagedPoolPte @ 0x14020E220
+ * Callers:
+ *     MiClearNonPagedPtes @ 0x14020DF88 (MiClearNonPagedPtes.c)
+ * Callees:
+ *     MiInitializeTbFlushStamps @ 0x14020E538 (MiInitializeTbFlushStamps.c)
+ *     MiDecommitLargePoolVa @ 0x14020FF88 (MiDecommitLargePoolVa.c)
+ *     MiGetContainingPageTable @ 0x140289FE0 (MiGetContainingPageTable.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiInsertRecursiveTbFlushEntries @ 0x1402FCB78 (MiInsertRecursiveTbFlushEntries.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiEvictPageTableLock @ 0x140346460 (MiEvictPageTableLock.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiBadRefCount @ 0x14064B094 (MiBadRefCount.c)
+ */
+
 __int64 __fastcall MiDeleteNonPagedPoolPte(_QWORD *BugCheckParameter2, __int64 *a2, int a3)
 {
   __int64 v3; // rbx

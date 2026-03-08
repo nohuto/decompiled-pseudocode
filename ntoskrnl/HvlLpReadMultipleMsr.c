@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvlLpReadMultipleMsr @ 0x1405424F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 __int64 __fastcall HvlLpReadMultipleMsr(ULONG a1, unsigned int a2, ULONG *a3, LONGLONG *a4)
 {
   __int64 v8; // r14

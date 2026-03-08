@@ -1,3 +1,18 @@
+/*
+ * XREFs of FirmwareDownload @ 0x1C0011914
+ * Callers:
+ *     IoctlFirmwareProcess @ 0x1C00137A8 (IoctlFirmwareProcess.c)
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     GetControllerMaxTransferSize @ 0x1C0007A5C (GetControllerMaxTransferSize.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     FillClippedSGL @ 0x1C00115F0 (FillClippedSGL.c)
+ *     GetFirmwareGranularity @ 0x1C0012A5C (GetFirmwareGranularity.c)
+ *     NVMeQueueWorkItem @ 0x1C0016B88 (NVMeQueueWorkItem.c)
+ */
+
 __int64 __fastcall FirmwareDownload(__int64 a1, __int64 a2)
 {
   unsigned int v3; // ebx

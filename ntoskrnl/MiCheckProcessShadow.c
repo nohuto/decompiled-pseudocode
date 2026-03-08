@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiCheckProcessShadow @ 0x14025F210
+ * Callers:
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiQueryAddressSpan @ 0x14031E2D0 (MiQueryAddressSpan.c)
+ *     MmCheckProcessShadow @ 0x1403CA630 (MmCheckProcessShadow.c)
+ * Callees:
+ *     MiLockPageTableInternal @ 0x14026A0D0 (MiLockPageTableInternal.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiWorkingSetIsContended @ 0x1403478E0 (MiWorkingSetIsContended.c)
+ *     MiCheckRelevantKernelShadows @ 0x1403CA158 (MiCheckRelevantKernelShadows.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall MiCheckProcessShadow(__int64 a1, unsigned int a2)
 {
   unsigned __int64 v5; // r14

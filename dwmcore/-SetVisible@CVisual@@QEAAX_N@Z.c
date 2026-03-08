@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SetVisible@CVisual@@QEAAX_N@Z @ 0x1800E7EF4
+ * Callers:
+ *     ?SetProperty@CVisual@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180098440 (-SetProperty@CVisual@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ *     ?ProcessSetVisible@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETVISIBLE@@@Z @ 0x18012DD14 (-ProcessSetVisible@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETVISIBLE@@@Z.c)
+ * Callees:
+ *     ?DirtyForInvisibleChild@CVisual@@IEAAXPEAV1@@Z @ 0x180098E88 (-DirtyForInvisibleChild@CVisual@@IEAAXPEAV1@@Z.c)
+ *     ?UpdateBackdropCounts@CVisual@@IEAAXPEBV1@_N@Z @ 0x1800E7F4C (-UpdateBackdropCounts@CVisual@@IEAAXPEBV1@_N@Z.c)
+ *     ?DirtyForVisibleChild@CVisual@@IEAAXPEAV1@@Z @ 0x1800E7F90 (-DirtyForVisibleChild@CVisual@@IEAAXPEAV1@@Z.c)
+ */
+
 void __fastcall CVisual::SetVisible(CVisual *this, char a2)
 {
   char v3; // cl

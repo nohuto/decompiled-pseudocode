@@ -1,3 +1,19 @@
+/*
+ * XREFs of xxxLoadSysDesktopMenu @ 0x1C00E8094
+ * Callers:
+ *     xxxTranslateAccelerator @ 0x1C000BC34 (xxxTranslateAccelerator.c)
+ *     xxxGetSysMenuPtr @ 0x1C00A4DFC (xxxGetSysMenuPtr.c)
+ *     xxxSetDialogSystemMenu @ 0x1C00E7FF4 (xxxSetDialogSystemMenu.c)
+ * Callees:
+ *     xxxLoadSysMenu @ 0x1C00A0224 (xxxLoadSysMenu.c)
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C00A4F34 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00A6450 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     _DestroyMenu @ 0x1C00A77C0 (_DestroyMenu.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C00D3DA0 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00D5030 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     LockDesktopMenu @ 0x1C00E8150 (LockDesktopMenu.c)
+ */
+
 __int64 __fastcall xxxLoadSysDesktopMenu(__int64 *a1, int a2)
 {
   __int64 v4; // rdi

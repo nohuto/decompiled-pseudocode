@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?IsWindowBroadcastingDpiToChildrenX@@YA_NPEAUtagWND@@@Z @ 0x1C00DE17C
+ * Callers:
+ *     NtUserIsWindowBroadcastingDpiToChildren @ 0x1C00DE0D0 (NtUserIsWindowBroadcastingDpiToChildren.c)
+ *     xxxAppAdjustDpiCandidateRect @ 0x1C01BB984 (xxxAppAdjustDpiCandidateRect.c)
+ *     xxxTrackPopupMenuEx @ 0x1C02353CC (xxxTrackPopupMenuEx.c)
+ * Callees:
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ */
+
 char __fastcall IsWindowBroadcastingDpiToChildrenX(struct tagWND *a1)
 {
   char v1; // r8

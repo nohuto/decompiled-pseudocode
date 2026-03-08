@@ -1,3 +1,12 @@
+/*
+ * XREFs of _CmCreateDevicePanelWorker @ 0x140A63028
+ * Callers:
+ *     _CmCreateDevicePanel @ 0x140A62EC8 (_CmCreateDevicePanel.c)
+ * Callees:
+ *     _CmRaiseCreateEvent @ 0x14087BC44 (_CmRaiseCreateEvent.c)
+ *     _CmOpenDevicePanelRegKey @ 0x140A63B24 (_CmOpenDevicePanelRegKey.c)
+ */
+
 __int64 __fastcall CmCreateDevicePanelWorker(__int64 a1, __int64 a2, int a3, __int64 *a4, _BYTE *a5, __int16 a6)
 {
   int v9; // ebx

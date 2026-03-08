@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??$_Insert_range@PEBUParticleBindingData@@@?$vector@UParticleBindingData@@V?$allocator@UParticleBindingData@@@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@UParticleBindingData@@@std@@@std@@@1@PEBUParticleBindingData@@1Uforward_iterator_tag@1@@Z @ 0x1801BC7DC
+ * Callers:
+ *     ??$insert@PEBUParticleBindingData@@$0A@@?$vector@UParticleBindingData@@V?$allocator@UParticleBindingData@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@UParticleBindingData@@@std@@@std@@@1@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@UParticleBindingData@@@std@@@std@@@1@PEBUParticleBindingData@@1@Z @ 0x1801BCD10 (--$insert@PEBUParticleBindingData@@$0A@@-$vector@UParticleBindingData@@V-$allocator@UParticleBin.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$0BI@@std@@YA_K_K@Z @ 0x1800BC3DC (--$_Get_size_of_n@$0BI@@std@@YA_K_K@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     ?_Change_array@?$vector@UParticleBindingData@@V?$allocator@UParticleBindingData@@@std@@@std@@AEAAXQEAUParticleBindingData@@_K1@Z @ 0x1801C79DC (-_Change_array@-$vector@UParticleBindingData@@V-$allocator@UParticleBindingData@@@std@@@std@@AEA.c)
+ */
+
 void __fastcall std::vector<ParticleBindingData>::_Insert_range<ParticleBindingData const *>(
         __int64 a1,
         _BYTE *a2,

@@ -1,3 +1,21 @@
+/*
+ * XREFs of ObCreateSymbolicLink @ 0x140740FE8
+ * Callers:
+ *     NtCreateSymbolicLinkObject @ 0x140740CD0 (NtCreateSymbolicLinkObject.c)
+ *     MiCreateMemoryEvent @ 0x140809804 (MiCreateMemoryEvent.c)
+ *     IoCreateSymbolicLink2 @ 0x14086DC50 (IoCreateSymbolicLink2.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ObpGetIntegrityLevel @ 0x140741374 (ObpGetIntegrityLevel.c)
+ *     RtlIsSandboxedToken @ 0x140741410 (RtlIsSandboxedToken.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall ObCreateSymbolicLink(_QWORD *a1, int a2, __int64 a3, __int64 a4, char a5)
 {
   __int64 v5; // rsi

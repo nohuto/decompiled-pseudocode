@@ -1,3 +1,16 @@
+/*
+ * XREFs of ??1CHolographicManager@@EEAA@XZ @ 0x1802A0EE4
+ * Callers:
+ *     ??_ECHolographicManager@@EEAAPEAXI@Z @ 0x1802A0FF0 (--_ECHolographicManager@@EEAAPEAXI@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18008F164 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097680 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$ReleaseInterface@VCHolographicInteropTaskQueue@@@@YAXAEAPEAVCHolographicInteropTaskQueue@@@Z @ 0x1802A0C04 (--$ReleaseInterface@VCHolographicInteropTaskQueue@@@@YAXAEAPEAVCHolographicInteropTaskQueue@@@Z.c)
+ *     ??$_Destroy_range@V?$allocator@V?$com_ptr_t@VCHolographicExclusiveMode@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@YAXPEAV?$com_ptr_t@VCHolographicExclusiveMode@@Uerr_returncode_policy@wil@@@wil@@QEAV12@AEAV?$allocator@V?$com_ptr_t@VCHolographicExclusiveMode@@Uerr_returncode_policy@wil@@@wil@@@0@@Z @ 0x1802A0C40 (--$_Destroy_range@V-$allocator@V-$com_ptr_t@VCHolographicExclusiveMode@@Uerr_returncode_policy@w.c)
+ *     ?ReleaseInteropRenderTarget@CHolographicManager@@AEAAXXZ @ 0x1802A2630 (-ReleaseInteropRenderTarget@CHolographicManager@@AEAAXXZ.c)
+ */
+
 void __fastcall CHolographicManager::~CHolographicManager(CHolographicManager *this)
 {
   volatile signed __int32 *v2; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?MonitorInterfaceCallbackInternal@CMonitorPDO@OPM@@AEAAJPEBU_DEVICE_INTERFACE_CHANGE_NOTIFICATION@@@Z @ 0x1C017ECE0
+ * Callers:
+ *     ?MonitorInterfaceCallback@CMonitorPDO@OPM@@CAJPEAX0@Z @ 0x1C017ECC0 (-MonitorInterfaceCallback@CMonitorPDO@OPM@@CAJPEAX0@Z.c)
+ * Callees:
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00B0000 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     memcmp @ 0x1C00E17D0 (memcmp.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall OPM::CMonitorPDO::MonitorInterfaceCallbackInternal(
         OPM::CMonitorPDO *this,
         const struct _DEVICE_INTERFACE_CHANGE_NOTIFICATION *a2)

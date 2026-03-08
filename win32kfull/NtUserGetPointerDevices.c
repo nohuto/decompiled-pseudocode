@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserGetPointerDevices @ 0x1C00E3A50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     _GetPointerDeviceInfoProperties @ 0x1C0146180 (_GetPointerDeviceInfoProperties.c)
+ */
+
 __int64 __fastcall NtUserGetPointerDevices(unsigned int *a1, char *a2, __int64 a3)
 {
   unsigned int *v4; // rsi

@@ -1,3 +1,16 @@
+/*
+ * XREFs of EmpEvaluateTargetRule @ 0x1402D6300
+ * Callers:
+ *     EmpEvaluateUpdateRuleEvalState @ 0x14039DD9C (EmpEvaluateUpdateRuleEvalState.c)
+ *     EmClientRuleEvaluate @ 0x140A85280 (EmClientRuleEvaluate.c)
+ * Callees:
+ *     EmpFreePool @ 0x140245FC0 (EmpFreePool.c)
+ *     EmpEvaluateNodeLink @ 0x140245FF4 (EmpEvaluateNodeLink.c)
+ *     EmpAllocatePool @ 0x1402463F4 (EmpAllocatePool.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EmpEvaluateTargetRule(__int64 a1, __int64 a2, int a3)
 {
   _QWORD *v4; // rbp

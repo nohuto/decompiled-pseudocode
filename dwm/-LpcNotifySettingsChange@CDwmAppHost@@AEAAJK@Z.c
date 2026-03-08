@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?LpcNotifySettingsChange@CDwmAppHost@@AEAAJK@Z @ 0x1400025CC
+ * Callers:
+ *     ?ProcessLPCCommand@CDwmAppHost@@AEAAJPEAUIPortMessage@@PEBUPORT_CONTEXT@@PEAH2@Z @ 0x140002400 (-ProcessLPCCommand@CDwmAppHost@@AEAAJPEAUIPortMessage@@PEBUPORT_CONTEXT@@PEAH2@Z.c)
+ *     ?NotifyWndProc@CDwmAppHost@@AEAA_JPEAUHWND__@@I_K_J@Z @ 0x1400027D4 (-NotifyWndProc@CDwmAppHost@@AEAA_JPEAUHWND__@@I_K_J@Z.c)
+ *     ?OnSettingChange@CDwmAppHost@@AEAAX_K_J@Z @ 0x140002894 (-OnSettingChange@CDwmAppHost@@AEAAX_K_J@Z.c)
+ *     ?PropagateUserLogon@CSettingsManager@@QEAAXPEAUHKEY__@@00_N@Z @ 0x1400040E4 (-PropagateUserLogon@CSettingsManager@@QEAAXPEAUHKEY__@@00_N@Z.c)
+ * Callees:
+ *     ??1CPortClient@@UEAA@XZ @ 0x1400026E8 (--1CPortClient@@UEAA@XZ.c)
+ *     ??0CPortClient@@QEAA@IPEAX@Z @ 0x14000272C (--0CPortClient@@QEAA@IPEAX@Z.c)
+ *     ?CheckStatus@CPortClient@@AEAAJJ@Z @ 0x140002778 (-CheckStatus@CPortClient@@AEAAJJ@Z.c)
+ *     ?LpcVerifyOutgoingPayloadSize@@YAXPEBU_PORT_MESSAGE@@@Z @ 0x140002CA0 (-LpcVerifyOutgoingPayloadSize@@YAXPEBU_PORT_MESSAGE@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x14000309C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CDwmAppHost::LpcNotifySettingsChange(CDwmAppHost *this, unsigned int a2, void *a3)
 {
   int v3; // ebx

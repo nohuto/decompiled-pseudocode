@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlSelfRelativeToAbsoluteSD2 @ 0x1409B7DD0
+ * Callers:
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x1409BB734 (RtlpSysVolCheckOwnerAndSecurity.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlpQuerySecurityDescriptor @ 0x14074E794 (RtlpQuerySecurityDescriptor.c)
+ */
+
 __int64 __fastcall RtlSelfRelativeToAbsoluteSD2(__int64 a1, unsigned int *a2)
 {
   unsigned __int64 v2; // rbx

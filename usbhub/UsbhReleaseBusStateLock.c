@@ -1,3 +1,19 @@
+/*
+ * XREFs of UsbhReleaseBusStateLock @ 0x1C001D7C0
+ * Callers:
+ *     UsbhDispatch_BusEvent @ 0x1C001CF30 (UsbhDispatch_BusEvent.c)
+ *     Usbh_BS_BusRun @ 0x1C001D160 (Usbh_BS_BusRun.c)
+ *     Usbh_BS_BusPause @ 0x1C001D2E0 (Usbh_BS_BusPause.c)
+ *     Usbh_BS_BusSuspend @ 0x1C001D470 (Usbh_BS_BusSuspend.c)
+ *     Usbh_BS_BusInit @ 0x1C003196C (Usbh_BS_BusInit.c)
+ *     Usbh_BS_BusRemove @ 0x1C0031A28 (Usbh_BS_BusRemove.c)
+ *     Usbh_BS_BusStop @ 0x1C0031AE0 (Usbh_BS_BusStop.c)
+ * Callees:
+ *     UsbhBusResume_Action @ 0x1C0012650 (UsbhBusResume_Action.c)
+ *     UsbhBusSuspend_Action @ 0x1C001D87C (UsbhBusSuspend_Action.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ */
+
 __int64 __fastcall UsbhReleaseBusStateLock(struct _DEVICE_OBJECT *a1, __int64 a2, unsigned int a3)
 {
   unsigned int *DeviceExtension; // rbx

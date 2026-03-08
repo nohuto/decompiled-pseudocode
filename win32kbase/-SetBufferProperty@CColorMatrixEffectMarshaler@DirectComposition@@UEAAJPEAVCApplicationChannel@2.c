@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetBufferProperty@CColorMatrixEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C024DE80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memcmp @ 0x1C00E17D0 (memcmp.c)
+ *     ?SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C024D490 (-SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEB.c)
+ */
+
 __int64 __fastcall DirectComposition::CColorMatrixEffectMarshaler::SetBufferProperty(
         DirectComposition::CColorMatrixEffectMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

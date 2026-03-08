@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBDTX_GetConfigDescriptorWithReturnedLengthUsingControlTransfer @ 0x1C002AA64
+ * Callers:
+ *     HUBDSM_GettingAlternateConfigurationDescriptorWithReturnedLength @ 0x1C0021320 (HUBDSM_GettingAlternateConfigurationDescriptorWithReturnedLength.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBDTX_GetDescriptor @ 0x1C002A598 (HUBDTX_GetDescriptor.c)
+ */
+
 __int64 __fastcall HUBDTX_GetConfigDescriptorWithReturnedLengthUsingControlTransfer(__int64 a1)
 {
   __int64 Pool2; // rax

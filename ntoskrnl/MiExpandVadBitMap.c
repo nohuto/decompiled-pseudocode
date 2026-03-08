@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiExpandVadBitMap @ 0x1407295BC
+ * Callers:
+ *     MiInitializeVadCellBitMap @ 0x140729460 (MiInitializeVadCellBitMap.c)
+ *     MiFindEmptyAddressRange @ 0x1407D6F10 (MiFindEmptyAddressRange.c)
+ * Callees:
+ *     MiLocateLowestConflictingVad @ 0x1402A6F9C (MiLocateLowestConflictingVad.c)
+ *     MiMakeHyperRangeAccessible @ 0x1403219F0 (MiMakeHyperRangeAccessible.c)
+ *     MiUpdateVadBits @ 0x140729534 (MiUpdateVadBits.c)
+ *     MiExpandVadBitMapDown @ 0x140A3970C (MiExpandVadBitMapDown.c)
+ */
+
 __int64 __fastcall MiExpandVadBitMap(unsigned __int64 *a1, unsigned __int64 a2)
 {
   unsigned __int64 v3; // rdi

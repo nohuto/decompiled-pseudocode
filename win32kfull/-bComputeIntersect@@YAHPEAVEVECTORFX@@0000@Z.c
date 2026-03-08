@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bComputeIntersect@@YAHPEAVEVECTORFX@@0000@Z @ 0x1C02F323C
+ * Callers:
+ *     ?vAddJoin@WIDENER@@IEAAXH@Z @ 0x1C02F3FE8 (-vAddJoin@WIDENER@@IEAAXH@Z.c)
+ * Callees:
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0016964 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     bFToL @ 0x1C00D1C50 (bFToL.c)
+ */
+
 __int64 __fastcall bComputeIntersect(
         struct EVECTORFX *a1,
         struct EVECTORFX *a2,

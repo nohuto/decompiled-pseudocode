@@ -1,3 +1,17 @@
+/*
+ * XREFs of IopMcWaitAndCleanupBufferEntry @ 0x14055D068
+ * Callers:
+ *     IopIoRingCleanupRegBufferArray @ 0x1409462B4 (IopIoRingCleanupRegBufferArray.c)
+ *     IopIoRingDispatchRegisterBuffers @ 0x140946620 (IopIoRingDispatchRegisterBuffers.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     IopMcDereferenceBufferEntry @ 0x14055CAC0 (IopMcDereferenceBufferEntry.c)
+ *     IopMcTryUnlockMdl @ 0x14055D00C (IopMcTryUnlockMdl.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IopMcWaitAndCleanupBufferEntry(ULONG_PTR BugCheckParameter2)
 {
   int v2; // ecx

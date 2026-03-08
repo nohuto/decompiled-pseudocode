@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopSetSystemAwayMode @ 0x140987890
+ * Callers:
+ *     PopIssueActionRequest @ 0x140986CA4 (PopIssueActionRequest.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     PopDiagTraceEventNoPayload @ 0x1402FBBF8 (PopDiagTraceEventNoPayload.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     PopAcquireUserPresentSpinLock @ 0x14058B9DC (PopAcquireUserPresentSpinLock.c)
+ *     PopReleaseUserPresentSpinLock @ 0x14058BA00 (PopReleaseUserPresentSpinLock.c)
+ *     PopNotifyConsoleUserPresent @ 0x14073A3BC (PopNotifyConsoleUserPresent.c)
+ *     PopSetAwayModeStatus @ 0x14098780C (PopSetAwayModeStatus.c)
+ */
+
 __int64 __fastcall PopSetSystemAwayMode(int a1)
 {
   unsigned int v1; // ebx

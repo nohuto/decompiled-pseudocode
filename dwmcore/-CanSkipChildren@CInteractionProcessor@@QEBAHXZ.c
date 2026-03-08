@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CanSkipChildren@CInteractionProcessor@@QEBAHXZ @ 0x1801A936C
+ * Callers:
+ *     ?CanSkipChildren@CInteraction@@UEBAHXZ @ 0x180208B40 (-CanSkipChildren@CInteraction@@UEBAHXZ.c)
+ * Callees:
+ *     _anonymous_namespace_::GetTemporaryConfigWithMask @ 0x1800E9994 (_anonymous_namespace_--GetTemporaryConfigWithMask.c)
+ *     ?SupportsAllInteractions@?$CInputTypeContext@UDwmMousewheelInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@SA_NAEBV?$DynArray@UDwmMousewheelInteractionConfigurationPrimitive@@$0A@@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@1@Z @ 0x1801299A4 (-SupportsAllInteractions@-$CInputTypeContext@UDwmMousewheelInteractionConfigurationPrimitive@@U-.c)
+ */
+
 __int64 __fastcall CInteractionProcessor::CanSkipChildren(CInteractionProcessor *this)
 {
   __int64 v1; // r11

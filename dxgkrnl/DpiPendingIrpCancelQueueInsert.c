@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiPendingIrpCancelQueueInsert @ 0x1C005ECB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DpiPendingIrpCancelQueueInsert(struct _IO_CSQ *Csq, PIRP Irp)
 {
   struct _IO_CSQ *v2; // rcx

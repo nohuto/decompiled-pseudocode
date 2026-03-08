@@ -1,3 +1,17 @@
+/*
+ * XREFs of SymCryptModExpSquareAndMultiply32 @ 0x1404036D4
+ * Callers:
+ *     SymCryptModExpGeneric @ 0x140403668 (SymCryptModExpGeneric.c)
+ * Callees:
+ *     SymCryptIntGetValueLsbits32 @ 0x1403F3884 (SymCryptIntGetValueLsbits32.c)
+ *     SymCryptModElementCopy @ 0x1403F3AD4 (SymCryptModElementCopy.c)
+ *     SymCryptModElementCreate @ 0x1403F3AEC (SymCryptModElementCreate.c)
+ *     SymCryptModElementSetValueUint32 @ 0x1403F3C0C (SymCryptModElementSetValueUint32.c)
+ *     SymCryptModMul @ 0x1403F3D74 (SymCryptModMul.c)
+ *     SymCryptModSquare @ 0x1403F3E50 (SymCryptModSquare.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x1403F3F08 (SymCryptSizeofModElementFromModulus.c)
+ */
+
 __int64 __fastcall SymCryptModExpSquareAndMultiply32(
         _DWORD *a1,
         __int64 a2,

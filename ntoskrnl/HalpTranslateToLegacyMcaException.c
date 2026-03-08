@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpTranslateToLegacyMcaException @ 0x140501E70
+ * Callers:
+ *     HalpMcaReportError @ 0x140501778 (HalpMcaReportError.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void *__fastcall HalpTranslateToLegacyMcaException(__int64 a1, __int64 a2)
 {
   void *result; // rax

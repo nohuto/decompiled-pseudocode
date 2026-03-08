@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CSnapshot@@MEAA@XZ @ 0x1801BED4C
+ * Callers:
+ *     ??_ECSnapshot@@MEAAPEAXI@Z @ 0x1801C0970 (--_ECSnapshot@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18003CE64 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ */
+
 void __fastcall CSnapshot::~CSnapshot(CSnapshot *this)
 {
   __int64 v2; // rcx

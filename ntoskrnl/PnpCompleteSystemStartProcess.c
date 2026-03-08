@@ -1,3 +1,17 @@
+/*
+ * XREFs of PnpCompleteSystemStartProcess @ 0x14039C088
+ * Callers:
+ *     PnpDeviceActionWorker @ 0x140203020 (PnpDeviceActionWorker.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PnpDiagnosticTrace @ 0x1402B1760 (PnpDiagnosticTrace.c)
+ *     IopCallDriverReinitializationRoutines @ 0x140780438 (IopCallDriverReinitializationRoutines.c)
+ *     PpReleaseBootDDB @ 0x140842884 (PpReleaseBootDDB.c)
+ *     EtwWriteEndScenario @ 0x140842920 (EtwWriteEndScenario.c)
+ *     PiInitReleaseCachedGroupInformation @ 0x1408429D8 (PiInitReleaseCachedGroupInformation.c)
+ *     KseShimDatabaseBootRelease @ 0x140842A14 (KseShimDatabaseBootRelease.c)
+ */
+
 NTSTATUS PnpCompleteSystemStartProcess()
 {
   __int64 v0; // rcx

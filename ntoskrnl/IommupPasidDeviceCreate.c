@@ -1,3 +1,18 @@
+/*
+ * XREFs of IommupPasidDeviceCreate @ 0x14050C278
+ * Callers:
+ *     IommupDeviceEnableSvm @ 0x140930DD4 (IommupDeviceEnableSvm.c)
+ *     IommuPasidDeviceCreate @ 0x140932800 (IommuPasidDeviceCreate.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IommuGetLibraryContext @ 0x140520AF0 (IommuGetLibraryContext.c)
+ */
+
 __int64 __fastcall IommupPasidDeviceCreate(__int64 a1, unsigned int a2, __int64 *a3)
 {
   __int64 v3; // rsi

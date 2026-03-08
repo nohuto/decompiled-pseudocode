@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIBuildDeviceRequest @ 0x1C000C9C0
+ * Callers:
+ *     OSNotifyCreateDevice @ 0x1C0032738 (OSNotifyCreateDevice.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ */
+
 __int64 __fastcall ACPIBuildDeviceRequest(__int64 a1)
 {
   PVOID v2; // rax

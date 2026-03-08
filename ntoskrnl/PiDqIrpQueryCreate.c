@@ -1,3 +1,31 @@
+/*
+ * XREFs of PiDqIrpQueryCreate @ 0x140745F08
+ * Callers:
+ *     PiDqDispatch @ 0x140745C20 (PiDqDispatch.c)
+ * Callees:
+ *     IoSetActivityIdThread @ 0x140203940 (IoSetActivityIdThread.c)
+ *     IoClearActivityIdThread @ 0x140203960 (IoClearActivityIdThread.c)
+ *     PsGetCurrentThreadProcessId @ 0x140204F00 (PsGetCurrentThreadProcessId.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     McTemplateK0pqzzzzzzz_EtwWriteTransfer @ 0x14055F4A8 (McTemplateK0pqzzzzzzz_EtwWriteTransfer.c)
+ *     PnpIsNullGuid @ 0x140689294 (PnpIsNullGuid.c)
+ *     PiDqQuerySerializeActionQueue @ 0x140746290 (PiDqQuerySerializeActionQueue.c)
+ *     PiDqQueryValidateQueryData @ 0x140746B18 (PiDqQueryValidateQueryData.c)
+ *     PiDqIrpComplete @ 0x140746C78 (PiDqIrpComplete.c)
+ *     PiDqQueryGetNextIoctlInfo @ 0x14074715C (PiDqQueryGetNextIoctlInfo.c)
+ *     PiDqQueryFreeActiveData @ 0x1407910F8 (PiDqQueryFreeActiveData.c)
+ *     PnpConvertDevpropcompkeyArrayToString @ 0x1409558BC (PnpConvertDevpropcompkeyArrayToString.c)
+ *     PiDqConvertObjectTypeToString @ 0x14095907C (PiDqConvertObjectTypeToString.c)
+ *     PiDqConvertQueryFlagsToString @ 0x140959144 (PiDqConvertQueryFlagsToString.c)
+ *     FilterConvertToString @ 0x140A6C0C8 (FilterConvertToString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDqIrpQueryCreate(_QWORD *a1)
 {
   _QWORD *v1; // r13

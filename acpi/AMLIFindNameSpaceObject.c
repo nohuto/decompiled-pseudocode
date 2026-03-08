@@ -1,3 +1,17 @@
+/*
+ * XREFs of AMLIFindNameSpaceObject @ 0x1C0048110
+ * Callers:
+ *     ACPIIoctlEnumChildren @ 0x1C002FA10 (ACPIIoctlEnumChildren.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     FindNSObjMainNoLock @ 0x1C004B2F4 (FindNSObjMainNoLock.c)
+ *     GetBaseObject @ 0x1C004B918 (GetBaseObject.c)
+ *     GetObjectPath @ 0x1C004BB70 (GetObjectPath.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ */
+
 __int64 __fastcall AMLIFindNameSpaceObject(_QWORD *a1, __int64 a2, __int64 a3, _BYTE *a4)
 {
   size_t v7; // rbx

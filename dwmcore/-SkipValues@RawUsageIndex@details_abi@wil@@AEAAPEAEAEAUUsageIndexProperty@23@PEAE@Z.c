@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SkipValues@RawUsageIndex@details_abi@wil@@AEAAPEAEAEAUUsageIndexProperty@23@PEAE@Z @ 0x180196F90
+ * Callers:
+ *     ?RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z @ 0x1801965A0 (-RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z.c)
+ * Callees:
+ *     ?Read@UsageIndexProperty@details_abi@wil@@QEAA_NAEAPEAEPEAE@Z @ 0x180195F18 (-Read@UsageIndexProperty@details_abi@wil@@QEAA_NAEAPEAEPEAE@Z.c)
+ *     ?UpdateCount@UsageIndexProperty@details_abi@wil@@QEAAXI@Z @ 0x1801971F0 (-UpdateCount@UsageIndexProperty@details_abi@wil@@QEAAXI@Z.c)
+ */
+
 unsigned __int8 *__fastcall wil::details_abi::RawUsageIndex::SkipValues(
         wil::details_abi::RawUsageIndex *this,
         struct wil::details_abi::UsageIndexProperty *a2,

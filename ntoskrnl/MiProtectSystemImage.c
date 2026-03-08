@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiProtectSystemImage @ 0x14080A600
+ * Callers:
+ *     MiDriverLoadSucceeded @ 0x1407F6FFC (MiDriverLoadSucceeded.c)
+ *     MiWriteProtectSystemImages @ 0x14080A578 (MiWriteProtectSystemImages.c)
+ * Callees:
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiSetSystemCodeProtection @ 0x14032E170 (MiSetSystemCodeProtection.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14032E710 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiActOnLargeKernelHalPages @ 0x140809AB8 (MiActOnLargeKernelHalPages.c)
+ *     MiComputeDriverProtection @ 0x14080A918 (MiComputeDriverProtection.c)
+ */
+
 _OWORD *__fastcall MiProtectSystemImage(__int64 a1)
 {
   unsigned __int64 v1; // rbx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??$_Emplace_reallocate@VCVisualDepthGeometry@@@?$vector@VCVisualDepthGeometry@@V?$allocator@VCVisualDepthGeometry@@@std@@@std@@QEAAPEAVCVisualDepthGeometry@@QEAV2@$$QEAV2@@Z @ 0x18025663C
+ * Callers:
+ *     ?AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z @ 0x180256960 (-AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z.c)
+ * Callees:
+ *     ??$_Get_size_of_n@$0LA@@std@@YA_K_K@Z @ 0x18000744C (--$_Get_size_of_n@$0LA@@std@@YA_K_K@Z.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Uninitialized_move@PEAVCVisualDepthGeometry@@V?$allocator@VCVisualDepthGeometry@@@std@@@std@@YAPEAVCVisualDepthGeometry@@QEAV1@0PEAV1@AEAV?$allocator@VCVisualDepthGeometry@@@0@@Z @ 0x180256870 (--$_Uninitialized_move@PEAVCVisualDepthGeometry@@V-$allocator@VCVisualDepthGeometry@@@std@@@std@.c)
+ *     ?_Change_array@?$vector@VCVisualDepthGeometry@@V?$allocator@VCVisualDepthGeometry@@@std@@@std@@AEAAXQEAVCVisualDepthGeometry@@_K1@Z @ 0x180256DA0 (-_Change_array@-$vector@VCVisualDepthGeometry@@V-$allocator@VCVisualDepthGeometry@@@std@@@std@@A.c)
+ */
+
 _OWORD *__fastcall std::vector<CVisualDepthGeometry>::_Emplace_reallocate<CVisualDepthGeometry>(
         __int64 *a1,
         __int64 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeAbInitializeThreadState @ 0x140237DDC
+ * Callers:
+ *     KeInitThread @ 0x140A845D0 (KeInitThread.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KeAbInitializeThreadState(__int64 a1)
 {
   __int64 result; // rax

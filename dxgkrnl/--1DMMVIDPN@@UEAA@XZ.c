@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??1DMMVIDPN@@UEAA@XZ @ 0x1C0182038
+ * Callers:
+ *     ??_EDMMVIDPN@@UEAAPEAXI@Z @ 0x1C0004EC0 (--_EDMMVIDPN@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?FindByValue@?$Set@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@QEBV2@@Z @ 0x1C0004F40 (-FindByValue@-$Set@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@QEBV2@@Z.c)
+ *     ?ContainsByReference@?$DoublyLinkedList@VDMMVIDPN@@U?$DoubleLinkedListElementDeleter@VDMMVIDPN@@@@@@QEAAEQEBVDMMVIDPN@@@Z @ 0x1C0004FD0 (-ContainsByReference@-$DoublyLinkedList@VDMMVIDPN@@U-$DoubleLinkedListElementDeleter@VDMMVIDPN@@.c)
+ *     ??1?$auto_ptr@VDMMVIDPNSOURCESET@@@@QEAA@XZ @ 0x1C0005020 (--1-$auto_ptr@VDMMVIDPNSOURCESET@@@@QEAA@XZ.c)
+ *     ??1ReferenceCounted@@UEAA@XZ @ 0x1C000511C (--1ReferenceCounted@@UEAA@XZ.c)
+ *     ??1DMMVIDPNTOPOLOGY@@UEAA@XZ @ 0x1C000527C (--1DMMVIDPNTOPOLOGY@@UEAA@XZ.c)
+ */
+
 void __fastcall DMMVIDPN::~DMMVIDPN(DMMVIDPN *this)
 {
   __int64 v1; // rdi

@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlpInsertFreeBlock @ 0x1405AB78C
+ * Callers:
+ *     RtlpCreateSplitBlock @ 0x1405A9BA8 (RtlpCreateSplitBlock.c)
+ *     RtlpDeCommitFreeBlock @ 0x1405AA41C (RtlpDeCommitFreeBlock.c)
+ *     RtlpExtendHeap @ 0x1405AA9D8 (RtlpExtendHeap.c)
+ *     RtlpFreeHeap @ 0x1405AAE88 (RtlpFreeHeap.c)
+ *     RtlpInitializeHeapSegment @ 0x1405AB4DC (RtlpInitializeHeapSegment.c)
+ * Callees:
+ *     DbgPrint @ 0x1402BDD20 (DbgPrint.c)
+ *     RtlpLogHeapFailure @ 0x1405B2884 (RtlpLogHeapFailure.c)
+ *     RtlpHeapHandleError @ 0x1405B2C0C (RtlpHeapHandleError.c)
+ *     RtlpFindEntry @ 0x1405B2FB0 (RtlpFindEntry.c)
+ *     RtlpHeapAddListEntry @ 0x1405B30D4 (RtlpHeapAddListEntry.c)
+ */
+
 void __fastcall RtlpInsertFreeBlock(unsigned __int64 a1, __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v4; // r15

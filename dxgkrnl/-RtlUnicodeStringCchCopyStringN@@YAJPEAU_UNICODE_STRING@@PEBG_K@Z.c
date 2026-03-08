@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RtlUnicodeStringCchCopyStringN@@YAJPEAU_UNICODE_STRING@@PEBG_K@Z @ 0x1C0020D50
+ * Callers:
+ *     DpiFdoValidateKmdAndPnpVersionMatch @ 0x1C020F290 (DpiFdoValidateKmdAndPnpVersionMatch.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlUnicodeStringCchCopyStringN(struct _UNICODE_STRING *a1, wchar_t *a2, unsigned __int64 a3)
 {
   unsigned __int16 Length; // r10

@@ -1,3 +1,13 @@
+/*
+ * XREFs of SdbpMatchCpu @ 0x14085F3B0
+ * Callers:
+ *     SdbpCheckKObject @ 0x1407A1BD8 (SdbpCheckKObject.c)
+ * Callees:
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ *     SdbpMatchDeviceDWORD @ 0x140A4E964 (SdbpMatchDeviceDWORD.c)
+ *     SdbpMatchDeviceString @ 0x140A4E9F0 (SdbpMatchDeviceString.c)
+ */
+
 __int64 __fastcall SdbpMatchCpu(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v5; // ebx

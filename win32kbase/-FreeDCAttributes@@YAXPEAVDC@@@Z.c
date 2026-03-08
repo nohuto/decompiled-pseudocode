@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?FreeDCAttributes@@YAXPEAVDC@@@Z @ 0x1C0052474
+ * Callers:
+ *     GreSetDCOwnerEx @ 0x1C0041580 (GreSetDCOwnerEx.c)
+ * Callees:
+ *     ?GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z @ 0x1C004A2C0 (-GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z.c)
+ *     ?SaveAttributes@DC@@QEAAHPEAU_DC_ATTR@@@Z @ 0x1C0052D10 (-SaveAttributes@DC@@QEAAHPEAU_DC_ATTR@@@Z.c)
+ *     HmgFreeDcAttr @ 0x1C0053788 (HmgFreeDcAttr.c)
+ */
+
 void __fastcall FreeDCAttributes(struct DC *a1)
 {
   __int64 v2; // rax

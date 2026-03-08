@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpSysInfoShouldSkipProcess @ 0x14077503C
+ * Callers:
+ *     ExpGetProcessInformation @ 0x1406A9140 (ExpGetProcessInformation.c)
+ *     ExProcessCounterSetCallback @ 0x1409F2FF0 (ExProcessCounterSetCallback.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall ExpSysInfoShouldSkipProcess(__int64 a1)
 {
   char v1; // dl

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?TraceLoggingProcessUsageDataAggregationHelper@@YAXQEAUtagWND@@@Z @ 0x1C009C1A4
+ * Callers:
+ *     _anonymous_namespace_::xxxLocalActivateWindow @ 0x1C009E0E4 (_anonymous_namespace_--xxxLocalActivateWindow.c)
+ * Callees:
+ *     ?TraceLoggingProcessMonitorInfoUpdateHelper@@YAXQEAUtagWND@@H@Z @ 0x1C009940C (-TraceLoggingProcessMonitorInfoUpdateHelper@@YAXQEAUtagWND@@H@Z.c)
+ *     IsShellProcess @ 0x1C009C278 (IsShellProcess.c)
+ */
+
 void __fastcall TraceLoggingProcessUsageDataAggregationHelper(struct tagWND *const a1)
 {
   __int64 v2; // rcx

@@ -1,3 +1,26 @@
+/*
+ * XREFs of ExAcquireAutoExpandPushLockExclusive @ 0x14023A860
+ * Callers:
+ *     FsRtlRemovePerFileObjectContext @ 0x14023A530 (FsRtlRemovePerFileObjectContext.c)
+ *     FsRtlInsertPerFileObjectContext @ 0x14023A9B0 (FsRtlInsertPerFileObjectContext.c)
+ *     MiLockLoaderEntry @ 0x1402A6B58 (MiLockLoaderEntry.c)
+ *     FsRtlInsertPerFileContext @ 0x1402F8610 (FsRtlInsertPerFileContext.c)
+ *     FsRtlRemovePerFileContext @ 0x14053ABC0 (FsRtlRemovePerFileContext.c)
+ *     FsRtlRemovePerStreamContext @ 0x14053ACC0 (FsRtlRemovePerStreamContext.c)
+ *     MiFreePhysicalPages @ 0x140647F94 (MiFreePhysicalPages.c)
+ *     MiLockAwePagesExclusive @ 0x140648A44 (MiLockAwePagesExclusive.c)
+ *     MiLockAweVadsExclusive @ 0x140648A8C (MiLockAweVadsExclusive.c)
+ *     FsRtlTeardownPerStreamContexts @ 0x1406F3F30 (FsRtlTeardownPerStreamContexts.c)
+ *     FsRtlTeardownPerFileContexts @ 0x140769590 (FsRtlTeardownPerFileContexts.c)
+ * Callees:
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     ExpAcquireFannedOutPushLockExclusive @ 0x1403CA3BC (ExpAcquireFannedOutPushLockExclusive.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExAcquireAutoExpandPushLockExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
 {
   __int64 v2; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CalcScreenSaverTimeout@@YAXPEAU_UNICODE_STRING@@K@Z @ 0x1C00EBB24
+ * Callers:
+ *     xxxUpdatePerUserSystemParameters @ 0x1C010AFDC (xxxUpdatePerUserSystemParameters.c)
+ * Callees:
+ *     GetEasTimeout @ 0x1C00EBBB4 (GetEasTimeout.c)
+ */
+
 void __fastcall CalcScreenSaverTimeout(struct _UNICODE_STRING *a1, int a2)
 {
   unsigned int EasTimeout; // esi

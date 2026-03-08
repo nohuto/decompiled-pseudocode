@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlMergeRangeLists @ 0x1409B5CD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpAddRange @ 0x14081F654 (RtlpAddRange.c)
+ *     RtlCopyRangeList @ 0x14081FAD0 (RtlCopyRangeList.c)
+ *     RtlpCopyRangeListEntry @ 0x14081FB60 (RtlpCopyRangeListEntry.c)
+ *     RtlFreeRangeList @ 0x140820250 (RtlFreeRangeList.c)
+ */
+
 __int64 __fastcall RtlMergeRangeLists(__int64 a1, __int64 *a2, __int64 a3, unsigned int a4)
 {
   int v7; // ebx

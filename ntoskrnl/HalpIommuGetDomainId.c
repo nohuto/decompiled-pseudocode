@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpIommuGetDomainId @ 0x1403A4310
+ * Callers:
+ *     HalpIommuAcquireNewDomain @ 0x1403A4294 (HalpIommuAcquireNewDomain.c)
+ *     IommupDeviceEnableSvm @ 0x140930DD4 (IommupDeviceEnableSvm.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlFindClearBitsAndSet @ 0x14030CEE0 (RtlFindClearBitsAndSet.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpIommuGetDomainId(__int64 a1, ULONG *a2)
 {
   volatile signed __int64 *v3; // rdi

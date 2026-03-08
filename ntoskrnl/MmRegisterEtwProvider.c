@@ -1,3 +1,12 @@
+/*
+ * XREFs of MmRegisterEtwProvider @ 0x140B4276C
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     MiLogBadMapper @ 0x14062E9E8 (MiLogBadMapper.c)
+ *     TlgRegisterAggregateProviderEx @ 0x14080F588 (TlgRegisterAggregateProviderEx.c)
+ */
+
 __int64 MmRegisterEtwProvider()
 {
   __int64 result; // rax

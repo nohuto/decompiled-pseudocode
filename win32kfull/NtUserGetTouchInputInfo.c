@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserGetTouchInputInfo @ 0x1C01D4F90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     _FreeTouchInputInfo @ 0x1C01B1740 (_FreeTouchInputInfo.c)
+ */
+
 __int64 __fastcall NtUserGetTouchInputInfo(__int64 a1, unsigned int a2, volatile void *a3, int a4)
 {
   __int64 v6; // rbx

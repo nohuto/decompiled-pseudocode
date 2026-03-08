@@ -1,3 +1,15 @@
+/*
+ * XREFs of FsRtlpGetMaxVirtualDiskNestingLevel @ 0x1403AC834
+ * Callers:
+ *     FsRtlQueryMaximumVirtualDiskNestingLevel @ 0x1403BE320 (FsRtlQueryMaximumVirtualDiskNestingLevel.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ */
+
 __int64 FsRtlpGetMaxVirtualDiskNestingLevel()
 {
   unsigned int v0; // ebx

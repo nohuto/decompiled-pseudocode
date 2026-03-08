@@ -1,3 +1,20 @@
+/*
+ * XREFs of ACPIFanLoop @ 0x1C002759C
+ * Callers:
+ *     ACPIFanDeviceControl @ 0x1C00269A0 (ACPIFanDeviceControl.c)
+ *     ACPIFanEvent @ 0x1C0026EA0 (ACPIFanEvent.c)
+ *     ACPIFanFSTCallback @ 0x1C0026F60 (ACPIFanFSTCallback.c)
+ *     ACPIFanPowerCallback @ 0x1C0027860 (ACPIFanPowerCallback.c)
+ *     ACPIFanStopDevice @ 0x1C0027980 (ACPIFanStopDevice.c)
+ *     ACPIFanStartDevice @ 0x1C0085270 (ACPIFanStartDevice.c)
+ * Callees:
+ *     ACPIFanCompletePendingIrps @ 0x1C00266E0 (ACPIFanCompletePendingIrps.c)
+ *     ACPIFanFSTCallback @ 0x1C0026F60 (ACPIFanFSTCallback.c)
+ *     ACPISetDeviceWorker @ 0x1C00474D4 (ACPISetDeviceWorker.c)
+ *     AMLIAsyncEvalObject @ 0x1C00478E8 (AMLIAsyncEvalObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ */
+
 void __fastcall ACPIFanLoop(__int64 a1, int a2, int a3)
 {
   KSPIN_LOCK *v3; // r14

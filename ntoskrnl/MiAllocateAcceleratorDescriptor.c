@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiAllocateAcceleratorDescriptor @ 0x1402A9850
+ * Callers:
+ *     MiZeroInParallel @ 0x140242EB8 (MiZeroInParallel.c)
+ *     MiAbsorbPossibleEngineChanges @ 0x1402A87C4 (MiAbsorbPossibleEngineChanges.c)
+ *     MiZeroPageCalibrate @ 0x1403A50D0 (MiZeroPageCalibrate.c)
+ *     MiHugePageOperation @ 0x14061E158 (MiHugePageOperation.c)
+ *     MiZeroHugeRangeCore @ 0x140A2B20C (MiZeroHugeRangeCore.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A416B8 (MiAllocatePartitionPhysicalPages.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAllocatePoolMm @ 0x14034C1AC (ExAllocatePoolMm.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiEngineHasDescriptors @ 0x14065275C (MiEngineHasDescriptors.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiAllocateAcceleratorDescriptor(__int64 a1, int a2, __int64 a3, _QWORD *a4)
 {
   int v7; // r14d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of x86BiosReadPciAddressPort @ 0x140506224
+ * Callers:
+ *     x86BiosReadIoSpace @ 0x1403BC880 (x86BiosReadIoSpace.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall x86BiosReadPciAddressPort(int a1, unsigned __int16 a2)
 {
   unsigned int v2; // r8d

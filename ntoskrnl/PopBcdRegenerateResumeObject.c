@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopBcdRegenerateResumeObject @ 0x140999C24
+ * Callers:
+ *     PopBcdEstablishResumeObject @ 0x14082B658 (PopBcdEstablishResumeObject.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     BcdQueryObject @ 0x14082B5C0 (BcdQueryObject.c)
+ *     PopBcdSetDefaultResumeObjectElements @ 0x14082BFD0 (PopBcdSetDefaultResumeObjectElements.c)
+ *     BcdDeleteObject @ 0x14082C47C (BcdDeleteObject.c)
+ *     BcdCreateObject @ 0x14082C4D8 (BcdCreateObject.c)
+ *     PopBcdReadElement @ 0x14082C610 (PopBcdReadElement.c)
+ *     BcdSetElementDataWithFlags @ 0x14082D894 (BcdSetElementDataWithFlags.c)
+ *     BcdCloseObject @ 0x14082E5DC (BcdCloseObject.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopBcdRegenerateResumeObject(__int64 a1, void *a2, _QWORD *a3)
 {
   PVOID v3; // rsi

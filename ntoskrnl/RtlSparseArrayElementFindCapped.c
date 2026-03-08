@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlSparseArrayElementFindCapped @ 0x1405B4B40
+ * Callers:
+ *     RtlpHpVaMgrCtxFree @ 0x14030BD10 (RtlpHpVaMgrCtxFree.c)
+ * Callees:
+ *     RtlCSparseBitmapFindBitSetCapped @ 0x1403096E0 (RtlCSparseBitmapFindBitSetCapped.c)
+ */
+
 unsigned __int64 __fastcall RtlSparseArrayElementFindCapped(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 BitSetCapped; // rax

@@ -1,3 +1,27 @@
+/*
+ * XREFs of EmInitSystem @ 0x140B4CBA8
+ * Callers:
+ *     Phase1InitializationIoReady @ 0x140B42D0C (Phase1InitializationIoReady.c)
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1404123D0 (ZwReadFile.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x140412530 (ZwQueryInformationFile.c)
+ *     ZwEnumerateValueKey @ 0x140412570 (ZwEnumerateValueKey.c)
+ *     ZwQueryKey @ 0x1404125D0 (ZwQueryKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     ZwCreateFile @ 0x140412DB0 (ZwCreateFile.c)
+ *     RtlAppendStringToString @ 0x14078E880 (RtlAppendStringToString.c)
+ *     EmpProviderRegister @ 0x140810DB0 (EmpProviderRegister.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     HalRegisterErrataCallbacks @ 0x140B4CB70 (HalRegisterErrataCallbacks.c)
+ *     EmpParseInfDatabase @ 0x140B4CEE0 (EmpParseInfDatabase.c)
+ *     EmpCacheBiosDate @ 0x140B4EDC8 (EmpCacheBiosDate.c)
+ */
+
 __int64 __fastcall EmInitSystem(int a1, __int64 a2)
 {
   _DWORD *Pool2; // r14

@@ -1,3 +1,20 @@
+/*
+ * XREFs of KeRegisterProcessorChangeCallback @ 0x14080FF70
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExRegisterCallback @ 0x1402FBE90 (ExRegisterCallback.c)
+ *     ExUnregisterCallback @ 0x140302720 (ExUnregisterCallback.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     HalGetProcessorIdByNtNumber @ 0x1403810B0 (HalGetProcessorIdByNtNumber.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExCreateCallback @ 0x14078D4A0 (ExCreateCallback.c)
+ */
+
 PVOID __stdcall KeRegisterProcessorChangeCallback(
         PPROCESSOR_CALLBACK_FUNCTION CallbackFunction,
         PVOID CallbackContext,

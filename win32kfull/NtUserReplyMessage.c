@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserReplyMessage @ 0x1C000B690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SetWakeBit @ 0x1C0038B60 (SetWakeBit.c)
+ *     xxxInterSendMsgEx @ 0x1C004A280 (xxxInterSendMsgEx.c)
+ */
+
 __int64 __fastcall NtUserReplyMessage(__int64 a1)
 {
   __int64 v2; // rbx

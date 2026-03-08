@@ -1,3 +1,18 @@
+/*
+ * XREFs of IovAllocateIrp @ 0x140ABDCE0
+ * Callers:
+ *     IoAllocateIrp @ 0x140208CF0 (IoAllocateIrp.c)
+ *     IopAllocateIrpExReturn @ 0x140312290 (IopAllocateIrpExReturn.c)
+ *     IoAllocateIrpEx @ 0x140352E90 (IoAllocateIrpEx.c)
+ * Callees:
+ *     IopIsActivityTracingEnabled @ 0x1402B1D90 (IopIsActivityTracingEnabled.c)
+ *     IopAllocateIrpPrivate @ 0x1403122C0 (IopAllocateIrpPrivate.c)
+ *     IopInitActivityIdIrp @ 0x140553324 (IopInitActivityIdIrp.c)
+ *     IovpLogStackTrace @ 0x140ABEE08 (IovpLogStackTrace.c)
+ *     VfIoAllocateIrp1 @ 0x140ACA6E8 (VfIoAllocateIrp1.c)
+ *     VfIoAllocateIrp2 @ 0x140ACA760 (VfIoAllocateIrp2.c)
+ */
+
 PSLIST_ENTRY __fastcall IovAllocateIrp(__int64 a1, char a2, unsigned __int8 a3, __int64 a4)
 {
   unsigned int v5; // r14d

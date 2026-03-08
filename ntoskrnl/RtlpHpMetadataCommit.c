@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpHpMetadataCommit @ 0x1403C1314
+ * Callers:
+ *     RtlpHpHeapExtendContext @ 0x1402F8FAC (RtlpHpHeapExtendContext.c)
+ *     RtlpHpHeapAllocate @ 0x140375668 (RtlpHpHeapAllocate.c)
+ * Callees:
+ *     RtlpHpSegPageRangeCommit @ 0x1402499A0 (RtlpHpSegPageRangeCommit.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x1402B689C (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpMetadataHeapCtxGet @ 0x1402B72FC (RtlpHpMetadataHeapCtxGet.c)
+ *     RtlpHpSegDescriptorValidate @ 0x14030A740 (RtlpHpSegDescriptorValidate.c)
+ */
+
 __int64 __fastcall RtlpHpMetadataCommit(unsigned __int64 a1, int a2, unsigned __int64 a3, __int128 *a4, int a5)
 {
   char *v8; // r14

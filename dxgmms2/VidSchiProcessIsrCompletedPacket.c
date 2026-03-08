@@ -1,3 +1,13 @@
+/*
+ * XREFs of VidSchiProcessIsrCompletedPacket @ 0x1C000B650
+ * Callers:
+ *     VidSchDdiNotifyInterruptWorker @ 0x1C000B040 (VidSchDdiNotifyInterruptWorker.c)
+ * Callees:
+ *     VidSchiProfilePerformanceTick @ 0x1C0006E50 (VidSchiProfilePerformanceTick.c)
+ *     VidSchiUpdateContextRunningTimeAtISR @ 0x1C000B910 (VidSchiUpdateContextRunningTimeAtISR.c)
+ *     VidSchiUpdateCurrentIsrFrameTime @ 0x1C003CCC8 (VidSchiUpdateCurrentIsrFrameTime.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall VidSchiProcessIsrCompletedPacket(__int64 a1, unsigned int a2, int a3, _DWORD *a4)
 {

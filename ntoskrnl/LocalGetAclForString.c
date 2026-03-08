@@ -1,3 +1,39 @@
+/*
+ * XREFs of LocalGetAclForString @ 0x14074F18C
+ * Callers:
+ *     LocalConvertStringSDToSD_Rev1 @ 0x14074E300 (LocalConvertStringSDToSD_Rev1.c)
+ * Callees:
+ *     RtlLengthSid @ 0x140245EC0 (RtlLengthSid.c)
+ *     RtlGetAce @ 0x140245EE0 (RtlGetAce.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ *     wcstoul @ 0x1403D6370 (wcstoul.c)
+ *     wcsncpy_s @ 0x1403DA3B0 (wcsncpy_s.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlpAddKnownAce @ 0x1406D3290 (RtlpAddKnownAce.c)
+ *     RtlCopySid @ 0x1406D4890 (RtlCopySid.c)
+ *     RtlAddAce @ 0x1406DB760 (RtlAddAce.c)
+ *     LookupAccessMaskInTable @ 0x14075060C (LookupAccessMaskInTable.c)
+ *     LookupAceTypeInTable @ 0x1407506A4 (LookupAceTypeInTable.c)
+ *     SddlpAlloc @ 0x1407507C8 (SddlpAlloc.c)
+ *     LocalGetSidForString @ 0x140750A70 (LocalGetSidForString.c)
+ *     LocalGetSDDLDeliminator @ 0x140750C60 (LocalGetSDDLDeliminator.c)
+ *     LocalGetAceCount @ 0x140750CCC (LocalGetAceCount.c)
+ *     RtlNtStatusToDosError @ 0x140755BE0 (RtlNtStatusToDosError.c)
+ *     LookupAceFlagsInTable @ 0x14083F7B0 (LookupAceFlagsInTable.c)
+ *     SddlAddMandatoryAce @ 0x1408A1E92 (SddlAddMandatoryAce.c)
+ *     RtlAddAccessAllowedObjectAce @ 0x1409B7F70 (RtlAddAccessAllowedObjectAce.c)
+ *     RtlAddAccessDeniedObjectAce @ 0x1409B7FD0 (RtlAddAccessDeniedObjectAce.c)
+ *     RtlAddAuditAccessObjectAce @ 0x1409B82C0 (RtlAddAuditAccessObjectAce.c)
+ *     SddlAddAccessFilterAce @ 0x1409CF6F0 (SddlAddAccessFilterAce.c)
+ *     SddlAddProcessTrustLabelAce @ 0x1409CF92C (SddlAddProcessTrustLabelAce.c)
+ *     SddlAddScopedPolicyIDAce @ 0x1409CFA8C (SddlAddScopedPolicyIDAce.c)
+ *     SddlpUuidFromString @ 0x1409CFC78 (SddlpUuidFromString.c)
+ *     LocalGetConditionForString @ 0x1409D1B24 (LocalGetConditionForString.c)
+ *     LocalGetRelativeAttributeForString @ 0x1409D2214 (LocalGetRelativeAttributeForString.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall LocalGetAclForString(wchar_t *Str, char a2, __int64 *a3, wchar_t **a4)
 {
   wchar_t *v7; // r12

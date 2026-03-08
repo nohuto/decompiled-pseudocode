@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CColorBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00AE010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_a8f1926a06d95cad46304dfafce056fe___ @ 0x1C00AE04C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_a8f1926a06d95cad46304dfafce056f.c)
+ */
+
 char __fastcall DirectComposition::CColorBrushMarshaler::EmitUpdateCommands(
         DirectComposition::CColorBrushMarshaler *this,
         struct DirectComposition::CBatch **a2)

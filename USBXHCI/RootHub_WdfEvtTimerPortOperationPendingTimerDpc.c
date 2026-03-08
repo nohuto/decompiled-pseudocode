@@ -1,3 +1,13 @@
+/*
+ * XREFs of RootHub_WdfEvtTimerPortOperationPendingTimerDpc @ 0x1C0040950
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RootHub_DetectAndAcknowledgePortResume @ 0x1C0015630 (RootHub_DetectAndAcknowledgePortResume.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall RootHub_WdfEvtTimerPortOperationPendingTimerDpc(__int64 a1)
 {
   _QWORD ***v1; // rax

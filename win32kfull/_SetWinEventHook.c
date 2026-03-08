@@ -1,3 +1,18 @@
+/*
+ * XREFs of _SetWinEventHook @ 0x1C003952C
+ * Callers:
+ *     NtUserSetWinEventHook @ 0x1C00397B0 (NtUserSetWinEventHook.c)
+ * Callees:
+ *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C00394B4 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
+ *     ??0?$ObjectLockBase@$$V@?$DomainExclusiveBase@VDLT_HANDLEMANAGER@@@?$DomainSharedBase@$$V@@IEAA@XZ @ 0x1C00394D8 (--0-$ObjectLockBase@$$V@-$DomainExclusiveBase@VDLT_HANDLEMANAGER@@@-$DomainSharedBase@$$V@@IEAA@.c)
+ *     CategoryMaskFromEventRange @ 0x1C00399F4 (CategoryMaskFromEventRange.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     AddHmodDependency @ 0x1C009D860 (AddHmodDependency.c)
+ *     GetHmodTableIndex @ 0x1C009D950 (GetHmodTableIndex.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall SetWinEventHook(
         unsigned int a1,

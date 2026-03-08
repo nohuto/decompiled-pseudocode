@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiStrongCodeImage @ 0x140653A30
+ * Callers:
+ *     MiValidateSectionCreate @ 0x14069F890 (MiValidateSectionCreate.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiStrongCodeImage(__int64 a1, unsigned int a2)
 {
   unsigned __int64 v4; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ObjectInit@FlipManagerObject@@KAJPEAVDxgkCompositionObject@@PEAXPEAPEAVIDxgkCompositionObject@@@Z @ 0x1C0081740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0FlipManagerObject@@IEAA@XZ @ 0x1C00816A0 (--0FlipManagerObject@@IEAA@XZ.c)
+ *     ?Initialize@CFlipManager@@IEAAJPEAX@Z @ 0x1C0083400 (-Initialize@CFlipManager@@IEAAJPEAX@Z.c)
+ */
+
 __int64 __fastcall FlipManagerObject::ObjectInit(
         struct DxgkCompositionObject *a1,
         void *a2,

@@ -1,3 +1,18 @@
+/*
+ * XREFs of UserGlobalAtomTableCallout @ 0x1C0072268
+ * Callers:
+ *     DeleteProperties @ 0x1C0072500 (DeleteProperties.c)
+ *     RealInternalRemoveProp @ 0x1C008EB00 (RealInternalRemoveProp.c)
+ *     W32CalloutDispatch @ 0x1C00ED390 (W32CalloutDispatch.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     W32GetThreadWin32Thread @ 0x1C004E3B0 (W32GetThreadWin32Thread.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     IsProcessWin32kLockedOut @ 0x1C01598D0 (IsProcessWin32kLockedOut.c)
+ *     ApiSetEditionIsPerJobObjectAtomTableSupported @ 0x1C023F9A4 (ApiSetEditionIsPerJobObjectAtomTableSupported.c)
+ *     ApiSetIsCurrentProcessWinstaLocked @ 0x1C02453F0 (ApiSetIsCurrentProcessWinstaLocked.c)
+ */
+
 __int64 UserGlobalAtomTableCallout()
 {
   __int64 v0; // rbx

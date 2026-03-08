@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlTimelineBitmapMerge @ 0x14023840C
+ * Callers:
+ *     PsAddProcessEnergyValues @ 0x14023820C (PsAddProcessEnergyValues.c)
+ *     KeFoldProcessStatisticsThread @ 0x1402D3778 (KeFoldProcessStatisticsThread.c)
+ *     PsQueryProcessEnergyValues @ 0x1406B0B60 (PsQueryProcessEnergyValues.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlTimelineBitmapMerge(unsigned int *a1, unsigned int *a2)
 {
   __int64 result; // rax

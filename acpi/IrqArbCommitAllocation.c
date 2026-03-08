@@ -1,3 +1,24 @@
+/*
+ * XREFs of IrqArbCommitAllocation @ 0x1C009D040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     LinkNodeClearPossibleData @ 0x1C0099300 (LinkNodeClearPossibleData.c)
+ *     LinkNodeCopyData @ 0x1C0099338 (LinkNodeCopyData.c)
+ *     LinkNodeWriteStateToHardware @ 0x1C00995D0 (LinkNodeWriteStateToHardware.c)
+ *     PcisuppIsPciDevice @ 0x1C0099F68 (PcisuppIsPciDevice.c)
+ *     PcisuppWriteIntLine @ 0x1C009A378 (PcisuppWriteIntLine.c)
+ *     ProcessorCopyData @ 0x1C009A964 (ProcessorCopyData.c)
+ *     ProcessorpClearData @ 0x1C009B098 (ProcessorpClearData.c)
+ *     IrqArbpSetDeviceProperties @ 0x1C009E5F4 (IrqArbpSetDeviceProperties.c)
+ *     IcClearPossibleData @ 0x1C009EFD0 (IcClearPossibleData.c)
+ *     IcCopyData @ 0x1C009F078 (IcCopyData.c)
+ *     IcCopyInputStateToDeviceState @ 0x1C009F1D0 (IcCopyInputStateToDeviceState.c)
+ *     IcRemapInputs @ 0x1C009F490 (IcRemapInputs.c)
+ *     IrtClearDeletedMsiMappings @ 0x1C00A03EC (IrtClearDeletedMsiMappings.c)
+ *     IrtRemapNewMsiAssignments @ 0x1C00A0538 (IrtRemapNewMsiAssignments.c)
+ */
+
 __int64 __fastcall IrqArbCommitAllocation(__int64 a1)
 {
   struct _RTL_RANGE_LIST *v2; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DrvAddAdapterLuid@@YAJU_LUID@@@Z @ 0x1C001E208
+ * Callers:
+ *     DrvUpdateGraphicsDeviceList @ 0x1C001FAC0 (DrvUpdateGraphicsDeviceList.c)
+ *     ?DrvSetDisconnectedGraphicsDevice@@YAHH@Z @ 0x1C00227EC (-DrvSetDisconnectedGraphicsDevice@@YAHH@Z.c)
+ *     DrvAddMirrorDriversToRemoteList @ 0x1C00D7164 (DrvAddMirrorDriversToRemoteList.c)
+ * Callees:
+ *     ??8@YA_NAEBU_LUID@@0@Z @ 0x1C00A03C0 (--8@YA_NAEBU_LUID@@0@Z.c)
+ */
+
 __int64 __fastcall DrvAddAdapterLuid(struct _LUID a1)
 {
   __int64 v2; // r9

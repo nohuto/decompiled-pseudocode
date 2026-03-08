@@ -1,3 +1,13 @@
+/*
+ * XREFs of EncodeAttributeName @ 0x1409D019C
+ * Callers:
+ *     GetPrintableAttributeName @ 0x1409D0F74 (GetPrintableAttributeName.c)
+ *     LocalGetStringForRelativeAttribute @ 0x1409D2E2C (LocalGetStringForRelativeAttribute.c)
+ * Callees:
+ *     SddlpAlloc @ 0x1407507C8 (SddlpAlloc.c)
+ *     IsEncodedAttributeChar @ 0x1409D1A58 (IsEncodedAttributeChar.c)
+ */
+
 __int64 __fastcall EncodeAttributeName(unsigned __int16 *a1, unsigned int a2, __int64 *a3)
 {
   unsigned int v3; // ebx

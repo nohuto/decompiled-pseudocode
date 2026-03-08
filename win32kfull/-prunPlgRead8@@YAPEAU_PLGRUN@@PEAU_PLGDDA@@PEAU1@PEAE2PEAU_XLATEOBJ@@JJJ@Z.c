@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?prunPlgRead8@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C03027F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z @ 0x1C0152040 (-prunPumpDDA@@YAPEAU_PLGRUN@@PEAU_PLGDDA@@PEAU1@@Z.c)
+ *     ?vAdvXDDA@@YAXPEAU_PLGDDA@@@Z @ 0x1C030294C (-vAdvXDDA@@YAXPEAU_PLGDDA@@@Z.c)
+ */
+
 struct _PLGRUN *__fastcall prunPlgRead8(
         struct _PLGDDA *a1,
         struct _PLGRUN *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpWriteStdCmosData @ 0x14051DD10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpAcquireCmosSpinLock @ 0x1402D1A0C (HalpAcquireCmosSpinLock.c)
+ */
+
 __int64 __fastcall HalpWriteStdCmosData(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v4; // edi

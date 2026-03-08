@@ -1,3 +1,12 @@
+/*
+ * XREFs of NLS_DOWNCASE @ 0x1402E1428
+ * Callers:
+ *     RtlDowncaseUnicodeString @ 0x14076C0F0 (RtlDowncaseUnicodeString.c)
+ *     RtlDowncaseUnicodeChar @ 0x1408A1590 (RtlDowncaseUnicodeChar.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NLS_DOWNCASE(__int64 a1, int a2)
 {
   if ( (unsigned __int16)a2 < 0x41u )

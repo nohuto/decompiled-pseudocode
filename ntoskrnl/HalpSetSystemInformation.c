@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpSetSystemInformation @ 0x14085AF10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpGetCpuInfo @ 0x14037D1F0 (HalpGetCpuInfo.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpSetProfileSourceInterval @ 0x140505FB0 (HalpSetProfileSourceInterval.c)
+ *     HalpRegisterProcessorTraceInterruptHandler @ 0x14051F014 (HalpRegisterProcessorTraceInterruptHandler.c)
+ *     HalpRegisterProfileSourceInterruptHandler @ 0x14051F118 (HalpRegisterProfileSourceInterruptHandler.c)
+ *     HalpRegisterTimerInterruptHandler @ 0x14051F21C (HalpRegisterTimerInterruptHandler.c)
+ *     HaliSetSystemInformation @ 0x14085AF78 (HaliSetSystemInformation.c)
+ */
+
 __int64 __fastcall HalpSetSystemInformation(int a1, int a2, __int64 (__fastcall **a3)(_QWORD))
 {
   unsigned __int8 v6; // [rsp+30h] [rbp+8h] BYREF

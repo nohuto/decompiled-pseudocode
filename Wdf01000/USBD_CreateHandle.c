@@ -1,3 +1,16 @@
+/*
+ * XREFs of USBD_CreateHandle @ 0x1C0087C0C
+ * Callers:
+ *     ?InitDevice@FxUsbDevice@@QEAAJK@Z @ 0x1C005FFC8 (-InitDevice@FxUsbDevice@@QEAAJK@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C000AC00 (memset.c)
+ *     USBDInternal_BuildAndSendQueryInterfaceSynchronously @ 0x1C008752C (USBDInternal_BuildAndSendQueryInterfaceSynchronously.c)
+ *     USBDInternal_BuildServicePath @ 0x1C00876A8 (USBDInternal_BuildServicePath.c)
+ *     USBDInternal_QueryUsbVerifierSettings @ 0x1C0087980 (USBDInternal_QueryUsbVerifierSettings.c)
+ */
+
 __int64 __fastcall USBD_CreateHandle(
         _DEVICE_OBJECT *DeviceObject,
         _DEVICE_OBJECT *TargetDeviceObject,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_EBamoPeer@DiagnosticCallbacks_AutoBamos@@MEAAPEAXI@Z @ 0x1801B5DC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ *     ??1BaseBamoPeerImpl@BamoImpl@Microsoft@@UEAA@XZ @ 0x1801B5B4C (--1BaseBamoPeerImpl@BamoImpl@Microsoft@@UEAA@XZ.c)
+ */
+
 DiagnosticCallbacks_AutoBamos::BamoPeer *__fastcall DiagnosticCallbacks_AutoBamos::BamoPeer::`vector deleting destructor'(
         DiagnosticCallbacks_AutoBamos::BamoPeer *this,
         __int64 a2,

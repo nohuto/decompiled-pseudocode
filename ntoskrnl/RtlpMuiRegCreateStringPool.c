@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpMuiRegCreateStringPool @ 0x1408442EC
+ * Callers:
+ *     _RtlpMuiRegLoadInstalled @ 0x140844000 (_RtlpMuiRegLoadInstalled.c)
+ *     RtlpMuiRegResizeStringPool @ 0x140A72414 (RtlpMuiRegResizeStringPool.c)
+ * Callees:
+ *     _SafeAllocBlob @ 0x14039C924 (_SafeAllocBlob.c)
+ */
+
 __int64 __fastcall RtlpMuiRegCreateStringPool(int a1, int a2)
 {
   unsigned int v2; // ebx

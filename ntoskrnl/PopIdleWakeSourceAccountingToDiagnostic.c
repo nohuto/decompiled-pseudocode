@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopIdleWakeSourceAccountingToDiagnostic @ 0x140998254
+ * Callers:
+ *     PopIdleWakeNotifyModernStandbyExitWorker @ 0x140997860 (PopIdleWakeNotifyModernStandbyExitWorker.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopIdleWakeGenerateDescriptionString @ 0x14099739C (PopIdleWakeGenerateDescriptionString.c)
+ *     PopIdleWakeSourceAccountingBucketsToDiagnosticBuckets @ 0x140998098 (PopIdleWakeSourceAccountingBucketsToDiagnosticBuckets.c)
+ */
+
 signed int __fastcall PopIdleWakeSourceAccountingToDiagnostic(__int64 a1, _DWORD *a2)
 {
   unsigned __int16 v4; // dx

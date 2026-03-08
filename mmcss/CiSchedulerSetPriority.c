@@ -1,3 +1,15 @@
+/*
+ * XREFs of CiSchedulerSetPriority @ 0x1C00029B0
+ * Callers:
+ *     CiSchedulerUpdateTaskIndexPriorities @ 0x1C00020F0 (CiSchedulerUpdateTaskIndexPriorities.c)
+ *     CiSchedulerCommitPriority @ 0x1C0002720 (CiSchedulerCommitPriority.c)
+ *     CiSchedulerAddThread @ 0x1C0002840 (CiSchedulerAddThread.c)
+ *     CiSchedulerThreadFunction @ 0x1C0002E60 (CiSchedulerThreadFunction.c)
+ *     CiProcessSuspend @ 0x1C0004AE8 (CiProcessSuspend.c)
+ * Callees:
+ *     CiLogSchedulerEvent @ 0x1C0003EA0 (CiLogSchedulerEvent.c)
+ */
+
 char __fastcall CiSchedulerSetPriority(__int64 a1)
 {
   __int64 v2; // rax

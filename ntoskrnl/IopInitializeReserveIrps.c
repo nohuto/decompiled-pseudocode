@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopInitializeReserveIrps @ 0x140B6AAE8
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     IopAllocateIrpWithExtension @ 0x1402B18A4 (IopAllocateIrpWithExtension.c)
+ */
+
 char __fastcall IopInitializeReserveIrps(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdx

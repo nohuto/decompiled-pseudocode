@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpTryExpandAutoExpandPushLock @ 0x1403CF2A8
+ * Callers:
+ *     FsRtlLookupPerStreamContextInternal @ 0x140241910 (FsRtlLookupPerStreamContextInternal.c)
+ *     ExReleaseAutoExpandPushLockShared @ 0x1402623C0 (ExReleaseAutoExpandPushLockShared.c)
+ *     FsRtlLookupPerFileObjectContext @ 0x1402C1360 (FsRtlLookupPerFileObjectContext.c)
+ * Callees:
+ *     ExpAllocateFannedOutPushLock @ 0x1403CF30C (ExpAllocateFannedOutPushLock.c)
+ */
+
 void __fastcall ExpTryExpandAutoExpandPushLock(__int64 a1)
 {
   signed __int32 v2; // ebx

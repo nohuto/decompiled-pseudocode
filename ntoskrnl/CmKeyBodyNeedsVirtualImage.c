@@ -1,3 +1,19 @@
+/*
+ * XREFs of CmKeyBodyNeedsVirtualImage @ 0x140A15240
+ * Callers:
+ *     NtDeleteKey @ 0x1406B72F0 (NtDeleteKey.c)
+ *     NtDeleteValueKey @ 0x1406B9280 (NtDeleteValueKey.c)
+ *     NtSetInformationKey @ 0x1407590A0 (NtSetInformationKey.c)
+ *     NtSetValueKey @ 0x1407A9030 (NtSetValueKey.c)
+ *     NtRenameKey @ 0x140A0B350 (NtRenameKey.c)
+ * Callees:
+ *     CmpLockKcbShared @ 0x140AF20D0 (CmpLockKcbShared.c)
+ *     CmpUnlockKcb @ 0x140AF2140 (CmpUnlockKcb.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140AF21E0 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ */
+
 bool __fastcall CmKeyBodyNeedsVirtualImage(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   bool v4; // di

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPdcRegister @ 0x140856C8C
+ * Callers:
+ *     PopPdcInvocation @ 0x140856C3C (PopPdcInvocation.c)
+ * Callees:
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopPdcRegister(__int64 a1, _QWORD *a2)
 {
   unsigned int v2; // ebx

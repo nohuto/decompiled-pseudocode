@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopFxActivateComponentDependents @ 0x14030819C
+ * Callers:
+ *     PopFxCompleteComponentActivation @ 0x14030698C (PopFxCompleteComponentActivation.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopQueueQuerySetIrp @ 0x1402BAFA4 (PopQueueQuerySetIrp.c)
+ *     PopPluginComponentActive @ 0x14030721C (PopPluginComponentActive.c)
+ *     PopFxNextComponentChildRelationSafe @ 0x140308264 (PopFxNextComponentChildRelationSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 NTSTATUS __fastcall PopFxActivateComponentDependents(__int64 a1)
 {
   __int64 v1; // rdi

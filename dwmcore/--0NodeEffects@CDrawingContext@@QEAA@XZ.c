@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0NodeEffects@CDrawingContext@@QEAA@XZ @ 0x180092178
+ * Callers:
+ *     ?PushClipRectForCurrentNode@CDrawingContext@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEA_N@Z @ 0x180091F48 (-PushClipRectForCurrentNode@CDrawingContext@@QEAAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilP.c)
+ *     ?PushClipShapeForCurrentNode@CDrawingContext@@QEAAJ$$QEAVCShapePtr@@@Z @ 0x1801D30F4 (-PushClipShapeForCurrentNode@CDrawingContext@@QEAAJ$$QEAVCShapePtr@@@Z.c)
+ * Callees:
+ *     ?SetToZeroMatrix@CMILMatrix@@QEAAXXZ @ 0x180092384 (-SetToZeroMatrix@CMILMatrix@@QEAAXXZ.c)
+ */
+
 CDrawingContext::NodeEffects *__fastcall CDrawingContext::NodeEffects::NodeEffects(CDrawingContext::NodeEffects *this)
 {
   *(_QWORD *)this = 0LL;

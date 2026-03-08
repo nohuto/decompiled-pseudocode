@@ -1,3 +1,18 @@
+/*
+ * XREFs of IopLiveDumpMarkRequiredDumpData @ 0x140A98D24
+ * Callers:
+ *     IopLiveDumpCollectPages @ 0x140A97A84 (IopLiveDumpCollectPages.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x14055793C (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpTraceMarkRequiredDumpDataDuration @ 0x140558C74 (IopLiveDumpTraceMarkRequiredDumpDataDuration.c)
+ *     MmAddPrivateDataToCrashDump @ 0x14062DBE0 (MmAddPrivateDataToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x14062DD30 (MmAddRangeToCrashDump.c)
+ *     IopLiveDumpMarkDeviceNode @ 0x140A98920 (IopLiveDumpMarkDeviceNode.c)
+ *     IopLiveDumpMarkLoadedModuleList @ 0x140A98AFC (IopLiveDumpMarkLoadedModuleList.c)
+ *     IopLiveDumpMarkProcessorData @ 0x140A98C10 (IopLiveDumpMarkProcessorData.c)
+ */
+
 __int64 __fastcall IopLiveDumpMarkRequiredDumpData(__int64 a1, __int64 (__fastcall *a2)(_QWORD, _QWORD, __int64))
 {
   int v2; // eax

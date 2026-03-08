@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBHTX_SettingPortPowerUsingControlTransfer @ 0x1C00049BC
+ * Callers:
+ *     HUBPSM20_PoweringOnPortOnResume @ 0x1C0012600 (HUBPSM20_PoweringOnPortOnResume.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBMISC_ControlTransfer @ 0x1C0032664 (HUBMISC_ControlTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBHTX_SettingPortPowerUsingControlTransfer(__int64 a1)
 {
   char v2; // al

@@ -1,3 +1,16 @@
+/*
+ * XREFs of CcReapPrivateVolumeCachemap @ 0x1403BBD24
+ * Callers:
+ *     CcReapPrivateVolumeCachemapWorkerThread @ 0x1403BBC10 (CcReapPrivateVolumeCachemapWorkerThread.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     CcIsDirtyCachemapListEmptyForVolume @ 0x1402F76B8 (CcIsDirtyCachemapListEmptyForVolume.c)
+ *     CcNotifyWriteBehindVolume @ 0x1403BBE2C (CcNotifyWriteBehindVolume.c)
+ *     CcPostDeferredWrites @ 0x1403BBEB8 (CcPostDeferredWrites.c)
+ *     CcDeletePrivateVolumeCacheMap @ 0x1403BC0E4 (CcDeletePrivateVolumeCacheMap.c)
+ *     CcDeleteSectionsForPartition @ 0x140536B34 (CcDeleteSectionsForPartition.c)
+ */
+
 __int64 __fastcall CcReapPrivateVolumeCachemap(const void **P)
 {
   const void *v2; // rsi

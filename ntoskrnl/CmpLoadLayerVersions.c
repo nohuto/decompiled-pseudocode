@@ -1,3 +1,19 @@
+/*
+ * XREFs of CmpLoadLayerVersions @ 0x1408148C4
+ * Callers:
+ *     CmpLoadSystemVersionData @ 0x14081469C (CmpLoadSystemVersionData.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x140412950 (ZwEnumerateKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpLoadLayerVersion @ 0x140814A94 (CmpLoadLayerVersion.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall CmpLoadLayerVersions(
         void *Base,
         _DWORD *a2,

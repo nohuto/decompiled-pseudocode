@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwCreateCpuPartition @ 0x1404137D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwCreateCpuPartition(__int64 a1, __int64 a2)
 {
   _disable();

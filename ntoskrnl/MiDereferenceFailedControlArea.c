@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiDereferenceFailedControlArea @ 0x14085F4AC
+ * Callers:
+ *     MiFinishCreateSection @ 0x1407D0800 (MiFinishCreateSection.c)
+ *     MiCreateImageOrDataSection @ 0x1407D12B0 (MiCreateImageOrDataSection.c)
+ * Callees:
+ *     MiDereferenceControlAreaBySection @ 0x1403349EC (MiDereferenceControlAreaBySection.c)
+ *     MiAweControlArea @ 0x14034C968 (MiAweControlArea.c)
+ *     MiDeleteSectionAwe @ 0x140647390 (MiDeleteSectionAwe.c)
+ */
+
 __int64 __fastcall MiDereferenceFailedControlArea(int *a1)
 {
   int v1; // edx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Delete@CHwndTargetProp@@UEAAXXZ @ 0x1C00BEF00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?ClearSystemVisual@CHwndTargetProp@@QEAAHW4_HwndTargetType@@@Z @ 0x1C00BEF50 (-ClearSystemVisual@CHwndTargetProp@@QEAAHW4_HwndTargetType@@@Z.c)
+ */
+
 void __fastcall CHwndTargetProp::Delete(CHwndTargetProp *this)
 {
   int i; // edi

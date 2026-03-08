@@ -1,3 +1,14 @@
+/*
+ * XREFs of DbgLoadImageSymbols @ 0x14036C6D0
+ * Callers:
+ *     DbgLoadImageSymbolsUnicode @ 0x14036C5E8 (DbgLoadImageSymbolsUnicode.c)
+ *     KdInitSystem @ 0x140AAE040 (KdInitSystem.c)
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     DebugService2 @ 0x140420430 (DebugService2.c)
+ */
+
 __int64 __fastcall DbgLoadImageSymbols(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rax

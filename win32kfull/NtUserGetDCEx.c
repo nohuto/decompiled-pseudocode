@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserGetDCEx @ 0x1C00E06C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ */
+
 __int64 __fastcall NtUserGetDCEx(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebp

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopReadSimulateProcessorClasses @ 0x140B6D8DC
+ * Callers:
+ *     PopDetectSimulatedHeteroProcessors @ 0x140B6D7C4 (PopDetectSimulatedHeteroProcessors.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x140412950 (ZwEnumerateKey.c)
+ *     RtlUnicodeStringToInteger @ 0x140751D60 (RtlUnicodeStringToInteger.c)
+ *     PopReadLegacySimulateProcessorClass @ 0x140B93394 (PopReadLegacySimulateProcessorClass.c)
+ *     PopReadSimulateProcessorClass @ 0x140B934E4 (PopReadSimulateProcessorClass.c)
+ */
+
 char __fastcall PopReadSimulateProcessorClasses(unsigned int a1, __int64 a2)
 {
   char LegacySimulateProcessorClass; // si

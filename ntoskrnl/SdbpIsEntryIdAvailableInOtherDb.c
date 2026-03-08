@@ -1,3 +1,13 @@
+/*
+ * XREFs of SdbpIsEntryIdAvailableInOtherDb @ 0x140A4F5AC
+ * Callers:
+ *     SdbpCheckKObject @ 0x1407A1BD8 (SdbpCheckKObject.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbGetTagFromTagID @ 0x1407A2A70 (SdbGetTagFromTagID.c)
+ *     SdbMergeIsEntryUpdated @ 0x140A50A7C (SdbMergeIsEntryUpdated.c)
+ */
+
 __int64 __fastcall SdbpIsEntryIdAvailableInOtherDb(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int16 TagFromTagID; // ax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopTraceEsSetting @ 0x1403AD718
+ * Callers:
+ *     PopEsUpdateSetting @ 0x14085DF30 (PopEsUpdateSetting.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall PopTraceEsSetting(__int64 a1, int a2, unsigned __int8 a3)
 {
   NTSTATUS result; // eax

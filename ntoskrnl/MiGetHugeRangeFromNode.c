@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiGetHugeRangeFromNode @ 0x1403BF1C4
+ * Callers:
+ *     MiGetHugePageToZero @ 0x1402E41D8 (MiGetHugePageToZero.c)
+ *     MmAllocateMemoryRanges @ 0x140A2B5D0 (MmAllocateMemoryRanges.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A416B8 (MiAllocatePartitionPhysicalPages.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiBeginPageAccessor @ 0x140350290 (MiBeginPageAccessor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiHugePageOperation @ 0x14061E158 (MiHugePageOperation.c)
+ *     MiInsertHugeRangeInList @ 0x14061EB84 (MiInsertHugeRangeInList.c)
+ *     MiLockHugePfn @ 0x14061EFAC (MiLockHugePfn.c)
+ *     MiLockHugePfnInternal @ 0x14061F020 (MiLockHugePfnInternal.c)
+ *     MiUnlinkHugeRange @ 0x140620680 (MiUnlinkHugeRange.c)
+ */
+
 unsigned __int64 __fastcall MiGetHugeRangeFromNode(__int64 a1, unsigned int a2, int a3, unsigned __int64 a4)
 {
   __int64 v4; // rsi

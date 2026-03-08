@@ -1,3 +1,14 @@
+/*
+ * XREFs of KeCleanupThreadState @ 0x1402D35E4
+ * Callers:
+ *     PspThreadDelete @ 0x14075E4B0 (PspThreadDelete.c)
+ * Callees:
+ *     KeFlushQueuedDpcs @ 0x1402AF200 (KeFlushQueuedDpcs.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall KeCleanupThreadState(ULONG_PTR BugCheckParameter1)
 {
   unsigned __int8 CurrentIrql; // bp

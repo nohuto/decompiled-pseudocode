@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?xxxTooltipRender@@YAXPEAUtagTOOLTIPWND@@PEAUHDC__@@@Z @ 0x1C0228B58
+ * Callers:
+ *     xxxTooltipWndProc @ 0x1C00FA000 (xxxTooltipWndProc.c)
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     FillRect @ 0x1C00881F8 (FillRect.c)
+ *     GetDPIMETRICSForDpi @ 0x1C00A11BC (GetDPIMETRICSForDpi.c)
+ *     GreExtTextOutW @ 0x1C0113604 (GreExtTextOutW.c)
+ *     GreSetBkColor @ 0x1C0113964 (GreSetBkColor.c)
+ *     GreSetTextColor @ 0x1C0113D94 (GreSetTextColor.c)
+ *     GreSelectFontInternal @ 0x1C0116F84 (GreSelectFontInternal.c)
+ *     GreSetBkMode @ 0x1C0118028 (GreSetBkMode.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     xxxClientExtTextOutW @ 0x1C0214CF4 (xxxClientExtTextOutW.c)
+ *     CALL_LPK @ 0x1C0228CCC (CALL_LPK.c)
+ */
+
 void __fastcall xxxTooltipRender(const WCHAR **a1, Gre::Base *a2)
 {
   __int64 DPIMETRICSForDpi; // rax

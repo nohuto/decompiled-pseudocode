@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiGetPageForHeader @ 0x1402140A4
+ * Callers:
+ *     MiInitializeImageProtos @ 0x140213DD0 (MiInitializeImageProtos.c)
+ *     MiPfPutPagesInTransition @ 0x140288890 (MiPfPutPagesInTransition.c)
+ *     MiCreateMdl @ 0x1407F223C (MiCreateMdl.c)
+ * Callees:
+ *     MiGetSystemPage @ 0x1402141C8 (MiGetSystemPage.c)
+ *     MiGetEffectivePagePriorityThread @ 0x14028A260 (MiGetEffectivePagePriorityThread.c)
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiReturnFaultCharges @ 0x1402F4480 (MiReturnFaultCharges.c)
+ *     MiObtainFaultCharges @ 0x14031EEE0 (MiObtainFaultCharges.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall MiGetPageForHeader(__int64 a1, unsigned int a2)
 {
   struct _KTHREAD *CurrentThread; // r14

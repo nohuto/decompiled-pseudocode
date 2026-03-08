@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpMuiRegGetInstalledLangInfoIndex @ 0x140A71C80
+ * Callers:
+ *     _RtlpMuiRegValidateLIPLanguage @ 0x140A73198 (_RtlpMuiRegValidateLIPLanguage.c)
+ *     _RtlpMuiRegValidatePartialLanguage @ 0x140A733DC (_RtlpMuiRegValidatePartialLanguage.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpMuiRegGetInstalledLangInfoIndex(__int64 a1, int a2, __int16 a3, __int16 *a4)
 {
   int v5; // edx

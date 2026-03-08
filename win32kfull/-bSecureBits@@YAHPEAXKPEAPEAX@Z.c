@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bSecureBits@@YAHPEAXKPEAPEAX@Z @ 0x1C02CA544
+ * Callers:
+ *     NtGdiEngCreatePalette @ 0x1C02CBC30 (NtGdiEngCreatePalette.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bSecureBits(char *a1, unsigned int a2, void **a3)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of WerpCreateRegistryKey @ 0x1C00549D4
+ * Callers:
+ *     WerKernelCreateReport @ 0x1C0053E44 (WerKernelCreateReport.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WerpCreateRegistryKey(
         void *a1,
         const WCHAR *a2,

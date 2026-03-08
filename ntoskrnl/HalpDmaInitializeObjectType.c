@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpDmaInitializeObjectType @ 0x1403982FC
+ * Callers:
+ *     HalpDmaInitEarly @ 0x140B60D2C (HalpDmaInitEarly.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObCreateObjectType @ 0x14080CB00 (ObCreateObjectType.c)
+ */
+
 __int64 HalpDmaInitializeObjectType()
 {
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-39h] BYREF

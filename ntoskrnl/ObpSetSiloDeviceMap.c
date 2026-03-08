@@ -1,3 +1,13 @@
+/*
+ * XREFs of ObpSetSiloDeviceMap @ 0x140855394
+ * Callers:
+ *     ObpCreateDosDevicesDirectory @ 0x140855150 (ObpCreateDosDevicesDirectory.c)
+ * Callees:
+ *     PsGetEffectiveServerSilo @ 0x140294DF0 (PsGetEffectiveServerSilo.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402992F0 (PdcCreateWatchdogAroundClientCall.c)
+ *     ObpSetDeviceMap @ 0x14078990C (ObpSetDeviceMap.c)
+ */
+
 NTSTATUS __fastcall ObpSetSiloDeviceMap(__int64 a1, void *a2, __int64 *a3)
 {
   void *EffectiveServerSilo; // rax

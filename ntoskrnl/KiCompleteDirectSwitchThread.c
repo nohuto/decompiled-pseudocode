@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiCompleteDirectSwitchThread @ 0x140369F84
+ * Callers:
+ *     KeReleaseSemaphoreEx @ 0x14033E940 (KeReleaseSemaphoreEx.c)
+ * Callees:
+ *     KiRemoveBoostThread @ 0x140229890 (KiRemoveBoostThread.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x14036A030 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall KiCompleteDirectSwitchThread(__int64 a1, __int64 a2)
 {
   int v2; // eax

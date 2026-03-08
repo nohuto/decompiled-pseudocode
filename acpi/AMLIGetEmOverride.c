@@ -1,3 +1,11 @@
+/*
+ * XREFs of AMLIGetEmOverride @ 0x1C00AB588
+ * Callers:
+ *     AMLIInitialize @ 0x1C00AAAB0 (AMLIInitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 AMLIGetEmOverride()
 {
   __int64 result; // rax

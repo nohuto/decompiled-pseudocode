@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiIndirectCbDisableRenderD3Requests @ 0x1C039FDE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ */
+
 __int64 __fastcall DpiIndirectCbDisableRenderD3Requests(PDEVICE_OBJECT DeviceObject, int a2, __int64 a3)
 {
   _DWORD *DeviceExtension; // rax

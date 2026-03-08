@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiMakePageBad @ 0x14065BCD0
+ * Callers:
+ *     MiScrubLargeMappedPage @ 0x14065BE5C (MiScrubLargeMappedPage.c)
+ *     MiScrubNode @ 0x140A43A10 (MiScrubNode.c)
+ * Callees:
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiAcquireNonPagedResources @ 0x140348D54 (MiAcquireNonPagedResources.c)
+ *     MiIsPageOnBadList @ 0x14034B1D0 (MiIsPageOnBadList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiSetPfnRemovalRequested @ 0x14064B908 (MiSetPfnRemovalRequested.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiMakePageBad(ULONG_PTR a1, char a2)
 {
   __int64 v4; // rdi

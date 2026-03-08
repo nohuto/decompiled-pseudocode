@@ -1,3 +1,11 @@
+/*
+ * XREFs of RawInputManagerDeviceObjectCreateKernelHandle @ 0x1C00372A0
+ * Callers:
+ *     rimCreateDev @ 0x1C00371D0 (rimCreateDev.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall RawInputManagerDeviceObjectCreateKernelHandle(
         _DWORD *a1,
         __int64 a2,

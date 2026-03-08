@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpCoverageUserIsAdmin @ 0x1409E5B48
+ * Callers:
+ *     EtwSetProcessTelemetryCoverage @ 0x140871478 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwQueryProcessTelemetryCoverage @ 0x1409E52A8 (EtwQueryProcessTelemetryCoverage.c)
+ * Callees:
+ *     SeUnlockSubjectContext @ 0x140699470 (SeUnlockSubjectContext.c)
+ *     SeLockSubjectContext @ 0x1406994B0 (SeLockSubjectContext.c)
+ *     SeTokenIsAdmin @ 0x1407819E0 (SeTokenIsAdmin.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ */
+
 BOOLEAN EtwpCoverageUserIsAdmin()
 {
   PACCESS_TOKEN PrimaryToken; // rcx

@@ -1,3 +1,20 @@
+/*
+ * XREFs of ExpWnfDeletePermanentStateData @ 0x140A046AC
+ * Callers:
+ *     NtDeleteWnfStateName @ 0x140778FE0 (NtDeleteWnfStateName.c)
+ *     ExpNtDeleteWnfStateData @ 0x14085860C (ExpNtDeleteWnfStateData.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x140413EB0 (ZwDeleteValueKey.c)
+ *     ExpWnfComposeValueName @ 0x14071C674 (ExpWnfComposeValueName.c)
+ *     ExpWnfAcquirePermanentDataStoreHandle @ 0x140793770 (ExpWnfAcquirePermanentDataStoreHandle.c)
+ *     ExpWnfGetPermanentDataStore @ 0x140794E80 (ExpWnfGetPermanentDataStore.c)
+ *     ExpWnfEnumeratePermanentDataStoreHandles @ 0x140A04A04 (ExpWnfEnumeratePermanentDataStoreHandles.c)
+ */
+
 __int64 __fastcall ExpWnfDeletePermanentStateData(__int64 a1, unsigned __int64 a2)
 {
   __int64 v3; // rbx

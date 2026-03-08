@@ -1,3 +1,11 @@
+/*
+ * XREFs of InvalidateWEFCOMPOSITEDDCEs @ 0x1C0005ACC
+ * Callers:
+ *     xxxSystemTimerProc @ 0x1C0005A50 (xxxSystemTimerProc.c)
+ * Callees:
+ *     FlushWEFCOMPOSITEDDCEBounds @ 0x1C0016990 (FlushWEFCOMPOSITEDDCEBounds.c)
+ */
+
 __int64 InvalidateWEFCOMPOSITEDDCEs()
 {
   __int64 *i; // rbx

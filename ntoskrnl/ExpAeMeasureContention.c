@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpAeMeasureContention @ 0x140391544
+ * Callers:
+ *     ExpAeThresholdInitWorker @ 0x1403914A0 (ExpAeThresholdInitWorker.c)
+ *     ExpAeThresholdInitialization @ 0x140B5E160 (ExpAeThresholdInitialization.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall ExpAeMeasureContention(signed __int64 *a1)
 {
   unsigned __int64 v1; // r8

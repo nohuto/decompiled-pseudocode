@@ -1,3 +1,16 @@
+/*
+ * XREFs of SmpKeyedStoreReference @ 0x1405C78E8
+ * Callers:
+ *     SmpPageWrite @ 0x1405C7990 (SmpPageWrite.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     SmKmStoreReference @ 0x140356410 (SmKmStoreReference.c)
+ *     SmpKeyedStoreEntryGet @ 0x14035BDC0 (SmpKeyedStoreEntryGet.c)
+ */
+
 __int64 __fastcall SmpKeyedStoreReference(signed __int64 *BugCheckParameter2, __int64 a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rax

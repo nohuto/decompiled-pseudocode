@@ -1,3 +1,22 @@
+/*
+ * XREFs of GreDwmStartup @ 0x1C00C2644
+ * Callers:
+ *     zzzDwmStartRedirection @ 0x1C007CEC8 (zzzDwmStartRedirection.c)
+ * Callees:
+ *     ?LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z @ 0x1C001EE54 (-LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z.c)
+ *     ?ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z @ 0x1C001EFA4 (-ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z.c)
+ *     ?vAccNotify@@YAXPEAU_SURFOBJ@@KPEAX@Z @ 0x1C00271A0 (-vAccNotify@@YAXPEAU_SURFOBJ@@KPEAX@Z.c)
+ *     ?GrepDwmCreateComposedEvent@@YAJPEAUDwmState@@@Z @ 0x1C00C1E48 (-GrepDwmCreateComposedEvent@@YAJPEAUDwmState@@@Z.c)
+ *     ?SpRenderHint@@YAJAEAVPDEVOBJ@@W4_RENDERHINT_NOTIFY@@_KPEAX@Z @ 0x1C00C28A4 (-SpRenderHint@@YAJAEAVPDEVOBJ@@W4_RENDERHINT_NOTIFY@@_KPEAX@Z.c)
+ *     ?bDwmDeviceBitmapsEnabled@@YAHXZ @ 0x1C00C2908 (-bDwmDeviceBitmapsEnabled@@YAHXZ.c)
+ *     ?bDwmDeviceBitmapsEnabledForMultiAdapter@@YAHXZ @ 0x1C00C2A40 (-bDwmDeviceBitmapsEnabledForMultiAdapter@@YAHXZ.c)
+ *     ?bDwmOverlayTestMode@@YAHXZ @ 0x1C00C2B78 (-bDwmOverlayTestMode@@YAHXZ.c)
+ *     ?bDwmDesktopOverlaysEnabled@@YAHXZ @ 0x1C00C2CA4 (-bDwmDesktopOverlaysEnabled@@YAHXZ.c)
+ *     ?bDwmResizeOptimizationOverride@@YAHPEAK00@Z @ 0x1C00C2DC4 (-bDwmResizeOptimizationOverride@@YAHPEAK00@Z.c)
+ *     ?bDwmChildWindowDpiIsolationEnabled@@YAHXZ @ 0x1C00C2FA0 (-bDwmChildWindowDpiIsolationEnabled@@YAHXZ.c)
+ *     GreSfmDwmStartup @ 0x1C00C30D4 (GreSfmDwmStartup.c)
+ */
+
 __int64 __fastcall GreDwmStartup(Gre::Base *a1)
 {
   int v2; // edi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??4MonitorData@CCursorState@@QEAAAEAU01@$$QEAU01@@Z @ 0x180275CBC
+ * Callers:
+ *     ?EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z @ 0x180087264 (-EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z.c)
+ *     ?erase@?$vector@UMonitorData@CCursorState@@V?$allocator@UMonitorData@CCursorState@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@UMonitorData@CCursorState@@@std@@@std@@@2@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@UMonitorData@CCursorState@@@std@@@std@@@2@@Z @ 0x180278964 (-erase@-$vector@UMonitorData@CCursorState@@V-$allocator@UMonitorData@CCursorState@@@std@@@std@@Q.c)
+ * Callees:
+ *     ??4?$shared_ptr@VCRegion@@@std@@QEAAAEAV01@$$QEAV01@@Z @ 0x1801D8440 (--4-$shared_ptr@VCRegion@@@std@@QEAAAEAV01@$$QEAV01@@Z.c)
+ */
+
 __int64 __fastcall CCursorState::MonitorData::operator=(__int64 a1, __int64 a2)
 {
   *(_QWORD *)a1 = *(_QWORD *)a2;

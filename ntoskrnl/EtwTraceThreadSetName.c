@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceThreadSetName @ 0x1407EB604
+ * Callers:
+ *     NtSetInformationThread @ 0x1406D8E90 (NtSetInformationThread.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall EtwTraceThreadSetName(__int64 a1)
 {
   unsigned int v1; // r10d

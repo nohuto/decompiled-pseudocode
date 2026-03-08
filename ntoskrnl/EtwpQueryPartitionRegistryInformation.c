@@ -1,3 +1,22 @@
+/*
+ * XREFs of EtwpQueryPartitionRegistryInformation @ 0x140395114
+ * Callers:
+ *     EtwpContainerStateWnfCallback @ 0x1405F9B70 (EtwpContainerStateWnfCallback.c)
+ *     EtwpInitializeSiloState @ 0x14083BE04 (EtwpInitializeSiloState.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     StringToGuidNoBrackets @ 0x140395354 (StringToGuidNoBrackets.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlQueryRegistryValuesEx @ 0x14069DF10 (RtlQueryRegistryValuesEx.c)
+ *     RtlUnicodeToUTF8N @ 0x1407A3750 (RtlUnicodeToUTF8N.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpQueryPartitionRegistryInformation(
         GUID *a1,
         PVOID *a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Initialize@DisplayDiagnostics@@QEAAXXZ @ 0x1C0023B7C
+ * Callers:
+ *     ?Initialize@DXGGLOBAL@@QEAAJXZ @ 0x1C0205878 (-Initialize@DXGGLOBAL@@QEAAJXZ.c)
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ?Stop@LongPowerButtonHoldListener@@QEAAXXZ @ 0x1C004B174 (-Stop@LongPowerButtonHoldListener@@QEAAXXZ.c)
+ *     ?Initialize@DXGBLACKBOX@@QEAAJXZ @ 0x1C0218BDC (-Initialize@DXGBLACKBOX@@QEAAJXZ.c)
+ */
+
 void __fastcall DisplayDiagnostics::Initialize(char *Context)
 {
   int v2; // eax

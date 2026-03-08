@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_ddiiii @ 0x1C003B93C
+ * Callers:
+ *     ACPIRangeValidatePciMemoryResource @ 0x1C003B0EC (ACPIRangeValidatePciMemoryResource.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_ddiiii(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
 {
   int v7; // [rsp+28h] [rbp-51h]

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpMceRecoveryMemoryErrorIntel @ 0x140516CDC
+ * Callers:
+ *     HalpMceRecoveryRequired @ 0x140516F9C (HalpMceRecoveryRequired.c)
+ * Callees:
+ *     HalpHvMceConsumedMemoryErrorRecovery @ 0x1405092C0 (HalpHvMceConsumedMemoryErrorRecovery.c)
+ *     HalpMceMemoryErrorRecovery @ 0x140516980 (HalpMceMemoryErrorRecovery.c)
+ */
+
 __int64 __fastcall HalpMceRecoveryMemoryErrorIntel(__int64 a1)
 {
   __int64 v1; // rdx

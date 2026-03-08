@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiVmbusInterruptSubDispatch @ 0x14041DF70
+ * Callers:
+ *     KiVmbusInterruptDispatch @ 0x14041D9E0 (KiVmbusInterruptDispatch.c)
+ * Callees:
+ *     EtwGetKernelTraceTimestamp @ 0x140250530 (EtwGetKernelTraceTimestamp.c)
+ *     KiEndThreadAccountingPeriod @ 0x1402566F0 (KiEndThreadAccountingPeriod.c)
+ *     KiEntropyQueueDpc @ 0x1402F31A0 (KiEntropyQueueDpc.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PerfInfoLogInterruptHv @ 0x14045FDE0 (PerfInfoLogInterruptHv.c)
+ *     HvlDummyInterruptCallback @ 0x14053D1B0 (HvlDummyInterruptCallback.c)
+ *     KzSetIrqlUnsafe @ 0x140569C60 (KzSetIrqlUnsafe.c)
+ */
+
 __int64 __fastcall KiVmbusInterruptSubDispatch()
 {
   __int64 v0; // rbp

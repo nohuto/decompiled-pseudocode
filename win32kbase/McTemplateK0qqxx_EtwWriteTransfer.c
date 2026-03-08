@@ -1,3 +1,13 @@
+/*
+ * XREFs of McTemplateK0qqxx_EtwWriteTransfer @ 0x1C01674B8
+ * Callers:
+ *     EtwGdiSysMemToken @ 0x1C00D4940 (EtwGdiSysMemToken.c)
+ *     EtwTraceTokenIndependentFlipSkipCompleteEvent @ 0x1C00EDE60 (EtwTraceTokenIndependentFlipSkipCompleteEvent.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0qqxx_EtwWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

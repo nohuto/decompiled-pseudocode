@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetFrameRate@CDebugFrameCounter@@QEAAIXZ @ 0x1801EFB90
+ * Callers:
+ *     ?RenderDebugFrameCounter@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@@Z @ 0x1801E493C (-RenderDebugFrameCounter@CLegacyRenderTarget@@IEAAJPEAVCDrawingContext@@@Z.c)
+ * Callees:
+ *     ?GetFrameCountInternal@CDebugFrameCounter@@IEAAIXZ @ 0x1801EFB5C (-GetFrameCountInternal@CDebugFrameCounter@@IEAAIXZ.c)
+ */
+
 __int64 __fastcall CDebugFrameCounter::GetFrameRate(CDebugFrameCounter *this)
 {
   int FrameCountInternal; // eax

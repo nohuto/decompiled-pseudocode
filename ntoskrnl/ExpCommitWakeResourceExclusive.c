@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpCommitWakeResourceExclusive @ 0x1403C60E0
+ * Callers:
+ *     ExpReleaseFastResourceExclusive @ 0x1403C5EA4 (ExpReleaseFastResourceExclusive.c)
+ *     ExpReleaseDisownedFastResourceExclusive @ 0x1406082E4 (ExpReleaseDisownedFastResourceExclusive.c)
+ * Callees:
+ *     KeWakeWaitChain @ 0x14033AF30 (KeWakeWaitChain.c)
+ */
+
 __int64 __fastcall ExpCommitWakeResourceExclusive(
         __int64 a1,
         volatile signed __int32 **a2,

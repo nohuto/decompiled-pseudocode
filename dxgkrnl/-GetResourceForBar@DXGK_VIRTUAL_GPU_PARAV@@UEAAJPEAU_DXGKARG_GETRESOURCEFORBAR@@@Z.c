@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetResourceForBar@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_GETRESOURCEFORBAR@@@Z @ 0x1C01E03A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DXGK_VIRTUAL_GPU_PARAV::GetResourceForBar(
         DXGK_VIRTUAL_GPU_PARAV *this,
         struct _DXGKARG_GETRESOURCEFORBAR *a2)

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?ProcessModeChange@RapidHPD@@YA_NW4_DXGK_RAPID_HPD_TYPE@@PEAU_GUID@@PEAVCMonitorTopology@@@Z @ 0x1C00F7960
+ * Callers:
+ *     ?OnMonitorRectsChanged@DesktopRecalc@@YAXPEAUtagWINDOWSTATION@@PEAVCMonitorTopology@@PEAU_DXGK_SET_DISPLAY_CONFIG_PARAMS_EX@@@Z @ 0x1C00F7820 (-OnMonitorRectsChanged@DesktopRecalc@@YAXPEAUtagWINDOWSTATION@@PEAVCMonitorTopology@@PEAU_DXGK_S.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ??0CRapidHpdInfo@@AEAA@PEAVCMonitorTopology@@AEBU_GUID@@@Z @ 0x1C023061C (--0CRapidHpdInfo@@AEAA@PEAVCMonitorTopology@@AEBU_GUID@@@Z.c)
+ *     ?RapidHpdModeChange@DesktopRecalc@InputTraceLogging@@SAXH@Z @ 0x1C02307E4 (-RapidHpdModeChange@DesktopRecalc@InputTraceLogging@@SAXH@Z.c)
+ *     ?ResetTimer@CRapidHpdInfo@@AEAAXXZ @ 0x1C0230878 (-ResetTimer@CRapidHpdInfo@@AEAAXXZ.c)
+ */
+
 char __fastcall RapidHPD::ProcessModeChange(CRapidHpdInfo *a1, const struct _GUID *a2, struct CMonitorTopology *a3)
 {
   char v3; // di

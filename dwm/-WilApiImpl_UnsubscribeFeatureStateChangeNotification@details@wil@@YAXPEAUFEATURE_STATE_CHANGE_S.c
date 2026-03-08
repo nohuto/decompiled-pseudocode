@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?WilApiImpl_UnsubscribeFeatureStateChangeNotification@details@wil@@YAXPEAUFEATURE_STATE_CHANGE_SUBSCRIPTION__@@@Z @ 0x14000BA80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Unsubscribe@SubscriptionList@details_abi@wil@@QEAAXAEAVsrwlock@3@PEAUFEATURE_STATE_CHANGE_SUBSCRIPTION__@@@Z @ 0x14000B964 (-Unsubscribe@SubscriptionList@details_abi@wil@@QEAAXAEAVsrwlock@3@PEAUFEATURE_STATE_CHANGE_SUBSC.c)
+ */
+
 void __fastcall wil::details::WilApiImpl_UnsubscribeFeatureStateChangeNotification(
         struct FEATURE_STATE_CHANGE_SUBSCRIPTION__ *this,
         struct FEATURE_STATE_CHANGE_SUBSCRIPTION__ *a2)

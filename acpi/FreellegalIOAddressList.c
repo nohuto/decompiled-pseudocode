@@ -1,3 +1,11 @@
+/*
+ * XREFs of FreellegalIOAddressList @ 0x1C00AB64C
+ * Callers:
+ *     InitIllegalIOAddressListFromHAL @ 0x1C00AB6A0 (InitIllegalIOAddressListFromHAL.c)
+ * Callees:
+ *     <none>
+ */
+
 void FreellegalIOAddressList()
 {
   if ( gpBadIOAddressList )

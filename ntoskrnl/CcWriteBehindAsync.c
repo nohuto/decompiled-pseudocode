@@ -1,3 +1,21 @@
+/*
+ * XREFs of CcWriteBehindAsync @ 0x140538060
+ * Callers:
+ *     CcAsyncLazywriteWorker @ 0x14053741C (CcAsyncLazywriteWorker.c)
+ * Callees:
+ *     CcWriteBehindPostProcess @ 0x140219248 (CcWriteBehindPostProcess.c)
+ *     CcWriteBehindPreProcess @ 0x140219A70 (CcWriteBehindPreProcess.c)
+ *     CcFlushCacheAcquireRange @ 0x14021A0CC (CcFlushCacheAcquireRange.c)
+ *     CcFlushCachePostProcess @ 0x14021AF2C (CcFlushCachePostProcess.c)
+ *     CcFlushCacheOneRange @ 0x14021B070 (CcFlushCacheOneRange.c)
+ *     CcFlushCachePostProcessOneRange @ 0x14021B410 (CcFlushCachePostProcessOneRange.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     CcFlushCachePreProcess @ 0x1403373A0 (CcFlushCachePreProcess.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall CcWriteBehindAsync(__int64 a1, _DWORD *a2, void *a3)
 {
   int v6; // eax

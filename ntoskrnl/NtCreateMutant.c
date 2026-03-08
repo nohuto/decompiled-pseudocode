@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtCreateMutant @ 0x140761E00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeInitializeMutantEx @ 0x1402D9800 (KeInitializeMutantEx.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ */
+
 __int64 __fastcall NtCreateMutant(__int64 a1, __int64 a2, int a3, char a4)
 {
   _QWORD *v5; // rbx

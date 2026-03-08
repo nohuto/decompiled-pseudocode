@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_EBamoDataProviderProxyImpl@BamoImpl@@UEAAPEAXI@Z @ 0x1801F4690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 BamoImpl::BamoDataProviderProxyImpl *__fastcall BamoImpl::BamoDataProviderProxyImpl::`vector deleting destructor'(
         BamoImpl::BamoDataProviderProxyImpl *this,
         char a2)

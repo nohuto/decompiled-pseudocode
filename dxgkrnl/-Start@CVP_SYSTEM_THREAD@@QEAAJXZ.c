@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Start@CVP_SYSTEM_THREAD@@QEAAJXZ @ 0x1C0309014
+ * Callers:
+ *     ?TdrDereferenceRecoveryContext@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C030A2A0 (-TdrDereferenceRecoveryContext@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
+ *     ?TdrResetFromTimeout@@YAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030A750 (-TdrResetFromTimeout@@YAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall CVP_SYSTEM_THREAD::Start(void **this)
 {
   NTSTATUS result; // eax

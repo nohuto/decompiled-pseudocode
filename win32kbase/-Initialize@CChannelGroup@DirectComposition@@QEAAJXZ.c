@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Initialize@CChannelGroup@DirectComposition@@QEAAJXZ @ 0x1C0095B4C
+ * Callers:
+ *     ?Initialize@CConnection@DirectComposition@@AEAAJXZ @ 0x1C0095A48 (-Initialize@CConnection@DirectComposition@@AEAAJXZ.c)
+ * Callees:
+ *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0062994 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 __fastcall DirectComposition::CChannelGroup::Initialize(DirectComposition::CChannelGroup *this)
 {
   struct _ERESOURCE *v2; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of CleanupResources @ 0x1C00B38E0
+ * Callers:
+ *     xxxDestroyThreadInfo @ 0x1C0072BF4 (xxxDestroyThreadInfo.c)
+ * Callees:
+ *     CleanupPowerRequestList @ 0x1C00B39B0 (CleanupPowerRequestList.c)
+ *     ApiSetEditionUnloadCursorsAndIcons @ 0x1C00B56A0 (ApiSetEditionUnloadCursorsAndIcons.c)
+ *     CleanupGDI @ 0x1C00B57A0 (CleanupGDI.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 CleanupResources()
 {
   __int64 v0; // rcx

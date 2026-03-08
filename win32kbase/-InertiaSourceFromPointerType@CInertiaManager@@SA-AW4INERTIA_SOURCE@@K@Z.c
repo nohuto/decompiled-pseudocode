@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InertiaSourceFromPointerType@CInertiaManager@@SA?AW4INERTIA_SOURCE@@K@Z @ 0x1C02106F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CInertiaManager::InertiaSourceFromPointerType(int a1)
 {
   __int64 result; // rax

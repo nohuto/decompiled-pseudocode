@@ -1,3 +1,29 @@
+/*
+ * XREFs of CcPostDeferredWrites @ 0x1403BBEB8
+ * Callers:
+ *     CcLazyWriteScanVolume @ 0x140218810 (CcLazyWriteScanVolume.c)
+ *     CcFlushCachePostProcess @ 0x14021AF2C (CcFlushCachePostProcess.c)
+ *     CcFlushCachePostProcessOneRange @ 0x14021B410 (CcFlushCachePostProcessOneRange.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x1402A42CC (CcNotifyOfMappedWriteComplete.c)
+ *     CcCanIWrite @ 0x140362960 (CcCanIWrite.c)
+ *     CcUnpinRepinnedBcb @ 0x140390990 (CcUnpinRepinnedBcb.c)
+ *     CcReapPrivateVolumeCachemap @ 0x1403BBD24 (CcReapPrivateVolumeCachemap.c)
+ *     CcDeductDirtyPagesFromExternalCache @ 0x1403C9DE0 (CcDeductDirtyPagesFromExternalCache.c)
+ *     CcLazyWriteScan @ 0x140533B4C (CcLazyWriteScan.c)
+ *     CcDeferWrite @ 0x140535060 (CcDeferWrite.c)
+ *     CcPostDeferredWritesOnVolumeHelper @ 0x1405366E0 (CcPostDeferredWritesOnVolumeHelper.c)
+ *     CcExitPartition @ 0x140536FC8 (CcExitPartition.c)
+ * Callees:
+ *     CcDereferencePartition @ 0x140219EF0 (CcDereferencePartition.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     CcCanIWriteStreamEx @ 0x140363460 (CcCanIWriteStreamEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CcPostDeferredWrites(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

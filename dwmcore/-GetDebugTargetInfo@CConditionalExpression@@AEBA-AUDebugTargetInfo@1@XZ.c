@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDebugTargetInfo@CConditionalExpression@@AEBA?AUDebugTargetInfo@1@XZ @ 0x180224870
+ * Callers:
+ *     ?GetValue@CConditionalExpression@@QEAAJPEAVCExpressionValueStack@@_KPEAM@Z @ 0x180224940 (-GetValue@CConditionalExpression@@QEAAJPEAVCExpressionValueStack@@_KPEAM@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CConditionalExpression::GetDebugTargetInfo(__int64 a1, __int64 a2)
 {
   __int64 v2; // rcx

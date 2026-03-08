@@ -1,3 +1,24 @@
+/*
+ * XREFs of xxxInitProcessInfo @ 0x1C0070EFC
+ * Callers:
+ *     xxxUserProcessCallout @ 0x1C0074450 (xxxUserProcessCallout.c)
+ * Callees:
+ *     CitProcessCallout @ 0x1C006F63C (CitProcessCallout.c)
+ *     ?SetProcessType@@YAXPEAUtagPROCESSINFO@@PEAXW4_PROCESS_IMMERSIVE_TYPE@@@Z @ 0x1C006F7F4 (-SetProcessType@@YAXPEAUtagPROCESSINFO@@PEAXW4_PROCESS_IMMERSIVE_TYPE@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qDD @ 0x1C006F8F8 (WPP_RECORDER_AND_TRACE_SF_qDD.c)
+ *     ?xxxCheckProcessAndSessionState@@YAJPEAU_W32PROCESS@@@Z @ 0x1C006F9B4 (-xxxCheckProcessAndSessionState@@YAJPEAU_W32PROCESS@@@Z.c)
+ *     ?GetSpriteFillColor@@YAKXZ @ 0x1C0070B50 (-GetSpriteFillColor@@YAKXZ.c)
+ *     GetProcessLuid @ 0x1C00727F0 (GetProcessLuid.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C007795C (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00ABD88 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     IszzzCalcStartCursorHideSupported @ 0x1C00BB514 (IszzzCalcStartCursorHideSupported.c)
+ *     ??0CWinEventNoopDeferral@@QEAA@XZ @ 0x1C00BD94C (--0CWinEventNoopDeferral@@QEAA@XZ.c)
+ *     Feature_WebThreatDefenseToggle__private_IsEnabledDeviceUsage @ 0x1C00DC8F8 (Feature_WebThreatDefenseToggle__private_IsEnabledDeviceUsage.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C00EDED8 (McTemplateK0_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall xxxInitProcessInfo(struct _W32PROCESS *a1, PACCESS_TOKEN Token, int a3, int a4, int a5)
 {
   int v5; // edi

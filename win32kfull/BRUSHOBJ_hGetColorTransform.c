@@ -1,3 +1,12 @@
+/*
+ * XREFs of BRUSHOBJ_hGetColorTransform @ 0x1C0267CA0
+ * Callers:
+ *     NtGdiBRUSHOBJ_hGetColorTransform @ 0x1C02CA7D0 (NtGdiBRUSHOBJ_hGetColorTransform.c)
+ *     NtGdiXLATEOBJ_hGetColorTransform @ 0x1C02D02C0 (NtGdiXLATEOBJ_hGetColorTransform.c)
+ * Callees:
+ *     <none>
+ */
+
 HANDLE __stdcall BRUSHOBJ_hGetColorTransform(BRUSHOBJ *pbo)
 {
   __int64 v1; // rcx

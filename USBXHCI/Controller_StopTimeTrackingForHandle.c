@@ -1,3 +1,19 @@
+/*
+ * XREFs of Controller_StopTimeTrackingForHandle @ 0x1C0034904
+ * Callers:
+ *     Controller_EvtDeviceFileClose @ 0x1C0013B80 (Controller_EvtDeviceFileClose.c)
+ *     Controller_UcxEvtStopTrackingForTimeSync @ 0x1C0036230 (Controller_UcxEvtStopTrackingForTimeSync.c)
+ * Callees:
+ *     DynamicLock_Acquire @ 0x1C000A918 (DynamicLock_Acquire.c)
+ *     DynamicLock_Release @ 0x1C000A958 (DynamicLock_Release.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C001A2FC (WPP_RECORDER_SF_qq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_IsHandlePresentInCollectionLocked @ 0x1C0034180 (Controller_IsHandlePresentInCollectionLocked.c)
+ *     McTemplateK0pptqqqq_EtwWriteTransfer @ 0x1C0036DBC (McTemplateK0pptqqqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall Controller_StopTimeTrackingForHandle(__int64 a1, __int64 a2, char a3)
 {
   _BYTE *v5; // r15

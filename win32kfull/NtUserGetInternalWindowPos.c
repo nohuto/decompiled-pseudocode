@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserGetInternalWindowPos @ 0x1C01D3200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _GetWindowPlacement @ 0x1C0006898 (_GetWindowPlacement.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall NtUserGetInternalWindowPos(__int64 a1, _OWORD *a2, _QWORD *a3)
 {
   __int64 v6; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of VrpCountPathComponents @ 0x1406C1E90
+ * Callers:
+ *     VrpPostOpenOrCreate @ 0x1406C2968 (VrpPostOpenOrCreate.c)
+ *     VrpCreateNamespaceNode @ 0x140737348 (VrpCreateNamespaceNode.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     VrpGetNextToken @ 0x1406C24E8 (VrpGetNextToken.c)
+ */
+
 __int64 __fastcall VrpCountPathComponents(__int64 a1)
 {
   unsigned __int16 v2; // bx

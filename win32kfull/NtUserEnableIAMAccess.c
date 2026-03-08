@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserEnableIAMAccess @ 0x1C009A0C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _EnableIAMThreadAccess @ 0x1C009A210 (_EnableIAMThreadAccess.c)
+ */
+
 __int64 __fastcall NtUserEnableIAMAccess(__int64 *a1, unsigned int a2)
 {
   __int64 v4; // rdx

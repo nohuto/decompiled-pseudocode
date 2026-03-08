@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MonitorPDORemovalCallback@CMonitorPDO@OPM@@CAJPEAX0@Z @ 0x1C017EDC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall OPM::CMonitorPDO::MonitorPDORemovalCallback(_QWORD *NotificationStructure, PVOID Context)
 {
   __int64 v3; // rax

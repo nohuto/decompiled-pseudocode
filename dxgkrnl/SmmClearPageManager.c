@@ -1,3 +1,12 @@
+/*
+ * XREFs of SmmClearPageManager @ 0x1C006DE28
+ * Callers:
+ *     ?SmmDeinitializeIommu@@YAXPEAUSYSMM_ADAPTER@@@Z @ 0x1C03D0EBC (-SmmDeinitializeIommu@@YAXPEAUSYSMM_ADAPTER@@@Z.c)
+ *     ?SmmIommuSwitchToPassthrough@@YAJPEAUSYSMM_ADAPTER@@@Z @ 0x1C03D13E8 (-SmmIommuSwitchToPassthrough@@YAJPEAUSYSMM_ADAPTER@@@Z.c)
+ * Callees:
+ *     SmmIoMmuDeleteTreeNode @ 0x1C006DFEC (SmmIoMmuDeleteTreeNode.c)
+ */
+
 void __fastcall SmmClearPageManager(__int64 a1)
 {
   KIRQL v2; // al

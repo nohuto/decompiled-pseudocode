@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkCopyPathsModality @ 0x1C02FD660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1CCD_TOPOLOGY@@QEAA@XZ @ 0x1C01BE894 (--1CCD_TOPOLOGY@@QEAA@XZ.c)
+ *     ?Copy@CCD_TOPOLOGY@@QEAAJPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C03B6434 (-Copy@CCD_TOPOLOGY@@QEAAJPEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
+ */
+
 __int64 __fastcall DxgkCopyPathsModality(__int64 a1, struct D3DKMT_GETPATHSMODALITY *a2)
 {
   unsigned int v3; // ebx

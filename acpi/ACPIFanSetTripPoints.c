@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIFanSetTripPoints @ 0x1C0085078
+ * Callers:
+ *     ACPIFanWorker @ 0x1C00279F0 (ACPIFanWorker.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     WPP_RECORDER_SF_ddqss @ 0x1C0014AC8 (WPP_RECORDER_SF_ddqss.c)
+ *     AMLIFreeDataBuffs @ 0x1C00482C4 (AMLIFreeDataBuffs.c)
+ *     ACPIAmliEvaluateDsm @ 0x1C007C65C (ACPIAmliEvaluateDsm.c)
+ */
+
 __int64 __fastcall ACPIFanSetTripPoints(_QWORD *a1, int a2, int a3)
 {
   __int64 Pool2; // rax

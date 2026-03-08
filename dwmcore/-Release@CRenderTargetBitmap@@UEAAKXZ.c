@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?Release@CRenderTargetBitmap@@UEAAKXZ @ 0x1800D9DD0
+ * Callers:
+ *     ?Release@CD2DBitmap@@$4PPPPPPPM@BAA@EAAKXZ @ 0x18011C130 (-Release@CD2DBitmap@@$4PPPPPPPM@BAA@EAAKXZ.c)
+ *     ?Release@CDeviceTextureTarget@@WHA@EAAKXZ @ 0x18011C150 (-Release@CDeviceTextureTarget@@WHA@EAAKXZ.c)
+ *     ?Release@CDeviceTextureTarget@@$4PPPPPPPM@BCI@EAAKXZ @ 0x18011C430 (-Release@CDeviceTextureTarget@@$4PPPPPPPM@BCI@EAAKXZ.c)
+ *     ?Release@CDxHandleBitmapRealization@@$4PPPPPPPM@BKI@EAAKXZ @ 0x18011E470 (-Release@CDxHandleBitmapRealization@@$4PPPPPPPM@BKI@EAAKXZ.c)
+ *     ?Release@CGDIBitmapRealization@@$4PPPPPPPM@BMI@EAAKXZ @ 0x18011E490 (-Release@CGDIBitmapRealization@@$4PPPPPPPM@BMI@EAAKXZ.c)
+ *     ?Release@CRenderTargetBitmap@@$4PPPPPPPM@LA@EAAKXZ @ 0x18011E7B0 (-Release@CRenderTargetBitmap@@$4PPPPPPPM@LA@EAAKXZ.c)
+ *     ?Release@CDxHandleBitmapRealization@@$4PPPPPPPM@CBA@EAAKXZ @ 0x18011ECD0 (-Release@CDxHandleBitmapRealization@@$4PPPPPPPM@CBA@EAAKXZ.c)
+ *     ?Release@CRenderTargetBitmap@@$4PPPPPPPM@LI@EAAKXZ @ 0x18011F470 (-Release@CRenderTargetBitmap@@$4PPPPPPPM@LI@EAAKXZ.c)
+ *     ?Release@CD2DBitmap@@$4PPPPPPPM@BFI@EAAKXZ @ 0x18011F670 (-Release@CD2DBitmap@@$4PPPPPPPM@BFI@EAAKXZ.c)
+ *     ?Release@CRenderTargetBitmap@@$4PPPPPPPM@NA@EAAKXZ @ 0x18011FCD0 (-Release@CRenderTargetBitmap@@$4PPPPPPPM@NA@EAAKXZ.c)
+ * Callees:
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CRenderTargetBitmap::Release(CRenderTargetBitmap *this)
 {
   volatile signed __int32 *v2; // rdi

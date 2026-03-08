@@ -1,3 +1,20 @@
+/*
+ * XREFs of UsbhPdoPnp_QueryDeviceText @ 0x1C0055540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     memmove @ 0x1C0023580 (memmove.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002EA5C (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003B830 (WPP_RECORDER_SF_S.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhGetProductIdString @ 0x1C00507E0 (UsbhGetProductIdString.c)
+ *     WPP_RECORDER_SF_qDD @ 0x1C0057958 (WPP_RECORDER_SF_qDD.c)
+ */
+
 __int64 __fastcall UsbhPdoPnp_QueryDeviceText(__int64 a1, IRP *a2)
 {
   __int64 v3; // rsi

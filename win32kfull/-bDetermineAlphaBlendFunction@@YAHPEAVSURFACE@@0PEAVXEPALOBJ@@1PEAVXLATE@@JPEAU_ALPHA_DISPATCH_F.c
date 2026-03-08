@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bDetermineAlphaBlendFunction@@YAHPEAVSURFACE@@0PEAVXEPALOBJ@@1PEAVXLATE@@JPEAU_ALPHA_DISPATCH_FORMAT@@H@Z @ 0x1C00B582C
+ * Callers:
+ *     EngAlphaBlend @ 0x1C00B4820 (EngAlphaBlend.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bDetermineAlphaBlendFunction(
         struct SURFACE *a1,
         struct SURFACE *a2,

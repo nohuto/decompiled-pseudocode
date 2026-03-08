@@ -1,3 +1,14 @@
+/*
+ * XREFs of SecureDump_GetSecureDumpSettings @ 0x140392344
+ * Callers:
+ *     IoProvisionCrashDumpKey @ 0x14054E504 (IoProvisionCrashDumpKey.c)
+ *     KeCapturePersistentThreadState @ 0x140551EC0 (KeCapturePersistentThreadState.c)
+ *     IopInitializeCrashDump @ 0x140834B28 (IopInitializeCrashDump.c)
+ *     IoCaptureLiveDump @ 0x140948A78 (IoCaptureLiveDump.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SecureDump_GetSecureDumpSettings(__int64 a1)
 {
   int v1; // eax

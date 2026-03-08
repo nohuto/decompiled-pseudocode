@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InitializeLockOrder@FxVerifierLock@@AEAAXXZ @ 0x1C0046C04
+ * Callers:
+ *     ??0FxVerifierLock@@AEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@@Z @ 0x1C001AABC (--0FxVerifierLock@@AEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@@Z.c)
+ *     ??0FxVerifierLock@@AEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@E@Z @ 0x1C0038B94 (--0FxVerifierLock@@AEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@E@Z.c)
+ * Callees:
+ *     WPP_IFR_SF_D @ 0x1C0017F78 (WPP_IFR_SF_D.c)
+ */
+
 void __fastcall FxVerifierLock::InitializeLockOrder(FxVerifierLock *this)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // r10

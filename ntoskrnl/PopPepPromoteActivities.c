@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopPepPromoteActivities @ 0x140307780
+ * Callers:
+ *     PopPepUpdateConstraints @ 0x1402B9328 (PopPepUpdateConstraints.c)
+ *     PopPepIdleTimeoutRoutine @ 0x1402E9500 (PopPepIdleTimeoutRoutine.c)
+ *     PopPepComponentSetLatency @ 0x1402EE890 (PopPepComponentSetLatency.c)
+ *     PopPepTryPowerDownDevice @ 0x1403050D0 (PopPepTryPowerDownDevice.c)
+ *     PopPepProcessEvent @ 0x140307424 (PopPepProcessEvent.c)
+ *     PopPepComponentSetResidency @ 0x1403AE9C4 (PopPepComponentSetResidency.c)
+ *     PopPepComponentSetWakeHint @ 0x14059C820 (PopPepComponentSetWakeHint.c)
+ *     PopPepSurprisePowerOn @ 0x14059D930 (PopPepSurprisePowerOn.c)
+ * Callees:
+ *     PopPepAttemptAcitivityPromotion @ 0x140307A08 (PopPepAttemptAcitivityPromotion.c)
+ */
+
 void __fastcall PopPepPromoteActivities(__int64 a1, __int64 a2, int a3)
 {
   int v3; // ebx

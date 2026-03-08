@@ -1,3 +1,18 @@
+/*
+ * XREFs of IommuCreateAtsDevice @ 0x14051F820
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExInitializePushLock @ 0x140238200 (ExInitializePushLock.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpIommuLocateFromDevice @ 0x14082218C (HalpIommuLocateFromDevice.c)
+ *     HalpIommuCreateDevice @ 0x140822B28 (HalpIommuCreateDevice.c)
+ *     HalpIommuDeleteDevice @ 0x140930ACC (HalpIommuDeleteDevice.c)
+ */
+
 __int64 __fastcall IommuCreateAtsDevice(_BYTE *Src, __int64 a2, _DWORD *a3, __int64 *a4)
 {
   char v4; // bp

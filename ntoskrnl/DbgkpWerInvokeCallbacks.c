@@ -1,3 +1,13 @@
+/*
+ * XREFs of DbgkpWerInvokeCallbacks @ 0x140938CFC
+ * Callers:
+ *     DbgkpWerCaptureLiveFullDump @ 0x1409386E8 (DbgkpWerCaptureLiveFullDump.c)
+ *     DbgkpWerCaptureLiveTriageDump @ 0x1409388FC (DbgkpWerCaptureLiveTriageDump.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall DbgkpWerInvokeCallbacks(__int64 a1)
 {
   const void *v2; // r9

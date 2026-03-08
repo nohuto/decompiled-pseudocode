@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepFreeDefaultDacl @ 0x140743E60
+ * Callers:
+ *     SepAppendAceToTokenDefaultDacl @ 0x1402BE754 (SepAppendAceToTokenDefaultDacl.c)
+ *     NtSetInformationToken @ 0x140741E70 (NtSetInformationToken.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall SepFreeDefaultDacl(__int64 a1)
 {
   __int64 result; // rax

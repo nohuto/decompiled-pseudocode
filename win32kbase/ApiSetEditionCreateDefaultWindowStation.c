@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionCreateDefaultWindowStation @ 0x1C00CC3B0
+ * Callers:
+ *     InitCreateObjectDirectory @ 0x1C031FDA8 (InitCreateObjectDirectory.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 ApiSetEditionCreateDefaultWindowStation()
 {
   char v0; // bl

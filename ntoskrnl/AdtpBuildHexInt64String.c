@@ -1,3 +1,13 @@
+/*
+ * XREFs of AdtpBuildHexInt64String @ 0x140A57954
+ * Callers:
+ *     AdtpBuildRegistryValueString @ 0x140A57FA4 (AdtpBuildRegistryValueString.c)
+ * Callees:
+ *     StringCchPrintfW @ 0x1402FAA78 (StringCchPrintfW.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AdtpBuildHexInt64String(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, int a5, _BYTE *a6)
 {
   wchar_t *Pool2; // rax

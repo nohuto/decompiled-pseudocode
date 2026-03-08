@@ -1,3 +1,18 @@
+/*
+ * XREFs of UsbhSshDisabled @ 0x1C00592A0
+ * Callers:
+ *     UsbhAsyncStop @ 0x1C00424CC (UsbhAsyncStop.c)
+ *     UsbhFdoPnp_RemoveDevice @ 0x1C0043010 (UsbhFdoPnp_RemoveDevice.c)
+ *     Usbh_FDO_WaitPnpStop @ 0x1C0044890 (Usbh_FDO_WaitPnpStop.c)
+ *     UsbhSshEnableDisable @ 0x1C005939C (UsbhSshEnableDisable.c)
+ * Callees:
+ *     UsbhDecHubBusy @ 0x1C0003DB0 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0007050 (UsbhIncHubBusy.c)
+ *     UsbhDisableTimerObject @ 0x1C00084D0 (UsbhDisableTimerObject.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 LONG __fastcall UsbhSshDisabled(__int64 a1, __int64 a2)
 {
   _DWORD *v4; // rsi

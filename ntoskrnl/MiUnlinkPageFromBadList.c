@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiUnlinkPageFromBadList @ 0x14064BA18
+ * Callers:
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiRemoveBadPages @ 0x140628020 (MiRemoveBadPages.c)
+ *     MiUnlinkBadPages @ 0x1406288F4 (MiUnlinkBadPages.c)
+ *     MiMarkFileOnlyPfnGood @ 0x14063BF34 (MiMarkFileOnlyPfnGood.c)
+ *     MiPurgeBadFileOnlyPages @ 0x14063C678 (MiPurgeBadFileOnlyPages.c)
+ *     MiTransferPartitionPageRun @ 0x140659030 (MiTransferPartitionPageRun.c)
+ * Callees:
+ *     MiAcquirePageListLock @ 0x140264E70 (MiAcquirePageListLock.c)
+ *     MiReleasePageListLock @ 0x140288360 (MiReleasePageListLock.c)
+ *     MiSetPfnBlink @ 0x140289900 (MiSetPfnBlink.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 unsigned __int64 __fastcall MiUnlinkPageFromBadList(_QWORD *a1, char a2)
 {
   unsigned __int64 v4; // rbp

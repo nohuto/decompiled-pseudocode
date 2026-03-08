@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmEventAutonomousModeChange @ 0x140597710
+ * Callers:
+ *     PpmUpdateTargetProcessorPolicy @ 0x14038E1DC (PpmUpdateTargetProcessorPolicy.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     PpmEventGetEventDescriptorAndProcessorId @ 0x140233B18 (PpmEventGetEventDescriptorAndProcessorId.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PpmEventAutonomousModeChange(__int64 a1, int a2)
 {
   const EVENT_DESCRIPTOR *EventDescriptorAndProcessorId; // rax

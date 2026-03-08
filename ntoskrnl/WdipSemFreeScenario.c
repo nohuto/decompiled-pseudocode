@@ -1,3 +1,12 @@
+/*
+ * XREFs of WdipSemFreeScenario @ 0x140833668
+ * Callers:
+ *     WdipSemLoadScenarioTable @ 0x140832BA4 (WdipSemLoadScenarioTable.c)
+ *     WdipSemAddScenarioToTable @ 0x140833C3C (WdipSemAddScenarioToTable.c)
+ * Callees:
+ *     WdipSemFastFree @ 0x140833700 (WdipSemFastFree.c)
+ */
+
 __int64 __fastcall WdipSemFreeScenario(__int64 a1)
 {
   __int64 i; // rdi

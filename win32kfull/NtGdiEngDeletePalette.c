@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiEngDeletePalette @ 0x1C02CBDF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C007CA7C (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ *     ??1EPALOBJ@@QEAA@XZ @ 0x1C0124F2C (--1EPALOBJ@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall NtGdiEngDeletePalette(HPALETTE a1)
 {
   unsigned int v1; // ebx

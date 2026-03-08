@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??$WriteResultString@PEBD@details@wil@@YAPEAEPEAE0PEBDPEAPEBD@Z @ 0x140008870
+ * Callers:
+ *     ?Set@ThreadLocalFailureInfo@details_abi@wil@@QEAAXAEBUFailureInfo@3@I@Z @ 0x14000A11C (-Set@ThreadLocalFailureInfo@details_abi@wil@@QEAAXAEBUFailureInfo@3@I@Z.c)
+ * Callees:
+ *     memcpy_s_0 @ 0x140006C08 (memcpy_s_0.c)
+ *     ?ResultStringSize@details@wil@@YA_KPEBD@Z @ 0x14000A00C (-ResultStringSize@details@wil@@YA_KPEBD@Z.c)
+ */
+
 char *__fastcall wil::details::WriteResultString<char const *>(
         char *Destination,
         const char *a2,

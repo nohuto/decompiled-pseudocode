@@ -1,3 +1,16 @@
+/*
+ * XREFs of KeSetIdealProcessorThreadEx @ 0x1403C9248
+ * Callers:
+ *     KeSetIdealProcessorThreadByNumber @ 0x1403C91E4 (KeSetIdealProcessorThreadByNumber.c)
+ *     MiRestoreIdealProcessorThread @ 0x140664A64 (MiRestoreIdealProcessorThread.c)
+ *     MiSetIdealProcessorThread @ 0x140664A8C (MiSetIdealProcessorThread.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiSetIdealProcessorThread @ 0x1403C93BC (KiSetIdealProcessorThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceIdealProcessor @ 0x1405FA980 (EtwTraceIdealProcessor.c)
+ */
+
 __int64 __fastcall KeSetIdealProcessorThreadEx(__int64 a1, unsigned int a2, _DWORD *a3)
 {
   _DWORD *v3; // r15

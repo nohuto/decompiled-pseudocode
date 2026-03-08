@@ -1,3 +1,20 @@
+/*
+ * XREFs of xxxCompositedPaint @ 0x1C0015794
+ * Callers:
+ *     ?xxxInternalDoPaint@@YAPEAUtagWND@@PEAU1@PEAUtagTHREADINFO@@@Z @ 0x1C00C3680 (-xxxInternalDoPaint@@YAPEAUtagWND@@PEAU1@PEAUtagTHREADINFO@@@Z.c)
+ *     ?xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z @ 0x1C0102024 (-xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z.c)
+ * Callees:
+ *     ?xxxCompositedTraverse@@YAHPEAUtagWND@@@Z @ 0x1C0015858 (-xxxCompositedTraverse@@YAHPEAUtagWND@@@Z.c)
+ *     UpdateSprite @ 0x1C002E7A8 (UpdateSprite.c)
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     xxxInternalInvalidate @ 0x1C0053270 (xxxInternalInvalidate.c)
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00E42C8 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ */
+
 void __fastcall xxxCompositedPaint(struct tagWND *a1)
 {
   int v2; // esi

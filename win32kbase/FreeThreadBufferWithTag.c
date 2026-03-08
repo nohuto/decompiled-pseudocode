@@ -1,3 +1,11 @@
+/*
+ * XREFs of FreeThreadBufferWithTag @ 0x1C009D840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 void __fastcall FreeThreadBufferWithTag(__int64 a1)
 {
   char *v1; // rbx

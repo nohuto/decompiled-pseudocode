@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiImageGetRawRvaState @ 0x140773A3C
+ * Callers:
+ *     MiImageRvaRawEnumFirst @ 0x140773990 (MiImageRvaRawEnumFirst.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiImageGetRawRvaState(_DWORD *a1, int a2)
 {
   unsigned int v2; // r10d

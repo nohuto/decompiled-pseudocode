@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchNotifyDeviceRemoved @ 0x1C0040140
+ * Callers:
+ *     VidSchiNotifyDeviceRemoved @ 0x1C00474C0 (VidSchiNotifyDeviceRemoved.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall VidSchNotifyDeviceRemoved(PVOID IoObject, PVOID Context, PIO_WORKITEM IoWorkItem)
 {
   int updated; // eax

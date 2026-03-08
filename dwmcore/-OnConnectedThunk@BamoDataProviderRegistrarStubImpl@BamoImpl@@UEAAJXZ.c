@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnConnectedThunk@BamoDataProviderRegistrarStubImpl@BamoImpl@@UEAAJXZ @ 0x180104000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall BamoImpl::BamoDataProviderRegistrarStubImpl::OnConnectedThunk(
         BamoImpl::BamoDataProviderRegistrarStubImpl *this)
 {

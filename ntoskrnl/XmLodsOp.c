@@ -1,3 +1,13 @@
+/*
+ * XREFs of XmLodsOp @ 0x140531C40
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmGetStringAddress @ 0x14039559C (XmGetStringAddress.c)
+ *     XmSetSourceValue @ 0x1403B41A0 (XmSetSourceValue.c)
+ *     XmStoreResult @ 0x1403B42E8 (XmStoreResult.c)
+ */
+
 _WORD *__fastcall XmLodsOp(__int64 a1)
 {
   int v2; // edi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of GetThreadCurrentContext @ 0x1C00537E0
+ * Callers:
+ *     NestAsyncEvalObject @ 0x1C005496C (NestAsyncEvalObject.c)
+ *     SyncEvalObject @ 0x1C0054E8C (SyncEvalObject.c)
+ *     SyncLoadDDB @ 0x1C00AB82C (SyncLoadDDB.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 GetThreadCurrentContext()
 {
   struct _KTHREAD *CurrentThread; // r8

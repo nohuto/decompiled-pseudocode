@@ -1,3 +1,24 @@
+/*
+ * XREFs of KeSetEventBoostPriorityEx @ 0x1402396C0
+ * Callers:
+ *     ExpReleaseFastMutexContended @ 0x140239650 (ExpReleaseFastMutexContended.c)
+ *     IopReleaseFileObjectLock @ 0x140267920 (IopReleaseFileObjectLock.c)
+ *     FsRtlReleaseEofLock @ 0x1402C3460 (FsRtlReleaseEofLock.c)
+ *     KeSetEventBoostPriority @ 0x14056F2C0 (KeSetEventBoostPriority.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406B5654 (IopWaitAndAcquireFileObjectLock.c)
+ * Callees:
+ *     KiRemoveBoostThread @ 0x140229890 (KiRemoveBoostThread.c)
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KeAbPreWakeupThread @ 0x1402398AC (KeAbPreWakeupThread.c)
+ *     KiTryUnwaitThread @ 0x140258880 (KiTryUnwaitThread.c)
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     KiWakeOtherQueueWaiters @ 0x140293BF4 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x140340700 (KiWakeQueueWaiter.c)
+ *     KeIsThreadRunning @ 0x14056C7FC (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405FA8FC (EtwTraceEnqueueWork.c)
+ */
+
 __int64 __fastcall KeSetEventBoostPriorityEx(__int64 a1, __int64 a2, _DWORD *a3, __int64 a4, char a5, char a6)
 {
   _DWORD *v6; // r14

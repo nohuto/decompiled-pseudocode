@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmPerfMinimumPerfReached @ 0x14058AEFC
+ * Callers:
+ *     PpmCheckMakeupSkippedChecks @ 0x1402EB350 (PpmCheckMakeupSkippedChecks.c)
+ * Callees:
+ *     <none>
+ */
+
 char PpmPerfMinimumPerfReached()
 {
   __int64 v0; // rcx

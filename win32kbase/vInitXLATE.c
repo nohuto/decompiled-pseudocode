@@ -1,3 +1,11 @@
+/*
+ * XREFs of vInitXLATE @ 0x1C031F4BC
+ * Callers:
+ *     InitializeGre @ 0x1C031D988 (InitializeGre.c)
+ * Callees:
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 __fastcall vInitXLATE(__int64 a1)
 {
   __int64 v1; // rdi

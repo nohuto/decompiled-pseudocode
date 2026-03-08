@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??1FxTimer@@UEAA@XZ @ 0x1C0040DE4
+ * Callers:
+ *     ??_EFxTimer@@UEAAPEAXI@Z @ 0x1C0040E60 (--_EFxTimer@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0002D30 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0018194 (WPP_IFR_SF_q.c)
+ *     ??1MxTimer@@QEAA@XZ @ 0x1C003F8CC (--1MxTimer@@QEAA@XZ.c)
+ */
+
 void __fastcall FxTimer::~FxTimer(FxTimer *this, __int64 a2)
 {
   bool v2; // zf

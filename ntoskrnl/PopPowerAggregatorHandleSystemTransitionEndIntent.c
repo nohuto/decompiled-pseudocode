@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopPowerAggregatorHandleSystemTransitionEndIntent @ 0x1409909E0
+ * Callers:
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x140757290 (PopPowerAggregatorHandleIntentUnsafe.c)
+ * Callees:
+ *     Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x14040B89C (Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage.c)
+ *     PopGetMostRecentWakeInfo @ 0x14058C140 (PopGetMostRecentWakeInfo.c)
+ *     PopWakeInfoDereference @ 0x14058C3B8 (PopWakeInfoDereference.c)
+ *     TtmIsEnabled @ 0x14073C8BC (TtmIsEnabled.c)
+ *     PopIsMostRecentWakeAttended @ 0x140A9DF8C (PopIsMostRecentWakeAttended.c)
+ */
+
 __int64 __fastcall PopPowerAggregatorHandleSystemTransitionEndIntent(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   unsigned int v6; // edi

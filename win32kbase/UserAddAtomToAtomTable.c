@@ -1,3 +1,12 @@
+/*
+ * XREFs of UserAddAtomToAtomTable @ 0x1C00D25BC
+ * Callers:
+ *     UserAddAtom @ 0x1C00D25A0 (UserAddAtom.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     ?LkdForAtomAdditionFailure@@YAXPEAXJ@Z @ 0x1C017BB80 (-LkdForAtomAdditionFailure@@YAXPEAXJ@Z.c)
+ */
+
 __int64 __fastcall UserAddAtomToAtomTable(__int64 a1, WCHAR *a2, int a3)
 {
   PRTL_ATOM_TABLE v3; // rdi

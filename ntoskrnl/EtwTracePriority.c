@@ -1,3 +1,20 @@
+/*
+ * XREFs of EtwTracePriority @ 0x14045EE2A
+ * Callers:
+ *     PsSetPagePriorityThread @ 0x14020AA94 (PsSetPagePriorityThread.c)
+ *     KeSetPriorityThread @ 0x1402261B0 (KeSetPriorityThread.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x1402E2E30 (KeSetPriorityAndQuantumProcess.c)
+ *     IoApplyPriorityInfoThread @ 0x1403575F0 (IoApplyPriorityInfoThread.c)
+ *     KeSetActualBasePriorityThread @ 0x140357730 (KeSetActualBasePriorityThread.c)
+ *     PsSetIoPriorityThread @ 0x1403579A4 (PsSetIoPriorityThread.c)
+ *     KeBoostPriorityThread @ 0x140359A88 (KeBoostPriorityThread.c)
+ *     KeSetBasePriorityThread @ 0x140369500 (KeSetBasePriorityThread.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpPsProvTracePriority @ 0x1405FBD5C (EtwpPsProvTracePriority.c)
+ */
+
 void __fastcall EtwTracePriority(__int64 a1, unsigned __int16 a2, int a3, int a4, _BYTE *a5)
 {
   char v5; // di

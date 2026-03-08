@@ -1,3 +1,12 @@
+/*
+ * XREFs of RemoveCountFromEndOfArrayAndFree @ 0x1801A551C
+ * Callers:
+ *     ?ProcessInteractionTree@CGestureTargetingManager@@CAJPEBUIManipulationContext@@PEAUIInteractionResource@@W4InputType@@PEAUInteractionAxisGroup@@3PEAV?$DynArray@PEAUInteractionConfigurationGroup@@$0A@@@PEAUInteractionAxis@@PEAW4InteractionState@@PEAPEAU3@7@Z @ 0x1801A4ED8 (-ProcessInteractionTree@CGestureTargetingManager@@CAJPEBUIManipulationContext@@PEAUIInteractionR.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??_GInteractionConfigurationGroup@@QEAAPEAXI@Z @ 0x1801A4394 (--_GInteractionConfigurationGroup@@QEAAPEAXI@Z.c)
+ */
+
 void __fastcall RemoveCountFromEndOfArrayAndFree(int a1, __int64 a2)
 {
   int v3; // ebx

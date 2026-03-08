@@ -1,3 +1,19 @@
+/*
+ * XREFs of HUBDESC_InternalValidateStringDescriptor @ 0x1C003C360
+ * Callers:
+ *     HUBDSM_ValidatingAndLoggingAlternateModeStringDescriptor @ 0x1C0022B30 (HUBDSM_ValidatingAndLoggingAlternateModeStringDescriptor.c)
+ *     HUBDSM_ValidatingAndLoggingBillboardStringDescriptor @ 0x1C0022CC0 (HUBDSM_ValidatingAndLoggingBillboardStringDescriptor.c)
+ *     HUBDTX_ValidateAndCacheLanguageIdStringDescriptor @ 0x1C002C414 (HUBDTX_ValidateAndCacheLanguageIdStringDescriptor.c)
+ *     HUBDTX_ValidateAndCacheProductIdStringDescriptor @ 0x1C002CB14 (HUBDTX_ValidateAndCacheProductIdStringDescriptor.c)
+ *     HUBDTX_ValidateAndCacheSerialNumberStringDescriptor @ 0x1C002CCF0 (HUBDTX_ValidateAndCacheSerialNumberStringDescriptor.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     WPP_RECORDER_SF_Ddd @ 0x1C00355BC (WPP_RECORDER_SF_Ddd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall HUBDESC_InternalValidateStringDescriptor(
         unsigned __int8 *a1,
         __int64 a2,

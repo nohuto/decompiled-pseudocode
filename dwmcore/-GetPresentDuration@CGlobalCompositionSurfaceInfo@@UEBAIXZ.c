@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPresentDuration@CGlobalCompositionSurfaceInfo@@UEBAIXZ @ 0x180257E00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CGlobalCompositionSurfaceInfo::GetPresentDuration(CGlobalCompositionSurfaceInfo *this)
 {
   __int64 v1; // rcx

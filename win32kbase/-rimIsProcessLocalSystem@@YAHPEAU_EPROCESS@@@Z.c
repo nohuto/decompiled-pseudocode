@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?rimIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z @ 0x1C01DA5F4
+ * Callers:
+ *     rimObsIsRegisteredObserverAllowed @ 0x1C01DA9E0 (rimObsIsRegisteredObserverAllowed.c)
+ *     rimObsCheckForObservationPermissions @ 0x1C01DB780 (rimObsCheckForObservationPermissions.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall rimIsProcessLocalSystem(struct _EPROCESS *a1)
 {
   unsigned int v1; // esi

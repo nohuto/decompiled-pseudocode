@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?_HungWindowFromGhostWindow@@YAPEAUtagWND@@PEBU1@@Z @ 0x1C00A1FC8
+ * Callers:
+ *     ?GetMonitorMaxArea@@YA?AUtagRECT@@PEBUtagWND@@PEAUtagMONITOR@@@Z @ 0x1C00A1EF8 (-GetMonitorMaxArea@@YA-AUtagRECT@@PEBUtagWND@@PEAUtagMONITOR@@@Z.c)
+ *     NtUserHungWindowFromGhostWindow @ 0x1C00EEB20 (NtUserHungWindowFromGhostWindow.c)
+ * Callees:
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     IsWindowBeingDestroyed @ 0x1C0039B60 (IsWindowBeingDestroyed.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ */
+
 struct tagWND *__fastcall _HungWindowFromGhostWindow(const struct tagWND *a1)
 {
   __int64 v2; // rbx

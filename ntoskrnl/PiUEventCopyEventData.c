@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiUEventCopyEventData @ 0x14068E1A4
+ * Callers:
+ *     PiUEventHandleGetEvent @ 0x14068E028 (PiUEventHandleGetEvent.c)
+ * Callees:
+ *     RtlStringCchLengthW @ 0x140247080 (RtlStringCchLengthW.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     _CmSetDeviceInterfacePathFormat @ 0x1406C3E94 (_CmSetDeviceInterfacePathFormat.c)
+ */
+
 __int64 __fastcall PiUEventCopyEventData(__int64 a1, unsigned int a2, __int64 a3)
 {
   NTSTATUS v3; // ebx

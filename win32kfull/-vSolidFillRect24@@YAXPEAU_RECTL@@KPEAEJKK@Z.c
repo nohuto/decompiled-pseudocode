@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vSolidFillRect24@@YAXPEAU_RECTL@@KPEAEJKK@Z @ 0x1C0152460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vSolidFillRect24(struct _RECTL *a1, int a2, unsigned __int8 *a3, int a4, unsigned int a5)
 {
   int v7; // r10d

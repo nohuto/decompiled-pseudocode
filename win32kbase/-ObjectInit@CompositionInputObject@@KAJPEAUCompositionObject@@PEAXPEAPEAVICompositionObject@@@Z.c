@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ObjectInit@CompositionInputObject@@KAJPEAUCompositionObject@@PEAXPEAPEAVICompositionObject@@@Z @ 0x1C00AB730
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0CInputSink@@QEAA@XZ @ 0x1C00AB798 (--0CInputSink@@QEAA@XZ.c)
+ *     ?Initialize@CInputSink@@IEAAJAEBUCOMPOSITION_INPUT_SINK_V2@@@Z @ 0x1C00AB868 (-Initialize@CInputSink@@IEAAJAEBUCOMPOSITION_INPUT_SINK_V2@@@Z.c)
+ */
+
 __int64 __fastcall CompositionInputObject::ObjectInit(
         struct CompositionObject *a1,
         const struct COMPOSITION_INPUT_SINK_V2 *a2,

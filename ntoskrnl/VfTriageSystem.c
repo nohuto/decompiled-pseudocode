@@ -1,3 +1,18 @@
+/*
+ * XREFs of VfTriageSystem @ 0x140B49FDC
+ * Callers:
+ *     ViInitSystemPhase0 @ 0x140B49D78 (ViInitSystemPhase0.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     ViFindTriageDriverTargets @ 0x140B93F90 (ViFindTriageDriverTargets.c)
+ *     ViFindTriageRule @ 0x140B94010 (ViFindTriageRule.c)
+ *     ViMakeVerifierSettings @ 0x140B940B4 (ViMakeVerifierSettings.c)
+ *     ViTriageSameDriversFromDump @ 0x140B941A4 (ViTriageSameDriversFromDump.c)
+ *     ViValidateTriageRules @ 0x140B94260 (ViValidateTriageRules.c)
+ *     MmTriageActiveInLastCrash @ 0x140B96664 (MmTriageActiveInLastCrash.c)
+ *     TriageGetBugcheckData @ 0x140B98DCC (TriageGetBugcheckData.c)
+ */
+
 __int64 __fastcall VfTriageSystem(__int64 a1)
 {
   unsigned int v1; // ebx

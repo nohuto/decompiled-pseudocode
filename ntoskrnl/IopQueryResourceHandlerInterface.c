@@ -1,3 +1,17 @@
+/*
+ * XREFs of IopQueryResourceHandlerInterface @ 0x140805F74
+ * Callers:
+ *     IoTranslateBusAddress @ 0x14055DF60 (IoTranslateBusAddress.c)
+ *     IopDuplicateDetection @ 0x140803524 (IopDuplicateDetection.c)
+ *     IopSetupArbiterAndTranslators @ 0x1408059BC (IopSetupArbiterAndTranslators.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopSynchronousCall @ 0x14069DD78 (IopSynchronousCall.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopQueryResourceHandlerInterface(int a1, __int64 a2, unsigned __int8 a3, unsigned __int16 **a4)
 {
   __int64 v4; // rax

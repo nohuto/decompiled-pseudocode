@@ -1,3 +1,15 @@
+/*
+ * XREFs of DpiIsPowerRuntimeDStateTransition @ 0x1C0180CF0
+ * Callers:
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C0180B30 (DpiAcquireCoreSyncAccessSafe.c)
+ *     DpiFdoHandleDevicePower @ 0x1C01E1A70 (DpiFdoHandleDevicePower.c)
+ *     DpiFdoSetAdapterPowerState @ 0x1C01E1E80 (DpiFdoSetAdapterPowerState.c)
+ *     DpiPowerArbiterThread @ 0x1C0210150 (DpiPowerArbiterThread.c)
+ *     DpiLdaPowerDownAllAdaptersInChain @ 0x1C03A3D4C (DpiLdaPowerDownAllAdaptersInChain.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DpiIsPowerRuntimeDStateTransition(__int64 a1)
 {
   __int64 v1; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViThunkFindAllThunkedImports @ 0x140AD8940
+ * Callers:
+ *     ViThunkApplyWdmThunksCurrentSession @ 0x140AD86BC (ViThunkApplyWdmThunksCurrentSession.c)
+ * Callees:
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     ViThunkGetWdmThunk @ 0x140AD8BC4 (ViThunkGetWdmThunk.c)
+ */
+
 __int64 __fastcall ViThunkFindAllThunkedImports(__int64 a1, __int64 a2, unsigned int *a3)
 {
   __int64 v3; // rcx

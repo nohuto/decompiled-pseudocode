@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMComputeSpecificHighMetricValue @ 0x1C01DEF9C
+ * Callers:
+ *     RIMPopulatePointerDevice @ 0x1C01AF510 (RIMPopulatePointerDevice.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C01B3FEC (RIMCreatePointerDeviceInfo.c)
+ * Callees:
+ *     RIMComputePower @ 0x1C01DEF68 (RIMComputePower.c)
+ */
+
 __int64 __fastcall RIMComputeSpecificHighMetricValue(int a1, __int64 a2)
 {
   int v2; // edi

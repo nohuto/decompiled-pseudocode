@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_CheckingIfAnyAlternateInterfaceLeft @ 0x1C0023B10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBDSM_CheckingIfAnyAlternateInterfaceLeft(__int64 a1)
 {
   __int64 v1; // r9

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBHSM_IncrementingAndCheckingMailboxDataIndex @ 0x1C000A2B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBHSM_IncrementingAndCheckingMailboxDataIndex(__int64 a1)
 {
   _DWORD *v1; // rdx

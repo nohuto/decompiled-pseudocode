@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiAcpiExposeInfo @ 0x1C02094A4
+ * Callers:
+ *     DpiFdoEnumChildDevices @ 0x1C02088D0 (DpiFdoEnumChildDevices.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiAcpiPrepareAcpiChildNameList @ 0x1C0208E34 (DpiAcpiPrepareAcpiChildNameList.c)
+ */
+
 __int64 __fastcall DpiAcpiExposeInfo(__int64 a1)
 {
   struct _UNICODE_STRING *v1; // rsi

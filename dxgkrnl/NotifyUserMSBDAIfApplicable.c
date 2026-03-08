@@ -1,3 +1,12 @@
+/*
+ * XREFs of NotifyUserMSBDAIfApplicable @ 0x1C005E7B4
+ * Callers:
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 NTSTATUS NotifyUserMSBDAIfApplicable()
 {
   ULONGLONG v0; // rax

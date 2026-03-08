@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpDmaAllocateMapRegistersAtHighLevel @ 0x14050E094
+ * Callers:
+ *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403A9AD0 (HalDmaAllocateCrashDumpRegistersEx.c)
+ *     HalAllocateCrashDumpRegisters @ 0x1404FF170 (HalAllocateCrashDumpRegisters.c)
+ * Callees:
+ *     HalpDmaGetAdapterVersion @ 0x1403B4514 (HalpDmaGetAdapterVersion.c)
+ *     HalpDmaPrependTranslations @ 0x1404541B6 (HalpDmaPrependTranslations.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3 @ 0x1404FD200 (HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel @ 0x1404FF010 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel @ 0x1404FF094 (HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel.c)
+ *     HalpDmaForceAllocation @ 0x14050EBC0 (HalpDmaForceAllocation.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV2 @ 0x140513794 (HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV2.c)
+ */
+
 __int64 __fastcall HalpDmaAllocateMapRegistersAtHighLevel(__int64 a1, int *a2)
 {
   char v2; // al

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vDisableTimers@@YAXK@Z @ 0x1C00F1730
+ * Callers:
+ *     vDisableSynchronize @ 0x1C00F1660 (vDisableSynchronize.c)
+ *     ?vDisableSynchronizeNKAPC@@YAXPEAX00@Z @ 0x1C02AA340 (-vDisableSynchronizeNKAPC@@YAXPEAX00@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vDisableTimers(__int64 a1)
 {
   char v1; // bl

@@ -1,3 +1,20 @@
+/*
+ * XREFs of KeUpdateDpcWatchdogConfiguration @ 0x140568BB0
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeGenericProcessorCallback @ 0x1402A9E48 (KeGenericProcessorCallback.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KiCreateDpcLimitsProcessorConfiguration @ 0x14037FEF0 (KiCreateDpcLimitsProcessorConfiguration.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiValidateDpcWatchdogConfiguration @ 0x140568FE8 (KiValidateDpcWatchdogConfiguration.c)
+ *     KiApplyDpcVerificationScaleSettings @ 0x1405691D4 (KiApplyDpcVerificationScaleSettings.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeUpdateDpcWatchdogConfiguration(void *Src, size_t Size)
 {
   unsigned int v2; // r14d

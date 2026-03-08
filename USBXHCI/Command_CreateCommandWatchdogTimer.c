@@ -1,3 +1,13 @@
+/*
+ * XREFs of Command_CreateCommandWatchdogTimer @ 0x1C00700BC
+ * Callers:
+ *     Command_Create @ 0x1C006FF64 (Command_Create.c)
+ * Callees:
+ *     Controller_IsSecureDevice @ 0x1C000B0F8 (Controller_IsSecureDevice.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Command_CreateCommandWatchdogTimer(_QWORD *a1)
 {
   __int64 v2; // rcx

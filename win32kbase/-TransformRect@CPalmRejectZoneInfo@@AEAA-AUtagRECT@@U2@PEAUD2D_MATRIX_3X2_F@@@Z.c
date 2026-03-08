@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TransformRect@CPalmRejectZoneInfo@@AEAA?AUtagRECT@@U2@PEAUD2D_MATRIX_3X2_F@@@Z @ 0x1C0216DDC
+ * Callers:
+ *     ?GetInputRectFromInputSinkInScreenSpace@CPalmRejectZoneInfo@@AEAA?AUtagRECT@@PEBUCompositionInputObject@@U2@@Z @ 0x1C02159E0 (-GetInputRectFromInputSinkInScreenSpace@CPalmRejectZoneInfo@@AEAA-AUtagRECT@@PEBUCompositionInpu.c)
+ * Callees:
+ *     <none>
+ */
+
 struct tagRECT *__fastcall CPalmRejectZoneInfo::TransformRect(
         CPalmRejectZoneInfo *this,
         struct tagRECT *__return_ptr retstr,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiCollapseRebalanceRequests @ 0x140562860
+ * Callers:
+ *     PnpProcessRebalance @ 0x140562AF4 (PnpProcessRebalance.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 bool __fastcall PiCollapseRebalanceRequests(__int64 a1)
 {
   KIRQL v2; // al

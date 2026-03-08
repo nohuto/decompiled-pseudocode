@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiUnlockEntireDriver @ 0x140A31880
+ * Callers:
+ *     MiReapplyImportOptimizationForDriverVerifier @ 0x14063E4F8 (MiReapplyImportOptimizationForDriverVerifier.c)
+ * Callees:
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     MiUnlockDriverPages @ 0x14087313C (MiUnlockDriverPages.c)
+ */
+
 void __fastcall MiUnlockEntireDriver(__int64 *a1, __int64 a2)
 {
   __int64 *PteAddress; // rax

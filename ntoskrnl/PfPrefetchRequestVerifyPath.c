@@ -1,3 +1,11 @@
+/*
+ * XREFs of PfPrefetchRequestVerifyPath @ 0x140765F14
+ * Callers:
+ *     PfPrefetchRequestVerify @ 0x140765CC0 (PfPrefetchRequestVerify.c)
+ * Callees:
+ *     PfRequestRangeCheck @ 0x140765FA0 (PfRequestRangeCheck.c)
+ */
+
 __int64 __fastcall PfPrefetchRequestVerifyPath(__int64 a1, int a2, _DWORD *a3)
 {
   unsigned int v4; // r8d

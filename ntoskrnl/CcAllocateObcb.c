@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcAllocateObcb @ 0x140881170
+ * Callers:
+ *     CcPinRead @ 0x1406A72B0 (CcPinRead.c)
+ *     CcPinMappedData @ 0x1406A7750 (CcPinMappedData.c)
+ *     CcPreparePinWrite @ 0x1406B6780 (CcPreparePinWrite.c)
+ * Callees:
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ */
+
 _WORD *__fastcall CcAllocateObcb(_DWORD *a1, int a2, __int64 a3)
 {
   SIZE_T v6; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AreDockTargetActiveForSnapMoveSize@WindowArrangement@@YA_NXZ @ 0x1C0230B68
+ * Callers:
+ *     ?xxxInitializeMoveSizeData@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@IK@Z @ 0x1C01EEA1C (-xxxInitializeMoveSizeData@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@IK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall WindowArrangement::AreDockTargetActiveForSnapMoveSize(WindowArrangement *this)
 {
   bool result; // al

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SendIrpSynchronously@FxPkgFdo@@EEAAJPEAVFxIrp@@@Z @ 0x1C0078680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SendIrpSynchronously@FxIrp@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C002BA14 (-SendIrpSynchronously@FxIrp@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ */
+
 NTSTATUS __fastcall FxPkgFdo::SendIrpSynchronously(FxPkgFdo *this, FxIrp *Irp)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // r8

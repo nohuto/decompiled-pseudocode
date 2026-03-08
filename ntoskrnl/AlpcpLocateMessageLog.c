@@ -1,3 +1,12 @@
+/*
+ * XREFs of AlpcpLocateMessageLog @ 0x140977BC8
+ * Callers:
+ *     AlpcpEnterFreeEventMessageLog @ 0x1409779B4 (AlpcpEnterFreeEventMessageLog.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x140977A1C (AlpcpEnterStateChangeEventMessageLog.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AlpcpLocateMessageLog(unsigned int a1)
 {
   char *v2; // rax

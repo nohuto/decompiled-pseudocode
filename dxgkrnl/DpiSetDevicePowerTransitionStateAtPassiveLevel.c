@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiSetDevicePowerTransitionStateAtPassiveLevel @ 0x1C001A42C
+ * Callers:
+ *     DpiFdoHandleDevicePower @ 0x1C01E1A70 (DpiFdoHandleDevicePower.c)
+ *     DpiPowerArbiterThread @ 0x1C0210150 (DpiPowerArbiterThread.c)
+ *     DpiLdaPowerUpAdapterInChain @ 0x1C03A3ED8 (DpiLdaPowerUpAdapterInChain.c)
+ * Callees:
+ *     DxgkReportDevicePoweredOn @ 0x1C001B114 (DxgkReportDevicePoweredOn.c)
+ */
+
 void __fastcall DpiSetDevicePowerTransitionStateAtPassiveLevel(__int64 a1, int a2, char a3)
 {
   __int64 v3; // rsi

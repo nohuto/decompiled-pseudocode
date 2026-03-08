@@ -1,3 +1,16 @@
+/*
+ * XREFs of AuthzBasepEvaluateExpression @ 0x140366314
+ * Callers:
+ *     AuthzBasepEvaluateAceCondition @ 0x140246980 (AuthzBasepEvaluateAceCondition.c)
+ * Callees:
+ *     AuthzBasepCompareUnicodeStringOperands @ 0x1403657AC (AuthzBasepCompareUnicodeStringOperands.c)
+ *     AuthzBasepOperandValueTypesCompatible @ 0x140366290 (AuthzBasepOperandValueTypesCompatible.c)
+ *     AuthzBasepEvaluateSetRelationship @ 0x1403663B8 (AuthzBasepEvaluateSetRelationship.c)
+ *     AuthzBasepCompareFQBNOperands @ 0x14066CC80 (AuthzBasepCompareFQBNOperands.c)
+ *     AuthzBasepCompareIntegerOperands @ 0x14066CF0C (AuthzBasepCompareIntegerOperands.c)
+ *     AuthzBasepCompareOctetStringOperands @ 0x14066D030 (AuthzBasepCompareOctetStringOperands.c)
+ */
+
 __int64 __fastcall AuthzBasepEvaluateExpression(unsigned __int8 a1, __int64 a2, _DWORD *a3)
 {
   int v3; // ebp

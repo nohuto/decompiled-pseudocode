@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?RemoveHwProtectedResource@CD2DContext@@IEAAXXZ @ 0x180284610
+ * Callers:
+ *     ?UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z @ 0x18003D244 (-UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z.c)
+ *     ?DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z @ 0x1800F0480 (-DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z.c)
+ * Callees:
+ *     McTemplateU0qq_EventWriteTransfer @ 0x1801292C6 (McTemplateU0qq_EventWriteTransfer.c)
+ *     ?TempReenableHardwareProtection@CD2DContext@@IEAAXXZ @ 0x1802846B4 (-TempReenableHardwareProtection@CD2DContext@@IEAAXXZ.c)
+ */
+
 void __fastcall CD2DContext::RemoveHwProtectedResource(CD2DContext *this)
 {
   int v1; // r8d

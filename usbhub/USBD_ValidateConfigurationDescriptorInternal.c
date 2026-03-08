@@ -1,3 +1,11 @@
+/*
+ * XREFs of USBD_ValidateConfigurationDescriptorInternal @ 0x1C003223C
+ * Callers:
+ *     UsbhValidateConfigurationDescriptor @ 0x1C00525F0 (UsbhValidateConfigurationDescriptor.c)
+ * Callees:
+ *     memset @ 0x1C0023880 (memset.c)
+ */
+
 __int64 __fastcall USBD_ValidateConfigurationDescriptorInternal(
         unsigned __int16 *a1,
         unsigned int a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiHandleBound @ 0x14056A8C0
+ * Callers:
+ *     KiBoundFault @ 0x140424800 (KiBoundFault.c)
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExReferenceCallBackBlock @ 0x14034C060 (ExReferenceCallBackBlock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 KiHandleBound()
 {
   struct _KTHREAD *CurrentThread; // rax

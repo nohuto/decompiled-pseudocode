@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIThermalCheckNativeTemperatureSupport @ 0x1C00957B8
+ * Callers:
+ *     ACPIThermalWorker @ 0x1C00962E0 (ACPIThermalWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPIThermalCheckNativeTemperatureSupport(__int64 a1)
 {
   __int64 v1; // rbx

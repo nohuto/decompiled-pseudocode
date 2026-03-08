@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitModuleAllocations @ 0x1C00F4050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Feature_AtomicCheckFailure__private_ReportDeviceUsage @ 0x1C012D370 (Feature_AtomicCheckFailure__private_ReportDeviceUsage.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 InitModuleAllocations()
 {

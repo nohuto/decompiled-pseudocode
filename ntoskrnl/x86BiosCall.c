@@ -1,3 +1,11 @@
+/*
+ * XREFs of x86BiosCall @ 0x1403B8400
+ * Callers:
+ *     HalpBiosDisplayReset @ 0x1404FCF30 (HalpBiosDisplayReset.c)
+ * Callees:
+ *     x86BiosExecuteInterruptShadowed @ 0x1403B8450 (x86BiosExecuteInterruptShadowed.c)
+ */
+
 bool x86BiosCall()
 {
   bool v0; // r8

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RaspConvertDeltas @ 0x140383E44
+ * Callers:
+ *     RaspGetUnscaledGlyphData @ 0x140382708 (RaspGetUnscaledGlyphData.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RaspConvertDeltas(__int64 a1)
 {
   __int16 v1; // ax

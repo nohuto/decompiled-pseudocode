@@ -1,3 +1,13 @@
+/*
+ * XREFs of SpiMax311BufferRxData @ 0x14067AC44
+ * Callers:
+ *     SpiMax311PutByte @ 0x14067AD50 (SpiMax311PutByte.c)
+ *     SpiMax311RxReady @ 0x14067ADE0 (SpiMax311RxReady.c)
+ *     SpiMax311TxEmpty @ 0x14067AF94 (SpiMax311TxEmpty.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SpiMax311BufferRxData(__int16 a1)
 {
   __int64 result; // rax

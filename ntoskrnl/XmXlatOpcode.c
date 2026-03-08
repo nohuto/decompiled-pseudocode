@@ -1,3 +1,12 @@
+/*
+ * XREFs of XmXlatOpcode @ 0x140530E20
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmGetOffsetAddress @ 0x14039F39C (XmGetOffsetAddress.c)
+ *     XmSetSourceValue @ 0x1403B41A0 (XmSetSourceValue.c)
+ */
+
 __int64 __fastcall XmXlatOpcode(__int64 a1)
 {
   __int64 v1; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViInitPickRandomTargets @ 0x140B49F94
+ * Callers:
+ *     ViInitSystemPhase0 @ 0x140B49D78 (ViInitSystemPhase0.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     VfRandomGetNumber @ 0x140ABF358 (VfRandomGetNumber.c)
+ */
+
 __int64 ViInitPickRandomTargets()
 {
   __int64 result; // rax

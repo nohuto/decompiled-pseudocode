@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiSplitMultiNodeFreeDescriptors @ 0x140B6B4FC
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ */
+
 char __fastcall MiSplitMultiNodeFreeDescriptors(__int64 a1)
 {
   unsigned __int64 v1; // rax

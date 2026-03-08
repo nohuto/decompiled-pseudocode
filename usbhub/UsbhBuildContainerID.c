@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhBuildContainerID @ 0x1C004F3E8
+ * Callers:
+ *     UsbhReset2Complete @ 0x1C0002D00 (UsbhReset2Complete.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     RtlStringCbCatW @ 0x1C004EC84 (RtlStringCbCatW.c)
+ *     RtlStringCopyWorkerW @ 0x1C004ECF0 (RtlStringCopyWorkerW.c)
+ *     RtlStringLengthWorkerW @ 0x1C004ED4C (RtlStringLengthWorkerW.c)
+ *     UsbhMakeId @ 0x1C0050D48 (UsbhMakeId.c)
+ */
+
 __int64 __fastcall UsbhBuildContainerID(__int64 a1, __int64 a2)
 {
   UCHAR *v3; // r13

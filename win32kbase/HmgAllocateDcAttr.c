@@ -1,3 +1,19 @@
+/*
+ * XREFs of HmgAllocateDcAttr @ 0x1C00500EC
+ * Callers:
+ *     GreSetDCOwnerEx @ 0x1C0041580 (GreSetDCOwnerEx.c)
+ *     GreCreateDisplayDC @ 0x1C0055340 (GreCreateDisplayDC.c)
+ * Callees:
+ *     ?HmgAllocateSecureUserMemory@@YAPEAXPEAPEAX@Z @ 0x1C001CDA0 (-HmgAllocateSecureUserMemory@@YAPEAXPEAPEAX@Z.c)
+ *     GreReleaseHmgrSemaphore @ 0x1C0049700 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C0049780 (GreAcquireHmgrSemaphore.c)
+ *     W32GetThreadWin32Thread @ 0x1C004E3B0 (W32GetThreadWin32Thread.c)
+ *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0062994 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Feature_Servicing_CFONTPrintLeak__private_IsEnabledDeviceUsage @ 0x1C00DE78C (Feature_Servicing_CFONTPrintLeak__private_IsEnabledDeviceUsage.c)
+ *     ?HmgFreeAllocateSecureUserMemory@@YAXPEAX0@Z @ 0x1C0185ACC (-HmgFreeAllocateSecureUserMemory@@YAXPEAX0@Z.c)
+ */
+
 __int64 HmgAllocateDcAttr()
 {
   __int64 ThreadWin32Thread; // rax

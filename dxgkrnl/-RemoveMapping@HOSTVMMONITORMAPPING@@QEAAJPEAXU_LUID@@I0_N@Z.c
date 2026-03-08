@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RemoveMapping@HOSTVMMONITORMAPPING@@QEAAJPEAXU_LUID@@I0_N@Z @ 0x1C00573B4
+ * Callers:
+ *     _lambda_42ee479a8e982a1e9231e91789050ae8_::operator() @ 0x1C036D608 (_lambda_42ee479a8e982a1e9231e91789050ae8_--operator().c)
+ *     _lambda_c820ae13d6b077cc6710fe5fbb8b13a3_::operator() @ 0x1C036D794 (_lambda_c820ae13d6b077cc6710fe5fbb8b13a3_--operator().c)
+ * Callees:
+ *     HOSTVMMONITORMAPPING::RemoveMappingInternal__lambda_0b554593ef403a86ad1e63867a4eabfc___ @ 0x1C00564C8 (HOSTVMMONITORMAPPING--RemoveMappingInternal__lambda_0b554593ef403a86ad1e63867a4eabfc___.c)
+ */
+
 __int64 __fastcall HOSTVMMONITORMAPPING::RemoveMapping(
         HOSTVMMONITORMAPPING *this,
         void *a2,

@@ -1,3 +1,20 @@
+/*
+ * XREFs of PspCaptureUserProcessParameters @ 0x140759A00
+ * Callers:
+ *     PspCaptureProcessParameters @ 0x14070D704 (PspCaptureProcessParameters.c)
+ *     PsCaptureUserProcessParameters @ 0x1407599C0 (PsCaptureUserProcessParameters.c)
+ * Callees:
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PspCopyUnicodeString @ 0x14075A07C (PspCopyUnicodeString.c)
+ *     PspCaptureAndValidateUnicodeString @ 0x14075A0F0 (PspCaptureAndValidateUnicodeString.c)
+ *     PspValidateEnvironmentBlock @ 0x14075A170 (PspValidateEnvironmentBlock.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PspCaptureUserProcessParameters(_QWORD *a1, __int64 a2, __int64 a3, char a4, __int64 a5)
 {
   _OWORD *v6; // rsi

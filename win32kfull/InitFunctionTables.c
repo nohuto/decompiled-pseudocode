@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitFunctionTables @ 0x1C03B7870
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 __int64 (__fastcall *InitFunctionTables())(struct tagTHREADINFO **a1, unsigned int a2, unsigned __int64 a3, void *a4, ULONG64 a5)
 {
   __int64 v0; // rbx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopPepRegisterDevice @ 0x1408378C4
+ * Callers:
+ *     PopFxRegisterDeviceWithPep @ 0x1403938B8 (PopFxRegisterDeviceWithPep.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     PopPepComponentGetLatencyIdleState @ 0x1402EE980 (PopPepComponentGetLatencyIdleState.c)
+ *     PopPepComponentGetResidencyIdleState @ 0x140304D38 (PopPepComponentGetResidencyIdleState.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     PopPepInsertDevice @ 0x140393A90 (PopPepInsertDevice.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall PopPepRegisterDevice(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 *a5)
 {
   char v5; // bl

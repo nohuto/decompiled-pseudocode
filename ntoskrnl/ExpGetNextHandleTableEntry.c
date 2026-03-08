@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpGetNextHandleTableEntry @ 0x14070F78C
+ * Callers:
+ *     ExEnumHandleTable @ 0x14070F670 (ExEnumHandleTable.c)
+ *     ExQueryProcessHandleInformation @ 0x1409F60F4 (ExQueryProcessHandleInformation.c)
+ * Callees:
+ *     ExpLookupHandleTableEntry @ 0x1407C3370 (ExpLookupHandleTableEntry.c)
+ */
+
 __int64 __fastcall ExpGetNextHandleTableEntry(__int64 a1, __int64 a2, __int64 *a3)
 {
   __int64 *v3; // r10

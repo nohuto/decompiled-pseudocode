@@ -1,3 +1,11 @@
+/*
+ * XREFs of CleanupOEMBitmaps @ 0x1C010E300
+ * Callers:
+ *     CreateBitmapStrip @ 0x1C010E370 (CreateBitmapStrip.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 CleanupOEMBitmaps()
 {
   _QWORD *v0; // rbx

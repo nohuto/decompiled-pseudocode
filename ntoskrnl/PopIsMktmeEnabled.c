@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopIsMktmeEnabled @ 0x140AA040C
+ * Callers:
+ *     PopSaveHiberContext @ 0x140AA1810 (PopSaveHiberContext.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiGetCpuVendor @ 0x140A85800 (KiGetCpuVendor.c)
+ */
+
 bool PopIsMktmeEnabled()
 {
   char v0; // di

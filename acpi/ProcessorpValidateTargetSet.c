@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcessorpValidateTargetSet @ 0x1C009C3D4
+ * Callers:
+ *     ProcessorpFindIdtEntriesApic @ 0x1C009B5F0 (ProcessorpFindIdtEntriesApic.c)
+ * Callees:
+ *     IntPartIsInterruptSteerable @ 0x1C005EDEC (IntPartIsInterruptSteerable.c)
+ */
+
 char __fastcall ProcessorpValidateTargetSet(__int64 a1)
 {
   __int64 v1; // rsi

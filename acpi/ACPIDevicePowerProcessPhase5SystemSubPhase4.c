@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIDevicePowerProcessPhase5SystemSubPhase4 @ 0x1C0021450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qqss @ 0x1C000A374 (WPP_RECORDER_SF_qqss.c)
+ *     ACPIDeviceCompleteGenericPhase @ 0x1C001C540 (ACPIDeviceCompleteGenericPhase.c)
+ *     AMLIAsyncEvalObject @ 0x1C00478E8 (AMLIAsyncEvalObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ *     AMLIGetParent @ 0x1C0048724 (AMLIGetParent.c)
+ */
+
 __int64 __fastcall ACPIDevicePowerProcessPhase5SystemSubPhase4(__int64 a1)
 {
   _QWORD *v1; // rbx

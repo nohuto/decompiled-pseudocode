@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ModifyTokenPrivileges@@YAJXZ @ 0x140003BA4
+ * Callers:
+ *     wWinMain @ 0x140003430 (wWinMain.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x14000309C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x140005510 (__security_check_cookie.c)
+ */
+
 __int64 ModifyTokenPrivileges(void)
 {
   signed int v0; // ebx

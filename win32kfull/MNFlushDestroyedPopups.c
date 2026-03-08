@@ -1,3 +1,17 @@
+/*
+ * XREFs of MNFlushDestroyedPopups @ 0x1C0201F10
+ * Callers:
+ *     xxxMNEndMenuState @ 0x1C0202580 (xxxMNEndMenuState.c)
+ *     xxxMNLoop @ 0x1C021726C (xxxMNLoop.c)
+ * Callees:
+ *     ??1?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ @ 0x1C00A11DC (--1-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ.c)
+ *     ??4?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z @ 0x1C00E0FE0 (--4-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z @ 0x1C00E67A8 (-Init@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z.c)
+ *     ??$UserFreeIsolatedType@V?$CTypeIsolation@$0GAAA@$0GA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C020124C (--$UserFreeIsolatedType@V-$CTypeIsolation@$0GAAA@$0GA@@NSInstrumentation@@@@YAXPEAX@Z.c)
+ *     NullifyLookasideRef @ 0x1C0201B70 (NullifyLookasideRef.c)
+ *     MNFreePopup @ 0x1C0202004 (MNFreePopup.c)
+ */
+
 _QWORD *__fastcall MNFlushDestroyedPopups(_DWORD *a1)
 {
   _DWORD *v2; // rdx

@@ -1,3 +1,19 @@
+/*
+ * XREFs of KeIntSteerSnapPerf @ 0x1402A94D0
+ * Callers:
+ *     PpmParkSteerInterrupts @ 0x1402341D0 (PpmParkSteerInterrupts.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1404210C0 (_alloca_probe.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiIntSteerAddLoadToProcessorAndCheckThreshold @ 0x140577990 (KiIntSteerAddLoadToProcessorAndCheckThreshold.c)
+ */
+
 __int64 __fastcall KeIntSteerSnapPerf(__int64 a1, int **a2, _DWORD *a3, __int64 *a4)
 {
   int v4; // esi

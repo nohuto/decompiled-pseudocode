@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserAcquireInteractiveControlBackgroundAccess @ 0x1C0079BB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?AcquireDeviceBackgroundAccess@InteractiveControlManager@@QEAAJKIIPEAUtagWND@@@Z @ 0x1C0079660 (-AcquireDeviceBackgroundAccess@InteractiveControlManager@@QEAAJKIIPEAUtagWND@@@Z.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C007A05C (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ */
+
 __int64 __fastcall NtUserAcquireInteractiveControlBackgroundAccess(int a1, unsigned int a2, __int64 a3)
 {
   __int64 v6; // rbx

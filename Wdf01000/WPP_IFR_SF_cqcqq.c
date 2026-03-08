@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_IFR_SF_cqcqq @ 0x1C0076AC8
+ * Callers:
+ *     ?SetPendingPnpIrp@FxPkgPnp@@IEAAXPEAVFxIrp@@E@Z @ 0x1C0075B5C (-SetPendingPnpIrp@FxPkgPnp@@IEAAXPEAVFxIrp@@E@Z.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_cqcqq(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 _a1,

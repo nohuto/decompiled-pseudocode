@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?bCheckSurfaceRect@@YAHPEAU_SURFOBJ@@PEAU_RECTL@@PEAU_CLIPOBJ@@@Z @ 0x1C02CA19C
+ * Callers:
+ *     ?bCheckMask@@YAHPEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C02CA0B0 (-bCheckMask@@YAHPEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
+ *     NtGdiEngAlphaBlend @ 0x1C02CAC30 (NtGdiEngAlphaBlend.c)
+ *     NtGdiEngBitBlt @ 0x1C02CAFD0 (NtGdiEngBitBlt.c)
+ *     NtGdiEngCopyBits @ 0x1C02CB640 (NtGdiEngCopyBits.c)
+ *     NtGdiEngEraseSurface @ 0x1C02CBF90 (NtGdiEngEraseSurface.c)
+ *     NtGdiEngLineTo @ 0x1C02CC710 (NtGdiEngLineTo.c)
+ *     NtGdiEngPaint @ 0x1C02CCA50 (NtGdiEngPaint.c)
+ *     NtGdiEngTextOut @ 0x1C02CE030 (NtGdiEngTextOut.c)
+ *     NtGdiEngTransparentBlt @ 0x1C02CE3E0 (NtGdiEngTransparentBlt.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall bCheckSurfaceRect(struct _SURFOBJ *a1, struct _RECTL *p_rclBounds, struct _CLIPOBJ *a3)
 {
   unsigned int v4; // r9d

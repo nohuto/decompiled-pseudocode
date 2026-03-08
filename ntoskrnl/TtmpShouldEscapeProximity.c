@@ -1,3 +1,11 @@
+/*
+ * XREFs of TtmpShouldEscapeProximity @ 0x1409A8A90
+ * Callers:
+ *     TtmiSetPendingOnOffRequest @ 0x1409A84C4 (TtmiSetPendingOnOffRequest.c)
+ * Callees:
+ *     TtmiLogProximityPowerPress @ 0x1409A5BD4 (TtmiLogProximityPowerPress.c)
+ */
+
 char __fastcall TtmpShouldEscapeProximity(__int64 a1)
 {
   char v1; // di

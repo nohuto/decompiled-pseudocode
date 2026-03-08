@@ -1,3 +1,12 @@
+/*
+ * XREFs of MmAllocatePagesForMdl @ 0x1403A54F0
+ * Callers:
+ *     DifMmAllocatePagesForMdlWrapper @ 0x1405E4980 (DifMmAllocatePagesForMdlWrapper.c)
+ *     HalpDmaAllocateScatterMemory @ 0x140931508 (HalpDmaAllocateScatterMemory.c)
+ * Callees:
+ *     MiAllocatePagesForMdl @ 0x1402B3B18 (MiAllocatePagesForMdl.c)
+ */
+
 PMDL __stdcall MmAllocatePagesForMdl(
         PHYSICAL_ADDRESS LowAddress,
         PHYSICAL_ADDRESS HighAddress,

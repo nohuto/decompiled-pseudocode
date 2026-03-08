@@ -1,3 +1,12 @@
+/*
+ * XREFs of ShellHangDetection::_anonymous_namespace_::ReportHungShellToWer @ 0x1C02204C8
+ * Callers:
+ *     ?Execute@ShellHangDetection@@YAXXZ @ 0x1C000EDD4 (-Execute@ShellHangDetection@@YAXXZ.c)
+ * Callees:
+ *     IsShellProcess @ 0x1C009C278 (IsShellProcess.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall ShellHangDetection::_anonymous_namespace_::ReportHungShellToWer(__int64 a1)
 {
   _DWORD *v2; // rax

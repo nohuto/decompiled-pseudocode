@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopRequestCompletion @ 0x1402BB410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PopPepDeviceWaitWake @ 0x1402B8FC8 (PopPepDeviceWaitWake.c)
+ *     PopFxNotifyPreDIrpCompletion @ 0x1402BA43C (PopFxNotifyPreDIrpCompletion.c)
+ *     PopHandleDevicePowerIrpCompletion @ 0x1402BB4F0 (PopHandleDevicePowerIrpCompletion.c)
+ *     PopFreeIrp @ 0x1402BB5E8 (PopFreeIrp.c)
+ *     PopDiagTraceIrpFinish @ 0x1402BB864 (PopDiagTraceIrpFinish.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopDirectedDripsStartDisengageTimer @ 0x140584B8C (PopDirectedDripsStartDisengageTimer.c)
+ *     PopUpdateWakeSource @ 0x14058C278 (PopUpdateWakeSource.c)
+ */
+
 __int64 __fastcall PopRequestCompletion(__int64 a1, __int64 a2, __int64 a3)
 {
   ULONG_PTR v3; // rdi

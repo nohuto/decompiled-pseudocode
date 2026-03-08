@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlUnicodeStringValidateWorker_0 @ 0x1C004DD98
+ * Callers:
+ *     ?RtlUnicodeStringCat@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C004DBB0 (-RtlUnicodeStringCat@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ *     RtlUnicodeStringValidateDestWorker_0 @ 0x1C004DD28 (RtlUnicodeStringValidateDestWorker_0.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlUnicodeStringValidateWorker_0(PCUNICODE_STRING SourceString, const size_t cchMax, ULONG dwFlags)
 {
   unsigned __int16 Length; // r8

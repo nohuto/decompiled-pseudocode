@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiBugCheckUnicodeToAnsi @ 0x1405676A8
+ * Callers:
+ *     KeBugCheck2 @ 0x140565E90 (KeBugCheck2.c)
+ *     KiDumpParameterImages @ 0x1405680C8 (KiDumpParameterImages.c)
+ * Callees:
+ *     <none>
+ */
+
 _BYTE *__fastcall KiBugCheckUnicodeToAnsi(unsigned __int16 *a1, _BYTE *a2)
 {
   unsigned int v2; // r8d

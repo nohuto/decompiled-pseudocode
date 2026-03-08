@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiPageMightBeZero @ 0x14032BE90
+ * Callers:
+ *     MiSharePages @ 0x140228990 (MiSharePages.c)
+ *     MiWsleFree @ 0x14032BA30 (MiWsleFree.c)
+ * Callees:
+ *     MiGetPagePrivilege @ 0x14032D3F0 (MiGetPagePrivilege.c)
+ */
+
 __int64 __fastcall MiPageMightBeZero(__int64 a1, ULONG_PTR a2, __int64 a3)
 {
   __int64 v3; // rax

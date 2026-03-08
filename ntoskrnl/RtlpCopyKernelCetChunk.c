@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpCopyKernelCetChunk @ 0x1405A89CC
+ * Callers:
+ *     RtlpCopyExtendedContext @ 0x140364B00 (RtlpCopyExtendedContext.c)
+ *     RtlCopyContext @ 0x1407EE220 (RtlCopyContext.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpCopyKernelCetChunk(char a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   __int64 v6; // rax

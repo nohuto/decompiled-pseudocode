@@ -1,3 +1,14 @@
+/*
+ * XREFs of AslStringXmlSanitize @ 0x1407A0D70
+ * Callers:
+ *     AslpFileMakeStringVersionAttributes @ 0x1407A0A68 (AslpFileMakeStringVersionAttributes.c)
+ *     AslpFileGetClrVersionAttribute @ 0x140A55514 (AslpFileGetClrVersionAttribute.c)
+ *     AslpFileGetHeaderAttributesNE @ 0x140A55A30 (AslpFileGetHeaderAttributesNE.c)
+ *     AslpFileGetPeExportNameExeWrapper @ 0x140A5609C (AslpFileGetPeExportNameExeWrapper.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AslStringXmlSanitize(_WORD *a1)
 {
   unsigned __int64 v2; // r8

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlRunOnceBeginInitialize @ 0x1407A2CC0
+ * Callers:
+ *     RtlRunOnceExecuteOnce @ 0x1407A2BE0 (RtlRunOnceExecuteOnce.c)
+ * Callees:
+ *     RtlpRunOnceWaitForInit @ 0x140881418 (RtlpRunOnceWaitForInit.c)
+ */
+
 NTSTATUS __stdcall RtlRunOnceBeginInitialize(PRTL_RUN_ONCE RunOnce, ULONG Flags, PVOID *Context)
 {
   unsigned __int64 Value; // rax

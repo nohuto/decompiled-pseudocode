@@ -1,3 +1,14 @@
+/*
+ * XREFs of PfSnLogPageFaultCommon @ 0x140306D88
+ * Callers:
+ *     PfSnLogFileDataAccess @ 0x14028D408 (PfSnLogFileDataAccess.c)
+ *     PfSnLogPageFault @ 0x14028D4BC (PfSnLogPageFault.c)
+ * Callees:
+ *     PfSnGetFileInformation @ 0x140307D00 (PfSnGetFileInformation.c)
+ *     PfSnCheckLogSequenceNumber @ 0x140308120 (PfSnCheckLogSequenceNumber.c)
+ *     PfSnTraceGetLogEntry @ 0x14030841C (PfSnTraceGetLogEntry.c)
+ */
+
 __int64 __fastcall PfSnLogPageFaultCommon(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4, char a5)
 {
   unsigned __int64 v8; // rsi

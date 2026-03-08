@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserEnableMouseInputForCursorSuppression @ 0x1C007B540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     TransitionCursorSuppressionState @ 0x1C007B640 (TransitionCursorSuppressionState.c)
+ */
+
 __int64 __fastcall NtUserEnableMouseInputForCursorSuppression(int a1)
 {
   __int64 v2; // rbx

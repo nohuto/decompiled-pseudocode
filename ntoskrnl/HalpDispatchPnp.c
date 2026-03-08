@@ -1,3 +1,20 @@
+/*
+ * XREFs of HalpDispatchPnp @ 0x140821D00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     HalpPassIrpFromFdoToPdo @ 0x14038CC24 (HalpPassIrpFromFdoToPdo.c)
+ *     HalpInitializeLateSystemActions @ 0x1403B1748 (HalpInitializeLateSystemActions.c)
+ *     HalpQueryAcpiResourceRequirements @ 0x14080BBE4 (HalpQueryAcpiResourceRequirements.c)
+ *     HalpQueryInterface @ 0x140821F64 (HalpQueryInterface.c)
+ *     HalpQueryIdPdo @ 0x1408223AC (HalpQueryIdPdo.c)
+ *     HalpQueryDeviceRelations @ 0x140822480 (HalpQueryDeviceRelations.c)
+ *     HalpQueryIdFdo @ 0x14082291C (HalpQueryIdFdo.c)
+ *     HalpQueryResources @ 0x1408229CC (HalpQueryResources.c)
+ *     HalpInitSystemHelper @ 0x140A88D44 (HalpInitSystemHelper.c)
+ */
+
 NTSTATUS __fastcall HalpDispatchPnp(_QWORD *Object, PIRP Irp)
 {
   _DWORD *v2; // r8

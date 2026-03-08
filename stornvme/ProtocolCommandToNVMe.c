@@ -1,3 +1,19 @@
+/*
+ * XREFs of ProtocolCommandToNVMe @ 0x1C00187F4
+ * Callers:
+ *     NVMeHwBuildIo @ 0x1C0001010 (NVMeHwBuildIo.c)
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     GetControllerMaxTransferSize @ 0x1C0007A5C (GetControllerMaxTransferSize.c)
+ *     GetNamespaceId @ 0x1C0007A8C (GetNamespaceId.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     FillClippedSGL @ 0x1C00115F0 (FillClippedSGL.c)
+ *     NVMeValidateProtocolCommandRequest @ 0x1C0017ED0 (NVMeValidateProtocolCommandRequest.c)
+ *     SetPrpFromSrb @ 0x1C001B51C (SetPrpFromSrb.c)
+ */
+
 __int64 __fastcall ProtocolCommandToNVMe(_DWORD *a1, __int64 a2)
 {
   __int64 SrbExtension; // rax

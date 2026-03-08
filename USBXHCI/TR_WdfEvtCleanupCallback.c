@@ -1,3 +1,12 @@
+/*
+ * XREFs of TR_WdfEvtCleanupCallback @ 0x1C0041D40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CommonBuffer_ReleaseBuffer @ 0x1C001E754 (CommonBuffer_ReleaseBuffer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall TR_WdfEvtCleanupCallback(__int64 a1)
 {
   __int64 v1; // rbx

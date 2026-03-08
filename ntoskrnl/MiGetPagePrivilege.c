@@ -1,3 +1,33 @@
+/*
+ * XREFs of MiGetPagePrivilege @ 0x14032D3F0
+ * Callers:
+ *     MiMarkPfnVerified @ 0x1402093BC (MiMarkPfnVerified.c)
+ *     MiActivePageTradeable @ 0x14021244C (MiActivePageTradeable.c)
+ *     MiReferencePageForModifiedWrite @ 0x140213038 (MiReferencePageForModifiedWrite.c)
+ *     MiAllocateWsle @ 0x14026D1B0 (MiAllocateWsle.c)
+ *     MiCompleteProtoPteFault @ 0x14026F5F0 (MiCompleteProtoPteFault.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiDeletePerSessionProtos @ 0x1402CF6DC (MiDeletePerSessionProtos.c)
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ *     MiFlushSectionInternal @ 0x14031FA90 (MiFlushSectionInternal.c)
+ *     MiRevertValidPte @ 0x140322DC0 (MiRevertValidPte.c)
+ *     MiPageMightBeZero @ 0x14032BE90 (MiPageMightBeZero.c)
+ *     MiCombineCandidate @ 0x14032C640 (MiCombineCandidate.c)
+ *     MiLockCode @ 0x14032C9C0 (MiLockCode.c)
+ *     MiCopyPage @ 0x14032DC70 (MiCopyPage.c)
+ *     MiSetSystemCodeProtection @ 0x14032E170 (MiSetSystemCodeProtection.c)
+ *     MiClearPfnImageVerified @ 0x14036ABC0 (MiClearPfnImageVerified.c)
+ *     MiDbgWriteCheck @ 0x1403878D8 (MiDbgWriteCheck.c)
+ *     MiStealPage @ 0x1403B70BC (MiStealPage.c)
+ *     MiProtectDriverSectionPte @ 0x140618060 (MiProtectDriverSectionPte.c)
+ *     MiShouldUseExtendedStandby @ 0x14064F750 (MiShouldUseExtendedStandby.c)
+ *     MmChangeImageProtection @ 0x1407D1E10 (MmChangeImageProtection.c)
+ * Callees:
+ *     MiGetTopLevelPfn @ 0x14022A3D0 (MiGetTopLevelPfn.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiGetPagePrivilege(ULONG_PTR BugCheckParameter2, int a2, unsigned __int64 *a3)
 {
   unsigned __int64 *v3; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpGetEffectiveKcbSemantics @ 0x1407AF5C0
+ * Callers:
+ *     CmpPopulateKeyNodeStackFromKcbStack @ 0x140A1D1EC (CmpPopulateKeyNodeStackFromKcbStack.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpGetEffectiveKcbSemantics(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of sub_1406B0060 @ 0x1406B0060
+ * Callers:
+ *     sub_1406AFFB4 @ 0x1406AFFB4 (sub_1406AFFB4.c)
+ *     sub_14079B344 @ 0x14079B344 (sub_14079B344.c)
+ * Callees:
+ *     sub_1406AFC38 @ 0x1406AFC38 (sub_1406AFC38.c)
+ */
+
 __int64 __fastcall sub_1406B0060(__int64 a1, __int64 a2, int a3)
 {
   unsigned int v3; // esi

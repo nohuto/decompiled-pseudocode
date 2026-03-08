@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpAcpiRealTimeToUtcTime @ 0x14092FEC0
+ * Callers:
+ *     HalQueryRealTimeClock @ 0x1402D0F30 (HalQueryRealTimeClock.c)
+ * Callees:
+ *     ExLocalTimeToSystemTime @ 0x1402D10A0 (ExLocalTimeToSystemTime.c)
+ *     RtlTimeFieldsToTime @ 0x1402D1150 (RtlTimeFieldsToTime.c)
+ */
+
 __int64 __fastcall HalpAcpiRealTimeToUtcTime(__int64 a1, LARGE_INTEGER *a2)
 {
   unsigned int v4; // ebx

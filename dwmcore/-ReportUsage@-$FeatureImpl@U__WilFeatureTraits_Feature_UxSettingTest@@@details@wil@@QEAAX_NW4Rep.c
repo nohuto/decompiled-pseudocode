@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_UxSettingTest@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180116434
+ * Callers:
+ *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_UxSettingTest@@@details@wil@@QEAA_NW4ReportingKind@3@@Z @ 0x180116628 (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_UxSettingTest@@@details@wil@@QEAA.c)
+ * Callees:
+ *     ?ReportUsageToService@details@wil@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1800392F4 (-ReportUsageToService@details@wil@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGG.c)
+ *     ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_UxSettingTest@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x180113D50 (-GetCachedFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_UxSettingTest@@@details@.c)
+ */
+
 _UNKNOWN **__fastcall wil::details::FeatureImpl<__WilFeatureTraits_Feature_UxSettingTest>::ReportUsage(
         volatile signed __int32 *a1,
         unsigned __int8 a2,

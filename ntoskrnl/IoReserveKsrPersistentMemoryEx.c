@@ -1,3 +1,22 @@
+/*
+ * XREFs of IoReserveKsrPersistentMemoryEx @ 0x14094FA50
+ * Callers:
+ *     IoReserveKsrPersistentMemory @ 0x14094FA10 (IoReserveKsrPersistentMemory.c)
+ * Callees:
+ *     MmAllocatePagesForMdlEx @ 0x1402B3960 (MmAllocatePagesForMdlEx.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PipGetDeviceObjectLocation @ 0x14094FFE4 (PipGetDeviceObjectLocation.c)
+ *     PipGetDriverKsrGuid @ 0x140950230 (PipGetDriverKsrGuid.c)
+ *     PipGetPersistentMemory @ 0x1409503F8 (PipGetPersistentMemory.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IoReserveKsrPersistentMemoryEx(
         struct _MDL *a1,
         ULONG_PTR a2,

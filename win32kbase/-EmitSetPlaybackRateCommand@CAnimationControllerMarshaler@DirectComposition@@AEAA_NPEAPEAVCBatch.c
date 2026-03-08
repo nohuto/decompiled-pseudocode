@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EmitSetPlaybackRateCommand@CAnimationControllerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C005E6D8
+ * Callers:
+ *     ?EmitUpdateCommands@CAnimationControllerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C005E640 (-EmitUpdateCommands@CAnimationControllerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0064740 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ */
+
 char __fastcall DirectComposition::CAnimationControllerMarshaler::EmitSetPlaybackRateCommand(
         DirectComposition::CAnimationControllerMarshaler *this,
         struct DirectComposition::CBatch **a2)

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Intersects@CLineSegment@@QEBA_NAEBV1@PEAUfloat2@Numerics@Foundation@Windows@@@Z @ 0x180267790
+ * Callers:
+ *     ?FindOverlappingPoint@CVisualDepthGeometry@@AEBA_NAEBV1@PEAUfloat2@Numerics@Foundation@Windows@@@Z @ 0x180009998 (-FindOverlappingPoint@CVisualDepthGeometry@@AEBA_NAEBV1@PEAUfloat2@Numerics@Foundation@Windows@@.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CLineSegment::Intersects(
         CLineSegment *this,
         const struct CLineSegment *a2,

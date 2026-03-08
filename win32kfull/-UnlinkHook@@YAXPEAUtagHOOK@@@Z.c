@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UnlinkHook@@YAXPEAUtagHOOK@@@Z @ 0x1C00C9380
+ * Callers:
+ *     FreeHook @ 0x1C0039160 (FreeHook.c)
+ *     FreeThreadsWindowHooks @ 0x1C00C92A0 (FreeThreadsWindowHooks.c)
+ * Callees:
+ *     ?LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z @ 0x1C00C9628 (-LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z.c)
+ */
+
 void __fastcall UnlinkHook(struct tagHOOK *a1)
 {
   __int64 v2; // rcx

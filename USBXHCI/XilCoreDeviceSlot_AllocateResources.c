@@ -1,3 +1,17 @@
+/*
+ * XREFs of XilCoreDeviceSlot_AllocateResources @ 0x1C001C9FC
+ * Callers:
+ *     XilDeviceSlot_PrepareHardware @ 0x1C001C9B0 (XilDeviceSlot_PrepareHardware.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     CommonBuffer_QueueWorkItem @ 0x1C0008160 (CommonBuffer_QueueWorkItem.c)
+ *     XilCoreCommonBuffer_AcquireBuffers @ 0x1C000B490 (XilCoreCommonBuffer_AcquireBuffers.c)
+ *     CommonBuffer_AcquireBuffer @ 0x1C0013038 (CommonBuffer_AcquireBuffer.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     XilCoreDeviceSlot_FreeResources @ 0x1C0052EE4 (XilCoreDeviceSlot_FreeResources.c)
+ */
+
 __int64 __fastcall XilCoreDeviceSlot_AllocateResources(__int64 a1)
 {
   _QWORD *v1; // rsi

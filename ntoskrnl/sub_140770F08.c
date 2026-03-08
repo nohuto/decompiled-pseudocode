@@ -1,3 +1,15 @@
+/*
+ * XREFs of sub_140770F08 @ 0x140770F08
+ * Callers:
+ *     WbRemoveWarbirdProcess @ 0x14070546C (WbRemoveWarbirdProcess.c)
+ *     WbInPlaceEncryptionUnloadModule @ 0x140770B14 (WbInPlaceEncryptionUnloadModule.c)
+ *     WbHeapExecutionUnloadModule @ 0x140770C2C (WbHeapExecutionUnloadModule.c)
+ *     WbReleaseLeastRecentlyUsedHeapExecutedBlocks @ 0x140770D60 (WbReleaseLeastRecentlyUsedHeapExecutedBlocks.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     sub_1406AF180 @ 0x1406AF180 (sub_1406AF180.c)
+ */
+
 __int64 __fastcall sub_140770F08(__int64 a1, __int64 a2, unsigned int a3, int a4, _QWORD *a5)
 {
   int v5; // ebx

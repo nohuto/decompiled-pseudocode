@@ -1,3 +1,19 @@
+/*
+ * XREFs of IsPciBusAsyncWorker @ 0x1C0035350
+ * Callers:
+ *     IsPciBusAsync @ 0x1C0035270 (IsPciBusAsync.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     AcpipFreePciBusState @ 0x1C0034968 (AcpipFreePciBusState.c)
+ *     IsPciBusAsync @ 0x1C0035270 (IsPciBusAsync.c)
+ *     PciConfigInternal @ 0x1C0035ECC (PciConfigInternal.c)
+ *     ACPIConvertStringDelimitation @ 0x1C0043964 (ACPIConvertStringDelimitation.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ *     AMLIGetParent @ 0x1C0048724 (AMLIGetParent.c)
+ */
+
 __int64 __fastcall IsPciBusAsyncWorker(__int64 a1, int a2, int a3, _QWORD *a4)
 {
   char v5; // r15

@@ -1,3 +1,14 @@
+/*
+ * XREFs of sub_140754450 @ 0x140754450
+ * Callers:
+ *     WbInitializeEncryptionSegment @ 0x140752A00 (WbInitializeEncryptionSegment.c)
+ *     sub_140753BB4 @ 0x140753BB4 (sub_140753BB4.c)
+ * Callees:
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     WbHashData @ 0x1407544E8 (WbHashData.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall sub_140754450(UCHAR *Source1, unsigned int a2)
 {
   int v2; // ebx

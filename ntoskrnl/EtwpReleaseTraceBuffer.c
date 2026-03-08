@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpReleaseTraceBuffer @ 0x140205BD8
+ * Callers:
+ *     EtwpTraceMessageVa @ 0x140205450 (EtwpTraceMessageVa.c)
+ *     EtwpFailLogging @ 0x1402FABEC (EtwpFailLogging.c)
+ *     EtwpLogSystemEventUnsafe @ 0x14036F9F8 (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogContextSwapEvent @ 0x140384C90 (EtwpLogContextSwapEvent.c)
+ *     EtwpFailLoggingOld @ 0x14040C914 (EtwpFailLoggingOld.c)
+ *     EtwTraceEvent @ 0x14045FE22 (EtwTraceEvent.c)
+ *     EtwTraceRaw @ 0x1405FCF28 (EtwTraceRaw.c)
+ * Callees:
+ *     <none>
+ */
+
 signed __int64 __fastcall EtwpReleaseTraceBuffer(signed __int64 *a1)
 {
   signed __int64 v1; // r10

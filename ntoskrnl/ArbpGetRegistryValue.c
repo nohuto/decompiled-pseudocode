@@ -1,3 +1,16 @@
+/*
+ * XREFs of ArbpGetRegistryValue @ 0x14081EC78
+ * Callers:
+ *     ArbAddInaccessibleAllocationRange @ 0x14081E1A4 (ArbAddInaccessibleAllocationRange.c)
+ *     ArbBuildAssignmentOrdering @ 0x14081E6C8 (ArbBuildAssignmentOrdering.c)
+ *     ArbAddMmConfigRangeAsBootReserved @ 0x14081EF14 (ArbAddMmConfigRangeAsBootReserved.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ArbpGetRegistryValue(HANDLE KeyHandle, const WCHAR *a2, _QWORD *a3)
 {
   NTSTATUS v5; // eax

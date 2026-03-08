@@ -1,3 +1,12 @@
+/*
+ * XREFs of wil_StagingConfig_LogStagedFeatureUsage @ 0x180110A70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?wil_details_GetKernelBaseModuleHandle@@YAPEAUHINSTANCE__@@XZ @ 0x1801009D0 (-wil_details_GetKernelBaseModuleHandle@@YAPEAUHINSTANCE__@@XZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 FARPROC __fastcall wil_StagingConfig_LogStagedFeatureUsage(unsigned int a1, unsigned int a2, __int64 a3)
 {
   FARPROC result; // rax

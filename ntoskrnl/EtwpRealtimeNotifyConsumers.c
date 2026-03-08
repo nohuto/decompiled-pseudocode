@@ -1,3 +1,20 @@
+/*
+ * XREFs of EtwpRealtimeNotifyConsumers @ 0x140790D3C
+ * Callers:
+ *     EtwpLogger @ 0x1406926A0 (EtwpLogger.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     EtwpRealtimeInjectEtwBuffer @ 0x1406A2090 (EtwpRealtimeInjectEtwBuffer.c)
+ *     EtwpAddDebugInfoEvents @ 0x140772068 (EtwpAddDebugInfoEvents.c)
+ *     EtwpGetMaxTrackingEventBufferSize @ 0x140790E3C (EtwpGetMaxTrackingEventBufferSize.c)
+ *     EtwpInitializeProviderInfoBuffer @ 0x140790EB0 (EtwpInitializeProviderInfoBuffer.c)
+ *     EtwpAddBinaryInfoEvents @ 0x1409E933C (EtwpAddBinaryInfoEvents.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpRealtimeNotifyConsumers(__int64 a1)
 {
   volatile signed __int64 *v1; // rbp

@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwRegisterCounters @ 0x14085566C
+ * Callers:
+ *     ExpPcwHostCallback @ 0x140855740 (ExpPcwHostCallback.c)
+ * Callees:
+ *     ExpRegisterCounterSet @ 0x140855950 (ExpRegisterCounterSet.c)
+ */
+
 __int64 EtwRegisterCounters()
 {
   struct _PCW_REGISTRATION_INFORMATION Info; // [rsp+20h] [rbp-40h] BYREF

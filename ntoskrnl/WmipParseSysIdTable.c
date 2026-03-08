@@ -1,3 +1,13 @@
+/*
+ * XREFs of WmipParseSysIdTable @ 0x1409DD0A0
+ * Callers:
+ *     WmipGetSysIds @ 0x1409DCDD8 (WmipGetSysIds.c)
+ * Callees:
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x14029B230 (MmUnmapIoSpace.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ */
+
 __int64 __fastcall WmipParseSysIdTable(
         __int64 a1,
         unsigned int a2,

@@ -1,3 +1,19 @@
+/*
+ * XREFs of SeSetSecurityAttributesTokenEx @ 0x14039D0A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x14029705C (AuthzBasepSetSecurityAttributesToken.c)
+ *     SepInternalSetSecurityAttributesToken @ 0x1402BE3C0 (SepInternalSetSecurityAttributesToken.c)
+ *     SepGetProcUniqueLuidAndIndexFromTokenEx @ 0x1402EF41C (SepGetProcUniqueLuidAndIndexFromTokenEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     SepSetSingletonEntry @ 0x14039D204 (SepSetSingletonEntry.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall SeSetSecurityAttributesTokenEx(
         void *a1,
         KPROCESSOR_MODE a2,

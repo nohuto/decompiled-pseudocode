@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtOpenJobObject @ 0x14079B7D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObOpenObjectByName @ 0x1406C39E0 (ObOpenObjectByName.c)
+ *     EtwTraceJob @ 0x1409E2518 (EtwTraceJob.c)
+ */
+
 __int64 __fastcall NtOpenJobObject(_QWORD *a1, int a2, __int64 a3)
 {
   char PreviousMode; // r8

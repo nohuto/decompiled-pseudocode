@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_GFxUsbPipe@@MEAAPEAXI@Z @ 0x1C0059AA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxUsbPipe@@MEAA@XZ @ 0x1C0059894 (--1FxUsbPipe@@MEAA@XZ.c)
+ */
+
 FxUsbPipe *__fastcall FxUsbPipe::`scalar deleting destructor'(FxUsbPipe *this, unsigned int a2)
 {
   char v2; // bl

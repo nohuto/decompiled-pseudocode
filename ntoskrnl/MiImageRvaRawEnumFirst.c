@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiImageRvaRawEnumFirst @ 0x140773990
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     MiImageGetRawRvaState @ 0x140773A3C (MiImageGetRawRvaState.c)
+ */
+
 __int64 __fastcall MiImageRvaRawEnumFirst(__int64 a1, _DWORD *a2)
 {
   unsigned int v2; // ebx

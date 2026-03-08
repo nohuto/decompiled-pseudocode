@@ -1,3 +1,16 @@
+/*
+ * XREFs of VfPtProcessAllocPoolInfo @ 0x140ADBA18
+ * Callers:
+ *     ViPtLogStackCallout @ 0x140ADBF00 (ViPtLogStackCallout.c)
+ * Callees:
+ *     RtlInsertElementGenericTableAvl @ 0x1402451A0 (RtlInsertElementGenericTableAvl.c)
+ *     ViPtAcquireTreeLockAtDpcLevelSafe @ 0x1405CFEE0 (ViPtAcquireTreeLockAtDpcLevelSafe.c)
+ *     ViPtCleanupLockContext @ 0x1405CFF24 (ViPtCleanupLockContext.c)
+ *     ViPtInitializeLockContext @ 0x1405CFFC0 (ViPtInitializeLockContext.c)
+ *     ViPtRaiseIrqlSafe @ 0x1405CFFD4 (ViPtRaiseIrqlSafe.c)
+ *     ViPtReleaseTreeLockFromDpcLevel @ 0x1405D0044 (ViPtReleaseTreeLockFromDpcLevel.c)
+ */
+
 BOOLEAN __fastcall VfPtProcessAllocPoolInfo(_QWORD *a1, __int64 a2)
 {
   BOOLEAN result; // al

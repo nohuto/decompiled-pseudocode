@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?FillInternalAdapterInfo@DXGADAPTER@@QEBAXPEAUDXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN@@@Z @ 0x1C0371108
+ * Callers:
+ *     ?VmBusGetInternalAdapterInfo@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C037AD30 (-VmBusGetInternalAdapterInfo@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ * Callees:
+ *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x1C003F8DC (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ?GetDeviceDescriptor@DXGADAPTER@@QEBAXKPEAG@Z @ 0x1C0045928 (-GetDeviceDescriptor@DXGADAPTER@@QEBAXKPEAG@Z.c)
+ *     DpiGetDevicePropertyDataString @ 0x1C02164D8 (DpiGetDevicePropertyDataString.c)
+ */
+
 void __fastcall DXGADAPTER::FillInternalAdapterInfo(
         DXGADAPTER *this,
         struct DXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN *a2)

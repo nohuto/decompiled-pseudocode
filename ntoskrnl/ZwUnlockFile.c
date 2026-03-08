@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwUnlockFile @ 0x140415E50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall ZwUnlockFile(
         HANDLE FileHandle,
         PIO_STATUS_BLOCK IoStatusBlock,

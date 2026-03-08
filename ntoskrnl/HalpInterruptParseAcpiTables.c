@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpInterruptParseAcpiTables @ 0x140376A1C
+ * Callers:
+ *     HalpInitializeInterrupts @ 0x140B3D448 (HalpInitializeInterrupts.c)
+ * Callees:
+ *     HalpAcpiGetTable @ 0x14029C550 (HalpAcpiGetTable.c)
+ *     HalpInterruptParseMadt @ 0x140376468 (HalpInterruptParseMadt.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ */
+
 __int64 __fastcall HalpInterruptParseAcpiTables(__int64 a1, int a2)
 {
   unsigned int v3; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CalculateInContactValue@CPositionMotion@@QEAAMMMMMMM@Z @ 0x18026C0C8
+ * Callers:
+ *     ?CalculateInContactValueWorker@CInteractionTrackerPositionAnimation@@MEAAJPEAVCExpressionValueStack@@_KMPEAM@Z @ 0x180263350 (-CalculateInContactValueWorker@CInteractionTrackerPositionAnimation@@MEAAJPEAVCExpressionValueSt.c)
+ * Callees:
+ *     ?AdvanceDeltaDueToScale@CPositionMotion@@AEAAXXZ @ 0x18026BFA0 (-AdvanceDeltaDueToScale@CPositionMotion@@AEAAXXZ.c)
+ */
+
 float __fastcall CPositionMotion::CalculateInContactValue(
         CPositionMotion *this,
         float a2,

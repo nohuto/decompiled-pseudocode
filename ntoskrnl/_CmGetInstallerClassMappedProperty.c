@@ -1,3 +1,14 @@
+/*
+ * XREFs of _CmGetInstallerClassMappedProperty @ 0x14074D838
+ * Callers:
+ *     _PnpDispatchInstallerClass @ 0x14074D6F0 (_PnpDispatchInstallerClass.c)
+ * Callees:
+ *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x14074DA38 (_CmGetInstallerClassMappedPropertyFromComposite.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14074DDF4 (_CmGetInstallerClassMappedPropertyFromRegProp.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x14087C86C (_CmGetInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x14087E160 (_CmGetInstallerClassMappedPropertyFromCoInstallers.c)
+ */
+
 __int64 __fastcall CmGetInstallerClassMappedProperty(
         __int64 a1,
         __int64 a2,

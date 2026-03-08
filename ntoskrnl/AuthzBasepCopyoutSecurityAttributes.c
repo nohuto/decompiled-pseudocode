@@ -1,3 +1,15 @@
+/*
+ * XREFs of AuthzBasepCopyoutSecurityAttributes @ 0x1402D5E70
+ * Callers:
+ *     AuthzBasepQuerySecurityAttributesToken @ 0x1402475E0 (AuthzBasepQuerySecurityAttributesToken.c)
+ * Callees:
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x1402478D0 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepCopyoutSecurityAttributeValues @ 0x1402D60E8 (AuthzBasepCopyoutSecurityAttributeValues.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 NTSTATUS __fastcall AuthzBasepCopyoutSecurityAttributes(
         _DWORD *a1,
         __int64 a2,

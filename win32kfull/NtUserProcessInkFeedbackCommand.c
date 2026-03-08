@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserProcessInkFeedbackCommand @ 0x1C01D99E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ?InkProcessorProcessInkFeedbackCommand@@YAJIPEAXI@Z @ 0x1C0200FC0 (-InkProcessorProcessInkFeedbackCommand@@YAJIPEAXI@Z.c)
+ */
+
 __int64 __fastcall NtUserProcessInkFeedbackCommand(__int64 a1, void *Src, __int64 a3)
 {
   SIZE_T v3; // rsi

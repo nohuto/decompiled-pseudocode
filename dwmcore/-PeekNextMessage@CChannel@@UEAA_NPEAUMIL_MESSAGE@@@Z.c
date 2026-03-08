@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PeekNextMessage@CChannel@@UEAA_NPEAUMIL_MESSAGE@@@Z @ 0x1800F55E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ */
+
 char __fastcall CChannel::PeekNextMessage(CChannel *this, struct MIL_MESSAGE *a2)
 {
   struct _RTL_CRITICAL_SECTION *v2; // rbp

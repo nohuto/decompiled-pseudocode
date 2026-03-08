@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??0CDrawingContext@@IEAA@XZ @ 0x180038C88
+ * Callers:
+ *     ?Create@CDrawingContext@@SAXPEAPEAV1@@Z @ 0x180038BA0 (-Create@CDrawingContext@@SAXPEAPEAV1@@Z.c)
+ * Callees:
+ *     ??0CLightStack@@QEAA@XZ @ 0x180038FF4 (--0CLightStack@@QEAA@XZ.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_ProjectedShadow@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180039260 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_ProjectedShadow@@@details@wil@@QEAAX_NW4R.c)
+ *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DA10 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
+ *     ??0CDrawListEntryBuilder@@QEAA@XZ @ 0x1800946C0 (--0CDrawListEntryBuilder@@QEAA@XZ.c)
+ */
+
 CDrawingContext *__fastcall CDrawingContext::CDrawingContext(CDrawingContext *this)
 {
   CMILMatrix *v2; // rcx

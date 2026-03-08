@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiComputeWorkerThreadPriority @ 0x1C0001160
+ * Callers:
+ *     VidSchiSubmitCommandPacketToQueue @ 0x1C0003280 (VidSchiSubmitCommandPacketToQueue.c)
+ *     VidSchSignalSyncObjectsFromGpu @ 0x1C00040E0 (VidSchSignalSyncObjectsFromGpu.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VidSchiComputeWorkerThreadPriority(__int64 a1, int a2)
 {
   int v2; // r8d

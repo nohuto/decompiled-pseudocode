@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepDuplicateTokenClaims @ 0x1408A1CFA
+ * Callers:
+ *     SepFilterToken @ 0x14073FED0 (SepFilterToken.c)
+ *     SepDuplicateToken @ 0x1407BCF00 (SepDuplicateToken.c)
+ * Callees:
+ *     SepDuplicateClaimAttributes @ 0x1409CE654 (SepDuplicateClaimAttributes.c)
+ */
+
 __int64 __fastcall SepDuplicateTokenClaims(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

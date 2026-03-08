@@ -1,3 +1,16 @@
+/*
+ * XREFs of ImpShutdownWorker @ 0x1C008D758
+ * Callers:
+ *     ImSessionStart @ 0x1C008BE98 (ImSessionStart.c)
+ *     ?ShutdownImWorker@@YAJXZ @ 0x1C00D4710 (-ShutdownImWorker@@YAJXZ.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ImpReleaseLock @ 0x1C008A6FC (ImpReleaseLock.c)
+ *     ImpAcquireLock @ 0x1C008A74C (ImpAcquireLock.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C008D2C0 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 ImpShutdownWorker()
 {
   int v1; // [rsp+30h] [rbp-68h] BYREF

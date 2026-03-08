@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpInterruptInitializeController @ 0x14037B24C
+ * Callers:
+ *     HalpInterruptSelectController @ 0x1403AF008 (HalpInterruptSelectController.c)
+ *     HalpInterruptResetThisProcessor @ 0x140502E70 (HalpInterruptResetThisProcessor.c)
+ *     HalpInterruptPowerChange @ 0x140518364 (HalpInterruptPowerChange.c)
+ *     HalpInterruptReinitialize @ 0x140A923CC (HalpInterruptReinitialize.c)
+ *     HalpInitializeInterrupts @ 0x140B3D448 (HalpInitializeInterrupts.c)
+ * Callees:
+ *     HalpInterruptInitializeLocalUnit @ 0x1403786F0 (HalpInterruptInitializeLocalUnit.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ */
+
 __int64 __fastcall HalpInterruptInitializeController(ULONG_PTR BugCheckParameter3)
 {
   int v2; // ecx

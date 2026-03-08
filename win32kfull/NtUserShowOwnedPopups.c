@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserShowOwnedPopups @ 0x1C01DFBB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxShowOwnedWindows @ 0x1C010189C (xxxShowOwnedWindows.c)
+ */
+
 __int64 __fastcall NtUserShowOwnedPopups(__int64 a1, int a2)
 {
   __int64 v4; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of DrvInitializeDxgkrnlDpiCache @ 0x1C00CD490
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0049800 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0049E20 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EngAcquireSemaphore @ 0x1C004B690 (EngAcquireSemaphore.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DrvInitializeDxgkrnlDpiCache(_DWORD *a1, __int64 a2)
 {
   __int64 DxgkWin32kInterface; // rax

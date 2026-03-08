@@ -1,3 +1,19 @@
+/*
+ * XREFs of BiConvertRegistryDataToElement @ 0x14082F010
+ * Callers:
+ *     BcdGetElementDataWithFlags @ 0x14082E398 (BcdGetElementDataWithFlags.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x140830F7C (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiResolveLocateDevice @ 0x140A59DB0 (BiResolveLocateDevice.c)
+ *     BiConvertBootEnvironmentDeviceToQualifiedPartition @ 0x140A5A2E4 (BiConvertBootEnvironmentDeviceToQualifiedPartition.c)
+ *     BiConvertBootEnvironmentDeviceToUnknown @ 0x140A5A3D0 (BiConvertBootEnvironmentDeviceToUnknown.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiConvertRegistryDataToElement(
         __int64 a1,
         unsigned int *a2,

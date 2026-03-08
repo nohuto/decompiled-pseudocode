@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PostRender@CComputeScribbleRenderer@@QEAAXXZ @ 0x18012D81E
+ * Callers:
+ *     ?Render@CLegacyRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x18008B8BC (-Render@CLegacyRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ * Callees:
+ *     McTemplateU0xq_EventWriteTransfer @ 0x18012A09C (McTemplateU0xq_EventWriteTransfer.c)
+ *     ?EndRenderOperation@CComputeScribbleSynchronizer@@QEAAXPEAVCD3DDevice@@_K@Z @ 0x180206FB0 (-EndRenderOperation@CComputeScribbleSynchronizer@@QEAAXPEAVCD3DDevice@@_K@Z.c)
+ */
+
 void __fastcall CComputeScribbleRenderer::PostRender(CComputeScribbleRenderer *this)
 {
   __int64 v2; // rbx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmRegisterVetoList @ 0x14097FAF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PpmRegisterVetoList(unsigned int *a1)
 {
   unsigned int v2; // ebx

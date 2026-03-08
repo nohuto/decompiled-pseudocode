@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@CTurbulenceEffectMarshaler@DirectComposition@@UEAAJXZ @ 0x1C024E830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ @ 0x1C024D3E0 (-Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ.c)
+ */
+
 __int64 __fastcall DirectComposition::CTurbulenceEffectMarshaler::Initialize(
         DirectComposition::CTurbulenceEffectMarshaler *this)
 {

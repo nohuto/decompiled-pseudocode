@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmRetrieveExtraParameter @ 0x1406C313C
+ * Callers:
+ *     VrpPostOpenOrCreate @ 0x1406C2968 (VrpPostOpenOrCreate.c)
+ * Callees:
+ *     CmpFindExtraParameterInBlock @ 0x1406C3180 (CmpFindExtraParameterInBlock.c)
+ */
+
 __int64 __fastcall CmRetrieveExtraParameter(__int64 a1)
 {
   __int64 result; // rax

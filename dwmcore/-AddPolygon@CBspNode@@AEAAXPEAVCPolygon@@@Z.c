@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AddPolygon@CBspNode@@AEAAXPEAVCPolygon@@@Z @ 0x18025615C
+ * Callers:
+ *     ?PushPolygon@CBspNode@@QEAAJPEAVCPolygon@@_N@Z @ 0x18025625C (-PushPolygon@CBspNode@@QEAAJPEAVCPolygon@@_N@Z.c)
+ * Callees:
+ *     ??$_Emplace_reallocate@AEBQEAVCPolygon@@@?$vector@PEAVCPolygon@@V?$allocator@PEAVCPolygon@@@std@@@std@@QEAAPEAPEAVCPolygon@@QEAPEAV2@AEBQEAV2@@Z @ 0x180255974 (--$_Emplace_reallocate@AEBQEAVCPolygon@@@-$vector@PEAVCPolygon@@V-$allocator@PEAVCPolygon@@@std@.c)
+ */
+
 void __fastcall CBspNode::AddPolygon(CBspNode *this, struct CPolygon *a2)
 {
   _QWORD *v2; // rax

@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiFindLargePageMemory @ 0x140A46B08
+ * Callers:
+ *     MiAllocateLargeZeroPages @ 0x14034DCB0 (MiAllocateLargeZeroPages.c)
+ * Callees:
+ *     MiChangePageAttributeBatch @ 0x140211998 (MiChangePageAttributeBatch.c)
+ *     MiPfnZeroingNeeded @ 0x140214AC4 (MiPfnZeroingNeeded.c)
+ *     MiZeroInParallel @ 0x140242EB8 (MiZeroInParallel.c)
+ *     MiGetLargestPageIndex @ 0x14027DE94 (MiGetLargestPageIndex.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiProtectionToCacheAttribute @ 0x14028A2D0 (MiProtectionToCacheAttribute.c)
+ *     MiUpdateCacheAttributeListsForPage @ 0x1402B4948 (MiUpdateCacheAttributeListsForPage.c)
+ *     MiCreatePageChains @ 0x1402B4A2C (MiCreatePageChains.c)
+ *     MiDereferencePageChains @ 0x1402B4CFC (MiDereferencePageChains.c)
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     MiSufficientAvailablePages @ 0x1403643E4 (MiSufficientAvailablePages.c)
+ *     MiInsertMdlPageNeedsZero @ 0x1403A0E10 (MiInsertMdlPageNeedsZero.c)
+ *     MiFindContiguousPagesEx @ 0x1403B5CF8 (MiFindContiguousPagesEx.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiFindLargePageMemory(_QWORD *a1, unsigned __int64 *a2)
 {
   __int64 v2; // rbx

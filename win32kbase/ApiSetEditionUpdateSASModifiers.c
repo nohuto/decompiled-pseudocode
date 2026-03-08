@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionUpdateSASModifiers @ 0x1C0080664
+ * Callers:
+ *     xxxKeyEventEx @ 0x1C007F2E0 (xxxKeyEventEx.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 PDEVICE_OBJECT *__fastcall ApiSetEditionUpdateSASModifiers(unsigned int a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   unsigned __int16 v5; // si

@@ -1,3 +1,14 @@
+/*
+ * XREFs of CcCrossPartitionDrainSectionDeletion @ 0x1405332B4
+ * Callers:
+ *     CcErrorCallbackRoutine @ 0x1405352F0 (CcErrorCallbackRoutine.c)
+ * Callees:
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 CcCrossPartitionDrainSectionDeletion()
 {
   unsigned __int64 v0; // rbx

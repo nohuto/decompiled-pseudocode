@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspJobIoRateControlDisable @ 0x1406F6E38
+ * Callers:
+ *     PspJobDelete @ 0x140291AD0 (PspJobDelete.c)
+ *     PspSetJobIoRateControl @ 0x140752E58 (PspSetJobIoRateControl.c)
+ * Callees:
+ *     PspJobIoRateVolumeEntryRemoveAll @ 0x1402919C8 (PspJobIoRateVolumeEntryRemoveAll.c)
+ *     PspIoRateEntryDeactivate @ 0x1407552BC (PspIoRateEntryDeactivate.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PspJobIoRateControlDisable(__int64 a1)
 {
   unsigned int v1; // edi

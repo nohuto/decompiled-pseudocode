@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiLargePfnPromoteCandidate @ 0x1402C8F70
+ * Callers:
+ *     MiCoalesceFreeLargePages @ 0x1402C89C0 (MiCoalesceFreeLargePages.c)
+ *     MiChangePageAttributeLargeFreeZeroPage @ 0x14064C4F4 (MiChangePageAttributeLargeFreeZeroPage.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall MiLargePfnPromoteCandidate(__int64 a1, __int64 a2, int a3)
 {
   unsigned __int64 v3; // rax

@@ -1,3 +1,18 @@
+/*
+ * XREFs of CcPostWorkQueueAsyncLazywrite @ 0x140537D14
+ * Callers:
+ *     CcLazyWriteScanVolume @ 0x140218810 (CcLazyWriteScanVolume.c)
+ *     CcQueueAsyncLazywriteCompletion @ 0x1405392F4 (CcQueueAsyncLazywriteCompletion.c)
+ * Callees:
+ *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x14021511C (CcReferencePartitionAndPrivateVolumeCacheMap.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExQueueWorkItemToPartition @ 0x1403439E0 (ExQueueWorkItemToPartition.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x140391D54 (CcPerfLogWorkItemEnqueue.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall CcPostWorkQueueAsyncLazywrite(__int64 a1, __int64 a2)
 {
   __int64 v2; // r15

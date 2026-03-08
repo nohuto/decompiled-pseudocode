@@ -1,3 +1,11 @@
+/*
+ * XREFs of DisplayFilter @ 0x1404FB8C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DisplayBootBitmap @ 0x1403A4B48 (DisplayBootBitmap.c)
+ */
+
 int __fastcall DisplayFilter(unsigned __int8 **a1)
 {
   int v1; // edx

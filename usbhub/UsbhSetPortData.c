@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhSetPortData @ 0x1C0057810
+ * Callers:
+ *     UsbhCreatePdo @ 0x1C0053530 (UsbhCreatePdo.c)
+ * Callees:
+ *     UsbhRefPdo @ 0x1C00012A0 (UsbhRefPdo.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ */
+
 __int64 __fastcall UsbhSetPortData(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v5; // r9

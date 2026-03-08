@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvlIsCoreSharingPossible @ 0x14053D490
+ * Callers:
+ *     KiOptimizeSpecCtrlSettingsWorker @ 0x14037E220 (KiOptimizeSpecCtrlSettingsWorker.c)
+ *     VslConnectSwInterrupt @ 0x140B6F5B0 (VslConnectSwInterrupt.c)
+ * Callees:
+ *     <none>
+ */
+
 bool HvlIsCoreSharingPossible()
 {
   unsigned __int64 CoreProcessorSet; // rcx

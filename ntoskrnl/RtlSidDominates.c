@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlSidDominates @ 0x14030FF10
+ * Callers:
+ *     SepMandatorySubProcessToken @ 0x140297F20 (SepMandatorySubProcessToken.c)
+ *     SeTokenCanImpersonate @ 0x1406DA880 (SeTokenCanImpersonate.c)
+ *     SepAdjustPrivileges @ 0x14070EDE0 (SepAdjustPrivileges.c)
+ *     SeIsTokenAssignableToProcess @ 0x140776104 (SeIsTokenAssignableToProcess.c)
+ *     RtlpNewSecurityObject @ 0x1407BD790 (RtlpNewSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x1407BF100 (RtlpSetSecurityObject.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ */
+
 __int64 __fastcall RtlSidDominates(_DWORD *Buf1, _DWORD *Buf2, bool *a3)
 {
   int v4; // r9d

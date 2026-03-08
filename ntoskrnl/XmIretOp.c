@@ -1,3 +1,11 @@
+/*
+ * XREFs of XmIretOp @ 0x1403B3570
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmPopStack @ 0x1403B4154 (XmPopStack.c)
+ */
+
 __int64 __fastcall XmIretOp(__int64 a1)
 {
   __int64 result; // rax

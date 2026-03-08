@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiOpComputeLinearAddress @ 0x14057CDF8
+ * Callers:
+ *     KiOpRetrieveRegMemAddress @ 0x14057D26C (KiOpRetrieveRegMemAddress.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiOpComputeLinearAddress(__int64 a1, __int64 *a2)
 {
   struct _KTHREAD *CurrentThread; // r9

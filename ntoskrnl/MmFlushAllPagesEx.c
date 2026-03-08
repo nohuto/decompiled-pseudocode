@@ -1,3 +1,12 @@
+/*
+ * XREFs of MmFlushAllPagesEx @ 0x1406398BC
+ * Callers:
+ *     PopTransitionToSleep @ 0x140AA21D0 (PopTransitionToSleep.c)
+ * Callees:
+ *     PsGetNextPartition @ 0x1402FF5F0 (PsGetNextPartition.c)
+ *     MiFlushAllPages @ 0x1406377FC (MiFlushAllPages.c)
+ */
+
 __int64 *__fastcall MmFlushAllPagesEx(char a1)
 {
   __int64 *i; // rcx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopDirectedDripsSuspendDevices @ 0x140980E14
+ * Callers:
+ *     PopDirectedDripsWorkerRoutine @ 0x1407FFD30 (PopDirectedDripsWorkerRoutine.c)
+ *     PopDirectedDripsHandleResiliencyNotification @ 0x140980530 (PopDirectedDripsHandleResiliencyNotification.c)
+ * Callees:
+ *     PopDirectedDripsDiagTraceNotifyDevices @ 0x14059E404 (PopDirectedDripsDiagTraceNotifyDevices.c)
+ *     PopAcquireTransitionLock @ 0x14082AD04 (PopAcquireTransitionLock.c)
+ *     PopDirectedDripsDestroyBroadcast @ 0x1409804A8 (PopDirectedDripsDestroyBroadcast.c)
+ *     PopDirectedDripsInitializeBroadcast @ 0x1409806E8 (PopDirectedDripsInitializeBroadcast.c)
+ *     PopDirectedDripsReleaseTransitionLock @ 0x140980B94 (PopDirectedDripsReleaseTransitionLock.c)
+ *     PoBroadcastSystemState @ 0x140AA38F8 (PoBroadcastSystemState.c)
+ */
+
 __int64 __fastcall PopDirectedDripsSuspendDevices(signed __int32 *a1)
 {
   __int64 v2; // rbp

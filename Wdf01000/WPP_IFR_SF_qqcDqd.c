@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_IFR_SF_qqcDqd @ 0x1C003196C
+ * Callers:
+ *     Vf_VerifyWdfDeviceWdmDispatchIrpToIoQueue @ 0x1C00B9D10 (Vf_VerifyWdfDeviceWdmDispatchIrpToIoQueue.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_qqcDqd(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 id,

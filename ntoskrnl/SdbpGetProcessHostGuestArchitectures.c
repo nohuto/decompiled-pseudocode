@@ -1,3 +1,16 @@
+/*
+ * XREFs of SdbpGetProcessHostGuestArchitectures @ 0x140A503E0
+ * Callers:
+ *     SdbpGetPathAppPatchPreRS3 @ 0x14066BB30 (SdbpGetPathAppPatchPreRS3.c)
+ *     SdbpGetPathCustomSdbPreRS3 @ 0x14066BCC0 (SdbpGetPathCustomSdbPreRS3.c)
+ *     SdbpGetPathAppraiser @ 0x140A500D0 (SdbpGetPathAppraiser.c)
+ *     SdbpGetPathSystem @ 0x140A50320 (SdbpGetPathSystem.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslEnvGetProcessWowInfo @ 0x140A54488 (AslEnvGetProcessWowInfo.c)
+ *     AslImageFileToArchitecture @ 0x140A54B54 (AslImageFileToArchitecture.c)
+ */
+
 __int64 __fastcall SdbpGetProcessHostGuestArchitectures(__int16 *a1, __int16 *a2, unsigned __int16 *a3)
 {
   int ProcessWowInfo; // ebx

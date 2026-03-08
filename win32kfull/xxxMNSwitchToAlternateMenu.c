@@ -1,3 +1,17 @@
+/*
+ * XREFs of xxxMNSwitchToAlternateMenu @ 0x1C021D0B4
+ * Callers:
+ *     xxxHandleMenuMessages @ 0x1C0216988 (xxxHandleMenuMessages.c)
+ *     xxxMNChar @ 0x1C0219CB8 (xxxMNChar.c)
+ *     xxxMNKeyDown @ 0x1C021ABF8 (xxxMNKeyDown.c)
+ *     xxxMNMouseMove @ 0x1C021B510 (xxxMNMouseMove.c)
+ *     xxxMNKeyFilter @ 0x1C0241E88 (xxxMNKeyFilter.c)
+ * Callees:
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     xxxMNSelectItem @ 0x1C021C660 (xxxMNSelectItem.c)
+ */
+
 __int64 __fastcall xxxMNSwitchToAlternateMenu(__int64 **a1, __int64 a2)
 {
   __int64 *v2; // rax

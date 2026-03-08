@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcInitializeQuickLWSThreadItem @ 0x1403BB470
+ * Callers:
+ *     CcInitializePrivateVolumeCacheMap @ 0x1403BAB18 (CcInitializePrivateVolumeCacheMap.c)
+ * Callees:
+ *     ExpAllocatePoolWithTagFromNode @ 0x140310130 (ExpAllocatePoolWithTagFromNode.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 char __fastcall CcInitializeQuickLWSThreadItem(_QWORD *a1)
 {
   __int64 v1; // rsi

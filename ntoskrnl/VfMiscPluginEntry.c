@@ -1,3 +1,16 @@
+/*
+ * XREFs of VfMiscPluginEntry @ 0x140ADD684
+ * Callers:
+ *     DifRegisterKernelPlugin @ 0x1405D2B20 (DifRegisterKernelPlugin.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     VfAvlInitializeTree @ 0x1405CF7F0 (VfAvlInitializeTree.c)
+ *     DifIsPluginRunningWithoutReboot @ 0x1405D2A54 (DifIsPluginRunningWithoutReboot.c)
+ *     DifRegisterPlugin @ 0x1405D2C50 (DifRegisterPlugin.c)
+ *     VfSettingsApplyMiscellaneousChecks @ 0x140AD7D64 (VfSettingsApplyMiscellaneousChecks.c)
+ *     VfCtxInit @ 0x140AE19B4 (VfCtxInit.c)
+ */
+
 __int64 VfMiscPluginEntry()
 {
   int v0; // edi

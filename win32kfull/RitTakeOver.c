@@ -1,3 +1,11 @@
+/*
+ * XREFs of RitTakeOver @ 0x1C0078910
+ * Callers:
+ *     RawInputThread @ 0x1C007A0C0 (RawInputThread.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RitTakeOver(__int64 a1)
 {
   __int64 v1; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspInitializeHwTraceCallouts @ 0x140B424D0
+ * Callers:
+ *     PspInitPhase1 @ 0x140B422C8 (PspInitPhase1.c)
+ * Callees:
+ *     ExRegisterHost @ 0x14080EEF0 (ExRegisterHost.c)
+ */
+
 __int64 __fastcall PspInitializeHwTraceCallouts(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

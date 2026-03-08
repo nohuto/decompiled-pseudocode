@@ -1,3 +1,23 @@
+/*
+ * XREFs of EtwTraceTimedEvent @ 0x1402CD670
+ * Callers:
+ *     KeDisableTimer2 @ 0x140204028 (KeDisableTimer2.c)
+ *     KiFinalizeTimer2Disablement @ 0x140204564 (KiFinalizeTimer2Disablement.c)
+ *     KiExpireTimer2 @ 0x14024FED0 (KiExpireTimer2.c)
+ *     PerfInfoLogInterrupt @ 0x1402CD5F0 (PerfInfoLogInterrupt.c)
+ *     HvcallFastExtended @ 0x1403C6CA0 (HvcallFastExtended.c)
+ *     HvlSendSyntheticClusterIpi @ 0x1403C6D90 (HvlSendSyntheticClusterIpi.c)
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     EtwpTraceFltTimedIo @ 0x14045FBD0 (EtwpTraceFltTimedIo.c)
+ *     PerfInfoLogInterruptHv @ 0x14045FDE0 (PerfInfoLogInterruptHv.c)
+ *     IopTimerDispatch @ 0x1405538A0 (IopTimerDispatch.c)
+ *     EtwTraceCpuCacheFlush @ 0x1405FA4BC (EtwTraceCpuCacheFlush.c)
+ *     PerfInfoLogIpiReceive @ 0x1405FC640 (PerfInfoLogIpiReceive.c)
+ * Callees:
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall EtwTraceTimedEvent(__int16 a1, unsigned int a2, __int64 a3, int a4, int a5, __int64 a6)
 {
   __int64 result; // rax

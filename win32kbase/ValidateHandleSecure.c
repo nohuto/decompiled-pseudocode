@@ -1,3 +1,15 @@
+/*
+ * XREFs of ValidateHandleSecure @ 0x1C0077D40
+ * Callers:
+ *     HMValidateHandle @ 0x1C0079718 (HMValidateHandle.c)
+ *     HMValidateCatHandleNoRip @ 0x1C0246EEC (HMValidateCatHandleNoRip.c)
+ * Callees:
+ *     EtwTraceUIPIHandleValidationError @ 0x1C003CC40 (EtwTraceUIPIHandleValidationError.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     IsHandleEntrySecure @ 0x1C00D6650 (IsHandleEntrySecure.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall ValidateHandleSecure(unsigned __int64 a1, __int64 a2, __int64 a3)
 {
   char v3; // bp

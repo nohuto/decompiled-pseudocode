@@ -1,3 +1,15 @@
+/*
+ * XREFs of DifIoCreateDeviceWrapper @ 0x1405DBBC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     IoCreateDevice @ 0x1407F0460 (IoCreateDevice.c)
+ */
+
 NTSTATUS __fastcall DifIoCreateDeviceWrapper(
         PDRIVER_OBJECT DriverObject,
         ULONG DeviceExtensionSize,

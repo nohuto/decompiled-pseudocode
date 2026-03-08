@@ -1,3 +1,11 @@
+/*
+ * XREFs of ConstrainWindowPos @ 0x1C01A74FC
+ * Callers:
+ *     ConstrainWindowSIZERECT @ 0x1C01A7538 (ConstrainWindowSIZERECT.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ConstrainWindowPos(int *a1, int *a2)
 {
   int v2; // r8d

@@ -1,3 +1,13 @@
+/*
+ * XREFs of McTemplateK0cppppqqq_EtwWriteTransfer @ 0x1C00EE162
+ * Callers:
+ *     EtwTraceRetrievePostMessage @ 0x1C00A6260 (EtwTraceRetrievePostMessage.c)
+ *     EtwTraceRetrievePseudoMessage @ 0x1C00B86E0 (EtwTraceRetrievePseudoMessage.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0cppppqqq_EtwWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

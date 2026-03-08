@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpGetNextProcessThread @ 0x140773EF4
+ * Callers:
+ *     ExpGetProcessInformation @ 0x1406A9140 (ExpGetProcessInformation.c)
+ * Callees:
+ *     PsGetNextProcessThread @ 0x1406A8E30 (PsGetNextProcessThread.c)
+ *     KeSynchronizeWithDynamicProcessors @ 0x140773F48 (KeSynchronizeWithDynamicProcessors.c)
+ */
+
 _QWORD *__fastcall ExpGetNextProcessThread(char *a1, _QWORD *a2)
 {
   _QWORD *v2; // rbx

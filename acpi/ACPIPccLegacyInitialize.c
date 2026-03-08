@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIPccLegacyInitialize @ 0x1C00897A8
+ * Callers:
+ *     ACPIRootInitialize @ 0x1C0093768 (ACPIRootInitialize.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     ACPIAmliEvaluateOsc @ 0x1C007C7D8 (ACPIAmliEvaluateOsc.c)
+ *     ACPIAmliEvaluatePcch @ 0x1C007C968 (ACPIAmliEvaluatePcch.c)
+ *     AcpiPccInitializeSubspace @ 0x1C0089A94 (AcpiPccInitializeSubspace.c)
+ */
+
 __int64 __fastcall ACPIPccLegacyInitialize(__int64 a1)
 {
   ULONG_PTR v1; // rbx

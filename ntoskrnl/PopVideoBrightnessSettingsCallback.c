@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopVideoBrightnessSettingsCallback @ 0x1403A6380
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopVideoBrightnessSettingsCallback(__int64 *a1, int *a2, int a3)
 {
   __int64 v3; // rax

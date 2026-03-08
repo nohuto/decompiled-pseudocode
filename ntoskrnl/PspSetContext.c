@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspSetContext @ 0x1407603A0
+ * Callers:
+ *     PspGetSetContextInternal @ 0x1406EA840 (PspGetSetContextInternal.c)
+ * Callees:
+ *     RtlXRestoreS @ 0x1402D8238 (RtlXRestoreS.c)
+ *     KiCopyXStateArea @ 0x140570100 (KiCopyXStateArea.c)
+ */
+
 __int64 __fastcall PspSetContext(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
   int v4; // ebp

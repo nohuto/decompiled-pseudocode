@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtQueryIoRingCapabilities @ 0x140947920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IopExceptionFilter @ 0x1405530E8 (IopExceptionFilter.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ */
+
 __int64 __fastcall NtQueryIoRingCapabilities(SIZE_T Length, _DWORD *Address)
 {
   char PreviousMode; // dl

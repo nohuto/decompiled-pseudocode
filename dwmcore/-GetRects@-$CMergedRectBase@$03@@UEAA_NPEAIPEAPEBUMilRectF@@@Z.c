@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetRects@?$CMergedRectBase@$03@@UEAA_NPEAIPEAPEBUMilRectF@@@Z @ 0x180040660
+ * Callers:
+ *     ?GetRects@CMergedDirtyRect@@UEAA_NPEAIPEAPEBUMilRectF@@@Z @ 0x180040610 (-GetRects@CMergedDirtyRect@@UEAA_NPEAIPEAPEBUMilRectF@@@Z.c)
+ * Callees:
+ *     ?Optimize@?$CMergedRectBase@$03@@IEAAX_N@Z @ 0x1800406F8 (-Optimize@-$CMergedRectBase@$03@@IEAAX_N@Z.c)
+ *     ?SwapExisting@?$CMergedRectBase@$03@@IEAAXII@Z @ 0x180040808 (-SwapExisting@-$CMergedRectBase@$03@@IEAAXII@Z.c)
+ */
+
 bool __fastcall CMergedRectBase<4>::GetRects(__int64 a1, _DWORD *a2, _QWORD *a3)
 {
   _DWORD *v3; // r15

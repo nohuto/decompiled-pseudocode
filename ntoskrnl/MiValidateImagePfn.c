@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiValidateImagePfn @ 0x14069EF78
+ * Callers:
+ *     MiWalkEntireImage @ 0x1402862C0 (MiWalkEntireImage.c)
+ *     MiValidateInPage @ 0x140287570 (MiValidateInPage.c)
+ * Callees:
+ *     MiMarkPfnVerified @ 0x1402093BC (MiMarkPfnVerified.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14034A974 (MiMakeProtectionPfnCompatible.c)
+ *     MiReleaseFaultPte @ 0x140631BE0 (MiReleaseFaultPte.c)
+ *     MiReserveFaultPte @ 0x140631D64 (MiReserveFaultPte.c)
+ *     SeValidateImageData @ 0x14069F190 (SeValidateImageData.c)
+ *     MiRevertRelocatedImagePfn @ 0x14069F1D0 (MiRevertRelocatedImagePfn.c)
+ *     MiGetSectionStrongImageReference @ 0x140A40B24 (MiGetSectionStrongImageReference.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiValidateImagePfn(
         __int64 a1,
         int a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViThunkFindDriverImportEntry @ 0x140AD8A28
+ * Callers:
+ *     VfThunkApplyDriverAddedThunks @ 0x140AD8160 (VfThunkApplyDriverAddedThunks.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ViThunkFindDriverImportEntry(__int64 **a1, __int64 a2)
 {
   __int64 *i; // rax

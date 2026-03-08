@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DpiFdoDevicePowerCompletionCallback@@YAXPEAU_DEVICE_OBJECT@@ET_POWER_STATE@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x1C001BBD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DpiFdoDevicePowerCompletionCallback(
         PDEVICE_OBJECT DeviceObject,
         UCHAR MinorFunction,

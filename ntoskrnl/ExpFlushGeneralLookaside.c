@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpFlushGeneralLookaside @ 0x1402EC330
+ * Callers:
+ *     ExDeletePagedLookasideList @ 0x1402EC300 (ExDeletePagedLookasideList.c)
+ *     ExDeleteNPagedLookasideList @ 0x1403C0DB0 (ExDeleteNPagedLookasideList.c)
+ * Callees:
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall ExpFlushGeneralLookaside(__int64 a1)
 {
   PSLIST_ENTRY v2; // rcx

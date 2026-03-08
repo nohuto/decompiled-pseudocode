@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetFloatProperty@CViewBoxMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0254050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CViewBoxMarshaler::SetFloatProperty(
         DirectComposition::CViewBoxMarshaler *this,
         int a2,

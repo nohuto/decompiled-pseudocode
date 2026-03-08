@@ -1,3 +1,11 @@
+/*
+ * XREFs of KdpPollBreakInWithPortLock @ 0x1403ACB6C
+ * Callers:
+ *     KdpPrintString @ 0x140AAF4EC (KdpPrintString.c)
+ * Callees:
+ *     <none>
+ */
+
 bool KdpPollBreakInWithPortLock()
 {
   char v0; // bl

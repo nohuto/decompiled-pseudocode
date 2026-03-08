@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z @ 0x1C01F48B4
+ * Callers:
+ *     WritePointerDeviceSettingsFull @ 0x1C01F4CBC (WritePointerDeviceSettingsFull.c)
+ * Callees:
+ *     ?OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z @ 0x1C00F2C34 (-OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?WritePointerDeviceCfgSetting@@YAJPEAXPEBGIPEAEI@Z @ 0x1C01F4A30 (-WritePointerDeviceCfgSetting@@YAJPEAXPEBGIPEAEI@Z.c)
+ */
+
 _BOOL8 __fastcall SetFlickMap(struct tagFLICK_MAP *a1, int a2)
 {
   unsigned int v2; // r14d

@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtMITGetCursorUpdateHandle @ 0x1C00CDC30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C007CCB8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
+ *     GetCursorUpdateHandle @ 0x1C00CDCC8 (GetCursorUpdateHandle.c)
+ */
+
 __int64 __fastcall NtMITGetCursorUpdateHandle(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   PKDPC BufferChainingDpc; // rdi

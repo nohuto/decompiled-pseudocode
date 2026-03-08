@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpDetermineHotPatchExtent @ 0x140AAAB14
+ * Callers:
+ *     RtlDetermineHotPatchExtent @ 0x140A736B4 (RtlDetermineHotPatchExtent.c)
+ *     RtlApplyHotPatch @ 0x140AAA600 (RtlApplyHotPatch.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RtlpDetermineHotPatchExtent(int a1, __int16 a2, _DWORD *a3, int *a4)
 {
   int v4; // eax

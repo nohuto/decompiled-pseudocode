@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_a6cadc748e29644dcd3cf84dc08806d7_::operator() @ 0x18024B510
+ * Callers:
+ *     ?OnSceneFrameTick@CSceneMesh@@EEAAJPEAUISpectreRenderer@@_K@Z @ 0x18024B610 (-OnSceneFrameTick@CSceneMesh@@EEAAJPEAUISpectreRenderer@@_K@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall lambda_a6cadc748e29644dcd3cf84dc08806d7_::operator()(_QWORD *a1)
 {
   __int64 *v2; // rcx

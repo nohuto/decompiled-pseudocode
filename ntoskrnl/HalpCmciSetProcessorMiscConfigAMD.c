@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpCmciSetProcessorMiscConfigAMD @ 0x140503D34
+ * Callers:
+ *     HalpCmciSetProcessorConfigAMD @ 0x140503AC8 (HalpCmciSetProcessorConfigAMD.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpCmciSetProcessorMiscConfigAMD(__int64 a1, __int64 a2, signed __int64 a3, char a4, __int64 a5)
 {
   __int64 v5; // rcx

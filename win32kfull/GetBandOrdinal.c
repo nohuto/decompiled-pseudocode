@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetBandOrdinal @ 0x1C0025CC4
+ * Callers:
+ *     SetWindowGroupBand @ 0x1C0025CE4 (SetWindowGroupBand.c)
+ *     LinkWindow @ 0x1C00639C0 (LinkWindow.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetBandOrdinal(int a1)
 {
   __int64 result; // rax

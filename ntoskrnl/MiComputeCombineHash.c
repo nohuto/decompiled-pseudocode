@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiComputeCombineHash @ 0x14032C2E0
+ * Callers:
+ *     MiCombinePte @ 0x140650CA0 (MiCombinePte.c)
+ *     MiCombineAllPhysicalMemory @ 0x1407C7D50 (MiCombineAllPhysicalMemory.c)
+ * Callees:
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiGetUltraMapping @ 0x140276080 (MiGetUltraMapping.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiCombineCandidate @ 0x14032C640 (MiCombineCandidate.c)
+ *     MiPerformCombineScan @ 0x14032D550 (MiPerformCombineScan.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiComputeCombineHash(__int64 *a1, _QWORD *a2)
 {
   unsigned __int64 v2; // rbp

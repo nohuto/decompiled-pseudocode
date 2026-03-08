@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiPurgeSlabEntries @ 0x140300024
+ * Callers:
+ *     MiFreeSlabEntries @ 0x140361050 (MiFreeSlabEntries.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDiscardTransitionPteEx @ 0x14064E040 (MiDiscardTransitionPteEx.c)
+ *     MiIsFreeSlabPage @ 0x140654AC8 (MiIsFreeSlabPage.c)
+ */
+
 void __fastcall MiPurgeSlabEntries(__int64 a1)
 {
   unsigned __int64 v2; // rbp

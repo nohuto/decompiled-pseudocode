@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagTraceAbnormalReset @ 0x14058F59C
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PopDiagTraceAbnormalReset(int a1)
 {
   REGHANDLE v1; // rbx

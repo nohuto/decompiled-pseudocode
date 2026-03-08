@@ -1,3 +1,21 @@
+/*
+ * XREFs of PnpBootDeviceWait @ 0x14038932C
+ * Callers:
+ *     CimfsInitialize @ 0x140B55208 (CimfsInitialize.c)
+ *     VhdInitialize @ 0x140B56EA0 (VhdInitialize.c)
+ *     IopInitializeBootDrivers @ 0x140B57F78 (IopInitializeBootDrivers.c)
+ * Callees:
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     HeadlessKernelAddLogEntry @ 0x1402B17D0 (HeadlessKernelAddLogEntry.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     IopOpenRegistryKeyEx @ 0x14081BCC0 (IopOpenRegistryKeyEx.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpBootDeviceWait(
         __int64 a1,
         int a2,

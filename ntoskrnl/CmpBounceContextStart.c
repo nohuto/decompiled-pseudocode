@@ -1,3 +1,19 @@
+/*
+ * XREFs of CmpBounceContextStart @ 0x1407AC9C0
+ * Callers:
+ *     NtQueryMultipleValueKey @ 0x1406B8CB0 (NtQueryMultipleValueKey.c)
+ *     NtQueryKey @ 0x1406E6630 (NtQueryKey.c)
+ *     NtEnumerateValueKey @ 0x1407AB260 (NtEnumerateValueKey.c)
+ *     NtEnumerateKey @ 0x1407AC4B0 (NtEnumerateKey.c)
+ * Callees:
+ *     CmpAllocateTransientPoolWithQuota @ 0x140243978 (CmpAllocateTransientPoolWithQuota.c)
+ *     ExAllocateFromLookasideListEx @ 0x14030DE20 (ExAllocateFromLookasideListEx.c)
+ *     _tlgWriteAgg @ 0x14035EDD0 (_tlgWriteAgg.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpIsBufferGloballyVisible @ 0x1406B18D8 (CmpIsBufferGloballyVisible.c)
+ */
+
 __int64 __fastcall CmpBounceContextStart(__int64 a1, unsigned __int64 a2, size_t a3, int a4, char a5)
 {
   unsigned __int64 v6; // rdi

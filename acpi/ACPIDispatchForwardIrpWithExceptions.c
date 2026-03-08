@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIDispatchForwardIrpWithExceptions @ 0x1C00244D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDispatchForwardIrp @ 0x1C0001770 (ACPIDispatchForwardIrp.c)
+ */
+
 __int64 __fastcall ACPIDispatchForwardIrpWithExceptions(ULONG_PTR BugCheckParameter3, PIRP Irp)
 {
   unsigned int v4; // edi

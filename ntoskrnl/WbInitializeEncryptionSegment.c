@@ -1,3 +1,15 @@
+/*
+ * XREFs of WbInitializeEncryptionSegment @ 0x140752A00
+ * Callers:
+ *     WbGetInitializedEncryptionSegment @ 0x140755694 (WbGetInitializedEncryptionSegment.c)
+ * Callees:
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     WbAlloc @ 0x1406AF510 (WbAlloc.c)
+ *     sub_14075424C @ 0x14075424C (sub_14075424C.c)
+ *     sub_140754450 @ 0x140754450 (sub_140754450.c)
+ */
+
 __int64 __fastcall WbInitializeEncryptionSegment(int *a1, __int64 a2, __int64 a3)
 {
   int v5; // r8d

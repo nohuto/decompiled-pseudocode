@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ForceDependentAnimationsDirtied@CBaseExpression@@IEAAXXZ @ 0x18023B93C
+ * Callers:
+ *     ?FlushPendingTriggeredAnimations@CExpressionManager@@AEAAX_N@Z @ 0x1802138FC (-FlushPendingTriggeredAnimations@CExpressionManager@@AEAAX_N@Z.c)
+ *     ?ForceDependentAnimationsDirtied@CBaseExpression@@IEAAXXZ @ 0x18023B93C (-ForceDependentAnimationsDirtied@CBaseExpression@@IEAAXXZ.c)
+ * Callees:
+ *     ?GetSourceAnimationsForProperty@CResource@@QEAAPEAV?$DynArray@PEAVCBaseExpression@@$0A@@@I@Z @ 0x1800EF8B4 (-GetSourceAnimationsForProperty@CResource@@QEAAPEAV-$DynArray@PEAVCBaseExpression@@$0A@@@I@Z.c)
+ *     ?ForceDependentAnimationsDirtied@CBaseExpression@@IEAAXXZ @ 0x18023B93C (-ForceDependentAnimationsDirtied@CBaseExpression@@IEAAXXZ.c)
+ */
+
 void __fastcall CBaseExpression::ForceDependentAnimationsDirtied(CBaseExpression *this)
 {
   unsigned int v1; // ebx

@@ -1,3 +1,31 @@
+/*
+ * XREFs of PipCallDriverAddDeviceQueryRoutine @ 0x1406C3364
+ * Callers:
+ *     PnpCallDriverQueryServiceHelper @ 0x1406C40E0 (PnpCallDriverQueryServiceHelper.c)
+ * Callees:
+ *     PipSetDevNodeState @ 0x1402028D0 (PipSetDevNodeState.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     PnpDiagnosticTraceDeviceOperation @ 0x1402B167C (PnpDiagnosticTraceDeviceOperation.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PipSetDevNodeFlags @ 0x1406857DC (PipSetDevNodeFlags.c)
+ *     PipOpenServiceEnumKeys @ 0x1406C1280 (PipOpenServiceEnumKeys.c)
+ *     IopGetDriverNameFromKeyNode @ 0x1406C1730 (IopGetDriverNameFromKeyNode.c)
+ *     IopReferenceDriverObjectByName @ 0x1406C3670 (IopReferenceDriverObjectByName.c)
+ *     IopLoadDriver @ 0x14072A9DC (IopLoadDriver.c)
+ *     IopCallDriverReinitializationRoutines @ 0x140780438 (IopCallDriverReinitializationRoutines.c)
+ *     PnpGetServiceStartType @ 0x14078C7C0 (PnpGetServiceStartType.c)
+ *     PnpIsLegacyDriver @ 0x1407976A8 (PnpIsLegacyDriver.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PnpCheckPossibleBootStartDriver @ 0x14084A740 (PnpCheckPossibleBootStartDriver.c)
+ *     PipSetDevNodeProblem @ 0x1408667BC (PipSetDevNodeProblem.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     PpInitGetGroupOrderIndex @ 0x140B591EC (PpInitGetGroupOrderIndex.c)
+ *     PnpLoadBootFilterDriver @ 0x140B6936C (PnpLoadBootFilterDriver.c)
+ */
+
 __int64 __fastcall PipCallDriverAddDeviceQueryRoutine(int a1, const WCHAR *a2, unsigned int a3, __int64 *a4, int a5)
 {
   char v5; // r15

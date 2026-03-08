@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?QueueForwardProgressIrpLocked@FxIoQueue@@AEAAJPEAU_IRP@@@Z @ 0x1C0067990
+ * Callers:
+ *     ?GetReservedRequest@FxIoQueue@@QEAAJPEAU_IRP@@PEAPEAVFxRequest@@@Z @ 0x1C00676D4 (-GetReservedRequest@FxIoQueue@@QEAAJPEAU_IRP@@PEAPEAVFxRequest@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FxIoQueue::QueueForwardProgressIrpLocked(FxIoQueue *this, _IRP *Irp)
 {
   _LIST_ENTRY *p_ListEntry; // r8

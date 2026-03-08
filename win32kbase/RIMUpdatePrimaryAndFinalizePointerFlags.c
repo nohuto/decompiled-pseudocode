@@ -1,3 +1,21 @@
+/*
+ * XREFs of RIMUpdatePrimaryAndFinalizePointerFlags @ 0x1C01D5A04
+ * Callers:
+ *     RIMCompletePointerDeviceFrame @ 0x1C01CD424 (RIMCompletePointerDeviceFrame.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMGetPointerInputType @ 0x1C00EFC04 (RIMGetPointerInputType.c)
+ *     RIMCmActiveContactsEnd @ 0x1C00F1A04 (RIMCmActiveContactsEnd.c)
+ *     RIMCmIsContactSuppressed @ 0x1C00F1A7A (RIMCmIsContactSuppressed.c)
+ *     RIMUpdatePrimaryDevice @ 0x1C01BA144 (RIMUpdatePrimaryDevice.c)
+ *     RIMApiSetIsPointerInputTypeRedirected @ 0x1C01D1624 (RIMApiSetIsPointerInputTypeRedirected.c)
+ *     rimFinalizePointerFlags @ 0x1C01D8470 (rimFinalizePointerFlags.c)
+ *     rimIsPointerDevicePrimaryContactDown @ 0x1C01D8B68 (rimIsPointerDevicePrimaryContactDown.c)
+ *     RIMCmActiveContactsBeginNoButton @ 0x1C01DE028 (RIMCmActiveContactsBeginNoButton.c)
+ *     RIMCmActiveContactsNext @ 0x1C01DE0AC (RIMCmActiveContactsNext.c)
+ *     RIMCmIsContactDeliveringPointerData @ 0x1C01DEB84 (RIMCmIsContactDeliveringPointerData.c)
+ */
+
 void __fastcall RIMUpdatePrimaryAndFinalizePointerFlags(__int64 a1, __int64 a2)
 {
   int v2; // r15d

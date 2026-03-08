@@ -1,3 +1,11 @@
+/*
+ * XREFs of CHidInput_CreateInstance @ 0x1C0096140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CreateInstance@CHidInput@@SAJPEAPEAV1@@Z @ 0x1C00962C8 (-CreateInstance@CHidInput@@SAJPEAPEAV1@@Z.c)
+ */
+
 __int64 __fastcall CHidInput_CreateInstance(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of rimObsIsObserverTarget_0 @ 0x1C01DA9A4
+ * Callers:
+ *     rimObsDeliverToExclusiveObservers @ 0x1C0003FAC (rimObsDeliverToExclusiveObservers.c)
+ *     rimObsDeliverToNonExclusiveObservers @ 0x1C00046F0 (rimObsDeliverToNonExclusiveObservers.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall rimObsIsObserverTarget_0(_DWORD *a1, __int64 a2)
 {
   int v2; // eax

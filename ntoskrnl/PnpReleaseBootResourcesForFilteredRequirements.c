@@ -1,3 +1,16 @@
+/*
+ * XREFs of PnpReleaseBootResourcesForFilteredRequirements @ 0x14055F1D4
+ * Callers:
+ *     IopReleaseFilteredBootResources @ 0x140803C88 (IopReleaseFilteredBootResources.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PnpCmResourcesToIoResources @ 0x140804A84 (PnpCmResourcesToIoResources.c)
+ *     IopResourceRequirementsListToReqList @ 0x140805448 (IopResourceRequirementsListToReqList.c)
+ *     IopCallArbiter @ 0x140805E88 (IopCallArbiter.c)
+ *     IopFreeReqList @ 0x140806108 (IopFreeReqList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpReleaseBootResourcesForFilteredRequirements(__int64 *a1)
 {
   void *v2; // rdi

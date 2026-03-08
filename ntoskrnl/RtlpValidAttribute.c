@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpValidAttribute @ 0x1409B8BF4
+ * Callers:
+ *     RtlpValidAttributeInfo @ 0x1409B8D10 (RtlpValidAttributeInfo.c)
+ * Callees:
+ *     RtlStringCchLengthW @ 0x140247080 (RtlStringCchLengthW.c)
+ */
+
 char __fastcall RtlpValidAttribute(__int64 a1)
 {
   const wchar_t *v2; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopSleepstudyInitialize @ 0x140B470D0
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     KiInitializeTimer2 @ 0x140203D9C (KiInitializeTimer2.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     PopSleepstudySendSessionChangeWnf @ 0x140872FAC (PopSleepstudySendSessionChangeWnf.c)
+ */
+
 char __fastcall PopSleepstudyInitialize(int a1)
 {
   char *v1; // rbx

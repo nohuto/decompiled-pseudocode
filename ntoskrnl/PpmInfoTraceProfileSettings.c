@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmInfoTraceProfileSettings @ 0x14098FFDC
+ * Callers:
+ *     PpmEventTraceControlCallback @ 0x140860AA0 (PpmEventTraceControlCallback.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PpmEventTraceProfileSetting @ 0x140826110 (PpmEventTraceProfileSetting.c)
+ */
+
 char PpmInfoTraceProfileSettings()
 {
   __int64 *v0; // rdi

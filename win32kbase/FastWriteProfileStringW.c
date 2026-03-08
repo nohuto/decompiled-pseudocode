@@ -1,3 +1,11 @@
+/*
+ * XREFs of FastWriteProfileStringW @ 0x1C00D1720
+ * Callers:
+ *     FastUpdateWinIni @ 0x1C015D330 (FastUpdateWinIni.c)
+ * Callees:
+ *     OpenCacheKeyEx @ 0x1C00760E0 (OpenCacheKeyEx.c)
+ */
+
 void *__fastcall FastWriteProfileStringW(const UNICODE_STRING *a1, __int64 a2, const WCHAR *a3, _WORD *a4)
 {
   void *result; // rax

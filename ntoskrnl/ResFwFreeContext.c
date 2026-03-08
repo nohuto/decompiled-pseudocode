@@ -1,3 +1,20 @@
+/*
+ * XREFs of ResFwFreeContext @ 0x140AEEED4
+ * Callers:
+ *     BgFreeContext @ 0x140AEE228 (BgFreeContext.c)
+ * Callees:
+ *     MmFreePagesFromMdl @ 0x1402C0DB0 (MmFreePagesFromMdl.c)
+ *     BgpFwFreeMemory @ 0x140382650 (BgpFwFreeMemory.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     LogFwReport @ 0x140AE90F4 (LogFwReport.c)
+ *     AnFwFadeCompletion @ 0x140AE9FB8 (AnFwFadeCompletion.c)
+ *     RaspClearCache @ 0x140AEA540 (RaspClearCache.c)
+ *     BgpGxRectangleDestroy @ 0x140AEAA70 (BgpGxRectangleDestroy.c)
+ *     ResFwpPageOutBackground @ 0x140AEBBF0 (ResFwpPageOutBackground.c)
+ *     AnFwDisableBackgroundUpdateTimer @ 0x140AEC6DC (AnFwDisableBackgroundUpdateTimer.c)
+ *     BgpFwReservePoolSwap @ 0x140AEEE38 (BgpFwReservePoolSwap.c)
+ */
+
 void __fastcall ResFwFreeContext(__int64 a1)
 {
   struct _MDL *v2; // rcx

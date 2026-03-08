@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetSwapChainOverlayColor@CDrawingContext@@AEBA?AU_D3DCOLORVALUE@@PEAVISwapChainRealization@@PEBVIBitmapResource@@@Z @ 0x1801B3B30
+ * Callers:
+ *     ?DrawAsOverlay@CDrawingContext@@QEAA_NPEAVIBitmapResource@@@Z @ 0x1800D87F0 (-DrawAsOverlay@CDrawingContext@@QEAA_NPEAVIBitmapResource@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 struct _D3DCOLORVALUE *__fastcall CDrawingContext::GetSwapChainOverlayColor(
         CDrawingContext *this,
         struct _D3DCOLORVALUE *__return_ptr retstr,

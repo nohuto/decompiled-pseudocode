@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExSetResourceOwnerPointer @ 0x140291180
+ * Callers:
+ *     CcSetBcbOwnerPointer @ 0x140933C50 (CcSetBcbOwnerPointer.c)
+ * Callees:
+ *     ExpSetResourceOwnerPointerEx @ 0x1402911D0 (ExpSetResourceOwnerPointerEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void __stdcall ExSetResourceOwnerPointer(PERESOURCE Resource, PVOID OwnerPointer)
 {
   USHORT Flag; // ax

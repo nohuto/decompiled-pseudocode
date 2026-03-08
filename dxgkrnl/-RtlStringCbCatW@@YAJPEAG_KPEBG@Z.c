@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?RtlStringCbCatW@@YAJPEAG_KPEBG@Z @ 0x1C003F868
+ * Callers:
+ *     ?DxgkpQueryRegistry@@YAJPEAVDXGADAPTER@@PEAXI@Z @ 0x1C01661E4 (-DxgkpQueryRegistry@@YAJPEAVDXGADAPTER@@PEAXI@Z.c)
+ *     ?GenerateUmdFileName@@YAJQEAGPEBG1@Z @ 0x1C02CAAFC (-GenerateUmdFileName@@YAJQEAGPEBG1@Z.c)
+ *     ?CopyDriverStore@DXGADAPTER@@QEAAJXZ @ 0x1C0305F44 (-CopyDriverStore@DXGADAPTER@@QEAAJXZ.c)
+ *     ?EnumDirectory@CDriverStoreCopy@@QEAAXPEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_RETURN@@@Z @ 0x1C0307228 (-EnumDirectory@CDriverStoreCopy@@QEAAXPEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_RETURN@@@Z.c)
+ *     ?EnumSingleRegistry@CDriverStoreCopy@@IEAAJPEAU_UNICODE_STRING@@PEAGW4DXGKP_HARDLINKTYPE@@W4DXGKP_HARDLINKOVERWRITETYPE@@@Z @ 0x1C0307784 (-EnumSingleRegistry@CDriverStoreCopy@@IEAAJPEAU_UNICODE_STRING@@PEAGW4DXGKP_HARDLINKTYPE@@W4DXGK.c)
+ *     ?ProcessNextFile@CDriverStoreCopy@@QEAAXPEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_RETURN@@@Z @ 0x1C0307BE4 (-ProcessNextFile@CDriverStoreCopy@@QEAAXPEAUDXGKVMB_COMMAND_GETDRIVERSTOREFILE_RETURN@@@Z.c)
+ * Callees:
+ *     RtlStringCopyWorkerW_0 @ 0x1C0029258 (RtlStringCopyWorkerW_0.c)
+ */
+
 NTSTATUS __fastcall RtlStringCbCatW(unsigned __int16 *a1, __int64 a2, size_t *a3)
 {
   unsigned __int16 *v3; // rax

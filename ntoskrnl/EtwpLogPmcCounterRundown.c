@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpLogPmcCounterRundown @ 0x1409EBF78
+ * Callers:
+ *     EtwpStopLoggerInstance @ 0x140748874 (EtwpStopLoggerInstance.c)
+ *     EtwpCheckLoggerAccessAndDoRundown @ 0x1409EBB50 (EtwpCheckLoggerAccessAndDoRundown.c)
+ * Callees:
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwpLogPmcCounterRundown(__int64 a1, unsigned int a2)
 {
   unsigned int v2; // r12d

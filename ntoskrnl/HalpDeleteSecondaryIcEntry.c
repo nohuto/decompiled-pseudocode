@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpDeleteSecondaryIcEntry @ 0x14051787C
+ * Callers:
+ *     HalpUnregisterSecondaryIcInterface @ 0x1405180D0 (HalpUnregisterSecondaryIcInterface.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     HalpAcquireSecondaryIcEntryExclusive @ 0x140517798 (HalpAcquireSecondaryIcEntryExclusive.c)
+ *     HalpReleaseSecondaryIcEntryExclusive @ 0x140518028 (HalpReleaseSecondaryIcEntryExclusive.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall HalpDeleteSecondaryIcEntry(PVOID P)
 {
   unsigned int v1; // edi

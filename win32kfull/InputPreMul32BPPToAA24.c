@@ -1,3 +1,11 @@
+/*
+ * XREFs of InputPreMul32BPPToAA24 @ 0x1C02601D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _BYTE *__fastcall InputPreMul32BPPToAA24(char *a1, _BYTE *a2)
 {
   __int64 v4; // rax

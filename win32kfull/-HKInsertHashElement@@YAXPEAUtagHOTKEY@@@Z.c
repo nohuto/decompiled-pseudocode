@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HKInsertHashElement@@YAXPEAUtagHOTKEY@@@Z @ 0x1C003B0EC
+ * Callers:
+ *     ?_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z @ 0x1C003AB6C (-_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall HKInsertHashElement(struct tagHOTKEY *a1)
 {
   __int64 v2; // rbx

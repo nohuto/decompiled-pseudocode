@@ -1,3 +1,22 @@
+/*
+ * XREFs of VidSchiSubmitCommandPacketToQueue @ 0x1C0003280
+ * Callers:
+ *     VidSchWaitForSingleSyncObject @ 0x1C0013810 (VidSchWaitForSingleSyncObject.c)
+ *     VidSchEnqueueCpuEvent @ 0x1C0085F20 (VidSchEnqueueCpuEvent.c)
+ *     VidSchSubmitCommand @ 0x1C00A4B80 (VidSchSubmitCommand.c)
+ *     VidSchSubmitGlobalCommand @ 0x1C00ADFC8 (VidSchSubmitGlobalCommand.c)
+ *     VidSchFlushPendingCommand @ 0x1C0107910 (VidSchFlushPendingCommand.c)
+ *     VidSchSubmitPagingCommand @ 0x1C0108A08 (VidSchSubmitPagingCommand.c)
+ * Callees:
+ *     VidSchiComputeWorkerThreadPriority @ 0x1C0001160 (VidSchiComputeWorkerThreadPriority.c)
+ *     VidSchiProfilePerformanceTick @ 0x1C0006E50 (VidSchiProfilePerformanceTick.c)
+ *     VidSchiInsertCommandToSoftwareQueue @ 0x1C00088B0 (VidSchiInsertCommandToSoftwareQueue.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0013414 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00134D8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     VidSchiEnsureVSyncEnabled @ 0x1C00A5160 (VidSchiEnsureVSyncEnabled.c)
+ *     ?EnsureSchedulable@VIDMM_DEVICE@@QEAAX_N@Z @ 0x1C00A5350 (-EnsureSchedulable@VIDMM_DEVICE@@QEAAX_N@Z.c)
+ */
+
 void __fastcall VidSchiSubmitCommandPacketToQueue(__int64 a1)
 {
   __int64 v2; // r14

@@ -1,3 +1,22 @@
+/*
+ * XREFs of AMLIEvalPkgDataElement @ 0x1C0047F38
+ * Callers:
+ *     ACPIFanFSTCallback @ 0x1C0026F60 (ACPIFanFSTCallback.c)
+ *     LinkNodeCrackPrt @ 0x1C005CE9C (LinkNodeCrackPrt.c)
+ *     ACPIFanPrepareImpactZoneSupport @ 0x1C0084960 (ACPIFanPrepareImpactZoneSupport.c)
+ *     ACPIThermalBuildConstraints @ 0x1C0095638 (ACPIThermalBuildConstraints.c)
+ *     ACPIProcessPhysicalDeviceLocation @ 0x1C0098134 (ACPIProcessPhysicalDeviceLocation.c)
+ *     ACPIProcessPhysicalDeviceLocationPackage @ 0x1C00984B0 (ACPIProcessPhysicalDeviceLocationPackage.c)
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     GetObjectTypeName @ 0x1C004BD50 (GetObjectTypeName.c)
+ *     AMLIDebugger @ 0x1C004D630 (AMLIDebugger.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     EvalPackageElement @ 0x1C004F6E4 (EvalPackageElement.c)
+ */
+
 __int64 __fastcall AMLIEvalPkgDataElement(__int64 a1, unsigned int a2, __int64 a3)
 {
   unsigned int v6; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserSetImeInfoEx @ 0x1C00C2070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _GetProcessWindowStation @ 0x1C00BF460 (_GetProcessWindowStation.c)
+ *     ?SetImeInfoEx@@YAHPEAUtagWINDOWSTATION@@PEAUtagIMEINFOEX@@@Z @ 0x1C00C23E8 (-SetImeInfoEx@@YAHPEAUtagWINDOWSTATION@@PEAUtagIMEINFOEX@@@Z.c)
+ */
+
 __int64 __fastcall NtUserSetImeInfoEx(_OWORD *a1)
 {
   _OWORD *v2; // rax

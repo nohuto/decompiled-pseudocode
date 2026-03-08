@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiStoreGraphicsProtectionInVad @ 0x140A2BDB4
+ * Callers:
+ *     MiReserveUserMemory @ 0x1407D4340 (MiReserveUserMemory.c)
+ * Callees:
+ *     RtlFindMostSignificantBit @ 0x1402EA370 (RtlFindMostSignificantBit.c)
+ */
+
 CCHAR __fastcall MiStoreGraphicsProtectionInVad(__int64 a1, unsigned int a2)
 {
   _DWORD *v2; // rbx

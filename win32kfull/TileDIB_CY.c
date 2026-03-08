@@ -1,3 +1,16 @@
+/*
+ * XREFs of TileDIB_CY @ 0x1C0267720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     GetFixupScan @ 0x1C014BF50 (GetFixupScan.c)
+ *     AlphaBlendBGRF @ 0x1C0260824 (AlphaBlendBGRF.c)
+ *     MappingBGRF @ 0x1C0265A54 (MappingBGRF.c)
+ */
+
 __int64 __fastcall TileDIB_CY(__int128 *a1)
 {
   int *v2; // rcx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of IoReferenceIoAttributionFromThread @ 0x140216E60
+ * Callers:
+ *     CcScheduleReadAheadNuma @ 0x14020D0BC (CcScheduleReadAheadNuma.c)
+ *     CcAsyncCopyRead @ 0x140216AA0 (CcAsyncCopyRead.c)
+ *     CcCopyReadEx @ 0x14021E070 (CcCopyReadEx.c)
+ *     MiCheckAndUpdateIoAttribution @ 0x1402C9700 (MiCheckAndUpdateIoAttribution.c)
+ * Callees:
+ *     IopReferenceIoAttributionFromProcess @ 0x140216ED8 (IopReferenceIoAttributionFromProcess.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140283390 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     PsGetWorkOnBehalfThread @ 0x14033E134 (PsGetWorkOnBehalfThread.c)
+ */
+
 __int64 __fastcall IoReferenceIoAttributionFromThread(__int64 a1, __int64 a2)
 {
   __int64 WorkOnBehalfThread; // rax

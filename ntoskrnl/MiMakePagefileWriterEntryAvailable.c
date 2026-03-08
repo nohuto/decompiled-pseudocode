@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiMakePagefileWriterEntryAvailable @ 0x140638C18
+ * Callers:
+ *     MiWriteComplete @ 0x1402126E0 (MiWriteComplete.c)
+ *     MiModifiedPageWriter @ 0x1403AD2B0 (MiModifiedPageWriter.c)
+ *     MiGatherPagefilePages @ 0x140637D34 (MiGatherPagefilePages.c)
+ *     MiPageFileNoFreeSpace @ 0x140638D04 (MiPageFileNoFreeSpace.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall MiMakePagefileWriterEntryAvailable(_QWORD *a1)
 {
   _QWORD *v1; // r8

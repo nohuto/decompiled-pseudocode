@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBDSM_GettingAlternateModeStringDescriptor @ 0x1C0022690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBDTX_GetDescriptor @ 0x1C002A598 (HUBDTX_GetDescriptor.c)
+ */
+
 __int64 __fastcall HUBDSM_GettingAlternateModeStringDescriptor(__int64 a1)
 {
   __int64 v1; // rbx

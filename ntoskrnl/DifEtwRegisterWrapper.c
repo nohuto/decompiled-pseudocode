@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifEtwRegisterWrapper @ 0x1405D4840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     EtwRegister @ 0x140690D20 (EtwRegister.c)
+ */
+
 NTSTATUS __fastcall DifEtwRegisterWrapper(
         LPCGUID ProviderId,
         PETWENABLECALLBACK EnableCallback,

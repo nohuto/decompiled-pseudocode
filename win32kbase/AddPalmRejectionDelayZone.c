@@ -1,3 +1,12 @@
+/*
+ * XREFs of AddPalmRejectionDelayZone @ 0x1C0216F34
+ * Callers:
+ *     NtUserCreatePalmRejectionDelayZone @ 0x1C016E080 (NtUserCreatePalmRejectionDelayZone.c)
+ * Callees:
+ *     ?GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ @ 0x1C0096A80 (-GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ.c)
+ *     ?AddDelayZoneToList@DelayZonePalmRejection@@QEAAKPEAXUtagRECT@@01H@Z @ 0x1C0214F18 (-AddDelayZoneToList@DelayZonePalmRejection@@QEAAKPEAXUtagRECT@@01H@Z.c)
+ */
+
 __int64 __fastcall AddPalmRejectionDelayZone(void *a1, struct tagRECT *a2, void *a3, struct tagRECT *a4, int a5)
 {
   unsigned int v9; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetLights@CD3DBatchExecutionContext@@EEAAXPEAVCHwLightCollectionBuffer@@@Z @ 0x1800180F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Flush@CD3DBatchExecutionContext@@QEAAXW4FlushReason@@@Z @ 0x1800DABCC (-Flush@CD3DBatchExecutionContext@@QEAAXW4FlushReason@@@Z.c)
+ *     memcmp_0 @ 0x1801177DC (memcmp_0.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CD3DBatchExecutionContext::SetLights(
         CD3DBatchExecutionContext *this,
         struct CHwLightCollectionBuffer *a2)

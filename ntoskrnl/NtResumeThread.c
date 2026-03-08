@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtResumeThread @ 0x14076EF80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     PsMultiResumeThread @ 0x140354658 (PsMultiResumeThread.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ */
+
 __int64 __fastcall NtResumeThread(ULONG_PTR BugCheckParameter1, _DWORD *a2)
 {
   __int64 v4; // rcx

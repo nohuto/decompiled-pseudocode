@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_GetFirstMonitorDescriptorEnumerator@MonitorDescriptorState@DxgMonitor@@QEAAJPEAPEBU_D3DKMDT_MONITOR_DESCRIPTOR@@@Z @ 0x1C01FF61C
+ * Callers:
+ *     ?AcquireFirstDescriptorInfo@DXGK_MONITORDESCRIPTORSET_INTERFACE_V1_IMPL@@CAJQEAUD3DKMDT_HMONITORDESCRIPTORSET__@@PEAPEBU_D3DKMDT_MONITOR_DESCRIPTOR@@@Z @ 0x1C01FD3D0 (-AcquireFirstDescriptorInfo@DXGK_MONITORDESCRIPTORSET_INTERFACE_V1_IMPL@@CAJQEAUD3DKMDT_HMONITOR.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DxgMonitor::MonitorDescriptorState::_GetFirstMonitorDescriptorEnumerator(
         DxgMonitor::MonitorDescriptorState *this,
         const struct _D3DKMDT_MONITOR_DESCRIPTOR **a2)

@@ -1,3 +1,15 @@
+/*
+ * XREFs of DwmAsyncMagnSetDesktopColorTransform @ 0x1C026F43C
+ * Callers:
+ *     MagpComposeDesktop @ 0x1C007EC4C (MagpComposeDesktop.c)
+ *     MagpDecomposeDesktop @ 0x1C007F098 (MagpDecomposeDesktop.c)
+ *     MagContextThreadCallout @ 0x1C01A4070 (MagContextThreadCallout.c)
+ *     MagSetLensContextInformation @ 0x1C01A4A80 (MagSetLensContextInformation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall DwmAsyncMagnSetDesktopColorTransform(PVOID Object, __int64 a2, __int128 *a3)
 {
   unsigned int v6; // ebx

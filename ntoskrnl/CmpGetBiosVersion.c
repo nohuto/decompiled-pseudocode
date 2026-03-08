@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpGetBiosVersion @ 0x140B9549C
+ * Callers:
+ *     CmpSetSystemBiosInformation @ 0x140B9565C (CmpSetSystemBiosInformation.c)
+ *     CmpSetVideoBiosInformation @ 0x140B959FC (CmpSetVideoBiosInformation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     strstr @ 0x1403D3650 (strstr.c)
+ */
+
 char __fastcall CmpGetBiosVersion(__int64 a1, unsigned int a2, __int64 a3)
 {
   _BYTE *v4; // rcx

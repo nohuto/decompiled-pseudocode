@@ -1,3 +1,11 @@
+/*
+ * XREFs of SmmInitializePhysicalObject @ 0x1C00133B8
+ * Callers:
+ *     SmmCreatePhysicalObjectInternal @ 0x1C0013170 (SmmCreatePhysicalObjectInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 __int16 __fastcall SmmInitializePhysicalObject(
         __int64 a1,
         int a2,

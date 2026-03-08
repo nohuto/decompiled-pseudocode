@@ -1,3 +1,21 @@
+/*
+ * XREFs of _woutput_l @ 0x1403D6800
+ * Callers:
+ *     _vsnwprintf_l @ 0x1403D2E50 (_vsnwprintf_l.c)
+ *     _snwprintf @ 0x1403D3A90 (_snwprintf.c)
+ *     swprintf @ 0x1403D3D20 (swprintf.c)
+ *     _vswprintf_l @ 0x1403D3E0C (_vswprintf_l.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _safecrt_mbtowc @ 0x1403D4730 (_safecrt_mbtowc.c)
+ *     write_char @ 0x1403D7150 (write_char.c)
+ *     write_multi_char @ 0x1403D71A4 (write_multi_char.c)
+ *     write_string @ 0x1403D71FC (write_string.c)
+ *     _get_printf_count_output @ 0x1403D82CC (_get_printf_count_output.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall woutput_l(__int64 a1, unsigned __int16 *a2, __int64 a3, unsigned __int16 *a4)
 {
   int v5; // edi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiRebalanceOptOut @ 0x140562990
+ * Callers:
+ *     PnpQueryStopDeviceNode @ 0x14096B8B8 (PnpQueryStopDeviceNode.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IoGetDeviceProperty @ 0x1406C5B00 (IoGetDeviceProperty.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ */
+
 bool __fastcall PiRebalanceOptOut(__int64 a1)
 {
   __int64 v1; // rdx

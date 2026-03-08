@@ -1,3 +1,17 @@
+/*
+ * XREFs of MmSecureVirtualMemoryEx @ 0x140769030
+ * Callers:
+ *     PspAllocateThread @ 0x1406B00F4 (PspAllocateThread.c)
+ *     MmSecureVirtualMemory @ 0x140769000 (MmSecureVirtualMemory.c)
+ *     VmSecureBackingMemory @ 0x1409D9C90 (VmSecureBackingMemory.c)
+ *     VmpLockMemoryForPin @ 0x1409DA418 (VmpLockMemoryForPin.c)
+ *     AslpFileLargeMapCreate @ 0x140A56DFC (AslpFileLargeMapCreate.c)
+ * Callees:
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ *     MiSecureVad @ 0x14076918C (MiSecureVad.c)
+ */
+
 __int64 __fastcall MmSecureVirtualMemoryEx(unsigned __int64 a1, __int64 a2, unsigned int a3, int a4)
 {
   int v6; // esi

@@ -1,3 +1,21 @@
+/*
+ * XREFs of CmpRmUnDoPhase @ 0x140A1C3B4
+ * Callers:
+ *     CmpStartRMLog @ 0x140863C7C (CmpStartRMLog.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenTransaction @ 0x140414A30 (ZwOpenTransaction.c)
+ *     CmpTransMgrPrepare @ 0x1406B5D04 (CmpTransMgrPrepare.c)
+ *     CmpTransMgrCommit @ 0x1406B5ED0 (CmpTransMgrCommit.c)
+ *     CmpTransMgrFreeVolatileData @ 0x1406B617C (CmpTransMgrFreeVolatileData.c)
+ *     CmpTransMgrRollback @ 0x140781FE8 (CmpTransMgrRollback.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmListGetNextElement @ 0x140AF2008 (CmListGetNextElement.c)
+ *     CmpAttachToRegistryProcess @ 0x140AF26E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140AF2710 (CmpDetachFromRegistryProcess.c)
+ */
+
 __int64 __fastcall CmpRmUnDoPhase(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of AllocateOrValidateUnicodeStringBuffer @ 0x1403051CC
+ * Callers:
+ *     RtlDowncaseUnicodeString @ 0x14076C0F0 (RtlDowncaseUnicodeString.c)
+ *     RtlOemStringToCountedUnicodeString @ 0x14078C3F0 (RtlOemStringToCountedUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlUpcaseUnicodeString @ 0x1407A3D00 (RtlUpcaseUnicodeString.c)
+ *     RtlOemStringToUnicodeString @ 0x140868F30 (RtlOemStringToUnicodeString.c)
+ * Callees:
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ */
+
 __int64 __fastcall AllocateOrValidateUnicodeStringBuffer(char a1, unsigned int a2, __int64 *a3, _WORD *a4)
 {
   unsigned int v4; // ebx

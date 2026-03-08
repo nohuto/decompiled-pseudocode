@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FindExportAddress@DXGMMS_EXPORT@@QEAAPEAXPEADI@Z @ 0x1C0214E94
+ * Callers:
+ *     ?Initialize@DXGMMS_EXPORT@@QEAAJI@Z @ 0x1C0214D04 (-Initialize@DXGMMS_EXPORT@@QEAAJI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void *__fastcall DXGMMS_EXPORT::FindExportAddress(DXGMMS_EXPORT *this, char *a2, unsigned int a3)
 {
   _DWORD *v5; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpFindInterruptController @ 0x1403AF08C
+ * Callers:
+ *     HalpInterruptSelectController @ 0x1403AF008 (HalpInterruptSelectController.c)
+ * Callees:
+ *     <none>
+ */
+
 ULONG_PTR *__fastcall HalpFindInterruptController(int a1)
 {
   ULONG_PTR *v1; // rdx

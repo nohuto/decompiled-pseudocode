@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpIommuUpdatePageTableLevel @ 0x1403A4AE8
+ * Callers:
+ *     HalpIommuInitializeAll @ 0x140A8DA7C (HalpIommuInitializeAll.c)
+ * Callees:
+ *     <none>
+ */
+
 void HalpIommuUpdatePageTableLevel()
 {
   ULONG_PTR i; // rcx

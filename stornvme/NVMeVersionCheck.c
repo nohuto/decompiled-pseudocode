@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeVersionCheck @ 0x1C00244A8
+ * Callers:
+ *     NVMeNameSpaceIdentify @ 0x1C002108C (NVMeNameSpaceIdentify.c)
+ *     NVMeReenumerateNameSpaceIdentifyWorkItem @ 0x1C0021CA0 (NVMeReenumerateNameSpaceIdentifyWorkItem.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall NVMeVersionCheck(__int64 a1)
 {
   __int16 v1; // dx

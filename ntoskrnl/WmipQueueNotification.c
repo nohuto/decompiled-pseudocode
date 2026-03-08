@@ -1,3 +1,15 @@
+/*
+ * XREFs of WmipQueueNotification @ 0x1409DE654
+ * Callers:
+ *     WmipWriteWnodeToObject @ 0x1405F97A4 (WmipWriteWnodeToObject.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WmipQueueNotification(PRKEVENT Event, char **a2, unsigned int *a3)
 {
   char *v3; // rbp

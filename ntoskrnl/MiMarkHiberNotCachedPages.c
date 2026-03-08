@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiMarkHiberNotCachedPages @ 0x140AA9138
+ * Callers:
+ *     MmMarkHiberPhase @ 0x140AA9B70 (MmMarkHiberPhase.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiWalkPageTables @ 0x140222CF0 (MiWalkPageTables.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 MiMarkHiberNotCachedPages()
 {
   char *AnyMultiplexedVm; // rax

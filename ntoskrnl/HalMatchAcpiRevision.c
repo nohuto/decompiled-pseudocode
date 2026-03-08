@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalMatchAcpiRevision @ 0x1404FEEF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpAcpiGetTable @ 0x14029C550 (HalpAcpiGetTable.c)
+ *     HalAcpiEmCheckOperator @ 0x1404FEBE8 (HalAcpiEmCheckOperator.c)
+ */
+
 __int64 __fastcall HalMatchAcpiRevision(__int64 a1, __int64 a2, __int64 a3, int a4, unsigned int *a5, int a6)
 {
   unsigned int v7; // ebx

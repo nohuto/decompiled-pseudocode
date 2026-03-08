@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiSetUMPDSandboxState @ 0x1C02CFDF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtGdiSetUMPDSandboxState(__int64 a1)
 {
   int v1; // ebx

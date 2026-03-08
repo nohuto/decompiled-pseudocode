@@ -1,3 +1,16 @@
+/*
+ * XREFs of VmpQueryAccessedState @ 0x14045E7BA
+ * Callers:
+ *     MiQueryEPTAccessedState @ 0x140463B2C (MiQueryEPTAccessedState.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     VmpProcessContextLockShared @ 0x14045E744 (VmpProcessContextLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpConvertPortionVpnRangeToGpnRange @ 0x1405F68BC (VmpConvertPortionVpnRangeToGpnRange.c)
+ *     VmpProcessAccessedBatch @ 0x1405F854C (VmpProcessAccessedBatch.c)
+ */
+
 __int64 __fastcall VmpQueryAccessedState(PEX_SPIN_LOCK SpinLock, _QWORD *a2, int a3, int a4)
 {
   _QWORD *v4; // rbx

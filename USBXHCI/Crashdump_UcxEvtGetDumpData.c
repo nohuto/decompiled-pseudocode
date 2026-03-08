@@ -1,3 +1,19 @@
+/*
+ * XREFs of Crashdump_UcxEvtGetDumpData @ 0x1C004D200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CommonBuffer_ReleaseBuffer @ 0x1C001E754 (CommonBuffer_ReleaseBuffer.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0020400 (memmove.c)
+ *     Crashdump_CommonBufferAcquire @ 0x1C004C0B8 (Crashdump_CommonBufferAcquire.c)
+ *     Crashdump_FreeDeviceContext @ 0x1C004C300 (Crashdump_FreeDeviceContext.c)
+ *     Crashdump_InitializeDeviceContext @ 0x1C004C684 (Crashdump_InitializeDeviceContext.c)
+ *     Crashdump_Register_Initialize @ 0x1C004D858 (Crashdump_Register_Initialize.c)
+ *     Crashdump_EventRing_InitializeForDump @ 0x1C004E46C (Crashdump_EventRing_InitializeForDump.c)
+ */
+
 __int64 __fastcall Crashdump_UcxEvtGetDumpData(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v7; // r12

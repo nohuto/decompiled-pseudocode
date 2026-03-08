@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiProcessDeferredDpcWatchdogViolation @ 0x140578D88
+ * Callers:
+ *     KiCallInterruptServiceRoutine @ 0x1402B7620 (KiCallInterruptServiceRoutine.c)
+ * Callees:
+ *     VslKernelShadowStackAssist @ 0x140549640 (VslKernelShadowStackAssist.c)
+ */
+
 void (__fastcall __noreturn *__fastcall KiProcessDeferredDpcWatchdogViolation(__int64 a1))(__int64 a1)
 {
   void (__fastcall __noreturn *result)(__int64); // rax

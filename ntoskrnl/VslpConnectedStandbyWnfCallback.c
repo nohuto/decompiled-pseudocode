@@ -1,3 +1,14 @@
+/*
+ * XREFs of VslpConnectedStandbyWnfCallback @ 0x140940750
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExQueryWnfStateData @ 0x140793060 (ExQueryWnfStateData.c)
+ */
+
 __int64 __fastcall VslpConnectedStandbyWnfCallback(__int64 a1)
 {
   __int64 result; // rax

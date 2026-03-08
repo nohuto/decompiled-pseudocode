@@ -1,3 +1,13 @@
+/*
+ * XREFs of AdtpBuildMessageString @ 0x14083DDC8
+ * Callers:
+ *     AdtpPackageParameters @ 0x1403958B4 (AdtpPackageParameters.c)
+ * Callees:
+ *     StringCchPrintfW @ 0x1402FAA78 (StringCchPrintfW.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AdtpBuildMessageString(unsigned int a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5, char *a6)
 {
   __int64 v8; // rax

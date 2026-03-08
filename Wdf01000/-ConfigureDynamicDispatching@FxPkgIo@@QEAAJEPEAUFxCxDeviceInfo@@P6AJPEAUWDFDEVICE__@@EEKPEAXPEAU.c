@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?ConfigureDynamicDispatching@FxPkgIo@@QEAAJEPEAUFxCxDeviceInfo@@P6AJPEAUWDFDEVICE__@@EEKPEAXPEAU_IRP@@2@Z2@Z @ 0x1C00621F0
+ * Callers:
+ *     imp_WdfDeviceConfigureWdmIrpDispatchCallback @ 0x1C00324B0 (imp_WdfDeviceConfigureWdmIrpDispatchCallback.c)
+ * Callees:
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0002834 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     memset @ 0x1C000AC00 (memset.c)
+ *     ?Mj2Index@FxIrpDynamicDispatchInfo@@SAHE@Z @ 0x1C000F9FE (-Mj2Index@FxIrpDynamicDispatchInfo@@SAHE@Z.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C0016B54 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     WPP_IFR_SF_D @ 0x1C0017F78 (WPP_IFR_SF_D.c)
+ *     WPP_IFR_SF_cd @ 0x1C0031714 (WPP_IFR_SF_cd.c)
+ *     WPP_IFR_SF_qcd @ 0x1C0062FFC (WPP_IFR_SF_qcd.c)
+ */
+
 __int64 __fastcall FxPkgIo::ConfigureDynamicDispatching(
         FxPkgIo *this,
         unsigned __int8 MajorFunction,

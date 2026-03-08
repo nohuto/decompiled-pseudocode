@@ -1,3 +1,11 @@
+/*
+ * XREFs of BcpGetCharacterMaxResourceProfile @ 0x1403913D4
+ * Callers:
+ *     BcpGetMaxResourceProfile @ 0x140391310 (BcpGetMaxResourceProfile.c)
+ * Callees:
+ *     RaspGetXExtent @ 0x140382254 (RaspGetXExtent.c)
+ */
+
 __int64 __fastcall BcpGetCharacterMaxResourceProfile(unsigned __int16 a1, int a2, __int128 *a3, unsigned __int64 *a4)
 {
   __int128 v4; // xmm1
@@ -17,7 +25,7 @@ __int64 __fastcall BcpGetCharacterMaxResourceProfile(unsigned __int16 a1, int a2
   v4 = *a3;
   v15 = 0LL;
   v7 = 0LL;
-  v8 = (int *)((char *)&dword_140C0B590 + 4 * a2);
+  v8 = (int *)((char *)&unk_140C0B590 + 4 * a2);
   v16 = *((_QWORD *)a3 + 2);
   v15 = v4;
   do

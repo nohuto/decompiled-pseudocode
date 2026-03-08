@@ -1,3 +1,17 @@
+/*
+ * XREFs of HvlRetargetDeviceInterrupt @ 0x1405431C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvlpHvToNtStatus @ 0x140456F16 (HvlpHvToNtStatus.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ *     HvlpAffinityToHvProcessorSet @ 0x1405472B0 (HvlpAffinityToHvProcessorSet.c)
+ */
+
 __int64 __fastcall HvlRetargetDeviceInterrupt(PHYSICAL_ADDRESS a1, _OWORD *a2, _OWORD *a3, __int64 *a4, _OWORD *a5)
 {
   PHYSICAL_ADDRESS *v9; // r14

@@ -1,3 +1,23 @@
+/*
+ * XREFs of VfCheckPoolType @ 0x140AC08F0
+ * Callers:
+ *     VfCheckNxPoolType @ 0x1405CBF90 (VfCheckNxPoolType.c)
+ *     VerifierExAllocatePoolWithTag @ 0x140ABCFD0 (VerifierExAllocatePoolWithTag.c)
+ *     VerifierExAllocatePool @ 0x140ACD8C0 (VerifierExAllocatePool.c)
+ *     VerifierExAllocatePool2 @ 0x140ACD9E0 (VerifierExAllocatePool2.c)
+ *     VerifierExAllocatePoolEx @ 0x140ACDC40 (VerifierExAllocatePoolEx.c)
+ *     VerifierExAllocatePoolWithQuota @ 0x140ACDCD0 (VerifierExAllocatePoolWithQuota.c)
+ *     VerifierExAllocatePoolWithQuotaTag @ 0x140ACDDA0 (VerifierExAllocatePoolWithQuotaTag.c)
+ *     VerifierExAllocatePoolWithTagPriority @ 0x140ACDE80 (VerifierExAllocatePoolWithTagPriority.c)
+ *     VerifierExAllocateCacheAwareRundownProtection @ 0x140ADA1E0 (VerifierExAllocateCacheAwareRundownProtection.c)
+ *     VerifierExInitializeLookasideListEx @ 0x140ADEE90 (VerifierExInitializeLookasideListEx.c)
+ *     VerifierExInitializeNPagedLookasideList @ 0x140ADEFA0 (VerifierExInitializeNPagedLookasideList.c)
+ * Callees:
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     ViCiPreprocessOptions @ 0x140AC09DC (ViCiPreprocessOptions.c)
+ *     ViTargetIncrementCounter @ 0x140AC8BDC (ViTargetIncrementCounter.c)
+ */
+
 void __fastcall VfCheckPoolType(int a1, ULONG_PTR a2, unsigned int a3)
 {
   ULONG_PTR v4; // rbx

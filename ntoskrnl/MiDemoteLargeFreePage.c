@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiDemoteLargeFreePage @ 0x14039BCC8
+ * Callers:
+ *     MiTradePage @ 0x1403B5640 (MiTradePage.c)
+ * Callees:
+ *     MiInsertDemotedPages @ 0x1402CACC8 (MiInsertDemotedPages.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiTryUnlinkNodeLargePages @ 0x14039BDDC (MiTryUnlinkNodeLargePages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiDemoteLargeFreePage(__int64 a1, __int64 a2, unsigned int a3, char a4, __int64 a5)
 {
   unsigned __int8 CurrentIrql; // bl

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmRegUtilUcValueGetFullBuffer @ 0x1C00B1BE0
+ * Callers:
+ *     PiRegStateReadStackCreationSettingsFromKey @ 0x1C00B141C (PiRegStateReadStackCreationSettingsFromKey.c)
+ * Callees:
+ *     memset @ 0x1C000AC00 (memset.c)
+ */
+
 __int64 __fastcall CmRegUtilUcValueGetFullBuffer(
         void *KeyHandle,
         _UNICODE_STRING *ValueName,

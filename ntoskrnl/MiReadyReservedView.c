@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiReadyReservedView @ 0x14062CA80
+ * Callers:
+ *     MmMapViewInSystemCache @ 0x140334FD0 (MmMapViewInSystemCache.c)
+ *     MiObtainSystemCacheView @ 0x140335220 (MiObtainSystemCacheView.c)
+ * Callees:
+ *     MiCompareTbFlushTimeStamp @ 0x1402D5158 (MiCompareTbFlushTimeStamp.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiReadyReservedView(unsigned __int64 a1, int a2)
 {
   __int64 *v3; // rbx

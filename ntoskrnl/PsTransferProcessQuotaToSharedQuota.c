@@ -1,3 +1,11 @@
+/*
+ * XREFs of PsTransferProcessQuotaToSharedQuota @ 0x140201DAC
+ * Callers:
+ *     AlpcpTransferQuotaMessage @ 0x140717BD0 (AlpcpTransferQuotaMessage.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PsTransferProcessQuotaToSharedQuota(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

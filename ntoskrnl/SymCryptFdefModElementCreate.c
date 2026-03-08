@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefModElementCreate @ 0x1403FE62C
+ * Callers:
+ *     SymCryptModElementCreate @ 0x1403F3AEC (SymCryptModElementCreate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefModElementCreate(__int64 a1, __int64 a2, __int64 a3)
 {
   _QWORD *v3; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ObReferenceSecurityDescriptor @ 0x14078BC70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ObReferenceSecurityDescriptor(__int64 a1, unsigned int a2)
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DxgkpVSyncPhaseTimerDpc@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1C0014330
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DxgkpVSyncPhaseTimerDpc(
         struct _KDPC *Dpc,
         unsigned int *DeferredContext,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiSwitchPriQueue @ 0x1402FBDD4
+ * Callers:
+ *     KeRemovePriQueue @ 0x140352720 (KeRemovePriQueue.c)
+ * Callees:
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x1403548F8 (KiActivateWaiterQueueWithNoLocks.c)
+ */
+
 __int64 __fastcall KiSwitchPriQueue(__int64 a1, __int64 a2, __int64 a3)
 {
   _QWORD *v3; // rsi

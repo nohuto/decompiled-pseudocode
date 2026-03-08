@@ -1,3 +1,21 @@
+/*
+ * XREFs of BiCreateObject @ 0x14082CA14
+ * Callers:
+ *     BcdCreateObject @ 0x14082C4D8 (BcdCreateObject.c)
+ *     BiBindEfiEntries @ 0x14082D024 (BiBindEfiEntries.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExUuidCreate @ 0x1406F7EF0 (ExUuidCreate.c)
+ *     RtlStringFromGUIDEx @ 0x140733E90 (RtlStringFromGUIDEx.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     BiSetObjectDescription @ 0x14082BB8C (BiSetObjectDescription.c)
+ *     BiCreateKey @ 0x14082D580 (BiCreateKey.c)
+ *     BiOpenKey @ 0x14082E7AC (BiOpenKey.c)
+ *     BiCloseKey @ 0x14082E938 (BiCloseKey.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiIsObjectAliased @ 0x14082EDE0 (BiIsObjectAliased.c)
+ */
+
 NTSTATUS __fastcall BiCreateObject(__int64 a1, __int64 a2, unsigned int *a3, __int64 a4, __int64 *a5)
 {
   __int64 v6; // r9

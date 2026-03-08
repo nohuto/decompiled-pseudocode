@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?OnMessage@BamoDataProviderRegistrarPrincipalImpl@BamoImpl@@UEAAJPEBXI@Z @ 0x1800FE950
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B44D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
 __int64 __fastcall BamoImpl::BamoDataProviderRegistrarPrincipalImpl::OnMessage(
         BamoImpl::BamoDataProviderRegistrarPrincipalImpl *this,
         const void *a2)

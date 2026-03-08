@@ -1,3 +1,11 @@
+/*
+ * XREFs of OPMInitialize @ 0x1C00C9154
+ * Callers:
+ *     Win32kBaseDriverEntry @ 0x1C0320F10 (Win32kBaseDriverEntry.c)
+ * Callees:
+ *     ??0COPM@@QEAA@PEAJ@Z @ 0x1C00C91E4 (--0COPM@@QEAA@PEAJ@Z.c)
+ */
+
 __int64 __fastcall OPMInitialize(__int64 a1)
 {
   unsigned int v1; // ebx

@@ -1,3 +1,35 @@
+/*
+ * XREFs of MiCreateImageFileMap @ 0x1407F1C28
+ * Callers:
+ *     MiCreateNewSection @ 0x1406A6414 (MiCreateNewSection.c)
+ * Callees:
+ *     MiInitializeImageProtos @ 0x140213DD0 (MiInitializeImageProtos.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     PsIsCurrentThreadPrefetching @ 0x1402DCE70 (PsIsCurrentThreadPrefetching.c)
+ *     MiInitializeImageHeaderPage @ 0x1402F8ED0 (MiInitializeImageHeaderPage.c)
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     CcZeroEndOfLastPage @ 0x140343FA8 (CcZeroEndOfLastPage.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     MiLegacyImageArchitecture @ 0x140368540 (MiLegacyImageArchitecture.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140368AE0 (MiUpdateSystemProtoPtesTree.c)
+ *     IoIsDeviceEjectable @ 0x140368C80 (IoIsDeviceEjectable.c)
+ *     MiFlushDataSection @ 0x140368CA0 (MiFlushDataSection.c)
+ *     MiCopyHeaderIfResident @ 0x140368D84 (MiCopyHeaderIfResident.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     MiEnableImageDirectMap @ 0x14063A850 (MiEnableImageDirectMap.c)
+ *     MiDeleteImageCreationMdls @ 0x14077E610 (MiDeleteImageCreationMdls.c)
+ *     MiReadImageHeaders @ 0x1407F17D4 (MiReadImageHeaders.c)
+ *     MiCreateMdl @ 0x1407F223C (MiCreateMdl.c)
+ *     MiVerifyImageHeader @ 0x1407F2374 (MiVerifyImageHeader.c)
+ *     MiBuildImageControlArea @ 0x1407F3030 (MiBuildImageControlArea.c)
+ *     FsRtlGetFileSize @ 0x1407F4020 (FsRtlGetFileSize.c)
+ *     MiLogCreateImageFileMapFailure @ 0x140A2C844 (MiLogCreateImageFileMapFailure.c)
+ *     MiAllocateEntireImageFileExtents @ 0x140A30264 (MiAllocateEntireImageFileExtents.c)
+ *     MiDeleteFileExtentList @ 0x140A31150 (MiDeleteFileExtentList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall MiCreateImageFileMap(
         PFILE_OBJECT FileObject,
         unsigned __int64 a2,

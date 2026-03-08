@@ -1,3 +1,11 @@
+/*
+ * XREFs of RotateHTPat45 @ 0x1C0255388
+ * Callers:
+ *     Generate_HTSC_WORD @ 0x1C02550F0 (Generate_HTSC_WORD.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RotateHTPat45(unsigned __int8 *a1, _WORD *a2, unsigned int a3, unsigned int a4, int a5, int a6)
 {
   unsigned int v7; // r10d

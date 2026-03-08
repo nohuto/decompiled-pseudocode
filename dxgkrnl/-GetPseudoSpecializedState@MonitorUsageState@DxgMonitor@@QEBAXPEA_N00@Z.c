@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetPseudoSpecializedState@MonitorUsageState@DxgMonitor@@QEBAXPEA_N00@Z @ 0x1C01D5430
+ * Callers:
+ *     MonitorGetPseudoSpecializedState @ 0x1C01D5398 (MonitorGetPseudoSpecializedState.c)
+ *     ?_ReadAppOverridesFromMonitorDataStore@MonitorUsageState@DxgMonitor@@AEAAXPEAW4_D3DKMT_DISPLAY_TARGET_USAGE@@@Z @ 0x1C02145C0 (-_ReadAppOverridesFromMonitorDataStore@MonitorUsageState@DxgMonitor@@AEAAXPEAW4_D3DKMT_DISPLAY_T.c)
+ * Callees:
+ *     MonitorAreSpecializedDisplaysSupported @ 0x1C0015408 (MonitorAreSpecializedDisplaysSupported.c)
+ */
+
 void __fastcall DxgMonitor::MonitorUsageState::GetPseudoSpecializedState(
         DxgMonitor::MonitorUsageState *this,
         bool *a2,

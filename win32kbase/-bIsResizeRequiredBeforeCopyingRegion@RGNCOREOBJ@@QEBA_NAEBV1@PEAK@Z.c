@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bIsResizeRequiredBeforeCopyingRegion@RGNCOREOBJ@@QEBA_NAEBV1@PEAK@Z @ 0x1C00437F4
+ * Callers:
+ *     ?bCopy@RGNCOREOBJ@@QEAA_NAEBV1@@Z @ 0x1C019A510 (-bCopy@RGNCOREOBJ@@QEAA_NAEBV1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RGNCOREOBJ::bIsResizeRequiredBeforeCopyingRegion(
         unsigned int **this,
         const struct RGNCOREOBJ *a2,

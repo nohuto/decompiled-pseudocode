@@ -1,3 +1,11 @@
+/*
+ * XREFs of RemoveKeyboardLayoutFile @ 0x1C00CF6D0
+ * Callers:
+ *     DestroyKF @ 0x1C00CF66C (DestroyKF.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RemoveKeyboardLayoutFile(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rdx

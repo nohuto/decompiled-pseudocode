@@ -1,3 +1,14 @@
+/*
+ * XREFs of TR_EnableForwardProgress_Internal @ 0x1C0041604
+ * Callers:
+ *     Endpoint_UcxEvtEndpointEnableForwardProgress @ 0x1C003C720 (Endpoint_UcxEvtEndpointEnableForwardProgress.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DD @ 0x1C0007C90 (WPP_RECORDER_SF_DD.c)
+ *     WPP_RECORDER_SF_DDd @ 0x1C001BCB0 (WPP_RECORDER_SF_DDd.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C001E054 (WPP_RECORDER_SF_DDD.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall TR_EnableForwardProgress_Internal(_QWORD *a1, ULONG a2)
 {
   int v4; // edi

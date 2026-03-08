@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlDescribeChunk @ 0x1409B6580
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 NTSTATUS __stdcall RtlDescribeChunk(
         USHORT CompressionFormat,
         PUCHAR *CompressedBuffer,

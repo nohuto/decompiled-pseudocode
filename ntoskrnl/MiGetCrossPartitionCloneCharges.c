@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiGetCrossPartitionCloneCharges @ 0x14066222C
+ * Callers:
+ *     MiChargeCrossPartitionSharedPage @ 0x14034A438 (MiChargeCrossPartitionSharedPage.c)
+ *     MiBuildForkPte @ 0x14065FC20 (MiBuildForkPte.c)
+ *     MiHandleForkTransitionPte @ 0x140662368 (MiHandleForkTransitionPte.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     MiChargeResident @ 0x140348DE8 (MiChargeResident.c)
+ *     MiGetCrossPartitionCharges @ 0x1406579B0 (MiGetCrossPartitionCharges.c)
+ */
+
 __int64 __fastcall MiGetCrossPartitionCloneCharges(volatile signed __int64 *a1, char a2)
 {
   unsigned __int64 v2; // rbx

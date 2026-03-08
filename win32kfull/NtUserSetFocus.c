@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetFocus @ 0x1C009A340
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C009A3E0 (-xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z.c)
+ */
+
 __int64 __fastcall NtUserSetFocus(__int64 a1)
 {
   __int64 v2; // rbx

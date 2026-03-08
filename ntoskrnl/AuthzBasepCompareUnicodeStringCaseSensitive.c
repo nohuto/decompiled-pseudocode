@@ -1,3 +1,11 @@
+/*
+ * XREFs of AuthzBasepCompareUnicodeStringCaseSensitive @ 0x14066D11C
+ * Callers:
+ *     AuthzBasepCompareUnicodeStringOperands @ 0x1403657AC (AuthzBasepCompareUnicodeStringOperands.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AuthzBasepCompareUnicodeStringCaseSensitive(unsigned __int16 *a1, unsigned __int16 *a2)
 {
   int v2; // r8d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CHolographicComposition@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802A4140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CHolographicComposition::HrFindInterface(
         CHolographicComposition *this,
         const struct _GUID *a2,

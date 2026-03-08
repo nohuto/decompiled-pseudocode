@@ -1,3 +1,22 @@
+/*
+ * XREFs of xxxDrawWindowFrame @ 0x1C00A64E4
+ * Callers:
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ *     ?xxxRedrawHungWindow@@YAXPEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C0149E06 (-xxxRedrawHungWindow@@YAXPEAUtagWND@@PEAUHRGN__@@@Z.c)
+ *     ?xxxDWPPrint@@YAHPEAUtagWND@@PEAUHDC__@@_J@Z @ 0x1C0225290 (-xxxDWPPrint@@YAHPEAUtagWND@@PEAUHDC__@@_J@Z.c)
+ * Callees:
+ *     xxxDrawScrollBar @ 0x1C0013C30 (xxxDrawScrollBar.c)
+ *     xxxDrawCaptionBar @ 0x1C0021730 (xxxDrawCaptionBar.c)
+ *     GetWindowBorders @ 0x1C0021910 (GetWindowBorders.c)
+ *     GetCaptionHeight @ 0x1C0044AA4 (GetCaptionHeight.c)
+ *     GetRect @ 0x1C0067778 (GetRect.c)
+ *     DrawEdge @ 0x1C0088404 (DrawEdge.c)
+ *     IsVisible @ 0x1C00A66A0 (IsVisible.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     DrawSize @ 0x1C022CAE8 (DrawSize.c)
+ *     xxxMenuBarDraw @ 0x1C0238AB0 (xxxMenuBarDraw.c)
+ */
+
 void __fastcall xxxDrawWindowFrame(struct tagWND *a1, HDC a2, __int16 a3)
 {
   __int64 v6; // rcx

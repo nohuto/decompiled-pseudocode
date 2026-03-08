@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z @ 0x1C0011CCC
+ * Callers:
+ *     ?xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_INTERNAL@@PEBGII@Z @ 0x1C0085310 (-xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_IN.c)
+ * Callees:
+ *     wcsncpycch @ 0x1C00115C4 (wcsncpycch.c)
+ *     ?ReadLayoutFile@@YAPEAUtagKbdLayer@@PEAUtagKBDFILE@@PEAXII@Z @ 0x1C00115F8 (-ReadLayoutFile@@YAPEAUtagKbdLayer@@PEAUtagKBDFILE@@PEAXII@Z.c)
+ *     HMAllocObjectEx @ 0x1C00122BC (HMAllocObjectEx.c)
+ *     HMFreeObject @ 0x1C0077F50 (HMFreeObject.c)
+ *     _wcsicmp @ 0x1C00DAB80 (_wcsicmp.c)
+ *     ?PrepareFallbackKeyboardFile@@YAPEAUtagKbdLayer@@PEAUtagKBDFILE@@@Z @ 0x1C0213DA4 (-PrepareFallbackKeyboardFile@@YAPEAUtagKbdLayer@@PEAUtagKBDFILE@@@Z.c)
+ */
+
 struct tagKBDFILE *__fastcall LoadKeyboardLayoutFile(
         void *a1,
         __int64 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpAllocatePostBlock @ 0x1406B4968
+ * Callers:
+ *     NtNotifyChangeMultipleKeys @ 0x1406B40B0 (NtNotifyChangeMultipleKeys.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmpAllocatePostBlock(int a1, int a2, __int64 a3, __int64 a4)
 {
   unsigned int v7; // esi

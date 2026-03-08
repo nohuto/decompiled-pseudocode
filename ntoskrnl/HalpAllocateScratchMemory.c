@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpAllocateScratchMemory @ 0x140AB0930
+ * Callers:
+ *     HalpKdSetupDebuggingDevice @ 0x140AAF250 (HalpKdSetupDebuggingDevice.c)
+ * Callees:
+ *     HalpMapPhysicalMemory64 @ 0x140409B90 (HalpMapPhysicalMemory64.c)
+ *     HalpAllocPhysicalMemory @ 0x140B3D9F4 (HalpAllocPhysicalMemory.c)
+ */
+
 __int64 __fastcall HalpAllocateScratchMemory(__int64 a1, __int64 a2)
 {
   unsigned int v3; // edx

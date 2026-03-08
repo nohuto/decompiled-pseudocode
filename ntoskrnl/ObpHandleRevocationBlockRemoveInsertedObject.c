@@ -1,3 +1,16 @@
+/*
+ * XREFs of ObpHandleRevocationBlockRemoveInsertedObject @ 0x14097838C
+ * Callers:
+ *     ObRevokeHandles @ 0x14067FB30 (ObRevokeHandles.c)
+ *     ObDestroyHandleRevocationBlock @ 0x1407DAD2C (ObDestroyHandleRevocationBlock.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x1407DEDE0 (ObpHandleRevocationBlockRemoveObject.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ */
+
 void __fastcall ObpHandleRevocationBlockRemoveInsertedObject(
         __int64 *a1,
         struct _EX_RUNDOWN_REF *a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of CleanupSensorExplicitly @ 0x1C0031540
+ * Callers:
+ *     DeactivateKSTInputProcessingHelper @ 0x1C0095134 (DeactivateKSTInputProcessingHelper.c)
+ *     UninitializeInputSensorsOnSharedThread @ 0x1C0218CC8 (UninitializeInputSensorsOnSharedThread.c)
+ * Callees:
+ *     ?CleanupHandles@CRIMBase@@IEAAXXZ @ 0x1C00315C4 (-CleanupHandles@CRIMBase@@IEAAXXZ.c)
+ *     ?ExecutingOnSensorHostingThread@CBaseInput@@QEBA_NXZ @ 0x1C007DD00 (-ExecutingOnSensorHostingThread@CBaseInput@@QEBA_NXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CleanupSensorExplicitly(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rbx

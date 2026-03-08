@@ -1,3 +1,14 @@
+/*
+ * XREFs of IcCopyData @ 0x1C009F078
+ * Callers:
+ *     AcpiIrqLibSetupSciInterrupt @ 0x1C0098DAC (AcpiIrqLibSetupSciInterrupt.c)
+ *     IrqArbBootAllocation @ 0x1C009CF90 (IrqArbBootAllocation.c)
+ *     IrqArbCommitAllocation @ 0x1C009D040 (IrqArbCommitAllocation.c)
+ *     IrqArbpPrepareForTestOrConflict @ 0x1C009E4D0 (IrqArbpPrepareForTestOrConflict.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IcCopyData(int a1)
 {
   __int64 i; // rdx

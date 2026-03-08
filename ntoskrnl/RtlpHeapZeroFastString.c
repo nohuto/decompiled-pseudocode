@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpHeapZeroFastString @ 0x1403D2DA0
+ * Callers:
+ *     RtlHeapZero @ 0x1403D2D10 (RtlHeapZero.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpHeapZeroFastString(_OWORD *a1, __int64 a2)
 {
   __int128 v2; // xmm0

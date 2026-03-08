@@ -1,3 +1,11 @@
+/*
+ * XREFs of _anonymous_namespace_::operator_ @ 0x1802B6C40
+ * Callers:
+ *     ?CalculatePrediction@CInteractionContextTransformHelper@@QEAAXAEBUINTERACTION_CONTEXT_OUTPUT@@PEBUMANIPULATION_TRANSFORM@@PEBUtagRECT@@IMMPEAM3@Z @ 0x1802B6CA8 (-CalculatePrediction@CInteractionContextTransformHelper@@QEAAXAEBUINTERACTION_CONTEXT_OUTPUT@@PE.c)
+ * Callees:
+ *     <none>
+ */
+
 float *__fastcall anonymous_namespace_::operator_(float *a1, float *a2, float *a3)
 {
   float v3; // xmm1_4

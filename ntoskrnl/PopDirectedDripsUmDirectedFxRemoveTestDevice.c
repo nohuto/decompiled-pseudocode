@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDirectedDripsUmDirectedFxRemoveTestDevice @ 0x14099C770
+ * Callers:
+ *     PopDirectedDripsUmPowerInformationInternal @ 0x14099C9A0 (PopDirectedDripsUmPowerInformationInternal.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x140244F40 (RtlDeleteElementGenericTableAvl.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ */
+
 __int64 __fastcall PopDirectedDripsUmDirectedFxRemoveTestDevice(unsigned int a1, __int64 a2)
 {
   unsigned int v3; // r8d

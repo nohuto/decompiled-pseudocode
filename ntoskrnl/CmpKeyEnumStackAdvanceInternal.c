@@ -1,3 +1,19 @@
+/*
+ * XREFs of CmpKeyEnumStackAdvanceInternal @ 0x140A20A7C
+ * Callers:
+ *     CmpKeyEnumStackAdvance @ 0x140A209E8 (CmpKeyEnumStackAdvance.c)
+ * Callees:
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140783798 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpCompareKeysByName @ 0x140A1CA20 (CmpCompareKeysByName.c)
+ *     CmpKeyEnumStackEntryAdvance @ 0x140A20E5C (CmpKeyEnumStackEntryAdvance.c)
+ *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x140A213F8 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
+ */
+
 __int64 __fastcall CmpKeyEnumStackAdvanceInternal(__int64 a1)
 {
   unsigned int v1; // ebx

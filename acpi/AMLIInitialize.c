@@ -1,3 +1,26 @@
+/*
+ * XREFs of AMLIInitialize @ 0x1C00AAAB0
+ * Callers:
+ *     ACPIInitializeAMLI @ 0x1C00A92D4 (ACPIInitializeAMLI.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     InitializeNativeNamespace @ 0x1C0049FD4 (InitializeNativeNamespace.c)
+ *     AMLIAddNamespaceOverride @ 0x1C004A2A8 (AMLIAddNamespaceOverride.c)
+ *     AMLIDebugger @ 0x1C004D630 (AMLIDebugger.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     SetLogSize @ 0x1C004E6AC (SetLogSize.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ *     NewGlobalHeap @ 0x1C004EFA4 (NewGlobalHeap.c)
+ *     CreateNameSpaceObject @ 0x1C004F10C (CreateNameSpaceObject.c)
+ *     InitMutex @ 0x1C00509FC (InitMutex.c)
+ *     OSReadRegValue @ 0x1C008E6A0 (OSReadRegValue.c)
+ *     AMLIGetEmOverride @ 0x1C00AB588 (AMLIGetEmOverride.c)
+ *     InitIllegalIOAddressListFromHAL @ 0x1C00AB6A0 (InitIllegalIOAddressListFromHAL.c)
+ */
+
 __int64 __fastcall AMLIInitialize(__int64 a1, int a2, __int64 a3, unsigned int a4, __int64 a5)
 {
   PVOID v5; // r14

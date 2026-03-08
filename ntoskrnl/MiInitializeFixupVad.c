@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiInitializeFixupVad @ 0x14072E14C
+ * Callers:
+ *     MiMapViewOfImageSection @ 0x1407D3750 (MiMapViewOfImageSection.c)
+ * Callees:
+ *     MiInitializePrivateFixupBitmap @ 0x14072E1E0 (MiInitializePrivateFixupBitmap.c)
+ */
+
 unsigned __int64 __fastcall MiInitializeFixupVad(__int64 a1, unsigned int a2)
 {
   _QWORD *v4; // rdx

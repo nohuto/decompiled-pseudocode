@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiInswapAndReadyThread @ 0x1402C06E8
+ * Callers:
+ *     KiProcessThreadWaitList @ 0x1402508F0 (KiProcessThreadWaitList.c)
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     KiReadyOutSwappedThreads @ 0x1402C02E8 (KiReadyOutSwappedThreads.c)
+ *     KiDirectSwitchThread @ 0x1403414A0 (KiDirectSwitchThread.c)
+ * Callees:
+ *     KiReadyDeferredReadyList @ 0x140226FA0 (KiReadyDeferredReadyList.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiRequestProcessInSwap @ 0x1402C0908 (KiRequestProcessInSwap.c)
+ */
+
 int __fastcall KiInswapAndReadyThread(__int64 a1, __int64 a2)
 {
   int v2; // eax

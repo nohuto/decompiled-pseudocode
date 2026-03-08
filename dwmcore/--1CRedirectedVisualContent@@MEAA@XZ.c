@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1CRedirectedVisualContent@@MEAA@XZ @ 0x1800190B8
+ * Callers:
+ *     ??_ECRedirectedVisualContent@@MEAAPEAXI@Z @ 0x180018F00 (--_ECRedirectedVisualContent@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180004700 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800234BC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CRedirectedVisualContent::~CRedirectedVisualContent(CRedirectedVisualContent *this)
 {
   struct CResource **v2; // rdi

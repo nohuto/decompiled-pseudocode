@@ -1,3 +1,11 @@
+/*
+ * XREFs of ApiSetpSearchForApiSet @ 0x1C00E28A4
+ * Callers:
+ *     ApiSetResolveToHost @ 0x1C00E27BC (ApiSetResolveToHost.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ApiSetpSearchForApiSet(_DWORD *a1, const WCHAR *a2, unsigned __int16 a3)
 {
   SIZE_T v3; // r11

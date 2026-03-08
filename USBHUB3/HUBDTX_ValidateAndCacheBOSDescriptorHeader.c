@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBDTX_ValidateAndCacheBOSDescriptorHeader @ 0x1C002B320
+ * Callers:
+ *     HUBDSM_ValidatingAlternateBOSDescriptorHeader @ 0x1C0022B10 (HUBDSM_ValidatingAlternateBOSDescriptorHeader.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBDESC_InternalValidateBOSDescriptor @ 0x1C003BB04 (HUBDESC_InternalValidateBOSDescriptor.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 __int64 __fastcall HUBDTX_ValidateAndCacheBOSDescriptorHeader(__int64 a1)
 {
   __int64 v1; // r14

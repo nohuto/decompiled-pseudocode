@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiAdvanceReadyQueueEnumeratorToNextList @ 0x1402EE9E4
+ * Callers:
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x140227C10 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiExecuteAllDpcs @ 0x140252F60 (KiExecuteAllDpcs.c)
+ *     KiRemoveCurrentlyEnumeratedThreadFromReadyQueue @ 0x140256490 (KiRemoveCurrentlyEnumeratedThreadFromReadyQueue.c)
+ *     KeYieldExecution @ 0x140256BE0 (KeYieldExecution.c)
+ *     KiSearchForNewThread @ 0x140260460 (KiSearchForNewThread.c)
+ * Callees:
+ *     KiAdvanceReadyQueueEnumeratorToNextScb @ 0x1402EEAE4 (KiAdvanceReadyQueueEnumeratorToNextScb.c)
+ *     KiAdvanceReadyQueueEnumeratorToNextPhase @ 0x1402EECB8 (KiAdvanceReadyQueueEnumeratorToNextPhase.c)
+ *     KiAdvanceReadyQueueEnumeratorToNextProcessor @ 0x1402EED30 (KiAdvanceReadyQueueEnumeratorToNextProcessor.c)
+ */
+
 __int64 __fastcall KiAdvanceReadyQueueEnumeratorToNextList(__int64 a1)
 {
   int v2; // ecx

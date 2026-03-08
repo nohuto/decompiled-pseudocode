@@ -1,3 +1,19 @@
+/*
+ * XREFs of ParseFieldList @ 0x1C005B230
+ * Callers:
+ *     BankField @ 0x1C004FEB0 (BankField.c)
+ *     Field @ 0x1C00505B0 (Field.c)
+ *     IndexField @ 0x1C0050740 (IndexField.c)
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintIndent @ 0x1C004E484 (PrintIndent.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ *     ParseField @ 0x1C005AB30 (ParseField.c)
+ */
+
 __int64 __fastcall ParseFieldList(__int64 a1, unsigned __int64 a2, __int64 a3, int a4, unsigned int a5)
 {
   unsigned int v5; // edi

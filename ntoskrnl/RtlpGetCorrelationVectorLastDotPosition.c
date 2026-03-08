@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpGetCorrelationVectorLastDotPosition @ 0x1405AD34C
+ * Callers:
+ *     RtlIncrementCorrelationVector @ 0x1409BBE50 (RtlIncrementCorrelationVector.c)
+ * Callees:
+ *     RtlpGetCorrelationVectorBufferLength @ 0x1409BC190 (RtlpGetCorrelationVectorBufferLength.c)
+ */
+
 __int64 __fastcall RtlpGetCorrelationVectorLastDotPosition(__int64 a1, __int64 a2)
 {
   int CorrelationVectorBufferLength; // eax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserAddClipboardFormatListener @ 0x1C00BD690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00BD7B8 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ */
+
 __int64 __fastcall NtUserAddClipboardFormatListener(__int64 a1)
 {
   __int64 v2; // rax

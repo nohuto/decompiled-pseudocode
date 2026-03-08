@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C011C60C
+ * Callers:
+ *     xxxLW_LoadFonts @ 0x1C00B8670 (xxxLW_LoadFonts.c)
+ *     NtGdiAddFontResourceW @ 0x1C00D0870 (NtGdiAddFontResourceW.c)
+ *     NtGdiWaitForTextReady @ 0x1C00F5200 (NtGdiWaitForTextReady.c)
+ *     GreWaitForTextReady @ 0x1C00F64F0 (GreWaitForTextReady.c)
+ *     GreGetCharSet @ 0x1C0111B08 (GreGetCharSet.c)
+ *     ?GreGetOutlineTextMetricsInternalW@@YAKPEAUHDC__@@KPEAU_OUTLINETEXTMETRICW@@PEAU_TMDIFF@@W4EntryPoint@RFONTOBJ@@@Z @ 0x1C0111D54 (-GreGetOutlineTextMetricsInternalW@@YAKPEAUHDC__@@KPEAU_OUTLINETEXTMETRICW@@PEAU_TMDIFF@@W4Entry.c)
+ *     ?EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C0118E20 (-EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     GreGetTextFaceW @ 0x1C011A714 (GreGetTextFaceW.c)
+ *     ?dwGetFontLanguageInfo@@YAKAEAVXDCOBJ@@@Z @ 0x1C0290B74 (-dwGetFontLanguageInfo@@YAKAEAVXDCOBJ@@@Z.c)
+ *     NtGdiAddFontMemResourceEx @ 0x1C02C4500 (NtGdiAddFontMemResourceEx.c)
+ * Callees:
+ *     ?IsCurrentThreadAddInitialFontsThread@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C011C800 (-IsCurrentThreadAddInitialFontsThread@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ */
+
 NTSTATUS __fastcall UmfdHostLifeTimeManager::WaitForSessionRasterizerInitialization(__int64 a1)
 {
   int v1; // edi

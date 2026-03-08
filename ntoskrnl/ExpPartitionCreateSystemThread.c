@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpPartitionCreateSystemThread @ 0x1407DE1A0
+ * Callers:
+ *     ExpCreateWorkerThread @ 0x1407DE0C4 (ExpCreateWorkerThread.c)
+ *     ExpWorkQueueManagerStart @ 0x140848060 (ExpWorkQueueManagerStart.c)
+ * Callees:
+ *     ExpNodeCreateSystemThread @ 0x1407DE204 (ExpNodeCreateSystemThread.c)
+ */
+
 __int64 __fastcall ExpPartitionCreateSystemThread(
         __int64 a1,
         int a2,

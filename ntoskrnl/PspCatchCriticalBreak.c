@@ -1,3 +1,20 @@
+/*
+ * XREFs of PspCatchCriticalBreak @ 0x1409B0A80
+ * Callers:
+ *     PspExitThread @ 0x1407D9464 (PspExitThread.c)
+ *     PspTerminateThreadByPointer @ 0x1407DA8F0 (PspTerminateThreadByPointer.c)
+ *     PspTerminateAllThreads @ 0x1407DB73C (PspTerminateAllThreads.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     PsIsHostSilo @ 0x14030F2E0 (PsIsHostSilo.c)
+ *     PsGetServerSiloState @ 0x1403552EC (PsGetServerSiloState.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     DbgPrompt @ 0x1405A5370 (DbgPrompt.c)
+ *     PsTerminateServerSilo @ 0x1409A98D0 (PsTerminateServerSilo.c)
+ */
+
 void PspCatchCriticalBreak(const char *a1, ULONG_PTR a2, __int64 a3, __int64 a4, ...)
 {
   __int64 v6; // rdx

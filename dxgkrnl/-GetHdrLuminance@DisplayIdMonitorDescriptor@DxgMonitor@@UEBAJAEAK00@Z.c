@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetHdrLuminance@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAK00@Z @ 0x1C03CBF90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DisplayID_GetNativeLuminance@@YAJPEBUDisplayIDObj@@PEAK11PEAI@Z @ 0x1C007286C (-DisplayID_GetNativeLuminance@@YAJPEBUDisplayIDObj@@PEAK11PEAI@Z.c)
+ */
+
 __int64 __fastcall DxgMonitor::DisplayIdMonitorDescriptor::GetHdrLuminance(
         DxgMonitor::DisplayIdMonitorDescriptor *this,
         unsigned int *a2,

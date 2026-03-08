@@ -1,3 +1,13 @@
+/*
+ * XREFs of fnHkINDWORD @ 0x1C00D7148
+ * Callers:
+ *     xxxHkCallHook @ 0x1C006C7F0 (xxxHkCallHook.c)
+ *     xxxCallCtfHook @ 0x1C00D6FB4 (xxxCallCtfHook.c)
+ * Callees:
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00344F8 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0034558 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall fnHkINDWORD(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, _DWORD *a6)
 {
   _DWORD *v6; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?vUpdateWtoDXform@DC@@QEAAXXZ @ 0x1C0059210
+ * Callers:
+ *     ?vInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@KH@Z @ 0x1C0057600 (-vInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@KH@Z.c)
+ * Callees:
+ *     bFToL @ 0x1C0002B7C (bFToL.c)
+ *     ?bDpiScaleTransform@DC@@QEBAHXZ @ 0x1C00597D0 (-bDpiScaleTransform@DC@@QEBAHXZ.c)
+ *     ?vMakeIso@DC@@QEAAXXZ @ 0x1C018C3EC (-vMakeIso@DC@@QEAAXXZ.c)
+ */
+
 void __fastcall DC::vUpdateWtoDXform(DC *this)
 {
   __int64 v1; // r8

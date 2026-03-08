@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DeferMonitorEvent@MonitorEventDeferral@@UEAAXIW4MONITOR_EVENT@@_KW4_DMM_VIDPN_MONITOR_TYPE@@@Z @ 0x1C021A7C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MonitorEventDeferral::DeferMonitorEvent(__int64 a1, int a2, int a3, __int64 a4, unsigned int a5)
 {
   __int64 v5; // r11

@@ -1,3 +1,13 @@
+/*
+ * XREFs of RaspRectangleCreate @ 0x140383284
+ * Callers:
+ *     BgpRasPrintGlyph @ 0x140381CD4 (BgpRasPrintGlyph.c)
+ *     RaspScanConvert @ 0x1403827F0 (RaspScanConvert.c)
+ * Callees:
+ *     RaspAllocateMemory @ 0x140383B7C (RaspAllocateMemory.c)
+ *     BgpGxInitializeRectangle @ 0x140383D4C (BgpGxInitializeRectangle.c)
+ */
+
 __int64 __fastcall RaspRectangleCreate(_DWORD *a1, unsigned int a2, _QWORD *a3)
 {
   unsigned int v6; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeAcquireGuardedMutex @ 0x140241010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExpAcquireFastMutexContended @ 0x1402410FC (ExpAcquireFastMutexContended.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ */
+
 void __stdcall KeAcquireGuardedMutex(PKGUARDED_MUTEX Mutex)
 {
   __int64 v2; // rdi

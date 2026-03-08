@@ -1,3 +1,17 @@
+/*
+ * XREFs of IoInitializeLiveDump @ 0x1403A9880
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     EtwRegister @ 0x140690D20 (EtwRegister.c)
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ *     IopOpenRegistryKey @ 0x1407803E0 (IopOpenRegistryKey.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14080F6BC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     MmQueryMemoryRanges @ 0x140859AF0 (MmQueryMemoryRanges.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void IoInitializeLiveDump()
 {
   char v0; // [rsp+20h] [rbp-60h]

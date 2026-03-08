@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifIoConnectInterruptExWrapper @ 0x1405DB7F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     IoConnectInterruptEx @ 0x1406F4AE0 (IoConnectInterruptEx.c)
+ */
+
 NTSTATUS __fastcall DifIoConnectInterruptExWrapper(PIO_CONNECT_INTERRUPT_PARAMETERS Parameters)
 {
   __int64 *APIThunkContextById; // rax

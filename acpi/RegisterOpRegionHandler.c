@@ -1,3 +1,12 @@
+/*
+ * XREFs of RegisterOpRegionHandler @ 0x1C008BAC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     OSConvertDeviceHandleToNSHANDLE @ 0x1C000ABBC (OSConvertDeviceHandleToNSHANDLE.c)
+ *     RegisterOperationRegionHandler @ 0x1C008BB24 (RegisterOperationRegionHandler.c)
+ */
+
 NTSTATUS __stdcall RegisterOpRegionHandler(
         PDEVICE_OBJECT DeviceObject,
         ULONG AccessType,

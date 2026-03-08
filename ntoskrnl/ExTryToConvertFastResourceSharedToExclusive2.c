@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExTryToConvertFastResourceSharedToExclusive2 @ 0x14040F0B8
+ * Callers:
+ *     ExTryToConvertFastResourceSharedToExclusive @ 0x140607EA0 (ExTryToConvertFastResourceSharedToExclusive.c)
+ * Callees:
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     ExpConvertSharedToExclusiveImmediately @ 0x14040FFC8 (ExpConvertSharedToExclusiveImmediately.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 char __fastcall ExTryToConvertFastResourceSharedToExclusive2(_BYTE *BugCheckParameter2, ULONG_PTR a2)
 {
   char v2; // bl

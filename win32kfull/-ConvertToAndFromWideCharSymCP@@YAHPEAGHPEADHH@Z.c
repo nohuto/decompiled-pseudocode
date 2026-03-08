@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ConvertToAndFromWideCharSymCP@@YAHPEAGHPEADHH@Z @ 0x1C027BC1C
+ * Callers:
+ *     ?ConvertToAndFromWideChar@@YAHIPEAGHPEADHH@Z @ 0x1C00BCE20 (-ConvertToAndFromWideChar@@YAHIPEAGHPEADHH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ConvertToAndFromWideCharSymCP(unsigned __int16 *a1, int a2, char *a3, int a4, int a5)
 {
   __int64 v7; // r9

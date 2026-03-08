@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpEnumerateKcbCacheBucket @ 0x14074B950
+ * Callers:
+ *     CmpEnumerateAllOpenSubKeys @ 0x14074B88C (CmpEnumerateAllOpenSubKeys.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall CmpEnumerateKcbCacheBucket(
         __int64 a1,
         __int64 a2,

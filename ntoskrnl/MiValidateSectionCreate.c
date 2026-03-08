@@ -1,3 +1,35 @@
+/*
+ * XREFs of MiValidateSectionCreate @ 0x14069F890
+ * Callers:
+ *     MiValidateSectionSigningPolicy @ 0x1406A14E8 (MiValidateSectionSigningPolicy.c)
+ *     MiPromoteControlAreaToStrongCode @ 0x140A385E8 (MiPromoteControlAreaToStrongCode.c)
+ *     MiMapImageForEnclaveUse @ 0x140A3BAD0 (MiMapImageForEnclaveUse.c)
+ * Callees:
+ *     MiWalkEntireImage @ 0x1402862C0 (MiWalkEntireImage.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     PsRevertToUserPagePriorityThread @ 0x140368F54 (PsRevertToUserPagePriorityThread.c)
+ *     PsSetSystemPagePriorityThread @ 0x140368FAC (PsSetSystemPagePriorityThread.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036D020 (MiFlushEntireTbDueToAttributeChange.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KeZeroSinglePage @ 0x14041BBB0 (KeZeroSinglePage.c)
+ *     KeCopyPage @ 0x14041BC90 (KeCopyPage.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiImageCantMove @ 0x140653990 (MiImageCantMove.c)
+ *     MiStrongCodeImage @ 0x140653A30 (MiStrongCodeImage.c)
+ *     MiRevertRelocations @ 0x14069F300 (MiRevertRelocations.c)
+ *     SeValidateImageHeader @ 0x1406A02B4 (SeValidateImageHeader.c)
+ *     MiMapImageInSystemSpace @ 0x1406A53F8 (MiMapImageInSystemSpace.c)
+ *     MiUnmapImageInSystemSpace @ 0x1406A556C (MiUnmapImageInSystemSpace.c)
+ *     MiDereferencePerSessionProtos @ 0x14075B72C (MiDereferencePerSessionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x14075B874 (MiCreatePerSessionProtos.c)
+ *     MiPrefetchControlArea @ 0x14078DBC4 (MiPrefetchControlArea.c)
+ *     SeReleaseImageValidationContext @ 0x14079C458 (SeReleaseImageValidationContext.c)
+ *     MiCaptureSecureImageBaseAddress @ 0x140A45314 (MiCaptureSecureImageBaseAddress.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiValidateSectionCreate(
         ULONG_PTR a1,
         ULONG_PTR a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmPerfSelectDomainStates @ 0x1402DC4E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char PpmPerfSelectDomainStates()
 {
   __int64 i; // rcx

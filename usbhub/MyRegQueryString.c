@@ -1,3 +1,12 @@
+/*
+ * XREFs of MyRegQueryString @ 0x1C005D154
+ * Callers:
+ *     CheckUSBFnConfiguration @ 0x1C005C27C (CheckUSBFnConfiguration.c)
+ *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C005CACC (ReadUSBFnFeaturesFromCurrentConfiguration.c)
+ * Callees:
+ *     memmove @ 0x1C0023580 (memmove.c)
+ */
+
 __int64 __fastcall MyRegQueryString(HANDLE KeyHandle, const WCHAR *a2, PVOID *a3)
 {
   _DWORD *Pool2; // rdi

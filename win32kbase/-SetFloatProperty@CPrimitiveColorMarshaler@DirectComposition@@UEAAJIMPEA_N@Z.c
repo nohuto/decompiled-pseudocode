@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetFloatProperty@CPrimitiveColorMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C02621F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CPrimitiveColorMarshaler::SetFloatProperty(
         DirectComposition::CPrimitiveColorMarshaler *this,
         int a2,

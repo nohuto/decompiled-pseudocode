@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmComputeIdleDurationHint @ 0x14022A658
+ * Callers:
+ *     PpmIdlePrepare @ 0x14022AA10 (PpmIdlePrepare.c)
+ * Callees:
+ *     PpmEstimateIdleDuration @ 0x14022A74C (PpmEstimateIdleDuration.c)
+ */
+
 __int64 __fastcall PpmComputeIdleDurationHint(__int64 a1, unsigned __int64 a2, int a3, char a4)
 {
   __int64 v4; // rdi

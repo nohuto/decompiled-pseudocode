@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserSetTargetForResourceBrokering @ 0x1C01DDDE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?_SetTargetForCursorApiBrokering@@YAXPEAUtagTHREADINFO@@0@Z @ 0x1C01A9C6C (-_SetTargetForCursorApiBrokering@@YAXPEAUtagTHREADINFO@@0@Z.c)
+ */
+
 __int64 __fastcall NtUserSetTargetForResourceBrokering(int a1, unsigned int a2)
 {
   __int64 v4; // rdi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of AuthzBasepAddSecurityAttribute @ 0x140296FB0
+ * Callers:
+ *     AuthzBasepSetSecurityAttributesToken @ 0x14029705C (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepReplaceSecurityAttribute @ 0x140297E14 (AuthzBasepReplaceSecurityAttribute.c)
+ * Callees:
+ *     AuthzBasepFindSecurityAttribute @ 0x1402478D0 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepAddSecurityAttributeValues @ 0x14029739C (AuthzBasepAddSecurityAttributeValues.c)
+ *     AuthzBasepAllocateSecurityAttribute @ 0x1402979A0 (AuthzBasepAllocateSecurityAttribute.c)
+ *     AuthzBasepAddSecurityAttributeToLists @ 0x140297DC8 (AuthzBasepAddSecurityAttributeToLists.c)
+ */
+
 __int64 __fastcall AuthzBasepAddSecurityAttribute(__int64 a1, __int64 a2)
 {
   bool v2; // zf

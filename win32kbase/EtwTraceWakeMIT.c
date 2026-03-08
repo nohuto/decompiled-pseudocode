@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceWakeMIT @ 0x1C00BEA10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetCallbackCount@@YACXZ @ 0x1C00EDBA8 (-GetCallbackCount@@YACXZ.c)
+ *     McTemplateK0cd_EtwWriteTransfer @ 0x1C00EDF1C (McTemplateK0cd_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTraceWakeMIT(int a1)
 {
   __int64 v2; // r9

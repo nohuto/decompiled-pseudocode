@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?InitializeDriverWorkarounds@DXGADAPTER@@AEAAXXZ @ 0x1C020D8B0
+ * Callers:
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01EDF54 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
+ * Callees:
+ *     Feature_EnableIddCx110__private_IsEnabledDeviceUsage @ 0x1C0024584 (Feature_EnableIddCx110__private_IsEnabledDeviceUsage.c)
+ *     ?xwtol@@YAKPEBG@Z @ 0x1C01FF51C (-xwtol@@YAKPEBG@Z.c)
+ *     DxgkInitializeBlockList @ 0x1C020DD10 (DxgkInitializeBlockList.c)
+ */
+
 void __fastcall DXGADAPTER::InitializeDriverWorkarounds(DXGADAPTER *this)
 {
   _DWORD **v1; // rdi

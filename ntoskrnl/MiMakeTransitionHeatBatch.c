@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiMakeTransitionHeatBatch @ 0x140651CD4
+ * Callers:
+ *     MmCopyToCachedPage @ 0x14021DBE0 (MmCopyToCachedPage.c)
+ *     MmCheckCachedPageStates @ 0x1402200B0 (MmCheckCachedPageStates.c)
+ *     MiHandleTransitionFault @ 0x1402720E0 (MiHandleTransitionFault.c)
+ * Callees:
+ *     MiSetNonResidentPteHeat @ 0x140287A90 (MiSetNonResidentPteHeat.c)
+ *     MiTryLockLeafPage @ 0x1402A29B8 (MiTryLockLeafPage.c)
+ *     MiLockTransitionLeafPageEx @ 0x1402DD4C8 (MiLockTransitionLeafPageEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiAddPageToHeatRanges @ 0x140651704 (MiAddPageToHeatRanges.c)
+ *     MiGetTransitionPageHeatList @ 0x1406518EC (MiGetTransitionPageHeatList.c)
+ *     MiSetActivePfnHeat @ 0x1406522D8 (MiSetActivePfnHeat.c)
+ *     MiGetPrototypePteBoundaries @ 0x140667104 (MiGetPrototypePteBoundaries.c)
+ */
+
 __int64 __fastcall MiMakeTransitionHeatBatch(_QWORD *a1, __int64 a2, unsigned __int64 a3)
 {
   __int64 v5; // r11

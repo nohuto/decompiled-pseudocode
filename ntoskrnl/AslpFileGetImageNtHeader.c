@@ -1,3 +1,15 @@
+/*
+ * XREFs of AslpFileGetImageNtHeader @ 0x140A55E4C
+ * Callers:
+ *     AslFileMappingGetImageTypeEx @ 0x140A51CE0 (AslFileMappingGetImageTypeEx.c)
+ *     AslpFileGetClrVersion @ 0x140A5533C (AslpFileGetClrVersion.c)
+ *     AslpFileGetExeWrapper @ 0x140A55740 (AslpFileGetExeWrapper.c)
+ *     AslpFileGetNtHeaderAttributes @ 0x140A55F28 (AslpFileGetNtHeaderAttributes.c)
+ *     AslpFileQueryExportName @ 0x140A565BC (AslpFileQueryExportName.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ */
+
 __int64 __fastcall AslpFileGetImageNtHeader(_QWORD *a1, __int64 a2)
 {
   unsigned int v3; // ebx

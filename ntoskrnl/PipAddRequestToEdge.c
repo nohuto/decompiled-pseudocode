@@ -1,3 +1,17 @@
+/*
+ * XREFs of PipAddRequestToEdge @ 0x140838B5C
+ * Callers:
+ *     PipAddDependencyEdgeBetweenNodes @ 0x140394528 (PipAddDependencyEdgeBetweenNodes.c)
+ *     PipCreateNewDependencyEdge @ 0x1403945C4 (PipCreateNewDependencyEdge.c)
+ *     PipMergeDependencyEdgeList @ 0x1409517A8 (PipMergeDependencyEdgeList.c)
+ * Callees:
+ *     PipMergeDependencyTypes @ 0x1403946D8 (PipMergeDependencyTypes.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     RtlDuplicateUnicodeString @ 0x140761970 (RtlDuplicateUnicodeString.c)
+ *     PipFreeBindingRequestEntry @ 0x14095175C (PipFreeBindingRequestEntry.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 _QWORD *__fastcall PipAddRequestToEdge(__int64 a1, PCUNICODE_STRING *a2)
 {
   _QWORD *v2; // rdi

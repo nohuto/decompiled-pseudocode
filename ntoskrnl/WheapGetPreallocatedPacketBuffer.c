@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheapGetPreallocatedPacketBuffer @ 0x14060F4C0
+ * Callers:
+ *     WheapInitErrorReportDeviceDriver @ 0x14060F578 (WheapInitErrorReportDeviceDriver.c)
+ * Callees:
+ *     WheapGetErrorSource @ 0x14060EAE8 (WheapGetErrorSource.c)
+ *     WheapErrDescIsDeviceDriver @ 0x14060F410 (WheapErrDescIsDeviceDriver.c)
+ */
+
 volatile signed __int32 *__fastcall WheapGetPreallocatedPacketBuffer(unsigned int a1)
 {
   __int64 *ErrorSource; // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of PspUpdateSingleProcessAffinity @ 0x1409ACC60
+ * Callers:
+ *     PsUpdateActiveProcessAffinity @ 0x1409AB80C (PsUpdateActiveProcessAffinity.c)
+ *     PspSetProcessAffinityUpdateMode @ 0x1409ACA80 (PspSetProcessAffinityUpdateMode.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PspWritePebAffinityInfo @ 0x14070687C (PspWritePebAffinityInfo.c)
+ *     PspSetProcessAffinitySafe @ 0x1409AC928 (PspSetProcessAffinitySafe.c)
+ */
+
 void __fastcall PspUpdateSingleProcessAffinity(__int64 a1, __int64 a2, unsigned __int16 *a3)
 {
   signed __int64 *v6; // rbx

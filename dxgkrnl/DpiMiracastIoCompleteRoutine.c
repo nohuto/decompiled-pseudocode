@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiMiracastIoCompleteRoutine @ 0x1C005FE10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0pqtqq_EtwWriteTransfer @ 0x1C0040104 (McTemplateK0pqtqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiMiracastIoCompleteRoutine(__int64 a1, __int64 a2, PVOID *a3)
 {
   bool v5; // zf

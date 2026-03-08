@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?UpdatePointerCapture@CInputManager@@SAJII@Z @ 0x1C02700FC
+ * Callers:
+ *     NtDCompositionUpdatePointerCapture @ 0x1C02489A0 (NtDCompositionUpdatePointerCapture.c)
+ * Callees:
+ *     ??0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C005BB7C (--0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ?InsertAt@?$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAAJAEBUPointerCaptureInfo@CInputManager@@I@Z @ 0x1C026FD68 (-InsertAt@-$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAAJAEBUPointerCaptureInfo.c)
+ *     ?RemoveAt@?$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAAXI@Z @ 0x1C027009C (-RemoveAt@-$CStructDynamicArray@UPointerCaptureInfo@CInputManager@@@@QEAAXI@Z.c)
+ */
+
 __int64 __fastcall CInputManager::UpdatePointerCapture(unsigned int a1, unsigned int a2)
 {
   unsigned int v2; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsValidCloneGroup@@YAEPEAUD3DKMT_GETPATHSMODALITY@@I@Z @ 0x1C02F77A8
+ * Callers:
+ *     ?IsValidCloneConfiguration@@YAEPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C02F7714 (-IsValidCloneConfiguration@@YAEPEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
+ * Callees:
+ *     ?IsVirtualModeSupported@@YAEAEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z @ 0x1C02F7878 (-IsVirtualModeSupported@@YAEAEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z.c)
+ */
+
 char __fastcall IsValidCloneGroup(struct D3DKMT_GETPATHSMODALITY *a1, unsigned int a2)
 {
   char v3; // di

@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoSetShareAccessEx @ 0x14087FED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoSetLinkShareAccess @ 0x1406F34E0 (IoSetLinkShareAccess.c)
+ */
+
 void __stdcall IoSetShareAccessEx(
         ACCESS_MASK DesiredAccess,
         ULONG DesiredShareAccess,

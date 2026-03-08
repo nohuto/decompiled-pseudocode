@@ -1,3 +1,17 @@
+/*
+ * XREFs of _RegRtlEnumKeyWithCallback @ 0x140824EF8
+ * Callers:
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x140824EA0 (_PnpCtxRegEnumKeyWithCallback.c)
+ * Callees:
+ *     IoGetStackLimits @ 0x1403129C0 (IoGetStackLimits.c)
+ *     _SysCtxInternalEnumSubkeyCallback @ 0x140395F5C (_SysCtxInternalEnumSubkeyCallback.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _RegRtlQueryInfoKey @ 0x140868C7C (_RegRtlQueryInfoKey.c)
+ *     _RegRtlEnumKey @ 0x140868D44 (_RegRtlEnumKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RegRtlEnumKeyWithCallback(HANDLE KeyHandle, __int64 a2, __int64 a3)
 {
   int v3; // r15d

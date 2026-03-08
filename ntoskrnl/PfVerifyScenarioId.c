@@ -1,3 +1,12 @@
+/*
+ * XREFs of PfVerifyScenarioId @ 0x1407E360C
+ * Callers:
+ *     PfVerifyScenarioBuffer @ 0x1407E0090 (PfVerifyScenarioBuffer.c)
+ *     PfVerifyTraceBuffer @ 0x1407E3490 (PfVerifyTraceBuffer.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall PfVerifyScenarioId(__int64 a1)
 {
   int v1; // eax

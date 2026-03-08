@@ -1,3 +1,13 @@
+/*
+ * XREFs of UpcaseUnicodeToMultiByteNHelper @ 0x14045B5C4
+ * Callers:
+ *     RtlUpcaseUnicodeToOemN @ 0x14079FFE0 (RtlUpcaseUnicodeToOemN.c)
+ *     RtlUpcaseUnicodeToMultiByteN @ 0x1407A00A0 (RtlUpcaseUnicodeToMultiByteN.c)
+ * Callees:
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     NLS_UPCASE @ 0x140267AD0 (NLS_UPCASE.c)
+ */
+
 __int64 __fastcall UpcaseUnicodeToMultiByteNHelper(
         _BYTE *a1,
         unsigned int a2,

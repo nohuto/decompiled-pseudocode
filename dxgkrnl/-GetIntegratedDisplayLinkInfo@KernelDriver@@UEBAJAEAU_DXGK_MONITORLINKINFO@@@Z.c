@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetIntegratedDisplayLinkInfo@KernelDriver@@UEBAJAEAU_DXGK_MONITORLINKINFO@@@Z @ 0x1C021A6D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiFdoGetChildDescriptor @ 0x1C0015614 (DpiFdoGetChildDescriptor.c)
+ */
+
 __int64 __fastcall KernelDriver::GetIntegratedDisplayLinkInfo(KernelDriver *this, struct _DXGK_MONITORLINKINFO *a2)
 {
   _QWORD *ChildDescriptor; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PfSnNameRemoveAll @ 0x140773CE0
+ * Callers:
+ *     PfFileInfoNotify @ 0x14028C770 (PfFileInfoNotify.c)
+ * Callees:
+ *     PfSnActiveTraceGetNext @ 0x1402E814C (PfSnActiveTraceGetNext.c)
+ *     PfSnNameRemove @ 0x1402E820C (PfSnNameRemove.c)
+ *     PfSnLogStreamDelete @ 0x140773D30 (PfSnLogStreamDelete.c)
+ */
+
 __int64 *__fastcall PfSnNameRemoveAll(__int64 a1)
 {
   struct _EX_RUNDOWN_REF *i; // rcx

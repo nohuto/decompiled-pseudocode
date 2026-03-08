@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMRegisterForDeviceChangeNotifications @ 0x1C0088F68
+ * Callers:
+ *     rimOnPnpArrived @ 0x1C00889C0 (rimOnPnpArrived.c)
+ * Callees:
+ *     RimDeviceTypeToRimInputType @ 0x1C00BC2F4 (RimDeviceTypeToRimInputType.c)
+ *     WPP_RECORDER_AND_TRACE_SF_DSd @ 0x1C01C7BEC (WPP_RECORDER_AND_TRACE_SF_DSd.c)
+ */
+
 __int64 __fastcall RIMRegisterForDeviceChangeNotifications(
         __int64 a1,
         struct _DRIVER_OBJECT *a2,

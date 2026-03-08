@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoCsqInsertIrpEx @ 0x1402CD330
+ * Callers:
+ *     IoCsqInsertIrp @ 0x1402CD310 (IoCsqInsertIrp.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 NTSTATUS __stdcall IoCsqInsertIrpEx(PIO_CSQ Csq, PIRP Irp, PIO_CSQ_IRP_CONTEXT Context, PVOID InsertContext)
 {
   NTSTATUS v4; // esi

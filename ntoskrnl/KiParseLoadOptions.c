@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiParseLoadOptions @ 0x140A8CDAC
+ * Callers:
+ *     KiInitializeXSave @ 0x140A8CAA0 (KiInitializeXSave.c)
+ * Callees:
+ *     KiMatchLoadOption @ 0x140A8CE30 (KiMatchLoadOption.c)
+ */
+
 void __fastcall KiParseLoadOptions(__int64 a1)
 {
   __int64 v2; // [rsp+30h] [rbp+8h] BYREF

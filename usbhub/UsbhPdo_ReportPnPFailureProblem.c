@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhPdo_ReportPnPFailureProblem @ 0x1C0056F88
+ * Callers:
+ *     UsbhPdoPnp_QueryPnpDeviceState @ 0x1C0056170 (UsbhPdoPnp_QueryPnpDeviceState.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     RtlStringCbPrintfW @ 0x1C0044C1C (RtlStringCbPrintfW.c)
+ *     UsbhSetPdoRegistryParameter @ 0x1C0046D44 (UsbhSetPdoRegistryParameter.c)
+ *     RtlUnalignedStringCbLengthW @ 0x1C0053200 (RtlUnalignedStringCbLengthW.c)
+ */
+
 void __fastcall UsbhPdo_ReportPnPFailureProblem(PDEVICE_OBJECT DeviceObject)
 {
   _DWORD *v2; // r14

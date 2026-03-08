@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?DestroyChannel@CInternalMilCmdConnection@@QEAAJI@Z @ 0x1801B2658
+ * Callers:
+ *     ??1CChannel@@AEAA@XZ @ 0x1801CB2C4 (--1CChannel@@AEAA@XZ.c)
+ * Callees:
+ *     ?GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x1800CD0D4 (-GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??1?$CWriteGuard@VCReadWriteLock@@@@QEAA@XZ @ 0x18019A3F0 (--1-$CWriteGuard@VCReadWriteLock@@@@QEAA@XZ.c)
+ *     ?DestroyHandle@CChannelTable@@QEAAXI@Z @ 0x1801CB18C (-DestroyHandle@CChannelTable@@QEAAXI@Z.c)
+ */
+
 __int64 __fastcall CInternalMilCmdConnection::DestroyChannel(RTL_SRWLOCK *this, unsigned int a2)
 {
   RTL_SRWLOCK *v2; // rdi

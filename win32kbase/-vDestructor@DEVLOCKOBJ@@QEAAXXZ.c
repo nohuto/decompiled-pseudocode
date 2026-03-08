@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C001BA1C
+ * Callers:
+ *     GreGetNearestColor @ 0x1C001A710 (GreGetNearestColor.c)
+ *     GreGetClipBox @ 0x1C001AB40 (GreGetClipBox.c)
+ *     ??0PDEVOBJ@@QEAA@PEAUHDEV__@@K@Z @ 0x1C0181D80 (--0PDEVOBJ@@QEAA@PEAUHDEV__@@K@Z.c)
+ *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C018277C (--1DEVLOCKOBJ@@QEAA@XZ.c)
+ *     ?vClearSurface@PDEVOBJ@@QEAAXXZ @ 0x1C0182C68 (-vClearSurface@PDEVOBJ@@QEAAXXZ.c)
+ *     pProcessDfbSurfacesInternal @ 0x1C01878E0 (pProcessDfbSurfacesInternal.c)
+ *     GreSetMagicColors @ 0x1C01995FC (GreSetMagicColors.c)
+ * Callees:
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0049E20 (EtwTraceGreLockReleaseSemaphore.c)
+ *     W32GetThreadWin32Thread @ 0x1C004E3B0 (W32GetThreadWin32Thread.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pz_EtwWriteTransfer @ 0x1C0198A10 (McTemplateK0pz_EtwWriteTransfer.c)
+ */
+
 void __fastcall DEVLOCKOBJ::vDestructor(struct _ERESOURCE *this)
 {
   struct _ERESOURCE *v1; // rbx

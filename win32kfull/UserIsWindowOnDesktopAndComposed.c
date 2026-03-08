@@ -1,3 +1,12 @@
+/*
+ * XREFs of UserIsWindowOnDesktopAndComposed @ 0x1C007EF48
+ * Callers:
+ *     GreTransferDwmStateToSpriteState @ 0x1C007CDBC (GreTransferDwmStateToSpriteState.c)
+ *     GreTransferSpriteStateToDwmState @ 0x1C007DD9C (GreTransferSpriteStateToDwmState.c)
+ * Callees:
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ */
+
 __int64 __fastcall UserIsWindowOnDesktopAndComposed(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bCopySurface@@YAHPEAVSURFMEM@@PEAU_SURFOBJ@@@Z @ 0x1C026E61C
+ * Callers:
+ *     ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z @ 0x1C005C780 (-bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z.c)
+ * Callees:
+ *     EngCopyBits @ 0x1C008AE00 (EngCopyBits.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall bCopySurface(struct SURFMEM *a1, struct _SURFOBJ *a2)
 {
   unsigned int v2; // ebx

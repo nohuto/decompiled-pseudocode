@@ -1,3 +1,23 @@
+/*
+ * XREFs of EtwpSetProviderTraitsCommon @ 0x140695C68
+ * Callers:
+ *     EtwpSetProviderTraitsUm @ 0x140695AC4 (EtwpSetProviderTraitsUm.c)
+ *     EtwpSetProviderTraitsKm @ 0x140788328 (EtwpSetProviderTraitsKm.c)
+ * Callees:
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     strnlen @ 0x1403D5A40 (strnlen.c)
+ *     EtwpAddRegEntryToGroup @ 0x140693640 (EtwpAddRegEntryToGroup.c)
+ *     EtwpReleaseProviderTraitsReference @ 0x140695900 (EtwpReleaseProviderTraitsReference.c)
+ *     EtwpGetProviderGroupFromTraits @ 0x140695EB4 (EtwpGetProviderGroupFromTraits.c)
+ *     TraitsCompare @ 0x14076B1A4 (TraitsCompare.c)
+ *     AddDecodeGuidToSessions @ 0x14079AF30 (AddDecodeGuidToSessions.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpSetProviderTraitsCommon(
         __int64 a1,
         unsigned int a2,

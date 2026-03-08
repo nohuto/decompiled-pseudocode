@@ -1,3 +1,19 @@
+/*
+ * XREFs of SepExamineSaclEx @ 0x1409CB8C4
+ * Callers:
+ *     SepExamineGlobalSaclEx @ 0x1405B6A9C (SepExamineGlobalSaclEx.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1406973E0 (SepAccessCheckAndAuditAlarm.c)
+ * Callees:
+ *     AuthzBasepEvaluateAceCondition @ 0x140246980 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1402975A8 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402B8730 (AuthzBasepFreeSecurityAttributesList.c)
+ *     SepSidInToken @ 0x1402EF7EC (SepSidInToken.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     AuthzBasepObjectInTypeList @ 0x14066CAA0 (AuthzBasepObjectInTypeList.c)
+ *     SepSetAuditInfoForObjectType @ 0x1409CBFF0 (SepSetAuditInfoForObjectType.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SepExamineSaclEx(
         __int64 a1,
         __int64 a2,

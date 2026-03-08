@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CreateCrossAdapterAllocation@VIDMM_GLOBAL@@QEAAJPEAPEAU_VIDMM_CROSSADAPTER_ALLOC@@PEAX_KE@Z @ 0x1C00E116C
+ * Callers:
+ *     VidMmCreateCrossAdapterAllocation @ 0x1C002D1A0 (VidMmCreateCrossAdapterAllocation.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C0001A30 (--3@YAXPEAX@Z.c)
+ *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0002360 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall VIDMM_GLOBAL::CreateCrossAdapterAllocation(
         VIDMM_GLOBAL *this,
         struct _VIDMM_CROSSADAPTER_ALLOC **a2,

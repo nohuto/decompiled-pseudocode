@@ -1,3 +1,19 @@
+/*
+ * XREFs of WdipSemLoadLocalGroupPolicy @ 0x1409DB298
+ * Callers:
+ *     WdipSemLoadGroupPolicy @ 0x14083195C (WdipSemLoadGroupPolicy.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwEnumerateKey @ 0x140412950 (ZwEnumerateKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     WdipSemQueryValueFromRegistry @ 0x140833488 (WdipSemQueryValueFromRegistry.c)
+ *     WdipSemOpenRegistryKey @ 0x140833598 (WdipSemOpenRegistryKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall WdipSemLoadLocalGroupPolicy(HANDLE KeyHandle)
 {
   HANDLE v2; // rcx

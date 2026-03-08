@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DeferredWorkQueueCallback@DXG_DEFERRED_WORK_QUEUE_DPC@@SAXPEAX@Z @ 0x1C0055750
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall DXG_DEFERRED_WORK_QUEUE_DPC::DeferredWorkQueueCallback(PKSPIN_LOCK SpinLock)
 {
   PKSPIN_LOCK v2; // rsi

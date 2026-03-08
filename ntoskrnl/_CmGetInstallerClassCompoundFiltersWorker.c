@@ -1,3 +1,18 @@
+/*
+ * XREFs of _CmGetInstallerClassCompoundFiltersWorker @ 0x140A65A54
+ * Callers:
+ *     _CmGetInstallerClassCompoundFilters @ 0x14074DC9C (_CmGetInstallerClassCompoundFilters.c)
+ * Callees:
+ *     _PnpSetObjectProperty @ 0x140686C8C (_PnpSetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14074DDF4 (_CmGetInstallerClassMappedPropertyFromRegProp.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1408665AC (_PnpCtxRegQueryInfoKey.c)
+ *     _CmGetDeclarativeFilterList @ 0x140A64F80 (_CmGetDeclarativeFilterList.c)
+ *     _CmMergeFilterLists @ 0x140A667FC (_CmMergeFilterLists.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmGetInstallerClassCompoundFiltersWorker(
         __int64 a1,
         __int64 a2,

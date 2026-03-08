@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCheckWsLimits @ 0x14020C974
+ * Callers:
+ *     MmAdjustWorkingSetSizeEx @ 0x14020C61C (MmAdjustWorkingSetSizeEx.c)
+ *     MmCreateProcessAddressSpace @ 0x1407289B8 (MmCreateProcessAddressSpace.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiCheckWsLimits(__int64 a1, __int64 *a2, unsigned __int64 *a3, char a4, char a5)
 {
   unsigned __int64 v5; // rbx

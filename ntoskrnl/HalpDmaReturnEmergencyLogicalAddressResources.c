@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpDmaReturnEmergencyLogicalAddressResources @ 0x1404FE8AC
+ * Callers:
+ *     HalPutScatterGatherListDmarThin @ 0x1404549F0 (HalPutScatterGatherListDmarThin.c)
+ *     HalpDmaFreeLa @ 0x1404FDD64 (HalpDmaFreeLa.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpConstructScatterGatherListDmarThin @ 0x140511AA4 (HalpConstructScatterGatherListDmarThin.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x140512A4C (HalpAllocateDmaResourcesInternal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpDmaReturnEmergencyLogicalAddressResources(__int64 a1)
 {
   volatile signed __int64 *v1; // r14

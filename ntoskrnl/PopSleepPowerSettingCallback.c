@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopSleepPowerSettingCallback @ 0x140829820
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopApplyPolicy @ 0x14082A06C (PopApplyPolicy.c)
+ *     PopInitSIdle @ 0x14082A7A4 (PopInitSIdle.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopSleepPowerSettingCallback(__int64 *a1, int *a2, int a3)
 {
   int v6; // esi

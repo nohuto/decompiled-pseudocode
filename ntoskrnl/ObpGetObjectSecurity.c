@@ -1,3 +1,25 @@
+/*
+ * XREFs of ObpGetObjectSecurity @ 0x1406DB240
+ * Callers:
+ *     ObpInsertOrLocateNamedObject @ 0x140696BDC (ObpInsertOrLocateNamedObject.c)
+ *     ObpCheckObjectReference @ 0x1406992AC (ObpCheckObjectReference.c)
+ *     ObCheckCreateObjectAccess @ 0x14069A900 (ObCheckCreateObjectAccess.c)
+ *     ObCheckObjectAccess @ 0x14069DB90 (ObCheckObjectAccess.c)
+ *     ObGetObjectSecurity @ 0x1406DB220 (ObGetObjectSecurity.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x1407512E4 (PspAllocateAndQueryNotificationChannel.c)
+ *     PopBootStatAccessCheck @ 0x140798D98 (PopBootStatAccessCheck.c)
+ *     MiAllowImageMap @ 0x1407D35A0 (MiAllowImageMap.c)
+ *     ObpCheckTraverseAccess @ 0x140978718 (ObpCheckTraverseAccess.c)
+ *     PspCheckJobAccessState @ 0x1409AF0FC (PspCheckJobAccessState.c)
+ *     EtwpCheckCurrentUserProcessAccess @ 0x1409E94C0 (EtwpCheckCurrentUserProcessAccess.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ObpReferenceSecurityDescriptorSlow @ 0x140880604 (ObpReferenceSecurityDescriptorSlow.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ObpGetObjectSecurity(__int64 a1, PVOID *a2, _BYTE *a3, char a4)
 {
   ULONG_PTR v8; // r14

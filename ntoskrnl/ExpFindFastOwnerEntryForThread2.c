@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpFindFastOwnerEntryForThread2 @ 0x140410518
+ * Callers:
+ *     ExIsFastResourceHeld2 @ 0x14040E5CC (ExIsFastResourceHeld2.c)
+ *     ExpAcquireFastResourceSharedSlow @ 0x14040F630 (ExpAcquireFastResourceSharedSlow.c)
+ *     ExpFastResourceLegacyConvertExclusiveToShared2 @ 0x140410128 (ExpFastResourceLegacyConvertExclusiveToShared2.c)
+ *     ExpFastResourceLegacyRelease2 @ 0x1404103B8 (ExpFastResourceLegacyRelease2.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ExpFindFastOwnerEntryForThread2(
         __int64 a1,
         _QWORD *a2,

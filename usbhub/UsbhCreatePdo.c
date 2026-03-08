@@ -1,3 +1,26 @@
+/*
+ * XREFs of UsbhCreatePdo @ 0x1C0053530
+ * Callers:
+ *     UsbhPortConnect @ 0x1C004D100 (UsbhPortConnect.c)
+ * Callees:
+ *     UsbhSshSetPortsBusyState @ 0x1C000ABD0 (UsbhSshSetPortsBusyState.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhIncPdoIoCount @ 0x1C0020E30 (UsbhIncPdoIoCount.c)
+ *     UsbhConnectPdoToHub @ 0x1C002A23C (UsbhConnectPdoToHub.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002EA5C (WPP_RECORDER_SF_q.c)
+ *     SET_PDO_HWPNPSTATE @ 0x1C0036750 (SET_PDO_HWPNPSTATE.c)
+ *     Usbh_ErrorDisconnect_PdoEvent @ 0x1C003B0C0 (Usbh_ErrorDisconnect_PdoEvent.c)
+ *     UsbhMakePdoName @ 0x1C0043BAC (UsbhMakePdoName.c)
+ *     UsbhBuildCompatibleID @ 0x1C004F2B4 (UsbhBuildCompatibleID.c)
+ *     UsbhBuildDeviceID @ 0x1C004F9EC (UsbhBuildDeviceID.c)
+ *     UsbhBuildHardwareID @ 0x1C004FCFC (UsbhBuildHardwareID.c)
+ *     UsbhGetLocationIdString @ 0x1C0050690 (UsbhGetLocationIdString.c)
+ *     SET_PDO_SWPNPSTATE @ 0x1C0053274 (SET_PDO_SWPNPSTATE.c)
+ *     UsbhSetPortData @ 0x1C0057810 (UsbhSetPortData.c)
+ */
+
 __int64 __fastcall UsbhCreatePdo(__int64 a1, __int64 a2)
 {
   ULONG v3; // edi

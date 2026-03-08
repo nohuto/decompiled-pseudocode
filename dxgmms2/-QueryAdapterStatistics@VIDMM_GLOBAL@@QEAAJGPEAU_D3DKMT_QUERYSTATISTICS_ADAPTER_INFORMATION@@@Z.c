@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?QueryAdapterStatistics@VIDMM_GLOBAL@@QEAAJGPEAU_D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION@@@Z @ 0x1C00EE11C
+ * Callers:
+ *     VidMmQueryAdapterStatistics @ 0x1C002D2E0 (VidMmQueryAdapterStatistics.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VIDMM_GLOBAL::QueryAdapterStatistics(
         VIDMM_GLOBAL *this,
         unsigned __int16 a2,

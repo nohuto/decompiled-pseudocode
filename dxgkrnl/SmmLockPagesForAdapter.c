@@ -1,3 +1,13 @@
+/*
+ * XREFs of SmmLockPagesForAdapter @ 0x1C03D31E4
+ * Callers:
+ *     ?SmmLockPagedObject@@YAJPEAUSYSMM_PHYSICAL_OBJECT@@PEAUSYSMM_ADAPTER_OBJECT@@@Z @ 0x1C03D2E8C (-SmmLockPagedObject@@YAJPEAUSYSMM_PHYSICAL_OBJECT@@PEAUSYSMM_ADAPTER_OBJECT@@@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     SmmLockPages @ 0x1C03D3080 (SmmLockPages.c)
+ *     SmmUnlockPages @ 0x1C03D341C (SmmUnlockPages.c)
+ */
+
 __int64 __fastcall SmmLockPagesForAdapter(__int64 a1, void *a2, unsigned __int64 a3, PMDL *a4)
 {
   unsigned int v4; // ebp

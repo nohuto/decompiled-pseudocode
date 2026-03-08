@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPISystemPowerDetermineSupportedSystemState @ 0x1C003DE60
+ * Callers:
+ *     ACPISystemPowerDetermineSupportedDeviceStates @ 0x1C003DAE0 (ACPISystemPowerDetermineSupportedDeviceStates.c)
+ *     ACPISystemPowerUpdateDeviceCapabilities @ 0x1C003E114 (ACPISystemPowerUpdateDeviceCapabilities.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPISystemPowerDetermineSupportedSystemState(__int64 a1, int a2)
 {
   unsigned int v2; // r9d

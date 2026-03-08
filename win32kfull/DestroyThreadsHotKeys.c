@@ -1,3 +1,12 @@
+/*
+ * XREFs of DestroyThreadsHotKeys @ 0x1C00B6540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?HKRemoveHotkeyOrMakePlaceholder@@YA_NPEAPEAUtagHOTKEY@@@Z @ 0x1C0039F6C (-HKRemoveHotkeyOrMakePlaceholder@@YA_NPEAPEAUtagHOTKEY@@@Z.c)
+ *     ?NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z @ 0x1C003B140 (-NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z.c)
+ */
+
 void __fastcall DestroyThreadsHotKeys(struct tagHOTKEY *a1)
 {
   __int64 v1; // rdi

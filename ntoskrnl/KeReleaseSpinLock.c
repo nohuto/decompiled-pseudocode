@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeReleaseSpinLock @ 0x14025E560
+ * Callers:
+ *     FsRtlPrivateLock @ 0x1402C21B0 (FsRtlPrivateLock.c)
+ *     PpmParkRegisterParking @ 0x14038D880 (PpmParkRegisterParking.c)
+ *     sub_140B16730 @ 0x140B16730 (sub_140B16730.c)
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14056F278 (KiReleaseSpinLockInstrumented.c)
+ */
+
 void __stdcall KeReleaseSpinLock(PKSPIN_LOCK SpinLock, KIRQL NewIrql)
 {
   unsigned __int64 v2; // rbx

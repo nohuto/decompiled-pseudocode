@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIRegDumpAcpiTables @ 0x1C00AA17C
+ * Callers:
+ *     ACPILoadProcessRSDT @ 0x1C00A9AC4 (ACPILoadProcessRSDT.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     ACPIRegDumpAcpiTable @ 0x1C00A9FEC (ACPIRegDumpAcpiTable.c)
+ */
+
 int ACPIRegDumpAcpiTables()
 {
   ULONG *v0; // rsi

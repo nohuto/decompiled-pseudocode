@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmosConfigSpaceHandler @ 0x1C0019B90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     CmosConfigSpaceHandlerWorker @ 0x1C0019CC4 (CmosConfigSpaceHandlerWorker.c)
+ *     CmosGetOpRegionType @ 0x1C0019D58 (CmosGetOpRegionType.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetParent @ 0x1C0048724 (AMLIGetParent.c)
+ */
+
 __int64 __fastcall CmosConfigSpaceHandler(
         int a1,
         volatile signed __int32 *a2,

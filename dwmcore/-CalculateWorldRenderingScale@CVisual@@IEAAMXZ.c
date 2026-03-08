@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CalculateWorldRenderingScale@CVisual@@IEAAMXZ @ 0x1800DFAD0
+ * Callers:
+ *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18006B3A0 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?IssueContextUpdateNotification@CVisual@@IEAAXMAEBUD2D_VECTOR_2F@@@Z @ 0x1800DF63C (-IssueContextUpdateNotification@CVisual@@IEAAXMAEBUD2D_VECTOR_2F@@@Z.c)
+ * Callees:
+ *     ?Transform3DVector@CMILMatrix@@QEBA?AUD2D_VECTOR_3F@@AEBU2@@Z @ 0x1800DFB38 (-Transform3DVector@CMILMatrix@@QEBA-AUD2D_VECTOR_3F@@AEBU2@@Z.c)
+ */
+
 float __fastcall CVisual::CalculateWorldRenderingScale(CVisual *this)
 {
   struct D2D_VECTOR_3F v2; // [rsp+20h] [rbp-28h] BYREF

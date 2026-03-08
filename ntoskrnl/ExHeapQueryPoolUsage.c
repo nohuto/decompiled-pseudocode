@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExHeapQueryPoolUsage @ 0x140299760
+ * Callers:
+ *     ExQueryPoolUsage @ 0x14029971C (ExQueryPoolUsage.c)
+ * Callees:
+ *     <none>
+ */
+
 _DWORD *__fastcall ExHeapQueryPoolUsage(
         _DWORD *a1,
         _DWORD *a2,

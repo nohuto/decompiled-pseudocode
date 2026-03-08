@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhEtwLogDeviceInformation @ 0x1C005B6F8
+ * Callers:
+ *     UsbhBusConnectPdo @ 0x1C0001B70 (UsbhBusConnectPdo.c)
+ *     UsbhDeletePdo @ 0x1C005409C (UsbhDeletePdo.c)
+ *     UsbhEtwRundown @ 0x1C005BED0 (UsbhEtwRundown.c)
+ * Callees:
+ *     UsbhEtwWrite @ 0x1C0009AC0 (UsbhEtwWrite.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     UsbhEtwGetDeviceInfo @ 0x1C005B56C (UsbhEtwGetDeviceInfo.c)
+ */
+
 NTSTATUS __fastcall UsbhEtwLogDeviceInformation(__int64 a1, const EVENT_DESCRIPTOR *a2, char a3)
 {
   NTSTATUS result; // eax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z @ 0x1C0269834
+ * Callers:
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     ?GreSetDIBitsToDeviceInternalImpl@@YAHPEAUHDC__@@HHKKHHKKAEAV?$umptr_r@E@@PEAUtagBITMAPINFO@@KIHPEAX@Z @ 0x1C008D940 (-GreSetDIBitsToDeviceInternalImpl@@YAHPEAUHDC__@@HHKKHHKKAEAV-$umptr_r@E@@PEAUtagBITMAPINFO@@KIH.c)
+ *     ?bSpDwmUpdateSpriteShape@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAU_SURFOBJ@@PEAU_RECTL@@PEAVPALETTE@@PEAK4PEAPEAV3@@Z @ 0x1C012859C (-bSpDwmUpdateSpriteShape@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAU_SURFOBJ@@PEA.c)
+ *     _lambda_1cf76e2996e024a73989971e750c3c23_::operator() @ 0x1C02DFB0C (_lambda_1cf76e2996e024a73989971e750c3c23_--operator().c)
+ *     _lambda_d48ab19a047a2d0bcdc1b67e26dd5c9f_::operator() @ 0x1C02DFB50 (_lambda_d48ab19a047a2d0bcdc1b67e26dd5c9f_--operator().c)
+ * Callees:
+ *     bFToL @ 0x1C00D1C50 (bFToL.c)
+ */
+
 void __fastcall ERECTL::vScale(ERECTL *this, const struct POINTFL *a2)
 {
   float v2; // xmm2_4

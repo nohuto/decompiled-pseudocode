@@ -1,3 +1,21 @@
+/*
+ * XREFs of TR_ReleaseSegments @ 0x1C001187C
+ * Callers:
+ *     Isoch_Stage_MapIntoRing @ 0x1C0001050 (Isoch_Stage_MapIntoRing.c)
+ *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001EC0 (Isoch_ProcessTransferEventWithED1.c)
+ *     Isoch_MapStage @ 0x1C0004810 (Isoch_MapStage.c)
+ *     Isoch_PrepareStage @ 0x1C0004AD0 (Isoch_PrepareStage.c)
+ *     Bulk_CompleteTransfers @ 0x1C000E608 (Bulk_CompleteTransfers.c)
+ *     Bulk_ProcessTransferEventWithED1 @ 0x1C0011324 (Bulk_ProcessTransferEventWithED1.c)
+ *     Bulk_MapStage @ 0x1C00122C0 (Bulk_MapStage.c)
+ *     Bulk_PrepareStage @ 0x1C001239C (Bulk_PrepareStage.c)
+ *     Isoch_CompleteStaleTransfers @ 0x1C0043B94 (Isoch_CompleteStaleTransfers.c)
+ *     Isoch_CompleteTransfers @ 0x1C0043E28 (Isoch_CompleteTransfers.c)
+ *     Bulk_ProcessTransferEventWithHaltedCompletion @ 0x1C0046FFC (Bulk_ProcessTransferEventWithHaltedCompletion.c)
+ * Callees:
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 const signed __int64 *__fastcall TR_ReleaseSegments(__int64 a1, const signed __int64 **a2, char a3)
 {
   const signed __int64 *v3; // rdi

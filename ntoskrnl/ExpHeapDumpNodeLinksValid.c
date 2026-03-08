@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpHeapDumpNodeLinksValid @ 0x14060D070
+ * Callers:
+ *     ExpHeapDumpEnumLargeAllocs @ 0x14060CF78 (ExpHeapDumpEnumLargeAllocs.c)
+ * Callees:
+ *     MmIsAddressValidEx @ 0x1403471E0 (MmIsAddressValidEx.c)
+ */
+
 __int64 __fastcall ExpHeapDumpNodeLinksValid(__int64 *a1)
 {
   unsigned int v2; // edi

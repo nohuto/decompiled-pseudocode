@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ClipRects@DXGPRESENT@@SAHPEAUtagRECT@@0PEBU2@1@Z @ 0x1C0338B70
+ * Callers:
+ *     ?ComputeSrcDstRects@DXGPRESENT@@QEAAHPEBU_D3DKMT_PRESENT@@II@Z @ 0x1C03395D4 (-ComputeSrcDstRects@DXGPRESENT@@QEAAHPEBU_D3DKMT_PRESENT@@II@Z.c)
+ * Callees:
+ *     ?ClipIntervals@DXGPRESENT@@CAXPEAJ000JJ@Z @ 0x1C033898C (-ClipIntervals@DXGPRESENT@@CAXPEAJ000JJ@Z.c)
+ *     ?IntersectRect@DXGPRESENT@@SAEPEAUtagRECT@@PEBU2@1@Z @ 0x1C033A200 (-IntersectRect@DXGPRESENT@@SAEPEAUtagRECT@@PEBU2@1@Z.c)
+ */
+
 __int64 __fastcall DXGPRESENT::ClipRects(
         struct tagRECT *a1,
         struct tagRECT *a2,

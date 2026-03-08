@@ -1,3 +1,22 @@
+/*
+ * XREFs of IopCreateSecureDeviceClassSettings @ 0x14083B634
+ * Callers:
+ *     IoCreateDeviceSecure @ 0x14083BAD0 (IoCreateDeviceSecure.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     RtlStringFromGUIDEx @ 0x140733E90 (RtlStringFromGUIDEx.c)
+ *     IopCreateRegistryKeyEx @ 0x14078BB90 (IopCreateRegistryKeyEx.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     IopGetPersistedStateLocation @ 0x14083B86C (IopGetPersistedStateLocation.c)
+ *     IopQuerySecureDeviceClassState @ 0x14083B91C (IopQuerySecureDeviceClassState.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopCreateSecureDeviceClassSettings(unsigned int *a1, __int64 a2, _BYTE *a3)
 {
   WCHAR *v6; // rdi

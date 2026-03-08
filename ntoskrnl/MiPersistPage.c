@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiPersistPage @ 0x14063C604
+ * Callers:
+ *     MiMarkFileOnlyPfnBad @ 0x14063BC40 (MiMarkFileOnlyPfnBad.c)
+ *     MiPurgeFileOnlyPfn @ 0x14063CAD0 (MiPurgeFileOnlyPfn.c)
+ * Callees:
+ *     MiMapPageInHyperSpaceWorker @ 0x140214870 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140214A54 (MiUnmapPageInHyperSpaceWorker.c)
+ *     KePersistMemory @ 0x14041BC60 (KePersistMemory.c)
+ *     KeInvalidateRangeAllCaches @ 0x1404580A0 (KeInvalidateRangeAllCaches.c)
+ */
+
 void __fastcall MiPersistPage(__int64 a1)
 {
   void *v1; // rax

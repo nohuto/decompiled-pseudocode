@@ -1,3 +1,31 @@
+/*
+ * XREFs of MiLockVadRange @ 0x1407D74B8
+ * Callers:
+ *     NtLockVirtualMemory @ 0x140344C50 (NtLockVirtualMemory.c)
+ *     NtUnlockVirtualMemory @ 0x1403479C0 (NtUnlockVirtualMemory.c)
+ *     MmAssignProcessToJob @ 0x1407000C4 (MmAssignProcessToJob.c)
+ *     MiCoalescePlaceholderAllocations @ 0x140A2F378 (MiCoalescePlaceholderAllocations.c)
+ *     MiCloneProcessAddressSpace @ 0x140A45CF4 (MiCloneProcessAddressSpace.c)
+ * Callees:
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiGetFirstVad @ 0x1402A5B0C (MiGetFirstVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14031F600 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiVadDeleted @ 0x14031F750 (MiVadDeleted.c)
+ *     MiReferenceVad @ 0x14031F794 (MiReferenceVad.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14034C380 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14034CA58 (LOCK_ADDRESS_SPACE.c)
+ *     MiLockVad @ 0x14034CF60 (MiLockVad.c)
+ *     MiGetNextVad @ 0x140350908 (MiGetNextVad.c)
+ *     MiWaitForVadDeletion @ 0x14065E678 (MiWaitForVadDeletion.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED @ 0x14065E858 (UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED.c)
+ *     MiVadIsMetadataBitmap @ 0x1407D76A0 (MiVadIsMetadataBitmap.c)
+ */
+
 __int64 __fastcall MiLockVadRange(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, int a4)
 {
   struct _KTHREAD *CurrentThread; // r15

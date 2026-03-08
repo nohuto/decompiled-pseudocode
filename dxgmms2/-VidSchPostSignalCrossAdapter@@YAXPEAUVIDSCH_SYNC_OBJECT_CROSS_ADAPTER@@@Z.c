@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidSchPostSignalCrossAdapter@@YAXPEAUVIDSCH_SYNC_OBJECT_CROSS_ADAPTER@@@Z @ 0x1C003D900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidSchPostSignalCrossAdapter(struct VIDSCH_SYNC_OBJECT_CROSS_ADAPTER *a1)
 {
   KSPIN_LOCK *v2; // rcx

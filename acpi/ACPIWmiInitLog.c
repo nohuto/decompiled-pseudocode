@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIWmiInitLog @ 0x1C00AA8C0
+ * Callers:
+ *     ACPIDispatchAddDevice @ 0x1C0023F30 (ACPIDispatchAddDevice.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ */
+
 int __fastcall ACPIWmiInitLog(struct _DEVICE_OBJECT *a1)
 {
   _UNKNOWN **v1; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vInit@RECTANGLEPATHOBJ@@QEAAXPEAU_RECTL@@H@Z @ 0x1C02898EC
+ * Callers:
+ *     GreRectangle @ 0x1C02AF0B0 (GreRectangle.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall RECTANGLEPATHOBJ::vInit(RECTANGLEPATHOBJ *this, struct _RECTL *a2, int a3)
 {
   int v5; // eax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlUnicodeStringToInt64 @ 0x1409BA6A0
+ * Callers:
+ *     GetFlags @ 0x1409D06C8 (GetFlags.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcstoxq @ 0x1403D653C (wcstoxq.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     __report_rangecheckfailure @ 0x1404FBCCC (__report_rangecheckfailure.c)
+ */
+
 NTSTATUS __stdcall RtlUnicodeStringToInt64(PCUNICODE_STRING String, ULONG Base, PLONG64 Number, PWSTR *EndPointer)
 {
   __int64 Length; // r8

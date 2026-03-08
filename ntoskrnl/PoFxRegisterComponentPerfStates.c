@@ -1,3 +1,12 @@
+/*
+ * XREFs of PoFxRegisterComponentPerfStates @ 0x140981810
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ *     PopFxRegisterComponentPerfStates @ 0x140982948 (PopFxRegisterComponentPerfStates.c)
+ */
+
 __int64 __fastcall PoFxRegisterComponentPerfStates(
         ULONG_PTR BugCheckParameter2,
         ULONG_PTR BugCheckParameter3,

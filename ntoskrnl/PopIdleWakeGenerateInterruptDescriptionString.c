@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopIdleWakeGenerateInterruptDescriptionString @ 0x1409975B8
+ * Callers:
+ *     PopIdleWakeGenerateDescriptionString @ 0x14099739C (PopIdleWakeGenerateDescriptionString.c)
+ * Callees:
+ *     RtlUnicodeStringCat @ 0x1402BD900 (RtlUnicodeStringCat.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x1402BD9D8 (RtlUnicodeStringValidateDestWorker.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MmEnumerateSystemImages @ 0x14080E4B0 (MmEnumerateSystemImages.c)
+ *     PopGenerateDeviceFriendlyName @ 0x140847DF4 (PopGenerateDeviceFriendlyName.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PopIdleWakeGenerateInterruptDescriptionString(__int64 a1, __int64 a2)
 {
   unsigned int *v2; // rdi

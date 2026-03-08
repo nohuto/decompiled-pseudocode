@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiInitializeAndStartInitialThread @ 0x1403AE4FC
+ * Callers:
+ *     KiInitializeKernel @ 0x140A89160 (KiInitializeKernel.c)
+ * Callees:
+ *     KiStartIdleThread @ 0x14037F474 (KiStartIdleThread.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KeInitThread @ 0x140A845D0 (KeInitThread.c)
+ */
+
 __int64 __fastcall KiInitializeAndStartInitialThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v7; // edi

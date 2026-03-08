@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpIommuInitDiscard @ 0x140B6C3EC
+ * Callers:
+ *     HalpIommuInitSystem @ 0x140A86E10 (HalpIommuInitSystem.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HviGetHardwareFeatures @ 0x140612F60 (HviGetHardwareFeatures.c)
+ *     HalpIommuIvtDiscover @ 0x140B3D380 (HalpIommuIvtDiscover.c)
+ *     HalpIommuHsaDiscover @ 0x140B6C630 (HalpIommuHsaDiscover.c)
+ */
+
 __int64 __fastcall HalpIommuInitDiscard(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   bool v4; // zf

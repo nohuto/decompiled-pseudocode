@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiReleasePteCopyList @ 0x14065EA2C
+ * Callers:
+ *     MiCopyPagesIntoEnclave @ 0x140A3A34C (MiCopyPagesIntoEnclave.c)
+ * Callees:
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ */
+
 unsigned __int64 __fastcall MiReleasePteCopyList(__int64 a1)
 {
   unsigned int v1; // r8d

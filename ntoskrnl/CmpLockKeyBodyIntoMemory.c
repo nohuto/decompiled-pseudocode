@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpLockKeyBodyIntoMemory @ 0x140A14838
+ * Callers:
+ *     CmOpenKeyForBugCheckRecovery @ 0x140A0A440 (CmOpenKeyForBugCheckRecovery.c)
+ * Callees:
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     MmProbeAndLockPages @ 0x140267B90 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ */
+
 __int64 __fastcall CmpLockKeyBodyIntoMemory(__int64 a1)
 {
   __int64 v2; // r15

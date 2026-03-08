@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpCovSampCaptureCleanupLookasides @ 0x140600B88
+ * Callers:
+ *     EtwpCovSampCaptureCleanupDpc @ 0x140600B70 (EtwpCovSampCaptureCleanupDpc.c)
+ *     EtwpCovSampCaptureContextStop @ 0x140600CB8 (EtwpCovSampCaptureContextStop.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x1406014D8 (EtwpCovSampLookasideFlushFreeListToCleanupList.c)
+ */
+
 __int64 __fastcall EtwpCovSampCaptureCleanupLookasides(__int64 a1)
 {
   volatile signed __int64 *v1; // r15

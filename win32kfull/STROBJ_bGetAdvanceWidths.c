@@ -1,3 +1,11 @@
+/*
+ * XREFs of STROBJ_bGetAdvanceWidths @ 0x1C02DDAD0
+ * Callers:
+ *     NtGdiSTROBJ_bGetAdvanceWidths @ 0x1C02CF8A0 (NtGdiSTROBJ_bGetAdvanceWidths.c)
+ * Callees:
+ *     ?STROBJ_bGetAdvanceWidthsLinked@@YAHPEAVESTROBJ@@KKPEAU_POINTQF@@@Z @ 0x1C02DB8C0 (-STROBJ_bGetAdvanceWidthsLinked@@YAHPEAVESTROBJ@@KKPEAU_POINTQF@@@Z.c)
+ */
+
 BOOL __stdcall STROBJ_bGetAdvanceWidths(STROBJ *pso, ULONG iFirst, ULONG c, POINTQF *pptqD)
 {
   ULONG cGlyphs; // ecx

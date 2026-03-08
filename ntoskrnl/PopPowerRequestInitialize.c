@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopPowerRequestInitialize @ 0x140B62754
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     RtlInitializeGenericTableAvl @ 0x140245560 (RtlInitializeGenericTableAvl.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     TtmIsEnabled @ 0x14073C8BC (TtmIsEnabled.c)
+ *     ObCreateObjectType @ 0x14080CB00 (ObCreateObjectType.c)
+ *     PopInitializeWorkItem @ 0x14080FA3C (PopInitializeWorkItem.c)
+ *     PopInitializeTimer @ 0x14084747C (PopInitializeTimer.c)
+ *     PopPowerRequestStatsInitialize @ 0x140B62918 (PopPowerRequestStatsInitialize.c)
+ */
+
 __int64 PopPowerRequestInitialize()
 {
   __int64 result; // rax

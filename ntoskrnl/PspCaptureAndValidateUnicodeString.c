@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspCaptureAndValidateUnicodeString @ 0x14075A0F0
+ * Callers:
+ *     PspCaptureUserProcessParameters @ 0x140759A00 (PspCaptureUserProcessParameters.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspCaptureAndValidateUnicodeString(_OWORD *a1, unsigned __int16 *a2)
 {
   __int64 v2; // rcx

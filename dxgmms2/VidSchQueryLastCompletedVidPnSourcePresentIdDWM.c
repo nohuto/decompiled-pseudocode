@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchQueryLastCompletedVidPnSourcePresentIdDWM @ 0x1C0040600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     ?VidSchQueryLastCompletedPresentIdDWMInternal@@YAXPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_DEVICE@@IIPEAU_D3DKMT_PRESENT_STATS_DWM2@@@Z @ 0x1C003D9E0 (-VidSchQueryLastCompletedPresentIdDWMInternal@@YAXPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_DEVICE@@IIPEAU.c)
+ */
+
 __int64 __fastcall VidSchQueryLastCompletedVidPnSourcePresentIdDWM(
         struct _VIDSCH_GLOBAL *a1,
         unsigned int a2,

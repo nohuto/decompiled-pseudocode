@@ -1,3 +1,14 @@
+/*
+ * XREFs of KeGetNextKernelStackSegment @ 0x1402A775C
+ * Callers:
+ *     RtlpIsFrameInBoundsEx @ 0x140282250 (RtlpIsFrameInBoundsEx.c)
+ *     KiInSwapKernelStacks @ 0x1402A72E0 (KiInSwapKernelStacks.c)
+ *     KeEnumerateKernelStackSegments @ 0x1402A76A0 (KeEnumerateKernelStackSegments.c)
+ *     IopMarkPagesForProcessorData @ 0x14055B1E8 (IopMarkPagesForProcessorData.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KeGetNextKernelStackSegment(_QWORD *a1, _QWORD *a2, char a3)
 {
   __int64 v3; // rax

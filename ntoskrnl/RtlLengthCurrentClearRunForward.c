@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlLengthCurrentClearRunForward @ 0x14020B7C4
+ * Callers:
+ *     MiFindFreePageFileSpace @ 0x140209F7C (MiFindFreePageFileSpace.c)
+ *     MiCoalescePageFileBitmapsCache @ 0x14020B47C (MiCoalescePageFileBitmapsCache.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlLengthCurrentClearRunForward(int *a1, unsigned int a2, unsigned int a3)
 {
   __int64 v3; // r9

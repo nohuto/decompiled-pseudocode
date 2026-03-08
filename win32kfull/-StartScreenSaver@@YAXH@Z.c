@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?StartScreenSaver@@YAXH@Z @ 0x1C0203424
+ * Callers:
+ *     xxxSysCommand @ 0x1C00DE67C (xxxSysCommand.c)
+ *     PsW32ScreenSaver_Show @ 0x1C0203530 (PsW32ScreenSaver_Show.c)
+ * Callees:
+ *     SetTimerCoalescingTolerance @ 0x1C0079290 (SetTimerCoalescingTolerance.c)
+ */
+
 void __fastcall StartScreenSaver(__int64 a1)
 {
   __int64 v1; // rdi

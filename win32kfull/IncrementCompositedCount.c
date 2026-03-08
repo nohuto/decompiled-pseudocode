@@ -1,3 +1,13 @@
+/*
+ * XREFs of IncrementCompositedCount @ 0x1C00059EC
+ * Callers:
+ *     SetRedirectedWindow @ 0x1C002BE1C (SetRedirectedWindow.c)
+ *     SetVisible @ 0x1C002DB8C (SetVisible.c)
+ *     ?IncComposited@@YAXPEAUtagWND@@@Z @ 0x1C0223340 (-IncComposited@@YAXPEAUtagWND@@@Z.c)
+ * Callees:
+ *     _SetSystemTimer @ 0x1C0006384 (_SetSystemTimer.c)
+ */
+
 __int64 __fastcall IncrementCompositedCount(__int64 a1)
 {
   unsigned int v1; // edx

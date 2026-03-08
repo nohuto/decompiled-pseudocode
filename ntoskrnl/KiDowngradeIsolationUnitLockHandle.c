@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiDowngradeIsolationUnitLockHandle @ 0x1402ADC00
+ * Callers:
+ *     KiSearchForNewThread @ 0x140260460 (KiSearchForNewThread.c)
+ *     KiSearchForNewThreadOnProcessor @ 0x1402AC810 (KiSearchForNewThreadOnProcessor.c)
+ *     KiHandleDeferredPreemption @ 0x1402AE8D0 (KiHandleDeferredPreemption.c)
+ *     KiReparkIdlingProcessorIfNecessary @ 0x1402C7970 (KiReparkIdlingProcessorIfNecessary.c)
+ *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x1405747AC (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
+ * Callees:
+ *     KzReleaseAdditionalPrcbLocks @ 0x14056AD34 (KzReleaseAdditionalPrcbLocks.c)
+ */
+
 __int64 __fastcall KiDowngradeIsolationUnitLockHandle(_QWORD *a1, int a2)
 {
   unsigned __int64 v3; // r8

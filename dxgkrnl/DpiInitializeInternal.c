@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiInitializeInternal @ 0x1C00210F8
+ * Callers:
+ *     DpiInitializeWin8 @ 0x1C00210E0 (DpiInitializeWin8.c)
+ *     DpiInitialize @ 0x1C005E090 (DpiInitialize.c)
+ * Callees:
+ *     DpiInitializeEx @ 0x1C020F728 (DpiInitializeEx.c)
+ */
+
 __int64 __fastcall DpiInitializeInternal(void *a1, const UNICODE_STRING *a2, _QWORD *a3, char a4)
 {
   if ( *(_DWORD *)a3 >= 0x104Eu

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetCustomDuration@CIFlipPresentHistoryTokenFlipManager@@UEBA?BIXZ @ 0x1C0051F10
+ * Callers:
+ *     ?GetUseCustomDuration@CIFlipPresentHistoryTokenFlipManager@@UEBA_NXZ @ 0x1C0051F50 (-GetUseCustomDuration@CIFlipPresentHistoryTokenFlipManager@@UEBA_NXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CIFlipPresentHistoryTokenFlipManager::GetCustomDuration(CIFlipPresentHistoryTokenFlipManager *this)
 {
   unsigned int v1; // edx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiIommuUnblockDevice @ 0x14084DB4C
+ * Callers:
+ *     PiDmaGuardProcessPreStart @ 0x1406F7574 (PiDmaGuardProcessPreStart.c)
+ *     PnpIommuBlockUnblockDevice @ 0x14096BFE8 (PnpIommuBlockUnblockDevice.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall PiIommuUnblockDevice(__int64 a1, char a2)
 {
   _BYTE *v2; // r9

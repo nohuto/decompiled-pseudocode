@@ -1,3 +1,15 @@
+/*
+ * XREFs of IoOpenDeviceRegistryKey @ 0x140771B00
+ * Callers:
+ *     DifIoOpenDeviceRegistryKeyWrapper @ 0x1405DDFC0 (DifIoOpenDeviceRegistryKeyWrapper.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     _CmOpenDeviceRegKey @ 0x1406D3B3C (_CmOpenDeviceRegKey.c)
+ *     IopApplyMutableTagToRegistryKey @ 0x140771C20 (IopApplyMutableTagToRegistryKey.c)
+ */
+
 NTSTATUS __stdcall IoOpenDeviceRegistryKey(
         PDEVICE_OBJECT DeviceObject,
         ULONG DevInstKeyType,

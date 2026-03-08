@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtGdiGetCertificateSize @ 0x1C0189670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList @ 0x1C00CE990 (AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList.c)
+ *     SafelyCopyKernelModeDataToUserModeData_unsigned_long_ @ 0x1C0187AC8 (SafelyCopyKernelModeDataToUserModeData_unsigned_long_.c)
+ *     GetCertificateLengthAndMonitorPDO @ 0x1C018873C (GetCertificateLengthAndMonitorPDO.c)
+ */
+
 __int64 __fastcall NtGdiGetCertificateSize(__int64 a1, unsigned int a2, _DWORD *a3)
 {
   __int64 result; // rax

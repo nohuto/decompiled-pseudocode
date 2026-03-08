@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspCompleteHardDereferenceSiloDeferred @ 0x140790620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PspStorageEmptyArrayNonReadonly @ 0x1402FA300 (PspStorageEmptyArrayNonReadonly.c)
+ */
+
 LONG_PTR __fastcall PspCompleteHardDereferenceSiloDeferred(_QWORD *Object)
 {
   __int64 v1; // rbx

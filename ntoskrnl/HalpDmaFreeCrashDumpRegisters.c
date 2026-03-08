@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpDmaFreeCrashDumpRegisters @ 0x1404FF530
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpDmaFreeMapRegisters @ 0x140453EF6 (HalpDmaFreeMapRegisters.c)
+ */
+
 __int64 __fastcall HalpDmaFreeCrashDumpRegisters(int a1)
 {
   unsigned int v1; // edi

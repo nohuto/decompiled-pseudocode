@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?NotifyBatchProcessed@CApplicationChannel@DirectComposition@@QEAAXPEAVCBatch@2@@Z @ 0x1C009997C
+ * Callers:
+ *     NtDCompositionConfirmFrame @ 0x1C008F990 (NtDCompositionConfirmFrame.c)
+ *     ?ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z @ 0x1C0099920 (-ReturnToApplication@CBatch@DirectComposition@@QEAAX_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DirectComposition::CApplicationChannel::NotifyBatchProcessed(
         DirectComposition::CApplicationChannel *this,
         struct DirectComposition::CBatch *a2)

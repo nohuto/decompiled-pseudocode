@@ -1,3 +1,20 @@
+/*
+ * XREFs of ACPISystemPowerDetermineSupportedDeviceStates @ 0x1C003DAE0
+ * Callers:
+ *     ACPISystemPowerDetermineSupportedDeviceStates @ 0x1C003DAE0 (ACPISystemPowerDetermineSupportedDeviceStates.c)
+ *     ACPISystemPowerProcessRootMapping @ 0x1C00950C0 (ACPISystemPowerProcessRootMapping.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     WPP_RECORDER_SF_ddqss @ 0x1C0014AC8 (WPP_RECORDER_SF_ddqss.c)
+ *     ACPIExtListEnumNext @ 0x1C00263F4 (ACPIExtListEnumNext.c)
+ *     ACPIExtListStartEnum @ 0x1C00264F8 (ACPIExtListStartEnum.c)
+ *     ACPIExtListTestElement @ 0x1C0026554 (ACPIExtListTestElement.c)
+ *     ACPISystemPowerDetermineSupportedDeviceStates @ 0x1C003DAE0 (ACPISystemPowerDetermineSupportedDeviceStates.c)
+ *     ACPISystemPowerDetermineSupportedSystemState @ 0x1C003DE60 (ACPISystemPowerDetermineSupportedSystemState.c)
+ *     WPP_RECORDER_SF_DDDDqss @ 0x1C003ECEC (WPP_RECORDER_SF_DDDDqss.c)
+ *     ACPISystemPowerGetSxD @ 0x1C0094FC0 (ACPISystemPowerGetSxD.c)
+ */
+
 __int64 __fastcall ACPISystemPowerDetermineSupportedDeviceStates(__int64 a1, unsigned int a2, _DWORD *a3)
 {
   int SxD; // edi

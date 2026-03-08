@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??4?$com_ptr_t@VCDxHandleAdvancedDirectFlipBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCDxHandleAdvancedDirectFlipBitmapRealization@@@Z @ 0x1802AE6A8
+ * Callers:
+ *     ?Create@CDxHandleAdvancedDirectFlipBitmapRealization@@SAJW4CompositionBufferType@@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@PEAVCDecodeBitmap@@PEAPEAVISwapChainRealization@@@Z @ 0x18003DF50 (-Create@CDxHandleAdvancedDirectFlipBitmapRealization@@SAJW4CompositionBufferType@@U_LUID@@AEBUCS.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 *__fastcall wil::com_ptr_t<CDxHandleAdvancedDirectFlipBitmapRealization,wil::err_returncode_policy>::operator=(
         __int64 *a1,
         __int64 a2)

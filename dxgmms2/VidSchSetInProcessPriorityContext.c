@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchSetInProcessPriorityContext @ 0x1C00B4730
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VidSchiSetInProcessPriorityContext @ 0x1C0018034 (VidSchiSetInProcessPriorityContext.c)
+ */
+
 __int64 __fastcall VidSchSetInProcessPriorityContext(__int64 a1, int a2)
 {
   __int64 v3; // rdx

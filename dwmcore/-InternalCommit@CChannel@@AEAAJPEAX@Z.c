@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?InternalCommit@CChannel@@AEAAJPEAX@Z @ 0x180044118
+ * Callers:
+ *     ?Commit@CChannel@@UEAAJXZ @ 0x1800440C0 (-Commit@CChannel@@UEAAJXZ.c)
+ *     ?SyncFlushInternal@CChannel@@AEAAJXZ @ 0x1800CCFA8 (-SyncFlushInternal@CChannel@@AEAAJXZ.c)
+ * Callees:
+ *     ?FlushCommands@CChannel@@AEAAJPEAX@Z @ 0x18004414C (-FlushCommands@CChannel@@AEAAJPEAX@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CChannel::InternalCommit(CChannel *this, void *a2)
 {
   __int64 v2; // r8

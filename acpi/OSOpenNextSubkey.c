@@ -1,3 +1,13 @@
+/*
+ * XREFs of OSOpenNextSubkey @ 0x1C008E198
+ * Callers:
+ *     AMLIAddNextNamespaceOverride @ 0x1C004A3CC (AMLIAddNextNamespaceOverride.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     OSOpenHandle @ 0x1C008DF10 (OSOpenHandle.c)
+ */
+
 __int64 __fastcall OSOpenNextSubkey(HANDLE KeyHandle, ULONG Index, void *a3, _DWORD *a4, __int64 a5)
 {
   int v9; // ebx

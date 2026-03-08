@@ -1,3 +1,17 @@
+/*
+ * XREFs of sub_1403890A8 @ 0x1403890A8
+ * Callers:
+ *     SLQueryLicenseValueInternal @ 0x14081A004 (SLQueryLicenseValueInternal.c)
+ *     ExpConsumeAddonPolicySetCacheProvider @ 0x1409F6BF0 (ExpConsumeAddonPolicySetCacheProvider.c)
+ *     SLGetSubscriptionPfn @ 0x1409F7548 (SLGetSubscriptionPfn.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     sub_14081A50C @ 0x14081A50C (sub_14081A50C.c)
+ */
+
 __int64 __fastcall sub_1403890A8(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, __int64 a6)
 {
   signed __int64 *v10; // rsi

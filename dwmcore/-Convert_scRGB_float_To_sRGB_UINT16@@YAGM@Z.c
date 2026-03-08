@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Convert_scRGB_float_To_sRGB_UINT16@@YAGM@Z @ 0x18027C4E4
+ * Callers:
+ *     ?GammaConvert_128bppABGR_64bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802BA100 (-GammaConvert_128bppABGR_64bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z.c)
+ * Callees:
+ *     ?Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z @ 0x1800F6CCC (-Convert_scRGB_Channel_To_sRGB_Byte@@YAEM@Z.c)
+ *     floor_0 @ 0x18011771C (floor_0.c)
+ */
+
 __int64 __fastcall Convert_scRGB_float_To_sRGB_UINT16(float a1)
 {
   double v1; // xmm6_8

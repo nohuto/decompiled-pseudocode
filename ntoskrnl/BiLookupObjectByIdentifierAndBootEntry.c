@@ -1,3 +1,11 @@
+/*
+ * XREFs of BiLookupObjectByIdentifierAndBootEntry @ 0x140A5BEC8
+ * Callers:
+ *     BiBuildIdentifierList @ 0x14082DD44 (BiBuildIdentifierList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall BiLookupObjectByIdentifierAndBootEntry(_QWORD *a1, _QWORD *a2, int a3, _QWORD *a4)
 {
   _QWORD *v4; // r10

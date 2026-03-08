@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIGpeBuildWakeMasks @ 0x1C002BFE0
+ * Callers:
+ *     ACPIGpeBuildWakeMasks @ 0x1C002BFE0 (ACPIGpeBuildWakeMasks.c)
+ *     ACPITableLoadCallBack @ 0x1C003F3C0 (ACPITableLoadCallBack.c)
+ * Callees:
+ *     ACPIExtListEnumNext @ 0x1C00263F4 (ACPIExtListEnumNext.c)
+ *     ACPIExtListStartEnum @ 0x1C00264F8 (ACPIExtListStartEnum.c)
+ *     ACPIExtListTestElement @ 0x1C0026554 (ACPIExtListTestElement.c)
+ *     ACPIGpeBuildWakeMasks @ 0x1C002BFE0 (ACPIGpeBuildWakeMasks.c)
+ *     ACPIGpeIndexToGpeRegister @ 0x1C002C39C (ACPIGpeIndexToGpeRegister.c)
+ */
+
 char __fastcall ACPIGpeBuildWakeMasks(__int64 a1)
 {
   char *i; // rax

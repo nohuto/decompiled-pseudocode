@@ -1,3 +1,14 @@
+/*
+ * XREFs of _SetCalibrationData @ 0x1C01AB99C
+ * Callers:
+ *     NtUserSetCalibrationData @ 0x1C01DB750 (NtUserSetCalibrationData.c)
+ * Callees:
+ *     UpdateTiltCalData @ 0x1C01A6A40 (UpdateTiltCalData.c)
+ *     ValidateCalibrationData @ 0x1C01A6BA0 (ValidateCalibrationData.c)
+ *     WriteTiltCalibrationData @ 0x1C01A6CF4 (WriteTiltCalibrationData.c)
+ *     GetPointerDeviceKey @ 0x1C01AB10C (GetPointerDeviceKey.c)
+ */
+
 __int64 __fastcall SetCalibrationData(__int64 a1, ULONG a2, void *a3, int a4)
 {
   const WCHAR *v4; // rsi

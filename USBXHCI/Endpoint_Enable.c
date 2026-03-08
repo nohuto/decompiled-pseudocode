@@ -1,3 +1,26 @@
+/*
+ * XREFs of Endpoint_Enable @ 0x1C000BDC0
+ * Callers:
+ *     UsbDevice_InitializeInputContextForAddEndpoints @ 0x1C000BBEC (UsbDevice_InitializeInputContextForAddEndpoints.c)
+ *     UsbDevice_UcxEvtEnable @ 0x1C0013210 (UsbDevice_UcxEvtEnable.c)
+ * Callees:
+ *     TR_Enable_Internal @ 0x1C0007D64 (TR_Enable_Internal.c)
+ *     Endpoint_Disable_Internal @ 0x1C000B8A4 (Endpoint_Disable_Internal.c)
+ *     RtlStringCchPrintfA @ 0x1C000C294 (RtlStringCchPrintfA.c)
+ *     WPP_RECORDER_SF_ddq @ 0x1C000C300 (WPP_RECORDER_SF_ddq.c)
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     Endpoint_GetDequeuePointer @ 0x1C000CEDC (Endpoint_GetDequeuePointer.c)
+ *     TR_GetDequeuePointer @ 0x1C000CF00 (TR_GetDequeuePointer.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0017FB0 (WPP_RECORDER_SF_ddd.c)
+ *     WPP_RECORDER_SF_dddd @ 0x1C001A740 (WPP_RECORDER_SF_dddd.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     Controller_SetHSIIWorkaround @ 0x1C001ED3C (Controller_SetHSIIWorkaround.c)
+ *     Endpoint_IsCandidateForSplitTransactionHSIIWorkaround @ 0x1C001EDF8 (Endpoint_IsCandidateForSplitTransactionHSIIWorkaround.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     XilEndpoint_AllocateStreamContextArray @ 0x1C0038BDC (XilEndpoint_AllocateStreamContextArray.c)
+ *     XilEndpoint_CommitStreamContextArrayUpdates @ 0x1C0038E24 (XilEndpoint_CommitStreamContextArrayUpdates.c)
+ */
+
 __int64 __fastcall Endpoint_Enable(__m128i **a1)
 {
   __m128i **v2; // r14

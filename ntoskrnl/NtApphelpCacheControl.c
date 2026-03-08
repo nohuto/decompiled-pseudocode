@@ -1,3 +1,18 @@
+/*
+ * XREFs of NtApphelpCacheControl @ 0x1406C31C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExGetPreviousMode @ 0x1402449F0 (ExGetPreviousMode.c)
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14024FE00 (IoBuildDeviceIoControlRequest.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     IoGetDeviceObjectPointer @ 0x140720950 (IoGetDeviceObjectPointer.c)
+ *     AhcCacheQueryHwId @ 0x140A6F0BC (AhcCacheQueryHwId.c)
+ */
+
 __int64 __fastcall NtApphelpCacheControl(int a1, void *a2)
 {
   ULONG v3; // edi

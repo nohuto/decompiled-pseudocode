@@ -1,3 +1,13 @@
+/*
+ * XREFs of ApiSetEditionKeyEventLLHook @ 0x1C0080144
+ * Callers:
+ *     xxxKeyEventEx @ 0x1C007F2E0 (xxxKeyEventEx.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     EditionKeyEventLLHook @ 0x1C00802C8 (EditionKeyEventLLHook.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ApiSetEditionKeyEventLLHook(
         int a1,
         __int64 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vSrcCopyS24D24@@YAXPEAUBLTINFO@@@Z @ 0x1C02EEF50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     XLATEOBJ_iXlate @ 0x1C00C3AA0 (XLATEOBJ_iXlate.c)
+ */
+
 void __fastcall vSrcCopyS24D24(struct BLTINFO *a1)
 {
   struct BLTINFO *v1; // r15

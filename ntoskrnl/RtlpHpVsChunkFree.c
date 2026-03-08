@@ -1,3 +1,18 @@
+/*
+ * XREFs of RtlpHpVsChunkFree @ 0x140249D70
+ * Callers:
+ *     RtlpHpVsContextFreeList @ 0x140249050 (RtlpHpVsContextFreeList.c)
+ * Callees:
+ *     RtlpHpVsChunkAlignSplit @ 0x140248F60 (RtlpHpVsChunkAlignSplit.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x14024A580 (RtlpHpVsFreeChunkInsert.c)
+ *     RtlpHpVsChunkCoalesce @ 0x14024B8C0 (RtlpHpVsChunkCoalesce.c)
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x1402CD080 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpVsSubsegmentCleanup @ 0x1402E55D8 (RtlpHpVsSubsegmentCleanup.c)
+ *     RtlpHpAcquireQueuedLockExclusive @ 0x140350330 (RtlpHpAcquireQueuedLockExclusive.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall RtlpHpVsChunkFree(__int64 a1, __int64 a2, _DWORD *a3, int a4, __int64 a5)
 {
   unsigned int v5; // eax

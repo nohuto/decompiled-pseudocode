@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtDCompositionGetMaterialProperty @ 0x1C000C040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserGetDesktopIdForCurrentThread @ 0x1C000C154 (UserGetDesktopIdForCurrentThread.c)
+ *     ?CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z @ 0x1C00BA110 (-CreateHandle@CompositionObject@@QEBAJK_NDPEAPEAX@Z.c)
+ *     FindMaterialProperty @ 0x1C00BE3C0 (FindMaterialProperty.c)
+ */
+
 __int64 __fastcall NtDCompositionGetMaterialProperty(__int64 a1, _QWORD *a2)
 {
   struct _ERESOURCE *v4; // rbx

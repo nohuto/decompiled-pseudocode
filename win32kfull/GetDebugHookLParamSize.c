@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetDebugHookLParamSize @ 0x1C0208A78
+ * Callers:
+ *     ?NtUserfnHkINLPDEBUGHOOKSTRUCT@@YA_JK_KPEAUtagDEBUGHOOKINFO@@@Z @ 0x1C01CD4D8 (-NtUserfnHkINLPDEBUGHOOKSTRUCT@@YA_JK_KPEAUtagDEBUGHOOKINFO@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetDebugHookLParamSize(unsigned __int64 a1, __int64 a2)
 {
   unsigned int v2; // r8d

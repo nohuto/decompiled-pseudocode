@@ -1,3 +1,16 @@
+/*
+ * XREFs of AlpcpFreeCompletionPacketLookaside @ 0x1402917C0
+ * Callers:
+ *     AlpcpAssociateIoCompletionPort @ 0x140689FD8 (AlpcpAssociateIoCompletionPort.c)
+ *     AlpcpDeletePort @ 0x140714C40 (AlpcpDeletePort.c)
+ *     AlpcpInitializeCompletionList @ 0x14097672C (AlpcpInitializeCompletionList.c)
+ * Callees:
+ *     AlpcpDeferredFreeCompletionPacketLookaside @ 0x140291968 (AlpcpDeferredFreeCompletionPacketLookaside.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall AlpcpFreeCompletionPacketLookaside(KSPIN_LOCK *P)
 {
   int v2; // edi

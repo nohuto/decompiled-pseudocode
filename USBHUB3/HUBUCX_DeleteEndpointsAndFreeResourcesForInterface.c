@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBUCX_DeleteEndpointsAndFreeResourcesForInterface @ 0x1C0028718
+ * Callers:
+ *     HUBDSM_DeletingEndpointsForNewInterfaceOnFailure @ 0x1C00243E0 (HUBDSM_DeletingEndpointsForNewInterfaceOnFailure.c)
+ *     HUBDSM_DeletingEndpointsForOldInterface @ 0x1C0024450 (HUBDSM_DeletingEndpointsForOldInterface.c)
+ *     HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration @ 0x1C00287B8 (HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBUCX_DeleteEndpointsAndFreeResourcesForInterface(__int64 *a1, __int64 a2)
 {
   __int64 v2; // rbp

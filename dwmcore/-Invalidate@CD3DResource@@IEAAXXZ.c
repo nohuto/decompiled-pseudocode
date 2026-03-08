@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Invalidate@CD3DResource@@IEAAXXZ @ 0x1800F0568
+ * Callers:
+ *     ?DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z @ 0x1800F0480 (-DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CD3DResource::Invalidate(CD3DResource *this)
 {
   __int64 i; // rbx

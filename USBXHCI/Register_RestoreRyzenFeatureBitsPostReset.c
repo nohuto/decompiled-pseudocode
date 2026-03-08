@@ -1,3 +1,13 @@
+/*
+ * XREFs of Register_RestoreRyzenFeatureBitsPostReset @ 0x1C0013A0C
+ * Callers:
+ *     Register_ControllerReset @ 0x1C0018518 (Register_ControllerReset.c)
+ * Callees:
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ */
+
 char __fastcall Register_RestoreRyzenFeatureBitsPostReset(__int64 a1, int a2, int a3, int a4)
 {
   unsigned __int16 v5; // ax

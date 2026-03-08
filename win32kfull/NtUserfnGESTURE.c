@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserfnGESTURE @ 0x1C01E1740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     SendGestureMessage @ 0x1C020742C (SendGestureMessage.c)
+ */
+
 __int64 __fastcall NtUserfnGESTURE(__int64 a1, int a2, int a3, int a4, __int64 a5, unsigned int a6)
 {
   __int64 v6; // rbx

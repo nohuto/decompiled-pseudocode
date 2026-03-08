@@ -1,3 +1,23 @@
+/*
+ * XREFs of MmWriteSystemImageTracepoint @ 0x140640F7C
+ * Callers:
+ *     KiTpWriteBreakpoint @ 0x14057CA4C (KiTpWriteBreakpoint.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     RtlLookupFunctionEntry @ 0x140281130 (RtlLookupFunctionEntry.c)
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiLookupDataTableEntry @ 0x14035ECF0 (MiLookupDataTableEntry.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiLockDriverPageRange @ 0x1406179F0 (MiLockDriverPageRange.c)
+ *     MmAcquireLoadLock @ 0x1407D2360 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x1407D2400 (MmReleaseLoadLock.c)
+ *     MiInitializeDriverPatchState @ 0x1407F746C (MiInitializeDriverPatchState.c)
+ *     MiUnlockDriverPages @ 0x14087313C (MiUnlockDriverPages.c)
+ *     MiPrepareDriverPatchState @ 0x140A28934 (MiPrepareDriverPatchState.c)
+ */
+
 __int64 __fastcall MmWriteSystemImageTracepoint(unsigned __int64 a1, char a2, char a3)
 {
   char v3; // si

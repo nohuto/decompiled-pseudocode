@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SortGestureConfigArray@@YAHPEAUtagGESTURECONFIG@@H@Z @ 0x1C00CBEE4
+ * Callers:
+ *     SetGestureConfigSettings @ 0x1C00CB3F8 (SetGestureConfigSettings.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SortGestureConfigArray(struct tagGESTURECONFIG *a1, int a2)
 {
   __int64 v2; // r10

@@ -1,3 +1,13 @@
+/*
+ * XREFs of wil_details_PopulateInitialConfiguredFeatureStates @ 0x1C031D104
+ * Callers:
+ *     wil_InitializeFeatureStaging @ 0x1C031D078 (wil_InitializeFeatureStaging.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1C00DD800 (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     wil_details_BuildFeatureStateCacheFromQueryResults @ 0x1C0301008 (wil_details_BuildFeatureStateCacheFromQueryResults.c)
+ */
+
 _QWORD *wil_details_PopulateInitialConfiguredFeatureStates()
 {
   int **v0; // rcx

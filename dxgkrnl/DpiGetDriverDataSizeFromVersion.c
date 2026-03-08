@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiGetDriverDataSizeFromVersion @ 0x1C020FF60
+ * Callers:
+ *     DpiInitializeEx @ 0x1C020F728 (DpiInitializeEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiGetDriverDataSizeFromVersion(int a1, unsigned int a2, int a3, int *a4)
 {
   int v5; // eax

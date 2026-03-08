@@ -1,3 +1,42 @@
+/*
+ * XREFs of Interrupter_DeferredWorkProcessor @ 0x1C0008BE0
+ * Callers:
+ *     Interrupter_WdfEvtInterruptDpc @ 0x1C0008BC0 (Interrupter_WdfEvtInterruptDpc.c)
+ *     Interrupter_WdfEvtInterruptWorkItem @ 0x1C003E340 (Interrupter_WdfEvtInterruptWorkItem.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     Controller_LowerAndTrackIrql @ 0x1C00074BC (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0007558 (Controller_RaiseAndTrackIrql.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     WPP_RECORDER_SF_ddddidLL @ 0x1C0009A70 (WPP_RECORDER_SF_ddddidLL.c)
+ *     Endpoint_TransferEventHandler @ 0x1C0009BA0 (Endpoint_TransferEventHandler.c)
+ *     Command_HandleCommandCompletionEvent @ 0x1C000A2B4 (Command_HandleCommandCompletionEvent.c)
+ *     WPP_RECORDER_SF_ddq @ 0x1C000C300 (WPP_RECORDER_SF_ddq.c)
+ *     Interrupter_ReleaseEventRingLock @ 0x1C000F4C4 (Interrupter_ReleaseEventRingLock.c)
+ *     Interrupter_AcquireEventRingLock @ 0x1C000F4FC (Interrupter_AcquireEventRingLock.c)
+ *     WPP_RECORDER_SF_L @ 0x1C00136C0 (WPP_RECORDER_SF_L.c)
+ *     WPP_RECORDER_SF_qLL @ 0x1C0013DC4 (WPP_RECORDER_SF_qLL.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C00141F4 (WPP_RECORDER_SF_qd.c)
+ *     Interrupter_UpdateERDP @ 0x1C0014AA0 (Interrupter_UpdateERDP.c)
+ *     RootHub_HandlePortStatusChangeEvent @ 0x1C0014E60 (RootHub_HandlePortStatusChangeEvent.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0017FB0 (WPP_RECORDER_SF_ddd.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C001A2FC (WPP_RECORDER_SF_qq.c)
+ *     WPP_RECORDER_SF_i @ 0x1C001C5CC (WPP_RECORDER_SF_i.c)
+ *     WPP_RECORDER_SF_qdd @ 0x1C001E4E0 (WPP_RECORDER_SF_qdd.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Interrupter_DeferToDpcOrWorkItem @ 0x1C00224FA (Interrupter_DeferToDpcOrWorkItem.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C002256A (McTemplateK0q_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_LL @ 0x1C0037218 (WPP_RECORDER_SF_LL.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     Register_WriteSecureMmio @ 0x1C003F1E8 (Register_WriteSecureMmio.c)
+ *     TR_TransferEventHandler @ 0x1C0041CD4 (TR_TransferEventHandler.c)
+ *     UsbDevice_DeviceNotificationEventHandler @ 0x1C004857C (UsbDevice_DeviceNotificationEventHandler.c)
+ *     WPP_RECORDER_SF_ddqq @ 0x1C004A2EC (WPP_RECORDER_SF_ddqq.c)
+ */
+
 void __fastcall Interrupter_DeferredWorkProcessor(__int64 a1, char a2, char a3)
 {
   __int64 v4; // r14

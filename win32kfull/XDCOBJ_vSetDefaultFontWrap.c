@@ -1,3 +1,11 @@
+/*
+ * XREFs of XDCOBJ_vSetDefaultFontWrap @ 0x1C00C8600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall XDCOBJ_vSetDefaultFontWrap(Gre::Base *a1, int a2)
 {
   __int64 v3; // rdx

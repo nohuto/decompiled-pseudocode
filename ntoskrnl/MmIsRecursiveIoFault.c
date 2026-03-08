@@ -1,3 +1,11 @@
+/*
+ * XREFs of MmIsRecursiveIoFault @ 0x14062CC00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN MmIsRecursiveIoFault(void)
 {
   struct _KTHREAD *CurrentThread; // rcx

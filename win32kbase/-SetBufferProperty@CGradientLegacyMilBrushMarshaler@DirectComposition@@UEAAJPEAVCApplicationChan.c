@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CGradientLegacyMilBrushMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C025C0F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Copy@CMarshaledArrayBase@DirectComposition@@IEAAJPEBX_K1K@Z @ 0x1C0252730 (-Copy@CMarshaledArrayBase@DirectComposition@@IEAAJPEBX_K1K@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CGradientLegacyMilBrushMarshaler::SetBufferProperty(
         DirectComposition::CGradientLegacyMilBrushMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0pppxsb16b16_EtwWriteTransfer @ 0x1C0036CD8
+ * Callers:
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0022498 (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS McTemplateK0pppxsb16b16_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
 {
   const char *v3; // rcx

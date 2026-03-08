@@ -1,3 +1,13 @@
+/*
+ * XREFs of SiDisambiguateSystemDevice @ 0x140A5CCE4
+ * Callers:
+ *     SiGetEfiSystemDevice @ 0x140A5CDB0 (SiGetEfiSystemDevice.c)
+ * Callees:
+ *     SiGetRegistryValue @ 0x14076E70C (SiGetRegistryValue.c)
+ *     SiGetDeviceNumberInformation @ 0x140A5C84C (SiGetDeviceNumberInformation.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SiDisambiguateSystemDevice(_DWORD *a1, _DWORD *a2, __int64 a3, __int64 a4)
 {
   int RegistryValue; // ebx

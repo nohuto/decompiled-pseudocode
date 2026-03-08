@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiDeferDpcWatchdogViolation @ 0x140578914
+ * Callers:
+ *     KeAccumulateTicks @ 0x14022F310 (KeAccumulateTicks.c)
+ * Callees:
+ *     KeRelaxTimingConstraints @ 0x140568B0C (KeRelaxTimingConstraints.c)
+ */
+
 signed __int64 KiDeferDpcWatchdogViolation()
 {
   struct _KPRCB *CurrentPrcb; // rbx

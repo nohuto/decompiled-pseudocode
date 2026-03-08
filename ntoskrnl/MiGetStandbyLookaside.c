@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiGetStandbyLookaside @ 0x140319E70
+ * Callers:
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiReplaceStandbyLookaside @ 0x1402C6D1C (MiReplaceStandbyLookaside.c)
+ *     MiPurgingPageFromLookaside @ 0x1402C75C0 (MiPurgingPageFromLookaside.c)
+ *     MiSynchronizeFastPageInsert @ 0x140319210 (MiSynchronizeFastPageInsert.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiGetStandbyLookaside(__int64 *a1, int a2)
 {
   __int64 v2; // r9

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CCachedVisualImage@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18001A430
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?HrFindInterface@CImageSource@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18001A480 (-HrFindInterface@CImageSource@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ */
+
 __int64 __fastcall CCachedVisualImage::HrFindInterface(CCachedVisualImage *this, const struct _GUID *a2, void **a3)
 {
   __int64 result; // rax

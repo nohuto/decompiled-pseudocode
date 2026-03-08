@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DrvSortGraphicsDeviceList@@YAXXZ @ 0x1C00CB3D4
+ * Callers:
+ *     DrvUpdateGraphicsDeviceList @ 0x1C001FAC0 (DrvUpdateGraphicsDeviceList.c)
+ * Callees:
+ *     ?DrvMoveGraphicsDevice@@YAXPEAUtagGRAPHICS_DEVICE@@00@Z @ 0x1C00CB4CC (-DrvMoveGraphicsDevice@@YAXPEAUtagGRAPHICS_DEVICE@@00@Z.c)
+ */
+
 void __fastcall DrvSortGraphicsDeviceList(__int64 a1)
 {
   struct tagGRAPHICS_DEVICE *v1; // rdi

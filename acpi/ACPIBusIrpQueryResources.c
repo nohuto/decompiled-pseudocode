@@ -1,3 +1,22 @@
+/*
+ * XREFs of ACPIBusIrpQueryResources @ 0x1C0080E80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     WPP_RECORDER_SF_qLqss @ 0x1C0009C8C (WPP_RECORDER_SF_qLqss.c)
+ *     WPP_RECORDER_SF_qqss @ 0x1C000A374 (WPP_RECORDER_SF_qqss.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     ACPIInitDosDeviceName @ 0x1C002D140 (ACPIInitDosDeviceName.c)
+ *     ACPIInternalInterruptPolarityCacheStorePolaritiesFromList @ 0x1C002EA00 (ACPIInternalInterruptPolarityCacheStorePolaritiesFromList.c)
+ *     ACPIRangeFilterPICInterrupt @ 0x1C003B054 (ACPIRangeFilterPICInterrupt.c)
+ *     ACPIRangeValidatePciResources @ 0x1C003B3A4 (ACPIRangeValidatePciResources.c)
+ *     PnpBiosGetDeviceResourceList @ 0x1C008ED68 (PnpBiosGetDeviceResourceList.c)
+ *     PnpIoResourceListToCmResourceList @ 0x1C008FD8C (PnpIoResourceListToCmResourceList.c)
+ */
+
 __int64 __fastcall ACPIBusIrpQueryResources(ULONG_PTR a1, IRP *a2)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // rax

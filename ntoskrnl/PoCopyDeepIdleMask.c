@@ -1,3 +1,16 @@
+/*
+ * XREFs of PoCopyDeepIdleMask @ 0x1402AEFF0
+ * Callers:
+ *     PpmCheckContinueExecution @ 0x140236E60 (PpmCheckContinueExecution.c)
+ *     KiGetDeepIdleProcessors @ 0x1402AF0A0 (KiGetDeepIdleProcessors.c)
+ *     PpmIdleSelectStates @ 0x1403B2150 (PpmIdleSelectStates.c)
+ *     RtlUpdateSwapReference @ 0x140818560 (RtlUpdateSwapReference.c)
+ *     PpmPostProcessMediaBuffering @ 0x14099A314 (PpmPostProcessMediaBuffering.c)
+ * Callees:
+ *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402AB030 (KeEnumerateNextSchedulerSubNodeInNode.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 unsigned __int64 __fastcall PoCopyDeepIdleMask(unsigned __int16 *a1)
 {
   size_t v2; // r8

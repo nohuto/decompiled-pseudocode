@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlNotifyChangeDirectory @ 0x14093CFD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FsRtlNotifyFilterChangeDirectory @ 0x14084F730 (FsRtlNotifyFilterChangeDirectory.c)
+ */
+
 void __fastcall FsRtlNotifyChangeDirectory(
         struct _REAL_NOTIFY_SYNC *a1,
         void *a2,

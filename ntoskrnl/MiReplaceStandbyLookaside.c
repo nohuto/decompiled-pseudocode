@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiReplaceStandbyLookaside @ 0x1402C6D1C
+ * Callers:
+ *     MiReplaceTransitionPage @ 0x1402C6784 (MiReplaceTransitionPage.c)
+ *     MiLockStandbyLookasidePage @ 0x140464910 (MiLockStandbyLookasidePage.c)
+ *     MiLockStandbyOldestPage @ 0x14064E72C (MiLockStandbyOldestPage.c)
+ *     MiSwapNumaStandbyPage @ 0x14064F7E0 (MiSwapNumaStandbyPage.c)
+ * Callees:
+ *     MiPfnToStandbyLookaside @ 0x140288780 (MiPfnToStandbyLookaside.c)
+ *     MiWriteStandbyLookasideEntry @ 0x1402C71E0 (MiWriteStandbyLookasideEntry.c)
+ *     MiFindSuitableLookasideReplacement @ 0x1402C7240 (MiFindSuitableLookasideReplacement.c)
+ *     MiPageStandbyLookasideStatus @ 0x1402C7560 (MiPageStandbyLookasideStatus.c)
+ *     MiGetStandbyLookaside @ 0x140319E70 (MiGetStandbyLookaside.c)
+ */
+
 __int64 __fastcall MiReplaceStandbyLookaside(__int64 a1, __int64 a2, int a3)
 {
   int v6; // ebp

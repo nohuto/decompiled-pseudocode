@@ -1,3 +1,32 @@
+/*
+ * XREFs of xxxUpdateGlobalsAndSendKeyEvent @ 0x1C008097C
+ * Callers:
+ *     NtMITSynthesizeKeyboardInput @ 0x1C00087B0 (NtMITSynthesizeKeyboardInput.c)
+ *     xxxKeyEventEx @ 0x1C007F2E0 (xxxKeyEventEx.c)
+ * Callees:
+ *     ApiSetEditionIsGpqForegroundAccessibleExplicit @ 0x1C000EE70 (ApiSetEditionIsGpqForegroundAccessibleExplicit.c)
+ *     UpdateKeyLights @ 0x1C0031B40 (UpdateKeyLights.c)
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     GetActiveHKL @ 0x1C007F950 (GetActiveHKL.c)
+ *     IsKeyboardDelegationEnabledForThread @ 0x1C007FFC0 (IsKeyboardDelegationEnabledForThread.c)
+ *     ?HandleLeftRightVKs@CKeyboardProcessor@@SAEE@Z @ 0x1C0080360 (-HandleLeftRightVKs@CKeyboardProcessor@@SAEE@Z.c)
+ *     UpdateAsyncKeyState @ 0x1C00922C0 (UpdateAsyncKeyState.c)
+ *     ApiSetEditionHandleRawInput @ 0x1C00B9DC8 (ApiSetEditionHandleRawInput.c)
+ *     ApiSetEditionHandleAltTabCancel @ 0x1C00BA778 (ApiSetEditionHandleAltTabCancel.c)
+ *     ApiSetEditionDoHotKeys @ 0x1C00BABE4 (ApiSetEditionDoHotKeys.c)
+ *     ApiSetEditionHandleAltTab @ 0x1C00CBA50 (ApiSetEditionHandleAltTab.c)
+ *     xxxWindowEvent @ 0x1C00D40F8 (xxxWindowEvent.c)
+ *     Feature_KIDV2__private_IsEnabledDeviceUsage @ 0x1C00DDF28 (Feature_KIDV2__private_IsEnabledDeviceUsage.c)
+ *     GetKeyboardDelegationTargetQ @ 0x1C00E1100 (GetKeyboardDelegationTargetQ.c)
+ *     PtiKbdFromQ @ 0x1C00F43EE (PtiKbdFromQ.c)
+ *     ?DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z @ 0x1C01E3DAC (-DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z.c)
+ *     ??$Write@$$V@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2@Z @ 0x1C0214A98 (--$Write@$$V@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESC.c)
+ *     ?LowLevelHexNumpad@@YAXGEHG@Z @ 0x1C0219C84 (-LowLevelHexNumpad@@YAXGEHG@Z.c)
+ *     ApiSetEditionHandleAndPostKeyEvent @ 0x1C023EAE8 (ApiSetEditionHandleAndPostKeyEvent.c)
+ *     ApiSetEditionIsSAS @ 0x1C023FE40 (ApiSetEditionIsSAS.c)
+ *     HasHidTable @ 0x1C0271E70 (HasHidTable.c)
+ */
+
 char __fastcall xxxUpdateGlobalsAndSendKeyEvent(
         unsigned __int16 a1,
         unsigned __int16 a2,

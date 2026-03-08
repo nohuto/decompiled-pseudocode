@@ -1,3 +1,12 @@
+/*
+ * XREFs of PfTTraceListFree @ 0x1407E7AC8
+ * Callers:
+ *     PfTTraceListAdd @ 0x1407E797C (PfTTraceListAdd.c)
+ *     PfTCleanup @ 0x14097C168 (PfTCleanup.c)
+ * Callees:
+ *     PfTFreeTraceDump @ 0x14035BBA8 (PfTFreeTraceDump.c)
+ */
+
 void __fastcall PfTTraceListFree(_QWORD **a1)
 {
   _QWORD *v2; // rcx

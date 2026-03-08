@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpTimerFindIdealPerformanceCounterSource @ 0x140377AB0
+ * Callers:
+ *     HalpTimerSelectRoles @ 0x140376F4C (HalpTimerSelectRoles.c)
+ * Callees:
+ *     HalpIsHvPresent @ 0x14037337C (HalpIsHvPresent.c)
+ *     HalpFindTimer @ 0x140377CA8 (HalpFindTimer.c)
+ */
+
 __int64 HalpTimerFindIdealPerformanceCounterSource()
 {
   int v0; // ebx

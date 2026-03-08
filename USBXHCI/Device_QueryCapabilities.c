@@ -1,3 +1,14 @@
+/*
+ * XREFs of Device_QueryCapabilities @ 0x1C001A014
+ * Callers:
+ *     Controller_CreateWdfDevice @ 0x1C006EFBC (Controller_CreateWdfDevice.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qd @ 0x1C00141F4 (WPP_RECORDER_SF_qd.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 __int64 __fastcall Device_QueryCapabilities(__int64 a1)
 {
   __int64 v2; // rbx

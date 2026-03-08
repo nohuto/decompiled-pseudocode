@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiSlowRotateCopy @ 0x140630B44
+ * Callers:
+ *     MiReplaceRotateWithDemandZero @ 0x140A2E748 (MiReplaceRotateWithDemandZero.c)
+ *     MiRotateToFrameBuffer @ 0x140A2E9E0 (MiRotateToFrameBuffer.c)
+ * Callees:
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiReturnPteMappingSet @ 0x14032DFE8 (MiReturnPteMappingSet.c)
+ *     MiGetPteMappingSet @ 0x14032E050 (MiGetPteMappingSet.c)
+ *     KeCopyPage @ 0x14041BC90 (KeCopyPage.c)
+ *     MiInitializeSlowPte @ 0x140630258 (MiInitializeSlowPte.c)
+ */
+
 char __fastcall MiSlowRotateCopy(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 *v3; // r13

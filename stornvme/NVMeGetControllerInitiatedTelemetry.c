@@ -1,3 +1,14 @@
+/*
+ * XREFs of NVMeGetControllerInitiatedTelemetry @ 0x1C001D968
+ * Callers:
+ *     NVMeControllerInitPart3 @ 0x1C000DCDC (NVMeControllerInitPart3.c)
+ * Callees:
+ *     NVMeAllocateDmaBuffer @ 0x1C000C1C0 (NVMeAllocateDmaBuffer.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ *     NVMeGetControllerInitiatedTelemetryHeader @ 0x1C001DB60 (NVMeGetControllerInitiatedTelemetryHeader.c)
+ *     NVMeGetControllerInitiatedTelemetryLog @ 0x1C001DC54 (NVMeGetControllerInitiatedTelemetryLog.c)
+ */
+
 __int64 __fastcall NVMeGetControllerInitiatedTelemetry(__int64 a1)
 {
   unsigned int DmaBuffer; // ebx

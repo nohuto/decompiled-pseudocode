@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiSwDeviceCompareObjects @ 0x1408514E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ */
+
 __int64 __fastcall PiSwDeviceCompareObjects(struct _RTL_AVL_TABLE *Table, __int64 *FirstStruct, __int64 *SecondStruct)
 {
   __int64 v3; // rdi

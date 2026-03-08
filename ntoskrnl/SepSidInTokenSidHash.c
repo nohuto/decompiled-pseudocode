@@ -1,3 +1,29 @@
+/*
+ * XREFs of SepSidInTokenSidHash @ 0x14033DEA0
+ * Callers:
+ *     SepTokenIsOwner @ 0x1402077E0 (SepTokenIsOwner.c)
+ *     SepMaximumAccessCheck @ 0x140208450 (SepMaximumAccessCheck.c)
+ *     SepNormalAccessCheckEx @ 0x140208E18 (SepNormalAccessCheckEx.c)
+ *     SepCheckForCriticalAceRemoval @ 0x1402438A8 (SepCheckForCriticalAceRemoval.c)
+ *     SeAccessCheckWithHint @ 0x1402653A0 (SeAccessCheckWithHint.c)
+ *     SepNormalAccessCheck @ 0x140267220 (SepNormalAccessCheck.c)
+ *     SepMatchCapability @ 0x1402E8F24 (SepMatchCapability.c)
+ *     SepSidInToken @ 0x1402EF7EC (SepSidInToken.c)
+ *     SeAccessCheckByType @ 0x14033BB40 (SeAccessCheckByType.c)
+ *     SepMaximumAccessCheckEx @ 0x1403C8AF0 (SepMaximumAccessCheckEx.c)
+ *     SeMaximumAuditMask @ 0x1405B55B8 (SeMaximumAuditMask.c)
+ *     AuthzBasepDeviceMemberOf @ 0x14066D2CC (AuthzBasepDeviceMemberOf.c)
+ *     AuthzBasepMemberOf @ 0x14066D410 (AuthzBasepMemberOf.c)
+ *     NtCreateLowBoxToken @ 0x14069D520 (NtCreateLowBoxToken.c)
+ *     NtQueryInformationToken @ 0x1406D6780 (NtQueryInformationToken.c)
+ *     SepIsImpersonationAllowedDueToCapability @ 0x140744780 (SepIsImpersonationAllowedDueToCapability.c)
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ *     ObpCreateHandle @ 0x1407C0130 (ObpCreateHandle.c)
+ * Callees:
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ */
+
 char __fastcall SepSidInTokenSidHash(_DWORD *a1, unsigned __int8 *a2, unsigned __int8 *a3, char a4, char a5, char a6)
 {
   unsigned __int8 *v7; // rdi

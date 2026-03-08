@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CitpInitialize@@YAJPEBG@Z @ 0x1C00C57B0
+ * Callers:
+ *     CitProcessCallout @ 0x1C006F63C (CitProcessCallout.c)
+ * Callees:
+ *     ?CitpStart@@YAJXZ @ 0x1C00C5898 (-CitpStart@@YAJXZ.c)
+ *     ?CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z @ 0x1C00C5978 (-CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z.c)
+ *     ?CitpParametersCompute@@YAXPEAU_CIT_PARAMETERS@@@Z @ 0x1C00C5BF0 (-CitpParametersCompute@@YAXPEAU_CIT_PARAMETERS@@@Z.c)
+ */
+
 __int64 __fastcall CitpInitialize(const unsigned __int16 *a1)
 {
   PCWSTR v1; // r10

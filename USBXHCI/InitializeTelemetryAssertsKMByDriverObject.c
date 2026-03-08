@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitializeTelemetryAssertsKMByDriverObject @ 0x1C001D054
+ * Callers:
+ *     DriverEntry @ 0x1C0074360 (DriverEntry.c)
+ * Callees:
+ *     InitializeTelemetryAssertsKMWorkerInternal @ 0x1C001D15C (InitializeTelemetryAssertsKMWorkerInternal.c)
+ */
+
 __int64 __fastcall InitializeTelemetryAssertsKMByDriverObject(__int64 a1)
 {
   __int64 result; // rax

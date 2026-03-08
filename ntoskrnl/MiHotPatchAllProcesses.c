@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiHotPatchAllProcesses @ 0x140A34748
+ * Callers:
+ *     MiLoadHotPatch @ 0x140A352A0 (MiLoadHotPatch.c)
+ *     MiLoadHotPatchForUserSid @ 0x140A35638 (MiLoadHotPatchForUserSid.c)
+ *     MiUnloadHotPatch @ 0x140A392C0 (MiUnloadHotPatch.c)
+ *     MiUnloadHotPatchForUserSid @ 0x140A3940C (MiUnloadHotPatchForUserSid.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PsGetNextProcess @ 0x1406AA530 (PsGetNextProcess.c)
+ *     MiHotPatchProcess @ 0x140A34804 (MiHotPatchProcess.c)
+ */
+
 __int64 __fastcall MiHotPatchAllProcesses(unsigned int a1, unsigned int a2)
 {
   __int64 *i; // rcx

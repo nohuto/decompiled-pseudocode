@@ -1,3 +1,14 @@
+/*
+ * XREFs of AdtpBuildSockAddrString @ 0x140A5877C
+ * Callers:
+ *     AdtpPackageParameters @ 0x1403958B4 (AdtpPackageParameters.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     AdtpBuildIPv4Strings @ 0x140A57A18 (AdtpBuildIPv4Strings.c)
+ *     AdtpBuildIPv6Strings @ 0x140A57B80 (AdtpBuildIPv6Strings.c)
+ *     AdtpBuildMacStrings @ 0x140A57CE8 (AdtpBuildMacStrings.c)
+ */
+
 __int64 __fastcall AdtpBuildSockAddrString(
         const struct in_addr *a1,
         UNICODE_STRING *a2,

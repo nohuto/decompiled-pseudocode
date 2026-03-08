@@ -1,3 +1,22 @@
+/*
+ * XREFs of ObpCallPreOperationCallbacks @ 0x1406DBEC0
+ * Callers:
+ *     ObpPreInterceptHandleCreate @ 0x14075F948 (ObpPreInterceptHandleCreate.c)
+ *     ObpPreInterceptHandleDuplicate @ 0x14077DBA0 (ObpPreInterceptHandleDuplicate.c)
+ * Callees:
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ObpCallPostOperationCallbacks @ 0x1408A0D82 (ObpCallPostOperationCallbacks.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall ObpCallPreOperationCallbacks(__int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 *v3; // rbp

@@ -1,3 +1,46 @@
+/*
+ * XREFs of MiGetProtoPteAddress @ 0x14031C780
+ * Callers:
+ *     MiSetReadOnlyOnSectionView @ 0x14020AAF0 (MiSetReadOnlyOnSectionView.c)
+ *     MiSplitPrivatePage @ 0x14021114C (MiSplitPrivatePage.c)
+ *     MiCheckUserVirtualAddress @ 0x1402258B0 (MiCheckUserVirtualAddress.c)
+ *     MiZeroFault @ 0x140266000 (MiZeroFault.c)
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ *     MiExpandSharedZeroCluster @ 0x14029E7B4 (MiExpandSharedZeroCluster.c)
+ *     MiTrimSharedPageFromViews @ 0x1402A031C (MiTrimSharedPageFromViews.c)
+ *     MiGetWorkingSetInfoList @ 0x1402A36A0 (MiGetWorkingSetInfoList.c)
+ *     MiWalkVaRange @ 0x1402CECEC (MiWalkVaRange.c)
+ *     MiPteNeedsCommitCharge @ 0x1402DABF0 (MiPteNeedsCommitCharge.c)
+ *     MiQueryAddressState @ 0x14031B4F0 (MiQueryAddressState.c)
+ *     MiGetPageProtection @ 0x14031C310 (MiGetPageProtection.c)
+ *     MiCountSharedPages @ 0x14031DE80 (MiCountSharedPages.c)
+ *     MiResolveSharedZeroFault @ 0x14031E5C0 (MiResolveSharedZeroFault.c)
+ *     MiSetProtectionOnSection @ 0x140321FC0 (MiSetProtectionOnSection.c)
+ *     MiIsCfgBitMapPageShared @ 0x140346620 (MiIsCfgBitMapPageShared.c)
+ *     MiComputeImageVadCommitCharge @ 0x140615CBC (MiComputeImageVadCommitCharge.c)
+ *     MiUpControlAreaRefs @ 0x140623ABC (MiUpControlAreaRefs.c)
+ *     MiUpdatePrivateDemandZeroView @ 0x14062EF5C (MiUpdatePrivateDemandZeroView.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x1406404D8 (MiPrepareImagePagesForHotPatch.c)
+ *     MiGetLargeVadMappingIndex @ 0x140643AE4 (MiGetLargeVadMappingIndex.c)
+ *     MiMakePerSessionProtoPte @ 0x140662CD4 (MiMakePerSessionProtoPte.c)
+ *     MiGetClusterPage @ 0x140667A14 (MiGetClusterPage.c)
+ *     MiIdealClusterPage @ 0x140667EB0 (MiIdealClusterPage.c)
+ *     MiResolvePageFileFault @ 0x140668EDC (MiResolvePageFileFault.c)
+ *     MiCfgMarkValidEntries @ 0x14075C3DC (MiCfgMarkValidEntries.c)
+ *     MmFlushVirtualMemory @ 0x14075ED38 (MmFlushVirtualMemory.c)
+ *     MiCommitPagefileBackedSection @ 0x14078D374 (MiCommitPagefileBackedSection.c)
+ *     MiIsRangeFullyCommitted @ 0x1407C4160 (MiIsRangeFullyCommitted.c)
+ *     MiDeleteVad @ 0x1407C82E0 (MiDeleteVad.c)
+ *     MiFillMapFileInfo @ 0x1408A749A (MiFillMapFileInfo.c)
+ *     MiCloneLargeFileOnlyVad @ 0x140A309C4 (MiCloneLargeFileOnlyVad.c)
+ *     MiDeletePartialCloneVads @ 0x140A461CC (MiDeletePartialCloneVads.c)
+ * Callees:
+ *     MiGetSharedProtos @ 0x1402CCDF8 (MiGetSharedProtos.c)
+ *     MiLocatePagefileSubsection @ 0x14031DDB0 (MiLocatePagefileSubsection.c)
+ *     MiLocateSubsectionNode @ 0x140332910 (MiLocateSubsectionNode.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ */
+
 __int64 __fastcall MiGetProtoPteAddress(__int64 a1, __int64 a2, char a3, _QWORD *a4)
 {
   __int64 **v4; // r11

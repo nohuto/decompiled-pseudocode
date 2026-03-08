@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiAdjustCachedStackList @ 0x140236608
+ * Callers:
+ *     MiAdjustCachedStacks @ 0x1402364D4 (MiAdjustCachedStacks.c)
+ * Callees:
+ *     MiPruneCachedStackList @ 0x140236C6C (MiPruneCachedStackList.c)
+ *     MiRemoveNonIdealCachedStacks @ 0x1406429F8 (MiRemoveNonIdealCachedStacks.c)
+ */
+
 __int64 __fastcall MiAdjustCachedStackList(__int64 a1, __int64 a2, int a3, unsigned int a4)
 {
   int v4; // ebp

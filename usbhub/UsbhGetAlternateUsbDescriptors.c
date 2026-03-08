@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhGetAlternateUsbDescriptors @ 0x1C0037CEC
+ * Callers:
+ *     UsbhSetupDevice @ 0x1C0039728 (UsbhSetupDevice.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     UsbhGetDeviceInformation @ 0x1C00382CC (UsbhGetDeviceInformation.c)
+ *     UsbhBusIf_SetMsOs20Support @ 0x1C004C294 (UsbhBusIf_SetMsOs20Support.c)
+ *     UsbhValidateBOSDescriptorSet @ 0x1C00524CC (UsbhValidateBOSDescriptorSet.c)
+ *     UsbhValidateDeviceDescriptor @ 0x1C0052668 (UsbhValidateDeviceDescriptor.c)
+ *     UsbhGetBosDescriptor @ 0x1C005452C (UsbhGetBosDescriptor.c)
+ *     UsbhGetDeviceDescriptor @ 0x1C00546D0 (UsbhGetDeviceDescriptor.c)
+ */
+
 char __fastcall UsbhGetAlternateUsbDescriptors(__int64 a1, __int64 a2, __int64 a3)
 {
   _DWORD *v6; // rbx

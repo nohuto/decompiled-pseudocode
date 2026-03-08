@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?xxxNotifyShellOfWallpaperChange@@YAHXZ @ 0x1C00D80A0
+ * Callers:
+ *     xxxSetDeskWallpaper @ 0x1C00D7F38 (xxxSetDeskWallpaper.c)
+ * Callees:
+ *     ?_GetShellWindow@@YAPEAUtagWND@@PEAUtagDESKTOP@@@Z @ 0x1C00D812C (-_GetShellWindow@@YAPEAUtagWND@@PEAUtagDESKTOP@@@Z.c)
+ *     xxxSendNotifyMessage @ 0x1C00D8320 (xxxSendNotifyMessage.c)
+ */
+
 __int64 xxxNotifyShellOfWallpaperChange(void)
 {
   unsigned int v0; // ebx

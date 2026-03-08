@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopUmpoSendPowerRequestCreate @ 0x14073C318
+ * Callers:
+ *     PopPowerRequestCreateCommon @ 0x1402BC348 (PopPowerRequestCreateCommon.c)
+ *     PopPowerRequestNotificationsBegin @ 0x14097E644 (PopPowerRequestNotificationsBegin.c)
+ * Callees:
+ *     PopUmpoSendPowerMessage @ 0x1402BD1D0 (PopUmpoSendPowerMessage.c)
+ *     PopPowerRequestGetDiagnosticBuffer @ 0x14073C3B4 (PopPowerRequestGetDiagnosticBuffer.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PopUmpoSendPowerRequestCreate(__int64 a1)
 {
   unsigned int v1; // edi

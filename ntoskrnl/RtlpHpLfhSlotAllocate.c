@@ -1,3 +1,32 @@
+/*
+ * XREFs of RtlpHpLfhSlotAllocate @ 0x140310BA0
+ * Callers:
+ *     ExAllocateHeapPool @ 0x1403101C0 (ExAllocateHeapPool.c)
+ *     RtlpHpLfhBucketAllocate @ 0x1403CE658 (RtlpHpLfhBucketAllocate.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpLfhSubsegmentIncBlockCounts @ 0x1402D2C60 (RtlpHpLfhSubsegmentIncBlockCounts.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x1402DF844 (RtlpHpLfhBucketUpdateAffinityMapping.c)
+ *     RtlpHpAcquireLockShared @ 0x140309A10 (RtlpHpAcquireLockShared.c)
+ *     RtlpHpLfhBucketGetSubsegment @ 0x140309A44 (RtlpHpLfhBucketGetSubsegment.c)
+ *     RtlpHpLfhSubsegmentFreeBlock @ 0x140309BA0 (RtlpHpLfhSubsegmentFreeBlock.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x14030A880 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpLfhSlotAddSubsegment @ 0x14030AA0C (RtlpHpLfhSlotAddSubsegment.c)
+ *     RtlpHpAcquireLockExclusive @ 0x14030ABA4 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpLfhSubsegmentCreate @ 0x14030AFE0 (RtlpHpLfhSubsegmentCreate.c)
+ *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x14030B5B4 (RtlpHpLfhSubsegmentDecBlockCounts.c)
+ *     RtlpLfhBlockBitmapAllocate @ 0x140311C40 (RtlpLfhBlockBitmapAllocate.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlHeapZero @ 0x1403D2D10 (RtlHeapZero.c)
+ *     RtlpLfhIncrementDataSlot @ 0x14040C250 (RtlpLfhIncrementDataSlot.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall RtlpHpLfhSlotAllocate(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, unsigned int a5)
 {
   volatile LONG *v5; // rsi

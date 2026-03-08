@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?xxxDIBtoBMP@@YAPEAUHBITMAP__@@PEAUtagBITMAPINFOHEADER@@PEAUHPALETTE__@@K@Z @ 0x1C01FF654
+ * Callers:
+ *     ?xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FFA0C (-xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ * Callees:
+ *     GreGetBitmapBitsSize @ 0x1C0091230 (GreGetBitmapBitsSize.c)
+ *     ?GreGetBitmapSizeInternal@@YAKPEBUtagBITMAPINFO@@KI@Z @ 0x1C00CE804 (-GreGetBitmapSizeInternal@@YAKPEBUtagBITMAPINFO@@KI@Z.c)
+ *     _SelectPalette @ 0x1C0125A20 (_SelectPalette.c)
+ *     ?CreateScreenBitmap@@YAPEAUHBITMAP__@@HHI@Z @ 0x1C01FEA38 (-CreateScreenBitmap@@YAPEAUHBITMAP__@@HHI@Z.c)
+ *     xxxRealizePalette @ 0x1C0217A18 (xxxRealizePalette.c)
+ *     GreSetDIBits @ 0x1C02E0580 (GreSetDIBits.c)
+ */
+
 __int64 __fastcall xxxDIBtoBMP(const struct tagBITMAPINFO *a1, __int64 a2, unsigned int a3)
 {
   DWORD biSize; // edi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmEventTraceHeteroDistributeUtility @ 0x140599360
+ * Callers:
+ *     PpmHeteroDistributeUtility @ 0x140594ED0 (PpmHeteroDistributeUtility.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PpmEventTraceHeteroDistributeUtility(__int64 a1, char a2, char a3)
 {
   _UNKNOWN **v3; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CarIncrementEtwEventCount @ 0x1405D0D5C
+ * Callers:
+ *     CarEtwWriteBugCheckEvent @ 0x1405D078C (CarEtwWriteBugCheckEvent.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CarIncrementEtwEventCount(__int64 a1)
 {
   __int64 v1; // r9

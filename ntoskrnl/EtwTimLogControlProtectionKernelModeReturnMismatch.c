@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwTimLogControlProtectionKernelModeReturnMismatch @ 0x1405FD9EC
+ * Callers:
+ *     KiLogControlProtectionKernelModeReturnMismatch @ 0x140579960 (KiLogControlProtectionKernelModeReturnMismatch.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     RtlPcToFileName @ 0x1403A4E70 (RtlPcToFileName.c)
+ *     RtlPcToFileHeader @ 0x1403BE120 (RtlPcToFileHeader.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 char __fastcall EtwTimLogControlProtectionKernelModeReturnMismatch(int a1, __int64 a2)
 {
   int v2; // eax

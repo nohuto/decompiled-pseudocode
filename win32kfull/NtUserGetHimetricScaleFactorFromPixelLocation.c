@@ -1,3 +1,18 @@
+/*
+ * XREFs of NtUserGetHimetricScaleFactorFromPixelLocation @ 0x1C01D2900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     _MonitorFromPoint @ 0x1C00A2920 (_MonitorFromPoint.c)
+ *     _GetPointerDeviceRects @ 0x1C00E4B94 (_GetPointerDeviceRects.c)
+ *     GetScreenRect @ 0x1C00E4C8C (GetScreenRect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     GetHimetricScaleForMonitor @ 0x1C01BAE08 (GetHimetricScaleForMonitor.c)
+ */
+
 __int64 __fastcall NtUserGetHimetricScaleFactorFromPixelLocation(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4)
 {
   int v8; // edi

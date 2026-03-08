@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiClockTimerOneShotReady @ 0x1403CAAD4
+ * Callers:
+ *     KePrepareClockTimerForIdle @ 0x1402A9B1C (KePrepareClockTimerForIdle.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KiClockTimerOneShotReady(__int64 a1)
 {
   char v1; // dl

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetMonitorDescription@CPhysicalMonitorHandle@@QEAAJKPEAG@Z @ 0x1C026C86C
+ * Callers:
+ *     ?GetMonitorDescription@CMonitorAPI@@QEAAJPEAXKPEAG@Z @ 0x1C026C7DC (-GetMonitorDescription@CMonitorAPI@@QEAAJPEAXKPEAG@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CPhysicalMonitorHandle::GetMonitorDescription(
         struct OPM::CMutex **this,
         unsigned int a2,

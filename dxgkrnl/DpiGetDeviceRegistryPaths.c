@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiGetDeviceRegistryPaths @ 0x1C001D038
+ * Callers:
+ *     DpiAddDevice @ 0x1C01F38A0 (DpiAddDevice.c)
+ * Callees:
+ *     DpiGetRegistryPathFromPDO @ 0x1C001D100 (DpiGetRegistryPathFromPDO.c)
+ *     DpiCopyUnicodeString @ 0x1C0205478 (DpiCopyUnicodeString.c)
+ */
+
 __int64 __fastcall DpiGetDeviceRegistryPaths(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rdi

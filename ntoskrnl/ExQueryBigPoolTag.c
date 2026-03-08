@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExQueryBigPoolTag @ 0x1406054EC
+ * Callers:
+ *     sub_1403ED56C @ 0x1403ED56C (sub_1403ED56C.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ExQueryBigPoolTag(unsigned __int64 a1, _DWORD *a2)
 {
   int v4; // ebx

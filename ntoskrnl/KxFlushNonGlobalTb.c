@@ -1,3 +1,16 @@
+/*
+ * XREFs of KxFlushNonGlobalTb @ 0x140212260
+ * Callers:
+ *     KeFlushTb @ 0x140323CB0 (KeFlushTb.c)
+ * Callees:
+ *     KiIpiSendRequestEx @ 0x14021238C (KiIpiSendRequestEx.c)
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140237640 (KeRemoveProcessorAffinityEx.c)
+ *     KxSetTimeStampBusy @ 0x1402DC0CC (KxSetTimeStampBusy.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KxFlushNonGlobalTb(int a1)
 {
   unsigned __int8 CurrentIrql; // di

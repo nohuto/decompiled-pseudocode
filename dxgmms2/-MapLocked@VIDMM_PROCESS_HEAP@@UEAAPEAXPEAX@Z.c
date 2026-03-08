@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MapLocked@VIDMM_PROCESS_HEAP@@UEAAPEAXPEAX@Z @ 0x1C0104DA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 PVOID __fastcall VIDMM_PROCESS_HEAP::MapLocked(VIDMM_PROCESS_HEAP *this, _QWORD *a2)
 {
   __int64 v2; // rcx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiMapArbitraryPage @ 0x14029EE40
+ * Callers:
+ *     MiConvertStandbyToProto @ 0x14029ED24 (MiConvertStandbyToProto.c)
+ * Callees:
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiCombineCandidate @ 0x14032C640 (MiCombineCandidate.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14034A974 (MiMakeProtectionPfnCompatible.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiMapArbitraryPage(__int64 a1, _QWORD *a2, unsigned int a3, int a4, int a5)
 {
   __int64 v5; // rsi

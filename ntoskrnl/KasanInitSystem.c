@@ -1,3 +1,11 @@
+/*
+ * XREFs of KasanInitSystem @ 0x1403B0E00
+ * Callers:
+ *     KiInitializeBootStructures @ 0x140A887E0 (KiInitializeBootStructures.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KasanInitSystem(__int64 a1)
 {
   __int64 result; // rax

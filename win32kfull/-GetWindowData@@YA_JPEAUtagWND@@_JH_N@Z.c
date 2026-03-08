@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetWindowData@@YA_JPEAUtagWND@@_JH_N@Z @ 0x1C01CD150
+ * Callers:
+ *     NtUserfnGETWINDOWDATA @ 0x1C01E1840 (NtUserfnGETWINDOWDATA.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetWindowData(struct tagWND *a1, __int64 a2, int a3, char a4)
 {
   __int64 v4; // r11

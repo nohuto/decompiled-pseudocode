@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetAlphaMode@CDDisplaySwapChain@@UEAAXW4DXGI_ALPHA_MODE@@@Z @ 0x180288560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CDDisplaySwapChain::SetAlphaMode(CDDisplaySwapChain *this, enum DXGI_ALPHA_MODE a2)
 {
   __int64 v2; // r8

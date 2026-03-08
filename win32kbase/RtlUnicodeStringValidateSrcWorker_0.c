@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlUnicodeStringValidateSrcWorker_0 @ 0x1C01916D4
+ * Callers:
+ *     ?RtlStringCchCopyUnicodeStringEx@@YAJPEAG_KPEBU_UNICODE_STRING@@PEAPEAGPEA_KK@Z @ 0x1C01915E4 (-RtlStringCchCopyUnicodeStringEx@@YAJPEAG_KPEBU_UNICODE_STRING@@PEAPEAGPEA_KK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlUnicodeStringValidateSrcWorker_0(
         PCUNICODE_STRING SourceString,
         wchar_t **ppszSrc,

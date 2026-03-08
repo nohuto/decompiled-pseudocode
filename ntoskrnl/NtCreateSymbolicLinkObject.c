@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtCreateSymbolicLinkObject @ 0x140740CD0
+ * Callers:
+ *     CreateSystemRootLink @ 0x140B6B5C8 (CreateSystemRootLink.c)
+ *     IopReassignSystemRoot @ 0x140B6CE8C (IopReassignSystemRoot.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ObCreateSymbolicLink @ 0x140740FE8 (ObCreateSymbolicLink.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall NtCreateSymbolicLinkObject(unsigned __int64 a1, int a2, __int64 a3, UNICODE_STRING *a4)
 {
   char PreviousMode; // r9

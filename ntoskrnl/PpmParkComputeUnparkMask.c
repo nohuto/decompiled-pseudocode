@@ -1,3 +1,20 @@
+/*
+ * XREFs of PpmParkComputeUnparkMask @ 0x14059A174
+ * Callers:
+ *     PpmParkCalculateCoreParkingMask @ 0x1402E7970 (PpmParkCalculateCoreParkingMask.c)
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140237640 (KeRemoveProcessorAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KeFindFirstSetRightAffinityEx @ 0x14056CE10 (KeFindFirstSetRightAffinityEx.c)
+ *     PpmHeteroRestrictToFavoredClass @ 0x140595314 (PpmHeteroRestrictToFavoredClass.c)
+ *     PpmEventHeteroFavoredCoreRotationChange @ 0x140597C48 (PpmEventHeteroFavoredCoreRotationChange.c)
+ *     PpmEventParkNodePreference @ 0x14059892C (PpmEventParkNodePreference.c)
+ */
+
 char __fastcall PpmParkComputeUnparkMask(
         unsigned __int16 a1,
         unsigned __int64 a2,

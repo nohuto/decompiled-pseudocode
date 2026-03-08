@@ -1,3 +1,11 @@
+/*
+ * XREFs of EmonResumeProfiling @ 0x14051C2B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 EmonResumeProfiling()
 {
   __int64 v0; // r9

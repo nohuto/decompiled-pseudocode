@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpKeyEnumStackEntryBegin @ 0x140A20F7C
+ * Callers:
+ *     CmpKeyEnumStackBeginEnumerationForKeyNodeStack @ 0x140A20C04 (CmpKeyEnumStackBeginEnumerationForKeyNodeStack.c)
+ * Callees:
+ *     CmpDoFindSubKeyByNumber @ 0x1407AD3EC (CmpDoFindSubKeyByNumber.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpCompareKeysByName @ 0x140A1CA20 (CmpCompareKeysByName.c)
+ */
+
 __int64 __fastcall CmpKeyEnumStackEntryBegin(_QWORD *a1, __int64 a2, __int64 a3)
 {
   unsigned int *v4; // r8

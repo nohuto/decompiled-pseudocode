@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vMopUp@TXTCLEANUP@@QEAAXXZ @ 0x1C02D9A38
+ * Callers:
+ *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXKAEBUTag@RFONTOBJ@@@Z @ 0x1C00AB7D0 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXKAEBUTag@RFONTOBJ@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall TXTCLEANUP::vMopUp(TXTCLEANUP *this)
 {
   __int64 v2; // rcx

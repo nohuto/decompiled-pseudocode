@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopNetEvaluationWorkerCallback @ 0x1403A7BD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopNetEvaluateStateMask @ 0x14085780C (PopNetEvaluateStateMask.c)
+ *     PopNetUpdateCsConsumptionFlags @ 0x140857840 (PopNetUpdateCsConsumptionFlags.c)
+ *     PopNetPublishWnfStateUpdate @ 0x140857858 (PopNetPublishWnfStateUpdate.c)
+ *     PopTraceStandbyConnectivityUpdate @ 0x1408578B8 (PopTraceStandbyConnectivityUpdate.c)
+ *     PopNetSetResiliencyPhaseBias @ 0x140993978 (PopNetSetResiliencyPhaseBias.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopNetEvaluationWorkerCallback(__int64 a1, __int64 a2)
 {
   int v2; // r15d

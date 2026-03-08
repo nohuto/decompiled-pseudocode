@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpGrowMapBufferWorker @ 0x1404FF9C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpDmaProcessMapRegisterQueueV2 @ 0x1404551EE (HalpDmaProcessMapRegisterQueueV2.c)
+ *     HalpDmaProcessMapRegisterQueueV3 @ 0x14050DA08 (HalpDmaProcessMapRegisterQueueV3.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpDmaGrowContiguousMapBuffers @ 0x1409315C0 (HalpDmaGrowContiguousMapBuffers.c)
+ *     HalpDmaGrowScatterMapBuffers @ 0x1409316C4 (HalpDmaGrowScatterMapBuffers.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall HalpGrowMapBufferWorker(PVOID P)
 {
   __int64 v2; // rsi

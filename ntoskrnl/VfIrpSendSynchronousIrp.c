@@ -1,3 +1,20 @@
+/*
+ * XREFs of VfIrpSendSynchronousIrp @ 0x140ACAAA8
+ * Callers:
+ *     VfPnpTestStartedPdoStack @ 0x140AE3DF0 (VfPnpTestStartedPdoStack.c)
+ *     VfPowerTestStartedPdoStack @ 0x140AE4760 (VfPowerTestStartedPdoStack.c)
+ *     VfWmiTestStartedPdoStack @ 0x140AE4980 (VfWmiTestStartedPdoStack.c)
+ * Callees:
+ *     IovUtilWatermarkIrp @ 0x1402092B8 (IovUtilWatermarkIrp.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IoFreeIrp @ 0x14030EC00 (IoFreeIrp.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     IoGetAttachedDeviceReference @ 0x140337BB0 (IoGetAttachedDeviceReference.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     IoAllocateIrpEx @ 0x140352E90 (IoAllocateIrpEx.c)
+ */
+
 __int64 __fastcall VfIrpSendSynchronousIrp(
         struct _DEVICE_OBJECT *a1,
         __int64 a2,

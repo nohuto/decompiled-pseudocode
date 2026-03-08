@@ -1,3 +1,12 @@
+/*
+ * XREFs of IommuUnmapLogicalRange @ 0x140456550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpIommuDomainFreeLogicalAddressRange @ 0x1404560EE (HalpIommuDomainFreeLogicalAddressRange.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x140515A38 (HalpIommuDomainUnmapLogicalRange.c)
+ */
+
 __int64 __fastcall IommuUnmapLogicalRange(__int64 a1, __int64 a2, __int64 a3)
 {
   int v3; // eax

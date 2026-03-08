@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpTimerQueryCycleCounter @ 0x140376AA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     HalpFindTimer @ 0x140377CA8 (HalpFindTimer.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpTimerQueryCycleCounter(_QWORD *a1)
 {
   __int64 result; // rax

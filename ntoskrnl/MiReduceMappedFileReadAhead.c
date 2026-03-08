@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiReduceMappedFileReadAhead @ 0x140209EEC
+ * Callers:
+ *     MiBuildMdlForMappedFileFault @ 0x14028B490 (MiBuildMdlForMappedFileFault.c)
+ * Callees:
+ *     RtlFindLastBackwardRunClear @ 0x14020AE50 (RtlFindLastBackwardRunClear.c)
+ *     RtlSetBits @ 0x14028BC50 (RtlSetBits.c)
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ */
+
 void __fastcall MiReduceMappedFileReadAhead(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, unsigned int a3)
 {
   ULONG SizeOfBitMap; // ebx

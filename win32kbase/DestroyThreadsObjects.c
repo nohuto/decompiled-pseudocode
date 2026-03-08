@@ -1,3 +1,18 @@
+/*
+ * XREFs of DestroyThreadsObjects @ 0x1C0078460
+ * Callers:
+ *     xxxDestroyThreadInfo @ 0x1C0072BF4 (xxxDestroyThreadInfo.c)
+ * Callees:
+ *     ThreadUnlock1 @ 0x1C003B460 (ThreadUnlock1.c)
+ *     HMAssignmentUnlockWorker @ 0x1C007294C (HMAssignmentUnlockWorker.c)
+ *     ?HMDestroyUnlockedObjectWorker@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C0076074 (-HMDestroyUnlockedObjectWorker@@YAXPEAU_HANDLEENTRY@@@Z.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C007795C (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     IsCleanupW32ThreadLocksSupported @ 0x1C0079420 (IsCleanupW32ThreadLocksSupported.c)
+ *     DestroyCacheDCEntries @ 0x1C007944C (DestroyCacheDCEntries.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00ABD88 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void DestroyThreadsObjects()
 {
   struct tagTHREADINFO *v0; // rbp

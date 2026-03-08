@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?xxxCommonGetTitleBarInfo@@YAXPEAUtagWND@@PEAUtagTITLEBARINFO@@@Z @ 0x1C00A3E1C
+ * Callers:
+ *     xxxGetTitleBarInfoEx @ 0x1C000B72C (xxxGetTitleBarInfoEx.c)
+ *     NtUserGetTitleBarInfo @ 0x1C00A3C40 (NtUserGetTitleBarInfo.c)
+ * Callees:
+ *     GetWindowBordersForDpiWithCompatFlags2 @ 0x1C00448E4 (GetWindowBordersForDpiWithCompatFlags2.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     GetWindowDpiLastNotify @ 0x1C00A3A34 (GetWindowDpiLastNotify.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     _HasCaptionIcon @ 0x1C00A47EC (_HasCaptionIcon.c)
+ *     xxxMNCanClose @ 0x1C00A4C44 (xxxMNCanClose.c)
+ */
+
 void __fastcall xxxCommonGetTitleBarInfo(struct tagWND *a1, struct tagTITLEBARINFO *a2)
 {
   int v4; // ecx

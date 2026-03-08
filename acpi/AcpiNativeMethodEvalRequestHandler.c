@@ -1,3 +1,14 @@
+/*
+ * XREFs of AcpiNativeMethodEvalRequestHandler @ 0x1C00375E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiCleanupObjDataArguments @ 0x1C0036C18 (AcpiCleanupObjDataArguments.c)
+ *     AcpiConvertMethodArgumentsToObjData @ 0x1C0036CA4 (AcpiConvertMethodArgumentsToObjData.c)
+ *     AcpiDispatchNativeMethodEvalRequest @ 0x1C00373D4 (AcpiDispatchNativeMethodEvalRequest.c)
+ *     AcpiSetupNativeMethodContext @ 0x1C0037EA0 (AcpiSetupNativeMethodContext.c)
+ */
+
 __int64 __fastcall AcpiNativeMethodEvalRequestHandler(__int64 a1)
 {
   __int64 v2; // rbx

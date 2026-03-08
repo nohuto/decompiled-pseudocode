@@ -1,3 +1,20 @@
+/*
+ * XREFs of IopBuildAsynchronousFsdRequest @ 0x14036D3F0
+ * Callers:
+ *     IoBuildAsynchronousFsdRequest @ 0x14036D3B0 (IoBuildAsynchronousFsdRequest.c)
+ *     IopBuildSynchronousFsdRequest @ 0x1407F8DE0 (IopBuildSynchronousFsdRequest.c)
+ * Callees:
+ *     IopAllocateMdl @ 0x140241F90 (IopAllocateMdl.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x14027F900 (IoSetDiskIoAttributionFromThread.c)
+ *     PsGetIoPriorityThread @ 0x1402832C0 (PsGetIoPriorityThread.c)
+ *     IoFreeIrp @ 0x14030EC00 (IoFreeIrp.c)
+ *     IopAllocateIrpExReturn @ 0x140312290 (IopAllocateIrpExReturn.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     IopProbeAndLockPages @ 0x14036D5D4 (IopProbeAndLockPages.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall IopBuildAsynchronousFsdRequest(
         unsigned int a1,
         __int64 a2,

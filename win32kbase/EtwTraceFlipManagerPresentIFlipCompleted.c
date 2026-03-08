@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceFlipManagerPresentIFlipCompleted @ 0x1C0162E30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0qxtt_EtwWriteTransfer @ 0x1C01676CC (McTemplateK0qxtt_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall EtwTraceFlipManagerPresentIFlipCompleted(int a1, int a2, int a3, char a4)
 {
   __int64 result; // rax

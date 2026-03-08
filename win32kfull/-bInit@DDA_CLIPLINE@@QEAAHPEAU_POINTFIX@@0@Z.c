@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bInit@DDA_CLIPLINE@@QEAAHPEAU_POINTFIX@@0@Z @ 0x1C0307990
+ * Callers:
+ *     ?bEnumStartLine@XCLIPOBJ@@QEAAHK@Z @ 0x1C02F56CC (-bEnumStartLine@XCLIPOBJ@@QEAAHK@Z.c)
+ *     ?vUpdateCosmeticStyleState@EPATHOBJ@@QEAAXPEAVSURFACE@@PEBU_LINEATTRS@@@Z @ 0x1C02F62A0 (-vUpdateCosmeticStyleState@EPATHOBJ@@QEAAXPEAVSURFACE@@PEBU_LINEATTRS@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DDA_CLIPLINE::bInit(DDA_CLIPLINE *this, struct _POINTFIX *a2, struct _POINTFIX *a3)
 {
   int v3; // edi

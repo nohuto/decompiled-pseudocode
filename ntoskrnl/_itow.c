@@ -1,3 +1,11 @@
+/*
+ * XREFs of _itow @ 0x1403D3890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xtow @ 0x1403D38E4 (xtow.c)
+ */
+
 wchar_t *__cdecl itow(int Value, wchar_t *Dest, int Radix)
 {
   _BOOL8 v3; // r9

@@ -1,3 +1,14 @@
+/*
+ * XREFs of WmipProcessLegacyEtwRegister @ 0x14084DA68
+ * Callers:
+ *     WmipLegacyEtwWorker @ 0x14084D950 (WmipLegacyEtwWorker.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     EtwUnregister @ 0x14076F9E0 (EtwUnregister.c)
+ *     EtwRegisterClassicProvider @ 0x140796FC0 (EtwRegisterClassicProvider.c)
+ */
+
 LONG __fastcall WmipProcessLegacyEtwRegister(_QWORD *a1, __int64 a2)
 {
   __int64 v4; // rbp

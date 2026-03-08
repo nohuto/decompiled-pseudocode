@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalGetScatterGatherList @ 0x1403CB200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpDmaGetAdapterVersion @ 0x1403B4514 (HalpDmaGetAdapterVersion.c)
+ *     HalBuildScatterGatherListV2 @ 0x1403C7C60 (HalBuildScatterGatherListV2.c)
+ *     HalpBuildScatterGatherList @ 0x14050D490 (HalpBuildScatterGatherList.c)
+ */
+
 NTSTATUS __stdcall HalGetScatterGatherList(
         PADAPTER_OBJECT DmaAdapter,
         PDEVICE_OBJECT DeviceObject,

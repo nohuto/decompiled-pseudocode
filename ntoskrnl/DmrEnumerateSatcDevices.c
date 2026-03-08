@@ -1,3 +1,13 @@
+/*
+ * XREFs of DmrEnumerateSatcDevices @ 0x14037BC00
+ * Callers:
+ *     HalpIvtProcessDmarTable @ 0x14037BB68 (HalpIvtProcessDmarTable.c)
+ * Callees:
+ *     DmrGetNextRemappingStructure @ 0x14037BFAC (DmrGetNextRemappingStructure.c)
+ *     DmrGetNextDeviceScope @ 0x14037C0D0 (DmrGetNextDeviceScope.c)
+ *     ExtEnvAllocateMemory @ 0x14037C828 (ExtEnvAllocateMemory.c)
+ */
+
 __int64 __fastcall DmrEnumerateSatcDevices(__int64 a1, __int64 a2)
 {
   unsigned int v3; // ebx

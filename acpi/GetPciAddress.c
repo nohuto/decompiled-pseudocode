@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetPciAddress @ 0x1C0034D48
+ * Callers:
+ *     GetPciAddressWorker @ 0x1C0034E00 (GetPciAddressWorker.c)
+ *     PciConfigSpaceHandlerWorker @ 0x1C0036080 (PciConfigSpaceHandlerWorker.c)
+ * Callees:
+ *     GetPciAddressWorker @ 0x1C0034E00 (GetPciAddressWorker.c)
+ */
+
 __int64 __fastcall GetPciAddress(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   __int64 Pool2; // rax

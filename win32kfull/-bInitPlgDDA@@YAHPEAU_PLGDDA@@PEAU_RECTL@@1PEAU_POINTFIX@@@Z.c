@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z @ 0x1C02FFF14
+ * Callers:
+ *     EngPlgBlt @ 0x1C0292140 (EngPlgBlt.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?bSubOverflow@@YAHJJ@Z @ 0x1C014D8F6 (-bSubOverflow@@YAHJJ@Z.c)
+ *     ?bSubOverflow@@YAH_J0@Z @ 0x1C0151E8E (-bSubOverflow@@YAH_J0@Z.c)
+ *     QDIV @ 0x1C02FFE00 (QDIV.c)
+ *     ROT_DIV @ 0x1C02FFE68 (ROT_DIV.c)
+ *     ?bAddOverflow@@YAH_J0@Z @ 0x1C02FFEC8 (-bAddOverflow@@YAH_J0@Z.c)
+ *     ?bMulOverflow@@YAH_J0@Z @ 0x1C0301234 (-bMulOverflow@@YAH_J0@Z.c)
+ *     bScalePlgDDALToPlgDDA @ 0x1C03012BC (bScalePlgDDALToPlgDDA.c)
+ */
+
 __int64 __fastcall bInitPlgDDA(struct _PLGDDA *a1, struct _RECTL *a2, struct _RECTL *a3, struct _POINTFIX *a4)
 {
   unsigned int v7; // ebx

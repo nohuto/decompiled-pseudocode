@@ -1,3 +1,29 @@
+/*
+ * XREFs of ExpWatchProductTypeInitialization @ 0x140B64AFC
+ * Callers:
+ *     ExInitSystemPhase2 @ 0x140B64A84 (ExInitSystemPhase2.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcsncmp @ 0x1403D5ED0 (wcsncmp.c)
+ *     wcscat_s @ 0x1403DA170 (wcscat_s.c)
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     NtNotifyChangeKey @ 0x1406B4D70 (NtNotifyChangeKey.c)
+ *     NtQueryKey @ 0x1406E6630 (NtQueryKey.c)
+ *     NtQueryValueKey @ 0x1406E6C50 (NtQueryValueKey.c)
+ *     NtOpenKey @ 0x140758B00 (NtOpenKey.c)
+ *     NtEnumerateKey @ 0x1407AC4B0 (NtEnumerateKey.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExpGetNtProductTypeFromLicenseValue @ 0x14084AD48 (ExpGetNtProductTypeFromLicenseValue.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     ExpLicenseWatchInitWorker @ 0x140B64F94 (ExpLicenseWatchInitWorker.c)
+ *     ExpUpdateProductSuiteTypeInRegistry @ 0x140B6505C (ExpUpdateProductSuiteTypeInRegistry.c)
+ */
+
 char ExpWatchProductTypeInitialization()
 {
   __int64 v0; // rcx

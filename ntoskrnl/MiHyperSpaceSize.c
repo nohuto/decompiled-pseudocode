@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiHyperSpaceSize @ 0x140222C78
+ * Callers:
+ *     MiSystemFault @ 0x1402220A0 (MiSystemFault.c)
+ *     MiInitializeWalkBounds @ 0x1402243DC (MiInitializeWalkBounds.c)
+ *     MiQueryLeafPte @ 0x14031D370 (MiQueryLeafPte.c)
+ *     MiRealVaToFlushType @ 0x140387A7C (MiRealVaToFlushType.c)
+ *     MiStealPage @ 0x1403B70BC (MiStealPage.c)
+ *     MiDeleteVadBitmap @ 0x1407266B4 (MiDeleteVadBitmap.c)
+ *     MiAssignTopLevelRanges @ 0x140B604AC (MiAssignTopLevelRanges.c)
+ *     MiAddSubRegionEntropy @ 0x140B609A8 (MiAddSubRegionEntropy.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 MiHyperSpaceSize()
 {
   __int64 result; // rax

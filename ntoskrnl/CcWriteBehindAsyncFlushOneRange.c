@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcWriteBehindAsyncFlushOneRange @ 0x140539380
+ * Callers:
+ *     CcAsyncLazywriteWorkerMulti @ 0x1405387F4 (CcAsyncLazywriteWorkerMulti.c)
+ * Callees:
+ *     CcFlushCacheAcquireRange @ 0x14021A0CC (CcFlushCacheAcquireRange.c)
+ *     CcFlushCacheOneRange @ 0x14021B070 (CcFlushCacheOneRange.c)
+ *     CcFlushCachePostProcessOneRange @ 0x14021B410 (CcFlushCachePostProcessOneRange.c)
+ */
+
 char __fastcall CcWriteBehindAsyncFlushOneRange(__int64 a1)
 {
   __int64 v1; // rax

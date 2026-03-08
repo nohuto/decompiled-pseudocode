@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpInitializeBootTimeStamps @ 0x140B70ED8
+ * Callers:
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ * Callees:
+ *     RtlGetSystemTimePrecise @ 0x140205310 (RtlGetSystemTimePrecise.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KeQueryBootTimeValues @ 0x1402E3FEC (KeQueryBootTimeValues.c)
+ *     RtlGetMultiTimePrecise @ 0x1402F9390 (RtlGetMultiTimePrecise.c)
+ */
+
 LARGE_INTEGER __fastcall EtwpInitializeBootTimeStamps(char a1)
 {
   int v1; // edi

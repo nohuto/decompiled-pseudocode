@@ -1,3 +1,11 @@
+/*
+ * XREFs of NotifyExternalTranslationInterfaceChange @ 0x1C0084460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DeleteExternalTranslatorInterface @ 0x1C00841EC (DeleteExternalTranslatorInterface.c)
+ */
+
 __int64 __fastcall NotifyExternalTranslationInterfaceChange(char *NotificationStructure, PVOID Context)
 {
   __int64 v2; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDevice@CDDASwapChain@@UEBAPEAVCD3DDevice@@XZ @ 0x18029FBC8
+ * Callers:
+ *     ?GetDevice@CDDASwapChain@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ @ 0x18011D2F0 (-GetDevice@CDDASwapChain@@$4PPPPPPPM@A@EBAPEAVCD3DDevice@@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 struct CD3DDevice *__fastcall CDDASwapChain::GetDevice(CDDASwapChain *this)
 {
   __int64 v1; // rdx

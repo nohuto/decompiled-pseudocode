@@ -1,3 +1,11 @@
+/*
+ * XREFs of IvtClearPendingFaults @ 0x1403AC79C
+ * Callers:
+ *     IvtEnableInterrupt @ 0x140A8E9E0 (IvtEnableInterrupt.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IvtClearPendingFaults(__int64 a1)
 {
   __int64 v1; // rax

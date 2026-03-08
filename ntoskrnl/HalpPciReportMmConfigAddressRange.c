@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpPciReportMmConfigAddressRange @ 0x140B66ED8
+ * Callers:
+ *     HalpPciInitSystem @ 0x140A8E250 (HalpPciInitSystem.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     ArbDeleteMmConfigRange @ 0x140B66F9C (ArbDeleteMmConfigRange.c)
+ *     ArbInitializeMmConfigRange @ 0x140B670AC (ArbInitializeMmConfigRange.c)
+ */
+
 __int64 HalpPciReportMmConfigAddressRange()
 {
   unsigned int v0; // ebx

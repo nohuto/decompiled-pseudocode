@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?VidSchiSelectContextFromThisPriority@@YAPEAU_VIDSCH_CONTEXT@@PEAU_VIDSCH_NODE@@K_N@Z @ 0x1C0008020
+ * Callers:
+ *     VidSchiSelectContext @ 0x1C0006BC0 (VidSchiSelectContext.c)
+ * Callees:
+ *     VidSchiIsQuantumLeft @ 0x1C0001054 (VidSchiIsQuantumLeft.c)
+ *     McTemplateK0qpiixi_EtwWriteTransfer @ 0x1C003984C (McTemplateK0qpiixi_EtwWriteTransfer.c)
+ */
+
 struct _VIDSCH_CONTEXT *__fastcall VidSchiSelectContextFromThisPriority(
         struct _VIDSCH_NODE *a1,
         unsigned int a2,

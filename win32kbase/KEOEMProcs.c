@@ -1,3 +1,12 @@
+/*
+ * XREFs of KEOEMProcs @ 0x1C00803C4
+ * Callers:
+ *     xxxProcessKeyEvent @ 0x1C007EE00 (xxxProcessKeyEvent.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ?DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z @ 0x1C01E3DAC (-DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z.c)
+ */
+
 char __fastcall KEOEMProcs(struct tagKE *a1)
 {
   __int64 (__fastcall *v1)(struct tagKE *); // rax

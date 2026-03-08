@@ -1,3 +1,12 @@
+/*
+ * XREFs of BgkpTryEnableConsole @ 0x140384818
+ * Callers:
+ *     BgkNotifyDisplayOwnershipChange @ 0x1403A7F10 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkInitialize @ 0x140B99F84 (BgkInitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 BgkpTryEnableConsole()
 {
   __int64 result; // rax

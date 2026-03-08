@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpTraceDmaGuardDevicePolicy @ 0x1408214A4
+ * Callers:
+ *     PipDmgSaveDeviceDmarPolicy @ 0x1408213C0 (PipDmgSaveDeviceDmarPolicy.c)
+ * Callees:
+ *     _tlgWriteAgg @ 0x14035EDD0 (_tlgWriteAgg.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PnpTraceDmaGuardDevicePolicy(__int64 a1, int a2)
 {
   __int64 v2; // r8

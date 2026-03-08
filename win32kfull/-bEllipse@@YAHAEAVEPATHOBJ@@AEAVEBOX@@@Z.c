@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?bEllipse@@YAHAEAVEPATHOBJ@@AEAVEBOX@@@Z @ 0x1C02C7F14
+ * Callers:
+ *     NtGdiCreateEllipticRgn @ 0x1C02AB1E0 (NtGdiCreateEllipticRgn.c)
+ *     NtGdiEllipse @ 0x1C02AF970 (NtGdiEllipse.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z @ 0x1C014D8B8 (-bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z.c)
+ *     ?bPolyBezierTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z @ 0x1C014DF96 (-bPolyBezierTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z.c)
+ */
+
 __int64 __fastcall bEllipse(struct EPATHOBJ *this, struct _POINTL *a2)
 {
   __int64 x; // rcx

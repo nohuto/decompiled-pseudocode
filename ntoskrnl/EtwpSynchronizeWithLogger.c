@@ -1,3 +1,20 @@
+/*
+ * XREFs of EtwpSynchronizeWithLogger @ 0x140749078
+ * Callers:
+ *     EtwpTransitionToRealtime @ 0x1405FD178 (EtwpTransitionToRealtime.c)
+ *     EtwpRealtimeDisconnectConsumer @ 0x14067ED38 (EtwpRealtimeDisconnectConsumer.c)
+ *     EtwpUpdateTrace @ 0x140744D3C (EtwpUpdateTrace.c)
+ *     EtwpFlushTrace @ 0x140748AA8 (EtwpFlushTrace.c)
+ *     EtwpRealtimeConnect @ 0x140748BFC (EtwpRealtimeConnect.c)
+ *     EtwpIncrementTraceFile @ 0x1409E5140 (EtwpIncrementTraceFile.c)
+ * Callees:
+ *     ObGetCurrentIrql @ 0x140205E10 (ObGetCurrentIrql.c)
+ *     KeInsertQueueDpc @ 0x140230290 (KeInsertQueueDpc.c)
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ */
+
 __int64 __fastcall EtwpSynchronizeWithLogger(__int64 a1, unsigned int a2)
 {
   struct _KEVENT *v2; // rsi

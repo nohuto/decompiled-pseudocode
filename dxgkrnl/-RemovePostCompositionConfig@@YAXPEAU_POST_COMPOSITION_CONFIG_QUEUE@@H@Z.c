@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?RemovePostCompositionConfig@@YAXPEAU_POST_COMPOSITION_CONFIG_QUEUE@@H@Z @ 0x1C02BA2B0
+ * Callers:
+ *     ?ClearAllDisplayState@DISPLAY_SOURCE@@QEAAXXZ @ 0x1C01D779C (-ClearAllDisplayState@DISPLAY_SOURCE@@QEAAXXZ.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?GetNextConfigIndex@@YAHH@Z @ 0x1C017648C (-GetNextConfigIndex@@YAHH@Z.c)
+ *     ?GetPreviousConfigIndex@@YAHH@Z @ 0x1C01D78C4 (-GetPreviousConfigIndex@@YAHH@Z.c)
+ */
+
 void __fastcall RemovePostCompositionConfig(struct _POST_COMPOSITION_CONFIG_QUEUE *a1, int a2)
 {
   __int64 v3; // rdi

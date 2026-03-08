@@ -1,3 +1,17 @@
+/*
+ * XREFs of IopCancelWaitCompletionPacket @ 0x1402DEF38
+ * Callers:
+ *     IopCloseWaitCompletionPacket @ 0x1402DEC90 (IopCloseWaitCompletionPacket.c)
+ *     NtCancelWaitCompletionPacket @ 0x1402DEDA0 (NtCancelWaitCompletionPacket.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     ObGetAssociatedWaitObject @ 0x14024F1CC (ObGetAssociatedWaitObject.c)
+ *     KiDeregisterObjectWaitBlock @ 0x1402D33F0 (KiDeregisterObjectWaitBlock.c)
+ *     KeRemoveQueueEntry @ 0x1402DF000 (KeRemoveQueueEntry.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall IopCancelWaitCompletionPacket(PVOID Object, char a2, unsigned __int8 a3)
 {
   void *v3; // r14

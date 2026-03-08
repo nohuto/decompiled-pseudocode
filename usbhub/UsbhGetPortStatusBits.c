@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhGetPortStatusBits @ 0x1C00386E0
+ * Callers:
+ *     UsbhHubSyncSuspendPortEvent @ 0x1C0033EBC (UsbhHubSyncSuspendPortEvent.c)
+ *     UsbhPortResumeTimeout @ 0x1C0038ED0 (UsbhPortResumeTimeout.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall UsbhGetPortStatusBits(__int64 a1, __int64 a2, __int16 *a3, __int64 a4)
 {
   __int16 v4; // r10

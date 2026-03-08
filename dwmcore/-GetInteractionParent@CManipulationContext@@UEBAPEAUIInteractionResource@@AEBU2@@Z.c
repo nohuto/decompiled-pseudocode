@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetInteractionParent@CManipulationContext@@UEBAPEAUIInteractionResource@@AEBU2@@Z @ 0x1801A1060
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 struct IInteractionResource *__fastcall CManipulationContext::GetInteractionParent(
         CManipulationContext *this,
         const struct IInteractionResource *a2)

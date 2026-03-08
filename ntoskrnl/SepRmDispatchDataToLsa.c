@@ -1,3 +1,21 @@
+/*
+ * XREFs of SepRmDispatchDataToLsa @ 0x1402E88D8
+ * Callers:
+ *     SepRmCallLsa @ 0x1402E8690 (SepRmCallLsa.c)
+ *     SepAdtLogAuditRecord @ 0x140397890 (SepAdtLogAuditRecord.c)
+ * Callees:
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwFreeVirtualMemory @ 0x1404126D0 (ZwFreeVirtualMemory.c)
+ *     ZwRequestWaitReplyPort @ 0x140412750 (ZwRequestWaitReplyPort.c)
+ *     ZwRequestPort @ 0x140415390 (ZwRequestPort.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SepAdtCopyToLsaSharedMemory @ 0x1409CED84 (SepAdtCopyToLsaSharedMemory.c)
+ *     SepAuditFailed @ 0x1409CEE50 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepRmDispatchDataToLsa(__int64 a1)
 {
   __int64 v2; // rcx

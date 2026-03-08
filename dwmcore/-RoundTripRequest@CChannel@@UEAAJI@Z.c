@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?RoundTripRequest@CChannel@@UEAAJI@Z @ 0x1800FECD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0CChannelLock@CChannel@@QEAA@PEAV1@@Z @ 0x18004407C (--0CChannelLock@CChannel@@QEAA@PEAV1@@Z.c)
+ *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800441FC (--1CChannelLock@CChannel@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x180044440 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ */
+
 __int64 __fastcall CChannel::RoundTripRequest(CChannel *this, int a2)
 {
   unsigned int v4; // ebx

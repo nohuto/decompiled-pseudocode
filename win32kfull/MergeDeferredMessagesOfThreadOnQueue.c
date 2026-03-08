@@ -1,3 +1,13 @@
+/*
+ * XREFs of MergeDeferredMessagesOfThreadOnQueue @ 0x1C00DBC20
+ * Callers:
+ *     xxxInterSendMsgEx @ 0x1C004A280 (xxxInterSendMsgEx.c)
+ * Callees:
+ *     IsHiddenByInputService @ 0x1C000B0E4 (IsHiddenByInputService.c)
+ *     ?RemoveQMsgFromDeferList@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z @ 0x1C0011C00 (-RemoveQMsgFromDeferList@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qiqdd @ 0x1C0072420 (WPP_RECORDER_AND_TRACE_SF_qiqdd.c)
+ */
+
 void __fastcall MergeDeferredMessagesOfThreadOnQueue(__int64 a1)
 {
   __int64 v2; // rdi

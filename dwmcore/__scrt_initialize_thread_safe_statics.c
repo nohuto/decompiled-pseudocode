@@ -1,3 +1,13 @@
+/*
+ * XREFs of __scrt_initialize_thread_safe_statics @ 0x18010ED70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __scrt_initialize_onexit_tables @ 0x18010E788 (__scrt_initialize_onexit_tables.c)
+ *     atexit @ 0x18010E958 (atexit.c)
+ *     __scrt_fastfail @ 0x18010F204 (__scrt_fastfail.c)
+ */
+
 __int64 _scrt_initialize_thread_safe_statics()
 {
   HMODULE ModuleHandleW; // rbx

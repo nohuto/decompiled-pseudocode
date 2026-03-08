@@ -1,3 +1,12 @@
+/*
+ * XREFs of SmcStoreEntryFind @ 0x1409D8838
+ * Callers:
+ *     SmcStoreDelete @ 0x1409D86C8 (SmcStoreDelete.c)
+ *     SmcStoreResize @ 0x1409D8984 (SmcStoreResize.c)
+ * Callees:
+ *     <none>
+ */
+
 _DWORD *__fastcall SmcStoreEntryFind(__int64 a1, int a2, int a3)
 {
   _DWORD *v3; // r9

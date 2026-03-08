@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwSetProcessTelemetryCoverage @ 0x140871478
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ * Callees:
+ *     EtwpCoverageRecordAtHighIrql @ 0x1405FD574 (EtwpCoverageRecordAtHighIrql.c)
+ *     EtwpCoverageRecord @ 0x14078E9DC (EtwpCoverageRecord.c)
+ *     EtwpCoverageEnsureContext @ 0x1408537B4 (EtwpCoverageEnsureContext.c)
+ *     EtwpCoverageEnsureUserModeView @ 0x140871504 (EtwpCoverageEnsureUserModeView.c)
+ *     EtwpCoverageCheckCP @ 0x1409E54C8 (EtwpCoverageCheckCP.c)
+ *     EtwpCoverageReset @ 0x1409E566C (EtwpCoverageReset.c)
+ *     EtwpCoverageResetCP @ 0x1409E5850 (EtwpCoverageResetCP.c)
+ *     EtwpCoverageUserIsAdmin @ 0x1409E5B48 (EtwpCoverageUserIsAdmin.c)
+ */
+
 __int64 __fastcall EtwSetProcessTelemetryCoverage(_KPROCESS *a1, __int64 a2)
 {
   __int64 v3; // rdi

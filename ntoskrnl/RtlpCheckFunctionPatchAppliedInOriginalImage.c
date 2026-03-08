@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x14067892C
+ * Callers:
+ *     RtlHotPatchSynchronizationRequired @ 0x140678714 (RtlHotPatchSynchronizationRequired.c)
+ *     RtlCountRequiredHotPatchAddressTableEntries @ 0x140A73578 (RtlCountRequiredHotPatchAddressTableEntries.c)
+ *     RtlApplyHotPatch @ 0x140AAA600 (RtlApplyHotPatch.c)
+ *     RtlpCheckFunctionPatchApplied @ 0x140AAAAF8 (RtlpCheckFunctionPatchApplied.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpCheckFunctionPatchAppliedInOriginalImage(
         char *a1,
         _BYTE *a2,

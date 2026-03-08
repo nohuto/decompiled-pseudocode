@@ -1,3 +1,11 @@
+/*
+ * XREFs of _GetAsyncKeyState @ 0x1C007FEE0
+ * Callers:
+ *     NtUserGetAsyncKeyState @ 0x1C007FBB0 (NtUserGetAsyncKeyState.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ */
+
 __int16 __fastcall GetAsyncKeyState(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned __int8 v4; // di

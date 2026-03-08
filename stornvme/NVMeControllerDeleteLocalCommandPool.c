@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeControllerDeleteLocalCommandPool @ 0x1C0003484
+ * Callers:
+ *     NVMeHwFindAdapter @ 0x1C0007CD0 (NVMeHwFindAdapter.c)
+ *     NVMeControllerRemove @ 0x1C000E18C (NVMeControllerRemove.c)
+ * Callees:
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ */
+
 void __fastcall NVMeControllerDeleteLocalCommandPool(__int64 a1)
 {
   __int64 v1; // rsi

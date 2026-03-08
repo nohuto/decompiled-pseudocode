@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??$_Emplace_reallocate@AEBQEAVCInteractionTracker@@@?$vector@PEAVCInteractionTracker@@V?$allocator@PEAVCInteractionTracker@@@std@@@std@@QEAAPEAPEAVCInteractionTracker@@QEAPEAV2@AEBQEAV2@@Z @ 0x180232F10
+ * Callers:
+ *     ?RemoveTrackerBindings@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@@Z @ 0x18023532C (-RemoveTrackerBindings@CInteractionTrackerBindingManager@@QEAAXPEAVCInteractionTracker@@@Z.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B9880 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     ?_Change_array@?$vector@PEAVCInteractionTracker@@V?$allocator@PEAVCInteractionTracker@@@std@@@std@@AEAAXQEAPEAVCInteractionTracker@@_K1@Z @ 0x180235F04 (-_Change_array@-$vector@PEAVCInteractionTracker@@V-$allocator@PEAVCInteractionTracker@@@std@@@st.c)
+ */
+
 char *__fastcall std::vector<CInteractionTracker *>::_Emplace_reallocate<CInteractionTracker * const &>(
         const void **a1,
         _BYTE *a2,

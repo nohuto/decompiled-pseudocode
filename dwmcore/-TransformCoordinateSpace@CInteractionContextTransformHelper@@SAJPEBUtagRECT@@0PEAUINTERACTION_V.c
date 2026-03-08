@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TransformCoordinateSpace@CInteractionContextTransformHelper@@SAJPEBUtagRECT@@0PEAUINTERACTION_VELOCITY@@1@Z @ 0x1802B74DC
+ * Callers:
+ *     ?HimetricToScreen@CInteractionContextTransformHelper@@SAXAEBUtagRECT@@0PEAUINTERACTION_UPDATE@@PEAUINTERACTION_VELOCITY@@1121@Z @ 0x1802B7274 (-HimetricToScreen@CInteractionContextTransformHelper@@SAXAEBUtagRECT@@0PEAUINTERACTION_UPDATE@@P.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CInteractionContextTransformHelper::TransformCoordinateSpace(
         const struct tagRECT *a1,
         const struct tagRECT *a2,

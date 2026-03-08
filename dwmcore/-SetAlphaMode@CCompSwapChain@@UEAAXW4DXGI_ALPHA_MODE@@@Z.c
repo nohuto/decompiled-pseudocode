@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetAlphaMode@CCompSwapChain@@UEAAXW4DXGI_ALPHA_MODE@@@Z @ 0x1802A0A20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180004700 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CCompSwapChain::SetAlphaMode(CCompSwapChain *this, unsigned int a2)
 {
   __int64 v4; // rdx

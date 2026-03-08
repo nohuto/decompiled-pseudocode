@@ -1,3 +1,27 @@
+/*
+ * XREFs of HaliAcpiSleep @ 0x140525AD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpAcpiPmRegisterWrite @ 0x1402F76E0 (HalpAcpiPmRegisterWrite.c)
+ *     HalpAcpiPmRegisterRead @ 0x14039CF90 (HalpAcpiPmRegisterRead.c)
+ *     HalpSaveProcessorState @ 0x140412020 (HalpSaveProcessorState.c)
+ *     HalpFlushAndWait @ 0x140412070 (HalpFlushAndWait.c)
+ *     HalpSetupRealModeResume @ 0x1404120A0 (HalpSetupRealModeResume.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalSetEnvironmentVariableEx @ 0x140502A90 (HalSetEnvironmentVariableEx.c)
+ *     HalReturnToFirmware @ 0x140504990 (HalReturnToFirmware.c)
+ *     HalpHvEnterSleepState @ 0x140509A3C (HalpHvEnterSleepState.c)
+ *     HalpCheckWakeupTimeAndAdjust @ 0x140519F14 (HalpCheckWakeupTimeAndAdjust.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpAcpiPostSleep @ 0x140A93580 (HalpAcpiPostSleep.c)
+ *     HalpAcpiPreSleep @ 0x140A93820 (HalpAcpiPreSleep.c)
+ *     HalpCheckLowMemoryPreSleep @ 0x140A93CC8 (HalpCheckLowMemoryPreSleep.c)
+ *     HalpPostSleepMP @ 0x140A93F28 (HalpPostSleepMP.c)
+ *     HalpReenableAcpi @ 0x140A940DC (HalpReenableAcpi.c)
+ *     KeWriteProtectPAT @ 0x140A9CBB0 (KeWriteProtectPAT.c)
+ */
+
 __int64 __fastcall HaliAcpiSleep(
         unsigned int a1,
         __int64 (__fastcall *a2)(__int64),

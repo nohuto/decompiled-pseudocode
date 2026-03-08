@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmCheckRecordAllUtility @ 0x1402340F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PpmPerfRecordUtility @ 0x140233B60 (PpmPerfRecordUtility.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PpmParkRecordNodeStatistics @ 0x1402D3A10 (PpmParkRecordNodeStatistics.c)
+ */
+
 char PpmCheckRecordAllUtility()
 {
   __int64 v0; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CitLastInputUpdate @ 0x1C00B82C0
+ * Callers:
+ *     ?UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z @ 0x1C0080790 (-UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z.c)
+ * Callees:
+ *     ?CitpLastInputUpdate@@YAXGI@Z @ 0x1C00B8348 (-CitpLastInputUpdate@@YAXGI@Z.c)
+ */
+
 void __fastcall CitLastInputUpdate(int a1, unsigned int a2, __int64 a3, char a4)
 {
   int v4; // ecx

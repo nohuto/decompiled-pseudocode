@@ -1,3 +1,13 @@
+/*
+ * XREFs of BgpGxInitializeRectangle @ 0x140383D4C
+ * Callers:
+ *     RaspScanConvert @ 0x1403827F0 (RaspScanConvert.c)
+ *     RaspRectangleCreate @ 0x140383284 (RaspRectangleCreate.c)
+ *     BgpClearScreen @ 0x14066F510 (BgpClearScreen.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall BgpGxInitializeRectangle(int *a1, int a2, __int64 a3, unsigned int a4)
 {
   int v4; // r10d

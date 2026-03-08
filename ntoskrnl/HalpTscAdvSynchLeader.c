@@ -1,3 +1,19 @@
+/*
+ * XREFs of HalpTscAdvSynchLeader @ 0x140387D38
+ * Callers:
+ *     HalpTscSynchronizationWorker @ 0x140387F60 (HalpTscSynchronizationWorker.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     HalpFindTimer @ 0x140377CA8 (HalpFindTimer.c)
+ *     HalpTscAdvSynchCalculateRemoteDeltas @ 0x140388048 (HalpTscAdvSynchCalculateRemoteDeltas.c)
+ *     HalpTscAdvSynchToLeader @ 0x140388164 (HalpTscAdvSynchToLeader.c)
+ *     HalpTscAdvSynchReadTimeStamp @ 0x14038853C (HalpTscAdvSynchReadTimeStamp.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HalpTscAdvSynchToTarget @ 0x140507F18 (HalpTscAdvSynchToTarget.c)
+ *     HalpTscTraceStatus @ 0x1405083E0 (HalpTscTraceStatus.c)
+ */
+
 char __fastcall HalpTscAdvSynchLeader(__int64 a1)
 {
   __int64 Number; // r15

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiGetBaseResidentPageForBugCheck @ 0x14064CC14
+ * Callers:
+ *     MiMirrorRemoveInactivePages @ 0x140625E94 (MiMirrorRemoveInactivePages.c)
+ *     MiGetPagesRemainingInResidentPage @ 0x14064CC94 (MiGetPagesRemainingInResidentPage.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiGetBaseResidentPageForBugCheck(__int64 a1)
 {
   unsigned __int64 v1; // rdx

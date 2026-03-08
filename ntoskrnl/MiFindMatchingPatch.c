@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiFindMatchingPatch @ 0x140A34010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiFindMatchingPatch(__int64 a1, __int64 a2)
 {
   if ( *(_DWORD *)(a2 + 16) )

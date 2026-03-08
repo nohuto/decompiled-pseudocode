@@ -1,3 +1,12 @@
+/*
+ * XREFs of Feature_UseSharedCreateDestroyWindowsHooks__private_ReportDeviceUsage @ 0x1C00DCB6C
+ * Callers:
+ *     ShouldRunShared @ 0x1C003ACA0 (ShouldRunShared.c)
+ * Callees:
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C00DC94C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0155054 (wil_details_FeatureReporting_ReportUsageToService.c)
+ */
+
 void Feature_UseSharedCreateDestroyWindowsHooks__private_ReportDeviceUsage()
 {
   __int64 v0; // [rsp+30h] [rbp+8h]

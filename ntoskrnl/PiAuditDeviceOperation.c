@@ -1,3 +1,20 @@
+/*
+ * XREFs of PiAuditDeviceOperation @ 0x14096C7A8
+ * Callers:
+ *     PiPnpRtlSetObjectProperty @ 0x140686898 (PiPnpRtlSetObjectProperty.c)
+ *     PiAuditDeviceEnableDisableAction @ 0x14096C730 (PiAuditDeviceEnableDisableAction.c)
+ *     PiAuditDeviceEnableDisableRequest @ 0x14096C764 (PiAuditDeviceEnableDisableRequest.c)
+ *     PiAuditDeviceStart @ 0x14096CE1C (PiAuditDeviceStart.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     PnpFindAlternateStringData @ 0x1407811C0 (PnpFindAlternateStringData.c)
+ *     SeAuditPlugAndPlay @ 0x1409C7BA8 (SeAuditPlugAndPlay.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiAuditDeviceOperation(__int64 a1, int a2, char a3)
 {
   void *v4; // r12

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PiLookupInDDBCache @ 0x14079DD70
+ * Callers:
+ *     PpCheckInDriverDatabase @ 0x14079DC60 (PpCheckInDriverDatabase.c)
+ * Callees:
+ *     RtlIsGenericTableEmptyAvl @ 0x140244F30 (RtlIsGenericTableEmptyAvl.c)
+ *     RtlLookupElementGenericTableAvl @ 0x140245A20 (RtlLookupElementGenericTableAvl.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcsrchr @ 0x1403D5F90 (wcsrchr.c)
+ */
+
 __int64 __fastcall PiLookupInDDBCache(__int64 a1, __int64 a2, __int64 a3, _OWORD *a4)
 {
   unsigned int v7; // ebx

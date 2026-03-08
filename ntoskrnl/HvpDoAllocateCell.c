@@ -1,3 +1,26 @@
+/*
+ * XREFs of HvpDoAllocateCell @ 0x1407A6420
+ * Callers:
+ *     HvReallocateCell @ 0x1407A5D90 (HvReallocateCell.c)
+ *     HvAllocateCell @ 0x1407A63A8 (HvAllocateCell.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     HvpAddBin @ 0x14072F9F0 (HvpAddBin.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpDelistFreeCell @ 0x1407A5BF0 (HvpDelistFreeCell.c)
+ *     HvpRemoveFreeCellHint @ 0x1407A6200 (HvpRemoveFreeCellHint.c)
+ *     HvpFindFreeCell @ 0x1407A6710 (HvpFindFreeCell.c)
+ *     HvpGetCellContextMove @ 0x1407A69E8 (HvpGetCellContextMove.c)
+ *     HvpEnlistFreeCell @ 0x1407A6D78 (HvpEnlistFreeCell.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall HvpDoAllocateCell(
         ULONG_PTR BugCheckParameter2,
         unsigned int a2,

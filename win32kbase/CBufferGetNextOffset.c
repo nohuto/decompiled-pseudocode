@@ -1,3 +1,11 @@
+/*
+ * XREFs of CBufferGetNextOffset @ 0x1C00BBE2C
+ * Callers:
+ *     CreateNewEventEntry @ 0x1C00BBBF4 (CreateNewEventEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CBufferGetNextOffset(__int64 *a1, unsigned __int64 a2)
 {
   unsigned __int64 v2; // r9

@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiGetIptInfo @ 0x140397F50
+ * Callers:
+ *     KiInitializeXSave @ 0x140A8CAA0 (KiInitializeXSave.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HviGetIptFeatures @ 0x1406130AC (HviGetIptFeatures.c)
+ *     KiGetCpuVendor @ 0x140A85800 (KiGetCpuVendor.c)
+ */
+
 __int64 __fastcall KiGetIptInfo(_DWORD *a1, _DWORD *a2)
 {
   __int64 result; // rax

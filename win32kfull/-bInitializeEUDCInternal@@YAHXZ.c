@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bInitializeEUDCInternal@@YAHXZ @ 0x1C00B8C30
+ * Callers:
+ *     ?AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00B842C (-AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ * Callees:
+ *     ?vInitializeFontAssocStatus@@YAXXZ @ 0x1C00B7C2C (-vInitializeFontAssocStatus@@YAXXZ.c)
+ *     bAddAllFlEntry @ 0x1C00B8F0C (bAddAllFlEntry.c)
+ */
+
 __int64 bInitializeEUDCInternal(void)
 {
   int v0; // edi

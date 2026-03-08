@@ -1,3 +1,19 @@
+/*
+ * XREFs of RIMInitialize @ 0x1C008B310
+ * Callers:
+ *     Win32kBaseDriverEntry @ 0x1C0320F10 (Win32kBaseDriverEntry.c)
+ * Callees:
+ *     IsMouseIVEnabled @ 0x1C007AFD0 (IsMouseIVEnabled.c)
+ *     ?vInitRIMPnpThreadDelayBugCheckConfig@@YAXXZ @ 0x1C008B164 (-vInitRIMPnpThreadDelayBugCheckConfig@@YAXXZ.c)
+ *     rimLoadImage @ 0x1C008B64C (rimLoadImage.c)
+ *     IsPTPIVEnabled @ 0x1C008B994 (IsPTPIVEnabled.c)
+ *     IsPenIVEnabled @ 0x1C008B9C0 (IsPenIVEnabled.c)
+ *     IsTouchIVEnabled @ 0x1C008B9EC (IsTouchIVEnabled.c)
+ *     IsKeyboardIVEnabled @ 0x1C008BA18 (IsKeyboardIVEnabled.c)
+ *     RIMInitOneCoreEditionData @ 0x1C008BA70 (RIMInitOneCoreEditionData.c)
+ *     rimInitAllHidParseDelayLoads @ 0x1C008BB04 (rimInitAllHidParseDelayLoads.c)
+ */
+
 __int64 RIMInitialize()
 {
   __int64 v0; // rdx

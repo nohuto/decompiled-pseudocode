@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtAllocateLocallyUniqueId @ 0x1407581B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall NtAllocateLocallyUniqueId(unsigned __int64 a1)
 {
   __int64 v1; // rdx

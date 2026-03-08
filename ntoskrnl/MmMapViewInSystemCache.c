@@ -1,3 +1,19 @@
+/*
+ * XREFs of MmMapViewInSystemCache @ 0x140334FD0
+ * Callers:
+ *     CcGetVacbMiss @ 0x140335850 (CcGetVacbMiss.c)
+ * Callees:
+ *     MiGetSystemCacheReverseMap @ 0x140222030 (MiGetSystemCacheReverseMap.c)
+ *     MiOffsetToProtos @ 0x140331B90 (MiOffsetToProtos.c)
+ *     MiAddViewsForSection @ 0x140331DC0 (MiAddViewsForSection.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     MiObtainSystemCacheView @ 0x140335220 (MiObtainSystemCacheView.c)
+ *     MiManageSubsectionView @ 0x140335DC0 (MiManageSubsectionView.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiReadyReservedView @ 0x14062CA80 (MiReadyReservedView.c)
+ *     MiRemoveSystemCacheReferences @ 0x14062CB5C (MiRemoveSystemCacheReferences.c)
+ */
+
 __int64 __fastcall MmMapViewInSystemCache(__int64 a1, unsigned __int64 *a2, unsigned __int64 *a3)
 {
   int v3; // eax

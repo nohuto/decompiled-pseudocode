@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CDwmAppHost@@QEAA@XZ @ 0x140003270
+ * Callers:
+ *     _dynamic_initializer_for__g_dwmAppHost__ @ 0x140001110 (_dynamic_initializer_for__g_dwmAppHost__.c)
+ * Callees:
+ *     <none>
+ */
+
 CDwmAppHost *__fastcall CDwmAppHost::CDwmAppHost(CDwmAppHost *this)
 {
   HANDLE CurrentProcess; // rax

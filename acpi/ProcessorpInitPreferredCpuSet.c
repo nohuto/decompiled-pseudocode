@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcessorpInitPreferredCpuSet @ 0x1C00AC014
+ * Callers:
+ *     ProcessorInitGlobalState @ 0x1C00ABF3C (ProcessorInitGlobalState.c)
+ * Callees:
+ *     <none>
+ */
+
 void ProcessorpInitPreferredCpuSet()
 {
   int v0; // eax

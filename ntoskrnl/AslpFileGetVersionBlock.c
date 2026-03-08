@@ -1,3 +1,22 @@
+/*
+ * XREFs of AslpFileGetVersionBlock @ 0x1407A0528
+ * Callers:
+ *     AslpFileGetVersionAttributes @ 0x1407A0DEC (AslpFileGetVersionAttributes.c)
+ * Callees:
+ *     RtlFileMapFree @ 0x140303F60 (RtlFileMapFree.c)
+ *     RtlVerifyVersionInfo @ 0x140380780 (RtlVerifyVersionInfo.c)
+ *     VerSetConditionMask @ 0x1403911C0 (VerSetConditionMask.c)
+ *     RtlFileMapMapView @ 0x1403ABF40 (RtlFileMapMapView.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslFileMappingEnsure @ 0x1407A12F0 (AslFileMappingEnsure.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     LdrResSearchResource @ 0x1407EACB0 (LdrResSearchResource.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AslpFileGetVersionBlock(_QWORD *a1, _QWORD *a2, __int64 a3)
 {
   __int64 v6; // rcx

@@ -1,3 +1,23 @@
+/*
+ * XREFs of IopCompleteIoRingEntry @ 0x140556F5C
+ * Callers:
+ *     IopIoRingCompleteIrp @ 0x1405570DC (IopIoRingCompleteIrp.c)
+ *     IopIoRingDispatchCancel @ 0x14094630C (IopIoRingDispatchCancel.c)
+ *     IopIoRingDispatchFlush @ 0x1409463CC (IopIoRingDispatchFlush.c)
+ *     IopIoRingDispatchRead @ 0x1409464AC (IopIoRingDispatchRead.c)
+ *     IopIoRingDispatchRegisterBuffers @ 0x140946620 (IopIoRingDispatchRegisterBuffers.c)
+ *     IopIoRingDispatchRegisterFiles @ 0x140946A40 (IopIoRingDispatchRegisterFiles.c)
+ *     IopIoRingDispatchWrite @ 0x140946CF4 (IopIoRingDispatchWrite.c)
+ *     IopProcessIoRingEntry @ 0x140947008 (IopProcessIoRingEntry.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 LONG_PTR __fastcall IopCompleteIoRingEntry(__int64 a1, __int64 a2, _OWORD *a3, KPRIORITY a4)
 {
   int *v4; // r15

@@ -1,3 +1,13 @@
+/*
+ * XREFs of bSpEnableSprites @ 0x1C0018340
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?psoSpCreateSurface@@YAPEAU_SURFOBJ@@PEAU_SPRITESTATE@@KJJH@Z @ 0x1C001867C (-psoSpCreateSurface@@YAPEAU_SURFOBJ@@PEAU_SPRITESTATE@@KJJH@Z.c)
+ *     ?vSpHook@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C0018714 (-vSpHook@@YAXPEAU_SPRITESTATE@@@Z.c)
+ *     ?vStamp@REGION@@QEAAXXZ @ 0x1C010DE80 (-vStamp@REGION@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall bSpEnableSprites(__int64 a1)
 {
   __int64 v2; // rax

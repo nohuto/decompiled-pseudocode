@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?TracePresentStats@CScheduleFrameInfoVolatileData@@QEBAXXZ @ 0x1800512B0
+ * Callers:
+ *     ?GetPresentStatisticsAndAdjustRates@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004E430 (-GetPresentStatisticsAndAdjustRates@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ * Callees:
+ *     McTemplateU0qNR0_EventWriteTransfer @ 0x18012D228 (McTemplateU0qNR0_EventWriteTransfer.c)
+ *     McTemplateU0xxf_EventWriteTransfer @ 0x18012D2A4 (McTemplateU0xxf_EventWriteTransfer.c)
+ */
+
 void __fastcall CScheduleFrameInfoVolatileData::TracePresentStats(
         CScheduleFrameInfoVolatileData *this,
         __int64 a2,

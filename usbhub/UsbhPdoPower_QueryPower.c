@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhPdoPower_QueryPower @ 0x1C0009DE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C002E6BC (WPP_RECORDER_SF_dD.c)
+ */
+
 __int64 __fastcall UsbhPdoPower_QueryPower(__int64 a1, IRP *a2)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // rdi

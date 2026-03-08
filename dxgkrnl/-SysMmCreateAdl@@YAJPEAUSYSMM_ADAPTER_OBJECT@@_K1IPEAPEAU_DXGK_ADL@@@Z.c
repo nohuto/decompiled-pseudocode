@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?SysMmCreateAdl@@YAJPEAUSYSMM_ADAPTER_OBJECT@@_K1IPEAPEAU_DXGK_ADL@@@Z @ 0x1C006F9F0
+ * Callers:
+ *     DxgkAllocateAdlCB @ 0x1C0051F70 (DxgkAllocateAdlCB.c)
+ *     ?PinFrameBufferForSave@DXGADAPTER@@QEAAJI_KIPEAPEAU_MDL@@PEAPEAU_DXGK_ADL@@@Z @ 0x1C02B382C (-PinFrameBufferForSave@DXGADAPTER@@QEAAJI_KIPEAPEAU_MDL@@PEAPEAU_DXGK_ADL@@@Z.c)
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     SmmAllocateAdl @ 0x1C006F3B8 (SmmAllocateAdl.c)
+ *     ?SmmBuildAdl@@YAXPEAUSYSMM_ADAPTER_OBJECT@@PEAUSYSMM_PHYSICAL_OBJECT@@PEAUSYSMM_ADL@@II@Z @ 0x1C006F584 (-SmmBuildAdl@@YAXPEAUSYSMM_ADAPTER_OBJECT@@PEAUSYSMM_PHYSICAL_OBJECT@@PEAUSYSMM_ADL@@II@Z.c)
+ *     SmmDetermineAdlType @ 0x1C006F690 (SmmDetermineAdlType.c)
+ *     SmmSetAdlBaseAddress @ 0x1C006F730 (SmmSetAdlBaseAddress.c)
+ *     SmmSetAdlPageArray @ 0x1C006F814 (SmmSetAdlPageArray.c)
+ *     SmmValidateParameters @ 0x1C006F8CC (SmmValidateParameters.c)
+ */
+
 __int64 __fastcall SysMmCreateAdl(
         struct SYSMM_ADAPTER_OBJECT *a1,
         unsigned __int64 a2,

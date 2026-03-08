@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1FxPkgGeneral@@UEAA@XZ @ 0x1C0084DA4
+ * Callers:
+ *     ??_EFxPkgGeneral@@UEAAPEAXI@Z @ 0x1C0084E10 (--_EFxPkgGeneral@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0002D30 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ */
+
 void __fastcall FxPkgGeneral::~FxPkgGeneral(FxPkgGeneral *this, unsigned int a2)
 {
   _LIST_ENTRY *p_m_FileObjectInfoHeadList; // rbx

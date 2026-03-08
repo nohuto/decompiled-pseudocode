@@ -1,3 +1,11 @@
+/*
+ * XREFs of XmRorOp @ 0x1403957A0
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmStoreResult @ 0x1403B42E8 (XmStoreResult.c)
+ */
+
 __int64 __fastcall XmRorOp(_DWORD *a1)
 {
   int v2; // r10d

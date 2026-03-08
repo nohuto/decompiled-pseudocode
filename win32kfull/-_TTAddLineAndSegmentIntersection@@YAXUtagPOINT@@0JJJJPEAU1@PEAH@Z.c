@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_TTAddLineAndSegmentIntersection@@YAXUtagPOINT@@0JJJJPEAU1@PEAH@Z @ 0x1C025028C
+ * Callers:
+ *     ?_TTIntersectLine@@YAHUtagPOINT@@0PEBUtagTOUCHTARGETINGCONTACT@@PEAU1@2@Z @ 0x1C02504C0 (-_TTIntersectLine@@YAHUtagPOINT@@0PEBUtagTOUCHTARGETINGCONTACT@@PEAU1@2@Z.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?_TTIntersectSegmentAndLine@@YAHUtagPOINT@@000PEAU1@@Z @ 0x1C02505FC (-_TTIntersectSegmentAndLine@@YAHUtagPOINT@@000PEAU1@@Z.c)
+ */
+
 void __fastcall _TTAddLineAndSegmentIntersection(
         struct tagPOINT a1,
         struct tagPOINT a2,

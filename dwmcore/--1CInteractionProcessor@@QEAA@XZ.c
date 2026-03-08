@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??1CInteractionProcessor@@QEAA@XZ @ 0x1800E54AC
+ * Callers:
+ *     ??1CInteraction@@MEAA@XZ @ 0x1800E4A54 (--1CInteraction@@MEAA@XZ.c)
+ *     ??_ECInteractionRoot@@EEAAPEAXI@Z @ 0x1801A0370 (--_ECInteractionRoot@@EEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097680 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ??1InteractionConfigurationGroup@@QEAA@XZ @ 0x1800E5530 (--1InteractionConfigurationGroup@@QEAA@XZ.c)
+ *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x1800EB9F4 (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
+ */
+
 void __fastcall CInteractionProcessor::~CInteractionProcessor(CInteractionProcessor *this)
 {
   InteractionConfigurationGroup::~InteractionConfigurationGroup((CInteractionProcessor *)((char *)this + 648));

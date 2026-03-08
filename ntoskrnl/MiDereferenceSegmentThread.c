@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiDereferenceSegmentThread @ 0x1403A2790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetPriorityThread @ 0x1402261B0 (KeSetPriorityThread.c)
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     MiDeleteEmptySubsections @ 0x14036AC38 (MiDeleteEmptySubsections.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     CcUnmapInactiveViews @ 0x140535E58 (CcUnmapInactiveViews.c)
+ *     MiDeleteCachedSegment @ 0x140621514 (MiDeleteCachedSegment.c)
+ *     MiDeleteControlAreaList @ 0x140622024 (MiDeleteControlAreaList.c)
+ *     MiProcessDeleteOnClose @ 0x1406229CC (MiProcessDeleteOnClose.c)
+ *     MiProcessDereferenceList @ 0x140622C74 (MiProcessDereferenceList.c)
+ *     MiRemoveUnusedSegments @ 0x1406236E4 (MiRemoveUnusedSegments.c)
+ *     MiFreeClonePool @ 0x14066213C (MiFreeClonePool.c)
+ */
+
 void *__fastcall MiDereferenceSegmentThread(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rbx

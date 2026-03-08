@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@CCompositionDistantLightMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00CD010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CCompositionDistantLightMarshaler::Initialize(
         DirectComposition::CCompositionDistantLightMarshaler *this)
 {

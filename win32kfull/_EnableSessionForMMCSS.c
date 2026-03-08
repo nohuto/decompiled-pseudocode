@@ -1,3 +1,12 @@
+/*
+ * XREFs of _EnableSessionForMMCSS @ 0x1C01E4830
+ * Callers:
+ *     NtUserEnableSessionForMMCSS @ 0x1C01D0540 (NtUserEnableSessionForMMCSS.c)
+ * Callees:
+ *     WakeRIT @ 0x1C00DB568 (WakeRIT.c)
+ *     ?ToggleMMCSSForDT@@YAXXZ @ 0x1C01BF9C8 (-ToggleMMCSSForDT@@YAXXZ.c)
+ */
+
 __int64 __fastcall EnableSessionForMMCSS(int a1)
 {
   __int64 v2; // rbx

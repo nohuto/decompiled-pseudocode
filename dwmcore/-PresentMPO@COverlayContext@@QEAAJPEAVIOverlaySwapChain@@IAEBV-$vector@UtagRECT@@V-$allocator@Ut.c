@@ -1,3 +1,23 @@
+/*
+ * XREFs of ?PresentMPO@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@PEAI@Z @ 0x1800C9300
+ * Callers:
+ *     ?Present@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I_N@Z @ 0x1800C9168 (-Present@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV-$vector@UtagRECT@@V-$allocator@UtagR.c)
+ * Callees:
+ *     ??2@YAPEAX_K@Z @ 0x180034790 (--2@YAPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?UpdateHDRMetaData@COverlayContext@@AEAAPEBXXZ @ 0x1800C9638 (-UpdateHDRMetaData@COverlayContext@@AEAAPEBXXZ.c)
+ *     ?DbgSaveOverlayStateInfoBefore@COverlayContext@@AEAAXXZ @ 0x1800C9700 (-DbgSaveOverlayStateInfoBefore@COverlayContext@@AEAAXXZ.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0d_EventWriteTransfer @ 0x18012BD24 (McTemplateU0d_EventWriteTransfer.c)
+ *     McTemplateU0xqqqddddddddddddqqq_EventWriteTransfer @ 0x18012BE7E (McTemplateU0xqqqddddddddddddqqq_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ *     McTemplateU0xxxqqqqnnnqqq_EventWriteTransfer @ 0x1801DC6A8 (McTemplateU0xxxqqqqnnnqqq_EventWriteTransfer.c)
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ */
+
 __int64 __fastcall COverlayContext::PresentMPO(
         COverlayContext *this,
         __int64 a2,

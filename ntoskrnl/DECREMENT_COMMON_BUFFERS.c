@@ -1,3 +1,13 @@
+/*
+ * XREFs of DECREMENT_COMMON_BUFFERS @ 0x140AC132C
+ * Callers:
+ *     VfFreeCommonBuffer @ 0x140AC3280 (VfFreeCommonBuffer.c)
+ *     ViSpecialFreeCommonBuffer @ 0x140AC6FA8 (ViSpecialFreeCommonBuffer.c)
+ * Callees:
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140AC62F4 (ViHalPreprocessOptions.c)
+ */
+
 void __fastcall DECREMENT_COMMON_BUFFERS(__int64 a1)
 {
   signed __int32 v2; // ebx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiInsertCopyExtents @ 0x14063BA1C
+ * Callers:
+ *     MiAllocateEntireImageFileExtents @ 0x140A30264 (MiAllocateEntireImageFileExtents.c)
+ *     MiAllocateFileExtents @ 0x140A303A8 (MiAllocateFileExtents.c)
+ * Callees:
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     MiFormCopyExtents @ 0x14063B1D8 (MiFormCopyExtents.c)
+ *     MiInsertExtentList @ 0x14063BAC8 (MiInsertExtentList.c)
+ *     MiLockFileExtentsExclusive @ 0x140A31480 (MiLockFileExtentsExclusive.c)
+ *     MiUnlockFileExtentsExclusive @ 0x140A314E4 (MiUnlockFileExtentsExclusive.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 unsigned int *__fastcall MiInsertCopyExtents(__int64 a1, _DWORD *a2, signed int a3)
 {
   __int64 v3; // rdi

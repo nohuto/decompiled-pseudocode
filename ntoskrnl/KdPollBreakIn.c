@@ -1,3 +1,14 @@
+/*
+ * XREFs of KdPollBreakIn @ 0x1402C7DA0
+ * Callers:
+ *     KdCheckForDebugBreak @ 0x1402C7D64 (KdCheckForDebugBreak.c)
+ *     KdInitSystem @ 0x140AAE040 (KdInitSystem.c)
+ * Callees:
+ *     KiTryToAcquireSpinLockInstrumented @ 0x140457EEC (KiTryToAcquireSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14056F278 (KiReleaseSpinLockInstrumented.c)
+ */
+
 char KdPollBreakIn()
 {
   char v0; // di

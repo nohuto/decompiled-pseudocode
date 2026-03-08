@@ -1,3 +1,12 @@
+/*
+ * XREFs of LINPSourceFromPointerType @ 0x1C01CD294
+ * Callers:
+ *     rimDoUpdateInputGlobalsWorkItem @ 0x1C01CDFBC (rimDoUpdateInputGlobalsWorkItem.c)
+ *     ?ProcessInput@CHidInput@@EEAAJPEAXKK0@Z @ 0x1C02120C0 (-ProcessInput@CHidInput@@EEAAJPEAXKK0@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall LINPSourceFromPointerType(int a1)
 {
   int v1; // ecx

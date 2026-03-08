@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bPrepareDCForXfer@XFERDCOBJ@@SAHPEAUHDC__@@K@Z @ 0x1C02AA0CC
+ * Callers:
+ *     NtGdiMakeObjectXferable @ 0x1C02AAB30 (NtGdiMakeObjectXferable.c)
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ */
+
 __int64 __fastcall XFERDCOBJ::bPrepareDCForXfer(HDC a1, int a2)
 {
   unsigned int v3; // ebx

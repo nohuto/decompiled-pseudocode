@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhGetMsOsFeatureDescriptor @ 0x1C003360C
+ * Callers:
+ *     UsbhGetMsOsContainerID @ 0x1C0033048 (UsbhGetMsOsContainerID.c)
+ *     UsbhGetMsOsExtendedConfigDesc @ 0x1C0033348 (UsbhGetMsOsExtendedConfigDesc.c)
+ *     UsbhInstallMsOsExtendedProperties @ 0x1C003383C (UsbhInstallMsOsExtendedProperties.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     UsbhSyncSendCommandToDevice @ 0x1C001A250 (UsbhSyncSendCommandToDevice.c)
+ */
+
 __int64 __fastcall UsbhGetMsOsFeatureDescriptor(
         __int64 a1,
         char a2,

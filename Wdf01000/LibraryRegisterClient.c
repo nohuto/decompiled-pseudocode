@@ -1,3 +1,15 @@
+/*
+ * XREFs of LibraryRegisterClient @ 0x1C00176A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ *     RtlStringCchPrintfW @ 0x1C0017868 (RtlStringCchPrintfW.c)
+ *     FxLibraryCommonRegisterClient @ 0x1C002C2B8 (FxLibraryCommonRegisterClient.c)
+ *     LibraryLogEvent @ 0x1C002C8E8 (LibraryLogEvent.c)
+ *     WdfBindClientHelper @ 0x1C0050178 (WdfBindClientHelper.c)
+ */
+
 int __fastcall LibraryRegisterClient(
         _WDF_BIND_INFO *Info,
         _WDF_DRIVER_GLOBALS **WdfDriverGlobals,

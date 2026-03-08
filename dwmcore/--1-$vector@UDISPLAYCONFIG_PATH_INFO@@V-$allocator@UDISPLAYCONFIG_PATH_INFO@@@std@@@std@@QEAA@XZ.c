@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1?$vector@UDISPLAYCONFIG_PATH_INFO@@V?$allocator@UDISPLAYCONFIG_PATH_INFO@@@std@@@std@@QEAA@XZ @ 0x1801FF4C4
+ * Callers:
+ *     CalculateDisplayBlankTime @ 0x1801FF76C (CalculateDisplayBlankTime.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
 void __fastcall std::vector<DISPLAYCONFIG_PATH_INFO>::~vector<DISPLAYCONFIG_PATH_INFO>(__int64 a1)
 {
   void *v2; // rcx

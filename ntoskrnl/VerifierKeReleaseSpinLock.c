@@ -1,3 +1,13 @@
+/*
+ * XREFs of VerifierKeReleaseSpinLock @ 0x140ABD470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     VfKeIrqlTransitionReserveLogEntry @ 0x140ABD5B0 (VfKeIrqlTransitionReserveLogEntry.c)
+ *     VfKeIrqlLogLower @ 0x140AD2C84 (VfKeIrqlLogLower.c)
+ */
+
 __int64 __fastcall VerifierKeReleaseSpinLock(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

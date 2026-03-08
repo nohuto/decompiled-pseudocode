@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpReadRtcStdPCAT @ 0x14051DB40
+ * Callers:
+ *     HalpCmosRangeHandler @ 0x14051DA5C (HalpCmosRangeHandler.c)
+ * Callees:
+ *     HalpAcquireCmosSpinLock @ 0x1402D1A0C (HalpAcquireCmosSpinLock.c)
+ */
+
 __int64 __fastcall HalpReadRtcStdPCAT(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v4; // edi

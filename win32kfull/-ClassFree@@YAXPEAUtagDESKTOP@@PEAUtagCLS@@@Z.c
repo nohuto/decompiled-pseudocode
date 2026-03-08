@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ClassFree@@YAXPEAUtagDESKTOP@@PEAUtagCLS@@@Z @ 0x1C01BF2A8
+ * Callers:
+ *     InternalRegisterClassEx @ 0x1C0030830 (InternalRegisterClassEx.c)
+ *     ReferenceClass @ 0x1C0109410 (ReferenceClass.c)
+ * Callees:
+ *     ??$UserFreeIsolatedType@V?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C01BF140 (--$UserFreeIsolatedType@V-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAXPEAX@Z.c)
+ */
+
 void __fastcall ClassFree(PVOID *a1, PVOID *a2)
 {
   _DWORD *v3; // rdx

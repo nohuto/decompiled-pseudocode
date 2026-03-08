@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetStreamId @ 0x1C0012CFC
+ * Callers:
+ *     BuildReadWriteCommand @ 0x1C0010FC4 (BuildReadWriteCommand.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall GetStreamId(__int64 a1, __int64 a2, int a3)
 {
   __int64 result; // rax

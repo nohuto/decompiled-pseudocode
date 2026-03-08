@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?insert@?$vector_facade@DV?$buffer_impl@D$0DA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@QEAA?AV?$basic_iterator@D@2@V?$basic_iterator@$$CBD@2@_KAEBD@Z @ 0x1800FE400
+ * Callers:
+ *     AppendCustomSamplerShaderBody @ 0x1800FE21C (AppendCustomSamplerShaderBody.c)
+ * Callees:
+ *     ?reserve_region@?$vector_facade@DV?$buffer_impl@D$0DA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAD_K0@Z @ 0x1800FE514 (-reserve_region@-$vector_facade@DV-$buffer_impl@D$0DA@$00Vliberal_expansion_policy@detail@@@deta.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ */
+
 _QWORD *__fastcall detail::vector_facade<char,detail::buffer_impl<char,48,1,detail::liberal_expansion_policy>>::insert(
         _QWORD *a1,
         _QWORD *a2,

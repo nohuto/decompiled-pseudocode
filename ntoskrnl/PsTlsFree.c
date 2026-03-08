@@ -1,3 +1,12 @@
+/*
+ * XREFs of PsTlsFree @ 0x1409B31F0
+ * Callers:
+ *     PspTlsAlloc @ 0x140849A64 (PspTlsAlloc.c)
+ * Callees:
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpFlsFree @ 0x1409BFB98 (RtlpFlsFree.c)
+ */
+
 char __fastcall PsTlsFree(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

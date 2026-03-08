@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpInitializeSystemHive @ 0x140B528D4
+ * Callers:
+ *     CmpInitializePreloadedHives @ 0x140B51BF0 (CmpInitializePreloadedHives.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     CmpCreateHive @ 0x14072C06C (CmpCreateHive.c)
+ *     CmpLinkHiveToMaster @ 0x140731250 (CmpLinkHiveToMaster.c)
+ *     CmpSetupLoggingState @ 0x140818BD0 (CmpSetupLoggingState.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmpInitializeSystemHive(__int64 a1, __int64 a2, __int64 a3)
 {
   _OWORD *Pool2; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExEnterCriticalRegionAndAcquireResourceShared @ 0x1402CCA50
+ * Callers:
+ *     DifExEnterCriticalRegionAndAcquireResourceSharedWrapper @ 0x1405D6360 (DifExEnterCriticalRegionAndAcquireResourceSharedWrapper.c)
+ * Callees:
+ *     ExpAcquireResourceSharedLite @ 0x14025DED0 (ExpAcquireResourceSharedLite.c)
+ *     ExpFastResourceLegacyAcquireShared @ 0x1403C33D4 (ExpFastResourceLegacyAcquireShared.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 PVOID __stdcall ExEnterCriticalRegionAndAcquireResourceShared(PERESOURCE Resource)
 {
   struct _KTHREAD *CurrentThread; // rax

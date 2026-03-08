@@ -1,3 +1,20 @@
+/*
+ * XREFs of SshpSendSessionData @ 0x140879EBC
+ * Callers:
+ *     SshpWnfCallback @ 0x140879A40 (SshpWnfCallback.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1402A4AB8 (SSHSupportReleasePushLockExclusive.c)
+ *     CmpFreeTransientPoolWithTag @ 0x1402A4B0C (CmpFreeTransientPoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SshpQueryBlockerPendingDelete @ 0x1405A08C0 (SshpQueryBlockerPendingDelete.c)
+ *     SshpWriteBlocker @ 0x1405A0960 (SshpWriteBlocker.c)
+ *     SshpDereferenceBlocker @ 0x1407263FC (SshpDereferenceBlocker.c)
+ *     SshpFlushBlockerDataCache @ 0x14099E508 (SshpFlushBlockerDataCache.c)
+ */
+
 void SshpSendSessionData()
 {
   PVOID v0; // rsi

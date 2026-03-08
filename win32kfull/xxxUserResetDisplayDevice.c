@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxUserResetDisplayDevice @ 0x1C01293C0
+ * Callers:
+ *     xxxUpdatePerUserSystemParameters @ 0x1C010AFDC (xxxUpdatePerUserSystemParameters.c)
+ *     PowerOnGdi @ 0x1C0129280 (PowerOnGdi.c)
+ * Callees:
+ *     ?zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z @ 0x1C001DD64 (-zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z.c)
+ *     SetPointer @ 0x1C00219A0 (SetPointer.c)
+ *     xxxRedrawWindow @ 0x1C0050700 (xxxRedrawWindow.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 xxxUserResetDisplayDevice()
 {

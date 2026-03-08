@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepReferenceLuidToIndexEntry @ 0x1402DFF34
+ * Callers:
+ *     SepRefDerefLuidToIndexEntryIfNecessary @ 0x14070BB54 (SepRefDerefLuidToIndexEntryIfNecessary.c)
+ *     SepDuplicateToken @ 0x1407BCF00 (SepDuplicateToken.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SepReferenceLuidToIndexEntry(__int64 a1)
 {
   __int64 result; // rax

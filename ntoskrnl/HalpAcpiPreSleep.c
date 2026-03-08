@@ -1,3 +1,21 @@
+/*
+ * XREFs of HalpAcpiPreSleep @ 0x140A93820
+ * Callers:
+ *     HaliAcpiSleep @ 0x140525AD0 (HaliAcpiSleep.c)
+ * Callees:
+ *     HalpAcpiPmRegisterWrite @ 0x1402F76E0 (HalpAcpiPmRegisterWrite.c)
+ *     HalpAcpiPmRegisterAvailable @ 0x1402F9250 (HalpAcpiPmRegisterAvailable.c)
+ *     HalpAcpiPmRegisterRead @ 0x14039CF90 (HalpAcpiPmRegisterRead.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpTimerGetSavedPerformanceCounter @ 0x1404FC68C (HalpTimerGetSavedPerformanceCounter.c)
+ *     HalpTimerSavePerformanceCounter @ 0x1404FC950 (HalpTimerSavePerformanceCounter.c)
+ *     HalpTimerSwitchStallSource @ 0x1404FCBCC (HalpTimerSwitchStallSource.c)
+ *     HalpSetClockBeforeSleep @ 0x140508B74 (HalpSetClockBeforeSleep.c)
+ *     HalpPreserveNvsArea @ 0x14051A188 (HalpPreserveNvsArea.c)
+ *     KeSynchronizeTimeToQpc @ 0x140568B80 (KeSynchronizeTimeToQpc.c)
+ *     HalpSaveDmaControllerState @ 0x140A922E0 (HalpSaveDmaControllerState.c)
+ */
+
 void *__fastcall HalpAcpiPreSleep(int a1)
 {
   __int16 v1; // bx

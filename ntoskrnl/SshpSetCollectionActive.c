@@ -1,3 +1,18 @@
+/*
+ * XREFs of SshpSetCollectionActive @ 0x1403AA858
+ * Callers:
+ *     PdcPoSleepStudyHelperSetPhaseActive @ 0x14085ACB0 (PdcPoSleepStudyHelperSetPhaseActive.c)
+ *     SshpPowerSettingCallback @ 0x14099F4D0 (SshpPowerSettingCallback.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     SshpStopBlockerAccounting @ 0x1402F1228 (SshpStopBlockerAccounting.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     SSHSupportAcquirePushLockExclusive @ 0x14085ACDC (SSHSupportAcquirePushLockExclusive.c)
+ */
+
 signed __int32 __fastcall SshpSetCollectionActive(ULONG_PTR BugCheckParameter2, char a2)
 {
   unsigned __int64 v4; // r13

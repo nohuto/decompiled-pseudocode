@@ -1,3 +1,15 @@
+/*
+ * XREFs of _OpenDesktop @ 0x1C00BF4B0
+ * Callers:
+ *     NtUserOpenDesktop @ 0x1C00BF250 (NtUserOpenDesktop.c)
+ *     xxxResolveDesktop @ 0x1C00BF660 (xxxResolveDesktop.c)
+ *     xxxResolveDesktopForWOW @ 0x1C01BFDF8 (xxxResolveDesktopForWOW.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     CloseProtectedHandle @ 0x1C0094854 (CloseProtectedHandle.c)
+ *     OpenDesktopCompletion @ 0x1C00C119C (OpenDesktopCompletion.c)
+ */
+
 __int64 __fastcall OpenDesktop(__int64 a1, __int64 a2, __int64 a3, int a4, HANDLE *a5)
 {
   unsigned int v5; // r14d

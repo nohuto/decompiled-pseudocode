@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoDeleteSymbolicLink @ 0x140871290
+ * Callers:
+ *     DifIoDeleteSymbolicLinkWrapper @ 0x1405DC9C0 (DifIoDeleteSymbolicLinkWrapper.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwMakeTemporaryObject @ 0x1404145F0 (ZwMakeTemporaryObject.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1404149D0 (ZwOpenSymbolicLinkObject.c)
+ */
+
 NTSTATUS __stdcall IoDeleteSymbolicLink(PUNICODE_STRING SymbolicLinkName)
 {
   int TemporaryObject; // ebx

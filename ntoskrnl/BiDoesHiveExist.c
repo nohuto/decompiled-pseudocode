@@ -1,3 +1,13 @@
+/*
+ * XREFs of BiDoesHiveExist @ 0x140831414
+ * Callers:
+ *     BiLoadHive @ 0x1408306AC (BiLoadHive.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQueryAttributesFile @ 0x140412AB0 (ZwQueryAttributesFile.c)
+ */
+
 bool __fastcall BiDoesHiveExist(__int64 a1)
 {
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-19h] BYREF

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIFanDeviceControl @ 0x1C00269A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qqss @ 0x1C000A374 (WPP_RECORDER_SF_qqss.c)
+ *     ACPIFanLoop @ 0x1C002759C (ACPIFanLoop.c)
+ *     WPP_RECORDER_SF_qDDqss @ 0x1C00281CC (WPP_RECORDER_SF_qDDqss.c)
+ *     ACPISetDeviceWorker @ 0x1C00474D4 (ACPISetDeviceWorker.c)
+ */
+
 __int64 __fastcall ACPIFanDeviceControl(ULONG_PTR a1, __int64 a2)
 {
   char v2; // bp

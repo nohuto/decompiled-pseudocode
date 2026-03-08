@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtGdiGetFontFileInfo @ 0x1C02D8A30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??0CFixPred@Prediction@@QEAA@XZ @ 0x1C0125A10 (--0CFixPred@Prediction@@QEAA@XZ.c)
+ *     ??1PFFREFOBJ@@QEAA@XZ @ 0x1C0130380 (--1PFFREFOBJ@@QEAA@XZ.c)
+ *     ?GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z @ 0x1C014CD9A (-GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z.c)
+ */
+
 __int64 __fastcall NtGdiGetFontFileInfo(unsigned int a1, unsigned int a2, wchar_t *a3, SIZE_T a4, ULONG64 a5)
 {
   __int64 v7; // rsi

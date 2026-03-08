@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ConfirmFrame@CApplicationChannel@DirectComposition@@UEAAX_K@Z @ 0x1C00A0FE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DirectComposition::CApplicationChannel::ConfirmFrame(
         DirectComposition::CApplicationChannel *this,
         __int64 a2)

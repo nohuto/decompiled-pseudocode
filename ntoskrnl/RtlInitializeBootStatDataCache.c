@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlInitializeBootStatDataCache @ 0x1403A4724
+ * Callers:
+ *     RtlLockBootStatusData @ 0x14073DD00 (RtlLockBootStatusData.c)
+ * Callees:
+ *     ZwReadFile @ 0x1404123D0 (ZwReadFile.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 RtlInitializeBootStatDataCache()
 {
   NTSTATUS v0; // edx

@@ -1,3 +1,27 @@
+/*
+ * XREFs of UserKSTInitialize @ 0x1C009A090
+ * Callers:
+ *     NtKSTInitialize @ 0x1C0099E30 (NtKSTInitialize.c)
+ * Callees:
+ *     ?Read@CBaseInput@@QEAAJXZ @ 0x1C0039080 (-Read@CBaseInput@@QEAAJXZ.c)
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KSTIOCPDispatcher_Destroy @ 0x1C00954B0 (KSTIOCPDispatcher_Destroy.c)
+ *     ?CreateInstance@IOCPDispatcher@@SAJPEAPEAV1@@Z @ 0x1C0096578 (-CreateInstance@IOCPDispatcher@@SAJPEAPEAV1@@Z.c)
+ *     ?DestroyEventHandles@CKernelSensorThread@@QEAAXXZ @ 0x1C0099B84 (-DestroyEventHandles@CKernelSensorThread@@QEAAXXZ.c)
+ *     ?RegisterThreadDispatcherObjectWithCallback@IOCPDispatcher@@QEAAXPEAXP6AX0@Z0@Z @ 0x1C009A310 (-RegisterThreadDispatcherObjectWithCallback@IOCPDispatcher@@QEAAXPEAXP6AX0@Z0@Z.c)
+ *     ?RegisterThreadDispatcherObject@IOCPDispatcher@@QEAAXPEAX@Z @ 0x1C009A3A0 (-RegisterThreadDispatcherObject@IOCPDispatcher@@QEAAXPEAX@Z.c)
+ *     ActivateKSTInputProcessingHelper @ 0x1C009A400 (ActivateKSTInputProcessingHelper.c)
+ *     ?InitializeEventHandles@CKernelSensorThread@@QEAAJPEAX0@Z @ 0x1C009A844 (-InitializeEventHandles@CKernelSensorThread@@QEAAJPEAX0@Z.c)
+ *     ?ActivateInputProcessing@CInputThreadBase@@QEAA_NXZ @ 0x1C009ABBC (-ActivateInputProcessing@CInputThreadBase@@QEAA_NXZ.c)
+ *     ?DeclareThreadAsInput@CInputThreadBase@@QEAA_NXZ @ 0x1C009AC60 (-DeclareThreadAsInput@CInputThreadBase@@QEAA_NXZ.c)
+ *     ?HandleTSRequest@CBaseInput@@QEAAXW4InputTSRequest@@@Z @ 0x1C009AFA0 (-HandleTSRequest@CBaseInput@@QEAAXW4InputTSRequest@@@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall UserKSTInitialize(void *a1, void *a2)
 {
   void *v2; // rsi

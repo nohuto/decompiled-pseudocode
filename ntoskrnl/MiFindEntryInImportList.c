@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiFindEntryInImportList @ 0x140A28344
+ * Callers:
+ *     MiActOnPatchInAllSessions @ 0x140A31950 (MiActOnPatchInAllSessions.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x140A323A8 (MiApplyHotPatchToLoadedDriver.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiFindEntryInImportList(unsigned __int64 a1, __int64 a2)
 {
   unsigned int v4; // eax

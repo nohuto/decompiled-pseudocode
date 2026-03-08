@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?BltLnkReadPat4@@YAXPEAEKPEBEKKKK@Z @ 0x1C0306A40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 void __fastcall BltLnkReadPat4(
         unsigned __int8 *a1,
         char a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Initialize@InkProcessor@@SAJXZ @ 0x1C00F8078
+ * Callers:
+ *     RawInputThread @ 0x1C007A0C0 (RawInputThread.c)
+ * Callees:
+ *     ??0InkProcessor@@AEAA@XZ @ 0x1C00F8120 (--0InkProcessor@@AEAA@XZ.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F8FF0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall InkProcessor::Initialize(__int64 a1)
 {
   unsigned int v1; // ebx

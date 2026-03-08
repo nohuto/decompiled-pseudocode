@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpSetRvaListRvaStateBits @ 0x14077E5C8
+ * Callers:
+ *     RtlpCompressRvaList @ 0x1406A6210 (RtlpCompressRvaList.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall RtlpSetRvaListRvaStateBits(__int64 a1, int a2, signed __int32 a3)
 {
   unsigned int v3; // r9d

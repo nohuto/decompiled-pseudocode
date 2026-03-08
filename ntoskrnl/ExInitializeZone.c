@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExInitializeZone @ 0x140609CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall ExInitializeZone(PZONE_HEADER Zone, ULONG BlockSize, PVOID InitialSegment, ULONG InitialSegmentSize)
 {
   struct _SINGLE_LIST_ENTRY *v5; // r10

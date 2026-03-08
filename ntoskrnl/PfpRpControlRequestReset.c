@@ -1,3 +1,13 @@
+/*
+ * XREFs of PfpRpControlRequestReset @ 0x14084C784
+ * Callers:
+ *     PfpRpControlRequestPerform @ 0x1407DFC34 (PfpRpControlRequestPerform.c)
+ *     PfpRpShutdown @ 0x14097C464 (PfpRpShutdown.c)
+ * Callees:
+ *     PsGetNextProcess @ 0x1406AA530 (PsGetNextProcess.c)
+ *     PfpRpCHashEmpty @ 0x14084C7DC (PfpRpCHashEmpty.c)
+ */
+
 __int64 __fastcall PfpRpControlRequestReset(__int64 a1)
 {
   __int64 *i; // rcx

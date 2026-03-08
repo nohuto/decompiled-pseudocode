@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlFindLowerBoundInSortedArray @ 0x1407AF6D0
+ * Callers:
+ *     CmpFindSecurityCellCacheIndex @ 0x14030DD50 (CmpFindSecurityCellCacheIndex.c)
+ *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x140782330 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 unsigned __int64 __fastcall RtlFindLowerBoundInSortedArray(
         __int64 a1,
         unsigned __int64 a2,

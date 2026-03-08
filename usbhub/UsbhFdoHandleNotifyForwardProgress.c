@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhFdoHandleNotifyForwardProgress @ 0x1C0030664
+ * Callers:
+ *     UsbhPdoInternalDeviceControl @ 0x1C0015370 (UsbhPdoInternalDeviceControl.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhRefPdoDeviceHandle @ 0x1C0019C20 (UsbhRefPdoDeviceHandle.c)
+ *     UsbhDerefPdoDeviceHandle @ 0x1C0019ED0 (UsbhDerefPdoDeviceHandle.c)
+ *     UsbhDecPdoIoCount @ 0x1C001BC4C (UsbhDecPdoIoCount.c)
+ */
+
 __int64 __fastcall UsbhFdoHandleNotifyForwardProgress(__int64 a1, ULONG_PTR a2, IRP *a3)
 {
   _IO_SECURITY_CONTEXT *SecurityContext; // rdi

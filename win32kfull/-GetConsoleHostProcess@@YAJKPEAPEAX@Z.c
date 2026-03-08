@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetConsoleHostProcess@@YAJKPEAPEAX@Z @ 0x1C01BF7E8
+ * Callers:
+ *     GetConsoleDesktop @ 0x1C01BFCC8 (GetConsoleDesktop.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall GetConsoleHostProcess(int a1, void **a2)
 {
   NTSTATUS v3; // edi

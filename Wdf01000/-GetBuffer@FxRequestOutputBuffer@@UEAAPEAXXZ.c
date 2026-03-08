@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetBuffer@FxRequestOutputBuffer@@UEAAPEAXXZ @ 0x1C000E290
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 PVOID __fastcall FxRequestOutputBuffer::GetBuffer(FxRequestOutputBuffer *this)
 {
   int v1; // eax

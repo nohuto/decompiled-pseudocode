@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIBuildIssueInvalidateRelationsWorker @ 0x1C000D554
+ * Callers:
+ *     ACPIBuildIssueInvalidateRelations @ 0x1C000D510 (ACPIBuildIssueInvalidateRelations.c)
+ *     ACPIBuildIssueInvalidateRelationsWorker @ 0x1C000D554 (ACPIBuildIssueInvalidateRelationsWorker.c)
+ *     ACPITableUnloadCallBack @ 0x1C003F960 (ACPITableUnloadCallBack.c)
+ * Callees:
+ *     ACPIBuildIssueInvalidateRelationsWorker @ 0x1C000D554 (ACPIBuildIssueInvalidateRelationsWorker.c)
+ *     ACPIPendingInvalidate @ 0x1C00145A4 (ACPIPendingInvalidate.c)
+ */
+
 void __fastcall ACPIBuildIssueInvalidateRelationsWorker(__int64 a1)
 {
   __int64 v2; // rcx

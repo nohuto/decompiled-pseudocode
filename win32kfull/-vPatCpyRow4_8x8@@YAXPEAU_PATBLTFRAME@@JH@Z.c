@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vPatCpyRow4_8x8@@YAXPEAU_PATBLTFRAME@@JH@Z @ 0x1C02E8914
+ * Callers:
+ *     ?vBrushPath4_8x8EnumRow@@YAXJPEAU_ROW@@KPEAX@Z @ 0x1C02F8750 (-vBrushPath4_8x8EnumRow@@YAXJPEAU_ROW@@KPEAX@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?vPatternCopyLoopRow@@YAXJPEAKPEAU_PATBLTFRAME@@HKKKKJPEBK@Z @ 0x1C02E9D1C (-vPatternCopyLoopRow@@YAXJPEAKPEAU_PATBLTFRAME@@HKKKKJPEBK@Z.c)
+ */
+
 void __fastcall vPatCpyRow4_8x8(struct _PATBLTFRAME *a1, int a2, int a3)
 {
   int *v4; // r14

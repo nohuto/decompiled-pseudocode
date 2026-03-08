@@ -1,3 +1,19 @@
+/*
+ * XREFs of xxxPrintWindow @ 0x1C01BE184
+ * Callers:
+ *     NtUserPrintWindow @ 0x1C01D98D0 (NtUserPrintWindow.c)
+ * Callees:
+ *     UnsetRedirectedWindow @ 0x1C0022ADC (UnsetRedirectedWindow.c)
+ *     SetRedirectedWindow @ 0x1C002BE1C (SetRedirectedWindow.c)
+ *     GetStyleWindow @ 0x1C0039020 (GetStyleWindow.c)
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     GetRedirectionFlags @ 0x1C0096CD0 (GetRedirectionFlags.c)
+ *     ThreadLockExchangeAlways @ 0x1C00DEE6C (ThreadLockExchangeAlways.c)
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ *     ?xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z @ 0x1C0101FD4 (-xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z.c)
+ *     GreSpDwmSyncCaptureSurfaceBits @ 0x1C026AB80 (GreSpDwmSyncCaptureSurfaceBits.c)
+ */
+
 __int64 __fastcall xxxPrintWindow(struct tagWND *a1, HDC a2, char a3)
 {
   unsigned int v3; // r15d

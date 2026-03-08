@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpGetStackLimitsEx @ 0x1402E6750
+ * Callers:
+ *     RtlDispatchException @ 0x14027FA60 (RtlDispatchException.c)
+ *     RtlUnwindEx @ 0x1402809E0 (RtlUnwindEx.c)
+ * Callees:
+ *     KeQueryCurrentStackInformationEx @ 0x140312A40 (KeQueryCurrentStackInformationEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall RtlpGetStackLimitsEx(
         ULONG_PTR BugCheckParameter1,
         __int64 a2,

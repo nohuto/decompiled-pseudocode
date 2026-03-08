@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ProcessEnvironment@CPTPEngine@@MEAAJXZ @ 0x1C02381A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C0015510 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ?UpdatePTPRightClickZone@CPTPEngine@@AEAAXXZ @ 0x1C023AC90 (-UpdatePTPRightClickZone@CPTPEngine@@AEAAXXZ.c)
+ */
+
 __int64 __fastcall CPTPEngine::ProcessEnvironment(CPTPEngine *this)
 {
   __int64 v2; // r8

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?xxxSetIMEShowStatus@@YAHHHPEAH@Z @ 0x1C00F3FC4
+ * Callers:
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ * Callees:
+ *     ?xxxNotifyImeShowStatus@@YAXPEAUtagWND@@@Z @ 0x1C01B94A8 (-xxxNotifyImeShowStatus@@YAXPEAUtagWND@@@Z.c)
+ *     UpdateWinIniInt @ 0x1C01C9800 (UpdateWinIniInt.c)
+ */
+
 __int64 __fastcall xxxSetIMEShowStatus(__int64 a1, int a2, int *a3)
 {
   unsigned int v5; // edi

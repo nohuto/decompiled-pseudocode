@@ -1,3 +1,20 @@
+/*
+ * XREFs of ACPIFilterIrpRemoveDevice @ 0x1C0028840
+ * Callers:
+ *     ACPIDispatchIrpDepFilterRemoveDevice @ 0x1C00284E0 (ACPIDispatchIrpDepFilterRemoveDevice.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIInitDeleteChildDeviceList @ 0x1C002CC88 (ACPIInitDeleteChildDeviceList.c)
+ *     ACPIInitDereferenceDeviceExtensionUnlocked @ 0x1C002D0C0 (ACPIInitDereferenceDeviceExtensionUnlocked.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C002D594 (ACPIInitReferenceDeviceExtension.c)
+ *     ACPIWakeDisconnectWakeInterrupts @ 0x1C00450BC (ACPIWakeDisconnectWakeInterrupts.c)
+ *     ACPIInitStopDevice @ 0x1C0087AE4 (ACPIInitStopDevice.c)
+ *     AcpiDeletePciBusInterface @ 0x1C008A2A4 (AcpiDeletePciBusInterface.c)
+ *     EnableDisableRegions @ 0x1C008A57C (EnableDisableRegions.c)
+ *     IsPciBusExtension @ 0x1C008A768 (IsPciBusExtension.c)
+ */
+
 __int64 __fastcall ACPIFilterIrpRemoveDevice(ULONG_PTR a1, IRP *a2)
 {
   unsigned __int8 MinorFunction; // r14

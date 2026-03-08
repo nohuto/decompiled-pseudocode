@@ -1,3 +1,11 @@
+/*
+ * XREFs of BgpConsoleDrawCursor @ 0x140AEE928
+ * Callers:
+ *     BgpConsoleSetCursor @ 0x140AEECD0 (BgpConsoleSetCursor.c)
+ * Callees:
+ *     BgpDisplayCharacterEx @ 0x14066F654 (BgpDisplayCharacterEx.c)
+ */
+
 __int64 BgpConsoleDrawCursor()
 {
   unsigned int v0; // eax

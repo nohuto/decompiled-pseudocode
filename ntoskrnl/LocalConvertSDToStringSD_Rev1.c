@@ -1,3 +1,24 @@
+/*
+ * XREFs of LocalConvertSDToStringSD_Rev1 @ 0x14074F708
+ * Callers:
+ *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x1402C0D20 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
+ * Callees:
+ *     RtlGetDaclSecurityDescriptor @ 0x140299320 (RtlGetDaclSecurityDescriptor.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ *     RtlGetSaclSecurityDescriptor @ 0x14071C1D0 (RtlGetSaclSecurityDescriptor.c)
+ *     LocalGetStringForSid @ 0x14074FCB0 (LocalGetStringForSid.c)
+ *     LocalConvertAclToString @ 0x14074FD70 (LocalConvertAclToString.c)
+ *     SddlpAlloc @ 0x1407507C8 (SddlpAlloc.c)
+ *     LocalGetStringForControl @ 0x140750814 (LocalGetStringForControl.c)
+ *     SddlFilterSacl @ 0x140750938 (SddlFilterSacl.c)
+ *     RtlGetControlSecurityDescriptor @ 0x140750B60 (RtlGetControlSecurityDescriptor.c)
+ *     RtlGetOwnerSecurityDescriptor @ 0x140750BE0 (RtlGetOwnerSecurityDescriptor.c)
+ *     RtlGetGroupSecurityDescriptor @ 0x140750C20 (RtlGetGroupSecurityDescriptor.c)
+ *     RtlNtStatusToDosError @ 0x140755BE0 (RtlNtStatusToDosError.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 ULONG __fastcall LocalConvertSDToStringSD_Rev1(
         __int64 a1,
         __int64 a2,

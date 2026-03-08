@@ -1,3 +1,14 @@
+/*
+ * XREFs of VfPtFreePoolNotification @ 0x140ADB73C
+ * Callers:
+ *     ExFreeHeapPool @ 0x1402B61C0 (ExFreeHeapPool.c)
+ *     ExpFreePoolChecks @ 0x140313BA0 (ExpFreePoolChecks.c)
+ * Callees:
+ *     VfRemLockDeleteMemoryRange @ 0x140ABD1C2 (VfRemLockDeleteMemoryRange.c)
+ *     VfDeadlockDeleteMemoryRange @ 0x140ABD6EC (VfDeadlockDeleteMemoryRange.c)
+ *     ViPtLogStackTrace @ 0x140ADC05C (ViPtLogStackTrace.c)
+ */
+
 void __fastcall VfPtFreePoolNotification(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // r11

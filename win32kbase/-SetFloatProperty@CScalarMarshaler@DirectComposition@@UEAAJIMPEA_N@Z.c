@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetFloatProperty@CScalarMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0262020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CScalarMarshaler::SetFloatProperty(
         DirectComposition::CScalarMarshaler *this,
         int a2,

@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiChangePageAttributeBatch @ 0x140211998
+ * Callers:
+ *     MiGetPageChain @ 0x14026E0E0 (MiGetPageChain.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x1402B4650 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiFreeSlabEntry @ 0x1403B33B0 (MiFreeSlabEntry.c)
+ *     MiConvertContiguousPages @ 0x1403B7B48 (MiConvertContiguousPages.c)
+ *     MiSwitchToTransition @ 0x140630D6C (MiSwitchToTransition.c)
+ *     MiChangeAwePageAttributes @ 0x140646E94 (MiChangeAwePageAttributes.c)
+ *     MiPerformFinalZeroing @ 0x14064B6C0 (MiPerformFinalZeroing.c)
+ *     MiFindLargePageMemory @ 0x140A46B08 (MiFindLargePageMemory.c)
+ * Callees:
+ *     MiAbortCombineScan @ 0x14021467C (MiAbortCombineScan.c)
+ *     MiFlushCacheForAttributeChange @ 0x140214754 (MiFlushCacheForAttributeChange.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     KeInvalidateAllCaches @ 0x1403010D0 (KeInvalidateAllCaches.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036D020 (MiFlushEntireTbDueToAttributeChange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiChangePageAttributeBatch(__int64 a1, unsigned int a2, __int64 a3)
 {
   unsigned int v4; // r13d

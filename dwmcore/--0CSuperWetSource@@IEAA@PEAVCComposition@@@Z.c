@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CSuperWetSource@@IEAA@PEAVCComposition@@@Z @ 0x18022B0A0
+ * Callers:
+ *     ??0CGenericInk@@QEAA@PEAVCComposition@@@Z @ 0x1801BD8D4 (--0CGenericInk@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CSynchronousSuperWetInk@@QEAA@PEAVCComposition@@@Z @ 0x18024FA68 (--0CSynchronousSuperWetInk@@QEAA@PEAVCComposition@@@Z.c)
+ * Callees:
+ *     ??0CContent@@IEAA@PEAVCComposition@@@Z @ 0x1800B8F68 (--0CContent@@IEAA@PEAVCComposition@@@Z.c)
+ */
+
 CSuperWetSource *__fastcall CSuperWetSource::CSuperWetSource(CSuperWetSource *this, struct CComposition *a2)
 {
   __int64 v2; // r9

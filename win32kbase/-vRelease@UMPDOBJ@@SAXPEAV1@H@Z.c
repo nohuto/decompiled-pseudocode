@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vRelease@UMPDOBJ@@SAXPEAV1@H@Z @ 0x1C018C630
+ * Callers:
+ *     ?vUMPDThreadCleanup@@YAXPEAU_W32THREAD@@@Z @ 0x1C0042308 (-vUMPDThreadCleanup@@YAXPEAU_W32THREAD@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ??1UMPDREF@@QEAA@XZ @ 0x1C018C5B0 (--1UMPDREF@@QEAA@XZ.c)
+ */
+
 void __fastcall UMPDOBJ::vRelease(struct UMPDOBJ *a1, int a2)
 {
   __int64 v4; // rdx

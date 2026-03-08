@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_lambda_invoker_cdecl_@_lambda_a8e7baa2fca040c17c3e795f3590cb07_@@CA@XZ @ 0x180197AA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 int _lambda_a8e7baa2fca040c17c3e795f3590cb07_::_lambda_invoker_cdecl_(void)
 {
   int result; // eax

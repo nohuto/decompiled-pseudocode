@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiMayStealStandbyThread @ 0x1402ADAD0
+ * Callers:
+ *     KiSearchForNewThreadOnProcessor @ 0x1402AC810 (KiSearchForNewThreadOnProcessor.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall KiMayStealStandbyThread(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

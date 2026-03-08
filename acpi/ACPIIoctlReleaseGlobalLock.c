@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIIoctlReleaseGlobalLock @ 0x1C0031418
+ * Callers:
+ *     ACPIIrpDispatchDeviceControl @ 0x1C0001290 (ACPIIrpDispatchDeviceControl.c)
+ * Callees:
+ *     ACPIReleaseGlobalLock @ 0x1C003937C (ACPIReleaseGlobalLock.c)
+ */
+
 __int64 __fastcall ACPIIoctlReleaseGlobalLock(__int64 a1, IRP *a2, __int64 a3)
 {
   unsigned int v3; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtValidateCompositionSurfaceHandle @ 0x1C000D770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ResolveHandle@DxgkCompositionObject@@SAJPEAXKDW4DxgkCompositionObjectType@@PEAPEAV1@@Z @ 0x1C000D828 (-ResolveHandle@DxgkCompositionObject@@SAJPEAXKDW4DxgkCompositionObjectType@@PEAPEAV1@@Z.c)
+ */
+
 __int64 __fastcall NtValidateCompositionSurfaceHandle(__int64 a1, _QWORD *a2, __int64 a3)
 {
   int v4; // ebx

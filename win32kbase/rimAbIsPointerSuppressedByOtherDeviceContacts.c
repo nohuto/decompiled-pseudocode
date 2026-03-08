@@ -1,3 +1,20 @@
+/*
+ * XREFs of rimAbIsPointerSuppressedByOtherDeviceContacts @ 0x1C01A8B98
+ * Callers:
+ *     rimAbIsPointerSuppressedByOtherActiveDevicesContacts @ 0x1C01A8AF4 (rimAbIsPointerSuppressedByOtherActiveDevicesContacts.c)
+ *     rimAbSuppressLowerRankActivityForFrame @ 0x1C01A93A0 (rimAbSuppressLowerRankActivityForFrame.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMGetPointerInputType @ 0x1C00EFC04 (RIMGetPointerInputType.c)
+ *     RIMCmActiveContactsEnd @ 0x1C00F1A04 (RIMCmActiveContactsEnd.c)
+ *     RIMCmIsContactSuppressed @ 0x1C00F1A7A (RIMCmIsContactSuppressed.c)
+ *     RIMCmIsContactSuppressedByArbitrationOnly @ 0x1C00F1ACC (RIMCmIsContactSuppressedByArbitrationOnly.c)
+ *     rimAbIsPointerSuppressedByPointer @ 0x1C01A8E34 (rimAbIsPointerSuppressedByPointer.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dDdddDdd @ 0x1C01AB218 (WPP_RECORDER_AND_TRACE_SF_dDdddDdd.c)
+ *     RIMCmActiveContactsBeginNoButton @ 0x1C01DE028 (RIMCmActiveContactsBeginNoButton.c)
+ *     RIMCmActiveContactsNext @ 0x1C01DE0AC (RIMCmActiveContactsNext.c)
+ */
+
 __int64 __fastcall rimAbIsPointerSuppressedByOtherDeviceContacts(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // r12d

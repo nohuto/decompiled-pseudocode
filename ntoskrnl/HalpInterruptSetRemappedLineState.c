@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpInterruptSetRemappedLineState @ 0x140502790
+ * Callers:
+ *     HalpTimerInitializeHypervisorTimer @ 0x1403B13E0 (HalpTimerInitializeHypervisorTimer.c)
+ * Callees:
+ *     HalpInterruptLookupController @ 0x14028EEE0 (HalpInterruptLookupController.c)
+ *     HalpInterruptSetRemappedLineStateInternal @ 0x140379248 (HalpInterruptSetRemappedLineStateInternal.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ */
+
 __int64 __fastcall HalpInterruptSetRemappedLineState(int *a1)
 {
   ULONG_PTR *v1; // rax

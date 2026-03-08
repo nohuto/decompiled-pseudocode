@@ -1,3 +1,35 @@
+/*
+ * XREFs of HmgSetOwner @ 0x1C00522C0
+ * Callers:
+ *     ?vGlobal@BRUSHMEMOBJ@@QEAAXXZ @ 0x1C001D0B4 (-vGlobal@BRUSHMEMOBJ@@QEAAXXZ.c)
+ *     GreMakeBitmapNonStock @ 0x1C001D190 (GreMakeBitmapNonStock.c)
+ *     GreSetBitmapOwnerEx @ 0x1C001D614 (GreSetBitmapOwnerEx.c)
+ *     CreateEmptyRgnPublic @ 0x1C0041F30 (CreateEmptyRgnPublic.c)
+ *     SetOrCreateRectRgnIndirectPublic @ 0x1C00517A0 (SetOrCreateRectRgnIndirectPublic.c)
+ *     GreSetRegionOwner @ 0x1C0052260 (GreSetRegionOwner.c)
+ *     ?GreCreateBitmapInternal@@YAPEAUHBITMAP__@@HHIIAEAV?$umptr_r@E@@@Z @ 0x1C00577F0 (-GreCreateBitmapInternal@@YAPEAUHBITMAP__@@HHIIAEAV-$umptr_r@E@@@Z.c)
+ *     ?MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z @ 0x1C006D528 (-MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z.c)
+ *     GreSetBitmapOwner @ 0x1C00A5460 (GreSetBitmapOwner.c)
+ *     CleanupGDI @ 0x1C00B57A0 (CleanupGDI.c)
+ *     GreSetPaletteOwner @ 0x1C0199D60 (GreSetPaletteOwner.c)
+ *     bInitICM @ 0x1C031D1E8 (bInitICM.c)
+ *     bInitPALOBJ @ 0x1C031DE4C (bInitPALOBJ.c)
+ *     bInitBMOBJ @ 0x1C031FEE0 (bInitBMOBJ.c)
+ * Callees:
+ *     GreReleaseHmgrSemaphore @ 0x1C0049700 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C0049780 (GreAcquireHmgrSemaphore.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C004A440 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C004A680 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     ?pObj@HANDLELOCK@@QEAAPEAVOBJECT@@XZ @ 0x1C004B3B0 (-pObj@HANDLELOCK@@QEAAPEAVOBJECT@@XZ.c)
+ *     ??1HANDLELOCK@@QEAA@XZ @ 0x1C004B670 (--1HANDLELOCK@@QEAA@XZ.c)
+ *     W32GetCurrentThread @ 0x1C004DBF0 (W32GetCurrentThread.c)
+ *     HmgDecProcessHandleCount @ 0x1C004FDA0 (HmgDecProcessHandleCount.c)
+ *     HmgIncProcessHandleCountEx @ 0x1C004FEB0 (HmgIncProcessHandleCountEx.c)
+ *     ?Pid@HANDLELOCK@@QEAAXK@Z @ 0x1C005162C (-Pid@HANDLELOCK@@QEAAXK@Z.c)
+ *     Feature_1626422585__private_IsEnabledDeviceUsage @ 0x1C00DDF7C (Feature_1626422585__private_IsEnabledDeviceUsage.c)
+ *     HmgIsGarbageCollectibleType @ 0x1C0185FA4 (HmgIsGarbageCollectibleType.c)
+ */
+
 __int64 __fastcall HmgSetOwner(__int64 a1, int a2, char a3)
 {
   unsigned __int64 v4; // rdi

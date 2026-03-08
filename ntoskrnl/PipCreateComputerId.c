@@ -1,3 +1,19 @@
+/*
+ * XREFs of PipCreateComputerId @ 0x140B56980
+ * Callers:
+ *     PipInitComputerIds @ 0x140B552F0 (PipInitComputerIds.c)
+ * Callees:
+ *     RtlStringCbPrintfExW @ 0x1402986C0 (RtlStringCbPrintfExW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     _PnpStringFromGuid @ 0x1406881E8 (_PnpStringFromGuid.c)
+ *     RtlGenerateClass5Guid @ 0x14081B430 (RtlGenerateClass5Guid.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PipCreateComputerId(void *a1, void *a2, unsigned __int16 **a3, unsigned int a4, int *a5)
 {
   unsigned int v5; // ebp

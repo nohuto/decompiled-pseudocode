@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Lock@FxCallbackSpinLock@@UEAAXPEAE@Z @ 0x1C0039470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_IFR_SF_q @ 0x1C0018194 (WPP_IFR_SF_q.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0045B6C (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ?Lock@FxVerifierLock@@QEAAXPEAEE@Z @ 0x1C0046CA0 (-Lock@FxVerifierLock@@QEAAXPEAEE@Z.c)
+ */
+
 void __fastcall FxCallbackSpinLock::Lock(FxCallbackSpinLock *this, unsigned __int8 *PreviousIrql, unsigned __int8 a3)
 {
   _KTHREAD *CurrentThread; // rbx

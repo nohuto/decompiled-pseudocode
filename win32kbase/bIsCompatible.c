@@ -1,3 +1,11 @@
+/*
+ * XREFs of bIsCompatible @ 0x1C009E210
+ * Callers:
+ *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C0044400 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bIsCompatible(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, int a5)
 {
   unsigned int v5; // r10d

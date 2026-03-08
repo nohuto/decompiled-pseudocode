@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiFreeCombinePool @ 0x1402EE540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiUnlockPagedAddress @ 0x1402EE5C4 (MiUnlockPagedAddress.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiFreeCombinePool(__int64 a1)
 {
   _QWORD *v2; // rdi

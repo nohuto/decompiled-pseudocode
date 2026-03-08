@@ -1,3 +1,13 @@
+/*
+ * XREFs of MapClientNeuterToClientPfn @ 0x1C002FFC4
+ * Callers:
+ *     xxxSetWindowData @ 0x1C002F9C8 (xxxSetWindowData.c)
+ *     _GetClassInfoEx @ 0x1C00314C8 (_GetClassInfoEx.c)
+ *     xxxSetClassData @ 0x1C00ED168 (xxxSetClassData.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MapClientNeuterToClientPfn(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // r9

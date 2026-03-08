@@ -1,3 +1,22 @@
+/*
+ * XREFs of bInitBRUSHOBJ @ 0x1C031D4F4
+ * Callers:
+ *     InitializeGre @ 0x1C031D988 (InitializeGre.c)
+ * Callees:
+ *     GreCreatePatternBrushInternal @ 0x1C001A060 (GreCreatePatternBrushInternal.c)
+ *     GreSetBrushOwner @ 0x1C001BD80 (GreSetBrushOwner.c)
+ *     ??0BRUSHMEMOBJ@@QEAA@KKHH@Z @ 0x1C001C2B0 (--0BRUSHMEMOBJ@@QEAA@KKHH@Z.c)
+ *     ??1BRUSHMEMOBJ@@QEAA@XZ @ 0x1C001CC00 (--1BRUSHMEMOBJ@@QEAA@XZ.c)
+ *     ?vGlobal@BRUSHMEMOBJ@@QEAAXXZ @ 0x1C001D0B4 (-vGlobal@BRUSHMEMOBJ@@QEAAXXZ.c)
+ *     ?bSetStockObject@@YAHPEAXHH@Z @ 0x1C001D100 (-bSetStockObject@@YAHPEAXHH@Z.c)
+ *     HmgModifyHandleType @ 0x1C001D300 (HmgModifyHandleType.c)
+ *     HmgMarkUndeletable @ 0x1C003EA00 (HmgMarkUndeletable.c)
+ *     GreDeleteObject @ 0x1C0043CD0 (GreDeleteObject.c)
+ *     HmgShareLockCheck @ 0x1C0049E60 (HmgShareLockCheck.c)
+ *     GreCreateBitmap @ 0x1C005A690 (GreCreateBitmap.c)
+ *     bInitBrush @ 0x1C031D430 (bInitBrush.c)
+ */
+
 __int64 __fastcall bInitBRUSHOBJ(__int64 a1)
 {
   __int64 v1; // rbx

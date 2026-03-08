@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbDevice_UcxEvtUpdate @ 0x1C001DDD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     Controller_IsControllerAccessible @ 0x1C000A8E4 (Controller_IsControllerAccessible.c)
+ *     UsbDevice_UpdateUsbDevice @ 0x1C001D43C (UsbDevice_UpdateUsbDevice.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 char __fastcall UsbDevice_UcxEvtUpdate(__int64 a1, __int64 a2)
 {
   unsigned int v2; // esi

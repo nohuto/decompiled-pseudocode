@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?VerifyPartitionTable@SC_GPT@@QEAAJE@Z @ 0x14067224C
+ * Callers:
+ *     ?VerifyPartitionTable@SC_DISK@@QEAAJE@Z @ 0x1406737BC (-VerifyPartitionTable@SC_DISK@@QEAAJE@Z.c)
+ * Callees:
+ *     RtlComputeCrc32 @ 0x1402B8B70 (RtlComputeCrc32.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ?ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAVGPT_ENTRY@@@Z @ 0x140671D5C (-ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAVGPT_ENTRY@@@Z.c)
+ *     ?ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x140671DE4 (-ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z.c)
+ *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x1406738DC (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x14078FD20 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     ?Allocate@SC_ENV@@SAPEAX_KKE@Z @ 0x14093D390 (-Allocate@SC_ENV@@SAPEAX_KKE@Z.c)
+ */
+
 __int64 __fastcall SC_GPT::VerifyPartitionTable(SC_DISK **this, char a2)
 {
   SC_DISK *v2; // rax

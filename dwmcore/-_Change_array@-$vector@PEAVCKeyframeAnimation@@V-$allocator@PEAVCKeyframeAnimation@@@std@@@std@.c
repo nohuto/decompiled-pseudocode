@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_Change_array@?$vector@PEAVCKeyframeAnimation@@V?$allocator@PEAVCKeyframeAnimation@@@std@@@std@@AEAAXQEAPEAVCKeyframeAnimation@@_K1@Z @ 0x180023508
+ * Callers:
+ *     ??$_Insert_range@PEAPEAVCKeyframeAnimation@@@?$vector@PEAVCKeyframeAnimation@@V?$allocator@PEAVCKeyframeAnimation@@@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCKeyframeAnimation@@@std@@@std@@@1@PEAPEAVCKeyframeAnimation@@1Uforward_iterator_tag@1@@Z @ 0x180022F2C (--$_Insert_range@PEAPEAVCKeyframeAnimation@@@-$vector@PEAVCKeyframeAnimation@@V-$allocator@PEAVC.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
 __int64 __fastcall std::vector<CKeyframeAnimation *>::_Change_array(__int64 *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v6; // rcx

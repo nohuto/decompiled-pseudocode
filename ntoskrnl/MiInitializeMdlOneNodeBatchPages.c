@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiInitializeMdlOneNodeBatchPages @ 0x1402B4650
+ * Callers:
+ *     MiInitializeMdlBatchPages @ 0x1402B4150 (MiInitializeMdlBatchPages.c)
+ * Callees:
+ *     MiChangePageAttributeBatch @ 0x140211998 (MiChangePageAttributeBatch.c)
+ *     MiZeroInParallel @ 0x140242EB8 (MiZeroInParallel.c)
+ *     MiUpdateCacheAttributeListsForPage @ 0x1402B4948 (MiUpdateCacheAttributeListsForPage.c)
+ *     MiCreatePageChains @ 0x1402B4A2C (MiCreatePageChains.c)
+ *     MiDereferencePageChains @ 0x1402B4CFC (MiDereferencePageChains.c)
+ *     MiPfnBestZeroAttribute @ 0x1402CEAFC (MiPfnBestZeroAttribute.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiChangePageAttribute @ 0x14036CE40 (MiChangePageAttribute.c)
+ *     MiInsertMdlPageNeedsZero @ 0x1403A0E10 (MiInsertMdlPageNeedsZero.c)
+ *     MiZeroAndConvertPage @ 0x14064DA84 (MiZeroAndConvertPage.c)
+ */
+
 void __fastcall MiInitializeMdlOneNodeBatchPages(__int64 a1, _QWORD *a2, __int64 a3)
 {
   __int64 v3; // r13

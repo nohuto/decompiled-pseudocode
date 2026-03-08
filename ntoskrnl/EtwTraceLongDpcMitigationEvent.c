@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceLongDpcMitigationEvent @ 0x1405FAB6C
+ * Callers:
+ *     KiEnterLongDpcProcessing @ 0x140254490 (KiEnterLongDpcProcessing.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall EtwTraceLongDpcMitigationEvent(__int64 a1, __int64 a2, char a3, char a4, char a5, char a6)
 {
   int v6; // [rsp+30h] [rbp-30h] BYREF

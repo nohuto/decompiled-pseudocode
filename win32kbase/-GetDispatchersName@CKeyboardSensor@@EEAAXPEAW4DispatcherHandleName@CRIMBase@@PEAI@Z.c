@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDispatchersName@CKeyboardSensor@@EEAAXPEAW4DispatcherHandleName@CRIMBase@@PEAI@Z @ 0x1C00D5FE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CKeyboardSensor::GetDispatchersName(
         CKeyboardSensor *this,
         enum CRIMBase::DispatcherHandleName *a2,

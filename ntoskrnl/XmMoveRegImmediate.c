@@ -1,3 +1,12 @@
+/*
+ * XREFs of XmMoveRegImmediate @ 0x1403B3910
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmGetRegisterAddress @ 0x1403B4124 (XmGetRegisterAddress.c)
+ *     XmGetImmediateSourceValue @ 0x1403B41F4 (XmGetImmediateSourceValue.c)
+ */
+
 __int64 __fastcall XmMoveRegImmediate(__int64 a1)
 {
   __int64 v2; // rdx

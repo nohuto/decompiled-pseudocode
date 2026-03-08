@@ -1,3 +1,29 @@
+/*
+ * XREFs of zzzDestroyQueue @ 0x1C01553C0
+ * Callers:
+ *     xxxDestroyThreadInfo @ 0x1C0072BF4 (xxxDestroyThreadInfo.c)
+ *     xxxCreateThreadInfo @ 0x1C0076490 (xxxCreateThreadInfo.c)
+ * Callees:
+ *     FreeQueue @ 0x1C00706A4 (FreeQueue.c)
+ *     ?IsAnyThreadAttached@tagQ@@QEBA_NXZ @ 0x1C00706D8 (-IsAnyThreadAttached@tagQ@@QEBA_NXZ.c)
+ *     IsFreeMessageListSupported @ 0x1C00706F8 (IsFreeMessageListSupported.c)
+ *     FreeMessageList @ 0x1C0070724 (FreeMessageList.c)
+ *     ?UnlockFocusWnd@tagQ@@QEAAPEAUtagWND@@XZ @ 0x1C00728D0 (-UnlockFocusWnd@tagQ@@QEAAPEAUtagWND@@XZ.c)
+ *     HMAssignmentUnlock @ 0x1C0072910 (HMAssignmentUnlock.c)
+ *     ApiSetEditionUpdateRawMouseMode @ 0x1C007931C (ApiSetEditionUpdateRawMouseMode.c)
+ *     RecalculateQueueInfo @ 0x1C00A64A0 (RecalculateQueueInfo.c)
+ *     IsClearDelegationCaptureSupported @ 0x1C00A9300 (IsClearDelegationCaptureSupported.c)
+ *     ?RemoveThreadFromQSharingLists@tagTHREADINFO@@QEAA_NPEAUtagQ@@@Z @ 0x1C00B0DA0 (-RemoveThreadFromQSharingLists@tagTHREADINFO@@QEAA_NPEAUtagQ@@@Z.c)
+ *     LockQCursor @ 0x1C00B398C (LockQCursor.c)
+ *     ClearDelegationCapture @ 0x1C00B9AD0 (ClearDelegationCapture.c)
+ *     ApiSetEditionSystemGenerateMove @ 0x1C00C6EC4 (ApiSetEditionSystemGenerateMove.c)
+ *     SetWakeBit @ 0x1C00D2440 (SetWakeBit.c)
+ *     xxxWindowEvent @ 0x1C00D40F8 (xxxWindowEvent.c)
+ *     ?SetActiveWindow@tagQ@@QEAAPEAUtagWND@@PEAU2@@Z @ 0x1C00DC7D0 (-SetActiveWindow@tagQ@@QEAAPEAUtagWND@@PEAU2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqq @ 0x1C0153AA4 (WPP_RECORDER_AND_TRACE_SF_qqq.c)
+ */
+
 void __fastcall zzzDestroyQueue(tagQ *this, tagTHREADINFO *a2)
 {
   int v2; // esi

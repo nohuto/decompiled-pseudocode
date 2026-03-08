@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?ldevGetDriverModes@@YAKPEAUtagGRAPHICS_DEVICE@@PEBGPEAXPEAPEAU_devicemodeW@@@Z @ 0x1C0028890
+ * Callers:
+ *     DrvBuildDevmodeList @ 0x1C0028AF8 (DrvBuildDevmodeList.c)
+ * Callees:
+ *     ldevLoadDriver @ 0x1C0024CA0 (ldevLoadDriver.c)
+ *     ldevUnloadImage @ 0x1C002B6B0 (ldevUnloadImage.c)
+ *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0062994 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ldevGetDriverModes(
         struct tagGRAPHICS_DEVICE *a1,
         const unsigned __int16 *a2,

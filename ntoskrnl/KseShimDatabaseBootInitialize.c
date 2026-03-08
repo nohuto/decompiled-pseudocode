@@ -1,3 +1,16 @@
+/*
+ * XREFs of KseShimDatabaseBootInitialize @ 0x140B6FF30
+ * Callers:
+ *     KseInitialize @ 0x140B3E688 (KseInitialize.c)
+ * Callees:
+ *     KsepLogError @ 0x140303450 (KsepLogError.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KsepDebugPrint @ 0x14057E834 (KsepDebugPrint.c)
+ *     RtlAssert @ 0x1405A7CA0 (RtlAssert.c)
+ *     KsepSdbBootRelease @ 0x140842AC4 (KsepSdbBootRelease.c)
+ *     KsepSdbBootInitialize @ 0x14085E0A8 (KsepSdbBootInitialize.c)
+ */
+
 __int64 __fastcall KseShimDatabaseBootInitialize(void *Src, size_t Size, void *a3, unsigned int a4)
 {
   unsigned int v6; // ebx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiArePagefileContentsCorrupted @ 0x1406633DC
+ * Callers:
+ *     MiValidatePagefilePageHash @ 0x140466E1A (MiValidatePagefilePageHash.c)
+ *     MiIsStandbyPageCorrupted @ 0x140663A4C (MiIsStandbyPageCorrupted.c)
+ * Callees:
+ *     MiGetPagingFileOffset @ 0x14029EA80 (MiGetPagingFileOffset.c)
+ *     MiComputePageHash @ 0x140466BDC (MiComputePageHash.c)
+ *     MiObtainPagefileHashes @ 0x140466CF4 (MiObtainPagefileHashes.c)
+ *     MiLateWritePageHash @ 0x140663AE8 (MiLateWritePageHash.c)
+ *     MiPageHashBugCheck @ 0x1406645D8 (MiPageHashBugCheck.c)
+ */
+
 __int64 __fastcall MiArePagefileContentsCorrupted(__int64 a1, __int128 *a2)
 {
   _QWORD *v4; // rbp

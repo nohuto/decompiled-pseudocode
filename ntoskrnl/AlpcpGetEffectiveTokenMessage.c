@@ -1,3 +1,12 @@
+/*
+ * XREFs of AlpcpGetEffectiveTokenMessage @ 0x140718670
+ * Callers:
+ *     AlpcpQuerySidMessage @ 0x1407185C0 (AlpcpQuerySidMessage.c)
+ *     AlpcpQueryTokenModifiedIdMessage @ 0x1409759C4 (AlpcpQueryTokenModifiedIdMessage.c)
+ * Callees:
+ *     SeCreateClientSecurityEx @ 0x1406D5D70 (SeCreateClientSecurityEx.c)
+ */
+
 __int64 __fastcall AlpcpGetEffectiveTokenMessage(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4, _BYTE *a5)
 {
   __int64 v8; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetFloatProperty@CAnimationMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C000D230
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _finite @ 0x1C00DAEC4 (_finite.c)
+ */
+
 __int64 __fastcall DirectComposition::CAnimationMarshaler::SetFloatProperty(
         DirectComposition::CAnimationMarshaler *this,
         int a2,

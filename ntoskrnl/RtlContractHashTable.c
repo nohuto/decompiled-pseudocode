@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlContractHashTable @ 0x1402CFA70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpGetChainHead @ 0x1402B84F0 (RtlpGetChainHead.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 BOOLEAN __stdcall RtlContractHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
 {
   unsigned int TableSize; // edx

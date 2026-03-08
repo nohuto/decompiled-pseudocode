@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiReturnSystemCharges @ 0x1402D8C88
+ * Callers:
+ *     MiDeleteSessionPdes @ 0x140200F38 (MiDeleteSessionPdes.c)
+ *     MiCleanupPageTablePages @ 0x14020FD04 (MiCleanupPageTablePages.c)
+ *     MiDeleteSystemPagableVm @ 0x1402B04B0 (MiDeleteSystemPagableVm.c)
+ *     MiReturnPoolCharges @ 0x1402D89F8 (MiReturnPoolCharges.c)
+ *     MiDeleteSystemPageTableTail @ 0x1402D8B30 (MiDeleteSystemPageTableTail.c)
+ *     MiGetPageTablePages @ 0x140348AF8 (MiGetPageTablePages.c)
+ *     MiReturnSplitPageCharges @ 0x1403717EC (MiReturnSplitPageCharges.c)
+ *     MiGetLargePagesForSystemMapping @ 0x140A2F604 (MiGetLargePagesForSystemMapping.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MiReturnSystemCharges(__int64 a1, unsigned __int64 a2, int a3)
 {
   unsigned __int64 v3; // r9

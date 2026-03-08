@@ -1,3 +1,18 @@
+/*
+ * XREFs of HvlGetSystemPasidCapabilities @ 0x140542050
+ * Callers:
+ *     HvlpInitializeSvmIommuSupport @ 0x140545EE4 (HvlpInitializeSvmIommuSupport.c)
+ * Callees:
+ *     HviGetHypervisorFeatures @ 0x14037F8A0 (HviGetHypervisorFeatures.c)
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ *     HvlpGetRegister128 @ 0x140546850 (HvlpGetRegister128.c)
+ *     HviGetHardwareFeatures @ 0x140612F60 (HviGetHardwareFeatures.c)
+ *     HviGetHypervisorVendorAndMaxFunction @ 0x140612FD4 (HviGetHypervisorVendorAndMaxFunction.c)
+ */
+
 char __fastcall HvlGetSystemPasidCapabilities(__int64 a1)
 {
   char result; // al

@@ -1,3 +1,12 @@
+/*
+ * XREFs of XpressDoHuffmanPass @ 0x14036EBD0
+ * Callers:
+ *     RtlCompressBufferXpressHuffStandard @ 0x14036E3C0 (RtlCompressBufferXpressHuffStandard.c)
+ *     RtlCompressBufferXpressHuffMax @ 0x1405B03C4 (RtlCompressBufferXpressHuffMax.c)
+ * Callees:
+ *     <none>
+ */
+
 char *__fastcall XpressDoHuffmanPass(__int64 a1, unsigned __int8 *a2, unsigned __int64 a3, char *a4, int a5)
 {
   __int128 *v7; // rcx

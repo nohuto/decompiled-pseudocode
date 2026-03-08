@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?InitializeContactPrediction@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@UtagPOINT@@1PEAUtagHPD_PREDICTION_INFO@@PEAU2@3@Z @ 0x1C01C2BA0
+ * Callers:
+ *     DoPrediction @ 0x1C0146050 (DoPrediction.c)
+ * Callees:
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?Filter@tagRlsFilter@Prediction@@QEAA?AVCFixPred@2@V32@0PEAH@Z @ 0x1C01C2508 (-Filter@tagRlsFilter@Prediction@@QEAA-AVCFixPred@2@V32@0PEAH@Z.c)
+ *     ?vInit@tagRlsFilter@Prediction@@QEAAXVCFixPred@2@000@Z @ 0x1C01C40C0 (-vInit@tagRlsFilter@Prediction@@QEAAXVCFixPred@2@000@Z.c)
+ */
+
 void __fastcall InitializeContactPrediction(
         struct tagHID_POINTER_DEVICE_INFO *a1,
         struct tagPOINT a2,

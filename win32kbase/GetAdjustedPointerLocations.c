@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetAdjustedPointerLocations @ 0x1C00F4070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetAdjustedHimetric@@YAHUtagPOINT@@00PEAU1@PEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C02172A4 (-GetAdjustedHimetric@@YAHUtagPOINT@@00PEAU1@PEAUtagHID_POINTER_DEVICE_INFO@@@Z.c)
+ *     GetAdjustedPointerPixelLocation @ 0x1C0217910 (GetAdjustedPointerPixelLocation.c)
+ */
+
 __int64 __fastcall GetAdjustedPointerLocations(
         struct tagPOINT a1,
         struct tagPOINT a2,

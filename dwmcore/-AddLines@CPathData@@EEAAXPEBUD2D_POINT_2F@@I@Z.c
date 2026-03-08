@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AddLines@CPathData@@EEAAXPEBUD2D_POINT_2F@@I@Z @ 0x18027C940
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0Segment@Path@@IEAA@W4SegmentType@1@@Z @ 0x18001FA90 (--0Segment@Path@@IEAA@W4SegmentType@1@@Z.c)
+ *     ?AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z @ 0x18027CA74 (-AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z.c)
+ */
+
 void __fastcall CPathData::AddLines(CPathData *this, const struct D2D_POINT_2F *a2, unsigned int a3)
 {
   __int64 v4; // rdi

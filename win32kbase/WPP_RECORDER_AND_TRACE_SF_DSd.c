@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_AND_TRACE_SF_DSd @ 0x1C01C7BEC
+ * Callers:
+ *     RIMRegisterForDeviceChangeNotifications @ 0x1C0088F68 (RIMRegisterForDeviceChangeNotifications.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void WPP_RECORDER_AND_TRACE_SF_DSd(__int64 a1, char a2, char a3, __int64 a4, int a5, int a6, int a7, __int64 a8, ...)
 {
   const wchar_t *v8; // rbx

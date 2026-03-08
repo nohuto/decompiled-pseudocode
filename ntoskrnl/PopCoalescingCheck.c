@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopCoalescingCheck @ 0x14058B3E4
+ * Callers:
+ *     PopScanIdleList @ 0x1402BC8E0 (PopScanIdleList.c)
+ * Callees:
+ *     PopGetPolicyWorker @ 0x1402BCB34 (PopGetPolicyWorker.c)
+ *     PopCheckForWork @ 0x1402BCB88 (PopCheckForWork.c)
+ */
+
 __int64 __fastcall PopCoalescingCheck(unsigned int a1, unsigned int a2, int a3)
 {
   unsigned int v3; // ebx

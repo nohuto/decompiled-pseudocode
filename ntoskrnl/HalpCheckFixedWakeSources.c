@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpCheckFixedWakeSources @ 0x140A93A7C
+ * Callers:
+ *     HalpAcpiPostSleep @ 0x140A93580 (HalpAcpiPostSleep.c)
+ * Callees:
+ *     HalpAcpiPmRegisterAvailable @ 0x1402F9250 (HalpAcpiPmRegisterAvailable.c)
+ *     HalpAcpiPmRegisterRead @ 0x14039CF90 (HalpAcpiPmRegisterRead.c)
+ */
+
 bool HalpCheckFixedWakeSources()
 {
   int v0; // edi

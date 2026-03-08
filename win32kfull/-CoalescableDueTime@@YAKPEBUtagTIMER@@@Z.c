@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CoalescableDueTime@@YAKPEBUtagTIMER@@@Z @ 0x1C01C16A0
+ * Callers:
+ *     xxxTimersProc @ 0x1C007AFD0 (xxxTimersProc.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CoalescableDueTime(const struct tagTIMER *a1)
 {
   unsigned int v1; // r8d

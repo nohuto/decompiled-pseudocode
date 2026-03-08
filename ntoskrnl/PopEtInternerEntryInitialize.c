@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopEtInternerEntryInitialize @ 0x1407918F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopEtInternerEntryInitialize(__int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 result; // rax

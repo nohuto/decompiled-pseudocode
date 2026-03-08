@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpInitializeConfigurationFromMadt @ 0x140B633D4
+ * Callers:
+ *     HalpNumaInitializeStaticConfiguration @ 0x140B63268 (HalpNumaInitializeStaticConfiguration.c)
+ * Callees:
+ *     HalpAcpiGetTable @ 0x14029C550 (HalpAcpiGetTable.c)
+ *     HalpParseChannelCount @ 0x14039F7AC (HalpParseChannelCount.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpChannelInitializeStaticConfiguration @ 0x140B63680 (HalpChannelInitializeStaticConfiguration.c)
+ *     HalpAllocateNumaConfigData @ 0x140B636D0 (HalpAllocateNumaConfigData.c)
+ */
+
 __int64 __fastcall HalpInitializeConfigurationFromMadt(__int64 a1)
 {
   unsigned int v1; // edi

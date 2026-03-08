@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpApicSetLogicalId @ 0x140525680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpApicSetLogicalId(__int64 a1, __int64 a2)
 {
   unsigned int v2; // edi

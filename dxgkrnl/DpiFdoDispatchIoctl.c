@@ -1,3 +1,36 @@
+/*
+ * XREFs of DpiFdoDispatchIoctl @ 0x1C01D7C80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ??0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z @ 0x1C005D778 (--0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z.c)
+ *     ??1CInterfaceCallContext@@QEAA@XZ @ 0x1C005D8F0 (--1CInterfaceCallContext@@QEAA@XZ.c)
+ *     ?DpiSetPartitionVmbus@@YAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAXK@Z @ 0x1C005E698 (-DpiSetPartitionVmbus@@YAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAXK@Z.c)
+ *     ?FindVirtualGpuByLuid@ADAPTER_RENDER@@QEAAPEAUDXGK_VIRTUAL_GPU@@W4DXG_VIRTUAL_GPU_TYPE@@PEAU_LUID@@@Z @ 0x1C0363568 (-FindVirtualGpuByLuid@ADAPTER_RENDER@@QEAAPEAUDXGK_VIRTUAL_GPU@@W4DXG_VIRTUAL_GPU_TYPE@@PEAU_LUI.c)
+ *     DxgkDdiCreateVirtualGpu @ 0x1C0365238 (DxgkDdiCreateVirtualGpu.c)
+ *     DxgkDdiDestroyVirtualGpu @ 0x1C0365474 (DxgkDdiDestroyVirtualGpu.c)
+ *     DxgkDdiGetGpuPartitionInfo @ 0x1C0365704 (DxgkDdiGetGpuPartitionInfo.c)
+ *     DxgkDdiGetVirtualGpuInfo @ 0x1C0365B08 (DxgkDdiGetVirtualGpuInfo.c)
+ *     DxgkDdiGetVirtualGpuProfile @ 0x1C0365BEC (DxgkDdiGetVirtualGpuProfile.c)
+ *     DxgkDdiQueryMitigatedRangeCount @ 0x1C0365CF0 (DxgkDdiQueryMitigatedRangeCount.c)
+ *     DxgkDdiQueryMitigatedRanges @ 0x1C0365DB0 (DxgkDdiQueryMitigatedRanges.c)
+ *     DxgkDdiQueryPhysicalFunctionLuid @ 0x1C0365ED0 (DxgkDdiQueryPhysicalFunctionLuid.c)
+ *     DxgkDdiSetGpuPartitionCount @ 0x1C03663B8 (DxgkDdiSetGpuPartitionCount.c)
+ *     DxgkpCheckProcessForVirtualMachineManagementAccess @ 0x1C03667B8 (DxgkpCheckProcessForVirtualMachineManagementAccess.c)
+ *     DpiFdoGetVirtualGpuType @ 0x1C0396F0C (DpiFdoGetVirtualGpuType.c)
+ *     DpiFlexIovMitigationUpdate @ 0x1C039951C (DpiFlexIovMitigationUpdate.c)
+ *     DpiGetVirtualizationFlags @ 0x1C03996E8 (DpiGetVirtualizationFlags.c)
+ *     DpiSriovAttach @ 0x1C0399958 (DpiSriovAttach.c)
+ *     DpiSriovDetach @ 0x1C0399AF0 (DpiSriovDetach.c)
+ *     DpiSriovEventComplete @ 0x1C0399CE8 (DpiSriovEventComplete.c)
+ *     DpiSriovNotification @ 0x1C0399DB8 (DpiSriovNotification.c)
+ *     DpiIndirectDdiIoControl @ 0x1C03A01A8 (DpiIndirectDdiIoControl.c)
+ */
+
 NTSTATUS __fastcall DpiFdoDispatchIoctl(struct _DEVICE_OBJECT *a1, struct _IRP *a2)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r8

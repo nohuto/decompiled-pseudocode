@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@tagTHREADINFO@@QEAAXXZ @ 0x1C0079224
+ * Callers:
+ *     xxxCreateThreadInfo @ 0x1C0076490 (xxxCreateThreadInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall tagTHREADINFO::Initialize(tagTHREADINFO *this)
 {
   *((_QWORD *)this + 49) = 0LL;

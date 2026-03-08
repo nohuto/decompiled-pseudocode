@@ -1,3 +1,11 @@
+/*
+ * XREFs of vAlphaPerPixelOnly @ 0x1C0092770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vAlphaPerPixelOnly(unsigned int *a1, __int64 a2, int a3)
 {
   int v3; // r11d

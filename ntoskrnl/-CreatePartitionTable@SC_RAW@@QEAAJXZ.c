@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CreatePartitionTable@SC_RAW@@QEAAJXZ @ 0x14067469C
+ * Callers:
+ *     ?CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x140672FE8 (-CreatePartitionTable@SC_DISK@@QEAAJPEAU_CREATE_DISK@@@Z.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x1406738DC (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
+ */
+
 __int64 __fastcall SC_RAW::CreatePartitionTable(SC_DISK **this)
 {
   __int64 v2; // rbx

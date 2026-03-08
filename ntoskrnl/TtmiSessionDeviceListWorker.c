@@ -1,3 +1,18 @@
+/*
+ * XREFs of TtmiSessionDeviceListWorker @ 0x14099FD30
+ * Callers:
+ *     TtmpSessionWorker @ 0x1409A2950 (TtmpSessionWorker.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     TtmpCallAssignedToTerminal @ 0x14099FFFC (TtmpCallAssignedToTerminal.c)
+ *     TtmpCommitTerminalDisplayStateUpdateWorker @ 0x1409A0500 (TtmpCommitTerminalDisplayStateUpdateWorker.c)
+ *     TtmpPublishDeviceEvent @ 0x1409A0904 (TtmpPublishDeviceEvent.c)
+ *     TtmpPushTerminalState @ 0x1409A0AE4 (TtmpPushTerminalState.c)
+ *     TtmpStartCallout @ 0x1409A0CA0 (TtmpStartCallout.c)
+ *     TtmpStopCallout @ 0x1409A0D8C (TtmpStopCallout.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall TtmiSessionDeviceListWorker(__int64 a1)
 {
   void **v1; // r14

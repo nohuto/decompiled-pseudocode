@@ -1,3 +1,21 @@
+/*
+ * XREFs of ApiSetEditionPostAccessibilitySettingChangedEvent @ 0x1C0241574
+ * Callers:
+ *     ?FKActivationTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01E3F00 (-FKActivationTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?MKButtonSelect@@YAHG@Z @ 0x1C01E43D0 (-MKButtonSelect@@YAHG@Z.c)
+ *     ?TurnOffMouseKeys@@YAXXZ @ 0x1C01E48A0 (-TurnOffMouseKeys@@YAXXZ.c)
+ *     ?xxxAccessTimeOutTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01E48F0 (-xxxAccessTimeOutTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?xxxMKButtonSetState@@YAHG@Z @ 0x1C01E4B80 (-xxxMKButtonSetState@@YAHG@Z.c)
+ *     ?xxxMKToggleMouseKeys@@YAHG@Z @ 0x1C01E5AD0 (-xxxMKToggleMouseKeys@@YAHG@Z.c)
+ *     ?xxxStickyKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01E5C10 (-xxxStickyKeys@@YAHPEAUtagKE@@KH@Z.c)
+ *     ?xxxTurnOffStickyKeys@@YAXXZ @ 0x1C01E6170 (-xxxTurnOffStickyKeys@@YAXXZ.c)
+ *     ?xxxTwoKeysDown@@YAHH@Z @ 0x1C01E61D0 (-xxxTwoKeysDown@@YAHH@Z.c)
+ *     ?xxxUnlatchStickyKeys@@YAXXZ @ 0x1C01E6260 (-xxxUnlatchStickyKeys@@YAXXZ.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (*__fastcall ApiSetEditionPostAccessibilitySettingChangedEvent(unsigned int a1))(void)
 {
   char v2; // bl

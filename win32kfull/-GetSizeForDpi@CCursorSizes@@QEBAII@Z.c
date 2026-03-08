@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetSizeForDpi@CCursorSizes@@QEBAII@Z @ 0x1C003AAB8
+ * Callers:
+ *     ?GetVirtualizedDpiCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C003B9FC (-GetVirtualizedDpiCursor@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
+ *     NtUserGetIconInfo @ 0x1C0060FD0 (NtUserGetIconInfo.c)
+ * Callees:
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00DBE14 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C00E001C (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
+ */
+
 __int64 __fastcall CCursorSizes::GetSizeForDpi(CCursorSizes *this, unsigned int a2)
 {
   CCursorSizes *v2; // rsi

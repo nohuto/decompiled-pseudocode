@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpAddResourceToSystemResourceList @ 0x1403BF104
+ * Callers:
+ *     ExInitializeFastResource @ 0x1403BEFD0 (ExInitializeFastResource.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall ExpAddResourceToSystemResourceList(_QWORD *a1)
 {
   unsigned __int64 v2; // rdi

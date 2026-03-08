@@ -1,3 +1,23 @@
+/*
+ * XREFs of NestAsyncEvalObject @ 0x1C005496C
+ * Callers:
+ *     SyncEvalObject @ 0x1C0054E8C (SyncEvalObject.c)
+ * Callees:
+ *     ReadObject @ 0x1C0005BEE (ReadObject.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     DupObjData @ 0x1C004AF04 (DupObjData.c)
+ *     GetObjectPath @ 0x1C004BB70 (GetObjectPath.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     LogSchedEvent @ 0x1C004E3AC (LogSchedEvent.c)
+ *     PrintObject @ 0x1C004E4C8 (PrintObject.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     GetThreadCurrentContext @ 0x1C00537E0 (GetThreadCurrentContext.c)
+ *     PushCall @ 0x1C0053AF8 (PushCall.c)
+ *     PushFrame @ 0x1C0053C34 (PushFrame.c)
+ *     PushPost @ 0x1C0053CE0 (PushPost.c)
+ */
+
 __int64 __fastcall NestAsyncEvalObject(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5, __int64 a6)
 {
   unsigned __int64 v7; // rbp

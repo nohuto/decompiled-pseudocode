@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiDiagTraceDeviceActiveCooling @ 0x1C0007D80
+ * Callers:
+ *     ACPIThermalReevaluateConstraintsWorker @ 0x1C0041AC0 (ACPIThermalReevaluateConstraintsWorker.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C000B2B0 (ACPIAmliBuildObjectPathnameUnicode.c)
+ */
+
 void __fastcall AcpiDiagTraceDeviceActiveCooling(__int64 a1, char a2)
 {
   __int16 v4; // [rsp+30h] [rbp-50h] BYREF

@@ -1,3 +1,19 @@
+/*
+ * XREFs of HalpDmaAllocateChildAdapterV2 @ 0x140821840
+ * Callers:
+ *     HalGetAdapterV2 @ 0x1408215A0 (HalGetAdapterV2.c)
+ * Callees:
+ *     ObReferenceObjectByPointer @ 0x140208C70 (ObReferenceObjectByPointer.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeInitializeDeviceQueue @ 0x1402F96C0 (KeInitializeDeviceQueue.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ *     HalpDmaAllocateLocalContiguousPool @ 0x140930FF0 (HalpDmaAllocateLocalContiguousPool.c)
+ *     HalpDmaAllocateLocalScatterPool @ 0x1409312D8 (HalpDmaAllocateLocalScatterPool.c)
+ */
+
 char *__fastcall HalpDmaAllocateChildAdapterV2(
         unsigned int a1,
         char a2,

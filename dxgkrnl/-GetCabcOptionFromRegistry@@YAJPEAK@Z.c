@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetCabcOptionFromRegistry@@YAJPEAK@Z @ 0x1C01EC9E0
+ * Callers:
+ *     DxgkDisplayConfigDeviceInfo @ 0x1C01AB2A0 (DxgkDisplayConfigDeviceInfo.c)
+ *     ?InitializeCABCStateV2@DXGADAPTER@@AEAAJXZ @ 0x1C01F040C (-InitializeCABCStateV2@DXGADAPTER@@AEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetCabcOptionFromRegistry(unsigned int *a1)
 {
   int v2; // eax

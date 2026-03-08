@@ -1,3 +1,18 @@
+/*
+ * XREFs of GreCreatePolyPolygonRgnInternal @ 0x1C0197C30
+ * Callers:
+ *     NtGdiPolyPolyDraw @ 0x1C000C360 (NtGdiPolyPolyDraw.c)
+ * Callees:
+ *     ?hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ @ 0x1C001C658 (-hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ.c)
+ *     PopThreadGuardedObject @ 0x1C00453C0 (PopThreadGuardedObject.c)
+ *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C00558E0 (-vDeleteREGION@REGION@@QEAAXXZ.c)
+ *     ??0EXFORMOBJ@@QEAA@KK@Z @ 0x1C017FB10 (--0EXFORMOBJ@@QEAA@KK@Z.c)
+ *     ??0PATHMEMOBJ@@QEAA@XZ @ 0x1C0180450 (--0PATHMEMOBJ@@QEAA@XZ.c)
+ *     ?vUnlock@EPATHOBJ@@QEAAXXZ @ 0x1C0181920 (-vUnlock@EPATHOBJ@@QEAAXXZ.c)
+ *     ?vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z @ 0x1C0184190 (-vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z.c)
+ *     bPolyPolygon @ 0x1C019A250 (bPolyPolygon.c)
+ */
+
 struct HOBJ__ *__fastcall GreCreatePolyPolygonRgnInternal(struct _POINTL *a1, __int64 a2, int a3, int a4, int a5)
 {
   struct HOBJ__ *v5; // rbx

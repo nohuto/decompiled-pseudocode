@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvlPerformEndOfInterrupt @ 0x140456EA0
+ * Callers:
+ *     HvlDummyInterruptCallback @ 0x14053D1B0 (HvlDummyInterruptCallback.c)
+ * Callees:
+ *     HalPerformEndOfInterrupt @ 0x1402C7920 (HalPerformEndOfInterrupt.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 HvlPerformEndOfInterrupt()
 {
   __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of EditionHandleRawInputThrottlingTimer @ 0x1C01AD3A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FlushThrottledRawMouseInput@@YAXPEAUtagPROCESS_HID_TABLE@@K@Z @ 0x1C01AC08C (-FlushThrottledRawMouseInput@@YAXPEAUtagPROCESS_HID_TABLE@@K@Z.c)
+ *     RawInputRequestedForMouse @ 0x1C01AD860 (RawInputRequestedForMouse.c)
+ */
+
 void EditionHandleRawInputThrottlingTimer()
 {
   __int64 v0; // rcx

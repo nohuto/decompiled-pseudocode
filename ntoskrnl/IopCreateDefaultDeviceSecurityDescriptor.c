@@ -1,3 +1,18 @@
+/*
+ * XREFs of IopCreateDefaultDeviceSecurityDescriptor @ 0x1407F092C
+ * Callers:
+ *     PipChangeDeviceObjectFromRegistryProperties @ 0x14074D328 (PipChangeDeviceObjectFromRegistryProperties.c)
+ *     IoCreateDevice @ 0x1407F0460 (IoCreateDevice.c)
+ * Callees:
+ *     RtlGetNtProductType @ 0x140303E90 (RtlGetNtProductType.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D26A0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x1406D3290 (RtlpAddKnownAce.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406DB5A0 (RtlCreateSecurityDescriptor.c)
+ *     IopCreateSecurityDescriptorPerType @ 0x1407F0A50 (IopCreateSecurityDescriptorPerType.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void *__fastcall IopCreateDefaultDeviceSecurityDescriptor(
         unsigned int a1,
         __int64 a2,

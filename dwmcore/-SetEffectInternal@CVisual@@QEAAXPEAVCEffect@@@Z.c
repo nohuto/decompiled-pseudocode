@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetEffectInternal@CVisual@@QEAAXPEAVCEffect@@@Z @ 0x1800C3254
+ * Callers:
+ *     ?SetEffect@CVisual@@IEAAJPEAVCEffect@@@Z @ 0x1800C312C (-SetEffect@CVisual@@IEAAJPEAVCEffect@@@Z.c)
+ * Callees:
+ *     ?ReserveSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@SAAEAT?$_Align_type@N$07@std@@PEAPEAV12@I@Z @ 0x180099C48 (-ReserveSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@SAAEAT-$_Align_type@N$07@std@@PEAP.c)
+ *     ?FindSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@AEBAII@Z @ 0x1800E1BE0 (-FindSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@AEBAII@Z.c)
+ */
+
 void __fastcall CVisual::SetEffectInternal(CVisual *this, struct CEffect *a2)
 {
   unsigned int **v2; // rcx

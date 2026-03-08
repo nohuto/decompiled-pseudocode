@@ -1,3 +1,17 @@
+/*
+ * XREFs of HUBID_AssignIDString @ 0x1C001DBCC
+ * Callers:
+ *     HUBID_BuildDeviceID @ 0x1C001DE14 (HUBID_BuildDeviceID.c)
+ *     HUBID_BuildHardwareID @ 0x1C001E034 (HUBID_BuildHardwareID.c)
+ *     HUBID_BuildDeviceCompatibleID @ 0x1C001E220 (HUBID_BuildDeviceCompatibleID.c)
+ *     HUBID_BuildHubCompatibleID @ 0x1C001E488 (HUBID_BuildHubCompatibleID.c)
+ *     HUBID_BuildClassCompatibleID @ 0x1C001E568 (HUBID_BuildClassCompatibleID.c)
+ *     HUBID_BuildCompatibleID @ 0x1C001E9A8 (HUBID_BuildCompatibleID.c)
+ * Callees:
+ *     HUBID_AppendStringToIDString @ 0x1C001DAB4 (HUBID_AppendStringToIDString.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBID_AssignIDString(const void **a1, int a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // r10d

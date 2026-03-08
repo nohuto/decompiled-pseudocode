@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopEtGetProcessVersionInfo @ 0x140701360
+ * Callers:
+ *     PopEtGetProcessAppId @ 0x14070116C (PopEtGetProcessAppId.c)
+ * Callees:
+ *     PsGetProcessSectionBaseAddress @ 0x140299400 (PsGetProcessSectionBaseAddress.c)
+ *     LdrResSearchResource @ 0x1407EACB0 (LdrResSearchResource.c)
+ */
+
 __int64 __fastcall PopEtGetProcessVersionInfo(__int64 a1, __int64 a2)
 {
   int v3; // ebx

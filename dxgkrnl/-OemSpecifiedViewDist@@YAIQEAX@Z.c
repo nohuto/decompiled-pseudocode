@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OemSpecifiedViewDist@@YAIQEAX@Z @ 0x1C02FDE7C
+ * Callers:
+ *     ?DetermineViewDistance@@YA_NQEAXAEBUtagSIZE@@H1PEAI@Z @ 0x1C016771C (-DetermineViewDistance@@YA_NQEAXAEBUtagSIZE@@H1PEAI@Z.c)
+ * Callees:
+ *     DpiReadPnpRegistryValue @ 0x1C01F1618 (DpiReadPnpRegistryValue.c)
+ */
+
 __int64 __fastcall OemSpecifiedViewDist(_QWORD *a1)
 {
   __int64 v1; // rcx

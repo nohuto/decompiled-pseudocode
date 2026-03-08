@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpRegisterUsbController @ 0x14051EB18
+ * Callers:
+ *     HalpUsbLegacyDeviceHandoff @ 0x1403A7544 (HalpUsbLegacyDeviceHandoff.c)
+ * Callees:
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ */
+
 __int64 __fastcall HalpRegisterUsbController(__int64 a1, int a2, char a3, char a4)
 {
   int v7; // ebp

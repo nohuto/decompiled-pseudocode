@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwTraceJobServerSiloStateChange @ 0x1409E27EC
+ * Callers:
+ *     PspConvertSiloToServerSilo @ 0x1409A9C14 (PspConvertSiloToServerSilo.c)
+ *     PspMarkServerSiloAsTerminating @ 0x1409B12C8 (PspMarkServerSiloAsTerminating.c)
+ *     PspNotifyServerSiloCreation @ 0x1409B1374 (PspNotifyServerSiloCreation.c)
+ *     PspNotifyServerSiloTermination @ 0x1409B147C (PspNotifyServerSiloTermination.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 BOOLEAN __fastcall EtwTraceJobServerSiloStateChange(__int64 a1, int a2)
 {
   REGHANDLE v2; // rbx

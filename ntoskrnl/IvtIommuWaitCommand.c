@@ -1,3 +1,22 @@
+/*
+ * XREFs of IvtIommuWaitCommand @ 0x1402F4874
+ * Callers:
+ *     IvtInvalidateRemappingTableEntries @ 0x1402F4800 (IvtInvalidateRemappingTableEntries.c)
+ *     IvtFlushTbInternal @ 0x1403ABA60 (IvtFlushTbInternal.c)
+ *     IvtInvalidateAllContextEntries @ 0x1403B0A30 (IvtInvalidateAllContextEntries.c)
+ *     IvtDrainSvmPageRequests @ 0x140529DE0 (IvtDrainSvmPageRequests.c)
+ *     IvtFlushDeviceTbOnly @ 0x14052A180 (IvtFlushDeviceTbOnly.c)
+ *     IvtInvalidateContextEntry @ 0x14052AF68 (IvtInvalidateContextEntry.c)
+ *     IvtInvalidateScalableModePasidCache @ 0x14052AFF4 (IvtInvalidateScalableModePasidCache.c)
+ * Callees:
+ *     IvtIommuSendCommand @ 0x1402F49A4 (IvtIommuSendCommand.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IvtIommuWaitCommand(__int64 a1, int a2, int a3)
 {
   unsigned __int8 CurrentIrql; // bl

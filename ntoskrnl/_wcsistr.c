@@ -1,3 +1,11 @@
+/*
+ * XREFs of _wcsistr @ 0x140A6C33C
+ * Callers:
+ *     SubstringMatch @ 0x140A6C2AC (SubstringMatch.c)
+ * Callees:
+ *     <none>
+ */
+
 _WORD *__fastcall wcsistr(_WORD *a1, char *a2)
 {
   _WORD *v3; // r8

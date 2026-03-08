@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIDeviceInternalDeviceRequest @ 0x1C001D3A8
+ * Callers:
+ *     ACPIFanControl @ 0x1C0026960 (ACPIFanControl.c)
+ *     ACPIInitStartDevice @ 0x1C002DA2C (ACPIInitStartDevice.c)
+ *     ACPIFanStartDevice @ 0x1C0085270 (ACPIFanStartDevice.c)
+ *     ACPIInitStopDevice @ 0x1C0087AE4 (ACPIInitStopDevice.c)
+ *     ACPIThermalStartDevice @ 0x1C0095DD0 (ACPIThermalStartDevice.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qdqss @ 0x1C0009EDC (WPP_RECORDER_SF_qdqss.c)
+ *     ACPIDeviceInitializePowerRequest @ 0x1C001CF98 (ACPIDeviceInitializePowerRequest.c)
+ */
+
 __int64 __fastcall ACPIDeviceInternalDeviceRequest(
         _QWORD *a1,
         __int64 a2,

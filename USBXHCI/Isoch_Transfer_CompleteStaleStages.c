@@ -1,3 +1,12 @@
+/*
+ * XREFs of Isoch_Transfer_CompleteStaleStages @ 0x1C00457D8
+ * Callers:
+ *     Isoch_ProcessTransferEventWithED0 @ 0x1C0044CF4 (Isoch_ProcessTransferEventWithED0.c)
+ * Callees:
+ *     Isoch_Stage_CompleteTD @ 0x1C00029D0 (Isoch_Stage_CompleteTD.c)
+ *     StageQueue_ForwardScanGetNextStage @ 0x1C0012EEC (StageQueue_ForwardScanGetNextStage.c)
+ */
+
 unsigned __int8 *__fastcall Isoch_Transfer_CompleteStaleStages(__int64 a1, _BYTE *a2, unsigned __int8 *a3)
 {
   unsigned __int8 *v3; // rdi

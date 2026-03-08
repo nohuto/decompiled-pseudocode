@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBDESC_ValidateMSOSExtendedConfigDescriptorHeader @ 0x1C003CC74
+ * Callers:
+ *     HUBDSM_ValidatingMSOSExtendedConfigDescriptorHeader @ 0x1C0022010 (HUBDSM_ValidatingMSOSExtendedConfigDescriptorHeader.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall HUBDESC_ValidateMSOSExtendedConfigDescriptorHeader(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
   char v7; // bl

@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopSendSuspendResumeApplicationNotification @ 0x140987528
+ * Callers:
+ *     PopSendSuspendResumeNotifications @ 0x140987648 (PopSendSuspendResumeNotifications.c)
+ * Callees:
+ *     MmGetSessionId @ 0x140299600 (MmGetSessionId.c)
+ *     MmGetNextSession @ 0x14035C2F0 (MmGetNextSession.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopDispatchStateCallout @ 0x14067F6E8 (PopDispatchStateCallout.c)
+ *     PopDiagTraceSuspendResumeNotification @ 0x14098EC68 (PopDiagTraceSuspendResumeNotification.c)
+ *     PopSuspendResumeInvocation @ 0x1409952D0 (PopSuspendResumeInvocation.c)
+ */
+
 __int64 __fastcall PopSendSuspendResumeApplicationNotification(__int64 a1, __int64 a2)
 {
   char v2; // si

@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpGetDeviceInformation @ 0x1C020F5A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall DpGetDeviceInformation(__int64 a1, _QWORD *a2)
 {
   unsigned int v2; // edi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of _GetMouseMovePointsEx @ 0x1C01ADAFC
+ * Callers:
+ *     NtUserGetMouseMovePointsEx @ 0x1C01D3940 (NtUserGetMouseMovePointsEx.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     GetScreenRect @ 0x1C00E4C8C (GetScreenRect.c)
+ */
+
 __int64 __fastcall GetMouseMovePointsEx(__int16 *a1, __int64 a2, unsigned int a3, int a4)
 {
   unsigned int CurrentThreadDpiAwarenessContext; // eax

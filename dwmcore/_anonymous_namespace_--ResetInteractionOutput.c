@@ -1,3 +1,12 @@
+/*
+ * XREFs of _anonymous_namespace_::ResetInteractionOutput @ 0x180039D10
+ * Callers:
+ *     ?ResetCachedInteractionOutput@CInteractionContextWrapper@@AEAAX_N@Z @ 0x180039CE0 (-ResetCachedInteractionOutput@CInteractionContextWrapper@@AEAAX_N@Z.c)
+ *     ?GetBufferedOutputRaw@CInteractionContextWrapper@@UEAAI_K0PEAUInteractionOutput@@@Z @ 0x180280E50 (-GetBufferedOutputRaw@CInteractionContextWrapper@@UEAAI_K0PEAUInteractionOutput@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall anonymous_namespace_::ResetInteractionOutput(__int64 a1, char a2)
 {
   __int64 result; // rax

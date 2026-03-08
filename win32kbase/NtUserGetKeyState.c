@@ -1,3 +1,23 @@
+/*
+ * XREFs of NtUserGetKeyState @ 0x1C0078A00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwTraceUIPIInputError @ 0x1C003A560 (EtwTraceUIPIInputError.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C004E3E0 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ *     _GetKeyState @ 0x1C0078B50 (_GetKeyState.c)
+ *     IsKeyStateCached @ 0x1C0078C00 (IsKeyStateCached.c)
+ *     ApiSetEditionIsGetKeyStateBlocked @ 0x1C0078EE8 (ApiSetEditionIsGetKeyStateBlocked.c)
+ *     ApiSetEditionIsGpqForegroundAccessibleCurrent @ 0x1C007FDD0 (ApiSetEditionIsGpqForegroundAccessibleCurrent.c)
+ *     PostUpdateKeyStateEvent @ 0x1C0092540 (PostUpdateKeyStateEvent.c)
+ *     ChangeAcquireResourceType @ 0x1C00C4300 (ChangeAcquireResourceType.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?IsDelegationEnabledForThread@InputDelegation@@YA_NPEBUtagTHREADINFO@@@Z @ 0x1C02174FC (-IsDelegationEnabledForThread@InputDelegation@@YA_NPEBUtagTHREADINFO@@@Z.c)
+ */
+
 __int64 __fastcall NtUserGetKeyState(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // edi

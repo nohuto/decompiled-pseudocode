@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetOpacityInternal@CVisual@@QEAAXM@Z @ 0x180038994
+ * Callers:
+ *     ?SetOpacity@CVisual@@QEAAXM@Z @ 0x1800388A0 (-SetOpacity@CVisual@@QEAAXM@Z.c)
+ * Callees:
+ *     ?SetData@CSparseStorage@@QEAAXIIPEBX@Z @ 0x1800389DC (-SetData@CSparseStorage@@QEAAXIIPEBX@Z.c)
+ */
+
 void __fastcall CVisual::SetOpacityInternal(CVisual *this, float a2)
 {
   CSparseStorage *v2; // rcx

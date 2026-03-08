@@ -1,3 +1,22 @@
+/*
+ * XREFs of RtlApplyHotPatch @ 0x140AAA600
+ * Callers:
+ *     MiApplyHotPatchToDriverDataPages @ 0x140A32268 (MiApplyHotPatchToDriverDataPages.c)
+ *     MiApplyImageHotPatch @ 0x140A326C8 (MiApplyImageHotPatch.c)
+ *     MiApplyImageHotPatchRequest @ 0x140A32920 (MiApplyImageHotPatchRequest.c)
+ *     MiApplyImageHotPatchDpc @ 0x140AA9FE0 (MiApplyImageHotPatchDpc.c)
+ * Callees:
+ *     RtlFindClearBitsAndSet @ 0x14030CEE0 (RtlFindClearBitsAndSet.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     RtlGetHotPatchSize @ 0x1406786D8 (RtlGetHotPatchSize.c)
+ *     RtlGetHpatEntryAddress @ 0x1406786F0 (RtlGetHpatEntryAddress.c)
+ *     RtlPopulateHpatEntry @ 0x140678894 (RtlPopulateHpatEntry.c)
+ *     RtlRevertFunctionPatchFromUndoEntry @ 0x1406788F8 (RtlRevertFunctionPatchFromUndoEntry.c)
+ *     RtlpApplyFunctionPatch @ 0x14067890C (RtlpApplyFunctionPatch.c)
+ *     RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x14067892C (RtlpCheckFunctionPatchAppliedInOriginalImage.c)
+ *     RtlpDetermineHotPatchExtent @ 0x140AAAB14 (RtlpDetermineHotPatchExtent.c)
+ */
+
 __int64 __fastcall RtlApplyHotPatch(
         __int64 a1,
         __int64 a2,

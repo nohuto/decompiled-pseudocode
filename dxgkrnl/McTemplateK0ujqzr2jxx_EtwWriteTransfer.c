@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0ujqzr2jxx_EtwWriteTransfer @ 0x1C004C4B8
+ * Callers:
+ *     ?EmitSleepStudyBlockerDataEvents@DripsBlockerTrackingHelper@@QEAAX_KIPEA_K@Z @ 0x1C02FEFE0 (-EmitSleepStudyBlockerDataEvents@DripsBlockerTrackingHelper@@QEAAX_KIPEA_K@Z.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002BBC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0ujqzr2jxx_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

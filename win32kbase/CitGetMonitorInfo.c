@@ -1,3 +1,12 @@
+/*
+ * XREFs of CitGetMonitorInfo @ 0x1C00BB2D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DrvGetCurrentDpiInfoFromHDev @ 0x1C003CAE4 (DrvGetCurrentDpiInfoFromHDev.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 char __fastcall CitGetMonitorInfo(__int64 a1, __int64 a2)
 {
   int CurrentDpiInfoFromHDev; // eax

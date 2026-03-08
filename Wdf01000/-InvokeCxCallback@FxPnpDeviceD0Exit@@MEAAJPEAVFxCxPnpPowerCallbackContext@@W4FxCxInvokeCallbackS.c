@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InvokeCxCallback@FxPnpDeviceD0Exit@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C006D200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_sqqLd @ 0x1C006D9D8 (WPP_IFR_SF_sqqLd.c)
+ */
+
 __int64 __fastcall FxPnpDeviceD0Exit::InvokeCxCallback(
         FxPnpDeviceD0Exit *this,
         FxCxPnpPowerCallbackContext *Context,

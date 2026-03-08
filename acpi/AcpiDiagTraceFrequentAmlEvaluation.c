@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiDiagTraceFrequentAmlEvaluation @ 0x1C0008574
+ * Callers:
+ *     AsyncEvalObject @ 0x1C00544D0 (AsyncEvalObject.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ */
+
 void __fastcall AcpiDiagTraceFrequentAmlEvaluation(__int64 a1)
 {
   ULONG TimeIncrement; // eax

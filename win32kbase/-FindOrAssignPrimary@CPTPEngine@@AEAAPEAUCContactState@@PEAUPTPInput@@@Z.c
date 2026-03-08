@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FindOrAssignPrimary@CPTPEngine@@AEAAPEAUCContactState@@PEAUPTPInput@@@Z @ 0x1C0237A80
+ * Callers:
+ *     ?DoGestureProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@PEAH@Z @ 0x1C0235680 (-DoGestureProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@PEAH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct CContactState *__fastcall CPTPEngine::FindOrAssignPrimary(CPTPEngine *this, struct PTPInput *a2)
 {
   unsigned int v2; // ebx

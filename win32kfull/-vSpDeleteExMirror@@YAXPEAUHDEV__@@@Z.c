@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?vSpDeleteExMirror@@YAXPEAUHDEV__@@@Z @ 0x1C00EF824
+ * Callers:
+ *     ?vSpDisableSprites@@YAXPEAUHDEV__@@@Z @ 0x1C00EF6B8 (-vSpDisableSprites@@YAXPEAUHDEV__@@@Z.c)
+ *     ?vSpDeleteSprite@@YAXPEAVSPRITE@@@Z @ 0x1C010C4F0 (-vSpDeleteSprite@@YAXPEAVSPRITE@@@Z.c)
+ *     GreEnableMirrorRendering @ 0x1C02861C4 (GreEnableMirrorRendering.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vSpDeleteExMirror(_QWORD *a1)
 {
   SURFOBJ *v2; // rcx

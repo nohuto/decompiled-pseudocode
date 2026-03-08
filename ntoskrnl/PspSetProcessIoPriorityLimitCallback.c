@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspSetProcessIoPriorityLimitCallback @ 0x1407DD170
+ * Callers:
+ *     PspSetProcessBackgroundCountCallback @ 0x1407DD150 (PspSetProcessBackgroundCountCallback.c)
+ * Callees:
+ *     PspNotifyProcessEffectiveIoLimitChanged @ 0x140356E2C (PspNotifyProcessEffectiveIoLimitChanged.c)
+ */
+
 __int64 __fastcall PspSetProcessIoPriorityLimitCallback(__int64 a1, unsigned int *a2)
 {
   __int64 v2; // rax

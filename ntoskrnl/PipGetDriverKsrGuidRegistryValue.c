@@ -1,3 +1,14 @@
+/*
+ * XREFs of PipGetDriverKsrGuidRegistryValue @ 0x140950328
+ * Callers:
+ *     PipGetDriverKsrGuid @ 0x140950230 (PipGetDriverKsrGuid.c)
+ * Callees:
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     PnpRegSzToString @ 0x1407707FC (PnpRegSzToString.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PipGetDriverKsrGuidRegistryValue(void *a1, GUID *a2)
 {
   NTSTATUS RegistryValue; // eax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoQuerySystemDeviceName @ 0x1407827D0
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     IopRetrieveSystemDeviceName @ 0x140782840 (IopRetrieveSystemDeviceName.c)
+ *     IopFindSystemDevice @ 0x14094E90C (IopFindSystemDevice.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IoQuerySystemDeviceName(int a1, __int64 a2)
 {
   __int64 (__fastcall *v3)(); // rcx

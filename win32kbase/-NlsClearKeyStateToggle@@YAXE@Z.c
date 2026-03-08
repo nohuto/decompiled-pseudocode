@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?NlsClearKeyStateToggle@@YAXE@Z @ 0x1C021C084
+ * Callers:
+ *     ?NlsAlphanumericModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C021BF70 (-NlsAlphanumericModeProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsCodeInputToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C021C100 (-NlsCodeInputToggleProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsHiraganaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C021C360 (-NlsHiraganaModeProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsKatakanaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C021C580 (-NlsKatakanaModeProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsRomanToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C021C760 (-NlsRomanToggleProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsSbcsDbcsToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C021C870 (-NlsSbcsDbcsToggleProc@@YAHPEAUtagKE@@_KK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall NlsClearKeyStateToggle(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdx

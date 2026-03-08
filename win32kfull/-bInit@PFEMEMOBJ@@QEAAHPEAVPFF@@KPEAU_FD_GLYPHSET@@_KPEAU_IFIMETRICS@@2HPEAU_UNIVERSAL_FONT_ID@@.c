@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?bInit@PFEMEMOBJ@@QEAAHPEAVPFF@@KPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@2HPEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C01157C4
+ * Callers:
+ *     ?bAddEntry@PFFMEMOBJ@@QEAAHKPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@1PEAU_UNIVERSAL_FONT_ID@@PEAU_EUDCLOAD@@@Z @ 0x1C01155D8 (-bAddEntry@PFFMEMOBJ@@QEAAHKPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@1PEAU_UNIVERSAL_FONT_ID@@PEAU_E.c)
+ * Callees:
+ *     IsAnyCharsetDbcs @ 0x1C0115BF4 (IsAnyCharsetDbcs.c)
+ *     ?dpNtmi@PFEOBJ@@QEAAKXZ @ 0x1C0115C50 (-dpNtmi@PFEOBJ@@QEAAKXZ.c)
+ *     ?lfOrientation@IFIOBJ@@QEAAJXZ @ 0x1C0115CEC (-lfOrientation@IFIOBJ@@QEAAJXZ.c)
+ *     ?bComputeGISET@@YAHPEAU_IFIMETRICS@@PEAVPFE@@PEAPEAU_GISET@@@Z @ 0x1C0115D54 (-bComputeGISET@@YAHPEAU_IFIMETRICS@@PEAVPFE@@PEAPEAU_GISET@@@Z.c)
+ *     cCapString @ 0x1C0117F80 (cCapString.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall PFEMEMOBJ::bInit(
         PFEMEMOBJ *this,
         struct PFF *a2,

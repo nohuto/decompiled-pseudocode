@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalEfiResetSystem @ 0x14050AD20
+ * Callers:
+ *     HalpPowerWriteResetCommand @ 0x140504AEC (HalpPowerWriteResetCommand.c)
+ *     HalpShutdown @ 0x140504C74 (HalpShutdown.c)
+ * Callees:
+ *     HalpEfiDecrementEfiCall @ 0x1402AF954 (HalpEfiDecrementEfiCall.c)
+ *     HalpEfiIncrementEfiCall @ 0x1402AF9B0 (HalpEfiIncrementEfiCall.c)
+ *     HalpEfiStartRuntimeCode @ 0x1402AF9D8 (HalpEfiStartRuntimeCode.c)
+ */
+
 __int64 HalEfiResetSystem()
 {
   __int64 result; // rax

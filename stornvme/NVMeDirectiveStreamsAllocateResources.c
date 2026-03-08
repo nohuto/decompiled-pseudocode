@@ -1,3 +1,14 @@
+/*
+ * XREFs of NVMeDirectiveStreamsAllocateResources @ 0x1C001CE24
+ * Callers:
+ *     NVMeInitStreams @ 0x1C000F660 (NVMeInitStreams.c)
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 __int64 __fastcall NVMeDirectiveStreamsAllocateResources(__int64 a1, int a2, __int16 a3)
 {
   __int64 v6; // rdx

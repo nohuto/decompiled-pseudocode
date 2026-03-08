@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ValidateInertiaInfo@CInertiaManager@@QEBA_NPEAUINERTIA_INFO@@PEBUINERTIA_REGION@@PEAU_D3DMATRIX@@PEAN@Z @ 0x1C0210F24
+ * Callers:
+ *     NtUserReportInertia @ 0x1C0002CA0 (NtUserReportInertia.c)
+ * Callees:
+ *     sqrt_0 @ 0x1C00E189D (sqrt_0.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     ?D3DXMatrixDeterminant@@YAHPEAMPEBU_D3DMATRIX@@@Z @ 0x1C0210474 (-D3DXMatrixDeterminant@@YAHPEAMPEBU_D3DMATRIX@@@Z.c)
+ *     FloatingPointExceptionFilter @ 0x1C02110C4 (FloatingPointExceptionFilter.c)
+ */
+
 char __fastcall CInertiaManager::ValidateInertiaInfo(
         CInertiaManager *this,
         struct INERTIA_INFO *a2,

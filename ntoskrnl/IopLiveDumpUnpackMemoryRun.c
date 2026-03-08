@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopLiveDumpUnpackMemoryRun @ 0x14094C204
+ * Callers:
+ *     IopLiveDumpAllocateFromIOSpace @ 0x14094A574 (IopLiveDumpAllocateFromIOSpace.c)
+ *     IopLiveDumpFreeIoSpaceRanges @ 0x14094B2F4 (IopLiveDumpFreeIoSpaceRanges.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IopLiveDumpUnpackMemoryRun(unsigned __int64 a1, unsigned __int64 *a2, _DWORD *a3)
 {
   unsigned __int64 v3; // r9

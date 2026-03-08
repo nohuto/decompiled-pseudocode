@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpGenericErrorSourceRecovery @ 0x140517230
+ * Callers:
+ *     HalpRequestGenericErrorRecovery @ 0x140517780 (HalpRequestGenericErrorRecovery.c)
+ * Callees:
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     HalpGhesMemoryErrorHandler @ 0x14051735C (HalpGhesMemoryErrorHandler.c)
+ *     HalpPmemErrorDeferredRecovery @ 0x1405176AC (HalpPmemErrorDeferredRecovery.c)
+ */
+
 __int64 __fastcall HalpGenericErrorSourceRecovery(__int64 a1, _DWORD *a2)
 {
   unsigned int *v2; // rbp

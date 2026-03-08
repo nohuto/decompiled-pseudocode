@@ -1,3 +1,25 @@
+/*
+ * XREFs of CcAsyncLazywriteWorker @ 0x14053741C
+ * Callers:
+ *     CcAsyncLazywriteWorkerThread @ 0x1405378E0 (CcAsyncLazywriteWorkerThread.c)
+ * Callees:
+ *     CcShouldWorkOnThisQueue @ 0x140215CEC (CcShouldWorkOnThisQueue.c)
+ *     CcFindNextWorkQueueEntry @ 0x14021746C (CcFindNextWorkQueueEntry.c)
+ *     CcFreeWorkQueueEntry @ 0x140219E50 (CcFreeWorkQueueEntry.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x140391D54 (CcPerfLogWorkItemEnqueue.c)
+ *     CcReEngageWorkerThreads @ 0x1403CEBD0 (CcReEngageWorkerThreads.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     CcDebugExceptionFilter @ 0x140409EA0 (CcDebugExceptionFilter.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     CcRepostToSynchronousLazywriter @ 0x140537F48 (CcRepostToSynchronousLazywriter.c)
+ *     CcWriteBehindAsync @ 0x140538060 (CcWriteBehindAsync.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall CcAsyncLazywriteWorker(__int64 a1)
 {
   _SLIST_ENTRY *v1; // rsi

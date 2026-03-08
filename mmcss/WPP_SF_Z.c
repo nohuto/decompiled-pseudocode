@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_SF_Z @ 0x1C00046F0
+ * Callers:
+ *     CiDispatchCreate @ 0x1C000A010 (CiDispatchCreate.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0003420 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_SF_Z(__int64 a1, __int64 a2, __int64 a3, const wchar_t *a4)
 {
   __int64 v4; // rdx

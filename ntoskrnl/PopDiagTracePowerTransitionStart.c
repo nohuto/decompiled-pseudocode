@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopDiagTracePowerTransitionStart @ 0x14098E148
+ * Callers:
+ *     PopIssueActionRequest @ 0x140986CA4 (PopIssueActionRequest.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwWriteStartScenario @ 0x14085A170 (EtwWriteStartScenario.c)
+ */
+
 __int64 __fastcall PopDiagTracePowerTransitionStart(int a1, int a2)
 {
   __int64 result; // rax

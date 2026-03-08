@@ -1,3 +1,16 @@
+/*
+ * XREFs of WheapWmiExecutePolicyManagementMethod @ 0x140611EEC
+ * Callers:
+ *     WheapWmiExecuteMethod @ 0x140611BB0 (WheapWmiExecuteMethod.c)
+ * Callees:
+ *     WheapCommitPolicy @ 0x140A06A08 (WheapCommitPolicy.c)
+ *     WheapGetAllPolicyBufferSize @ 0x140A06AF8 (WheapGetAllPolicyBufferSize.c)
+ *     WheapGetAllPolicyValues @ 0x140A06B08 (WheapGetAllPolicyValues.c)
+ *     WheapGetPolicyValue @ 0x140A06B4C (WheapGetPolicyValue.c)
+ *     WheapResetPolicyDefaults @ 0x140A06D70 (WheapResetPolicyDefaults.c)
+ *     WheapSetPolicyValue @ 0x140A06DB8 (WheapSetPolicyValue.c)
+ */
+
 __int64 __fastcall WheapWmiExecutePolicyManagementMethod(
         int a1,
         unsigned int a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of isupper @ 0x1403D4590
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 int __cdecl isupper(int C)
 {
   int v1; // eax

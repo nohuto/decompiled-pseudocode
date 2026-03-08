@@ -1,3 +1,14 @@
+/*
+ * XREFs of ApiSetEditionIsGpqForegroundAccessibleExplicit @ 0x1C000EE70
+ * Callers:
+ *     ProcessKeyboardInjectedInputViaRim @ 0x1C000EE14 (ProcessKeyboardInjectedInputViaRim.c)
+ *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C008097C (xxxUpdateGlobalsAndSendKeyEvent.c)
+ *     ?PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerInfoNode@@_KIKHH@Z @ 0x1C01FDB10 (-PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerIn.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ApiSetEditionIsGpqForegroundAccessibleExplicit(
         unsigned int a1,
         __int64 a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpGenericRandomPatternWorker @ 0x140679048
+ * Callers:
+ *     RtlScrubMemory @ 0x1406789B8 (RtlScrubMemory.c)
+ * Callees:
+ *     RtlpFillMemoryRandomUp @ 0x140678AF0 (RtlpFillMemoryRandomUp.c)
+ *     RtlpTestMemoryRandomUp @ 0x140679508 (RtlpTestMemoryRandomUp.c)
+ */
+
 char __fastcall RtlpGenericRandomPatternWorker(unsigned __int64 *a1)
 {
   unsigned int v2; // esi

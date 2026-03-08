@@ -1,3 +1,11 @@
+/*
+ * XREFs of Crashdump_Endpoint_Initialize @ 0x1C004F014
+ * Callers:
+ *     Crashdump_InitializeDeviceContext @ 0x1C004C684 (Crashdump_InitializeDeviceContext.c)
+ * Callees:
+ *     Crashdump_CommonBufferAcquire @ 0x1C004C0B8 (Crashdump_CommonBufferAcquire.c)
+ */
+
 __int64 __fastcall Crashdump_Endpoint_Initialize(
         __int64 a1,
         __int64 a2,

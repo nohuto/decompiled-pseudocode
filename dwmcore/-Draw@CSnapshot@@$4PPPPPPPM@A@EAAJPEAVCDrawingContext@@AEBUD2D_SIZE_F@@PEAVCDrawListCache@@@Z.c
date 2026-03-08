@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Draw@CSnapshot@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x1801181D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CSnapshot::Draw(
         __int64 a1,
         struct CDrawingContext *a2,

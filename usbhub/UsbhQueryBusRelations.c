@@ -1,3 +1,20 @@
+/*
+ * XREFs of UsbhQueryBusRelations @ 0x1C0008DD0
+ * Callers:
+ *     UsbhFdoPnp_QueryDeviceRelations @ 0x1C0005240 (UsbhFdoPnp_QueryDeviceRelations.c)
+ * Callees:
+ *     Usbh_SSH_Event @ 0x1C0007220 (Usbh_SSH_Event.c)
+ *     UsbhEtwWrite @ 0x1C0009AC0 (UsbhEtwWrite.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0023580 (memmove.c)
+ *     UsbhNumberOfPorts @ 0x1C0029904 (UsbhNumberOfPorts.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     SET_PDO_HWPNPSTATE @ 0x1C0036750 (SET_PDO_HWPNPSTATE.c)
+ */
+
 __int64 __fastcall UsbhQueryBusRelations(__int64 a1, IRP *a2)
 {
   IRP *v2; // r14

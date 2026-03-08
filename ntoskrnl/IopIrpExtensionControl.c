@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopIrpExtensionControl @ 0x140553530
+ * Callers:
+ *     IopEtwEnableCallback @ 0x1409419E0 (IopEtwEnableCallback.c)
+ *     IoRegisterIoTracking @ 0x140946000 (IoRegisterIoTracking.c)
+ *     IoUnregisterIoTracking @ 0x140946120 (IoUnregisterIoTracking.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     IopUpdateFunctionPointers @ 0x140553FEC (IopUpdateFunctionPointers.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IopIrpExtensionControl(int a1, int a2)
 {
   __int64 v4; // rdx

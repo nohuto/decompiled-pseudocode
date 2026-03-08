@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CreateEdgePalmRejectionZones@PalmRejection@@YAHPEAX@Z @ 0x1C01E8380
+ * Callers:
+ *     EditionCreateEdgePalmRejectionZones @ 0x1C01E8630 (EditionCreateEdgePalmRejectionZones.c)
+ * Callees:
+ *     _GetPointerDeviceRects @ 0x1C00E4B94 (_GetPointerDeviceRects.c)
+ *     ?_ReadSettingsFromRegKey@PalmRejection@@YAXXZ @ 0x1C01E8538 (-_ReadSettingsFromRegKey@PalmRejection@@YAXXZ.c)
+ */
+
 __int64 __fastcall PalmRejection::CreateEdgePalmRejectionZones(PalmRejection *this, void *a2)
 {
   PalmRejection *v3; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DDEImpDecRefInitWorker@@YAXPEAUHWND__@@@Z @ 0x1C01CCE50
+ * Callers:
+ *     NtUserfnDDEINIT @ 0x1C01E1520 (NtUserfnDDEINIT.c)
+ * Callees:
+ *     InternalRemoveProp @ 0x1C002484C (InternalRemoveProp.c)
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ */
+
 void __fastcall DDEImpDecRefInitWorker(HWND a1)
 {
   __int64 v1; // rax

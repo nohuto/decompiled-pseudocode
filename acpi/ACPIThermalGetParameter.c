@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIThermalGetParameter @ 0x1C00959A4
+ * Callers:
+ *     ACPIThermalWorker @ 0x1C00962E0 (ACPIThermalWorker.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     OSReadRegValue @ 0x1C008E6A0 (OSReadRegValue.c)
+ */
+
 __int64 __fastcall ACPIThermalGetParameter(__int64 a1, void *a2, unsigned int a3, _QWORD *a4)
 {
   __int64 result; // rax

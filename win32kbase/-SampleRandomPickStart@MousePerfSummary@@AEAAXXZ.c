@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SampleRandomPickStart@MousePerfSummary@@AEAAXXZ @ 0x1C007BC20
+ * Callers:
+ *     ?CollectMousePacketPerfTelemetry@MousePerfSummary@@QEAAXAEBU_MousePacketPerf@@@Z @ 0x1C007BAEC (-CollectMousePacketPerfTelemetry@MousePerfSummary@@QEAAXAEBU_MousePacketPerf@@@Z.c)
+ * Callees:
+ *     rand @ 0x1C00DAEF8 (rand.c)
+ */
+
 void __fastcall MousePerfSummary::SampleRandomPickStart(MousePerfSummary *this)
 {
   unsigned __int64 v1; // rax

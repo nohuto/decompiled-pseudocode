@@ -1,3 +1,25 @@
+/*
+ * XREFs of UsbhOvercurrentResetWorker @ 0x1C002FD00
+ * Callers:
+ *     UsbhAutoOvercurrentResetWorker @ 0x1C002FB00 (UsbhAutoOvercurrentResetWorker.c)
+ *     UsbhWmiResetOvercurrent @ 0x1C004A630 (UsbhWmiResetOvercurrent.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhQueryPortState @ 0x1C0016540 (UsbhQueryPortState.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     UsbhDispatch_HardResetEvent @ 0x1C001EC80 (UsbhDispatch_HardResetEvent.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     UsbhSetPortPower @ 0x1C002DBD8 (UsbhSetPortPower.c)
+ *     UsbhWait @ 0x1C002E204 (UsbhWait.c)
+ *     UsbhDispatch_PindicatorEvent @ 0x1C002F098 (UsbhDispatch_PindicatorEvent.c)
+ *     Usbh_OvercurrentDerefHubBusy @ 0x1C0030260 (Usbh_OvercurrentDerefHubBusy.c)
+ *     UsbhPCE_BusDisconnect @ 0x1C00342C8 (UsbhPCE_BusDisconnect.c)
+ *     UsbhPCE_Enable @ 0x1C0034698 (UsbhPCE_Enable.c)
+ *     UsbhPCE_Resume @ 0x1C003495C (UsbhPCE_Resume.c)
+ *     UsbhQueueSoftConnectChange @ 0x1C0034FA8 (UsbhQueueSoftConnectChange.c)
+ */
+
 __int64 __fastcall UsbhOvercurrentResetWorker(__int64 a1, unsigned int a2, __int64 a3, char a4)
 {
   __int64 v6; // rsi

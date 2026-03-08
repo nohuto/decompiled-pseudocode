@@ -1,3 +1,23 @@
+/*
+ * XREFs of PspChargeProcessWakeCounter @ 0x1407CA2E0
+ * Callers:
+ *     PsReleaseProcessWakeCounter @ 0x140711BD0 (PsReleaseProcessWakeCounter.c)
+ *     PsChargeProcessWakeCounter @ 0x140793DC0 (PsChargeProcessWakeCounter.c)
+ *     PspAdjustKeepAliveCountProcess @ 0x1409AB928 (PspAdjustKeepAliveCountProcess.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140283390 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     PspChargeJobWakeCounter @ 0x1406FBDC4 (PspChargeJobWakeCounter.c)
+ *     PspIsProcessInJob @ 0x140788EDC (PspIsProcessInJob.c)
+ *     EtwTraceWakeCounter @ 0x1409E306C (EtwTraceWakeCounter.c)
+ *     EtwTraceWakeEvent @ 0x1409E3128 (EtwTraceWakeEvent.c)
+ */
+
 unsigned __int64 __fastcall PspChargeProcessWakeCounter(
         __int64 Object,
         int a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiCountBootDriverRegionPtes @ 0x140B5FE70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ */
+
 __int64 __fastcall MiCountBootDriverRegionPtes(__int64 a1, unsigned __int64 a2, int a3)
 {
   char v5; // al

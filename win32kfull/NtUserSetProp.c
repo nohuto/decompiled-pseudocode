@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserSetProp @ 0x1C0100EE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserGetGlobalAtomTableOfWindow @ 0x1C01011B8 (UserGetGlobalAtomTableOfWindow.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??1?$ObjectLock@UtagObjLock@@@?$DomainExclusive@$$V@?$DomainShared@$$V@SharedUserCritOnly@@QEAA@XZ @ 0x1C012F0E4 (--1-$ObjectLock@UtagObjLock@@@-$DomainExclusive@$$V@-$DomainShared@$$V@SharedUserCritOnly@@QEAA@.c)
+ *     SetSharedPropForFilteredProcesses @ 0x1C021F288 (SetSharedPropForFilteredProcesses.c)
+ */
+
 __int64 __fastcall NtUserSetProp(HWND a1, int a2, __int64 a3)
 {
   int v6; // edi

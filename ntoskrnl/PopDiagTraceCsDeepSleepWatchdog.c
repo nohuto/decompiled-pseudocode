@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagTraceCsDeepSleepWatchdog @ 0x14058F63C
+ * Callers:
+ *     PopDeepSleepWatchdogTakeAction @ 0x14099E044 (PopDeepSleepWatchdogTakeAction.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PopDiagTraceCsDeepSleepWatchdog(
         int a1,
         int a2,

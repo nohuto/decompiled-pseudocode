@@ -1,3 +1,11 @@
+/*
+ * XREFs of LdrpGenericProcessRelocation @ 0x1405AE854
+ * Callers:
+ *     LdrProcessRelocationBlockLongLong @ 0x1409BEF68 (LdrProcessRelocationBlockLongLong.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall LdrpGenericProcessRelocation(unsigned __int16 *a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // r10d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EDIDV1_FillProductIdManufacturerName@@YAJPEBEPEAG1@Z @ 0x1C00112B4
+ * Callers:
+ *     ?GetNumericManufacturerIds@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAG0@Z @ 0x1C01CFD60 (-GetNumericManufacturerIds@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAG0@Z.c)
+ * Callees:
+ *     ?Validate@EDID_PARSER@MonDescParser@@QEBAJ_N@Z @ 0x1C00114B0 (-Validate@EDID_PARSER@MonDescParser@@QEBAJ_N@Z.c)
+ */
+
 __int64 __fastcall EDIDV1_FillProductIdManufacturerName(
         const unsigned __int8 *a1,
         unsigned __int16 *a2,

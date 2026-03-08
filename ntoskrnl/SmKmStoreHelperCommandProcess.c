@@ -1,3 +1,22 @@
+/*
+ * XREFs of SmKmStoreHelperCommandProcess @ 0x1405C93E8
+ * Callers:
+ *     SmKmStoreHelperWorker @ 0x140356AC0 (SmKmStoreHelperWorker.c)
+ *     SmKmStoreHelperCommandCleanup @ 0x1405C931C (SmKmStoreHelperCommandCleanup.c)
+ * Callees:
+ *     SmSetThreadPagePriority @ 0x140356A74 (SmSetThreadPagePriority.c)
+ *     ZwUnlockVirtualMemory @ 0x140415E70 (ZwUnlockVirtualMemory.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     SmFpAllocate @ 0x14045D93E (SmFpAllocate.c)
+ *     SmFpFree @ 0x14045DA58 (SmFpFree.c)
+ *     ?SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z @ 0x1405C8A1C (-SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z.c)
+ *     SmKmUnlockMdl @ 0x1405C9ACC (SmKmUnlockMdl.c)
+ *     SmKmVirtualLockCtxLockMemory @ 0x1405C9C84 (SmKmVirtualLockCtxLockMemory.c)
+ *     SmKmVirtualLockCtxMemoryUnlocked @ 0x1405C9DA4 (SmKmVirtualLockCtxMemoryUnlocked.c)
+ *     MmStoreAllocateVirtualMemory @ 0x140A42EFC (MmStoreAllocateVirtualMemory.c)
+ *     MmStoreFreeVirtualMemory @ 0x140A430C0 (MmStoreFreeVirtualMemory.c)
+ */
+
 void __fastcall SmKmStoreHelperCommandProcess(__int64 a1, int a2, __int64 a3)
 {
   int v5; // edx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of DxgkEngAcquireWin32kAndPDEVLocks @ 0x1C00191F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?vSync@PDEVOBJ@@QEAAXPEAU_SURFOBJ@@PEAU_RECTL@@K@Z @ 0x1C0017690 (-vSync@PDEVOBJ@@QEAAXPEAU_SURFOBJ@@PEAU_RECTL@@K@Z.c)
+ *     GreLockDisplayDevice @ 0x1C001F900 (GreLockDisplayDevice.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0049800 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     EngAcquireSemaphore @ 0x1C004B690 (EngAcquireSemaphore.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ *     ??$hdevEnumerate@$00@@YAPEAUHDEV__@@PEAU0@@Z @ 0x1C006D990 (--$hdevEnumerate@$00@@YAPEAUHDEV__@@PEAU0@@Z.c)
+ */
+
 __int64 __fastcall DxgkEngAcquireWin32kAndPDEVLocks(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // edi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??0BOUNDCLIPRGNTOSURFACE@@QEAA@PEAU_SURFOBJ@@PEAPEAU_CLIPOBJ@@@Z @ 0x1C000C840
+ * Callers:
+ *     EngStrokePath @ 0x1C000C6E0 (EngStrokePath.c)
+ *     EngStrokeAndFillPath @ 0x1C028BFF0 (EngStrokeAndFillPath.c)
+ * Callees:
+ *     ?bContain@ERECTL@@QEBAHAEBU_RECTL@@@Z @ 0x1C000C908 (-bContain@ERECTL@@QEBAHAEBU_RECTL@@@Z.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00287BC (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C008C950 (-iComplexity@RGNOBJ@@QEBAJXZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 BOUNDCLIPRGNTOSURFACE *__fastcall BOUNDCLIPRGNTOSURFACE::BOUNDCLIPRGNTOSURFACE(
         BOUNDCLIPRGNTOSURFACE *this,
         struct _SURFOBJ *a2,

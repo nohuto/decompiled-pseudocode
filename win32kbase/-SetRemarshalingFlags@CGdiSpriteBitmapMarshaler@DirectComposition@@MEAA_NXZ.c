@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CGdiSpriteBitmapMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025E090
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CGdiSpriteBitmapMarshaler::SetRemarshalingFlags(
         DirectComposition::CGdiSpriteBitmapMarshaler *this)
 {

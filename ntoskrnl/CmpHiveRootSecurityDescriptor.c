@@ -1,3 +1,27 @@
+/*
+ * XREFs of CmpHiveRootSecurityDescriptor @ 0x140816360
+ * Callers:
+ *     CmpFinishSystemHivesLoad @ 0x140815160 (CmpFinishSystemHivesLoad.c)
+ *     CmpSetVersionData @ 0x140815CD8 (CmpSetVersionData.c)
+ *     CmpCreateRegistryRoot @ 0x140B5131C (CmpCreateRegistryRoot.c)
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ *     CmpInitializePreloadedHives @ 0x140B51BF0 (CmpInitializePreloadedHives.c)
+ * Callees:
+ *     RtlDeriveCapabilitySidsFromName @ 0x140204A10 (RtlDeriveCapabilitySidsFromName.c)
+ *     RtlGetAce @ 0x140245EE0 (RtlGetAce.c)
+ *     RtlSubAuthoritySid @ 0x1402BE740 (RtlSubAuthoritySid.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlInitializeSid @ 0x14068E3A0 (RtlInitializeSid.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D26A0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x1406D3290 (RtlpAddKnownAce.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406DB5A0 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406DB640 (RtlCreateAcl.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 ACL *CmpHiveRootSecurityDescriptor()
 {
   unsigned __int8 *Pool2; // r13

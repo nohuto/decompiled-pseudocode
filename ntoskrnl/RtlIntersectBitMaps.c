@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlIntersectBitMaps @ 0x1405A6530
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlIntersectBitMaps(__int64 a1, unsigned int *a2)
 {
   unsigned int v2; // r8d

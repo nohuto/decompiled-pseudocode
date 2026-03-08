@@ -1,3 +1,13 @@
+/*
+ * XREFs of BgFreeContext @ 0x140AEE228
+ * Callers:
+ *     BgkResumeFinished @ 0x140A969B8 (BgkResumeFinished.c)
+ * Callees:
+ *     BgpFwReleaseLock @ 0x140381C10 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140381C60 (BgpFwAcquireLock.c)
+ *     ResFwFreeContext @ 0x140AEEED4 (ResFwFreeContext.c)
+ */
+
 char BgFreeContext()
 {
   PVOID v0; // rbx

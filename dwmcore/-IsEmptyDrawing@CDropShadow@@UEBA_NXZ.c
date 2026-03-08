@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsEmptyDrawing@CDropShadow@@UEBA_NXZ @ 0x18012E5C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsReadyToDraw@CDropShadow@@AEBA_NPEAVCDrawingContext@@PEA_N@Z @ 0x1802270E0 (-IsReadyToDraw@CDropShadow@@AEBA_NPEAVCDrawingContext@@PEA_N@Z.c)
+ */
+
 char __fastcall CDropShadow::IsEmptyDrawing(CDropShadow *this)
 {
   char v1; // bl

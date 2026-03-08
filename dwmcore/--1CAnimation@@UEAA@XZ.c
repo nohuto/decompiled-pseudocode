@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??1CAnimation@@UEAA@XZ @ 0x1800C58A0
+ * Callers:
+ *     ??_GCAnimation@@UEAAPEAXI@Z @ 0x1800C5820 (--_GCAnimation@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097680 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ?UpdateAnimateValues@CAnimation@@UEAA_NXZ @ 0x1800C51A0 (-UpdateAnimateValues@CAnimation@@UEAA_NXZ.c)
+ *     ?EndAnimation@CAnimation@@AEAAXXZ @ 0x1800C5A6C (-EndAnimation@CAnimation@@AEAAXXZ.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D4A28 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CAnimation::~CAnimation(CAnimation *this)
 {
   CAnimation *v2; // rcx

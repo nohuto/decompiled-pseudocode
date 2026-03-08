@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiDecrementProcessStackCount @ 0x1402A7824
+ * Callers:
+ *     KiCommitThreadWait @ 0x140261290 (KiCommitThreadWait.c)
+ *     KiOutSwapKernelStacks @ 0x1402A7380 (KiOutSwapKernelStacks.c)
+ *     PspReaper @ 0x1402A75B0 (PspReaper.c)
+ *     KiSuspendThread @ 0x140354348 (KiSuspendThread.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KiDecrementProcessStackCount(__int64 a1)
 {
   __int64 result; // rax

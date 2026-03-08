@@ -1,3 +1,11 @@
+/*
+ * XREFs of VerifierZwCreateTransaction @ 0x140AE2790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall VerifierZwCreateTransaction(
         __int64 a1,
         unsigned int a2,

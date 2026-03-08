@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ProcessCreate@CHolographicComposition@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICCOMPOSITION_CREATE@@@Z @ 0x1802A41A8
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F0A8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     ?AddHolographicComposition@CHolographicManager@@QEAA_NPEAVCHolographicComposition@@@Z @ 0x1802A1224 (-AddHolographicComposition@CHolographicManager@@QEAA_NPEAVCHolographicComposition@@@Z.c)
+ *     ?SetState@CHolographicComposition@@UEAAJJ@Z @ 0x1802A4280 (-SetState@CHolographicComposition@@UEAAJJ@Z.c)
+ */
+
 __int64 __fastcall CHolographicComposition::ProcessCreate(
         CHolographicComposition *this,
         struct CResourceTable *a2,

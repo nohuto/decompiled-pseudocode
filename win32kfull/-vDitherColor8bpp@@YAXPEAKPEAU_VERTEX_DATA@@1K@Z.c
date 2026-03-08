@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vDitherColor8bpp@@YAXPEAKPEAU_VERTEX_DATA@@1K@Z @ 0x1C028B668
+ * Callers:
+ *     EngDitherColor @ 0x1C028B920 (EngDitherColor.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vDitherColor8bpp(unsigned int *a1, struct _VERTEX_DATA *a2, struct _VERTEX_DATA *a3, unsigned int a4)
 {
   struct _VERTEX_DATA *v5; // r11

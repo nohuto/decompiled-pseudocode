@@ -1,3 +1,13 @@
+/*
+ * XREFs of AslPathCleanUstr @ 0x140A521B8
+ * Callers:
+ *     AslPathWildcardFindFirst @ 0x140A52910 (AslPathWildcardFindFirst.c)
+ * Callees:
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ *     wcsncmp @ 0x1403D5ED0 (wcsncmp.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ */
+
 __int64 __fastcall AslPathCleanUstr(unsigned __int16 *a1)
 {
   unsigned __int16 v2; // bp

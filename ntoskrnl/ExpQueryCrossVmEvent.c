@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpQueryCrossVmEvent @ 0x140A032B0
+ * Callers:
+ *     NtQueryEvent @ 0x1407868C0 (NtQueryEvent.c)
+ * Callees:
+ *     ExReleaseExtensionTable @ 0x1402C5820 (ExReleaseExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExpGetExtensionHostForCrossVmObject @ 0x140A03088 (ExpGetExtensionHostForCrossVmObject.c)
+ */
+
 __int64 __fastcall ExpQueryCrossVmEvent(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 ExtensionHostForCrossVmObject; // rax

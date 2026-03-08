@@ -1,3 +1,16 @@
+/*
+ * XREFs of ParseLoad @ 0x1C005B600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     AMLIApplyNamespaceOverride @ 0x1C004A6B0 (AMLIApplyNamespaceOverride.c)
+ *     NewObjOwner @ 0x1C004C324 (NewObjOwner.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ *     PushCall @ 0x1C0053AF8 (PushCall.c)
+ *     PushScope @ 0x1C0053D40 (PushScope.c)
+ */
+
 __int64 __fastcall ParseLoad(_QWORD *a1, __int64 a2, int a3)
 {
   int v4; // ecx

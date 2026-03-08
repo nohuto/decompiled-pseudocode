@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsCxUsingSelfManagedIo@FxDevice@@QEAAEXZ @ 0x1C00733FC
+ * Callers:
+ *     ?RegisterCallbacks@FxPkgPnp@@QEAAJPEAU_WDF_PNPPOWER_EVENT_CALLBACKS@@@Z @ 0x1C0075310 (-RegisterCallbacks@FxPkgPnp@@QEAAJPEAU_WDF_PNPPOWER_EVENT_CALLBACKS@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ */
+
 char __fastcall FxDevice::IsCxUsingSelfManagedIo(FxDevice *this)
 {
   _LIST_ENTRY *p_m_CxDeviceInfoListHead; // r10

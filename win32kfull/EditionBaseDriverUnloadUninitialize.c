@@ -1,3 +1,14 @@
+/*
+ * XREFs of EditionBaseDriverUnloadUninitialize @ 0x1C00E23C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CleanupRitTimerScanWakeEvent@CRitTimerScanWakeSystem@@SAXXZ @ 0x1C0077C24 (-CleanupRitTimerScanWakeEvent@CRitTimerScanWakeSystem@@SAXXZ.c)
+ *     UnloadWin32kCall @ 0x1C00E2430 (UnloadWin32kCall.c)
+ *     ?OnDriverUnload@CTopologyManager@@SAXXZ @ 0x1C00E2B54 (-OnDriverUnload@CTopologyManager@@SAXXZ.c)
+ *     ?Delete@CRapidHpdInfo@@CAXW4InputTracing_DesktopRecalcRapidHpdResult@@@Z @ 0x1C00F62D8 (-Delete@CRapidHpdInfo@@CAXW4InputTracing_DesktopRecalcRapidHpdResult@@@Z.c)
+ */
+
 __int64 EditionBaseDriverUnloadUninitialize()
 {
   __int64 v0; // rdx

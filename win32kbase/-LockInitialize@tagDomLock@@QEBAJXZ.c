@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?LockInitialize@tagDomLock@@QEBAJXZ @ 0x1C00C3310
+ * Callers:
+ *     ?InitDomainLocks@@YAJXZ @ 0x1C00C310C (-InitDomainLocks@@YAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall tagDomLock::LockInitialize(tagDomLock *this)
 {
   struct _ERESOURCE *Pool2; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of vEfToLfx @ 0x1C0309B14
+ * Callers:
+ *     ??4EPOINTQF@@QEAAXAEAVEPOINTFL@@@Z @ 0x1C02DB5CC (--4EPOINTQF@@QEAAXAEAVEPOINTFL@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall vEfToLfx(int *a1, __int64 *a2)
 {
   int v2; // r9d

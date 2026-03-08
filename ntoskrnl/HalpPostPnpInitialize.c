@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpPostPnpInitialize @ 0x1408020CC
+ * Callers:
+ *     HalpAddDevice @ 0x140802640 (HalpAddDevice.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IoRegisterPlugPlayNotification @ 0x1406F4F30 (IoRegisterPlugPlayNotification.c)
+ *     HalpInitializeSecondaryInterruptServices @ 0x140B35558 (HalpInitializeSecondaryInterruptServices.c)
+ */
+
 NTSTATUS HalpPostPnpInitialize()
 {
   NTSTATUS result; // eax

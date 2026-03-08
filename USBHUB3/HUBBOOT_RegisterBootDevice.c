@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBBOOT_RegisterBootDevice @ 0x1C003F9F8
+ * Callers:
+ *     HUBPDO_EvtDeviceUsageNotificationEx @ 0x1C001CA80 (HUBPDO_EvtDeviceUsageNotificationEx.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBBOOT_RegisterBootDevice(__int64 a1, __int64 a2)
 {
   unsigned int v4; // ecx

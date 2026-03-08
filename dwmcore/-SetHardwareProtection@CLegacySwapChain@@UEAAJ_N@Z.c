@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SetHardwareProtection@CLegacySwapChain@@UEAAJ_N@Z @ 0x180298210
+ * Callers:
+ *     ?SetHardwareProtection@CLegacySwapChain@@$4PPPPPPPM@A@EAAJ_N@Z @ 0x18011BA70 (-SetHardwareProtection@CLegacySwapChain@@$4PPPPPPPM@A@EAAJ_N@Z.c)
+ *     ?SetHardwareProtection@CLegacySwapChain@@$4PPPPPPPM@7EAAJ_N@Z @ 0x18011CB10 (-SetHardwareProtection@CLegacySwapChain@@$4PPPPPPPM@7EAAJ_N@Z.c)
+ *     ?SetHardwareProtection@CConversionSwapChain@@UEAAJ_N@Z @ 0x18029F648 (-SetHardwareProtection@CConversionSwapChain@@UEAAJ_N@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CLegacySwapChain::SetHardwareProtection(CLegacySwapChain *this, unsigned __int8 a2)
 {
   __int64 v4; // rcx

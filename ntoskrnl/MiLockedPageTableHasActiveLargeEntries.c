@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiLockedPageTableHasActiveLargeEntries @ 0x1402FEB1C
+ * Callers:
+ *     MiWsleFlush @ 0x14032B4A0 (MiWsleFlush.c)
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ */
+
 __int64 __fastcall MiLockedPageTableHasActiveLargeEntries(unsigned __int64 a1)
 {
   int v1; // ebx

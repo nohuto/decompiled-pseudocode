@@ -1,3 +1,12 @@
+/*
+ * XREFs of TranslateBindMutexResources @ 0x1C001C044
+ * Callers:
+ *     AcpiHandleDeviceFirmwareLock @ 0x1C001B660 (AcpiHandleDeviceFirmwareLock.c)
+ * Callees:
+ *     ACPIInternalGetDeviceFromNSOBJ @ 0x1C00035BC (ACPIInternalGetDeviceFromNSOBJ.c)
+ *     PnpBiosResourcesToNtResources @ 0x1C008EFDC (PnpBiosResourcesToNtResources.c)
+ */
+
 __int64 __fastcall TranslateBindMutexResources(__int64 a1, __int64 a2, __int64 a3)
 {
   int v5; // ebx

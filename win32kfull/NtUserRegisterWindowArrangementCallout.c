@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserRegisterWindowArrangementCallout @ 0x1C0097500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z @ 0x1C00975C4 (-_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z.c)
+ */
+
 __int64 __fastcall NtUserRegisterWindowArrangementCallout(__int64 a1, int a2)
 {
   __int64 v4; // rax

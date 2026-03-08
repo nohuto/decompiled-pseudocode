@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetFloatProperty@CCompositionSkyBoxBrushMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C026C2E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CCompositionSkyBoxBrushMarshaler::SetFloatProperty(
         DirectComposition::CCompositionSkyBoxBrushMarshaler *this,
         int a2,

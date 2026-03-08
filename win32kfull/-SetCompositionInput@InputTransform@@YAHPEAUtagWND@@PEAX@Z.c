@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetCompositionInput@InputTransform@@YAHPEAUtagWND@@PEAX@Z @ 0x1C0007C54
+ * Callers:
+ *     EditionUpdateInputTransformFromHitTest @ 0x1C0007B90 (EditionUpdateInputTransformFromHitTest.c)
+ *     SetManipulationInputTargetTransform @ 0x1C0146E30 (SetManipulationInputTargetTransform.c)
+ * Callees:
+ *     ?InitInputTransformList@@YAPEAUtagINPUTTRANSFORMLIST@@PEAUtagWND@@@Z @ 0x1C0007E14 (-InitInputTransformList@@YAPEAUtagINPUTTRANSFORMLIST@@PEAUtagWND@@@Z.c)
+ */
+
 struct tagINPUTTRANSFORMLIST *__fastcall InputTransform::SetCompositionInput(
         InputTransform *this,
         struct tagWND *a2,

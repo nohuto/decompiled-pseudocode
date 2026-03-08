@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiWaitForExtentDeletions @ 0x14063DE84
+ * Callers:
+ *     MiDeleteExtentPfns @ 0x14063A660 (MiDeleteExtentPfns.c)
+ * Callees:
+ *     KeAbPreWait @ 0x140241620 (KeAbPreWait.c)
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeWaitForGate @ 0x1402931D8 (KeWaitForGate.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiWaitForExtentDeletions(__int64 a1, unsigned __int8 a2)
 {
   unsigned __int64 v2; // rdi

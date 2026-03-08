@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvlpQueryApicIdAndNumaNode @ 0x14053EF38
+ * Callers:
+ *     HvlStartBootLogicalProcessors @ 0x1403714E0 (HvlStartBootLogicalProcessors.c)
+ *     HvlpSelectLpSet @ 0x14053F128 (HvlpSelectLpSet.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HvlpQueryApicIdAndNumaNode(__int64 a1, _DWORD *a2, _WORD *a3)
 {
   __int64 (__fastcall *v3)(); // rax

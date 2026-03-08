@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopNetEngageNetworkRefresh @ 0x14099376C
+ * Callers:
+ *     PopNetRefreshTimerWorkerCallback @ 0x1409938F0 (PopNetRefreshTimerWorkerCallback.c)
+ * Callees:
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     PopNetSetResiliencyPhaseBias @ 0x140993978 (PopNetSetResiliencyPhaseBias.c)
+ */
+
 __int64 __fastcall PopNetEngageNetworkRefresh(__int64 a1)
 {
   __int64 result; // rax

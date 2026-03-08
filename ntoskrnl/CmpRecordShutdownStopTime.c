@@ -1,3 +1,19 @@
+/*
+ * XREFs of CmpRecordShutdownStopTime @ 0x140A0EA18
+ * Callers:
+ *     CmShutdownSystem1 @ 0x140613784 (CmShutdownSystem1.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     RtlGetPersistedStateLocation @ 0x14069ADC0 (RtlGetPersistedStateLocation.c)
+ *     CmpReadBuildVersion @ 0x140A0E7EC (CmpReadBuildVersion.c)
+ */
+
 __int64 CmpRecordShutdownStopTime()
 {
   struct _PRIVILEGE_SET *v0; // rdi

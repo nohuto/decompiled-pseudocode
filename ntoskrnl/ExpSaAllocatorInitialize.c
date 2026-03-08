@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpSaAllocatorInitialize @ 0x1403A5D34
+ * Callers:
+ *     ExpSaInitialize @ 0x1403A5B5C (ExpSaInitialize.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall ExpSaAllocatorInitialize(_QWORD *a1, char a2)
 {
   __int64 result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1FxDeviceBase@@MEAA@XZ @ 0x1C0038CC8
+ * Callers:
+ *     ??_GFxDeviceBase@@MEAAPEAXI@Z @ 0x1C0038550 (--_GFxDeviceBase@@MEAAPEAXI@Z.c)
+ *     ??1FxDevice@@UEAA@XZ @ 0x1C003D530 (--1FxDevice@@UEAA@XZ.c)
+ * Callees:
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0002D30 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxDeviceBase::~FxDeviceBase(FxDeviceBase *this, unsigned int a2)
 {
   FxDisposeList *m_DisposeList; // rcx

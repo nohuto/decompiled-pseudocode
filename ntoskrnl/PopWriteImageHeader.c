@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopWriteImageHeader @ 0x140AA2B28
+ * Callers:
+ *     PopSaveHiberContext @ 0x140AA1810 (PopSaveHiberContext.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     DbgPrint @ 0x1402BDD20 (DbgPrint.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     tcpxsum @ 0x1404200B0 (tcpxsum.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopWriteHiberPages @ 0x140AA2874 (PopWriteHiberPages.c)
+ */
+
 __int64 (*__fastcall PopWriteImageHeader(__int64 a1, __int64 a2, unsigned int a3, __int64 a4))(void)
 {
   ULONG_PTR BugCheckParameter4; // rsi

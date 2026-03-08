@@ -1,3 +1,12 @@
+/*
+ * XREFs of LinkNodepRunSrsAsync @ 0x1C005DAAC
+ * Callers:
+ *     LinkNodepRestoreIrqRoutingWorker @ 0x1C005D940 (LinkNodepRestoreIrqRoutingWorker.c)
+ *     LinkNodepRunSrs @ 0x1C0099804 (LinkNodepRunSrs.c)
+ * Callees:
+ *     LinkNodepRunSrsWorker @ 0x1C005DB40 (LinkNodepRunSrsWorker.c)
+ */
+
 __int64 __fastcall LinkNodepRunSrsAsync(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
   __int64 Pool2; // rax

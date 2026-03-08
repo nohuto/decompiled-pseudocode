@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopDumpTraceLoadCrashDumpDriverFailure @ 0x140550A98
+ * Callers:
+ *     IopInitializeCrashDump @ 0x140834B28 (IopInitializeCrashDump.c)
+ *     IoGetDumpStack @ 0x140940ABC (IoGetDumpStack.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IopDumpIsTracingEnabled @ 0x140550448 (IopDumpIsTracingEnabled.c)
+ */
+
 char __fastcall IopDumpTraceLoadCrashDumpDriverFailure(int a1)
 {
   char result; // al

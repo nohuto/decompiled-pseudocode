@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIProcessorContainerEvaluateLpiObject @ 0x1C003A614
+ * Callers:
+ *     ACPIProcessorContainerEvaluateLpiObjects @ 0x1C003A6D0 (ACPIProcessorContainerEvaluateLpiObjects.c)
+ * Callees:
+ *     AMLIEvalNameSpaceObject @ 0x1C0047B9C (AMLIEvalNameSpaceObject.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ */
+
 __int64 __fastcall ACPIProcessorContainerEvaluateLpiObject(__int64 a1, int *a2)
 {
   int v2; // eax

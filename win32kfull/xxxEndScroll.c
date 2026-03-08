@@ -1,3 +1,25 @@
+/*
+ * XREFs of xxxEndScroll @ 0x1C022CE90
+ * Callers:
+ *     ?xxxDWP_DoCancelMode@@YAXPEAUtagWND@@@Z @ 0x1C0010864 (-xxxDWP_DoCancelMode@@YAXPEAUtagWND@@@Z.c)
+ *     xxxTrackBox @ 0x1C022E110 (xxxTrackBox.c)
+ *     xxxTrackThumb @ 0x1C022E280 (xxxTrackThumb.c)
+ * Callees:
+ *     zzzShowCaret @ 0x1C0006108 (zzzShowCaret.c)
+ *     xxxReleaseCapture @ 0x1C00108E8 (xxxReleaseCapture.c)
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     PtInRect @ 0x1C00A34E8 (PtInRect.c)
+ *     FindTimer @ 0x1C00DEEDC (FindTimer.c)
+ *     _GetMessagePos @ 0x1C00E6844 (_GetMessagePos.c)
+ *     safe_cast_fnid_to_PSBWND @ 0x1C01BC260 (safe_cast_fnid_to_PSBWND.c)
+ *     ??$UserFreeIsolatedType@V?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C022B4A0 (--$UserFreeIsolatedType@V-$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@@@YAXPEAX@Z.c)
+ *     ?DrawCtlThumb@@YAXPEAUtagSBWND@@@Z @ 0x1C022B9E0 (-DrawCtlThumb@@YAXPEAUtagSBWND@@@Z.c)
+ *     ?xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z @ 0x1C022C0E0 (-xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z.c)
+ *     ?xxxDrawThumb@@YAXPEAUtagWND@@PEAUtagSBCALC@@H@Z @ 0x1C022C1A4 (-xxxDrawThumb@@YAXPEAUtagWND@@PEAUtagSBCALC@@H@Z.c)
+ *     ?zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z @ 0x1C022C83C (-zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z.c)
+ */
+
 unsigned __int8 **__fastcall xxxEndScroll(struct tagWND *a1, int a2)
 {
   unsigned __int8 **result; // rax

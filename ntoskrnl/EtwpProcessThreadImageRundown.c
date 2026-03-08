@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpProcessThreadImageRundown @ 0x14080DC50
+ * Callers:
+ *     EtwpKernelTraceRundown @ 0x14080D9F8 (EtwpKernelTraceRundown.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsLookupProcessByProcessId @ 0x1406AC100 (PsLookupProcessByProcessId.c)
+ *     PsEnumProcesses @ 0x1407809CC (PsEnumProcesses.c)
+ *     EtwpProcessEnumCallback @ 0x14080DD60 (EtwpProcessEnumCallback.c)
+ *     EtwpIsStackWalkingEnabled @ 0x14080E2D8 (EtwpIsStackWalkingEnabled.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpProcessThreadImageRundown(__int64 a1, __int64 a2, char a3, unsigned int **a4, unsigned int a5)
 {
   NTSTATUS v8; // r15d

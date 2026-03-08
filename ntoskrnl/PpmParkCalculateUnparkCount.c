@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmParkCalculateUnparkCount @ 0x1402EBC70
+ * Callers:
+ *     PpmCheckComputeHeteroResponse @ 0x140593FE0 (PpmCheckComputeHeteroResponse.c)
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x140594418 (PpmCheckComputeMultiClassHeteroResponse.c)
+ * Callees:
+ *     PpmHeteroIsMultiClassParkingEnabled @ 0x14038E12C (PpmHeteroIsMultiClassParkingEnabled.c)
+ *     PpmEventHgsCoresUnparkedCount @ 0x14045AD2E (PpmEventHgsCoresUnparkedCount.c)
+ *     PpmEventParkingCountSelection @ 0x140598A4C (PpmEventParkingCountSelection.c)
+ */
+
 char PpmParkCalculateUnparkCount()
 {
   __int64 v0; // rcx

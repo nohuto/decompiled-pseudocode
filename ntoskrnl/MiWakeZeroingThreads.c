@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiWakeZeroingThreads @ 0x1402A7E98
+ * Callers:
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertLargePageInNodeList @ 0x14031C970 (MiInsertLargePageInNodeList.c)
+ *     MiWakePageZeroing @ 0x140361388 (MiWakePageZeroing.c)
+ *     MiZeroNodeExiting @ 0x14065315C (MiZeroNodeExiting.c)
+ * Callees:
+ *     ObReferenceObjectSafeWithTag @ 0x14022BD30 (ObReferenceObjectSafeWithTag.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     MiAddZeroingThreads @ 0x1402A7F38 (MiAddZeroingThreads.c)
+ *     MiUnparkedCoreCount @ 0x1402A85DC (MiUnparkedCoreCount.c)
+ *     KeSetActualBasePriorityThread @ 0x140357730 (KeSetActualBasePriorityThread.c)
+ */
+
 int __fastcall MiWakeZeroingThreads(__int64 a1, char a2)
 {
   __int64 v2; // rax

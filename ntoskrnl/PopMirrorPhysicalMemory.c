@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopMirrorPhysicalMemory @ 0x140AA0850
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ */
+
 __int64 __fastcall PopMirrorPhysicalMemory(unsigned __int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

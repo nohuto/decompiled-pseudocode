@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GdiPtInSprite@@YAHPEAUHDEV__@@PEAUHWND__@@HH@Z @ 0x1C027D22C
+ * Callers:
+ *     GrePtInSprite @ 0x1C00A307C (GrePtInSprite.c)
+ * Callees:
+ *     ?pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z @ 0x1C010D764 (-pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z.c)
+ *     ?bSpPtInSprite@@YAHPEAVSPRITE@@HH@Z @ 0x1C0280F14 (-bSpPtInSprite@@YAHPEAVSPRITE@@HH@Z.c)
+ *     ?pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX_N@Z @ 0x1C0281E68 (-pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX_N@Z.c)
+ */
+
 __int64 __fastcall GdiPtInSprite(Gre::Base *a1, HWND a2, int a3, int a4)
 {
   unsigned int v7; // ebx

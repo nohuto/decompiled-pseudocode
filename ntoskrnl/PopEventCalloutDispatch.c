@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopEventCalloutDispatch @ 0x1403B127C
+ * Callers:
+ *     PopUserPresentSetWorker @ 0x14058BD10 (PopUserPresentSetWorker.c)
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ *     PopDispatchCallout @ 0x140861820 (PopDispatchCallout.c)
+ *     PopDispatchShutdownEvent @ 0x1409914E0 (PopDispatchShutdownEvent.c)
+ *     PopPolicyTimeChange @ 0x140991540 (PopPolicyTimeChange.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopInvokeWin32Callout @ 0x14073A52C (PopInvokeWin32Callout.c)
+ */
+
 struct _KTHREAD *__fastcall PopEventCalloutDispatch(int a1, __int64 a2)
 {
   struct _KTHREAD *result; // rax

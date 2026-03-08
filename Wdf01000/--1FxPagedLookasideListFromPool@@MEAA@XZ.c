@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1FxPagedLookasideListFromPool@@MEAA@XZ @ 0x1C004167C
+ * Callers:
+ *     ??_GFxPagedLookasideListFromPool@@MEAAPEAXI@Z @ 0x1C0041750 (--_GFxPagedLookasideListFromPool@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1FxObject@@UEAA@XZ @ 0x1C0004920 (--1FxObject@@UEAA@XZ.c)
+ */
+
 void __fastcall FxPagedLookasideListFromPool::~FxPagedLookasideListFromPool(
         FxPagedLookasideListFromPool *this,
         unsigned int a2,

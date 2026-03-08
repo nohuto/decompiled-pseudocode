@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopErrorLogQueueRequest @ 0x14094E654
+ * Callers:
+ *     IopErrorLogThread @ 0x1408704E0 (IopErrorLogThread.c)
+ * Callees:
+ *     KeInitializeTimerEx @ 0x140237DB0 (KeInitializeTimerEx.c)
+ *     KeSetCoalescableTimer @ 0x140250440 (KeSetCoalescableTimer.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 char IopErrorLogQueueRequest()
 {
   struct _KDPC *Pool2; // rax

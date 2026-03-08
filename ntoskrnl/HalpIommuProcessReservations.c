@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpIommuProcessReservations @ 0x14039A08C
+ * Callers:
+ *     HalpIommuInitSystem @ 0x140A86E10 (HalpIommuInitSystem.c)
+ * Callees:
+ *     HalpIommuProcessReservationsInternal @ 0x14039A0E8 (HalpIommuProcessReservationsInternal.c)
+ */
+
 __int64 __fastcall HalpIommuProcessReservations(__int64 a1)
 {
   ULONG_PTR *v1; // rbx

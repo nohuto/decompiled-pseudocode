@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiGetDxgAdapterFromChild @ 0x1C0394988
+ * Callers:
+ *     ?DxgkCaptureAcquireSynchronization@@YAJPEBU_DEVICE_OBJECT@@@Z @ 0x1C02D9190 (-DxgkCaptureAcquireSynchronization@@YAJPEBU_DEVICE_OBJECT@@@Z.c)
+ *     ?DxgkCaptureReleaseSynchronization@@YAJPEBU_DEVICE_OBJECT@@@Z @ 0x1C02D92D0 (-DxgkCaptureReleaseSynchronization@@YAJPEBU_DEVICE_OBJECT@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiGetDxgAdapterFromChild(PDEVICE_OBJECT DeviceObject, _QWORD *a2)
 {
   PIRP v4; // rax

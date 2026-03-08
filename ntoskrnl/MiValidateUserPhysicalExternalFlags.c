@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiValidateUserPhysicalExternalFlags @ 0x140A3F608
+ * Callers:
+ *     MiCreatePagingFileMap @ 0x1407F3500 (MiCreatePagingFileMap.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiValidateUserPhysicalExternalFlags(int a1)
 {
   unsigned int v1; // edx

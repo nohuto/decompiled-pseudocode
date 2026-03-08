@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?TransformRectAroundCursor@@YAXPEAUMOVESIZEDATA@@PEBUtagRECT@@GPEAU2@2G@Z @ 0x1C01BA574
+ * Callers:
+ *     GetNewMonitor @ 0x1C00AB0FC (GetNewMonitor.c)
+ *     ?DetectNewMonitor@@YAHPEAUMOVESIZEDATA@@PEAUtagRECT@@@Z @ 0x1C01B9BC8 (-DetectNewMonitor@@YAHPEAUMOVESIZEDATA@@PEAUtagRECT@@@Z.c)
+ * Callees:
+ *     TransformRectAroundPoint @ 0x1C01BB2C0 (TransformRectAroundPoint.c)
+ */
+
 void __fastcall TransformRectAroundCursor(
         struct MOVESIZEDATA *a1,
         const struct tagRECT *a2,

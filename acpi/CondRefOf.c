@@ -1,3 +1,13 @@
+/*
+ * XREFs of CondRefOf @ 0x1C0056490
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IsCompatableDSDTRevision @ 0x1C004BE28 (IsCompatableDSDTRevision.c)
+ *     ValidateTarget @ 0x1C004D4F0 (ValidateTarget.c)
+ *     WriteObject @ 0x1C00532A0 (WriteObject.c)
+ */
+
 __int64 __fastcall CondRefOf(__int64 a1, __int64 a2)
 {
   unsigned int v4; // r8d

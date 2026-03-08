@@ -1,3 +1,29 @@
+/*
+ * XREFs of RIMUnregisterForInput @ 0x1C00326C0
+ * Callers:
+ *     ?CleanupHandles@CRIMBase@@IEAAXXZ @ 0x1C00315C4 (-CleanupHandles@CRIMBase@@IEAAXXZ.c)
+ *     RIMRegisterForInputWithCallbacks @ 0x1C00356F0 (RIMRegisterForInputWithCallbacks.c)
+ *     RIMUnregisterCurrentProcessForInput @ 0x1C0039554 (RIMUnregisterCurrentProcessForInput.c)
+ *     NtRIMUnregisterForInput @ 0x1C01A2BB0 (NtRIMUnregisterForInput.c)
+ * Callees:
+ *     RIMCloseDev @ 0x1C00308E4 (RIMCloseDev.c)
+ *     RIMSignalAllDispositionWaiters @ 0x1C0032B90 (RIMSignalAllDispositionWaiters.c)
+ *     RIMDeleteAllAsyncPnpWorkNotificationItems @ 0x1C0032BB8 (RIMDeleteAllAsyncPnpWorkNotificationItems.c)
+ *     rimFreeAllUserMem @ 0x1C0032BE8 (rimFreeAllUserMem.c)
+ *     RIMSignalAllPriorPnpWorkToCompleteWaiters @ 0x1C0037614 (RIMSignalAllPriorPnpWorkToCompleteWaiters.c)
+ *     rimRemoveFromObTrackList @ 0x1C0038270 (rimRemoveFromObTrackList.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     RIMUnRegisterForInputDeviceTypeClassNotifications @ 0x1C0039A94 (RIMUnRegisterForInputDeviceTypeClassNotifications.c)
+ *     RawInputManagerObjectResolveHandle @ 0x1C0039E60 (RawInputManagerObjectResolveHandle.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     RIMFreeSpecificDev @ 0x1C00BBF88 (RIMFreeSpecificDev.c)
+ *     rimResetPnpRemovePendingStateBits @ 0x1C00D0020 (rimResetPnpRemovePendingStateBits.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall RIMUnregisterForInput(__int64 a1)
 {
   char v2; // dl

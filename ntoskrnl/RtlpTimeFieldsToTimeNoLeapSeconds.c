@@ -1,3 +1,20 @@
+/*
+ * XREFs of RtlpTimeFieldsToTimeNoLeapSeconds @ 0x1402D11E0
+ * Callers:
+ *     HalQueryRealTimeClock @ 0x1402D0F30 (HalQueryRealTimeClock.c)
+ *     RtlTimeFieldsToTime @ 0x1402D1150 (RtlTimeFieldsToTime.c)
+ *     HalSetRealTimeClock @ 0x1404FCC40 (HalSetRealTimeClock.c)
+ *     HalEfiGetTime @ 0x14050A9DC (HalEfiGetTime.c)
+ *     HalpCheckWakeupTimeAndAdjust @ 0x140519F14 (HalpCheckWakeupTimeAndAdjust.c)
+ *     RtlParseLeapSecondData @ 0x140A714E4 (RtlParseLeapSecondData.c)
+ *     SeMakeAnonymousLogonTokenNoEveryone @ 0x140B48710 (SeMakeAnonymousLogonTokenNoEveryone.c)
+ *     SeMakeAnonymousLogonToken @ 0x140B489A0 (SeMakeAnonymousLogonToken.c)
+ *     SeMakeSystemToken @ 0x140B48C50 (SeMakeSystemToken.c)
+ *     GetBootSystemTime @ 0x140B70018 (GetBootSystemTime.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RtlpTimeFieldsToTimeNoLeapSeconds(__int16 *a1, _QWORD *a2)
 {
   int v2; // eax

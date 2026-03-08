@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetWindowBand @ 0x1C00CF3D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserGetWindowBand(__int64 a1, _DWORD *a2, __int64 a3)
 {
   __int64 v5; // rcx

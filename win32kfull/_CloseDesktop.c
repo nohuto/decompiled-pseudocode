@@ -1,3 +1,15 @@
+/*
+ * XREFs of _CloseDesktop @ 0x1C00938E8
+ * Callers:
+ *     EditionCloseDesktopEntryPoint @ 0x1C00938A0 (EditionCloseDesktopEntryPoint.c)
+ *     xxxCreateDesktopEx @ 0x1C00C03D4 (xxxCreateDesktopEx.c)
+ *     ?xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z @ 0x1C00C1594 (-xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     CloseProtectedHandle @ 0x1C0094854 (CloseProtectedHandle.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall CloseDesktop(unsigned __int64 Handle, KPROCESSOR_MODE a2)
 {
   __int64 CurrentProcessWin32Process; // rax

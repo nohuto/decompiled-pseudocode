@@ -1,3 +1,29 @@
+/*
+ * XREFs of NVMeHwAdapterControl @ 0x1C0003050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     NVMePowerActive @ 0x1C00030C0 (NVMePowerActive.c)
+ *     memmove @ 0x1C0004280 (memmove.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ *     CalculateTimeDurationIn100ns @ 0x1C0007370 (CalculateTimeDurationIn100ns.c)
+ *     NVMeControllerCompleteAllIORequests @ 0x1C000CC54 (NVMeControllerCompleteAllIORequests.c)
+ *     NVMeControllerFilterResourceRequirements @ 0x1C000CD5C (NVMeControllerFilterResourceRequirements.c)
+ *     NVMeControllerPowerDown @ 0x1C000DF70 (NVMeControllerPowerDown.c)
+ *     NVMeControllerPowerUp @ 0x1C000E0F4 (NVMeControllerPowerUp.c)
+ *     NVMeControllerRemove @ 0x1C000E18C (NVMeControllerRemove.c)
+ *     NVMeControllerReset @ 0x1C000E4D8 (NVMeControllerReset.c)
+ *     NVMeControllerStop @ 0x1C000EBA8 (NVMeControllerStop.c)
+ *     NVMeGetControllerSerialNumber @ 0x1C000F198 (NVMeGetControllerSerialNumber.c)
+ *     NVMeInitializeProcessorIoQueueMapping @ 0x1C000F870 (NVMeInitializeProcessorIoQueueMapping.c)
+ *     NVMeMaxOperationalPower @ 0x1C000FB54 (NVMeMaxOperationalPower.c)
+ *     NVMePowerSetFState @ 0x1C0010324 (NVMePowerSetFState.c)
+ *     NVMePowerSetPerfState @ 0x1C00103B0 (NVMePowerSetPerfState.c)
+ *     NVMePowerSettingChangeNotification @ 0x1C0010430 (NVMePowerSettingChangeNotification.c)
+ *     NVMeSystemPowerHint @ 0x1C0010A10 (NVMeSystemPowerHint.c)
+ *     NVMeSendControllerInternalData @ 0x1C0027B90 (NVMeSendControllerInternalData.c)
+ */
+
 __int64 __fastcall NVMeHwAdapterControl(__int64 a1, int a2, int *a3)
 {
   unsigned int v5; // esi

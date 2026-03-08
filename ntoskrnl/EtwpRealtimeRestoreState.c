@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpRealtimeRestoreState @ 0x14084FCD8
+ * Callers:
+ *     EtwpRealtimeCreateLogfile @ 0x14069152C (EtwpRealtimeCreateLogfile.c)
+ * Callees:
+ *     EtwpQueryUsedProcessorCount @ 0x140206540 (EtwpQueryUsedProcessorCount.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1404123D0 (ZwReadFile.c)
+ *     ZwWriteFile @ 0x140412410 (ZwWriteFile.c)
+ *     ZwQueryInformationFile @ 0x140412530 (ZwQueryInformationFile.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpEventWriteTemplateBackingFile @ 0x1409E0C90 (EtwpEventWriteTemplateBackingFile.c)
+ */
+
 NTSTATUS __fastcall EtwpRealtimeRestoreState(__int64 a1)
 {
   NTSTATUS result; // eax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1FxUsbPipeContinuousReader@@QEAA@XZ @ 0x1C0059928
+ * Callers:
+ *     ??_GFxUsbPipeContinuousReader@@QEAAPEAXI@Z @ 0x1C0059AE0 (--_GFxUsbPipeContinuousReader@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ?DeleteMemory@FxUsbPipeContinuousReader@@IEAAXPEAVFxRequestBase@@@Z @ 0x1C000F1B6 (-DeleteMemory@FxUsbPipeContinuousReader@@IEAAXPEAVFxRequestBase@@@Z.c)
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C0016BA8 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ */
+
 void __fastcall FxUsbPipeContinuousReader::~FxUsbPipeContinuousReader(FxUsbPipeContinuousReader *this)
 {
   int v1; // esi

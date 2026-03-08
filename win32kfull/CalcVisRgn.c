@@ -1,3 +1,21 @@
+/*
+ * XREFs of CalcVisRgn @ 0x1C00535C0
+ * Callers:
+ *     ?GetWindowRgn@@YAHPEAUtagWND@@PEAUHRGN__@@K@Z @ 0x1C0025400 (-GetWindowRgn@@YAHPEAUtagWND@@PEAUHRGN__@@K@Z.c)
+ *     ?SwpCalcVisRgn@@YAHPEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C0065824 (-SwpCalcVisRgn@@YAHPEAUtagWND@@PEAUHRGN__@@@Z.c)
+ *     _VisrgnFromWindow @ 0x1C007EFB0 (_VisrgnFromWindow.c)
+ *     zzzResetSharedDesktops @ 0x1C0096870 (zzzResetSharedDesktops.c)
+ *     InvalidateGDIWindows @ 0x1C01BEE24 (InvalidateGDIWindows.c)
+ *     UserGetClientRgn @ 0x1C01BEF48 (UserGetClientRgn.c)
+ *     NtUserGetWindowRgnEx @ 0x1C01D57F0 (NtUserGetWindowRgnEx.c)
+ * Callees:
+ *     _IsDescendant @ 0x1C002C4D0 (_IsDescendant.c)
+ *     GetStyleWindow @ 0x1C0039020 (GetStyleWindow.c)
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C0044080 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     ?CalcVisRgnWorker@@YAHQEBUtagWND@@PEAPEAUHRGN__@@K@Z @ 0x1C0053AA0 (-CalcVisRgnWorker@@YAHQEBUtagWND@@PEAPEAUHRGN__@@K@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall CalcVisRgn(HRGN *a1, _QWORD *a2, const struct tagWND *a3, unsigned int a4)
 {
   unsigned int v4; // r14d

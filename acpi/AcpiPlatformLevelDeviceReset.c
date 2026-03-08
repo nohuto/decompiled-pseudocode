@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiPlatformLevelDeviceReset @ 0x1C0023D14
+ * Callers:
+ *     AcpiDeviceBusSpecificReset @ 0x1C0082CF0 (AcpiDeviceBusSpecificReset.c)
+ *     AcpiDeviceReset @ 0x1C0082DA0 (AcpiDeviceReset.c)
+ * Callees:
+ *     AcpiResetDeviceAlreadyProcessed @ 0x1C0023E24 (AcpiResetDeviceAlreadyProcessed.c)
+ */
+
 __int64 __fastcall AcpiPlatformLevelDeviceReset(__int64 a1, _QWORD *a2)
 {
   _QWORD *v2; // rsi

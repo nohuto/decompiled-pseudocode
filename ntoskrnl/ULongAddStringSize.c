@@ -1,3 +1,12 @@
+/*
+ * XREFs of ULongAddStringSize @ 0x1409D3CA0
+ * Callers:
+ *     GetPrintableOperandValue @ 0x1409D117C (GetPrintableOperandValue.c)
+ *     LocalpGetStringForCondition @ 0x1409D3684 (LocalpGetStringForCondition.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ULongAddStringSize(unsigned int a1, __int64 a2, int *a3)
 {
   __int64 v4; // rax

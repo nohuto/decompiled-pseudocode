@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpDispatchWmi @ 0x1408618D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     HalpPassIrpFromFdoToPdo @ 0x14038CC24 (HalpPassIrpFromFdoToPdo.c)
+ */
+
 __int64 __fastcall HalpDispatchWmi(__int64 a1, IRP *a2)
 {
   unsigned int Status; // ebx

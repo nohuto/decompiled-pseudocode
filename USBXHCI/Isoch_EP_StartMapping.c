@@ -1,3 +1,13 @@
+/*
+ * XREFs of Isoch_EP_StartMapping @ 0x1C0001C10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Isoch_MapTransfers @ 0x1C0001C9C (Isoch_MapTransfers.c)
+ *     Controller_LowerAndTrackIrql @ 0x1C00074BC (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0007558 (Controller_RaiseAndTrackIrql.c)
+ */
+
 char __fastcall Isoch_EP_StartMapping(__int64 a1)
 {
   char v2; // si

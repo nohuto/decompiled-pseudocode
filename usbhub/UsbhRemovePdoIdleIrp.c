@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhRemovePdoIdleIrp @ 0x1C00589D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall UsbhRemovePdoIdleIrp(PIO_CSQ Csq, PIRP Irp)
 {
   _LIST_ENTRY *p_ListEntry; // rdx

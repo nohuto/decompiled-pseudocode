@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserSetInternalWindowPos @ 0x1C01DCDD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     xxxSetInternalWindowPos @ 0x1C01F416C (xxxSetInternalWindowPos.c)
+ */
+
 __int64 __fastcall NtUserSetInternalWindowPos(__int64 a1, int a2, __int128 *a3)
 {
   __int64 v6; // rax

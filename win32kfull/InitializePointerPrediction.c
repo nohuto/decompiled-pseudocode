@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitializePointerPrediction @ 0x1C00F5770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 InitializePointerPrediction()
 {
   __int64 result; // rax

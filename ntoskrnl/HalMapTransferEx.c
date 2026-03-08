@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalMapTransferEx @ 0x140512200
+ * Callers:
+ *     HalpAllocateAdapterCallbackV3 @ 0x14050CF30 (HalpAllocateAdapterCallbackV3.c)
+ * Callees:
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IoMapTransferInternal @ 0x140452EBE (IoMapTransferInternal.c)
+ *     HalpDmaCheckMdlAccessibility @ 0x1404FD754 (HalpDmaCheckMdlAccessibility.c)
+ *     HalpDmaFlushDriverMdl @ 0x1404FDB64 (HalpDmaFlushDriverMdl.c)
+ *     HalpDmaFlushBuffer @ 0x14050E7A0 (HalpDmaFlushBuffer.c)
+ *     HalpDmaControllerProgramChannel @ 0x14051440C (HalpDmaControllerProgramChannel.c)
+ *     HalpDmaControllerQueryMaxFragments @ 0x140514650 (HalpDmaControllerQueryMaxFragments.c)
+ */
+
 __int64 __fastcall HalMapTransferEx(
         __int64 a1,
         __int64 a2,

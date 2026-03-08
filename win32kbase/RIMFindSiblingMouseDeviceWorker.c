@@ -1,3 +1,14 @@
+/*
+ * XREFs of RIMFindSiblingMouseDeviceWorker @ 0x1C01ADDCC
+ * Callers:
+ *     RIMCreateDev @ 0x1C0036CBC (RIMCreateDev.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     RawInputManagerDeviceObjectReference @ 0x1C0088EF0 (RawInputManagerDeviceObjectReference.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMIsParentCommon @ 0x1C01AF3D0 (RIMIsParentCommon.c)
+ */
+
 __int64 __fastcall RIMFindSiblingMouseDeviceWorker(int a1, __int64 a2, _QWORD *a3, __int64 a4)
 {
   _QWORD *v4; // r15

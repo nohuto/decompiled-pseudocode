@@ -1,3 +1,19 @@
+/*
+ * XREFs of HvpRemoveFreeCellHint @ 0x1407A6200
+ * Callers:
+ *     HvpDelistFreeCell @ 0x1407A5BF0 (HvpDelistFreeCell.c)
+ *     HvpDoAllocateCell @ 0x1407A6420 (HvpDoAllocateCell.c)
+ *     HvFreeCell @ 0x1407A6A90 (HvFreeCell.c)
+ * Callees:
+ *     RtlSetBits @ 0x14028BC50 (RtlSetBits.c)
+ *     RtlFindSetBits @ 0x14030D990 (RtlFindSetBits.c)
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HvpGetBinContextInitialize @ 0x140AF2644 (HvpGetBinContextInitialize.c)
+ *     HvpMapEntryGetBinAddress @ 0x140AF2654 (HvpMapEntryGetBinAddress.c)
+ *     HvpGetCellMap @ 0x140AF2670 (HvpGetCellMap.c)
+ */
+
 void __fastcall HvpRemoveFreeCellHint(
         ULONG_PTR BugCheckParameter2,
         ULONG_PTR BugCheckParameter3,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserDragObject @ 0x1C01CF970
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     xxxDragObject @ 0x1C023257C (xxxDragObject.c)
+ */
+
 __int64 __fastcall NtUserDragObject(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5)
 {
   __int64 v9; // rax

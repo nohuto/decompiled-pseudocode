@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopEvaluatePowerButtonSuppressionState @ 0x140999A7C
+ * Callers:
+ *     PopLidSwitchReliabilityUpdateCallback @ 0x140829020 (PopLidSwitchReliabilityUpdateCallback.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopBsdHandleRequest @ 0x1402B8B24 (PopBsdHandleRequest.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 PopEvaluatePowerButtonSuppressionState()
 {
   char v0; // di

@@ -1,3 +1,20 @@
+/*
+ * XREFs of SecureDump_LoadCertAndProvisionKey @ 0x14055BD40
+ * Callers:
+ *     SecureDump_ProvisionCrashDumpKey @ 0x1403B1104 (SecureDump_ProvisionCrashDumpKey.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1404123D0 (ZwReadFile.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x140412530 (ZwQueryInformationFile.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     SecureDump_ConvertBinaryToHexString @ 0x14055B510 (SecureDump_ConvertBinaryToHexString.c)
+ *     SecureDump_LogErrorEvent @ 0x14055C088 (SecureDump_LogErrorEvent.c)
+ *     SecureDump_ValidateAmeCertChain @ 0x14055C3D0 (SecureDump_ValidateAmeCertChain.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SecureDump_LoadCertAndProvisionKey(UNICODE_STRING *a1, _QWORD *a2, int *a3, _QWORD *a4, __int64 a5)
 {
   void *v5; // rdi

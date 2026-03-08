@@ -1,3 +1,13 @@
+/*
+ * XREFs of GetPreparsedData @ 0x1C01B264C
+ * Callers:
+ *     RIMExtractPointerPropertyValues @ 0x1C01B5500 (RIMExtractPointerPropertyValues.c)
+ *     RIMGetPointerDeviceProperties @ 0x1C01B70A0 (RIMGetPointerDeviceProperties.c)
+ * Callees:
+ *     HMValidateHandleNoSecure @ 0x1C007A1CC (HMValidateHandleNoSecure.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall GetPreparsedData(__int64 a1, _QWORD *a2)
 {
   unsigned int v2; // ebx

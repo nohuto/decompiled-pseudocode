@@ -1,3 +1,41 @@
+/*
+ * XREFs of IopMountVolume @ 0x14072B180
+ * Callers:
+ *     IopCheckVpbMounted @ 0x14030EE30 (IopCheckVpbMounted.c)
+ *     IoVerifyVolume @ 0x140944740 (IoVerifyVolume.c)
+ * Callees:
+ *     IoGetActivityIdThread @ 0x140203AD0 (IoGetActivityIdThread.c)
+ *     FsRtlIsTotalDeviceFailure @ 0x140212E10 (FsRtlIsTotalDeviceFailure.c)
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     IopWaitForLockAlertable @ 0x140241084 (IopWaitForLockAlertable.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     IopMountInitializeVpb @ 0x1402B17F0 (IopMountInitializeVpb.c)
+ *     IopAllocateIrpWithExtension @ 0x1402B18A4 (IopAllocateIrpWithExtension.c)
+ *     IopQueryVpbFlagsSafe @ 0x1402B2384 (IopQueryVpbFlagsSafe.c)
+ *     MmIsThisAnNtAsSystem @ 0x1402B23D0 (MmIsThisAnNtAsSystem.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IopDecrementDeviceObjectRef @ 0x14030F5C0 (IopDecrementDeviceObjectRef.c)
+ *     IopIncrementDeviceObjectRefCount @ 0x14030F910 (IopIncrementDeviceObjectRefCount.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     McTemplateK0jhzr1_EtwWriteTransfer @ 0x1403CB37C (McTemplateK0jhzr1_EtwWriteTransfer.c)
+ *     McTemplateK0jhzr1d_EtwWriteTransfer @ 0x1403CFB1C (McTemplateK0jhzr1d_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     IoVolumeDeviceToDosName @ 0x140720680 (IoVolumeDeviceToDosName.c)
+ *     IoVolumeDeviceToGuid @ 0x14072BB40 (IoVolumeDeviceToGuid.c)
+ *     IopLoadFileSystemDriver @ 0x140872E40 (IopLoadFileSystemDriver.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopMountVolume(ULONG_PTR BugCheckParameter1, char a2, char a3, char a4, ULONG_PTR *a5)
 {
   const GUID *v5; // rdi

@@ -1,3 +1,17 @@
+/*
+ * XREFs of NtGetCachedSigningLevel @ 0x140778700
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SeGetCachedSigningLevel @ 0x1407789A0 (SeGetCachedSigningLevel.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ */
+
 __int64 __fastcall NtGetCachedSigningLevel(
         void *a1,
         volatile void *a2,

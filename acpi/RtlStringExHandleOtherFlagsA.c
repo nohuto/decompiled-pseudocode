@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlStringExHandleOtherFlagsA @ 0x1C002BD04
+ * Callers:
+ *     RtlStringCchPrintfExA @ 0x1C002BB4C (RtlStringCchPrintfExA.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ */
+
 NTSTATUS __stdcall RtlStringExHandleOtherFlagsA(
         NTSTRSAFE_PSTR pszDest,
         size_t cbDest,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpDpStartProcessor @ 0x140A94AF4
+ * Callers:
+ *     HalpDpReplaceControl @ 0x140A94820 (HalpDpReplaceControl.c)
+ * Callees:
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x140372460 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalGetProcessorIdByNtNumber @ 0x1403810B0 (HalGetProcessorIdByNtNumber.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HalpInterruptStartProcessor @ 0x140A86180 (HalpInterruptStartProcessor.c)
+ */
+
 __int64 __fastcall HalpDpStartProcessor(ULONG_PTR BugCheckParameter2, _DWORD *a2, __int64 a3, unsigned int a4)
 {
   int v4; // ebx

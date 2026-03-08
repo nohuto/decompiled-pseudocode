@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Cancel_RenderThread@CEffectCompilationTask@@AEAAXXZ @ 0x1801E30B4
+ * Callers:
+ *     ??1CEffectCompilationService@@UEAA@XZ @ 0x1801B90C4 (--1CEffectCompilationService@@UEAA@XZ.c)
+ *     ??1CEffectCompilationTask@@QEAA@XZ @ 0x1801E2F4C (--1CEffectCompilationTask@@QEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CEffectCompilationTask::Cancel_RenderThread(CEffectCompilationTask *this)
 {
   struct _TP_WORK *v2; // rcx

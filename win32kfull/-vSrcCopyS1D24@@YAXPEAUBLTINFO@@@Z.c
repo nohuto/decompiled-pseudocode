@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vSrcCopyS1D24@@YAXPEAUBLTINFO@@@Z @ 0x1C02EE860
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall vSrcCopyS1D24(struct BLTINFO *a1)
 {
   int v1; // r8d

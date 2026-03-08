@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CompareTableData@?$CGenericTableMap@UObjectPropertyReference@@VCTargetMapEntry@@@@CA?AW4_RTL_GENERIC_COMPARE_RESULTS@@PEAU_RTL_GENERIC_TABLE@@PEAX1@Z @ 0x1800C2A60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CGenericTableMap<ObjectPropertyReference,CTargetMapEntry>::CompareTableData(
         struct _RTL_GENERIC_TABLE *Table,
         _DWORD *FirstStruct,

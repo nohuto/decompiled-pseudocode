@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpDoReDoSetKeyUserFlags @ 0x140A27D70
+ * Callers:
+ *     CmpDoReDoRecord @ 0x140A27C2C (CmpDoReDoRecord.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwSetInformationKey @ 0x1404157F0 (ZwSetInformationKey.c)
+ *     CmpDoReOpenTransKey @ 0x140A27F24 (CmpDoReOpenTransKey.c)
+ */
+
 __int64 __fastcall CmpDoReDoSetKeyUserFlags(__int64 a1, __int64 a2)
 {
   NTSTATUS v3; // ebx

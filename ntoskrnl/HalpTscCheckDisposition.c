@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpTscCheckDisposition @ 0x1405080B4
+ * Callers:
+ *     HalpPowerStateCallback @ 0x1403AB2F0 (HalpPowerStateCallback.c)
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void HalpTscCheckDisposition()
 {
   ULONG_PTR v0; // rbx

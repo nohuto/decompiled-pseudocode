@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiDaDriverEntry @ 0x140B71190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IoCreateDevice @ 0x1407F0460 (IoCreateDevice.c)
+ */
+
 __int64 __fastcall PiDaDriverEntry(PDRIVER_OBJECT DriverObject)
 {
   NTSTATUS v2; // ebx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of PnpProcessRebalance @ 0x140562AF4
+ * Callers:
+ *     PnpDeviceActionWorker @ 0x140203020 (PnpDeviceActionWorker.c)
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseSemaphoreEx @ 0x14033E940 (KeReleaseSemaphoreEx.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     PiCollapseRebalanceRequests @ 0x140562860 (PiCollapseRebalanceRequests.c)
+ *     PipProcessDevNodeTree @ 0x1406CCD80 (PipProcessDevNodeTree.c)
+ *     PnpRebalance @ 0x14096B948 (PnpRebalance.c)
+ */
+
 __int64 __fastcall PnpProcessRebalance(__int64 a1)
 {
   _QWORD *v2; // rcx

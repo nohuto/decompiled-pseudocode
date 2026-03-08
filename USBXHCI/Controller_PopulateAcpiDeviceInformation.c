@@ -1,3 +1,13 @@
+/*
+ * XREFs of Controller_PopulateAcpiDeviceInformation @ 0x1C00782EC
+ * Callers:
+ *     Controller_RetrieveAcpiData @ 0x1C00785D8 (Controller_RetrieveAcpiData.c)
+ *     Controller_RetrieveUrsData @ 0x1C007882C (Controller_RetrieveUrsData.c)
+ * Callees:
+ *     RtlStringCchPrintfA @ 0x1C000C294 (RtlStringCchPrintfA.c)
+ *     memmove @ 0x1C0020400 (memmove.c)
+ */
+
 NTSTATUS __fastcall Controller_PopulateAcpiDeviceInformation(unsigned __int16 *a1, char *a2)
 {
   __int64 v4; // rcx

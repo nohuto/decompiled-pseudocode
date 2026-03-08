@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiInitializeMemoryArbiter @ 0x1C0088F2C
+ * Callers:
+ *     AcpiArblibInitializeArbiter @ 0x1C000B688 (AcpiArblibInitializeArbiter.c)
+ * Callees:
+ *     ArbInitializeArbiterInstance @ 0x1C00A1B94 (ArbInitializeArbiterInstance.c)
+ */
+
 __int64 __fastcall AcpiInitializeMemoryArbiter(__int64 a1, __int64 a2)
 {
   _QWORD *v3; // rcx

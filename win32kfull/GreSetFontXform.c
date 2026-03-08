@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreSetFontXform @ 0x1C029102C
+ * Callers:
+ *     NtGdiSetFontXform @ 0x1C02C75E0 (NtGdiSetFontXform.c)
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ */
+
 __int64 __fastcall GreSetFontXform(HDC a1, float a2, float a3)
 {
   __int64 v3; // rax

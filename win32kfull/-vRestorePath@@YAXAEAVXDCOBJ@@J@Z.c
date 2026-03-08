@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vRestorePath@@YAXAEAVXDCOBJ@@J@Z @ 0x1C02899DC
+ * Callers:
+ *     GreSaveDCInternal @ 0x1C00C6CB0 (GreSaveDCInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vRestorePath(struct XDCOBJ *a1)
 {
   __int64 v1; // rcx

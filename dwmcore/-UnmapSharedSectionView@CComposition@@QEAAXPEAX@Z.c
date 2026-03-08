@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UnmapSharedSectionView@CComposition@@QEAAXPEAX@Z @ 0x1800F5DA0
+ * Callers:
+ *     ?UnmapSharedMemory@CSharedSectionBase@@IEBAXXZ @ 0x1800F5D50 (-UnmapSharedMemory@CSharedSectionBase@@IEBAXXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800C3DD8 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ */
+
 void __fastcall CComposition::UnmapSharedSectionView(CComposition *this, void *a2)
 {
   unsigned int v2; // eax

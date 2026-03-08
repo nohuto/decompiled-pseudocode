@@ -1,3 +1,11 @@
+/*
+ * XREFs of VfDriverLoadBootDrivers @ 0x140B4F21C
+ * Callers:
+ *     VfInitBootDriversLoaded @ 0x140B4EE44 (VfInitBootDriversLoaded.c)
+ * Callees:
+ *     VfDriverLoadImage @ 0x140AB9ED8 (VfDriverLoadImage.c)
+ */
+
 void __fastcall VfDriverLoadBootDrivers(_QWORD ***a1)
 {
   __int64 v2; // rdx

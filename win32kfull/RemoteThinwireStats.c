@@ -1,3 +1,11 @@
+/*
+ * XREFs of RemoteThinwireStats @ 0x1C02061E8
+ * Callers:
+ *     NtUserRemoteThinwireStats @ 0x1C01DAE60 (NtUserRemoteThinwireStats.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 __int64 __fastcall RemoteThinwireStats(_OWORD *Address, __int64 a2)
 {
   PDEVICE_OBJECT v3; // rcx

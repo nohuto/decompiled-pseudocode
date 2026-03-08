@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FillFunctionalizePacket@CCD_TOPOLOGY@@QEAAXPEAU_DXGK_DIAG_CCD_FUNCTIONALIZE_PACKET3@@I@Z @ 0x1C01C45F4
+ * Callers:
+ *     ?LogFunctionalizePacket@CCD_TOPOLOGY@@QEAAJH@Z @ 0x1C01C44F0 (-LogFunctionalizePacket@CCD_TOPOLOGY@@QEAAJH@Z.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 void __fastcall CCD_TOPOLOGY::FillFunctionalizePacket(
         CCD_TOPOLOGY *this,
         struct _DXGK_DIAG_CCD_FUNCTIONALIZE_PACKET3 *a2,

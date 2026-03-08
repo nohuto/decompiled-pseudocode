@@ -1,3 +1,13 @@
+/*
+ * XREFs of _GetUserObjectInformation @ 0x1C00C7720
+ * Callers:
+ *     EditionGetUserObjectInformationEntryPoint @ 0x1C00C7550 (EditionGetUserObjectInformationEntryPoint.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     CheckHandleFlag @ 0x1C00D1900 (CheckHandleFlag.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall GetUserObjectInformation(HANDLE Handle, int a2, _QWORD *a3, unsigned int a4, int *a5)
 {
   unsigned int v7; // ebx

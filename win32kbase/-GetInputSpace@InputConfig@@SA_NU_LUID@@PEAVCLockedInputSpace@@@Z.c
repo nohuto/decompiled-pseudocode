@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetInputSpace@InputConfig@@SA_NU_LUID@@PEAVCLockedInputSpace@@@Z @ 0x1C0213630
+ * Callers:
+ *     NtInputSpaceRegionFromPoint @ 0x1C0169950 (NtInputSpaceRegionFromPoint.c)
+ *     ?rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInputSpace@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C01BCC8C (-rimSetPointerDeviceOutputConfig@@YAXPEAURIMDEV@@PEAUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInpu.c)
+ *     RIMSetPointerDeviceInputSpace @ 0x1C01BDD0C (RIMSetPointerDeviceInputSpace.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall InputConfig::GetInputSpace(struct _LUID a1, struct CLockedInputSpace *a2)
 {
   CInputConfig *v3; // r14

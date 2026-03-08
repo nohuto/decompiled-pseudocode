@@ -1,3 +1,24 @@
+/*
+ * XREFs of IommupMapDeviceInternal @ 0x1405216F8
+ * Callers:
+ *     IommuMapDevice @ 0x140520BC0 (IommuMapDevice.c)
+ *     IommupDeviceEnableSvm @ 0x140930DD4 (IommupDeviceEnableSvm.c)
+ * Callees:
+ *     ExInitializePushLock @ 0x140238200 (ExInitializePushLock.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     ExRundownCompleted @ 0x140294280 (ExRundownCompleted.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IommupHvGetDeviceSvmCapabilities @ 0x1405228D8 (IommupHvGetDeviceSvmCapabilities.c)
+ *     IommupHvMapDevice @ 0x140522C78 (IommupHvMapDevice.c)
+ *     IommupHvUnmapDevice @ 0x140522FF8 (IommupHvUnmapDevice.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IommupMapDeviceInternal(KSPIN_LOCK *a1, __int64 *a2, int *a3)
 {
   KSPIN_LOCK *v3; // r15

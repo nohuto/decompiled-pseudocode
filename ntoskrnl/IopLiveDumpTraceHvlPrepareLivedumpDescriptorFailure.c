@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopLiveDumpTraceHvlPrepareLivedumpDescriptorFailure @ 0x14055882C
+ * Callers:
+ *     IopLiveDumpAllocateExtraBuffers @ 0x14094A230 (IopLiveDumpAllocateExtraBuffers.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x140557990 (IopLiveDumpIsTracingEnabled.c)
+ */
+
 char __fastcall IopLiveDumpTraceHvlPrepareLivedumpDescriptorFailure(int a1)
 {
   char result; // al

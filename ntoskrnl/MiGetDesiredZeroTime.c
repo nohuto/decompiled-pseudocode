@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiGetDesiredZeroTime @ 0x1402E4A88
+ * Callers:
+ *     MiReassessZeroThreads @ 0x1402E477C (MiReassessZeroThreads.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MiGetDesiredZeroTime(__int64 a1, int a2, unsigned int a3)
 {
   __int64 v3; // rdx

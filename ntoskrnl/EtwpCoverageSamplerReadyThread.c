@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpCoverageSamplerReadyThread @ 0x140601C50
+ * Callers:
+ *     EtwTraceReadyThread @ 0x14045EEF6 (EtwTraceReadyThread.c)
+ * Callees:
+ *     EtwpCovSampCaptureSample @ 0x140601340 (EtwpCovSampCaptureSample.c)
+ */
+
 __int64 __fastcall EtwpCoverageSamplerReadyThread(__int64 a1)
 {
   __int64 result; // rax

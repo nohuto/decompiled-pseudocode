@@ -1,3 +1,12 @@
+/*
+ * XREFs of Etw_DeviceDelete @ 0x1C004AAF0
+ * Callers:
+ *     UsbDevice_EvtUsbDeviceCleanupCallback @ 0x1C0048CB0 (UsbDevice_EvtUsbDeviceCleanupCallback.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer @ 0x1C004B0B8 (McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall Etw_DeviceDelete(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

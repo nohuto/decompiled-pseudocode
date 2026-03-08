@@ -1,3 +1,12 @@
+/*
+ * XREFs of PfSnFindImageFileName @ 0x1407E4EF4
+ * Callers:
+ *     PfSnCalculateScenarioNameAndHash @ 0x1407E4DC0 (PfSnCalculateScenarioNameAndHash.c)
+ *     PfSnOperationProcess @ 0x14097C840 (PfSnOperationProcess.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall PfSnFindImageFileName(unsigned __int16 *a1, _DWORD *a2)
 {
   __int64 v2; // r9

@@ -1,3 +1,20 @@
+/*
+ * XREFs of Bulk_Stage_MapIntoRing @ 0x1C0012A00
+ * Callers:
+ *     Bulk_MapStage @ 0x1C00122C0 (Bulk_MapStage.c)
+ *     Bulk_EvtDmaCallback @ 0x1C00227B0 (Bulk_EvtDmaCallback.c)
+ * Callees:
+ *     TR_AddTRBRangeToSecureTransferRing @ 0x1C0007070 (TR_AddTRBRangeToSecureTransferRing.c)
+ *     UsbDevice_DirectWriteDoorbell @ 0x1C00080D0 (UsbDevice_DirectWriteDoorbell.c)
+ *     TR_CalculateTDSize @ 0x1C0012DD0 (TR_CalculateTDSize.c)
+ *     TR_GetPacketCount @ 0x1C0012DF8 (TR_GetPacketCount.c)
+ *     memmove @ 0x1C0020400 (memmove.c)
+ *     Bulk_InsertLinkTrb @ 0x1C00227FE (Bulk_InsertLinkTrb.c)
+ *     WPP_RECORDER_SF_DDDDq @ 0x1C00476E0 (WPP_RECORDER_SF_DDDDq.c)
+ *     WPP_RECORDER_SF_DDDDqDD @ 0x1C004781C (WPP_RECORDER_SF_DDDDqDD.c)
+ *     XilUsbDevice_SendRequestToRingDoorbell @ 0x1C0048268 (XilUsbDevice_SendRequestToRingDoorbell.c)
+ */
+
 int *__fastcall Bulk_Stage_MapIntoRing(__int64 a1)
 {
   __int64 v1; // rsi

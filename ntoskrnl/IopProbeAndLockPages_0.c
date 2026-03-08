@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopProbeAndLockPages_0 @ 0x1403CE574
+ * Callers:
+ *     IopAllocateAndPopulateWriteIrp @ 0x140240590 (IopAllocateAndPopulateWriteIrp.c)
+ * Callees:
+ *     MiProbeAndLockPages @ 0x140242114 (MiProbeAndLockPages.c)
+ *     MmUpdateMdlTracker @ 0x14061AE74 (MmUpdateMdlTracker.c)
+ */
+
 __int64 __fastcall IopProbeAndLockPages_0(_DWORD *a1, char a2, __int64 a3, __int64 a4, unsigned int a5)
 {
   bool v7; // zf

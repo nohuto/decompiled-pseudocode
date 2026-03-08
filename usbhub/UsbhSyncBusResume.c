@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhSyncBusResume @ 0x1C00318F8
+ * Callers:
+ *     UsbhSshSuspendHub @ 0x1C000DEF0 (UsbhSshSuspendHub.c)
+ *     UsbhFdoSetD0Warm @ 0x1C003C220 (UsbhFdoSetD0Warm.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhDispatch_BusEvent @ 0x1C001CF30 (UsbhDispatch_BusEvent.c)
+ */
+
 __int64 __fastcall UsbhSyncBusResume(__int64 a1, __int64 a2)
 {
   int v4; // r9d

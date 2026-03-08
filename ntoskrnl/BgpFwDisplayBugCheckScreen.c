@@ -1,3 +1,23 @@
+/*
+ * XREFs of BgpFwDisplayBugCheckScreen @ 0x140670AE4
+ * Callers:
+ *     KiDisplayBlueScreen @ 0x140567D34 (KiDisplayBlueScreen.c)
+ * Callees:
+ *     KeStallExecutionProcessor @ 0x14022B710 (KeStallExecutionProcessor.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     BgpGxDrawRectangle @ 0x1403817FC (BgpGxDrawRectangle.c)
+ *     BgpGetBitsPerPixel @ 0x140381AB0 (BgpGetBitsPerPixel.c)
+ *     IoSaveBugCheckProgress @ 0x14054E5E0 (IoSaveBugCheckProgress.c)
+ *     BgpClearScreen @ 0x14066F510 (BgpClearScreen.c)
+ *     BcpDisplayCriticalCharacter @ 0x14066FC60 (BcpDisplayCriticalCharacter.c)
+ *     BcpDisplayCriticalString @ 0x14066FD2C (BcpDisplayCriticalString.c)
+ *     BcpDisplayErrorInformation @ 0x140670094 (BcpDisplayErrorInformation.c)
+ *     BcpDisplayProgress @ 0x140670320 (BcpDisplayProgress.c)
+ *     BcpGetComponentOffsets @ 0x140670530 (BcpGetComponentOffsets.c)
+ *     BcpGetDisplayType @ 0x1406706C0 (BcpGetDisplayType.c)
+ *     BcpDisplayEarlyBugCheckScreen @ 0x140B9A59C (BcpDisplayEarlyBugCheckScreen.c)
+ */
+
 __int64 __fastcall BgpFwDisplayBugCheckScreen(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, char a5)
 {
   int v7; // r14d

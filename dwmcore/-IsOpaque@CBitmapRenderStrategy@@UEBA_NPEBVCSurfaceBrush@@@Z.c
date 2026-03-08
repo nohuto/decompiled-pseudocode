@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsOpaque@CBitmapRenderStrategy@@UEBA_NPEBVCSurfaceBrush@@@Z @ 0x180093FD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800342C8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CBitmapRenderStrategy::IsOpaque(CBitmapRenderStrategy *this, const struct CSurfaceBrush *a2)
 {
   void (__fastcall ***v2)(_QWORD, GUID *, __int64 *); // rcx

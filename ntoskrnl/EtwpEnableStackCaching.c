@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpEnableStackCaching @ 0x1408A385A
+ * Callers:
+ *     EtwpCheckForStackTracingExtension @ 0x140748504 (EtwpCheckForStackTracingExtension.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1409DF094 (EtwSetPerformanceTraceInformation.c)
+ * Callees:
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     EtwpFreeStackCache @ 0x1408A39B8 (EtwpFreeStackCache.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall EtwpEnableStackCaching(__int64 a1, unsigned int a2, unsigned int a3, char a4)
 {
   unsigned int v4; // ebx

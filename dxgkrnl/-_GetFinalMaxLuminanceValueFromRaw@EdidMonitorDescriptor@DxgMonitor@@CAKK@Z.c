@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_GetFinalMaxLuminanceValueFromRaw@EdidMonitorDescriptor@DxgMonitor@@CAKK@Z @ 0x1C03CB818
+ * Callers:
+ *     ?GetHdrLuminance@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAK00@Z @ 0x1C01FC6D0 (-GetHdrLuminance@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAK00@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DxgMonitor::EdidMonitorDescriptor::_GetFinalMaxLuminanceValueFromRaw(unsigned int a1)
 {
   __int64 result; // rax

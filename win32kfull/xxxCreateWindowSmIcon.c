@@ -1,3 +1,17 @@
+/*
+ * XREFs of xxxCreateWindowSmIcon @ 0x1C010A268
+ * Callers:
+ *     xxxGetWindowSmIcon @ 0x1C009FCA8 (xxxGetWindowSmIcon.c)
+ *     ?xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z @ 0x1C0107A14 (-xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z.c)
+ *     xxxRecreateSmallIcons @ 0x1C0230A50 (xxxRecreateSmallIcons.c)
+ * Callees:
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     xxxClientCopyImage @ 0x1C0107FC0 (xxxClientCopyImage.c)
+ *     HMValidateHandleNoRip @ 0x1C01083AC (HMValidateHandleNoRip.c)
+ */
+
 __int64 __fastcall xxxCreateWindowSmIcon(__int64 *a1, __int64 a2, int a3)
 {
   __int64 v5; // rdi

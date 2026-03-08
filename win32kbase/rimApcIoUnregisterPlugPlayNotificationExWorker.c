@@ -1,3 +1,17 @@
+/*
+ * XREFs of rimApcIoUnregisterPlugPlayNotificationExWorker @ 0x1C00C3ACC
+ * Callers:
+ *     rimNormalApcIoUnregisterPlugPlayNotificationEx @ 0x1C00C3AB0 (rimNormalApcIoUnregisterPlugPlayNotificationEx.c)
+ *     rimRundownApcIoUnregisterPlugPlayNotificationEx @ 0x1C01C8BE0 (rimRundownApcIoUnregisterPlugPlayNotificationEx.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     ??0ApiSetEditionCrit@@QEAA@H@Z @ 0x1C0039D28 (--0ApiSetEditionCrit@@QEAA@H@Z.c)
+ *     ??1ApiSetEditionCrit@@QEAA@XZ @ 0x1C003A054 (--1ApiSetEditionCrit@@QEAA@XZ.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     rimHandlePnpWaitersOnOwnedDevices @ 0x1C00C3BB8 (rimHandlePnpWaitersOnOwnedDevices.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 LONG_PTR __fastcall rimApcIoUnregisterPlugPlayNotificationExWorker(char *a1)
 {
   __int64 v1; // rsi

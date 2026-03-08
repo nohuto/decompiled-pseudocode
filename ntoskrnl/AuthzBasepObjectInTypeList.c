@@ -1,3 +1,15 @@
+/*
+ * XREFs of AuthzBasepObjectInTypeList @ 0x14066CAA0
+ * Callers:
+ *     SepMaximumAccessCheck @ 0x140208450 (SepMaximumAccessCheck.c)
+ *     SepNormalAccessCheckEx @ 0x140208E18 (SepNormalAccessCheckEx.c)
+ *     SepNormalAccessCheck @ 0x140267220 (SepNormalAccessCheck.c)
+ *     SepMaximumAccessCheckEx @ 0x1403C8AF0 (SepMaximumAccessCheckEx.c)
+ *     SepExamineSaclEx @ 0x1409CB8C4 (SepExamineSaclEx.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall AuthzBasepObjectInTypeList(_DWORD *a1, __int64 a2, unsigned int a3, _DWORD *a4)
 {
   __int64 v4; // r10

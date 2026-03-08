@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?GreGetUFI@@YAHPEAUHDC__@@PEAU_UNIVERSAL_FONT_ID@@PEAUtagDESIGNVECTOR@@PEAK33PEAPEAXW4EntryPoint@RFONTOBJ@@@Z @ 0x1C0278A2C
+ * Callers:
+ *     NtGdiGetEmbUFI @ 0x1C02C54D0 (NtGdiGetEmbUFI.c)
+ *     NtGdiGetUFI @ 0x1C02C5EB0 (NtGdiGetUFI.c)
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HKAEBUTag@1@@Z @ 0x1C0057C50 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HKAEBUTag@1@@Z.c)
+ *     ComputeFileviewCheckSum @ 0x1C00BAB00 (ComputeFileviewCheckSum.c)
+ *     ?bInPrivatePFT@PFFOBJ@@QEBAHXZ @ 0x1C0114D30 (-bInPrivatePFT@PFFOBJ@@QEBAHXZ.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C011DDB0 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall GreGetUFI(HDC a1, _QWORD *a2, void *a3, _DWORD *a4, _DWORD *a5, Gre::Base *a6, _QWORD *a7, int a8)
 {
   Gre::Base *v8; // rsi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vVecPerpCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C02F51CC
+ * Callers:
+ *     ?vecInPerp@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C01518FE (-vecInPerp@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
+ *     ?vecOutPerp@WIDENER@@IEAA?AVEVECTORFX@@XZ @ 0x1C015198A (-vecOutPerp@WIDENER@@IEAA-AVEVECTORFX@@XZ.c)
+ * Callees:
+ *     ?vVecDrawCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C0151848 (-vVecDrawCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z.c)
+ */
+
 void __fastcall WIDENER::vVecPerpCompute(WIDENER *this, struct LINEDATA *a2)
 {
   int *v3; // rax

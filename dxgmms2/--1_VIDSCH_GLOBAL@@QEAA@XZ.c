@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1_VIDSCH_GLOBAL@@QEAA@XZ @ 0x1C003D454
+ * Callers:
+ *     VidSchTerminateAdapter @ 0x1C0108B80 (VidSchTerminateAdapter.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall _VIDSCH_GLOBAL::~_VIDSCH_GLOBAL(_VIDSCH_GLOBAL *this)
 {
   char *v2; // rcx

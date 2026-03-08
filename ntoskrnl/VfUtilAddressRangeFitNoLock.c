@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfUtilAddressRangeFitNoLock @ 0x140ABF404
+ * Callers:
+ *     VfIrpDatabaseCheckExFreePool @ 0x140ABD876 (VfIrpDatabaseCheckExFreePool.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x140ADE768 (VfIrpDatabaseEntryFindAndLock.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall VfUtilAddressRangeFitNoLock(__m128i *a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   __m128i v3; // xmm0

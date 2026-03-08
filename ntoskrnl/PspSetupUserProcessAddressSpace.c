@@ -1,3 +1,26 @@
+/*
+ * XREFs of PspSetupUserProcessAddressSpace @ 0x14070733C
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     PsGetProcessServerSilo @ 0x1402637E0 (PsGetProcessServerSilo.c)
+ *     KeCopyXfdMaskToPeb @ 0x14029618C (KeCopyXfdMaskToPeb.c)
+ *     PspWow64SetupUserProcessAddressSpace @ 0x1402961B4 (PspWow64SetupUserProcessAddressSpace.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwAllocateVirtualMemory @ 0x140412610 (ZwAllocateVirtualMemory.c)
+ *     PspLocateInPEManifest @ 0x1407066D0 (PspLocateInPEManifest.c)
+ *     PspWritePebAffinityInfo @ 0x14070687C (PspWritePebAffinityInfo.c)
+ *     PspCopyAndFixupParameters @ 0x140707064 (PspCopyAndFixupParameters.c)
+ *     PspPrepareSystemDllInitBlock @ 0x1407075A8 (PspPrepareSystemDllInitBlock.c)
+ *     PsWow64GetProcessNtdllType @ 0x140707820 (PsWow64GetProcessNtdllType.c)
+ *     PspMapSiloSharedDataView @ 0x14070783C (PspMapSiloSharedDataView.c)
+ *     MmMapApiSetView @ 0x140707874 (MmMapApiSetView.c)
+ *     PspGetStandardHandleList @ 0x140797C5C (PspGetStandardHandleList.c)
+ */
+
 __int64 __fastcall PspSetupUserProcessAddressSpace(
         ULONG_PTR a1,
         _KPROCESS *a2,

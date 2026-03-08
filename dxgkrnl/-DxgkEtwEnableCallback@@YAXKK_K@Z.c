@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?DxgkEtwEnableCallback@@YAXKK_K@Z @ 0x1C0020F18
+ * Callers:
+ *     McGenControlCallbackV2 @ 0x1C0020E20 (McGenControlCallbackV2.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     McTemplateK0qxq_EtwWriteTransfer @ 0x1C004D99C (McTemplateK0qxq_EtwWriteTransfer.c)
+ *     ?CaptureSchedulerLogs@DXGGLOBAL@@QEAAXXZ @ 0x1C030D630 (-CaptureSchedulerLogs@DXGGLOBAL@@QEAAXXZ.c)
+ *     ?DxgkDisableStablePowerState@@YAXXZ @ 0x1C030D99C (-DxgkDisableStablePowerState@@YAXXZ.c)
+ *     ?DxgkEnableClockCalibration@@YAXE@Z @ 0x1C030D9BC (-DxgkEnableClockCalibration@@YAXE@Z.c)
+ *     ?DxgkEnableFormattingBuffer@@YAXH@Z @ 0x1C030D9E0 (-DxgkEnableFormattingBuffer@@YAXH@Z.c)
+ *     ?DxgkEnableStablePowerState@@YAXXZ @ 0x1C030DA04 (-DxgkEnableStablePowerState@@YAXXZ.c)
+ *     ?DxgkReportGlobalState@@YAXXZ @ 0x1C030DA24 (-DxgkReportGlobalState@@YAXXZ.c)
+ *     DpiControlEtwLogging @ 0x1C03946E8 (DpiControlEtwLogging.c)
+ */
+
 void __fastcall DxgkEtwEnableCallback(int a1, char a2, __int64 a3, int a4)
 {
   char v5; // bl

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?NeedsCursorPositionUpdates@CDesktopTree@@QEBA_NPEBVCCursorVisual@@@Z @ 0x18020CBC0
+ * Callers:
+ *     ?SetNotificationMode@CCursorVisual@@QEAAXXZ @ 0x180225968 (-SetNotificationMode@CCursorVisual@@QEAAXXZ.c)
+ * Callees:
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800342C8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CDesktopTree::NeedsCursorPositionUpdates(CDesktopTree *this, const struct CCursorVisual *a2)
 {
   _QWORD *v2; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiAllocateHistoryBufferStorage @ 0x1C0105F00
+ * Callers:
+ *     VidSchSubmitCommand @ 0x1C00A4B80 (VidSchSubmitCommand.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall VidSchiAllocateHistoryBufferStorage(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rdi

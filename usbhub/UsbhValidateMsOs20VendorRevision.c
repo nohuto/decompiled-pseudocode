@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhValidateMsOs20VendorRevision @ 0x1C0052F50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 char __fastcall UsbhValidateMsOs20VendorRevision(__int64 a1, int *a2, _WORD *a3)
 {
   int v3; // r9d

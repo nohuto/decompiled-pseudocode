@@ -1,3 +1,40 @@
+/*
+ * XREFs of ObInitSystem @ 0x140B403CC
+ * Callers:
+ *     Phase1InitializationIoReady @ 0x140B42D0C (Phase1InitializationIoReady.c)
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     RtlGetAce @ 0x140245EE0 (RtlGetAce.c)
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1403BD3B0 (ExInitializeNPagedLookasideListInternal.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObpUnlockDirectory @ 0x140699588 (ObpUnlockDirectory.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D26A0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406DB5A0 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x1406DB5D0 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406DB640 (RtlCreateAcl.c)
+ *     ExCreateHandleTable @ 0x140706274 (ExCreateHandleTable.c)
+ *     NtCreateDirectoryObject @ 0x14073DEB0 (NtCreateDirectoryObject.c)
+ *     ObpLookupDirectoryEntry @ 0x14076161C (ObpLookupDirectoryEntry.c)
+ *     ObpInsertDirectoryEntry @ 0x14076F04C (ObpInsertDirectoryEntry.c)
+ *     ObpLockDirectoryExclusive @ 0x14076F3D0 (ObpLockDirectoryExclusive.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ObpInitializeRootNamespace @ 0x1408093C4 (ObpInitializeRootNamespace.c)
+ *     ObCreateObjectType @ 0x14080CB00 (ObCreateObjectType.c)
+ *     ObpInitObjectTypeSD @ 0x14080D154 (ObpInitObjectTypeSD.c)
+ *     ObInitializeProcessor @ 0x14080D354 (ObInitializeProcessor.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14080F6BC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     ObInitServerSilo @ 0x14085264C (ObInitServerSilo.c)
+ *     RtlAddAuditAccessAce @ 0x1409B8230 (RtlAddAuditAccessAce.c)
+ *     ExInitializeSystemLookasideList @ 0x140A886F8 (ExInitializeSystemLookasideList.c)
+ *     ObpInitInfoBlockOffsets @ 0x140B61628 (ObpInitInfoBlockOffsets.c)
+ *     ObpInitStackTrace @ 0x140B6E2C0 (ObpInitStackTrace.c)
+ */
+
 char __fastcall ObInitSystem(int a1)
 {
   __int16 v1; // di

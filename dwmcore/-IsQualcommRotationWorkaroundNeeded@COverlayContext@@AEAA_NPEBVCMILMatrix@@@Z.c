@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsQualcommRotationWorkaroundNeeded@COverlayContext@@AEAA_NPEBVCMILMatrix@@@Z @ 0x1801DAF98
+ * Callers:
+ *     ?DeriveOverlayRotationParameters@COverlayContext@@QEAA_NAEBVCMILMatrix@@PEAW4DXGI_MODE_ROTATION@@PEAIPEA_N@Z @ 0x1801D9CA8 (-DeriveOverlayRotationParameters@COverlayContext@@QEAA_NAEBVCMILMatrix@@PEAW4DXGI_MODE_ROTATION@.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall COverlayContext::IsQualcommRotationWorkaroundNeeded(COverlayContext *this, const struct CMILMatrix *a2)
 {
   bool result; // al

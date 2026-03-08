@@ -1,3 +1,11 @@
+/*
+ * XREFs of SearchInCHSBaseFontFileNameSuffixes @ 0x1C010EE3C
+ * Callers:
+ *     ?IsCHSBaseFont@@YAHPEBGI@Z @ 0x1C0112644 (-IsCHSBaseFont@@YAHPEBGI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SearchInCHSBaseFontFileNameSuffixes(
         PCUNICODE_STRING String1,
         PCUNICODE_STRING String2,

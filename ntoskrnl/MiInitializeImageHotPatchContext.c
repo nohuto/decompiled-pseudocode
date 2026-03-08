@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiInitializeImageHotPatchContext @ 0x140A34BC4
+ * Callers:
+ *     MiApplyImageHotPatchRequest @ 0x140A32920 (MiApplyImageHotPatchRequest.c)
+ *     MiPrepareToHotPatchVad @ 0x140A3827C (MiPrepareToHotPatchVad.c)
+ *     MmPrepareImagePagesForHotPatch @ 0x140A395A0 (MmPrepareImagePagesForHotPatch.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void *__fastcall MiInitializeImageHotPatchContext(_QWORD *a1, __int16 a2, __int64 a3)
 {
   void *result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of MincryptFreePolicyInfo @ 0x140A6E064
+ * Callers:
+ *     SecureDump_ValidateAmeCertChain @ 0x14055C3D0 (SecureDump_ValidateAmeCertChain.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MincryptFreePolicyInfo(__int64 a1)
 {
   void *v2; // rcx

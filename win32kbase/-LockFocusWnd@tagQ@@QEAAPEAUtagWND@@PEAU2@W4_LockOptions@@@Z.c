@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?LockFocusWnd@tagQ@@QEAAPEAUtagWND@@PEAU2@W4_LockOptions@@@Z @ 0x1C00BF0A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HMAssignmentLock @ 0x1C00788D0 (HMAssignmentLock.c)
+ */
+
 _DWORD *__fastcall tagQ::LockFocusWnd(__int64 a1, __int64 *a2, int a3)
 {
   __int64 v4; // r9

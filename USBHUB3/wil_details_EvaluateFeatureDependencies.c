@@ -1,3 +1,12 @@
+/*
+ * XREFs of wil_details_EvaluateFeatureDependencies @ 0x1C0076138
+ * Callers:
+ *     wil_details_ReevaluateOnFeatureConfigurationChange @ 0x1C0076010 (wil_details_ReevaluateOnFeatureConfigurationChange.c)
+ *     wil_InitializeFeatureStaging @ 0x1C0093008 (wil_InitializeFeatureStaging.c)
+ * Callees:
+ *     wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x1C0076220 (wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState.c)
+ */
+
 void wil_details_EvaluateFeatureDependencies()
 {
   _QWORD *i; // r8

@@ -1,3 +1,13 @@
+/*
+ * XREFs of wcspbrk @ 0x1403D64C0
+ * Callers:
+ *     RtlpMuiRegLoadLicInformation @ 0x14036F370 (RtlpMuiRegLoadLicInformation.c)
+ *     IoRegisterDeviceInterface @ 0x14086A510 (IoRegisterDeviceInterface.c)
+ *     PoThermalCounterSetCallback @ 0x140987BE0 (PoThermalCounterSetCallback.c)
+ * Callees:
+ *     <none>
+ */
+
 wchar_t *__cdecl wcspbrk(const wchar_t *Str, const wchar_t *Control)
 {
   wchar_t v2; // ax

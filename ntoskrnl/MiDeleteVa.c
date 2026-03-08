@@ -1,3 +1,45 @@
+/*
+ * XREFs of MiDeleteVa @ 0x140324900
+ * Callers:
+ *     MiDeletePagablePteRange @ 0x1403244A0 (MiDeletePagablePteRange.c)
+ * Callees:
+ *     MiWriteTopLevelPxe @ 0x140201C64 (MiWriteTopLevelPxe.c)
+ *     MiFlushTbListEarly @ 0x140229404 (MiFlushTbListEarly.c)
+ *     MiGetWsleContents @ 0x140229790 (MiGetWsleContents.c)
+ *     MiGetPfnPriority @ 0x14028A3F8 (MiGetPfnPriority.c)
+ *     MiDecrementCombinedPteEx @ 0x14029DAF4 (MiDecrementCombinedPteEx.c)
+ *     MiCountWslesInPageTable @ 0x1402B4D30 (MiCountWslesInPageTable.c)
+ *     MiLocateCloneAddress @ 0x1402CF530 (MiLocateCloneAddress.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1402CF5DC (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiCompressTbFlushList @ 0x1402D6680 (MiCompressTbFlushList.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiLockSetPfnPriority @ 0x1402F976C (MiLockSetPfnPriority.c)
+ *     MiDeletePhysmemPte @ 0x1402FCF34 (MiDeletePhysmemPte.c)
+ *     MiCreateDecayPfn @ 0x14030D2F0 (MiCreateDecayPfn.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiTerminateWsleCluster @ 0x1403234E0 (MiTerminateWsleCluster.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiRemoveWsle @ 0x140325790 (MiRemoveWsle.c)
+ *     MiLogPageAccess @ 0x140326EF0 (MiLogPageAccess.c)
+ *     MiIsPrototypePteVadLookup @ 0x140327240 (MiIsPrototypePteVadLookup.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiUnlockWsle @ 0x1403443C0 (MiUnlockWsle.c)
+ *     MiEvictPageTableLock @ 0x140346460 (MiEvictPageTableLock.c)
+ *     MiIsPageTableDeletable @ 0x140346AB4 (MiIsPageTableDeletable.c)
+ *     MiReleasePageFileSpace @ 0x14034BE0C (MiReleasePageFileSpace.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiRotatedToFrameBuffer @ 0x140630A34 (MiRotatedToFrameBuffer.c)
+ *     MiUnmapFrameBuffer @ 0x1406315E0 (MiUnmapFrameBuffer.c)
+ *     MiDeleteVadAwePtes @ 0x1406473BC (MiDeleteVadAwePtes.c)
+ *     MiDeleteLargeUserPde @ 0x14064DD80 (MiDeleteLargeUserPde.c)
+ *     MiDecrementCloneBlockReference @ 0x14066176C (MiDecrementCloneBlockReference.c)
+ */
+
 __int64 __fastcall MiDeleteVa(__int64 a1, unsigned __int64 a2, int a3)
 {
   ULONG_PTR v3; // rbx

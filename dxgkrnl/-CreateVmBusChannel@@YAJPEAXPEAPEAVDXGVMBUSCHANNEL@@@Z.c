@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CreateVmBusChannel@@YAJPEAXPEAPEAVDXGVMBUSCHANNEL@@@Z @ 0x1C035C930
+ * Callers:
+ *     ?Initialize@DXGVAILGUESTOBJECT@@QEAAJXZ @ 0x1C035D3CC (-Initialize@DXGVAILGUESTOBJECT@@QEAAJXZ.c)
+ *     ?InitializeVmBus@DXGVAILOBJECT@@QEAAJPEAX@Z @ 0x1C035D4FC (-InitializeVmBus@DXGVAILOBJECT@@QEAAJPEAX@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     ?Create@DXGVMBUSCHANNEL@@SAJPEAXAEBU_GUID@@1PEBU_UNICODE_STRING@@EPEAPEAV1@@Z @ 0x1C0361554 (-Create@DXGVMBUSCHANNEL@@SAJPEAXAEBU_GUID@@1PEBU_UNICODE_STRING@@EPEAPEAV1@@Z.c)
+ */
+
 __int64 __fastcall CreateVmBusChannel(void *a1, struct _GUID *a2, const struct _GUID *a3)
 {
   int v3; // eax

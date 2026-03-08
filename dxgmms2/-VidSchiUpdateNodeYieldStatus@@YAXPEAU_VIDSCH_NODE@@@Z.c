@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C00379BC
+ * Callers:
+ *     VidSchiSelectContext @ 0x1C0006BC0 (VidSchiSelectContext.c)
+ * Callees:
+ *     ?VidSchiStopNodeYield@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C0018E98 (-VidSchiStopNodeYield@@YAXPEAU_VIDSCH_NODE@@@Z.c)
+ *     VidSchiStartNodeYield @ 0x1C0018F28 (VidSchiStartNodeYield.c)
+ *     VidSchiMonitorRefreshPeriodFromNode @ 0x1C0018FE4 (VidSchiMonitorRefreshPeriodFromNode.c)
+ *     McTemplateK0pqxxxx_EtwWriteTransfer @ 0x1C00396CC (McTemplateK0pqxxxx_EtwWriteTransfer.c)
+ */
+
 void __fastcall VidSchiUpdateNodeYieldStatus(struct _VIDSCH_NODE *a1)
 {
   __int64 v1; // rbp

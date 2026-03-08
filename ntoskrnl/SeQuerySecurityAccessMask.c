@@ -1,3 +1,12 @@
+/*
+ * XREFs of SeQuerySecurityAccessMask @ 0x140759028
+ * Callers:
+ *     NtQuerySecurityObject @ 0x140758E90 (NtQuerySecurityObject.c)
+ *     IoCheckFunctionAccess @ 0x14087A650 (IoCheckFunctionAccess.c)
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall SeQuerySecurityAccessMask(int a1, int *a2)
 {
   int result; // eax

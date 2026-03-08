@@ -1,3 +1,20 @@
+/*
+ * XREFs of KiFilterFiberContext @ 0x140B14C30
+ * Callers:
+ *     KeInitAmd64SpecificState @ 0x140B6F644 (KeInitAmd64SpecificState.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExNotifyCallback @ 0x1402D2F00 (ExNotifyCallback.c)
+ *     ExInitializeNPagedLookasideList @ 0x1403BD370 (ExInitializeNPagedLookasideList.c)
+ *     KeExpandKernelStackAndCallout @ 0x1403D0D60 (KeExpandKernelStackAndCallout.c)
+ *     KdDisableDebugger @ 0x140565110 (KdDisableDebugger.c)
+ *     KdEnableDebugger @ 0x140565340 (KdEnableDebugger.c)
+ *     KeKeepData @ 0x1405691C4 (KeKeepData.c)
+ *     ExCreateCallback @ 0x14078D4A0 (ExCreateCallback.c)
+ *     ExFreePool @ 0x140AAB270 (ExFreePool.c)
+ *     KiSwInterruptPresent @ 0x140B65038 (KiSwInterruptPresent.c)
+ */
+
 _BOOL8 __fastcall KiFilterFiberContext(__int64 a1)
 {
   NTSTATUS v2; // r12d

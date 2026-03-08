@@ -1,3 +1,26 @@
+/*
+ * XREFs of ?PostPresent@CComposition@@QEAAJ_N@Z @ 0x180052E70
+ * Callers:
+ *     ?Present@CComposition@@QEAAJPEAUFRAME_TIME_INFO@@@Z @ 0x18004D304 (-Present@CComposition@@QEAAJPEAUFRAME_TIME_INFO@@@Z.c)
+ *     ?ProcessComposition@CComposition@@IEAAXPEA_N@Z @ 0x18004EF0C (-ProcessComposition@CComposition@@IEAAXPEA_N@Z.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180004700 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?HasActiveInk@CSuperWetInkManager@@QEBA_NXZ @ 0x180052758 (-HasActiveInk@CSuperWetInkManager@@QEBA_NXZ.c)
+ *     ?MustUpdateExpressions@CExpressionManager@@QEBA_NXZ @ 0x180052780 (-MustUpdateExpressions@CExpressionManager@@QEBA_NXZ.c)
+ *     ?PostPresent@CRenderTargetManager@@QEAA_N_N@Z @ 0x180053430 (-PostPresent@CRenderTargetManager@@QEAA_N_N@Z.c)
+ *     ?reserve_region@?$vector_facade@UtagCOMPOSITION_TARGET_ID_AND_STATS@@V?$buffer_impl@UtagCOMPOSITION_TARGET_ID_AND_STATS@@$03$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAUtagCOMPOSITION_TARGET_ID_AND_STATS@@_K0@Z @ 0x18005353C (-reserve_region@-$vector_facade@UtagCOMPOSITION_TARGET_ID_AND_STATS@@V-$buffer_impl@UtagCOMPOSIT.c)
+ *     ?AreAnimateUpdatesRequired@CComposition@@IEAA_NXZ @ 0x18005360C (-AreAnimateUpdatesRequired@CComposition@@IEAA_NXZ.c)
+ *     ?ProcessRoundTripRequest@CComposition@@AEAA_NXZ @ 0x1800536A4 (-ProcessRoundTripRequest@CComposition@@AEAA_NXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RemoveRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z @ 0x1800C6254 (-RemoveRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D4A28 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0qqxx_EventWriteTransfer @ 0x180129F7A (McTemplateU0qqxx_EventWriteTransfer.c)
+ *     McTemplateU0qxqN4_EventWriteTransfer @ 0x1801B23DC (McTemplateU0qxqN4_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall CComposition::PostPresent(CComposition *this, bool a2)
 {
   __int64 v2; // rax

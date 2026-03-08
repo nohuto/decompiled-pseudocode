@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpPciGetHpetInterruptSource @ 0x140B8F930
+ * Callers:
+ *     HalpTimerRegister @ 0x140373EB4 (HalpTimerRegister.c)
+ * Callees:
+ *     HalSocGetAcpiTable @ 0x14037601C (HalSocGetAcpiTable.c)
+ *     HalpPciGetHpetInterruptSourceAmd @ 0x140B8F9FC (HalpPciGetHpetInterruptSourceAmd.c)
+ *     HalpPciGetHpetInterruptSourceIntel @ 0x140B8FAE8 (HalpPciGetHpetInterruptSourceIntel.c)
+ */
+
 __int64 __fastcall HalpPciGetHpetInterruptSource(char a1, __int64 a2, int *a3, int *a4)
 {
   int HpetInterruptSourceAmd; // esi

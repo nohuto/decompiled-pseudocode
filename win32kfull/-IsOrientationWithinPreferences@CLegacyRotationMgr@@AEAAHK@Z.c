@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsOrientationWithinPreferences@CLegacyRotationMgr@@AEAAHK@Z @ 0x1C01A8230
+ * Callers:
+ *     ?xxxAutoRotateScreen@CLegacyRotationMgr@@UEAAJK@Z @ 0x1C01A86E0 (-xxxAutoRotateScreen@CLegacyRotationMgr@@UEAAJK@Z.c)
+ * Callees:
+ *     ?GetCurrentOrientation@@YAJPEAK@Z @ 0x1C00F8684 (-GetCurrentOrientation@@YAJPEAK@Z.c)
+ *     ?GetActivePpiPreference@CRotationMgr@@SA?AW4ORIENTATION_PREFERENCE@@PEAK@Z @ 0x1C01A7FA8 (-GetActivePpiPreference@CRotationMgr@@SA-AW4ORIENTATION_PREFERENCE@@PEAK@Z.c)
+ */
+
 __int64 __fastcall CLegacyRotationMgr::IsOrientationWithinPreferences(CLegacyRotationMgr *this, int a2)
 {
   unsigned int v3; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CtxDeviceIoControlFile @ 0x1C02F8858
+ * Callers:
+ *     EngFileIoControl @ 0x1C028BB20 (EngFileIoControl.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall CtxDeviceIoControlFile(
         struct _FILE_OBJECT *Object,
         ULONG IoControlCode,

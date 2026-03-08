@@ -1,3 +1,12 @@
+/*
+ * XREFs of NormBuffer__ReplaceLastStartBasePair @ 0x1405AE600
+ * Callers:
+ *     Normalization__NormalizeCharacter @ 0x1409BE3B8 (Normalization__NormalizeCharacter.c)
+ * Callees:
+ *     NormBuffer__AppendAndSortDecomposed @ 0x1405AE09C (NormBuffer__AppendAndSortDecomposed.c)
+ *     Normalization__GetThirdAndLastDecomposedCharPlane0 @ 0x1409BDAA0 (Normalization__GetThirdAndLastDecomposedCharPlane0.c)
+ */
+
 int __fastcall NormBuffer__ReplaceLastStartBasePair(__int64 a1, int a2, char a3, char a4)
 {
   unsigned int ThirdAndLastDecomposedCharPlane0; // eax

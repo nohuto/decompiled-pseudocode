@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceInputQueueLocked @ 0x1C0009A50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetCallbackCount@@YACXZ @ 0x1C00EDBA8 (-GetCallbackCount@@YACXZ.c)
+ *     McTemplateK0cpq_EtwWriteTransfer @ 0x1C0164EF8 (McTemplateK0cpq_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTraceInputQueueLocked(__int64 a1)
 {
   char v1; // di

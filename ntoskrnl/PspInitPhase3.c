@@ -1,3 +1,16 @@
+/*
+ * XREFs of PspInitPhase3 @ 0x140B726D0
+ * Callers:
+ *     PsInitSystem @ 0x140B42F74 (PsInitSystem.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     VslRegisterSecureSystemDlls @ 0x140549DB8 (VslRegisterSecureSystemDlls.c)
+ *     PspMapSystemDll @ 0x140727ACC (PspMapSystemDll.c)
+ *     PspGetSystemDllSecureHandle @ 0x140B9391C (PspGetSystemDllSecureHandle.c)
+ */
+
 bool PspInitPhase3()
 {
   int SystemDllSecureHandle; // ebx

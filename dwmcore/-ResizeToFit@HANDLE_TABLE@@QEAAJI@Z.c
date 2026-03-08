@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ResizeToFit@HANDLE_TABLE@@QEAAJI@Z @ 0x180027498
+ * Callers:
+ *     ?AssignEntry@HANDLE_TABLE@@QEAAJIK@Z @ 0x18009C52C (-AssignEntry@HANDLE_TABLE@@QEAAJIK@Z.c)
+ *     ?GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z @ 0x1800E5158 (-GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z.c)
+ * Callees:
+ *     ?Resize@HANDLE_TABLE@@AEAAJI@Z @ 0x1800274EC (-Resize@HANDLE_TABLE@@AEAAJI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall HANDLE_TABLE::ResizeToFit(HANDLE_TABLE *this, unsigned int a2)
 {
   unsigned int v3; // edx

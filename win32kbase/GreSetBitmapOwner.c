@@ -1,3 +1,15 @@
+/*
+ * XREFs of GreSetBitmapOwner @ 0x1C00A5460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?TrackHmgrReferenceDecrement@@YAXEPEAVOBJECT@@@Z @ 0x1C0048350 (-TrackHmgrReferenceDecrement@@YAXEPEAVOBJECT@@@Z.c)
+ *     HmgShareLockCheck @ 0x1C0049E60 (HmgShareLockCheck.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C004A440 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C004A680 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     HmgSetOwner @ 0x1C00522C0 (HmgSetOwner.c)
+ */
+
 __int64 __fastcall GreSetBitmapOwner(__int64 a1, int a2)
 {
   unsigned int v3; // esi

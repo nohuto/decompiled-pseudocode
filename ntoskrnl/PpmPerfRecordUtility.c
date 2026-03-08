@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmPerfRecordUtility @ 0x140233B60
+ * Callers:
+ *     PpmCheckRecordAllUtility @ 0x1402340F0 (PpmCheckRecordAllUtility.c)
+ * Callees:
+ *     PpmEventTraceRecordedUtility @ 0x140233A78 (PpmEventTraceRecordedUtility.c)
+ *     PpmPerfResetHistory @ 0x14038F778 (PpmPerfResetHistory.c)
+ */
+
 __int64 __fastcall PpmPerfRecordUtility(__int64 a1)
 {
   __int64 *v1; // rbx

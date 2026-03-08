@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViTargetWMIRegister @ 0x140AC8F84
+ * Callers:
+ *     VerifierIoWMIRegistrationControl @ 0x140AE1080 (VerifierIoWMIRegistrationControl.c)
+ * Callees:
+ *     VfAvlLookupTreeNode @ 0x140303680 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403039F0 (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x14045DE58 (VfAvlInitializeLockContext.c)
+ */
+
 void __fastcall ViTargetWMIRegister(__int64 a1)
 {
   unsigned __int64 v2; // r8

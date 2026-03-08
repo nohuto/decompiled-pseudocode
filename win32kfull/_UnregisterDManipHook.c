@@ -1,3 +1,12 @@
+/*
+ * XREFs of _UnregisterDManipHook @ 0x1C00F59F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     RemoveHmodDependency @ 0x1C009D71C (RemoveHmodDependency.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall UnregisterDManipHook(__int64 a1)
 {

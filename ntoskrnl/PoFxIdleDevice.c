@@ -1,3 +1,30 @@
+/*
+ * XREFs of PoFxIdleDevice @ 0x14020259C
+ * Callers:
+ *     PoFxAddDeviceRelation @ 0x1405855F0 (PoFxAddDeviceRelation.c)
+ *     PoFxRemoveDeviceRelation @ 0x140586060 (PoFxRemoveDeviceRelation.c)
+ *     PopFxClearDeviceConstraints @ 0x140586DE0 (PopFxClearDeviceConstraints.c)
+ *     PopFxIdleDevicesFromSx @ 0x1405880C0 (PopFxIdleDevicesFromSx.c)
+ *     PopCompleteDirectedPowerTransitionCallback @ 0x14058DF74 (PopCompleteDirectedPowerTransitionCallback.c)
+ *     PopPepPlatformStateRegistered @ 0x14059D504 (PopPepPlatformStateRegistered.c)
+ *     PopPlIdleDeviceIterator @ 0x14059EE20 (PopPlIdleDeviceIterator.c)
+ *     PiProcessQueryDeviceState @ 0x140683054 (PiProcessQueryDeviceState.c)
+ *     PnpDeviceCompletionProcessCompletedRequest @ 0x140685424 (PnpDeviceCompletionProcessCompletedRequest.c)
+ *     PipEnumerateDevice @ 0x140688710 (PipEnumerateDevice.c)
+ *     PipProcessDevNodeTree @ 0x1406CCD80 (PipProcessDevNodeTree.c)
+ *     PnpDeleteLockedDeviceNodes @ 0x1408632A0 (PnpDeleteLockedDeviceNodes.c)
+ *     PnpDeleteLockedDeviceNode @ 0x1408635A0 (PnpDeleteLockedDeviceNode.c)
+ *     PiProcessResourceRequirementsChanged @ 0x140956564 (PiProcessResourceRequirementsChanged.c)
+ *     PnpCancelStopDeviceNode @ 0x14096B484 (PnpCancelStopDeviceNode.c)
+ *     PipProcessRestartPhase2 @ 0x14096C498 (PipProcessRestartPhase2.c)
+ *     PopFxUpdateVetoMaskWork @ 0x140982F50 (PopFxUpdateVetoMaskWork.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     PoFxIdleComponent @ 0x140306A10 (PoFxIdleComponent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall PoFxIdleDevice(__int64 a1)
 {
   __int64 v1; // rbx

@@ -1,3 +1,31 @@
+/*
+ * XREFs of KeRemovePriQueue @ 0x140352720
+ * Callers:
+ *     ExpWorkerThread @ 0x140352200 (ExpWorkerThread.c)
+ * Callees:
+ *     KiSetPriorityThread @ 0x1402273F0 (KiSetPriorityThread.c)
+ *     HalRequestSoftwareInterrupt @ 0x140230830 (HalRequestSoftwareInterrupt.c)
+ *     KiFastExitThreadWait @ 0x140239300 (KiFastExitThreadWait.c)
+ *     KiCheckForThreadDispatch @ 0x14023A168 (KiCheckForThreadDispatch.c)
+ *     KiProcessThreadWaitList @ 0x1402508F0 (KiProcessThreadWaitList.c)
+ *     PoGetFrequencyBucket @ 0x140254EC0 (PoGetFrequencyBucket.c)
+ *     KiEndThreadAccountingPeriodEx @ 0x140256710 (KiEndThreadAccountingPeriodEx.c)
+ *     KiCommitThreadWait @ 0x140261290 (KiCommitThreadWait.c)
+ *     KiSwitchPriQueue @ 0x1402FBDD4 (KiSwitchPriQueue.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x14033FBD0 (KiSetBasePriorityAndClearDecrement.c)
+ *     KiAdjustRealtimePriorityFloor @ 0x14033FCCC (KiAdjustRealtimePriorityFloor.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     KiDeliverApc @ 0x140350B60 (KiDeliverApc.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiAttemptFastRemovePriQueue @ 0x140352DB0 (KiAttemptFastRemovePriQueue.c)
+ *     KiGetProcessorEfficiencyClass @ 0x14036A2D4 (KiGetProcessorEfficiencyClass.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403C8140 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403C8170 (HvlNotifyLongSpinWait.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiBeginCounterAccumulation @ 0x140571C80 (KiBeginCounterAccumulation.c)
+ *     KiGetDueTimeWithThreadTimerDelay @ 0x140577DA8 (KiGetDueTimeWithThreadTimerDelay.c)
+ */
+
 struct _KPRCB *__fastcall KeRemovePriQueue(ULONG_PTR a1, char a2, char a3, __int64 a4)
 {
   struct _KTHREAD *CurrentThread; // rbx

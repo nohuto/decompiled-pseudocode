@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AddUndispatchedFrameToThreadFrameList@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@@Z @ 0x1C01E9194
+ * Callers:
+ *     ?ProcessInput@CTouchProcessor@@QEAAXPEAX0KHHPEA_N@Z @ 0x1C00DF6E8 (-ProcessInput@CTouchProcessor@@QEAAXPEAX0KHHPEA_N@Z.c)
+ *     ?ProcessInputOld@CTouchProcessor@@QEAAXPEAX0KHH@Z @ 0x1C00DFA8C (-ProcessInputOld@CTouchProcessor@@QEAAXPEAX0KHH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CTouchProcessor::AddUndispatchedFrameToThreadFrameList(
         CTouchProcessor *this,
         const struct CPointerInputFrame *a2)

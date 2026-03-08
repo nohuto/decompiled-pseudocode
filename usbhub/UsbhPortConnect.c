@@ -1,3 +1,24 @@
+/*
+ * XREFs of UsbhPortConnect @ 0x1C004D100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhResetPort @ 0x1C0002918 (UsbhResetPort.c)
+ *     UsbhReleaseEnumBusLockEx @ 0x1C0003BCC (UsbhReleaseEnumBusLockEx.c)
+ *     UsbhDecHubBusy @ 0x1C0003DB0 (UsbhDecHubBusy.c)
+ *     UsbhAcquireEnumBusLock @ 0x1C0004C60 (UsbhAcquireEnumBusLock.c)
+ *     UsbhIncHubBusy @ 0x1C0007050 (UsbhIncHubBusy.c)
+ *     UsbhEtwLogHubIrpEvent @ 0x1C00098E0 (UsbhEtwLogHubIrpEvent.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhAllocateTimeoutObject @ 0x1C001B9D8 (UsbhAllocateTimeoutObject.c)
+ *     UsbhWait @ 0x1C002E204 (UsbhWait.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhDisablePort @ 0x1C00377CC (UsbhDisablePort.c)
+ *     Usbh_ErrorDisconnect_PdoEvent @ 0x1C003B0C0 (Usbh_ErrorDisconnect_PdoEvent.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhCreatePdo @ 0x1C0053530 (UsbhCreatePdo.c)
+ */
+
 __int64 __fastcall UsbhPortConnect(__int64 a1, __int64 a2)
 {
   unsigned __int64 v3; // rsi

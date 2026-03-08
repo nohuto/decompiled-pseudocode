@@ -1,3 +1,20 @@
+/*
+ * XREFs of TtmpPublishDeviceEvent @ 0x1409A0904
+ * Callers:
+ *     TtmiAssignDevice @ 0x14099FACC (TtmiAssignDevice.c)
+ *     TtmiPublishDeviceEnumerationEvents @ 0x14099FC9C (TtmiPublishDeviceEnumerationEvents.c)
+ *     TtmiSessionDeviceListWorker @ 0x14099FD30 (TtmiSessionDeviceListWorker.c)
+ * Callees:
+ *     RtlStringCchCopyW @ 0x1402470F0 (RtlStringCchCopyW.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     TtmiWriteEventToAllQueues @ 0x1409A1ED8 (TtmiWriteEventToAllQueues.c)
+ *     TtmiLogDeviceArrivedTerminalEvent @ 0x1409A445C (TtmiLogDeviceArrivedTerminalEvent.c)
+ *     TtmiLogDeviceAssignedTerminalEvent @ 0x1409A459C (TtmiLogDeviceAssignedTerminalEvent.c)
+ *     TtmiLogDeviceDepartedTerminalEvent @ 0x1409A468C (TtmiLogDeviceDepartedTerminalEvent.c)
+ *     TtmiLogDeviceEnumeratedTerminalEvent @ 0x1409A4874 (TtmiLogDeviceEnumeratedTerminalEvent.c)
+ *     TtmiWriteEventToSingleQueue @ 0x1409A92D8 (TtmiWriteEventToSingleQueue.c)
+ */
+
 __int64 __fastcall TtmpPublishDeviceEvent(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   unsigned int v8; // esi

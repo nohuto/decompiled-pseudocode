@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopGetListHead @ 0x14068D4BC
+ * Callers:
+ *     PopSetPowerSettingValue @ 0x14068CFA0 (PopSetPowerSettingValue.c)
+ *     PopFindPowerSettingConfiguration @ 0x14068D434 (PopFindPowerSettingConfiguration.c)
+ * Callees:
+ *     PopStateIsSessionSpecific @ 0x14068D530 (PopStateIsSessionSpecific.c)
+ */
+
 PVOID *__fastcall PopGetListHead(_QWORD *a1)
 {
   __int64 v2; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiExternalQueryTranslatedDescriptorForGsiv @ 0x1C0083D08
+ * Callers:
+ *     AcpiIrqTranslateSecondaryInterruptToNtResources @ 0x1C000AB60 (AcpiIrqTranslateSecondaryInterruptToNtResources.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     AcpiCheckExternalConnection @ 0x1C0083BF4 (AcpiCheckExternalConnection.c)
+ */
+
 __int64 __fastcall AcpiExternalQueryTranslatedDescriptorForGsiv(unsigned int a1, __int64 a2)
 {
   unsigned int v4; // ebx

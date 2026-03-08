@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?MarkHardwareProtectedResourcesInvalid@CD3DResourceManager@@QEAA_NXZ @ 0x180299B68
+ * Callers:
+ *     ?ClearProtectedResources@CD3DDevice@@QEAA_NXZ @ 0x1802893DC (-ClearProtectedResources@CD3DDevice@@QEAA_NXZ.c)
+ * Callees:
+ *     ?DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z @ 0x1800F0480 (-DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CD3DResourceManager::MarkHardwareProtectedResourcesInvalid(CD3DResourceManager *this)
 {
   char *v1; // rsi

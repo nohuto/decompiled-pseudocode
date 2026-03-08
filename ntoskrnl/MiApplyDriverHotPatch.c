@@ -1,3 +1,41 @@
+/*
+ * XREFs of MiApplyDriverHotPatch @ 0x140A31BB8
+ * Callers:
+ *     MiApplyHotPatchToLoadedDriver @ 0x140A323A8 (MiApplyHotPatchToLoadedDriver.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiGetSessionVm @ 0x14036C17C (MiGetSessionVm.c)
+ *     MiSessionLookupImage @ 0x14036C7B8 (MiSessionLookupImage.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     VslApplyHotPatch @ 0x140548770 (VslApplyHotPatch.c)
+ *     MiLinkHotPatchToBase @ 0x1406402B8 (MiLinkHotPatchToBase.c)
+ *     MiUpdatePatchInProgress @ 0x140640B6C (MiUpdatePatchInProgress.c)
+ *     RtlFindExportedRoutineByName @ 0x1407EBE40 (RtlFindExportedRoutineByName.c)
+ *     MiFreeLoadedImportList @ 0x1407F6CA0 (MiFreeLoadedImportList.c)
+ *     MiUnlockDriverPages @ 0x14087313C (MiUnlockDriverPages.c)
+ *     VslDetermineHotPatchUndoTableSize @ 0x14093F1B4 (VslDetermineHotPatchUndoTableSize.c)
+ *     VslObtainHotPatchUndoTable @ 0x14093FB88 (VslObtainHotPatchUndoTable.c)
+ *     MiAddEntryToImportList @ 0x140A282AC (MiAddEntryToImportList.c)
+ *     MiPrepareDriverPatchState @ 0x140A28934 (MiPrepareDriverPatchState.c)
+ *     MiActOnPatchInAllSessions @ 0x140A31950 (MiActOnPatchInAllSessions.c)
+ *     MiApplyHotPatchToDriverDataPages @ 0x140A32268 (MiApplyHotPatchToDriverDataPages.c)
+ *     MiCheckPatchesInSupportedSections @ 0x140A336F0 (MiCheckPatchesInSupportedSections.c)
+ *     MiIdentifyImageDiscardablePages @ 0x140A349B4 (MiIdentifyImageDiscardablePages.c)
+ *     MiIdentifyPatchImageDataPages @ 0x140A34ABC (MiIdentifyPatchImageDataPages.c)
+ *     MiInvokePatchCallback @ 0x140A351D0 (MiInvokePatchCallback.c)
+ *     MiLogHotPatchOperationStatus @ 0x140A36298 (MiLogHotPatchOperationStatus.c)
+ *     MiPrepareDriverForHotPatch @ 0x140A37BA4 (MiPrepareDriverForHotPatch.c)
+ *     MiGetSectionStrongImageReference @ 0x140A40B24 (MiGetSectionStrongImageReference.c)
+ *     MiAllocateKernelCfgBitmapPageTables @ 0x140A411E8 (MiAllocateKernelCfgBitmapPageTables.c)
+ *     RtlFindHotPatchBase @ 0x140A7380C (RtlFindHotPatchBase.c)
+ *     RtlFindHotPatchInformation @ 0x140A7383C (RtlFindHotPatchInformation.c)
+ *     RtlPatchContainsCallTarget @ 0x140A73A04 (RtlPatchContainsCallTarget.c)
+ *     RtlValidateHotPatchBase @ 0x140A73A54 (RtlValidateHotPatchBase.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
   _QWORD *v6; // r15

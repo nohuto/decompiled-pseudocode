@@ -1,3 +1,11 @@
+/*
+ * XREFs of GrayRepDIB_CX @ 0x1C02651F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall GrayRepDIB_CX(__int64 a1, unsigned __int8 *a2, unsigned __int16 *a3, unsigned __int16 *a4, int a5)
 {
   unsigned __int16 *v5; // r10

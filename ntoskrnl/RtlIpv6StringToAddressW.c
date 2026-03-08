@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlIpv6StringToAddressW @ 0x1402EC630
+ * Callers:
+ *     RtlIpv6StringToAddressExW @ 0x1402EC590 (RtlIpv6StringToAddressExW.c)
+ * Callees:
+ *     wcstol @ 0x1403D630C (wcstol.c)
+ *     iswctype @ 0x1403D67C4 (iswctype.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 NTSTATUS __stdcall RtlIpv6StringToAddressW(PCWSTR S, PCWSTR *Terminator, struct in6_addr *Addr)
 {
   wint_t v3; // bx

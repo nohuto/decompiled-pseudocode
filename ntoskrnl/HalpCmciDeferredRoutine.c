@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpCmciDeferredRoutine @ 0x140503740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpCmciPollProcessor @ 0x14037CE58 (HalpCmciPollProcessor.c)
+ *     HalpCmcStartPolling @ 0x1403AF5E8 (HalpCmcStartPolling.c)
+ */
+
 void __fastcall HalpCmciDeferredRoutine(
         struct _KDPC *Dpc,
         char *DeferredContext,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpInitializeInterruptsBspLate @ 0x1403A9F1C
+ * Callers:
+ *     HalpInterruptInitSystem @ 0x140A86CD0 (HalpInterruptInitSystem.c)
+ * Callees:
+ *     HalpInterruptModel @ 0x14028EADC (HalpInterruptModel.c)
+ *     HalpInterruptRemapFixedLines @ 0x1403A9F64 (HalpInterruptRemapFixedLines.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HalpInitializeInterruptRemappingBspLate @ 0x14085A328 (HalpInitializeInterruptRemappingBspLate.c)
+ *     HalpUpdatePerDeviceMsiLimitInformation @ 0x140B6C9A4 (HalpUpdatePerDeviceMsiLimitInformation.c)
+ */
+
 __int64 HalpInitializeInterruptsBspLate()
 {
   __int64 result; // rax

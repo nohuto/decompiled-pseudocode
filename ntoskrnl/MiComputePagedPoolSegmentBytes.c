@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiComputePagedPoolSegmentBytes @ 0x14034C858
+ * Callers:
+ *     MiUnlinkUnusedControlArea @ 0x14034C6C4 (MiUnlinkUnusedControlArea.c)
+ *     MiInsertUnusedSegment @ 0x14034C75C (MiInsertUnusedSegment.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiComputePagedPoolSegmentBytes(__int64 a1)
 {
   __int64 v2; // rdx

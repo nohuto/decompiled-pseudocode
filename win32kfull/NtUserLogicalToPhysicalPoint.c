@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserLogicalToPhysicalPoint @ 0x1C01D74F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?DCEPtInRect@@YA_NPEBUtagRECT@@UtagPOINT@@@Z @ 0x1C0144B14 (-DCEPtInRect@@YA_NPEBUtagRECT@@UtagPOINT@@@Z.c)
+ */
+
 __int64 __fastcall NtUserLogicalToPhysicalPoint(__int64 a1, struct tagPOINT *a2, __int64 a3)
 {
   int v5; // edi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of Crashdump_FreeDeviceContext @ 0x1C004C300
+ * Callers:
+ *     Crashdump_UcxEvtFreeDumpData @ 0x1C004D0A0 (Crashdump_UcxEvtFreeDumpData.c)
+ *     Crashdump_UcxEvtGetDumpData @ 0x1C004D200 (Crashdump_UcxEvtGetDumpData.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall Crashdump_FreeDeviceContext(__int64 a1)
 {
   PVOID *v1; // rbx

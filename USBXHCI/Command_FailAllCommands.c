@@ -1,3 +1,16 @@
+/*
+ * XREFs of Command_FailAllCommands @ 0x1C002FB48
+ * Callers:
+ *     Controller_InitiateRecovery @ 0x1C0033990 (Controller_InitiateRecovery.c)
+ *     Controller_InternalReset @ 0x1C0033D04 (Controller_InternalReset.c)
+ * Callees:
+ *     DynamicLock_Acquire @ 0x1C000A918 (DynamicLock_Acquire.c)
+ *     DynamicLock_Release @ 0x1C000A958 (DynamicLock_Release.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_qL @ 0x1C0030E00 (WPP_RECORDER_SF_qL.c)
+ *     Etw_CommandCompleteError @ 0x1C004A868 (Etw_CommandCompleteError.c)
+ */
+
 __int64 **__fastcall Command_FailAllCommands(__int64 a1)
 {
   __int64 v2; // rcx

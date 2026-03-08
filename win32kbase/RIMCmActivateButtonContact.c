@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMCmActivateButtonContact @ 0x1C01DDD6C
+ * Callers:
+ *     rimProcessPointerDeviceButtonContact @ 0x1C01D99D4 (rimProcessPointerDeviceButtonContact.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMCmGetButtonContact @ 0x1C00F1A60 (RIMCmGetButtonContact.c)
+ */
+
 void __fastcall RIMCmActivateButtonContact(__int64 a1)
 {
   __int64 ButtonContact; // rdi

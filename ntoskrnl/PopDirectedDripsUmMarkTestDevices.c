@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopDirectedDripsUmMarkTestDevices @ 0x14099C874
+ * Callers:
+ *     PopDirectedDripsIdleResiliencyCallback @ 0x140980630 (PopDirectedDripsIdleResiliencyCallback.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     RtlLookupElementGenericTableAvl @ 0x140245A20 (RtlLookupElementGenericTableAvl.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     PopDirectedDripsNotify @ 0x140872AF4 (PopDirectedDripsNotify.c)
+ *     IoLockUnlockPnpDeviceTree @ 0x140951CA0 (IoLockUnlockPnpDeviceTree.c)
+ *     PopDirectedDripsMarkCandidateDevice @ 0x1409809AC (PopDirectedDripsMarkCandidateDevice.c)
+ */
+
 void PopDirectedDripsUmMarkTestDevices()
 {
   signed __int32 v0; // eax

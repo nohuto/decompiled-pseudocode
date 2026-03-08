@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiObtainReferencedSecureVad @ 0x14034C5AC
+ * Callers:
+ *     MiCheckLockUnlockByVa @ 0x14061A2D0 (MiCheckLockUnlockByVa.c)
+ *     MmUnsecureVirtualMemory @ 0x1407D48C0 (MmUnsecureVirtualMemory.c)
+ *     MmAdjustSecuredVirtualMemorySize @ 0x140A2F2AC (MmAdjustSecuredVirtualMemorySize.c)
+ *     MmStoreAllocateVirtualMemory @ 0x140A42EFC (MmStoreAllocateVirtualMemory.c)
+ * Callees:
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14031F590 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14031F600 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiLockVad @ 0x14034CF60 (MiLockVad.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiWaitForVadDeletion @ 0x14065E678 (MiWaitForVadDeletion.c)
+ */
+
 __int64 **__fastcall MiObtainReferencedSecureVad(ULONG_PTR BugCheckParameter3, _DWORD *a2)
 {
   struct _KTHREAD *CurrentThread; // rdi

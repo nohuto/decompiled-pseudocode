@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExReleaseCacheAwarePushLockSharedEx @ 0x1402485C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     KiAbThreadClearAcquiredLockEntry @ 0x1402486D0 (KiAbThreadClearAcquiredLockEntry.c)
+ *     KiAbEntryFreeAndEnableInterrupts @ 0x140248730 (KiAbEntryFreeAndEnableInterrupts.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExReleaseCacheAwarePushLockSharedEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
 {
   char v2; // di

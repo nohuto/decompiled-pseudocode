@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserPrepareForLogoff @ 0x1C00EED90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PrepareForLogoff @ 0x1C00EEDCC (PrepareForLogoff.c)
+ */
+
 __int64 NtUserPrepareForLogoff()
 {
   __int64 v0; // rbx

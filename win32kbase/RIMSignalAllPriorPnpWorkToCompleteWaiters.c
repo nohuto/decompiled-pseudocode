@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMSignalAllPriorPnpWorkToCompleteWaiters @ 0x1C0037614
+ * Callers:
+ *     RIMUnregisterForInput @ 0x1C00326C0 (RIMUnregisterForInput.c)
+ *     RIMOnPnpNotification @ 0x1C00383E0 (RIMOnPnpNotification.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ */
+
 int __fastcall RIMSignalAllPriorPnpWorkToCompleteWaiters(__int64 a1)
 {
   bool v2; // dl

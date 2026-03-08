@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpDmaAllocateReservedMappingArray @ 0x140B8DE04
+ * Callers:
+ *     HalpDmaAllocateMappingResources @ 0x140B6124C (HalpDmaAllocateMappingResources.c)
+ * Callees:
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     HalpDmaAllocateReservedMapping @ 0x140B61370 (HalpDmaAllocateReservedMapping.c)
+ */
+
 __int64 __fastcall HalpDmaAllocateReservedMappingArray(__int64 a1, unsigned int a2)
 {
   __int64 v3; // rcx

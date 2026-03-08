@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlIsNormalizedString @ 0x1409BEC40
+ * Callers:
+ *     RtlpIdnToUnicodeWorker @ 0x1405AD830 (RtlpIdnToUnicodeWorker.c)
+ * Callees:
+ *     Normalization__IsNormalized @ 0x1409BDB3C (Normalization__IsNormalized.c)
+ *     RtlpGetNormalization @ 0x1409C5918 (RtlpGetNormalization.c)
+ */
+
 NTSTATUS __stdcall RtlIsNormalizedString(
         ULONG NormForm,
         PCWSTR SourceString,

@@ -1,3 +1,16 @@
+/*
+ * XREFs of IoReleaseRemoveLockAndWaitEx @ 0x1403D0F90
+ * Callers:
+ *     PopFxAcpiUnregisterDevice @ 0x14059EB40 (PopFxAcpiUnregisterDevice.c)
+ *     DifIoReleaseRemoveLockAndWaitExWrapper @ 0x1405DE950 (DifIoReleaseRemoveLockAndWaitExWrapper.c)
+ *     PopFxUnregisterDevice @ 0x140982DC4 (PopFxUnregisterDevice.c)
+ *     ViFilterDispatchPnp @ 0x140ADC600 (ViFilterDispatchPnp.c)
+ * Callees:
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     VfRemLockReportBadReleaseAndWaitTag @ 0x140ACF86C (VfRemLockReportBadReleaseAndWaitTag.c)
+ */
+
 void __stdcall IoReleaseRemoveLockAndWaitEx(PIO_REMOVE_LOCK RemoveLock, PVOID Tag, ULONG RemlockSize)
 {
   struct _LIST_ENTRY *Blink; // r8

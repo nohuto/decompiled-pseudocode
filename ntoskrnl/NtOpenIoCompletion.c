@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtOpenIoCompletion @ 0x140944CC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObOpenObjectByName @ 0x1406C39E0 (ObOpenObjectByName.c)
+ */
+
 __int64 __fastcall NtOpenIoCompletion(_QWORD *a1, int a2, __int64 a3)
 {
   char PreviousMode; // di

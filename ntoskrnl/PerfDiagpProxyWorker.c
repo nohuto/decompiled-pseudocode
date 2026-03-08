@@ -1,3 +1,21 @@
+/*
+ * XREFs of PerfDiagpProxyWorker @ 0x14083C130
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     NtTraceControl @ 0x140694040 (NtTraceControl.c)
+ *     PerfDiagpStartPerfDiagLogger @ 0x14083C01C (PerfDiagpStartPerfDiagLogger.c)
+ *     PerfDiagpIsTracingAllowed @ 0x14083C260 (PerfDiagpIsTracingAllowed.c)
+ *     PerfDiagpUpdatePerfDiagLoggerEnableFlags @ 0x14083C378 (PerfDiagpUpdatePerfDiagLoggerEnableFlags.c)
+ *     PerfDiagpInitializeLoggerInfo @ 0x14083C48C (PerfDiagpInitializeLoggerInfo.c)
+ *     PerfDiagpSaveActiveDCLLogFileName @ 0x1409DABC0 (PerfDiagpSaveActiveDCLLogFileName.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PerfDiagpProxyWorker(_DWORD *a1)
 {
   int v1; // ebx

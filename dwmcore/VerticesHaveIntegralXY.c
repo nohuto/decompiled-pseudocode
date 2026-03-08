@@ -1,3 +1,11 @@
+/*
+ * XREFs of VerticesHaveIntegralXY @ 0x180076254
+ * Callers:
+ *     ?PrepareData@CMegaRect@@QEAAJAEAV?$vector@EV?$allocator@E@std@@@std@@@Z @ 0x18004A01C (-PrepareData@CMegaRect@@QEAAJAEAV-$vector@EV-$allocator@E@std@@@std@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall VerticesHaveIntegralXY(__int64 *a1)
 {
   __int64 v1; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlFindClearRunsEx @ 0x14029A52C
+ * Callers:
+ *     RtlpHpFixedVsAllocate @ 0x14029A450 (RtlpHpFixedVsAllocate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlFindClearRunsEx(unsigned __int64 *a1, __int64 a2)
 {
   unsigned __int64 v2; // rax

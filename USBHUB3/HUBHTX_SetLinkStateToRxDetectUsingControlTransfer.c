@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBHTX_SetLinkStateToRxDetectUsingControlTransfer @ 0x1C0007048
+ * Callers:
+ *     HUBPSM30_EnablingSuperSpeedOnTimerExpiration @ 0x1C0012FE0 (HUBPSM30_EnablingSuperSpeedOnTimerExpiration.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBMISC_ControlTransfer @ 0x1C0032664 (HUBMISC_ControlTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBHTX_SetLinkStateToRxDetectUsingControlTransfer(__int64 a1)
 {
   char v2; // al

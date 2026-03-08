@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspClosePartitionHandle @ 0x14067FFE0
+ * Callers:
+ *     PspAllocatePartition @ 0x140855B00 (PspAllocatePartition.c)
+ * Callees:
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ */
+
 void __fastcall PspClosePartitionHandle(__int64 a1, __int64 a2)
 {
   signed __int64 v2; // rax

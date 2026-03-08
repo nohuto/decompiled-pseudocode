@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspSetJobNotificationCountCallback @ 0x14079C010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspSetJobNotificationCountCallback(__int64 a1, _DWORD *a2)
 {
   int v2; // eax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of KeCheckAndApplyBamQos @ 0x140458D70
+ * Callers:
+ *     KeApplyWobBamQos @ 0x140227F40 (KeApplyWobBamQos.c)
+ *     KiUpdateRunTime @ 0x14022ECE0 (KiUpdateRunTime.c)
+ *     KeUpdateThreadTag @ 0x1402FB2F0 (KeUpdateThreadTag.c)
+ *     SwapContext @ 0x14041F970 (SwapContext.c)
+ *     KeSetThreadSchedulerAssist @ 0x14056AE2C (KeSetThreadSchedulerAssist.c)
+ * Callees:
+ *     KeUpdatePendingQosRequest @ 0x140458E7C (KeUpdatePendingQosRequest.c)
+ *     PoSetProcessorQoS @ 0x14045A860 (PoSetProcessorQoS.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeCheckAndApplyBamQos(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

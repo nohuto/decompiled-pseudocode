@@ -1,3 +1,11 @@
+/*
+ * XREFs of DxgkCountInterfaceFunctions @ 0x1C020C6EC
+ * Callers:
+ *     ?AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C020B6D8 (-AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CO.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DxgkCountInterfaceFunctions(__int64 a1, __int64 *a2, _QWORD *a3, __int64 *a4)
 {
   _QWORD *v4; // r11

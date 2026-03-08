@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiFillFileOnlyProtoAsBad @ 0x14063AB90
+ * Callers:
+ *     MiCreateFileOnlyPfns @ 0x140A30F88 (MiCreateFileOnlyPfns.c)
+ * Callees:
+ *     MiLockProtoPoolPageForce @ 0x14028331C (MiLockProtoPoolPageForce.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiLockLeafPage @ 0x14034AF20 (MiLockLeafPage.c)
+ */
+
 __int64 __fastcall MiFillFileOnlyProtoAsBad(__int64 a1, __int64 *a2)
 {
   __int64 v3; // rbx

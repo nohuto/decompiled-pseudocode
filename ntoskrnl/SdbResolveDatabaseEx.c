@@ -1,3 +1,23 @@
+/*
+ * XREFs of SdbResolveDatabaseEx @ 0x140A4FB10
+ * Callers:
+ *     SdbpOpenLocalDatabaseEx @ 0x140A4F86C (SdbpOpenLocalDatabaseEx.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x140A4F724 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
+ *     SdbGetPathCustomSdb @ 0x140A4FA40 (SdbGetPathCustomSdb.c)
+ *     SdbpGetSystemSdbFilePath @ 0x140A50484 (SdbpGetSystemSdbFilePath.c)
+ *     AslGuidToString_UStr @ 0x140A50FF8 (AslGuidToString_UStr.c)
+ *     AslUnicodeStringFree @ 0x140A513A0 (AslUnicodeStringFree.c)
+ *     AslRegistryGetUInt32_UStr @ 0x140A518A0 (AslRegistryGetUInt32_UStr.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SdbResolveDatabaseEx(__int64 a1, _QWORD *a2, int *a3, int *a4, _WORD *a5, int a6)
 {
   __int64 v11; // rbx

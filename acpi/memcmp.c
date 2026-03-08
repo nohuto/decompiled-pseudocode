@@ -1,3 +1,12 @@
+/*
+ * XREFs of memcmp @ 0x1C0001C50
+ * Callers:
+ *     LogOp2_32 @ 0x1C0057328 (LogOp2_32.c)
+ *     PnpiAddSidebandResources @ 0x1C008FF78 (PnpiAddSidebandResources.c)
+ * Callees:
+ *     <none>
+ */
+
 int __cdecl memcmp(const void *Buf1, const void *Buf2, size_t Size)
 {
   signed __int64 v3; // rdx

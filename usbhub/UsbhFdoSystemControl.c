@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhFdoSystemControl @ 0x1C001F6E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhFdoChainIrp @ 0x1C002A33C (UsbhFdoChainIrp.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ */
+
 __int64 __fastcall UsbhFdoSystemControl(PDEVICE_OBJECT DeviceObject, IRP *Tag)
 {
   char *DeviceExtension; // rbp

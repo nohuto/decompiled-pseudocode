@@ -1,3 +1,36 @@
+/*
+ * XREFs of PopInitializeHeteroProcessors @ 0x140826970
+ * Callers:
+ *     PpmReapplyPerfPolicy @ 0x1408261A0 (PpmReapplyPerfPolicy.c)
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     KeGetActualProcessorEfficiencyClass @ 0x14036A2F8 (KeGetActualProcessorEfficiencyClass.c)
+ *     PpmHeteroGetHgsPlusParkingEnablementStatus @ 0x14038E3D8 (PpmHeteroGetHgsPlusParkingEnablementStatus.c)
+ *     PpmHeteroUpdateHgsConfiguration @ 0x14038F314 (PpmHeteroUpdateHgsConfiguration.c)
+ *     PpmHeteroDetectHgsCores @ 0x14038F40C (PpmHeteroDetectHgsCores.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PoHeteroIsArchFavoredCoreSupported @ 0x14040B854 (PoHeteroIsArchFavoredCoreSupported.c)
+ *     PpmHeteroReevaluateMultiCoreFeatures @ 0x14040B868 (PpmHeteroReevaluateMultiCoreFeatures.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PpmIdleEnableIdleDurationExpirationTimeout @ 0x14045A776 (PpmIdleEnableIdleDurationExpirationTimeout.c)
+ *     KeDetectHeterogeneousSets @ 0x14067C998 (KeDetectHeterogeneousSets.c)
+ *     PsEnumProcesses @ 0x1407809CC (PsEnumProcesses.c)
+ *     PpmHeteroDetectFavoredCores @ 0x14079C25C (PpmHeteroDetectFavoredCores.c)
+ *     PopIsSimulateHeteroProcessorsPresent @ 0x14079C600 (PopIsSimulateHeteroProcessorsPresent.c)
+ *     PpmEventHeteroPolicy @ 0x140826ED0 (PpmEventHeteroPolicy.c)
+ *     PpmEventTraceHeteroSets @ 0x140826F54 (PpmEventTraceHeteroSets.c)
+ *     PopConfigureHeteroPolicies @ 0x1408273AC (PopConfigureHeteroPolicies.c)
+ *     PpmHeteroComputeRelativePerformance @ 0x140828BE8 (PpmHeteroComputeRelativePerformance.c)
+ *     KeConfigureHeteroProcessors @ 0x14096F978 (KeConfigureHeteroProcessors.c)
+ */
+
 char __fastcall PopInitializeHeteroProcessors(char a1)
 {
   unsigned int *v1; // rsi

@@ -1,3 +1,19 @@
+/*
+ * XREFs of Usbh_FDO_WaitPnpStop_CB @ 0x1C0044A00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     UsbhReleaseFdoPnpLock @ 0x1C0031D14 (UsbhReleaseFdoPnpLock.c)
+ *     UsbhNotifyPnpOfFailure_Action @ 0x1C0038E08 (UsbhNotifyPnpOfFailure_Action.c)
+ *     UsbhAsyncStartComplete @ 0x1C0042408 (UsbhAsyncStartComplete.c)
+ *     UsbhAsyncStop @ 0x1C00424CC (UsbhAsyncStop.c)
+ *     UsbhModuleDispatch @ 0x1C0043D00 (UsbhModuleDispatch.c)
+ *     UsbhSetFdoPnpState @ 0x1C0044248 (UsbhSetFdoPnpState.c)
+ *     Usbh_PnpRemove @ 0x1C0044B44 (Usbh_PnpRemove.c)
+ */
+
 __int64 __fastcall Usbh_FDO_WaitPnpStop_CB(_QWORD *Tag, int a2)
 {
   unsigned int started; // edi

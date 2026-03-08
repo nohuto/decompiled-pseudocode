@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RIMOnTTMDeviceSetInputMode@@YAJ_KW4_WIN32K_INPUT_MODE@@@Z @ 0x1C01E2690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     RIMSetDeviceInputMode @ 0x1C00BC07C (RIMSetDeviceInputMode.c)
+ */
+
 __int64 __fastcall RIMOnTTMDeviceSetInputMode(__int64 a1, unsigned int a2)
 {
   __int64 v2; // rbx

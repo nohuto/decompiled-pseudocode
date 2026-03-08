@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?PrepareForSingleTransfer@FxDmaTransactionBase@@AEAAJXZ @ 0x1C001FAE0
+ * Callers:
+ *     ?Initialize@FxDmaTransactionBase@@QEAAJP6AEPEAUWDFDMATRANSACTION__@@PEAUWDFDEVICE__@@PEAXW4_WDF_DMA_DIRECTION@@PEAU_SCATTER_GATHER_LIST@@@Z3PEAU_MDL@@_KK@Z @ 0x1C000CA84 (-Initialize@FxDmaTransactionBase@@QEAAJP6AEPEAUWDFDMATRANSACTION__@@PEAUWDFDEVICE__@@PEAXW4_WDF_.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qd @ 0x1C0007FCC (WPP_IFR_SF_qd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qDd @ 0x1C0018F98 (WPP_IFR_SF_qDd.c)
+ *     WPP_IFR_SF_qLLd @ 0x1C001BE14 (WPP_IFR_SF_qLLd.c)
+ *     WPP_IFR_SF_qDPq @ 0x1C001FE54 (WPP_IFR_SF_qDPq.c)
+ *     WPP_IFR_SF_qDPqd @ 0x1C001FF60 (WPP_IFR_SF_qDPqd.c)
+ *     WPP_IFR_SF_qPPd @ 0x1C002009C (WPP_IFR_SF_qPPd.c)
+ */
+
 __int64 __fastcall FxDmaTransactionBase::PrepareForSingleTransfer(FxDmaTransactionBase *this)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rdi

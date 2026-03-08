@@ -1,3 +1,14 @@
+/*
+ * XREFs of ToInteger @ 0x1C00593D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ *     ValidateTarget @ 0x1C004D4F0 (ValidateTarget.c)
+ *     WriteObject @ 0x1C00532A0 (WriteObject.c)
+ *     ConvertToInteger @ 0x1C0059A54 (ConvertToInteger.c)
+ */
+
 __int64 __fastcall ToInteger(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

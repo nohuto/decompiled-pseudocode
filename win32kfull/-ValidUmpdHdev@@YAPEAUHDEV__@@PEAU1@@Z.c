@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ValidUmpdHdev@@YAPEAUHDEV__@@PEAU1@@Z @ 0x1C02C9BFC
+ * Callers:
+ *     NtGdiEngAssociateSurface @ 0x1C02CAF00 (NtGdiEngAssociateSurface.c)
+ *     NtGdiGetDhpdev @ 0x1C02CF0B0 (NtGdiGetDhpdev.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall ValidUmpdHdev(Gre::Base *a1)
 {
   struct Gre::Base::SESSION_GLOBALS *v3; // rsi

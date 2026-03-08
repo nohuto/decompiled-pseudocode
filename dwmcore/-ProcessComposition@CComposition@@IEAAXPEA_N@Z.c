@@ -1,3 +1,26 @@
+/*
+ * XREFs of ?ProcessComposition@CComposition@@IEAAXPEA_N@Z @ 0x18004EF0C
+ * Callers:
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x18004E7F8 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
+ * Callees:
+ *     ?PreRender@CComposition@@IEAAJXZ @ 0x18004F100 (-PreRender@CComposition@@IEAAJXZ.c)
+ *     ?Render@CRenderTargetManager@@QEAAJPEA_N@Z @ 0x18004FC1C (-Render@CRenderTargetManager@@QEAAJPEA_N@Z.c)
+ *     ?ReleaseUnusedCaches@CMeshCacheManager@@QEAAXXZ @ 0x180050708 (-ReleaseUnusedCaches@CMeshCacheManager@@QEAAXXZ.c)
+ *     ?UpdateRenderFailureCount@CComposition@@SAXJ@Z @ 0x180050788 (-UpdateRenderFailureCount@CComposition@@SAXJ@Z.c)
+ *     ?ProcessRenderingStatus@CComposition@@QEAAXJ@Z @ 0x1800508A8 (-ProcessRenderingStatus@CComposition@@QEAAXJ@Z.c)
+ *     ?PostPresent@CComposition@@QEAAJ_N@Z @ 0x180052E70 (-PostPresent@CComposition@@QEAAJ_N@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Snapshot@CCachedVisualImage@@IEAAJXZ @ 0x1800CDAF4 (-Snapshot@CCachedVisualImage@@IEAAJXZ.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D4A28 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     ?UpdateMPOCaps@CRenderTargetManager@@IEAAJXZ @ 0x18010A114 (-UpdateMPOCaps@CRenderTargetManager@@IEAAJXZ.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ *     ?CaptureDxgkRingBuffer@CFailFastInScope@@AEAAXXZ @ 0x1801B1720 (-CaptureDxgkRingBuffer@CFailFastInScope@@AEAAXXZ.c)
+ *     ?MilWerUnregisterMemoryBlock@@YAXPEBX@Z @ 0x180278C80 (-MilWerUnregisterMemoryBlock@@YAXPEBX@Z.c)
+ *     ?TriggerFailFastOnNextFailure@@YAX_NJ@Z @ 0x180278CDC (-TriggerFailFastOnNextFailure@@YAX_NJ@Z.c)
+ */
+
 void __fastcall CComposition::ProcessComposition(CRenderTargetManager **this, bool *a2)
 {
   char v4; // r15

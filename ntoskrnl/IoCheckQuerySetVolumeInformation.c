@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoCheckQuerySetVolumeInformation @ 0x14087B5A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall IoCheckQuerySetVolumeInformation(
         FS_INFORMATION_CLASS FsInformationClass,
         ULONG Length,

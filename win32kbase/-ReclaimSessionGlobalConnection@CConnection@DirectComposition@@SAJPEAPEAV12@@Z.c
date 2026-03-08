@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReclaimSessionGlobalConnection@CConnection@DirectComposition@@SAJPEAPEAV12@@Z @ 0x1C0090FE8
+ * Callers:
+ *     ?Create@CConnection@DirectComposition@@SAJPEAXPEAPEAUHDCOMPOSITIONCONNECTION__@@@Z @ 0x1C0090F08 (-Create@CConnection@DirectComposition@@SAJPEAXPEAPEAUHDCOMPOSITIONCONNECTION__@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CConnection::ReclaimSessionGlobalConnection(
         struct DirectComposition::CConnection **a1)
 {

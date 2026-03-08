@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiHotAddPartitionMemory @ 0x140A4203C
+ * Callers:
+ *     MmManagePartitionInitialAddMemory @ 0x140A42A68 (MmManagePartitionInitialAddMemory.c)
+ * Callees:
+ *     RtlAreBitsClearEx @ 0x1402E4560 (RtlAreBitsClearEx.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     MiHugePagesSupported @ 0x1403C1984 (MiHugePagesSupported.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IoUpdateDumpPhysicalRanges @ 0x14054EC60 (IoUpdateDumpPhysicalRanges.c)
+ *     MiActOnPartitionNodePages @ 0x140655AB0 (MiActOnPartitionNodePages.c)
+ *     MiAddRangeToPartitionTree @ 0x14065654C (MiAddRangeToPartitionTree.c)
+ *     MiDeletePartitionPageNode @ 0x140656DFC (MiDeletePartitionPageNode.c)
+ *     MiFreePartitionTree @ 0x1406578D0 (MiFreePartitionTree.c)
+ *     MiInsertPartitionPages @ 0x140657EB8 (MiInsertPartitionPages.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x140A42624 (MiUpdatePartitionLargePfnBitMap.c)
+ */
+
 __int64 __fastcall MiHotAddPartitionMemory(__int64 a1, unsigned __int64 *a2, int *a3)
 {
   int *v4; // r13

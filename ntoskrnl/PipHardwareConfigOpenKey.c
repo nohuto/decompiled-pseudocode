@@ -1,3 +1,18 @@
+/*
+ * XREFs of PipHardwareConfigOpenKey @ 0x14081B6E8
+ * Callers:
+ *     PnpHardwareConfigCreateBootDriverFlags @ 0x14081B254 (PnpHardwareConfigCreateBootDriverFlags.c)
+ *     PipHardwareConfigGetIndex @ 0x14081B840 (PipHardwareConfigGetIndex.c)
+ *     PipCheckComputerSupported @ 0x14094EC88 (PipCheckComputerSupported.c)
+ *     PipHardwareConfigGetLastUseTime @ 0x14094EFE0 (PipHardwareConfigGetLastUseTime.c)
+ *     PipInitComputerIds @ 0x140B552F0 (PipInitComputerIds.c)
+ *     PipCheckSystemFirmwareUpdated @ 0x140B57600 (PipCheckSystemFirmwareUpdated.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406D3680 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ */
+
 __int64 __fastcall PipHardwareConfigOpenKey(__int64 a1, unsigned int a2, _QWORD *a3)
 {
   int CachedContextBaseKey; // ebx

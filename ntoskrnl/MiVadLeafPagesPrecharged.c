@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiVadLeafPagesPrecharged @ 0x140321F00
+ * Callers:
+ *     MiCommitPageTablesForVad @ 0x1407C74B0 (MiCommitPageTablesForVad.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiVadLeafPagesPrecharged(__int64 a1)
 {
   int v1; // eax

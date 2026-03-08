@@ -1,3 +1,11 @@
+/*
+ * XREFs of SetNewForegroundPti @ 0x1C009B3E0
+ * Callers:
+ *     ?xxxSetForegroundThreadWithWindowHint@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@@Z @ 0x1C009AEB4 (-xxxSetForegroundThreadWithWindowHint@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_DD @ 0x1C009B8A4 (WPP_RECORDER_AND_TRACE_SF_DD.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall SetNewForegroundPti(PETHREAD *a1)
 {

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PaintScreenBackground @ 0x1C00F44F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FillRect @ 0x1C00881F8 (FillRect.c)
+ */
+
 __int64 PaintScreenBackground()
 {
   __int64 v0; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_IdDD @ 0x1C00472D8
+ * Callers:
+ *     ACPIWmiEnableLog @ 0x1C00470A0 (ACPIWmiEnableLog.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_IdDD(__int64 a1, _DWORD a2, _DWORD a3, _DWORD a4, __int64 a5, __int64 a6, ...)
 {
   int v8; // [rsp+20h] [rbp-68h]

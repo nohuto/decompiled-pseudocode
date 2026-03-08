@@ -1,3 +1,13 @@
+/*
+ * XREFs of SyspartGetPhysicalPartitions @ 0x140A5C57C
+ * Callers:
+ *     BiSpacesUpdatePhysicalDevicePath @ 0x14066F1C4 (BiSpacesUpdatePhysicalDevicePath.c)
+ * Callees:
+ *     SiFindSystemPartition @ 0x140A5C744 (SiFindSystemPartition.c)
+ *     SiQueryProperty @ 0x140A5CAC4 (SiQueryProperty.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SyspartGetPhysicalPartitions(__int64 a1, _DWORD *a2, unsigned int a3)
 {
   int SystemPartition; // ebx

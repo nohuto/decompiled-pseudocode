@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpQueryPackageIdentityAttributes @ 0x140298538
+ * Callers:
+ *     RtlQueryPackageClaims @ 0x1402983B0 (RtlQueryPackageClaims.c)
+ *     EtwpQueryPsmKey @ 0x1409E4448 (EtwpQueryPsmKey.c)
+ * Callees:
+ *     SeQuerySecurityAttributesToken @ 0x14070BAA0 (SeQuerySecurityAttributesToken.c)
+ */
+
 __int64 __fastcall RtlpQueryPackageIdentityAttributes(int a1, __int64 a2, __int64 a3, _QWORD *a4, _QWORD *a5)
 {
   _QWORD *v5; // rbx

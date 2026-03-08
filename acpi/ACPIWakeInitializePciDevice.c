@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIWakeInitializePciDevice @ 0x1C0045D08
+ * Callers:
+ *     ACPIFilterIrpStartDeviceWorker @ 0x1C00868F0 (ACPIFilterIrpStartDeviceWorker.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ACPIWakeInitializePciDevice(ULONG_PTR a1)
 {
   __int64 DeviceExtension; // rbx

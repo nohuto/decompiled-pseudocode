@@ -1,3 +1,13 @@
+/*
+ * XREFs of IovUtilGetUpperDeviceObjectWithTag @ 0x140ACFAC0
+ * Callers:
+ *     IovpExamineDevObjForwarding @ 0x140AC9F60 (IovpExamineDevObjForwarding.c)
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ */
+
 void *__fastcall IovUtilGetUpperDeviceObjectWithTag(__int64 a1)
 {
   KIRQL v2; // al

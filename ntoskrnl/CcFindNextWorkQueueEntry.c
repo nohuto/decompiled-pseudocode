@@ -1,3 +1,17 @@
+/*
+ * XREFs of CcFindNextWorkQueueEntry @ 0x14021746C
+ * Callers:
+ *     CcCompleteAsyncReadWorker @ 0x14020A670 (CcCompleteAsyncReadWorker.c)
+ *     CcWorkerThread @ 0x140215D70 (CcWorkerThread.c)
+ *     CcCachemapUninitWorkerThread @ 0x140217120 (CcCachemapUninitWorkerThread.c)
+ *     CcAsyncReadWorker @ 0x1403B8B70 (CcAsyncReadWorker.c)
+ *     CcAsyncLazywriteWorker @ 0x14053741C (CcAsyncLazywriteWorker.c)
+ *     CcAsyncLazywriteWorkerMulti @ 0x1405387F4 (CcAsyncLazywriteWorkerMulti.c)
+ *     CcCompleteAsyncLazywriteWorker @ 0x140538D80 (CcCompleteAsyncLazywriteWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall CcFindNextWorkQueueEntry(__int64 a1, __int64 a2, _QWORD *a3)
 {
   _QWORD *v3; // r9

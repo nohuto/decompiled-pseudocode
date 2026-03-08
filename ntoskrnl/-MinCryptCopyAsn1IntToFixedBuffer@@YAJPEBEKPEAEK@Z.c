@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?MinCryptCopyAsn1IntToFixedBuffer@@YAJPEBEKPEAEK@Z @ 0x140674D7C
+ * Callers:
+ *     MinCryptVerifySignedHash2 @ 0x140A6C6A0 (MinCryptVerifySignedHash2.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MinCryptCopyAsn1IntToFixedBuffer(
         const unsigned __int8 *Src,
         size_t Size,

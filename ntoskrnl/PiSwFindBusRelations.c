@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiSwFindBusRelations @ 0x140688540
+ * Callers:
+ *     PiSwFindChildren @ 0x140688518 (PiSwFindChildren.c)
+ *     PiSwCloseDescendants @ 0x1408672DC (PiSwCloseDescendants.c)
+ * Callees:
+ *     RtlLookupElementGenericTableAvl @ 0x140245A20 (RtlLookupElementGenericTableAvl.c)
+ */
+
 PVOID __fastcall PiSwFindBusRelations(__int64 a1)
 {
   bool v1; // zf

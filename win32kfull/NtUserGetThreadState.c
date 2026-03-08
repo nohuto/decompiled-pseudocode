@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserGetThreadState @ 0x1C00D2960
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _GetQueueStatus @ 0x1C01B46D8 (_GetQueueStatus.c)
+ */
+
 __int64 __fastcall NtUserGetThreadState(__int64 a1, __int64 a2, __int64 a3)
 {
   int v3; // edi

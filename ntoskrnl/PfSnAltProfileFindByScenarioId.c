@@ -1,3 +1,12 @@
+/*
+ * XREFs of PfSnAltProfileFindByScenarioId @ 0x1407E50B0
+ * Callers:
+ *     PfSnBeginAppLaunch @ 0x1407E6D34 (PfSnBeginAppLaunch.c)
+ *     PfSnSetAltPrefetchParam @ 0x14097C9F8 (PfSnSetAltPrefetchParam.c)
+ * Callees:
+ *     PfSnAltProfileTreeCompareByScenarioId @ 0x14097C698 (PfSnAltProfileTreeCompareByScenarioId.c)
+ */
+
 unsigned __int64 __fastcall PfSnAltProfileFindByScenarioId(wchar_t *Str2)
 {
   unsigned __int64 v2; // rbx

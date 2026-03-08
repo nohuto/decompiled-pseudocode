@@ -1,3 +1,12 @@
+/*
+ * XREFs of PsIsServiceSession @ 0x140799A4C
+ * Callers:
+ *     PopGetSettingNotificationName @ 0x14068CCC4 (PopGetSettingNotificationName.c)
+ * Callees:
+ *     PsGetServerSiloServiceSessionId @ 0x1402456C0 (PsGetServerSiloServiceSessionId.c)
+ *     PsGetSiloBySessionId @ 0x1406CDDA8 (PsGetSiloBySessionId.c)
+ */
+
 bool __fastcall PsIsServiceSession(__int64 a1)
 {
   int v1; // ebx

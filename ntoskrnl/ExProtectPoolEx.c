@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExProtectPoolEx @ 0x14030B674
+ * Callers:
+ *     CmpProtectPool @ 0x140301FE4 (CmpProtectPool.c)
+ *     CmpProtectPoolEx @ 0x14030BC68 (CmpProtectPoolEx.c)
+ *     SmHpBufferProtectEx @ 0x1405C7E94 (SmHpBufferProtectEx.c)
+ *     ExProtectPool @ 0x1406054CC (ExProtectPool.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     MmProtectPool @ 0x14030B7D8 (MmProtectPool.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExProtectPoolEx(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)
 {
   int v7; // r12d

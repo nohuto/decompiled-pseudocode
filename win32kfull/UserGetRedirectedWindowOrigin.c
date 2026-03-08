@@ -1,3 +1,15 @@
+/*
+ * XREFs of UserGetRedirectedWindowOrigin @ 0x1C0038F40
+ * Callers:
+ *     xxxSetLayeredWindow @ 0x1C0028C1C (xxxSetLayeredWindow.c)
+ *     GreGetRandomRgn @ 0x1C0125C40 (GreGetRandomRgn.c)
+ *     ?GreGetRandomRgn_Unpatched@@YAHPEAUHDC__@@PEAUHRGN__@@H@Z @ 0x1C013015C (-GreGetRandomRgn_Unpatched@@YAHPEAUHDC__@@PEAUHRGN__@@H@Z.c)
+ *     GetDCOrgOnScreen @ 0x1C01BEDC4 (GetDCOrgOnScreen.c)
+ *     DxgkEngBltViaGDI @ 0x1C0271CF0 (DxgkEngBltViaGDI.c)
+ * Callees:
+ *     GetStyleWindow @ 0x1C0039020 (GetStyleWindow.c)
+ */
+
 __int64 __fastcall UserGetRedirectedWindowOrigin(__int64 a1, __int64 a2)
 {
   unsigned int v4; // edi

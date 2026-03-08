@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@CShadowEffectMarshaler@DirectComposition@@UEAAJXZ @ 0x1C024E2F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ @ 0x1C024D3E0 (-Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ.c)
+ */
+
 __int64 __fastcall DirectComposition::CShadowEffectMarshaler::Initialize(
         DirectComposition::CShadowEffectMarshaler *this)
 {

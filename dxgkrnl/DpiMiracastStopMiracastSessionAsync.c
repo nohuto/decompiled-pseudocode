@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiMiracastStopMiracastSessionAsync @ 0x1C0060040
+ * Callers:
+ *     DxgNotifyDpcCB @ 0x1C000E390 (DxgNotifyDpcCB.c)
+ * Callees:
+ *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C005FF40 (DpiMiracastReleaseMiracastDeviceContext.c)
+ */
+
 __int64 __fastcall DpiMiracastStopMiracastSessionAsync(volatile signed __int32 *P, char a2, _QWORD *a3, int a4)
 {
   unsigned int v8; // edi

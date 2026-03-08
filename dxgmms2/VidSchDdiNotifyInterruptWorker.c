@@ -1,3 +1,26 @@
+/*
+ * XREFs of VidSchDdiNotifyInterruptWorker @ 0x1C000B040
+ * Callers:
+ *     VidSchDdiNotifyInterrupt @ 0x1C000ADD0 (VidSchDdiNotifyInterrupt.c)
+ *     ?VidSchiCallNotifyInterruptAtISR@@YAEPEAX@Z @ 0x1C0046CC0 (-VidSchiCallNotifyInterruptAtISR@@YAEPEAX@Z.c)
+ * Callees:
+ *     VidSchiProcessIsrVSync @ 0x1C000B2F0 (VidSchiProcessIsrVSync.c)
+ *     VidSchiProcessIsrCompletedPacket @ 0x1C000B650 (VidSchiProcessIsrCompletedPacket.c)
+ *     VidSchiProcessIsrPreemptedPacket @ 0x1C00175D0 (VidSchiProcessIsrPreemptedPacket.c)
+ *     ?VidSchiVerifyDriverReportedFenceId@@YAHPEAU_VIDSCH_NODE@@KHPEAK@Z @ 0x1C0017C4C (-VidSchiVerifyDriverReportedFenceId@@YAHPEAU_VIDSCH_NODE@@KHPEAK@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     VidSchiProcessIsrMonitoredFenceSignaled @ 0x1C001DAFC (VidSchiProcessIsrMonitoredFenceSignaled.c)
+ *     McTemplateK0qq_EtwWriteTransfer @ 0x1C002F364 (McTemplateK0qq_EtwWriteTransfer.c)
+ *     ?MapVidPnTargetToVidPnSource@ADAPTER_DISPLAY@@QEAAII@Z @ 0x1C0034D14 (-MapVidPnTargetToVidPnSource@ADAPTER_DISPLAY@@QEAAII@Z.c)
+ *     LogPageFaultInformation @ 0x1C0037B4C (LogPageFaultInformation.c)
+ *     VidSchiProcessIsrFaultedPacket @ 0x1C003AE5C (VidSchiProcessIsrFaultedPacket.c)
+ *     ?VidSchiValidatePageFaultFlags@@YAXW4_DXGK_PAGE_FAULT_FLAGS@@@Z @ 0x1C0043CF4 (-VidSchiValidatePageFaultFlags@@YAXW4_DXGK_PAGE_FAULT_FLAGS@@@Z.c)
+ *     VidSchiProcessIsrGpuEngineTimeout @ 0x1C0045AA8 (VidSchiProcessIsrGpuEngineTimeout.c)
+ *     VidSchiProcessIsrHwQueuePageFaulted @ 0x1C0045B64 (VidSchiProcessIsrHwQueuePageFaulted.c)
+ *     VidSchiProcessIsrSchedulingLogFull @ 0x1C0045D04 (VidSchiProcessIsrSchedulingLogFull.c)
+ *     VidSchiProcessIsrSuspendContextCompleted @ 0x1C0045DC0 (VidSchiProcessIsrSuspendContextCompleted.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall VidSchDdiNotifyInterruptWorker(__int64 a1, __int64 a2, unsigned int a3)
 {

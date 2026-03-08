@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpGetIommuInterface @ 0x140932470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpGetIommuInterface(int a1, _QWORD *a2)
 {
   if ( a1 != 1 )

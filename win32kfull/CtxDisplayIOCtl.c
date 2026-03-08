@@ -1,3 +1,14 @@
+/*
+ * XREFs of CtxDisplayIOCtl @ 0x1C0205B4C
+ * Callers:
+ *     NtUserCtxDisplayIOCtl @ 0x1C01CF250 (NtUserCtxDisplayIOCtl.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RemoteRedrawRectangle @ 0x1C01F6C78 (RemoteRedrawRectangle.c)
+ *     GetRemoteHDEV @ 0x1C0205C54 (GetRemoteHDEV.c)
+ *     bDrvDisplayIOCtl @ 0x1C02DF1C0 (bDrvDisplayIOCtl.c)
+ */
+
 __int64 __fastcall CtxDisplayIOCtl(char a1, __int64 a2, unsigned int a3)
 {
   int v6; // edx

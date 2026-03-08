@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBCONNECTOR_MapRootHubPorts @ 0x1C0082524
+ * Callers:
+ *     HUBCONNECTOR_MapHubPorts @ 0x1C0082A18 (HUBCONNECTOR_MapHubPorts.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     HUBCONNECTOR_RegisterPort @ 0x1C0081CF0 (HUBCONNECTOR_RegisterPort.c)
+ */
+
 void __fastcall HUBCONNECTOR_MapRootHubPorts(__int64 a1)
 {
   unsigned __int16 v1; // r8

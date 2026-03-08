@@ -1,4 +1,18 @@
-__int64 __fastcall CWatermarkStack<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,64,2,10>::Push(
+/*
+ * XREFs of ?Push@?$CWatermarkStack@V?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$07$01$07@@QEAAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800908A0
+ * Callers:
+ *     ?PushExact@CBaseClipStack@@IEAAJAEBUMilRectF@@@Z @ 0x180021D80 (-PushExact@CBaseClipStack@@IEAAJAEBUMilRectF@@@Z.c)
+ *     ?PushLocalSpaceClipAndAlphaInternal@CDrawingContext@@AEAAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUNodeEffects@1@PEA_N@Z @ 0x18005CF00 (-PushLocalSpaceClipAndAlphaInternal@CDrawingContext@@AEAAJPEBV-$TMilRect_@MUMilRectF@@UMil3DRect.c)
+ *     ?PushGpuClipRectInternal@CDrawingContext@@AEAAJPEBVCVisual@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@W4D2D1_ANTIALIAS_MODE@@_N@Z @ 0x180073854 (-PushGpuClipRectInternal@CDrawingContext@@AEAAJPEBVCVisual@@AEBV-$TMilRect_@MUMilRectF@@UMil3DRe.c)
+ *     ?Push@CBaseClipStack@@IEAAJAEBUMilRectF@@@Z @ 0x1800907B8 (-Push@CBaseClipStack@@IEAAJAEBUMilRectF@@@Z.c)
+ * Callees:
+ *     ?HrMalloc@@YAJ_K0PEAPEAX@Z @ 0x18004891C (-HrMalloc@@YAJ_K0PEAPEAX@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     memcpy_0 @ 0x1801177E8 (memcpy_0.c)
+ */
+
+__int64 __fastcall CWatermarkStack<TMilRect_<float,MilRectF,Mil3DRectF,MilPointAndSizeF,RectUniqueness::NotNeeded>,8,2,8>::Push(
         unsigned int *a1,
         _OWORD *a2)
 {
@@ -8,7 +22,7 @@ __int64 __fastcall CWatermarkStack<TMilRect_<float,MilRectF,Mil3DRectF,MilPointA
   unsigned int v7; // eax
   unsigned int v9; // ebp
   int v10; // eax
-  __int64 v11; // rcx
+  unsigned int v11; // ecx
   unsigned __int64 v12; // rax
   void *v13; // rbx
   HANDLE ProcessHeap; // rax
@@ -24,11 +38,11 @@ __int64 __fastcall CWatermarkStack<TMilRect_<float,MilRectF,Mil3DRectF,MilPointA
   if ( (unsigned __int64)(2 * v5) > 0xFFFFFFFF )
   {
     v3 = -2147024362;
-    MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2147024362, 0x64u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast((unsigned int)a1, 0LL, 0, -2147024362, 0x64u, 0LL);
     goto LABEL_5;
   }
-  if ( v9 <= 0x40 )
-    v9 = 64;
+  if ( v9 <= 8 )
+    v9 = 8;
   v10 = HrMalloc(0x10uLL, v9, &v15);
   v3 = v10;
   if ( v10 < 0 )

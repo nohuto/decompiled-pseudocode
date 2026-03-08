@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MNSetTimerToOpenHierarchy@@YAIAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@@Z @ 0x1C02184EC
+ * Callers:
+ *     xxxMenuWindowProc @ 0x1C021D3D0 (xxxMenuWindowProc.c)
+ * Callees:
+ *     InternalSetTimer @ 0x1C0061830 (InternalSetTimer.c)
+ */
+
 __int64 __fastcall MNSetTimerToOpenHierarchy(__int64 a1)
 {
   _QWORD *v2; // rcx

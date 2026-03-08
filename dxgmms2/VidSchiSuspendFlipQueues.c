@@ -1,3 +1,16 @@
+/*
+ * XREFs of VidSchiSuspendFlipQueues @ 0x1C00B4208
+ * Callers:
+ *     VidSchFlushPresentReferencesAndDisableOverlays @ 0x1C00B4190 (VidSchFlushPresentReferencesAndDisableOverlays.c)
+ *     ?EnsureFlipQueuesSuspendedForMove@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E1FB0 (-EnsureFlipQueuesSuspendedForMove@VIDMM_GLOBAL@@QEAAXXZ.c)
+ * Callees:
+ *     VidSchWaitForEvents @ 0x1C0014E64 (VidSchWaitForEvents.c)
+ *     VidSchiMarkFlipQueuesRunningStateOnPresentInfo @ 0x1C0017D1C (VidSchiMarkFlipQueuesRunningStateOnPresentInfo.c)
+ *     VidSchiFlushPendingHWSubmittedFlips @ 0x1C0017DD8 (VidSchiFlushPendingHWSubmittedFlips.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     VidSchSubmitGlobalCommand @ 0x1C00ADFC8 (VidSchSubmitGlobalCommand.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall VidSchiSuspendFlipQueues(struct _VIDSCH_GLOBAL *a1, int a2)
 {

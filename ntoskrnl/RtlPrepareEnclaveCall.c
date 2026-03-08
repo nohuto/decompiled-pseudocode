@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlPrepareEnclaveCall @ 0x14045C3AE
+ * Callers:
+ *     PsCallEnclave @ 0x1409B3880 (PsCallEnclave.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlPrepareEnclaveCall(
         __int64 a1,
         __int64 a2,

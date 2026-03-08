@@ -1,3 +1,19 @@
+/*
+ * XREFs of PfpFlushBuffers @ 0x1407E5E50
+ * Callers:
+ *     PfTLoggingWorker @ 0x140839670 (PfTLoggingWorker.c)
+ * Callees:
+ *     MmFreeAccessPfnBuffer @ 0x14035B5FC (MmFreeAccessPfnBuffer.c)
+ *     PfpReturnAccessBuffer @ 0x14035B644 (PfpReturnAccessBuffer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PfpFlushEventBuffers @ 0x1407E5B18 (PfpFlushEventBuffers.c)
+ *     PfpCopyEvent @ 0x1407E5C10 (PfpCopyEvent.c)
+ *     PfpLogPageAccess @ 0x1407E6160 (PfpLogPageAccess.c)
+ *     PfTAcquireLogEntry @ 0x1407E67C4 (PfTAcquireLogEntry.c)
+ */
+
 char PfpFlushBuffers()
 {
   struct _SLIST_ENTRY *v0; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_GKeyframeValue@@EEAAPEAXI@Z @ 0x180055B90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801046B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ */
+
 KeyframeValue *__fastcall KeyframeValue::`scalar deleting destructor'(KeyframeValue *this, char a2)
 {
   HANDLE ProcessHeap; // rax

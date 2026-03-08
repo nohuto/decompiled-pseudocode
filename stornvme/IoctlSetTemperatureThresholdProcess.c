@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoctlSetTemperatureThresholdProcess @ 0x1C0014060
+ * Callers:
+ *     IoctlToNVMe @ 0x1C0014800 (IoctlToNVMe.c)
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ */
+
 __int64 __fastcall IoctlSetTemperatureThresholdProcess(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

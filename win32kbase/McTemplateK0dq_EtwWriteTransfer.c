@@ -1,3 +1,19 @@
+/*
+ * XREFs of McTemplateK0dq_EtwWriteTransfer @ 0x1C00EE444
+ * Callers:
+ *     xxxCreateThreadInfo @ 0x1C0076490 (xxxCreateThreadInfo.c)
+ *     EtwTraceStartInputDeviceRead @ 0x1C0089590 (EtwTraceStartInputDeviceRead.c)
+ *     ?xxxUserPowerStateCalloutWorker@@YAJXZ @ 0x1C00B3E28 (-xxxUserPowerStateCalloutWorker@@YAJXZ.c)
+ *     EtwTraceFocusChange @ 0x1C00C2FD0 (EtwTraceFocusChange.c)
+ *     EtwTraceCompleteInputDeviceRead @ 0x1C00CB9C0 (EtwTraceCompleteInputDeviceRead.c)
+ *     VideoPortCalloutThread @ 0x1C00D93A8 (VideoPortCalloutThread.c)
+ *     EtwTraceDwmManipulationFrameRouted @ 0x1C0162060 (EtwTraceDwmManipulationFrameRouted.c)
+ *     EtwTraceDwmManipulationFrameStart @ 0x1C0162090 (EtwTraceDwmManipulationFrameStart.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0dq_EtwWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

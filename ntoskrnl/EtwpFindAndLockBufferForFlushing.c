@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpFindAndLockBufferForFlushing @ 0x1408A36BE
+ * Callers:
+ *     EtwpBufferingModeFlush @ 0x1408A3088 (EtwpBufferingModeFlush.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwpFindAndLockBufferForFlushing(__int64 a1, __int64 a2)
 {
   __int64 v2; // r9

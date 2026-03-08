@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpCloseSpbResource @ 0x1C03A2DB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiDeleteSpbResourceRecord @ 0x1C03A36CC (DpiDeleteSpbResourceRecord.c)
+ *     DpiValidateSpbResource @ 0x1C03A3748 (DpiValidateSpbResource.c)
+ */
+
 __int64 __fastcall DpCloseSpbResource(int a1, int a2)
 {
   __int64 result; // rax

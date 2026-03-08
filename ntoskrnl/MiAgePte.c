@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiAgePte @ 0x1403260A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiDemoteCombinedPte @ 0x14029DF88 (MiDemoteCombinedPte.c)
+ *     MiAgeWorkingSetTail @ 0x1402C9E50 (MiAgeWorkingSetTail.c)
+ *     MiIsPageTableLocked @ 0x1402F2A4C (MiIsPageTableLocked.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiAgePteWorker @ 0x140326530 (MiAgePteWorker.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140350400 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140462ED8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     MiInsertVmAccessedEntry @ 0x140463768 (MiInsertVmAccessedEntry.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140608CDC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ */
+
 __int64 __fastcall MiAgePte(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // r13

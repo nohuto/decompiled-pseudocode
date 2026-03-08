@@ -1,3 +1,15 @@
+/*
+ * XREFs of xxxRemoveFullScreen @ 0x1C0033708
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ *     xxxCheckFullScreen @ 0x1C0033340 (xxxCheckFullScreen.c)
+ * Callees:
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ *     xxxSetTrayWindow @ 0x1C0109D38 (xxxSetTrayWindow.c)
+ */
+
 __int64 __fastcall xxxRemoveFullScreen(__int64 a1)
 {
   _QWORD *v1; // rdi

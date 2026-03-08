@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiFlushAllStoreSwapPages @ 0x1406379DC
+ * Callers:
+ *     SmpFlushStorePages @ 0x1409D58C0 (SmpFlushStorePages.c)
+ * Callees:
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiStoreUpdateMemoryConditions @ 0x1403561BC (MiStoreUpdateMemoryConditions.c)
+ *     KeSetActualBasePriorityThread @ 0x140357730 (KeSetActualBasePriorityThread.c)
+ *     MiCanFlushMakeProgress @ 0x14063678C (MiCanFlushMakeProgress.c)
+ *     MiWakeModifiedPageWriter @ 0x14063982C (MiWakeModifiedPageWriter.c)
+ */
+
 __int64 __fastcall MiFlushAllStoreSwapPages(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rbp

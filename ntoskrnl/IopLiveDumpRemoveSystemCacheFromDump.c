@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopLiveDumpRemoveSystemCacheFromDump @ 0x140A99404
+ * Callers:
+ *     IopLiveDumpPopulateBitmapForDump @ 0x140A990E0 (IopLiveDumpPopulateBitmapForDump.c)
+ * Callees:
+ *     IopLiveDumpGetMillisecondCounter @ 0x14055793C (IopLiveDumpGetMillisecondCounter.c)
+ *     MmRemoveSystemCacheFromDump @ 0x14062E2CC (MmRemoveSystemCacheFromDump.c)
+ */
+
 __int64 __fastcall IopLiveDumpRemoveSystemCacheFromDump(__int64 a1, __int64 a2, __int64 *a3)
 {
   __int64 MillisecondCounter; // rbx

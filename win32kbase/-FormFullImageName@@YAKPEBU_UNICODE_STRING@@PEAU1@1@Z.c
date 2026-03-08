@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FormFullImageName@@YAKPEBU_UNICODE_STRING@@PEAU1@1@Z @ 0x1C00B2594
+ * Callers:
+ *     ?LoadApiSetHost@@YAJPEAU_Win32kApiSetHost@@PEAU_UNICODE_STRING@@@Z @ 0x1C00B249C (-LoadApiSetHost@@YAJPEAU_Win32kApiSetHost@@PEAU_UNICODE_STRING@@@Z.c)
+ * Callees:
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 __int64 __fastcall FormFullImageName(const struct _UNICODE_STRING *a1, const STRING *a2, struct _STRING *a3)
 {
   USHORT v4; // r9

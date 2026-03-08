@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiParseGenRegDesc @ 0x1C007CAC4
+ * Callers:
+ *     ACPIAmliEvaluatePcch @ 0x1C007C968 (ACPIAmliEvaluatePcch.c)
+ * Callees:
+ *     AcpiTranslateAccessSize @ 0x1C007CB18 (AcpiTranslateAccessSize.c)
+ */
+
 __int64 __fastcall AcpiParseGenRegDesc(__int64 a1, __int64 a2, __int64 a3)
 {
   char v3; // al

@@ -1,3 +1,17 @@
+/*
+ * XREFs of HaliSetWakeAlarm @ 0x140A93480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     HalQueryRealTimeClock @ 0x1402D0F30 (HalQueryRealTimeClock.c)
+ *     RtlTimeFieldsToTime @ 0x1402D1150 (RtlTimeFieldsToTime.c)
+ *     RtlTimeToTimeFields @ 0x1402D14B0 (RtlTimeToTimeFields.c)
+ *     HalpSetWakeAlarm @ 0x140508C04 (HalpSetWakeAlarm.c)
+ *     HalpArmAcpiWakeAlarm @ 0x140931EE0 (HalpArmAcpiWakeAlarm.c)
+ *     HalpAdjustWakeSecondsDue @ 0x140A93A2C (HalpAdjustWakeSecondsDue.c)
+ */
+
 __int64 __fastcall HaliSetWakeAlarm(__int64 a1, __int64 a2)
 {
   unsigned int v2; // edi

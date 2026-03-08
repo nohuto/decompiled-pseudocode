@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpWriteTimeZoneBiasStartEnd @ 0x140811C34
+ * Callers:
+ *     ExpRefreshTimeZoneInformation @ 0x140811500 (ExpRefreshTimeZoneInformation.c)
+ * Callees:
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ */
+
 struct _LIST_ENTRY *__fastcall ExpWriteTimeZoneBiasStartEnd(__int64 a1, __int64 a2)
 {
   struct _LIST_ENTRY *result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MxSubscribeWnfStateChange@MxWnf@@SAJPEAPEAU_MX_WNF_SUBSCRIPTION_CONTEXT@@PEAU_WNF_STATE_NAME@@P6AJPEAU2@PEAX@Z33@Z @ 0x1C008A398
+ * Callers:
+ *     ?SleepStudyEvaluateParticipation@FxPkgPnp@@QEAAXXZ @ 0x1C00793A8 (-SleepStudyEvaluateParticipation@FxPkgPnp@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MxWnf::MxSubscribeWnfStateChange(
         _MX_WNF_SUBSCRIPTION_CONTEXT **SubscriptionContext,
         _WNF_STATE_NAME *WnfStateName,

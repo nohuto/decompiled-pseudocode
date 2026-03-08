@@ -1,3 +1,33 @@
+/*
+ * XREFs of ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0014608
+ * Callers:
+ *     InitUserScreen @ 0x1C00127A8 (InitUserScreen.c)
+ *     xxxResetDisplayDevice @ 0x1C0016410 (xxxResetDisplayDevice.c)
+ *     ?SetDPIinSetup@@YAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00DA244 (-SetDPIinSetup@@YAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ * Callees:
+ *     ?OnDisplayStateChange@CInputConfig@@QEAAXXZ @ 0x1C001305C (-OnDisplayStateChange@CInputConfig@@QEAAXXZ.c)
+ *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C0014BB4 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
+ *     EnforceColorDependentSettings @ 0x1C0015960 (EnforceColorDependentSettings.c)
+ *     ApiSetzzzUpdateCursorSizes @ 0x1C0015BF4 (ApiSetzzzUpdateCursorSizes.c)
+ *     InitLoadResources @ 0x1C0015CF0 (InitLoadResources.c)
+ *     ??4?$SharedMixedObjectPointerFieldpMonitorFirst@UtagMONITOR@@@tagKERNELDISPLAYINFO@@QEAAPEAUtagMONITOR@@PEAU2@@Z @ 0x1C0016324 (--4-$SharedMixedObjectPointerFieldpMonitorFirst@UtagMONITOR@@@tagKERNELDISPLAYINFO@@QEAAPEAUtagM.c)
+ *     HdevFromMonitor @ 0x1C00163A0 (HdevFromMonitor.c)
+ *     MonitorFromHdev @ 0x1C003C08C (MonitorFromHdev.c)
+ *     GreGetDeviceCaps @ 0x1C003EAF0 (GreGetDeviceCaps.c)
+ *     W32SetCurrentThreadDpiAwarenessContext @ 0x1C0041930 (W32SetCurrentThreadDpiAwarenessContext.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C0041AF0 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     GreCombineRgn @ 0x1C0041BD0 (GreCombineRgn.c)
+ *     GreDeleteObject @ 0x1C0043CD0 (GreDeleteObject.c)
+ *     GreCreateRectRgnIndirect @ 0x1C0050B70 (GreCreateRectRgnIndirect.c)
+ *     SetOrCreateRectRgnIndirectPublic @ 0x1C00517A0 (SetOrCreateRectRgnIndirectPublic.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     DestroyMonitor @ 0x1C00B5C00 (DestroyMonitor.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     ApiSetEditionHandleNonUniformHMonitorDpi @ 0x1C023EEA0 (ApiSetEditionHandleNonUniformHMonitorDpi.c)
+ */
+
 __int64 __fastcall zzzUpdateUserScreen(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r14

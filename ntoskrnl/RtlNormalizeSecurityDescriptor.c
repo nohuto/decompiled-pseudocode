@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlNormalizeSecurityDescriptor @ 0x1403BE650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlpNormalizeAcl @ 0x1407594B0 (RtlpNormalizeAcl.c)
+ *     SeValidSecurityDescriptor @ 0x14075EA40 (SeValidSecurityDescriptor.c)
+ *     RtlLengthRequiredSid @ 0x140782B90 (RtlLengthRequiredSid.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall RtlNormalizeSecurityDescriptor(
         PSECURITY_DESCRIPTOR *a1,
         ULONG a2,

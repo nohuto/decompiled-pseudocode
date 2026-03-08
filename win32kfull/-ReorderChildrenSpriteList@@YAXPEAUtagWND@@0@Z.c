@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ReorderChildrenSpriteList@@YAXPEAUtagWND@@0@Z @ 0x1C002C508
+ * Callers:
+ *     TrackLayeredZorder @ 0x1C002C250 (TrackLayeredZorder.c)
+ *     zzzComposeDesktop @ 0x1C007D394 (zzzComposeDesktop.c)
+ * Callees:
+ *     ?GetNextLayeredWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C002C3EC (-GetNextLayeredWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     GreZorderSprite @ 0x1C002CF5C (GreZorderSprite.c)
+ */
+
 void __fastcall ReorderChildrenSpriteList(struct tagWND *a1, struct tagWND *a2)
 {
   struct tagWND *v2; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of Etw_DeviceRundown @ 0x1C000FFA0
+ * Callers:
+ *     Etw_DeviceListRundown @ 0x1C0013C10 (Etw_DeviceListRundown.c)
+ * Callees:
+ *     Etw_EndpointListRundown @ 0x1C0010060 (Etw_EndpointListRundown.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     XilUsbDevice_QueryAttributes @ 0x1C00481C4 (XilUsbDevice_QueryAttributes.c)
+ *     McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer @ 0x1C004B0B8 (McTemplateK0pppqqQ6qqqqntttuuuqttttU32U32_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall Etw_DeviceRundown(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned __int8 v6; // cl

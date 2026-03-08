@@ -1,3 +1,16 @@
+/*
+ * XREFs of VidSchiCompletePendingCommandInNodeHwQueue @ 0x1C0047148
+ * Callers:
+ *     VidSchiSendToExecutionQueue @ 0x1C0008D50 (VidSchiSendToExecutionQueue.c)
+ *     VidSchiResetEngine @ 0x1C003B96C (VidSchiResetEngine.c)
+ *     VidSchiCompleteAllPendingCommand @ 0x1C0046F70 (VidSchiCompleteAllPendingCommand.c)
+ * Callees:
+ *     VidSchiProfilePerformanceTick @ 0x1C0006E50 (VidSchiProfilePerformanceTick.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     VidSchDdiNotifyDpcWorker @ 0x1C003A0D4 (VidSchDdiNotifyDpcWorker.c)
+ *     VidSchWaitForCompletionEvent @ 0x1C00ADD4C (VidSchWaitForCompletionEvent.c)
+ */
+
 void __fastcall VidSchiCompletePendingCommandInNodeHwQueue(__int64 a1, unsigned int a2, char a3)
 {
   __int64 v4; // rsi

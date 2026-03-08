@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhValidateMsOs20MimimumResumeTime @ 0x1C0052D70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 char __fastcall UsbhValidateMsOs20MimimumResumeTime(__int64 a1, int *a2, unsigned __int16 *a3)
 {
   int v3; // eax

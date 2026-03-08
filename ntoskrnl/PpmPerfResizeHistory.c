@@ -1,3 +1,15 @@
+/*
+ * XREFs of PpmPerfResizeHistory @ 0x140983A10
+ * Callers:
+ *     PpmRegisterPerfStates @ 0x14082802C (PpmRegisterPerfStates.c)
+ *     PpmPerfResizeHistoryAll @ 0x140983ACC (PpmPerfResizeHistoryAll.c)
+ * Callees:
+ *     PpmGetPerfPolicyClass @ 0x140235B9C (PpmGetPerfPolicyClass.c)
+ *     PpmPerfResetHistory @ 0x14038F778 (PpmPerfResetHistory.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PpmPerfResizeHistory(__int64 a1)
 {
   unsigned int v2; // edi

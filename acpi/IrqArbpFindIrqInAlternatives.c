@@ -1,3 +1,11 @@
+/*
+ * XREFs of IrqArbpFindIrqInAlternatives @ 0x1C009DD80
+ * Callers:
+ *     IrqArbGetNextAllocationRange @ 0x1C009D3B0 (IrqArbGetNextAllocationRange.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IrqArbpFindIrqInAlternatives(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned int *a4)
 {
   unsigned int v4; // r10d

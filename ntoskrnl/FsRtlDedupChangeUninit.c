@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlDedupChangeUninit @ 0x14093B810
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0jq_EtwWriteTransfer @ 0x14053CC04 (McTemplateK0jq_EtwWriteTransfer.c)
+ *     FsRtlpDedupChangeUnregisterVolume @ 0x14093BB4C (FsRtlpDedupChangeUnregisterVolume.c)
+ */
+
 NTSTATUS __fastcall FsRtlDedupChangeUninit(_DWORD *a1, __int64 a2)
 {
   NTSTATUS result; // eax

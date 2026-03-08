@@ -1,3 +1,12 @@
+/*
+ * XREFs of xxxGetMenuItemRect @ 0x1C023B35C
+ * Callers:
+ *     NtUserGetMenuItemRect @ 0x1C01D36F0 (NtUserGetMenuItemRect.c)
+ * Callees:
+ *     ?GetMenuPwnd@@YAPEAUtagWND@@PEAU1@AEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C023A528 (-GetMenuPwnd@@YAPEAUtagWND@@PEAU1@AEBV-$SmartObjStackRef@UtagMENU@@@@@Z.c)
+ *     xxxMNRecomputeBarIfNeeded @ 0x1C023BD88 (xxxMNRecomputeBarIfNeeded.c)
+ */
+
 __int64 __fastcall xxxGetMenuItemRect(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
 {
   __int64 v4; // r15

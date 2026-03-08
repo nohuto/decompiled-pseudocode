@@ -1,3 +1,20 @@
+/*
+ * XREFs of RtlStringCchCopyNW @ 0x140303EF8
+ * Callers:
+ *     PiDevCfgParsePropertyKeyName @ 0x14055FD1C (PiDevCfgParsePropertyKeyName.c)
+ *     AslPathSplit @ 0x1407A1568 (AslPathSplit.c)
+ *     WmipBuildInstanceSet @ 0x140867C6C (WmipBuildInstanceSet.c)
+ *     IopErrorLogThread @ 0x1408704E0 (IopErrorLogThread.c)
+ *     PiUEventHandleVetoEvent @ 0x14087E074 (PiUEventHandleVetoEvent.c)
+ *     EtwpCoverageSamplerQuery @ 0x1408A55B8 (EtwpCoverageSamplerQuery.c)
+ *     IopLogBlockedDriverEvent @ 0x1409422E4 (IopLogBlockedDriverEvent.c)
+ *     PoQueryProcessEnergyTrackingState @ 0x1409955A8 (PoQueryProcessEnergyTrackingState.c)
+ *     SdbGetMergeRedirectPath @ 0x140A4B4A0 (SdbGetMergeRedirectPath.c)
+ *     SdbQueryDataExTagID @ 0x140A4C328 (SdbQueryDataExTagID.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlStringCchCopyNW(
         NTSTRSAFE_PWSTR pszDest,
         size_t cchDest,

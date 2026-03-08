@@ -1,3 +1,16 @@
+/*
+ * XREFs of KseSetDeviceFlags @ 0x140973B40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     KsepStringFree @ 0x14079EC60 (KsepStringFree.c)
+ *     KsepStringTransform @ 0x140801918 (KsepStringTransform.c)
+ *     KsepRegistryCreateKey @ 0x1409747F8 (KsepRegistryCreateKey.c)
+ */
+
 __int64 __fastcall KseSetDeviceFlags(_WORD *a1, const WCHAR *a2, __int64 a3)
 {
   int v4; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0_MOCKDRIVERSTATE_PER_PLANE@@QEAA@XZ @ 0x1C00194A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _MOCKDRIVERSTATE_PER_PLANE *__fastcall _MOCKDRIVERSTATE_PER_PLANE::_MOCKDRIVERSTATE_PER_PLANE(
         _MOCKDRIVERSTATE_PER_PLANE *this)
 {

@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMIDEInjectMouseInput @ 0x1C01C4C50
+ * Callers:
+ *     RIMIDEInjectMouseFromMouseInputStruct @ 0x1C01C4968 (RIMIDEInjectMouseFromMouseInputStruct.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMQueueMouseInput @ 0x1C01C581C (RIMQueueMouseInput.c)
+ */
+
 __int64 __fastcall RIMIDEInjectMouseInput(__int64 a1)
 {
   __int64 v1; // rbp

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetDeviceExecutionState@DXGDEVICE@@QEBAJPEAW4_D3DKMT_DEVICEEXECUTION_STATE@@@Z @ 0x1C0167B98
+ * Callers:
+ *     ?IsExecutionStateErrorState@DXGDEVICE@@QEBAEXZ @ 0x1C0167B60 (-IsExecutionStateErrorState@DXGDEVICE@@QEBAEXZ.c)
+ *     DxgkGetDeviceStateInternal @ 0x1C0193CE0 (DxgkGetDeviceStateInternal.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DXGDEVICE::GetDeviceExecutionState(DXGDEVICE *this, enum _D3DKMT_DEVICEEXECUTION_STATE *a2)
 {
   unsigned int v4; // ebp

@@ -1,3 +1,14 @@
+/*
+ * XREFs of EngFntCacheAllocInternal @ 0x1C028CC6C
+ * Callers:
+ *     EngFntCacheAlloc @ 0x1C028CC50 (EngFntCacheAlloc.c)
+ *     ?FntCacheAllocate@UmfdFontCacheEntry@@SA_NPEAEIIW4FontDriverType@@@Z @ 0x1C0308F48 (-FntCacheAllocate@UmfdFontCacheEntry@@SA_NPEAEIIW4FontDriverType@@@Z.c)
+ * Callees:
+ *     EngCloseFNTCache @ 0x1C00B83B8 (EngCloseFNTCache.c)
+ *     SearchFntCacheNewLink @ 0x1C028C790 (SearchFntCacheNewLink.c)
+ *     bReAllocCacheFile @ 0x1C028CAF0 (bReAllocCacheFile.c)
+ */
+
 __int64 __fastcall EngFntCacheAllocInternal(__int64 a1, unsigned int a2, _DWORD *a3)
 {
   __int64 v3; // rdi

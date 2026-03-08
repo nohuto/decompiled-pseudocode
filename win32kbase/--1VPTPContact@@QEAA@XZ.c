@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1VPTPContact@@QEAA@XZ @ 0x1C0223C80
+ * Callers:
+ *     ??_GVPTPContact@@QEAAPEAXI@Z @ 0x1C0223E44 (--_GVPTPContact@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     SendMessageTo @ 0x1C0081230 (SendMessageTo.c)
+ */
+
 void __fastcall VPTPContact::~VPTPContact(VPTPContact ***this, __int64 a2, __int64 a3, __int64 a4)
 {
   VPTPContact **v4; // rdx

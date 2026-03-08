@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserFillWindow @ 0x1C0011640
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxFillWindow @ 0x1C00FC114 (xxxFillWindow.c)
+ */
+
 __int64 __fastcall NtUserFillWindow(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v8; // rax

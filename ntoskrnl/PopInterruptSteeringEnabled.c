@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopInterruptSteeringEnabled @ 0x14038E288
+ * Callers:
+ *     PpmCheckReInit @ 0x1408265CC (PpmCheckReInit.c)
+ * Callees:
+ *     <none>
+ */
+
 bool PopInterruptSteeringEnabled()
 {
   bool result; // al

@@ -1,3 +1,14 @@
+/*
+ * XREFs of AlpcpExposeViewAttribute @ 0x14077E6DC
+ * Callers:
+ *     AlpcpExposeAttributes @ 0x1407CDCB0 (AlpcpExposeAttributes.c)
+ * Callees:
+ *     AlpcpDereferenceBlobEx @ 0x14071550C (AlpcpDereferenceBlobEx.c)
+ *     AlpcpReferenceBlob @ 0x1407CAA30 (AlpcpReferenceBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1407CBD44 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x1407CDB50 (AlpcpUnlockBlob.c)
+ */
+
 __int64 __fastcall AlpcpExposeViewAttribute(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   __int64 v4; // rdi

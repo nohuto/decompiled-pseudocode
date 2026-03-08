@@ -1,3 +1,24 @@
+/*
+ * XREFs of ExBlockOnAddressPushLock @ 0x1402BF8C0
+ * Callers:
+ *     CmpWaitForLateUnloadWorker @ 0x1402BF844 (CmpWaitForLateUnloadWorker.c)
+ *     RtlpCSparseBitmapWaitOnAddress @ 0x1405B50C0 (RtlpCSparseBitmapWaitOnAddress.c)
+ *     MiLockImageSection @ 0x1406A7B00 (MiLockImageSection.c)
+ *     CmpTransSearchAddTrans @ 0x1406B570C (CmpTransSearchAddTrans.c)
+ *     CmLoadAppKey @ 0x1406BDA5C (CmLoadAppKey.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140749B5C (ExpBlockOnLockedHandleEntry.c)
+ *     CmpRollbackLightWeightTransaction @ 0x140781EE0 (CmpRollbackLightWeightTransaction.c)
+ *     RtlUpdateSwapReference @ 0x140818560 (RtlUpdateSwapReference.c)
+ *     PopBatteryUpdateCurrentState @ 0x140870E0C (PopBatteryUpdateCurrentState.c)
+ *     PsSetVmProcessorHostProcess @ 0x1409ADB18 (PsSetVmProcessorHostProcess.c)
+ *     CmUnRegisterCallback @ 0x140A0C560 (CmUnRegisterCallback.c)
+ * Callees:
+ *     ExBlockPushLock @ 0x1402BF980 (ExBlockPushLock.c)
+ *     ExTimedWaitForUnblockPushLock @ 0x1402BF9A0 (ExTimedWaitForUnblockPushLock.c)
+ *     ExpUnblockPushLock @ 0x1402BFD34 (ExpUnblockPushLock.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall ExBlockOnAddressPushLock(__int64 a1, _QWORD *a2, _QWORD *a3, unsigned __int64 a4, __int64 a5)
 {
   int v9; // ebx

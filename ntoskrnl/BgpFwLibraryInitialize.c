@@ -1,3 +1,31 @@
+/*
+ * XREFs of BgpFwLibraryInitialize @ 0x140AEAC78
+ * Callers:
+ *     BgLibraryInitialize @ 0x140AEB57C (BgLibraryInitialize.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     BgpGxProcessQrCodeBitmap @ 0x140381108 (BgpGxProcessQrCodeBitmap.c)
+ *     BgpFwReleaseLock @ 0x140381C10 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140381C60 (BgpFwAcquireLock.c)
+ *     BgpFwFreeMemory @ 0x140382650 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x140383BDC (BgpFwAllocateMemory.c)
+ *     BgpFwLibraryEnable @ 0x1403843F4 (BgpFwLibraryEnable.c)
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     BgpFwInitializeReservePool @ 0x140AEB5A8 (BgpFwInitializeReservePool.c)
+ *     ResFwConfigureDisplayStringResources @ 0x140AEB630 (ResFwConfigureDisplayStringResources.c)
+ *     AnFwConfigureProgressResources @ 0x140AEB920 (AnFwConfigureProgressResources.c)
+ *     BgpFwLibraryDestroy @ 0x140AEBA88 (BgpFwLibraryDestroy.c)
+ *     BgpFwReservePoolSwap @ 0x140AEEE38 (BgpFwReservePoolSwap.c)
+ *     AnFwProgressIndicatorTransition @ 0x140AEF174 (AnFwProgressIndicatorTransition.c)
+ *     LogFwInitialize @ 0x140AEFA18 (LogFwInitialize.c)
+ *     BgpBcInitializeCriticalMode @ 0x140B991D4 (BgpBcInitializeCriticalMode.c)
+ *     BgpFoInitialize @ 0x140B99E88 (BgpFoInitialize.c)
+ *     BgpFwInitializeLock @ 0x140B9A080 (BgpFwInitializeLock.c)
+ */
+
 __int64 __fastcall BgpFwLibraryInitialize(__int64 a1, unsigned int a2)
 {
   int v4; // ebp

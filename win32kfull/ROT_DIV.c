@@ -1,3 +1,11 @@
+/*
+ * XREFs of ROT_DIV @ 0x1C02FFE68
+ * Callers:
+ *     ?bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z @ 0x1C02FFF14 (-bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ROT_DIV(__int64 *a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r10

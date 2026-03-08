@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetCrc@EdidMonitorDescriptor@DxgMonitor@@UEBAEXZ @ 0x1C01FC8D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EDIDV1_IsEDIDBaseBlock@@YAJPEBE@Z @ 0x1C001ED38 (-EDIDV1_IsEDIDBaseBlock@@YAJPEBE@Z.c)
+ *     MonitorLogBadEDID @ 0x1C03BFCE4 (MonitorLogBadEDID.c)
+ */
+
 unsigned __int8 __fastcall DxgMonitor::EdidMonitorDescriptor::GetCrc(DxgMonitor::EdidMonitorDescriptor *this)
 {
   unsigned __int8 *v1; // rax

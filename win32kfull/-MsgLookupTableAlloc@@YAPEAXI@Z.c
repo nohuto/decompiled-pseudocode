@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MsgLookupTableAlloc@@YAPEAXI@Z @ 0x1C00CBD80
+ * Callers:
+ *     ?AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C00CBC54 (-AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall MsgLookupTableAlloc(int a1)
 {
   int v1; // ecx

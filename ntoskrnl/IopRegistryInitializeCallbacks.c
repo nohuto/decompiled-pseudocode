@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopRegistryInitializeCallbacks @ 0x1408364DC
+ * Callers:
+ *     IoInitSystem @ 0x140B5E3E0 (IoInitSystem.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwNotifyChangeKey @ 0x140414730 (ZwNotifyChangeKey.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IopRegistryOpenDeepestPath @ 0x140836718 (IopRegistryOpenDeepestPath.c)
+ */
+
 __int64 IopRegistryInitializeCallbacks()
 {
   unsigned int v0; // edi

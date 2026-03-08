@@ -1,3 +1,14 @@
+/*
+ * XREFs of WdipSemLoadConfigInfo @ 0x140831C8C
+ * Callers:
+ *     WdipSemCleanStart @ 0x1408318F0 (WdipSemCleanStart.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     WdipSemQueryValueFromRegistry @ 0x140833488 (WdipSemQueryValueFromRegistry.c)
+ *     WdipSemOpenRegistryKey @ 0x140833598 (WdipSemOpenRegistryKey.c)
+ *     WdipSemDeleteValueFromRegistry @ 0x1408346BC (WdipSemDeleteValueFromRegistry.c)
+ */
+
 __int64 WdipSemLoadConfigInfo()
 {
   int v0; // ebx

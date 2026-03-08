@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlGuardCheckLongJumpTarget @ 0x1405AFAC8
+ * Callers:
+ *     RtlGuardRestoreContext @ 0x1402D851C (RtlGuardRestoreContext.c)
+ * Callees:
+ *     RtlpControlFlowGuardEnforced @ 0x1402D8590 (RtlpControlFlowGuardEnforced.c)
+ *     RtlPcToFileHeader @ 0x1403BE120 (RtlPcToFileHeader.c)
+ *     bsearch_s @ 0x1403D4390 (bsearch_s.c)
+ *     RtlFailFast2 @ 0x1404217A0 (RtlFailFast2.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x140784BDC (LdrImageDirectoryEntryToLoadConfig.c)
+ */
+
 __int64 __fastcall RtlGuardCheckLongJumpTarget(unsigned __int64 a1)
 {
   __int64 Config; // rax

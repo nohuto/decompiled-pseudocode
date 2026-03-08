@@ -1,3 +1,19 @@
+/*
+ * XREFs of PpmUpdateIdleStates @ 0x14080D6D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140236BF0 (KeGetProcessorIndexFromNumber.c)
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopExecuteOnTargetProcessors @ 0x140236D20 (PopExecuteOnTargetProcessors.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PpmHvUseNativeAlgorithms @ 0x14037DF20 (PpmHvUseNativeAlgorithms.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PpmUpdateIdleContext @ 0x14097FBA0 (PpmUpdateIdleContext.c)
+ */
+
 __int64 __fastcall PpmUpdateIdleStates(__int64 a1)
 {
   ULONG ProcessorIndexFromNumber; // edi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcessorpSelectProcessorsInCluster @ 0x1C009C328
+ * Callers:
+ *     ProcessorpSelectProcessorSetFromClusters @ 0x1C009C230 (ProcessorpSelectProcessorSetFromClusters.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ProcessorpSelectProcessorsInCluster(__int16 a1, char a2, __int64 a3, __int64 a4, __int64 a5)
 {
   __int64 v7; // rdi

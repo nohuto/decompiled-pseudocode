@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpLegacyWorkerInitialization @ 0x14039F874
+ * Callers:
+ *     ExpWorkerInitialization @ 0x140B6383C (ExpWorkerInitialization.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 ExpLegacyWorkerInitialization()
 {
   int v0; // ecx

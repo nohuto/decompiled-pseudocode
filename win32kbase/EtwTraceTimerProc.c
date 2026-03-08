@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceTimerProc @ 0x1C00B0060
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0pqqqq_EtwWriteTransfer @ 0x1C00EE7C4 (McTemplateK0pqqqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall EtwTraceTimerProc(__int64 a1, __int64 a2, int a3)
 {
   __int64 result; // rax

@@ -1,3 +1,24 @@
+/*
+ * XREFs of HalpIommuInitSystem @ 0x140A86E10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpInterruptIsRemappingRequired @ 0x14028EDCC (HalpInterruptIsRemappingRequired.c)
+ *     HalpIommuGetRootIommuFaultPolicy @ 0x1403031A4 (HalpIommuGetRootIommuFaultPolicy.c)
+ *     HalpIommuProcessReservations @ 0x14039A08C (HalpIommuProcessReservations.c)
+ *     HalpIommuInitializeDmar @ 0x1403A409C (HalpIommuInitializeDmar.c)
+ *     HalpIommuLogEarlyFault @ 0x1403AF528 (HalpIommuLogEarlyFault.c)
+ *     HalpIommuInitializeDmaGuardPolicy @ 0x1403B00F4 (HalpIommuInitializeDmaGuardPolicy.c)
+ *     HalpIommuEnableInterrupts @ 0x1403B0494 (HalpIommuEnableInterrupts.c)
+ *     IommuInitializeLibrary @ 0x1403B0F48 (IommuInitializeLibrary.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IommupHvSetRootFaultReportingReady @ 0x140522FC0 (IommupHvSetRootFaultReportingReady.c)
+ *     IommupHvUnblockDefaultDma @ 0x140522FDC (IommupHvUnblockDefaultDma.c)
+ *     HalpIommuInitInterrupts @ 0x140A8701C (HalpIommuInitInterrupts.c)
+ *     HalpIommuInitializeAll @ 0x140A8DA7C (HalpIommuInitializeAll.c)
+ *     HalpIommuInitDiscard @ 0x140B6C3EC (HalpIommuInitDiscard.c)
+ */
+
 __int64 __fastcall HalpIommuInitSystem(int a1, __int64 a2, __int64 a3)
 {
   int inited; // ebx

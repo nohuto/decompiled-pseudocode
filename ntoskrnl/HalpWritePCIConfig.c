@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpWritePCIConfig @ 0x1403702A0
+ * Callers:
+ *     HalpSetPCIData @ 0x1403701C4 (HalpSetPCIData.c)
+ *     HalpValidPCISlot @ 0x140370554 (HalpValidPCISlot.c)
+ * Callees:
+ *     HalpPCIConfig @ 0x1402D7810 (HalpPCIConfig.c)
+ *     HalpValidPCISlot @ 0x140370554 (HalpValidPCISlot.c)
+ */
+
 __int64 __fastcall HalpWritePCIConfig(
         unsigned __int16 a1,
         unsigned __int8 a2,

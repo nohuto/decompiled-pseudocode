@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiPrepareSegmentForDeletion @ 0x140214F04
+ * Callers:
+ *     MiSegmentDelete @ 0x1406A6FD4 (MiSegmentDelete.c)
+ * Callees:
+ *     MiRemoveUnusedSubsection @ 0x140214CC0 (MiRemoveUnusedSubsection.c)
+ *     MiDrainControlAreaWrites @ 0x140214FDC (MiDrainControlAreaWrites.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiIncrementSubsectionViewCount @ 0x140332840 (MiIncrementSubsectionViewCount.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiBuildWakeList @ 0x140332B34 (MiBuildWakeList.c)
+ *     MiRemoveUnusedSegment @ 0x14034C47C (MiRemoveUnusedSegment.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiPrepareSegmentForDeletion(__int64 a1, ULONG_PTR a2)
 {
   volatile LONG *v2; // rbp

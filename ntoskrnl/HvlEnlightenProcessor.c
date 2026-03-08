@@ -1,3 +1,22 @@
+/*
+ * XREFs of HvlEnlightenProcessor @ 0x14037F430
+ * Callers:
+ *     HvlpInitializeBootProcessor @ 0x14053ECAC (HvlpInitializeBootProcessor.c)
+ *     KiInitializeKernel @ 0x140A89160 (KiInitializeKernel.c)
+ *     PopHandleNextState @ 0x140AA4FAC (PopHandleNextState.c)
+ * Callees:
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     HvlpGetLpcbByLpIndex @ 0x1403C8E08 (HvlpGetLpcbByLpIndex.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HvlSharedIsr @ 0x140456D60 (HvlSharedIsr.c)
+ *     HvlGetLpIndexFromProcessorIndex @ 0x140456E50 (HvlGetLpIndexFromProcessorIndex.c)
+ *     HvlpSetupSchedulerAssist @ 0x14053FDA0 (HvlpSetupSchedulerAssist.c)
+ *     HvlpGetRegister64 @ 0x1405468E0 (HvlpGetRegister64.c)
+ *     HvlpSetRegister64 @ 0x140546A30 (HvlpSetRegister64.c)
+ *     HvlpDiscoverTopologyLocal @ 0x14093E420 (HvlpDiscoverTopologyLocal.c)
+ */
+
 __int64 __fastcall HvlEnlightenProcessor(char a1)
 {
   __int64 result; // rax

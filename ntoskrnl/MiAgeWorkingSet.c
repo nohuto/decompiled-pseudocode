@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiAgeWorkingSet @ 0x1402248A0
+ * Callers:
+ *     MiTrimOrAgeWorkingSet @ 0x1402245D0 (MiTrimOrAgeWorkingSet.c)
+ *     MiForceAgeWorkingSet @ 0x140632480 (MiForceAgeWorkingSet.c)
+ * Callees:
+ *     MiWalkPageTables @ 0x140222CF0 (MiWalkPageTables.c)
+ *     MiTbFlushType @ 0x140224BDC (MiTbFlushType.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x140224C00 (MiGetAvailablePagesBelowPriority.c)
+ *     MiComputeAgingAmount @ 0x140224C50 (MiComputeAgingAmount.c)
+ *     MiFillLogProcessInfo @ 0x140224D68 (MiFillLogProcessInfo.c)
+ *     MiIsStoreProcess @ 0x140229574 (MiIsStoreProcess.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgCreate1Sz_char @ 0x1403BE3FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiAgeWorkingSet(__int64 a1, __int8 a2, unsigned int a3, unsigned int a4)
 {
   int v7; // r15d

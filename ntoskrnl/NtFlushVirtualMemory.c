@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtFlushVirtualMemory @ 0x14075EBB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     MmFlushVirtualMemory @ 0x14075ED38 (MmFlushVirtualMemory.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ */
+
 __int64 __fastcall NtFlushVirtualMemory(ULONG_PTR BugCheckParameter1, unsigned __int64 *a2, __int64 *a3, _OWORD *a4)
 {
   __int64 v8; // rdx

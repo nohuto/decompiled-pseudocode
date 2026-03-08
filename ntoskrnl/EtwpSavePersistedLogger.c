@@ -1,3 +1,29 @@
+/*
+ * XREFs of EtwpSavePersistedLogger @ 0x1409EAC60
+ * Callers:
+ *     EtwpSavePersistedLoggersWorker @ 0x1409EB214 (EtwpSavePersistedLoggersWorker.c)
+ * Callees:
+ *     IoAllocateMdl @ 0x14020CAD0 (IoAllocateMdl.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1403A1EB0 (MmMapLockedPagesWithReservedMapping.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x140412410 (ZwWriteFile.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwSetInformationFile @ 0x1404127F0 (ZwSetInformationFile.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MmUnmapReservedMapping @ 0x14061C4D0 (MmUnmapReservedMapping.c)
+ *     EtwpDelayCreate @ 0x1407725F4 (EtwpDelayCreate.c)
+ *     MmAllocateMappingAddressEx @ 0x140869D20 (MmAllocateMappingAddressEx.c)
+ *     MmFreeMappingAddress @ 0x14086B720 (MmFreeMappingAddress.c)
+ *     EtwpInitializeCompressedWriter @ 0x1409EA65C (EtwpInitializeCompressedWriter.c)
+ *     EtwpQueryPersistedMemory @ 0x1409EAB74 (EtwpQueryPersistedMemory.c)
+ *     EtwpTraceSavePersistedLoggerStop @ 0x1409EB56C (EtwpTraceSavePersistedLoggerStop.c)
+ *     EtwpWriteBufferCompressed @ 0x1409EB688 (EtwpWriteBufferCompressed.c)
+ *     EtwpWriteRemainingCompressedData @ 0x1409EB858 (EtwpWriteRemainingCompressedData.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpSavePersistedLogger(unsigned int *a1, __int64 a2)
 {
   unsigned int *v3; // rsi

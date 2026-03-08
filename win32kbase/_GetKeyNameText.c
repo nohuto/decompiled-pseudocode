@@ -1,3 +1,14 @@
+/*
+ * XREFs of _GetKeyNameText @ 0x1C00114E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     wcsncpycch @ 0x1C00115C4 (wcsncpycch.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C004FE50 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     InternalMapVirtualKeyEx @ 0x1C0081970 (InternalMapVirtualKeyEx.c)
+ */
+
 __int64 __fastcall GetKeyNameText(unsigned int a1, _WORD *a2, int a3)
 {
   unsigned int v5; // ebx

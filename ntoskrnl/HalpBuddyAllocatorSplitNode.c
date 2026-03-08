@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpBuddyAllocatorSplitNode @ 0x1405304E8
+ * Callers:
+ *     HalpBuddyAllocatorAllocateLogicalAddress @ 0x14052F760 (HalpBuddyAllocatorAllocateLogicalAddress.c)
+ *     HalpBuddyAllocatorReserveLogicalAddress @ 0x140530290 (HalpBuddyAllocatorReserveLogicalAddress.c)
+ * Callees:
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ */
+
 __int64 __fastcall HalpBuddyAllocatorSplitNode(__int64 a1, __int64 a2)
 {
   unsigned int v3; // ebx

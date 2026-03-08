@@ -1,3 +1,17 @@
+/*
+ * XREFs of _PostMessageCheckIL @ 0x1C01B81EC
+ * Callers:
+ *     ForwardTouchMessage @ 0x1C01B139C (ForwardTouchMessage.c)
+ *     NtUserInjectGesture @ 0x1C01D62D0 (NtUserInjectGesture.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?IsMessageAlwaysAllowedAcrossIL@@YAHI@Z @ 0x1C004C87C (-IsMessageAlwaysAllowedAcrossIL@@YAHI@Z.c)
+ *     ?GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z @ 0x1C00CBBC4 (-GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z.c)
+ *     ?IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z @ 0x1C00CBE58 (-IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ *     ValidateDDEConvPair @ 0x1C01FD410 (ValidateDDEConvPair.c)
+ */
+
 __int64 __fastcall PostMessageCheckIL(__int64 a1, unsigned int a2, unsigned __int64 a3, __int128 *a4)
 {
   BOOL v4; // edi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ApplyElasticDragModeDeltas@CPTPEngine@@AEAAHPEAUCContactState@@PEAUtagPOINTER_INFO@@PEAUtagPOINT@@@Z @ 0x1C0235028
+ * Callers:
+ *     ?DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z @ 0x1C0235884 (-DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CPTPEngine::ApplyElasticDragModeDeltas(
         CPTPEngine *this,
         struct CContactState *a2,

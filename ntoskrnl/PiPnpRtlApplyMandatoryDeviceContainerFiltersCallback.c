@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiPnpRtlApplyMandatoryDeviceContainerFiltersCallback @ 0x14079A710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x1406CDA80 (PiPnpRtlApplyMandatoryDeviceFilters.c)
+ */
+
 __int64 __fastcall PiPnpRtlApplyMandatoryDeviceContainerFiltersCallback(__int64 a1, __int64 a2, _BYTE *a3)
 {
   _BYTE *v3; // rbx

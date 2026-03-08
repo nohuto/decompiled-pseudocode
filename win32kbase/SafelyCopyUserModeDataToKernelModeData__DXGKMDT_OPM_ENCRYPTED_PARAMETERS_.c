@@ -1,3 +1,11 @@
+/*
+ * XREFs of SafelyCopyUserModeDataToKernelModeData__DXGKMDT_OPM_ENCRYPTED_PARAMETERS_ @ 0x1C0187BEC
+ * Callers:
+ *     NtGdiSetOPMSigningKeyAndSequenceNumbers @ 0x1C0189970 (NtGdiSetOPMSigningKeyAndSequenceNumbers.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SafelyCopyUserModeDataToKernelModeData__DXGKMDT_OPM_ENCRYPTED_PARAMETERS_(_OWORD *a1, _OWORD *a2)
 {
   __int64 v2; // rax

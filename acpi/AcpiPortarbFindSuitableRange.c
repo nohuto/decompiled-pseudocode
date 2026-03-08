@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiPortarbFindSuitableRange @ 0x1C008C260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     AcpiArblibIsAliasedRangeAvailable @ 0x1C007D0D8 (AcpiArblibIsAliasedRangeAvailable.c)
+ */
+
 char __fastcall AcpiPortarbFindSuitableRange(__int64 a1, unsigned __int64 *a2)
 {
   unsigned __int64 v4; // rdx

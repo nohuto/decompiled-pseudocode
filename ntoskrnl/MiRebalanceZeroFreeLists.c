@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiRebalanceZeroFreeLists @ 0x14064F140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiFreeZeroPagesNeeded @ 0x140464858 (MiFreeZeroPagesNeeded.c)
+ *     MiPruneStandbyPages @ 0x140464A50 (MiPruneStandbyPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiRebalanceZeroFreeLists(__int64 a1)
 {
   unsigned int i; // ebx

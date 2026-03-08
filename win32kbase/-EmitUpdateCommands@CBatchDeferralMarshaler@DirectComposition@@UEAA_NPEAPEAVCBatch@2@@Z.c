@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CBatchDeferralMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C026F020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CBatchDeferralMarshaler::EmitUpdateCommands(
         DirectComposition::CBatchDeferralMarshaler *this,
         struct DirectComposition::CBatch **a2)

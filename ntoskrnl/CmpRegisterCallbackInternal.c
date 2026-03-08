@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpRegisterCallbackInternal @ 0x14084E7EC
+ * Callers:
+ *     CmRegisterCallbackEx @ 0x14084E720 (CmRegisterCallbackEx.c)
+ *     CmRegisterInternalCallback @ 0x14084E76C (CmRegisterInternalCallback.c)
+ *     CmRegisterCallback @ 0x14084E7C0 (CmRegisterCallback.c)
+ * Callees:
+ *     CmCleanupThreadInfo @ 0x140263740 (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x140263760 (CmpInitializeThreadInfo.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     CmpInsertCallbackInListByAltitude @ 0x14084E8FC (CmpInsertCallbackInListByAltitude.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmpRegisterCallbackInternal(
         __int64 a1,
         __int64 a2,

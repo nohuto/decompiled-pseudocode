@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBREG_QueryUxdDeviceKey @ 0x1C0087074
+ * Callers:
+ *     HUBREG_UpdateUxdSettings @ 0x1C0087358 (HUBREG_UpdateUxdSettings.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     RtlUnicodeStringPrintf @ 0x1C000C4DC (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBREG_QueryUxdDeviceKey(__int64 a1, __int64 a2)
 {
   NTSTATUS v4; // ebx

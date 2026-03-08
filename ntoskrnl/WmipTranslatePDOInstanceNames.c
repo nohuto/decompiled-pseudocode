@@ -1,3 +1,16 @@
+/*
+ * XREFs of WmipTranslatePDOInstanceNames @ 0x14086C758
+ * Callers:
+ *     WmipForwardWmiIrp @ 0x14069CE70 (WmipForwardWmiIrp.c)
+ * Callees:
+ *     IoGetDeviceInstanceName @ 0x1402020C0 (IoGetDeviceInstanceName.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ */
+
 __int64 __fastcall WmipTranslatePDOInstanceNames(__int64 a1, char a2, int a3, __int64 a4)
 {
   unsigned int *v4; // r8

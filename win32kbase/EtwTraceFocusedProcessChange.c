@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceFocusedProcessChange @ 0x1C00C35C0
+ * Callers:
+ *     ??1ForegroundChangeTracker@CActivationObjectManager@@QEAA@XZ @ 0x1C005BD48 (--1ForegroundChangeTracker@CActivationObjectManager@@QEAA@XZ.c)
+ * Callees:
+ *     McTemplateK0qqq_EtwWriteTransfer @ 0x1C00EE3C8 (McTemplateK0qqq_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTraceFocusedProcessChange(__int64 a1, char a2, __int64 a3, __int64 a4)
 {
   char v5; // di

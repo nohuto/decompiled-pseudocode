@@ -1,3 +1,23 @@
+/*
+ * XREFs of AuthzBasepDuplicateSecurityAttributes @ 0x1402976E0
+ * Callers:
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x140247394 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SepGetAnonymousToken @ 0x1402B7BE0 (SepGetAnonymousToken.c)
+ *     SepValidateAndCopyGlobalEntry @ 0x1405B710C (SepValidateAndCopyGlobalEntry.c)
+ *     SepFilterToken @ 0x14073FED0 (SepFilterToken.c)
+ *     SepDuplicateToken @ 0x1407BCF00 (SepDuplicateToken.c)
+ *     SepDuplicateClaimAttributes @ 0x1409CE654 (SepDuplicateClaimAttributes.c)
+ * Callees:
+ *     AuthzBasepAllocateSecurityAttribute @ 0x1402979A0 (AuthzBasepAllocateSecurityAttribute.c)
+ *     AuthzBasepFinaliseSecurityAttributesList @ 0x140297A30 (AuthzBasepFinaliseSecurityAttributesList.c)
+ *     AuthzBasepAllocateSecurityAttributeValue @ 0x140297BBC (AuthzBasepAllocateSecurityAttributeValue.c)
+ *     AuthzBasepAddSecurityAttributeValueToLists @ 0x140297C28 (AuthzBasepAddSecurityAttributeValueToLists.c)
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall AuthzBasepDuplicateSecurityAttributes(__int64 a1, _QWORD *a2, char a3)
 {
   __int64 *v3; // r14

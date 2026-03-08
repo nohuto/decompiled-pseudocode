@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfQueryDriverContext @ 0x1405CC130
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ViIsContextIdValid @ 0x140AC109C (ViIsContextIdValid.c)
+ *     ViQueryObjectContext @ 0x140AC1104 (ViQueryObjectContext.c)
+ */
+
 __int64 __fastcall VfQueryDriverContext(__int64 a1, __int64 a2)
 {
   unsigned int v2; // edx

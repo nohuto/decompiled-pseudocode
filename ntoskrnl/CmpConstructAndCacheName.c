@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpConstructAndCacheName @ 0x1407929C4
+ * Callers:
+ *     CmpGetSymbolicLinkTarget @ 0x1407B0EF0 (CmpGetSymbolicLinkTarget.c)
+ *     CmCallbackGetKeyObjectID @ 0x1408A6D60 (CmCallbackGetKeyObjectID.c)
+ * Callees:
+ *     CmpFreeTransientPoolWithTag @ 0x1402A4B0C (CmpFreeTransientPoolWithTag.c)
+ *     CmpConstructNameWithStatus @ 0x1407AF2E0 (CmpConstructNameWithStatus.c)
+ */
+
 __int64 __fastcall CmpConstructAndCacheName(__int64 a1, _QWORD *a2)
 {
   __int64 v3; // rax

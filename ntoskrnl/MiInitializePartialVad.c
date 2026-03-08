@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiInitializePartialVad @ 0x140760134
+ * Callers:
+ *     MiAllocateSplitVads @ 0x14076003C (MiAllocateSplitVads.c)
+ * Callees:
+ *     MiLocateVadEvent @ 0x14020DC50 (MiLocateVadEvent.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiAdvanceVadView @ 0x1402D5E10 (MiAdvanceVadView.c)
+ *     MiGetProcessPartition @ 0x14031F9D4 (MiGetProcessPartition.c)
+ *     MiChargeResident @ 0x140348DE8 (MiChargeResident.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     MiFreePlaceholderStorage @ 0x1406800F8 (MiFreePlaceholderStorage.c)
+ *     MiResidentPagesForSpan @ 0x140784F38 (MiResidentPagesForSpan.c)
+ *     MiCreateRotateView @ 0x140A2E550 (MiCreateRotateView.c)
+ *     MiFreeRotateView @ 0x140A2E638 (MiFreeRotateView.c)
+ *     MiCreatePlaceholderStorage @ 0x140A44FD0 (MiCreatePlaceholderStorage.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiInitializePartialVad(unsigned __int64 *P, __int64 a2)
 {
   __int64 v2; // r13

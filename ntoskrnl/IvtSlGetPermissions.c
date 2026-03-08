@@ -1,3 +1,11 @@
+/*
+ * XREFs of IvtSlGetPermissions @ 0x14052F560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IvtSlGetPermissions(__int64 *a1)
 {
   __int64 v1; // rdx

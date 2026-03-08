@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreSfmGetDirtyRgn @ 0x1C002A00C
+ * Callers:
+ *     NtGdiHLSurfGetInformation @ 0x1C0029E10 (NtGdiHLSurfGetInformation.c)
+ * Callees:
+ *     ?GrepSfmGetDirtyRgn@@YAJPEAVSFMLOGICALSURFACE@@_KPEAPEAUHRGN__@@222PEAU_POINTL@@PEAH4@Z @ 0x1C0029AE8 (-GrepSfmGetDirtyRgn@@YAJPEAVSFMLOGICALSURFACE@@_KPEAPEAUHRGN__@@222PEAU_POINTL@@PEAH4@Z.c)
+ *     IsDwmActive @ 0x1C002CF30 (IsDwmActive.c)
+ */
+
 __int64 __fastcall GreSfmGetDirtyRgn(
         Gre::Base *a1,
         __int64 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of XilCoreDeviceSlot_Initialize @ 0x1C001498C
+ * Callers:
+ *     DeviceSlot_Initialize @ 0x1C0014888 (DeviceSlot_Initialize.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     XilRegister_WriteUlong64 @ 0x1C0014C68 (XilRegister_WriteUlong64.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ */
+
 __int64 __fastcall XilCoreDeviceSlot_Initialize(__int64 a1)
 {
   unsigned int v2; // ebx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiInitializeTopologyStructures @ 0x140A8A348
+ * Callers:
+ *     KiInitializeKernel @ 0x140A89160 (KiInitializeKernel.c)
+ * Callees:
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x140237550 (KeCountSetBitsAffinityEx.c)
+ *     KeGetProcessorNode @ 0x140302AD0 (KeGetProcessorNode.c)
+ *     KiAddProcessorToCoreControlBlock @ 0x14037E0F4 (KiAddProcessorToCoreControlBlock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall KiInitializeTopologyStructures(__int64 BugCheckParameter1)
 {
   int v1; // eax

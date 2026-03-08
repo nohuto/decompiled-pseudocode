@@ -1,3 +1,18 @@
+/*
+ * XREFs of VfBeforeCallDriver @ 0x140ACA5AC
+ * Callers:
+ *     IovCallDriver @ 0x140ABE1D0 (IovCallDriver.c)
+ *     IovpCallDriverNoIrpTracking @ 0x140ABE96C (IovpCallDriverNoIrpTracking.c)
+ *     IovpCallDriverWithStackBuffer @ 0x140ABE9B4 (IovpCallDriverWithStackBuffer.c)
+ * Callees:
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAreInterruptsEnabled @ 0x140312C60 (KeAreInterruptsEnabled.c)
+ *     VfBugCheckNoStackUsage @ 0x1405CD460 (VfBugCheckNoStackUsage.c)
+ *     IovpCallDriver1 @ 0x140AC9170 (IovpCallDriver1.c)
+ *     VfGetPristineDispatchRoutine @ 0x140ACA1FC (VfGetPristineDispatchRoutine.c)
+ *     ViIrpCheckKernelAddressForIrp @ 0x140ACADD0 (ViIrpCheckKernelAddressForIrp.c)
+ */
+
 __int64 __fastcall VfBeforeCallDriver(__int64 a1, ULONG_PTR a2, __int64 a3)
 {
   ULONG_PTR v7; // rdx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserTransformPoint @ 0x1C01E01A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     IsValidKernelDpiAwarenessContext @ 0x1C01CDB90 (IsValidKernelDpiAwarenessContext.c)
+ */
+
 __int64 __fastcall NtUserTransformPoint(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v5; // edi

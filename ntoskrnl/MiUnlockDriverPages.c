@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiUnlockDriverPages @ 0x14087313C
+ * Callers:
+ *     MiUnlockAndFreeDvPatchImage @ 0x14063EDD4 (MiUnlockAndFreeDvPatchImage.c)
+ *     MmWriteSystemImageTracepoint @ 0x140640F7C (MmWriteSystemImageTracepoint.c)
+ *     MiCompleteSecureDriverLoad @ 0x140880F78 (MiCompleteSecureDriverLoad.c)
+ *     MiUnlockEntireDriver @ 0x140A31880 (MiUnlockEntireDriver.c)
+ *     MiApplyDriverHotPatch @ 0x140A31BB8 (MiApplyDriverHotPatch.c)
+ *     MiApplySingleSessionPatch @ 0x140A333E0 (MiApplySingleSessionPatch.c)
+ *     MiUnapplyDriverHotPatch @ 0x140A390F8 (MiUnapplyDriverHotPatch.c)
+ *     MmReapplyBootPatchImports @ 0x140B70FB0 (MmReapplyBootPatchImports.c)
+ * Callees:
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiUnlockCodePage @ 0x1402A441C (MiUnlockCodePage.c)
+ *     RtlFindSetBitsEx @ 0x1402D8E10 (RtlFindSetBitsEx.c)
+ *     KeReservePrivilegedPages @ 0x1403D1570 (KeReservePrivilegedPages.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiUnlockDriverPages(__int64 *a1)
 {
   void *v2; // rcx

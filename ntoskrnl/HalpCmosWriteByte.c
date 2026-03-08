@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpCmosWriteByte @ 0x14036D920
+ * Callers:
+ *     HalpGetSetCmosData @ 0x14039F6CC (HalpGetSetCmosData.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall HalpCmosWriteByte(unsigned __int8 a1, unsigned __int8 a2)
 {
   unsigned __int8 result; // al

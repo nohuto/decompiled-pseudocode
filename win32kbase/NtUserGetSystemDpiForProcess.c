@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserGetSystemDpiForProcess @ 0x1C01716D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ */
+
 __int64 __fastcall NtUserGetSystemDpiForProcess(char *Handle, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rcx

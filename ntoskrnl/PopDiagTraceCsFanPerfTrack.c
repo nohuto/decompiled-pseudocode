@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagTraceCsFanPerfTrack @ 0x14058FB9C
+ * Callers:
+ *     PopFanEndCsFanPeriod @ 0x140994200 (PopFanEndCsFanPeriod.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PopDiagTraceCsFanPerfTrack(int a1, int a2)
 {
   REGHANDLE v2; // rbx

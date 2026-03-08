@@ -1,3 +1,12 @@
+/*
+ * XREFs of _SetCancelRotationDelayHintWindow @ 0x1C01AFA08
+ * Callers:
+ *     NtUserSetCancelRotationDelayHintWindow @ 0x1C01DBA10 (NtUserSetCancelRotationDelayHintWindow.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     IAMThreadAccessGranted @ 0x1C009A2DC (IAMThreadAccessGranted.c)
+ */
+
 __int64 SetCancelRotationDelayHintWindow()
 {
   unsigned int v0; // ebx

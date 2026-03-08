@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsAncestorInSameSpace@CVisualTree@@QEBA_NPEBVCVisual@@0@Z @ 0x180014F2C
+ * Callers:
+ *     ?CalcTransform@CPreWalkVisual@CPreComputeContext@@IEAAXPEBVCVisualTree@@_K@Z @ 0x180089670 (-CalcTransform@CPreWalkVisual@CPreComputeContext@@IEAAXPEBVCVisualTree@@_K@Z.c)
+ * Callees:
+ *     ?_IsInTree@CVisualTree@@IEBA_NPEBVCVisual@@W4IsInTreeFlags@1@@Z @ 0x1800094F0 (-_IsInTree@CVisualTree@@IEBA_NPEBVCVisual@@W4IsInTreeFlags@1@@Z.c)
+ *     ?IsPreserve3D@CVisual@@QEBA_NPEBV1@@Z @ 0x180014FC8 (-IsPreserve3D@CVisual@@QEBA_NPEBV1@@Z.c)
+ */
+
 char __fastcall CVisualTree::IsAncestorInSameSpace(
         const struct CVisual **this,
         const struct CVisual **a2,

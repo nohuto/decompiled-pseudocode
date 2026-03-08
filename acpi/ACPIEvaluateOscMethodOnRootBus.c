@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIEvaluateOscMethodOnRootBus @ 0x1C0093580
+ * Callers:
+ *     ACPIRootInitialize @ 0x1C0093768 (ACPIRootInitialize.c)
+ * Callees:
+ *     ACPIAmliEvaluateOsc @ 0x1C007C7D8 (ACPIAmliEvaluateOsc.c)
+ */
+
 __int64 __fastcall ACPIEvaluateOscMethodOnRootBus(__int64 a1, unsigned __int8 a2, __int64 a3)
 {
   _QWORD *v3; // rcx

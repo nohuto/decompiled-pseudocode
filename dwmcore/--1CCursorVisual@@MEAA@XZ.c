@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1CCursorVisual@@MEAA@XZ @ 0x1802253C0
+ * Callers:
+ *     ??_GCCursorVisual@@MEAAPEAXI@Z @ 0x180225430 (--_GCCursorVisual@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180004700 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?ClearVisual@CCursorState@@QEAAXXZ @ 0x1802764C8 (-ClearVisual@CCursorState@@QEAAXXZ.c)
+ */
+
 void __fastcall CCursorVisual::~CCursorVisual(CCursorVisual *this)
 {
   __int64 *v2; // rdi

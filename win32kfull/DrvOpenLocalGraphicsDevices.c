@@ -1,3 +1,11 @@
+/*
+ * XREFs of DrvOpenLocalGraphicsDevices @ 0x1C0126480
+ * Callers:
+ *     xxxRemoteReconnect @ 0x1C01267DC (xxxRemoteReconnect.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DrvOpenLocalGraphicsDevices(Gre::Base *a1)
 {
   __int64 v1; // rdi

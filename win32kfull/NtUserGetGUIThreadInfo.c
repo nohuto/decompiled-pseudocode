@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserGetGUIThreadInfo @ 0x1C00D1CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _GetGUIThreadInfo @ 0x1C00D1E28 (_GetGUIThreadInfo.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall NtUserGetGUIThreadInfo(unsigned int a1, ULONG64 a2)
 {
   __int64 v4; // rdx

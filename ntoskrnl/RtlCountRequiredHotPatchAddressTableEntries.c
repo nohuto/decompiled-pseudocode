@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlCountRequiredHotPatchAddressTableEntries @ 0x140A73578
+ * Callers:
+ *     MiPrepareToHotPatchImage @ 0x140A37C98 (MiPrepareToHotPatchImage.c)
+ * Callees:
+ *     RtlGetHotPatchSize @ 0x1406786D8 (RtlGetHotPatchSize.c)
+ *     RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x14067892C (RtlpCheckFunctionPatchAppliedInOriginalImage.c)
+ */
+
 __int64 __fastcall RtlCountRequiredHotPatchAddressTableEntries(
         __int64 a1,
         unsigned int a2,

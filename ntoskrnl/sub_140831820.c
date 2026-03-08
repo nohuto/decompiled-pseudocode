@@ -1,3 +1,11 @@
+/*
+ * XREFs of sub_140831820 @ 0x140831820
+ * Callers:
+ *     SLUpdateLicenseDataInternal @ 0x1409F78B4 (SLUpdateLicenseDataInternal.c)
+ * Callees:
+ *     RtlCompareUnicodeStrings @ 0x140684CA0 (RtlCompareUnicodeStrings.c)
+ */
+
 __int64 __fastcall sub_140831820(_QWORD *a1, _QWORD *a2)
 {
   unsigned __int16 *v2; // r8

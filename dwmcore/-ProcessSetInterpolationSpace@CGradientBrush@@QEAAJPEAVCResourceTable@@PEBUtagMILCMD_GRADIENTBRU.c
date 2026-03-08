@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessSetInterpolationSpace@CGradientBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_GRADIENTBRUSH_SETINTERPOLATIONSPACE@@@Z @ 0x18024A210
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F0A8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     ?InvalidateGradient@CGradientBrush@@AEAAXXZ @ 0x1800B9D38 (-InvalidateGradient@CGradientBrush@@AEAAXXZ.c)
+ */
+
 __int64 __fastcall CGradientBrush::ProcessSetInterpolationSpace(
         CGradientBrush *this,
         struct CResourceTable *a2,

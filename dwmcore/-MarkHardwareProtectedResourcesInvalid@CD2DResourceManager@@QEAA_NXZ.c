@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?MarkHardwareProtectedResourcesInvalid@CD2DResourceManager@@QEAA_NXZ @ 0x18029923C
+ * Callers:
+ *     ?ClearProtectedResources@CD3DDevice@@QEAA_NXZ @ 0x1802893DC (-ClearProtectedResources@CD3DDevice@@QEAA_NXZ.c)
+ * Callees:
+ *     ?UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z @ 0x18003D244 (-UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MarkInvalid@CD2DResource@@IEAAXXZ @ 0x180288A1C (-MarkInvalid@CD2DResource@@IEAAXXZ.c)
+ */
+
 bool __fastcall CD2DResourceManager::MarkHardwareProtectedResourcesInvalid(CD2DResourceManager *this)
 {
   CD2DContext *v1; // rdi

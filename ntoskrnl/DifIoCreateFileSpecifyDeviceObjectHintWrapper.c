@@ -1,3 +1,15 @@
+/*
+ * XREFs of DifIoCreateFileSpecifyDeviceObjectHintWrapper @ 0x1405DBF40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     IoCreateFileSpecifyDeviceObjectHint @ 0x140792760 (IoCreateFileSpecifyDeviceObjectHint.c)
+ */
+
 NTSTATUS __fastcall DifIoCreateFileSpecifyDeviceObjectHintWrapper(
         PHANDLE FileHandle,
         ACCESS_MASK DesiredAccess,

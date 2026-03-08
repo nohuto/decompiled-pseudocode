@@ -1,3 +1,17 @@
+/*
+ * XREFs of RecolorDeskPattern @ 0x1C00F5B00
+ * Callers:
+ *     SetDesktopPattern @ 0x1C010AAFC (SetDesktopPattern.c)
+ * Callees:
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C007BB00 (GreCreateCompatibleBitmapInternal.c)
+ *     GreMarkDeletableBrush @ 0x1C00E8890 (GreMarkDeletableBrush.c)
+ *     GreSetBkColor @ 0x1C0113964 (GreSetBkColor.c)
+ *     GreSetTextColor @ 0x1C0113D94 (GreSetTextColor.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     GreCreateDIBitmapReal @ 0x1C02E02CC (GreCreateDIBitmapReal.c)
+ */
+
 __int64 RecolorDeskPattern()
 {
   unsigned int v0; // ebx

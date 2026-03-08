@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ImeCheckTopmost@@YAXPEAUtagWND@@@Z @ 0x1C0026C08
+ * Callers:
+ *     NtUserSetImeOwnerWindow @ 0x1C0026AC0 (NtUserSetImeOwnerWindow.c)
+ *     ?zzzImeCanDestroyDefIME@@YAHPEAUtagWND@@0@Z @ 0x1C00A0A28 (-zzzImeCanDestroyDefIME@@YAHPEAUtagWND@@0@Z.c)
+ * Callees:
+ *     ?ImeSetTopmost@@YAXPEAUtagWND@@H0@Z @ 0x1C0026C68 (-ImeSetTopmost@@YAXPEAUtagWND@@H0@Z.c)
+ */
+
 void __fastcall ImeCheckTopmost(struct tagWND *a1)
 {
   int v2; // r9d

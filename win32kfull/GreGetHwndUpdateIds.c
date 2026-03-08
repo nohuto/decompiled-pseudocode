@@ -1,3 +1,14 @@
+/*
+ * XREFs of GreGetHwndUpdateIds @ 0x1C026A324
+ * Callers:
+ *     NtUserHwndQueryRedirectionInfo @ 0x1C0147D40 (NtUserHwndQueryRedirectionInfo.c)
+ * Callees:
+ *     ?uiDxPresentFlags@SFMLOGICALSURFACE@@QEAAIXZ @ 0x1C000A484 (-uiDxPresentFlags@SFMLOGICALSURFACE@@QEAAIXZ.c)
+ *     ??0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z @ 0x1C000A514 (--0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z.c)
+ *     ?bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ @ 0x1C001EC6C (-bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ.c)
+ *     IsDwmActive @ 0x1C002CF30 (IsDwmActive.c)
+ */
+
 __int64 __fastcall GreGetHwndUpdateIds(Gre::Base *a1, _QWORD *a2, _QWORD *a3)
 {
   unsigned int v6; // ebp

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1FxDeviceText@@QEAA@XZ @ 0x1C004F000
+ * Callers:
+ *     ??_GFxDeviceText@@QEAAPEAXI@Z @ 0x1C002E980 (--_GFxDeviceText@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ */
+
 void __fastcall FxDeviceText::~FxDeviceText(FxDeviceText *this)
 {
   wchar_t *m_Description; // rcx

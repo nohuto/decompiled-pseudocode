@@ -1,3 +1,14 @@
+/*
+ * XREFs of NVMeHwUnitControl @ 0x1C0008600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x1C0004580 (memset.c)
+ *     NVMeLunCompleteAllIORequests @ 0x1C000FAA8 (NVMeLunCompleteAllIORequests.c)
+ *     NVMeGetRichDeviceDescription @ 0x1C001651C (NVMeGetRichDeviceDescription.c)
+ *     NVMeSendLunInternalData @ 0x1C002828C (NVMeSendLunInternalData.c)
+ */
+
 __int64 __fastcall NVMeHwUnitControl(__int64 a1, int a2, __int64 a3)
 {
   int v5; // edx

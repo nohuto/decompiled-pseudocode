@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_DDDqDDDDD @ 0x1C0047ABC
+ * Callers:
+ *     Bulk_Stage_EstimateRequiredTrbs @ 0x1C00125B8 (Bulk_Stage_EstimateRequiredTrbs.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_DDDqDDDDD(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
 {
   int v7; // [rsp+28h] [rbp-99h]

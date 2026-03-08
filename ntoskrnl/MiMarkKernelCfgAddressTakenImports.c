@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiMarkKernelCfgAddressTakenImports @ 0x140A41358
+ * Callers:
+ *     MiProcessKernelCfgAddressTakenImports @ 0x140A41408 (MiProcessKernelCfgAddressTakenImports.c)
+ * Callees:
+ *     MiMarkKernelCfgTarget @ 0x14035D3FC (MiMarkKernelCfgTarget.c)
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ */
+
 __int64 __fastcall MiMarkKernelCfgAddressTakenImports(__int64 a1)
 {
   __int64 v2; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of Interrupter_DetermineSecondaryInterrupterCount @ 0x1C0079CDC
+ * Callers:
+ *     Controller_WdfEvtDeviceFilterRemoveResourceRequirements @ 0x1C006EAF0 (Controller_WdfEvtDeviceFilterRemoveResourceRequirements.c)
+ * Callees:
+ *     Interrupter_SetSecondaryInterrupterCount @ 0x1C0008228 (Interrupter_SetSecondaryInterrupterCount.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C001E054 (WPP_RECORDER_SF_DDD.c)
+ */
+
 void __fastcall Interrupter_DetermineSecondaryInterrupterCount(__int64 a1, int a2)
 {
   ULONG ActiveProcessorCount; // eax

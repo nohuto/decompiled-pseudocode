@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CMagnifierRenderTarget@@EEAA@XZ @ 0x1801ECB9C
+ * Callers:
+ *     ??_GCMagnifierRenderTarget@@EEAAPEAXI@Z @ 0x1801ECCB0 (--_GCMagnifierRenderTarget@@EEAAPEAXI@Z.c)
+ * Callees:
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800234BC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?InternalRelease@CResource@@IEAAKXZ @ 0x180078858 (-InternalRelease@CResource@@IEAAKXZ.c)
+ */
+
 void __fastcall CMagnifierRenderTarget::~CMagnifierRenderTarget(CMagnifierRenderTarget *this)
 {
   __int64 v2; // rcx

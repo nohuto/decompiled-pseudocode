@@ -1,3 +1,13 @@
+/*
+ * XREFs of VidSchQueryVidPnSourceStatistics @ 0x1C0040760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     ?GetVSyncTimeCounters@DXGADAPTER@@QEAAXIW4VSYNC_TIME_STATS_TYPE@@PEAUVSYNC_TIME_COUNTERS@@@Z @ 0x1C0034B54 (-GetVSyncTimeCounters@DXGADAPTER@@QEAAXIW4VSYNC_TIME_STATS_TYPE@@PEAUVSYNC_TIME_COUNTERS@@@Z.c)
+ *     CopyVidPnSourceStatistics @ 0x1C0107494 (CopyVidPnSourceStatistics.c)
+ */
+
 __int64 __fastcall VidSchQueryVidPnSourceStatistics(__int64 a1, unsigned int a2, _QWORD *a3)
 {
   unsigned int v3; // eax

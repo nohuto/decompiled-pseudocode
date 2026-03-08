@@ -1,3 +1,23 @@
+/*
+ * XREFs of IoVerifyVolume @ 0x140944740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     IopDereferenceVpbAndFree @ 0x140290FB0 (IopDereferenceVpbAndFree.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IopDecrementVpbRefCount @ 0x14030F780 (IopDecrementVpbRefCount.c)
+ *     IopAllocateIrpExReturn @ 0x140312290 (IopAllocateIrpExReturn.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     IopQueueThreadIrp @ 0x140312720 (IopQueueThreadIrp.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     IopReferenceVerifyVpb @ 0x14055373C (IopReferenceVerifyVpb.c)
+ *     IopMountVolume @ 0x14072B180 (IopMountVolume.c)
+ *     PoVolumeDevice @ 0x14087017C (PoVolumeDevice.c)
+ *     IopCreateVpb @ 0x140871EB0 (IopCreateVpb.c)
+ */
+
 NTSTATUS __stdcall IoVerifyVolume(PDEVICE_OBJECT DeviceObject, BOOLEAN AllowRawMount)
 {
   struct _KEVENT *p_DeviceLock; // r12

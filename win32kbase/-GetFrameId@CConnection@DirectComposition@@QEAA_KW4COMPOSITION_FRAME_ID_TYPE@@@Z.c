@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetFrameId@CConnection@DirectComposition@@QEAA_KW4COMPOSITION_FRAME_ID_TYPE@@@Z @ 0x1C000872C
+ * Callers:
+ *     NtDCompositionGetFrameId @ 0x1C0008660 (NtDCompositionGetFrameId.c)
+ * Callees:
+ *     ?Release@CPushLockCriticalSection@DirectComposition@@QEAAXXZ @ 0x1C0091D74 (-Release@CPushLockCriticalSection@DirectComposition@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall DirectComposition::CConnection::GetFrameId(_QWORD *a1, int a2)
 {
   DirectComposition::CPushLockCriticalSection *v2; // rbp

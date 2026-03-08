@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpInterruptAffinityIsSteerable @ 0x14028F404
+ * Callers:
+ *     HalGetMessageRoutingInfo @ 0x14028F220 (HalGetMessageRoutingInfo.c)
+ * Callees:
+ *     KeQueryInterruptPartitionInformation @ 0x14028F550 (KeQueryInterruptPartitionInformation.c)
+ *     KeQueryInterruptPartitionCount @ 0x14028F5C0 (KeQueryInterruptPartitionCount.c)
+ */
+
 __int64 __fastcall HalpInterruptAffinityIsSteerable(__int64 a1, bool *a2)
 {
   __int64 v2; // rsi

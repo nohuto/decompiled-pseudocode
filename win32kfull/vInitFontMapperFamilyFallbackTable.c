@@ -1,3 +1,11 @@
+/*
+ * XREFs of vInitFontMapperFamilyFallbackTable @ 0x1C03B7FC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PREALLOCMEM2 @ 0x1C00F02EC (PREALLOCMEM2.c)
+ */
+
 int __fastcall vInitFontMapperFamilyFallbackTable(__int64 a1)
 {
   __int64 v1; // rbx

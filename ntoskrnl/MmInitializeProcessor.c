@@ -1,3 +1,20 @@
+/*
+ * XREFs of MmInitializeProcessor @ 0x140A86740
+ * Callers:
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     MiCreateUltraThreadContext @ 0x140244548 (MiCreateUltraThreadContext.c)
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     KeGetProcessorNodeNumber @ 0x1402FC5A0 (KeGetProcessorNodeNumber.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     ExAllocatePoolMm @ 0x14034C1AC (ExAllocatePoolMm.c)
+ *     MiDeleteUltraThreadContext @ 0x14035137C (MiDeleteUltraThreadContext.c)
+ *     MmDeleteProcessor @ 0x14061578C (MmDeleteProcessor.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MmInitializeProcessor(__int64 a1)
 {
   __int64 ProcessorNodeNumber; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlInitializeFileLocks @ 0x140B660E0
+ * Callers:
+ *     FsRtlInitSystem @ 0x140B65B14 (FsRtlInitSystem.c)
+ * Callees:
+ *     ExInitializeNPagedLookasideList @ 0x1403BD370 (ExInitializeNPagedLookasideList.c)
+ *     ExInitializePagedLookasideList @ 0x140787D60 (ExInitializePagedLookasideList.c)
+ */
+
 LIST_ENTRY *FsRtlInitializeFileLocks()
 {
   LIST_ENTRY *result; // rax

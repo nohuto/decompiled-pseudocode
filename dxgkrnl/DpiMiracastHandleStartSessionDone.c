@@ -1,3 +1,19 @@
+/*
+ * XREFs of DpiMiracastHandleStartSessionDone @ 0x1C039AACC
+ * Callers:
+ *     DxgkHandleMiracastEscape @ 0x1C039B7B8 (DxgkHandleMiracastEscape.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiMiracastEtwLogStartMiracastSessionStage @ 0x1C005F33C (DpiMiracastEtwLogStartMiracastSessionStage.c)
+ *     DpiMiracastTearDownAssociation @ 0x1C0060BE0 (DpiMiracastTearDownAssociation.c)
+ *     McTemplateK0qqqz_EtwWriteTransfer @ 0x1C006274C (McTemplateK0qqqz_EtwWriteTransfer.c)
+ *     McTemplateK0qqz_EtwWriteTransfer @ 0x1C006281C (McTemplateK0qqz_EtwWriteTransfer.c)
+ *     TraceLoggingWriteMiracastSessionStart @ 0x1C00668BC (TraceLoggingWriteMiracastSessionStart.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01BA77C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     DpiMiracastBroadcastDeviceStateChange @ 0x1C0399F0C (DpiMiracastBroadcastDeviceStateChange.c)
+ */
+
 __int64 __fastcall DpiMiracastHandleStartSessionDone(char *P, __int64 a2, __int64 a3)
 {
   __int64 v5; // rdx

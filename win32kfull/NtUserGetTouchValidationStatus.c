@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserGetTouchValidationStatus @ 0x1C01D50F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     _GetTouchValidationStatus @ 0x1C01B3AD4 (_GetTouchValidationStatus.c)
+ */
+
 __int64 __fastcall NtUserGetTouchValidationStatus(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int TouchValidationStatus; // ebx

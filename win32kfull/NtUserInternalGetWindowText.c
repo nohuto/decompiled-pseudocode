@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserInternalGetWindowText @ 0x1C00D1530
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?getStrName@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEBAPEAU_LARGE_UNICODE_STRING@@AEAU3@@Z @ 0x1C00D1660 (-getStrName@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEBAPEAU_LARGE_UNICODE_STRING@@AEAU3@@.c)
+ *     DesktopVerifyHeapLargeUnicodeString @ 0x1C00D16C4 (DesktopVerifyHeapLargeUnicodeString.c)
+ *     TextCopy @ 0x1C00D176C (TextCopy.c)
+ */
+
 __int64 __fastcall NtUserInternalGetWindowText(__int64 a1, _WORD *a2, __int64 a3)
 {
   unsigned __int64 v3; // rsi

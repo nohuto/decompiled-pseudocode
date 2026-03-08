@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIBuildPowerResourceRequest @ 0x1C000E0EC
+ * Callers:
+ *     OSNotifyCreatePowerResource @ 0x1C0032A14 (OSNotifyCreatePowerResource.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ */
+
 __int64 __fastcall ACPIBuildPowerResourceRequest(__int64 a1)
 {
   PVOID v2; // rax

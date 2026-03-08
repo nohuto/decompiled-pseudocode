@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIDeviceIrpSystemRequest @ 0x1C001DE48
+ * Callers:
+ *     ACPIRootIrpSetPower @ 0x1C003D4C0 (ACPIRootIrpSetPower.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDeviceIrpForwardRequest @ 0x1C00027E0 (ACPIDeviceIrpForwardRequest.c)
+ *     WPP_RECORDER_SF_qdqss @ 0x1C0009EDC (WPP_RECORDER_SF_qdqss.c)
+ *     ACPIDeviceInitializePowerRequest @ 0x1C001CF98 (ACPIDeviceInitializePowerRequest.c)
+ */
+
 __int64 __fastcall ACPIDeviceIrpSystemRequest(ULONG_PTR a1, IRP *a2, __int64 a3)
 {
   __int64 DeviceExtension; // rax

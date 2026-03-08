@@ -1,3 +1,11 @@
+/*
+ * XREFs of WMultiStringToAscii @ 0x1C0027B30
+ * Callers:
+ *     ReadMultiSzRegistryValueAndCompareId @ 0x1C0027934 (ReadMultiSzRegistryValueAndCompareId.c)
+ * Callees:
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ */
+
 unsigned __int8 __fastcall WMultiStringToAscii(_WORD *a1, unsigned int a2)
 {
   _BYTE *v2; // r10

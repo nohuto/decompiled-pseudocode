@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserRemoveProp @ 0x1C00C6A70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?LockRefactorStagingAssertOwned@@YAXAEBUtagObjLock@@@Z @ 0x1C0101318 (-LockRefactorStagingAssertOwned@@YAXAEBUtagObjLock@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall NtUserRemoveProp(HWND a1, unsigned int a2)
 {
   __int64 v3; // rsi

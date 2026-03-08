@@ -1,3 +1,15 @@
+/*
+ * XREFs of CcSetAdditionalCacheAttributesEx @ 0x1402E1660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcSetAdditionalCacheAttributes @ 0x1402E1770 (CcSetAdditionalCacheAttributes.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall CcSetAdditionalCacheAttributesEx(PFILE_OBJECT FileObject, int a2)
 {
   PSECTION_OBJECT_POINTERS SectionObjectPointer; // rax

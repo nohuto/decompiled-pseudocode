@@ -1,3 +1,14 @@
+/*
+ * XREFs of Crashdump_CommonBufferAcquire @ 0x1C004C0B8
+ * Callers:
+ *     Crashdump_UcxEvtGetDumpData @ 0x1C004D200 (Crashdump_UcxEvtGetDumpData.c)
+ *     Crashdump_EventRing_InitializeForDump @ 0x1C004E46C (Crashdump_EventRing_InitializeForDump.c)
+ *     Crashdump_Endpoint_Initialize @ 0x1C004F014 (Crashdump_Endpoint_Initialize.c)
+ *     Crashdump_UsbDevice_Initialize @ 0x1C0050630 (Crashdump_UsbDevice_Initialize.c)
+ * Callees:
+ *     CommonBuffer_AcquireBuffer @ 0x1C0013038 (CommonBuffer_AcquireBuffer.c)
+ */
+
 __int64 __fastcall Crashdump_CommonBufferAcquire(__int64 a1, int a2, __int64 a3)
 {
   unsigned int v4; // ebp

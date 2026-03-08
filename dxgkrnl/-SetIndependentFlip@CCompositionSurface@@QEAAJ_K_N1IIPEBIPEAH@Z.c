@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetIndependentFlip@CCompositionSurface@@QEAAJ_K_N1IIPEBIPEAH@Z @ 0x1C007C4E4
+ * Callers:
+ *     NtSetCompositionSurfaceIndependentFlipInfo @ 0x1C007B090 (NtSetCompositionSurfaceIndependentFlipInfo.c)
+ * Callees:
+ *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C000D670 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CCompositionSurface::SetIndependentFlip(
         CCompositionSurface *this,
         __int64 a2,

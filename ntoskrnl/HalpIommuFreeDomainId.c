@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpIommuFreeDomainId @ 0x140512F78
+ * Callers:
+ *     HalpIommuFreeDomain @ 0x140512F14 (HalpIommuFreeDomain.c)
+ *     IommupDeviceDisableSvm @ 0x140930CBC (IommupDeviceDisableSvm.c)
+ *     IommupDeviceEnableSvm @ 0x140930DD4 (IommupDeviceEnableSvm.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall HalpIommuFreeDomainId(__int64 a1, unsigned int a2)
 {
   volatile signed __int64 *v4; // rbx

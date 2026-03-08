@@ -1,3 +1,16 @@
+/*
+ * XREFs of BiGetPartitionVhdFilePathFromUnicodeString @ 0x1408300C8
+ * Callers:
+ *     BiGetPartitionVhdFilePath @ 0x140830098 (BiGetPartitionVhdFilePath.c)
+ * Callees:
+ *     ZwDeviceIoControlFile @ 0x1404123F0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     BiTranslateSymbolicLinkFile @ 0x140A5A968 (BiTranslateSymbolicLinkFile.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 ULONG *__fastcall BiGetPartitionVhdFilePathFromUnicodeString(UNICODE_STRING *a1)
 {
   ULONG *v1; // rbx

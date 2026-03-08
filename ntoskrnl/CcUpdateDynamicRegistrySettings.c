@@ -1,3 +1,14 @@
+/*
+ * XREFs of CcUpdateDynamicRegistrySettings @ 0x1403BF3E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     CcQueryRegKeyValue @ 0x1403BF928 (CcQueryRegKeyValue.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall CcUpdateDynamicRegistrySettings(__int64 a1)
 {
   bool v1; // r14

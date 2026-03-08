@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiGetRasterizerCaps @ 0x1C02C5C20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     GreGetRasterizerCaps @ 0x1C02D7760 (GreGetRasterizerCaps.c)
+ */
+
 __int64 __fastcall NtGdiGetRasterizerCaps(char *a1, unsigned int a2)
 {
   __int64 v2; // rsi

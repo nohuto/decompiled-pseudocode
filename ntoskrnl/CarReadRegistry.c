@@ -1,3 +1,13 @@
+/*
+ * XREFs of CarReadRegistry @ 0x1405D332C
+ * Callers:
+ *     CarLoadConfig @ 0x1405D3274 (CarLoadConfig.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlQueryRegistryValuesEx @ 0x14069DF10 (RtlQueryRegistryValuesEx.c)
+ */
+
 __int64 CarReadRegistry()
 {
   size_t *v0; // rcx

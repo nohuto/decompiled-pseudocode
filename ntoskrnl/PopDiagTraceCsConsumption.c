@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopDiagTraceCsConsumption @ 0x14098A384
+ * Callers:
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall PopDiagTraceCsConsumption(int *a1)
 {
   unsigned __int64 v1; // r8

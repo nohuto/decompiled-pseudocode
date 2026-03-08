@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetCollectionLabel@@YAHPEAEKPEAK@Z @ 0x1C01C696C
+ * Callers:
+ *     ?BuildMainItem@@YAHPEAEKPEAKUtagUSAGE_PROPERTIES@@PEAU1@W4_HIDP_REPORT_TYPE@@PEAH1@Z @ 0x1C01C5B84 (-BuildMainItem@@YAHPEAEKPEAKUtagUSAGE_PROPERTIES@@PEAU1@W4_HIDP_REPORT_TYPE@@PEAH1@Z.c)
+ * Callees:
+ *     ?BuildVendorDefinedCL@@YAHPEAEKPEAK@Z @ 0x1C01C6808 (-BuildVendorDefinedCL@@YAHPEAEKPEAK@Z.c)
+ */
+
 __int64 __fastcall SetCollectionLabel(unsigned __int8 *a1, unsigned int a2, unsigned int *a3)
 {
   __int64 v3; // r10

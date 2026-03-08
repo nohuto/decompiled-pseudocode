@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiEnableLargeSubsection @ 0x14063AA00
+ * Callers:
+ *     MiIncrementLargeSubsections @ 0x14063B558 (MiIncrementLargeSubsections.c)
+ * Callees:
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiLockProtoPoolPageForce @ 0x14028331C (MiLockProtoPoolPageForce.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiLockLeafPage @ 0x14034AF20 (MiLockLeafPage.c)
+ *     MiChargeLargeProtoSubsection @ 0x140A30984 (MiChargeLargeProtoSubsection.c)
+ */
+
 __int64 __fastcall MiEnableLargeSubsection(__int64 a1)
 {
   unsigned __int64 v1; // rdi

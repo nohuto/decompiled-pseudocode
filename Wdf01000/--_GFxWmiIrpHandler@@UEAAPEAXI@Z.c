@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_GFxWmiIrpHandler@@UEAAPEAXI@Z @ 0x1C0029B60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxWmiIrpHandler@@UEAA@XZ @ 0x1C0029B20 (--1FxWmiIrpHandler@@UEAA@XZ.c)
+ */
+
 FxWmiIrpHandler *__fastcall FxWmiIrpHandler::`scalar deleting destructor'(FxWmiIrpHandler *this, unsigned int a2)
 {
   char v2; // bl

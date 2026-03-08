@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiLockDriverMappings @ 0x14036C498
+ * Callers:
+ *     MiReserveDriverPtes @ 0x1407F6D70 (MiReserveDriverPtes.c)
+ *     MiReleaseDriverPtes @ 0x1407F74BC (MiReleaseDriverPtes.c)
+ * Callees:
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall MiLockDriverMappings(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rdi

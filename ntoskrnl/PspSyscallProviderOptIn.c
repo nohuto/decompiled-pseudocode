@@ -1,3 +1,20 @@
+/*
+ * XREFs of PspSyscallProviderOptIn @ 0x1409B1F2C
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PspDereferenceSyscallProvider @ 0x1405A27AC (PspDereferenceSyscallProvider.c)
+ *     PspLookupSyscallProviderById @ 0x1405A2870 (PspLookupSyscallProviderById.c)
+ *     PspAttachProcessToSyscallProvider @ 0x1409B18EC (PspAttachProcessToSyscallProvider.c)
+ */
+
 __int64 __fastcall PspSyscallProviderOptIn(__int64 a1, __int64 a2)
 {
   int v4; // ebx

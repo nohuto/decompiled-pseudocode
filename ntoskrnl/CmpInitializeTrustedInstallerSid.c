@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpInitializeTrustedInstallerSid @ 0x140B50A80
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     RtlInitializeSid @ 0x14068E3A0 (RtlInitializeSid.c)
+ *     RtlLengthRequiredSid @ 0x140782B90 (RtlLengthRequiredSid.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 int CmpInitializeTrustedInstallerSid()
 {
   ULONG v0; // eax

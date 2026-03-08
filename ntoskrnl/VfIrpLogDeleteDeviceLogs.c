@@ -1,3 +1,16 @@
+/*
+ * XREFs of VfIrpLogDeleteDeviceLogs @ 0x140AD9750
+ * Callers:
+ *     VfIoDeleteDevice @ 0x140ACF214 (VfIoDeleteDevice.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     ViIrpLogDatabaseFindPointer @ 0x140AD9F58 (ViIrpLogDatabaseFindPointer.c)
+ */
+
 __int64 __fastcall VfIrpLogDeleteDeviceLogs(__int64 a1)
 {
   unsigned __int64 v2; // rdi

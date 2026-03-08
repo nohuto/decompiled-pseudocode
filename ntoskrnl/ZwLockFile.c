@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwLockFile @ 0x140414550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall ZwLockFile(
         HANDLE FileHandle,
         HANDLE Event,

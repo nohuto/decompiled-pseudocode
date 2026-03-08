@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiStoreLogWriteCompleteFailure @ 0x140659DA0
+ * Callers:
+ *     MiStoreModifiedWriteComplete @ 0x14065A174 (MiStoreModifiedWriteComplete.c)
+ * Callees:
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void MiStoreLogWriteCompleteFailure()
 {
   int v0; // edx

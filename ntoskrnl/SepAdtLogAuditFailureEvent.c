@@ -1,3 +1,14 @@
+/*
+ * XREFs of SepAdtLogAuditFailureEvent @ 0x1409C8DA4
+ * Callers:
+ *     SepAdtLogAuditRecord @ 0x140397890 (SepAdtLogAuditRecord.c)
+ *     SepAuditFailed @ 0x1409CEE50 (SepAuditFailed.c)
+ * Callees:
+ *     SepAdtLogAuditRecord @ 0x140397890 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall SepAdtLogAuditFailureEvent(unsigned int a1, char a2)
 {
   __int64 v3; // rdi

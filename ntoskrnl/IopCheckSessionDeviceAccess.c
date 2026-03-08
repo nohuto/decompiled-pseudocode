@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopCheckSessionDeviceAccess @ 0x140555228
+ * Callers:
+ *     IopParseDevice @ 0x1407B6A30 (IopParseDevice.c)
+ * Callees:
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     IopGetSessionIdFromPDO @ 0x1406F72F8 (IopGetSessionIdFromPDO.c)
+ */
+
 bool __fastcall IopCheckSessionDeviceAccess(__int64 a1)
 {
   int SessionId; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiAnyPagesRemovalPending @ 0x14064C4A4
+ * Callers:
+ *     MiInsertLargePageInNodeList @ 0x14031C970 (MiInsertLargePageInNodeList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiAnyPagesRemovalPending(__int64 a1, int a2)
 {
   unsigned __int64 v2; // r8

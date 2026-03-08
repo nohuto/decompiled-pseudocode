@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtMITSetKeyboardOverriderState @ 0x1C016BEE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C007CCB8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
+ *     _anonymous_namespace_::GetKeyboardProcessor @ 0x1C0080388 (_anonymous_namespace_--GetKeyboardProcessor.c)
+ */
+
 __int64 __fastcall NtMITSetKeyboardOverriderState(int a1)
 {
   __int64 v2; // rdx

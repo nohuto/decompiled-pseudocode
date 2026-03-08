@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetManipulationThreadMessageCallSendHost@CManipulationManager@@QEAAJPEAPEAUIMessageCallSendHost@@@Z @ 0x180208C50
+ * Callers:
+ *     ?Push2DVisualTransformToRenderThread@CInteraction@@UEAAJXZ @ 0x180209380 (-Push2DVisualTransformToRenderThread@CInteraction@@UEAAJXZ.c)
+ *     ?_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z @ 0x18020BE3C (-_SendUpdateToRenderThread@CManipulation@@AEAAJ_NPEBUD2DVector3@@1@Z.c)
+ * Callees:
+ *     ?InternalAddRef@?$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ @ 0x1800F1FE0 (-InternalAddRef@-$ComPtr@UIMessageCallSendHost@@@WRL@Microsoft@@IEBAXXZ.c)
+ */
+
 __int64 __fastcall CManipulationManager::GetManipulationThreadMessageCallSendHost(
         CManipulationManager *this,
         struct IMessageCallSendHost **a2)

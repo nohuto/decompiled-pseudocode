@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspSetBackgroundJobTree @ 0x140796978
+ * Callers:
+ *     NtSetInformationJobObject @ 0x1406FC3C0 (NtSetInformationJobObject.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FB7C8 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ */
+
 __int64 __fastcall PspSetBackgroundJobTree(char *Object, char a2)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiGetProcessorInformation @ 0x140398214
+ * Callers:
+ *     KiIntersectFeaturesWithPolicy @ 0x140A8D294 (KiIntersectFeaturesWithPolicy.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall KiGetProcessorInformation(_DWORD *a1, _DWORD *a2, _DWORD *a3, _DWORD *a4)
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeInitializeCrashDumpHeader @ 0x1405524C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoFillDumpHeader @ 0x14054D7C8 (IoFillDumpHeader.c)
+ */
+
 NTSTATUS __stdcall KeInitializeCrashDumpHeader(
         ULONG DumpType,
         ULONG Flags,

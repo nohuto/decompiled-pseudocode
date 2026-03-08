@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIEcDisconnectHandler @ 0x1C0083A80
+ * Callers:
+ *     ACPIEcInternalControl @ 0x1C0083234 (ACPIEcInternalControl.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPIEcDisconnectHandler(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

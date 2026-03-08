@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IncrementCurrentUsage@VIDMM_DEVICE@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C00B4620
+ * Callers:
+ *     ?NotifyAllocationResident@VIDMM_DEVICE@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C00B45AC (-NotifyAllocationResident@VIDMM_DEVICE@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VIDMM_DEVICE::IncrementCurrentUsage(VIDMM_DEVICE *this, __int64 **a2)
 {
   __int64 v2; // r10

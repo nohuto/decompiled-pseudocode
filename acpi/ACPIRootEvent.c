@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIRootEvent @ 0x1C003D000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIInternalEvaluateOST @ 0x1C002E560 (ACPIInternalEvaluateOST.c)
+ *     ACPINotifyOsShutdown @ 0x1C003CCA8 (ACPINotifyOsShutdown.c)
+ */
+
 _UNKNOWN **__fastcall ACPIRootEvent(ULONG_PTR a1, int a2)
 {
   __int64 DeviceExtension; // rax

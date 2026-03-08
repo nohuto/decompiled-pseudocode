@@ -1,3 +1,11 @@
+/*
+ * XREFs of __ascii_strnicmp @ 0x1403D3C1C
+ * Callers:
+ *     _strnicmp @ 0x1403D3C80 (_strnicmp.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall _ascii_strnicmp(unsigned __int8 *a1, unsigned __int8 *a2, __int64 a3)
 {
   __int64 v3; // r10

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?StubDispEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C009E9B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EngFreeMem @ 0x1C002AE00 (EngFreeMem.c)
+ *     EngCreatePalette @ 0x1C009EAD0 (EngCreatePalette.c)
+ *     EngAllocMem @ 0x1C009EBD0 (EngAllocMem.c)
+ *     ?bInitGdiInfo@@YAHPEAU_devicemodeW@@PEAU_GDIINFO@@@Z @ 0x1C009EE28 (-bInitGdiInfo@@YAHPEAU_devicemodeW@@PEAU_GDIINFO@@@Z.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 struct DHPDEV__ *__fastcall StubDispEnablePDEV(
         struct _devicemodeW *a1,
         unsigned __int16 *a2,

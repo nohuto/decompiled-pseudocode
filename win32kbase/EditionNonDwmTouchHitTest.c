@@ -1,3 +1,12 @@
+/*
+ * XREFs of EditionNonDwmTouchHitTest @ 0x1C02719D4
+ * Callers:
+ *     ApiSetEditionNonDwmTouchHitTest @ 0x1C0240C70 (ApiSetEditionNonDwmTouchHitTest.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 _OWORD *__fastcall EditionNonDwmTouchHitTest(_OWORD *a1)
 {
   _OWORD *v2; // rax

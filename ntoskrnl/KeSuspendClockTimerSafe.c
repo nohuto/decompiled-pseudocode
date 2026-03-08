@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeSuspendClockTimerSafe @ 0x14056D500
+ * Callers:
+ *     IopLiveDumpProcessCorralStateChange @ 0x140A99280 (IopLiveDumpProcessCorralStateChange.c)
+ *     PnprQuiesceProcessorDpc @ 0x140A9A400 (PnprQuiesceProcessorDpc.c)
+ *     PnprQuiesceProcessors @ 0x140A9A884 (PnprQuiesceProcessors.c)
+ * Callees:
+ *     ObGetCurrentIrql @ 0x140205E10 (ObGetCurrentIrql.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 KeSuspendClockTimerSafe()
 {
   unsigned __int8 CurrentIrql; // si

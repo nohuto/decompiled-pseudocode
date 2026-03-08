@@ -1,3 +1,16 @@
+/*
+ * XREFs of GetObjectPathNoLock @ 0x1C004BBC8
+ * Callers:
+ *     FindNSObj @ 0x1C004B09C (FindNSObj.c)
+ *     GetObjectPath @ 0x1C004BB70 (GetObjectPath.c)
+ *     GetObjectPathNoLock @ 0x1C004BBC8 (GetObjectPathNoLock.c)
+ * Callees:
+ *     RtlStringCchCopyA @ 0x1C000B07C (RtlStringCchCopyA.c)
+ *     RtlStringCchCatA @ 0x1C003BD94 (RtlStringCchCatA.c)
+ *     RtlStringCchCatNA @ 0x1C003BDE4 (RtlStringCchCatNA.c)
+ *     GetObjectPathNoLock @ 0x1C004BBC8 (GetObjectPathNoLock.c)
+ */
+
 char *__fastcall GetObjectPathNoLock(__int64 a1)
 {
   char *v1; // rbx

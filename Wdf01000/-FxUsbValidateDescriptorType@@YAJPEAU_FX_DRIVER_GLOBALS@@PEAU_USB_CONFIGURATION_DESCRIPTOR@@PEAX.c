@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?FxUsbValidateDescriptorType@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_USB_CONFIGURATION_DESCRIPTOR@@PEAX2J_KW4FxUsbValidateDescriptorOp@@K@Z @ 0x1C005BE68
+ * Callers:
+ *     ?CreateInterfaces@FxUsbDevice@@QEAAJXZ @ 0x1C005CA18 (-CreateInterfaces@FxUsbDevice@@QEAAJXZ.c)
+ *     ?CreateSettings@FxUsbInterface@@QEAAJXZ @ 0x1C005EB4C (-CreateSettings@FxUsbInterface@@QEAAJXZ.c)
+ * Callees:
+ *     ?FxUsbFindDescriptorType@@YAPEAU_USB_COMMON_DESCRIPTOR@@PEAX_K0J@Z @ 0x1C005BD14 (-FxUsbFindDescriptorType@@YAPEAU_USB_COMMON_DESCRIPTOR@@PEAX_K0J@Z.c)
+ *     WPP_IFR_SF_ddiid @ 0x1C005BF34 (WPP_IFR_SF_ddiid.c)
+ */
+
 __int64 __fastcall FxUsbValidateDescriptorType(
         _FX_DRIVER_GLOBALS *FxDriverGlobals,
         _USB_CONFIGURATION_DESCRIPTOR *ConfigDescriptor,

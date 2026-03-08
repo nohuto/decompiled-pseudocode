@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExpPartitionCreatePoolInternal @ 0x1408483B0
+ * Callers:
+ *     ExpPartitionCreatePool @ 0x1408480E8 (ExpPartitionCreatePool.c)
+ *     ExpPartitionInitialize @ 0x1408481F8 (ExpPartitionInitialize.c)
+ *     ExpPartitionCreatePoolDelayed @ 0x1409FDA04 (ExpPartitionCreatePoolDelayed.c)
+ * Callees:
+ *     ExpCreateWorkerThread @ 0x1407DE0C4 (ExpCreateWorkerThread.c)
+ *     ExpWorkQueueInitialize @ 0x140848498 (ExpWorkQueueInitialize.c)
+ *     ExpWorkQueueDestroy @ 0x1409FDC74 (ExpWorkQueueDestroy.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpPartitionCreatePoolInternal(__int64 a1, int a2, int a3, unsigned __int16 *a4, int a5)
 {
   __int64 Pool2; // rbx

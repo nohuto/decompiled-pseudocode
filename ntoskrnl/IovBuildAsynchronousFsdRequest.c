@@ -1,3 +1,12 @@
+/*
+ * XREFs of IovBuildAsynchronousFsdRequest @ 0x140ABE020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     XdvIopBuildAsynchronousFsdRequest @ 0x1405CD700 (XdvIopBuildAsynchronousFsdRequest.c)
+ */
+
 __int64 __fastcall IovBuildAsynchronousFsdRequest(
         __int64 a1,
         __int64 a2,

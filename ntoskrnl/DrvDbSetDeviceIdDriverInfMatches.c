@@ -1,3 +1,20 @@
+/*
+ * XREFs of DrvDbSetDeviceIdDriverInfMatches @ 0x140A69D68
+ * Callers:
+ *     DrvDbSetDeviceIdMappedProperty @ 0x140A6A0FC (DrvDbSetDeviceIdMappedProperty.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     wcschr @ 0x1403D5D90 (wcschr.c)
+ *     wcsncmp @ 0x1403D5ED0 (wcsncmp.c)
+ *     ZwDeleteValueKey @ 0x140413EB0 (ZwDeleteValueKey.c)
+ *     _RegRtlSetValue @ 0x140784FE4 (_RegRtlSetValue.c)
+ *     _PnpCtxRegEnumValue @ 0x140866444 (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1408665AC (_PnpCtxRegQueryInfoKey.c)
+ *     DrvDbSplitDeviceIdDriverInfMatch @ 0x140878AAC (DrvDbSplitDeviceIdDriverInfMatch.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall DrvDbSetDeviceIdDriverInfMatches(__int64 a1, void *a2, const wchar_t *a3)
 {
   const wchar_t *v3; // rsi

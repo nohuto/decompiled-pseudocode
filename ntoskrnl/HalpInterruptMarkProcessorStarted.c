@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpInterruptMarkProcessorStarted @ 0x14037A1D8
+ * Callers:
+ *     HalpInterruptInitializeLocalUnit @ 0x1403786F0 (HalpInterruptInitializeLocalUnit.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall HalpInterruptMarkProcessorStarted(int a1)
 {
   char v2; // bp

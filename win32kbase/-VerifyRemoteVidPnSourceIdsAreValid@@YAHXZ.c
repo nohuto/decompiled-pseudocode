@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VerifyRemoteVidPnSourceIdsAreValid@@YAHXZ @ 0x1C00D280C
+ * Callers:
+ *     DrvUpdateGraphicsDeviceList @ 0x1C001FAC0 (DrvUpdateGraphicsDeviceList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VerifyRemoteVidPnSourceIdsAreValid(__int64 a1)
 {
   unsigned int v1; // ebx

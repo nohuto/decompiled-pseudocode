@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EtwTraceProcessWindowInfoSendUnique@@YAXPEBUtagPROCESS_UIFLAG_MAP@@@Z @ 0x1C01615A8
+ * Callers:
+ *     EtwTraceProcessWindowInfo @ 0x1C009B6E0 (EtwTraceProcessWindowInfo.c)
+ * Callees:
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     McTemplateK0qqmx_EtwWriteTransfer @ 0x1C016671C (McTemplateK0qqmx_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTraceProcessWindowInfoSendUnique(const struct tagPROCESS_UIFLAG_MAP *a1)
 {
   unsigned int v1; // ebx

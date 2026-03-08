@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmGetSessionSchedulingGroupByProcess @ 0x140709CFC
+ * Callers:
+ *     PsQueryCpuQuotaInformation @ 0x1403B1468 (PsQueryCpuQuotaInformation.c)
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ *     PspEstablishDfssHierarchy @ 0x1409AF340 (PspEstablishDfssHierarchy.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MmGetSessionSchedulingGroupByProcess(__int64 a1)
 {
   __int64 v1; // rdx

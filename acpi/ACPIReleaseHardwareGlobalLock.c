@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIReleaseHardwareGlobalLock @ 0x1C00394BC
+ * Callers:
+ *     ACPIReleaseGlobalLock @ 0x1C003937C (ACPIReleaseGlobalLock.c)
+ *     ACPIStartNextGlobalLockRequest @ 0x1C0039504 (ACPIStartNextGlobalLockRequest.c)
+ * Callees:
+ *     WRITE_PM1_CONTROL @ 0x1C0038F24 (WRITE_PM1_CONTROL.c)
+ */
+
 __int64 ACPIReleaseHardwareGlobalLock()
 {
   volatile signed __int32 *v0; // rdx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of ObpCallPostOperationCallbacks @ 0x1408A0D82
+ * Callers:
+ *     ObpCallPreOperationCallbacks @ 0x1406DBEC0 (ObpCallPreOperationCallbacks.c)
+ *     ObpPostInterceptHandleCreate @ 0x1408A0E28 (ObpPostInterceptHandleCreate.c)
+ *     ObpPostInterceptHandleDuplicate @ 0x1408A0EBC (ObpPostInterceptHandleDuplicate.c)
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ObpCallPostOperationCallbacks(__int64 a1, _QWORD *a2)
 {
   _QWORD *v4; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CalcSurfaceSyncRefresh@CFlipToken@@UEAAII@Z @ 0x1C00787B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CFlipToken::CalcSurfaceSyncRefresh(CFlipToken *this, unsigned int a2)
 {
   int v2; // eax

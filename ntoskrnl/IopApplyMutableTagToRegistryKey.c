@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopApplyMutableTagToRegistryKey @ 0x140771C20
+ * Callers:
+ *     IoOpenDriverRegistryKey @ 0x140771840 (IoOpenDriverRegistryKey.c)
+ *     IoOpenDeviceRegistryKey @ 0x140771B00 (IoOpenDeviceRegistryKey.c)
+ *     IoOpenDeviceInterfaceRegistryKey @ 0x1408478E0 (IoOpenDeviceInterfaceRegistryKey.c)
+ * Callees:
+ *     ZwQueryKey @ 0x1404125D0 (ZwQueryKey.c)
+ *     ZwSetInformationKey @ 0x1404157F0 (ZwSetInformationKey.c)
+ */
+
 int __fastcall IopApplyMutableTagToRegistryKey(HANDLE KeyHandle)
 {
   int result; // eax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiComputeImageVadCommitCharge @ 0x140615CBC
+ * Callers:
+ *     MiCheckCommitReleaseFromVad @ 0x1406157F0 (MiCheckCommitReleaseFromVad.c)
+ *     MiComputeCommitChargeForZeroPteRange @ 0x140615C08 (MiComputeCommitChargeForZeroPteRange.c)
+ * Callees:
+ *     MiGetProtoPteAddress @ 0x14031C780 (MiGetProtoPteAddress.c)
+ */
+
 __int64 __fastcall MiComputeImageVadCommitCharge(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 *a4)
 {
   unsigned __int64 v4; // rbx

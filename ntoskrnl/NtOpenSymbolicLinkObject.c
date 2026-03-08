@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtOpenSymbolicLinkObject @ 0x1407563E0
+ * Callers:
+ *     AdtpInitializeDriveLetters @ 0x140841630 (AdtpInitializeDriveLetters.c)
+ *     IopReassignSystemRoot @ 0x140B6CE8C (IopReassignSystemRoot.c)
+ * Callees:
+ *     PsGetCurrentSilo @ 0x1402640A0 (PsGetCurrentSilo.c)
+ *     ObOpenObjectByNameEx @ 0x1406E7F70 (ObOpenObjectByNameEx.c)
+ */
+
 __int64 __fastcall NtOpenSymbolicLinkObject(unsigned __int64 a1, int a2, __int64 a3)
 {
   _QWORD *v5; // rbx

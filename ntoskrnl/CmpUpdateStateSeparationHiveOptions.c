@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpUpdateStateSeparationHiveOptions @ 0x140B95180
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 CmpUpdateStateSeparationHiveOptions()
 {
   _DWORD *v0; // rcx

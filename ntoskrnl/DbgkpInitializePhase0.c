@@ -1,3 +1,15 @@
+/*
+ * XREFs of DbgkpInitializePhase0 @ 0x140B44E78
+ * Callers:
+ *     DbgkInitialize @ 0x140B475E0 (DbgkInitialize.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmSiRWLockInitialize @ 0x14080BCF0 (CmSiRWLockInitialize.c)
+ *     ObCreateObjectType @ 0x14080CB00 (ObCreateObjectType.c)
+ *     DbgkpGetServerSiloState @ 0x14080F9D4 (DbgkpGetServerSiloState.c)
+ *     DbgkpInitializePhase0SiloState @ 0x14080F9F0 (DbgkpInitializePhase0SiloState.c)
+ */
+
 void DbgkpInitializePhase0()
 {
   char *ServerSiloState; // rax

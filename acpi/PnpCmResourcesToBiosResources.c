@@ -1,3 +1,24 @@
+/*
+ * XREFs of PnpCmResourcesToBiosResources @ 0x1C0092820
+ * Callers:
+ *     ACPIInitStartDevice @ 0x1C002DA2C (ACPIInitStartDevice.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C00149A0 (WPP_RECORDER_SF_DD.c)
+ *     PnpiCmResourceToBiosAddress @ 0x1C0092F0C (PnpiCmResourceToBiosAddress.c)
+ *     PnpiCmResourceToBiosAddressDouble @ 0x1C0092FF8 (PnpiCmResourceToBiosAddressDouble.c)
+ *     PnpiCmResourceToBiosAddressQuad @ 0x1C00930C8 (PnpiCmResourceToBiosAddressQuad.c)
+ *     PnpiCmResourceToBiosDma @ 0x1C0093178 (PnpiCmResourceToBiosDma.c)
+ *     PnpiCmResourceToBiosExtendedIrq @ 0x1C00931F4 (PnpiCmResourceToBiosExtendedIrq.c)
+ *     PnpiCmResourceToBiosGpioInterruptIoDescriptor @ 0x1C00932D0 (PnpiCmResourceToBiosGpioInterruptIoDescriptor.c)
+ *     PnpiCmResourceToBiosIoFixedPort @ 0x1C009332C (PnpiCmResourceToBiosIoFixedPort.c)
+ *     PnpiCmResourceToBiosIoPort @ 0x1C0093384 (PnpiCmResourceToBiosIoPort.c)
+ *     PnpiCmResourceToBiosIrq @ 0x1C00933F4 (PnpiCmResourceToBiosIrq.c)
+ *     PnpiCmResourceToBiosMemory @ 0x1C009349C (PnpiCmResourceToBiosMemory.c)
+ *     PnpiCmResourceToBiosMemory32Fixed @ 0x1C0093518 (PnpiCmResourceToBiosMemory32Fixed.c)
+ */
+
 __int64 __fastcall PnpCmResourcesToBiosResources(__int64 a1, __int64 a2, unsigned __int8 *a3, unsigned int a4)
 {
   unsigned __int8 v4; // r14

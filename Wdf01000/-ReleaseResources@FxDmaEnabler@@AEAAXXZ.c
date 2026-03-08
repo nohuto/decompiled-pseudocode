@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReleaseResources@FxDmaEnabler@@AEAAXXZ @ 0x1C001BC1C
+ * Callers:
+ *     ?Dispose@FxDmaEnabler@@UEAAEXZ @ 0x1C001B240 (-Dispose@FxDmaEnabler@@UEAAEXZ.c)
+ *     ?Initialize@FxDmaEnabler@@QEAAJPEAU_WDF_DMA_ENABLER_CONFIG@@PEAVFxDeviceBase@@@Z @ 0x1C001B2B0 (-Initialize@FxDmaEnabler@@QEAAJPEAU_WDF_DMA_ENABLER_CONFIG@@PEAVFxDeviceBase@@@Z.c)
+ * Callees:
+ *     ?FreeResources@FxDmaEnabler@@AEAAXPEAU_FxDmaDescription@@@Z @ 0x1C001B27C (-FreeResources@FxDmaEnabler@@AEAAXPEAU_FxDmaDescription@@@Z.c)
+ */
+
 void __fastcall FxDmaEnabler::ReleaseResources(FxDmaEnabler *this)
 {
   FxDmaEnabler *v2; // rcx

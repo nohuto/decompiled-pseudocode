@@ -1,3 +1,12 @@
+/*
+ * XREFs of WmipDoFindRegEntryByDevice @ 0x1403BC6C4
+ * Callers:
+ *     IoWMIDeviceObjectToProviderId @ 0x1403BC5D0 (IoWMIDeviceObjectToProviderId.c)
+ *     WmipFindRegEntryByDevice @ 0x1403BC634 (WmipFindRegEntryByDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 int *__fastcall WmipDoFindRegEntryByDevice(void *a1)
 {
   int *result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SendResponse@VisualCaptureBitsResponse@@UEAAJJ@Z @ 0x18001CCF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VisualCaptureBitsResponse::SendResponse(HANDLE *this)
 {
   if ( !*((_BYTE *)this + 1704) )

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?CaptureUsermodeParameters@QueryGlyphMetricsPlusBitsRequest@@UEAAXPEAX@Z @ 0x1C011DBE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CaptureUsermodeFontObj@FontDriverDdiRequest@@KA_NPEAU_FONTOBJ@@0@Z @ 0x1C011E140 (-CaptureUsermodeFontObj@FontDriverDdiRequest@@KA_NPEAU_FONTOBJ@@0@Z.c)
+ *     ?ValidateGlyphBitsBuffer@@YA_NKJJKK@Z @ 0x1C011E160 (-ValidateGlyphBitsBuffer@@YA_NKJJKK@Z.c)
+ *     FONTOBJ_AdvanceGlyphCacheBuffer @ 0x1C01303C8 (FONTOBJ_AdvanceGlyphCacheBuffer.c)
+ *     FONTOBJ_bEnsureGlyphCacheBuffer @ 0x1C0130428 (FONTOBJ_bEnsureGlyphCacheBuffer.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 void __fastcall QueryGlyphMetricsPlusBitsRequest::CaptureUsermodeParameters(
         QueryGlyphMetricsPlusBitsRequest *this,
         _QWORD *a2)

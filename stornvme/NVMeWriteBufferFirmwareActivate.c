@@ -1,3 +1,15 @@
+/*
+ * XREFs of NVMeWriteBufferFirmwareActivate @ 0x1C00180C8
+ * Callers:
+ *     ScsiToNVMe @ 0x1C00010C0 (ScsiToNVMe.c)
+ *     NVMeWriteBufferFirmwareActivateCompletion @ 0x1C00181D0 (NVMeWriteBufferFirmwareActivateCompletion.c)
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     IsFirmwareActivateWithoutResetEnabled @ 0x1C0014AC4 (IsFirmwareActivateWithoutResetEnabled.c)
+ *     NVMeSetSenseData @ 0x1C0024238 (NVMeSetSenseData.c)
+ */
+
 __int64 __fastcall NVMeWriteBufferFirmwareActivate(__int64 a1, __int64 a2)
 {
   unsigned int v3; // edi

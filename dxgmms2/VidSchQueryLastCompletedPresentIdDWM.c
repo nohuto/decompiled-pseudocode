@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchQueryLastCompletedPresentIdDWM @ 0x1C0016230
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall VidSchQueryLastCompletedPresentIdDWM(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 v5; // r14

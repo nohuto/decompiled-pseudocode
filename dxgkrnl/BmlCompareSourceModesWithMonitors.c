@@ -1,3 +1,16 @@
+/*
+ * XREFs of BmlCompareSourceModesWithMonitors @ 0x1C0170E88
+ * Callers:
+ *     BmlGetNextBestSourceMode @ 0x1C01706B0 (BmlGetNextBestSourceMode.c)
+ *     BmlCompareSourceModes @ 0x1C03B86F4 (BmlCompareSourceModes.c)
+ * Callees:
+ *     ??$DIFF@H@@YAHHH@Z @ 0x1C00028F0 (--$DIFF@H@@YAHHH@Z.c)
+ *     ?BmlGetScaledAspectRatio@@YAHAEBU_D3DKMDT_2DREGION@@@Z @ 0x1C0170E38 (-BmlGetScaledAspectRatio@@YAHAEBU_D3DKMDT_2DREGION@@@Z.c)
+ *     ??$BmlCompareValues@H@@YA?AW4BML_COMPARISON_RESULT@@HH@Z @ 0x1C0170E6C (--$BmlCompareValues@H@@YA-AW4BML_COMPARISON_RESULT@@HH@Z.c)
+ *     BmlGetModeCategoryForRegion @ 0x1C017104C (BmlGetModeCategoryForRegion.c)
+ *     ??$BmlCompareValues@I@@YA?AW4BML_COMPARISON_RESULT@@II@Z @ 0x1C0171118 (--$BmlCompareValues@I@@YA-AW4BML_COMPARISON_RESULT@@II@Z.c)
+ */
+
 __int64 __fastcall BmlCompareSourceModesWithMonitors(
         __int64 a1,
         unsigned __int16 a2,

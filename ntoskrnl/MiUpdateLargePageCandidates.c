@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiUpdateLargePageCandidates @ 0x1403718A8
+ * Callers:
+ *     MiInitializeRebuildCandidateCounts @ 0x140B3C420 (MiInitializeRebuildCandidateCounts.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiUpdateLargePageCandidates(unsigned __int64 a1, int a2, __int64 a3)
 {
   __int64 v4; // r9

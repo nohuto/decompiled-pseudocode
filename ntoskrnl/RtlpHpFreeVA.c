@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlpHpFreeVA @ 0x14020DC8C
+ * Callers:
+ *     RtlpHpSegMgrCommit @ 0x140248BE0 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpLargeFree @ 0x1402B6B40 (RtlpHpLargeFree.c)
+ *     RtlpHpLargeAlloc @ 0x1402B6D70 (RtlpHpLargeAlloc.c)
+ *     RtlpHpSegMgrReserve @ 0x1403085F4 (RtlpHpSegMgrReserve.c)
+ *     RtlpHpSegMgrRelease @ 0x140308F28 (RtlpHpSegMgrRelease.c)
+ *     RtlpHpHeapAllocate @ 0x140375668 (RtlpHpHeapAllocate.c)
+ *     RtlpHpHeapDestroy @ 0x1405B4210 (RtlpHpHeapDestroy.c)
+ *     RtlpHpLargeAllocationDestroy @ 0x1405B4EA0 (RtlpHpLargeAllocationDestroy.c)
+ * Callees:
+ *     RtlpHpEnvFreeVA @ 0x14020DD14 (RtlpHpEnvFreeVA.c)
+ *     RtlpHpVaMgrCtxFree @ 0x14030BD10 (RtlpHpVaMgrCtxFree.c)
+ */
+
 __int64 __fastcall RtlpHpFreeVA(unsigned __int64 *a1, unsigned __int64 *a2, int a3, _OWORD *a4)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MmGetSessionLocaleId @ 0x1407ED514
+ * Callers:
+ *     NtQueryDefaultLocale @ 0x14077BC50 (NtQueryDefaultLocale.c)
+ *     PspUserThreadStartup @ 0x1407ED430 (PspUserThreadStartup.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 MmGetSessionLocaleId()
 {
   _KPROCESS *Process; // rcx

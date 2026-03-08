@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?pvFindResource@@YAPEAXPEAX0HHPEAK@Z @ 0x1C00DD128
+ * Callers:
+ *     ?LOADSTRING@@YAHPEAXIPEAGH@Z @ 0x1C00BA838 (-LOADSTRING@@YAHPEAXIPEAGH@Z.c)
+ *     cParseFontResources @ 0x1C00BC934 (cParseFontResources.c)
+ *     EngFindResource @ 0x1C027BF40 (EngFindResource.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall pvFindResource(void *a1, unsigned __int64 a2, int a3, int a4, unsigned int *a5)
 {
   unsigned int v6; // ecx

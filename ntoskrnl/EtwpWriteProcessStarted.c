@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpWriteProcessStarted @ 0x1406BF738
+ * Callers:
+ *     EtwTraceProcess @ 0x1407E93B4 (EtwTraceProcess.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x140244050 (_tlgCreate1Sz_wchar_t.c)
+ *     PsGetProcessSessionId @ 0x140299380 (PsGetProcessSessionId.c)
+ *     PsGetProcessStartKey @ 0x1402993E0 (PsGetProcessStartKey.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MmGetSessionCreateTime @ 0x14071D7B0 (MmGetSessionCreateTime.c)
+ */
+
 char __fastcall EtwpWriteProcessStarted(__int64 a1, int *a2, __int64 a3, unsigned __int16 *a4, unsigned __int8 **a5)
 {
   __int64 v5; // rax

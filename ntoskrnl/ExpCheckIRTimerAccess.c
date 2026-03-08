@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpCheckIRTimerAccess @ 0x1407F8E70
+ * Callers:
+ *     NtCreateTimer2 @ 0x14068A750 (NtCreateTimer2.c)
+ * Callees:
+ *     RtlCheckTokenMembership @ 0x1402BDFD0 (RtlCheckTokenMembership.c)
+ *     ExCheckValidIRTimerId @ 0x14036D670 (ExCheckValidIRTimerId.c)
+ *     ExpCheckWakeTimerAccess @ 0x1407F8F28 (ExpCheckWakeTimerAccess.c)
+ */
+
 __int64 __fastcall ExpCheckIRTimerAccess(int a1, char a2)
 {
   __int64 v3; // r8

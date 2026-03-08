@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EmitAlphaMode@CRemoteAppRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0264500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_6e0847bf149581c1678fb005c039fc07___ @ 0x1C0264480 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_6e0847bf149581c1678fb005c039fc0.c)
+ */
+
 char __fastcall DirectComposition::CRemoteAppRenderTargetMarshaler::EmitAlphaMode(
         DirectComposition::CRemoteAppRenderTargetMarshaler *this,
         struct DirectComposition::CBatch ***a2)

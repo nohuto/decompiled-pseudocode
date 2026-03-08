@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreLockVisRgnWithDmcLockAcquiredEx @ 0x1C0197570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0049800 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     EngAcquireSemaphore @ 0x1C004B690 (EngAcquireSemaphore.c)
+ */
+
 __int64 __fastcall GreLockVisRgnWithDmcLockAcquiredEx(__int64 a1)
 {
   __int64 v1; // rbx

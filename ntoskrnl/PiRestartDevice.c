@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiRestartDevice @ 0x1408608D0
+ * Callers:
+ *     PnpDeviceActionWorker @ 0x140203020 (PnpDeviceActionWorker.c)
+ * Callees:
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     PipProcessDevNodeTree @ 0x1406CCD80 (PipProcessDevNodeTree.c)
+ *     PnpRestartDeviceNode @ 0x140955D4C (PnpRestartDeviceNode.c)
+ */
+
 __int64 __fastcall PiRestartDevice(__int64 a1)
 {
   __int64 v2; // rbx

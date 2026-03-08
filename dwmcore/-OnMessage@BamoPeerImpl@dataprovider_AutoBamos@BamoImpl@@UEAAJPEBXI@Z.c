@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?OnMessage@BamoPeerImpl@dataprovider_AutoBamos@BamoImpl@@UEAAJPEBXI@Z @ 0x1800FEBF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B44D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?TrackError@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJJI@Z @ 0x1801B89E0 (-TrackError@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJJI@Z.c)
+ */
+
 __int64 __fastcall BamoImpl::dataprovider_AutoBamos::BamoPeerImpl::OnMessage(
         BamoImpl::dataprovider_AutoBamos::BamoPeerImpl *this,
         const void *a2)

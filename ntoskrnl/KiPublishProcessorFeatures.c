@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiPublishProcessorFeatures @ 0x140B71D38
+ * Callers:
+ *     KiSetProcessorSignature @ 0x140A8B504 (KiSetProcessorSignature.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiPublishProcessorFeatures(__int64 a1)
 {
   __int16 v1; // r8

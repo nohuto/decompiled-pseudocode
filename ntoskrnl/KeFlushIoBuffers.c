@@ -1,3 +1,23 @@
+/*
+ * XREFs of KeFlushIoBuffers @ 0x1402DCDE0
+ * Callers:
+ *     HalFlushDmaBuffer @ 0x140454880 (HalFlushDmaBuffer.c)
+ *     HalpDmaFlushDriverMdl @ 0x1404FDB64 (HalpDmaFlushDriverMdl.c)
+ *     HalpDmaFlushBuffer @ 0x14050E7A0 (HalpDmaFlushBuffer.c)
+ *     HalpDmaFlushBufferWithEmergencyResources @ 0x14050E9D8 (HalpDmaFlushBufferWithEmergencyResources.c)
+ *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x14050F0B4 (HalpDmaSyncMapBuffersWithEmergencyResources.c)
+ *     HalpFlushMapBuffers @ 0x14050F610 (HalpFlushMapBuffers.c)
+ *     ViMapDoubleBuffer @ 0x140AC678C (ViMapDoubleBuffer.c)
+ * Callees:
+ *     EtwGetKernelTraceTimestamp @ 0x140250530 (EtwGetKernelTraceTimestamp.c)
+ *     KeInvalidateAllCaches @ 0x1403010D0 (KeInvalidateAllCaches.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiFlushRangeAllCaches @ 0x14056FBF0 (KiFlushRangeAllCaches.c)
+ *     EtwTraceCpuCacheFlush @ 0x1405FA4BC (EtwTraceCpuCacheFlush.c)
+ */
+
 char __fastcall KeFlushIoBuffers(ULONG_PTR BugCheckParameter4, char a2, char a3, __int64 a4)
 {
   PVOID v4; // rax

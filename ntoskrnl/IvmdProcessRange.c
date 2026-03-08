@@ -1,3 +1,11 @@
+/*
+ * XREFs of IvmdProcessRange @ 0x14052F278
+ * Callers:
+ *     HsaProcessIvmd @ 0x14052E53C (HsaProcessIvmd.c)
+ * Callees:
+ *     ExtEnvAllocateMemory @ 0x14037C828 (ExtEnvAllocateMemory.c)
+ */
+
 __int64 __fastcall IvmdProcessRange(unsigned __int64 a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   _QWORD *v4; // rax

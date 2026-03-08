@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiInsertLargeUserMapping @ 0x140666510
+ * Callers:
+ *     MiCommitExistingVad @ 0x140320D70 (MiCommitExistingVad.c)
+ *     MiMapUserLargePages @ 0x1406667E0 (MiMapUserLargePages.c)
+ * Callees:
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiIncreaseUsedPtesCount @ 0x14029F850 (MiIncreaseUsedPtesCount.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiGetUsedPtesHandle @ 0x140346CA0 (MiGetUsedPtesHandle.c)
+ *     MiInitializeLargeUserBasePfn @ 0x140666480 (MiInitializeLargeUserBasePfn.c)
+ */
+
 unsigned __int64 __fastcall MiInsertLargeUserMapping(
         __int64 a1,
         unsigned __int64 a2,

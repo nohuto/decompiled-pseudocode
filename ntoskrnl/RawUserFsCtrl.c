@@ -1,3 +1,17 @@
+/*
+ * XREFs of RawUserFsCtrl @ 0x14087D8B4
+ * Callers:
+ *     RawFileSystemControl @ 0x1406F36F8 (RawFileSystemControl.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     RawBeginOperation @ 0x14028DCD8 (RawBeginOperation.c)
+ *     RawEndOperation @ 0x14028E08C (RawEndOperation.c)
+ *     ExWaitForRundownProtectionReleaseCacheAware @ 0x14028E0C0 (ExWaitForRundownProtectionReleaseCacheAware.c)
+ *     FsRtlNotifyVolumeEvent @ 0x1408722A0 (FsRtlNotifyVolumeEvent.c)
+ *     RawQueryFileSystemInformation @ 0x1409B58F4 (RawQueryFileSystemInformation.c)
+ */
+
 __int64 __fastcall RawUserFsCtrl(__int64 a1, __int64 a2, __int64 a3)
 {
   int v3; // ebp

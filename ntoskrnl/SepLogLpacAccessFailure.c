@@ -1,3 +1,17 @@
+/*
+ * XREFs of SepLogLpacAccessFailure @ 0x1405B5948
+ * Callers:
+ *     SepCommonAccessCheckEx @ 0x140206FC0 (SepCommonAccessCheckEx.c)
+ *     SeAccessCheckWithHint @ 0x1402653A0 (SeAccessCheckWithHint.c)
+ *     SeAccessCheckByType @ 0x14033BB40 (SeAccessCheckByType.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1406973E0 (SepAccessCheckAndAuditAlarm.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SepGetStackTraceHash @ 0x1405B581C (SepGetStackTraceHash.c)
+ *     DbgkQueueUserExceptionReport @ 0x14093679C (DbgkQueueUserExceptionReport.c)
+ *     EtwTraceLpacAccessFailure @ 0x1409EA2C4 (EtwTraceLpacAccessFailure.c)
+ */
+
 __int64 SepLogLpacAccessFailure()
 {
   ULONG v0; // ebx

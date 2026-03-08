@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiLocateKernelSections @ 0x140B5DE44
+ * Callers:
+ *     MiInitializeLoadedModuleList @ 0x140B5D84C (MiInitializeLoadedModuleList.c)
+ * Callees:
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ */
+
 __int64 __fastcall MiLocateKernelSections(__int64 a1)
 {
   __int64 v1; // rbx

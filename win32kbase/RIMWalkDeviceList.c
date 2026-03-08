@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMWalkDeviceList @ 0x1C01A0C30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall RIMWalkDeviceList(__int64 a1, void (__fastcall *a2)(_QWORD *, __int64), __int64 a3, __int64 a4)
 {
   __int64 v6; // rax

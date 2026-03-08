@@ -1,3 +1,21 @@
+/*
+ * XREFs of PoFxSendSystemLatencyUpdate @ 0x1402D1FF0
+ * Callers:
+ *     PoNotifyVSyncChange @ 0x1402D1CA0 (PoNotifyVSyncChange.c)
+ *     PopDeepSleepEvaluateCallback @ 0x140595FC0 (PopDeepSleepEvaluateCallback.c)
+ *     PopCheckResiliencyScenarios @ 0x14073AF4C (PopCheckResiliencyScenarios.c)
+ *     PopWnfFullscreenVideoCallback @ 0x140981610 (PopWnfFullscreenVideoCallback.c)
+ *     PopEnforceResiliencyScenarios @ 0x140991238 (PopEnforceResiliencyScenarios.c)
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     KeFlushProcessWriteBuffers @ 0x1402373CC (KeFlushProcessWriteBuffers.c)
+ *     PopFxGetLatencyLimitWithoutResiliency @ 0x1402D207C (PopFxGetLatencyLimitWithoutResiliency.c)
+ *     PpmGetExitSamplingCountdown @ 0x1402D20B4 (PpmGetExitSamplingCountdown.c)
+ *     PpmIdleUsingStateSelection @ 0x1402D20E0 (PpmIdleUsingStateSelection.c)
+ *     PopDiagTraceSystemLatencyUpdate @ 0x1402D2140 (PopDiagTraceSystemLatencyUpdate.c)
+ *     PoFxSystemLatencyNotify @ 0x1402D21B4 (PoFxSystemLatencyNotify.c)
+ */
+
 __int64 PoFxSendSystemLatencyUpdate()
 {
   unsigned int LatencyLimitWithoutResiliency; // ebx

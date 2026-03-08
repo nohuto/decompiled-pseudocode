@@ -1,3 +1,13 @@
+/*
+ * XREFs of McTemplateK0zq_EtwWriteTransfer @ 0x1403D07E8
+ * Callers:
+ *     PiProcessDeviceResetAction @ 0x14055DCD8 (PiProcessDeviceResetAction.c)
+ *     PiLogSurpriseRemoveEvent @ 0x14087FF28 (PiLogSurpriseRemoveEvent.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1403BE3A0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0zq_EtwWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

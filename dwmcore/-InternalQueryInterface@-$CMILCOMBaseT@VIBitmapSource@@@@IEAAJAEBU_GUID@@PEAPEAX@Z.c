@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?InternalQueryInterface@?$CMILCOMBaseT@VIBitmapSource@@@@IEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800F70B0
+ * Callers:
+ *     ?QueryInterface@CWICBitmapWrapper@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800F70A0 (-QueryInterface@CWICBitmapWrapper@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?QueryInterface@?$CMILCOMBaseT@VIBitmapSource@@@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802B8F04 (-QueryInterface@-$CMILCOMBaseT@VIBitmapSource@@@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CMILCOMBaseT<IBitmapSource>::InternalQueryInterface(_QWORD *a1, _QWORD *a2, __int64 *a3)
 {
   int v5; // esi

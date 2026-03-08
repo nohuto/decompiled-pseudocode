@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopPowerAggregatorSetCurrentState @ 0x140879638
+ * Callers:
+ *     PopPowerAggregatorActiveToScreenOffStateHandler @ 0x140879490 (PopPowerAggregatorActiveToScreenOffStateHandler.c)
+ *     PopPowerAggregatorEnterScreenOff @ 0x140879524 (PopPowerAggregatorEnterScreenOff.c)
+ *     PopPowerAggregatorDisplayPoweringOnStateHandler @ 0x140990660 (PopPowerAggregatorDisplayPoweringOnStateHandler.c)
+ *     PopPowerAggregatorEngageModernStandby @ 0x140990734 (PopPowerAggregatorEngageModernStandby.c)
+ *     PopPowerAggregatorScreenOffActiveToActiveStateHandler @ 0x140990E50 (PopPowerAggregatorScreenOffActiveToActiveStateHandler.c)
+ *     PopPowerAggregatorScreenOffExitStateHandler @ 0x140990EA0 (PopPowerAggregatorScreenOffExitStateHandler.c)
+ *     PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x140990FE0 (PopPowerAggregatorSystemTransitionEnterStateHandler.c)
+ *     PopPowerAggregatorSystemTransitionExitStateHandler @ 0x140991090 (PopPowerAggregatorSystemTransitionExitStateHandler.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopPowerAggregatorAllocateLogEntry @ 0x140757580 (PopPowerAggregatorAllocateLogEntry.c)
+ *     PopPowerAggregatorDiagTraceEvent @ 0x1407577FC (PopPowerAggregatorDiagTraceEvent.c)
+ */
+
 __int64 __fastcall PopPowerAggregatorSetCurrentState(__int64 a1, __int64 a2)
 {
   int v2; // eax

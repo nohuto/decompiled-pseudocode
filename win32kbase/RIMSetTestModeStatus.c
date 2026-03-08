@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMSetTestModeStatus @ 0x1C01A0BE0
+ * Callers:
+ *     NtRIMSetTestModeStatus @ 0x1C01A2B80 (NtRIMSetTestModeStatus.c)
+ * Callees:
+ *     RIMSyncWalkRimObjList @ 0x1C00BDC0C (RIMSyncWalkRimObjList.c)
+ */
+
 __int64 __fastcall RIMSetTestModeStatus(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // edi

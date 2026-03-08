@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiSetInProcessPriorityContext @ 0x1C0018034
+ * Callers:
+ *     VidSchSetInProcessPriorityContext @ 0x1C00B4730 (VidSchSetInProcessPriorityContext.c)
+ * Callees:
+ *     McTemplateK0pdd_EtwWriteTransfer @ 0x1C0037D80 (McTemplateK0pdd_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall VidSchiSetInProcessPriorityContext(__int64 a1, int a2)
 {
   __int64 v4; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FxCalculateTotalMultiSzStringSize@@YA_KPEBG@Z @ 0x1C004F364
+ * Callers:
+ *     ?_PnpQueryId@FxPkgPdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z @ 0x1C0069A00 (-_PnpQueryId@FxPkgPdo@@CAJPEAVFxPkgPnp@@PEAVFxIrp@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FxCalculateTotalMultiSzStringSize(const wchar_t *MultiSz)
 {
   __int64 v1; // rdx

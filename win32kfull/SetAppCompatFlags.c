@@ -1,3 +1,18 @@
+/*
+ * XREFs of SetAppCompatFlags @ 0x1C001F6C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IsCurrentDesktopComposed @ 0x1C001FD80 (IsCurrentDesktopComposed.c)
+ *     SetAppImeCompatFlags @ 0x1C001FDB0 (SetAppImeCompatFlags.c)
+ *     WPP_RECORDER_AND_TRACE_SF_DS @ 0x1C001FEDC (WPP_RECORDER_AND_TRACE_SF_DS.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x1C012BEC0 (__report_rangecheckfailure.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ?TraceLoggingGDIScaledAppEvent@@YAXXZ @ 0x1C0204680 (-TraceLoggingGDIScaledAppEvent@@YAXXZ.c)
+ */
+
 __int64 __fastcall SetAppCompatFlags(_QWORD *a1)
 {
   PEPROCESS ThreadProcess; // rax

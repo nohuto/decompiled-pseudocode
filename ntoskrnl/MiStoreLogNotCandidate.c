@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiStoreLogNotCandidate @ 0x140465332
+ * Callers:
+ *     MiStoreWriteModifiedPages @ 0x14046554A (MiStoreWriteModifiedPages.c)
+ * Callees:
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall MiStoreLogNotCandidate(int a1)
 {
   __int64 v1; // r8

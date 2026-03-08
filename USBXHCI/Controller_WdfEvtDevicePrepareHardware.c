@@ -1,3 +1,30 @@
+/*
+ * XREFs of Controller_WdfEvtDevicePrepareHardware @ 0x1C0072A30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Debug_FreAssertMsg @ 0x1C000880C (Debug_FreAssertMsg.c)
+ *     Controller_IsSecureDevice @ 0x1C000B0F8 (Controller_IsSecureDevice.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     RtlUnicodeStringPrintf @ 0x1C001A488 (RtlUnicodeStringPrintf.c)
+ *     XilDeviceSlot_PrepareHardware @ 0x1C001C9B0 (XilDeviceSlot_PrepareHardware.c)
+ *     Controller_AllocateIrqlTrackingArray @ 0x1C001E644 (Controller_AllocateIrqlTrackingArray.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_DeallocateIrqlTrackingArray @ 0x1C0032D9C (Controller_DeallocateIrqlTrackingArray.c)
+ *     SleepstudyHelper_GenerateGuid @ 0x1C0054D38 (SleepstudyHelper_GenerateGuid.c)
+ *     RootHub_PrepareHardware @ 0x1C00706C0 (RootHub_PrepareHardware.c)
+ *     Interrupter_PrepareHardware @ 0x1C0072C28 (Interrupter_PrepareHardware.c)
+ *     Command_PrepareHardware @ 0x1C0072DA0 (Command_PrepareHardware.c)
+ *     CommonBuffer_Create @ 0x1C0072F2C (CommonBuffer_Create.c)
+ *     DmaEnabler_Create @ 0x1C0073140 (DmaEnabler_Create.c)
+ *     Register_PrepareHardware @ 0x1C0073388 (Register_PrepareHardware.c)
+ *     SecureDmaEnabler_Create @ 0x1C007A8F4 (SecureDmaEnabler_Create.c)
+ *     SleepstudyHelper_RegisterComponentEx @ 0x1C007B96C (SleepstudyHelper_RegisterComponentEx.c)
+ */
+
 __int64 __fastcall Controller_WdfEvtDevicePrepareHardware(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v5; // esi

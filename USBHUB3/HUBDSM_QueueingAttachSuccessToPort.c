@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_QueueingAttachSuccessToPort @ 0x1C001FB60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBDSM_QueueingAttachSuccessToPort(__int64 a1)
 {
   __int64 v1; // rbx

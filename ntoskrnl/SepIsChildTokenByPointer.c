@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepIsChildTokenByPointer @ 0x1407762B8
+ * Callers:
+ *     SeIsTokenAssignableToProcess @ 0x140776104 (SeIsTokenAssignableToProcess.c)
+ * Callees:
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ */
+
 __int64 __fastcall SepIsChildTokenByPointer(__int64 a1, _BYTE *a2)
 {
   struct _KTHREAD *CurrentThread; // rax

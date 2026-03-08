@@ -1,3 +1,15 @@
+/*
+ * XREFs of ComputeChecksum @ 0x1C0019A58
+ * Callers:
+ *     ComputeHTCell @ 0x1C0019464 (ComputeHTCell.c)
+ *     HT_CreateDeviceHalftoneInfo @ 0x1C00195AC (HT_CreateDeviceHalftoneInfo.c)
+ *     CacheRGBToXYZ @ 0x1C0256490 (CacheRGBToXYZ.c)
+ *     ComputeRGBLUTAA @ 0x1C0257424 (ComputeRGBLUTAA.c)
+ *     CreateDyesColorMappingTable @ 0x1C0257C98 (CreateDyesColorMappingTable.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ComputeChecksum(char *a1, unsigned int a2, unsigned int a3)
 {
   unsigned int v3; // r9d

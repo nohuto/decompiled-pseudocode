@@ -1,3 +1,11 @@
+/*
+ * XREFs of rimExtractFrameInfoAndAbandonIncompleteFrame @ 0x1C00F1544
+ * Callers:
+ *     rimDoProcessAnyPointerDeviceInput @ 0x1C01D6420 (rimDoProcessAnyPointerDeviceInput.c)
+ * Callees:
+ *     rimExtractParallelFrameInfoAndAbandonIncompleteFrame @ 0x1C01D724C (rimExtractParallelFrameInfoAndAbandonIncompleteFrame.c)
+ */
+
 __int64 __fastcall rimExtractFrameInfoAndAbandonIncompleteFrame(
         int a1,
         __int64 a2,

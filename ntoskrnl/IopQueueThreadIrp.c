@@ -1,3 +1,31 @@
+/*
+ * XREFs of IopQueueThreadIrp @ 0x140312720
+ * Callers:
+ *     IoAsynchronousPageWrite @ 0x1402FE3CC (IoAsynchronousPageWrite.c)
+ *     IoQueueThreadIrp @ 0x1403C1860 (IoQueueThreadIrp.c)
+ *     IopSynchronousCall @ 0x14069DD78 (IopSynchronousCall.c)
+ *     NtQueryInformationFile @ 0x1406EAEB0 (NtQueryInformationFile.c)
+ *     IopFilterResourceRequirementsCall @ 0x1406F6A4C (IopFilterResourceRequirementsCall.c)
+ *     IopQueryXxxInformation @ 0x14071E6CC (IopQueryXxxInformation.c)
+ *     IopGetFileInformation @ 0x14072054C (IopGetFileInformation.c)
+ *     IopGetSetSecurityObject @ 0x14074EA70 (IopGetSetSecurityObject.c)
+ *     IopParseDevice @ 0x1407B6A30 (IopParseDevice.c)
+ *     IopCloseFile @ 0x1407BACE0 (IopCloseFile.c)
+ *     IopDeleteFile @ 0x1407BAF80 (IopDeleteFile.c)
+ *     IopSynchronousServiceTail @ 0x1407C33C0 (IopSynchronousServiceTail.c)
+ *     IopBuildSynchronousFsdRequest @ 0x1407F8DE0 (IopBuildSynchronousFsdRequest.c)
+ *     IoSetInformation @ 0x14087E920 (IoSetInformation.c)
+ *     IoCancelFileOpen @ 0x140943D90 (IoCancelFileOpen.c)
+ *     IoEnqueueIrp @ 0x1409443E0 (IoEnqueueIrp.c)
+ *     IoVerifyVolume @ 0x140944740 (IoVerifyVolume.c)
+ *     IopFreeBandwidthContract @ 0x14094E9BC (IopFreeBandwidthContract.c)
+ * Callees:
+ *     KxWaitForSpinLockAndAcquire @ 0x14024F7D0 (KxWaitForSpinLockAndAcquire.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140457E30 (KiAcquireSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14056F278 (KiReleaseSpinLockInstrumented.c)
+ */
+
 __int64 __fastcall IopQueueThreadIrp(__int64 a1)
 {
   __int64 v1; // rbx

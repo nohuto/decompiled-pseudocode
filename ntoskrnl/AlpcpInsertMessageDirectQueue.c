@@ -1,3 +1,13 @@
+/*
+ * XREFs of AlpcpInsertMessageDirectQueue @ 0x140774758
+ * Callers:
+ *     AlpcpCompleteDispatchMessage @ 0x1407CBD90 (AlpcpCompleteDispatchMessage.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ */
+
 signed __int32 __fastcall AlpcpInsertMessageDirectQueue(__int64 a1, __int64 a2)
 {
   volatile signed __int64 *v2; // rsi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of CimfsGetDiskParameters @ 0x140B97ED0
+ * Callers:
+ *     IopGetBootDiskInformationLite @ 0x140B4CFA8 (IopGetBootDiskInformationLite.c)
+ *     CimfsInitialize @ 0x140B55208 (CimfsInitialize.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall CimfsGetDiskParameters(__int64 a1, _DWORD *a2, _QWORD *a3)
 {
   unsigned int v6; // esi

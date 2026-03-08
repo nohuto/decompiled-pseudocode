@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiValidateControlAreaPartition @ 0x1403442B4
+ * Callers:
+ *     MiReferenceControlArea @ 0x140331908 (MiReferenceControlArea.c)
+ *     MiReferenceExistingControlArea @ 0x140361BD4 (MiReferenceExistingControlArea.c)
+ *     MiShareExistingControlArea @ 0x1407D1CAC (MiShareExistingControlArea.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiValidateControlAreaPartition(__int64 a1, __int64 a2)
 {
   void *v2; // r10

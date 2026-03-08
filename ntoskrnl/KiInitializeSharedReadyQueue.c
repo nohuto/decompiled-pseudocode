@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiInitializeSharedReadyQueue @ 0x14037DCF8
+ * Callers:
+ *     KiInitPrcb @ 0x140A88DD8 (KiInitPrcb.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 (__fastcall *__fastcall KiInitializeSharedReadyQueue(__int64 a1, __int64 a2))()
 {
   _QWORD *v2; // rax

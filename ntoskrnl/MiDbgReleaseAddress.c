@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiDbgReleaseAddress @ 0x140387814
+ * Callers:
+ *     MiDbgCopyMemory @ 0x140347088 (MiDbgCopyMemory.c)
+ * Callees:
+ *     KeFlushSingleTb @ 0x140211E60 (KeFlushSingleTb.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14032E710 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     MiRealVaToFlushType @ 0x140387A7C (MiRealVaToFlushType.c)
+ *     KeFlushSingleCurrentTb @ 0x140387AD4 (KeFlushSingleCurrentTb.c)
+ */
+
 _UNKNOWN **__fastcall MiDbgReleaseAddress(unsigned __int64 a1, __int64 *a2, char a3)
 {
   _UNKNOWN **result; // rax

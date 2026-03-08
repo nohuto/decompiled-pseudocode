@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?Update@TelemetryBuffer@UserCritTelemetry@@QEAAXQEB_K00@Z @ 0x1C00DD904
+ * Callers:
+ *     ?SendUserCritSummary@UserCritTelemetry@@QEAAXXZ @ 0x1C004E418 (-SendUserCritSummary@UserCritTelemetry@@QEAAXXZ.c)
+ * Callees:
+ *     ??$Write@U?$_tlgWrapperByVal@$01@@U?$_tlgWrapperByVal@$07@@U2@U2@U2@U2@U2@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$01@@AEBU?$_tlgWrapperByVal@$07@@44444444@Z @ 0x1C00011C0 (--$Write@U-$_tlgWrapperByVal@$01@@U-$_tlgWrapperByVal@$07@@U2@U2@U2@U2@U2@U2@U2@U2@@-$_tlgWriteT.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U1@U1@U1@U1@U_tlgWrapperPtrSize@@U3@U1@U1@U1@U1@U3@U3@U1@U1@U1@U1@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@3333AEBU_tlgWrapperPtrSize@@5333355333355@Z @ 0x1C00013F8 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U1@U1@U1@U1@U_tlgWrapperPtrSize@@U3@U.c)
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     ?ShouldBuffer@TelemetryBuffer@UserCritTelemetry@@CA_NW4BucketType@2@QEB_K1@Z @ 0x1C00DD8CC (-ShouldBuffer@TelemetryBuffer@UserCritTelemetry@@CA_NW4BucketType@2@QEB_K1@Z.c)
+ *     ?UpdateCurrentSlot@TelemetryBuffer@UserCritTelemetry@@AEAAXW4BucketType@2@QEB_K11@Z @ 0x1C00DDD38 (-UpdateCurrentSlot@TelemetryBuffer@UserCritTelemetry@@AEAAXW4BucketType@2@QEB_K11@Z.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 void __fastcall UserCritTelemetry::TelemetryBuffer::Update(
         UserCritTelemetry::TelemetryBuffer *this,
         const unsigned __int64 *a2,

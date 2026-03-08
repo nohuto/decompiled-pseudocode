@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiFreeSessionId @ 0x140A2F7B4
+ * Callers:
+ *     MiReleaseProcessReferenceToSessionDataPage @ 0x14072665C (MiReleaseProcessReferenceToSessionDataPage.c)
+ *     MiSessionCreate @ 0x140756EC8 (MiSessionCreate.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ */
+
 char __fastcall MiFreeSessionId(unsigned int a1)
 {
   struct _KTHREAD *CurrentThread; // rbx

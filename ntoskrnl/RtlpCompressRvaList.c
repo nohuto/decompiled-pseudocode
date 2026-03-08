@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpCompressRvaList @ 0x1406A6210
+ * Callers:
+ *     RtlCreateRvaList @ 0x1407F55D0 (RtlCreateRvaList.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     RtlpSetRvaListRvaStateBits @ 0x14077E5C8 (RtlpSetRvaListRvaStateBits.c)
+ */
+
 __int64 __fastcall RtlpCompressRvaList(
         __int64 a1,
         __int64 a2,

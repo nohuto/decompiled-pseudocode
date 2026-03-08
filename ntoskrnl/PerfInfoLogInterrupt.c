@@ -1,3 +1,14 @@
+/*
+ * XREFs of PerfInfoLogInterrupt @ 0x1402CD5F0
+ * Callers:
+ *     KiInvokeInterruptServiceRoutine @ 0x14039E8DC (KiInvokeInterruptServiceRoutine.c)
+ *     KiScanInterruptObjectList @ 0x140417C90 (KiScanInterruptObjectList.c)
+ *     KiInterruptSubDispatch @ 0x140417E70 (KiInterruptSubDispatch.c)
+ *     KiInterruptSubDispatchNoLock @ 0x140417FC0 (KiInterruptSubDispatchNoLock.c)
+ * Callees:
+ *     EtwTraceTimedEvent @ 0x1402CD670 (EtwTraceTimedEvent.c)
+ */
+
 __int64 __fastcall PerfInfoLogInterrupt(__int64 a1, int a2, __int64 a3)
 {
   unsigned __int16 v3; // r10

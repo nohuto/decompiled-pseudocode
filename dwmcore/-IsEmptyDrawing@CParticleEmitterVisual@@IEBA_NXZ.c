@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsEmptyDrawing@CParticleEmitterVisual@@IEBA_NXZ @ 0x18023E3B0
+ * Callers:
+ *     ?IsEmptyDrawing@CParticleEmitter@@UEBA_NXZ @ 0x18023E3A0 (-IsEmptyDrawing@CParticleEmitter@@UEBA_NXZ.c)
+ *     ?UpdateBounds@CParticleEmitterVisual@@IEAAXAEBUD2D_SIZE_F@@@Z @ 0x1802435B8 (-UpdateBounds@CParticleEmitterVisual@@IEAAXAEBUD2D_SIZE_F@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CParticleEmitterVisual::IsEmptyDrawing(CParticleEmitterVisual *this)
 {
   char v1; // bl

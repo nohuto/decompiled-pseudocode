@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlFindUnicodeSubstring @ 0x1406B8BB0
+ * Callers:
+ *     CmpTraceSecurityChanging @ 0x1406B8AF8 (CmpTraceSecurityChanging.c)
+ *     PiDrvDbRegisterNode @ 0x14081C38C (PiDrvDbRegisterNode.c)
+ *     PiDrvDbFindSystemFilePathToken @ 0x14096CFAC (PiDrvDbFindSystemFilePathToken.c)
+ * Callees:
+ *     NLS_UPCASE @ 0x140267AD0 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ */
+
 char *__fastcall RtlFindUnicodeSubstring(unsigned __int16 *a1)
 {
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax

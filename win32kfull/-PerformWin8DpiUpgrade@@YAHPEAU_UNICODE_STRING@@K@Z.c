@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PerformWin8DpiUpgrade@@YAHPEAU_UNICODE_STRING@@K@Z @ 0x1C01BBF54
+ * Callers:
+ *     ?PerformLegacyDpiUpgrade@@YAHPEAU_UNICODE_STRING@@K@Z @ 0x1C00B7B4C (-PerformLegacyDpiUpgrade@@YAHPEAU_UNICODE_STRING@@K@Z.c)
+ * Callees:
+ *     GetDpiSettingWithNoDefault @ 0x1C00B9980 (GetDpiSettingWithNoDefault.c)
+ */
+
 __int64 __fastcall PerformWin8DpiUpgrade(struct _UNICODE_STRING *a1, int a2)
 {
   unsigned int v2; // ebx

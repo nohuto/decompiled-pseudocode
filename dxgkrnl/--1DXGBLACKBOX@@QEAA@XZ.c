@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1DXGBLACKBOX@@QEAA@XZ @ 0x1C0302BD0
+ * Callers:
+ *     ??1DXGGLOBAL@@EEAA@XZ @ 0x1C030CE70 (--1DXGGLOBAL@@EEAA@XZ.c)
+ * Callees:
+ *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C00072DC (--1DXGFASTMUTEX@@QEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ */
+
 void __fastcall DXGBLACKBOX::~DXGBLACKBOX(void **this)
 {
   operator delete(this[7]);

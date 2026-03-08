@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiEventAllocateVetoBuffer @ 0x14086374C
+ * Callers:
+ *     PnpProcessQueryRemoveAndEject @ 0x1408625F0 (PnpProcessQueryRemoveAndEject.c)
+ * Callees:
+ *     PnpAllocateCriticalMemory @ 0x1408637CC (PnpAllocateCriticalMemory.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char *__fastcall PiEventAllocateVetoBuffer(__int64 a1)
 {
   unsigned int v1; // edi

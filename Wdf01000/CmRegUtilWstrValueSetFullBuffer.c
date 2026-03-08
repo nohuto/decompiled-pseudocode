@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmRegUtilWstrValueSetFullBuffer @ 0x1C00B1EAC
+ * Callers:
+ *     PpRegStateUpdateStackCreationSettings @ 0x1C00B1774 (PpRegStateUpdateStackCreationSettings.c)
+ * Callees:
+ *     WdmlibRtlInitUnicodeStringEx @ 0x1C0087408 (WdmlibRtlInitUnicodeStringEx.c)
+ */
+
 NTSTATUS __fastcall CmRegUtilWstrValueSetFullBuffer(
         void *KeyHandle,
         wchar_t *Buffer,

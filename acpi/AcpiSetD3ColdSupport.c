@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiSetD3ColdSupport @ 0x1C0022790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AcpiSetD3ColdSupport(__int64 a1, char a2)
 {
   __int64 result; // rax

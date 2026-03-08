@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiValidateAndLockAweMapCountPage @ 0x140649BE0
+ * Callers:
+ *     MiDecrementAweMapCount @ 0x14064709C (MiDecrementAweMapCount.c)
+ *     MiIncrementAweMapCount @ 0x140648524 (MiIncrementAweMapCount.c)
+ * Callees:
+ *     MiIsPageInHugePfn @ 0x14029C30C (MiIsPageInHugePfn.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockHugePfnInternal @ 0x14061F020 (MiLockHugePfnInternal.c)
+ */
+
 char __fastcall MiValidateAndLockAweMapCountPage(__int64 a1, unsigned __int64 a2, __int64 *a3)
 {
   unsigned __int64 v4; // rcx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of DifZwQueryEaFileWrapper @ 0x1405F1CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwQueryEaFile @ 0x140414CD0 (ZwQueryEaFile.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifZwQueryEaFileWrapper(
         HANDLE FileHandle,
         PIO_STATUS_BLOCK IoStatusBlock,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiPrefetchNormally @ 0x1402282A4
+ * Callers:
+ *     MiPrefetchPagesViable @ 0x1402FCD14 (MiPrefetchPagesViable.c)
+ *     MiPfPrepareReadList @ 0x1407C42F0 (MiPfPrepareReadList.c)
+ * Callees:
+ *     MiGetAvailablePagesBelowPriority @ 0x140224C00 (MiGetAvailablePagesBelowPriority.c)
+ */
+
 __int64 __fastcall MiPrefetchNormally(_QWORD *a1, __int64 a2, unsigned int a3)
 {
   unsigned __int64 v4; // rax

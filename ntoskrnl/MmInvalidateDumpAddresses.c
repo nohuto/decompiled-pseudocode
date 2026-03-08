@@ -1,3 +1,15 @@
+/*
+ * XREFs of MmInvalidateDumpAddresses @ 0x140AA9E60
+ * Callers:
+ *     PopInvokeSystemStateHandler @ 0x140AA542C (PopInvokeSystemStateHandler.c)
+ * Callees:
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     KeFlushSingleCurrentTb @ 0x140387AD4 (KeFlushSingleCurrentTb.c)
+ */
+
 char __fastcall MmInvalidateDumpAddresses(unsigned __int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 v3; // rbp

@@ -1,3 +1,13 @@
+/*
+ * XREFs of RootHub_IsDeviceNative @ 0x1C001F7C0
+ * Callers:
+ *     UsbDevice_UpdateUsbDevice @ 0x1C001D43C (UsbDevice_UpdateUsbDevice.c)
+ * Callees:
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0018184 (WPP_RECORDER_SF_dD.c)
+ *     Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage @ 0x1C001F76C (Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage.c)
+ */
+
 bool __fastcall RootHub_IsDeviceNative(__int64 a1, int a2)
 {
   char v4; // bl

@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxxFlashEnabledPopup @ 0x1C0225A38
+ * Callers:
+ *     ?xxxDWP_SetCursor@@YAHPEAUtagWND@@PEAUHWND__@@HI@Z @ 0x1C00A5C50 (-xxxDWP_SetCursor@@YAHPEAUtagWND@@PEAUHWND__@@HI@Z.c)
+ * Callees:
+ *     xxxFlashWindow @ 0x1C0005B74 (xxxFlashWindow.c)
+ *     DWP_GetEnabledPopup @ 0x1C014A64C (DWP_GetEnabledPopup.c)
+ *     xxxMessageBeep @ 0x1C01F7F58 (xxxMessageBeep.c)
+ */
+
 __int64 __fastcall xxxFlashEnabledPopup(const struct tagWND *a1)
 {
   struct tagWND *EnabledPopup; // rax

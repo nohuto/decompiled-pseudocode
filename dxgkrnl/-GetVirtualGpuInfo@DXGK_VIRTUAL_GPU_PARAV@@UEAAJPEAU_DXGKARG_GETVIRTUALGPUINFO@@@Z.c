@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetVirtualGpuInfo@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_GETVIRTUALGPUINFO@@@Z @ 0x1C01E03C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DXGK_VIRTUAL_GPU_PARAV::GetVirtualGpuInfo(
         DXGK_VIRTUAL_GPU_PARAV *this,
         struct _DXGKARG_GETVIRTUALGPUINFO *a2)

@@ -1,3 +1,24 @@
+/*
+ * XREFs of EtwTraceProcess @ 0x1407E93B4
+ * Callers:
+ *     PspInsertThread @ 0x1406B0F50 (PspInsertThread.c)
+ *     PspExitProcess @ 0x1407E7B3C (PspExitProcess.c)
+ * Callees:
+ *     IoSetThreadHardErrorMode @ 0x140244770 (IoSetThreadHardErrorMode.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpWriteProcessStarted @ 0x1406BF738 (EtwpWriteProcessStarted.c)
+ *     EtwpWriteAppStateChangeSummary @ 0x1406BF9CC (EtwpWriteAppStateChangeSummary.c)
+ *     EtwpAppStateChangeSummaryShouldLogCommandLine @ 0x1407E885C (EtwpAppStateChangeSummaryShouldLogCommandLine.c)
+ *     EtwpInitStateChangeInfo @ 0x1407E88FC (EtwpInitStateChangeInfo.c)
+ *     EtwpWriteAppStateChange @ 0x1407E89B8 (EtwpWriteAppStateChange.c)
+ *     EtwpWriteProcessEvent @ 0x1407E9594 (EtwpWriteProcessEvent.c)
+ *     EtwpEnumerateAddressSpace @ 0x1407EC24C (EtwpEnumerateAddressSpace.c)
+ *     EtwpLogProcessPerfCtrs @ 0x1409E3360 (EtwpLogProcessPerfCtrs.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwTraceProcess(PRKPROCESS PROCESS, __int16 a2)
 {
   unsigned __int8 **v4; // rbx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?Read@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x14093D500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ *     IoSynchronousCallDriver @ 0x1402E9470 (IoSynchronousCallDriver.c)
+ *     IoFreeIrp @ 0x14030EC00 (IoFreeIrp.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     IoBuildAsynchronousFsdRequest @ 0x14036D3B0 (IoBuildAsynchronousFsdRequest.c)
+ */
+
 __int64 __fastcall NT_DISK::Read(PDEVICE_OBJECT *this, LARGE_INTEGER a2, ULONG a3, unsigned __int8 *a4)
 {
   PIRP v5; // rax

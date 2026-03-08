@@ -1,3 +1,11 @@
+/*
+ * XREFs of VerifierZwAlpcConnectPort @ 0x140AE2260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall VerifierZwAlpcConnectPort(
         __int64 a1,
         __int64 a2,

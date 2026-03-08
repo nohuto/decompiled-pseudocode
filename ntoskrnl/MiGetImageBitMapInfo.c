@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiGetImageBitMapInfo @ 0x14020AF24
+ * Callers:
+ *     MiSelectImageBase @ 0x1406A1934 (MiSelectImageBase.c)
+ *     MiReturnImageBase @ 0x1407C8860 (MiReturnImageBase.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiGetImageBitMapInfo(int a1, _QWORD *a2, _QWORD *a3, __int64 *a4)
 {
   __int64 result; // rax

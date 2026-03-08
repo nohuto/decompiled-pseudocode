@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcessorpIsPreferredInterruptTarget @ 0x1C009BCB4
+ * Callers:
+ *     ProcessorpIndexInstance @ 0x1C009BA08 (ProcessorpIndexInstance.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ProcessorpIsPreferredInterruptTarget(ULONG a1)
 {
   unsigned int v1; // ebx

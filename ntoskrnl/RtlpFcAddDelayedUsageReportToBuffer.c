@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpFcAddDelayedUsageReportToBuffer @ 0x1405B25C4
+ * Callers:
+ *     CmFcManagerNotifyFeatureUsage @ 0x140614CE8 (CmFcManagerNotifyFeatureUsage.c)
+ * Callees:
+ *     RtlBackoff @ 0x140241660 (RtlBackoff.c)
+ *     RtlInterlockedSetClearRun @ 0x14030CDB0 (RtlInterlockedSetClearRun.c)
+ */
+
 __int64 __fastcall RtlpFcAddDelayedUsageReportToBuffer(volatile signed __int32 *a1, _QWORD *a2)
 {
   unsigned int v2; // esi

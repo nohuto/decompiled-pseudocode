@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpInterruptSetLineSpecificOverride @ 0x14050342C
+ * Callers:
+ *     HalpPiix4Detect @ 0x140A85B70 (HalpPiix4Detect.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     HalpInterruptGsiToLine @ 0x14028EF10 (HalpInterruptGsiToLine.c)
+ *     HalpAcquireHighLevelLock @ 0x140379818 (HalpAcquireHighLevelLock.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpInterruptSetLineSpecificOverride(__int64 a1)
 {
   __int64 v1; // rcx

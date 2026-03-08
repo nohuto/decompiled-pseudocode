@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoSetCompletionRoutineEx @ 0x1402F01A0
+ * Callers:
+ *     DifIoSetCompletionRoutineExWrapper @ 0x1405DECB0 (DifIoSetCompletionRoutineExWrapper.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 NTSTATUS __stdcall IoSetCompletionRoutineEx(
         PDEVICE_OBJECT DeviceObject,
         PIRP Irp,

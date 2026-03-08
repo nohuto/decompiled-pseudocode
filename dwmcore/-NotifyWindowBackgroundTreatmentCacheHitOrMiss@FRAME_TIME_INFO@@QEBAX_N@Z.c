@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NotifyWindowBackgroundTreatmentCacheHitOrMiss@FRAME_TIME_INFO@@QEBAX_N@Z @ 0x18001AEDC
+ * Callers:
+ *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180067850 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FRAME_TIME_INFO::NotifyWindowBackgroundTreatmentCacheHitOrMiss(FRAME_TIME_INFO *this, char a2)
 {
   __int64 v2; // rax

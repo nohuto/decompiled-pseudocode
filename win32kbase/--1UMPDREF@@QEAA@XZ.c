@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1UMPDREF@@QEAA@XZ @ 0x1C018C5B0
+ * Callers:
+ *     ?vRelease@UMPDOBJ@@SAXPEAV1@H@Z @ 0x1C018C630 (-vRelease@UMPDOBJ@@SAXPEAV1@H@Z.c)
+ * Callees:
+ *     HmgDecrementShareReferenceCountEx @ 0x1C00483B0 (HmgDecrementShareReferenceCountEx.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall UMPDREF::~UMPDREF(char **this)
 {
   char *v2; // rcx

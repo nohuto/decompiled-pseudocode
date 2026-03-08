@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpAcquireSystemDriverHiveContext @ 0x140B5AAAC
+ * Callers:
+ *     CmGetSystemDriverList @ 0x140B59568 (CmGetSystemDriverList.c)
+ * Callees:
+ *     CmpFindControlSet @ 0x1407FEB10 (CmpFindControlSet.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140AF24F0 (CmpPerformKeyBodyDeletionCheck.c)
+ */
+
 __int64 __fastcall CmpAcquireSystemDriverHiveContext(__int64 a1)
 {
   int v2; // ebx

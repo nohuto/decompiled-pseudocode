@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_AND_TRACE_SF_qqqDqSq @ 0x1C01A0EA4
+ * Callers:
+ *     RIMWatchDog @ 0x1C0039810 (RIMWatchDog.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 _UNKNOWN **WPP_RECORDER_AND_TRACE_SF_qqqDqSq(
         __int64 a1,
         char a2,

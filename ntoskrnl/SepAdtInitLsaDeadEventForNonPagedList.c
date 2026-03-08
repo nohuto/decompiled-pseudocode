@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepAdtInitLsaDeadEventForNonPagedList @ 0x1405B5124
+ * Callers:
+ *     SepRmCommandServerThread @ 0x140825260 (SepRmCommandServerThread.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 bool __fastcall SepAdtInitLsaDeadEventForNonPagedList(__int64 a1)
 {
   bool v2; // di

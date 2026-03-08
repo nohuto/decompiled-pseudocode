@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpLicenseWatchInitWorker @ 0x140B64F94
+ * Callers:
+ *     ExpWatchProductTypeInitialization @ 0x140B64AFC (ExpWatchProductTypeInitialization.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiSwInterruptPresent @ 0x140B65038 (KiSwInterruptPresent.c)
+ */
+
 __int64 ExpLicenseWatchInitWorker()
 {
   __int64 v0; // rax

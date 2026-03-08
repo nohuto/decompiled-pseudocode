@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmHeteroInitializeFeedbackClass @ 0x14059C420
+ * Callers:
+ *     PpmHeteroHgsProcessorInit @ 0x14037DF70 (PpmHeteroHgsProcessorInit.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PpmHeteroInitializeFeedbackClass(_QWORD *a1)
 {
   _DWORD *Pool2; // rax

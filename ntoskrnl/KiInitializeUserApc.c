@@ -1,3 +1,25 @@
+/*
+ * XREFs of KiInitializeUserApc @ 0x1403664E8
+ * Callers:
+ *     KiDeliverApc @ 0x140350B60 (KiDeliverApc.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     KeContextFromKframes @ 0x1403620F0 (KeContextFromKframes.c)
+ *     KiDispatchException @ 0x140362740 (KiDispatchException.c)
+ *     KePopulateContinuationContext @ 0x140365578 (KePopulateContinuationContext.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetupForInstrumentationReturn @ 0x14056E9C0 (KiSetupForInstrumentationReturn.c)
+ *     KeCopyExceptionRecord @ 0x140576430 (KeCopyExceptionRecord.c)
+ *     KiUnwindUserSspForApcContextCopyBypass @ 0x14057E274 (KiUnwindUserSspForApcContextCopyBypass.c)
+ *     RtlpGetNonLegacyXStateAreaLength @ 0x1405A8DD4 (RtlpGetNonLegacyXStateAreaLength.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 unsigned __int64 __fastcall KiInitializeUserApc(
         __int64 a1,
         __int64 a2,

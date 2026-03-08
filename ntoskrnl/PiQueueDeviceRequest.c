@@ -1,3 +1,19 @@
+/*
+ * XREFs of PiQueueDeviceRequest @ 0x14096AF78
+ * Callers:
+ *     PiCMDeleteDevice @ 0x140965ED8 (PiCMDeleteDevice.c)
+ *     PiCMDeviceAction @ 0x14096671C (PiCMDeviceAction.c)
+ * Callees:
+ *     PnpRequestDeviceAction @ 0x1402F5074 (PnpRequestDeviceAction.c)
+ *     PnpDeleteDeviceActionRequest @ 0x1402FDD5C (PnpDeleteDeviceActionRequest.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     PnpCancelDeviceActionRequest @ 0x140560204 (PnpCancelDeviceActionRequest.c)
+ *     PnpRemoveDeviceActionRequestFromQueue @ 0x14056025C (PnpRemoveDeviceActionRequestFromQueue.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CDF08 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ */
+
 __int64 __fastcall PiQueueDeviceRequest(__int64 a1, int a2, int a3, unsigned __int64 a4)
 {
   _QWORD *v7; // rax

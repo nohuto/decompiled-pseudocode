@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIGetD3Policy @ 0x1C0043A50
+ * Callers:
+ *     ACPIBusAndFilterIrpQueryCapabilities @ 0x1C007D7A0 (ACPIBusAndFilterIrpQueryCapabilities.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall ACPIGetD3Policy(__int64 a1, bool *a2)
 {
   struct _DEVICE_OBJECT *v2; // rcx

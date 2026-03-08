@@ -1,3 +1,12 @@
+/*
+ * XREFs of WdipSemWriteInflightLimitExceededEvent @ 0x1409DB510
+ * Callers:
+ *     WdipSemLogInflightLimitExceededInformation @ 0x1409DAEA4 (WdipSemLogInflightLimitExceededInformation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     WdipSemWriteEvent @ 0x140833CFC (WdipSemWriteEvent.c)
+ */
+
 NTSTATUS __fastcall WdipSemWriteInflightLimitExceededEvent(ULONGLONG a1, __int16 a2, const GUID *a3, __int64 *a4)
 {
   char *v6; // rcx

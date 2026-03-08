@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspDoesJobHierarchyPermitUILimits @ 0x1409AF218
+ * Callers:
+ *     NtSetInformationJobObject @ 0x1406FC3C0 (NtSetInformationJobObject.c)
+ *     PspAssignProcessToJob @ 0x1406FFA20 (PspAssignProcessToJob.c)
+ * Callees:
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FB7C8 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ */
+
 bool __fastcall PspDoesJobHierarchyPermitUILimits(_QWORD *a1, char a2)
 {
   __int64 v2; // r8

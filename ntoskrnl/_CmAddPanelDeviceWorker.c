@@ -1,3 +1,18 @@
+/*
+ * XREFs of _CmAddPanelDeviceWorker @ 0x140A62D10
+ * Callers:
+ *     _CmAddPanelDevice @ 0x140A62BCC (_CmAddPanelDevice.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x140687404 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _PnpCtxRegCreateKey @ 0x140687FD0 (_PnpCtxRegCreateKey.c)
+ *     _RegRtlQueryValue @ 0x1406D3E98 (_RegRtlQueryValue.c)
+ *     _RegRtlSetValue @ 0x140784FE4 (_RegRtlSetValue.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x14085F0A8 (_RegRtlDeleteKeyTransacted.c)
+ *     _CmCreateDevicePanel @ 0x140A62EC8 (_CmCreateDevicePanel.c)
+ *     _CmDeleteDevicePanel @ 0x140A630D4 (_CmDeleteDevicePanel.c)
+ */
+
 __int64 __fastcall CmAddPanelDeviceWorker(__int64 a1, __int64 a2, const WCHAR *a3, _BYTE *a4)
 {
   int DevicePanel; // ebx

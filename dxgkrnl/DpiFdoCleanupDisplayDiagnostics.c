@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiFdoCleanupDisplayDiagnostics @ 0x1C002406C
+ * Callers:
+ *     DpiFdoInitializeDisplayDiagnostics @ 0x1C001D334 (DpiFdoInitializeDisplayDiagnostics.c)
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (__fastcall *__fastcall DpiFdoCleanupDisplayDiagnostics(__int64 a1))(_QWORD)
 {
   __int64 (__fastcall *result)(_QWORD); // rax

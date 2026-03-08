@@ -1,3 +1,14 @@
+/*
+ * XREFs of BiIsVolumePartitionInformationRetained @ 0x1408304AC
+ * Callers:
+ *     BiConvertNtDeviceToBootEnvironment @ 0x14082FCE4 (BiConvertNtDeviceToBootEnvironment.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwDeviceIoControlFile @ 0x1404123F0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ */
+
 bool __fastcall BiIsVolumePartitionInformationRetained(PCWSTR SourceString)
 {
   NTSTATUS v1; // ebx

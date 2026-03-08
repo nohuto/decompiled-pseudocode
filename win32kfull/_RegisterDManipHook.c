@@ -1,3 +1,18 @@
+/*
+ * XREFs of _RegisterDManipHook @ 0x1C00DD6D0
+ * Callers:
+ *     NtUserRegisterDManipHook @ 0x1C00DD680 (NtUserRegisterDManipHook.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     AddHmodDependency @ 0x1C009D860 (AddHmodDependency.c)
+ *     GetHmodTableIndex @ 0x1C009D950 (GetHmodTableIndex.c)
+ *     ?RtlStringCbCatW@@YAJPEAG_KPEBG@Z @ 0x1C00DD870 (-RtlStringCbCatW@@YAJPEAG_KPEBG@Z.c)
+ *     IsPrivileged @ 0x1C00DD9E0 (IsPrivileged.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C010A9B4 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     RtlStringCopyWorkerW @ 0x1C010A9DC (RtlStringCopyWorkerW.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 RegisterDManipHook()
 {

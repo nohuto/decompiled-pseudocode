@@ -1,3 +1,21 @@
+/*
+ * XREFs of RtlpFindAndCommitPages @ 0x1405AAC2C
+ * Callers:
+ *     RtlpExtendHeap @ 0x1405AA9D8 (RtlpExtendHeap.c)
+ * Callees:
+ *     RtlpHpHeapCheckCommitLimit @ 0x1402B738C (RtlpHpHeapCheckCommitLimit.c)
+ *     DbgPrint @ 0x1402BDD20 (DbgPrint.c)
+ *     ZwAllocateVirtualMemory @ 0x140412610 (ZwAllocateVirtualMemory.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     RtlpCreateUCREntry @ 0x1405AA2DC (RtlpCreateUCREntry.c)
+ *     RtlpRemoveUCRBlock @ 0x1405ABC2C (RtlpRemoveUCRBlock.c)
+ *     RtlpUpdateHeapRates @ 0x1405AC014 (RtlpUpdateHeapRates.c)
+ *     RtlpLogHeapFailure @ 0x1405B2884 (RtlpLogHeapFailure.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1405B28D8 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHeapHandleError @ 0x1405B2C0C (RtlpHeapHandleError.c)
+ *     RtlpFindUCREntry @ 0x1405B302C (RtlpFindUCREntry.c)
+ */
+
 unsigned __int64 __fastcall RtlpFindAndCommitPages(__int64 a1, ULONG_PTR *a2)
 {
   __int64 UCREntry; // rax

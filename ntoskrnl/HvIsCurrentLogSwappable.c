@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvIsCurrentLogSwappable @ 0x140732440
+ * Callers:
+ *     CmpFlushHive @ 0x1406BEA70 (CmpFlushHive.c)
+ *     CmpGenerateFlushControlData @ 0x1406BF454 (CmpGenerateFlushControlData.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall HvIsCurrentLogSwappable(__int64 a1)
 {
   int v1; // eax

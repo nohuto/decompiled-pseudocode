@@ -1,3 +1,12 @@
+/*
+ * XREFs of _anonymous_namespace_::GetWindowStateForPartNotification @ 0x1C021FD2C
+ * Callers:
+ *     _anonymous_namespace_::NotifyPartEnter @ 0x1C021FE90 (_anonymous_namespace_--NotifyPartEnter.c)
+ * Callees:
+ *     ?IsSemiMaximized@@YA_NPEBUtagWND@@@Z @ 0x1C0031BD4 (-IsSemiMaximized@@YA_NPEBUtagWND@@@Z.c)
+ *     _GetTopLevelWindow @ 0x1C0035AF0 (_GetTopLevelWindow.c)
+ */
+
 __int64 __fastcall anonymous_namespace_::GetWindowStateForPartNotification(struct tagWND *a1)
 {
   unsigned __int16 v2; // bx

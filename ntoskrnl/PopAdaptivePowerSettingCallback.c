@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopAdaptivePowerSettingCallback @ 0x140829230
+ * Callers:
+ *     PopVideoPowerSettingCallback @ 0x14038FE70 (PopVideoPowerSettingCallback.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopSendSessionInfo @ 0x14067FE1C (PopSendSessionInfo.c)
+ *     PopAcquireAdaptiveLock @ 0x14073CCB4 (PopAcquireAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x14073CD60 (PopReleaseAdaptiveLock.c)
+ *     PopDiagTracePolicyChange @ 0x140829464 (PopDiagTracePolicyChange.c)
+ *     PopBroadcastSessionInfo @ 0x1408294F4 (PopBroadcastSessionInfo.c)
+ */
+
 __int64 __fastcall PopAdaptivePowerSettingCallback(_QWORD *a1, int *a2, int a3)
 {
   char v5; // r14

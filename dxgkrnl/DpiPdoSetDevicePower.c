@@ -1,3 +1,17 @@
+/*
+ * XREFs of DpiPdoSetDevicePower @ 0x1C01E1140
+ * Callers:
+ *     DpiPdoDispatchPower @ 0x1C001A100 (DpiPdoDispatchPower.c)
+ *     DpiPdoDispatchInternalIoctl @ 0x1C0168D80 (DpiPdoDispatchInternalIoctl.c)
+ *     DxgkPowerOnOffMonitor @ 0x1C01E1214 (DxgkPowerOnOffMonitor.c)
+ * Callees:
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C0180684 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C0180B30 (DpiAcquireCoreSyncAccessSafe.c)
+ *     DpiDxgkDdiSetPowerState @ 0x1C01E22D4 (DpiDxgkDdiSetPowerState.c)
+ *     DxgkReleaseAdapterDdiSync @ 0x1C01E7088 (DxgkReleaseAdapterDdiSync.c)
+ *     DxgkAcquireAdapterDdiSync @ 0x1C01E70A8 (DxgkAcquireAdapterDdiSync.c)
+ */
+
 __int64 __fastcall DpiPdoSetDevicePower(__int64 a1, int a2, int a3)
 {
   __int64 v3; // rbx

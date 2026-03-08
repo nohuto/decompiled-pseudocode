@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopEtGetNextEnergyTracker @ 0x140703A54
+ * Callers:
+ *     PopEtEnumEnergyTrackers @ 0x1407039F4 (PopEtEnumEnergyTrackers.c)
+ * Callees:
+ *     ObReferenceObjectSafeWithTag @ 0x14022BD30 (ObReferenceObjectSafeWithTag.c)
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ */
+
 _QWORD *__fastcall PopEtGetNextEnergyTracker(_QWORD **Object)
 {
   struct _KTHREAD *CurrentThread; // rax

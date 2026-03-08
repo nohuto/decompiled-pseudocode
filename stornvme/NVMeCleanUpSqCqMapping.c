@@ -1,3 +1,14 @@
+/*
+ * XREFs of NVMeCleanUpSqCqMapping @ 0x1C000C4EC
+ * Callers:
+ *     IoSqToIoCqMapping @ 0x1C000B78C (IoSqToIoCqMapping.c)
+ * Callees:
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     GetMaxDedicatedSqPerCqCount @ 0x1C0009CF4 (GetMaxDedicatedSqPerCqCount.c)
+ *     NVMeCompletionQueuesDedicatedSubmissionQueuesInit @ 0x1C000C96C (NVMeCompletionQueuesDedicatedSubmissionQueuesInit.c)
+ *     NVMeCompletionQueuesSubmissionQueuesInit @ 0x1C000CA00 (NVMeCompletionQueuesSubmissionQueuesInit.c)
+ */
+
 __int64 __fastcall NVMeCleanUpSqCqMapping(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

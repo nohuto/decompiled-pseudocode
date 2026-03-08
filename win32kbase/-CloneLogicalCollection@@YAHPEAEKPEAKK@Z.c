@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CloneLogicalCollection@@YAHPEAEKPEAKK@Z @ 0x1C01C683C
+ * Callers:
+ *     ?BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z @ 0x1C01C5EBC (-BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z.c)
+ * Callees:
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 __int64 __fastcall CloneLogicalCollection(unsigned __int8 *a1, __int64 a2, unsigned int *a3, __int64 a4)
 {
   int v4; // edi

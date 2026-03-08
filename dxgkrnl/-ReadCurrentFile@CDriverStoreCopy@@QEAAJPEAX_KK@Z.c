@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReadCurrentFile@CDriverStoreCopy@@QEAAJPEAX_KK@Z @ 0x1C0308088
+ * Callers:
+ *     ?VmBusReadDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C037FD20 (-VmBusReadDriverStoreFile@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CDriverStoreCopy::ReadCurrentFile(const WCHAR *this, void *a2, union _LARGE_INTEGER a3, ULONG a4)
 {
   NTSTATUS v7; // eax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopFxGetDeviceDStateReason @ 0x1402B9BF4
+ * Callers:
+ *     PopFxHandleReportDevicePoweredOn @ 0x1402B90C0 (PopFxHandleReportDevicePoweredOn.c)
+ *     PopIrpWorker @ 0x1402B9440 (PopIrpWorker.c)
+ *     PopRequestPowerIrp @ 0x1402BA570 (PopRequestPowerIrp.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopFxGetDeviceDStateReason(__int64 a1)
 {
   signed __int32 v1; // eax

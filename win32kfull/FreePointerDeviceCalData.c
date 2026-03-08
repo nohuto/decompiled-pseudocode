@@ -1,3 +1,11 @@
+/*
+ * XREFs of FreePointerDeviceCalData @ 0x1C01C41D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FreePointerDeviceCalData(__int64 a1)
 {
   void *v2; // rcx

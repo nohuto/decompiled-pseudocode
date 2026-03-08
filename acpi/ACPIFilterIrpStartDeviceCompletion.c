@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIFilterIrpStartDeviceCompletion @ 0x1C0028E70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ACPIFilterIrpStartDeviceCompletion(__int64 a1, IRP *a2, int a3)
 {
   struct _WORK_QUEUE_ITEM *v4; // rcx

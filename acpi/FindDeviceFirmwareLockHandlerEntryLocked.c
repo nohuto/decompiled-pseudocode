@@ -1,3 +1,12 @@
+/*
+ * XREFs of FindDeviceFirmwareLockHandlerEntryLocked @ 0x1C001BCA0
+ * Callers:
+ *     FindDeviceFirmwareLockHandlerEntry @ 0x1C001BC30 (FindDeviceFirmwareLockHandlerEntry.c)
+ *     InsertDeviceFirmwareLockHandlerEntry @ 0x1C001BD38 (InsertDeviceFirmwareLockHandlerEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FindDeviceFirmwareLockHandlerEntryLocked(int a1, __int64 a2, __int64 *a3)
 {
   __int64 v3; // r9

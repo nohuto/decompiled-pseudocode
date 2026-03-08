@@ -1,3 +1,13 @@
+/*
+ * XREFs of swprintf @ 0x1403D3D20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     _flsbuf @ 0x1403D67F0 (_flsbuf.c)
+ *     _woutput_l @ 0x1403D6800 (_woutput_l.c)
+ */
+
 int swprintf(wchar_t *a1, const wchar_t *a2, ...)
 {
   int v2; // eax

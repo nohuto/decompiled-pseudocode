@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIWriteGpeStatusRegister @ 0x1C0038B84
+ * Callers:
+ *     ACPIInterruptDispatchEventDpc @ 0x1C0003670 (ACPIInterruptDispatchEventDpc.c)
+ *     ACPIInterruptDispatchEvents @ 0x1C0003AE8 (ACPIInterruptDispatchEvents.c)
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C000518C (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     ACPIGpeClearRegisters @ 0x1C002C240 (ACPIGpeClearRegisters.c)
+ *     ACPIVectorClear @ 0x1C0043DE0 (ACPIVectorClear.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ACPIWriteGpeStatusRegister(unsigned int a1, char a2)
 {
   unsigned int v2; // ebx

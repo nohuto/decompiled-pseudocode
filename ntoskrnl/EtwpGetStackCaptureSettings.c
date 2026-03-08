@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpGetStackCaptureSettings @ 0x1404603A4
+ * Callers:
+ *     EtwpStackTraceDispatcher @ 0x140460750 (EtwpStackTraceDispatcher.c)
+ *     EtwpGetStackExtendedHeaderItem @ 0x1405FD72C (EtwpGetStackExtendedHeaderItem.c)
+ * Callees:
+ *     MmCanThreadFault @ 0x140205D8C (MmCanThreadFault.c)
+ *     ObGetCurrentIrql @ 0x140205E10 (ObGetCurrentIrql.c)
+ */
+
 void __fastcall EtwpGetStackCaptureSettings(struct _KTHREAD *a1, char a2, char a3, _BYTE *a4, _BYTE *a5)
 {
   struct _KTHREAD *CurrentThread; // rbx

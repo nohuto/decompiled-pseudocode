@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlDissectDbcs @ 0x14093BFE0
+ * Callers:
+ *     FsRtlIsFatDbcsLegal @ 0x1407F1480 (FsRtlIsFatDbcsLegal.c)
+ *     FsRtlIsHpfsDbcsLegal @ 0x14093C730 (FsRtlIsHpfsDbcsLegal.c)
+ * Callees:
+ *     <none>
+ */
+
 void __stdcall FsRtlDissectDbcs(ANSI_STRING *Path, PANSI_STRING FirstName, PANSI_STRING RemainingName)
 {
   __int64 v3; // r9

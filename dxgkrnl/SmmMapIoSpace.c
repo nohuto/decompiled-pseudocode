@@ -1,3 +1,11 @@
+/*
+ * XREFs of SmmMapIoSpace @ 0x1C0070778
+ * Callers:
+ *     ?SysMmMapPhysicalObject@@YAJPEAUSYSMM_PHYSICAL_OBJECT@@D_K1IPEAPEAXPEA_K3@Z @ 0x1C0070E84 (-SysMmMapPhysicalObject@@YAJPEAUSYSMM_PHYSICAL_OBJECT@@D_K1IPEAPEAXPEA_K3@Z.c)
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall SmmMapIoSpace(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 *a5, _QWORD *a6, __int64 *a7)
 {
   __int64 v7; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CAtlasedRectsGroupMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025DEB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DirectComposition::CAtlasedRectsGroupMarshaler::SetRemarshalingFlags(
         DirectComposition::CAtlasedRectsGroupMarshaler *this)
 {

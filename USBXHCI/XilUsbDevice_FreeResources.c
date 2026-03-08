@@ -1,3 +1,12 @@
+/*
+ * XREFs of XilUsbDevice_FreeResources @ 0x1C004814C
+ * Callers:
+ *     XilUsbDevice_Create @ 0x1C001BB24 (XilUsbDevice_Create.c)
+ *     UsbDevice_EvtUsbDeviceCleanupCallback @ 0x1C0048CB0 (UsbDevice_EvtUsbDeviceCleanupCallback.c)
+ * Callees:
+ *     XilCoreUsbDevice_FreeResources @ 0x1C0052FC4 (XilCoreUsbDevice_FreeResources.c)
+ */
+
 void __fastcall XilUsbDevice_FreeResources(__int64 a1)
 {
   __int64 v2; // rcx

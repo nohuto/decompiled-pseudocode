@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceProcessSetInPrivateMode @ 0x1405FAF6C
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall EtwTraceProcessSetInPrivateMode(__int64 a1)
 {
   struct _EVENT_DATA_DESCRIPTOR *p_UserData; // rax

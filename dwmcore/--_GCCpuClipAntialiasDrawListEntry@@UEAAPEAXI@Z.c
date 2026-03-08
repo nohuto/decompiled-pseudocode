@@ -1,3 +1,16 @@
+/*
+ * XREFs of ??_GCCpuClipAntialiasDrawListEntry@@UEAAPEAXI@Z @ 0x18007C6D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x1800789A0 (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801046B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ */
+
 CCpuClipAntialiasDrawListEntry *__fastcall CCpuClipAntialiasDrawListEntry::`scalar deleting destructor'(
         CCpuClipAntialiasDrawListEntry *this,
         char a2)

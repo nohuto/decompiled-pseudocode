@@ -1,3 +1,17 @@
+/*
+ * XREFs of ACPIBuildSpecialSynchronizationRequest @ 0x1C00137D8
+ * Callers:
+ *     ACPIFlushQueuesUnload @ 0x1C0014558 (ACPIFlushQueuesUnload.c)
+ *     ACPITableLoad @ 0x1C003F170 (ACPITableLoad.c)
+ *     ACPITableLoadNotifyPnp @ 0x1C003F500 (ACPITableLoadNotifyPnp.c)
+ *     ACPITableUnload @ 0x1C003F7F0 (ACPITableUnload.c)
+ *     ACPIBuildFlushQueue @ 0x1C007D42C (ACPIBuildFlushQueue.c)
+ *     ACPIInitStartACPI @ 0x1C00A8DE0 (ACPIInitStartACPI.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     ACPIBuildScheduleDpc @ 0x1C0013794 (ACPIBuildScheduleDpc.c)
+ */
+
 __int64 __fastcall ACPIBuildSpecialSynchronizationRequest(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)
 {
   _QWORD *v9; // rbx

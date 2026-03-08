@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserDestroyWindow @ 0x1C00DBFE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxDestroyWindow @ 0x1C004B7F0 (xxxDestroyWindow.c)
+ */
+
 __int64 __fastcall NtUserDestroyWindow(__int64 a1)
 {
   __int64 *v2; // rax

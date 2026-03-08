@@ -1,3 +1,12 @@
+/*
+ * XREFs of BgpConsoleClearScreenEx @ 0x140AEE428
+ * Callers:
+ *     BgpConsoleInitialize @ 0x140AEB6E0 (BgpConsoleInitialize.c)
+ *     BgpConsoleClearScreen @ 0x140AEE3F0 (BgpConsoleClearScreen.c)
+ * Callees:
+ *     BgpClearScreen @ 0x14066F510 (BgpClearScreen.c)
+ */
+
 __int64 BgpConsoleClearScreenEx()
 {
   __int64 v0; // rax

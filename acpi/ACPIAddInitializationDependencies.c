@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIAddInitializationDependencies @ 0x1C000BA98
+ * Callers:
+ *     ACPIBuildFilter @ 0x1C000D1F8 (ACPIBuildFilter.c)
+ *     ACPIBuildPdo @ 0x1C000DC84 (ACPIBuildPdo.c)
+ * Callees:
+ *     ACPIConvertDependenciesToPnpReservations @ 0x1C00143C8 (ACPIConvertDependenciesToPnpReservations.c)
+ *     ACPIReserveDependencies @ 0x1C00145EC (ACPIReserveDependencies.c)
+ *     ACPIQueryDeviceBiosName @ 0x1C0098A0C (ACPIQueryDeviceBiosName.c)
+ */
+
 __int64 __fastcall ACPIAddInitializationDependencies(__int64 a1)
 {
   int v2; // edi

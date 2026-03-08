@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopEsUpdateSetting @ 0x14085DF30
+ * Callers:
+ *     PopEsWorker @ 0x140870CA0 (PopEsWorker.c)
+ * Callees:
+ *     PopTraceEsSetting @ 0x1403AD718 (PopTraceEsSetting.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ */
+
 NTSTATUS PopEsUpdateSetting()
 {
   __int64 v0; // rcx

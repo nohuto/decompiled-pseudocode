@@ -1,3 +1,29 @@
+/*
+ * XREFs of ExInitLicenseData @ 0x140819CE8
+ * Callers:
+ *     sub_140606E08 @ 0x140606E08 (sub_140606E08.c)
+ *     Phase1InitializationIoReady @ 0x140B42D0C (Phase1InitializationIoReady.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PsIsHostSilo @ 0x14030F2E0 (PsIsHostSilo.c)
+ *     ClipInitHandles @ 0x140389270 (ClipInitHandles.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExpSetKernelDataProtection @ 0x14075B0D0 (ExpSetKernelDataProtection.c)
+ *     sub_14081A850 @ 0x14081A850 (sub_14081A850.c)
+ *     ExGetExpirationDate @ 0x14081A9F4 (ExGetExpirationDate.c)
+ *     ntoskrnl_24 @ 0x1409F6C30 (ntoskrnl_24.c)
+ *     SLUpdateLicenseDataInternal @ 0x1409F78B4 (SLUpdateLicenseDataInternal.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     sub_140B53C00 @ 0x140B53C00 (sub_140B53C00.c)
+ */
+
 char ExInitLicenseData()
 {
   struct _LIST_ENTRY *Blink; // rdi

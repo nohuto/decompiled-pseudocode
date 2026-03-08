@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserShowSystemCursor @ 0x1C01DFDC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EditionShowSystemCursor @ 0x1C002A450 (EditionShowSystemCursor.c)
+ *     CheckWinstaAttributeAccess @ 0x1C003B230 (CheckWinstaAttributeAccess.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 _BOOL8 __fastcall NtUserShowSystemCursor(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // edi

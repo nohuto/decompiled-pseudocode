@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhFdoPowerWorkerInternal @ 0x1C0022850
+ * Callers:
+ *     UsbhFdoPowerWorker @ 0x1C003C0A0 (UsbhFdoPowerWorker.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 NTSTATUS __fastcall UsbhFdoPowerWorkerInternal(struct _DEVICE_OBJECT *a1, IRP *a2)
 {
   _DWORD *v4; // rax

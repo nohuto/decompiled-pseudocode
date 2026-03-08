@@ -1,3 +1,12 @@
+/*
+ * XREFs of FxpGetImageBase @ 0x1C0088FA8
+ * Callers:
+ *     FxRegisterBugCheckCallback @ 0x1C0088D28 (FxRegisterBugCheckCallback.c)
+ * Callees:
+ *     AuxKlibInitialize @ 0x1C00B2204 (AuxKlibInitialize.c)
+ *     AuxKlibQueryModuleInformation @ 0x1C00B2274 (AuxKlibQueryModuleInformation.c)
+ */
+
 __int64 __fastcall FxpGetImageBase(_DRIVER_OBJECT *DriverObject, void **ImageBase, unsigned int *ImageSize)
 {
   char *DriverStart; // rbp

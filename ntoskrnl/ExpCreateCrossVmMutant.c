@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpCreateCrossVmMutant @ 0x140A02EAC
+ * Callers:
+ *     NtCreateCrossVmMutant @ 0x140A02B20 (NtCreateCrossVmMutant.c)
+ * Callees:
+ *     ExGetExtensionTable @ 0x1402C57F0 (ExGetExtensionTable.c)
+ *     ExReleaseExtensionTable @ 0x1402C5820 (ExReleaseExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall ExpCreateCrossVmMutant(
         _QWORD *a1,
         unsigned int a2,

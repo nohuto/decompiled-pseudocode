@@ -1,3 +1,11 @@
+/*
+ * XREFs of PsRegisterPicoProvider @ 0x1409B2430
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PsRegisterPicoProvider(__int64 a1, _QWORD *a2)
 {
   __int64 result; // rax

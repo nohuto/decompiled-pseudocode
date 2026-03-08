@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AdjustMouseCoordinates@@YAXPEAUtagWND@@PEA_J@Z @ 0x1C02166D0
+ * Callers:
+ *     xxxHandleMenuMessages @ 0x1C0216988 (xxxHandleMenuMessages.c)
+ * Callees:
+ *     PhysicalToLogicalInPlacePointWithParent @ 0x1C0145150 (PhysicalToLogicalInPlacePointWithParent.c)
+ */
+
 void __fastcall AdjustMouseCoordinates(struct tagWND *a1, __int64 *a2)
 {
   int v4; // [rsp+30h] [rbp+8h] BYREF

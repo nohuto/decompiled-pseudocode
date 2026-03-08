@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiLoadDataIntoVsmEnclave @ 0x140A3B45C
+ * Callers:
+ *     NtLoadEnclaveData @ 0x140A3C600 (NtLoadEnclaveData.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MmProbeAndLockPages @ 0x140267B90 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MmSizeOfMdl @ 0x1402CFFB0 (MmSizeOfMdl.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     MiMakeProtectionMask @ 0x140320CC0 (MiMakeProtectionMask.c)
+ *     MiCommitExistingVad @ 0x140320D70 (MiCommitExistingVad.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PsLoadVsmEnclaveData @ 0x1405A4630 (PsLoadVsmEnclaveData.c)
+ *     MiCountCommittedPages @ 0x140644EA8 (MiCountCommittedPages.c)
+ *     MiDecommitRegion @ 0x1406EBCC0 (MiDecommitRegion.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiLoadDataIntoVsmEnclave(
         __int64 a1,
         ULONG_PTR a2,

@@ -1,3 +1,27 @@
+/*
+ * XREFs of xxxSnapWindow @ 0x1C022AF08
+ * Callers:
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00725D0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ * Callees:
+ *     xxxCloseClipboard @ 0x1C0010580 (xxxCloseClipboard.c)
+ *     _OpenClipboard @ 0x1C001062C (_OpenClipboard.c)
+ *     IsToplevelWindowDesktopComposed @ 0x1C002D900 (IsToplevelWindowDesktopComposed.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C007BB00 (GreCreateCompatibleBitmapInternal.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ *     ReferenceWindowStation @ 0x1C00BD810 (ReferenceWindowStation.c)
+ *     xxxPlayEventSound @ 0x1C00DE8D0 (xxxPlayEventSound.c)
+ *     xxxEmptyClipboard @ 0x1C00F130C (xxxEmptyClipboard.c)
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ *     _SetClipboardData @ 0x1C02007CC (_SetClipboardData.c)
+ *     ClientNoMemoryPopup @ 0x1C0208910 (ClientNoMemoryPopup.c)
+ *     CreateScreenPalette @ 0x1C022ADA8 (CreateScreenPalette.c)
+ *     GreEnableAppContainerRestriction @ 0x1C026E83C (GreEnableAppContainerRestriction.c)
+ *     DwmAsyncSnapshotWindow @ 0x1C027062C (DwmAsyncSnapshotWindow.c)
+ */
+
 __int64 __fastcall xxxSnapWindow(_QWORD *a1, int a2)
 {
   HDC CompatibleDC; // rdi

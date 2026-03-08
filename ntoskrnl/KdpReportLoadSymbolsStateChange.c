@@ -1,3 +1,16 @@
+/*
+ * XREFs of KdpReportLoadSymbolsStateChange @ 0x140AAD6F0
+ * Callers:
+ *     KdpSymbol @ 0x140AAD56C (KdpSymbol.c)
+ * Callees:
+ *     KdpSetCommonState @ 0x14036B850 (KdpSetCommonState.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KdpCopyMemoryChunks @ 0x140AAD0F4 (KdpCopyMemoryChunks.c)
+ *     KdpSendWaitContinue @ 0x140AAD824 (KdpSendWaitContinue.c)
+ *     KdpSetContextState @ 0x140AADC30 (KdpSetContextState.c)
+ */
+
 __int64 __fastcall KdpReportLoadSymbolsStateChange(char **a1, __int64 a2, char a3, __int64 a4)
 {
   __int64 v8; // rcx

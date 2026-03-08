@@ -1,3 +1,12 @@
+/*
+ * XREFs of IommuFreeLibraryContext @ 0x140520A48
+ * Callers:
+ *     IommupPasidDeviceDelete @ 0x14050C384 (IommupPasidDeviceDelete.c)
+ * Callees:
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     IommupFreeSystemContext @ 0x140521654 (IommupFreeSystemContext.c)
+ */
+
 __int64 __fastcall IommuFreeLibraryContext(__int64 *a1)
 {
   __int64 v1; // rsi

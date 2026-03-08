@@ -1,3 +1,11 @@
+/*
+ * XREFs of XmRcrOp @ 0x1405312E0
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmStoreResult @ 0x1403B42E8 (XmStoreResult.c)
+ */
+
 _WORD *__fastcall XmRcrOp(_DWORD *a1)
 {
   unsigned int v2; // r11d

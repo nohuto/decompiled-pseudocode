@@ -1,3 +1,46 @@
+/*
+ * XREFs of KdpSendWaitContinue @ 0x140AAD824
+ * Callers:
+ *     KdpReportLoadSymbolsStateChange @ 0x140AAD6F0 (KdpReportLoadSymbolsStateChange.c)
+ *     KdpReportExceptionStateChange @ 0x140AAE63C (KdpReportExceptionStateChange.c)
+ *     KdpReportCommandStringStateChange @ 0x140AB1398 (KdpReportCommandStringStateChange.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KdpGetContextEx @ 0x140391F24 (KdpGetContextEx.c)
+ *     KdpSetContextEx @ 0x140392008 (KdpSetContextEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalReturnToFirmware @ 0x140504990 (HalReturnToFirmware.c)
+ *     KdpWriteCustomBreakpoint @ 0x140565684 (KdpWriteCustomBreakpoint.c)
+ *     KdpSysReadIoSpace @ 0x140565A54 (KdpSysReadIoSpace.c)
+ *     KdpSysReadMsr @ 0x140565B18 (KdpSysReadMsr.c)
+ *     KdpSysWriteIoSpace @ 0x140565B4C (KdpSysWriteIoSpace.c)
+ *     KdpSysWriteMsr @ 0x140565C0C (KdpSysWriteMsr.c)
+ *     KeSwitchFrozenProcessor @ 0x140574610 (KeSwitchFrozenProcessor.c)
+ *     KdpCopyMemoryChunks @ 0x140AAD0F4 (KdpCopyMemoryChunks.c)
+ *     KdExitDebugger @ 0x140AAD2D0 (KdExitDebugger.c)
+ *     KdpReadVirtualMemory @ 0x140AADB68 (KdpReadVirtualMemory.c)
+ *     KdpGetContext @ 0x140AAE72C (KdpGetContext.c)
+ *     KdpDeleteBreakpoint @ 0x140AAEB50 (KdpDeleteBreakpoint.c)
+ *     KdpReadControlSpace @ 0x140AAEB90 (KdpReadControlSpace.c)
+ *     KdpWriteControlSpace @ 0x140AAEE58 (KdpWriteControlSpace.c)
+ *     KdpGetStateChange @ 0x140AAF478 (KdpGetStateChange.c)
+ *     KdpFillMemory @ 0x140AB0F00 (KdpFillMemory.c)
+ *     KdpGetBusData @ 0x140AB1028 (KdpGetBusData.c)
+ *     KdpQueryMemory @ 0x140AB10F0 (KdpQueryMemory.c)
+ *     KdpReadPhysicalMemory @ 0x140AB1188 (KdpReadPhysicalMemory.c)
+ *     KdpReadPhysicalMemoryLong @ 0x140AB12D4 (KdpReadPhysicalMemoryLong.c)
+ *     KdpRestoreBreakPointEx @ 0x140AB1530 (KdpRestoreBreakPointEx.c)
+ *     KdpSearchMemory @ 0x140AB1644 (KdpSearchMemory.c)
+ *     KdpSearchPhysicalPageRange @ 0x140AB1A78 (KdpSearchPhysicalPageRange.c)
+ *     KdpSetBusData @ 0x140AB1B1C (KdpSetBusData.c)
+ *     KdpSetContext @ 0x140AB1BA8 (KdpSetContext.c)
+ *     KdpWriteBreakPointEx @ 0x140AB1D94 (KdpWriteBreakPointEx.c)
+ *     KdpWritePhysicalMemory @ 0x140AB1F58 (KdpWritePhysicalMemory.c)
+ *     KdpAddBreakpoint @ 0x140AB2738 (KdpAddBreakpoint.c)
+ */
+
 __int64 __fastcall KdpSendWaitContinue(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v7; // eax

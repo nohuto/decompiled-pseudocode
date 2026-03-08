@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_ll @ 0x1C003FB88
+ * Callers:
+ *     HUBHSM_LoggingLastOpcode @ 0x1C000A1C0 (HUBHSM_LoggingLastOpcode.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_ll(__int64 a1, _DWORD a2, _DWORD a3, _DWORD a4, __int64 a5, ...)
 {
   int v7; // [rsp+20h] [rbp-38h]

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CheckPresentCompleted@CPresentStats@CDummyRemotingSwapChain@@QEAA_NPEAVCD3DDevice@@I@Z @ 0x180295BD8
+ * Callers:
+ *     ?GetPresentStatisticsDWM@CDummyRemotingSwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS_DWM@@@Z @ 0x180295F30 (-GetPresentStatisticsDWM@CDummyRemotingSwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS_DWM@@@Z.c)
+ * Callees:
+ *     ?GetKernelHandle@CD3DDevice@@QEBAIXZ @ 0x180295E5C (-GetKernelHandle@CD3DDevice@@QEBAIXZ.c)
+ */
+
 bool __fastcall CDummyRemotingSwapChain::CPresentStats::CheckPresentCompleted(
         CDummyRemotingSwapChain::CPresentStats *this,
         struct CD3DDevice *a2,

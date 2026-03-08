@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtCreateKey @ 0x1406BB9F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CmCleanupThreadInfo @ 0x140263740 (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x140263760 (CmpInitializeThreadInfo.c)
+ *     CmCreateKey @ 0x1406BBA60 (CmCreateKey.c)
+ */
+
 __int64 NtCreateKey()
 {
   unsigned int v0; // r9d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?MilCompositionEngine_GetComposedEventId@@YAJPEAI@Z @ 0x1800ADB30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetComposedEventId@CInternalMilCmdConnection@@QEAAJPEAI@Z @ 0x1800ADB80 (-GetComposedEventId@CInternalMilCmdConnection@@QEAAJPEAI@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
 __int64 __fastcall MilCompositionEngine_GetComposedEventId(unsigned int *a1)
 {
   int ComposedEventId; // ebx

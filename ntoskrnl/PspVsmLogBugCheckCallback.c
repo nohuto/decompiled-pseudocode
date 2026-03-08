@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspVsmLogBugCheckCallback @ 0x1405A4150
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall PspVsmLogBugCheckCallback(
         KBUGCHECK_CALLBACK_REASON Reason,
         struct _KBUGCHECK_REASON_CALLBACK_RECORD *Record,

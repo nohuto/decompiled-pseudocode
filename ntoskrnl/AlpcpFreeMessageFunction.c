@@ -1,3 +1,14 @@
+/*
+ * XREFs of AlpcpFreeMessageFunction @ 0x140776C40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExMapHandleToPointerEx @ 0x140776CE8 (ExMapHandleToPointerEx.c)
+ *     ExDestroyHandle @ 0x1407D76E4 (ExDestroyHandle.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall AlpcpFreeMessageFunction(_DWORD *P)
 {
   unsigned int v2; // edx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpAllocatePartitionMemory @ 0x1405FEEF0
+ * Callers:
+ *     EtwpAllocateTraceBuffer @ 0x140205174 (EtwpAllocateTraceBuffer.c)
+ * Callees:
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402B39C0 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     MiFreePagesFromMdl @ 0x1402C0DD0 (MiFreePagesFromMdl.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     EtwpRegisterPartitionPages @ 0x1405FF04C (EtwpRegisterPartitionPages.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void *__fastcall EtwpAllocatePartitionMemory(void ***a1, unsigned __int64 a2)
 {
   struct _MDL *PartitionNodePagesForMdl; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of GdiPreUserProcessCallout @ 0x1C00BAF90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall GdiPreUserProcessCallout(_QWORD *a1, char a2)
 {
   _QWORD *result; // rax

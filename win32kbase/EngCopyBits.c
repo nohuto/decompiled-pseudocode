@@ -1,3 +1,11 @@
+/*
+ * XREFs of EngCopyBits @ 0x1C02714F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 BOOL __stdcall EngCopyBits(
         SURFOBJ *psoDest,
         SURFOBJ *psoSrc,

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiQueuePageFileExtension @ 0x140638ECC
+ * Callers:
+ *     MiContractPagingFiles @ 0x1402A5364 (MiContractPagingFiles.c)
+ *     MiIssuePageExtendRequest @ 0x14063890C (MiIssuePageExtendRequest.c)
+ *     MiContractWsSwapPageFileWorker @ 0x140650250 (MiContractWsSwapPageFileWorker.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeReleaseSemaphoreEx @ 0x14033E940 (KeReleaseSemaphoreEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiQueuePageFileExtension(__int64 a1, __int64 a2, KIRQL a3)
 {
   __int64 v3; // rdi

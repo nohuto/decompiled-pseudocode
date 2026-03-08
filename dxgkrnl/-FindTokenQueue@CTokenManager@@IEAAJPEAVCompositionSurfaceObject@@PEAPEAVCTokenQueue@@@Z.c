@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FindTokenQueue@CTokenManager@@IEAAJPEAVCompositionSurfaceObject@@PEAPEAVCTokenQueue@@@Z @ 0x1C0076DB0
+ * Callers:
+ *     ?CompleteIndependentFlipToken@CTokenManager@@IEAAJ_KAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@I@Z @ 0x1C00768BC (-CompleteIndependentFlipToken@CTokenManager@@IEAAJ_KAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@I.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CTokenManager::FindTokenQueue(
         CTokenManager *this,
         struct CompositionSurfaceObject *a2,

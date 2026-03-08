@@ -1,3 +1,13 @@
+/*
+ * XREFs of AcpiDiagTraceFanEvent @ 0x1C0008320
+ * Callers:
+ *     AcpiDiagTraceFanRundown @ 0x1C000842C (AcpiDiagTraceFanRundown.c)
+ *     AcpiDiagTraceFanStatusChange @ 0x1C00084F0 (AcpiDiagTraceFanStatusChange.c)
+ *     ACPIFanPowerCallback @ 0x1C0027860 (ACPIFanPowerCallback.c)
+ * Callees:
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C000B2B0 (ACPIAmliBuildObjectPathnameUnicode.c)
+ */
+
 void __fastcall AcpiDiagTraceFanEvent(__int64 a1, const EVENT_DESCRIPTOR *a2, ULONG a3, __int64 a4)
 {
   int v8; // ecx

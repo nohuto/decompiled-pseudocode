@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopFxResetSocSubsystemAccounting @ 0x140982D5C
+ * Callers:
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x140879AD8 (PopFxLookupSocSubsystemsByPlatformIdleState.c)
+ */
+
 __int64 __fastcall PopFxResetSocSubsystemAccounting(int a1)
 {
   int v1; // ecx

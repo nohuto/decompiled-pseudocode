@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiBugCheckConvertParameterValueToUnicodeString @ 0x1405671DC
+ * Callers:
+ *     KiDisplayBlueScreen @ 0x140567D34 (KiDisplayBlueScreen.c)
+ * Callees:
+ *     <none>
+ */
+
 __int16 __fastcall KiBugCheckConvertParameterValueToUnicodeString(unsigned __int64 a1, __int64 a2)
 {
   _DWORD *v2; // r8

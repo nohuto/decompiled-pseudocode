@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpParsePoolTagFilter @ 0x1409EA35C
+ * Callers:
+ *     EtwStartAutoLogger @ 0x14083CA48 (EtwStartAutoLogger.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwpParsePoolTagFilter(__int64 a1, __int64 a2)
 {
   _WORD *v2; // r10

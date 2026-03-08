@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiCreateNewProcessTopLevelMappings @ 0x1402A604C
+ * Callers:
+ *     MmCreateProcessAddressSpace @ 0x1407289B8 (MmCreateProcessAddressSpace.c)
+ * Callees:
+ *     MiCopyTopLevelMappings @ 0x1402A5C20 (MiCopyTopLevelMappings.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiCreateNewProcessTopLevelMappings(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

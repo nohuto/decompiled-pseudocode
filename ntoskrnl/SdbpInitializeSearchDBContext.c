@@ -1,3 +1,18 @@
+/*
+ * XREFs of SdbpInitializeSearchDBContext @ 0x140A4E760
+ * Callers:
+ *     SdbpCheckMatchingFiles @ 0x1407A0E80 (SdbpCheckMatchingFiles.c)
+ *     SdbpCheckMatchingDir @ 0x140A4C9D0 (SdbpCheckMatchingDir.c)
+ *     SdbpCheckMatchingTextEntry @ 0x140A4D2F4 (SdbpCheckMatchingTextEntry.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x140A4D6E0 (SdbpCheckMatchingWildcardFiles.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     SdbpCreateSearchPathPartsFromPath @ 0x140A4BB9C (SdbpCreateSearchPathPartsFromPath.c)
+ *     SdbpGetProcessHistory @ 0x140A4F1C8 (SdbpGetProcessHistory.c)
+ */
+
 __int64 __fastcall SdbpInitializeSearchDBContext(__int64 a1)
 {
   __int64 v1; // r14

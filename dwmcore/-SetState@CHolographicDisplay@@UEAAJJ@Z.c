@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetState@CHolographicDisplay@@UEAAJJ@Z @ 0x1802A4770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ShouldNotify@CNotificationResource@@IEBA_NXZ @ 0x180098AA0 (-ShouldNotify@CNotificationResource@@IEBA_NXZ.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B44D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
 __int64 __fastcall CHolographicDisplay::SetState(CHolographicDisplay *this)
 {
   __int64 v1; // r9

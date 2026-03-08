@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiDiagTraceUnexpectedGpe @ 0x1C0002680
+ * Callers:
+ *     ACPIInterruptDispatchEvents @ 0x1C0003AE8 (ACPIInterruptDispatchEvents.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ */
+
 void __fastcall AcpiDiagTraceUnexpectedGpe(int a1, char a2)
 {
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+30h] [rbp-38h] BYREF

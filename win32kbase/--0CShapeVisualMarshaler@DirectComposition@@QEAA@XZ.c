@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CShapeVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C006B2A4
+ * Callers:
+ *     ?CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C00673F4 (-CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2.c)
+ * Callees:
+ *     <none>
+ */
+
 DirectComposition::CShapeVisualMarshaler *__fastcall DirectComposition::CShapeVisualMarshaler::CShapeVisualMarshaler(
         DirectComposition::CShapeVisualMarshaler *this)
 {

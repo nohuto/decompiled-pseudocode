@@ -1,3 +1,12 @@
+/*
+ * XREFs of MmGetSessionCreateTime @ 0x14071D7B0
+ * Callers:
+ *     EtwpWriteProcessStarted @ 0x1406BF738 (EtwpWriteProcessStarted.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x14071D7DC (EtwQueryProcessTelemetryInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MmGetSessionCreateTime(__int64 a1)
 {
   __int64 v1; // rax

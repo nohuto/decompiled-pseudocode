@@ -1,3 +1,11 @@
+/*
+ * XREFs of MinAsn1DecodeInteger @ 0x14067E004
+ * Callers:
+ *     MincryptValidateBasicConstraints @ 0x14067DECC (MincryptValidateBasicConstraints.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MinAsn1DecodeInteger(char *a1, unsigned int a2, __int64 *a3, char *a4)
 {
   char v4; // bl

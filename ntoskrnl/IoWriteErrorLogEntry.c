@@ -1,3 +1,22 @@
+/*
+ * XREFs of IoWriteErrorLogEntry @ 0x1403C13F0
+ * Callers:
+ *     IopDisassociateThreadIrp @ 0x140552D34 (IopDisassociateThreadIrp.c)
+ *     DifIoWriteErrorLogEntryWrapper @ 0x1405DF860 (DifIoWriteErrorLogEntryWrapper.c)
+ *     FsRtlLogCcFlushError @ 0x14093A170 (FsRtlLogCcFlushError.c)
+ *     IopLogBlockedDriverEvent @ 0x1409422E4 (IopLogBlockedDriverEvent.c)
+ *     PnpLogEvent @ 0x140955B40 (PnpLogEvent.c)
+ *     MiLogFailedDriverLoad @ 0x140A2D5B4 (MiLogFailedDriverLoad.c)
+ *     MiBadMemoryLogger @ 0x140A40210 (MiBadMemoryLogger.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __stdcall IoWriteErrorLogEntry(PVOID ElEntry)
 {
   char *v1; // rbx

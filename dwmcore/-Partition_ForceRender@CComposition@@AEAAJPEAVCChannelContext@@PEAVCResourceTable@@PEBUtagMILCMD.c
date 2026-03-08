@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Partition_ForceRender@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_FORCERENDER@@@Z @ 0x1800F87E0
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F0A8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     ?ForceFullRender@CRenderTargetManager@@QEAAXXZ @ 0x1800F8868 (-ForceFullRender@CRenderTargetManager@@QEAAXXZ.c)
+ *     ?HandleDDAArrivalOrDeparture@CRenderTargetManager@@IEAAJXZ @ 0x1801BA6A4 (-HandleDDAArrivalOrDeparture@CRenderTargetManager@@IEAAJXZ.c)
+ *     ?EnterHardwareProtectionTeardown@CDeviceManager@@QEAAXXZ @ 0x180282718 (-EnterHardwareProtectionTeardown@CDeviceManager@@QEAAXXZ.c)
+ *     ?LeaveHardwareProtectionTeardown@CDeviceManager@@QEAAXXZ @ 0x1802828DC (-LeaveHardwareProtectionTeardown@CDeviceManager@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall CComposition::Partition_ForceRender(
         CComposition *this,
         struct CChannelContext *a2,

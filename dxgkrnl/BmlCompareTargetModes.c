@@ -1,3 +1,17 @@
+/*
+ * XREFs of BmlCompareTargetModes @ 0x1C016E704
+ * Callers:
+ *     BmlGetNextBestTargetMode @ 0x1C016E26C (BmlGetNextBestTargetMode.c)
+ * Callees:
+ *     ?FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z @ 0x1C0006784 (-FindPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@II@Z.c)
+ *     BmlCompareTargetModesWithMonitor @ 0x1C016E13C (BmlCompareTargetModesWithMonitor.c)
+ *     BmlCompareRegionsWithPivot @ 0x1C016E1AC (BmlCompareRegionsWithPivot.c)
+ *     BmlCompareTargetModesWithConstraint @ 0x1C017116C (BmlCompareTargetModesWithConstraint.c)
+ *     BmlCompareMonitorRegions @ 0x1C03B85E8 (BmlCompareMonitorRegions.c)
+ *     BmlCompareTargetModeWithVirtualRefreshRate @ 0x1C03B89AC (BmlCompareTargetModeWithVirtualRefreshRate.c)
+ *     BmlCompareWireFormat @ 0x1C03B8AA0 (BmlCompareWireFormat.c)
+ */
+
 __int64 __fastcall BmlCompareTargetModes(__int64 a1, __int64 a2, unsigned __int16 a3, __int64 a4, __int64 a5, char a6)
 {
   __int64 v6; // r15

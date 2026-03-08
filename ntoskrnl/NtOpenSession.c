@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtOpenSession @ 0x1407940F0
+ * Callers:
+ *     PfpSourceGetPrefetchSupport @ 0x14097BE40 (PfpSourceGetPrefetchSupport.c)
+ * Callees:
+ *     ObOpenObjectByName @ 0x1406C39E0 (ObOpenObjectByName.c)
+ */
+
 __int64 __fastcall NtOpenSession(_QWORD *a1, int a2, __int64 a3)
 {
   char PreviousMode; // r8

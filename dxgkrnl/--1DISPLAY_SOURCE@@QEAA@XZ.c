@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1DISPLAY_SOURCE@@QEAA@XZ @ 0x1C02B60C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C00072DC (--1DXGFASTMUTEX@@QEAA@XZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 void __fastcall DISPLAY_SOURCE::~DISPLAY_SOURCE(DISPLAY_SOURCE *this)
 {
   void *v2; // rcx

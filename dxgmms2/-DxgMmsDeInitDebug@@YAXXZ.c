@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DxgMmsDeInitDebug@@YAXXZ @ 0x1C00DFFD0
+ * Callers:
+ *     DriverUnload @ 0x1C002CF70 (DriverUnload.c)
+ * Callees:
+ *     <none>
+ */
+
 void DxgMmsDeInitDebug(void)
 {
   if ( P )

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RtlDisownModuleHeapAllocation@details@wil@@YAJPEAX0@Z @ 0x180100AA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?wil_details_GetNtDllModuleHandle@@YAPEAUHINSTANCE__@@XZ @ 0x180100B20 (-wil_details_GetNtDllModuleHandle@@YAPEAUHINSTANCE__@@XZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall wil::details::RtlDisownModuleHeapAllocation(wil::details *this, void *a2, void *a3)
 {
   FARPROC ProcAddress; // rax

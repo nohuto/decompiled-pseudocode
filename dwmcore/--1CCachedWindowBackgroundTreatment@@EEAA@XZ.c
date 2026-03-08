@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CCachedWindowBackgroundTreatment@@EEAA@XZ @ 0x18000A45C
+ * Callers:
+ *     ??_GCCachedWindowBackgroundTreatment@@EEAAPEAXI@Z @ 0x18000A420 (--_GCCachedWindowBackgroundTreatment@@EEAAPEAXI@Z.c)
+ * Callees:
+ *     ?RemoveDependentCachedTreatment@CWindowBackgroundTreatment@@QEAAXPEBVCCachedWindowBackgroundTreatment@@@Z @ 0x18000BA6C (-RemoveDependentCachedTreatment@CWindowBackgroundTreatment@@QEAAXPEBVCCachedWindowBackgroundTrea.c)
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x18001EC20 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ */
+
 void __fastcall CCachedWindowBackgroundTreatment::~CCachedWindowBackgroundTreatment(
         CCachedWindowBackgroundTreatment *this)
 {

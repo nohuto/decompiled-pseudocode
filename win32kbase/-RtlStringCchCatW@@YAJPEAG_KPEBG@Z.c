@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RtlStringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1C0070DEC
+ * Callers:
+ *     ?GetSpriteFillColor@@YAKXZ @ 0x1C0070B50 (-GetSpriteFillColor@@YAKXZ.c)
+ *     ?GetRemoteScaleOverrideTestHook@@YAXPEBG_KPEAU_DPI_INFORMATION@@@Z @ 0x1C00D6948 (-GetRemoteScaleOverrideTestHook@@YAXPEBG_KPEAU_DPI_INFORMATION@@@Z.c)
+ * Callees:
+ *     RtlStringCopyWorkerW @ 0x1C0070EA0 (RtlStringCopyWorkerW.c)
+ */
+
 __int64 __fastcall RtlStringCchCatW(unsigned __int16 *a1, __int64 a2, const unsigned __int16 *a3)
 {
   __int64 v5; // r9

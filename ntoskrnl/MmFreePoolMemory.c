@@ -1,3 +1,21 @@
+/*
+ * XREFs of MmFreePoolMemory @ 0x14020DD58
+ * Callers:
+ *     RtlpHpEnvFreeVA @ 0x14020DD14 (RtlpHpEnvFreeVA.c)
+ *     RtlpCSparseBitmapPageDecommit @ 0x1403046C4 (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlpHpVaMgrCtxFree @ 0x14030BD10 (RtlpHpVaMgrCtxFree.c)
+ *     MmAllocatePoolMemory @ 0x140330628 (MmAllocatePoolMemory.c)
+ * Callees:
+ *     MiDeterminePoolType @ 0x14020DEF0 (MiDeterminePoolType.c)
+ *     MiCountSystemPool @ 0x14020DF44 (MiCountSystemPool.c)
+ *     MiClearNonPagedPtes @ 0x14020DF88 (MiClearNonPagedPtes.c)
+ *     MiReturnSystemVa @ 0x14020E9A0 (MiReturnSystemVa.c)
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiDeleteSystemPagableVm @ 0x1402B04B0 (MiDeleteSystemPagableVm.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall MmFreePoolMemory(ULONG_PTR *a1, ULONG_PTR *a2)
 {
   ULONG_PTR v2; // r14

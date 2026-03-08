@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiFilterCrashDumpPte @ 0x14062D5F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiIsPageSecured @ 0x1402A27F0 (MiIsPageSecured.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall MiFilterCrashDumpPte(__int64 a1, unsigned __int64 a2, int a3)
 {
   __int64 *v3; // rdi

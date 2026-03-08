@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CCommonRenderingShaderCache@@QEAA@XZ @ 0x18010DD70
+ * Callers:
+ *     _dynamic_atexit_destructor_for__g_commonRenderingShaderCache__ @ 0x180120240 (_dynamic_atexit_destructor_for__g_commonRenderingShaderCache__.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800DB0E4 (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
+ */
+
 void __fastcall CCommonRenderingShaderCache::~CCommonRenderingShaderCache(CCommonRenderingShaderCache *this)
 {
   int *v1; // rdi

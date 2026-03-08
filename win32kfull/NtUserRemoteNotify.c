@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserRemoteNotify @ 0x1C00F25B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxRemoteNotify @ 0x1C00F25F0 (xxxRemoteNotify.c)
+ */
+
 __int64 __fastcall NtUserRemoteNotify(__int64 a1)
 {
   __int64 v2; // rcx

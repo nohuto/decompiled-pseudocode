@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidSchiBindFlipPhysicalAddress@@YAXPEAUVIDSCH_FLIP_MULTIPLANE_OVERLAY2@@II@Z @ 0x1C0035200
+ * Callers:
+ *     VidSchiExecuteMmIoFlip @ 0x1C000BE30 (VidSchiExecuteMmIoFlip.c)
+ * Callees:
+ *     <none>
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall VidSchiBindFlipPhysicalAddress(
         struct VIDSCH_FLIP_MULTIPLANE_OVERLAY2 *a1,

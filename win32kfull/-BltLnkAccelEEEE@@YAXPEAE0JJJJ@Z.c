@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?BltLnkAccelEEEE@@YAXPEAE0JJJJ@Z @ 0x1C0306234
+ * Callers:
+ *     ?BltLnkRect@@YAXPEAU_BLTLNKINFO@@PEAU_RECTL@@@Z @ 0x1C00877C0 (-BltLnkRect@@YAXPEAU_BLTLNKINFO@@PEAU_RECTL@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall BltLnkAccelEEEE(unsigned __int8 *a1, unsigned __int8 *a2, int a3, int a4, int a5, int a6)
 {
   int v7; // r10d

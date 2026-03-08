@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiOpIsPrefix @ 0x140361F90
+ * Callers:
+ *     KiOpDecode @ 0x140361E00 (KiOpDecode.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiOpIsPrefix(__int64 a1, char a2, char *a3)
 {
   unsigned int v3; // r9d

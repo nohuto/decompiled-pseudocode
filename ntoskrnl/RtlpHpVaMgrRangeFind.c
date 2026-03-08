@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpHpVaMgrRangeFind @ 0x1402F4D60
+ * Callers:
+ *     RtlpHpVaMgrAlloc @ 0x14030424C (RtlpHpVaMgrAlloc.c)
+ * Callees:
+ *     RtlSparseArrayElementAllocated @ 0x14030967C (RtlSparseArrayElementAllocated.c)
+ */
+
 unsigned __int64 __fastcall RtlpHpVaMgrRangeFind(
         __int64 a1,
         unsigned __int16 a2,

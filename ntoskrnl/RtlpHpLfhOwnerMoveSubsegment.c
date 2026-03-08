@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpHpLfhOwnerMoveSubsegment @ 0x14030AA84
+ * Callers:
+ *     RtlpHpLfhBucketGetSubsegment @ 0x140309A44 (RtlpHpLfhBucketGetSubsegment.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x14030A880 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpLfhSlotAddSubsegment @ 0x14030AA0C (RtlpHpLfhSlotAddSubsegment.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall RtlpHpLfhOwnerMoveSubsegment(__int64 a1, __int64 *a2, int a3)
 {
   char v3; // bl

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?mov_first_2_wide_unrotated@@YAXJJJPEAE0J@Z @ 0x1C0304CE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall mov_first_2_wide_unrotated(int a1, __int64 a2, int a3, unsigned __int8 *a4, unsigned __int8 *a5)
 {
   int v5; // eax

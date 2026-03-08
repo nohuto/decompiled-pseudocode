@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CreateMonitor@@YAPEAUtagMONITOR@@XZ @ 0x1C0012210
+ * Callers:
+ *     ?CreateCachedMonitor@@YAPEAUtagMONITOR@@XZ @ 0x1C00121E8 (-CreateCachedMonitor@@YAPEAUtagMONITOR@@XZ.c)
+ *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C0014BB4 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
+ * Callees:
+ *     HMAllocObjectEx @ 0x1C00122BC (HMAllocObjectEx.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ */
+
 struct tagMONITOR *__fastcall CreateMonitor(__int64 a1, __int64 a2, __int64 a3)
 {
   _QWORD *v3; // rax

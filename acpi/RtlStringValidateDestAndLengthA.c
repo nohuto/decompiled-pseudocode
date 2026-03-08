@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlStringValidateDestAndLengthA @ 0x1C003BE88
+ * Callers:
+ *     RtlStringCchCatA @ 0x1C003BD94 (RtlStringCchCatA.c)
+ *     RtlStringCchCatNA @ 0x1C003BDE4 (RtlStringCchCatNA.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlStringValidateDestAndLengthA(
         NTSTRSAFE_PCSTR pszDest,
         size_t cchDest,

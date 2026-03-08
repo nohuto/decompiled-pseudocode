@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserDiscardPointerFrameMessages @ 0x1C01CF7E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxDiscardPointerFrameMessagesInternal @ 0x1C01C5F24 (xxxDiscardPointerFrameMessagesInternal.c)
+ */
+
 __int64 __fastcall NtUserDiscardPointerFrameMessages(int a1)
 {
   int v2; // ebx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhGetDeviceHandle @ 0x1C0038178
+ * Callers:
+ *     UsbhCreateDevice @ 0x1C0002364 (UsbhCreateDevice.c)
+ *     UsbhFdoReturnTtDeviceHandle @ 0x1C002AAA8 (UsbhFdoReturnTtDeviceHandle.c)
+ *     UsbhGetHubDeviceInformation @ 0x1C002C4A8 (UsbhGetHubDeviceInformation.c)
+ *     UsbhInitializeTtHub @ 0x1C002D268 (UsbhInitializeTtHub.c)
+ *     UsbhFdoHandleGetDumpDataIoctl @ 0x1C0030570 (UsbhFdoHandleGetDumpDataIoctl.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ */
+
 __int64 __fastcall UsbhGetDeviceHandle(__int64 a1, __int64 a2)
 {
   PDEVICE_OBJECT *v4; // rdi

@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbDevice_InitializeInputContextForAddEndpoints @ 0x1C000BBEC
+ * Callers:
+ *     UsbDevice_InitializeInputContextForAddDropEndpoints @ 0x1C000AF50 (UsbDevice_InitializeInputContextForAddDropEndpoints.c)
+ * Callees:
+ *     Endpoint_Disable @ 0x1C000B0AC (Endpoint_Disable.c)
+ *     Endpoint_Enable @ 0x1C000BDC0 (Endpoint_Enable.c)
+ *     WPP_RECORDER_SF_ddddd @ 0x1C000CBA0 (WPP_RECORDER_SF_ddddd.c)
+ *     UsbDevice_InitializeEndpointContext @ 0x1C000CD28 (UsbDevice_InitializeEndpointContext.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0017FB0 (WPP_RECORDER_SF_ddd.c)
+ *     WPP_RECORDER_SF_dqq @ 0x1C0019284 (WPP_RECORDER_SF_dqq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall UsbDevice_InitializeInputContextForAddEndpoints(__int64 a1, __int64 a2)
 {
   unsigned int v4; // ebx

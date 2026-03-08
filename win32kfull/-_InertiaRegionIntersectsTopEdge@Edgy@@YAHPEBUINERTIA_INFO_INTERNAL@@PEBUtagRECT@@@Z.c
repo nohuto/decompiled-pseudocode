@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_InertiaRegionIntersectsTopEdge@Edgy@@YAHPEBUINERTIA_INFO_INTERNAL@@PEBUtagRECT@@@Z @ 0x1C01E95B8
+ * Callers:
+ *     ?ProcessInertia@Edgy@@YAXPEBUINERTIA_INFO_INTERNAL@@@Z @ 0x1C01E89DC (-ProcessInertia@Edgy@@YAXPEBUINERTIA_INFO_INTERNAL@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     GetInertiaRegionInVirtualizedScreen @ 0x1C01F8A64 (GetInertiaRegionInVirtualizedScreen.c)
+ */
+
 __int64 __fastcall Edgy::_InertiaRegionIntersectsTopEdge(
         Edgy *this,
         const struct INERTIA_INFO_INTERNAL *a2,

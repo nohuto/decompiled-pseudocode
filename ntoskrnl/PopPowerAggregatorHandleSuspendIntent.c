@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopPowerAggregatorHandleSuspendIntent @ 0x140595F10
+ * Callers:
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x140757290 (PopPowerAggregatorHandleIntentUnsafe.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopPowerAggregatorHandleSuspendIntent(__int64 a1, __int64 a2)
 {
   unsigned int v2; // r8d

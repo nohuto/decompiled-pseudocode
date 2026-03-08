@@ -1,3 +1,26 @@
+/*
+ * XREFs of ExProcessCounterSetCallback @ 0x1409F2FF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     KeFlushProcessWriteBuffers @ 0x1402373CC (KeFlushProcessWriteBuffers.c)
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     PsIsProcessInSilo @ 0x1402484DC (PsIsProcessInSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     RtlUnicodeStringPrintf @ 0x1403BEBCC (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExGetNextProcess @ 0x1406A8CF4 (ExGetNextProcess.c)
+ *     ExpCopyProcessInfo @ 0x140711514 (ExpCopyProcessInfo.c)
+ *     ExpSysInfoShouldSkipProcess @ 0x14077503C (ExpSysInfoShouldSkipProcess.c)
+ *     RtlIntegerToUnicodeString @ 0x1407805C0 (RtlIntegerToUnicodeString.c)
+ *     ExIsRestrictedCaller @ 0x14078A078 (ExIsRestrictedCaller.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1407E7618 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     PcwAddInstance @ 0x14086B690 (PcwAddInstance.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExProcessCounterSetCallback(int a1, __int64 a2)
 {
   __int64 CurrentServerSilo; // rsi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ResetDAM@DripsBlockerTrackingHelper@@IEAAXXZ @ 0x1C0302A5C
+ * Callers:
+ *     ?SetPDCIdleResiliencyEngaged@DXGGLOBAL@@QEAAXH@Z @ 0x1C02216B4 (-SetPDCIdleResiliencyEngaged@DXGGLOBAL@@QEAAXH@Z.c)
+ *     ?EngageDFx@DripsBlockerTrackingHelper@@QEAAX_N@Z @ 0x1C02FFA84 (-EngageDFx@DripsBlockerTrackingHelper@@QEAAX_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DripsBlockerTrackingHelper::ResetDAM(DripsBlockerTrackingHelper *this)
 {
   _DWORD *v1; // rcx

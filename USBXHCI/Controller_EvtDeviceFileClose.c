@@ -1,3 +1,13 @@
+/*
+ * XREFs of Controller_EvtDeviceFileClose @ 0x1C0013B80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qd @ 0x1C00141F4 (WPP_RECORDER_SF_qd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_StopTimeTrackingForHandle @ 0x1C0034904 (Controller_StopTimeTrackingForHandle.c)
+ */
+
 __int64 __fastcall Controller_EvtDeviceFileClose(__int64 a1)
 {
   __int64 result; // rax

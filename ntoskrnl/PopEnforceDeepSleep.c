@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopEnforceDeepSleep @ 0x140991184
+ * Callers:
+ *     PopEnforceResiliencyScenarios @ 0x140991238 (PopEnforceResiliencyScenarios.c)
+ * Callees:
+ *     PopDeepSleepEnabled @ 0x1402BBA98 (PopDeepSleepEnabled.c)
+ *     PopDeepSleepClearDisengageReason @ 0x1402BBAAC (PopDeepSleepClearDisengageReason.c)
+ *     PopDeepSleepSetDisengageReason @ 0x1402BBB98 (PopDeepSleepSetDisengageReason.c)
+ *     KeSetMaxDynamicTickDuration @ 0x14056A678 (KeSetMaxDynamicTickDuration.c)
+ */
+
 char PopEnforceDeepSleep()
 {
   char result; // al

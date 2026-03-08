@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MakeRectangleEdgeFlags@@YA?AW4D2D1_EDGE_FLAGS@@W41@000@Z @ 0x1800F6A78
+ * Callers:
+ *     ?AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@@Z @ 0x18005F2F0 (-AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAtt.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MakeRectangleEdgeFlags(int a1, int a2, int a3, int a4)
 {
   int v4; // r11d

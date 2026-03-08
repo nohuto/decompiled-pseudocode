@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??4?$SharedMixedObjectPointerFieldpImcNext@UtagIMC@@@tagIMC@@QEAAPEAU1@PEAU1@@Z @ 0x1C01B86FC
+ * Callers:
+ *     CreateInputContext @ 0x1C00CF480 (CreateInputContext.c)
+ *     FreeInputContext @ 0x1C00D7430 (FreeInputContext.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall tagIMC::SharedMixedObjectPointerFieldpImcNext<tagIMC>::operator=(_QWORD *a1, __int64 a2)
 {
   __int64 v2; // r8

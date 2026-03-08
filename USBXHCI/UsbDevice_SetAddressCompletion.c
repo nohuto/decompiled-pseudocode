@@ -1,3 +1,22 @@
+/*
+ * XREFs of UsbDevice_SetAddressCompletion @ 0x1C0019A00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C0007FC0 (XilUsbDevice_GetDeviceContextBufferVA.c)
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     UsbDevice_SetDeviceDisabled @ 0x1C000FD4C (UsbDevice_SetDeviceDisabled.c)
+ *     WPP_RECORDER_SF_dqD @ 0x1C0018C80 (WPP_RECORDER_SF_dqD.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0019330 (WPP_RECORDER_SF_dq.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ *     XilDeviceSlot_SendQuerySlotContextInfoRequest @ 0x1C0038834 (XilDeviceSlot_SendQuerySlotContextInfoRequest.c)
+ *     WPP_RECORDER_SF_dqdL @ 0x1C004A638 (WPP_RECORDER_SF_dqdL.c)
+ */
+
 char __fastcall UsbDevice_SetAddressCompletion(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   __int64 v4; // rdi

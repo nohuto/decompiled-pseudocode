@@ -1,3 +1,12 @@
+/*
+ * XREFs of HandleBaseWindowDestruction @ 0x1C0217B50
+ * Callers:
+ *     DestroyBaseWindow @ 0x1C017BDE0 (DestroyBaseWindow.c)
+ * Callees:
+ *     HandleInputDestDestruction @ 0x1C0079C40 (HandleInputDestDestruction.c)
+ *     INPUTDEST_FROM_BASEWND @ 0x1C01E3D64 (INPUTDEST_FROM_BASEWND.c)
+ */
+
 void __fastcall HandleBaseWindowDestruction(__int64 a1)
 {
   _OWORD *v1; // rax

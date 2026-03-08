@@ -1,3 +1,18 @@
+/*
+ * XREFs of SdbpGetFileTimestamp @ 0x140A4BCD4
+ * Callers:
+ *     SdbGetMergeRedirectPath @ 0x140A4B4A0 (SdbGetMergeRedirectPath.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateFile @ 0x140412DB0 (ZwCreateFile.c)
+ *     ZwQueryInformationByName @ 0x140414D30 (ZwQueryInformationByName.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     NtQueryInformationFile @ 0x1406EAEB0 (NtQueryInformationFile.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ */
+
 __int64 __fastcall SdbpGetFileTimestamp(_QWORD *a1, const WCHAR *a2)
 {
   NTSTATUS v4; // ebx

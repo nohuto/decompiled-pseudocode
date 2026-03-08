@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$ApplyRangeColorKey@TGpCCR@@@@YAXAEBUWICRect@@IIPEAEAEATGpCCR@@2PEBT1@@Z @ 0x1802B2CBC
+ * Callers:
+ *     ?ApplyColorKeyToBuffer@CColorKeyBitmap@@IEBAJAEBUWICRect@@IIPEAE@Z @ 0x1802B317C (-ApplyColorKeyToBuffer@CColorKeyBitmap@@IEBAJAEBUWICRect@@IIPEAE@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ApplyRangeColorKey<GpCCR>(
         __int64 a1,
         unsigned int a2,

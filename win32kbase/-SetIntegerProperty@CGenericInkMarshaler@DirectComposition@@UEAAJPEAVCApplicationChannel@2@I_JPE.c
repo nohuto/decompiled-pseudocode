@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetIntegerProperty@CGenericInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0250880
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetSegmentCount@CGenericInkMarshaler@DirectComposition@@AEBAIXZ @ 0x1C0250670 (-GetSegmentCount@CGenericInkMarshaler@DirectComposition@@AEBAIXZ.c)
+ *     ?RemoveSegmentsAtEnd@CGenericInkMarshaler@DirectComposition@@AEAAJIPEA_N@Z @ 0x1C0250750 (-RemoveSegmentsAtEnd@CGenericInkMarshaler@DirectComposition@@AEAAJIPEA_N@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CGenericInkMarshaler::SetIntegerProperty(
         DirectComposition::CGenericInkMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

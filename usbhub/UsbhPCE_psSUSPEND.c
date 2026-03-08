@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhPCE_psSUSPEND @ 0x1C0021F8C
+ * Callers:
+ *     UsbhHubRunPortChangeQueue @ 0x1C0013CC0 (UsbhHubRunPortChangeQueue.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0014330 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002E98C (WPP_RECORDER_SF_dq.c)
+ */
+
 int *__fastcall UsbhPCE_psSUSPEND(__int64 a1, __int64 a2, __int64 a3)
 {
   int v6; // edx

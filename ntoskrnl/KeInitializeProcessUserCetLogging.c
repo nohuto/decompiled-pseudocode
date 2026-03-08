@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeInitializeProcessUserCetLogging @ 0x1409725B4
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall KeInitializeProcessUserCetLogging(__int64 a1)
 {
   __int64 Pool2; // rax

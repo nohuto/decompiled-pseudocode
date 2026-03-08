@@ -1,3 +1,22 @@
+/*
+ * XREFs of RtlAddResourceAttributeAce @ 0x1409B8350
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlUShortAdd @ 0x140202574 (RtlUShortAdd.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlCopySid @ 0x1406D4890 (RtlCopySid.c)
+ *     RtlFirstFreeAce @ 0x140740C70 (RtlFirstFreeAce.c)
+ *     RtlValidAcl @ 0x1407BB670 (RtlValidAcl.c)
+ *     RtlValidSid @ 0x1407C92A0 (RtlValidSid.c)
+ *     RtlpConvertAbsoluteToRelativeSecurityAttribute @ 0x1409B8828 (RtlpConvertAbsoluteToRelativeSecurityAttribute.c)
+ *     RtlpValidAttributeInfo @ 0x1409B8D10 (RtlpValidAttributeInfo.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlAddResourceAttributeAce(
         unsigned __int8 *a1,
         unsigned int a2,

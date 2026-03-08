@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CompleteIndependentFlipNotifyToken@CTokenQueue@@QEAA_N_KI@Z @ 0x1C00776CC
+ * Callers:
+ *     ?CompleteIndependentFlipToken@CTokenManager@@IEAAJ_KAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@I@Z @ 0x1C00768BC (-CompleteIndependentFlipToken@CTokenManager@@IEAAJ_KAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@I.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall CTokenQueue::CompleteIndependentFlipNotifyToken(CTokenQueue **this, __int64 a2, unsigned int a3)
 {
   CTokenQueue *v3; // rbx

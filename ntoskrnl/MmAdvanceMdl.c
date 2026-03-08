@@ -1,3 +1,11 @@
+/*
+ * XREFs of MmAdvanceMdl @ 0x14061ACD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall MmAdvanceMdl(PMDL Mdl, ULONG NumberOfBytes)
 {
   CSHORT *p_MdlFlags; // rbx

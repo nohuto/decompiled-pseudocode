@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiCheckForUserStackOverflow @ 0x14076B848
+ * Callers:
+ *     MiUserFault @ 0x140268260 (MiUserFault.c)
+ * Callees:
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14031F7B0 (MiUnlockAndDereferenceVadShared.c)
+ *     ZwAllocateVirtualMemory @ 0x140412610 (ZwAllocateVirtualMemory.c)
+ *     ZwProtectVirtualMemory @ 0x140412D10 (ZwProtectVirtualMemory.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall MiCheckForUserStackOverflow(unsigned __int64 a1, int a2)
 {
   int v3; // r12d

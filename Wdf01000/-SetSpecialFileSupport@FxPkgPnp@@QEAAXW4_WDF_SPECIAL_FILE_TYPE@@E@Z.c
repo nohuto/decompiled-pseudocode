@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetSpecialFileSupport@FxPkgPnp@@QEAAXW4_WDF_SPECIAL_FILE_TYPE@@E@Z @ 0x1C0075FF0
+ * Callers:
+ *     imp_WdfDeviceSetSpecialFileSupport @ 0x1C00342B0 (imp_WdfDeviceSetSpecialFileSupport.c)
+ * Callees:
+ *     WPP_IFR_SF_D @ 0x1C0017F78 (WPP_IFR_SF_D.c)
+ *     ?_UsageToSpecialType@FxPkgPnp@@KA?AW4_WDF_SPECIAL_FILE_TYPE@@W4_DEVICE_USAGE_NOTIFICATION_TYPE@@@Z @ 0x1C0076630 (-_UsageToSpecialType@FxPkgPnp@@KA-AW4_WDF_SPECIAL_FILE_TYPE@@W4_DEVICE_USAGE_NOTIFICATION_TYPE@@.c)
+ */
+
 void __fastcall FxPkgPnp::SetSpecialFileSupport(
         FxPkgPnp *this,
         _DEVICE_USAGE_NOTIFICATION_TYPE FileType,

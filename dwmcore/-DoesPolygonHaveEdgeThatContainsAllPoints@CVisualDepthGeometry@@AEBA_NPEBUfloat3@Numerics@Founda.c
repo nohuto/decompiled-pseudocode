@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DoesPolygonHaveEdgeThatContainsAllPoints@CVisualDepthGeometry@@AEBA_NPEBUfloat3@Numerics@Foundation@Windows@@H@Z @ 0x180267540
+ * Callers:
+ *     ?AreVisualsAbutting@CVisualDepthGeometry@@AEBA_NAEBV1@PEBUfloat3@Numerics@Foundation@Windows@@H@Z @ 0x1802674E0 (-AreVisualsAbutting@CVisualDepthGeometry@@AEBA_NAEBV1@PEBUfloat3@Numerics@Foundation@Windows@@H@.c)
+ * Callees:
+ *     ?DistSquaredToLine@@YAMAEBUfloat2@Numerics@Foundation@Windows@@00@Z @ 0x180009AFC (-DistSquaredToLine@@YAMAEBUfloat2@Numerics@Foundation@Windows@@00@Z.c)
+ */
+
 char __fastcall CVisualDepthGeometry::DoesPolygonHaveEdgeThatContainsAllPoints(
         CVisualDepthGeometry *this,
         const struct Windows::Foundation::Numerics::float3 *a2,

@@ -1,3 +1,16 @@
+/*
+ * XREFs of rimLidClosedPolicyUpdateStateAndApply @ 0x1C01D8B9C
+ * Callers:
+ *     rimApplyPointerDevicePolicies @ 0x1C00F1204 (rimApplyPointerDevicePolicies.c)
+ * Callees:
+ *     ?LockExclusive@tagDomLock@@QEBAXXZ @ 0x1C003A300 (-LockExclusive@tagDomLock@@QEBAXXZ.c)
+ *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C003B380 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
+ *     ApiSetGetPowerTransitionsState @ 0x1C00BC570 (ApiSetGetPowerTransitionsState.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     RIMCmAddContactSuppressionReasons @ 0x1C01DE1B0 (RIMCmAddContactSuppressionReasons.c)
+ */
+
 void __fastcall rimLidClosedPolicyUpdateStateAndApply(__int64 a1, __int64 a2)
 {
   __int64 v4; // rbx

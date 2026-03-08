@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0qqppxffffffffffffffff_EventWriteTransfer @ 0x180129336
+ * Callers:
+ *     ?s_HitTestRequest@CInputManager@@SAHPEAUtagDITCALLBACKSTRUCT@@@Z @ 0x180032400 (-s_HitTestRequest@CInputManager@@SAHPEAUtagDITCALLBACKSTRUCT@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall McTemplateU0qqppxffffffffffffffff_EventWriteTransfer(
         __int64 a1,
         __int64 a2,

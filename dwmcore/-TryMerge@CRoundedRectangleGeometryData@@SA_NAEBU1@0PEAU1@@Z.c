@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?TryMerge@CRoundedRectangleGeometryData@@SA_NAEBU1@0PEAU1@@Z @ 0x18001421C
+ * Callers:
+ *     ?TryOptimizedCombinePaths@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x180080580 (-TryOptimizedCombinePaths@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     _lambda_130f3fd38fafab82521855fb46aefe92_::operator() @ 0x1800143A4 (_lambda_130f3fd38fafab82521855fb46aefe92_--operator().c)
+ *     ??$IsCloseToEmpty@X@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NM@Z @ 0x180014624 (--$IsCloseToEmpty@X@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NM@Z.c)
+ *     ?GetBaseRect@CRoundedRectangleGeometryData@@QEBA?AV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@XZ @ 0x1800836C0 (-GetBaseRect@CRoundedRectangleGeometryData@@QEBA-AV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoin.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ */
+
 bool __fastcall CRoundedRectangleGeometryData::TryMerge(
         const struct CRoundedRectangleGeometryData *a1,
         const struct CRoundedRectangleGeometryData *a2,

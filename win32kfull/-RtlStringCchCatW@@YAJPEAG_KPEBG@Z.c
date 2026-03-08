@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RtlStringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1C01BBFDC
+ * Callers:
+ *     ?xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z @ 0x1C00356C8 (-xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlStringCchCatW(unsigned __int16 *a1, __int64 a2, char *a3)
 {
   __int64 v5; // r10

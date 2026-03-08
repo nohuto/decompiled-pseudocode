@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPDO_D3ColdSupportInterfaceSetD3ColdSupport @ 0x1C001AC40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBPDO_D3ColdSupportInterfaceSetD3ColdSupport(_QWORD *a1, char a2)
 {
   void (__fastcall *v2)(_QWORD); // rax

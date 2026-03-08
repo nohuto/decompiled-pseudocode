@@ -1,3 +1,12 @@
+/*
+ * XREFs of xxxSetClassLong @ 0x1C01BF660
+ * Callers:
+ *     NtUserSetClassLong @ 0x1C01DBAD0 (NtUserSetClassLong.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxSetClassData @ 0x1C00ED168 (xxxSetClassData.c)
+ */
+
 _QWORD *__fastcall xxxSetClassLong(struct tagWND *a1, int a2, unsigned int a3, unsigned int a4)
 {
   unsigned __int64 v5; // rsi

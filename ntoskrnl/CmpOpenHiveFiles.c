@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpOpenHiveFiles @ 0x1406C02C8
+ * Callers:
+ *     CmpInitHiveFromFile @ 0x1406C0BF0 (CmpInitHiveFromFile.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     SetFailureLocation @ 0x140243E5C (SetFailureLocation.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     CmpOpenHiveFile @ 0x1406C05C4 (CmpOpenHiveFile.c)
+ *     CmpQueryFileSecurityDescriptor @ 0x1406C1120 (CmpQueryFileSecurityDescriptor.c)
+ */
+
 __int64 __fastcall CmpOpenHiveFiles(
         const UNICODE_STRING *a1,
         int a2,

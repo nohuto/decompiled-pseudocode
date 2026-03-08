@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiTpCompletion @ 0x140AF0130
+ * Callers:
+ *     KiTpHandleTrap @ 0x14057C800 (KiTpHandleTrap.c)
+ * Callees:
+ *     KiTpEmulateInstruction @ 0x140AF0944 (KiTpEmulateInstruction.c)
+ */
+
 __int64 __fastcall KiTpCompletion(__int64 a1, __int64 a2, __int64 a3, unsigned __int8 a4)
 {
   struct _KPRCB *CurrentPrcb; // rax

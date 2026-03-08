@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspQueryJobIoAttribution @ 0x1406F894C
+ * Callers:
+ *     NtQueryInformationJobObject @ 0x1406F9480 (NtQueryInformationJobObject.c)
+ * Callees:
+ *     IoDiskIoAttributionQuery @ 0x1402946F0 (IoDiskIoAttributionQuery.c)
+ */
+
 __int64 __fastcall PspQueryJobIoAttribution(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

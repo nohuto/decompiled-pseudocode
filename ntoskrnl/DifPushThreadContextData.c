@@ -1,3 +1,13 @@
+/*
+ * XREFs of DifPushThreadContextData @ 0x1405D23D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall DifPushThreadContextData(int a1, const void *a2, unsigned int a3)
 {
   char v4; // si

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiPnpRtlIsDeviceValidForSession @ 0x1406CDAF0
+ * Callers:
+ *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x1406CDA80 (PiPnpRtlApplyMandatoryDeviceFilters.c)
+ * Callees:
+ *     SeQuerySessionIdTokenEx @ 0x1406CDD00 (SeQuerySessionIdTokenEx.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ */
+
 __int64 __fastcall PiPnpRtlIsDeviceValidForSession(int a1, int a2, int a3, __int64 a4, _BYTE *a5)
 {
   _BYTE *v5; // rbx

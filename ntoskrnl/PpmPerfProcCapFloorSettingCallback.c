@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmPerfProcCapFloorSettingCallback @ 0x140990170
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PpmReapplyPerfPolicy @ 0x1408261A0 (PpmReapplyPerfPolicy.c)
+ */
+
 __int64 __fastcall PpmPerfProcCapFloorSettingCallback(
         LPCGUID SettingGuid,
         unsigned int *Value,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of Interrupter_FlushPendingDpcOrWorkItemPreReset @ 0x1C003DF10
+ * Callers:
+ *     Controller_InternalReset @ 0x1C0033D04 (Controller_InternalReset.c)
+ * Callees:
+ *     Interrupter_ReleaseEventRingLock @ 0x1C000F4C4 (Interrupter_ReleaseEventRingLock.c)
+ *     Interrupter_AcquireEventRingLock @ 0x1C000F4FC (Interrupter_AcquireEventRingLock.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ */
+
 void __fastcall Interrupter_FlushPendingDpcOrWorkItemPreReset(__int64 a1)
 {
   __int64 i; // rdi

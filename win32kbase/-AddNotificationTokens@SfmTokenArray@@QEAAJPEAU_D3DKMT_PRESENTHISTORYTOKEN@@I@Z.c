@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AddNotificationTokens@SfmTokenArray@@QEAAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@I@Z @ 0x1C00D85A8
+ * Callers:
+ *     ?TransferTokens@SfmTokenArray@@QEAAJPEAV1@@Z @ 0x1C00D8560 (-TransferTokens@SfmTokenArray@@QEAAJPEAV1@@Z.c)
+ * Callees:
+ *     ?EnsureTokenBufferSize@SfmTokenArray@@AEAAJI@Z @ 0x1C00CFE78 (-EnsureTokenBufferSize@SfmTokenArray@@AEAAJI@Z.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 __int64 __fastcall SfmTokenArray::AddNotificationTokens(
         SfmTokenArray *this,
         struct _D3DKMT_PRESENTHISTORYTOKEN *Src,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtGdiMakeFontDir @ 0x1C02C64D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x1C012BEC0 (__report_rangecheckfailure.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     GreMakeFontDir @ 0x1C02D77CC (GreMakeFontDir.c)
+ */
+
 __int64 __fastcall NtGdiMakeFontDir(unsigned int a1, _OWORD *a2, unsigned int a3, char *a4, unsigned int Size)
 {
   unsigned int FontDir; // ebx

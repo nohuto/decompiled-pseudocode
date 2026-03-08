@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchGetDeviceFlipMode @ 0x1C00B5910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VidSchIsVSyncAvailable @ 0x1C00B49C0 (VidSchIsVSyncAvailable.c)
+ */
+
 __int64 __fastcall VidSchGetDeviceFlipMode(__int64 a1, unsigned int a2, _DWORD *a3)
 {
   int v3; // eax

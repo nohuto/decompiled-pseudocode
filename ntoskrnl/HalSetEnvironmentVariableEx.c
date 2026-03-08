@@ -1,3 +1,21 @@
+/*
+ * XREFs of HalSetEnvironmentVariableEx @ 0x140502A90
+ * Callers:
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403AEE1C (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ *     HaliAcpiSleep @ 0x140525AD0 (HaliAcpiSleep.c)
+ *     WheapPersistPageForMemoryError @ 0x14060EC18 (WheapPersistPageForMemoryError.c)
+ *     IopSetEnvironmentVariableHal @ 0x14094E3B0 (IopSetEnvironmentVariableHal.c)
+ *     PopSetMemoryOverwriteRequestAction @ 0x140A9D8B4 (PopSetMemoryOverwriteRequestAction.c)
+ *     PopCheckpointSystemSleepUnsafe @ 0x140AA7484 (PopCheckpointSystemSleepUnsafe.c)
+ * Callees:
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402ABED0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ *     _alloca_probe @ 0x1404210C0 (_alloca_probe.c)
+ *     HalEfiSetEnvironmentVariable @ 0x14050ADBC (HalEfiSetEnvironmentVariable.c)
+ */
+
 __int64 __fastcall HalSetEnvironmentVariableEx(const wchar_t *a1, int a2, __int64 a3, int a4, int a5)
 {
   char v10; // si

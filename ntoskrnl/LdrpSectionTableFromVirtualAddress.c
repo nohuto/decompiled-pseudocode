@@ -1,3 +1,12 @@
+/*
+ * XREFs of LdrpSectionTableFromVirtualAddress @ 0x140787C20
+ * Callers:
+ *     LdrpResSearchResourceInsideDirectory @ 0x1406DFE4C (LdrpResSearchResourceInsideDirectory.c)
+ *     LdrpResGetResourceDirectory @ 0x1407EB258 (LdrpResGetResourceDirectory.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall LdrpSectionTableFromVirtualAddress(
         __int64 a1,
         __int64 a2,

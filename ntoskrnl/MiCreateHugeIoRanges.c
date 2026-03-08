@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiCreateHugeIoRanges @ 0x140B61968
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiAddPartitionHugeRange @ 0x14061CDC4 (MiAddPartitionHugeRange.c)
+ *     MiInitializeHugePfnDatabase @ 0x14061E908 (MiInitializeHugePfnDatabase.c)
+ */
+
 unsigned __int64 __fastcall MiCreateHugeIoRanges(__int64 a1)
 {
   unsigned __int64 result; // rax

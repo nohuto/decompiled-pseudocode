@@ -1,3 +1,16 @@
+/*
+ * XREFs of ParseArgObj @ 0x1C005A5E0
+ * Callers:
+ *     ParseOpcode @ 0x1C005BD40 (ParseOpcode.c)
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     CopyObjData @ 0x1C004AEB4 (CopyObjData.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintObject @ 0x1C004E4C8 (PrintObject.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ */
+
 __int64 __fastcall ParseArgObj(__int64 a1, __int64 a2)
 {
   unsigned int v2; // edi

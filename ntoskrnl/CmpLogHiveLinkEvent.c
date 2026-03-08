@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpLogHiveLinkEvent @ 0x140A0FCB0
+ * Callers:
+ *     CmpLinkHiveToMaster @ 0x140731250 (CmpLinkHiveToMaster.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall CmpLogHiveLinkEvent(__int64 a1, unsigned __int16 *a2)
 {
   unsigned int v3; // edx

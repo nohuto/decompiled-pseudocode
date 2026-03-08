@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiMarkDevicesInError @ 0x1C0106444
+ * Callers:
+ *     VidSchiResetEngine @ 0x1C003B96C (VidSchiResetEngine.c)
+ * Callees:
+ *     VidSchMarkDeviceAsError @ 0x1C0014AF0 (VidSchMarkDeviceAsError.c)
+ */
+
 _UNKNOWN **__fastcall VidSchiMarkDevicesInError(__int64 *a1, _BYTE *a2, __int64 *a3)
 {
   _UNKNOWN **result; // rax

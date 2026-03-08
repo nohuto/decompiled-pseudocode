@@ -1,3 +1,14 @@
+/*
+ * XREFs of ApiSetEditionNonDwmSpeedHitTest @ 0x1C00BEB04
+ * Callers:
+ *     ?MouseSpeedHitTest@CMouseProcessor@@CA?AUtagINPUTDEST@@PEAUtagPOINT@@PEBU_SUBPIXELS@@GG_KKPEAXW4DIT_HITTESTATTRIBUTES@@KKPEAHPEAU_InputHitTestResult@@@Z @ 0x1C007C734 (-MouseSpeedHitTest@CMouseProcessor@@CA-AUtagINPUTDEST@@PEAUtagPOINT@@PEBU_SUBPIXELS@@GG_KKPEAXW4.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     EditionNonDwmSpeedHitTest @ 0x1C00BEC6C (EditionNonDwmSpeedHitTest.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 _OWORD *__fastcall ApiSetEditionNonDwmSpeedHitTest(_OWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v8; // rdx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PATHOBJ_bEnum @ 0x1C000BC40
+ * Callers:
+ *     ?bEnum@EPATHOBJ@@QEAAHPEAU_PATHDATA@@@Z @ 0x1C000BC20 (-bEnum@EPATHOBJ@@QEAAHPEAU_PATHDATA@@@Z.c)
+ *     ?bFastFillWrapper@RGNMEMOBJ@@AEAAHAEAVEPATHOBJ@@@Z @ 0x1C01839C4 (-bFastFillWrapper@RGNMEMOBJ@@AEAAHAEAVEPATHOBJ@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 BOOL __stdcall PATHOBJ_bEnum(PATHOBJ *ppo, PATHDATA *ppd)
 {
   PATHOBJ v2; // r11

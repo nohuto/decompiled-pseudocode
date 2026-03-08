@@ -1,3 +1,35 @@
+/*
+ * XREFs of MiUpdateLargePageBitMap @ 0x14034D79C
+ * Callers:
+ *     MiFreeLargeZeroPages @ 0x14020FD6C (MiFreeLargeZeroPages.c)
+ *     MiFreeMdlPageRun @ 0x14027AF50 (MiFreeMdlPageRun.c)
+ *     MiLinkPoolCommitChain @ 0x140330100 (MiLinkPoolCommitChain.c)
+ *     MiGetFastLargePages @ 0x14034D588 (MiGetFastLargePages.c)
+ *     MiFreeLargePageMemory @ 0x1403505C0 (MiFreeLargePageMemory.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x14038B664 (MiDemoteValidLargePageOneLevel.c)
+ *     MiFindContiguousPagesEx @ 0x1403B5CF8 (MiFindContiguousPagesEx.c)
+ *     MiFreeContiguousPages @ 0x1403BDABC (MiFreeContiguousPages.c)
+ *     MiDemoteSlabEntry @ 0x1403C826C (MiDemoteSlabEntry.c)
+ *     MiRebuildLargePage @ 0x140466288 (MiRebuildLargePage.c)
+ *     MiInitializeDynamicPfns @ 0x140618AB8 (MiInitializeDynamicPfns.c)
+ *     MiFindLargeNodePage @ 0x14061B228 (MiFindLargeNodePage.c)
+ *     MiFreeContiguousLargePageRun @ 0x14064780C (MiFreeContiguousLargePageRun.c)
+ *     MiDeleteSubsectionLargePages @ 0x14064C7F8 (MiDeleteSubsectionLargePages.c)
+ *     MiActOnPartitionNodePages @ 0x140655AB0 (MiActOnPartitionNodePages.c)
+ *     MiDemotePfnListChain @ 0x140665964 (MiDemotePfnListChain.c)
+ *     MiAddPhysicalMemory @ 0x140A289D8 (MiAddPhysicalMemory.c)
+ *     MiCreateEnclaveRegions @ 0x140B3A434 (MiCreateEnclaveRegions.c)
+ *     MiCreateBootSlabEntries @ 0x140B3B858 (MiCreateBootSlabEntries.c)
+ *     MiMarkLargePageRanges @ 0x140B4F274 (MiMarkLargePageRanges.c)
+ *     MiMarkLargePagePte @ 0x140B5E0C0 (MiMarkLargePagePte.c)
+ * Callees:
+ *     RtlClearBitsEx @ 0x14020FC50 (RtlClearBitsEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlSetBitsEx @ 0x14034CE90 (RtlSetBitsEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiUpdateLargePageBitMap(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, int a4, int a5)
 {
   __int64 v8; // rdx

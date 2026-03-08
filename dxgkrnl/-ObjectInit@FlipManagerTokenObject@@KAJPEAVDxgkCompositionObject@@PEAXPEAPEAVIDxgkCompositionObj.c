@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ObjectInit@FlipManagerTokenObject@@KAJPEAVDxgkCompositionObject@@PEAXPEAPEAVIDxgkCompositionObject@@@Z @ 0x1C00760E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Feature_CompositionTextures__private_IsEnabledDeviceUsage @ 0x1C0026E2C (Feature_CompositionTextures__private_IsEnabledDeviceUsage.c)
+ */
+
 __int64 __fastcall FlipManagerTokenObject::ObjectInit(
         struct DxgkCompositionObject *a1,
         _QWORD *a2,

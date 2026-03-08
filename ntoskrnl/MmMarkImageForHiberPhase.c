@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmMarkImageForHiberPhase @ 0x140AA9DFC
+ * Callers:
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ * Callees:
+ *     MiLookupDataTableEntry @ 0x14035ECF0 (MiLookupDataTableEntry.c)
+ *     MiMarkHotPatchesForHiberPhase @ 0x140640440 (MiMarkHotPatchesForHiberPhase.c)
+ *     MiMarkNonPagedHiberPhasePages @ 0x140AA9324 (MiMarkNonPagedHiberPhasePages.c)
+ */
+
 __int64 __fastcall MmMarkImageForHiberPhase(unsigned __int64 a1)
 {
   _QWORD *v1; // rdi

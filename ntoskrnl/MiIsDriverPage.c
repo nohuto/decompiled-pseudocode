@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiIsDriverPage @ 0x1402D38C0
+ * Callers:
+ *     MiProbeLeafPteAccess @ 0x140269620 (MiProbeLeafPteAccess.c)
+ *     MiRemoveWsleList @ 0x1402824E0 (MiRemoveWsleList.c)
+ *     MiRemoveWsle @ 0x140325790 (MiRemoveWsle.c)
+ * Callees:
+ *     MmLockLoadedModuleListShared @ 0x1402280EC (MmLockLoadedModuleListShared.c)
+ *     MmUnlockLoadedModuleListShared @ 0x1402824A4 (MmUnlockLoadedModuleListShared.c)
+ */
+
 __int64 __fastcall MiIsDriverPage(__int64 a1, int a2)
 {
   unsigned __int64 v3; // rbx

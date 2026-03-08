@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CDDisplayRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0266390
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0064740 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_22efc74504cb8895f58d97a59d20f195___ @ 0x1C0266084 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_22efc74504cb8895f58d97a59d20f19.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_2a925c6db018c7ea0c09d4864a48b635___ @ 0x1C026610C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_2a925c6db018c7ea0c09d4864a48b63.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_86a70588145588370e1570fe6666648c___ @ 0x1C02661B8 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_86a70588145588370e1570fe6666648.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_d4572c77d854595aef475aa9bde9dcaf___ @ 0x1C026622C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_d4572c77d854595aef475aa9bde9dca.c)
+ *     ?EmitCreate@CDDisplayRenderTargetMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02662A0 (-EmitCreate@CDDisplayRenderTargetMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ */
+
 char __fastcall DirectComposition::CDDisplayRenderTargetMarshaler::EmitUpdateCommands(
         DirectComposition::CDDisplayRenderTargetMarshaler *this,
         struct DirectComposition::CBatch ***a2)

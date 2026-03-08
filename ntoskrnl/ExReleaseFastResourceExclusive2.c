@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExReleaseFastResourceExclusive2 @ 0x14040EDFC
+ * Callers:
+ *     ExReleaseFastResourceExclusive @ 0x140607BF0 (ExReleaseFastResourceExclusive.c)
+ * Callees:
+ *     ExpReleaseFastResourceExclusive2 @ 0x140410E88 (ExpReleaseFastResourceExclusive2.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall ExReleaseFastResourceExclusive2(ULONG_PTR BugCheckParameter2)
 {
   ULONG_PTR v1; // r8

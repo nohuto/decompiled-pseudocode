@@ -1,3 +1,20 @@
+/*
+ * XREFs of ExpFreeHeapSpecialPool @ 0x14060CCF8
+ * Callers:
+ *     ExFreeHeapPool @ 0x1402B61C0 (ExFreeHeapPool.c)
+ *     ExAllocateHeapSpecialPool @ 0x14060C980 (ExAllocateHeapSpecialPool.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ * Callees:
+ *     MiDeterminePoolType @ 0x14020DEF0 (MiDeterminePoolType.c)
+ *     ExpPoolTrackerReturnLimit @ 0x140313B50 (ExpPoolTrackerReturnLimit.c)
+ *     ExpFreePoolChecks @ 0x140313BA0 (ExpFreePoolChecks.c)
+ *     RtlpHpFreeHeap @ 0x140313CC0 (RtlpHpFreeHeap.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x140462C3A (ExpRemovePoolTrackerExpansion.c)
+ *     VerifierFreeTrackedPool @ 0x1405CD740 (VerifierFreeTrackedPool.c)
+ *     EtwTracePool @ 0x1405FAD80 (EtwTracePool.c)
+ */
+
 __int64 __fastcall ExpFreeHeapSpecialPool(__int64 a1, unsigned __int64 a2)
 {
   int v4; // eax

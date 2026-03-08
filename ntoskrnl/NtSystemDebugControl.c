@@ -1,3 +1,26 @@
+/*
+ * XREFs of NtSystemDebugControl @ 0x140791FE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExUnlockUserBuffer @ 0x1402CFFD4 (ExUnlockUserBuffer.c)
+ *     DbgBreakPointWithStatus @ 0x1404203E0 (DbgBreakPointWithStatus.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     DbgkCaptureLiveKernelDump @ 0x140539CE8 (DbgkCaptureLiveKernelDump.c)
+ *     KdDisableDebugger @ 0x140565110 (KdDisableDebugger.c)
+ *     KdEnableDebugger @ 0x140565340 (KdEnableDebugger.c)
+ *     KdSetDbgPrintBufferSize @ 0x140565744 (KdSetDbgPrintBufferSize.c)
+ *     ExLockUserBuffer @ 0x14075D5A4 (ExLockUserBuffer.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     ExpKdPullRemoteFileForUser @ 0x14084C910 (ExpKdPullRemoteFileForUser.c)
+ *     DbgkCaptureLiveDump @ 0x1409378F8 (DbgkCaptureLiveDump.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtSystemDebugControl(int a1, char *a2, unsigned int a3, bool *a4, unsigned int Length, _DWORD *a6)
 {
   __int64 v7; // r15

@@ -1,3 +1,11 @@
+/*
+ * XREFs of DwmAsyncSignalGhost @ 0x1C0270588
+ * Callers:
+ *     ?SendAsyncSGHOSTINFO@@YAHQEAU_GHOSTINFO@@@Z @ 0x1C01F4ECC (-SendAsyncSGHOSTINFO@@YAHQEAU_GHOSTINFO@@@Z.c)
+ * Callees:
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall DwmAsyncSignalGhost(PVOID Object, __int128 *a2)
 {
   unsigned int v4; // edi

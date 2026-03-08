@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBMISC_Is30DevicePresent @ 0x1C0031208
+ * Callers:
+ *     HUBPSM30_CheckingIfDeviceIsConnectedOnPortChangeInD3Cold @ 0x1C0012EA0 (HUBPSM30_CheckingIfDeviceIsConnectedOnPortChangeInD3Cold.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBMISC_Is30DevicePresent(__int64 a1)
 {
   __int16 v1; // ax

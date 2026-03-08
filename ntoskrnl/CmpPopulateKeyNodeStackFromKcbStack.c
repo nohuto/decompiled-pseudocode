@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpPopulateKeyNodeStackFromKcbStack @ 0x140A1D1EC
+ * Callers:
+ *     CmSaveKey @ 0x140A08D50 (CmSaveKey.c)
+ *     CmpStartKeyNodeStackFromKcbStack @ 0x140A1D69C (CmpStartKeyNodeStackFromKcbStack.c)
+ *     CmpSubtreeEnumeratorBeginForKcbStack @ 0x140A1D878 (CmpSubtreeEnumeratorBeginForKcbStack.c)
+ * Callees:
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140783798 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpGetEffectiveKcbSemantics @ 0x1407AF5C0 (CmpGetEffectiveKcbSemantics.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1407AF600 (CmpGetKcbAtLayerHeight.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 _UNKNOWN **__fastcall CmpPopulateKeyNodeStackFromKcbStack(__int64 a1, __int64 a2, __int64 a3)
 {
   _UNKNOWN **result; // rax

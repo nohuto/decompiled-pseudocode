@@ -1,3 +1,13 @@
+/*
+ * XREFs of AcpiDiagTraceRecordAmlEvaluationStatistics @ 0x1C0008798
+ * Callers:
+ *     FreeContext @ 0x1C0053624 (FreeContext.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1C0009240 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0009270 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall AcpiDiagTraceRecordAmlEvaluationStatistics(__int64 a1)
 {
   unsigned __int128 v1; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmGetVisibleValueCount @ 0x140787D9C
+ * Callers:
+ *     CmpQueryKeyDataFromNode @ 0x1407AD510 (CmpQueryKeyDataFromNode.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmGetVisibleValueCount(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

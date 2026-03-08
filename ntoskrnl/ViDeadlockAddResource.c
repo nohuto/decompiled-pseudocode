@@ -1,3 +1,16 @@
+/*
+ * XREFs of ViDeadlockAddResource @ 0x140AD53DC
+ * Callers:
+ *     VfDeadlockAcquireResource @ 0x140AD3DAC (VfDeadlockAcquireResource.c)
+ *     VfDeadlockInitializeResource @ 0x140AD4738 (VfDeadlockInitializeResource.c)
+ * Callees:
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     VfUtilAddressRangeAdd @ 0x140ABF394 (VfUtilAddressRangeAdd.c)
+ *     ViDeadlockPreprocessOptions @ 0x140AD6830 (ViDeadlockPreprocessOptions.c)
+ *     ViDeadlockRemoveResource @ 0x140AD6A68 (ViDeadlockRemoveResource.c)
+ *     ViDeadlockSearchResource @ 0x140AD6D80 (ViDeadlockSearchResource.c)
+ */
+
 __int64 __fastcall ViDeadlockAddResource(
         ULONG_PTR a1,
         unsigned int a2,

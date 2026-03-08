@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Disconnect@DXGDOORBELL@@QEAAJW4_D3DDDI_DOORBELLSTATUS@@@Z @ 0x1C0312B30
+ * Callers:
+ *     DxgkDisconnectDoorbellCB @ 0x1C03197E0 (DxgkDisconnectDoorbellCB.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall DXGDOORBELL::Disconnect(__int64 a1, int a2)
 {
   ULONG_PTR v2; // rax

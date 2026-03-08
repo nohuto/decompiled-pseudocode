@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?vTransparentCopy@@YAXPEAUBLTINFO@@@Z @ 0x1C02988C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     XLATEOBJ_iXlate @ 0x1C00C3AA0 (XLATEOBJ_iXlate.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?StartPixel@@YAPEAEPEAEKK@Z @ 0x1C029885C (-StartPixel@@YAPEAEPEAEKK@Z.c)
+ */
+
 void __fastcall vTransparentCopy(struct BLTINFO *a1)
 {
   XLATEOBJ *v1; // r11

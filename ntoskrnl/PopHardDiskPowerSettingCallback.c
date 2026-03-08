@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopHardDiskPowerSettingCallback @ 0x140829550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopUpdateDiskIdleTimeoutSetting @ 0x1408197EC (PopUpdateDiskIdleTimeoutSetting.c)
+ *     PopApplyPolicy @ 0x14082A06C (PopApplyPolicy.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopHardDiskPowerSettingCallback(__int64 *a1, int *a2, int a3)
 {
   int v6; // ecx

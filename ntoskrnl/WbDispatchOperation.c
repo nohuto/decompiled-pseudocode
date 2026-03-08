@@ -1,3 +1,23 @@
+/*
+ * XREFs of WbDispatchOperation @ 0x1406AECD0
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     PsGetProcessId @ 0x140236D10 (PsGetProcessId.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     WbGetWarbirdProcess @ 0x1406AEEB8 (WbGetWarbirdProcess.c)
+ *     sub_1406AF0D8 @ 0x1406AF0D8 (sub_1406AF0D8.c)
+ *     WbAlloc @ 0x1406AF510 (WbAlloc.c)
+ *     WbHeapExecuteCall @ 0x1406AF56C (WbHeapExecuteCall.c)
+ *     sub_1406AFFB4 @ 0x1406AFFB4 (sub_1406AFFB4.c)
+ *     WbRemoveWarbirdProcess @ 0x14070546C (WbRemoveWarbirdProcess.c)
+ *     WbReEncryptEncryptionSegment @ 0x1407552F8 (WbReEncryptEncryptionSegment.c)
+ *     WbDecryptEncryptionSegment @ 0x1407553D8 (WbDecryptEncryptionSegment.c)
+ *     WbProcessModuleUnload @ 0x140770A30 (WbProcessModuleUnload.c)
+ *     WbProcessStartup @ 0x140798900 (WbProcessStartup.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WbDispatchOperation(char *Src, size_t Size)
 {
   size_t v2; // rsi

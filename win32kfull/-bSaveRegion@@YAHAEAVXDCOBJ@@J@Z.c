@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?bSaveRegion@@YAHAEAVXDCOBJ@@J@Z @ 0x1C0050094
+ * Callers:
+ *     GreSaveDCInternal @ 0x1C00C6CB0 (GreSaveDCInternal.c)
+ * Callees:
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002A694 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002A6E0 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C0050C40 (--1DCOBJ@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??1?$lambda_call@V_lambda_d4ac050843a32da14874304f2689d2a8_@@@details@wil@@QEAA@XZ @ 0x1C012F82C (--1-$lambda_call@V_lambda_d4ac050843a32da14874304f2689d2a8_@@@details@wil@@QEAA@XZ.c)
+ *     ?AcquireDcVisRgnExclusive@DC@@QEAA@XZ @ 0x1C0130930 (-AcquireDcVisRgnExclusive@DC@@QEAA@XZ.c)
+ *     ??YERECTL@@QEAAXAEBU_POINTL@@@Z @ 0x1C02681EC (--YERECTL@@QEAAXAEBU_POINTL@@@Z.c)
+ *     ?vMarkTransformDirty@DC@@QEAAXXZ @ 0x1C0269660 (-vMarkTransformDirty@DC@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall bSaveRegion(DC **a1, __int64 a2)
 {
   unsigned int v2; // esi

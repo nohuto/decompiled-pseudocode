@@ -1,3 +1,13 @@
+/*
+ * XREFs of PipHardwareConfigGetIndex @ 0x14081B840
+ * Callers:
+ *     IopInitializeBootDrivers @ 0x140B57F78 (IopInitializeBootDrivers.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _RegRtlQueryValue @ 0x1406D3E98 (_RegRtlQueryValue.c)
+ *     PipHardwareConfigOpenKey @ 0x14081B6E8 (PipHardwareConfigOpenKey.c)
+ */
+
 __int64 __fastcall PipHardwareConfigGetIndex(__int64 a1, void *a2)
 {
   int v3; // ebx

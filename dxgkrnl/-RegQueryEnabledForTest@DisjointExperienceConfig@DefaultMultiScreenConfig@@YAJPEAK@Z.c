@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RegQueryEnabledForTest@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEAK@Z @ 0x1C004A218
+ * Callers:
+ *     ?ValidateStaticRequirements@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEA_N@Z @ 0x1C004A6F8 (-ValidateStaticRequirements@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEA_N@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall DefaultMultiScreenConfig::DisjointExperienceConfig::RegQueryEnabledForTest(
         DefaultMultiScreenConfig::DisjointExperienceConfig *this,
         unsigned int *a2)

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PfpPowerActionStartScenarioTracing @ 0x140A9CFDC
+ * Callers:
+ *     PfPowerActionNotify @ 0x140A9CD7C (PfPowerActionNotify.c)
+ * Callees:
+ *     PfLogEvent @ 0x14028D0D0 (PfLogEvent.c)
+ *     PfTAccessTracingCleanup @ 0x140A844E0 (PfTAccessTracingCleanup.c)
+ *     MmPerformMemoryListCommand @ 0x140A849F4 (MmPerformMemoryListCommand.c)
+ *     PfTAccessTracingStart @ 0x140A858C4 (PfTAccessTracingStart.c)
+ */
+
 __int64 __fastcall PfpPowerActionStartScenarioTracing(__int64 a1)
 {
   __int64 v2; // rax

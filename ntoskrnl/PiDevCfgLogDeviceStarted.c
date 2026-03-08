@@ -1,3 +1,18 @@
+/*
+ * XREFs of PiDevCfgLogDeviceStarted @ 0x140874EF4
+ * Callers:
+ *     PpDevCfgTraceDeviceStart @ 0x140877368 (PpDevCfgTraceDeviceStart.c)
+ * Callees:
+ *     PipIsDevNodeDNStarted @ 0x140245658 (PipIsDevNodeDNStarted.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     PnpGetLogString @ 0x1403C1C48 (PnpGetLogString.c)
+ *     McTemplateK0zzjzzzdd_EtwWriteTransfer @ 0x1403C1C68 (McTemplateK0zzjzzzdd_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PiDevCfgQueryObjectProperties @ 0x14086AC20 (PiDevCfgQueryObjectProperties.c)
+ */
+
 void __fastcall PiDevCfgLogDeviceStarted(__int64 a1)
 {
   __int64 v2; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of IommuDeviceQueryInformation @ 0x140932630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IommuDeviceQueryInformation(_BYTE *a1, unsigned int a2, int *a3, __int64 a4)
 {
   int v4; // r10d

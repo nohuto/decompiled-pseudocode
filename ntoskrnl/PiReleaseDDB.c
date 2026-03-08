@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiReleaseDDB @ 0x14079C824
+ * Callers:
+ *     PiLookupInDDB @ 0x14079DE5C (PiLookupInDDB.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwUnmapViewOfSection @ 0x140412850 (ZwUnmapViewOfSection.c)
+ *     SdbReleaseDatabase @ 0x14079C878 (SdbReleaseDatabase.c)
+ */
+
 __int64 __fastcall PiReleaseDDB(__int64 a1)
 {
   void *v2; // rcx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PipGetDeviceObjectLocation @ 0x14094FFE4
+ * Callers:
+ *     IoReserveKsrPersistentMemoryEx @ 0x14094FA50 (IoReserveKsrPersistentMemoryEx.c)
+ *     PipMatchPersistentMemory @ 0x140950A98 (PipMatchPersistentMemory.c)
+ *     PipMatchPersistentMemoryV1 @ 0x140950B7C (PipMatchPersistentMemoryV1.c)
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PipGetDeviceObjectLocation(ULONG_PTR BugCheckParameter2, unsigned int *a2, _QWORD *a3)
 {
   __int64 v6; // rdi

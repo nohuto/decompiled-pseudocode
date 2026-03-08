@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiTpWriteMemory @ 0x14057CAEC
+ * Callers:
+ *     KiTpWriteBreakpoint @ 0x14057CA4C (KiTpWriteBreakpoint.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     MmDbgCopyMemory @ 0x140346FE0 (MmDbgCopyMemory.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiTpWriteUmMemory @ 0x14057CC10 (KiTpWriteUmMemory.c)
+ *     KdExitDebugger @ 0x140AAD2D0 (KdExitDebugger.c)
+ *     KdEnterDebugger @ 0x140AAD40C (KdEnterDebugger.c)
+ */
+
 __int64 __fastcall KiTpWriteMemory(_KPROCESS *a1, char a2, char *a3, __int64 a4)
 {
   int v8; // ebx

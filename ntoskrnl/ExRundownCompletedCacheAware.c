@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExRundownCompletedCacheAware @ 0x14028E1D0
+ * Callers:
+ *     ExReInitializeRundownProtectionCacheAware @ 0x14028E180 (ExReInitializeRundownProtectionCacheAware.c)
+ * Callees:
+ *     <none>
+ */
+
 void __stdcall ExRundownCompletedCacheAware(PEX_RUNDOWN_REF_CACHE_AWARE RunRefCacheAware)
 {
   unsigned int v2; // r8d

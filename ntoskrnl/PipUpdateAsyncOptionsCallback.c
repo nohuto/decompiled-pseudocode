@@ -1,3 +1,14 @@
+/*
+ * XREFs of PipUpdateAsyncOptionsCallback @ 0x140872CF0
+ * Callers:
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwNotifyChangeKey @ 0x140414730 (ZwNotifyChangeKey.c)
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 int __fastcall PipUpdateAsyncOptionsCallback(HANDLE Handle)
 {
   NTSTATUS RegistryValue; // eax

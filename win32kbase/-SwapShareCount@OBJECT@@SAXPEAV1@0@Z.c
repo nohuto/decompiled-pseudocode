@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SwapShareCount@OBJECT@@SAXPEAV1@0@Z @ 0x1C0185BC0
+ * Callers:
+ *     bMigrateSurfaceForConversion @ 0x1C0186E60 (bMigrateSurfaceForConversion.c)
+ * Callees:
+ *     ?GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z @ 0x1C004A2C0 (-GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z.c)
+ */
+
 void __fastcall OBJECT::SwapShareCount(struct OBJECT *a1, struct OBJECT *a2)
 {
   int v2; // r8d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CDebugVisualImage@@AEAA@PEAVCComposition@@@Z @ 0x180214EE8
+ * Callers:
+ *     ?Create@CDebugVisualImage@@SAJPEAVCComposition@@PEAVCVisual@@PEAPEAV1@@Z @ 0x18021504C (-Create@CDebugVisualImage@@SAJPEAVCComposition@@PEAVCVisual@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     ??0CCachedVisualImage@@IEAA@PEAVCComposition@@_N@Z @ 0x1800B5BC8 (--0CCachedVisualImage@@IEAA@PEAVCComposition@@_N@Z.c)
+ */
+
 CDebugVisualImage *__fastcall CDebugVisualImage::CDebugVisualImage(CDebugVisualImage *this, struct CComposition *a2)
 {
   __int64 v3; // rcx

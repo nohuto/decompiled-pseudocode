@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifDeregisterPlugin @ 0x1405D2840
+ * Callers:
+ *     DifDeregisterAllPlugins @ 0x1405D27E8 (DifDeregisterAllPlugins.c)
+ *     DifRegisterPlugin @ 0x1405D2C50 (DifRegisterPlugin.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ViUnbindDifThunk @ 0x1405CCD84 (ViUnbindDifThunk.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall DifDeregisterPlugin(unsigned int a1)
 {
   __int64 v1; // r12

@@ -1,3 +1,18 @@
+/*
+ * XREFs of NtAlpcOpenSenderThread @ 0x140769DB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     AlpcpProbeAndCaptureMessageHeader @ 0x140715E54 (AlpcpProbeAndCaptureMessageHeader.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     PsOpenThread @ 0x14076A000 (PsOpenThread.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     AlpcpLookupMessage @ 0x1407CA7C0 (AlpcpLookupMessage.c)
+ */
+
 __int64 __fastcall NtAlpcOpenSenderThread(_QWORD *a1, void *a2, unsigned __int64 a3, int a4, int a5, _OWORD *a6)
 {
   struct _KTHREAD *CurrentThread; // rax

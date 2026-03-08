@@ -1,3 +1,14 @@
+/*
+ * XREFs of LogSetTimingSourceMask @ 0x1C01778BC
+ * Callers:
+ *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C0173EE4 (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     McTemplateK0pqqqqqqqqqqqqqqqqq_EtwWriteTransfer @ 0x1C0069314 (McTemplateK0pqqqqqqqqqqqqqqqqq_EtwWriteTransfer.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01BA77C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ */
+
 NTSTATUS __fastcall LogSetTimingSourceMask(__int64 a1, _BYTE *a2)
 {
   __int64 v4; // rdx

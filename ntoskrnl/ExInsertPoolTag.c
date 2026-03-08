@@ -1,3 +1,22 @@
+/*
+ * XREFs of ExInsertPoolTag @ 0x1403B51DC
+ * Callers:
+ *     MiAllocateContiguousMemory @ 0x1403B49B4 (MiAllocateContiguousMemory.c)
+ * Callees:
+ *     ExpAddTagForBigPages @ 0x1402C7A20 (ExpAddTagForBigPages.c)
+ *     ExpPlFindLimitEntry @ 0x1402F00EC (ExpPlFindLimitEntry.c)
+ *     ExpPoolTrackerReturnLimit @ 0x140313B50 (ExpPoolTrackerReturnLimit.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpPoolTrackerChargeEntry @ 0x1403B53DC (ExpPoolTrackerChargeEntry.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x140462C3A (ExpRemovePoolTrackerExpansion.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTracePool @ 0x1405FAD80 (EtwTracePool.c)
+ *     ExpCleanupBigTag @ 0x1406056C8 (ExpCleanupBigTag.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140605758 (ExpInsertPoolTrackerExpansion.c)
+ */
+
 __int64 __fastcall ExInsertPoolTag(unsigned int a1, unsigned __int64 a2, unsigned __int64 a3, __int64 a4, char a5)
 {
   unsigned int v5; // edi

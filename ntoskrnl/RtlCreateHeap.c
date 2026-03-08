@@ -1,3 +1,28 @@
+/*
+ * XREFs of RtlCreateHeap @ 0x14078AD90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DbgPrint @ 0x1402BDD20 (DbgPrint.c)
+ *     RtlpHpLegacyGetEnvHandle @ 0x1402F78C0 (RtlpHpLegacyGetEnvHandle.c)
+ *     RtlpHpFixedHeapCreate @ 0x1402F78D8 (RtlpHpFixedHeapCreate.c)
+ *     RtlpHpConvertCreationFlags @ 0x1402F7A8C (RtlpHpConvertCreationFlags.c)
+ *     RtlpHeapGenerateRandomValue64 @ 0x14030B578 (RtlpHeapGenerateRandomValue64.c)
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     ExDeleteResourceLite @ 0x140336580 (ExDeleteResourceLite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwAllocateVirtualMemory @ 0x140412610 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x1404126D0 (ZwFreeVirtualMemory.c)
+ *     ZwQueryVirtualMemory @ 0x140412770 (ZwQueryVirtualMemory.c)
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpCreateHeapEncoding @ 0x1405A9B40 (RtlpCreateHeapEncoding.c)
+ *     RtlpInitializeHeapSegment @ 0x1405AB4DC (RtlpInitializeHeapSegment.c)
+ *     RtlpHeapExceptionFilter @ 0x1405B276C (RtlpHeapExceptionFilter.c)
+ *     RtlpHeapHandleError @ 0x1405B2C0C (RtlpHeapHandleError.c)
+ *     RtlpPopulateListIndex @ 0x1405B3494 (RtlpPopulateListIndex.c)
+ */
+
 PVOID __stdcall RtlCreateHeap(
         ULONG Flags,
         PVOID HeapBase,

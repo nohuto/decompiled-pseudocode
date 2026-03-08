@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoFreeKsrPersistentMemory @ 0x14094F730
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IoFreeKsrPersistentMemory(char *P, __int64 a2, __int64 a3)
 {
   void *v4; // rcx

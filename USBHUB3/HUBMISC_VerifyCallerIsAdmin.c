@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBMISC_VerifyCallerIsAdmin @ 0x1C0083448
+ * Callers:
+ *     HUBFDO_IoctlCyclePort @ 0x1C007B988 (HUBFDO_IoctlCyclePort.c)
+ *     HUBFDO_IoctlResetHub @ 0x1C007BE54 (HUBFDO_IoctlResetHub.c)
+ *     HUBFDO_IoctlTestPortPLDRRecovery @ 0x1C007BFE4 (HUBFDO_IoctlTestPortPLDRRecovery.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ */
+
 __int64 __fastcall HUBMISC_VerifyCallerIsAdmin(__int64 a1)
 {
   void *PrimaryToken; // rbx

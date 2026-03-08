@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_LoadCursorsAndIcons@@YAHXZ @ 0x1C010A118
+ * Callers:
+ *     NtUserLoadCursorsAndIcons @ 0x1C00F5D90 (NtUserLoadCursorsAndIcons.c)
+ * Callees:
+ *     ?zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C01084CC (-zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCur.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall _LoadCursorsAndIcons(__int64 a1, __int64 a2, __int64 a3)
 {

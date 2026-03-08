@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ConfigureRITDelayableTimers@@YAXW4RitTimerRate@@@Z @ 0x1C007933C
+ * Callers:
+ *     SetTimerCoalescingTolerance @ 0x1C0079290 (SetTimerCoalescingTolerance.c)
+ *     RawInputThread @ 0x1C007A0C0 (RawInputThread.c)
+ * Callees:
+ *     InternalSetTimer @ 0x1C0061830 (InternalSetTimer.c)
+ *     SetRITTimer @ 0x1C00793E0 (SetRITTimer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 void **__fastcall ConfigureRITDelayableTimers(unsigned int a1)
 {
   __int64 v2; // rax

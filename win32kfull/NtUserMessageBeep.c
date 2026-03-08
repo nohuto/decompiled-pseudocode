@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserMessageBeep @ 0x1C01D8970
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@G@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@G@@@Z @ 0x1C01CCD80 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@G@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     xxxMessageBeep @ 0x1C01F7F58 (xxxMessageBeep.c)
+ */
+
 __int64 __fastcall NtUserMessageBeep(unsigned int a1)
 {
   int v2; // eax

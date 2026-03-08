@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$emplace_back@UMonitorData@CCursorState@@@?$vector@UMonitorData@CCursorState@@V?$allocator@UMonitorData@CCursorState@@@std@@@std@@QEAA?A_T$$QEAUMonitorData@CCursorState@@@Z @ 0x18027581C
+ * Callers:
+ *     ?TryEnableHardwareCursor@CCursorState@@QEAA_NU_LUID@@IAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@VCMILMatrix@@@Z @ 0x180277F98 (-TryEnableHardwareCursor@CCursorState@@QEAA_NU_LUID@@IAEBV-$TMilRect@IUMilRectU@@UMil3DRectU@@UN.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall std::vector<CCursorState::MonitorData>::emplace_back<CCursorState::MonitorData>(
         __int64 *a1,
         __int64 a2)

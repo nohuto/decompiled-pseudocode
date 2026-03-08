@@ -1,3 +1,21 @@
+/*
+ * XREFs of NVMeAsyncEventRequestCompletion @ 0x1C001BA00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     GetNamespaceId @ 0x1C0007A8C (GetNamespaceId.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     GetLocalCommand @ 0x1C0009C80 (GetLocalCommand.c)
+ *     IsNVMeControllerOnFatalError @ 0x1C000C03C (IsNVMeControllerOnFatalError.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C000C1C0 (NVMeAllocateDmaBuffer.c)
+ *     NVMeControllerAsyncReset @ 0x1C000CAB0 (NVMeControllerAsyncReset.c)
+ *     BuildGetLogPageCommand @ 0x1C0010E14 (BuildGetLogPageCommand.c)
+ *     NVMeQueueWorkItem @ 0x1C0016B88 (NVMeQueueWorkItem.c)
+ *     NVMeIssueAsyncEventCommand @ 0x1C001FB54 (NVMeIssueAsyncEventCommand.c)
+ */
+
 char __fastcall NVMeAsyncEventRequestCompletion(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 SrbExtension; // rax

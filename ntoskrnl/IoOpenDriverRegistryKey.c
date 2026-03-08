@@ -1,3 +1,20 @@
+/*
+ * XREFs of IoOpenDriverRegistryKey @ 0x140771840
+ * Callers:
+ *     DifIoOpenDriverRegistryKeyWrapper @ 0x1405DE100 (DifIoOpenDriverRegistryKeyWrapper.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     PipOpenServiceEnumKeys @ 0x1406C1280 (PipOpenServiceEnumKeys.c)
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ *     IopApplyMutableTagToRegistryKey @ 0x140771C20 (IopApplyMutableTagToRegistryKey.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PiCreateServiceStateKey @ 0x14086F264 (PiCreateServiceStateKey.c)
+ *     PiGetServiceNameInfo @ 0x140870010 (PiGetServiceNameInfo.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IoOpenDriverRegistryKey(__int64 a1, int a2, ACCESS_MASK a3, int a4, _QWORD *a5)
 {
   void *v7; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsEnabled@InkProcessor@@QEBA_NXZ @ 0x1C0240CBC
+ * Callers:
+ *     InkProcessorIsInkDevice @ 0x1C02010B0 (InkProcessorIsInkDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall InkProcessor::IsEnabled(InkProcessor *this)
 {
   char v2; // bl

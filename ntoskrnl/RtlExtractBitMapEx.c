@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlExtractBitMapEx @ 0x1405A5A20
+ * Callers:
+ *     RtlShiftLeftBitMapEx @ 0x1405A6E80 (RtlShiftLeftBitMapEx.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 char __fastcall RtlExtractBitMapEx(_QWORD *a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
 {
   unsigned __int64 v4; // rbx

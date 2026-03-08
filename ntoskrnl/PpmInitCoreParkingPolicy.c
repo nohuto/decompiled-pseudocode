@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmInitCoreParkingPolicy @ 0x140B706B8
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     <none>
+ */
+
 _BYTE *PpmInitCoreParkingPolicy()
 {
   __int64 v0; // rcx

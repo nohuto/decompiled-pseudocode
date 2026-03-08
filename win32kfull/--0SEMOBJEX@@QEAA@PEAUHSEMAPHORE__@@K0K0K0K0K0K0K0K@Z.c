@@ -1,3 +1,18 @@
+/*
+ * XREFs of ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C0129160
+ * Callers:
+ *     GreDrvDisconnect @ 0x1C0128FB4 (GreDrvDisconnect.c)
+ *     GreDrvReconnect @ 0x1C02DEC3C (GreDrvReconnect.c)
+ *     bDrvDisconnect @ 0x1C02DF008 (bDrvDisconnect.c)
+ *     bDrvDisplayIOCtl @ 0x1C02DF1C0 (bDrvDisplayIOCtl.c)
+ *     bDrvReconnect @ 0x1C02DF36C (bDrvReconnect.c)
+ *     bDrvShadowConnect @ 0x1C02DF56C (bDrvShadowConnect.c)
+ *     bDrvShadowDisconnect @ 0x1C02DF744 (bDrvShadowDisconnect.c)
+ *     vDrvInvalidateRect @ 0x1C02DF91C (vDrvInvalidateRect.c)
+ * Callees:
+ *     <none>
+ */
+
 SEMOBJEX *__fastcall SEMOBJEX::SEMOBJEX(
         SEMOBJEX *this,
         HSEMAPHORE a2,

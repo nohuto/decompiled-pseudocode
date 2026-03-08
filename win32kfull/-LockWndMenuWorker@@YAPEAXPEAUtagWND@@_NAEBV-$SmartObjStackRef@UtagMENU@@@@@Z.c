@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?LockWndMenuWorker@@YAPEAXPEAUtagWND@@_NAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C00E79FC
+ * Callers:
+ *     xxxGetSystemMenu @ 0x1C0021498 (xxxGetSystemMenu.c)
+ *     xxxSetWindowData @ 0x1C002F9C8 (xxxSetWindowData.c)
+ *     xxxSetDialogSystemMenu @ 0x1C00E7FF4 (xxxSetDialogSystemMenu.c)
+ *     xxxSetMenu @ 0x1C0234BF0 (xxxSetMenu.c)
+ *     xxxSetSystemMenu @ 0x1C0234C74 (xxxSetSystemMenu.c)
+ * Callees:
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C00A4F34 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
+ */
+
 __int64 __fastcall LockWndMenuWorker(__int64 a1, unsigned __int8 a2, _QWORD **a3)
 {
   __int64 v4; // r14

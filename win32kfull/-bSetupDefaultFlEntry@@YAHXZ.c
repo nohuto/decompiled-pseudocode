@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bSetupDefaultFlEntry@@YAHXZ @ 0x1C02A0B3C
+ * Callers:
+ *     GreEnableEUDC @ 0x1C00B77A8 (GreEnableEUDC.c)
+ * Callees:
+ *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEBGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C00BA638 (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEBGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
+ *     ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x1C01183E8 (-bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z.c)
+ */
+
 __int64 __fastcall bSetupDefaultFlEntry(__int64 a1)
 {
   unsigned int v1; // esi

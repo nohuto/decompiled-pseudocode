@@ -1,3 +1,25 @@
+/*
+ * XREFs of IopAllocateFileObjectExtension @ 0x14024F600
+ * Callers:
+ *     IoGetFileObjectFilterContext @ 0x14023AAB0 (IoGetFileObjectFilterContext.c)
+ *     IopGetSetSpecificExtension @ 0x14023EA58 (IopGetSetSpecificExtension.c)
+ *     IoSetOplockPrivateFoExt @ 0x14023FA98 (IoSetOplockPrivateFoExt.c)
+ *     NtSetInformationFile @ 0x14027E490 (NtSetInformationFile.c)
+ *     IopSetFileObjectExtensionFlag @ 0x140294D78 (IopSetFileObjectExtensionFlag.c)
+ *     IoSetOplockKeyContext @ 0x1403C9528 (IoSetOplockKeyContext.c)
+ *     IoSetIoPriorityHintIntoFileObject @ 0x140554D30 (IoSetIoPriorityHintIntoFileObject.c)
+ *     IoSetShadowFileInformation @ 0x140554D70 (IoSetShadowFileInformation.c)
+ *     IopSymlinkSetFoExtension @ 0x14087CA70 (IopSymlinkSetFoExtension.c)
+ *     IopSetFileObjectIosbRange @ 0x140942FC8 (IopSetFileObjectIosbRange.c)
+ *     IopSetFileMemoryPartitionInformation @ 0x140944B5C (IopSetFileMemoryPartitionInformation.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopAllocateFileObjectExtension(__int64 a1, __int64 *a2)
 {
   void *v2; // rax

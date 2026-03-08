@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlEnumerateGenericTableLikeADirectory @ 0x1402456F0
+ * Callers:
+ *     PiDmEnumObjectsWithCallback @ 0x1406CE130 (PiDmEnumObjectsWithCallback.c)
+ * Callees:
+ *     RealSuccessor @ 0x1402457FC (RealSuccessor.c)
+ *     FindNodeOrParent_0 @ 0x1402F6D40 (FindNodeOrParent_0.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 PVOID __stdcall RtlEnumerateGenericTableLikeADirectory(
         PRTL_AVL_TABLE Table,
         PRTL_AVL_MATCH_FUNCTION MatchFunction,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBDESC_GetNextMsOs20Descriptor @ 0x1C003D6A0
+ * Callers:
+ *     HUBMISC_InstallMsOs20RegistryProperties @ 0x1C0032C14 (HUBMISC_InstallMsOs20RegistryProperties.c)
+ *     HUBDESC_ValidateMsOs20ConfigurationSubset @ 0x1C003D830 (HUBDESC_ValidateMsOs20ConfigurationSubset.c)
+ *     HUBDESC_ValidateMsOs20FunctionSubset @ 0x1C003DAF0 (HUBDESC_ValidateMsOs20FunctionSubset.c)
+ *     HUBDESC_ValidateMsOs20DescriptorSet @ 0x1C003E79C (HUBDESC_ValidateMsOs20DescriptorSet.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HUBDESC_GetNextMsOs20Descriptor(unsigned __int64 a1, unsigned __int16 **a2)
 {
   unsigned __int16 *v2; // r8

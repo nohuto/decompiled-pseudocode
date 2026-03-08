@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bFetchNextPoint@RTP_PATHMEMOBJ@@AEAAHXZ @ 0x1C02E1E08
+ * Callers:
+ *     ?bDiagonalizeSubPath@RTP_PATHMEMOBJ@@AEAAHXZ @ 0x1C02E1BB8 (-bDiagonalizeSubPath@RTP_PATHMEMOBJ@@AEAAHXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RTP_PATHMEMOBJ::bFetchNextPoint(struct _PATHDATA *this)
 {
   __int64 pptfx_high; // rbp

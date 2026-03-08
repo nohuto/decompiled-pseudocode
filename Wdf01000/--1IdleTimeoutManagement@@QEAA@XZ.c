@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1IdleTimeoutManagement@@QEAA@XZ @ 0x1C007A25C
+ * Callers:
+ *     ??1FxPowerPolicyOwnerSettings@@QEAA@XZ @ 0x1C007A208 (--1FxPowerPolicyOwnerSettings@@QEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall IdleTimeoutManagement::~IdleTimeoutManagement(IdleTimeoutManagement *this)
 {
   _POX_SETTINGS *m_PoxSettings; // r8

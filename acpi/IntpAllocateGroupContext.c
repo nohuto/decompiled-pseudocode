@@ -1,3 +1,11 @@
+/*
+ * XREFs of IntpAllocateGroupContext @ 0x1C005EED4
+ * Callers:
+ *     IntpReconstructPartitionGroupFromKernel @ 0x1C005EF2C (IntpReconstructPartitionGroupFromKernel.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IntpAllocateGroupContext(__int64 a1, unsigned __int8 a2)
 {
   __int64 result; // rax

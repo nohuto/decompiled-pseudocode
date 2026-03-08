@@ -1,3 +1,20 @@
+/*
+ * XREFs of ObpPushRefDerefInfo @ 0x14097A13C
+ * Callers:
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ *     ObpPushStackInfoQueue @ 0x14097A330 (ObpPushStackInfoQueue.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     ObpGetObjectRefInfo @ 0x140979C84 (ObpGetObjectRefInfo.c)
+ *     ObpGetTraceIndex @ 0x140979D90 (ObpGetTraceIndex.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 char __fastcall ObpPushRefDerefInfo(
         __int64 a1,
         char a2,

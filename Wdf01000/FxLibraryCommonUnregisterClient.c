@@ -1,3 +1,16 @@
+/*
+ * XREFs of FxLibraryCommonUnregisterClient @ 0x1C002C650
+ * Callers:
+ *     LibraryUnregisterClient @ 0x1C0017850 (LibraryUnregisterClient.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ?FxIFRStop@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00228D4 (-FxIFRStop@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?FxHandleDriverEntryFailure@@YAEPEAU_WDF_BIND_INFO@@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002BC5C (-FxHandleDriverEntryFailure@@YAEPEAU_WDF_BIND_INFO@@PEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     FxDestroy @ 0x1C0043AD0 (FxDestroy.c)
+ *     FxFreeDriverGlobals @ 0x1C0043CA4 (FxFreeDriverGlobals.c)
+ *     UnlockVerifierSection @ 0x1C00450DC (UnlockVerifierSection.c)
+ */
+
 __int64 __fastcall FxLibraryCommonUnregisterClient(_WDF_BIND_INFO *Info, _WDF_DRIVER_GLOBALS *WdfDriverGlobals)
 {
   _WDF_DRIVER_GLOBALS *v4; // rbx

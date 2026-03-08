@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_qqDD @ 0x1C003F9BC
+ * Callers:
+ *     ACPITableNotifyFreeObject @ 0x1C003F540 (ACPITableNotifyFreeObject.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_qqDD(__int64 a1, _DWORD a2, _DWORD a3, _DWORD a4, __int64 a5, ...)
 {
   int v7; // [rsp+20h] [rbp-58h]

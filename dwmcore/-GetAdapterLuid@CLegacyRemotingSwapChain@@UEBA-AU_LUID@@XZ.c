@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetAdapterLuid@CLegacyRemotingSwapChain@@UEBA?AU_LUID@@XZ @ 0x1802A0144
+ * Callers:
+ *     ?GetAdapterLuid@CLegacyRemotingSwapChain@@$4PPPPPPPM@A@EBA?AU_LUID@@XZ @ 0x18011D450 (-GetAdapterLuid@CLegacyRemotingSwapChain@@$4PPPPPPPM@A@EBA-AU_LUID@@XZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 struct _LUID __fastcall CLegacyRemotingSwapChain::GetAdapterLuid(CLegacyRemotingSwapChain *this, _QWORD *a2)
 {
   __int64 (__fastcall ***v2)(_QWORD, _BYTE *); // r8

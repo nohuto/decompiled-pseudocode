@@ -1,3 +1,13 @@
+/*
+ * XREFs of AnFwpProgressAnimationManual @ 0x140AEF2AC
+ * Callers:
+ *     AnFwDisplayProgressIndicator @ 0x140AEA598 (AnFwDisplayProgressIndicator.c)
+ * Callees:
+ *     BgpFwQueryPerformanceCounter @ 0x140381520 (BgpFwQueryPerformanceCounter.c)
+ *     BgpTxtDisplayCharacter @ 0x140381538 (BgpTxtDisplayCharacter.c)
+ *     LogFwStat @ 0x140AEA85C (LogFwStat.c)
+ */
+
 LONGLONG AnFwpProgressAnimationManual()
 {
   LARGE_INTEGER v0; // rdi

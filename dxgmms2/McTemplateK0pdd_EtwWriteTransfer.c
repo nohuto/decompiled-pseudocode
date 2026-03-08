@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0pdd_EtwWriteTransfer @ 0x1C0037D80
+ * Callers:
+ *     VidSchiSetInProcessPriorityContext @ 0x1C0018034 (VidSchiSetInProcessPriorityContext.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BDEC (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS McTemplateK0pdd_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-50h] BYREF

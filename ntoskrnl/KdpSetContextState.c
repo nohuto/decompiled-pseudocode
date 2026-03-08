@@ -1,3 +1,13 @@
+/*
+ * XREFs of KdpSetContextState @ 0x140AADC30
+ * Callers:
+ *     KdpReportLoadSymbolsStateChange @ 0x140AAD6F0 (KdpReportLoadSymbolsStateChange.c)
+ *     KdpReportExceptionStateChange @ 0x140AAE63C (KdpReportExceptionStateChange.c)
+ *     KdpReportCommandStringStateChange @ 0x140AB1398 (KdpReportCommandStringStateChange.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KdpSetContextState(__int64 a1, __int64 a2)
 {
   struct _KPRCB *CurrentPrcb; // r8

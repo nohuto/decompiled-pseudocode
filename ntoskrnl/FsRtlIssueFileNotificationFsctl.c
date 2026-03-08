@@ -1,3 +1,19 @@
+/*
+ * XREFs of FsRtlIssueFileNotificationFsctl @ 0x140835E18
+ * Callers:
+ *     PopCreateHiberFile @ 0x1407FBF00 (PopCreateHiberFile.c)
+ *     IopInitializeCrashDump @ 0x140834B28 (IopInitializeCrashDump.c)
+ *     MiCreatePagingFile @ 0x140834F7C (MiCreatePagingFile.c)
+ *     PopResizeHiberFile @ 0x140985EE0 (PopResizeHiberFile.c)
+ * Callees:
+ *     IoBuildDeviceIoControlRequest @ 0x14024FE00 (IoBuildDeviceIoControlRequest.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall FsRtlIssueFileNotificationFsctl(PFILE_OBJECT FileObject, __int64 a2, __int128 *a3)
 {
   struct _DEVICE_OBJECT *RelatedDeviceObject; // rdi

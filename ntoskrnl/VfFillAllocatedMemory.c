@@ -1,3 +1,18 @@
+/*
+ * XREFs of VfFillAllocatedMemory @ 0x140AD700C
+ * Callers:
+ *     VfHandlePoolAlloc @ 0x140ACDFB0 (VfHandlePoolAlloc.c)
+ *     VerifierMmAllocateContiguousMemory @ 0x140ADF440 (VerifierMmAllocateContiguousMemory.c)
+ *     VerifierMmAllocateContiguousMemorySpecifyCache @ 0x140ADF5C0 (VerifierMmAllocateContiguousMemorySpecifyCache.c)
+ *     VerifierMmAllocateContiguousMemorySpecifyCacheNode @ 0x140ADF700 (VerifierMmAllocateContiguousMemorySpecifyCacheNode.c)
+ *     VerifierMmAllocateContiguousNodeMemory @ 0x140ADF820 (VerifierMmAllocateContiguousNodeMemory.c)
+ *     VerifierMmAllocateNonCachedMemory @ 0x140ADFA80 (VerifierMmAllocateNonCachedMemory.c)
+ *     VfFillAllocatePagesForMdl @ 0x140AE09B8 (VfFillAllocatePagesForMdl.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void *__fastcall VfFillAllocatedMemory(void *a1, size_t a2)
 {
   unsigned __int8 LowPart; // al

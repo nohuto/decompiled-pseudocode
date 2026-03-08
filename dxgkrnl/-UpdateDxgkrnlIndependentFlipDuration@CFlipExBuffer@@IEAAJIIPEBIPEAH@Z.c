@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UpdateDxgkrnlIndependentFlipDuration@CFlipExBuffer@@IEAAJIIPEBIPEAH@Z @ 0x1C007E344
+ * Callers:
+ *     ?SetIndependentFlip@CFlipExBuffer@@UEAAJ_N0IIPEBIPEAH@Z @ 0x1C007DAF0 (-SetIndependentFlip@CFlipExBuffer@@UEAAJ_N0IIPEBIPEAH@Z.c)
+ * Callees:
+ *     DxgkSetIndependentFlipMode @ 0x1C02D71BC (DxgkSetIndependentFlipMode.c)
+ */
+
 __int64 __fastcall CFlipExBuffer::UpdateDxgkrnlIndependentFlipDuration(
         HANDLE *this,
         int a2,

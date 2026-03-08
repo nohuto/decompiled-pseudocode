@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z @ 0x1C006D528
+ * Callers:
+ *     ?GrepCloseCurrentProcess@@YAHXZ @ 0x1C006D158 (-GrepCloseCurrentProcess@@YAHXZ.c)
+ * Callees:
+ *     GreReleaseHmgrSemaphore @ 0x1C0049700 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C0049780 (GreAcquireHmgrSemaphore.c)
+ *     HmgPentryFromPobj @ 0x1C004A180 (HmgPentryFromPobj.c)
+ *     ?GetEntryObject@GdiHandleManager@@QEAAPEAVOBJECT@@I@Z @ 0x1C004B490 (-GetEntryObject@GdiHandleManager@@QEAAPEAVOBJECT@@I@Z.c)
+ *     HmgSetOwner @ 0x1C00522C0 (HmgSetOwner.c)
+ *     ?GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z @ 0x1C006F140 (-GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z.c)
+ *     UserIsProcessImmersiveAppContainer @ 0x1C00841C0 (UserIsProcessImmersiveAppContainer.c)
+ *     HmgIsProcessCleanupRequired @ 0x1C00B1BB0 (HmgIsProcessCleanupRequired.c)
+ *     Feature_1626422585__private_IsEnabledDeviceUsage @ 0x1C00DDF7C (Feature_1626422585__private_IsEnabledDeviceUsage.c)
+ *     HmgIsGarbageCollectibleType @ 0x1C0185FA4 (HmgIsGarbageCollectibleType.c)
+ *     ?TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z @ 0x1C0186930 (-TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z.c)
+ */
+
 void __fastcall MultiUserGreCleanupHmgRemoveAllLocks(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v4; // r15

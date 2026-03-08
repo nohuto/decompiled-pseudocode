@@ -1,3 +1,21 @@
+/*
+ * XREFs of PopRequestRead @ 0x140AA0A10
+ * Callers:
+ *     PopDecompressCallback @ 0x140A9F1A0 (PopDecompressCallback.c)
+ *     PopRestoreHiberContext @ 0x140AA139C (PopRestoreHiberContext.c)
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopInternalAddToDumpFile @ 0x140580CC0 (PopInternalAddToDumpFile.c)
+ *     PopGetIoLocation @ 0x140A9FBBC (PopGetIoLocation.c)
+ *     PopHiberCheckForDebugBreak @ 0x140A9FCE4 (PopHiberCheckForDebugBreak.c)
+ *     PopHiberChecksumHiberFileData @ 0x140A9FFDC (PopHiberChecksumHiberFileData.c)
+ *     ProducerConsumerBufferComplete @ 0x140AA2D38 (ProducerConsumerBufferComplete.c)
+ *     ProducerGetBuffer @ 0x140AA2F1C (ProducerGetBuffer.c)
+ *     PopCheckpointSystemSleep @ 0x140AA7378 (PopCheckpointSystemSleep.c)
+ */
+
 void __fastcall PopRequestRead(ULONG_PTR BugCheckParameter3, __int64 a2, unsigned int a3)
 {
   __int64 v3; // r14

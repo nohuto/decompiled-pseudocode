@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpMmBuildTiledMemoryMap @ 0x140A8D8E8
+ * Callers:
+ *     HalpInterruptBuildGlobalStartupStub @ 0x1403A3BE0 (HalpInterruptBuildGlobalStartupStub.c)
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     HalpAllocateCR3Root @ 0x1403A3C68 (HalpAllocateCR3Root.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpCommitCR3Worker @ 0x140A8CA14 (HalpCommitCR3Worker.c)
+ *     HalpMapCR3Ex @ 0x140A8D980 (HalpMapCR3Ex.c)
+ */
+
 __int64 HalpMmBuildTiledMemoryMap()
 {
   PVOID v0; // rdi

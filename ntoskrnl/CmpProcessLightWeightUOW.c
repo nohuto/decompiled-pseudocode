@@ -1,3 +1,29 @@
+/*
+ * XREFs of CmpProcessLightWeightUOW @ 0x140A19C0C
+ * Callers:
+ *     CmpCommitPreparedLightWeightTransaction @ 0x140A19944 (CmpCommitPreparedLightWeightTransaction.c)
+ *     CmpPrepareLightWeightTransaction @ 0x140A19AB4 (CmpPrepareLightWeightTransaction.c)
+ * Callees:
+ *     CmpLightWeightCommitRecreateKeyUoW @ 0x14067DB14 (CmpLightWeightCommitRecreateKeyUoW.c)
+ *     CmpLightWeightPrepareRecreateKeyUoW @ 0x14067DBDC (CmpLightWeightPrepareRecreateKeyUoW.c)
+ *     CmpSignalDeferredPosts @ 0x1406B5564 (CmpSignalDeferredPosts.c)
+ *     CmpReportNotify @ 0x140783638 (CmpReportNotify.c)
+ *     CmpLightWeightCommitAddKeyUoW @ 0x140A25314 (CmpLightWeightCommitAddKeyUoW.c)
+ *     CmpLightWeightCommitDeleteKeyUoW @ 0x140A254B8 (CmpLightWeightCommitDeleteKeyUoW.c)
+ *     CmpLightWeightCommitDeleteValueKeyUoW @ 0x140A256EC (CmpLightWeightCommitDeleteValueKeyUoW.c)
+ *     CmpLightWeightCommitRenameKeyUoW @ 0x140A25828 (CmpLightWeightCommitRenameKeyUoW.c)
+ *     CmpLightWeightCommitSetSecDescUoW @ 0x140A25A40 (CmpLightWeightCommitSetSecDescUoW.c)
+ *     CmpLightWeightCommitSetUserFlagsUoW @ 0x140A25B24 (CmpLightWeightCommitSetUserFlagsUoW.c)
+ *     CmpLightWeightCommitSetValueKeyUoW @ 0x140A25BE0 (CmpLightWeightCommitSetValueKeyUoW.c)
+ *     CmpLightWeightPrepareAddKeyUoW @ 0x140A26040 (CmpLightWeightPrepareAddKeyUoW.c)
+ *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140A262F8 (CmpLightWeightPrepareDeleteKeyUoW.c)
+ *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x140A264CC (CmpLightWeightPrepareDeleteValueKeyUoW.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x140A266F0 (CmpLightWeightPrepareRenameKeyUoW.c)
+ *     CmpLightWeightPrepareSetKeyUserFlags @ 0x140A26AC4 (CmpLightWeightPrepareSetKeyUserFlags.c)
+ *     CmpLightWeightPrepareSetSecDescUoW @ 0x140A26B64 (CmpLightWeightPrepareSetSecDescUoW.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x140A26E00 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ */
+
 __int64 __fastcall CmpProcessLightWeightUOW(__int64 a1, _QWORD *a2, int a3, __int64 a4)
 {
   int v4; // r10d

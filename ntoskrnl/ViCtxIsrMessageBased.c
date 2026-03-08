@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViCtxIsrMessageBased @ 0x140AE1E00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ViCtxCaptureInitialIsrState @ 0x140AE1AB8 (ViCtxCaptureInitialIsrState.c)
+ *     ViCtxCheckAndReleaseIsrState @ 0x140AE1B58 (ViCtxCheckAndReleaseIsrState.c)
+ */
+
 char __fastcall ViCtxIsrMessageBased(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

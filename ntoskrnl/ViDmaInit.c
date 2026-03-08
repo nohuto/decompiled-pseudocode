@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViDmaInit @ 0x140ADA508
+ * Callers:
+ *     VfDmaPluginEntry @ 0x1405CFB70 (VfDmaPluginEntry.c)
+ * Callees:
+ *     ExInitializeNPagedLookasideListInternal @ 0x1403BD3B0 (ExInitializeNPagedLookasideListInternal.c)
+ */
+
 __int64 *ViDmaInit()
 {
   __int64 *result; // rax

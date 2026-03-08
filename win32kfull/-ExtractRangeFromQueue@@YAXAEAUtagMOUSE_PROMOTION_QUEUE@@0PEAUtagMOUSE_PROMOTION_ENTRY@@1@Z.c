@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ExtractRangeFromQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@0PEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C01F8E5C
+ * Callers:
+ *     ?CancelAutoPromotion@@YAXXZ @ 0x1C01F8C08 (-CancelAutoPromotion@@YAXXZ.c)
+ *     ?ProcessRangeInCache@@YAXPEAUtagMOUSE_PROMOTION_CACHE@@PEAUtagMOUSE_PROMOTION_ENTRY@@1HHH@Z @ 0x1C01F92EC (-ProcessRangeInCache@@YAXPEAUtagMOUSE_PROMOTION_CACHE@@PEAUtagMOUSE_PROMOTION_ENTRY@@1HHH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ExtractRangeFromQueue(
         struct tagMOUSE_PROMOTION_ENTRY **a1,
         struct tagMOUSE_PROMOTION_QUEUE *a2,

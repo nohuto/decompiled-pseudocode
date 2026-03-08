@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsAllowedToGrow@VIDMM_DMA_POOL@@IEAAHKKK@Z @ 0x1C00EFC78
+ * Callers:
+ *     ?AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z @ 0x1C00B22D8 (-AcquireBuffer@VIDMM_DMA_POOL@@QEAAJPEAPEAU_VIDMM_DMA_BUFFER@@EE@Z.c)
+ * Callees:
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C002EF24 (McTemplateK0pq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall VIDMM_DMA_POOL::IsAllowedToGrow(
         VIDMM_DMA_POOL *this,
         unsigned int a2,

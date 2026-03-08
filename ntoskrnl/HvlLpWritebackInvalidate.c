@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvlLpWritebackInvalidate @ 0x140542730
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 __int64 __fastcall HvlLpWritebackInvalidate(ULONG a1)
 {
   PHYSICAL_ADDRESS *v2; // rax

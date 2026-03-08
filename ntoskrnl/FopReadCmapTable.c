@@ -1,3 +1,14 @@
+/*
+ * XREFs of FopReadCmapTable @ 0x140B99BEC
+ * Callers:
+ *     FopReadMappingTable @ 0x140B99898 (FopReadMappingTable.c)
+ * Callees:
+ *     BgpFwFreeMemory @ 0x140382650 (BgpFwFreeMemory.c)
+ *     FioFwReadBytesAtOffset @ 0x140383778 (FioFwReadBytesAtOffset.c)
+ *     BgpFwAllocateMemory @ 0x140383BDC (BgpFwAllocateMemory.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall FopReadCmapTable(__int64 a1, unsigned int a2, _QWORD *a3)
 {
   int BytesAtOffset; // ebx

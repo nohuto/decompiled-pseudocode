@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIBusReenumerateSelf @ 0x1C00177B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ACPIBusReenumerateSelf(__int64 a1)
 {
   KIRQL v2; // al

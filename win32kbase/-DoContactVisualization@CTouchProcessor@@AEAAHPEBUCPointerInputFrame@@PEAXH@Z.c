@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DoContactVisualization@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEAXH@Z @ 0x1C01F0C00
+ * Callers:
+ *     ?DoContactVisualizationAndGenerateMessages@CTouchProcessor@@AEAAHPEBURIMCOMPLETEFRAME@@PEBUCPointerInputFrame@@PEAXHHH@Z @ 0x1C01F0C6C (-DoContactVisualizationAndGenerateMessages@CTouchProcessor@@AEAAHPEBURIMCOMPLETEFRAME@@PEBUCPoin.c)
+ * Callees:
+ *     HMValidateHandle @ 0x1C0079718 (HMValidateHandle.c)
+ *     ApiSetEditionContactVisualization @ 0x1C023CE48 (ApiSetEditionContactVisualization.c)
+ */
+
 __int64 __fastcall CTouchProcessor::DoContactVisualization(
         CTouchProcessor *this,
         const struct CPointerInputFrame *a2,

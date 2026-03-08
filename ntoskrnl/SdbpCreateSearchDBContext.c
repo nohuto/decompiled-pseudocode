@@ -1,3 +1,19 @@
+/*
+ * XREFs of SdbpCreateSearchDBContext @ 0x1407A3094
+ * Callers:
+ *     SdbGetDatabaseMatch @ 0x14079E090 (SdbGetDatabaseMatch.c)
+ *     SdbpCheckKObject @ 0x1407A1BD8 (SdbpCheckKObject.c)
+ * Callees:
+ *     RtlStringCchCatW @ 0x140246580 (RtlStringCchCatW.c)
+ *     RtlStringCchCopyW @ 0x1402470F0 (RtlStringCchCopyW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslPathSplit @ 0x1407A1568 (AslPathSplit.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SdbpCreateSearchDBContext(_QWORD *a1, const wchar_t **a2)
 {
   unsigned int v4; // esi

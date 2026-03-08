@@ -1,3 +1,17 @@
+/*
+ * XREFs of SdbReadEntryInformation @ 0x140A4C714
+ * Callers:
+ *     PiIsDriverBlocked @ 0x14079DF64 (PiIsDriverBlocked.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbReadBinaryTag @ 0x14079D160 (SdbReadBinaryTag.c)
+ *     SdbGetDatabaseID @ 0x14079F0D0 (SdbGetDatabaseID.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ *     SdbTagRefToTagID @ 0x140800B74 (SdbTagRefToTagID.c)
+ *     SdbGetEntryFlags @ 0x14084BDEC (SdbGetEntryFlags.c)
+ */
+
 __int64 __fastcall SdbReadEntryInformation(__int64 a1, unsigned int a2, __int64 a3)
 {
   unsigned int BinaryTag; // ebx

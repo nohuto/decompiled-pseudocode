@@ -1,3 +1,13 @@
+/*
+ * XREFs of wil_InitializeFeatureStagingFromBuffers @ 0x140B538E0
+ * Callers:
+ *     CmInitBootFeatureConfigurations @ 0x140B5388C (CmInitBootFeatureConfigurations.c)
+ * Callees:
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x140388E28 (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x140818F14 (wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState.c)
+ *     wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers @ 0x140B5399C (wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers.c)
+ */
+
 __int64 wil_InitializeFeatureStagingFromBuffers()
 {
   __int64 (__fastcall **v0)(); // rdx

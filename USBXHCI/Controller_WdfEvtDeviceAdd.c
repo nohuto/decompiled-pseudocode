@@ -1,3 +1,31 @@
+/*
+ * XREFs of Controller_WdfEvtDeviceAdd @ 0x1C006FA60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     Controller_QueryControllerCapabilitiesFromACPI @ 0x1C001A3D0 (Controller_QueryControllerCapabilitiesFromACPI.c)
+ *     Etw_ControllerCreate @ 0x1C001A430 (Etw_ControllerCreate.c)
+ *     Device_IsSecureDevice @ 0x1C001A478 (Device_IsSecureDevice.c)
+ *     Controller_AddControllerToGlobalControllerList @ 0x1C001A530 (Controller_AddControllerToGlobalControllerList.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_ExecuteDSM @ 0x1C006E4A4 (Controller_ExecuteDSM.c)
+ *     Controller_ConfigureSxWakeSettings @ 0x1C006EBF4 (Controller_ConfigureSxWakeSettings.c)
+ *     Controller_ConfigureS0IdleSettings @ 0x1C006EC7C (Controller_ConfigureS0IdleSettings.c)
+ *     Controller_CreateWdfDevice @ 0x1C006EFBC (Controller_CreateWdfDevice.c)
+ *     RootHub_Create @ 0x1C006F738 (RootHub_Create.c)
+ *     IoControl_Create @ 0x1C006F910 (IoControl_Create.c)
+ *     Interrupter_Create @ 0x1C006FDC8 (Interrupter_Create.c)
+ *     Register_Create @ 0x1C006FE40 (Register_Create.c)
+ *     Command_Create @ 0x1C006FF64 (Command_Create.c)
+ *     DeviceSlot_Create @ 0x1C0070454 (DeviceSlot_Create.c)
+ *     Wmi_Create @ 0x1C0070580 (Wmi_Create.c)
+ *     Controller_Create @ 0x1C00712C4 (Controller_Create.c)
+ *     IntelPptFilter_Create @ 0x1C007A544 (IntelPptFilter_Create.c)
+ *     SecureChannel_Create @ 0x1C007ADD8 (SecureChannel_Create.c)
+ */
+
 __int64 __fastcall Controller_WdfEvtDeviceAdd(__int64 a1, __int64 a2)
 {
   int v3; // edx

@@ -1,3 +1,24 @@
+/*
+ * XREFs of CmpQueryKeyDataFromKeyNodeStack @ 0x140614E8C
+ * Callers:
+ *     CmQueryLayeredKey @ 0x1402F262C (CmQueryLayeredKey.c)
+ *     CmpEnumerateLayeredKey @ 0x140A13774 (CmpEnumerateLayeredKey.c)
+ * Callees:
+ *     CmpGetValueCountForKeyNodeStack @ 0x140614148 (CmpGetValueCountForKeyNodeStack.c)
+ *     CmpPopulateKeyFullInformation @ 0x140782E38 (CmpPopulateKeyFullInformation.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140783798 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpPopulateKeyNodeInformation @ 0x140785DFC (CmpPopulateKeyNodeInformation.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpGetEffectiveKeyNodeSemantics @ 0x140A1D040 (CmpGetEffectiveKeyNodeSemantics.c)
+ *     CmpGetSubKeyCountForKeyNodeStack @ 0x140A20904 (CmpGetSubKeyCountForKeyNodeStack.c)
+ *     CmpPopulateKeyBasicInformation @ 0x140A273E4 (CmpPopulateKeyBasicInformation.c)
+ *     CmpPopulateKeyCachedInformation @ 0x140A27494 (CmpPopulateKeyCachedInformation.c)
+ */
+
 __int64 __fastcall CmpQueryKeyDataFromKeyNodeStack(__int16 *a1, int a2, __int64 a3, unsigned int a4, __int64 a5)
 {
   ULONG_PTR v6; // r14

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?pfnGetRLESrcCopy@@YAP6AHPEAUBLTINFO@@@ZKK@Z @ 0x1C0286F50
+ * Callers:
+ *     EngCopyBits @ 0x1C008AE00 (EngCopyBits.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 (__fastcall *__fastcall pfnGetRLESrcCopy(int a1, int a2))(struct BLTINFO *)
 {
   int v2; // edx

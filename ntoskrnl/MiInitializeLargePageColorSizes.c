@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiInitializeLargePageColorSizes @ 0x1403A8FCC
+ * Callers:
+ *     MiInitializeCacheSizes @ 0x140B6BCCC (MiInitializeCacheSizes.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 MiInitializeLargePageColorSizes()
 {
   __int64 result; // rax

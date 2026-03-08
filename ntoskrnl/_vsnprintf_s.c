@@ -1,3 +1,12 @@
+/*
+ * XREFs of _vsnprintf_s @ 0x1403D90C0
+ * Callers:
+ *     _snprintf_s @ 0x1403D9090 (_snprintf_s.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     _soutput_s @ 0x1403DAF04 (_soutput_s.c)
+ */
+
 int __cdecl vsnprintf_s(char *DstBuf, size_t SizeInBytes, size_t MaxCount, const char *Format, va_list ArgList)
 {
   int result; // eax

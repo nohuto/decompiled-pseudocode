@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiProcessControlProtectionFromKernelMode @ 0x140579EC8
+ * Callers:
+ *     KiProcessControlProtection @ 0x140579B40 (KiProcessControlProtection.c)
+ * Callees:
+ *     VslKernelShadowStackAssist @ 0x140549640 (VslKernelShadowStackAssist.c)
+ *     KiFixupControlProtectionKernelModeReturnMismatch @ 0x140579720 (KiFixupControlProtectionKernelModeReturnMismatch.c)
+ *     KiGetCurrentKernelShadowStackBounds @ 0x1405798B4 (KiGetCurrentKernelShadowStackBounds.c)
+ *     KiLogControlProtectionKernelModeReturnMismatch @ 0x140579960 (KiLogControlProtectionKernelModeReturnMismatch.c)
+ */
+
 __int64 __fastcall KiProcessControlProtectionFromKernelMode(__int64 a1)
 {
   __int64 v1; // rax

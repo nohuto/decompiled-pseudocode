@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiTpFetchInstructionBytes @ 0x140AF13B4
+ * Callers:
+ *     KiTpDecodeModRm @ 0x140AF01F4 (KiTpDecodeModRm.c)
+ *     KiTpEmulateInstruction @ 0x140AF0944 (KiTpEmulateInstruction.c)
+ *     KiTpFetchImmediateOperand @ 0x140AF1338 (KiTpFetchImmediateOperand.c)
+ *     KiTpParseInstructionPrefix @ 0x140AF147C (KiTpParseInstructionPrefix.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiTpFetchInstructionBytes(__int64 a1, _BYTE *a2, int a3, _DWORD *a4)
 {
   __int64 v4; // r10

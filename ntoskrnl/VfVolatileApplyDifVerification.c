@@ -1,3 +1,13 @@
+/*
+ * XREFs of VfVolatileApplyDifVerification @ 0x140ADAA10
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     VfSuspectDifRemoveEntry @ 0x140AD734C (VfSuspectDifRemoveEntry.c)
+ *     VfSuspectDriversAllocateEntry @ 0x140AD7394 (VfSuspectDriversAllocateEntry.c)
+ *     MmEnableOrDisableVerifierForDriver @ 0x140AE503C (MmEnableOrDisableVerifierForDriver.c)
+ */
+
 __int64 __fastcall VfVolatileApplyDifVerification(const void **a1)
 {
   unsigned int v2; // ebx

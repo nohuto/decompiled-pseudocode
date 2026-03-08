@@ -1,3 +1,13 @@
+/*
+ * XREFs of VslCreateSecureAllocation @ 0x14054B540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall VslCreateSecureAllocation(__int64 a1, _QWORD *a2)
 {
   __int64 result; // rax

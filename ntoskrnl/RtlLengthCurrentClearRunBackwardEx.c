@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlLengthCurrentClearRunBackwardEx @ 0x1405A659C
+ * Callers:
+ *     RtlCSparseBitmapFindBitSetCapped @ 0x1403096E0 (RtlCSparseBitmapFindBitSetCapped.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall RtlLengthCurrentClearRunBackwardEx(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   _DWORD *v3; // rdi

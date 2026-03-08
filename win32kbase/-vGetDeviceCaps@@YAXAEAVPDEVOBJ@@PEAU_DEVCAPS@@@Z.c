@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?vGetDeviceCaps@@YAXAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z @ 0x1C0010CC8
+ * Callers:
+ *     GreUpdateSharedDevCaps @ 0x1C0010C8C (GreUpdateSharedDevCaps.c)
+ *     ?NtGdiGetDeviceCapsAllInternal@@YAHAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z @ 0x1C018C054 (-NtGdiGetDeviceCapsAllInternal@@YAHAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z.c)
+ * Callees:
+ *     IsGetColorManagementCapsSupported @ 0x1C0010E50 (IsGetColorManagementCapsSupported.c)
+ *     ?cFonts@PDEVOBJ@@QEAAKXZ @ 0x1C0010E80 (-cFonts@PDEVOBJ@@QEAAKXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall vGetDeviceCaps(struct PDEVOBJ *this, struct _DEVCAPS *a2)
 {
   _DWORD *v3; // rdi

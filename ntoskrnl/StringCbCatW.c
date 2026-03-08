@@ -1,3 +1,11 @@
+/*
+ * XREFs of StringCbCatW @ 0x1405C8740
+ * Callers:
+ *     SmUniqueIdParseProductName @ 0x1405C83D8 (SmUniqueIdParseProductName.c)
+ * Callees:
+ *     StringCopyWorkerW_0 @ 0x1405C8810 (StringCopyWorkerW_0.c)
+ */
+
 HRESULT __stdcall StringCbCatW(STRSAFE_LPWSTR pszDest, size_t cbDest, STRSAFE_LPCWSTR pszSrc)
 {
   size_t v3; // rdx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpInitializeKcbCache @ 0x14073163C
+ * Callers:
+ *     CmpLinkHiveToMaster @ 0x140731250 (CmpLinkHiveToMaster.c)
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     CmpDeleteKcbCache @ 0x14074C7C4 (CmpDeleteKcbCache.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall CmpInitializeKcbCache(__int64 a1, unsigned int a2)
 {
   int v4; // ebx

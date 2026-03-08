@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeQueryActiveProcessorCount @ 0x1403B15D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ */
+
 ULONG __stdcall KeQueryActiveProcessorCount(PKAFFINITY ActiveProcessors)
 {
   __int64 v1; // rcx

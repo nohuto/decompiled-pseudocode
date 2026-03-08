@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpiBiosExtendedIrqToIoDescriptor @ 0x1C00917BC
+ * Callers:
+ *     PnpBiosResourcesToNtResources @ 0x1C008EFDC (PnpBiosResourcesToNtResources.c)
+ * Callees:
+ *     PnpiUpdateForceActiveBothInterrupts @ 0x1C0091FC4 (PnpiUpdateForceActiveBothInterrupts.c)
+ *     PnpiUpdateResourceList @ 0x1C0092328 (PnpiUpdateResourceList.c)
+ */
+
 __int64 __fastcall PnpiBiosExtendedIrqToIoDescriptor(
         __int64 a1,
         __int64 a2,

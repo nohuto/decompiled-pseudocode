@@ -1,3 +1,15 @@
+/*
+ * XREFs of KsepGetModuleInfoByName @ 0x1409745B4
+ * Callers:
+ *     KsepResolveShimHooks @ 0x14080018C (KsepResolveShimHooks.c)
+ * Callees:
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlCompareString @ 0x14075DC90 (RtlCompareString.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1407A34D0 (RtlUnicodeStringToAnsiString.c)
+ *     RtlFreeAnsiString @ 0x1407EA820 (RtlFreeAnsiString.c)
+ */
+
 __int64 __fastcall KsepGetModuleInfoByName(PCWSTR SourceString, _DWORD *a2, _QWORD *a3)
 {
   NTSTATUS v5; // ebx

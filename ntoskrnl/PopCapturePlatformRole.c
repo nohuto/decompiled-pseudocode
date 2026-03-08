@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopCapturePlatformRole @ 0x140796DC4
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ *     PopConfigureHeteroPolicies @ 0x1408273AC (PopConfigureHeteroPolicies.c)
+ *     PopDripsWatchdogInitializeActions @ 0x140B936AC (PopDripsWatchdogInitializeActions.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 PopCapturePlatformRole()
 {
   __int64 result; // rax

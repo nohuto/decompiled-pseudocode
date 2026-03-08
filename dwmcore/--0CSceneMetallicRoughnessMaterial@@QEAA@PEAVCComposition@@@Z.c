@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CSceneMetallicRoughnessMaterial@@QEAA@PEAVCComposition@@@Z @ 0x1801BE12C
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     ??0CSceneMaterial@@QEAA@PEAVCComposition@@@Z @ 0x18024C65C (--0CSceneMaterial@@QEAA@PEAVCComposition@@@Z.c)
+ */
+
 CSceneMetallicRoughnessMaterial *__fastcall CSceneMetallicRoughnessMaterial::CSceneMetallicRoughnessMaterial(
         CSceneMetallicRoughnessMaterial *this,
         struct CComposition *a2)

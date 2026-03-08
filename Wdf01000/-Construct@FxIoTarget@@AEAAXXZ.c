@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Construct@FxIoTarget@@AEAAXXZ @ 0x1C0052960
+ * Callers:
+ *     ??0FxIoTarget@@QEAA@PEAU_FX_DRIVER_GLOBALS@@G@Z @ 0x1C00525C4 (--0FxIoTarget@@QEAA@PEAU_FX_DRIVER_GLOBALS@@G@Z.c)
+ *     ??0FxIoTarget@@QEAA@PEAU_FX_DRIVER_GLOBALS@@GG@Z @ 0x1C0052648 (--0FxIoTarget@@QEAA@PEAU_FX_DRIVER_GLOBALS@@GG@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxIoTarget::Construct(FxIoTarget *this)
 {
   this->m_TransactionedEntry.m_TransactionedObject = this;

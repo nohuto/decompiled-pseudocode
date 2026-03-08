@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?draw_clrt_f_ntb_o_to_temp_start@@YAXPEAU_GLYPHPOS@@KPEAEKKKK@Z @ 0x1C02736C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?vOrClearTypeGlyph@@YAXPEAU_GLYPHBITS@@IPEAEI@Z @ 0x1C02740A4 (-vOrClearTypeGlyph@@YAXPEAU_GLYPHBITS@@IPEAEI@Z.c)
+ */
+
 void __fastcall draw_clrt_f_ntb_o_to_temp_start(
         struct _GLYPHPOS *a1,
         int a2,

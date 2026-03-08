@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessSetRoot@CRemoteAppRenderTarget@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_RENDERTARGET_SETROOT@@@Z @ 0x1801E7F70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ProcessSetRoot@CRenderTarget@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_RENDERTARGET_SETROOT@@@Z @ 0x1801E3C40 (-ProcessSetRoot@CRenderTarget@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_RENDERTARGET_SETROOT@@@Z.c)
+ */
+
 __int64 __fastcall CRemoteAppRenderTarget::ProcessSetRoot(
         CRemoteAppRenderTarget *this,
         struct CResourceTable *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiFindClearVadBitsAligned @ 0x14076D150
+ * Callers:
+ *     MiFindEmptyAddressRange @ 0x1407D6F10 (MiFindEmptyAddressRange.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiFindClearVadBitsAligned(
         unsigned __int64 *a1,
         unsigned __int64 a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of RIMGetLastInvertedPenTime @ 0x1C01A5CD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     WPP_RECORDER_AND_TRACE_SF_i @ 0x1C00EF71A (WPP_RECORDER_AND_TRACE_SF_i.c)
+ */
+
 unsigned __int64 __fastcall RIMGetLastInvertedPenTime(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 v3; // rsi

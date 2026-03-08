@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetProcessDefaultLayout @ 0x1C01D44F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _GetProcessDefaultLayout @ 0x1C01B45F8 (_GetProcessDefaultLayout.c)
+ */
+
 __int64 __fastcall NtUserGetProcessDefaultLayout(_DWORD *a1)
 {
   __int64 v2; // rdx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?ClassUnlockWorker@@YAPEAUtagCLS@@PEAU1@@Z @ 0x1C0012890
+ * Callers:
+ *     ?xxxSetClassCursor@@YA_KPEAUtagWND@@PEAUtagCLS@@K_K@Z @ 0x1C0012624 (-xxxSetClassCursor@@YA_KPEAUtagWND@@PEAUtagCLS@@K_K@Z.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ *     xxxSetClassData @ 0x1C00ED168 (xxxSetClassData.c)
+ *     ClassUnlock @ 0x1C012DCF4 (ClassUnlock.c)
+ *     xxxRecreateSmallIcons @ 0x1C0230A50 (xxxRecreateSmallIcons.c)
+ * Callees:
+ *     DestroyClass @ 0x1C0033D18 (DestroyClass.c)
+ */
+
 struct tagCLS *__fastcall ClassUnlockWorker(struct tagCLS *a1)
 {
   __int64 v1; // rax

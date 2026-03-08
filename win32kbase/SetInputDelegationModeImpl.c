@@ -1,3 +1,17 @@
+/*
+ * XREFs of SetInputDelegationModeImpl @ 0x1C021882C
+ * Callers:
+ *     NtMITSetInputDelegationMode @ 0x1C016BD10 (NtMITSetInputDelegationMode.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     DisableDelegation @ 0x1C00C8990 (DisableDelegation.c)
+ *     ApiSetEditionInternalSetCursorPos @ 0x1C00CBBC4 (ApiSetEditionInternalSetCursorPos.c)
+ *     Feature_KIDV2__private_IsEnabledDeviceUsage @ 0x1C00DDF28 (Feature_KIDV2__private_IsEnabledDeviceUsage.c)
+ *     ApiSetEditionKeyboardInputDelegationChanged @ 0x1C00E13EC (ApiSetEditionKeyboardInputDelegationChanged.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@333@Z @ 0x1C020A5C0 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U1@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPE.c)
+ *     ?OverrideClip@CCursorClip@@QEAAX_N@Z @ 0x1C020AF94 (-OverrideClip@CCursorClip@@QEAAX_N@Z.c)
+ */
+
 __int64 __fastcall SetInputDelegationModeImpl(CCursorClip *a1, __int64 a2, unsigned int a3, int a4)
 {
   int v6; // esi

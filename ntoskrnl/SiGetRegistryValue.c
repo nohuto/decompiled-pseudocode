@@ -1,3 +1,19 @@
+/*
+ * XREFs of SiGetRegistryValue @ 0x14076E70C
+ * Callers:
+ *     SiIsWinPEBoot @ 0x14076E3F0 (SiIsWinPEBoot.c)
+ *     SiGetBootDeviceNameFromRegistry @ 0x14076E690 (SiGetBootDeviceNameFromRegistry.c)
+ *     SiDisambiguateSystemDevice @ 0x140A5CCE4 (SiDisambiguateSystemDevice.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SiOpenRegistryKey @ 0x14076E880 (SiOpenRegistryKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SiGetRegistryValue(__int64 a1, const WCHAR *a2, __int64 a3, __int64 a4, _QWORD *a5, ULONG *a6)
 {
   _QWORD *v6; // r15

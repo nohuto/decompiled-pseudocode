@@ -1,3 +1,19 @@
+/*
+ * XREFs of Simulator_CallbackWorker @ 0x1C0048FB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AMLIResumeInterpreter @ 0x1C0048D2C (AMLIResumeInterpreter.c)
+ *     Simulator_DuplicateObjData @ 0x1C0049150 (Simulator_DuplicateObjData.c)
+ *     Simulator_EvaluateNode @ 0x1C00491A0 (Simulator_EvaluateNode.c)
+ *     Simulator_GetChildNode @ 0x1C00492C4 (Simulator_GetChildNode.c)
+ *     Simulator_GetSiblingNode @ 0x1C004932C (Simulator_GetSiblingNode.c)
+ *     Simulator_NotifyNode @ 0x1C0049478 (Simulator_NotifyNode.c)
+ *     Simulator_PauseInterpreter @ 0x1C004950C (Simulator_PauseInterpreter.c)
+ *     Simulator_RemoveNode @ 0x1C00498D0 (Simulator_RemoveNode.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ */
+
 void __fastcall Simulator_CallbackWorker(PVOID CallbackContext, _DWORD *Argument1, PVOID Argument2)
 {
   int v4; // ecx

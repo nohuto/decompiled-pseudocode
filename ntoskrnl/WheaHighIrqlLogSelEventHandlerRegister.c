@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheaHighIrqlLogSelEventHandlerRegister @ 0x140610CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x140610F68 (WheapHighIrqlLogSelEventHandlerAcquireLock.c)
+ */
+
 char __fastcall WheaHighIrqlLogSelEventHandlerRegister(void *a1)
 {
   void *v1; // rbx

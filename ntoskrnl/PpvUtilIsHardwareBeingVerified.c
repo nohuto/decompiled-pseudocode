@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpvUtilIsHardwareBeingVerified @ 0x140ABEFEC
+ * Callers:
+ *     VfIsVerificationEnabled @ 0x1403AED70 (VfIsVerificationEnabled.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall PpvUtilIsHardwareBeingVerified(__int64 a1)
 {
   __int64 v1; // rcx

@@ -1,3 +1,22 @@
+/*
+ * XREFs of VfDeadlockInitializeResource @ 0x140AD4738
+ * Callers:
+ *     ViDeadlockKeInitializeMutant_Exit @ 0x140AD6350 (ViDeadlockKeInitializeMutant_Exit.c)
+ *     ViDeadlockKeInitializeMutex_Exit @ 0x140AD63A0 (ViDeadlockKeInitializeMutex_Exit.c)
+ * Callees:
+ *     RtlCaptureStackBackTrace @ 0x140205C20 (RtlCaptureStackBackTrace.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ViLowerIrql @ 0x1405CF698 (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x1405CF710 (ViRaiseIrqlToDpcLevel.c)
+ *     ViDeadlockCanProceed @ 0x140ABD79A (ViDeadlockCanProceed.c)
+ *     ViDeadlockAddResource @ 0x140AD53DC (ViDeadlockAddResource.c)
+ *     ViDeadlockAllocate @ 0x140AD56E4 (ViDeadlockAllocate.c)
+ *     ViDeadlockDetectionLock @ 0x140AD5DD8 (ViDeadlockDetectionLock.c)
+ *     ViDeadlockDetectionUnlock @ 0x140AD5E10 (ViDeadlockDetectionUnlock.c)
+ *     ViDeadlockFree @ 0x140AD6280 (ViDeadlockFree.c)
+ */
+
 __int64 __fastcall VfDeadlockInitializeResource(LONG *a1, __int64 a2, void *a3)
 {
   void *v5; // rdi

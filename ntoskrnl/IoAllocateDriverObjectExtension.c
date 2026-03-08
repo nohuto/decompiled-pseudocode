@@ -1,3 +1,14 @@
+/*
+ * XREFs of IoAllocateDriverObjectExtension @ 0x14039FF80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall IoAllocateDriverObjectExtension(
         PDRIVER_OBJECT DriverObject,
         PVOID ClientIdentificationAddress,

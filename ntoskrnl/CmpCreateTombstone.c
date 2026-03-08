@@ -1,3 +1,33 @@
+/*
+ * XREFs of CmpCreateTombstone @ 0x140614A00
+ * Callers:
+ *     CmDeleteLayeredKey @ 0x1406144A0 (CmDeleteLayeredKey.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpFreeKeyByCell @ 0x1406BA854 (CmpFreeKeyByCell.c)
+ *     HvUnlockHiveFlusherShared @ 0x14074A8C4 (HvUnlockHiveFlusherShared.c)
+ *     HvLockHiveFlusherShared @ 0x14074A8FC (HvLockHiveFlusherShared.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpRebuildKcbCacheFromNode @ 0x1407A5468 (CmpRebuildKcbCacheFromNode.c)
+ *     CmpCleanUpSubKeyInfo @ 0x1407A5570 (CmpCleanUpSubKeyInfo.c)
+ *     HvAllocateCell @ 0x1407A63A8 (HvAllocateCell.c)
+ *     CmpUpdateKeyNodeAccessBits @ 0x1407A893C (CmpUpdateKeyNodeAccessBits.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1407AF600 (CmpGetKcbAtLayerHeight.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpAssignSecurityDescriptor @ 0x1408A6FC2 (CmpAssignSecurityDescriptor.c)
+ *     CmpAddSubKey @ 0x1408A734E (CmpAddSubKey.c)
+ *     HvMarkCellDirty @ 0x1408A7366 (HvMarkCellDirty.c)
+ *     CmpGetPhaseAccessBit @ 0x140A13BF4 (CmpGetPhaseAccessBit.c)
+ *     CmpIncrementKcbSequenceNumber @ 0x140A147D0 (CmpIncrementKcbSequenceNumber.c)
+ *     CmpGetSecurityDescriptorForKcbStack @ 0x140A18D68 (CmpGetSecurityDescriptorForKcbStack.c)
+ *     CmLockHiveSecurityExclusive @ 0x140A1C7D8 (CmLockHiveSecurityExclusive.c)
+ *     CmUnlockHiveSecurity @ 0x140AF25F0 (CmUnlockHiveSecurity.c)
+ */
+
 __int64 __fastcall CmpCreateTombstone(__int64 a1, __int64 a2)
 {
   __int64 KcbAtLayerHeight; // r14

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InitializeDWMKeysFromRegistry@CCommonRegistryData@@CAXXZ @ 0x1800ADEF8
+ * Callers:
+ *     ?Startup@@YAJXZ @ 0x1800AD854 (-Startup@@YAJXZ.c)
+ * Callees:
+ *     ?RegGetDwmDwordHelper@@YA_NPEBGPEAKW4DwmRegistrySubkey@@@Z @ 0x1800AE198 (-RegGetDwmDwordHelper@@YA_NPEBGPEAKW4DwmRegistrySubkey@@@Z.c)
+ */
+
 void CCommonRegistryData::InitializeDWMKeysFromRegistry(void)
 {
   char DwmDwordHelper; // al

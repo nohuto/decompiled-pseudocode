@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_RECORDER_SF_qsL @ 0x1C0022EB8
+ * Callers:
+ *     ACPIDevicePowerProcessPhase3 @ 0x1C001FEA4 (ACPIDevicePowerProcessPhase3.c)
+ *     OSNotifyCreate @ 0x1C00325E0 (OSNotifyCreate.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_qsL(__int64 a1, __int64 a2, unsigned int a3, unsigned __int16 a4, __int64 a5, ...)
 {
   __int64 v5; // rbx

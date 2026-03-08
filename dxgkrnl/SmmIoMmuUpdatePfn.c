@@ -1,3 +1,12 @@
+/*
+ * XREFs of SmmIoMmuUpdatePfn @ 0x1C006E280
+ * Callers:
+ *     SmmIoMmuReferenceMdl @ 0x1C006E014 (SmmIoMmuReferenceMdl.c)
+ * Callees:
+ *     SmmIoMmuCompareIoMmuPagePfn @ 0x1C002A3C4 (SmmIoMmuCompareIoMmuPagePfn.c)
+ *     SmmIoMmuAllocatePage @ 0x1C006DED0 (SmmIoMmuAllocatePage.c)
+ */
+
 __int64 __fastcall SmmIoMmuUpdatePfn(__int64 a1, __int64 a2, char a3)
 {
   _DWORD *Page; // rbx

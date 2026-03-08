@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmGetThroughputInfoCallback @ 0x14045ABA0
+ * Callers:
+ *     PoGetPerfStateAndParkingInfo @ 0x1402F74A8 (PoGetPerfStateAndParkingInfo.c)
+ * Callees:
+ *     PpmSnapPerformanceAccumulation @ 0x140234F00 (PpmSnapPerformanceAccumulation.c)
+ *     PpmConvertTime @ 0x140235D70 (PpmConvertTime.c)
+ */
+
 __int64 __fastcall PpmGetThroughputInfoCallback(struct _KPRCB *a1, __int64 a2, unsigned int a3)
 {
   unsigned int v6; // ebx

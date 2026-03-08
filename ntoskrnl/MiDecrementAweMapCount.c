@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiDecrementAweMapCount @ 0x14064709C
+ * Callers:
+ *     MiFreePhysicalPages @ 0x140647F94 (MiFreePhysicalPages.c)
+ *     MiUnmapLegacyAwePage @ 0x14064992C (MiUnmapLegacyAwePage.c)
+ *     MiWriteAwePtes @ 0x14064A010 (MiWriteAwePtes.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x140A3F148 (MiReferenceIncomingPhysicalPages.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiValidateAndLockAweMapCountPage @ 0x140649BE0 (MiValidateAndLockAweMapCountPage.c)
+ */
+
 __int64 __fastcall MiDecrementAweMapCount(__int64 a1, unsigned __int64 a2, __int64 *a3, char a4)
 {
   unsigned __int64 v4; // r12

@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiComputeAgingAmount @ 0x140224C50
+ * Callers:
+ *     MiAgeWorkingSet @ 0x1402248A0 (MiAgeWorkingSet.c)
+ * Callees:
+ *     ExpAcquireSpinLockExclusive @ 0x140224E80 (ExpAcquireSpinLockExclusive.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140462ED8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140608CDC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ */
+
 unsigned __int64 __fastcall MiComputeAgingAmount(__int64 a1, unsigned __int64 a2, char a3, unsigned int a4)
 {
   LONG *v4; // rsi

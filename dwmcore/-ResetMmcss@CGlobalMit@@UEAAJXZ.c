@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ResetMmcss@CGlobalMit@@UEAAJXZ @ 0x1800C8320
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetEvent@details@wil@@YAXPEAX@Z @ 0x1800C84A4 (-SetEvent@details@wil@@YAXPEAX@Z.c)
+ */
+
 __int64 __fastcall CGlobalMit::ResetMmcss(wil::details **this, void *a2)
 {
   unsigned int v2; // ebx

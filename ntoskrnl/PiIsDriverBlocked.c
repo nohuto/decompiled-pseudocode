@@ -1,3 +1,23 @@
+/*
+ * XREFs of PiIsDriverBlocked @ 0x14079DF64
+ * Callers:
+ *     PiLookupInDDB @ 0x14079DE5C (PiLookupInDDB.c)
+ * Callees:
+ *     RtlIsProcessorFeaturePresent @ 0x1402FA0E0 (RtlIsProcessorFeaturePresent.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     KeIsKernelCetEnabled @ 0x140384804 (KeIsKernelCetEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcsrchr @ 0x1403D5F90 (wcsrchr.c)
+ *     PiUpdateDriverDBCache @ 0x14079D924 (PiUpdateDriverDBCache.c)
+ *     SdbGetDatabaseMatch @ 0x14079E090 (SdbGetDatabaseMatch.c)
+ *     PnpLogEvent @ 0x140955B40 (PnpLogEvent.c)
+ *     PiIsHVCIEnabled @ 0x140956D1C (PiIsHVCIEnabled.c)
+ *     PiNotifyCiDriverBlocked @ 0x140956D68 (PiNotifyCiDriverBlocked.c)
+ *     PnpTraceDriverBlocked @ 0x140968DF4 (PnpTraceDriverBlocked.c)
+ *     SdbQueryDataEx @ 0x140A4C284 (SdbQueryDataEx.c)
+ *     SdbReadEntryInformation @ 0x140A4C714 (SdbReadEntryInformation.c)
+ */
+
 __int64 __fastcall PiIsDriverBlocked(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, _OWORD *a5)
 {
   unsigned int DatabaseMatch; // eax

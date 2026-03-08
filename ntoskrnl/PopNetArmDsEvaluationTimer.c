@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopNetArmDsEvaluationTimer @ 0x140993564
+ * Callers:
+ *     PdcPoNetworkResiliency @ 0x140994930 (PdcPoNetworkResiliency.c)
+ * Callees:
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ */
+
 _BOOL8 PopNetArmDsEvaluationTimer()
 {
   __int64 v0; // rdx

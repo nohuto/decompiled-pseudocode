@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiCheckForFreezeExecution @ 0x1403691F0
+ * Callers:
+ *     KiProcessNMI @ 0x140369160 (KiProcessNMI.c)
+ * Callees:
+ *     KiFreezeTargetExecution @ 0x140369240 (KiFreezeTargetExecution.c)
+ *     VslKernelShadowStackAssist @ 0x140549640 (VslKernelShadowStackAssist.c)
+ */
+
 char __fastcall KiCheckForFreezeExecution(__int64 a1)
 {
   struct _KPRCB *CurrentPrcb; // rdi

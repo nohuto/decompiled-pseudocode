@@ -1,3 +1,19 @@
+/*
+ * XREFs of EtwpLockBufferList @ 0x1402064E4
+ * Callers:
+ *     EtwpAllocateFreeBuffers @ 0x140205030 (EtwpAllocateFreeBuffers.c)
+ *     EtwpDequeueFreeBuffer @ 0x14020620C (EtwpDequeueFreeBuffer.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x1402063C4 (EtwpEnqueueAvailableBuffer.c)
+ *     EtwpAdjustSiloTraceBuffers @ 0x1402067AC (EtwpAdjustSiloTraceBuffers.c)
+ *     EtwpEnqueueOverflowBuffer @ 0x140300FB4 (EtwpEnqueueOverflowBuffer.c)
+ *     EtwpReserveTraceBuffer @ 0x1403151E0 (EtwpReserveTraceBuffer.c)
+ *     EtwpDequeueBufferPendingCompression @ 0x140600328 (EtwpDequeueBufferPendingCompression.c)
+ *     EtwpReenableCompression @ 0x1406005D4 (EtwpReenableCompression.c)
+ * Callees:
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ */
+
 void __fastcall EtwpLockBufferList(__int64 a1, unsigned __int8 *a2)
 {
   unsigned __int8 CurrentIrql; // r9

@@ -1,3 +1,47 @@
+/*
+ * XREFs of ExpRefreshTimeZoneInformation @ 0x140811500
+ * Callers:
+ *     ExpRefreshSystemTime @ 0x1408132EC (ExpRefreshSystemTime.c)
+ *     ExpReadLeapSecondData @ 0x140850DB4 (ExpReadLeapSecondData.c)
+ *     ExpTimeZoneInitSiloState @ 0x1409F52D8 (ExpTimeZoneInitSiloState.c)
+ *     NtSetSystemTime @ 0x1409F54B0 (NtSetSystemTime.c)
+ *     ExpSetSystemTime @ 0x140AA7AF4 (ExpSetSystemTime.c)
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x140250B60 (KeCancelTimer.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     PsAttachSiloToCurrentThread @ 0x1402993A0 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x1402993C0 (PsDetachSiloFromCurrentThread.c)
+ *     ExLocalTimeToSystemTime @ 0x1402D10A0 (ExLocalTimeToSystemTime.c)
+ *     RtlTimeFieldsToTime @ 0x1402D1150 (RtlTimeFieldsToTime.c)
+ *     RtlTimeToTimeFields @ 0x1402D14B0 (RtlTimeToTimeFields.c)
+ *     RtlSetSystemGlobalData @ 0x1402EF650 (RtlSetSystemGlobalData.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlGetPersistedStateLocation @ 0x14069ADC0 (RtlGetPersistedStateLocation.c)
+ *     RtlpGetRegistryHandle @ 0x14069BBB0 (RtlpGetRegistryHandle.c)
+ *     RtlpQueryTimeZoneInformationWorker @ 0x140773434 (RtlpQueryTimeZoneInformationWorker.c)
+ *     RtlCutoverTimeToSystemTime @ 0x1408119D0 (RtlCutoverTimeToSystemTime.c)
+ *     RtlSetActiveTimeBias @ 0x140811B4C (RtlSetActiveTimeBias.c)
+ *     ExpWriteTimeZoneBias @ 0x140811BF4 (ExpWriteTimeZoneBias.c)
+ *     ExpWriteTimeZoneBiasStartEnd @ 0x140811C34 (ExpWriteTimeZoneBiasStartEnd.c)
+ *     RtlpCheckDynamicTimeZoneInformation @ 0x140811C80 (RtlpCheckDynamicTimeZoneInformation.c)
+ *     EtwTraceTimeZoneInformationRefresh @ 0x140811F50 (EtwTraceTimeZoneInformationRefresh.c)
+ *     ExpLogRefreshTimeZoneInformationSuccess @ 0x1408120DC (ExpLogRefreshTimeZoneInformationSuccess.c)
+ *     RtlpUpdateDynamicTimeZones @ 0x1408122E8 (RtlpUpdateDynamicTimeZones.c)
+ *     ExpInitializeTimeZoneInformation @ 0x140812638 (ExpInitializeTimeZoneInformation.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x1409BA84C (RtlpSetTimeZoneInformationWorker.c)
+ *     EtwTraceTimeZoneBiasChange @ 0x1409E2F5C (EtwTraceTimeZoneBiasChange.c)
+ *     ExpLogRefreshTimeZoneInformationCutoverFail @ 0x1409F4E90 (ExpLogRefreshTimeZoneInformationCutoverFail.c)
+ *     ExpLogRefreshTimeZoneInformationQueryFail @ 0x1409F506C (ExpLogRefreshTimeZoneInformationQueryFail.c)
+ *     ExpReadSiloTimeZoneMarker @ 0x1409F5178 (ExpReadSiloTimeZoneMarker.c)
+ */
+
 char __fastcall ExpRefreshTimeZoneInformation(char a1)
 {
   struct _LIST_ENTRY *v2; // rdi

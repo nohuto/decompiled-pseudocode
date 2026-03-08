@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlDoesNameContainWildCards @ 0x140367FC0
+ * Callers:
+ *     RtlpIsNameInExpressionPrivate @ 0x140365D60 (RtlpIsNameInExpressionPrivate.c)
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall RtlDoesNameContainWildCards(PUNICODE_STRING Name)
 {
   wchar_t *Buffer; // r8

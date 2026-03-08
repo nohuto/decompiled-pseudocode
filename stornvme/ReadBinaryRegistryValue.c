@@ -1,3 +1,11 @@
+/*
+ * XREFs of ReadBinaryRegistryValue @ 0x1C0027830
+ * Callers:
+ *     GetRegistrySettings @ 0x1C0025E60 (GetRegistrySettings.c)
+ * Callees:
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ */
+
 char __fastcall ReadBinaryRegistryValue(
         __int64 a1,
         __int64 a2,

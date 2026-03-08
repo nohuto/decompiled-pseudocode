@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiDoStackCopy @ 0x14062A990
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpGetStackLimits @ 0x1403129F0 (RtlpGetStackLimits.c)
+ *     KeExpandKernelStackAndCalloutInternal @ 0x140315620 (KeExpandKernelStackAndCalloutInternal.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetLeafPfnBuddy @ 0x140386E8C (MiGetLeafPfnBuddy.c)
+ *     KeGetCurrentStackPointer @ 0x1404166E0 (KeGetCurrentStackPointer.c)
+ *     MiJumpStackTarget @ 0x14062AB70 (MiJumpStackTarget.c)
+ */
+
 __int64 __fastcall MiDoStackCopy(__int64 a1, ULONG_PTR a2, ULONG_PTR a3, ULONG_PTR a4)
 {
   unsigned __int64 v4; // r14

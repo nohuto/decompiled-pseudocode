@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?EnsureComputeScribbleResources@CLegacySwapChain@@UEAAJXZ @ 0x180297838
+ * Callers:
+ *     ?EnsureComputeScribbleResources@CLegacySwapChain@@$4PPPPPPPM@A@EAAJXZ @ 0x18011B610 (-EnsureComputeScribbleResources@CLegacySwapChain@@$4PPPPPPPM@A@EAAJXZ.c)
+ *     ?EnsureComputeScribbleResources@CLegacySwapChain@@$4PPPPPPPM@BKI@EAAJXZ @ 0x18011CD70 (-EnsureComputeScribbleResources@CLegacySwapChain@@$4PPPPPPPM@BKI@EAAJXZ.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?Create@CComputeScribbleRenderer@@SAJPEAVCLegacySwapChain@@PEAPEAV1@@Z @ 0x1801F85EC (-Create@CComputeScribbleRenderer@@SAJPEAVCLegacySwapChain@@PEAPEAV1@@Z.c)
+ *     ?EnsureComputeScribbleResources@CSwapChainBuffer@@QEAAJPEAVCLegacySwapChain@@@Z @ 0x180298658 (-EnsureComputeScribbleResources@CSwapChainBuffer@@QEAAJPEAVCLegacySwapChain@@@Z.c)
+ */
+
 __int64 __fastcall CLegacySwapChain::EnsureComputeScribbleResources(CLegacySwapChain *this)
 {
   CSwapChainBuffer **v1; // rbx

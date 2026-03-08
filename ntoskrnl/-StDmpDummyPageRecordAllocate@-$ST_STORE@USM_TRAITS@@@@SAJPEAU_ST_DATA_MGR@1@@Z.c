@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?StDmpDummyPageRecordAllocate@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x1405C55BC
+ * Callers:
+ *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x1405C5638 (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
+ * Callees:
+ *     SmHpChunkAlloc @ 0x1405C811C (SmHpChunkAlloc.c)
+ */
+
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpDummyPageRecordAllocate(__int64 a1)
 {
   __int64 v2; // rax

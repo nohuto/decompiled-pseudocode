@@ -1,3 +1,13 @@
+/*
+ * XREFs of EngGetRgnBox @ 0x1C01977C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0EngModeState@@QEAA@XZ @ 0x1C0019C74 (--0EngModeState@@QEAA@XZ.c)
+ *     GreGetObjectOwner @ 0x1C0019E80 (GreGetObjectOwner.c)
+ *     GreGetRgnBox @ 0x1C00A70C0 (GreGetRgnBox.c)
+ */
+
 INT __stdcall EngGetRgnBox(HANDLE hrgn, LPRECT prcl)
 {
   INT result; // eax

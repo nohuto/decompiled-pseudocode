@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpHpVaMgrRangeSplit @ 0x1402F95FC
+ * Callers:
+ *     RtlpHpVaMgrAlloc @ 0x14030424C (RtlpHpVaMgrAlloc.c)
+ *     RtlpHpVaMgrCtxFree @ 0x14030BD10 (RtlpHpVaMgrCtxFree.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpHpVaMgrRangeSplit(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r10

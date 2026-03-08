@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeQuerySchedulingGroupReadyTime @ 0x1402F7748
+ * Callers:
+ *     PspQueryJobHierarchyAccountingInformation @ 0x1406FAE20 (PspQueryJobHierarchyAccountingInformation.c)
+ *     NtSetInformationJobObject @ 0x1406FC3C0 (NtSetInformationJobObject.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeQuerySchedulingGroupReadyTime(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // bl

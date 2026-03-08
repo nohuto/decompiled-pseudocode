@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpMcResolveMicrocodeOperation @ 0x1405197AC
+ * Callers:
+ *     HalpLoadMicrocode @ 0x140931BD0 (HalpLoadMicrocode.c)
+ * Callees:
+ *     RtlFindExportedRoutineByName @ 0x1407EBE40 (RtlFindExportedRoutineByName.c)
+ */
+
 __int64 __fastcall HalpMcResolveMicrocodeOperation(__int64 a1)
 {
   __int64 result; // rax

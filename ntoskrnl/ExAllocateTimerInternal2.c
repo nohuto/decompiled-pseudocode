@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExAllocateTimerInternal2 @ 0x140203C10
+ * Callers:
+ *     ExAllocateTimer @ 0x140203BE0 (ExAllocateTimer.c)
+ *     ExAllocateTimerInternal @ 0x140609120 (ExAllocateTimerInternal.c)
+ * Callees:
+ *     ExpExTimerAttributesAreValid @ 0x140203D38 (ExpExTimerAttributesAreValid.c)
+ *     KiInitializeTimer2 @ 0x140203D9C (KiInitializeTimer2.c)
+ *     KeInitializeIRTimer @ 0x14036D61C (KeInitializeIRTimer.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall ExAllocateTimerInternal2(__int64 a1, __int64 a2, _WORD *a3, unsigned int a4)
 {
   ULONG_PTR v5; // rdi

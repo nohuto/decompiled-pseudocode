@@ -1,3 +1,11 @@
+/*
+ * XREFs of SendSynchronousIoControl @ 0x1C022AC70
+ * Callers:
+ *     ?SendSynchronousIoControl@RimBackedDeviceBase@Rim@@QEBAJKPEAXK0KPEAK@Z @ 0x1C022AB60 (-SendSynchronousIoControl@RimBackedDeviceBase@Rim@@QEBAJKPEAXK0KPEAK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SendSynchronousIoControl(
         ULONG IoControlCode,
         struct _FILE_OBJECT *a2,

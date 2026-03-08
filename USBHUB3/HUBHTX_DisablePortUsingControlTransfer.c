@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBHTX_DisablePortUsingControlTransfer @ 0x1C0004888
+ * Callers:
+ *     HUBPSM20_DisablingPortOnPortCycleWithTimer @ 0x1C0011CF0 (HUBPSM20_DisablingPortOnPortCycleWithTimer.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBMISC_ControlTransfer @ 0x1C0032664 (HUBMISC_ControlTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBHTX_DisablePortUsingControlTransfer(__int64 a1)
 {
   __int64 *v2; // rdi

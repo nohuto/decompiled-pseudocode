@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EvaluateCurve@XamlElasticInterpolation@@MEAANN@Z @ 0x180264840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     exp_0 @ 0x180117704 (exp_0.c)
+ *     sin_0 @ 0x180117788 (sin_0.c)
+ */
+
 double __fastcall XamlElasticInterpolation::EvaluateCurve(XamlElasticInterpolation *this, double a2)
 {
   double v3; // xmm8_8

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vPopThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C00557A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall RGNMEMOBJ::vPopThreadGuardedObject(RGNMEMOBJ *this)
 {
   _QWORD *v1; // rbx

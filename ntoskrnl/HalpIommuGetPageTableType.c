@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpIommuGetPageTableType @ 0x14037CA10
+ * Callers:
+ *     HalpIommuAllocateDmaDomain @ 0x1403A43AC (HalpIommuAllocateDmaDomain.c)
+ *     HalpIommuConstructReservedPageTable @ 0x140A8775C (HalpIommuConstructReservedPageTable.c)
+ * Callees:
+ *     HalpGetCpuInfo @ 0x14037D1F0 (HalpGetCpuInfo.c)
+ */
+
 __int64 __fastcall HalpIommuGetPageTableType(char a1, _DWORD *a2)
 {
   char v5; // [rsp+40h] [rbp+18h] BYREF

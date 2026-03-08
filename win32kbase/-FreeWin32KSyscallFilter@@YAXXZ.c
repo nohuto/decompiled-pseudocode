@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FreeWin32KSyscallFilter@@YAXXZ @ 0x1C00D0FA0
+ * Callers:
+ *     InitializeWin32KSyscallFilter @ 0x1C002E260 (InitializeWin32KSyscallFilter.c)
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C015C290 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void FreeWin32KSyscallFilter(void)
 {
   PVOID *v0; // rbx

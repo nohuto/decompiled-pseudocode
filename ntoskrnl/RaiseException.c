@@ -1,3 +1,14 @@
+/*
+ * XREFs of RaiseException @ 0x1403D8350
+ * Callers:
+ *     _raise_exc_ex @ 0x1403D8440 (_raise_exc_ex.c)
+ * Callees:
+ *     RtlRaiseException @ 0x140364BF0 (RtlRaiseException.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 char __fastcall RaiseException(int a1, char a2, unsigned int a3, const void *a4)
 {
   __int64 v8; // rdx

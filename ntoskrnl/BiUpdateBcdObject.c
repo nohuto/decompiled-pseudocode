@@ -1,3 +1,23 @@
+/*
+ * XREFs of BiUpdateBcdObject @ 0x14082DA80
+ * Callers:
+ *     BiBindEfiEntries @ 0x14082D024 (BiBindEfiEntries.c)
+ * Callees:
+ *     BiMapEfiDeviceForSpaces @ 0x140390584 (BiMapEfiDeviceForSpaces.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     BiDeleteElement @ 0x14082CDF8 (BiDeleteElement.c)
+ *     BiSetRegistryValue @ 0x14082D198 (BiSetRegistryValue.c)
+ *     BcdSetElementDataWithFlags @ 0x14082D894 (BcdSetElementDataWithFlags.c)
+ *     BcdGetElementDataWithFlags @ 0x14082E398 (BcdGetElementDataWithFlags.c)
+ *     BcdCloseObject @ 0x14082E5DC (BcdCloseObject.c)
+ *     BcdOpenObject @ 0x14082E620 (BcdOpenObject.c)
+ *     BiGetRegistryValue @ 0x14082EB20 (BiGetRegistryValue.c)
+ *     BiGetFilePathFromEfiPath @ 0x14082F3C8 (BiGetFilePathFromEfiPath.c)
+ *     BiGetDeviceFromEfiPath @ 0x14082F530 (BiGetDeviceFromEfiPath.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiUpdateBcdObject(__int64 a1, __int64 a2)
 {
   ULONG *v2; // rsi

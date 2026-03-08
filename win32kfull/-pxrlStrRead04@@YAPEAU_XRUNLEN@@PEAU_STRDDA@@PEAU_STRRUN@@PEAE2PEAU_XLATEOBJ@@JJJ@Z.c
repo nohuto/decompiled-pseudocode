@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?pxrlStrRead04@@YAPEAU_XRUNLEN@@PEAU_STRDDA@@PEAU_STRRUN@@PEAE2PEAU_XLATEOBJ@@JJJ@Z @ 0x1C00D9940
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 struct _XRUNLEN *__fastcall pxrlStrRead04(
         struct _STRDDA *a1,
         struct _STRRUN *a2,

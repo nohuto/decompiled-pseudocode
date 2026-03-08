@@ -1,3 +1,15 @@
+/*
+ * XREFs of PsReferenceImpersonationToken @ 0x1407C9C20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ */
+
 PACCESS_TOKEN __stdcall PsReferenceImpersonationToken(
         PETHREAD Thread,
         PBOOLEAN CopyOnOpen,

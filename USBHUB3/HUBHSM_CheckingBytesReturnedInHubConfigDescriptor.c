@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBHSM_CheckingBytesReturnedInHubConfigDescriptor @ 0x1C0009530
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBHSM_CheckingBytesReturnedInHubConfigDescriptor(__int64 a1)
 {
   __int64 v1; // rdx

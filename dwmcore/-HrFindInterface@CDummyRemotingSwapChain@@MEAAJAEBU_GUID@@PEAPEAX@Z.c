@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CDummyRemotingSwapChain@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180296060
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CDummyRemotingSwapChain::HrFindInterface(
         CDummyRemotingSwapChain *this,
         const struct _GUID *a2,

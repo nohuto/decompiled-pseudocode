@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIInitRemovePowerNodes @ 0x1C002D6CC
+ * Callers:
+ *     ACPIBuildDevicePowerNodes @ 0x1C000C5A4 (ACPIBuildDevicePowerNodes.c)
+ *     ACPIInitDeleteDeviceExtension @ 0x1C002CD08 (ACPIInitDeleteDeviceExtension.c)
+ * Callees:
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ */
+
 _QWORD *__fastcall ACPIInitRemovePowerNodes(_QWORD *a1)
 {
   __int64 v2; // rax

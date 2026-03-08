@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPILoadTableCheckSum @ 0x1C00A9EF8
+ * Callers:
+ *     ACPIInitializeDDB @ 0x1C00A93C4 (ACPIInitializeDDB.c)
+ * Callees:
+ *     ACPIAssert @ 0x1C000AB78 (ACPIAssert.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C001B508 (WPP_RECORDER_SF_qD.c)
+ */
+
 char __fastcall ACPILoadTableCheckSum(_BYTE *a1, unsigned int a2, int a3, int a4)
 {
   __int64 v4; // rdi

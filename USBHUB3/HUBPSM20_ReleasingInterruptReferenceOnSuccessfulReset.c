@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBPSM20_ReleasingInterruptReferenceOnSuccessfulReset @ 0x1C0012560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HUBMUX_ReleaseInterruptReference @ 0x1C0010DF8 (HUBMUX_ReleaseInterruptReference.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBPSM20_ReleasingInterruptReferenceOnSuccessfulReset(__int64 a1)
 {
   __int64 v1; // rbx

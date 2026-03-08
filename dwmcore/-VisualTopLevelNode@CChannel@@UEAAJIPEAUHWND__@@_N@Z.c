@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?VisualTopLevelNode@CChannel@@UEAAJIPEAUHWND__@@_N@Z @ 0x1800F8C00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x180043E68 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ??0CChannelLock@CChannel@@QEAA@PEAV1@@Z @ 0x18004407C (--0CChannelLock@CChannel@@QEAA@PEAV1@@Z.c)
+ *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800441FC (--1CChannelLock@CChannel@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x180044440 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ */
+
 __int64 __fastcall CChannel::VisualTopLevelNode(CChannel *this, unsigned int a2, HWND a3, unsigned __int8 a4)
 {
   unsigned int v8; // ebx

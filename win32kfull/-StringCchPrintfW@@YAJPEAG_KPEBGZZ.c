@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0079B00
+ * Callers:
+ *     ?CreatePointerDeviceProcessEvent@@YAHKHEPEAGPEAPEAX@Z @ 0x1C0079794 (-CreatePointerDeviceProcessEvent@@YAHKHEPEAGPEAPEAX@Z.c)
+ * Callees:
+ *     StringVPrintfWorkerW @ 0x1C0079B3C (StringVPrintfWorkerW.c)
+ */
+
 HRESULT StringCchPrintfW(unsigned __int16 *a1, size_t a2, size_t *a3, ...)
 {
   HRESULT result; // eax

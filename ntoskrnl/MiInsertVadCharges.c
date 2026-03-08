@@ -1,3 +1,29 @@
+/*
+ * XREFs of MiInsertVadCharges @ 0x1407D6A70
+ * Callers:
+ *     MiMapLockedPagesInUserSpace @ 0x140725C90 (MiMapLockedPagesInUserSpace.c)
+ *     MiInsertProcessVads @ 0x140729774 (MiInsertProcessVads.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140756084 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiAllocateSplitVads @ 0x14076003C (MiAllocateSplitVads.c)
+ *     MiMapViewOfImageSection @ 0x1407D3750 (MiMapViewOfImageSection.c)
+ *     MiReserveUserMemory @ 0x1407D4340 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x1407D57C0 (MiMapViewOfDataSection.c)
+ *     MiMapViewOfPhysicalSection @ 0x140A2E020 (MiMapViewOfPhysicalSection.c)
+ *     MiAllocateEnclaveVad @ 0x140A3A010 (MiAllocateEnclaveVad.c)
+ *     MiInsertChildVads @ 0x140A4642C (MiInsertChildVads.c)
+ * Callees:
+ *     MiGetProcessPartition @ 0x14031F9D4 (MiGetProcessPartition.c)
+ *     MiChargeResident @ 0x140348DE8 (MiChargeResident.c)
+ *     MiComputeVadCharges @ 0x14034CBC4 (MiComputeVadCharges.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x14034CCC0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x14034CCF4 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14034CD5C (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiCommitPageTablesForVad @ 0x1407C74B0 (MiCommitPageTablesForVad.c)
+ *     MiSetVadBits @ 0x1407D6BE0 (MiSetVadBits.c)
+ *     PsChargeProcessPagedPoolQuota @ 0x1407D6CF0 (PsChargeProcessPagedPoolQuota.c)
+ *     MiReturnVadCharges @ 0x140A39830 (MiReturnVadCharges.c)
+ */
+
 __int64 __fastcall MiInsertVadCharges(__int64 a1, struct _KPROCESS *a2)
 {
   __int64 v2; // r15

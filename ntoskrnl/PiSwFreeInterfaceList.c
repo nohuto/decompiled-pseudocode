@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiSwFreeInterfaceList @ 0x140807ACC
+ * Callers:
+ *     PiSwIrpStartCreateWorker @ 0x140806A2C (PiSwIrpStartCreateWorker.c)
+ *     PiSwCompleteCreate @ 0x1408071C4 (PiSwCompleteCreate.c)
+ *     PiSwDeviceFree @ 0x140964270 (PiSwDeviceFree.c)
+ *     PiSwProcessRemove @ 0x140964760 (PiSwProcessRemove.c)
+ * Callees:
+ *     PiSwInterfaceFree @ 0x140964570 (PiSwInterfaceFree.c)
+ */
+
 void __fastcall PiSwFreeInterfaceList(_QWORD **a1)
 {
   _QWORD *v2; // rcx

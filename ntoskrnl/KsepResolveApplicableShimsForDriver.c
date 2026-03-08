@@ -1,3 +1,22 @@
+/*
+ * XREFs of KsepResolveApplicableShimsForDriver @ 0x140800708
+ * Callers:
+ *     KsepGetShimsForDriver @ 0x14079E39C (KsepGetShimsForDriver.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     KsepLogError @ 0x140303450 (KsepLogError.c)
+ *     KsepPoolFreePaged @ 0x140303C7C (KsepPoolFreePaged.c)
+ *     KsepLogInfo @ 0x14036F8F4 (KsepLogInfo.c)
+ *     KsepLoadShimProvider @ 0x14057E7A8 (KsepLoadShimProvider.c)
+ *     KsepDebugPrint @ 0x14057E834 (KsepDebugPrint.c)
+ *     KsepResolveShimHooks @ 0x14080018C (KsepResolveShimHooks.c)
+ *     KsepIsShimRegistered @ 0x140801090 (KsepIsShimRegistered.c)
+ *     KsepGetLoadedModulesList @ 0x14080110C (KsepGetLoadedModulesList.c)
+ */
+
 __int64 __fastcall KsepResolveApplicableShimsForDriver(__int64 a1, unsigned int a2)
 {
   struct _KTHREAD *CurrentThread; // rax

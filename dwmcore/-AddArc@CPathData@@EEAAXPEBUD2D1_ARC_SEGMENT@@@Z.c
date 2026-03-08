@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AddArc@CPathData@@EEAAXPEBUD2D1_ARC_SEGMENT@@@Z @ 0x18027C7A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0Segment@Path@@IEAA@W4SegmentType@1@@Z @ 0x18001FA90 (--0Segment@Path@@IEAA@W4SegmentType@1@@Z.c)
+ *     ?AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z @ 0x18027CA74 (-AppendSegment@CPathData@@AEAAXPEAUSegment@Path@@@Z.c)
+ */
+
 void __fastcall CPathData::AddArc(CPathData *this, const struct D2D1_ARC_SEGMENT *a2)
 {
   D2D1_POINT_2F point; // xmm0_8

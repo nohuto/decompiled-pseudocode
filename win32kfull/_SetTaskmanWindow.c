@@ -1,3 +1,11 @@
+/*
+ * XREFs of _SetTaskmanWindow @ 0x1C00F246C
+ * Callers:
+ *     NtUserSetTaskmanWindow @ 0x1C00F23F0 (NtUserSetTaskmanWindow.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall SetTaskmanWindow(__int64 a1)
 {
   __int64 *v1; // rax

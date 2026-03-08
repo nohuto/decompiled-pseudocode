@@ -1,3 +1,22 @@
+/*
+ * XREFs of EtwpAddLogHeader @ 0x140772F04
+ * Callers:
+ *     EtwpUpdateFileHeader @ 0x140772B94 (EtwpUpdateFileHeader.c)
+ *     EtwpPreserveLogger @ 0x1409EA82C (EtwpPreserveLogger.c)
+ * Callees:
+ *     EtwpQueryUsedProcessorCount @ 0x140206540 (EtwpQueryUsedProcessorCount.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpPrepareHeader @ 0x140692D04 (EtwpPrepareHeader.c)
+ *     EtwpAddDebugInfoEvents @ 0x140772068 (EtwpAddDebugInfoEvents.c)
+ *     EtwpIsWow64Logger @ 0x14077341C (EtwpIsWow64Logger.c)
+ *     RtlpQueryTimeZoneInformationWorker @ 0x140773434 (RtlpQueryTimeZoneInformationWorker.c)
+ *     EtwpAddBinaryInfoEvents @ 0x1409E933C (EtwpAddBinaryInfoEvents.c)
+ */
+
 unsigned __int64 __fastcall EtwpAddLogHeader(__int64 a1, LARGE_INTEGER *a2)
 {
   bool v4; // cf

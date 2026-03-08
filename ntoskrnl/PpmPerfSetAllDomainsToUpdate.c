@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmPerfSetAllDomainsToUpdate @ 0x1402D1B24
+ * Callers:
+ *     PpmCheckStart @ 0x1402D1D84 (PpmCheckStart.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x14075DE18 (PpmPerfUpdateDomainPolicy.c)
+ *     PpmPerfReApplyStates @ 0x1409839D4 (PpmPerfReApplyStates.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 PpmPerfSetAllDomainsToUpdate()
 {
   __int64 result; // rax

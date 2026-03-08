@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FindFaceName@@YAPEAGK@Z @ 0x1C011CECC
+ * Callers:
+ *     ?bGetFaceName@MAPPER@@AEAAHXZ @ 0x1C011CD5C (-bGetFaceName@MAPPER@@AEAAHXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int16 *__fastcall FindFaceName(__int64 a1)
 {
   int v1; // ebx

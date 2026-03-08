@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopHiberChecksumHiberFileData @ 0x140A9FFDC
+ * Callers:
+ *     PopRequestRead @ 0x140AA0A10 (PopRequestRead.c)
+ *     PopRequestWrite @ 0x140AA0E40 (PopRequestWrite.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     tcpxsum @ 0x1404200B0 (tcpxsum.c)
+ *     PopCheckpointSystemSleep @ 0x140AA7378 (PopCheckpointSystemSleep.c)
+ */
+
 unsigned __int64 __fastcall PopHiberChecksumHiberFileData(
         __int64 a1,
         char a2,

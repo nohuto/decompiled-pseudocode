@@ -1,3 +1,13 @@
+/*
+ * XREFs of rimCheckForRegistrationConflicts @ 0x1C0032578
+ * Callers:
+ *     RIMRegisterForInputWithCallbacks @ 0x1C00356F0 (RIMRegisterForInputWithCallbacks.c)
+ * Callees:
+ *     RIMIsCurrentProcessTrusted @ 0x1C0032680 (RIMIsCurrentProcessTrusted.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqqd @ 0x1C01A8394 (WPP_RECORDER_AND_TRACE_SF_qqqd.c)
+ */
+
 __int64 __fastcall rimCheckForRegistrationConflicts(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // ebp

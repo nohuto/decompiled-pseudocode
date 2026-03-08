@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiInsertDpcGang @ 0x140386660
+ * Callers:
+ *     MiAllocateFastLargePagesForMdl @ 0x1403863B4 (MiAllocateFastLargePagesForMdl.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiInsertDpcGang(__int64 a1, __int64 *a2)
 {
   unsigned int v4; // ecx

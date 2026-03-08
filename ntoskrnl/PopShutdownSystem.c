@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopShutdownSystem @ 0x140AA5DA4
+ * Callers:
+ *     PopGracefulShutdown @ 0x140A9D970 (PopGracefulShutdown.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HalReturnToFirmware @ 0x140504990 (HalReturnToFirmware.c)
+ *     HvlConfigureMemoryZeroingOnReset @ 0x14053D15C (HvlConfigureMemoryZeroingOnReset.c)
+ *     VslNotifyShutdown @ 0x140549918 (VslNotifyShutdown.c)
+ *     DbgUnLoadImageSymbols @ 0x1405A5410 (DbgUnLoadImageSymbols.c)
+ *     PopSetMemoryOverwriteRequestAction @ 0x140A9D8B4 (PopSetMemoryOverwriteRequestAction.c)
+ *     PopInvokeSystemStateHandler @ 0x140AA542C (PopInvokeSystemStateHandler.c)
+ *     PopNotifyShutdownListener @ 0x140AA5D2C (PopNotifyShutdownListener.c)
+ */
+
 void __fastcall __noreturn PopShutdownSystem(int a1)
 {
   int v2; // ebx

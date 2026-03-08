@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExfReleasePushLockExclusive @ 0x140238EF0
+ * Callers:
+ *     ExfAcquireReleasePushLockExclusive @ 0x140201D54 (ExfAcquireReleasePushLockExclusive.c)
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ * Callees:
+ *     ExpWakePushLock @ 0x140238F70 (ExpWakePushLock.c)
+ */
+
 signed __int64 __fastcall ExfReleasePushLockExclusive(volatile signed __int64 *a1)
 {
   signed __int64 result; // rax

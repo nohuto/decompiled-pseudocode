@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?WriteAllocTableDumpBufferCallback@NSInstrumentation@@YAXPEAX00@Z @ 0x1C019D1A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall NSInstrumentation::WriteAllocTableDumpBufferCallback(
         NSInstrumentation *this,
         void *a2,

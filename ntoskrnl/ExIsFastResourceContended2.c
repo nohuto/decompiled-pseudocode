@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExIsFastResourceContended2 @ 0x14040E560
+ * Callers:
+ *     ExIsFastResourceContended @ 0x140607920 (ExIsFastResourceContended.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 bool __fastcall ExIsFastResourceContended2(ULONG_PTR BugCheckParameter2)
 {
   unsigned __int8 CurrentIrql; // al

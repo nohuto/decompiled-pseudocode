@@ -1,3 +1,11 @@
+/*
+ * XREFs of FxCacheBugCheckDriverInfo @ 0x1C00889F4
+ * Callers:
+ *     FxInitialize @ 0x1C0043DE4 (FxInitialize.c)
+ * Callees:
+ *     memmove @ 0x1C000B140 (memmove.c)
+ */
+
 void __fastcall FxCacheBugCheckDriverInfo(_FX_DRIVER_GLOBALS *FxDriverGlobals)
 {
   KIRQL v2; // bp

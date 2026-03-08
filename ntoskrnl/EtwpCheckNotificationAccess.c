@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpCheckNotificationAccess @ 0x140690CB0
+ * Callers:
+ *     EtwpValidateEnableNotification @ 0x14068F7E0 (EtwpValidateEnableNotification.c)
+ *     EtwpUpdatePeriodicCaptureState @ 0x1409E9D28 (EtwpUpdatePeriodicCaptureState.c)
+ * Callees:
+ *     EtwpCheckGuidAccess @ 0x1406910EC (EtwpCheckGuidAccess.c)
+ *     EtwCheckSecurityLoggerAccess @ 0x140748A78 (EtwCheckSecurityLoggerAccess.c)
+ */
+
 __int64 __fastcall EtwpCheckNotificationAccess(_QWORD *a1, __int64 a2)
 {
   __int64 result; // rax

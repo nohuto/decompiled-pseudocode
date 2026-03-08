@@ -1,3 +1,12 @@
+/*
+ * XREFs of VhdDeferredAutoAttachVirtualDisks @ 0x1404119A4
+ * Callers:
+ *     PipOobeCompleteAsyncCallback @ 0x14067C970 (PipOobeCompleteAsyncCallback.c)
+ * Callees:
+ *     VhdiAutoAttachOneVhd @ 0x14067E088 (VhdiAutoAttachOneVhd.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void VhdDeferredAutoAttachVirtualDisks()
 {
   char *v0; // rbx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiAttachThreadDone @ 0x14029C9D4
+ * Callers:
+ *     MiSharePages @ 0x140228990 (MiSharePages.c)
+ *     MiTrimSharedPageFromViews @ 0x1402A031C (MiTrimSharedPageFromViews.c)
+ *     MmQueryCommitReleaseState @ 0x1402FB050 (MmQueryCommitReleaseState.c)
+ *     MiUnlockStealVm @ 0x1403B7AF8 (MiUnlockStealVm.c)
+ *     MmReleaseCommitForMemResetPages @ 0x140617408 (MmReleaseCommitForMemResetPages.c)
+ * Callees:
+ *     KeSignalGate @ 0x1402F0524 (KeSignalGate.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiAttachThreadDone(__int64 a1)
 {
   __int64 v2; // rcx

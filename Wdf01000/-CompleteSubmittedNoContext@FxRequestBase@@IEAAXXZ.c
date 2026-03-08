@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CompleteSubmittedNoContext@FxRequestBase@@IEAAXXZ @ 0x1C003FA70
+ * Callers:
+ *     ?CompleteSubmitted@FxRequestBase@@QEAAXXZ @ 0x1C0006D6C (-CompleteSubmitted@FxRequestBase@@QEAAXXZ.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C000AC00 (memset.c)
+ */
+
 void __fastcall FxRequestBase::CompleteSubmittedNoContext(FxRequestBase *this)
 {
   _IRP *m_Irp; // rax

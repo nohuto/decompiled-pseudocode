@@ -1,3 +1,18 @@
+/*
+ * XREFs of PsCallImageNotifyRoutines @ 0x1407D30D0
+ * Callers:
+ *     MiMapViewOfImageSection @ 0x1407D3750 (MiMapViewOfImageSection.c)
+ *     DbgkCreateThread @ 0x1407ED96C (DbgkCreateThread.c)
+ *     MiDriverLoadSucceeded @ 0x1407F6FFC (MiDriverLoadSucceeded.c)
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExReferenceCallBackBlock @ 0x14034C060 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x14034C120 (ExDereferenceCallBackBlock.c)
+ *     KeAreAllApcsDisabled @ 0x14034C170 (KeAreAllApcsDisabled.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PerfLogImageLoad @ 0x1407EC064 (PerfLogImageLoad.c)
+ */
+
 char __fastcall PsCallImageNotifyRoutines(__int128 *a1, __int64 a2, _QWORD *a3, __int64 a4)
 {
   struct _KTHREAD *CurrentThread; // rbp

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetIntegerProperty@CAtlasedRectsMeshMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C025C730
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CAtlasedRectsMeshMarshaler::SetIntegerProperty(
         DirectComposition::CAtlasedRectsMeshMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

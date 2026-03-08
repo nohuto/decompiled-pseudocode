@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmTryAcquireLock @ 0x1402D2BC8
+ * Callers:
+ *     PoLatencySensitivityHint @ 0x1402D2A30 (PoLatencySensitivityHint.c)
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     KiClearSystemPriority @ 0x1402DAA90 (KiClearSystemPriority.c)
+ *     KiSetSystemPriorityThread @ 0x1402E9F30 (KiSetSystemPriorityThread.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ */
+
 char PpmTryAcquireLock()
 {
   struct _KTHREAD *CurrentThread; // rax

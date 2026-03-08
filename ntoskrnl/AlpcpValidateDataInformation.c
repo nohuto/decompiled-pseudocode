@@ -1,3 +1,12 @@
+/*
+ * XREFs of AlpcpValidateDataInformation @ 0x140975FAC
+ * Callers:
+ *     AlpcpReplyLegacySynchronousRequest @ 0x140716318 (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpSendMessage @ 0x1407CAFB0 (AlpcpSendMessage.c)
+ * Callees:
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall AlpcpValidateDataInformation(__int64 a1, __int64 a2)
 {
   unsigned __int64 v2; // r8

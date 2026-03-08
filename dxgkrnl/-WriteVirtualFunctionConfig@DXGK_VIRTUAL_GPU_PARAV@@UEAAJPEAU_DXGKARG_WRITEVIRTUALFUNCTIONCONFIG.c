@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?WriteVirtualFunctionConfig@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_WRITEVIRTUALFUNCTIONCONFIG@@@Z @ 0x1C036B950
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ */
+
 __int64 __fastcall DXGK_VIRTUAL_GPU_PARAV::WriteVirtualFunctionConfig(
         DXGK_VIRTUAL_GPU_PARAV *this,
         struct _DXGKARG_WRITEVIRTUALFUNCTIONCONFIG *a2)

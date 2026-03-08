@@ -1,3 +1,19 @@
+/*
+ * XREFs of AuthzBasepCompareUnicodeStringOperands @ 0x1403657AC
+ * Callers:
+ *     AuthzBasepValueInSet @ 0x14036559C (AuthzBasepValueInSet.c)
+ *     AuthzBasepEvaluateExpression @ 0x140366314 (AuthzBasepEvaluateExpression.c)
+ * Callees:
+ *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x1402F707C (AuthzBasepEqualUnicodeStringCaseSensitive.c)
+ *     AuthzBasepUnicodeStringFromOperandValue @ 0x140365960 (AuthzBasepUnicodeStringFromOperandValue.c)
+ *     AuthzBasepGetOperandStringCaseForEvaluation @ 0x140365AE0 (AuthzBasepGetOperandStringCaseForEvaluation.c)
+ *     RtlIsNameInExpression @ 0x140365B20 (RtlIsNameInExpression.c)
+ *     AuthzBasepCompareUnicodeStringCaseSensitive @ 0x14066D11C (AuthzBasepCompareUnicodeStringCaseSensitive.c)
+ *     RtlCompareUnicodeString @ 0x1406EA3B0 (RtlCompareUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AuthzBasepCompareUnicodeStringOperands(unsigned __int8 a1, __int64 a2, _DWORD *a3)
 {
   int v5; // esi

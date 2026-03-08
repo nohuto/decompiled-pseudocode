@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeQueryCpuSetsThread @ 0x140572C98
+ * Callers:
+ *     NtQueryInformationThread @ 0x1406A7BF0 (NtQueryInformationThread.c)
+ * Callees:
+ *     KiGetThreadCpuSetMaskPointer @ 0x140237D24 (KiGetThreadCpuSetMaskPointer.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeQueryCpuSetsThread(__int64 a1, _QWORD *a2)
 {
   unsigned int v4; // r14d

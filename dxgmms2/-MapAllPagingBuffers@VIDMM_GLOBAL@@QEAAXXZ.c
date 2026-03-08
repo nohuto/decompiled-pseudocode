@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MapAllPagingBuffers@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00B55E4
+ * Callers:
+ *     ?RestoreFromPurge@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00B5528 (-RestoreFromPurge@VIDMM_GLOBAL@@QEAAXXZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall VIDMM_GLOBAL::MapAllPagingBuffers(VIDMM_GLOBAL *this)
 {
   __int64 i; // rsi

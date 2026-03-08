@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiGetPagesRemainingInResidentPage @ 0x14064CC94
+ * Callers:
+ *     MiAddPhysicalPagesToCrashDump @ 0x14062D30C (MiAddPhysicalPagesToCrashDump.c)
+ * Callees:
+ *     MiGetPfnPageSizeIndex @ 0x14034D770 (MiGetPfnPageSizeIndex.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x14035094C (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiGetBaseResidentPageForBugCheck @ 0x14064CC14 (MiGetBaseResidentPageForBugCheck.c)
+ */
+
 unsigned __int64 __fastcall MiGetPagesRemainingInResidentPage(__int64 a1, int *a2, int *a3)
 {
   unsigned __int64 v6; // rdi

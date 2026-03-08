@@ -1,3 +1,14 @@
+/*
+ * XREFs of ViFilterDeviceUsageNotificationCompletion @ 0x140ADC3E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IoReleaseRemoveLockEx @ 0x1402D9240 (IoReleaseRemoveLockEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14056F278 (KiReleaseSpinLockInstrumented.c)
+ */
+
 __int64 __fastcall ViFilterDeviceUsageNotificationCompletion(__int64 a1, __int64 a2)
 {
   __int64 v4; // rsi

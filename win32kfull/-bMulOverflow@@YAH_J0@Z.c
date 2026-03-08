@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bMulOverflow@@YAH_J0@Z @ 0x1C0301234
+ * Callers:
+ *     ?bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z @ 0x1C02FFF14 (-bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall bMulOverflow(__int64 a1, __int64 a2)
 {
   signed __int64 v2; // r8

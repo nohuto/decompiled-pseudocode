@@ -1,3 +1,16 @@
+/*
+ * XREFs of rimCompleteReads @ 0x1C0039B74
+ * Callers:
+ *     RIMReadInput @ 0x1C0039160 (RIMReadInput.c)
+ * Callees:
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0003AE4 (rimProcessDeviceBufferAndStartRead.c)
+ *     DeviceTypeToRimInputType @ 0x1C0039CC0 (DeviceTypeToRimInputType.c)
+ *     RimInputTypeToDeviceType @ 0x1C0039D00 (RimInputTypeToDeviceType.c)
+ *     rimFindPausedDeviceAndCompleteRead @ 0x1C0039E14 (rimFindPausedDeviceAndCompleteRead.c)
+ *     RimDeviceTypeToRimInputType @ 0x1C00BC2F4 (RimDeviceTypeToRimInputType.c)
+ *     rimProcessAnyQueuedCompleteFrames @ 0x1C01D2AB4 (rimProcessAnyQueuedCompleteFrames.c)
+ */
+
 __int64 __fastcall rimCompleteReads(struct RawInputManagerObject *a1)
 {
   unsigned int v2; // esi

@@ -1,3 +1,37 @@
+/*
+ * XREFs of HMValidateHandleNoRip @ 0x1C01083AC
+ * Callers:
+ *     EditionGetKeyStateUpdateParamsForRawInput @ 0x1C0011600 (EditionGetKeyStateUpdateParamsForRawInput.c)
+ *     xxxSetWindowData @ 0x1C002F9C8 (xxxSetWindowData.c)
+ *     xxxRealInternalGetMessage @ 0x1C006F2F0 (xxxRealInternalGetMessage.c)
+ *     FindQMsg @ 0x1C0072160 (FindQMsg.c)
+ *     DWP_GetIcon @ 0x1C00E542C (DWP_GetIcon.c)
+ *     xxxSetClassData @ 0x1C00ED168 (xxxSetClassData.c)
+ *     ?xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z @ 0x1C0107A14 (-xxxDWP_SetIcon@@YAPEAUHICON__@@PEAUtagWND@@_KPEAU1@@Z.c)
+ *     xxxEventWndProc @ 0x1C0107F00 (xxxEventWndProc.c)
+ *     xxxClientCopyImage @ 0x1C0107FC0 (xxxClientCopyImage.c)
+ *     xxxClientLoadImage @ 0x1C01080C0 (xxxClientLoadImage.c)
+ *     xxxClientLoadMenu @ 0x1C0109AE8 (xxxClientLoadMenu.c)
+ *     xxxCreateWindowSmIcon @ 0x1C010A268 (xxxCreateWindowSmIcon.c)
+ *     _RegisterClassEx @ 0x1C012DD34 (_RegisterClassEx.c)
+ *     DestroyWindowSmIcon @ 0x1C012F204 (DestroyWindowSmIcon.c)
+ *     ?xxxWrapCallWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C01B9940 (-xxxWrapCallWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
+ *     ?DrawIconCallBack@@YAXPEAUHWND__@@I_K_J@Z @ 0x1C01C9FD0 (-DrawIconCallBack@@YAXPEAUHWND__@@I_K_J@Z.c)
+ *     ?xxxPaintIconsInSwitchWindow@@YAXPEAUtagWND@@PEAUtagSwitchWndInfo@@PEAUHDC__@@HHHHHPEAUtagCURSOR@@@Z @ 0x1C01CA94C (-xxxPaintIconsInSwitchWindow@@YAXPEAUtagWND@@PEAUtagSwitchWndInfo@@PEAUHDC__@@HHHHHPEAUtagCURSOR.c)
+ *     NtUserCsDdeUninitialize @ 0x1C01CF1F0 (NtUserCsDdeUninitialize.c)
+ *     NtUserUpdateInstance @ 0x1C01E0670 (NtUserUpdateInstance.c)
+ *     _GetWindowIcon @ 0x1C01E48BC (_GetWindowIcon.c)
+ *     ?MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C01FEEDC (-MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     ?xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FFA0C (-xxxGetDummyBitmap@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FFB98 (-xxxGetDummyDib@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     ?xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FFD30 (-xxxGetDummyDibV5@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z.c)
+ *     xxxMNKeyDown @ 0x1C021ABF8 (xxxMNKeyDown.c)
+ *     xxxSetClassIcon @ 0x1C0223360 (xxxSetClassIcon.c)
+ *     xxxRealDrawMenuItem @ 0x1C0239598 (xxxRealDrawMenuItem.c)
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ */
+
 __int64 __fastcall HMValidateHandleNoRip(__int64 a1, char a2)
 {
   __int64 v3; // rbx

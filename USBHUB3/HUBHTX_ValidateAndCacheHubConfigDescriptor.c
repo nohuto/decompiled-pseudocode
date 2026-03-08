@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBHTX_ValidateAndCacheHubConfigDescriptor @ 0x1C0003694
+ * Callers:
+ *     HUBHSM_ValidatingHubConfigurationDescriptor @ 0x1C0009BF0 (HUBHSM_ValidatingHubConfigurationDescriptor.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     HUBDESC_ValidateConfigurationDescriptorSet @ 0x1C0038DB8 (HUBDESC_ValidateConfigurationDescriptorSet.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ */
+
 __int64 __fastcall HUBHTX_ValidateAndCacheHubConfigDescriptor(__int64 a1)
 {
   __int16 v1; // ax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of PiDrvDbInit @ 0x14081C014
+ * Callers:
+ *     PiPnpRtlInit @ 0x14081BE64 (PiPnpRtlInit.c)
+ * Callees:
+ *     CmIsStateSeparationEnabled @ 0x1402FBD38 (CmIsStateSeparationEnabled.c)
+ *     PiDrvDbSuspendNodes @ 0x14081C10C (PiDrvDbSuspendNodes.c)
+ *     PiDrvDbSetupNodes @ 0x14081C208 (PiDrvDbSetupNodes.c)
+ *     PiDrvDbRegisterNode @ 0x14081C38C (PiDrvDbRegisterNode.c)
+ *     DrvDbOpenContext @ 0x14081D690 (DrvDbOpenContext.c)
+ *     PiDrvDbEnumDriverStoreNodes @ 0x14081DAA0 (PiDrvDbEnumDriverStoreNodes.c)
+ */
+
 __int64 __fastcall PiDrvDbInit(__int64 a1)
 {
   int v1; // edx

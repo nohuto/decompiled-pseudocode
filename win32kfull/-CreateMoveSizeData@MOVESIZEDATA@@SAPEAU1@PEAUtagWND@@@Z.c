@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CreateMoveSizeData@MOVESIZEDATA@@SAPEAU1@PEAUtagWND@@@Z @ 0x1C023CF24
+ * Callers:
+ *     ?xxxMoveSize@@YAXPEAUtagWND@@IK@Z @ 0x1C01F0DC4 (-xxxMoveSize@@YAXPEAUtagWND@@IK@Z.c)
+ * Callees:
+ *     Feature_1200431418__private_IsEnabledDeviceUsage @ 0x1C012EB44 (Feature_1200431418__private_IsEnabledDeviceUsage.c)
+ */
+
 struct MOVESIZEDATA *__fastcall MOVESIZEDATA::CreateMoveSizeData(struct tagWND *a1)
 {
   __int64 v3; // rax

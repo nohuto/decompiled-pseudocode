@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_2b831a354495e24a997c7e563732c286_::operator() @ 0x1C02EEE24
+ * Callers:
+ *     InitDisplayBrokerMessage_DispBroker::AlpcRequest_8___lambda_2b831a354495e24a997c7e563732c286__&DxgkSampleDisplayState_ @ 0x1C0049100 (InitDisplayBrokerMessage_DispBroker--AlpcRequest_8___lambda_2b831a354495e24a997c7e563732c286__-D.c)
+ * Callees:
+ *     _lambda_d553670f9cadd4da475e2936e6caa2f6_::operator() @ 0x1C02EF87C (_lambda_d553670f9cadd4da475e2936e6caa2f6_--operator().c)
+ */
+
 __int64 __fastcall lambda_2b831a354495e24a997c7e563732c286_::operator()(unsigned int ***a1, __int64 a2)
 {
   unsigned int v3; // edi

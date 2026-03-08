@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?QueryTargetStats@CConnection@DirectComposition@@QEAA_N_KAEBUtagCOMPOSITION_TARGET_ID@@PEAUtagCOMPOSITION_TARGET_STATS@@@Z @ 0x1C00025E4
+ * Callers:
+ *     NtDCompositionGetTargetStatistics @ 0x1C0002420 (NtDCompositionGetTargetStatistics.c)
+ * Callees:
+ *     ??8tagCOMPOSITION_TARGET_ID@@QEBA_NAEBU0@@Z @ 0x1C0002B2C (--8tagCOMPOSITION_TARGET_ID@@QEBA_NAEBU0@@Z.c)
+ *     ?Release@CPushLockCriticalSection@DirectComposition@@QEAAXXZ @ 0x1C0091D74 (-Release@CPushLockCriticalSection@DirectComposition@@QEAAXXZ.c)
+ */
+
 char __fastcall DirectComposition::CConnection::QueryTargetStats(
         DirectComposition::CConnection *this,
         unsigned __int64 a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtCompositionSetDropTarget @ 0x1C00AB160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C00A7D70 (-ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ *     ?SetDropTarget@CompositionInputObject@@QEAAJAEBUCOMPOSITION_INPUT_QUEUE@@@Z @ 0x1C00AB2C4 (-SetDropTarget@CompositionInputObject@@QEAAJAEBUCOMPOSITION_INPUT_QUEUE@@@Z.c)
+ */
+
 __int64 __fastcall NtCompositionSetDropTarget(void *a1, ULONG64 a2, __int64 a3)
 {
   _QWORD *v3; // rsi

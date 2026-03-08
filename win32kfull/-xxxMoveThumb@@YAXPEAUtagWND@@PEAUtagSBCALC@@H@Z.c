@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?xxxMoveThumb@@YAXPEAUtagWND@@PEAUtagSBCALC@@H@Z @ 0x1C022C460
+ * Callers:
+ *     xxxTrackThumb @ 0x1C022E280 (xxxTrackThumb.c)
+ * Callees:
+ *     ?xxxGetColorObjects@@YAPEAUHBRUSH__@@PEAUtagWND@@PEAUHDC__@@@Z @ 0x1C0013EE8 (-xxxGetColorObjects@@YAPEAUHBRUSH__@@PEAUtagWND@@PEAUHDC__@@@Z.c)
+ *     DrawThumb2 @ 0x1C0013FB8 (DrawThumb2.c)
+ *     ?xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z @ 0x1C022C0E0 (-xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z.c)
+ */
+
 void __fastcall xxxMoveThumb(struct tagWND *a1, struct tagSBCALC *a2, int a3)
 {
   int v3; // esi

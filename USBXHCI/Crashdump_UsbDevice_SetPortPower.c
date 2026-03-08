@@ -1,3 +1,11 @@
+/*
+ * XREFs of Crashdump_UsbDevice_SetPortPower @ 0x1C0051068
+ * Callers:
+ *     Crashdump_InitializeWithControllerReset @ 0x1C004C868 (Crashdump_InitializeWithControllerReset.c)
+ * Callees:
+ *     Crashdump_UsbDevice_ChangePortFeature @ 0x1C004FA68 (Crashdump_UsbDevice_ChangePortFeature.c)
+ */
+
 __int64 __fastcall Crashdump_UsbDevice_SetPortPower(__int64 a1, int a2)
 {
   int v4; // ebx

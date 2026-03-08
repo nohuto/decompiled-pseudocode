@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhFdoPnp_QueryStop @ 0x1C0042F50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhFdoCheckUpstreamConnectionState @ 0x1C0004A1C (UsbhFdoCheckUpstreamConnectionState.c)
+ *     Usbh_SSH_Event @ 0x1C0007220 (Usbh_SSH_Event.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhDisableHardReset @ 0x1C003CFA4 (UsbhDisableHardReset.c)
+ */
+
 NTSTATUS __fastcall UsbhFdoPnp_QueryStop(__int64 a1, IRP *a2)
 {
   PDEVICE_OBJECT *v4; // rbp

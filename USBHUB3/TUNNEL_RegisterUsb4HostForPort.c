@@ -1,3 +1,15 @@
+/*
+ * XREFs of TUNNEL_RegisterUsb4HostForPort @ 0x1C008D404
+ * Callers:
+ *     HUBFDO_MapDvsecUsb4Hosts @ 0x1C00783A4 (HUBFDO_MapDvsecUsb4Hosts.c)
+ *     HUBACPI_GetAcpiPortAttributes @ 0x1C008ADA8 (HUBACPI_GetAcpiPortAttributes.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C00031FC (WPP_RECORDER_SF_qd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     TUNNEL_GetUsb4Host @ 0x1C008D2F4 (TUNNEL_GetUsb4Host.c)
+ */
+
 __int64 __fastcall TUNNEL_RegisterUsb4HostForPort(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v5; // edi

@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpAcpiInitSystem @ 0x140A8D770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpNumaSwapP0NodeToFront @ 0x14039F678 (HalpNumaSwapP0NodeToFront.c)
+ *     HalpAcpiInitDiscard @ 0x140B62AD4 (HalpAcpiInitDiscard.c)
+ *     HalpAcpiDetectPiix4 @ 0x140B62B08 (HalpAcpiDetectPiix4.c)
+ *     HalpAcpiPopulateTableCache @ 0x140B62B7C (HalpAcpiPopulateTableCache.c)
+ *     HalpAcpiPrmCacheInit @ 0x140B62BF0 (HalpAcpiPrmCacheInit.c)
+ *     HalpAuditAcpiTables @ 0x140B63138 (HalpAuditAcpiTables.c)
+ */
+
 __int64 __fastcall HalpAcpiInitSystem(int a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

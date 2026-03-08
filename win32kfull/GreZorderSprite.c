@@ -1,3 +1,15 @@
+/*
+ * XREFs of GreZorderSprite @ 0x1C002CF5C
+ * Callers:
+ *     TrackLayeredZorder @ 0x1C002C250 (TrackLayeredZorder.c)
+ *     ?ReorderChildrenSpriteList@@YAXPEAUtagWND@@0@Z @ 0x1C002C508 (-ReorderChildrenSpriteList@@YAXPEAUtagWND@@0@Z.c)
+ * Callees:
+ *     ?hspLookupWindow@DWMSPRITEREF@@SAPEAUHSPRITE__@@PEAUHWND__@@@Z @ 0x1C002D150 (-hspLookupWindow@DWMSPRITEREF@@SAPEAUHSPRITE__@@PEAUHWND__@@@Z.c)
+ *     ?vSpDwmZorderSprite@@YAXPEAUHSPRITE__@@0@Z @ 0x1C002D2F0 (-vSpDwmZorderSprite@@YAXPEAUHSPRITE__@@0@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?GdiZorderSprite@@YAXPEAUHDEV__@@PEAUHWND__@@1@Z @ 0x1C010D6BC (-GdiZorderSprite@@YAXPEAUHDEV__@@PEAUHWND__@@1@Z.c)
+ */
+
 void __fastcall GreZorderSprite(Gre::Base *a1, HWND a2, HWND a3, int a4)
 {
   int v8; // r14d

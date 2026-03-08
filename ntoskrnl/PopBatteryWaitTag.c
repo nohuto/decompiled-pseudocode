@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopBatteryWaitTag @ 0x140992B14
+ * Callers:
+ *     PopBatteryWorker @ 0x14086DD10 (PopBatteryWorker.c)
+ *     PopBatteryAdd @ 0x140991F80 (PopBatteryAdd.c)
+ * Callees:
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     PopPrepareIoctl @ 0x140846A50 (PopPrepareIoctl.c)
+ */
+
 NTSTATUS __fastcall PopBatteryWaitTag(__int64 a1)
 {
   __int64 v2; // rcx

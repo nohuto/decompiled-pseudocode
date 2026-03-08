@@ -1,3 +1,11 @@
+/*
+ * XREFs of SmmLockPages @ 0x1C03D3080
+ * Callers:
+ *     SmmLockPagesForAdapter @ 0x1C03D31E4 (SmmLockPagesForAdapter.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall SmmLockPages(void *a1, unsigned __int64 a2, struct _MDL **a3)
 {
   struct _MDL *Mdl; // rax

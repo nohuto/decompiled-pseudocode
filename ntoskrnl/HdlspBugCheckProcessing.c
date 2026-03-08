@@ -1,3 +1,17 @@
+/*
+ * XREFs of HdlspBugCheckProcessing @ 0x140AE6D84
+ * Callers:
+ *     HdlspDispatch @ 0x140AE6EB0 (HdlspDispatch.c)
+ * Callees:
+ *     KeStallExecutionProcessor @ 0x14022B710 (KeStallExecutionProcessor.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _stricmp @ 0x1403D3BD0 (_stricmp.c)
+ *     HalReturnToFirmware @ 0x140504990 (HalReturnToFirmware.c)
+ *     HdlspGetLine @ 0x140AE7690 (HdlspGetLine.c)
+ *     HdlspProcessDumpCommand @ 0x140AE7CAC (HdlspProcessDumpCommand.c)
+ *     HdlspSendStringAtBaud @ 0x140AE8474 (HdlspSendStringAtBaud.c)
+ */
+
 __int64 HdlspBugCheckProcessing()
 {
   __int64 result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpAcpiCacheTable @ 0x14037ABF4
+ * Callers:
+ *     HalpAcpiGetTableWork @ 0x14029C5D0 (HalpAcpiGetTableWork.c)
+ *     HalpAcpiGetAllTablesWork @ 0x14037A8C8 (HalpAcpiGetAllTablesWork.c)
+ *     HalpAcpiTableCacheInit @ 0x140B3DDE0 (HalpAcpiTableCacheInit.c)
+ *     HalpAcpiCacheOverrideTables @ 0x140B8DD04 (HalpAcpiCacheOverrideTables.c)
+ * Callees:
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ */
+
 __int64 *__fastcall HalpAcpiCacheTable(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmosGetInterface @ 0x1C008231C
+ * Callers:
+ *     ACPIGetCmosInterface @ 0x1C0019B00 (ACPIGetCmosInterface.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmosGetInterface(PDEVICE_OBJECT DeviceObject)
 {
   struct _DEVICE_OBJECT *AttachedDeviceReference; // rdi

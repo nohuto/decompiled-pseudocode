@@ -1,3 +1,12 @@
+/*
+ * XREFs of _FindActivationFilterWindow @ 0x1C00111D4
+ * Callers:
+ *     _SetActivationFilter @ 0x1C0011114 (_SetActivationFilter.c)
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall FindActivationFilterWindow(__int64 a1)
 {
   __int64 v1; // r8

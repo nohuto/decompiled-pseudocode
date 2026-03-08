@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopGetIoLocation @ 0x140A9FBBC
+ * Callers:
+ *     PopHiberReadChecksums @ 0x140AA01BC (PopHiberReadChecksums.c)
+ *     PopRequestRead @ 0x140AA0A10 (PopRequestRead.c)
+ *     PopRequestWrite @ 0x140AA0E40 (PopRequestWrite.c)
+ *     PopWriteHiberPages @ 0x140AA2874 (PopWriteHiberPages.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall PopGetIoLocation(__int64 a1, unsigned __int64 a2, _QWORD *a3)
 {
   unsigned __int64 v3; // r10

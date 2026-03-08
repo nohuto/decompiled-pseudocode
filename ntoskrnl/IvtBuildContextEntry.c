@@ -1,3 +1,11 @@
+/*
+ * XREFs of IvtBuildContextEntry @ 0x1403B084C
+ * Callers:
+ *     IvtInitializeIommu @ 0x140A87060 (IvtInitializeIommu.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IvtBuildContextEntry(__int64 a1, char a2, unsigned __int16 a3, __int64 a4, __int64 *a5)
 {
   __int64 result; // rax

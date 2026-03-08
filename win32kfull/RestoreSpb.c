@@ -1,3 +1,16 @@
+/*
+ * XREFs of RestoreSpb @ 0x1C01FA57C
+ * Callers:
+ *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C0068A60 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
+ * Callees:
+ *     FreeSpb @ 0x1C000B520 (FreeSpb.c)
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     IsVisible @ 0x1C00A66A0 (IsVisible.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     FindSpb @ 0x1C01FA54C (FindSpb.c)
+ *     GreSaveScreenBits @ 0x1C02AA584 (GreSaveScreenBits.c)
+ */
+
 __int64 __fastcall RestoreSpb(__int64 *a1, __int64 a2, HDC *a3)
 {
   unsigned int v6; // esi

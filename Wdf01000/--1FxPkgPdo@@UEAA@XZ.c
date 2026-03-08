@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??1FxPkgPdo@@UEAA@XZ @ 0x1C00686E8
+ * Callers:
+ *     ??_EFxPkgPdo@@UEAAPEAXI@Z @ 0x1C0068780 (--_EFxPkgPdo@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ?_CleanupList@FxDeviceText@@SAHPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x1C003BF18 (-_CleanupList@FxDeviceText@@SAHPEAU_SINGLE_LIST_ENTRY@@@Z.c)
+ *     ??_GFxRelatedDeviceList@@QEAAPEAXI@Z @ 0x1C00687C0 (--_GFxRelatedDeviceList@@QEAAPEAXI@Z.c)
+ *     ??1FxPkgPnp@@MEAA@XZ @ 0x1C0070ED0 (--1FxPkgPnp@@MEAA@XZ.c)
+ */
+
 void __fastcall FxPkgPdo::~FxPkgPdo(FxPkgPdo *this)
 {
   unsigned int v2; // edx

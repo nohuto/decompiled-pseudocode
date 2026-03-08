@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopNetClearConnectivityConstraint @ 0x140993680
+ * Callers:
+ *     PopPowerAggregatorDisengageModernStandby @ 0x14099057C (PopPowerAggregatorDisengageModernStandby.c)
+ *     PopNetCompliantNicUpdate @ 0x1409936D4 (PopNetCompliantNicUpdate.c)
+ *     PopNetNonCompliantDeviceUpdate @ 0x140993894 (PopNetNonCompliantDeviceUpdate.c)
+ * Callees:
+ *     PopQueueWorkItem @ 0x1402BCCB4 (PopQueueWorkItem.c)
+ */
+
 char __fastcall PopNetClearConnectivityConstraint(int a1)
 {
   char v1; // dl

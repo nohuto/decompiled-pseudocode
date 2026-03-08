@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlQueryRegistryValueWithFallback @ 0x1406971B0
+ * Callers:
+ *     DifRtlQueryRegistryValueWithFallbackWrapper @ 0x1405E9470 (DifRtlQueryRegistryValueWithFallbackWrapper.c)
+ *     EtwpGetGuidSecurityDescriptor @ 0x14069707C (EtwpGetGuidSecurityDescriptor.c)
+ * Callees:
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall RtlQueryRegistryValueWithFallback(
         HANDLE PrimaryHandle,
         HANDLE FallbackHandle,

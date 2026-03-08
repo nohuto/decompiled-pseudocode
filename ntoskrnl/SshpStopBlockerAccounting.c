@@ -1,3 +1,13 @@
+/*
+ * XREFs of SshpStopBlockerAccounting @ 0x1402F1228
+ * Callers:
+ *     SshpSetBlockerActive @ 0x1402F11C8 (SshpSetBlockerActive.c)
+ *     SshpSetCollectionActive @ 0x1403AA858 (SshpSetCollectionActive.c)
+ *     SshpWriteBlocker @ 0x1405A0960 (SshpWriteBlocker.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall SshpStopBlockerAccounting(__int64 a1, unsigned __int64 a2, int a3)
 {
   unsigned __int64 result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?D3DXQuaternionRotationAxis@@YAPEAUD2DQuaternion@@PEAU1@PEBUD2DVector3@@M@Z @ 0x18027AF94
+ * Callers:
+ *     ?GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ @ 0x1802391F0 (-GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ.c)
+ *     ?QuaternionFromAxisAngle@CExpressionValueStack@@QEAAJXZ @ 0x18025DCB4 (-QuaternionFromAxisAngle@CExpressionValueStack@@QEAAJXZ.c)
+ * Callees:
+ *     ?D3DXVec3Normalize@@YAPEAUD2DVector3@@PEAU1@PEBU1@@Z @ 0x180023A0C (-D3DXVec3Normalize@@YAPEAUD2DVector3@@PEAU1@PEBU1@@Z.c)
+ *     cosf_0 @ 0x1801176F8 (cosf_0.c)
+ *     sinf_0 @ 0x180117794 (sinf_0.c)
+ */
+
 struct D2DQuaternion *__fastcall D3DXQuaternionRotationAxis(
         struct D2DQuaternion *a1,
         const struct D2DVector3 *a2,

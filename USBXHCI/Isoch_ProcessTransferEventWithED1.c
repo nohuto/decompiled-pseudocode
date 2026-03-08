@@ -1,3 +1,32 @@
+/*
+ * XREFs of Isoch_ProcessTransferEventWithED1 @ 0x1C0001EC0
+ * Callers:
+ *     Isoch_EP_TransferEventHandler @ 0x1C0001E90 (Isoch_EP_TransferEventHandler.c)
+ * Callees:
+ *     Isoch_MapTransfers @ 0x1C0001C9C (Isoch_MapTransfers.c)
+ *     Isoch_Stage_Find @ 0x1C0002870 (Isoch_Stage_Find.c)
+ *     Isoch_Stage_CompleteTD @ 0x1C00029D0 (Isoch_Stage_CompleteTD.c)
+ *     Isoch_RetrieveNextStage @ 0x1C0003800 (Isoch_RetrieveNextStage.c)
+ *     Isoch_MapStage @ 0x1C0004810 (Isoch_MapStage.c)
+ *     Isoch_PrepareStage @ 0x1C0004AD0 (Isoch_PrepareStage.c)
+ *     TR_AttemptStateChange @ 0x1C0008120 (TR_AttemptStateChange.c)
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     StageQueue_Release @ 0x1C0011840 (StageQueue_Release.c)
+ *     TR_ReleaseSegments @ 0x1C001187C (TR_ReleaseSegments.c)
+ *     StageQueue_ForwardScanGetNextStage @ 0x1C0012EEC (StageQueue_ForwardScanGetNextStage.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C001E054 (WPP_RECORDER_SF_DDD.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsMsgKM @ 0x1C00202C0 (MicrosoftTelemetryAssertTriggeredArgsMsgKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ *     WPP_RECORDER_SF_DDi @ 0x1C004207C (WPP_RECORDER_SF_DDi.c)
+ *     WPP_RECORDER_SF_DDqD @ 0x1C00437B0 (WPP_RECORDER_SF_DDqD.c)
+ *     Isoch_Stage_FreeScatterGatherList @ 0x1C0045238 (Isoch_Stage_FreeScatterGatherList.c)
+ *     Isoch_Transfer_CompleteCancelable @ 0x1C0045590 (Isoch_Transfer_CompleteCancelable.c)
+ *     WPP_RECORDER_SF_DDLDDi @ 0x1C0046334 (WPP_RECORDER_SF_DDLDDi.c)
+ *     MicrosoftTelemetryAssertTriggeredMsgKM @ 0x1C00533B4 (MicrosoftTelemetryAssertTriggeredMsgKM.c)
+ */
+
 char __fastcall Isoch_ProcessTransferEventWithED1(__int64 a1, __int64 a2)
 {
   __int64 v4; // rcx

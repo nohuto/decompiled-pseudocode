@@ -1,3 +1,15 @@
+/*
+ * XREFs of WdipSemUpdateProviderTableWithEvent @ 0x1408337A0
+ * Callers:
+ *     WdipSemUpdateProviderTableWithScenario @ 0x14083372C (WdipSemUpdateProviderTableWithScenario.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WdipSemFastAllocate @ 0x14083362C (WdipSemFastAllocate.c)
+ *     WdipSemQueryProviderTable @ 0x140833844 (WdipSemQueryProviderTable.c)
+ *     WdipSemWriteProviderLimitExceededEvent @ 0x1409DB688 (WdipSemWriteProviderLimitExceededEvent.c)
+ */
+
 __int64 __fastcall WdipSemUpdateProviderTableWithEvent(__int64 a1)
 {
   unsigned int v1; // ebx

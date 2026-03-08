@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiCoalescePageFileBitmapsCache @ 0x14020B47C
+ * Callers:
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     MiAttemptPageFileReductionApc @ 0x140635960 (MiAttemptPageFileReductionApc.c)
+ *     MiFinishPageFileExtension @ 0x1406376C8 (MiFinishPageFileExtension.c)
+ * Callees:
+ *     RtlLengthCurrentClearRunBackward @ 0x14020B26C (RtlLengthCurrentClearRunBackward.c)
+ *     RtlLengthCurrentClearRunForward @ 0x14020B7C4 (RtlLengthCurrentClearRunForward.c)
+ *     MiBitmapsCachedEntryLengthChanged @ 0x14020B884 (MiBitmapsCachedEntryLengthChanged.c)
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     MiRescanPageFileBitmapPortion @ 0x1402DF480 (MiRescanPageFileBitmapPortion.c)
+ */
+
 void __fastcall MiCoalescePageFileBitmapsCache(__int64 a1, int a2, unsigned int a3)
 {
   __int64 v5; // r9

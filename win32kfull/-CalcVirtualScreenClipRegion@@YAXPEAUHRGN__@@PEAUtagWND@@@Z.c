@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CalcVirtualScreenClipRegion@@YAXPEAUHRGN__@@PEAUtagWND@@@Z @ 0x1C0217AF4
+ * Callers:
+ *     _ExcludeUpdateRgn @ 0x1C000665C (_ExcludeUpdateRgn.c)
+ * Callees:
+ *     GetMonitorRectForDpi @ 0x1C00A2698 (GetMonitorRectForDpi.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     GetScreenRectForWindow @ 0x1C014AD54 (GetScreenRectForWindow.c)
+ */
+
 void __fastcall CalcVirtualScreenClipRegion(HRGN a1, struct tagWND *a2)
 {
   __int64 v4; // rax

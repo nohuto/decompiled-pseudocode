@@ -1,3 +1,19 @@
+/*
+ * XREFs of PfpPfnPrioRequest @ 0x1406AE8C4
+ * Callers:
+ *     PfQuerySuperfetchInformation @ 0x1406AE494 (PfQuerySuperfetchInformation.c)
+ *     PfSetSuperfetchInformation @ 0x1407E2A94 (PfSetSuperfetchInformation.c)
+ * Callees:
+ *     MmQueryMemoryListInformation @ 0x140236738 (MmQueryMemoryListInformation.c)
+ *     MmSetPfnListInfo @ 0x140387180 (MmSetPfnListInfo.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PfpCopyUserPfnPrioRequest @ 0x1406AEA90 (PfpCopyUserPfnPrioRequest.c)
+ *     MmQueryPfnList @ 0x1406E0A60 (MmQueryPfnList.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     MmRelocatePfnList @ 0x140A39D10 (MmRelocatePfnList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfpPfnPrioRequest(__int64 a1, char a2, unsigned int *a3)
 {
   _OWORD *v6; // rbx

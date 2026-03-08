@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Calibrate@CComputeScribbleStopwatch@@AEAAJXZ @ 0x1802066B4
+ * Callers:
+ *     ?ResolveDelayedResources@CComputeScribbleStopwatch@@AEAAJXZ @ 0x180206B18 (-ResolveDelayedResources@CComputeScribbleStopwatch@@AEAAJXZ.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CComputeScribbleStopwatch::Calibrate(CComputeScribbleStopwatch *this)
 {
   int v2; // ebx

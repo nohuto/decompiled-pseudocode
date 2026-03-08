@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtQueryCompositionInputSinkLuid @ 0x1C00A5000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall NtQueryCompositionInputSinkLuid(void *a1, _QWORD *a2)
 {
   _QWORD *v3; // rsi

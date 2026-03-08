@@ -1,3 +1,30 @@
+/*
+ * XREFs of HalpDmaAllocateChildAdapterV3 @ 0x140822570
+ * Callers:
+ *     HalGetAdapterV3 @ 0x140821010 (HalGetAdapterV3.c)
+ * Callees:
+ *     ObReferenceObjectByPointer @ 0x140208C70 (ObReferenceObjectByPointer.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     HalpIommuGetSecurityPolicy @ 0x140303164 (HalpIommuGetSecurityPolicy.c)
+ *     HalJoinDmaDomain @ 0x14038C5D0 (HalJoinDmaDomain.c)
+ *     HalpDmaIsThinDmarCapable @ 0x14038D338 (HalpDmaIsThinDmarCapable.c)
+ *     HalpDmaIsThinDmaCapable @ 0x14038D350 (HalpDmaIsThinDmaCapable.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpDmaFindAdapterByDeviceId @ 0x1404FD944 (HalpDmaFindAdapterByDeviceId.c)
+ *     HalpDmaGetIommuInterface @ 0x1404FDDF4 (HalpDmaGetIommuInterface.c)
+ *     HalpIommuCheckExceptionList @ 0x14050B910 (HalpIommuCheckExceptionList.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ *     IidCloneDeviceId @ 0x140822DFC (IidCloneDeviceId.c)
+ *     HalpDmaAllocateLocalContiguousPool @ 0x140930FF0 (HalpDmaAllocateLocalContiguousPool.c)
+ *     HalpDmaAllocateLocalScatterPool @ 0x1409312D8 (HalpDmaAllocateLocalScatterPool.c)
+ */
+
 _QWORD *__fastcall HalpDmaAllocateChildAdapterV3(
         unsigned int a1,
         int a2,

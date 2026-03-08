@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?IsPrimaryResource@CRenderTargetBitmap@@UEBA_NXZ @ 0x1802ADF74
+ * Callers:
+ *     ?IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA_NXZ @ 0x18011E710 (-IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@A@EBA_NXZ.c)
+ *     ?IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@7EBA_NXZ @ 0x18011F3D0 (-IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@7EBA_NXZ.c)
+ *     ?IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@BI@EBA_NXZ @ 0x18011F8D0 (-IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@BI@EBA_NXZ.c)
+ *     ?IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA_NXZ @ 0x18011FC10 (-IsPrimaryResource@CRenderTargetBitmap@@$4PPPPPPPM@CA@EBA_NXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CRenderTargetBitmap::IsPrimaryResource(CRenderTargetBitmap *this)
 {
   __int64 v1; // rdx

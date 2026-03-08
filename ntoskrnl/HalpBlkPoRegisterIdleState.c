@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpBlkPoRegisterIdleState @ 0x140528760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpBlkPoBusyWait @ 0x140528290 (HalpBlkPoBusyWait.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpBlkPoRegisterIdleState(unsigned int a1, __int64 a2)
 {
   ULONG_PTR v4; // r15

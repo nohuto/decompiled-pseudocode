@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z @ 0x1C0026674
+ * Callers:
+ *     ?ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z @ 0x1C0025E8C (-ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z.c)
+ *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C006A610 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
+ * Callees:
+ *     CalcForegroundInsertAfter @ 0x1C0041090 (CalcForegroundInsertAfter.c)
+ *     GetLastTopMostWindow @ 0x1C0044610 (GetLastTopMostWindow.c)
+ *     GetTopMostInsertAfter @ 0x1C01A7564 (GetTopMostInsertAfter.c)
+ */
+
 __int64 __fastcall CheckTopmost(struct tagWINDOWPOS *a1)
 {
   _QWORD *v2; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DerementRequestVSyncReasonAdapter@@YAXW4_VIDSCH_VSYNC_REASON_ADAPTER@@PEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0014AC4
+ * Callers:
+ *     VidSchControlVSyncAdapter @ 0x1C00AD380 (VidSchControlVSyncAdapter.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DerementRequestVSyncReasonAdapter(unsigned int a1, __int64 a2, unsigned int a3)
 {
   __int64 v3; // r10

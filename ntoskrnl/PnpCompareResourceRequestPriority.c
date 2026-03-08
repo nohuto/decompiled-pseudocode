@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpCompareResourceRequestPriority @ 0x14085CE90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PnpCompareResourceRequestPriority(_DWORD *a1, _DWORD *a2)
 {
   unsigned int v2; // eax

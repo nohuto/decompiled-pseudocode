@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Destroy@UmfdUMBuffer@@SAXPEAV1@@Z @ 0x1C00BCAE4
+ * Callers:
+ *     ?Destroy@UmfdTls@@CAXPEAV1@@Z @ 0x1C00BCAB0 (-Destroy@UmfdTls@@CAXPEAV1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall UmfdUMBuffer::Destroy(_QWORD *pv)
 {
   void *v1; // rax

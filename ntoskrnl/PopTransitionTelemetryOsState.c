@@ -1,3 +1,23 @@
+/*
+ * XREFs of PopTransitionTelemetryOsState @ 0x140855C64
+ * Callers:
+ *     PopDiagTraceControlCallback @ 0x14085EC40 (PopDiagTraceControlCallback.c)
+ *     PopSleepstudyStartNextSession @ 0x1408797E4 (PopSleepstudyStartNextSession.c)
+ *     PopNotifyTelemetryOsState @ 0x14098F604 (PopNotifyTelemetryOsState.c)
+ *     PopDiagInitialize @ 0x140B442C4 (PopDiagInitialize.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     EtwTelemetryCoverageReport @ 0x1402F9DD0 (EtwTelemetryCoverageReport.c)
+ *     TelemetryCoverageStringHashInternal @ 0x1402F9F5C (TelemetryCoverageStringHashInternal.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopCurrentPowerState @ 0x14078F3D0 (PopCurrentPowerState.c)
+ *     PopMeasureEnergyChange @ 0x1408560F8 (PopMeasureEnergyChange.c)
+ */
+
 __int64 __fastcall PopTransitionTelemetryOsState(int a1, int a2)
 {
   unsigned int v4; // esi

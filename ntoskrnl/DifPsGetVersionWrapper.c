@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifPsGetVersionWrapper @ 0x1405E8350
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsGetVersion @ 0x1402FDA40 (PsGetVersion.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 BOOLEAN __fastcall DifPsGetVersionWrapper(
         PULONG MajorVersion,
         PULONG MinorVersion,

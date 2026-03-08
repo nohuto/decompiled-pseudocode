@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnprLogSuccessEvent @ 0x1409639A4
+ * Callers:
+ *     PnpReplacePartitionUnit @ 0x140961B80 (PnpReplacePartitionUnit.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS PnprLogSuccessEvent()
 {
   int v0; // edx

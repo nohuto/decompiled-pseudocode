@@ -1,3 +1,12 @@
+/*
+ * XREFs of InitializeTelemetryAssertsKMWorkerInternal @ 0x1C0086BDC
+ * Callers:
+ *     RegisterTelemetryProvider @ 0x1C004DB60 (RegisterTelemetryProvider.c)
+ * Callees:
+ *     memmove @ 0x1C000B140 (memmove.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C00B0350 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ */
+
 __int64 __fastcall InitializeTelemetryAssertsKMWorkerInternal(_STRING *ModuleNameAnsi)
 {
   unsigned int v2; // ebx

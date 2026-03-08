@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIFilterIrpQueryPnpLocationInterface @ 0x1C008653C
+ * Callers:
+ *     ACPIFilterIrpQueryInterface @ 0x1C0086160 (ACPIFilterIrpQueryInterface.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIEjectPnpLocationInterface @ 0x1C0087570 (ACPIEjectPnpLocationInterface.c)
+ */
+
 __int64 __fastcall ACPIFilterIrpQueryPnpLocationInterface(ULONG_PTR a1, IRP *a2)
 {
   __int64 DeviceExtension; // rbx

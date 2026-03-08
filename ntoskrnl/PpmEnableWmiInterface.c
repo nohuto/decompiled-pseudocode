@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmEnableWmiInterface @ 0x14084E6B0
+ * Callers:
+ *     PopNewProcessorCallback @ 0x14097D420 (PopNewProcessorCallback.c)
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     KeQueryGroupAffinity @ 0x140296080 (KeQueryGroupAffinity.c)
+ *     IoWMIRegistrationControl @ 0x140869750 (IoWMIRegistrationControl.c)
+ */
+
 int PpmEnableWmiInterface()
 {
   unsigned int i; // ebx

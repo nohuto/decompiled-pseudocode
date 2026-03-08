@@ -1,3 +1,14 @@
+/*
+ * XREFs of NVMeDirectiveIdentifyEnableDirective @ 0x1C001CC08
+ * Callers:
+ *     NVMeInitStreams @ 0x1C000F660 (NVMeInitStreams.c)
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 __int64 __fastcall NVMeDirectiveIdentifyEnableDirective(__int64 a1)
 {
   __int64 v2; // rdx

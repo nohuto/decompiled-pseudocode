@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FreeEdgyFrameData@Edgy@@YAXPEAUtagEDGY_DATA@@@Z @ 0x1C01E88B0
+ * Callers:
+ *     xxxSwitchDesktop @ 0x1C00205D4 (xxxSwitchDesktop.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall Edgy::FreeEdgyFrameData(Edgy *this, struct tagEDGY_DATA *a2)
 {
   struct _LIST_ENTRY *v2; // rbx

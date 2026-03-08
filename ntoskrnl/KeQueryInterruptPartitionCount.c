@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeQueryInterruptPartitionCount @ 0x14028F5C0
+ * Callers:
+ *     HalpInterruptAffinityIsSteerable @ 0x14028F404 (HalpInterruptAffinityIsSteerable.c)
+ *     IntPartIsInterruptSteerable @ 0x14028F4A8 (IntPartIsInterruptSteerable.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KeQueryInterruptPartitionCount(__int16 a1, _DWORD *a2)
 {
   unsigned int v2; // r8d

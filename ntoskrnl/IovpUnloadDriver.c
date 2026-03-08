@@ -1,3 +1,19 @@
+/*
+ * XREFs of IovpUnloadDriver @ 0x140ABEEB8
+ * Callers:
+ *     IovUnloadDrivers @ 0x140ABE7F0 (IovUnloadDrivers.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     IopCheckUnloadDriver @ 0x1403A623C (IopCheckUnloadDriver.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObMakeTemporaryObject @ 0x140791C40 (ObMakeTemporaryObject.c)
+ */
+
 __int64 __fastcall IovpUnloadDriver(_QWORD *Object)
 {
   bool v1; // zf

@@ -1,3 +1,11 @@
+/*
+ * XREFs of _pPopulateProgressiveTimingList @ 0x1C03C4344
+ * Callers:
+ *     _pLoadAdditinalMode @ 0x1C01CE9D4 (_pLoadAdditinalMode.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ */
+
 __int64 __fastcall pPopulateProgressiveTimingList(_DWORD *a1)
 {
   unsigned int v1; // eax

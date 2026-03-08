@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?D3DXQuaternionLerp@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@1M@Z @ 0x18027AD7C
+ * Callers:
+ *     ?QuaternionFromLerp@CExpressionValueStack@@QEAAJXZ @ 0x18025DDF4 (-QuaternionFromLerp@CExpressionValueStack@@QEAAJXZ.c)
+ * Callees:
+ *     sqrtf_0 @ 0x1801177AC (sqrtf_0.c)
+ */
+
 // local variable allocation has failed, the output may be wrong!
 struct D2DQuaternion *__fastcall D3DXQuaternionLerp(struct D2DQuaternion *a1, __m128 *a2, __m128 *a3, double a4)
 {

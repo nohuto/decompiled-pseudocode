@@ -1,3 +1,12 @@
+/*
+ * XREFs of IrqPolicyQuerySteeringEnabledForInterrupt @ 0x1C009FE48
+ * Callers:
+ *     ProcessorpFindIdtEntriesApic @ 0x1C009B5F0 (ProcessorpFindIdtEntriesApic.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     IrqPolicyQueryInterruptSteeringEnabled @ 0x1C009FDA4 (IrqPolicyQueryInterruptSteeringEnabled.c)
+ */
+
 char __fastcall IrqPolicyQuerySteeringEnabledForInterrupt(int a1, __int64 a2, char a3)
 {
   __int128 v4; // [rsp+20h] [rbp-28h] BYREF

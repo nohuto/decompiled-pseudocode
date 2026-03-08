@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpBuddyAllocatorBltAdd @ 0x14052FBC0
+ * Callers:
+ *     HalpBuddyAllocatorFreeLogicalAddress @ 0x140456A60 (HalpBuddyAllocatorFreeLogicalAddress.c)
+ *     HalpBuddyAllocatorAllocateLogicalAddress @ 0x14052F760 (HalpBuddyAllocatorAllocateLogicalAddress.c)
+ *     HalpBuddyAllocatorDeleteSubtree @ 0x1405301B8 (HalpBuddyAllocatorDeleteSubtree.c)
+ *     HalpBuddyAllocatorReserveLogicalAddress @ 0x140530290 (HalpBuddyAllocatorReserveLogicalAddress.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpBuddyAllocatorBltAdd(__int64 *a1, __int64 a2)
 {
   unsigned __int64 v3; // rbx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of OSInterruptVector @ 0x1C00A8314
+ * Callers:
+ *     ACPIInterruptInitialize @ 0x1C0087E68 (ACPIInterruptInitialize.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     AcpiIrqLibSetupSciInterrupt @ 0x1C0098DAC (AcpiIrqLibSetupSciInterrupt.c)
+ */
+
 __int64 __fastcall OSInterruptVector(ULONG_PTR BugCheckParameter3)
 {
   __int64 DeviceExtension; // rbx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiStackTheftIsr @ 0x14062B050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeFlushSingleCurrentTb @ 0x140387AD4 (KeFlushSingleCurrentTb.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCopyKstack @ 0x14062A6D0 (MiCopyKstack.c)
+ *     MiSwitchKstackPages @ 0x14062B268 (MiSwitchKstackPages.c)
+ */
+
 ULONG_PTR __fastcall MiStackTheftIsr(ULONG_PTR Argument)
 {
   unsigned __int64 v1; // r15

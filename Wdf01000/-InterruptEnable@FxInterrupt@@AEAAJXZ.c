@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InterruptEnable@FxInterrupt@@AEAAJXZ @ 0x1C007F65C
+ * Callers:
+ *     ?Connect@FxInterrupt@@QEAAJK@Z @ 0x1C007E91C (-Connect@FxInterrupt@@QEAAJK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FxInterrupt::InterruptEnable(FxInterrupt *this)
 {
   __int64 result; // rax

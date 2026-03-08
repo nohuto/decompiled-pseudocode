@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtOpenKeyTransactedEx_Stub @ 0x140A68158
+ * Callers:
+ *     _RegRtlOpenKeyTransacted @ 0x1406D43A0 (_RegRtlOpenKeyTransacted.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall NtOpenKeyTransactedEx_Stub(__int64 a1)
 {
   NTSTATUS (__stdcall *v1)(PHANDLE, ACCESS_MASK, POBJECT_ATTRIBUTES, ULONG, HANDLE); // rax

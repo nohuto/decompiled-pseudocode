@@ -1,3 +1,15 @@
+/*
+ * XREFs of SetDisplayAffinity @ 0x1C022FAFC
+ * Callers:
+ *     NtUserSetWindowDisplayAffinity @ 0x1C01DE220 (NtUserSetWindowDisplayAffinity.c)
+ * Callees:
+ *     GetDisplayAffinity @ 0x1C0015AC4 (GetDisplayAffinity.c)
+ *     InternalRemoveProp @ 0x1C002484C (InternalRemoveProp.c)
+ *     ComposeWindowIfNeeded @ 0x1C002D850 (ComposeWindowIfNeeded.c)
+ *     InternalSetProp @ 0x1C01011E0 (InternalSetProp.c)
+ *     ?ChangeWindowTreeProtection@@YAHPEAUtagWND@@K@Z @ 0x1C022F838 (-ChangeWindowTreeProtection@@YAHPEAUtagWND@@K@Z.c)
+ */
+
 __int64 __fastcall SetDisplayAffinity(struct tagWND *a1, unsigned int a2)
 {
   __int64 v2; // rax

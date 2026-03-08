@@ -1,3 +1,13 @@
+/*
+ * XREFs of ArbInitializeMmConfigRange @ 0x140B670AC
+ * Callers:
+ *     HalpPciReportMmConfigAddressRange @ 0x140B66ED8 (HalpPciReportMmConfigAddressRange.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ */
+
 NTSTATUS __fastcall ArbInitializeMmConfigRange(ULONG *Data)
 {
   NTSTATUS result; // eax

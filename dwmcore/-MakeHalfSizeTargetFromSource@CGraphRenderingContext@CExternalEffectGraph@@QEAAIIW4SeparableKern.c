@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?MakeHalfSizeTargetFromSource@CGraphRenderingContext@CExternalEffectGraph@@QEAAIIW4SeparableKernelPass@@@Z @ 0x180033628
+ * Callers:
+ *     std::_Func_impl_no_alloc__lambda_6dafb9ec696576b7ca181ab96f810b3b__long_CExternalEffectGraph::CGraphRenderingContext___::_Do_call @ 0x1800F7B60 (std--_Func_impl_no_alloc__lambda_6dafb9ec696576b7ca181ab96f810b3b__long_CExternalEffectGraph--CG.c)
+ * Callees:
+ *     ?MakeTargetFromSource@CGraphRenderingContext@CExternalEffectGraph@@QEAAIIAEBVMatrix3x2F@D2D1@@@Z @ 0x18003584C (-MakeTargetFromSource@CGraphRenderingContext@CExternalEffectGraph@@QEAAIIAEBVMatrix3x2F@D2D1@@@Z.c)
+ *     ?SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z @ 0x1800803C4 (-SetProduct@Matrix3x2F@D2D1@@QEAAXAEBV12@0@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ */
+
 unsigned int __fastcall CExternalEffectGraph::CGraphRenderingContext::MakeHalfSizeTargetFromSource(
         __int64 a1,
         __int64 a2,

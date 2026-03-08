@@ -1,3 +1,16 @@
+/*
+ * XREFs of ViSpecialAllocateCommonBuffer @ 0x140AC6E2C
+ * Callers:
+ *     VfAllocateCommonBuffer @ 0x140AC2050 (VfAllocateCommonBuffer.c)
+ * Callees:
+ *     ExInterlockedInsertHeadList @ 0x1402E5000 (ExInterlockedInsertHeadList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     VfUtilDbgPrint @ 0x1405CBEB4 (VfUtilDbgPrint.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     ViInitializePadding @ 0x140AC66E4 (ViInitializePadding.c)
+ */
+
 char *__fastcall ViSpecialAllocateCommonBuffer(
         __int64 (__fastcall *a1)(_QWORD, _QWORD, struct _LIST_ENTRY **, __int64),
         __int64 a2,

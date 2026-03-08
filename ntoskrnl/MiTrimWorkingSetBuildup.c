@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiTrimWorkingSetBuildup @ 0x1402E2A60
+ * Callers:
+ *     MiTrimWorkingSetTail @ 0x1402E29B0 (MiTrimWorkingSetTail.c)
+ *     MiTrimPteWorker @ 0x140349308 (MiTrimPteWorker.c)
+ * Callees:
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ *     MiSetVaAgeList @ 0x14031AB40 (MiSetVaAgeList.c)
+ *     MiFreeWsleList @ 0x14032B2B0 (MiFreeWsleList.c)
+ */
+
 void __fastcall MiTrimWorkingSetBuildup(__int64 a1, __int64 a2)
 {
   int v3; // ebp

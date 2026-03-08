@@ -1,3 +1,16 @@
+/*
+ * XREFs of HUBPDO_UnregisterPortPLDRCapability @ 0x1C0081350
+ * Callers:
+ *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0018550 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0001008 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     HUBPDO_GetPortPath @ 0x1C001A014 (HUBPDO_GetPortPath.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     HUBREG_SetPortPLDRCapabilityValue @ 0x1C00894E4 (HUBREG_SetPortPLDRCapabilityValue.c)
+ *     HUBREG_IsPortPLDRCapable @ 0x1C00895D4 (HUBREG_IsPortPLDRCapable.c)
+ */
+
 __int64 __fastcall HUBPDO_UnregisterPortPLDRCapability(_QWORD *a1)
 {
   unsigned int v2; // edi

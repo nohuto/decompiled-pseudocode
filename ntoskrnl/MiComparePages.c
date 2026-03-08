@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiComparePages @ 0x14034B2A0
+ * Callers:
+ *     MiConfirmCombinePageContents @ 0x14034B140 (MiConfirmCombinePageContents.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall MiComparePages(__int64 a1, __int64 a2)
 {
   unsigned int i; // eax

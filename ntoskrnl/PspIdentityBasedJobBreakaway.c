@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspIdentityBasedJobBreakaway @ 0x14079BB70
+ * Callers:
+ *     PspInitializeProcessSecurity @ 0x140709ED0 (PspInitializeProcessSecurity.c)
+ * Callees:
+ *     RtlQueryPackageIdentityEx @ 0x140298350 (RtlQueryPackageIdentityEx.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ */
+
 __int64 __fastcall PspIdentityBasedJobBreakaway(__int64 a1, __int64 a2, _DWORD *a3)
 {
   __int64 v4; // r14

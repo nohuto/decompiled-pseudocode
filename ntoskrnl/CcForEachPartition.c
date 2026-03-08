@@ -1,3 +1,24 @@
+/*
+ * XREFs of CcForEachPartition @ 0x140305240
+ * Callers:
+ *     CcGetDirtyPages @ 0x140304A20 (CcGetDirtyPages.c)
+ *     CcIsThereDirtyData @ 0x1403A6CF0 (CcIsThereDirtyData.c)
+ *     CcWaitForCurrentLazyWriterActivity @ 0x1403D14B0 (CcWaitForCurrentLazyWriterActivity.c)
+ *     CcCoalescingCallBack @ 0x140533080 (CcCoalescingCallBack.c)
+ *     CcNotifyWriteBehind @ 0x1405345B8 (CcNotifyWriteBehind.c)
+ *     MiFlushAllFilesystemPages @ 0x140626E68 (MiFlushAllFilesystemPages.c)
+ *     CcTelemetryPeriodicTimerCallback @ 0x14087C260 (CcTelemetryPeriodicTimerCallback.c)
+ * Callees:
+ *     CcDereferencePartition @ 0x140219EF0 (CcDereferencePartition.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PsGetNextPartitionUnsafe @ 0x140305364 (PsGetNextPartitionUnsafe.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     CcForEachPrivateVolumeCacheMap @ 0x1403CB270 (CcForEachPrivateVolumeCacheMap.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 LONG_PTR __fastcall CcForEachPartition(
         unsigned __int8 (__fastcall *a1)(__int64, _QWORD, __int64),
         __int64 a2,

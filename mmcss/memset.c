@@ -1,3 +1,17 @@
+/*
+ * XREFs of memset @ 0x1C00037C0
+ * Callers:
+ *     CiThreadCreate @ 0x1C000AD80 (CiThreadCreate.c)
+ *     CiProcessCreate @ 0x1C000B6A0 (CiProcessCreate.c)
+ *     CiCreateTaskIndexClientFromThread @ 0x1C000B8B0 (CiCreateTaskIndexClientFromThread.c)
+ *     WppTraceCallback @ 0x1C000C660 (WppTraceCallback.c)
+ *     memset$thunk$772440563353939046 @ 0x1C000D010 (memset$thunk$772440563353939046.c)
+ *     CiSystemInitialize @ 0x1C000E270 (CiSystemInitialize.c)
+ *     CiConfigInitializeFromRegistry @ 0x1C000E8D0 (CiConfigInitializeFromRegistry.c)
+ * Callees:
+ *     <none>
+ */
+
 void *__cdecl memset(void *a1, int Val, size_t Size)
 {
   void *result; // rax

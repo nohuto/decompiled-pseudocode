@@ -1,3 +1,20 @@
+/*
+ * XREFs of CmpValueEnumStackAdvance @ 0x140A228A4
+ * Callers:
+ *     CmpGetValueCountForKeyNodeStack @ 0x140614148 (CmpGetValueCountForKeyNodeStack.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x140A10EC4 (CmEnumerateValueFromLayeredKey.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140A23124 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ * Callees:
+ *     CmpIsValueTombstone @ 0x1406BB868 (CmpIsValueTombstone.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpValueEnumStackGetEntryAtLayerHeight @ 0x140A22670 (CmpValueEnumStackGetEntryAtLayerHeight.c)
+ *     CmpValueEnumStackMatchingValueInUpperLayer @ 0x140A22AD4 (CmpValueEnumStackMatchingValueInUpperLayer.c)
+ */
+
 __int64 __fastcall CmpValueEnumStackAdvance(__int64 a1)
 {
   char v2; // al

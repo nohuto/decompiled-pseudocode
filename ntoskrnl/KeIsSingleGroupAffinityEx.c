@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeIsSingleGroupAffinityEx @ 0x1402943B0
+ * Callers:
+ *     NtQueryInformationJobObject @ 0x1406F9480 (NtQueryInformationJobObject.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KeIsSingleGroupAffinityEx(unsigned __int16 *a1, unsigned __int16 *a2)
 {
   unsigned int v2; // r8d

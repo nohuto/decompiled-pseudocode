@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CreatePointerDeviceProcessEvent@@YAHKHEPEAGPEAPEAX@Z @ 0x1C0079794
+ * Callers:
+ *     CreatePointerDeviceProcessEvents @ 0x1C0079724 (CreatePointerDeviceProcessEvents.c)
+ * Callees:
+ *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C0079B00 (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 _BOOL8 __fastcall CreatePointerDeviceProcessEvent(
         ACCESS_MASK AccessMask,
         int a2,

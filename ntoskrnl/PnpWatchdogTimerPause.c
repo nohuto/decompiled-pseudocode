@@ -1,3 +1,16 @@
+/*
+ * XREFs of PnpWatchdogTimerPause @ 0x14068A9F4
+ * Callers:
+ *     PnpDisableWatchdog @ 0x140688BC4 (PnpDisableWatchdog.c)
+ *     PnpDisableAndFreeEventWatchdog @ 0x14068A900 (PnpDisableAndFreeEventWatchdog.c)
+ *     PiUEventNotifyUserMode @ 0x14068C2D0 (PiUEventNotifyUserMode.c)
+ *     PnpCallDriverEntry @ 0x14072A87C (PnpCallDriverEntry.c)
+ *     PnpCallAddDevice @ 0x14078CA58 (PnpCallAddDevice.c)
+ *     PnpDelayedRemoveWorker @ 0x14087CDB0 (PnpDelayedRemoveWorker.c)
+ * Callees:
+ *     WdtpCancelTimer @ 0x14068AA80 (WdtpCancelTimer.c)
+ */
+
 __int64 __fastcall PnpWatchdogTimerPause(__int64 a1)
 {
   __int64 v1; // rdi

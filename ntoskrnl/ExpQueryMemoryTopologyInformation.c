@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpQueryMemoryTopologyInformation @ 0x14084FB18
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     MmGetNodeChannelRanges @ 0x14084FBB8 (MmGetNodeChannelRanges.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpQueryMemoryTopologyInformation(void *a1, unsigned int a2, _DWORD *a3)
 {
   size_t v4; // rdi

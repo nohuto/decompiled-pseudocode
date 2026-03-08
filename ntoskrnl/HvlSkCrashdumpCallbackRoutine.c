@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvlSkCrashdumpCallbackRoutine @ 0x1405457B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char HvlSkCrashdumpCallbackRoutine()
 {
   void *v0; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AddNewReasonForProcessEntry@DripsBlockerTrackingHelper@@IEAAJ_KPEAD0W4_DXGKETW_PROFILER_TYPE@@PEAI3@Z @ 0x1C02FEA1C
+ * Callers:
+ *     ?DoGetProcessEntry@DripsBlockerTrackingHelper@@IEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TYPE@@PEAI4PEA_N@Z @ 0x1C02FED40 (-DoGetProcessEntry@DripsBlockerTrackingHelper@@IEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TYP.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DripsBlockerTrackingHelper::AddNewReasonForProcessEntry(
         __int64 a1,
         __int64 a2,

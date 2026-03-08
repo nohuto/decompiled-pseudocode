@@ -1,3 +1,16 @@
+/*
+ * XREFs of KeDeregisterBoundCallback @ 0x140569F00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExReferenceCallBackBlock @ 0x14034C060 (ExReferenceCallBackBlock.c)
+ *     ExCompareExchangeCallBack @ 0x140388EF8 (ExCompareExchangeCallBack.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x14078FD20 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     ExWaitForCallBacks @ 0x1409F8740 (ExWaitForCallBacks.c)
+ */
+
 __int64 __fastcall KeDeregisterBoundCallback(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

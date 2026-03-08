@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwTraceJobSetQuery @ 0x1409E28AC
+ * Callers:
+ *     NtQueryInformationJobObject @ 0x1406F9480 (NtQueryInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x1406FC3C0 (NtSetInformationJobObject.c)
+ *     PspSetNetRateControl @ 0x1409B0054 (PspSetNetRateControl.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpCopyJobGuidSafe @ 0x1408A21A4 (EtwpCopyJobGuidSafe.c)
+ */
+
 void __fastcall EtwTraceJobSetQuery(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, unsigned __int16 a6)
 {
   __int64 v6; // rdx

@@ -1,3 +1,20 @@
+/*
+ * XREFs of ExpWorkerFactoryManagerThread @ 0x14038AA00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeRegisterObjectNotification @ 0x14024F260 (KeRegisterObjectNotification.c)
+ *     KeTimeOutQueueWaiters @ 0x1402E1F60 (KeTimeOutQueueWaiters.c)
+ *     KeRemoveQueue @ 0x1402E9390 (KeRemoveQueue.c)
+ *     ExpWorkerFactoryDeferredThreadCreation @ 0x1402FA7F4 (ExpWorkerFactoryDeferredThreadCreation.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x140340CC0 (ExpWorkerFactoryCheckCreate.c)
+ *     ExpTryEnterWorkerFactoryAwayMode @ 0x140367F28 (ExpTryEnterWorkerFactoryAwayMode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall __noreturn ExpWorkerFactoryManagerThread(PVOID StartContext)
 {
   PLIST_ENTRY v1; // rax

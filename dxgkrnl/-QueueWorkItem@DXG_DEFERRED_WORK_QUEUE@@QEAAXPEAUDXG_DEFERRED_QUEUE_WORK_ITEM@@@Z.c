@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?QueueWorkItem@DXG_DEFERRED_WORK_QUEUE@@QEAAXPEAUDXG_DEFERRED_QUEUE_WORK_ITEM@@@Z @ 0x1C0050FA4
+ * Callers:
+ *     ?SendWnfNotificationToVmProcess@DXGGLOBAL@@SAJPEAVDXGPROCESS@@PEBU_WNF_STATE_NAME@@IPEAX@Z @ 0x1C0310530 (-SendWnfNotificationToVmProcess@DXGGLOBAL@@SAJPEAVDXGPROCESS@@PEBU_WNF_STATE_NAME@@IPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DXG_DEFERRED_WORK_QUEUE::QueueWorkItem(
         DXG_DEFERRED_WORK_QUEUE *this,
         struct DXG_DEFERRED_QUEUE_WORK_ITEM *a2)

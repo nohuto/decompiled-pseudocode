@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiPerformGroupConfiguration @ 0x140B66804
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     HvlIsSingleGroupRequired @ 0x1403A4F6C (HvlIsSingleGroupRequired.c)
+ *     KiFinalizeGroupAssignment @ 0x1403A4FD0 (KiFinalizeGroupAssignment.c)
+ *     strstr @ 0x1403D3650 (strstr.c)
+ *     KiAssignAllSubNodesToGroup0 @ 0x140B668B4 (KiAssignAllSubNodesToGroup0.c)
+ *     KiPerformExplicitGroupAssignment @ 0x140B668F8 (KiPerformExplicitGroupAssignment.c)
+ *     KiPopulateSubNodes @ 0x140B66970 (KiPopulateSubNodes.c)
+ *     KiPopulateNodeInformation @ 0x140B66BA0 (KiPopulateNodeInformation.c)
+ *     KiPerformAutomaticGroupConfiguration @ 0x140B929BC (KiPerformAutomaticGroupConfiguration.c)
+ */
+
 __int64 __fastcall KiPerformGroupConfiguration(__int64 a1)
 {
   unsigned int v3; // [rsp+38h] [rbp+10h] BYREF

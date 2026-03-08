@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIRootIrpRemoveDevice @ 0x1C003D280
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     ACPIInitDereferenceDeviceExtensionUnlocked @ 0x1C002D0C0 (ACPIInitDereferenceDeviceExtensionUnlocked.c)
+ *     ACPIInitializeKernelTableHandler @ 0x1C002E260 (ACPIInitializeKernelTableHandler.c)
+ *     AcpiUninitializePrmServices @ 0x1C003AEC4 (AcpiUninitializePrmServices.c)
+ */
+
 __int64 __fastcall ACPIRootIrpRemoveDevice(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 {
   __int64 DeviceExtension; // rbx

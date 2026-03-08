@@ -1,3 +1,11 @@
+/*
+ * XREFs of xxxClearWakeMask @ 0x1C01B4860
+ * Callers:
+ *     NtUserClearWakeMask @ 0x1C01CE8E0 (NtUserClearWakeMask.c)
+ * Callees:
+ *     ?xxxUpdateInputHangInfo@@YAXPEAUtagWND@@W4INPUTHANGTIME@@@Z @ 0x1C00719A0 (-xxxUpdateInputHangInfo@@YAXPEAUtagWND@@W4INPUTHANGTIME@@@Z.c)
+ */
+
 __int64 xxxClearWakeMask()
 {
   __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0pqqqqqqqqqqqqqqqqq_EtwWriteTransfer @ 0x1C0069314
+ * Callers:
+ *     LogSetTimingSourceMask @ 0x1C01778BC (LogSetTimingSourceMask.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002BBC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0pqqqqqqqqqqqqqqqqq_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

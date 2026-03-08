@@ -1,3 +1,11 @@
+/*
+ * XREFs of ObpCompareEntryLevel2 @ 0x14078DD60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ */
+
 __int64 __fastcall ObpCompareEntryLevel2(_DWORD *Source1, __int64 a2)
 {
   _DWORD *v4; // rdx

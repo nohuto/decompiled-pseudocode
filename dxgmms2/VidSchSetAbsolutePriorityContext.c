@@ -1,3 +1,13 @@
+/*
+ * XREFs of VidSchSetAbsolutePriorityContext @ 0x1C0108830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VidSchiSetPriorityContext @ 0x1C0014574 (VidSchiSetPriorityContext.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     ?VidSchiCheckProcessGPUPriorityPrivilege@@YAJPEAU_VIDSCH_PROCESS@@I@Z @ 0x1C0035678 (-VidSchiCheckProcessGPUPriorityPrivilege@@YAJPEAU_VIDSCH_PROCESS@@I@Z.c)
+ */
+
 __int64 __fastcall VidSchSetAbsolutePriorityContext(struct _VIDSCH_CONTEXT *a1, unsigned int a2, char a3)
 {
   __int64 v6; // rcx

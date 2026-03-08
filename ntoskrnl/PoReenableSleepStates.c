@@ -1,3 +1,13 @@
+/*
+ * XREFs of PoReenableSleepStates @ 0x140981070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PoReenableSleepStates(_QWORD *P)
 {
   _QWORD *v2; // rdx

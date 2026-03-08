@@ -1,3 +1,12 @@
+/*
+ * XREFs of TUNNEL_CloseAllUsb4RemoteTargets @ 0x1C008E780
+ * Callers:
+ *     HUBFDO_EvtDeviceCleanupCallback @ 0x1C000DB80 (HUBFDO_EvtDeviceCleanupCallback.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     TUNNEL_CloseRemoteTarget @ 0x1C008E5D0 (TUNNEL_CloseRemoteTarget.c)
+ */
+
 void __fastcall TUNNEL_CloseAllUsb4RemoteTargets(__int64 a1)
 {
   unsigned int v2; // edi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of IpmiLibWriteOneByte @ 0x1406756CC
+ * Callers:
+ *     IpmiLibpKcsHandleError @ 0x140675B3C (IpmiLibpKcsHandleError.c)
+ *     IpmiLibpKcsReceiveResponseFromBmc @ 0x140675C88 (IpmiLibpKcsReceiveResponseFromBmc.c)
+ *     IpmiLibpKcsSendRequestToBMC @ 0x140675EF8 (IpmiLibpKcsSendRequestToBMC.c)
+ *     IpmiLibpHandleReadInterrupt @ 0x14067627C (IpmiLibpHandleReadInterrupt.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall IpmiLibWriteOneByte(__int64 a1, unsigned __int8 a2, unsigned __int8 a3)
 {
   unsigned __int8 result; // al

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??8@YA_NAEBU_D3DKMT_DISPLAYMODE@@0@Z @ 0x1C02FA0C8
+ * Callers:
+ *     ?FindMode@MODE_UNION_LIST@@QEAAPEAU_D3DKMT_DISPLAYMODE@@AEBU2@@Z @ 0x1C02FBB28 (-FindMode@MODE_UNION_LIST@@QEAAPEAU_D3DKMT_DISPLAYMODE@@AEBU2@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall operator==(unsigned int *a1, __int64 a2)
 {
   __int64 v2; // r10

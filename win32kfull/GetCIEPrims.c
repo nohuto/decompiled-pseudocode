@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetCIEPrims @ 0x1C0019AA4
+ * Callers:
+ *     HT_CreateDeviceHalftoneInfo @ 0x1C00195AC (HT_CreateDeviceHalftoneInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetCIEPrims(__m128i *a1, _DWORD *a2, __int64 a3, int a4)
 {
   unsigned __int16 v6; // bx

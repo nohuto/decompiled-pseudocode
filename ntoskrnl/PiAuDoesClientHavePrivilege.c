@@ -1,3 +1,16 @@
+/*
+ * XREFs of PiAuDoesClientHavePrivilege @ 0x140958948
+ * Callers:
+ *     PiCMDeviceAction @ 0x14096671C (PiCMDeviceAction.c)
+ *     PiCMQueryRemove @ 0x140967304 (PiCMQueryRemove.c)
+ *     PiCMSetDeviceProblem @ 0x1409679A8 (PiCMSetDeviceProblem.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SePrivilegeCheck @ 0x1407B9710 (SePrivilegeCheck.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ */
+
 BOOLEAN __fastcall PiAuDoesClientHavePrivilege(unsigned int a1)
 {
   KPROCESSOR_MODE PreviousMode; // bl

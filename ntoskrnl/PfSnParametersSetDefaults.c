@@ -1,3 +1,11 @@
+/*
+ * XREFs of PfSnParametersSetDefaults @ 0x140B61EA0
+ * Callers:
+ *     PfpParametersInitialize @ 0x140B61C6C (PfpParametersInitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 _WORD *__fastcall PfSnParametersSetDefaults(__int64 a1)
 {
   __int64 v1; // rdx

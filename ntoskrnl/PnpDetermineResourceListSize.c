@@ -1,3 +1,22 @@
+/*
+ * XREFs of PnpDetermineResourceListSize @ 0x1406F69E8
+ * Callers:
+ *     IoGetDeviceProperty @ 0x1406C5B00 (IoGetDeviceProperty.c)
+ *     IopQueryDeviceResources @ 0x1406F6440 (IopQueryDeviceResources.c)
+ *     IopLegacyResourceAllocation @ 0x140801DA4 (IopLegacyResourceAllocation.c)
+ *     IopCombineCmResourceList @ 0x1408028BC (IopCombineCmResourceList.c)
+ *     IoReportDetectedDevice @ 0x140802A80 (IoReportDetectedDevice.c)
+ *     PnpBuildCmResourceLists @ 0x140803A38 (PnpBuildCmResourceLists.c)
+ *     IopChangeInterfaceType @ 0x1409540F0 (IopChangeInterfaceType.c)
+ *     PnpSetRegistryResourceList @ 0x14095558C (PnpSetRegistryResourceList.c)
+ *     IopCombineLegacyResources @ 0x140956E34 (IopCombineLegacyResources.c)
+ *     PnpCopyResourceList @ 0x140969958 (PnpCopyResourceList.c)
+ *     PnpRestoreResourcesInternal @ 0x14096A7C4 (PnpRestoreResourcesInternal.c)
+ *     IopReportBootResources @ 0x140B35AB0 (IopReportBootResources.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PnpDetermineResourceListSize(_DWORD *a1)
 {
   __int64 result; // rax

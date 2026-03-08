@@ -1,3 +1,11 @@
+/*
+ * XREFs of WerpGetRegistryKey @ 0x1C0054B0C
+ * Callers:
+ *     WerKernelSubmitReport @ 0x1C00540E0 (WerKernelSubmitReport.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WerpGetRegistryKey(void *a1, __int64 a2, __int64 a3, void **a4)
 {
   NTSTATUS v6; // eax

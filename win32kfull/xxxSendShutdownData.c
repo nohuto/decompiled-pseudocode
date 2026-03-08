@@ -1,3 +1,16 @@
+/*
+ * XREFs of xxxSendShutdownData @ 0x1C02163C0
+ * Callers:
+ *     xxxProcessEventMessage @ 0x1C006B460 (xxxProcessEventMessage.c)
+ * Callees:
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     SfnCOPYDATA @ 0x1C0035B80 (SfnCOPYDATA.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C010A9B4 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     _GetWindowIcon @ 0x1C01E48BC (_GetWindowIcon.c)
+ */
+
 __int64 __fastcall xxxSendShutdownData(__int64 a1, __int64 a2)
 {
   __int64 v4; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of sub_140B0F0E0 @ 0x140B0F0E0
+ * Callers:
+ *     sub_1403DFCC0 @ 0x1403DFCC0 (sub_1403DFCC0.c)
+ *     FsRtlMdlReadCompleteDevEx @ 0x140AF7010 (FsRtlMdlReadCompleteDevEx.c)
+ *     sub_140B0A7A8 @ 0x140B0A7A8 (sub_140B0A7A8.c)
+ *     sub_140B16730 @ 0x140B16730 (sub_140B16730.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall sub_140B0F0E0(__int64 a1, unsigned __int64 a2)
 {
   unsigned int v2; // r8d

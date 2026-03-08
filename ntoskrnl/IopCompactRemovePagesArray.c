@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopCompactRemovePagesArray @ 0x14055AA70
+ * Callers:
+ *     IoAddPagesForPartialKernelDump @ 0x140559F94 (IoAddPagesForPartialKernelDump.c)
+ *     IopAddAddressRangeToRemovePagesArray @ 0x14055A2A4 (IopAddAddressRangeToRemovePagesArray.c)
+ * Callees:
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 _UNKNOWN **IopCompactRemovePagesArray()
 {
   _UNKNOWN **result; // rax

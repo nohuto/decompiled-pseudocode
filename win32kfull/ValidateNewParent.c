@@ -1,3 +1,14 @@
+/*
+ * XREFs of ValidateNewParent @ 0x1C0039AAC
+ * Callers:
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C0036908 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ * Callees:
+ *     ProtectedContentAccessCheck @ 0x1C0039B9C (ProtectedContentAccessCheck.c)
+ *     IsParentBandValid @ 0x1C0039C20 (IsParentBandValid.c)
+ *     ValidateParentDepth @ 0x1C0039CD8 (ValidateParentDepth.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall ValidateNewParent(_QWORD *a1, _QWORD *a2, int a3)
 {
   _QWORD *v6; // rax

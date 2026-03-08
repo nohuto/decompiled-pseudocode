@@ -1,3 +1,14 @@
+/*
+ * XREFs of McTemplateU0qqx_EventWriteTransfer @ 0x1801B229C
+ * Callers:
+ *     ?ProcessRoundTripRequest@CComposition@@AEAA_NXZ @ 0x1800536A4 (-ProcessRoundTripRequest@CComposition@@AEAA_NXZ.c)
+ *     ?Reset@CComposition@@UEAAXXZ @ 0x1800EB320 (-Reset@CComposition@@UEAAXXZ.c)
+ *     ?Channel_RoundTripRequest@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_ROUNDTRIPREQUEST@@@Z @ 0x1800FE730 (-Channel_RoundTripRequest@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMIL.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 ULONG __fastcall McTemplateU0qqx_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)
 {
   struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+30h] [rbp-50h] BYREF

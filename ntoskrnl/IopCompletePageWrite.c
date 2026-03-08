@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopCompletePageWrite @ 0x1403019B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoFreeIrp @ 0x14030EC00 (IoFreeIrp.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __fastcall IopCompletePageWrite(__int64 a1)
 {
   __int64 v1; // rcx

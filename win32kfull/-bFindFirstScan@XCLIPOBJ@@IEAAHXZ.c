@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bFindFirstScan@XCLIPOBJ@@IEAAHXZ @ 0x1C02F57DC
+ * Callers:
+ *     ?bSetup@XCLIPOBJ@@IEAAHXZ @ 0x1C02F5D98 (-bSetup@XCLIPOBJ@@IEAAHXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall XCLIPOBJ::bFindFirstScan(XCLIPOBJ *this)
 {
   __int64 v1; // rdx

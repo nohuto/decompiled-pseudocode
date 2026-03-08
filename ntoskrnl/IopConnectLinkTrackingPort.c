@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopConnectLinkTrackingPort @ 0x140941890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     NtSecureConnectPort @ 0x140774850 (NtSecureConnectPort.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 LONG __fastcall IopConnectLinkTrackingPort(__int64 a1)
 {
   int v1; // ebx

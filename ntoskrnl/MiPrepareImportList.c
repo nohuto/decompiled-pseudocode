@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiPrepareImportList @ 0x14078ABD0
+ * Callers:
+ *     MiResolveImageReferences @ 0x1407EC794 (MiResolveImageReferences.c)
+ * Callees:
+ *     MiAllocateImportList @ 0x14078AC28 (MiAllocateImportList.c)
+ */
+
 __int64 __fastcall MiPrepareImportList(_DWORD *a1, __int64 *a2)
 {
   unsigned int v2; // eax

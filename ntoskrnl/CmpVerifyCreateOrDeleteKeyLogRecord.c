@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpVerifyCreateOrDeleteKeyLogRecord @ 0x140A1C584
+ * Callers:
+ *     CmpVerifyLogRecord @ 0x140A1C5E0 (CmpVerifyLogRecord.c)
+ * Callees:
+ *     RtlValidRelativeSecurityDescriptor @ 0x14071D120 (RtlValidRelativeSecurityDescriptor.c)
+ */
+
 __int64 __fastcall CmpVerifyCreateOrDeleteKeyLogRecord(__int64 a1)
 {
   unsigned int v1; // edx

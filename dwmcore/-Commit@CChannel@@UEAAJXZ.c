@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Commit@CChannel@@UEAAJXZ @ 0x1800440C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalCommit@CChannel@@AEAAJPEAX@Z @ 0x180044118 (-InternalCommit@CChannel@@AEAAJPEAX@Z.c)
+ *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800441FC (--1CChannelLock@CChannel@@QEAA@XZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CChannel::Commit(CChannel *this)
 {
   __int64 v2; // rcx

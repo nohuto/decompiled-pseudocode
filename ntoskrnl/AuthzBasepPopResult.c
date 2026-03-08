@@ -1,3 +1,11 @@
+/*
+ * XREFs of AuthzBasepPopResult @ 0x14066D538
+ * Callers:
+ *     AuthzBasepEvaluateAceCondition @ 0x140246980 (AuthzBasepEvaluateAceCondition.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AuthzBasepPopResult(__int64 a1, unsigned int *a2, _DWORD *a3)
 {
   __int64 result; // rax

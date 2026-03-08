@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmPerfSnapUtility @ 0x140235210
+ * Callers:
+ *     PpmCheckSnapAllUtility @ 0x140233FD0 (PpmCheckSnapAllUtility.c)
+ * Callees:
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x140263110 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140409A8C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     Feature_MultiCoreClasses__private_ReportDeviceUsage @ 0x14040A518 (Feature_MultiCoreClasses__private_ReportDeviceUsage.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 _UNKNOWN **__fastcall PpmPerfSnapUtility(__int64 a1)
 {
   _UNKNOWN **result; // rax

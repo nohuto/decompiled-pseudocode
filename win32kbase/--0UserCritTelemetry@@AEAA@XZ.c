@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0UserCritTelemetry@@AEAA@XZ @ 0x1C00D5944
+ * Callers:
+ *     UserPowerInfoCallout @ 0x1C00B657C (UserPowerInfoCallout.c)
+ *     xxxDisplayDiagBlackScreenDetected @ 0x1C015E940 (xxxDisplayDiagBlackScreenDetected.c)
+ * Callees:
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 UserCritTelemetry *__fastcall UserCritTelemetry::UserCritTelemetry(UserCritTelemetry *this)
 {
   UserCritTelemetry *result; // rax

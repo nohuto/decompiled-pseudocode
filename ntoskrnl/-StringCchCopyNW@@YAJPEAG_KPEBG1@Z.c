@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1402BEED8
+ * Callers:
+ *     DownLevelLangIDToLanguageName @ 0x1402BEE08 (DownLevelLangIDToLanguageName.c)
+ *     DownLevelGetParentLanguageName @ 0x140612240 (DownLevelGetParentLanguageName.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall StringCchCopyNW(char *a1, __int64 a2, char *a3, unsigned __int64 a4)
 {
   __int64 v4; // r10

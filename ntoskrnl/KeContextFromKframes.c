@@ -1,3 +1,16 @@
+/*
+ * XREFs of KeContextFromKframes @ 0x1403620F0
+ * Callers:
+ *     KiDispatchException @ 0x140362740 (KiDispatchException.c)
+ *     KiInitializeUserApc @ 0x1403664E8 (KiInitializeUserApc.c)
+ *     KiSaveProcessorState @ 0x14036A140 (KiSaveProcessorState.c)
+ * Callees:
+ *     RtlXSaveS @ 0x140302524 (RtlXSaveS.c)
+ *     KeCopyLastBranchInformation @ 0x140362500 (KeCopyLastBranchInformation.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiCopyXStateArea @ 0x140570100 (KiCopyXStateArea.c)
+ */
+
 __int64 __fastcall KeContextFromKframes(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int8 CurrentIrql; // r14

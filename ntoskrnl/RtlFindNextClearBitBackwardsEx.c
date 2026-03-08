@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlFindNextClearBitBackwardsEx @ 0x1403A03B0
+ * Callers:
+ *     MiFindNextLowerLargePageCandidate @ 0x1403A0318 (MiFindNextLowerLargePageCandidate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlFindNextClearBitBackwardsEx(__int64 a1, unsigned __int64 a2)
 {
   unsigned int v2; // r10d

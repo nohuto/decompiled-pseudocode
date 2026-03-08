@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiShadowProcessorAllocation @ 0x140A8666C
+ * Callers:
+ *     KiEnableKvaShadowing @ 0x140A864CC (KiEnableKvaShadowing.c)
+ *     KeWriteProtectProcessorState @ 0x140A8E420 (KeWriteProtectProcessorState.c)
+ * Callees:
+ *     RtlSectionTableFromVirtualAddress @ 0x14035D7C0 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     MmCreateShadowMapping @ 0x14080B624 (MmCreateShadowMapping.c)
+ *     MmDeleteShadowMapping @ 0x140A39B58 (MmDeleteShadowMapping.c)
+ */
+
 __int64 __fastcall KiShadowProcessorAllocation(__int64 a1, unsigned __int64 a2)
 {
   int v4; // esi

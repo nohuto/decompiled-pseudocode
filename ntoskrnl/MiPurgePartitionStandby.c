@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiPurgePartitionStandby @ 0x14064EF50
+ * Callers:
+ *     MiMirrorPurgePartitionPages @ 0x1406259E0 (MiMirrorPurgePartitionPages.c)
+ *     MiTrimAllSystemPagableMemory @ 0x140632E70 (MiTrimAllSystemPagableMemory.c)
+ *     MmPerformMemoryListCommand @ 0x140A849F4 (MmPerformMemoryListCommand.c)
+ * Callees:
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiIsFreeZeroPfnCold @ 0x140350240 (MiIsFreeZeroPfnCold.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x14064F264 (MiRemoveLowestPriorityStandbyPage.c)
+ */
+
 __int64 __fastcall MiPurgePartitionStandby(__int64 a1, unsigned int a2)
 {
   unsigned __int8 CurrentIrql; // bl

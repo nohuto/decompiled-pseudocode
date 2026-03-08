@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIBusIrpQueryInstanceId @ 0x1C008060C
+ * Callers:
+ *     ACPIBusIrpQueryId @ 0x1C0080330 (ACPIBusIrpQueryId.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     RtlStringCbPrintfW @ 0x1C0017D20 (RtlStringCbPrintfW.c)
+ *     WPP_RECORDER_SF_qdLqss @ 0x1C0017F78 (WPP_RECORDER_SF_qdLqss.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     ACPIAllocateBuffer @ 0x1C0097C2C (ACPIAllocateBuffer.c)
+ */
+
 __int64 __fastcall ACPIBusIrpQueryInstanceId(__int64 *a1, size_t *a2, _QWORD *a3)
 {
   __int64 v6; // rax

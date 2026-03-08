@@ -1,3 +1,13 @@
+/*
+ * XREFs of KsepDsEventDevicePowerIrp @ 0x14057F3C4
+ * Callers:
+ *     KseDsCallbackHookIrpPowerFunction @ 0x14057EC60 (KseDsCallbackHookIrpPowerFunction.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall KsepDsEventDevicePowerIrp(__int64 a1, __int64 a2, __int64 a3, int a4, char a5, char a6, char a7)
 {
   _UNKNOWN **v7; // rax

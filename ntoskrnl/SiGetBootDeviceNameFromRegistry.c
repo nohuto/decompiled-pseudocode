@@ -1,3 +1,13 @@
+/*
+ * XREFs of SiGetBootDeviceNameFromRegistry @ 0x14076E690
+ * Callers:
+ *     SiGetBootDeviceName @ 0x14076E464 (SiGetBootDeviceName.c)
+ *     SiIsWinPeHardDiskZeroUfdBoot @ 0x140A5D904 (SiIsWinPeHardDiskZeroUfdBoot.c)
+ * Callees:
+ *     _wcslwr @ 0x1403D3F30 (_wcslwr.c)
+ *     SiGetRegistryValue @ 0x14076E70C (SiGetRegistryValue.c)
+ */
+
 __int64 __fastcall SiGetBootDeviceNameFromRegistry(int a1, wchar_t **a2, __int64 a3, int a4)
 {
   int RegistryValue; // edi

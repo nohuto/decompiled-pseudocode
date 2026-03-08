@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetSysMenuOffset @ 0x1C01D4E60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxGetSysMenuPtr @ 0x1C00A4DFC (xxxGetSysMenuPtr.c)
+ */
+
 __int64 __fastcall NtUserGetSysMenuOffset(__int64 a1)
 {
   __int64 v2; // rax

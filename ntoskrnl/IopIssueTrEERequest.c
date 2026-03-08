@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopIssueTrEERequest @ 0x140559560
+ * Callers:
+ *     IopEnumerateEnvironmentVariablesTrEE @ 0x14094D8E0 (IopEnumerateEnvironmentVariablesTrEE.c)
+ *     IopGetEnvironmentVariableTrEE @ 0x14094DED0 (IopGetEnvironmentVariableTrEE.c)
+ *     IopQueryEnvironmentVariableInfoTrEE @ 0x14094E2E0 (IopQueryEnvironmentVariableInfoTrEE.c)
+ *     IopSetEnvironmentVariableTrEE @ 0x14094E500 (IopSetEnvironmentVariableTrEE.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IopIssueSystemEnvironmentRequest @ 0x14094E098 (IopIssueSystemEnvironmentRequest.c)
+ */
+
 __int64 __fastcall IopIssueTrEERequest(
         int a1,
         __int64 a2,

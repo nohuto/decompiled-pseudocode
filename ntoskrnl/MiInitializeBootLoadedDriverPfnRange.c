@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiInitializeBootLoadedDriverPfnRange @ 0x140370D54
+ * Callers:
+ *     MiInitializeBootLoadedDriverPfns @ 0x140B38DFC (MiInitializeBootLoadedDriverPfns.c)
+ * Callees:
+ *     MiMarkPfnVerified @ 0x1402093BC (MiMarkPfnVerified.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ */
+
 __int64 __fastcall MiInitializeBootLoadedDriverPfnRange(unsigned __int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // rbp

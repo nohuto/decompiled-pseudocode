@@ -1,3 +1,14 @@
+/*
+ * XREFs of VerifierExAllocatePoolWithQuota @ 0x140ACDCD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithQuota @ 0x140604860 (ExAllocatePoolWithQuota.c)
+ *     VfCheckPoolType @ 0x140AC08F0 (VfCheckPoolType.c)
+ */
+
 PVOID __fastcall VerifierExAllocatePoolWithQuota(int PoolType, SIZE_T NumberOfBytes)
 {
   POOL_TYPE v2; // ebx

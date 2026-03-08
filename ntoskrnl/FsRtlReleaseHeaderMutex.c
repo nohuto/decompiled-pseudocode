@@ -1,3 +1,14 @@
+/*
+ * XREFs of FsRtlReleaseHeaderMutex @ 0x140240EF0
+ * Callers:
+ *     FsRtlpWaitForIoAtEof @ 0x140240CC0 (FsRtlpWaitForIoAtEof.c)
+ *     FsRtlReleaseEofLock @ 0x1402C3460 (FsRtlReleaseEofLock.c)
+ * Callees:
+ *     ExpReleaseFastMutexContended @ 0x140239650 (ExpReleaseFastMutexContended.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall FsRtlReleaseHeaderMutex(__int64 a1, volatile signed __int32 *a2)
 {
   ULONG_PTR v2; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of SshSessionManagerFlushBuffers @ 0x14099E7B8
+ * Callers:
+ *     PopGracefulShutdown @ 0x140A9D970 (PopGracefulShutdown.c)
+ * Callees:
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     SshpAlpcShutdownTraceSessions @ 0x14099F524 (SshpAlpcShutdownTraceSessions.c)
+ */
+
 NTSTATUS SshSessionManagerFlushBuffers()
 {
   NTSTATUS result; // eax

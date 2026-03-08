@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionGetKeyStateUpdateParamsForRawInput @ 0x1C0008DCC
+ * Callers:
+ *     UpdateKeyStateForMessage @ 0x1C00B8C10 (UpdateKeyStateForMessage.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 PDEVICE_OBJECT *__fastcall ApiSetEditionGetKeyStateUpdateParamsForRawInput(
         __int64 a1,
         __int64 a2,

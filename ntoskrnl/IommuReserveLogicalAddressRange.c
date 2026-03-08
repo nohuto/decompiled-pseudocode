@@ -1,3 +1,15 @@
+/*
+ * XREFs of IommuReserveLogicalAddressRange @ 0x140524080
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     HalpIommuDomainFreeLogicalAddressRange @ 0x1404560EE (HalpIommuDomainFreeLogicalAddressRange.c)
+ *     HalpIommuDomainGetLogicalAddressRange @ 0x140456126 (HalpIommuDomainGetLogicalAddressRange.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x140515914 (HalpIommuDomainMapLogicalRange.c)
+ */
+
 __int64 __fastcall IommuReserveLogicalAddressRange(
         ULONG_PTR a1,
         __int64 a2,

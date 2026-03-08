@@ -1,3 +1,12 @@
+/*
+ * XREFs of AslpFileQuery16BitDescription @ 0x140A56390
+ * Callers:
+ *     AslpFileGet16BitDescription @ 0x140A54EE4 (AslpFileGet16BitDescription.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ */
+
 __int64 __fastcall AslpFileQuery16BitDescription(_BYTE *a1, __int64 a2)
 {
   unsigned int v3; // ebx

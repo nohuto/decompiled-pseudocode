@@ -1,3 +1,14 @@
+/*
+ * XREFs of GetCachedSMP @ 0x1C0252734
+ * Callers:
+ *     HT_CreateStandardMonoPattern @ 0x1C0252C14 (HT_CreateStandardMonoPattern.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     FindCachedSMP @ 0x1C0252520 (FindCachedSMP.c)
+ *     ComputeBytesPerScanLine @ 0x1C0253E3C (ComputeBytesPerScanLine.c)
+ *     CreateStandardMonoPattern @ 0x1C0254780 (CreateStandardMonoPattern.c)
+ */
+
 __int64 __fastcall GetCachedSMP(__int64 a1, __int16 *a2)
 {
   __int16 *v2; // rbx

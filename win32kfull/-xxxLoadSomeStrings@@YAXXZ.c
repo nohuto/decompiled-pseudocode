@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?xxxLoadSomeStrings@@YAXXZ @ 0x1C0108E98
+ * Callers:
+ *     xxxInitWindowStation @ 0x1C00C1348 (xxxInitWindowStation.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x1C010AFDC (xxxUpdatePerUserSystemParameters.c)
+ * Callees:
+ *     xxxClientLoadStringW @ 0x1C0108F88 (xxxClientLoadStringW.c)
+ */
+
 void xxxLoadSomeStrings(void)
 {
   unsigned int v0; // edx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfGetDmaTransferInfo @ 0x140AC3790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ViGetRealDmaAdapter @ 0x140AC6158 (ViGetRealDmaAdapter.c)
+ */
+
 __int64 __fastcall VfGetDmaTransferInfo(int a1, __int64 a2, __int64 a3, unsigned int a4, char a5, __int64 a6)
 {
   __int64 RealDmaAdapter; // rax

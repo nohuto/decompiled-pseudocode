@@ -1,3 +1,13 @@
+/*
+ * XREFs of CarDeregisterRuleOverride @ 0x1405D1800
+ * Callers:
+ *     CarRegisterRuleOverrideAllContexts @ 0x1405D1E40 (CarRegisterRuleOverrideAllContexts.c)
+ * Callees:
+ *     CarDeleteTelemetryData @ 0x1405D16C4 (CarDeleteTelemetryData.c)
+ *     CarFindRuleClassConfigurationEntryByRuleClassId @ 0x1405D186C (CarFindRuleClassConfigurationEntryByRuleClassId.c)
+ *     CarFindRuleOverrideEntryByLocalRuleId @ 0x1405D18C0 (CarFindRuleOverrideEntryByLocalRuleId.c)
+ */
+
 void __fastcall CarDeregisterRuleOverride(__int64 a1)
 {
   __int64 RuleClassConfigurationEntryByRuleClassId; // rax

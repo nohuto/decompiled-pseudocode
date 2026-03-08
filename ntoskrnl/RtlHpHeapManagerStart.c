@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlHpHeapManagerStart @ 0x1403762C8
+ * Callers:
+ *     ExInitializePoolHeapManagement @ 0x140374D0C (ExInitializePoolHeapManagement.c)
+ * Callees:
+ *     RtlpHpMetadataHeapCreate @ 0x140374B90 (RtlpHpMetadataHeapCreate.c)
+ *     RtlpHpVaMgrCtxStart @ 0x140375148 (RtlpHpVaMgrCtxStart.c)
+ *     RtlCSparseBitmapStart @ 0x1403A57A4 (RtlCSparseBitmapStart.c)
+ */
+
 NTSTATUS __fastcall RtlHpHeapManagerStart(union _RTL_RUN_ONCE *a1)
 {
   NTSTATUS result; // eax

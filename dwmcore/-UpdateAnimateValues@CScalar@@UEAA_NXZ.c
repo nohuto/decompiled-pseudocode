@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UpdateAnimateValues@CScalar@@UEAA_NXZ @ 0x18024B250
+ * Callers:
+ *     ??1CScalar@@MEAA@XZ @ 0x18024B0FC (--1CScalar@@MEAA@XZ.c)
+ * Callees:
+ *     ?UnregisterAnimateResource@CBaseAnimation@@QEAAJXZ @ 0x1800C5B04 (-UnregisterAnimateResource@CBaseAnimation@@QEAAJXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CScalar::UpdateAnimateValues(CScalar *this)
 {
   char v1; // di

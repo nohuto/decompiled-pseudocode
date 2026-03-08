@@ -1,3 +1,12 @@
+/*
+ * XREFs of FxRegisterBugCheckCallback @ 0x1C0088D28
+ * Callers:
+ *     FxInitialize @ 0x1C0043DE4 (FxInitialize.c)
+ * Callees:
+ *     ?Register@_FX_DRIVER_TRACKER_CACHE_AWARE@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00888D0 (-Register@_FX_DRIVER_TRACKER_CACHE_AWARE@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     FxpGetImageBase @ 0x1C0088FA8 (FxpGetImageBase.c)
+ */
+
 void __fastcall FxRegisterBugCheckCallback(_FX_DRIVER_GLOBALS *FxDriverGlobals, _DRIVER_OBJECT *DriverObject)
 {
   unsigned __int8 FxTrackDriverForMiniDumpLog; // si

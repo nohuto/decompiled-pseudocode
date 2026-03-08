@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbDevice_SetResourceAssignmentCompletion @ 0x1C0049B90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0008958 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     Controller_IncrementNumberOfEndpointsOffloaded @ 0x1C0033878 (Controller_IncrementNumberOfEndpointsOffloaded.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ */
+
 void __fastcall UsbDevice_SetResourceAssignmentCompletion(__int64 a1, int a2, int a3, int a4)
 {
   __int64 v4; // rdi

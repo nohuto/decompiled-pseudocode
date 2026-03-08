@@ -1,3 +1,11 @@
+/*
+ * XREFs of _CmGetInstallerClassMappedPropertyLocales @ 0x140A66320
+ * Callers:
+ *     _PnpDispatchInstallerClass @ 0x14074D6F0 (_PnpDispatchInstallerClass.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmGetInstallerClassMappedPropertyLocales(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,19 @@
+/*
+ * XREFs of LdrImageDirectoryEntryToLoadConfig @ 0x140784BDC
+ * Callers:
+ *     RtlGuardRestoreContext @ 0x1402D851C (RtlGuardRestoreContext.c)
+ *     RtlIsImageFullyRetpolined @ 0x1402F4538 (RtlIsImageFullyRetpolined.c)
+ *     RtlpCaptureRetpolineBinaryInfoForImage @ 0x140371248 (RtlpCaptureRetpolineBinaryInfoForImage.c)
+ *     RtlpCaptureDynamicRelocationTableRva @ 0x140371360 (RtlpCaptureDynamicRelocationTableRva.c)
+ *     RtlGetImageBaseAndLoadConfig @ 0x1405AF9E0 (RtlGetImageBaseAndLoadConfig.c)
+ *     RtlGuardCheckLongJumpTarget @ 0x1405AFAC8 (RtlGuardCheckLongJumpTarget.c)
+ *     LdrpFetchAddressOfSecurityCookie @ 0x140784B40 (LdrpFetchAddressOfSecurityCookie.c)
+ *     MiCaptureBootDriverRetpolineInfo @ 0x140828D60 (MiCaptureBootDriverRetpolineInfo.c)
+ * Callees:
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageNtHeaderEx @ 0x14035E850 (RtlImageNtHeaderEx.c)
+ */
+
 _DWORD *__fastcall LdrImageDirectoryEntryToLoadConfig(unsigned __int64 a1)
 {
   __int64 v1; // rbx

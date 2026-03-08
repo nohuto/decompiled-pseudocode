@@ -1,3 +1,26 @@
+/*
+ * XREFs of CmLockKeyForWrite @ 0x140845EFC
+ * Callers:
+ *     NtLockRegistryKey @ 0x140845E40 (NtLockRegistryKey.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsGetCurrentSilo @ 0x1402640A0 (PsGetCurrentSilo.c)
+ *     PsGetPermanentSiloContext @ 0x1402B6120 (PsGetPermanentSiloContext.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     CmpLockKcbExclusive @ 0x1407AF778 (CmpLockKcbExclusive.c)
+ *     CmpPerformSiloKeyLockTrackerEnabledCheck @ 0x14084610C (CmpPerformSiloKeyLockTrackerEnabledCheck.c)
+ *     CmpCreateSiloKeyLockEntry @ 0x140846130 (CmpCreateSiloKeyLockEntry.c)
+ *     CmpGlobalLockKeyForWrite @ 0x14084617C (CmpGlobalLockKeyForWrite.c)
+ *     CmpLockSiloKeyLockTrackerExclusive @ 0x1408463A4 (CmpLockSiloKeyLockTrackerExclusive.c)
+ *     CmpLockSiloKeyLockTrackerShared @ 0x1408463F8 (CmpLockSiloKeyLockTrackerShared.c)
+ *     CmpFreeSiloKeyLockEntry @ 0x140A190DC (CmpFreeSiloKeyLockEntry.c)
+ *     CmpUnlockKcb @ 0x140AF2140 (CmpUnlockKcb.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140AF24F0 (CmpPerformKeyBodyDeletionCheck.c)
+ */
+
 __int64 __fastcall CmLockKeyForWrite(__int64 a1)
 {
   signed __int64 *SiloKeyLockEntry; // r14

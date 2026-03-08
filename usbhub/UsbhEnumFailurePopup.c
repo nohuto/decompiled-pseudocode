@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhEnumFailurePopup @ 0x1C004A790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhBuildWmiConnectionNotification @ 0x1C0048DC4 (UsbhBuildWmiConnectionNotification.c)
+ */
+
 void __fastcall UsbhEnumFailurePopup(PDEVICE_OBJECT DeviceObject, __int64 a2)
 {
   _DWORD *v4; // rax

@@ -1,3 +1,19 @@
+/*
+ * XREFs of KsepMatchInitBiosInfo @ 0x140B35308
+ * Callers:
+ *     KsepMatchInitMachineInfo @ 0x140B35058 (KsepMatchInitMachineInfo.c)
+ * Callees:
+ *     KsepLogInfo @ 0x14036F8F4 (KsepLogInfo.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcstoul @ 0x1403D6370 (wcstoul.c)
+ *     __report_rangecheckfailure @ 0x1404FBCCC (__report_rangecheckfailure.c)
+ *     KsepDebugPrint @ 0x14057E834 (KsepDebugPrint.c)
+ *     KsepRegistryOpenKey @ 0x14079E858 (KsepRegistryOpenKey.c)
+ *     KsepRegistryQuerySZ @ 0x14080001C (KsepRegistryQuerySZ.c)
+ *     KsepRegistryCloseKey @ 0x140800168 (KsepRegistryCloseKey.c)
+ *     KsepRegistryQueryMULTISZ @ 0x140974BFC (KsepRegistryQueryMULTISZ.c)
+ */
+
 __int64 KsepMatchInitBiosInfo()
 {
   int v0; // edi

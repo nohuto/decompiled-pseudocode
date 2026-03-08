@@ -1,3 +1,15 @@
+/*
+ * XREFs of GreHidePointer @ 0x1C002A524
+ * Callers:
+ *     ?HidePointer@CursorApiRouter@@QEAA_N_N@Z @ 0x1C002A470 (-HidePointer@CursorApiRouter@@QEAA_N_N@Z.c)
+ * Callees:
+ *     GreMovePointer @ 0x1C001E270 (GreMovePointer.c)
+ *     GreUpdatePointerState @ 0x1C002A8E0 (GreUpdatePointerState.c)
+ *     GreSetPointer @ 0x1C0062EF4 (GreSetPointer.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?GreHidePointerInternal@@YAXPEAUHDEV__@@@Z @ 0x1C00F4D74 (-GreHidePointerInternal@@YAXPEAUHDEV__@@@Z.c)
+ */
+
 __int64 __fastcall GreHidePointer(Gre::Base *a1)
 {
   unsigned int v1; // ebp

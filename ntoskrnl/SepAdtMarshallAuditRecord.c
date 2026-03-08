@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepAdtMarshallAuditRecord @ 0x1403979E4
+ * Callers:
+ *     SepAdtLogAuditRecord @ 0x140397890 (SepAdtLogAuditRecord.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ */
+
 __int64 __fastcall SepAdtMarshallAuditRecord(_DWORD *Src, void **a2, _DWORD *a3, int a4)
 {
   unsigned int v4; // r11d

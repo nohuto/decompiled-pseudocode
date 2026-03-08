@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiGetPhysicalMonitors @ 0x1C026D070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtGdiGetPhysicalMonitors(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
   __int64 v8; // rdi

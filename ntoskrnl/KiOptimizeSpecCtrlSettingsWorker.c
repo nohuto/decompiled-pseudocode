@@ -1,3 +1,26 @@
+/*
+ * XREFs of KiOptimizeSpecCtrlSettingsWorker @ 0x14037E220
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     KiUpdateSpeculationControl @ 0x1402BEF60 (KiUpdateSpeculationControl.c)
+ *     KeExitRetpoline @ 0x1402E3E6C (KeExitRetpoline.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiIsBranchConfusionPresent @ 0x14037F118 (KiIsBranchConfusionPresent.c)
+ *     Feature_Servicing_AmdDisableEarlyIBPB__private_IsEnabledDeviceUsage @ 0x14040AC58 (Feature_Servicing_AmdDisableEarlyIBPB__private_IsEnabledDeviceUsage.c)
+ *     KiIsRfdsMitigationDesired @ 0x14040ACD4 (KiIsRfdsMitigationDesired.c)
+ *     KiIsRfdsMitigationSupported @ 0x14040ACEC (KiIsRfdsMitigationSupported.c)
+ *     KiIsSrsoMitigationDesired @ 0x14040AD28 (KiIsSrsoMitigationDesired.c)
+ *     KiIsSrsoMitigationSupported @ 0x14040ADD0 (KiIsSrsoMitigationSupported.c)
+ *     KiSetVirtualMitigationControl @ 0x14040AE0C (KiSetVirtualMitigationControl.c)
+ *     HvlIsCoreSharingPossible @ 0x14053D490 (HvlIsCoreSharingPossible.c)
+ *     HvlIsStibpPairingRecommended @ 0x14053D510 (HvlIsStibpPairingRecommended.c)
+ *     KiDetectAmdNonArchSsbdSupport @ 0x140571794 (KiDetectAmdNonArchSsbdSupport.c)
+ *     KiIsBranchConfusionMitigationDesired @ 0x14057187C (KiIsBranchConfusionMitigationDesired.c)
+ *     KiIsBranchConfusionMitigationSupported @ 0x1405718BC (KiIsBranchConfusionMitigationSupported.c)
+ */
+
 ULONG_PTR __fastcall KiOptimizeSpecCtrlSettingsWorker(ULONG_PTR Argument, __int64 a2, __int64 a3, __int64 a4)
 {
   struct _KPRCB *CurrentPrcb; // rbx

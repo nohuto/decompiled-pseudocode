@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0qtqqq_EtwWriteTransfer @ 0x1C0040758
+ * Callers:
+ *     _lambda_ac7822d55a092b4fdea37af52b75bf92_::operator() @ 0x1C0162008 (_lambda_ac7822d55a092b4fdea37af52b75bf92_--operator().c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002BBC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0qtqqq_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

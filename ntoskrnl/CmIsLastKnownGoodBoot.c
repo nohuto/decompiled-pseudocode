@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmIsLastKnownGoodBoot @ 0x140B6AF2C
+ * Callers:
+ *     PpLastGoodDoBootProcessing @ 0x140B6ACC4 (PpLastGoodDoBootProcessing.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlQueryRegistryValuesEx @ 0x14069DF10 (RtlQueryRegistryValuesEx.c)
+ */
+
 bool CmIsLastKnownGoodBoot()
 {
   int v1; // [rsp+30h] [rbp-D0h] BYREF

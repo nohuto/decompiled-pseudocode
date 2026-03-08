@@ -1,3 +1,12 @@
+/*
+ * XREFs of IoChangeFileObjectFilterContext @ 0x14023AD2C
+ * Callers:
+ *     FsRtlInsertPerFileObjectContext @ 0x14023A9B0 (FsRtlInsertPerFileObjectContext.c)
+ *     FsRtlPTeardownPerFileObjectContexts @ 0x1406B1CE4 (FsRtlPTeardownPerFileObjectContexts.c)
+ * Callees:
+ *     IopGetFileObjectExtension @ 0x14023EB8C (IopGetFileObjectExtension.c)
+ */
+
 __int64 __fastcall IoChangeFileObjectFilterContext(__int64 a1)
 {
   signed __int64 v1; // r10

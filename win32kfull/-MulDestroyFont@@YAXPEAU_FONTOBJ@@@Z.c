@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?MulDestroyFont@@YAXPEAU_FONTOBJ@@@Z @ 0x1C02B1980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DestroyFont@PDEVOBJ@@QEAAXPEAU_FONTOBJ@@@Z @ 0x1C0123CA0 (-DestroyFont@PDEVOBJ@@QEAAXPEAU_FONTOBJ@@@Z.c)
+ *     ??0MULTIFONT@@QEAA@PEAU_FONTOBJ@@JPEAU_VDEV@@@Z @ 0x1C014E1C6 (--0MULTIFONT@@QEAA@PEAU_FONTOBJ@@JPEAU_VDEV@@@Z.c)
+ *     ??1MULTIFONT@@QEAA@XZ @ 0x1C014E292 (--1MULTIFONT@@QEAA@XZ.c)
+ *     ?DestroyTable@MULTIFONT@@QEAAXXZ @ 0x1C014E2EC (-DestroyTable@MULTIFONT@@QEAAXXZ.c)
+ */
+
 void __fastcall MulDestroyFont(struct _FONTOBJ *a1)
 {
   __int64 ****v2; // r15

@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopCheckHandleForRevocation @ 0x1405562E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExpUnblockPushLock @ 0x1402BFD34 (ExpUnblockPushLock.c)
+ *     IopRevokeFileObjectForProcess @ 0x1405566CC (IopRevokeFileObjectForProcess.c)
+ */
+
 char __fastcall IopCheckHandleForRevocation(__int64 a1, volatile signed __int64 *a2, __int64 a3, _QWORD *a4)
 {
   signed __int32 v7[10]; // [rsp+0h] [rbp-28h] BYREF

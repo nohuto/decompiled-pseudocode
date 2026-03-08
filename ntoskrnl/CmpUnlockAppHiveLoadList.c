@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpUnlockAppHiveLoadList @ 0x1406BE574
+ * Callers:
+ *     CmLoadAppKey @ 0x1406BDA5C (CmLoadAppKey.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 char CmpUnlockAppHiveLoadList()
 {
   signed __int64 v0; // rdx

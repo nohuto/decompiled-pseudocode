@@ -1,3 +1,11 @@
+/*
+ * XREFs of PrepareGammaRampData @ 0x1C00EA8B0
+ * Callers:
+ *     xxxSwitchDesktopWithFade @ 0x1C00EA72C (xxxSwitchDesktopWithFade.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PrepareGammaRampData(unsigned int *a1, unsigned int **a2, _DWORD *a3)
 {
   unsigned int v6; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CCompositionSurfaceBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180075A40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?HrFindInterface@CContent@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180035170 (-HrFindInterface@CContent@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ */
+
 __int64 __fastcall CCompositionSurfaceBitmap::HrFindInterface(
         CCompositionSurfaceBitmap *this,
         const struct _GUID *a2,

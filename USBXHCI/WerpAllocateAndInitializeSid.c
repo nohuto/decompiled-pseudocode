@@ -1,3 +1,11 @@
+/*
+ * XREFs of WerpAllocateAndInitializeSid @ 0x1C00548A4
+ * Callers:
+ *     WerKernelSubmitReport @ 0x1C00540E0 (WerKernelSubmitReport.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WerpAllocateAndInitializeSid(
         PSID_IDENTIFIER_AUTHORITY IdentifierAuthority,
         __int64 a2,

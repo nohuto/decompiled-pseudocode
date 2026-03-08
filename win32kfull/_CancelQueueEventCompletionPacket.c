@@ -1,3 +1,12 @@
+/*
+ * XREFs of _CancelQueueEventCompletionPacket @ 0x1C01B4588
+ * Callers:
+ *     NtUserMsgWaitForMultipleObjectsEx @ 0x1C00470E0 (NtUserMsgWaitForMultipleObjectsEx.c)
+ *     NtUserCancelQueueEventCompletionPacket @ 0x1C01CE320 (NtUserCancelQueueEventCompletionPacket.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 CancelQueueEventCompletionPacket()
 {
   __int64 v0; // rdx

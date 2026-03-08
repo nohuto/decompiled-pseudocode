@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CalculateCapacity@VIDMM_LINEAR_POOL@@QEAA_KXZ @ 0x1C0101AA8
+ * Callers:
+ *     ?CurateVPR@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00FCB90 (-CurateVPR@VIDMM_SEGMENT@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall VIDMM_LINEAR_POOL::CalculateCapacity(VIDMM_LINEAR_POOL *this)
 {
   char *v1; // r9

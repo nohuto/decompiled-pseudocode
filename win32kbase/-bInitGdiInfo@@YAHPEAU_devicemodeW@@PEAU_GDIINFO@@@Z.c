@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bInitGdiInfo@@YAHPEAU_devicemodeW@@PEAU_GDIINFO@@@Z @ 0x1C009EE28
+ * Callers:
+ *     ?StubDispEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C009E9B0 (-StubDispEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO.c)
+ * Callees:
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 __fastcall bInitGdiInfo(struct _devicemodeW *a1, struct _GDIINFO *a2)
 {
   __int64 v4; // rcx

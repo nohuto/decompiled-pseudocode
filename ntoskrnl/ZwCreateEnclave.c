@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwCreateEnclave @ 0x140413890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwCreateEnclave(__int64 a1, __int64 a2)
 {
   _disable();

@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlpMuiRegLangInfoMatchesSpec @ 0x140A72148
+ * Callers:
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x140A719B4 (RtlpMuiRegConfigMatchesInstalled.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     _MuiRegAllocArray @ 0x14039C31C (_MuiRegAllocArray.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     RtlCultureNameToLCID @ 0x1407FE570 (RtlCultureNameToLCID.c)
+ *     RtlLCIDToCultureName @ 0x1409BBD70 (RtlLCIDToCultureName.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 bool __fastcall RtlpMuiRegLangInfoMatchesSpec(__int64 a1, __int64 a2, char a3, __int16 a4)
 {
   __int64 v4; // rbx

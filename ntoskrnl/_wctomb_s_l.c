@@ -1,3 +1,13 @@
+/*
+ * XREFs of _wctomb_s_l @ 0x1403D63A4
+ * Callers:
+ *     wctomb @ 0x1403D6460 (wctomb.c)
+ *     wctomb_s @ 0x1403D64A4 (wctomb_s.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     RtlUnicodeToMultiByteN @ 0x1407A3650 (RtlUnicodeToMultiByteN.c)
+ */
+
 errno_t __cdecl wctomb_s_l(int *SizeConverted, char *MbCh, size_t SizeInBytes, wchar_t WCh, _locale_t Locale)
 {
   ULONG BytesInMultiByteString; // [rsp+48h] [rbp+10h] BYREF

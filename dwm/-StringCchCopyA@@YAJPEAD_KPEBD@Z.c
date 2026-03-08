@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?StringCchCopyA@@YAJPEAD_KPEBD@Z @ 0x14000A378
+ * Callers:
+ *     ?GetModuleInformation@details@wil@@YA_NPEAXPEAIPEAD_K@Z @ 0x140009594 (-GetModuleInformation@details@wil@@YA_NPEAXPEAIPEAD_K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall StringCchCopyA(char *a1, __int64 a2, const char *a3)
 {
   __int64 v3; // r9

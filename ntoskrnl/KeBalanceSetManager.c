@@ -1,3 +1,21 @@
+/*
+ * XREFs of KeBalanceSetManager @ 0x140390D00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetPriorityThread @ 0x1402261B0 (KeSetPriorityThread.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     ExpScanGeneralLookasideList @ 0x1402C5C30 (ExpScanGeneralLookasideList.c)
+ *     ExpScanSystemLookasideList @ 0x1402C5D38 (ExpScanSystemLookasideList.c)
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     KePulseEvent @ 0x14035F580 (KePulseEvent.c)
+ *     MiWorkingSetManager @ 0x1403616C0 (MiWorkingSetManager.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __noreturn KeBalanceSetManager()
 {
   int v0; // ebx

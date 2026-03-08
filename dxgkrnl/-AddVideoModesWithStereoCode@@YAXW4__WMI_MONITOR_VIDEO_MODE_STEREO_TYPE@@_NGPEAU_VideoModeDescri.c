@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AddVideoModesWithStereoCode@@YAXW4__WMI_MONITOR_VIDEO_MODE_STEREO_TYPE@@_NGPEAU_VideoModeDescriptor@@AEAG2@Z @ 0x1C00729CC
+ * Callers:
+ *     ?DisplayID_GetVideoModeDescriptors@@YAJAEBUDisplayIDObj@@AEAGPEAU_VideoModeDescriptor@@1G@Z @ 0x1C0072FCC (-DisplayID_GetVideoModeDescriptors@@YAJAEBUDisplayIDObj@@AEAGPEAU_VideoModeDescriptor@@1G@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall AddVideoModesWithStereoCode(char a1, char a2, __int64 a3, __int64 a4, _WORD *a5, __int64 a6)
 {
   char v6; // di

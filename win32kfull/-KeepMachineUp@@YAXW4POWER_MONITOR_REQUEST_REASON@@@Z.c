@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z @ 0x1C0079188
+ * Callers:
+ *     EditionKeepMachineUp @ 0x1C00790A0 (EditionKeepMachineUp.c)
+ * Callees:
+ *     SetTimerCoalescingTolerance @ 0x1C0079290 (SetTimerCoalescingTolerance.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall KeepMachineUp(__int64 a1)
 {
   __int64 v1; // rbx

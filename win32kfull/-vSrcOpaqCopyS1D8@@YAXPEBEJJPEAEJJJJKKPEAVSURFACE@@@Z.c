@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vSrcOpaqCopyS1D8@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x1C02970C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall vSrcOpaqCopyS1D8(
         const unsigned __int8 *a1,
         int a2,

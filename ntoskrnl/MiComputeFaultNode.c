@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiComputeFaultNode @ 0x14028AE90
+ * Callers:
+ *     MiResolveMappedFileFault @ 0x14028A780 (MiResolveMappedFileFault.c)
+ *     MiCopyOnWrite @ 0x140319F00 (MiCopyOnWrite.c)
+ *     MiHandleSpecialPurposeMemoryCachedFault @ 0x14065DE28 (MiHandleSpecialPurposeMemoryCachedFault.c)
+ *     MiResolvePageFileFault @ 0x140668EDC (MiResolvePageFileFault.c)
+ * Callees:
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     MiNodeFromFaultPacket @ 0x14028B000 (MiNodeFromFaultPacket.c)
+ *     MiUnlockVadTree @ 0x140330EC8 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x1403334B4 (MiLockVadTree.c)
+ */
+
 __int64 __fastcall MiComputeFaultNode(__int64 a1, __int64 a2, __int64 ***a3)
 {
   unsigned int v6; // ebx

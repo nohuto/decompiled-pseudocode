@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepScheduleImageVerificationCallbacks @ 0x140793224
+ * Callers:
+ *     SeValidateImageHeader @ 0x1406A02B4 (SeValidateImageHeader.c)
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SepScheduleImageVerificationCallbacks(__int64 a1, unsigned int a2)
 {
   __int64 Pool2; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_GetLicensingType@@YAKXZ @ 0x1C01E0D6C
+ * Callers:
+ *     RIMApiSetValidateDeviceSignature @ 0x1C01E1A0C (RIMApiSetValidateDeviceSignature.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 _GetLicensingType(void)
 {
   unsigned int v0; // ebx

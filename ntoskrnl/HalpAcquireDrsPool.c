@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpAcquireDrsPool @ 0x14051711C
+ * Callers:
+ *     HalpMemoryErrorDeferredRecovery @ 0x1405174A4 (HalpMemoryErrorDeferredRecovery.c)
+ *     HalpPmemErrorDeferredRecovery @ 0x1405176AC (HalpPmemErrorDeferredRecovery.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 HalpAcquireDrsPool()
 {
   __int64 result; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of SiGetDriveLayoutInformation @ 0x140A5C928
+ * Callers:
+ *     SiFindSystemPartition @ 0x140A5C744 (SiFindSystemPartition.c)
+ *     SiGetEfiSystemDevice @ 0x140A5CDB0 (SiGetEfiSystemDevice.c)
+ *     SiGetBiosSystemPartition @ 0x140A5D7C4 (SiGetBiosSystemPartition.c)
+ * Callees:
+ *     ZwDeviceIoControlFile @ 0x1404123F0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     SiOpenDevice @ 0x14076EB34 (SiOpenDevice.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SiGetDriveLayoutInformation(const WCHAR *a1, _QWORD *a2)
 {
   NTSTATUS v3; // ebx

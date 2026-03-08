@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Pop@CRenderDataBuilder@@UEAAJXZ @ 0x1800F9310
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800C3EE0 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
+ */
+
 __int64 __fastcall CRenderDataBuilder::Pop(CRenderDataBuilder *this)
 {
   int v2; // eax

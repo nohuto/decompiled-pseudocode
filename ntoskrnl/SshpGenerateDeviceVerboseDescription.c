@@ -1,3 +1,14 @@
+/*
+ * XREFs of SshpGenerateDeviceVerboseDescription @ 0x140842FDC
+ * Callers:
+ *     SleepstudyHelperCreateBlockerFromDevice @ 0x140842D00 (SleepstudyHelperCreateBlockerFromDevice.c)
+ *     SleepstudyHelperCreateBlockerFromComponent @ 0x14099EFE0 (SleepstudyHelperCreateBlockerFromComponent.c)
+ * Callees:
+ *     CmpFreeTransientPoolWithTag @ 0x1402A4B0C (CmpFreeTransientPoolWithTag.c)
+ *     IoGetDeviceProperty @ 0x1406C5B00 (IoGetDeviceProperty.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SshpGenerateDeviceVerboseDescription(PDEVICE_OBJECT DeviceObject, ULONG a2, unsigned int **a3)
 {
   NTSTATUS DeviceProperty; // eax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of KeFlushCurrentTbImmediately @ 0x140396EE0
+ * Callers:
+ *     HalpFlushTLB @ 0x14037B0FC (HalpFlushTLB.c)
+ *     KiSetPageAttributesTable @ 0x140A89A00 (KiSetPageAttributesTable.c)
+ *     KeLoadMTRR @ 0x140A8C4C0 (KeLoadMTRR.c)
+ *     PopHandleNextState @ 0x140AA4FAC (PopHandleNextState.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 KeFlushCurrentTbImmediately()
 {
   unsigned __int64 v0; // rcx

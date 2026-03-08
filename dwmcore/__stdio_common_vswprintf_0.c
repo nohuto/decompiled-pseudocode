@@ -1,3 +1,11 @@
+/*
+ * XREFs of __stdio_common_vswprintf_0 @ 0x1801103C0
+ * Callers:
+ *     _vsnwprintf @ 0x18010F5C0 (_vsnwprintf.c)
+ * Callees:
+ *     <none>
+ */
+
 // attributes: thunk
 int __cdecl _stdio_common_vswprintf_0(
         unsigned __int64 Options,

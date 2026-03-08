@@ -1,3 +1,18 @@
+/*
+ * XREFs of ObDereferenceObjectExWithTag @ 0x140344234
+ * Callers:
+ *     IopDropIrp @ 0x140293E48 (IopDropIrp.c)
+ *     NtCancelTimer @ 0x1402CD830 (NtCancelTimer.c)
+ *     ExpSetTimerObject @ 0x1402CDE34 (ExpSetTimerObject.c)
+ *     ObDereferenceObjectEx @ 0x140344218 (ObDereferenceObjectEx.c)
+ *     ExTimerRundown @ 0x140352F6C (ExTimerRundown.c)
+ *     ObpCreateHandle @ 0x1407C0130 (ObpCreateHandle.c)
+ * Callees:
+ *     ObpDeferObjectDeletion @ 0x1402ECA68 (ObpDeferObjectDeletion.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ */
+
 __int64 __fastcall ObDereferenceObjectExWithTag(ULONG_PTR BugCheckParameter2, int a2)
 {
   signed __int64 v2; // rdi

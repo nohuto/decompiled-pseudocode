@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?bUnMapImmediate@SURFACE@@QEAAHPEAXPEAVDC@@@Z @ 0x1C0185270
+ * Callers:
+ *     ?bUnMapImmediate@SURFREFVIEW@@QEAAHXZ @ 0x1C0185380 (-bUnMapImmediate@SURFREFVIEW@@QEAAHXZ.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00219D4 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     EngAcquireSemaphore @ 0x1C004B690 (EngAcquireSemaphore.c)
+ *     ?vUnlockSimple@W32PIDLOCK@@QEAAXXZ @ 0x1C00ABFFC (-vUnlockSimple@W32PIDLOCK@@QEAAXXZ.c)
+ *     ?bRedirectionBitmap@SURFACE@@QEAAHXZ @ 0x1C017F8DC (-bRedirectionBitmap@SURFACE@@QEAAHXZ.c)
+ */
+
 __int64 __fastcall SURFACE::bUnMapImmediate(SURFACE *this, void *a2, struct _ERESOURCE *a3)
 {
   __int64 v4; // rcx

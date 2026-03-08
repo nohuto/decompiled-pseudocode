@@ -1,3 +1,24 @@
+/*
+ * XREFs of WmipAddDataSource @ 0x140867978
+ * Callers:
+ *     WmipProcessWmiRegInfo @ 0x140867FA4 (WmipProcessWmiRegInfo.c)
+ *     WmipInitializeDataStructs @ 0x140B540A4 (WmipInitializeDataStructs.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     WmipCountedToSz @ 0x14069C5C0 (WmipCountedToSz.c)
+ *     WmipUnreferenceEntry @ 0x14069C9D0 (WmipUnreferenceEntry.c)
+ *     WmipAddMofResource @ 0x1408199DC (WmipAddMofResource.c)
+ *     WmipGenerateMofResourceNotification @ 0x14084DD30 (WmipGenerateMofResourceNotification.c)
+ *     WmipGenerateBinaryMofNotification @ 0x14084FEDC (WmipGenerateBinaryMofNotification.c)
+ *     WmipBuildInstanceSet @ 0x140867C6C (WmipBuildInstanceSet.c)
+ *     WmipLinkDataSourceToList @ 0x1408681AC (WmipLinkDataSourceToList.c)
+ *     WmipGenerateRegistrationNotification @ 0x1408682E0 (WmipGenerateRegistrationNotification.c)
+ *     WmipAllocEntry @ 0x140868798 (WmipAllocEntry.c)
+ *     WmipProcessSynchronousEtw @ 0x1408689F0 (WmipProcessSynchronousEtw.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WmipAddDataSource(__int64 a1, __int64 a2, int a3, unsigned __int16 *a4, unsigned __int16 *a5)
 {
   __int64 v5; // rbx

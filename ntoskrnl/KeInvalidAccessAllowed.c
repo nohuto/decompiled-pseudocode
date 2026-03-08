@@ -1,3 +1,19 @@
+/*
+ * XREFs of KeInvalidAccessAllowed @ 0x1402DA5E0
+ * Callers:
+ *     MiSystemFault @ 0x1402220A0 (MiSystemFault.c)
+ *     MiCheckSystemPageTables @ 0x140222830 (MiCheckSystemPageTables.c)
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ *     MiResolveProtoPteFault @ 0x140270A50 (MiResolveProtoPteFault.c)
+ *     MiResolveMappedFileFault @ 0x14028A780 (MiResolveMappedFileFault.c)
+ *     MiValidFault @ 0x1402C90E0 (MiValidFault.c)
+ *     MiAllowGuardFault @ 0x1402DA480 (MiAllowGuardFault.c)
+ *     MiRaisedIrqlFault @ 0x1402DA4D0 (MiRaisedIrqlFault.c)
+ * Callees:
+ *     KiIsTraceMemoryAccess @ 0x1402DA680 (KiIsTraceMemoryAccess.c)
+ *     KiRspInIstStack @ 0x1402EDCB0 (KiRspInIstStack.c)
+ */
+
 char __fastcall KeInvalidAccessAllowed(__int64 a1, char a2, __int64 a3, __int64 a4)
 {
   char IsTraceMemoryAccess; // r11

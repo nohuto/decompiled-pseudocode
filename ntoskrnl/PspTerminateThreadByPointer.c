@@ -1,3 +1,21 @@
+/*
+ * XREFs of PspTerminateThreadByPointer @ 0x1407DA8F0
+ * Callers:
+ *     PspSystemThreadStartup @ 0x140354CF0 (PspSystemThreadStartup.c)
+ *     PsDispatchIumService @ 0x1405A2A44 (PsDispatchIumService.c)
+ *     NtTerminateThread @ 0x1407DADE0 (NtTerminateThread.c)
+ *     PspTerminateAllThreads @ 0x1407DB73C (PspTerminateAllThreads.c)
+ *     NtTerminateProcess @ 0x1407DC2F0 (NtTerminateProcess.c)
+ *     PsTerminateSystemThread @ 0x1407DC870 (PsTerminateSystemThread.c)
+ *     PspUserThreadStartup @ 0x1407ED430 (PspUserThreadStartup.c)
+ *     PspSecureThreadStartup @ 0x1409AE950 (PspSecureThreadStartup.c)
+ * Callees:
+ *     PsGetProcessServerSilo @ 0x1402637E0 (PsGetProcessServerSilo.c)
+ *     KeRequestTerminationThread @ 0x140354D78 (KeRequestTerminationThread.c)
+ *     PspExitThread @ 0x1407D9464 (PspExitThread.c)
+ *     PspCatchCriticalBreak @ 0x1409B0A80 (PspCatchCriticalBreak.c)
+ */
+
 __int64 __fastcall PspTerminateThreadByPointer(__int64 a1, unsigned int a2, char a3)
 {
   __int64 v4; // rdi

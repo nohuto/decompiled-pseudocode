@@ -1,3 +1,23 @@
+/*
+ * XREFs of Bulk_RetrieveNextStage @ 0x1C0011FDC
+ * Callers:
+ *     Bulk_MappingLoop @ 0x1C0011F10 (Bulk_MappingLoop.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DDDq @ 0x1C000DE84 (WPP_RECORDER_SF_DDDq.c)
+ *     WPP_RECORDER_SF_DDDD @ 0x1C000E120 (WPP_RECORDER_SF_DDDD.c)
+ *     Bulk_Transfer_Complete @ 0x1C000E8D8 (Bulk_Transfer_Complete.c)
+ *     Bulk_Stage_Acquire @ 0x1C001224C (Bulk_Stage_Acquire.c)
+ *     Bulk_TransferData_ConfigureBuffer @ 0x1C0012328 (Bulk_TransferData_ConfigureBuffer.c)
+ *     TR_ValidateSecureTransferType @ 0x1C0012478 (TR_ValidateSecureTransferType.c)
+ *     Bulk_TransferData_DetermineTransferMechanism @ 0x1C00126B0 (Bulk_TransferData_DetermineTransferMechanism.c)
+ *     WPP_RECORDER_SF_DDDqq @ 0x1C00127F0 (WPP_RECORDER_SF_DDDqq.c)
+ *     Bulk_TransferData_Initialize @ 0x1C00128DC (Bulk_TransferData_Initialize.c)
+ *     Bulk_Transfer_CompleteCancelable @ 0x1C0012F30 (Bulk_Transfer_CompleteCancelable.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_DDDd @ 0x1C0041F60 (WPP_RECORDER_SF_DDDd.c)
+ *     WPP_RECORDER_SF_DDDqd @ 0x1C0047C80 (WPP_RECORDER_SF_DDDqd.c)
+ */
+
 bool __fastcall Bulk_RetrieveNextStage(__int64 a1)
 {
   __int16 v1; // bp

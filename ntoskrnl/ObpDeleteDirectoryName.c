@@ -1,3 +1,13 @@
+/*
+ * XREFs of ObpDeleteDirectoryName @ 0x14076F180
+ * Callers:
+ *     ObpDeleteDirectoryEntry @ 0x14076F100 (ObpDeleteDirectoryEntry.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObpMarkDirectoryObjectsTemporary @ 0x14076F1F8 (ObpMarkDirectoryObjectsTemporary.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 POBJECT_TYPE __fastcall ObpDeleteDirectoryName(char *Object)
 {
   _QWORD *v2; // rbx

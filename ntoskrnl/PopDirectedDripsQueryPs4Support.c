@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopDirectedDripsQueryPs4Support @ 0x140856490
+ * Callers:
+ *     PopDirectedDripsQueryEnabledMitigations @ 0x1408563FC (PopDirectedDripsQueryEnabledMitigations.c)
+ * Callees:
+ *     PopDirectedDripsQueryEmPS4DisableSetting @ 0x140856500 (PopDirectedDripsQueryEmPS4DisableSetting.c)
+ *     PopDirectedDripsQueryEmSettings @ 0x140980B4C (PopDirectedDripsQueryEmSettings.c)
+ */
+
 __int64 PopDirectedDripsQueryPs4Support()
 {
   unsigned int v0; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpSetTimerAnyMode @ 0x1405068F0
+ * Callers:
+ *     HalpTimerClockPowerChange @ 0x140506414 (HalpTimerClockPowerChange.c)
+ *     HalpVpptUpdatePhysicalTimer @ 0x140507DB0 (HalpVpptUpdatePhysicalTimer.c)
+ * Callees:
+ *     HalpSetTimer @ 0x1402CBEE0 (HalpSetTimer.c)
+ *     HalpTimerClearProblem @ 0x140506994 (HalpTimerClearProblem.c)
+ */
+
 __int64 __fastcall HalpSetTimerAnyMode(__int64 a1, ULONGLONG a2, __int64 a3, unsigned __int64 *a4)
 {
   int v7; // eax

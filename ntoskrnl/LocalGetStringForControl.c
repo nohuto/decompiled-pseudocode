@@ -1,3 +1,15 @@
+/*
+ * XREFs of LocalGetStringForControl @ 0x140750814
+ * Callers:
+ *     LocalConvertSDToStringSD_Rev1 @ 0x14074F708 (LocalConvertSDToStringSD_Rev1.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ *     wcsncpy_s @ 0x1403DA3B0 (wcsncpy_s.c)
+ *     __report_rangecheckfailure @ 0x1404FBCCC (__report_rangecheckfailure.c)
+ *     SddlpAlloc @ 0x1407507C8 (SddlpAlloc.c)
+ */
+
 __int64 __fastcall LocalGetStringForControl(unsigned __int16 a1, int a2, wchar_t **a3)
 {
   int v3; // r15d

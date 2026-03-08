@@ -1,3 +1,21 @@
+/*
+ * XREFs of BiUpdateObjectReferenceInEfiEntry @ 0x140A5C414
+ * Callers:
+ *     BiCreateEfiEntry @ 0x140A5B13C (BiCreateEfiEntry.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _wcsupr @ 0x1403D41F0 (_wcsupr.c)
+ *     wcsstr @ 0x1403D6020 (wcsstr.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlStringFromGUIDEx @ 0x140733E90 (RtlStringFromGUIDEx.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     BcdQueryObject @ 0x14082B5C0 (BcdQueryObject.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x14082F354 (BiGetObjectReferenceFromEfiEntry.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiUpdateObjectReferenceInEfiEntry(__int64 a1, __int64 a2)
 {
   int ObjectReferenceFromEfiEntry; // ebx

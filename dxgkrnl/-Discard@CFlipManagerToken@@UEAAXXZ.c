@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Discard@CFlipManagerToken@@UEAAXXZ @ 0x1C0076200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ??_GFlipManagerTokenIFlipInfo@@QEAAPEAXI@Z @ 0x1C0075634 (--_GFlipManagerTokenIFlipInfo@@QEAAPEAXI@Z.c)
+ */
+
 void __fastcall CFlipManagerToken::Discard(CFlipManagerToken *this)
 {
   void *v2; // rcx

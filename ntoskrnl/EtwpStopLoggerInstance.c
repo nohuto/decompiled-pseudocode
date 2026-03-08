@@ -1,3 +1,25 @@
+/*
+ * XREFs of EtwpStopLoggerInstance @ 0x140748874
+ * Callers:
+ *     EtwpStartLogger @ 0x140691964 (EtwpStartLogger.c)
+ *     EtwpLogger @ 0x1406926A0 (EtwpLogger.c)
+ *     EtwpStopTrace @ 0x140745044 (EtwpStopTrace.c)
+ * Callees:
+ *     ExCancelTimer @ 0x140204330 (ExCancelTimer.c)
+ *     ObGetCurrentIrql @ 0x140205E10 (ObGetCurrentIrql.c)
+ *     KeInsertQueueDpc @ 0x140230290 (KeInsertQueueDpc.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpStackRundown @ 0x140460D80 (EtwpStackRundown.c)
+ *     EtwpDisableTraceProviders @ 0x140693E28 (EtwpDisableTraceProviders.c)
+ *     EtwpSendSessionNotification @ 0x1407489B8 (EtwpSendSessionNotification.c)
+ *     EtwpUpdateGroupMasks @ 0x14080D8D8 (EtwpUpdateGroupMasks.c)
+ *     EtwpLogPmcCounterRundown @ 0x1409EBF78 (EtwpLogPmcCounterRundown.c)
+ */
+
 __int64 __fastcall EtwpStopLoggerInstance(unsigned __int64 a1)
 {
   __int64 v1; // rsi

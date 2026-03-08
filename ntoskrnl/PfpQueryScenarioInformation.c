@@ -1,3 +1,12 @@
+/*
+ * XREFs of PfpQueryScenarioInformation @ 0x14097BB9C
+ * Callers:
+ *     PfQuerySuperfetchInformation @ 0x1406AE494 (PfQuerySuperfetchInformation.c)
+ * Callees:
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     PfpScenCtxQueryScenarioInformation @ 0x140A9D464 (PfpScenCtxQueryScenarioInformation.c)
+ */
+
 __int64 __fastcall PfpQueryScenarioInformation(__int64 a1, char a2, _DWORD *a3)
 {
   unsigned int v6; // ebx

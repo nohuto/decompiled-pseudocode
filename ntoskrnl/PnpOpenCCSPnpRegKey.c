@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpOpenCCSPnpRegKey @ 0x140B618DC
+ * Callers:
+ *     PnpInitializePnpWatchdogs @ 0x140B6180C (PnpInitializePnpWatchdogs.c)
+ * Callees:
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406D3680 (_PnpCtxGetCachedContextBaseKey.c)
+ *     IopCreateRegistryKeyEx @ 0x14078BB90 (IopCreateRegistryKeyEx.c)
+ */
+
 __int64 __fastcall PnpOpenCCSPnpRegKey(_QWORD *a1)
 {
   int CachedContextBaseKey; // edx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of HvpPointMapEntriesToBuffer @ 0x140730010
+ * Callers:
+ *     HvpAddBin @ 0x14072F9F0 (HvpAddBin.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x1407A488C (HvpRemapAndEnlistHiveBins.c)
+ *     HvpBuildMapForMemoryBackedHive @ 0x1407FF548 (HvpBuildMapForMemoryBackedHive.c)
+ *     HvpDropPagedBins @ 0x140820B14 (HvpDropPagedBins.c)
+ *     HvpAddDummyBinToHive @ 0x140A1AF8C (HvpAddDummyBinToHive.c)
+ *     HvpMapHiveImage @ 0x140A1B050 (HvpMapHiveImage.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HvpGetCellMap @ 0x140AF2670 (HvpGetCellMap.c)
+ */
+
 void __fastcall HvpPointMapEntriesToBuffer(
         ULONG_PTR BugCheckParameter2,
         __int64 a2,

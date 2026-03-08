@@ -1,3 +1,29 @@
+/*
+ * XREFs of MiUnapplyDriverHotPatch @ 0x140A390F8
+ * Callers:
+ *     MiApplyHotPatchToDriver @ 0x140A321B0 (MiApplyHotPatchToDriver.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiDetachSessionGlobal @ 0x1402EA04C (MiDetachSessionGlobal.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiGetSessionVm @ 0x14036C17C (MiGetSessionVm.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     VslRevertHotPatch @ 0x14054A16C (VslRevertHotPatch.c)
+ *     MiDereferenceSessionGlobal @ 0x1406350F4 (MiDereferenceSessionGlobal.c)
+ *     MiAttachToSessionForBaseImage @ 0x14063F7A4 (MiAttachToSessionForBaseImage.c)
+ *     MiUnlockDriverPages @ 0x14087313C (MiUnlockDriverPages.c)
+ *     VslDetermineHotPatchUndoTableSize @ 0x14093F1B4 (VslDetermineHotPatchUndoTableSize.c)
+ *     VslObtainHotPatchUndoTable @ 0x14093FB88 (VslObtainHotPatchUndoTable.c)
+ *     MiPrepareDriverPatchState @ 0x140A28934 (MiPrepareDriverPatchState.c)
+ *     MiIdentifyImageDiscardablePages @ 0x140A349B4 (MiIdentifyImageDiscardablePages.c)
+ *     MiLockHotPatchUndoPages @ 0x140A35978 (MiLockHotPatchUndoPages.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiUnapplyDriverHotPatch(__int64 a1, __int64 a2)
 {
   unsigned int v4; // ecx

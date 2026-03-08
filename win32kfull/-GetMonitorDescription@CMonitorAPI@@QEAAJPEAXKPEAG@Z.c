@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetMonitorDescription@CMonitorAPI@@QEAAJPEAXKPEAG@Z @ 0x1C026C7DC
+ * Callers:
+ *     NtGdiGetPhysicalMonitorDescription @ 0x1C026CF50 (NtGdiGetPhysicalMonitorDescription.c)
+ * Callees:
+ *     ?GetHandleObject@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysicalMonitorHandle@@@Z @ 0x1C026C760 (-GetHandleObject@-$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysi.c)
+ *     ?GetMonitorDescription@CPhysicalMonitorHandle@@QEAAJKPEAG@Z @ 0x1C026C86C (-GetMonitorDescription@CPhysicalMonitorHandle@@QEAAJKPEAG@Z.c)
+ */
+
 __int64 __fastcall CMonitorAPI::GetMonitorDescription(
         CMonitorAPI *this,
         void *a2,

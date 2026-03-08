@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpCovSampModuleNameInfoCleanup @ 0x1409EFA24
+ * Callers:
+ *     EtwpCoverageSamplerQuery @ 0x1408A55B8 (EtwpCoverageSamplerQuery.c)
+ *     EtwpCovSampContextGetModule @ 0x1409EE4AC (EtwpCovSampContextGetModule.c)
+ *     EtwpCovSampModuleCleanup @ 0x1409EF8C8 (EtwpCovSampModuleCleanup.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ */
+
 void __fastcall EtwpCovSampModuleNameInfoCleanup(__int64 *a1)
 {
   __int64 v2; // rax

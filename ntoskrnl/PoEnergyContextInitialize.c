@@ -1,3 +1,12 @@
+/*
+ * XREFs of PoEnergyContextInitialize @ 0x140706240
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ *     PopEtInit @ 0x140B678A0 (PopEtInit.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PoEnergyContextInitialize(_QWORD *a1)
 {
   __int64 result; // rax

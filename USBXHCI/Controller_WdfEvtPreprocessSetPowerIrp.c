@@ -1,3 +1,14 @@
+/*
+ * XREFs of Controller_WdfEvtPreprocessSetPowerIrp @ 0x1C000F080
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_L @ 0x1C00136C0 (WPP_RECORDER_SF_L.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Crashdump_ProcessSystemPowerAction @ 0x1C004CCC4 (Crashdump_ProcessSystemPowerAction.c)
+ */
+
 __int64 __fastcall Controller_WdfEvtPreprocessSetPowerIrp(__int64 a1, __int64 a2)
 {
   __int64 v4; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMIsLegacyDevice @ 0x1C01BF718
+ * Callers:
+ *     RIMAllocateAndLinkHidTLCInfo @ 0x1C01BF13C (RIMAllocateAndLinkHidTLCInfo.c)
+ *     RIMSearchHidTLCInfo @ 0x1C01BF788 (RIMSearchHidTLCInfo.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall RIMIsLegacyDevice(__int16 a1, __int16 a2)
 {
   unsigned int v2; // ebx

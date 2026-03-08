@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?xxxMNRemoveMessage@@YAHII@Z @ 0x1C0216788
+ * Callers:
+ *     xxxHandleMenuMessages @ 0x1C0216988 (xxxHandleMenuMessages.c)
+ * Callees:
+ *     xxxInternalGetMessage @ 0x1C00946B0 (xxxInternalGetMessage.c)
+ */
+
 __int64 __fastcall xxxMNRemoveMessage(int a1, int a2)
 {
   _OWORD v5[3]; // [rsp+30h] [rbp-38h] BYREF

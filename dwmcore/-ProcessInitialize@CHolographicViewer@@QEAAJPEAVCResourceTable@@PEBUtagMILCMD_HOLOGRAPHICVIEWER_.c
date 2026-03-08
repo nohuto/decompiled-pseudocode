@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ProcessInitialize@CHolographicViewer@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICVIEWER_INITIALIZE@@@Z @ 0x1802A88CC
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F0A8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     ?GetOwningProcessId@CResource@@UEBAKXZ @ 0x180017AC0 (-GetOwningProcessId@CResource@@UEBAKXZ.c)
+ *     ?OnChanged@CHolographicViewer@@AEAAXXZ @ 0x1802A86E0 (-OnChanged@CHolographicViewer@@AEAAXXZ.c)
+ */
+
 __int64 __fastcall CHolographicViewer::ProcessInitialize(
         CHolographicViewer *this,
         struct CResourceTable *a2,

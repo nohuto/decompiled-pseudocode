@@ -1,3 +1,14 @@
+/*
+ * XREFs of DxgkReleaseAdapterFdoReference @ 0x1C02BE328
+ * Callers:
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ *     DpiFdoResetFdo @ 0x1C0398754 (DpiFdoResetFdo.c)
+ * Callees:
+ *     ?ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ @ 0x1C0009EE0 (-ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?ClearDeviceObject@DXGADAPTER@@QEAAXXZ @ 0x1C0041F44 (-ClearDeviceObject@DXGADAPTER@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall DxgkReleaseAdapterFdoReference(DXGADAPTER *this)
 {
   if ( this )

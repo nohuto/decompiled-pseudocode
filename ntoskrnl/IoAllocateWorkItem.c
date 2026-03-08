@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoAllocateWorkItem @ 0x1402027B0
+ * Callers:
+ *     PnpDeviceCompletionRequestDestroy @ 0x140202754 (PnpDeviceCompletionRequestDestroy.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 PIO_WORKITEM __stdcall IoAllocateWorkItem(PDEVICE_OBJECT DeviceObject)
 {
   PIO_WORKITEM result; // rax

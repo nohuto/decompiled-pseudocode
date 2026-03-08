@@ -1,3 +1,11 @@
+/*
+ * XREFs of SetSwapMouseButton @ 0x1C0167F80
+ * Callers:
+ *     UnpackMouseSettings @ 0x1C02194BC (UnpackMouseSettings.c)
+ * Callees:
+ *     BroadcastSettingsUpdateToAllContainers @ 0x1C009D090 (BroadcastSettingsUpdateToAllContainers.c)
+ */
+
 char __fastcall SetSwapMouseButton(unsigned __int8 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v4; // di

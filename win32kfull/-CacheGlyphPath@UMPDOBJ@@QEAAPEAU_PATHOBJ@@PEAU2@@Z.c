@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CacheGlyphPath@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU2@@Z @ 0x1C029B3F8
+ * Callers:
+ *     NtGdiFONTOBJ_cGetGlyphs @ 0x1C02CE7E0 (NtGdiFONTOBJ_cGetGlyphs.c)
+ * Callees:
+ *     ?ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z @ 0x1C029BC38 (-ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z.c)
+ */
+
 struct _PATHOBJ *__fastcall UMPDOBJ::CacheGlyphPath(UMPDOBJ *this, struct _PATHOBJ *a2)
 {
   struct _PATHOBJ *v2; // r8

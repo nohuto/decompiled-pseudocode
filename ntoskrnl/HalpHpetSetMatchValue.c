@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpHpetSetMatchValue @ 0x14051D88C
+ * Callers:
+ *     HalpHpetAcknowledgeInterrupt @ 0x14051D800 (HalpHpetAcknowledgeInterrupt.c)
+ *     HalpHpetArmTimer @ 0x14051D840 (HalpHpetArmTimer.c)
+ * Callees:
+ *     HalSetTimerProblem @ 0x14051D440 (HalSetTimerProblem.c)
+ */
+
 __int64 __fastcall HalpHpetSetMatchValue(int *a1, int a2, char a3)
 {
   unsigned int v3; // edi

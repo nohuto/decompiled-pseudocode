@@ -1,3 +1,11 @@
+/*
+ * XREFs of McGenEventUnregister_EtwUnregister @ 0x1C002E4C8
+ * Callers:
+ *     ?DeInitGlobals@VIDMM_GLOBAL@@SAXXZ @ 0x1C00E12CC (-DeInitGlobals@VIDMM_GLOBAL@@SAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall McGenEventUnregister_EtwUnregister(REGHANDLE *a1)
 {
   REGHANDLE v2; // rcx

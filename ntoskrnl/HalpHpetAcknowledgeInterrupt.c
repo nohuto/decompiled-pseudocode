@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpHpetAcknowledgeInterrupt @ 0x14051D800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalSetTimerProblem @ 0x14051D440 (HalSetTimerProblem.c)
+ *     HalpHpetSetMatchValue @ 0x14051D88C (HalpHpetSetMatchValue.c)
+ */
+
 void __fastcall HalpHpetAcknowledgeInterrupt(__int64 a1, __int64 a2, __int64 a3)
 {
   if ( *(_DWORD *)(a1 + 8) == 1 )

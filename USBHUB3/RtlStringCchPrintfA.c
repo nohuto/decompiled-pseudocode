@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlStringCchPrintfA @ 0x1C00014E0
+ * Callers:
+ *     HUBMUX_CreatePSM @ 0x1C000FED8 (HUBMUX_CreatePSM.c)
+ *     HUBPDO_ReportDeviceFailure @ 0x1C001B588 (HUBPDO_ReportDeviceFailure.c)
+ *     HUBMISC_ConvertUsbDeviceIdsToString @ 0x1C0033EEC (HUBMISC_ConvertUsbDeviceIdsToString.c)
+ *     HUBFDO_EvtDeviceAdd @ 0x1C0077680 (HUBFDO_EvtDeviceAdd.c)
+ *     HUBFDO_QueryHubErrataFlags @ 0x1C007C7B4 (HUBFDO_QueryHubErrataFlags.c)
+ *     HUBREG_QueryUsbflagsValuesForDevice @ 0x1C0084444 (HUBREG_QueryUsbflagsValuesForDevice.c)
+ *     DriverEntry @ 0x1C0093228 (DriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS RtlStringCchPrintfA(NTSTRSAFE_PSTR pszDest, size_t cchDest, NTSTRSAFE_PCSTR pszFormat, ...)
 {
   NTSTATUS v4; // ebx

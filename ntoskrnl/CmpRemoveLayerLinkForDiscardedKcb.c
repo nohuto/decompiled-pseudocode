@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpRemoveLayerLinkForDiscardedKcb @ 0x14067D4A8
+ * Callers:
+ *     CmpRemoveHiveFromNamespace @ 0x1402BFC14 (CmpRemoveHiveFromNamespace.c)
+ *     CmpInvalidateSubtreeWorker @ 0x14067F320 (CmpInvalidateSubtreeWorker.c)
+ *     CmpCompleteUnloadKey @ 0x14074A958 (CmpCompleteUnloadKey.c)
+ * Callees:
+ *     CmpDelayDerefKeyControlBlock @ 0x1407AF9B0 (CmpDelayDerefKeyControlBlock.c)
+ */
+
 _QWORD *__fastcall CmpRemoveLayerLinkForDiscardedKcb(__int64 a1)
 {
   _QWORD *result; // rax

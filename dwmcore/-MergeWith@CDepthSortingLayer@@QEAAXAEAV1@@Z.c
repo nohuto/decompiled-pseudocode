@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MergeWith@CDepthSortingLayer@@QEAAXAEAV1@@Z @ 0x180269660
+ * Callers:
+ *     ?AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z @ 0x180256960 (-AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z.c)
+ * Callees:
+ *     ??$_Emplace_reallocate@AEBI@?$vector@IV?$allocator@I@std@@@std@@QEAAPEAIQEAIAEBI@Z @ 0x1801B5194 (--$_Emplace_reallocate@AEBI@-$vector@IV-$allocator@I@std@@@std@@QEAAPEAIQEAIAEBI@Z.c)
+ */
+
 void __fastcall CDepthSortingLayer::MergeWith(CDepthSortingLayer *this, struct CDepthSortingLayer *a2)
 {
   float v3; // xmm1_4

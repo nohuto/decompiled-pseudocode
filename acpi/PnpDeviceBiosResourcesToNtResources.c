@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpDeviceBiosResourcesToNtResources @ 0x1C003C2C4
+ * Callers:
+ *     PnpBiosGetDeviceResourceList @ 0x1C008ED68 (PnpBiosGetDeviceResourceList.c)
+ * Callees:
+ *     PnpBiosResourcesToNtResources @ 0x1C008EFDC (PnpBiosResourcesToNtResources.c)
+ */
+
 __int64 __fastcall PnpDeviceBiosResourcesToNtResources(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
 {
   __int64 v4; // rbx

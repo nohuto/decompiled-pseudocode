@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bAllowShareAccess@PDEVOBJ@@QEAAHXZ @ 0x1C0020580
+ * Callers:
+ *     ?vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C0020500 (-vLock@NEEDGRELOCK@@QEAAXAEAVPDEVOBJ@@@Z.c)
+ *     ?MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C018B320 (-MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDE.c)
+ *     GreLockVisRgnSharedOrExclusive @ 0x1C0197440 (GreLockVisRgnSharedOrExclusive.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall PDEVOBJ::bAllowShareAccess(PDEVOBJ *this)
 {
   __int64 v1; // rbx

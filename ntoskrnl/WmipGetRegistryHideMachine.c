@@ -1,3 +1,16 @@
+/*
+ * XREFs of WmipGetRegistryHideMachine @ 0x140725BEC
+ * Callers:
+ *     WmipGetSMBiosTableData @ 0x140725AEC (WmipGetSMBiosTableData.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 bool WmipGetRegistryHideMachine()
 {
   int v0; // edi

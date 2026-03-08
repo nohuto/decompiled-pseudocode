@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpFastResourceLegacyAcquireShared2 @ 0x140410068
+ * Callers:
+ *     ExpFastResourceLegacyAcquireShared @ 0x1403C33D4 (ExpFastResourceLegacyAcquireShared.c)
+ * Callees:
+ *     ExAcquireFastResourceShared2 @ 0x14040D7F0 (ExAcquireFastResourceShared2.c)
+ *     ExIsFastResourceHeldExclusive2 @ 0x14040E7A0 (ExIsFastResourceHeldExclusive2.c)
+ *     ExpAllocateOwnerEntryForLegacyShim2 @ 0x14040FDCC (ExpAllocateOwnerEntryForLegacyShim2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall ExpFastResourceLegacyAcquireShared2(_WORD *BugCheckParameter2, char a2)
 {
   void *OwnerEntryForLegacyShim2; // rdi

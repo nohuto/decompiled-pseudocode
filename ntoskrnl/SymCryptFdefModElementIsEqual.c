@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefModElementIsEqual @ 0x1403FE710
+ * Callers:
+ *     SymCryptModElementIsEqual @ 0x1403F3B38 (SymCryptModElementIsEqual.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefModElementIsEqual(__int64 a1, __int64 a2, _DWORD *a3)
 {
   unsigned int v3; // r9d

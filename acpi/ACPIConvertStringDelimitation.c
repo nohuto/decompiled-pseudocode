@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIConvertStringDelimitation @ 0x1C0043964
+ * Callers:
+ *     ACPIBuildProcessDevicePhaseCid @ 0x1C000ED30 (ACPIBuildProcessDevicePhaseCid.c)
+ *     IsPciBusAsyncWorker @ 0x1C0035350 (IsPciBusAsyncWorker.c)
+ *     IsPciDeviceWorker @ 0x1C0035980 (IsPciDeviceWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ACPIConvertStringDelimitation(__int64 a1)
 {
   __int64 v1; // rax

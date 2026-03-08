@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiFdoQuerySysMmAdapterCaps @ 0x1C020CB8C
+ * Callers:
+ *     DpiFdoCreateSysMmAdapter @ 0x1C020A044 (DpiFdoCreateSysMmAdapter.c)
+ * Callees:
+ *     Feature_DxgkGpuVaIoMmu__private_IsEnabledDeviceUsage @ 0x1C0024530 (Feature_DxgkGpuVaIoMmu__private_IsEnabledDeviceUsage.c)
+ *     Feature_DmaRemapping__private_ReportDeviceUsage @ 0x1C00267A0 (Feature_DmaRemapping__private_ReportDeviceUsage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DpiFdoQuerySysMmAdapterCaps(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 (__fastcall *v6)(__int64, __int128 *); // rax

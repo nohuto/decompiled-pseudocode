@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIInternalCheckPowerReferences @ 0x1C002E494
+ * Callers:
+ *     ACPIFilterIrpSetPower @ 0x1C0028B10 (ACPIFilterIrpSetPower.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall ACPIInternalCheckPowerReferences(__int64 a1)
 {
   _QWORD *v1; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of SANITIZE_VA @ 0x14040A840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SANITIZE_VA(__int64 a1, __int16 a2, char a3)
 {
   if ( a3 == 1 )

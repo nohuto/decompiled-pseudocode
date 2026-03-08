@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?TurnOffScribblingForTarget@CSuperWetInkManager@@AEBAXPEAVIMonitorTarget@@@Z @ 0x1801C9EE8
+ * Callers:
+ *     ?DeactivateCurrentSource@CSuperWetInkManager@@AEAAXXZ @ 0x1801C8A90 (-DeactivateCurrentSource@CSuperWetInkManager@@AEAAXXZ.c)
+ *     ?SetActiveSource@CSuperWetInkManager@@AEAAXAEBUSuperWetStroke@1@@Z @ 0x1801C9544 (-SetActiveSource@CSuperWetInkManager@@AEAAXAEBUSuperWetStroke@1@@Z.c)
+ * Callees:
+ *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E91E4 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?DeactivateOnNextFrame@CComputeScribbleRenderer@@QEAAXXZ @ 0x1801F86B0 (-DeactivateOnNextFrame@CComputeScribbleRenderer@@QEAAXXZ.c)
+ */
+
 void __fastcall CSuperWetInkManager::TurnOffScribblingForTarget(CSuperWetInkManager *this, struct IMonitorTarget *a2)
 {
   __int64 v2; // rax

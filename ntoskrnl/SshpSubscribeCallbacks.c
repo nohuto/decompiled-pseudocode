@@ -1,3 +1,12 @@
+/*
+ * XREFs of SshpSubscribeCallbacks @ 0x140B5DEEC
+ * Callers:
+ *     SshInitialize @ 0x140B46C1C (SshInitialize.c)
+ * Callees:
+ *     ExSubscribeWnfStateChange @ 0x14078C4C0 (ExSubscribeWnfStateChange.c)
+ *     SSHSupportRegisterPowerSettingCallback @ 0x1408291F8 (SSHSupportRegisterPowerSettingCallback.c)
+ */
+
 int SshpSubscribeCallbacks()
 {
   int result; // eax

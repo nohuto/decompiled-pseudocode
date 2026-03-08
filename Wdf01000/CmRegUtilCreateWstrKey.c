@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmRegUtilCreateWstrKey @ 0x1C00B1A4C
+ * Callers:
+ *     PiRegStateOpenClassKey @ 0x1C00B1280 (PiRegStateOpenClassKey.c)
+ *     PpRegStateUpdateStackCreationSettings @ 0x1C00B1774 (PpRegStateUpdateStackCreationSettings.c)
+ * Callees:
+ *     WdmlibRtlInitUnicodeStringEx @ 0x1C0087408 (WdmlibRtlInitUnicodeStringEx.c)
+ *     CmRegUtilCreateUcKey @ 0x1C00B19A4 (CmRegUtilCreateUcKey.c)
+ */
+
 __int64 __fastcall CmRegUtilCreateWstrKey(
         void *BaseHandle,
         wchar_t *KeyName,

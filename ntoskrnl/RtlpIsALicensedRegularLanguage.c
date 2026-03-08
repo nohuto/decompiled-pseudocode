@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpIsALicensedRegularLanguage @ 0x140843AD4
+ * Callers:
+ *     RtlpMuiRegAddLanguageByName @ 0x1408437B0 (RtlpMuiRegAddLanguageByName.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x140843870 (_RtlpMuiRegValidateInstalled.c)
+ * Callees:
+ *     RtlpLangNameInMultiSzString @ 0x140843B4C (RtlpLangNameInMultiSzString.c)
+ */
+
 __int64 __fastcall RtlpIsALicensedRegularLanguage(_QWORD *a1, wchar_t *a2)
 {
   unsigned int v2; // ebx

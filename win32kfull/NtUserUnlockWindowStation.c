@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserUnlockWindowStation @ 0x1C00F0380
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _UnlockWindowStation @ 0x1C00F0400 (_UnlockWindowStation.c)
+ */
+
 __int64 __fastcall NtUserUnlockWindowStation(__int64 a1)
 {
   int v2; // edi

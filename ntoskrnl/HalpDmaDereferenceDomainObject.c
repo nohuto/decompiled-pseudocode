@@ -1,3 +1,30 @@
+/*
+ * XREFs of HalpDmaDereferenceDomainObject @ 0x140510338
+ * Callers:
+ *     HalJoinDmaDomain @ 0x14038C5D0 (HalJoinDmaDomain.c)
+ *     HalpDmaAllocateDomain @ 0x14038C660 (HalpDmaAllocateDomain.c)
+ *     HalpDmaIsAutomaticDomain @ 0x14038CD80 (HalpDmaIsAutomaticDomain.c)
+ *     HalpAllocateCommonBufferDmaThin @ 0x14038CE84 (HalpAllocateCommonBufferDmaThin.c)
+ *     HalFreeCommonBufferVector @ 0x14050CB90 (HalFreeCommonBufferVector.c)
+ *     HalpAllocateCommonBufferVectorInternal @ 0x14050D000 (HalpAllocateCommonBufferVectorInternal.c)
+ *     HalCreateCommonBufferFromMdl @ 0x14050FA20 (HalCreateCommonBufferFromMdl.c)
+ *     HalFreeCommonBufferV3 @ 0x14050FE10 (HalFreeCommonBufferV3.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x14050FF60 (HalpAllocateDomainCommonBufferInternal.c)
+ *     HalpLeaveDmaDomain @ 0x1405108E4 (HalpLeaveDmaDomain.c)
+ *     HalCreateCommonBufferFromMdlDmaThin @ 0x140510B70 (HalCreateCommonBufferFromMdlDmaThin.c)
+ *     HalFreeCommonBufferDmaThin @ 0x140510E60 (HalFreeCommonBufferDmaThin.c)
+ *     HalCreateCommonBufferFromMdlDmarThin @ 0x140511380 (HalCreateCommonBufferFromMdlDmarThin.c)
+ *     HalFreeCommonBufferDmarThin @ 0x140511580 (HalFreeCommonBufferDmarThin.c)
+ *     HalpAllocateCommonBufferDmarThin @ 0x1405116E8 (HalpAllocateCommonBufferDmarThin.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpDmaDereferenceDomainObject(__int64 *BugCheckParameter3)
 {
   char v2; // bp

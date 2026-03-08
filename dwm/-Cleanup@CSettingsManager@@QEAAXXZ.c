@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Cleanup@CSettingsManager@@QEAAXXZ @ 0x140004188
+ * Callers:
+ *     ?Shutdown@CDwmAppHost@@QEAAXJ@Z @ 0x140003170 (-Shutdown@CDwmAppHost@@QEAAXJ@Z.c)
+ *     ?PropagateUserLogon@CSettingsManager@@QEAAXPEAUHKEY__@@00_N@Z @ 0x1400040E4 (-PropagateUserLogon@CSettingsManager@@QEAAXPEAUHKEY__@@00_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CSettingsManager::Cleanup(RTL_SRWLOCK *this)
 {
   HKEY Ptr; // rcx

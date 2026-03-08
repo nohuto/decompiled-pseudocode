@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiCombineAllPhysicalMemory @ 0x1407C7D50
+ * Callers:
+ *     MiCombineIdenticalPages @ 0x1407F7D84 (MiCombineIdenticalPages.c)
+ * Callees:
+ *     MiReferencePageRuns @ 0x1402EB520 (MiReferencePageRuns.c)
+ *     MiDereferencePageRuns @ 0x1402EBA0C (MiDereferencePageRuns.c)
+ *     KeQueryNodeActiveAffinity2 @ 0x140300670 (KeQueryNodeActiveAffinity2.c)
+ *     KeSetSystemMultipleGroupAffinityThread @ 0x140301184 (KeSetSystemMultipleGroupAffinityThread.c)
+ *     KeRevertToUserMultipleGroupAffinityThread @ 0x140301A54 (KeRevertToUserMultipleGroupAffinityThread.c)
+ *     MiGetClosestNodeWithProcessors @ 0x1403028A8 (MiGetClosestNodeWithProcessors.c)
+ *     PsAllocateAffinityToken @ 0x140302A40 (PsAllocateAffinityToken.c)
+ *     PsFreeAffinityToken @ 0x140303040 (PsFreeAffinityToken.c)
+ *     MiComputeCombineHash @ 0x14032C2E0 (MiComputeCombineHash.c)
+ *     MiCombineCandidate @ 0x14032C640 (MiCombineCandidate.c)
+ *     ExAllocatePoolMm @ 0x14034C1AC (ExAllocatePoolMm.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x14035094C (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiProcessCrcList @ 0x1406A8670 (MiProcessCrcList.c)
+ *     MiAllocateCrcList @ 0x1407961D4 (MiAllocateCrcList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiCombineAllPhysicalMemory(__int64 *a1)
 {
   __int64 *v1; // rbx

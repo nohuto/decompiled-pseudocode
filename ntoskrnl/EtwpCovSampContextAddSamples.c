@@ -1,3 +1,20 @@
+/*
+ * XREFs of EtwpCovSampContextAddSamples @ 0x1408A4190
+ * Callers:
+ *     EtwpCovSampCaptureBufferProcess @ 0x1408A3BF4 (EtwpCovSampCaptureBufferProcess.c)
+ *     EtwpCovSampContextAddAddresses @ 0x1408A4096 (EtwpCovSampContextAddAddresses.c)
+ *     EtwpCovSampSampleBufferProcess @ 0x1409EFD64 (EtwpCovSampSampleBufferProcess.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     EtwCovSampHash @ 0x140461748 (EtwCovSampHash.c)
+ *     EtwpCovSampHashLookupInTable @ 0x1408A4A72 (EtwpCovSampHashLookupInTable.c)
+ *     EtwpCovSampHashMakeRoomAndAcquireLock @ 0x1408A4B3A (EtwpCovSampHashMakeRoomAndAcquireLock.c)
+ *     EtwpCovSampCaptureContextSetPaused @ 0x1409EDBAC (EtwpCovSampCaptureContextSetPaused.c)
+ *     EtwpCoverageSamplerFreeTable @ 0x1409F0328 (EtwpCoverageSamplerFreeTable.c)
+ */
+
 __int64 __fastcall EtwpCovSampContextAddSamples(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned int a3)
 {
   __int64 v4; // r13

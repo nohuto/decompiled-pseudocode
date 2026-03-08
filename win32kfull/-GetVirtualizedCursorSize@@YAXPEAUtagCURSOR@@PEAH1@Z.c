@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?GetVirtualizedCursorSize@@YAXPEAUtagCURSOR@@PEAH1@Z @ 0x1C003BA40
+ * Callers:
+ *     _DrawIconEx @ 0x1C003B618 (_DrawIconEx.c)
+ *     NtUserDrawIconEx @ 0x1C003B810 (NtUserDrawIconEx.c)
+ *     NtUserGetIconSize @ 0x1C003B910 (NtUserGetIconSize.c)
+ * Callees:
+ *     GetCursorSizeFromIndex @ 0x1C003AB10 (GetCursorSizeFromIndex.c)
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     ?ShouldVirtualizeIconCursorSize@@YA_NPEAUtagCURSOR@@@Z @ 0x1C0060F98 (-ShouldVirtualizeIconCursorSize@@YA_NPEAUtagCURSOR@@@Z.c)
+ */
+
 void __fastcall GetVirtualizedCursorSize(struct tagCURSOR *a1, int *a2, int *a3)
 {
   __int64 v6; // rdx

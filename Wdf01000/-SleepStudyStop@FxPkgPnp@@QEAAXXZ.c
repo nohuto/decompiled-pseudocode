@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SleepStudyStop@FxPkgPnp@@QEAAXXZ @ 0x1C0079834
+ * Callers:
+ *     ??1FxPkgPnp@@MEAA@XZ @ 0x1C0070ED0 (--1FxPkgPnp@@MEAA@XZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     SleepstudyHelper_Uninitialize @ 0x1C00B21E0 (SleepstudyHelper_Uninitialize.c)
+ */
+
 void __fastcall FxPkgPnp::SleepStudyStop(FxPkgPnp *this)
 {
   _SLEEP_STUDY_INTERFACE *m_SleepStudy; // rax

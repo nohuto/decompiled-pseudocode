@@ -1,3 +1,14 @@
+/*
+ * XREFs of VfWdInit @ 0x140ADB0B8
+ * Callers:
+ *     ViIovInitialization @ 0x140AD9358 (ViIovInitialization.c)
+ * Callees:
+ *     KeInitializeTimerEx @ 0x140237DB0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1403BD3B0 (ExInitializeNPagedLookasideListInternal.c)
+ *     VfWdSetCancelTimeout @ 0x140ADB17C (VfWdSetCancelTimeout.c)
+ */
+
 __int64 VfWdInit()
 {
   __int64 result; // rax

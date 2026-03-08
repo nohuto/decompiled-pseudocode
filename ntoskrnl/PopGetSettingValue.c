@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopGetSettingValue @ 0x14073CFC0
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     PsGetProcessSessionIdEx @ 0x1402BDFA0 (PsGetProcessSessionIdEx.c)
+ *     PopFindPowerSettingConfiguration @ 0x14068D434 (PopFindPowerSettingConfiguration.c)
+ *     PopMarshalSettingValues @ 0x14073D054 (PopMarshalSettingValues.c)
+ */
+
 __int64 __fastcall PopGetSettingValue(_QWORD *a1, __int64 a2, int a3)
 {
   int ProcessSessionId; // eax

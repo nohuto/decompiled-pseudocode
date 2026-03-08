@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIInsertPhysicalDeviceLocationDescriptor @ 0x1C0097FB8
+ * Callers:
+ *     ACPIProcessPhysicalDeviceLocation @ 0x1C0098134 (ACPIProcessPhysicalDeviceLocation.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall ACPIInsertPhysicalDeviceLocationDescriptor(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // rax

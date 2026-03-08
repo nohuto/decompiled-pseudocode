@@ -1,3 +1,16 @@
+/*
+ * XREFs of GreSetLWContentOwner @ 0x1C02D71EC
+ * Callers:
+ *     ChangeWindowBitmapOwner @ 0x1C01BDDD4 (ChangeWindowBitmapOwner.c)
+ * Callees:
+ *     ??0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C000A650 (--0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C0018890 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ??0SEMOBJEXORSHARED@@QEAA@PEAUHSEMAPHORE__@@H@Z @ 0x1C0019198 (--0SEMOBJEXORSHARED@@QEAA@PEAUHSEMAPHORE__@@H@Z.c)
+ *     IsDwmActive @ 0x1C002CF30 (IsDwmActive.c)
+ *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C002D7C8 (--1DWMSPRITELOCK@@QEAA@XZ.c)
+ *     GreSetBitmapContentOwner @ 0x1C00DFBB4 (GreSetBitmapContentOwner.c)
+ */
+
 __int64 __fastcall GreSetLWContentOwner(Gre::Base *a1, __int64 a2, int a3)
 {
   unsigned int v5; // edi

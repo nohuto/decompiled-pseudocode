@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetBallisticsLevel@InteractiveControlDefaultScroller@@AEAAXKH@Z @ 0x1C024AAB4
+ * Callers:
+ *     ?Reset@InteractiveControlDefaultScroller@@AEAAXPEAUtagWND@@@Z @ 0x1C024A73C (-Reset@InteractiveControlDefaultScroller@@AEAAXPEAUtagWND@@@Z.c)
+ *     ?UpdateBallistics@InteractiveControlDefaultScroller@@AEAAJXZ @ 0x1C024AB34 (-UpdateBallistics@InteractiveControlDefaultScroller@@AEAAJXZ.c)
+ * Callees:
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C007A05C (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ */
+
 void __fastcall InteractiveControlDefaultScroller::SetBallisticsLevel(
         InteractiveControlDefaultScroller *this,
         unsigned int a2,

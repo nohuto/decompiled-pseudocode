@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?VidMmSetExistingSysMemPages@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@IIIPEA_K@Z @ 0x1C00EA860
+ * Callers:
+ *     VidMmSetExistingSysMemPages @ 0x1C002D480 (VidMmSetExistingSysMemPages.c)
+ * Callees:
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002124 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002B90 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall VIDMM_GLOBAL::VidMmSetExistingSysMemPages(
         VIDMM_GLOBAL *this,
         __int64 **a2,

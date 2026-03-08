@@ -1,3 +1,13 @@
+/*
+ * XREFs of McTemplateK0dszu_EtwWriteTransfer @ 0x1405D121C
+ * Callers:
+ *     CarEtwWriteBugCheckEvent @ 0x1405D078C (CarEtwWriteBugCheckEvent.c)
+ *     CarEtwWriteLiveDumpEvent @ 0x1405D0A70 (CarEtwWriteLiveDumpEvent.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1403BE3A0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0dszu_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

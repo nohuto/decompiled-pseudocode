@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIEcRemoveOpRegionHandler @ 0x1C0083734
+ * Callers:
+ *     ACPIEcStopRemoveDeviceCommon @ 0x1C0025890 (ACPIEcStopRemoveDeviceCommon.c)
+ * Callees:
+ *     OSConvertDeviceHandleToNSHANDLE @ 0x1C000ABBC (OSConvertDeviceHandleToNSHANDLE.c)
+ *     UnRegisterOperationRegionHandler @ 0x1C008BDF0 (UnRegisterOperationRegionHandler.c)
+ */
+
 __int64 __fastcall ACPIEcRemoveOpRegionHandler(ULONG_PTR *a1)
 {
   unsigned int v2; // ebx

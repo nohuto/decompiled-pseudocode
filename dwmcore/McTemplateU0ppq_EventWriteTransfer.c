@@ -1,3 +1,14 @@
+/*
+ * XREFs of McTemplateU0ppq_EventWriteTransfer @ 0x18019F440
+ * Callers:
+ *     ??1CInteraction@@MEAA@XZ @ 0x1800E4A54 (--1CInteraction@@MEAA@XZ.c)
+ *     ??0CInteraction@@IEAA@PEAVCComposition@@@Z @ 0x1800E4C20 (--0CInteraction@@IEAA@PEAVCComposition@@@Z.c)
+ *     ?NotifyCapturePointer@CManipulationManager@@QEAAJPEAVCInteraction@@I@Z @ 0x18019B1E0 (-NotifyCapturePointer@CManipulationManager@@QEAAJPEAVCInteraction@@I@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 ULONG McTemplateU0ppq_EventWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v3; // [rsp+30h] [rbp-50h] BYREF

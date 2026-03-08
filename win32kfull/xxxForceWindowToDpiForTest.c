@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxxForceWindowToDpiForTest @ 0x1C01BBDC8
+ * Callers:
+ *     NtUserForceWindowToDpiForTest @ 0x1C01D0A00 (NtUserForceWindowToDpiForTest.c)
+ * Callees:
+ *     BuildHwndList @ 0x1C0041A10 (BuildHwndList.c)
+ *     xxxNotifyMonitorChanged @ 0x1C0099554 (xxxNotifyMonitorChanged.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ */
+
 __int64 __fastcall xxxForceWindowToDpiForTest(struct tagWND *this, int a2)
 {
   __int64 v4; // rax

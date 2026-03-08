@@ -1,3 +1,29 @@
+/*
+ * XREFs of MiGetUsedPtesHandle @ 0x140346CA0
+ * Callers:
+ *     MiSplitPrivatePage @ 0x14021114C (MiSplitPrivatePage.c)
+ *     MiDeletePteList @ 0x140276AC0 (MiDeletePteList.c)
+ *     MiCompleteRestrictedImageFault @ 0x14028D690 (MiCompleteRestrictedImageFault.c)
+ *     MiUpdatePageTableUseCount @ 0x14029EC20 (MiUpdatePageTableUseCount.c)
+ *     MiInsertPhysicalPteMapping @ 0x14029F690 (MiInsertPhysicalPteMapping.c)
+ *     MiReducePteUseCount @ 0x1402D0E3C (MiReducePteUseCount.c)
+ *     MiSetProtectionOnSection @ 0x140321FC0 (MiSetProtectionOnSection.c)
+ *     MiDeletePagablePteRange @ 0x1403244A0 (MiDeletePagablePteRange.c)
+ *     MiDecommitPages @ 0x140329B10 (MiDecommitPages.c)
+ *     MiReservePageFileSpaceForPage @ 0x14032ECD0 (MiReservePageFileSpaceForPage.c)
+ *     MiProtectPrivateMemory @ 0x140344540 (MiProtectPrivateMemory.c)
+ *     MiInPagePageTable @ 0x140345FA0 (MiInPagePageTable.c)
+ *     MiEvictPageTableLock @ 0x140346460 (MiEvictPageTableLock.c)
+ *     MiIsPageTableDeletable @ 0x140346AB4 (MiIsPageTableDeletable.c)
+ *     MiUpdatePrivateDemandZeroView @ 0x14062EF5C (MiUpdatePrivateDemandZeroView.c)
+ *     MiCommitHotPatchTable @ 0x14063FEB8 (MiCommitHotPatchTable.c)
+ *     MiUpdateAwePageTable @ 0x140649AB0 (MiUpdateAwePageTable.c)
+ *     MiDeleteLargeUserPde @ 0x14064DD80 (MiDeleteLargeUserPde.c)
+ *     MiInsertLargeUserMapping @ 0x140666510 (MiInsertLargeUserMapping.c)
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ */
+
 unsigned __int64 __fastcall MiGetUsedPtesHandle(unsigned __int64 a1)
 {
   unsigned __int64 v1; // rax

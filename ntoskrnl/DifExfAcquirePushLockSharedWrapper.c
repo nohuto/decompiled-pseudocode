@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifExfAcquirePushLockSharedWrapper @ 0x1405D7F20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 signed __int64 __fastcall DifExfAcquirePushLockSharedWrapper(signed __int64 *a1)
 {
   __int64 *APIThunkContextById; // rax

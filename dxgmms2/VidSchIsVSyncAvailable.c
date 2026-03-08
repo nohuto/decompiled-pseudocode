@@ -1,3 +1,13 @@
+/*
+ * XREFs of VidSchIsVSyncAvailable @ 0x1C00B49C0
+ * Callers:
+ *     VidSchiSetFlipDevice @ 0x1C0002730 (VidSchiSetFlipDevice.c)
+ *     VidSchCreatePeriodicFrameNotification @ 0x1C003EA40 (VidSchCreatePeriodicFrameNotification.c)
+ *     VidSchGetDeviceFlipMode @ 0x1C00B5910 (VidSchGetDeviceFlipMode.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ */
+
 unsigned __int8 __fastcall VidSchIsVSyncAvailable(__int64 a1, unsigned int a2)
 {
   struct _ERESOURCE *v4; // rdi

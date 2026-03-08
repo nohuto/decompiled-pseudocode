@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiLogBadMapper @ 0x14062E9E8
+ * Callers:
+ *     MiShowBadMapper @ 0x14062EC9C (MiShowBadMapper.c)
+ *     MmRegisterEtwProvider @ 0x140B4276C (MmRegisterEtwProvider.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     InsertEventEntryInLookUpTable @ 0x14035EE9C (InsertEventEntryInLookUpTable.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall MiLogBadMapper(__int64 a1, int a2, EVENT_DESCRIPTOR *a3)
 {
   void (__fastcall *v3)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *); // rax

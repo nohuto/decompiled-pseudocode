@@ -1,3 +1,13 @@
+/*
+ * XREFs of TlgUnregisterAggregateProvider @ 0x1C039C4B8
+ * Callers:
+ *     DisableUserkTraceLogging @ 0x1C00EC040 (DisableUserkTraceLogging.c)
+ * Callees:
+ *     DestroyAggregateSession @ 0x1C039C5B4 (DestroyAggregateSession.c)
+ *     CancelTimerCallbacksAndDeleteTimer @ 0x1C039C5F4 (CancelTimerCallbacksAndDeleteTimer.c)
+ *     LookUpTableFlushComplete @ 0x1C039C66C (LookUpTableFlushComplete.c)
+ */
+
 NTSTATUS TlgUnregisterAggregateProvider()
 {
   void *v0; // rdi

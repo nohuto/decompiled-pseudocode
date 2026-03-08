@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlSetAllBitsEx @ 0x1403AFA40
+ * Callers:
+ *     IopLiveDumpAllocAndInitResources @ 0x1409495FC (IopLiveDumpAllocAndInitResources.c)
+ *     MiInitializeUltraSpace @ 0x140B38940 (MiInitializeUltraSpace.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlSetAllBitsEx(_QWORD *a1)
 {
   _DWORD *v1; // r8

@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiIdentifyPfnWrapper @ 0x14025C920
+ * Callers:
+ *     MiQueryLeafPte @ 0x14031D370 (MiQueryLeafPte.c)
+ *     MiLogAllocateWsleEvent @ 0x140619E1C (MiLogAllocateWsleEvent.c)
+ *     MiScrubLargeMappedPage @ 0x14065BE5C (MiScrubLargeMappedPage.c)
+ *     MmQueryPfnList @ 0x1406E0A60 (MmQueryPfnList.c)
+ *     MmIdentifyPhysicalMemory @ 0x140A2C028 (MmIdentifyPhysicalMemory.c)
+ *     MmRelocatePfnList @ 0x140A39D10 (MmRelocatePfnList.c)
+ *     MiScrubProcessLargePage @ 0x140A43D34 (MiScrubProcessLargePage.c)
+ * Callees:
+ *     MiIdentifyPfn @ 0x14025E5D0 (MiIdentifyPfn.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiIdentifyPfnWrapper(__int64 a1, __int64 a2)
 {
   unsigned __int64 v4; // rdi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of VfUtilAddressRangeRemoveCheckEmpty @ 0x140ABF44C
+ * Callers:
+ *     IovpCompleteRequest2 @ 0x140AC9AFC (IovpCompleteRequest2.c)
+ *     VfIoFreeIrp @ 0x140ACA7E4 (VfIoFreeIrp.c)
+ *     VfPendingMoreProcessingRequired @ 0x140ACE970 (VfPendingMoreProcessingRequired.c)
+ *     ViPendingCompleteAfterWait @ 0x140ACEBEC (ViPendingCompleteAfterWait.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140ADE8EC (VfIrpDatabaseEntryReleaseLock.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VfUtilAddressRangeRemoveCheckEmpty(__int64 *a1, __int64 a2)
 {
   __int64 result; // rax

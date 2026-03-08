@@ -1,3 +1,13 @@
+/*
+ * XREFs of BiTranslateObjectIdentifier @ 0x140A5C1C0
+ * Callers:
+ *     BiExportEfiBootManager @ 0x140A5B928 (BiExportEfiBootManager.c)
+ *     BiHandleFirmwareDefaultEntry @ 0x140A5BD48 (BiHandleFirmwareDefaultEntry.c)
+ *     BiTranslateDisplayOrder @ 0x140A5C138 (BiTranslateDisplayOrder.c)
+ * Callees:
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ */
+
 __int64 __fastcall BiTranslateObjectIdentifier(_QWORD *a1, _QWORD *a2, _DWORD *a3)
 {
   _QWORD *v3; // r9

@@ -1,3 +1,11 @@
+/*
+ * XREFs of efCos @ 0x1C000BE00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     efSin @ 0x1C000BE30 (efSin.c)
+ */
+
 __int64 __fastcall efCos(unsigned int a1)
 {
   __m128i v1; // xmm0

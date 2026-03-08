@@ -1,3 +1,11 @@
+/*
+ * XREFs of _PnpCtxSetNtPlugPlayRoutine @ 0x14081BFE4
+ * Callers:
+ *     PiPnpRtlInit @ 0x14081BE64 (PiPnpRtlInit.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PnpCtxSetNtPlugPlayRoutine(__int64 a1, int a2, __int64 a3)
 {
   unsigned int v3; // r9d

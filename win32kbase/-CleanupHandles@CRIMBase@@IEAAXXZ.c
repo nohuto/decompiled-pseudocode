@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?CleanupHandles@CRIMBase@@IEAAXXZ @ 0x1C00315C4
+ * Callers:
+ *     CleanupSensorExplicitly @ 0x1C0031540 (CleanupSensorExplicitly.c)
+ * Callees:
+ *     ?CloseDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAXXZ @ 0x1C003168C (-CloseDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAXXZ.c)
+ *     RIMUnregisterForInput @ 0x1C00326C0 (RIMUnregisterForInput.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C006AE58 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C00AB5F0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ */
+
 void __fastcall CRIMBase::CleanupHandles(HANDLE *this)
 {
   CRIMBase::SensorDispatcherObject *v1; // rbx

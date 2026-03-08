@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DrawLogicallyRightSide@@YAXPEAXJJHJ@Z @ 0x1C02238C0
+ * Callers:
+ *     ?DrawRoundedRectangularShadow@@YAXPEAXJJHJ@Z @ 0x1C0223998 (-DrawRoundedRectangularShadow@@YAXPEAXJJHJ@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DrawLogicallyRightSide(char *a1, int a2, int a3, int a4, int a5)
 {
   int v6; // edx

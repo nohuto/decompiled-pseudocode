@@ -1,3 +1,12 @@
+/*
+ * XREFs of CKeyboardSensor_CreateInstance @ 0x1C0096190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CreateInstance@CKeyboardSensor@@SAJPEAPEAV1@@Z @ 0x1C009637C (-CreateInstance@CKeyboardSensor@@SAJPEAPEAV1@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall CKeyboardSensor_CreateInstance(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpDoesParseEnterRegistryA @ 0x140794184
+ * Callers:
+ *     CmpParseKey @ 0x1406E7480 (CmpParseKey.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CmpDoesParseEnterRegistryA(__int64 a1, __int64 a2)
 {
   _WORD *v2; // r8

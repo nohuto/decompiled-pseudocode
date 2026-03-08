@@ -1,3 +1,27 @@
+/*
+ * XREFs of ExInitializeNPagedLookasideListInternal @ 0x1403BD3B0
+ * Callers:
+ *     ExInitializeNPagedLookasideList @ 0x1403BD370 (ExInitializeNPagedLookasideList.c)
+ *     VfObjectContextInit @ 0x140AC0F94 (VfObjectContextInit.c)
+ *     VfDeadlockInitialize @ 0x140AD447C (VfDeadlockInitialize.c)
+ *     ViIovInitialization @ 0x140AD9358 (ViIovInitialization.c)
+ *     ViDmaInit @ 0x140ADA508 (ViDmaInit.c)
+ *     VfWdInit @ 0x140ADB0B8 (VfWdInit.c)
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ *     CcInitializeCacheManager @ 0x140B3EB44 (CcInitializeCacheManager.c)
+ *     ObInitSystem @ 0x140B403CC (ObInitSystem.c)
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ *     VfInitBootDriversLoaded @ 0x140B4EE44 (VfInitBootDriversLoaded.c)
+ *     WmipInitializeRegistration @ 0x140B544A8 (WmipInitializeRegistration.c)
+ *     PopInitializeIrpWorkers @ 0x140B6E534 (PopInitializeIrpWorkers.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExInitializeNPagedLookasideListInternal(
         __int64 a1,
         PVOID (__fastcall *a2)(int a1, SIZE_T a2, ULONG a3),

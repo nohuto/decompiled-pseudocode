@@ -1,3 +1,15 @@
+/*
+ * XREFs of VfHalAllocateMapRegisters @ 0x140AC3D60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ADD_MAP_REGISTERS @ 0x140AC1180 (ADD_MAP_REGISTERS.c)
+ *     ViAllocateMapRegisterFile @ 0x140AC4C84 (ViAllocateMapRegisterFile.c)
+ *     ViGetAdapterInformationInternal @ 0x140AC5E44 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaAdapter @ 0x140AC6158 (ViGetRealDmaAdapter.c)
+ */
+
 __int64 __fastcall VfHalAllocateMapRegisters(int a1, unsigned int a2, unsigned int a3, __int64 *a4)
 {
   __int64 v5; // rsi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?NotifyAllocationResident@VIDMM_DEVICE@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C00B45AC
+ * Callers:
+ *     ?ReferencePinnedAllocation@VIDMM_DEVICE@@QEAAJPEAUVIDMM_ALLOC@@PEA_N@Z @ 0x1C00B44A0 (-ReferencePinnedAllocation@VIDMM_DEVICE@@QEAAJPEAUVIDMM_ALLOC@@PEA_N@Z.c)
+ * Callees:
+ *     VidMmiShouldChargeAllocationAgainstBudget @ 0x1C00900F8 (VidMmiShouldChargeAllocationAgainstBudget.c)
+ *     ?IncrementCurrentUsage@VIDMM_DEVICE@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C00B4620 (-IncrementCurrentUsage@VIDMM_DEVICE@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
+ */
+
 void __fastcall VIDMM_DEVICE::NotifyAllocationResident(VIDMM_DEVICE ***this, __int64 **a2)
 {
   _QWORD *v3; // r11

@@ -1,3 +1,14 @@
+/*
+ * XREFs of RIMUpdatePointerDeviceScalingInfo @ 0x1C000FF84
+ * Callers:
+ *     ?MapToDisplayPath@CInputSpaceRegion@@QEAAXAEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@@Z @ 0x1C0010320 (-MapToDisplayPath@CInputSpaceRegion@@QEAAXAEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@@Z.c)
+ *     rimSetDeviceDisplayConfig @ 0x1C01BEDF8 (rimSetDeviceDisplayConfig.c)
+ * Callees:
+ *     EngMulDiv @ 0x1C003BF30 (EngMulDiv.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimConvertCoordinatesWithRounding @ 0x1C00EFE8A (rimConvertCoordinatesWithRounding.c)
+ */
+
 __int64 __fastcall RIMUpdatePointerDeviceScalingInfo(_DWORD *a1, _DWORD *a2, int *a3, __int64 a4)
 {
   unsigned int v7; // edx

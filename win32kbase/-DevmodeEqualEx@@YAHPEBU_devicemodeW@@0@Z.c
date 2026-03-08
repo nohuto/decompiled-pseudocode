@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DevmodeEqualEx@@YAHPEBU_devicemodeW@@0@Z @ 0x1C018D614
+ * Callers:
+ *     ?hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKPEAPEAU1@@Z @ 0x1C0024834 (-hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKP.c)
+ * Callees:
+ *     memcmp @ 0x1C00E17D0 (memcmp.c)
+ */
+
 __int64 __fastcall DevmodeEqualEx(const struct _devicemodeW *a1, const struct _devicemodeW *a2)
 {
   __int64 dmDriverExtra; // rax

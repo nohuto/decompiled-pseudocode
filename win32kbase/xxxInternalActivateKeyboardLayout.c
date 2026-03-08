@@ -1,3 +1,22 @@
+/*
+ * XREFs of xxxInternalActivateKeyboardLayout @ 0x1C0082990
+ * Callers:
+ *     xxxActivateKeyboardLayout @ 0x1C0082330 (xxxActivateKeyboardLayout.c)
+ *     ?xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_INTERNAL@@PEBGII@Z @ 0x1C0085310 (-xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_IN.c)
+ *     ?xxxInternalUnloadKeyboardLayout@@YA_NPEAUtagWINDOWSTATION@@PEAUtagKL@@I@Z @ 0x1C0086700 (-xxxInternalUnloadKeyboardLayout@@YA_NPEAUtagWINDOWSTATION@@PEAUtagKL@@I@Z.c)
+ * Callees:
+ *     ThreadUnlock1 @ 0x1C003B460 (ThreadUnlock1.c)
+ *     HMAssignmentLock @ 0x1C00788D0 (HMAssignmentLock.c)
+ *     ApiSetEditionNotifyShellLanguageHook @ 0x1C0085BA4 (ApiSetEditionNotifyShellLanguageHook.c)
+ *     xxxChangeForegroundKeyboardTable @ 0x1C00C7730 (xxxChangeForegroundKeyboardTable.c)
+ *     ApiSetEditionImmActivateLayout @ 0x1C00D0684 (ApiSetEditionImmActivateLayout.c)
+ *     xxxWindowEvent @ 0x1C00D40F8 (xxxWindowEvent.c)
+ *     Feature_KIDV2__private_IsEnabledDeviceUsage @ 0x1C00DDF28 (Feature_KIDV2__private_IsEnabledDeviceUsage.c)
+ *     IsKeyboardDelegationTarget @ 0x1C00E1150 (IsKeyboardDelegationTarget.c)
+ *     ApiSetEditionImmActivateThreadsLayout @ 0x1C023F2B4 (ApiSetEditionImmActivateThreadsLayout.c)
+ *     ApiSetEditionSendIMENotification @ 0x1C0242924 (ApiSetEditionSendIMENotification.c)
+ */
+
 __int64 __fastcall xxxInternalActivateKeyboardLayout(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v6; // rax

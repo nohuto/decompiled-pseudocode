@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CFlipConsumerMessage@@QEAA@IPEAUFlipPropertyItem@@PEAXI@Z @ 0x1C007EDEC
+ * Callers:
+ *     ??$CreateFlipPropertySetWorker@VCFlipConsumerMessage@@@@YAJIPEAUFlipPropertyItem@@_NPEAPEAVCFlipConsumerMessage@@@Z @ 0x1C007E5CC (--$CreateFlipPropertySetWorker@VCFlipConsumerMessage@@@@YAJIPEAUFlipPropertyItem@@_NPEAPEAVCFlip.c)
+ * Callees:
+ *     <none>
+ */
+
 CFlipConsumerMessage *__fastcall CFlipConsumerMessage::CFlipConsumerMessage(
         CFlipConsumerMessage *this,
         int a2,

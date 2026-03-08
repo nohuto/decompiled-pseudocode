@@ -1,3 +1,13 @@
+/*
+ * XREFs of MakeSystemRelativePath @ 0x1C00B1F80
+ * Callers:
+ *     ldevLoadDriver @ 0x1C0024CA0 (ldevLoadDriver.c)
+ *     ?ldevLoadImageInternal@@YAPEAU_LDEV@@PEBGHPEAHHH@Z @ 0x1C00B1D40 (-ldevLoadImageInternal@@YAPEAU_LDEV@@PEBGHPEAHHH@Z.c)
+ * Callees:
+ *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0062994 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     _wcsnicmp @ 0x1C00DACB8 (_wcsnicmp.c)
+ */
+
 __int64 __fastcall MakeSystemRelativePath(PCWSTR Source, PUNICODE_STRING Destination, int a3)
 {
   __int64 v3; // rbx

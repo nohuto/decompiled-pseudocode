@@ -1,3 +1,14 @@
+/*
+ * XREFs of Controller_PopulatePciDeviceInformation @ 0x1C0074CAC
+ * Callers:
+ *     Controller_RetrievePciData @ 0x1C0074ACC (Controller_RetrievePciData.c)
+ *     Controller_RetrieveUrsData @ 0x1C007882C (Controller_RetrieveUrsData.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ddd @ 0x1C0017FB0 (WPP_RECORDER_SF_ddd.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C001E054 (WPP_RECORDER_SF_DDD.c)
+ *     Controller_PopulateVIAFirmwareVersion @ 0x1C00783C8 (Controller_PopulateVIAFirmwareVersion.c)
+ */
+
 __int64 __fastcall Controller_PopulatePciDeviceInformation(
         __int64 a1,
         int a2,

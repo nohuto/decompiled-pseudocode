@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPDO_D3ColdSupportInterfaceGetIdleWakeInfo @ 0x1C007E930
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBPDO_D3ColdSupportInterfaceGetIdleWakeInfo(_QWORD *a1, int a2, int *a3)
 {
   __int64 (__fastcall *v3)(_QWORD); // rax

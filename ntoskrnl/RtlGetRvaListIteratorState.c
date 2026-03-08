@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlGetRvaListIteratorState @ 0x14076FCD8
+ * Callers:
+ *     RtlEnumRvaListFirst @ 0x14076FC8C (RtlEnumRvaListFirst.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlGetRvaListIteratorState(__int64 a1, __int64 a2)
 {
   unsigned int v2; // r9d

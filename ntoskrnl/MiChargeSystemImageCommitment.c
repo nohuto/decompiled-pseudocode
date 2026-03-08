@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiChargeSystemImageCommitment @ 0x1407F5F44
+ * Callers:
+ *     MiMapSystemImage @ 0x1407F5DFC (MiMapSystemImage.c)
+ *     MiMapSystemImageWithLargePage @ 0x140A46F04 (MiMapSystemImageWithLargePage.c)
+ * Callees:
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     MiAcquireNonPagedResources @ 0x140348D54 (MiAcquireNonPagedResources.c)
+ *     MiReleaseNonPagedResources @ 0x14065EA8C (MiReleaseNonPagedResources.c)
+ */
+
 __int64 __fastcall MiChargeSystemImageCommitment(__int64 a1)
 {
   unsigned __int64 v1; // rax

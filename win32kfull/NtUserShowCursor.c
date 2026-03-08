@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserShowCursor @ 0x1C00F2A20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?zzzShowCursor@@YAH_N@Z @ 0x1C00F2A60 (-zzzShowCursor@@YAH_N@Z.c)
+ */
+
 __int64 __fastcall NtUserShowCursor(int a1)
 {
   unsigned int v2; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiDetectFpuLeakage @ 0x140A842D0
+ * Callers:
+ *     KiInitializeKernel @ 0x140A89160 (KiInitializeKernel.c)
+ * Callees:
+ *     <none>
+ */
+
 double KiDetectFpuLeakage()
 {
   double result; // xmm0_8

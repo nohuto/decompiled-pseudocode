@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtGdiSTROBJ_dwGetCodePage @ 0x1C02CF9B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00D1B64 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     ??$GetDDIOBJ@U_STROBJ@@@UMPDOBJ@@QEAAPEAU_STROBJ@@PEAU1@@Z @ 0x1C02C94B8 (--$GetDDIOBJ@U_STROBJ@@@UMPDOBJ@@QEAAPEAU_STROBJ@@PEAU1@@Z.c)
+ */
+
 struct UMPDOBJ *__fastcall NtGdiSTROBJ_dwGetCodePage(__int64 a1)
 {
   struct _W32THREAD *ThreadWin32Thread; // rax

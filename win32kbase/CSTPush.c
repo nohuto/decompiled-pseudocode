@@ -1,3 +1,11 @@
+/*
+ * XREFs of CSTPush @ 0x1C00C8020
+ * Callers:
+ *     InitCreateSystemThreadsMsg @ 0x1C00C7FC0 (InitCreateSystemThreadsMsg.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CSTPush(int a1, __int64 a2)
 {
   _QWORD *v3; // r8

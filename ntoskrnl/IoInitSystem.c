@@ -1,3 +1,19 @@
+/*
+ * XREFs of IoInitSystem @ 0x140B5E3E0
+ * Callers:
+ *     Phase1Initialization @ 0x14080E810 (Phase1Initialization.c)
+ * Callees:
+ *     PnpSerializeBoot @ 0x1403AD6E0 (PnpSerializeBoot.c)
+ *     Feature_FsctlProcessMitigation__private_IsEnabledNoReporting @ 0x14040A0E4 (Feature_FsctlProcessMitigation__private_IsEnabledNoReporting.c)
+ *     Feature_REFSDV__private_IsEnabledNoReporting @ 0x14040A138 (Feature_REFSDV__private_IsEnabledNoReporting.c)
+ *     IopRegistryInitializeCallbacks @ 0x1408364DC (IopRegistryInitializeCallbacks.c)
+ *     IopInitializeMdlCache @ 0x1408367D4 (IopInitializeMdlCache.c)
+ *     VfNotifyVerifierOfEvent @ 0x140ABF120 (VfNotifyVerifierOfEvent.c)
+ *     HdlspKernelAddLogEntry @ 0x140AE7A40 (HdlspKernelAddLogEntry.c)
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ *     IopInitializeSystemDrivers @ 0x140B57B44 (IopInitializeSystemDrivers.c)
+ */
+
 char __fastcall IoInitSystem(__int64 a1)
 {
   FeatureDeveloperVolume = (unsigned int)Feature_REFSDV__private_IsEnabledNoReporting() != 0;

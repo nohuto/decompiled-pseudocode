@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiDeletePfnBitMaps @ 0x140A40338
+ * Callers:
+ *     MiDeletePartitionResources @ 0x140656EBC (MiDeletePartitionResources.c)
+ *     MiCreatePfnBitMaps @ 0x140809BDC (MiCreatePfnBitMaps.c)
+ * Callees:
+ *     MiDeleteSparseRange @ 0x140A404AC (MiDeleteSparseRange.c)
+ */
+
 __int64 __fastcall MiDeletePfnBitMaps(__int64 a1)
 {
   __int64 *v1; // r14

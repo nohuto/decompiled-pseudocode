@@ -1,3 +1,23 @@
+/*
+ * XREFs of PfpParametersWatcher @ 0x14097D180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     ZwNotifyChangeKey @ 0x140414730 (ZwNotifyChangeKey.c)
+ *     PfpParametersRead @ 0x140844FC8 (PfpParametersRead.c)
+ *     PfSnParametersRead @ 0x140845198 (PfSnParametersRead.c)
+ *     PfSnDetermineEnablePrefetcher @ 0x140861BA4 (PfSnDetermineEnablePrefetcher.c)
+ *     PfpParametersPropagate @ 0x14097D050 (PfpParametersPropagate.c)
+ */
+
 void __fastcall PfpParametersWatcher(__int64 a1)
 {
   volatile signed __int64 *v1; // rsi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of VidSchiInsertCommandToSoftwareQueue @ 0x1C00088B0
+ * Callers:
+ *     VidSchiSubmitCommandPacketToQueue @ 0x1C0003280 (VidSchiSubmitCommandPacketToQueue.c)
+ *     VidSchSignalSyncObjectsFromGpu @ 0x1C00040E0 (VidSchSignalSyncObjectsFromGpu.c)
+ *     VidSchiUpdatePriorityTables @ 0x1C0018770 (VidSchiUpdatePriorityTables.c)
+ * Callees:
+ *     VidSchiUpdateContextStatus @ 0x1C0008230 (VidSchiUpdateContextStatus.c)
+ *     McTemplateK0piixqq_EtwWriteTransfer @ 0x1C0037E04 (McTemplateK0piixqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall VidSchiInsertCommandToSoftwareQueue(__int64 a1, _DWORD *a2)
 {
   __int64 v2; // rbx

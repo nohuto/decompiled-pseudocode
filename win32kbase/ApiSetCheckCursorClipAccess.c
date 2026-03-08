@@ -1,3 +1,14 @@
+/*
+ * XREFs of ApiSetCheckCursorClipAccess @ 0x1C003A798
+ * Callers:
+ *     NtUserLockCursor @ 0x1C003A670 (NtUserLockCursor.c)
+ *     NtUserClipCursor @ 0x1C016D9B0 (NtUserClipCursor.c)
+ *     NtUserGetClipCursor @ 0x1C016F6E0 (NtUserGetClipCursor.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ApiSetCheckCursorClipAccess(unsigned int a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // esi

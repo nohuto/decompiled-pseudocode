@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmMapSecureViewOfSection @ 0x1406A0C4C
+ * Callers:
+ *     AlpcpCreateView @ 0x1406A0978 (AlpcpCreateView.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiMapParametersInitialize @ 0x1407D5090 (MiMapParametersInitialize.c)
+ *     MiMapViewOfSection @ 0x1407D51F0 (MiMapViewOfSection.c)
+ */
+
 __int64 __fastcall MmMapSecureViewOfSection(
         int a1,
         __int64 a2,

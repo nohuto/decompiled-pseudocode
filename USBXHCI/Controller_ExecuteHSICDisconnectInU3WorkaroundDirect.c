@@ -1,3 +1,14 @@
+/*
+ * XREFs of Controller_ExecuteHSICDisconnectInU3WorkaroundDirect @ 0x1C0078104
+ * Callers:
+ *     Controller_ExecuteHSICDisconnectInU3Workaround @ 0x1C006E400 (Controller_ExecuteHSICDisconnectInU3Workaround.c)
+ * Callees:
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_LL @ 0x1C0037218 (WPP_RECORDER_SF_LL.c)
+ *     XilRegister_ReadUshort @ 0x1C003F39C (XilRegister_ReadUshort.c)
+ */
+
 __int64 __fastcall Controller_ExecuteHSICDisconnectInU3WorkaroundDirect(__int64 a1, char a2)
 {
   __int64 v2; // rbx

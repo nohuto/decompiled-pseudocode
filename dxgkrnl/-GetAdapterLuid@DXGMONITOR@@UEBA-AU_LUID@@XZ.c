@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetAdapterLuid@DXGMONITOR@@UEBA?AU_LUID@@XZ @ 0x1C01E0550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 struct _LUID __fastcall DXGMONITOR::GetAdapterLuid(DXGMONITOR *this, _QWORD *a2)
 {
   struct _LUID result; // rax

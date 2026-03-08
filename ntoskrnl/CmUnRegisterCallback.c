@@ -1,3 +1,25 @@
+/*
+ * XREFs of CmUnRegisterCallback @ 0x140A0C560
+ * Callers:
+ *     DifCmUnRegisterCallbackWrapper @ 0x1405D42B0 (DifCmUnRegisterCallbackWrapper.c)
+ *     EtwpRegTraceEnableCallback @ 0x1409F16F0 (EtwpRegTraceEnableCallback.c)
+ *     VrpDecrementSiloCount @ 0x140A6F2D4 (VrpDecrementSiloCount.c)
+ * Callees:
+ *     CmCleanupThreadInfo @ 0x140263740 (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x140263760 (CmpInitializeThreadInfo.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExBlockOnAddressPushLock @ 0x1402BF8C0 (ExBlockOnAddressPushLock.c)
+ *     ObReferenceObjectSafe @ 0x1402CBCB0 (ObReferenceObjectSafe.c)
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     CmpLockContextListExclusive @ 0x140738BC4 (CmpLockContextListExclusive.c)
+ *     CmpUnlockContextList @ 0x140738DA0 (CmpUnlockContextList.c)
+ *     CmpUnlockCallbackList @ 0x140738E04 (CmpUnlockCallbackList.c)
+ *     CmpLockCallbackListExclusive @ 0x14084E9C8 (CmpLockCallbackListExclusive.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmListGetNextElement @ 0x140AF2008 (CmListGetNextElement.c)
+ */
+
 NTSTATUS __stdcall CmUnRegisterCallback(LARGE_INTEGER Cookie)
 {
   NTSTATUS v2; // esi

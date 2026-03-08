@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CheckCurrentInjectionConfiguration@@YAXXZ @ 0x1C01AFF24
+ * Callers:
+ *     xxxInjectTouchInput @ 0x1C01B19B4 (xxxInjectTouchInput.c)
+ *     NtUserInitializeTouchInjection @ 0x1C01D61A0 (NtUserInitializeTouchInjection.c)
+ * Callees:
+ *     ?RealizePendingRecreateTouchInjectionDevices@@YAHPEAUtagPROCESSINFO@@H@Z @ 0x1C01B05C0 (-RealizePendingRecreateTouchInjectionDevices@@YAHPEAUtagPROCESSINFO@@H@Z.c)
+ */
+
 void CheckCurrentInjectionConfiguration(void)
 {
   int v0; // edx

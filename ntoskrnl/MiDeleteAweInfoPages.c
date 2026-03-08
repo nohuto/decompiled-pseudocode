@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiDeleteAweInfoPages @ 0x140A3EE20
+ * Callers:
+ *     MiDeleteSectionAwe @ 0x140647390 (MiDeleteSectionAwe.c)
+ *     MmCleanProcessAddressSpace @ 0x1407D4924 (MmCleanProcessAddressSpace.c)
+ * Callees:
+ *     RtlClearBitsEx @ 0x14020FC50 (RtlClearBitsEx.c)
+ *     MiFreeMdlPageRun @ 0x14027AF50 (MiFreeMdlPageRun.c)
+ *     RtlFindSetBitsEx @ 0x1402D8E10 (RtlFindSetBitsEx.c)
+ *     MiGetProcessPartition @ 0x14031F9D4 (MiGetProcessPartition.c)
+ *     RtlFindNextForwardRunClearEx @ 0x14045B7C0 (RtlFindNextForwardRunClearEx.c)
+ *     MiFreeContiguousLargePageRun @ 0x14064780C (MiFreeContiguousLargePageRun.c)
+ *     MiGetAweInfoPartition @ 0x1406482AC (MiGetAweInfoPartition.c)
+ *     MiGetAwePageSize @ 0x14064836C (MiGetAwePageSize.c)
+ *     MiLockAwePagesExclusive @ 0x140648A44 (MiLockAwePagesExclusive.c)
+ *     MiUnlockAwePagesExclusive @ 0x14064985C (MiUnlockAwePagesExclusive.c)
+ *     MiReturnCrossPartitionCharges @ 0x140658D80 (MiReturnCrossPartitionCharges.c)
+ */
+
 __int64 __fastcall MiDeleteAweInfoPages(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // r14

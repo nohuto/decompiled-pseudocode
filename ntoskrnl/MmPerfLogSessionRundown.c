@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmPerfLogSessionRundown @ 0x140A2F8F8
+ * Callers:
+ *     EtwpKernelTraceRundown @ 0x14080D9F8 (EtwpKernelTraceRundown.c)
+ * Callees:
+ *     MmGetNextSession @ 0x14035C2F0 (MmGetNextSession.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwTraceSiloDcEvent @ 0x1405FB110 (EtwTraceSiloDcEvent.c)
+ */
+
 __int64 __fastcall MmPerfLogSessionRundown(__int64 a1, unsigned int a2, int a3)
 {
   unsigned __int16 v3; // di

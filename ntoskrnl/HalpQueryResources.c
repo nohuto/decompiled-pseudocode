@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpQueryResources @ 0x1408229CC
+ * Callers:
+ *     HalpDispatchPnp @ 0x140821D00 (HalpDispatchPnp.c)
+ * Callees:
+ *     HalpQueryAcpiResourceRequirements @ 0x14080BBE4 (HalpQueryAcpiResourceRequirements.c)
+ *     HalConvertDeviceIdtToIrql @ 0x140822B00 (HalConvertDeviceIdtToIrql.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall HalpQueryResources(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rcx

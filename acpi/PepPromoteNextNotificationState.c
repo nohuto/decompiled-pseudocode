@@ -1,3 +1,11 @@
+/*
+ * XREFs of PepPromoteNextNotificationState @ 0x1C008B150
+ * Callers:
+ *     ACPIPepPowerSettingChangeCallback @ 0x1C008ADB0 (ACPIPepPowerSettingChangeCallback.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall PepPromoteNextNotificationState(__int64 a1, int a2, char a3)
 {
   int v3; // eax

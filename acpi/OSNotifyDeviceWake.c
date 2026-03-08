@@ -1,3 +1,17 @@
+/*
+ * XREFs of OSNotifyDeviceWake @ 0x1C0032FFC
+ * Callers:
+ *     NotifyHandler @ 0x1C0004EE0 (NotifyHandler.c)
+ *     ACPICMButtonSetPower @ 0x1C0018C10 (ACPICMButtonSetPower.c)
+ * Callees:
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C000518C (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     WPP_RECORDER_SF_qss @ 0x1C0015444 (WPP_RECORDER_SF_qss.c)
+ *     OSNotifyDeviceWakeCallBack @ 0x1C0033670 (OSNotifyDeviceWakeCallBack.c)
+ *     WPP_RECORDER_SF_qsqss @ 0x1C00338EC (WPP_RECORDER_SF_qsqss.c)
+ *     ACPIWakeDisableAsync @ 0x1C0044CC8 (ACPIWakeDisableAsync.c)
+ */
+
 __int64 __fastcall OSNotifyDeviceWake(__int64 *a1)
 {
   __int64 v1; // r8

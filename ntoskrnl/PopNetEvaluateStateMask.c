@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopNetEvaluateStateMask @ 0x14085780C
+ * Callers:
+ *     PopNetEvaluationWorkerCallback @ 0x1403A7BD0 (PopNetEvaluationWorkerCallback.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopNetEvaluateStateMask(_DWORD *a1, _DWORD *a2)
 {
   __int64 result; // rax

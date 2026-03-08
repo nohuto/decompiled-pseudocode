@@ -1,3 +1,12 @@
+/*
+ * XREFs of WdipSemAddContextEventToScenario @ 0x140831B4C
+ * Callers:
+ *     WdipSemMergeScenarios @ 0x140831ABC (WdipSemMergeScenarios.c)
+ * Callees:
+ *     WdipSemFastAllocate @ 0x14083362C (WdipSemFastAllocate.c)
+ *     WdipSemMergeEvents @ 0x1408347B8 (WdipSemMergeEvents.c)
+ */
+
 __int64 __fastcall WdipSemAddContextEventToScenario(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

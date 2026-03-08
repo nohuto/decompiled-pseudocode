@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpHvSetMachineCheckHandlerState @ 0x140509C30
+ * Callers:
+ *     HalpMceInit @ 0x140A87B68 (HalpMceInit.c)
+ *     HalpPostSleepMP @ 0x140A93F28 (HalpPostSleepMP.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 HalpHvSetMachineCheckHandlerState()
 {
   __int64 result; // rax

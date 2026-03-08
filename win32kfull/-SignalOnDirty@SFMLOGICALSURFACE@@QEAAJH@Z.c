@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SignalOnDirty@SFMLOGICALSURFACE@@QEAAJH@Z @ 0x1C001F3EC
+ * Callers:
+ *     GreSfmRegisterLogicalSurfaceForSignaling @ 0x1C001F308 (GreSfmRegisterLogicalSurfaceForSignaling.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SFMLOGICALSURFACE::SignalOnDirty(SFMLOGICALSURFACE *this, int a2)
 {
   __int64 v2; // rbx

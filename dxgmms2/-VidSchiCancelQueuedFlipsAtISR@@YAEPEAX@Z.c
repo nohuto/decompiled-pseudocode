@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?VidSchiCancelQueuedFlipsAtISR@@YAEPEAX@Z @ 0x1C0048DA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ */
+
 unsigned __int8 __fastcall VidSchiCancelQueuedFlipsAtISR(_DWORD *a1)
 {
   int v2; // eax

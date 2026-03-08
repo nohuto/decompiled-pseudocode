@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpiFromProcessId @ 0x1C01544D0
+ * Callers:
+ *     ??1ForegroundChangeTracker@CActivationObjectManager@@QEAA@XZ @ 0x1C005BD48 (--1ForegroundChangeTracker@CActivationObjectManager@@QEAA@XZ.c)
+ *     VirtualizeFullKeyboardStates @ 0x1C0218E00 (VirtualizeFullKeyboardStates.c)
+ * Callees:
+ *     LockProcessByClientId @ 0x1C0084110 (LockProcessByClientId.c)
+ */
+
 __int64 __fastcall PpiFromProcessId(int a1)
 {
   __int64 v1; // rbx

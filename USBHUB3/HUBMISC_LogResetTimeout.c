@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBMISC_LogResetTimeout @ 0x1C0033E44
+ * Callers:
+ *     HUBDSM_LoggingResetTimeoutInResettingFor30 @ 0x1C0020C50 (HUBDSM_LoggingResetTimeoutInResettingFor30.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C0032FCC (HUBMISC_VerifierDbgBreak.c)
+ */
+
 char __fastcall HUBMISC_LogResetTimeout(__int64 a1)
 {
   _UNKNOWN **v2; // rax

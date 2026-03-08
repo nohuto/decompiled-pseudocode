@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiUpdateClaimDistribution @ 0x1402CFEB0
+ * Callers:
+ *     MiComputeAgeDistribution @ 0x1402CFD44 (MiComputeAgeDistribution.c)
+ *     MiOrderTrimList @ 0x14046378E (MiOrderTrimList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiUpdateClaimDistribution(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

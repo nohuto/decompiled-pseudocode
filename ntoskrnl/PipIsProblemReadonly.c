@@ -1,3 +1,14 @@
+/*
+ * XREFs of PipIsProblemReadonly @ 0x140956954
+ * Callers:
+ *     PnpRemoveLockedDeviceNode @ 0x1403B1D8C (PnpRemoveLockedDeviceNode.c)
+ *     PiProcessClearDeviceProblem @ 0x140956400 (PiProcessClearDeviceProblem.c)
+ *     PiProcessSetDeviceProblem @ 0x1409566C8 (PiProcessSetDeviceProblem.c)
+ *     PiProcessQueryRemoveNoFdo @ 0x14096EA58 (PiProcessQueryRemoveNoFdo.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall PipIsProblemReadonly(__int64 a1, unsigned int a2)
 {
   unsigned int v2; // edx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpAcpiSetupPmRegister @ 0x140B63078
+ * Callers:
+ *     HalpAcpiInitializePmRegisters @ 0x140B62E74 (HalpAcpiInitializePmRegisters.c)
+ *     HalpAcpiSetupPmRegisterLegacy @ 0x140B6301C (HalpAcpiSetupPmRegisterLegacy.c)
+ * Callees:
+ *     HalMapIoSpace @ 0x14037AD90 (HalMapIoSpace.c)
+ */
+
 __int64 __fastcall HalpAcpiSetupPmRegister(SIZE_T NumberOfBytes, unsigned int a2, __int64 a3, __int64 a4)
 {
   unsigned int v5; // ebx

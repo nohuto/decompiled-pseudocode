@@ -1,3 +1,12 @@
+/*
+ * XREFs of FContainCallBackAce @ 0x140750D80
+ * Callers:
+ *     LocalGetSDDLDeliminator @ 0x140750C60 (LocalGetSDDLDeliminator.c)
+ *     LocalGetAceCount @ 0x140750CCC (LocalGetAceCount.c)
+ * Callees:
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ */
+
 __int64 __fastcall FContainCallBackAce(wchar_t *Str1)
 {
   unsigned int v1; // edi

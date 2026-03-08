@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CRecalcProp@@AEAA@XZ @ 0x1C00FC354
+ * Callers:
+ *     ??_GCRecalcProp@@AEAAPEAXI@Z @ 0x1C00FC324 (--_GCRecalcProp@@AEAAPEAXI@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CRecalcProp::~CRecalcProp(CRecalcProp *this)
 {
   void (__fastcall ***v2)(_QWORD, __int64); // rcx

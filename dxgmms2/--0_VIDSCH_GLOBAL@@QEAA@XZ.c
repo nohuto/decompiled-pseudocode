@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0_VIDSCH_GLOBAL@@QEAA@XZ @ 0x1C001908C
+ * Callers:
+ *     VidSchInitializeAdapter @ 0x1C00B5B90 (VidSchInitializeAdapter.c)
+ * Callees:
+ *     <none>
+ */
+
 _VIDSCH_GLOBAL *__fastcall _VIDSCH_GLOBAL::_VIDSCH_GLOBAL(_VIDSCH_GLOBAL *this)
 {
   *((_QWORD *)this + 57) = 0LL;

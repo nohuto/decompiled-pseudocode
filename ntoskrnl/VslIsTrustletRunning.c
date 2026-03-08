@@ -1,3 +1,13 @@
+/*
+ * XREFs of VslIsTrustletRunning @ 0x140549398
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall VslIsTrustletRunning(__int64 a1, _BYTE *a2)
 {
   __int64 result; // rax

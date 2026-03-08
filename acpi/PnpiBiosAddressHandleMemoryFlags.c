@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpiBiosAddressHandleMemoryFlags @ 0x1C0090E04
+ * Callers:
+ *     PnpiBiosAddressDoubleToIoDescriptor @ 0x1C00904A0 (PnpiBiosAddressDoubleToIoDescriptor.c)
+ *     PnpiBiosAddressQuadToIoDescriptor @ 0x1C0090EAC (PnpiBiosAddressQuadToIoDescriptor.c)
+ *     PnpiBiosAddressToIoDescriptor @ 0x1C00912CC (PnpiBiosAddressToIoDescriptor.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ */
+
 __int16 __fastcall PnpiBiosAddressHandleMemoryFlags(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

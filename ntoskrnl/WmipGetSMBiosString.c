@@ -1,3 +1,12 @@
+/*
+ * XREFs of WmipGetSMBiosString @ 0x1409DCD4C
+ * Callers:
+ *     WmipReadSMBiosSysInfo @ 0x1405F9660 (WmipReadSMBiosSysInfo.c)
+ * Callees:
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ */
+
 NTSTATUS __fastcall WmipGetSMBiosString(__int64 a1, unsigned int a2, const char *a3, UNICODE_STRING *a4)
 {
   const char *v5; // r10

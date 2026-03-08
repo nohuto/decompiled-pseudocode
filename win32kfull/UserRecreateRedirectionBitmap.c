@@ -1,3 +1,19 @@
+/*
+ * XREFs of UserRecreateRedirectionBitmap @ 0x1C01BE090
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DeleteOrSetRedirectionBitmap @ 0x1C0021D34 (DeleteOrSetRedirectionBitmap.c)
+ *     UnsetRedirectedWindow @ 0x1C0022ADC (UnsetRedirectedWindow.c)
+ *     HintSpriteShape @ 0x1C002C1B0 (HintSpriteShape.c)
+ *     ?SetRedirectionBitmap@@YAHPEAUtagWND@@QEAUHBITMAP__@@H@Z @ 0x1C002D938 (-SetRedirectionBitmap@@YAHPEAUtagWND@@QEAUHBITMAP__@@H@Z.c)
+ *     DeleteOldRedirectionBitmap @ 0x1C002E738 (DeleteOldRedirectionBitmap.c)
+ *     GetRedirectionBitmap @ 0x1C0043F00 (GetRedirectionBitmap.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     RecreateRedirectionBitmap @ 0x1C0096A48 (RecreateRedirectionBitmap.c)
+ *     ?UnselectRedirectionBitmapsInDCEs@@YAXQEAUtagWND@@@Z @ 0x1C01BDB84 (-UnselectRedirectionBitmapsInDCEs@@YAXQEAUtagWND@@@Z.c)
+ */
+
 struct tagWND *__fastcall UserRecreateRedirectionBitmap(__int64 a1)
 {
   struct tagTHREADINFO *v2; // rsi

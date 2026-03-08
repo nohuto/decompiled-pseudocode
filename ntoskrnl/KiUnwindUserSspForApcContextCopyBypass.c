@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiUnwindUserSspForApcContextCopyBypass @ 0x14057E274
+ * Callers:
+ *     KiInitializeUserApc @ 0x1403664E8 (KiInitializeUserApc.c)
+ * Callees:
+ *     RtlInitializeExtendedContext @ 0x140364A10 (RtlInitializeExtendedContext.c)
+ *     RtlGetExtendedContextLength @ 0x140364A90 (RtlGetExtendedContextLength.c)
+ *     RtlpSanitizeContextFlags @ 0x140364D9C (RtlpSanitizeContextFlags.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1404210C0 (_alloca_probe.c)
+ *     KiVerifyContextXStateCetUEnabled @ 0x140457B0C (KiVerifyContextXStateCetUEnabled.c)
+ *     RtlLocateExtendedFeature2 @ 0x14045BC40 (RtlLocateExtendedFeature2.c)
+ *     RtlpReadExtendedContext @ 0x1407EDC30 (RtlpReadExtendedContext.c)
+ */
+
 __int64 __fastcall KiUnwindUserSspForApcContextCopyBypass(__int64 a1)
 {
   unsigned int v1; // eax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ApiSetEditionPostAccessibilityShortcutNotification @ 0x1C02416C0
+ * Callers:
+ *     ?FKActivationTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01E3F00 (-FKActivationTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?HighContrastHotKey@@YAHPEAUtagKE@@KH@Z @ 0x1C01E4320 (-HighContrastHotKey@@YAHPEAUtagKE@@KH@Z.c)
+ *     ?MouseKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01E4460 (-MouseKeys@@YAHPEAUtagKE@@KH@Z.c)
+ *     ?xxxStickyKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01E5C10 (-xxxStickyKeys@@YAHPEAUtagKE@@KH@Z.c)
+ *     ?xxxToggleKeysTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01E6040 (-xxxToggleKeysTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (*__fastcall ApiSetEditionPostAccessibilityShortcutNotification(unsigned int a1))(void)
 {
   char v2; // bl

@@ -1,3 +1,16 @@
+/*
+ * XREFs of InitMutex @ 0x1C00509FC
+ * Callers:
+ *     Mutex @ 0x1C0050C50 (Mutex.c)
+ *     AMLIInitialize @ 0x1C00AAAB0 (AMLIInitialize.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ */
+
 __int64 __fastcall InitMutex(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)
 {
   unsigned int v7; // edi

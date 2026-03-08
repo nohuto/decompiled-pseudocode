@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpWatchdogExtractTriageInformation @ 0x14055E99C
+ * Callers:
+ *     PnpWatchdogBugcheck @ 0x14055E314 (PnpWatchdogBugcheck.c)
+ *     PnpWatchdogEtwWrite @ 0x14055E670 (PnpWatchdogEtwWrite.c)
+ * Callees:
+ *     <none>
+ */
+
 __int16 *__fastcall PnpWatchdogExtractTriageInformation(
         __int64 a1,
         _QWORD *a2,

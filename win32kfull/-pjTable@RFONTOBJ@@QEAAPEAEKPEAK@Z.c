@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?pjTable@RFONTOBJ@@QEAAPEAEKPEAK@Z @ 0x1C02B96E0
+ * Callers:
+ *     FONTOBJ_pjOpenTypeTablePointer @ 0x1C029B0C0 (FONTOBJ_pjOpenTypeTablePointer.c)
+ * Callees:
+ *     ?QueryTrueTypeTable@PFFOBJ@@QEAAJ_KKKJKPEAEPEAPEAEPEAK@Z @ 0x1C01205AC (-QueryTrueTypeTable@PFFOBJ@@QEAAJ_KKKJKPEAEPEAPEAEPEAK@Z.c)
+ *     ?pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z @ 0x1C02B9424 (-pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z.c)
+ */
+
 char *__fastcall RFONTOBJ::pjTable(RFONTOBJ *this, unsigned int a2, unsigned int *a3)
 {
   __int64 v3; // rax

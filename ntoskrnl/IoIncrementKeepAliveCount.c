@@ -1,3 +1,17 @@
+/*
+ * XREFs of IoIncrementKeepAliveCount @ 0x140555D20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     IopAdjustFileObjectKeepAliveCount @ 0x14055606C (IopAdjustFileObjectKeepAliveCount.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PspAdjustKeepAliveCountProcess @ 0x1409AB928 (PspAdjustKeepAliveCountProcess.c)
+ */
+
 __int64 __fastcall IoIncrementKeepAliveCount(__int64 a1, void *a2)
 {
   int v4; // esi

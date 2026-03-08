@@ -1,3 +1,12 @@
+/*
+ * XREFs of McGenEventUnregister_EtwUnregister @ 0x1C004D7D0
+ * Callers:
+ *     DxgkEtwShutdown @ 0x1C004D7AC (DxgkEtwShutdown.c)
+ *     ??1DXGGLOBAL@@EEAA@XZ @ 0x1C030CE70 (--1DXGGLOBAL@@EEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall McGenEventUnregister_EtwUnregister(REGHANDLE *a1)
 {
   REGHANDLE v2; // rcx

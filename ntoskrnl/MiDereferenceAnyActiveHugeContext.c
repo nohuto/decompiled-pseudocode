@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiDereferenceAnyActiveHugeContext @ 0x1402F309C
+ * Callers:
+ *     MiZeroNodePages @ 0x14038FAA0 (MiZeroNodePages.c)
+ *     MiDeleteZeroThreadContext @ 0x140652704 (MiDeleteZeroThreadContext.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiDecrementHugeContext @ 0x1403D0A68 (MiDecrementHugeContext.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiDereferenceAnyActiveHugeContext(__int64 a1)
 {
   unsigned int *v1; // rdi

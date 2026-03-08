@@ -1,3 +1,13 @@
+/*
+ * XREFs of NVMeSetIoQueueCount @ 0x1C0023A50
+ * Callers:
+ *     NVMeControllerInitPart2 @ 0x1C000D9F0 (NVMeControllerInitPart2.c)
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 __int64 __fastcall NVMeSetIoQueueCount(__int64 a1, unsigned __int8 a2)
 {
   __int64 v2; // rbp

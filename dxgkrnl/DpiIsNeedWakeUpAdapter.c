@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiIsNeedWakeUpAdapter @ 0x1C005DD70
+ * Callers:
+ *     ?PowerRuntimeDevicePowerRequiredCallback@DXGADAPTER@@QEAAXE@Z @ 0x1C001ABD0 (-PowerRuntimeDevicePowerRequiredCallback@DXGADAPTER@@QEAAXE@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DpiIsNeedWakeUpAdapter(__int64 a1)
 {
   __int64 v1; // rbx

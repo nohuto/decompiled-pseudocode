@@ -1,3 +1,12 @@
+/*
+ * XREFs of VmpValidateMemoryRangeParameters @ 0x1409DAA9C
+ * Callers:
+ *     VmCreateMemoryRange @ 0x1409D96F0 (VmCreateMemoryRange.c)
+ *     VmDeleteMemoryRange @ 0x1409D9890 (VmDeleteMemoryRange.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VmpValidateMemoryRangeParameters(
         unsigned __int64 a1,
         unsigned __int64 a2,

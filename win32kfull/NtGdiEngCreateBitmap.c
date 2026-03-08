@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtGdiEngCreateBitmap @ 0x1C02CB8F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     ?UmpdSecurityGateNoUmpdObj@@YA_NXZ @ 0x1C0279028 (-UmpdSecurityGateNoUmpdObj@@YA_NXZ.c)
+ *     ?ValidUmpdSizl@@YAHUtagSIZE@@_N@Z @ 0x1C02C9DE0 (-ValidUmpdSizl@@YAHUtagSIZE@@_N@Z.c)
+ */
+
 HBITMAP __fastcall NtGdiEngCreateBitmap(SIZEL sizl, LONG a2, int a3, int a4, char *Address)
 {
   HBITMAP Bitmap; // r15

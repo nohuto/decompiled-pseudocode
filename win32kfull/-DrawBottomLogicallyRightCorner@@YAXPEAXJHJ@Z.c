@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DrawBottomLogicallyRightCorner@@YAXPEAXJHJ@Z @ 0x1C0223758
+ * Callers:
+ *     ?DrawRoundedRectangularShadow@@YAXPEAXJJHJ@Z @ 0x1C0223998 (-DrawRoundedRectangularShadow@@YAXPEAXJJHJ@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DrawBottomLogicallyRightCorner(_DWORD *a1, int a2, int a3, int a4)
 {
   int v4; // r10d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIFreePhysicalDeviceLocationDescriptors @ 0x1C0097DF4
+ * Callers:
+ *     ACPIBusAndFilterIrpQueryContainerId @ 0x1C0016120 (ACPIBusAndFilterIrpQueryContainerId.c)
+ *     ACPIQueryPhysicalDeviceLocation @ 0x1C0081D08 (ACPIQueryPhysicalDeviceLocation.c)
+ * Callees:
+ *     ACPIFreePhysicalDeviceLocationDescriptor @ 0x1C0097DB0 (ACPIFreePhysicalDeviceLocationDescriptor.c)
+ */
+
 void __fastcall ACPIFreePhysicalDeviceLocationDescriptors(char **a1)
 {
   char *v2; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vAdvYDDA@@YAXPEAU_PLGDDA@@@Z @ 0x1C0302BFC
+ * Callers:
+ *     EngPlgBlt @ 0x1C0292140 (EngPlgBlt.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vAdvYDDA(struct _PLGDDA *a1)
 {
   int v2; // r9d

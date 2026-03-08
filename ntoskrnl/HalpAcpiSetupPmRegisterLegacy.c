@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpAcpiSetupPmRegisterLegacy @ 0x140B6301C
+ * Callers:
+ *     HalpAcpiInitializePmRegisters @ 0x140B62E74 (HalpAcpiInitializePmRegisters.c)
+ * Callees:
+ *     HalpAcpiSetupPmRegister @ 0x140B63078 (HalpAcpiSetupPmRegister.c)
+ */
+
 __int64 __fastcall HalpAcpiSetupPmRegisterLegacy(__int64 a1, int a2, __int64 a3, unsigned int a4)
 {
   unsigned __int8 v4; // al

@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeHwInitialize @ 0x1C00083B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     NVMeControllerInitPart2 @ 0x1C000D9F0 (NVMeControllerInitPart2.c)
+ *     NVMeControllerInitPart3 @ 0x1C000DCDC (NVMeControllerInitPart3.c)
+ */
+
 char __fastcall NVMeHwInitialize(__int64 a1)
 {
   char v1; // bl

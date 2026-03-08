@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBDSM_ReportingFailedDeviceAsMissing @ 0x1C001FE00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HUBPDO_ReportDeviceAsMissing @ 0x1C001B420 (HUBPDO_ReportDeviceAsMissing.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBDSM_ReportingFailedDeviceAsMissing(__int64 a1)
 {
   __int64 v1; // rbx

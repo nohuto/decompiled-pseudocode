@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopDiagTraceThermalZoneRundown @ 0x1405928C0
+ * Callers:
+ *     PopThermalTraceRundownEvents @ 0x14058DBD4 (PopThermalTraceRundownEvents.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140240954 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PopDiagTraceThermalZoneRundown(
         __int64 a1,
         unsigned __int16 *a2,

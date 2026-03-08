@@ -1,3 +1,11 @@
+/*
+ * XREFs of AdjustLinearity @ 0x1C01A6260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall AdjustLinearity(__int64 a1, INT *a2, INT *a3, int *a4)
 {
   int v7; // r9d

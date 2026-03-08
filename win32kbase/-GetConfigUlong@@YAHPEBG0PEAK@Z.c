@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetConfigUlong@@YAHPEBG0PEAK@Z @ 0x1C00C63F8
+ * Callers:
+ *     InitializePowerRequestList @ 0x1C031F97C (InitializePowerRequestList.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall GetConfigUlong(const unsigned __int16 *a1, const unsigned __int16 *a2, unsigned int *a3)
 {
   NTSTATUS v5; // ebx

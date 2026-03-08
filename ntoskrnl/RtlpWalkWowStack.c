@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpWalkWowStack @ 0x14045BA38
+ * Callers:
+ *     RtlpWalkFrameChain @ 0x14027FF40 (RtlpWalkFrameChain.c)
+ * Callees:
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 char __fastcall RtlpWalkWowStack(
         __int64 a1,
         unsigned int *a2,

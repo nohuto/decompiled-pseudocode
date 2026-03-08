@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ClearD2DCaches@CDeviceManager@@IEAA_NK@Z @ 0x180050154
+ * Callers:
+ *     ?PreRender@CComposition@@IEAAJXZ @ 0x18004F100 (-PreRender@CComposition@@IEAAJXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?ClearProtectedResources@CD3DDevice@@QEAA_NXZ @ 0x1802893DC (-ClearProtectedResources@CD3DDevice@@QEAA_NXZ.c)
+ */
+
 char __fastcall CDeviceManager::ClearD2DCaches(CDeviceManager *this, int a2)
 {
   char v2; // bp

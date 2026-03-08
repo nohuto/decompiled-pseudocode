@@ -1,3 +1,27 @@
+/*
+ * XREFs of ?WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z @ 0x1C00388C0
+ * Callers:
+ *     xxxCapture @ 0x1C0010A5C (xxxCapture.c)
+ *     EditionWakeSomeone @ 0x1C0016E80 (EditionWakeSomeone.c)
+ *     EditionWakeThreadForInput @ 0x1C0037660 (EditionWakeThreadForInput.c)
+ *     PostInputMessage @ 0x1C0037A48 (PostInputMessage.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00725D0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     EditionHandleAndPostKeyEvent @ 0x1C009F110 (EditionHandleAndPostKeyEvent.c)
+ *     ?ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01B68A8 (-ReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z.c)
+ *     ?_ShellHandwritingDelegationReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01B7674 (-_ShellHandwritingDelegationReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z.c)
+ *     ?JournalTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01C1710 (-JournalTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ * Callees:
+ *     ?CancelForegroundActivate@@YAXXZ @ 0x1C0017A88 (-CancelForegroundActivate@@YAXXZ.c)
+ *     PtiMouseFromQ @ 0x1C0037050 (PtiMouseFromQ.c)
+ *     SetWakeBit @ 0x1C0038B60 (SetWakeBit.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     PtiKbdFromQ @ 0x1C009FA48 (PtiKbdFromQ.c)
+ *     IsProcessedByInputService @ 0x1C00CE17C (IsProcessedByInputService.c)
+ *     IsMiPActive @ 0x1C00D7EB8 (IsMiPActive.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?ShouldAddPointerWakeFlag@@YAHPEBUtagTHREADINFO@@PEBUtagQMSG@@@Z @ 0x1C0143D18 (-ShouldAddPointerWakeFlag@@YAHPEBUtagTHREADINFO@@PEBUtagQMSG@@@Z.c)
+ */
+
 void __fastcall WakeSomeone(__int64 a1, __int64 a2, unsigned int a3, struct tagQMSG *a4)
 {
   unsigned __int64 v5; // r8

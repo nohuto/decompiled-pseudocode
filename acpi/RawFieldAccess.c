@@ -1,3 +1,19 @@
+/*
+ * XREFs of RawFieldAccess @ 0x1C0052760
+ * Callers:
+ *     ReadField @ 0x1C0052AE0 (ReadField.c)
+ *     WriteField @ 0x1C0053090 (WriteField.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     FindRSAccess @ 0x1C004B438 (FindRSAccess.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ */
+
 __int64 __fastcall RawFieldAccess(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
   __int64 v7; // rdi

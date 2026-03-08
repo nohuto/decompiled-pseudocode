@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiLogZeroPageDecision @ 0x1402E4AD4
+ * Callers:
+ *     MiReassessZeroThreads @ 0x1402E477C (MiReassessZeroThreads.c)
+ * Callees:
+ *     MiZeroPageLogEntriesMergable @ 0x1402E4BE4 (MiZeroPageLogEntriesMergable.c)
+ */
+
 void __fastcall MiLogZeroPageDecision(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, __int16 a4, char a5)
 {
   unsigned int *v5; // r10

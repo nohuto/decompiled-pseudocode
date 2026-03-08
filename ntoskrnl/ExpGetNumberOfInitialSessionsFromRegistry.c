@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpGetNumberOfInitialSessionsFromRegistry @ 0x14085E024
+ * Callers:
+ *     ExIsMultiSessionSku @ 0x14085DFB4 (ExIsMultiSessionSku.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x14069B3C0 (RtlpQueryRegistryValues.c)
+ */
+
 __int64 __fastcall ExpGetNumberOfInitialSessionsFromRegistry(_DWORD *a1)
 {
   __int64 result; // rax

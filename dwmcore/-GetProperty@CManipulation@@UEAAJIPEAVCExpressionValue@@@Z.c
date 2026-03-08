@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetProperty@CManipulation@@UEAAJIPEAVCExpressionValue@@@Z @ 0x18020A670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?_EnqueueDeferredDeltaReset@CManipulation@@AEAAJI@Z @ 0x18020BBC8 (-_EnqueueDeferredDeltaReset@CManipulation@@AEAAJI@Z.c)
+ */
+
 __int64 __fastcall CManipulation::GetProperty(CManipulation *this, int a2, struct CExpressionValue *a3)
 {
   unsigned int v3; // ebx

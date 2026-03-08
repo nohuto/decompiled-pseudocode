@@ -1,3 +1,18 @@
+/*
+ * XREFs of RIMWatchDog @ 0x1C0039810
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RIMArmWatchDog @ 0x1C000415C (RIMArmWatchDog.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     ?DbgPrintGDI@@YAXPEADZZ @ 0x1C017D810 (-DbgPrintGDI@@YAXPEADZZ.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U1@U1@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@333AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C019EF50 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U1@U1@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJP.c)
+ *     ?WatchDogBugCheckMachine@@YAXPEAURawInputManagerObject@@_K111@Z @ 0x1C01A098C (-WatchDogBugCheckMachine@@YAXPEAURawInputManagerObject@@_K111@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqqD @ 0x1C01A0D88 (WPP_RECORDER_AND_TRACE_SF_qqqD.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqqDqSq @ 0x1C01A0EA4 (WPP_RECORDER_AND_TRACE_SF_qqqDqSq.c)
+ */
+
 void __fastcall RIMWatchDog(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rax

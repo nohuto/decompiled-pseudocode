@@ -1,3 +1,16 @@
+/*
+ * XREFs of AnFwpDisableProgressTimer @ 0x140AEC610
+ * Callers:
+ *     AnFwDisplayFade @ 0x140AE99E8 (AnFwDisplayFade.c)
+ *     AnFwDisplayProgressIndicator @ 0x140AEA598 (AnFwDisplayProgressIndicator.c)
+ *     AnFwpBackgroundUpdateTimer @ 0x140AEF1E0 (AnFwpBackgroundUpdateTimer.c)
+ * Callees:
+ *     KeCancelTimer @ 0x140250B60 (KeCancelTimer.c)
+ *     BgpFwFreeMemory @ 0x140382650 (BgpFwFreeMemory.c)
+ *     RaspClearCache @ 0x140AEA540 (RaspClearCache.c)
+ *     BgpGxRectangleDestroy @ 0x140AEAA70 (BgpGxRectangleDestroy.c)
+ */
+
 void AnFwpDisableProgressTimer()
 {
   bool v0; // cl

@@ -1,3 +1,30 @@
+/*
+ * XREFs of PiSwProcessRemove @ 0x140964760
+ * Callers:
+ *     PiSwPdoPnPDispatch @ 0x1408064B0 (PiSwPdoPnPDispatch.c)
+ *     PiSwGetChildPdo @ 0x140846F50 (PiSwGetChildPdo.c)
+ *     PiSwProcessParentRemoveIrp @ 0x140867324 (PiSwProcessParentRemoveIrp.c)
+ * Callees:
+ *     RtlDeleteElementGenericTableAvl @ 0x140244F40 (RtlDeleteElementGenericTableAvl.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     IoInvalidateDeviceRelations @ 0x1402F4FC0 (IoInvalidateDeviceRelations.c)
+ *     McTemplateK0zz_EtwWriteTransfer @ 0x1405613D4 (McTemplateK0zz_EtwWriteTransfer.c)
+ *     McTemplateK0zzztdd_EtwWriteTransfer @ 0x140561D88 (McTemplateK0zzztdd_EtwWriteTransfer.c)
+ *     PnpFreeDevPropertyArray @ 0x1406CC480 (PnpFreeDevPropertyArray.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CDF08 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PiSwBusRelationAdd @ 0x1408076A8 (PiSwBusRelationAdd.c)
+ *     PiSwFreeInterfaceList @ 0x140807ACC (PiSwFreeInterfaceList.c)
+ *     PiSwDeviceInterfacesUpdateState @ 0x140807AF0 (PiSwDeviceInterfacesUpdateState.c)
+ *     PiSwDeviceDereference @ 0x140807FA4 (PiSwDeviceDereference.c)
+ *     PiSwBusRelationRemove @ 0x140964098 (PiSwBusRelationRemove.c)
+ *     PiSwMakePdoInactive @ 0x14096467C (PiSwMakePdoInactive.c)
+ *     PiSwPnPInfoFree @ 0x1409646D4 (PiSwPnPInfoFree.c)
+ *     PiSwQueuedCreateInfoFree @ 0x140964BA0 (PiSwQueuedCreateInfoFree.c)
+ *     PiSwUnassociateDeviceObject @ 0x140964C84 (PiSwUnassociateDeviceObject.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PiSwProcessRemove(__int64 a1, char a2)
 {
   __int64 v2; // rbx

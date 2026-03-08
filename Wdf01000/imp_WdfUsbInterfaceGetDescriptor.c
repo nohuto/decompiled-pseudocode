@@ -1,3 +1,12 @@
+/*
+ * XREFs of imp_WdfUsbInterfaceGetDescriptor @ 0x1C0057B40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C0045BD8 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ */
+
 void __fastcall imp_WdfUsbInterfaceGetDescriptor(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFUSBINTERFACE__ *UsbInterface,

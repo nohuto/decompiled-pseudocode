@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CanCoalesceRawInputPayload@@YA_NPEAUtagPROCESS_HID_TABLE@@PEAXPEBUtagRAWMOUSE@@@Z @ 0x1C01ABD18
+ * Callers:
+ *     ?ThrottleRawMouseInputToBackgroundListener@@YA_NPEAUtagPROCESS_HID_TABLE@@PEAXPEBUtagRAWMOUSE@@_KK@Z @ 0x1C01AC4B4 (-ThrottleRawMouseInputToBackgroundListener@@YA_NPEAUtagPROCESS_HID_TABLE@@PEAXPEBUtagRAWMOUSE@@_.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 char __fastcall CanCoalesceRawInputPayload(struct tagPROCESS_HID_TABLE *a1, void *a2, const struct tagRAWMOUSE *a3)
 {
   int v6; // r8d

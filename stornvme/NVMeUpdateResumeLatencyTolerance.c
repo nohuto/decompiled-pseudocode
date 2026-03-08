@@ -1,3 +1,14 @@
+/*
+ * XREFs of NVMeUpdateResumeLatencyTolerance @ 0x1C0010AA0
+ * Callers:
+ *     NVMePowerActive @ 0x1C00030C0 (NVMePowerActive.c)
+ *     NVMePowerSetFState @ 0x1C0010324 (NVMePowerSetFState.c)
+ *     NVMePowerSettingChangeNotification @ 0x1C0010430 (NVMePowerSettingChangeNotification.c)
+ *     NVMeSystemPowerHint @ 0x1C0010A10 (NVMeSystemPowerHint.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall NVMeUpdateResumeLatencyTolerance(__int64 a1)
 {
   unsigned int v1; // r8d

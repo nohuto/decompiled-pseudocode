@@ -1,3 +1,11 @@
+/*
+ * XREFs of AlpcpExposeHandleAttribute32 @ 0x140782BAC
+ * Callers:
+ *     AlpcpExposeAttributes @ 0x1407CDCB0 (AlpcpExposeAttributes.c)
+ * Callees:
+ *     AlpcpExposeHandleAttribute @ 0x1407CE344 (AlpcpExposeHandleAttribute.c)
+ */
+
 __int64 __fastcall AlpcpExposeHandleAttribute32(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4)
 {
   __int64 result; // rax

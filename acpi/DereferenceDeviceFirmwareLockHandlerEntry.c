@@ -1,3 +1,13 @@
+/*
+ * XREFs of DereferenceDeviceFirmwareLockHandlerEntry @ 0x1C001B9EC
+ * Callers:
+ *     AcquireDeviceFirmwareLock @ 0x1C001B710 (AcquireDeviceFirmwareLock.c)
+ *     ReleaseDeviceFirmwareLock @ 0x1C001BF6C (ReleaseDeviceFirmwareLock.c)
+ *     AcpiUnregisterDeviceFirmwareLockHandler @ 0x1C008284C (AcpiUnregisterDeviceFirmwareLockHandler.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DereferenceDeviceFirmwareLockHandlerEntry(PVOID **P, char a2)
 {
   char v2; // bp

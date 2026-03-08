@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepInitializeSharedSidMap @ 0x140810CFC
+ * Callers:
+ *     SepVariableInitialization @ 0x140B4A3A0 (SepVariableInitialization.c)
+ * Callees:
+ *     RtlCreateHashTable @ 0x1402B8530 (RtlCreateHashTable.c)
+ */
+
 __int64 SepInitializeSharedSidMap()
 {
   PRTL_DYNAMIC_HASH_TABLE *v0; // rcx

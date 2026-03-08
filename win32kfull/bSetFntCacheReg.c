@@ -1,3 +1,14 @@
+/*
+ * XREFs of bSetFntCacheReg @ 0x1C00B9774
+ * Callers:
+ *     EngCloseFNTCache @ 0x1C00B83B8 (EngCloseFNTCache.c)
+ *     InitFNTCache @ 0x1C00B9300 (InitFNTCache.c)
+ *     bServicingStackModifiedFonts @ 0x1C00BAA94 (bServicingStackModifiedFonts.c)
+ *     EngFntCacheFault @ 0x1C028CD90 (EngFntCacheFault.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall bSetFntCacheReg(unsigned int a1, int a2)
 {
   __int64 v2; // rcx

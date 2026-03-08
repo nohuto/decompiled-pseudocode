@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmPerfResetHistory @ 0x14038F778
+ * Callers:
+ *     PpmPerfRecordUtility @ 0x140233B60 (PpmPerfRecordUtility.c)
+ *     PpmPerfResetHistoryAll @ 0x140828CC4 (PpmPerfResetHistoryAll.c)
+ *     PpmPerfResizeHistory @ 0x140983A10 (PpmPerfResizeHistory.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall PpmPerfResetHistory(__int64 a1)
 {
   unsigned __int64 result; // rax

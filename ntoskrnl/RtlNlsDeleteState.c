@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlNlsDeleteState @ 0x1409B69D8
+ * Callers:
+ *     PspDeleteExternalServerSiloState @ 0x1409A9DE8 (PspDeleteExternalServerSiloState.c)
+ * Callees:
+ *     MiRemoveFromSystemSpace @ 0x14020E5C8 (MiRemoveFromSystemSpace.c)
+ */
+
 void __fastcall RtlNlsDeleteState(__int64 a1)
 {
   ULONG_PTR v2; // rcx

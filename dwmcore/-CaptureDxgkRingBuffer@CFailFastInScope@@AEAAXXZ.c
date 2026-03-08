@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?CaptureDxgkRingBuffer@CFailFastInScope@@AEAAXXZ @ 0x1801B1720
+ * Callers:
+ *     ?ProcessComposition@CComposition@@IEAAXPEA_N@Z @ 0x18004EF0C (-ProcessComposition@CComposition@@IEAAXPEA_N@Z.c)
+ * Callees:
+ *     ??2@YAPEAX_K@Z @ 0x180034790 (--2@YAPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilWerRegisterMemoryBlock@@YAXPEBXI@Z @ 0x1800C1AC4 (-MilWerRegisterMemoryBlock@@YAXPEBXI@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ */
+
 void __fastcall CFailFastInScope::CaptureDxgkRingBuffer(CFailFastInScope *this)
 {
   int v2; // eax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of rimIDECheckConfidenceSupport @ 0x1C01C1014
+ * Callers:
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C01C21B8 (RIMIDECreatePointerDeviceInfo.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     rimHidP_GetSpecificButtonCaps @ 0x1C01B2070 (rimHidP_GetSpecificButtonCaps.c)
+ */
+
 __int64 __fastcall rimIDECheckConfidenceSupport(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

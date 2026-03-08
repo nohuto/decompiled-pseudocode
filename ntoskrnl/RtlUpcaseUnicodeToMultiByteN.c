@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlUpcaseUnicodeToMultiByteN @ 0x1407A00A0
+ * Callers:
+ *     toupper @ 0x1403D5BB0 (toupper.c)
+ *     RtlUpcaseUnicodeStringToAnsiString @ 0x1409B5BB0 (RtlUpcaseUnicodeStringToAnsiString.c)
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     UpcaseUnicodeToSingleByteNHelper @ 0x140303D00 (UpcaseUnicodeToSingleByteNHelper.c)
+ *     UpcaseUnicodeToUTF8NHelper @ 0x14039FDA4 (UpcaseUnicodeToUTF8NHelper.c)
+ *     UpcaseUnicodeToMultiByteNHelper @ 0x14045B5C4 (UpcaseUnicodeToMultiByteNHelper.c)
+ *     RtlpIsUtf8Process @ 0x1406EA7A0 (RtlpIsUtf8Process.c)
+ */
+
 NTSTATUS __stdcall RtlUpcaseUnicodeToMultiByteN(
         PCHAR MultiByteString,
         ULONG MaxBytesInMultiByteString,

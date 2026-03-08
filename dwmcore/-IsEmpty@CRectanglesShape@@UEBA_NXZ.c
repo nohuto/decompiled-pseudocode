@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsEmpty@CRectanglesShape@@UEBA_NXZ @ 0x1800D3ED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CRectanglesShape::IsEmpty(CRectanglesShape *this)
 {
   int v1; // r8d

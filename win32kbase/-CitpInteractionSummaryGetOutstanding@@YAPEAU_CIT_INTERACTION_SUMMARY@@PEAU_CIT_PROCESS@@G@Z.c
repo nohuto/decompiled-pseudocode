@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CitpInteractionSummaryGetOutstanding@@YAPEAU_CIT_INTERACTION_SUMMARY@@PEAU_CIT_PROCESS@@G@Z @ 0x1C0272B24
+ * Callers:
+ *     CitProcessCallout @ 0x1C006F63C (CitProcessCallout.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _CIT_INTERACTION_SUMMARY *__fastcall CitpInteractionSummaryGetOutstanding(struct _CIT_PROCESS *a1)
 {
   __int16 v2; // r8

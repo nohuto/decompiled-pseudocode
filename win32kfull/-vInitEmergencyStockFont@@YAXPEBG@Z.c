@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vInitEmergencyStockFont@@YAXPEBG@Z @ 0x1C00B9F44
+ * Callers:
+ *     FinishStockFontInit @ 0x1C00B9D70 (FinishStockFontInit.c)
+ * Callees:
+ *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEBGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C00BA638 (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEBGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
+ */
+
 void __fastcall vInitEmergencyStockFont(const unsigned __int16 *a1)
 {
   __int64 v1; // rax

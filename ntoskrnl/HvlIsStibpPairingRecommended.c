@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlIsStibpPairingRecommended @ 0x14053D510
+ * Callers:
+ *     KiOptimizeSpecCtrlSettingsWorker @ 0x14037E220 (KiOptimizeSpecCtrlSettingsWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 bool HvlIsStibpPairingRecommended()
 {
   unsigned __int64 CoreProcessorSet; // rcx

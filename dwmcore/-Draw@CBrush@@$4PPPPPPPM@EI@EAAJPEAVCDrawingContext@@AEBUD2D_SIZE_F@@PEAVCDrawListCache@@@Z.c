@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Draw@CBrush@@$4PPPPPPPM@EI@EAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180119F90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CBrush::Draw(
         __int64 a1,
         struct CDrawingContext *a2,

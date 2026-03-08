@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiIsPageTableDeletable @ 0x140346AB4
+ * Callers:
+ *     MiDeleteEmptyPageTable @ 0x1402EBB20 (MiDeleteEmptyPageTable.c)
+ *     MiDeleteVa @ 0x140324900 (MiDeleteVa.c)
+ * Callees:
+ *     MiLockPageTableInternal @ 0x14026A0D0 (MiLockPageTableInternal.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     MiGetUsedPtesHandle @ 0x140346CA0 (MiGetUsedPtesHandle.c)
+ */
+
 _BOOL8 __fastcall MiIsPageTableDeletable(__int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 v2; // rsi

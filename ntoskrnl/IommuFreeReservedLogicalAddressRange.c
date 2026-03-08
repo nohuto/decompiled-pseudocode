@@ -1,3 +1,13 @@
+/*
+ * XREFs of IommuFreeReservedLogicalAddressRange @ 0x1405239F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     HalpIommuDomainFreeLogicalAddressRange @ 0x1404560EE (HalpIommuDomainFreeLogicalAddressRange.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x140515A38 (HalpIommuDomainUnmapLogicalRange.c)
+ */
+
 __int64 __fastcall IommuFreeReservedLogicalAddressRange(__int64 a1)
 {
   int v2; // edi

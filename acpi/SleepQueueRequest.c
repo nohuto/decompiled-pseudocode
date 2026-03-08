@@ -1,3 +1,11 @@
+/*
+ * XREFs of SleepQueueRequest @ 0x1C00514EC
+ * Callers:
+ *     SleepStall @ 0x1C0006400 (SleepStall.c)
+ * Callees:
+ *     PushFrame @ 0x1C0053C34 (PushFrame.c)
+ */
+
 __int64 __fastcall SleepQueueRequest(__int64 a1, unsigned int a2)
 {
   __int64 v2; // rsi

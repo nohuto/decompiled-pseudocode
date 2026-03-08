@@ -1,3 +1,14 @@
+/*
+ * XREFs of CiDispatchCreateNotificationClient @ 0x1C000C320
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_SF_q @ 0x1C0004928 (WPP_SF_q.c)
+ *     CiProcessLocate @ 0x1C000AFF0 (CiProcessLocate.c)
+ *     CiProcessDereference @ 0x1C000B280 (CiProcessDereference.c)
+ *     CiProcessCreate @ 0x1C000B6A0 (CiProcessCreate.c)
+ */
+
 __int64 __fastcall CiDispatchCreateNotificationClient(PIRP Irp, __int64 a2)
 {
   __int64 CurrentProcess; // rax

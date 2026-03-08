@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxWindowEvent @ 0x1C00D40F8
+ * Callers:
+ *     xxxDestroyThreadInfo @ 0x1C0072BF4 (xxxDestroyThreadInfo.c)
+ *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C008097C (xxxUpdateGlobalsAndSendKeyEvent.c)
+ *     xxxInternalActivateKeyboardLayout @ 0x1C0082990 (xxxInternalActivateKeyboardLayout.c)
+ *     zzzDestroyQueue @ 0x1C01553C0 (zzzDestroyQueue.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (__fastcall *__fastcall xxxWindowEvent(
         __int64 a1,
         __int64 a2,

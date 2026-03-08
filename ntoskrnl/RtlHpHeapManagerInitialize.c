@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlHpHeapManagerInitialize @ 0x140374BD0
+ * Callers:
+ *     ExInitializePoolHeapManagement @ 0x140374D0C (ExInitializePoolHeapManagement.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmSiRWLockInitialize @ 0x14080BCF0 (CmSiRWLockInitialize.c)
+ */
+
 void __fastcall RtlHpHeapManagerInitialize(union _RTL_RUN_ONCE *a1, union _RTL_RUN_ONCE *a2)
 {
   __int64 v4; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?TrimPool@VIDMM_DMA_POOL@@QEAAXE@Z @ 0x1C00F04E0
+ * Callers:
+ *     VidMmTrimDmaPoolToMinimum @ 0x1C002D550 (VidMmTrimDmaPoolToMinimum.c)
+ *     ?GetNextBuffersContractedSize@VIDMM_DMA_POOL@@QEAAXPEA_KPEAI1@Z @ 0x1C00EFC00 (-GetNextBuffersContractedSize@VIDMM_DMA_POOL@@QEAAXPEA_KPEAI1@Z.c)
+ * Callees:
+ *     ?RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z @ 0x1C00B0F30 (-RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z.c)
+ *     ?NeedToBeTrimmed@VIDMM_DMA_POOL@@IEAAHXZ @ 0x1C00EFDF4 (-NeedToBeTrimmed@VIDMM_DMA_POOL@@IEAAHXZ.c)
+ *     ?WaitDmaBufferNotBusy@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@EPEAE@Z @ 0x1C00F05A8 (-WaitDmaBufferNotBusy@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@EPEAE@Z.c)
+ */
+
 void __fastcall VIDMM_DMA_POOL::TrimPool(VIDMM_DMA_POOL *this, char a2)
 {
   unsigned int v4; // ebp

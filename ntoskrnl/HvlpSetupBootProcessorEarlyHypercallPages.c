@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlpSetupBootProcessorEarlyHypercallPages @ 0x14053FC6C
+ * Callers:
+ *     HvlPhase0Initialize @ 0x14080D7C8 (HvlPhase0Initialize.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HvlpSetupBootProcessorEarlyHypercallPages(__int64 a1)
 {
   struct _KPRCB *CurrentPrcb; // rbx

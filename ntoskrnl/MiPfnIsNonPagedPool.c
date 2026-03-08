@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiPfnIsNonPagedPool @ 0x14063F458
+ * Callers:
+ *     MiIsPfnLocked @ 0x14030043C (MiIsPfnLocked.c)
+ * Callees:
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ */
+
 __int64 __fastcall MiPfnIsNonPagedPool(__int64 a1)
 {
   unsigned int v1; // ebx

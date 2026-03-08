@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopPepClearDripsDeviceVetoMask @ 0x14059C634
+ * Callers:
+ *     PopFxClearDeviceConstraints @ 0x140586DE0 (PopFxClearDeviceConstraints.c)
+ * Callees:
+ *     PopPepUpdateIdleStateRefCount @ 0x1402F295C (PopPepUpdateIdleStateRefCount.c)
+ */
+
 __int64 __fastcall PopPepClearDripsDeviceVetoMask(__int64 a1)
 {
   unsigned int v2; // edi

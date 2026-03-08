@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtGdiExtGetObjectW @ 0x1C0065470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreExtGetObjectW @ 0x1C0065580 (GreExtGetObjectW.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall NtGdiExtGetObjectW(int a1, unsigned int a2, void *a3)
 {
   int v6; // r15d

@@ -1,3 +1,18 @@
+/*
+ * XREFs of CcUnmapVacb @ 0x1406A7150
+ * Callers:
+ *     CcUnmapVacbArray @ 0x14021B910 (CcUnmapVacbArray.c)
+ *     CcGetVacbMiss @ 0x140335850 (CcGetVacbMiss.c)
+ *     CcUnmapInactiveViewsInternal @ 0x140535FC0 (CcUnmapInactiveViewsInternal.c)
+ * Callees:
+ *     MmUnmapViewInSystemCache @ 0x140285250 (MmUnmapViewInSystemCache.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x1402E0460 (CcUpdateSharedCacheMapFlag.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x140343320 (CcReferenceSharedCacheMapFileObject.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1403441C0 (ObFastDereferenceObjectDeferDelete.c)
+ *     PfCheckDeprioritizeFile @ 0x1407E6FF0 (PfCheckDeprioritizeFile.c)
+ *     PfCheckDeprioritizeImage @ 0x1407E72DC (PfCheckDeprioritizeImage.c)
+ */
+
 unsigned __int64 __fastcall CcUnmapVacb(__int64 a1, __int64 a2, char a3)
 {
   char v3; // bp

@@ -1,3 +1,21 @@
+/*
+ * XREFs of PnpInitializeBootStartDriver @ 0x140B58AC4
+ * Callers:
+ *     PipInitializeEarlyLaunchDrivers @ 0x140B57190 (PipInitializeEarlyLaunchDrivers.c)
+ *     PipInitializeCoreDriversByGroup @ 0x140B5780C (PipInitializeCoreDriversByGroup.c)
+ *     IopInitializeBootDrivers @ 0x140B57F78 (IopInitializeBootDrivers.c)
+ *     PnpLoadBootFilterDriver @ 0x140B6936C (PnpLoadBootFilterDriver.c)
+ * Callees:
+ *     PnpDiagnosticTraceObject @ 0x140202BAC (PnpDiagnosticTraceObject.c)
+ *     PnpDiagnosticTraceObjectWithStatus @ 0x1402B146C (PnpDiagnosticTraceObjectWithStatus.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     VfDriverInitStarting @ 0x140AB9E54 (VfDriverInitStarting.c)
+ *     VfDriverInitSuccess @ 0x140ABA5FC (VfDriverInitSuccess.c)
+ *     IopInitializeBuiltinDriver @ 0x140B58C28 (IopInitializeBuiltinDriver.c)
+ *     PnpDoPolicyCheck @ 0x140B5910C (PnpDoPolicyCheck.c)
+ *     PnpNotifyEarlyLaunchImageLoad @ 0x140B5916C (PnpNotifyEarlyLaunchImageLoad.c)
+ */
+
 __int64 __fastcall PnpInitializeBootStartDriver(
         unsigned __int16 *a1,
         __int128 *a2,

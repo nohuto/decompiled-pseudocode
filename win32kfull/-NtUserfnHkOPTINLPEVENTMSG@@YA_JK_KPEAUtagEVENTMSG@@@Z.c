@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NtUserfnHkOPTINLPEVENTMSG@@YA_JK_KPEAUtagEVENTMSG@@@Z @ 0x1C01CD620
+ * Callers:
+ *     NtUserCallNextHookEx @ 0x1C0147340 (NtUserCallNextHookEx.c)
+ * Callees:
+ *     xxxCallNextHookEx @ 0x1C0009C64 (xxxCallNextHookEx.c)
+ */
+
 __int64 __fastcall NtUserfnHkOPTINLPEVENTMSG(int a1, unsigned __int64 a2, struct tagEVENTMSG *a3)
 {
   struct tagEVENTMSG *v5; // rdx

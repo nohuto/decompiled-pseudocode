@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlpHpSegFree @ 0x140308DBC
+ * Callers:
+ *     RtlpHpSegLfhVsFree @ 0x140308DA0 (RtlpHpSegLfhVsFree.c)
+ * Callees:
+ *     RtlpHpSegPageRangeShrink @ 0x14024DB00 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpVsContextFree @ 0x1402B6740 (RtlpHpVsContextFree.c)
+ *     RtlpHpLfhSubsegmentFreeBlock @ 0x140309BA0 (RtlpHpLfhSubsegmentFreeBlock.c)
+ *     RtlpHpSegDescriptorValidate @ 0x14030A740 (RtlpHpSegDescriptorValidate.c)
+ *     RtlpHpLfhBucketUpdateStats @ 0x14030BFE0 (RtlpHpLfhBucketUpdateStats.c)
+ *     RtlpLogHeapFailure @ 0x1405B2884 (RtlpLogHeapFailure.c)
+ */
+
 __int64 __fastcall RtlpHpSegFree(__int64 a1, unsigned __int64 a2, unsigned int a3)
 {
   __int64 v6; // rax

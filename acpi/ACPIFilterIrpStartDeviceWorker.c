@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIFilterIrpStartDeviceWorker @ 0x1C00868F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIWakeInitializePciDevice @ 0x1C0045D08 (ACPIWakeInitializePciDevice.c)
+ *     PnpCmResourcesExcludeSidebandResources @ 0x1C00926CC (PnpCmResourcesExcludeSidebandResources.c)
+ */
+
 void __fastcall ACPIFilterIrpStartDeviceWorker(__int64 a1)
 {
   ULONG_PTR v2; // rcx

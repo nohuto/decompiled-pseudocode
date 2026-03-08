@@ -1,3 +1,19 @@
+/*
+ * XREFs of TtmpInsertPowerRequestToSession @ 0x1409A2488
+ * Callers:
+ *     TtmNotifySessionPowerRequestCreated @ 0x1409A1540 (TtmNotifySessionPowerRequestCreated.c)
+ *     TtmNotifySessionPowerRequestPresent @ 0x1409A16F0 (TtmNotifySessionPowerRequestPresent.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     TtmpAcquireSessionById @ 0x1409A1F50 (TtmpAcquireSessionById.c)
+ *     TtmpPowerRequestHashAllocator @ 0x1409A27AC (TtmpPowerRequestHashAllocator.c)
+ *     TtmpPowerRequestHashDeallocator @ 0x1409A27D0 (TtmpPowerRequestHashDeallocator.c)
+ *     TtmiLogError @ 0x1409A536C (TtmiLogError.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall TtmpInsertPowerRequestToSession(unsigned int a1, int a2, int a3, __int64 a4, __int64 a5)
 {
   __int64 v5; // rbx

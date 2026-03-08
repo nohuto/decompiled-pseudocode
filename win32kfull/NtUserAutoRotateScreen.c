@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserAutoRotateScreen @ 0x1C01CDD70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall NtUserAutoRotateScreen(unsigned int a1)
 {
   __int64 v2; // rdx

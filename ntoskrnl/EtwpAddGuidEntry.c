@@ -1,3 +1,23 @@
+/*
+ * XREFs of EtwpAddGuidEntry @ 0x140690A30
+ * Callers:
+ *     EtwpEnableGuid @ 0x14068EEBC (EtwpEnableGuid.c)
+ *     EtwpAddGuidEntry @ 0x140690A30 (EtwpAddGuidEntry.c)
+ *     EtwpFindOrCreateGuidEntry @ 0x140694E30 (EtwpFindOrCreateGuidEntry.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     EtwpAddGuidEntry @ 0x140690A30 (EtwpAddGuidEntry.c)
+ *     EtwpAllocGuidEntry @ 0x140690BD4 (EtwpAllocGuidEntry.c)
+ *     EtwpFindGuidEntryByGuid @ 0x140694F60 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpReferenceGuidEntry @ 0x140695054 (EtwpReferenceGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x140695094 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpFreeGuidEntry @ 0x14078B2C4 (EtwpFreeGuidEntry.c)
+ */
+
 _QWORD *__fastcall EtwpAddGuidEntry(__int64 a1, _DWORD *a2, int a3)
 {
   __int64 v3; // rsi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?VidSchiDecrementHwContextReference@@YAXPEAUVIDSCH_HW_CONTEXT@@H@Z @ 0x1C0042604
+ * Callers:
+ *     ?VidSchiDecrementHwQueueReference@@YAXPEAUVIDSCH_HW_QUEUE@@_N@Z @ 0x1C00427B0 (-VidSchiDecrementHwQueueReference@@YAXPEAUVIDSCH_HW_QUEUE@@_N@Z.c)
+ *     VidSchTerminateHwContext @ 0x1C0045190 (VidSchTerminateHwContext.c)
+ * Callees:
+ *     VidSchiDecrementDeviceReference @ 0x1C0012D90 (VidSchiDecrementDeviceReference.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall VidSchiDecrementHwContextReference(unsigned int *P, int a2)
 {

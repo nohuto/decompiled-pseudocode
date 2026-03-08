@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiInsertQueueInternal @ 0x140293C9C
+ * Callers:
+ *     KiWakeOtherQueueWaiters @ 0x140293BF4 (KiWakeOtherQueueWaiters.c)
+ *     KeReleaseMutantEx @ 0x14040A86C (KeReleaseMutantEx.c)
+ * Callees:
+ *     KiWakeOtherQueueWaiters @ 0x140293BF4 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x140340700 (KiWakeQueueWaiter.c)
+ *     KeIsThreadRunning @ 0x14056C7FC (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405FA8FC (EtwTraceEnqueueWork.c)
+ */
+
 __int64 __fastcall KiInsertQueueInternal(__int64 a1, __int64 *a2)
 {
   _QWORD *v2; // rbp

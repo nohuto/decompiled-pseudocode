@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopDiagTracePowerTransitionEnd @ 0x14098DF28
+ * Callers:
+ *     PopIssueActionRequest @ 0x140986CA4 (PopIssueActionRequest.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwWriteEndScenario @ 0x140842920 (EtwWriteEndScenario.c)
+ *     PopQueryMostRecentWakeSourceInfo @ 0x140984674 (PopQueryMostRecentWakeSourceInfo.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PopDiagTracePowerTransitionEnd(int a1)
 {
   PVOID v1; // rdi

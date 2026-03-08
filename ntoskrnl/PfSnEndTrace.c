@@ -1,3 +1,21 @@
+/*
+ * XREFs of PfSnEndTrace @ 0x1407E37B8
+ * Callers:
+ *     PfSnEndTraceWorkerThreadRoutine @ 0x1407E37A0 (PfSnEndTraceWorkerThreadRoutine.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     PfSnDeactivateTrace @ 0x14035B244 (PfSnDeactivateTrace.c)
+ *     PfFbBufferListFlushStandby @ 0x14035B78C (PfFbBufferListFlushStandby.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PfSnCleanupTrace @ 0x1407E3630 (PfSnCleanupTrace.c)
+ *     PfSnBuildDumpFromTrace @ 0x1407E3A00 (PfSnBuildDumpFromTrace.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfSnEndTrace(struct _EX_RUNDOWN_REF *P)
 {
   char PreviousMode; // r14

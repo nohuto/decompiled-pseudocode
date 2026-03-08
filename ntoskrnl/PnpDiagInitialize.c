@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpDiagInitialize @ 0x140B5A9D4
+ * Callers:
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     McGenEventRegister_EtwRegister @ 0x1403895F8 (McGenEventRegister_EtwRegister.c)
+ *     EtwRegister @ 0x140690D20 (EtwRegister.c)
+ */
+
 __int64 __fastcall PnpDiagInitialize(__int64 a1, __int64 a2)
 {
   NTSTATUS v2; // eax

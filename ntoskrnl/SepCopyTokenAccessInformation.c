@@ -1,3 +1,17 @@
+/*
+ * XREFs of SepCopyTokenAccessInformation @ 0x14077104C
+ * Callers:
+ *     NtQueryInformationToken @ 0x1406D6780 (NtQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ * Callees:
+ *     SepConvertTokenPrivilegesToLuidAndAttributes @ 0x140298FAC (SepConvertTokenPrivilegesToLuidAndAttributes.c)
+ *     SeQueryMandatoryPolicyToken @ 0x1402E7580 (SeQueryMandatoryPolicyToken.c)
+ *     RtlSidHashInitialize @ 0x140310020 (RtlSidHashInitialize.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlCopySidAndAttributesArray @ 0x1406D47D0 (RtlCopySidAndAttributesArray.c)
+ *     AuthzBasepQueryInternalSecurityAttributesToken @ 0x1407714CC (AuthzBasepQueryInternalSecurityAttributesToken.c)
+ */
+
 __int64 __fastcall SepCopyTokenAccessInformation(
         __int64 a1,
         __int64 a2,

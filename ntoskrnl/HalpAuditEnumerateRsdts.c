@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpAuditEnumerateRsdts @ 0x140B8EE9C
+ * Callers:
+ *     HalpAuditAcpiTables @ 0x140B63138 (HalpAuditAcpiTables.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     HalpAuditAllocateRsdtArrayTable @ 0x140B8EDF4 (HalpAuditAllocateRsdtArrayTable.c)
+ *     HalpAuditEnumerateRsdtsInRange @ 0x140B8EF48 (HalpAuditEnumerateRsdtsInRange.c)
+ *     HalpAuditGetExtendedBiosDataArea @ 0x140B8F034 (HalpAuditGetExtendedBiosDataArea.c)
+ */
+
 __int64 __fastcall HalpAuditEnumerateRsdts(__int64 a1, PVOID *a2)
 {
   int RsdtArrayTable; // eax

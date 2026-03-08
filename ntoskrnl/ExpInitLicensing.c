@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpInitLicensing @ 0x1408102BC
+ * Callers:
+ *     sub_140606E08 @ 0x140606E08 (sub_140606E08.c)
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ExpInitLicensing(char *a1)
 {
   __int64 *v1; // rax

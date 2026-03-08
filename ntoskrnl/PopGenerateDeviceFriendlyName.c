@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopGenerateDeviceFriendlyName @ 0x140847DF4
+ * Callers:
+ *     PopFxRegisterDevice @ 0x140836FBC (PopFxRegisterDevice.c)
+ *     PopIdleWakeGenerateInterruptDescriptionString @ 0x1409975B8 (PopIdleWakeGenerateInterruptDescriptionString.c)
+ *     PopDirectedDripsDiagCreateDeviceDescription @ 0x14099AFC8 (PopDirectedDripsDiagCreateDeviceDescription.c)
+ * Callees:
+ *     RtlUnicodeStringCatString @ 0x1402BD420 (RtlUnicodeStringCatString.c)
+ *     RtlUnicodeStringCat @ 0x1402BD900 (RtlUnicodeStringCat.c)
+ *     IoGetDeviceProperty @ 0x1406C5B00 (IoGetDeviceProperty.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopGenerateDeviceFriendlyName(__int64 a1, char a2, UNICODE_STRING *a3)
 {
   int v4; // r12d

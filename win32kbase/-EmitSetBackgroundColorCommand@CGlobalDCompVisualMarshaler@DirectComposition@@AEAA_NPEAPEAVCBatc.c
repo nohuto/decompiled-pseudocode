@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EmitSetBackgroundColorCommand@CGlobalDCompVisualMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0255198
+ * Callers:
+ *     ?EmitUpdateCommands@CGlobalDCompVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C025A000 (-EmitUpdateCommands@CGlobalDCompVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0064740 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ */
+
 char __fastcall DirectComposition::CGlobalDCompVisualMarshaler::EmitSetBackgroundColorCommand(
         DirectComposition::CGlobalDCompVisualMarshaler *this,
         struct DirectComposition::CBatch ***a2)

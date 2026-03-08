@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiIncrementConcurrencyCount @ 0x1402EA420
+ * Callers:
+ *     KiCommitThreadWait @ 0x140261290 (KiCommitThreadWait.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KiIncrementConcurrencyCount(_BYTE *a1, __int64 a2)
 {
   __int64 v2; // rax

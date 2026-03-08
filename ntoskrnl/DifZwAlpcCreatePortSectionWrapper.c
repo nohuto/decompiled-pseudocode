@@ -1,3 +1,15 @@
+/*
+ * XREFs of DifZwAlpcCreatePortSectionWrapper @ 0x1405EAC60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwAlpcCreatePortSection @ 0x140413290 (ZwAlpcCreatePortSection.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 __int64 __fastcall DifZwAlpcCreatePortSectionWrapper(
         __int64 a1,
         unsigned int a2,

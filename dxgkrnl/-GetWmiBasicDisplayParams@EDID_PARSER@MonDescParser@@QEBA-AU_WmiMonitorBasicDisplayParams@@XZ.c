@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetWmiBasicDisplayParams@EDID_PARSER@MonDescParser@@QEBA?AU_WmiMonitorBasicDisplayParams@@XZ @ 0x1C0073CCC
+ * Callers:
+ *     ?EDIDV1_ObtainMonitorBasicDisplayParams@@YAJPEBEPEAU_WmiMonitorBasicDisplayParams@@@Z @ 0x1C0071BA0 (-EDIDV1_ObtainMonitorBasicDisplayParams@@YAJPEBEPEAU_WmiMonitorBasicDisplayParams@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _WmiMonitorBasicDisplayParams *__fastcall MonDescParser::EDID_PARSER::GetWmiBasicDisplayParams(
         MonDescParser::EDID_PARSER *this,
         struct _WmiMonitorBasicDisplayParams *__return_ptr retstr)

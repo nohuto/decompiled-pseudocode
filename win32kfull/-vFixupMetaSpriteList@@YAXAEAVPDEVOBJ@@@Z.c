@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vFixupMetaSpriteList@@YAXAEAVPDEVOBJ@@@Z @ 0x1C028273C
+ * Callers:
+ *     GreTransferDwmStateToSpriteState @ 0x1C007CDBC (GreTransferDwmStateToSpriteState.c)
+ *     vSpDynamicModeChange @ 0x1C00E5A90 (vSpDynamicModeChange.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vFixupMetaSpriteList(struct PDEVOBJ *a1)
 {
   __int64 v1; // r9

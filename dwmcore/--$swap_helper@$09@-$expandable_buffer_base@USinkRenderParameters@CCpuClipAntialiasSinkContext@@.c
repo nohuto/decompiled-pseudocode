@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$swap_helper@$09@?$expandable_buffer_base@USinkRenderParameters@CCpuClipAntialiasSinkContext@@$09@detail@@QEAA_NAEAV01@@Z @ 0x1801FBAE8
+ * Callers:
+ *     ??$swap@$09@?$expandable_buffer_base@USinkRenderParameters@CCpuClipAntialiasSinkContext@@$09@detail@@QEAA_NAEAV01@@Z @ 0x1801FB95C (--$swap@$09@-$expandable_buffer_base@USinkRenderParameters@CCpuClipAntialiasSinkContext@@$09@det.c)
+ * Callees:
+ *     ??$move_uninitialized@PEAUSinkRenderParameters@CCpuClipAntialiasSinkContext@@PEAU12@@detail@@YA?A_PPEAUSinkRenderParameters@CCpuClipAntialiasSinkContext@@00@Z @ 0x1801FB8F0 (--$move_uninitialized@PEAUSinkRenderParameters@CCpuClipAntialiasSinkContext@@PEAU12@@detail@@YA-.c)
+ */
+
 char __fastcall detail::expandable_buffer_base<CCpuClipAntialiasSinkContext::SinkRenderParameters,10>::swap_helper<10>(
         _QWORD *a1,
         __int64 *a2)

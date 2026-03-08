@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ReportPagingProcessState@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E72C4
+ * Callers:
+ *     ?ReportVidMmStateWorker@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E7460 (-ReportVidMmStateWorker@VIDMM_GLOBAL@@QEAAXXZ.c)
+ * Callees:
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     McTemplateK0ppqqpx_EtwWriteTransfer @ 0x1C002EC20 (McTemplateK0ppqqpx_EtwWriteTransfer.c)
+ *     ?ReportState@VIDMM_DEVICE@@QEAAXXZ @ 0x1C00C4312 (-ReportState@VIDMM_DEVICE@@QEAAXXZ.c)
+ */
+
 void __fastcall VIDMM_GLOBAL::ReportPagingProcessState(VIDMM_GLOBAL *this)
 {
   __int64 i; // rdi

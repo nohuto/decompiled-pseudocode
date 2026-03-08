@@ -1,3 +1,11 @@
+/*
+ * XREFs of NVMeGetControllerSerialNumber @ 0x1C000F198
+ * Callers:
+ *     NVMeHwAdapterControl @ 0x1C0003050 (NVMeHwAdapterControl.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NVMeGetControllerSerialNumber(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

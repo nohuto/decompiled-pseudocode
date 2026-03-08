@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiInsertMdlPageNeedsZero @ 0x1403A0E10
+ * Callers:
+ *     MiInitializeMdlOneNodeBatchPages @ 0x1402B4650 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14034DCB0 (MiAllocateLargeZeroPages.c)
+ *     MiFindLargePageMemory @ 0x140A46B08 (MiFindLargePageMemory.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MiInsertMdlPageNeedsZero(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v4; // edx

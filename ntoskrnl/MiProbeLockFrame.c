@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiProbeLockFrame @ 0x140268ED0
+ * Callers:
+ *     MiProbeAndLockPacket @ 0x140268C30 (MiProbeAndLockPacket.c)
+ *     MmProbeAndLockSelectedPages @ 0x1403CF7D0 (MmProbeAndLockSelectedPages.c)
+ * Callees:
+ *     MiLockPageTablePage @ 0x14026A4D0 (MiLockPageTablePage.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140286264 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiReferenceIoPages @ 0x14029BA60 (MiReferenceIoPages.c)
+ *     ExAcquireRundownProtectionCacheAware @ 0x1402C3B80 (ExAcquireRundownProtectionCacheAware.c)
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14032E710 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiChargePartitionResidentAvailable @ 0x140348ED0 (MiChargePartitionResidentAvailable.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockNonPagedPoolPte @ 0x14063F214 (MiLockNonPagedPoolPte.c)
+ */
+
 __int64 __fastcall MiProbeLockFrame(__int64 a1, int a2)
 {
   unsigned __int64 v2; // rdi

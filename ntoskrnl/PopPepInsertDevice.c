@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopPepInsertDevice @ 0x140393A90
+ * Callers:
+ *     PopPepRegisterDevice @ 0x1408378C4 (PopPepRegisterDevice.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 char __fastcall PopPepInsertDevice(__int64 a1, __int64 *a2)
 {
   struct _KTHREAD *CurrentThread; // rax

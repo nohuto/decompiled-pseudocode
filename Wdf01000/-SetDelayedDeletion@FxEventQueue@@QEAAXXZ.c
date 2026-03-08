@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetDelayedDeletion@FxEventQueue@@QEAAXXZ @ 0x1C00814A0
+ * Callers:
+ *     ?PnpEventFinal@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C006A840 (-PnpEventFinal@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qq @ 0x1C001828C (WPP_IFR_SF_qq.c)
+ */
+
 void __fastcall FxEventQueue::SetDelayedDeletion(FxEventQueue *this)
 {
   const void *_a1; // rax

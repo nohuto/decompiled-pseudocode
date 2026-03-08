@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopProcessDeviceWakeSource @ 0x140A9E094
+ * Callers:
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     PopAcquireWakeSourceSpinLock @ 0x14058BF2C (PopAcquireWakeSourceSpinLock.c)
+ *     PopReleaseWakeSourceSpinLock @ 0x14058C200 (PopReleaseWakeSourceSpinLock.c)
+ *     PopFreeWakeSource @ 0x1409842D8 (PopFreeWakeSource.c)
+ *     PopProcessWakeSourceWork @ 0x140A9E248 (PopProcessWakeSourceWork.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 PVOID *PopProcessDeviceWakeSource()
 {
   PVOID v0; // rdi

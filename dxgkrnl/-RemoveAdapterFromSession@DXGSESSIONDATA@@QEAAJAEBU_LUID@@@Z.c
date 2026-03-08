@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?RemoveAdapterFromSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@@Z @ 0x1C01C5874
+ * Callers:
+ *     ?SetAdapterLuidInRemoteSession@DXGSESSIONDATA@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C001B734 (-SetAdapterLuidInRemoteSession@DXGSESSIONDATA@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     DxgkUseAdapterViewInCurrentSession @ 0x1C017D64C (DxgkUseAdapterViewInCurrentSession.c)
+ * Callees:
+ *     ??_GSESSION_ADAPTER@@QEAAPEAXI@Z @ 0x1C000B2E8 (--_GSESSION_ADAPTER@@QEAAPEAXI@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?GetSessionAdapterFromLuid@DXGSESSIONDATA@@QEBAPEAVSESSION_ADAPTER@@AEBU_LUID@@@Z @ 0x1C01A702C (-GetSessionAdapterFromLuid@DXGSESSIONDATA@@QEBAPEAVSESSION_ADAPTER@@AEBU_LUID@@@Z.c)
+ *     ?Cleanup@SESSION_ADAPTER@@QEAAXXZ @ 0x1C01C595C (-Cleanup@SESSION_ADAPTER@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall DXGSESSIONDATA::RemoveAdapterFromSession(DXGSESSIONDATA *this, const struct _LUID *a2)
 {
   struct SESSION_ADAPTER *SessionAdapterFromLuid; // rax

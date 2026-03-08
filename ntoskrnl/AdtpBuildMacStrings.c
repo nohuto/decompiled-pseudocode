@@ -1,3 +1,13 @@
+/*
+ * XREFs of AdtpBuildMacStrings @ 0x140A57CE8
+ * Callers:
+ *     AdtpBuildSockAddrString @ 0x140A5877C (AdtpBuildSockAddrString.c)
+ * Callees:
+ *     RtlEthernetAddressToStringW @ 0x1403B08A0 (RtlEthernetAddressToStringW.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AdtpBuildMacStrings(__int64 a1, __int64 a2, _BYTE *a3)
 {
   PVOID *v6; // rcx

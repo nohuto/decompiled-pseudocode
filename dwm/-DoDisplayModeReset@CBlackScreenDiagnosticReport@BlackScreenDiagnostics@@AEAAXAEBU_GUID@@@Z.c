@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?DoDisplayModeReset@CBlackScreenDiagnosticReport@BlackScreenDiagnostics@@AEAAXAEBU_GUID@@@Z @ 0x14000C764
+ * Callers:
+ *     ?Run@CBlackScreenDiagnosticReport@BlackScreenDiagnostics@@AEAAXW4CallingSource@2@W4DiagnosticFlags@2@AEBU_GUID@@@Z @ 0x14000D134 (-Run@CBlackScreenDiagnosticReport@BlackScreenDiagnostics@@AEAAXW4CallingSource@2@W4DiagnosticFla.c)
+ * Callees:
+ *     __security_check_cookie @ 0x140005510 (__security_check_cookie.c)
+ *     BlackScreenDiagnostics::TriggerGraphicsCollection @ 0x14000D6A8 (BlackScreenDiagnostics--TriggerGraphicsCollection.c)
+ *     _tlgKeywordOn @ 0x14000DB68 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x14000DB9C (_tlgWriteTransfer_EventWriteTransfer.c)
+ *     MicrosoftTelemetryAssertTriggeredArgs @ 0x14000DF68 (MicrosoftTelemetryAssertTriggeredArgs.c)
+ */
+
 void __fastcall BlackScreenDiagnostics::CBlackScreenDiagnosticReport::DoDisplayModeReset(
         BlackScreenDiagnostics::CBlackScreenDiagnosticReport *this,
         const struct _GUID *a2)

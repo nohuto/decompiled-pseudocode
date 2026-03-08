@@ -1,3 +1,17 @@
+/*
+ * XREFs of _PnpCtxCreateNode @ 0x140851F88
+ * Callers:
+ *     PiPnpRtlInit @ 0x14081BE64 (PiPnpRtlInit.c)
+ *     _PnpCtxOpenMachine @ 0x140851D74 (_PnpCtxOpenMachine.c)
+ *     _PnpCtxRegisterMachineNode @ 0x140A5DF28 (_PnpCtxRegisterMachineNode.c)
+ * Callees:
+ *     RtlCreateUnicodeString @ 0x140747D00 (RtlCreateUnicodeString.c)
+ *     _SysCtxOpenMachine @ 0x1408520D0 (_SysCtxOpenMachine.c)
+ *     _SysCtxCloseMachine @ 0x140A676C4 (_SysCtxCloseMachine.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpCtxCreateNode(
         int *a1,
         const WCHAR *a2,

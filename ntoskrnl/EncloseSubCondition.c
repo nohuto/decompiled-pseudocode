@@ -1,3 +1,13 @@
+/*
+ * XREFs of EncloseSubCondition @ 0x1409D00DC
+ * Callers:
+ *     LocalpGetStringForCondition @ 0x1409D3684 (LocalpGetStringForCondition.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     SddlpAlloc @ 0x1407507C8 (SddlpAlloc.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EncloseSubCondition(PVOID *a1)
 {
   unsigned int v2; // ebx

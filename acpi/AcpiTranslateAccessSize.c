@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiTranslateAccessSize @ 0x1C007CB18
+ * Callers:
+ *     AcpiParseGenRegDesc @ 0x1C007CAC4 (AcpiParseGenRegDesc.c)
+ *     ACPIPccInitialize @ 0x1C00894D8 (ACPIPccInitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall AcpiTranslateAccessSize(unsigned __int8 a1, char a2, char a3)
 {
   unsigned __int8 v3; // r9

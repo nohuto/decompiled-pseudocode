@@ -1,3 +1,17 @@
+/*
+ * XREFs of AcpiTranslatePepDeviceControlResourcesInternal @ 0x1C008B620
+ * Callers:
+ *     AcpiTranslatePepDeviceControlResources @ 0x1C008B5E0 (AcpiTranslatePepDeviceControlResources.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C001B508 (WPP_RECORDER_SF_qD.c)
+ *     WPP_RECORDER_SF_qqD @ 0x1C0038720 (WPP_RECORDER_SF_qqD.c)
+ *     WPP_RECORDER_SF_sqqD @ 0x1C0038878 (WPP_RECORDER_SF_sqqD.c)
+ *     AcpiValidatePepDeviceControlResources @ 0x1C008B804 (AcpiValidatePepDeviceControlResources.c)
+ *     PnpBiosResourcesToNtResources @ 0x1C008EFDC (PnpBiosResourcesToNtResources.c)
+ *     PnpIoResourceListToCmResourceList @ 0x1C008FD8C (PnpIoResourceListToCmResourceList.c)
+ */
+
 __int64 __fastcall AcpiTranslatePepDeviceControlResourcesInternal(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetRealization@CTranslateTransform@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x180008CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CTranslateTransform::GetRealization(
         CTranslateTransform *this,
         const struct D2D_SIZE_F *a2,

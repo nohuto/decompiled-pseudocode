@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AddActivationObjectToHashTable@CActivationObjectManager@@AEAAJPEAVCActivationObject@@@Z @ 0x1C00844B0
+ * Callers:
+ *     ?CreateActivationObject@CActivationObjectManager@@QEAAJDPEAU_OBJECT_ATTRIBUTES@@KDPEAUHWND__@@_KPEAU_LUID@@@Z @ 0x1C0084240 (-CreateActivationObject@CActivationObjectManager@@QEAAJDPEAU_OBJECT_ATTRIBUTES@@KDPEAUHWND__@@_K.c)
+ * Callees:
+ *     ?HashTableAllocator@@YAPEAX_KPEAX@Z @ 0x1C00D4294 (-HashTableAllocator@@YAPEAX_KPEAX@Z.c)
+ *     UserRtlFreeMem @ 0x1C0155FE0 (UserRtlFreeMem.c)
+ */
+
 __int64 __fastcall CActivationObjectManager::AddActivationObjectToHashTable(
         unsigned __int64 this,
         struct CActivationObject *a2)

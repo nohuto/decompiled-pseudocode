@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetKeyNameText @ 0x1C00E7950
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserGetKeyNameText(__int64 a1, volatile void *a2, __int64 a3)
 {
   unsigned int v3; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiInitializeCacheSizes @ 0x140B6BCCC
+ * Callers:
+ *     MiInitializeColors @ 0x140B6BC48 (MiInitializeColors.c)
+ * Callees:
+ *     MiInitializeLargePageColorSizes @ 0x1403A8FCC (MiInitializeLargePageColorSizes.c)
+ */
+
 __int64 MiInitializeCacheSizes()
 {
   unsigned int SecondLevelCacheSize; // r8d

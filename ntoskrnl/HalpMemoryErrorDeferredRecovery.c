@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpMemoryErrorDeferredRecovery @ 0x1405174A4
+ * Callers:
+ *     HalpHvMceConsumedMemoryErrorRecovery @ 0x1405092C0 (HalpHvMceConsumedMemoryErrorRecovery.c)
+ *     HalpMceRecoveryNotRequiredAmd @ 0x140516E54 (HalpMceRecoveryNotRequiredAmd.c)
+ *     HalpMceRecoveryNotRequiredIntel @ 0x140516EC0 (HalpMceRecoveryNotRequiredIntel.c)
+ *     HalpGhesMemoryErrorHandler @ 0x14051735C (HalpGhesMemoryErrorHandler.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpHvSetMachineCheckRecoveryState @ 0x140509C70 (HalpHvSetMachineCheckRecoveryState.c)
+ *     HalpAcquireDrsPool @ 0x14051711C (HalpAcquireDrsPool.c)
+ *     HalpFreeDrsPool @ 0x140517200 (HalpFreeDrsPool.c)
+ *     WheaRequestDeferredRecovery @ 0x140610910 (WheaRequestDeferredRecovery.c)
+ */
+
 __int64 __fastcall HalpMemoryErrorDeferredRecovery(
         __int64 a1,
         char a2,

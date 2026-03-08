@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopIsNotifyInBroadcast @ 0x140A9B8F4
+ * Callers:
+ *     IoBuildPoDeviceNotifyList @ 0x140A9B078 (IoBuildPoDeviceNotifyList.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall IopIsNotifyInBroadcast(char a1, __int64 a2)
 {
   char v2; // r8

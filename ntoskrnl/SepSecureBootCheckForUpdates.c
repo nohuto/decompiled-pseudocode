@@ -1,3 +1,15 @@
+/*
+ * XREFs of SepSecureBootCheckForUpdates @ 0x140B42170
+ * Callers:
+ *     SeSecureBootRegisterPolicy @ 0x140B42958 (SeSecureBootRegisterPolicy.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     NtUpdateWnfStateData @ 0x140719400 (NtUpdateWnfStateData.c)
+ */
+
 NTSTATUS SepSecureBootCheckForUpdates()
 {
   NTSTATUS result; // eax

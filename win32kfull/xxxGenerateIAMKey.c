@@ -1,3 +1,11 @@
+/*
+ * XREFs of xxxGenerateIAMKey @ 0x1C0092EA4
+ * Callers:
+ *     xxxSetShellWindow @ 0x1C0092CAC (xxxSetShellWindow.c)
+ * Callees:
+ *     ?xxxCallGenerateIAMKey@@YAJPEAUtagIAM_KKEY@@@Z @ 0x1C01AF1AC (-xxxCallGenerateIAMKey@@YAJPEAUtagIAM_KKEY@@@Z.c)
+ */
+
 __int64 __fastcall xxxGenerateIAMKey(__int64 a1)
 {
   __int64 v1; // rbx

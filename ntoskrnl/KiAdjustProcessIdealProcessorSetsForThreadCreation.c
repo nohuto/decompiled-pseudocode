@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiAdjustProcessIdealProcessorSetsForThreadCreation @ 0x140238A7C
+ * Callers:
+ *     KeStartThread @ 0x1402385C4 (KeStartThread.c)
+ * Callees:
+ *     KiIsConcurrencyCountWithinIdealProcessorSetBreakpoints @ 0x140238B18 (KiIsConcurrencyCountWithinIdealProcessorSetBreakpoints.c)
+ *     KiConstrainIdealProcessorSetBreakpoints @ 0x140296B28 (KiConstrainIdealProcessorSetBreakpoints.c)
+ *     KiSelectIdealProcessorSetForProcessGroup @ 0x140296B48 (KiSelectIdealProcessorSetForProcessGroup.c)
+ */
+
 __int64 __fastcall KiAdjustProcessIdealProcessorSetsForThreadCreation(__int64 a1)
 {
   __int64 result; // rax

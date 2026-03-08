@@ -1,3 +1,13 @@
+/*
+ * XREFs of VslConfigureSecureAtsDevice @ 0x14040A03C
+ * Callers:
+ *     ExpAtsConfigureSecureDevice @ 0x14040D320 (ExpAtsConfigureSecureDevice.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall VslConfigureSecureAtsDevice(__int64 *a1, _QWORD *a2)
 {
   __int64 v4; // xmm0_8

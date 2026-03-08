@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtGdiEudcLoadUnloadLink @ 0x1C02A3450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x1C012BEC0 (__report_rangecheckfailure.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     GreEudcLoadLinkW @ 0x1C02A10C8 (GreEudcLoadLinkW.c)
+ *     GreEudcUnloadLinkW @ 0x1C02A13F0 (GreEudcUnloadLinkW.c)
+ */
+
 __int64 __fastcall NtGdiEudcLoadUnloadLink(
         unsigned __int16 *a1,
         unsigned int a2,

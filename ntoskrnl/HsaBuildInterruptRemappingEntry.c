@@ -1,3 +1,12 @@
+/*
+ * XREFs of HsaBuildInterruptRemappingEntry @ 0x14052D004
+ * Callers:
+ *     HsaBuildDeviceTableEntry @ 0x14052CE78 (HsaBuildDeviceTableEntry.c)
+ *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x14052F02C (HsaUpdateRemappingTableInDeviceTableEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HsaBuildInterruptRemappingEntry(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

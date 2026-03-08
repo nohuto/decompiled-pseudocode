@@ -1,3 +1,11 @@
+/*
+ * XREFs of SeComputeAutoInheritByObjectType @ 0x1402EA340
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SeComputeAutoInheritByObjectTypeEx @ 0x14030FBF0 (SeComputeAutoInheritByObjectTypeEx.c)
+ */
+
 ULONG __stdcall SeComputeAutoInheritByObjectType(
         PVOID ObjectType,
         PSECURITY_DESCRIPTOR SecurityDescriptor,

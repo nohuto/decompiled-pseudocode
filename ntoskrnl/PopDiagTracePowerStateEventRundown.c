@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagTracePowerStateEventRundown @ 0x14098DE4C
+ * Callers:
+ *     PopDiagTraceControlCallback @ 0x14085EC40 (PopDiagTraceControlCallback.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void PopDiagTracePowerStateEventRundown()
 {
   char *v0; // rbx

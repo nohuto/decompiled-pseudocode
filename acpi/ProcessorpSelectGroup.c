@@ -1,3 +1,12 @@
+/*
+ * XREFs of ProcessorpSelectGroup @ 0x1C009C174
+ * Callers:
+ *     ProcessorpSelectProcessorSetFromClusters @ 0x1C009C230 (ProcessorpSelectProcessorSetFromClusters.c)
+ *     ProcessorpSelectProcessorSetFromPartitions @ 0x1C00A02C0 (ProcessorpSelectProcessorSetFromPartitions.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall ProcessorpSelectGroup(char a1, char a2, __int64 a3, _QWORD *a4)
 {
   _QWORD *result; // rax

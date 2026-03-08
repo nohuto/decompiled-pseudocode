@@ -1,3 +1,15 @@
+/*
+ * XREFs of LogicalCursorPosFromDpiAwarenessContext @ 0x1C003B720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Is_MonitorFromPointSupported @ 0x1C003B86C (Is_MonitorFromPointSupported.c)
+ *     ScaleDPIPt @ 0x1C003B898 (ScaleDPIPt.c)
+ *     GetMonitorRectForDpi @ 0x1C003BDD8 (GetMonitorRectForDpi.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C0041AF0 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall LogicalCursorPosFromDpiAwarenessContext(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int CurrentThreadDpiAwarenessContext; // edi

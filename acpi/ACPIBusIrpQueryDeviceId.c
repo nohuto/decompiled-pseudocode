@@ -1,3 +1,18 @@
+/*
+ * XREFs of ACPIBusIrpQueryDeviceId @ 0x1C007F574
+ * Callers:
+ *     ACPIBusIrpQueryId @ 0x1C0080330 (ACPIBusIrpQueryId.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     RtlStringCbPrintfExW @ 0x1C0017B4C (RtlStringCbPrintfExW.c)
+ *     RtlStringCbPrintfW @ 0x1C0017D20 (RtlStringCbPrintfW.c)
+ *     WPP_RECORDER_SF_qdLqss @ 0x1C0017F78 (WPP_RECORDER_SF_qdLqss.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     AMLIGetNSObjectType @ 0x1C00483A8 (AMLIGetNSObjectType.c)
+ *     ACPIAllocateBuffer @ 0x1C0097C2C (ACPIAllocateBuffer.c)
+ *     ACPIValidateStringVendorDeviceIdFormat @ 0x1C0098A2C (ACPIValidateStringVendorDeviceIdFormat.c)
+ */
+
 __int64 __fastcall ACPIBusIrpQueryDeviceId(wchar_t **a1, size_t *a2, _QWORD *a3)
 {
   void *v6; // r13

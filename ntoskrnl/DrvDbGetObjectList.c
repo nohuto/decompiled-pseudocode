@@ -1,3 +1,16 @@
+/*
+ * XREFs of DrvDbGetObjectList @ 0x140A696A0
+ * Callers:
+ *     DrvDbDispatchDriverInfFile @ 0x140864AC0 (DrvDbDispatchDriverInfFile.c)
+ *     DrvDbDispatchDeviceId @ 0x140864D40 (DrvDbDispatchDeviceId.c)
+ *     DrvDbDispatchDriverPackage @ 0x140864E40 (DrvDbDispatchDriverPackage.c)
+ *     DrvDbDispatchDriverFile @ 0x140A6B1D0 (DrvDbDispatchDriverFile.c)
+ * Callees:
+ *     DrvDbReleaseDatabaseNodeBaseKey @ 0x14086585C (DrvDbReleaseDatabaseNodeBaseKey.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1408658F8 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     DrvDbGetObjectSubKeyList @ 0x140A69BC0 (DrvDbGetObjectSubKeyList.c)
+ */
+
 __int64 __fastcall DrvDbGetObjectList(
         __int64 *a1,
         int a2,

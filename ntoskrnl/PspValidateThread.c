@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspValidateThread @ 0x1403BECB0
+ * Callers:
+ *     PsSetThreadProperty @ 0x1403BEC70 (PsSetThreadProperty.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspValidateThread(_KTHREAD *a1)
 {
   if ( a1 == KeGetCurrentPrcb()->IdleThread )

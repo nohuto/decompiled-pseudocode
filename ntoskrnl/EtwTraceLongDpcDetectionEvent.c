@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceLongDpcDetectionEvent @ 0x1405FAAEC
+ * Callers:
+ *     KiExecuteAllDpcs @ 0x140252F60 (KiExecuteAllDpcs.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall EtwTraceLongDpcDetectionEvent(int a1, char a2)
 {
   int v2; // [rsp+30h] [rbp-28h] BYREF

@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpInternEntryCreate @ 0x140703750
+ * Callers:
+ *     RtlInternTableIntern @ 0x1407015D8 (RtlInternTableIntern.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 _WORD *__fastcall RtlpInternEntryCreate(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned __int64 v4; // rbx

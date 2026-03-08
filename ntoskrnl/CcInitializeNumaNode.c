@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcInitializeNumaNode @ 0x140538418
+ * Callers:
+ *     CcInitializePartition @ 0x14039B5F0 (CcInitializePartition.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x140310130 (ExpAllocatePoolWithTagFromNode.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 char __fastcall CcInitializeNumaNode(__int64 a1, _DWORD *a2, __int64 a3, unsigned int a4)
 {
   char v7; // bl

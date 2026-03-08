@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPreferenceDword@CSettingsManager@@UEAAJPEBGPEAK@Z @ 0x140002F00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CSettingsManager::GetPreferenceDword(CSettingsManager *this, const unsigned __int16 *a2, BYTE *a3)
 {
   RTL_SRWLOCK *v3; // rdi

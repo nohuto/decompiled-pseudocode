@@ -1,3 +1,14 @@
+/*
+ * XREFs of XilEndpoint_SendRequestToSetSecureStreamContextArray @ 0x1C0039674
+ * Callers:
+ *     XilEndpoint_CommitStreamContextArrayUpdates @ 0x1C0038E24 (XilEndpoint_CommitStreamContextArrayUpdates.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     memmove @ 0x1C0020400 (memmove.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0030BE4 (WPP_RECORDER_SF_ddL.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ */
+
 __int64 __fastcall XilEndpoint_SendRequestToSetSecureStreamContextArray(
         __int64 a1,
         __int64 a2,

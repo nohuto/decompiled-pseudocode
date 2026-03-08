@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?VidSchiRecordVSyncTiming@@YAXPEAU_VIDSCH_VSYNC_COOKIE@@@Z @ 0x1C0009F90
+ * Callers:
+ *     VidSchiProcessDpcVSyncCookie @ 0x1C0009880 (VidSchiProcessDpcVSyncCookie.c)
+ *     ?VidSchiProcessDpcVSyncHwFlipQueue@@YAXPEAU_VIDSCH_VSYNC_COOKIE@@@Z @ 0x1C0049A8C (-VidSchiProcessDpcVSyncHwFlipQueue@@YAXPEAU_VIDSCH_VSYNC_COOKIE@@@Z.c)
+ * Callees:
+ *     ?ResetSmoother@VIDSCH_VSYNC_SMOOTHER@@QEAAXII@Z @ 0x1C00117E4 (-ResetSmoother@VIDSCH_VSYNC_SMOOTHER@@QEAAXII@Z.c)
+ *     ?Reset@?$LinearFitT@$0BAA@@@QEAAXXZ @ 0x1C0011828 (-Reset@-$LinearFitT@$0BAA@@@QEAAXXZ.c)
+ *     ?RebaseSums@?$LinearFitT@$0BAA@@@QEAA_NXZ @ 0x1C0016DB4 (-RebaseSums@-$LinearFitT@$0BAA@@@QEAA_NXZ.c)
+ *     ?VidSchiGetCurrentVSyncPeriodQpc@@YA_KPEAU_VIDSCH_GLOBAL@@I_N@Z @ 0x1C0017488 (-VidSchiGetCurrentVSyncPeriodQpc@@YA_KPEAU_VIDSCH_GLOBAL@@I_N@Z.c)
+ *     ?InitWithPoint@?$LinearFitT@$0BAA@@@QEAAXAEBUPoint@1@@Z @ 0x1C0034CCC (-InitWithPoint@-$LinearFitT@$0BAA@@@QEAAXAEBUPoint@1@@Z.c)
+ */
+
 void __fastcall VidSchiRecordVSyncTiming(
         struct _VIDSCH_VSYNC_COOKIE *a1,
         __int64 a2,

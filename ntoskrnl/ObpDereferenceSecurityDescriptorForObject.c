@@ -1,3 +1,13 @@
+/*
+ * XREFs of ObpDereferenceSecurityDescriptorForObject @ 0x14069941C
+ * Callers:
+ *     ObQuerySecurityDescriptorInfo @ 0x140696AE0 (ObQuerySecurityDescriptorInfo.c)
+ *     ObpAdjustCreatorAccessState @ 0x140698E40 (ObpAdjustCreatorAccessState.c)
+ *     ObReleaseObjectSecurityEx @ 0x1406993F0 (ObReleaseObjectSecurityEx.c)
+ * Callees:
+ *     ObDereferenceSecurityDescriptor @ 0x140696920 (ObDereferenceSecurityDescriptor.c)
+ */
+
 void __fastcall ObpDereferenceSecurityDescriptorForObject(__int64 a1, __int64 a2)
 {
   signed __int64 v2; // rax

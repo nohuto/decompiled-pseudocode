@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bExpand@STACKOBJ@@QEAAHK@Z @ 0x1C02D551C
+ * Callers:
+ *     ?bPushMergeScrScan@STACKOBJ@@QEAAHXZ @ 0x1C02D5C70 (-bPushMergeScrScan@STACKOBJ@@QEAAHXZ.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall STACKOBJ::bExpand(STACKOBJ *this, unsigned int a2, __int64 a3, __int64 a4)
 {
   void *v4; // rsi

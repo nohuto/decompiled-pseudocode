@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiBuildImportsForBootDrivers @ 0x140B5DAD4
+ * Callers:
+ *     MiInitializeLoadedModuleList @ 0x140B5D84C (MiInitializeLoadedModuleList.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 MiBuildImportsForBootDrivers()
 {
   PVOID *v0; // rcx

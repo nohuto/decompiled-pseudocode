@@ -1,3 +1,13 @@
+/*
+ * XREFs of KsepDsEventPnpIrp @ 0x14057F87C
+ * Callers:
+ *     KseDsCallbackHookIrpPnpFunction @ 0x14057EBB0 (KseDsCallbackHookIrpPnpFunction.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall KsepDsEventPnpIrp(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)
 {
   _UNKNOWN **v5; // rax

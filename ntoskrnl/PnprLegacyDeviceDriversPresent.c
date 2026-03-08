@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnprLegacyDeviceDriversPresent @ 0x1409635A4
+ * Callers:
+ *     PnpReplacePartitionUnit @ 0x140961B80 (PnpReplacePartitionUnit.c)
+ * Callees:
+ *     IoGetLegacyVetoList @ 0x1407609A0 (IoGetLegacyVetoList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 bool PnprLegacyDeviceDriversPresent()
 {
   bool v0; // bl

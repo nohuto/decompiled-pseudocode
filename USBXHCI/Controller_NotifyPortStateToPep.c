@@ -1,3 +1,11 @@
+/*
+ * XREFs of Controller_NotifyPortStateToPep @ 0x1C000FB7C
+ * Callers:
+ *     RootHub_D0Exit @ 0x1C0010338 (RootHub_D0Exit.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ */
+
 _UNKNOWN **__fastcall Controller_NotifyPortStateToPep(__int64 a1, int a2)
 {
   _UNKNOWN **result; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PspSetupUserStack @ 0x1406A2EF8
+ * Callers:
+ *     PspAllocateThread @ 0x1406B00F4 (PspAllocateThread.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwFreeVirtualMemory @ 0x1404126D0 (ZwFreeVirtualMemory.c)
+ *     RtlCreateUserStack @ 0x1406A3030 (RtlCreateUserStack.c)
+ *     PspWow64SetupCpuArea @ 0x14077BE68 (PspWow64SetupCpuArea.c)
+ */
+
 __int64 __fastcall PspSetupUserStack(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v4; // bl

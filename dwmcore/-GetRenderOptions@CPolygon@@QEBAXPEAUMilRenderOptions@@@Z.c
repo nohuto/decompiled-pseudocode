@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetRenderOptions@CPolygon@@QEBAXPEAUMilRenderOptions@@@Z @ 0x18021034C
+ * Callers:
+ *     ?DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z @ 0x1801D1120 (-DrawPolygon@CDrawingContext@@QEAAJPEAVCPolygon@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CPolygon::GetRenderOptions(CPolygon *this, struct MilRenderOptions *a2)
 {
   int v2; // r8d

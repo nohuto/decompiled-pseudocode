@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserfnINOUTLPUAHMEASUREMENUITEM @ 0x1C01E2ED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall NtUserfnINOUTLPUAHMEASUREMENUITEM(
         __int64 a1,
         unsigned int a2,

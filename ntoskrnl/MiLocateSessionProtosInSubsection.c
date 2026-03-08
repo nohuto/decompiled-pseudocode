@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiLocateSessionProtosInSubsection @ 0x1402CEC08
+ * Callers:
+ *     MiDereferenceSubsectionProtos @ 0x14075B80C (MiDereferenceSubsectionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x14075B874 (MiCreatePerSessionProtos.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall MiLocateSessionProtosInSubsection(__int64 a1, unsigned int a2)
 {
   __int64 *result; // rax

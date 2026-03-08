@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpCleanupAutoExpandPushLock @ 0x1403C9F18
+ * Callers:
+ *     ExFreeAutoExpandPushLock @ 0x1403C9EF0 (ExFreeAutoExpandPushLock.c)
+ *     FsRtlFreeAePushLock @ 0x14053AB70 (FsRtlFreeAePushLock.c)
+ * Callees:
+ *     ExSaFree @ 0x1402956DC (ExSaFree.c)
+ */
+
 struct _KTHREAD *__fastcall ExpCleanupAutoExpandPushLock(__int64 a1)
 {
   struct _KTHREAD *result; // rax

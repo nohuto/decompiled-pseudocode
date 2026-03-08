@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiAbDetermineMaxWaiterPriority @ 0x140239E10
+ * Callers:
+ *     KiAbProcessThreadLocks @ 0x140239A40 (KiAbProcessThreadLocks.c)
+ *     KiDispatchInterrupt @ 0x140255DA0 (KiDispatchInterrupt.c)
+ *     KiSwapThread @ 0x14025F500 (KiSwapThread.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KiAbDetermineMaxWaiterPriority(__int64 a1, __int64 a2)
 {
   int v2; // r8d

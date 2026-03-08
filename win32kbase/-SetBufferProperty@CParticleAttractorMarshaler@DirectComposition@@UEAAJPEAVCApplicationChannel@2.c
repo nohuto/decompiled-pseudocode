@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CParticleAttractorMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C025C250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CParticleAttractorMarshaler::SetBufferProperty(
         DirectComposition::CParticleAttractorMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

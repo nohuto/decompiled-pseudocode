@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifKePulseEventWrapper @ 0x1405E1CD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KePulseEvent @ 0x14035F580 (KePulseEvent.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 LONG __fastcall DifKePulseEventWrapper(PRKEVENT Event, KPRIORITY Increment, BOOLEAN Wait)
 {
   __int64 *APIThunkContextById; // rax

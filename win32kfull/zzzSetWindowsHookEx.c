@@ -1,3 +1,29 @@
+/*
+ * XREFs of zzzSetWindowsHookEx @ 0x1C009C8B4
+ * Callers:
+ *     NtUserSetWindowsHookEx @ 0x1C009C5F0 (NtUserSetWindowsHookEx.c)
+ *     NtUserSetWindowsHookAW @ 0x1C01DE970 (NtUserSetWindowsHookAW.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_S @ 0x1C001D86C (WPP_RECORDER_AND_TRACE_SF_S.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     zzzUnhookWindowsHookEx @ 0x1C009C50C (zzzUnhookWindowsHookEx.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qDD @ 0x1C009D664 (WPP_RECORDER_AND_TRACE_SF_qDD.c)
+ *     AddHmodDependency @ 0x1C009D860 (AddHmodDependency.c)
+ *     GetHmodTableIndex @ 0x1C009D950 (GetHmodTableIndex.c)
+ *     ??1?$ObjectLock@$$V@?$DomainExclusive@VDLT_HOOK@@@?$DomainShared@$$V@@QEAA@XZ @ 0x1C009DA74 (--1-$ObjectLock@$$V@-$DomainExclusive@VDLT_HOOK@@@-$DomainShared@$$V@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??1?$ObjectLock@$$V@?$DomainExclusive@VDLT_HANDLEMANAGER@@@?$DomainShared@$$V@@QEAA@XZ @ 0x1C012D328 (--1-$ObjectLock@$$V@-$DomainExclusive@VDLT_HANDLEMANAGER@@@-$DomainShared@$$V@@QEAA@XZ.c)
+ *     ??0?$ObjectLock@$$V@?$DomainExclusive@VDLT_HANDLEMANAGER@@@?$DomainShared@$$V@@QEAA@XZ @ 0x1C012D9FC (--0-$ObjectLock@$$V@-$DomainExclusive@VDLT_HANDLEMANAGER@@@-$DomainShared@$$V@@QEAA@XZ.c)
+ *     ??0?$ObjectLock@$$V@?$DomainExclusive@VDLT_HOOK@@@?$DomainShared@$$V@@QEAA@XZ @ 0x1C012DA70 (--0-$ObjectLock@$$V@-$DomainExclusive@VDLT_HOOK@@@-$DomainShared@$$V@@QEAA@XZ.c)
+ *     Feature_Servicing_HooksTracingInvalidDeref__private_IsEnabledDeviceUsage @ 0x1C012DC04 (Feature_Servicing_HooksTracingInvalidDeref__private_IsEnabledDeviceUsage.c)
+ *     ?zzzJournalAttach@@YAHPEAUtagTHREADINFO@@H@Z @ 0x1C01BC76C (-zzzJournalAttach@@YAHPEAUtagTHREADINFO@@H@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_l @ 0x1C01BC81C (WPP_RECORDER_AND_TRACE_SF_l.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall zzzSetWindowsHookEx(__int64 a1, const char *a2, __int64 a3, int a4, __int64 a5, char a6, _DWORD *a7)
 {

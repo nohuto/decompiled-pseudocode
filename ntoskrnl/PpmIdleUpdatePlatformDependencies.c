@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmIdleUpdatePlatformDependencies @ 0x14099AC58
+ * Callers:
+ *     PpmInstallPlatformIdleStates @ 0x14097F410 (PpmInstallPlatformIdleStates.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PpmIdleUpdatePlatformDependencies(__int64 a1)
 {
   __int64 result; // rax

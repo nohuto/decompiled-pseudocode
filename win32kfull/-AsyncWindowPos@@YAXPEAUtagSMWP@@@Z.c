@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AsyncWindowPos@@YAXPEAUtagSMWP@@@Z @ 0x1C00DAE30
+ * Callers:
+ *     xxxEndDeferWindowPosEx @ 0x1C00698F0 (xxxEndDeferWindowPosEx.c)
+ * Callees:
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0044D58 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ */
+
 void __fastcall AsyncWindowPos(struct tagSMWP *a1)
 {
   _QWORD *v1; // rdi

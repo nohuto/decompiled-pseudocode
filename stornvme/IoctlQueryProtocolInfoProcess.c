@@ -1,3 +1,14 @@
+/*
+ * XREFs of IoctlQueryProtocolInfoProcess @ 0x1C0013B68
+ * Callers:
+ *     IoctlToNVMe @ 0x1C0014800 (IoctlToNVMe.c)
+ * Callees:
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     QueryProtocolInfoFeatureData @ 0x1C0018ED0 (QueryProtocolInfoFeatureData.c)
+ *     QueryProtocolInfoIdentifyData @ 0x1C0019218 (QueryProtocolInfoIdentifyData.c)
+ *     QueryProtocolInfoLogPageData @ 0x1C001944C (QueryProtocolInfoLogPageData.c)
+ */
+
 __int64 __fastcall IoctlQueryProtocolInfoProcess(__int64 a1, __int64 a2)
 {
   _DWORD *SrbDataBuffer; // rdx

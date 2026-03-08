@@ -1,3 +1,17 @@
+/*
+ * XREFs of PspQueryProcessAccountingInformationCallback @ 0x1406F92F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsAddProcessEnergyValues @ 0x14023820C (PsAddProcessEnergyValues.c)
+ *     PoEnergyEstimationEnabled @ 0x1402384C0 (PoEnergyEstimationEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsQueryStatisticsProcess @ 0x1406A8F30 (PsQueryStatisticsProcess.c)
+ *     PsQueryProcessEnergyValues @ 0x1406B0B60 (PsQueryProcessEnergyValues.c)
+ *     PspAddAccountingValues @ 0x1406FC264 (PspAddAccountingValues.c)
+ */
+
 __int64 __fastcall PspQueryProcessAccountingInformationCallback(__int64 a1, __int64 a2)
 {
   _QWORD *v4; // rcx

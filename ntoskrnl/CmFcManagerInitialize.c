@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmFcManagerInitialize @ 0x140B536B4
+ * Callers:
+ *     CmInitBootFeatureConfigurations @ 0x140B5388C (CmInitBootFeatureConfigurations.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmFcpInitializeSectionState @ 0x14079C4B4 (CmFcpInitializeSectionState.c)
+ *     CmSiRWLockInitialize @ 0x14080BCF0 (CmSiRWLockInitialize.c)
+ *     CmpWorkItemInitialize @ 0x140818A3C (CmpWorkItemInitialize.c)
+ *     RtlInitializeSwapReference @ 0x140818A70 (RtlInitializeSwapReference.c)
+ */
+
 __int64 *CmFcManagerInitialize()
 {
   void *v0; // rcx

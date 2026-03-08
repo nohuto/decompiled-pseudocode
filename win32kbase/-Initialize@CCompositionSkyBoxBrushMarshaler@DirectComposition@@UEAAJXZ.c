@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@CCompositionSkyBoxBrushMarshaler@DirectComposition@@UEAAJXZ @ 0x1C026C220
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CCompositionSkyBoxBrushMarshaler::Initialize(
         DirectComposition::CCompositionSkyBoxBrushMarshaler *this)
 {

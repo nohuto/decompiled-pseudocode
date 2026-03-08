@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeReadyThread @ 0x140238CF8
+ * Callers:
+ *     PspInsertThread @ 0x1406B0F50 (PspInsertThread.c)
+ * Callees:
+ *     KiFastReadyThread @ 0x140239100 (KiFastReadyThread.c)
+ *     KiInSwapSingleProcess @ 0x1402C0868 (KiInSwapSingleProcess.c)
+ */
+
 __int64 __fastcall KeReadyThread(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r10

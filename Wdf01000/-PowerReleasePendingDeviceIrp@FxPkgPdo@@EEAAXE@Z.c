@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PowerReleasePendingDeviceIrp@FxPkgPdo@@EEAAXE@Z @ 0x1C00808B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CompletePowerRequest@FxPkgPnp@@IEAAJPEAVFxIrp@@J@Z @ 0x1C0071FB0 (-CompletePowerRequest@FxPkgPnp@@IEAAJPEAVFxIrp@@J@Z.c)
+ */
+
 void __fastcall FxPkgPdo::PowerReleasePendingDeviceIrp(FxPkgPdo *this, unsigned __int8 IrpMustBePresent)
 {
   _IRP *m_PendingDevicePowerIrp; // rax

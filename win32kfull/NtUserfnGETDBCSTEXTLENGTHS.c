@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserfnGETDBCSTEXTLENGTHS @ 0x1C00159B0
+ * Callers:
+ *     NtUserfnOUTCBOXSTRING @ 0x1C01E3850 (NtUserfnOUTCBOXSTRING.c)
+ *     NtUserfnOUTLBOXSTRING @ 0x1C01E3AE0 (NtUserfnOUTLBOXSTRING.c)
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall NtUserfnGETDBCSTEXTLENGTHS(
         __int64 a1,
         unsigned int a2,

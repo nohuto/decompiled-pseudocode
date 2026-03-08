@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmResetPerformanceAccumulation @ 0x1403A1C7C
+ * Callers:
+ *     PpmResetPerfTimes @ 0x1403A1BA0 (PpmResetPerfTimes.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ */
+
 LARGE_INTEGER __fastcall PpmResetPerformanceAccumulation(LARGE_INTEGER *a1)
 {
   LARGE_INTEGER result; // rax

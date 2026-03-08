@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopDiagTraceRtcWakeInfo @ 0x140592130
+ * Callers:
+ *     PopValidateRTCWake @ 0x140A9E3E4 (PopValidateRTCWake.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopDiagInterruptTimeToSystemTime @ 0x140A85B30 (PopDiagInterruptTimeToSystemTime.c)
+ */
+
 char __fastcall PopDiagTraceRtcWakeInfo(__int64 a1, int a2, int a3, int a4, int a5, int a6, __int64 a7)
 {
   char result; // al

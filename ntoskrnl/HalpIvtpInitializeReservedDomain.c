@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpIvtpInitializeReservedDomain @ 0x140A968B8
+ * Callers:
+ *     IvtProcessDeviceExceptions @ 0x140A95E14 (IvtProcessDeviceExceptions.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IvtAllocateTranslationStructures @ 0x1405292FC (IvtAllocateTranslationStructures.c)
+ *     IvtUpdateTranslationStructures @ 0x14052BCBC (IvtUpdateTranslationStructures.c)
+ */
+
 __int64 __fastcall HalpIvtpInitializeReservedDomain(__int64 a1, int *a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rsi

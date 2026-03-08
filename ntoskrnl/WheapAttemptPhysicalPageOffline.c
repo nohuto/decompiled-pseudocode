@@ -1,3 +1,23 @@
+/*
+ * XREFs of WheapAttemptPhysicalPageOffline @ 0x140A0555C
+ * Callers:
+ *     WheaAttemptClearPoison @ 0x140A05070 (WheaAttemptClearPoison.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x140A05140 (WheaAttemptPhysicalPageOffline.c)
+ *     WheaPageOfflineAndPersist @ 0x140A05220 (WheaPageOfflineAndPersist.c)
+ *     WheapAttemptPhysicalPageOfflineWorker @ 0x140A05740 (WheapAttemptPhysicalPageOfflineWorker.c)
+ * Callees:
+ *     WheaLogInternalEvent @ 0x14037D610 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     WheaPersistBadPageToBcd @ 0x14060F9E0 (WheaPersistBadPageToBcd.c)
+ *     WheaPersistBadPageToRegistry @ 0x14060FBA0 (WheaPersistBadPageToRegistry.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x1406291A0 (MmMarkPhysicalMemoryAsBad.c)
+ *     WheaAddrTranslateAndAddToDefectListInPlugin @ 0x140A04FEC (WheaAddrTranslateAndAddToDefectListInPlugin.c)
+ *     WheapCallInUsePageNotificationCallbacks @ 0x140A05790 (WheapCallInUsePageNotificationCallbacks.c)
+ *     WheapClearPoison @ 0x140A05870 (WheapClearPoison.c)
+ *     WheapLogAddToDefectListFail @ 0x140A059F0 (WheapLogAddToDefectListFail.c)
+ *     WheapLogPageOfflineAttemptEvent @ 0x140A05BE0 (WheapLogPageOfflineAttemptEvent.c)
+ */
+
 __int64 __fastcall WheapAttemptPhysicalPageOffline(
         LARGE_INTEGER a1,
         __int64 a2,

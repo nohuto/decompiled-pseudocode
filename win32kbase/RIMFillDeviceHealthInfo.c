@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMFillDeviceHealthInfo @ 0x1C01A4C50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RimDeviceTypeToRimInputType @ 0x1C00BC2F4 (RimDeviceTypeToRimInputType.c)
+ *     RIMLogDeviceHealthTelemetry @ 0x1C01A6EE8 (RIMLogDeviceHealthTelemetry.c)
+ */
+
 __int64 __fastcall RIMFillDeviceHealthInfo(ULONG64 a1, __int64 a2)
 {
   __int64 v3; // r8

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpApicTimerArm @ 0x1402D9970
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpApicTimerArm(unsigned __int8 *a1, int a2, unsigned int a3)
 {
   __int64 v5; // rdx

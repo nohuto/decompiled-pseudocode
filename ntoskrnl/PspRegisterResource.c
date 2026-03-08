@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspRegisterResource @ 0x140384A94
+ * Callers:
+ *     PsInitializeQuotaSystem @ 0x140B4988C (PsInitializeQuotaSystem.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspRegisterResource(int a1, char a2, int a3)
 {
   __int64 result; // rax

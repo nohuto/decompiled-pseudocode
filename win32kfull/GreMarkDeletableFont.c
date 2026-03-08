@@ -1,3 +1,16 @@
+/*
+ * XREFs of GreMarkDeletableFont @ 0x1C010E8B4
+ * Callers:
+ *     DeleteMetricsFont @ 0x1C00B8050 (DeleteMetricsFont.c)
+ *     SetIconMetrics @ 0x1C010C85C (SetIconMetrics.c)
+ *     UserSetFont @ 0x1C010E6E8 (UserSetFont.c)
+ *     CreateFontFromUserProfile @ 0x1C010E764 (CreateFontFromUserProfile.c)
+ *     xxxSetNCFonts @ 0x1C010E91C (xxxSetNCFonts.c)
+ *     ?SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z @ 0x1C01C8BB4 (-SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z.c)
+ * Callees:
+ *     ??0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z @ 0x1C0111C24 (--0LFONTOBJ@@QEAA@PEAUHLFONT__@@PEAVPDEVOBJ@@@Z.c)
+ */
+
 void __fastcall GreMarkDeletableFont(struct HLFONT__ *a1)
 {
   __int64 v2; // rdx

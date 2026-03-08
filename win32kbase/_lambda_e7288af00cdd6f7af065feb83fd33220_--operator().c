@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_e7288af00cdd6f7af065feb83fd33220_::operator() @ 0x1C025165C
+ * Callers:
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_e7288af00cdd6f7af065feb83fd33220___ @ 0x1C02515E0 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_e7288af00cdd6f7af065feb83fd3322.c)
+ * Callees:
+ *     ?GetSourceModifierHandle@CManipulationMarshaler@DirectComposition@@IEBAII@Z @ 0x1C0251C40 (-GetSourceModifierHandle@CManipulationMarshaler@DirectComposition@@IEBAII@Z.c)
+ */
+
 unsigned int __fastcall lambda_e7288af00cdd6f7af065feb83fd33220_::operator()(
         DirectComposition::CManipulationMarshaler **a1,
         _DWORD *a2)

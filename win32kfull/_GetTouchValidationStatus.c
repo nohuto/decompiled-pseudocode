@@ -1,3 +1,12 @@
+/*
+ * XREFs of _GetTouchValidationStatus @ 0x1C01B3AD4
+ * Callers:
+ *     ?_IsLegacyDevice@Edgy@@YAHPEAX@Z @ 0x1C0148F26 (-_IsLegacyDevice@Edgy@@YAHPEAX@Z.c)
+ *     NtUserGetTouchValidationStatus @ 0x1C01D50F0 (NtUserGetTouchValidationStatus.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetTouchValidationStatus(__int64 a1)
 {
   unsigned int v1; // edi

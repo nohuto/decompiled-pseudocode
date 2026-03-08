@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?QueueDrainSynchronously@FxIoQueue@@QEAAJXZ @ 0x1C00657E8
+ * Callers:
+ *     imp_WdfIoQueueDrainSynchronously @ 0x1C00619F0 (imp_WdfIoQueueDrainSynchronously.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_dq @ 0x1C0018070 (WPP_IFR_SF_dq.c)
+ *     ?WaitForSignal@_FX_DRIVER_GLOBALS@@QEAAXPEAVMxEvent@@PEBDPEAXKK@Z @ 0x1C0043890 (-WaitForSignal@_FX_DRIVER_GLOBALS@@QEAAXPEAVMxEvent@@PEBDPEAXKK@Z.c)
+ *     ?QueuePurge@FxIoQueue@@QEAAJEEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z @ 0x1C0065D48 (-QueuePurge@FxIoQueue@@QEAAJEEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z.c)
+ */
+
 __int64 __fastcall FxIoQueue::QueueDrainSynchronously(FxIoQueue *this)
 {
   int v2; // edi

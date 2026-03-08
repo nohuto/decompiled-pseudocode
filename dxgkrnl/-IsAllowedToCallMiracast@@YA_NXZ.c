@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?IsAllowedToCallMiracast@@YA_NXZ @ 0x1C0045B38
+ * Callers:
+ *     DxgkNetDispStartMiracastDisplayDevice @ 0x1C02CEC90 (DxgkNetDispStartMiracastDisplayDevice.c)
+ *     DxgkNetDispStopMiracastDisplayDevice @ 0x1C02CEF20 (DxgkNetDispStopMiracastDisplayDevice.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ?OpenThreadToken@@YAJPEAPEAX@Z @ 0x1C0045F44 (-OpenThreadToken@@YAJPEAPEAX@Z.c)
+ */
+
 char IsAllowedToCallMiracast(void)
 {
   signed int v0; // r13d

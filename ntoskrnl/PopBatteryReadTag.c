@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopBatteryReadTag @ 0x1409926B4
+ * Callers:
+ *     PopBatteryWorker @ 0x14086DD10 (PopBatteryWorker.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     IoSynchronousCallDriver @ 0x1402E9470 (IoSynchronousCallDriver.c)
+ *     PopPrepareIoctl @ 0x140846A50 (PopPrepareIoctl.c)
+ */
+
 __int64 __fastcall PopBatteryReadTag(__int64 a1)
 {
   _DWORD *v1; // rsi

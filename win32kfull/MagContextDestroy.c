@@ -1,3 +1,11 @@
+/*
+ * XREFs of MagContextDestroy @ 0x1C00F61E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MagContextThreadCallout @ 0x1C01A4070 (MagContextThreadCallout.c)
+ */
+
 __int64 __fastcall MagContextDestroy(_QWORD *a1)
 {
   _QWORD *i; // rdi

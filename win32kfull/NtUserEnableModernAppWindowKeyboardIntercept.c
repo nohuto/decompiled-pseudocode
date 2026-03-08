@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserEnableModernAppWindowKeyboardIntercept @ 0x1C01D0470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _EnableModernAppWindowKeyboardIntercept @ 0x1C01E4748 (_EnableModernAppWindowKeyboardIntercept.c)
+ */
+
 __int64 __fastcall NtUserEnableModernAppWindowKeyboardIntercept(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rax

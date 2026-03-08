@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_VfWdfRequestProbeAndLockUserBufferForWrite @ 0x1C00B6DF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall imp_VfWdfRequestProbeAndLockUserBufferForWrite(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFREQUEST__ *Request,

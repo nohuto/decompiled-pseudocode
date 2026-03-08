@@ -1,3 +1,12 @@
+/*
+ * XREFs of FlushLookUpTableBucket @ 0x1C00446A8
+ * Callers:
+ *     LookUpTableFlushPartial @ 0x1C008FF90 (LookUpTableFlushPartial.c)
+ *     LookUpTableFlushComplete @ 0x1C0090038 (LookUpTableFlushComplete.c)
+ * Callees:
+ *     FlushEventEntryList @ 0x1C008FEF0 (FlushEventEntryList.c)
+ */
+
 __int64 __fastcall FlushLookUpTableBucket(__int64 a1, unsigned int a2)
 {
   __int64 v2; // rdi

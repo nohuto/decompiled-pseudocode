@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpTimerSetTimerBackedProfileInterval @ 0x1405085C0
+ * Callers:
+ *     DefaultSetInterval @ 0x14050A980 (DefaultSetInterval.c)
+ * Callees:
+ *     HalpSetTimer @ 0x1402CBEE0 (HalpSetTimer.c)
+ */
+
 unsigned __int64 __fastcall HalpTimerSetTimerBackedProfileInterval(unsigned int a1)
 {
   unsigned int Number; // ebx

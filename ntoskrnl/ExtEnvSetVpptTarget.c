@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExtEnvSetVpptTarget @ 0x1405066D8
+ * Callers:
+ *     HalpVpptUpdatePhysicalTimer @ 0x140507DB0 (HalpVpptUpdatePhysicalTimer.c)
+ * Callees:
+ *     HalpInterruptSetDestination @ 0x14028E950 (HalpInterruptSetDestination.c)
+ *     HalpInterruptGsiToLine @ 0x14028EF10 (HalpInterruptGsiToLine.c)
+ *     HalpInterruptApplyOverrides @ 0x140379748 (HalpInterruptApplyOverrides.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpInterruptLineToGsi @ 0x140503150 (HalpInterruptLineToGsi.c)
+ */
+
 __int64 __fastcall ExtEnvSetVpptTarget(__int64 a1, unsigned int a2)
 {
   __int64 v2; // rbx

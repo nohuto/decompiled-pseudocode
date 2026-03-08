@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetWindowRgn @ 0x1C0028B30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxSetWindowRgn @ 0x1C0028E44 (xxxSetWindowRgn.c)
+ */
+
 __int64 __fastcall NtUserSetWindowRgn(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v6; // rax

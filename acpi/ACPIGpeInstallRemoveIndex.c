@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIGpeInstallRemoveIndex @ 0x1C002C3F8
+ * Callers:
+ *     ACPIGpeBuildEventMasks @ 0x1C002BE44 (ACPIGpeBuildEventMasks.c)
+ *     ACPIVectorBuildVectorMasks @ 0x1C0043D44 (ACPIVectorBuildVectorMasks.c)
+ *     ACPIVectorConnect @ 0x1C0043E40 (ACPIVectorConnect.c)
+ *     ACPIVectorDisconnect @ 0x1C0044040 (ACPIVectorDisconnect.c)
+ * Callees:
+ *     ACPIGpeIndexToGpeRegister @ 0x1C002C39C (ACPIGpeIndexToGpeRegister.c)
+ *     ACPIGpeValidIndex @ 0x1C002C6DC (ACPIGpeValidIndex.c)
+ *     WPP_RECORDER_SF_dDD @ 0x1C002C738 (WPP_RECORDER_SF_dDD.c)
+ */
+
 char __fastcall ACPIGpeInstallRemoveIndex(__int64 a1, int a2, int a3, char *a4)
 {
   char v4; // di

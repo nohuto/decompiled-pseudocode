@@ -1,3 +1,18 @@
+/*
+ * XREFs of PipCommitPendingOsExtensionResource @ 0x140B91960
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _PnpCtxRegCreateKey @ 0x140687FD0 (_PnpCtxRegCreateKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406D3680 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegDeleteTree @ 0x14081B6AC (_PnpCtxRegDeleteTree.c)
+ *     _PnpCtxRegOpenKey @ 0x14081D410 (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumKey @ 0x14081D44C (_PnpCtxRegEnumKey.c)
+ *     _PnpCtxRegCloseKey @ 0x1408653B4 (_PnpCtxRegCloseKey.c)
+ *     PiDevCfgCopyDeviceKeys @ 0x140877924 (PiDevCfgCopyDeviceKeys.c)
+ *     _PnpCtxRegDeleteKey @ 0x140A5DE7C (_PnpCtxRegDeleteKey.c)
+ */
+
 __int64 __fastcall PipCommitPendingOsExtensionResource(__int64 a1, void *a2, void *a3)
 {
   __int64 v6; // rcx

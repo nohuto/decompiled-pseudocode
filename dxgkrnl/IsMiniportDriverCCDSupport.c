@@ -1,3 +1,14 @@
+/*
+ * XREFs of IsMiniportDriverCCDSupport @ 0x1C02F8608
+ * Callers:
+ *     DxgkConvertDisplayConfigCScalingToDdiScaling @ 0x1C016B650 (DxgkConvertDisplayConfigCScalingToDdiScaling.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0009930 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z @ 0x1C01ADA68 (-ReferenceAdapterByLuid@DXGGLOBAL@@QEAAPEAVDXGADAPTER@@U_LUID@@PEA_K@Z.c)
+ */
+
 _BOOL8 __fastcall IsMiniportDriverCCDSupport(struct _LUID *a1)
 {
   DXGGLOBAL *Global; // rax

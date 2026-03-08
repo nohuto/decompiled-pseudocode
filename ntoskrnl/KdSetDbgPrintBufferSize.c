@@ -1,3 +1,16 @@
+/*
+ * XREFs of KdSetDbgPrintBufferSize @ 0x140565744
+ * Callers:
+ *     NtSystemDebugControl @ 0x140791FE0 (NtSystemDebugControl.c)
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall KdSetDbgPrintBufferSize(unsigned int a1)
 {
   unsigned int v1; // r15d

@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlpIdnToUnicodeWorker @ 0x1405AD830
+ * Callers:
+ *     RtlIdnToUnicode @ 0x1409BC420 (RtlIdnToUnicode.c)
+ * Callees:
+ *     RtlStringCchLengthW @ 0x140247080 (RtlStringCchLengthW.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     punycode_decode @ 0x1409BC720 (punycode_decode.c)
+ *     RtlIsNormalizedString @ 0x1409BEC40 (RtlIsNormalizedString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlpIdnToUnicodeWorker(
         int a1,
         const wchar_t *a2,

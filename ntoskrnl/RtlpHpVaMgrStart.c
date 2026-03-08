@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpHpVaMgrStart @ 0x140375DF8
+ * Callers:
+ *     RtlpHpVaMgrCtxAllocatorReference @ 0x140375AC8 (RtlpHpVaMgrCtxAllocatorReference.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpHpVaMgrStart(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, char a5)
 {
   char v5; // r11

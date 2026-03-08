@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bSetHTSurfInfo@@YAHPEAU_SURFOBJ@@PEAU_HTSURFACEINFO@@J@Z @ 0x1C02E08FC
+ * Callers:
+ *     EngHTBlt @ 0x1C02E0A38 (EngHTBlt.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bSetHTSurfInfo(struct _SURFOBJ *a1, struct _HTSURFACEINFO *a2, char a3)
 {
   __int64 result; // rax

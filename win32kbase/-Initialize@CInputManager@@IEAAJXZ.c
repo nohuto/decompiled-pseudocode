@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@CInputManager@@IEAAJXZ @ 0x1C00CE1E0
+ * Callers:
+ *     ?CreateSessionGlobal@CInputManager@@SAJXZ @ 0x1C00CE140 (-CreateSessionGlobal@CInputManager@@SAJXZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CInputManager::Initialize(CInputManager *this)
 {
   unsigned int v1; // ebx

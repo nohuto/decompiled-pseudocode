@@ -1,3 +1,19 @@
+/*
+ * XREFs of BcdForciblyUnloadStore @ 0x140A5964C
+ * Callers:
+ *     BiCleanupLoadedStores @ 0x1408311C8 (BiCleanupLoadedStores.c)
+ *     PopAllocateHiberContext @ 0x140984D38 (PopAllocateHiberContext.c)
+ * Callees:
+ *     BiIsSynchFirmwareEntries @ 0x14039026C (BiIsSynchFirmwareEntries.c)
+ *     BiIsOfflineHandle @ 0x1403903FC (BiIsOfflineHandle.c)
+ *     BiIsSystemStore @ 0x14082C6CC (BiIsSystemStore.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiAcquireBcdSyncMutant @ 0x14082ED10 (BiAcquireBcdSyncMutant.c)
+ *     BiReleaseBcdSyncMutant @ 0x14082EDB8 (BiReleaseBcdSyncMutant.c)
+ *     BiExportStoreAlterationsToFirmware @ 0x140A59FB0 (BiExportStoreAlterationsToFirmware.c)
+ *     BiUnloadHiveByHandle @ 0x140A5A09C (BiUnloadHiveByHandle.c)
+ */
+
 __int64 __fastcall BcdForciblyUnloadStore(__int64 a1)
 {
   char IsOfflineHandle; // si

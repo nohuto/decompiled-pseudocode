@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_EFxNPagedLookasideListFromPool@@MEAAPEAXI@Z @ 0x1C0041440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxNPagedLookasideListFromPool@@MEAA@XZ @ 0x1C0041394 (--1FxNPagedLookasideListFromPool@@MEAA@XZ.c)
+ */
+
 FxNPagedLookasideListFromPool *__fastcall FxNPagedLookasideListFromPool::`vector deleting destructor'(
         FxNPagedLookasideListFromPool *this,
         unsigned int a2,

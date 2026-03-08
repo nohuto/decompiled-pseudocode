@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpIsCmRm @ 0x1407346E8
+ * Callers:
+ *     CmKtmNotification @ 0x140734290 (CmKtmNotification.c)
+ * Callees:
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     CmListGetNextElement @ 0x140AF2008 (CmListGetNextElement.c)
+ */
+
 bool __fastcall CmpIsCmRm(_QWORD *a1)
 {
   struct _KTHREAD *CurrentThread; // rax

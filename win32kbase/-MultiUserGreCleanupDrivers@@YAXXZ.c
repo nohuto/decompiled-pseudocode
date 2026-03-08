@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?MultiUserGreCleanupDrivers@@YAXXZ @ 0x1C00A0BB4
+ * Callers:
+ *     MultiUserNtGreCleanup @ 0x1C009EFD4 (MultiUserNtGreCleanup.c)
+ * Callees:
+ *     ldevUnloadImage @ 0x1C002B6B0 (ldevUnloadImage.c)
+ *     ?vUnreferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C003C110 (-vUnreferencePdev@PDEVOBJ@@QEAAXXZ.c)
+ *     ?InitializeClientReferenceCount@PDEV@@QEAAXXZ @ 0x1C00A0C7C (-InitializeClientReferenceCount@PDEV@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall MultiUserGreCleanupDrivers(__int64 a1)
 {
   __int64 v1; // rcx

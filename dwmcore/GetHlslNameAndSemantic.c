@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetHlslNameAndSemantic @ 0x180026FBC
+ * Callers:
+ *     InitializeShaderLinkingInput @ 0x180026E2C (InitializeShaderLinkingInput.c)
+ * Callees:
+ *     <none>
+ */
+
 const char *__fastcall GetHlslNameAndSemantic(unsigned __int16 a1, const char **a2, const char **a3)
 {
   unsigned int v3; // r9d

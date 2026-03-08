@@ -1,3 +1,13 @@
+/*
+ * XREFs of rimNotifyPointerDeviceChangeClients @ 0x1C01BEC28
+ * Callers:
+ *     rimSetDeviceDisplayConfig @ 0x1C01BEDF8 (rimSetDeviceDisplayConfig.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ApiSetPostPointerEventMessage @ 0x1C0245F48 (ApiSetPostPointerEventMessage.c)
+ */
+
 unsigned int __fastcall rimNotifyPointerDeviceChangeClients(_DWORD *a1, __int64 a2, unsigned int *a3, int a4)
 {
   unsigned int *v5; // rdi

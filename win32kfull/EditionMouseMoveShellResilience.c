@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionMouseMoveShellResilience @ 0x1C00E51A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IsAdaptiveQueueDetachExempted @ 0x1C0006DD8 (IsAdaptiveQueueDetachExempted.c)
+ */
+
 void __fastcall EditionMouseMoveShellResilience(__int64 a1)
 {
   __int64 v1; // rbx

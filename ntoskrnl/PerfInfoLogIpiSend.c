@@ -1,3 +1,12 @@
+/*
+ * XREFs of PerfInfoLogIpiSend @ 0x1405FC690
+ * Callers:
+ *     KiIpiSendRequest @ 0x140233230 (KiIpiSendRequest.c)
+ * Callees:
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PerfInfoLogIpiSend(__int64 a1, int a2, __int64 a3, int a4, unsigned __int16 *a5)
 {
   int v6; // edx

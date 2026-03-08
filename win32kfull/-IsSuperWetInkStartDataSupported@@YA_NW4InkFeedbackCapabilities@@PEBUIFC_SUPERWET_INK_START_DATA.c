@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsSuperWetInkStartDataSupported@@YA_NW4InkFeedbackCapabilities@@PEBUIFC_SUPERWET_INK_START_DATA@@@Z @ 0x1C024506C
+ * Callers:
+ *     ?ProcessInkFeedbackCommand@InkDevice@@EEAAJW4INK_FEEDBACK_COMMAND@@PEBXI@Z @ 0x1C0246E60 (-ProcessInkFeedbackCommand@InkDevice@@EEAAJW4INK_FEEDBACK_COMMAND@@PEBXI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall IsSuperWetInkStartDataSupported(char a1, __int64 a2)
 {
   int v2; // r8d

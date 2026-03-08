@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiGetVirtualizationFlags @ 0x1C03996E8
+ * Callers:
+ *     DpiFdoDispatchIoctl @ 0x1C01D7C80 (DpiFdoDispatchIoctl.c)
+ * Callees:
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005A55C (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     DpiIovGetVirtualizationFlags @ 0x1C039EF90 (DpiIovGetVirtualizationFlags.c)
+ */
+
 __int64 __fastcall DpiGetVirtualizationFlags(
         void *a1,
         int a2,

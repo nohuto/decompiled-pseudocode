@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIProcessorContainerComputeIoctlPayloadSize @ 0x1C003A504
+ * Callers:
+ *     ACPIProcessorContainerComputeIoctlPayloadSize @ 0x1C003A504 (ACPIProcessorContainerComputeIoctlPayloadSize.c)
+ *     ACPIProcessorContainerGetLpiStatesIoctl @ 0x1C003A968 (ACPIProcessorContainerGetLpiStatesIoctl.c)
+ * Callees:
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C000B2B0 (ACPIAmliBuildObjectPathnameUnicode.c)
+ *     ACPIIoctlCalculateOutputBufferSizeV1 @ 0x1C002F780 (ACPIIoctlCalculateOutputBufferSizeV1.c)
+ *     ACPIProcessorContainerComputeIoctlPayloadSize @ 0x1C003A504 (ACPIProcessorContainerComputeIoctlPayloadSize.c)
+ */
+
 __int64 __fastcall ACPIProcessorContainerComputeIoctlPayloadSize(_QWORD *a1, _DWORD *a2)
 {
   _QWORD *v2; // rbx

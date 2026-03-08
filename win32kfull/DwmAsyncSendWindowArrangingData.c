@@ -1,3 +1,15 @@
+/*
+ * XREFs of DwmAsyncSendWindowArrangingData @ 0x1C0270268
+ * Callers:
+ *     bSetDevDragRect @ 0x1C001DE80 (bSetDevDragRect.c)
+ *     bMoveDevPreviewRect @ 0x1C028698C (bMoveDevPreviewRect.c)
+ *     bSetDevPreviewRect @ 0x1C0286B70 (bSetDevPreviewRect.c)
+ * Callees:
+ *     ?IncrementDWMWindowUniqueness@@YA_JXZ @ 0x1C0028164 (-IncrementDWMWindowUniqueness@@YA_JXZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall DwmAsyncSendWindowArrangingData(PVOID Object, int a2, __int64 a3, __int128 *a4, __int64 a5)
 {
   unsigned int v9; // ebx

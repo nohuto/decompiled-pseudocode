@@ -1,3 +1,12 @@
+/*
+ * XREFs of TouchTargetingRank @ 0x1C02510D8
+ * Callers:
+ *     ?_TTUpdateRankWithSegment@@YAXJJJJ_NPEAUtagPOINT@@PEAGUtagRECT@@3PEBUtagTOUCHTARGETINGCONTACT@@@Z @ 0x1C02507C8 (-_TTUpdateRankWithSegment@@YAXJJJJ_NPEAUtagPOINT@@PEAGUtagRECT@@3PEBUtagTOUCHTARGETINGCONTACT@@@.c)
+ *     TouchTargetingRankForRectDeep @ 0x1C025169C (TouchTargetingRankForRectDeep.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TouchTargetingRank(__int64 a1, __int64 a2, _DWORD *a3, __int64 a4)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of EngMapFile @ 0x1C028DE10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     bMapFile @ 0x1C028E338 (bMapFile.c)
+ */
+
 PVOID __stdcall EngMapFile(LPWSTR pwsz, ULONG cjSize, ULONG_PTR *piFile)
 {
   void *v4; // rbx

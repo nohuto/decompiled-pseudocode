@@ -1,3 +1,17 @@
+/*
+ * XREFs of IopUncacheInterfaceInformation @ 0x1406F75C8
+ * Callers:
+ *     PipProcessStartPhase1 @ 0x1406F7074 (PipProcessStartPhase1.c)
+ *     IopDestroyDeviceNode @ 0x140782FD0 (IopDestroyDeviceNode.c)
+ *     IopRemoveDevice @ 0x140866E38 (IopRemoveDevice.c)
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     KeReleaseSemaphore @ 0x140292210 (KeReleaseSemaphore.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall IopUncacheInterfaceInformation(__int64 a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rax

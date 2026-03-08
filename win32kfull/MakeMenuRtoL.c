@@ -1,3 +1,13 @@
+/*
+ * XREFs of MakeMenuRtoL @ 0x1C023B2B8
+ * Callers:
+ *     xxxSetMenuItemInfo @ 0x1C00A2218 (xxxSetMenuItemInfo.c)
+ *     xxxInsertMenuItem @ 0x1C00A7ADC (xxxInsertMenuItem.c)
+ *     MakeMenuRtoL @ 0x1C023B2B8 (MakeMenuRtoL.c)
+ * Callees:
+ *     MakeMenuRtoL @ 0x1C023B2B8 (MakeMenuRtoL.c)
+ */
+
 __int64 __fastcall MakeMenuRtoL(__int64 a1, unsigned int a2)
 {
   __int64 v2; // rax

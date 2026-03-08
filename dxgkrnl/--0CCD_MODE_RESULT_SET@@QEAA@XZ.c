@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CCD_MODE_RESULT_SET@@QEAA@XZ @ 0x1C03B6268
+ * Callers:
+ *     DxgkEnumerateModesForPathsModality @ 0x1C02FD6F0 (DxgkEnumerateModesForPathsModality.c)
+ * Callees:
+ *     <none>
+ */
+
 CCD_MODE_RESULT_SET *__fastcall CCD_MODE_RESULT_SET::CCD_MODE_RESULT_SET(CCD_MODE_RESULT_SET *this)
 {
   CCD_MODE_RESULT_SET *result; // rax

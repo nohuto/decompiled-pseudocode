@@ -1,3 +1,15 @@
+/*
+ * XREFs of IovUnloadDrivers @ 0x140ABE7F0
+ * Callers:
+ *     IoShutdownSystem @ 0x140A96AB4 (IoShutdownSystem.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ZwDelayExecution @ 0x140412990 (ZwDelayExecution.c)
+ *     ObEnumerateObjectsByType @ 0x140978854 (ObEnumerateObjectsByType.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     IovpUnloadDriver @ 0x140ABEEB8 (IovpUnloadDriver.c)
+ */
+
 __int64 IovUnloadDrivers()
 {
   PVOID *v1; // rbx

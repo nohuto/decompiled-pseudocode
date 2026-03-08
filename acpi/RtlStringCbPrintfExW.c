@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlStringCbPrintfExW @ 0x1C0017B4C
+ * Callers:
+ *     ACPIBusIrpQueryCompatibleId @ 0x1C007EE84 (ACPIBusIrpQueryCompatibleId.c)
+ *     ACPIBusIrpQueryDeviceId @ 0x1C007F574 (ACPIBusIrpQueryDeviceId.c)
+ *     ACPIBusIrpQueryHardwareId @ 0x1C007FC3C (ACPIBusIrpQueryHardwareId.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     RtlStringExHandleOtherFlagsW @ 0x1C000B94C (RtlStringExHandleOtherFlagsW.c)
+ *     RtlStringVPrintfWorkerW @ 0x1C000BA0C (RtlStringVPrintfWorkerW.c)
+ */
+
 NTSTATUS RtlStringCbPrintfExW(
         NTSTRSAFE_PWSTR pszDest,
         size_t cbDest,

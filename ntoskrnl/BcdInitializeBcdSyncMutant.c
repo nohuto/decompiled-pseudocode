@@ -1,3 +1,12 @@
+/*
+ * XREFs of BcdInitializeBcdSyncMutant @ 0x140B71DB8
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateMutant @ 0x140413A10 (ZwCreateMutant.c)
+ */
+
 int BcdInitializeBcdSyncMutant()
 {
   signed __int64 v0; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RemoveTokenQueueTableEntry@CTokenManager@@IEAAXPEAUTokenQueueTableEntry@1@@Z @ 0x1C0077224
+ * Callers:
+ *     ?ReleaseToFrame@CTokenManager@@UEAAXPEAUICompositionFrame@@@Z @ 0x1C000F010 (-ReleaseToFrame@CTokenManager@@UEAAXPEAUICompositionFrame@@@Z.c)
+ *     ?DeleteAllTokenQueues@CTokenManager@@IEAAXXZ @ 0x1C0018E28 (-DeleteAllTokenQueues@CTokenManager@@IEAAXXZ.c)
+ * Callees:
+ *     ?DeleteAllTokens@CTokenQueue@@AEAAXXZ @ 0x1C0018DE0 (-DeleteAllTokens@CTokenQueue@@AEAAXXZ.c)
+ */
+
 void __fastcall CTokenManager::RemoveTokenQueueTableEntry(
         CTokenManager *this,
         struct CTokenManager::TokenQueueTableEntry *a2)

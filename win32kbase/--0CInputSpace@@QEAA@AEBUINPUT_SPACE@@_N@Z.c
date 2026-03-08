@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??0CInputSpace@@QEAA@AEBUINPUT_SPACE@@_N@Z @ 0x1C0013300
+ * Callers:
+ *     ?_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ @ 0x1C00130D0 (-_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ.c)
+ *     ??0CInputConfig@@AEAA@XZ @ 0x1C0097D00 (--0CInputConfig@@AEAA@XZ.c)
+ *     NtConfigureInputSpace @ 0x1C0169520 (NtConfigureInputSpace.c)
+ * Callees:
+ *     ??0CInputSpaceRegion@@QEAA@XZ @ 0x1C0013370 (--0CInputSpaceRegion@@QEAA@XZ.c)
+ */
+
 CInputSpace *__fastcall CInputSpace::CInputSpace(CInputSpace *this, const struct INPUT_SPACE *a2, char a3)
 {
   int v5; // eax

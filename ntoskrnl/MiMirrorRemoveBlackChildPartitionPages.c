@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiMirrorRemoveBlackChildPartitionPages @ 0x140625E30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiMirrorOmitPagesFromCopy @ 0x140624E58 (MiMirrorOmitPagesFromCopy.c)
+ */
+
 unsigned __int16 *__fastcall MiMirrorRemoveBlackChildPartitionPages(__int64 a1, __int64 *a2)
 {
   unsigned __int16 *result; // rax

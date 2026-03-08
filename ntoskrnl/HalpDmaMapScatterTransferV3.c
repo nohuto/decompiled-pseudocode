@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpDmaMapScatterTransferV3 @ 0x1404FE110
+ * Callers:
+ *     HalpMapTransferV3 @ 0x140512CCC (HalpMapTransferV3.c)
+ * Callees:
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1403B44EC (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaNextContiguousPiece @ 0x140452E28 (HalpDmaNextContiguousPiece.c)
+ *     HalpDmaSyncMapBuffers @ 0x1404544F2 (HalpDmaSyncMapBuffers.c)
+ *     HalpDmaFlushBuffer @ 0x14050E7A0 (HalpDmaFlushBuffer.c)
+ */
+
 _QWORD *__fastcall HalpDmaMapScatterTransferV3(
         __int64 a1,
         __int64 a2,

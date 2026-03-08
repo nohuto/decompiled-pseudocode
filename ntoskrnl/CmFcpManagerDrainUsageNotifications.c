@@ -1,3 +1,19 @@
+/*
+ * XREFs of CmFcpManagerDrainUsageNotifications @ 0x140818490
+ * Callers:
+ *     CmFcpManagerSoftwareHiveReady @ 0x140818060 (CmFcpManagerSoftwareHiveReady.c)
+ *     CmFcManagerDrainAllFeatureUsageNotifications @ 0x140A240B0 (CmFcManagerDrainAllFeatureUsageNotifications.c)
+ *     CmFcpManagerDrainUsageNotificationsWorker @ 0x140A24EF0 (CmFcpManagerDrainUsageNotificationsWorker.c)
+ *     CmFcpManagerRetryUsageNotificationsWorker @ 0x140A25190 (CmFcpManagerRetryUsageNotificationsWorker.c)
+ * Callees:
+ *     RtlFindNextForwardRunSet @ 0x1402DC12C (RtlFindNextForwardRunSet.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x1402F03BC (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcBufferManagerReferenceBuffers @ 0x1402F0450 (RtlpFcBufferManagerReferenceBuffers.c)
+ *     CmFcpManagerArmFeatureUsageRetryTimer @ 0x140614DD8 (CmFcpManagerArmFeatureUsageRetryTimer.c)
+ *     RtlUpdateSwapReference @ 0x140818560 (RtlUpdateSwapReference.c)
+ *     RtlpFcSendFeatureUsageNotifications @ 0x1409C0AC8 (RtlpFcSendFeatureUsageNotifications.c)
+ */
+
 __int64 __fastcall CmFcpManagerDrainUsageNotifications(__int64 a1, char a2, __int64 a3)
 {
   __int64 v3; // r13

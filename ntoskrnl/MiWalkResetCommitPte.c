@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiWalkResetCommitPte @ 0x140617300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiLockTransitionLeafPageEx @ 0x1402DD4C8 (MiLockTransitionLeafPageEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiDiscardTransitionPteEx @ 0x14064E040 (MiDiscardTransitionPteEx.c)
+ */
+
 __int64 __fastcall MiWalkResetCommitPte(__int64 a1, ULONG_PTR a2, int a3)
 {
   ULONG_PTR v5; // rax

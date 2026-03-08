@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetDisplayInfoDefaultToSDR@@YAXPEAU_DISPLAYCONFIG_GET_DISPLAY_INFO@@@Z @ 0x1C01AFCA0
+ * Callers:
+ *     DxgkGetAdapterDeviceDesc @ 0x1C01AE290 (DxgkGetAdapterDeviceDesc.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall SetDisplayInfoDefaultToSDR(struct _DISPLAYCONFIG_GET_DISPLAY_INFO *a1)
 {
   int v1; // eax

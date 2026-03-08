@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBMISC_StartPortPowerOnTimer @ 0x1C00324F8
+ * Callers:
+ *     HUBPSM20_WaitingForPortPowerOnTimerOnResume @ 0x1C0012A90 (HUBPSM20_WaitingForPortPowerOnTimerOnResume.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBMISC_StartPortPowerOnTimer(__int64 *a1)
 {
   __int64 v1; // rax

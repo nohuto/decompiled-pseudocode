@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopFxNotifyPreDIrpIssue @ 0x1402BA338
+ * Callers:
+ *     PopRequestPowerIrp @ 0x1402BA570 (PopRequestPowerIrp.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxNextParentRelationSafe @ 0x1402E4C58 (PopFxNextParentRelationSafe.c)
+ *     PopFxActivateComponent @ 0x140305D50 (PopFxActivateComponent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 bool __fastcall PopFxNotifyPreDIrpIssue(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbp

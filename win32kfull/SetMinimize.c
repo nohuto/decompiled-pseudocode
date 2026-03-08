@@ -1,3 +1,15 @@
+/*
+ * XREFs of SetMinimize @ 0x1C010182C
+ * Callers:
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00FFAF8 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
+ *     ?xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z @ 0x1C01EFBFC (-xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z.c)
+ * Callees:
+ *     DecVisWindows @ 0x1C002A17C (DecVisWindows.c)
+ *     IncVisWindows @ 0x1C002E484 (IncVisWindows.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ */
+
 char __fastcall SetMinimize(struct tagWND *a1, char a2)
 {
   __int64 v3; // rax

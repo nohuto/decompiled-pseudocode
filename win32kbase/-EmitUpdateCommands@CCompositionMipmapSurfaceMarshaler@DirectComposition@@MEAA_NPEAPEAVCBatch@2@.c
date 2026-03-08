@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CCompositionMipmapSurfaceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C026E250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_4b33d776916e3f95ce38671429c7c8f2___ @ 0x1C026E018 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_4b33d776916e3f95ce38671429c7c8f.c)
+ *     ?EmitSurfaces@CCompositionMipmapSurfaceMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C026E0F0 (-EmitSurfaces@CCompositionMipmapSurfaceMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ */
+
 char __fastcall DirectComposition::CCompositionMipmapSurfaceMarshaler::EmitUpdateCommands(
         DirectComposition::CCompositionMipmapSurfaceMarshaler *this,
         struct DirectComposition::CBatch ***a2)

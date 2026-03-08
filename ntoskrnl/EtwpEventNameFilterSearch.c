@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpEventNameFilterSearch @ 0x1404627CE
+ * Callers:
+ *     EtwpApplyEventNameFilter @ 0x140462256 (EtwpApplyEventNameFilter.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall EtwpEventNameFilterSearch(const char *a1, unsigned __int16 a2, __int64 a3)
 {
   __int64 v3; // r11

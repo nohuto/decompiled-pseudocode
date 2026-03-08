@@ -1,3 +1,13 @@
+/*
+ * XREFs of SymCryptSha512Append @ 0x1403F4A74
+ * Callers:
+ *     SymCryptSha384Append @ 0x1403F4978 (SymCryptSha384Append.c)
+ *     HashpHashBytes @ 0x140A74954 (HashpHashBytes.c)
+ * Callees:
+ *     SymCryptSha512AppendBlocks_ull @ 0x1403F4B50 (SymCryptSha512AppendBlocks_ull.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall SymCryptSha512Append(unsigned int *a1, char *a2, size_t a3)
 {
   size_t v3; // rdi

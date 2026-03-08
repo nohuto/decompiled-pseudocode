@@ -1,3 +1,15 @@
+/*
+ * XREFs of SetNewForegroundQueue @ 0x1C00CE270
+ * Callers:
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C00A126C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ *     zzzReattachThreads @ 0x1C00CD3A8 (zzzReattachThreads.c)
+ *     EditionHandleAltTab @ 0x1C00F54C0 (EditionHandleAltTab.c)
+ *     xxxNextWindow @ 0x1C01CB604 (xxxNextWindow.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003E858 (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     UpdateRawMouseMode @ 0x1C00CE364 (UpdateRawMouseMode.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall SetNewForegroundQueue(__int64 a1, const struct tagWND *a2)
 {

@@ -1,3 +1,19 @@
+/*
+ * XREFs of SepSetTokenUserAndGroups @ 0x1409CCB0C
+ * Callers:
+ *     SepCreateTokenEx @ 0x1402079F0 (SepCreateTokenEx.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     SepDuplicateSid @ 0x1407843E0 (SepDuplicateSid.c)
+ *     SepLogTokenSidManagement @ 0x1409C6C70 (SepLogTokenSidManagement.c)
+ *     SepCompareSidValuesBlocks @ 0x1409CC684 (SepCompareSidValuesBlocks.c)
+ *     SepCreateSidValuesBlock @ 0x1409CC72C (SepCreateSidValuesBlock.c)
+ *     SepDereferenceSidValuesBlock @ 0x1409CC964 (SepDereferenceSidValuesBlock.c)
+ */
+
 __int64 __fastcall SepSetTokenUserAndGroups(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int a5)
 {
   int v5; // eax

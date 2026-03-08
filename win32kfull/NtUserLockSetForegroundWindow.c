@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserLockSetForegroundWindow @ 0x1C01D70D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_LockSetForegroundWindow@@YA_NI@Z @ 0x1C01AEF00 (-_LockSetForegroundWindow@@YA_NI@Z.c)
+ */
+
 _BOOL8 __fastcall NtUserLockSetForegroundWindow(unsigned int a1)
 {
   _BOOL8 v2; // rbx

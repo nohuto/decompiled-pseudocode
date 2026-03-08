@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpInitializeCmc @ 0x140A87F7C
+ * Callers:
+ *     HalpInitializeErrSrc @ 0x140A87F30 (HalpInitializeErrSrc.c)
+ * Callees:
+ *     HalpCmciInitializeErrorPacket @ 0x14037CCA4 (HalpCmciInitializeErrorPacket.c)
+ *     HalpCmciInitProcessor @ 0x14037CD68 (HalpCmciInitProcessor.c)
+ *     HalpCmcInitializePolling @ 0x1403AF0C8 (HalpCmcInitializePolling.c)
+ *     HalpCmcStartPolling @ 0x1403AF5E8 (HalpCmcStartPolling.c)
+ *     HalpIsCmciImplemented @ 0x140A8E988 (HalpIsCmciImplemented.c)
+ */
+
 __int64 __fastcall HalpInitializeCmc(int a1, _DWORD *a2)
 {
   __int64 v4; // rdx

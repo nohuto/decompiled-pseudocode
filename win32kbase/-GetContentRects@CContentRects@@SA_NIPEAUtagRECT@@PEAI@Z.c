@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?GetContentRects@CContentRects@@SA_NIPEAUtagRECT@@PEAI@Z @ 0x1C0157A30
+ * Callers:
+ *     NtUserGetSystemContentRects @ 0x1C0171330 (NtUserGetSystemContentRects.c)
+ *     IVContentRectsSync::_anonymous_namespace_::ivSendContentRectsUpdate @ 0x1C0223078 (IVContentRectsSync--_anonymous_namespace_--ivSendContentRectsUpdate.c)
+ * Callees:
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C006AE58 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C00B9120 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
+ *     ?GetInstance@CContentRects@@CAAEAV1@XZ @ 0x1C00D35D4 (-GetInstance@CContentRects@@CAAEAV1@XZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     ?Get@CContentRects@@AEAA_NIPEAUtagRECT@@PEAI@Z @ 0x1C01578D0 (-Get@CContentRects@@AEAA_NIPEAUtagRECT@@PEAI@Z.c)
+ */
+
 bool __fastcall CContentRects::GetContentRects(unsigned int a1, struct tagRECT *a2, unsigned int *a3)
 {
   struct CContentRects *Instance; // rax

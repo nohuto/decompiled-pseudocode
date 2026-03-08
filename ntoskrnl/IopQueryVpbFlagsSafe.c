@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopQueryVpbFlagsSafe @ 0x1402B2384
+ * Callers:
+ *     IopMountVolume @ 0x14072B180 (IopMountVolume.c)
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ */
+
 __int64 __fastcall IopQueryVpbFlagsSafe(__int64 a1)
 {
   unsigned __int16 v2; // di

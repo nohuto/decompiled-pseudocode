@@ -1,3 +1,17 @@
+/*
+ * XREFs of IopUpdateFunctionPointers @ 0x140553FEC
+ * Callers:
+ *     IopIrpExtensionControl @ 0x140553530 (IopIrpExtensionControl.c)
+ *     IoPerfInit @ 0x140556AD8 (IoPerfInit.c)
+ *     IoPerfReset @ 0x140556BD4 (IoPerfReset.c)
+ *     ViIovPluginUnload @ 0x1405CFAC0 (ViIovPluginUnload.c)
+ *     IoVerifierInit @ 0x140ABDCAC (IoVerifierInit.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IopUpdateFunctionPointers(int a1, char a2, char a3)
 {
   int v6; // ebx

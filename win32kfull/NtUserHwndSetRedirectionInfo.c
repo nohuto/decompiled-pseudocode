@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserHwndSetRedirectionInfo @ 0x1C01D5DD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetStyleWindow @ 0x1C0039020 (GetStyleWindow.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     GreSetHwndPresentFlags @ 0x1C026AA44 (GreSetHwndPresentFlags.c)
+ */
+
 __int64 __fastcall NtUserHwndSetRedirectionInfo(__int64 a1, int a2, __int64 a3, unsigned int a4)
 {
   NTSTATUS v8; // edi

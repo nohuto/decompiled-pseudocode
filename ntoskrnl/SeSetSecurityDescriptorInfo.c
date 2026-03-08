@@ -1,3 +1,12 @@
+/*
+ * XREFs of SeSetSecurityDescriptorInfo @ 0x1407510B0
+ * Callers:
+ *     IopSetDeviceSecurityDescriptor @ 0x140750F44 (IopSetDeviceSecurityDescriptor.c)
+ *     ObSetSecurityDescriptorInfo @ 0x140751100 (ObSetSecurityDescriptorInfo.c)
+ * Callees:
+ *     RtlpSetSecurityObject @ 0x1407BF100 (RtlpSetSecurityObject.c)
+ */
+
 NTSTATUS __stdcall SeSetSecurityDescriptorInfo(
         PVOID Object,
         PSECURITY_INFORMATION SecurityInformation,

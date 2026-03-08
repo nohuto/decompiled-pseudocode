@@ -1,3 +1,23 @@
+/*
+ * XREFs of xxxUpdatePerUserAccessPackSettings @ 0x1C0017E70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CalculateMouseTable@@YAXXZ @ 0x1C00176F0 (-CalculateMouseTable@@YAXXZ.c)
+ *     ?AccessTimeOutReset@@YAXXZ @ 0x1C00177E0 (-AccessTimeOutReset@@YAXXZ.c)
+ *     ?SetAccessEnabledFlag@@YAXXZ @ 0x1C0017820 (-SetAccessEnabledFlag@@YAXXZ.c)
+ *     ?MKHideMouseCursor@@YAXXZ @ 0x1C0017850 (-MKHideMouseCursor@@YAXXZ.c)
+ *     FastGetProfileIntW @ 0x1C0018FA0 (FastGetProfileIntW.c)
+ *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0068568 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0070E78 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     GetProcessLuid @ 0x1C00727F0 (GetProcessLuid.c)
+ *     OpenCacheKeyEx @ 0x1C00760E0 (OpenCacheKeyEx.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     ?MKShowMouseCursor@@YAXXZ @ 0x1C01E4400 (-MKShowMouseCursor@@YAXXZ.c)
+ *     ?xxxTurnOffStickyKeys@@YAXXZ @ 0x1C01E6170 (-xxxTurnOffStickyKeys@@YAXXZ.c)
+ */
+
 void __fastcall xxxUpdatePerUserAccessPackSettings(const UNICODE_STRING *a1)
 {
   int v2; // edi

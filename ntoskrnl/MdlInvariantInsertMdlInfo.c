@@ -1,3 +1,11 @@
+/*
+ * XREFs of MdlInvariantInsertMdlInfo @ 0x1405CCF50
+ * Callers:
+ *     MdlInvariantPreProcessing1 @ 0x1405CD258 (MdlInvariantPreProcessing1.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall MdlInvariantInsertMdlInfo(__int64 a1, _OWORD *a2)
 {
   __int64 Pool2; // rax

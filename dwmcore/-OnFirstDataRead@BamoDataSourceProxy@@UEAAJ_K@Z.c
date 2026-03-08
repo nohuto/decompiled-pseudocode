@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?OnFirstDataRead@BamoDataSourceProxy@@UEAAJ_K@Z @ 0x1801DFE80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1InternalLock@BamoImpl@Microsoft@@QEAA@XZ @ 0x1800ACA2C (--1InternalLock@BamoImpl@Microsoft@@QEAA@XZ.c)
+ *     ??0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z @ 0x1800ACA60 (--0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z.c)
+ *     ?OnFirstDataRead@BamoDataSourceProxyImpl@BamoImpl@@QEAAJ_K@Z @ 0x1801DFED0 (-OnFirstDataRead@BamoDataSourceProxyImpl@BamoImpl@@QEAAJ_K@Z.c)
+ */
+
 __int64 __fastcall BamoDataSourceProxy::OnFirstDataRead(BamoDataSourceProxy *this, unsigned __int64 a2)
 {
   BamoDataSourceProxy *v3; // rbx

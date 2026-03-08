@@ -1,3 +1,27 @@
+/*
+ * XREFs of ACPIBusIrpQueryInterface @ 0x1C00165F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     AcpiDeviceResetInterface @ 0x1C00237D0 (AcpiDeviceResetInterface.c)
+ *     AcpiFanEjectInterface @ 0x1C0027D10 (AcpiFanEjectInterface.c)
+ *     AcpiPccEjectInterface @ 0x1C0033D34 (AcpiPccEjectInterface.c)
+ *     AcpiArblibEjectInterface @ 0x1C007CFEC (AcpiArblibEjectInterface.c)
+ *     ACPIBusReenumerateSelfInterface @ 0x1C0081AD4 (ACPIBusReenumerateSelfInterface.c)
+ *     ACPICacheCoherencyInterface @ 0x1C0081B44 (ACPICacheCoherencyInterface.c)
+ *     ACPIBusIommuBusInterface @ 0x1C008736C (ACPIBusIommuBusInterface.c)
+ *     ACPIEjectPnpLocationInterface @ 0x1C0087570 (ACPIEjectPnpLocationInterface.c)
+ *     ACPIInternalSendSynchronousIrp @ 0x1C008822C (ACPIInternalSendSynchronousIrp.c)
+ *     ACPIEjectPartitionUnitInterface @ 0x1C0088FC8 (ACPIEjectPartitionUnitInterface.c)
+ *     PciBusEjectInterface @ 0x1C008A0E0 (PciBusEjectInterface.c)
+ *     IsPciBus @ 0x1C008A744 (IsPciBus.c)
+ *     AcpiSdevIdentifierInterface @ 0x1C0094D70 (AcpiSdevIdentifierInterface.c)
+ *     AcpiEjectBusNumberTranslator @ 0x1C00972E0 (AcpiEjectBusNumberTranslator.c)
+ *     TranslateEjectInterface @ 0x1C0097A38 (TranslateEjectInterface.c)
+ */
+
 __int64 __fastcall ACPIBusIrpQueryInterface(ULONG_PTR a1, IRP *a2)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // r14

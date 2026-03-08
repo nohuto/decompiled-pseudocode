@@ -1,3 +1,12 @@
+/*
+ * XREFs of _CmDevicePropertyWrite @ 0x1402F43F0
+ * Callers:
+ *     PiPnpRtlCmActionCallback @ 0x1406CE2F0 (PiPnpRtlCmActionCallback.c)
+ *     _CmSetDeviceRegPropWorker @ 0x14086A240 (_CmSetDeviceRegPropWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CmDevicePropertyWrite(__int64 a1, int a2)
 {
   int v2; // edx

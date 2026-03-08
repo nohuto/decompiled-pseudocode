@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpDmaIsDomainCompatible @ 0x14051086C
+ * Callers:
+ *     HalJoinDmaDomain @ 0x14038C5D0 (HalJoinDmaDomain.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall HalpDmaIsDomainCompatible(__int64 a1, __int64 a2)
 {
   char v2; // r8

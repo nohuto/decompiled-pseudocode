@@ -1,3 +1,12 @@
+/*
+ * XREFs of SshpAlpcOpenTraceSessionUnsafe @ 0x140849E40
+ * Callers:
+ *     SshpSessionManagerSendControlEvent @ 0x1408717B8 (SshpSessionManagerSendControlEvent.c)
+ * Callees:
+ *     KeCancelTimer2 @ 0x140204390 (KeCancelTimer2.c)
+ *     SshpAlpcSendMessage @ 0x14084A2B0 (SshpAlpcSendMessage.c)
+ */
+
 __int64 __fastcall SshpAlpcOpenTraceSessionUnsafe(__int64 a1, unsigned int a2, int *a3, _DWORD *a4)
 {
   int *v5; // rdi

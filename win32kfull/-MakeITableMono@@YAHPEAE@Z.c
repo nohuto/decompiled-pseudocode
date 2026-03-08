@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MakeITableMono@@YAHPEAE@Z @ 0x1C02A5F48
+ * Callers:
+ *     ?MakeITable@@YAHPEAEPEAURGBX@@H@Z @ 0x1C02A5D44 (-MakeITable@@YAHPEAEPEAURGBX@@H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MakeITableMono(bool *a1)
 {
   unsigned __int8 i; // dl

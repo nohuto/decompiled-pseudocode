@@ -1,3 +1,17 @@
+/*
+ * XREFs of AslpFileQueryVersionString @ 0x1406D48D0
+ * Callers:
+ *     AslpFileMakeStringVersionAttributes @ 0x1407A0A68 (AslpFileMakeStringVersionAttributes.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     RtlStringCchCatW @ 0x140246580 (RtlStringCchCatW.c)
+ *     RtlStringCchCopyW @ 0x1402470F0 (RtlStringCchCopyW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     AslpFileVerQueryBlock @ 0x1406D5020 (AslpFileVerQueryBlock.c)
+ *     AslpFileVerStringBlockGetValue @ 0x14076C2E4 (AslpFileVerStringBlockGetValue.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ */
+
 __int64 __fastcall AslpFileQueryVersionString(
         _QWORD *a1,
         _QWORD *a2,

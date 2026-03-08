@@ -1,3 +1,25 @@
+/*
+ * XREFs of BgpTxtDisplayCharacter @ 0x140381538
+ * Callers:
+ *     BgpDisplayCharacterEx @ 0x14066F654 (BgpDisplayCharacterEx.c)
+ *     AnFwDisplayProgressIndicator @ 0x140AEA598 (AnFwDisplayProgressIndicator.c)
+ *     AnFwpProgressIndicatorTimer @ 0x140AEA710 (AnFwpProgressIndicatorTimer.c)
+ *     AnFwpProgressAnimationManual @ 0x140AEF2AC (AnFwpProgressAnimationManual.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     TxtpGetCacheEntry @ 0x140381778 (TxtpGetCacheEntry.c)
+ *     BgpGxDrawRectangle @ 0x1403817FC (BgpGxDrawRectangle.c)
+ *     BgpGetBitsPerPixel @ 0x140381AB0 (BgpGetBitsPerPixel.c)
+ *     BgpRasPrintGlyph @ 0x140381CD4 (BgpRasPrintGlyph.c)
+ *     BgpGxConvertRectangleEx @ 0x14038204C (BgpGxConvertRectangleEx.c)
+ *     BgpFoGetTextMetrics @ 0x140382160 (BgpFoGetTextMetrics.c)
+ *     BgpGxFillRectangle @ 0x1403842E4 (BgpGxFillRectangle.c)
+ *     TxtpAddCacheEntry @ 0x140AEA9C8 (TxtpAddCacheEntry.c)
+ *     BgpGxRectangleDestroy @ 0x140AEAA70 (BgpGxRectangleDestroy.c)
+ *     BgpGxBlendRectangle @ 0x140AEF430 (BgpGxBlendRectangle.c)
+ *     TxtpJustifyRectangle @ 0x140AEF9E0 (TxtpJustifyRectangle.c)
+ */
+
 __int64 __fastcall BgpTxtDisplayCharacter(__int64 a1, __int64 a2, char a3, _DWORD *a4, _DWORD *a5)
 {
   _DWORD *v6; // rbx

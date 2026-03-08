@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpTscAdvSynchReadTimeStamp @ 0x14038853C
+ * Callers:
+ *     HalpTscAdvSynchLeader @ 0x140387D38 (HalpTscAdvSynchLeader.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall HalpTscAdvSynchReadTimeStamp(unsigned int a1)
 {
   unsigned __int64 v1; // rax

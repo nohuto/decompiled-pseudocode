@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiIntPartGetLowestClassProcessorInMask @ 0x1402A9324
+ * Callers:
+ *     PpmParkSteerInterrupts @ 0x1402341D0 (PpmParkSteerInterrupts.c)
+ *     KiIntSteerChooseInitialTargetProcessors @ 0x14028F130 (KiIntSteerChooseInitialTargetProcessors.c)
+ *     KiIntSteerCalculateDistribution @ 0x1402A8E00 (KiIntSteerCalculateDistribution.c)
+ *     KiIntSteerGetNextProcessorTarget @ 0x1402A92E4 (KiIntSteerGetNextProcessorTarget.c)
+ *     KiIntSteerCalculateFallbackDistribution @ 0x140577A5C (KiIntSteerCalculateFallbackDistribution.c)
+ * Callees:
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402A9460 (KeFindFirstSetRightGroupAffinity.c)
+ *     KeFindFirstSetLeftGroupAffinity @ 0x1402E9A20 (KeFindFirstSetLeftGroupAffinity.c)
+ */
+
 __int64 __fastcall KiIntPartGetLowestClassProcessorInMask(__int64 *a1)
 {
   __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PfpFileSetupObjectAttributes @ 0x1407674E0
+ * Callers:
+ *     PfpVolumePrefetchMetadata @ 0x1407667FC (PfpVolumePrefetchMetadata.c)
+ *     PfpFileBuildReadSupport @ 0x140767138 (PfpFileBuildReadSupport.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PfpFileSetupObjectAttributes(
         __int64 a1,
         __int64 a2,

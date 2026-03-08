@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ApplyKeyStateUpdate@@YAXE_N@Z @ 0x1C021D024
+ * Callers:
+ *     ?ivHandleKeyboardAsyncKeyStatePacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C021E280 (-ivHandleKeyboardAsyncKeyStatePacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManage.c)
+ * Callees:
+ *     UpdateRawKeyState @ 0x1C007F0C8 (UpdateRawKeyState.c)
+ *     UpdateAsyncKeyState @ 0x1C00922C0 (UpdateAsyncKeyState.c)
+ */
+
 void __fastcall ApplyKeyStateUpdate(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v4; // bl

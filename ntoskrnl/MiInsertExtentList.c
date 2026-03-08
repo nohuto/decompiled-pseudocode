@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiInsertExtentList @ 0x14063BAC8
+ * Callers:
+ *     MiInsertCopyExtents @ 0x14063BA1C (MiInsertCopyExtents.c)
+ *     MiMergeCopyExtents @ 0x14063BFCC (MiMergeCopyExtents.c)
+ * Callees:
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 char __fastcall MiInsertExtentList(unsigned int *a1)
 {
   __int64 v1; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of MagnificationTransformPoint @ 0x1C01F7E34
+ * Callers:
+ *     TransformForInputMagnification @ 0x1C01419A0 (TransformForInputMagnification.c)
+ *     ApplyMagInputTransform @ 0x1C01A6660 (ApplyMagInputTransform.c)
+ *     EditionMagnificationMousePosition @ 0x1C01F7D40 (EditionMagnificationMousePosition.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall MagnificationTransformPoint(__int128 *a1, int *a2)
 {
   int v2; // r9d

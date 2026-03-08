@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpChannelMpnIdSort @ 0x140B8F7A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpChannelMpnIdSort(_WORD *a1, _WORD *a2)
 {
   unsigned __int16 v2; // r8

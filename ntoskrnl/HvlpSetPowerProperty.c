@@ -1,3 +1,18 @@
+/*
+ * XREFs of HvlpSetPowerProperty @ 0x140544E50
+ * Callers:
+ *     HvlConfigureIdleStates @ 0x1405441F8 (HvlConfigureIdleStates.c)
+ *     HvlRegisterLogicalProcessorFrequency @ 0x140544954 (HvlRegisterLogicalProcessorFrequency.c)
+ *     HvlRegisterPerfFeedbackCounters @ 0x1405449AC (HvlRegisterPerfFeedbackCounters.c)
+ *     HvlSetLogicalProcessorHwpRequest @ 0x140544AA0 (HvlSetLogicalProcessorHwpRequest.c)
+ *     HvlSetPlatformIdleState @ 0x140544AF8 (HvlSetPlatformIdleState.c)
+ *     HvlpPowerPolicySettingCallback @ 0x140544D90 (HvlpPowerPolicySettingCallback.c)
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 __int64 __fastcall HvlpSetPowerProperty(_OWORD *a1)
 {
   PHYSICAL_ADDRESS *v2; // rcx

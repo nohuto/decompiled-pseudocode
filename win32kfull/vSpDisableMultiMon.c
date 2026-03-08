@@ -1,3 +1,11 @@
+/*
+ * XREFs of vSpDisableMultiMon @ 0x1C0286DA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vSpDisableMultiMon(__int64 a1)
 {
   void *v2; // rcx

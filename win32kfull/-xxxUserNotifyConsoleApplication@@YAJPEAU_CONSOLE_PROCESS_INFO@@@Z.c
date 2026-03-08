@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?xxxUserNotifyConsoleApplication@@YAJPEAU_CONSOLE_PROCESS_INFO@@@Z @ 0x1C003C924
+ * Callers:
+ *     xxxConsoleControl @ 0x1C003C5E8 (xxxConsoleControl.c)
+ * Callees:
+ *     ?xxxSetProcessInitState@@YAJPEAU_EPROCESS@@W4_PROCESS_INIT_HINT@@@Z @ 0x1C003E988 (-xxxSetProcessInitState@@YAJPEAU_EPROCESS@@W4_PROCESS_INIT_HINT@@@Z.c)
+ *     ?ApplyForegroundPolicyConsole@ForegroundLaunch@@YAXPEAU_EPROCESS@@@Z @ 0x1C003F218 (-ApplyForegroundPolicyConsole@ForegroundLaunch@@YAXPEAU_EPROCESS@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     LockProcessByClientId @ 0x1C0099860 (LockProcessByClientId.c)
+ *     WPP_RECORDER_AND_TRACE_SF_DD @ 0x1C009B8A4 (WPP_RECORDER_AND_TRACE_SF_DD.c)
+ *     ??1CLockProcessByPid@@QEAA@XZ @ 0x1C01B3FD4 (--1CLockProcessByPid@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall xxxUserNotifyConsoleApplication(
         struct _CONSOLE_PROCESS_INFO *a1,
         __int64 a2,

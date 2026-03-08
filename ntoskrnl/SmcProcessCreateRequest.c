@@ -1,3 +1,23 @@
+/*
+ * XREFs of SmcProcessCreateRequest @ 0x1409D50AC
+ * Callers:
+ *     SmSetStoreInformation @ 0x1407990D4 (SmSetStoreInformation.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     SmpGetProcessPartition @ 0x14029622C (SmpGetProcessPartition.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402A4AEC (SSHSupportAllocateNonPaged.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SmcCacheCreatePrepare @ 0x1409D4FE0 (SmcCacheCreatePrepare.c)
+ *     SmcCacheAdd @ 0x1409D7BE0 (SmcCacheAdd.c)
+ *     SmcCacheCleanup @ 0x1409D7CF4 (SmcCacheCleanup.c)
+ *     SmcCacheDelete @ 0x1409D7D8C (SmcCacheDelete.c)
+ *     SmcCacheInitialize @ 0x1409D7DE8 (SmcCacheInitialize.c)
+ *     SmcCacheStart @ 0x1409D812C (SmcCacheStart.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall SmcProcessCreateRequest(unsigned __int64 a1, int a2, char a3)
 {
   struct _PRIVILEGE_SET *v6; // rsi

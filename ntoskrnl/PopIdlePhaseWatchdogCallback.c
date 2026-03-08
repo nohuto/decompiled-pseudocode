@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopIdlePhaseWatchdogCallback @ 0x1403CFC20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x14087EC10 (DbgkWerCaptureLiveKernelDump.c)
+ *     PopPdcSnapDiagnosticContext @ 0x14087EDA8 (PopPdcSnapDiagnosticContext.c)
+ *     PopPowerAggregatorSnapDiagnosticContext @ 0x14087EDCC (PopPowerAggregatorSnapDiagnosticContext.c)
+ *     PopSnapSystemIdleContext @ 0x14087F0F0 (PopSnapSystemIdleContext.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopIdlePhaseWatchdogCallback(__int64 a1, int a2, int a3, int a4, __int64 a5, __int64 a6)
 {
   unsigned int v8; // ebx

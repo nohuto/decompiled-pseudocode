@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopFindDiskIoAttribution @ 0x14030AE38
+ * Callers:
+ *     IopAcquireReferencesFromIoAttributionHandle @ 0x1402945B0 (IopAcquireReferencesFromIoAttributionHandle.c)
+ *     IoRecordIoAttribution @ 0x14030BC80 (IoRecordIoAttribution.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     IopDiskIoAttributionTreeCompare @ 0x1402F2F60 (IopDiskIoAttributionTreeCompare.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IopFindDiskIoAttribution(unsigned __int64 a1)
 {
   __int64 v1; // rbp

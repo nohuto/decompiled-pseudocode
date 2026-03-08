@@ -1,3 +1,11 @@
+/*
+ * XREFs of FopReadNameRecord @ 0x140B99654
+ * Callers:
+ *     FopReadNamingTable @ 0x140B9952C (FopReadNamingTable.c)
+ * Callees:
+ *     FioFwReadBytesAtOffset @ 0x140383778 (FioFwReadBytesAtOffset.c)
+ */
+
 __int64 __fastcall FopReadNameRecord(__int64 a1, unsigned int a2, _WORD *a3)
 {
   __int64 result; // rax

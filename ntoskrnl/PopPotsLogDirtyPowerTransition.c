@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopPotsLogDirtyPowerTransition @ 0x140B32DDC
+ * Callers:
+ *     PopDiagTraceDirtyTransition @ 0x140B32210 (PopDiagTraceDirtyTransition.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x140244050 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ */
+
 void __fastcall PopPotsLogDirtyPowerTransition(int a1, unsigned int a2, int a3)
 {
   int v5; // ebx

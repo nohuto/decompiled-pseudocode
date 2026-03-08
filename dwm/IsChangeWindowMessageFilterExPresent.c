@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsChangeWindowMessageFilterExPresent @ 0x140006428
+ * Callers:
+ *     ?InitializeWindow@CDwmAppHost@@AEAAJXZ @ 0x140003E08 (-InitializeWindow@CDwmAppHost@@AEAAJXZ.c)
+ * Callees:
+ *     ApiSetQueryApiSetPresence_0 @ 0x1400069D0 (ApiSetQueryApiSetPresence_0.c)
+ */
+
 char IsChangeWindowMessageFilterExPresent()
 {
   char result; // al

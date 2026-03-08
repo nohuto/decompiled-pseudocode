@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwSetInformationEnlistmentWrapper @ 0x1405F48B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwSetInformationEnlistment @ 0x140415790 (ZwSetInformationEnlistment.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifZwSetInformationEnlistmentWrapper(
         HANDLE EnlistmentHandle,
         ENLISTMENT_INFORMATION_CLASS EnlistmentInformationClass,

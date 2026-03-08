@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpQueryCoverageSamplerInformation @ 0x1409F0CA4
+ * Callers:
+ *     EtwQueryPerformanceTraceInformation @ 0x14085C154 (EtwQueryPerformanceTraceInformation.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExCheckFullProcessInformationAccess @ 0x140791A18 (ExCheckFullProcessInformationAccess.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     EtwpCoverageSamplerQuery @ 0x1408A55B8 (EtwpCoverageSamplerQuery.c)
+ *     EtwpCoverageSamplerQueryStatusInformation @ 0x1409F0414 (EtwpCoverageSamplerQueryStatusInformation.c)
+ */
+
 __int64 __fastcall EtwpQueryCoverageSamplerInformation(unsigned __int64 a1, unsigned int a2, char a3, unsigned int *a4)
 {
   PVOID v8; // rdi

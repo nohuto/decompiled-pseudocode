@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsDrawListCacheDirty@CProjectedShadow@@UEAA_NPEAVCDrawListCache@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCMILMatrix@@@Z @ 0x180247AF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsDrawListCacheDirty@CContent@@UEAA_NPEAVCDrawListCache@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCMILMatrix@@@Z @ 0x18005B0A0 (-IsDrawListCacheDirty@CContent@@UEAA_NPEAVCDrawListCache@@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@P.c)
+ *     ?IsDrawListCachDirtyFromShadowAsset@@YA_NAEBV?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@_K@Z @ 0x180247A4C (-IsDrawListCachDirtyFromShadowAsset@@YA_NAEBV-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_p.c)
+ */
+
 char __fastcall CProjectedShadow::IsDrawListCacheDirty(
         CProjectedShadow *this,
         struct CDrawListCache *a2,

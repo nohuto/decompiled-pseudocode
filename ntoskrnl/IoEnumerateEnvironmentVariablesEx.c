@@ -1,3 +1,18 @@
+/*
+ * XREFs of IoEnumerateEnvironmentVariablesEx @ 0x14083F460
+ * Callers:
+ *     NtEnumerateBootEntries @ 0x14083E4F0 (NtEnumerateBootEntries.c)
+ *     NtEnumerateDriverEntries @ 0x1409FBD70 (NtEnumerateDriverEntries.c)
+ *     NtEnumerateSystemEnvironmentValuesEx @ 0x1409FC230 (NtEnumerateSystemEnvironmentValuesEx.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IopOpenSystemVariableDevice @ 0x14075D4AC (IopOpenSystemVariableDevice.c)
+ */
+
 __int64 __fastcall IoEnumerateEnvironmentVariablesEx(unsigned int a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   int v8; // ebx

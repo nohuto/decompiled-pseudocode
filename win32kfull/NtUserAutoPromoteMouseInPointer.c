@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserAutoPromoteMouseInPointer @ 0x1C0147140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     IsMiPEnabledForThread @ 0x1C00D7F08 (IsMiPEnabledForThread.c)
+ *     SetMiPPromotion @ 0x1C0144240 (SetMiPPromotion.c)
+ */
+
 __int64 __fastcall NtUserAutoPromoteMouseInPointer(int a1)
 {
   struct tagTHREADINFO *v2; // rcx

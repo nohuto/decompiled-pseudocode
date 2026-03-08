@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetFloatProperty@CMatrixTransformMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C02512A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CMatrixTransformMarshaler::SetFloatProperty(
         DirectComposition::CMatrixTransformMarshaler *this,
         unsigned int a2,

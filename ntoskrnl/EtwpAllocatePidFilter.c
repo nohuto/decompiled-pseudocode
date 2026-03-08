@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpAllocatePidFilter @ 0x1409F1C84
+ * Callers:
+ *     EtwpAllocateFilter @ 0x14077F2A4 (EtwpAllocateFilter.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall EtwpAllocatePidFilter(__int64 a1, unsigned int **a2)
 {
   unsigned int v4; // ebx

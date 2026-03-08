@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopCheckForIdleness @ 0x1402BC5F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     PopGetPolicyWorker @ 0x1402BCB34 (PopGetPolicyWorker.c)
+ *     PopCheckForWork @ 0x1402BCB88 (PopCheckForWork.c)
+ *     PopQueueWorkItem @ 0x1402BCCB4 (PopQueueWorkItem.c)
+ *     Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x14040B89C (Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopDiagTraceIdleCheck @ 0x140591810 (PopDiagTraceIdleCheck.c)
+ */
+
 __int64 PopCheckForIdleness()
 {
   __int64 v0; // rdx

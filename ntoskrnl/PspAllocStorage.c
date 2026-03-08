@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspAllocStorage @ 0x140797524
+ * Callers:
+ *     PspCreateSilo @ 0x140797438 (PspCreateSilo.c)
+ *     PspInitializeSiloStructures @ 0x140B3E8CC (PspInitializeSiloStructures.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PspAllocStorage(_QWORD *a1)
 {
   _QWORD *Pool2; // rax

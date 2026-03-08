@@ -1,3 +1,13 @@
+/*
+ * XREFs of AuthzBasepCommitSecurityAttributeChanges @ 0x140297AA0
+ * Callers:
+ *     AuthzBasepFinaliseSecurityAttributesList @ 0x140297A30 (AuthzBasepFinaliseSecurityAttributesList.c)
+ * Callees:
+ *     AuthzBasepFreeSecurityAttributeValues @ 0x1402B87B0 (AuthzBasepFreeSecurityAttributeValues.c)
+ *     AuthzBasepRemoveSecurityAttributeFromLists @ 0x14066C88C (AuthzBasepRemoveSecurityAttributeFromLists.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AuthzBasepCommitSecurityAttributeChanges(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int8 v3; // si

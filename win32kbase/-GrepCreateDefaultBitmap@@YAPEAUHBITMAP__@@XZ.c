@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GrepCreateDefaultBitmap@@YAPEAUHBITMAP__@@XZ @ 0x1C00DE830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C004344C (--1SURFREF@@QEAA@XZ.c)
+ *     HmgShareLockCheck @ 0x1C0049E60 (HmgShareLockCheck.c)
+ *     GreCreateBitmap @ 0x1C005A690 (GreCreateBitmap.c)
+ */
+
 HBITMAP GrepCreateDefaultBitmap(void)
 {
   HBITMAP v0; // rbx

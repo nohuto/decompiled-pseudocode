@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpHpLfhOwnerCleanup @ 0x1405B48C8
+ * Callers:
+ *     RtlpHpLfhContextCleanup @ 0x1405B4838 (RtlpHpLfhContextCleanup.c)
+ * Callees:
+ *     RtlpHpLfhSubsegmentFree @ 0x1402EB198 (RtlpHpLfhSubsegmentFree.c)
+ */
+
 _QWORD *__fastcall RtlpHpLfhOwnerCleanup(__int64 a1, __int64 a2)
 {
   __int64 v4; // rbp

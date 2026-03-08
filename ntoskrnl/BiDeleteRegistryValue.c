@@ -1,3 +1,17 @@
+/*
+ * XREFs of BiDeleteRegistryValue @ 0x14083089C
+ * Callers:
+ *     BiSetFirmwareModified @ 0x140390340 (BiSetFirmwareModified.c)
+ *     BiMarkTreatAsSystemStore @ 0x14082B918 (BiMarkTreatAsSystemStore.c)
+ *     BcdOpenStore @ 0x14082C814 (BcdOpenStore.c)
+ * Callees:
+ *     CmSiCloseSection @ 0x1402F8438 (CmSiCloseSection.c)
+ *     BiSanitizeHandle @ 0x1402FDDE8 (BiSanitizeHandle.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     BiZwDeleteValueKey @ 0x1403905D4 (BiZwDeleteValueKey.c)
+ *     BiOpenKey @ 0x14082E7AC (BiOpenKey.c)
+ */
+
 __int64 __fastcall BiDeleteRegistryValue(__int64 a1, const WCHAR *a2, const WCHAR *a3)
 {
   unsigned __int64 v5; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of AuthzBasepCompareFQBNOperands @ 0x14066CC80
+ * Callers:
+ *     AuthzBasepValueInSet @ 0x14036559C (AuthzBasepValueInSet.c)
+ *     AuthzBasepEvaluateExpression @ 0x140366314 (AuthzBasepEvaluateExpression.c)
+ * Callees:
+ *     AuthzBasepGetConstantOperand @ 0x1402E9A60 (AuthzBasepGetConstantOperand.c)
+ *     AuthzBasepUnicodeStringFromOperandValue @ 0x140365960 (AuthzBasepUnicodeStringFromOperandValue.c)
+ *     AuthzBasepGetOperandStringCaseForEvaluation @ 0x140365AE0 (AuthzBasepGetOperandStringCaseForEvaluation.c)
+ *     RtlIsNameInExpression @ 0x140365B20 (RtlIsNameInExpression.c)
+ *     AuthzBasepCompareUnsigned @ 0x14066D170 (AuthzBasepCompareUnsigned.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AuthzBasepCompareFQBNOperands(char a1, __int64 a2, BOOL *a3)
 {
   wchar_t **p_Buffer; // rax

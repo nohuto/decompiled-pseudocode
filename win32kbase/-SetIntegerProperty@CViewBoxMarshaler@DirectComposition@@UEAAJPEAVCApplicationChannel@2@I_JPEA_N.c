@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetIntegerProperty@CViewBoxMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0254090
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CViewBoxMarshaler::SetIntegerProperty(
         DirectComposition::CViewBoxMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

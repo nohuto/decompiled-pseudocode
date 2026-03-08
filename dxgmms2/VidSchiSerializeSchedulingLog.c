@@ -1,3 +1,14 @@
+/*
+ * XREFs of VidSchiSerializeSchedulingLog @ 0x1C010977C
+ * Callers:
+ *     VidSchiCreateNodeSchedulingLog @ 0x1C0045370 (VidSchiCreateNodeSchedulingLog.c)
+ * Callees:
+ *     VidSchiSchedulerNodeToDriverEngine @ 0x1C00196B8 (VidSchiSchedulerNodeToDriverEngine.c)
+ *     VidSchiSchedulerNodeToDriverNode @ 0x1C003C618 (VidSchiSchedulerNodeToDriverNode.c)
+ *     McTemplateK0pqqxxxxqbr7_EtwWriteTransfer @ 0x1C0043DB8 (McTemplateK0pqqxxxxqbr7_EtwWriteTransfer.c)
+ *     ?GetCpuVa@VIDMM_SCH_LOG@@QEAAPEAXXZ @ 0x1C004D518 (-GetCpuVa@VIDMM_SCH_LOG@@QEAAPEAXXZ.c)
+ */
+
 int __fastcall VidSchiSerializeSchedulingLog(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
 {
   __int64 v6; // r13

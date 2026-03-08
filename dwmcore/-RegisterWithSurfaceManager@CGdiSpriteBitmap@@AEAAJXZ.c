@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RegisterWithSurfaceManager@CGdiSpriteBitmap@@AEAAJXZ @ 0x1800A90C8
+ * Callers:
+ *     ?CreateBitmap@CGdiSpriteBitmap@@AEAAJW4DXGI_FORMAT@@@Z @ 0x1800A87C4 (-CreateBitmap@CGdiSpriteBitmap@@AEAAJW4DXGI_FORMAT@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CGdiSpriteBitmap::RegisterWithSurfaceManager(CGdiSpriteBitmap *this)
 {
   __int64 *v1; // rdx

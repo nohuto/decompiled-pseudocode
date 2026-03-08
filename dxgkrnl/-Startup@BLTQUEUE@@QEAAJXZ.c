@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Startup@BLTQUEUE@@QEAAJXZ @ 0x1C01C6F04
+ * Callers:
+ *     ?StartEmulation@REMOTE_VSYNC@@AEAAJXZ @ 0x1C01C6A40 (-StartEmulation@REMOTE_VSYNC@@AEAAJXZ.c)
+ *     ?DxgkpCreateDodPresent@@YAPEAVDXGDODPRESENT@@PEAVADAPTER_DISPLAY@@E@Z @ 0x1C0218410 (-DxgkpCreateDodPresent@@YAPEAVDXGDODPRESENT@@PEAVADAPTER_DISPLAY@@E@Z.c)
+ * Callees:
+ *     ?GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ @ 0x1C000B374 (-GetAdapter@DXGDODPRESENT@@QEAAPEAVDXGADAPTER@@XZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?RecreateVsyncSource@BLTQUEUE@@AEAAX_NW4VsyncEvent@1@@Z @ 0x1C01C7040 (-RecreateVsyncSource@BLTQUEUE@@AEAAX_NW4VsyncEvent@1@@Z.c)
+ */
+
 __int64 __fastcall BLTQUEUE::Startup(char *StartContext)
 {
   DXGDODPRESENT *v2; // rcx

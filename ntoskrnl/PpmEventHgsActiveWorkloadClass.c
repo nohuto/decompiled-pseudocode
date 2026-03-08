@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmEventHgsActiveWorkloadClass @ 0x140597D08
+ * Callers:
+ *     PpmPerfRecordMostActiveWorkloadClass @ 0x1402D3B88 (PpmPerfRecordMostActiveWorkloadClass.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PpmEventHgsActiveWorkloadClass(__int64 a1, __int64 a2, __int64 a3)
 {
   _UNKNOWN **v3; // rax

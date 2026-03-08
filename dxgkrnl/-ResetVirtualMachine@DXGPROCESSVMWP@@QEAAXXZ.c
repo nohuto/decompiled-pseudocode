@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ResetVirtualMachine@DXGPROCESSVMWP@@QEAAXXZ @ 0x1C0341048
+ * Callers:
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C01A8400 (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?DeferredInitialize@DXGPROCESS@@QEAAJI@Z @ 0x1C01A8184 (-DeferredInitialize@DXGPROCESS@@QEAAJI@Z.c)
+ *     ?ResetVirtualMachine@DXGVIRTUALMACHINE@@QEAAXE@Z @ 0x1C03410E0 (-ResetVirtualMachine@DXGVIRTUALMACHINE@@QEAAXE@Z.c)
+ */
+
 void __fastcall DXGPROCESSVMWP::ResetVirtualMachine(DXGPROCESSVMWP *this)
 {
   DXGVIRTUALMACHINE *v2; // rcx

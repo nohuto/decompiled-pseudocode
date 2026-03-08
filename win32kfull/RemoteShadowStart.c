@@ -1,3 +1,16 @@
+/*
+ * XREFs of RemoteShadowStart @ 0x1C0205FFC
+ * Callers:
+ *     NtUserRemoteShadowStart @ 0x1C01DAD60 (NtUserRemoteShadowStart.c)
+ * Callees:
+ *     SetPointer @ 0x1C00219A0 (SetPointer.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RemoteRedrawScreen @ 0x1C0126610 (RemoteRedrawScreen.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     GetRemoteHDEV @ 0x1C0205C54 (GetRemoteHDEV.c)
+ *     bDrvShadowConnect @ 0x1C02DF56C (bDrvShadowConnect.c)
+ */
+
 __int64 __fastcall RemoteShadowStart(void *Src, size_t Size)
 {
   SIZE_T v2; // r14

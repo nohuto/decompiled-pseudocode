@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBDTX_GetProductIdStringDescriptorUsingControlTransfer @ 0x1C002B638
+ * Callers:
+ *     HUBDSM_QueryingLanguageSpecificProductIdString @ 0x1C00207B0 (HUBDSM_QueryingLanguageSpecificProductIdString.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBDTX_GetDescriptor @ 0x1C002A598 (HUBDTX_GetDescriptor.c)
+ */
+
 __int64 __fastcall HUBDTX_GetProductIdStringDescriptorUsingControlTransfer(__int64 a1)
 {
   char v1; // di

@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiPccPlatformNotification @ 0x1C003417C
+ * Callers:
+ *     ACPIPccProcessSci @ 0x1C0033B3C (ACPIPccProcessSci.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall AcpiPccPlatformNotification(char *Context)
 {
   KSPIN_LOCK *v1; // rdi

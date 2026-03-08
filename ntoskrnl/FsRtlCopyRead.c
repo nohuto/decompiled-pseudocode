@@ -1,3 +1,18 @@
+/*
+ * XREFs of FsRtlCopyRead @ 0x140939DF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcCopyReadEx @ 0x14021E070 (CcCopyReadEx.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402ECFB0 (FsRtlIsNtstatusExpected.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     IoGetTopLevelIrp @ 0x140343AD0 (IoGetTopLevelIrp.c)
+ *     IoSetTopLevelIrp @ 0x140343AF0 (IoSetTopLevelIrp.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 BOOLEAN __stdcall FsRtlCopyRead(
         PFILE_OBJECT FileObject,
         PLARGE_INTEGER FileOffset,

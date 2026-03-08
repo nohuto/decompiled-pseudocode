@@ -1,3 +1,15 @@
+/*
+ * XREFs of PfSnPrefetchCacheEntryUpdate @ 0x1407E307C
+ * Callers:
+ *     PfSnSetPrefetcherInformation @ 0x1407E2E70 (PfSnSetPrefetcherInformation.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     PfSnPrefetchCacheEntryGet @ 0x1407E4284 (PfSnPrefetchCacheEntryGet.c)
+ */
+
 char __fastcall PfSnPrefetchCacheEntryUpdate(__int64 a1)
 {
   const void *v1; // rdi

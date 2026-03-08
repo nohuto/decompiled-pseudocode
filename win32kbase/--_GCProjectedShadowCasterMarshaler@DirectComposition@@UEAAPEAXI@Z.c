@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_GCProjectedShadowCasterMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C000D3A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 DirectComposition::CProjectedShadowCasterMarshaler *__fastcall DirectComposition::CProjectedShadowCasterMarshaler::`scalar deleting destructor'(
         DirectComposition::CProjectedShadowCasterMarshaler *this,
         char a2)

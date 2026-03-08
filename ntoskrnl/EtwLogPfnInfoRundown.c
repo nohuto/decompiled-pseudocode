@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwLogPfnInfoRundown @ 0x1409EB914
+ * Callers:
+ *     EtwpEnumerateWorkingSet @ 0x1409EBD00 (EtwpEnumerateWorkingSet.c)
+ *     MmLogSystemShareablePfnInfo @ 0x140A3D248 (MmLogSystemShareablePfnInfo.c)
+ * Callees:
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall EtwLogPfnInfoRundown(__int64 a1, __int64 a2, unsigned int a3, __int64 *a4)
 {
   __int64 v6; // rax

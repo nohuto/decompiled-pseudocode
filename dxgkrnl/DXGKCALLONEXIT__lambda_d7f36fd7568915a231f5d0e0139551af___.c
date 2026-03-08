@@ -1,3 +1,11 @@
+/*
+ * XREFs of DXGKCALLONEXIT__lambda_d7f36fd7568915a231f5d0e0139551af___ @ 0x1C006BB34
+ * Callers:
+ *     ?_HandlePowerOnInternal@USB4_POWERON_WORK_QUEUE@@QEAAXPEAUUSB4_POWERON_WORK_CONTEXT@@@Z @ 0x1C03C6550 (-_HandlePowerOnInternal@USB4_POWERON_WORK_QUEUE@@QEAAXPEAUUSB4_POWERON_WORK_CONTEXT@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DXGKCALLONEXIT__lambda_d7f36fd7568915a231f5d0e0139551af_(__int64 a1, __int128 *a2)
 {
   __int128 v2; // xmm0

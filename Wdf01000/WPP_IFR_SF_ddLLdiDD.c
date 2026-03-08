@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_IFR_SF_ddLLdiDD @ 0x1C007FB04
+ * Callers:
+ *     ?AssignResources@FxInterrupt@@QEAAXPEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@0@Z @ 0x1C007E760 (-AssignResources@FxInterrupt@@QEAAXPEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@0@Z.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_ddLLdiDD(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 _a1,

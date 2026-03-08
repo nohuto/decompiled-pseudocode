@@ -1,3 +1,16 @@
+/*
+ * XREFs of FsRtlpDedupChangeRegisterVolume @ 0x14093B9A0
+ * Callers:
+ *     FsRtlDedupChangeInit @ 0x14093B690 (FsRtlDedupChangeInit.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     McTemplateK0jq_EtwWriteTransfer @ 0x14053CC04 (McTemplateK0jq_EtwWriteTransfer.c)
+ *     EtwRegister @ 0x140690D20 (EtwRegister.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall FsRtlpDedupChangeRegisterVolume(__int64 a1, const GUID *a2, unsigned int *a3)
 {
   __int64 i; // r9

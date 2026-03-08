@@ -1,3 +1,21 @@
+/*
+ * XREFs of CcPerfLogWorkItemEnqueue @ 0x140391D54
+ * Callers:
+ *     CcPostWorkQueueRegular @ 0x140215AE0 (CcPostWorkQueueRegular.c)
+ *     CcWorkerThread @ 0x140215D70 (CcWorkerThread.c)
+ *     CcPostWorkQueueAsyncRead @ 0x140216768 (CcPostWorkQueueAsyncRead.c)
+ *     CcPostWorkQueueCachemapUninit @ 0x140216F94 (CcPostWorkQueueCachemapUninit.c)
+ *     CcWaitForCurrentLazyWriterActivityOnNode @ 0x1403CEA10 (CcWaitForCurrentLazyWriterActivityOnNode.c)
+ *     CcPostWorkQueueSpecial @ 0x140534894 (CcPostWorkQueueSpecial.c)
+ *     CcAsyncLazywriteWorker @ 0x14053741C (CcAsyncLazywriteWorker.c)
+ *     CcPostWorkQueueAsyncLazywrite @ 0x140537D14 (CcPostWorkQueueAsyncLazywrite.c)
+ * Callees:
+ *     CcReferenceSharedCacheMapFileObject @ 0x140343320 (CcReferenceSharedCacheMapFileObject.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1403441C0 (ObFastDereferenceObjectDeferDelete.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall CcPerfLogWorkItemEnqueue(__int64 a1, __int64 a2, char a3, char a4)
 {
   __int64 v5; // rdx

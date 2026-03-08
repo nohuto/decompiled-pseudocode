@@ -1,3 +1,21 @@
+/*
+ * XREFs of WbAllocateUserMemory @ 0x140754868
+ * Callers:
+ *     sub_140753BB4 @ 0x140753BB4 (sub_140753BB4.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     WbAllocateMemoryBlock @ 0x140753534 (WbAllocateMemoryBlock.c)
+ *     sub_140754B04 @ 0x140754B04 (sub_140754B04.c)
+ *     WbFreeMemoryBlock @ 0x140754DEC (WbFreeMemoryBlock.c)
+ *     sub_140754FC0 @ 0x140754FC0 (sub_140754FC0.c)
+ */
+
 __int64 __fastcall WbAllocateUserMemory(__int64 a1, unsigned int a2, _QWORD *a3, _QWORD *a4)
 {
   PVOID *v6; // r14

@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifPoFxCompleteDevicePowerNotRequiredWrapper @ 0x1405E6E40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PoFxCompleteDevicePowerNotRequired @ 0x140302820 (PoFxCompleteDevicePowerNotRequired.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 _QWORD *__fastcall DifPoFxCompleteDevicePowerNotRequiredWrapper(ULONG_PTR BugCheckParameter2)
 {
   __int64 *APIThunkContextById; // rax

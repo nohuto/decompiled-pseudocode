@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvpViewMapCOWAndUnsealRange @ 0x140732640
+ * Callers:
+ *     HvpAddBin @ 0x14072F9F0 (HvpAddBin.c)
+ *     HvpSetRangeProtection @ 0x1407A5934 (HvpSetRangeProtection.c)
+ * Callees:
+ *     HvpViewMapMakeViewRangeCOWByCaller @ 0x1407326F8 (HvpViewMapMakeViewRangeCOWByCaller.c)
+ */
+
 __int64 __fastcall HvpViewMapCOWAndUnsealRange(__int64 a1, int a2, unsigned int a3)
 {
   signed __int64 v3; // r10

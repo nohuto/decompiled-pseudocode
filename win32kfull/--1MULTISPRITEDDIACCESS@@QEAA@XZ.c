@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1MULTISPRITEDDIACCESS@@QEAA@XZ @ 0x1C00E5D48
+ * Callers:
+ *     vSpDynamicModeChange @ 0x1C00E5A90 (vSpDynamicModeChange.c)
+ * Callees:
+ *     ?vSpDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C00E5E20 (-vSpDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z.c)
+ */
+
 void __fastcall MULTISPRITEDDIACCESS::~MULTISPRITEDDIACCESS(struct _SPRITESTATE **this)
 {
   struct _SPRITESTATE *v1; // r8

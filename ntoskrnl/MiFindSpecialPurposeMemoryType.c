@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiFindSpecialPurposeMemoryType @ 0x14065DBE8
+ * Callers:
+ *     MiAddSpecialPurposeMemoryPrepare @ 0x140A44160 (MiAddSpecialPurposeMemoryPrepare.c)
+ *     MiFindSpecialPurposeMemoryTypeByPartition @ 0x140A445E8 (MiFindSpecialPurposeMemoryTypeByPartition.c)
+ *     MiInitializePartitionSpecialPurposeMemory @ 0x140A4470C (MiInitializePartitionSpecialPurposeMemory.c)
+ * Callees:
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ */
+
 _QWORD *__fastcall MiFindSpecialPurposeMemoryType(__int64 a1, const void *a2)
 {
   _QWORD *v2; // rdi

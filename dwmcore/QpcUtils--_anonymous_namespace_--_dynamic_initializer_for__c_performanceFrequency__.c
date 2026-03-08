@@ -1,3 +1,11 @@
+/*
+ * XREFs of QpcUtils::_anonymous_namespace_::_dynamic_initializer_for__c_performanceFrequency__ @ 0x180003D10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 LARGE_INTEGER QpcUtils::_anonymous_namespace_::_dynamic_initializer_for__c_performanceFrequency__()
 {
   LARGE_INTEGER result; // rax

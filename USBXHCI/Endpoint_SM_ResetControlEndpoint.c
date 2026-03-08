@@ -1,3 +1,12 @@
+/*
+ * XREFs of Endpoint_SM_ResetControlEndpoint @ 0x1C003BAEC
+ * Callers:
+ *     ESM_ResettingControlEndpoint @ 0x1C0051B40 (ESM_ResettingControlEndpoint.c)
+ * Callees:
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 char __fastcall Endpoint_SM_ResetControlEndpoint(__int64 a1)
 {
   __int64 v1; // rdi

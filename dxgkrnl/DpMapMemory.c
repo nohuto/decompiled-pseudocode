@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpMapMemory @ 0x1C02120E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiVerifyResources @ 0x1C0212368 (DpiVerifyResources.c)
+ */
+
 __int64 __fastcall DpMapMemory(
         __int64 a1,
         union _LARGE_INTEGER a2,

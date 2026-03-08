@@ -1,3 +1,12 @@
+/*
+ * XREFs of TxtpJustifyRectangle @ 0x140AEF9E0
+ * Callers:
+ *     BgpTxtDisplayCharacter @ 0x140381538 (BgpTxtDisplayCharacter.c)
+ *     BgpTxtDisplayString @ 0x140AEF7A0 (BgpTxtDisplayString.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TxtpJustifyRectangle(_DWORD *a1, _DWORD *a2, unsigned int *a3)
 {
   int v3; // r9d

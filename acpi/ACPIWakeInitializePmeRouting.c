@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIWakeInitializePmeRouting @ 0x1C0045E28
+ * Callers:
+ *     PcisuppAcquirePciInterfaces @ 0x1C0099894 (PcisuppAcquirePciInterfaces.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     ACPIInternalSendSynchronousIrp @ 0x1C008822C (ACPIInternalSendSynchronousIrp.c)
+ */
+
 __int64 __fastcall ACPIWakeInitializePmeRouting(PDEVICE_OBJECT DeviceObject)
 {
   void *Pool2; // rbx

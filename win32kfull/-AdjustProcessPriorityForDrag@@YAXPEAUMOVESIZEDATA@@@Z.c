@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?AdjustProcessPriorityForDrag@@YAXPEAUMOVESIZEDATA@@@Z @ 0x1C01EA0A0
+ * Callers:
+ *     ?xxxMoveSize@@YAXPEAUtagWND@@IK@Z @ 0x1C01F0DC4 (-xxxMoveSize@@YAXPEAUtagWND@@IK@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     Feature_BoostOnDragSize__private_ReportDeviceUsage @ 0x1C012EB98 (Feature_BoostOnDragSize__private_ReportDeviceUsage.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?ShouldAdjustModernAppFramePriority@@YA_NPEBUtagWND@@@Z @ 0x1C01EBA3C (-ShouldAdjustModernAppFramePriority@@YA_NPEBUtagWND@@@Z.c)
+ */
+
 void __fastcall AdjustProcessPriorityForDrag(struct MOVESIZEDATA *a1)
 {
   const struct tagWND *v1; // rdi

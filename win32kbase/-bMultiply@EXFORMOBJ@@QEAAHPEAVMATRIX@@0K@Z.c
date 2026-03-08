@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bMultiply@EXFORMOBJ@@QEAAHPEAVMATRIX@@0K@Z @ 0x1C000E0A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     bFToL @ 0x1C0002B7C (bFToL.c)
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C000DEC0 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     ?vComputeAccelFlags@EXFORMOBJ@@QEAAXK@Z @ 0x1C0059750 (-vComputeAccelFlags@EXFORMOBJ@@QEAAXK@Z.c)
+ */
+
 __int64 __fastcall EXFORMOBJ::bMultiply(EXFORMOBJ *this, struct MATRIX *a2, struct MATRIX *a3, char a4)
 {
   __int64 v4; // rbx

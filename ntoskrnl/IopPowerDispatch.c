@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopPowerDispatch @ 0x1405604B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     PoSetPowerState @ 0x1402FA100 (PoSetPowerState.c)
+ */
+
 __int64 __fastcall IopPowerDispatch(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r9

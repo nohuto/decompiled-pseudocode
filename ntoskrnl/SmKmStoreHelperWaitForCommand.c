@@ -1,3 +1,13 @@
+/*
+ * XREFs of SmKmStoreHelperWaitForCommand @ 0x1405C9668
+ * Callers:
+ *     SmKmStoreHelperCheckWaitCommand @ 0x1402E6CEC (SmKmStoreHelperCheckWaitCommand.c)
+ *     ?SmStHelperSendCommand@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SMKM_STORE_HELPER_PARAMS@@K@Z @ 0x1405BE808 (-SmStHelperSendCommand@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SMKM_STORE_HELPER_COMMAND@@PEAU_SM.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ */
+
 NTSTATUS __fastcall SmKmStoreHelperWaitForCommand(__int64 a1, _OWORD *a2, LARGE_INTEGER *Timeout, int a4)
 {
   struct _KEVENT *v4; // rsi

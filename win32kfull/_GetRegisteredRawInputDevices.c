@@ -1,3 +1,12 @@
+/*
+ * XREFs of _GetRegisteredRawInputDevices @ 0x1C01AB428
+ * Callers:
+ *     NtUserGetRegisteredRawInputDevices @ 0x1C01D4D90 (NtUserGetRegisteredRawInputDevices.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?SortRegisteredDevices@@YAXPEAUtagRAWINPUTDEVICE@@H@Z @ 0x1C01AADC8 (-SortRegisteredDevices@@YAXPEAUtagRAWINPUTDEVICE@@H@Z.c)
+ */
+
 __int64 __fastcall GetRegisteredRawInputDevices(struct tagRAWINPUTDEVICE *a1, unsigned int *a2)
 {
   unsigned int v4; // ebx

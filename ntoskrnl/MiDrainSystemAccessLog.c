@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiDrainSystemAccessLog @ 0x140330B34
+ * Callers:
+ *     MiEmptyAccessLogs @ 0x1402005B0 (MiEmptyAccessLogs.c)
+ *     MiDeleteSessionAddressSpace @ 0x1402008EC (MiDeleteSessionAddressSpace.c)
+ *     MiCaptureAndResetWorkingSetAccessBits @ 0x1402F6AAC (MiCaptureAndResetWorkingSetAccessBits.c)
+ *     MiCleanWorkingSet @ 0x1402F92FC (MiCleanWorkingSet.c)
+ *     MiDeleteVad @ 0x1407C82E0 (MiDeleteVad.c)
+ * Callees:
+ *     MiEmptyPageAccessLog @ 0x14028C160 (MiEmptyPageAccessLog.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiDrainSystemAccessLog(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax

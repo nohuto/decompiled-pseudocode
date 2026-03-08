@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiPerformFinalZeroing @ 0x14064B6C0
+ * Callers:
+ *     MiGetPageChain @ 0x14026E0E0 (MiGetPageChain.c)
+ * Callees:
+ *     MiChangePageAttributeBatch @ 0x140211998 (MiChangePageAttributeBatch.c)
+ *     MiSetPfnTbFlushStamp @ 0x14028A3A0 (MiSetPfnTbFlushStamp.c)
+ *     MiZeroPhysicalPage @ 0x1402CE78C (MiZeroPhysicalPage.c)
+ */
+
 void __fastcall MiPerformFinalZeroing(ULONG_PTR *a1, unsigned int a2, unsigned int a3)
 {
   __int64 v3; // r9

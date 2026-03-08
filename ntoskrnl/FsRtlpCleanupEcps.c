@@ -1,3 +1,15 @@
+/*
+ * XREFs of FsRtlpCleanupEcps @ 0x14070C240
+ * Callers:
+ *     NtQueryFullAttributesFile @ 0x14070BD80 (NtQueryFullAttributesFile.c)
+ *     NtQueryAttributesFile @ 0x14070C010 (NtQueryAttributesFile.c)
+ *     IopCleanupExtraCreateParameters @ 0x14076D500 (IopCleanupExtraCreateParameters.c)
+ *     IopFastQueryNetworkAttributes @ 0x1409449B8 (IopFastQueryNetworkAttributes.c)
+ * Callees:
+ *     FsRtlFreeExtraCreateParameterList @ 0x14070C280 (FsRtlFreeExtraCreateParameterList.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14070C300 (FsRtlFreeExtraCreateParameter.c)
+ */
+
 char __fastcall FsRtlpCleanupEcps(struct _ECP_LIST *a1)
 {
   unsigned int Flags; // eax

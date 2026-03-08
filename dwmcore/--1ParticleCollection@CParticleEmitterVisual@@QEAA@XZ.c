@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1ParticleCollection@CParticleEmitterVisual@@QEAA@XZ @ 0x180240494
+ * Callers:
+ *     ??1CParticleEmitterVisual@@UEAA@XZ @ 0x1802403D4 (--1CParticleEmitterVisual@@UEAA@XZ.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?_Tidy@?$vector@MV?$allocator@M@std@@@std@@AEAAXXZ @ 0x1800F9B40 (-_Tidy@-$vector@MV-$allocator@M@std@@@std@@AEAAXXZ.c)
+ *     ?_Tidy@?$vector@PEAVCDataSourceReader@@V?$allocator@PEAVCDataSourceReader@@@std@@@std@@AEAAXXZ @ 0x1801B5014 (-_Tidy@-$vector@PEAVCDataSourceReader@@V-$allocator@PEAVCDataSourceReader@@@std@@@std@@AEAAXXZ.c)
+ */
+
 void __fastcall CParticleEmitterVisual::ParticleCollection::~ParticleCollection(
         CParticleEmitterVisual::ParticleCollection *this)
 {

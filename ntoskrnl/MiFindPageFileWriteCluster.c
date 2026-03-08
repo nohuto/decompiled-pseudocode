@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiFindPageFileWriteCluster @ 0x1406374E0
+ * Callers:
+ *     MiGatherPagefilePages @ 0x140637D34 (MiGatherPagefilePages.c)
+ * Callees:
+ *     MiFindFreePageFileSpace @ 0x140209F7C (MiFindFreePageFileSpace.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     RtlFindLongestRunClearCapped @ 0x1405A5C20 (RtlFindLongestRunClearCapped.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x140636AEC (MiDerefPageFileSpaceBitmaps.c)
+ *     MiRefPageFileSpaceBitmaps @ 0x140639084 (MiRefPageFileSpaceBitmaps.c)
+ *     MiSetPageFileAllocationBits @ 0x1406391A8 (MiSetPageFileAllocationBits.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 _DWORD *__fastcall MiFindPageFileWriteCluster(__int64 a1, unsigned int *a2, unsigned int *a3, int a4)
 {
   unsigned int v4; // r15d

@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopErrorLogRequeueEntry @ 0x14055C5BC
+ * Callers:
+ *     IopErrorLogThread @ 0x1408704E0 (IopErrorLogThread.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IopErrorLogRequeueEntry(__int64 *a1)
 {
   unsigned __int64 v2; // rbx

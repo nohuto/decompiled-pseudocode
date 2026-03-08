@@ -1,3 +1,33 @@
+/*
+ * XREFs of MiPrefetchVirtualMemory @ 0x140363970
+ * Callers:
+ *     MmCopyMemory @ 0x1402A1CE0 (MmCopyMemory.c)
+ *     MiInPageSingleKernelStack @ 0x1402A7A08 (MiInPageSingleKernelStack.c)
+ *     MiPrefetchRestOfCluster @ 0x1402FBFE0 (MiPrefetchRestOfCluster.c)
+ *     MiBuildForkPte @ 0x14065FC20 (MiBuildForkPte.c)
+ *     MmPrefetchVirtualMemory @ 0x14067E690 (MmPrefetchVirtualMemory.c)
+ *     NtSetInformationVirtualMemory @ 0x14075BCB0 (NtSetInformationVirtualMemory.c)
+ *     MiPrefetchDriverPages @ 0x1407C81C0 (MiPrefetchDriverPages.c)
+ * Callees:
+ *     MiDereferenceInPageAutoBoostLock @ 0x14020CA70 (MiDereferenceInPageAutoBoostLock.c)
+ *     MiGetInPageAutoBoostLock @ 0x14020CAA0 (MiGetInPageAutoBoostLock.c)
+ *     MiPfCompletePrefetchIos @ 0x14020DA48 (MiPfCompletePrefetchIos.c)
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ *     MiPfCoalesceAndIssueIOs @ 0x1402F6158 (MiPfCoalesceAndIssueIOs.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     MiAdvanceFaultList @ 0x140363F9C (MiAdvanceFaultList.c)
+ *     MiCommitmentAvailable @ 0x140364010 (MiCommitmentAvailable.c)
+ *     MiSufficientAvailablePages @ 0x1403643E4 (MiSufficientAvailablePages.c)
+ *     MiVaIsUltra @ 0x14036448C (MiVaIsUltra.c)
+ *     MiLeapPrefetch @ 0x14062F4D4 (MiLeapPrefetch.c)
+ *     MiPrefetchPreallocatePages @ 0x14062FD08 (MiPrefetchPreallocatePages.c)
+ *     MiPrefetchReleasePreallocatedPages @ 0x14063008C (MiPrefetchReleasePreallocatedPages.c)
+ */
+
 __int64 __fastcall MiPrefetchVirtualMemory(unsigned __int64 a1, __int64 a2, __int64 a3, int a4)
 {
   int v4; // esi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of GraySkipDIB_CX @ 0x1C0265960
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GraySkipDIB_CX(__int64 a1, __int64 a2, _WORD *a3, _WORD *a4, int a5)
 {
   unsigned __int16 *v5; // rcx

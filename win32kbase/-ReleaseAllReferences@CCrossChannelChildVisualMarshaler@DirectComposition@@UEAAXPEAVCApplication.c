@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReleaseAllReferences@CCrossChannelChildVisualMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C000BB60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReleaseSystemResource@CConnection@DirectComposition@@QEAAXVResourceHandle@@@Z @ 0x1C005E76C (-ReleaseSystemResource@CConnection@DirectComposition@@QEAAXVResourceHandle@@@Z.c)
+ *     ?ReleaseAllReferences@CVisualMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C006B010 (-ReleaseAllReferences@CVisualMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z.c)
+ */
+
 void __fastcall DirectComposition::CCrossChannelChildVisualMarshaler::ReleaseAllReferences(
         DirectComposition::CCrossChannelChildVisualMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2)

@@ -1,3 +1,13 @@
+/*
+ * XREFs of EngGetRgnData @ 0x1C000D450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0EngModeState@@QEAA@XZ @ 0x1C0019C74 (--0EngModeState@@QEAA@XZ.c)
+ *     GreGetObjectOwner @ 0x1C0019E80 (GreGetObjectOwner.c)
+ *     GreGetRegionData @ 0x1C003C510 (GreGetRegionData.c)
+ */
+
 DWORD __stdcall EngGetRgnData(HANDLE hrgn, DWORD nCount, LPRGNDATA lpRgnData)
 {
   DWORD result; // eax

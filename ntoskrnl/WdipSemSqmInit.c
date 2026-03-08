@@ -1,3 +1,13 @@
+/*
+ * XREFs of WdipSemSqmInit @ 0x140831A38
+ * Callers:
+ *     WdipSemStartTimeoutCheck @ 0x1408319B4 (WdipSemStartTimeoutCheck.c)
+ * Callees:
+ *     RtlLengthSid @ 0x140245EC0 (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     WdipSemWriteEvent @ 0x140833CFC (WdipSemWriteEvent.c)
+ */
+
 __int64 WdipSemSqmInit()
 {
   ULONG v0; // eax

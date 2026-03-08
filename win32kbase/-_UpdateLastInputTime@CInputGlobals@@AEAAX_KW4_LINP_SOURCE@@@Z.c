@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_UpdateLastInputTime@CInputGlobals@@AEAAX_KW4_LINP_SOURCE@@@Z @ 0x1C0016C74
+ * Callers:
+ *     ?UpdateLastInputTime@CInputGlobals@@QEAAX_KW4_LINP_SOURCE@@@Z @ 0x1C0016C10 (-UpdateLastInputTime@CInputGlobals@@QEAAX_KW4_LINP_SOURCE@@@Z.c)
+ *     ?UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z @ 0x1C0080790 (-UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z.c)
+ * Callees:
+ *     McTemplateK0qhq_EtwWriteTransfer @ 0x1C01660A0 (McTemplateK0qhq_EtwWriteTransfer.c)
+ */
+
 char __fastcall CInputGlobals::_UpdateLastInputTime(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int *v4; // rax

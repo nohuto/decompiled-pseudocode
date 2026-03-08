@@ -1,3 +1,13 @@
+/*
+ * XREFs of KsepPoolAllocateNonPaged @ 0x1403A0184
+ * Callers:
+ *     KseSetCompletionHook @ 0x1403A00F0 (KseSetCompletionHook.c)
+ *     KseShimDriverIoCallbacks @ 0x14079D690 (KseShimDriverIoCallbacks.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void *__fastcall KsepPoolAllocateNonPaged(size_t Size)
 {
   void *Pool2; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserDdeInitialize @ 0x1C00E4630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxCsDdeInitialize @ 0x1C00E472C (xxxCsDdeInitialize.c)
+ *     xxxDestroyThreadDDEObject @ 0x1C00F4BE0 (xxxDestroyThreadDDEObject.c)
+ */
+
 __int64 __fastcall NtUserDdeInitialize(_QWORD *a1, _QWORD *a2, _DWORD *a3, int a4, __int64 a5)
 {
   ULONG64 v9; // rcx

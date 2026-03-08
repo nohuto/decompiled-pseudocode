@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Release@DXGMMS_EXPORT@@QEAAJXZ @ 0x1C031E1B4
+ * Callers:
+ *     ??1DXGGLOBAL@@EEAA@XZ @ 0x1C030CE70 (--1DXGGLOBAL@@EEAA@XZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DXGMMS_EXPORT::Release(DXGMMS_EXPORT *this)
 {
   void *v2; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpFreeStackCache @ 0x1408A39B8
+ * Callers:
+ *     EtwpFreeLoggerContext @ 0x1406F29FC (EtwpFreeLoggerContext.c)
+ *     EtwpEnableStackCaching @ 0x1408A385A (EtwpEnableStackCaching.c)
+ * Callees:
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwpFreeStackCache(char *P)
 {
   __int64 i; // rsi

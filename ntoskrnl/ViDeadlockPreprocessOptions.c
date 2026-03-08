@@ -1,3 +1,17 @@
+/*
+ * XREFs of ViDeadlockPreprocessOptions @ 0x140AD6830
+ * Callers:
+ *     VfDeadlockAcquireResource @ 0x140AD3DAC (VfDeadlockAcquireResource.c)
+ *     VfDeadlockReleaseResource @ 0x140AD4ECC (VfDeadlockReleaseResource.c)
+ *     ViDeadlockAddResource @ 0x140AD53DC (ViDeadlockAddResource.c)
+ *     ViDeadlockAnalyze @ 0x140AD5740 (ViDeadlockAnalyze.c)
+ *     ViDeadlockRemoveResource @ 0x140AD6A68 (ViDeadlockRemoveResource.c)
+ *     ViDeadlockRemoveThread @ 0x140AD6C20 (ViDeadlockRemoveThread.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     VfUtilDbgPrint @ 0x1405CBEB4 (VfUtilDbgPrint.c)
+ */
+
 __int64 ViDeadlockPreprocessOptions(_DWORD *a1, const char *a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6, ...)
 {
   __int64 result; // rax

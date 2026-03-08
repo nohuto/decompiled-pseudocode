@@ -1,3 +1,14 @@
+/*
+ * XREFs of WPP_RECORDER_SF_Ddd @ 0x1C00355BC
+ * Callers:
+ *     HUBDESC_InternalValidateSuperSpeedEndpointCompanionDescriptor @ 0x1C00375E4 (HUBDESC_InternalValidateSuperSpeedEndpointCompanionDescriptor.c)
+ *     HUBDESC_InternalValidateBOSDescriptor @ 0x1C003BB04 (HUBDESC_InternalValidateBOSDescriptor.c)
+ *     HUBDESC_ValidateBOSDescriptorSet @ 0x1C003BEA8 (HUBDESC_ValidateBOSDescriptorSet.c)
+ *     HUBDESC_InternalValidateStringDescriptor @ 0x1C003C360 (HUBDESC_InternalValidateStringDescriptor.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_Ddd(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4, int a5, ...)
 {
   int v8; // [rsp+20h] [rbp-48h]

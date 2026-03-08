@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionPostThreadInputEvent @ 0x1C01B79F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0044D58 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ */
+
 __int64 __fastcall EditionPostThreadInputEvent(
         unsigned int a1,
         struct tagQ **a2,

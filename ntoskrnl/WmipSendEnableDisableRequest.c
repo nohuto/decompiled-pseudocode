@@ -1,3 +1,20 @@
+/*
+ * XREFs of WmipSendEnableDisableRequest @ 0x1407870B0
+ * Callers:
+ *     WmipDoDisableRequest @ 0x140786F08 (WmipDoDisableRequest.c)
+ *     WmipSendEnableRequest @ 0x140786FAC (WmipSendEnableRequest.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WmipReferenceEntry @ 0x14069C27C (WmipReferenceEntry.c)
+ *     WmipUnreferenceEntry @ 0x14069C9D0 (WmipUnreferenceEntry.c)
+ *     WmipSendWmiIrp @ 0x14069CD88 (WmipSendWmiIrp.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WmipSendEnableDisableRequest(char a1, __int64 a2, char a3)
 {
   int v6; // eax

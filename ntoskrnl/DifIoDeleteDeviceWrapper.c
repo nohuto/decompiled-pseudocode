@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifIoDeleteDeviceWrapper @ 0x1405DC8C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoDeleteDevice @ 0x140368010 (IoDeleteDevice.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 void __fastcall DifIoDeleteDeviceWrapper(PDEVICE_OBJECT DeviceObject)
 {
   __int64 *APIThunkContextById; // rax

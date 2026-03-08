@@ -1,3 +1,15 @@
+/*
+ * XREFs of FsRtlIsDbcsInExpression @ 0x14093C0C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     FsRtlDoesDbcsContainWildCards @ 0x1408A0090 (FsRtlDoesDbcsContainWildCards.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 BOOLEAN __stdcall FsRtlIsDbcsInExpression(PANSI_STRING Expression, PANSI_STRING Name)
 {
   int Length; // ebx

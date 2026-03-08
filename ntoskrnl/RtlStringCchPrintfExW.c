@@ -1,3 +1,47 @@
+/*
+ * XREFs of RtlStringCchPrintfExW @ 0x140245C80
+ * Callers:
+ *     PopDiagTraceProcessorThrottleDurationPerfTrack @ 0x140591DB0 (PopDiagTraceProcessorThrottleDurationPerfTrack.c)
+ *     PopDiagTraceProcessorThrottlePerfTrack @ 0x140591F00 (PopDiagTraceProcessorThrottlePerfTrack.c)
+ *     _PnpSetPropertyWorker @ 0x140687D54 (_PnpSetPropertyWorker.c)
+ *     _PnpStringFromGuid @ 0x1406881E8 (_PnpStringFromGuid.c)
+ *     _CmGetDeviceContainerRegKeyPath @ 0x1406C11CC (_CmGetDeviceContainerRegKeyPath.c)
+ *     _CmGetCommonClassRegKeyPath @ 0x1406C5348 (_CmGetCommonClassRegKeyPath.c)
+ *     _CmGetDeviceSoftwareKeyPath @ 0x1406C8948 (_CmGetDeviceSoftwareKeyPath.c)
+ *     _CmGetDeviceSoftwareKey @ 0x1406C8A54 (_CmGetDeviceSoftwareKey.c)
+ *     _PnpGetGenericStoreProperty @ 0x1406D13D0 (_PnpGetGenericStoreProperty.c)
+ *     _PnpOpenPropertiesKey @ 0x1406D1610 (_PnpOpenPropertiesKey.c)
+ *     _CmGetDeviceInterfaceRegKeyPath @ 0x1406D1834 (_CmGetDeviceInterfaceRegKeyPath.c)
+ *     _CmGetDeviceInstanceKeyPath @ 0x1406D1F5C (_CmGetDeviceInstanceKeyPath.c)
+ *     PiProcessDriverInstance @ 0x140770360 (PiProcessDriverInstance.c)
+ *     PiFindDevInstMatch @ 0x1407705F4 (PiFindDevInstMatch.c)
+ *     _CmGetDeviceHardwareKeyPath @ 0x140781DCC (_CmGetDeviceHardwareKeyPath.c)
+ *     _CmGetDeviceLogConfKeyPath @ 0x1407867B0 (_CmGetDeviceLogConfKeyPath.c)
+ *     IoReportDetectedDevice @ 0x140802A80 (IoReportDetectedDevice.c)
+ *     IoReportRootDevice @ 0x140802F20 (IoReportRootDevice.c)
+ *     DrvDbCreateDatabaseNode @ 0x14081DF10 (DrvDbCreateDatabaseNode.c)
+ *     _PnpGetGenericStorePropertyLocales @ 0x14083AA64 (_PnpGetGenericStorePropertyLocales.c)
+ *     _CmGetDeviceControlKeyPath @ 0x14084A690 (_CmGetDeviceControlKeyPath.c)
+ *     PnpDriverLoadingFailed @ 0x14085EEA4 (PnpDriverLoadingFailed.c)
+ *     _CmBuildDevicePanelId @ 0x14085EF88 (_CmBuildDevicePanelId.c)
+ *     DrvDbBuildDeviceIdDriverInfMatch @ 0x140866494 (DrvDbBuildDeviceIdDriverInfMatch.c)
+ *     _PnpDeletePropertyWorker @ 0x14086D5EC (_PnpDeletePropertyWorker.c)
+ *     PipMakeGloballyUniqueId @ 0x14086E9D0 (PipMakeGloballyUniqueId.c)
+ *     PiRearrangeDeviceInstances @ 0x14087E564 (PiRearrangeDeviceInstances.c)
+ *     PipHardwareConfigClearStartOverrideCallback @ 0x14094EDD0 (PipHardwareConfigClearStartOverrideCallback.c)
+ *     PipHardwareConfigClearStartOverrides @ 0x14094EECC (PipHardwareConfigClearStartOverrides.c)
+ *     PiCMGenerateDeviceInstance @ 0x140966C4C (PiCMGenerateDeviceInstance.c)
+ *     IopCreateLegacyDeviceIds @ 0x1409697B8 (IopCreateLegacyDeviceIds.c)
+ *     RtlFormatMessageEx @ 0x1409B6C28 (RtlFormatMessageEx.c)
+ *     _CmGetDevicePanelRegKeyPath @ 0x140A63A70 (_CmGetDevicePanelRegKeyPath.c)
+ *     PipInitComputerIds @ 0x140B552F0 (PipInitComputerIds.c)
+ *     IopInitializeBootDrivers @ 0x140B57F78 (IopInitializeBootDrivers.c)
+ * Callees:
+ *     RtlStringExHandleFillBehindNullW @ 0x1403AE140 (RtlStringExHandleFillBehindNullW.c)
+ *     _vsnwprintf @ 0x1403D2E30 (_vsnwprintf.c)
+ *     StringExHandleOtherFlagsW @ 0x14055D3D8 (StringExHandleOtherFlagsW.c)
+ */
+
 NTSTATUS RtlStringCchPrintfExW(
         NTSTRSAFE_PWSTR pszDest,
         size_t cchDest,

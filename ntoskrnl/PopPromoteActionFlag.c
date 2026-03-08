@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopPromoteActionFlag @ 0x1409873DC
+ * Callers:
+ *     PopExecutePowerAction @ 0x1409867F4 (PopExecutePowerAction.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopPromoteActionFlag(_BYTE *a1, char a2, int a3, char a4, unsigned int a5)
 {
   __int64 result; // rax

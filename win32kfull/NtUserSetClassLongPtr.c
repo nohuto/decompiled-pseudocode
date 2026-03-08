@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserSetClassLongPtr @ 0x1C00ECF90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxSetClassLongPtr @ 0x1C00ED0A8 (xxxSetClassLongPtr.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall NtUserSetClassLongPtr(__int64 a1, int a2, ULONG64 a3)
 {
   __int64 v6; // rcx

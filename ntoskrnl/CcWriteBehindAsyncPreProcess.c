@@ -1,3 +1,15 @@
+/*
+ * XREFs of CcWriteBehindAsyncPreProcess @ 0x140539404
+ * Callers:
+ *     CcAsyncLazywriteWorkerMulti @ 0x1405387F4 (CcAsyncLazywriteWorkerMulti.c)
+ * Callees:
+ *     CcWriteBehindPreProcess @ 0x140219A70 (CcWriteBehindPreProcess.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x140310130 (ExpAllocatePoolWithTagFromNode.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CcWriteBehindAsyncPreProcess(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rdi

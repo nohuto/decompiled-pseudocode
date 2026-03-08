@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlValidateCorrelationVector @ 0x1409BBFC0
+ * Callers:
+ *     RtlIncrementCorrelationVector @ 0x1409BBE50 (RtlIncrementCorrelationVector.c)
+ * Callees:
+ *     strncmp @ 0x1403D3310 (strncmp.c)
+ *     RtlpGetCorrelationVectorEndPosition @ 0x1405AD304 (RtlpGetCorrelationVectorEndPosition.c)
+ *     RtlpGetCorrelationVectorBufferLength @ 0x1409BC190 (RtlpGetCorrelationVectorBufferLength.c)
+ *     RtlpGetLastContiguosBase64Position @ 0x1409BC1B4 (RtlpGetLastContiguosBase64Position.c)
+ */
+
 __int64 __fastcall RtlValidateCorrelationVector(_BYTE *a1, __int64 a2, __int64 a3)
 {
   int LastContiguosBase64Position; // esi

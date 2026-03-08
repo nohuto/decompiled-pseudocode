@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPepComponentGetWork @ 0x1403078BC
+ * Callers:
+ *     PopPepProcessEvent @ 0x140307424 (PopPepProcessEvent.c)
+ * Callees:
+ *     PopPepStartActivity @ 0x1403072CC (PopPepStartActivity.c)
+ *     PopPepGetReadyActivityType @ 0x140308330 (PopPepGetReadyActivityType.c)
+ */
+
 char __fastcall PopPepComponentGetWork(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // r10d

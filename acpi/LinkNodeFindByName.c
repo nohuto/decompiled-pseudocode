@@ -1,3 +1,11 @@
+/*
+ * XREFs of LinkNodeFindByName @ 0x1C0099388
+ * Callers:
+ *     PcisuppGetRoutingInfo @ 0x1C0099C6C (PcisuppGetRoutingInfo.c)
+ * Callees:
+ *     ACPIAmliBuildObjectPathname @ 0x1C000B0E0 (ACPIAmliBuildObjectPathname.c)
+ */
+
 __int64 __fastcall LinkNodeFindByName(const char *a1, __int64 *a2)
 {
   __int64 v2; // rbx

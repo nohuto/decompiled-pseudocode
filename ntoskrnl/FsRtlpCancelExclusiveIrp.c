@@ -1,3 +1,21 @@
+/*
+ * XREFs of FsRtlpCancelExclusiveIrp @ 0x1403ACFD0
+ * Callers:
+ *     FsRtlpExclusiveIrpCancelRoutine @ 0x1403ACFB0 (FsRtlpExclusiveIrpCancelRoutine.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x1403B9C94 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403CD730 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpGrantAnyOplockFromExclusive @ 0x14053C1D0 (FsRtlpGrantAnyOplockFromExclusive.c)
+ * Callees:
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x140201B90 (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     FsRtlpClearOwner @ 0x14023AB1C (FsRtlpClearOwner.c)
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     FsRtlpModifyThreadPriorities @ 0x1402ECCB4 (FsRtlpModifyThreadPriorities.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ */
+
 void __fastcall FsRtlpCancelExclusiveIrp(__int64 a1, char a2, char a3)
 {
   __int64 v5; // rbx

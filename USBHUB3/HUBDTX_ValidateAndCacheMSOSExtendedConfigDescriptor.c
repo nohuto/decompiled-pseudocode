@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBDTX_ValidateAndCacheMSOSExtendedConfigDescriptor @ 0x1C002C968
+ * Callers:
+ *     HUBDSM_ValidatingMSOSExtendedConfigDescriptor @ 0x1C0021FF0 (HUBDSM_ValidatingMSOSExtendedConfigDescriptor.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBDESC_ValidateMSOSExtendedConfigDescriptor @ 0x1C003CAC4 (HUBDESC_ValidateMSOSExtendedConfigDescriptor.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBDTX_ValidateAndCacheMSOSExtendedConfigDescriptor(__int64 a1)
 {
   __int64 v2; // rax

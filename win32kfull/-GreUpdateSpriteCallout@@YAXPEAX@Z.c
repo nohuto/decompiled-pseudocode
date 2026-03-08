@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GreUpdateSpriteCallout@@YAXPEAX@Z @ 0x1C02683D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@34KPEAU_BLENDFUNCTION@@KPEAUtagRECT@@PEAUtagMINIWINDOWINFO@@HHK@Z @ 0x1C004EEA0 (-GreUpdateSpriteInternal@@YAHPEAUHDEV__@@PEAUHWND__@@PEAXPEAUHDC__@@PEAUtagPOINT@@PEAUtagSIZE@@3.c)
+ */
+
 void __fastcall GreUpdateSpriteCallout(PVOID Parameter)
 {
   *((_DWORD *)Parameter + 27) = GreUpdateSpriteInternal(

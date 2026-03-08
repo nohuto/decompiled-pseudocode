@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpNodeCostSort @ 0x140518960
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpNodeCostSort(_QWORD *a1, _QWORD *a2)
 {
   if ( *a1 >= *a2 )

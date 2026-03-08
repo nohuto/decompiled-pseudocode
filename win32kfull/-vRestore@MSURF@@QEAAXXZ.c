@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vRestore@MSURF@@QEAAXXZ @ 0x1C02B5634
+ * Callers:
+ *     ?MulBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C014E3F0 (-MulBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSH.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall MSURF::vRestore(MSURF *this)
 {
   __int64 v1; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIThermalReadTemperature @ 0x1C0095B94
+ * Callers:
+ *     ACPIThermalWorker @ 0x1C00962E0 (ACPIThermalWorker.c)
+ * Callees:
+ *     ACPIThermalUpdateTemperature @ 0x1C0042348 (ACPIThermalUpdateTemperature.c)
+ */
+
 __int64 __fastcall ACPIThermalReadTemperature(__int64 a1, char a2)
 {
   __int64 v2; // rbx

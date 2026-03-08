@@ -1,3 +1,12 @@
+/*
+ * XREFs of PsAcquireSiloHardReference @ 0x140294290
+ * Callers:
+ *     IopAllocateFoExtensionsOnCreate @ 0x140700A20 (IopAllocateFoExtensionsOnCreate.c)
+ *     IopParseDevice @ 0x1407B6A30 (IopParseDevice.c)
+ * Callees:
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ */
+
 __int64 __fastcall PsAcquireSiloHardReference(_DWORD *Object)
 {
   signed __int64 v2; // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopDereferencePassiveInterruptBlock @ 0x14039E56C
+ * Callers:
+ *     IopPassiveInterruptWorker @ 0x14039E620 (IopPassiveInterruptWorker.c)
+ *     IopDestroyPassiveInterruptBlock @ 0x1409552AC (IopDestroyPassiveInterruptBlock.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     IopAcquirePassiveInterruptBlockLock @ 0x14039E744 (IopAcquirePassiveInterruptBlockLock.c)
+ *     IopAcquireGlobalPassiveInterruptListLock @ 0x14039E89C (IopAcquireGlobalPassiveInterruptListLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall IopDereferencePassiveInterruptBlock(PVOID P)
 {
   char v2; // bp

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?vDisableSurface@PDEVOBJ@@QEAAXE@Z @ 0x1C002B5B0
+ * Callers:
+ *     ?vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z @ 0x1C00292E0 (-vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z.c)
+ *     ?UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z @ 0x1C01828EC (-UpdateDisplayMode@PDEVOBJ@@QEAAHPEAU_devicemodeW@@@Z.c)
+ * Callees:
+ *     ?bDeleteSurface@SURFREF@@QEAAHH@Z @ 0x1C0029684 (-bDeleteSurface@SURFREF@@QEAAHH@Z.c)
+ *     ?bAllowDDICall@PDEVOBJ@@QEAAHXZ @ 0x1C002B304 (-bAllowDDICall@PDEVOBJ@@QEAAHXZ.c)
+ *     HmgIncrementShareReferenceCount @ 0x1C0046970 (HmgIncrementShareReferenceCount.c)
+ *     HmgDecrementShareReferenceCountEx @ 0x1C00483B0 (HmgDecrementShareReferenceCountEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall PDEVOBJ::vDisableSurface(PDEVOBJ *this, char a2)
 {
   __int64 v2; // rbx

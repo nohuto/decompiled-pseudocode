@@ -1,3 +1,13 @@
+/*
+ * XREFs of TR_DoesSegmentContainDequeuePointer @ 0x1C000E350
+ * Callers:
+ *     Bulk_FindStage @ 0x1C000E218 (Bulk_FindStage.c)
+ *     Isoch_FindTrbMatch @ 0x1C0044330 (Isoch_FindTrbMatch.c)
+ *     Bulk_IsTransferEventLikelyDuplicate_Internal @ 0x1C0046D58 (Bulk_IsTransferEventLikelyDuplicate_Internal.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall TR_DoesSegmentContainDequeuePointer(__int64 a1, int a2, unsigned int a3, signed __int64 a4)
 {
   unsigned __int64 v4; // r10

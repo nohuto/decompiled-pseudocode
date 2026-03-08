@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiReduceUnusedSubsectionCount @ 0x140214D4C
+ * Callers:
+ *     MiRemoveUnusedSubsection @ 0x140214CC0 (MiRemoveUnusedSubsection.c)
+ *     MiDeleteEmptySubsections @ 0x14036AC38 (MiDeleteEmptySubsections.c)
+ *     MiDeleteCachedSubsection @ 0x140621708 (MiDeleteCachedSubsection.c)
+ * Callees:
+ *     <none>
+ */
+
 signed __int64 __fastcall MiReduceUnusedSubsectionCount(unsigned int *a1)
 {
   __int64 v1; // r8

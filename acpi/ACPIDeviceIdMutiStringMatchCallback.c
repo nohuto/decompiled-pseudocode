@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIDeviceIdMutiStringMatchCallback @ 0x1C002C830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     ACPIAnsiStringToWideHelper @ 0x1C00438EC (ACPIAnsiStringToWideHelper.c)
+ *     ACPIConvertWideStringToUpperCaseHelper @ 0x1C004399C (ACPIConvertWideStringToUpperCaseHelper.c)
+ */
+
 __int64 __fastcall ACPIDeviceIdMutiStringMatchCallback(
         __int64 **a1,
         int a2,

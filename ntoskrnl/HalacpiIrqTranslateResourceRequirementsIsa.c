@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalacpiIrqTranslateResourceRequirementsIsa @ 0x1408422C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpIsInterruptTypeSecondary @ 0x1402FCE50 (HalpIsInterruptTypeSecondary.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall HalacpiIrqTranslateResourceRequirementsIsa(
         __int64 a1,
         __int64 a2,

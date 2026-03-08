@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlStringCbCopyExW @ 0x1402E1820
+ * Callers:
+ *     PiCMGetRelatedDeviceInstance @ 0x1406C6068 (PiCMGetRelatedDeviceInstance.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA2A4 (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _PnpMultiSzAppend @ 0x140839FAC (_PnpMultiSzAppend.c)
+ *     PiDqConvertQueryFlagsToString @ 0x140959144 (PiDqConvertQueryFlagsToString.c)
+ *     RtlFormatMessageEx @ 0x1409B6C28 (RtlFormatMessageEx.c)
+ *     ConvertDevpropertyToString @ 0x140A6B5A0 (ConvertDevpropertyToString.c)
+ *     ExpressionConvertToString @ 0x140A6BCC8 (ExpressionConvertToString.c)
+ * Callees:
+ *     RtlStringCopyWorkerW_1 @ 0x1402E194C (RtlStringCopyWorkerW_1.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     StringExHandleOtherFlagsW @ 0x14055D3D8 (StringExHandleOtherFlagsW.c)
+ */
+
 NTSTATUS __stdcall RtlStringCbCopyExW(
         NTSTRSAFE_PWSTR pszDest,
         size_t cbDest,

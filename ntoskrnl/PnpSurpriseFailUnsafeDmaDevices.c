@@ -1,3 +1,18 @@
+/*
+ * XREFs of PnpSurpriseFailUnsafeDmaDevices @ 0x140968A40
+ * Callers:
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     PpDevNodeUnlockTree @ 0x1406CB8B0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406CB944 (PpDevNodeLockTree.c)
+ *     PnpSynchronizeDeviceEventQueue @ 0x1408729DC (PnpSynchronizeDeviceEventQueue.c)
+ *     PnpPowerStateTransitionWatchdogPushRecord @ 0x140954B3C (PnpPowerStateTransitionWatchdogPushRecord.c)
+ *     PipDmgEnforceEnumerationPolicy @ 0x140968304 (PipDmgEnforceEnumerationPolicy.c)
+ *     PiCslIsConsoleLocked @ 0x1409695FC (PiCslIsConsoleLocked.c)
+ *     PiIommuIsDeviceSafeWhileConsoleLocked @ 0x14096BFB4 (PiIommuIsDeviceSafeWhileConsoleLocked.c)
+ *     PoDelistPowerStateTransitionBlocker @ 0x140AA2FFC (PoDelistPowerStateTransitionBlocker.c)
+ */
+
 void PnpSurpriseFailUnsafeDmaDevices()
 {
   int v0; // ebx

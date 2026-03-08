@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UpdateContextOwner@CD2DContext@@QEAAJPEBVID2DContextOwner@@@Z @ 0x1800213C8
+ * Callers:
+ *     ??1CSubDrawingContext@@QEAA@XZ @ 0x180021298 (--1CSubDrawingContext@@QEAA@XZ.c)
+ *     ?Initialize@CSubDrawingContext@@AEAAJXZ @ 0x180021318 (-Initialize@CSubDrawingContext@@AEAAJXZ.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
 __int64 __fastcall CD2DContext::UpdateContextOwner(CD2DContext *this, const struct ID2DContextOwner *a2)
 {
   int v2; // eax

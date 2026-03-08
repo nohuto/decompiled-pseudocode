@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopPowerAggregatorModernStandbyExitStateHandler @ 0x140990AE0
+ * Callers:
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140872018 (PopPowerAggregatorInvokeStateMachine.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorDisengageModernStandby @ 0x14099057C (PopPowerAggregatorDisengageModernStandby.c)
+ *     PdcPoPerfOverride @ 0x1409949A8 (PdcPoPerfOverride.c)
+ *     PopPdcDisengagePhases @ 0x140995050 (PopPdcDisengagePhases.c)
+ */
+
 __int64 __fastcall PopPowerAggregatorModernStandbyExitStateHandler(__int64 a1)
 {
   __int64 v1; // rdx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x14000B744
+ * Callers:
+ *     ??1FeatureStateData@details_abi@wil@@QEAA@XZ @ 0x14000B2D0 (--1FeatureStateData@details_abi@wil@@QEAA@XZ.c)
+ *     ?Release@?$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAAXXZ @ 0x14000B8C8 (-Release@-$ProcessLocalStorageData@VFeatureStateData@details_abi@wil@@@details_abi@wil@@QEAAXXZ.c)
+ * Callees:
+ *     ??0UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x1400017A4 (--0UsageIndexes@details_abi@wil@@QEAA@XZ.c)
+ *     ?RetrieveUsageUnderLock@FeatureStateData@details_abi@wil@@AEAAXAEAUUsageIndexes@23@@Z @ 0x140001EE0 (-RetrieveUsageUnderLock@FeatureStateData@details_abi@wil@@AEAAXAEAUUsageIndexes@23@@Z.c)
+ *     ??1UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x140001F30 (--1UsageIndexes@details_abi@wil@@QEAA@XZ.c)
+ *     ?Record@UsageIndexes@details_abi@wil@@QEAAXXZ @ 0x140001F8C (-Record@UsageIndexes@details_abi@wil@@QEAAXXZ.c)
+ */
+
 void __fastcall wil::details_abi::FeatureStateData::ProcessShutdown(
         wil::details_abi::FeatureStateData *this,
         __int64 a2,

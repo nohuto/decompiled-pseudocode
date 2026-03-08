@@ -1,3 +1,11 @@
+/*
+ * XREFs of Amd64PauseProfiling @ 0x140527980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 Amd64PauseProfiling()
 {
   __int64 v0; // r8

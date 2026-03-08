@@ -1,3 +1,41 @@
+/*
+ * XREFs of ?UpdatePageTable@VIDMM_GLOBAL@@QEAAXIPEAVVIDMM_PROCESS@@_KPEAUVIDMM_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@1IIPEAU_DXGK_PTE@@4II1W4_DXGK_PAGETABLEUPDATEMODE@@1U_DXGK_UPDATEPAGETABLEFLAGS@@1@Z @ 0x1C0091950
+ * Callers:
+ *     ?CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C0090840 (-CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_V.c)
+ *     ?CommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C0092740 (-CommitVirtualAddressRange@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_ST.c)
+ *     ?UpdatePageTableInvalidate@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@II_KU_DXGK_UPDATEPAGETABLEFLAGS@@@Z @ 0x1C0093288 (-UpdatePageTableInvalidate@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@II_KU_DXGK_UPDAT.c)
+ *     ?EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z @ 0x1C0095AF0 (-EvictPageDirectory@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@_KEE@Z.c)
+ *     ?UpdatePageTable@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@PEAX_KW4VIDMM_VAD_OWNER_TYPE@@II3U_DXGK_UPDATEPAGETABLEFLAGS@@@Z @ 0x1C00F3B98 (-UpdatePageTable@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@PEAX_.c)
+ * Callees:
+ *     ??2@YAPEAX_KPEAVDXGK_LOG@@II@Z @ 0x1C0001830 (--2@YAPEAX_KPEAVDXGK_LOG@@II@Z.c)
+ *     ?DdiBuildPagingBuffer@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z @ 0x1C00018EC (-DdiBuildPagingBuffer@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z.c)
+ *     ?IsGpuVaPagingHistoryEnabled@VIDMM_GLOBAL@@QEAA_NXZ @ 0x1C0001910 (-IsGpuVaPagingHistoryEnabled@VIDMM_GLOBAL@@QEAA_NXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0001AD8 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetMaximumGlobalAdapterCount@DXGGLOBAL@@QEAAKXZ @ 0x1C0001AFC (-GetMaximumGlobalAdapterCount@DXGGLOBAL@@QEAAKXZ.c)
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     McTemplateK0pptpqqx_EtwWriteTransfer @ 0x1C003117C (McTemplateK0pptpqqx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxpx_EtwWriteTransfer @ 0x1C003123C (McTemplateK0pptpqxpx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxpxx_EtwWriteTransfer @ 0x1C003131C (McTemplateK0pptpqxpxx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxq_EtwWriteTransfer @ 0x1C0031410 (McTemplateK0pptpqxq_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxqqppqqxxpqx_EtwWriteTransfer @ 0x1C00314D0 (McTemplateK0pptpqxqqppqqxxpqx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxqxqxq_EtwWriteTransfer @ 0x1C003167C (McTemplateK0pptpqxqxqxq_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxqxqxqqq_EtwWriteTransfer @ 0x1C0031794 (McTemplateK0pptpqxqxqxqqq_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxxqt_EtwWriteTransfer @ 0x1C00318E0 (McTemplateK0pptpqxxqt_EtwWriteTransfer.c)
+ *     McTemplateK0pptpqxxt_EtwWriteTransfer @ 0x1C00319CC (McTemplateK0pptpqxxt_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxqqx_EtwWriteTransfer @ 0x1C0031AAC (McTemplateK0pptpxqqx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxx_EtwWriteTransfer @ 0x1C0031B8C (McTemplateK0pptpxx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxxpq_EtwWriteTransfer @ 0x1C0031C4C (McTemplateK0pptpxxpq_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxxqqxx_EtwWriteTransfer @ 0x1C0031D2C (McTemplateK0pptpxxqqxx_EtwWriteTransfer.c)
+ *     McTemplateK0pptpxxqqxxxqqxxx_EtwWriteTransfer @ 0x1C0031E30 (McTemplateK0pptpxxqqxxxqqxxx_EtwWriteTransfer.c)
+ *     McTemplateK0pptqx_EtwWriteTransfer @ 0x1C0031FC4 (McTemplateK0pptqx_EtwWriteTransfer.c)
+ *     ?WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z @ 0x1C0087B88 (-WaitForAllPagingEnginesIdle@VIDMM_GLOBAL@@QEAAXI@Z.c)
+ *     ?FlushPagingBuffer@VIDMM_GLOBAL@@QEAAXEP6AXPEAX@Z0@Z @ 0x1C0087BD0 (-FlushPagingBuffer@VIDMM_GLOBAL@@QEAAXEP6AXPEAX@Z0@Z.c)
+ *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C008D8B0 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
+ *     ?GetOrGeneratePendingPagingBufferFence@VIDMM_GLOBAL@@IEAAXKPEA_K@Z @ 0x1C00E3D94 (-GetOrGeneratePendingPagingBufferFence@VIDMM_GLOBAL@@IEAAXKPEA_K@Z.c)
+ *     ?AllocateVaPagingHistoryEntry@VIDMM_GLOBAL@@QEAAPEAXW4VIDMM_PAGING_HISTORY_ENTRY_TYPE@@_K@Z @ 0x1C00F1D64 (-AllocateVaPagingHistoryEntry@VIDMM_GLOBAL@@QEAAPEAXW4VIDMM_PAGING_HISTORY_ENTRY_TYPE@@_K@Z.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall VIDMM_GLOBAL::UpdatePageTable(
         VIDMM_GLOBAL *this,

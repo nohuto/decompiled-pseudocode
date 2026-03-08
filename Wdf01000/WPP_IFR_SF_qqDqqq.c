@@ -1,3 +1,13 @@
+/*
+ * XREFs of WPP_IFR_SF_qqDqqq @ 0x1C0050DAC
+ * Callers:
+ *     imp_WdfIoTargetFormatRequestForInternalIoctlOthers @ 0x1C0051260 (imp_WdfIoTargetFormatRequestForInternalIoctlOthers.c)
+ *     imp_WdfIoTargetSendInternalIoctlOthersSynchronously @ 0x1C0051A00 (imp_WdfIoTargetSendInternalIoctlOthersSynchronously.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_qqDqqq(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 id,

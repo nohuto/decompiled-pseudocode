@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiPrefetchControlArea @ 0x14078DBC4
+ * Callers:
+ *     MiWalkEntireImage @ 0x1402862C0 (MiWalkEntireImage.c)
+ *     MiSetPagesModified @ 0x1406264CC (MiSetPagesModified.c)
+ *     MiValidateSectionCreate @ 0x14069F890 (MiValidateSectionCreate.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x140A3B820 (MiLoadSectionIntoVsmEnclave.c)
+ * Callees:
+ *     MiDereferenceInPageAutoBoostLock @ 0x14020CA70 (MiDereferenceInPageAutoBoostLock.c)
+ *     MiGetInPageAutoBoostLock @ 0x14020CAA0 (MiGetInPageAutoBoostLock.c)
+ *     MiPfCompletePrefetchIos @ 0x14020DA48 (MiPfCompletePrefetchIos.c)
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     MiPfPutPagesInTransition @ 0x140288890 (MiPfPutPagesInTransition.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MiPfExecuteReadList @ 0x1406A3F98 (MiPfExecuteReadList.c)
+ *     MiReleaseReadListResources @ 0x1406A4E80 (MiReleaseReadListResources.c)
+ *     MiPfPrepareSequentialReadList @ 0x1406EBE40 (MiPfPrepareSequentialReadList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiPrefetchControlArea(
         __int64 a1,
         signed __int64 a2,

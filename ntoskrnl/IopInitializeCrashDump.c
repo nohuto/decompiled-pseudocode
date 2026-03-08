@@ -1,3 +1,22 @@
+/*
+ * XREFs of IopInitializeCrashDump @ 0x140834B28
+ * Callers:
+ *     IoConfigureCrashDump @ 0x14054D564 (IoConfigureCrashDump.c)
+ *     IoInitializeCrashDump @ 0x14083643C (IoInitializeCrashDump.c)
+ *     IopInitCrashDumpRegCallback @ 0x140B5E290 (IopInitCrashDumpRegCallback.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IopReadDumpRegistry @ 0x140392204 (IopReadDumpRegistry.c)
+ *     SecureDump_GetSecureDumpSettings @ 0x140392344 (SecureDump_GetSecureDumpSettings.c)
+ *     IopLoadCrashdumpDriver @ 0x140392A70 (IopLoadCrashdumpDriver.c)
+ *     IopInitializeRemovePagesArray @ 0x140392E30 (IopInitializeRemovePagesArray.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IopDumpTraceInitializeCrashDumpFailure @ 0x140550878 (IopDumpTraceInitializeCrashDumpFailure.c)
+ *     IopDumpTraceLoadCrashDumpDriverFailure @ 0x140550A98 (IopDumpTraceLoadCrashDumpDriverFailure.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     FsRtlIssueFileNotificationFsctl @ 0x140835E18 (FsRtlIssueFileNotificationFsctl.c)
+ */
+
 char __fastcall IopInitializeCrashDump(__int64 a1, __int128 *a2)
 {
   int CrashdumpDriver; // eax

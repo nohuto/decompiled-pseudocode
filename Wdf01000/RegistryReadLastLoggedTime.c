@@ -1,3 +1,13 @@
+/*
+ * XREFs of RegistryReadLastLoggedTime @ 0x1C004DBC0
+ * Callers:
+ *     IsLoggingEnabledAndNeeded @ 0x1C004D728 (IsLoggingEnabledAndNeeded.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ *     WPP_IFR_SF_D @ 0x1C0017F78 (WPP_IFR_SF_D.c)
+ *     ?_QueryQuadWord@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAT_LARGE_INTEGER@@@Z @ 0x1C004CB30 (-_QueryQuadWord@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAT_LARGE_INTEGER@@@Z.c)
+ */
+
 void __fastcall RegistryReadLastLoggedTime(_FX_DRIVER_GLOBALS *DriverGlobals, _LARGE_INTEGER *LastLoggedTime)
 {
   _DRIVER_OBJECT *m_DriverObject; // rcx

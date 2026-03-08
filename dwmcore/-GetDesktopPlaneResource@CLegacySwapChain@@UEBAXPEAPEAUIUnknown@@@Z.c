@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?GetDesktopPlaneResource@CLegacySwapChain@@UEBAXPEAPEAUIUnknown@@@Z @ 0x180131410
+ * Callers:
+ *     ?GetDesktopPlaneResource@CLegacySwapChain@@$4PPPPPPPM@BLA@EBAXPEAPEAUIUnknown@@@Z @ 0x18011B690 (-GetDesktopPlaneResource@CLegacySwapChain@@$4PPPPPPPM@BLA@EBAXPEAPEAUIUnknown@@@Z.c)
+ *     ?GetDesktopPlaneResource@CLegacySwapChain@@$4PPPPPPPM@BLI@EBAXPEAPEAUIUnknown@@@Z @ 0x18011C710 (-GetDesktopPlaneResource@CLegacySwapChain@@$4PPPPPPPM@BLI@EBAXPEAPEAUIUnknown@@@Z.c)
+ *     ?GetDesktopPlaneResource@CLegacySwapChain@@$4PPPPPPPM@DFI@EBAXPEAPEAUIUnknown@@@Z @ 0x18011CDD0 (-GetDesktopPlaneResource@CLegacySwapChain@@$4PPPPPPPM@DFI@EBAXPEAPEAUIUnknown@@@Z.c)
+ *     ?IsDesktopPlane@CConversionSwapChain@@IEBA_NAEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@@Z @ 0x18029EDE8 (-IsDesktopPlane@CConversionSwapChain@@IEBA_NAEBU_DXGI_PRESENT_MULTIPLANE_OVERLAY@@@Z.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180004700 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CLegacySwapChain::GetDesktopPlaneResource(CLegacySwapChain *this, struct IUnknown **a2)
 {
   __int64 v3; // rax

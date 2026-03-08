@@ -1,3 +1,17 @@
+/*
+ * XREFs of ViThunkApplyWdmThunksCurrentSession @ 0x140AD86BC
+ * Callers:
+ *     VfThunkApplyWdmThunkToAllSession @ 0x140AD844C (VfThunkApplyWdmThunkToAllSession.c)
+ * Callees:
+ *     VfTargetDriversGetNode @ 0x140303628 (VfTargetDriversGetNode.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     VfUtilPrintCheckinString @ 0x140ABF804 (VfUtilPrintCheckinString.c)
+ *     ViIsDriverSuspectForVerifier @ 0x140ABFB4C (ViIsDriverSuspectForVerifier.c)
+ *     ViThunkFindAllSharedExports @ 0x140AD8804 (ViThunkFindAllSharedExports.c)
+ *     ViThunkFindAllThunkedImports @ 0x140AD8940 (ViThunkFindAllThunkedImports.c)
+ *     MmApplyVerifierToRunningImage @ 0x140AE4F80 (MmApplyVerifierToRunningImage.c)
+ */
+
 __int64 __fastcall ViThunkApplyWdmThunksCurrentSession(__int64 a1)
 {
   int v2; // ebx

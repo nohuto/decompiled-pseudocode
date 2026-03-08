@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopPlRegisterPowerPlane @ 0x14059F404
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ * Callees:
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopPepIterateDeviceList @ 0x14059D408 (PopPepIterateDeviceList.c)
+ *     PopPlTraceLogPowerPlane @ 0x14059F5B8 (PopPlTraceLogPowerPlane.c)
+ *     PopPlInitPowerPlane @ 0x14099D7DC (PopPlInitPowerPlane.c)
+ */
+
 __int64 __fastcall PopPlRegisterPowerPlane(__int64 a1, __int64 a2)
 {
   int inited; // edi

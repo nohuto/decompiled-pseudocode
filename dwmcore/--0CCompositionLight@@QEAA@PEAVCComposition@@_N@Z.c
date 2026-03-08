@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??0CCompositionLight@@QEAA@PEAVCComposition@@_N@Z @ 0x180023E14
+ * Callers:
+ *     ??0CCompositionAmbientLight@@QEAA@PEAVCComposition@@@Z @ 0x180023C84 (--0CCompositionAmbientLight@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CCompositionDistantLight@@QEAA@PEAVCComposition@@@Z @ 0x180023CD8 (--0CCompositionDistantLight@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CCompositionSpotLight@@QEAA@PEAVCComposition@@@Z @ 0x180023D40 (--0CCompositionSpotLight@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CCompositionPointLight@@QEAA@PEAVCComposition@@@Z @ 0x180221490 (--0CCompositionPointLight@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CCompositionEnvironmentLight@@QEAA@PEAVCComposition@@@Z @ 0x18026AAE8 (--0CCompositionEnvironmentLight@@QEAA@PEAVCComposition@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 CCompositionLight *__fastcall CCompositionLight::CCompositionLight(
         CCompositionLight *this,
         struct CComposition *a2,

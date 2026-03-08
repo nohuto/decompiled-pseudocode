@@ -1,3 +1,11 @@
+/*
+ * XREFs of FastExpAA_CX @ 0x1C02630E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FastExpAA_CX(__int64 a1, __int64 a2, _BYTE *a3, _BYTE *a4, int a5)
 {
   unsigned __int64 v5; // r15

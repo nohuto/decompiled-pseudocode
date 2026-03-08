@@ -1,3 +1,18 @@
+/*
+ * XREFs of xxxChangeForegroundKeyboardTable @ 0x1C00C7730
+ * Callers:
+ *     xxxInternalActivateKeyboardLayout @ 0x1C0082990 (xxxInternalActivateKeyboardLayout.c)
+ *     ?xxxSetPKLinThreads@@YAXPEAUtagKL@@0@Z @ 0x1C0086318 (-xxxSetPKLinThreads@@YAXPEAUtagKL@@0@Z.c)
+ * Callees:
+ *     UpdateKeyLights @ 0x1C0031B40 (UpdateKeyLights.c)
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     HMAssignmentLock @ 0x1C00788D0 (HMAssignmentLock.c)
+ *     SetGlobalKeyboardTableInfo @ 0x1C0085F08 (SetGlobalKeyboardTableInfo.c)
+ *     ApiSetEditionResetIMEConversionStatus @ 0x1C00C77F8 (ApiSetEditionResetIMEConversionStatus.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U1@U1@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@333AEBU?$_tlgWrapSz@D@@@Z @ 0x1C0213CD4 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U1@U1@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgP.c)
+ *     ?xxxManageKeyboardModifiers@@YAXPEAUtagKL@@0@Z @ 0x1C0214488 (-xxxManageKeyboardModifiers@@YAXPEAUtagKL@@0@Z.c)
+ */
+
 __int64 __fastcall xxxChangeForegroundKeyboardTable(struct tagKL *a1, struct tagKL *a2, __int64 a3, __int64 a4)
 {
   int v4; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_CleanupRegistryOverridedFrequencyRanges@MonitorModes@DxgMonitor@@AEAAXXZ @ 0x1C03C85BC
+ * Callers:
+ *     ??1MonitorModes@DxgMonitor@@QEAA@XZ @ 0x1C03C7CA8 (--1MonitorModes@DxgMonitor@@QEAA@XZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ */
+
 void __fastcall DxgMonitor::MonitorModes::_CleanupRegistryOverridedFrequencyRanges(DxgMonitor::MonitorModes *this)
 {
   _QWORD *v2; // rbx

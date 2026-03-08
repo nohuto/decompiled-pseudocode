@@ -1,3 +1,15 @@
+/*
+ * XREFs of DpiFdoHandleSurpriseRemoval @ 0x1C03977F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     DpiFdoHandleStopDevice @ 0x1C03973C0 (DpiFdoHandleStopDevice.c)
+ *     DpiFdoIsDevicePresent @ 0x1C0397F70 (DpiFdoIsDevicePresent.c)
+ *     DpiDxgkDdiNotifySurpriseRemoval @ 0x1C03A4724 (DpiDxgkDdiNotifySurpriseRemoval.c)
+ */
+
 NTSTATUS __fastcall DpiFdoHandleSurpriseRemoval(struct _DEVICE_OBJECT *a1, IRP *a2)
 {
   __int64 DeviceExtension; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of AslComputeCrc32 @ 0x140A513EC
+ * Callers:
+ *     AslpFileGetCrcChecksum @ 0x140A556A4 (AslpFileGetCrcChecksum.c)
+ *     AslpFileLargeGetCrcChecksum @ 0x140A56C1C (AslpFileLargeGetCrcChecksum.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AslComputeCrc32(int a1, _BYTE *a2, unsigned int a3)
 {
   unsigned int v4; // ecx

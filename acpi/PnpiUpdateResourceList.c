@@ -1,3 +1,24 @@
+/*
+ * XREFs of PnpiUpdateResourceList @ 0x1C0092328
+ * Callers:
+ *     PnpiBiosAddressDoubleToIoDescriptor @ 0x1C00904A0 (PnpiBiosAddressDoubleToIoDescriptor.c)
+ *     PnpiBiosAddressExtendedToIoDescriptor @ 0x1C0090830 (PnpiBiosAddressExtendedToIoDescriptor.c)
+ *     PnpiBiosAddressHandleGlobalFlags @ 0x1C0090C88 (PnpiBiosAddressHandleGlobalFlags.c)
+ *     PnpiBiosAddressQuadToIoDescriptor @ 0x1C0090EAC (PnpiBiosAddressQuadToIoDescriptor.c)
+ *     PnpiBiosAddressToIoDescriptor @ 0x1C00912CC (PnpiBiosAddressToIoDescriptor.c)
+ *     PnpiBiosDmaToIoDescriptor @ 0x1C009168C (PnpiBiosDmaToIoDescriptor.c)
+ *     PnpiBiosDmaToIoDescriptorV3 @ 0x1C0091754 (PnpiBiosDmaToIoDescriptorV3.c)
+ *     PnpiBiosExtendedIrqToIoDescriptor @ 0x1C00917BC (PnpiBiosExtendedIrqToIoDescriptor.c)
+ *     PnpiBiosGpioInterruptIoToNtIoDescriptor @ 0x1C0091918 (PnpiBiosGpioInterruptIoToNtIoDescriptor.c)
+ *     PnpiBiosIrqToIoDescriptor @ 0x1C009197C (PnpiBiosIrqToIoDescriptor.c)
+ *     PnpiBiosMemoryToIoDescriptor @ 0x1C0091A50 (PnpiBiosMemoryToIoDescriptor.c)
+ *     PnpiBiosPortFixedToIoDescriptor @ 0x1C0091B5C (PnpiBiosPortFixedToIoDescriptor.c)
+ *     PnpiBiosPortToIoDescriptor @ 0x1C0091BE0 (PnpiBiosPortToIoDescriptor.c)
+ *     PnpiBiosVendorToNtIoDescriptor @ 0x1C0091C74 (PnpiBiosVendorToNtIoDescriptor.c)
+ * Callees:
+ *     PnpiGrowResourceDescriptor @ 0x1C0091DB0 (PnpiGrowResourceDescriptor.c)
+ */
+
 __int64 __fastcall PnpiUpdateResourceList(const void **a1, _QWORD *a2)
 {
   unsigned int v2; // r8d

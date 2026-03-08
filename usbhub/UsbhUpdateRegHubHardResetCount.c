@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhUpdateRegHubHardResetCount @ 0x1C0046F60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhGetPdoRegistryParameter @ 0x1C0045000 (UsbhGetPdoRegistryParameter.c)
+ *     UsbhSetPdoRegistryParameter @ 0x1C0046D44 (UsbhSetPdoRegistryParameter.c)
+ */
+
 __int64 __fastcall UsbhUpdateRegHubHardResetCount(__int64 a1)
 {
   struct _DEVICE_OBJECT *v1; // rbx

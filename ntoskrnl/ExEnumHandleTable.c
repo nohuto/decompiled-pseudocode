@@ -1,3 +1,22 @@
+/*
+ * XREFs of ExEnumHandleTable @ 0x14070F670
+ * Callers:
+ *     IoRevokeHandlesForProcess @ 0x140555EE0 (IoRevokeHandlesForProcess.c)
+ *     ObInitProcess @ 0x140707D3C (ObInitProcess.c)
+ *     ObFindHandleForObject @ 0x14070F7D0 (ObFindHandleForObject.c)
+ *     NtQueryInformationProcess @ 0x1407215F0 (NtQueryInformationProcess.c)
+ *     IopQueryProcessIdsUsingFile @ 0x1409481C8 (IopQueryProcessIdsUsingFile.c)
+ *     PnpHandleEnumerateHandlesAgainstDeviceObject @ 0x140955108 (PnpHandleEnumerateHandlesAgainstDeviceObject.c)
+ *     ObShutdownSystem @ 0x140977E00 (ObShutdownSystem.c)
+ *     EtwpObjectHandleRundown @ 0x1409EC598 (EtwpObjectHandleRundown.c)
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExpGetNextHandleTableEntry @ 0x14070F78C (ExpGetNextHandleTableEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140749B5C (ExpBlockOnLockedHandleEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x1407C3370 (ExpLookupHandleTableEntry.c)
+ */
+
 __int64 __fastcall ExEnumHandleTable(
         __int64 a1,
         __int64 (__fastcall *a2)(__int64, signed __int64 *, _QWORD, __int64),

@@ -1,3 +1,20 @@
+/*
+ * XREFs of ??1DXGSESSIONDATA@@QEAA@XZ @ 0x1C01D9450
+ * Callers:
+ *     ??_GDXGSESSIONDATA@@QEAAPEAXI@Z @ 0x1C001619C (--_GDXGSESSIONDATA@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C00072DC (--1DXGFASTMUTEX@@QEAA@XZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ??_GOUTPUTDUPL_SESSION_MGR@@QEAAPEAXI@Z @ 0x1C00161D0 (--_GOUTPUTDUPL_SESSION_MGR@@QEAAPEAXI@Z.c)
+ *     ??1DispBrokerClient@@QEAA@XZ @ 0x1C0016204 (--1DispBrokerClient@@QEAA@XZ.c)
+ *     ?CleanupForSession@DXGVALIDATION@@QEAAXPEAVDXGSESSIONDATA@@@Z @ 0x1C001622C (-CleanupForSession@DXGVALIDATION@@QEAAXPEAVDXGSESSIONDATA@@@Z.c)
+ *     ?reset@?$auto_rc@V?$rc_buffer@U?$AlpcRequest@$07@DispBroker@@@@@@QEAAXPEAV?$rc_buffer@U?$AlpcRequest@$07@DispBroker@@@@@Z @ 0x1C0016DB0 (-reset@-$auto_rc@V-$rc_buffer@U-$AlpcRequest@$07@DispBroker@@@@@@QEAAXPEAV-$rc_buffer@U-$AlpcReq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C00888E4 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ */
+
 void __fastcall DXGSESSIONDATA::~DXGSESSIONDATA(DXGSESSIONDATA *this)
 {
   __int64 v2; // rcx

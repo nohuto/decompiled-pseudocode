@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SwitchMouseCursors@@YAXK_N@Z @ 0x1C01AEB28
+ * Callers:
+ *     ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01AE304 (-ContactVisualizationWorker@@YAHKPEAX_KHK@Z.c)
+ *     ?ForceHidePenCursor@Feedback@@YAXH@Z @ 0x1C01AE6CC (-ForceHidePenCursor@Feedback@@YAXH@Z.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall SwitchMouseCursors(int a1, unsigned __int8 a2)
 {
   int v2; // ecx

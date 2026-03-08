@@ -1,3 +1,13 @@
+/*
+ * XREFs of SleepstudyHelper_ResetComponentsStartTime @ 0x1405A1180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall SleepstudyHelper_ResetComponentsStartTime(__int64 a1)
 {
   unsigned int v1; // edi

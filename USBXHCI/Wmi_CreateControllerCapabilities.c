@@ -1,3 +1,15 @@
+/*
+ * XREFs of Wmi_CreateControllerCapabilities @ 0x1C00151B4
+ * Callers:
+ *     Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled @ 0x1C0013F90 (Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     Register_GetAllExtendedCapability @ 0x1C001A838 (Register_GetAllExtendedCapability.c)
+ *     Register_GetExtendedCapabilityTotalSize @ 0x1C001E138 (Register_GetExtendedCapabilityTotalSize.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ */
+
 void __fastcall Wmi_CreateControllerCapabilities(__int64 *a1)
 {
   __int64 v2; // rsi

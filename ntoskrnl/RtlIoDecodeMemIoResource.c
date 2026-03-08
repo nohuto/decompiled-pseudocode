@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlIoDecodeMemIoResource @ 0x1403706F0
+ * Callers:
+ *     PnpFilterResourceRequirementsList @ 0x140803FE4 (PnpFilterResourceRequirementsList.c)
+ *     IopGenericUnpackRequirement @ 0x140806430 (IopGenericUnpackRequirement.c)
+ *     IopGenericScoreRequirement @ 0x140808530 (IopGenericScoreRequirement.c)
+ * Callees:
+ *     <none>
+ */
+
 ULONGLONG __stdcall RtlIoDecodeMemIoResource(
         PIO_RESOURCE_DESCRIPTOR Descriptor,
         PULONGLONG Alignment,

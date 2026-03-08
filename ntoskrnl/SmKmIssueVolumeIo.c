@@ -1,3 +1,14 @@
+/*
+ * XREFs of SmKmIssueVolumeIo @ 0x1405C91AC
+ * Callers:
+ *     SmKmIssueIo @ 0x1405C9144 (SmKmIssueIo.c)
+ * Callees:
+ *     IoAllocateIrp @ 0x140208CF0 (IoAllocateIrp.c)
+ *     MmBuildMdlForNonPagedPool @ 0x1402B5DB0 (MmBuildMdlForNonPagedPool.c)
+ *     MmMdlPageContentsState @ 0x1402D30C0 (MmMdlPageContentsState.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ */
+
 __int64 __fastcall SmKmIssueVolumeIo(__int64 a1, __int64 a2, LARGE_INTEGER *a3, IO_COMPLETION_ROUTINE *a4, void *a5)
 {
   struct _DEVICE_OBJECT *v5; // rbp

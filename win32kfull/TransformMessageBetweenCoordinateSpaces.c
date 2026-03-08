@@ -1,3 +1,13 @@
+/*
+ * XREFs of TransformMessageBetweenCoordinateSpaces @ 0x1C0048E70
+ * Callers:
+ *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C0048220 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
+ *     xxxInterSendMsgEx @ 0x1C004A280 (xxxInterSendMsgEx.c)
+ * Callees:
+ *     ?DoesMsgNeedDPITransform@@YA_NI_K_J@Z @ 0x1C004C2D4 (-DoesMsgNeedDPITransform@@YA_NI_K_J@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall TransformMessageBetweenCoordinateSpaces(
         __int64 a1,
         unsigned __int64 a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiTpReadImageData @ 0x140973724
+ * Callers:
+ *     KiTpSetupCompletion @ 0x140973808 (KiTpSetupCompletion.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall KiTpReadImageData(_KPROCESS *a1, char a2, const void *a3, void *a4, unsigned int Size)
 {
   unsigned __int64 v9; // r8

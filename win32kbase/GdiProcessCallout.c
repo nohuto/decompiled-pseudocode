@@ -1,3 +1,19 @@
+/*
+ * XREFs of GdiProcessCallout @ 0x1C006FD60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GdiUnmapGDIW32PIDLockedBitmaps @ 0x1C006BFB0 (GdiUnmapGDIW32PIDLockedBitmaps.c)
+ *     ?GrepCloseCurrentProcess@@YAHXZ @ 0x1C006D158 (-GrepCloseCurrentProcess@@YAHXZ.c)
+ *     IsGreIsCurrentProcessSystemCriticalSupported @ 0x1C007026C (IsGreIsCurrentProcessSystemCriticalSupported.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?DestroyProtectedOutputsOwnedByProcess@COPM@@QEAAXPEAX@Z @ 0x1C00AFF94 (-DestroyProtectedOutputsOwnedByProcess@COPM@@QEAAXPEAX@Z.c)
+ *     IsUmfdIsCurrentProcessUmfdHostNoLockSupported @ 0x1C00D1208 (IsUmfdIsCurrentProcessUmfdHostNoLockSupported.c)
+ *     IsUmfdUninitializeProcessSupported @ 0x1C00D4658 (IsUmfdUninitializeProcessSupported.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 __fastcall GdiProcessCallout(__int64 a1, char a2)
 {
   int v4; // eax

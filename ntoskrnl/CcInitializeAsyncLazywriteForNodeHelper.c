@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcInitializeAsyncLazywriteForNodeHelper @ 0x140537B10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExpAllocatePoolWithTagFromNode @ 0x140310130 (ExpAllocatePoolWithTagFromNode.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 char __fastcall CcInitializeAsyncLazywriteForNodeHelper(__int64 a1, __int64 a2, __int64 a3, char *a4)
 {
   unsigned int v4; // ebx

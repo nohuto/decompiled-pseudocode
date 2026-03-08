@@ -1,3 +1,14 @@
+/*
+ * XREFs of VidSchPresentDurationPlane @ 0x1C00402C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0013414 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00134D8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0qqqq_EtwWriteTransfer @ 0x1C0039A94 (McTemplateK0qqqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall VidSchPresentDurationPlane(__int64 a1, unsigned int a2, char a3, unsigned int *a4)
 {
   __int64 v4; // rsi

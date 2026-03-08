@@ -1,3 +1,13 @@
+/*
+ * XREFs of BiGetDriveLayoutBlock @ 0x140830E1C
+ * Callers:
+ *     BiGetNtPartitionPath @ 0x140830938 (BiGetNtPartitionPath.c)
+ * Callees:
+ *     BiGetDriveLayoutInformation @ 0x1408301F8 (BiGetDriveLayoutInformation.c)
+ *     BiGetPhysicalDriveName @ 0x140A5A720 (BiGetPhysicalDriveName.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiGetDriveLayoutBlock(PCWSTR SourceString, PVOID *a2, __int64 a3)
 {
   int DriveLayoutInformation; // edi

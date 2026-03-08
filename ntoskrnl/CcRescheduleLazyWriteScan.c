@@ -1,3 +1,14 @@
+/*
+ * XREFs of CcRescheduleLazyWriteScan @ 0x140534F08
+ * Callers:
+ *     CcCoalescingCallBackHelper @ 0x1405330B0 (CcCoalescingCallBackHelper.c)
+ *     CcLazyWriteScan @ 0x140533B4C (CcLazyWriteScan.c)
+ * Callees:
+ *     CcScheduleLazyWriteScan @ 0x140242B0C (CcScheduleLazyWriteScan.c)
+ *     KeSetCoalescableTimer @ 0x140250440 (KeSetCoalescableTimer.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void __fastcall CcRescheduleLazyWriteScan(__int64 a1, __int64 *a2)
 {
   __int64 v2; // rax

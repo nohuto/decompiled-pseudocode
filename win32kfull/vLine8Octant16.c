@@ -1,3 +1,11 @@
+/*
+ * XREFs of vLine8Octant16 @ 0x1C02FF480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _BYTE *__fastcall vLine8Octant16(int *a1, __int64 a2, int a3, char a4)
 {
   _BYTE *result; // rax

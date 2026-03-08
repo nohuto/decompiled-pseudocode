@@ -1,3 +1,16 @@
+/*
+ * XREFs of PiBuildAndOpenDeviceDirectoryPath @ 0x1409525F0
+ * Callers:
+ *     IoGetDeviceDirectory @ 0x1409520A0 (IoGetDeviceDirectory.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintfEx @ 0x1403C1A7C (RtlUnicodeStringPrintfEx.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     IopAllocateUnicodeString @ 0x140683958 (IopAllocateUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PiOpenDirectoryWithRoot @ 0x140953234 (PiOpenDirectoryWithRoot.c)
+ */
+
 __int64 __fastcall PiBuildAndOpenDeviceDirectoryPath(
         PCUNICODE_STRING SourceString,
         unsigned __int16 *a2,

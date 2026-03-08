@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?vSaveAccumBoundsAndDisableSpriteUpdates@DWMSCREENREADMODIFYWRITEASSIST@@QEAAXXZ @ 0x1C0269698
+ * Callers:
+ *     NtGdiLineTo @ 0x1C014DFE0 (NtGdiLineTo.c)
+ *     NtGdiInvertRgn @ 0x1C02AC2A0 (NtGdiInvertRgn.c)
+ *     GrePolyBezier @ 0x1C02AE500 (GrePolyBezier.c)
+ *     GrePolyPolygon @ 0x1C02AE850 (GrePolyPolygon.c)
+ *     GrePolyPolyline @ 0x1C02AEB40 (GrePolyPolyline.c)
+ *     NtGdiRectangle @ 0x1C02AFBE0 (NtGdiRectangle.c)
+ * Callees:
+ *     ?bOffsetSubtract@ERECTL@@QEAAHAEBU_POINTL@@H@Z @ 0x1C0268FB8 (-bOffsetSubtract@ERECTL@@QEAAHAEBU_POINTL@@H@Z.c)
+ */
+
 void __fastcall DWMSCREENREADMODIFYWRITEASSIST::vSaveAccumBoundsAndDisableSpriteUpdates(
         DWMSCREENREADMODIFYWRITEASSIST *this)
 {

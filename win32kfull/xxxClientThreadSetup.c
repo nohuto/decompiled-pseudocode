@@ -1,3 +1,11 @@
+/*
+ * XREFs of xxxClientThreadSetup @ 0x1C00D1A00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall xxxClientThreadSetup(__int64 a1)
 {
   __int64 CurrentThreadWin32Thread; // rax

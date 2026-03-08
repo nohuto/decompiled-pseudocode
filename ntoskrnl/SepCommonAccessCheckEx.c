@@ -1,3 +1,39 @@
+/*
+ * XREFs of SepCommonAccessCheckEx @ 0x140206FC0
+ * Callers:
+ *     SeSrpAccessCheck @ 0x1402FDE00 (SeSrpAccessCheck.c)
+ *     SeAccessCheckEx @ 0x1403CA390 (SeAccessCheckEx.c)
+ * Callees:
+ *     SepAccessCheckEx @ 0x140206B24 (SepAccessCheckEx.c)
+ *     AuthzBasepSetAccessReasons @ 0x140207750 (AuthzBasepSetAccessReasons.c)
+ *     SepTokenIsOwner @ 0x1402077E0 (SepTokenIsOwner.c)
+ *     SepMandatoryToDiscretionary @ 0x140207890 (SepMandatoryToDiscretionary.c)
+ *     SepFreeResourceInfo @ 0x1402078B8 (SepFreeResourceInfo.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x140246980 (AuthzBasepEvaluateAceCondition.c)
+ *     SepFilterCheck @ 0x140263850 (SepFilterCheck.c)
+ *     SepMandatoryIntegrityCheck @ 0x140263A50 (SepMandatoryIntegrityCheck.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1402975A8 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     RtlpOwnerAcesPresent @ 0x1402CBBC0 (RtlpOwnerAcesPresent.c)
+ *     SepConstrainByMandatory @ 0x1402E40BC (SepConstrainByMandatory.c)
+ *     SeLogAccessFailure @ 0x1402EE66C (SeLogAccessFailure.c)
+ *     SepLpacCausedAccessFailure @ 0x1402F8D5C (SepLpacCausedAccessFailure.c)
+ *     SepLocateTokenTrustLevel @ 0x14030FE50 (SepLocateTokenTrustLevel.c)
+ *     SepTrustLevelCheck @ 0x14033DC28 (SepTrustLevelCheck.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SepBuildCapeSecurityDescriptor @ 0x1405B5678 (SepBuildCapeSecurityDescriptor.c)
+ *     SepGetScopedPolicySid @ 0x1405B57D4 (SepGetScopedPolicySid.c)
+ *     SepLogLpacAccessFailure @ 0x1405B5948 (SepLogLpacAccessFailure.c)
+ *     SepRmDereferenceCapTable @ 0x1405B5A90 (SepRmDereferenceCapTable.c)
+ *     SepRmReferenceFindCap @ 0x1405B7498 (SepRmReferenceFindCap.c)
+ *     AuthzBasepMergeAccessReasons @ 0x14066CA50 (AuthzBasepMergeAccessReasons.c)
+ *     SeUnlockSubjectContext @ 0x140699470 (SeUnlockSubjectContext.c)
+ *     SeLockSubjectContext @ 0x1406994B0 (SeLockSubjectContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140699810 (SepAdtAuditThisEventWithContext.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 bool __fastcall SepCommonAccessCheckEx(
         PSECURITY_SUBJECT_CONTEXT SubjectContext,
         char a2,

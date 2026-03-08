@@ -1,3 +1,14 @@
+/*
+ * XREFs of UninitializeInputSensorsOnSharedThread @ 0x1C0218CC8
+ * Callers:
+ *     UserDeactivateMITInputProcessingHelper @ 0x1C021CC00 (UserDeactivateMITInputProcessingHelper.c)
+ * Callees:
+ *     CleanupSensorExplicitly @ 0x1C0031540 (CleanupSensorExplicitly.c)
+ *     ?Close@IOCPDispatcher@@QEAAX_N@Z @ 0x1C0093DD0 (-Close@IOCPDispatcher@@QEAAX_N@Z.c)
+ *     IOCPDispatcher_Destroy @ 0x1C0095480 (IOCPDispatcher_Destroy.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void *__fastcall UninitializeInputSensorsOnSharedThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rcx

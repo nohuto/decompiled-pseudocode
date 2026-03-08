@@ -1,3 +1,19 @@
+/*
+ * XREFs of HalpProcInitSystem @ 0x140A878D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpIsHvPresent @ 0x14037337C (HalpIsHvPresent.c)
+ *     HalpMcUpdateMicrocode @ 0x14037CB18 (HalpMcUpdateMicrocode.c)
+ *     HalpProcGetFeatureBits @ 0x14037CB74 (HalpProcGetFeatureBits.c)
+ *     HalMcFinishMicrocode @ 0x1403ABA24 (HalMcFinishMicrocode.c)
+ *     PrExtLogToTelemetry @ 0x1403AFBD8 (PrExtLogToTelemetry.c)
+ *     HalpInterruptStartBlockedProcessors @ 0x1405185E4 (HalpInterruptStartBlockedProcessors.c)
+ *     HalpMcUpdateInitialize @ 0x14080A96C (HalpMcUpdateInitialize.c)
+ *     HalpBlkInitSystem @ 0x140B3DFE0 (HalpBlkInitSystem.c)
+ *     HalpProcInitDiscard @ 0x140B723C4 (HalpProcInitDiscard.c)
+ */
+
 __int64 __fastcall HalpProcInitSystem(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

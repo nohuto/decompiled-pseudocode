@@ -1,3 +1,11 @@
+/*
+ * XREFs of SeSrpAccessCheck @ 0x1402FDE00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SepCommonAccessCheckEx @ 0x140206FC0 (SepCommonAccessCheckEx.c)
+ */
+
 bool __fastcall SeSrpAccessCheck(
         struct _SECURITY_SUBJECT_CONTEXT *a1,
         char a2,

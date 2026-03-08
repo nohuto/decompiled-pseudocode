@@ -1,3 +1,14 @@
+/*
+ * XREFs of SmcProcessListRequest @ 0x140840880
+ * Callers:
+ *     SmQueryStoreInformation @ 0x140840788 (SmQueryStoreInformation.c)
+ * Callees:
+ *     SmpGetProcessPartition @ 0x14029622C (SmpGetProcessPartition.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall SmcProcessListRequest(unsigned __int64 a1, int a2, _DWORD *a3, char a4)
 {
   __int64 v8; // rcx

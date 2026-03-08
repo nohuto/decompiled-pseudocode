@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlVirtualUnwind @ 0x140364D20
+ * Callers:
+ *     RtlDispatchException @ 0x14027FA60 (RtlDispatchException.c)
+ *     RtlUnwindEx @ 0x1402809E0 (RtlUnwindEx.c)
+ *     RtlRaiseException @ 0x140364BF0 (RtlRaiseException.c)
+ * Callees:
+ *     RtlpxVirtualUnwind @ 0x140281720 (RtlpxVirtualUnwind.c)
+ */
+
 __int64 __fastcall RtlVirtualUnwind(
         int a1,
         __int64 a2,

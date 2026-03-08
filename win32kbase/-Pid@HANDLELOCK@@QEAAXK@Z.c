@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?Pid@HANDLELOCK@@QEAAXK@Z @ 0x1C005162C
+ * Callers:
+ *     GreSetBrushOwner @ 0x1C001BD80 (GreSetBrushOwner.c)
+ *     GreSetDCOwnerEx @ 0x1C0041580 (GreSetDCOwnerEx.c)
+ *     HmgSetOwner @ 0x1C00522C0 (HmgSetOwner.c)
+ * Callees:
+ *     ?pObj@HANDLELOCK@@QEAAPEAVOBJECT@@XZ @ 0x1C004B3B0 (-pObj@HANDLELOCK@@QEAAPEAVOBJECT@@XZ.c)
+ *     ?GetEtwGdiHandleType@@YA?AW4EtwGdiHandleType@@E@Z @ 0x1C005168C (-GetEtwGdiHandleType@@YA-AW4EtwGdiHandleType@@E@Z.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C00EE72C (McTemplateK0pqqq_EtwWriteTransfer.c)
+ */
+
 void __fastcall HANDLELOCK::Pid(HANDLELOCK *this, int a2)
 {
   char v2; // di

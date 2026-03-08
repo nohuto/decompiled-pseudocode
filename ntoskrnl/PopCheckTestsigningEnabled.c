@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopCheckTestsigningEnabled @ 0x14097D660
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ *     PopDripsWatchdogTakeAction @ 0x14099E1CC (PopDripsWatchdogTakeAction.c)
+ * Callees:
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ */
+
 bool PopCheckTestsigningEnabled()
 {
   char v0; // bl

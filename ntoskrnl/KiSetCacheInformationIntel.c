@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiSetCacheInformationIntel @ 0x140A899A0
+ * Callers:
+ *     KiSetCacheInformation @ 0x140A898B0 (KiSetCacheInformation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiSetStandardizedCacheInformation @ 0x140A8A138 (KiSetStandardizedCacheInformation.c)
+ */
+
 __int64 KiSetCacheInformationIntel()
 {
   struct _KPRCB *CurrentPrcb; // r8

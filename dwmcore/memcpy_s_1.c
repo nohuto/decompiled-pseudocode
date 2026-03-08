@@ -1,3 +1,12 @@
+/*
+ * XREFs of memcpy_s_1 @ 0x180250EFC
+ * Callers:
+ *     ?PullNewPerFrameData@CSynchronousSuperWetInk@@AEAAXIPEA_N@Z @ 0x180250A64 (-PullNewPerFrameData@CSynchronousSuperWetInk@@AEAAXIPEA_N@Z.c)
+ * Callees:
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     memcpy_0 @ 0x1801177E8 (memcpy_0.c)
+ */
+
 errno_t __cdecl memcpy_s_1(
         void *const Destination,
         const rsize_t DestinationSize,

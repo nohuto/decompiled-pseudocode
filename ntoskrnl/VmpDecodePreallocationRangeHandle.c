@@ -1,3 +1,12 @@
+/*
+ * XREFs of VmpDecodePreallocationRangeHandle @ 0x1409DA368
+ * Callers:
+ *     VmCreateMemoryRange @ 0x1409D96F0 (VmCreateMemoryRange.c)
+ *     VmFreePreallocationForRangeCreate @ 0x1409D9980 (VmFreePreallocationForRangeCreate.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall VmpDecodePreallocationRangeHandle(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // rcx

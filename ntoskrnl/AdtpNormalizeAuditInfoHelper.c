@@ -1,3 +1,12 @@
+/*
+ * XREFs of AdtpNormalizeAuditInfoHelper @ 0x14039F254
+ * Callers:
+ *     AdtpWriteToEtwEx @ 0x14066D560 (AdtpWriteToEtwEx.c)
+ *     AdtpWriteToEtw @ 0x14083D7F0 (AdtpWriteToEtw.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall AdtpNormalizeAuditInfoHelper(__int64 a1, __int64 a2)
 {
   unsigned int v3; // eax

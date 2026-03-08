@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpFillMemoryWithInverseStride @ 0x140678B1C
+ * Callers:
+ *     RtlpGenericStrideWorker @ 0x14067933C (RtlpGenericStrideWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpFillMemoryWithInverseStride(unsigned int a1, int a2, __int64 a3, unsigned __int64 a4)
 {
   unsigned int v4; // r8d

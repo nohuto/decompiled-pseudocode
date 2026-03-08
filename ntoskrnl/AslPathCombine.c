@@ -1,3 +1,20 @@
+/*
+ * XREFs of AslPathCombine @ 0x140A524A8
+ * Callers:
+ *     SdbpGetPathAppPatchPreRS3 @ 0x14066BB30 (SdbpGetPathAppPatchPreRS3.c)
+ *     SdbpGetPathCustomSdbPreRS3 @ 0x14066BCC0 (SdbpGetPathCustomSdbPreRS3.c)
+ *     SdbpGetPathAppPatch @ 0x140A4FFD0 (SdbpGetPathAppPatch.c)
+ *     SdbpGetPathAppraiser @ 0x140A500D0 (SdbpGetPathAppraiser.c)
+ *     SdbpGetPathCustomSdb @ 0x140A50220 (SdbpGetPathCustomSdb.c)
+ *     AslEnvGetSysNativeDirPathForGuestBuf @ 0x140A54564 (AslEnvGetSysNativeDirPathForGuestBuf.c)
+ *     AslEnvGetSystem32DirPathBuf @ 0x140A547B8 (AslEnvGetSystem32DirPathBuf.c)
+ * Callees:
+ *     RtlStringCchCatW @ 0x140246580 (RtlStringCchCatW.c)
+ *     RtlStringCchLengthW @ 0x140247080 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyW @ 0x1402470F0 (RtlStringCchCopyW.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ */
+
 __int64 __fastcall AslPathCombine(NTSTRSAFE_PCWSTR pszSrc, __int64 a2, wchar_t *a3, size_t a4)
 {
   NTSTATUS v8; // ebx

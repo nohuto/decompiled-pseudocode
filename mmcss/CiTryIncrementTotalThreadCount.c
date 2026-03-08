@@ -1,3 +1,11 @@
+/*
+ * XREFs of CiTryIncrementTotalThreadCount @ 0x1C0002790
+ * Callers:
+ *     CiThreadCreate @ 0x1C000AD80 (CiThreadCreate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CiTryIncrementTotalThreadCount(volatile signed __int32 *a1, signed __int32 a2)
 {
   signed __int32 v2; // eax

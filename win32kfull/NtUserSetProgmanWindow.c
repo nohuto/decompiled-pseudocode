@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserSetProgmanWindow @ 0x1C01DD930
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     _SetProgmanWindow @ 0x1C02332F0 (_SetProgmanWindow.c)
+ */
+
 __int64 __fastcall NtUserSetProgmanWindow(__int64 a1)
 {
   int v2; // ebx

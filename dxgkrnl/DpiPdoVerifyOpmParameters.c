@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiPdoVerifyOpmParameters @ 0x1C039DDE0
+ * Callers:
+ *     ?DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z @ 0x1C0063168 (-DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiPdoVerifyOpmParameters(
         unsigned int a1,
         __int64 a2,

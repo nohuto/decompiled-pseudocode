@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CFloodEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C024EBA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CFloodEffectMarshaler::SetRemarshalingFlags(
         DirectComposition::CFloodEffectMarshaler *this)
 {

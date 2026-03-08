@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CVector3Force@@EEAA@XZ @ 0x180238864
+ * Callers:
+ *     ??_GCVector3Force@@EEAAPEAXI@Z @ 0x1802389F0 (--_GCVector3Force@@EEAAPEAXI@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CVector3Force::~CVector3Force(CVector3Force *this)
 {
   __int64 v2; // rcx

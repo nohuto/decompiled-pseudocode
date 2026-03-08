@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??_GCParticleVector4Behavior@@UEAAPEAXI@Z @ 0x1801C0530
+ * Callers:
+ *     ??_ECParticleVector4Behavior@@WHA@EAAPEAXI@Z @ 0x180117B90 (--_ECParticleVector4Behavior@@WHA@EAAPEAXI@Z.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ??1CResource@@MEAA@XZ @ 0x18009A0B0 (--1CResource@@MEAA@XZ.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801046B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ */
+
 CParticleVector4Behavior *__fastcall CParticleVector4Behavior::`scalar deleting destructor'(
         CParticleVector4Behavior *this,
         char a2)

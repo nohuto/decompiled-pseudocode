@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExprOp1_32 @ 0x1C00566C0
+ * Callers:
+ *     ExprOp1 @ 0x1C0056680 (ExprOp1.c)
+ * Callees:
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ *     ValidateTarget @ 0x1C004D4F0 (ValidateTarget.c)
+ *     WriteObject @ 0x1C00532A0 (WriteObject.c)
+ */
+
 __int64 __fastcall ExprOp1_32(__int64 a1, _QWORD *a2)
 {
   int v4; // edi

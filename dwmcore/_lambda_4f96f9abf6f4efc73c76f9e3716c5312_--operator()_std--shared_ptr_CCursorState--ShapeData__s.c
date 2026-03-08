@@ -1,3 +1,12 @@
+/*
+ * XREFs of _lambda_4f96f9abf6f4efc73c76f9e3716c5312_::operator()_std::shared_ptr_CCursorState::ShapeData__std::shared_ptr_CCursorState::ShapeData___ @ 0x1802748D8
+ * Callers:
+ *     std::_Ref_fn__lambda_4f96f9abf6f4efc73c76f9e3716c5312___::operator()_std::shared_ptr_CCursorState::ShapeData__&_std::shared_ptr_CCursorState::ShapeData__&_ @ 0x180274898 (std--_Ref_fn__lambda_4f96f9abf6f4efc73c76f9e3716c5312___--operator()_std--shared_ptr_CCursorStat.c)
+ * Callees:
+ *     ?_Decref@_Ref_count_base@std@@QEAAXXZ @ 0x18012BB3A (-_Decref@_Ref_count_base@std@@QEAAXXZ.c)
+ *     ?IsBetterRotationMatch@CCursorState@@CA_NW4DXGI_MODE_ROTATION@@00@Z @ 0x180276EE8 (-IsBetterRotationMatch@CCursorState@@CA_NW4DXGI_MODE_ROTATION@@00@Z.c)
+ */
+
 bool __fastcall lambda_4f96f9abf6f4efc73c76f9e3716c5312_::operator()_std::shared_ptr_CCursorState::ShapeData__std::shared_ptr_CCursorState::ShapeData___(
         __int64 a1,
         _QWORD *a2,

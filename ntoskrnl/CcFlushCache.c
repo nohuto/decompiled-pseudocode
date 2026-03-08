@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcFlushCache @ 0x140216740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcFlushCachePriv @ 0x140219F20 (CcFlushCachePriv.c)
+ */
+
 void __stdcall CcFlushCache(
         PSECTION_OBJECT_POINTERS SectionObjectPointer,
         PLARGE_INTEGER FileOffset,

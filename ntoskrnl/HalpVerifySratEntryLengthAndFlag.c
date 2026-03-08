@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpVerifySratEntryLengthAndFlag @ 0x140B8E808
+ * Callers:
+ *     HalpNumaInitializeStaticConfiguration @ 0x140B63268 (HalpNumaInitializeStaticConfiguration.c)
+ *     HalpGetNumaProcMemoryCount @ 0x140B8DF8C (HalpGetNumaProcMemoryCount.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HalpVerifySratEntryLengthAndFlag(__int64 a1, char a2)
 {
   int v4; // eax

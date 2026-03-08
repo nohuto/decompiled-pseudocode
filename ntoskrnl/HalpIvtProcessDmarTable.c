@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpIvtProcessDmarTable @ 0x14037BB68
+ * Callers:
+ *     HalpIommuIvtDiscover @ 0x140B3D380 (HalpIommuIvtDiscover.c)
+ * Callees:
+ *     HalpIvtProcessDrhdEntry @ 0x14037B514 (HalpIvtProcessDrhdEntry.c)
+ *     DmrEnumerateSatcDevices @ 0x14037BC00 (DmrEnumerateSatcDevices.c)
+ *     DmrGetNextRemappingStructure @ 0x14037BFAC (DmrGetNextRemappingStructure.c)
+ */
+
 __int64 __fastcall HalpIvtProcessDmarTable(__int64 a1, _BYTE *a2)
 {
   _BYTE *v2; // r11

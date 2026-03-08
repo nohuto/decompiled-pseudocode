@@ -1,3 +1,21 @@
+/*
+ * XREFs of UserJobCallout @ 0x1C003C000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?JobCalloutTerminate@@YAHPEAUtagW32JOB@@@Z @ 0x1C0008CC8 (-JobCalloutTerminate@@YAHPEAUtagW32JOB@@@Z.c)
+ *     ?CreateW32Job@@YAPEAUtagW32JOB@@PEAU_EJOB@@@Z @ 0x1C003BC90 (-CreateW32Job@@YAPEAUtagW32JOB@@PEAU_EJOB@@@Z.c)
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C003C250 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003E858 (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqq @ 0x1C0072510 (WPP_RECORDER_AND_TRACE_SF_qqq.c)
+ *     ?UpdateJob@@YAXPEAUtagW32JOB@@@Z @ 0x1C00D4F70 (-UpdateJob@@YAXPEAUtagW32JOB@@@Z.c)
+ *     ?JobCalloutAddProcess@@YAHPEAUtagW32JOB@@PEAUtagPROCESSINFO@@@Z @ 0x1C00D935C (-JobCalloutAddProcess@@YAHPEAUtagW32JOB@@PEAUtagPROCESSINFO@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_Dq @ 0x1C01AF928 (WPP_RECORDER_AND_TRACE_SF_Dq.c)
+ */
+
 __int64 __fastcall UserJobCallout(__int64 a1)
 {
   int v1; // r15d

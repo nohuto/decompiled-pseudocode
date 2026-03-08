@@ -1,3 +1,13 @@
+/*
+ * XREFs of ReadManifestAssignedValue @ 0x1C005C878
+ * Callers:
+ *     UsbDualRoleFeaturesQueryLocalMachine @ 0x1C005CE14 (UsbDualRoleFeaturesQueryLocalMachine.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     MyRegOpenKeyForRead @ 0x1C005D0D4 (MyRegOpenKeyForRead.c)
+ *     MyRegQueryUlong @ 0x1C005D320 (MyRegQueryUlong.c)
+ */
+
 NTSTATUS __fastcall ReadManifestAssignedValue(int *a1)
 {
   NTSTATUS result; // eax

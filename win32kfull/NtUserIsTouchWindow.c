@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserIsTouchWindow @ 0x1C01D6D90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 _BOOL8 __fastcall NtUserIsTouchWindow(__int64 a1, unsigned int *a2, __int64 a3)
 {
   __int64 v5; // rax

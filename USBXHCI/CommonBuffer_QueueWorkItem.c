@@ -1,3 +1,14 @@
+/*
+ * XREFs of CommonBuffer_QueueWorkItem @ 0x1C0008160
+ * Callers:
+ *     CommonBuffer_AcquireBuffers @ 0x1C000B404 (CommonBuffer_AcquireBuffers.c)
+ *     CommonBuffer_AcquireBuffer @ 0x1C0013038 (CommonBuffer_AcquireBuffer.c)
+ *     XilCoreDeviceSlot_AllocateResources @ 0x1C001C9FC (XilCoreDeviceSlot_AllocateResources.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall CommonBuffer_QueueWorkItem(struct _KEVENT *Context)
 {
   char v2; // di

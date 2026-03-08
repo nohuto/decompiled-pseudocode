@@ -1,3 +1,32 @@
+/*
+ * XREFs of InitializeGre @ 0x1C031D988
+ * Callers:
+ *     Win32kBaseDriverEntry @ 0x1C0320F10 (Win32kBaseDriverEntry.c)
+ * Callees:
+ *     GreCreateRectRgn @ 0x1C0019F70 (GreCreateRectRgn.c)
+ *     GreCreateSemaphoreInternal @ 0x1C002B04C (GreCreateSemaphoreInternal.c)
+ *     HmgCreate @ 0x1C002CDD0 (HmgCreate.c)
+ *     ?bInitPathAlloc@@YAHXZ @ 0x1C002D4D4 (-bInitPathAlloc@@YAHXZ.c)
+ *     ?InitializeScanLookAsideList@RGNMEMOBJ@@SAHXZ @ 0x1C002D5A0 (-InitializeScanLookAsideList@RGNMEMOBJ@@SAHXZ.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C005173C (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ?UMPDInitializeSecurityLevel@@YA?AW4UMPDSecurityLevel@@XZ @ 0x1C008B04C (-UMPDInitializeSecurityLevel@@YA-AW4UMPDSecurityLevel@@XZ.c)
+ *     ?AllocateSessionGlobalsArea@Base@Gre@@YA_NXZ @ 0x1C00CA144 (-AllocateSessionGlobalsArea@Base@Gre@@YA_NXZ.c)
+ *     ?InitializeDefaultDCAttributes@@YAXXZ @ 0x1C00CDFB8 (-InitializeDefaultDCAttributes@@YAXXZ.c)
+ *     bLockEtwEnabled @ 0x1C00D15A8 (bLockEtwEnabled.c)
+ *     ?Initialize@SfmState@@QEAAHXZ @ 0x1C00D17E0 (-Initialize@SfmState@@QEAAHXZ.c)
+ *     ?bUseActualGDIScale@@YAHXZ @ 0x1C00D1BA8 (-bUseActualGDIScale@@YAHXZ.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00DE3A0 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     bInitICM @ 0x1C031D1E8 (bInitICM.c)
+ *     bInitBRUSHOBJ @ 0x1C031D4F4 (bInitBRUSHOBJ.c)
+ *     bInitPALOBJ @ 0x1C031DE4C (bInitPALOBJ.c)
+ *     GreEngLoadModuleTrackInit @ 0x1C031E118 (GreEngLoadModuleTrackInit.c)
+ *     MultiUserGreCleanupInit @ 0x1C031E160 (MultiUserGreCleanupInit.c)
+ *     vInitXLATE @ 0x1C031F4BC (vInitXLATE.c)
+ *     bInitBMOBJ @ 0x1C031FEE0 (bInitBMOBJ.c)
+ */
+
 char __fastcall InitializeGre(Gre::Base *a1)
 {
   __int64 v1; // rcx

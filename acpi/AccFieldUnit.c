@@ -1,3 +1,19 @@
+/*
+ * XREFs of AccFieldUnit @ 0x1C0051630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcquireGL @ 0x1C004ACB0 (AcquireGL.c)
+ *     ReleaseGL @ 0x1C004CEA8 (ReleaseGL.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     PrintObject @ 0x1C004E4C8 (PrintObject.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ *     NeedGlobalLock @ 0x1C00524B8 (NeedGlobalLock.c)
+ *     PushAccFieldObj @ 0x1C00525E8 (PushAccFieldObj.c)
+ *     ReadField @ 0x1C0052AE0 (ReadField.c)
+ *     WriteField @ 0x1C0053090 (WriteField.c)
+ */
+
 __int64 __fastcall AccFieldUnit(__int64 a1, __int64 a2, unsigned int a3)
 {
   unsigned int v3; // edi

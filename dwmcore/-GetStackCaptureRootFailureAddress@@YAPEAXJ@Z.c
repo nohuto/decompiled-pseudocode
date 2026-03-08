@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetStackCaptureRootFailureAddress@@YAPEAXJ@Z @ 0x180278B40
+ * Callers:
+ *     ?ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ @ 0x18004DAF0 (-ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ.c)
+ *     ?ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z @ 0x18009EF00 (-ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetStackCaptureRootFailureAddress(int a1)
 {
   __int64 v2; // rbx

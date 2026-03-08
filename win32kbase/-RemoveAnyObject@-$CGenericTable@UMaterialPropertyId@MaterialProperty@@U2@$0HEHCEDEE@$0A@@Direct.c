@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RemoveAnyObject@?$CGenericTable@UMaterialPropertyId@MaterialProperty@@U2@$0HEHCEDEE@$0A@@DirectComposition@@QEAAPEAUMaterialProperty@@XZ @ 0x1C0099D44
+ * Callers:
+ *     DCompositionSessionUninitialize @ 0x1C0099C08 (DCompositionSessionUninitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 DirectComposition::CGenericTable<MaterialProperty::MaterialPropertyId,MaterialProperty,1953645380,0>::RemoveAnyObject()
 {
   struct _RTL_GENERIC_TABLE *v0; // rdi

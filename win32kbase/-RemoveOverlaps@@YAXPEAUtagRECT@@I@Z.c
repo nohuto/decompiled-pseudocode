@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?RemoveOverlaps@@YAXPEAUtagRECT@@I@Z @ 0x1C0247A38
+ * Callers:
+ *     AlignRects @ 0x1C00CC4F8 (AlignRects.c)
+ * Callees:
+ *     IntersectRect @ 0x1C003B560 (IntersectRect.c)
+ *     ?CenterRectangles@@YAXPEAUtagRECT@@I@Z @ 0x1C0247430 (-CenterRectangles@@YAXPEAUtagRECT@@I@Z.c)
+ *     ?RemoveOverlap@@YAPEAUtagRECT@@PEAU1@00@Z @ 0x1C0247848 (-RemoveOverlap@@YAPEAUtagRECT@@PEAU1@00@Z.c)
+ */
+
 void __fastcall RemoveOverlaps(struct tagRECT *a1, unsigned int a2)
 {
   __int64 v2; // rbp

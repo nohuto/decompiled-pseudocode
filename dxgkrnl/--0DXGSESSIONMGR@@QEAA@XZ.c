@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0DXGSESSIONMGR@@QEAA@XZ @ 0x1C0208560
+ * Callers:
+ *     ?Initialize@DXGGLOBAL@@QEAAJXZ @ 0x1C0205878 (-Initialize@DXGGLOBAL@@QEAAJXZ.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 DXGSESSIONMGR *__fastcall DXGSESSIONMGR::DXGSESSIONMGR(DXGSESSIONMGR *this)
 {
   char *v2; // rcx

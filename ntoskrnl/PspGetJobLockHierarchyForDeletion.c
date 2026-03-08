@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspGetJobLockHierarchyForDeletion @ 0x1406F6DC0
+ * Callers:
+ *     PspJobDelete @ 0x140291AD0 (PspJobDelete.c)
+ * Callees:
+ *     PspLockJobAssignment @ 0x140700924 (PspLockJobAssignment.c)
+ *     PspUnlockJobAssignment @ 0x140700950 (PspUnlockJobAssignment.c)
+ */
+
 __int64 __fastcall PspGetJobLockHierarchyForDeletion(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rsi

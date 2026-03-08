@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpVerifyGenericError @ 0x140501F00
+ * Callers:
+ *     HalpGetMcaExtendedLogStatusBlock @ 0x140500E34 (HalpGetMcaExtendedLogStatusBlock.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpVerifyGenericError(_QWORD *a1, _DWORD *a2)
 {
   unsigned int v2; // r9d

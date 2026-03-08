@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchSetQueuedPresentLimit @ 0x1C00AC890
+ * Callers:
+ *     VidSchiCreateDeviceInternal @ 0x1C00AC5B0 (VidSchiCreateDeviceInternal.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall VidSchSetQueuedPresentLimit(__int64 a1, int a2)
 {
   __int64 v2; // r8

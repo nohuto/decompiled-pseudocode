@@ -1,3 +1,13 @@
+/*
+ * XREFs of TransformRectBetweenCoordinateSpacesPerMonitor @ 0x1C000C99C
+ * Callers:
+ *     TransformRectBetweenCoordinateSpaces @ 0x1C00152E0 (TransformRectBetweenCoordinateSpaces.c)
+ *     TransformOffscreenAdjacentRect @ 0x1C016845C (TransformOffscreenAdjacentRect.c)
+ * Callees:
+ *     LogicalToPhysicalDPIRect @ 0x1C003B920 (LogicalToPhysicalDPIRect.c)
+ *     PhysicalToLogicalDPIRect @ 0x1C00A8E10 (PhysicalToLogicalDPIRect.c)
+ */
+
 __int64 TransformRectBetweenCoordinateSpacesPerMonitor(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4, ...)
 {
   int v6; // ebx

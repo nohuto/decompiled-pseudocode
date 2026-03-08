@@ -1,3 +1,19 @@
+/*
+ * XREFs of CmpIsSystemEntity @ 0x140768CB8
+ * Callers:
+ *     CmDoVirtualTest @ 0x1402DD11C (CmDoVirtualTest.c)
+ *     KCBNeedsVirtualImage @ 0x1402DD15C (KCBNeedsVirtualImage.c)
+ *     KCBNeedsVirtualImage_0 @ 0x140614000 (KCBNeedsVirtualImage_0.c)
+ *     CmpVEPerformOpenAccessCheck @ 0x140768B54 (CmpVEPerformOpenAccessCheck.c)
+ *     CmpCreateChild @ 0x1407A7590 (CmpCreateChild.c)
+ *     CmpVEExecuteOpenLogic @ 0x1407B6770 (CmpVEExecuteOpenLogic.c)
+ * Callees:
+ *     PsGetCurrentThreadProcess @ 0x1402C0BB0 (PsGetCurrentThreadProcess.c)
+ *     CmpIsVirtEnabledForSubject @ 0x140768D48 (CmpIsVirtEnabledForSubject.c)
+ *     SeCaptureSubjectContextEx @ 0x1407C9AF0 (SeCaptureSubjectContextEx.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ */
+
 bool __fastcall CmpIsSystemEntity(char a1, struct _SECURITY_SUBJECT_CONTEXT *p_SubjectContext, int *a3)
 {
   char v3; // si

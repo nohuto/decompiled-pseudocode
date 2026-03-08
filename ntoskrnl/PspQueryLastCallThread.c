@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspQueryLastCallThread @ 0x1409AC330
+ * Callers:
+ *     NtQueryInformationThread @ 0x1406A7BF0 (NtQueryInformationThread.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspQueryLastCallThread(__int64 a1, __int64 a2, int a3, int *a4)
 {
   int v5; // r11d

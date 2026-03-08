@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtMITSetLastInputRecipient @ 0x1C016BF40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetPtiLastWoken@CInputGlobals@@QEAAXPEAUtagTHREADINFO@@_N@Z @ 0x1C0009FE0 (-SetPtiLastWoken@CInputGlobals@@QEAAXPEAUtagTHREADINFO@@_N@Z.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C007CCB8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
+ *     PtiFromThreadId @ 0x1C00A6C40 (PtiFromThreadId.c)
+ */
+
 __int64 __fastcall NtMITSetLastInputRecipient(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // edi

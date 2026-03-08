@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_qDqqss @ 0x1C0022A3C
+ * Callers:
+ *     ACPIIsPhase3ListEmptyOfUnblockedItemsPowerNodeEnum @ 0x1C0021F40 (ACPIIsPhase3ListEmptyOfUnblockedItemsPowerNodeEnum.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF_qDqqss(
         __int64 a1,
         __int64 a2,

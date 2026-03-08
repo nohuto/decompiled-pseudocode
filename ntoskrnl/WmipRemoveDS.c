@@ -1,3 +1,12 @@
+/*
+ * XREFs of WmipRemoveDS @ 0x14087DE68
+ * Callers:
+ *     WmipDeregisterRegEntry @ 0x1403CEEF0 (WmipDeregisterRegEntry.c)
+ * Callees:
+ *     WmipUnreferenceEntry @ 0x14069C9D0 (WmipUnreferenceEntry.c)
+ *     WmipGenerateRegistrationNotification @ 0x1408682E0 (WmipGenerateRegistrationNotification.c)
+ */
+
 __int64 __fastcall WmipRemoveDS(__int64 a1)
 {
   __int64 v1; // rbx

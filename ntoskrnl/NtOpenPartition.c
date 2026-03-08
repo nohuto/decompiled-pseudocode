@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtOpenPartition @ 0x14085DBF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObOpenObjectByName @ 0x1406C39E0 (ObOpenObjectByName.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ */
+
 __int64 __fastcall NtOpenPartition(HANDLE *a1, int a2, __int64 a3)
 {
   char PreviousMode; // di

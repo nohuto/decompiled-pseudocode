@@ -1,3 +1,12 @@
+/*
+ * XREFs of imp_WdfCxVerifierKeBugCheck @ 0x1C00347B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtrAndGlobals@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAXPEAPEAU1@@Z @ 0x1C0017B7C (-FxObjectHandleGetPtrAndGlobals@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAXPEAPEAU1@@Z.c)
+ *     ?FxVerifierDriverReportedBugcheck@@YAXPEAU_FX_DRIVER_GLOBALS@@K_K111@Z @ 0x1C0045B98 (-FxVerifierDriverReportedBugcheck@@YAXPEAU_FX_DRIVER_GLOBALS@@K_K111@Z.c)
+ */
+
 void __fastcall __noreturn imp_WdfCxVerifierKeBugCheck(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         unsigned __int64 Object,

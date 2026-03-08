@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpCallProcessing @ 0x1402D3068
+ * Callers:
+ *     ExNotifyWithProcessing @ 0x1402D2F20 (ExNotifyWithProcessing.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __fastcall ExpCallProcessing(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   void (__fastcall *v5)(__int64, __int64, __int64, _QWORD, _QWORD); // rax

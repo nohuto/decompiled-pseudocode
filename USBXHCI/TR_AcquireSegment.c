@@ -1,3 +1,12 @@
+/*
+ * XREFs of TR_AcquireSegment @ 0x1C000B1A8
+ * Callers:
+ *     TR_ReAllocateTransferRingSegmentsForOffload @ 0x1C0041B80 (TR_ReAllocateTransferRingSegmentsForOffload.c)
+ *     TR_Create @ 0x1C006DDF8 (TR_Create.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall TR_AcquireSegment(__int64 a1)
 {
   _QWORD *v2; // rax

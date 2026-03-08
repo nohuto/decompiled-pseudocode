@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpDmaGetReservedRegionsForTranslateDomain @ 0x140510718
+ * Callers:
+ *     HalpDmaAllocateDomain @ 0x14038C660 (HalpDmaAllocateDomain.c)
+ * Callees:
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpIommuGetReservedRanges @ 0x140515DE0 (HalpIommuGetReservedRanges.c)
+ */
+
 __int64 __fastcall HalpDmaGetReservedRegionsForTranslateDomain(__int64 a1, char *a2)
 {
   __int64 v2; // rbx

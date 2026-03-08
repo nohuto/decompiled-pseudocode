@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpBindHiveToTrans @ 0x1406B5CAC
+ * Callers:
+ *     CmpTransSearchAddTrans @ 0x1406B570C (CmpTransSearchAddTrans.c)
+ *     CmpTransSearchAddLightWeightTrans @ 0x1406B5B04 (CmpTransSearchAddLightWeightTrans.c)
+ *     CmpTransAllocateTrans @ 0x14078C6A4 (CmpTransAllocateTrans.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall CmpBindHiveToTrans(__int64 a1, __int64 a2)
 {
   unsigned int v2; // r8d

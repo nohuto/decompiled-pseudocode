@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetResizeDCompositionSynchronizationObject@@YAHPEAUHWND__@@PEAPEAUCompositionObject@@@Z @ 0x1C00DFDF0
+ * Callers:
+ *     NtUserGetResizeDCompositionSynchronizationObject @ 0x1C00DFD20 (NtUserGetResizeDCompositionSynchronizationObject.c)
+ * Callees:
+ *     _GetTopLevelWindow @ 0x1C0035AF0 (_GetTopLevelWindow.c)
+ *     GreGetWindowResizeDCompositionSynchronizationObject @ 0x1C00DFF20 (GreGetWindowResizeDCompositionSynchronizationObject.c)
+ */
+
 __int64 __fastcall GetResizeDCompositionSynchronizationObject(HWND a1, struct CompositionObject **a2)
 {
   __int64 v4; // rax

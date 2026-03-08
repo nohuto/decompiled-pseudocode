@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SysMmCreateMdlPhysicalObject@@YAJPEAUSYSMM_ADAPTER@@_KT_LARGE_INTEGER@@22W4_MEMORY_CACHING_TYPE@@IQEAXW4SYSMM_PHYSICAL_OBJECT_OWNER@@PEAPEAUSYSMM_PHYSICAL_OBJECT@@PEAPEAUSYSMM_ADAPTER_OBJECT@@PEAPEAU_MDL@@@Z @ 0x1C0012FB4
+ * Callers:
+ *     DxgkAllocatePagesForMdlCB @ 0x1C0012E90 (DxgkAllocatePagesForMdlCB.c)
+ *     DxgkCreatePhysicalMemoryObjectCB @ 0x1C0052100 (DxgkCreatePhysicalMemoryObjectCB.c)
+ *     SysMmTestCreateMdlPhysicalObject @ 0x1C0071750 (SysMmTestCreateMdlPhysicalObject.c)
+ * Callees:
+ *     SmmCreatePhysicalObject @ 0x1C00130BC (SmmCreatePhysicalObject.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall SysMmCreateMdlPhysicalObject(
         struct SYSMM_ADAPTER *a1,
         SIZE_T a2,

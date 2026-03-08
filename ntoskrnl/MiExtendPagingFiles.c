@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiExtendPagingFiles @ 0x140A2FD7C
+ * Callers:
+ *     MiProcessDereferenceList @ 0x140622C74 (MiProcessDereferenceList.c)
+ * Callees:
+ *     MiIncreaseCommitLimits @ 0x140392864 (MiIncreaseCommitLimits.c)
+ *     MiUpdatePagingFileMinimum @ 0x14063977C (MiUpdatePagingFileMinimum.c)
+ *     MiAttemptPageFileExtension @ 0x140A2F9B4 (MiAttemptPageFileExtension.c)
+ */
+
 unsigned __int64 __fastcall MiExtendPagingFiles(__int64 a1)
 {
   __int64 v1; // rbp

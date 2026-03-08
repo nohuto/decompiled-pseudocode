@@ -1,3 +1,13 @@
+/*
+ * XREFs of PsRevertToUserPagePriorityThread @ 0x140368F54
+ * Callers:
+ *     SmSetThreadSystemPagePriority @ 0x1405CB70C (SmSetThreadSystemPagePriority.c)
+ *     MiValidateSectionCreate @ 0x14069F890 (MiValidateSectionCreate.c)
+ *     MiRelocateImage @ 0x1407F2760 (MiRelocateImage.c)
+ * Callees:
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ */
+
 char __fastcall PsRevertToUserPagePriorityThread(__int64 a1, int a2)
 {
   _QWORD *v2; // rax

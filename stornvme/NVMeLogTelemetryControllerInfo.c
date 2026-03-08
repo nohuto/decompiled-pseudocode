@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeLogTelemetryControllerInfo @ 0x1C0008CF4
+ * Callers:
+ *     NVMeHwPassiveInitialize @ 0x1C0008480 (NVMeHwPassiveInitialize.c)
+ * Callees:
+ *     NVMeGetPowerState @ 0x1C0007C94 (NVMeGetPowerState.c)
+ *     NVMeLogTelemetry @ 0x1C0008A04 (NVMeLogTelemetry.c)
+ */
+
 __int64 __fastcall NVMeLogTelemetryControllerInfo(__int64 a1)
 {
   unsigned __int16 *v1; // rbp

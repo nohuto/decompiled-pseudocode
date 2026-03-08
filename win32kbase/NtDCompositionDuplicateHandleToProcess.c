@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtDCompositionDuplicateHandleToProcess @ 0x1C02481F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserIsCurrentProcessDwm @ 0x1C00191C0 (UserIsCurrentProcessDwm.c)
+ *     ?ResolveHandle@CompositionObject@@SAJPEAXKDW4CompositionObjectType@@PEAPEAU1@@Z @ 0x1C00A7DF8 (-ResolveHandle@CompositionObject@@SAJPEAXKDW4CompositionObjectType@@PEAPEAU1@@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 __fastcall NtDCompositionDuplicateHandleToProcess(_OWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   void *v5; // r14

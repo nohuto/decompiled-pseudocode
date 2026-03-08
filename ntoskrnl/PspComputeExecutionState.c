@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspComputeExecutionState @ 0x1406FF3AC
+ * Callers:
+ *     PspSetJobFreezeCountCallback @ 0x140300810 (PspSetJobFreezeCountCallback.c)
+ *     PspApplyJobChainLimitsToProcess @ 0x1406FF27C (PspApplyJobChainLimitsToProcess.c)
+ *     PsSwapProcessWorkingSet @ 0x1409AB6DC (PsSwapProcessWorkingSet.c)
+ * Callees:
+ *     PspInitializeProcessExecutionState @ 0x14040BAC8 (PspInitializeProcessExecutionState.c)
+ */
+
 char PspComputeExecutionState()
 {
   _DWORD *v0; // rdx

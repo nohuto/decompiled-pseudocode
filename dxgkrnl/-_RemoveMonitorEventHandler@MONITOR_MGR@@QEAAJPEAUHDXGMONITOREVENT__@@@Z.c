@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?_RemoveMonitorEventHandler@MONITOR_MGR@@QEAAJPEAUHDXGMONITOREVENT__@@@Z @ 0x1C03C406C
+ * Callers:
+ *     MonitorUnregisterMonitorEventCallback @ 0x1C03C0CF8 (MonitorUnregisterMonitorEventCallback.c)
+ * Callees:
+ *     ??1MUTEX_LOCK@@QEAA@XZ @ 0x1C0004750 (--1MUTEX_LOCK@@QEAA@XZ.c)
+ *     ??0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z @ 0x1C00048E4 (--0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ */
+
 __int64 __fastcall MONITOR_MGR::_RemoveMonitorEventHandler(MONITOR_MGR *this, struct HDXGMONITOREVENT__ ***a2)
 {
   unsigned int v2; // edi

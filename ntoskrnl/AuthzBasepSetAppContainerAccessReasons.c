@@ -1,3 +1,11 @@
+/*
+ * XREFs of AuthzBasepSetAppContainerAccessReasons @ 0x14066CAFC
+ * Callers:
+ *     AuthzBasepAddAccessTypeList @ 0x140206EC4 (AuthzBasepAddAccessTypeList.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall AuthzBasepSetAppContainerAccessReasons(int a1, __int64 a2, int a3, __int64 a4)
 {
   __int64 v4; // r10

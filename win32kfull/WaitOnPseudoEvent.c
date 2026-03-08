@@ -1,3 +1,11 @@
+/*
+ * XREFs of WaitOnPseudoEvent @ 0x1C0095F60
+ * Callers:
+ *     xxxWaitForInputIdle @ 0x1C009604C (xxxWaitForInputIdle.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WaitOnPseudoEvent(PVOID *a1, int a2)
 {
   NTSTATUS v4; // ebx

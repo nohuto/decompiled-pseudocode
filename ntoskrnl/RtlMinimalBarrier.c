@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlMinimalBarrier @ 0x140B1092C
+ * Callers:
+ *     sub_140B0FCB0 @ 0x140B0FCB0 (sub_140B0FCB0.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RtlMinimalBarrier(volatile signed __int32 *a1, int a2)
 {
   signed __int32 v2; // eax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?vUnlinkAllEudcFromRFONTList@@YAXXZ @ 0x1C0125504
+ * Callers:
+ *     bDeleteAllFlEntry @ 0x1C0116094 (bDeleteAllFlEntry.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C011DDB0 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C0122F60 (-prfntActive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
+ *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C0123AD4 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
+ *     vMakeInactiveHelper @ 0x1C02A2F4C (vMakeInactiveHelper.c)
+ */
+
 void __fastcall vUnlinkAllEudcFromRFONTList(Gre::Base *a1)
 {
   struct Gre::Base::SESSION_GLOBALS *v1; // rbx

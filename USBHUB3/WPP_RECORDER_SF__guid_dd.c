@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_RECORDER_SF__guid_dd @ 0x1C0014D74
+ * Callers:
+ *     HUBPDO_ReEnumerationCallback @ 0x1C001D680 (HUBPDO_ReEnumerationCallback.c)
+ *     HUBPDO_IdleResiliencyCallback @ 0x1C001D8C0 (HUBPDO_IdleResiliencyCallback.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF__guid_dd(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4, int a5, __int64 a6, ...)
 {
   int v9; // [rsp+20h] [rbp-48h]

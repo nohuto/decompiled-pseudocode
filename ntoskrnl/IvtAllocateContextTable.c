@@ -1,3 +1,17 @@
+/*
+ * XREFs of IvtAllocateContextTable @ 0x140528DA0
+ * Callers:
+ *     IvtAllocateTranslationStructures @ 0x1405292FC (IvtAllocateTranslationStructures.c)
+ *     IvtSetDeviceSvmCapabilities @ 0x14052B2C0 (IvtSetDeviceSvmCapabilities.c)
+ * Callees:
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExtEnvAllocatePhysicalMemory @ 0x14051CE10 (ExtEnvAllocatePhysicalMemory.c)
+ *     ExtEnvFreePhysicalMemory @ 0x14051D17C (ExtEnvFreePhysicalMemory.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IvtAllocateContextTable(__int64 a1, unsigned __int64 a2)
 {
   char v2; // r9

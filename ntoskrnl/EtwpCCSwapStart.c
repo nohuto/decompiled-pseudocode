@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpCCSwapStart @ 0x14080E634
+ * Callers:
+ *     EtwpUpdateSelectedGroupMasks @ 0x14037F908 (EtwpUpdateSelectedGroupMasks.c)
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpCCSwapStart(unsigned int a1)
 {
   unsigned int v1; // ebp

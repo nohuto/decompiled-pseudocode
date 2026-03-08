@@ -1,3 +1,12 @@
+/*
+ * XREFs of MonitorGetMonitorDescriptorIDs @ 0x1C0201BDC
+ * Callers:
+ *     DpiPdoGetDeviceIdFromDescriptor @ 0x1C0201AEC (DpiPdoGetDeviceIdFromDescriptor.c)
+ * Callees:
+ *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAXI_N@Z @ 0x1C0009184 (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAXI_N@Z.c)
+ *     ?GetMonitorDescriptorPnpIds@MonitorDescriptorState@DxgMonitor@@QEBAJPEAU_DXGK_GENERIC_DESCRIPTOR@@@Z @ 0x1C020189C (-GetMonitorDescriptorPnpIds@MonitorDescriptorState@DxgMonitor@@QEBAJPEAU_DXGK_GENERIC_DESCRIPTOR.c)
+ */
+
 __int64 __fastcall MonitorGetMonitorDescriptorIDs(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,19 @@
+/*
+ * XREFs of PoHandleIrp @ 0x1402B986C
+ * Callers:
+ *     IopPoHandleIrp @ 0x1402B981C (IopPoHandleIrp.c)
+ * Callees:
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     PoDeviceReleaseIrp @ 0x1402B9A0C (PoDeviceReleaseIrp.c)
+ *     PoDeviceAcquireIrp @ 0x1402B9AA8 (PoDeviceAcquireIrp.c)
+ *     PopDispatchQuerySetIrp @ 0x1402B9B64 (PopDispatchQuerySetIrp.c)
+ *     PopEnableIrpWatchdog @ 0x1402BB290 (PopEnableIrpWatchdog.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopDiagTraceDIrpAfterSx @ 0x140590058 (PopDiagTraceDIrpAfterSx.c)
+ */
+
 char __fastcall PoHandleIrp(PIRP Irp, __int64 a2)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r13

@@ -1,3 +1,12 @@
+/*
+ * XREFs of AuthzBasepGetOperandStringCaseForEvaluation @ 0x140365AE0
+ * Callers:
+ *     AuthzBasepCompareUnicodeStringOperands @ 0x1403657AC (AuthzBasepCompareUnicodeStringOperands.c)
+ *     AuthzBasepCompareFQBNOperands @ 0x14066CC80 (AuthzBasepCompareFQBNOperands.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AuthzBasepGetOperandStringCaseForEvaluation(__int64 a1, char *a2)
 {
   char v2; // r8

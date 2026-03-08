@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Initialize@CInpLockGuard@@QEAAHXZ @ 0x1C0097318
+ * Callers:
+ *     ??0CTouchProcessor@@QEAA@XZ @ 0x1C0097188 (--0CTouchProcessor@@QEAA@XZ.c)
+ *     ?Initialize@DelayZonePalmRejection@@AEAAXXZ @ 0x1C00971FC (-Initialize@DelayZonePalmRejection@@AEAAXXZ.c)
+ *     ?Initialize@CFrameIdGenerator@@SAJXZ @ 0x1C0097AE8 (-Initialize@CFrameIdGenerator@@SAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CInpLockGuard::Initialize(CInpLockGuard *this)
 {
   struct _ERESOURCE *Pool2; // rax

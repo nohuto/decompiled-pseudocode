@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwQueryInformationResourceManagerWrapper @ 0x1405F2510
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwQueryInformationResourceManager @ 0x140414DD0 (ZwQueryInformationResourceManager.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifZwQueryInformationResourceManagerWrapper(
         HANDLE ResourceManagerHandle,
         RESOURCEMANAGER_INFORMATION_CLASS ResourceManagerInformationClass,

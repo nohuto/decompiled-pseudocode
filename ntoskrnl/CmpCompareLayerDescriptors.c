@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpCompareLayerDescriptors @ 0x14085CD20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpCompareLayerDescriptors(const void *a1, const void *a2)
 {
   __int64 result; // rax

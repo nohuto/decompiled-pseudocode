@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopBatteryInitialize @ 0x140992318
+ * Callers:
+ *     PopBatteryWorker @ 0x14086DD10 (PopBatteryWorker.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     IoSynchronousCallDriver @ 0x1402E9470 (IoSynchronousCallDriver.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopPrepareIoctl @ 0x140846A50 (PopPrepareIoctl.c)
+ */
+
 NTSTATUS __fastcall PopBatteryInitialize(__int64 a1)
 {
   unsigned int v1; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionIsUsermodeRIMAccessAllowed @ 0x1C01AD430
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C003C250 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ */
+
 __int64 EditionIsUsermodeRIMAccessAllowed()
 {
   __int64 v0; // rdx

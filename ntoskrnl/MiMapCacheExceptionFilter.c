@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiMapCacheExceptionFilter @ 0x140A2DBCC
+ * Callers:
+ *     MmCopyToCachedPage @ 0x14021DBE0 (MmCopyToCachedPage.c)
+ *     MiMakePageAvoidRead @ 0x140272670 (MiMakePageAvoidRead.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiMapCacheExceptionFilter(int *a1, int **a2)
 {
   int *v2; // r8

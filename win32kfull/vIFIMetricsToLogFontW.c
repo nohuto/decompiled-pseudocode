@@ -1,3 +1,11 @@
+/*
+ * XREFs of vIFIMetricsToLogFontW @ 0x1C02B5CC4
+ * Callers:
+ *     GetFontResourceInfoInternalW @ 0x1C0305498 (GetFontResourceInfoInternalW.c)
+ * Callees:
+ *     ?lfOrientation@IFIOBJ@@QEAAJXZ @ 0x1C0115CEC (-lfOrientation@IFIOBJ@@QEAAJXZ.c)
+ */
+
 errno_t __fastcall vIFIMetricsToLogFontW(__int64 a1, __int64 a2)
 {
   int v4; // eax

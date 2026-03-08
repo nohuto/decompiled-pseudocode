@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpValidateKeyTrust @ 0x14069ED54
+ * Callers:
+ *     RtlpCallQueryRegistryRoutine @ 0x14069B8C4 (RtlpCallQueryRegistryRoutine.c)
+ * Callees:
+ *     ZwQueryKey @ 0x1404125D0 (ZwQueryKey.c)
+ */
+
 __int64 __fastcall RtlpValidateKeyTrust(void *a1, __int16 a2)
 {
   unsigned int v2; // ebx

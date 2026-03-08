@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagTraceBsdWriteTime @ 0x1402B9E34
+ * Callers:
+ *     PopWriteBsdPoInfo @ 0x1402B9F3C (PopWriteBsdPoInfo.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PopDiagTraceBsdWriteTime(__int64 a1, int a2, int a3)
 {
   __int64 v3; // r9

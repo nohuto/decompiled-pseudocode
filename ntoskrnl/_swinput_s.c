@@ -1,3 +1,13 @@
+/*
+ * XREFs of _swinput_s @ 0x1403DCB80
+ * Callers:
+ *     _snwscanf_s @ 0x1403D9280 (_snwscanf_s.c)
+ *     swscanf_s @ 0x1403DA110 (swscanf_s.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     _winput_s @ 0x1403DCC54 (_winput_s.c)
+ */
+
 __int64 __fastcall swinput_s(char *a1, unsigned __int64 a2, __int64 a3)
 {
   FILE File; // [rsp+30h] [rbp-38h] BYREF

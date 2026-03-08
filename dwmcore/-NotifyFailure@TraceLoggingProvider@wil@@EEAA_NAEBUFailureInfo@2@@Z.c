@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NotifyFailure@TraceLoggingProvider@wil@@EEAA_NAEBUFailureInfo@2@@Z @ 0x18019B300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall wil::TraceLoggingProvider::NotifyFailure(
         wil::TraceLoggingProvider *this,
         const struct wil::FailureInfo *a2)

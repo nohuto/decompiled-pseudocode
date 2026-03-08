@@ -1,3 +1,11 @@
+/*
+ * XREFs of wcsncpy @ 0x1403D5F10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 wchar_t *__cdecl wcsncpy(wchar_t *Dest, const wchar_t *Source, size_t Count)
 {
   wchar_t *v3; // r9

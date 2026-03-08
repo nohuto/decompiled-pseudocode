@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifIoOpenDeviceInterfaceRegistryKeyWrapper @ 0x1405DDE90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     IoOpenDeviceInterfaceRegistryKey @ 0x1408478E0 (IoOpenDeviceInterfaceRegistryKey.c)
+ */
+
 NTSTATUS __fastcall DifIoOpenDeviceInterfaceRegistryKeyWrapper(
         PUNICODE_STRING SymbolicLinkName,
         ACCESS_MASK DesiredAccess,

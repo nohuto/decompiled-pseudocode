@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopDiagTracePowerButtonBugcheck @ 0x14098D8D8
+ * Callers:
+ *     PopPowerButtonWorkCallback @ 0x140596C60 (PopPowerButtonWorkCallback.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopRecordLongPowerButtonPressDetected @ 0x14085A9C0 (PopRecordLongPowerButtonPressDetected.c)
+ */
+
 void __fastcall PopDiagTracePowerButtonBugcheck(int a1)
 {
   unsigned __int8 *v1; // rdx

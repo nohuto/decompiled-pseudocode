@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiMakePartitionMemoryBlock @ 0x140A4242C
+ * Callers:
+ *     MiClearPartitionPageBitMap @ 0x1406569F0 (MiClearPartitionPageBitMap.c)
+ *     MiDeletePartitionResources @ 0x140656EBC (MiDeletePartitionResources.c)
+ *     MiInsertPartitionPages @ 0x140657EB8 (MiInsertPartitionPages.c)
+ *     MiPartitionDeleteMemoryNode @ 0x140658BB8 (MiPartitionDeleteMemoryNode.c)
+ *     MiGetPhysicalMemoryRanges @ 0x140836318 (MiGetPhysicalMemoryRanges.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiDereferencePageRunsEx @ 0x1402EBA28 (MiDereferencePageRunsEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiActOnPartitionNodePages @ 0x140655AB0 (MiActOnPartitionNodePages.c)
+ *     MiUpdatePartitionMemory @ 0x1406597F8 (MiUpdatePartitionMemory.c)
+ *     MiConvertInitialMemoryBlock @ 0x14080916C (MiConvertInitialMemoryBlock.c)
+ *     MiCreateNodeLists @ 0x140809274 (MiCreateNodeLists.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiMakePartitionMemoryBlock(__int64 a1)
 {
   _QWORD *v2; // rax

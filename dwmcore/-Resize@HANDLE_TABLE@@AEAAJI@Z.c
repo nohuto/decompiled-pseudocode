@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Resize@HANDLE_TABLE@@AEAAJI@Z @ 0x1800274EC
+ * Callers:
+ *     ?ResizeToFit@HANDLE_TABLE@@QEAAJI@Z @ 0x180027498 (-ResizeToFit@HANDLE_TABLE@@QEAAJI@Z.c)
+ *     ?GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z @ 0x1800E5158 (-GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z.c)
+ * Callees:
+ *     ?Realloc@DefaultHeap@@SAPEAXPEAX_K@Z @ 0x180027640 (-Realloc@DefaultHeap@@SAPEAXPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ */
+
 __int64 __fastcall HANDLE_TABLE::Resize(HANDLE_TABLE *this, unsigned int a2)
 {
   HANDLE_TABLE *v2; // rsi

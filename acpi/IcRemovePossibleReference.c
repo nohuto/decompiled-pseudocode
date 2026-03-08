@@ -1,3 +1,13 @@
+/*
+ * XREFs of IcRemovePossibleReference @ 0x1C009F660
+ * Callers:
+ *     IrqArbAddAllocation @ 0x1C009C4B0 (IrqArbAddAllocation.c)
+ *     IrqArbBacktrackAllocation @ 0x1C009CE20 (IrqArbBacktrackAllocation.c)
+ *     IrqArbpUnreferenceArbitrationList @ 0x1C009E890 (IrqArbpUnreferenceArbitrationList.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall IcRemovePossibleReference(unsigned int a1, char a2)
 {
   __int64 i; // r8

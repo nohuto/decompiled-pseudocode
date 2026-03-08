@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetFinished@FxEventQueue@@QEAAEPEAUFxCREvent@@@Z @ 0x1C0081528
+ * Callers:
+ *     ?CleanupStateMachines@FxPkgPnp@@QEAAXE@Z @ 0x1C0071BD8 (-CleanupStateMachines@FxPkgPnp@@QEAAXE@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall FxEventQueue::SetFinished(FxEventQueue *this, FxCREvent *Event)
 {
   KIRQL v4; // al

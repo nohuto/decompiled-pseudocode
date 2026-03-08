@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiDevCfgGetDriverConfigurationKeyScope @ 0x14055F9C8
+ * Callers:
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1408766D8 (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgQueryIncludedDriverNode @ 0x14095C298 (PiDevCfgQueryIncludedDriverNode.c)
+ * Callees:
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ */
+
 __int64 __fastcall PiDevCfgGetDriverConfigurationKeyScope(wchar_t *Str2)
 {
   unsigned int v1; // ebx

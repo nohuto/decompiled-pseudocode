@@ -1,3 +1,12 @@
+/*
+ * XREFs of __isa_available_init @ 0x18010F02C
+ * Callers:
+ *     __scrt_dllmain_after_initialize_c @ 0x18010E5D0 (__scrt_dllmain_after_initialize_c.c)
+ *     __scrt_initialize_crt @ 0x18010E738 (__scrt_initialize_crt.c)
+ * Callees:
+ *     <none>
+ */
+
 int __cdecl _isa_available_init()
 {
   int v5; // r11d

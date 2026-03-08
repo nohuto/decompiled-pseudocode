@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiAttachProcess @ 0x14030E080
+ * Callers:
+ *     KeAttachProcess @ 0x1402F8D80 (KeAttachProcess.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ * Callees:
+ *     KiInSwapSingleProcess @ 0x1402C0868 (KiInSwapSingleProcess.c)
+ *     KiSetAddressPolicy @ 0x14030E890 (KiSetAddressPolicy.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     HvlSwitchVirtualAddressSpace @ 0x140547490 (HvlSwitchVirtualAddressSpace.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall KiAttachProcess(ULONG_PTR a1, __int64 a2, __int64 a3, char a4, __int64 a5)
 {
   __int64 v5; // rsi

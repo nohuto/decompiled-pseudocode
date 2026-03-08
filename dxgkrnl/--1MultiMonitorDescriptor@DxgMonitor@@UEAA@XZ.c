@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1MultiMonitorDescriptor@DxgMonitor@@UEAA@XZ @ 0x1C006C104
+ * Callers:
+ *     ??_GMultiMonitorDescriptor@DxgMonitor@@UEAAPEAXI@Z @ 0x1C006C160 (--_GMultiMonitorDescriptor@DxgMonitor@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall DxgMonitor::MultiMonitorDescriptor::~MultiMonitorDescriptor(DxgMonitor::MultiMonitorDescriptor *this)
 {
   void (__fastcall ***v2)(_QWORD, __int64); // rcx

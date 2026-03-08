@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhPdoCheckBootDeviceReady @ 0x1C0054940
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhSyncSendCommand @ 0x1C0016EE0 (UsbhSyncSendCommand.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ */
+
 char __fastcall UsbhPdoCheckBootDeviceReady(__int64 a1)
 {
   char v1; // di

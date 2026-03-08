@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??_GCSizeResource@@UEAAPEAXI@Z @ 0x18001BF00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ??1CResource@@MEAA@XZ @ 0x18009A0B0 (--1CResource@@MEAA@XZ.c)
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801046B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ */
+
 CSizeResource *__fastcall CSizeResource::`scalar deleting destructor'(CSizeResource *this, char a2)
 {
   CResource::~CResource(this);

@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpInitializeDeferredErrorVector @ 0x140378988
+ * Callers:
+ *     HalpInterruptInitializeLocalUnit @ 0x1403786F0 (HalpInterruptInitializeLocalUnit.c)
+ * Callees:
+ *     HalpInterruptFindLines @ 0x14028EE80 (HalpInterruptFindLines.c)
+ *     HalpInterruptGetPriority @ 0x1403792F0 (HalpInterruptGetPriority.c)
+ *     HalpInterruptSetLineStateInternal @ 0x1403796D0 (HalpInterruptSetLineStateInternal.c)
+ */
+
 __int64 __fastcall HalpInitializeDeferredErrorVector(__int64 a1)
 {
   bool v2; // zf

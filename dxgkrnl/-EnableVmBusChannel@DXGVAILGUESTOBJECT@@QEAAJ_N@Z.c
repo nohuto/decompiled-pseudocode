@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EnableVmBusChannel@DXGVAILGUESTOBJECT@@QEAAJ_N@Z @ 0x1C0059D80
+ * Callers:
+ *     ?VailEnsureConnection@DXGSESSIONDATA@@QEAAJXZ @ 0x1C035DA98 (-VailEnsureConnection@DXGSESSIONDATA@@QEAAJXZ.c)
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ?EnableVmBusChannel@@YAJPEAVDXGVMBUSCHANNEL@@_N@Z @ 0x1C035D334 (-EnableVmBusChannel@@YAJPEAVDXGVMBUSCHANNEL@@_N@Z.c)
+ */
+
 __int64 __fastcall DXGVAILGUESTOBJECT::EnableVmBusChannel(struct _KTHREAD **this)
 {
   int v2; // edx

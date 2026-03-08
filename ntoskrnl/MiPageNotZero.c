@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiPageNotZero @ 0x14064B500
+ * Callers:
+ *     MiArePageContentsZero @ 0x14064AE74 (MiArePageContentsZero.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KeZeroPages @ 0x14041BBF0 (KeZeroPages.c)
+ */
+
 __int64 __fastcall MiPageNotZero(ULONG_PTR BugCheckParameter1, ULONG_PTR BugCheckParameter2)
 {
   __m128i *v3; // rbp

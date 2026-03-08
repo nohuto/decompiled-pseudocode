@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlRemovePropertyStore @ 0x1405A8760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     bsearch @ 0x1403D4280 (bsearch.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpAcquirePropStoreLockExclusive @ 0x1405A8890 (RtlpAcquirePropStoreLockExclusive.c)
+ */
+
 __int64 __fastcall RtlRemovePropertyStore(void *Key, _QWORD *a2)
 {
   unsigned __int64 v4; // rdi

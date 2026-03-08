@@ -1,3 +1,22 @@
+/*
+ * XREFs of PopFxRegisterDevice @ 0x140836FBC
+ * Callers:
+ *     PoFxRegisterPrimaryDevice @ 0x140836980 (PoFxRegisterPrimaryDevice.c)
+ *     PoFxRegisterDevice @ 0x140836D70 (PoFxRegisterDevice.c)
+ *     PoFxEnableDStateReporting @ 0x140981710 (PoFxEnableDStateReporting.c)
+ * Callees:
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140240954 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x140240A5C (IoGetAttachedDeviceReferenceWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     PopFxInsertDevice @ 0x140393B3C (PopFxInsertDevice.c)
+ *     PopFxAssignDeviceToDevNode @ 0x140393BD4 (PopFxAssignDeviceToDevNode.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ *     PopFxRegisterDeviceWorker @ 0x14083714C (PopFxRegisterDeviceWorker.c)
+ *     PopFxTraceDeviceRegistration @ 0x140837C28 (PopFxTraceDeviceRegistration.c)
+ *     PopGenerateDeviceFriendlyName @ 0x140847DF4 (PopGenerateDeviceFriendlyName.c)
+ */
+
 __int64 __fastcall PopFxRegisterDevice(_QWORD *Object, int a2, int a3, int a4, __int64 a5, __int64 a6, _QWORD *a7)
 {
   _QWORD *DeviceAttachmentBaseRefWithTag; // rbp

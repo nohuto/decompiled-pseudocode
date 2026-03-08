@@ -1,3 +1,16 @@
+/*
+ * XREFs of BgpFwLibraryDestroy @ 0x140AEBA88
+ * Callers:
+ *     BgpFwLibraryInitialize @ 0x140AEAC78 (BgpFwLibraryInitialize.c)
+ *     BgLibraryDestroy @ 0x140AEE2D8 (BgLibraryDestroy.c)
+ * Callees:
+ *     BgpFwFreeMemory @ 0x140382650 (BgpFwFreeMemory.c)
+ *     BgpFwLibraryDisable @ 0x140AE91EC (BgpFwLibraryDisable.c)
+ *     BgpFwInitializeReservePool @ 0x140AEB5A8 (BgpFwInitializeReservePool.c)
+ *     ResFwBackgroundTransition @ 0x140AEBAF8 (ResFwBackgroundTransition.c)
+ *     BgpFoDestroy @ 0x140AEBCA8 (BgpFoDestroy.c)
+ */
+
 __int64 BgpFwLibraryDestroy()
 {
   BgpFoDestroy(0LL);

@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhRemovePdoWakeIrp @ 0x1C0022610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 void __fastcall UsbhRemovePdoWakeIrp(PIO_CSQ Csq, __int64 Irp)
 {
   __int64 v2; // r11

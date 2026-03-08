@@ -1,3 +1,12 @@
+/*
+ * XREFs of DriverUnload @ 0x1C0017570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxLibraryCleanup@@YAXXZ @ 0x1C0016C00 (-FxLibraryCleanup@@YAXXZ.c)
+ *     ?WdfDeleteKmdfVersionFromRegistry@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C0016D34 (-WdfDeleteKmdfVersionFromRegistry@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ */
+
 void __fastcall DriverUnload(_DRIVER_OBJECT *DriverObject)
 {
   if ( WdfLdrDbgPrintOn )

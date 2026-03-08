@@ -1,3 +1,11 @@
+/*
+ * XREFs of HaliRunPlatformDebugTriggers @ 0x140525A20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HaliRunPlatformDebugTriggers(char a1)
 {
   __int64 result; // rax

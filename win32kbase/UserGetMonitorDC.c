@@ -1,3 +1,18 @@
+/*
+ * XREFs of UserGetMonitorDC @ 0x1C003BFDC
+ * Callers:
+ *     hdcOpenDCW @ 0x1C003C8E0 (hdcOpenDCW.c)
+ * Callees:
+ *     MonitorFromHdev @ 0x1C003C08C (MonitorFromHdev.c)
+ *     LookupDC @ 0x1C003C0C0 (LookupDC.c)
+ *     GetMonitorDC @ 0x1C003D41C (GetMonitorDC.c)
+ *     _ReleaseDC @ 0x1C003EAA0 (_ReleaseDC.c)
+ *     _GetDCEx @ 0x1C003F6E0 (_GetDCEx.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C004FE50 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     GreLockVisRgn @ 0x1C00794E0 (GreLockVisRgn.c)
+ *     GreUnlockVisRgn @ 0x1C00795D0 (GreUnlockVisRgn.c)
+ */
+
 __int64 __fastcall UserGetMonitorDC(__int64 a1)
 {
   __int64 MonitorDC; // rbx

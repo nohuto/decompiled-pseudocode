@@ -1,3 +1,18 @@
+/*
+ * XREFs of rimHidP_GetUsageValue @ 0x1C00EF9AA
+ * Callers:
+ *     RIMExtractPointerPropertyValues @ 0x1C01B5500 (RIMExtractPointerPropertyValues.c)
+ *     RIMGetMaxCountFeatureDetails @ 0x1C01B69A4 (RIMGetMaxCountFeatureDetails.c)
+ *     RIMIDE_CreateGenericHidDevice @ 0x1C01C6AB0 (RIMIDE_CreateGenericHidDevice.c)
+ *     rimExtractTransducerUsages @ 0x1C01D4BB4 (rimExtractTransducerUsages.c)
+ *     rimExtractParallelFrameInfoAndAbandonIncompleteFrame @ 0x1C01D724C (rimExtractParallelFrameInfoAndAbandonIncompleteFrame.c)
+ *     rimExtractPointerDeviceUsages @ 0x1C01D78A0 (rimExtractPointerDeviceUsages.c)
+ *     rimExtractScantime @ 0x1C01D7F80 (rimExtractScantime.c)
+ *     rimFindOrCreateActiveContact @ 0x1C01D8680 (rimFindOrCreateActiveContact.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall rimHidP_GetUsageValue(
         __int64 a1,
         __int64 a2,

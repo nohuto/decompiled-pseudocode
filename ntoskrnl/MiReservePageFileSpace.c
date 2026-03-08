@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiReservePageFileSpace @ 0x14032E800
+ * Callers:
+ *     MiCheckReservePageFileSpace @ 0x14032D670 (MiCheckReservePageFileSpace.c)
+ *     MiFillNoReservationCluster @ 0x140637058 (MiFillNoReservationCluster.c)
+ * Callees:
+ *     MiFindFreePageFileSpace @ 0x140209F7C (MiFindFreePageFileSpace.c)
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14029DAB8 (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     MiReservePageFileSpaceForPage @ 0x14032ECD0 (MiReservePageFileSpaceForPage.c)
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiLockVadTree @ 0x1403334B4 (MiLockVadTree.c)
+ *     MiGetPageFileSectionForReservation @ 0x140638834 (MiGetPageFileSectionForReservation.c)
+ *     MiReleasePageFileSectionInfo @ 0x140639168 (MiReleasePageFileSectionInfo.c)
+ */
+
 void __fastcall MiReservePageFileSpace(__int64 a1, __int64 a2, __int64 a3)
 {
   signed __int32 v3; // esi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of DeferSysPeekMsg @ 0x1C0005F80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?UpdateISODState@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z @ 0x1C000647C (-UpdateISODState@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qiqdd @ 0x1C00064EC (WPP_RECORDER_AND_TRACE_SF_qiqdd.c)
+ *     ?_BeginKeyboardEventProcessingByInputService@KeyboardInputTelemetry@@AEAAXI@Z @ 0x1C00066A0 (-_BeginKeyboardEventProcessingByInputService@KeyboardInputTelemetry@@AEAAXI@Z.c)
+ */
+
 void __fastcall DeferSysPeekMsg(__int64 a1, int a2)
 {
   char v2; // si

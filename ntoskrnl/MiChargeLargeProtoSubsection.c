@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiChargeLargeProtoSubsection @ 0x140A30984
+ * Callers:
+ *     MiCreatePrototypePtes @ 0x14036862C (MiCreatePrototypePtes.c)
+ *     MiDecrementLargeSubsections @ 0x14063A2E8 (MiDecrementLargeSubsections.c)
+ *     MiEnableLargeSubsection @ 0x14063AA00 (MiEnableLargeSubsection.c)
+ * Callees:
+ *     MiReturnResident @ 0x1402A52C8 (MiReturnResident.c)
+ *     MiChargeResident @ 0x140348DE8 (MiChargeResident.c)
+ */
+
 __int64 __fastcall MiChargeLargeProtoSubsection(__int64 a1, int a2)
 {
   bool v2; // zf

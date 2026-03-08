@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopFxActivateComponentDependencies @ 0x140306004
+ * Callers:
+ *     PopFxActivateComponentWorker @ 0x140305EB4 (PopFxActivateComponentWorker.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxNextParentRelationSafe @ 0x1402E4C58 (PopFxNextParentRelationSafe.c)
+ *     PopFxActivateComponent @ 0x140305D50 (PopFxActivateComponent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 bool __fastcall PopFxActivateComponentDependencies(__int64 a1, unsigned __int8 a2)
 {
   __int64 v2; // r13

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CiLogThreadLeave @ 0x1C00044D4
+ * Callers:
+ *     CiThreadCleanup @ 0x1C000A4B0 (CiThreadCleanup.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003050 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall CiLogThreadLeave(__int64 a1)
 {
   HANDLE ThreadId; // [rsp+30h] [rbp-38h] BYREF

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmEventHgsCoresUnparkedCount @ 0x14045AD2E
+ * Callers:
+ *     PpmParkCalculateUnparkCount @ 0x1402EBC70 (PpmParkCalculateUnparkCount.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PpmEventHgsCoresUnparkedCount(__int64 a1)
 {
   REGHANDLE v2; // rdi

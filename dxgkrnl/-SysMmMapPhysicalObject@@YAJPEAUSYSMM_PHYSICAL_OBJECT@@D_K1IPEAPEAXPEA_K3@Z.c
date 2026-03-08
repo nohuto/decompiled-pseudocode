@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?SysMmMapPhysicalObject@@YAJPEAUSYSMM_PHYSICAL_OBJECT@@D_K1IPEAPEAXPEA_K3@Z @ 0x1C0070E84
+ * Callers:
+ *     DxgkMapPhysicalMemoryCB @ 0x1C0052420 (DxgkMapPhysicalMemoryCB.c)
+ *     SysMmTestMapPhysicalObject @ 0x1C00719B0 (SysMmTestMapPhysicalObject.c)
+ *     ?SmmLockPagedObject@@YAJPEAUSYSMM_PHYSICAL_OBJECT@@PEAUSYSMM_ADAPTER_OBJECT@@@Z @ 0x1C03D2E8C (-SmmLockPagedObject@@YAJPEAUSYSMM_PHYSICAL_OBJECT@@PEAUSYSMM_ADAPTER_OBJECT@@@Z.c)
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     SmmMapContiguousMemory @ 0x1C00706A4 (SmmMapContiguousMemory.c)
+ *     SmmMapIoSpace @ 0x1C0070778 (SmmMapIoSpace.c)
+ *     SmmMapMdl @ 0x1C007087C (SmmMapMdl.c)
+ *     SmmValidateParameters_0 @ 0x1C0070CA4 (SmmValidateParameters_0.c)
+ *     McTemplateK0pqxxpxx_EtwWriteTransfer @ 0x1C00712D4 (McTemplateK0pqxxpxx_EtwWriteTransfer.c)
+ *     SmmMapSection @ 0x1C03D2B4C (SmmMapSection.c)
+ *     SmmMapVirtualMemory @ 0x1C03D2D34 (SmmMapVirtualMemory.c)
+ */
+
 __int64 __fastcall SysMmMapPhysicalObject(
         struct SYSMM_PHYSICAL_OBJECT *a1,
         char a2,

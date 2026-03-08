@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpGetCorrectKcbLockOrder @ 0x14074BF78
+ * Callers:
+ *     CmpIsKcbLockAllowed @ 0x14074BF34 (CmpIsKcbLockAllowed.c)
+ *     CmpLockTwoKcbsShared @ 0x1407ACF00 (CmpLockTwoKcbsShared.c)
+ *     CmpUnlockTwoKcbs @ 0x1407ACF58 (CmpUnlockTwoKcbs.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall CmpGetCorrectKcbLockOrder(
         unsigned __int64 a1,
         unsigned __int64 a2,

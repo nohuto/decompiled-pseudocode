@@ -1,3 +1,11 @@
+/*
+ * XREFs of _dynamic_initializer_for__CCompositionSpotLight::sc_OuterConeIntensity__ @ 0x180002420
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 dynamic_initializer_for__CCompositionSpotLight::sc_OuterConeIntensity__()
 {
   __int64 result; // rax

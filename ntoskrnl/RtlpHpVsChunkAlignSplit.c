@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpHpVsChunkAlignSplit @ 0x140248F60
+ * Callers:
+ *     RtlpHpVsChunkFree @ 0x140249D70 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsContextAddSubsegment @ 0x1402E2240 (RtlpHpVsContextAddSubsegment.c)
+ *     RtlpHpFreeHeap @ 0x140313CC0 (RtlpHpFreeHeap.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall RtlpHpVsChunkAlignSplit(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v4; // eax

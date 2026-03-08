@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopDiagTraceTripPointExceeded @ 0x14098EEE4
+ * Callers:
+ *     PopDiagTraceUsermodeTripPointExceeded @ 0x14098F160 (PopDiagTraceUsermodeTripPointExceeded.c)
+ *     PopDiagTraceZoneCriticalTripPointExceeded @ 0x14098F1D8 (PopDiagTraceZoneCriticalTripPointExceeded.c)
+ *     PopDiagTraceZoneS4TripPointExceeded @ 0x14098F2CC (PopDiagTraceZoneS4TripPointExceeded.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PopDiagTraceTripPointExceeded(unsigned __int16 a1, __int64 a2, int a3, const EVENT_DESCRIPTOR *a4)
 {
   _UNKNOWN **v4; // rax

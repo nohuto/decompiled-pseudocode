@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpComputeRegEntryEnableInfo @ 0x1406934E8
+ * Callers:
+ *     EtwpCalculateUpdateNotification @ 0x140690658 (EtwpCalculateUpdateNotification.c)
+ *     EtwpRegisterKMProvider @ 0x140690D64 (EtwpRegisterKMProvider.c)
+ *     EtwpAddRegEntryToGroup @ 0x140693640 (EtwpAddRegEntryToGroup.c)
+ *     EtwpRegisterUMProvider @ 0x140694950 (EtwpRegisterUMProvider.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x140695580 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     SendCaptureStateNotificationsWorker @ 0x1409E9FE0 (SendCaptureStateNotificationsWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwpComputeRegEntryEnableInfo(__int64 a1, __int64 a2)
 {
   __int64 v2; // r10

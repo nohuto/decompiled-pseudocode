@@ -1,3 +1,11 @@
+/*
+ * XREFs of AuxKlibInitialize @ 0x1C00B2204
+ * Callers:
+ *     FxpGetImageBase @ 0x1C0088FA8 (FxpGetImageBase.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AuxKlibInitialize()
 {
   unsigned int v0; // ebx

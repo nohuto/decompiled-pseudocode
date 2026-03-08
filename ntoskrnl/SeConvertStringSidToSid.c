@@ -1,3 +1,15 @@
+/*
+ * XREFs of SeConvertStringSidToSid @ 0x1402C0AD0
+ * Callers:
+ *     ExWnfHiveUnloaded @ 0x14074B598 (ExWnfHiveUnloaded.c)
+ * Callees:
+ *     SddlpFree @ 0x1406800D8 (SddlpFree.c)
+ *     LookupSidInTable @ 0x1406999A0 (LookupSidInTable.c)
+ *     RtlCopySid @ 0x1406D4890 (RtlCopySid.c)
+ *     LocalpConvertStringSidToSid @ 0x14074CCC8 (LocalpConvertStringSidToSid.c)
+ *     SddlpAlloc @ 0x1407507C8 (SddlpAlloc.c)
+ */
+
 __int64 __fastcall SeConvertStringSidToSid(wchar_t *Str1, __int64 *a2)
 {
   NTSTATUS v4; // ebx

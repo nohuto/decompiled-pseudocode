@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopGetLegacyPowerRequestFlags @ 0x1402B8BEC
+ * Callers:
+ *     PoRegisterSystemState @ 0x14058B800 (PoRegisterSystemState.c)
+ *     NtSetThreadExecutionState @ 0x14073A9D0 (NtSetThreadExecutionState.c)
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall PopGetLegacyPowerRequestFlags(_DWORD *a1, int a2, int *a3)
 {
   int result; // eax

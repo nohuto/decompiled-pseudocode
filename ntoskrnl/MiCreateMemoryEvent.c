@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiCreateMemoryEvent @ 0x140809804
+ * Callers:
+ *     MiInitializeMemoryEvents @ 0x1408096D8 (MiInitializeMemoryEvents.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ZwCreateEvent @ 0x140412C10 (ZwCreateEvent.c)
+ *     ObCreateSymbolicLink @ 0x140740FE8 (ObCreateSymbolicLink.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ */
+
 __int64 __fastcall MiCreateMemoryEvent(UNICODE_STRING *a1, int a2, void *a3, void *a4, int a5, _QWORD *a6, HANDLE *a7)
 {
   UNICODE_STRING v7; // xmm0

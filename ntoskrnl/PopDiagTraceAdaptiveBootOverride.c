@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagTraceAdaptiveBootOverride @ 0x140B93184
+ * Callers:
+ *     PopAdaptiveInitializeBootContext @ 0x140B5DFE8 (PopAdaptiveInitializeBootContext.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PopDiagTraceAdaptiveBootOverride(int a1, char a2)
 {
   REGHANDLE v3; // rbx

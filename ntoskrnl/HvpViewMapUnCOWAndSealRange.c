@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvpViewMapUnCOWAndSealRange @ 0x140761148
+ * Callers:
+ *     HvUnCOWReconciledPages @ 0x1402D7168 (HvUnCOWReconciledPages.c)
+ * Callees:
+ *     HvpViewMapMakeViewRangeUnCOWByCaller @ 0x1407611FC (HvpViewMapMakeViewRangeUnCOWByCaller.c)
+ */
+
 void __fastcall HvpViewMapUnCOWAndSealRange(__int64 a1, int a2, unsigned int a3)
 {
   signed __int64 v3; // r10

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KdChangeOption @ 0x1405650A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall KdChangeOption(
         KD_OPTION Option,
         ULONG InBufferBytes,

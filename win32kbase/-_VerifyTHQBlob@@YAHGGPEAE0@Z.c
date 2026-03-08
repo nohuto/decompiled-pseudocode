@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?_VerifyTHQBlob@@YAHGGPEAE0@Z @ 0x1C01E170C
+ * Callers:
+ *     ?CoreSignatureVerify@@YAHGGPEAEPEAK@Z @ 0x1C01E0588 (-CoreSignatureVerify@@YAHGGPEAEPEAK@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C000F0BC (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?_HashTHQAText@@YAHPEAEKPEAPEAEPEAK@Z @ 0x1C01E0DCC (-_HashTHQAText@@YAHPEAEKPEAPEAEPEAK@Z.c)
+ */
+
 __int64 __fastcall _VerifyTHQBlob(__int16 a1, __int64 a2, unsigned __int8 *a3, unsigned __int8 *a4)
 {
   unsigned int v4; // r14d

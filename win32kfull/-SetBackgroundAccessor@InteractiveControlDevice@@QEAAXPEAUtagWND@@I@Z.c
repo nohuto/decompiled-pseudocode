@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SetBackgroundAccessor@InteractiveControlDevice@@QEAAXPEAUtagWND@@I@Z @ 0x1C0248DD8
+ * Callers:
+ *     ?AcquireDeviceBackgroundAccess@InteractiveControlManager@@QEAAJKIIPEAUtagWND@@@Z @ 0x1C0079660 (-AcquireDeviceBackgroundAccess@InteractiveControlManager@@QEAAJKIIPEAUtagWND@@@Z.c)
+ *     ?ClearBackgroundAccessors@InteractiveControlManager@@QEAAJK@Z @ 0x1C02431E0 (-ClearBackgroundAccessors@InteractiveControlManager@@QEAAJK@Z.c)
+ *     ?OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0243C58 (-OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?Deinitialize@InteractiveControlDevice@@QEAAXXZ @ 0x1C0247EA8 (-Deinitialize@InteractiveControlDevice@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall InteractiveControlDevice::SetBackgroundAccessor(
         InteractiveControlDevice *this,
         struct tagWND *a2,

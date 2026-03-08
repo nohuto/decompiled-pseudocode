@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpCompareInIndex @ 0x1407AE250
+ * Callers:
+ *     CmpAddToLeaf @ 0x1407A4520 (CmpAddToLeaf.c)
+ *     CmpFindSubKeyInRoot @ 0x1407ADE40 (CmpFindSubKeyInRoot.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1407AE0D0 (CmpFindSubKeyInLeafWithStatus.c)
+ * Callees:
+ *     NLS_UPCASE @ 0x140267AD0 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     CmpDoCompareKeyName @ 0x1407AE420 (CmpDoCompareKeyName.c)
+ */
+
 __int64 __fastcall CmpCompareInIndex(
         __int64 a1,
         unsigned __int16 *a2,

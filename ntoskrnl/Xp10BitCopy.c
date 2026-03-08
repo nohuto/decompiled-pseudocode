@@ -1,3 +1,11 @@
+/*
+ * XREFs of Xp10BitCopy @ 0x1409C1198
+ * Callers:
+ *     Xp10ScatteredCopyBits @ 0x1409C52B8 (Xp10ScatteredCopyBits.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 void __fastcall Xp10BitCopy(char *a1, int a2, unsigned __int8 *a3, unsigned int a4, unsigned __int64 a5)
 {
   unsigned __int64 v5; // rbp

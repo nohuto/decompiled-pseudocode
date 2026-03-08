@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlCopyContext @ 0x1407EE220
+ * Callers:
+ *     PspGetSetContextInternal @ 0x1406EA840 (PspGetSetContextInternal.c)
+ *     PspWow64GetContextThread @ 0x14077BF00 (PspWow64GetContextThread.c)
+ *     PspWow64SetContextThread @ 0x14077C1CC (PspWow64SetContextThread.c)
+ *     PspInitializeThunkContext @ 0x1407EDF4C (PspInitializeThunkContext.c)
+ *     PspSetContextState @ 0x1409B51B8 (PspSetContextState.c)
+ * Callees:
+ *     RtlpValidateContextFlags @ 0x1403650A0 (RtlpValidateContextFlags.c)
+ *     RtlpGetContextFlagsLocation @ 0x140365178 (RtlpGetContextFlagsLocation.c)
+ *     RtlpCopyLegacyContext @ 0x14036519C (RtlpCopyLegacyContext.c)
+ *     RtlpCopyXStateChunk @ 0x1403D1A88 (RtlpCopyXStateChunk.c)
+ *     RtlpCopyKernelCetChunk @ 0x1405A89CC (RtlpCopyKernelCetChunk.c)
+ */
+
 __int64 __fastcall RtlCopyContext(__int64 a1, int a2, __int64 a3)
 {
   __int64 v6; // rdi

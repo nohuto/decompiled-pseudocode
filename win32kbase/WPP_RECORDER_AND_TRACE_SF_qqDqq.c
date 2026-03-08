@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_AND_TRACE_SF_qqDqq @ 0x1C0167E40
+ * Callers:
+ *     EtwTraceUIPIEventHookError @ 0x1C0164940 (EtwTraceUIPIEventHookError.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_AND_TRACE_SF_qqDqq(__int64 a1, char a2, char a3, __int64 a4, int a5, int a6, int a7, int a8, ...)
 {
   struct _LIST_ENTRY *Flink; // rdi

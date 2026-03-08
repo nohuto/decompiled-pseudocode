@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopSwitchForcedShutdownSettingCallback @ 0x1403B0670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopSwitchForcedShutdownSettingCallback(_QWORD *a1, _DWORD *a2, int a3)
 {
   unsigned int v6; // ebx

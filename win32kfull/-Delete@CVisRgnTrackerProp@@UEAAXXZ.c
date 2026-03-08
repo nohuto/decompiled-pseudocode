@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Delete@CVisRgnTrackerProp@@UEAAXXZ @ 0x1C0021E50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FreeTrackedRegions@CVisRgnTrackerProp@@AEAAXXZ @ 0x1C0021EB4 (-FreeTrackedRegions@CVisRgnTrackerProp@@AEAAXXZ.c)
+ */
+
 void __fastcall CVisRgnTrackerProp::Delete(CVisRgnTrackerProp *this)
 {
   unsigned __int64 v2; // rcx

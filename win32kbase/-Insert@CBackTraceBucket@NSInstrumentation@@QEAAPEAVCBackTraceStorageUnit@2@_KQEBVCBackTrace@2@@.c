@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Insert@CBackTraceBucket@NSInstrumentation@@QEAAPEAVCBackTraceStorageUnit@2@_KQEBVCBackTrace@2@@Z @ 0x1C019CD5C
+ * Callers:
+ *     ?Insert@?$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBackTrace@2@@NSInstrumentation@@QEAAPEAVCBackTraceStorageUnit@2@QEBVCBackTrace@2@@Z @ 0x1C019CC18 (-Insert@-$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBa.c)
+ * Callees:
+ *     memcmp @ 0x1C00E17D0 (memcmp.c)
+ *     ?Create@CBackTraceStorageUnit@NSInstrumentation@@SAPEAV12@_KQEBVCBackTrace@2@PEAV12@@Z @ 0x1C019CA5C (-Create@CBackTraceStorageUnit@NSInstrumentation@@SAPEAV12@_KQEBVCBackTrace@2@PEAV12@@Z.c)
+ */
+
 struct NSInstrumentation::CBackTraceStorageUnit *__fastcall NSInstrumentation::CBackTraceBucket::Insert(
         NSInstrumentation::CBackTraceBucket *this,
         __int64 a2,

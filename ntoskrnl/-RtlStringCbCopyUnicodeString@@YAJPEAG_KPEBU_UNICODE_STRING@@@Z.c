@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1405C886C
+ * Callers:
+ *     SmKmKeyGenStart @ 0x1409D656C (SmKmKeyGenStart.c)
+ * Callees:
+ *     RtlUnicodeStringValidateSrcWorker_0 @ 0x1405C891C (RtlUnicodeStringValidateSrcWorker_0.c)
+ */
+
 NTSTATUS __fastcall RtlStringCbCopyUnicodeString(char *a1, unsigned __int64 a2, const struct _UNICODE_STRING *a3)
 {
   unsigned __int64 v3; // rbx

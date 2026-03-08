@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPwndFromPointerMsgId@@YAPEAUtagWND@@_K@Z @ 0x1C01C52D0
+ * Callers:
+ *     ?DelegateDiscardMessages@@YAXPEAUtagQ@@HPEAUtagDELEGATEPOINTERMAP@@@Z @ 0x1C01C4E48 (-DelegateDiscardMessages@@YAXPEAUtagQ@@HPEAUtagDELEGATEPOINTERMAP@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct tagWND *__fastcall GetPwndFromPointerMsgId(unsigned __int64 a1)
 {
   __int64 v2; // rax

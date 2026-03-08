@@ -1,3 +1,14 @@
+/*
+ * XREFs of PsQuerySectionSignatureInformation @ 0x140776E70
+ * Callers:
+ *     PsConvertToGuiThread @ 0x140776D40 (PsConvertToGuiThread.c)
+ *     PsCheckProcessFileSigningLevel @ 0x1409AD870 (PsCheckProcessFileSigningLevel.c)
+ * Callees:
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ */
+
 __int64 __fastcall PsQuerySectionSignatureInformation(_KPROCESS *a1, _BYTE *a2)
 {
   struct _EX_RUNDOWN_REF *p_Blink; // rdi

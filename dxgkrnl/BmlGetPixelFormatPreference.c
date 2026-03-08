@@ -1,3 +1,12 @@
+/*
+ * XREFs of BmlGetPixelFormatPreference @ 0x1C0170DBC
+ * Callers:
+ *     BmlGetNextBestSourceMode @ 0x1C01706B0 (BmlGetNextBestSourceMode.c)
+ *     BmlComparePixelFormats @ 0x1C03B8658 (BmlComparePixelFormats.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall BmlGetPixelFormatPreference(int a1, int a2)
 {
   int v2; // ecx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of Interrupter_D0ExitStopped @ 0x1C000EFB0
+ * Callers:
+ *     Controller_WdfEvtDeviceD0Exit @ 0x1C000E9C0 (Controller_WdfEvtDeviceD0Exit.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qqdddi @ 0x1C00189F8 (WPP_RECORDER_SF_qqdddi.c)
+ *     WPP_RECORDER_SF_qL @ 0x1C0030E00 (WPP_RECORDER_SF_qL.c)
+ */
+
 PDEVICE_OBJECT __fastcall Interrupter_D0ExitStopped(__int64 a1, int a2)
 {
   PDEVICE_OBJECT result; // rax

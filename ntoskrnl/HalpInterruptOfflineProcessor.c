@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpInterruptOfflineProcessor @ 0x14051EA50
+ * Callers:
+ *     HalpDpOfflineProcessorForReplace @ 0x140A94318 (HalpDpOfflineProcessorForReplace.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __fastcall __noreturn HalpInterruptOfflineProcessor(volatile signed __int32 *a1)
 {
   ULONG_PTR v1; // r10

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevelV2 @ 0x140513A54
+ * Callers:
+ *     HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel @ 0x1404FF094 (HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevel.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpDmaAllocateScatterPagesFromScatterPoolAtHighLevelV2(
         __int64 a1,
         __int64 a2,

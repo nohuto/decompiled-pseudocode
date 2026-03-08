@@ -1,3 +1,22 @@
+/*
+ * XREFs of BiConvertBootEnvironmentDeviceToNt @ 0x140830F7C
+ * Callers:
+ *     BiConvertRegistryDataToElement @ 0x14082F010 (BiConvertRegistryDataToElement.c)
+ *     BiVerifyBootPartition @ 0x140830EA8 (BiVerifyBootPartition.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x140830F7C (BiConvertBootEnvironmentDeviceToNt.c)
+ * Callees:
+ *     strcpy_s @ 0x1403D9D10 (strcpy_s.c)
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     BiGetNtPartitionPath @ 0x140830938 (BiGetNtPartitionPath.c)
+ *     BiVerifyBootPartition @ 0x140830EA8 (BiVerifyBootPartition.c)
+ *     BiConvertBootEnvironmentDeviceToNt @ 0x140830F7C (BiConvertBootEnvironmentDeviceToNt.c)
+ *     BiConvertBootEnvironmentDeviceToUnknown @ 0x140A5A3D0 (BiConvertBootEnvironmentDeviceToUnknown.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiConvertBootEnvironmentDeviceToNt(
         unsigned int *Src,
         int a2,

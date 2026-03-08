@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiErrata704Present @ 0x140B10440
+ * Callers:
+ *     sub_1403DFCC0 @ 0x1403DFCC0 (sub_1403DFCC0.c)
+ *     FsRtlMdlReadCompleteDevEx @ 0x140AF7010 (FsRtlMdlReadCompleteDevEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 KiErrata704Present()
 {
   unsigned __int64 v0; // rax

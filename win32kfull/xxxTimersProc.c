@@ -1,3 +1,15 @@
+/*
+ * XREFs of xxxTimersProc @ 0x1C007AFD0
+ * Callers:
+ *     RawInputThread @ 0x1C007A0C0 (RawInputThread.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?CoalescableDueTime@@YAKPEBUtagTIMER@@@Z @ 0x1C01C16A0 (-CoalescableDueTime@@YAKPEBUtagTIMER@@@Z.c)
+ *     ?xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z @ 0x1C01C18D4 (-xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z.c)
+ *     ThreadLockExchangeWorker @ 0x1C01C1BAC (ThreadLockExchangeWorker.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 BOOLEAN __fastcall xxxTimersProc(__int64 a1, __int64 a2, __int64 a3)
 {

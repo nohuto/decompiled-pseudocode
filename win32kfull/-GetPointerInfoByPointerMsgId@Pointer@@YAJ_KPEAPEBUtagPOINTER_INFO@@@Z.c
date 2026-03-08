@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetPointerInfoByPointerMsgId@Pointer@@YAJ_KPEAPEBUtagPOINTER_INFO@@@Z @ 0x1C014A9E6
+ * Callers:
+ *     ?OnPointerMessagePosted@InkProcessor@@QEAAXI_K@Z @ 0x1C014AB96 (-OnPointerMessagePosted@InkProcessor@@QEAAXI_K@Z.c)
+ *     ?GetPointerInfoByPointerId@Pointer@@YAJIPEAPEBUtagPOINTER_INFO@@@Z @ 0x1C022AA30 (-GetPointerInfoByPointerId@Pointer@@YAJIPEAPEBUtagPOINTER_INFO@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Pointer::GetPointerInfoByPointerMsgId(
         Pointer *this,
         const struct tagPOINTER_INFO **a2,

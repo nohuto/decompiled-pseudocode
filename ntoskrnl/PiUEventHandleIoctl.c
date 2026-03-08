@@ -1,3 +1,15 @@
+/*
+ * XREFs of PiUEventHandleIoctl @ 0x14068DF6C
+ * Callers:
+ *     PiUEventDispatch @ 0x14068DED0 (PiUEventDispatch.c)
+ * Callees:
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     PiUEventHandleGetEvent @ 0x14068E028 (PiUEventHandleGetEvent.c)
+ *     PiUEventHandleRegistration @ 0x14068E738 (PiUEventHandleRegistration.c)
+ *     PiUEventHandleUnregisterClient @ 0x140796DDC (PiUEventHandleUnregisterClient.c)
+ *     PiUEventHandleVetoEvent @ 0x14087E074 (PiUEventHandleVetoEvent.c)
+ */
+
 __int64 __fastcall PiUEventHandleIoctl(PIRP Irp, __int64 a2, int a3, int a4)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rcx

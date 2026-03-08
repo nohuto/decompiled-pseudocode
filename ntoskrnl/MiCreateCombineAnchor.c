@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiCreateCombineAnchor @ 0x14034A2A4
+ * Callers:
+ *     MiConvertStandbyToProto @ 0x14029ED24 (MiConvertStandbyToProto.c)
+ *     MiConvertPrivateToProto @ 0x14034A20C (MiConvertPrivateToProto.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiLocateCombineBlock @ 0x140229F50 (MiLocateCombineBlock.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiIncrementCombinedPte @ 0x14034A354 (MiIncrementCombinedPte.c)
+ */
+
 __int64 __fastcall MiCreateCombineAnchor(__int64 *a1, __int64 a2, _QWORD *a3)
 {
   unsigned int v3; // esi

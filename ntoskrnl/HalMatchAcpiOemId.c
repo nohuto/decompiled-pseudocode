@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalMatchAcpiOemId @ 0x140395040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     HalpAcpiGetTable @ 0x14029C550 (HalpAcpiGetTable.c)
+ *     RtlEqualString @ 0x1402D0DA0 (RtlEqualString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall HalMatchAcpiOemId(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   unsigned int v5; // edi

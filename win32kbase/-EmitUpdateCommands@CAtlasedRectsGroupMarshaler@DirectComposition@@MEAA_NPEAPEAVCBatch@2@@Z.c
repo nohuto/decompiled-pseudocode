@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CAtlasedRectsGroupMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0259CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Marshal@CResourceMarshalerArrayBase@DirectComposition@@IEAA_NPEAPEAVCBatch@2@IPEAKKW4MILCMD@@2@Z @ 0x1C00AAE24 (-Marshal@CResourceMarshalerArrayBase@DirectComposition@@IEAA_NPEAPEAVCBatch@2@IPEAKKW4MILCMD@@2@.c)
+ *     ?EmitSetImageSourceCommand@CAtlasedRectsGroupMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02565F8 (-EmitSetImageSourceCommand@CAtlasedRectsGroupMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@.c)
+ */
+
 char __fastcall DirectComposition::CAtlasedRectsGroupMarshaler::EmitUpdateCommands(
         DirectComposition::CAtlasedRectsGroupMarshaler *this,
         struct DirectComposition::CBatch ***a2)

@@ -1,3 +1,14 @@
+/*
+ * XREFs of SepTokenPrivilegeCount @ 0x140247150
+ * Callers:
+ *     NtQueryInformationToken @ 0x1406D6780 (NtQueryInformationToken.c)
+ *     SepRemoveDisabledGroupsAndPrivileges @ 0x14074380C (SepRemoveDisabledGroupsAndPrivileges.c)
+ *     SepGetTokenAccessInformationBufferSize @ 0x1407712D0 (SepGetTokenAccessInformationBufferSize.c)
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SepTokenPrivilegeCount(__int64 a1)
 {
   __int64 v1; // r9

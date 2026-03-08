@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepIsNgenImage @ 0x14078E8D4
+ * Callers:
+ *     SeQuerySigningPolicyWorker @ 0x14070BBF8 (SeQuerySigningPolicyWorker.c)
+ * Callees:
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ */
+
 char __fastcall SepIsNgenImage(unsigned __int16 *a1)
 {
   __int64 CurrentServerSilo; // rax

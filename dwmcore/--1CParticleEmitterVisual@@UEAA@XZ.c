@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1CParticleEmitterVisual@@UEAA@XZ @ 0x1802403D4
+ * Callers:
+ *     ??_ECParticleEmitterVisual@@UEAAPEAXI@Z @ 0x1802407F0 (--_ECParticleEmitterVisual@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??R?$default_delete@VCSpawner@EmitterShapes@@@std@@QEBAXPEAVCSpawner@EmitterShapes@@@Z @ 0x1801BF65C (--R-$default_delete@VCSpawner@EmitterShapes@@@std@@QEBAXPEAVCSpawner@EmitterShapes@@@Z.c)
+ *     ??1ParticleCollection@CParticleEmitterVisual@@QEAA@XZ @ 0x180240494 (--1ParticleCollection@CParticleEmitterVisual@@QEAA@XZ.c)
+ */
+
 void __fastcall CParticleEmitterVisual::~CParticleEmitterVisual(CParticleEmitterVisual *this)
 {
   __int64 v1; // rdx

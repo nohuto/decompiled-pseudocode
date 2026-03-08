@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBHTX_Suspend30PortUsingControlTransfer @ 0x1C0004AF8
+ * Callers:
+ *     HUBPSM30_Suspending @ 0x1C0013980 (HUBPSM30_Suspending.c)
+ *     HUBPSM30_SuspendingPortOnDisableRequest @ 0x1C00139B0 (HUBPSM30_SuspendingPortOnDisableRequest.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBMISC_ControlTransfer @ 0x1C0032664 (HUBMISC_ControlTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBHTX_Suspend30PortUsingControlTransfer(__int64 a1)
 {
   char v2; // al

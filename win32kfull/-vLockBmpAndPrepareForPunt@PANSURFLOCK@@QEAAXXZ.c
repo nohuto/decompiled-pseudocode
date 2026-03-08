@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vLockBmpAndPrepareForPunt@PANSURFLOCK@@QEAAXXZ @ 0x1C029FFC4
+ * Callers:
+ *     ??0PANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@PEAU_RECTL@@PEAHPEAU_CLIPOBJ@@@Z @ 0x1C029DC5C (--0PANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@PEAU_RECTL@@PEAHPEAU_CLIPOBJ@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall PANSURFLOCK::vLockBmpAndPrepareForPunt(__int64 **this)
 {
   __int64 *v2; // rcx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopFxPepPerfInfoQuery @ 0x140982744
+ * Callers:
+ *     PopFxRegisterComponentPerfStates @ 0x140982948 (PopFxRegisterComponentPerfStates.c)
+ * Callees:
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ *     PopPluginQueryComponentPerfCapabilities @ 0x14058A1FC (PopPluginQueryComponentPerfCapabilities.c)
+ *     PopPluginQueryComponentPerfSet @ 0x14058A24C (PopPluginQueryComponentPerfSet.c)
+ *     PopPluginQueryComponentPerfSetName @ 0x14058A2F8 (PopPluginQueryComponentPerfSetName.c)
+ *     PopPluginQueryComponentPerfStates @ 0x14058A384 (PopPluginQueryComponentPerfStates.c)
+ *     PopFxPepPerfInfoFree @ 0x1409826C4 (PopFxPepPerfInfoFree.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PopFxPepPerfInfoQuery(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4, unsigned int **a3)
 {
   ULONG_PTR v3; // r12

@@ -1,3 +1,14 @@
+/*
+ * XREFs of BgLibraryEnable @ 0x14066F498
+ * Callers:
+ *     BgkNotifyDisplayOwnershipChange @ 0x1403A7F10 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkAcquireDisplayOwnership @ 0x14054C830 (BgkAcquireDisplayOwnership.c)
+ * Callees:
+ *     BgpFwReleaseLock @ 0x140381C10 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140381C60 (BgpFwAcquireLock.c)
+ *     BgpFwLibraryEnable @ 0x1403843F4 (BgpFwLibraryEnable.c)
+ */
+
 __int64 __fastcall BgLibraryEnable(__int64 a1, char a2)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?HKRemoveMatchingHotkeys@@YA_NPEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z @ 0x1C00B6390
+ * Callers:
+ *     ?_UnregisterHotKey@@YAHPEAUtagWND@@H@Z @ 0x1C00B632C (-_UnregisterHotKey@@YAHPEAUtagWND@@H@Z.c)
+ *     DestroyWindowsHotKeys @ 0x1C012E1A4 (DestroyWindowsHotKeys.c)
+ * Callees:
+ *     ?HKRemoveHotkeyOrMakePlaceholder@@YA_NPEAPEAUtagHOTKEY@@@Z @ 0x1C0039F6C (-HKRemoveHotkeyOrMakePlaceholder@@YA_NPEAPEAUtagHOTKEY@@@Z.c)
+ *     ?NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z @ 0x1C003B140 (-NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z.c)
+ */
+
 __int64 __fastcall HKRemoveMatchingHotkeys(struct tagHOTKEY *a1, __int64 a2, int a3, int a4)
 {
   unsigned __int8 v4; // bp

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CWARPDrawListEntry@@EEAA@XZ @ 0x1801FC990
+ * Callers:
+ *     ??_GCWARPDrawListEntry@@EEAAPEAXI@Z @ 0x1801FCA40 (--_GCWARPDrawListEntry@@EEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800342C8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ */
+
 void __fastcall CWARPDrawListEntry::~CWARPDrawListEntry(CWARPDrawListEntry *this)
 {
   char *v1; // rbx

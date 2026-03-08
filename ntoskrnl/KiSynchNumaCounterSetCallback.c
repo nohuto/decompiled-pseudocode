@@ -1,3 +1,22 @@
+/*
+ * XREFs of KiSynchNumaCounterSetCallback @ 0x140971030
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402AB030 (KeEnumerateNextSchedulerSubNodeInNode.c)
+ *     KiQuerySubNodeActiveAffinity @ 0x1402AE38C (KiQuerySubNodeActiveAffinity.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     KeInitializeSchedulerSubNodeEnumerationContext @ 0x14038E430 (KeInitializeSchedulerSubNodeEnumerationContext.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PcwAddInstance @ 0x14086B690 (PcwAddInstance.c)
+ *     KiAddSynchCounters @ 0x140970ED0 (KiAddSynchCounters.c)
+ *     EtwDereferenceSpinLockCounters @ 0x1409E9198 (EtwDereferenceSpinLockCounters.c)
+ *     EtwReferenceSpinLockCounters @ 0x1409E91F4 (EtwReferenceSpinLockCounters.c)
+ */
+
 int __fastcall KiSynchNumaCounterSetCallback(int a1, __int64 a2)
 {
   int v4; // ebx

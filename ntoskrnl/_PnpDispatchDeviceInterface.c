@@ -1,3 +1,20 @@
+/*
+ * XREFs of _PnpDispatchDeviceInterface @ 0x1406C8CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _PnpMapCmStatusToDispatchStatus @ 0x140244BE4 (_PnpMapCmStatusToDispatchStatus.c)
+ *     _CmGetDeviceInterfaceMappedProperty @ 0x1406C92BC (_CmGetDeviceInterfaceMappedProperty.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x1406C9E28 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1406D3FF0 (_CmValidateDeviceInterfaceName.c)
+ *     _CmGetMatchingDeviceInterfaceList @ 0x14085C60C (_CmGetMatchingDeviceInterfaceList.c)
+ *     _CmSetDeviceInterfaceMappedProperty @ 0x14086B538 (_CmSetDeviceInterfaceMappedProperty.c)
+ *     _CmCreateDeviceInterface @ 0x14087B7BC (_CmCreateDeviceInterface.c)
+ *     _CmDeleteDeviceInterface @ 0x140A5E93C (_CmDeleteDeviceInterface.c)
+ *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x140A65758 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
+ *     _CmGetDeviceInterfaceMappedPropertyLocales @ 0x140A65984 (_CmGetDeviceInterfaceMappedPropertyLocales.c)
+ */
+
 __int64 __fastcall PnpDispatchDeviceInterface(__int64 a1, __int64 (__fastcall *a2)(), __int64 a3, int a4, _DWORD *a5)
 {
   __int64 (__fastcall *v5)(); // r10

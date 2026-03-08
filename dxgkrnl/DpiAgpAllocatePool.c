@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiAgpAllocatePool @ 0x1C03A26D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DpiAgpAllocatePool(__int64 a1, unsigned int a2, unsigned int a3, _QWORD *a4, PVOID BaseAddress)
 {
   __int64 v5; // r13

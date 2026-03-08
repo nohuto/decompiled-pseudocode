@@ -1,3 +1,11 @@
+/*
+ * XREFs of ValidateRegistrLangType @ 0x140843758
+ * Callers:
+ *     _RtlpMuiRegLoadInstalledFromKey @ 0x14039C4A0 (_RtlpMuiRegLoadInstalledFromKey.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ValidateRegistrLangType(int a1)
 {
   unsigned int v1; // edx

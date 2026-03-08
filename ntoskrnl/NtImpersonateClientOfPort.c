@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtImpersonateClientOfPort @ 0x1409755F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     NtAlpcImpersonateClientOfPort @ 0x1406D4A10 (NtAlpcImpersonateClientOfPort.c)
+ */
+
 __int64 __fastcall NtImpersonateClientOfPort(void *a1, __int64 a2)
 {
   __int64 result; // rax

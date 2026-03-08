@@ -1,3 +1,33 @@
+/*
+ * XREFs of ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C011ED74
+ * Callers:
+ *     UmfdDestroyFont @ 0x1C00EB960 (UmfdDestroyFont.c)
+ *     UmfdLoadFontFile @ 0x1C011D7E0 (UmfdLoadFontFile.c)
+ *     UmfdQueryFontFile @ 0x1C011D990 (UmfdQueryFontFile.c)
+ *     UmfdQueryGlyphMetricsPlusBits @ 0x1C011E69C (UmfdQueryGlyphMetricsPlusBits.c)
+ *     UmfdQueryFont @ 0x1C011EB60 (UmfdQueryFont.c)
+ *     UmfdQueryTrueTypeTable @ 0x1C01204D0 (UmfdQueryTrueTypeTable.c)
+ *     UmfdQueryAdvanceWidths @ 0x1C0121100 (UmfdQueryAdvanceWidths.c)
+ *     UmfdUnloadFontFileInternal @ 0x1C0121FD8 (UmfdUnloadFontFileInternal.c)
+ *     UmfdQueryFontTree @ 0x1C0122480 (UmfdQueryFontTree.c)
+ *     UmfdTrueTypeFreeGlyphset @ 0x1C0125098 (UmfdTrueTypeFreeGlyphset.c)
+ *     UmfdDrvFreeInternal @ 0x1C0307E40 (UmfdDrvFreeInternal.c)
+ *     UmfdEscape @ 0x1C0307EA0 (UmfdEscape.c)
+ *     UmfdFontManagement @ 0x1C0307F50 (UmfdFontManagement.c)
+ *     UmfdGetTrueTypeFile @ 0x1C0308010 (UmfdGetTrueTypeFile.c)
+ *     UmfdQueryGlyphAttrs @ 0x1C0308090 (UmfdQueryGlyphAttrs.c)
+ *     UmfdQueryTrueTypeOutline @ 0x1C0308130 (UmfdQueryTrueTypeOutline.c)
+ * Callees:
+ *     ?Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z @ 0x1C00EF4CC (-Destroy@CEventPoolEntry@CEventPool@@SAXQEAV12@@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3@Z @ 0x1C00F8F6C (--$Write@U-$_tlgWrapperByVal@$03@@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUI.c)
+ *     _tlgKeywordOn @ 0x1C0102BC4 (_tlgKeywordOn.c)
+ *     _lambda_eef90ce73a6a62b5089d029612c95735_::operator() @ 0x1C011F5B4 (_lambda_eef90ce73a6a62b5089d029612c95735_--operator().c)
+ *     ?UmfdClientSignalServerAndWaitForCompletion@@YAJPEAX0PEBI@Z @ 0x1C011F7BC (-UmfdClientSignalServerAndWaitForCompletion@@YAJPEAX0PEBI@Z.c)
+ *     ??1?$CAutoDestroy@VCWaitableWorkItem@CMultipleConsumerWorkQueue@@@@QEAA@XZ @ 0x1C011F92C (--1-$CAutoDestroy@VCWaitableWorkItem@CMultipleConsumerWorkQueue@@@@QEAA@XZ.c)
+ *     ??1AutoSharedUmfdLookupLock@@QEAA@XZ @ 0x1C011FE98 (--1AutoSharedUmfdLookupLock@@QEAA@XZ.c)
+ *     _CMultipleConsumerWorkQueue::WaitForCompletionAndReleaseWorkItem_::_2_::CEventPoolEntryAutoDestroy::_CEventPoolEntryAutoDestroy @ 0x1C01526A0 (_CMultipleConsumerWorkQueue--WaitForCompletionAndReleaseWorkItem_--_2_--CEventPoolEntryAutoDestr.c)
+ */
+
 __int64 __fastcall UmfdClientSendAndWaitForCompletion(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

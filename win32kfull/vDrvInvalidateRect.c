@@ -1,3 +1,13 @@
+/*
+ * XREFs of vDrvInvalidateRect @ 0x1C02DF91C
+ * Callers:
+ *     RemoteRedrawRectangle @ 0x1C01F6C78 (RemoteRedrawRectangle.c)
+ * Callees:
+ *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C0129084 (--1SEMOBJEX@@QEAA@XZ.c)
+ *     ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C0129160 (--0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall vDrvInvalidateRect(Gre::Base *a1, __int64 a2)
 {
   HSEMAPHORE *v3; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of SdbpInitializeMatchers @ 0x14079CF54
+ * Callers:
+ *     SdbInitDatabaseInMemory @ 0x14079CFC8 (SdbInitDatabaseInMemory.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SdbpInitializeMatchers(__int64 a1)
 {
   char *v1; // r8

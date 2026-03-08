@@ -1,3 +1,16 @@
+/*
+ * XREFs of PpmIdleGetConcurrencyStats @ 0x14085AA64
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ * Callees:
+ *     PpmReleaseLock @ 0x1402D1F40 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ *     PpmParkGetParkNode @ 0x14040B904 (PpmParkGetParkNode.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PpmIdleGetConcurrencyStats(int a1, __int16 a2, PVOID *a3, unsigned int *a4)
 {
   int v5; // edi

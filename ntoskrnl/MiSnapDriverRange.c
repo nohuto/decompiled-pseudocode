@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiSnapDriverRange @ 0x14072A118
+ * Callers:
+ *     MmProtectDriverSection @ 0x140302930 (MmProtectDriverSection.c)
+ *     MmLockRegistryRecoverySections @ 0x140618448 (MmLockRegistryRecoverySections.c)
+ *     MiCheckForDiscardableLongJumpTable @ 0x140655A04 (MiCheckForDiscardableLongJumpTable.c)
+ *     MiHandleDriverNonPagedSections @ 0x140726FEC (MiHandleDriverNonPagedSections.c)
+ *     MiFreeDriverInitialization @ 0x140729EFC (MiFreeDriverInitialization.c)
+ *     MiDisablePagingOfDriver @ 0x140729FA4 (MiDisablePagingOfDriver.c)
+ *     MiMarkKernelImageCfgBits @ 0x1407F72E0 (MiMarkKernelImageCfgBits.c)
+ *     MiBackSingleImageWithPagefile @ 0x14086FBD4 (MiBackSingleImageWithPagefile.c)
+ *     MiIdentifyImageDiscardablePages @ 0x140A349B4 (MiIdentifyImageDiscardablePages.c)
+ *     MiEnablePagingTheExecutive @ 0x140B5F508 (MiEnablePagingTheExecutive.c)
+ *     MmDiscardDriverSection @ 0x140B71424 (MmDiscardDriverSection.c)
+ * Callees:
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     MiIsKernelHalPadSection @ 0x1403A1CD0 (MiIsKernelHalPadSection.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MmImageSectionPagable @ 0x14072A4B0 (MmImageSectionPagable.c)
+ */
+
 __int64 __fastcall MiSnapDriverRange(
         __int64 a1,
         unsigned int a2,

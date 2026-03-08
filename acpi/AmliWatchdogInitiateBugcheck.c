@@ -1,3 +1,11 @@
+/*
+ * XREFs of AmliWatchdogInitiateBugcheck @ 0x1C0046ECC
+ * Callers:
+ *     AmliWatchdogTimeoutAction @ 0x1C0046F84 (AmliWatchdogTimeoutAction.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall __noreturn AmliWatchdogInitiateBugcheck(ULONG_PTR *a1)
 {
   ULONG_PTR v1; // r9

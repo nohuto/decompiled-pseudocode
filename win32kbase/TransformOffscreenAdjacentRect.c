@@ -1,3 +1,13 @@
+/*
+ * XREFs of TransformOffscreenAdjacentRect @ 0x1C016845C
+ * Callers:
+ *     TransformRectBetweenCoordinateSpaces @ 0x1C00152E0 (TransformRectBetweenCoordinateSpaces.c)
+ * Callees:
+ *     TransformRectBetweenCoordinateSpacesPerMonitor @ 0x1C000C99C (TransformRectBetweenCoordinateSpacesPerMonitor.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     FindAdjacentMonitor @ 0x1C0168370 (FindAdjacentMonitor.c)
+ */
+
 __int64 __fastcall TransformOffscreenAdjacentRect(
         LONG *a1,
         int *a2,

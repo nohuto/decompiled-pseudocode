@@ -1,3 +1,15 @@
+/*
+ * XREFs of DifExReleaseResourceAndLeaveCriticalRegionWrapper @ 0x1405D75B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 char __fastcall DifExReleaseResourceAndLeaveCriticalRegionWrapper(PERESOURCE Resource)
 {
   __int64 *APIThunkContextById; // rax

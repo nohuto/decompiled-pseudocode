@@ -1,3 +1,16 @@
+/*
+ * XREFs of RawCleanup @ 0x1406F3368
+ * Callers:
+ *     RawDispatch @ 0x1406F2E80 (RawDispatch.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     RawInitiateDeleteVolume @ 0x14028DD58 (RawInitiateDeleteVolume.c)
+ *     IoRemoveLinkShareAccessEx @ 0x1406F3450 (IoRemoveLinkShareAccessEx.c)
+ *     FsRtlNotifyVolumeEvent @ 0x1408722A0 (FsRtlNotifyVolumeEvent.c)
+ */
+
 __int64 __fastcall RawCleanup(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader, PIRP Irp, __int64 a3)
 {
   struct _FAST_MUTEX *p_Resource; // r14

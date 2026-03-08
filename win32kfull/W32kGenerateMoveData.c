@@ -1,3 +1,11 @@
+/*
+ * XREFs of W32kGenerateMoveData @ 0x1C0272E50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall W32kGenerateMoveData(__int64 a1)
 {
   __int64 v1; // rbx

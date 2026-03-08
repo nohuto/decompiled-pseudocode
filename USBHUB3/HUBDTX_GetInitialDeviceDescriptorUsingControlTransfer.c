@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBDTX_GetInitialDeviceDescriptorUsingControlTransfer @ 0x1C002ABF8
+ * Callers:
+ *     HUBDSM_GettingDeviceDescriptorInReEnumAtZero @ 0x1C0020C20 (HUBDSM_GettingDeviceDescriptorInReEnumAtZero.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBDTX_GetDescriptor @ 0x1C002A598 (HUBDTX_GetDescriptor.c)
+ */
+
 __int64 __fastcall HUBDTX_GetInitialDeviceDescriptorUsingControlTransfer(__int64 a1)
 {
   __int64 result; // rax

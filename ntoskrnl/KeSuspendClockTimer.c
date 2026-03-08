@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeSuspendClockTimer @ 0x14056D49C
+ * Callers:
+ *     PopHandleNextState @ 0x140AA4FAC (PopHandleNextState.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 KeSuspendClockTimer()
 {
   struct _KPRCB *CurrentPrcb; // rbx

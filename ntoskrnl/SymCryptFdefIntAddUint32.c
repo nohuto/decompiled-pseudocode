@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefIntAddUint32 @ 0x1403FD66C
+ * Callers:
+ *     SymCryptIntAddUint32 @ 0x1403F3720 (SymCryptIntAddUint32.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall SymCryptFdefIntAddUint32(__int64 a1, unsigned int a2, __int64 a3)
 {
   unsigned __int64 result; // rax

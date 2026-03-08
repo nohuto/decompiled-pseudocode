@@ -1,3 +1,15 @@
+/*
+ * XREFs of CalcWakeMask @ 0x1C0071660
+ * Callers:
+ *     EditionPostMouseMoveToQ @ 0x1C0037070 (EditionPostMouseMoveToQ.c)
+ *     xxxRealInternalGetMessage @ 0x1C006F2F0 (xxxRealInternalGetMessage.c)
+ *     AdjustPwndPtiPqForDelegation @ 0x1C009FA68 (AdjustPwndPtiPqForDelegation.c)
+ *     TransferWakeBit @ 0x1C00CCF54 (TransferWakeBit.c)
+ *     ?CheckCrossThreadInput@@YAHQEAUtagWND@@PEAUtagQMSG@@PEAH2PEAPEAU2@@Z @ 0x1C00D895C (-CheckCrossThreadInput@@YAHQEAUtagWND@@PEAUtagQMSG@@PEAH2PEAPEAU2@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall CalcWakeMask(unsigned int a1, unsigned int a2, int a3)
 {
   int result; // eax

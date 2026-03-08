@@ -1,3 +1,22 @@
+/*
+ * XREFs of EtwpUpdateGlobalGroupMasks @ 0x140785F3C
+ * Callers:
+ *     EtwpUpdateSelectedGroupMasks @ 0x14037F908 (EtwpUpdateSelectedGroupMasks.c)
+ *     EtwpUpdateKernelGroupsWork @ 0x140785F10 (EtwpUpdateKernelGroupsWork.c)
+ *     EtwDereferenceSpinLockCounters @ 0x1409E9198 (EtwDereferenceSpinLockCounters.c)
+ *     EtwReferenceSpinLockCounters @ 0x1409E91F4 (EtwReferenceSpinLockCounters.c)
+ *     EtwpCoverageSamplerStart @ 0x1409F05F8 (EtwpCoverageSamplerStart.c)
+ *     EtwpCoverageSamplerStop @ 0x1409F08E4 (EtwpCoverageSamplerStop.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PspGetNextSilo @ 0x1406FB574 (PspGetNextSilo.c)
+ *     EtwpEnableKernelTrace @ 0x140786150 (EtwpEnableKernelTrace.c)
+ *     EtwpDisableKernelTrace @ 0x1407864C4 (EtwpDisableKernelTrace.c)
+ */
+
 __int64 __fastcall EtwpUpdateGlobalGroupMasks(__int64 a1, unsigned int a2, unsigned int a3)
 {
   __int64 v3; // r15

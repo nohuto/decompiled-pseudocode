@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpArtDiscover @ 0x1403A0C88
+ * Callers:
+ *     HalpTimerRegisterBuiltinPlugins @ 0x1403A08F8 (HalpTimerRegisterBuiltinPlugins.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     HalpArtAvailable @ 0x1403733F0 (HalpArtAvailable.c)
+ *     HalpTimerRegister @ 0x140373EB4 (HalpTimerRegister.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 HalpArtDiscover()
 {
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-69h] BYREF

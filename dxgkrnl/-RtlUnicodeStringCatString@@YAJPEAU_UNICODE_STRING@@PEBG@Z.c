@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C003F918
+ * Callers:
+ *     ?AppendSubKeys@DXG_REGISTRY_KEY_LIST@@QEAAJPEAXPEAU_KEY_FULL_INFORMATION@@PEAU_UNICODE_STRING@@@Z @ 0x1C0305D80 (-AppendSubKeys@DXG_REGISTRY_KEY_LIST@@QEAAJPEAXPEAU_KEY_FULL_INFORMATION@@PEAU_UNICODE_STRING@@@.c)
+ * Callees:
+ *     RtlUnicodeStringValidateDestWorker @ 0x1C000AE14 (RtlUnicodeStringValidateDestWorker.c)
+ */
+
 __int64 __fastcall RtlUnicodeStringCatString(struct _UNICODE_STRING *a1, wchar_t *a2)
 {
   NTSTATUS v4; // r8d

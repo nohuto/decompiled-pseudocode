@@ -1,3 +1,13 @@
+/*
+ * XREFs of OSNotifyCreatePowerResource @ 0x1C0032A14
+ * Callers:
+ *     OSNotifyCreate @ 0x1C00325E0 (OSNotifyCreate.c)
+ * Callees:
+ *     ACPIBuildPowerResourceExtension @ 0x1C000DFDC (ACPIBuildPowerResourceExtension.c)
+ *     ACPIBuildPowerResourceRequest @ 0x1C000E0EC (ACPIBuildPowerResourceRequest.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C001B508 (WPP_RECORDER_SF_qD.c)
+ */
+
 __int64 __fastcall OSNotifyCreatePowerResource(volatile signed __int32 *a1)
 {
   char v1; // di

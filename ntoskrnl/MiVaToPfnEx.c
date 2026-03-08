@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiVaToPfnEx @ 0x140384AD0
+ * Callers:
+ *     MmBuildMdlForNonPagedPool @ 0x1402B5DB0 (MmBuildMdlForNonPagedPool.c)
+ *     MiGetPhysicalAddress @ 0x14030C890 (MiGetPhysicalAddress.c)
+ *     MiCheckKernelShadow @ 0x1403CA298 (MiCheckKernelShadow.c)
+ *     MiDuplicateCloneLeaf @ 0x140661AA8 (MiDuplicateCloneLeaf.c)
+ *     MiFreeInitializationCode @ 0x14072A51C (MiFreeInitializationCode.c)
+ *     MiInitializeShadowPageTable @ 0x14080B974 (MiInitializeShadowPageTable.c)
+ *     MiInitializeNonPagedPool @ 0x140B5EDA4 (MiInitializeNonPagedPool.c)
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFillPteHierarchy @ 0x140333AE0 (MiFillPteHierarchy.c)
+ */
+
 unsigned __int64 __fastcall MiVaToPfnEx(unsigned __int64 a1)
 {
   int v2; // edi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vHorizontalLine32@@YAXPEAEJJK@Z @ 0x1C0151B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vHorizontalLine32(unsigned __int8 *a1, int a2, int a3, unsigned int a4)
 {
   unsigned __int8 *v4; // r10

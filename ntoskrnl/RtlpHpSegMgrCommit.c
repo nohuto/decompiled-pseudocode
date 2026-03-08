@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlpHpSegMgrCommit @ 0x140248BE0
+ * Callers:
+ *     RtlpHpSegPageRangeCommit @ 0x1402499A0 (RtlpHpSegPageRangeCommit.c)
+ *     RtlpHpSegMgrAllocate @ 0x14030853C (RtlpHpSegMgrAllocate.c)
+ *     RtlpHpSegMgrRelease @ 0x140308F28 (RtlpHpSegMgrRelease.c)
+ * Callees:
+ *     RtlpHpFreeVA @ 0x14020DC8C (RtlpHpFreeVA.c)
+ *     RtlpHpSegMgrCommitComplete @ 0x1402E5158 (RtlpHpSegMgrCommitComplete.c)
+ *     RtlpHpVaMgrCtxQuery @ 0x1403095E0 (RtlpHpVaMgrCtxQuery.c)
+ *     RtlpHpSegMgrCommitInitiate @ 0x14030ABDC (RtlpHpSegMgrCommitInitiate.c)
+ *     RtlpHpAllocVA @ 0x140330920 (RtlpHpAllocVA.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpLogHeapFailure @ 0x1405B2884 (RtlpLogHeapFailure.c)
+ */
+
 __int64 __fastcall RtlpHpSegMgrCommit(__int64 a1, unsigned __int64 a2, unsigned int a3, int a4, int a5, int a6, int a7)
 {
   unsigned __int64 v8; // rsi

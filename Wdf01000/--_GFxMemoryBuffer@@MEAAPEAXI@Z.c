@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_GFxMemoryBuffer@@MEAAPEAXI@Z @ 0x1C0001CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1FxObject@@UEAA@XZ @ 0x1C0004920 (--1FxObject@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ */
+
 FxMemoryBuffer *__fastcall FxMemoryBuffer::`scalar deleting destructor'(FxMemoryBuffer *this, char a2)
 {
   FxMemoryBuffer *v4; // rcx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of _PnpDispatchDeviceContainer @ 0x140682AC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _CmGetDeviceContainerMappedProperty @ 0x140682BF4 (_CmGetDeviceContainerMappedProperty.c)
+ *     _CmOpenDeviceContainerRegKey @ 0x140682CAC (_CmOpenDeviceContainerRegKey.c)
+ *     _CmValidateDeviceContainerName @ 0x1406C3EDC (_CmValidateDeviceContainerName.c)
+ *     _CmGetMatchingDeviceContainerList @ 0x140823A94 (_CmGetMatchingDeviceContainerList.c)
+ *     _CmGetDeviceContainerMappedPropertyKeys @ 0x140A61518 (_CmGetDeviceContainerMappedPropertyKeys.c)
+ *     _CmGetDeviceContainerMappedPropertyLocales @ 0x140A615A4 (_CmGetDeviceContainerMappedPropertyLocales.c)
+ *     _CmSetDeviceContainerMappedProperty @ 0x140A61D50 (_CmSetDeviceContainerMappedProperty.c)
+ */
+
 __int64 __fastcall PnpDispatchDeviceContainer(__int64 a1, __int64 (__fastcall *a2)(), __int64 a3, int a4, __int64 a5)
 {
   __int64 (__fastcall *v5)(); // r10

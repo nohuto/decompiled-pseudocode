@@ -1,3 +1,12 @@
+/*
+ * XREFs of _SetWatermarkStrings @ 0x1C00F04B0
+ * Callers:
+ *     NtUserSetWatermarkStrings @ 0x1C00F0470 (NtUserSetWatermarkStrings.c)
+ * Callees:
+ *     ?RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C00BE504 (-RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall SetWatermarkStrings(__int64 a1)
 {
   int v2; // eax

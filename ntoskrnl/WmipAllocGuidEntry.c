@@ -1,3 +1,14 @@
+/*
+ * XREFs of WmipAllocGuidEntry @ 0x140841224
+ * Callers:
+ *     WmipOpenBlock @ 0x14069AF1C (WmipOpenBlock.c)
+ *     WmipLinkDataSourceToList @ 0x1408681AC (WmipLinkDataSourceToList.c)
+ * Callees:
+ *     WmipAllocEntry @ 0x140868798 (WmipAllocEntry.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 _QWORD *WmipAllocGuidEntry()
 {
   _QWORD *v0; // rbx

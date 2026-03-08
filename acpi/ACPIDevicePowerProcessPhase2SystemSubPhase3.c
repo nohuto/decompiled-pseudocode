@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIDevicePowerProcessPhase2SystemSubPhase3 @ 0x1C001FB40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qD @ 0x1C001B508 (WPP_RECORDER_SF_qD.c)
+ *     ACPIDeviceCompleteGenericPhase @ 0x1C001C540 (ACPIDeviceCompleteGenericPhase.c)
+ *     ACPIWakeRestoreEnables @ 0x1C0046004 (ACPIWakeRestoreEnables.c)
+ */
+
 __int64 __fastcall ACPIDevicePowerProcessPhase2SystemSubPhase3(__int64 a1)
 {
   int v1; // esi

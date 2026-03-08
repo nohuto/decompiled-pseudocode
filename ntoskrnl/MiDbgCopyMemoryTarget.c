@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiDbgCopyMemoryTarget @ 0x140641640
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeFlushSingleTb @ 0x140211E60 (KeFlushSingleTb.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiWriteValidPteNewProtection @ 0x14032E660 (MiWriteValidPteNewProtection.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiFillPteHierarchy @ 0x140333AE0 (MiFillPteHierarchy.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     MiCopyFromUntrustedMemory @ 0x140347320 (MiCopyFromUntrustedMemory.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiCopyToUntrustedMemory @ 0x1403948F0 (MiCopyToUntrustedMemory.c)
+ */
+
 __int64 __fastcall MiDbgCopyMemoryTarget(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)
 {
   signed __int32 v7; // eax

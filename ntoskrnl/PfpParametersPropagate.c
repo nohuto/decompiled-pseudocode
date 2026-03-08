@@ -1,3 +1,18 @@
+/*
+ * XREFs of PfpParametersPropagate @ 0x14097D050
+ * Callers:
+ *     PfpParametersWatcher @ 0x14097D180 (PfpParametersWatcher.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     PfTStart @ 0x140844B00 (PfTStart.c)
+ *     PfTInitialize @ 0x140845B5C (PfTInitialize.c)
+ *     PfTCleanup @ 0x14097C168 (PfTCleanup.c)
+ *     PfpRpShutdown @ 0x14097C464 (PfpRpShutdown.c)
+ */
+
 void __fastcall PfpParametersPropagate(_DWORD *a1)
 {
   struct _KTHREAD *CurrentThread; // rax

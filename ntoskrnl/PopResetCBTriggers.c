@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopResetCBTriggers @ 0x14082AA6C
+ * Callers:
+ *     PopApplyPolicy @ 0x14082A06C (PopApplyPolicy.c)
+ *     PopBatteryWorker @ 0x14086DD10 (PopBatteryWorker.c)
+ * Callees:
+ *     PopDiagTraceBatteryTriggerFlags @ 0x14086E710 (PopDiagTraceBatteryTriggerFlags.c)
+ */
+
 __int64 __fastcall PopResetCBTriggers(unsigned __int8 a1)
 {
   __int64 result; // rax

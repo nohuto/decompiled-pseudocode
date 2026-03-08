@@ -1,3 +1,16 @@
+/*
+ * XREFs of ??0DCMEMOBJ@@QEAA@PEAUHDEV__@@KHH@Z @ 0x1C017F048
+ * Callers:
+ *     GreCreateDisplayDC @ 0x1C0055340 (GreCreateDisplayDC.c)
+ * Callees:
+ *     HmgModifyHandleType @ 0x1C001D300 (HmgModifyHandleType.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C0045394 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     INC_SHARE_REF_CNT @ 0x1C0047B70 (INC_SHARE_REF_CNT.c)
+ *     W32GetCurrentThread @ 0x1C004DBF0 (W32GetCurrentThread.c)
+ *     HmgAlloc @ 0x1C0052E60 (HmgAlloc.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C008D2C0 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ */
+
 DCMEMOBJ *__fastcall DCMEMOBJ::DCMEMOBJ(DCMEMOBJ *this, HDEV a2, unsigned int a3, int a4)
 {
   struct HOBJ__ *v8; // rax

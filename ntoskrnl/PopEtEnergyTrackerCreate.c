@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopEtEnergyTrackerCreate @ 0x14084F34C
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsEnumProcesses @ 0x1407809CC (PsEnumProcesses.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ *     ObInsertObject @ 0x1407F0A20 (ObInsertObject.c)
+ */
+
 __int64 __fastcall PopEtEnergyTrackerCreate(int *a1, HANDLE *a2)
 {
   int v2; // eax

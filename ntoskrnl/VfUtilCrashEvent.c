@@ -1,3 +1,11 @@
+/*
+ * XREFs of VfUtilCrashEvent @ 0x1405CBE14
+ * Callers:
+ *     CarReportUnusualShutdown @ 0x1405D2190 (CarReportUnusualShutdown.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall VfUtilCrashEvent(__int64 a1)
 {
   __int64 v1; // r8

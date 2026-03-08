@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifNtOpenFileWrapper @ 0x1405E5CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     NtOpenFile @ 0x1407E1EC0 (NtOpenFile.c)
+ */
+
 NTSTATUS __fastcall DifNtOpenFileWrapper(
         PHANDLE FileHandle,
         ACCESS_MASK DesiredAccess,

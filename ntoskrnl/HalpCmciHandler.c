@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpCmciHandler @ 0x14050376C
+ * Callers:
+ *     HalpInterruptDeferredErrorService @ 0x140519DC0 (HalpInterruptDeferredErrorService.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     HalpGetCpuVendor @ 0x14037D1B4 (HalpGetCpuVendor.c)
+ *     WheaLogInternalEvent @ 0x14037D610 (WheaLogInternalEvent.c)
+ *     KeIpiGenericCall @ 0x140396D40 (KeIpiGenericCall.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HalpCmciResetStateAMD @ 0x1405039DC (HalpCmciResetStateAMD.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char HalpCmciHandler()
 {
   KPCR *Pcr; // rax

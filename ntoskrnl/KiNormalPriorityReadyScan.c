@@ -1,3 +1,21 @@
+/*
+ * XREFs of KiNormalPriorityReadyScan @ 0x1402AC070
+ * Callers:
+ *     KiRetireDpcList @ 0x1402521E0 (KiRetireDpcList.c)
+ * Callees:
+ *     KiReadyDeferredReadyList @ 0x140226FA0 (KiReadyDeferredReadyList.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140255D00 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiShouldScanSharedReadyQueue @ 0x1402AC388 (KiShouldScanSharedReadyQueue.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402ADF80 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiRemoveThreadFromSharedReadyQueue @ 0x1402AE13C (KiRemoveThreadFromSharedReadyQueue.c)
+ *     KiInsertDeferredReadyList @ 0x140343778 (KiInsertDeferredReadyList.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiSetPriorityBoost @ 0x1403512FC (KiSetPriorityBoost.c)
+ *     KiRemoveThreadFromReadyQueue @ 0x1403BD0A8 (KiRemoveThreadFromReadyQueue.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x14040A618 (KiReadGuestSchedulerAssistPriority.c)
+ *     EtwTraceAntiStarvationBoost @ 0x14040C6E0 (EtwTraceAntiStarvationBoost.c)
+ */
+
 __int64 __fastcall KiNormalPriorityReadyScan(_DWORD *a1)
 {
   _DWORD *v1; // r13

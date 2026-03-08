@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EDID_V1_RemovePII@@YAJKPEAE@Z @ 0x1C00225C8
+ * Callers:
+ *     ?GetAnonymizedRawDescriptor@EdidMonitorDescriptor@DxgMonitor@@UEBA?AV?$unique_ptr@$$BY0A@EU?$default_delete@$$BY0A@E@wistd@@@wistd@@PEAI@Z @ 0x1C0212560 (-GetAnonymizedRawDescriptor@EdidMonitorDescriptor@DxgMonitor@@UEBA-AV-$unique_ptr@$$BY0A@EU-$def.c)
+ * Callees:
+ *     ?Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z @ 0x1C0011258 (-Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z.c)
+ */
+
 __int64 __fastcall EDID_V1_RemovePII(unsigned int a1, unsigned __int8 *a2)
 {
   __int64 result; // rax

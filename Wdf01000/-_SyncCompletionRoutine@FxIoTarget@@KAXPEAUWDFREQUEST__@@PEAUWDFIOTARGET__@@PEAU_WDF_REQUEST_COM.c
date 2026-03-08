@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_SyncCompletionRoutine@FxIoTarget@@KAXPEAUWDFREQUEST__@@PEAUWDFIOTARGET__@@PEAU_WDF_REQUEST_COMPLETION_PARAMS@@PEAX@Z @ 0x1C0054500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxIoTarget::_SyncCompletionRoutine(
         WDFREQUEST__ *Request,
         WDFIOTARGET__ *Target,

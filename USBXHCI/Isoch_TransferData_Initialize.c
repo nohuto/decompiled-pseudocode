@@ -1,3 +1,15 @@
+/*
+ * XREFs of Isoch_TransferData_Initialize @ 0x1C0004940
+ * Callers:
+ *     Isoch_RetrieveNextStage @ 0x1C0003800 (Isoch_RetrieveNextStage.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     McTemplateK0uqqq_EtwWriteTransfer @ 0x1C0022696 (McTemplateK0uqqq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_DDi @ 0x1C004207C (WPP_RECORDER_SF_DDi.c)
+ */
+
 __int64 __fastcall Isoch_TransferData_Initialize(__int64 a1, __int64 a2, __int64 *a3)
 {
   unsigned int v6; // esi

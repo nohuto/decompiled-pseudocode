@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopDirectedDripsClearDisengageReason @ 0x1402F2FE8
+ * Callers:
+ *     PnpDeviceActionWorker @ 0x140203020 (PnpDeviceActionWorker.c)
+ *     PnpRemoveDeviceActionRequests @ 0x1403D0950 (PnpRemoveDeviceActionRequests.c)
+ *     PnpRemoveDeviceActionRequestFromQueue @ 0x14056025C (PnpRemoveDeviceActionRequestFromQueue.c)
+ *     PopDirectedDripsDisengageTimerCallback @ 0x1405849F0 (PopDirectedDripsDisengageTimerCallback.c)
+ *     PopDirectedDripsNotify @ 0x140872AF4 (PopDirectedDripsNotify.c)
+ *     PopPowerAggregatorEngageModernStandby @ 0x140990734 (PopPowerAggregatorEngageModernStandby.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x1409991B0 (PopDripsWatchdogCallbackWorker.c)
+ * Callees:
+ *     PopQueueDirectedDripsWork @ 0x1402F3054 (PopQueueDirectedDripsWork.c)
+ */
+
 __int64 __fastcall PopDirectedDripsClearDisengageReason(char a1)
 {
   int v1; // edx

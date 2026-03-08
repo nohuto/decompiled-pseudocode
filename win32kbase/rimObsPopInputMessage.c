@@ -1,3 +1,18 @@
+/*
+ * XREFs of rimObsPopInputMessage @ 0x1C01DCA1C
+ * Callers:
+ *     rimObsObserveNextInput @ 0x1C01DC7C8 (rimObsObserveNextInput.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00052A0 (WPP_RECORDER_AND_TRACE_SF_dd.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimObsCalculateObserverMessageSize @ 0x1C01DB69C (rimObsCalculateObserverMessageSize.c)
+ *     rimObsCopyMessage @ 0x1C01DBA90 (rimObsCopyMessage.c)
+ */
+
 __int64 __fastcall rimObsPopInputMessage(__int64 a1, int a2, void **a3, unsigned int a4)
 {
   void **v5; // r12

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ConvertToDDBHandle @ 0x1C00599BC
+ * Callers:
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ * Callees:
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ */
+
 __int64 __fastcall ConvertToDDBHandle(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

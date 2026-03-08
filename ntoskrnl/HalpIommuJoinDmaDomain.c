@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpIommuJoinDmaDomain @ 0x140515ED4
+ * Callers:
+ *     HalpIommuUnblockDevice @ 0x140516330 (HalpIommuUnblockDevice.c)
+ *     IommuDomainAttachDevice @ 0x140523210 (IommuDomainAttachDevice.c)
+ *     IommuDomainAttachDeviceEx @ 0x1405234A0 (IommuDomainAttachDeviceEx.c)
+ * Callees:
+ *     HalpIommuGetHardwareDomain @ 0x1403A414C (HalpIommuGetHardwareDomain.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpIommuAttachDeviceDomain @ 0x140512E8C (HalpIommuAttachDeviceDomain.c)
+ *     HalpIommuDereferenceHardwareDomain @ 0x14051567C (HalpIommuDereferenceHardwareDomain.c)
+ *     HalpIommuIsInPermanentPassthrough @ 0x140515EB0 (HalpIommuIsInPermanentPassthrough.c)
+ */
+
 __int64 __fastcall HalpIommuJoinDmaDomain(__int64 a1, __int64 a2, _BYTE *a3)
 {
   __int64 result; // rax

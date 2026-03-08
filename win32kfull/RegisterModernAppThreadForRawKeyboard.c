@@ -1,3 +1,13 @@
+/*
+ * XREFs of RegisterModernAppThreadForRawKeyboard @ 0x1C01AB1FC
+ * Callers:
+ *     _EnableModernAppWindowKeyboardIntercept @ 0x1C01E4748 (_EnableModernAppWindowKeyboardIntercept.c)
+ * Callees:
+ *     HasHidTable @ 0x1C0038CB0 (HasHidTable.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _RegisterRawInputDevices @ 0x1C00D5AC8 (_RegisterRawInputDevices.c)
+ */
+
 __int64 __fastcall RegisterModernAppThreadForRawKeyboard(__int64 a1)
 {
   int v1; // ebx

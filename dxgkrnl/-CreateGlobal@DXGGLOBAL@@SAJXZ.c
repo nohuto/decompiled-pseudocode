@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?CreateGlobal@DXGGLOBAL@@SAJXZ @ 0x1C0205754
+ * Callers:
+ *     DriverEntry @ 0x1C03D9E6C (DriverEntry.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?Initialize@DXGGLOBAL@@QEAAJXZ @ 0x1C0205878 (-Initialize@DXGGLOBAL@@QEAAJXZ.c)
+ *     ??0DXGGLOBAL@@AEAA@XZ @ 0x1C0207C44 (--0DXGGLOBAL@@AEAA@XZ.c)
+ *     ?DestroyGlobal@DXGGLOBAL@@SAXXZ @ 0x1C030D864 (-DestroyGlobal@DXGGLOBAL@@SAXXZ.c)
+ */
+
 __int64 __fastcall DXGGLOBAL::CreateGlobal(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   DXGGLOBAL *v4; // rax

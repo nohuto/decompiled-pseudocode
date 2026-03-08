@@ -1,3 +1,17 @@
+/*
+ * XREFs of SepPrivilegeCheck @ 0x14030F080
+ * Callers:
+ *     SepAccessCheckEx @ 0x140206B24 (SepAccessCheckEx.c)
+ *     SepAccessCheck @ 0x140266980 (SepAccessCheck.c)
+ *     SePrivilegePolicyCheck @ 0x14033DD14 (SePrivilegePolicyCheck.c)
+ *     SeCheckAuditPrivilege @ 0x140699908 (SeCheckAuditPrivilege.c)
+ *     NtPrivilegeCheck @ 0x14070F230 (NtPrivilegeCheck.c)
+ *     IopParseDevice @ 0x1407B6A30 (IopParseDevice.c)
+ *     SePrivilegeCheck @ 0x1407B9710 (SePrivilegeCheck.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall SepPrivilegeCheck(__int64 a1, __int64 a2, unsigned int a3, char a4, char a5)
 {
   int v5; // r10d

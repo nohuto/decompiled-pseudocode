@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0XLATEMEMOBJ@@QEAA@VXEPALOBJ@@0@Z @ 0x1C02DDE94
+ * Callers:
+ *     NtGdiUpdateColors @ 0x1C02D47D0 (NtGdiUpdateColors.c)
+ * Callees:
+ *     ?pCreateXlate@@YAPEAVXLATE@@K@Z @ 0x1C02DE810 (-pCreateXlate@@YAPEAVXLATE@@K@Z.c)
+ *     ?vCheckForTrivial@XLATE@@QEAAXXZ @ 0x1C02DE9BC (-vCheckForTrivial@XLATE@@QEAAXXZ.c)
+ */
+
 XLATE **__fastcall XLATEMEMOBJ::XLATEMEMOBJ(XLATE **a1, __int64 a2, __int64 a3)
 {
   unsigned int v4; // ebp

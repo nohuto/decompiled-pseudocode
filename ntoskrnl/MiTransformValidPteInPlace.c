@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiTransformValidPteInPlace @ 0x1403BD25C
+ * Callers:
+ *     MiReplicatePteChangeToProcess @ 0x1402A470C (MiReplicatePteChangeToProcess.c)
+ *     MiShadowTopLevelPxes @ 0x1402A5D94 (MiShadowTopLevelPxes.c)
+ *     MiInitializeSystemPageTable @ 0x1403483AC (MiInitializeSystemPageTable.c)
+ *     MiReplacePfnWithGapMapping @ 0x14038B4B8 (MiReplacePfnWithGapMapping.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x14038B664 (MiDemoteValidLargePageOneLevel.c)
+ *     MiMakeLargePageTable @ 0x140634BEC (MiMakeLargePageTable.c)
+ *     MiInitializeDynamicBitmap @ 0x14080A0E4 (MiInitializeDynamicBitmap.c)
+ * Callees:
+ *     MiFlushValidPteFromTb @ 0x140387768 (MiFlushValidPteFromTb.c)
+ *     MiWritePteHighLevel @ 0x14064BD10 (MiWritePteHighLevel.c)
+ */
+
 void __fastcall MiTransformValidPteInPlace(volatile signed __int64 *a1, unsigned __int64 a2, signed __int64 a3, int a4)
 {
   signed __int64 v8; // rax

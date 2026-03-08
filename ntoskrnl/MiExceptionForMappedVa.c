@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiExceptionForMappedVa @ 0x14062E6B0
+ * Callers:
+ *     MiWaitForInPageComplete @ 0x140342A90 (MiWaitForInPageComplete.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ */
+
 __int64 __fastcall MiExceptionForMappedVa(unsigned __int64 a1)
 {
   unsigned int v2; // ebx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of PnpSetDeviceInterfacePropertyData @ 0x14086B858
+ * Callers:
+ *     IoSetDeviceInterfacePropertyData @ 0x14086B810 (IoSetDeviceInterfacePropertyData.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PiPnpRtlSetObjectProperty @ 0x140686898 (PiPnpRtlSetObjectProperty.c)
+ *     PnpUnicodeStringToWstr @ 0x1406D07D4 (PnpUnicodeStringToWstr.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1406D08F4 (PnpUnicodeStringToWstrFree.c)
+ *     RtlLCIDToCultureName @ 0x1409BBD70 (RtlLCIDToCultureName.c)
+ */
+
 __int64 __fastcall PnpSetDeviceInterfacePropertyData(
         __int64 a1,
         __int64 a2,

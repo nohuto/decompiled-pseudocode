@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSwapMouseButton @ 0x1C01DFE60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_SwapMouseButton@@YAHH@Z @ 0x1C01C0578 (-_SwapMouseButton@@YAHH@Z.c)
+ */
+
 __int64 __fastcall NtUserSwapMouseButton(unsigned int a1)
 {
   __int64 v2; // rbx

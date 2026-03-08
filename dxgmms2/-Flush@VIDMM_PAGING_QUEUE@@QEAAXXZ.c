@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Flush@VIDMM_PAGING_QUEUE@@QEAAXXZ @ 0x1C00AB790
+ * Callers:
+ *     ?VidMmFlushPagingQueue@@YAXPEAVVIDMM_PAGING_QUEUE@@@Z @ 0x1C0011B30 (-VidMmFlushPagingQueue@@YAXPEAVVIDMM_PAGING_QUEUE@@@Z.c)
+ *     ??1VIDMM_DEVICE@@QEAA@XZ @ 0x1C00A9A98 (--1VIDMM_DEVICE@@QEAA@XZ.c)
+ *     ?Destroy@VIDMM_PAGING_QUEUE@@QEAAXXZ @ 0x1C00AB650 (-Destroy@VIDMM_PAGING_QUEUE@@QEAAXXZ.c)
+ *     ?VidMmTerminateCompanionContext@VIDMM_GLOBAL@@SAXPEAUVIDMM_COMPANION_CONTEXT@@@Z @ 0x1C00EAABC (-VidMmTerminateCompanionContext@VIDMM_GLOBAL@@SAXPEAUVIDMM_COMPANION_CONTEXT@@@Z.c)
+ * Callees:
+ *     ?EnsureSchedulable@VIDMM_DEVICE@@QEAAX_N@Z @ 0x1C00A5350 (-EnsureSchedulable@VIDMM_DEVICE@@QEAAX_N@Z.c)
+ */
+
 void __fastcall VIDMM_PAGING_QUEUE::Flush(VIDMM_PAGING_QUEUE *this)
 {
   __int64 v2; // rbx

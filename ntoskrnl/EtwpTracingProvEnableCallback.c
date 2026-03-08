@@ -1,3 +1,21 @@
+/*
+ * XREFs of EtwpTracingProvEnableCallback @ 0x140861AF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     EtwpReleaseLoggerContext @ 0x14069349C (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140693AFC (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpGetNextGuidEntry @ 0x140693F10 (EtwpGetNextGuidEntry.c)
+ *     EtwpEventWriteEnableInfo @ 0x1409E0734 (EtwpEventWriteEnableInfo.c)
+ *     EtwpEventWriteGuidEntry @ 0x1409E082C (EtwpEventWriteGuidEntry.c)
+ *     EtwpEventWriteRegEntry @ 0x1409E0A5C (EtwpEventWriteRegEntry.c)
+ *     EtwpEventWriteTemplateSession @ 0x1409E0E14 (EtwpEventWriteTemplateSession.c)
+ */
+
 void __fastcall EtwpTracingProvEnableCallback(
         LPCGUID SourceId,
         ULONG ControlCode,

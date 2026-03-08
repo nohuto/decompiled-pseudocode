@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_lambda_invoker_cdecl_@_lambda_15f19474c8d9c079cbb9d12a9c9e3b8f_@@CA@PEAX@Z @ 0x1C02776D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall _lambda_15f19474c8d9c079cbb9d12a9c9e3b8f_::_lambda_invoker_cdecl_(void *a1)
 {
   __int64 v1; // rbx

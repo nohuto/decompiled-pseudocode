@@ -1,3 +1,20 @@
+/*
+ * XREFs of WMI_FireNotification @ 0x1C008C428
+ * Callers:
+ *     HUBPDO_ValidateSelectConfigUrb @ 0x1C0016970 (HUBPDO_ValidateSelectConfigUrb.c)
+ *     HUBPDO_EvtDeviceD0Exit @ 0x1C0019BA0 (HUBPDO_EvtDeviceD0Exit.c)
+ *     HUBPDO_EvtOutOfBandwidthTimer @ 0x1C001CD40 (HUBPDO_EvtOutOfBandwidthTimer.c)
+ *     HUBPDO_EvtDevicePrepareHardware @ 0x1C007CF20 (HUBPDO_EvtDevicePrepareHardware.c)
+ *     HUBPDO_CreatePdoInternal @ 0x1C007EDF4 (HUBPDO_CreatePdoInternal.c)
+ *     HUBMISC_GenerateUserNotificationForPersistentOverCurrent @ 0x1C0083518 (HUBMISC_GenerateUserNotificationForPersistentOverCurrent.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     HUBMISC_StripSymbolicNamePrefix @ 0x1C0033784 (HUBMISC_StripSymbolicNamePrefix.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 _UNKNOWN **__fastcall WMI_FireNotification(__int64 a1, unsigned __int16 a2, int a3)
 {
   int v5; // edi

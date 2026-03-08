@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiGetBootImagePageProtection @ 0x140B3BD78
+ * Callers:
+ *     MiHandleBootImage @ 0x140B3BA98 (MiHandleBootImage.c)
+ * Callees:
+ *     MiComputeDriverProtection @ 0x14080A918 (MiComputeDriverProtection.c)
+ */
+
 __int64 __fastcall MiGetBootImagePageProtection(unsigned int a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
   __int64 v5; // r11

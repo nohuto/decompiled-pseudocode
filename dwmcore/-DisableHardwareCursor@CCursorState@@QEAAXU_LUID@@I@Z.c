@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DisableHardwareCursor@CCursorState@@QEAAXU_LUID@@I@Z @ 0x180276828
+ * Callers:
+ *     ?DisableHardwareCursor@COverlayContext@@AEAAXXZ @ 0x1800CA2C8 (-DisableHardwareCursor@COverlayContext@@AEAAXXZ.c)
+ * Callees:
+ *     ?EnsureHardwareOverlayCleared@CCursorState@@AEAAXPEAUMonitorData@1@@Z @ 0x180276CA8 (-EnsureHardwareOverlayCleared@CCursorState@@AEAAXPEAUMonitorData@1@@Z.c)
+ *     ?FindMonitorData@CCursorState@@AEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@UMonitorData@CCursorState@@@std@@@std@@@std@@U_LUID@@I@Z @ 0x180276D34 (-FindMonitorData@CCursorState@@AEAA-AV-$_Vector_iterator@V-$_Vector_val@U-$_Simple_types@UMonito.c)
+ *     ?erase@?$vector@UMonitorData@CCursorState@@V?$allocator@UMonitorData@CCursorState@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@UMonitorData@CCursorState@@@std@@@std@@@2@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@UMonitorData@CCursorState@@@std@@@std@@@2@@Z @ 0x180278964 (-erase@-$vector@UMonitorData@CCursorState@@V-$allocator@UMonitorData@CCursorState@@@std@@@std@@Q.c)
+ */
+
 void __fastcall CCursorState::DisableHardwareCursor(
         struct CCursorState::MonitorData **this,
         struct _LUID a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of IommupFindAndPopCachedDevice @ 0x140524604
+ * Callers:
+ *     IommuDomainAttachDevice @ 0x140523210 (IommuDomainAttachDevice.c)
+ *     IommuDomainAttachDeviceEx @ 0x1405234A0 (IommuDomainAttachDeviceEx.c)
+ *     IommuDomainDetachDeviceEx @ 0x1405238E0 (IommuDomainDetachDeviceEx.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall IommupFindAndPopCachedDevice(__int64 a1, __int64 **a2)
 {
   __int64 *v2; // rbp

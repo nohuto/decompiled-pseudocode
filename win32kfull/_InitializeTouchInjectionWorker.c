@@ -1,3 +1,14 @@
+/*
+ * XREFs of _InitializeTouchInjectionWorker @ 0x1C01B1800
+ * Callers:
+ *     ?RealizePendingRecreateTouchInjectionDevices@@YAHPEAUtagPROCESSINFO@@H@Z @ 0x1C01B05C0 (-RealizePendingRecreateTouchInjectionDevices@@YAHPEAUtagPROCESSINFO@@H@Z.c)
+ *     NtUserInitializeTouchInjection @ 0x1C01D61A0 (NtUserInitializeTouchInjection.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     CleanupInjectedTouchProcess @ 0x1C01B12B0 (CleanupInjectedTouchProcess.c)
+ *     CreatePseudoDigitizerDevice @ 0x1C01B3424 (CreatePseudoDigitizerDevice.c)
+ */
+
 __int64 __fastcall InitializeTouchInjectionWorker(unsigned int a1, unsigned int a2, __int64 a3)
 {
   __int64 v3; // rbp

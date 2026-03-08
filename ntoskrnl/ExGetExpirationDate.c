@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExGetExpirationDate @ 0x14081A9F4
+ * Callers:
+ *     ExInitLicenseData @ 0x140819CE8 (ExInitLicenseData.c)
+ *     ExInitializeTimeRefresh @ 0x140B545AC (ExInitializeTimeRefresh.c)
+ * Callees:
+ *     RtlTimeFieldsToTime @ 0x1402D1150 (RtlTimeFieldsToTime.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQueryLicenseValue @ 0x140414ED0 (ZwQueryLicenseValue.c)
+ */
+
 __int64 __fastcall ExGetExpirationDate(PLARGE_INTEGER Time)
 {
   int LicenseValue; // ebx

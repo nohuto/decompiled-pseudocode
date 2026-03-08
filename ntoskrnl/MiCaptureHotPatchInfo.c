@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiCaptureHotPatchInfo @ 0x140A334F8
+ * Callers:
+ *     MiApplyImageHotPatchRequest @ 0x140A32920 (MiApplyImageHotPatchRequest.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlFindHotPatchBase @ 0x140A7380C (RtlFindHotPatchBase.c)
+ *     RtlFindHotPatchInformation @ 0x140A7383C (RtlFindHotPatchInformation.c)
+ *     RtlValidateHotPatchBase @ 0x140A73A54 (RtlValidateHotPatchBase.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiCaptureHotPatchInfo(__int64 a1, int a2, int a3, int a4, __int16 a5, _QWORD *a6, _QWORD *a7)
 {
   char *v10; // rdi

@@ -1,3 +1,21 @@
+/*
+ * XREFs of ViReleaseDmaAdapter @ 0x140AC6C1C
+ * Callers:
+ *     VfGetDmaAdapter @ 0x140AC3560 (VfGetDmaAdapter.c)
+ *     VfPutDmaAdapter @ 0x140AC4280 (VfPutDmaAdapter.c)
+ *     VfIoDeleteDevice @ 0x140ACF214 (VfIoDeleteDevice.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     MmFreeContiguousMemory @ 0x1403BD6E0 (MmFreeContiguousMemory.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     ViGetRealDmaAdapter @ 0x140AC6158 (ViGetRealDmaAdapter.c)
+ *     ViHalPreprocessOptions @ 0x140AC62F4 (ViHalPreprocessOptions.c)
+ */
+
 void __fastcall ViReleaseDmaAdapter(ULONG_PTR a1)
 {
   void *RealDmaAdapter; // r14

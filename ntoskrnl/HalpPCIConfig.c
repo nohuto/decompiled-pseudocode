@@ -1,3 +1,24 @@
+/*
+ * XREFs of HalpPCIConfig @ 0x1402D7810
+ * Callers:
+ *     HaliPciInterfaceWriteConfig @ 0x1402D7760 (HaliPciInterfaceWriteConfig.c)
+ *     HaliPciInterfaceReadConfig @ 0x1402D77A0 (HaliPciInterfaceReadConfig.c)
+ *     HalpWritePCIConfig @ 0x1403702A0 (HalpWritePCIConfig.c)
+ *     HalpReadPCIConfig @ 0x1403704C4 (HalpReadPCIConfig.c)
+ *     HalpPciHandleSecureAccess @ 0x140456190 (HalpPciHandleSecureAccess.c)
+ *     HaliHandlePCIConfigSpaceAccess @ 0x14051E3F0 (HaliHandlePCIConfigSpaceAccess.c)
+ *     HalpKdWritePCIConfig @ 0x140528D60 (HalpKdWritePCIConfig.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     HalpPCIAcquireConfigSpaceLock @ 0x1402D7958 (HalpPCIAcquireConfigSpaceLock.c)
+ *     HalpPciAccessMmConfigSpace @ 0x1402D79A4 (HalpPciAccessMmConfigSpace.c)
+ *     HalpPciAccessIoConfigSpace @ 0x14039127C (HalpPciAccessIoConfigSpace.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpPCIConfig(
         unsigned int *a1,
         unsigned __int8 a2,

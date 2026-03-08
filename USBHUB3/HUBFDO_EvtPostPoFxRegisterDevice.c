@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBFDO_EvtPostPoFxRegisterDevice @ 0x1C000EF70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     TUNNEL_RegisterForPnPNotifications @ 0x1C008E8E4 (TUNNEL_RegisterForPnPNotifications.c)
+ */
+
 __int64 __fastcall HUBFDO_EvtPostPoFxRegisterDevice(__int64 a1, __int64 a2)
 {
   __int64 v3; // rbx

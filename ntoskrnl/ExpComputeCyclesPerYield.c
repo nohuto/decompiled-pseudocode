@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpComputeCyclesPerYield @ 0x140B64668
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 ExpComputeCyclesPerYield()
 {
   volatile signed __int32 *SchedulerAssist; // rcx

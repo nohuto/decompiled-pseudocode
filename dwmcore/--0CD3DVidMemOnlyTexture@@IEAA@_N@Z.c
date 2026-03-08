@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CD3DVidMemOnlyTexture@@IEAA@_N@Z @ 0x1802BC478
+ * Callers:
+ *     ?Create@CD3DVidMemOnlyTexture@@SAJPEAUID3D11Texture2D@@I_NPEAVCD3DDevice@@PEAPEAV1@@Z @ 0x1802BC55C (-Create@CD3DVidMemOnlyTexture@@SAJPEAUID3D11Texture2D@@I_NPEAVCD3DDevice@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     ??0CD3DTexture@@IEAA@_N@Z @ 0x1802BBE6C (--0CD3DTexture@@IEAA@_N@Z.c)
+ */
+
 CD3DVidMemOnlyTexture *__fastcall CD3DVidMemOnlyTexture::CD3DVidMemOnlyTexture(CD3DVidMemOnlyTexture *this)
 {
   __int64 v2; // rax

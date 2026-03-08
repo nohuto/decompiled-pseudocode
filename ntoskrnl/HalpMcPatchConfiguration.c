@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpMcPatchConfiguration @ 0x140519704
+ * Callers:
+ *     HalpLoadMicrocode @ 0x140931BD0 (HalpLoadMicrocode.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     HalpMcEnumerateAndSetPatchConfig @ 0x140519160 (HalpMcEnumerateAndSetPatchConfig.c)
+ */
+
 __int64 HalpMcPatchConfiguration()
 {
   NTSTATUS v0; // eax

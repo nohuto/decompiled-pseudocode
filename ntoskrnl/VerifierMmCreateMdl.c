@@ -1,3 +1,13 @@
+/*
+ * XREFs of VerifierMmCreateMdl @ 0x140ADFD30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     VfFaultsInjectResourceFailure @ 0x140AD2FAC (VfFaultsInjectResourceFailure.c)
+ *     ViPtLogStackTrace @ 0x140ADC05C (ViPtLogStackTrace.c)
+ */
+
 __int64 __fastcall VerifierMmCreateMdl(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v7; // rax

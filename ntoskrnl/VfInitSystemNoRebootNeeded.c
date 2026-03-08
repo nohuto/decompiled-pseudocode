@@ -1,3 +1,22 @@
+/*
+ * XREFs of VfInitSystemNoRebootNeeded @ 0x140ABFCE8
+ * Callers:
+ *     VfAddVerifierEntry @ 0x140ADA630 (VfAddVerifierEntry.c)
+ *     VfSetVerifierInformation @ 0x140ADA7E8 (VfSetVerifierInformation.c)
+ *     ViInitSystemPhase0 @ 0x140B49D78 (ViInitSystemPhase0.c)
+ * Callees:
+ *     ExSetPoolFlags @ 0x1406056B8 (ExSetPoolFlags.c)
+ *     ExDisableAllLookasideLists @ 0x140608E58 (ExDisableAllLookasideLists.c)
+ *     MmLockPagableDataSection @ 0x1407EBF70 (MmLockPagableDataSection.c)
+ *     PsSetCreateProcessNotifyRoutine @ 0x1408194B0 (PsSetCreateProcessNotifyRoutine.c)
+ *     IoVerifierInit @ 0x140ABDCAC (IoVerifierInit.c)
+ *     VfInitVerifierComponents @ 0x140ABFE40 (VfInitVerifierComponents.c)
+ *     VfPendingInitPhase1 @ 0x140ACE860 (VfPendingInitPhase1.c)
+ *     VfFaultsInitPhase0 @ 0x140AD2E18 (VfFaultsInitPhase0.c)
+ *     VfPoolInitPhase1 @ 0x140AD7118 (VfPoolInitPhase1.c)
+ *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x140AD7E88 (VfSettingsMiscellaneousChecksInitPhase1.c)
+ */
+
 void __fastcall VfInitSystemNoRebootNeeded(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
   int v5; // edi

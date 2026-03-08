@@ -1,3 +1,21 @@
+/*
+ * XREFs of LocalpGetStringForCondition @ 0x1409D3684
+ * Callers:
+ *     LocalGetAceCondition @ 0x140750740 (LocalGetAceCondition.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SddlpAlloc @ 0x1407507C8 (SddlpAlloc.c)
+ *     EncloseSubCondition @ 0x1409D00DC (EncloseSubCondition.c)
+ *     GetOperatorIndexByToken @ 0x1409D0F50 (GetOperatorIndexByToken.c)
+ *     GetPrintableAttributeName @ 0x1409D0F74 (GetPrintableAttributeName.c)
+ *     GetPrintableOperandValue @ 0x1409D117C (GetPrintableOperandValue.c)
+ *     ULongAddStringSize @ 0x1409D3CA0 (ULongAddStringSize.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall LocalpGetStringForCondition(
         unsigned __int8 *a1,
         unsigned int a2,

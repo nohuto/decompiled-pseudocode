@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?BeginFrame@CConnection@DirectComposition@@QEAAJAEBUCOMPOSITION_FRAME_INFO@@PEA_K@Z @ 0x1C00991C0
+ * Callers:
+ *     NtDCompositionBeginFrame @ 0x1C0098F20 (NtDCompositionBeginFrame.c)
+ * Callees:
+ *     ?IsConnected@CConnection@DirectComposition@@QEAA_NXZ @ 0x1C005B708 (-IsConnected@CConnection@DirectComposition@@QEAA_NXZ.c)
+ *     ?Release@CPushLockCriticalSection@DirectComposition@@QEAAXXZ @ 0x1C0091D74 (-Release@CPushLockCriticalSection@DirectComposition@@QEAAXXZ.c)
+ *     ??_GCEvent@DirectComposition@@QEAAPEAXI@Z @ 0x1C0099740 (--_GCEvent@DirectComposition@@QEAAPEAXI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0qpqxxq_EtwWriteTransfer @ 0x1C01663EC (McTemplateK0qpqxxq_EtwWriteTransfer.c)
+ *     ?BoostCompositorClock@CSystemChannel@DirectComposition@@QEAAJ_N@Z @ 0x1C024BB78 (-BoostCompositorClock@CSystemChannel@DirectComposition@@QEAAJ_N@Z.c)
+ *     ?ShouldDefer@CBatch@DirectComposition@@QEAA_N_J_NPEAVCEvent@2@PEAW4DeferReason@12@@Z @ 0x1C024BE60 (-ShouldDefer@CBatch@DirectComposition@@QEAA_N_J_NPEAVCEvent@2@PEAW4DeferReason@12@@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CConnection::BeginFrame(
         DirectComposition::CConnection *this,
         const struct COMPOSITION_FRAME_INFO *a2,

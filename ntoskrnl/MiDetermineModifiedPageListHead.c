@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiDetermineModifiedPageListHead @ 0x14027E090
+ * Callers:
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiDeleteBatch @ 0x14027A5E0 (MiDeleteBatch.c)
+ *     MiReplaceTransitionPage @ 0x1402C6784 (MiReplaceTransitionPage.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1402DD950 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ *     MiUpdatePageAttributeStamp @ 0x14036A854 (MiUpdatePageAttributeStamp.c)
+ * Callees:
+ *     MiTransferSoftwarePte @ 0x14032F630 (MiTransferSoftwarePte.c)
+ */
+
 __int64 __fastcall MiDetermineModifiedPageListHead(__int64 a1, __int64 a2, char a3)
 {
   unsigned __int64 v5; // rcx

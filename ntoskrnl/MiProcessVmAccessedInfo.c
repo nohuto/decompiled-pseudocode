@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiProcessVmAccessedInfo @ 0x140463A5E
+ * Callers:
+ *     MiAgeWorkingSetTail @ 0x1402C9E50 (MiAgeWorkingSetTail.c)
+ *     MiResetAccessBitsTail @ 0x1402DDE40 (MiResetAccessBitsTail.c)
+ *     MiTrimWorkingSetTail @ 0x1402E29B0 (MiTrimWorkingSetTail.c)
+ *     MiSimpleAgeWorkingSetTail @ 0x140463CB0 (MiSimpleAgeWorkingSetTail.c)
+ *     MiUpdateOldWorkingSetPagesTail @ 0x140463EE0 (MiUpdateOldWorkingSetPagesTail.c)
+ * Callees:
+ *     MiGetWsleContents @ 0x140229790 (MiGetWsleContents.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall MiProcessVmAccessedInfo(
         __int64 a1,
         _DWORD *a2,

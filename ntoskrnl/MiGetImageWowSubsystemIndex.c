@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiGetImageWowSubsystemIndex @ 0x140791C98
+ * Callers:
+ *     MiUpdateCfgSystemWideBitmap @ 0x1406A1180 (MiUpdateCfgSystemWideBitmap.c)
+ *     MiSelectImageBase @ 0x1406A1934 (MiSelectImageBase.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiGetImageWowSubsystemIndex(__int64 a1)
 {
   unsigned int v1; // edx

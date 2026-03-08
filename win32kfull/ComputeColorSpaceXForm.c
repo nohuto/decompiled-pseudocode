@@ -1,3 +1,15 @@
+/*
+ * XREFs of ComputeColorSpaceXForm @ 0x1C0257078
+ * Callers:
+ *     pDCIAdjClr @ 0x1C02583A8 (pDCIAdjClr.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     DivFD6 @ 0x1C014AF0C (DivFD6.c)
+ *     MulFD6 @ 0x1C014B146 (MulFD6.c)
+ *     ComputeInverseMatrix3x3 @ 0x1C02556D8 (ComputeInverseMatrix3x3.c)
+ *     MulDivFD6Pairs @ 0x1C0255BE8 (MulDivFD6Pairs.c)
+ */
+
 __int64 __fastcall ComputeColorSpaceXForm(__int64 a1, unsigned int *a2, __int64 a3, int a4)
 {
   unsigned int v4; // edi

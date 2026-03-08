@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpLockSiloKeyLockTrackerShared @ 0x1408463F8
+ * Callers:
+ *     CmLockKeyForWrite @ 0x140845EFC (CmLockKeyForWrite.c)
+ * Callees:
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ */
+
 signed __int64 __fastcall CmpLockSiloKeyLockTrackerShared(volatile signed __int64 *a1)
 {
   struct _KTHREAD *CurrentThread; // rax

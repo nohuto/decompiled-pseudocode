@@ -1,3 +1,13 @@
+/*
+ * XREFs of ApplyTexcoordTransformations @ 0x180027D08
+ * Callers:
+ *     PerformSample @ 0x180028DE0 (PerformSample.c)
+ * Callees:
+ *     ApplyTexcoordExtendMode @ 0x180027B00 (ApplyTexcoordExtendMode.c)
+ *     ?AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@@Z @ 0x18002A318 (-AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V-$.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall ApplyTexcoordTransformations(__int64 a1, __int64 a2, unsigned int a3, unsigned __int16 a4, void *a5)
 {
   _BYTE *v7; // rdi

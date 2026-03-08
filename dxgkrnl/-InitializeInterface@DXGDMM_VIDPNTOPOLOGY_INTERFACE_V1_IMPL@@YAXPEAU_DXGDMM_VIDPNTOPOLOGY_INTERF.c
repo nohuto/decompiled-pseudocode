@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InitializeInterface@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@@Z @ 0x1C0207AE8
+ * Callers:
+ *     ?_InitializeDmmClientInterfaces@VIDPN_MGR@@AEAAJXZ @ 0x1C0207318 (-_InitializeDmmClientInterfaces@VIDPN_MGR@@AEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL::InitializeInterface(
         DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL *this,
         struct _DXGDMM_VIDPNTOPOLOGY_INTERFACE *a2)

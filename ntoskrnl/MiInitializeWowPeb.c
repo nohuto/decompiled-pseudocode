@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiInitializeWowPeb @ 0x140795138
+ * Callers:
+ *     MmCreatePeb @ 0x140706A60 (MmCreatePeb.c)
+ * Callees:
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     MiCreatePebOrTeb @ 0x1406A35BC (MiCreatePebOrTeb.c)
+ *     MmCheckImageMapping @ 0x1407955BC (MmCheckImageMapping.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall MiInitializeWowPeb(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // r13

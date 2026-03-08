@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopFxDestroyDirectedDripsCandidateDeviceList @ 0x1405878B4
+ * Callers:
+ *     PopDirectedDripsInitializeBroadcast @ 0x1409806E8 (PopDirectedDripsInitializeBroadcast.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 char __fastcall PopFxDestroyDirectedDripsCandidateDeviceList(struct _KEVENT **a1)
 {
   struct _KEVENT *v2; // rcx

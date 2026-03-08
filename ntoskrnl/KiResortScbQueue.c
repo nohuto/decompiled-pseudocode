@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiResortScbQueue @ 0x1402AEDFC
+ * Callers:
+ *     KiInsertNonMaxOverQuotaScb @ 0x1402AE41C (KiInsertNonMaxOverQuotaScb.c)
+ *     KiRemoveThreadFromScbQueue @ 0x1402AE79C (KiRemoveThreadFromScbQueue.c)
+ *     KiComputeGroupSchedulingRank @ 0x1402AEC84 (KiComputeGroupSchedulingRank.c)
+ *     KiRecomputeGroupSchedulingRank @ 0x1402AF340 (KiRecomputeGroupSchedulingRank.c)
+ *     KeSetSchedulingGroupRankBias @ 0x1402F2018 (KeSetSchedulingGroupRankBias.c)
+ * Callees:
+ *     KiInsertSchedulingGroupQueue @ 0x1402AE47C (KiInsertSchedulingGroupQueue.c)
+ *     KiRemoveSchedulingGroupQueue @ 0x1402AEF44 (KiRemoveSchedulingGroupQueue.c)
+ */
+
 void __fastcall KiResortScbQueue(__int64 a1, __int64 a2, char a3)
 {
   unsigned __int64 *v3; // r9

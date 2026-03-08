@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiFdoInitializeAdapterUniqueString @ 0x1C01F8548
+ * Callers:
+ *     DpiFdoInitializeFdo @ 0x1C01F5A64 (DpiFdoInitializeFdo.c)
+ * Callees:
+ *     ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C000AB7C (-RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     MonitorUnifyCCDMonitorString @ 0x1C01F88E4 (MonitorUnifyCCDMonitorString.c)
+ *     DpiGetDevicePropertyString @ 0x1C02163CC (DpiGetDevicePropertyString.c)
+ */
+
 __int64 __fastcall DpiFdoInitializeAdapterUniqueString(__int64 a1)
 {
   __int64 v1; // rsi

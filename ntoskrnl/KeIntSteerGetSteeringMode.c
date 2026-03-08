@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeIntSteerGetSteeringMode @ 0x14028F388
+ * Callers:
+ *     KiIntSteerChooseInitialTargetProcessors @ 0x14028F130 (KiIntSteerChooseInitialTargetProcessors.c)
+ *     ExpQueryInterruptSteeringInformation @ 0x140849CE4 (ExpQueryInterruptSteeringInformation.c)
+ * Callees:
+ *     IntPartIsInterruptSteerable @ 0x14028F4A8 (IntPartIsInterruptSteerable.c)
+ */
+
 __int64 __fastcall KeIntSteerGetSteeringMode(char a1, __int64 a2, char a3, int a4, __int64 a5)
 {
   unsigned int v5; // ebx

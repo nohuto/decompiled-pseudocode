@@ -1,3 +1,38 @@
+/*
+ * XREFs of DbgkpSendErrorMessage @ 0x14093730C
+ * Callers:
+ *     PsDispatchIumService @ 0x1405A2A44 (PsDispatchIumService.c)
+ *     DbgkForwardException @ 0x1409365F4 (DbgkForwardException.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     PsGetServerSiloServiceSessionId @ 0x1402456C0 (PsGetServerSiloServiceSessionId.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     PsGetProcessServerSilo @ 0x1402637E0 (PsGetProcessServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     AlpcGetMessageAttribute @ 0x1402BBFE0 (AlpcGetMessageAttribute.c)
+ *     AlpcInitializeMessageAttribute @ 0x1402BC020 (AlpcInitializeMessageAttribute.c)
+ *     PsThawMultiProcess @ 0x1402FFE80 (PsThawMultiProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KeTestAlertThread @ 0x1403646F0 (KeTestAlertThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwAlpcSendWaitReceivePort @ 0x140413490 (ZwAlpcSendWaitReceivePort.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KeCopyExceptionRecord @ 0x140576430 (KeCopyExceptionRecord.c)
+ *     PsTestProtectedProcessIncompatibility @ 0x14070C774 (PsTestProtectedProcessIncompatibility.c)
+ *     MmGetSectionInformation @ 0x140720B20 (MmGetSectionInformation.c)
+ *     DbgkpSuspendProcess @ 0x1409365B4 (DbgkpSuspendProcess.c)
+ *     DbgkForwardException @ 0x1409365F4 (DbgkForwardException.c)
+ *     DbgkpDeleteErrorPort @ 0x140936FD4 (DbgkpDeleteErrorPort.c)
+ *     DbgkpRemoveErrorPort @ 0x140937000 (DbgkpRemoveErrorPort.c)
+ *     DbgkpStartSystemErrorHandler @ 0x1409377EC (DbgkpStartSystemErrorHandler.c)
+ */
+
 __int64 __fastcall DbgkpSendErrorMessage(__int64 a1, int a2, __int64 a3)
 {
   char v3; // r12

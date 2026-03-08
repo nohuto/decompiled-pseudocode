@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIDispatchPowerIrpSurpriseRemoved @ 0x1C0024620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPIDispatchPowerIrpSurpriseRemoved(__int64 a1, IRP *a2)
 {
   a2->IoStatus.Status = -1073741810;

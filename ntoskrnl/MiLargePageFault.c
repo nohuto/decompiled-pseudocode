@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiLargePageFault @ 0x140643EB8
+ * Callers:
+ *     MiResolvePageTablePage @ 0x1402689F0 (MiResolvePageTablePage.c)
+ *     MiInPagePageTable @ 0x140345FA0 (MiInPagePageTable.c)
+ * Callees:
+ *     KeFlushSingleTb @ 0x140211E60 (KeFlushSingleTb.c)
+ *     MiNoFaultFound @ 0x1402D3500 (MiNoFaultFound.c)
+ *     MiCheckSystemNxFault @ 0x1402EB3C8 (MiCheckSystemNxFault.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiWriteValidPteNewProtection @ 0x14032E660 (MiWriteValidPteNewProtection.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiGetVirtualFaultPageInfo @ 0x14046438E (MiGetVirtualFaultPageInfo.c)
+ *     MiValidVirtualizationFault @ 0x1404643C2 (MiValidVirtualizationFault.c)
+ *     MiCanGrantExecute @ 0x140643510 (MiCanGrantExecute.c)
+ */
+
 __int64 __fastcall MiLargePageFault(__int64 a1, unsigned __int64 a2)
 {
   unsigned int v4; // r14d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhFreeBusyList @ 0x1C0058B48
+ * Callers:
+ *     UsbhHubSSH_PnpStop @ 0x1C0058F40 (UsbhHubSSH_PnpStop.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 LONG __fastcall UsbhFreeBusyList(__int64 a1)
 {
   struct _KEVENT *v2; // rbx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of imp_WdfDmaTransactionStopSystemTransfer @ 0x1C001A360
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_ql @ 0x1C00190DC (WPP_IFR_SF_ql.c)
+ *     ?StopTransfer@FxDmaSystemTransaction@@QEAAXXZ @ 0x1C001EEE8 (-StopTransfer@FxDmaSystemTransaction@@QEAAXXZ.c)
+ */
+
 void __fastcall imp_WdfDmaTransactionStopSystemTransfer(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFDMATRANSACTION__ *DmaTransaction)

@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpFcValidateFeatureUsageSubscriptionBuffer @ 0x1409C08B4
+ * Callers:
+ *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x140A24A68 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ * Callees:
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     RtlpFcCompareUsageSubscriptionToUsageSubscription @ 0x1405B2730 (RtlpFcCompareUsageSubscriptionToUsageSubscription.c)
+ */
+
 __int64 __fastcall RtlpFcValidateFeatureUsageSubscriptionBuffer(unsigned int *a1, ULONGLONG a2)
 {
   unsigned int v3; // r10d

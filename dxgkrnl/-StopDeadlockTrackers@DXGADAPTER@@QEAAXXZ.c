@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?StopDeadlockTrackers@DXGADAPTER@@QEAAXXZ @ 0x1C01E1084
+ * Callers:
+ *     ?ApplyCoreSyncAction@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_ACTION@@@Z @ 0x1C01E07B0 (-ApplyCoreSyncAction@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_ACTION@@@Z.c)
+ *     DpiPowerArbiterThread @ 0x1C0210150 (DpiPowerArbiterThread.c)
+ * Callees:
+ *     ?Cancel@DXGDEADLOCK_TRACKER@@QEAAXXZ @ 0x1C017D324 (-Cancel@DXGDEADLOCK_TRACKER@@QEAAXXZ.c)
+ */
+
 void __fastcall DXGADAPTER::StopDeadlockTrackers(DXGADAPTER *this)
 {
   char *v2; // rdi

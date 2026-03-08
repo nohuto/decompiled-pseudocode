@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ProcessPStateTransitionRequest@DXGADAPTER@@QEAAXXZ @ 0x1C003F6AC
+ * Callers:
+ *     ?DxgkpProcessPowerPStateWork@@YAXPEAX@Z @ 0x1C02CA9F0 (-DxgkpProcessPowerPStateWork@@YAXPEAX@Z.c)
+ * Callees:
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C004006C (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     ?DdiSetPowerPState@DXGADAPTER@@QEAAJKK@Z @ 0x1C02C68A0 (-DdiSetPowerPState@DXGADAPTER@@QEAAJKK@Z.c)
+ */
+
 void __fastcall DXGADAPTER::ProcessPStateTransitionRequest(DXGADAPTER *this, __int64 a2, int a3)
 {
   unsigned int v3; // edi

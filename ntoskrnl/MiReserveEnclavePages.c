@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiReserveEnclavePages @ 0x140646394
+ * Callers:
+ *     MiAddPagesToEnclave @ 0x14064445C (MiAddPagesToEnclave.c)
+ *     MiCreateHardwareEnclave @ 0x140A3AB10 (MiCreateHardwareEnclave.c)
+ * Callees:
+ *     MiSetPfnBlink @ 0x140289900 (MiSetPfnBlink.c)
+ *     MiAllocateEnclavePages @ 0x1406447E4 (MiAllocateEnclavePages.c)
+ */
+
 __int64 __fastcall MiReserveEnclavePages(__int64 a1, __int64 a2, __int64 a3)
 {
   _QWORD *EnclavePages; // rcx

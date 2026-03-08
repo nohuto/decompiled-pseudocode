@@ -1,3 +1,11 @@
+/*
+ * XREFs of AslpFileHasSecuromWrapper @ 0x140A5630C
+ * Callers:
+ *     AslpFileGetExeWrapper @ 0x140A55740 (AslpFileGetExeWrapper.c)
+ * Callees:
+ *     strncmp @ 0x1403D3310 (strncmp.c)
+ */
+
 __int64 __fastcall AslpFileHasSecuromWrapper(__int64 a1)
 {
   unsigned int v1; // ebx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of SleepStall @ 0x1C0006400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     SleepQueueRequest @ 0x1C00514EC (SleepQueueRequest.c)
+ */
+
 __int64 __fastcall SleepStall(__int64 a1, __int64 a2)
 {
   unsigned int v4; // ebx

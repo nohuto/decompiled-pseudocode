@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CloseClipboardToken@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C00F13DC
+ * Callers:
+ *     xxxCloseClipboard @ 0x1C0010580 (xxxCloseClipboard.c)
+ *     FreeWindowStation @ 0x1C00F1160 (FreeWindowStation.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CloseClipboardToken(struct tagWINDOWSTATION *a1)
 {
   void *v2; // rcx

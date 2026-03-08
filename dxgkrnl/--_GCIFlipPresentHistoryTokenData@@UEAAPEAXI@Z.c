@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_GCIFlipPresentHistoryTokenData@@UEAAPEAXI@Z @ 0x1C0051E20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 CIFlipPresentHistoryTokenData *__fastcall CIFlipPresentHistoryTokenData::`scalar deleting destructor'(
         CIFlipPresentHistoryTokenData *this,
         char a2)

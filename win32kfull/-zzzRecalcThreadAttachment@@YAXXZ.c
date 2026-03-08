@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?zzzRecalcThreadAttachment@@YAXXZ @ 0x1C00CD304
+ * Callers:
+ *     zzzReattachThreads @ 0x1C00CD3A8 (zzzReattachThreads.c)
+ * Callees:
+ *     ?AreMultipleThreadsAttached@tagQ@@QEBA_NXZ @ 0x1C00390F4 (-AreMultipleThreadsAttached@tagQ@@QEBA_NXZ.c)
+ *     ?GetRecalcHeadPtiListEntry@@YAPEAU_LIST_ENTRY@@XZ @ 0x1C00CD7AC (-GetRecalcHeadPtiListEntry@@YAPEAU_LIST_ENTRY@@XZ.c)
+ *     ?zzzRecalc2@@YAXPEAUtagQ@@@Z @ 0x1C00CD7DC (-zzzRecalc2@@YAXPEAUtagQ@@@Z.c)
+ *     ?GetRecalcPtiFromListEntry@@YAPEAUtagTHREADINFO@@PEAU_LIST_ENTRY@@@Z @ 0x1C00CD8D0 (-GetRecalcPtiFromListEntry@@YAPEAUtagTHREADINFO@@PEAU_LIST_ENTRY@@@Z.c)
+ */
+
 void zzzRecalcThreadAttachment(void)
 {
   struct _LIST_ENTRY *RecalcHeadPtiListEntry; // rsi

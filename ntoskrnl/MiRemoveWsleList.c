@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiRemoveWsleList @ 0x1402824E0
+ * Callers:
+ *     MmUnmapViewInSystemCache @ 0x140285250 (MmUnmapViewInSystemCache.c)
+ *     MiFreeWsleList @ 0x14032B2B0 (MiFreeWsleList.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiWriteWsle @ 0x140228948 (MiWriteWsle.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiIsDriverPage @ 0x1402D38C0 (MiIsDriverPage.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     MiLogRemoveWsleEvent @ 0x140619EE0 (MiLogRemoveWsleEvent.c)
+ */
+
 __int64 __fastcall MiRemoveWsleList(__int64 a1, __int64 a2, _BYTE *a3, unsigned __int64 a4)
 {
   char v5; // al

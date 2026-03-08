@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?AdvanceInertiaToTimeDefault@CMotion@@MEAAMXZ @ 0x18026B200
+ * Callers:
+ *     ?AdvanceInertiaToTimeDefault@CPositionMotion@@MEAAMXZ @ 0x18026C070 (-AdvanceInertiaToTimeDefault@CPositionMotion@@MEAAMXZ.c)
+ *     ?AdvanceInertiaToTimeDefault@CScaleMotion@@MEAAMXZ @ 0x18026C400 (-AdvanceInertiaToTimeDefault@CScaleMotion@@MEAAMXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?InitializeDefaultBoundaryInertiaModifier@CMotion@@IEAAXMMMM@Z @ 0x18026B5D4 (-InitializeDefaultBoundaryInertiaModifier@CMotion@@IEAAXMMMM@Z.c)
+ */
+
 float __fastcall CMotion::AdvanceInertiaToTimeDefault(CMotion *this)
 {
   float v1; // xmm0_4

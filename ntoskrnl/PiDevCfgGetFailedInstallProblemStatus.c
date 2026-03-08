@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiDevCfgGetFailedInstallProblemStatus @ 0x1407FCC30
+ * Callers:
+ *     PiProcessNewDeviceNode @ 0x140685858 (PiProcessNewDeviceNode.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14081CE14 (IopInitializeDeviceInstanceKey.c)
+ *     PiInitializeDevice @ 0x14096AB74 (PiInitializeDevice.c)
+ * Callees:
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ */
+
 __int64 __fastcall PiDevCfgGetFailedInstallProblemStatus(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

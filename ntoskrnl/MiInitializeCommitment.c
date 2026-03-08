@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiInitializeCommitment @ 0x140392394
+ * Callers:
+ *     MiInitializePartition @ 0x140837D40 (MiInitializePartition.c)
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     MiIncreaseCommitLimits @ 0x140392864 (MiIncreaseCommitLimits.c)
+ */
+
 __int64 __fastcall MiInitializeCommitment(unsigned __int64 a1)
 {
   char v2; // al

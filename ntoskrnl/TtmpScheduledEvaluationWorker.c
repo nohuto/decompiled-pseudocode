@@ -1,3 +1,15 @@
+/*
+ * XREFs of TtmpScheduledEvaluationWorker @ 0x1409A89E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     TtmiScheduleSessionWorker @ 0x1409A1AC4 (TtmiScheduleSessionWorker.c)
+ */
+
 LONG_PTR __fastcall TtmpScheduledEvaluationWorker(volatile __int32 *Object)
 {
   LONG_PTR result; // rax

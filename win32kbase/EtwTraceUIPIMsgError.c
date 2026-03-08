@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwTraceUIPIMsgError @ 0x1C00C4A30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@KPEAUtagTHREADINFO@@PEBUtagPROCESSINFO@@PEBU3@2@Z @ 0x1C003CD2C (-EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqDDD @ 0x1C00C4B3C (WPP_RECORDER_AND_TRACE_SF_qqDDD.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     McTemplateK0nqxx_EtwWriteTransfer @ 0x1C0165970 (McTemplateK0nqxx_EtwWriteTransfer.c)
+ */
+
 _UNKNOWN **__fastcall EtwTraceUIPIMsgError(PEPROCESS *a1, PEPROCESS *a2, char a3, char a4, __int64 a5)
 {
   char v6; // bl

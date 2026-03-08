@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_CopyPtrToPtr@IFxMemory@@KAJPEAX_KPEAU_WDFMEMORY_OFFSET@@012@Z @ 0x1C000DDB2
+ * Callers:
+ *     ?CopyFromPtr@IFxMemory@@QEAAJPEAU_WDFMEMORY_OFFSET@@PEAX_K0@Z @ 0x1C000DCA4 (-CopyFromPtr@IFxMemory@@QEAAJPEAU_WDFMEMORY_OFFSET@@PEAX_K0@Z.c)
+ *     ?CopyToPtr@IFxMemory@@QEAAJPEAU_WDFMEMORY_OFFSET@@PEAX_K0@Z @ 0x1C003F2C0 (-CopyToPtr@IFxMemory@@QEAAJPEAU_WDFMEMORY_OFFSET@@PEAX_K0@Z.c)
+ * Callees:
+ *     memmove @ 0x1C000B140 (memmove.c)
+ */
+
 __int64 __fastcall IFxMemory::_CopyPtrToPtr(
         char *SourceBuffer,
         unsigned __int64 SourceBufferLength,

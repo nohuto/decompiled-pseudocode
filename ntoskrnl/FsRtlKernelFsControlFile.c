@@ -1,3 +1,24 @@
+/*
+ * XREFs of FsRtlKernelFsControlFile @ 0x1407DB1B0
+ * Callers:
+ *     SPCallServerHandleFileIntegrityUpdate @ 0x1407FA154 (SPCallServerHandleFileIntegrityUpdate.c)
+ *     SPCallServerHandleFileUsnQuery @ 0x1407FA620 (SPCallServerHandleFileUsnQuery.c)
+ *     SPCallServerHandleFileIntegrityQuery @ 0x1407FAA78 (SPCallServerHandleFileIntegrityQuery.c)
+ * Callees:
+ *     IoAllocateMdl @ 0x14020CAD0 (IoAllocateMdl.c)
+ *     MmProbeAndLockPages @ 0x140267B90 (MmProbeAndLockPages.c)
+ *     IoCancelIrp @ 0x1402E4F50 (IoCancelIrp.c)
+ *     IoFreeIrp @ 0x14030EC00 (IoFreeIrp.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     IoAllocateIrpEx @ 0x140352E90 (IoAllocateIrpEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     FsRtlCancellableWaitForMultipleObjects @ 0x1407D7750 (FsRtlCancellableWaitForMultipleObjects.c)
+ *     FsRtlpFreeMdlChain @ 0x14093BF98 (FsRtlpFreeMdlChain.c)
+ */
+
 __int64 __fastcall FsRtlKernelFsControlFile(
         PFILE_OBJECT FileObject,
         int a2,

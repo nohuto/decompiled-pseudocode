@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwWindowRendering @ 0x1C01987E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0pppqqqqpppqqqq_EtwWriteTransfer @ 0x1C0165B28 (McTemplateK0pppqqqqpppqqqq_EtwWriteTransfer.c)
+ */
+
 NTSTATUS __fastcall EtwWindowRendering(
         __int64 a1,
         __int64 a2,

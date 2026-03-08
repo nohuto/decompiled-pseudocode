@@ -1,3 +1,16 @@
+/*
+ * XREFs of PdcPoNetworkResiliency @ 0x140994930
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeCancelTimer2 @ 0x140204390 (KeCancelTimer2.c)
+ *     PopQueueWorkItem @ 0x1402BCCB4 (PopQueueWorkItem.c)
+ *     PopNetUpdateDsAccounting @ 0x140596AF0 (PopNetUpdateDsAccounting.c)
+ *     PopNetArmDsEvaluationTimer @ 0x140993564 (PopNetArmDsEvaluationTimer.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PdcPoNetworkResiliency(int a1)
 {
   char v1; // bl

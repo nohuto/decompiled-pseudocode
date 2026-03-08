@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlShiftLeftBitMapEx @ 0x1405A6E80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlClearBitsEx @ 0x14020FC50 (RtlClearBitsEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlExtractBitMapEx @ 0x1405A5A20 (RtlExtractBitMapEx.c)
+ */
+
 void __fastcall RtlShiftLeftBitMapEx(__int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 v2; // r9

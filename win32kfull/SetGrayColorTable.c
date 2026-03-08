@@ -1,3 +1,12 @@
+/*
+ * XREFs of SetGrayColorTable @ 0x1C025E3B0
+ * Callers:
+ *     AAHalftoneBitmap @ 0x1C0253604 (AAHalftoneBitmap.c)
+ *     GetDstBFInfo @ 0x1C0253EF0 (GetDstBFInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall SetGrayColorTable(_OWORD *a1, __int64 a2)
 {
   int v2; // r10d

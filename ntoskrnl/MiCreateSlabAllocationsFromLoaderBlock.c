@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiCreateSlabAllocationsFromLoaderBlock @ 0x140B3A034
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiCreateBootSlabEntries @ 0x140B3B858 (MiCreateBootSlabEntries.c)
+ */
+
 __int64 __fastcall MiCreateSlabAllocationsFromLoaderBlock(__int64 a1)
 {
   int BootSlabEntries; // ecx

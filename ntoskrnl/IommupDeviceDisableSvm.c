@@ -1,3 +1,20 @@
+/*
+ * XREFs of IommupDeviceDisableSvm @ 0x140930CBC
+ * Callers:
+ *     IommupDeviceDisablePasidTaggedDma @ 0x140930C20 (IommupDeviceDisablePasidTaggedDma.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IommupDeviceGetPasidDevice @ 0x14050BC5C (IommupDeviceGetPasidDevice.c)
+ *     IommupPasidDeviceDelete @ 0x14050C384 (IommupPasidDeviceDelete.c)
+ *     HalpIommuFreeDomainId @ 0x140512F78 (HalpIommuFreeDomainId.c)
+ *     IommuDisableDevicePasid @ 0x14051FC00 (IommuDisableDevicePasid.c)
+ *     IommupUnmapDeviceInternal @ 0x140521AB8 (IommupUnmapDeviceInternal.c)
+ *     IommupHvDetachPasidDevice @ 0x140522410 (IommupHvDetachPasidDevice.c)
+ */
+
 __int64 __fastcall IommupDeviceDisableSvm(__int64 a1, __int64 a2)
 {
   unsigned int v2; // r14d

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PpmCompareAndApplyPolicySettings @ 0x14098FE4C
+ * Callers:
+ *     PpmApplyProfile @ 0x14099A040 (PpmApplyProfile.c)
+ *     PpmProfileAcDcUpdate @ 0x14099A59C (PpmProfileAcDcUpdate.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PpmReleaseLock @ 0x1402D1F40 (PpmReleaseLock.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     PpmReapplyPerfPolicy @ 0x1408261A0 (PpmReapplyPerfPolicy.c)
+ *     PpmGetPolicyAction @ 0x1408264A4 (PpmGetPolicyAction.c)
+ *     PpmReapplyIdlePolicy @ 0x14097FAC4 (PpmReapplyIdlePolicy.c)
+ */
+
 void __fastcall PpmCompareAndApplyPolicySettings(__int64 *a1, __int64 a2, __int64 a3)
 {
   int v3; // ebx

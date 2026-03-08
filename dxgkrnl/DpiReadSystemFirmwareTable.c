@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiReadSystemFirmwareTable @ 0x1C0215340
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiQuerySystemFirmwareTables @ 0x1C02153B0 (DpiQuerySystemFirmwareTables.c)
+ */
+
 __int64 __fastcall DpiReadSystemFirmwareTable(__int64 a1, int a2, int a3, int a4, void *a5, _DWORD *a6)
 {
   __int64 v6; // r10

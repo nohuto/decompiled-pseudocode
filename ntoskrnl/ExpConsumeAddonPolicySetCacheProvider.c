@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpConsumeAddonPolicySetCacheProvider @ 0x1409F6BF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_1403890A8 @ 0x1403890A8 (sub_1403890A8.c)
+ */
+
 __int64 __fastcall ExpConsumeAddonPolicySetCacheProvider(
         __int64 a1,
         __int64 a2,

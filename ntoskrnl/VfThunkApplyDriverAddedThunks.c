@@ -1,3 +1,17 @@
+/*
+ * XREFs of VfThunkApplyDriverAddedThunks @ 0x140AD8160
+ * Callers:
+ *     ViDriverReApplyVerifierForAll @ 0x140AC7934 (ViDriverReApplyVerifierForAll.c)
+ * Callees:
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     ViThunkFindAllSpecialTables @ 0x140AD8890 (ViThunkFindAllSpecialTables.c)
+ *     ViThunkFindDriverImportEntry @ 0x140AD8A28 (ViThunkFindDriverImportEntry.c)
+ *     MmApplyVerifierToRunningImage @ 0x140AE4F80 (MmApplyVerifierToRunningImage.c)
+ */
+
 __int64 __fastcall VfThunkApplyDriverAddedThunks(__int64 a1)
 {
   __int64 v2; // rbp

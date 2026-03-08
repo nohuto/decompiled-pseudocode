@@ -1,3 +1,11 @@
+/*
+ * XREFs of Controller_AddDeviceToControllerDeviceList @ 0x1C001A5D0
+ * Callers:
+ *     UsbDevice_UcxEvtDeviceAdd @ 0x1C0070FD0 (UsbDevice_UcxEvtDeviceAdd.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall Controller_AddDeviceToControllerDeviceList(__int64 a1, __int64 a2, _QWORD *a3)
 {
   KIRQL v6; // al

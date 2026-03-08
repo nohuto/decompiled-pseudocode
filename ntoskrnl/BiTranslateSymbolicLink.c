@@ -1,3 +1,17 @@
+/*
+ * XREFs of BiTranslateSymbolicLink @ 0x140831298
+ * Callers:
+ *     BiGetNtPartitionPath @ 0x140830938 (BiGetNtPartitionPath.c)
+ *     BiTranslateSymbolicLinkFile @ 0x140A5A968 (BiTranslateSymbolicLinkFile.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1404149D0 (ZwOpenSymbolicLinkObject.c)
+ *     ZwQuerySymbolicLinkObject @ 0x140415030 (ZwQuerySymbolicLinkObject.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall BiTranslateSymbolicLink(PCWSTR SourceString, wchar_t **a2)
 {
   NTSTATUS result; // eax

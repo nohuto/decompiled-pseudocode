@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIEcDisconnectGpeVector @ 0x1C00834E8
+ * Callers:
+ *     ACPIEcInitOpRegionHandler @ 0x1C00251B0 (ACPIEcInitOpRegionHandler.c)
+ *     ACPIEcDisconnectInterrupt @ 0x1C0083564 (ACPIEcDisconnectInterrupt.c)
+ * Callees:
+ *     ACPIVectorDisconnect @ 0x1C0044040 (ACPIVectorDisconnect.c)
+ */
+
 __int64 __fastcall ACPIEcDisconnectGpeVector(__int64 a1)
 {
   char *v2; // rcx

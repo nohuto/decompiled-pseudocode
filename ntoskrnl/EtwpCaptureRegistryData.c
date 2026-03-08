@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpCaptureRegistryData @ 0x1409F1654
+ * Callers:
+ *     EtwpRegTraceCallback @ 0x1408A61E0 (EtwpRegTraceCallback.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpCaptureRegistryData(_QWORD *a1, const void *a2, unsigned int a3)
 {
   size_t v3; // rbx

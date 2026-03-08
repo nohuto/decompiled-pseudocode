@@ -1,3 +1,13 @@
+/*
+ * XREFs of PipFreeBindingRequestEntry @ 0x14095175C
+ * Callers:
+ *     PipFreeDependencyEdge @ 0x14055D7DC (PipFreeDependencyEdge.c)
+ *     PipAddRequestToEdge @ 0x140838B5C (PipAddRequestToEdge.c)
+ * Callees:
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PipFreeBindingRequestEntry(PVOID P)
 {
   UNICODE_STRING *v2; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?VWPLNextBase@@YAPEAUtagWND@@PEAUtagVWPL@@_KPEAU1@PEAKHPEA_K@Z @ 0x1C003E0D0
+ * Callers:
+ *     xxxSendMinRectMessages @ 0x1C000D518 (xxxSendMinRectMessages.c)
+ *     ?_PostShellHookMsgWorker@@YAXI_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0045194 (-_PostShellHookMsgWorker@@YAXI_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003E858 (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ */
+
 struct tagWND *__fastcall VWPLNextBase(struct tagVWPL *a1, __int64 a2, struct tagWND *a3, unsigned int *a4)
 {
   unsigned int v6; // ecx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIBuildDeviceExtension @ 0x1C000C314
+ * Callers:
+ *     ACPIBuildDockExtension @ 0x1C000CEDC (ACPIBuildDockExtension.c)
+ *     ACPIBuildFixedButtonExtension @ 0x1C000D3DC (ACPIBuildFixedButtonExtension.c)
+ *     ACPIBuildProcessorExtension @ 0x1C0012FA8 (ACPIBuildProcessorExtension.c)
+ *     ACPIBuildThermalZoneExtension @ 0x1C0013D70 (ACPIBuildThermalZoneExtension.c)
+ *     OSNotifyCreateDevice @ 0x1C0032738 (OSNotifyCreateDevice.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall ACPIBuildDeviceExtension(volatile signed __int32 *a1, __int64 a2, _QWORD *a3)
 {
   __int64 v6; // rcx

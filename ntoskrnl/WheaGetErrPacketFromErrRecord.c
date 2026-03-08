@@ -1,3 +1,13 @@
+/*
+ * XREFs of WheaGetErrPacketFromErrRecord @ 0x140517070
+ * Callers:
+ *     HalpMceRecovery @ 0x1405169E0 (HalpMceRecovery.c)
+ *     KiMcheckAlternateReturn @ 0x14057DEF0 (KiMcheckAlternateReturn.c)
+ *     WheapAttemptErrorRecovery @ 0x14060E8B4 (WheapAttemptErrorRecovery.c)
+ * Callees:
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ */
+
 PWHEA_ERROR_PACKET __stdcall WheaGetErrPacketFromErrRecord(PWHEA_ERROR_RECORD Record)
 {
   struct _WHEA_ERROR_PACKET_V2 *v1; // rdi

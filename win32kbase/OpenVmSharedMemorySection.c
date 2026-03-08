@@ -1,3 +1,11 @@
+/*
+ * XREFs of OpenVmSharedMemorySection @ 0x1C02755DC
+ * Callers:
+ *     DirectComposition::TryOpenSharedSectionAndGetUserModeHandle @ 0x1C0261EB0 (DirectComposition--TryOpenSharedSectionAndGetUserModeHandle.c)
+ * Callees:
+ *     ConstructVmSharedMemorySectionHostPath @ 0x1C02753C4 (ConstructVmSharedMemorySectionHostPath.c)
+ */
+
 __int64 __fastcall OpenVmSharedMemorySection(PHANDLE SectionHandle, unsigned int *a2, unsigned int *a3)
 {
   NTSTATUS v4; // ebx

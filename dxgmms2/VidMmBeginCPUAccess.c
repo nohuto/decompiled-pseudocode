@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidMmBeginCPUAccess @ 0x1C0016F30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?BeginCPUAccess@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@KKIPEAU_VIDMM_REGION@@PEAPEAX@Z @ 0x1C00B188C (-BeginCPUAccess@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@KKIPEAU_VIDMM_REGION@@PEAPEAX@Z.c)
+ */
+
 __int64 __fastcall VidMmBeginCPUAccess(
         VIDMM_GLOBAL *a1,
         struct _VIDMM_MULTI_ALLOC *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetThemesPersonalizeDword@CSettingsManager@@UEAAJPEBGPEAK@Z @ 0x140004DB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CSettingsManager::GetThemesPersonalizeDword(
         CSettingsManager *this,
         const unsigned __int16 *a2,

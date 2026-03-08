@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionKeyboardInputDelegationChanged @ 0x1C00E13EC
+ * Callers:
+ *     SetInputDelegationModeImpl @ 0x1C021882C (SetInputDelegationModeImpl.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (__fastcall *__fastcall ApiSetEditionKeyboardInputDelegationChanged(
         unsigned int a1,
         __int64 a2,

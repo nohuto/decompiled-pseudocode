@@ -1,3 +1,11 @@
+/*
+ * XREFs of MatchData_32 @ 0x1C0057840
+ * Callers:
+ *     Match_32 @ 0x1C00578E8 (Match_32.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall MatchData_32(unsigned int a1, int a2, unsigned int a3)
 {
   char result; // al

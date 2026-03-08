@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Unlock@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@@Z @ 0x1C009BC3C
+ * Callers:
+ *     ?VidMmUnlock@@YAJPEAVVIDMM_GLOBAL@@PEAU_VIDMM_MULTI_ALLOC@@@Z @ 0x1C0002180 (-VidMmUnlock@@YAJPEAVVIDMM_GLOBAL@@PEAU_VIDMM_MULTI_ALLOC@@@Z.c)
+ * Callees:
+ *     ?UnlockInternal@VIDMM_GLOBAL@@IEAAJPEAUVIDMM_ALLOC@@@Z @ 0x1C009EA78 (-UnlockInternal@VIDMM_GLOBAL@@IEAAJPEAUVIDMM_ALLOC@@@Z.c)
+ */
+
 __int64 __fastcall VIDMM_GLOBAL::Unlock(VIDMM_GLOBAL *this, struct _VIDMM_MULTI_ALLOC *a2)
 {
   return VIDMM_GLOBAL::UnlockInternal(this, a2);

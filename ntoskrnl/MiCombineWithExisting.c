@@ -1,3 +1,31 @@
+/*
+ * XREFs of MiCombineWithExisting @ 0x14034A4C4
+ * Callers:
+ *     MiConvertPrivateToProto @ 0x14034A20C (MiConvertPrivateToProto.c)
+ * Callees:
+ *     MiGetWsleContents @ 0x140229790 (MiGetWsleContents.c)
+ *     MiIdentifyPfn @ 0x14025E5D0 (MiIdentifyPfn.c)
+ *     MiLockProtoPoolPage @ 0x140283CA0 (MiLockProtoPoolPage.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MiGetPfnPriority @ 0x14028A3F8 (MiGetPfnPriority.c)
+ *     MiUpdatePfnPriority @ 0x14028D35C (MiUpdatePfnPriority.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiRemoveWsle @ 0x140325790 (MiRemoveWsle.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiRebuildPageTableLeafAges @ 0x14032AD30 (MiRebuildPageTableLeafAges.c)
+ *     MiDecrementShareCount @ 0x14032AE40 (MiDecrementShareCount.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiResolveProtoCombine @ 0x140345A28 (MiResolveProtoCombine.c)
+ *     MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED @ 0x1403482CC (MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x140349598 (MI_WSLE_LOG_ACCESS.c)
+ *     MiMapSinglePage @ 0x14034A868 (MiMapSinglePage.c)
+ *     MiLockLeafPage @ 0x14034AF20 (MiLockLeafPage.c)
+ *     MiConfirmCombinePageContents @ 0x14034B140 (MiConfirmCombinePageContents.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall MiCombineWithExisting(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // r13

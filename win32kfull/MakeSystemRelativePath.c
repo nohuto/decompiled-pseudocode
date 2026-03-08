@@ -1,3 +1,12 @@
+/*
+ * XREFs of MakeSystemRelativePath @ 0x1C0307BDC
+ * Callers:
+ *     ?LoadModuleWorkHorse@@YAPEAXPEAGH@Z @ 0x1C028D170 (-LoadModuleWorkHorse@@YAPEAXPEAGH@Z.c)
+ *     ?EngCreateFile@@YAPEAXPEBG@Z @ 0x1C02A992C (-EngCreateFile@@YAPEAXPEBG@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MakeSystemRelativePath(PCWSTR Source, PUNICODE_STRING Destination, __int64 a3, __int64 a4)
 {
   __int64 v4; // rbx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpInitializeLazyWriters @ 0x1408176F8
+ * Callers:
+ *     CmpCmdInit @ 0x140819024 (CmpCmdInit.c)
+ * Callees:
+ *     KeInitializeTimerEx @ 0x140237DB0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     PoRegisterPowerSettingCallback @ 0x14073B960 (PoRegisterPowerSettingCallback.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     CmpCreateRegistryThread @ 0x140817904 (CmpCreateRegistryThread.c)
+ */
+
 NTSTATUS CmpInitializeLazyWriters()
 {
   _QWORD *v0; // r14

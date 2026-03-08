@@ -1,3 +1,11 @@
+/*
+ * XREFs of EngCheckAbort @ 0x1C027A370
+ * Callers:
+ *     NtGdiEngCheckAbort @ 0x1C02CB4E0 (NtGdiEngCheckAbort.c)
+ * Callees:
+ *     <none>
+ */
+
 BOOL __stdcall EngCheckAbort(SURFOBJ *pso)
 {
   PVOID *p_pvScan0; // rax

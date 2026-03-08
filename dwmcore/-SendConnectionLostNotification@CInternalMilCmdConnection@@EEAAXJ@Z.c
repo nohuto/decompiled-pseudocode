@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SendConnectionLostNotification@CInternalMilCmdConnection@@EEAAXJ@Z @ 0x1801B2710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?TryGetMasterTableEntry@CChannelTable@@QEAAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@I@Z @ 0x1800EB6E4 (-TryGetMasterTableEntry@CChannelTable@@QEAAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@I@Z.c)
+ */
+
 void __fastcall CInternalMilCmdConnection::SendConnectionLostNotification(RTL_SRWLOCK *this)
 {
   RTL_SRWLOCK *v1; // rdi

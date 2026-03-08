@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhFreeTimerObject @ 0x1C003BC10
+ * Callers:
+ *     UsbhBusPnpStop_Action @ 0x1C00314EC (UsbhBusPnpStop_Action.c)
+ *     UsbhBusPnpStart @ 0x1C00369F0 (UsbhBusPnpStart.c)
+ * Callees:
+ *     UsbhDisableTimerObject @ 0x1C00084D0 (UsbhDisableTimerObject.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 void __fastcall UsbhFreeTimerObject(__int64 a1, __int64 *a2)
 {
   KSPIN_LOCK *v4; // rdi

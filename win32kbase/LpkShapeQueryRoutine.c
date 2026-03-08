@@ -1,3 +1,11 @@
+/*
+ * XREFs of LpkShapeQueryRoutine @ 0x1C0320050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall LpkShapeQueryRoutine(__int64 a1, int a2, _DWORD *a3)
 {
   __int64 v5; // rax

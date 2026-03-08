@@ -1,3 +1,22 @@
+/*
+ * XREFs of ?zzzRefreshSizes@CCursorSizes@@QEAAXXZ @ 0x1C001D944
+ * Callers:
+ *     EditionInitGlobalCursorSizes @ 0x1C00F4640 (EditionInitGlobalCursorSizes.c)
+ *     EditionzzzUpdateCursorSizes @ 0x1C00F59C0 (EditionzzzUpdateCursorSizes.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x1C010AFDC (xxxUpdatePerUserSystemParameters.c)
+ * Callees:
+ *     ?zzzUpdateGlobalCursorSize@CCursorSizes@@QEAAXPEBUtagPOINT@@_N@Z @ 0x1C001DB98 (-zzzUpdateGlobalCursorSize@CCursorSizes@@QEAAXPEBUtagPOINT@@_N@Z.c)
+ *     GetCursorSizeFromIndex @ 0x1C003AB10 (GetCursorSizeFromIndex.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C00DBE14 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C00F0AD4 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F8FF0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1C0102BC4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?_CleanupUnneededSystemCursorSizes@@YAXI@Z @ 0x1C0141A3E (-_CleanupUnneededSystemCursorSizes@@YAXI@Z.c)
+ *     ?UpdateBaseSize@Cursor@InputTraceLogging@@SAXI@Z @ 0x1C01A9BD8 (-UpdateBaseSize@Cursor@InputTraceLogging@@SAXI@Z.c)
+ */
+
 void __fastcall CCursorSizes::zzzRefreshSizes(CCursorSizes *this)
 {
   unsigned int v2; // r15d

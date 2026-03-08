@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PopDeferredTracker@ADAPTER_RENDER@@QEAAPEAVDXGTERMINATIONTRACKER@@XZ @ 0x1C018C67C
+ * Callers:
+ *     ?DxgkpDeferredDestructionWork@@YAXPEAX@Z @ 0x1C018C4B0 (-DxgkpDeferredDestructionWork@@YAXPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct DXGTERMINATIONTRACKER *__fastcall ADAPTER_RENDER::PopDeferredTracker(ADAPTER_RENDER *this)
 {
   char *v2; // rdi

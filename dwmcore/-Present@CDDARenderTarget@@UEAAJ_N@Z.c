@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?Present@CDDARenderTarget@@UEAAJ_N@Z @ 0x1801F63E0
+ * Callers:
+ *     ?Present@CDDARenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z @ 0x180119830 (-Present@CDDARenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z.c)
+ * Callees:
+ *     ?GetRectangles@CRegion@@QEBAIPEAV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x180042478 (-GetRectangles@CRegion@@QEBAIPEAV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z @ 0x1800F1BF8 (-ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CDDARenderTarget::Present(CDDARenderTarget *this)
 {
   unsigned int v1; // ebx

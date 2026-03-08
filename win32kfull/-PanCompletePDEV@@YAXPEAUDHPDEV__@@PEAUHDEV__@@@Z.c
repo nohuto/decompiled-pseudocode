@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PanCompletePDEV@@YAXPEAUDHPDEV__@@PEAUHDEV__@@@Z @ 0x1C029E180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ?vUnLock@PANDEVLOCK@@QEAAXXZ @ 0x1C02A0750 (-vUnLock@PANDEVLOCK@@QEAAXXZ.c)
+ */
+
 void __fastcall PanCompletePDEV(struct DHPDEV__ *a1, HDEV a2)
 {
   HSEMAPHORE v4; // [rsp+30h] [rbp+8h] BYREF

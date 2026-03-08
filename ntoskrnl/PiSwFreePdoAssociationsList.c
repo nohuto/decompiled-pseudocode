@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiSwFreePdoAssociationsList @ 0x140964490
+ * Callers:
+ *     PiSwDeviceFree @ 0x140964270 (PiSwDeviceFree.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     PiSwPdoAssociationFree @ 0x14096469C (PiSwPdoAssociationFree.c)
+ */
+
 void __fastcall PiSwFreePdoAssociationsList(_QWORD **a1)
 {
   _QWORD *v2; // rbx

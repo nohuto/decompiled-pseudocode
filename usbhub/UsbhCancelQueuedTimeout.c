@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhCancelQueuedTimeout @ 0x1C0001834
+ * Callers:
+ *     UsbhCancelResetTimeout @ 0x1C00015A0 (UsbhCancelResetTimeout.c)
+ * Callees:
+ *     UsbhFreePortChangeQueueObject @ 0x1C00039F8 (UsbhFreePortChangeQueueObject.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 char __fastcall UsbhCancelQueuedTimeout(__int64 a1, __int64 a2)
 {
   KSPIN_LOCK *v2; // rsi

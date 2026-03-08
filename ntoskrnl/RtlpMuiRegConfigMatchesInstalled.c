@@ -1,3 +1,18 @@
+/*
+ * XREFs of RtlpMuiRegConfigMatchesInstalled @ 0x140A719B4
+ * Callers:
+ *     RtlpMuiRegValidateConfigNode @ 0x140677BB8 (RtlpMuiRegValidateConfigNode.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     _MuiRegAllocArray @ 0x14039C31C (_MuiRegAllocArray.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     RtlCultureNameToLCID @ 0x1407FE570 (RtlCultureNameToLCID.c)
+ *     RtlLCIDToCultureName @ 0x1409BBD70 (RtlLCIDToCultureName.c)
+ *     RtlpMuiRegGetInstalledLanguageIndex @ 0x140A71DC4 (RtlpMuiRegGetInstalledLanguageIndex.c)
+ *     RtlpMuiRegLangInfoMatchesSpec @ 0x140A72148 (RtlpMuiRegLangInfoMatchesSpec.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall RtlpMuiRegConfigMatchesInstalled(
         __int64 a1,
         unsigned __int8 a2,

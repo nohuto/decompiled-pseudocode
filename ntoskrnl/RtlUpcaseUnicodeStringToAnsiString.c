@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlUpcaseUnicodeStringToAnsiString @ 0x1409B5BB0
+ * Callers:
+ *     DifRtlUpcaseUnicodeStringToAnsiStringWrapper @ 0x1405E9C20 (DifRtlUpcaseUnicodeStringToAnsiStringWrapper.c)
+ * Callees:
+ *     AllocateOrValidateCharStringBuffer @ 0x140303E1C (AllocateOrValidateCharStringBuffer.c)
+ *     RtlUpcaseUnicodeToMultiByteN @ 0x1407A00A0 (RtlUpcaseUnicodeToMultiByteN.c)
+ *     RtlxUnicodeStringToOemSize @ 0x1407A0310 (RtlxUnicodeStringToOemSize.c)
+ *     ExFreePool @ 0x140AAB270 (ExFreePool.c)
+ */
+
 __int64 __fastcall RtlUpcaseUnicodeStringToAnsiString(__int64 a1, const UNICODE_STRING *a2, char a3)
 {
   ULONG v6; // eax

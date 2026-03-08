@@ -1,3 +1,32 @@
+/*
+ * XREFs of CmpFlushBackupHive @ 0x140A17C48
+ * Callers:
+ *     CmpSyncNextBackupHive @ 0x140A18168 (CmpSyncNextBackupHive.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwSetInformationFile @ 0x1404127F0 (ZwSetInformationFile.c)
+ *     ZwSetInformationObject @ 0x140412E90 (ZwSetInformationObject.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpCmdHiveOpen @ 0x1406C0FC8 (CmpCmdHiveOpen.c)
+ *     RtlAppendStringToString @ 0x14078E880 (RtlAppendStringToString.c)
+ *     CmpCmdRenameHive @ 0x140A0ED14 (CmpCmdRenameHive.c)
+ *     CmpFreeOffsetArray @ 0x140A17FE0 (CmpFreeOffsetArray.c)
+ *     CmpInitBackupHive @ 0x140A18034 (CmpInitBackupHive.c)
+ *     CmpWriteOffsetArrayToFile @ 0x140A182CC (CmpWriteOffsetArrayToFile.c)
+ *     CmpDestroyHive @ 0x140A19FFC (CmpDestroyHive.c)
+ *     HvAllocateOffsetArraysForHiveSnapshot @ 0x140A22D18 (HvAllocateOffsetArraysForHiveSnapshot.c)
+ *     HvLockHiveFlusherExclusive @ 0x140AF2098 (HvLockHiveFlusherExclusive.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140AF20B4 (HvUnlockHiveFlusherExclusive.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ *     CmpAttachToRegistryProcess @ 0x140AF26E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140AF2710 (CmpDetachFromRegistryProcess.c)
+ *     HvSnapshotHiveToOffsetArray @ 0x140AF2D84 (HvSnapshotHiveToOffsetArray.c)
+ */
+
 __int64 __fastcall CmpFlushBackupHive(unsigned int a1)
 {
   __int64 v1; // rbx

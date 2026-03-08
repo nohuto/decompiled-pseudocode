@@ -1,3 +1,12 @@
+/*
+ * XREFs of CleanupRimDevObjInUserModeCallback @ 0x1C0154388
+ * Callers:
+ *     xxxDestroyThreadInfo @ 0x1C0072BF4 (xxxDestroyThreadInfo.c)
+ * Callees:
+ *     RIMSignalAllDispositionWaiters @ 0x1C0032B90 (RIMSignalAllDispositionWaiters.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ */
+
 LONG_PTR __fastcall CleanupRimDevObjInUserModeCallback(_QWORD *Object)
 {
   __int64 v1; // rbx

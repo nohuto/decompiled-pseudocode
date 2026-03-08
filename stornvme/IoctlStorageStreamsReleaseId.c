@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoctlStorageStreamsReleaseId @ 0x1C0014708
+ * Callers:
+ *     IoctlToNVMe @ 0x1C0014800 (IoctlToNVMe.c)
+ * Callees:
+ *     GetNamespaceId @ 0x1C0007A8C (GetNamespaceId.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeDirectiveStreamsReleaseId @ 0x1C001D090 (NVMeDirectiveStreamsReleaseId.c)
+ */
+
 __int64 __fastcall IoctlStorageStreamsReleaseId(__int64 a1, __int64 a2)
 {
   _DWORD *SrbDataBuffer; // rax

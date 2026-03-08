@@ -1,3 +1,17 @@
+/*
+ * XREFs of PoRegisterCoalescingCallback @ 0x140819500
+ * Callers:
+ *     CmpCmdInit @ 0x140819024 (CmpCmdInit.c)
+ *     CcInitializeCacheManager @ 0x140B3EB44 (CcInitializeCacheManager.c)
+ *     PopCoalescingInitialize @ 0x140B53A80 (PopCoalescingInitialize.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     ExInitializePushLock @ 0x140238200 (ExInitializePushLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     ExCompareExchangeCallBack @ 0x140388EF8 (ExCompareExchangeCallBack.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PoRegisterCoalescingCallback(__int64 a1, char a2, __int64 *a3, __int64 a4)
 {
   __int64 Pool2; // rbx

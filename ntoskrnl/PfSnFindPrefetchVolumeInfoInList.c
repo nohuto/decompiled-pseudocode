@@ -1,3 +1,12 @@
+/*
+ * XREFs of PfSnFindPrefetchVolumeInfoInList @ 0x1406A4844
+ * Callers:
+ *     PfSnPopulateReadList @ 0x1406A42B0 (PfSnPopulateReadList.c)
+ *     PfSnPrefetchMetadata @ 0x14071E150 (PfSnPrefetchMetadata.c)
+ * Callees:
+ *     wcsncmp @ 0x1403D5ED0 (wcsncmp.c)
+ */
+
 _QWORD *__fastcall PfSnFindPrefetchVolumeInfoInList(wchar_t *Str1, _QWORD *a2, int a3)
 {
   _QWORD *v3; // rbx

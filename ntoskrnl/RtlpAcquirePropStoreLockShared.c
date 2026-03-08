@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpAcquirePropStoreLockShared @ 0x1405A8904
+ * Callers:
+ *     RtlQueryPointerMapping @ 0x1405A83D0 (RtlQueryPointerMapping.c)
+ *     RtlQueryPropertyStore @ 0x1405A8510 (RtlQueryPropertyStore.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ */
+
 unsigned __int8 __fastcall RtlpAcquirePropStoreLockShared(PEX_SPIN_LOCK SpinLock)
 {
   unsigned __int8 CurrentIrql; // bl

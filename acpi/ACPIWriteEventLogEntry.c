@@ -1,3 +1,20 @@
+/*
+ * XREFs of ACPIWriteEventLogEntry @ 0x1C0025F5C
+ * Callers:
+ *     ACPIBuildProcessDevicePhasePr3 @ 0x1C000F930 (ACPIBuildProcessDevicePhasePr3.c)
+ *     ACPIBuildProcessDevicePhasePrr @ 0x1C000FB40 (ACPIBuildProcessDevicePhasePrr.c)
+ *     ACPIBuildProcessDevicePhasePrw @ 0x1C000FDA0 (ACPIBuildProcessDevicePhasePrw.c)
+ *     ACPIBuildProcessDevicePhasePrx @ 0x1C0010300 (ACPIBuildProcessDevicePhasePrx.c)
+ *     ACPIVerifyAndCopyFirmwareDependencies @ 0x1C00146C0 (ACPIVerifyAndCopyFirmwareDependencies.c)
+ *     ACPIGpeInstallRemoveIndexErrorWorker @ 0x1C002C610 (ACPIGpeInstallRemoveIndexErrorWorker.c)
+ *     PciConfigSpaceHandlerWorker @ 0x1C0036080 (PciConfigSpaceHandlerWorker.c)
+ *     LogInErrorLog @ 0x1C00523B8 (LogInErrorLog.c)
+ *     LinkNodeCrackPrt @ 0x1C005CE9C (LinkNodeCrackPrt.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ */
+
 __int64 __fastcall ACPIWriteEventLogEntry(int a1, __int16 **a2, unsigned int a3)
 {
   unsigned int v3; // ebx

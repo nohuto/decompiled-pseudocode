@@ -1,3 +1,12 @@
+/*
+ * XREFs of CitSessionConnectChange @ 0x1C00B01F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagSHELL_INPUT_USAGE_DATA_INFO@@@Z @ 0x1C00B0564 (-CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagS.c)
+ *     ?CitpAllowForegroundProcess@@YAHPEBU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C00B0AB4 (-CitpAllowForegroundProcess@@YAHPEBU_CIT_IMPACT_CONTEXT@@@Z.c)
+ */
+
 void __fastcall CitSessionConnectChange(char a1, char a2)
 {
   struct _CIT_IMPACT_CONTEXT *v2; // rbx

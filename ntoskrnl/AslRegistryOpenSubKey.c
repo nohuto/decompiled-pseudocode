@@ -1,3 +1,13 @@
+/*
+ * XREFs of AslRegistryOpenSubKey @ 0x140A51990
+ * Callers:
+ *     AslpProcessMatchRegNode @ 0x140A53E9C (AslpProcessMatchRegNode.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ */
+
 NTSTATUS __fastcall AslRegistryOpenSubKey(PHANDLE KeyHandle, void *a2, const WCHAR *a3)
 {
   NTSTATUS inited; // ebx

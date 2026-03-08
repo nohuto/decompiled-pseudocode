@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpCCSwapFlush @ 0x1403858B4
+ * Callers:
+ *     EtwpCCSwapTrace @ 0x140385530 (EtwpCCSwapTrace.c)
+ * Callees:
+ *     EtwpOpenLogger @ 0x140205B30 (EtwpOpenLogger.c)
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     EtwpCloseLogger @ 0x1403BC590 (EtwpCloseLogger.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall EtwpCCSwapFlush(_DWORD *a1, int a2)
 {
   int v3; // eax

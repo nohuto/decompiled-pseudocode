@@ -1,3 +1,18 @@
+/*
+ * XREFs of DpiGetAdapterInfo @ 0x1C01ECB58
+ * Callers:
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01EDF54 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
+ *     ?InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z @ 0x1C02B3024 (-InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DxgkRetrieveStringFromRegistry @ 0x1C01EDDF0 (DxgkRetrieveStringFromRegistry.c)
+ *     DpiOpenPnpRegistryKey @ 0x1C01F1750 (DpiOpenPnpRegistryKey.c)
+ *     DxgkFreeUnicodeString @ 0x1C020EA5C (DxgkFreeUnicodeString.c)
+ *     DpiFreeAdapterInfo @ 0x1C03947A8 (DpiFreeAdapterInfo.c)
+ */
+
 __int64 __fastcall DpiGetAdapterInfo(__int64 a1, char *a2, _QWORD *a3, _OWORD *a4)
 {
   __int64 v8; // r14

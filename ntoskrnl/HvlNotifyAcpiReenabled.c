@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvlNotifyAcpiReenabled @ 0x14054453C
+ * Callers:
+ *     PopHiberCheckResume @ 0x140A9FD30 (PopHiberCheckResume.c)
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 __int64 HvlNotifyAcpiReenabled()
 {
   unsigned int v0; // ebx

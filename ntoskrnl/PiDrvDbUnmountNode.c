@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiDrvDbUnmountNode @ 0x14096E4A8
+ * Callers:
+ *     PiPnpRtlObjectActionCallback @ 0x1406CFC70 (PiPnpRtlObjectActionCallback.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     PiDrvDbFindNode @ 0x140562C40 (PiDrvDbFindNode.c)
+ *     PiDrvDbUnregisterNode @ 0x14096E504 (PiDrvDbUnregisterNode.c)
+ */
+
 __int64 __fastcall PiDrvDbUnmountNode(PCWSTR SourceString)
 {
   __int64 result; // rax

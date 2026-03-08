@@ -1,3 +1,20 @@
+/*
+ * XREFs of PnpGetDeviceDependencyList @ 0x1409519F8
+ * Callers:
+ *     PiControlGetPropertyData @ 0x1406C44A0 (PiControlGetPropertyData.c)
+ * Callees:
+ *     RtlStringCchCopyExW @ 0x140244A08 (RtlStringCchCopyExW.c)
+ *     RtlStringCchLengthW @ 0x140247080 (RtlStringCchLengthW.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     PiListEntryToDependencyEdge @ 0x140394734 (PiListEntryToDependencyEdge.c)
+ *     PiGetDependentList @ 0x1406819C8 (PiGetDependentList.c)
+ *     PiGetProviderList @ 0x1406CB884 (PiGetProviderList.c)
+ *     PpDevNodeUnlockTree @ 0x1406CB8B0 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1406CB90C (PnpAcquireDependencyRelationsLock.c)
+ *     PnpUnicodeStringToWstr @ 0x1406D07D4 (PnpUnicodeStringToWstr.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1406D08F4 (PnpUnicodeStringToWstrFree.c)
+ */
+
 __int64 __fastcall PnpGetDeviceDependencyList(__int64 a1, int a2, wchar_t *a3, unsigned int a4, unsigned int *a5)
 {
   __int64 v5; // r15

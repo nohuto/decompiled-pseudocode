@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceBeginDelegatedInputWorker @ 0x1C00EDBE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetCallbackCount@@YACXZ @ 0x1C00EDBA8 (-GetCallbackCount@@YACXZ.c)
+ *     McTemplateK0cpttttttpppqqq_EtwWriteTransfer @ 0x1C01650D4 (McTemplateK0cpttttttpppqqq_EtwWriteTransfer.c)
+ */
+
 _UNKNOWN **__fastcall EtwTraceBeginDelegatedInputWorker(__int64 a1)
 {
   _UNKNOWN **result; // rax

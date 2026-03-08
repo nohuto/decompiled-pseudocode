@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReleaseAllReferences@CGenericInkMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C02506D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z @ 0x1C0068750 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z.c)
+ */
+
 void __fastcall DirectComposition::CGenericInkMarshaler::ReleaseAllReferences(
         DirectComposition::CGenericInkMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2)

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?isSorted@@YA_NPEAU_SODISPSURF@@0JJ@Z @ 0x1C02B52A0
+ * Callers:
+ *     ?vSortBltOrderWorker@@YAXPEAPEAU_SODISPSURF@@JJ@Z @ 0x1C02B56CC (-vSortBltOrderWorker@@YAXPEAPEAU_SODISPSURF@@JJ@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall isSorted(struct _SODISPSURF *a1, struct _SODISPSURF *a2, int a3, int a4)
 {
   _DWORD *v4; // r10

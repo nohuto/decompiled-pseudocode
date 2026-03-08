@@ -1,3 +1,18 @@
+/*
+ * XREFs of Crashdump_Command_SendCommand @ 0x1C004EB8C
+ * Callers:
+ *     Crashdump_Command_TestCommandRingOperation @ 0x1C004EEF4 (Crashdump_Command_TestCommandRingOperation.c)
+ *     Crashdump_Endpoint_SetDequeuePointer @ 0x1C004F848 (Crashdump_Endpoint_SetDequeuePointer.c)
+ *     Crashdump_Endpoint_StopEndpoint @ 0x1C004F914 (Crashdump_Endpoint_StopEndpoint.c)
+ *     Crashdump_UsbDevice_ConfigureEndpoints @ 0x1C004FEF4 (Crashdump_UsbDevice_ConfigureEndpoints.c)
+ *     Crashdump_UsbDevice_ConfigureEndpointsForSaveState @ 0x1C0050160 (Crashdump_UsbDevice_ConfigureEndpointsForSaveState.c)
+ *     Crashdump_UsbDevice_SendAddressDeviceCommand @ 0x1C0050C40 (Crashdump_UsbDevice_SendAddressDeviceCommand.c)
+ *     Crashdump_UsbDevice_SendEnableSlotCommand @ 0x1C0050EBC (Crashdump_UsbDevice_SendEnableSlotCommand.c)
+ *     Crashdump_UsbDevice_SendResetDeviceCommand @ 0x1C0050F78 (Crashdump_UsbDevice_SendResetDeviceCommand.c)
+ * Callees:
+ *     Crashdump_EventRing_Poll @ 0x1C004E500 (Crashdump_EventRing_Poll.c)
+ */
+
 __int64 __fastcall Crashdump_Command_SendCommand(__int64 a1, __int64 a2, _OWORD *a3)
 {
   int v6; // r8d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiConvertContiguousMemoryParameters @ 0x1403B5118
+ * Callers:
+ *     MmAllocateContiguousMemoryEx @ 0x14038D1E0 (MmAllocateContiguousMemoryEx.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1403B4900 (MmAllocateContiguousNodeMemory.c)
+ * Callees:
+ *     MiMakeProtectionMask @ 0x140320CC0 (MiMakeProtectionMask.c)
+ */
+
 __int64 __fastcall MiConvertContiguousMemoryParameters(
         __int64 a1,
         unsigned __int64 a2,

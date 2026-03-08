@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiActOnPatchInAllSessions @ 0x140A31950
+ * Callers:
+ *     MiApplyDriverHotPatch @ 0x140A31BB8 (MiApplyDriverHotPatch.c)
+ * Callees:
+ *     MiAttachSessionGlobal @ 0x1402D509C (MiAttachSessionGlobal.c)
+ *     MiDetachSessionGlobal @ 0x1402EA04C (MiDetachSessionGlobal.c)
+ *     MiSessionLookupImage @ 0x14036C7B8 (MiSessionLookupImage.c)
+ *     MiDereferenceSessionGlobal @ 0x1406350F4 (MiDereferenceSessionGlobal.c)
+ *     MiGetNextSessionGlobal @ 0x14063510C (MiGetNextSessionGlobal.c)
+ *     MiUnloadSystemImage @ 0x1407F627C (MiUnloadSystemImage.c)
+ *     MiFreeLoadedImportList @ 0x1407F6CA0 (MiFreeLoadedImportList.c)
+ *     MiFindEntryInImportList @ 0x140A28344 (MiFindEntryInImportList.c)
+ *     MiRemoveEntryFromImportList @ 0x140A2838C (MiRemoveEntryFromImportList.c)
+ *     MiInvokePatchCallback @ 0x140A351D0 (MiInvokePatchCallback.c)
+ *     MiLogHotPatchOperationStatus @ 0x140A36298 (MiLogHotPatchOperationStatus.c)
+ *     MiMapAndApplyPatchInSession @ 0x140A37338 (MiMapAndApplyPatchInSession.c)
+ */
+
 __int64 __fastcall MiActOnPatchInAllSessions(__int64 a1, __int64 a2, int a3, __int64 a4)
 {
   __int64 v4; // rbp

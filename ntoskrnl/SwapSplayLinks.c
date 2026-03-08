@@ -1,3 +1,12 @@
+/*
+ * XREFs of SwapSplayLinks @ 0x1402C2E38
+ * Callers:
+ *     RtlDeleteNoSplay @ 0x1402C1BB0 (RtlDeleteNoSplay.c)
+ *     RtlDelete @ 0x1402C2940 (RtlDelete.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall SwapSplayLinks(_QWORD *a1, _QWORD *a2)
 {
   _QWORD *v2; // r8

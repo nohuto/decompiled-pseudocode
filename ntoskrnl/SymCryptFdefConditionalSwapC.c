@@ -1,3 +1,12 @@
+/*
+ * XREFs of SymCryptFdefConditionalSwapC @ 0x1403FFA2C
+ * Callers:
+ *     SymCryptFdefConditionalSwap @ 0x1403FFA14 (SymCryptFdefConditionalSwap.c)
+ *     SymCryptFdefIntConditionalSwap @ 0x1403FFBF8 (SymCryptFdefIntConditionalSwap.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall SymCryptFdefConditionalSwapC(__int64 a1, __int64 a2, int a3, char a4)
 {
   __int64 v4; // rbx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmGetNodeChannelRanges @ 0x14084FBB8
+ * Callers:
+ *     ExpQueryMemoryTopologyInformation @ 0x14084FB18 (ExpQueryMemoryTopologyInformation.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiReferencePageRuns @ 0x1402EB520 (MiReferencePageRuns.c)
+ *     MiDereferencePageRuns @ 0x1402EBA0C (MiDereferencePageRuns.c)
+ */
+
 __int64 __fastcall MmGetNodeChannelRanges(_QWORD *a1, SIZE_T *a2)
 {
   unsigned int *v4; // rdi

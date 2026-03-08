@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpTimerMeasureProcessorsWorker @ 0x14050A680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeStallExecutionProcessor @ 0x14022B710 (KeStallExecutionProcessor.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     HalpTimerReadTimerPairWithLatencyLimit @ 0x140376E70 (HalpTimerReadTimerPairWithLatencyLimit.c)
+ *     HalpTimerDetermineValidTimerPairReadLatency @ 0x140377478 (HalpTimerDetermineValidTimerPairReadLatency.c)
+ *     HalpFindTimer @ 0x140377CA8 (HalpFindTimer.c)
+ *     HalpTimerScaleCounter @ 0x1403BE604 (HalpTimerScaleCounter.c)
+ */
+
 ULONG_PTR __fastcall HalpTimerMeasureProcessorsWorker(ULONG_PTR Argument)
 {
   int v2; // ebx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PspUnlockJobChain @ 0x1406F8F60
+ * Callers:
+ *     NtSetInformationJobObject @ 0x1406FC3C0 (NtSetInformationJobObject.c)
+ *     PspUnlockJobsAndProcessExclusive @ 0x140700DD0 (PspUnlockJobsAndProcessExclusive.c)
+ *     PspImplicitAssignProcessToJob @ 0x140797010 (PspImplicitAssignProcessToJob.c)
+ *     PspGetMemoryPartitionImplicit @ 0x140798000 (PspGetMemoryPartitionImplicit.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ */
+
 void __fastcall PspUnlockJobChain(__int64 a1, __int64 a2, char a3)
 {
   unsigned __int64 v6; // rsi

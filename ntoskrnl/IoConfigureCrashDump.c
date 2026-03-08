@@ -1,3 +1,28 @@
+/*
+ * XREFs of IoConfigureCrashDump @ 0x14054D564
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ *     IopCrashDumpPolicyChangeWnfCallback @ 0x140940B30 (IopCrashDumpPolicyChangeWnfCallback.c)
+ *     PoShutdownBugCheck @ 0x1409865B0 (PoShutdownBugCheck.c)
+ *     PoBroadcastSystemState @ 0x140AA38F8 (PoBroadcastSystemState.c)
+ *     IopInitCrashDumpDuringSysInit @ 0x140B6E3C0 (IopInitCrashDumpDuringSysInit.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     IopReadDumpRegistry @ 0x140392204 (IopReadDumpRegistry.c)
+ *     IopRemoveDumpCapsuleSupport @ 0x140392E74 (IopRemoveDumpCapsuleSupport.c)
+ *     IopInitDumpCapsuleSupport @ 0x1403AE334 (IopInitDumpCapsuleSupport.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IopDisableCrashDump @ 0x14055013C (IopDisableCrashDump.c)
+ *     IopDumpTraceCrashDumpReconfiguration @ 0x140550548 (IopDumpTraceCrashDumpReconfiguration.c)
+ *     RtlPrefixUnicodeString @ 0x1406D5A70 (RtlPrefixUnicodeString.c)
+ *     RtlGetHostNtSystemRoot @ 0x14079C490 (RtlGetHostNtSystemRoot.c)
+ *     IopInitializeCrashDump @ 0x140834B28 (IopInitializeCrashDump.c)
+ *     MmGetPageFileForCrashDump @ 0x140A30138 (MmGetPageFileForCrashDump.c)
+ */
+
 __int64 __fastcall IoConfigureCrashDump(__int64 a1, char a2)
 {
   int v2; // ebx

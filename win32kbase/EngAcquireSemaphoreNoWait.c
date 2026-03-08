@@ -1,3 +1,11 @@
+/*
+ * XREFs of EngAcquireSemaphoreNoWait @ 0x1C00BD8F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 BOOL __stdcall EngAcquireSemaphoreNoWait(HSEMAPHORE hsem)
 {
   int v1; // ebx

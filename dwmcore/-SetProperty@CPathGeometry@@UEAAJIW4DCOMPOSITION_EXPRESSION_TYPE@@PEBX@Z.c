@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetProperty@CPathGeometry@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180244710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetPath@CPathGeometry@@AEAAXPEBVCPathData@@@Z @ 0x1800AB908 (-SetPath@CPathGeometry@@AEAAXPEBVCPathData@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SetProperty@CGeometry@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x18020EDC0 (-SetProperty@CGeometry@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ */
+
 __int64 __fastcall CPathGeometry::SetProperty(CPathGeometry *a1, int a2, __int64 a3, const struct CPathData *a4)
 {
   int v4; // eax

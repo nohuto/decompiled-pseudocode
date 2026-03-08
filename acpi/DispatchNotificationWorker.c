@@ -1,3 +1,12 @@
+/*
+ * XREFs of DispatchNotificationWorker @ 0x1C0004DA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ACPIInitDereferenceDeviceExtensionUnlocked @ 0x1C002D0C0 (ACPIInitDereferenceDeviceExtensionUnlocked.c)
+ */
+
 __int64 __fastcall DispatchNotificationWorker(ULONG_PTR BugCheckParameter4)
 {
   KIRQL v2; // al

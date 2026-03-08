@@ -1,3 +1,14 @@
+/*
+ * XREFs of VidSchSubmitWaitFromCpu @ 0x1C0001470
+ * Callers:
+ *     ?WaitForFences@VIDMM_GLOBAL@@QEAAXPEAPEAU_VIDSCH_SYNC_OBJECT@@PEB_KI1@Z @ 0x1C008DA50 (-WaitForFences@VIDMM_GLOBAL@@QEAAXPEAPEAU_VIDSCH_SYNC_OBJECT@@PEB_KI1@Z.c)
+ * Callees:
+ *     VidSchiUnwaitMonitoredFences @ 0x1C00037C0 (VidSchiUnwaitMonitoredFences.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     ?ProcessHwQueue@HwQueueStagingList@@AEAAXPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C001C63A (-ProcessHwQueue@HwQueueStagingList@@AEAAXPEAUVIDSCH_HW_QUEUE@@@Z.c)
+ *     ??_GVIDSCH_CPU_WAITER@@QEAAPEAXI@Z @ 0x1C003458C (--_GVIDSCH_CPU_WAITER@@QEAAPEAXI@Z.c)
+ */
+
 __int64 __fastcall VidSchSubmitWaitFromCpu(
         unsigned int a1,
         __int64 a2,

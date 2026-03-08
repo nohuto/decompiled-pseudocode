@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvpRecoverDataReadRoutine @ 0x1407FA940
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HvpRecoverDataReadRoutine(unsigned int *a1, unsigned int a2, unsigned int a3, _QWORD *a4)
 {
   unsigned int v4; // ebx

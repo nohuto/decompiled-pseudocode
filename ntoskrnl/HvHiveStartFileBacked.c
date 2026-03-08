@@ -1,3 +1,19 @@
+/*
+ * XREFs of HvHiveStartFileBacked @ 0x14072F1D4
+ * Callers:
+ *     CmpCreateHive @ 0x14072C06C (CmpCreateHive.c)
+ * Callees:
+ *     SetFailureLocation @ 0x140243E5C (SetFailureLocation.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvpFillFileName @ 0x14072F4B8 (HvpFillFileName.c)
+ *     HvLoadHive @ 0x14072F5C0 (HvLoadHive.c)
+ *     CmpTraceHiveMountStop @ 0x140731120 (CmpTraceHiveMountStop.c)
+ *     CmpTraceHiveMountStart @ 0x14073117C (CmpTraceHiveMountStart.c)
+ *     HvMarkBaseBlockDirty @ 0x140871E3C (HvMarkBaseBlockDirty.c)
+ *     HvpHeaderCheckSum @ 0x140AF2414 (HvpHeaderCheckSum.c)
+ */
+
 __int64 __fastcall HvHiveStartFileBacked(
         ULONG_PTR a1,
         char a2,

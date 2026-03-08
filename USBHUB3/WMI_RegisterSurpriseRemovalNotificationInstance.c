@@ -1,3 +1,14 @@
+/*
+ * XREFs of WMI_RegisterSurpriseRemovalNotificationInstance @ 0x1C008C2C4
+ * Callers:
+ *     HUBPDO_EvtDeviceUsageNotificationEx @ 0x1C001CA80 (HUBPDO_EvtDeviceUsageNotificationEx.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 __int64 __fastcall WMI_RegisterSurpriseRemovalNotificationInstance(__int64 a1)
 {
   __int64 v2; // rax

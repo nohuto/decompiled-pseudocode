@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiEliminateZeroPages @ 0x1407F6B10
+ * Callers:
+ *     MiCopyToCfgBitMap @ 0x1406A5890 (MiCopyToCfgBitMap.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x1406A5EE0 (MiUpdateCfgSystemWideBitmapWorker.c)
+ * Callees:
+ *     MiTbFlushType @ 0x140224BDC (MiTbFlushType.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x14036C25C (MiInitializeTbFlushList.c)
+ *     MiGetPdeAddress @ 0x14036C27C (MiGetPdeAddress.c)
+ *     MiConvertAndFlushWsleVas @ 0x14036C29C (MiConvertAndFlushWsleVas.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __fastcall MiEliminateZeroPages(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   int v6; // eax

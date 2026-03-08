@@ -1,3 +1,15 @@
+/*
+ * XREFs of SdbGetEntryFlags @ 0x14084BDEC
+ * Callers:
+ *     SdbpGetExeEntryFlags @ 0x14084BD1C (SdbpGetExeEntryFlags.c)
+ *     SdbReadEntryInformation @ 0x140A4C714 (SdbReadEntryInformation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbpQueryAppCompatFlagsByExeID @ 0x14084BE9C (SdbpQueryAppCompatFlagsByExeID.c)
+ *     AslGuidToString @ 0x14084C0B4 (AslGuidToString.c)
+ */
+
 __int64 __fastcall SdbGetEntryFlags(__int64 a1, _DWORD *a2)
 {
   __int64 v3; // rcx

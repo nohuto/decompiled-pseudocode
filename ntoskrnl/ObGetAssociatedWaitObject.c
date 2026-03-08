@@ -1,3 +1,12 @@
+/*
+ * XREFs of ObGetAssociatedWaitObject @ 0x14024F1CC
+ * Callers:
+ *     NtAssociateWaitCompletionPacket @ 0x14024EEE0 (NtAssociateWaitCompletionPacket.c)
+ *     IopCancelWaitCompletionPacket @ 0x1402DEF38 (IopCancelWaitCompletionPacket.c)
+ * Callees:
+ *     <none>
+ */
+
 __int16 *__fastcall ObGetAssociatedWaitObject(__int64 a1)
 {
   __int64 v1; // r10

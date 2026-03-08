@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalMatchAcpiOemTableId @ 0x14039C1E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpAcpiGetTable @ 0x14029C550 (HalpAcpiGetTable.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall HalMatchAcpiOemTableId(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   unsigned int v5; // ebx

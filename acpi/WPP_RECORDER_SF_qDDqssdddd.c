@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_qDDqssdddd @ 0x1C0042E3C
+ * Callers:
+ *     ACPIThermalDeviceControl @ 0x1C0040410 (ACPIThermalDeviceControl.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF_qDDqssdddd(
         __int64 a1,
         __int64 a2,

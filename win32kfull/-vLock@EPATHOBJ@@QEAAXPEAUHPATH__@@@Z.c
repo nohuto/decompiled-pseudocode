@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z @ 0x1C014CA9A
+ * Callers:
+ *     ?ppoGetPath@XCLIPOBJ@@QEAAPEAU_PATHOBJ@@XZ @ 0x1C0267E54 (-ppoGetPath@XCLIPOBJ@@QEAAPEAU_PATHOBJ@@XZ.c)
+ *     ??0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z @ 0x1C028711C (--0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z.c)
+ *     ??0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z @ 0x1C028756C (--0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z.c)
+ *     ??0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z @ 0x1C02876B8 (--0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z.c)
+ *     EngCreatePath @ 0x1C0289A20 (EngCreatePath.c)
+ *     XEPATHOBJ_vConstructHPATHWrap @ 0x1C0289AB0 (XEPATHOBJ_vConstructHPATHWrap.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall EPATHOBJ::vLock(EPATHOBJ *this, struct HPATH__ *a2)
 {
   struct HPATH__ *v3; // rcx

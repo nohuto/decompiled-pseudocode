@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopPepComponentGetResidencyIdleState @ 0x140304D38
+ * Callers:
+ *     PopPepIdleTimeoutRoutine @ 0x1402E9500 (PopPepIdleTimeoutRoutine.c)
+ *     PopPepCompleteComponentActiveActivity @ 0x140304CC0 (PopPepCompleteComponentActiveActivity.c)
+ *     PopPepComponentSetResidency @ 0x1403AE9C4 (PopPepComponentSetResidency.c)
+ *     PopPepRegisterDevice @ 0x1408378C4 (PopPepRegisterDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopPepComponentGetResidencyIdleState(__int64 a1, unsigned __int64 a2)
 {
   __int64 v2; // r8

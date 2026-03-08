@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceUserCreateHandle @ 0x1C0088F2C
+ * Callers:
+ *     HMAllocObjectEx @ 0x1C00122BC (HMAllocObjectEx.c)
+ *     HMCreateHandleForObject @ 0x1C0088D60 (HMCreateHandleForObject.c)
+ * Callees:
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C00EE72C (McTemplateK0pqqq_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTraceUserCreateHandle(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v4; // bl

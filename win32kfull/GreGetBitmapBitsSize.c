@@ -1,3 +1,15 @@
+/*
+ * XREFs of GreGetBitmapBitsSize @ 0x1C0091230
+ * Callers:
+ *     NtGdiGetDIBitsInternal @ 0x1C0089270 (NtGdiGetDIBitsInternal.c)
+ *     NtGdiCreateSessionMappedDIBSection @ 0x1C008FB00 (NtGdiCreateSessionMappedDIBSection.c)
+ *     ?xxxDIBtoBMP@@YAPEAUHBITMAP__@@PEAUtagBITMAPINFOHEADER@@PEAUHPALETTE__@@K@Z @ 0x1C01FF654 (-xxxDIBtoBMP@@YAPEAUHBITMAP__@@PEAUtagBITMAPINFOHEADER@@PEAUHPALETTE__@@K@Z.c)
+ *     ?GreIcmQueryBrushBitmap@@YAHPEAUHDC__@@PEAUHBRUSH__@@PEAUtagBITMAPINFO@@PEAXPEAK4PEAH@Z @ 0x1C02D0778 (-GreIcmQueryBrushBitmap@@YAHPEAUHDC__@@PEAUHBRUSH__@@PEAUtagBITMAPINFO@@PEAXPEAK4PEAH@Z.c)
+ *     NtGdiIcmBrushInfo @ 0x1C02D1330 (NtGdiIcmBrushInfo.c)
+ * Callees:
+ *     ?noOverflowCJSCAN@@YAKKGGK@Z @ 0x1C0091284 (-noOverflowCJSCAN@@YAKKGGK@Z.c)
+ */
+
 unsigned int __fastcall GreGetBitmapBitsSize(__int64 a1)
 {
   unsigned int v2; // eax

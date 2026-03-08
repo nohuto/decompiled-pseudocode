@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bInit@BEZIER32@@QEAAHPEAU_POINTFIX@@PEAU_RECTFX@@@Z @ 0x1C0189EA0
+ * Callers:
+ *     ?pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z @ 0x1C018A9F0 (-pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z.c)
+ * Callees:
+ *     ?bIntersect@@YA_NPEAU_RECTFX@@0@Z @ 0x1C018A15C (-bIntersect@@YA_NPEAU_RECTFX@@0@Z.c)
+ *     ?vBoundBox@@YAXPEAU_POINTFIX@@PEAU_RECTFX@@@Z @ 0x1C018AC8C (-vBoundBox@@YAXPEAU_POINTFIX@@PEAU_RECTFX@@@Z.c)
+ *     ?vSteadyState@HFDBASIS32@@QEAAXJ@Z @ 0x1C018AFDC (-vSteadyState@HFDBASIS32@@QEAAXJ@Z.c)
+ */
+
 __int64 __fastcall BEZIER32::bInit(BEZIER32 *this, struct _POINTFIX *a2, struct _RECTFX *a3)
 {
   struct _RECTFX *v3; // rdi

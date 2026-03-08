@@ -1,3 +1,28 @@
+/*
+ * XREFs of KiOrAffinityEx @ 0x14022B190
+ * Callers:
+ *     KiUpdateTime @ 0x14022BD80 (KiUpdateTime.c)
+ *     PpmParkSteerInterrupts @ 0x1402341D0 (PpmParkSteerInterrupts.c)
+ *     KiComputeCpuSetAffinity @ 0x140237838 (KiComputeCpuSetAffinity.c)
+ *     KiTryPopulateLogicalProcessorInformation @ 0x1402A9990 (KiTryPopulateLogicalProcessorInformation.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x1402AA2C0 (KeQueryLogicalProcessorRelationship.c)
+ *     PpmPerfApplyProcessorStates @ 0x1402ED3A0 (PpmPerfApplyProcessorStates.c)
+ *     KiForwardTick @ 0x1403C61D0 (KiForwardTick.c)
+ *     EmonAddProfileSource @ 0x14051A480 (EmonAddProfileSource.c)
+ *     Amd64AddProfileSource @ 0x1405263A0 (Amd64AddProfileSource.c)
+ *     KeOrAffinityEx @ 0x14056CE60 (KeOrAffinityEx.c)
+ *     KeOrAffinityEx2 @ 0x14056CE80 (KeOrAffinityEx2.c)
+ *     KeCpuPartitionMoveCpus @ 0x140572954 (KeCpuPartitionMoveCpus.c)
+ *     KiForceIdleUpdateSchedulerParkState @ 0x14057AB44 (KiForceIdleUpdateSchedulerParkState.c)
+ *     PpmUpdateProcessorPolicy @ 0x140826290 (PpmUpdateProcessorPolicy.c)
+ *     PpmCheckInitProcessors @ 0x140827DA4 (PpmCheckInitProcessors.c)
+ *     PpmRegisterPerfStates @ 0x14082802C (PpmRegisterPerfStates.c)
+ *     PsInitializeBootCpuPartitions @ 0x140B6EAD4 (PsInitializeBootCpuPartitions.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall KiOrAffinityEx(char *a1, _WORD *a2, _BYTE *a3, unsigned __int16 a4)
 {
   unsigned __int16 v8; // r10

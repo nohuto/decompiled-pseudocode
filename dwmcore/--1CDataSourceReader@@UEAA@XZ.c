@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CDataSourceReader@@UEAA@XZ @ 0x180225A8C
+ * Callers:
+ *     ??_ECDataSourceReader@@UEAAPEAXI@Z @ 0x180225B10 (--_ECDataSourceReader@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?RemoveReaderFromReadyList@DataProviderManager@@QEAAXPEAVCDataSourceReader@@@Z @ 0x1801B4B84 (-RemoveReaderFromReadyList@DataProviderManager@@QEAAXPEAVCDataSourceReader@@@Z.c)
+ *     ?UnregisterReaderForDataSource@DataProviderManager@@QEAAJ_K0PEAVCDataSourceReader@@@Z @ 0x1801B4CB8 (-UnregisterReaderForDataSource@DataProviderManager@@QEAAJ_K0PEAVCDataSourceReader@@@Z.c)
+ */
+
 void __fastcall CDataSourceReader::~CDataSourceReader(CDataSourceReader *this)
 {
   char v2; // al

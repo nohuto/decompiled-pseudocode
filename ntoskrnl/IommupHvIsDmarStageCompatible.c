@@ -1,3 +1,12 @@
+/*
+ * XREFs of IommupHvIsDmarStageCompatible @ 0x140522B60
+ * Callers:
+ *     HalpIommuDeviceGetDomainTypes @ 0x14050BA08 (HalpIommuDeviceGetDomainTypes.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 bool __fastcall IommupHvIsDmarStageCompatible(_DWORD *a1, char a2)
 {
   bool v3; // zf

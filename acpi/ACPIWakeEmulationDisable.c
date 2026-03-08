@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIWakeEmulationDisable @ 0x1C0045254
+ * Callers:
+ *     ACPIDeviceCancelWaitWakeIrp @ 0x1C001C150 (ACPIDeviceCancelWaitWakeIrp.c)
+ *     OSNotifyDeviceWakeByInterrupt @ 0x1C003348C (OSNotifyDeviceWakeByInterrupt.c)
+ *     ACPIDereferenceWaitWakePowerRequest @ 0x1C00447C0 (ACPIDereferenceWaitWakePowerRequest.c)
+ * Callees:
+ *     ACPIDisconnectWakeInterrupt @ 0x1C00448F8 (ACPIDisconnectWakeInterrupt.c)
+ */
+
 void __fastcall ACPIWakeEmulationDisable(__int64 a1)
 {
   unsigned int v1; // eax

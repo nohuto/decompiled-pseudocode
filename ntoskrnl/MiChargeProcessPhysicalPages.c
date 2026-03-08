@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiChargeProcessPhysicalPages @ 0x140A40C34
+ * Callers:
+ *     MiCommitExistingVad @ 0x140320D70 (MiCommitExistingVad.c)
+ *     MiAllocateUserPhysicalPages @ 0x140A3D6E8 (MiAllocateUserPhysicalPages.c)
+ *     MiCreateLargePageVad @ 0x140A46988 (MiCreateLargePageVad.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiChargeProcessPhysicalPages(__int64 a1, unsigned __int64 a2)
 {
   signed __int64 v4; // rax

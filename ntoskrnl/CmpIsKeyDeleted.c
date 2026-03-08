@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpIsKeyDeleted @ 0x14077B358
+ * Callers:
+ *     CmGetVisibleMaxNameLenAndClassLen @ 0x1407ABF48 (CmGetVisibleMaxNameLenAndClassLen.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1407ACFB0 (CmpFindSubKeyByNumberEx.c)
+ *     CmpVEExecuteOpenLogic @ 0x1407B6770 (CmpVEExecuteOpenLogic.c)
+ *     CmpSyncKcbCacheForHive @ 0x140A17510 (CmpSyncKcbCacheForHive.c)
+ *     CmpVEExecuteRealStoreParseLogic @ 0x140A17568 (CmpVEExecuteRealStoreParseLogic.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     CmpIsKeyStackDeleted @ 0x1406B5978 (CmpIsKeyStackDeleted.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1407AF294 (CmpStartKcbStackForTopLayerKcb.c)
+ */
+
 char __fastcall CmpIsKeyDeleted(__int64 a1)
 {
   bool IsKeyStackDeleted; // bl

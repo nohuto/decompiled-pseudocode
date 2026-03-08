@@ -1,3 +1,11 @@
+/*
+ * XREFs of __tailMerge_oleaut32_dll @ 0x18010F830
+ * Callers:
+ *     __imp_load_SysFreeString @ 0x18010F824 (__imp_load_SysFreeString.c)
+ * Callees:
+ *     __delayLoadHelper2 @ 0x180100EB0 (__delayLoadHelper2.c)
+ */
+
 __int64 __fastcall _tailMerge_oleaut32_dll(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rax

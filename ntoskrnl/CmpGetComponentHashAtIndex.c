@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpGetComponentHashAtIndex @ 0x1407972F4
+ * Callers:
+ *     CmpDoParseKey @ 0x1406E1D90 (CmpDoParseKey.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpGetComponentHashAtIndex(__int64 a1, unsigned int a2)
 {
   if ( a2 >= 8 )

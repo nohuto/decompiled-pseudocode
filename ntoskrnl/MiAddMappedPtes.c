@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiAddMappedPtes @ 0x1406A56B0
+ * Callers:
+ *     MiInsertInSystemSpace @ 0x14020EB30 (MiInsertInSystemSpace.c)
+ *     MiMapSystemImage @ 0x1407F5DFC (MiMapSystemImage.c)
+ * Callees:
+ *     MiMakePrototypePteDirect @ 0x14020F510 (MiMakePrototypePteDirect.c)
+ *     MiGetSharedProtos @ 0x1402CCDF8 (MiGetSharedProtos.c)
+ *     MiMakeDemandZeroPte @ 0x14032E7D8 (MiMakeDemandZeroPte.c)
+ *     MiOffsetToProtos @ 0x140331B90 (MiOffsetToProtos.c)
+ *     MiGetSubsectionDriverProtos @ 0x1403443A4 (MiGetSubsectionDriverProtos.c)
+ */
+
 __int64 __fastcall MiAddMappedPtes(__int64 *a1, __int64 a2, __int64 a3, unsigned __int64 *a4, unsigned int a5, int a6)
 {
   BOOL v6; // r15d

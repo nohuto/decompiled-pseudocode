@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?GetTargetPowerLevel@TrackedWorkloadMonitor@@QEAA_NPEAVRollingStats@@PEAI1@Z @ 0x1C0088258
+ * Callers:
+ *     ?EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ @ 0x1C0359510 (-EndTrackedWorkload@DXGTRACKEDWORKLOAD@@IEAAJXZ.c)
+ * Callees:
+ *     ?ChangeState@TrackedWorkloadMonitor@@AEAAXW4TrackedWorkloadState@@PEAVRollingStats@@PEBUTrackedWorkloadStateInfo@@I@Z @ 0x1C0088068 (-ChangeState@TrackedWorkloadMonitor@@AEAAXW4TrackedWorkloadState@@PEAVRollingStats@@PEBUTrackedW.c)
+ *     ?ShouldDecreasePower@TrackedWorkloadMonitor@@AEAA_NPEAVRollingStats@@PEAI@Z @ 0x1C00884E0 (-ShouldDecreasePower@TrackedWorkloadMonitor@@AEAA_NPEAVRollingStats@@PEAI@Z.c)
+ *     ?ShouldIncreasePower@TrackedWorkloadMonitor@@AEAA_NPEAVRollingStats@@PEAI@Z @ 0x1C00885AC (-ShouldIncreasePower@TrackedWorkloadMonitor@@AEAA_NPEAVRollingStats@@PEAI@Z.c)
+ *     ?Update@RollingStats@@QEAAXXZ @ 0x1C0088654 (-Update@RollingStats@@QEAAXXZ.c)
+ *     ?ReportState@TrackedWorkloadMonitor@@QEAAXXZ @ 0x1C035A0A0 (-ReportState@TrackedWorkloadMonitor@@QEAAXXZ.c)
+ */
+
 bool __fastcall TrackedWorkloadMonitor::GetTargetPowerLevel(
         TrackedWorkloadMonitor *this,
         struct RollingStats *a2,

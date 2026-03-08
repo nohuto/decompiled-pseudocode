@@ -1,3 +1,20 @@
+/*
+ * XREFs of HUBHTX_PortControlTransferComplete @ 0x1C0003E90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0pqhh_EtwWriteTransfer @ 0x1C0002398 (McTemplateK0pqhh_EtwWriteTransfer.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C000242C (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     WPP_RECORDER_SF_ccccc @ 0x1C0002890 (WPP_RECORDER_SF_ccccc.c)
+ *     WPP_RECORDER_SF_cccccc @ 0x1C00029C0 (WPP_RECORDER_SF_cccccc.c)
+ *     WPP_RECORDER_SF_cccccccc @ 0x1C0002B0C (WPP_RECORDER_SF_cccccccc.c)
+ *     WPP_RECORDER_SF_chcccc @ 0x1C0002D7C (WPP_RECORDER_SF_chcccc.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C0032FCC (HUBMISC_VerifierDbgBreak.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBHTX_PortControlTransferComplete(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // esi

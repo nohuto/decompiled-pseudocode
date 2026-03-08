@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhGetMaxPowerPerPort @ 0x1C002C9B4
+ * Callers:
+ *     UsbhConfigureUsbHub @ 0x1C0029DB0 (UsbhConfigureUsbHub.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhGetHubPowerStatus @ 0x1C002C868 (UsbhGetHubPowerStatus.c)
+ *     UsbhGetStatus @ 0x1C002CC48 (UsbhGetStatus.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall UsbhGetMaxPowerPerPort(__int64 a1)
 {
   _DWORD *v2; // rbx

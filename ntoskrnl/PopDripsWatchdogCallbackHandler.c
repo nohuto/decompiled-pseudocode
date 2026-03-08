@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopDripsWatchdogCallbackHandler @ 0x140999010
+ * Callers:
+ *     PopDripsWatchdogCallbackWorker @ 0x1409991B0 (PopDripsWatchdogCallbackWorker.c)
+ * Callees:
+ *     PopFxBuildDripsBlockingDeviceList @ 0x140586854 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopFxIsDirectedPowerTransitionSupported @ 0x1405884F8 (PopFxIsDirectedPowerTransitionSupported.c)
+ *     PopDripsWatchdogGetDeviceActiveTime @ 0x14059BF48 (PopDripsWatchdogGetDeviceActiveTime.c)
+ *     PopDeviceConstraintsEnforced @ 0x1405A06C0 (PopDeviceConstraintsEnforced.c)
+ *     PopDirectedDripsNotify @ 0x140872AF4 (PopDirectedDripsNotify.c)
+ *     PopDirectedDripsMarkCandidateDevice @ 0x1409809AC (PopDirectedDripsMarkCandidateDevice.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x140981B94 (PopFxDestroyDripsBlockingDeviceList.c)
+ *     PopDripsWatchdogInvokeDeviceCallbacks @ 0x14099E11C (PopDripsWatchdogInvokeDeviceCallbacks.c)
+ */
+
 void __fastcall PopDripsWatchdogCallbackHandler(
         __int16 a1,
         unsigned int a2,

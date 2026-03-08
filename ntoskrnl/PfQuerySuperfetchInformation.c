@@ -1,3 +1,28 @@
+/*
+ * XREFs of PfQuerySuperfetchInformation @ 0x1406AE494
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     PfpMemoryRangesQuery @ 0x140392CCC (PfpMemoryRangesQuery.c)
+ *     PfpMemoryListQuery @ 0x1403CF3B4 (PfpMemoryListQuery.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PfpQueryGpuUtilization @ 0x14067F23C (PfpQueryGpuUtilization.c)
+ *     PfpPfnPrioRequest @ 0x1406AE8C4 (PfpPfnPrioRequest.c)
+ *     MmLogQueryCombineStats @ 0x14079BD2C (MmLogQueryCombineStats.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     PfGetCompletedTrace @ 0x1407E76DC (PfGetCompletedTrace.c)
+ *     PfpPrivSourceEnum @ 0x1407E7DC0 (PfpPrivSourceEnum.c)
+ *     PfpQueryFileExtentsRequest @ 0x14097B4F0 (PfpQueryFileExtentsRequest.c)
+ *     PfpQueryScenarioInformation @ 0x14097BB9C (PfpQueryScenarioInformation.c)
+ *     PfpVirtualQuery @ 0x14097C070 (PfpVirtualQuery.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall PfQuerySuperfetchInformation(__int64 a1, __int128 *a2, __int64 a3, KPROCESSOR_MODE a4, _DWORD *a5)
 {
   unsigned int v6; // ebx

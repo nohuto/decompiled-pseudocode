@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiProcessKernelCfgAddressTakenImports @ 0x140A41408
+ * Callers:
+ *     MiProcessKernelCfgImage @ 0x1402FCCC4 (MiProcessKernelCfgImage.c)
+ *     MiInitializeDriverImages @ 0x140B3B090 (MiInitializeDriverImages.c)
+ * Callees:
+ *     MiMarkKernelCfgAddressTakenImports @ 0x140A41358 (MiMarkKernelCfgAddressTakenImports.c)
+ */
+
 __int64 __fastcall MiProcessKernelCfgAddressTakenImports(PVOID *a1)
 {
   __int64 result; // rax

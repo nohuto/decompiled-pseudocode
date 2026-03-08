@@ -1,3 +1,20 @@
+/*
+ * XREFs of IopIoRingCompleteIrp @ 0x1405570DC
+ * Callers:
+ *     IopfCompleteRequest @ 0x14027B2C0 (IopfCompleteRequest.c)
+ *     IopCompleteRequest @ 0x140312C80 (IopCompleteRequest.c)
+ *     IopSynchronousServiceTail @ 0x1407C33C0 (IopSynchronousServiceTail.c)
+ * Callees:
+ *     IopDropIrp @ 0x140293E48 (IopDropIrp.c)
+ *     IopDequeueIrpFromFileObject @ 0x140293F0C (IopDequeueIrpFromFileObject.c)
+ *     IopUpdateIrpTransferCount @ 0x1402F9C50 (IopUpdateIrpTransferCount.c)
+ *     IopDequeueIrpFromThread @ 0x14030F160 (IopDequeueIrpFromThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     IopProcessBufferedIoCompletion @ 0x140313AA0 (IopProcessBufferedIoCompletion.c)
+ *     IopCompleteIoRingEntry @ 0x140556F5C (IopCompleteIoRingEntry.c)
+ *     IopMcReleaseMdl @ 0x14055CD74 (IopMcReleaseMdl.c)
+ */
+
 void __fastcall IopIoRingCompleteIrp(PIRP Irp, ULONG_PTR a2, KPRIORITY a3)
 {
   void *v3; // rbp

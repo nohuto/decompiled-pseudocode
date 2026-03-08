@@ -1,3 +1,13 @@
+/*
+ * XREFs of UserSetTimer @ 0x1C022FBB8
+ * Callers:
+ *     GreStartTimers @ 0x1C007B498 (GreStartTimers.c)
+ *     vEnableSynchronize @ 0x1C00F3620 (vEnableSynchronize.c)
+ * Callees:
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C003C250 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     InternalSetTimer @ 0x1C0061830 (InternalSetTimer.c)
+ */
+
 __int64 __fastcall UserSetTimer(int a1)
 {
   __int64 v1; // rcx

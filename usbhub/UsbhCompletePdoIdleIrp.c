@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhCompletePdoIdleIrp @ 0x1C001BD28
+ * Callers:
+ *     UsbhPdoSetD0 @ 0x1C0003200 (UsbhPdoSetD0.c)
+ *     UsbhPdoSetDx @ 0x1C001ACC4 (UsbhPdoSetDx.c)
+ *     UsbhPdoRemoveCleanup @ 0x1C0056C34 (UsbhPdoRemoveCleanup.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhGetIdleIrpState @ 0x1C001BE10 (UsbhGetIdleIrpState.c)
+ *     UsbhSetIdleIrpState @ 0x1C001BE6C (UsbhSetIdleIrpState.c)
+ *     UsbhIdleIrp_Event @ 0x1C0057F68 (UsbhIdleIrp_Event.c)
+ */
+
 void __fastcall UsbhCompletePdoIdleIrp(__int64 a1, __int64 a2, int a3)
 {
   __int64 v4; // rdi

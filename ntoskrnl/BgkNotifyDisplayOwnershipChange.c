@@ -1,3 +1,28 @@
+/*
+ * XREFs of BgkNotifyDisplayOwnershipChange @ 0x1403A7F10
+ * Callers:
+ *     BgkSetDisplayOwnership @ 0x1403A7EF0 (BgkSetDisplayOwnership.c)
+ *     BgkNotifyDisplayOwnershipLost @ 0x14054CA60 (BgkNotifyDisplayOwnershipLost.c)
+ *     BvgaNotifyDisplayOwnershipChange @ 0x14054CF60 (BvgaNotifyDisplayOwnershipChange.c)
+ * Callees:
+ *     ExRundownCompleted @ 0x140294280 (ExRundownCompleted.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     InbvSetFunction @ 0x140384538 (InbvSetFunction.c)
+ *     BgkpTryEnableConsole @ 0x140384818 (BgkpTryEnableConsole.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     BgLibraryEnable @ 0x14066F498 (BgLibraryEnable.c)
+ *     BgkResumeFinished @ 0x140A969B8 (BgkResumeFinished.c)
+ *     BgSetFrameBufferAccess @ 0x140AE9008 (BgSetFrameBufferAccess.c)
+ *     BgConsoleGetInterface @ 0x140AEB5EC (BgConsoleGetInterface.c)
+ *     BgkDestroy @ 0x140AEBA68 (BgkDestroy.c)
+ *     BgkpLockBgfxCodeSection @ 0x140AEBB60 (BgkpLockBgfxCodeSection.c)
+ *     BgLibraryDisable @ 0x140AEC480 (BgLibraryDisable.c)
+ *     BgDisplayFade @ 0x140AEC4BC (BgDisplayFade.c)
+ *     BgConsoleDestroyInterface @ 0x140AEC504 (BgConsoleDestroyInterface.c)
+ *     BgkpUnlockBgfxCodeSection @ 0x140AEC590 (BgkpUnlockBgfxCodeSection.c)
+ */
+
 __int64 __fastcall BgkNotifyDisplayOwnershipChange(char a1, __int64 (__fastcall *a2)(_QWORD, _QWORD, _QWORD))
 {
   __int64 result; // rax

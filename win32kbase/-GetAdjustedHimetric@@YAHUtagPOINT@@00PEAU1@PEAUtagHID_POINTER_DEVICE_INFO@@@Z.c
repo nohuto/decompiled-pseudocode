@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetAdjustedHimetric@@YAHUtagPOINT@@00PEAU1@PEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C02172A4
+ * Callers:
+ *     GetAdjustedPointerLocations @ 0x1C00F4070 (GetAdjustedPointerLocations.c)
+ * Callees:
+ *     ?GetAdjustedHimetricLong@@YAHJJJPEAJ@Z @ 0x1C021738C (-GetAdjustedHimetricLong@@YAHJJJPEAJ@Z.c)
+ *     ?GetAdjustedHimetricWithoutRoundTripError@@YAHJJJJJJJPEAJ@Z @ 0x1C02173F4 (-GetAdjustedHimetricWithoutRoundTripError@@YAHJJJJJJJPEAJ@Z.c)
+ */
+
 __int64 __fastcall GetAdjustedHimetric(
         struct tagPOINT a1,
         struct tagPOINT a2,

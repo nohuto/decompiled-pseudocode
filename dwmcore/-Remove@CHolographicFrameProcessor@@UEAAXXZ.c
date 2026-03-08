@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Remove@CHolographicFrameProcessor@@UEAAXXZ @ 0x1802ABA40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C8D4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?RemoveWin32kInteropTexture@CHolographicManager@@QEAAXPEAUIHolographicWin32kInteropTexture@@@Z @ 0x1802A2CC8 (-RemoveWin32kInteropTexture@CHolographicManager@@QEAAXPEAUIHolographicWin32kInteropTexture@@@Z.c)
+ */
+
 void __fastcall CHolographicFrameProcessor::Remove(CHolographicFrameProcessor *this)
 {
   RTL_SRWLOCK *v2; // rcx

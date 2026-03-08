@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ResetDefaultStateForAllInteractions@CInteraction@@SAXXZ @ 0x1802097D4
+ * Callers:
+ *     ?OnUp@CManipulationManager@@IEAAXPEAVCInteraction@@IW4InputType@@PEAVCManipulationContext@@_N33@Z @ 0x18019BD9C (-OnUp@CManipulationManager@@IEAAXPEAVCInteraction@@IW4InputType@@PEAVCManipulationContext@@_N33@.c)
+ * Callees:
+ *     ?ResetDefaultInteractionForCurrentMC@CInteraction@@QEAAX_N@Z @ 0x18020974C (-ResetDefaultInteractionForCurrentMC@CInteraction@@QEAAX_N@Z.c)
+ */
+
 void __fastcall CInteraction::ResetDefaultStateForAllInteractions(__int64 a1, char a2)
 {
   int v2; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of UmfdQueryTrueTypeTable @ 0x1C01204D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z @ 0x1C011E760 (--0FontDriverDdiRequest@@IEAA@W4FontDriverDdiKind@@@Z.c)
+ *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C011ED74 (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
+ */
+
 __int64 __fastcall UmfdQueryTrueTypeTable(
         __int64 a1,
         int a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??0COffScreenRenderTarget@@IEAA@PEAVCComposition@@AEBVCResourceTag@@@Z @ 0x1801E65DC
+ * Callers:
+ *     ??0CCaptureRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1801BD2F8 (--0CCaptureRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CIndirectSwapchainRenderTarget@@AEAA@PEAVCComposition@@@Z @ 0x1801BDB2C (--0CIndirectSwapchainRenderTarget@@AEAA@PEAVCComposition@@@Z.c)
+ *     ??0CMagnifierRenderTarget@@AEAA@PEAVCComposition@@@Z @ 0x1801ECA4C (--0CMagnifierRenderTarget@@AEAA@PEAVCComposition@@@Z.c)
+ *     ??0CVisualCapture@@QEAA@PEAVCComposition@@@Z @ 0x18025228C (--0CVisualCapture@@QEAA@PEAVCComposition@@@Z.c)
+ * Callees:
+ *     ??0COcclusionContext@@QEAA@XZ @ 0x18003904C (--0COcclusionContext@@QEAA@XZ.c)
+ *     ??0CRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1800C7B7C (--0CRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ */
+
 COffScreenRenderTarget *__fastcall COffScreenRenderTarget::COffScreenRenderTarget(
         COffScreenRenderTarget *this,
         struct CComposition *a2,

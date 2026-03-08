@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?QueryNameStringFromHandle@@YAJPEAXPEAU_OBJECT_NAME_INFORMATION@@KD@Z @ 0x1C00BC5BC
+ * Callers:
+ *     ?bIsFileInSystemFontsDir@@YAHPEAX@Z @ 0x1C00BC504 (-bIsFileInSystemFontsDir@@YAHPEAX@Z.c)
+ *     vInitFontsDirectoryNameInformation @ 0x1C00BD320 (vInitFontsDirectoryNameInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall QueryNameStringFromHandle(void *a1, struct _OBJECT_NAME_INFORMATION *a2, __int64 a3, char a4)
 {
   NTSTATUS v5; // eax

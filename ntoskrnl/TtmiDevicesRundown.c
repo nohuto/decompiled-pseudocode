@@ -1,3 +1,11 @@
+/*
+ * XREFs of TtmiDevicesRundown @ 0x14099FB8C
+ * Callers:
+ *     TtmiSessionsRundown @ 0x1409A1AFC (TtmiSessionsRundown.c)
+ * Callees:
+ *     TtmiLogDeviceRundown @ 0x1409A4C54 (TtmiLogDeviceRundown.c)
+ */
+
 __int64 __fastcall TtmiDevicesRundown(int *a1)
 {
   int v1; // esi

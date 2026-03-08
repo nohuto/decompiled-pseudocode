@@ -1,3 +1,24 @@
+/*
+ * XREFs of KseQueryDeviceDataList @ 0x140973910
+ * Callers:
+ *     ExpGetDeviceDataInformation @ 0x1409F34C8 (ExpGetDeviceDataInformation.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     KsepShimDbChanged @ 0x14036F924 (KsepShimDbChanged.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KsepCacheLookup @ 0x14079CC94 (KsepCacheLookup.c)
+ *     KsepDbCacheInsertDevice @ 0x140800AA4 (KsepDbCacheInsertDevice.c)
+ *     KsepDbCacheReadDevice @ 0x1408013F0 (KsepDbCacheReadDevice.c)
+ *     KseResetDeviceCache @ 0x140973ABC (KseResetDeviceCache.c)
+ *     KsepDbCacheQueryDeviceDataList @ 0x140973CAC (KsepDbCacheQueryDeviceDataList.c)
+ *     KsepDbQueryRegistryDeviceDataList @ 0x140973D58 (KsepDbQueryRegistryDeviceDataList.c)
+ *     KsepCacheDeviceFree @ 0x1409746B0 (KsepCacheDeviceFree.c)
+ */
+
 __int64 __fastcall KseQueryDeviceDataList(wchar_t *SourceString, __int64 a2, unsigned int a3, __int64 a4)
 {
   int RegistryDeviceDataList; // edi

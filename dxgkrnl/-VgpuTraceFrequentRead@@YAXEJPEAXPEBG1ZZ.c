@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?VgpuTraceFrequentRead@@YAXEJPEAXPEBG1ZZ @ 0x1C0364F38
+ * Callers:
+ *     DxgkDdiReadVirtualFunctionConfig @ 0x1C0366180 (DxgkDdiReadVirtualFunctionConfig.c)
+ *     DxgkDdiReadVirtualFunctionConfigBlock @ 0x1C0366230 (DxgkDdiReadVirtualFunctionConfigBlock.c)
+ *     DxgkDdiWriteVirtualFunctionConfig @ 0x1C0366650 (DxgkDdiWriteVirtualFunctionConfig.c)
+ *     DxgkDdiWriteVirtualFunctionConfigBlock @ 0x1C0366700 (DxgkDdiWriteVirtualFunctionConfigBlock.c)
+ *     ?VirtualGpuDriverEscape@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGK_VIRTUALGPUDRIVERESCAPE@@@Z @ 0x1C036B3C0 (-VirtualGpuDriverEscape@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGK_VIRTUALGPUDRIVERESCAPE@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     McTemplateK0pzzq_EtwWriteTransfer @ 0x1C005A830 (McTemplateK0pzzq_EtwWriteTransfer.c)
+ */
+
 void VgpuTraceFrequentRead(char a1, int a2, void *a3, const unsigned __int16 *a4, wchar_t *Format, ...)
 {
   __int64 v9; // rcx

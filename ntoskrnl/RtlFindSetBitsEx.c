@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlFindSetBitsEx @ 0x1402D8E10
+ * Callers:
+ *     MmQueryMemoryRanges @ 0x140859AF0 (MmQueryMemoryRanges.c)
+ *     MiUnlockDriverPages @ 0x14087313C (MiUnlockDriverPages.c)
+ *     MiDeleteAweInfoPages @ 0x140A3EE20 (MiDeleteAweInfoPages.c)
+ *     IopLiveDumpGetCapturePagesNoLock @ 0x140A986DC (IopLiveDumpGetCapturePagesNoLock.c)
+ *     IopLiveDumpPopulateBitmapForDump @ 0x140A990E0 (IopLiveDumpPopulateBitmapForDump.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall RtlFindSetBitsEx(unsigned __int64 *a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // r15

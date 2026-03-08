@@ -1,3 +1,14 @@
+/*
+ * XREFs of wcsstr @ 0x1C00DA8B8
+ * Callers:
+ *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C0075884 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
+ *     ?ParseReserved@@YAKPEBG0@Z @ 0x1C00D2D58 (-ParseReserved@@YAKPEBG0@Z.c)
+ *     rimReadSingleDigitizerToMonitorMappings @ 0x1C01BC984 (rimReadSingleDigitizerToMonitorMappings.c)
+ *     InitCreateUserSubsystem @ 0x1C032009C (InitCreateUserSubsystem.c)
+ * Callees:
+ *     <none>
+ */
+
 wchar_t *__cdecl wcsstr(const wchar_t *Str, const wchar_t *SubStr)
 {
   wchar_t *v3; // r8

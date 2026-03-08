@@ -1,3 +1,12 @@
+/*
+ * XREFs of _wcslwr @ 0x1403D3F30
+ * Callers:
+ *     SiGetBootDeviceNameFromRegistry @ 0x14076E690 (SiGetBootDeviceNameFromRegistry.c)
+ *     EtwpCovSampSplitSegments @ 0x1409EFE98 (EtwpCovSampSplitSegments.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ */
+
 wchar_t *__cdecl wcslwr(wchar_t *String)
 {
   wchar_t v3; // cx

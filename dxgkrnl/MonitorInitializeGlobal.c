@@ -1,3 +1,17 @@
+/*
+ * XREFs of MonitorInitializeGlobal @ 0x1C01FAE24
+ * Callers:
+ *     DriverEntry @ 0x1C03D9E6C (DriverEntry.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ?DxgkOpenRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z @ 0x1C00105E0 (-DxgkOpenRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z.c)
+ *     ?DxgkCreateRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z @ 0x1C001D7C0 (-DxgkCreateRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     ??0USB4_HOSTROUTER_MGR@@QEAA@XZ @ 0x1C01FBCF0 (--0USB4_HOSTROUTER_MGR@@QEAA@XZ.c)
+ *     ?InitializeGlobalCache@EDIDCACHE@DxgMonitor@@SAJXZ @ 0x1C01FBD64 (-InitializeGlobalCache@EDIDCACHE@DxgMonitor@@SAJXZ.c)
+ *     ?Initalize@USB4_HOSTROUTER_MGR@@QEAAJXZ @ 0x1C01FBEC4 (-Initalize@USB4_HOSTROUTER_MGR@@QEAAJXZ.c)
+ */
+
 __int64 __fastcall MonitorInitializeGlobal(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int128 v4; // xmm1

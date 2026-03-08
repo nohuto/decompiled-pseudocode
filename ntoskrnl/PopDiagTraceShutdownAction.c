@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopDiagTraceShutdownAction @ 0x1405925FC
+ * Callers:
+ *     PopExecutePowerAction @ 0x1409867F4 (PopExecutePowerAction.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SshSessionManagerTraceShutdownAction @ 0x14099EBAC (SshSessionManagerTraceShutdownAction.c)
+ */
+
 __int64 __fastcall PopDiagTraceShutdownAction(unsigned int a1, unsigned int a2, unsigned int a3)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_FillTargetInfoMonitorsCallback@CCD_TOPOLOGY@@CAJPEAX0IW4_DMM_VIDPN_MONITOR_TYPE@@EE@Z @ 0x1C01B1580
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z @ 0x1C01B1660 (-GetPathDescriptor@CCD_TOPOLOGY@@QEBAPEBUD3DKMT_PATHMODALITY_DESCRIPTOR@@I@Z.c)
+ */
+
 __int64 __fastcall CCD_TOPOLOGY::_FillTargetInfoMonitorsCallback(
         __int64 a1,
         CCD_TOPOLOGY *a2,

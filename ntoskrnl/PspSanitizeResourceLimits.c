@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspSanitizeResourceLimits @ 0x1408108A4
+ * Callers:
+ *     PspReadUserQuotaLimits @ 0x140745544 (PspReadUserQuotaLimits.c)
+ *     PsInitializeQuotaSystem @ 0x140B4988C (PsInitializeQuotaSystem.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspSanitizeResourceLimits(unsigned int *a1, int a2)
 {
   int v2; // r10d

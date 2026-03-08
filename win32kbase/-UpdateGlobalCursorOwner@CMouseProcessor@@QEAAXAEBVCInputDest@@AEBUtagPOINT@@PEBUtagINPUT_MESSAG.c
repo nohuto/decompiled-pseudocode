@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?UpdateGlobalCursorOwner@CMouseProcessor@@QEAAXAEBVCInputDest@@AEBUtagPOINT@@PEBUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C007D6BC
+ * Callers:
+ *     ?DeliverMouseMoveToInputDest@CMouseProcessor@@AEAAXAEBVCMoveEvent@1@AEBVCInputDest@@AEBUInputDeliveryContext@1@PEAU_mouseCursorEvent@@@Z @ 0x1C007D110 (-DeliverMouseMoveToInputDest@CMouseProcessor@@AEAAXAEBVCMoveEvent@1@AEBVCInputDest@@AEBUInputDel.c)
+ *     UpdateGlobalCursorOwner @ 0x1C00F43B0 (UpdateGlobalCursorOwner.c)
+ * Callees:
+ *     IsPostIAMShellHookMessageExSupported @ 0x1C00163DC (IsPostIAMShellHookMessageExSupported.c)
+ *     EtwTraceWakePump @ 0x1C007D520 (EtwTraceWakePump.c)
+ *     CoalesceInputSourceMouseMoves @ 0x1C007D560 (CoalesceInputSourceMouseMoves.c)
+ *     ApiSetEditionUpdateCursorOnMouseMove @ 0x1C007D824 (ApiSetEditionUpdateCursorOnMouseMove.c)
+ *     ?OnGlobalCursorOwnerComputed@UpdatePointerGraphicDevice@CMouseProcessor@@QEAA_NXZ @ 0x1C00C4C28 (-OnGlobalCursorOwnerComputed@UpdatePointerGraphicDevice@CMouseProcessor@@QEAA_NXZ.c)
+ *     ?PostQEventWork@CBaseProcessor@@IEAAXPEAUHWND__@@W4EventWorkId@1@I_K_J@Z @ 0x1C00CBFF8 (-PostQEventWork@CBaseProcessor@@IEAAXPEAUHWND__@@W4EventWorkId@1@I_K_J@Z.c)
+ *     IsSetPointerSupported @ 0x1C00D89D0 (IsSetPointerSupported.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CMouseProcessor::UpdateGlobalCursorOwner(
         CMouseProcessor *this,
         const struct CInputDest *a2,

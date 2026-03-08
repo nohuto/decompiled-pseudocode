@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExpFastResourceLegacyConvertExclusiveToShared2 @ 0x140410128
+ * Callers:
+ *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x1403C50F0 (ExpFastResourceLegacyConvertExclusiveToShared.c)
+ * Callees:
+ *     ExpAllocateOwnerEntryForLegacyShim2 @ 0x14040FDCC (ExpAllocateOwnerEntryForLegacyShim2.c)
+ *     ExpConvertFastResourceExclusiveToShared2 @ 0x14040FE4C (ExpConvertFastResourceExclusiveToShared2.c)
+ *     ExpFindFastOwnerEntryForThread2 @ 0x140410518 (ExpFindFastOwnerEntryForThread2.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExpFastResourceLegacyConvertExclusiveToShared2(_QWORD *BugCheckParameter2, __int64 a2, int a3)
 {
   struct _KTHREAD *CurrentThread; // rbp

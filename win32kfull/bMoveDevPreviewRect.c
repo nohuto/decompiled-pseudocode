@@ -1,3 +1,18 @@
+/*
+ * XREFs of bMoveDevPreviewRect @ 0x1C028698C
+ * Callers:
+ *     ?xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z @ 0x1C01ED7C0 (-xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z.c)
+ *     bSetDevPreviewRect @ 0x1C0286B70 (bSetDevPreviewRect.c)
+ * Callees:
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C0018890 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C001F240 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
+ *     GreUpdateSprite @ 0x1C002F030 (GreUpdateSprite.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     DwmAsyncSendWindowArrangingData @ 0x1C0270268 (DwmAsyncSendWindowArrangingData.c)
+ *     ?bSetPreviewRectContent@@YAHPEAU_SPRITESTATE@@PEBU_RECTL@@@Z @ 0x1C027FF58 (-bSetPreviewRectContent@@YAHPEAU_SPRITESTATE@@PEBU_RECTL@@@Z.c)
+ */
+
 __int64 __fastcall bMoveDevPreviewRect(Gre::Base *a1, __int64 a2, char a3, __int64 a4, __int64 a5)
 {
   int v5; // r15d

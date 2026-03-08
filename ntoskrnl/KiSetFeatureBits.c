@@ -1,3 +1,23 @@
+/*
+ * XREFs of KiSetFeatureBits @ 0x140A8A714
+ * Callers:
+ *     KiInitializeBootStructures @ 0x140A887E0 (KiInitializeBootStructures.c)
+ * Callees:
+ *     HvlSetHardwareMbecAvailable @ 0x140303154 (HvlSetHardwareMbecAvailable.c)
+ *     HviIsAnyHypervisorPresent @ 0x14037F1D0 (HviIsAnyHypervisorPresent.c)
+ *     KiComputeTopologyConstants @ 0x14037F21C (KiComputeTopologyConstants.c)
+ *     HalIsHyperThreadingEnabled @ 0x14037F400 (HalIsHyperThreadingEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HvlSetApicVirtualizationAvailable @ 0x14053D99C (HvlSetApicVirtualizationAvailable.c)
+ *     KiGetProcessorSignature @ 0x140A88C44 (KiGetProcessorSignature.c)
+ *     KiInitializeHgsPlusWorkloadClasses @ 0x140A8AE74 (KiInitializeHgsPlusWorkloadClasses.c)
+ *     KiInitializeHresetSupport @ 0x140A8AEEC (KiInitializeHresetSupport.c)
+ *     KiDetectKvaLeakage @ 0x140A8AF68 (KiDetectKvaLeakage.c)
+ *     KiSetProcessorSignature @ 0x140A8B504 (KiSetProcessorSignature.c)
+ *     KdInitSystem @ 0x140AAE040 (KdInitSystem.c)
+ */
+
 __int64 __fastcall KiSetFeatureBits(__int64 a1)
 {
   char v2; // bl

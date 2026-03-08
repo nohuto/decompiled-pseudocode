@@ -1,3 +1,19 @@
+/*
+ * XREFs of BgpFwLibraryDisable @ 0x140AE91EC
+ * Callers:
+ *     BgpFwLibraryDestroy @ 0x140AEBA88 (BgpFwLibraryDestroy.c)
+ *     BgLibraryDisable @ 0x140AEC480 (BgLibraryDisable.c)
+ * Callees:
+ *     BgpFwFreeMemory @ 0x140382650 (BgpFwFreeMemory.c)
+ *     LogFwReport @ 0x140AE90F4 (LogFwReport.c)
+ *     BgpTxtDestroyRegion @ 0x140AE9904 (BgpTxtDestroyRegion.c)
+ *     AnFwFadeCompletion @ 0x140AE9FB8 (AnFwFadeCompletion.c)
+ *     AnFwDisplayProgressIndicator @ 0x140AEA598 (AnFwDisplayProgressIndicator.c)
+ *     ResFwpPageOutBackground @ 0x140AEBBF0 (ResFwpPageOutBackground.c)
+ *     BgpFoDestroy @ 0x140AEBCA8 (BgpFoDestroy.c)
+ *     AnFwDisableBackgroundUpdateTimer @ 0x140AEC6DC (AnFwDisableBackgroundUpdateTimer.c)
+ */
+
 __int64 BgpFwLibraryDisable()
 {
   __int64 result; // rax

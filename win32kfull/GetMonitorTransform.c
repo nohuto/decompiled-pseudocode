@@ -1,3 +1,13 @@
+/*
+ * XREFs of GetMonitorTransform @ 0x1C00645EC
+ * Callers:
+ *     GetNewMonitor @ 0x1C00AB0FC (GetNewMonitor.c)
+ *     UpdateTopLevelWindowDPITransform @ 0x1C00D861C (UpdateTopLevelWindowDPITransform.c)
+ *     TransformVectorWithInputTargetPrecedence @ 0x1C01442D8 (TransformVectorWithInputTargetPrecedence.c)
+ * Callees:
+ *     ?IsChildWindowDpiBoundary@@YA_NPEBUtagWND@@@Z @ 0x1C00647C8 (-IsChildWindowDpiBoundary@@YA_NPEBUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall GetMonitorTransform(__int64 a1, const struct tagWND *a2, __int64 a3)
 {
   unsigned __int16 v6; // bp

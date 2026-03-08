@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetHandleProperty@CHolographicViewerMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C0265DA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CallerHasScreenDuplicationCapability @ 0x1C0265A38 (CallerHasScreenDuplicationCapability.c)
+ */
+
 __int64 __fastcall DirectComposition::CHolographicViewerMarshaler::SetHandleProperty(
         DirectComposition::CHolographicViewerMarshaler *this,
         __int64 a2,

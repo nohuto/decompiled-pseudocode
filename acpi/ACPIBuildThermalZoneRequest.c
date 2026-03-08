@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIBuildThermalZoneRequest @ 0x1C0013FE0
+ * Callers:
+ *     OSNotifyCreateThermalZone @ 0x1C0032BC0 (OSNotifyCreateThermalZone.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ */
+
 __int64 __fastcall ACPIBuildThermalZoneRequest(__int64 a1)
 {
   PVOID v2; // rax

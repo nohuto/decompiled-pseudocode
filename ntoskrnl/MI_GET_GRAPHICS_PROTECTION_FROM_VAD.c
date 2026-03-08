@@ -1,3 +1,14 @@
+/*
+ * XREFs of MI_GET_GRAPHICS_PROTECTION_FROM_VAD @ 0x14031F770
+ * Callers:
+ *     MiQueryAddressState @ 0x14031B4F0 (MiQueryAddressState.c)
+ *     MiProtectPrivateMemory @ 0x140344540 (MiProtectPrivateMemory.c)
+ *     MiProtectAweRegion @ 0x140648DF8 (MiProtectAweRegion.c)
+ *     MmQueryVirtualMemory @ 0x1407C6390 (MmQueryVirtualMemory.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MI_GET_GRAPHICS_PROTECTION_FROM_VAD(__int64 a1)
 {
   unsigned int v1; // eax

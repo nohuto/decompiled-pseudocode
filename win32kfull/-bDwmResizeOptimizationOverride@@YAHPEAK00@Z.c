@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bDwmResizeOptimizationOverride@@YAHPEAK00@Z @ 0x1C00C2DC4
+ * Callers:
+ *     GreDwmStartup @ 0x1C00C2644 (GreDwmStartup.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall bDwmResizeOptimizationOverride(unsigned int *a1, unsigned int *a2, unsigned int *a3)
 {
   unsigned int v3; // ebx

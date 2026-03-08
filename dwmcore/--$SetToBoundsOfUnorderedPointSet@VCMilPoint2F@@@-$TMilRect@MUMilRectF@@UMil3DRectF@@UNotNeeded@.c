@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$SetToBoundsOfUnorderedPointSet@VCMilPoint2F@@@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAAXV?$span@$$CBVCMilPoint2F@@$0?0@gsl@@@Z @ 0x1802680A4
+ * Callers:
+ *     ?ComputePartialIntermediate@CShapeTree@@CA_NAEBVCMILMatrix@@AEBUD2D_VECTOR_2F@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@2PEAV4@@Z @ 0x18026826C (-ComputePartialIntermediate@CShapeTree@@CA_NAEBVCMILMatrix@@AEBUD2D_VECTOR_2F@@AEBV-$TMilRect_@M.c)
+ * Callees:
+ *     ??A?$span@$$CBVCMilPoint2F@@$0?0@gsl@@QEBAAEBVCMilPoint2F@@_K@Z @ 0x180268248 (--A-$span@$$CBVCMilPoint2F@@$0-0@gsl@@QEBAAEBVCMilPoint2F@@_K@Z.c)
+ */
+
 __int64 __fastcall TMilRect<float,MilRectF,Mil3DRectF,RectUniqueness::NotNeeded>::SetToBoundsOfUnorderedPointSet<CMilPoint2F>(
         float *a1,
         unsigned __int64 *a2)

@@ -1,3 +1,25 @@
+/*
+ * XREFs of SmKmStoreFileWriteHeader @ 0x1409D7778
+ * Callers:
+ *     SmKmStoreFileCreate @ 0x1409D68D4 (SmKmStoreFileCreate.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     IoSetThreadHardErrorMode @ 0x140244770 (IoSetThreadHardErrorMode.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402A4AEC (SSHSupportAllocateNonPaged.c)
+ *     MmBuildMdlForNonPagedPool @ 0x1402B5DB0 (MmBuildMdlForNonPagedPool.c)
+ *     RtlComputeCrc32 @ 0x1402B8B70 (RtlComputeCrc32.c)
+ *     MmCreateMdl @ 0x1402CCD20 (MmCreateMdl.c)
+ *     MmMdlPageContentsState @ 0x1402D30C0 (MmMdlPageContentsState.c)
+ *     IoSynchronousPageWrite @ 0x1402F0170 (IoSynchronousPageWrite.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x140412410 (ZwWriteFile.c)
+ *     ZwQueryInformationFile @ 0x140412530 (ZwQueryInformationFile.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SmKmStoreFileWriteHeader(__int64 a1, int a2)
 {
   struct _MDL *v4; // rdi

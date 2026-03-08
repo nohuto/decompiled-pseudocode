@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?_UnregisterHotKey@@YAHPEAUtagWND@@H@Z @ 0x1C00B632C
+ * Callers:
+ *     ?_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z @ 0x1C00975C4 (-_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z.c)
+ *     NtUserUnregisterHotKey @ 0x1C00B62A0 (NtUserUnregisterHotKey.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?HKRemoveMatchingHotkeys@@YA_NPEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z @ 0x1C00B6390 (-HKRemoveMatchingHotkeys@@YA_NPEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z.c)
+ */
+
 __int64 __fastcall _UnregisterHotKey(struct tagWND *a1, unsigned int a2)
 {
   __int64 v2; // rcx

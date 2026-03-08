@@ -1,3 +1,12 @@
+/*
+ * XREFs of CiTaskIndexLocate @ 0x1C000B500
+ * Callers:
+ *     CiDispatchCreateMmThreadClient @ 0x1C000AB00 (CiDispatchCreateMmThreadClient.c)
+ *     CiTaskIndexCreate @ 0x1C000B370 (CiTaskIndexCreate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CiTaskIndexLocate(int a1, struct _LIST_ENTRY *a2, LIST_ENTRY **a3)
 {
   unsigned int v6; // esi

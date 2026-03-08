@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxSendPointerMessageWorker @ 0x1C01C68A8
+ * Callers:
+ *     xxxSendPointerMessage @ 0x1C01C682C (xxxSendPointerMessage.c)
+ *     ?xxxNotifyCaptureChangeIfCaptured@@YAH_KPEAUtagWND@@H@Z @ 0x1C01C74C4 (-xxxNotifyCaptureChangeIfCaptured@@YAH_KPEAUtagWND@@H@Z.c)
+ *     ?xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z @ 0x1C01C75BC (-xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z.c)
+ *     EditionPointerParentNotify @ 0x1C01C7B00 (EditionPointerParentNotify.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall xxxSendPointerMessageWorker(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, char a6)
 {
   _BYTE *v6; // rax

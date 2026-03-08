@@ -1,3 +1,17 @@
+/*
+ * XREFs of VrpDereferenceDiffHiveEntry @ 0x140738160
+ * Callers:
+ *     VrpLoadDifferencingHive @ 0x1407375CC (VrpLoadDifferencingHive.c)
+ *     VrpUnloadDifferencingHive @ 0x1407379FC (VrpUnloadDifferencingHive.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     VrpDereferenceDiffHiveEntryWithLock @ 0x140738258 (VrpDereferenceDiffHiveEntryWithLock.c)
+ */
+
 char __fastcall VrpDereferenceDiffHiveEntry(_QWORD *P)
 {
   signed __int64 v2; // rax

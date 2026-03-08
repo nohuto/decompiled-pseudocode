@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpAreDriversDmarCompatible @ 0x14038CA98
+ * Callers:
+ *     HalpGetAdapter @ 0x1408212E4 (HalpGetAdapter.c)
+ * Callees:
+ *     IoGetDevicePropertyData @ 0x1406F7380 (IoGetDevicePropertyData.c)
+ */
+
 bool __fastcall HalpAreDriversDmarCompatible(struct _DEVICE_OBJECT *a1)
 {
   char v1; // bl

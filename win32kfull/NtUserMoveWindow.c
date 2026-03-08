@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserMoveWindow @ 0x1C0025910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxMoveWindow @ 0x1C0025A90 (xxxMoveWindow.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall NtUserMoveWindow(__int64 a1, int a2, int a3, int a4, int a5, int a6)
 {
   __int64 v10; // rax

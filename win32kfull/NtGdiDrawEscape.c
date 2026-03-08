@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiDrawEscape @ 0x1C02C49D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GreDrawEscape@@YAHPEAUHDC__@@HAEBV?$umptr_r@D@@@Z @ 0x1C0277ED8 (-GreDrawEscape@@YAHPEAUHDC__@@HAEBV-$umptr_r@D@@@Z.c)
+ *     ?init_probe@?$umptr_r@D@@SA?AV1@PEAD_K1@Z @ 0x1C02C43D0 (-init_probe@-$umptr_r@D@@SA-AV1@PEAD_K1@Z.c)
+ */
+
 __int64 __fastcall NtGdiDrawEscape(HDC a1, unsigned int a2, int a3, __int64 a4)
 {
   unsigned int v5; // ebx

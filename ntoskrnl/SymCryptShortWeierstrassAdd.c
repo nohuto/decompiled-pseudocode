@@ -1,3 +1,19 @@
+/*
+ * XREFs of SymCryptShortWeierstrassAdd @ 0x1403FB6D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SymCryptModElementIsZero @ 0x1403F3B50 (SymCryptModElementIsZero.c)
+ *     SymCryptEcpointCopy @ 0x1403F9464 (SymCryptEcpointCopy.c)
+ *     SymCryptEcpointCreate @ 0x1403F94A0 (SymCryptEcpointCreate.c)
+ *     SymCryptEcpointMaskedCopy @ 0x1403F96A8 (SymCryptEcpointMaskedCopy.c)
+ *     SymCryptSizeofEcpointFromCurve @ 0x1403F9E14 (SymCryptSizeofEcpointFromCurve.c)
+ *     SymCryptShortWeierstrassAddDiffNonZero @ 0x1403FB890 (SymCryptShortWeierstrassAddDiffNonZero.c)
+ *     SymCryptShortWeierstrassAddSideChannelUnsafe @ 0x1403FBD54 (SymCryptShortWeierstrassAddSideChannelUnsafe.c)
+ *     SymCryptShortWeierstrassDouble @ 0x1403FC510 (SymCryptShortWeierstrassDouble.c)
+ *     SymCryptShortWeierstrassIsEqual @ 0x1403FCAC0 (SymCryptShortWeierstrassIsEqual.c)
+ */
+
 void *__fastcall SymCryptShortWeierstrassAdd(
         __int64 a1,
         _BYTE *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of vLine8Octant07 @ 0x1C02FF430
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall vLine8Octant07(int *a1, _BYTE *a2, int a3, char a4)
 {
   int v4; // r10d

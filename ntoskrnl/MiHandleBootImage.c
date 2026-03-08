@@ -1,3 +1,31 @@
+/*
+ * XREFs of MiHandleBootImage @ 0x140B3BA98
+ * Callers:
+ *     MiReloadBootLoadedDrivers @ 0x140B3B9BC (MiReloadBootLoadedDrivers.c)
+ * Callees:
+ *     MiMarkPfnVerified @ 0x1402093BC (MiMarkPfnVerified.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14032E710 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     MiAcquireNonPagedResources @ 0x140348D54 (MiAcquireNonPagedResources.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     DbgLoadImageSymbolsUnicode @ 0x14036C5E8 (DbgLoadImageSymbolsUnicode.c)
+ *     DbgUnLoadImageSymbolsUnicode @ 0x14036CBB4 (DbgUnLoadImageSymbolsUnicode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAllocateDriverPage @ 0x1407290FC (MiAllocateDriverPage.c)
+ *     MiUseLargeDriverPage @ 0x140793D44 (MiUseLargeDriverPage.c)
+ *     MiMapSystemImageWithLargePage @ 0x140A46F04 (MiMapSystemImageWithLargePage.c)
+ *     MiGetBootImagePageProtection @ 0x140B3BD78 (MiGetBootImagePageProtection.c)
+ *     MiTradeBootImagePage @ 0x140B3BE4C (MiTradeBootImagePage.c)
+ *     MiFreeBootDriverPages @ 0x140B3C044 (MiFreeBootDriverPages.c)
+ *     MiImportOptimizationCompatibleWithDriverRelocation @ 0x140B3C2F8 (MiImportOptimizationCompatibleWithDriverRelocation.c)
+ *     MiFindLoaderAppliedHotPatchEntry @ 0x140B968B8 (MiFindLoaderAppliedHotPatchEntry.c)
+ *     MiBootImageRelocated @ 0x140B97534 (MiBootImageRelocated.c)
+ *     MiReleaseSystemImageVa @ 0x140B975CC (MiReleaseSystemImageVa.c)
+ */
+
 __int64 __fastcall MiHandleBootImage(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 v3; // rsi

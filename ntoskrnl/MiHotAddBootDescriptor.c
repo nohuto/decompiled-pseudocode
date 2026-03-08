@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiHotAddBootDescriptor @ 0x140B962B0
+ * Callers:
+ *     MiHotAddBootDeferredDescriptorsDiscardable @ 0x140B6625C (MiHotAddBootDeferredDescriptorsDiscardable.c)
+ * Callees:
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiAddPhysicalMemoryChunks @ 0x140A2919C (MiAddPhysicalMemoryChunks.c)
+ */
+
 __int64 __fastcall MiHotAddBootDescriptor(__int64 a1)
 {
   ULONG_PTR v1; // rbx

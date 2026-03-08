@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchCreateSchedulingLogs @ 0x1C00C20D0
+ * Callers:
+ *     ?VidMmInitializePagingProcess@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C00C1F94 (-VidMmInitializePagingProcess@VIDMM_GLOBAL@@QEAAJXZ.c)
+ * Callees:
+ *     VidSchiCreateNodeSchedulingLog @ 0x1C0045370 (VidSchiCreateNodeSchedulingLog.c)
+ */
+
 __int64 __fastcall VidSchCreateSchedulingLogs(__int64 a1)
 {
   __int64 v2; // rdi

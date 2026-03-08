@@ -1,3 +1,19 @@
+/*
+ * XREFs of HUBDTX_ValidateAndCacheBOSDescriptor @ 0x1C002AE70
+ * Callers:
+ *     HUBDSM_ValidatingBOSDescriptor @ 0x1C0022AF0 (HUBDSM_ValidatingBOSDescriptor.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBDTX_CacheBillboardInfo @ 0x1C002D304 (HUBDTX_CacheBillboardInfo.c)
+ *     HUBDESC_ValidateBOSDescriptorSet @ 0x1C003BEA8 (HUBDESC_ValidateBOSDescriptorSet.c)
+ *     UsbDualRoleFeaturesQueryLocalMachine @ 0x1C00436CC (UsbDualRoleFeaturesQueryLocalMachine.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ *     HUBWNF_PublishUsbPartnerDualRoleFeatures @ 0x1C008C594 (HUBWNF_PublishUsbPartnerDualRoleFeatures.c)
+ */
+
 __int64 __fastcall HUBDTX_ValidateAndCacheBOSDescriptor(__int64 a1)
 {
   unsigned __int16 *v2; // r14

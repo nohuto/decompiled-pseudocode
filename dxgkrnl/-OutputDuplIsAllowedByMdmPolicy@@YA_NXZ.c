@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OutputDuplIsAllowedByMdmPolicy@@YA_NXZ @ 0x1C03292C0
+ * Callers:
+ *     ?DxgkCreateOutputDuplInternal@@YAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_OUTPUTDUPL_FLAGS@@@Z @ 0x1C0326A90 (-DxgkCreateOutputDuplInternal@@YAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_OUTPUTDUPL_F.c)
+ * Callees:
+ *     <none>
+ */
+
 bool OutputDuplIsAllowedByMdmPolicy(void)
 {
   __int64 v1; // [rsp+30h] [rbp-19h] BYREF

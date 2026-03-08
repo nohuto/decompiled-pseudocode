@@ -1,3 +1,29 @@
+/*
+ * XREFs of KeClockInterruptNotify @ 0x14022CD80
+ * Callers:
+ *     HalpTimerClockInterrupt @ 0x14022C760 (HalpTimerClockInterrupt.c)
+ *     HalpTimerClockIpiRoutine @ 0x14022CC70 (HalpTimerClockIpiRoutine.c)
+ *     HalpTimerAlwaysOnClockInterrupt @ 0x14051C3E0 (HalpTimerAlwaysOnClockInterrupt.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KiUpdateTime @ 0x14022BD80 (KiUpdateTime.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     KiUpdateRunTime @ 0x14022ECE0 (KiUpdateRunTime.c)
+ *     KiSetNextClockTickDueTime @ 0x14022FD10 (KiSetNextClockTickDueTime.c)
+ *     KeIsForceIdleEngaged @ 0x14024EAFC (KeIsForceIdleEngaged.c)
+ *     KiEventClockStateChange @ 0x1402A9ADC (KiEventClockStateChange.c)
+ *     KiCancelClockTimer @ 0x1402D94E4 (KiCancelClockTimer.c)
+ *     KiRestoreClockTickRate @ 0x1402D9574 (KiRestoreClockTickRate.c)
+ *     KiSetClockTimerKTimerDeadlines @ 0x1402DF1B0 (KiSetClockTimerKTimerDeadlines.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     PoExecuteIdleCheck @ 0x1403C65A0 (PoExecuteIdleCheck.c)
+ *     KiUpdateTimeAssist @ 0x1403C9BA8 (KiUpdateTimeAssist.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x14056DA7C (KiSetClockIntervalToMinimumRequested.c)
+ *     KiResetForceIdle @ 0x14057ACCC (KiResetForceIdle.c)
+ */
+
 unsigned __int64 __fastcall KeClockInterruptNotify(__int64 a1, unsigned __int8 a2, unsigned int a3)
 {
   __int64 v3; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CompositionInputQueueTypeToString@InputTraceLogging@@CAPEBDW4CompositionInputQueueType@@@Z @ 0x1C0270838
+ * Callers:
+ *     ?KernelCreateCompositionInputSink@CompositionInputObject@@SAJPEBUCOMPOSITION_INPUT_SINK_V2@@PEAPEAX@Z @ 0x1C00B1118 (-KernelCreateCompositionInputSink@CompositionInputObject@@SAJPEBUCOMPOSITION_INPUT_SINK_V2@@PEAP.c)
+ * Callees:
+ *     <none>
+ */
+
 const char *__fastcall InputTraceLogging::CompositionInputQueueTypeToString(int a1)
 {
   int v1; // ecx

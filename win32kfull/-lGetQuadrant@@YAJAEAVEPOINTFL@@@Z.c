@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?lGetQuadrant@@YAJAEAVEPOINTFL@@@Z @ 0x1C02ADDBC
+ * Callers:
+ *     GreAngleArc @ 0x1C02ADE64 (GreAngleArc.c)
+ * Callees:
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0016964 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ */
+
 __int64 __fastcall lGetQuadrant(struct EPOINTFL *a1)
 {
   float v1; // xmm1_4

@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpPowerWriteResetCommand @ 0x140504AEC
+ * Callers:
+ *     HalpInterruptResetAllProcessors @ 0x140502DCC (HalpInterruptResetAllProcessors.c)
+ *     HalpInterruptResetThisProcessor @ 0x140502E70 (HalpInterruptResetThisProcessor.c)
+ *     HalReturnToFirmware @ 0x140504990 (HalReturnToFirmware.c)
+ * Callees:
+ *     KeStallExecutionProcessor @ 0x14022B710 (KeStallExecutionProcessor.c)
+ *     HalpAcpiPmRegisterWrite @ 0x1402F76E0 (HalpAcpiPmRegisterWrite.c)
+ *     HalpMap @ 0x14037AE88 (HalpMap.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpMiscIsLegacyPcType @ 0x140508E18 (HalpMiscIsLegacyPcType.c)
+ *     HalEfiResetSystem @ 0x14050AD20 (HalEfiResetSystem.c)
+ */
+
 void __fastcall __noreturn HalpPowerWriteResetCommand(int a1, volatile signed __int32 *a2)
 {
   __int64 v4; // rdx

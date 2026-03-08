@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlReserveChunkLZNT1 @ 0x1409C0CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlDescribeChunkLZNT1 @ 0x1409C0C10 (RtlDescribeChunkLZNT1.c)
+ */
+
 __int64 __fastcall RtlReserveChunkLZNT1(__int16 **a1, unsigned __int64 a2, __int16 **a3, unsigned int a4)
 {
   __int16 *v4; // rbp

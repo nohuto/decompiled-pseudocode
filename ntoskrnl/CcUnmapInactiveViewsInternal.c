@@ -1,3 +1,32 @@
+/*
+ * XREFs of CcUnmapInactiveViewsInternal @ 0x140535FC0
+ * Callers:
+ *     CcUnmapInactiveViews @ 0x140535E58 (CcUnmapInactiveViews.c)
+ * Callees:
+ *     SetVacb @ 0x14021804C (SetVacb.c)
+ *     CcDecrementOpenCount @ 0x14021B85C (CcDecrementOpenCount.c)
+ *     CcGetVacbLargeOffset @ 0x14021BBE0 (CcGetVacbLargeOffset.c)
+ *     CcSetVacbInFreeList @ 0x14021BC58 (CcSetVacbInFreeList.c)
+ *     CcReleaseBcbLockAndVacbLock @ 0x14021BCF0 (CcReleaseBcbLockAndVacbLock.c)
+ *     CcAcquireBcbLockAndVacbLock @ 0x14021BD30 (CcAcquireBcbLockAndVacbLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     CcReferenceVacbArray @ 0x140335D48 (CcReferenceVacbArray.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     CcCanReuseVacb @ 0x140535A7C (CcCanReuseVacb.c)
+ *     CcDereferenceVacbArray @ 0x140535B1C (CcDereferenceVacbArray.c)
+ *     CcGetRandomVacbArrayWithReference @ 0x140535BC4 (CcGetRandomVacbArrayWithReference.c)
+ *     CcRecalculateVacbArrayHighwaterMark @ 0x140535C64 (CcRecalculateVacbArrayHighwaterMark.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcUnmapVacb @ 0x1406A7150 (CcUnmapVacb.c)
+ *     RtlRandom @ 0x140797410 (RtlRandom.c)
+ */
+
 __int64 __fastcall CcUnmapInactiveViewsInternal(__int64 a1, unsigned int a2, char a3, _QWORD *a4)
 {
   unsigned int v4; // r12d

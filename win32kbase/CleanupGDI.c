@@ -1,3 +1,26 @@
+/*
+ * XREFs of CleanupGDI @ 0x1C00B57A0
+ * Callers:
+ *     CleanupResources @ 0x1C00B38E0 (CleanupResources.c)
+ * Callees:
+ *     hbmSelectBitmap @ 0x1C000A040 (hbmSelectBitmap.c)
+ *     DelayedDestroyCacheDC @ 0x1C003D924 (DelayedDestroyCacheDC.c)
+ *     GreGetStockObject @ 0x1C0041A00 (GreGetStockObject.c)
+ *     GreDeleteObject @ 0x1C0043CD0 (GreDeleteObject.c)
+ *     HmgDecrementShareReferenceCountEx @ 0x1C00483B0 (HmgDecrementShareReferenceCountEx.c)
+ *     HmgShareLockCheck @ 0x1C0049E60 (HmgShareLockCheck.c)
+ *     HmgSetOwner @ 0x1C00522C0 (HmgSetOwner.c)
+ *     DestroyCacheDCEntries @ 0x1C007944C (DestroyCacheDCEntries.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?DestroyFont@@YAXPEAPEAUHFONT__@@@Z @ 0x1C00B5B14 (-DestroyFont@@YAXPEAPEAUHFONT__@@@Z.c)
+ *     ?DestroyRegion@@YAXPEAPEAUHRGN__@@@Z @ 0x1C00B5B3C (-DestroyRegion@@YAXPEAPEAUHRGN__@@@Z.c)
+ *     ?DestroyDC@@YAXPEAPEAUHDC__@@@Z @ 0x1C00B5B70 (-DestroyDC@@YAXPEAPEAUHDC__@@@Z.c)
+ *     ?DestroyAllDPIMETRICSFonts@@YAXPEAUtagDPIMETRICS@@@Z @ 0x1C00B5BB0 (-DestroyAllDPIMETRICSFonts@@YAXPEAUtagDPIMETRICS@@@Z.c)
+ *     DestroyMonitor @ 0x1C00B5C00 (DestroyMonitor.c)
+ *     DrvCleanupAndDestroyMDEV @ 0x1C00B61F4 (DrvCleanupAndDestroyMDEV.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 PVOID CleanupGDI()
 {
   struct HOBJ__ **v0; // rsi

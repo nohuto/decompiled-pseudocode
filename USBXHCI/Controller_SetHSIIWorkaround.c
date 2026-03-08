@@ -1,3 +1,13 @@
+/*
+ * XREFs of Controller_SetHSIIWorkaround @ 0x1C001ED3C
+ * Callers:
+ *     Endpoint_Enable @ 0x1C000BDC0 (Endpoint_Enable.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ */
+
 __int64 __fastcall Controller_SetHSIIWorkaround(__int64 a1)
 {
   __int64 v1; // rdi

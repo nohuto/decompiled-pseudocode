@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiLogNotifyPageHeat @ 0x14065193C
+ * Callers:
+ *     MiNotifyPageHeat @ 0x140652018 (MiNotifyPageHeat.c)
+ * Callees:
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char MiLogNotifyPageHeat()
 {
   _UNKNOWN **v0; // rax

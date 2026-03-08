@@ -1,3 +1,16 @@
+/*
+ * XREFs of SleepstudyHelperDestroyLibrary @ 0x14099EEB0
+ * Callers:
+ *     SleepstudyHelper_Uninitialize @ 0x14099F480 (SleepstudyHelper_Uninitialize.c)
+ *     SshInitialize @ 0x140B46C1C (SshInitialize.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1402A4AB8 (SSHSupportReleasePushLockExclusive.c)
+ *     CmpFreeTransientPoolWithTag @ 0x1402A4B0C (CmpFreeTransientPoolWithTag.c)
+ *     SshpDereferenceBlocker @ 0x1407263FC (SshpDereferenceBlocker.c)
+ *     SshpFreeDataEntry @ 0x14099E728 (SshpFreeDataEntry.c)
+ */
+
 __int64 __fastcall SleepstudyHelperDestroyLibrary(ULONG *a1)
 {
   unsigned int v1; // ebp

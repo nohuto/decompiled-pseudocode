@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DirectedPowerDownInitiate@FxDevicePwrRequirementMachine@@CA?AW4FxDevicePwrRequirementStates@@PEAV1@@Z @ 0x1C0084760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PowerPolicyProcessEvent@FxPkgPnp@@QEAAXW4FxPowerPolicyEvent@@E@Z @ 0x1C007D66C (-PowerPolicyProcessEvent@FxPkgPnp@@QEAAXW4FxPowerPolicyEvent@@E@Z.c)
+ */
+
 __int64 __fastcall FxDevicePwrRequirementMachine::DirectedPowerDownInitiate(
         FxDevicePwrRequirementMachine *This,
         __int64 a2,

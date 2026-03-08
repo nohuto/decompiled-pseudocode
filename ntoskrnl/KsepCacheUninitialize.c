@@ -1,3 +1,12 @@
+/*
+ * XREFs of KsepCacheUninitialize @ 0x1409747A0
+ * Callers:
+ *     KseInitialize @ 0x140B3E688 (KseInitialize.c)
+ * Callees:
+ *     KsepPoolFreePaged @ 0x140303C7C (KsepPoolFreePaged.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __fastcall KsepCacheUninitialize(__int64 a1)
 {
   _QWORD *v1; // rsi

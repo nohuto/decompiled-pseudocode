@@ -1,3 +1,15 @@
+/*
+ * XREFs of CiCreateTaskIndexClientFromThread @ 0x1C000B8B0
+ * Callers:
+ *     CiDispatchFastIoDeviceControl @ 0x1C000A760 (CiDispatchFastIoDeviceControl.c)
+ * Callees:
+ *     CiTaskIndexDereference @ 0x1C00021B0 (CiTaskIndexDereference.c)
+ *     CiThreadReferenceTaskIndex @ 0x1C0002DB0 (CiThreadReferenceTaskIndex.c)
+ *     __security_check_cookie @ 0x1C0003050 (__security_check_cookie.c)
+ *     memset @ 0x1C00037C0 (memset.c)
+ *     WPP_SF_d @ 0x1C0004884 (WPP_SF_d.c)
+ */
+
 __int64 __fastcall CiCreateTaskIndexClientFromThread(__int64 a1, _DWORD *a2)
 {
   _QWORD *v4; // rdi

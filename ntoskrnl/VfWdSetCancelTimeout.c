@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfWdSetCancelTimeout @ 0x140ADB17C
+ * Callers:
+ *     VfSetVerifierInformationEx @ 0x140ADA920 (VfSetVerifierInformationEx.c)
+ *     VfWdInit @ 0x140ADB0B8 (VfWdInit.c)
+ * Callees:
+ *     VfWdCheckForSettingsChange @ 0x140ADB034 (VfWdCheckForSettingsChange.c)
+ */
+
 __int64 __fastcall VfWdSetCancelTimeout(unsigned int a1)
 {
   unsigned int v1; // ebx

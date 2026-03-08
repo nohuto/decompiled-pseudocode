@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?BltLnkReadPat@@YAXPEAEKPEBEKKKK@Z @ 0x1C0152520
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall BltLnkReadPat(
         unsigned __int8 *a1,
         __int64 a2,

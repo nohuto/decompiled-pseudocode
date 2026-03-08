@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifExRegisterCallbackWrapper @ 0x1405D7280
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExRegisterCallback @ 0x1402FBE90 (ExRegisterCallback.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 PVOID __fastcall DifExRegisterCallbackWrapper(
         PCALLBACK_OBJECT CallbackObject,
         PCALLBACK_FUNCTION CallbackFunction,

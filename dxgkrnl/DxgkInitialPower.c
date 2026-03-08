@@ -1,3 +1,11 @@
+/*
+ * XREFs of DxgkInitialPower @ 0x1C02056FC
+ * Callers:
+ *     DriverEntry @ 0x1C03D9E6C (DriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 DxgkInitialPower()
 {
   NTSTATUS v0; // eax

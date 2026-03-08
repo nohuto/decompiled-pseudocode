@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_RegisterErrorReportingDialog@@YAHPEAUtagWND@@K@Z @ 0x1C01F5350
+ * Callers:
+ *     NtUserRegisterErrorReportingDialog @ 0x1C01DA370 (NtUserRegisterErrorReportingDialog.c)
+ * Callees:
+ *     IsWindowBeingDestroyed @ 0x1C0039B60 (IsWindowBeingDestroyed.c)
+ *     ?SendAsyncSGHOSTINFO@@YAHQEAU_GHOSTINFO@@@Z @ 0x1C01F4ECC (-SendAsyncSGHOSTINFO@@YAHQEAU_GHOSTINFO@@@Z.c)
+ */
+
 __int64 __fastcall _RegisterErrorReportingDialog(struct tagWND *a1)
 {
   __int64 *v1; // rcx

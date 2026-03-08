@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbDevice_InitializeInputContextCommon @ 0x1C0008390
+ * Callers:
+ *     UsbDevice_InitializeInputContextForAddDropEndpoints @ 0x1C000AF50 (UsbDevice_InitializeInputContextForAddDropEndpoints.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 __int64 __fastcall UsbDevice_InitializeInputContextCommon(__int64 a1)
 {
   char v2; // r8

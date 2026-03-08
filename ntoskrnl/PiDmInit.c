@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiDmInit @ 0x140B5E6D8
+ * Callers:
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     PiDmListInit @ 0x14083A120 (PiDmListInit.c)
+ *     PiDmObjectManagerPopulate @ 0x14083A17C (PiDmObjectManagerPopulate.c)
+ *     PiDmObjectManagerInit @ 0x14083A2C8 (PiDmObjectManagerInit.c)
+ */
+
 __int64 PiDmInit()
 {
   __int64 result; // rax

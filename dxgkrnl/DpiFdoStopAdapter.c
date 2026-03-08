@@ -1,3 +1,32 @@
+/*
+ * XREFs of DpiFdoStopAdapter @ 0x1C0398994
+ * Callers:
+ *     DpiFdoHandleStopDevice @ 0x1C03973C0 (DpiFdoHandleStopDevice.c)
+ *     DpiKsrStopAdapter @ 0x1C03A1DF4 (DpiKsrStopAdapter.c)
+ *     DpiLdaStopAllAdaptersInChain @ 0x1C03A4294 (DpiLdaStopAllAdaptersInChain.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01BA77C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     DpiDxgkDdiDisplayDetectControl @ 0x1C01E6A28 (DpiDxgkDdiDisplayDetectControl.c)
+ *     DpiPnpNotifyGdi @ 0x1C0209894 (DpiPnpNotifyGdi.c)
+ *     DxgkStartPnPTransition @ 0x1C020ACBC (DxgkStartPnPTransition.c)
+ *     DxgkCompletePnPTransition @ 0x1C0214FC4 (DxgkCompletePnPTransition.c)
+ *     ?Stop@DXGADAPTER@@QEAAXEE@Z @ 0x1C02B5558 (-Stop@DXGADAPTER@@QEAAXEE@Z.c)
+ *     DxgkStartPnPStop @ 0x1C02BE5C0 (DxgkStartPnPStop.c)
+ *     ?NotifyAdapterRemoval@DXGGLOBAL@@QEAAXXZ @ 0x1C030E948 (-NotifyAdapterRemoval@DXGGLOBAL@@QEAAXXZ.c)
+ *     DpiDestroyBlockList @ 0x1C0395504 (DpiDestroyBlockList.c)
+ *     DpiFdoDetermineAffectedSession @ 0x1C0396188 (DpiFdoDetermineAffectedSession.c)
+ *     DpiFdoDestroyRelatedObjects @ 0x1C0396844 (DpiFdoDestroyRelatedObjects.c)
+ *     DpiFdoDisconnectInterrupt @ 0x1C03968EC (DpiFdoDisconnectInterrupt.c)
+ *     DpiFdoIsDevicePresent @ 0x1C0397F70 (DpiFdoIsDevicePresent.c)
+ *     DpiFdoStopDeviceAndReleasePostDisplayOwnership @ 0x1C03990F8 (DpiFdoStopDeviceAndReleasePostDisplayOwnership.c)
+ *     ?DpiBrightnessStopDevice@@YAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C039DAC8 (-DpiBrightnessStopDevice@@YAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     DpiDxgkDdiStopDevice @ 0x1C03A4A88 (DpiDxgkDdiStopDevice.c)
+ */
+
 __int64 __fastcall DpiFdoStopAdapter(struct _DEVICE_OBJECT *a1, __int64 a2)
 {
   char *DeviceExtension; // rdi

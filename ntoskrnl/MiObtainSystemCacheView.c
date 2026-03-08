@@ -1,3 +1,26 @@
+/*
+ * XREFs of MiObtainSystemCacheView @ 0x140335220
+ * Callers:
+ *     MmMapViewInSystemCache @ 0x140334FD0 (MmMapViewInSystemCache.c)
+ *     MmReserveViewInSystemCache @ 0x140842650 (MmReserveViewInSystemCache.c)
+ * Callees:
+ *     MiGetSystemCacheRegionsToFree @ 0x1402DD624 (MiGetSystemCacheRegionsToFree.c)
+ *     MiConsumeSystemCachePde @ 0x1402E6674 (MiConsumeSystemCachePde.c)
+ *     MiExpandSystemCache @ 0x1402E9B28 (MiExpandSystemCache.c)
+ *     MiConsumeSystemCacheTbFlushNeededView @ 0x1402F5E60 (MiConsumeSystemCacheTbFlushNeededView.c)
+ *     MiReleaseSystemCacheView @ 0x1403354D0 (MiReleaseSystemCacheView.c)
+ *     MiRebalanceSystemCacheFreedViews @ 0x1403356A0 (MiRebalanceSystemCacheFreedViews.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x14033B510 (KxWaitForLockOwnerShip.c)
+ *     MiLateInitializeSystemCache @ 0x1403A852C (MiLateInitializeSystemCache.c)
+ *     MiReturnSystemCacheRegionsToKva @ 0x1403CE458 (MiReturnSystemCacheRegionsToKva.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140457B8E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     CcUnmapInactiveViews @ 0x140535E58 (CcUnmapInactiveViews.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReadyReservedView @ 0x14062CA80 (MiReadyReservedView.c)
+ */
+
 __int64 __fastcall MiObtainSystemCacheView(__int64 a1)
 {
   __int64 v1; // rsi

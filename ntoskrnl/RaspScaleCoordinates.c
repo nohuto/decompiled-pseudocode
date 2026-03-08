@@ -1,3 +1,11 @@
+/*
+ * XREFs of RaspScaleCoordinates @ 0x140383F9C
+ * Callers:
+ *     RaspRasterize @ 0x140382470 (RaspRasterize.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RaspScaleCoordinates(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

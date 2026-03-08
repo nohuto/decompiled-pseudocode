@@ -1,3 +1,11 @@
+/*
+ * XREFs of SbGetProcessSwitchContext @ 0x1C00CC1C8
+ * Callers:
+ *     SetManifestWinVer @ 0x1C00CC090 (SetManifestWinVer.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall SbGetProcessSwitchContext(unsigned __int64 a1)
 {
   unsigned __int64 result; // rax

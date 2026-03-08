@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?StartComposition@CDwmAppHost@@AEAAJXZ @ 0x1400038B0
+ * Callers:
+ *     ?Run@CDwmAppHost@@QEAAJXZ @ 0x140003700 (-Run@CDwmAppHost@@QEAAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x14000309C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?StartKernelRedirection@CDwmAppHost@@AEAAJXZ @ 0x14000394C (-StartKernelRedirection@CDwmAppHost@@AEAAJXZ.c)
+ *     McTemplateU0q_EtwEventWriteTransfer @ 0x14000B0CC (McTemplateU0q_EtwEventWriteTransfer.c)
+ */
+
 __int64 __fastcall CDwmAppHost::StartComposition(CDwmAppHost *this)
 {
   int v1; // eax

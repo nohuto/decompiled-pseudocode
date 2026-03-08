@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchCaptureLogs @ 0x1C01074B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?VidSchiAsyncReCreateSchedulingLog@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C0041814 (-VidSchiAsyncReCreateSchedulingLog@@YAXPEAU_VIDSCH_NODE@@@Z.c)
+ */
+
 __int64 __fastcall VidSchCaptureLogs(__int64 a1)
 {
   __int64 i; // rdi

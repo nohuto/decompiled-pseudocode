@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepRemoveAceFromTokenDefaultDacl @ 0x1402BECA4
+ * Callers:
+ *     NtSetInformationToken @ 0x140741E70 (NtSetInformationToken.c)
+ * Callees:
+ *     RtlFindAceBySid @ 0x140245DF0 (RtlFindAceBySid.c)
+ *     RtlDeleteAce @ 0x1407444E0 (RtlDeleteAce.c)
+ */
+
 void __fastcall SepRemoveAceFromTokenDefaultDacl(__int64 a1, _WORD *a2)
 {
   ACL *v2; // rbx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of WPP_IFR_SF_sqqLd @ 0x1C006D9D8
+ * Callers:
+ *     ?InvokeCxCallback@FxPnpDeviceD0Entry@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C006D0A0 (-InvokeCxCallback@FxPnpDeviceD0Entry@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallback.c)
+ *     ?InvokeCxCallback@FxPnpDeviceD0EntryPostHwEnabled@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C006D150 (-InvokeCxCallback@FxPnpDeviceD0EntryPostHwEnabled@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxI.c)
+ *     ?InvokeCxCallback@FxPnpDeviceD0Exit@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C006D200 (-InvokeCxCallback@FxPnpDeviceD0Exit@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackS.c)
+ *     ?InvokeCxCallback@FxPnpDeviceD0ExitPreHwDisabled@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C006D2B0 (-InvokeCxCallback@FxPnpDeviceD0ExitPreHwDisabled@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxIn.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_sqqLd(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 id,

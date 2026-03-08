@@ -1,3 +1,12 @@
+/*
+ * XREFs of DwmAsyncCreateDCompositionHwndTarget @ 0x1C00E6368
+ * Callers:
+ *     ?ReNotifyDwm@CHwndTargetProp@@SAXPEAUtagWND@@@Z @ 0x1C007D70C (-ReNotifyDwm@CHwndTargetProp@@SAXPEAUtagWND@@@Z.c)
+ *     EditionNotifyDwmForSystemVisualCreation @ 0x1C00E62D0 (EditionNotifyDwmForSystemVisualCreation.c)
+ * Callees:
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall DwmAsyncCreateDCompositionHwndTarget(PVOID Object, __int64 a2, int a3, __int64 a4)
 {
   unsigned int v8; // ebx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of NtUserGetRawInputBuffer @ 0x1C01D4570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FreeHidData @ 0x1C000DC20 (FreeHidData.c)
+ *     ?ClearWakeBit@@YAXPEAUtagTHREADINFO@@IH@Z @ 0x1C0016900 (-ClearWakeBit@@YAXPEAUtagTHREADINFO@@IH@Z.c)
+ *     DelQEntry @ 0x1C0038CDC (DelQEntry.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall NtUserGetRawInputBuffer(char *a1, unsigned int *a2, int a3)
 {
   unsigned int v5; // r12d

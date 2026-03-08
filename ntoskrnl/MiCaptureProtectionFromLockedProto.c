@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiCaptureProtectionFromLockedProto @ 0x140464560
+ * Callers:
+ *     MiGetPageProtection @ 0x14031C310 (MiGetPageProtection.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall MiCaptureProtectionFromLockedProto(unsigned __int64 a1)
 {
   unsigned __int64 v2; // rax

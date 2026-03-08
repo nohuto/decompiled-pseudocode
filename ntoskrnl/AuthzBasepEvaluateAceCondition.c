@@ -1,3 +1,40 @@
+/*
+ * XREFs of AuthzBasepEvaluateAceCondition @ 0x140246980
+ * Callers:
+ *     SepCommonAccessCheckEx @ 0x140206FC0 (SepCommonAccessCheckEx.c)
+ *     SepMaximumAccessCheck @ 0x140208450 (SepMaximumAccessCheck.c)
+ *     SepNormalAccessCheckEx @ 0x140208E18 (SepNormalAccessCheckEx.c)
+ *     SepFilterCheck @ 0x140263850 (SepFilterCheck.c)
+ *     SeAccessCheckWithHint @ 0x1402653A0 (SeAccessCheckWithHint.c)
+ *     SepNormalAccessCheck @ 0x140267220 (SepNormalAccessCheck.c)
+ *     SeAccessCheckByType @ 0x14033BB40 (SeAccessCheckByType.c)
+ *     SepMaximumAccessCheckEx @ 0x1403C8AF0 (SepMaximumAccessCheckEx.c)
+ *     SepVerifyDesktopAppxPackageName @ 0x1405B5D24 (SepVerifyDesktopAppxPackageName.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1406973E0 (SepAccessCheckAndAuditAlarm.c)
+ *     SeExamineSacl @ 0x1408A18B0 (SeExamineSacl.c)
+ *     SepExamineSaclEx @ 0x1409CB8C4 (SepExamineSaclEx.c)
+ * Callees:
+ *     AuthzBasepPushResult @ 0x140245DC0 (AuthzBasepPushResult.c)
+ *     AuthzBasepResetOperands @ 0x140247000 (AuthzBasepResetOperands.c)
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1402472F0 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     SepPotentialGlobalTableAttribute @ 0x14024799C (SepPotentialGlobalTableAttribute.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402B8730 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepIsValidExpression @ 0x1402DA698 (AuthzBasepIsValidExpression.c)
+ *     AuthzBasepEvaluateAttribute @ 0x1402E2940 (AuthzBasepEvaluateAttribute.c)
+ *     AuthzBasepGetConstantOperand @ 0x1402E9A60 (AuthzBasepGetConstantOperand.c)
+ *     AuthzBasepUnicodeStringFromOperandValue @ 0x140365960 (AuthzBasepUnicodeStringFromOperandValue.c)
+ *     AuthzBasepEvaluateExpression @ 0x140366314 (AuthzBasepEvaluateExpression.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     __report_rangecheckfailure @ 0x1404FBCCC (__report_rangecheckfailure.c)
+ *     SepValidateAndCopyGlobalEntry @ 0x1405B710C (SepValidateAndCopyGlobalEntry.c)
+ *     AuthzBasepComputeExpression @ 0x14066D244 (AuthzBasepComputeExpression.c)
+ *     AuthzBasepDeviceMemberOf @ 0x14066D2CC (AuthzBasepDeviceMemberOf.c)
+ *     AuthzBasepMemberOf @ 0x14066D410 (AuthzBasepMemberOf.c)
+ *     AuthzBasepPopResult @ 0x14066D538 (AuthzBasepPopResult.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AuthzBasepEvaluateAceCondition(
         __int64 a1,
         void *a2,

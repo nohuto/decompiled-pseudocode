@@ -1,3 +1,14 @@
+/*
+ * XREFs of Xp10ExecuteHuffmanDecode @ 0x1409C2EF0
+ * Callers:
+ *     RtlDecompressBuffer2Xp10 @ 0x1409C0EF0 (RtlDecompressBuffer2Xp10.c)
+ * Callees:
+ *     Xp10ReadAndDecodeHuffmanTables @ 0x1409C4774 (Xp10ReadAndDecodeHuffmanTables.c)
+ *     Xp10ScatteredCopyFromPrevious @ 0x1409C54BC (Xp10ScatteredCopyFromPrevious.c)
+ *     Xp10ScatteredNextBuffer @ 0x1409C5514 (Xp10ScatteredNextBuffer.c)
+ *     Xp10ScatteredReadBytes @ 0x1409C5568 (Xp10ScatteredReadBytes.c)
+ */
+
 unsigned __int64 __fastcall Xp10ExecuteHuffmanDecode(unsigned __int16 **a1, __int64 a2, _QWORD *a3)
 {
   __int16 v6; // r9

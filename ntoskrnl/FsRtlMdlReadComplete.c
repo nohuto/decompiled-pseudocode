@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlMdlReadComplete @ 0x14053A610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall FsRtlMdlReadComplete(struct _FILE_OBJECT *a1, __int64 a2)
 {
   PDEVICE_OBJECT RelatedDeviceObject; // rcx

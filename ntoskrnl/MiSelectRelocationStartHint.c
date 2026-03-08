@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiSelectRelocationStartHint @ 0x1406A1BE8
+ * Callers:
+ *     MiSelectImageBase @ 0x1406A1934 (MiSelectImageBase.c)
+ *     MiObtainRelocationBits @ 0x1406A1D10 (MiObtainRelocationBits.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlCopyBitMapEx @ 0x1402D6890 (RtlCopyBitMapEx.c)
+ *     RtlFindClearBitsEx @ 0x14034D0A0 (RtlFindClearBitsEx.c)
+ *     RtlMergeBitMapsEx @ 0x14039F630 (RtlMergeBitMapsEx.c)
+ */
+
 unsigned __int64 __fastcall MiSelectRelocationStartHint(__int64 a1, unsigned __int16 a2, unsigned __int64 a3, int a4)
 {
   unsigned __int64 v6; // r15

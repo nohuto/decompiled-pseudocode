@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ClearVisual@CCursorState@@QEAAXXZ @ 0x1802764C8
+ * Callers:
+ *     ??1CCursorVisual@@MEAA@XZ @ 0x1802253C0 (--1CCursorVisual@@MEAA@XZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??$_Destroy_range@V?$allocator@UMonitorData@CCursorState@@@std@@@std@@YAXPEAUMonitorData@CCursorState@@QEAU12@AEAV?$allocator@UMonitorData@CCursorState@@@0@@Z @ 0x180274A14 (--$_Destroy_range@V-$allocator@UMonitorData@CCursorState@@@std@@@std@@YAXPEAUMonitorData@CCursor.c)
+ *     ?EnsureHardwareOverlayCleared@CCursorState@@AEAAXPEAUMonitorData@1@@Z @ 0x180276CA8 (-EnsureHardwareOverlayCleared@CCursorState@@AEAAXPEAUMonitorData@1@@Z.c)
+ */
+
 void __fastcall CCursorState::ClearVisual(CCursorState *this)
 {
   __int64 v2; // rcx

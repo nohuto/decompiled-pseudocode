@@ -1,3 +1,11 @@
+/*
+ * XREFs of bScalePlgDDALToPlgDDA @ 0x1C03012BC
+ * Callers:
+ *     ?bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z @ 0x1C02FFF14 (-bInitPlgDDA@@YAHPEAU_PLGDDA@@PEAU_RECTL@@1PEAU_POINTFIX@@@Z.c)
+ * Callees:
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall bScalePlgDDALToPlgDDA(__int64 a1, _DWORD *a2)
 {
   signed __int64 v4; // rsi

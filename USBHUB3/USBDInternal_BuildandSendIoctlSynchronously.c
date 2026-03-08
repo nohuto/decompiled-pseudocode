@@ -1,3 +1,11 @@
+/*
+ * XREFs of USBDInternal_BuildandSendIoctlSynchronously @ 0x1C0041E34
+ * Callers:
+ *     USBD_QueryUsbCapability @ 0x1C00428D0 (USBD_QueryUsbCapability.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall USBDInternal_BuildandSendIoctlSynchronously(
         PDEVICE_OBJECT DeviceObject,
         PDEVICE_OBJECT a2,

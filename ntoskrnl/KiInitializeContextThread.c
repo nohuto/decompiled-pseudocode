@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiInitializeContextThread @ 0x140237E9C
+ * Callers:
+ *     KiStartIdleThread @ 0x14037F474 (KiStartIdleThread.c)
+ *     KeInitThread @ 0x140A845D0 (KeInitThread.c)
+ * Callees:
+ *     KiSetSwitchingNpxState @ 0x1402381AC (KiSetSwitchingNpxState.c)
+ *     KxContextToKframes @ 0x1402D7DC0 (KxContextToKframes.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlLocateExtendedFeature2 @ 0x14045BC40 (RtlLocateExtendedFeature2.c)
+ *     RtlLocateSupervisorFeature @ 0x1405AD630 (RtlLocateSupervisorFeature.c)
+ */
+
 __int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

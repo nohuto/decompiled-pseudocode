@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Delete@CHwndBitmapProp@@UEAAXXZ @ 0x1C0307CC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CHwndBitmapProp::Delete(CHwndBitmapProp *this)
 {
   CompositionObject *v2; // rcx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifObReferenceObjectByPointerWrapper @ 0x1405E64F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObReferenceObjectByPointerWithTag @ 0x14033E060 (ObReferenceObjectByPointerWithTag.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifObReferenceObjectByPointerWrapper(
         PVOID Object,
         ACCESS_MASK DesiredAccess,

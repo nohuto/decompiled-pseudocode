@@ -1,3 +1,16 @@
+/*
+ * XREFs of MmAddPrivateDataToCrashDump @ 0x14062DBE0
+ * Callers:
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14055A46C (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopLiveDumpAddPfnDatabase @ 0x140A97090 (IopLiveDumpAddPfnDatabase.c)
+ *     IopLiveDumpAddSessionSpaceStructure @ 0x140A97140 (IopLiveDumpAddSessionSpaceStructure.c)
+ *     IopLiveDumpMarkRequiredDumpData @ 0x140A98D24 (IopLiveDumpMarkRequiredDumpData.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     MiAddPartitionDataToCrashDump @ 0x14062CFF0 (MiAddPartitionDataToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x14062DD30 (MmAddRangeToCrashDump.c)
+ */
+
 __int64 __fastcall MmAddPrivateDataToCrashDump(__int64 (__fastcall **a1)(_QWORD, _QWORD, __int64), char a2)
 {
   unsigned int v2; // ebx

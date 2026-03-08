@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DeviceAcceleratorInitialize@@YAJXZ @ 0x1C0096ECC
+ * Callers:
+ *     InputInitialize @ 0x1C0096C0C (InputInitialize.c)
+ * Callees:
+ *     ApiSetEditionGetDefaultMouseSensitivity @ 0x1C0096F58 (ApiSetEditionGetDefaultMouseSensitivity.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DeviceAcceleratorInitialize(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // edi

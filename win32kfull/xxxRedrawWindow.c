@@ -1,3 +1,32 @@
+/*
+ * XREFs of xxxRedrawWindow @ 0x1C0050700
+ * Callers:
+ *     NtUserValidateRgn @ 0x1C00124A0 (NtUserValidateRgn.c)
+ *     xxxSetLayeredWindow @ 0x1C0028C1C (xxxSetLayeredWindow.c)
+ *     xxxSetWindowPosAndBand @ 0x1C0028FFC (xxxSetWindowPosAndBand.c)
+ *     xxxSetWindowStyle @ 0x1C002DD90 (xxxSetWindowStyle.c)
+ *     xxxDestroyWindow @ 0x1C004B7F0 (xxxDestroyWindow.c)
+ *     NtUserInvalidateRect @ 0x1C0050500 (NtUserInvalidateRect.c)
+ *     NtUserSetWindowPos @ 0x1C0067A30 (NtUserSetWindowPos.c)
+ *     xxxDwmStopRedirection @ 0x1C007B850 (xxxDwmStopRedirection.c)
+ *     NtUserRedrawWindow @ 0x1C00D3560 (NtUserRedrawWindow.c)
+ *     NtUserInvalidateRgn @ 0x1C00D9280 (NtUserInvalidateRgn.c)
+ *     _DwmLockScreenUpdates @ 0x1C00F3540 (_DwmLockScreenUpdates.c)
+ *     xxxValidateRect @ 0x1C00F3F9C (xxxValidateRect.c)
+ *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C00FA1BC (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
+ *     xxxUserResetDisplayDevice @ 0x1C01293C0 (xxxUserResetDisplayDevice.c)
+ *     ?xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C01F5BBC (-xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z.c)
+ *     RemoteRedrawRectangle @ 0x1C01F6C78 (RemoteRedrawRectangle.c)
+ *     ?xxxSoundSentryTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01F7190 (-xxxSoundSentryTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     xxxInvalidateRect @ 0x1C0217D5C (xxxInvalidateRect.c)
+ *     xxxMinimizeHungWindow @ 0x1C02278C0 (xxxMinimizeHungWindow.c)
+ *     xxxScrollWindowEx @ 0x1C0231B34 (xxxScrollWindowEx.c)
+ * Callees:
+ *     MirrorRegion @ 0x1C002779C (MirrorRegion.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     xxxInternalInvalidate @ 0x1C0053270 (xxxInternalInvalidate.c)
+ */
+
 __int64 __fastcall xxxRedrawWindow(struct tagWND *a1, int *a2, __int64 a3, int a4)
 {
   struct tagWND *v6; // r8

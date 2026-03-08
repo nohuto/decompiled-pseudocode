@@ -1,3 +1,15 @@
+/*
+ * XREFs of memcpy_s_0 @ 0x140006C08
+ * Callers:
+ *     ??$WriteResultString@PEBD@details@wil@@YAPEAEPEAE0PEBDPEAPEBD@Z @ 0x140008870 (--$WriteResultString@PEBD@details@wil@@YAPEAEPEAE0PEBDPEAPEBD@Z.c)
+ *     ??$WriteResultString@PEBG@details@wil@@YAPEAEPEAE0PEBGPEAPEBG@Z @ 0x1400088E4 (--$WriteResultString@PEBG@details@wil@@YAPEAEPEAE0PEBGPEAPEBG@Z.c)
+ *     ?GetThreadContext@ThreadFailureCallbackHolder@details@wil@@SA_NPEAUFailureInfo@3@PEAV123@PEAD_K@Z @ 0x1400096E8 (-GetThreadContext@ThreadFailureCallbackHolder@details@wil@@SA_NPEAUFailureInfo@3@PEAV123@PEAD_K@.c)
+ * Callees:
+ *     _invalid_parameter_noinfo @ 0x1400062E8 (_invalid_parameter_noinfo.c)
+ *     memset_0 @ 0x1400063A8 (memset_0.c)
+ *     memcpy_0 @ 0x1400071BC (memcpy_0.c)
+ */
+
 errno_t __cdecl memcpy_s_0(
         void *const Destination,
         const rsize_t DestinationSize,

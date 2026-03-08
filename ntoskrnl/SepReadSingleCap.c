@@ -1,3 +1,15 @@
+/*
+ * XREFs of SepReadSingleCap @ 0x1409CF278
+ * Callers:
+ *     SepReadAndInsertCaps @ 0x1409CEF1C (SepReadAndInsertCaps.c)
+ * Callees:
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlValidSid @ 0x1407C92A0 (RtlValidSid.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepReadSingleCap(HANDLE KeyHandle, int a2, unsigned int a3, __int64 a4, __int64 *a5)
 {
   ULONG Length; // ebp

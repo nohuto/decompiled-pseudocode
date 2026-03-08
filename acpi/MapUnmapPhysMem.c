@@ -1,3 +1,14 @@
+/*
+ * XREFs of MapUnmapPhysMem @ 0x1C004BF40
+ * Callers:
+ *     OpRegion @ 0x1C0050D00 (OpRegion.c)
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     MapPhysMem @ 0x1C004BE74 (MapPhysMem.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ */
+
 __int64 __fastcall MapUnmapPhysMem(__int64 a1, void *a2, unsigned int a3, __int64 *a4)
 {
   int v4; // ebx

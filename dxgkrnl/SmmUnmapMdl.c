@@ -1,3 +1,11 @@
+/*
+ * XREFs of SmmUnmapMdl @ 0x1C0070B94
+ * Callers:
+ *     ?SysMmUnmapPhysicalObject@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@PEAX_K@Z @ 0x1C0071130 (-SysMmUnmapPhysicalObject@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@PEAX_K@Z.c)
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 void __fastcall SmmUnmapMdl(__int64 a1, struct _MDL *a2, void *a3)
 {
   void *v3; // rdi

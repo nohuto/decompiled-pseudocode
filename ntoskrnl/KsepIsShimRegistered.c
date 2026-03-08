@@ -1,3 +1,13 @@
+/*
+ * XREFs of KsepIsShimRegistered @ 0x140801090
+ * Callers:
+ *     KsepResolveApplicableShimsForDriver @ 0x140800708 (KsepResolveApplicableShimsForDriver.c)
+ *     KseRegisterShimEx @ 0x140800EE0 (KseRegisterShimEx.c)
+ *     KseUnregisterShim @ 0x1409740B0 (KseUnregisterShim.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KsepIsShimRegistered(__int64 a1, _QWORD *a2, __int64 a3, _QWORD *a4)
 {
   unsigned int v4; // r8d

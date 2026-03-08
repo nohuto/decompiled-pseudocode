@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_ECCompositionToken@@UEAAPEAXI@Z @ 0x1C0076034
+ * Callers:
+ *     ??_ECCompositionToken@@W7EAAPEAXI@Z @ 0x1C0027F10 (--_ECCompositionToken@@W7EAAPEAXI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 CCompositionToken *__fastcall CCompositionToken::`vector deleting destructor'(CCompositionToken *this)
 {
   bool v1; // zf

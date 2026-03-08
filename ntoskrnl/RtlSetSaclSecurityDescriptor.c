@@ -1,3 +1,22 @@
+/*
+ * XREFs of RtlSetSaclSecurityDescriptor @ 0x1406DB5D0
+ * Callers:
+ *     SepSetProcessTrustLabelAceForToken @ 0x140247DF0 (SepSetProcessTrustLabelAceForToken.c)
+ *     SepInitProcessAuditSd @ 0x140384A3C (SepInitProcessAuditSd.c)
+ *     SepBuildCapeSecurityDescriptor @ 0x1405B5678 (SepBuildCapeSecurityDescriptor.c)
+ *     ObpVerifyAccessToBoundaryEntry @ 0x140740870 (ObpVerifyAccessToBoundaryEntry.c)
+ *     LocalConvertStringSDToSD_Rev1 @ 0x14074E300 (LocalConvertStringSDToSD_Rev1.c)
+ *     IopCreateSecurityDescriptorPerType @ 0x1407F0A50 (IopCreateSecurityDescriptorPerType.c)
+ *     CmpGenerateAppHiveSecurityDescriptor @ 0x1408808A8 (CmpGenerateAppHiveSecurityDescriptor.c)
+ *     CmpCopySaclToVirtualKey @ 0x140A186EC (CmpCopySaclToVirtualKey.c)
+ *     ObInitSystem @ 0x140B403CC (ObInitSystem.c)
+ *     SeMakeSystemToken @ 0x140B48C50 (SeMakeSystemToken.c)
+ *     SepInitSystemDacls @ 0x140B4C2CC (SepInitSystemDacls.c)
+ *     ExpKeyedEventInitialization @ 0x140B6A590 (ExpKeyedEventInitialization.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlSetSaclSecurityDescriptor(__int64 a1, char a2, __int64 a3, char a4)
 {
   __int16 v4; // ax

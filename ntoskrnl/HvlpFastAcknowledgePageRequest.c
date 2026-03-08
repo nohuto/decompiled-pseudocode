@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvlpFastAcknowledgePageRequest @ 0x140543CC0
+ * Callers:
+ *     HvlAcknowledgePageRequest @ 0x140540470 (HvlAcknowledgePageRequest.c)
+ *     HvlpSlowAcknowledgePageRequest @ 0x140543EF8 (HvlpSlowAcknowledgePageRequest.c)
+ * Callees:
+ *     HvcallFastExtended @ 0x1403C6CA0 (HvcallFastExtended.c)
+ */
+
 __int64 __fastcall HvlpFastAcknowledgePageRequest(int a1, __int64 a2, int *a3)
 {
   __int64 result; // rax

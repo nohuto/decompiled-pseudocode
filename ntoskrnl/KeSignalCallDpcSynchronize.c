@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeSignalCallDpcSynchronize @ 0x14056FE60
+ * Callers:
+ *     KiInitializeDynamicProcessorDpc @ 0x140A9C260 (KiInitializeDynamicProcessorDpc.c)
+ *     MiApplyImageHotPatchDpc @ 0x140AA9FE0 (MiApplyImageHotPatchDpc.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 __int64 __fastcall KeSignalCallDpcSynchronize(__int64 a1)
 {
   signed __int32 v2; // eax

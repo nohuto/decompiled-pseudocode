@@ -1,3 +1,16 @@
+/*
+ * XREFs of AslpFileVerQueryBlock @ 0x1406D5020
+ * Callers:
+ *     AslpFileQueryVersionString @ 0x1406D48D0 (AslpFileQueryVersionString.c)
+ * Callees:
+ *     AslpFileStringTokenize @ 0x1402467B0 (AslpFileStringTokenize.c)
+ *     AslpFileVerBlockGetValueOffset @ 0x1402468AC (AslpFileVerBlockGetValueOffset.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     AslStringDuplicate @ 0x1406D51D8 (AslStringDuplicate.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AslpFileVerQueryBlock(unsigned __int16 *a1, __int64 a2, unsigned __int16 **a3, _QWORD *a4)
 {
   unsigned __int16 *i; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViThunkFindSharedExports @ 0x140AD8AC0
+ * Callers:
+ *     ViThunkFindAllSharedExports @ 0x140AD8804 (ViThunkFindAllSharedExports.c)
+ * Callees:
+ *     VfIsVerifierEnabled @ 0x14036B1B0 (VfIsVerifierEnabled.c)
+ */
+
 void __fastcall ViThunkFindSharedExports(__int64 a1, unsigned int a2, __int64 a3, _DWORD *a4)
 {
   _QWORD *v6; // rdi

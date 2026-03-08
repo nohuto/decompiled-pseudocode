@@ -1,3 +1,12 @@
+/*
+ * XREFs of Feature_Vail_iFLIP__private_ReportDeviceUsage @ 0x1C0026548
+ * Callers:
+ *     ?IsIFlipFeatureEnabled@DXGVAILOBJECT@@SAEXZ @ 0x1C035D5D4 (-IsIFlipFeatureEnabled@DXGVAILOBJECT@@SAEXZ.c)
+ * Callees:
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0024B30 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0024DA8 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ */
+
 void Feature_Vail_iFLIP__private_ReportDeviceUsage()
 {
   __int64 v0; // [rsp+30h] [rbp+8h]

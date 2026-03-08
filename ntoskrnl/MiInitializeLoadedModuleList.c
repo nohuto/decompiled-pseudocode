@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiInitializeLoadedModuleList @ 0x140B5D84C
+ * Callers:
+ *     MiInitializeDriverImages @ 0x140B3B090 (MiInitializeDriverImages.c)
+ * Callees:
+ *     RtlpxLookupFunctionTable @ 0x1402CB3A0 (RtlpxLookupFunctionTable.c)
+ *     KasanDriverLoadImage @ 0x1402F4670 (KasanDriverLoadImage.c)
+ *     RtlRemoveInvertedFunctionTable @ 0x1402FE620 (RtlRemoveInvertedFunctionTable.c)
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     MiLinkHotPatchToBase @ 0x1406402B8 (MiLinkHotPatchToBase.c)
+ *     MiConstructLoaderEntry @ 0x14072CE24 (MiConstructLoaderEntry.c)
+ *     MiLockdownSections @ 0x14072E408 (MiLockdownSections.c)
+ *     MmAcquireLoadLock @ 0x1407D2360 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x1407D2400 (MmReleaseLoadLock.c)
+ *     MiFreeLoadedImportList @ 0x1407F6CA0 (MiFreeLoadedImportList.c)
+ *     MiCaptureBootDriverRetpolineInfo @ 0x140828D60 (MiCaptureBootDriverRetpolineInfo.c)
+ *     NtSetDebugFilterState @ 0x140828EB0 (NtSetDebugFilterState.c)
+ *     MiAddEntryToImportList @ 0x140A282AC (MiAddEntryToImportList.c)
+ *     MiBuildImportsForBootDrivers @ 0x140B5DAD4 (MiBuildImportsForBootDrivers.c)
+ *     MiLocateKernelSections @ 0x140B5DE44 (MiLocateKernelSections.c)
+ */
+
 __int64 __fastcall MiInitializeLoadedModuleList(__int64 a1)
 {
   bool v2; // r15

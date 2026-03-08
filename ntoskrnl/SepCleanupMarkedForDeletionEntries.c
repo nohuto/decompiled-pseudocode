@@ -1,3 +1,20 @@
+/*
+ * XREFs of SepCleanupMarkedForDeletionEntries @ 0x1402B7F18
+ * Callers:
+ *     SepAddLuidToIndexEntry @ 0x14070B8C0 (SepAddLuidToIndexEntry.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     SepGetSingletonEntryFromIndexNumber @ 0x1402988C8 (SepGetSingletonEntryFromIndexNumber.c)
+ *     RtlEnumerateEntryHashTable @ 0x1402B8050 (RtlEnumerateEntryHashTable.c)
+ *     RtlRemoveEntryHashTable @ 0x1402B8170 (RtlRemoveEntryHashTable.c)
+ *     RtlEndEnumerationHashTable @ 0x1402B81D0 (RtlEndEnumerationHashTable.c)
+ *     RtlInitEnumerationHashTable @ 0x1402B8220 (RtlInitEnumerationHashTable.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402B8730 (AuthzBasepFreeSecurityAttributesList.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void SepCleanupMarkedForDeletionEntries()
 {
   struct _RTL_DYNAMIC_HASH_TABLE *v0; // rsi

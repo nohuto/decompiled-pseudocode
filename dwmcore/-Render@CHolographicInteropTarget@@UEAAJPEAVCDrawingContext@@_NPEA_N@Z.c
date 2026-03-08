@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1802A6068
+ * Callers:
+ *     ?Render@CHolographicInteropTarget@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x18011D690 (-Render@CHolographicInteropTarget@@$4PPPPPPPM@A@EAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0xx_EventWriteTransfer @ 0x180129E50 (McTemplateU0xx_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ *     McTemplateU0xxx_EventWriteTransfer @ 0x180253640 (McTemplateU0xxx_EventWriteTransfer.c)
+ *     ?EnqueueSetEvent@CD3DDevice@@QEAAJPEAX@Z @ 0x180289FD8 (-EnqueueSetEvent@CD3DDevice@@QEAAJPEAX@Z.c)
+ *     ?GetTextureAtIndex@CHolographicManager@@QEAAPEAVCHolographicInteropTexture@@I@Z @ 0x1802A2158 (-GetTextureAtIndex@CHolographicManager@@QEAAPEAVCHolographicInteropTexture@@I@Z.c)
+ *     ?PostInteropTextureUpdate@CHolographicManager@@QEAAXIPEAX0@Z @ 0x1802A2574 (-PostInteropTextureUpdate@CHolographicManager@@QEAAXIPEAX0@Z.c)
+ *     ?RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTexture@@II@Z @ 0x1802A6564 (-RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTextu.c)
+ *     McTemplateU0xxxx_EventWriteTransfer @ 0x1802A6850 (McTemplateU0xxxx_EventWriteTransfer.c)
+ *     ?CacheDirtyRegion@CHolographicInteropTexture@@QEAAXXZ @ 0x1802A7288 (-CacheDirtyRegion@CHolographicInteropTexture@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall CHolographicInteropTarget::Render(
         CHolographicInteropTarget *this,
         struct CDrawingContext *a2,

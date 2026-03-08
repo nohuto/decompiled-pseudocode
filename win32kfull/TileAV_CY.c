@@ -1,3 +1,11 @@
+/*
+ * XREFs of TileAV_CY @ 0x1C0260790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TileAV_CY(__int64 a1)
 {
   unsigned __int64 v1; // r11

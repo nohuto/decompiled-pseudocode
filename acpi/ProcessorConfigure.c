@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcessorConfigure @ 0x1C00ABEEC
+ * Callers:
+ *     AcpiIrqLibConfigureLibrary @ 0x1C00ABA48 (AcpiIrqLibConfigureLibrary.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 ProcessorConfigure()
 {
   ProcessorReserveIdtEntries = (__int64)ProcessorpReserveIdtEntriesApic;

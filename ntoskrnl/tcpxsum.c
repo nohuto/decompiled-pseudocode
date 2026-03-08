@@ -1,3 +1,13 @@
+/*
+ * XREFs of tcpxsum @ 0x1404200B0
+ * Callers:
+ *     PopHiberChecksumHiberFileData @ 0x140A9FFDC (PopHiberChecksumHiberFileData.c)
+ *     PopWriteHeaderPages @ 0x140AA2478 (PopWriteHeaderPages.c)
+ *     PopWriteImageHeader @ 0x140AA2B28 (PopWriteImageHeader.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall tcpxsum(__int16 a1, const char *a2, unsigned int a3)
 {
   char v3; // r11

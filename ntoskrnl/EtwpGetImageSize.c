@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpGetImageSize @ 0x140872A60
+ * Callers:
+ *     EtwpLocateDbgIdForRegEntry @ 0x140775328 (EtwpLocateDbgIdForRegEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwpGetImageSize(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rax

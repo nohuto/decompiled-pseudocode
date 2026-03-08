@@ -1,3 +1,14 @@
+/*
+ * XREFs of KeEtwInitializeCpuStarvationProvider @ 0x1403A807C
+ * Callers:
+ *     EtwpCpuStarvationProvEnableCallback @ 0x1403A8060 (EtwpCpuStarvationProvEnableCallback.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     ExAllocatePool3 @ 0x140AAB320 (ExAllocatePool3.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 KeEtwInitializeCpuStarvationProvider()
 {
   __int64 result; // rax

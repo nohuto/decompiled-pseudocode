@@ -1,3 +1,16 @@
+/*
+ * XREFs of PipDmgFlushQueueAndRestartDevices @ 0x1409683EC
+ * Callers:
+ *     PipDmgConsoleUnlockCallback @ 0x1409682D0 (PipDmgConsoleUnlockCallback.c)
+ *     PipDmgReevaluateQueue @ 0x1409684CC (PipDmgReevaluateQueue.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     PipDmgRequestRestartOnBlockedDevice @ 0x140968508 (PipDmgRequestRestartOnBlockedDevice.c)
+ *     PipDmgRequestUpdateConsoleLockState @ 0x1409687E0 (PipDmgRequestUpdateConsoleLockState.c)
+ *     PiDmaGuardQueueFlush @ 0x14096EFB8 (PiDmaGuardQueueFlush.c)
+ *     PipDgqFreeEntry @ 0x14096F0C8 (PipDgqFreeEntry.c)
+ */
+
 PVOID *PipDmgFlushQueueAndRestartDevices()
 {
   PVOID *v0; // rbx

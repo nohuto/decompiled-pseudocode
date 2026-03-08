@@ -1,3 +1,12 @@
+/*
+ * XREFs of DestroyDpiMetricsCache @ 0x1C00B7F10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ClearDPISERVERINFO@@YAXPEAUtagDPISERVERINFO@@@Z @ 0x1C00B8018 (-ClearDPISERVERINFO@@YAXPEAUtagDPISERVERINFO@@@Z.c)
+ *     InvalidateKMDpiMetricsCacheDPIMETRICS @ 0x1C010C82C (InvalidateKMDpiMetricsCacheDPIMETRICS.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 DestroyDpiMetricsCache()
 {

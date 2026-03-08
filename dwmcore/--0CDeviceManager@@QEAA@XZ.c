@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CDeviceManager@@QEAA@XZ @ 0x1801031A4
+ * Callers:
+ *     _dynamic_initializer_for__g_DeviceManager__ @ 0x180003D70 (_dynamic_initializer_for__g_DeviceManager__.c)
+ * Callees:
+ *     <none>
+ */
+
 CDeviceManager *__fastcall CDeviceManager::CDeviceManager(CDeviceManager *this)
 {
   CDeviceManager *result; // rax

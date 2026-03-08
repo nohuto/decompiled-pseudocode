@@ -1,3 +1,22 @@
+/*
+ * XREFs of HalpInitializeInterrupts @ 0x140B3D448
+ * Callers:
+ *     HalpInterruptInitDiscard @ 0x140B7107C (HalpInterruptInitDiscard.c)
+ * Callees:
+ *     HalpPicDiscover @ 0x140374634 (HalpPicDiscover.c)
+ *     HalQueryMaximumProcessorCount @ 0x140375910 (HalQueryMaximumProcessorCount.c)
+ *     HalpApicDiscover @ 0x140375E78 (HalpApicDiscover.c)
+ *     HalpInterruptParseAcpiTables @ 0x140376A1C (HalpInterruptParseAcpiTables.c)
+ *     HalpInterruptSetIdtEntry @ 0x140379F10 (HalpInterruptSetIdtEntry.c)
+ *     HalpMmAllocateMemoryInternal @ 0x14037A7A8 (HalpMmAllocateMemoryInternal.c)
+ *     HalpInterruptInitializeController @ 0x14037B24C (HalpInterruptInitializeController.c)
+ *     HalpInterruptInitializeIpis @ 0x14037B310 (HalpInterruptInitializeIpis.c)
+ *     HalpInterruptSelectController @ 0x1403AF008 (HalpInterruptSelectController.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ */
+
 __int64 __fastcall HalpInitializeInterrupts(__int64 a1)
 {
   int v2; // ebx

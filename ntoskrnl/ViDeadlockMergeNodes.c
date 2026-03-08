@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViDeadlockMergeNodes @ 0x140AD65B4
+ * Callers:
+ *     ViDeadlockCheckDuplicatesAmongChildren @ 0x140AD5BD4 (ViDeadlockCheckDuplicatesAmongChildren.c)
+ *     ViDeadlockCheckDuplicatesAmongRoots @ 0x140AD5C54 (ViDeadlockCheckDuplicatesAmongRoots.c)
+ * Callees:
+ *     ViDeadlockUpdateChildrenCount @ 0x140AD6F60 (ViDeadlockUpdateChildrenCount.c)
+ */
+
 __int64 __fastcall ViDeadlockMergeNodes(__int64 a1, __int64 a2, __int64 *a3)
 {
   __int64 v3; // rax

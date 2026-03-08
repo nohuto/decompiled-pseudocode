@@ -1,3 +1,18 @@
+/*
+ * XREFs of AslpFileGetClrVersionAttribute @ 0x140A55514
+ * Callers:
+ *     AslFileAllocAndGetAttributes @ 0x1407A11E8 (AslFileAllocAndGetAttributes.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslStringXmlSanitize @ 0x1407A0D70 (AslStringXmlSanitize.c)
+ *     AslFileMappingEnsure @ 0x1407A12F0 (AslFileMappingEnsure.c)
+ *     AslStringAnsiToUnicode @ 0x140A51144 (AslStringAnsiToUnicode.c)
+ *     AslpFileGetClrVersion @ 0x140A5533C (AslpFileGetClrVersion.c)
+ *     AslpFileGetFileKindDetailAttribute @ 0x140A559AC (AslpFileGetFileKindDetailAttribute.c)
+ */
+
 __int64 __fastcall AslpFileGetClrVersionAttribute(__int64 a1, __int64 a2)
 {
   int ClrVersion; // ebx

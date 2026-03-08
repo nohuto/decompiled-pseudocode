@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserGetClipboardMetadata @ 0x1C01D1AF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     InternalGetClipboardMetadata @ 0x1C02004BC (InternalGetClipboardMetadata.c)
+ */
+
 __int64 __fastcall NtUserGetClipboardMetadata(__int64 a1, ULONG64 a2, __int64 a3)
 {
   ULONG64 v3; // rbx

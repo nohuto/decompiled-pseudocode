@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIBuildProcessDevicePhasePrx @ 0x1C0010300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIBuildCompleteMustSucceed @ 0x1C000BCB0 (ACPIBuildCompleteMustSucceed.c)
+ *     ACPIBuildDevicePowerNodes @ 0x1C000C5A4 (ACPIBuildDevicePowerNodes.c)
+ *     WPP_RECORDER_SF_dLqss @ 0x1C00150A8 (WPP_RECORDER_SF_dLqss.c)
+ *     ACPIWriteEventLogEntry @ 0x1C0025F5C (ACPIWriteEventLogEntry.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessDevicePhasePrx(__int64 a1, __int64 a2, int a3, int a4)
 {
   __int64 v4; // r15

@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpFlushBuffer @ 0x140692C18
+ * Callers:
+ *     EtwpFlushActiveBuffers @ 0x14069310C (EtwpFlushActiveBuffers.c)
+ *     EtwpBufferingModeFlush @ 0x1408A3088 (EtwpBufferingModeFlush.c)
+ * Callees:
+ *     EtwpFileModeCompress @ 0x1403A127C (EtwpFileModeCompress.c)
+ *     EtwpFlushBufferToLogfile @ 0x140691270 (EtwpFlushBufferToLogfile.c)
+ *     EtwpFlushBufferToRealtime @ 0x140692B74 (EtwpFlushBufferToRealtime.c)
+ *     EtwpPrepareHeader @ 0x140692D04 (EtwpPrepareHeader.c)
+ *     EtwpSendSessionNotification @ 0x1407489B8 (EtwpSendSessionNotification.c)
+ */
+
 __int64 __fastcall EtwpFlushBuffer(__int64 a1, unsigned int *a2, __int64 a3)
 {
   unsigned int v3; // edi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPowerAggregatorGetCurrentTargetState @ 0x1409908D8
+ * Callers:
+ *     PopAdaptiveGetSystemInitiatedRebootTargetState @ 0x1409988C4 (PopAdaptiveGetSystemInitiatedRebootTargetState.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ */
+
 void __fastcall PopPowerAggregatorGetCurrentTargetState(__int64 a1)
 {
   __int128 v2; // xmm1

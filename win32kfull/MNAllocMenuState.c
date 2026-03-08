@@ -1,3 +1,16 @@
+/*
+ * XREFs of MNAllocMenuState @ 0x1C0201C50
+ * Callers:
+ *     xxxMNStartMenuState @ 0x1C0202C44 (xxxMNStartMenuState.c)
+ *     xxxTrackPopupMenuEx @ 0x1C02353CC (xxxTrackPopupMenuEx.c)
+ * Callees:
+ *     GreSelectFont @ 0x1C0050B00 (GreSelectFont.c)
+ *     GetDPIMetrics @ 0x1C009FD5C (GetDPIMetrics.c)
+ *     MNSetupAnimationDC @ 0x1C00C1D98 (MNSetupAnimationDC.c)
+ *     Feature_439792958__private_IsEnabledDeviceUsage @ 0x1C012EE90 (Feature_439792958__private_IsEnabledDeviceUsage.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 _QWORD *__fastcall MNAllocMenuState(_QWORD **a1)
 {

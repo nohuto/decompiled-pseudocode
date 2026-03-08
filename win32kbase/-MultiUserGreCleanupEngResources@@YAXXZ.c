@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?MultiUserGreCleanupEngResources@@YAXXZ @ 0x1C002AD20
+ * Callers:
+ *     MultiUserNtGreCleanup @ 0x1C009EFD4 (MultiUserNtGreCleanup.c)
+ * Callees:
+ *     EngFreeMem @ 0x1C002AE00 (EngFreeMem.c)
+ *     GreDeleteSemaphore @ 0x1C002AF30 (GreDeleteSemaphore.c)
+ *     GreDeleteSemaphoreNonTracked @ 0x1C00D4080 (GreDeleteSemaphoreNonTracked.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall MultiUserGreCleanupEngResources(__int64 a1)
 {
   __int64 v1; // rbx

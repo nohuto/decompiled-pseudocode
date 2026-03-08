@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_PowerTimeoutDpcRoutine@FxPowerIdleMachine@@KAXPEAU_KDPC@@PEAX11@Z @ 0x1C0077870
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ProcessEventLocked@FxPowerIdleMachine@@IEAAXW4FxPowerIdleEvents@@@Z @ 0x1C0008AC4 (-ProcessEventLocked@FxPowerIdleMachine@@IEAAXW4FxPowerIdleEvents@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxPowerIdleMachine::_PowerTimeoutDpcRoutine(
         _KDPC *Dpc,
         FxPowerIdleMachine *Context,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of HMValidateHandle @ 0x1C0079718
+ * Callers:
+ *     NtMITSynthesizeKeyboardInput @ 0x1C00087B0 (NtMITSynthesizeKeyboardInput.c)
+ *     ValidateHmenu @ 0x1C00796D0 (ValidateHmenu.c)
+ *     NtUserGetExtendedPointerDeviceProperty @ 0x1C016F820 (NtUserGetExtendedPointerDeviceProperty.c)
+ *     ?DoContactVisualization@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEAXH@Z @ 0x1C01F0C00 (-DoContactVisualization@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEAXH@Z.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     ValidateHandleSecure @ 0x1C0077D40 (ValidateHandleSecure.c)
+ */
+
 __int64 __fastcall HMValidateHandle(unsigned __int64 a1, unsigned __int8 a2)
 {
   int v3; // r12d

@@ -1,3 +1,14 @@
+/*
+ * XREFs of FormInquirySerialNumberData @ 0x1C0012548
+ * Callers:
+ *     ScsiInquiryRequest @ 0x1C0019C74 (ScsiInquiryRequest.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     SerialNumberFromNvmeId @ 0x1C001AFFC (SerialNumberFromNvmeId.c)
+ *     NVMeSetSenseData @ 0x1C0024238 (NVMeSetSenseData.c)
+ */
+
 __int64 __fastcall FormInquirySerialNumberData(__int64 a1, __int64 a2)
 {
   unsigned __int8 v2; // r10

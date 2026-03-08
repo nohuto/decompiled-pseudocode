@@ -1,3 +1,12 @@
+/*
+ * XREFs of _CmCreateInstallerClassWorker @ 0x140A5E2B0
+ * Callers:
+ *     _CmCreateInstallerClass @ 0x140A5E144 (_CmCreateInstallerClass.c)
+ * Callees:
+ *     _CmOpenInstallerClassRegKey @ 0x1406C4ED8 (_CmOpenInstallerClassRegKey.c)
+ *     _CmRaiseCreateEvent @ 0x14087BC44 (_CmRaiseCreateEvent.c)
+ */
+
 __int64 __fastcall CmCreateInstallerClassWorker(__int64 a1, __int64 a2, __int64 a3, __int64 *a4, _BYTE *a5, __int16 a6)
 {
   int v9; // ebx

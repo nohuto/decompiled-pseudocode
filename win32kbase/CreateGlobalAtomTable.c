@@ -1,3 +1,11 @@
+/*
+ * XREFs of CreateGlobalAtomTable @ 0x1C00ACA80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall CreateGlobalAtomTable(PRTL_ATOM_TABLE *AtomTable)
 {
   NTSTATUS result; // eax

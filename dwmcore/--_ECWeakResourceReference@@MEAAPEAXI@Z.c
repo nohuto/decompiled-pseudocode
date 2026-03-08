@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_ECWeakResourceReference@@MEAAPEAXI@Z @ 0x180099840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1CWeakResourceReference@@MEAA@XZ @ 0x1800998A0 (--1CWeakResourceReference@@MEAA@XZ.c)
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801046B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ */
+
 CWeakResourceReference *__fastcall CWeakResourceReference::`vector deleting destructor'(
         CWeakResourceReference *this,
         char a2)

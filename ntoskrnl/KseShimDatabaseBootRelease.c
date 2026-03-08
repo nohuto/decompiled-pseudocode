@@ -1,3 +1,16 @@
+/*
+ * XREFs of KseShimDatabaseBootRelease @ 0x140842A14
+ * Callers:
+ *     PnpCompleteSystemStartProcess @ 0x14039C088 (PnpCompleteSystemStartProcess.c)
+ *     KseShimDatabaseClose @ 0x14079E25C (KseShimDatabaseClose.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     KsepSdbBootRelease @ 0x140842AC4 (KsepSdbBootRelease.c)
+ */
+
 void KseShimDatabaseBootRelease()
 {
   struct _KTHREAD *CurrentThread; // rax

@@ -1,3 +1,20 @@
+/*
+ * XREFs of bInitStockFontsInternal @ 0x1C03B63A8
+ * Callers:
+ *     bInitStockFonts @ 0x1C03B6390 (bInitStockFonts.c)
+ * Callees:
+ *     hfontCreate @ 0x1C0027050 (hfontCreate.c)
+ *     ?bOpenKey@@YAHPEBGPEAPEAX@Z @ 0x1C00BA544 (-bOpenKey@@YAHPEBGPEAPEAX@Z.c)
+ *     ?bSetStockFont@@YAHPEAXHH@Z @ 0x1C00BA5D0 (-bSetStockFont@@YAHPEAXHH@Z.c)
+ *     ?bQueryValueKey@@YAHPEBGPEAXPEAU_KEY_VALUE_PARTIAL_INFORMATION@@K@Z @ 0x1C00BAA08 (-bQueryValueKey@@YAHPEBGPEAXPEAU_KEY_VALUE_PARTIAL_INFORMATION@@K@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     bInitOneStockFont @ 0x1C03B6A80 (bInitOneStockFont.c)
+ *     hfontInitDefaultGuiFont @ 0x1C03B6C5C (hfontInitDefaultGuiFont.c)
+ *     bInitSystemFont @ 0x1C03B85AC (bInitSystemFont.c)
+ */
+
 unsigned __int16 *__fastcall bInitStockFontsInternal(Gre::Base *a1)
 {
   struct Gre::Base::SESSION_GLOBALS *v1; // rdi

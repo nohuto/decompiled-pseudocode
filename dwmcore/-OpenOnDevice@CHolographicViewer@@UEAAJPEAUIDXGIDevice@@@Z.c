@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?OpenOnDevice@CHolographicViewer@@UEAAJPEAUIDXGIDevice@@@Z @ 0x1802A8730
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C8D4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     wil::details::lambda_call__lambda_40e44a5d63de77d0b0d6917c6e57f0c5___::_lambda_call__lambda_40e44a5d63de77d0b0d6917c6e57f0c5___ @ 0x1802A836C (wil--details--lambda_call__lambda_40e44a5d63de77d0b0d6917c6e57f0c5___--_lambda_call__lambda_40e4.c)
+ */
+
 __int64 __fastcall CHolographicViewer::OpenOnDevice(CHolographicViewer *this, struct IDXGIDevice *a2)
 {
   HRESULT v4; // eax

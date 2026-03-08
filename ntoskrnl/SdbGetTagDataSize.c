@@ -1,3 +1,21 @@
+/*
+ * XREFs of SdbGetTagDataSize @ 0x1407A2980
+ * Callers:
+ *     SdbpGetFirstIndexedRecord @ 0x14079F5A8 (SdbpGetFirstIndexedRecord.c)
+ *     SdbpGetIndex @ 0x1407A1F98 (SdbpGetIndex.c)
+ *     SdbpReadTagData @ 0x1407A21B8 (SdbpReadTagData.c)
+ *     SdbpGetNextTagId @ 0x1407A2880 (SdbpGetNextTagId.c)
+ *     SdbpGetNextIndexedRecord @ 0x140848BC4 (SdbpGetNextIndexedRecord.c)
+ *     KsepDbReadKData @ 0x140973EE8 (KsepDbReadKData.c)
+ *     SdbQueryDataExTagID @ 0x140A4C328 (SdbQueryDataExTagID.c)
+ *     SdbpGetMatchingTextAttributes @ 0x140A4E208 (SdbpGetMatchingTextAttributes.c)
+ *     SdbpGetRegistryMatchingAttributes @ 0x140A4E434 (SdbpGetRegistryMatchingAttributes.c)
+ *     SdbMergeIsEntryUpdated @ 0x140A50A7C (SdbMergeIsEntryUpdated.c)
+ *     SdbpMergeAreTagValuesEqual @ 0x140A50E64 (SdbpMergeAreTagValuesEqual.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ */
+
 __int64 __fastcall SdbGetTagDataSize(__int64 a1, unsigned int a2)
 {
   unsigned int v3; // ebx

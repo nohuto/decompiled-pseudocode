@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspQuerySyscallProviderProcessList @ 0x1409B1EA0
+ * Callers:
+ *     PsQuerySyscallProviderInformation @ 0x1409B1560 (PsQuerySyscallProviderInformation.c)
+ * Callees:
+ *     PspGetNextSyscallProviderProcess @ 0x1409B1C64 (PspGetNextSyscallProviderProcess.c)
+ */
+
 __int64 __fastcall PspQuerySyscallProviderProcessList(__int64 a1, unsigned __int64 *a2, __int64 a3)
 {
   unsigned __int64 v3; // rdi

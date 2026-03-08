@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpBlkSpuriousInterrupt @ 0x140B12040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall HalpBlkSpuriousInterrupt(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rax

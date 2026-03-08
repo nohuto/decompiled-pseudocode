@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0DXGVAILOBJECT@@QEAA@XZ @ 0x1C035BD14
+ * Callers:
+ *     ?ObjectInit@DXGVAILOBJECT@@SAJPEAVDxgkCompositionObject@@PEAXPEAPEAVIDxgkCompositionObject@@@Z @ 0x1C035D780 (-ObjectInit@DXGVAILOBJECT@@SAJPEAVDxgkCompositionObject@@PEAXPEAPEAVIDxgkCompositionObject@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 DXGVAILOBJECT *__fastcall DXGVAILOBJECT::DXGVAILOBJECT(DXGVAILOBJECT *this)
 {
   *(_QWORD *)this = &DXGVAILOBJECT::`vftable';

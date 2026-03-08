@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0pqqqq_EtwWriteTransfer @ 0x1C004B414
+ * Callers:
+ *     ?VidSchiCancelAndRequeueIndependentFlips@@YAXPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0048450 (-VidSchiCancelAndRequeueIndependentFlips@@YAXPEAU_VIDSCH_GLOBAL@@I@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BDEC (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS McTemplateK0pqqqq_EtwWriteTransfer(_DWORD a1, _DWORD a2, __int64 a3, __int64 a4, char a5, char a6, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v7; // [rsp+30h] [rbp-39h] BYREF

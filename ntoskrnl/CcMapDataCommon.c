@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcMapDataCommon @ 0x1406B6954
+ * Callers:
+ *     CcMapDataForOverwrite @ 0x140242228 (CcMapDataForOverwrite.c)
+ * Callees:
+ *     CcPinFileData @ 0x14021E620 (CcPinFileData.c)
+ *     CcGetVirtualAddress @ 0x14021FB80 (CcGetVirtualAddress.c)
+ */
+
 char __fastcall CcMapDataCommon(__int64 a1, __int64 *a2, unsigned int a3, unsigned int a4, _QWORD *a5, __int64 *a6)
 {
   __int64 VirtualAddress; // rcx

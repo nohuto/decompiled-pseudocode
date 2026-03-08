@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?STROBJ_vOffset@@YAXPEAU_STROBJ@@JJ@Z @ 0x1C000AD38
+ * Callers:
+ *     OffTextOut @ 0x1C000ABF0 (OffTextOut.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall STROBJ_vOffset(struct _STROBJ *a1, int a2, int a3)
 {
   int pwszOrg; // ecx

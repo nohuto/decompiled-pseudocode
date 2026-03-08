@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkMapMdlToIoMmuCB @ 0x1C00523A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiGetSysMmAdapterFromDevice @ 0x1C0012F3C (DpiGetSysMmAdapterFromDevice.c)
+ *     SmmCreatePhysicalObject @ 0x1C00130BC (SmmCreatePhysicalObject.c)
+ */
+
 __int64 __fastcall DxgkMapMdlToIoMmuCB(__int64 a1, __int64 *a2)
 {
   struct SYSMM_ADAPTER *SysMmAdapterFromDevice; // rax

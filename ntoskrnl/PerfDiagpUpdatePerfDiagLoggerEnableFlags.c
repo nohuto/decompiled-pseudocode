@@ -1,3 +1,16 @@
+/*
+ * XREFs of PerfDiagpUpdatePerfDiagLoggerEnableFlags @ 0x14083C378
+ * Callers:
+ *     PerfDiagpProxyWorker @ 0x14083C130 (PerfDiagpProxyWorker.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     NtTraceControl @ 0x140694040 (NtTraceControl.c)
+ *     RtlpQueryRegistryValues @ 0x14069B3C0 (RtlpQueryRegistryValues.c)
+ *     PerfDiagpInitializeLoggerInfo @ 0x14083C48C (PerfDiagpInitializeLoggerInfo.c)
+ */
+
 __int64 __fastcall PerfDiagpUpdatePerfDiagLoggerEnableFlags(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

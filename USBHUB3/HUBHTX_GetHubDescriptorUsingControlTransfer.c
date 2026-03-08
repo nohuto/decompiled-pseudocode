@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBHTX_GetHubDescriptorUsingControlTransfer @ 0x1C00035F0
+ * Callers:
+ *     HUBHSM_GettingHubDescriptor @ 0x1C0009820 (HUBHSM_GettingHubDescriptor.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBHTX_GetDescriptor @ 0x1C00034C0 (HUBHTX_GetDescriptor.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ */
+
 __int64 __fastcall HUBHTX_GetHubDescriptorUsingControlTransfer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax

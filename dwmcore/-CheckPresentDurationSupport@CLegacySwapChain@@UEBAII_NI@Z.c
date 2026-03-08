@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?CheckPresentDurationSupport@CLegacySwapChain@@UEBAII_NI@Z @ 0x180297370
+ * Callers:
+ *     ?CheckPresentDurationSupport@CLegacySwapChain@@$4PPPPPPPM@BLA@EBAII_NI@Z @ 0x18011B5B0 (-CheckPresentDurationSupport@CLegacySwapChain@@$4PPPPPPPM@BLA@EBAII_NI@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0qqqq_EventWriteTransfer @ 0x18012A6F8 (McTemplateU0qqqq_EventWriteTransfer.c)
+ *     ?IsValidVariableRefreshDuration@CLegacySwapChain@@IEBA_N_K@Z @ 0x180297F8C (-IsValidVariableRefreshDuration@CLegacySwapChain@@IEBA_N_K@Z.c)
+ */
+
 __int64 __fastcall CLegacySwapChain::CheckPresentDurationSupport(
         CLegacySwapChain *this,
         unsigned int a2,

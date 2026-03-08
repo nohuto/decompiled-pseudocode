@@ -1,3 +1,12 @@
+/*
+ * XREFs of CheckDesktopPolicyChange @ 0x1C015CF60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     OpenCacheKeyEx @ 0x1C00760E0 (OpenCacheKeyEx.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall CheckDesktopPolicyChange(PCUNICODE_STRING Source)
 {
   unsigned int v1; // edi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiAllocateProcessorStateInitializationParameters @ 0x140371E4C
+ * Callers:
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     KiAllocateProcessorStacks @ 0x1403723C0 (KiAllocateProcessorStacks.c)
+ *     KiAllocateProcessorNumber @ 0x14037279C (KiAllocateProcessorNumber.c)
+ *     MmAllocateIndependentPages @ 0x140869AC0 (MmAllocateIndependentPages.c)
+ *     KiAllocateIdleThread @ 0x140A86300 (KiAllocateIdleThread.c)
+ */
+
 __int64 __fastcall KiAllocateProcessorStateInitializationParameters(__int64 a1, __int64 a2)
 {
   unsigned int v2; // edi

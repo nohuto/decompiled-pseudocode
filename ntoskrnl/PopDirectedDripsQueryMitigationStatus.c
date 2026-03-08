@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopDirectedDripsQueryMitigationStatus @ 0x140880DE0
+ * Callers:
+ *     PopDirectedDripsNotify @ 0x140872AF4 (PopDirectedDripsNotify.c)
+ *     PopDirectedDripsInitializeBroadcast @ 0x1409806E8 (PopDirectedDripsInitializeBroadcast.c)
+ *     PopDirectedDripsSendSessionData @ 0x140980CA8 (PopDirectedDripsSendSessionData.c)
+ *     PopDirectedDripsUmQueryCapabilities @ 0x14099CA30 (PopDirectedDripsUmQueryCapabilities.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopDirectedDripsQueryMitigationStatus(_DWORD *a1, _DWORD *a2, int *a3)
 {
   char v3; // bl

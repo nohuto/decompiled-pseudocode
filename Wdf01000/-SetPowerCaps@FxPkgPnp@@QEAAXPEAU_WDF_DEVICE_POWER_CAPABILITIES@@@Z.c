@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetPowerCaps@FxPkgPnp@@QEAAXPEAU_WDF_DEVICE_POWER_CAPABILITIES@@@Z @ 0x1C0075E70
+ * Callers:
+ *     imp_WdfDeviceSetPowerCapabilities @ 0x1C00336D0 (imp_WdfDeviceSetPowerCapabilities.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxPkgPnp::SetPowerCaps(FxPkgPnp *this, _WDF_DEVICE_POWER_CAPABILITIES *PowerCapabilities)
 {
   _DEVICE_POWER_STATE *DeviceState; // r11

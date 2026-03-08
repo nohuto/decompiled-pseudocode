@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsPointerInputHookCall @ 0x1C0109A04
+ * Callers:
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C01098A8 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IsPointerInputHookCall(int a1, unsigned int *a2)
 {
   unsigned int v2; // r8d

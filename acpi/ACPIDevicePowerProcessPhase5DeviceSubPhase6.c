@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIDevicePowerProcessPhase5DeviceSubPhase6 @ 0x1C0020FD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qqss @ 0x1C000A374 (WPP_RECORDER_SF_qqss.c)
+ *     ACPIDeviceCompletePhase3Common @ 0x1C001C4F4 (ACPIDeviceCompletePhase3Common.c)
+ */
+
 __int64 __fastcall ACPIDevicePowerProcessPhase5DeviceSubPhase6(__int64 a1)
 {
   __int64 v1; // rdi

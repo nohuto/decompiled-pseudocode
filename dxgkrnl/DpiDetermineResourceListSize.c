@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiDetermineResourceListSize @ 0x1C02127C8
+ * Callers:
+ *     DpiFdoHandleStartDevice @ 0x1C01F6860 (DpiFdoHandleStartDevice.c)
+ *     DpiFilterOutVgaResources @ 0x1C02125C0 (DpiFilterOutVgaResources.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DpiDetermineResourceListSize(_DWORD *a1, int *a2)
 {
   _DWORD *v3; // rdx

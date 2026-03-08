@@ -1,3 +1,18 @@
+/*
+ * XREFs of RtlStringCchCopyNExW @ 0x140245AC0
+ * Callers:
+ *     _CmGetDeviceInterfaceSymbolicLinkName @ 0x140683BDC (_CmGetDeviceInterfaceSymbolicLinkName.c)
+ *     _CmGetDeviceInterfaceSubkeyPath @ 0x1406D208C (_CmGetDeviceInterfaceSubkeyPath.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1406D3FF0 (_CmValidateDeviceInterfaceName.c)
+ *     _CmSplitDevicePanelId @ 0x14082509C (_CmSplitDevicePanelId.c)
+ *     DrvDbSplitDeviceIdDriverInfMatch @ 0x140878AAC (DrvDbSplitDeviceIdDriverInfMatch.c)
+ *     punycode_encode @ 0x1409BCD88 (punycode_encode.c)
+ * Callees:
+ *     RtlStringCopyWorkerW_0 @ 0x140245C00 (RtlStringCopyWorkerW_0.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     StringExHandleOtherFlagsW @ 0x14055D3D8 (StringExHandleOtherFlagsW.c)
+ */
+
 NTSTATUS __stdcall RtlStringCchCopyNExW(
         NTSTRSAFE_PWSTR pszDest,
         size_t cchDest,

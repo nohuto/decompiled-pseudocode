@@ -1,3 +1,15 @@
+/*
+ * XREFs of IoSetIoCompletionEx3 @ 0x1402928A0
+ * Callers:
+ *     ExpShutdownWorkerFactory @ 0x1402037D0 (ExpShutdownWorkerFactory.c)
+ *     ExpWorkerFactoryCompletionPacketRoutine @ 0x140290DA0 (ExpWorkerFactoryCompletionPacketRoutine.c)
+ *     AlpcpQueueIoCompletion @ 0x1402927FC (AlpcpQueueIoCompletion.c)
+ *     IoSetIoCompletionEx @ 0x140292850 (IoSetIoCompletionEx.c)
+ * Callees:
+ *     KeInsertQueueEx @ 0x140292940 (KeInsertQueueEx.c)
+ *     IopAllocateMiniCompletionPacket @ 0x1407D0108 (IopAllocateMiniCompletionPacket.c)
+ */
+
 __int64 __fastcall IoSetIoCompletionEx3(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_EFxWorkItem@@UEAAPEAXI@Z @ 0x1C00408F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxWorkItem@@UEAA@XZ @ 0x1C0040834 (--1FxWorkItem@@UEAA@XZ.c)
+ */
+
 FxWorkItem *__fastcall FxWorkItem::`vector deleting destructor'(FxWorkItem *this, unsigned int a2)
 {
   char v2; // bl

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bDIBSection@SURFACE@@QEAAHXZ @ 0x1C02AA0AC
+ * Callers:
+ *     GreSetDIBColorTable @ 0x1C02D3CA0 (GreSetDIBColorTable.c)
+ *     NtGdiGetColorSpaceforBitmap @ 0x1C02D72D0 (NtGdiGetColorSpaceforBitmap.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall SURFACE::bDIBSection(SURFACE *this)
 {
   _BOOL8 result; // rax

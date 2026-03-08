@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheaHwErrorReportMarkAsCriticalDeviceDriver @ 0x14060EF10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WheapErrorHandleIsValid @ 0x14060F428 (WheapErrorHandleIsValid.c)
+ */
+
 __int64 WheaHwErrorReportMarkAsCriticalDeviceDriver()
 {
   __int64 v0; // rcx

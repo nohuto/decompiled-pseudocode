@@ -1,3 +1,17 @@
+/*
+ * XREFs of SepCanTokenMatchAllPackageSid @ 0x140247208
+ * Callers:
+ *     SepMatchPackage @ 0x14024717C (SepMatchPackage.c)
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ * Callees:
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1402472F0 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 bool __fastcall SepCanTokenMatchAllPackageSid(__int64 a1)
 {
   char v2; // si

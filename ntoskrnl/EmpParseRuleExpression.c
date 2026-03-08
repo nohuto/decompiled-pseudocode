@@ -1,3 +1,18 @@
+/*
+ * XREFs of EmpParseRuleExpression @ 0x140B4D6DC
+ * Callers:
+ *     EmpParseRules @ 0x140B4DBC0 (EmpParseRules.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     EmpParseRuleTerm @ 0x140B4D578 (EmpParseRuleTerm.c)
+ *     CmpGetSectionLineIndex @ 0x140B4E640 (CmpGetSectionLineIndex.c)
+ *     EmpInfParseGetValueFromSectionAndKeyName @ 0x140B4E6B8 (EmpInfParseGetValueFromSectionAndKeyName.c)
+ *     EmpRuleParserStackPop @ 0x140B4E8C4 (EmpRuleParserStackPop.c)
+ *     EmpRuleParserStackPush @ 0x140B4E91C (EmpRuleParserStackPush.c)
+ *     EmpInfParseSearchDependencyList @ 0x140B4E994 (EmpInfParseSearchDependencyList.c)
+ */
+
 __int64 __fastcall EmpParseRuleExpression(__int64 a1, __int64 a2, __int64 a3)
 {
   int v4; // ebx

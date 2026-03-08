@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?xxxMKButtonSetState@@YAHG@Z @ 0x1C01E4B80
+ * Callers:
+ *     ?xxxMKButtonClick@@YAHG@Z @ 0x1C01E4B20 (-xxxMKButtonClick@@YAHG@Z.c)
+ *     ?xxxMKToggleMouseKeys@@YAHG@Z @ 0x1C01E5AD0 (-xxxMKToggleMouseKeys@@YAHG@Z.c)
+ * Callees:
+ *     MouseButtonAction @ 0x1C0218130 (MouseButtonAction.c)
+ *     ApiSetEditionPostAccessibilitySettingChangedEvent @ 0x1C0241574 (ApiSetEditionPostAccessibilitySettingChangedEvent.c)
+ */
+
 __int64 __fastcall xxxMKButtonSetState(__int16 a1)
 {
   BOOL v1; // edi

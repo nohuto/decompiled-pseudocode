@@ -1,3 +1,12 @@
+/*
+ * XREFs of xxxClientCallDelegateThread @ 0x1C0149CDE
+ * Callers:
+ *     xxxRealInternalGetMessage @ 0x1C006F2F0 (xxxRealInternalGetMessage.c)
+ * Callees:
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00344F8 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0034558 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall xxxClientCallDelegateThread(__int64 a1, __int64 a2, __int64 a3)
 {
   int v3; // ebx

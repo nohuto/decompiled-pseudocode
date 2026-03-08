@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DrawCtlThumb@@YAXPEAUtagSBWND@@@Z @ 0x1C022B9E0
+ * Callers:
+ *     xxxEndScroll @ 0x1C022CE90 (xxxEndScroll.c)
+ * Callees:
+ *     ?xxxGetColorObjects@@YAPEAUHBRUSH__@@PEAUtagWND@@PEAUHDC__@@@Z @ 0x1C0013EE8 (-xxxGetColorObjects@@YAPEAUHBRUSH__@@PEAUtagWND@@PEAUHDC__@@@Z.c)
+ *     DrawThumb2 @ 0x1C0013FB8 (DrawThumb2.c)
+ *     SBCtlSetup @ 0x1C022CC24 (SBCtlSetup.c)
+ */
+
 void __fastcall DrawCtlThumb(struct tagSBWND *a1)
 {
   HDC DCEx; // rsi

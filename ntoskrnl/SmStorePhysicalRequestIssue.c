@@ -1,3 +1,18 @@
+/*
+ * XREFs of SmStorePhysicalRequestIssue @ 0x1409D4DC0
+ * Callers:
+ *     SmStoreCreate @ 0x1409D4C2C (SmStoreCreate.c)
+ *     SmStoreDelete @ 0x1409D4D34 (SmStoreDelete.c)
+ *     SmStoreResize @ 0x1409D4F20 (SmStoreResize.c)
+ * Callees:
+ *     IoInitializeIrp @ 0x1402CABC0 (IoInitializeIrp.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1404210C0 (_alloca_probe.c)
+ */
+
 __int64 __fastcall SmStorePhysicalRequestIssue(
         PDEVICE_OBJECT DeviceObject,
         int a2,

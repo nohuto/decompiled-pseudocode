@@ -1,3 +1,12 @@
+/*
+ * XREFs of NormBuffer__GetLastChar @ 0x1405AE1C4
+ * Callers:
+ *     Normalization__NormalizeCharacter @ 0x1409BE3B8 (Normalization__NormalizeCharacter.c)
+ * Callees:
+ *     Normalization__PageLookup @ 0x1409BEC04 (Normalization__PageLookup.c)
+ *     Normalization__TableLookup @ 0x1409BEC1C (Normalization__TableLookup.c)
+ */
+
 __int64 __fastcall NormBuffer__GetLastChar(__int64 a1)
 {
   unsigned __int16 *v2; // rcx

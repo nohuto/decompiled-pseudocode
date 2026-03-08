@@ -1,3 +1,13 @@
+/*
+ * XREFs of LdrpResGetResourceDirectory @ 0x1407EB258
+ * Callers:
+ *     LdrpResSearchResourceMappedFile @ 0x14035DC3C (LdrpResSearchResourceMappedFile.c)
+ * Callees:
+ *     RtlULongLongAdd @ 0x14024EE90 (RtlULongLongAdd.c)
+ *     RtlImageNtHeaderEx @ 0x14035E850 (RtlImageNtHeaderEx.c)
+ *     LdrpSectionTableFromVirtualAddress @ 0x140787C20 (LdrpSectionTableFromVirtualAddress.c)
+ */
+
 __int64 __fastcall LdrpResGetResourceDirectory(
         ULONGLONG ullAugend,
         unsigned __int64 a2,

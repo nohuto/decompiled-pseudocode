@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NotifyDeferredDestructionComplete@ADAPTER_RENDER@@QEAAXPEAVDXGTERMINATIONTRACKER@@@Z @ 0x1C01D0CB0
+ * Callers:
+ *     ?ADAPTER_RENDER_NotifyDeferredDestructionComplete@@YAXPEAVADAPTER_RENDER@@PEAVDXGTERMINATIONTRACKER@@@Z @ 0x1C0012920 (-ADAPTER_RENDER_NotifyDeferredDestructionComplete@@YAXPEAVADAPTER_RENDER@@PEAVDXGTERMINATIONTRAC.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ADAPTER_RENDER::NotifyDeferredDestructionComplete(
         ADAPTER_RENDER *this,
         struct DXGTERMINATIONTRACKER *a2)

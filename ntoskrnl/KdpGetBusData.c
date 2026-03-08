@@ -1,3 +1,11 @@
+/*
+ * XREFs of KdpGetBusData @ 0x140AB1028
+ * Callers:
+ *     KdpSendWaitContinue @ 0x140AAD824 (KdpSendWaitContinue.c)
+ * Callees:
+ *     KdpSysReadBusData @ 0x140AB1CC4 (KdpSysReadBusData.c)
+ */
+
 __int64 __fastcall KdpGetBusData(_DWORD *a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 v5; // rcx

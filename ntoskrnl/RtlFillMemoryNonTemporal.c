@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlFillMemoryNonTemporal @ 0x140420FC0
+ * Callers:
+ *     RtlFillNonVolatileMemory @ 0x1405AD3C0 (RtlFillNonVolatileMemory.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall RtlFillMemoryNonTemporal(__m128i *a1, unsigned __int64 a2, unsigned __int8 a3)
 {
   __int64 v3; // r8

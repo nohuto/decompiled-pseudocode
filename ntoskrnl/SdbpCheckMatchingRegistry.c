@@ -1,3 +1,13 @@
+/*
+ * XREFs of SdbpCheckMatchingRegistry @ 0x140A4CB90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbpCheckMatchingRegistryEntry @ 0x140A4CCBC (SdbpCheckMatchingRegistryEntry.c)
+ *     SdbpGetRegistryMatchingAttributes @ 0x140A4E434 (SdbpGetRegistryMatchingAttributes.c)
+ */
+
 __int64 __fastcall SdbpCheckMatchingRegistry(_DWORD *a1, __int64 a2, int a3, __int64 a4, int a5, __int64 a6)
 {
   int v6; // edx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExCreatePoolTagTable @ 0x14080AC00
+ * Callers:
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MmAllocateIndependentPagesEx @ 0x140869ADC (MmAllocateIndependentPagesEx.c)
+ */
+
 void *__fastcall ExCreatePoolTagTable(unsigned int a1, unsigned __int16 a2)
 {
   __int64 v2; // rdi

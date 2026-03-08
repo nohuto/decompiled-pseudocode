@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GreHidePointerInternal@@YAXPEAUHDEV__@@@Z @ 0x1C00F4D74
+ * Callers:
+ *     GreHidePointer @ 0x1C002A524 (GreHidePointer.c)
+ * Callees:
+ *     ?vMovePointer@@YAXPEAUHDEV__@@HHJ@Z @ 0x1C001DC84 (-vMovePointer@@YAXPEAUHDEV__@@HHJ@Z.c)
+ */
+
 void __fastcall GreHidePointerInternal(_QWORD *a1)
 {
   __int64 v2; // rcx

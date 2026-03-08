@@ -1,3 +1,12 @@
+/*
+ * XREFs of ArbpBuildAllocationStack @ 0x1C00A2D80
+ * Callers:
+ *     ArbTestAllocation @ 0x1C00A2BE0 (ArbTestAllocation.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     ArbpBuildAlternative @ 0x1C00A2EEC (ArbpBuildAlternative.c)
+ */
+
 __int64 __fastcall ArbpBuildAllocationStack(__int64 a1, __int64 *a2, int a3)
 {
   int v3; // edi

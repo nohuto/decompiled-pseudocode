@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserDoSoundConnect @ 0x1C00F4290
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Connect@CUserPlaySound@@AEAAJPEAX@Z @ 0x1C00F6B4C (-Connect@CUserPlaySound@@AEAAJPEAX@Z.c)
+ *     ?Disconnect@CUserPlaySound@@AEAAJXZ @ 0x1C00F6C0C (-Disconnect@CUserPlaySound@@AEAAJXZ.c)
+ */
+
 __int64 __fastcall NtUserDoSoundConnect(CUserPlaySound *a1)
 {
   NTSTATUS v1; // ebx

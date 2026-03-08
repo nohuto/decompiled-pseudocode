@@ -1,3 +1,12 @@
+/*
+ * XREFs of StringCopyWorkerW_0 @ 0x1405C8810
+ * Callers:
+ *     StringCbCatW @ 0x1405C8740 (StringCbCatW.c)
+ *     StringCbCopyNW @ 0x1405C87C4 (StringCbCopyNW.c)
+ * Callees:
+ *     <none>
+ */
+
 HRESULT __stdcall StringCopyWorkerW_0(
         STRSAFE_LPWSTR pszDest,
         size_t cchDest,

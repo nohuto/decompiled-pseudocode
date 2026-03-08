@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiReserveDriverPtes @ 0x1407F6D70
+ * Callers:
+ *     MiSelectSystemImageAddress @ 0x1407F6D24 (MiSelectSystemImageAddress.c)
+ *     MmMapLockedRestartPages @ 0x140A286F0 (MmMapLockedRestartPages.c)
+ * Callees:
+ *     MiReturnSystemVa @ 0x14020E9A0 (MiReturnSystemVa.c)
+ *     MiObtainSystemVa @ 0x140210534 (MiObtainSystemVa.c)
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlSetBits @ 0x14028BC50 (RtlSetBits.c)
+ *     RtlSetAllBits @ 0x14028BD00 (RtlSetAllBits.c)
+ *     RtlFindClearBitsAndSet @ 0x14030CEE0 (RtlFindClearBitsAndSet.c)
+ *     MiMakeZeroedPageTables @ 0x14036C240 (MiMakeZeroedPageTables.c)
+ *     MiUnlockDriverMappings @ 0x14036C434 (MiUnlockDriverMappings.c)
+ *     MiLockDriverMappings @ 0x14036C498 (MiLockDriverMappings.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 unsigned __int64 __fastcall MiReserveDriverPtes(int a1, __int64 a2, unsigned int a3)
 {
   struct _KTHREAD *CurrentThread; // rbp

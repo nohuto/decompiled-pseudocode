@@ -1,3 +1,12 @@
+/*
+ * XREFs of CMouseAcceleration_CreateInstance @ 0x1C009C820
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CreateInstance@CMouseAcceleration@@SAJPEAPEAVCDeviceAcceleration@@I@Z @ 0x1C009C870 (-CreateInstance@CMouseAcceleration@@SAJPEAPEAVCDeviceAcceleration@@I@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 struct CDeviceAcceleration *__fastcall CMouseAcceleration_CreateInstance(
         __int64 a1,
         __int64 a2,

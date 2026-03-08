@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RtlUnicodeStringPrintf@@YAJPEAU_UNICODE_STRING@@PEBGZZ @ 0x1C0004B28
+ * Callers:
+ *     RIMIDECreateDeviceInstancePath @ 0x1C0004A6C (RIMIDECreateDeviceInstancePath.c)
+ * Callees:
+ *     _vsnwprintf @ 0x1C00DAA34 (_vsnwprintf.c)
+ */
+
 __int64 RtlUnicodeStringPrintf(struct _UNICODE_STRING *a1, const unsigned __int16 *a2, ...)
 {
   USHORT Length; // cx

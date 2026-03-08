@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopProcessIrpStackProfiler @ 0x1402E54D8
+ * Callers:
+ *     IopIrpStackProfilerDpcRoutine @ 0x1402E52E0 (IopIrpStackProfilerDpcRoutine.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IopProcessIrpStackProfiler(__int64 a1)
 {
   unsigned __int64 v1; // r9

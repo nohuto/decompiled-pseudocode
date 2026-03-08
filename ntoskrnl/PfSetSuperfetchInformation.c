@@ -1,3 +1,35 @@
+/*
+ * XREFs of PfSetSuperfetchInformation @ 0x1407E2A94
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     PfTSetTraceWorkerPriority @ 0x1402B896C (PfTSetTraceWorkerPriority.c)
+ *     MmSetTrimWhileAgingState @ 0x1402FF5B4 (MmSetTrimWhileAgingState.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PfpPfnPrioRequest @ 0x1406AE8C4 (PfpPfnPrioRequest.c)
+ *     PfpProcessScenarioPhase @ 0x14073A2C8 (PfpProcessScenarioPhase.c)
+ *     PfGenerateTrace @ 0x14073A870 (PfGenerateTrace.c)
+ *     PfpPrefetchRequest @ 0x140765AC0 (PfpPrefetchRequest.c)
+ *     MmSetMinimumAgeRate @ 0x140797F7C (MmSetMinimumAgeRate.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     PfpRpControlRequest @ 0x1407DFB68 (PfpRpControlRequest.c)
+ *     PfTStart @ 0x140844B00 (PfTStart.c)
+ *     PfpSetParameter @ 0x140844F64 (PfpSetParameter.c)
+ *     PfTInitialize @ 0x140845B5C (PfTInitialize.c)
+ *     PfpDeprioritizeOldPagesInWs @ 0x14097AC7C (PfpDeprioritizeOldPagesInWs.c)
+ *     PfpLogEventRequest @ 0x14097ADD8 (PfpLogEventRequest.c)
+ *     PfTCleanup @ 0x14097C168 (PfTCleanup.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     PfpScenCtxServiceThreadSet @ 0x140A8EA80 (PfpScenCtxServiceThreadSet.c)
+ *     PfpScenCtxPrefetchStateSet @ 0x140A9D178 (PfpScenCtxPrefetchStateSet.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfSetSuperfetchInformation(__int64 a1, __int128 *a2, int a3, KPROCESSOR_MODE a4)
 {
   __int64 v7; // rdx

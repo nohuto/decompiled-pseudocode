@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiDbgUnTranslatePhysicalAddress @ 0x140641E70
+ * Callers:
+ *     MiDbgCopyMemory @ 0x140347088 (MiDbgCopyMemory.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x140641B08 (MiDbgTranslatePhysicalAddress.c)
+ * Callees:
+ *     KeFlushSingleTb @ 0x140211E60 (KeFlushSingleTb.c)
+ *     KeFlushSingleCurrentTb @ 0x140387AD4 (KeFlushSingleCurrentTb.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUnfreezeIoPfnNode @ 0x14062C658 (MiUnfreezeIoPfnNode.c)
+ */
+
 void __fastcall MiDbgUnTranslatePhysicalAddress(int *a1)
 {
   __int64 v2; // rcx

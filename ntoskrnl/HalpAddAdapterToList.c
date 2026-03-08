@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpAddAdapterToList @ 0x14038CBA8
+ * Callers:
+ *     HalGetAdapterV3 @ 0x140821010 (HalGetAdapterV3.c)
+ *     HalGetAdapterV2 @ 0x1408215A0 (HalGetAdapterV2.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpAddAdapterToList(__int64 a1)
 {
   unsigned __int64 v2; // rdi

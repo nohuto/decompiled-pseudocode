@@ -1,3 +1,16 @@
+/*
+ * XREFs of PpmHvSnapPerformanceAccumulation @ 0x14059DC74
+ * Callers:
+ *     PpmPerfSnapDeliveredPerformance @ 0x140234BB0 (PpmPerfSnapDeliveredPerformance.c)
+ *     PpmResetPerfTimes @ 0x1403A1BA0 (PpmResetPerfTimes.c)
+ * Callees:
+ *     HvlGetReferenceTime @ 0x1403C30D8 (HvlGetReferenceTime.c)
+ *     HvlpGetLpcbByLpIndex @ 0x1403C8E08 (HvlpGetLpcbByLpIndex.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HvlGetStatsUpdateCounter @ 0x1405443E4 (HvlGetStatsUpdateCounter.c)
+ */
+
 char __fastcall PpmHvSnapPerformanceAccumulation(_QWORD *a1, __int64 a2, __int64 a3, _QWORD *a4, _QWORD *a5)
 {
   __int64 *v5; // r15

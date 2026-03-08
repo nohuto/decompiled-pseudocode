@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ReleaseResources@CCompositionMipmapSurface@@AEAAXXZ @ 0x180221130
+ * Callers:
+ *     ??1CCompositionMipmapSurface@@UEAA@XZ @ 0x1802208F0 (--1CCompositionMipmapSurface@@UEAA@XZ.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ @ 0x18001EC20 (-InternalRelease@-$ComPtr@VCD3DSurface@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800234BC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?RemoveResourceNotifier@CD3DResource@@UEAAXPEBVIDeviceResourceNotify@@@Z @ 0x1800292C0 (-RemoveResourceNotifier@CD3DResource@@UEAAXPEBVIDeviceResourceNotify@@@Z.c)
+ */
+
 void __fastcall CCompositionMipmapSurface::ReleaseResources(CCompositionMipmapSurface *this)
 {
   __int64 v1; // rdi

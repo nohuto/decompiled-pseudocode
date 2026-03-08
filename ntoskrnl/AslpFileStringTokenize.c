@@ -1,3 +1,12 @@
+/*
+ * XREFs of AslpFileStringTokenize @ 0x1402467B0
+ * Callers:
+ *     AslpFileVerQueryBlock @ 0x1406D5020 (AslpFileVerQueryBlock.c)
+ *     AslpFileMakeStringVersionAttributes @ 0x1407A0A68 (AslpFileMakeStringVersionAttributes.c)
+ * Callees:
+ *     <none>
+ */
+
 _WORD *__fastcall AslpFileStringTokenize(_WORD *a1, __int64 a2, _WORD **a3)
 {
   __int16 i; // r8

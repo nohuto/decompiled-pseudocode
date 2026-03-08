@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AddChildObjectInternal@FxObject@@AEAAJPEAV1@@Z @ 0x1C0005698
+ * Callers:
+ *     ?AssignParentObject@FxObject@@QEAAJPEAV1@@Z @ 0x1C0005600 (-AssignParentObject@FxObject@@QEAAJPEAV1@@Z.c)
+ * Callees:
+ *     ?TraceDroppedEvent@FxObject@@QEAAXW4FxObjectDroppedEvent@@@Z @ 0x1C0046564 (-TraceDroppedEvent@FxObject@@QEAAXW4FxObjectDroppedEvent@@@Z.c)
+ */
+
 __int64 __fastcall FxObject::AddChildObjectInternal(FxObject *this, FxObject *ChildObject)
 {
   unsigned __int64 *p_m_Lock; // rsi

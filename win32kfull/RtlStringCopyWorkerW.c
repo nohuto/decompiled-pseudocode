@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlStringCopyWorkerW @ 0x1C010A9DC
+ * Callers:
+ *     _RegisterDManipHook @ 0x1C00DD6D0 (_RegisterDManipHook.c)
+ *     ?RtlStringCbCatW@@YAJPEAG_KPEBG@Z @ 0x1C00DD870 (-RtlStringCbCatW@@YAJPEAG_KPEBG@Z.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C010A9B4 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlStringCopyWorkerW(
         NTSTRSAFE_PWSTR pszDest,
         size_t cchDest,

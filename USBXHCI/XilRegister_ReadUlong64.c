@@ -1,3 +1,13 @@
+/*
+ * XREFs of XilRegister_ReadUlong64 @ 0x1C003F338
+ * Callers:
+ *     Interrupter_DeInitializeAfterOffload @ 0x1C003DCEC (Interrupter_DeInitializeAfterOffload.c)
+ *     XilCoreCommand_AbortCommandRing @ 0x1C0052A80 (XilCoreCommand_AbortCommandRing.c)
+ *     XilCoreCommand_QueryIsRingRunning @ 0x1C0052B1C (XilCoreCommand_QueryIsRingRunning.c)
+ * Callees:
+ *     Register_ReadSecureMmio @ 0x1C003EE08 (Register_ReadSecureMmio.c)
+ */
+
 __int64 __fastcall XilRegister_ReadUlong64(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

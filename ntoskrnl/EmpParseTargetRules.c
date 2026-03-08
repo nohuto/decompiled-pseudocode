@@ -1,3 +1,22 @@
+/*
+ * XREFs of EmpParseTargetRules @ 0x140B4E0F0
+ * Callers:
+ *     EmpParseInfDatabase @ 0x140B4CEE0 (EmpParseInfDatabase.c)
+ * Callees:
+ *     EmpSearchTargetRuleList @ 0x1402D62A0 (EmpSearchTargetRuleList.c)
+ *     EmpSearchRuleDatabase @ 0x1402D62C8 (EmpSearchRuleDatabase.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmpGetSectionLineIndexValueCount @ 0x140B4DB74 (CmpGetSectionLineIndexValueCount.c)
+ *     EmpInfParseGetGuidFromName @ 0x140B4DFF0 (EmpInfParseGetGuidFromName.c)
+ *     EmpInfParseGetSectionLineCount @ 0x140B4E09C (EmpInfParseGetSectionLineCount.c)
+ *     EmpParseTargetRuleStringIndexList @ 0x140B4E30C (EmpParseTargetRuleStringIndexList.c)
+ *     CmpGetSectionLineIndex @ 0x140B4E640 (CmpGetSectionLineIndex.c)
+ *     CmpGetKeyName @ 0x140B4E760 (CmpGetKeyName.c)
+ */
+
 __int64 __fastcall EmpParseTargetRules(__int64 a1)
 {
   unsigned int v2; // ebx

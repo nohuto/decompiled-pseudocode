@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiPrefetchPreallocatePages @ 0x14062FD08
+ * Callers:
+ *     MiPrefetchVirtualMemory @ 0x140363970 (MiPrefetchVirtualMemory.c)
+ * Callees:
+ *     MiConvertEntireLargePageToSmall @ 0x140277140 (MiConvertEntireLargePageToSmall.c)
+ *     MiProtectionToCacheAttribute @ 0x14028A2D0 (MiProtectionToCacheAttribute.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14031F7B0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiAcquireNonPagedResources @ 0x140348D54 (MiAcquireNonPagedResources.c)
+ *     MiGetLargePage @ 0x14034EF30 (MiGetLargePage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiPrefetchReleasePreallocatedPages @ 0x14063008C (MiPrefetchReleasePreallocatedPages.c)
+ */
+
 void __fastcall MiPrefetchPreallocatePages(
         unsigned __int64 *a1,
         __int64 a2,

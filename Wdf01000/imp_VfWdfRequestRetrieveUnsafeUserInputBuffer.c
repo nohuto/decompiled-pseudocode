@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_VfWdfRequestRetrieveUnsafeUserInputBuffer @ 0x1C00B6F20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall imp_VfWdfRequestRetrieveUnsafeUserInputBuffer(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFREQUEST__ *Request,

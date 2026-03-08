@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxxKELocaleProcs @ 0x1C0080414
+ * Callers:
+ *     xxxProcessKeyEvent @ 0x1C007EE00 (xxxProcessKeyEvent.c)
+ * Callees:
+ *     ?DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z @ 0x1C01E3DAC (-DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z.c)
+ *     ?xxxAltGr@@YAXPEAUtagKE@@@Z @ 0x1C021B374 (-xxxAltGr@@YAXPEAUtagKE@@@Z.c)
+ *     ?xxxShiftLock@@YAHPEAUtagKE@@@Z @ 0x1C021B490 (-xxxShiftLock@@YAHPEAUtagKE@@@Z.c)
+ */
+
 char __fastcall xxxKELocaleProcs(struct tagKE *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rdx

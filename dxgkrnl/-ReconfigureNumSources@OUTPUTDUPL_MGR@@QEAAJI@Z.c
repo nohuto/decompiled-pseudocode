@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ReconfigureNumSources@OUTPUTDUPL_MGR@@QEAAJI@Z @ 0x1C0329F40
+ * Callers:
+ *     OutputDuplRemoteSessionReconnected @ 0x1C032C60C (OutputDuplRemoteSessionReconnected.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?CreateSourceContextLists@OUTPUTDUPL_MGR@@AEAAJXZ @ 0x1C021428C (-CreateSourceContextLists@OUTPUTDUPL_MGR@@AEAAJXZ.c)
+ *     ?DestroySourceContextLists@OUTPUTDUPL_MGR@@AEAAXXZ @ 0x1C0326944 (-DestroySourceContextLists@OUTPUTDUPL_MGR@@AEAAXXZ.c)
+ *     ?QueryActiveContextCount@OUTPUTDUPL_MGR@@QEAAII@Z @ 0x1C0329EEC (-QueryActiveContextCount@OUTPUTDUPL_MGR@@QEAAII@Z.c)
+ */
+
 __int64 __fastcall OUTPUTDUPL_MGR::ReconfigureNumSources(OUTPUTDUPL_MGR *this, unsigned int a2)
 {
   __int64 result; // rax

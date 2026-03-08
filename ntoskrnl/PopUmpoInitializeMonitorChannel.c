@@ -1,3 +1,21 @@
+/*
+ * XREFs of PopUmpoInitializeMonitorChannel @ 0x140B6DF34
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     ExRegisterCallback @ 0x1402FBE90 (ExRegisterCallback.c)
+ *     ExUnregisterCallback @ 0x140302720 (ExUnregisterCallback.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwAlpcCreatePort @ 0x140413270 (ZwAlpcCreatePort.c)
+ *     ZwAlpcSetInformation @ 0x1404134B0 (ZwAlpcSetInformation.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExCreateCallback @ 0x14078D4A0 (ExCreateCallback.c)
+ *     PopMonitorProcessLoop @ 0x14085C548 (PopMonitorProcessLoop.c)
+ */
+
 __int64 PopUmpoInitializeMonitorChannel()
 {
   PCALLBACK_OBJECT v0; // rbx

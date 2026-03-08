@@ -1,3 +1,15 @@
+/*
+ * XREFs of TtmiLogDeviceArrivedTerminalEvent @ 0x1409A445C
+ * Callers:
+ *     TtmpPublishDeviceEvent @ 0x1409A0904 (TtmpPublishDeviceEvent.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x140244050 (_tlgCreate1Sz_wchar_t.c)
+ *     PsGetProcessSessionIdEx @ 0x1402BDFA0 (PsGetProcessSessionIdEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall TtmiLogDeviceArrivedTerminalEvent(int a1, int a2, int a3, int a4, const size_t *a5)
 {
   _UNKNOWN **v5; // rax

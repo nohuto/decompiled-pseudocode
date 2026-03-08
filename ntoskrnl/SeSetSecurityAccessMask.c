@@ -1,3 +1,13 @@
+/*
+ * XREFs of SeSetSecurityAccessMask @ 0x14076A8A4
+ * Callers:
+ *     CmpSetKeySecurity @ 0x1406B7E3C (CmpSetKeySecurity.c)
+ *     NtSetSecurityObject @ 0x14076A550 (NtSetSecurityObject.c)
+ *     IoCheckFunctionAccess @ 0x14087A650 (IoCheckFunctionAccess.c)
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall SeSetSecurityAccessMask(int a1, int *a2)
 {
   int result; // eax

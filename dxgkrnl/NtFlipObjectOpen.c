@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtFlipObjectOpen @ 0x1C0080400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?OpenEndpoint@FlipManagerObject@@QEAAJ_NPEAPEAX1@Z @ 0x1C0081770 (-OpenEndpoint@FlipManagerObject@@QEAAJ_NPEAPEAX1@Z.c)
+ *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C00817F8 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ */
+
 __int64 __fastcall NtFlipObjectOpen(void *a1, int a2, HANDLE *a3, _QWORD *a4)
 {
   void *v7; // rdi

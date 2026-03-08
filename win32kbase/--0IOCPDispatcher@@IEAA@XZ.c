@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0IOCPDispatcher@@IEAA@XZ @ 0x1C00966A4
+ * Callers:
+ *     ?CreateInstance@IOCPDispatcher@@SAJPEAPEAV1@@Z @ 0x1C0096578 (-CreateInstance@IOCPDispatcher@@SAJPEAPEAV1@@Z.c)
+ * Callees:
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C00968E4 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 IOCPDispatcher *__fastcall IOCPDispatcher::IOCPDispatcher(IOCPDispatcher *this)
 {
   IOCPDispatcher *result; // rax

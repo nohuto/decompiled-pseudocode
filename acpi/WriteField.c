@@ -1,3 +1,18 @@
+/*
+ * XREFs of WriteField @ 0x1C0053090
+ * Callers:
+ *     AccFieldUnit @ 0x1C0051630 (AccFieldUnit.c)
+ *     WriteObject @ 0x1C00532A0 (WriteObject.c)
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     GetObjectTypeName @ 0x1C004BD50 (GetObjectTypeName.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     RawFieldAccess @ 0x1C0052760 (RawFieldAccess.c)
+ *     SupportsOnlyRawAccess @ 0x1C0052F58 (SupportsOnlyRawAccess.c)
+ *     PushFrame @ 0x1C0053C34 (PushFrame.c)
+ */
+
 __int64 __fastcall WriteField(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdi

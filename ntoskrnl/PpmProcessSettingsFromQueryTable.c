@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmProcessSettingsFromQueryTable @ 0x14099A414
+ * Callers:
+ *     PpmRegisterSpmSettings @ 0x14099A640 (PpmRegisterSpmSettings.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     PpmSetProfilePolicySetting @ 0x140825A60 (PpmSetProfilePolicySetting.c)
+ */
+
 char __fastcall PpmProcessSettingsFromQueryTable(_QWORD *a1, int a2, __int64 a3)
 {
   __int64 v3; // rsi

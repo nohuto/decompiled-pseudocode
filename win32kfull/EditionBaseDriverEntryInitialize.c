@@ -1,3 +1,12 @@
+/*
+ * XREFs of EditionBaseDriverEntryInitialize @ 0x1C00E24D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     InitializeWin32kCall @ 0x1C00E255C (InitializeWin32kCall.c)
+ *     wil_InitializeFeatureStaging @ 0x1C03B6078 (wil_InitializeFeatureStaging.c)
+ */
+
 __int64 EditionBaseDriverEntryInitialize()
 {
   __int64 v0; // rcx

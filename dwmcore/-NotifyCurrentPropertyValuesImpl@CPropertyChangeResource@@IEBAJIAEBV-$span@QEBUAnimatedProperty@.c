@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?NotifyCurrentPropertyValuesImpl@CPropertyChangeResource@@IEBAJIAEBV?$span@QEBUAnimatedProperty@AnimationHelper@@$0?0@gsl@@@Z @ 0x1800228E8
+ * Callers:
+ *     ?NotifyCurrentPropertyValues@CRectangleGeometry@@MEBAJI@Z @ 0x180022420 (-NotifyCurrentPropertyValues@CRectangleGeometry@@MEBAJI@Z.c)
+ *     ?NotifyCurrentPropertyValues@CComponentTransform2D@@MEBAJI@Z @ 0x180022460 (-NotifyCurrentPropertyValues@CComponentTransform2D@@MEBAJI@Z.c)
+ *     ?NotifyCurrentPropertyValues@CComponentTransform3D@@MEBAJI@Z @ 0x1800226A0 (-NotifyCurrentPropertyValues@CComponentTransform3D@@MEBAJI@Z.c)
+ *     ?NotifyCurrentPropertyValues@CViewBox@@UEBAJI@Z @ 0x180252060 (-NotifyCurrentPropertyValues@CViewBox@@UEBAJI@Z.c)
+ * Callees:
+ *     ?NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x180097B98 (-NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     memcmp_0 @ 0x1801177DC (memcmp_0.c)
+ */
+
 __int64 __fastcall CPropertyChangeResource::NotifyCurrentPropertyValuesImpl(
         CPropertyChangeResource *this,
         int a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DT_GetLongChar@@YAKPEBGHH@Z @ 0x1C024FAA8
+ * Callers:
+ *     ?DT_AdjustBreakForSurrogatesAndVariationSelectors@@YAHPEBGHH@Z @ 0x1C024F720 (-DT_AdjustBreakForSurrogatesAndVariationSelectors@@YAHPEBGHH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DT_GetLongChar(const unsigned __int16 *a1, int a2, int a3)
 {
   unsigned __int16 v3; // r8

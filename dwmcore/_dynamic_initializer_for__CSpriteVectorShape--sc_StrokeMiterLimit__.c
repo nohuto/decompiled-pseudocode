@@ -1,3 +1,11 @@
+/*
+ * XREFs of _dynamic_initializer_for__CSpriteVectorShape::sc_StrokeMiterLimit__ @ 0x180002EC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 dynamic_initializer_for__CSpriteVectorShape::sc_StrokeMiterLimit__()
 {
   __int64 result; // rax

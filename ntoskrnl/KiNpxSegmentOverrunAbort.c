@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiNpxSegmentOverrunAbort @ 0x140425D00
+ * Callers:
+ *     KiNpxSegmentOverrunAbortShadow @ 0x140AF35C0 (KiNpxSegmentOverrunAbortShadow.c)
+ * Callees:
+ *     KiSaveDebugRegisterState @ 0x140416550 (KiSaveDebugRegisterState.c)
+ *     KiNpxSegmentOverrunAbort @ 0x140425D00 (KiNpxSegmentOverrunAbort.c)
+ *     KiBugCheckDispatch @ 0x14042BEC0 (KiBugCheckDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x14042C900 (KiFlushBhbDuringTrapEntryOrExit.c)
+ */
+
 void __noreturn KiNpxSegmentOverrunAbort()
 {
   struct _KTHREAD *CurrentThread; // r10

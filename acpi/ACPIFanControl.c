@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIFanControl @ 0x1C0026960
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIDeviceInternalDeviceRequest @ 0x1C001D3A8 (ACPIDeviceInternalDeviceRequest.c)
+ */
+
 __int64 __fastcall ACPIFanControl(__int64 a1, char a2)
 {
   __int64 v2; // rdx

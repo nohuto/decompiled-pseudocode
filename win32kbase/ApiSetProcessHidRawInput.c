@@ -1,3 +1,15 @@
+/*
+ * XREFs of ApiSetProcessHidRawInput @ 0x1C00F626A
+ * Callers:
+ *     RIMOnAsyncPnpWorkNotification @ 0x1C0038B90 (RIMOnAsyncPnpWorkNotification.c)
+ *     rimProcessHidInput @ 0x1C01D2DF8 (rimProcessHidInput.c)
+ *     RIMProcessAnyPointerDeviceInput @ 0x1C01D517C (RIMProcessAnyPointerDeviceInput.c)
+ * Callees:
+ *     IsProcessHidRawInputSupported @ 0x1C0031CA4 (IsProcessHidRawInputSupported.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (__fastcall *__fastcall ApiSetProcessHidRawInput(
         __int64 a1,
         __int64 a2,

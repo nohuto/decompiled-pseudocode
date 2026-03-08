@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsCHSBaseFont@@YAHPEBGI@Z @ 0x1C0112644
+ * Callers:
+ *     ?bAddEntry@PFFMEMOBJ@@QEAAHKPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@1PEAU_UNIVERSAL_FONT_ID@@PEAU_EUDCLOAD@@@Z @ 0x1C01155D8 (-bAddEntry@PFFMEMOBJ@@QEAAHKPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@1PEAU_UNIVERSAL_FONT_ID@@PEAU_E.c)
+ * Callees:
+ *     SearchInCHSBaseFontFileNameSuffixes @ 0x1C010EE3C (SearchInCHSBaseFontFileNameSuffixes.c)
+ */
+
 _BOOL8 __fastcall IsCHSBaseFont(const unsigned __int16 *a1, int a2)
 {
   int v4; // eax

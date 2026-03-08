@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpCovSampApplyBounds @ 0x1409EDA10
+ * Callers:
+ *     EtwpSetCoverageSamplerInformation @ 0x1409F0DFC (EtwpSetCoverageSamplerInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwpCovSampApplyBounds(unsigned int *a1, unsigned int a2, unsigned int a3, unsigned int a4)
 {
   unsigned int v4; // eax

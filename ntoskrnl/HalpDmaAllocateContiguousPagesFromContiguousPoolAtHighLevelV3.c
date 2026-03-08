@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV3 @ 0x1404FCF80
+ * Callers:
+ *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel @ 0x1404FF010 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevel.c)
+ * Callees:
+ *     RtlFindClearBitsAndSet @ 0x14030CEE0 (RtlFindClearBitsAndSet.c)
+ *     HalpDmaLinkContiguousTranslations @ 0x140454118 (HalpDmaLinkContiguousTranslations.c)
+ */
+
 __int64 __fastcall HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV3(__int64 a1, __int64 a2, ULONG a3)
 {
   int v3; // edi

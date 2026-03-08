@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Present@CConversionSwapChain@@UEAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x18029F040
+ * Callers:
+ *     ?Present@CConversionSwapChain@@$4PPPPPPPM@DFI@EAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x18011D090 (-Present@CConversionSwapChain@@$4PPPPPPPM@DFI@EAAJIIAEBV-$vector@UtagRECT@@V-$allocator@UtagRECT.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Present@CLegacySwapChain@@UEAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x180109EA0 (-Present@CLegacySwapChain@@UEAAJIIAEBV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@I@Z.c)
+ *     ?ConvertSingleDesktopPlane@CConversionSwapChain@@IEAAJXZ @ 0x18029E1E4 (-ConvertSingleDesktopPlane@CConversionSwapChain@@IEAAJXZ.c)
+ */
+
 __int64 __fastcall CConversionSwapChain::Present(
         CLegacySwapChain *this,
         unsigned int a2,

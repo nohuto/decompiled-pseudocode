@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpAllocPhysicalMemoryFromDescriptor @ 0x140B3DCB0
+ * Callers:
+ *     HalpAllocPhysicalMemoryInternal @ 0x140B3DA64 (HalpAllocPhysicalMemoryInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall HalpAllocPhysicalMemoryFromDescriptor(
         __int64 a1,
         unsigned __int64 a2,

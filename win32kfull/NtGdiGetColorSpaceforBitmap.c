@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiGetColorSpaceforBitmap @ 0x1C02D72D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?bDIBSection@SURFACE@@QEAAHXZ @ 0x1C02AA0AC (-bDIBSection@SURFACE@@QEAAHXZ.c)
+ */
+
 __int64 __fastcall NtGdiGetColorSpaceforBitmap(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

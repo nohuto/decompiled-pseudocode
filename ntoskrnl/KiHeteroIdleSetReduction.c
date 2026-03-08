@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiHeteroIdleSetReduction @ 0x14045974C
+ * Callers:
+ *     KiHeteroSelectIdleProcessor @ 0x140459852 (KiHeteroSelectIdleProcessor.c)
+ * Callees:
+ *     KiIsQosGroupingActive @ 0x1402ED844 (KiIsQosGroupingActive.c)
+ *     KiHeteroReduceToMaximallyPreferredByClass @ 0x140574EC0 (KiHeteroReduceToMaximallyPreferredByClass.c)
+ */
+
 __int64 __fastcall KiHeteroIdleSetReduction(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4, _QWORD *a5)
 {
   __int64 v5; // rdi

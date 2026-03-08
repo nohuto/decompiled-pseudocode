@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpScanSystemLookasideList @ 0x1402C5D38
+ * Callers:
+ *     KeBalanceSetManager @ 0x140390D00 (KeBalanceSetManager.c)
+ * Callees:
+ *     ExpComputeLookasideDepth @ 0x1402C5EFC (ExpComputeLookasideDepth.c)
+ *     RtlpDynamicLookasideRebalance @ 0x1402C5F90 (RtlpDynamicLookasideRebalance.c)
+ */
+
 __int64 ExpScanSystemLookasideList()
 {
   __int64 v0; // rbx

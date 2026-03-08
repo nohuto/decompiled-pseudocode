@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExpReleaseFastResourceExclusive2 @ 0x140410E88
+ * Callers:
+ *     ExReleaseFastResource2 @ 0x14040EBEC (ExReleaseFastResource2.c)
+ *     ExReleaseFastResourceExclusive2 @ 0x14040EDFC (ExReleaseFastResourceExclusive2.c)
+ *     ExReleaseFastResourceShared2 @ 0x14040EF54 (ExReleaseFastResourceShared2.c)
+ * Callees:
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     ExpReleaseFastResourceExclusiveSlow @ 0x140410F34 (ExpReleaseFastResourceExclusiveSlow.c)
+ *     ExpRemoveEntryListAndClear2 @ 0x14041128C (ExpRemoveEntryListAndClear2.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall ExpReleaseFastResourceExclusive2(signed __int64 *BugCheckParameter2)
 {
   signed __int64 *v2; // rcx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ControllerPreInterruptsDisableAcpiCallout @ 0x1C000F53C
+ * Callers:
+ *     Controller_WdfEvtDeviceD0ExitPreInterruptsDisabled @ 0x1C000F310 (Controller_WdfEvtDeviceD0ExitPreInterruptsDisabled.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qd @ 0x1C00141F4 (WPP_RECORDER_SF_qd.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ControllerPreInterruptsDisableAcpiCallout(__int64 a1)
 {
   __int64 result; // rax

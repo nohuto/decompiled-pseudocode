@@ -1,3 +1,11 @@
+/*
+ * XREFs of SdbpFindLocalDatabaseByPDB @ 0x140800400
+ * Callers:
+ *     SdbTagIDToTagRef @ 0x1408003AC (SdbTagIDToTagRef.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SdbpFindLocalDatabaseByPDB(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
 {
   int v4; // r11d

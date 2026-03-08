@@ -1,3 +1,27 @@
+/*
+ * XREFs of MiPrepareToHotPatchImage @ 0x140A37C98
+ * Callers:
+ *     MiPrepareToHotPatchVad @ 0x140A3827C (MiPrepareToHotPatchVad.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlSetAllBits @ 0x14028BD00 (RtlSetAllBits.c)
+ *     RtlClearAllBits @ 0x1402B24A0 (RtlClearAllBits.c)
+ *     RtlFindNextForwardRunClear @ 0x14035D2F0 (RtlFindNextForwardRunClear.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiCommitHotPatchTable @ 0x14063FEB8 (MiCommitHotPatchTable.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x1406404D8 (MiPrepareImagePagesForHotPatch.c)
+ *     RtlHotPatchSynchronizationRequired @ 0x140678714 (RtlHotPatchSynchronizationRequired.c)
+ *     MiCheckUnsupportedSections @ 0x140A338C0 (MiCheckUnsupportedSections.c)
+ *     MiMapHotPatchImageInSystemSpace @ 0x140A37488 (MiMapHotPatchImageInSystemSpace.c)
+ *     MiProcessHotPatchUndoTable @ 0x140A3832C (MiProcessHotPatchUndoTable.c)
+ *     RtlCheckCurrentPatchesApplied @ 0x140A73518 (RtlCheckCurrentPatchesApplied.c)
+ *     RtlCountRequiredHotPatchAddressTableEntries @ 0x140A73578 (RtlCountRequiredHotPatchAddressTableEntries.c)
+ *     RtlEnumerateHotPatchPatches @ 0x140A73774 (RtlEnumerateHotPatchPatches.c)
+ *     RtlFindHotPatchBase @ 0x140A7380C (RtlFindHotPatchBase.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
 {
   _BYTE *v3; // r14

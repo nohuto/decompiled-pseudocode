@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??8Matrix3x3@@QEBA_NAEBV0@@Z @ 0x1800DDFE8
+ * Callers:
+ *     ?ValidateBVIEffectInputForRender@CDrawingContext@@QEBAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEA_N@Z @ 0x18008833C (-ValidateBVIEffectInputForRender@CDrawingContext@@QEBAJAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall Matrix3x3::operator==(float *a1, float *a2)
 {
   return COERCE_FLOAT(COERCE_UNSIGNED_INT(*a1 - *a2) & _xmm) < 0.000081380211

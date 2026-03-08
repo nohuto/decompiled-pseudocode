@@ -1,3 +1,20 @@
+/*
+ * XREFs of _GetPointerDeviceRects @ 0x1C00E4B94
+ * Callers:
+ *     NtUserGetPointerDeviceRects @ 0x1C00E4A70 (NtUserGetPointerDeviceRects.c)
+ *     NtUserGetHimetricScaleFactorFromPixelLocation @ 0x1C01D2900 (NtUserGetHimetricScaleFactorFromPixelLocation.c)
+ *     ?CreateEdgePalmRejectionZones@PalmRejection@@YAHPEAX@Z @ 0x1C01E8380 (-CreateEdgePalmRejectionZones@PalmRejection@@YAHPEAX@Z.c)
+ *     ?ProcessInertia@Edgy@@YAXPEBUINERTIA_INFO_INTERNAL@@@Z @ 0x1C01E89DC (-ProcessInertia@Edgy@@YAXPEBUINERTIA_INFO_INTERNAL@@@Z.c)
+ *     ?_HitTestEdgyRegion@Edgy@@YA?AUtagHIT_TEST_RESULT@1@AEBUtagEDGY_DATA@@PEAXUtagPOINT@@W4tagPOINTER_DEVICE_TYPE@@H@Z @ 0x1C01E9458 (-_HitTestEdgyRegion@Edgy@@YA-AUtagHIT_TEST_RESULT@1@AEBUtagEDGY_DATA@@PEAXUtagPOINT@@W4tagPOINTE.c)
+ * Callees:
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     MiPGetPhysicalRect @ 0x1C00E4C44 (MiPGetPhysicalRect.c)
+ *     GetScreenRect @ 0x1C00E4C8C (GetScreenRect.c)
+ *     VirtualizeMultiMonDigitizerSize @ 0x1C0145242 (VirtualizeMultiMonDigitizerSize.c)
+ *     EnsurePointerDeviceHasMonitor @ 0x1C0146090 (EnsurePointerDeviceHasMonitor.c)
+ */
+
 __int64 __fastcall GetPointerDeviceRects(__int64 a1, _OWORD *a2, _OWORD *a3)
 {
   unsigned int v6; // r14d

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?EngageDFx@DripsBlockerTrackingHelper@@QEAAX_N@Z @ 0x1C02FFA84
+ * Callers:
+ *     ?SetDFxEngaged@DXGGLOBAL@@QEAAXH@Z @ 0x1C02E1A30 (-SetDFxEngaged@DXGGLOBAL@@QEAAXH@Z.c)
+ * Callees:
+ *     ?Start@TimeInterval@DripsBlockerTrackingHelper@@QEAAXXZ @ 0x1C0221E86 (-Start@TimeInterval@DripsBlockerTrackingHelper@@QEAAXXZ.c)
+ *     ?AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ @ 0x1C02FE7F0 (-AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ.c)
+ *     ?EnableEntryAccounting@DripsBlockerTrackingHelper@@IEAAXII_N@Z @ 0x1C02FF9E8 (-EnableEntryAccounting@DripsBlockerTrackingHelper@@IEAAXII_N@Z.c)
+ *     ?ResetDAM@DripsBlockerTrackingHelper@@IEAAXXZ @ 0x1C0302A5C (-ResetDAM@DripsBlockerTrackingHelper@@IEAAXXZ.c)
+ *     ?Stop@TimeInterval@DripsBlockerTrackingHelper@@QEAA_KXZ @ 0x1C0302ABC (-Stop@TimeInterval@DripsBlockerTrackingHelper@@QEAA_KXZ.c)
+ */
+
 void __fastcall DripsBlockerTrackingHelper::EngageDFx(LARGE_INTEGER *this, char a2)
 {
   unsigned int v3; // ebp

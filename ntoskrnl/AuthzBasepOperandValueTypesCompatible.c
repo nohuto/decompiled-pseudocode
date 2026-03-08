@@ -1,3 +1,13 @@
+/*
+ * XREFs of AuthzBasepOperandValueTypesCompatible @ 0x140366290
+ * Callers:
+ *     AuthzBasepValueInSet @ 0x14036559C (AuthzBasepValueInSet.c)
+ *     AuthzBasepEvaluateExpression @ 0x140366314 (AuthzBasepEvaluateExpression.c)
+ *     AuthzBasepComputeExpression @ 0x14066D244 (AuthzBasepComputeExpression.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall AuthzBasepOperandValueTypesCompatible(__int16 *a1)
 {
   int v1; // eax

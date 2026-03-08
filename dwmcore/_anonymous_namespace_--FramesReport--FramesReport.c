@@ -1,3 +1,12 @@
+/*
+ * XREFs of _anonymous_namespace_::FramesReport::FramesReport @ 0x1800D63B0
+ * Callers:
+ *     _anonymous_namespace_::SealCurrentFrameSequence @ 0x180035F64 (_anonymous_namespace_--SealCurrentFrameSequence.c)
+ *     _anonymous_namespace_::State::State @ 0x1800D606C (_anonymous_namespace_--State--State.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ */
+
 __int64 __fastcall anonymous_namespace_::FramesReport::FramesReport(__int64 a1)
 {
   __int64 v2; // rax

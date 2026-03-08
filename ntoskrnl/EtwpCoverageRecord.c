@@ -1,3 +1,26 @@
+/*
+ * XREFs of EtwpCoverageRecord @ 0x14078E9DC
+ * Callers:
+ *     EtwTelemetryCoverageReport @ 0x1402F9DD0 (EtwTelemetryCoverageReport.c)
+ *     EtwpCoverageHighIrqlCPWorkItemCallback @ 0x1405FD380 (EtwpCoverageHighIrqlCPWorkItemCallback.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x140871478 (EtwSetProcessTelemetryCoverage.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     TelemetryCoverageTableLocateInternal @ 0x1402F9EA8 (TelemetryCoverageTableLocateInternal.c)
+ *     EtwpCoverageValidateCP @ 0x1402F9EFC (EtwpCoverageValidateCP.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     EtwpCoverageAddToStringBuffer @ 0x1403BD4CC (EtwpCoverageAddToStringBuffer.c)
+ *     _tlgCreate1Sz_char @ 0x1403BE3FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpCoverageFlushPending @ 0x140799B84 (EtwpCoverageFlushPending.c)
+ *     EtwpCoverageEnsureStringBuffer @ 0x140853BB8 (EtwpCoverageEnsureStringBuffer.c)
+ */
+
 void __fastcall EtwpCoverageRecord(int **a1, __int64 a2)
 {
   int v4; // r15d

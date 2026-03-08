@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpQueryPrimaryInterruptInformation @ 0x14080BECC
+ * Callers:
+ *     HalpSecondaryInterruptQueryPrimaryInformation @ 0x14080BE70 (HalpSecondaryInterruptQueryPrimaryInformation.c)
+ * Callees:
+ *     HalpIsInterruptTypeSecondary @ 0x1402FCE50 (HalpIsInterruptTypeSecondary.c)
+ *     HalpFindSecondaryIcEntry @ 0x140379320 (HalpFindSecondaryIcEntry.c)
+ *     HalpReleaseSecondaryIcEntryShared @ 0x140379B70 (HalpReleaseSecondaryIcEntryShared.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpQueryPrimaryInterruptInformation(int *a1, __int64 a2)
 {
   unsigned int v3; // ebx

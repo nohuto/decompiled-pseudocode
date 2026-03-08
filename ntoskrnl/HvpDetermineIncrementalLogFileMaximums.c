@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvpDetermineIncrementalLogFileMaximums @ 0x1407F9890
+ * Callers:
+ *     HvAnalyzeLogFiles @ 0x1407F9528 (HvAnalyzeLogFiles.c)
+ * Callees:
+ *     HvpIncrementalLogFileEnumeratorAdvance @ 0x1407F9A98 (HvpIncrementalLogFileEnumeratorAdvance.c)
+ */
+
 __int64 __fastcall HvpDetermineIncrementalLogFileMaximums(__int64 a1, int a2, _DWORD *a3, unsigned int *a4, _DWORD *a5)
 {
   __int64 v5; // rax

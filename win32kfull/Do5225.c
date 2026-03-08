@@ -1,3 +1,11 @@
+/*
+ * XREFs of Do5225 @ 0x1C0261698
+ * Callers:
+ *     FastExpAA_CY @ 0x1C0263760 (FastExpAA_CY.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall Do5225(_BYTE *a1, unsigned __int8 *a2, unsigned __int8 *a3, unsigned __int8 *a4, int a5)
 {
   unsigned __int64 result; // rax

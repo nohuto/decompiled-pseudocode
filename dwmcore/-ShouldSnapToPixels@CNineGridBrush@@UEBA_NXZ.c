@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ShouldSnapToPixels@CNineGridBrush@@UEBA_NXZ @ 0x1800F1530
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CNineGridBrush::ShouldSnapToPixels(CNineGridBrush *this)
 {
   __int64 v1; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?OPMDestroyProtectedOutput@@YAJPEAX@Z @ 0x1C0188D54
+ * Callers:
+ *     NtGdiDestroyOPMProtectedOutput @ 0x1C0189290 (NtGdiDestroyOPMProtectedOutput.c)
+ *     DrvCreatePhysicalMonitorObjects @ 0x1C0192D10 (DrvCreatePhysicalMonitorObjects.c)
+ * Callees:
+ *     ?DestroyProtectedOutput@COPM@@QEAAJPEAX@Z @ 0x1C01883F0 (-DestroyProtectedOutput@COPM@@QEAAJPEAX@Z.c)
+ */
+
 __int64 __fastcall OPMDestroyProtectedOutput(void *a1)
 {
   __int64 v2; // rax

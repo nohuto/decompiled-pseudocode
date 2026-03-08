@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??$_Insert_range@PEBUMilRectF@@@?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@UMilRectF@@@std@@@std@@@1@PEBUMilRectF@@1Uforward_iterator_tag@1@@Z @ 0x1800E5F58
+ * Callers:
+ *     ??$insert@PEBUMilRectF@@$0A@@?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@UMilRectF@@@std@@@std@@@1@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@UMilRectF@@@std@@@std@@@1@PEBUMilRectF@@1@Z @ 0x1800E5F00 (--$insert@PEBUMilRectF@@$0A@@-$vector@UMilRectF@@V-$allocator@UMilRectF@@@std@@@std@@QEAA-AV-$_V.c)
+ * Callees:
+ *     ??$_Get_size_of_n@$0BA@@std@@YA_K_K@Z @ 0x18004269C (--$_Get_size_of_n@$0BA@@std@@YA_K_K@Z.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ */
+
 void __fastcall std::vector<MilRectF>::_Insert_range<MilRectF const *>(
         __int64 a1,
         _BYTE *a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of UserNotifyDisplayChange @ 0x1C0016710
+ * Callers:
+ *     DxgkEngNotifyDisplayChange @ 0x1C000FDC0 (DxgkEngNotifyDisplayChange.c)
+ *     DrvEnableMDEV @ 0x1C001D978 (DrvEnableMDEV.c)
+ * Callees:
+ *     ReferenceDwmApiPort @ 0x1C00167E0 (ReferenceDwmApiPort.c)
+ *     IsDwmAsyncNotifyDisplayModeChangeSupported @ 0x1C0016D1C (IsDwmAsyncNotifyDisplayModeChangeSupported.c)
+ *     DwmAsyncNotifyDisplayModeChange @ 0x1C0016D48 (DwmAsyncNotifyDisplayModeChange.c)
+ */
+
 __int64 UserNotifyDisplayChange()
 {
   __int64 v0; // rax

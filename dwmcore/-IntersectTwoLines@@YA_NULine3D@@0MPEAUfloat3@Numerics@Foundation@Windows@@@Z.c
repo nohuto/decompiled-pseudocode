@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IntersectTwoLines@@YA_NULine3D@@0MPEAUfloat3@Numerics@Foundation@Windows@@@Z @ 0x180215E8C
+ * Callers:
+ *     ?IntersectFourLines@@YA_NULine3D@@000MPEAUfloat3@Numerics@Foundation@Windows@@@Z @ 0x180215D08 (-IntersectFourLines@@YA_NULine3D@@000MPEAUfloat3@Numerics@Foundation@Windows@@@Z.c)
+ * Callees:
+ *     sqrtf_0 @ 0x1801177AC (sqrtf_0.c)
+ */
+
 bool __fastcall IntersectTwoLines(__int64 *a1, __int64 *a2, float a3, float *a4)
 {
   float v4; // xmm15_4

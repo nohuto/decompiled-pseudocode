@@ -1,3 +1,12 @@
+/*
+ * XREFs of PipDmgGetDeviceDmarPolicy @ 0x140842678
+ * Callers:
+ *     PiDmaGuardProcessPreAddDevice @ 0x14079656C (PiDmaGuardProcessPreAddDevice.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PipDmgGetDriverDmarCompatLevel @ 0x14084274C (PipDmgGetDriverDmarCompatLevel.c)
+ */
+
 __int64 __fastcall PipDmgGetDeviceDmarPolicy(_QWORD *a1)
 {
   __int64 v1; // rbp

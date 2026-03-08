@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiCreateInitialLargeLeafPfns @ 0x140213A50
+ * Callers:
+ *     MiCoalesceFreePages @ 0x140278FE0 (MiCoalesceFreePages.c)
+ *     MiDeleteClusterSection @ 0x14034B3A4 (MiDeleteClusterSection.c)
+ *     MiInitializeNewPfns @ 0x140370B10 (MiInitializeNewPfns.c)
+ *     MxCreateFreePfns @ 0x140B37690 (MxCreateFreePfns.c)
+ * Callees:
+ *     <none>
+ */
+
 __m128i *__fastcall MiCreateInitialLargeLeafPfns(__int64 a1, __int64 a2, int a3, char a4, unsigned __int16 a5, int a6)
 {
   __m128i v6; // xmm2

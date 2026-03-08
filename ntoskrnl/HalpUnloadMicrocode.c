@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpUnloadMicrocode @ 0x140931E50
+ * Callers:
+ *     HalpMcExportAndChargeNeededData @ 0x14085CB10 (HalpMcExportAndChargeNeededData.c)
+ *     HalpLoadMicrocode @ 0x140931BD0 (HalpLoadMicrocode.c)
+ * Callees:
+ *     MmReturnChargesToLockPagedPool @ 0x140A2DCE0 (MmReturnChargesToLockPagedPool.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 HalpUnloadMicrocode()
 {
   PVOID v0; // rbx

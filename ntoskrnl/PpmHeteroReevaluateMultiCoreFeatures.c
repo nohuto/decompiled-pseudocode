@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmHeteroReevaluateMultiCoreFeatures @ 0x14040B868
+ * Callers:
+ *     PopInitializeHeteroProcessors @ 0x140826970 (PopInitializeHeteroProcessors.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 PpmHeteroReevaluateMultiCoreFeatures()
 {
   int v0; // eax

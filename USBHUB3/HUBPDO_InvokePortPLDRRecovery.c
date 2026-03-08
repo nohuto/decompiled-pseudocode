@@ -1,3 +1,20 @@
+/*
+ * XREFs of HUBPDO_InvokePortPLDRRecovery @ 0x1C0081794
+ * Callers:
+ *     HUBPDO_HandlePLDRRecovery @ 0x1C001A06C (HUBPDO_HandlePLDRRecovery.c)
+ *     HUBFDO_IoctlTestPortPLDRRecovery @ 0x1C007BFE4 (HUBFDO_IoctlTestPortPLDRRecovery.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0001008 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     WPP_RECORDER_SF_DDd @ 0x1C0014BAC (WPP_RECORDER_SF_DDd.c)
+ *     HUBPDO_GetPortPath @ 0x1C001A014 (HUBPDO_GetPortPath.c)
+ *     DereferenceDeviceResetInterface @ 0x1C0043E24 (DereferenceDeviceResetInterface.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ *     QueryDeviceResetInterface @ 0x1C008F7E8 (QueryDeviceResetInterface.c)
+ */
+
 __int64 __fastcall HUBPDO_InvokePortPLDRRecovery(__int64 a1, __int64 a2)
 {
   __int64 v4; // rsi

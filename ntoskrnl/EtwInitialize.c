@@ -1,3 +1,19 @@
+/*
+ * XREFs of EtwInitialize @ 0x14080AAA4
+ * Callers:
+ *     CmCompleteRegistryInitialization @ 0x1408174BC (CmCompleteRegistryInitialization.c)
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     EtwpBuffersFlushRequired @ 0x1402052DC (EtwpBuffersFlushRequired.c)
+ *     ObGetCurrentIrql @ 0x140205E10 (ObGetCurrentIrql.c)
+ *     KeInsertQueueDpc @ 0x140230290 (KeInsertQueueDpc.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402331B0 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x14028DD10 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ */
+
 void __fastcall EtwInitialize(unsigned int a1, __int64 a2)
 {
   __int64 v3; // rdi

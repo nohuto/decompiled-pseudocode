@@ -1,3 +1,14 @@
+/*
+ * XREFs of ImpRpcAsyncUnInit @ 0x1C008D848
+ * Callers:
+ *     ImpInitializeWork @ 0x1C0089C08 (ImpInitializeWork.c)
+ *     ImpRpcDisconnect @ 0x1C008D3D4 (ImpRpcDisconnect.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C008D2C0 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 void ImpRpcAsyncUnInit()
 {
   PRPC_ASYNC_STATE v0; // rcx

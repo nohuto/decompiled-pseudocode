@@ -1,3 +1,11 @@
+/*
+ * XREFs of IvtEnsureNoPendingFaults @ 0x140529FF4
+ * Callers:
+ *     IvtSetPasidAddressSpace @ 0x14052B2E0 (IvtSetPasidAddressSpace.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IvtEnsureNoPendingFaults(_QWORD *a1, unsigned int a2)
 {
   unsigned __int64 v2; // r11

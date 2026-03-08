@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiReapplyImportOptimizationWorker @ 0x14063EA90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiApplyRetpolineFixups @ 0x140209950 (MiApplyRetpolineFixups.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmIsVerifierApplicableToImage @ 0x140619C10 (MmIsVerifierApplicableToImage.c)
+ */
+
 ULONG_PTR __fastcall MiReapplyImportOptimizationWorker(ULONG_PTR Argument)
 {
   __int64 CurrentIrql; // rsi

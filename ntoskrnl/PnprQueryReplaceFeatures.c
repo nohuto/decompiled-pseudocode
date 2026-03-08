@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnprQueryReplaceFeatures @ 0x140560CA8
+ * Callers:
+ *     PnpReplacePartitionUnit @ 0x140961B80 (PnpReplacePartitionUnit.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PnpQueryInterface @ 0x1407F8C60 (PnpQueryInterface.c)
+ */
+
 __int64 __fastcall PnprQueryReplaceFeatures(__int64 a1, PVOID *a2)
 {
   int v2; // r8d

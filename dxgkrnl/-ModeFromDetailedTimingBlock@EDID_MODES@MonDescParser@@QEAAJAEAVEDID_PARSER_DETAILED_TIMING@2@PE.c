@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ModeFromDetailedTimingBlock@EDID_MODES@MonDescParser@@QEAAJAEAVEDID_PARSER_DETAILED_TIMING@2@PEAU_VideoModeDescriptor@@@Z @ 0x1C0022B5C
+ * Callers:
+ *     ?ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z @ 0x1C001DE50 (-ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MonDescParser::EDID_MODES::ModeFromDetailedTimingBlock(
         MonDescParser::EDID_MODES *this,
         struct MonDescParser::EDID_PARSER_DETAILED_TIMING *a2,

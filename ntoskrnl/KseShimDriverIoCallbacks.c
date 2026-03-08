@@ -1,3 +1,20 @@
+/*
+ * XREFs of KseShimDriverIoCallbacks @ 0x14079D690
+ * Callers:
+ *     IopLoadDriver @ 0x14072A9DC (IopLoadDriver.c)
+ *     IopInitializeBuiltinDriver @ 0x140B58C28 (IopInitializeBuiltinDriver.c)
+ * Callees:
+ *     KsepPoolFreeNonPaged @ 0x140303C4C (KsepPoolFreeNonPaged.c)
+ *     KsepLogInfo @ 0x14036F8F4 (KsepLogInfo.c)
+ *     KsepPoolAllocateNonPaged @ 0x1403A0184 (KsepPoolAllocateNonPaged.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KsepDebugPrint @ 0x14057E834 (KsepDebugPrint.c)
+ *     KsepGetShimCallbacksForDriver @ 0x14079D47C (KsepGetShimCallbacksForDriver.c)
+ *     KsepDriverPathTail @ 0x14079D8C0 (KsepDriverPathTail.c)
+ *     KsepStringFree @ 0x14079EC60 (KsepStringFree.c)
+ *     KsepStringDuplicateUnicode @ 0x14079EC94 (KsepStringDuplicateUnicode.c)
+ */
+
 __int64 __fastcall KseShimDriverIoCallbacks(__int64 *a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r14

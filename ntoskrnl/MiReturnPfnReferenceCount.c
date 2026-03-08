@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiReturnPfnReferenceCount @ 0x1402EDD4C
+ * Callers:
+ *     MiInitializeNewImageSectionProtos @ 0x1402EAAAC (MiInitializeNewImageSectionProtos.c)
+ *     MiReleasePrefetchGapPages @ 0x1402EDD24 (MiReleasePrefetchGapPages.c)
+ *     MiIdealClusterPage @ 0x140667EB0 (MiIdealClusterPage.c)
+ *     MiDeleteImageCreationMdls @ 0x14077E610 (MiDeleteImageCreationMdls.c)
+ *     MiFillPerSessionProtos @ 0x140A4734C (MiFillPerSessionProtos.c)
+ * Callees:
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140286264 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiReturnPfnReferenceCount(__int64 a1)
 {
   unsigned __int64 v2; // rdi

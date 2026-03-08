@@ -1,3 +1,11 @@
+/*
+ * XREFs of ObpReleaseHandleInfo @ 0x1407D9010
+ * Callers:
+ *     ObpDecrementHandleCount @ 0x1407D8404 (ObpDecrementHandleCount.c)
+ * Callees:
+ *     OBJECT_HEADER_TO_HANDLE_INFO @ 0x140352F0C (OBJECT_HEADER_TO_HANDLE_INFO.c)
+ */
+
 __int64 __fastcall ObpReleaseHandleInfo(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,24 @@
+/*
+ * XREFs of EtwpUpdatePeriodicCaptureState @ 0x1409E9D28
+ * Callers:
+ *     NtTraceControl @ 0x140694040 (NtTraceControl.c)
+ * Callees:
+ *     ExAllocateTimer @ 0x140203BE0 (ExAllocateTimer.c)
+ *     ExSetTimer @ 0x1402042A0 (ExSetTimer.c)
+ *     ExCancelTimer @ 0x140204330 (ExCancelTimer.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     EtwpCheckNotificationAccess @ 0x140690CB0 (EtwpCheckNotificationAccess.c)
+ *     EtwpReleaseLoggerContext @ 0x14069349C (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140693AFC (EtwpAcquireLoggerContextByLoggerId.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpUpdatePeriodicCaptureState(__int64 a1, unsigned int a2, unsigned __int16 a3, _QWORD *a4)
 {
   __int64 v4; // r15

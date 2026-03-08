@@ -1,3 +1,15 @@
+/*
+ * XREFs of DecodeAttributeName @ 0x1409CFF1C
+ * Callers:
+ *     GetAttributeName @ 0x1409D0304 (GetAttributeName.c)
+ *     LocalGetRelativeAttributeForString @ 0x1409D2214 (LocalGetRelativeAttributeForString.c)
+ * Callees:
+ *     SddlpAlloc @ 0x1407507C8 (SddlpAlloc.c)
+ *     GetDigitFromChar2 @ 0x1409D0690 (GetDigitFromChar2.c)
+ *     IsEncodedAttributeChar @ 0x1409D1A58 (IsEncodedAttributeChar.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall DecodeAttributeName(__int64 a1, unsigned int a2, _QWORD *a3)
 {
   unsigned int v3; // ebx

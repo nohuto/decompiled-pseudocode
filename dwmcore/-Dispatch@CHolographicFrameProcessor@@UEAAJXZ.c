@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Dispatch@CHolographicFrameProcessor@@UEAAJXZ @ 0x1802AB490
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CHolographicFrameProcessor::Dispatch(CHolographicFrameProcessor *this)
 {
   if ( !WaitForSingleObject(*((HANDLE *)this + 5), 0) )

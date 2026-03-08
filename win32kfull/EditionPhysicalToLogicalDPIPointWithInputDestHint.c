@@ -1,3 +1,13 @@
+/*
+ * XREFs of EditionPhysicalToLogicalDPIPointWithInputDestHint @ 0x1C0145090
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     TransformVectorWithInputTargetPrecedence @ 0x1C01442D8 (TransformVectorWithInputTargetPrecedence.c)
+ *     ?PhysicalToLogicalDPIPointWithHitTest@@YAHPEAUtagPOINT@@0PEBU_SUBPIXELS@@PEBUtagWND@@@Z @ 0x1C0144B3C (-PhysicalToLogicalDPIPointWithHitTest@@YAHPEAUtagPOINT@@0PEBU_SUBPIXELS@@PEBUtagWND@@@Z.c)
+ */
+
 struct tagPOINT __fastcall EditionPhysicalToLogicalDPIPointWithInputDestHint(
         struct tagPOINT *a1,
         struct tagPOINT a2,

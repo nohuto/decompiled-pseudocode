@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpQueryMaximumGsiv @ 0x14080213C
+ * Callers:
+ *     HalpInitializeSecondaryInterruptServices @ 0x140B35558 (HalpInitializeSecondaryInterruptServices.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpQueryMaximumGsiv(unsigned int *a1)
 {
   ULONG_PTR *v1; // r8

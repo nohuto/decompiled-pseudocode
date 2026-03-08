@@ -1,3 +1,11 @@
+/*
+ * XREFs of _MapCmDevicePropertyToNtProperty @ 0x140244CDC
+ * Callers:
+ *     _CmGetDeviceRegPropWorker @ 0x1406C9A04 (_CmGetDeviceRegPropWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MapCmDevicePropertyToNtProperty(__int64 a1, int a2)
 {
   int v2; // edx

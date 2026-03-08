@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0MousePerfSummary@@QEAA@XZ @ 0x1C0095F48
+ * Callers:
+ *     ??0CMouseProcessor@@IEAA@XZ @ 0x1C0095D40 (--0CMouseProcessor@@IEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 MousePerfSummary *__fastcall MousePerfSummary::MousePerfSummary(MousePerfSummary *this)
 {
   MousePerfSummary *result; // rax

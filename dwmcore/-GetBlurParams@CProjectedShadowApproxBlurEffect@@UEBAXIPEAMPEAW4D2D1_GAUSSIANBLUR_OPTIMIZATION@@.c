@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetBlurParams@CProjectedShadowApproxBlurEffect@@UEBAXIPEAMPEAW4D2D1_GAUSSIANBLUR_OPTIMIZATION@@PEAW4D2D1_BORDER_MODE@@@Z @ 0x180108500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CProjectedShadowApproxBlurEffect::GetBlurParams(
         CProjectedShadowApproxBlurEffect *this,
         __int64 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of EngWaitForSingleObject @ 0x1C027BBD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 BOOL __stdcall EngWaitForSingleObject(PEVENT pEvent, PLARGE_INTEGER pTimeOut)
 {
   return pEvent->pKEvent

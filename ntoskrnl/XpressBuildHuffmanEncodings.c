@@ -1,3 +1,12 @@
+/*
+ * XREFs of XpressBuildHuffmanEncodings @ 0x14036EEC0
+ * Callers:
+ *     RtlCompressBufferXpressHuffStandard @ 0x14036E3C0 (RtlCompressBufferXpressHuffStandard.c)
+ *     RtlCompressBufferXpressHuffMax @ 0x1405B03C4 (RtlCompressBufferXpressHuffMax.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall XpressBuildHuffmanEncodings(_QWORD *a1)
 {
   char *v2; // r14

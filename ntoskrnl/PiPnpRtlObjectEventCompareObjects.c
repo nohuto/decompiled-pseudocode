@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiPnpRtlObjectEventCompareObjects @ 0x14076C560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ */
+
 __int64 __fastcall PiPnpRtlObjectEventCompareObjects(
         struct _RTL_AVL_TABLE *Table,
         __int64 *FirstStruct,

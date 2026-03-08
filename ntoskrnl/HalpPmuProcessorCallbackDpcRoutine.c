@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpPmuProcessorCallbackDpcRoutine @ 0x140505920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpPmuProcessorCallbackDpcRoutine(__int64 a1, __int64 a2, volatile signed __int32 *a3)
 {
   __int64 result; // rax

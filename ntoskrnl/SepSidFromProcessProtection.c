@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepSidFromProcessProtection @ 0x140247C8C
+ * Callers:
+ *     SepReferenceTokenUsingPseudoHandle @ 0x140247AA0 (SepReferenceTokenUsingPseudoHandle.c)
+ *     SepReconcileTrustSidWithProcessProtection @ 0x140247C30 (SepReconcileTrustSidWithProcessProtection.c)
+ *     SepSetTrustLevelForProcessToken @ 0x140296E90 (SepSetTrustLevelForProcessToken.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SepSidFromProcessProtection(_BYTE *a1)
 {
   __int64 v1; // r8

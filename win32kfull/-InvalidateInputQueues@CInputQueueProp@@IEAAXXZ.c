@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InvalidateInputQueues@CInputQueueProp@@IEAAXXZ @ 0x1C00E4D1C
+ * Callers:
+ *     ?Delete@CInputQueueProp@@UEAAXXZ @ 0x1C00E4CF0 (-Delete@CInputQueueProp@@UEAAXXZ.c)
+ * Callees:
+ *     ?Reset@?$CDynamicArray@PEAVIInputQueue@@$0HHHAHDFF@@@QEAAX_N@Z @ 0x1C00E4DA4 (-Reset@-$CDynamicArray@PEAVIInputQueue@@$0HHHAHDFF@@@QEAAX_N@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CInputQueueProp::InvalidateInputQueues(CInputQueueProp *this)
 {
   __int64 i; // rbp

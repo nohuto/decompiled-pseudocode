@@ -1,3 +1,11 @@
+/*
+ * XREFs of UnloadWin32kCall @ 0x1C00B1C18
+ * Callers:
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C015C290 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ * Callees:
+ *     ?SetWin32kSilo@@YAPEAU_EJOB@@AEAPEAX@Z @ 0x1C00B264C (-SetWin32kSilo@@YAPEAU_EJOB@@AEAPEAX@Z.c)
+ */
+
 __int64 UnloadWin32kCall()
 {
   __int64 result; // rax

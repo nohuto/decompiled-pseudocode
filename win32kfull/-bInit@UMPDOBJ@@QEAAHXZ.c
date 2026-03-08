@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?bInit@UMPDOBJ@@QEAAHXZ @ 0x1C029C0E4
+ * Callers:
+ *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1C02B9F40 (--0XUMPDOBJ@@QEAA@XZ.c)
+ * Callees:
+ *     ?Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@EK@Z @ 0x1C0029D88 (-Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@EK@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?CreateUMPDHeap@UMPDOBJ@@AEAAPEAU_UMPDHEAP@@XZ @ 0x1C029B4D8 (-CreateUMPDHeap@UMPDOBJ@@AEAAPEAU_UMPDHEAP@@XZ.c)
+ *     ?FreeNonCachedUserMem@UMPDOBJ@@QEAAXXZ @ 0x1C029B5E4 (-FreeNonCachedUserMem@UMPDOBJ@@QEAAXXZ.c)
+ *     ?bSandboxedCurrentProcess@@YAHXZ @ 0x1C029C37C (-bSandboxedCurrentProcess@@YAHXZ.c)
+ *     ??0PROXYPORT@@QEAA@_K@Z @ 0x1C02C1A94 (--0PROXYPORT@@QEAA@_K@Z.c)
+ */
+
 __int64 __fastcall UMPDOBJ::bInit(UMPDOBJ *this)
 {
   __int64 v2; // rcx

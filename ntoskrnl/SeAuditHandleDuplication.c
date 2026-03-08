@@ -1,3 +1,18 @@
+/*
+ * XREFs of SeAuditHandleDuplication @ 0x1409C77FC
+ * Callers:
+ *     ObDuplicateObject @ 0x1406ED5C0 (ObDuplicateObject.c)
+ *     ObCompleteObjectDuplication @ 0x14071134C (ObCompleteObjectDuplication.c)
+ *     ObAuditInheritedHandleProcedure @ 0x140977D60 (ObAuditInheritedHandleProcedure.c)
+ * Callees:
+ *     ObpIsKernelHandle @ 0x1403521C8 (ObpIsKernelHandle.c)
+ *     SepAdtLogAuditRecord @ 0x140397890 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ */
+
 void __fastcall SeAuditHandleDuplication(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v8; // rsi

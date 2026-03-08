@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CaptureLogicalCursorPosToQMouseMove@CMouseProcessor@@QEAAXPEAUtagQ@@@Z @ 0x1C007A118
+ * Callers:
+ *     CaptureLogicalCursorPosToQMouseMove @ 0x1C0079DE0 (CaptureLogicalCursorPosToQMouseMove.c)
+ * Callees:
+ *     ?LogicalCursorPosFromDpiAwarenessContext@CMouseProcessor@@QEAA?AUtagPOINT@@K@Z @ 0x1C000BCC8 (-LogicalCursorPosFromDpiAwarenessContext@CMouseProcessor@@QEAA-AUtagPOINT@@K@Z.c)
+ */
+
 void __fastcall CMouseProcessor::CaptureLogicalCursorPosToQMouseMove(CMouseProcessor *this, struct tagQ *a2)
 {
   __int64 v2; // rax

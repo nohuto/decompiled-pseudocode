@@ -1,3 +1,18 @@
+/*
+ * XREFs of EmpParseRuleTerm @ 0x140B4D578
+ * Callers:
+ *     EmpParseRuleExpression @ 0x140B4D6DC (EmpParseRuleExpression.c)
+ * Callees:
+ *     EmpSearchRuleDatabase @ 0x1402D62C8 (EmpSearchRuleDatabase.c)
+ *     EmpSearchCallbackDatabase @ 0x1403862C4 (EmpSearchCallbackDatabase.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     strchr @ 0x1403D5520 (strchr.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     EmpInfParseGetGuidFromName @ 0x140B4DFF0 (EmpInfParseGetGuidFromName.c)
+ *     EmpParseRuleTermArgMapping @ 0x140B4E9B8 (EmpParseRuleTermArgMapping.c)
+ */
+
 __int64 __fastcall EmpParseRuleTerm(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *a4, unsigned int *a5)
 {
   __int64 v5; // rbx

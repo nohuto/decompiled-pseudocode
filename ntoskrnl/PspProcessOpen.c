@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspProcessOpen @ 0x14070C690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PspIsParentProcess @ 0x140298EF8 (PspIsParentProcess.c)
+ *     PsTestProtectedProcessIncompatibility @ 0x14070C774 (PsTestProtectedProcessIncompatibility.c)
+ */
+
 __int64 __fastcall PspProcessOpen(__int64 a1, char a2, __int64 a3, __int64 a4, int *a5)
 {
   bool IsParentProcess; // al

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PspStorageInsertObject @ 0x140738660
+ * Callers:
+ *     PsInsertSiloContext @ 0x140738510 (PsInsertSiloContext.c)
+ *     PsInsertPermanentSiloContextEx @ 0x14073858C (PsInsertPermanentSiloContextEx.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PspGetStorageArray @ 0x140738754 (PspGetStorageArray.c)
+ */
+
 __int64 __fastcall PspStorageInsertObject(__int64 a1, __int64 a2, char a3, __int64 a4)
 {
   __int64 result; // rax

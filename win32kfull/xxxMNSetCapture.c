@@ -1,3 +1,15 @@
+/*
+ * XREFs of xxxMNSetCapture @ 0x1C021CCC4
+ * Callers:
+ *     xxxMNEndMenuStateInternal @ 0x1C02026A0 (xxxMNEndMenuStateInternal.c)
+ *     xxxMNStartMenu @ 0x1C0202834 (xxxMNStartMenu.c)
+ *     xxxMNKeyDown @ 0x1C021ABF8 (xxxMNKeyDown.c)
+ *     xxxMenuWindowProc @ 0x1C021D3D0 (xxxMenuWindowProc.c)
+ * Callees:
+ *     xxxCapture @ 0x1C0010A5C (xxxCapture.c)
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ */
+
 void __fastcall xxxMNSetCapture(__int64 a1, __int64 a2)
 {
   __int64 v4; // rdx

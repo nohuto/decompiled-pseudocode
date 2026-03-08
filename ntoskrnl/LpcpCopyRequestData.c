@@ -1,3 +1,18 @@
+/*
+ * XREFs of LpcpCopyRequestData @ 0x14097523C
+ * Callers:
+ *     NtReadRequestData @ 0x1409756F0 (NtReadRequestData.c)
+ *     NtWriteRequestData @ 0x140975870 (NtWriteRequestData.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     AlpcpProbeAndCaptureMessageHeader @ 0x140715E54 (AlpcpProbeAndCaptureMessageHeader.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     MiCopyVirtualMemory @ 0x1407C5950 (MiCopyVirtualMemory.c)
+ *     AlpcpLookupMessage @ 0x1407CA7C0 (AlpcpLookupMessage.c)
+ */
+
 NTSTATUS __fastcall LpcpCopyRequestData(
         char a1,
         void *a2,

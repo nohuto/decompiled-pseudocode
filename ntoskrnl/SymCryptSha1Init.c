@@ -1,3 +1,12 @@
+/*
+ * XREFs of SymCryptSha1Init @ 0x1403F7520
+ * Callers:
+ *     SymCryptSha1Result @ 0x1403F7550 (SymCryptSha1Result.c)
+ *     HashpInitHash @ 0x140A749CC (HashpInitHash.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptSha1Init(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiTpBuildExcludedKernelTracepointBitmap @ 0x140973330
+ * Callers:
+ *     KiTpIsExcludedKernelTracepointLocation @ 0x140973550 (KiTpIsExcludedKernelTracepointLocation.c)
+ * Callees:
+ *     RtlLookupFunctionEntry @ 0x140281130 (RtlLookupFunctionEntry.c)
+ *     RtlSetBits @ 0x14028BC50 (RtlSetBits.c)
+ *     RtlpxLookupFunctionTable @ 0x1402CB3A0 (RtlpxLookupFunctionTable.c)
+ *     KeReadStateSemaphore @ 0x1402CBA80 (KeReadStateSemaphore.c)
+ *     RtlIsSpecialUnwind @ 0x1405AF52C (RtlIsSpecialUnwind.c)
+ *     RtlLookupPrimaryFunctionEntry @ 0x1405AF584 (RtlLookupPrimaryFunctionEntry.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 PRTL_BITMAP __fastcall KiTpBuildExcludedKernelTracepointBitmap(PRTL_BITMAP BitMapHeader)
 {
   __int64 v1; // rbx

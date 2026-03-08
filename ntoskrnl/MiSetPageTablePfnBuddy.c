@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiSetPageTablePfnBuddy @ 0x1402A6F18
+ * Callers:
+ *     KiInSwapProcesses @ 0x1402C0180 (KiInSwapProcesses.c)
+ *     MiInitializeSystemPageTable @ 0x1403483AC (MiInitializeSystemPageTable.c)
+ *     MiCreatePfnTemplate @ 0x1403708F4 (MiCreatePfnTemplate.c)
+ *     MiMakeOutswappedPageResident @ 0x14061612C (MiMakeOutswappedPageResident.c)
+ *     MiAllocateTopLevelPage @ 0x140728F6C (MiAllocateTopLevelPage.c)
+ *     MiInitializeBootProcess @ 0x140B38C84 (MiInitializeBootProcess.c)
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ *     MxInsertEnclaveBootPages @ 0x140B96C30 (MxInsertEnclaveBootPages.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiSetPageTablePfnBuddy(__int64 a1, __int64 a2, int a3)
 {
   unsigned __int8 v5; // bl

@@ -1,3 +1,11 @@
+/*
+ * XREFs of WmipGetGuidPropertiesFromGuidEntry @ 0x1409DDB04
+ * Callers:
+ *     WmipEnumerateGuids @ 0x1409DD9FC (WmipEnumerateGuids.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WmipGetGuidPropertiesFromGuidEntry(__int64 a1, __int64 a2)
 {
   __int64 *v2; // r9

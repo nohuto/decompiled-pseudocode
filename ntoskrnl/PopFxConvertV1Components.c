@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopFxConvertV1Components @ 0x140836BD8
+ * Callers:
+ *     PoFxRegisterPrimaryDevice @ 0x140836980 (PoFxRegisterPrimaryDevice.c)
+ *     PoFxRegisterCoreDevice @ 0x140836AB0 (PoFxRegisterCoreDevice.c)
+ *     PoFxRegisterDevice @ 0x140836D70 (PoFxRegisterDevice.c)
+ * Callees:
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void *__fastcall PopFxConvertV1Components(__int64 a1, unsigned int a2)
 {
   __int64 v2; // rbx

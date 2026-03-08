@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AppendDirtyRegionLists@CDirtyRegion@@AEAAXII@Z @ 0x1800772F0
+ * Callers:
+ *     ?Optimize@CDirtyRegion@@QEAAXXZ @ 0x180074E70 (-Optimize@CDirtyRegion@@QEAAXXZ.c)
+ *     ?Merge@CDirtyRegion@@AEAAXII@Z @ 0x180077D00 (-Merge@CDirtyRegion@@AEAAXII@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CDirtyRegion::AppendDirtyRegionLists(CDirtyRegion *this, unsigned int a2, unsigned int a3)
 {
   __int64 v3; // r10

@@ -1,3 +1,14 @@
+/*
+ * XREFs of WheaFlushETWEventsSelectProcessor @ 0x14057DE20
+ * Callers:
+ *     KiAltContextWorkQueueAddItem @ 0x14057DD74 (KiAltContextWorkQueueAddItem.c)
+ *     WheaFlushETWEventsAddWorkRtn @ 0x140610BC4 (WheaFlushETWEventsAddWorkRtn.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetCurrentProcessorNumberEx @ 0x1402C1200 (KeGetCurrentProcessorNumberEx.c)
+ *     KeGetProcessorNumberFromIndex @ 0x1403644D0 (KeGetProcessorNumberFromIndex.c)
+ */
+
 NTSTATUS __fastcall WheaFlushETWEventsSelectProcessor(PPROCESSOR_NUMBER ProcNumber)
 {
   int Number; // edi

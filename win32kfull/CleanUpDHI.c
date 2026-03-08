@@ -1,3 +1,12 @@
+/*
+ * XREFs of CleanUpDHI @ 0x1C00181B0
+ * Callers:
+ *     HT_DestroyDeviceHalftoneInfo @ 0x1C0018188 (HT_DestroyDeviceHalftoneInfo.c)
+ *     HT_CreateDeviceHalftoneInfo @ 0x1C00195AC (HT_CreateDeviceHalftoneInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CleanUpDHI(HSEMAPHORE *pv)
 {
   HSEMAPHORE v2; // rcx

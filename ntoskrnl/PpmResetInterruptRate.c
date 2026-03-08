@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmResetInterruptRate @ 0x14045B240
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PpmResetInterruptRate(_DWORD *a1)
 {
   struct _KPRCB *CurrentPrcb; // rcx

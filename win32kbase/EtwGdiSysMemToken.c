@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwGdiSysMemToken @ 0x1C00D4940
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0qqxx_EtwWriteTransfer @ 0x1C01674B8 (McTemplateK0qqxx_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall EtwGdiSysMemToken(int a1, char a2, int a3, char a4)
 {
   __int64 result; // rax

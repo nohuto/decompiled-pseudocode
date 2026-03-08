@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RetirePresentHistory@DXGPRESENTHISTORYTOKENQUEUE@@QEAAJI@Z @ 0x1C00185B4
+ * Callers:
+ *     DxgkGetPresentHistoryInternal @ 0x1C01DE730 (DxgkGetPresentHistoryInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DXGPRESENTHISTORYTOKENQUEUE::RetirePresentHistory(DXGPRESENTHISTORYTOKENQUEUE *this, int a2)
 {
   int v4; // ecx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of SiBootEntryGetNtFilePath @ 0x140A5CC24
+ * Callers:
+ *     SiGetEspFromFirmware @ 0x140A5D1A4 (SiGetEspFromFirmware.c)
+ * Callees:
+ *     ZwTranslateFilePath @ 0x140415D90 (ZwTranslateFilePath.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SiBootEntryGetNtFilePath(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rax

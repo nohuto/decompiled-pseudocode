@@ -1,3 +1,25 @@
+/*
+ * XREFs of GreLockVisRgn @ 0x1C00794E0
+ * Callers:
+ *     InitUserScreen @ 0x1C00127A8 (InitUserScreen.c)
+ *     GreSuspendDirectDraw @ 0x1C001F220 (GreSuspendDirectDraw.c)
+ *     ?DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z @ 0x1C001F834 (-DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z.c)
+ *     xxxEnumDisplayMonitors @ 0x1C003AE40 (xxxEnumDisplayMonitors.c)
+ *     UserGetMonitorDC @ 0x1C003BFDC (UserGetMonitorDC.c)
+ *     DelayedDestroyCacheDC @ 0x1C003D924 (DelayedDestroyCacheDC.c)
+ *     DestroyCacheDC @ 0x1C003DA20 (DestroyCacheDC.c)
+ *     NtUserGetDC @ 0x1C003EFA0 (NtUserGetDC.c)
+ *     ?DxLddmCleanupAtProcessDestroy@@YAXK@Z @ 0x1C006D050 (-DxLddmCleanupAtProcessDestroy@@YAXK@Z.c)
+ *     xxxUserProcessCallout @ 0x1C0074450 (xxxUserProcessCallout.c)
+ *     DestroyCacheDCEntries @ 0x1C007944C (DestroyCacheDCEntries.c)
+ *     ?GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z @ 0x1C00A49CC (-GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z.c)
+ *     DestroyMonitorDCs @ 0x1C00D0790 (DestroyMonitorDCs.c)
+ *     GreLockVisRgnSharedOrExclusive @ 0x1C0197440 (GreLockVisRgnSharedOrExclusive.c)
+ * Callees:
+ *     McTemplateK0pqz_EtwWriteTransfer @ 0x1C0198958 (McTemplateK0pqz_EtwWriteTransfer.c)
+ *     McTemplateK0pz_EtwWriteTransfer @ 0x1C0198A10 (McTemplateK0pz_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall GreLockVisRgn(__int64 a1)
 {
   _QWORD *v1; // rbx

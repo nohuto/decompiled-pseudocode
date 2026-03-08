@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_ECScalarForce@@EEAAPEAXI@Z @ 0x1802726C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 CScalarForce *__fastcall CScalarForce::`vector deleting destructor'(CScalarForce *this, char a2)
 {
   __int64 v4; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpLocateRelatedBlocks @ 0x1405B2CE4
+ * Callers:
+ *     RtlpHpHeapHandleError @ 0x1405B2C54 (RtlpHpHeapHandleError.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpLocateRelatedBlocks(__int64 a1, unsigned __int64 a2)
 {
   __int64 *v4; // rcx

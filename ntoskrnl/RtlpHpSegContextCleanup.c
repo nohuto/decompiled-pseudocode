@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpHpSegContextCleanup @ 0x1405B4600
+ * Callers:
+ *     RtlpHpHeapDestroy @ 0x1405B4210 (RtlpHpHeapDestroy.c)
+ * Callees:
+ *     RtlpHpSegSegmentFree @ 0x140308E54 (RtlpHpSegSegmentFree.c)
+ */
+
 void __fastcall RtlpHpSegContextCleanup(__int64 a1)
 {
   _QWORD *v2; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of xxxClientLoadOLE @ 0x1C0234524
+ * Callers:
+ *     xxxMNStartMenu @ 0x1C0202834 (xxxMNStartMenu.c)
+ * Callees:
+ *     xxxUserModeCallback @ 0x1C02165AC (xxxUserModeCallback.c)
+ */
+
 __int64 __fastcall xxxClientLoadOLE(__int64 a1)
 {
   __int64 CurrentProcessWin32Process; // rax

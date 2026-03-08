@@ -1,3 +1,19 @@
+/*
+ * XREFs of VerifierMmMapLockedPagesSpecifyCache @ 0x140AE0250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     VfCheckPagePriority @ 0x140AC07A0 (VfCheckPagePriority.c)
+ *     ViTargetAddToCounter @ 0x140AC8994 (ViTargetAddToCounter.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ *     VfFaultsInjectResourceFailure @ 0x140AD2FAC (VfFaultsInjectResourceFailure.c)
+ *     VfFaultsIsSystemSufficientlyBooted @ 0x140AD30E8 (VfFaultsIsSystemSufficientlyBooted.c)
+ *     ViMmMapLockedPagesSanityChecks @ 0x140AE0A58 (ViMmMapLockedPagesSanityChecks.c)
+ */
+
 PVOID __fastcall VerifierMmMapLockedPagesSpecifyCache(
         struct _MDL *BugCheckParameter2,
         KPROCESSOR_MODE a2,

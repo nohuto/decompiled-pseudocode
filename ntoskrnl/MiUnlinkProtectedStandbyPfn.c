@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiUnlinkProtectedStandbyPfn @ 0x14032F4F0
+ * Callers:
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiUnlinkStandbyPage @ 0x140464E9A (MiUnlinkStandbyPage.c)
+ * Callees:
+ *     MiSetPfnPteFrame @ 0x14028A310 (MiSetPfnPteFrame.c)
+ *     MiDecayNodeNowEmpty @ 0x1402D6BC0 (MiDecayNodeNowEmpty.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ */
+
 void __fastcall MiUnlinkProtectedStandbyPfn(_QWORD *a1)
 {
   unsigned __int64 v1; // rdx

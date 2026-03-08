@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifKeTryToAcquireSpinLockAtDpcLevelWrapper @ 0x1405E3D90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxTryToAcquireSpinLock @ 0x14036B144 (KxTryToAcquireSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 char __fastcall DifKeTryToAcquireSpinLockAtDpcLevelWrapper(volatile signed __int32 *a1)
 {
   __int64 *APIThunkContextById; // rax

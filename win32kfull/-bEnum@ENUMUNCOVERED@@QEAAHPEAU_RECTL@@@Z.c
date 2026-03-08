@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bEnum@ENUMUNCOVERED@@QEAAHPEAU_RECTL@@@Z @ 0x1C010E018
+ * Callers:
+ *     ?vComputeUncoveredSpriteRegion@RGNOBJ@@QEAAXAEAVPDEVOBJ@@@Z @ 0x1C010DEB4 (-vComputeUncoveredSpriteRegion@RGNOBJ@@QEAAXAEAVPDEVOBJ@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ENUMUNCOVERED::bEnum(ENUMUNCOVERED *this, struct _RECTL *a2)
 {
   LONG *v2; // r10

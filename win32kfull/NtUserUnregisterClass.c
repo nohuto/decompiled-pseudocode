@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserUnregisterClass @ 0x1C0040C10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _UnregisterClass @ 0x1C0040D80 (_UnregisterClass.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall NtUserUnregisterClass(ULONG64 a1, __int64 a2, ULONG64 a3)
 {
   int v6; // ecx

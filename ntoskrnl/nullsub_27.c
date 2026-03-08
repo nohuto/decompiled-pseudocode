@@ -1,3 +1,11 @@
+/*
+ * XREFs of nullsub_27 @ 0x140A7B800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall nullsub_27(
         __int64 a1,
         __int64 a2,

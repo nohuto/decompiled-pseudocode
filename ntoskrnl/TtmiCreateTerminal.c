@@ -1,3 +1,23 @@
+/*
+ * XREFs of TtmiCreateTerminal @ 0x1409A7DD8
+ * Callers:
+ *     TtmInitCurrentSession @ 0x1409A0FC0 (TtmInitCurrentSession.c)
+ *     TtmpDispatchCreateTerminal @ 0x1409A358C (TtmpDispatchCreateTerminal.c)
+ * Callees:
+ *     KeInitializeTimerEx @ 0x140237DB0 (KeInitializeTimerEx.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     RtlFindClearBitsAndSet @ 0x14030CEE0 (RtlFindClearBitsAndSet.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ *     ObInsertObject @ 0x1407F0A20 (ObInsertObject.c)
+ *     TtmiUpdateActiveTerminalCount @ 0x1409A1DF0 (TtmiUpdateActiveTerminalCount.c)
+ *     TtmiLogError @ 0x1409A536C (TtmiLogError.c)
+ *     TtmiLogTerminalCreated @ 0x1409A7140 (TtmiLogTerminalCreated.c)
+ *     TtmpSetTerminalPendingCleanup @ 0x1409A8A60 (TtmpSetTerminalPendingCleanup.c)
+ */
+
 __int64 __fastcall TtmiCreateTerminal(__int64 a1, ACCESS_MASK a2, char a3, HANDLE *a4, PVOID Object, _QWORD *a6)
 {
   _DWORD *v6; // r14

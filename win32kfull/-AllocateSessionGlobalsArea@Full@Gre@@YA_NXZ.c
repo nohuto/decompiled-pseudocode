@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AllocateSessionGlobalsArea@Full@Gre@@YA_NXZ @ 0x1C00EB048
+ * Callers:
+ *     AllocateEditionSessionGlobalsArea @ 0x1C00EB030 (AllocateEditionSessionGlobalsArea.c)
+ * Callees:
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 bool __fastcall Gre::Full::AllocateSessionGlobalsArea(Gre::Full *this)
 {
   __int64 v1; // rbx

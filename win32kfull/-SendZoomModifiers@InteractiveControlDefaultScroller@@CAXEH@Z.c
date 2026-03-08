@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SendZoomModifiers@InteractiveControlDefaultScroller@@CAXEH@Z @ 0x1C024A964
+ * Callers:
+ *     ?GenerateWheelMessage@InteractiveControlDefaultScroller@@AEAAJFPEAUtagWND@@@Z @ 0x1C024A564 (-GenerateWheelMessage@InteractiveControlDefaultScroller@@AEAAJFPEAUtagWND@@@Z.c)
+ *     ?SendZoomHotkey@InteractiveControlDefaultScroller@@AEAAHF@Z @ 0x1C024A88C (-SendZoomHotkey@InteractiveControlDefaultScroller@@AEAAHF@Z.c)
+ * Callees:
+ *     xxxSendInput @ 0x1C00171A4 (xxxSendInput.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 void __fastcall InteractiveControlDefaultScroller::SendZoomModifiers(char a1, int a2)
 {
   __int64 v4; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InterruptDisable@FxInterrupt@@AEAAJXZ @ 0x1C007F58C
+ * Callers:
+ *     ?Disconnect@FxInterrupt@@QEAAJK@Z @ 0x1C007ED80 (-Disconnect@FxInterrupt@@QEAAJK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FxInterrupt::InterruptDisable(FxInterrupt *this)
 {
   __int64 result; // rax

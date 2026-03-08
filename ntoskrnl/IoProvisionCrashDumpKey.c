@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoProvisionCrashDumpKey @ 0x14054E504
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     SecureDump_GetSecureDumpSettings @ 0x140392344 (SecureDump_GetSecureDumpSettings.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     SecureDump_ReInitialize @ 0x14055C0B8 (SecureDump_ReInitialize.c)
+ */
+
 __int64 IoProvisionCrashDumpKey()
 {
   __int64 result; // rax

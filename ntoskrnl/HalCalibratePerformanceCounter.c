@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalCalibratePerformanceCounter @ 0x1404FC150
+ * Callers:
+ *     HalpTscFallback @ 0x140508250 (HalpTscFallback.c)
+ *     KiCalibrateTimeAdjustment @ 0x140A9BEC0 (KiCalibrateTimeAdjustment.c)
+ * Callees:
+ *     HalpTimerResetProfileAdjustment @ 0x1402C9D50 (HalpTimerResetProfileAdjustment.c)
+ *     HalpSetVirtualRtc @ 0x1402D13F0 (HalpSetVirtualRtc.c)
+ *     HalpTimerCalibratePerformanceCounter @ 0x1403772B8 (HalpTimerCalibratePerformanceCounter.c)
+ *     HalpTimerScaleCounter @ 0x1403BE604 (HalpTimerScaleCounter.c)
+ *     HalpQueryVirtualRtc @ 0x1405094B0 (HalpQueryVirtualRtc.c)
+ */
+
 __int64 __fastcall HalCalibratePerformanceCounter(volatile signed __int32 *a1, unsigned __int64 a2)
 {
   unsigned int Number; // r11d

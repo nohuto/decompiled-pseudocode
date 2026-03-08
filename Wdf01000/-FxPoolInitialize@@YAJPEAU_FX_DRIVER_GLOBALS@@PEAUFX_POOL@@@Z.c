@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FxPoolInitialize@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@@Z @ 0x1C0045734
+ * Callers:
+ *     FxInitialize @ 0x1C0043DE4 (FxInitialize.c)
+ * Callees:
+ *     WPP_IFR_SF_qd @ 0x1C0007FCC (WPP_IFR_SF_qd.c)
+ */
+
 __int64 __fastcall FxPoolInitialize(_FX_DRIVER_GLOBALS *FxDriverGlobals, FX_POOL *Pool)
 {
   if ( FxDriverGlobals->FxVerboseOn )

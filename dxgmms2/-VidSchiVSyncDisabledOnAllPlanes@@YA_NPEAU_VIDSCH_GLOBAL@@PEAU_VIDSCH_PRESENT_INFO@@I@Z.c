@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?VidSchiVSyncDisabledOnAllPlanes@@YA_NPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_PRESENT_INFO@@I@Z @ 0x1C004B204
+ * Callers:
+ *     VidSchiControlVSyncThread @ 0x1C000E940 (VidSchiControlVSyncThread.c)
+ *     ?VidSchiControlIndependentVidPnVSyncThread@@YAXPEAU_VIDSCH_GLOBAL@@@Z @ 0x1C0035840 (-VidSchiControlIndependentVidPnVSyncThread@@YAXPEAU_VIDSCH_GLOBAL@@@Z.c)
+ *     ?VidSchiSetInterruptTargetPresentId@@YAJPEAU_VIDSCH_GLOBAL@@II_K_NI@Z @ 0x1C004A448 (-VidSchiSetInterruptTargetPresentId@@YAJPEAU_VIDSCH_GLOBAL@@II_K_NI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall VidSchiVSyncDisabledOnAllPlanes(struct _VIDSCH_GLOBAL *a1, struct _VIDSCH_PRESENT_INFO *a2, int a3)
 {
   unsigned int v3; // r10d

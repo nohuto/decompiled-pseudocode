@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AdjustNodeWorldBounds@CVisual@@QEBA_NPEAV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@_N@Z @ 0x1800DADA4
+ * Callers:
+ *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18006B3A0 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CVisual::AdjustNodeWorldBounds(__int64 a1, float *a2, char a3)
 {
   float v3; // xmm4_4

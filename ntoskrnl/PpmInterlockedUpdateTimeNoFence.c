@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmInterlockedUpdateTimeNoFence @ 0x140306BCC
+ * Callers:
+ *     PoLatencySensitivityHint @ 0x1402D2A30 (PoLatencySensitivityHint.c)
+ *     PopFxIdleWorkerTail @ 0x140306748 (PopFxIdleWorkerTail.c)
+ *     PopFxIdleComponent @ 0x140306A50 (PopFxIdleComponent.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PpmInterlockedUpdateTimeNoFence(volatile signed __int64 *a1, unsigned __int64 a2, unsigned __int64 *a3)
 {
   unsigned __int64 v3; // rax

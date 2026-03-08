@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserRegisterSystemThread @ 0x1C01DA990
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     ?zzzJournalAttach@@YAHPEAUtagTHREADINFO@@H@Z @ 0x1C01BC76C (-zzzJournalAttach@@YAHPEAUtagTHREADINFO@@H@Z.c)
+ */
+
 __int64 __fastcall NtUserRegisterSystemThread(char a1)
 {
   __int64 v2; // rcx

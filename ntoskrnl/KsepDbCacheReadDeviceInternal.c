@@ -1,3 +1,17 @@
+/*
+ * XREFs of KsepDbCacheReadDeviceInternal @ 0x1408012E8
+ * Callers:
+ *     KsepDbCacheReadDevice @ 0x1408013F0 (KsepDbCacheReadDevice.c)
+ * Callees:
+ *     SdbFindNextTag @ 0x1407A0218 (SdbFindNextTag.c)
+ *     SdbGetDatabaseMatchEx @ 0x1407A1A40 (SdbGetDatabaseMatchEx.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ *     SdbTagRefToTagID @ 0x140800B74 (SdbTagRefToTagID.c)
+ *     KsepCacheDeviceInsertData @ 0x140800C10 (KsepCacheDeviceInsertData.c)
+ *     KsepDbReadKFlag @ 0x140800CD0 (KsepDbReadKFlag.c)
+ *     KsepDbReadKData @ 0x140973EE8 (KsepDbReadKData.c)
+ */
+
 __int64 __fastcall KsepDbCacheReadDeviceInternal(__int64 a1, __int64 a2, const wchar_t *a3, __int64 a4)
 {
   unsigned int DatabaseMatch; // eax

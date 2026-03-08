@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepShouldSetDelinkFlags @ 0x14074333C
+ * Callers:
+ *     SepInternalSetSecurityAttributesToken @ 0x1402BE3C0 (SepInternalSetSecurityAttributesToken.c)
+ *     NtSetInformationToken @ 0x140741E70 (NtSetInformationToken.c)
+ * Callees:
+ *     SepPotentialGlobalTableAttribute @ 0x14024799C (SepPotentialGlobalTableAttribute.c)
+ */
+
 char __fastcall SepShouldSetDelinkFlags(_DWORD *a1, __int64 a2)
 {
   char v2; // bl

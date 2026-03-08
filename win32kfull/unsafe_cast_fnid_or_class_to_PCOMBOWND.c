@@ -1,3 +1,11 @@
+/*
+ * XREFs of unsafe_cast_fnid_or_class_to_PCOMBOWND @ 0x1C01BC390
+ * Callers:
+ *     xxxGetComboBoxInfo @ 0x1C02334F4 (xxxGetComboBoxInfo.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall unsafe_cast_fnid_or_class_to_PCOMBOWND(_QWORD *a1)
 {
   __int64 v2; // r8

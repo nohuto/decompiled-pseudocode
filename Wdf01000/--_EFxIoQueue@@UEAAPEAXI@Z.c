@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_EFxIoQueue@@UEAAPEAXI@Z @ 0x1C00634B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxIoQueue@@UEAA@XZ @ 0x1C006344C (--1FxIoQueue@@UEAA@XZ.c)
+ */
+
 FxIoQueue *__fastcall FxIoQueue::`vector deleting destructor'(FxIoQueue *this, char a2)
 {
   FxIoQueue *v4; // rcx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiRestoreFeatureBits @ 0x140574114
+ * Callers:
+ *     KeRestoreProcessorSpecificFeatures @ 0x140569B44 (KeRestoreProcessorSpecificFeatures.c)
+ * Callees:
+ *     HviIsAnyHypervisorPresent @ 0x14037F1D0 (HviIsAnyHypervisorPresent.c)
+ *     KeInitializeCatRegisters @ 0x14037FD5C (KeInitializeCatRegisters.c)
+ *     KiSetVirtualMitigationControl @ 0x14040AE0C (KiSetVirtualMitigationControl.c)
+ *     KiCheckMicrocode @ 0x140A89B04 (KiCheckMicrocode.c)
+ */
+
 __int64 KiRestoreFeatureBits()
 {
   struct _KPRCB *CurrentPrcb; // rbx

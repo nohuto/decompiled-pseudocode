@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpRmReDoPhase @ 0x140A1C1E0
+ * Callers:
+ *     CmpStartRMLog @ 0x140863C7C (CmpStartRMLog.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     CmpTransSearchAddTransFromRm @ 0x140735958 (CmpTransSearchAddTransFromRm.c)
+ *     CmpDoReadTxRBigLogRecord @ 0x140A1BD4C (CmpDoReadTxRBigLogRecord.c)
+ *     CmpRealignLogBuffers @ 0x140A1BEB8 (CmpRealignLogBuffers.c)
+ *     CmpVerifyLogRecord @ 0x140A1C5E0 (CmpVerifyLogRecord.c)
+ *     CmpDoReDoRecord @ 0x140A27C2C (CmpDoReDoRecord.c)
+ */
+
 int __fastcall CmpRmReDoPhase(__int64 a1, CLFS_LSN a2)
 {
   _QWORD *v2; // rax

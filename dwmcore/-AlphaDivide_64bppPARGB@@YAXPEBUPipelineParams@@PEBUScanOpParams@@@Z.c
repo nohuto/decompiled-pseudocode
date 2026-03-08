@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AlphaDivide_64bppPARGB@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802BA850
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall AlphaDivide_64bppPARGB(const struct PipelineParams *a1, const struct ScanOpParams *a2)
 {
   int v2; // r8d

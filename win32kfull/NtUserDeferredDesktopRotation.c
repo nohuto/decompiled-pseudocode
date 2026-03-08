@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserDeferredDesktopRotation @ 0x1C01CF5D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxDeferredDesktopRotation @ 0x1C01F7030 (xxxDeferredDesktopRotation.c)
+ */
+
 __int64 NtUserDeferredDesktopRotation()
 {
   __int64 v0; // rbx

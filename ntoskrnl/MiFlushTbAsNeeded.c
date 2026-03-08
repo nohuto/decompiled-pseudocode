@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiFlushTbAsNeeded @ 0x140324290
+ * Callers:
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiLinkPoolCommitChain @ 0x140330100 (MiLinkPoolCommitChain.c)
+ * Callees:
+ *     MiCompareTbFlushTimeStamp @ 0x1402D5158 (MiCompareTbFlushTimeStamp.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __fastcall MiFlushTbAsNeeded(ULONG_PTR BugCheckParameter2, unsigned __int64 a2, int a3, int a4)
 {
   int v8; // r15d

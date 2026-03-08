@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlIsZeroMemory @ 0x1405ADF00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RtlIsZeroMemory(_BYTE *a1, unsigned __int64 a2)
 {
   char result; // al

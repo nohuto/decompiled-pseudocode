@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitAnsiOem @ 0x1C00F0780
+ * Callers:
+ *     NtUserInitAnsiOem @ 0x1C00F0730 (NtUserInitAnsiOem.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall InitAnsiOem(_OWORD *a1, _OWORD *a2)
 {
   _OWORD *v3; // rcx

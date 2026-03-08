@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIKsrSupportInitialize @ 0x1C00369A8
+ * Callers:
+ *     ACPIInitialize @ 0x1C00A8F78 (ACPIInitialize.c)
+ * Callees:
+ *     AcpiKsrRestorePersistentContext @ 0x1C008B24C (AcpiKsrRestorePersistentContext.c)
+ */
+
 NTSTATUS ACPIKsrSupportInitialize()
 {
   NTSTATUS result; // eax

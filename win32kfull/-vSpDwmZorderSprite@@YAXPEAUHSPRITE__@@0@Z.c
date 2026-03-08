@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vSpDwmZorderSprite@@YAXPEAUHSPRITE__@@0@Z @ 0x1C002D2F0
+ * Callers:
+ *     GreZorderSprite @ 0x1C002CF5C (GreZorderSprite.c)
+ *     ?DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z @ 0x1C0128ACC (-DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z.c)
+ * Callees:
+ *     DwmAsyncZorderSprite @ 0x1C002D414 (DwmAsyncZorderSprite.c)
+ */
+
 void __fastcall vSpDwmZorderSprite(Gre::Base *a1, HSPRITE a2)
 {
   __int64 v4; // rbx

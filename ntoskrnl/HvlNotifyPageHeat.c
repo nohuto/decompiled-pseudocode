@@ -1,3 +1,15 @@
+/*
+ * XREFs of HvlNotifyPageHeat @ 0x140676D34
+ * Callers:
+ *     MiNotifyPageHeat @ 0x140652018 (MiNotifyPageHeat.c)
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     HvlpHvToNtStatus @ 0x140456F16 (HvlpHvToNtStatus.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ *     KeWaitPhysicalFaultCompletion @ 0x140576908 (KeWaitPhysicalFaultCompletion.c)
+ */
+
 __int64 __fastcall HvlNotifyPageHeat(int a1, char a2, unsigned int a3, __int64 a4)
 {
   int v4; // r12d

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpGetSystemWriteConstraintInformation @ 0x14085E644
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     ZwDeviceIoControlFile @ 0x1404123F0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateEvent @ 0x140412C10 (ZwCreateEvent.c)
+ *     ZwCreateFile @ 0x140412DB0 (ZwCreateFile.c)
+ */
+
 __int64 __fastcall ExpGetSystemWriteConstraintInformation(_QWORD *a1)
 {
   NTSTATUS v2; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiCompareVarMtrr @ 0x140A8C73C
+ * Callers:
+ *     KeLoadMTRR @ 0x140A8C4C0 (KeLoadMTRR.c)
+ * Callees:
+ *     <none>
+ */
+
 char KiCompareVarMtrr()
 {
   unsigned int v1; // r10d

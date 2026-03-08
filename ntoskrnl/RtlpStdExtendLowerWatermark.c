@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlpStdExtendLowerWatermark @ 0x1405A7300
+ * Callers:
+ *     RtlpStdGetSpaceForTrace @ 0x1405A76A4 (RtlpStdGetSpaceForTrace.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ZwAllocateVirtualMemory @ 0x140412610 (ZwAllocateVirtualMemory.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall RtlpStdExtendLowerWatermark(__int64 a1, __int64 a2)
 {
   __int64 v4; // rbp

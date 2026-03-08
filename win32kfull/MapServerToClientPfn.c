@@ -1,3 +1,13 @@
+/*
+ * XREFs of MapServerToClientPfn @ 0x1C024F514
+ * Callers:
+ *     xxxSetWindowData @ 0x1C002F9C8 (xxxSetWindowData.c)
+ *     _GetClassInfoEx @ 0x1C00314C8 (_GetClassInfoEx.c)
+ *     xxxSetClassData @ 0x1C00ED168 (xxxSetClassData.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MapServerToClientPfn(__int64 a1, int a2)
 {
   int v2; // r8d

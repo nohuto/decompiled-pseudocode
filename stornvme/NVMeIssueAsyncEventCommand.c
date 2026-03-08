@@ -1,3 +1,15 @@
+/*
+ * XREFs of NVMeIssueAsyncEventCommand @ 0x1C001FB54
+ * Callers:
+ *     NVMeStartAsyncEventCommands @ 0x1C0010780 (NVMeStartAsyncEventCommands.c)
+ *     NVMeAsyncEventRequestCompletion @ 0x1C001BA00 (NVMeAsyncEventRequestCompletion.c)
+ *     NVMeGetLogPageCompletion @ 0x1C001E210 (NVMeGetLogPageCompletion.c)
+ *     NVMeReConfigAsyncEventCompletion @ 0x1C0021820 (NVMeReConfigAsyncEventCompletion.c)
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ */
+
 __int64 __fastcall NVMeIssueAsyncEventCommand(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

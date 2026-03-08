@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpVerifyWindowsOsOptions @ 0x1409FB97C
+ * Callers:
+ *     NtEnumerateBootEntries @ 0x14083E4F0 (NtEnumerateBootEntries.c)
+ *     ExpSetBootEntry @ 0x1409FA390 (ExpSetBootEntry.c)
+ * Callees:
+ *     ExpSafeWcslen @ 0x14083EB44 (ExpSafeWcslen.c)
+ *     ExpVerifyFilePath @ 0x14083EE50 (ExpVerifyFilePath.c)
+ */
+
 __int64 __fastcall ExpVerifyWindowsOsOptions(__int64 a1, unsigned int a2)
 {
   unsigned __int64 v2; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??4?$com_ptr_t@VCLinearGradientBrush@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCLinearGradientBrush@@@Z @ 0x18021B004
+ * Callers:
+ *     ?EnsureDrawlistBrush@CLinearGradientLegacyMilBrush@@QEAAJXZ @ 0x18021B560 (-EnsureDrawlistBrush@CLinearGradientLegacyMilBrush@@QEAAJXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 *__fastcall wil::com_ptr_t<CLinearGradientBrush,wil::err_returncode_policy>::operator=(__int64 *a1, __int64 a2)
 {
   __int64 v2; // rdi

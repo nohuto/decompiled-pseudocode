@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlCreateUserProcessEx @ 0x140B664C0
+ * Callers:
+ *     StartFirstUserProcess @ 0x140B662B4 (StartFirstUserProcess.c)
+ * Callees:
+ *     RtlpCreateUserProcess @ 0x140B6653C (RtlpCreateUserProcess.c)
+ */
+
 __int64 __fastcall RtlCreateUserProcessEx(__int64 a1, __int64 a2)
 {
   int v2; // r9d

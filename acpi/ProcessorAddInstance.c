@@ -1,3 +1,13 @@
+/*
+ * XREFs of ProcessorAddInstance @ 0x1C009A7C4
+ * Callers:
+ *     ProcessorpAddInstanceCallback @ 0x1C005E180 (ProcessorpAddInstanceCallback.c)
+ *     IrqLibpParseMadt @ 0x1C00ABC98 (IrqLibpParseMadt.c)
+ * Callees:
+ *     ProcessorpIndexInstance @ 0x1C009BA08 (ProcessorpIndexInstance.c)
+ *     ProcessorpReserveUnownedRanges @ 0x1C009BFE4 (ProcessorpReserveUnownedRanges.c)
+ */
+
 __int64 __fastcall ProcessorAddInstance(unsigned int a1, int a2)
 {
   unsigned int v3; // r14d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ScanHexFormat @ 0x1406D1BC0
+ * Callers:
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 ScanHexFormat(_WORD *a1, int a2, unsigned __int16 *a3, ...)
 {
   unsigned int v3; // edi

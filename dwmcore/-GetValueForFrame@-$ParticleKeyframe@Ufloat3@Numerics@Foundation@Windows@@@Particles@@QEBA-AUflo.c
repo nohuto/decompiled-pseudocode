@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetValueForFrame@?$ParticleKeyframe@Ufloat3@Numerics@Foundation@Windows@@@Particles@@QEBA?AUfloat3@Numerics@Foundation@Windows@@AEBV?$span@M$0?0@gsl@@0@Z @ 0x18023D960
+ * Callers:
+ *     ?GetValueAt@?$LinearKeyframeAnimation@Ufloat3@Numerics@Foundation@Windows@@@Particles@@QEBA?AUfloat3@Numerics@Foundation@Windows@@MAEBV?$span@M$0?0@gsl@@AEAV78@@Z @ 0x18023D728 (-GetValueAt@-$LinearKeyframeAnimation@Ufloat3@Numerics@Foundation@Windows@@@Particles@@QEBA-AUfl.c)
+ * Callees:
+ *     <none>
+ */
+
 float *__fastcall Particles::ParticleKeyframe<Windows::Foundation::Numerics::float3>::GetValueForFrame(
         float *a1,
         float *a2,

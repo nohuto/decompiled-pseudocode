@@ -1,3 +1,16 @@
+/*
+ * XREFs of WdipSemDeleteTransitionalInstance @ 0x140831C10
+ * Callers:
+ *     WdipTimeoutCheckRoutine @ 0x14078BFD0 (WdipTimeoutCheckRoutine.c)
+ *     WdipSemEnableScenario @ 0x1407966C0 (WdipSemEnableScenario.c)
+ *     WdipSemDisableScenario @ 0x140831E48 (WdipSemDisableScenario.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     WdipSemFastFree @ 0x140833700 (WdipSemFastFree.c)
+ */
+
 __int64 __fastcall WdipSemDeleteTransitionalInstance(_QWORD *a1)
 {
   struct _KTHREAD *CurrentThread; // rax

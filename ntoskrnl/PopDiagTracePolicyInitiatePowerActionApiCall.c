@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagTracePolicyInitiatePowerActionApiCall @ 0x14098D81C
+ * Callers:
+ *     NtInitiatePowerAction @ 0x140988360 (NtInitiatePowerAction.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     PsGetCurrentThreadProcess @ 0x1402C0BB0 (PsGetCurrentThreadProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int16 __fastcall PopDiagTracePolicyInitiatePowerActionApiCall(int a1, int a2)
 {
   unsigned __int16 *v2; // rdx

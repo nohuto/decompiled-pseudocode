@@ -1,3 +1,25 @@
+/*
+ * XREFs of PfTCleanup @ 0x14097C168
+ * Callers:
+ *     PfSetSuperfetchInformation @ 0x1407E2A94 (PfSetSuperfetchInformation.c)
+ *     PfTStart @ 0x140844B00 (PfTStart.c)
+ *     PfpParametersPropagate @ 0x14097D050 (PfpParametersPropagate.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     PfFbBufferListInsertInFree @ 0x14035B6E4 (PfFbBufferListInsertInFree.c)
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ *     PfFbBufferListShutdown @ 0x140580BA4 (PfFbBufferListShutdown.c)
+ *     PfTTraceListFree @ 0x1407E7AC8 (PfTTraceListFree.c)
+ *     PfTCleanupBuffers @ 0x14097C31C (PfTCleanupBuffers.c)
+ *     PfTTraceListTrim @ 0x14097C3AC (PfTTraceListTrim.c)
+ *     PfFbBufferListCleanup @ 0x14097D380 (PfFbBufferListCleanup.c)
+ *     PfTAccessTracingCleanup @ 0x140A844E0 (PfTAccessTracingCleanup.c)
+ */
+
 LONG_PTR __fastcall PfTCleanup(__int64 a1, __int64 a2)
 {
   bool v4; // bp

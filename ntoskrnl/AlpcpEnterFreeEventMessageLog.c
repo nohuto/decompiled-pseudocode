@@ -1,3 +1,15 @@
+/*
+ * XREFs of AlpcpEnterFreeEventMessageLog @ 0x1409779B4
+ * Callers:
+ *     AlpcMessageDestroyProcedure @ 0x140760CB0 (AlpcMessageDestroyProcedure.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1407CF500 (AlpcpProcessSynchronousRequest.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     AlpcpLocateMessageLog @ 0x140977BC8 (AlpcpLocateMessageLog.c)
+ */
+
 signed __int32 __fastcall AlpcpEnterFreeEventMessageLog(__int64 a1)
 {
   __int64 MessageLog; // rax

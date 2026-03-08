@@ -1,3 +1,13 @@
+/*
+ * XREFs of KappxParsePackageFullNameFromToken @ 0x1C0393F60
+ * Callers:
+ *     ?RegQueryControllerInstallKey@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEAGKPEAK@Z @ 0x1C0049EEC (-RegQueryControllerInstallKey@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEAGKPEAK@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     KappxParseString @ 0x1C039408C (KappxParseString.c)
+ *     KappxSafeSearch @ 0x1C0394128 (KappxSafeSearch.c)
+ */
+
 __int64 __fastcall KappxParsePackageFullNameFromToken(const void **a1)
 {
   char *Pool2; // rax

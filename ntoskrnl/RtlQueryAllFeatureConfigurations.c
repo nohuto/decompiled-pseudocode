@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlQueryAllFeatureConfigurations @ 0x1409B6010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpFcValidateFeatureConfigurationType @ 0x1402F03A8 (RtlpFcValidateFeatureConfigurationType.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x1402F03BC (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcBufferManagerReferenceBuffers @ 0x1402F0450 (RtlpFcBufferManagerReferenceBuffers.c)
+ *     RtlpFcConvertFeatureConfigurationsInternalToExternal @ 0x14040C1D4 (RtlpFcConvertFeatureConfigurationsInternalToExternal.c)
+ */
+
 __int64 __fastcall RtlQueryAllFeatureConfigurations(int a1, _QWORD *a2, _QWORD *a3, unsigned __int64 *a4)
 {
   __int64 v6; // rbp
@@ -13,7 +24,7 @@ __int64 __fastcall RtlQueryAllFeatureConfigurations(int a1, _QWORD *a2, _QWORD *
   v16 = 0LL;
   v15 = 0LL;
   v6 = a1;
-  RtlpFcBufferManagerReferenceBuffers((__int64)&qword_140C13F70, (__int64)&v16, &v15);
+  RtlpFcBufferManagerReferenceBuffers((__int64)&unk_140C13F70, (__int64)&v16, &v15);
   v8 = RtlpFcValidateFeatureConfigurationType(v6);
   v9 = v15;
   v10 = v8;
@@ -46,6 +57,6 @@ LABEL_8:
       *a2 = v16;
     v10 = 0;
   }
-  RtlpFcBufferManagerDereferenceBuffers((__int64)&qword_140C13F70, v9);
+  RtlpFcBufferManagerDereferenceBuffers((__int64)&unk_140C13F70, v9);
   return (unsigned int)v10;
 }

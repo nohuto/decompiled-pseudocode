@@ -1,3 +1,11 @@
+/*
+ * XREFs of McGenEventUnregister_EtwUnregister @ 0x1405D11EC
+ * Callers:
+ *     CarLoggingExit @ 0x1405D1050 (CarLoggingExit.c)
+ * Callees:
+ *     EtwUnregister @ 0x14076F9E0 (EtwUnregister.c)
+ */
+
 NTSTATUS McGenEventUnregister_EtwUnregister()
 {
   NTSTATUS result; // eax

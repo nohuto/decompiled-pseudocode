@@ -1,3 +1,13 @@
+/*
+ * XREFs of Controller_ExecuteDSMToSendPORTSCValues @ 0x1C0033374
+ * Callers:
+ *     Controller_WdfEvtDeviceD0Exit @ 0x1C000E9C0 (Controller_WdfEvtDeviceD0Exit.c)
+ * Callees:
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     WPP_RECORDER_SF_P @ 0x1C0037340 (WPP_RECORDER_SF_P.c)
+ *     Controller_ExecuteDSM @ 0x1C006E4A4 (Controller_ExecuteDSM.c)
+ */
+
 void __fastcall Controller_ExecuteDSMToSendPORTSCValues(__int64 a1)
 {
   __int64 v1; // rdi

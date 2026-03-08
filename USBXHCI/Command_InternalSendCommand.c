@@ -1,3 +1,23 @@
+/*
+ * XREFs of Command_InternalSendCommand @ 0x1C000A998
+ * Callers:
+ *     Command_HandleCommandCompletionEvent @ 0x1C000A2B4 (Command_HandleCommandCompletionEvent.c)
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     Command_ControllerResetPostResetSuccess @ 0x1C002FA7C (Command_ControllerResetPostResetSuccess.c)
+ *     Command_HandleCommandRingStoppedEvent @ 0x1C002FD74 (Command_HandleCommandRingStoppedEvent.c)
+ *     Command_WdfEvtWatchdogTimerFunction @ 0x1C0030270 (Command_WdfEvtWatchdogTimerFunction.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     XilCommand_AddCommandCRBToRing @ 0x1C000AB9C (XilCommand_AddCommandCRBToRing.c)
+ *     WPP_RECORDER_SF_qLq @ 0x1C000AD70 (WPP_RECORDER_SF_qLq.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0017FB0 (WPP_RECORDER_SF_ddd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_qddd @ 0x1C0031028 (WPP_RECORDER_SF_qddd.c)
+ *     WPP_RECORDER_SF_qdqddd @ 0x1C0031140 (WPP_RECORDER_SF_qdqddd.c)
+ *     Etw_CommandWaitlisted @ 0x1C004A8B4 (Etw_CommandWaitlisted.c)
+ *     McTemplateK0ppb16_EtwWriteTransfer @ 0x1C004AE44 (McTemplateK0ppb16_EtwWriteTransfer.c)
+ */
+
 char __fastcall Command_InternalSendCommand(__int64 a1, __int64 a2, int a3, int a4)
 {
   __int64 v5; // rcx

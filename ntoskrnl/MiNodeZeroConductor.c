@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiNodeZeroConductor @ 0x1408314C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     MiPreserveBootDecisions @ 0x1403905EC (MiPreserveBootDecisions.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiZeroNodeExiting @ 0x14065315C (MiZeroNodeExiting.c)
+ *     MiInitializeZeroEngines @ 0x140729A34 (MiInitializeZeroEngines.c)
+ *     MiStartZeroEngineThreads @ 0x14076C01C (MiStartZeroEngineThreads.c)
+ */
+
 void __fastcall MiNodeZeroConductor(__int64 a1)
 {
   __int64 v1; // rdi

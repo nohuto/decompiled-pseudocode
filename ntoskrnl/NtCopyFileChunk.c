@@ -1,3 +1,28 @@
+/*
+ * XREFs of NtCopyFileChunk @ 0x1407DEE00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IopReferenceFileObject @ 0x14023EBCC (IopReferenceFileObject.c)
+ *     IopFileObjectRevoked @ 0x14023EC30 (IopFileObjectRevoked.c)
+ *     IoIs32bitProcess @ 0x140245910 (IoIs32bitProcess.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     IopFreeCopyObjectsFromDataBuffer @ 0x1402F9948 (IopFreeCopyObjectsFromDataBuffer.c)
+ *     IopPopulateCopyWriteWorkerData @ 0x14035A864 (IopPopulateCopyWriteWorkerData.c)
+ *     ZwCreateEvent @ 0x140412C10 (ZwCreateEvent.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopExceptionFilter @ 0x1405530E8 (IopExceptionFilter.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     NtWaitForSingleObject @ 0x1407CFE90 (NtWaitForSingleObject.c)
+ *     ObReferenceFileObjectForWrite @ 0x1407DF2CC (ObReferenceFileObjectForWrite.c)
+ *     IopReadFile @ 0x1407E0C40 (IopReadFile.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall NtCopyFileChunk(
         void *a1,
         ULONG_PTR a2,

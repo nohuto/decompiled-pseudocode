@@ -1,3 +1,18 @@
+/*
+ * XREFs of RIMIDEGetTimeStampDelta @ 0x1C01C3440
+ * Callers:
+ *     RIMIDEInjectHIDReportFromPointerInfo @ 0x1C01C3E48 (RIMIDEInjectHIDReportFromPointerInfo.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00052A0 (WPP_RECORDER_AND_TRACE_SF_dd.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ii @ 0x1C0159308 (WPP_RECORDER_AND_TRACE_SF_ii.c)
+ *     RIMIDEGetQpcBasedTouchStackTime @ 0x1C01C33F0 (RIMIDEGetQpcBasedTouchStackTime.c)
+ *     RIMIDEValidateInjectionQpcCount @ 0x1C01C5204 (RIMIDEValidateInjectionQpcCount.c)
+ *     RIMIDEValidateInjectionTime @ 0x1C01C530C (RIMIDEValidateInjectionTime.c)
+ *     WPP_RECORDER_AND_TRACE_SF_didi @ 0x1C01C59F4 (WPP_RECORDER_AND_TRACE_SF_didi.c)
+ */
+
 __int64 __fastcall RIMIDEGetTimeStampDelta(__int64 a1, __int64 a2, unsigned int *a3)
 {
   int v3; // r11d

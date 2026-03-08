@@ -1,3 +1,15 @@
+/*
+ * XREFs of IrqArbGetDeviceIrql @ 0x1C009D304
+ * Callers:
+ *     AcpiIrqLibSetupSciInterrupt @ 0x1C0098DAC (AcpiIrqLibSetupSciInterrupt.c)
+ *     IrqTranslatepQueryDeviceIrql @ 0x1C009A6BC (IrqTranslatepQueryDeviceIrql.c)
+ *     IrqArbAddAllocation @ 0x1C009C4B0 (IrqArbAddAllocation.c)
+ *     IcSetPossibleInput @ 0x1C009F6B4 (IcSetPossibleInput.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ProcessorGetDeviceIdtAssignment @ 0x1C009ABF4 (ProcessorGetDeviceIdtAssignment.c)
+ */
+
 __int64 __fastcall IrqArbGetDeviceIrql(_DWORD *a1, _BYTE *a2)
 {
   unsigned int v4; // edi

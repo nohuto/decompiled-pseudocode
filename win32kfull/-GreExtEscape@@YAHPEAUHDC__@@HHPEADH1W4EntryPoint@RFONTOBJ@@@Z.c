@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?GreExtEscape@@YAHPEAUHDC__@@HHPEADH1W4EntryPoint@RFONTOBJ@@@Z @ 0x1C02781E8
+ * Callers:
+ *     NtGdiExtEscape @ 0x1C00BB120 (NtGdiExtEscape.c)
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ *     ??0XFERDCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0277844 (--0XFERDCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1XFERDCOBJ@@QEAA@XZ @ 0x1C0277950 (--1XFERDCOBJ@@QEAA@XZ.c)
+ *     ?GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1AEBUTag@RFONTOBJ@@@Z @ 0x1C02782F8 (-GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1AEBUTag@RFONTOBJ@@@Z.c)
+ */
+
 __int64 __fastcall GreExtEscape(HDC a1, unsigned int a2, unsigned int a3, char *a4, unsigned int a5, char *a6)
 {
   unsigned int v10; // ebx

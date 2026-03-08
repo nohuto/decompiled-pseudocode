@@ -1,3 +1,11 @@
+/*
+ * XREFs of InputTransformOnInput @ 0x1C0146E00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z @ 0x1C0007904 (-OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z.c)
+ */
+
 __int64 __fastcall InputTransformOnInput(__int64 a1, struct tagWND *a2)
 {
   struct _EX_PUSH_LOCK **v2; // rcx

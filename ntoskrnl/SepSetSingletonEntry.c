@@ -1,3 +1,16 @@
+/*
+ * XREFs of SepSetSingletonEntry @ 0x14039D204
+ * Callers:
+ *     SeSetSecurityAttributesTokenEx @ 0x14039D0A0 (SeSetSecurityAttributesTokenEx.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x14029705C (AuthzBasepSetSecurityAttributesToken.c)
+ *     SepGetSingletonEntryFromIndexNumber @ 0x1402988C8 (SepGetSingletonEntryFromIndexNumber.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SepSetSingletonEntry(unsigned int a1, int *a2, __int64 a3)
 {
   unsigned int v5; // esi

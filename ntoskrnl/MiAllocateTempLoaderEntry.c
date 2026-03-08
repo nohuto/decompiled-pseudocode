@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiAllocateTempLoaderEntry @ 0x140796A2C
+ * Callers:
+ *     MiObtainSectionForDriver @ 0x14072EE44 (MiObtainSectionForDriver.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ */
+
 _QWORD *__fastcall MiAllocateTempLoaderEntry(__int64 a1)
 {
   _QWORD *result; // rax

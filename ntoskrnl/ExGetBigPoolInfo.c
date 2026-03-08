@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExGetBigPoolInfo @ 0x140604B70
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ *     EtwpPoolRunDown @ 0x1409EC76C (EtwpPoolRunDown.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExGetHeapFromVA @ 0x140313BF0 (ExGetHeapFromVA.c)
+ *     RtlpHpFreeHeap @ 0x140313CC0 (RtlpHpFreeHeap.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAllocateHeapPages @ 0x1403B489C (ExAllocateHeapPages.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExGetBigPoolInfo(_DWORD *a1, unsigned int a2, unsigned int *a3)
 {
   char *HeapPages; // rdi

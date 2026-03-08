@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlHotPatchSynchronizationRequired @ 0x140678714
+ * Callers:
+ *     MiPrepareToHotPatchImage @ 0x140A37C98 (MiPrepareToHotPatchImage.c)
+ * Callees:
+ *     RtlFindClearBitsAndSet @ 0x14030CEE0 (RtlFindClearBitsAndSet.c)
+ *     RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x14067892C (RtlpCheckFunctionPatchAppliedInOriginalImage.c)
+ */
+
 __int64 __fastcall RtlHotPatchSynchronizationRequired(
         int a1,
         _DWORD *a2,

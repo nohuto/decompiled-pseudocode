@@ -1,3 +1,21 @@
+/*
+ * XREFs of WbHeapExecuteCall @ 0x1406AF56C
+ * Callers:
+ *     WbDispatchOperation @ 0x1406AECD0 (WbDispatchOperation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WbGetWarbirdThread @ 0x1406AF248 (WbGetWarbirdThread.c)
+ *     sub_1406AF488 @ 0x1406AF488 (sub_1406AF488.c)
+ *     WbGetTrapFrame @ 0x1406AF738 (WbGetTrapFrame.c)
+ *     sub_1406AF7C4 @ 0x1406AF7C4 (sub_1406AF7C4.c)
+ *     sub_1406AF8A4 @ 0x1406AF8A4 (sub_1406AF8A4.c)
+ *     WbSetTrapFrame @ 0x1406AF9A4 (WbSetTrapFrame.c)
+ *     WbGetHeapExecutedBlock @ 0x1406AFAAC (WbGetHeapExecutedBlock.c)
+ *     sub_1406AFC38 @ 0x1406AFC38 (sub_1406AFC38.c)
+ *     WbValidateHeapExecuteCallArguments @ 0x1406AFDA4 (WbValidateHeapExecuteCallArguments.c)
+ */
+
 __int64 __fastcall WbHeapExecuteCall(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   int HeapExecutedBlock; // ebx

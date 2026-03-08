@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiCreateSparsePfnDatabase @ 0x140B37C80
+ * Callers:
+ *     MiCreatePfnDatabase @ 0x140B3A0B8 (MiCreatePfnDatabase.c)
+ * Callees:
+ *     MxMapPfnRange @ 0x140B37F18 (MxMapPfnRange.c)
+ */
+
 __int64 __fastcall MiCreateSparsePfnDatabase(__int64 a1)
 {
   unsigned int v1; // edi

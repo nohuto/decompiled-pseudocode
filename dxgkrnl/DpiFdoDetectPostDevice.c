@@ -1,3 +1,15 @@
+/*
+ * XREFs of DpiFdoDetectPostDevice @ 0x1C01E7AF0
+ * Callers:
+ *     DpiFdoSetAdapterPowerState @ 0x1C01E1E80 (DpiFdoSetAdapterPowerState.c)
+ *     DpiAddDevice @ 0x1C01F38A0 (DpiAddDevice.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiDecodeResourceDescriptorLength @ 0x1C01E7D58 (DpiDecodeResourceDescriptorLength.c)
+ *     DpiAcquirePostDisplayInfoFromBgfx @ 0x1C01E7D80 (DpiAcquirePostDisplayInfoFromBgfx.c)
+ */
+
 __int64 __fastcall DpiFdoDetectPostDevice(__int64 a1, _BYTE *a2)
 {
   __int64 v3; // rbx

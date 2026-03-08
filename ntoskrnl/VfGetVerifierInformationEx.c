@@ -1,3 +1,11 @@
+/*
+ * XREFs of VfGetVerifierInformationEx @ 0x140ADA778
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VfGetVerifierInformationEx(__int64 a1)
 {
   *(_OWORD *)a1 = 0LL;

@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifIoAcquireRemoveLockExWrapper @ 0x1405DA910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoAcquireRemoveLockEx @ 0x140305F80 (IoAcquireRemoveLockEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifIoAcquireRemoveLockExWrapper(
         PIO_REMOVE_LOCK RemoveLock,
         PVOID Tag,

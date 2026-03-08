@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?MoveMouseWindowManagement@CMouseProcessor@@QEAAXW4_GenerateMoveOptions@@@Z @ 0x1C0079E78
+ * Callers:
+ *     GenerateMouseMove @ 0x1C0079E10 (GenerateMouseMove.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     ApiSetEditionUpdateCursorAsync @ 0x1C007A01C (ApiSetEditionUpdateCursorAsync.c)
+ *     ?ExecuteMoveMouseWindowManagement@CMouseProcessor@@QEAAXXZ @ 0x1C007A39C (-ExecuteMoveMouseWindowManagement@CMouseProcessor@@QEAAXXZ.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ApiSetEditionGetExecutionEvironment @ 0x1C009755C (ApiSetEditionGetExecutionEvironment.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall CMouseProcessor::MoveMouseWindowManagement(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // ebp

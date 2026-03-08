@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_FindListener@Edgy@@YAPEAUtagEDGY_LISTENER@@AEAUtagEDGY_DATA@@PEAXW4tagEDGY_LOCATION@@@Z @ 0x1C01E8CC0
+ * Callers:
+ *     ?_AddOrUpdateListener@Edgy@@YAHPEAUtagDESKTOP@@PEAXW4tagEDGY_LOCATION@@PEAUHWND__@@@Z @ 0x1C01E8ADC (-_AddOrUpdateListener@Edgy@@YAHPEAUtagDESKTOP@@PEAXW4tagEDGY_LOCATION@@PEAUHWND__@@@Z.c)
+ *     EdgyUnregisterListener @ 0x1C01E9B74 (EdgyUnregisterListener.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Edgy::_FindListener(__int64 a1, __int64 a2, int a3)
 {
   unsigned int v3; // r9d

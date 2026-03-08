@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CCompositionPointLight@@QEAA@PEAVCComposition@@@Z @ 0x180221490
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     ??0CCompositionLight@@QEAA@PEAVCComposition@@_N@Z @ 0x180023E14 (--0CCompositionLight@@QEAA@PEAVCComposition@@_N@Z.c)
+ */
+
 CCompositionPointLight *__fastcall CCompositionPointLight::CCompositionPointLight(
         CCompositionPointLight *this,
         struct CComposition *a2)

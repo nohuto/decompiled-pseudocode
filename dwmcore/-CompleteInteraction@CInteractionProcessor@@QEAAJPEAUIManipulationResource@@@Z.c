@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CompleteInteraction@CInteractionProcessor@@QEAAJPEAUIManipulationResource@@@Z @ 0x1801A950C
+ * Callers:
+ *     ?CompleteInteraction@CInteractionRoot@@UEAAJXZ @ 0x1801A0E00 (-CompleteInteraction@CInteractionRoot@@UEAAJXZ.c)
+ *     ?CompleteInteraction@CInteraction@@UEAAJXZ @ 0x180208B80 (-CompleteInteraction@CInteraction@@UEAAJXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CInteractionProcessor::CompleteInteraction(
         CInteractionProcessor *this,
         struct IManipulationResource *a2)

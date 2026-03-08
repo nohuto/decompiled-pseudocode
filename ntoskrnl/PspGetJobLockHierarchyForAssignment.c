@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspGetJobLockHierarchyForAssignment @ 0x1407009B8
+ * Callers:
+ *     PspAssignProcessToJob @ 0x1406FFA20 (PspAssignProcessToJob.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall PspGetJobLockHierarchyForAssignment(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
 {
   int v5; // r9d

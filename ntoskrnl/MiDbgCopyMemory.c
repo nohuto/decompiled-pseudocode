@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiDbgCopyMemory @ 0x140347088
+ * Callers:
+ *     MmDbgCopyMemory @ 0x140346FE0 (MmDbgCopyMemory.c)
+ * Callees:
+ *     KeIsUserVaAccessAllowed @ 0x140256450 (KeIsUserVaAccessAllowed.c)
+ *     KeGenericCallDpc @ 0x1403008E0 (KeGenericCallDpc.c)
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     MmIsAddressValidEx @ 0x1403471E0 (MmIsAddressValidEx.c)
+ *     MiCopyFromUntrustedMemory @ 0x140347320 (MiCopyFromUntrustedMemory.c)
+ *     MiDbgReleaseAddress @ 0x140387814 (MiDbgReleaseAddress.c)
+ *     MiDbgWriteCheck @ 0x1403878D8 (MiDbgWriteCheck.c)
+ *     MiCopyToUntrustedMemory @ 0x1403948F0 (MiCopyToUntrustedMemory.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x140641B08 (MiDbgTranslatePhysicalAddress.c)
+ *     MiDbgUnTranslatePhysicalAddress @ 0x140641E70 (MiDbgUnTranslatePhysicalAddress.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall MiDbgCopyMemory(char *BaseAddress, __int64 a2, unsigned int a3, unsigned int a4, unsigned int a5)
 {
   SIZE_T v6; // r15

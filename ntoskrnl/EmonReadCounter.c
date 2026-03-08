@@ -1,3 +1,11 @@
+/*
+ * XREFs of EmonReadCounter @ 0x14051BB64
+ * Callers:
+ *     EmonSaveProfilingContext @ 0x140A94240 (EmonSaveProfilingContext.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall EmonReadCounter(unsigned int a1, _QWORD *a2, _DWORD *a3)
 {
   unsigned __int64 result; // rax

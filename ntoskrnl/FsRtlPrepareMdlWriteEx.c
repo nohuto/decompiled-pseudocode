@@ -1,3 +1,15 @@
+/*
+ * XREFs of FsRtlPrepareMdlWriteEx @ 0x14079A910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoSynchronousCallDriver @ 0x1402E9470 (IoSynchronousCallDriver.c)
+ *     IoFreeIrp @ 0x14030EC00 (IoFreeIrp.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     IoBuildAsynchronousFsdRequest @ 0x14036D3B0 (IoBuildAsynchronousFsdRequest.c)
+ *     FsRtlPrepareMdlWrite @ 0x14079A990 (FsRtlPrepareMdlWrite.c)
+ */
+
 __int64 __fastcall FsRtlPrepareMdlWriteEx(
         PFILE_OBJECT FileObject,
         PLARGE_INTEGER StartingOffset,

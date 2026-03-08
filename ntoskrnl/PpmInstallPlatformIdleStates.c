@@ -1,3 +1,21 @@
+/*
+ * XREFs of PpmInstallPlatformIdleStates @ 0x14097F410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140236BF0 (KeGetProcessorIndexFromNumber.c)
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     KeQueryActiveProcessorAffinity2 @ 0x14038F750 (KeQueryActiveProcessorAffinity2.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PpmResetPlatformIdleAccounting @ 0x140583658 (PpmResetPlatformIdleAccounting.c)
+ *     PpmEnableCoordinatedIdleStates @ 0x14097EB2C (PpmEnableCoordinatedIdleStates.c)
+ *     PpmIdleUpdatePlatformDependencies @ 0x14099AC58 (PpmIdleUpdatePlatformDependencies.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PpmInstallPlatformIdleStates(__int64 a1)
 {
   __int64 v1; // r15
@@ -78,13 +96,13 @@ __int64 __fastcall PpmInstallPlatformIdleStates(__int64 a1)
   v2 = 0LL;
   Pool2 = 0LL;
   v3 = 0LL;
-  PopAcquireRwLockExclusive(&PpmIdlePolicyLock);
+  PopAcquireRwLockExclusive((ULONG_PTR)&PpmIdlePolicyLock);
   v4 = 1;
   if ( PpmPlatformStates && !*(_BYTE *)(v1 + 48) )
   {
     LODWORD(v2) = -1073741431;
 LABEL_78:
-    PopReleaseRwLock(&PpmIdlePolicyLock);
+    PopReleaseRwLock((ULONG_PTR)&PpmIdlePolicyLock);
     return (unsigned int)v2;
   }
   v5 = *(unsigned int *)(v1 + 4);
@@ -182,7 +200,7 @@ LABEL_22:
   v16 = v15 + v70;
   *(_QWORD *)(v13 + 48) = v16;
   *(_DWORD *)(v16 + 4) = v5;
-  PpmResetPlatformIdleAccounting(v13 + v70);
+  PpmResetPlatformIdleAccounting((int *)(v13 + v70));
   if ( *(_DWORD *)(v1 + 4) )
   {
     v17 = 0;
@@ -380,7 +398,7 @@ LABEL_49:
   }
   if ( !PpmPlatformStates )
   {
-    PpmEnableCoordinatedIdleStates(v13, 0LL);
+    PpmEnableCoordinatedIdleStates((int *)v13, 0);
     v4 = 0;
   }
   if ( v4 )

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vTryDeleteSurface@SURFREF@@QEAAXXZ @ 0x1C00DE6E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?bDeleteSurface@SURFREF@@QEAAHH@Z @ 0x1C0029684 (-bDeleteSurface@SURFREF@@QEAAHH@Z.c)
+ *     Win32AllocPoolNonPaged @ 0x1C002B1A0 (Win32AllocPoolNonPaged.c)
+ */
+
 void __fastcall SURFREF::vTryDeleteSurface(SURFREF *this)
 {
   void *v2; // rbx

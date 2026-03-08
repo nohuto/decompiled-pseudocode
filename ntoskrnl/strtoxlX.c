@@ -1,3 +1,14 @@
+/*
+ * XREFs of strtoxlX @ 0x1403D3030
+ * Callers:
+ *     strtol @ 0x1403D3258 (strtol.c)
+ *     strtolX @ 0x1403D3288 (strtolX.c)
+ *     strtoul @ 0x1403D32B8 (strtoul.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     __pctype_func @ 0x1403D7BE4 (__pctype_func.c)
+ */
+
 __int64 __fastcall strtoxlX(__int64 a1, unsigned __int8 *a2, unsigned __int8 **a3, unsigned int a4, int a5, int a6)
 {
   unsigned int v6; // r14d

@@ -1,3 +1,24 @@
+/*
+ * XREFs of xxxFlashWindow @ 0x1C0005B74
+ * Callers:
+ *     xxxSystemTimerProc @ 0x1C0005A50 (xxxSystemTimerProc.c)
+ *     ?xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegroundBehaviors@@W4SetForegroundffects@@@Z @ 0x1C002498C (-xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegrou.c)
+ *     NtUserFlashWindowEx @ 0x1C01D0870 (NtUserFlashWindowEx.c)
+ *     ?xxxSoundSentryTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01F7190 (-xxxSoundSentryTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     xxxSoundSentry @ 0x1C01F73D8 (xxxSoundSentry.c)
+ *     xxxFlashEnabledPopup @ 0x1C0225A38 (xxxFlashEnabledPopup.c)
+ * Callees:
+ *     _SetSystemTimer @ 0x1C0006384 (_SetSystemTimer.c)
+ *     InternalRemoveProp @ 0x1C002484C (InternalRemoveProp.c)
+ *     ?IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z @ 0x1C002E354 (-IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z.c)
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ *     FindTimer @ 0x1C00DEEDC (FindTimer.c)
+ *     InternalSetProp @ 0x1C01011E0 (InternalSetProp.c)
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C01098A8 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ *     PostShellHookMessagesEx @ 0x1C0109A90 (PostShellHookMessagesEx.c)
+ */
+
 __int64 __fastcall xxxFlashWindow(struct tagWND *a1, unsigned int a2, int a3)
 {
   unsigned int v6; // ebp

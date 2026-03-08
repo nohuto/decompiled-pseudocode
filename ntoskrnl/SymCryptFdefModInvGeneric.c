@@ -1,3 +1,31 @@
+/*
+ * XREFs of SymCryptFdefModInvGeneric @ 0x1403FE960
+ * Callers:
+ *     SymCryptFdefModInvMontgomery @ 0x1403FED00 (SymCryptFdefModInvMontgomery.c)
+ *     SymCryptFdefModInvMontgomery256 @ 0x1403FEDB0 (SymCryptFdefModInvMontgomery256.c)
+ *     SymCryptFdef369ModInvMontgomery @ 0x140403B80 (SymCryptFdef369ModInvMontgomery.c)
+ * Callees:
+ *     SymCryptIntCopy @ 0x1403F3798 (SymCryptIntCopy.c)
+ *     SymCryptIntCreate @ 0x1403F37C8 (SymCryptIntCreate.c)
+ *     SymCryptIntDivPow2 @ 0x1403F380C (SymCryptIntDivPow2.c)
+ *     SymCryptIntFromModulus @ 0x1403F383C (SymCryptIntFromModulus.c)
+ *     SymCryptIntGetValueLsbits32 @ 0x1403F3884 (SymCryptIntGetValueLsbits32.c)
+ *     SymCryptIntIsEqualUint32 @ 0x1403F389C (SymCryptIntIsEqualUint32.c)
+ *     SymCryptIntNeg @ 0x1403F3904 (SymCryptIntNeg.c)
+ *     SymCryptIntSubSameSize @ 0x1403F3994 (SymCryptIntSubSameSize.c)
+ *     SymCryptModDivPow2 @ 0x1403F3A90 (SymCryptModDivPow2.c)
+ *     SymCryptModElementCopy @ 0x1403F3AD4 (SymCryptModElementCopy.c)
+ *     SymCryptModElementCreate @ 0x1403F3AEC (SymCryptModElementCreate.c)
+ *     SymCryptSizeofIntFromDigits @ 0x1403F3EF0 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x1403F3F08 (SymCryptSizeofModElementFromModulus.c)
+ *     SymCryptFdefModElementSetValueUint32Generic @ 0x1403FE860 (SymCryptFdefModElementSetValueUint32Generic.c)
+ *     SymCryptFdefModElementToIntGeneric @ 0x1403FE8E4 (SymCryptFdefModElementToIntGeneric.c)
+ *     SymCryptFdefModMulGeneric @ 0x1403FEE60 (SymCryptFdefModMulGeneric.c)
+ *     SymCryptFdefModSetRandomGeneric @ 0x1403FF2CC (SymCryptFdefModSetRandomGeneric.c)
+ *     SymCryptFdefModSubGeneric @ 0x1403FF640 (SymCryptFdefModSubGeneric.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall SymCryptFdefModInvGeneric(
         __int64 a1,
         const void *a2,

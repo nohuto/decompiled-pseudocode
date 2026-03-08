@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Copy@CCD_TOPOLOGY@@QEAAJPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C03B6434
+ * Callers:
+ *     DxgkCopyPathsModality @ 0x1C02FD660 (DxgkCopyPathsModality.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ */
+
 __int64 __fastcall CCD_TOPOLOGY::Copy(CCD_TOPOLOGY *this, struct D3DKMT_GETPATHSMODALITY *a2)
 {
   __int64 v4; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of HmgLockIgnoreOwner @ 0x1C00A93E0
+ * Callers:
+ *     GreValidateServerHandle @ 0x1C000D4C0 (GreValidateServerHandle.c)
+ *     ?GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z @ 0x1C00A49CC (-GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z.c)
+ *     UserValidateCopyRgn @ 0x1C00A9370 (UserValidateCopyRgn.c)
+ * Callees:
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C004A440 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C004A680 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     ?pObj@HANDLELOCK@@QEAAPEAVOBJECT@@XZ @ 0x1C004B3B0 (-pObj@HANDLELOCK@@QEAAPEAVOBJECT@@XZ.c)
+ */
+
 struct OBJECT *__fastcall HmgLockIgnoreOwner(unsigned int a1, char a2)
 {
   __int16 v3; // edi^2

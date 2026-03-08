@@ -1,3 +1,15 @@
+/*
+ * XREFs of PnpAllocateMultiSZ @ 0x14080706C
+ * Callers:
+ *     PiSwPdoPnPDispatch @ 0x1408064B0 (PiSwPdoPnPDispatch.c)
+ *     PiSwPnPInfoInit @ 0x140806FB0 (PiSwPnPInfoInit.c)
+ * Callees:
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PnpGetMultiSzLength @ 0x140807138 (PnpGetMultiSzLength.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PnpAllocateMultiSZ(void *Src, __int64 a2, __int64 a3, _QWORD *a4)
 {
   NTSTATUS MultiSzLength; // ebx

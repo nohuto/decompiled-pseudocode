@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpHsapInitializeReservedDomain @ 0x14052BEA8
+ * Callers:
+ *     HsaProcessDeviceExceptions @ 0x14052E418 (HsaProcessDeviceExceptions.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HsaUpdateDeviceTableEntry @ 0x14052E900 (HsaUpdateDeviceTableEntry.c)
+ */
+
 __int64 __fastcall HalpHsapInitializeReservedDomain(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // r15

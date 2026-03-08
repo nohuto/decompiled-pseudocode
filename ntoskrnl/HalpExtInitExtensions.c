@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpExtInitExtensions @ 0x140B6AA6C
+ * Callers:
+ *     HalpHalExtInitSystem @ 0x140A8E3D0 (HalpHalExtInitSystem.c)
+ * Callees:
+ *     HalpAcpiGetTable @ 0x14029C550 (HalpAcpiGetTable.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     HalpMmAllocateMemoryInternal @ 0x14037A7A8 (HalpMmAllocateMemoryInternal.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall HalpExtInitExtensions(__int64 a1)
 {
   unsigned int v1; // ebx

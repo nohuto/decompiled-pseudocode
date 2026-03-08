@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopFxReleaseAcpiRefDevice @ 0x14058917C
+ * Callers:
+ *     PopFxRegisterDeviceWorker @ 0x14083714C (PopFxRegisterDeviceWorker.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ */
+
 LONG __fastcall PopFxReleaseAcpiRefDevice(__int64 a1)
 {
   LONG result; // eax

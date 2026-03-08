@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeProcessorGroupAffinity @ 0x1402A9490
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KeProcessorGroupAffinity(__int64 a1, int a2)
 {
   unsigned int v3; // ecx

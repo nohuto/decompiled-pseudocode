@@ -1,3 +1,11 @@
+/*
+ * XREFs of VfMajorBuildIrpLogEntry @ 0x140ACFF14
+ * Callers:
+ *     VfIrpLogRecordEvent @ 0x140AD98FC (VfIrpLogRecordEvent.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall VfMajorBuildIrpLogEntry(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // r10d

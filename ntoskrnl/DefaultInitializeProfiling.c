@@ -1,3 +1,11 @@
+/*
+ * XREFs of DefaultInitializeProfiling @ 0x140A92A90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ */
+
 __int64 DefaultInitializeProfiling()
 {
   unsigned int Number; // edx

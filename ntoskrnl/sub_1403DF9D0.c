@@ -1,3 +1,12 @@
+/*
+ * XREFs of sub_1403DF9D0 @ 0x1403DF9D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeExitRetpoline @ 0x1402E3E6C (KeExitRetpoline.c)
+ *     _guard_check_icall @ 0x140421180 (_guard_check_icall.c)
+ */
+
 __int64 __fastcall sub_1403DF9D0(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v7; // r10

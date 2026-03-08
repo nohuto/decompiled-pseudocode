@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetRegEDID @ 0x1C019065C
+ * Callers:
+ *     GetMonitorCapability @ 0x1C0190204 (GetMonitorCapability.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetRegEDID(struct _DEVICE_OBJECT *a1, unsigned int *a2, _QWORD *a3)
 {
   unsigned int v3; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PowerCheckParentOverload@FxPkgPdo@@EEAAJPEAE@Z @ 0x1C00805B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PowerPolicyCanChildPowerUp@FxPkgPnp@@QEAAJPEAE@Z @ 0x1C0080720 (-PowerPolicyCanChildPowerUp@FxPkgPnp@@QEAAJPEAE@Z.c)
+ */
+
 int __fastcall FxPkgPdo::PowerCheckParentOverload(FxPkgPdo *this, bool *WaitForParentOn)
 {
   FxDeviceBase *m_DeviceBase; // rax

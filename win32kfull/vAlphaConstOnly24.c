@@ -1,3 +1,11 @@
+/*
+ * XREFs of vAlphaConstOnly24 @ 0x1C02E61F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 *__fastcall vAlphaConstOnly24(__int64 a1, unsigned __int8 *a2, int a3, unsigned int a4)
 {
   unsigned __int8 *result; // rax

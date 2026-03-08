@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpBlkApicInitializeLocalUnit @ 0x140B12FB0
+ * Callers:
+ *     HalpBlkProcessorStartup @ 0x140B11010 (HalpBlkProcessorStartup.c)
+ * Callees:
+ *     HalpBlkApicRead @ 0x140B13104 (HalpBlkApicRead.c)
+ *     HalpBlkApicWrite @ 0x140B13148 (HalpBlkApicWrite.c)
+ */
+
 __int64 HalpBlkApicInitializeLocalUnit()
 {
   unsigned __int64 v0; // rax

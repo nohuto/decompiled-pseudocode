@@ -1,3 +1,16 @@
+/*
+ * XREFs of CcSetupWatchForRegistryChanges @ 0x1403ACDFC
+ * Callers:
+ *     CcInitializeVolumeCacheMap @ 0x14036D0F0 (CcInitializeVolumeCacheMap.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     CcOpenRegistryPath @ 0x1403ACF60 (CcOpenRegistryPath.c)
+ *     ZwNotifyChangeKey @ 0x140414730 (ZwNotifyChangeKey.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ */
+
 void CcSetupWatchForRegistryChanges()
 {
   char *PoolWithTag; // rax

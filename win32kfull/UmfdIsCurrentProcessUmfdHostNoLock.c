@@ -1,3 +1,11 @@
+/*
+ * XREFs of UmfdIsCurrentProcessUmfdHostNoLock @ 0x1C00D3D60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall UmfdIsCurrentProcessUmfdHostNoLock(__int64 a1)
 {
   __int64 v1; // rbx

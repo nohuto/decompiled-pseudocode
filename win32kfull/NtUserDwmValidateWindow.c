@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserDwmValidateWindow @ 0x1C0099640
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     GetDesktopView @ 0x1C0099840 (GetDesktopView.c)
+ *     LockProcessByClientId @ 0x1C0099860 (LockProcessByClientId.c)
+ */
+
 __int64 __fastcall NtUserDwmValidateWindow(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rdi
