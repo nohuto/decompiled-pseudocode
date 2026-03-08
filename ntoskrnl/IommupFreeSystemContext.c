@@ -1,3 +1,14 @@
+/*
+ * XREFs of IommupFreeSystemContext @ 0x140521654
+ * Callers:
+ *     IommuFreeLibraryContext @ 0x140520A48 (IommuFreeLibraryContext.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ */
+
 void __fastcall IommupFreeSystemContext(__int64 a1)
 {
   char v2; // di

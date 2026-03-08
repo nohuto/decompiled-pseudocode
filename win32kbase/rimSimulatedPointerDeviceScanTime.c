@@ -1,3 +1,11 @@
+/*
+ * XREFs of rimSimulatedPointerDeviceScanTime @ 0x1C00F1808
+ * Callers:
+ *     rimUpdatePointerDeviceFrameScanTime @ 0x1C00F18F6 (rimUpdatePointerDeviceFrameScanTime.c)
+ * Callees:
+ *     ?UpdateScantime@RIM@InputTraceLogging@@SAXPEBUtagHPD_FRAME_SCAN_TIME@@_NK@Z @ 0x1C00F0F66 (-UpdateScantime@RIM@InputTraceLogging@@SAXPEBUtagHPD_FRAME_SCAN_TIME@@_NK@Z.c)
+ */
+
 void __fastcall rimSimulatedPointerDeviceScanTime(__int64 a1, __int64 *a2, int *a3)
 {
   __int64 v3; // r9

@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhBusifGetSSHub @ 0x1C004C3A0
+ * Callers:
+ *     UsbhPdoPnp_QueryInterface @ 0x1C0055B70 (UsbhPdoPnp_QueryInterface.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ */
+
 __int64 __fastcall UsbhBusifGetSSHub(__int64 a1, __int64 a2, __int64 a3)
 {
   _DWORD *v4; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vStripSolidDiagonal@@YAXPEAU_STRIP@@PEBU_BMINFO@@PEAU_LINESTATE@@@Z @ 0x1C02FC4A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vStripSolidDiagonal(struct _STRIP *a1, const struct _BMINFO *a2, struct _LINESTATE *a3)
 {
   char *v3; // rsi

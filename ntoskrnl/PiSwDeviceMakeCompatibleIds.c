@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiSwDeviceMakeCompatibleIds @ 0x1408068A8
+ * Callers:
+ *     PiSwPdoPnPDispatch @ 0x1408064B0 (PiSwPdoPnPDispatch.c)
+ * Callees:
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PiSwDeviceMakeCompatibleIds(__int64 a1, __int64 *a2)
 {
   const wchar_t *v2; // rbx

@@ -1,3 +1,30 @@
+/*
+ * XREFs of VrpHandleIoctlInitializeJobForVreg @ 0x140735A88
+ * Callers:
+ *     VrpIoctlDeviceDispatch @ 0x140736DF0 (VrpIoctlDeviceDispatch.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     RtlUnicodeStringCopy @ 0x1402B3164 (RtlUnicodeStringCopy.c)
+ *     PsGetJobSilo @ 0x1402B60C0 (PsGetJobSilo.c)
+ *     PsIsThreadInSilo @ 0x1402B6178 (PsIsThreadInSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PspStorageMakeSlotReadOnly @ 0x1407359D8 (PspStorageMakeSlotReadOnly.c)
+ *     VrpAllocateKeyContext @ 0x140735DF0 (VrpAllocateKeyContext.c)
+ *     CmGetRootKeyObjectForSilo @ 0x140735E40 (CmGetRootKeyObjectForSilo.c)
+ *     PsInsertSiloContext @ 0x140738510 (PsInsertSiloContext.c)
+ *     CmInitSiloNamespace @ 0x1407388F8 (CmInitSiloNamespace.c)
+ *     VrpIncrementSiloCount @ 0x14073895C (VrpIncrementSiloCount.c)
+ *     CmSetCallbackObjectContext @ 0x140738C30 (CmSetCallbackObjectContext.c)
+ *     VrpFreeKeyContext @ 0x14078D308 (VrpFreeKeyContext.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ *     PsRemoveSiloContext @ 0x1409A9700 (PsRemoveSiloContext.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall VrpHandleIoctlInitializeJobForVreg(
         ULONG_PTR *a1,
         unsigned int a2,

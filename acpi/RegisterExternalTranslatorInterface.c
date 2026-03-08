@@ -1,3 +1,11 @@
+/*
+ * XREFs of RegisterExternalTranslatorInterface @ 0x1C0084840
+ * Callers:
+ *     QueryExternalTranslatorInterface @ 0x1C0084494 (QueryExternalTranslatorInterface.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RegisterExternalTranslatorInterface(void *a1, void *a2, struct _UNICODE_STRING *a3)
 {
   struct _UNICODE_STRING v6; // xmm0

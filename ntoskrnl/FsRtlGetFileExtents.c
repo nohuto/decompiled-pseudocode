@@ -1,3 +1,17 @@
+/*
+ * XREFs of FsRtlGetFileExtents @ 0x14053A498
+ * Callers:
+ *     MiAllocateEntireImageFileExtents @ 0x140A30264 (MiAllocateEntireImageFileExtents.c)
+ *     MiAllocateFileExtents @ 0x140A303A8 (MiAllocateFileExtents.c)
+ *     MiComputeIdealFirstSubsection @ 0x140A30A78 (MiComputeIdealFirstSubsection.c)
+ * Callees:
+ *     IoSynchronousCallDriver @ 0x1402E9470 (IoSynchronousCallDriver.c)
+ *     IoFreeIrp @ 0x14030EC00 (IoFreeIrp.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     IoAllocateIrpEx @ 0x140352E90 (IoAllocateIrpEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall FsRtlGetFileExtents(struct _FILE_OBJECT *a1, int a2, __int64 a3, __int64 a4, _DWORD *a5)
 {
   PDEVICE_OBJECT RelatedDeviceObject; // rbx

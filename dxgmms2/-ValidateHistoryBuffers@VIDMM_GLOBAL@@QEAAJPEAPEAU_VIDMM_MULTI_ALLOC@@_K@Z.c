@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ValidateHistoryBuffers@VIDMM_GLOBAL@@QEAAJPEAPEAU_VIDMM_MULTI_ALLOC@@_K@Z @ 0x1C00E9B04
+ * Callers:
+ *     VidMmValidateHistoryBuffers @ 0x1C002D630 (VidMmValidateHistoryBuffers.c)
+ * Callees:
+ *     VidSchMarkDeviceAsError @ 0x1C0014AF0 (VidSchMarkDeviceAsError.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall VIDMM_GLOBAL::ValidateHistoryBuffers(VIDMM_GLOBAL *this, struct _VIDMM_MULTI_ALLOC **a2, __int64 a3)
 {
   struct _VIDMM_MULTI_ALLOC **v3; // r9

@@ -1,3 +1,13 @@
+/*
+ * XREFs of StringCopyWorkerW @ 0x1C005D46C
+ * Callers:
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C005D400 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C005D430 (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     ?EnableMMCSS@CSystemChannel@DirectComposition@@QEAAJ_N@Z @ 0x1C024BCE4 (-EnableMMCSS@CSystemChannel@DirectComposition@@QEAAJ_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 HRESULT __stdcall StringCopyWorkerW(
         STRSAFE_LPWSTR pszDest,
         size_t cchDest,

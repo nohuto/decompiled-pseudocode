@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBHTX_CheckAndSelectIfAny30PortChangeSet @ 0x1C0005168
+ * Callers:
+ *     HUBPSM30_CheckIfThereIsAPortChangeOnStartResumeOnGetPortStatus @ 0x1C0013A30 (HUBPSM30_CheckIfThereIsAPortChangeOnStartResumeOnGetPortStatus.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C0032FCC (HUBMISC_VerifierDbgBreak.c)
+ */
+
 __int64 __fastcall HUBHTX_CheckAndSelectIfAny30PortChangeSet(__int64 a1)
 {
   __int16 v2; // cx

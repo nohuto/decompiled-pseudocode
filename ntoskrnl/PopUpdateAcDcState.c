@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopUpdateAcDcState @ 0x1403BE428
+ * Callers:
+ *     PopBatteryApplyCompositeState @ 0x14086E430 (PopBatteryApplyCompositeState.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopCurrentPowerState @ 0x14078F3D0 (PopCurrentPowerState.c)
+ *     PopDiagTraceAcDcStateChange @ 0x140989160 (PopDiagTraceAcDcStateChange.c)
+ */
+
 char __fastcall PopUpdateAcDcState(unsigned int a1)
 {
   char v2; // bl

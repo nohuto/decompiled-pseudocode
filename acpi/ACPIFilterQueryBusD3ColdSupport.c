@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIFilterQueryBusD3ColdSupport @ 0x1C0086F38
+ * Callers:
+ *     ACPIDetectFilterDevices @ 0x1C001AA10 (ACPIDetectFilterDevices.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     ACPIInternalSendSynchronousIrp @ 0x1C008822C (ACPIInternalSendSynchronousIrp.c)
+ */
+
 __int64 __fastcall ACPIFilterQueryBusD3ColdSupport(ULONG_PTR BugCheckParameter3)
 {
   __int64 DeviceExtension; // rbx

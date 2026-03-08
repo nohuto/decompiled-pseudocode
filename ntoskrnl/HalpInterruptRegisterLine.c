@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpInterruptRegisterLine @ 0x1403748A0
+ * Callers:
+ *     HalpApicDescribeLines @ 0x1403744DC (HalpApicDescribeLines.c)
+ *     HalpApicDescribeLocalLines @ 0x140374568 (HalpApicDescribeLocalLines.c)
+ *     HalpPicDiscover @ 0x140374634 (HalpPicDiscover.c)
+ * Callees:
+ *     HalpInterruptLookupController @ 0x14028EEE0 (HalpInterruptLookupController.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x14028EF5C (HalpInterruptFindLinesForGsiRange.c)
+ *     HalpMmAllocateMemoryInternal @ 0x14037A7A8 (HalpMmAllocateMemoryInternal.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall HalpInterruptRegisterLine(__int64 a1)
 {
   unsigned int v1; // edi

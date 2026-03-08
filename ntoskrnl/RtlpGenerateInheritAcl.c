@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpGenerateInheritAcl @ 0x140699DD0
+ * Callers:
+ *     RtlpInheritAcl2 @ 0x1407BC430 (RtlpInheritAcl2.c)
+ * Callees:
+ *     RtlFindAceByType @ 0x1403100D0 (RtlFindAceByType.c)
+ *     RtlpGenerateInheritedAce @ 0x140699FA0 (RtlpGenerateInheritedAce.c)
+ */
+
 __int64 __fastcall RtlpGenerateInheritAcl(
         __int64 a1,
         unsigned __int8 a2,

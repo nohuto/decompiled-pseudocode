@@ -1,3 +1,11 @@
+/*
+ * XREFs of _wcsrev @ 0x1403D4140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 wchar_t *__cdecl wcsrev(wchar_t *Str)
 {
   wchar_t *v1; // r8

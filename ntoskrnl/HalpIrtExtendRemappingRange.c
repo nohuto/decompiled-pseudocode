@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpIrtExtendRemappingRange @ 0x14085A40C
+ * Callers:
+ *     HalpIrtAllocateIndex @ 0x14080BD48 (HalpIrtAllocateIndex.c)
+ *     HalpInitializeInterruptRemappingBspLate @ 0x14085A328 (HalpInitializeInterruptRemappingBspLate.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     RtlClearAllBits @ 0x1402B24A0 (RtlClearAllBits.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall HalpIrtExtendRemappingRange(unsigned int a1)
 {
   unsigned int v1; // ebx

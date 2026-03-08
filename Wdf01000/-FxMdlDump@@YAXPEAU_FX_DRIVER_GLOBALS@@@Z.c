@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FxMdlDump@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0048198
+ * Callers:
+ *     FxDestroy @ 0x1C0043AD0 (FxDestroy.c)
+ * Callees:
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_qqq @ 0x1C001C308 (WPP_IFR_SF_qqq.c)
+ */
+
 void __fastcall FxMdlDump(_FX_DRIVER_GLOBALS *FxDriverGlobals)
 {
   FxDriverGlobalsDebugExtension *DebugExtension; // rbx

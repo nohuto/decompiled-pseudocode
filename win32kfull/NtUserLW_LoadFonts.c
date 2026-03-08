@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserLW_LoadFonts @ 0x1C00B8630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxLW_LoadFonts @ 0x1C00B8670 (xxxLW_LoadFonts.c)
+ */
+
 __int64 __fastcall NtUserLW_LoadFonts(unsigned int a1)
 {
   __int64 Fonts; // rbx

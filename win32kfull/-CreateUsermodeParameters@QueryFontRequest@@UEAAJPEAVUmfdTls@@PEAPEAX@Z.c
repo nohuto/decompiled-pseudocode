@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CreateUsermodeParameters@QueryFontRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C011E800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C011EA58 (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
+ */
+
 __int64 __fastcall QueryFontRequest::CreateUsermodeParameters(QueryFontRequest *this, struct UmfdTls *a2, void **a3)
 {
   char *v5; // rax

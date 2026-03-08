@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CDesktopTreeMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00CC5D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_52ccf7f1d33c735bc675d0cdab4ef0c7___ @ 0x1C00CC648 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_52ccf7f1d33c735bc675d0cdab4ef0c.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_6986d2d0839561b851a816b14b0f3f3f___ @ 0x1C00CC6BC (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_6986d2d0839561b851a816b14b0f3f3.c)
+ */
+
 char __fastcall DirectComposition::CDesktopTreeMarshaler::EmitUpdateCommands(
         DirectComposition::CDesktopTreeMarshaler *this,
         struct DirectComposition::CBatch **a2)

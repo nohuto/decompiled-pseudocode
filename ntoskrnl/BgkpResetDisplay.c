@@ -1,3 +1,11 @@
+/*
+ * XREFs of BgkpResetDisplay @ 0x14054CBF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall BgkpResetDisplay(char a1, __int64 a2, _QWORD *a3)
 {
   __int64 result; // rax

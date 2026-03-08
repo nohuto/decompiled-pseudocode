@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?BuildDeviceHeader@@YAHPEAEKPEAKGG@Z @ 0x1C01C5B10
+ * Callers:
+ *     ?BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z @ 0x1C01C5EBC (-BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall BuildDeviceHeader(
         unsigned __int8 *a1,
         unsigned int a2,

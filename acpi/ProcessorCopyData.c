@@ -1,3 +1,15 @@
+/*
+ * XREFs of ProcessorCopyData @ 0x1C009A964
+ * Callers:
+ *     AcpiIrqLibSetupSciInterrupt @ 0x1C0098DAC (AcpiIrqLibSetupSciInterrupt.c)
+ *     IrqArbBootAllocation @ 0x1C009CF90 (IrqArbBootAllocation.c)
+ *     IrqArbCommitAllocation @ 0x1C009D040 (IrqArbCommitAllocation.c)
+ *     IrqArbpPrepareForTestOrConflict @ 0x1C009E4D0 (IrqArbpPrepareForTestOrConflict.c)
+ * Callees:
+ *     ProcessorpClearData @ 0x1C009B098 (ProcessorpClearData.c)
+ *     ProcessorpInsertAssignment @ 0x1C009BB90 (ProcessorpInsertAssignment.c)
+ */
+
 __int64 __fastcall ProcessorCopyData(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // esi

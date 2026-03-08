@@ -1,3 +1,12 @@
+/*
+ * XREFs of EngCreatePath @ 0x1C0289A20
+ * Callers:
+ *     EngLineTo @ 0x1C028FDB0 (EngLineTo.c)
+ *     VerifierEngCreatePath @ 0x1C02A9740 (VerifierEngCreatePath.c)
+ * Callees:
+ *     ?vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z @ 0x1C014CA9A (-vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z.c)
+ */
+
 PATHOBJ *EngCreatePath(void)
 {
   EPATHOBJ *v0; // rax

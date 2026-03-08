@@ -1,3 +1,16 @@
+/*
+ * XREFs of TtmiCreateEventQueue @ 0x1409A901C
+ * Callers:
+ *     TtmpDispatchCreateEventQueue @ 0x1409A3450 (TtmpDispatchCreateEventQueue.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ *     TtmiLogError @ 0x1409A536C (TtmiLogError.c)
+ *     TtmiLogQueueCreated @ 0x1409A5D24 (TtmiLogQueueCreated.c)
+ */
+
 __int64 __fastcall TtmiCreateEventQueue(__int64 a1, _QWORD *a2)
 {
   struct _KTHREAD *CurrentThread; // rax

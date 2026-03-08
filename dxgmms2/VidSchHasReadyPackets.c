@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchHasReadyPackets @ 0x1C0018C60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0013414 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00134D8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ */
+
 char __fastcall VidSchHasReadyPackets(__int64 a1)
 {
   _QWORD **v2; // rbx

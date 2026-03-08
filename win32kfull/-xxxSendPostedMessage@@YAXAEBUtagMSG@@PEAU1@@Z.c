@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?xxxSendPostedMessage@@YAXAEBUtagMSG@@PEAU1@@Z @ 0x1C006E474
+ * Callers:
+ *     xxxRealInternalGetMessage @ 0x1C006F2F0 (xxxRealInternalGetMessage.c)
+ * Callees:
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ */
+
 void __fastcall xxxSendPostedMessage(const struct tagMSG *a1, struct tagMSG *a2)
 {
   __int64 v4; // rsi

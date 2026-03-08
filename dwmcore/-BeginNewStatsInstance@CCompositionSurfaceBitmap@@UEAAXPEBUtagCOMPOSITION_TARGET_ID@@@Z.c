@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?BeginNewStatsInstance@CCompositionSurfaceBitmap@@UEAAXPEBUtagCOMPOSITION_TARGET_ID@@@Z @ 0x1800E1F50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CCompositionSurfaceBitmap::BeginNewStatsInstance(
         CCompositionSurfaceBitmap *this,
         const struct tagCOMPOSITION_TARGET_ID *a2)

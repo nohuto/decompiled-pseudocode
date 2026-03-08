@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiSetSpecCtrlNmi @ 0x14041B940
+ * Callers:
+ *     KiNmiInterruptStart @ 0x140423B80 (KiNmiInterruptStart.c)
+ *     KiMcheckAbort @ 0x140427E80 (KiMcheckAbort.c)
+ * Callees:
+ *     sub_14041BAA2 @ 0x14041BAA2 (sub_14041BAA2.c)
+ */
+
 __int64 __fastcall KiSetSpecCtrlNmi()
 {
   __int64 v0; // rbp

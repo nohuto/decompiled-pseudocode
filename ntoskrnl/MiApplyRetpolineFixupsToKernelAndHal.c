@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiApplyRetpolineFixupsToKernelAndHal @ 0x140B3A7E0
+ * Callers:
+ *     MiRebaseDynamicRelocationRegions @ 0x140B38F54 (MiRebaseDynamicRelocationRegions.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     RtlLookupImageSectionByName @ 0x1402F4704 (RtlLookupImageSectionByName.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     RtlUpdateImportRelocationsInImage @ 0x140370FC4 (RtlUpdateImportRelocationsInImage.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlCopyRetpolineStubsUnwindInfo @ 0x1405AFC40 (RtlCopyRetpolineStubsUnwindInfo.c)
+ *     RtlPerformRetpolineRelocationsOnImageEx @ 0x14067804C (RtlPerformRetpolineRelocationsOnImageEx.c)
+ */
+
 __int64 __fastcall MiApplyRetpolineFixupsToKernelAndHal(__int64 a1)
 {
   __int64 v1; // rax

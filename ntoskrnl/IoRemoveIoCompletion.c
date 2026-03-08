@@ -1,3 +1,24 @@
+/*
+ * XREFs of IoRemoveIoCompletion @ 0x140315A70
+ * Callers:
+ *     NtWaitForWorkViaWorkerFactory @ 0x140316BE0 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtRemoveIoCompletionEx @ 0x14075AB50 (NtRemoveIoCompletionEx.c)
+ *     NtRemoveIoCompletion @ 0x1407C3E90 (NtRemoveIoCompletion.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     IopFreeWaitCompletionPacket @ 0x14024F500 (IopFreeWaitCompletionPacket.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     IopDropIrp @ 0x140293E48 (IopDropIrp.c)
+ *     IopInterlockedAdd @ 0x1402F3488 (IopInterlockedAdd.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     IoFreeIrp @ 0x14030EC00 (IoFreeIrp.c)
+ *     IopCompleteRequest @ 0x140312C80 (IopCompleteRequest.c)
+ *     KeRemoveQueueEx @ 0x140315D50 (KeRemoveQueueEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IopFreeMiniCompletionPacket @ 0x1407C40A0 (IopFreeMiniCompletionPacket.c)
+ */
+
 __int64 __fastcall IoRemoveIoCompletion(
         struct _KQUEUE *a1,
         __int64 a2,

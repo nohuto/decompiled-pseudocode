@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpiClearAllocatedMemory @ 0x1C0091D48
+ * Callers:
+ *     PnpBiosResourcesToNtResources @ 0x1C008EFDC (PnpBiosResourcesToNtResources.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall PnpiClearAllocatedMemory(PVOID *P, unsigned int a2)
 {
   PVOID *v3; // rbx

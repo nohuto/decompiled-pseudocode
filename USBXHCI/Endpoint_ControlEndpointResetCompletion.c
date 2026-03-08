@@ -1,3 +1,20 @@
+/*
+ * XREFs of Endpoint_ControlEndpointResetCompletion @ 0x1C0039950
+ * Callers:
+ *     <none>
+ * Callees:
+ *     TR_InitializeTransferRing @ 0x1C0007DFC (TR_InitializeTransferRing.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     Endpoint_GetDequeuePointer @ 0x1C000CEDC (Endpoint_GetDequeuePointer.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0030BE4 (WPP_RECORDER_SF_ddL.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ *     WPP_RECORDER_SF_ddi @ 0x1C003D6C4 (WPP_RECORDER_SF_ddi.c)
+ */
+
 void __fastcall Endpoint_ControlEndpointResetCompletion(char *a1, int a2, __int128 *a3)
 {
   __int64 v3; // rbx

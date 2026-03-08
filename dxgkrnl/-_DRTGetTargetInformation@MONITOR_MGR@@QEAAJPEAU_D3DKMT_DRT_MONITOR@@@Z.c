@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_DRTGetTargetInformation@MONITOR_MGR@@QEAAJPEAU_D3DKMT_DRT_MONITOR@@@Z @ 0x1C03C3044
+ * Callers:
+ *     MonitorDRTTest @ 0x1C03BF2F0 (MonitorDRTTest.c)
+ * Callees:
+ *     ?_GetMonitorInformationForTargets@MONITOR_MGR@@QEAAJP6AJPEAX0IW4_DMM_VIDPN_MONITOR_TYPE@@EE@Z0I@Z @ 0x1C01CF0A0 (-_GetMonitorInformationForTargets@MONITOR_MGR@@QEAAJP6AJPEAX0IW4_DMM_VIDPN_MONITOR_TYPE@@EE@Z0I@.c)
+ */
+
 __int64 __fastcall MONITOR_MGR::_DRTGetTargetInformation(
         MONITOR_MGR *this,
         struct _D3DKMT_DRT_MONITOR *a2,

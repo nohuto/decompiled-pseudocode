@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetPresentStatisticsDWM@CDummyRemotingSwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS_DWM@@@Z @ 0x180295F30
+ * Callers:
+ *     ?GetPresentStatistics@CDummyRemotingSwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS@@@Z @ 0x180295EB0 (-GetPresentStatistics@CDummyRemotingSwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS@@@Z.c)
+ * Callees:
+ *     ?CheckPresentCompleted@CPresentStats@CDummyRemotingSwapChain@@QEAA_NPEAVCD3DDevice@@I@Z @ 0x180295BD8 (-CheckPresentCompleted@CPresentStats@CDummyRemotingSwapChain@@QEAA_NPEAVCD3DDevice@@I@Z.c)
+ *     ?GetKernelHandle@CD3DDevice@@QEBAIXZ @ 0x180295E5C (-GetKernelHandle@CD3DDevice@@QEBAIXZ.c)
+ */
+
 __int64 __fastcall CDummyRemotingSwapChain::GetPresentStatisticsDWM(
         CDummyRemotingSwapChain *this,
         struct DXGI_FRAME_STATISTICS_DWM *a2)

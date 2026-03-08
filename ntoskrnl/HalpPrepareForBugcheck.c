@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpPrepareForBugcheck @ 0x140509440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpInterruptModel @ 0x14028EADC (HalpInterruptModel.c)
+ *     HalpTimerUpdateApiConsumers @ 0x14051D4B4 (HalpTimerUpdateApiConsumers.c)
+ */
+
 __int64 __fastcall HalpPrepareForBugcheck(char a1)
 {
   __int64 result; // rax
@@ -9,7 +18,7 @@ __int64 __fastcall HalpPrepareForBugcheck(char a1)
     qword_140C62120 = 0LL;
     xmmword_140C62108 = 0uLL;
     qword_140C621C8 = 0LL;
-    MEMORY[0x140C62104] = 0;
+    dword_140C62104 = 0;
     HalpEnlightenment = 0;
     result = HalpTimerUpdateApiConsumers();
   }

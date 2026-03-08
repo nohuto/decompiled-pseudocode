@@ -1,3 +1,11 @@
+/*
+ * XREFs of KdpSysGetVersion @ 0x140AB1C98
+ * Callers:
+ *     KdSystemDebugControl @ 0x14096F180 (KdSystemDebugControl.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall KdpSysGetVersion(__int64 a1)
 {
   __int128 v1; // xmm1

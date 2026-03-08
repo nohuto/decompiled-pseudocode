@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlCreateEnclaveReturnFrame @ 0x14045C298
+ * Callers:
+ *     PsCallEnclave @ 0x1409B3880 (PsCallEnclave.c)
+ * Callees:
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall RtlCreateEnclaveReturnFrame(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of WMI_AcquireControllerName @ 0x1C008B98C
+ * Callers:
+ *     WMI_ExecuteMethodUsbWmiStdData @ 0x1C008BE50 (WMI_ExecuteMethodUsbWmiStdData.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     HUBUCX_GetControllerName @ 0x1C0028D3C (HUBUCX_GetControllerName.c)
+ */
+
 __int64 __fastcall WMI_AcquireControllerName(__int64 a1, unsigned int a2, unsigned int *a3, __int64 a4)
 {
   unsigned int *v6; // rbx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of IoQueuesFreeResources @ 0x1C000ADC4
+ * Callers:
+ *     IoQueuesCreation @ 0x1C000A5E8 (IoQueuesCreation.c)
+ *     IoQueuesCreationAsync @ 0x1C000A774 (IoQueuesCreationAsync.c)
+ *     NVMeControllerRemove @ 0x1C000E18C (NVMeControllerRemove.c)
+ *     NVMeControllerStop @ 0x1C000EBA8 (NVMeControllerStop.c)
+ * Callees:
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ */
+
 __int64 __fastcall IoQueuesFreeResources(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v5; // edi

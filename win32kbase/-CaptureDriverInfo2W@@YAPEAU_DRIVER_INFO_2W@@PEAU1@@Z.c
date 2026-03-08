@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?CaptureDriverInfo2W@@YAPEAU_DRIVER_INFO_2W@@PEAU1@@Z @ 0x1C0185500
+ * Callers:
+ *     NtGdiOpenDCW @ 0x1C003D110 (NtGdiOpenDCW.c)
+ * Callees:
+ *     AllocThreadBufferWithTag @ 0x1C003C700 (AllocThreadBufferWithTag.c)
+ *     PopThreadGuardedObject @ 0x1C00453C0 (PopThreadGuardedObject.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     ULongLongMult @ 0x1C0180240 (ULongLongMult.c)
+ */
+
 struct _DRIVER_INFO_2W *__fastcall CaptureDriverInfo2W(struct _DRIVER_INFO_2W *a1)
 {
   unsigned __int64 v2; // r15

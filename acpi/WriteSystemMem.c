@@ -1,3 +1,15 @@
+/*
+ * XREFs of WriteSystemMem @ 0x1C0053424
+ * Callers:
+ *     AccessBaseField @ 0x1C00517B0 (AccessBaseField.c)
+ *     ReadFieldObj @ 0x1C0052CB0 (ReadFieldObj.c)
+ *     WriteBuffField @ 0x1C0052FBC (WriteBuffField.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ */
+
 void __fastcall WriteSystemMem(unsigned __int64 a1, size_t Size, __int64 a3, __int64 a4)
 {
   __int64 v5; // rcx

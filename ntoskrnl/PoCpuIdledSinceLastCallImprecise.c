@@ -1,3 +1,11 @@
+/*
+ * XREFs of PoCpuIdledSinceLastCallImprecise @ 0x1402F4E20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall PoCpuIdledSinceLastCallImprecise(int a1, __int64 *a2)
 {
   __int64 v2; // rax

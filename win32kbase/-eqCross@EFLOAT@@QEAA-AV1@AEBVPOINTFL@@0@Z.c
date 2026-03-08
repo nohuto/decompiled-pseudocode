@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?eqCross@EFLOAT@@QEAA?AV1@AEBVPOINTFL@@0@Z @ 0x1C018C570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _DWORD *__fastcall EFLOAT::eqCross(float *a1, _DWORD *a2, float *a3, float *a4)
 {
   _DWORD *result; // rax

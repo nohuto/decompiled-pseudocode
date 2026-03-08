@@ -1,3 +1,11 @@
+/*
+ * XREFs of DXGKCALLONEXIT__lambda_cc320e0eecd868534feeae0a4f9b43e2___ @ 0x1C0045058
+ * Callers:
+ *     DxgkSetIndirectDisplayRenderAdapter @ 0x1C02D0E78 (DxgkSetIndirectDisplayRenderAdapter.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DXGKCALLONEXIT__lambda_cc320e0eecd868534feeae0a4f9b43e2_(__int64 a1, __int128 *a2)
 {
   __int128 v2; // xmm0

@@ -1,3 +1,19 @@
+/*
+ * XREFs of ExDisownFastResource2 @ 0x14040E06C
+ * Callers:
+ *     ExDisownFastResource @ 0x1403C6EF0 (ExDisownFastResource.c)
+ *     ExMoveFastResourceOwnershipWithFlags @ 0x14040D2D0 (ExMoveFastResourceOwnershipWithFlags.c)
+ * Callees:
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x1402C5C00 (KeReleaseSpinLockFromDpcLevel.c)
+ *     KeAbMarkCrossThreadReleasable @ 0x1403C7520 (KeAbMarkCrossThreadReleasable.c)
+ *     ExpAddFastOwnerEntryToThreadList2 @ 0x14040FD90 (ExpAddFastOwnerEntryToThreadList2.c)
+ *     ExpRemoveEntryListAndClear2 @ 0x14041128C (ExpRemoveEntryListAndClear2.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 LONG_PTR __fastcall ExDisownFastResource2(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
 {
   KSPIN_LOCK *CurrentThread; // r14

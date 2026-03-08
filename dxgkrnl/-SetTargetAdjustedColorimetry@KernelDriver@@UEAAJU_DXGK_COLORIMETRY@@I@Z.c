@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetTargetAdjustedColorimetry@KernelDriver@@UEAAJU_DXGK_COLORIMETRY@@I@Z @ 0x1C01D5DF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiSetTargetAdjustedColorimetry2 @ 0x1C0015594 (DpiSetTargetAdjustedColorimetry2.c)
+ *     DpiSetTargetAdjustedColorimetry @ 0x1C03A5B10 (DpiSetTargetAdjustedColorimetry.c)
+ */
+
 __int64 __fastcall KernelDriver::SetTargetAdjustedColorimetry(KernelDriver *this, struct _DXGK_COLORIMETRY *a2)
 {
   __int64 v2; // rax

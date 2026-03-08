@@ -1,3 +1,11 @@
+/*
+ * XREFs of NVMeLogNameSpaceIdentificationStatus @ 0x1C001FCC0
+ * Callers:
+ *     NVMeNameSpaceIdentify @ 0x1C002108C (NVMeNameSpaceIdentify.c)
+ * Callees:
+ *     NVMeLogTelemetry @ 0x1C0008A04 (NVMeLogTelemetry.c)
+ */
+
 __int64 __fastcall NVMeLogNameSpaceIdentificationStatus(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)
 {
   __int64 result; // rax

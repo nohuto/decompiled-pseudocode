@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpDmaMapContiguousTransferV3 @ 0x1404FDFEC
+ * Callers:
+ *     HalpMapTransferV3 @ 0x140512CCC (HalpMapTransferV3.c)
+ * Callees:
+ *     HalpDmaNextContiguousPiece @ 0x140452E28 (HalpDmaNextContiguousPiece.c)
+ *     HalpDmaSyncMapBuffers @ 0x1404544F2 (HalpDmaSyncMapBuffers.c)
+ *     HalpDmaFlushBuffer @ 0x14050E7A0 (HalpDmaFlushBuffer.c)
+ */
+
 void __fastcall HalpDmaMapContiguousTransferV3(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlpCheckSharingAgainstOplockOwner @ 0x14093B324
+ * Callers:
+ *     FsRtlpOplockBreakByCacheFlags @ 0x14023BD20 (FsRtlpOplockBreakByCacheFlags.c)
+ * Callees:
+ *     IoCheckLinkShareAccess @ 0x1406B2FA0 (IoCheckLinkShareAccess.c)
+ */
+
 __int64 __fastcall FsRtlpCheckSharingAgainstOplockOwner(__int64 a1, _BYTE *a2, int a3, char a4)
 {
   bool v5; // zf

@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserSetInformationThread @ 0x1C0093A50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxSetInformationThread @ 0x1C0093B70 (xxxSetInformationThread.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall NtUserSetInformationThread(__int64 a1, unsigned int a2, volatile void *a3, unsigned int a4)
 {
   SIZE_T v4; // rdi

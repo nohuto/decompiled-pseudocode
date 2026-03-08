@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiQueuePageAccessLog @ 0x14035B540
+ * Callers:
+ *     MiEmptyPageAccessLog @ 0x14028C160 (MiEmptyPageAccessLog.c)
+ *     MiCheckAndProcessCcAccessLog @ 0x1402DC3D4 (MiCheckAndProcessCcAccessLog.c)
+ *     MiReturnCcAccessLog @ 0x1402DC41C (MiReturnCcAccessLog.c)
+ *     MiGetCcAccessLog @ 0x14077A724 (MiGetCcAccessLog.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     MmFreeAccessPfnBuffer @ 0x14035B5FC (MmFreeAccessPfnBuffer.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ */
+
 void __fastcall MiQueuePageAccessLog(struct _SLIST_ENTRY *P)
 {
   unsigned int Alignment_low; // ebx

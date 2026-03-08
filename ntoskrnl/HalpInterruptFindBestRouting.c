@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpInterruptFindBestRouting @ 0x1403791C4
+ * Callers:
+ *     HalpInterruptRemap @ 0x140378D78 (HalpInterruptRemap.c)
+ *     HalpInterruptSetLineState @ 0x1403793AC (HalpInterruptSetLineState.c)
+ *     HalpInterruptSetDestinationInternal @ 0x1405023EC (HalpInterruptSetDestinationInternal.c)
+ * Callees:
+ *     HalpInterruptLookupController @ 0x14028EEE0 (HalpInterruptLookupController.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ */
+
 __int64 __fastcall HalpInterruptFindBestRouting(int *a1, __int64 a2)
 {
   ULONG_PTR *v2; // rax

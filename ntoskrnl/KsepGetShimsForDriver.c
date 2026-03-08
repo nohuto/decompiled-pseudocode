@@ -1,3 +1,22 @@
+/*
+ * XREFs of KsepGetShimsForDriver @ 0x14079E39C
+ * Callers:
+ *     KseDriverLoadImage @ 0x14079EAC4 (KseDriverLoadImage.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     KsepPoolAllocatePaged @ 0x140303CA4 (KsepPoolAllocatePaged.c)
+ *     KsepLogInfo @ 0x14036F8F4 (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x14057E834 (KsepDebugPrint.c)
+ *     KsepDbFreeDriverShims @ 0x14079E360 (KsepDbFreeDriverShims.c)
+ *     KsepIsModuleShimmed @ 0x14079E588 (KsepIsModuleShimmed.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x14079E958 (KsepEngineGetShimsFromRegistry.c)
+ *     KsepDbGetDriverShims @ 0x14079EDE8 (KsepDbGetDriverShims.c)
+ *     KsepResolveApplicableShimsForDriver @ 0x140800708 (KsepResolveApplicableShimsForDriver.c)
+ */
+
 __int64 __fastcall KsepGetShimsForDriver(__int64 a1, int a2, __int64 a3, int a4, _QWORD *a5, unsigned int *a6)
 {
   int v6; // ebx

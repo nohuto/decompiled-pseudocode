@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_EDXGTHREAD@@UEAAPEAXI@Z @ 0x1C0007D10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 int *__fastcall DXGTHREAD::`vector deleting destructor'(int *Entry, char a2)
 {
   int v5; // edx

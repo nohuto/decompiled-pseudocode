@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vTransparentCopyS4D32@@YAXPEAUBLTINFO@@@Z @ 0x1C0299BA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vTransparentCopyS4D32(struct BLTINFO *a1)
 {
   __int64 v1; // rax

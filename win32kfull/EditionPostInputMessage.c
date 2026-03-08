@@ -1,3 +1,12 @@
+/*
+ * XREFs of EditionPostInputMessage @ 0x1C0009890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PostInputMessage @ 0x1C0037A48 (PostInputMessage.c)
+ *     AdjustPwndPtiPqForDelegation @ 0x1C009FA68 (AdjustPwndPtiPqForDelegation.c)
+ */
+
 __int64 __fastcall EditionPostInputMessage(
         __int64 a1,
         struct tagWND *a2,

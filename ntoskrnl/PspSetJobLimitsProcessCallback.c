@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspSetJobLimitsProcessCallback @ 0x1409AFC30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PspApplyJobLimitsToProcess @ 0x1406FF17C (PspApplyJobLimitsToProcess.c)
+ *     PspAddProcessToWorkingSetChangeList @ 0x1409AEE48 (PspAddProcessToWorkingSetChangeList.c)
+ */
+
 __int64 __fastcall PspSetJobLimitsProcessCallback(struct _KPROCESS *Object, __int64 a2)
 {
   __int64 v4; // rdx

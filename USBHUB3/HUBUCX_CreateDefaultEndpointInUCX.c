@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBUCX_CreateDefaultEndpointInUCX @ 0x1C0027230
+ * Callers:
+ *     HUBDSM_CreatingUCXDefaultEndpointFor30 @ 0x1C0020B50 (HUBDSM_CreatingUCXDefaultEndpointFor30.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBUCX_CreateDefaultEndpointInUCX(__int64 a1)
 {
   int v2; // edi

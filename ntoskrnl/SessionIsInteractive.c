@@ -1,3 +1,12 @@
+/*
+ * XREFs of SessionIsInteractive @ 0x1402B92A4
+ * Callers:
+ *     PopPowerRequestCreateCommon @ 0x1402BC348 (PopPowerRequestCreateCommon.c)
+ *     NtSetThreadExecutionState @ 0x14073A9D0 (NtSetThreadExecutionState.c)
+ * Callees:
+ *     PsGetSiloBySessionId @ 0x1406CDDA8 (PsGetSiloBySessionId.c)
+ */
+
 char __fastcall SessionIsInteractive(__int64 a1)
 {
   char v1; // bl

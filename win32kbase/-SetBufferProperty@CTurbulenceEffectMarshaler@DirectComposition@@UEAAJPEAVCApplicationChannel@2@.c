@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CTurbulenceEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C024E880
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C024D490 (-SetBufferProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEB.c)
+ */
+
 __int64 __fastcall DirectComposition::CTurbulenceEffectMarshaler::SetBufferProperty(
         DirectComposition::CTurbulenceEffectMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

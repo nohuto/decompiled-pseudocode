@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpInterruptDestinationToTarget @ 0x14028EC7C
+ * Callers:
+ *     HalpInterruptSetRemappedDestination @ 0x14028EB08 (HalpInterruptSetRemappedDestination.c)
+ *     HalpInterruptEnableNmi @ 0x140378254 (HalpInterruptEnableNmi.c)
+ *     HalpInterruptRemap @ 0x140378D78 (HalpInterruptRemap.c)
+ *     HalpInterruptSetLineState @ 0x1403793AC (HalpInterruptSetLineState.c)
+ *     HalpInterruptGenerateMessage @ 0x1403799C4 (HalpInterruptGenerateMessage.c)
+ *     HalpInterruptSetDestinationInternal @ 0x1405023EC (HalpInterruptSetDestinationInternal.c)
+ * Callees:
+ *     KeGetProcessorIndexFromNumber @ 0x140236BF0 (KeGetProcessorIndexFromNumber.c)
+ *     HalpInterruptAddTarget @ 0x14028ED40 (HalpInterruptAddTarget.c)
+ */
+
 __int64 __fastcall HalpInterruptDestinationToTarget(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiLogReserveVaFailed @ 0x140A2BBB4
+ * Callers:
+ *     MiReserveUserMemory @ 0x1407D4340 (MiReserveUserMemory.c)
+ * Callees:
+ *     PsGetProcessSessionId @ 0x140299380 (PsGetProcessSessionId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall MiLogReserveVaFailed(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   struct _LIST_ENTRY *v4; // rax

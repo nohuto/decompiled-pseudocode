@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiConvertInitialMemoryBlock @ 0x14080916C
+ * Callers:
+ *     MiMakePartitionMemoryBlock @ 0x140A4242C (MiMakePartitionMemoryBlock.c)
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ */
+
 char *__fastcall MiConvertInitialMemoryBlock(__int64 a1, __int64 a2)
 {
   int v2; // edi

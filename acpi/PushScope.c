@@ -1,3 +1,19 @@
+/*
+ * XREFs of PushScope @ 0x1C0053D40
+ * Callers:
+ *     Device @ 0x1C0050490 (Device.c)
+ *     PowerRes @ 0x1C0050E80 (PowerRes.c)
+ *     Processor @ 0x1C0050FF0 (Processor.c)
+ *     ThermalZone @ 0x1C0051160 (ThermalZone.c)
+ *     Scope @ 0x1C0055440 (Scope.c)
+ *     IfElse @ 0x1C0055570 (IfElse.c)
+ *     While @ 0x1C0055BF0 (While.c)
+ *     ParseCall @ 0x1C005A6A0 (ParseCall.c)
+ *     ParseLoad @ 0x1C005B600 (ParseLoad.c)
+ * Callees:
+ *     PushFrame @ 0x1C0053C34 (PushFrame.c)
+ */
+
 __int64 __fastcall PushScope(
         _QWORD *a1,
         __int64 a2,

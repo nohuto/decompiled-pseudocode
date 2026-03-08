@@ -1,3 +1,15 @@
+/*
+ * XREFs of FilterEvalStrict @ 0x140762048
+ * Callers:
+ *     FilterEval @ 0x1406CC630 (FilterEval.c)
+ *     FilterEvalStrict @ 0x140762048 (FilterEvalStrict.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     FilterEvalStrict @ 0x140762048 (FilterEvalStrict.c)
+ *     PropertyEval @ 0x1407622B0 (PropertyEval.c)
+ *     FindFilterOperatorClose @ 0x1407656E4 (FindFilterOperatorClose.c)
+ */
+
 __int64 __fastcall FilterEvalStrict(
         __int64 (__fastcall *a1)(__int64, unsigned int *, unsigned int *, unsigned int *, __int64 *),
         __int64 a2,

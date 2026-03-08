@@ -1,3 +1,14 @@
+/*
+ * XREFs of BiAddBootEntry @ 0x140A5AAD4
+ * Callers:
+ *     BiCreateEfiEntry @ 0x140A5B13C (BiCreateEfiEntry.c)
+ * Callees:
+ *     ZwAddBootEntry @ 0x140413050 (ZwAddBootEntry.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiAcquirePrivilege @ 0x14082F784 (BiAcquirePrivilege.c)
+ *     BiReleasePrivilege @ 0x14082F810 (BiReleasePrivilege.c)
+ */
+
 __int64 __fastcall BiAddBootEntry(__int64 a1, __int64 a2)
 {
   int v4; // ebx

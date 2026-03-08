@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtDelayExecution @ 0x1406E09F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 NTSTATUS __fastcall NtDelayExecution(BOOLEAN a1, LARGE_INTEGER *a2)
 {
   KPROCESSOR_MODE PreviousMode; // cl

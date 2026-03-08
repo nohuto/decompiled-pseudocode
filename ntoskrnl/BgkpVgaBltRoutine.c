@@ -1,3 +1,11 @@
+/*
+ * XREFs of BgkpVgaBltRoutine @ 0x14054CC90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall BgkpVgaBltRoutine(void **a1, unsigned int *a2, char a3)
 {
   if ( a3 )

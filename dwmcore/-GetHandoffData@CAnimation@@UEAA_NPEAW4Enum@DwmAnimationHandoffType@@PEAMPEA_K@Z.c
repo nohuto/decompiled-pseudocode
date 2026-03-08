@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetHandoffData@CAnimation@@UEAA_NPEAW4Enum@DwmAnimationHandoffType@@PEAMPEA_K@Z @ 0x1800DBF00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$ReleaseInterface@VCAnimation@@@@YAXAEAPEAVCAnimation@@@Z @ 0x18021C36C (--$ReleaseInterface@VCAnimation@@@@YAXAEAPEAVCAnimation@@@Z.c)
+ *     ?GetAnimationValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z @ 0x18027D80C (-GetAnimationValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z.c)
+ */
+
 bool __fastcall CAnimation::GetHandoffData(
         CAnimation *this,
         enum DwmAnimationHandoffType::Enum *a2,

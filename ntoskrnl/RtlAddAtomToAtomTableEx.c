@@ -1,3 +1,20 @@
+/*
+ * XREFs of RtlAddAtomToAtomTableEx @ 0x1403546F0
+ * Callers:
+ *     RtlAddAtomToAtomTable @ 0x1407DBF10 (RtlAddAtomToAtomTable.c)
+ *     NtAddAtomEx @ 0x1407DC020 (NtAddAtomEx.c)
+ * Callees:
+ *     RtlpReferenceAtom @ 0x140354B9C (RtlpReferenceAtom.c)
+ *     RtlpAllocateAtomTableEntry @ 0x140355098 (RtlpAllocateAtomTableEntry.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlpHashStringToAtom @ 0x1407DA630 (RtlpHashStringToAtom.c)
+ *     RtlpLockAtomTable @ 0x1407DA790 (RtlpLockAtomTable.c)
+ *     RtlGetIntegerAtom @ 0x1407DA7D0 (RtlGetIntegerAtom.c)
+ *     RtlpUnlockAtomTable @ 0x1407DAD98 (RtlpUnlockAtomTable.c)
+ *     RtlpInsertStringAtom @ 0x1407DBB30 (RtlpInsertStringAtom.c)
+ *     RtlpFreeAtom @ 0x1407DC628 (RtlpFreeAtom.c)
+ */
+
 __int64 __fastcall RtlAddAtomToAtomTableEx(__int64 a1, _WORD *a2, unsigned __int16 *a3, unsigned int a4)
 {
   int v8; // edi

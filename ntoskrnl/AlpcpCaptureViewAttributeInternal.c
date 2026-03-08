@@ -1,3 +1,18 @@
+/*
+ * XREFs of AlpcpCaptureViewAttributeInternal @ 0x140714E74
+ * Callers:
+ *     AlpcpCaptureViewAttribute @ 0x140714E20 (AlpcpCaptureViewAttribute.c)
+ *     AlpcpCaptureViewAttribute32 @ 0x1409764A0 (AlpcpCaptureViewAttribute32.c)
+ * Callees:
+ *     AlpcReferenceBlobByHandle @ 0x1406D1E94 (AlpcReferenceBlobByHandle.c)
+ *     AlpcpLocateSectionView @ 0x140714FD0 (AlpcpLocateSectionView.c)
+ *     AlpcpPrepareViewForDelivery @ 0x140715128 (AlpcpPrepareViewForDelivery.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071550C (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteView @ 0x1407155FC (AlpcpDeleteView.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1407CBD44 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x1407CDB50 (AlpcpUnlockBlob.c)
+ */
+
 __int64 __fastcall AlpcpCaptureViewAttributeInternal(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   ULONG_PTR v8; // rbx

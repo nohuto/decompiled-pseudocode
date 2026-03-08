@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiDiagTraceThermalNotification @ 0x1C0008B38
+ * Callers:
+ *     ACPIThermalLoopEx @ 0x1C00410F0 (ACPIThermalLoopEx.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C000B2B0 (ACPIAmliBuildObjectPathnameUnicode.c)
+ */
+
 void __fastcall AcpiDiagTraceThermalNotification(_DWORD *a1, __int64 a2, __int16 a3)
 {
   char *v6; // r9

@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopEnableTimer @ 0x140552FD8
+ * Callers:
+ *     IoStartTimer @ 0x140555090 (IoStartTimer.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetCoalescableTimer @ 0x140250440 (KeSetCoalescableTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceIoTimerEvent @ 0x1405FAA80 (EtwTraceIoTimerEvent.c)
+ */
+
 __int64 __fastcall IopEnableTimer(__int64 a1)
 {
   unsigned __int64 v2; // rdi

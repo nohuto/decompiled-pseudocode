@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bSrcCopySRLE4D4@@YAHPEAUBLTINFO@@@Z @ 0x1C02F22C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Feature_2721926456__private_IsEnabledDeviceUsage @ 0x1C01308DC (Feature_2721926456__private_IsEnabledDeviceUsage.c)
+ */
+
 __int64 __fastcall bSrcCopySRLE4D4(struct BLTINFO *a1)
 {
   char *v2; // r14

@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiClearStackOwners @ 0x1402D4AA0
+ * Callers:
+ *     MmDeleteKernelStackEx @ 0x140318070 (MmDeleteKernelStackEx.c)
+ * Callees:
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 __int64 __fastcall MiClearStackOwners(__int64 a1, char a2)
 {
   unsigned int v2; // ebp

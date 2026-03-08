@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcShouldIssueVDLUpdate @ 0x1402195B0
+ * Callers:
+ *     CcWriteBehindPostProcess @ 0x140219248 (CcWriteBehindPostProcess.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CcShouldIssueVDLUpdate(__int64 a1)
 {
   _QWORD *v1; // rax

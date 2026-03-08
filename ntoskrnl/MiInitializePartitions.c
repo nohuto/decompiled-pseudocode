@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiInitializePartitions @ 0x140B3A308
+ * Callers:
+ *     MiCreatePfnDatabase @ 0x140B3A0B8 (MiCreatePfnDatabase.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiInitializePartitions(int a1)
 {
   if ( !a1 )

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpHvInitSegRegister @ 0x140518E28
+ * Callers:
+ *     HalpHvStartProcessor @ 0x140518EF8 (HalpHvStartProcessor.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpHvInitSegRegister(__int64 a1, unsigned __int16 a2, __int64 a3)
 {
   __int64 v3; // r9

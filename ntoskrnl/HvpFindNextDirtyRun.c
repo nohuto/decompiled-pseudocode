@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvpFindNextDirtyRun @ 0x14030C6F0
+ * Callers:
+ *     HvpFindNextDirtyBlock @ 0x1407A4B70 (HvpFindNextDirtyBlock.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HvpFindNextDirtyRun(unsigned int *a1, unsigned int *a2, unsigned int *a3, unsigned int *a4)
 {
   unsigned int v4; // esi

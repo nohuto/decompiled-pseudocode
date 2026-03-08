@@ -1,3 +1,15 @@
+/*
+ * XREFs of VidSchiSwitchFromSuspendedDevices @ 0x1C0014360
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VidSchIsTDRPending @ 0x1C0007920 (VidSchIsTDRPending.c)
+ *     VidSchiSwitchNodeFromContext @ 0x1C00AD9A0 (VidSchiSwitchNodeFromContext.c)
+ *     VidSchiSubmitPreemptionCommand @ 0x1C00ADB04 (VidSchiSubmitPreemptionCommand.c)
+ *     VidSchiWaitForCompletePreemption @ 0x1C01072AC (VidSchiWaitForCompletePreemption.c)
+ *     VidSchiWaitForEmptyHwQueue @ 0x1C0107370 (VidSchiWaitForEmptyHwQueue.c)
+ */
+
 void __fastcall VidSchiSwitchFromSuspendedDevices(__int64 a1)
 {
   __int64 v2; // r14

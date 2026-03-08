@@ -1,3 +1,12 @@
+/*
+ * XREFs of UpdateRawKeyState @ 0x1C007F0C8
+ * Callers:
+ *     xxxProcessKeyEvent @ 0x1C007EE00 (xxxProcessKeyEvent.c)
+ *     ?ApplyKeyStateUpdate@@YAXE_N@Z @ 0x1C021D024 (-ApplyKeyStateUpdate@@YAXE_N@Z.c)
+ * Callees:
+ *     ApiSetEditionUpdateModifiersForHotkey @ 0x1C007F1DC (ApiSetEditionUpdateModifiersForHotkey.c)
+ */
+
 __int64 __fastcall UpdateRawKeyState(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v4; // di

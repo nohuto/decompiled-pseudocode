@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpWriteTimeZoneBias @ 0x140811BF4
+ * Callers:
+ *     ExInitializeUtcTimeZoneBias @ 0x14080F488 (ExInitializeUtcTimeZoneBias.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140811500 (ExpRefreshTimeZoneInformation.c)
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ */
+
 __int64 __fastcall ExpWriteTimeZoneBias(_DWORD *a1, __int64 a2)
 {
   struct _LIST_ENTRY *v3; // rdx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of sub_140752C94 @ 0x140752C94
+ * Callers:
+ *     WbFreeWarbirdProcess @ 0x140752CDC (WbFreeWarbirdProcess.c)
+ *     sub_140755994 @ 0x140755994 (sub_140755994.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall sub_140752C94(_QWORD *P)
 {
   void *v2; // rcx

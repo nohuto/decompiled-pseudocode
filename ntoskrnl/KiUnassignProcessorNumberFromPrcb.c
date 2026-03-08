@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiUnassignProcessorNumberFromPrcb @ 0x14056E48C
+ * Callers:
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiUnassignProcessorNumberFromPrcb(__int64 a1)
 {
   unsigned __int64 v1; // rdx

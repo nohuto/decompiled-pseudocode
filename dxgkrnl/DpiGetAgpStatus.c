@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiGetAgpStatus @ 0x1C021830C
+ * Callers:
+ *     DpiAddDevice @ 0x1C01F38A0 (DpiAddDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiGetAgpStatus(__int64 a1)
 {
   __int64 v1; // rcx

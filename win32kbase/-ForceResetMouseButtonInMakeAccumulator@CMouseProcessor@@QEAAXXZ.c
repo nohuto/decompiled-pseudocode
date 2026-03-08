@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ForceResetMouseButtonInMakeAccumulator@CMouseProcessor@@QEAAXXZ @ 0x1C00CB344
+ * Callers:
+ *     ForceResetMouseButtonsDownState @ 0x1C00CB320 (ForceResetMouseButtonsDownState.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 void __fastcall CMouseProcessor::ForceResetMouseButtonInMakeAccumulator(CMouseProcessor *this)
 {
   bool v2; // dl

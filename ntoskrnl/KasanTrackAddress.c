@@ -1,3 +1,14 @@
+/*
+ * XREFs of KasanTrackAddress @ 0x1402EA400
+ * Callers:
+ *     MmCreateKernelStack @ 0x140317B10 (MmCreateKernelStack.c)
+ *     MmAllocateIsrStack @ 0x14080AFF0 (MmAllocateIsrStack.c)
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ *     MiInitializeSharedUserData @ 0x140B68D24 (MiInitializeSharedUserData.c)
+ * Callees:
+ *     MiMakeZeroedPageTablesEx @ 0x14020F130 (MiMakeZeroedPageTablesEx.c)
+ */
+
 __int64 __fastcall KasanTrackAddress(unsigned __int64 a1, __int64 a2, unsigned int a3)
 {
   int ZeroedPageTables; // eax

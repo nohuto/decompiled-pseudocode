@@ -1,3 +1,13 @@
+/*
+ * XREFs of ESM_UpdatingTransferRingDequeuePointers @ 0x1C0011250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     Endpoint_OnCancelSetDequeuePointer @ 0x1C0010A74 (Endpoint_OnCancelSetDequeuePointer.c)
+ *     XilEndpoint_FetchStreamContextArray @ 0x1C00390E8 (XilEndpoint_FetchStreamContextArray.c)
+ */
+
 __int64 __fastcall ESM_UpdatingTransferRingDequeuePointers(__int64 a1)
 {
   __int64 v1; // rbx

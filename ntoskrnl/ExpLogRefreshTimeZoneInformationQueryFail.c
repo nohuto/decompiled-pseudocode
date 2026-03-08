@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpLogRefreshTimeZoneInformationQueryFail @ 0x1409F506C
+ * Callers:
+ *     ExpRefreshTimeZoneInformation @ 0x140811500 (ExpRefreshTimeZoneInformation.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 int ExpLogRefreshTimeZoneInformationQueryFail()
 {
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspSiloGetSuiteMaskStringFromRegistry @ 0x1409AA58C
+ * Callers:
+ *     PspSiloInitializeSuiteMask @ 0x1409AA6D8 (PspSiloInitializeSuiteMask.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x14069B3C0 (RtlpQueryRegistryValues.c)
+ */
+
 __int64 __fastcall PspSiloGetSuiteMaskStringFromRegistry(_OWORD *a1)
 {
   __int64 result; // rax

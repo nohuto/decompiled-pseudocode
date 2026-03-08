@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiDaDispatch @ 0x14076AE40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PiDqDispatch @ 0x140745C20 (PiDqDispatch.c)
+ */
+
 __int64 __fastcall PiDaDispatch(__int64 a1, IRP *a2)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rbx

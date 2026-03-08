@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmSectionToSectionObjectPointers @ 0x1408A770E
+ * Callers:
+ *     IopIsFileOpenOrSection @ 0x1408A0330 (IopIsFileOpenOrSection.c)
+ * Callees:
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     MiReferenceControlAreaFile @ 0x140344094 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1403441A0 (MiDereferenceControlAreaFile.c)
+ */
+
 __int64 __fastcall MmSectionToSectionObjectPointers(__int64 a1)
 {
   unsigned __int64 v1; // rax

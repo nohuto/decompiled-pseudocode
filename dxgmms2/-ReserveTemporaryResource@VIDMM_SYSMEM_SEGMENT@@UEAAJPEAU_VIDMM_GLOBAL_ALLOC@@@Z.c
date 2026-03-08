@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReserveTemporaryResource@VIDMM_SYSMEM_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00F7C50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall VIDMM_SYSMEM_SEGMENT::ReserveTemporaryResource(
         VIDMM_SYSMEM_SEGMENT *this,
         struct _VIDMM_GLOBAL_ALLOC *a2)

@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlWow64GetCpuAreaInfo @ 0x14077C93C
+ * Callers:
+ *     RtlpWalkFrameChain @ 0x14027FF40 (RtlpWalkFrameChain.c)
+ *     PspWow64ReadOrWriteThreadCpuArea @ 0x14077C5B8 (PspWow64ReadOrWriteThreadCpuArea.c)
+ * Callees:
+ *     RtlpGetLegacyContextLength @ 0x140365130 (RtlpGetLegacyContextLength.c)
+ *     RtlpGetContextFlagsLocation @ 0x140365178 (RtlpGetContextFlagsLocation.c)
+ *     RtlpArchContextFlagFromMachine @ 0x14077C9E4 (RtlpArchContextFlagFromMachine.c)
+ */
+
 __int64 __fastcall RtlWow64GetCpuAreaInfo(__int64 a1, unsigned __int16 a2, __int64 a3)
 {
   int v6; // eax

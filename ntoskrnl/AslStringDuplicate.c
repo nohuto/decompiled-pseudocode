@@ -1,3 +1,25 @@
+/*
+ * XREFs of AslStringDuplicate @ 0x1406D51D8
+ * Callers:
+ *     AslpFileVerQueryBlock @ 0x1406D5020 (AslpFileVerQueryBlock.c)
+ *     AslpFileMakeStringVersionAttributes @ 0x1407A0A68 (AslpFileMakeStringVersionAttributes.c)
+ *     AslFileMappingCreate @ 0x1407A2D8C (AslFileMappingCreate.c)
+ *     AslFileMappingCreateFromImageView @ 0x140847670 (AslFileMappingCreateFromImageView.c)
+ *     SdbpGetManifestedMergeStubAlloc @ 0x140A4BEA8 (SdbpGetManifestedMergeStubAlloc.c)
+ *     SdbpCheckMatchingRegistryValue @ 0x140A4CE9C (SdbpCheckMatchingRegistryValue.c)
+ *     AslRegistryGetString @ 0x140A51674 (AslRegistryGetString.c)
+ *     AslPathToSystemPath @ 0x140A526E4 (AslPathToSystemPath.c)
+ *     AslRegWildcardFindFirst @ 0x140A53674 (AslRegWildcardFindFirst.c)
+ * Callees:
+ *     RtlStringCchLengthW @ 0x140247080 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyW @ 0x1402470F0 (RtlStringCchCopyW.c)
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AslStringDuplicate(wchar_t **a1, const wchar_t *a2)
 {
   NTSTATUS v4; // ebx

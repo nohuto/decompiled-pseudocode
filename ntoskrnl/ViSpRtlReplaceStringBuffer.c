@@ -1,3 +1,15 @@
+/*
+ * XREFs of ViSpRtlReplaceStringBuffer @ 0x140AE5774
+ * Callers:
+ *     VfSpRtlUnicodeStringToAnsiString_Exit @ 0x140AE56F0 (VfSpRtlUnicodeStringToAnsiString_Exit.c)
+ *     VfSpRtlCreateUnicodeString_Exit @ 0x140AE5720 (VfSpRtlCreateUnicodeString_Exit.c)
+ *     VfSpRtlDuplicateUnicodeString_Exit @ 0x140AE5750 (VfSpRtlDuplicateUnicodeString_Exit.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     VfHandlePoolAlloc @ 0x140ACDFB0 (VfHandlePoolAlloc.c)
+ */
+
 void __fastcall ViSpRtlReplaceStringBuffer(__int64 a1, __int64 a2)
 {
   PVOID v3; // rax

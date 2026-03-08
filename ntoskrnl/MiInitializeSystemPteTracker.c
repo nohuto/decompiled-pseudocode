@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiInitializeSystemPteTracker @ 0x140B6B974
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ */
+
 _QWORD *MiInitializeSystemPteTracker()
 {
   _QWORD *result; // rax

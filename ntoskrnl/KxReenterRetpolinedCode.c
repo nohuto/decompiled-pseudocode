@@ -1,3 +1,12 @@
+/*
+ * XREFs of KxReenterRetpolinedCode @ 0x140571938
+ * Callers:
+ *     ExpWorkerThread @ 0x140352200 (ExpWorkerThread.c)
+ *     KeReenterRetpolinedCode @ 0x14040ACB0 (KeReenterRetpolinedCode.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 KxReenterRetpolinedCode()
 {
   volatile signed __int32 *SchedulerAssist; // rcx

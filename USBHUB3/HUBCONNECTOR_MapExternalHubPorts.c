@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBCONNECTOR_MapExternalHubPorts @ 0x1C0082934
+ * Callers:
+ *     HUBCONNECTOR_MapHubPorts @ 0x1C0082A18 (HUBCONNECTOR_MapHubPorts.c)
+ * Callees:
+ *     HUBCONNECTOR_RegisterPort @ 0x1C0081CF0 (HUBCONNECTOR_RegisterPort.c)
+ */
+
 void __fastcall HUBCONNECTOR_MapExternalHubPorts(__int64 a1)
 {
   unsigned __int16 v2; // bx

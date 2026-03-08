@@ -1,3 +1,15 @@
+/*
+ * XREFs of PspDetachProcessFromSyscallProvider @ 0x1409B1B48
+ * Callers:
+ *     PspProcessDelete @ 0x140704DD0 (PspProcessDelete.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PspDereferenceSyscallProvider @ 0x1405A27AC (PspDereferenceSyscallProvider.c)
+ */
+
 __int64 __fastcall PspDetachProcessFromSyscallProvider(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExpWnfAcquireSubscriptionByName @ 0x14071D36C
+ * Callers:
+ *     NtUnsubscribeWnfStateChange @ 0x14071D2B0 (NtUnsubscribeWnfStateChange.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ */
+
 __int64 __fastcall ExpWnfAcquireSubscriptionByName(__int64 a1, __int64 a2, struct _EX_RUNDOWN_REF **a3)
 {
   signed __int64 *v3; // rdi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??$_Insert_range@PEBUMilPoint3F@@@?$vector@UMilPoint3F@@V?$allocator@UMilPoint3F@@@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@UMilPoint3F@@@std@@@std@@@1@PEBUMilPoint3F@@1Uforward_iterator_tag@1@@Z @ 0x1801BC584
+ * Callers:
+ *     ??$insert@PEBUMilPoint3F@@$0A@@?$vector@UMilPoint3F@@V?$allocator@UMilPoint3F@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@UMilPoint3F@@@std@@@std@@@1@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@UMilPoint3F@@@std@@@std@@@1@PEBUMilPoint3F@@1@Z @ 0x1801BCCA0 (--$insert@PEBUMilPoint3F@@$0A@@-$vector@UMilPoint3F@@V-$allocator@UMilPoint3F@@@std@@@std@@QEAA-.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$0M@@std@@YA_K_K@Z @ 0x1800D16CC (--$_Get_size_of_n@$0M@@std@@YA_K_K@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     ?_Change_array@?$vector@UMilPoint3F@@V?$allocator@UMilPoint3F@@@std@@@std@@AEAAXQEAUMilPoint3F@@_K1@Z @ 0x1801C7954 (-_Change_array@-$vector@UMilPoint3F@@V-$allocator@UMilPoint3F@@@std@@@std@@AEAAXQEAUMilPoint3F@@.c)
+ */
+
 void __fastcall std::vector<MilPoint3F>::_Insert_range<MilPoint3F const *>(
         __int64 a1,
         _BYTE *a2,

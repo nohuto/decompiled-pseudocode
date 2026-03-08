@@ -1,3 +1,36 @@
+/*
+ * XREFs of AlpcpProcessSynchronousRequest @ 0x1407CF500
+ * Callers:
+ *     NtRequestWaitReplyPort @ 0x140716210 (NtRequestWaitReplyPort.c)
+ *     LpcSendWaitReceivePort @ 0x140796F40 (LpcSendWaitReceivePort.c)
+ *     NtAlpcSendWaitReceivePort @ 0x1407CCAC0 (NtAlpcSendWaitReceivePort.c)
+ *     LpcpRequestWaitReplyPort @ 0x14097555C (LpcpRequestWaitReplyPort.c)
+ *     NtReplyWaitReplyPort @ 0x140975750 (NtReplyWaitReplyPort.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectSafe @ 0x1402CBCB0 (ObReferenceObjectSafe.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     AlpcpCancelMessage @ 0x1407141F0 (AlpcpCancelMessage.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x140715930 (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     AlpcpReadMessageData @ 0x140716C08 (AlpcpReadMessageData.c)
+ *     AlpcpExposeCapturedContextAttribute @ 0x140768DC4 (AlpcpExposeCapturedContextAttribute.c)
+ *     AlpcpReturnMessageOnInsufficientBuffer @ 0x14077EC7C (AlpcpReturnMessageOnInsufficientBuffer.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     AlpcMessageCleanupProcedure @ 0x1407CA690 (AlpcMessageCleanupProcedure.c)
+ *     AlpcpSendMessage @ 0x1407CAFB0 (AlpcpSendMessage.c)
+ *     AlpcpUnlockBlob @ 0x1407CDB50 (AlpcpUnlockBlob.c)
+ *     AlpcpExposeAttributes @ 0x1407CDCB0 (AlpcpExposeAttributes.c)
+ *     AlpcpReceiveSynchronousReply @ 0x1407CFC50 (AlpcpReceiveSynchronousReply.c)
+ *     AlpcpGetDataFromUserVaSafe @ 0x140975F5C (AlpcpGetDataFromUserVaSafe.c)
+ *     AlpcpEnterFreeEventMessageLog @ 0x1409779B4 (AlpcpEnterFreeEventMessageLog.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x140977A1C (AlpcpEnterStateChangeEventMessageLog.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall AlpcpProcessSynchronousRequest(
         __int64 a1,
         int a2,

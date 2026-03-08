@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiResetAccessBitPte @ 0x140325D60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiGetPfnPriority @ 0x14028A3F8 (MiGetPfnPriority.c)
+ *     MiDemoteCombinedPte @ 0x14029DF88 (MiDemoteCombinedPte.c)
+ *     MiResetAccessBitsTail @ 0x1402DDE40 (MiResetAccessBitsTail.c)
+ *     MiIsPageTableLocked @ 0x1402F2A4C (MiIsPageTableLocked.c)
+ *     MiSetVaAgeList @ 0x14031AB40 (MiSetVaAgeList.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiClearPteAccessed @ 0x140326910 (MiClearPteAccessed.c)
+ *     MiLogPageAccess @ 0x140326EF0 (MiLogPageAccess.c)
+ *     MiInsertVmAccessedEntry @ 0x140463768 (MiInsertVmAccessedEntry.c)
+ */
+
 __int64 __fastcall MiResetAccessBitPte(__int64 a1, unsigned __int64 a2, int a3)
 {
   __int64 v3; // r14

@@ -1,3 +1,12 @@
+/*
+ * XREFs of WdmlibIoCreateDeviceSecure @ 0x1C00B0508
+ * Callers:
+ *     ?CreateDevice@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C003DA50 (-CreateDevice@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WdmlibInit @ 0x1C00B047C (WdmlibInit.c)
+ */
+
 __int64 __fastcall WdmlibIoCreateDeviceSecure(
         _DRIVER_OBJECT *DriverObject,
         unsigned int DeviceName,

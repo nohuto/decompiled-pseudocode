@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiMarkMdlComplete @ 0x140630368
+ * Callers:
+ *     MiReplaceRotateWithDemandZero @ 0x140A2E748 (MiReplaceRotateWithDemandZero.c)
+ * Callees:
+ *     MiLocateLockedVadEvent @ 0x14020DC68 (MiLocateLockedVadEvent.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 int __fastcall MiMarkMdlComplete(__int64 a1, __int64 a2)
 {
   unsigned __int64 LockedVadEvent; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of EditionxxxHandleGhostOnThreadDestroyed @ 0x1C00D8F00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?xxxHandleHealthyThread@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C01F5AA4 (-xxxHandleHealthyThread@@YAXPEAUtagTHREADINFO@@@Z.c)
+ */
+
 void __fastcall EditionxxxHandleGhostOnThreadDestroyed(struct tagTHREADINFO *a1)
 {
   _QWORD *v2; // rbx

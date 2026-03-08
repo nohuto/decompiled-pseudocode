@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspDecodeMitigationExecuteOptions @ 0x14079A558
+ * Callers:
+ *     PspApplyMitigationOptions @ 0x14070A66C (PspApplyMitigationOptions.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PspDecodeMitigationExecuteOptions(_DWORD *a1)
 {
   char v1; // dl

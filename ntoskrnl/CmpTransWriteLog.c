@@ -1,3 +1,21 @@
+/*
+ * XREFs of CmpTransWriteLog @ 0x140734F84
+ * Callers:
+ *     CmLogTmRmAction @ 0x14073478C (CmLogTmRmAction.c)
+ *     CmAddLogForAction @ 0x14073485C (CmAddLogForAction.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     CmpDoTransWriteLogRecord @ 0x140735080 (CmpDoTransWriteLogRecord.c)
+ *     CmpComputeLogFillLevel @ 0x140735120 (CmpComputeLogFillLevel.c)
+ *     CmpLogCheckpoint @ 0x140735720 (CmpLogCheckpoint.c)
+ *     CmpAddRemoveRMLogContainer @ 0x140A1BBAC (CmpAddRemoveRMLogContainer.c)
+ */
+
 __int64 __fastcall CmpTransWriteLog(__int64 a1, __int64 a2, unsigned int a3, int a4, PCLFS_LSN plsnFinish)
 {
   struct _KTHREAD *CurrentThread; // rax

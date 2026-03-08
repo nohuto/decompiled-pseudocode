@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIButtonEvent @ 0x1C00189F0
+ * Callers:
+ *     ACPIInterruptServiceRoutineDPC @ 0x1C0003E70 (ACPIInterruptServiceRoutineDPC.c)
+ *     ACPIButtonDeviceControl @ 0x1C0018890 (ACPIButtonDeviceControl.c)
+ *     ACPICMButtonNotify @ 0x1C0018AC8 (ACPICMButtonNotify.c)
+ *     ACPICMLidSetPowerCompletion @ 0x1C00198C0 (ACPICMLidSetPowerCompletion.c)
+ *     ACPICMLidWorker @ 0x1C00199B0 (ACPICMLidWorker.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIButtonCompletePendingIrps @ 0x1C001873C (ACPIButtonCompletePendingIrps.c)
+ */
+
 __int64 __fastcall ACPIButtonEvent(ULONG_PTR a1, int a2)
 {
   __int64 DeviceExtension; // rsi

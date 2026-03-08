@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsOpaqueRect@CColorBrush@@UEBA_NAEBUD2D_SIZE_F@@PEAUD2D_RECT_F@@@Z @ 0x180037CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CColorBrush::IsOpaqueRect(CColorBrush *this, const struct D2D_SIZE_F *a2, struct D2D_RECT_F *a3)
 {
   FLOAT width; // xmm0_4

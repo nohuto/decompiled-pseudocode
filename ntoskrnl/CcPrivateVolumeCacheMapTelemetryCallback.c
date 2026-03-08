@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcPrivateVolumeCacheMapTelemetryCallback @ 0x14087C800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcGetActiveWorkerCountInPartition @ 0x1403CE3C4 (CcGetActiveWorkerCountInPartition.c)
+ */
+
 char __fastcall CcPrivateVolumeCacheMapTelemetryCallback(__int64 a1, __int64 a2)
 {
   ++qword_140C5F550;

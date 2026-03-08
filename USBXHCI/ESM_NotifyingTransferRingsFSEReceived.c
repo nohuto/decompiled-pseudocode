@@ -1,3 +1,12 @@
+/*
+ * XREFs of ESM_NotifyingTransferRingsFSEReceived @ 0x1C000F890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     TR_FSEReceived @ 0x1C000FCD4 (TR_FSEReceived.c)
+ *     XilEndpoint_FetchStreamContextArray @ 0x1C00390E8 (XilEndpoint_FetchStreamContextArray.c)
+ */
+
 __int64 __fastcall ESM_NotifyingTransferRingsFSEReceived(__int64 a1)
 {
   __int64 v1; // rdi

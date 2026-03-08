@@ -1,3 +1,14 @@
+/*
+ * XREFs of rimQueueApiSetPostPointerDeviceRangeMessageAsyncWorkItem @ 0x1C01BC4DC
+ * Callers:
+ *     RIMAddToActiveDevices @ 0x1C01B31F4 (RIMAddToActiveDevices.c)
+ *     RIMRemoveFromActiveDevices @ 0x1C01B9190 (RIMRemoveFromActiveDevices.c)
+ * Callees:
+ *     RIMAllocateAsyncPnpWorkItem @ 0x1C00364E8 (RIMAllocateAsyncPnpWorkItem.c)
+ *     RIMQueueAndSignalAsyncPnpWorkItem @ 0x1C00376B0 (RIMQueueAndSignalAsyncPnpWorkItem.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqqDSd @ 0x1C01BBF20 (WPP_RECORDER_AND_TRACE_SF_qqqDSd.c)
+ */
+
 void __fastcall rimQueueApiSetPostPointerDeviceRangeMessageAsyncWorkItem(void *a1, __int64 a2, int a3)
 {
   _QWORD *v4; // rax

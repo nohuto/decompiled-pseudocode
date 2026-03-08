@@ -1,3 +1,11 @@
+/*
+ * XREFs of Crashdump_EventRing_InitializeForDump @ 0x1C004E46C
+ * Callers:
+ *     Crashdump_UcxEvtGetDumpData @ 0x1C004D200 (Crashdump_UcxEvtGetDumpData.c)
+ * Callees:
+ *     Crashdump_CommonBufferAcquire @ 0x1C004C0B8 (Crashdump_CommonBufferAcquire.c)
+ */
+
 __int64 __fastcall Crashdump_EventRing_InitializeForDump(__int64 *a1, __int64 a2)
 {
   int v3; // ebx

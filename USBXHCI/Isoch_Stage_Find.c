@@ -1,3 +1,15 @@
+/*
+ * XREFs of Isoch_Stage_Find @ 0x1C0002870
+ * Callers:
+ *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001EC0 (Isoch_ProcessTransferEventWithED1.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DDDD @ 0x1C000E120 (WPP_RECORDER_SF_DDDD.c)
+ *     StageQueue_ForwardScanGetNextStage @ 0x1C0012EEC (StageQueue_ForwardScanGetNextStage.c)
+ *     WPP_RECORDER_SF_DDDDD @ 0x1C0041E20 (WPP_RECORDER_SF_DDDDD.c)
+ *     WPP_RECORDER_SF_DDi @ 0x1C004207C (WPP_RECORDER_SF_DDi.c)
+ *     WPP_RECORDER_SF_DDqDD @ 0x1C00438D4 (WPP_RECORDER_SF_DDqDD.c)
+ */
+
 __int64 __fastcall Isoch_Stage_Find(__int64 a1, __int64 a2, unsigned __int64 *a3)
 {
   unsigned int v3; // edi

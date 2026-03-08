@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpAllocateSiloContext @ 0x1407384A4
+ * Callers:
+ *     CmpGetOrCreateContextForSiloNoRef @ 0x1407361AC (CmpGetOrCreateContextForSiloNoRef.c)
+ * Callees:
+ *     PsCreateSiloContext @ 0x140738810 (PsCreateSiloContext.c)
+ */
+
 __int64 __fastcall CmpAllocateSiloContext(int a1, _QWORD *a2)
 {
   __int64 result; // rax

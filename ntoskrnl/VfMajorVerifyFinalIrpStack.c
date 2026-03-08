@@ -1,3 +1,11 @@
+/*
+ * XREFs of VfMajorVerifyFinalIrpStack @ 0x140AD01D8
+ * Callers:
+ *     IovpCompleteRequest2 @ 0x140AC9AFC (IovpCompleteRequest2.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 (__fastcall *__fastcall VfMajorVerifyFinalIrpStack(__int64 a1, _BYTE *a2))(_QWORD, _QWORD)
 {
   __int64 v4; // rax

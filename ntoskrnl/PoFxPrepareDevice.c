@@ -1,3 +1,20 @@
+/*
+ * XREFs of PoFxPrepareDevice @ 0x140291E3C
+ * Callers:
+ *     PnpStartDevice @ 0x140292160 (PnpStartDevice.c)
+ *     PipProcessDevNodeTree @ 0x1406CCD80 (PipProcessDevNodeTree.c)
+ *     PiProcessAddBootDevices @ 0x1408519D0 (PiProcessAddBootDevices.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     PopPluginPrepareDevice @ 0x140291FC8 (PopPluginPrepareDevice.c)
+ *     PopFxFindDeviceAndAllocateUniqueId @ 0x1406F7118 (PopFxFindDeviceAndAllocateUniqueId.c)
+ *     PopDiagTraceFxDevicePreparation @ 0x1408665EC (PopDiagTraceFxDevicePreparation.c)
+ */
+
 void __fastcall PoFxPrepareDevice(__int64 a1, char a2)
 {
   signed __int32 v4; // eax

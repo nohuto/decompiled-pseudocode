@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiAdjustWorkerThreadPriority @ 0x1C0016070
+ * Callers:
+ *     VidSchiRun_PriorityTable @ 0x1C00BA0C0 (VidSchiRun_PriorityTable.c)
+ * Callees:
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0013414 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00134D8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ */
+
 void __fastcall VidSchiAdjustWorkerThreadPriority(__int64 a1)
 {
   __int64 v2; // rdi

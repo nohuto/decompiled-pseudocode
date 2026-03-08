@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserPhysicalToLogicalPoint @ 0x1C01D96B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?DCEPtInRect@@YA_NPEBUtagRECT@@UtagPOINT@@@Z @ 0x1C0144B14 (-DCEPtInRect@@YA_NPEBUtagRECT@@UtagPOINT@@@Z.c)
+ */
+
 __int64 __fastcall NtUserPhysicalToLogicalPoint(__int64 a1, struct tagPOINT *a2, __int64 a3)
 {
   int v5; // ebx

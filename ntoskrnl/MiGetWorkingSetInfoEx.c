@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiGetWorkingSetInfoEx @ 0x1402F7DFC
+ * Callers:
+ *     MiGetWorkingSetInfo @ 0x1402F7C60 (MiGetWorkingSetInfo.c)
+ *     EtwpEnumerateWorkingSet @ 0x1409EBD00 (EtwpEnumerateWorkingSet.c)
+ *     MmLogSystemShareablePfnInfo @ 0x140A3D248 (MmLogSystemShareablePfnInfo.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MiWalkPageTables @ 0x140222CF0 (MiWalkPageTables.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiGetWorkingSetInfoEx(__int64 a1, int a2, _QWORD *a3, unsigned __int64 a4)
 {
   __int64 v8; // rbx

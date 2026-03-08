@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxEventWndProc @ 0x1C0107F00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ClientEventCallback @ 0x1C000E778 (ClientEventCallback.c)
+ *     xxxDefWindowProc @ 0x1C00A66F0 (xxxDefWindowProc.c)
+ *     xxxChangeMonitorFlags @ 0x1C00E49D0 (xxxChangeMonitorFlags.c)
+ *     HMValidateHandleNoRip @ 0x1C01083AC (HMValidateHandleNoRip.c)
+ */
+
 __int64 __fastcall xxxEventWndProc(struct tagWND *a1, __int64 a2, HWND a3, unsigned __int16 *a4)
 {
   __int64 v4; // rax

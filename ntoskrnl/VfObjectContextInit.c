@@ -1,3 +1,11 @@
+/*
+ * XREFs of VfObjectContextInit @ 0x140AC0F94
+ * Callers:
+ *     VfInitBootDriversLoaded @ 0x140B4EE44 (VfInitBootDriversLoaded.c)
+ * Callees:
+ *     ExInitializeNPagedLookasideListInternal @ 0x1403BD3B0 (ExInitializeNPagedLookasideListInternal.c)
+ */
+
 __int64 VfObjectContextInit()
 {
   ExInitializeNPagedLookasideListInternal(

@@ -1,3 +1,12 @@
+/*
+ * XREFs of FindAdjacentMonitor @ 0x1C0168370
+ * Callers:
+ *     TransformOffscreenAdjacentRect @ 0x1C016845C (TransformOffscreenAdjacentRect.c)
+ * Callees:
+ *     ?ExpandedMonitorRect@@YA?AUtagRECT@@PEAUtagMONITOR@@K@Z @ 0x1C000C860 (-ExpandedMonitorRect@@YA-AUtagRECT@@PEAUtagMONITOR@@K@Z.c)
+ *     ?ComputeAdjacencyOverlap@@YAJPEBUtagRECT@@0@Z @ 0x1C01682D0 (-ComputeAdjacencyOverlap@@YAJPEBUtagRECT@@0@Z.c)
+ */
+
 __int64 __fastcall FindAdjacentMonitor(struct tagRECT *a1, unsigned int a2)
 {
   __int64 v2; // rdi

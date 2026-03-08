@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0pqqqqqqqsssxqqqtn_EtwWriteTransfer @ 0x1C004B5C8
+ * Callers:
+ *     Etw_ControllerCreate @ 0x1C001A430 (Etw_ControllerCreate.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0022498 (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS McTemplateK0pqqqqqqqsssxqqqtn_EtwWriteTransfer(
         _DWORD a1,
         _DWORD a2,

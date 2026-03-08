@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetVariableRefreshOverrideEligible@CIFlipPresentHistoryTokenRedirectedFlip@@UEBA_NXZ @ 0x1C0019AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CIFlipPresentHistoryTokenRedirectedFlip::GetVariableRefreshOverrideEligible(
         CIFlipPresentHistoryTokenRedirectedFlip *this)
 {

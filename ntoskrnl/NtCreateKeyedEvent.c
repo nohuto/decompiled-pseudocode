@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtCreateKeyedEvent @ 0x14084B6A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall NtCreateKeyedEvent(__int64 *a1, unsigned int a2, __int64 a3, int a4)
 {
   char PreviousMode; // cl

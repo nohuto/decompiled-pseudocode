@@ -1,3 +1,21 @@
+/*
+ * XREFs of PiPnpRtlObjectActionCallback @ 0x1406CFC70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     PiDmObjectGetAggregatedBooleanPropertyData @ 0x1406D0018 (PiDmObjectGetAggregatedBooleanPropertyData.c)
+ *     PiDmObjectGetCachedObjectProperty @ 0x1406D019C (PiDmObjectGetCachedObjectProperty.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x1406D0A64 (PiDmObjectUpdateCachedObjectProperty.c)
+ *     PiPnpRtlCacheObjectBaseKey @ 0x1406D0C78 (PiPnpRtlCacheObjectBaseKey.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     PiDmGetObjectList @ 0x140777800 (PiDmGetObjectList.c)
+ *     PiDrvDbMountNode @ 0x14096D0E0 (PiDrvDbMountNode.c)
+ *     PiDrvDbUnmountNode @ 0x14096E4A8 (PiDrvDbUnmountNode.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiPnpRtlObjectActionCallback(__int64 a1, const WCHAR *a2, int a3, int a4, int a5, __int64 a6)
 {
   __int64 v6; // rbx

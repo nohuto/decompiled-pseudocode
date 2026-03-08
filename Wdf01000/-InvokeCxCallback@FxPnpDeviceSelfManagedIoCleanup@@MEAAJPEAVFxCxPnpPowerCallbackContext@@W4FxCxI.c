@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InvokeCxCallback@FxPnpDeviceSelfManagedIoCleanup@@MEAAJPEAVFxCxPnpPowerCallbackContext@@W4FxCxInvokeCallbackSubType@@@Z @ 0x1C006D4B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall FxPnpDeviceSelfManagedIoCleanup::InvokeCxCallback(
         FxPowerDeviceWakeFromSxTriggered *this,
         FxCxPnpPowerCallbackContext *Context,

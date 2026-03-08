@@ -1,9 +1,18 @@
+/*
+ * XREFs of HUBREG_QueryValuesInHubHardwareKey @ 0x1C0085AE8
+ * Callers:
+ *     HUBFDO_EvtDevicePrepareHardware @ 0x1C0078890 (HUBFDO_EvtDevicePrepareHardware.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBREG_QueryValuesInHubHardwareKey(__int64 a1)
 {
   __int64 v1; // rdx
   __int64 result; // rax
-  int v4; // edx
-  int v5; // r9d
+  unsigned __int16 v4; // r9
+  __int64 v5; // [rsp+28h] [rbp-18h]
   unsigned int v6; // [rsp+60h] [rbp+20h] BYREF
   __int64 v7; // [rsp+68h] [rbp+28h] BYREF
 
@@ -21,13 +30,13 @@ __int64 __fastcall HUBREG_QueryValuesInHubHardwareKey(__int64 a1)
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       goto LABEL_26;
-    v5 = 51;
+    v4 = 51;
     goto LABEL_25;
   }
   result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, unsigned int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
              WdfDriverGlobals,
              v7,
-             L"&(",                             // WakeSystemOnConnect
+             L"&(",
              4LL,
              &v6,
              0LL,
@@ -38,7 +47,7 @@ __int64 __fastcall HUBREG_QueryValuesInHubHardwareKey(__int64 a1)
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         goto LABEL_26;
-      v5 = 52;
+      v4 = 52;
       goto LABEL_25;
     }
   }
@@ -50,7 +59,7 @@ __int64 __fastcall HUBREG_QueryValuesInHubHardwareKey(__int64 a1)
   result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *, __int64, unsigned int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
              WdfDriverGlobals,
              v7,
-             &g_HubInstHardResetCount,          // HardResetCount
+             &g_HubInstHardResetCount,
              4LL,
              &v6,
              0LL,
@@ -61,7 +70,7 @@ __int64 __fastcall HUBREG_QueryValuesInHubHardwareKey(__int64 a1)
     {
       if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
         goto LABEL_26;
-      v5 = 53;
+      v4 = 53;
       goto LABEL_25;
     }
   }
@@ -73,7 +82,7 @@ __int64 __fastcall HUBREG_QueryValuesInHubHardwareKey(__int64 a1)
   result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, unsigned int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
              WdfDriverGlobals,
              v7,
-             L"&(",                             // OvercurrentDetected
+             L"&(",
              4LL,
              &v6,
              0LL,
@@ -86,7 +95,7 @@ LABEL_11:
     result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, unsigned int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
                WdfDriverGlobals,
                v7,
-               L"&(",                           // HubFWUpdateProtocol
+               L"&(",
                4LL,
                &v6,
                0LL,
@@ -99,23 +108,23 @@ LABEL_11:
     }
     if ( (_DWORD)result == -1073741772 || WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       goto LABEL_26;
-    v5 = 55;
+    v4 = 55;
     goto LABEL_25;
   }
   if ( (_DWORD)result == -1073741772 )
     goto LABEL_11;
   if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     goto LABEL_26;
-  v5 = 54;
+  v4 = 54;
 LABEL_25:
-  LOBYTE(v4) = 2;
+  LODWORD(v5) = result;
   result = WPP_RECORDER_SF_d(
              *(_QWORD *)(a1 + 2520),
+             2u,
+             3u,
              v4,
-             3,
-             v5,
              (__int64)&WPP_7a0afab5c79d3741c23ff4ee70090e0b_Traceguids,
-             result);
+             v5);
 LABEL_26:
   if ( v7 )
     return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01015 + 1848))(WdfDriverGlobals);

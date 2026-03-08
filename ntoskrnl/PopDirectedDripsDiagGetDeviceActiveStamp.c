@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDirectedDripsDiagGetDeviceActiveStamp @ 0x14059DEF4
+ * Callers:
+ *     PopDirectedDripsDiagBroadcastTreeBegin @ 0x14099ACE0 (PopDirectedDripsDiagBroadcastTreeBegin.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PopDirectedDripsDiagGetDeviceActiveStamp(__int64 a1)
 {
   __int64 v1; // rsi

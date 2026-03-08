@@ -1,3 +1,15 @@
+/*
+ * XREFs of PspJobIoRateVolumeEntryReference @ 0x1405A2150
+ * Callers:
+ *     PsIoRateControlReference @ 0x140294624 (PsIoRateControlReference.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     PspIoRateEntryIoControlReference @ 0x1402946C0 (PspIoRateEntryIoControlReference.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockTrackerCompare @ 0x1405A1F80 (MiLockTrackerCompare.c)
+ */
+
 signed __int64 __fastcall PspJobIoRateVolumeEntryReference(__int64 a1, unsigned __int64 a2)
 {
   volatile LONG *v2; // r14

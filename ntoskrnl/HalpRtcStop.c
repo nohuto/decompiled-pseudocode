@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpRtcStop @ 0x14051D7A0
+ * Callers:
+ *     HalpRtcAcknowledgeInterrupt @ 0x14051D550 (HalpRtcAcknowledgeInterrupt.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 HalpRtcStop()
 {
   char v1; // [rsp+48h] [rbp+10h] BYREF

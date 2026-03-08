@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnprIsMemoryDevice @ 0x1409633D0
+ * Callers:
+ *     PnprAddDeviceResources @ 0x1409625E0 (PnprAddDeviceResources.c)
+ * Callees:
+ *     IoGetDeviceInterfaces @ 0x1406C3A60 (IoGetDeviceInterfaces.c)
+ *     IoGetDevicePropertyData @ 0x1406F7380 (IoGetDevicePropertyData.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall PnprIsMemoryDevice(PDEVICE_OBJECT PhysicalDeviceObject, char a2)
 {
   PZZWSTR v2; // rbx

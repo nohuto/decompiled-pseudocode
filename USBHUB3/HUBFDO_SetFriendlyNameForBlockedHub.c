@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBFDO_SetFriendlyNameForBlockedHub @ 0x1C00775B0
+ * Callers:
+ *     HUBFDO_EvtDevicePrepareHardware @ 0x1C0078890 (HUBFDO_EvtDevicePrepareHardware.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 NTSTATUS __fastcall HUBFDO_SetFriendlyNameForBlockedHub(__int64 a1)
 {
   __int64 v2; // rax

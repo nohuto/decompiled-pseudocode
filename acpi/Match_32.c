@@ -1,3 +1,15 @@
+/*
+ * XREFs of Match_32 @ 0x1C00578E8
+ * Callers:
+ *     Match @ 0x1C0057800 (Match.c)
+ * Callees:
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ *     IsCompatableDSDTRevision @ 0x1C004BE28 (IsCompatableDSDTRevision.c)
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ *     EvalPackageElement @ 0x1C004F6E4 (EvalPackageElement.c)
+ *     MatchData_32 @ 0x1C0057840 (MatchData_32.c)
+ */
+
 __int64 __fastcall Match_32(__int64 a1, __int64 a2)
 {
   unsigned int v3; // ebx

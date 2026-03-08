@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhCheckHubErrata @ 0x1C005182C
+ * Callers:
+ *     UsbhInitialize @ 0x1C002CE20 (UsbhInitialize.c)
+ * Callees:
+ *     UsbhGetRegUsbHubFlags @ 0x1C0045B18 (UsbhGetRegUsbHubFlags.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhApplyHubFix @ 0x1C0051430 (UsbhApplyHubFix.c)
+ *     UsbhGetDeviceFlags @ 0x1C00519E8 (UsbhGetDeviceFlags.c)
+ */
+
 void __fastcall UsbhCheckHubErrata(__int64 a1, __int64 a2, __int64 a3)
 {
   const void *v3; // rbp

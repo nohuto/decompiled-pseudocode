@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiStartDpcGang @ 0x140386B74
+ * Callers:
+ *     MiAllocateFastLargePagesForMdl @ 0x1403863B4 (MiAllocateFastLargePagesForMdl.c)
+ *     MiInitializeDynamicPfns @ 0x140618AB8 (MiInitializeDynamicPfns.c)
+ * Callees:
+ *     MiGetGangAssignment @ 0x140386CC4 (MiGetGangAssignment.c)
+ *     MiDoGangAssignment @ 0x140386D14 (MiDoGangAssignment.c)
+ *     KeGenericCallDpcEx @ 0x1403C07D0 (KeGenericCallDpcEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiStartDpcGang(__int64 *a1)
 {
   unsigned __int64 v2; // rcx

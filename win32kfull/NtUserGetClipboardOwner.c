@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetClipboardOwner @ 0x1C00F5E00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00BD7B8 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ */
+
 __int64 __fastcall NtUserGetClipboardOwner(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rcx

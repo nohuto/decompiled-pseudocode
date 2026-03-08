@@ -1,3 +1,21 @@
+/*
+ * XREFs of SetIconMetrics @ 0x1C010C85C
+ * Callers:
+ *     UserOnGreTextReady @ 0x1C00B8554 (UserOnGreTextReady.c)
+ *     xxxInitWindowStation @ 0x1C00C1348 (xxxInitWindowStation.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x1C010AFDC (xxxUpdatePerUserSystemParameters.c)
+ *     ?SPISetIconMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagICONMETRICSW@@H@Z @ 0x1C01C8AB0 (-SPISetIconMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagICONMETRICSW@@H@Z.c)
+ * Callees:
+ *     InvalidateKMDpiMetricsCacheDPIMETRICS @ 0x1C010C82C (InvalidateKMDpiMetricsCacheDPIMETRICS.c)
+ *     ?GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z @ 0x1C010CE38 (-GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z.c)
+ *     ?GetLocalizedInt@@YAHIH@Z @ 0x1C010CEAC (-GetLocalizedInt@@YAHIH@Z.c)
+ *     UserSetAltScaleFont @ 0x1C010E47C (UserSetAltScaleFont.c)
+ *     UserSetFont @ 0x1C010E6E8 (UserSetFont.c)
+ *     GreMarkDeletableFont @ 0x1C010E8B4 (GreMarkDeletableFont.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall SetIconMetrics(struct _UNICODE_STRING *a1, unsigned int *a2)
 {

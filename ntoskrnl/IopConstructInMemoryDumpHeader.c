@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopConstructInMemoryDumpHeader @ 0x14055003C
+ * Callers:
+ *     IopInitializeOfflineCrashDump @ 0x1403AB95C (IopInitializeOfflineCrashDump.c)
+ *     IoUpdateDumpPhysicalRanges @ 0x14054EC60 (IoUpdateDumpPhysicalRanges.c)
+ * Callees:
+ *     IoFillDumpHeader @ 0x14054D7C8 (IoFillDumpHeader.c)
+ */
+
 __int64 IopConstructInMemoryDumpHeader()
 {
   __int64 result; // rax

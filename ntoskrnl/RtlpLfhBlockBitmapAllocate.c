@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpLfhBlockBitmapAllocate @ 0x140311C40
+ * Callers:
+ *     RtlpHpLfhSlotAllocate @ 0x140310BA0 (RtlpHpLfhSlotAllocate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpLfhBlockBitmapAllocate(
         unsigned __int64 *a1,
         int a2,

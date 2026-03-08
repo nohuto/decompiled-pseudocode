@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiMiracastStartSessionRequestCallback @ 0x1C039B630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C005FF40 (DpiMiracastReleaseMiracastDeviceContext.c)
+ *     DpiMiracastTearDownAssociation @ 0x1C0060BE0 (DpiMiracastTearDownAssociation.c)
+ */
+
 void __fastcall DpiMiracastStartSessionRequestCallback(_DWORD *P, int *a2)
 {
   __int64 v2; // rsi

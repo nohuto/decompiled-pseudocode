@@ -1,3 +1,17 @@
+/*
+ * XREFs of NtGdiModifyWorldTransform @ 0x1C0002990
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?bWorldMatrixInRange@@YAHPEAVMATRIX@@@Z @ 0x1C0002E84 (-bWorldMatrixInRange@@YAHPEAVMATRIX@@@Z.c)
+ *     ?bWorldXformIdentity@@YAHPEBU_XFORML@@@Z @ 0x1C0016EBC (-bWorldXformIdentity@@YAHPEBU_XFORML@@@Z.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00CFF10 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memcmp @ 0x1C012BEF0 (memcmp.c)
+ *     ?vMarkTransformDirty@DC@@QEAAXXZ @ 0x1C0269660 (-vMarkTransformDirty@DC@@QEAAXXZ.c)
+ *     ?bMultToWorld@EXFORMOBJ@@QEAAHPEAVMATRIX@@K@Z @ 0x1C02D1834 (-bMultToWorld@EXFORMOBJ@@QEAAHPEAVMATRIX@@K@Z.c)
+ */
+
 __int64 __fastcall NtGdiModifyWorldTransform(__int64 a1, struct _XFORML *a2, unsigned int a3)
 {
   struct _XFORML *v4; // rsi

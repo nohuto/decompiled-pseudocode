@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhHubAckPortChange @ 0x1C0018F90
+ * Callers:
+ *     UsbhHubProcessIsr @ 0x1C000B860 (UsbhHubProcessIsr.c)
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhSyncSendCommand @ 0x1C0016EE0 (UsbhSyncSendCommand.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C002E788 (WPP_RECORDER_SF_dd.c)
+ */
+
 __int64 __fastcall UsbhHubAckPortChange(__int64 a1, __int16 a2, __int16 *a3, _DWORD *a4)
 {
   __int16 v8; // ax

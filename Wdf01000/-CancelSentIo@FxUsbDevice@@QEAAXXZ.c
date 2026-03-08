@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CancelSentIo@FxUsbDevice@@QEAAXXZ @ 0x1C005C74C
+ * Callers:
+ *     ?CyclePort@FxUsbDevice@@QEAAJXZ @ 0x1C005D25C (-CyclePort@FxUsbDevice@@QEAAJXZ.c)
+ *     ?Reset@FxUsbDevice@@QEAAJXZ @ 0x1C00606BC (-Reset@FxUsbDevice@@QEAAJXZ.c)
+ * Callees:
+ *     ?CancelSentIo@FxIoTarget@@QEAAXXZ @ 0x1C005271C (-CancelSentIo@FxIoTarget@@QEAAXXZ.c)
+ */
+
 void __fastcall FxUsbDevice::CancelSentIo(FxUsbDevice *this, __int64 m_ConfiguredPipes, unsigned __int8 a3)
 {
   __int64 i; // rdi

@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiUpdateCpuTargetByRate @ 0x1402F1E28
+ * Callers:
+ *     KeInsertSchedulingGroup @ 0x1402F161C (KeInsertSchedulingGroup.c)
+ *     KeSetSchedulingGroupCpuRates @ 0x1402F19B4 (KeSetSchedulingGroupCpuRates.c)
+ *     KiUpdateChildrenCpuTarget @ 0x14057B080 (KiUpdateChildrenCpuTarget.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140255D00 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402ADF80 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiCheckForEffectivePriorityChange @ 0x1402F2428 (KiCheckForEffectivePriorityChange.c)
+ *     KiResetScb @ 0x1402F24DC (KiResetScb.c)
+ *     KiUpdateChildrenCpuTarget @ 0x14057B080 (KiUpdateChildrenCpuTarget.c)
+ */
+
 char __fastcall KiUpdateCpuTargetByRate(unsigned __int16 *a1, char a2)
 {
   unsigned __int64 v4; // rdx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpGetNextEventOffsetType @ 0x14039D3D8
+ * Callers:
+ *     EtwpSendTraceEvent @ 0x14039D2E8 (EtwpSendTraceEvent.c)
+ *     EtwpInvokeEventCallback @ 0x1405FEBA4 (EtwpInvokeEventCallback.c)
+ *     EtwpCompressBuffer @ 0x1405FFD70 (EtwpCompressBuffer.c)
+ *     EtwpSendBufferToDebugger @ 0x1409E8F6C (EtwpSendBufferToDebugger.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwpGetNextEventOffsetType(unsigned int *a1, unsigned int a2, unsigned int *a3)
 {
   __int64 v4; // r11

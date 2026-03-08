@@ -1,3 +1,16 @@
+/*
+ * XREFs of PostPointerEventMessage @ 0x1C01C4440
+ * Callers:
+ *     PostDeviceNotification @ 0x1C00D6230 (PostDeviceNotification.c)
+ *     PostPointerDeviceInRangeMessage @ 0x1C0146140 (PostPointerDeviceInRangeMessage.c)
+ *     PostPointerDeviceOutOfRangeMessage @ 0x1C0146160 (PostPointerDeviceOutOfRangeMessage.c)
+ * Callees:
+ *     PostInputMessage @ 0x1C0037A48 (PostInputMessage.c)
+ *     AdjustPwndPtiPqForDelegation @ 0x1C009FA68 (AdjustPwndPtiPqForDelegation.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ *     PHIDTtoPT @ 0x1C01C43EC (PHIDTtoPT.c)
+ */
+
 __int64 __fastcall PostPointerEventMessage(__int64 a1, unsigned int a2, unsigned __int64 a3, int a4)
 {
   __int64 result; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of VmpAccessFaultBatch @ 0x14045DEF6
+ * Callers:
+ *     VmAccessFault @ 0x1409D9200 (VmAccessFault.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     VmpFaultEntryInsert @ 0x14045E1E8 (VmpFaultEntryInsert.c)
+ *     VmpFaultEntryRemove @ 0x14045E3A6 (VmpFaultEntryRemove.c)
+ *     VmpProcessContextLockShared @ 0x14045E744 (VmpProcessContextLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpProcessUpdateSlat @ 0x1405F874C (VmpProcessUpdateSlat.c)
+ *     VmpAccessFaultBatchResolve @ 0x1409D9F48 (VmpAccessFaultBatchResolve.c)
+ */
+
 __int64 __fastcall VmpAccessFaultBatch(
         PEX_SPIN_LOCK SpinLock,
         unsigned __int64 a2,

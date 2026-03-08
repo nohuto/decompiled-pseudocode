@@ -1,3 +1,19 @@
+/*
+ * XREFs of IovpCallDriverWithStackBuffer @ 0x140ABE9B4
+ * Callers:
+ *     IovCallDriver @ 0x140ABE1D0 (IovCallDriver.c)
+ * Callees:
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IopfCallDriver @ 0x1402B903C (IopfCallDriver.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopPerfCallDriver @ 0x14045728A (IopPerfCallDriver.c)
+ *     VfBugCheckNoStackUsage @ 0x1405CD460 (VfBugCheckNoStackUsage.c)
+ *     IovpValidateDeviceObject @ 0x140ABEFC4 (IovpValidateDeviceObject.c)
+ *     VfAfterCallDriver @ 0x140ACA3D8 (VfAfterCallDriver.c)
+ *     VfBeforeCallDriver @ 0x140ACA5AC (VfBeforeCallDriver.c)
+ */
+
 __int64 __fastcall IovpCallDriverWithStackBuffer(PVOID Object, ULONG_PTR a2, __int64 a3)
 {
   bool v6; // zf

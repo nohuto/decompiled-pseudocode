@@ -1,3 +1,24 @@
+/*
+ * XREFs of LdrLoadAlternateResourceModuleEx @ 0x14035D07C
+ * Callers:
+ *     LdrpLoadResourceFromAlternativeModule @ 0x14035CFA0 (LdrpLoadResourceFromAlternativeModule.c)
+ *     LdrpResSearchResourceMappedFile @ 0x14035DC3C (LdrpResSearchResourceMappedFile.c)
+ *     LdrResSearchResource @ 0x1407EACB0 (LdrResSearchResource.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     DownLevelLangIDToLanguageName @ 0x1402BEE08 (DownLevelLangIDToLanguageName.c)
+ *     LdrpKrnGetDataTableEntry @ 0x14035CF08 (LdrpKrnGetDataTableEntry.c)
+ *     LdrpGetFromMUIMemCache @ 0x14035D974 (LdrpGetFromMUIMemCache.c)
+ *     LdrpSetAlternateResourceModuleHandle @ 0x14039D7D4 (LdrpSetAlternateResourceModuleHandle.c)
+ *     LdrpGetResourceFileName @ 0x1403A1D24 (LdrpGetResourceFileName.c)
+ *     LdrpMapResourceFile @ 0x1403A2E68 (LdrpMapResourceFile.c)
+ *     LdrpVerifyAlternateResourceModuleEx @ 0x1403A7A78 (LdrpVerifyAlternateResourceModuleEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MmUnmapViewInSystemSpace @ 0x140791780 (MmUnmapViewInSystemSpace.c)
+ */
+
 __int64 __fastcall LdrLoadAlternateResourceModuleEx(
         unsigned __int64 a1,
         unsigned __int16 a2,

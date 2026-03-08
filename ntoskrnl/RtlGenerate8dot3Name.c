@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlGenerate8dot3Name @ 0x1407684A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlpIsUtf8Process @ 0x1406EA7A0 (RtlpIsUtf8Process.c)
+ *     GetNextWchar @ 0x140768840 (GetNextWchar.c)
+ *     RtlComputeLfnChecksum @ 0x14076891C (RtlComputeLfnChecksum.c)
+ */
+
 NTSTATUS __stdcall RtlGenerate8dot3Name(
         PCUNICODE_STRING Name,
         BOOLEAN AllowExtendedCharacters,

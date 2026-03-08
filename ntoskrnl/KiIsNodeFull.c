@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiIsNodeFull @ 0x1403742D8
+ * Callers:
+ *     KiQueryProcessorNode @ 0x140372500 (KiQueryProcessorNode.c)
+ *     KiFindFirstAvailableNode @ 0x1403725D0 (KiFindFirstAvailableNode.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KiIsNodeFull(_WORD *a1)
 {
   unsigned __int16 v1; // dx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?zzzJournalAttach@@YAHPEAUtagTHREADINFO@@H@Z @ 0x1C01BC76C
+ * Callers:
+ *     zzzUnhookWindowsHookEx @ 0x1C009C50C (zzzUnhookWindowsHookEx.c)
+ *     zzzSetWindowsHookEx @ 0x1C009C8B4 (zzzSetWindowsHookEx.c)
+ *     NtUserRegisterSystemThread @ 0x1C01DA990 (NtUserRegisterSystemThread.c)
+ * Callees:
+ *     zzzReattachThreads @ 0x1C00CD3A8 (zzzReattachThreads.c)
+ */
+
 __int64 __fastcall zzzJournalAttach(struct tagTHREADINFO *a1, int a2)
 {
   __int64 result; // rax

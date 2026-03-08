@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiValidateInPage @ 0x140287570
+ * Callers:
+ *     MiWaitForInPageComplete @ 0x140342A90 (MiWaitForInPageComplete.c)
+ * Callees:
+ *     MiMarkPfnVerified @ 0x1402093BC (MiMarkPfnVerified.c)
+ *     KeFlushSingleTb @ 0x140211E60 (KeFlushSingleTb.c)
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036D020 (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiValidateImagePfn @ 0x14069EF78 (MiValidateImagePfn.c)
+ *     SeValidateImageData @ 0x14069F190 (SeValidateImageData.c)
+ *     MiRelocateImagePfn @ 0x1406EBA20 (MiRelocateImagePfn.c)
+ *     MiGetSectionStrongImageReference @ 0x140A40B24 (MiGetSectionStrongImageReference.c)
+ */
+
 __int64 __fastcall MiValidateInPage(__int64 a1, __int64 a2)
 {
   int v2; // r8d

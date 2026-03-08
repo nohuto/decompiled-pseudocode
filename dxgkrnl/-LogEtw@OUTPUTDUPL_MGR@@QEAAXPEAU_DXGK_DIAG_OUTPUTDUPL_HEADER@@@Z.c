@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?LogEtw@OUTPUTDUPL_MGR@@QEAAXPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@@Z @ 0x1C0328024
+ * Callers:
+ *     ?LogEtwAndDiagnostics@OUTPUTDUPL_MGR@@QEAAXHPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@H@Z @ 0x1C0328448 (-LogEtwAndDiagnostics@OUTPUTDUPL_MGR@@QEAAXHPEAU_DXGK_DIAG_OUTPUTDUPL_HEADER@@H@Z.c)
+ * Callees:
+ *     McTemplateK0qqqqq_EtwWriteTransfer @ 0x1C0041810 (McTemplateK0qqqqq_EtwWriteTransfer.c)
+ *     McTemplateK0qqq_EtwWriteTransfer @ 0x1C0053520 (McTemplateK0qqq_EtwWriteTransfer.c)
+ *     McTemplateK0qqqddt_EtwWriteTransfer @ 0x1C005359C (McTemplateK0qqqddt_EtwWriteTransfer.c)
+ *     McTemplateK0qqqiiqttddtqq_EtwWriteTransfer @ 0x1C005365C (McTemplateK0qqqiiqttddtqq_EtwWriteTransfer.c)
+ *     McTemplateK0qqqq_EtwWriteTransfer @ 0x1C00537A8 (McTemplateK0qqqq_EtwWriteTransfer.c)
+ *     McTemplateK0qqqqqqqDR6qDR8_EtwWriteTransfer @ 0x1C0053848 (McTemplateK0qqqqqqqDR6qDR8_EtwWriteTransfer.c)
+ *     McTemplateK0qqqqqqqdd_EtwWriteTransfer @ 0x1C0053954 (McTemplateK0qqqqqqqdd_EtwWriteTransfer.c)
+ *     McTemplateK0qqqqqqqddqq_EtwWriteTransfer @ 0x1C0053A48 (McTemplateK0qqqqqqqddqq_EtwWriteTransfer.c)
+ *     McTemplateK0qqqqqqqqqDR8_EtwWriteTransfer @ 0x1C0053B60 (McTemplateK0qqqqqqqqqDR8_EtwWriteTransfer.c)
+ *     McTemplateK0qqqqqtqtq_EtwWriteTransfer @ 0x1C0053C64 (McTemplateK0qqqqqtqtq_EtwWriteTransfer.c)
+ */
+
 void __fastcall OUTPUTDUPL_MGR::LogEtw(OUTPUTDUPL_MGR *this, struct _DXGK_DIAG_OUTPUTDUPL_HEADER *a2, __int64 a3)
 {
   __int64 v3; // rcx

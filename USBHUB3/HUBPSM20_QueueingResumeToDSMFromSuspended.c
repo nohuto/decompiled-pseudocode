@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBPSM20_QueueingResumeToDSMFromSuspended @ 0x1C0012D70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HUBMUX_ReEnableInterruptTransfer @ 0x1C0010D5C (HUBMUX_ReEnableInterruptTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBPSM20_QueueingResumeToDSMFromSuspended(__int64 a1)
 {
   __int64 v1; // rbx

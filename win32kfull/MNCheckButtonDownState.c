@@ -1,3 +1,12 @@
+/*
+ * XREFs of MNCheckButtonDownState @ 0x1C0219454
+ * Callers:
+ *     xxxCallHandleMenuMessages @ 0x1C0219674 (xxxCallHandleMenuMessages.c)
+ *     xxxMenuWindowProc @ 0x1C021D3D0 (xxxMenuWindowProc.c)
+ * Callees:
+ *     UnlockMFMWFPWindow @ 0x1C02195D4 (UnlockMFMWFPWindow.c)
+ */
+
 __int64 __fastcall MNCheckButtonDownState(__int64 a1)
 {
   bool v2; // cf

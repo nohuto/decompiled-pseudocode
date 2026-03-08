@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiMemoryLicense @ 0x140B5FAA0
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     NtQueryLicenseValue @ 0x14075C9B0 (NtQueryLicenseValue.c)
+ *     MiLimitLoaderBlockHighMemory @ 0x140B5FB90 (MiLimitLoaderBlockHighMemory.c)
+ *     MiLimitLoaderBlockTotalMemory @ 0x140B5FCCC (MiLimitLoaderBlockTotalMemory.c)
+ */
+
 __int64 __fastcall MiMemoryLicense(__int64 a1)
 {
   unsigned __int64 v2; // rdi

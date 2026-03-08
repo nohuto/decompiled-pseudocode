@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidMmReportContextAllocList @ 0x1C00F1B20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0ppppppppppppq_EtwWriteTransfer @ 0x1C002E560 (McTemplateK0ppppppppppppq_EtwWriteTransfer.c)
+ *     ?VidMmReportGlobalAlloc@@YAXPEAVDXGDEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAVDXGSHAREDRESOURCE@@@Z @ 0x1C00C4460 (-VidMmReportGlobalAlloc@@YAXPEAVDXGDEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAVDXGSHAREDRESOURCE@@@Z.c)
+ */
+
 void __fastcall VidMmReportContextAllocList(struct DXGDEVICE *a1, _QWORD *a2)
 {
   _QWORD *v2; // rbx

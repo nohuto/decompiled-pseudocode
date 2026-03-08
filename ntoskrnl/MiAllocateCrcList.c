@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiAllocateCrcList @ 0x1407961D4
+ * Callers:
+ *     MiCombineAllPhysicalMemory @ 0x1407C7D50 (MiCombineAllPhysicalMemory.c)
+ * Callees:
+ *     MiGetAvailablePagesBelowPriority @ 0x140224C00 (MiGetAvailablePagesBelowPriority.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiGetPrivatePageCount @ 0x1402FD46C (MiGetPrivatePageCount.c)
+ */
+
 PVOID __fastcall MiAllocateCrcList(__int64 *a1, char a2, SIZE_T *a3)
 {
   _QWORD *v3; // rbp

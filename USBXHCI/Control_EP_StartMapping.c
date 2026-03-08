@@ -1,3 +1,14 @@
+/*
+ * XREFs of Control_EP_StartMapping @ 0x1C0013470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Control_MapTransfer @ 0x1C00071B4 (Control_MapTransfer.c)
+ *     Controller_LowerAndTrackIrql @ 0x1C00074BC (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0007558 (Controller_RaiseAndTrackIrql.c)
+ *     TR_QueueDpcForTransferCompletion @ 0x1C000F284 (TR_QueueDpcForTransferCompletion.c)
+ */
+
 void __fastcall Control_EP_StartMapping(__int64 a1)
 {
   char v2; // si

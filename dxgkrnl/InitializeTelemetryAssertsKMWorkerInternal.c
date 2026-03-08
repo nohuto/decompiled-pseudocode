@@ -1,3 +1,12 @@
+/*
+ * XREFs of InitializeTelemetryAssertsKMWorkerInternal @ 0x1C002310C
+ * Callers:
+ *     InitializeTelemetryAssertsKMByDriverObject @ 0x1C0023004 (InitializeTelemetryAssertsKMByDriverObject.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C0210B58 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ */
+
 __int64 __fastcall InitializeTelemetryAssertsKMWorkerInternal(const void **a1)
 {
   struct _KEVENT *Pool2; // rax

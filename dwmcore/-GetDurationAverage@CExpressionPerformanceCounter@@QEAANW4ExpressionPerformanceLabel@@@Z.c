@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDurationAverage@CExpressionPerformanceCounter@@QEAANW4ExpressionPerformanceLabel@@@Z @ 0x18025FC64
+ * Callers:
+ *     ?UpdateExpressions@CExpressionManager@@QEAAX_K0@Z @ 0x180051314 (-UpdateExpressions@CExpressionManager@@QEAAX_K0@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 double __fastcall CExpressionPerformanceCounter::GetDurationAverage(__int64 a1, int a2)
 {
   double result; // xmm0_8

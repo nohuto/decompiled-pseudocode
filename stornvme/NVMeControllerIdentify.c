@@ -1,3 +1,16 @@
+/*
+ * XREFs of NVMeControllerIdentify @ 0x1C001C564
+ * Callers:
+ *     NVMeControllerInitPart1 @ 0x1C000D7A8 (NVMeControllerInitPart1.c)
+ *     NVMeControllerIdentifyWorkItem @ 0x1C0014EA0 (NVMeControllerIdentifyWorkItem.c)
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ *     IsIntelChatham @ 0x1C0007B94 (IsIntelChatham.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 char __fastcall NVMeControllerIdentify(_QWORD *a1)
 {
   int i; // ecx

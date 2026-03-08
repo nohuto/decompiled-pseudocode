@@ -1,3 +1,11 @@
+/*
+ * XREFs of Normalization__LoadClassMapExceptions @ 0x1409BE024
+ * Callers:
+ *     Normalization__LoadTables @ 0x1409BE078 (Normalization__LoadTables.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall Normalization__LoadClassMapExceptions(__int64 a1)
 {
   unsigned __int8 *v1; // r8

@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhGetExtendedHubInformation @ 0x1C002BEBC
+ * Callers:
+ *     UsbhInitialize @ 0x1C002CE20 (UsbhInitialize.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     UsbhNumberOfPorts @ 0x1C0029904 (UsbhNumberOfPorts.c)
+ *     UsbhGetAcpiPortAttributes @ 0x1C002B2AC (UsbhGetAcpiPortAttributes.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhEtwLogPortInformation @ 0x1C005BD4C (UsbhEtwLogPortInformation.c)
+ */
+
 __int64 __fastcall UsbhGetExtendedHubInformation(__int64 a1)
 {
   _DWORD *v2; // r15

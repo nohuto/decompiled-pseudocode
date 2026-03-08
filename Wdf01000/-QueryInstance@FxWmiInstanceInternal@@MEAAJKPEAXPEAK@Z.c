@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?QueryInstance@FxWmiInstanceInternal@@MEAAJKPEAXPEAK@Z @ 0x1C0029140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall FxWmiInstanceInternal::QueryInstance(
         FxWmiInstanceInternal *this,
         unsigned int OutBufferSize,

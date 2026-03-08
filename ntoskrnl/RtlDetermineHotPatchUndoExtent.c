@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlDetermineHotPatchUndoExtent @ 0x140A7372C
+ * Callers:
+ *     MiLockHotPatchUndoPages @ 0x140A35978 (MiLockHotPatchUndoPages.c)
+ *     MiProcessHotPatchUndoTable @ 0x140A3832C (MiProcessHotPatchUndoTable.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RtlDetermineHotPatchUndoExtent(__int64 a1, int a2, unsigned int a3, int *a4, unsigned int *a5)
 {
   __int64 v5; // rax

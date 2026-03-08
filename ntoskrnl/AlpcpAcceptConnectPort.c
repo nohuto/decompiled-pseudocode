@@ -1,3 +1,42 @@
+/*
+ * XREFs of AlpcpAcceptConnectPort @ 0x140713844
+ * Callers:
+ *     NtAlpcAcceptConnectPort @ 0x1407127A0 (NtAlpcAcceptConnectPort.c)
+ *     NtAcceptConnectPort @ 0x140791CF0 (NtAcceptConnectPort.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsReleaseProcessWakeCounter @ 0x140711BD0 (PsReleaseProcessWakeCounter.c)
+ *     AlpcpSetOwnerProcessPort @ 0x140712A4C (AlpcpSetOwnerProcessPort.c)
+ *     AlpcpValidateAndSetPortAttributes @ 0x140712AA4 (AlpcpValidateAndSetPortAttributes.c)
+ *     AlpcpInitializePort @ 0x140712D08 (AlpcpInitializePort.c)
+ *     AlpcpCreatePort @ 0x1407137E0 (AlpcpCreatePort.c)
+ *     AlpcpDispatchMessage @ 0x1407141B8 (AlpcpDispatchMessage.c)
+ *     AlpcpCancelMessage @ 0x1407141F0 (AlpcpCancelMessage.c)
+ *     AlpcpValidateConnectionMessage @ 0x140714744 (AlpcpValidateConnectionMessage.c)
+ *     AlpcpSetupMessageDataForDeferredCopy @ 0x14071478C (AlpcpSetupMessageDataForDeferredCopy.c)
+ *     AlpcpProbeAndCaptureMessageHeader @ 0x140715E54 (AlpcpProbeAndCaptureMessageHeader.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     AlpcpFlushResourcesPort @ 0x1407175F8 (AlpcpFlushResourcesPort.c)
+ *     AlpcpMapLegacyPortView @ 0x1407829D0 (AlpcpMapLegacyPortView.c)
+ *     AlpcpMapLegacyPortRemoteView @ 0x14079A3A0 (AlpcpMapLegacyPortRemoteView.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     AlpcpReleaseAttributes @ 0x1407CA744 (AlpcpReleaseAttributes.c)
+ *     AlpcpLookupMessage @ 0x1407CA7C0 (AlpcpLookupMessage.c)
+ *     AlpcpReferenceBlob @ 0x1407CAA30 (AlpcpReferenceBlob.c)
+ *     AlpcpCaptureAttributes @ 0x1407CAAD0 (AlpcpCaptureAttributes.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 NTSTATUS __fastcall AlpcpAcceptConnectPort(
         unsigned __int64 a1,
         int a2,

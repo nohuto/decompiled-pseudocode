@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeSendLunInternalData @ 0x1C002828C
+ * Callers:
+ *     NVMeHwUnitControl @ 0x1C0008600 (NVMeHwUnitControl.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ */
+
 _BOOL8 __fastcall NVMeSendLunInternalData(__int64 a1, __int64 a2, __int64 a3)
 {
   _QWORD v7[60]; // [rsp+30h] [rbp-D0h] BYREF

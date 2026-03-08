@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlFindHotPatchInformation @ 0x140A7383C
+ * Callers:
+ *     MiApplyDriverHotPatch @ 0x140A31BB8 (MiApplyDriverHotPatch.c)
+ *     MiCaptureHotPatchInfo @ 0x140A334F8 (MiCaptureHotPatchInfo.c)
+ *     MiMapAndApplyPatchInSession @ 0x140A37338 (MiMapAndApplyPatchInSession.c)
+ *     MiOpenHotPatchFile @ 0x140A376D4 (MiOpenHotPatchFile.c)
+ * Callees:
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageNtHeaderEx @ 0x14035E850 (RtlImageNtHeaderEx.c)
+ *     RtlFindHotPatchBase @ 0x140A7380C (RtlFindHotPatchBase.c)
+ */
+
 __int64 __fastcall RtlFindHotPatchInformation(unsigned __int64 a1)
 {
   unsigned int *v2; // rdi

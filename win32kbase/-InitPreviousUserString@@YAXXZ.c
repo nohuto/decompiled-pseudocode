@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InitPreviousUserString@@YAXXZ @ 0x1C007271C
+ * Callers:
+ *     CreateProfileUserName @ 0x1C00173D0 (CreateProfileUserName.c)
+ *     OpenCacheKeyEx @ 0x1C00760E0 (OpenCacheKeyEx.c)
+ * Callees:
+ *     GetProcessLuid @ 0x1C00727F0 (GetProcessLuid.c)
+ */
+
 void InitPreviousUserString(void)
 {
   struct _UNICODE_STRING KeyPath; // [rsp+20h] [rbp-18h] BYREF

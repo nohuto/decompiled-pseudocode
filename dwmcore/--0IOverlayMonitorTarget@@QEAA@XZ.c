@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0IOverlayMonitorTarget@@QEAA@XZ @ 0x1800C7C0C
+ * Callers:
+ *     ??0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1800C7868 (--0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CDDisplayRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1801BD55C (--0CDDisplayRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 IOverlayMonitorTarget *__fastcall IOverlayMonitorTarget::IOverlayMonitorTarget(IOverlayMonitorTarget *this)
 {
   *(_QWORD *)this = &IMonitorTarget::`vftable';

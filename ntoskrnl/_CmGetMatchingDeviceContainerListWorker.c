@@ -1,3 +1,12 @@
+/*
+ * XREFs of _CmGetMatchingDeviceContainerListWorker @ 0x140823B98
+ * Callers:
+ *     _CmGetMatchingDeviceContainerList @ 0x140823A94 (_CmGetMatchingDeviceContainerList.c)
+ * Callees:
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406D3680 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpGetGenericObjectList @ 0x140823C28 (_PnpGetGenericObjectList.c)
+ */
+
 __int64 __fastcall CmGetMatchingDeviceContainerListWorker(
         __int64 a1,
         __int64 a2,

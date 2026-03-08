@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspInitializeDesktopActivityModeratorCallouts @ 0x140B42418
+ * Callers:
+ *     PspInitPhase1 @ 0x140B422C8 (PspInitPhase1.c)
+ * Callees:
+ *     ExRegisterHost @ 0x14080EEF0 (ExRegisterHost.c)
+ */
+
 __int64 __fastcall PspInitializeDesktopActivityModeratorCallouts(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

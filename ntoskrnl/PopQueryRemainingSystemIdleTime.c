@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopQueryRemainingSystemIdleTime @ 0x140879DFC
+ * Callers:
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x14040B89C (Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage.c)
+ */
+
 void __fastcall PopQueryRemainingSystemIdleTime(int *a1, _DWORD *a2)
 {
   char *v4; // r8

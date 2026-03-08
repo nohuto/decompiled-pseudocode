@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InitializeIdentityMatrix@@YAJPEAMII@Z @ 0x1C0074290
+ * Callers:
+ *     ?ConvertToMatrix_3x4@@YAJPEBU_D3DKMDT_GAMMA_RAMP@@PEAU1@@Z @ 0x1C0073FE4 (-ConvertToMatrix_3x4@@YAJPEBU_D3DKMDT_GAMMA_RAMP@@PEAU1@@Z.c)
+ *     ColorSpaceTransformInitIdentityTransform @ 0x1C0074718 (ColorSpaceTransformInitIdentityTransform.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall InitializeIdentityMatrix(float *a1, __int64 a2, unsigned int a3)
 {
   unsigned int v5; // edx

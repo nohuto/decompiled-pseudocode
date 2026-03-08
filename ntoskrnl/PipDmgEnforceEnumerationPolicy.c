@@ -1,3 +1,18 @@
+/*
+ * XREFs of PipDmgEnforceEnumerationPolicy @ 0x140968304
+ * Callers:
+ *     PipCallDriverAddDevice @ 0x1406C644C (PipCallDriverAddDevice.c)
+ *     PnpSurpriseFailUnsafeDmaDevices @ 0x140968A40 (PnpSurpriseFailUnsafeDmaDevices.c)
+ * Callees:
+ *     PipDmaGuardBlockAddDevice @ 0x1409681DC (PipDmaGuardBlockAddDevice.c)
+ *     PipDmgReevaluateQueue @ 0x1409684CC (PipDmgReevaluateQueue.c)
+ *     PipDmgSetIommuDomainPolicyAndNotifyHal @ 0x140968954 (PipDmgSetIommuDomainPolicyAndNotifyHal.c)
+ *     PiCslIsConsoleLocked @ 0x1409695FC (PiCslIsConsoleLocked.c)
+ *     PiIommuIsDeviceSafeWhileConsoleLocked @ 0x14096BFB4 (PiIommuIsDeviceSafeWhileConsoleLocked.c)
+ *     PiIommuIsPassthroughAllowedWhileConsoleLocked @ 0x14096BFD0 (PiIommuIsPassthroughAllowedWhileConsoleLocked.c)
+ *     PiDmaGuardQueueInsertEntry @ 0x14096F04C (PiDmaGuardQueueInsertEntry.c)
+ */
+
 __int64 __fastcall PipDmgEnforceEnumerationPolicy(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)
 {
   __int64 v3; // r14

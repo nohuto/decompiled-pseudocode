@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiAdvanceSoftParkElectionGeneration @ 0x14057B638
+ * Callers:
+ *     KiSoftParkElectionDpcRoutine @ 0x14057BEC0 (KiSoftParkElectionDpcRoutine.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void *__fastcall KiAdvanceSoftParkElectionGeneration(__int64 a1)
 {
   __int64 v1; // rax

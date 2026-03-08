@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreDeleteClientObj @ 0x1C02AA3A0
+ * Callers:
+ *     NtGdiDeleteClientObj @ 0x1C014DF80 (NtGdiDeleteClientObj.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GreDeleteClientObj(__int64 a1)
 {
   __int64 result; // rax

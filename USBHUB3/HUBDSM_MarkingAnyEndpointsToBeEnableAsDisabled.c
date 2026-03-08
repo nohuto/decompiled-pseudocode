@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_MarkingAnyEndpointsToBeEnableAsDisabled @ 0x1C0023CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBDSM_MarkingAnyEndpointsToBeEnableAsDisabled(__int64 a1)
 {
   _QWORD **v1; // r8

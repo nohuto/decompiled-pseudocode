@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopMcFindNextTableEntryForUnlock @ 0x14055CBA4
+ * Callers:
+ *     IoTryReleasePage @ 0x14055C684 (IoTryReleasePage.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     IopMcReferenceBufferEntry @ 0x14055CD38 (IopMcReferenceBufferEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 ULONG_PTR __fastcall IopMcFindNextTableEntryForUnlock(__int64 *a1, _QWORD *a2)
 {
   ULONG_PTR v2; // rbx

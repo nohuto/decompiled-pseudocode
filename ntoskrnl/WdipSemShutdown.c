@@ -1,3 +1,17 @@
+/*
+ * XREFs of WdipSemShutdown @ 0x1409DAE00
+ * Callers:
+ *     WdipSemEnableScenario @ 0x1407966C0 (WdipSemEnableScenario.c)
+ *     WdipSemCleanStart @ 0x1408318F0 (WdipSemCleanStart.c)
+ *     WdipSemDisableScenario @ 0x140831E48 (WdipSemDisableScenario.c)
+ *     WdipSemUpdate @ 0x1409DAB4C (WdipSemUpdate.c)
+ * Callees:
+ *     WdipSemClearFrequentScenarioTable @ 0x1403911FC (WdipSemClearFrequentScenarioTable.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WdipSemFreePool @ 0x1409DB200 (WdipSemFreePool.c)
+ *     WdipSemDisableAllProviders @ 0x1409DB994 (WdipSemDisableAllProviders.c)
+ */
+
 __int64 WdipSemShutdown()
 {
   WdipSemDisabledScenarioTable = 0LL;

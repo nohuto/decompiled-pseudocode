@@ -1,3 +1,14 @@
+/*
+ * XREFs of VfCheckPagePriority @ 0x140AC07A0
+ * Callers:
+ *     VfCheckNxPagePriority @ 0x1405CBF50 (VfCheckNxPagePriority.c)
+ *     VerifierMmMapLockedPagesSpecifyCache @ 0x140AE0250 (VerifierMmMapLockedPagesSpecifyCache.c)
+ * Callees:
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     ViCiPreprocessOptions @ 0x140AC09DC (ViCiPreprocessOptions.c)
+ *     ViTargetIncrementCounter @ 0x140AC8BDC (ViTargetIncrementCounter.c)
+ */
+
 void __fastcall VfCheckPagePriority(int a1, ULONG_PTR a2)
 {
   ULONG_PTR v3; // rbx

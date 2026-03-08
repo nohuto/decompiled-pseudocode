@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?UnRegisterBatchProcessingCompleteListener@CExpressionManager@@QEAAXPEAVIBatchProcessingCompleteListener@@@Z @ 0x180023574
+ * Callers:
+ *     ??1CAnimationController@@UEAA@XZ @ 0x180022CB4 (--1CAnimationController@@UEAA@XZ.c)
+ * Callees:
+ *     ??$_Find_last@PEAVIBatchProcessingCompleteListener@@@?$_Hash@V?$_Uset_traits@PEAVIBatchProcessingCompleteListener@@V?$_Uhash_compare@PEAVIBatchProcessingCompleteListener@@U?$hash@PEAVIBatchProcessingCompleteListener@@@std@@U?$equal_to@PEAVIBatchProcessingCompleteListener@@@3@@std@@V?$allocator@PEAVIBatchProcessingCompleteListener@@@3@$0A@@std@@@std@@IEBA?AU?$_Hash_find_last_result@PEAU?$_List_node@PEAVIBatchProcessingCompleteListener@@PEAX@std@@@1@AEBQEAVIBatchProcessingCompleteListener@@_K@Z @ 0x1800237B0 (--$_Find_last@PEAVIBatchProcessingCompleteListener@@@-$_Hash@V-$_Uset_traits@PEAVIBatchProcessin.c)
+ *     ?_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z @ 0x1800D7984 (-_Fnv1a_append_bytes@std@@YA_K_KQEBE_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
 void __fastcall CExpressionManager::UnRegisterBatchProcessingCompleteListener(
         CExpressionManager *this,
         struct IBatchProcessingCompleteListener *a2)

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InitDomainLocks@@YAJXZ @ 0x1C00C310C
+ * Callers:
+ *     InitCreateUserCrit @ 0x1C031F55C (InitCreateUserCrit.c)
+ * Callees:
+ *     ?LockInitialize@tagDomLock@@QEBAJXZ @ 0x1C00C3310 (-LockInitialize@tagDomLock@@QEBAJXZ.c)
+ */
+
 __int64 InitDomainLocks(void)
 {
   __int64 result; // rax

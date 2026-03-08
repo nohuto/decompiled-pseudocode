@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?WriteSubchannelString@MatrixSubchannelMaskInfo@@QEBAXW4DCOMPOSITION_EXPRESSION_TYPE@@_KPEAG@Z @ 0x18027D3B4
+ * Callers:
+ *     ?LogDebugPropertyUpdate@CAnimationLoggingManager@@QEAAXPEAVCResource@@W4PropertyChangeSource@@_KW4MIL_RESOURCE_TYPE@@IIPEAVSubchannelMaskInfo@@PEBVCExpressionValue@@@Z @ 0x180212430 (-LogDebugPropertyUpdate@CAnimationLoggingManager@@QEAAXPEAVCResource@@W4PropertyChangeSource@@_K.c)
+ * Callees:
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ *     ?Matrix4x4SubchannelAtIndex@MatrixSubchannelMaskInfo@@QEBAPEBGI@Z @ 0x18027D108 (-Matrix4x4SubchannelAtIndex@MatrixSubchannelMaskInfo@@QEBAPEBGI@Z.c)
+ *     ?StringCchCatExW@@YAJPEAG_KPEBGPEAPEAGPEA_KK@Z @ 0x18027D210 (-StringCchCatExW@@YAJPEAG_KPEBGPEAPEAGPEA_KK@Z.c)
+ */
+
 const void **MatrixSubchannelMaskInfo::WriteSubchannelString(__int64 a1, int a2, __int64 a3, ...)
 {
   const void **result; // rax

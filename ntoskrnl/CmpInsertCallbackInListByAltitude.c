@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpInsertCallbackInListByAltitude @ 0x14084E8FC
+ * Callers:
+ *     CmpRegisterCallbackInternal @ 0x14084E7EC (CmpRegisterCallbackInternal.c)
+ * Callees:
+ *     RtlCompareAltitudes @ 0x1402E26A0 (RtlCompareAltitudes.c)
+ *     CmpUnlockCallbackList @ 0x140738E04 (CmpUnlockCallbackList.c)
+ *     CmpLockCallbackListExclusive @ 0x14084E9C8 (CmpLockCallbackListExclusive.c)
+ */
+
 __int64 __fastcall CmpInsertCallbackInListByAltitude(__int64 a1, char a2)
 {
   unsigned int v4; // ebx

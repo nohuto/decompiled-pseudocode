@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Arrange@StretchAlign@@QEBA?AUD2D_RECT_F@@AEBUD2D_SIZE_F@@0PEAU2@@Z @ 0x18013083E
+ * Callers:
+ *     ?GetRealization@CViewBox@@UEBAXAEBUD2D_SIZE_F@@PEAUD2D_MATRIX_3X2_F@@@Z @ 0x180251F10 (-GetRealization@CViewBox@@UEBAXAEBUD2D_SIZE_F@@PEAUD2D_MATRIX_3X2_F@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct D2D_RECT_F *__fastcall StretchAlign::Arrange(
         StretchAlign *this,
         struct D2D_RECT_F *__return_ptr retstr,

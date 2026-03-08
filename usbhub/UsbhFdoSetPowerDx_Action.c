@@ -1,3 +1,29 @@
+/*
+ * XREFs of UsbhFdoSetPowerDx_Action @ 0x1C000EB10
+ * Callers:
+ *     UsbhFdoDevicePowerState @ 0x1C000AE40 (UsbhFdoDevicePowerState.c)
+ * Callees:
+ *     UsbhRefPdo @ 0x1C00012A0 (UsbhRefPdo.c)
+ *     UsbhUnlatchPdo @ 0x1C0001380 (UsbhUnlatchPdo.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhLatchPdo @ 0x1C0019420 (UsbhLatchPdo.c)
+ *     UsbhCompletePdoWakeIrp @ 0x1C001BB3C (UsbhCompletePdoWakeIrp.c)
+ *     UsbhDispatch_BusEvent @ 0x1C001CF30 (UsbhDispatch_BusEvent.c)
+ *     UsbhDispatch_HardResetEvent @ 0x1C001EC80 (UsbhDispatch_HardResetEvent.c)
+ *     UsbhDisarmHubForWakeDetect @ 0x1C0020A80 (UsbhDisarmHubForWakeDetect.c)
+ *     UsbhArmHubForWakeDetect @ 0x1C00218E0 (UsbhArmHubForWakeDetect.c)
+ *     UsbdHubDisarmBusForWake @ 0x1C00225A4 (UsbdHubDisarmBusForWake.c)
+ *     UsbhSetHubRemoteWake @ 0x1C002D964 (UsbhSetHubRemoteWake.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002E98C (WPP_RECORDER_SF_dq.c)
+ *     UsbdHubArmBusForWake @ 0x1C003BF64 (UsbdHubArmBusForWake.c)
+ *     UsbhArmHubWakeOnConnect @ 0x1C003BFEC (UsbhArmHubWakeOnConnect.c)
+ *     UsbhDisarmHubWakeOnConnect @ 0x1C003C040 (UsbhDisarmHubWakeOnConnect.c)
+ *     UsbhPdoArmedForWake @ 0x1C003CA78 (UsbhPdoArmedForWake.c)
+ */
+
 __int64 __fastcall UsbhFdoSetPowerDx_Action(PDEVICE_OBJECT DeviceObject, __int64 a2, IRP *a3)
 {
   int v3; // esi

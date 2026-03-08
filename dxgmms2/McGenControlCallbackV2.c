@@ -1,3 +1,12 @@
+/*
+ * XREFs of McGenControlCallbackV2 @ 0x1C0019760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     ?DxgkEtwEnableCallback@@YAXKK_K@Z @ 0x1C00C32AC (-DxgkEtwEnableCallback@@YAXKK_K@Z.c)
+ */
+
 // local variable allocation has failed, the output may be wrong!
 void __stdcall McGenControlCallbackV2(
         LPCGUID SourceId,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of SymCryptFdefIntAddMixedSize @ 0x1403FD55C
+ * Callers:
+ *     SymCryptIntAddMixedSize @ 0x1403F3708 (SymCryptIntAddMixedSize.c)
+ * Callees:
+ *     SymCryptWipe @ 0x1403F0988 (SymCryptWipe.c)
+ *     SymCryptFdefRawAddAsm @ 0x1404001A0 (SymCryptFdefRawAddAsm.c)
+ */
+
 __int64 __fastcall SymCryptFdefIntAddMixedSize(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

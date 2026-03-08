@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepCompareSidValuesBlocks @ 0x1409CC684
+ * Callers:
+ *     SepSetTokenUserAndGroups @ 0x1409CCB0C (SepSetTokenUserAndGroups.c)
+ * Callees:
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ */
+
 char __fastcall SepCompareSidValuesBlocks(__int64 a1, __int64 a2)
 {
   unsigned int v3; // ebx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiDeleteVadHotPatchState @ 0x140A33D1C
+ * Callers:
+ *     MiFinishVadDeletion @ 0x140248200 (MiFinishVadDeletion.c)
+ * Callees:
+ *     MiGetVadWakeList @ 0x140289A20 (MiGetVadWakeList.c)
+ *     MiLockVad @ 0x14034CF60 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14034D51C (MiUnlockVad.c)
+ *     MiDeleteHotPatchEntry @ 0x140A33A90 (MiDeleteHotPatchEntry.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiDeleteVadHotPatchState(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rbp

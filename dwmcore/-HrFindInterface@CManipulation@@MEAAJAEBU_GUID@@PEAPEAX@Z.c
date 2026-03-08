@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CManipulation@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18020A830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CManipulation::HrFindInterface(CManipulation *this, const struct _GUID *a2, void **a3)
 {
   __int64 result; // rax

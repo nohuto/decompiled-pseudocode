@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DpiIndirectSendAsyncUserModeRequest@@YAJPEAU_FILE_OBJECT@@PEAU_DEVICE_OBJECT@@KPEAXK2KP6AX2PEAU_IO_STATUS_BLOCK@@@Z2PEA_NPEAPEAU_IRP@@@Z @ 0x1C039FA48
+ * Callers:
+ *     DpiIndirectCbSendMessage @ 0x1C03A00C0 (DpiIndirectCbSendMessage.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     ?Free@?$AUTO_FREE_POOL@PEAUIDD_COMPLETION_CONTEXT@@@@QEAAXXZ @ 0x1C005E784 (-Free@-$AUTO_FREE_POOL@PEAUIDD_COMPLETION_CONTEXT@@@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall DpiIndirectSendAsyncUserModeRequest(
         struct _FILE_OBJECT *Object,
         PDEVICE_OBJECT DeviceObject,

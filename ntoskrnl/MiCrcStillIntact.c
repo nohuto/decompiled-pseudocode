@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiCrcStillIntact @ 0x140210E18
+ * Callers:
+ *     MiRelinkDeferredCrcEntries @ 0x140229494 (MiRelinkDeferredCrcEntries.c)
+ * Callees:
+ *     MiMakeCombineCandidateClean @ 0x140210FE0 (MiMakeCombineCandidateClean.c)
+ *     MiTbFlushType @ 0x140224BDC (MiTbFlushType.c)
+ *     MiVadSupportsCombine @ 0x1402285E0 (MiVadSupportsCombine.c)
+ *     MiActivePageCombineCandidate @ 0x1402296F4 (MiActivePageCombineCandidate.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiClearPteAccessed @ 0x140326910 (MiClearPteAccessed.c)
+ *     MiCombineCandidate @ 0x14032C640 (MiCombineCandidate.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiCrcStillIntact(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int a5)
 {
   unsigned __int64 v5; // r15

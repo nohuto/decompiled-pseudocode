@@ -1,3 +1,11 @@
+/*
+ * XREFs of Bulk_EP_StopMapping @ 0x1C000F2C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ */
+
 void __fastcall Bulk_EP_StopMapping(__int64 a1)
 {
   __int64 v1; // rdx

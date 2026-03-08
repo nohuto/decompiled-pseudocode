@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiExpandVadBitMapDown @ 0x140A3970C
+ * Callers:
+ *     MiExpandVadBitMap @ 0x1407295BC (MiExpandVadBitMap.c)
+ * Callees:
+ *     MiMakeHyperRangeAccessible @ 0x1403219F0 (MiMakeHyperRangeAccessible.c)
+ *     MiUpdateVadBits @ 0x140729534 (MiUpdateVadBits.c)
+ */
+
 __int64 __fastcall MiExpandVadBitMapDown(_QWORD *a1, unsigned __int64 a2)
 {
   __int64 v3; // rcx

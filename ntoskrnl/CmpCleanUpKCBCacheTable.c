@@ -1,3 +1,20 @@
+/*
+ * XREFs of CmpCleanUpKCBCacheTable @ 0x14074B9E4
+ * Callers:
+ *     CmpEnumerateAllOpenSubKeys @ 0x14074B88C (CmpEnumerateAllOpenSubKeys.c)
+ *     CmpRefreshHive @ 0x140A09C50 (CmpRefreshHive.c)
+ *     CmpCleanUpHigherLayerKcbCachesPostCallback @ 0x140A1CB30 (CmpCleanUpHigherLayerKcbCachesPostCallback.c)
+ * Callees:
+ *     CmpInitializeDelayDerefContext @ 0x140262F00 (CmpInitializeDelayDerefContext.c)
+ *     CmpDrainDelayDerefContext @ 0x140262F30 (CmpDrainDelayDerefContext.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     CmpRemoveFromDelayedClose @ 0x14074BFBC (CmpRemoveFromDelayedClose.c)
+ *     CmpFreeKeyControlBlock @ 0x14074C060 (CmpFreeKeyControlBlock.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1407AF820 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpAttachToRegistryProcess @ 0x140AF26E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140AF2710 (CmpDetachFromRegistryProcess.c)
+ */
+
 __int64 __fastcall CmpCleanUpKCBCacheTable(__int64 a1)
 {
   unsigned int v1; // r14d

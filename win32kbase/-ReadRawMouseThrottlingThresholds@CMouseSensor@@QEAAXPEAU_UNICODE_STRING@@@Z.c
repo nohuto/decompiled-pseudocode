@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReadRawMouseThrottlingThresholds@CMouseSensor@@QEAAXPEAU_UNICODE_STRING@@@Z @ 0x1C002E858
+ * Callers:
+ *     ReadRawMouseThrottlingThresholds @ 0x1C002E220 (ReadRawMouseThrottlingThresholds.c)
+ * Callees:
+ *     _lambda_39f407e4fe10312c322b3b59a6fe001c_::operator() @ 0x1C002E91C (_lambda_39f407e4fe10312c322b3b59a6fe001c_--operator().c)
+ */
+
 void __fastcall CMouseSensor::ReadRawMouseThrottlingThresholds(CMouseSensor *this, struct _UNICODE_STRING *a2)
 {
   struct _UNICODE_STRING **v3; // [rsp+30h] [rbp+8h] BYREF

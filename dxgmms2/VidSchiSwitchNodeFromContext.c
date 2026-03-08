@@ -1,3 +1,16 @@
+/*
+ * XREFs of VidSchiSwitchNodeFromContext @ 0x1C00AD9A0
+ * Callers:
+ *     VidSchiSwitchFromSuspendedDevices @ 0x1C0014360 (VidSchiSwitchFromSuspendedDevices.c)
+ *     ?VidSchiSwitchNodeFromDevice@@YAXPEAX@Z @ 0x1C0014D90 (-VidSchiSwitchNodeFromDevice@@YAXPEAX@Z.c)
+ * Callees:
+ *     VidSchWaitForEvents @ 0x1C0014E64 (VidSchWaitForEvents.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     VidSchGetNewSubmissionFenceId @ 0x1C00ADAC8 (VidSchGetNewSubmissionFenceId.c)
+ *     VidSchiAllocateDmaPacket @ 0x1C00ADBDC (VidSchiAllocateDmaPacket.c)
+ *     VidSchiSendToExecutionQueueWithWait @ 0x1C00ADC80 (VidSchiSendToExecutionQueueWithWait.c)
+ */
+
 __int64 __fastcall VidSchiSwitchNodeFromContext(__int64 a1)
 {
   __int64 result; // rax

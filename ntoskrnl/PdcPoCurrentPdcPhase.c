@@ -1,3 +1,19 @@
+/*
+ * XREFs of PdcPoCurrentPdcPhase @ 0x140597320
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     PopFxPauseDeviceAccounting @ 0x140588B84 (PopFxPauseDeviceAccounting.c)
+ *     PopFxResumeDeviceAccounting @ 0x140589368 (PopFxResumeDeviceAccounting.c)
+ *     PopDeepSleepResiliencyPhaseAccountingBegin @ 0x140596150 (PopDeepSleepResiliencyPhaseAccountingBegin.c)
+ *     PopDeepSleepResiliencyPhaseAccountingEnd @ 0x14059626C (PopDeepSleepResiliencyPhaseAccountingEnd.c)
+ *     PopDisarmIdlePhaseWatchdog @ 0x140757DA8 (PopDisarmIdlePhaseWatchdog.c)
+ *     PopPowerAggregatorNotifyPdcSleepTransition @ 0x140990C08 (PopPowerAggregatorNotifyPdcSleepTransition.c)
+ *     PopPowerAggregatorNotifyResiliencyReached @ 0x140990CD4 (PopPowerAggregatorNotifyResiliencyReached.c)
+ *     PopIdleCsStateChanged @ 0x140998E5C (PopIdleCsStateChanged.c)
+ */
+
 __int64 __fastcall PdcPoCurrentPdcPhase(int a1, unsigned __int8 a2, unsigned int a3, unsigned int a4)
 {
   unsigned int v4; // ebx

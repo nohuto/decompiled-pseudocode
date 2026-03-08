@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrCheckDstPixelFormat@CFormatConverter@@IEAAJW4DXGI_FORMAT@@@Z @ 0x1802B8B24
+ * Callers:
+ *     ?Initialize@CFormatConverter@@IEAAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@N@Z @ 0x1802B8CE8 (-Initialize@CFormatConverter@@IEAAJPEAVIBitmapSource@@AEBUPixelFormatInfo@@N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CFormatConverter::HrCheckDstPixelFormat(CFormatConverter *this, enum DXGI_FORMAT a2)
 {
   unsigned int v2; // ecx

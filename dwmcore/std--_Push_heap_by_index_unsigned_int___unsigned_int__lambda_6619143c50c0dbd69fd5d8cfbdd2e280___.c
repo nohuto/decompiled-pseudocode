@@ -1,3 +1,11 @@
+/*
+ * XREFs of std::_Push_heap_by_index_unsigned_int___unsigned_int__lambda_6619143c50c0dbd69fd5d8cfbdd2e280___ @ 0x18023F5F8
+ * Callers:
+ *     std::_Pop_heap_hole_by_index_unsigned_int___unsigned_int__lambda_6619143c50c0dbd69fd5d8cfbdd2e280___ @ 0x18023F4E0 (std--_Pop_heap_hole_by_index_unsigned_int___unsigned_int__lambda_6619143c50c0dbd69fd5d8cfbdd2e28.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall std::_Push_heap_by_index_unsigned_int___unsigned_int__lambda_6619143c50c0dbd69fd5d8cfbdd2e280___(
         __int64 a1,
         __int64 a2,

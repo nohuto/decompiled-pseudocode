@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPISystemPowerProcessSxD @ 0x1C00951C8
+ * Callers:
+ *     ACPISystemPowerInitializeRootMapping @ 0x1C003DEA4 (ACPISystemPowerInitializeRootMapping.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPISystemPowerGetSxD @ 0x1C0094FC0 (ACPISystemPowerGetSxD.c)
+ */
+
 __int64 __fastcall ACPISystemPowerProcessSxD(_QWORD *a1, __int64 a2, _BYTE *a3)
 {
   int *v3; // rbx

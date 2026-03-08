@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViPtInitCircularPoolTrace @ 0x140ADBE2C
+ * Callers:
+ *     VfPoolTrackingEntry @ 0x1405CFD08 (VfPoolTrackingEntry.c)
+ * Callees:
+ *     ExSetPoolFlags @ 0x1406056B8 (ExSetPoolFlags.c)
+ *     MmGetNumberOfPhysicalPages @ 0x140768AB0 (MmGetNumberOfPhysicalPages.c)
+ *     ExAllocatePool3 @ 0x140AAB320 (ExAllocatePool3.c)
+ */
+
 __int64 ViPtInitCircularPoolTrace()
 {
   unsigned int v0; // ebx

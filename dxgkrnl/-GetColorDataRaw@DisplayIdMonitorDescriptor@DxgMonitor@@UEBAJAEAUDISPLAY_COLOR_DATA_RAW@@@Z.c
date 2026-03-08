@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetColorDataRaw@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAUDISPLAY_COLOR_DATA_RAW@@@Z @ 0x1C03CBE40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DisplayID_GetColorDataRaw@@YAJPEBUDisplayIDObj@@PEAUDISPLAY_COLOR_DATA_RAW@@PEAW4DISPLAY_NATIVE_COLOR_DEPTH@@PEA_N@Z @ 0x1C007265C (-DisplayID_GetColorDataRaw@@YAJPEBUDisplayIDObj@@PEAUDISPLAY_COLOR_DATA_RAW@@PEAW4DISPLAY_NATIVE.c)
+ */
+
 __int64 __fastcall DxgMonitor::DisplayIdMonitorDescriptor::GetColorDataRaw(
         DxgMonitor::DisplayIdMonitorDescriptor *this,
         struct DISPLAY_COLOR_DATA_RAW *a2)

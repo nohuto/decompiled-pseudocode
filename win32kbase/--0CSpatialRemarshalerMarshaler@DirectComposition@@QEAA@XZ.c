@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CSpatialRemarshalerMarshaler@DirectComposition@@QEAA@XZ @ 0x1C024A1BC
+ * Callers:
+ *     ?CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C00673F4 (-CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2.c)
+ * Callees:
+ *     <none>
+ */
+
 DirectComposition::CSpatialRemarshalerMarshaler *__fastcall DirectComposition::CSpatialRemarshalerMarshaler::CSpatialRemarshalerMarshaler(
         DirectComposition::CSpatialRemarshalerMarshaler *this)
 {

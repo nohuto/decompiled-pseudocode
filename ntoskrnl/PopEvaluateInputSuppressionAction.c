@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopEvaluateInputSuppressionAction @ 0x1409912C4
+ * Callers:
+ *     PopExternalMonitorUpdatedWorker @ 0x14079C0F0 (PopExternalMonitorUpdatedWorker.c)
+ *     PopBroadcastInputSuppressionCallback @ 0x1408731B0 (PopBroadcastInputSuppressionCallback.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     PopBroadcastSessionInfo @ 0x1408294F4 (PopBroadcastSessionInfo.c)
+ *     PopTraceInputSuppressionActionUpdate @ 0x14098F810 (PopTraceInputSuppressionActionUpdate.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 void PopEvaluateInputSuppressionAction()
 {
   int v0; // ecx

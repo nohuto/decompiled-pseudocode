@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpIsVirtEnabledForSubject @ 0x140768D48
+ * Callers:
+ *     CmpIsSystemEntity @ 0x140768CB8 (CmpIsSystemEntity.c)
+ * Callees:
+ *     CmpEffectiveTokenForSubject @ 0x140768D98 (CmpEffectiveTokenForSubject.c)
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ */
+
 char __fastcall CmpIsVirtEnabledForSubject(__int64 a1)
 {
   void *v1; // rax

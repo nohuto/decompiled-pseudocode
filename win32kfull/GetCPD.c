@@ -1,3 +1,15 @@
+/*
+ * XREFs of GetCPD @ 0x1C000DFB4
+ * Callers:
+ *     NtUserGetCPD @ 0x1C000DF30 (NtUserGetCPD.c)
+ *     xxxSetWindowData @ 0x1C002F9C8 (xxxSetWindowData.c)
+ *     _GetClassInfoEx @ 0x1C00314C8 (_GetClassInfoEx.c)
+ *     xxxSetClassData @ 0x1C00ED168 (xxxSetClassData.c)
+ * Callees:
+ *     ??1?$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ @ 0x1C0031BF4 (--1-$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z @ 0x1C00E02D4 (-Init@-$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z.c)
+ */
+
 __int64 __fastcall GetCPD(__int64 a1, __int16 a2, __int64 a3)
 {
   __int64 v6; // r8

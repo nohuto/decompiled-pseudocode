@@ -1,3 +1,11 @@
+/*
+ * XREFs of Bulk_EP_OkToReclaimTransfersOnCancel @ 0x1C0046CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     TR_QueueDpcForTransferCompletion @ 0x1C000F284 (TR_QueueDpcForTransferCompletion.c)
+ */
+
 void __fastcall Bulk_EP_OkToReclaimTransfersOnCancel(__int64 a1)
 {
   int v2; // eax

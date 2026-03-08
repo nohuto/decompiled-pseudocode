@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpAllocateHeapRaiseException @ 0x1405A9730
+ * Callers:
+ *     RtlpAllocateHeapInternal @ 0x1402E0BC8 (RtlpAllocateHeapInternal.c)
+ * Callees:
+ *     RtlRaiseException @ 0x140364BF0 (RtlRaiseException.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 char __fastcall RtlpAllocateHeapRaiseException(__int64 a1)
 {
   __int64 v2; // rdx

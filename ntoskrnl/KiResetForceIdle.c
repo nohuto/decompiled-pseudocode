@@ -1,3 +1,20 @@
+/*
+ * XREFs of KiResetForceIdle @ 0x14057ACCC
+ * Callers:
+ *     KeClockInterruptNotify @ 0x14022CD80 (KeClockInterruptNotify.c)
+ *     KeResumeClockTimerFromIdle @ 0x14022E860 (KeResumeClockTimerFromIdle.c)
+ *     KiCallInterruptServiceRoutine @ 0x1402B7620 (KiCallInterruptServiceRoutine.c)
+ *     KeClearForceIdle @ 0x14057A720 (KeClearForceIdle.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KeIsForceIdleEngaged @ 0x14024EAFC (KeIsForceIdleEngaged.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetForceIdleState @ 0x14057AE14 (KiSetForceIdleState.c)
+ *     PoTraceForceIdleReset @ 0x14058EC00 (PoTraceForceIdleReset.c)
+ */
+
 char __fastcall KiResetForceIdle(unsigned int a1, char a2)
 {
   bool v2; // bl

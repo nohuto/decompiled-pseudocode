@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiVerifyXcpt10 @ 0x140B5D600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _local_unwind @ 0x1403D3990 (_local_unwind.c)
+ *     KiVerifyXcptFilter @ 0x140B5D724 (KiVerifyXcptFilter.c)
+ */
+
 __int64 __fastcall KiVerifyXcpt10(_DWORD **a1)
 {
   int *v1; // rax

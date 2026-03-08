@@ -1,3 +1,11 @@
+/*
+ * XREFs of HideMouseTrails @ 0x1C0145300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MovePointer@CursorApiRouter@@QEAAXPEAUHDEV__@@HHK@Z @ 0x1C0020334 (-MovePointer@CursorApiRouter@@QEAAXPEAUHDEV__@@HHK@Z.c)
+ */
+
 void __fastcall HideMouseTrails(__int64 a1)
 {
   __int64 v1; // rcx

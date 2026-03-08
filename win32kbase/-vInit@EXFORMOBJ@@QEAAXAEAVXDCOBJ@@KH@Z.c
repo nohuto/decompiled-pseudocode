@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?vInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@KH@Z @ 0x1C0057600
+ * Callers:
+ *     GreDCSelectPen @ 0x1C0005440 (GreDCSelectPen.c)
+ *     GreGetClipBox @ 0x1C001AB40 (GreGetClipBox.c)
+ *     GreIntersectClipRect @ 0x1C0056F30 (GreIntersectClipRect.c)
+ * Callees:
+ *     ?vRealizeLineAttrs@DC@@QEAAXAEAVEXFORMOBJ@@@Z @ 0x1C0005598 (-vRealizeLineAttrs@DC@@QEAAXAEAVEXFORMOBJ@@@Z.c)
+ *     ?bInverse@EXFORMOBJ@@QEAAHAEAVMATRIX@@@Z @ 0x1C000DFF0 (-bInverse@EXFORMOBJ@@QEAAHAEAVMATRIX@@@Z.c)
+ *     ?vUpdateWtoDXform@DC@@QEAAXXZ @ 0x1C0059210 (-vUpdateWtoDXform@DC@@QEAAXXZ.c)
+ *     ?bDpiScaleTransform@DC@@QEBAHXZ @ 0x1C00597D0 (-bDpiScaleTransform@DC@@QEBAHXZ.c)
+ *     ?vMarkTransformDirty@DC@@QEAAXXZ @ 0x1C017E500 (-vMarkTransformDirty@DC@@QEAAXXZ.c)
+ *     ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C017F9D4 (-vUpdateCachedDPIScaleValue@DC@@QEAAXXZ.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTFIX@@PEAU_POINTL@@_K@Z @ 0x1C017FDC0 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTFIX@@PEAU_POINTL@@_K@Z.c)
+ */
+
 void __fastcall EXFORMOBJ::vInit(EXFORMOBJ *this, DC **a2, int a3, int a4)
 {
   DC *v8; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ShouldAdjustModernAppFramePriority@@YA_NPEBUtagWND@@@Z @ 0x1C01EBA3C
+ * Callers:
+ *     ?AdjustProcessPriorityForDrag@@YAXPEAUMOVESIZEDATA@@@Z @ 0x1C01EA0A0 (-AdjustProcessPriorityForDrag@@YAXPEAUMOVESIZEDATA@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall ShouldAdjustModernAppFramePriority(const struct tagWND *a1)
 {
   __int64 v1; // rdx

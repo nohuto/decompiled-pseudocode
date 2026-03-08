@@ -1,3 +1,20 @@
+/*
+ * XREFs of WPP_RECORDER_AND_TRACE_SF_qqqDSd @ 0x1C01BBF20
+ * Callers:
+ *     RIMQueueDeviceClassNotifyAsyncWorkItem @ 0x1C0036884 (RIMQueueDeviceClassNotifyAsyncWorkItem.c)
+ *     RIMQueueAndSignalAsyncPnpWorkItem @ 0x1C00376B0 (RIMQueueAndSignalAsyncPnpWorkItem.c)
+ *     rimQueueRimDevChangeAsyncWorkItem @ 0x1C00895B0 (rimQueueRimDevChangeAsyncWorkItem.c)
+ *     rimQueueApiSetPostPointerDeviceRangeMessageAsyncWorkItem @ 0x1C01BC4DC (rimQueueApiSetPostPointerDeviceRangeMessageAsyncWorkItem.c)
+ *     rimQueueUpdateInputGlolbalsAsyncWorkItem @ 0x1C01CF14C (rimQueueUpdateInputGlolbalsAsyncWorkItem.c)
+ *     RIMQueueDeviceNotifyAsyncWorkItem @ 0x1C01D01A4 (RIMQueueDeviceNotifyAsyncWorkItem.c)
+ *     RIMVirtQueueDeviceClassNotifyAsyncWorkItem @ 0x1C01D0EAC (RIMVirtQueueDeviceClassNotifyAsyncWorkItem.c)
+ *     RIMVirtQueueRimDevChangeAsyncWorkItem @ 0x1C01D1044 (RIMVirtQueueRimDevChangeAsyncWorkItem.c)
+ *     RIMVirtQueueRootPnpEndSyncAsyncWorkItem @ 0x1C01D11C4 (RIMVirtQueueRootPnpEndSyncAsyncWorkItem.c)
+ *     rimQueueApiSetHidRawInputAsyncWorkItem @ 0x1C01DA354 (rimQueueApiSetHidRawInputAsyncWorkItem.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void WPP_RECORDER_AND_TRACE_SF_qqqDSd(
         __int64 a1,
         char a2,

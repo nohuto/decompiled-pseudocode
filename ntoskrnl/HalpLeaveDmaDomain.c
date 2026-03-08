@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpLeaveDmaDomain @ 0x1405108E4
+ * Callers:
+ *     HalpDmaFreeChildAdapter @ 0x14050ED00 (HalpDmaFreeChildAdapter.c)
+ *     HalLeaveDmaDomain @ 0x14050FF10 (HalLeaveDmaDomain.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpDmaDereferenceDomainObject @ 0x140510338 (HalpDmaDereferenceDomainObject.c)
+ */
+
 __int64 __fastcall HalpLeaveDmaDomain(__int64 a1)
 {
   __int64 v1; // rbp

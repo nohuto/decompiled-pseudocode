@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiGetSlabAllocatorTypeByProtection @ 0x1404650AE
+ * Callers:
+ *     MiUseSlabAllocator @ 0x140289310 (MiUseSlabAllocator.c)
+ *     MiUseProtectedSlabAllocatorForDriverPage @ 0x1402A6DA0 (MiUseProtectedSlabAllocatorForDriverPage.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiGetSlabAllocatorTypeByProtection(__int64 a1, char a2, int a3)
 {
   __int64 result; // rax

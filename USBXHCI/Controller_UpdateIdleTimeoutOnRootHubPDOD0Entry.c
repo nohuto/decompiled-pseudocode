@@ -1,3 +1,11 @@
+/*
+ * XREFs of Controller_UpdateIdleTimeoutOnRootHubPDOD0Entry @ 0x1C0013ADC
+ * Callers:
+ *     RootHub_UcxEvtInterruptTransfer @ 0x1C0016C90 (RootHub_UcxEvtInterruptTransfer.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 unsigned __int64 __fastcall Controller_UpdateIdleTimeoutOnRootHubPDOD0Entry(__m128i *a1)
 {
   unsigned __int64 result; // rax

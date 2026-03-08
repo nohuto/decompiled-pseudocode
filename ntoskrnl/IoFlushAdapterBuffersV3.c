@@ -1,3 +1,14 @@
+/*
+ * XREFs of IoFlushAdapterBuffersV3 @ 0x140512DB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpDmaFlushContiguousTransferV3 @ 0x1404FDA54 (HalpDmaFlushContiguousTransferV3.c)
+ *     HalpDmaFlushScatterTransferV3 @ 0x1404FDBA4 (HalpDmaFlushScatterTransferV3.c)
+ *     HalpDmaFreeLa @ 0x1404FDD64 (HalpDmaFreeLa.c)
+ *     HalpDmaControllerFlushChannel @ 0x140514184 (HalpDmaControllerFlushChannel.c)
+ */
+
 char __fastcall IoFlushAdapterBuffersV3(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5, char a6)
 {
   if ( a5 )

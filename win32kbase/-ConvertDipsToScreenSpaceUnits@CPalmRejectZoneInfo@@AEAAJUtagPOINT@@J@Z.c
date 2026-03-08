@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ConvertDipsToScreenSpaceUnits@CPalmRejectZoneInfo@@AEAAJUtagPOINT@@J@Z @ 0x1C0215768
+ * Callers:
+ *     ?HitTestDelayZonePalmRejectionRegion@CPalmRejectZoneInfo@@QEAA_NUtagPOINT@@PEAUCDelayZonePanelTelemetryData@@@Z @ 0x1C0215AB0 (-HitTestDelayZonePalmRejectionRegion@CPalmRejectZoneInfo@@QEAA_NUtagPOINT@@PEAUCDelayZonePanelTe.c)
+ * Callees:
+ *     PtInRect @ 0x1C00157B4 (PtInRect.c)
+ *     EngMulDiv @ 0x1C003BF30 (EngMulDiv.c)
+ */
+
 __int64 __fastcall CPalmRejectZoneInfo::ConvertDipsToScreenSpaceUnits(
         CPalmRejectZoneInfo *this,
         struct tagPOINT a2,

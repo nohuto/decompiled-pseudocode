@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VisWindow@@YAHPEAUtagWND@@K@Z @ 0x1C002E44C
+ * Callers:
+ *     xxxSetWindowStyle @ 0x1C002DD90 (xxxSetWindowStyle.c)
+ * Callees:
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ */
+
 __int64 __fastcall VisWindow(struct tagWND *a1)
 {
   int v1; // eax

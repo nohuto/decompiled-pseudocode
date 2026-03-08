@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CancelPendingUpdates@CEndpointResourceStateManager@@QEAAXXZ @ 0x1C008542C
+ * Callers:
+ *     ?ProcessDiscardedProducerPresentUpdate@CFlipManager@@QEAAXPEAVCFlipPresentUpdate@@@Z @ 0x1C0083F6C (-ProcessDiscardedProducerPresentUpdate@CFlipManager@@QEAAXPEAVCFlipPresentUpdate@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CEndpointResourceStateManager::CancelPendingUpdates(CEndpointResourceStateManager *this)
 {
   char *v1; // rsi

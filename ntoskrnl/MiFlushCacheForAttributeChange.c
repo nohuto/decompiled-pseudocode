@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiFlushCacheForAttributeChange @ 0x140214754
+ * Callers:
+ *     MiChangePageAttributeBatch @ 0x140211998 (MiChangePageAttributeBatch.c)
+ *     MiChangePageAttributeContiguous @ 0x140214270 (MiChangePageAttributeContiguous.c)
+ *     MiChangePageAttribute @ 0x14036CE40 (MiChangePageAttribute.c)
+ *     MiFlushCacheRange @ 0x14065E91C (MiFlushCacheRange.c)
+ *     MiInitializeCacheFlushing @ 0x140B675DC (MiInitializeCacheFlushing.c)
+ * Callees:
+ *     MiMapPageInHyperSpaceWorker @ 0x140214870 (MiMapPageInHyperSpaceWorker.c)
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x1402149F0 (KeInvalidateRangeAllCachesNoIpi.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140214A54 (MiUnmapPageInHyperSpaceWorker.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036D020 (MiFlushEntireTbDueToAttributeChange.c)
+ */
+
 void __fastcall MiFlushCacheForAttributeChange(__int64 a1, __int64 a2, int a3, _QWORD *a4)
 {
   __int64 v6; // rbp

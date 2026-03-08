@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIEcLogAction @ 0x1C0002D3C
+ * Callers:
+ *     AcpiEcCommonDpcHandler @ 0x1C0002C4E (AcpiEcCommonDpcHandler.c)
+ *     ACPIEcServiceIoLoop @ 0x1C0002EF0 (ACPIEcServiceIoLoop.c)
+ *     ACPIEcQueueEcIrp @ 0x1C0024F24 (ACPIEcQueueEcIrp.c)
+ *     ACPIEcServiceDevice @ 0x1C0025C50 (ACPIEcServiceDevice.c)
+ *     ACPIEcWatchdogDpc @ 0x1C0025D70 (ACPIEcWatchdogDpc.c)
+ * Callees:
+ *     <none>
+ */
+
 LARGE_INTEGER __fastcall ACPIEcLogAction(__int64 a1, unsigned __int8 a2, char a3)
 {
   __int64 v3; // r9

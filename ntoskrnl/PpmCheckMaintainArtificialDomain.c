@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmCheckMaintainArtificialDomain @ 0x1403B0C40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char PpmCheckMaintainArtificialDomain()
 {
   if ( PpmPerfArtificialDomainEnabled )

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ApiSetEditionIsGetKeyStateBlocked @ 0x1C0078EE8
+ * Callers:
+ *     NtUserGetKeyState @ 0x1C0078A00 (NtUserGetKeyState.c)
+ *     AllocQueue @ 0x1C0078C60 (AllocQueue.c)
+ *     NtUserGetKeyboardState @ 0x1C007F9C0 (NtUserGetKeyboardState.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 ApiSetEditionIsGetKeyStateBlocked()
 {
   char v0; // bl

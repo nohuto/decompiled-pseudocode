@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExConvertFastResourceExclusiveToShared @ 0x140607790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExpConvertFastResourceExclusiveToShared @ 0x1403C5DA8 (ExpConvertFastResourceExclusiveToShared.c)
+ *     ExConvertFastResourceExclusiveToShared2 @ 0x14040DE60 (ExConvertFastResourceExclusiveToShared2.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall ExConvertFastResourceExclusiveToShared(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)
 {
   unsigned __int8 CurrentIrql; // al

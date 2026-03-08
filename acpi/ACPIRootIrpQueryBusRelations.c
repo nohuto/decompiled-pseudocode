@@ -1,3 +1,17 @@
+/*
+ * XREFs of ACPIRootIrpQueryBusRelations @ 0x1C0093D88
+ * Callers:
+ *     ACPIFilterIrpQueryDeviceRelations @ 0x1C007A330 (ACPIFilterIrpQueryDeviceRelations.c)
+ *     ACPIRootIrpQueryDeviceRelations @ 0x1C0094220 (ACPIRootIrpQueryDeviceRelations.c)
+ * Callees:
+ *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIDetectDockDevices @ 0x1C0019FD0 (ACPIDetectDockDevices.c)
+ *     ACPIDetectPdoDevices @ 0x1C001AE34 (ACPIDetectPdoDevices.c)
+ *     AcpiCheckExternalConnection @ 0x1C0083BF4 (AcpiCheckExternalConnection.c)
+ */
+
 __int64 __fastcall ACPIRootIrpQueryBusRelations(ULONG_PTR a1, __int64 a2, PVOID *a3)
 {
   __int64 DeviceExtension; // rax

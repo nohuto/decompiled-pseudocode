@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?DeleteAllTokens@CTokenQueue@@AEAAXXZ @ 0x1C0018DE0
+ * Callers:
+ *     ??1CTokenManager@@AEAA@XZ @ 0x1C00172B0 (--1CTokenManager@@AEAA@XZ.c)
+ *     ?DeleteAllTokens@CTokenManager@@UEAAXXZ @ 0x1C0017590 (-DeleteAllTokens@CTokenManager@@UEAAXXZ.c)
+ *     ?ClearAnalogTokenQueue@CTokenManager@@UEAAXXZ @ 0x1C0076540 (-ClearAnalogTokenQueue@CTokenManager@@UEAAXXZ.c)
+ *     ?RemoveTokenQueueTableEntry@CTokenManager@@IEAAXPEAUTokenQueueTableEntry@1@@Z @ 0x1C0077224 (-RemoveTokenQueueTableEntry@CTokenManager@@IEAAXPEAUTokenQueueTableEntry@1@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CTokenQueue::DeleteAllTokens(CTokenQueue *this)
 {
   CTokenQueue *v1; // rax

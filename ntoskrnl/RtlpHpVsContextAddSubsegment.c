@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpHpVsContextAddSubsegment @ 0x1402E2240
+ * Callers:
+ *     RtlpHpVsContextAllocateInternal @ 0x14024A790 (RtlpHpVsContextAllocateInternal.c)
+ * Callees:
+ *     RtlpHpVsChunkAlignSplit @ 0x140248F60 (RtlpHpVsChunkAlignSplit.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x14024A580 (RtlpHpVsFreeChunkInsert.c)
+ */
+
 __int64 __fastcall RtlpHpVsContextAddSubsegment(__int64 a1, __int64 a2)
 {
   __int64 v4; // rdx

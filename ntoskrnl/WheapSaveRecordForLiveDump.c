@@ -1,3 +1,14 @@
+/*
+ * XREFs of WheapSaveRecordForLiveDump @ 0x140AA8934
+ * Callers:
+ *     WheapCreateLiveDumpFromPreviousSession @ 0x140AA8884 (WheapCreateLiveDumpFromPreviousSession.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall WheapSaveRecordForLiveDump(__int64 a1)
 {
   size_t v1; // rsi

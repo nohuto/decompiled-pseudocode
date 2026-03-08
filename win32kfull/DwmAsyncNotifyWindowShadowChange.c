@@ -1,3 +1,12 @@
+/*
+ * XREFs of DwmAsyncNotifyWindowShadowChange @ 0x1C026FE38
+ * Callers:
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ *     _NotifyOverlayWindow @ 0x1C01C9960 (_NotifyOverlayWindow.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DwmAsyncNotifyWindowShadowChange(PVOID Object)
 {
   unsigned int v2; // edi

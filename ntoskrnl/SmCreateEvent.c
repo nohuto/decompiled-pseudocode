@@ -1,3 +1,14 @@
+/*
+ * XREFs of SmCreateEvent @ 0x14085DB18
+ * Callers:
+ *     SmRegistrationCtxStart @ 0x14085DAC0 (SmRegistrationCtxStart.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateEvent @ 0x140412C10 (ZwCreateEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall SmCreateEvent(__int64 a1, PVOID *a2)
 {
   NTSTATUS v3; // ebx

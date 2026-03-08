@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserGetClipboardAccessToken @ 0x1C01D1260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ */
+
 __int64 __fastcall NtUserGetClipboardAccessToken(_QWORD *a1, __int64 a2, __int64 a3)
 {
   ACCESS_MASK v3; // esi

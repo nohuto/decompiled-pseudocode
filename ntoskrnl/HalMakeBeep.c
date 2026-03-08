@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalMakeBeep @ 0x140504630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpAcquireCmosSpinLock @ 0x1402D1A0C (HalpAcquireCmosSpinLock.c)
+ *     HalpIoDelay @ 0x140411C50 (HalpIoDelay.c)
+ *     WRITE_PORT_USHORT_PAIR @ 0x140504708 (WRITE_PORT_USHORT_PAIR.c)
+ *     HalpMiscIsLegacyPcType @ 0x140508E18 (HalpMiscIsLegacyPcType.c)
+ */
+
 char __fastcall HalMakeBeep(unsigned int a1)
 {
   char result; // al

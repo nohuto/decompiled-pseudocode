@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViGenericDumpIrpStack @ 0x140AC0020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VfUtilDbgPrint @ 0x1405CBEB4 (VfUtilDbgPrint.c)
+ */
+
 __int64 __fastcall ViGenericDumpIrpStack(unsigned __int8 *a1)
 {
   __int64 v1; // rax

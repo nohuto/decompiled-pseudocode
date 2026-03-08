@@ -1,3 +1,23 @@
+/*
+ * XREFs of BiBindEfiBootManager @ 0x14082C288
+ * Callers:
+ *     BiBindEfiNamespaceObjects @ 0x14082BF38 (BiBindEfiNamespaceObjects.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     BiQueryBootEntryOrder @ 0x14082BC18 (BiQueryBootEntryOrder.c)
+ *     BiQueryBootOptions @ 0x14082BCCC (BiQueryBootOptions.c)
+ *     BcdDeleteObject @ 0x14082C47C (BcdDeleteObject.c)
+ *     BcdCreateObject @ 0x14082C4D8 (BcdCreateObject.c)
+ *     BiTranslateBootOrder @ 0x14082D114 (BiTranslateBootOrder.c)
+ *     BcdSetElementDataWithFlags @ 0x14082D894 (BcdSetElementDataWithFlags.c)
+ *     BcdCloseObject @ 0x14082E5DC (BcdCloseObject.c)
+ *     BcdOpenObject @ 0x14082E620 (BcdOpenObject.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiTranslateBootEntryId @ 0x14082F2D4 (BiTranslateBootEntryId.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiBindEfiBootManager(__int64 a1, __int64 a2)
 {
   void *v4; // r14

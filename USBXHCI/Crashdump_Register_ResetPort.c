@@ -1,3 +1,12 @@
+/*
+ * XREFs of Crashdump_Register_ResetPort @ 0x1C004DB70
+ * Callers:
+ *     Crashdump_InitializeWithControllerReset @ 0x1C004C868 (Crashdump_InitializeWithControllerReset.c)
+ *     Crashdump_ResetDevice @ 0x1C004CD40 (Crashdump_ResetDevice.c)
+ * Callees:
+ *     Crashdump_Register_LogRHPortInfo @ 0x1C004D8C4 (Crashdump_Register_LogRHPortInfo.c)
+ */
+
 __int64 __fastcall Crashdump_Register_ResetPort(__int64 a1, int a2, int a3)
 {
   int *v6; // r14

@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpPsProvTraceImage @ 0x1409E3534
+ * Callers:
+ *     EtwpTraceImageUnload @ 0x14035E3D0 (EtwpTraceImageUnload.c)
+ *     PerfLogImageLoad @ 0x1407EC064 (PerfLogImageLoad.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall EtwpPsProvTraceImage(unsigned __int16 *a1, ULONGLONG a2, __int16 a3, int a4)
 {
   const EVENT_DESCRIPTOR *v5; // rdx

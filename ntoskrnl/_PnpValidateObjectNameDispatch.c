@@ -1,3 +1,13 @@
+/*
+ * XREFs of _PnpValidateObjectNameDispatch @ 0x1407475E8
+ * Callers:
+ *     _PnpValidateObjectName @ 0x140747528 (_PnpValidateObjectName.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _PnpCtxGetObjectDispatchCallback @ 0x1406D13A4 (_PnpCtxGetObjectDispatchCallback.c)
+ */
+
 __int64 __fastcall PnpValidateObjectNameDispatch(__int64 a1, __int64 a2, unsigned int a3, int a4)
 {
   __int64 result; // rax

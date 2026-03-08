@@ -1,3 +1,20 @@
+/*
+ * XREFs of IopLiveDumpCaptureMemoryPages @ 0x140A97838
+ * Callers:
+ *     IoCaptureLiveDump @ 0x140948A78 (IoCaptureLiveDump.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     VslIsSecureKernelRunning @ 0x140302F60 (VslIsSecureKernelRunning.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     VslFinalizeLiveDumpInSk @ 0x1405489E8 (VslFinalizeLiveDumpInSk.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x14055793C (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpTraceCaptureMemoryPages @ 0x14055815C (IopLiveDumpTraceCaptureMemoryPages.c)
+ *     IopLiveDumpTraceMmDuplicateMemoryFailure @ 0x140558EE0 (IopLiveDumpTraceMmDuplicateMemoryFailure.c)
+ *     IopLiveDumpCapture @ 0x14094AEEC (IopLiveDumpCapture.c)
+ *     IopLiveDumpUncorralProcessors @ 0x140A99588 (IopLiveDumpUncorralProcessors.c)
+ */
+
 __int64 __fastcall IopLiveDumpCaptureMemoryPages(__int64 a1)
 {
   __int64 MillisecondCounter; // rax

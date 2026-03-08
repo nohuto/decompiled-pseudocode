@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?NotifySetPointerGraphicDevice@CMouseProcessor@@QEAAXW4SetPointerGraphicsResult@@@Z @ 0x1C00C2C1C
+ * Callers:
+ *     NotifySetPointerGraphicDevice @ 0x1C00C2BF0 (NotifySetPointerGraphicDevice.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall CMouseProcessor::NotifySetPointerGraphicDevice(__int64 a1, int a2)
 {
   __int64 v4; // rbx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExpSetTimerObject2 @ 0x1402CF9D4
+ * Callers:
+ *     NtCancelTimer @ 0x1402CD830 (NtCancelTimer.c)
+ *     ExpSetTimer @ 0x1402CDD38 (ExpSetTimer.c)
+ *     ExpSetTimer2 @ 0x1402CF8A0 (ExpSetTimer2.c)
+ * Callees:
+ *     KeCancelTimer2 @ 0x140204390 (KeCancelTimer2.c)
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ */
+
 __int64 __fastcall ExpSetTimerObject2(_QWORD *Object, __int64 *a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // ebx

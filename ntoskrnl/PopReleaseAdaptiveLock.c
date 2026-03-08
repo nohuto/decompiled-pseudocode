@@ -1,3 +1,28 @@
+/*
+ * XREFs of PopReleaseAdaptiveLock @ 0x14073CD60
+ * Callers:
+ *     PopSessionWinlogonNotification @ 0x14067F97C (PopSessionWinlogonNotification.c)
+ *     NtSetThreadExecutionState @ 0x14073A9D0 (NtSetThreadExecutionState.c)
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ *     PopSessionConnectionChange @ 0x14079A150 (PopSessionConnectionChange.c)
+ *     PopAdaptivePowerSettingCallback @ 0x140829230 (PopAdaptivePowerSettingCallback.c)
+ *     PopUpdateSystemIdleContext @ 0x14082A808 (PopUpdateSystemIdleContext.c)
+ *     PopIsLockConsoleTimeoutActive @ 0x140879B20 (PopIsLockConsoleTimeoutActive.c)
+ *     PopSetDisplayStatus @ 0x140880858 (PopSetDisplayStatus.c)
+ *     PopSystemIdleEventHandler @ 0x140880C00 (PopSystemIdleEventHandler.c)
+ *     PopActiveLockScreenPowerRequest @ 0x1409986F0 (PopActiveLockScreenPowerRequest.c)
+ *     PopAdaptiveGetSystemInitiatedRebootTargetState @ 0x1409988C4 (PopAdaptiveGetSystemInitiatedRebootTargetState.c)
+ *     PopAdaptiveSetSystemInitiatedRebootTargetStateOverride @ 0x140998998 (PopAdaptiveSetSystemInitiatedRebootTargetStateOverride.c)
+ *     PopAdaptiveWnfCallback @ 0x140998A20 (PopAdaptiveWnfCallback.c)
+ *     PopUserPresentOverride @ 0x140998B50 (PopUserPresentOverride.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopDispatchStateCallout @ 0x14067F6E8 (PopDispatchStateCallout.c)
+ *     PopSendSessionInfo @ 0x14067FE1C (PopSendSessionInfo.c)
+ */
+
 void PopReleaseAdaptiveLock()
 {
   char v0; // bl

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIDereferenceWakeInterrupt @ 0x1C004485C
+ * Callers:
+ *     ACPIAssociateWakeInterrupt @ 0x1C004431C (ACPIAssociateWakeInterrupt.c)
+ *     ACPIDisconnectWakeInterrupt @ 0x1C00448F8 (ACPIDisconnectWakeInterrupt.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ACPIDereferenceWakeInterrupt(__int64 *a1)
 {
   KIRQL v2; // al

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiGlobalDeduplicateTriageDumpData @ 0x140568244
+ * Callers:
+ *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x1405682D4 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
+ * Callees:
+ *     KiDeduplicateTriageDumpDataArrays @ 0x140567B38 (KiDeduplicateTriageDumpDataArrays.c)
+ */
+
 void __fastcall KiGlobalDeduplicateTriageDumpData(_DWORD *a1)
 {
   __int64 *v1; // rbx

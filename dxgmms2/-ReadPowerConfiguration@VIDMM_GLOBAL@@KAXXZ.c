@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReadPowerConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00BED94
+ * Callers:
+ *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C0968 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ */
+
 void VIDMM_GLOBAL::ReadPowerConfiguration(void)
 {
   unsigned int v0; // [rsp+30h] [rbp-79h] BYREF

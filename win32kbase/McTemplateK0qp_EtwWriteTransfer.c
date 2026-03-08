@@ -1,3 +1,21 @@
+/*
+ * XREFs of McTemplateK0qp_EtwWriteTransfer @ 0x1C016624C
+ * Callers:
+ *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C0066180 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
+ *     EtwTraceFlipManagerAddRemoveContent @ 0x1C0162550 (EtwTraceFlipManagerAddRemoveContent.c)
+ *     EtwTraceFlipManagerCancelPosted @ 0x1C0162660 (EtwTraceFlipManagerCancelPosted.c)
+ *     EtwTraceFlipManagerNoOpPresent @ 0x1C0162810 (EtwTraceFlipManagerNoOpPresent.c)
+ *     EtwTraceFlipManagerPresentConfirmed @ 0x1C0162B20 (EtwTraceFlipManagerPresentConfirmed.c)
+ *     EtwTraceFlipManagerPresentIFlipPurgePreviousPresents @ 0x1C0162E60 (EtwTraceFlipManagerPresentIFlipPurgePreviousPresents.c)
+ *     EtwTraceFlipManagerPresentQueueDepth @ 0x1C01633C0 (EtwTraceFlipManagerPresentQueueDepth.c)
+ *     EtwTraceFlipManagerRemoveBuffer @ 0x1C0163790 (EtwTraceFlipManagerRemoveBuffer.c)
+ *     EtwTraceFlipManagerStartTokenReleaseToFrame @ 0x1C0163820 (EtwTraceFlipManagerStartTokenReleaseToFrame.c)
+ *     EtwTraceFlipManagerStopTokenReleaseToFrame @ 0x1C0163880 (EtwTraceFlipManagerStopTokenReleaseToFrame.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0qp_EtwWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

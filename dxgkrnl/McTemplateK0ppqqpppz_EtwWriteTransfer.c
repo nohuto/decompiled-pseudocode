@@ -1,3 +1,14 @@
+/*
+ * XREFs of McTemplateK0ppqqpppz_EtwWriteTransfer @ 0x1C0055B94
+ * Callers:
+ *     ?DestroyVmProcess@DXGPROCESSVM@@QEAAXXZ @ 0x1C033F07C (-DestroyVmProcess@DXGPROCESSVM@@QEAAXXZ.c)
+ *     ?ReportProcess@DXGPROCESS@@QEAAXXZ @ 0x1C0340F88 (-ReportProcess@DXGPROCESS@@QEAAXXZ.c)
+ *     ?VmBusCreateProcess@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0376E60 (-VmBusCreateProcess@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002BBC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 NTSTATUS McTemplateK0ppqqpppz_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)
 {
   const wchar_t *v3; // rcx

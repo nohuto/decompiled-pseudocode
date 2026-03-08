@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C004DC80
+ * Callers:
+ *     ?ReadNextPath@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C03081D8 (-ReadNextPath@DXG_REGISTRY_KEY_LIST@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ?VmBusGetRegistryKeys@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C037B110 (-VmBusGetRegistryKeys@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ * Callees:
+ *     RtlUnicodeStringValidateDestWorker_0 @ 0x1C004DD28 (RtlUnicodeStringValidateDestWorker_0.c)
+ */
+
 NTSTATUS __fastcall RtlUnicodeStringCopyString(struct _UNICODE_STRING *a1, wchar_t *a2)
 {
   NTSTATUS result; // eax

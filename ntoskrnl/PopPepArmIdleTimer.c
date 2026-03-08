@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopPepArmIdleTimer @ 0x1402E9704
+ * Callers:
+ *     PopPepIdleTimeoutRoutine @ 0x1402E9500 (PopPepIdleTimeoutRoutine.c)
+ *     PopPepGetComponentPreferedIdleState @ 0x140304E18 (PopPepGetComponentPreferedIdleState.c)
+ *     PopPepIdleTimeoutDpcRoutine @ 0x140355AD0 (PopPepIdleTimeoutDpcRoutine.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetCoalescableTimer @ 0x140250440 (KeSetCoalescableTimer.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall PopPepArmIdleTimer(char a1)
 {
   unsigned __int64 v2; // rbx

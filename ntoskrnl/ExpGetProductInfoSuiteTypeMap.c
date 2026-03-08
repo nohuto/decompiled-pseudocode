@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpGetProductInfoSuiteTypeMap @ 0x140810CB4
+ * Callers:
+ *     ExGetSuiteMask @ 0x140810AB8 (ExGetSuiteMask.c)
+ *     ExpInitSystemPhase1 @ 0x140B3F0B8 (ExpInitSystemPhase1.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall ExpGetProductInfoSuiteTypeMap(int a1, __int64 a2)
 {
   char v2; // r9

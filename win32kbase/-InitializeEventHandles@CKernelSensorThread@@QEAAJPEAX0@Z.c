@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?InitializeEventHandles@CKernelSensorThread@@QEAAJPEAX0@Z @ 0x1C009A844
+ * Callers:
+ *     UserKSTInitialize @ 0x1C009A090 (UserKSTInitialize.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     ConvertUserToKernelEventHandle @ 0x1C009A9C8 (ConvertUserToKernelEventHandle.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall CKernelSensorThread::InitializeEventHandles(CKernelSensorThread *this, void *a2, void *a3)
 {
   void **CurrentIrp; // rsi

@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiDoGangAssignment @ 0x140386D14
+ * Callers:
+ *     MiStartDpcGang @ 0x140386B74 (MiStartDpcGang.c)
+ *     MiDpcGangTarget @ 0x140664900 (MiDpcGangTarget.c)
+ * Callees:
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiCreatePfnTemplate @ 0x1403708F4 (MiCreatePfnTemplate.c)
+ *     MiInitializeNewPfns @ 0x140370B10 (MiInitializeNewPfns.c)
+ *     MiInitializeLargeMdlLeafPfns @ 0x140386D90 (MiInitializeLargeMdlLeafPfns.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KeZeroPages @ 0x14041BBF0 (KeZeroPages.c)
+ *     RtlCompareMemoryUlong @ 0x140420E50 (RtlCompareMemoryUlong.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 int __fastcall MiDoGangAssignment(__int64 a1, ULONG_PTR **a2)
 {
   unsigned __int16 *v2; // rax

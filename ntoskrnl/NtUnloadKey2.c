@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUnloadKey2 @ 0x140749B10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CmCleanupThreadInfo @ 0x140263740 (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x140263760 (CmpInitializeThreadInfo.c)
+ *     CmUnloadKey @ 0x140749BD8 (CmUnloadKey.c)
+ */
+
 __int64 NtUnloadKey2()
 {
   unsigned int v0; // r10d

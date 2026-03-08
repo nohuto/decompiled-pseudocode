@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CCD_BTL@@IEAA@XZ @ 0x1C0205604
+ * Callers:
+ *     ?CreateGlobal@CCD_BTL@@SAJXZ @ 0x1C0205590 (-CreateGlobal@CCD_BTL@@SAJXZ.c)
+ * Callees:
+ *     ??0CCD_TOPOLOGY@@QEAA@GG@Z @ 0x1C01BE528 (--0CCD_TOPOLOGY@@QEAA@GG@Z.c)
+ */
+
 CCD_BTL *__fastcall CCD_BTL::CCD_BTL(CCD_BTL *this)
 {
   bool v2; // bl

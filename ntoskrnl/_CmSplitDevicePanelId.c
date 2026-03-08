@@ -1,3 +1,19 @@
+/*
+ * XREFs of _CmSplitDevicePanelId @ 0x14082509C
+ * Callers:
+ *     PiPnpRtlSetObjectProperty @ 0x140686898 (PiPnpRtlSetObjectProperty.c)
+ *     _CmValidateDevicePanelName @ 0x140823928 (_CmValidateDevicePanelName.c)
+ *     _CmGetDevicePanelMappedProperty @ 0x140A63830 (_CmGetDevicePanelMappedProperty.c)
+ * Callees:
+ *     RtlStringCchCopyNExW @ 0x140245AC0 (RtlStringCchCopyNExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcschr @ 0x1403D5D90 (wcschr.c)
+ *     wcstoul @ 0x1403D6370 (wcstoul.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ */
+
 __int64 __fastcall CmSplitDevicePanelId(STRSAFE_PCNZWCH pszSrc, GUID *Guid, unsigned int *a3, unsigned int *a4)
 {
   NTSTATUS inited; // ebx

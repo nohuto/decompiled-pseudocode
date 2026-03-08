@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceCompleteInputDeviceRead @ 0x1C00CB9C0
+ * Callers:
+ *     rimInputApc @ 0x1C00CB830 (rimInputApc.c)
+ * Callees:
+ *     McTemplateK0dq_EtwWriteTransfer @ 0x1C00EE444 (McTemplateK0dq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall EtwTraceCompleteInputDeviceRead(__int64 a1, int a2, __int64 a3)
 {
   __int64 result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExWnfExitProcess @ 0x140704A58
+ * Callers:
+ *     PspProcessDelete @ 0x140704DD0 (PspProcessDelete.c)
+ *     PspExitThread @ 0x1407D9464 (PspExitThread.c)
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExpWnfDeleteScopeById @ 0x140704810 (ExpWnfDeleteScopeById.c)
+ *     ExpWnfDeleteProcessContext @ 0x140704AB8 (ExpWnfDeleteProcessContext.c)
+ */
+
 void __fastcall ExWnfExitProcess(__int64 a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rax

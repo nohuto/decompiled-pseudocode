@@ -1,3 +1,14 @@
+/*
+ * XREFs of XmScasOp @ 0x140531D50
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmGetStringAddress @ 0x14039559C (XmGetStringAddress.c)
+ *     XmSetSourceValue @ 0x1403B41A0 (XmSetSourceValue.c)
+ *     XmSetDestinationValue @ 0x1403B4248 (XmSetDestinationValue.c)
+ *     XmCompareOperands @ 0x140531ACC (XmCompareOperands.c)
+ */
+
 __int64 __fastcall XmScasOp(__int64 a1)
 {
   int v2; // edi

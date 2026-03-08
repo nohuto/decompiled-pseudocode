@@ -1,3 +1,24 @@
+/*
+ * XREFs of ExDupHandleTable @ 0x140705D54
+ * Callers:
+ *     ObInitProcess @ 0x140707D3C (ObInitProcess.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExLockHandleTableEntry @ 0x140352148 (ExLockHandleTableEntry.c)
+ *     ExfUnblockPushLock @ 0x14040CCE0 (ExfUnblockPushLock.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExpFreeHandleTable @ 0x140704400 (ExpFreeHandleTable.c)
+ *     ExpDuplicateSingleHandle @ 0x1407060D0 (ExpDuplicateSingleHandle.c)
+ *     ExCreateHandleTable @ 0x140706274 (ExCreateHandleTable.c)
+ *     ExpAllocateHandleTable @ 0x140706348 (ExpAllocateHandleTable.c)
+ *     ExpAllocateHandleTableEntrySlow @ 0x14070644C (ExpAllocateHandleTableEntrySlow.c)
+ *     ExpLookupHandleTableEntry @ 0x1407C3370 (ExpLookupHandleTableEntry.c)
+ *     ExpUpdateDebugInfo @ 0x1409F6478 (ExpUpdateDebugInfo.c)
+ */
+
 __int64 __fastcall ExDupHandleTable(__int64 a1, volatile __int64 *a2, unsigned int a3, _BYTE *a4, __int64 *a5)
 {
   __int64 *v5; // r14

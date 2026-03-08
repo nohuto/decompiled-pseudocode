@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeRequestTerminationProcess @ 0x140971344
+ * Callers:
+ *     MiForceCrashForInvalidAccess @ 0x140A28438 (MiForceCrashForInvalidAccess.c)
+ *     MiCommitRequestFailed @ 0x140A40C84 (MiCommitRequestFailed.c)
+ * Callees:
+ *     KeRequestTerminationThread @ 0x140354D78 (KeRequestTerminationThread.c)
+ */
+
 void __fastcall KeRequestTerminationProcess(__int64 a1, int a2)
 {
   signed __int32 v2; // r8d

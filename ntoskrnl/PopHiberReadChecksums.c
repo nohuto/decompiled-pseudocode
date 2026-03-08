@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopHiberReadChecksums @ 0x140AA01BC
+ * Callers:
+ *     PopRestoreHiberContext @ 0x140AA139C (PopRestoreHiberContext.c)
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PopInternalAddToDumpFile @ 0x140580CC0 (PopInternalAddToDumpFile.c)
+ *     PopGetIoLocation @ 0x140A9FBBC (PopGetIoLocation.c)
+ */
+
 unsigned __int64 __fastcall PopHiberReadChecksums(ULONG_PTR BugCheckParameter3)
 {
   unsigned __int64 result; // rax

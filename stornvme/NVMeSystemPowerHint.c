@@ -1,3 +1,11 @@
+/*
+ * XREFs of NVMeSystemPowerHint @ 0x1C0010A10
+ * Callers:
+ *     NVMeHwAdapterControl @ 0x1C0003050 (NVMeHwAdapterControl.c)
+ * Callees:
+ *     NVMeUpdateResumeLatencyTolerance @ 0x1C0010AA0 (NVMeUpdateResumeLatencyTolerance.c)
+ */
+
 __int64 __fastcall NVMeSystemPowerHint(__int64 a1, _DWORD *a2)
 {
   __int64 v2; // r9

@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvGetHiveLogFileStatus @ 0x1407F7674
+ * Callers:
+ *     CmpGenerateFlushControlData @ 0x1406BF454 (CmpGenerateFlushControlData.c)
+ * Callees:
+ *     CmpIsWriteQueueActive @ 0x140244040 (CmpIsWriteQueueActive.c)
+ *     RtlAreBitsClear @ 0x14036C910 (RtlAreBitsClear.c)
+ *     HvpCountSetRangesInVector @ 0x1407EA7B4 (HvpCountSetRangesInVector.c)
+ */
+
 char __fastcall HvGetHiveLogFileStatus(__int64 a1, unsigned int a2, int *a3)
 {
   unsigned __int64 v4; // r14

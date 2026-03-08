@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIBusIrpQueryBusInformationEIO @ 0x1C007EB60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ */
+
 __int64 __fastcall ACPIBusIrpQueryBusInformationEIO(__int64 a1, IRP *a2)
 {
   __int64 v4; // rbx

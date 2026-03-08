@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?AddInertiaInfo@CInertiaManager@@QEAA_NPEAUtagTHREADINFO@@_KPEAVCInputDest@@PEAUtagInputRoutingInfo@@HHAEBUINERTIA_INFO@@NPEBUtagRECT@@PEBU_D3DMATRIX@@@Z @ 0x1C0210154
+ * Callers:
+ *     NtUserReportInertia @ 0x1C0002CA0 (NtUserReportInertia.c)
+ * Callees:
+ *     ?GetWindowHandle@CInputDest@@QEBAPEAUHWND__@@XZ @ 0x1C007CE44 (-GetWindowHandle@CInputDest@@QEBAPEAUHWND__@@XZ.c)
+ *     ?AddInertiaInfo@Inertia@InputTraceLogging@@SAXAEBUINERTIA_INFO_INTERNAL@@@Z @ 0x1C00E0D8C (-AddInertiaInfo@Inertia@InputTraceLogging@@SAXAEBUINERTIA_INFO_INTERNAL@@@Z.c)
+ *     Feature_Servicing_ListViewScrollingFix__private_IsEnabledDeviceUsage @ 0x1C00E1050 (Feature_Servicing_ListViewScrollingFix__private_IsEnabledDeviceUsage.c)
+ *     ?GetDelegateThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ @ 0x1C01E3804 (-GetDelegateThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ.c)
+ *     ?AddInertiaInfo@Win32k@InputTraceLogging@@SAXAEBUINERTIA_INFO_INTERNAL@@@Z @ 0x1C02103A8 (-AddInertiaInfo@Win32k@InputTraceLogging@@SAXAEBUINERTIA_INFO_INTERNAL@@@Z.c)
+ *     ApiSetEditionEdgyProcessInertia @ 0x1C023D6EC (ApiSetEditionEdgyProcessInertia.c)
+ */
+
 char __fastcall CInertiaManager::AddInertiaInfo(
         CInertiaManager *this,
         struct tagTHREADINFO *a2,

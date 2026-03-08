@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_c2661e01401ae061a9dc9ee442c48f39_::operator() @ 0x180273934
+ * Callers:
+ *     ?ChangeBasis@CVector3ForceEvaluator@@QEAAXAEBUD2DMatrix@@@Z @ 0x180273A34 (-ChangeBasis@CVector3ForceEvaluator@@QEAAXAEBUD2DMatrix@@@Z.c)
+ * Callees:
+ *     ?D3DXVec3TransformNormal@@YAPEAUD2DVector3@@PEAU1@PEBU1@PEBUD2DMatrix@@@Z @ 0x18027B7C0 (-D3DXVec3TransformNormal@@YAPEAUD2DVector3@@PEAU1@PEBU1@PEBUD2DMatrix@@@Z.c)
+ */
+
 struct D2DVector3 *__fastcall lambda_c2661e01401ae061a9dc9ee442c48f39_::operator()(
         __int64 *a1,
         int *a2,

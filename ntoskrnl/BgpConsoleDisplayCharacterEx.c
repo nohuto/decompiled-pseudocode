@@ -1,3 +1,12 @@
+/*
+ * XREFs of BgpConsoleDisplayCharacterEx @ 0x140AEE5D4
+ * Callers:
+ *     BgpConsoleDisplayString @ 0x140AEE870 (BgpConsoleDisplayString.c)
+ * Callees:
+ *     BgpDisplayCharacterEx @ 0x14066F654 (BgpDisplayCharacterEx.c)
+ *     BgpConsoleScrollScreen @ 0x140AEEAC0 (BgpConsoleScrollScreen.c)
+ */
+
 __int64 BgpConsoleDisplayCharacterEx(unsigned __int16 a1, unsigned int a2, unsigned int a3, int a4, int a5, ...)
 {
   int v5; // esi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Cleanup@DeadzoneJumping@CCursorClip@@AEAAXXZ @ 0x1C00159A4
+ * Callers:
+ *     ?RefreshRegions@DeadzoneJumping@CCursorClip@@QEAA_NXZ @ 0x1C0013B64 (-RefreshRegions@DeadzoneJumping@CCursorClip@@QEAA_NXZ.c)
+ *     ??1CCursorClip@@AEAA@XZ @ 0x1C00950B4 (--1CCursorClip@@AEAA@XZ.c)
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 void __fastcall CCursorClip::DeadzoneJumping::Cleanup(CCursorClip::DeadzoneJumping *this)
 {
   _QWORD *v1; // rdi

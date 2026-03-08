@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PowerPolSleepingSendWake@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C007B0B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_IFR_SF_D @ 0x1C0017F78 (WPP_IFR_SF_D.c)
+ *     ?PowerPolicySendWaitWakeRequest@FxPkgPnp@@IEAAJW4_SYSTEM_POWER_STATE@@@Z @ 0x1C007DE80 (-PowerPolicySendWaitWakeRequest@FxPkgPnp@@IEAAJW4_SYSTEM_POWER_STATE@@@Z.c)
+ */
+
 __int64 __fastcall FxPkgPnp::PowerPolSleepingSendWake(FxPkgPnp *This)
 {
   _SYSTEM_POWER_STATE m_SystemWake; // edx

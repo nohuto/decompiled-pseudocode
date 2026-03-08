@@ -1,3 +1,19 @@
+/*
+ * XREFs of PipInitializeCoreDriversAndElam @ 0x140B57734
+ * Callers:
+ *     IopInitializeBootDrivers @ 0x140B57F78 (IopInitializeBootDrivers.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KeCheckedKernelInitialize @ 0x140B14B50 (KeCheckedKernelInitialize.c)
+ *     PipInitializeEarlyLaunchDrivers @ 0x140B57190 (PipInitializeEarlyLaunchDrivers.c)
+ *     PipInitializeCoreDriversByGroup @ 0x140B5780C (PipInitializeCoreDriversByGroup.c)
+ *     PipInitializeDriverDependentDLLs @ 0x140B579BC (PipInitializeDriverDependentDLLs.c)
+ *     PnpNotifyEarlyLaunchStatusUpdate @ 0x140B594E8 (PnpNotifyEarlyLaunchStatusUpdate.c)
+ *     VslConnectSwInterrupt @ 0x140B6F5B0 (VslConnectSwInterrupt.c)
+ *     KeInitAmd64SpecificState @ 0x140B6F644 (KeInitAmd64SpecificState.c)
+ *     VslRegisterBootDrivers @ 0x140B6F694 (VslRegisterBootDrivers.c)
+ */
+
 __int64 __fastcall PipInitializeCoreDriversAndElam(UNICODE_STRING *a1)
 {
   __int64 v2; // rdx

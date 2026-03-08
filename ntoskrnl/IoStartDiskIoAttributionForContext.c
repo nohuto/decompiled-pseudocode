@@ -1,3 +1,16 @@
+/*
+ * XREFs of IoStartDiskIoAttributionForContext @ 0x1402C4114
+ * Callers:
+ *     PspSetJobIoAttribution @ 0x1407530A0 (PspSetJobIoAttribution.c)
+ *     PspIoRateEntryActivate @ 0x140753428 (PspIoRateEntryActivate.c)
+ * Callees:
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     IopDiskIoAttributionTreeCompare @ 0x1402F2F60 (IopDiskIoAttributionTreeCompare.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall IoStartDiskIoAttributionForContext(unsigned __int64 a1)
 {
   KIRQL v2; // al

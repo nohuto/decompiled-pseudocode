@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpInitializeRealTimeConnection @ 0x140B718B4
+ * Callers:
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObCreateObjectType @ 0x14080CB00 (ObCreateObjectType.c)
+ */
+
 __int64 EtwpInitializeRealTimeConnection()
 {
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-39h] BYREF

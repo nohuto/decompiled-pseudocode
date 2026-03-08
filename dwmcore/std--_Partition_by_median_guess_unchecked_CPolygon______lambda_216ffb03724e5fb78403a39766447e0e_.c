@@ -1,3 +1,11 @@
+/*
+ * XREFs of std::_Partition_by_median_guess_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x180255C44
+ * Callers:
+ *     std::_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x180255EC0 (std--_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___.c)
+ * Callees:
+ *     std::_Guess_median_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x180255A88 (std--_Guess_median_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___.c)
+ */
+
 unsigned __int64 *__fastcall std::_Partition_by_median_guess_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___(
         unsigned __int64 *a1,
         unsigned __int64 a2,

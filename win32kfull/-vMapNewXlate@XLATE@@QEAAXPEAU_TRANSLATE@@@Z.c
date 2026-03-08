@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vMapNewXlate@XLATE@@QEAAXPEAU_TRANSLATE@@@Z @ 0x1C02DEADC
+ * Callers:
+ *     ?CreateXlateObject@@YAPEAVXLATE@@PEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0059450 (-CreateXlateObject@@YAPEAVXLATE@@PEAXJVXEPALOBJ@@111KKKK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall XLATE::vMapNewXlate(XLATE *this, struct _TRANSLATE *a2)
 {
   __int64 v2; // r8

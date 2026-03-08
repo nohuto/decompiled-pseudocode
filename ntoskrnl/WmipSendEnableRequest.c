@@ -1,3 +1,15 @@
+/*
+ * XREFs of WmipSendEnableRequest @ 0x140786FAC
+ * Callers:
+ *     WmipEnableCollectOrEvent @ 0x14069C2A8 (WmipEnableCollectOrEvent.c)
+ * Callees:
+ *     WmipReferenceEntry @ 0x14069C27C (WmipReferenceEntry.c)
+ *     WmipUnreferenceEntry @ 0x14069C9D0 (WmipUnreferenceEntry.c)
+ *     WmipSendEnableDisableRequest @ 0x1407870B0 (WmipSendEnableDisableRequest.c)
+ *     WmipReleaseCollectionEnabled @ 0x140872A3C (WmipReleaseCollectionEnabled.c)
+ *     WmipWaitForCollectionEnabled @ 0x1409DEE58 (WmipWaitForCollectionEnabled.c)
+ */
+
 __int64 __fastcall WmipSendEnableRequest(ULONG_PTR BugCheckParameter2, char a2)
 {
   int v4; // ecx

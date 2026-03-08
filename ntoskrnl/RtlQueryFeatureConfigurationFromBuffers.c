@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlQueryFeatureConfigurationFromBuffers @ 0x140388D7C
+ * Callers:
+ *     wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers @ 0x140B5399C (wil_details_PopulateInitialConfiguredFeatureStatesFromBuffers.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlpFcConvertFeatureConfigurationsInternalToExternal @ 0x14040C1D4 (RtlpFcConvertFeatureConfigurationsInternalToExternal.c)
+ *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x140782330 (RtlpFcQueryFeatureConfigurationFromBuffers.c)
+ */
+
 __int64 __fastcall RtlQueryFeatureConfigurationFromBuffers(__int64 *a1, unsigned int a2, unsigned int a3, __int64 a4)
 {
   unsigned int v5; // r9d

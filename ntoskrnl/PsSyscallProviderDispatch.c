@@ -1,3 +1,16 @@
+/*
+ * XREFs of PsSyscallProviderDispatch @ 0x1409B1700
+ * Callers:
+ *     KiSystemCall64 @ 0x14042B100 (KiSystemCall64.c)
+ * Callees:
+ *     IoThreadToProcess @ 0x140248470 (IoThreadToProcess.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     PspSyscallProviderServiceDispatch @ 0x140420350 (PspSyscallProviderServiceDispatch.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PspEnsureGuiThreadAndBatchFlush @ 0x1409B1C08 (PspEnsureGuiThreadAndBatchFlush.c)
+ *     PspSyscallProviderServiceDispatchGeneric @ 0x1409B20D8 (PspSyscallProviderServiceDispatchGeneric.c)
+ */
+
 __int64 __fastcall PsSyscallProviderDispatch(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rbp

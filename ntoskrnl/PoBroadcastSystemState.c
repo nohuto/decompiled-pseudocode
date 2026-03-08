@@ -1,3 +1,46 @@
+/*
+ * XREFs of PoBroadcastSystemState @ 0x140AA38F8
+ * Callers:
+ *     PopDirectedDripsResumeDevices @ 0x140980BC4 (PopDirectedDripsResumeDevices.c)
+ *     PopDirectedDripsSuspendDevices @ 0x140980E14 (PopDirectedDripsSuspendDevices.c)
+ *     PnprQuiesceDevices @ 0x140A9A284 (PnprQuiesceDevices.c)
+ *     PnprWakeDevices @ 0x140A9AF1C (PnprWakeDevices.c)
+ *     PopSetDevicesSystemState @ 0x140AA42D0 (PopSetDevicesSystemState.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     DbgPrint @ 0x1402BDD20 (DbgPrint.c)
+ *     PopDiagTraceEventNoPayload @ 0x1402FBBF8 (PopDiagTraceEventNoPayload.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     IoConfigureCrashDump @ 0x14054D564 (IoConfigureCrashDump.c)
+ *     PopMapInternalActionToIrpAction @ 0x140584D54 (PopMapInternalActionToIrpAction.c)
+ *     PopFxActivateDevicesForSx @ 0x1405865A4 (PopFxActivateDevicesForSx.c)
+ *     PopFxIdleDevicesFromSx @ 0x1405880C0 (PopFxIdleDevicesFromSx.c)
+ *     PopSleepDeviceList @ 0x14058E578 (PopSleepDeviceList.c)
+ *     PopWakeDeviceList @ 0x14058E81C (PopWakeDeviceList.c)
+ *     ExReleaseTimeRefreshLock @ 0x1407E2A30 (ExReleaseTimeRefreshLock.c)
+ *     ExAcquireTimeRefreshLock @ 0x1407E2A54 (ExAcquireTimeRefreshLock.c)
+ *     EmPowerPagingEnabled @ 0x140939B3C (EmPowerPagingEnabled.c)
+ *     IoNotifyPowerOperationVetoed @ 0x1409536C4 (IoNotifyPowerOperationVetoed.c)
+ *     ObShutdownSystem @ 0x140977E00 (ObShutdownSystem.c)
+ *     PopDirectedDripsNotifyTransitionFailed @ 0x140980AFC (PopDirectedDripsNotifyTransitionFailed.c)
+ *     PopFxNotifySxTransitionState @ 0x1409825D4 (PopFxNotifySxTransitionState.c)
+ *     PopUpdateSmbiosData @ 0x140988D5C (PopUpdateSmbiosData.c)
+ *     PopDiagTraceDevicesSuspend @ 0x14098B694 (PopDiagTraceDevicesSuspend.c)
+ *     PopDiagTraceDevicesWakeEnd @ 0x14098B75C (PopDiagTraceDevicesWakeEnd.c)
+ *     WmiAcquireSmbiosLockExclusive @ 0x1409DC79C (WmiAcquireSmbiosLockExclusive.c)
+ *     WmipReleaseSmbiosLockShared @ 0x1409DC84C (WmipReleaseSmbiosLockShared.c)
+ *     PopBootLoaderSiData @ 0x140A9E9C8 (PopBootLoaderSiData.c)
+ *     PopSetupSleepNotifies @ 0x140AA4370 (PopSetupSleepNotifies.c)
+ *     PopVerifierFlushMemoryBeforeSleep @ 0x140AA46C4 (PopVerifierFlushMemoryBeforeSleep.c)
+ *     PopDiagTraceDevicesLevel @ 0x140AA47F8 (PopDiagTraceDevicesLevel.c)
+ *     PopCheckpointSystemSleep @ 0x140AA7378 (PopCheckpointSystemSleep.c)
+ *     MmShutdownSystem @ 0x140AA8E60 (MmShutdownSystem.c)
+ *     BgDisplayFade @ 0x140AEC4BC (BgDisplayFade.c)
+ */
+
 __int64 __fastcall PoBroadcastSystemState(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v4; // si

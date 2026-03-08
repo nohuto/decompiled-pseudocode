@@ -1,3 +1,13 @@
+/*
+ * XREFs of SeFilterToken @ 0x140817AD0
+ * Callers:
+ *     CmpCreateRegistryProcessToken @ 0x14081796C (CmpCreateRegistryProcessToken.c)
+ * Callees:
+ *     SepFinalizeTokenAcls @ 0x1406D1E60 (SepFinalizeTokenAcls.c)
+ *     SepFilterToken @ 0x14073FED0 (SepFilterToken.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ */
+
 NTSTATUS __stdcall SeFilterToken(
         PACCESS_TOKEN ExistingToken,
         ULONG Flags,

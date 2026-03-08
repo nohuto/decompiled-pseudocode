@@ -1,3 +1,11 @@
+/*
+ * XREFs of SimplifyFilter @ 0x14074848C
+ * Callers:
+ *     ConstraintEval @ 0x140747E38 (ConstraintEval.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall SimplifyFilter(unsigned int a1, __int64 a2, _DWORD *a3, __int64 a4)
 {
   BOOL v4; // r10d

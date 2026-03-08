@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlGuardIsValidStackPointer @ 0x1407EEA20
+ * Callers:
+ *     KeVerifyContextRecord @ 0x1403653D4 (KeVerifyContextRecord.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall RtlGuardIsValidStackPointer(unsigned __int64 a1, _QWORD *Teb)
 {
   unsigned __int64 v3; // rcx

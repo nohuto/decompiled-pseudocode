@@ -1,3 +1,12 @@
+/*
+ * XREFs of VrpIncrementDiffHiveEntryHardRefCount @ 0x140738468
+ * Callers:
+ *     VrpLoadDifferencingHive @ 0x1407375CC (VrpLoadDifferencingHive.c)
+ *     VrpUnloadDifferencingHive @ 0x1407379FC (VrpUnloadDifferencingHive.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VrpIncrementDiffHiveEntryHardRefCount(__int64 a1)
 {
   signed __int64 v1; // rax

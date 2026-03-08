@@ -1,3 +1,18 @@
+/*
+ * XREFs of PnpChainDereferenceComplete @ 0x14087CAC8
+ * Callers:
+ *     IopCompleteUnloadOrDelete @ 0x1402F0CC4 (IopCompleteUnloadOrDelete.c)
+ *     PnpIsChainDereferenced @ 0x1403CE6E0 (PnpIsChainDereferenced.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     IopSetRelationsTag @ 0x14087CD58 (IopSetRelationsTag.c)
+ *     PnpDelayedRemoveWorker @ 0x14087CDB0 (PnpDelayedRemoveWorker.c)
+ *     PnpDelayedRemoveWorkerContextCreate @ 0x140956024 (PnpDelayedRemoveWorkerContextCreate.c)
+ */
+
 void __fastcall PnpChainDereferenceComplete(__int64 a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PlaySoundPostMessage @ 0x1C039C3D0
+ * Callers:
+ *     ?PlaySync@CUserPlaySound@@AEAAJK@Z @ 0x1C00D3E30 (-PlaySync@CUserPlaySound@@AEAAJK@Z.c)
+ * Callees:
+ *     PlaySndClient_midl_user_allocate @ 0x1C00D3ED0 (PlaySndClient_midl_user_allocate.c)
+ *     I_PlaySoundkPostMessage @ 0x1C00D3EFC (I_PlaySoundkPostMessage.c)
+ *     PlaySndClient_midl_user_free @ 0x1C024E470 (PlaySndClient_midl_user_free.c)
+ */
+
 __int64 __fastcall PlaySoundPostMessage(RPC_BINDING_HANDLE SourceBinding, int a2, int a3)
 {
   struct _RPC_ASYNC_STATE *v6; // rax

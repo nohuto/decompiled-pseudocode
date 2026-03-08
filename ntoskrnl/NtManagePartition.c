@@ -1,3 +1,30 @@
+/*
+ * XREFs of NtManagePartition @ 0x140705650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MmManagePartitionSetMemoryThresholds @ 0x1406598F8 (MmManagePartitionSetMemoryThresholds.c)
+ *     PsReferencePartitionByHandle @ 0x14070591C (PsReferencePartitionByHandle.c)
+ *     MmManagePartitionMemoryInformation @ 0x1407059DC (MmManagePartitionMemoryInformation.c)
+ *     MmManagePartitionGetMemoryEvents @ 0x14079B930 (MmManagePartitionGetMemoryEvents.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     MiCreatePagingFile @ 0x140834F7C (MiCreatePagingFile.c)
+ *     MiQuerySpecialPurposeMemoryInformation @ 0x140854164 (MiQuerySpecialPurposeMemoryInformation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     MmManagePartitionCharges @ 0x140A42714 (MmManagePartitionCharges.c)
+ *     MmManagePartitionCombineMemory @ 0x140A42904 (MmManagePartitionCombineMemory.c)
+ *     MmManagePartitionCreateLargePages @ 0x140A42970 (MmManagePartitionCreateLargePages.c)
+ *     MmManagePartitionInitialAddMemory @ 0x140A42A68 (MmManagePartitionInitialAddMemory.c)
+ *     MmManagePartitionMoveMemory @ 0x140A42B54 (MmManagePartitionMoveMemory.c)
+ *     MmManagePartitionNodeInformation @ 0x140A42D74 (MmManagePartitionNodeInformation.c)
+ *     MmManagePartitionUpdateAttributes @ 0x140A42E88 (MmManagePartitionUpdateAttributes.c)
+ *     MiOpenSpecialPurposeMemory @ 0x140A44A2C (MiOpenSpecialPurposeMemory.c)
+ */
+
 __int64 __fastcall NtManagePartition(__int64 a1, __int64 a2, unsigned int a3, unsigned __int64 a4, unsigned int Size)
 {
   __int64 v6; // rbx

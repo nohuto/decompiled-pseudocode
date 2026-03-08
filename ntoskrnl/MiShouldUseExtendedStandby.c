@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiShouldUseExtendedStandby @ 0x14064F750
+ * Callers:
+ *     MiRemoveLowestPriorityStandbyPage @ 0x14064F264 (MiRemoveLowestPriorityStandbyPage.c)
+ * Callees:
+ *     MiGetPagePrivilege @ 0x14032D3F0 (MiGetPagePrivilege.c)
+ */
+
 __int64 __fastcall MiShouldUseExtendedStandby(__int64 a1, ULONG_PTR a2, __int64 a3)
 {
   __int64 v5; // rcx

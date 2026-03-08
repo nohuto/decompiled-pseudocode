@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpHpVaMgrCtxStart @ 0x140375148
+ * Callers:
+ *     RtlHpHeapManagerStart @ 0x1403762C8 (RtlHpHeapManagerStart.c)
+ * Callees:
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     RtlpHpVaMgrCtxAllocatorReference @ 0x140375AC8 (RtlpHpVaMgrCtxAllocatorReference.c)
+ *     RtlCSparseBitmapStart @ 0x1403A57A4 (RtlCSparseBitmapStart.c)
+ */
+
 NTSTATUS __fastcall RtlpHpVaMgrCtxStart(__int64 a1, int a2, __int64 a3, __int64 a4, unsigned __int64 a5)
 {
   unsigned int v6; // eax

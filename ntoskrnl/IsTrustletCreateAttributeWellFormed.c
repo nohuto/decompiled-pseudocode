@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsTrustletCreateAttributeWellFormed @ 0x1405A1B74
+ * Callers:
+ *     PspBuildCreateProcessContext @ 0x1407EEDE0 (PspBuildCreateProcessContext.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall IsTrustletCreateAttributeWellFormed(_QWORD *a1, __int64 a2)
 {
   char v2; // bl

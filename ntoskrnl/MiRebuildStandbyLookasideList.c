@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiRebuildStandbyLookasideList @ 0x1402C6EB0
+ * Callers:
+ *     MiInsertPagesInList @ 0x140287DB0 (MiInsertPagesInList.c)
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ *     MiLockStandbyOldestPage @ 0x14064E72C (MiLockStandbyOldestPage.c)
+ * Callees:
+ *     MiPfnToStandbyLookaside @ 0x140288780 (MiPfnToStandbyLookaside.c)
+ *     MiClearEntireStandbyLookasideList @ 0x1402C6E08 (MiClearEntireStandbyLookasideList.c)
+ *     MiSkipStandbyEntries @ 0x1402C7100 (MiSkipStandbyEntries.c)
+ *     MiWriteStandbyLookasideEntry @ 0x1402C71E0 (MiWriteStandbyLookasideEntry.c)
+ *     MiGetStandbyPageType @ 0x14064E190 (MiGetStandbyPageType.c)
+ */
+
 __int64 __fastcall MiRebuildStandbyLookasideList(__int64 a1, unsigned int a2, char a3)
 {
   __int64 result; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of sub_140606E08 @ 0x140606E08
+ * Callers:
+ *     PspInitializeServerSiloDeferred @ 0x1409AA0D0 (PspInitializeServerSiloDeferred.c)
+ * Callees:
+ *     RtlQueryRegistryValuesEx @ 0x14069DF10 (RtlQueryRegistryValuesEx.c)
+ *     ExpInitLicensing @ 0x1408102BC (ExpInitLicensing.c)
+ *     ExInitLicenseData @ 0x140819CE8 (ExInitLicenseData.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall sub_140606E08(struct _LIST_ENTRY *a1)
 {
   struct _LIST_ENTRY *Flink; // rbx

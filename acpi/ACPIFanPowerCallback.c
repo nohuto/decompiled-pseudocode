@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIFanPowerCallback @ 0x1C0027860
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     AcpiDiagTraceFanEvent @ 0x1C0008320 (AcpiDiagTraceFanEvent.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIFanLoop @ 0x1C002759C (ACPIFanLoop.c)
+ */
+
 void __fastcall ACPIFanPowerCallback(__int64 a1, __int64 a2, int a3)
 {
   char v4; // r10

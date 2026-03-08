@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiGetD3ColdCapability @ 0x1C0082B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiGetIdleWakeInfo @ 0x1C0082BD0 (AcpiGetIdleWakeInfo.c)
+ */
+
 __int64 __fastcall AcpiGetD3ColdCapability(__int64 a1, _BYTE *a2)
 {
   __int64 result; // rax

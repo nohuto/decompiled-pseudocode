@@ -1,3 +1,43 @@
+/*
+ * XREFs of sub_1403DFCC0 @ 0x1403DFCC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeAreApcsDisabled @ 0x1402049F0 (KeAreApcsDisabled.c)
+ *     ObGetCurrentIrql @ 0x140205E10 (ObGetCurrentIrql.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ *     KeVerifyGroupAffinity @ 0x140290374 (KeVerifyGroupAffinity.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     KeAreAllApcsDisabled @ 0x14034C170 (KeAreAllApcsDisabled.c)
+ *     KeCheckProcessorGroupAffinity @ 0x1403C0300 (KeCheckProcessorGroupAffinity.c)
+ *     sub_1403EC00C @ 0x1403EC00C (sub_1403EC00C.c)
+ *     sub_1403EC0EC @ 0x1403EC0EC (sub_1403EC0EC.c)
+ *     sub_1403ED020 @ 0x1403ED020 (sub_1403ED020.c)
+ *     KeBugCheck @ 0x140415FE0 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     KiGetNtDdiVersion @ 0x1404578A4 (KiGetNtDdiVersion.c)
+ *     ExFreePool @ 0x140AAB270 (ExFreePool.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     sub_140B0C838 @ 0x140B0C838 (sub_140B0C838.c)
+ *     sub_140B0E020 @ 0x140B0E020 (sub_140B0E020.c)
+ *     $$ba @ 0x140B0E898 ($$ba.c)
+ *     sub_140B0EA74 @ 0x140B0EA74 (sub_140B0EA74.c)
+ *     sub_140B0F0E0 @ 0x140B0F0E0 (sub_140B0F0E0.c)
+ *     KiGetGdtIdt @ 0x140B103D0 (KiGetGdtIdt.c)
+ *     KiGetLdtr @ 0x140B103E0 (KiGetLdtr.c)
+ *     KiGetSs @ 0x140B103F0 (KiGetSs.c)
+ *     KiGetTr @ 0x140B10400 (KiGetTr.c)
+ *     KiErrata361Present @ 0x140B10410 (KiErrata361Present.c)
+ *     KiErrataSkx55Present @ 0x140B10430 (KiErrataSkx55Present.c)
+ *     KiErrata704Present @ 0x140B10440 (KiErrata704Present.c)
+ *     SdbpCheckDll @ 0x140B104F0 (SdbpCheckDll.c)
+ *     KeGuardDispatchICall @ 0x140B107A0 (KeGuardDispatchICall.c)
+ *     KeGuardCheckICall @ 0x140B107B0 (KeGuardCheckICall.c)
+ *     RtlInitMinimalBarrier @ 0x140B1091C (RtlInitMinimalBarrier.c)
+ *     sub_140B15070 @ 0x140B15070 (sub_140B15070.c)
+ */
+
 __int64 __fastcall sub_1403DFCC0(__int64 a1, __int64 a2)
 {
   __int64 v2; // r12

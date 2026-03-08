@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiValidatePowerRelations @ 0x14086CF08
+ * Callers:
+ *     PiQueryPowerRelations @ 0x14086CB24 (PiQueryPowerRelations.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 *__fastcall PiValidatePowerRelations(__int64 a1)
 {
   __int64 ****v2; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of VfPnpIsSystemRestrictedIrp @ 0x140AE3D50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall VfPnpIsSystemRestrictedIrp(__int64 a1)
 {
   unsigned int v1; // edx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of SetDebugHotKeys @ 0x1C0078FDC
+ * Callers:
+ *     RawInputThread @ 0x1C007A0C0 (RawInputThread.c)
+ * Callees:
+ *     ?_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z @ 0x1C003AB6C (-_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z.c)
+ */
+
 __int64 SetDebugHotKeys()
 {
   __int64 v0; // rcx

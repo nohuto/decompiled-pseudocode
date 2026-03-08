@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiAllocateHeteroConfigBuffer @ 0x140A8BB88
+ * Callers:
+ *     KiCompleteKernelInit @ 0x140A89D30 (KiCompleteKernelInit.c)
+ * Callees:
+ *     KeGetThreadWorkloadClassCount @ 0x1403030B4 (KeGetThreadWorkloadClassCount.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 KiAllocateHeteroConfigBuffer()
 {
   int ThreadWorkloadClassCount; // ebx

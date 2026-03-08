@@ -1,3 +1,14 @@
+/*
+ * XREFs of WmipReadSMBiosSysInfo @ 0x1405F9660
+ * Callers:
+ *     WmiMatchSMBiosSysInfo @ 0x1409DC7D0 (WmiMatchSMBiosSysInfo.c)
+ * Callees:
+ *     MmUnmapIoSpace @ 0x14029B230 (MmUnmapIoSpace.c)
+ *     WmipReleaseSmbiosLockShared @ 0x1409DC84C (WmipReleaseSmbiosLockShared.c)
+ *     WmipFindSMBiosStructure @ 0x1409DC91C (WmipFindSMBiosStructure.c)
+ *     WmipGetSMBiosString @ 0x1409DCD4C (WmipGetSMBiosString.c)
+ */
+
 __int64 __fastcall WmipReadSMBiosSysInfo(__int64 a1)
 {
   int SMBiosString; // ebx

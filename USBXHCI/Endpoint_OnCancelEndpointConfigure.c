@@ -1,3 +1,17 @@
+/*
+ * XREFs of Endpoint_OnCancelEndpointConfigure @ 0x1C003A7B4
+ * Callers:
+ *     ESM_ReconfiguringEndpointAfterStop @ 0x1C0051AE0 (ESM_ReconfiguringEndpointAfterStop.c)
+ * Callees:
+ *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C0007FC0 (XilUsbDevice_GetDeviceContextBufferVA.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     XilEndpoint_AcquireBuffer @ 0x1C001B9F0 (XilEndpoint_AcquireBuffer.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     Endpoint_SetUpConfigureEndpointCommand @ 0x1C003C168 (Endpoint_SetUpConfigureEndpointCommand.c)
+ */
+
 void __fastcall Endpoint_OnCancelEndpointConfigure(__int64 *a1)
 {
   int v2; // ebx

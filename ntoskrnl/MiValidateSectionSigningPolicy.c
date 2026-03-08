@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiValidateSectionSigningPolicy @ 0x1406A14E8
+ * Callers:
+ *     MiValidateExistingImage @ 0x1406A1230 (MiValidateExistingImage.c)
+ *     MiCreateNewSection @ 0x1406A6414 (MiCreateNewSection.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     MiValidateSectionCreate @ 0x14069F890 (MiValidateSectionCreate.c)
+ *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x1409E74B4 (EtwTimLogProhibitNonMicrosoftBinaries.c)
+ */
+
 __int64 __fastcall MiValidateSectionSigningPolicy(
         unsigned int a1,
         ULONG_PTR a2,

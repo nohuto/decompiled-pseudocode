@@ -1,3 +1,17 @@
+/*
+ * XREFs of _output_s @ 0x1403DA5B8
+ * Callers:
+ *     _soutput_s @ 0x1403DAF04 (_soutput_s.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     write_char_0 @ 0x1403D7AC8 (write_char_0.c)
+ *     write_multi_char_0 @ 0x1403D7B18 (write_multi_char_0.c)
+ *     write_string_0 @ 0x1403D7B70 (write_string_0.c)
+ *     _safecrt_wctomb_s @ 0x1403DAE28 (_safecrt_wctomb_s.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall output_s(FILE *a1, char *a2, unsigned __int16 *a3)
 {
   int v4; // edi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of MapClientToServerPfn @ 0x1C0031460
+ * Callers:
+ *     xxxSetWindowData @ 0x1C002F9C8 (xxxSetWindowData.c)
+ *     InternalRegisterClassEx @ 0x1C0030830 (InternalRegisterClassEx.c)
+ *     xxxSetClassData @ 0x1C00ED168 (xxxSetClassData.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MapClientToServerPfn(__int64 a1)
 {
   int v2; // eax

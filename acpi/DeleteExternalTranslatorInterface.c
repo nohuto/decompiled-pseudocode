@@ -1,3 +1,12 @@
+/*
+ * XREFs of DeleteExternalTranslatorInterface @ 0x1C00841EC
+ * Callers:
+ *     AcpiExternalInterfaceUnload @ 0x1C0083CF0 (AcpiExternalInterfaceUnload.c)
+ *     NotifyExternalTranslationInterfaceChange @ 0x1C0084460 (NotifyExternalTranslationInterfaceChange.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 DeleteExternalTranslatorInterface()
 {
   PVOID v0; // rsi

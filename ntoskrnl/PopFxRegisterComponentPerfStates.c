@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopFxRegisterComponentPerfStates @ 0x140982948
+ * Callers:
+ *     PoFxRegisterComponentPerfStates @ 0x140981810 (PoFxRegisterComponentPerfStates.c)
+ * Callees:
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PopPluginRegisterComponentPerfStates @ 0x14058A450 (PopPluginRegisterComponentPerfStates.c)
+ *     PopPepRegisterComponentPerfStates @ 0x14059D77C (PopPepRegisterComponentPerfStates.c)
+ *     PopFxPepPerfInfoFree @ 0x1409826C4 (PopFxPepPerfInfoFree.c)
+ *     PopFxPepPerfInfoQuery @ 0x140982744 (PopFxPepPerfInfoQuery.c)
+ *     PopFxTracePerfRegistration @ 0x14098F3C0 (PopFxTracePerfRegistration.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PopFxRegisterComponentPerfStates(
         ULONG_PTR BugCheckParameter3,
         __int64 a2,

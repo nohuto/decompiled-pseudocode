@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifExEnterCriticalRegionAndAcquireResourceExclusiveWrapper @ 0x1405D6250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExEnterCriticalRegionAndAcquireResourceExclusive @ 0x1402C9FA0 (ExEnterCriticalRegionAndAcquireResourceExclusive.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 PVOID __fastcall DifExEnterCriticalRegionAndAcquireResourceExclusiveWrapper(PERESOURCE Resource)
 {
   __int64 *APIThunkContextById; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlPrefetchMemoryNonTemporal @ 0x140420FA0
+ * Callers:
+ *     RtlPrefetchMemoryNonTemporal @ 0x140420FA0 (RtlPrefetchMemoryNonTemporal.c)
+ * Callees:
+ *     <none>
+ */
+
 void __stdcall RtlPrefetchMemoryNonTemporal(PVOID Source, SIZE_T Length)
 {
   bool v2; // cc

@@ -1,3 +1,14 @@
+/*
+ * XREFs of WmipDoDisableRequest @ 0x140786F08
+ * Callers:
+ *     WmipSendDisableRequest @ 0x140786EB4 (WmipSendDisableRequest.c)
+ *     WmipEnableCollectionForNewGuid @ 0x140868484 (WmipEnableCollectionForNewGuid.c)
+ *     WmipDisableCollectionForRemovedGuid @ 0x14087EB44 (WmipDisableCollectionForRemovedGuid.c)
+ * Callees:
+ *     WmipSendEnableDisableRequest @ 0x1407870B0 (WmipSendEnableDisableRequest.c)
+ *     WmipReleaseCollectionEnabled @ 0x140872A3C (WmipReleaseCollectionEnabled.c)
+ */
+
 __int64 __fastcall WmipDoDisableRequest(_DWORD *a1, char a2, __int64 a3)
 {
   _DWORD *v4; // rbx

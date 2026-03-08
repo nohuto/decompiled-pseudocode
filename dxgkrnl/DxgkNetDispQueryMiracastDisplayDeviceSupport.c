@@ -1,3 +1,11 @@
+/*
+ * XREFs of DxgkNetDispQueryMiracastDisplayDeviceSupport @ 0x1C02CEBE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkMiracastQueryMiracastSupportInternal @ 0x1C01F7DCC (DxgkMiracastQueryMiracastSupportInternal.c)
+ */
+
 __int64 __fastcall DxgkNetDispQueryMiracastDisplayDeviceSupport(ULONG64 a1)
 {
   int MiracastSupportInternal; // edx

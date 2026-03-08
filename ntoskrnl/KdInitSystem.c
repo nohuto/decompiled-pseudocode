@@ -1,3 +1,33 @@
+/*
+ * XREFs of KdInitSystem @ 0x140AAE040
+ * Callers:
+ *     KdEnableDebuggerWithLock @ 0x14056537C (KdEnableDebuggerWithLock.c)
+ *     KeEnterKernelDebugger @ 0x140566F70 (KeEnterKernelDebugger.c)
+ *     KiSystemStartup @ 0x140A84010 (KiSystemStartup.c)
+ *     KiSetFeatureBits @ 0x140A8A714 (KiSetFeatureBits.c)
+ *     KiSetProcessorSignature @ 0x140A8B504 (KiSetProcessorSignature.c)
+ *     PopHiberCheckResume @ 0x140A9FD30 (PopHiberCheckResume.c)
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KeInitializeTimerEx @ 0x140237DB0 (KeInitializeTimerEx.c)
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     KdPollBreakIn @ 0x1402C7DA0 (KdPollBreakIn.c)
+ *     MmGetPagedPoolCommitPointer @ 0x1403031E8 (MmGetPagedPoolCommitPointer.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     DbgLoadImageSymbols @ 0x14036C6D0 (DbgLoadImageSymbols.c)
+ *     KeIsKernelCetEnabled @ 0x140384804 (KeIsKernelCetEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _strupr @ 0x1403D2DE0 (_strupr.c)
+ *     strncmp @ 0x1403D3310 (strncmp.c)
+ *     strstr @ 0x1403D3650 (strstr.c)
+ *     atol @ 0x1403D3700 (atol.c)
+ *     __report_rangecheckfailure @ 0x1404FBCCC (__report_rangecheckfailure.c)
+ *     KdDisableDebuggerWithLock @ 0x140565128 (KdDisableDebuggerWithLock.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     KdRegisterDebuggerDataBlock @ 0x140AAE5A4 (KdRegisterDebuggerDataBlock.c)
+ */
+
 char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v5; // r12

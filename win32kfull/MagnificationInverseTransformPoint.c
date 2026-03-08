@@ -1,3 +1,11 @@
+/*
+ * XREFs of MagnificationInverseTransformPoint @ 0x1C01F7D98
+ * Callers:
+ *     AddMagnificationOutputTransform @ 0x1C00DBA40 (AddMagnificationOutputTransform.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall MagnificationInverseTransformPoint(__int128 *a1, int *a2)
 {
   int v2; // r8d

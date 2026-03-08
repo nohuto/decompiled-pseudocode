@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpCleanupBigTag @ 0x1406056C8
+ * Callers:
+ *     ExInsertPoolTag @ 0x1403B51DC (ExInsertPoolTag.c)
+ * Callees:
+ *     ExpRemoveTagForBigPages @ 0x1402B6920 (ExpRemoveTagForBigPages.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 ULONG_PTR __fastcall ExpCleanupBigTag(ULONG_PTR BugCheckParameter2, int a2, __int64 a3, __int64 a4)
 {
   ULONG_PTR v4; // rbx

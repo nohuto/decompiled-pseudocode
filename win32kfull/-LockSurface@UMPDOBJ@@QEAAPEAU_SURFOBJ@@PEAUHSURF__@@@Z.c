@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?LockSurface@UMPDOBJ@@QEAAPEAU_SURFOBJ@@PEAUHSURF__@@@Z @ 0x1C029B9E8
+ * Callers:
+ *     NtGdiEngLockSurface @ 0x1C02CC940 (NtGdiEngLockSurface.c)
+ * Callees:
+ *     ?IsSurfaceLockable@@YAHPEAU_SURFOBJ@@PEAPEAUDHPDEV__@@@Z @ 0x1C029B958 (-IsSurfaceLockable@@YAHPEAU_SURFOBJ@@PEAPEAUDHPDEV__@@@Z.c)
+ */
+
 struct _SURFOBJ *__fastcall UMPDOBJ::LockSurface(struct DHPDEV__ *this, HSURF a2)
 {
   __int64 v3; // rbx

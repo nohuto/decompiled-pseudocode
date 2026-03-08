@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUnsubscribeWnfStateChange @ 0x14071D2B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExpCaptureWnfStateName @ 0x14071A22C (ExpCaptureWnfStateName.c)
+ *     ExpWnfAcquireSubscriptionByName @ 0x14071D36C (ExpWnfAcquireSubscriptionByName.c)
+ *     ExpWnfDeleteSubscription @ 0x14071D44C (ExpWnfDeleteSubscription.c)
+ */
+
 __int64 __fastcall NtUnsubscribeWnfStateChange(__int64 *a1)
 {
   struct _KTHREAD *CurrentThread; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AllocatePeer@BamoConnection@dataprovider_AutoBamos@@MEAAJPEAPEAVBamoPeer@2@@Z @ 0x180102290
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??2@YAPEAX_K@Z @ 0x180034790 (--2@YAPEAX_K@Z.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x180195018 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ */
+
 __int64 __fastcall dataprovider_AutoBamos::BamoConnection::AllocatePeer(
         dataprovider_AutoBamos::BamoConnection *this,
         struct dataprovider_AutoBamos::BamoPeer **a2)

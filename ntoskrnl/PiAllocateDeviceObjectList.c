@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiAllocateDeviceObjectList @ 0x1408636E0
+ * Callers:
+ *     IopAllocateRelationList @ 0x140863684 (IopAllocateRelationList.c)
+ *     PipGrowDeviceObjectList @ 0x140969C70 (PipGrowDeviceObjectList.c)
+ * Callees:
+ *     PnpAllocateCriticalMemory @ 0x1408637CC (PnpAllocateCriticalMemory.c)
+ *     PiClearDeviceObjectList @ 0x140863824 (PiClearDeviceObjectList.c)
+ */
+
 _DWORD *__fastcall PiAllocateDeviceObjectList(__int64 a1, int a2)
 {
   int v3; // esi

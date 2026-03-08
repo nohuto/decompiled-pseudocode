@@ -1,3 +1,21 @@
+/*
+ * XREFs of EtwpInitializeAutoLoggers @ 0x14083C56C
+ * Callers:
+ *     EtwpInitializeSiloState @ 0x14083BE04 (EtwpInitializeSiloState.c)
+ * Callees:
+ *     RtlInsertElementGenericTableAvl @ 0x1402451A0 (RtlInsertElementGenericTableAvl.c)
+ *     RtlInitializeGenericTableAvl @ 0x140245560 (RtlInitializeGenericTableAvl.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlGetPersistedStateLocation @ 0x14069ADC0 (RtlGetPersistedStateLocation.c)
+ *     EtwpEnumerateAutologgerPath @ 0x14083C7E8 (EtwpEnumerateAutologgerPath.c)
+ *     EtwStartAutoLogger @ 0x14083CA48 (EtwStartAutoLogger.c)
+ *     EtwpFreeKeyNameList @ 0x14083D658 (EtwpFreeKeyNameList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     EtwpEnableBootLoggerRegistryProviders @ 0x140B943A4 (EtwpEnableBootLoggerRegistryProviders.c)
+ */
+
 __int64 __fastcall EtwpInitializeAutoLoggers(__int64 a1)
 {
   __int128 v2; // xmm1

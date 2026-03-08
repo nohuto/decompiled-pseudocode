@@ -1,3 +1,11 @@
+/*
+ * XREFs of _GetBaseTypeSize @ 0x140202A50
+ * Callers:
+ *     _PnpValidatePropertyData @ 0x140686FC8 (_PnpValidatePropertyData.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetBaseTypeSize(__int16 a1)
 {
   unsigned int v1; // ecx

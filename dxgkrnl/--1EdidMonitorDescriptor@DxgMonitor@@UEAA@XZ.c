@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1EdidMonitorDescriptor@DxgMonitor@@UEAA@XZ @ 0x1C01FF0D4
+ * Callers:
+ *     ??_EEdidMonitorDescriptor@DxgMonitor@@UEAAPEAXI@Z @ 0x1C001F1E0 (--_EEdidMonitorDescriptor@DxgMonitor@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C001F224 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     ?_CleanupRegistryOverridedMonitorDescriptors@EdidMonitorDescriptor@DxgMonitor@@AEAAXXZ @ 0x1C01FF334 (-_CleanupRegistryOverridedMonitorDescriptors@EdidMonitorDescriptor@DxgMonitor@@AEAAXXZ.c)
+ */
+
 void __fastcall DxgMonitor::EdidMonitorDescriptor::~EdidMonitorDescriptor(DxgMonitor::EdidMonitorDescriptor *this)
 {
   char *v2; // rcx

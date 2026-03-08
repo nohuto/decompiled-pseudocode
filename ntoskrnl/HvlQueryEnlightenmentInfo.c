@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlQueryEnlightenmentInfo @ 0x14085F28C
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HvlQueryEnlightenmentInfo(_OWORD *a1, int a2, __int64 a3, _DWORD *a4)
 {
   __int64 result; // rax

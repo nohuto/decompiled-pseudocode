@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CRemoteAppRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801E7CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801003B0 (-HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ */
+
 __int64 __fastcall CRemoteAppRenderTarget::HrFindInterface(
         CRemoteAppRenderTarget *this,
         const struct _GUID *a2,

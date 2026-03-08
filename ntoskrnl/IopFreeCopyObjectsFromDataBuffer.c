@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopFreeCopyObjectsFromDataBuffer @ 0x1402F9948
+ * Callers:
+ *     IopFreeCopyObjectsFromIrp @ 0x1402F98FC (IopFreeCopyObjectsFromIrp.c)
+ *     NtCopyFileChunk @ 0x1407DEE00 (NtCopyFileChunk.c)
+ *     IopReadFile @ 0x1407E0C40 (IopReadFile.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IopFreeIrpExtension @ 0x1402B18FC (IopFreeIrpExtension.c)
+ *     IopExceptionCleanupEx @ 0x140941A08 (IopExceptionCleanupEx.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall IopFreeCopyObjectsFromDataBuffer(__int64 a1, char a2)
 {
   __int64 v2; // rbx

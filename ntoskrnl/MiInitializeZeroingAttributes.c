@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiInitializeZeroingAttributes @ 0x140B6C098
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiInitializeZeroingAttributes(unsigned int a1)
 {
   int v1; // r11d

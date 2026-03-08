@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxxToUnicodeEx @ 0x1C0001F10
+ * Callers:
+ *     NtUserToUnicodeEx @ 0x1C00019F0 (NtUserToUnicodeEx.c)
+ * Callees:
+ *     xxxInternalToUnicode @ 0x1C0081AB0 (xxxInternalToUnicode.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 __fastcall xxxToUnicodeEx(int a1, int a2, char *a3, int a4, int a5, char a6, __int64 a7)
 {
   int v11; // edx

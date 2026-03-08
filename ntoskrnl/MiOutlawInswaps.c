@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiOutlawInswaps @ 0x1402DB8E0
+ * Callers:
+ *     MiBeginProcessClean @ 0x1402DB7FC (MiBeginProcessClean.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiGetWorkingSetSwapSupport @ 0x1402DBD74 (MiGetWorkingSetSwapSupport.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiOutlawInswaps(__int64 a1)
 {
   __int64 v1; // rdi

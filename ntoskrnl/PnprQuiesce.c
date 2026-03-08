@@ -1,3 +1,15 @@
+/*
+ * XREFs of PnprQuiesce @ 0x140560D88
+ * Callers:
+ *     PnprEndMirroring @ 0x140A997C0 (PnprEndMirroring.c)
+ *     PnprInitiateReplaceOperation @ 0x140A99894 (PnprInitiateReplaceOperation.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     PnprLockPagesForReplace @ 0x140963770 (PnprLockPagesForReplace.c)
+ *     PnprQuiesceProcessors @ 0x140A9A884 (PnprQuiesceProcessors.c)
+ */
+
 __int64 PnprQuiesce()
 {
   int v0; // ebx

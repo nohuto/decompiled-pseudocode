@@ -1,3 +1,17 @@
+/*
+ * XREFs of ACPIBuildSynchronizationRequestInternal @ 0x1C0013BE0
+ * Callers:
+ *     ACPIBuildDeviceDpc @ 0x1C000BE30 (ACPIBuildDeviceDpc.c)
+ *     ACPIBuildSynchronizationRequest @ 0x1C0013BC0 (ACPIBuildSynchronizationRequest.c)
+ *     ACPIInternalUpdateDeviceStatus @ 0x1C002F084 (ACPIInternalUpdateDeviceStatus.c)
+ *     OSNotifyDeviceCheck @ 0x1C0032C80 (OSNotifyDeviceCheck.c)
+ *     OSNotifyDeviceEject @ 0x1C0032E08 (OSNotifyDeviceEject.c)
+ *     OSNotifyDeviceEnum @ 0x1C0032E9C (OSNotifyDeviceEnum.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     ACPIBuildScheduleDpc @ 0x1C0013794 (ACPIBuildScheduleDpc.c)
+ */
+
 __int64 __fastcall ACPIBuildSynchronizationRequestInternal(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5)
 {
   _QWORD *v8; // rbx

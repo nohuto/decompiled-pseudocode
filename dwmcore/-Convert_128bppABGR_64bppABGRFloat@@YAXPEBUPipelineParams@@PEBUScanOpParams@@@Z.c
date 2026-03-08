@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Convert_128bppABGR_64bppABGRFloat@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802B9B20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall Convert_128bppABGR_64bppABGRFloat(const struct PipelineParams *a1, const struct ScanOpParams *a2)
 {
   int v2; // r11d

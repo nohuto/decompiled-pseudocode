@@ -1,3 +1,12 @@
+/*
+ * XREFs of USBDInternal_QueryUsbVerifierSettings @ 0x1C0087980
+ * Callers:
+ *     USBD_CreateHandle @ 0x1C0087C0C (USBD_CreateHandle.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C000AC00 (memset.c)
+ */
+
 void __fastcall USBDInternal_QueryUsbVerifierSettings(
         _DEVICE_OBJECT *DeviceObject,
         wchar_t *RelativeServicePath,

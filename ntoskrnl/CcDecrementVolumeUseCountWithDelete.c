@@ -1,3 +1,21 @@
+/*
+ * XREFs of CcDecrementVolumeUseCountWithDelete @ 0x14021782C
+ * Callers:
+ *     CcScanLogHandleList @ 0x1402175F8 (CcScanLogHandleList.c)
+ *     CcDeleteSharedCacheMap @ 0x140217A10 (CcDeleteSharedCacheMap.c)
+ *     CcGetDeviceGuidAsync @ 0x1403A75C0 (CcGetDeviceGuidAsync.c)
+ *     CcQueueAsyncGetDeviceGuid @ 0x1403A89D4 (CcQueueAsyncGetDeviceGuid.c)
+ *     CcDeletePrivateVolumeCacheMap @ 0x1403BC0E4 (CcDeletePrivateVolumeCacheMap.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 int __fastcall CcDecrementVolumeUseCountWithDelete(_DWORD *P, char a2, _BYTE *a3)
 {
   int v5; // ebx

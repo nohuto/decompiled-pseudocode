@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?GetAnimatedCursorFrame@@YAPEAUtagCURSOR@@QEAUtagACON@@H@Z @ 0x1C00EEAB0
+ * Callers:
+ *     ?GetCurrentCursorFrame@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C00205A8 (-GetCurrentCursorFrame@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
+ *     _DrawIconEx @ 0x1C003B618 (_DrawIconEx.c)
+ *     NtUserDrawIconEx @ 0x1C003B810 (NtUserDrawIconEx.c)
+ *     NtUserGetIconSize @ 0x1C003B910 (NtUserGetIconSize.c)
+ *     NtUserGetCursorFrameInfo @ 0x1C00DDFF0 (NtUserGetCursorFrameInfo.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 struct tagCURSOR *__fastcall GetAnimatedCursorFrame(struct tagACON *const a1, int a2)
 {
   __int64 v2; // r9

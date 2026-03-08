@@ -1,3 +1,12 @@
+/*
+ * XREFs of Usbh_UsbdQueryContollerType @ 0x1C002E45C
+ * Callers:
+ *     UsbhInitialize @ 0x1C002CE20 (UsbhInitialize.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 _DWORD *__fastcall Usbh_UsbdQueryContollerType(__int64 a1)
 {
   _DWORD *result; // rax

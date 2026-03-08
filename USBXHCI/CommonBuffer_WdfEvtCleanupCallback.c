@@ -1,3 +1,13 @@
+/*
+ * XREFs of CommonBuffer_WdfEvtCleanupCallback @ 0x1C0032380
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     XilCoreCommonBuffer_Cleanup @ 0x1C0052CE4 (XilCoreCommonBuffer_Cleanup.c)
+ */
+
 __int64 __fastcall CommonBuffer_WdfEvtCleanupCallback(__int64 a1)
 {
   char v1; // di

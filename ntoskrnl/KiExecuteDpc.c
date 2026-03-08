@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiExecuteDpc @ 0x140396B20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetPriorityThread @ 0x1402261B0 (KeSetPriorityThread.c)
+ *     KiExecuteAllDpcs @ 0x140252F60 (KiExecuteAllDpcs.c)
+ *     KeWaitForGate @ 0x1402931D8 (KeWaitForGate.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KiSetSystemAffinityThreadToProcessor @ 0x140396BD0 (KiSetSystemAffinityThreadToProcessor.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiTryToEndDpcProcessing @ 0x14057A6F4 (KiTryToEndDpcProcessing.c)
+ */
+
 void __fastcall __noreturn KiExecuteDpc(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rsi

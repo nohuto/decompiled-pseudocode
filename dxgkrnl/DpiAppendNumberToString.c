@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiAppendNumberToString @ 0x1C020301C
+ * Callers:
+ *     DpiPdoHandleQueryId @ 0x1C0202B30 (DpiPdoHandleQueryId.c)
+ *     DpiGdoCreateGdiObjects @ 0x1C0202D20 (DpiGdoCreateGdiObjects.c)
+ *     DpiGdoDestroyGdiObjects @ 0x1C03A5B8C (DpiGdoDestroyGdiObjects.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall DpiAppendNumberToString(PCWSTR SourceString, ULONG Value, PUNICODE_STRING Destination)
 {
   wchar_t *Pool2; // rax

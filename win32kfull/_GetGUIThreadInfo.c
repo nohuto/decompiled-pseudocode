@@ -1,3 +1,14 @@
+/*
+ * XREFs of _GetGUIThreadInfo @ 0x1C00D1E28
+ * Callers:
+ *     NtUserGetGUIThreadInfo @ 0x1C00D1CF0 (NtUserGetGUIThreadInfo.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C0044080 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall GetGUIThreadInfo(__int64 a1, __int64 a2)
 {
   _QWORD *v3; // rsi

@@ -1,3 +1,16 @@
+/*
+ * XREFs of IidAreIdsStrictlyEqual @ 0x14067175C
+ * Callers:
+ *     HalpDmaFindAdapterByDeviceId @ 0x1404FD944 (HalpDmaFindAdapterByDeviceId.c)
+ *     HalpIommuCreateIncreaseAliasTrack @ 0x1405154C8 (HalpIommuCreateIncreaseAliasTrack.c)
+ *     HalpIommuDecreaseAliasTrack @ 0x1405155D4 (HalpIommuDecreaseAliasTrack.c)
+ *     HalpIommuGetReservedRanges @ 0x140515DE0 (HalpIommuGetReservedRanges.c)
+ *     HalpIommuCreateDevice @ 0x140822B28 (HalpIommuCreateDevice.c)
+ *     HalpIommuDeleteDevice @ 0x140930ACC (HalpIommuDeleteDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall IidAreIdsStrictlyEqual(int *a1, __int64 a2)
 {
   char v2; // r9

@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvlSetPlatformIdleState @ 0x140544AF8
+ * Callers:
+ *     PpmIdleExecuteTransition @ 0x14022D7D0 (PpmIdleExecuteTransition.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvlGetLpIndexFromProcessorIndex @ 0x140456E50 (HvlGetLpIndexFromProcessorIndex.c)
+ *     HvlpSetPowerProperty @ 0x140544E50 (HvlpSetPowerProperty.c)
+ */
+
 __int64 __fastcall HvlSetPlatformIdleState(int a1)
 {
   unsigned int Number; // ecx

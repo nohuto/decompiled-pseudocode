@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ivOnChildPartitionConnected@IVForegroundSync@@YAXAEBUCONTAINER_ID@@@Z @ 0x1C02226E8
+ * Callers:
+ *     ?ivOnChildPartitionConnected@@YAXPEBXUCONTAINER_ID@@@Z @ 0x1C02200F0 (-ivOnChildPartitionConnected@@YAXPEBXUCONTAINER_ID@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 void __fastcall IVForegroundSync::ivOnChildPartitionConnected(IVForegroundSync *this, const struct CONTAINER_ID *a2)
 {
   bool v2; // dl

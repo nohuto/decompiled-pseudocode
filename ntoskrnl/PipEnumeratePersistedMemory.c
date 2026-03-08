@@ -1,3 +1,11 @@
+/*
+ * XREFs of PipEnumeratePersistedMemory @ 0x14094FFC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PipEnumeratePersistedMemory(__int64 a1, __int64 a2, __int64 a3)
 {
   if ( *(_QWORD *)a3 )

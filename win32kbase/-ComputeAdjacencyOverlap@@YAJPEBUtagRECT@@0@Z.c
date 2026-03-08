@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ComputeAdjacencyOverlap@@YAJPEBUtagRECT@@0@Z @ 0x1C01682D0
+ * Callers:
+ *     FindAdjacentMonitor @ 0x1C0168370 (FindAdjacentMonitor.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ComputeAdjacencyOverlap(const struct tagRECT *a1, const struct tagRECT *a2)
 {
   LONG left; // r9d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiWriteCpuSetMasks @ 0x14039994C
+ * Callers:
+ *     KeSetCpuSetsProcess @ 0x140398C34 (KeSetCpuSetsProcess.c)
+ *     KeSetSelectedCpuSetsThread @ 0x140573640 (KeSetSelectedCpuSetsThread.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 unsigned __int64 __fastcall KiWriteCpuSetMasks(unsigned __int64 *a1, unsigned int a2, __int64 a3, unsigned int a4)
 {
   unsigned __int64 result; // rax

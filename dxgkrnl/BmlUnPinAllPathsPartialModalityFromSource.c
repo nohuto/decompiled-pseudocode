@@ -1,3 +1,11 @@
+/*
+ * XREFs of BmlUnPinAllPathsPartialModalityFromSource @ 0x1C03B9070
+ * Callers:
+ *     BmlUnPinSourceMode @ 0x1C03B9310 (BmlUnPinSourceMode.c)
+ * Callees:
+ *     BmlUnPinPartialPathModalityOnPath @ 0x1C03B9114 (BmlUnPinPartialPathModalityOnPath.c)
+ */
+
 __int64 __fastcall BmlUnPinAllPathsPartialModalityFromSource(_BYTE *a1, __int64 a2, unsigned __int16 a3)
 {
   unsigned int v3; // edi

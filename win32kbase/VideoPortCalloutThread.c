@@ -1,3 +1,47 @@
+/*
+ * XREFs of VideoPortCalloutThread @ 0x1C00D93A8
+ * Callers:
+ *     xxxCreateSystemThreads @ 0x1C008E630 (xxxCreateSystemThreads.c)
+ * Callees:
+ *     UpdateExternalMonitorConnectedStatus @ 0x1C000F1C0 (UpdateExternalMonitorConnectedStatus.c)
+ *     ?OnDisplayStateChange@CInputConfig@@QEAAXXZ @ 0x1C001305C (-OnDisplayStateChange@CInputConfig@@QEAAXXZ.c)
+ *     xxxResetDisplayDevice @ 0x1C0016410 (xxxResetDisplayDevice.c)
+ *     UserRemoteConnectedSessionUsingWddm @ 0x1C0020FE0 (UserRemoteConnectedSessionUsingWddm.c)
+ *     UserIsWddmConnectedSession @ 0x1C0022420 (UserIsWddmConnectedSession.c)
+ *     IsThreadCrossSessionAttached @ 0x1C004B600 (IsThreadCrossSessionAttached.c)
+ *     IsEtwUserCritEnabled @ 0x1C004DF60 (IsEtwUserCritEnabled.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     ?UpdateUserCritInfo@UserCritTelemetry@@QEAAX_KW4BucketType@1@@Z @ 0x1C004E1A8 (-UpdateUserCritInfo@UserCritTelemetry@@QEAAX_KW4BucketType@1@@Z.c)
+ *     ?SendUserCritSummary@UserCritTelemetry@@QEAAXXZ @ 0x1C004E418 (-SendUserCritSummary@UserCritTelemetry@@QEAAXXZ.c)
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     EtwTraceAcquiredExclusiveUserCrit @ 0x1C004F99C (EtwTraceAcquiredExclusiveUserCrit.c)
+ *     HMUnlockObject @ 0x1C0072980 (HMUnlockObject.c)
+ *     xxxDwmControl @ 0x1C0090CE0 (xxxDwmControl.c)
+ *     PostWinlogonMessage @ 0x1C0090D50 (PostWinlogonMessage.c)
+ *     IsxxxDwmStopRedirectionSupported @ 0x1C0091F34 (IsxxxDwmStopRedirectionSupported.c)
+ *     InitSystemThread @ 0x1C00C2CB0 (InitSystemThread.c)
+ *     DrvDxgkLogCodePointPacket @ 0x1C00CA680 (DrvDxgkLogCodePointPacket.c)
+ *     GreIncrementDisplaySettingsUniqueness @ 0x1C00CCE70 (GreIncrementDisplaySettingsUniqueness.c)
+ *     DCompositionForceRender @ 0x1C00D6720 (DCompositionForceRender.c)
+ *     IsSetPointerSupported @ 0x1C00D89D0 (IsSetPointerSupported.c)
+ *     SafeEnableMDEV @ 0x1C00D8A70 (SafeEnableMDEV.c)
+ *     SafeDisableMDEV @ 0x1C00D8AC0 (SafeDisableMDEV.c)
+ *     ?xxxWaitForVideoPortCalloutReady@@YAXEEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00D96F8 (-xxxWaitForVideoPortCalloutReady@@YAXEEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     IsxxxSetCsrssThreadDesktopSupported @ 0x1C00DA44C (IsxxxSetCsrssThreadDesktopSupported.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     McTemplateK0dq_EtwWriteTransfer @ 0x1C00EE444 (McTemplateK0dq_EtwWriteTransfer.c)
+ *     ?Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C015B374 (-Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     xxxDisplayDiagBlackScreenDetected @ 0x1C015E940 (xxxDisplayDiagBlackScreenDetected.c)
+ *     McTemplateK0xqx_EtwWriteTransfer @ 0x1C0167CA4 (McTemplateK0xqx_EtwWriteTransfer.c)
+ *     DrvProcessDxgkDisplayCallout @ 0x1C0194740 (DrvProcessDxgkDisplayCallout.c)
+ *     DCompositionDDAChange @ 0x1C0247CA0 (DCompositionDDAChange.c)
+ *     IsxxxRestoreCsrssThreadDesktopSupported @ 0x1C0271FCC (IsxxxRestoreCsrssThreadDesktopSupported.c)
+ *     IsxxxUserResetDisplayDeviceSupported @ 0x1C0271FF8 (IsxxxUserResetDisplayDeviceSupported.c)
+ *     IszzzUpdateCursorImageSupported @ 0x1C0272024 (IszzzUpdateCursorImageSupported.c)
+ */
+
 LONG __fastcall VideoPortCalloutThread(PRKEVENT *a1)
 {
   unsigned int *v1; // rdi

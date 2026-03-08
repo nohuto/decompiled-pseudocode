@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepInformFileSystemsOfDeletedLogon @ 0x1409CD24C
+ * Callers:
+ *     SepDeReferenceLogonSession @ 0x1407DBBB8 (SepDeReferenceLogonSession.c)
+ * Callees:
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void __fastcall SepInformFileSystemsOfDeletedLogon(_QWORD *a1, void *a2)
 {
   __int64 Pool2; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopPlPublishInitialPowerDraw @ 0x14059EF80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopPlPublishSystemPowerChange @ 0x14059F158 (PopPlPublishSystemPowerChange.c)
+ */
+
 __int64 __fastcall PopPlPublishInitialPowerDraw(__int64 a1, int *a2)
 {
   __int64 v2; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NumberOfLeadingZeros@@YAH_K@Z @ 0x1C0145E9E
+ * Callers:
+ *     ?uDiv128by64@@YA_K_K00AEA_K@Z @ 0x1C01C3F3C (-uDiv128by64@@YA_K_K00AEA_K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NumberOfLeadingZeros(unsigned __int64 a1)
 {
   unsigned __int64 v1; // rdx

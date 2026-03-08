@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpApicDeinitializeLocalUnit @ 0x140525630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 HalpApicDeinitializeLocalUnit()
 {
   unsigned __int64 v0; // rax

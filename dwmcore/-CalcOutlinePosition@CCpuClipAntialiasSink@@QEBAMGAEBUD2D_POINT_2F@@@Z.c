@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CalcOutlinePosition@CCpuClipAntialiasSink@@QEBAMGAEBUD2D_POINT_2F@@@Z @ 0x18007E5B8
+ * Callers:
+ *     ?AppendCpuClipAntialiasHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUMeshDesc@Mesh@@PEBUPrimitiveVertexAttributesDesc@@_N2PEA_N@Z @ 0x18007D760 (-AppendCpuClipAntialiasHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUMeshDesc@Mesh@@PEBUPrimitiveV.c)
+ * Callees:
+ *     <none>
+ */
+
 float __fastcall CCpuClipAntialiasSink::CalcOutlinePosition(
         CCpuClipAntialiasSink *this,
         unsigned __int16 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?FreeBatchPool@CInternalMilCmdConnection@@AEAAXXZ @ 0x1800BBEE0
+ * Callers:
+ *     ?ClearBatchCaches@CInternalMilCmdConnection@@UEAA_NK@Z @ 0x1800E4940 (-ClearBatchCaches@CInternalMilCmdConnection@@UEAA_NK@Z.c)
+ *     ??1CInternalMilCmdConnection@@UEAA@XZ @ 0x1801B25E8 (--1CInternalMilCmdConnection@@UEAA@XZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ?FreeBlocks@CDataStreamWriter@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1800BBF4C (-FreeBlocks@CDataStreamWriter@@IEAAXPEAU_LIST_ENTRY@@@Z.c)
+ */
+
 void __fastcall CInternalMilCmdConnection::FreeBatchPool(union _SLIST_HEADER *this)
 {
   CDataStreamWriter *v1; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ClientLoadLocalT1Fonts @ 0x1C00B81FC
+ * Callers:
+ *     xxxLW_LoadFonts @ 0x1C00B8670 (xxxLW_LoadFonts.c)
+ * Callees:
+ *     ?GetCount@AtomicExecutionCheck@@SAIXZ @ 0x1C00B8314 (-GetCount@AtomicExecutionCheck@@SAIXZ.c)
+ */
+
 __int64 ClientLoadLocalT1Fonts()
 {
   unsigned int Count; // eax

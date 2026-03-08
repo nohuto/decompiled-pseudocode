@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InvokeClient@FxPnpDeviceD0Exit@@MEAAJXZ @ 0x1C006CC50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qqLd @ 0x1C00581F8 (WPP_IFR_SF_qqLd.c)
+ */
+
 int (__fastcall *__fastcall FxPnpDeviceD0Exit::InvokeClient(
         FxPnpDeviceD0Exit *this))(WDFDEVICE__ *, _WDF_POWER_DEVICE_STATE)
 {

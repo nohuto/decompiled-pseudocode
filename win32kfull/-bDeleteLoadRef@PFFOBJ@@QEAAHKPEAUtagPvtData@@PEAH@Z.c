@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bDeleteLoadRef@PFFOBJ@@QEAAHKPEAUtagPvtData@@PEAH@Z @ 0x1C0116608
+ * Callers:
+ *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C01181FC (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
+ * Callees:
+ *     ?vKill@PFFOBJ@@QEAAXXZ @ 0x1C00B75D8 (-vKill@PFFOBJ@@QEAAXXZ.c)
+ *     ?bRemovePvtData@PFFOBJ@@QEAAHPEAUtagPvtData@@@Z @ 0x1C02D86DC (-bRemovePvtData@PFFOBJ@@QEAAHPEAUtagPvtData@@@Z.c)
+ */
+
 __int64 __fastcall PFFOBJ::bDeleteLoadRef(PFFOBJ *this, int a2, struct tagPvtData *a3, int *a4)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of IovpUtilMarkDeviceObject @ 0x140ACFE10
+ * Callers:
+ *     IovUtilMarkStack @ 0x1402FBF78 (IovUtilMarkStack.c)
+ *     IovUtilMarkDeviceObject @ 0x1405CD8C0 (IovUtilMarkDeviceObject.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall IovpUtilMarkDeviceObject(__int64 a1, int a2)
 {
   __int64 v2; // r8

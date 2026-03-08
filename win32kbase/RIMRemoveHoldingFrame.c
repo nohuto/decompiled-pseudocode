@@ -1,3 +1,14 @@
+/*
+ * XREFs of RIMRemoveHoldingFrame @ 0x1C01CDBCC
+ * Callers:
+ *     RIMIDEAdoptOrphanedRimDevs @ 0x1C00345C8 (RIMIDEAdoptOrphanedRimDevs.c)
+ *     rimFreeSpecificDevFinal @ 0x1C00BC028 (rimFreeSpecificDevFinal.c)
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     rimFindHoldingFrame @ 0x1C00F07AA (rimFindHoldingFrame.c)
+ *     rimReclaimHoldingFrame @ 0x1C01CF270 (rimReclaimHoldingFrame.c)
+ */
+
 char *__fastcall RIMRemoveHoldingFrame(__int64 a1, __int64 a2)
 {
   char *result; // rax

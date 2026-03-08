@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIInternalMovePowerList @ 0x1C002EC34
+ * Callers:
+ *     ACPIDevicePowerDpc @ 0x1C001E5C0 (ACPIDevicePowerDpc.c)
+ *     ACPIMovePowerListUnblockedItems @ 0x1C002234C (ACPIMovePowerListUnblockedItems.c)
+ * Callees:
+ *     ACPIInternalMoveList @ 0x1C002EC04 (ACPIInternalMoveList.c)
+ */
+
 _QWORD *__fastcall ACPIInternalMovePowerList(_QWORD *a1, __int64 a2)
 {
   _QWORD *v2; // r9

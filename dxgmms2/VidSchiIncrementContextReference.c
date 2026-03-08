@@ -1,3 +1,16 @@
+/*
+ * XREFs of VidSchiIncrementContextReference @ 0x1C00146D0
+ * Callers:
+ *     VidSchiSetTransferContextRunningTime @ 0x1C0010B90 (VidSchiSetTransferContextRunningTime.c)
+ *     VidSchiCreateContextInternal @ 0x1C0013B3C (VidSchiCreateContextInternal.c)
+ *     ?VidSchiSwitchNodeFromDevice@@YAXPEAX@Z @ 0x1C0014D90 (-VidSchiSwitchNodeFromDevice@@YAXPEAX@Z.c)
+ *     VidSchiNeedToForcePreemptNode @ 0x1C0017AA4 (VidSchiNeedToForcePreemptNode.c)
+ *     VidSchiReportHwHang @ 0x1C00475B8 (VidSchiReportHwHang.c)
+ *     VidSchiRun_PriorityTable @ 0x1C00BA0C0 (VidSchiRun_PriorityTable.c)
+ * Callees:
+ *     <none>
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall VidSchiIncrementContextReference(__int64 a1)
 {

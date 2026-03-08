@@ -1,3 +1,38 @@
+/*
+ * XREFs of PopFxProcessWork @ 0x1403060C4
+ * Callers:
+ *     PoFxCompleteIdleState @ 0x1402EF9F0 (PoFxCompleteIdleState.c)
+ *     PopFxDispatchPluginWorkOnce @ 0x14030541C (PopFxDispatchPluginWorkOnce.c)
+ *     PopFxActivateComponentWorker @ 0x140305EB4 (PopFxActivateComponentWorker.c)
+ *     PopFxIdleWorkerTail @ 0x140306748 (PopFxIdleWorkerTail.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeCancelTimer @ 0x140250B60 (KeCancelTimer.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PopPluginComponentIdleState @ 0x1402EFA90 (PopPluginComponentIdleState.c)
+ *     PopDiagTraceFxComponentIdleState @ 0x1402EFCDC (PopDiagTraceFxComponentIdleState.c)
+ *     PopFxUpdateDeviceIdleTimer @ 0x1402FFBF4 (PopFxUpdateDeviceIdleTimer.c)
+ *     PopFxDeliverDevicePowerRequired @ 0x14030207C (PopFxDeliverDevicePowerRequired.c)
+ *     PopFxCompleteDevicePowerRequired @ 0x140304EE0 (PopFxCompleteDevicePowerRequired.c)
+ *     PopFxScheduleDeviceIdleTimer @ 0x140304FDC (PopFxScheduleDeviceIdleTimer.c)
+ *     IoAcquireRemoveLockEx @ 0x140305F80 (IoAcquireRemoveLockEx.c)
+ *     PopDiagTraceFxDevicePowerRequirement @ 0x1403064E0 (PopDiagTraceFxDevicePowerRequirement.c)
+ *     PopFxAddLogEntry @ 0x140306584 (PopFxAddLogEntry.c)
+ *     PopDiagTraceFxComponentLogicalCondition @ 0x14030690C (PopDiagTraceFxComponentLogicalCondition.c)
+ *     PopFxCompleteComponentActivation @ 0x14030698C (PopFxCompleteComponentActivation.c)
+ *     PopPluginDevicePower @ 0x140306D00 (PopPluginDevicePower.c)
+ *     PopPepProcessEvent @ 0x140307424 (PopPepProcessEvent.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ *     PopFxCompleteComponentPerfState @ 0x1405870F8 (PopFxCompleteComponentPerfState.c)
+ *     PopDiagTraceFxPerfRequestProgress @ 0x140591744 (PopDiagTraceFxPerfRequestProgress.c)
+ *     PopPepCompleteComponentIdleState @ 0x14059C714 (PopPepCompleteComponentIdleState.c)
+ *     PopFxAcpiForwardPepAcpiNotifyRequest @ 0x14059E7BC (PopFxAcpiForwardPepAcpiNotifyRequest.c)
+ *     PopFxAcpiForwardPepWorkRequest @ 0x14059E858 (PopFxAcpiForwardPepWorkRequest.c)
+ */
+
 __int64 __fastcall PopFxProcessWork(ULONG_PTR BugCheckParameter2, ULONG_PTR *a2, __int64 a3)
 {
   __int64 result; // rax

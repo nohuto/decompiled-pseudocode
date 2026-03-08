@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DpiKsrComplete@@YAXPEAX@Z @ 0x1C03A0F70
+ * Callers:
+ *     DpiKsrCallback @ 0x1C03A1650 (DpiKsrCallback.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?DpIterateFdoContexts@@YAXP6AJPEAU_FDO_CONTEXT@@PEAX@Z1@Z @ 0x1C03A0834 (-DpIterateFdoContexts@@YAXP6AJPEAU_FDO_CONTEXT@@PEAX@Z1@Z.c)
+ */
+
 void __fastcall DpiKsrComplete(void *a1)
 {
   __int64 v1; // rcx

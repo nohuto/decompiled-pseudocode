@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifRtlUnicodeStringToAnsiStringWrapper @ 0x1405E9890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1407A34D0 (RtlUnicodeStringToAnsiString.c)
+ */
+
 NTSTATUS __fastcall DifRtlUnicodeStringToAnsiStringWrapper(
         PANSI_STRING DestinationString,
         PCUNICODE_STRING SourceString,

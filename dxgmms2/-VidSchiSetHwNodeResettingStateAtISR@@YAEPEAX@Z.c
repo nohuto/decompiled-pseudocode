@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidSchiSetHwNodeResettingStateAtISR@@YAEPEAX@Z @ 0x1C0042FD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall VidSchiSetHwNodeResettingStateAtISR(LARGE_INTEGER *a1)
 {
   LONGLONG QuadPart; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpVerGetConditionMask @ 0x140380A24
+ * Callers:
+ *     RtlVerifyVersionInfo @ 0x140380780 (RtlVerifyVersionInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpVerGetConditionMask(unsigned __int64 a1, unsigned int a2)
 {
   int v3; // ecx

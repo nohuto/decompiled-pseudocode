@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIProcessorContainerGetLpiStatesIoctl @ 0x1C003A968
+ * Callers:
+ *     ACPIProcessorDeviceControl @ 0x1C008C570 (ACPIProcessorDeviceControl.c)
+ * Callees:
+ *     ACPIProcessorContainerComputeIoctlPayloadSize @ 0x1C003A504 (ACPIProcessorContainerComputeIoctlPayloadSize.c)
+ *     ACPIProcessorContainerEvaluateLpiObjects @ 0x1C003A6D0 (ACPIProcessorContainerEvaluateLpiObjects.c)
+ *     ACPIProcessorContainerFillIoctlBuffer @ 0x1C003A774 (ACPIProcessorContainerFillIoctlBuffer.c)
+ */
+
 __int64 __fastcall ACPIProcessorContainerGetLpiStatesIoctl(PIRP Irp, __int64 a2)
 {
   KIRQL v4; // al

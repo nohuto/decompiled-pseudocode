@@ -1,3 +1,11 @@
+/*
+ * XREFs of DwmAsyncMagnSetDesktopSamplingMode @ 0x1C026F5E8
+ * Callers:
+ *     MagSetLensContextInformation @ 0x1C01A4A80 (MagSetLensContextInformation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall DwmAsyncMagnSetDesktopSamplingMode(PVOID Object, __int64 a2, int *a3)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiDeleteImageCreationMdls @ 0x14077E610
+ * Callers:
+ *     MiCreateNewSection @ 0x1406A6414 (MiCreateNewSection.c)
+ *     MiCreateImageFileMap @ 0x1407F1C28 (MiCreateImageFileMap.c)
+ *     MiCreateMdl @ 0x1407F223C (MiCreateMdl.c)
+ * Callees:
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     MiReturnPfnReferenceCount @ 0x1402EDD4C (MiReturnPfnReferenceCount.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiDeleteImageCreationMdls(PMDL MemoryDescriptorList, int a2)
 {
   PMDL v3; // rbx

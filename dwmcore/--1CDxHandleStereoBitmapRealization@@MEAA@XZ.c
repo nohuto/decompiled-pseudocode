@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1CDxHandleStereoBitmapRealization@@MEAA@XZ @ 0x1802AF8F8
+ * Callers:
+ *     ??_ECDxHandleStereoBitmapRealization@@MEAAPEAXI@Z @ 0x1802AFA20 (--_ECDxHandleStereoBitmapRealization@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1CD2DBitmapCache@@MEAA@XZ @ 0x180032B7C (--1CD2DBitmapCache@@MEAA@XZ.c)
+ *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18003CE64 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?AdjustStereoEntityCount@CComposition@@QEAAX_N@Z @ 0x1801B16E4 (-AdjustStereoEntityCount@CComposition@@QEAAX_N@Z.c)
+ */
+
 void __fastcall CDxHandleStereoBitmapRealization::~CDxHandleStereoBitmapRealization(
         CDxHandleStereoBitmapRealization *this)
 {

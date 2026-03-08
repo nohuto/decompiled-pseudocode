@@ -1,3 +1,11 @@
+/*
+ * XREFs of xxxSimulateShiftF10 @ 0x1C01C9EA0
+ * Callers:
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 xxxSimulateShiftF10()
 {
   char v1; // [rsp+30h] [rbp-18h]

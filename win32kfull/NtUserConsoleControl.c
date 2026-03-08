@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserConsoleControl @ 0x1C003C4D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastStatus @ 0x1C0012568 (UserSetLastStatus.c)
+ *     xxxConsoleControl @ 0x1C003C5E8 (xxxConsoleControl.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall NtUserConsoleControl(unsigned int a1, volatile void *a2, unsigned int a3)
 {
   __int64 v6; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpAdjustRequestedFileSize @ 0x140732C80
+ * Callers:
+ *     CmpDoFileSetSizeEx @ 0x140731FA4 (CmpDoFileSetSizeEx.c)
+ * Callees:
+ *     HvGetEffectiveLogSizeCapForHive @ 0x140730814 (HvGetEffectiveLogSizeCapForHive.c)
+ */
+
 unsigned __int64 __fastcall CmpAdjustRequestedFileSize(
         unsigned int *a1,
         int a2,

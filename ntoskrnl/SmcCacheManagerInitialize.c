@@ -1,3 +1,13 @@
+/*
+ * XREFs of SmcCacheManagerInitialize @ 0x14084CEB0
+ * Callers:
+ *     SmPartitionInitialize @ 0x14084CDAC (SmPartitionInitialize.c)
+ * Callees:
+ *     ExInitializePushLock @ 0x140238200 (ExInitializePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 struct _EX_RUNDOWN_REF *__fastcall SmcCacheManagerInitialize(struct _EX_RUNDOWN_REF *a1)
 {
   struct _EX_RUNDOWN_REF *v2; // rdi

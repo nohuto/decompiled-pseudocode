@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwWin32CreateSectionRetainHandle @ 0x1C00CF8B0
+ * Callers:
+ *     ?InitializeWin32CrossSessionGlobals@@YAJW4XSessionGlobalAccess@@@Z @ 0x1C00CF780 (-InitializeWin32CrossSessionGlobals@@YAJW4XSessionGlobalAccess@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall ZwWin32CreateSectionRetainHandle(
         void *a1,
         __int64 a2,

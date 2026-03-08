@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBMISC_EvtDsmDestroy @ 0x1C0031EC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBMISC_EvtDsmDestroy(__int64 a1)
 {
   _QWORD *v1; // rax

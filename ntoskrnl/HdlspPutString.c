@@ -1,3 +1,14 @@
+/*
+ * XREFs of HdlspPutString @ 0x140AE8194
+ * Callers:
+ *     HdlspDispatch @ 0x140AE6EB0 (HdlspDispatch.c)
+ *     HdlspProcessDumpCommand @ 0x140AE7CAC (HdlspProcessDumpCommand.c)
+ *     HdlspPutMore @ 0x140AE80B8 (HdlspPutMore.c)
+ * Callees:
+ *     HdlspUTF8Encode @ 0x140604540 (HdlspUTF8Encode.c)
+ *     HdlspSendStringAtBaud @ 0x140AE8474 (HdlspSendStringAtBaud.c)
+ */
+
 __int64 __fastcall HdlspPutString(_BYTE *a1)
 {
   _BYTE *v1; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlRescindEnlightenments @ 0x1403030E0
+ * Callers:
+ *     KiEnableKvaShadowing @ 0x140A864CC (KiEnableKvaShadowing.c)
+ * Callees:
+ *     <none>
+ */
+
 void HvlRescindEnlightenments()
 {
   _InterlockedOr(&HvlpRescindedEnlightenments, 1u);

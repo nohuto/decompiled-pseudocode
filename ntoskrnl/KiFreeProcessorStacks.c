@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiFreeProcessorStacks @ 0x14056994C
+ * Callers:
+ *     KiFreeProcessorStateInitializationParameters @ 0x140569A34 (KiFreeProcessorStateInitializationParameters.c)
+ * Callees:
+ *     MmDeleteKernelStackEx @ 0x140318070 (MmDeleteKernelStackEx.c)
+ *     MmFreeIndependentPages @ 0x14087B250 (MmFreeIndependentPages.c)
+ *     KiDeleteKernelShadowStack @ 0x14097141C (KiDeleteKernelShadowStack.c)
+ *     MmFreeIsrStack @ 0x140A39B00 (MmFreeIsrStack.c)
+ */
+
 signed __int64 __fastcall KiFreeProcessorStacks(_QWORD *a1)
 {
   ULONG_PTR v2; // rcx

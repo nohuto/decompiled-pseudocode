@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Stop@CMit@@QEAAXXZ @ 0x1801AD8EC
+ * Callers:
+ *     ??1CInputManager@@MEAA@XZ @ 0x18019F5E8 (--1CInputManager@@MEAA@XZ.c)
+ *     ??1CMit@@UEAA@XZ @ 0x1801AD864 (--1CMit@@UEAA@XZ.c)
+ *     ??1CGlobalMit@@UEAA@XZ @ 0x1801AE294 (--1CGlobalMit@@UEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CMit::Stop(CMit *this)
 {
   bool v1; // zf

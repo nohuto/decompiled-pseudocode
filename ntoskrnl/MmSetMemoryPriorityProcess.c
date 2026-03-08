@@ -1,3 +1,14 @@
+/*
+ * XREFs of MmSetMemoryPriorityProcess @ 0x140296290
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ *     PspComputeQuantumAndPriority @ 0x140709DDC (PspComputeQuantumAndPriority.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MmSetMemoryPriorityProcess(__int64 a1, char a2)
 {
   __int64 result; // rax

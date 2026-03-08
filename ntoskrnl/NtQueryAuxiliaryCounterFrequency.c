@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtQueryAuxiliaryCounterFrequency @ 0x140A018A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ */
+
 __int64 __fastcall NtQueryAuxiliaryCounterFrequency(_QWORD *a1)
 {
   __int64 result; // rax

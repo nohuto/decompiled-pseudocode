@@ -1,3 +1,14 @@
+/*
+ * XREFs of VfPnpTestStartedPdoStack @ 0x140AE3DF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     VfIrpSendSynchronousIrp @ 0x140ACAAA8 (VfIrpSendSynchronousIrp.c)
+ */
+
 __int64 __fastcall VfPnpTestStartedPdoStack(struct _DEVICE_OBJECT *a1)
 {
   __int64 v2; // r9

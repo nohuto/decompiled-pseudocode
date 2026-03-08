@@ -1,3 +1,22 @@
+/*
+ * XREFs of WmipRegisterDevice @ 0x140869828
+ * Callers:
+ *     IoWMIRegistrationControl @ 0x140869750 (IoWMIRegistrationControl.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     ObReferenceObjectByPointer @ 0x140208C70 (ObReferenceObjectByPointer.c)
+ *     WmipUnreferenceRegEntry @ 0x140208DE4 (WmipUnreferenceRegEntry.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IoGetAttachedDeviceReference @ 0x140337BB0 (IoGetAttachedDeviceReference.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     WmipFindRegEntryByDevice @ 0x1403BC634 (WmipFindRegEntryByDevice.c)
+ *     WmipAllocRegEntry @ 0x1403BC6F4 (WmipAllocRegEntry.c)
+ *     WmipDeregisterRegEntry @ 0x1403CEEF0 (WmipDeregisterRegEntry.c)
+ *     WmipRegisterOrUpdateDS @ 0x14086785C (WmipRegisterOrUpdateDS.c)
+ *     WmipQueueRegWork @ 0x140869990 (WmipQueueRegWork.c)
+ *     WmipUpdateDeviceStackSize @ 0x140869A6C (WmipUpdateDeviceStackSize.c)
+ */
+
 __int64 __fastcall WmipRegisterDevice(struct _DEVICE_OBJECT *Object, int a2)
 {
   int v2; // ebx

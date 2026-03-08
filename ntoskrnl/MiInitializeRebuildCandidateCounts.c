@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiInitializeRebuildCandidateCounts @ 0x140B3C420
+ * Callers:
+ *     MiCreatePfnBitMaps @ 0x140809BDC (MiCreatePfnBitMaps.c)
+ * Callees:
+ *     MiUpdateLargePageCandidates @ 0x1403718A8 (MiUpdateLargePageCandidates.c)
+ */
+
 __int64 __fastcall MiInitializeRebuildCandidateCounts(unsigned int a1, unsigned int a2)
 {
   unsigned int v2; // r9d

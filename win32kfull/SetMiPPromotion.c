@@ -1,3 +1,13 @@
+/*
+ * XREFs of SetMiPPromotion @ 0x1C0144240
+ * Callers:
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00725D0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     NtUserAutoPromoteMouseInPointer @ 0x1C0147140 (NtUserAutoPromoteMouseInPointer.c)
+ *     xxxDefPointerProc @ 0x1C02259C4 (xxxDefPointerProc.c)
+ * Callees:
+ *     ?SetMiPWakeBit@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C0143CBE (-SetMiPWakeBit@@YAXPEAUtagTHREADINFO@@@Z.c)
+ */
+
 unsigned __int64 __fastcall SetMiPPromotion(struct tagTHREADINFO *a1, int a2)
 {
   unsigned __int64 result; // rax

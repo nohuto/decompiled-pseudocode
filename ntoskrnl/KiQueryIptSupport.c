@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiQueryIptSupport @ 0x140A9C570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiXSavesManagesIpt @ 0x14057084C (KiXSavesManagesIpt.c)
+ */
+
 __int64 __fastcall KiQueryIptSupport(__int64 a1, __int64 a2)
 {
   _DWORD *v2; // rdx

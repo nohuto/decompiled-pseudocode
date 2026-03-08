@@ -1,3 +1,42 @@
+/*
+ * XREFs of MiInitializeDriverImages @ 0x140B3B090
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     MiMakeZeroedPageTablesEx @ 0x14020F130 (MiMakeZeroedPageTablesEx.c)
+ *     RtlClearBitsEx @ 0x14020FC50 (RtlClearBitsEx.c)
+ *     MiSystemVaToDynamicBitmap @ 0x14021055C (MiSystemVaToDynamicBitmap.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiProcessKernelCfgImage @ 0x1402FCCC4 (MiProcessKernelCfgImage.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14032E710 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     MiSplitBitmapPages @ 0x14036C1A8 (MiSplitBitmapPages.c)
+ *     MiBuildDynamicRegion @ 0x1403715AC (MiBuildDynamicRegion.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     VslInitializeSecureKernelCfg @ 0x14054913C (VslInitializeSecureKernelCfg.c)
+ *     MiProcessKernelCfgImageLoadConfig @ 0x1407849F8 (MiProcessKernelCfgImageLoadConfig.c)
+ *     MiMarkKernelImageCfgBits @ 0x1407F72E0 (MiMarkKernelImageCfgBits.c)
+ *     VslReserveProtectedPages @ 0x140881254 (VslReserveProtectedPages.c)
+ *     MiAllocateKernelCfgBitmapPageTables @ 0x140A411E8 (MiAllocateKernelCfgBitmapPageTables.c)
+ *     MiProcessKernelCfgAddressTakenImports @ 0x140A41408 (MiProcessKernelCfgAddressTakenImports.c)
+ *     MiInitializeBootLoadedDriverPfns @ 0x140B38DFC (MiInitializeBootLoadedDriverPfns.c)
+ *     MiCreateInitialSystemWsles @ 0x140B3A6E8 (MiCreateInitialSystemWsles.c)
+ *     MiReloadBootLoadedDrivers @ 0x140B3B9BC (MiReloadBootLoadedDrivers.c)
+ *     VfInitBootDriversLoaded @ 0x140B4EE44 (VfInitBootDriversLoaded.c)
+ *     MiInitializeLoadedModuleList @ 0x140B5D84C (MiInitializeLoadedModuleList.c)
+ *     MiInitializeDriverPtes @ 0x140B5E7C8 (MiInitializeDriverPtes.c)
+ *     MxMarkActiveDriverBits @ 0x140B5F6B8 (MxMarkActiveDriverBits.c)
+ *     MiFreeKernelPadSections @ 0x140B65494 (MiFreeKernelPadSections.c)
+ *     RtlInitializeHistoryTable @ 0x140B687EC (RtlInitializeHistoryTable.c)
+ *     VslReapplyBootIndirectPatches @ 0x140B90324 (VslReapplyBootIndirectPatches.c)
+ */
+
 __int64 __fastcall MiInitializeDriverImages(__int64 a1)
 {
   unsigned __int64 v1; // rbx

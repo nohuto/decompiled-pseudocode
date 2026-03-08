@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??1CEffectBrush@@MEAA@XZ @ 0x1800B5E94
+ * Callers:
+ *     ??_GCEffectBrush@@MEAAPEAXI@Z @ 0x1800B5E50 (--_GCEffectBrush@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097680 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ?ReleaseResources@CEffectBrush@@AEAAXXZ @ 0x1800B5D70 (-ReleaseResources@CEffectBrush@@AEAAXXZ.c)
+ *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800E0830 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalRelease@?$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ @ 0x1800F2FE0 (-InternalRelease@-$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ.c)
+ */
+
 void __fastcall CEffectBrush::~CEffectBrush(CEffectBrush *this)
 {
   __int64 v2; // rcx

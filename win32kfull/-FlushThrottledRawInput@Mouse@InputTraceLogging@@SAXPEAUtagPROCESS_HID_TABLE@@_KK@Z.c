@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?FlushThrottledRawInput@Mouse@InputTraceLogging@@SAXPEAUtagPROCESS_HID_TABLE@@_KK@Z @ 0x1C01ABFC4
+ * Callers:
+ *     ?FlushThrottledRawMouseInput@@YAXPEAUtagPROCESS_HID_TABLE@@K@Z @ 0x1C01AC08C (-FlushThrottledRawMouseInput@@YAXPEAUtagPROCESS_HID_TABLE@@K@Z.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F8FF0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1C0102BC4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall InputTraceLogging::Mouse::FlushThrottledRawInput(struct tagPROCESS_HID_TABLE *a1)
 {
   int v1; // r9d

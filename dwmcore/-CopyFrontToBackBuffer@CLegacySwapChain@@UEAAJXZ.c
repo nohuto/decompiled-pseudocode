@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?CopyFrontToBackBuffer@CLegacySwapChain@@UEAAJXZ @ 0x180042130
+ * Callers:
+ *     ?CopyFrontToBackBuffer@CLegacySwapChain@@$4PPPPPPPM@BLA@EAAJXZ @ 0x18011B5F0 (-CopyFrontToBackBuffer@CLegacySwapChain@@$4PPPPPPPM@BLA@EAAJXZ.c)
+ *     ?CopyFrontToBackBuffer@CLegacyStereoSwapChain@@UEAAJXZ @ 0x18029C970 (-CopyFrontToBackBuffer@CLegacyStereoSwapChain@@UEAAJXZ.c)
+ *     ?CopyFrontToBackBuffer@CConversionSwapChain@@UEAAJXZ @ 0x18029E580 (-CopyFrontToBackBuffer@CConversionSwapChain@@UEAAJXZ.c)
+ * Callees:
+ *     ?GetRectangleCount@CRegion@FastRegion@@QEBAIXZ @ 0x1800414FC (-GetRectangleCount@CRegion@FastRegion@@QEBAIXZ.c)
+ *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x180042574 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800DBF94 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0qq_EventWriteTransfer @ 0x1801292C6 (McTemplateU0qq_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall CLegacySwapChain::CopyFrontToBackBuffer(CLegacySwapChain *this, __int64 a2, __int64 a3)
 {
   __int64 v4; // r15

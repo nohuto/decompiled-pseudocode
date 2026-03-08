@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiRemoveCpuPartitionAssignmentProcess @ 0x140295BA0
+ * Callers:
+ *     KiRemoveAndFreeCpuPartitionAssignmentProcess @ 0x140295B18 (KiRemoveAndFreeCpuPartitionAssignmentProcess.c)
+ *     KeAssignCpuPartitionsToProcess @ 0x1405725AC (KeAssignCpuPartitionsToProcess.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall KiRemoveCpuPartitionAssignmentProcess(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // r10

@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiInitializeCombining @ 0x140393F0C
+ * Callers:
+ *     MiInitializePartition @ 0x140837D40 (MiInitializePartition.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall MiInitializeCombining(__int64 a1, _QWORD *a2)
 {
   _QWORD *v2; // rcx

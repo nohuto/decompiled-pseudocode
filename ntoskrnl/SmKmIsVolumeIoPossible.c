@@ -1,3 +1,17 @@
+/*
+ * XREFs of SmKmIsVolumeIoPossible @ 0x1409D5F0C
+ * Callers:
+ *     SmKmStoreFileCreateForIoType @ 0x1409D6D88 (SmKmStoreFileCreateForIoType.c)
+ * Callees:
+ *     IoAllocateIrp @ 0x140208CF0 (IoAllocateIrp.c)
+ *     IoSetThreadHardErrorMode @ 0x140244770 (IoSetThreadHardErrorMode.c)
+ *     IoFreeIrp @ 0x14030EC00 (IoFreeIrp.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     ZwQueryVolumeInformationFile @ 0x140412C30 (ZwQueryVolumeInformationFile.c)
+ *     SmKmSendUsageNotification @ 0x1409D6804 (SmKmSendUsageNotification.c)
+ */
+
 __int64 __fastcall SmKmIsVolumeIoPossible(__int64 a1, _DWORD *a2)
 {
   BOOLEAN v4; // r15

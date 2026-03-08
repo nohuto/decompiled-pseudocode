@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsPrivileged @ 0x1C008D1A0
+ * Callers:
+ *     _RegisterLogonProcess @ 0x1C008CF70 (_RegisterLogonProcess.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ */
+
 __int64 __fastcall IsPrivileged(PPRIVILEGE_SET RequiredPrivileges)
 {
   BOOLEAN v2; // al

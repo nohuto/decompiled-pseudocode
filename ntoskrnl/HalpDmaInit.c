@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpDmaInit @ 0x140B60E78
+ * Callers:
+ *     HalpDmaInitSystem @ 0x140A8D4D0 (HalpDmaInitSystem.c)
+ * Callees:
+ *     HalpDmaInitializeControllers @ 0x140398798 (HalpDmaInitializeControllers.c)
+ *     HalpDmaInitializeMasterAdapter @ 0x140B60FAC (HalpDmaInitializeMasterAdapter.c)
+ *     HalpDmaAllocateEmergencyResources @ 0x140B61178 (HalpDmaAllocateEmergencyResources.c)
+ *     HalpDmaAllocateMappingResources @ 0x140B6124C (HalpDmaAllocateMappingResources.c)
+ */
+
 __int64 HalpDmaInit()
 {
   __int64 result; // rax

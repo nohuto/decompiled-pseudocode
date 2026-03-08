@@ -1,3 +1,17 @@
+/*
+ * XREFs of UserRemoveWindowedSwapChain @ 0x1C021EEC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     InternalRemoveProp @ 0x1C002484C (InternalRemoveProp.c)
+ *     RemoveVisRgnTracker @ 0x1C0025C7C (RemoveVisRgnTracker.c)
+ *     IsWindowBeingDestroyed @ 0x1C0039B60 (IsWindowBeingDestroyed.c)
+ *     ??$GetProp@VCSwapChainProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCSwapChainProp@@@Z @ 0x1C007D6D4 (--$GetProp@VCSwapChainProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCSwapChainProp@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ?ClearCompositionSurfaceObj@CSwapChainProp@@QEAAHXZ @ 0x1C021ECCC (-ClearCompositionSurfaceObj@CSwapChainProp@@QEAAHXZ.c)
+ *     ?NotifyDwm@CSwapChainProp@@QEAAHQEAUtagWND@@@Z @ 0x1C021EDEC (-NotifyDwm@CSwapChainProp@@QEAAHQEAUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall UserRemoveWindowedSwapChain(__int64 a1, int a2)
 {
   unsigned int v4; // edi

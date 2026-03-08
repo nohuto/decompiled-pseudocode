@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiConvertIoPfnTreeLockExclusiveToShared @ 0x14039B498
+ * Callers:
+ *     MiReferenceIoPages @ 0x14029BA60 (MiReferenceIoPages.c)
+ *     MiDeleteStaleCacheMaps @ 0x14062B5C0 (MiDeleteStaleCacheMaps.c)
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ */
+
 __int64 MiConvertIoPfnTreeLockExclusiveToShared()
 {
   struct _KPRCB *CurrentPrcb; // rbp

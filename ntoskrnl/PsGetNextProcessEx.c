@@ -1,3 +1,14 @@
+/*
+ * XREFs of PsGetNextProcessEx @ 0x14076EEB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObReferenceObjectSafeWithTag @ 0x14022BD30 (ObReferenceObjectSafeWithTag.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     PspUnlockProcessListShared @ 0x1402E3A74 (PspUnlockProcessListShared.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ */
+
 unsigned __int64 __fastcall PsGetNextProcessEx(_QWORD *Object)
 {
   struct _KTHREAD *CurrentThread; // rbp

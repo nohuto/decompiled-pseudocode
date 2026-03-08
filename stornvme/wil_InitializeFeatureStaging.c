@@ -1,3 +1,14 @@
+/*
+ * XREFs of wil_InitializeFeatureStaging @ 0x1C0037078
+ * Callers:
+ *     DumpPreInitialize @ 0x1C00032A0 (DumpPreInitialize.c)
+ *     StorNVMe_wil_init @ 0x1C00036D4 (StorNVMe_wil_init.c)
+ * Callees:
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1C00036EC (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     wil_details_EvaluateFeatureDependencies @ 0x1C003413C (wil_details_EvaluateFeatureDependencies.c)
+ *     wil_details_PopulateInitialConfiguredFeatureStates @ 0x1C0037104 (wil_details_PopulateInitialConfiguredFeatureStates.c)
+ */
+
 __int64 wil_InitializeFeatureStaging()
 {
   unsigned int v0; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of XilCoreCommonBuffer_Create @ 0x1C001BE7C
+ * Callers:
+ *     CommonBuffer_Create @ 0x1C0072F2C (CommonBuffer_Create.c)
+ * Callees:
+ *     XilCoreCommonBuffer_AllocateBuffers @ 0x1C0007A24 (XilCoreCommonBuffer_AllocateBuffers.c)
+ */
+
 void __fastcall XilCoreCommonBuffer_Create(__int64 a1, __int64 a2, __int64 a3)
 {
   *(_QWORD *)(a3 + 8) = a1;

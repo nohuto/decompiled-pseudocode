@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsLastTopMostWindow@@YAHPEBUtagWND@@@Z @ 0x1C00F4E38
+ * Callers:
+ *     ?TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z @ 0x1C0026330 (-TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IsLastTopMostWindow(const struct tagWND *a1)
 {
   unsigned int v1; // r8d

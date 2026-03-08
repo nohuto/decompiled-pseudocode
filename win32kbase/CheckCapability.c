@@ -1,3 +1,14 @@
+/*
+ * XREFs of CheckCapability @ 0x1C0217620
+ * Callers:
+ *     NtSetCursorInputSpace @ 0x1C016C8F0 (NtSetCursorInputSpace.c)
+ *     NtSetShellCursorState @ 0x1C016D020 (NtSetShellCursorState.c)
+ *     NtUserSetDesktopVisualInputSink @ 0x1C0176080 (NtUserSetDesktopVisualInputSink.c)
+ *     NtUserSetSystemContentRects @ 0x1C0178070 (NtUserSetSystemContentRects.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CheckCapability(PCWSTR SourceString)
 {
   __int64 result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of SmmIommuMapStagingMdl @ 0x1C006E458
+ * Callers:
+ *     SmmIommuMapReferenced @ 0x1C006E404 (SmmIommuMapReferenced.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     SmmIoMmuReferenceMdl @ 0x1C006E014 (SmmIoMmuReferenceMdl.c)
+ *     SmmIoMmuUnmapStagingMdl @ 0x1C006E17C (SmmIoMmuUnmapStagingMdl.c)
+ */
+
 __int64 __fastcall SmmIommuMapStagingMdl(__int64 a1, unsigned int *a2)
 {
   unsigned int v3; // esi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetDeviceRects@@YA_NPEAXPEAUtagRECT@@1@Z @ 0x1C02232D0
+ * Callers:
+ *     ?CreateInjectionDevice@@YAHXZ @ 0x1C0223278 (-CreateInjectionDevice@@YAHXZ.c)
+ * Callees:
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0037330 (RawInputManagerDeviceObjectResolveHandle.c)
+ *     HMValidateHandleNoSecure @ 0x1C007A1CC (HMValidateHandleNoSecure.c)
+ */
+
 bool __fastcall GetDeviceRects(void *a1, struct tagRECT *a2, struct tagRECT *a3)
 {
   _QWORD *v3; // rbx

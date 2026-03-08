@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwTraceIoTimerEvent @ 0x1405FAA80
+ * Callers:
+ *     IopDisableTimer @ 0x140552C34 (IopDisableTimer.c)
+ *     IopEnableTimer @ 0x140552FD8 (IopEnableTimer.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall EtwTraceIoTimerEvent(unsigned __int16 a1, __int64 a2, __int64 a3)
 {
   _QWORD v3[2]; // [rsp+30h] [rbp-38h] BYREF

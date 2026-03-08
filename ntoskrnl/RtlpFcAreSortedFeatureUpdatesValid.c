@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpFcAreSortedFeatureUpdatesValid @ 0x1409BFE58
+ * Callers:
+ *     RtlpFcUpdateFeatureConfiguration @ 0x1409C0408 (RtlpFcUpdateFeatureConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RtlpFcAreSortedFeatureUpdatesValid(_DWORD *a1, unsigned __int64 a2)
 {
   unsigned __int64 v2; // r9

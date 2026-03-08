@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Initialize@CConversionSwapChain@@MEAAJXZ @ 0x18029ED80
+ * Callers:
+ *     ?Create@CConversionSwapChain@@KAJPEAVCD3DDevice@@AEBUDXGI_OUTPUT_DWM_DESC@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@PEAPEAVILegacySwapChain@@@Z @ 0x18029E67C (-Create@CConversionSwapChain@@KAJPEAVCD3DDevice@@AEBUDXGI_OUTPUT_DWM_DESC@@PEAUIDXGISwapChainDWM.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Initialize@CLegacySwapChain@@MEAAJXZ @ 0x1800EC4F0 (-Initialize@CLegacySwapChain@@MEAAJXZ.c)
+ *     ?EnsureTargetBitmap@CConversionSwapChain@@IEAAJXZ @ 0x18029E818 (-EnsureTargetBitmap@CConversionSwapChain@@IEAAJXZ.c)
+ */
+
 __int64 __fastcall CConversionSwapChain::Initialize(CConversionSwapChain *this)
 {
   int v2; // eax

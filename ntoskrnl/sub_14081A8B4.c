@@ -1,3 +1,12 @@
+/*
+ * XREFs of sub_14081A8B4 @ 0x14081A8B4
+ * Callers:
+ *     ExpLoadAndSortLicensingCacheDescriptors @ 0x14081A5DC (ExpLoadAndSortLicensingCacheDescriptors.c)
+ *     SLUpdateLicenseDataInternal @ 0x1409F78B4 (SLUpdateLicenseDataInternal.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall sub_14081A8B4(__int64 a1, char a2, void *a3, unsigned int a4, unsigned int *a5)
 {
   unsigned int v5; // ebx

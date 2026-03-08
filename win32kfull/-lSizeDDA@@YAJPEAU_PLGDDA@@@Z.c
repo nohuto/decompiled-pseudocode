@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?lSizeDDA@@YAJPEAU_PLGDDA@@@Z @ 0x1C0301F48
+ * Callers:
+ *     EngPlgBlt @ 0x1C0292140 (EngPlgBlt.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?bSubOverflow@@YAHJJ@Z @ 0x1C014D8F6 (-bSubOverflow@@YAHJJ@Z.c)
+ *     ?bAddOverflow@@YAHJJ@Z @ 0x1C02FFEA4 (-bAddOverflow@@YAHJJ@Z.c)
+ */
+
 __int64 __fastcall lSizeDDA(struct _PLGDDA *a1)
 {
   int *v1; // r8

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPluginRequestComponentIdleConstraints @ 0x14058A4A0
+ * Callers:
+ *     PopPepInitializeVetoMasks @ 0x14059CE34 (PopPepInitializeVetoMasks.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopDiagTraceFxComponentIdleConstraints @ 0x140590AD4 (PopDiagTraceFxComponentIdleConstraints.c)
+ */
+
 char __fastcall PopPluginRequestComponentIdleConstraints(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4)
 {
   char v4; // bl

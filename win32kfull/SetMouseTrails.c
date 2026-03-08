@@ -1,3 +1,15 @@
+/*
+ * XREFs of SetMouseTrails @ 0x1C0020418
+ * Callers:
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x1C010AFDC (xxxUpdatePerUserSystemParameters.c)
+ *     xxxRemoteReconnect @ 0x1C01267DC (xxxRemoteReconnect.c)
+ * Callees:
+ *     SetPointer @ 0x1C00219A0 (SetPointer.c)
+ *     FindTimer @ 0x1C00DEEDC (FindTimer.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ */
+
 __int64 __fastcall SetMouseTrails(int a1)
 {
   __int64 v2; // rcx

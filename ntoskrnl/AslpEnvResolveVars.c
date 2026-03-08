@@ -1,3 +1,14 @@
+/*
+ * XREFs of AslpEnvResolveVars @ 0x140A54B80
+ * Callers:
+ *     AslEnvExpandStrings2 @ 0x140A54280 (AslEnvExpandStrings2.c)
+ * Callees:
+ *     RtlStringCchCatW @ 0x140246580 (RtlStringCchCatW.c)
+ *     RtlStringCchCopyW @ 0x1402470F0 (RtlStringCchCopyW.c)
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ */
+
 __int64 __fastcall AslpEnvResolveVars(
         NTSTRSAFE_PCWSTR pszSrc,
         unsigned int a2,

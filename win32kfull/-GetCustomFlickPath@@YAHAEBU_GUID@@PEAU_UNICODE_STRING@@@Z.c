@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetCustomFlickPath@@YAHAEBU_GUID@@PEAU_UNICODE_STRING@@@Z @ 0x1C01F4654
+ * Callers:
+ *     ?GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C01F4520 (-GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
+ *     ?SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C01F4710 (-SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall GetCustomFlickPath(GUID *Guid, PUNICODE_STRING Destination)
 {
   BOOL v4; // ebx

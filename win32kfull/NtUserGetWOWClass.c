@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserGetWOWClass @ 0x1C01D5400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _GetWOWClass @ 0x1C01BF328 (_GetWOWClass.c)
+ */
+
 _QWORD *__fastcall NtUserGetWOWClass(__int64 a1, ULONG64 a2, __int64 a3)
 {
   ULONG64 v3; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of RegistryWriteCurrentTime @ 0x1C004DD78
+ * Callers:
+ *     LogDriverInfoStream @ 0x1C004D7C4 (LogDriverInfoStream.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ *     WPP_IFR_SF_D @ 0x1C0017F78 (WPP_IFR_SF_D.c)
+ */
+
 void __fastcall RegistryWriteCurrentTime(_FX_DRIVER_GLOBALS *DriverGlobals)
 {
   NTSTATUS v2; // eax

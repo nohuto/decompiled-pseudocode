@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vOrderStupid@BLTRECORD@@QEAAXPEAVERECTL@@@Z @ 0x1C0091AA8
+ * Callers:
+ *     ?bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C00912D0 (-bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall BLTRECORD::vOrderStupid(BLTRECORD *this, struct ERECTL *a2)
 {
   int v2; // r8d

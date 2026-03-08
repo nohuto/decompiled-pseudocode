@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmCancelExitLatencyTrace @ 0x1403A7EC8
+ * Callers:
+ *     KdPowerTransitionEx @ 0x1403A7D80 (KdPowerTransitionEx.c)
+ *     PpmIdleCompleteExitLatencyTrace @ 0x1405828E8 (PpmIdleCompleteExitLatencyTrace.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PpmCancelExitLatencyTrace(__int64 a1)
 {
   __int64 v1; // r8

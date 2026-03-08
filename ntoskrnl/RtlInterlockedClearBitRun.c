@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlInterlockedClearBitRun @ 0x14035E550
+ * Callers:
+ *     MiLogPinDriverAddressesWorker @ 0x1407EB6F0 (MiLogPinDriverAddressesWorker.c)
+ *     EtwpFreeUserBufferSpace @ 0x1409ED07C (EtwpFreeUserBufferSpace.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall RtlInterlockedClearBitRun(__int64 a1, unsigned int a2, unsigned int a3)
 {
   unsigned int v3; // r9d

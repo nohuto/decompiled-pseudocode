@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhValidateMsOs20ConfigurationSubset @ 0x1C00528D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0023880 (memset.c)
+ *     UsbhGetNextMsOs20Descriptor @ 0x1C00336F0 (UsbhGetNextMsOs20Descriptor.c)
+ */
+
 char __fastcall UsbhValidateMsOs20ConfigurationSubset(
         __int64 a1,
         _DWORD *a2,

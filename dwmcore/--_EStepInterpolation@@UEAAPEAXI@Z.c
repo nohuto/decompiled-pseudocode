@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_EStepInterpolation@@UEAAPEAXI@Z @ 0x1800DF240
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801046B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ */
+
 StepInterpolation *__fastcall StepInterpolation::`vector deleting destructor'(StepInterpolation *this, char a2)
 {
   HANDLE ProcessHeap; // rax

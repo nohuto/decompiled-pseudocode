@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpTimerInitializeProfiling @ 0x140377960
+ * Callers:
+ *     HalpTimerInitSystem @ 0x1403776D0 (HalpTimerInitSystem.c)
+ * Callees:
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     HalpMmAllocatePerProcessorMemory @ 0x140374B44 (HalpMmAllocatePerProcessorMemory.c)
+ *     HalpTimerConfigureInterrupt @ 0x140379C34 (HalpTimerConfigureInterrupt.c)
+ *     HalpInterruptSetIdtEntry @ 0x140379F10 (HalpInterruptSetIdtEntry.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpTimerInitializeProfiling(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

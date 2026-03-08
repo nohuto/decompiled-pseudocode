@@ -1,3 +1,15 @@
+/*
+ * XREFs of VidSchiCompleteRewindPacket @ 0x1C00107E8
+ * Callers:
+ *     VidSchiProcessDpcCompletedPacket @ 0x1C0004B90 (VidSchiProcessDpcCompletedPacket.c)
+ *     VidSchiProcessDpcPreemptedPacket @ 0x1C000FCEC (VidSchiProcessDpcPreemptedPacket.c)
+ *     VidSchiRewindPacket @ 0x1C0010730 (VidSchiRewindPacket.c)
+ * Callees:
+ *     VidSchiUpdateContextStatus @ 0x1C0008230 (VidSchiUpdateContextStatus.c)
+ *     VidSchiSetNextRunPacket @ 0x1C0010A40 (VidSchiSetNextRunPacket.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall VidSchiCompleteRewindPacket(__int64 a1, int a2)
 {
   __int64 v2; // rbp

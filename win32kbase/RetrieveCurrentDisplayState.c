@@ -1,3 +1,12 @@
+/*
+ * XREFs of RetrieveCurrentDisplayState @ 0x1C000FEC8
+ * Callers:
+ *     SetProtocolType @ 0x1C000FE10 (SetProtocolType.c)
+ *     Win32kBaseDriverEntry @ 0x1C0320F10 (Win32kBaseDriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 RetrieveCurrentDisplayState()
 {
   __int64 v0; // rdx

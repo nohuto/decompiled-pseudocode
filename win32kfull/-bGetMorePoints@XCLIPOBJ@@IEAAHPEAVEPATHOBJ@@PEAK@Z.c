@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bGetMorePoints@XCLIPOBJ@@IEAAHPEAVEPATHOBJ@@PEAK@Z @ 0x1C02DB20C
+ * Callers:
+ *     ?bGetLine@XCLIPOBJ@@IEAAHPEAVEPATHOBJ@@PEBK@Z @ 0x1C02DB0F4 (-bGetLine@XCLIPOBJ@@IEAAHPEAVEPATHOBJ@@PEBK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall XCLIPOBJ::bGetMorePoints(XCLIPOBJ *this, struct EPATHOBJ *a2, unsigned int *a3)
 {
   __int64 v3; // r9

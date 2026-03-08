@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiInitializeSharedUserData @ 0x140B68D24
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KasanTrackAddress @ 0x1402EA400 (KasanTrackAddress.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     HvlGetSharedPageVa @ 0x1402F9564 (HvlGetSharedPageVa.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     KasanMarkAddressRedZone @ 0x1403A6B90 (KasanMarkAddressRedZone.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 MiInitializeSharedUserData()
 {
   unsigned __int64 v0; // rsi

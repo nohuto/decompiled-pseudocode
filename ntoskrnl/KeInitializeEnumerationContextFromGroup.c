@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeInitializeEnumerationContextFromGroup @ 0x140457F80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KeInitializeEnumerationContextFromGroup(__int64 a1, __int64 *a2)
 {
   __int64 v2; // r8

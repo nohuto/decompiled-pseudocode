@@ -1,3 +1,17 @@
+/*
+ * XREFs of HUBHTX_Get20PortChangeEvent @ 0x1C0004C30
+ * Callers:
+ *     HUBPSM20_EnablingInterruptsAndGettingPortEvent @ 0x1C0012980 (HUBPSM20_EnablingInterruptsAndGettingPortEvent.c)
+ *     HUBPSM20_GettingPortChangeEventInSuspended @ 0x1C0012D50 (HUBPSM20_GettingPortChangeEventInSuspended.c)
+ * Callees:
+ *     McTemplateK0qhhhqhhh_EtwWriteTransfer @ 0x1C00024BC (McTemplateK0qhhhqhhh_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_dDDD @ 0x1C0002FBC (WPP_RECORDER_SF_dDDD.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C0032FCC (HUBMISC_VerifierDbgBreak.c)
+ *     HUBREG_UpdateSqmHubOvercurrentDetected @ 0x1C0034B00 (HUBREG_UpdateSqmHubOvercurrentDetected.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBHTX_Get20PortChangeEvent(__int64 a1)
 {
   _QWORD *v1; // r14

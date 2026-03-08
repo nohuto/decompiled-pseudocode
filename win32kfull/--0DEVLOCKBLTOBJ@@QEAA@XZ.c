@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C007FC08
+ * Callers:
+ *     GreMaskBlt @ 0x1C007F6E8 (GreMaskBlt.c)
+ *     NtGdiTransparentBlt @ 0x1C029A1B0 (NtGdiTransparentBlt.c)
+ * Callees:
+ *     <none>
+ */
+
 DEVLOCKBLTOBJ *__fastcall DEVLOCKBLTOBJ::DEVLOCKBLTOBJ(DEVLOCKBLTOBJ *this)
 {
   *((_QWORD *)this + 5) = 0LL;

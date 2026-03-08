@@ -1,3 +1,15 @@
+/*
+ * XREFs of WerKernelSubmitReportForHungProcess @ 0x1C0251D44
+ * Callers:
+ *     _lambda_ee4856d16542b31eb6609ee4cd7f16f7_::_lambda_invoker_cdecl_ @ 0x1C021F680 (_lambda_ee4856d16542b31eb6609ee4cd7f16f7_--_lambda_invoker_cdecl_.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     WerStartSystemErrorHandler @ 0x1C02520C0 (WerStartSystemErrorHandler.c)
+ *     WerWaitForSystemErrorHandler @ 0x1C02521F8 (WerWaitForSystemErrorHandler.c)
+ *     WerpAllocateAndInitializeSid @ 0x1C02522CC (WerpAllocateAndInitializeSid.c)
+ */
+
 __int64 __fastcall WerKernelSubmitReportForHungProcess(int a1, int a2, int a3)
 {
   int v6; // ebx

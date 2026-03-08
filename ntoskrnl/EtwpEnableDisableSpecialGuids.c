@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpEnableDisableSpecialGuids @ 0x14068FF34
+ * Callers:
+ *     EtwpEnableGuid @ 0x14068EEBC (EtwpEnableGuid.c)
+ * Callees:
+ *     EtwpEnableDisableUMGL @ 0x1409E4568 (EtwpEnableDisableUMGL.c)
+ *     EtwpCheckGuidAccessAndDoRundown @ 0x1409EBA08 (EtwpCheckGuidAccessAndDoRundown.c)
+ *     EtwpCheckLoggerAccessAndDoRundown @ 0x1409EBB50 (EtwpCheckLoggerAccessAndDoRundown.c)
+ *     EtwpLogFileNameRundown @ 0x1409EBE4C (EtwpLogFileNameRundown.c)
+ */
+
 __int64 __fastcall EtwpEnableDisableSpecialGuids(
         __int64 a1,
         __int64 *a2,

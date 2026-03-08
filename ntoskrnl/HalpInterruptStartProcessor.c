@@ -1,3 +1,22 @@
+/*
+ * XREFs of HalpInterruptStartProcessor @ 0x140A86180
+ * Callers:
+ *     HalStartNextProcessor @ 0x140371EB0 (HalStartNextProcessor.c)
+ *     HalStartDynamicProcessor @ 0x140502C20 (HalStartDynamicProcessor.c)
+ *     HalpDpStartProcessor @ 0x140A94AF4 (HalpDpStartProcessor.c)
+ *     HalpBlkStartBlockedProcessor @ 0x140A9564C (HalpBlkStartBlockedProcessor.c)
+ * Callees:
+ *     HalpSetProcessorStateByNtIndex @ 0x140371C1C (HalpSetProcessorStateByNtIndex.c)
+ *     HalpInterruptSetProcessorStartContext @ 0x140371C70 (HalpInterruptSetProcessorStartContext.c)
+ *     HalpInterruptWaitForProcessorStartUp @ 0x140371CE4 (HalpInterruptWaitForProcessorStartUp.c)
+ *     HalpInterruptGetNextProcessorLocalId @ 0x140371D58 (HalpInterruptGetNextProcessorLocalId.c)
+ *     HalpHvVpStartEnabled @ 0x140372950 (HalpHvVpStartEnabled.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ *     HalpHvStartProcessor @ 0x140518EF8 (HalpHvStartProcessor.c)
+ *     HalpMmUpdateTiledMemoryMapTargetStub @ 0x1405190D8 (HalpMmUpdateTiledMemoryMapTargetStub.c)
+ */
+
 __int64 __fastcall HalpInterruptStartProcessor(unsigned int a1, int a2, char a3, const void *a4)
 {
   unsigned int v4; // edi

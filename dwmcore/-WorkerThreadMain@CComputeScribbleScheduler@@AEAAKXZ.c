@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?WorkerThreadMain@CComputeScribbleScheduler@@AEAAKXZ @ 0x180200E20
+ * Callers:
+ *     _lambda_519802986d06bbdf622f922bf8fedd22_::_lambda_invoker_cdecl_ @ 0x1801FEDB0 (_lambda_519802986d06bbdf622f922bf8fedd22_--_lambda_invoker_cdecl_.c)
+ * Callees:
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800FF6C0 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B44D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
 __int64 __fastcall CComputeScribbleScheduler::WorkerThreadMain(CComputeScribbleScheduler *this)
 {
   __int64 *v1; // rbx

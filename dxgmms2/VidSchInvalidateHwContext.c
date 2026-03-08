@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchInvalidateHwContext @ 0x1C0044390
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VidSchMarkDeviceAsError @ 0x1C0014AF0 (VidSchMarkDeviceAsError.c)
+ *     McTemplateK0dp_EtwWriteTransfer @ 0x1C0037D00 (McTemplateK0dp_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall VidSchInvalidateHwContext(__int64 a1, char a2)
 {
   __int64 v2; // rsi

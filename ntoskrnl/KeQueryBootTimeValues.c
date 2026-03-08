@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeQueryBootTimeValues @ 0x1402E3FEC
+ * Callers:
+ *     PipUpdateDeviceProducts @ 0x140389620 (PipUpdateDeviceProducts.c)
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ *     PipHardwareConfigInit @ 0x140B694FC (PipHardwareConfigInit.c)
+ *     EtwpInitializeBootTimeStamps @ 0x140B70ED8 (EtwpInitializeBootTimeStamps.c)
+ *     EtwpFixBootSystemTime @ 0x140B942D0 (EtwpFixBootSystemTime.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeQueryBootTimeValues(_QWORD *a1, LARGE_INTEGER *a2, _QWORD *a3)
 {
   unsigned __int8 CurrentIrql; // bl

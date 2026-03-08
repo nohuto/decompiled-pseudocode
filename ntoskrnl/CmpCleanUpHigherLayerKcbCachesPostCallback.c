@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpCleanUpHigherLayerKcbCachesPostCallback @ 0x140A1CB30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CmpCleanUpKCBCacheTable @ 0x14074B9E4 (CmpCleanUpKCBCacheTable.c)
+ */
+
 __int64 __fastcall CmpCleanUpHigherLayerKcbCachesPostCallback(__int64 a1)
 {
   CmpCleanUpKCBCacheTable(*(_QWORD *)(a1 + 32));

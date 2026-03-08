@@ -1,3 +1,21 @@
+/*
+ * XREFs of HmgLockEx @ 0x1C004AED0
+ * Callers:
+ *     GreLockRegion @ 0x1C000B4A0 (GreLockRegion.c)
+ *     GreMakeBitmapNonStock @ 0x1C001D190 (GreMakeBitmapNonStock.c)
+ *     ?vLockIgnoreAttributes@XDCOBJ@@QEAAXPEAUHDC__@@@Z @ 0x1C0052C24 (-vLockIgnoreAttributes@XDCOBJ@@QEAAXPEAUHDC__@@@Z.c)
+ *     ?vCleanupRegions@@YAXK@Z @ 0x1C006DC30 (-vCleanupRegions@@YAXK@Z.c)
+ *     ?LockLogicalSurfaceObj@SFMLOGICALSURFACEREF@@AEAAXPEAUHLSURF__@@@Z @ 0x1C0186A88 (-LockLogicalSurfaceObj@SFMLOGICALSURFACEREF@@AEAAXPEAUHLSURF__@@@Z.c)
+ *     EngDeleteDriverObj @ 0x1C0197F40 (EngDeleteDriverObj.c)
+ *     EngLockDriverObj @ 0x1C0198060 (EngLockDriverObj.c)
+ *     EngUnlockDriverObj @ 0x1C0198090 (EngUnlockDriverObj.c)
+ * Callees:
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C004A440 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?pObj@HANDLELOCK@@QEAAPEAVOBJECT@@XZ @ 0x1C004B3B0 (-pObj@HANDLELOCK@@QEAAPEAVOBJECT@@XZ.c)
+ *     ?GetEntryObject@GdiHandleEntryTable@@QEAAPEAVOBJECT@@I@Z @ 0x1C004B580 (-GetEntryObject@GdiHandleEntryTable@@QEAAPEAVOBJECT@@I@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C004B5B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ */
+
 __int64 __fastcall HmgLockEx(unsigned int a1, char a2, int a3)
 {
   __int64 v4; // rbx

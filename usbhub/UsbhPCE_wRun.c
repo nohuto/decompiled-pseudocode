@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhPCE_wRun @ 0x1C0004288
+ * Callers:
+ *     UsbhWaitEventWithTimeoutEx @ 0x1C00068E0 (UsbhWaitEventWithTimeoutEx.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0014330 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ */
+
 LONG __fastcall UsbhPCE_wRun(__int64 a1, int a2, __int64 a3)
 {
   int v5; // esi

@@ -1,3 +1,17 @@
+/*
+ * XREFs of MmEnableOrDisableVerifierForDriver @ 0x140AE503C
+ * Callers:
+ *     VfAddVerifierEntry @ 0x140ADA630 (VfAddVerifierEntry.c)
+ *     VfVolatileApplyDifVerification @ 0x140ADAA10 (VfVolatileApplyDifVerification.c)
+ *     VfVolatileRemoveDifVerification @ 0x140ADAB38 (VfVolatileRemoveDifVerification.c)
+ * Callees:
+ *     MmAcquireLoadLock @ 0x1407D2360 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x1407D2400 (MmReleaseLoadLock.c)
+ *     VfDriverApplyDifVerification @ 0x140AC72D8 (VfDriverApplyDifVerification.c)
+ *     VfDriverEnableVerifier @ 0x140AC7498 (VfDriverEnableVerifier.c)
+ *     VfDriverRemoveDifVerification @ 0x140AC7778 (VfDriverRemoveDifVerification.c)
+ */
+
 __int64 __fastcall MmEnableOrDisableVerifierForDriver(__int64 a1, _DWORD *a2, char a3)
 {
   unsigned int v3; // ebx

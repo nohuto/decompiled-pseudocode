@@ -1,3 +1,12 @@
+/*
+ * XREFs of UserDispatchMITCompletion @ 0x1C007DB68
+ * Callers:
+ *     NtMITDispatchCompletion @ 0x1C007DC50 (NtMITDispatchCompletion.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?Dispatch@IOCPDispatcher@@QEAAXW4WaitCompletionPacketPurpose@@K@Z @ 0x1C007C030 (-Dispatch@IOCPDispatcher@@QEAAXW4WaitCompletionPacketPurpose@@K@Z.c)
+ */
+
 void __fastcall UserDispatchMITCompletion(int a1, unsigned int a2)
 {
   unsigned int v2; // edi

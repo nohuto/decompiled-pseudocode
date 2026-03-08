@@ -1,3 +1,11 @@
+/*
+ * XREFs of vGetFontDriverLWT @ 0x1C00B8340
+ * Callers:
+ *     InitFNTCache @ 0x1C00B9300 (InitFNTCache.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall vGetFontDriverLWT(__int64 *a1, __int64 *a2)
 {
   __int64 result; // rax

@@ -1,3 +1,23 @@
+/*
+ * XREFs of DpiReadPnpRegistryValue @ 0x1C01F1618
+ * Callers:
+ *     ?UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHIPEAU_GDIINFO@@PEAU_DPI_INFORMATION@@@Z @ 0x1C0169828 (-UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHIPEAU_GDIINFO@@PEAU_DPI_INFORMATIO.c)
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01EDF54 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
+ *     ?Initialize@ADAPTER_DISPLAY@@QEAAJXZ @ 0x1C01F05EC (-Initialize@ADAPTER_DISPLAY@@QEAAJXZ.c)
+ *     ?_ReadConfiguration@VIDPN_MGR@@AEAAJXZ @ 0x1C01F120C (-_ReadConfiguration@VIDPN_MGR@@AEAAJXZ.c)
+ *     DpiAddDevice @ 0x1C01F38A0 (DpiAddDevice.c)
+ *     DpiFdoHandleStartDevice @ 0x1C01F6860 (DpiFdoHandleStartDevice.c)
+ *     ??0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z @ 0x1C02067E8 (--0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z.c)
+ *     DpiFdoIsCompatibleWithHighResolutionBoot @ 0x1C021A664 (DpiFdoIsCompatibleWithHighResolutionBoot.c)
+ *     ?OemSpecifiedViewDist@@YAIQEAX@Z @ 0x1C02FDE7C (-OemSpecifiedViewDist@@YAIQEAX@Z.c)
+ *     ?OemSpecifiedViewDist@Win81@@YAIQEAX@Z @ 0x1C031CB78 (-OemSpecifiedViewDist@Win81@@YAIQEAX@Z.c)
+ *     DpiQueryAdapterRegistryInfo @ 0x1C0394FE4 (DpiQueryAdapterRegistryInfo.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiOpenPnpRegistryKey @ 0x1C01F1750 (DpiOpenPnpRegistryKey.c)
+ */
+
 __int64 __fastcall DpiReadPnpRegistryValue(__int64 a1, const WCHAR *a2, char *a3, unsigned int a4, unsigned int a5)
 {
   unsigned int *Pool2; // rsi

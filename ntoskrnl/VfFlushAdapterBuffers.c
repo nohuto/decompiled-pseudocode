@@ -1,3 +1,19 @@
+/*
+ * XREFs of VfFlushAdapterBuffers @ 0x140AC2DD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     VF_ASSERT_MAX_IRQL @ 0x140AC172C (VF_ASSERT_MAX_IRQL.c)
+ *     ViFlushDoubleBuffer @ 0x140AC58D4 (ViFlushDoubleBuffer.c)
+ *     ViGetAdapterInformationInternal @ 0x140AC5E44 (ViGetAdapterInformationInternal.c)
+ *     ViGetMapRegisterFile @ 0x140AC601C (ViGetMapRegisterFile.c)
+ *     ViGetRealDmaAdapter @ 0x140AC6158 (ViGetRealDmaAdapter.c)
+ *     ViHalPreprocessOptions @ 0x140AC62F4 (ViHalPreprocessOptions.c)
+ *     ViSwap @ 0x140AC7104 (ViSwap.c)
+ */
+
 char __fastcall VfFlushAdapterBuffers(int a1, ULONG_PTR a2, const void *a3, const void *a4, int a5, char a6)
 {
   __int64 AdapterInformationInternal; // rbp

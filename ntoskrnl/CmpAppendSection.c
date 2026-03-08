@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpAppendSection @ 0x140B5C310
+ * Callers:
+ *     CmpParseInfBuffer @ 0x140B5BC3C (CmpParseInfBuffer.c)
+ * Callees:
+ *     _stricmp @ 0x1403D3BD0 (_stricmp.c)
+ *     _strnicmp @ 0x1403D3C80 (_strnicmp.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 char __fastcall CmpAppendSection(__int64 a1, __int64 a2, char a3)
 {
   _QWORD *v6; // rbx

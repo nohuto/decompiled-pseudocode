@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpQueryProcessorInformationCounters @ 0x14086C350
+ * Callers:
+ *     ExProcessorCounterSetCallback @ 0x14086BB50 (ExProcessorCounterSetCallback.c)
+ * Callees:
+ *     PoGetIdleTimes @ 0x140236ABC (PoGetIdleTimes.c)
+ *     PoGetPerfStateAndParkingInfo @ 0x1402F74A8 (PoGetPerfStateAndParkingInfo.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall ExpQueryProcessorInformationCounters(__int64 a1, char a2, char a3, char a4, __int64 a5)
 {
   __int64 v8; // rcx

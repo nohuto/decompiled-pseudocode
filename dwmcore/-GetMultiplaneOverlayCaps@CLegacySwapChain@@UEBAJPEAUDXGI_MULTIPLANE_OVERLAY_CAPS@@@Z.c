@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?GetMultiplaneOverlayCaps@CLegacySwapChain@@UEBAJPEAUDXGI_MULTIPLANE_OVERLAY_CAPS@@@Z @ 0x180100730
+ * Callers:
+ *     ?GetMultiplaneOverlayCaps@CLegacySwapChain@@$4PPPPPPPM@BLA@EBAJPEAUDXGI_MULTIPLANE_OVERLAY_CAPS@@@Z @ 0x18011B710 (-GetMultiplaneOverlayCaps@CLegacySwapChain@@$4PPPPPPPM@BLA@EBAJPEAUDXGI_MULTIPLANE_OVERLAY_CAPS@.c)
+ *     ?GetMultiplaneOverlayCaps@CConversionSwapChain@@UEBAJPEAUDXGI_MULTIPLANE_OVERLAY_CAPS@@@Z @ 0x18029EC30 (-GetMultiplaneOverlayCaps@CConversionSwapChain@@UEBAJPEAUDXGI_MULTIPLANE_OVERLAY_CAPS@@@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CLegacySwapChain::GetMultiplaneOverlayCaps(
         CLegacySwapChain *this,
         struct DXGI_MULTIPLANE_OVERLAY_CAPS *a2)

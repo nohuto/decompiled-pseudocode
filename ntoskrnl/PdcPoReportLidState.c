@@ -1,3 +1,14 @@
+/*
+ * XREFs of PdcPoReportLidState @ 0x140994A70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopSetPowerSettingValueAcDc @ 0x14073BE70 (PopSetPowerSettingValueAcDc.c)
+ *     PopPowerAggregatorForceSessionSwitch @ 0x140990844 (PopPowerAggregatorForceSessionSwitch.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PdcPoReportLidState(int a1)
 {
   char v1; // di

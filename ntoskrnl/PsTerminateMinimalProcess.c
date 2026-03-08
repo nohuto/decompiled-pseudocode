@@ -1,3 +1,17 @@
+/*
+ * XREFs of PsTerminateMinimalProcess @ 0x1409B08B0
+ * Callers:
+ *     SmTerminateStoreProcess @ 0x1405C77C8 (SmTerminateStoreProcess.c)
+ *     PspTeardownPartition @ 0x1409B3730 (PspTeardownPartition.c)
+ *     VmTerminateMemoryProcess @ 0x1409D9DD0 (VmTerminateMemoryProcess.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PspRundownSingleProcess @ 0x1406F8160 (PspRundownSingleProcess.c)
+ */
+
 bool __fastcall PsTerminateMinimalProcess(PRKPROCESS PROCESS, int a2)
 {
   struct _KTHREAD *CurrentThread; // r15

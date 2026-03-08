@@ -1,3 +1,21 @@
+/*
+ * XREFs of BiAddStoreFromFile @ 0x14082BDE4
+ * Callers:
+ *     BiLoadSystemStore @ 0x14082B7EC (BiLoadSystemStore.c)
+ *     BcdOpenStore @ 0x14082C814 (BcdOpenStore.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     BiSetRegistryValue @ 0x14082D198 (BiSetRegistryValue.c)
+ *     BiCreateKey @ 0x14082D580 (BiCreateKey.c)
+ *     BiOpenKey @ 0x14082E7AC (BiOpenKey.c)
+ *     BiCloseKey @ 0x14082E938 (BiCloseKey.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiLoadHive @ 0x1408306AC (BiLoadHive.c)
+ *     BiDoesHiveKeyExist @ 0x140A59FF0 (BiDoesHiveKeyExist.c)
+ *     BiUnloadHiveByName @ 0x140A5A134 (BiUnloadHiveByName.c)
+ */
+
 __int64 __fastcall BiAddStoreFromFile(__int64 a1, char a2, _QWORD *a3)
 {
   int v6; // esi

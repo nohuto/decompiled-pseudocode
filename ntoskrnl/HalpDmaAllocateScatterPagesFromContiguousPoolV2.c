@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpDmaAllocateScatterPagesFromContiguousPoolV2 @ 0x14051385C
+ * Callers:
+ *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x1404FF03C (HalpDmaAllocateScatterPagesFromContiguousPool.c)
+ * Callees:
+ *     RtlFindClearBitsAndSet @ 0x14030CEE0 (RtlFindClearBitsAndSet.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlNumberOfSetBits @ 0x14035C520 (RtlNumberOfSetBits.c)
+ *     HalpDmaIndexToTranslationEntry @ 0x1404540DE (HalpDmaIndexToTranslationEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpDmaAllocateScatterPagesFromContiguousPoolV2(
         __int64 a1,
         __int64 a2,

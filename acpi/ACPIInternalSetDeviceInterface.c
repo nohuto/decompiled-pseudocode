@@ -1,3 +1,17 @@
+/*
+ * XREFs of ACPIInternalSetDeviceInterface @ 0x1C002EF0C
+ * Callers:
+ *     ACPICMButtonStartWorker @ 0x1C0018F20 (ACPICMButtonStartWorker.c)
+ *     ACPIProcessorStartDeviceWorker @ 0x1C003A1C0 (ACPIProcessorStartDeviceWorker.c)
+ *     ACPIButtonStartDevice @ 0x1C00820B0 (ACPIButtonStartDevice.c)
+ *     ACPIFanStartDevice @ 0x1C0085270 (ACPIFanStartDevice.c)
+ *     ACPIRootInitialize @ 0x1C0093768 (ACPIRootInitialize.c)
+ *     ACPIThermalStartDevice @ 0x1C0095DD0 (ACPIThermalStartDevice.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ */
+
 __int64 __fastcall ACPIInternalSetDeviceInterface(PDEVICE_OBJECT PhysicalDeviceObject, GUID *InterfaceClassGuid)
 {
   _QWORD *DeviceExtension; // rbx

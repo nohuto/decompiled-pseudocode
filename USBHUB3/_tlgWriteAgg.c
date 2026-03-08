@@ -1,3 +1,12 @@
+/*
+ * XREFs of _tlgWriteAgg @ 0x1C00447BC
+ * Callers:
+ *     HUBPDO_ReportDeviceFailure @ 0x1C001B588 (HUBPDO_ReportDeviceFailure.c)
+ *     HUBREG_QueryHubErrataFlags @ 0x1C0084F64 (HUBREG_QueryHubErrataFlags.c)
+ * Callees:
+ *     InsertEventEntryInLookUpTable @ 0x1C0044208 (InsertEventEntryInLookUpTable.c)
+ */
+
 NTSTATUS __fastcall tlgWriteAgg(
         __int64 a1,
         unsigned __int8 *a2,

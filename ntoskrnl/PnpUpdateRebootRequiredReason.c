@@ -1,3 +1,15 @@
+/*
+ * XREFs of PnpUpdateRebootRequiredReason @ 0x140955E50
+ * Callers:
+ *     PipProcessStartPhase2 @ 0x1406817A0 (PipProcessStartPhase2.c)
+ *     PiDevCfgProcessDevice @ 0x140873308 (PiDevCfgProcessDevice.c)
+ *     PnpReallocateResources @ 0x14096A5D8 (PnpReallocateResources.c)
+ *     PipProcessRestartPhase2 @ 0x14096C498 (PipProcessRestartPhase2.c)
+ * Callees:
+ *     _PnpSetObjectProperty @ 0x140686C8C (_PnpSetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ */
+
 __int64 __fastcall PnpUpdateRebootRequiredReason(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

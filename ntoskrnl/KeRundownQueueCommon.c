@@ -1,3 +1,19 @@
+/*
+ * XREFs of KeRundownQueueCommon @ 0x140292D44
+ * Callers:
+ *     KeRundownQueueEx @ 0x140292C14 (KeRundownQueueEx.c)
+ *     KeRundownPriQueue @ 0x14057C5D0 (KeRundownPriQueue.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KiTryUnwaitThread @ 0x140258880 (KiTryUnwaitThread.c)
+ *     KiWakeOtherQueueWaiters @ 0x140293BF4 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x140340700 (KiWakeQueueWaiter.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeIsThreadRunning @ 0x14056C7FC (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405FA8FC (EtwTraceEnqueueWork.c)
+ */
+
 void __fastcall KeRundownQueueCommon(__int64 a1, volatile signed __int32 **a2, _DWORD *a3, unsigned int a4, int a5)
 {
   __int64 v6; // rsi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DisplayID_GetColorimetryData@@YAJPEBUDisplayIDObj@@PEAUDISPLAYID_COLORIMETRY_DATA@@PEAUDISPLAY_COLOR_DEPTHS@@@Z @ 0x1C00727B0
+ * Callers:
+ *     ?GetBasicDisplayParams@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAU_WmiMonitorBasicDisplayParams@@@Z @ 0x1C03CBD50 (-GetBasicDisplayParams@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAU_WmiMonitorBasicDisplayPa.c)
+ *     ?GetColorimetryData@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAUDISPLAY_COLORIMETRY_DATA@@AEAUDISPLAY_COLOR_DEPTHS@@@Z @ 0x1C03CBEE0 (-GetColorimetryData@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAUDISPLAY_COLORIMETRY_DATA@@AE.c)
+ *     ?IsEotf2084Supported@DisplayIdMonitorDescriptor@DxgMonitor@@UEBA_NXZ @ 0x1C03CC150 (-IsEotf2084Supported@DisplayIdMonitorDescriptor@DxgMonitor@@UEBA_NXZ.c)
+ * Callees:
+ *     ?DisplayID_GetBlock@@YAJAEBUDisplayIDObj@@W4_DISPLAYID_DATA_BLOCK_TYPE@@AEAPEBU_DISPLAYID_BLOCK_HEADER@@@Z @ 0x1C0072A9C (-DisplayID_GetBlock@@YAJAEBUDisplayIDObj@@W4_DISPLAYID_DATA_BLOCK_TYPE@@AEAPEBU_DISPLAYID_BLOCK_.c)
+ */
+
 __int64 __fastcall DisplayID_GetColorimetryData(
         const struct DisplayIDObj *a1,
         struct DISPLAYID_COLORIMETRY_DATA *a2,

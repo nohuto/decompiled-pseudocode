@@ -1,3 +1,25 @@
+/*
+ * XREFs of PspInitPhase1 @ 0x140B422C8
+ * Callers:
+ *     PsInitSystem @ 0x140B42F74 (PsInitSystem.c)
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     strcpy_s @ 0x1403D9D10 (strcpy_s.c)
+ *     KeBugCheck @ 0x140415FE0 (KeBugCheck.c)
+ *     VslRegisterSecureSystemProcess @ 0x140549E3C (VslRegisterSecureSystemProcess.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ObInsertObject @ 0x1407F0A20 (ObInsertObject.c)
+ *     PsCreateMinimalProcess @ 0x140817C28 (PsCreateMinimalProcess.c)
+ *     PspInitializeOctagonExtensionHost @ 0x140B42368 (PspInitializeOctagonExtensionHost.c)
+ *     PspInitializeSecExtensionHost @ 0x140B423C0 (PspInitializeSecExtensionHost.c)
+ *     PspInitializeDesktopActivityModeratorCallouts @ 0x140B42418 (PspInitializeDesktopActivityModeratorCallouts.c)
+ *     PspInitializeMMCSSCallouts @ 0x140B42470 (PspInitializeMMCSSCallouts.c)
+ *     PspInitializeHwTraceCallouts @ 0x140B424D0 (PspInitializeHwTraceCallouts.c)
+ *     PspInitializeBackgroundActivityModeratorCallouts @ 0x140B42530 (PspInitializeBackgroundActivityModeratorCallouts.c)
+ *     PspInitializeCpuPartitionsPhase1 @ 0x140B42590 (PspInitializeCpuPartitionsPhase1.c)
+ *     PspInitializeNetRateControl @ 0x140B42660 (PspInitializeNetRateControl.c)
+ */
+
 bool PspInitPhase1()
 {
   bool result; // al

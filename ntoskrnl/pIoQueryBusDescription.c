@@ -1,3 +1,25 @@
+/*
+ * XREFs of pIoQueryBusDescription @ 0x14077FF18
+ * Callers:
+ *     IoQueryDeviceDescription @ 0x14077F960 (IoQueryDeviceDescription.c)
+ *     pIoQueryBusDescription @ 0x14077FF18 (pIoQueryBusDescription.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcsncmp @ 0x1403D5ED0 (wcsncmp.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwEnumerateKey @ 0x140412950 (ZwEnumerateKey.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     pIoQueryDeviceDescription @ 0x14077FA74 (pIoQueryDeviceDescription.c)
+ *     pIoQueryBusDescription @ 0x14077FF18 (pIoQueryBusDescription.c)
+ *     IopGetRegistryKeyInformation @ 0x140780288 (IopGetRegistryKeyInformation.c)
+ *     IopOpenRegistryKey @ 0x1407803E0 (IopOpenRegistryKey.c)
+ *     IopGetRegistryValues @ 0x1407804F8 (IopGetRegistryValues.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall pIoQueryBusDescription(unsigned int **a1, UNICODE_STRING *a2, void *a3, unsigned int *a4, char a5)
 {
   __int64 result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?NotifyAllocationEvicted@VIDMM_DEVICE@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C00B2884
+ * Callers:
+ *     ?UnreferencePinnedAllocation@VIDMM_DEVICE@@QEAA_NPEAUVIDMM_ALLOC@@_N@Z @ 0x1C00B2528 (-UnreferencePinnedAllocation@VIDMM_DEVICE@@QEAA_NPEAUVIDMM_ALLOC@@_N@Z.c)
+ *     ?UnreferenceAllocationList@VIDMM_DEVICE@@QEAAXPEAPEAUVIDMM_ALLOC@@_KPEA_K@Z @ 0x1C00B2774 (-UnreferenceAllocationList@VIDMM_DEVICE@@QEAAXPEAPEAUVIDMM_ALLOC@@_KPEA_K@Z.c)
+ * Callees:
+ *     VidMmiShouldChargeAllocationAgainstBudget @ 0x1C00900F8 (VidMmiShouldChargeAllocationAgainstBudget.c)
+ *     ?DecrementCurrentUsage@VIDMM_DEVICE@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C00B2900 (-DecrementCurrentUsage@VIDMM_DEVICE@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
+ */
+
 void __fastcall VIDMM_DEVICE::NotifyAllocationEvicted(VIDMM_DEVICE ***this, VIDMM_DEVICE ***a2)
 {
   VIDMM_DEVICE *v4; // rax

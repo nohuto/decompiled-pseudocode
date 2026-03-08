@@ -1,3 +1,20 @@
+/*
+ * XREFs of UsbhSetPdoRegistryParameter @ 0x1C0046D44
+ * Callers:
+ *     UsbhExtPropDescSemaphorePresent @ 0x1C0032980 (UsbhExtPropDescSemaphorePresent.c)
+ *     UsbhSetHubOvercurrentDetectedKey @ 0x1C0046CC0 (UsbhSetHubOvercurrentDetectedKey.c)
+ *     UsbhSetHubSelectiveSuspend @ 0x1C0046D00 (UsbhSetHubSelectiveSuspend.c)
+ *     UsbhSetPdoSelectiveSuspendedKey @ 0x1C0046E90 (UsbhSetPdoSelectiveSuspendedKey.c)
+ *     UsbhSetSqmEnumerationData @ 0x1C0046EC8 (UsbhSetSqmEnumerationData.c)
+ *     UsbhUpdateRegHubHardResetCount @ 0x1C0046F60 (UsbhUpdateRegHubHardResetCount.c)
+ *     UsbhSetWmiDataBlock @ 0x1C0049F40 (UsbhSetWmiDataBlock.c)
+ *     UsbhPdoCreateSymbolicLink @ 0x1C0054A60 (UsbhPdoCreateSymbolicLink.c)
+ *     UsbhPdo_ReportPnPFailureProblem @ 0x1C0056F88 (UsbhPdo_ReportPnPFailureProblem.c)
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x1C002EA5C (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003B830 (WPP_RECORDER_SF_S.c)
+ */
+
 __int64 __fastcall UsbhSetPdoRegistryParameter(
         PDEVICE_OBJECT DeviceObject,
         PCWSTR SourceString,

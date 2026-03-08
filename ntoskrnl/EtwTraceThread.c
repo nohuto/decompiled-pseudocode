@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwTraceThread @ 0x1407EBAB0
+ * Callers:
+ *     PspInsertThread @ 0x1406B0F50 (PspInsertThread.c)
+ *     PspExitThread @ 0x1407D9464 (PspExitThread.c)
+ * Callees:
+ *     PsGetProcessServerSilo @ 0x1402637E0 (PsGetProcessServerSilo.c)
+ *     PsGetIoPriorityThread @ 0x1402832C0 (PsGetIoPriorityThread.c)
+ *     PsGetPagePriorityThread @ 0x14028A290 (PsGetPagePriorityThread.c)
+ *     PsGetCurrentThreadTeb @ 0x14035E230 (PsGetCurrentThreadTeb.c)
+ *     EtwTraceSiloKernelEvent @ 0x14035EC20 (EtwTraceSiloKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpPsProvTraceThread @ 0x1409E372C (EtwpPsProvTraceThread.c)
+ */
+
 void __fastcall EtwTraceThread(__int64 a1, __int64 a2, char a3)
 {
   unsigned int v6; // r14d

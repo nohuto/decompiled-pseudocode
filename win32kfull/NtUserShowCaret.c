@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserShowCaret @ 0x1C00060A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     zzzShowCaret @ 0x1C0006108 (zzzShowCaret.c)
+ */
+
 __int64 __fastcall NtUserShowCaret(__int64 a1)
 {
   int v2; // ebx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlInitEnumerationHashTable @ 0x1402B8220
+ * Callers:
+ *     SepCleanupMarkedForDeletionEntries @ 0x1402B7F18 (SepCleanupMarkedForDeletionEntries.c)
+ *     RtlInitWeakEnumerationHashTable @ 0x1403D2000 (RtlInitWeakEnumerationHashTable.c)
+ *     SepFindMatchingLowBoxNumberEntries @ 0x1409CE86C (SepFindMatchingLowBoxNumberEntries.c)
+ *     SepRmDestroyCapTable @ 0x1409CF58C (SepRmDestroyCapTable.c)
+ * Callees:
+ *     RtlpPopulateContext @ 0x1402B8294 (RtlpPopulateContext.c)
+ */
+
 BOOLEAN __stdcall RtlInitEnumerationHashTable(
         PRTL_DYNAMIC_HASH_TABLE HashTable,
         PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator)

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpValidAttributeAce @ 0x140857A10
+ * Callers:
+ *     RtlValidAcl @ 0x1407BB670 (RtlValidAcl.c)
+ * Callees:
+ *     RtlpValidRelativeAttribute @ 0x140857A80 (RtlpValidRelativeAttribute.c)
+ */
+
 bool __fastcall RtlpValidAttributeAce(__int64 a1)
 {
   unsigned __int64 v1; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of _SetProgmanWindow @ 0x1C02332F0
+ * Callers:
+ *     NtUserSetProgmanWindow @ 0x1C01DD930 (NtUserSetProgmanWindow.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall SetProgmanWindow(__int64 a1)
 {
   __int64 *v1; // rax

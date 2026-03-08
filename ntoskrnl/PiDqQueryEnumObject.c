@@ -1,3 +1,16 @@
+/*
+ * XREFs of PiDqQueryEnumObject @ 0x1406CBF24
+ * Callers:
+ *     PiDqEnumQueryObjectsCallback @ 0x1406CBF00 (PiDqEnumQueryObjectsCallback.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x140746D28 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ * Callees:
+ *     PiDqQueryEvaluateFilter @ 0x1406CC524 (PiDqQueryEvaluateFilter.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x1406CDBDC (PiPnpRtlApplyMandatoryFilters.c)
+ *     PiDqQueryActionQueueEntryCreate @ 0x140747078 (PiDqQueryActionQueueEntryCreate.c)
+ *     PiDqQueryAppendActionEntry @ 0x140747108 (PiDqQueryAppendActionEntry.c)
+ *     PiDqQueryAddObjectToResultSet @ 0x140791724 (PiDqQueryAddObjectToResultSet.c)
+ */
+
 __int64 __fastcall PiDqQueryEnumObject(__int64 a1, __int64 a2)
 {
   __int64 v3; // rcx

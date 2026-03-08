@@ -1,3 +1,11 @@
+/*
+ * XREFs of BgpFwReserveAllocate @ 0x140384344
+ * Callers:
+ *     BgpFwAllocateMemory @ 0x140383BDC (BgpFwAllocateMemory.c)
+ * Callees:
+ *     RtlFindClearBitsAndSet @ 0x14030CEE0 (RtlFindClearBitsAndSet.c)
+ */
+
 __int64 __fastcall BgpFwReserveAllocate(__int64 a1)
 {
   unsigned __int64 v1; // rbx

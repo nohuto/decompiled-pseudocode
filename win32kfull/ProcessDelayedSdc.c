@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcessDelayedSdc @ 0x1C0129370
+ * Callers:
+ *     PowerOnGdi @ 0x1C0129280 (PowerOnGdi.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ProcessDelayedSdc(__int64 a1)
 {
   __int64 result; // rax

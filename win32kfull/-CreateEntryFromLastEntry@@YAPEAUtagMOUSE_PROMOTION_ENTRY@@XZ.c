@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CreateEntryFromLastEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@XZ @ 0x1C01F8D10
+ * Callers:
+ *     ?CancelAutoPromotion@@YAXXZ @ 0x1C01F8C08 (-CancelAutoPromotion@@YAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 struct tagMOUSE_PROMOTION_ENTRY *CreateEntryFromLastEntry(void)
 {
   struct tagMOUSE_PROMOTION_ENTRY *result; // rax

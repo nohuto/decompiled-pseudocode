@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiControlGetRelatedDevice @ 0x1406C7ED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PiControlAllocateBufferForUserModeCaller @ 0x140244BB4 (PiControlAllocateBufferForUserModeCaller.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x1402459EC (PiControlFreeUserModeCallersBuffer.c)
+ *     PiGetRelatedDevice @ 0x1406C8018 (PiGetRelatedDevice.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x1406CFA10 (PiControlMakeUserModeCallersCopy.c)
+ */
+
 __int64 __fastcall PiControlGetRelatedDevice(__int64 a1, __int16 *a2, __int64 a3, char a4)
 {
   __int16 v4; // cx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiTrimNoStealPagesFromWorkingSets @ 0x140633040
+ * Callers:
+ *     MiFindContiguousPagesEx @ 0x1403B5CF8 (MiFindContiguousPagesEx.c)
+ * Callees:
+ *     MiQueueWorkingSetRequest @ 0x1402B8A34 (MiQueueWorkingSetRequest.c)
+ */
+
 __int64 __fastcall MiTrimNoStealPagesFromWorkingSets(__int64 a1, char a2)
 {
   int v3; // edx

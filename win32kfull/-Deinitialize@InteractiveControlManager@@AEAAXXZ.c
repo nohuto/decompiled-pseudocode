@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Deinitialize@InteractiveControlManager@@AEAAXXZ @ 0x1C00F3A3C
+ * Callers:
+ *     ??1InteractiveControlManager@@AEAA@XZ @ 0x1C00F39E0 (--1InteractiveControlManager@@AEAA@XZ.c)
+ * Callees:
+ *     ?RemoveDevice@InteractiveControlManager@@AEAAJPEAVInteractiveControlDevice@@@Z @ 0x1C0244064 (-RemoveDevice@InteractiveControlManager@@AEAAJPEAVInteractiveControlDevice@@@Z.c)
+ */
+
 void __fastcall InteractiveControlManager::Deinitialize(InteractiveControlManager *this)
 {
   struct InteractiveControlDevice **v2; // rbx

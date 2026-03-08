@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiExpandKernelStackAndCalloutSwitchStack @ 0x140315700
+ * Callers:
+ *     KeExpandKernelStackAndCalloutInternal @ 0x140315620 (KeExpandKernelStackAndCalloutInternal.c)
+ * Callees:
+ *     MmGrowKernelStackEx @ 0x1402F61F0 (MmGrowKernelStackEx.c)
+ *     KeQueryCurrentStackInformationEx @ 0x140312A40 (KeQueryCurrentStackInformationEx.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140317800 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KeGetCurrentStackPointer @ 0x1404166E0 (KeGetCurrentStackPointer.c)
+ */
+
 __int64 __fastcall KiExpandKernelStackAndCalloutSwitchStack(int a1, int a2, unsigned __int64 a3, int a4, __int64 a5)
 {
   struct _KTHREAD *CurrentThread; // rdi

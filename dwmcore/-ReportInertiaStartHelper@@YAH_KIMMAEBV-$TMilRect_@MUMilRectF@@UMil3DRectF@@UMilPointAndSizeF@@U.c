@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ReportInertiaStartHelper@@YAH_KIMMAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBU_D3DMATRIX@@@Z @ 0x1801979A4
+ * Callers:
+ *     ?ReportInertiaStart@CInteraction@@QEAAJW4InputType@@MM@Z @ 0x180209554 (-ReportInertiaStart@CInteraction@@QEAAJW4InputType@@MM@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     ceilf_0 @ 0x1801176EC (ceilf_0.c)
+ *     InputTypeToInertiaSourceType @ 0x180197968 (InputTypeToInertiaSourceType.c)
+ */
+
 __int64 __fastcall ReportInertiaStartHelper(__int64 a1, int a2, float a3, float a4, float *a5, _DWORD *a6)
 {
   int v7; // eax

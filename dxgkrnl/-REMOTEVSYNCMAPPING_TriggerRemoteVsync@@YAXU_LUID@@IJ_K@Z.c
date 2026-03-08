@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?REMOTEVSYNCMAPPING_TriggerRemoteVsync@@YAXU_LUID@@IJ_K@Z @ 0x1C000F860
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     _lambda_65e49200310e163fd0a118e331418de0_::operator() @ 0x1C0056C60 (_lambda_65e49200310e163fd0a118e331418de0_--operator().c)
+ */
+
 void __fastcall REMOTEVSYNCMAPPING_TriggerRemoteVsync(struct _LUID a1, int a2, int a3, __int64 a4)
 {
   __int64 v8; // rdi

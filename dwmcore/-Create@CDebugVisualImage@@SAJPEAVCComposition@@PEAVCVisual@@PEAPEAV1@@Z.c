@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?Create@CDebugVisualImage@@SAJPEAVCComposition@@PEAVCVisual@@PEAPEAV1@@Z @ 0x18021504C
+ * Callers:
+ *     ?PreRender@CComposition@@IEAAJXZ @ 0x18004F100 (-PreRender@CComposition@@IEAAJXZ.c)
+ * Callees:
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038C50 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??1?$com_ptr_t@VCDebugVisualImage@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18019A418 (--1-$com_ptr_t@VCDebugVisualImage@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??0CDebugVisualImage@@AEAA@PEAVCComposition@@@Z @ 0x180214EE8 (--0CDebugVisualImage@@AEAA@PEAVCComposition@@@Z.c)
+ *     ?Initialize@CDebugVisualImage@@AEAAJPEAVCVisual@@@Z @ 0x180215110 (-Initialize@CDebugVisualImage@@AEAAJPEAVCVisual@@@Z.c)
+ */
+
 __int64 __fastcall CDebugVisualImage::Create(
         struct CComposition *a1,
         struct CVisual *a2,

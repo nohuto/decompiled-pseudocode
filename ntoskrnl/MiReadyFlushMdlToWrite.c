@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiReadyFlushMdlToWrite @ 0x14028C5D0
+ * Callers:
+ *     MiFlushSectionInternal @ 0x14031FA90 (MiFlushSectionInternal.c)
+ * Callees:
+ *     MiStartingOffset @ 0x14028C530 (MiStartingOffset.c)
+ *     MiEndingOffsetWithLock @ 0x140324190 (MiEndingOffsetWithLock.c)
+ */
+
 unsigned __int64 __fastcall MiReadyFlushMdlToWrite(__int64 a1, __int64 *a2, char a3)
 {
   __int64 v6; // rdx

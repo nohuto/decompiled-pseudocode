@@ -1,3 +1,16 @@
+/*
+ * XREFs of rimPopulateContactFrameData @ 0x1C01D906C
+ * Callers:
+ *     rimProcessPointerDeviceContact @ 0x1C01D9C8C (rimProcessPointerDeviceContact.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     rimTransformGeometry @ 0x1C00F1872 (rimTransformGeometry.c)
+ *     ?PopulateContact@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4tagHPD_TYPE@@GAEBUtagPOINT@@PEBUtagPOINTEREVENTINT@@W4ContactPopulationSource@12@@Z @ 0x1C01D405C (-PopulateContact@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4tagHPD_TYPE@@GAEBUtagPOINT@@PEBUtagPOIN.c)
+ *     rimExtractTransducerUsages @ 0x1C01D4BB4 (rimExtractTransducerUsages.c)
+ *     rimExtractPointerDeviceUsages @ 0x1C01D78A0 (rimExtractPointerDeviceUsages.c)
+ */
+
 __int64 __fastcall rimPopulateContactFrameData(
         __int64 a1,
         __int64 a2,

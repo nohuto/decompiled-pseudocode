@@ -1,3 +1,11 @@
+/*
+ * XREFs of CheckAccess @ 0x1C0016F70
+ * Callers:
+ *     NtUserSystemParametersInfo @ 0x1C01788A0 (NtUserSystemParametersInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CheckAccess(unsigned int *a1, unsigned int *a2)
 {
   char result; // al

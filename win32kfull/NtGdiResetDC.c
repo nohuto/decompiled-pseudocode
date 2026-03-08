@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiResetDC @ 0x1C02C6F40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreResetDCInternal @ 0x1C02B0050 (GreResetDCInternal.c)
+ */
+
 __int64 __fastcall NtGdiResetDC(HDC a1, struct _devicemodeW *a2, _DWORD *a3, struct _DRIVER_INFO_2W *a4, __int64 a5)
 {
   __int64 v8; // rdi

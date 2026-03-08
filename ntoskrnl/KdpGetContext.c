@@ -1,3 +1,13 @@
+/*
+ * XREFs of KdpGetContext @ 0x140AAE72C
+ * Callers:
+ *     KdpGetContextEx @ 0x140391F24 (KdpGetContextEx.c)
+ *     KdpSendWaitContinue @ 0x140AAD824 (KdpSendWaitContinue.c)
+ * Callees:
+ *     KdpCopyContext @ 0x140AAD658 (KdpCopyContext.c)
+ *     KdpInitializeExtendedContext @ 0x140AAE848 (KdpInitializeExtendedContext.c)
+ */
+
 __int64 __fastcall KdpGetContext(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

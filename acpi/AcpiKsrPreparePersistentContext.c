@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiKsrPreparePersistentContext @ 0x1C008B1D0
+ * Callers:
+ *     AcpiKsrCallback @ 0x1C008B180 (AcpiKsrCallback.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 AcpiKsrPreparePersistentContext()
 {
   __int64 v1; // [rsp+30h] [rbp+8h] BYREF

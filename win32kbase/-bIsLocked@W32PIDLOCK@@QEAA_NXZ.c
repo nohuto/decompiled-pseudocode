@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bIsLocked@W32PIDLOCK@@QEAA_NXZ @ 0x1C0185200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall W32PIDLOCK::bIsLocked(W32PIDLOCK *this)
 {
   bool v2; // bl

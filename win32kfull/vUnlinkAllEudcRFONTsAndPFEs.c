@@ -1,3 +1,15 @@
+/*
+ * XREFs of vUnlinkAllEudcRFONTsAndPFEs @ 0x1C00DEFF0
+ * Callers:
+ *     bDeleteAllFlEntry @ 0x1C0116094 (bDeleteAllFlEntry.c)
+ *     GreEudcLoadLinkW @ 0x1C02A10C8 (GreEudcLoadLinkW.c)
+ *     GreEudcUnloadLinkW @ 0x1C02A13F0 (GreEudcUnloadLinkW.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     vUnlinkAllEudcRFONTsAndPFEsWorker @ 0x1C00DF0D8 (vUnlinkAllEudcRFONTsAndPFEsWorker.c)
+ *     ??0DEVICE_PFTOBJ@@QEAA@XZ @ 0x1C00DF170 (--0DEVICE_PFTOBJ@@QEAA@XZ.c)
+ */
+
 void __fastcall vUnlinkAllEudcRFONTsAndPFEs(Gre::Base *a1)
 {
   unsigned int v1; // esi

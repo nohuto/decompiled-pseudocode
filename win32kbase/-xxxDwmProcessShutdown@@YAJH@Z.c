@@ -1,3 +1,32 @@
+/*
+ * XREFs of ?xxxDwmProcessShutdown@@YAJH@Z @ 0x1C008F854
+ * Callers:
+ *     xxxDestroyThreadInfo @ 0x1C0072BF4 (xxxDestroyThreadInfo.c)
+ *     NtUserUnregisterSessionPort @ 0x1C017A220 (NtUserUnregisterSessionPort.c)
+ * Callees:
+ *     IsThreadCrossSessionAttached @ 0x1C004B600 (IsThreadCrossSessionAttached.c)
+ *     IsEtwUserCritEnabled @ 0x1C004DF60 (IsEtwUserCritEnabled.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     ?UpdateUserCritInfo@UserCritTelemetry@@QEAAX_KW4BucketType@1@@Z @ 0x1C004E1A8 (-UpdateUserCritInfo@UserCritTelemetry@@QEAAX_KW4BucketType@1@@Z.c)
+ *     ?SendUserCritSummary@UserCritTelemetry@@QEAAXXZ @ 0x1C004E418 (-SendUserCritSummary@UserCritTelemetry@@QEAAXXZ.c)
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     ?GetCount@AtomicExecutionCheck@@SAIXZ @ 0x1C004F93C (-GetCount@AtomicExecutionCheck@@SAIXZ.c)
+ *     EtwTraceAcquiredExclusiveUserCrit @ 0x1C004F99C (EtwTraceAcquiredExclusiveUserCrit.c)
+ *     HMUnlockObject @ 0x1C0072980 (HMUnlockObject.c)
+ *     IsUserEnableConsoleModeSupported @ 0x1C0090C30 (IsUserEnableConsoleModeSupported.c)
+ *     xxxDwmControl @ 0x1C0090CE0 (xxxDwmControl.c)
+ *     ?SetDwmApiPort@@YAXPEAX@Z @ 0x1C0090E3C (-SetDwmApiPort@@YAXPEAX@Z.c)
+ *     GreLockDwmState @ 0x1C0091A70 (GreLockDwmState.c)
+ *     GreUnlockDwmState @ 0x1C0091AF0 (GreUnlockDwmState.c)
+ *     IsxxxDwmStopRedirectionSupported @ 0x1C0091F34 (IsxxxDwmStopRedirectionSupported.c)
+ *     GreSfmCleanupPresentHistory @ 0x1C0091F60 (GreSfmCleanupPresentHistory.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     McTemplateK0xqx_EtwWriteTransfer @ 0x1C0167CA4 (McTemplateK0xqx_EtwWriteTransfer.c)
+ *     UserEnableConsoleMode @ 0x1C02720EC (UserEnableConsoleMode.c)
+ */
+
 __int64 __fastcall xxxDwmProcessShutdown(unsigned int a1)
 {
   unsigned int v2; // ebp

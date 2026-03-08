@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreUnrealizeObject @ 0x1C02D42E8
+ * Callers:
+ *     NtGdiUnrealizeObject @ 0x1C02C7720 (NtGdiUnrealizeObject.c)
+ * Callees:
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C007CA7C (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall GreUnrealizeObject(HPALETTE a1)
 {
   unsigned int v1; // edi

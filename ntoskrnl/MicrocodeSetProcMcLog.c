@@ -1,3 +1,11 @@
+/*
+ * XREFs of MicrocodeSetProcMcLog @ 0x14061327C
+ * Callers:
+ *     PrExtControlOperations @ 0x140613148 (PrExtControlOperations.c)
+ * Callees:
+ *     GetCpuManufacturer @ 0x140613378 (GetCpuManufacturer.c)
+ */
+
 __int64 __fastcall MicrocodeSetProcMcLog(__int64 a1, unsigned int a2, int a3)
 {
   _DWORD *v4; // r11

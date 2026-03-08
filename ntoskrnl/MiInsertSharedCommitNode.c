@@ -1,3 +1,27 @@
+/*
+ * XREFs of MiInsertSharedCommitNode @ 0x1407D63F0
+ * Callers:
+ *     MmLinkJobProcess @ 0x1407006C4 (MmLinkJobProcess.c)
+ *     MiAllocateSplitVads @ 0x14076003C (MiAllocateSplitVads.c)
+ *     MiMapViewOfImageSection @ 0x1407D3750 (MiMapViewOfImageSection.c)
+ *     MiMapViewOfDataSection @ 0x1407D57C0 (MiMapViewOfDataSection.c)
+ *     MiSectionOpen @ 0x1407D63C0 (MiSectionOpen.c)
+ *     MiInsertSharedCommitNode @ 0x1407D63F0 (MiInsertSharedCommitNode.c)
+ *     MiAllocateChildVads @ 0x140A4571C (MiAllocateChildVads.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     MiGetCommittedPages @ 0x14034C3F0 (MiGetCommittedPages.c)
+ *     MiIncludeSharedCommit @ 0x14034C990 (MiIncludeSharedCommit.c)
+ *     MiInsertSharedCommitNode @ 0x1407D63F0 (MiInsertSharedCommitNode.c)
+ *     MiRemoveSharedCommitNode @ 0x1407D6770 (MiRemoveSharedCommitNode.c)
+ */
+
 __int64 __fastcall MiInsertSharedCommitNode(_QWORD *a1, unsigned __int64 a2, int a3)
 {
   __int64 *v6; // rcx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of _CmRemoveDeviceFromContainer @ 0x140A619AC
+ * Callers:
+ *     PiDcUpdateDeviceContainerMembership @ 0x1406825AC (PiDcUpdateDeviceContainerMembership.c)
+ *     PiDcResetChildDeviceContainers @ 0x140958510 (PiDcResetChildDeviceContainers.c)
+ *     _CmDeleteDeviceWorker @ 0x140A5F74C (_CmDeleteDeviceWorker.c)
+ *     _CmMoveBaseContainer @ 0x140A618C8 (_CmMoveBaseContainer.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _PnpObjectRaiseDevicesChangeEvent @ 0x14087DBE4 (_PnpObjectRaiseDevicesChangeEvent.c)
+ *     _CmRemoveDeviceFromContainerWorker @ 0x140A61AEC (_CmRemoveDeviceFromContainerWorker.c)
+ */
+
 __int64 __fastcall CmRemoveDeviceFromContainer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 (__fastcall *v8)(__int64, __int64, __int64); // rsi

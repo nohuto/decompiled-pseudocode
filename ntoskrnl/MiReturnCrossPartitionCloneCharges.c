@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiReturnCrossPartitionCloneCharges @ 0x14029DD9C
+ * Callers:
+ *     MiDecrementCloneBlock @ 0x14029DC04 (MiDecrementCloneBlock.c)
+ *     MiBuildForkPte @ 0x14065FC20 (MiBuildForkPte.c)
+ *     MiHandleForkTransitionPte @ 0x140662368 (MiHandleForkTransitionPte.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiReturnCrossPartitionCharges @ 0x140658D80 (MiReturnCrossPartitionCharges.c)
+ */
+
 void __fastcall MiReturnCrossPartitionCloneCharges(__int64 a1, char a2, __int64 a3)
 {
   unsigned __int64 v5; // rdx

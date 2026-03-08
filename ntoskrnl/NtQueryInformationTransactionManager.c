@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtQueryInformationTransactionManager @ 0x1403D26D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // attributes: thunk
 NTSTATUS __stdcall NtQueryInformationTransactionManager(
         HANDLE TransactionManagerHandle,

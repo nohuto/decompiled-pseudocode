@@ -1,3 +1,15 @@
+/*
+ * XREFs of MxMarkActiveDriverBits @ 0x140B5F6B8
+ * Callers:
+ *     MiInitializeDriverImages @ 0x140B3B090 (MiInitializeDriverImages.c)
+ *     MxMarkActiveDriverBits @ 0x140B5F6B8 (MxMarkActiveDriverBits.c)
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiSplitBitmapPages @ 0x14036C1A8 (MiSplitBitmapPages.c)
+ *     KeZeroSinglePage @ 0x14041BBB0 (KeZeroSinglePage.c)
+ *     MxMarkActiveDriverBits @ 0x140B5F6B8 (MxMarkActiveDriverBits.c)
+ */
+
 unsigned __int64 __fastcall MxMarkActiveDriverBits(
         unsigned __int64 *a1,
         unsigned __int64 a2,

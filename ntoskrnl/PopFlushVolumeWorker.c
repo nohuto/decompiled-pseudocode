@@ -1,3 +1,21 @@
+/*
+ * XREFs of PopFlushVolumeWorker @ 0x140AA3140
+ * Callers:
+ *     PopFlushVolumes @ 0x140AA3378 (PopFlushVolumes.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwFlushBuffersFile @ 0x140412C70 (ZwFlushBuffersFile.c)
+ *     ZwCreateFile @ 0x140412DB0 (ZwCreateFile.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopFlushAndHold @ 0x14058DE18 (PopFlushAndHold.c)
+ *     ObQueryNameString @ 0x14071EA00 (ObQueryNameString.c)
+ *     NtDeviceIoControlFile @ 0x1407C16B0 (NtDeviceIoControlFile.c)
+ */
+
 void __fastcall PopFlushVolumeWorker(struct _KEVENT *StartContext)
 {
   _QWORD *v2; // rdi

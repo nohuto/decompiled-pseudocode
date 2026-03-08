@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetActiveLightCount@CDrawingContext@@QEBAIXZ @ 0x1801D2A98
+ * Callers:
+ *     ?Draw@CContent@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x180078E40 (-Draw@CContent@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CDrawingContext::GetActiveLightCount(CDrawingContext *this)
 {
   const struct CVisualTree *v1; // rdi

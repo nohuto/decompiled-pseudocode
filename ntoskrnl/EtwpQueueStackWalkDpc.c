@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpQueueStackWalkDpc @ 0x1405FD87C
+ * Callers:
+ *     EtwpQueueStackWalkApc @ 0x140460526 (EtwpQueueStackWalkApc.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402331B0 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x14028DD10 (ExAcquireRundownProtectionCacheAwareEx.c)
+ */
+
 __int64 __fastcall EtwpQueueStackWalkDpc(__int64 a1, volatile signed __int32 *a2, _QWORD *a3)
 {
   unsigned int Number; // edx

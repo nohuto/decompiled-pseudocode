@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopFxAccumulateDeviceIRPhaseAccounting @ 0x140586560
+ * Callers:
+ *     PopFxEndDeviceIRPhaseAccounting @ 0x140587DC4 (PopFxEndDeviceIRPhaseAccounting.c)
+ *     PopFxUpdateDeviceIRPhaseAccounting @ 0x140589E34 (PopFxUpdateDeviceIRPhaseAccounting.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall PopFxAccumulateDeviceIRPhaseAccounting(__int64 a1)
 {
   unsigned __int64 v1; // rcx

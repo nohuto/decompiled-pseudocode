@@ -1,3 +1,25 @@
+/*
+ * XREFs of _CmUpdateDevicePanel @ 0x140683E30
+ * Callers:
+ *     PiUpdateDevicePanel @ 0x140683D74 (PiUpdateDevicePanel.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _CmQueryDevicePanelPldProperty @ 0x14068492C (_CmQueryDevicePanelPldProperty.c)
+ *     _PnpSetObjectProperty @ 0x140686C8C (_PnpSetObjectProperty.c)
+ *     _CmIsRootDevice @ 0x1406C7E80 (_CmIsRootDevice.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     _CmGetParentDeviceContainerId @ 0x14085CA14 (_CmGetParentDeviceContainerId.c)
+ *     _CmBuildDevicePanelId @ 0x14085EF88 (_CmBuildDevicePanelId.c)
+ *     _CmGetDevicePanelGroup @ 0x140860330 (_CmGetDevicePanelGroup.c)
+ *     _CmAddPanelDevice @ 0x140A62BCC (_CmAddPanelDevice.c)
+ *     _CmCreateDevicePanel @ 0x140A62EC8 (_CmCreateDevicePanel.c)
+ *     _CmRemovePanelDevice @ 0x140A63F30 (_CmRemovePanelDevice.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmUpdateDevicePanel(__int64 a1, const WCHAR *a2, int a3)
 {
   __int64 v3; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of _dynamic_initializer_for__CCompositionDistantLight::sc_Intensity__ @ 0x180001CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 dynamic_initializer_for__CCompositionDistantLight::sc_Intensity__()
 {
   __int64 result; // rax

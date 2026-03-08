@@ -1,3 +1,13 @@
+/*
+ * XREFs of ReadPointerDeviceSettings @ 0x1C009CC40
+ * Callers:
+ *     xxxSystemParametersInfo @ 0x1C009C980 (xxxSystemParametersInfo.c)
+ * Callees:
+ *     ApiSetEditionOverrideUserTouchGestureSettings @ 0x1C009CDB4 (ApiSetEditionOverrideUserTouchGestureSettings.c)
+ *     ?LoadPointerDeviceTouchSettings@@YAHXZ @ 0x1C009D22C (-LoadPointerDeviceTouchSettings@@YAHXZ.c)
+ *     GetDWORDSettingValuesEx @ 0x1C009D450 (GetDWORDSettingValuesEx.c)
+ */
+
 __int64 __fastcall ReadPointerDeviceSettings(int a1, _DWORD *a2)
 {
   unsigned int v2; // edi

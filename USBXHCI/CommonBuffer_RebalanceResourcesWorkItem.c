@@ -1,3 +1,12 @@
+/*
+ * XREFs of CommonBuffer_RebalanceResourcesWorkItem @ 0x1C0032320
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     XilCoreCommonBuffer_FreeUnusedResources @ 0x1C0052D68 (XilCoreCommonBuffer_FreeUnusedResources.c)
+ */
+
 __int64 __fastcall CommonBuffer_RebalanceResourcesWorkItem(__int64 a1)
 {
   __int64 v1; // rax

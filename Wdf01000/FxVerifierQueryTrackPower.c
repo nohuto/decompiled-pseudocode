@@ -1,3 +1,12 @@
+/*
+ * XREFs of FxVerifierQueryTrackPower @ 0x1C0044C5C
+ * Callers:
+ *     FxDriverGlobalsInitializeDebugExtension @ 0x1C0043BD8 (FxDriverGlobalsInitializeDebugExtension.c)
+ * Callees:
+ *     ?_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z @ 0x1C00014A8 (-_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z.c)
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ */
+
 void __fastcall FxVerifierQueryTrackPower(void *Key, FxTrackPowerOption *TrackPower)
 {
   unsigned int value; // [rsp+20h] [rbp-40h] BYREF

@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiFdoInitializeMipiDsi @ 0x1C001D3B8
+ * Callers:
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ * Callees:
+ *     DpiFdoCleanupMipiDsi @ 0x1C0024208 (DpiFdoCleanupMipiDsi.c)
+ *     DpiQueryMiniportInterface @ 0x1C01F65F4 (DpiQueryMiniportInterface.c)
+ */
+
 __int64 __fastcall DpiFdoInitializeMipiDsi(__int64 a1)
 {
   __int64 v1; // rsi

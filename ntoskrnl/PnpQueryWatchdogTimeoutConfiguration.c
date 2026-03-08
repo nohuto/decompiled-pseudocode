@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpQueryWatchdogTimeoutConfiguration @ 0x140B61878
+ * Callers:
+ *     PnpInitializePnpWatchdogs @ 0x140B6180C (PnpInitializePnpWatchdogs.c)
+ * Callees:
+ *     PnpGetRegistryDword @ 0x14039BC5C (PnpGetRegistryDword.c)
+ */
+
 __int64 __fastcall PnpQueryWatchdogTimeoutConfiguration(void *a1)
 {
   __int64 result; // rax

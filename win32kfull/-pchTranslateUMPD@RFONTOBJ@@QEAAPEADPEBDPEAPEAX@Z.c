@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?pchTranslateUMPD@RFONTOBJ@@QEAAPEADPEBDPEAPEAX@Z @ 0x1C02B9588
+ * Callers:
+ *     ?pvFileUMPD@RFONTOBJ@@QEAAPEAXPEAKPEAPEAX@Z @ 0x1C02B9814 (-pvFileUMPD@RFONTOBJ@@QEAAPEAXPEAKPEAPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char *__fastcall RFONTOBJ::pchTranslateUMPD(RFONTOBJ *this, const char *a2, void **a3)
 {
   unsigned __int64 v3; // r9

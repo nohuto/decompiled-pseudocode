@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiUpdateXSaveSizeAndVolatileFeatures @ 0x140A8CE64
+ * Callers:
+ *     KiInitializeXSave @ 0x140A8CAA0 (KiInitializeXSave.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall KiUpdateXSaveSizeAndVolatileFeatures(unsigned __int64 *a1)
 {
   unsigned __int64 v1; // r8

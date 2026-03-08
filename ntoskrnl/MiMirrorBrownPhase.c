@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiMirrorBrownPhase @ 0x140AA94BC
+ * Callers:
+ *     MmDuplicateMemory @ 0x140AA96DC (MmDuplicateMemory.c)
+ * Callees:
+ *     PsGetNextPartition @ 0x1402FF5F0 (PsGetNextPartition.c)
+ *     PsQuitNextPartition @ 0x1405A4180 (PsQuitNextPartition.c)
+ *     MiMirrorGatherBrownPages @ 0x140624848 (MiMirrorGatherBrownPages.c)
+ *     MiMirrorPerformBrownWrites @ 0x1406251F8 (MiMirrorPerformBrownWrites.c)
+ *     MiEmptyAllWorkingSets @ 0x1406322B8 (MiEmptyAllWorkingSets.c)
+ *     MiActOnMirrorBitmap @ 0x140A2C318 (MiActOnMirrorBitmap.c)
+ */
+
 __int64 __fastcall MiMirrorBrownPhase(__int64 a1)
 {
   int v1; // eax

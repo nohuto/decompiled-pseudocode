@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiReturnCrossPartitionCharge @ 0x140658D04
+ * Callers:
+ *     MiGetCrossPartitionCharges @ 0x1406579B0 (MiGetCrossPartitionCharges.c)
+ *     MiReturnCrossPartitionCharge @ 0x140658D04 (MiReturnCrossPartitionCharge.c)
+ *     MiReturnCrossPartitionCharges @ 0x140658D80 (MiReturnCrossPartitionCharges.c)
+ * Callees:
+ *     MiConvertCrossPartitionChargeTypeToAggregate @ 0x140656DDC (MiConvertCrossPartitionChargeTypeToAggregate.c)
+ *     MiReturnCrossPartitionCharge @ 0x140658D04 (MiReturnCrossPartitionCharge.c)
+ */
+
 __int64 __fastcall MiReturnCrossPartitionCharge(__int64 a1, int a2, __int64 a3)
 {
   __int64 v4; // rax

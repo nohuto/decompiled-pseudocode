@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bFilterNotEnum@PFEOBJ@@QEAAHXZ @ 0x1C000414C
+ * Callers:
+ *     ?bFilteredOut@PFEOBJ@@QEAAHPEAU_EFFILTER_INFO@@@Z @ 0x1C0004090 (-bFilteredOut@PFEOBJ@@QEAAHPEAU_EFFILTER_INFO@@@Z.c)
+ * Callees:
+ *     ?bInPrivatePFT@PFFOBJ@@QEBAHXZ @ 0x1C0114D30 (-bInPrivatePFT@PFFOBJ@@QEBAHXZ.c)
+ *     ?pPvtDataMatch@PFFOBJ@@QEAAPEAUtagPvtData@@XZ @ 0x1C0150274 (-pPvtDataMatch@PFFOBJ@@QEAAPEAUtagPvtData@@XZ.c)
+ */
+
 __int64 __fastcall PFEOBJ::bFilterNotEnum(__int64 **this)
 {
   unsigned int v1; // ebx

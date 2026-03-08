@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiPageAvailableEx @ 0x140350274
+ * Callers:
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiDecreaseAvailablePages @ 0x1403504C0 (MiDecreaseAvailablePages.c)
+ *     MiHandleSpecialPurposeMemoryCachedFault @ 0x14065DE28 (MiHandleSpecialPurposeMemoryCachedFault.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiPageAvailableEx(__int64 a1, unsigned __int64 a2, __int16 a3)
 {
   int v4; // r9d

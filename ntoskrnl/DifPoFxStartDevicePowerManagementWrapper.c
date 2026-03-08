@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifPoFxStartDevicePowerManagementWrapper @ 0x1405E7BF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PoFxStartDevicePowerManagement @ 0x140393C70 (PoFxStartDevicePowerManagement.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 char __fastcall DifPoFxStartDevicePowerManagementWrapper(ULONG_PTR BugCheckParameter2)
 {
   __int64 *APIThunkContextById; // rax

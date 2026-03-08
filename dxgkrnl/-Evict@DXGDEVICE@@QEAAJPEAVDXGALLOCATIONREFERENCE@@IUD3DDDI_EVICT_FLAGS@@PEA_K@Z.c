@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Evict@DXGDEVICE@@QEAAJPEAVDXGALLOCATIONREFERENCE@@IUD3DDDI_EVICT_FLAGS@@PEA_K@Z @ 0x1C0183CDC
+ * Callers:
+ *     ?DxgkEvictInternal@@YAJPEAU_D3DKMT_EVICT@@HPEAD@Z @ 0x1C0183FDC (-DxgkEvictInternal@@YAJPEAU_D3DKMT_EVICT@@HPEAD@Z.c)
+ * Callees:
+ *     ?UmdManagesResidency@DXGDEVICE@@QEBAEXZ @ 0x1C0006768 (-UmdManagesResidency@DXGDEVICE@@QEBAEXZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DXGDEVICE::Evict(
         DXGDEVICE *this,
         struct DXGALLOCATIONREFERENCE *a2,

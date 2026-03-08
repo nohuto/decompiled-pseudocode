@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvpGenerateLogEntryHeader @ 0x1402B2544
+ * Callers:
+ *     HvpGenerateLogEntry @ 0x14072DD08 (HvpGenerateLogEntry.c)
+ * Callees:
+ *     HvpCopyDataToOffsetArray @ 0x14030C52C (HvpCopyDataToOffsetArray.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HvpHeaderCheckSum @ 0x140AF2414 (HvpHeaderCheckSum.c)
+ */
+
 __int64 __fastcall HvpGenerateLogEntryHeader(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of DebugStep @ 0x1C004E080
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ */
+
 __int64 __fastcall DebugStep(__int64 a1, __int64 a2)
 {
   if ( a2 )

@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiDxgkDdiSetTargetAdjustedColorimetry @ 0x1C03A4988
+ * Callers:
+ *     DpiSetTargetAdjustedColorimetry @ 0x1C03A5B10 (DpiSetTargetAdjustedColorimetry.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C003FFEC (McTemplateK0pqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiDxgkDdiSetTargetAdjustedColorimetry(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rdi

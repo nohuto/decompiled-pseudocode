@@ -1,3 +1,14 @@
+/*
+ * XREFs of VidSchFlushHwQueue @ 0x1C0107860
+ * Callers:
+ *     VidSchTerminateHwQueue @ 0x1C0045300 (VidSchTerminateHwQueue.c)
+ * Callees:
+ *     VidSchiInterlockedReadUlong @ 0x1C00126BC (VidSchiInterlockedReadUlong.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     ??$VidSchRundownUnorderedWaiter@UVIDSCH_HW_QUEUE@@@@YAJPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_STAGE@@_NP6AXPEAVHwQueueStagingList@@0@Z@Z @ 0x1C003D190 (--$VidSchRundownUnorderedWaiter@UVIDSCH_HW_QUEUE@@@@YAJPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_GLOBAL@@.c)
+ *     VidSchiWaitFlushCompletion @ 0x1C00ADCEC (VidSchiWaitFlushCompletion.c)
+ */
+
 __int64 __fastcall VidSchFlushHwQueue(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rsi

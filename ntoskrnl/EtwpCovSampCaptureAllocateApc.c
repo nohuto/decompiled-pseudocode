@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpCovSampCaptureAllocateApc @ 0x1409EDA50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 _QWORD *__fastcall EtwpCovSampCaptureAllocateApc(__int64 a1, __int64 a2)
 {
   _QWORD *Pool2; // rax

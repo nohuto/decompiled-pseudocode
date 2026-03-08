@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpInterruptBuildGlobalStartupStub @ 0x1403A3BE0
+ * Callers:
+ *     HalpInterruptInitSystem @ 0x140A86CD0 (HalpInterruptInitSystem.c)
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     HalpHvVpStartEnabled @ 0x140372950 (HalpHvVpStartEnabled.c)
+ *     HalpInterruptBuildStartupStub @ 0x1403A3CC8 (HalpInterruptBuildStartupStub.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1403B4900 (MmAllocateContiguousNodeMemory.c)
+ *     HalpMmBuildTiledMemoryMap @ 0x140A8D8E8 (HalpMmBuildTiledMemoryMap.c)
+ */
+
 __int64 HalpInterruptBuildGlobalStartupStub()
 {
   int v0; // edi

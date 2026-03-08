@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpMceRecoveryRequired @ 0x140516F9C
+ * Callers:
+ *     HalpMceRecovery @ 0x1405169E0 (HalpMceRecovery.c)
+ * Callees:
+ *     HalpMcaAMDIsMemoryError @ 0x140503E64 (HalpMcaAMDIsMemoryError.c)
+ *     HalpMceRecoveryMemoryErrorAmd @ 0x140516BC0 (HalpMceRecoveryMemoryErrorAmd.c)
+ *     HalpMceRecoveryMemoryErrorIntel @ 0x140516CDC (HalpMceRecoveryMemoryErrorIntel.c)
+ */
+
 __int64 __fastcall HalpMceRecoveryRequired(__int64 a1)
 {
   unsigned int v2; // r10d

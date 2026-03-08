@@ -1,3 +1,14 @@
+/*
+ * XREFs of MmQueryPfnList @ 0x1406E0A60
+ * Callers:
+ *     PfpPfnPrioRequest @ 0x1406AE8C4 (PfpPfnPrioRequest.c)
+ * Callees:
+ *     MiIdentifyPfnWrapper @ 0x14025C920 (MiIdentifyPfnWrapper.c)
+ *     MiIsPfn @ 0x14025F1D0 (MiIsPfn.c)
+ *     MiLockDynamicMemoryShared @ 0x1402DAC90 (MiLockDynamicMemoryShared.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1402DC340 (MiUnlockDynamicMemoryShared.c)
+ */
+
 __int64 __fastcall MmQueryPfnList(__int64 a1, unsigned __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rbp

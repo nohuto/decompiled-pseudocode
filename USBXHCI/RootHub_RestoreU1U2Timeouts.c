@@ -1,3 +1,14 @@
+/*
+ * XREFs of RootHub_RestoreU1U2Timeouts @ 0x1C003FB14
+ * Callers:
+ *     RootHub_DetectAndAcknowledgePortResume @ 0x1C0015630 (RootHub_DetectAndAcknowledgePortResume.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     WPP_RECORDER_SF_D @ 0x1C00180C4 (WPP_RECORDER_SF_D.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ */
+
 __int64 __fastcall RootHub_RestoreU1U2Timeouts(_QWORD *a1, int a2)
 {
   unsigned int v2; // eax

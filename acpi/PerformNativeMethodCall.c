@@ -1,3 +1,12 @@
+/*
+ * XREFs of PerformNativeMethodCall @ 0x1C004A154
+ * Callers:
+ *     ParseCall @ 0x1C005A6A0 (ParseCall.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ConvertNtStatusToAMLIStatus @ 0x1C004AE84 (ConvertNtStatusToAMLIStatus.c)
+ */
+
 __int64 __fastcall PerformNativeMethodCall(int a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r9

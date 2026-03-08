@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlLargeIntegerToUnicode @ 0x1409BA5B8
+ * Callers:
+ *     RtlConvertSidToUnicodeString @ 0x1407479E0 (RtlConvertSidToUnicodeString.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall RtlLargeIntegerToUnicode(unsigned __int64 *a1, __int64 a2, int a3, char *a4)
 {
   char *v4; // r14

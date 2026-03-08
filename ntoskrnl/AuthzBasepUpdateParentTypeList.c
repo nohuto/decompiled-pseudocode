@@ -1,3 +1,11 @@
+/*
+ * XREFs of AuthzBasepUpdateParentTypeList @ 0x14066CB48
+ * Callers:
+ *     AuthzBasepAddAccessTypeList @ 0x140206EC4 (AuthzBasepAddAccessTypeList.c)
+ * Callees:
+ *     AuthzBasepSetAccessReasons @ 0x140207750 (AuthzBasepSetAccessReasons.c)
+ */
+
 __int64 __fastcall AuthzBasepUpdateParentTypeList(__int64 a1, unsigned int a2, int a3, int a4, int a5)
 {
   __int64 v6; // rsi

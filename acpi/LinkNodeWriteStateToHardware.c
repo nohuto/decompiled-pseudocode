@@ -1,3 +1,14 @@
+/*
+ * XREFs of LinkNodeWriteStateToHardware @ 0x1C00995D0
+ * Callers:
+ *     IrqArbCommitAllocation @ 0x1C009D040 (IrqArbCommitAllocation.c)
+ * Callees:
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C0047B9C (AMLIEvalNameSpaceObject.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ *     LinkNodepRunSrs @ 0x1C0099804 (LinkNodepRunSrs.c)
+ */
+
 __int64 LinkNodeWriteStateToHardware()
 {
   __int64 v0; // rbx

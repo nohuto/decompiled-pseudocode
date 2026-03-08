@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z @ 0x1C03029B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EnableFlushTimer @ 0x1C00BBE60 (EnableFlushTimer.c)
+ *     LookUpTableFlushComplete @ 0x1C0301AEC (LookUpTableFlushComplete.c)
+ *     LookUpTableFlushPartial @ 0x1C030292C (LookUpTableFlushPartial.c)
+ */
+
 void __fastcall TlgAggregateInternalFlushWorkItemRoutineKernelMode(__int64 a1)
 {
   if ( *(_BYTE *)(a1 + 372) )

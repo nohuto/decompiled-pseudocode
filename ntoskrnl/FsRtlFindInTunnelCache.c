@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlFindInTunnelCache @ 0x14093AAE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FsRtlFindInTunnelCacheEx @ 0x140752810 (FsRtlFindInTunnelCacheEx.c)
+ */
+
 BOOLEAN __stdcall FsRtlFindInTunnelCache(
         TUNNEL *Cache,
         ULONGLONG DirectoryKey,

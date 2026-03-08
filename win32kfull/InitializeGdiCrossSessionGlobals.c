@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitializeGdiCrossSessionGlobals @ 0x1C00F5390
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 InitializeGdiCrossSessionGlobals()
 {
   struct _RTL_AVL_TABLE *v1; // rcx

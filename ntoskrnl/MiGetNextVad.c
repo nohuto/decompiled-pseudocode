@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiGetNextVad @ 0x140350908
+ * Callers:
+ *     MiReturnPageTablePageCommitment @ 0x1406B6AF0 (MiReturnPageTablePageCommitment.c)
+ *     MiCommitInitialVadMetadataBits @ 0x1407285AC (MiCommitInitialVadMetadataBits.c)
+ *     MiUpdateVadBits @ 0x140729534 (MiUpdateVadBits.c)
+ *     MmQueryVirtualMemory @ 0x1407C6390 (MmQueryVirtualMemory.c)
+ *     MmCleanProcessAddressSpace @ 0x1407D4924 (MmCleanProcessAddressSpace.c)
+ *     MiUnlockVadRange @ 0x1407D73E8 (MiUnlockVadRange.c)
+ *     MiLockVadRange @ 0x1407D74B8 (MiLockVadRange.c)
+ *     MiCoalescePlaceholderAllocations @ 0x140A2F378 (MiCoalescePlaceholderAllocations.c)
+ *     MiHotPatchProcess @ 0x140A34804 (MiHotPatchProcess.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MiGetNextVad(unsigned __int64 a1)
 {
   unsigned __int64 v1; // rdx

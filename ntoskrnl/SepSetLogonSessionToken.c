@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepSetLogonSessionToken @ 0x14079AF7C
+ * Callers:
+ *     SepFilterToken @ 0x14073FED0 (SepFilterToken.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     SepStopReferencingLogonSession @ 0x140742B6C (SepStopReferencingLogonSession.c)
+ *     SepDuplicateToken @ 0x1407BCF00 (SepDuplicateToken.c)
+ */
+
 LONG_PTR __fastcall SepSetLogonSessionToken(__int64 a1)
 {
   LONG_PTR result; // rax

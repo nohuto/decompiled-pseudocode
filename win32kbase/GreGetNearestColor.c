@@ -1,3 +1,18 @@
+/*
+ * XREFs of GreGetNearestColor @ 0x1C001A710
+ * Callers:
+ *     SetSysColor @ 0x1C001A584 (SetSysColor.c)
+ * Callees:
+ *     ulIndexToRGB @ 0x1C0008B00 (ulIndexToRGB.c)
+ *     ??0DEVLOCKOBJ@@QEAA@XZ @ 0x1C001A928 (--0DEVLOCKOBJ@@QEAA@XZ.c)
+ *     ?vLockNoDrawing@DEVLOCKOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C001AA00 (-vLockNoDrawing@DEVLOCKOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C001BA1C (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0053708 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockNoNullSet@XDCOBJ@@IEAAXXZ @ 0x1C0054EF8 (-vUnlockNoNullSet@XDCOBJ@@IEAAXXZ.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C00550A0 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ *     ulGetNearestIndexFromColorref @ 0x1C00AAA70 (ulGetNearestIndexFromColorref.c)
+ */
+
 __int64 __fastcall GreGetNearestColor(HDC a1, unsigned int a2)
 {
   __int64 v3; // rbp

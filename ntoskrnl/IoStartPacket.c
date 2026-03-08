@@ -1,3 +1,16 @@
+/*
+ * XREFs of IoStartPacket @ 0x140554EE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KeInsertByKeyDeviceQueue @ 0x140457FE0 (KeInsertByKeyDeviceQueue.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeInsertDeviceQueue @ 0x140570C90 (KeInsertDeviceQueue.c)
+ */
+
 void __stdcall IoStartPacket(PDEVICE_OBJECT DeviceObject, PIRP Irp, PULONG Key, PDRIVER_CANCEL CancelFunction)
 {
   KIRQL v8; // r14

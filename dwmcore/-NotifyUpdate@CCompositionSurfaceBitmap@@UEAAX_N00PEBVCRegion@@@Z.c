@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NotifyUpdate@CCompositionSurfaceBitmap@@UEAAX_N00PEBVCRegion@@@Z @ 0x1800BBBC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CCompositionSurfaceBitmap::NotifyUpdate(
         CCompositionSurfaceBitmap *this,
         __int64 a2,

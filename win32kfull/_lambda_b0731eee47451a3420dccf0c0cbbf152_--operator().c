@@ -1,3 +1,14 @@
+/*
+ * XREFs of _lambda_b0731eee47451a3420dccf0c0cbbf152_::operator() @ 0x1C003BAE0
+ * Callers:
+ *     _lambda_b0731eee47451a3420dccf0c0cbbf152_::_lambda_invoker_cdecl_ @ 0x1C00F5AE0 (_lambda_b0731eee47451a3420dccf0c0cbbf152_--_lambda_invoker_cdecl_.c)
+ * Callees:
+ *     ??0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C0022210 (--0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall lambda_b0731eee47451a3420dccf0c0cbbf152_::operator()(
         __int64 a1,

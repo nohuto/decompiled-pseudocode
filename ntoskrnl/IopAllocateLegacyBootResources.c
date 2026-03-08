@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopAllocateLegacyBootResources @ 0x140B359CC
+ * Callers:
+ *     PipProcessStartPhase2 @ 0x1406817A0 (PipProcessStartPhase2.c)
+ *     IopInitializeBootDrivers @ 0x140B57F78 (IopInitializeBootDrivers.c)
+ * Callees:
+ *     PipSetDevNodeFlags @ 0x1406857DC (PipSetDevNodeFlags.c)
+ *     IopCreateCmResourceList @ 0x1408027E8 (IopCreateCmResourceList.c)
+ *     IopCombineCmResourceList @ 0x1408028BC (IopCombineCmResourceList.c)
+ *     IopAllocateBootResources @ 0x140804670 (IopAllocateBootResources.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopAllocateLegacyBootResources(__int64 a1, int a2)
 {
   int v3; // r14d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiRectIntersectsRectWithSubpixel @ 0x1C01BAAFC
+ * Callers:
+ *     ?CalcVisRgnWorker@@YAHQEBUtagWND@@PEAPEAUHRGN__@@K@Z @ 0x1C0053AA0 (-CalcVisRgnWorker@@YAHQEBUtagWND@@PEAPEAUHRGN__@@K@Z.c)
+ * Callees:
+ *     ?GetDpiRectWithSubpixel@@YAXPEBUtagRECT@@PEBMPEBUtagWND@@2PEAM333@Z @ 0x1C01BA2B8 (-GetDpiRectWithSubpixel@@YAXPEBUtagRECT@@PEBMPEBUtagWND@@2PEAM333@Z.c)
+ */
+
 _BOOL8 __fastcall DpiRectIntersectsRectWithSubpixel(
         __m128i *a1,
         const float *a2,

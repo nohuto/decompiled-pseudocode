@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhAllocateTimerObject @ 0x1C003B9F4
+ * Callers:
+ *     UsbhBusPnpStart @ 0x1C00369F0 (UsbhBusPnpStart.c)
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 __int64 __fastcall UsbhAllocateTimerObject(__int64 a1, __int64 a2, int a3)
 {
   __int64 Pool2; // r9

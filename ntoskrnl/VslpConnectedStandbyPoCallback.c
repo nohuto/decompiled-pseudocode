@@ -1,3 +1,13 @@
+/*
+ * XREFs of VslpConnectedStandbyPoCallback @ 0x140940680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall VslpConnectedStandbyPoCallback(LPCGUID SettingGuid, _DWORD *Value, ULONG ValueLength, PVOID Context)
 {
   __int64 v6; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of IoStopDiskIoAttributionForContext @ 0x1402C4224
+ * Callers:
+ *     PspRemoveIoAttribution @ 0x14075339C (PspRemoveIoAttribution.c)
+ *     PspIoRateEntryActivate @ 0x140753428 (PspIoRateEntryActivate.c)
+ *     PspIoRateEntryDeactivate @ 0x1407552BC (PspIoRateEntryDeactivate.c)
+ * Callees:
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall IoStopDiskIoAttributionForContext(struct _EX_RUNDOWN_REF *a1)
 {
   unsigned __int64 v2; // rbx

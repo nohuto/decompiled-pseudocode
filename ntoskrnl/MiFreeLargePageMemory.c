@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiFreeLargePageMemory @ 0x1403505C0
+ * Callers:
+ *     MiDecommitLargePoolVa @ 0x14020FF88 (MiDecommitLargePoolVa.c)
+ *     MiZeroAndReleasePages @ 0x1402776A0 (MiZeroAndReleasePages.c)
+ *     MiFreeMdlPageRun @ 0x14027AF50 (MiFreeMdlPageRun.c)
+ *     MiFreeSlabEntry @ 0x1403B33B0 (MiFreeSlabEntry.c)
+ *     MiFreeContiguousPages @ 0x1403BDABC (MiFreeContiguousPages.c)
+ *     MiFreeLargePages @ 0x140665C70 (MiFreeLargePages.c)
+ *     MiFreeBootDriverPages @ 0x140B3C044 (MiFreeBootDriverPages.c)
+ * Callees:
+ *     MiColdPageSizeSupported @ 0x1402DD100 (MiColdPageSizeSupported.c)
+ *     MiUpdateLargePageBitMap @ 0x14034D79C (MiUpdateLargePageBitMap.c)
+ *     MiFinishLargePageFree @ 0x1403506BC (MiFinishLargePageFree.c)
+ *     MiReadyLargePageToFree @ 0x140350860 (MiReadyLargePageToFree.c)
+ *     MiConvertSmallPageRangeToLarge @ 0x1403B3040 (MiConvertSmallPageRangeToLarge.c)
+ *     MiChangePageHeatImmediate @ 0x1406517FC (MiChangePageHeatImmediate.c)
+ */
+
 __int64 __fastcall MiFreeLargePageMemory(unsigned __int64 a1, unsigned int a2, unsigned int a3)
 {
   __int64 v3; // rdi

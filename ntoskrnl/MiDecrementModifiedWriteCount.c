@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiDecrementModifiedWriteCount @ 0x140212BE4
+ * Callers:
+ *     MiWriteComplete @ 0x1402126E0 (MiWriteComplete.c)
+ *     MiTrimSharedPage @ 0x1403A0EBC (MiTrimSharedPage.c)
+ *     MiDeleteCachedSubsection @ 0x140621708 (MiDeleteCachedSubsection.c)
+ *     MiFlushControlArea @ 0x1406220F4 (MiFlushControlArea.c)
+ *     MiFlushComplete @ 0x140633A40 (MiFlushComplete.c)
+ *     MiLocateSharedPageViews @ 0x1406340C0 (MiLocateSharedPageViews.c)
+ *     MiReleasePageFileSectionInfo @ 0x140639168 (MiReleasePageFileSectionInfo.c)
+ *     MiPurgeBadFileOnlyPages @ 0x14063C678 (MiPurgeBadFileOnlyPages.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiBuildWakeList @ 0x140332B34 (MiBuildWakeList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiDecrementModifiedWriteCount(__int64 a1, int a2)
 {
   volatile LONG *v2; // rsi

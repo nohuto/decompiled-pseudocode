@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiCopyTopLevelMappings @ 0x1402A5C20
+ * Callers:
+ *     MiCreateNewProcessTopLevelMappings @ 0x1402A604C (MiCreateNewProcessTopLevelMappings.c)
+ *     MiUpdateSystemPdes @ 0x1406170F0 (MiUpdateSystemPdes.c)
+ * Callees:
+ *     MiShadowTopLevelPxes @ 0x1402A5D94 (MiShadowTopLevelPxes.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 struct _KTHREAD *__fastcall MiCopyTopLevelMappings(__int64 a1, __int64 a2)
 {
   _QWORD *v4; // rsi

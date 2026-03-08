@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpApplyTransientFilters @ 0x1409F2338
+ * Callers:
+ *     EtwpNotifyGuid @ 0x14068EA84 (EtwpNotifyGuid.c)
+ *     EtwpIsRegEntryAllowed @ 0x140690060 (EtwpIsRegEntryAllowed.c)
+ * Callees:
+ *     EtwpApplyContainerFilter @ 0x1409F1F18 (EtwpApplyContainerFilter.c)
+ *     EtwpApplyExeFilter @ 0x1409F2064 (EtwpApplyExeFilter.c)
+ *     EtwpApplyPackageIdFilter @ 0x1409F2138 (EtwpApplyPackageIdFilter.c)
+ */
+
 bool __fastcall EtwpApplyTransientFilters(__int64 a1, __int64 a2)
 {
   unsigned int *v5; // rcx

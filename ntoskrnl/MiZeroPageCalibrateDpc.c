@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiZeroPageCalibrateDpc @ 0x140389C70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiZeroMemory @ 0x140389E0C (MiZeroMemory.c)
+ *     MiZeroPageCalibrateLastDpcProcessorDone @ 0x140389E3C (MiZeroPageCalibrateLastDpcProcessorDone.c)
+ *     MiStartDpcZeroingRound @ 0x140389F08 (MiStartDpcZeroingRound.c)
+ *     MiWakeOnlyParticipatingProcessorsFromAssignedNode @ 0x14038A28C (MiWakeOnlyParticipatingProcessorsFromAssignedNode.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403C8140 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403C8170 (HvlNotifyLongSpinWait.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ */
+
 __int64 __fastcall MiZeroPageCalibrateDpc(__int64 a1, __int64 a2, volatile signed __int32 *a3)
 {
   int v3; // r12d

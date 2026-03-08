@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSoundSentry @ 0x1C01DFE20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxSoundSentry @ 0x1C01F73D8 (xxxSoundSentry.c)
+ */
+
 __int64 NtUserSoundSentry()
 {
   __int64 v0; // rbx

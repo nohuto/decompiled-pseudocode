@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpWorkQueueManagerStart @ 0x140848060
+ * Callers:
+ *     ExpPartitionStart @ 0x140847FB8 (ExpPartitionStart.c)
+ *     ExpNodeHotAddProcessorWorker @ 0x1409FD980 (ExpNodeHotAddProcessorWorker.c)
+ * Callees:
+ *     ExpPartitionCreateSystemThread @ 0x1407DE1A0 (ExpPartitionCreateSystemThread.c)
+ */
+
 __int64 __fastcall ExpWorkQueueManagerStart(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int SystemThread; // ecx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?IsCddCddRemoteSessionFilteringAllowed@@YAHXZ @ 0x1C00D3D44
+ * Callers:
+ *     ldevLoadDriver @ 0x1C0024CA0 (ldevLoadDriver.c)
+ *     ?bRenderLddmDriver@PDEVOBJ@@QEAAHXZ @ 0x1C006BF4C (-bRenderLddmDriver@PDEVOBJ@@QEAAHXZ.c)
+ *     EngQueryW32kCddInterface @ 0x1C00BCF70 (EngQueryW32kCddInterface.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall IsCddCddRemoteSessionFilteringAllowed(__int64 a1)
 {
   __int64 v1; // rcx

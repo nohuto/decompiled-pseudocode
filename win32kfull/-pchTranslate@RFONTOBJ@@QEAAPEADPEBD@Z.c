@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z @ 0x1C02B9424
+ * Callers:
+ *     ?pjTable@RFONTOBJ@@QEAAPEAEKPEAK@Z @ 0x1C02B96E0 (-pjTable@RFONTOBJ@@QEAAPEAEKPEAK@Z.c)
+ *     ?pvFile@RFONTOBJ@@QEAAPEAXPEAK@Z @ 0x1C02B9790 (-pvFile@RFONTOBJ@@QEAAPEAXPEAK@Z.c)
+ * Callees:
+ *     ?MapFontFileInKernel@@YAJPEAXPEAPEAX@Z @ 0x1C02B884C (-MapFontFileInKernel@@YAJPEAXPEAPEAX@Z.c)
+ *     ?bAddPrintKView@@YAH_KPEAXK0PEAU_FONTFILE_PRINTKVIEW@@@Z @ 0x1C02B8BE0 (-bAddPrintKView@@YAH_KPEAXK0PEAU_FONTFILE_PRINTKVIEW@@@Z.c)
+ *     ?bFindPrintKView@@YAH_KKPEAPEAU_FONTFILE_PRINTKVIEW@@@Z @ 0x1C02B8EC4 (-bFindPrintKView@@YAH_KKPEAPEAU_FONTFILE_PRINTKVIEW@@@Z.c)
+ */
+
 char *__fastcall RFONTOBJ::pchTranslate(RFONTOBJ *this, const char *a2)
 {
   __int64 v4; // rsi

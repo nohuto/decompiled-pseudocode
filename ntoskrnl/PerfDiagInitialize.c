@@ -1,3 +1,14 @@
+/*
+ * XREFs of PerfDiagInitialize @ 0x140B6C6B4
+ * Callers:
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwRegister @ 0x140690D20 (EtwRegister.c)
+ *     EtwUnregister @ 0x14076F9E0 (EtwUnregister.c)
+ *     EtwWriteStartScenario @ 0x14085A170 (EtwWriteStartScenario.c)
+ */
+
 int PerfDiagInitialize()
 {
   int result; // eax

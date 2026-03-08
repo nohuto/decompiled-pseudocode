@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopDirectedDripsReleaseTransitionLock @ 0x140980B94
+ * Callers:
+ *     PopDirectedDripsResumeDevices @ 0x140980BC4 (PopDirectedDripsResumeDevices.c)
+ *     PopDirectedDripsSuspendDevices @ 0x140980E14 (PopDirectedDripsSuspendDevices.c)
+ * Callees:
+ *     PopReleaseTransitionLock @ 0x14082AD60 (PopReleaseTransitionLock.c)
+ */
+
 LONG __fastcall PopDirectedDripsReleaseTransitionLock(void *a1)
 {
   LONG result; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtEnumerateTransactionObject @ 0x1403D24D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // attributes: thunk
 NTSTATUS __stdcall NtEnumerateTransactionObject(
         HANDLE RootObjectHandle,

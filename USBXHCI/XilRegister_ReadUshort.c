@@ -1,3 +1,11 @@
+/*
+ * XREFs of XilRegister_ReadUshort @ 0x1C003F39C
+ * Callers:
+ *     Controller_ExecuteHSICDisconnectInU3WorkaroundDirect @ 0x1C0078104 (Controller_ExecuteHSICDisconnectInU3WorkaroundDirect.c)
+ * Callees:
+ *     Register_ReadSecureMmio @ 0x1C003EE08 (Register_ReadSecureMmio.c)
+ */
+
 __int64 __fastcall XilRegister_ReadUshort(__int64 a1, unsigned __int16 *a2)
 {
   unsigned __int16 v3; // [rsp+40h] [rbp+8h] BYREF

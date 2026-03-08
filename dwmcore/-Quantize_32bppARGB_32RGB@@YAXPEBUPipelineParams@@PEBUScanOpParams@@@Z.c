@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Quantize_32bppARGB_32RGB@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802B9D60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall Quantize_32bppARGB_32RGB(const struct PipelineParams *a1, const struct ScanOpParams *a2)
 {
   int *v2; // r8

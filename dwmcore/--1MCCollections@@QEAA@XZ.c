@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1MCCollections@@QEAA@XZ @ 0x18027FF10
+ * Callers:
+ *     ??1CManipulationManager@@MEAA@XZ @ 0x18027FDEC (--1CManipulationManager@@MEAA@XZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ @ 0x1800F2FE0 (-InternalRelease@-$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ.c)
+ */
+
 void __fastcall MCCollections::~MCCollections(MCCollections *this)
 {
   void *v2; // rcx

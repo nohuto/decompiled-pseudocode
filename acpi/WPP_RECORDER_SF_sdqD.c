@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_RECORDER_SF_sdqD @ 0x1C0039F9C
+ * Callers:
+ *     EnableDisableDeviceTreeRegionSpace @ 0x1C00399A0 (EnableDisableDeviceTreeRegionSpace.c)
+ *     EnableDisableRegionSpacesForDevice @ 0x1C0039ADC (EnableDisableRegionSpacesForDevice.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_sdqD(__int64 a1, _DWORD a2, _DWORD a3, unsigned __int16 a4, __int64 a5, const char *a6, ...)
 {
   const char *v6; // rdi

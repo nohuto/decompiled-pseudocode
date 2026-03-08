@@ -1,3 +1,19 @@
+/*
+ * XREFs of HalpCmciInitProcessor @ 0x14037CD68
+ * Callers:
+ *     HalpCmciInit @ 0x140A8795C (HalpCmciInit.c)
+ *     HalpInitializeCmc @ 0x140A87F7C (HalpInitializeCmc.c)
+ *     HalpMcaResumeProcessorConfig @ 0x140A9218C (HalpMcaResumeProcessorConfig.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     HalpCmciSetProcessorConfig @ 0x14037CC58 (HalpCmciSetProcessorConfig.c)
+ *     HalpCmciPollProcessor @ 0x14037CE58 (HalpCmciPollProcessor.c)
+ *     HalpGetMcaPcrContext @ 0x14037CEF4 (HalpGetMcaPcrContext.c)
+ *     HalpGetCpuVendor @ 0x14037D1B4 (HalpGetCpuVendor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpIsCmciImplementedAMD @ 0x140A9275C (HalpIsCmciImplementedAMD.c)
+ */
+
 unsigned __int8 __fastcall HalpCmciInitProcessor(__int64 a1, __int64 a2)
 {
   char v4; // si

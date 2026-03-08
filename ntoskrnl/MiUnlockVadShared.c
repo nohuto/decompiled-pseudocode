@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiUnlockVadShared @ 0x1402A5B30
+ * Callers:
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ *     MiReferenceCfgVad @ 0x140727250 (MiReferenceCfgVad.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x140727330 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     MmQueryVirtualMemory @ 0x1407C6390 (MmQueryVirtualMemory.c)
+ *     NtAreMappedFilesTheSame @ 0x14086F640 (NtAreMappedFilesTheSame.c)
+ *     MiHotPatchProcess @ 0x140A34804 (MiHotPatchProcess.c)
+ *     MmIsFileMapped @ 0x140A39978 (MmIsFileMapped.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ */
+
 int __fastcall MiUnlockVadShared(__int64 a1, __int64 a2)
 {
   ULONG_PTR v2; // rdi

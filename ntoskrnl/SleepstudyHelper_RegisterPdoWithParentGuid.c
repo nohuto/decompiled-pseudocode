@@ -1,3 +1,14 @@
+/*
+ * XREFs of SleepstudyHelper_RegisterPdoWithParentGuid @ 0x14099F2D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SleepstudyHelperDestroyBlocker @ 0x1403AFD80 (SleepstudyHelperDestroyBlocker.c)
+ *     SleepstudyHelperBuildBlocker @ 0x1407261A0 (SleepstudyHelperBuildBlocker.c)
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x140726370 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     SleepstudyHelperCreateBlockerFromDevice @ 0x140842D00 (SleepstudyHelperCreateBlockerFromDevice.c)
+ */
+
 __int64 __fastcall SleepstudyHelper_RegisterPdoWithParentGuid(
         __int64 a1,
         __int128 *a2,

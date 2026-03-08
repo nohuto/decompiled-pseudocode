@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpGetEntireXStateAreaLength @ 0x1403D1A20
+ * Callers:
+ *     RtlGetExtendedContextLength2 @ 0x140364DF0 (RtlGetExtendedContextLength2.c)
+ *     RtlInitializeExtendedContext2 @ 0x140364EE0 (RtlInitializeExtendedContext2.c)
+ *     RtlpGetNonLegacyXStateAreaLength @ 0x1405A8DD4 (RtlpGetNonLegacyXStateAreaLength.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpGetEntireXStateAreaLength(__int64 a1)
 {
   unsigned int v2; // ecx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of VidSchiSubmitHwPagingCommand @ 0x1C0109884
+ * Callers:
+ *     VidSchSubmitPagingCommand @ 0x1C0108A08 (VidSchSubmitPagingCommand.c)
+ * Callees:
+ *     VidSchiSchedulerNodeToDriverEngine @ 0x1C00196B8 (VidSchiSchedulerNodeToDriverEngine.c)
+ *     VidSchiSubmitCommandPacketToHwQueue @ 0x1C001DC60 (VidSchiSubmitCommandPacketToHwQueue.c)
+ *     VidSchiAllocateHwQueuePacket @ 0x1C00C4C32 (VidSchiAllocateHwQueuePacket.c)
+ */
+
 void __fastcall VidSchiSubmitHwPagingCommand(__int64 a1, __int64 a2)
 {
   unsigned int v3; // eax

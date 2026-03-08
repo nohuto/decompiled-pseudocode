@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MarkQueuesForKeyStateUpdateWorker@KeyboardProcessing@@YAXPEAUtagQ@@QEAX@Z @ 0x1C0217528
+ * Callers:
+ *     ?ForEachActivatableQueue@CActivationObjectManager@@QEBAXA6AXPEAUtagQ@@PEAX@Z1@Z @ 0x1C0155E9C (-ForEachActivatableQueue@CActivationObjectManager@@QEBAXA6AXPEAUtagQ@@PEAX@Z1@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall KeyboardProcessing::MarkQueuesForKeyStateUpdateWorker(
         KeyboardProcessing *this,
         struct tagQ *a2,

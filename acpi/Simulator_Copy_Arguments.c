@@ -1,3 +1,13 @@
+/*
+ * XREFs of Simulator_Copy_Arguments @ 0x1C0049088
+ * Callers:
+ *     Simulator_Pre_AsyncEvalObject @ 0x1C00495FC (Simulator_Pre_AsyncEvalObject.c)
+ *     Simulator_Pre_EvalNameSpaceObject @ 0x1C00496F8 (Simulator_Pre_EvalNameSpaceObject.c)
+ * Callees:
+ *     DupObjData @ 0x1C004AF04 (DupObjData.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ */
+
 __int64 __fastcall Simulator_Copy_Arguments(int a1, __int64 a2, __int64 *a3)
 {
   unsigned int v3; // ebx

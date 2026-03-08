@@ -1,3 +1,12 @@
+/*
+ * XREFs of LinkNodeCopyData @ 0x1C0099338
+ * Callers:
+ *     IrqArbCommitAllocation @ 0x1C009D040 (IrqArbCommitAllocation.c)
+ *     IrqArbpPrepareForTestOrConflict @ 0x1C009E4D0 (IrqArbpPrepareForTestOrConflict.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall LinkNodeCopyData(int a1)
 {
   __int64 v1; // rdx

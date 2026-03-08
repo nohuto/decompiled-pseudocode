@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CRedirectedGDISurface@@MEAA@XZ @ 0x1800F18C4
+ * Callers:
+ *     ??_ECRedirectedGDISurface@@MEAAPEAXI@Z @ 0x1800F1880 (--_ECRedirectedGDISurface@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CRedirectedGDISurface::~CRedirectedGDISurface(CRedirectedGDISurface *this)
 {
   bool v1; // zf

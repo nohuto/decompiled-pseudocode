@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ComposeDeadKeys@@YAHPEAUtagKL@@PEAUDEADKEY@@GPEAGHIH@Z @ 0x1C021B7F0
+ * Callers:
+ *     xxxInternalToUnicode @ 0x1C0081AB0 (xxxInternalToUnicode.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00052A0 (WPP_RECORDER_AND_TRACE_SF_dd.c)
+ *     WPP_RECORDER_AND_TRACE_SF_hD @ 0x1C0008D30 (WPP_RECORDER_AND_TRACE_SF_hD.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_hDhD @ 0x1C021BC20 (WPP_RECORDER_AND_TRACE_SF_hDhD.c)
+ */
+
 __int64 __fastcall ComposeDeadKeys(
         struct tagKL *a1,
         struct DEADKEY *a2,

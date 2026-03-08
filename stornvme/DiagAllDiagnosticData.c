@@ -1,3 +1,12 @@
+/*
+ * XREFs of DiagAllDiagnosticData @ 0x1C00110F4
+ * Callers:
+ *     DiagGeneric @ 0x1C00114BC (DiagGeneric.c)
+ * Callees:
+ *     memmove @ 0x1C0004280 (memmove.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ */
+
 __int64 __fastcall DiagAllDiagnosticData(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v4; // edx

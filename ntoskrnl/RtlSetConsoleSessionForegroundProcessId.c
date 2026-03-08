@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlSetConsoleSessionForegroundProcessId @ 0x14079B200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ */
+
 struct _LIST_ENTRY *__fastcall RtlSetConsoleSessionForegroundProcessId(__int64 a1, __int64 a2)
 {
   struct _LIST_ENTRY *result; // rax

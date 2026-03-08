@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExpTryToAcquireResourceExclusiveLite @ 0x140608B54
+ * Callers:
+ *     ExTryToAcquireResourceExclusiveLite @ 0x1406086B0 (ExTryToAcquireResourceExclusiveLite.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpTryAcquireResourceExclusive @ 0x1403C4DA0 (ExpTryAcquireResourceExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PerfLogExecutiveResourceAcquire @ 0x1405FE2B8 (PerfLogExecutiveResourceAcquire.c)
+ */
+
 char __fastcall ExpTryToAcquireResourceExclusiveLite(__int64 a1)
 {
   unsigned int v2; // esi

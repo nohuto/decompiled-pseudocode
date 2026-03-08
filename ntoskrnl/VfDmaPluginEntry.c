@@ -1,3 +1,13 @@
+/*
+ * XREFs of VfDmaPluginEntry @ 0x1405CFB70
+ * Callers:
+ *     DifRegisterKernelPlugin @ 0x1405D2B20 (DifRegisterKernelPlugin.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     DifRegisterPlugin @ 0x1405D2C50 (DifRegisterPlugin.c)
+ *     ViDmaInit @ 0x140ADA508 (ViDmaInit.c)
+ */
+
 __int64 VfDmaPluginEntry()
 {
   int v0; // ebx

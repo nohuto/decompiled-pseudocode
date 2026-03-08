@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIProcessorContainerEvaluateLpiObjects @ 0x1C003A6D0
+ * Callers:
+ *     ACPIProcessorContainerEvaluateLpiObjects @ 0x1C003A6D0 (ACPIProcessorContainerEvaluateLpiObjects.c)
+ *     ACPIProcessorContainerGetLpiStatesIoctl @ 0x1C003A968 (ACPIProcessorContainerGetLpiStatesIoctl.c)
+ * Callees:
+ *     ACPIProcessorContainerEvaluateLpiObject @ 0x1C003A614 (ACPIProcessorContainerEvaluateLpiObject.c)
+ *     ACPIProcessorContainerEvaluateLpiObjects @ 0x1C003A6D0 (ACPIProcessorContainerEvaluateLpiObjects.c)
+ */
+
 __int64 __fastcall ACPIProcessorContainerEvaluateLpiObjects(_QWORD **a1, int *a2)
 {
   KIRQL v4; // al

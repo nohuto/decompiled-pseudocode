@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsKeyDownSpecified@@YAHEPEBE@Z @ 0x1C0219C58
+ * Callers:
+ *     ?MapFlexibleKeys@@YAHPEAUtagKE@@EPEAUDEVICEINFO@@@Z @ 0x1C0219E4C (-MapFlexibleKeys@@YAHPEAUtagKE@@EPEAUDEVICEINFO@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IsKeyDownSpecified(char a1, const unsigned __int8 *a2)
 {
   unsigned int v2; // eax

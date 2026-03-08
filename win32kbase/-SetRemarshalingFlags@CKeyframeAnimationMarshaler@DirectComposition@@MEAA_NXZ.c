@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CKeyframeAnimationMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0263030
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetRemarshalingFlags@CBaseExpressionMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0262E50 (-SetRemarshalingFlags@CBaseExpressionMarshaler@DirectComposition@@MEAA_NXZ.c)
+ */
+
 char __fastcall DirectComposition::CKeyframeAnimationMarshaler::SetRemarshalingFlags(
         DirectComposition::CKeyframeAnimationMarshaler *this)
 {

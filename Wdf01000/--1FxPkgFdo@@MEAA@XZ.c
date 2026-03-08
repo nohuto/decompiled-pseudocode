@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1FxPkgFdo@@MEAA@XZ @ 0x1C00779D4
+ * Callers:
+ *     ??_EFxPkgFdo@@MEAAPEAXI@Z @ 0x1C0077AD0 (--_EFxPkgFdo@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ??1FxPkgPnp@@MEAA@XZ @ 0x1C0070ED0 (--1FxPkgPnp@@MEAA@XZ.c)
+ */
+
 void __fastcall FxPkgFdo::~FxPkgFdo(FxPkgFdo *this)
 {
   FxChildList *m_DefaultDeviceList; // rcx

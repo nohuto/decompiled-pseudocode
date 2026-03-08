@@ -1,3 +1,15 @@
+/*
+ * XREFs of SeOpenObjectAuditAlarmForNonObObject @ 0x14085ED00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x1406996AC (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140699810 (SepAdtAuditThisEventWithContext.c)
+ *     SeExamineSacl @ 0x1408A18B0 (SeExamineSacl.c)
+ *     SeExamineGlobalSacl @ 0x1408A1D6A (SeExamineGlobalSacl.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x1409C930C (SepAdtOpenObjectAuditAlarm.c)
+ */
+
 void __fastcall SeOpenObjectAuditAlarmForNonObObject(
         PUNICODE_STRING ObjectType,
         __int64 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiLookupInDDB @ 0x14079DE5C
+ * Callers:
+ *     PpCheckInDriverDatabase @ 0x14079DC60 (PpCheckInDriverDatabase.c)
+ * Callees:
+ *     PiReleaseDDB @ 0x14079C824 (PiReleaseDDB.c)
+ *     PiInitializeDDB @ 0x14079CD80 (PiInitializeDDB.c)
+ *     PiIsDriverBlocked @ 0x14079DF64 (PiIsDriverBlocked.c)
+ */
+
 __int64 __fastcall PiLookupInDDB(int a1, int a2, int a3, __int64 a4)
 {
   PVOID v4; // rdi

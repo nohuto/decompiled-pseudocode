@@ -1,3 +1,23 @@
+/*
+ * XREFs of Controller_UcxEvtStartTrackingForTimeSync @ 0x1C0035B60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     DynamicLock_Acquire @ 0x1C000A918 (DynamicLock_Acquire.c)
+ *     DynamicLock_Release @ 0x1C000A958 (DynamicLock_Release.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     WPP_RECORDER_SF_D @ 0x1C00180C4 (WPP_RECORDER_SF_D.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dqd @ 0x1C001E3F8 (WPP_RECORDER_SF_dqd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0ptqqp_EtwWriteTransfer @ 0x1C0037098 (McTemplateK0ptqqp_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_II @ 0x1C0037144 (WPP_RECORDER_SF_II.c)
+ *     Interrupter_QueryBusEdgeInformation @ 0x1C003E184 (Interrupter_QueryBusEdgeInformation.c)
+ */
+
 PDEVICE_OBJECT __fastcall Controller_UcxEvtStartTrackingForTimeSync(
         __int64 a1,
         __int64 a2,

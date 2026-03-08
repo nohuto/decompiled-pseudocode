@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheapReverseAddressTranslateToPAInPlugin @ 0x140A05A60
+ * Callers:
+ *     WheaPageOfflineAndPersist @ 0x140A05220 (WheaPageOfflineAndPersist.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall WheapReverseAddressTranslateToPAInPlugin(__int64 a1, _QWORD *a2)
 {
   __int128 v4; // xmm1

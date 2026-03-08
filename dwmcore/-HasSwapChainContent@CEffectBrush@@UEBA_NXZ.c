@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HasSwapChainContent@CEffectBrush@@UEBA_NXZ @ 0x1802283E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CEffectBrush::HasSwapChainContent(CEffectBrush *this)
 {
   __int64 v1; // rbx

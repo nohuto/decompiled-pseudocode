@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CInputConfig@@AEAA@XZ @ 0x1C0097D00
+ * Callers:
+ *     ?Initialize@CInputConfig@@SAJXZ @ 0x1C0097C58 (-Initialize@CInputConfig@@SAJXZ.c)
+ * Callees:
+ *     ??0CInputSpace@@QEAA@AEBUINPUT_SPACE@@_N@Z @ 0x1C0013300 (--0CInputSpace@@QEAA@AEBUINPUT_SPACE@@_N@Z.c)
+ */
+
 CInputConfig *__fastcall CInputConfig::CInputConfig(CInputConfig *this)
 {
   CInputConfig *result; // rax

@@ -1,3 +1,19 @@
+/*
+ * XREFs of EtwpEventWriteTemplateSession @ 0x1409E0E14
+ * Callers:
+ *     EtwpTransitionToRealtime @ 0x1405FD178 (EtwpTransitionToRealtime.c)
+ *     EtwpStartLogger @ 0x140691964 (EtwpStartLogger.c)
+ *     EtwpLogger @ 0x1406926A0 (EtwpLogger.c)
+ *     EtwpUpdateTrace @ 0x140744D3C (EtwpUpdateTrace.c)
+ *     EtwpStopTrace @ 0x140745044 (EtwpStopTrace.c)
+ *     EtwpFlushTrace @ 0x140748AA8 (EtwpFlushTrace.c)
+ *     EtwpTracingProvEnableCallback @ 0x140861AF0 (EtwpTracingProvEnableCallback.c)
+ *     EtwpUpdateLoggerSecurityDescriptor @ 0x1409E9524 (EtwpUpdateLoggerSecurityDescriptor.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall EtwpEventWriteTemplateSession(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3)
 {
   ULONG v3; // r9d

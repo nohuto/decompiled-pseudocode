@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiFlushAllFilesystemPages @ 0x140626E68
+ * Callers:
+ *     MiGetNextPageTablePte @ 0x140224090 (MiGetNextPageTablePte.c)
+ *     MiLockPagedAddress @ 0x1402A1684 (MiLockPagedAddress.c)
+ *     MiInPageSingleKernelStack @ 0x1402A7A08 (MiInPageSingleKernelStack.c)
+ *     MiMakeSystemAddressValid @ 0x140321770 (MiMakeSystemAddressValid.c)
+ *     MiWaitForInPageComplete @ 0x140342A90 (MiWaitForInPageComplete.c)
+ *     MiMakeOutswappedPageResident @ 0x14061612C (MiMakeOutswappedPageResident.c)
+ *     MiShutdownSystem @ 0x140AA8A00 (MiShutdownSystem.c)
+ * Callees:
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MiIsWorkingSetTrimThread @ 0x1402E7920 (MiIsWorkingSetTrimThread.c)
+ *     CcForEachPartition @ 0x140305240 (CcForEachPartition.c)
+ *     MiEmptyAllWorkingSets @ 0x1406322B8 (MiEmptyAllWorkingSets.c)
+ */
+
 __int64 MiFlushAllFilesystemPages()
 {
   __int64 result; // rax

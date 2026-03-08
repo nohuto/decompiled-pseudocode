@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlDeleteRange @ 0x1408200A0
+ * Callers:
+ *     ArbBacktrackAllocation @ 0x1409331A0 (ArbBacktrackAllocation.c)
+ *     IopPortBacktrackAllocation @ 0x140957150 (IopPortBacktrackAllocation.c)
+ * Callees:
+ *     RtlpDeleteFromMergedRange @ 0x14081F234 (RtlpDeleteFromMergedRange.c)
+ *     RtlpFreeRangeListEntry @ 0x140820318 (RtlpFreeRangeListEntry.c)
+ */
+
 __int64 __fastcall RtlDeleteRange(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, __int64 a4)
 {
   _QWORD *v4; // rax

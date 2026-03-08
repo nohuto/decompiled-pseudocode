@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CitpClearDelegation@@YAXPEAU_CIT_PROCESS@@@Z @ 0x1C00B01AC
+ * Callers:
+ *     CitProcessCallout @ 0x1C006F63C (CitProcessCallout.c)
+ *     CitEnableKeyboardDelegation @ 0x1C00B0154 (CitEnableKeyboardDelegation.c)
+ * Callees:
+ *     ?CitpProcessInfoIsValid@@YA_NPEAU_CIT_PROCESS@@@Z @ 0x1C006C060 (-CitpProcessInfoIsValid@@YA_NPEAU_CIT_PROCESS@@@Z.c)
+ */
+
 void __fastcall CitpClearDelegation(struct _CIT_PROCESS *a1)
 {
   __int64 v1; // rcx

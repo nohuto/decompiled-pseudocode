@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopFindResourceHandlerInfo @ 0x140805DA0
+ * Callers:
+ *     IoTranslateBusAddress @ 0x14055DF60 (IoTranslateBusAddress.c)
+ *     IopSetupArbiterAndTranslators @ 0x1408059BC (IopSetupArbiterAndTranslators.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall IopFindResourceHandlerInfo(int a1, _WORD *a2, unsigned __int8 a3, _QWORD *a4)
 {
   int v5; // ecx

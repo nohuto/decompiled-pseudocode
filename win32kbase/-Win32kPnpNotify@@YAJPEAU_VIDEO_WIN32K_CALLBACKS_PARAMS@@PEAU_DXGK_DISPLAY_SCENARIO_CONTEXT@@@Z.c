@@ -1,3 +1,26 @@
+/*
+ * XREFs of ?Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C015B374
+ * Callers:
+ *     VideoPortCalloutThread @ 0x1C00D93A8 (VideoPortCalloutThread.c)
+ * Callees:
+ *     DxgkEngNotifyDisplayChange @ 0x1C000FDC0 (DxgkEngNotifyDisplayChange.c)
+ *     xxxUserSetDisplayConfig @ 0x1C0011DE0 (xxxUserSetDisplayConfig.c)
+ *     DrvUpdateGraphicsDeviceList @ 0x1C001FAC0 (DrvUpdateGraphicsDeviceList.c)
+ *     UserRemoteConnectedSessionUsingWddm @ 0x1C0020FE0 (UserRemoteConnectedSessionUsingWddm.c)
+ *     UserIsWddmConnectedSession @ 0x1C0022420 (UserIsWddmConnectedSession.c)
+ *     PostWinlogonMessage @ 0x1C0090D50 (PostWinlogonMessage.c)
+ *     DrvIsNotUsingGraphicsDevice @ 0x1C00D20D0 (DrvIsNotUsingGraphicsDevice.c)
+ *     DrvSetWddmDeviceMonitorPowerState @ 0x1C00D6BA0 (DrvSetWddmDeviceMonitorPowerState.c)
+ *     IsxxxSetCsrssThreadDesktopSupported @ 0x1C00DA44C (IsxxxSetCsrssThreadDesktopSupported.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     DispBroker::DispBrokerClient::AsyncMessageNoAlloc_3__lambda_2ffaef142a06e39d44c296ad8819dbf0___ @ 0x1C0156590 (DispBroker--DispBrokerClient--AsyncMessageNoAlloc_3__lambda_2ffaef142a06e39d44c296ad8819dbf0___.c)
+ *     ?PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0159D70 (-PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     DrvCleanupGraphicsDevices @ 0x1C0192A24 (DrvCleanupGraphicsDevices.c)
+ *     DrvDisableGraphicsDevices @ 0x1C019331C (DrvDisableGraphicsDevices.c)
+ *     DrvLogDiagDisplayChange @ 0x1C01943C0 (DrvLogDiagDisplayChange.c)
+ *     IsxxxRestoreCsrssThreadDesktopSupported @ 0x1C0271FCC (IsxxxRestoreCsrssThreadDesktopSupported.c)
+ */
+
 __int64 __fastcall Win32kPnpNotify(
         struct _VIDEO_WIN32K_CALLBACKS_PARAMS *a1,
         struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a2,

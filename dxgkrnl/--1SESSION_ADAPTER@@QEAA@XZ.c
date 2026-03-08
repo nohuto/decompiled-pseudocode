@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1SESSION_ADAPTER@@QEAA@XZ @ 0x1C01C58F0
+ * Callers:
+ *     ??_GSESSION_ADAPTER@@QEAAPEAXI@Z @ 0x1C000B2E8 (--_GSESSION_ADAPTER@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?DeallocateElements@?$PagedPoolZeroedArray@PEAVDXGHWQUEUE@@$01@@QEAAXXZ @ 0x1C01DD390 (-DeallocateElements@-$PagedPoolZeroedArray@PEAVDXGHWQUEUE@@$01@@QEAAXXZ.c)
+ */
+
 void __fastcall SESSION_ADAPTER::~SESSION_ADAPTER(SESSION_ADAPTER *this)
 {
   if ( *((_DWORD *)this + 12)

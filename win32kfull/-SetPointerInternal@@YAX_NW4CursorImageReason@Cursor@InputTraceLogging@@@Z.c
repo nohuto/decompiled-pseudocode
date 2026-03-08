@@ -1,3 +1,22 @@
+/*
+ * XREFs of ?SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z @ 0x1C00219C0
+ * Callers:
+ *     SetPointer @ 0x1C00219A0 (SetPointer.c)
+ *     zzzUpdateCursorImage @ 0x1C0061E20 (zzzUpdateCursorImage.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ * Callees:
+ *     ?FCursorShadowed@@YA_NPEAU_CURSINFO@@@Z @ 0x1C00204B4 (-FCursorShadowed@@YA_NPEAU_CURSINFO@@@Z.c)
+ *     ?GetCurrentCursorSize@CCursorSizes@@QEBAIXZ @ 0x1C00204F0 (-GetCurrentCursorSize@CCursorSizes@@QEBAIXZ.c)
+ *     ?FixupCursorForMonitor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C002052C (-FixupCursorForMonitor@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
+ *     ?GetCurrentCursorFrame@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C00205A8 (-GetCurrentCursorFrame@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
+ *     ?SetCursorImage@Cursor@InputTraceLogging@@SAXPEAUtagCURSOR@@0IW4CursorImageReason@12@KK@Z @ 0x1C0021BEC (-SetCursorImage@Cursor@InputTraceLogging@@SAXPEAUtagCURSOR@@0IW4CursorImageReason@12@KK@Z.c)
+ *     ?SetPointerShape@CursorApiRouter@@QEAAXPEAU_CURSINFO@@KKK@Z @ 0x1C0021C48 (-SetPointerShape@CursorApiRouter@@QEAAXPEAU_CURSINFO@@KKK@Z.c)
+ *     PtiMouseFromQ @ 0x1C0037050 (PtiMouseFromQ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?TestRawInputModeCaptureMouse@@YA_NPEAUtagTHREADINFO@@@Z @ 0x1C01A9B80 (-TestRawInputModeCaptureMouse@@YA_NPEAUtagTHREADINFO@@@Z.c)
+ */
+
 char __fastcall SetPointerInternal(CursorApiRouter *a1, unsigned int a2)
 {
   struct tagCURSOR *CurrentCursorFrame; // rax

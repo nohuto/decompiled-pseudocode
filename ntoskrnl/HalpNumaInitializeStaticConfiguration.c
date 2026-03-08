@@ -1,3 +1,22 @@
+/*
+ * XREFs of HalpNumaInitializeStaticConfiguration @ 0x140B63268
+ * Callers:
+ *     HalpSetupAcpiPhase0 @ 0x140B62CA8 (HalpSetupAcpiPhase0.c)
+ * Callees:
+ *     HalpAcpiGetTable @ 0x14029C550 (HalpAcpiGetTable.c)
+ *     HalpMmAllocateMemoryInternal @ 0x14037A7A8 (HalpMmAllocateMemoryInternal.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpInitializeConfigurationFromMadt @ 0x140B633D4 (HalpInitializeConfigurationFromMadt.c)
+ *     HalpChannelInitializeStaticConfiguration @ 0x140B63680 (HalpChannelInitializeStaticConfiguration.c)
+ *     HalpAllocateNumaConfigData @ 0x140B636D0 (HalpAllocateNumaConfigData.c)
+ *     HalpGetAvailableProximityId @ 0x140B8DF00 (HalpGetAvailableProximityId.c)
+ *     HalpGetNumaProcMemoryCount @ 0x140B8DF8C (HalpGetNumaProcMemoryCount.c)
+ *     HalpNumaSortProcessors @ 0x140B8E398 (HalpNumaSortProcessors.c)
+ *     HalpUpdateConfigurationFromMsct @ 0x140B8E444 (HalpUpdateConfigurationFromMsct.c)
+ *     HalpVerifySratEntryLengthAndFlag @ 0x140B8E808 (HalpVerifySratEntryLengthAndFlag.c)
+ */
+
 void *__fastcall HalpNumaInitializeStaticConfiguration(__int64 a1)
 {
   __int64 v1; // r14

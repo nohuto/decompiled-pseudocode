@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsImmersiveBroker @ 0x1C00AAF90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall IsImmersiveBroker(__int64 a1)
 {
   PVOID v1; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopPowerAggregatorHandleActiveIntent @ 0x14079C5D0
+ * Callers:
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x140757290 (PopPowerAggregatorHandleIntentUnsafe.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopPowerAggregatorHandleActiveIntent(__int64 a1, __int64 a2)
 {
   int v2; // r8d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetNotificationTokens@SfmTokenArray@@QEAAJIPEAIPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C00D8180
+ * Callers:
+ *     GreSfmGetNotificationTokens @ 0x1C00D8060 (GreSfmGetNotificationTokens.c)
+ * Callees:
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 __int64 __fastcall SfmTokenArray::GetNotificationTokens(
         SfmTokenArray *this,
         unsigned int a2,

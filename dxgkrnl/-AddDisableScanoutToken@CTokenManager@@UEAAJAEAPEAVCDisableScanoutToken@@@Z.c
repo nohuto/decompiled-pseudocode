@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?AddDisableScanoutToken@CTokenManager@@UEAAJAEAPEAVCDisableScanoutToken@@@Z @ 0x1C00762D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?AcquireTokenManagerLock@CTokenManager@@AEAAXXZ @ 0x1C00129C0 (-AcquireTokenManagerLock@CTokenManager@@AEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z @ 0x1C007639C (-AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z.c)
+ *     ?SignalStartNowEvent@CTokenManager@@IEAAJXZ @ 0x1C00772D0 (-SignalStartNowEvent@CTokenManager@@IEAAJXZ.c)
+ */
+
 __int64 __fastcall CTokenManager::AddDisableScanoutToken(CTokenManager *this, struct CDisableScanoutToken **a2)
 {
   char v2; // bp

@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiInterlockedRemoveHeadListIfExistAndMoreThanSpecified @ 0x1C00142EC
+ * Callers:
+ *     VidSchiFreeQueuePacket @ 0x1C0014154 (VidSchiFreeQueuePacket.c)
+ *     ?VidSchiFreeQueuePacket@@YAXPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C001CDBE (-VidSchiFreeQueuePacket@@YAXPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall VidSchiInterlockedRemoveHeadListIfExistAndMoreThanSpecified(KSPIN_LOCK *a1, _QWORD **a2, _DWORD *a3)
 {
   _QWORD *v5; // rbx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of VfTargetDriversDisableVerifier @ 0x140AC8410
+ * Callers:
+ *     VfSuspectApplyDifVolatileVerification @ 0x140AD7288 (VfSuspectApplyDifVolatileVerification.c)
+ *     VfSuspectRemoveDifVolatileVerification @ 0x140AD7C74 (VfSuspectRemoveDifVolatileVerification.c)
+ * Callees:
+ *     VfAvlLookupTreeNode @ 0x140303680 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403039F0 (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x14045DE58 (VfAvlInitializeLockContext.c)
+ *     ViTargetDriversFreeVerifiedData @ 0x1405CCEEC (ViTargetDriversFreeVerifiedData.c)
+ */
+
 void VfTargetDriversDisableVerifier()
 {
   int v0; // edx

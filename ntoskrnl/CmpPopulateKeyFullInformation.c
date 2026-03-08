@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpPopulateKeyFullInformation @ 0x140782E38
+ * Callers:
+ *     CmpQueryKeyDataFromKeyNodeStack @ 0x140614E8C (CmpQueryKeyDataFromKeyNodeStack.c)
+ *     CmpQueryKeyDataFromNode @ 0x1407AD510 (CmpQueryKeyDataFromNode.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall CmpPopulateKeyFullInformation(
         __int64 a1,
         const void *a2,

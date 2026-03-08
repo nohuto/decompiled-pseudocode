@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmGetPlatformSelectionVetoCounts @ 0x1403C2AE8
+ * Callers:
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ *     PopCalculateCsSummary @ 0x14058EE94 (PopCalculateCsSummary.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PpmGetPlatformSelectionVetoCounts(unsigned int a1, _QWORD *a2, _QWORD *a3)
 {
   __int64 result; // rax

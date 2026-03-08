@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??$ProducesUniformZ@$0A@@CMILMatrix@@AEBA_NXZ @ 0x180061FEC
+ * Callers:
+ *     ??$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ @ 0x1800620E0 (--$IsIdentity@$0A@@CMILMatrix@@AEBA_NXZ.c)
+ *     ??$IsPure2DUniformZ@$0A@@CMILMatrix@@AEBA_NXZ @ 0x18026C728 (--$IsPure2DUniformZ@$0A@@CMILMatrix@@AEBA_NXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CMILMatrix::ProducesUniformZ<0>(__int64 a1)
 {
   float v1; // xmm0_4

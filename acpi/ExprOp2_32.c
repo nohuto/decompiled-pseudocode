@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExprOp2_32 @ 0x1C0006642
+ * Callers:
+ *     ExprOp2 @ 0x1C00569A0 (ExprOp2.c)
+ * Callees:
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ *     ValidateTarget @ 0x1C004D4F0 (ValidateTarget.c)
+ *     WriteObject @ 0x1C00532A0 (WriteObject.c)
+ */
+
 __int64 __fastcall ExprOp2_32(__int64 a1, _QWORD *a2)
 {
   __int64 v3; // rdx

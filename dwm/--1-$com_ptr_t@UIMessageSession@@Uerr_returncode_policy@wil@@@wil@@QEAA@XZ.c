@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1?$com_ptr_t@UIMessageSession@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x14000A8CC
+ * Callers:
+ *     ??1HotKeyCallback@@UEAA@XZ @ 0x14000A8FC (--1HotKeyCallback@@UEAA@XZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x140007200 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall wil::com_ptr_t<IMessageSession,wil::err_returncode_policy>::~com_ptr_t<IMessageSession,wil::err_returncode_policy>(
         __int64 *a1)
 {

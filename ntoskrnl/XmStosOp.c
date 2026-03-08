@@ -1,3 +1,14 @@
+/*
+ * XREFs of XmStosOp @ 0x1403954B0
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmGetStringAddress @ 0x14039559C (XmGetStringAddress.c)
+ *     XmGetStringAddressRange @ 0x140395614 (XmGetStringAddressRange.c)
+ *     XmSetSourceValue @ 0x1403B41A0 (XmSetSourceValue.c)
+ *     XmStoreResult @ 0x1403B42E8 (XmStoreResult.c)
+ */
+
 unsigned __int64 __fastcall XmStosOp(__int64 a1)
 {
   __int64 v2; // rcx

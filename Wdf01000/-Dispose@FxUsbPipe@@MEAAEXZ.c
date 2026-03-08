@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Dispose@FxUsbPipe@@MEAAEXZ @ 0x1C0059C80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Dispose@FxIoTarget@@MEAAEXZ @ 0x1C00529F0 (-Dispose@FxIoTarget@@MEAAEXZ.c)
+ *     ??_GFxUsbPipeContinuousReader@@QEAAPEAXI@Z @ 0x1C0059AE0 (--_GFxUsbPipeContinuousReader@@QEAAPEAXI@Z.c)
+ */
+
 unsigned __int8 __fastcall FxUsbPipe::Dispose(FxUsbPipe *this)
 {
   unsigned __int8 v2; // al

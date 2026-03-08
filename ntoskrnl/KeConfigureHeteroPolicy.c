@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeConfigureHeteroPolicy @ 0x140827A64
+ * Callers:
+ *     PopConfigureHeteroPolicies @ 0x1408273AC (PopConfigureHeteroPolicies.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KeConfigureHeteroPolicy(_DWORD *a1)
 {
   __int64 v1; // r8

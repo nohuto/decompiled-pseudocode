@@ -1,3 +1,15 @@
+/*
+ * XREFs of VfUtilAddressRangeFit @ 0x140ABF3C4
+ * Callers:
+ *     ViDeadlockRemoveMemoryRangeResources @ 0x1405CF408 (ViDeadlockRemoveMemoryRangeResources.c)
+ *     ViDeadlockRemoveMemoryRangeThreads @ 0x1405CF568 (ViDeadlockRemoveMemoryRangeThreads.c)
+ *     ViDeadlockSearchResource @ 0x140AD6D80 (ViDeadlockSearchResource.c)
+ *     ViDeadlockSearchThread @ 0x140AD6E28 (ViDeadlockSearchThread.c)
+ *     ViIrpDatabaseFindPointer @ 0x140ADEAC4 (ViIrpDatabaseFindPointer.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall VfUtilAddressRangeFit(unsigned __int64 *a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 result; // rax

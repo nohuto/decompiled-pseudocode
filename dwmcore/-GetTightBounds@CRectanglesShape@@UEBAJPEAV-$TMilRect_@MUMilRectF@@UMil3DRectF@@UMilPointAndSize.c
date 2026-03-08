@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetTightBounds@CRectanglesShape@@UEBAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBVCMILMatrix@@@Z @ 0x1800622C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetTightBounds@CShape@@UEBAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEBVCMILMatrix@@@Z @ 0x180048B00 (-GetTightBounds@CShape@@UEBAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNee.c)
+ *     ??$IsAffine@$0A@@CMILMatrix@@AEBA_N_N@Z @ 0x180062070 (--$IsAffine@$0A@@CMILMatrix@@AEBA_N_N@Z.c)
+ *     ??$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z @ 0x1800C2530 (--$Transform2DBoundsHelper@$0A@@CMILMatrix@@AEBAXAEBUMilRectF@@AEAU1@@Z.c)
+ */
+
 __int64 __fastcall CRectanglesShape::GetTightBounds(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r10

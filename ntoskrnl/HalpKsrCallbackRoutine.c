@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpKsrCallbackRoutine @ 0x140932420
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpSetShutdownResetHandler @ 0x140504C10 (HalpSetShutdownResetHandler.c)
+ */
+
 void __fastcall HalpKsrCallbackRoutine(PVOID CallbackContext, PVOID Argument1, _DWORD *Argument2)
 {
   int v4; // edx

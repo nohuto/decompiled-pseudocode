@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiFreeClonePool @ 0x14066213C
+ * Callers:
+ *     MiDereferenceSegmentThread @ 0x1403A2790 (MiDereferenceSegmentThread.c)
+ *     MiProcessDereferenceList @ 0x140622C74 (MiProcessDereferenceList.c)
+ *     MiDeletePartitionResources @ 0x140656EBC (MiDeletePartitionResources.c)
+ * Callees:
+ *     MiUnlockPagedAddress @ 0x1402EE5C4 (MiUnlockPagedAddress.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 PSLIST_ENTRY __fastcall MiFreeClonePool(union _SLIST_HEADER *a1)
 {
   union _SLIST_HEADER *v1; // rbp

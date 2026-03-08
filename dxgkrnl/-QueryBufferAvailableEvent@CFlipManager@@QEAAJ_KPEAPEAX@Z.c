@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?QueryBufferAvailableEvent@CFlipManager@@QEAAJ_KPEAPEAX@Z @ 0x1C0084420
+ * Callers:
+ *     ?QueryBufferAvailableEvent@FlipManagerObject@@QEAAJ_KPEAPEAX@Z @ 0x1C007F520 (-QueryBufferAvailableEvent@FlipManagerObject@@QEAAJ_KPEAPEAX@Z.c)
+ * Callees:
+ *     ?FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@@@Z @ 0x1C0085680 (-FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@.c)
+ */
+
 NTSTATUS __fastcall CFlipManager::QueryBufferAvailableEvent(CFlipManager *this, unsigned __int64 a2, void **a3)
 {
   struct CFlipResourceState *ResourceState; // rax

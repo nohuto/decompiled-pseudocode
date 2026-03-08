@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_WdfDeviceSetDeviceInterfaceStateEx @ 0x1C004A0F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WdfDeviceSetDeviceInterfaceStateWorker @ 0x1C0049AE0 (WdfDeviceSetDeviceInterfaceStateWorker.c)
+ */
+
 void __fastcall imp_WdfDeviceSetDeviceInterfaceStateEx(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFDEVICE__ *Device,

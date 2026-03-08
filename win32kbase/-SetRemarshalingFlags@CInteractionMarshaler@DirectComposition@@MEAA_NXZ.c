@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CInteractionMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C02641B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DirectComposition::CInteractionMarshaler::SetRemarshalingFlags(
         DirectComposition::CInteractionMarshaler *this)
 {

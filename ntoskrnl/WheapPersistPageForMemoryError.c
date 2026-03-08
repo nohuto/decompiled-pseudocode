@@ -1,3 +1,13 @@
+/*
+ * XREFs of WheapPersistPageForMemoryError @ 0x14060EC18
+ * Callers:
+ *     WheaRecoveryBugCheck @ 0x14060E210 (WheaRecoveryBugCheck.c)
+ *     WheaReportHwError @ 0x14060E280 (WheaReportHwError.c)
+ * Callees:
+ *     HalSetEnvironmentVariableEx @ 0x140502A90 (HalSetEnvironmentVariableEx.c)
+ *     WheapErrorContainsMemorySection @ 0x14060FE88 (WheapErrorContainsMemorySection.c)
+ */
+
 void __fastcall WheapPersistPageForMemoryError(__int64 a1)
 {
   __int64 v1; // rax

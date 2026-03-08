@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpRtcArmTimer @ 0x14051D5C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalSetTimerProblem @ 0x14051D440 (HalSetTimerProblem.c)
+ */
+
 __int64 __fastcall HalpRtcArmTimer(__int64 *a1, int a2, __int64 a3)
 {
   unsigned int v3; // ebx

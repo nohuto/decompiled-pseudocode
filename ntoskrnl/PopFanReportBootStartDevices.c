@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopFanReportBootStartDevices @ 0x140B68010
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     PopSqmFanEnumeration @ 0x140853F68 (PopSqmFanEnumeration.c)
+ */
+
 void PopFanReportBootStartDevices()
 {
   struct _KTHREAD *CurrentThread; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of GetInterruptMessageInformation @ 0x1C0009AAC
+ * Callers:
+ *     NVMeControllerInitPart2 @ 0x1C000D9F0 (NVMeControllerInitPart2.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     FreeMsiInfo @ 0x1C0009978 (FreeMsiInfo.c)
+ */
+
 char __fastcall GetInterruptMessageInformation(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned __int16 v4; // si

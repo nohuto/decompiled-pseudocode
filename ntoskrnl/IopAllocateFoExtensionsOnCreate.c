@@ -1,3 +1,21 @@
+/*
+ * XREFs of IopAllocateFoExtensionsOnCreate @ 0x140700A20
+ * Callers:
+ *     IopAllocRealFileObject @ 0x1407BA090 (IopAllocRealFileObject.c)
+ * Callees:
+ *     ObReferenceObjectByPointer @ 0x140208C70 (ObReferenceObjectByPointer.c)
+ *     IopGetSetSpecificExtension @ 0x14023EA58 (IopGetSetSpecificExtension.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PsAcquireSiloHardReference @ 0x140294290 (PsAcquireSiloHardReference.c)
+ *     PsReleaseSiloHardReference @ 0x140294300 (PsReleaseSiloHardReference.c)
+ *     IopSetFileObjectExtensionFlag @ 0x140294D78 (IopSetFileObjectExtensionFlag.c)
+ *     IoGetSilo @ 0x140294DC0 (IoGetSilo.c)
+ *     PsIsServerSilo @ 0x140294E20 (PsIsServerSilo.c)
+ *     PsIsHostSilo @ 0x14030F2E0 (PsIsHostSilo.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     IopCheckStackForTransactionSupport @ 0x1403D09F0 (IopCheckStackForTransactionSupport.c)
+ */
+
 int __fastcall IopAllocateFoExtensionsOnCreate(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
 {
   int SetSpecificExtension; // ebx

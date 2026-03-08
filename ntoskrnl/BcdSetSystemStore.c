@@ -1,3 +1,16 @@
+/*
+ * XREFs of BcdSetSystemStore @ 0x140A5972C
+ * Callers:
+ *     BapdpProcessBCDCache @ 0x140B44668 (BapdpProcessBCDCache.c)
+ * Callees:
+ *     BiIsOfflineHandle @ 0x1403903FC (BiIsOfflineHandle.c)
+ *     BiMarkTreatAsSystemStore @ 0x14082B918 (BiMarkTreatAsSystemStore.c)
+ *     BiSetRegistryValue @ 0x14082D198 (BiSetRegistryValue.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiAcquireBcdSyncMutant @ 0x14082ED10 (BiAcquireBcdSyncMutant.c)
+ *     BiReleaseBcdSyncMutant @ 0x14082EDB8 (BiReleaseBcdSyncMutant.c)
+ */
+
 __int64 __fastcall BcdSetSystemStore(__int64 a1)
 {
   char IsOfflineHandle; // si

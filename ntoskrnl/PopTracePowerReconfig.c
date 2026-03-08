@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopTracePowerReconfig @ 0x1405930E4
+ * Callers:
+ *     PopBatteryApplyCompositeState @ 0x14086E430 (PopBatteryApplyCompositeState.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void PopTracePowerReconfig()
 {
   int v0; // r9d
@@ -36,7 +46,7 @@ void PopTracePowerReconfig()
       v2 = dword_140C3CB54;
       v11 = 8LL;
       v12 = &v2;
-      v3 = MEMORY[0x140C3CBA4];
+      v3 = xmmword_140C3CBA4;
       v14 = &v3;
       v16 = &v4;
       v18 = &v5;

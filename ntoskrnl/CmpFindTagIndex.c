@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpFindTagIndex @ 0x140B33EDC
+ * Callers:
+ *     CmpAddDriverToList @ 0x140B340F4 (CmpAddDriverToList.c)
+ * Callees:
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpFindValueByName @ 0x1407A74A0 (CmpFindValueByName.c)
+ *     CmpGetValueData @ 0x1407AAC20 (CmpGetValueData.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpValueToData @ 0x1407FEFF8 (CmpValueToData.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmpFindTagIndex(ULONG_PTR BugCheckParameter3, ULONG_PTR a2, unsigned int a3, int a4)
 {
   bool v6; // zf

@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiGetDeviceResetStatus @ 0x1C0023C90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall AcpiGetDeviceResetStatus(__int64 a1, _BYTE *a2, _QWORD *a3, _QWORD *a4)
 {
   __int64 result; // rax

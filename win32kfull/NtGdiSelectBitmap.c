@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtGdiSelectBitmap @ 0x1C00C37F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?vMarkTransformDirty@DC@@QEAAXXZ @ 0x1C0269660 (-vMarkTransformDirty@DC@@QEAAXXZ.c)
+ *     ?TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z @ 0x1C02910AC (-TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z.c)
+ *     ??1MDCOBJ@@QEAA@XZ @ 0x1C02C4340 (--1MDCOBJ@@QEAA@XZ.c)
+ */
+
 HBITMAP __fastcall NtGdiSelectBitmap(__int64 a1, HBITMAP a2)
 {
   HBITMAP v2; // rdi

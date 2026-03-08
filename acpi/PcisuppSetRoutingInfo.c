@@ -1,3 +1,12 @@
+/*
+ * XREFs of PcisuppSetRoutingInfo @ 0x1C009A1E8
+ * Callers:
+ *     LinkNodeCrackPrt @ 0x1C005CE9C (LinkNodeCrackPrt.c)
+ * Callees:
+ *     ACPIAmliBuildObjectPathname @ 0x1C000B0E0 (ACPIAmliBuildObjectPathname.c)
+ *     IrqPolicyGetSubKey @ 0x1C009FC24 (IrqPolicyGetSubKey.c)
+ */
+
 __int64 __fastcall PcisuppSetRoutingInfo(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

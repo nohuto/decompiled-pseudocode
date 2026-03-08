@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?DeferredInitialize@DXGPROCESS@@QEAAJI@Z @ 0x1C01A8184
+ * Callers:
+ *     ?Initialize@DXGPROCESS@@QEAAJPEAX@Z @ 0x1C01A7D50 (-Initialize@DXGPROCESS@@QEAAJPEAX@Z.c)
+ *     ?DeferredInitialize@DXGGLOBAL@@QEAAJI@Z @ 0x1C0214B78 (-DeferredInitialize@DXGGLOBAL@@QEAAJI@Z.c)
+ *     ?ResetVirtualMachine@DXGPROCESSVMWP@@QEAAXXZ @ 0x1C0341048 (-ResetVirtualMachine@DXGPROCESSVMWP@@QEAAXXZ.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?VidSchRegisterAsDwm@VIDSCH_EXPORT@@QEAAJPEAVDXGPROCESS@@@Z @ 0x1C0014D18 (-VidSchRegisterAsDwm@VIDSCH_EXPORT@@QEAAJPEAVDXGPROCESS@@@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DXGPROCESS::DeferredInitialize(DXGPROCESS *this, unsigned int a2)
 {
   VIDSCH_EXPORT *v2; // rbx

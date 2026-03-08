@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?bDelete@COLORTRANSFORMOBJ@@QEAAHAEAVXDCOBJ@@@Z @ 0x1C029CEC0
+ * Callers:
+ *     XDCOBJ_vCleanupColorTransformWrap @ 0x1C00D22C0 (XDCOBJ_vCleanupColorTransformWrap.c)
+ *     ?hCreate@COLORTRANSFORMOBJ@@QEAAPEAXAEAVXDCOBJ@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z @ 0x1C029D0EC (-hCreate@COLORTRANSFORMOBJ@@QEAAPEAXAEAVXDCOBJ@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z.c)
+ *     ?GreDeleteColorTransform@@YAHPEAUHDC__@@PEAX@Z @ 0x1C02D06C4 (-GreDeleteColorTransform@@YAHPEAUHDC__@@PEAX@Z.c)
+ * Callees:
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C0050DA0 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C011354C (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ?bAllowDDICall@PDEVOBJ@@QEAAHXZ @ 0x1C029CE50 (-bAllowDDICall@PDEVOBJ@@QEAAHXZ.c)
+ *     ?bRemoveColorTransform@XDCOBJ@@QEAAHPEAX@Z @ 0x1C029D08C (-bRemoveColorTransform@XDCOBJ@@QEAAHPEAX@Z.c)
+ */
+
 __int64 __fastcall COLORTRANSFORMOBJ::bDelete(COLORTRANSFORMOBJ *this, struct XDCOBJ *a2)
 {
   _QWORD *v2; // rax

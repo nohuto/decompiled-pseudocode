@@ -1,3 +1,20 @@
+/*
+ * XREFs of PpmPerfApplyProcessorStates @ 0x1402ED3A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiOrAffinityEx @ 0x14022B190 (KiOrAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PpmPerfQueueAction @ 0x1402363D4 (PpmPerfQueueAction.c)
+ *     KeCountSetBitsAffinityEx @ 0x140237550 (KeCountSetBitsAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140237640 (KeRemoveProcessorAffinityEx.c)
+ *     PpmPerfApplyProcessorState @ 0x1402ED59C (PpmPerfApplyProcessorState.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PpmPerfApplyHiddenProcessorState @ 0x14058AB3C (PpmPerfApplyHiddenProcessorState.c)
+ */
+
 char PpmPerfApplyProcessorStates()
 {
   char v0; // bl

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NotifyISMPenButtonYieldSettingChange@@YAXXZ @ 0x1C01C8638
+ * Callers:
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 void NotifyISMPenButtonYieldSettingChange(void)
 {
   int v0; // [rsp+30h] [rbp+8h] BYREF

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiPteNeedsCommitCharge @ 0x1402DABF0
+ * Callers:
+ *     MiCountSharedPages @ 0x14031DE80 (MiCountSharedPages.c)
+ *     MiSetProtectionOnSection @ 0x140321FC0 (MiSetProtectionOnSection.c)
+ * Callees:
+ *     MiGetProtoPteAddress @ 0x14031C780 (MiGetProtoPteAddress.c)
+ */
+
 __int64 __fastcall MiPteNeedsCommitCharge(__int64 a1, __int64 a2)
 {
   int v2; // r8d

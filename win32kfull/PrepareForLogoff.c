@@ -1,3 +1,11 @@
+/*
+ * XREFs of PrepareForLogoff @ 0x1C00EEDCC
+ * Callers:
+ *     NtUserPrepareForLogoff @ 0x1C00EED90 (NtUserPrepareForLogoff.c)
+ * Callees:
+ *     RegisterPerUserKeyboardIndicators @ 0x1C00EEE88 (RegisterPerUserKeyboardIndicators.c)
+ */
+
 __int64 PrepareForLogoff()
 {
   __int64 v0; // rcx

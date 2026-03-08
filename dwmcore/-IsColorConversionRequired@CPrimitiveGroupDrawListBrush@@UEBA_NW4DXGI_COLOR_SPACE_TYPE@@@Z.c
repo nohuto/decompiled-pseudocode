@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsColorConversionRequired@CPrimitiveGroupDrawListBrush@@UEBA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1802B63A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetPixelFormatInfo@CDrawListBitmap@@QEBA?AUPixelFormatInfo@@XZ @ 0x1800E5D4C (-GetPixelFormatInfo@CDrawListBitmap@@QEBA-AUPixelFormatInfo@@XZ.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ */
+
 char __fastcall CPrimitiveGroupDrawListBrush::IsColorConversionRequired(
         CPrimitiveGroupDrawListBrush *this,
         enum DXGI_COLOR_SPACE_TYPE a2)

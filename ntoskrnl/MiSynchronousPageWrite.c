@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiSynchronousPageWrite @ 0x1403BBAD8
+ * Callers:
+ *     MiZeroPageWrite @ 0x1403BB864 (MiZeroPageWrite.c)
+ *     MiZeroPageFileFirstPage @ 0x140835D20 (MiZeroPageFileFirstPage.c)
+ * Callees:
+ *     IoSynchronousPageWriteEx @ 0x14024F830 (IoSynchronousPageWriteEx.c)
+ */
+
 NTSTATUS __fastcall MiSynchronousPageWrite(
         struct _FILE_OBJECT *a1,
         struct _MDL *a2,

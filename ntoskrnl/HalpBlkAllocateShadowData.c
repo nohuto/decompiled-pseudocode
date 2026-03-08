@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpBlkAllocateShadowData @ 0x140B8EC14
+ * Callers:
+ *     HalpBlkInitializeVirtualAddressSpace @ 0x140B8ECAC (HalpBlkInitializeVirtualAddressSpace.c)
+ * Callees:
+ *     HalpMmAllocateMemoryInternal @ 0x14037A7A8 (HalpMmAllocateMemoryInternal.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpBlkAllocateAndShadowMemory @ 0x140B8E9BC (HalpBlkAllocateAndShadowMemory.c)
+ */
+
 __int64 HalpBlkAllocateShadowData()
 {
   unsigned int v0; // ebx

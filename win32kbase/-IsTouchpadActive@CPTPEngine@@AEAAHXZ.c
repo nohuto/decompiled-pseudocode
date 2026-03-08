@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsTouchpadActive@CPTPEngine@@AEAAHXZ @ 0x1C00F5884
+ * Callers:
+ *     ?ProcessTimer@CPTPEngine@@MEAAJXZ @ 0x1C02389D0 (-ProcessTimer@CPTPEngine@@MEAAJXZ.c)
+ *     ?RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C0238AD8 (-RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CPTPEngine::IsTouchpadActive(CPTPEngine *this)
 {
   int v1; // eax

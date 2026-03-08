@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CLegacySurfaceManager@@QEAA@XZ @ 0x1800CBF08
+ * Callers:
+ *     ??0CGlobalSurfaceManager@@IEAA@XZ @ 0x1800CBB24 (--0CGlobalSurfaceManager@@IEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 CLegacySurfaceManager *__fastcall CLegacySurfaceManager::CLegacySurfaceManager(CLegacySurfaceManager *this)
 {
   CLegacySurfaceManager *result; // rax

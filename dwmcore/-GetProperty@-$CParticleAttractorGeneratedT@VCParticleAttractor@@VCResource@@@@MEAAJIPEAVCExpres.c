@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetProperty@?$CParticleAttractorGeneratedT@VCParticleAttractor@@VCResource@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801C15E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CParticleAttractorGeneratedT<CParticleAttractor,CResource>::GetProperty(
         __int64 a1,
         int a2,

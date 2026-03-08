@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C0085E78
+ * Callers:
+ *     NtUserLoadKeyboardLayoutEx @ 0x1C0084BB0 (NtUserLoadKeyboardLayoutEx.c)
+ *     ?xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_INTERNAL@@PEBGII@Z @ 0x1C0085310 (-xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_IN.c)
+ *     NtUserGetInputLocaleInfo @ 0x1C0085CC0 (NtUserGetInputLocaleInfo.c)
+ *     ?GetProcessAppContainerSid@@YAPEAGXZ @ 0x1C0168D48 (-GetProcessAppContainerSid@@YAPEAGXZ.c)
+ *     ?GetProcessCommandLine@@YAPEAGXZ @ 0x1C0168E78 (-GetProcessCommandLine@@YAPEAGXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlStringCchCopyNW(char *a1, __int64 a2, char *a3, unsigned __int64 a4)
 {
   __int64 v4; // r10

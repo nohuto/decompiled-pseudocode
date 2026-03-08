@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x14099B0EC
+ * Callers:
+ *     PopDirectedDripsDiagBroadcastTreeBegin @ 0x14099ACE0 (PopDirectedDripsDiagBroadcastTreeBegin.c)
+ *     PopDirectedDripsDiagTraceBroadcastVisit @ 0x14099C190 (PopDirectedDripsDiagTraceBroadcastVisit.c)
+ *     PopDirectedDripsDiagTraceMarkDevice @ 0x14099C358 (PopDirectedDripsDiagTraceMarkDevice.c)
+ * Callees:
+ *     PopDirectedDripsDiagCreateDeviceDescription @ 0x14099AFC8 (PopDirectedDripsDiagCreateDeviceDescription.c)
+ *     PopDirectedDripsDiagFreeDeviceDiagnostic @ 0x14099B190 (PopDirectedDripsDiagFreeDeviceDiagnostic.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 _QWORD *__fastcall PopDirectedDripsDiagCreateDeviceDiagnostic(__int64 a1)
 {
   __int64 Pool2; // rax

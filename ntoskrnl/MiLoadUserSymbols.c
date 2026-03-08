@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiLoadUserSymbols @ 0x140A2DE34
+ * Callers:
+ *     MiMapViewOfImageSection @ 0x1407D3750 (MiMapViewOfImageSection.c)
+ * Callees:
+ *     MiReferenceControlAreaFile @ 0x140344094 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1403441A0 (MiDereferenceControlAreaFile.c)
+ *     DbgUnicodeStringToAnsiString @ 0x14036C640 (DbgUnicodeStringToAnsiString.c)
+ *     DbgLoadUserImageSymbols @ 0x1405A52E4 (DbgLoadUserImageSymbols.c)
+ *     RtlFreeAnsiString @ 0x1407EA820 (RtlFreeAnsiString.c)
+ */
+
 void __fastcall MiLoadUserSymbols(__int64 a1)
 {
   __int64 v2; // rax

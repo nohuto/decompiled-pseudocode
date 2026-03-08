@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceUiLimitWriteClipboard @ 0x1C0164C10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0qm_EtwWriteTransfer @ 0x1C0166120 (McTemplateK0qm_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall EtwTraceUiLimitWriteClipboard(int a1, __int64 a2, int a3)
 {
   __int64 result; // rax

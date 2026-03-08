@@ -1,3 +1,21 @@
+/*
+ * XREFs of SelectWindowRgn @ 0x1C00275FC
+ * Callers:
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C00669E0 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     xxxDesktopsRecalcAndBroadcastDisplayChange @ 0x1C00F7660 (xxxDesktopsRecalcAndBroadcastDisplayChange.c)
+ *     NtUserSetWindowRgnEx @ 0x1C01DE310 (NtUserSetWindowRgnEx.c)
+ * Callees:
+ *     GreUpdateSpriteClipRgn @ 0x1C001DFD0 (GreUpdateSpriteClipRgn.c)
+ *     ?GetExplicitClipRgn@tagWND@@QEBAPEAUHRGN__@@XZ @ 0x1C002772C (-GetExplicitClipRgn@tagWND@@QEBAPEAUHRGN__@@XZ.c)
+ *     ?ClearClipRgnOrMaxClip@tagWND@@QEAAXXZ @ 0x1C002774C (-ClearClipRgnOrMaxClip@tagWND@@QEAAXXZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     ?GetWindowCompositedDpi@@YAGPEBUtagWND@@@Z @ 0x1C004489C (-GetWindowCompositedDpi@@YAGPEBUtagWND@@@Z.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     DirtyVisRgnTrackers @ 0x1C00AEA8C (DirtyVisRgnTrackers.c)
+ *     ?_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z @ 0x1C00D2B90 (-_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z.c)
+ */
+
 void __fastcall SelectWindowRgn(struct tagWND *a1, __int64 a2, int a3)
 {
   bool v5; // bp

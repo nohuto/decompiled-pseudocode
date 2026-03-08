@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DisconnectFromDisplayAdaptersWorkItem@@YAXPEAX0PEAU_IO_WORKITEM@@@Z @ 0x1C02BC160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DxgkRequestSyncDisplaySwitchCallout @ 0x1C0311408 (DxgkRequestSyncDisplaySwitchCallout.c)
+ */
+
 void __fastcall DisconnectFromDisplayAdaptersWorkItem(PVOID IoObject, PVOID Context, PIO_WORKITEM IoWorkItem)
 {
   unsigned __int64 v4; // rbx

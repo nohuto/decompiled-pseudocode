@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsAnyMessageDelegated@CPointerInfoNode@@QEBAHXZ @ 0x1C01FB65C
+ * Callers:
+ *     ?ReevaluateQFrameHasDelegation@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@K@Z @ 0x1C0200AF4 (-ReevaluateQFrameHasDelegation@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@K@Z.c)
+ * Callees:
+ *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C00F2F0E (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
+ *     ?IsMessageDelegated@CPointerInfoNode@@QEBAHHHHH@Z @ 0x1C01FBA0C (-IsMessageDelegated@CPointerInfoNode@@QEBAHHHHH@Z.c)
+ */
+
 __int64 __fastcall CPointerInfoNode::IsAnyMessageDelegated(CPointerInfoNode *this)
 {
   __int64 result; // rax

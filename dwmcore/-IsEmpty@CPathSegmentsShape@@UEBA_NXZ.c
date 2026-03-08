@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?IsEmpty@CPathSegmentsShape@@UEBA_NXZ @ 0x1800D3C70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??9const_iterator@ControlPointCollection@Path@@QEBA_NV012@@Z @ 0x1800D3D0C (--9const_iterator@ControlPointCollection@Path@@QEBA_NV012@@Z.c)
+ *     ??Dconst_iterator@ControlPointCollection@Path@@QEBAAEBUD2D_POINT_2F@@XZ @ 0x1800D3D48 (--Dconst_iterator@ControlPointCollection@Path@@QEBAAEBUD2D_POINT_2F@@XZ.c)
+ *     ??Econst_iterator@ControlPointCollection@Path@@QEAAAEAV012@XZ @ 0x1800D3D9C (--Econst_iterator@ControlPointCollection@Path@@QEAAAEAV012@XZ.c)
+ */
+
 bool __fastcall CPathSegmentsShape::IsEmpty(CPathSegmentsShape *this)
 {
   __int64 v1; // rdi

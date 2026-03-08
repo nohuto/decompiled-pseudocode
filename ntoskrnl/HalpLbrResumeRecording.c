@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpLbrResumeRecording @ 0x1402CD780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall HalpLbrResumeRecording(char a1)
 {
   unsigned __int64 result; // rax

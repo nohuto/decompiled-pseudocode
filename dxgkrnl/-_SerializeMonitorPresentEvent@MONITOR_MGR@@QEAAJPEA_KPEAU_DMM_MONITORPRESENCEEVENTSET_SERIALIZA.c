@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_SerializeMonitorPresentEvent@MONITOR_MGR@@QEAAJPEA_KPEAU_DMM_MONITORPRESENCEEVENTSET_SERIALIZATION@@@Z @ 0x1C03C412C
+ * Callers:
+ *     MonitorSerializeMonitorPresentEvents @ 0x1C03C014C (MonitorSerializeMonitorPresentEvents.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MONITOR_MGR::_SerializeMonitorPresentEvent(
         MONITOR_MGR *this,
         unsigned __int64 *a2,

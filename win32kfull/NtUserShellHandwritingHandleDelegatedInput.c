@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserShellHandwritingHandleDelegatedInput @ 0x1C01DEBA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?_HandleShellHandwritingDelegatedInput@@YAHPEAUtagTHREADINFO@@W4HDIOPTION@@QEAUtagMSG@@@Z @ 0x1C01B7454 (-_HandleShellHandwritingDelegatedInput@@YAHPEAUtagTHREADINFO@@W4HDIOPTION@@QEAUtagMSG@@@Z.c)
+ */
+
 __int64 __fastcall NtUserShellHandwritingHandleDelegatedInput(_OWORD *a1, unsigned int a2)
 {
   __int64 v5; // rcx

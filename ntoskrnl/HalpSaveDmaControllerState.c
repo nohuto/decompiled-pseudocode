@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpSaveDmaControllerState @ 0x140A922E0
+ * Callers:
+ *     HalpAcpiPreSleep @ 0x140A93820 (HalpAcpiPreSleep.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 HalpSaveDmaControllerState()
 {
   __int64 result; // rax

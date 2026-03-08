@@ -1,3 +1,11 @@
+/*
+ * XREFs of PrmOpregionHandlerWorker @ 0x1C008D05C
+ * Callers:
+ *     PrmOpregionHandler @ 0x1C008CF90 (PrmOpregionHandler.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall PrmOpregionHandlerWorker(_DWORD *P)
 {
   unsigned int v1; // ebx

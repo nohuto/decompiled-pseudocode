@@ -1,3 +1,13 @@
+/*
+ * XREFs of TtmiLogSessionPowerRequestCreated @ 0x1409A6A80
+ * Callers:
+ *     TtmNotifySessionPowerRequestCreated @ 0x1409A1540 (TtmNotifySessionPowerRequestCreated.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void TtmiLogSessionPowerRequestCreated()
 {
   __int64 v0; // rdx

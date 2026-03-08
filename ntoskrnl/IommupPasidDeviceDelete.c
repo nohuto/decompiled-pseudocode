@@ -1,3 +1,18 @@
+/*
+ * XREFs of IommupPasidDeviceDelete @ 0x14050C384
+ * Callers:
+ *     IommupDeviceDisableSvm @ 0x140930CBC (IommupDeviceDisableSvm.c)
+ *     IommupDeviceEnableSvm @ 0x140930DD4 (IommupDeviceEnableSvm.c)
+ *     IommuPasidDeviceDelete @ 0x1409328C0 (IommuPasidDeviceDelete.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     IommuFreeLibraryContext @ 0x140520A48 (IommuFreeLibraryContext.c)
+ *     ExpFreeAsid @ 0x14060B464 (ExpFreeAsid.c)
+ */
+
 __int64 __fastcall IommupPasidDeviceDelete(__int64 a1)
 {
   unsigned int v1; // esi

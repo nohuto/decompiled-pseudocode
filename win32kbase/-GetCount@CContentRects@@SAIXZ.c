@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?GetCount@CContentRects@@SAIXZ @ 0x1C0157AF0
+ * Callers:
+ *     NtUserGetSystemContentRects @ 0x1C0171330 (NtUserGetSystemContentRects.c)
+ * Callees:
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C006AE58 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C00B9120 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
+ *     ?GetInstance@CContentRects@@CAAEAV1@XZ @ 0x1C00D35D4 (-GetInstance@CContentRects@@CAAEAV1@XZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 CContentRects::GetCount(void)
 {
   struct CContentRects *Instance; // rax

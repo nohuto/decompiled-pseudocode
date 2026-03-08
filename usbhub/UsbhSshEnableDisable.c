@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhSshEnableDisable @ 0x1C005939C
+ * Callers:
+ *     Usbh_FDO_WaitPnpRestart @ 0x1C0044500 (Usbh_FDO_WaitPnpRestart.c)
+ *     UsbhSetWmiDataBlock @ 0x1C0049F40 (UsbhSetWmiDataBlock.c)
+ *     UsbhHubSSH_PnpStart @ 0x1C0058E20 (UsbhHubSSH_PnpStart.c)
+ *     UsbhPowerCallback @ 0x1C00590C0 (UsbhPowerCallback.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhSshDisabled @ 0x1C00592A0 (UsbhSshDisabled.c)
+ *     UsbhSshEnabled @ 0x1C00594D4 (UsbhSshEnabled.c)
+ */
+
 LONG __fastcall UsbhSshEnableDisable(__int64 a1, int a2)
 {
   struct _KEVENT *v4; // rsi

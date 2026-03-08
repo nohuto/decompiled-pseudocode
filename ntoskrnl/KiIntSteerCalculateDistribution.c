@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiIntSteerCalculateDistribution @ 0x1402A8E00
+ * Callers:
+ *     KeIntSteerPeriodic @ 0x1402A8BB0 (KeIntSteerPeriodic.c)
+ * Callees:
+ *     KiIntSteerCalculatePriorityDistribution @ 0x1402A90C0 (KiIntSteerCalculatePriorityDistribution.c)
+ *     KiIntPartGetLowestClassProcessorInMask @ 0x1402A9324 (KiIntPartGetLowestClassProcessorInMask.c)
+ *     KiIntSteerCalculateFallbackDistribution @ 0x140577A5C (KiIntSteerCalculateFallbackDistribution.c)
+ *     KiIntSteerCalculateUniformDistribution @ 0x140577AE0 (KiIntSteerCalculateUniformDistribution.c)
+ *     KiIntSteerComputeCpuSet @ 0x140577C28 (KiIntSteerComputeCpuSet.c)
+ */
+
 __int64 __fastcall KiIntSteerCalculateDistribution(int a1, __int64 a2, __int64 *a3, __int64 *a4)
 {
   __int64 v5; // rbx

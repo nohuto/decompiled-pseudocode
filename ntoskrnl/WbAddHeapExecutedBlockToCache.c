@@ -1,3 +1,19 @@
+/*
+ * XREFs of WbAddHeapExecutedBlockToCache @ 0x140754E94
+ * Callers:
+ *     WbGetHeapExecutedBlock @ 0x1406AFAAC (WbGetHeapExecutedBlock.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     sub_1406AF4BC @ 0x1406AF4BC (sub_1406AF4BC.c)
+ *     sub_1406AF984 @ 0x1406AF984 (sub_1406AF984.c)
+ *     sub_140754FC0 @ 0x140754FC0 (sub_140754FC0.c)
+ *     WbAddHeapExecutedBlockToLRU @ 0x140755130 (WbAddHeapExecutedBlockToLRU.c)
+ */
+
 __int64 __fastcall WbAddHeapExecutedBlockToCache(__int64 a1, __int64 a2, _QWORD *a3)
 {
   struct _KTHREAD *CurrentThread; // rax

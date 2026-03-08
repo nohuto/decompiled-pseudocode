@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIFanCancelRequest @ 0x1C00265C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qqss @ 0x1C000A374 (WPP_RECORDER_SF_qqss.c)
+ */
+
 void __fastcall ACPIFanCancelRequest(ULONG_PTR a1, IRP *a2)
 {
   __int64 DeviceExtension; // rax

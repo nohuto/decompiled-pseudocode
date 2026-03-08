@@ -1,3 +1,17 @@
+/*
+ * XREFs of SuspendThreadQueue @ 0x1C00DE9B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DelQEntry @ 0x1C0038CDC (DelQEntry.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     xxxReceiverDied @ 0x1C00949E0 (xxxReceiverDied.c)
+ *     UnlinkSendListSms @ 0x1C0094A8C (UnlinkSendListSms.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     ?CleanEventMessage@@YAXPEAUtagQMSG@@@Z @ 0x1C00D34C0 (-CleanEventMessage@@YAXPEAUtagQMSG@@@Z.c)
+ *     ?CleanInputMessage@@YAXIPEAUtagQMSG@@@Z @ 0x1C00E66E8 (-CleanInputMessage@@YAXIPEAUtagQMSG@@@Z.c)
+ */
+
 void __fastcall SuspendThreadQueue(__int64 a1, __int64 a2, __int64 a3)
 {
   _QWORD *v4; // rsi

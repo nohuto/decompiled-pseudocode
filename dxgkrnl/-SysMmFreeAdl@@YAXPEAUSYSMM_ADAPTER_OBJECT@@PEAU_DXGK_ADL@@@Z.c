@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SysMmFreeAdl@@YAXPEAUSYSMM_ADAPTER_OBJECT@@PEAU_DXGK_ADL@@@Z @ 0x1C006FBD0
+ * Callers:
+ *     DxgkFreeAdlCB @ 0x1C00522F0 (DxgkFreeAdlCB.c)
+ *     ?PinFrameBufferForSave@DXGADAPTER@@QEAAJI_KIPEAPEAU_MDL@@PEAPEAU_DXGK_ADL@@@Z @ 0x1C02B382C (-PinFrameBufferForSave@DXGADAPTER@@QEAAJI_KIPEAPEAU_MDL@@PEAPEAU_DXGK_ADL@@@Z.c)
+ *     ?UnpinFrameBufferForSave@DXGADAPTER@@QEAAJI@Z @ 0x1C02B5BAC (-UnpinFrameBufferForSave@DXGADAPTER@@QEAAJI@Z.c)
+ * Callees:
+ *     SmmFreeAdl @ 0x1C006F6F0 (SmmFreeAdl.c)
+ *     ?SmmFreeLogicalAddress@@YAXPEAUSYSMM_LOGICAL_ALLOCATOR@@PEAUSYSMM_LOGICAL_BLOCK@@@Z @ 0x1C0070254 (-SmmFreeLogicalAddress@@YAXPEAUSYSMM_LOGICAL_ALLOCATOR@@PEAUSYSMM_LOGICAL_BLOCK@@@Z.c)
+ */
+
 void __fastcall SysMmFreeAdl(struct SYSMM_ADAPTER_OBJECT *a1, struct _DXGK_ADL *a2)
 {
   void **v3; // rdi

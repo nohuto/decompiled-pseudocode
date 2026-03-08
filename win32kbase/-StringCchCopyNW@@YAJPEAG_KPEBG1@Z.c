@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C005D430
+ * Callers:
+ *     GreMultiUserInitSession @ 0x1C000FCA0 (GreMultiUserInitSession.c)
+ *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C0075884 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
+ * Callees:
+ *     StringCopyWorkerW @ 0x1C005D46C (StringCopyWorkerW.c)
+ */
+
 HRESULT __fastcall StringCchCopyNW(unsigned __int16 *a1, size_t a2, size_t *a3, size_t cchToCopy)
 {
   HRESULT result; // eax

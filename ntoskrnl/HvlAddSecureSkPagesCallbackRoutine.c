@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvlAddSecureSkPagesCallbackRoutine @ 0x1405452C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HvlAddSecurePagesCallbackRoutine @ 0x140545098 (HvlAddSecurePagesCallbackRoutine.c)
+ *     IoIsPartialDumpRetry @ 0x14054E3E0 (IoIsPartialDumpRetry.c)
+ */
+
 void __fastcall HvlAddSecureSkPagesCallbackRoutine(
         KBUGCHECK_CALLBACK_REASON Reason,
         struct _KBUGCHECK_REASON_CALLBACK_RECORD *Record,

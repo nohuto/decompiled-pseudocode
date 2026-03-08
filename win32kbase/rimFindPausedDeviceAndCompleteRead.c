@@ -1,3 +1,14 @@
+/*
+ * XREFs of rimFindPausedDeviceAndCompleteRead @ 0x1C0039E14
+ * Callers:
+ *     rimCompleteReads @ 0x1C0039B74 (rimCompleteReads.c)
+ * Callees:
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0003AE4 (rimProcessDeviceBufferAndStartRead.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003A4AC (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     RimDeviceTypeToRimInputType @ 0x1C00BC2F4 (RimDeviceTypeToRimInputType.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall rimFindPausedDeviceAndCompleteRead(struct RawInputManagerObject *a1)
 {
   struct RawInputManagerObject **v1; // rsi

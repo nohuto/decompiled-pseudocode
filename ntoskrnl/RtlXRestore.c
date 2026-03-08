@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlXRestore @ 0x14036A500
+ * Callers:
+ *     RtlXRestoreS @ 0x1402D8238 (RtlXRestoreS.c)
+ *     KiRestoreProcessorState @ 0x14036A318 (KiRestoreProcessorState.c)
+ *     KeRestoreExtendedAndSupervisorState @ 0x14036A3E8 (KeRestoreExtendedAndSupervisorState.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall RtlXRestore(__int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 result; // rax

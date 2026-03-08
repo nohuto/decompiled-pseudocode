@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiFinishMeasuringPreemptionTime @ 0x1C0010C38
+ * Callers:
+ *     VidSchiProcessDpcPreemptedPacket @ 0x1C000FCEC (VidSchiProcessDpcPreemptedPacket.c)
+ * Callees:
+ *     VidSchiUpdateContextStatus @ 0x1C0008230 (VidSchiUpdateContextStatus.c)
+ *     McTemplateK0ppxx_EtwWriteTransfer @ 0x1C002F714 (McTemplateK0ppxx_EtwWriteTransfer.c)
+ */
+
 void __fastcall VidSchiFinishMeasuringPreemptionTime(__int64 a1)
 {
   __int64 v2; // rsi

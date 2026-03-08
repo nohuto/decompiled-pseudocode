@@ -1,3 +1,21 @@
+/*
+ * XREFs of UsbDevice_SetDeviceDisabled @ 0x1C000FD4C
+ * Callers:
+ *     DeviceSlot_DisableAllDeviceSlots @ 0x1C000FCF8 (DeviceSlot_DisableAllDeviceSlots.c)
+ *     UsbDevice_SetAddressCompletion @ 0x1C0019A00 (UsbDevice_SetAddressCompletion.c)
+ *     UsbDevice_DisableCompletion @ 0x1C0048860 (UsbDevice_DisableCompletion.c)
+ *     UsbDevice_UcxEvtDisable @ 0x1C0049D80 (UsbDevice_UcxEvtDisable.c)
+ * Callees:
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0008958 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     Endpoint_Disable @ 0x1C000B0AC (Endpoint_Disable.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C00141F4 (WPP_RECORDER_SF_qd.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0019330 (WPP_RECORDER_SF_dq.c)
+ *     DeviceSlot_GetXilCoreDeviceSlotData @ 0x1C0019E24 (DeviceSlot_GetXilCoreDeviceSlotData.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     XilDeviceSlot_GetUsbDeviceHandleArray @ 0x1C0038210 (XilDeviceSlot_GetUsbDeviceHandleArray.c)
+ *     XilDeviceSlot_SendClearDeviceContextRequest @ 0x1C0038540 (XilDeviceSlot_SendClearDeviceContextRequest.c)
+ */
+
 char __fastcall UsbDevice_SetDeviceDisabled(__int64 a1, __int64 a2)
 {
   int v3; // edx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpTimerClockInitialize @ 0x1402E3FB0
+ * Callers:
+ *     HalpTimerClockPowerChange @ 0x140506414 (HalpTimerClockPowerChange.c)
+ * Callees:
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpTimerSetProblemEx @ 0x140507364 (HalpTimerSetProblemEx.c)
+ */
+
 __int64 HalpTimerClockInitialize()
 {
   ULONG_PTR v0; // rbx

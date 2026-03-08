@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefRawSquareMulx1024 @ 0x140407510
+ * Callers:
+ *     SymCryptFdefModSquareMontgomeryMulx1024 @ 0x1403FF5F0 (SymCryptFdefModSquareMontgomeryMulx1024.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefRawSquareMulx1024(unsigned __int64 *a1, __int64 a2, __int64 a3)
 {
   __int128 v12; // rdx

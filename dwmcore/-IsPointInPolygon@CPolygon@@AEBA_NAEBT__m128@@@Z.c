@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsPointInPolygon@CPolygon@@AEBA_NAEBT__m128@@@Z @ 0x180210698
+ * Callers:
+ *     ?HitTestWithTransformation@CPolygon@@QEAAJAEBUD2D_POINT_2F@@AEBVCMILMatrix@@1AEBW4Enum@MilBackfaceVisibility@@PEA_N@Z @ 0x1802103A8 (-HitTestWithTransformation@CPolygon@@QEAAJAEBUD2D_POINT_2F@@AEBVCMILMatrix@@1AEBW4Enum@MilBackfa.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CPolygon::IsPointInPolygon(CPolygon *this, const union __m128 *a2)
 {
   __int128 v2; // xmm0

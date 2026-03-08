@@ -1,3 +1,13 @@
+/*
+ * XREFs of UpdateTopLevelWindowDPITransform @ 0x1C00D861C
+ * Callers:
+ *     UpdateWindowMonitor @ 0x1C00AE6B0 (UpdateWindowMonitor.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ * Callees:
+ *     GetMonitorTransform @ 0x1C00645EC (GetMonitorTransform.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 void __fastcall UpdateTopLevelWindowDPITransform(const struct tagWND *a1, __int64 a2)
 {
   void *v4; // rcx

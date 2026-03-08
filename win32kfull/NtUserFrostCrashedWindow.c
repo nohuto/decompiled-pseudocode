@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserFrostCrashedWindow @ 0x1C01D0B20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?xxxFrostCrashedWindow@@YAPEAUHWND__@@PEAUtagWND@@PEAU1@@Z @ 0x1C01F5880 (-xxxFrostCrashedWindow@@YAPEAUHWND__@@PEAUtagWND@@PEAU1@@Z.c)
+ */
+
 HWND __fastcall NtUserFrostCrashedWindow(__int64 a1, HWND a2, __int64 a3)
 {
   __int64 v5; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreStackExpansionRequired @ 0x1C00A6FE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall GreStackExpansionRequired(unsigned int a1)
 {
   unsigned __int64 v1; // rbx

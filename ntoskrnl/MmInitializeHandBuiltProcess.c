@@ -1,3 +1,16 @@
+/*
+ * XREFs of MmInitializeHandBuiltProcess @ 0x1408598B8
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiInsertNewProcess @ 0x1402A5E9C (MiInsertNewProcess.c)
+ *     MiAllowWorkingSetExpansion @ 0x1402A5F58 (MiAllowWorkingSetExpansion.c)
+ *     ExInitializeAutoExpandPushLock @ 0x1402CCEF0 (ExInitializeAutoExpandPushLock.c)
+ *     MiCopyWorkingSetFields @ 0x1403A93E4 (MiCopyWorkingSetFields.c)
+ *     MiAllocateProcessShadow @ 0x140728E84 (MiAllocateProcessShadow.c)
+ */
+
 __int64 __fastcall MmInitializeHandBuiltProcess(__int64 a1)
 {
   _QWORD *Pool; // rax

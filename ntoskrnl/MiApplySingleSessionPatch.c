@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiApplySingleSessionPatch @ 0x140A333E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiUnlockDriverPages @ 0x14087313C (MiUnlockDriverPages.c)
+ *     MiIdentifyPatchImageDataPages @ 0x140A34ABC (MiIdentifyPatchImageDataPages.c)
+ *     MiLogHotPatchOperationStatus @ 0x140A36298 (MiLogHotPatchOperationStatus.c)
+ *     MiMapAndApplyPatchInSession @ 0x140A37338 (MiMapAndApplyPatchInSession.c)
+ */
+
 __int64 __fastcall MiApplySingleSessionPatch(__int64 a1, __int64 *a2)
 {
   unsigned int v4; // r8d

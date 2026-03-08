@@ -1,3 +1,12 @@
+/*
+ * XREFs of WdipSemUpdateInflightScenarioTable @ 0x1409DB118
+ * Callers:
+ *     WdipSemLogInflightLimitExceededInformation @ 0x1409DAEA4 (WdipSemLogInflightLimitExceededInformation.c)
+ * Callees:
+ *     WdipSemFastAllocate @ 0x14083362C (WdipSemFastAllocate.c)
+ *     WdipSemQueryInflightScenarioTable @ 0x1409DAFF4 (WdipSemQueryInflightScenarioTable.c)
+ */
+
 __int64 __fastcall WdipSemUpdateInflightScenarioTable(_QWORD *a1, __int16 a2, _DWORD *a3, __int64 a4)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of AddObjSymbol @ 0x1C004D680
+ * Callers:
+ *     Method @ 0x1C0050AE0 (Method.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall AddObjSymbol(__int64 a1, __int64 a2)
 {
   _QWORD *Pool2; // rax

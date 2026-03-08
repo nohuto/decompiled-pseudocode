@@ -1,3 +1,19 @@
+/*
+ * XREFs of PoRunDownDeviceObject @ 0x140368158
+ * Callers:
+ *     IoDeleteDevice @ 0x140368010 (IoDeleteDevice.c)
+ * Callees:
+ *     MiLockPagableImageSection @ 0x1402252E0 (MiLockPagableImageSection.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     PoRegisterDeviceForIdleDetection @ 0x140368240 (PoRegisterDeviceForIdleDetection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmLockPagableSectionByHandle @ 0x1406A7BD0 (MmLockPagableSectionByHandle.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PoRunDownDeviceObject(struct _DEVICE_OBJECT *a1)
 {
   struct _DEVOBJ_EXTENSION *DeviceObjectExtension; // rsi

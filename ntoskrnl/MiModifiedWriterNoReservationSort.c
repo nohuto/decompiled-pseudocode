@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiModifiedWriterNoReservationSort @ 0x140638C80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiModifiedWriterNoReservationSort(_QWORD *a1, _QWORD *a2)
 {
   __int64 v2; // r8

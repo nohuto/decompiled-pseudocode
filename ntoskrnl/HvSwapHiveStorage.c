@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvSwapHiveStorage @ 0x140A1ACB4
+ * Callers:
+ *     CmpSwapHiveStorage @ 0x140A1A31C (CmpSwapHiveStorage.c)
+ * Callees:
+ *     HvpSwapDual @ 0x140A1B32C (HvpSwapDual.c)
+ */
+
 __int64 __fastcall HvSwapHiveStorage(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

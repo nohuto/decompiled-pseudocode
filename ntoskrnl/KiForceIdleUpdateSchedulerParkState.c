@@ -1,3 +1,21 @@
+/*
+ * XREFs of KiForceIdleUpdateSchedulerParkState @ 0x14057AB44
+ * Callers:
+ *     KiForceIdleStartDpcRoutine @ 0x14057A9E0 (KiForceIdleStartDpcRoutine.c)
+ *     KiForceIdleStopDpcRoutine @ 0x14057AAA0 (KiForceIdleStopDpcRoutine.c)
+ * Callees:
+ *     KiOrAffinityEx @ 0x14022B190 (KiOrAffinityEx.c)
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     KeCheckProcessorAffinityEx @ 0x140234B10 (KeCheckProcessorAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x140237550 (KeCountSetBitsAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiForceIdleParkUnparkProcessor @ 0x14057A918 (KiForceIdleParkUnparkProcessor.c)
+ */
+
 __int64 __fastcall KiForceIdleUpdateSchedulerParkState(unsigned __int8 a1)
 {
   __int64 v1; // rbx

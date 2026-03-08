@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?_RetrieveTableAndTableEntryIndex@GdiHandleEntryDirectory@@AEAA_NIPEAPEAVGdiHandleEntryTable@@PEAI@Z @ 0x1C004B500
+ * Callers:
+ *     GreSelectVisRgn @ 0x1C0042CD0 (GreSelectVisRgn.c)
+ *     EngLockSurface @ 0x1C0044C20 (EngLockSurface.c)
+ *     HmgReplaceObject @ 0x1C0045470 (HmgReplaceObject.c)
+ *     ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C00467B8 (-vAltUnlockFast@XDCOBJ@@QEAAXXZ.c)
+ *     ?ReleaseLockAndEntry@GdiHandleEntryDirectory@@QEAAXI_N@Z @ 0x1C0052144 (-ReleaseLockAndEntry@GdiHandleEntryDirectory@@QEAAXI_N@Z.c)
+ *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C0052A00 (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
+ *     bDeleteRegion @ 0x1C0053FA0 (bDeleteRegion.c)
+ *     ??1SURFMEM@@QEAA@XZ @ 0x1C0055BB0 (--1SURFMEM@@QEAA@XZ.c)
+ *     HmgSwapLockedHandleContents @ 0x1C0186370 (HmgSwapLockedHandleContents.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall GdiHandleEntryDirectory::_RetrieveTableAndTableEntryIndex(
         GdiHandleEntryDirectory *this,
         unsigned int a2,

@@ -1,3 +1,22 @@
+/*
+ * XREFs of NtGetNlsSectionPtr @ 0x14069E7D0
+ * Callers:
+ *     RtlpInitCodePageTables @ 0x14080EA38 (RtlpInitCodePageTables.c)
+ *     RtlpInitUppercaseTables @ 0x14080F214 (RtlpInitUppercaseTables.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     ZwOpenSection @ 0x1404129F0 (ZwOpenSection.c)
+ *     ZwCreateSection @ 0x140412C50 (ZwCreateSection.c)
+ *     RtlpInitNlsSectionName @ 0x14069EBAC (RtlpInitNlsSectionName.c)
+ *     MmMapViewOfSection @ 0x14069EC70 (MmMapViewOfSection.c)
+ *     MiMapViewInSystemSpace @ 0x1406A55B8 (MiMapViewInSystemSpace.c)
+ *     RtlpInitNlsFileName @ 0x14077F74C (RtlpInitNlsFileName.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, PVOID *a3, _QWORD *a4, _QWORD *a5)
 {
   char PreviousMode; // r12

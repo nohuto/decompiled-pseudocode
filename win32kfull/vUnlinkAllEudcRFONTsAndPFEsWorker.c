@@ -1,3 +1,12 @@
+/*
+ * XREFs of vUnlinkAllEudcRFONTsAndPFEsWorker @ 0x1C00DF0D8
+ * Callers:
+ *     vUnlinkAllEudcRFONTsAndPFEs @ 0x1C00DEFF0 (vUnlinkAllEudcRFONTsAndPFEs.c)
+ * Callees:
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C011DDB0 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     vMakeInactiveHelper @ 0x1C02A2F4C (vMakeInactiveHelper.c)
+ */
+
 void __fastcall vUnlinkAllEudcRFONTsAndPFEsWorker(__int64 a1, __int64 a2)
 {
   int v3; // ebp

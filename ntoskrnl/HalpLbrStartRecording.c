@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpLbrStartRecording @ 0x140932FC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpLbrConfigurationWorker @ 0x140932E74 (HalpLbrConfigurationWorker.c)
+ */
+
 __int64 __fastcall HalpLbrStartRecording(int a1, int *a2)
 {
   bool v4; // zf

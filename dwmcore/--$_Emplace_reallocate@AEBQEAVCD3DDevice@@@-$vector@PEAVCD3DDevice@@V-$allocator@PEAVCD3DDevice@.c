@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??$_Emplace_reallocate@AEBQEAVCD3DDevice@@@?$vector@PEAVCD3DDevice@@V?$allocator@PEAVCD3DDevice@@@std@@@std@@QEAAPEAPEAVCD3DDevice@@QEAPEAV2@AEBQEAV2@@Z @ 0x180282594
+ * Callers:
+ *     ?AdvanceFrame@CDeviceManager@@IEAAXXZ @ 0x1800762D4 (-AdvanceFrame@CDeviceManager@@IEAAXXZ.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B9880 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     ?_Change_array@?$vector@PEAVCD3DDevice@@V?$allocator@PEAVCD3DDevice@@@std@@@std@@AEAAXQEAPEAVCD3DDevice@@_K1@Z @ 0x1802829B4 (-_Change_array@-$vector@PEAVCD3DDevice@@V-$allocator@PEAVCD3DDevice@@@std@@@std@@AEAAXQEAPEAVCD3.c)
+ */
+
 char *__fastcall std::vector<CD3DDevice *>::_Emplace_reallocate<CD3DDevice * const &>(
         const void **a1,
         _BYTE *a2,

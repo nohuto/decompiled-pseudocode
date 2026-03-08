@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiReturnBadPagesToBadList @ 0x14062878C
+ * Callers:
+ *     MiRemoveBadPages @ 0x140628020 (MiRemoveBadPages.c)
+ *     MmRemovePhysicalMemory @ 0x140A2A520 (MmRemovePhysicalMemory.c)
+ * Callees:
+ *     MiSetPfnPteFrame @ 0x14028A310 (MiSetPfnPteFrame.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiReturnBadPagesToBadList(__int64 a1, __int64 a2)
 {
   __int64 v2; // rsi

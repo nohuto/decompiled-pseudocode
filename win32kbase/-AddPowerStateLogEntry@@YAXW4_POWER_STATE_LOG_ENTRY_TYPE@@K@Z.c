@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AddPowerStateLogEntry@@YAXW4_POWER_STATE_LOG_ENTRY_TYPE@@K@Z @ 0x1C00B7E1C
+ * Callers:
+ *     ?xxxUserPowerStateCalloutWorker@@YAJXZ @ 0x1C00B3E28 (-xxxUserPowerStateCalloutWorker@@YAJXZ.c)
+ *     UserPowerStateCallout @ 0x1C00B7A1C (UserPowerStateCallout.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AddPowerStateLogEntry(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // esi

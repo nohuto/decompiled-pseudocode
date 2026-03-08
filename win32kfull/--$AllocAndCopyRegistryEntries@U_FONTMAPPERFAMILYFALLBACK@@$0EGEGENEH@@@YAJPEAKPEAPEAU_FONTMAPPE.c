@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$AllocAndCopyRegistryEntries@U_FONTMAPPERFAMILYFALLBACK@@$0EGEGENEH@@@YAJPEAKPEAPEAU_FONTMAPPERFAMILYFALLBACK@@0PEBU0@@Z @ 0x1C02A9148
+ * Callers:
+ *     QueryRegistryFontMapperFamilyFallbackListRoutine @ 0x1C03B8900 (QueryRegistryFontMapperFamilyFallbackListRoutine.c)
+ * Callees:
+ *     PREALLOCMEM2 @ 0x1C00F02EC (PREALLOCMEM2.c)
+ */
+
 __int64 __fastcall AllocAndCopyRegistryEntries<_FONTMAPPERFAMILYFALLBACK,1179012423>(
         unsigned int *a1,
         void **a2,

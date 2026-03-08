@@ -1,3 +1,14 @@
+/*
+ * XREFs of SeCaptureUnicodeStringStructures @ 0x1406D52BC
+ * Callers:
+ *     SepCaptureUnicodeStringArray @ 0x1406D5840 (SepCaptureUnicodeStringArray.c)
+ * Callees:
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SeCaptureUnicodeStringStructures(ULONGLONG a1, unsigned int a2, char a3, _QWORD *a4)
 {
   _OWORD *Pool2; // r10

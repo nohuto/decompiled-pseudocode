@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpTimerSchedulePeriodicQueries @ 0x1403AE654
+ * Callers:
+ *     HalpTimerInitSystem @ 0x1403776D0 (HalpTimerInitSystem.c)
+ *     HalpTscFallbackToPlatformSource @ 0x1405082E4 (HalpTscFallbackToPlatformSource.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ */
+
 __int64 HalpTimerSchedulePeriodicQueries()
 {
   ULONG_PTR v0; // rbx

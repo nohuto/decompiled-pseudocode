@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionSetProcessWindowStationEntryPoint @ 0x1C00CE950
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxSetProcessWindowStation @ 0x1C00CEA20 (xxxSetProcessWindowStation.c)
+ */
+
 __int64 __fastcall EditionSetProcessWindowStationEntryPoint(HANDLE SourceHandle)
 {
   unsigned int v2; // ebx

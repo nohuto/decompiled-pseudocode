@@ -1,3 +1,12 @@
+/*
+ * XREFs of WriteSettingValues @ 0x1C01681F0
+ * Callers:
+ *     _SetPrecisionTouchPadConfiguration @ 0x1C015CC04 (_SetPrecisionTouchPadConfiguration.c)
+ *     WritePointerDeviceSettings @ 0x1C01680C0 (WritePointerDeviceSettings.c)
+ * Callees:
+ *     ApiSetEditionGetPointerDeviceConfigurationKey @ 0x1C009D4F4 (ApiSetEditionGetPointerDeviceConfigurationKey.c)
+ */
+
 _BOOL8 __fastcall WriteSettingValues(unsigned int a1, const WCHAR **a2, __int64 a3)
 {
   unsigned int v4; // r14d

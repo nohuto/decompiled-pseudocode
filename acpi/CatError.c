@@ -1,3 +1,14 @@
+/*
+ * XREFs of CatError @ 0x1C004D728
+ * Callers:
+ *     AMLIAddNamespaceOverride @ 0x1C004A2A8 (AMLIAddNamespaceOverride.c)
+ * Callees:
+ *     RtlStringCchCatA @ 0x1C003BD94 (RtlStringCchCatA.c)
+ *     RtlStringCchVPrintfA @ 0x1C0047260 (RtlStringCchVPrintfA.c)
+ *     AMLIDebugger @ 0x1C004D630 (AMLIDebugger.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ */
+
 __int64 CatError(const char *a1, ...)
 {
   __int64 v1; // rax

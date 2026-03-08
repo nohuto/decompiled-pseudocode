@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpTransAllocateTrans @ 0x14078C6A4
+ * Callers:
+ *     CmpTransSearchAddTrans @ 0x1406B570C (CmpTransSearchAddTrans.c)
+ *     CmpTransSearchAddLightWeightTrans @ 0x1406B5B04 (CmpTransSearchAddLightWeightTrans.c)
+ * Callees:
+ *     CmpBindHiveToTrans @ 0x1406B5CAC (CmpBindHiveToTrans.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall CmpTransAllocateTrans(__int64 a1, __int128 *a2, __int64 a3, __int64 a4)
 {
   __int64 Pool2; // rax

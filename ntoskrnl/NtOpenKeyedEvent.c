@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtOpenKeyedEvent @ 0x140A01D50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObOpenObjectByName @ 0x1406C39E0 (ObOpenObjectByName.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall NtOpenKeyedEvent(_QWORD *a1, int a2, __int64 a3)
 {
   char PreviousMode; // r8

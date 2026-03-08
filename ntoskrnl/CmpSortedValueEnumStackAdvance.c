@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpSortedValueEnumStackAdvance @ 0x140A222F0
+ * Callers:
+ *     CmpGetValueCountForKeyNodeStack @ 0x140614148 (CmpGetValueCountForKeyNodeStack.c)
+ * Callees:
+ *     CmpSortedValueEnumStackAdvanceInternal @ 0x140A22324 (CmpSortedValueEnumStackAdvanceInternal.c)
+ */
+
 __int64 __fastcall CmpSortedValueEnumStackAdvance(void *a1)
 {
   void *i; // rbx

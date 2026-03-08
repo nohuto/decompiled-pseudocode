@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiPickStandbyLookasideIndex @ 0x14064EF14
+ * Callers:
+ *     MiLockStandbyLookasidePage @ 0x140464910 (MiLockStandbyLookasidePage.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 MiPickStandbyLookasideIndex()
 {
   unsigned int Number; // r8d

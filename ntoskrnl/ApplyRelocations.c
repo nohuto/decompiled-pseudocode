@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApplyRelocations @ 0x1402C4590
+ * Callers:
+ *     sub_1407538E4 @ 0x1407538E4 (sub_1407538E4.c)
+ *     sub_140A4B164 @ 0x140A4B164 (sub_140A4B164.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ApplyRelocations(
         __int64 a1,
         unsigned int a2,

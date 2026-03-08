@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiIsFreeSlabPage @ 0x140654AC8
+ * Callers:
+ *     MiIsPageSecured @ 0x1402A27F0 (MiIsPageSecured.c)
+ *     MiPurgeSlabEntries @ 0x140300024 (MiPurgeSlabEntries.c)
+ * Callees:
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ */
+
 __int64 __fastcall MiIsFreeSlabPage(__int64 a1)
 {
   int v2; // eax

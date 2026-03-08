@@ -1,3 +1,15 @@
+/*
+ * XREFs of GetMonitorCapabilityFromInf @ 0x1C01902C4
+ * Callers:
+ *     GetMonitorCapability @ 0x1C0190204 (GetMonitorCapability.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x1C00DA4C0 (__report_rangecheckfailure.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     InsertModecapList @ 0x1C0190884 (InsertModecapList.c)
+ *     ParseModeCap @ 0x1C0190A98 (ParseModeCap.c)
+ */
+
 __int64 __fastcall GetMonitorCapabilityFromInf(struct _DEVICE_OBJECT *a1, __int64 a2, char a3)
 {
   unsigned int inserted; // esi

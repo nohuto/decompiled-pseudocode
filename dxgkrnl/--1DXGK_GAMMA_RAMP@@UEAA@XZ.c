@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1DXGK_GAMMA_RAMP@@UEAA@XZ @ 0x1C0005094
+ * Callers:
+ *     ??_GDXGK_GAMMA_RAMP@@UEAAPEAXI@Z @ 0x1C0005050 (--_GDXGK_GAMMA_RAMP@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1ReferenceCounted@@UEAA@XZ @ 0x1C000511C (--1ReferenceCounted@@UEAA@XZ.c)
+ */
+
 void __fastcall DXGK_GAMMA_RAMP::~DXGK_GAMMA_RAMP(DXGK_GAMMA_RAMP *this)
 {
   void *v2; // rcx

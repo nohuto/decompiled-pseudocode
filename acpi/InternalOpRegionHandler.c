@@ -1,3 +1,12 @@
+/*
+ * XREFs of InternalOpRegionHandler @ 0x1C0039C00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall InternalOpRegionHandler(
         unsigned int a1,
         __int64 a2,

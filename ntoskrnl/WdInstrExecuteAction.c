@@ -1,3 +1,12 @@
+/*
+ * XREFs of WdInstrExecuteAction @ 0x14052805C
+ * Callers:
+ *     HalpWdatArmTimer @ 0x14051C830 (HalpWdatArmTimer.c)
+ *     HalpWdatStop @ 0x14051CDE0 (HalpWdatStop.c)
+ * Callees:
+ *     WdInstrExecuteInstruction @ 0x1405280DC (WdInstrExecuteInstruction.c)
+ */
+
 __int64 __fastcall WdInstrExecuteAction(unsigned __int8 *a1, unsigned int a2, int a3, unsigned int a4)
 {
   unsigned int v4; // edi

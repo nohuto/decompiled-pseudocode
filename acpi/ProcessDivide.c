@@ -1,3 +1,12 @@
+/*
+ * XREFs of ProcessDivide @ 0x1C00583C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ *     WriteObject @ 0x1C00532A0 (WriteObject.c)
+ */
+
 __int64 __fastcall ProcessDivide(__int64 a1, __int64 a2, unsigned int a3)
 {
   unsigned int v3; // esi

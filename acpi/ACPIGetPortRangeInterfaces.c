@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIGetPortRangeInterfaces @ 0x1C00246AC
+ * Callers:
+ *     ACPIDispatchAddDevice @ 0x1C0023F30 (ACPIDispatchAddDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPIGetPortRangeInterfaces(PDEVICE_OBJECT DeviceObject)
 {
   struct _DEVICE_OBJECT *AttachedDeviceReference; // rdi

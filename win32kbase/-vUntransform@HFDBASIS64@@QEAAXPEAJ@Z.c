@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vUntransform@HFDBASIS64@@QEAAXPEAJ@Z @ 0x1C018B014
+ * Callers:
+ *     ?bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z @ 0x1C018A3B0 (-bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall HFDBASIS64::vUntransform(HFDBASIS64 *this, int *a2)
 {
   __int64 v2; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of TtmiLogCalloutStop @ 0x1409A3D50
+ * Callers:
+ *     TtmpStopCallout @ 0x1409A0D8C (TtmpStopCallout.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetProcessSessionIdEx @ 0x1402BDFA0 (PsGetProcessSessionIdEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall TtmiLogCalloutStop(int a1, int a2, unsigned __int64 a3, int a4, int a5, unsigned __int64 a6)
 {
   _UNKNOWN **v6; // rax

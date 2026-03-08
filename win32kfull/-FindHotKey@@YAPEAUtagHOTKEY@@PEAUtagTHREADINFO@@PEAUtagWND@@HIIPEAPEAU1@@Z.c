@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FindHotKey@@YAPEAUtagHOTKEY@@PEAUtagTHREADINFO@@PEAUtagWND@@HIIPEAPEAU1@@Z @ 0x1C003B02C
+ * Callers:
+ *     ?_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z @ 0x1C003AB6C (-_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct tagHOTKEY *__fastcall FindHotKey(
         struct tagTHREADINFO *a1,
         struct tagWND *a2,

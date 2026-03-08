@@ -1,3 +1,13 @@
+/*
+ * XREFs of IommupHvDismissPageFault @ 0x140522568
+ * Callers:
+ *     IommuProcessPageRequestQueue @ 0x140520C90 (IommuProcessPageRequestQueue.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall IommupHvDismissPageFault(int a1, __int64 a2, __int16 a3, int a4, __int64 a5, __int64 a6)
 {
   __int64 v7; // rcx

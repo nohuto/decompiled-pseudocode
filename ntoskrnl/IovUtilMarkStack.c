@@ -1,3 +1,12 @@
+/*
+ * XREFs of IovUtilMarkStack @ 0x1402FBF78
+ * Callers:
+ *     PipCallDriverAddDevice @ 0x1406C644C (PipCallDriverAddDevice.c)
+ * Callees:
+ *     VfDevObjAdjustFdoForVerifierFilters @ 0x140ACF080 (VfDevObjAdjustFdoForVerifierFilters.c)
+ *     IovpUtilMarkDeviceObject @ 0x140ACFE10 (IovpUtilMarkDeviceObject.c)
+ */
+
 __int64 __fastcall IovUtilMarkStack(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   __int64 result; // rax

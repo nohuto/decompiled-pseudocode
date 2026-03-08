@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlpAllocateHeapInternal @ 0x1402E0BC8
+ * Callers:
+ *     RtlAllocateHeap @ 0x1402E0B70 (RtlAllocateHeap.c)
+ *     RtlpHpAllocWithExceptionProtection @ 0x1405A798C (RtlpHpAllocWithExceptionProtection.c)
+ * Callees:
+ *     RtlFreeHeap @ 0x1402E0A90 (RtlFreeHeap.c)
+ *     RtlpHpVsContextAllocate @ 0x1402E0C44 (RtlpHpVsContextAllocate.c)
+ *     RtlpHpConvertFlagsToSegmentFlags @ 0x1402E0CAC (RtlpHpConvertFlagsToSegmentFlags.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     RtlpAllocateHeap @ 0x1405A8E28 (RtlpAllocateHeap.c)
+ *     RtlpAllocateHeapRaiseException @ 0x1405A9730 (RtlpAllocateHeapRaiseException.c)
+ *     RtlpSetupExtendedBlock @ 0x1405ABCBC (RtlpSetupExtendedBlock.c)
+ *     RtlpHpCheckAllocationSizeLimit @ 0x1405B3A24 (RtlpHpCheckAllocationSizeLimit.c)
+ */
+
 void *__fastcall RtlpAllocateHeapInternal(_DWORD *HeapHandle, unsigned __int64 a2, unsigned int a3, __int16 a4)
 {
   unsigned __int64 v4; // rbx

@@ -1,3 +1,21 @@
+/*
+ * XREFs of ExHandleLogBadReference @ 0x140604648
+ * Callers:
+ *     NtWriteFile @ 0x1406B3A60 (NtWriteFile.c)
+ *     ExMapHandleToPointerEx @ 0x140776CE8 (ExMapHandleToPointerEx.c)
+ *     ObpCloseHandle @ 0x1407C2500 (ObpCloseHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     AlpcpLookupMessage @ 0x1407CA7C0 (AlpcpLookupMessage.c)
+ *     ObWaitForMultipleObjects @ 0x1407D79B0 (ObWaitForMultipleObjects.c)
+ *     ObpReferenceObjectByHandle @ 0x1407DF424 (ObpReferenceObjectByHandle.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KeRaiseUserException @ 0x14056E8C0 (KeRaiseUserException.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x14087EC10 (DbgkWerCaptureLiveKernelDump.c)
+ *     ExpUpdateDebugInfo @ 0x1409F6478 (ExpUpdateDebugInfo.c)
+ */
+
 struct _KTHREAD *__fastcall ExHandleLogBadReference(
         ULONG_PTR BugCheckParameter2,
         ULONG_PTR BugCheckParameter1,

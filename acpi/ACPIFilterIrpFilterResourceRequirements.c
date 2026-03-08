@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIFilterIrpFilterResourceRequirements @ 0x1C0085A90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     WPP_RECORDER_SF_qLqss @ 0x1C0009C8C (WPP_RECORDER_SF_qLqss.c)
+ *     ACPIInternalInterruptPolarityCacheStorePolarity @ 0x1C002EAA0 (ACPIInternalInterruptPolarityCacheStorePolarity.c)
+ *     PnpBiosUpdateResourceListWithSidebandResources @ 0x1C008FBC8 (PnpBiosUpdateResourceListWithSidebandResources.c)
+ */
+
 __int64 __fastcall ACPIFilterIrpFilterResourceRequirements(ULONG_PTR a1, IRP *a2)
 {
   __int64 DeviceExtension; // rbx

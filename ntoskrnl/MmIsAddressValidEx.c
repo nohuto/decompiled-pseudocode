@@ -1,3 +1,44 @@
+/*
+ * XREFs of MmIsAddressValidEx @ 0x1403471E0
+ * Callers:
+ *     MiIncreaseUsedPtesCount @ 0x14029F850 (MiIncreaseUsedPtesCount.c)
+ *     MiCommitExistingVad @ 0x140320D70 (MiCommitExistingVad.c)
+ *     MiMakeSystemAddressValid @ 0x140321770 (MiMakeSystemAddressValid.c)
+ *     MiSetProtectionOnSection @ 0x140321FC0 (MiSetProtectionOnSection.c)
+ *     MiWaitForInPageComplete @ 0x140342A90 (MiWaitForInPageComplete.c)
+ *     MiInPagePageTable @ 0x140345FA0 (MiInPagePageTable.c)
+ *     MiDbgCopyMemory @ 0x140347088 (MiDbgCopyMemory.c)
+ *     KiIsAddressRangeValid @ 0x1403849BC (KiIsAddressRangeValid.c)
+ *     MiDbgWriteCheck @ 0x1403878D8 (MiDbgWriteCheck.c)
+ *     MiFreedUnusedPfnPagesWorker @ 0x14038ACDC (MiFreedUnusedPfnPagesWorker.c)
+ *     MmIsAddressValid @ 0x1403A9A20 (MmIsAddressValid.c)
+ *     IoFreeDumpRange @ 0x14054E080 (IoFreeDumpRange.c)
+ *     IoSetDumpRange @ 0x14054E9E0 (IoSetDumpRange.c)
+ *     IopGetMaxValidMemorySize @ 0x140550E80 (IopGetMaxValidMemorySize.c)
+ *     IopGetMaxValidMemorySizeDown @ 0x140550EF8 (IopGetMaxValidMemorySizeDown.c)
+ *     IopRemovePageDumpRange @ 0x1405511AC (IopRemovePageDumpRange.c)
+ *     KeCapturePersistentThreadState @ 0x140551EC0 (KeCapturePersistentThreadState.c)
+ *     IoAddPagesForPartialKernelDump @ 0x140559F94 (IoAddPagesForPartialKernelDump.c)
+ *     IopMarkPagesForDpcData @ 0x14055ACEC (IopMarkPagesForDpcData.c)
+ *     IopMarkPagesForProcessorData @ 0x14055B1E8 (IopMarkPagesForProcessorData.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x1405670E8 (KeValidateBugCheckCallbackRecord.c)
+ *     KiCollectFullProcessName @ 0x14056784C (KiCollectFullProcessName.c)
+ *     KiCollectTriageDumpDataBlocks @ 0x140567894 (KiCollectTriageDumpDataBlocks.c)
+ *     KiDumpParameterImages @ 0x1405680C8 (KiDumpParameterImages.c)
+ *     KiPcToFileHeader @ 0x140568594 (KiPcToFileHeader.c)
+ *     KiScanBugCheckCallbackList @ 0x140568790 (KiScanBugCheckCallbackList.c)
+ *     KiValidateComponentName @ 0x140568864 (KiValidateComponentName.c)
+ *     KiGetCurrentKernelShadowStackBounds @ 0x1405798B4 (KiGetCurrentKernelShadowStackBounds.c)
+ *     ExpHeapDumpEnumLargeAllocs @ 0x14060CF78 (ExpHeapDumpEnumLargeAllocs.c)
+ *     ExpHeapDumpNodeLinksValid @ 0x14060D070 (ExpHeapDumpNodeLinksValid.c)
+ *     MiAddPartitionToCrashDump @ 0x14062D1FC (MiAddPartitionToCrashDump.c)
+ *     MiIsAddressRangeValid @ 0x14062D8D4 (MiIsAddressRangeValid.c)
+ *     MiKernelWriteToExecutableMemory @ 0x140643DB8 (MiKernelWriteToExecutableMemory.c)
+ *     ViFreeTrackedPool @ 0x140ACE3FC (ViFreeTrackedPool.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall MmIsAddressValidEx(__int64 a1)
 {
   __int64 v2; // rdx

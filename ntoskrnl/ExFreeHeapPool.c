@@ -1,3 +1,40 @@
+/*
+ * XREFs of ExFreeHeapPool @ 0x1402B61C0
+ * Callers:
+ *     ExAllocateHeapPool @ 0x1403101C0 (ExAllocateHeapPool.c)
+ *     ExAllocateContiguousHeapPool @ 0x1403B4DF4 (ExAllocateContiguousHeapPool.c)
+ *     ExFreePool @ 0x140AAB270 (ExFreePool.c)
+ * Callees:
+ *     MiDeterminePoolType @ 0x14020DEF0 (MiDeterminePoolType.c)
+ *     RtlpHpSegPageRangeShrink @ 0x14024DB00 (RtlpHpSegPageRangeShrink.c)
+ *     ExpReturnPoolQuota @ 0x140294F44 (ExpReturnPoolQuota.c)
+ *     RtlpHpVsContextFree @ 0x1402B6740 (RtlpHpVsContextFree.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x1402B689C (RtlCSparseBitmapBitmaskRead.c)
+ *     ExpRemoveTagForBigPages @ 0x1402B6920 (ExpRemoveTagForBigPages.c)
+ *     RtlpHpLargeFree @ 0x1402B6B40 (RtlpHpLargeFree.c)
+ *     RtlpHpQueryVA @ 0x140309578 (RtlpHpQueryVA.c)
+ *     RtlpHpLfhSubsegmentFreeBlock @ 0x140309BA0 (RtlpHpLfhSubsegmentFreeBlock.c)
+ *     RtlpHpLfhBucketUpdateStats @ 0x14030BFE0 (RtlpHpLfhBucketUpdateStats.c)
+ *     ExpPoolTrackerReturnLimit @ 0x140313B50 (ExpPoolTrackerReturnLimit.c)
+ *     ExReturnPoolQuota @ 0x1403144E0 (ExReturnPoolQuota.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x140462C3A (ExpRemovePoolTrackerExpansion.c)
+ *     ExpHpIsSpecialPoolHeap @ 0x14046327A (ExpHpIsSpecialPoolHeap.c)
+ *     KeCheckForTimer @ 0x14056E51C (KeCheckForTimer.c)
+ *     RtlpLogHeapFailure @ 0x1405B2884 (RtlpLogHeapFailure.c)
+ *     RtlpHpExtrasGet @ 0x1405B4100 (RtlpHpExtrasGet.c)
+ *     RtlpHpSizeHeap @ 0x1405B4398 (RtlpHpSizeHeap.c)
+ *     VerifierFreeTrackedPool @ 0x1405CD740 (VerifierFreeTrackedPool.c)
+ *     EtwTracePool @ 0x1405FAD80 (EtwTracePool.c)
+ *     ExpCheckForResource @ 0x140608878 (ExpCheckForResource.c)
+ *     ExpCheckForLookaside @ 0x140608FB8 (ExpCheckForLookaside.c)
+ *     ExpCheckForWorker @ 0x14060A838 (ExpCheckForWorker.c)
+ *     ExpFreeHeapSpecialPool @ 0x14060CCF8 (ExpFreeHeapSpecialPool.c)
+ *     VfPtFreePoolNotification @ 0x140ADB73C (VfPtFreePoolNotification.c)
+ */
+
 __int64 __fastcall ExFreeHeapPool(ULONG_PTR BugCheckParameter3)
 {
   int v2; // eax

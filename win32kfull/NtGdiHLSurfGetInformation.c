@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtGdiHLSurfGetInformation @ 0x1C0029E10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreDwmGetSurfaceData @ 0x1C0029774 (GreDwmGetSurfaceData.c)
+ *     GreSfmGetDirtyRgn @ 0x1C002A00C (GreSfmGetDirtyRgn.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     GreDwmGetRedirectionStyle @ 0x1C026A184 (GreDwmGetRedirectionStyle.c)
+ */
+
 __int64 __fastcall NtGdiHLSurfGetInformation(__int64 a1, int a2, void *a3, ULONG64 a4)
 {
   _DWORD *v4; // r12

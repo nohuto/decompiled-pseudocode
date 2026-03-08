@@ -1,3 +1,13 @@
+/*
+ * XREFs of SiGetDiskPartitionInformation @ 0x14076EAA0
+ * Callers:
+ *     SiValidateSystemPartition @ 0x1402E231C (SiValidateSystemPartition.c)
+ * Callees:
+ *     ZwDeviceIoControlFile @ 0x1404123F0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     SiOpenDevice @ 0x14076EB34 (SiOpenDevice.c)
+ */
+
 __int64 __fastcall SiGetDiskPartitionInformation(const WCHAR *a1, void *a2)
 {
   NTSTATUS v3; // ebx

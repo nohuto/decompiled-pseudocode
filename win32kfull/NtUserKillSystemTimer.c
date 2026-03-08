@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserKillSystemTimer @ 0x1C01D6F30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FindTimer @ 0x1C00DEEDC (FindTimer.c)
+ */
+
 __int64 __fastcall NtUserKillSystemTimer(__int64 a1, void *a2)
 {
   __int64 v4; // rax

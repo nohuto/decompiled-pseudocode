@@ -1,3 +1,27 @@
+/*
+ * XREFs of RIMReadInput @ 0x1C0039160
+ * Callers:
+ *     ?Read@CBaseInput@@QEAAJXZ @ 0x1C0039080 (-Read@CBaseInput@@QEAAJXZ.c)
+ *     NtRIMReadInput @ 0x1C00D1660 (NtRIMReadInput.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     rimCompleteReads @ 0x1C0039B74 (rimCompleteReads.c)
+ *     rimIssueReads @ 0x1C0039C14 (rimIssueReads.c)
+ *     ??0ApiSetEditionCrit@@QEAA@H@Z @ 0x1C0039D28 (--0ApiSetEditionCrit@@QEAA@H@Z.c)
+ *     RawInputManagerObjectResolveHandle @ 0x1C0039E60 (RawInputManagerObjectResolveHandle.c)
+ *     rimConvertUserToKernelEventHandle @ 0x1C0039ED8 (rimConvertUserToKernelEventHandle.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqqq @ 0x1C0039F8C (WPP_RECORDER_AND_TRACE_SF_qqqq.c)
+ *     ??1ApiSetEditionCrit@@QEAA@XZ @ 0x1C003A054 (--1ApiSetEditionCrit@@QEAA@XZ.c)
+ *     rimHandleAnyPnpRemovePendingDevices @ 0x1C003A13C (rimHandleAnyPnpRemovePendingDevices.c)
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     Feature_RIMUserCritOpt__private_ReportDeviceUsage @ 0x1C00DF02C (Feature_RIMUserCritOpt__private_ReportDeviceUsage.c)
+ */
+
 __int64 __fastcall RIMReadInput(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, __int64 a6, __int64 a7, __int64 a8)
 {
   int v9; // r14d

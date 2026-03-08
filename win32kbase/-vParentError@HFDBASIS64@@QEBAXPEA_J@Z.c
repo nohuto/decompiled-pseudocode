@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vParentError@HFDBASIS64@@QEBAXPEA_J@Z @ 0x1C018AF60
+ * Callers:
+ *     ?bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z @ 0x1C018A3B0 (-bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall HFDBASIS64::vParentError(HFDBASIS64 *this, __int64 *a2)
 {
   __int64 v2; // r8

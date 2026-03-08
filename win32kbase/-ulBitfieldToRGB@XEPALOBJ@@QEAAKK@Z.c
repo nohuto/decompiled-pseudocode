@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ulBitfieldToRGB@XEPALOBJ@@QEAAKK@Z @ 0x1C0184AA0
+ * Callers:
+ *     ?ulIndexToRGB@XEPALOBJ@@QEAAKK@Z @ 0x1C0008B50 (-ulIndexToRGB@XEPALOBJ@@QEAAKK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall XEPALOBJ::ulBitfieldToRGB(XEPALOBJ *this, unsigned int a2)
 {
   _DWORD *v3; // r11

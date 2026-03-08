@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PopulateMousePromotionEntry@@YAXPEAUtagMOUSE_PROMOTION_ENTRY@@AEBUtagPOINTER_INFO@@GG@Z @ 0x1C01F9170
+ * Callers:
+ *     ?CreateMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEBUtagPOINTER_INFO@@GG@Z @ 0x1C01F8D70 (-CreateMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEBUtagPOINTER_INFO@@GG@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall PopulateMousePromotionEntry(
         struct tagMOUSE_PROMOTION_ENTRY *a1,
         const struct tagPOINTER_INFO *a2,

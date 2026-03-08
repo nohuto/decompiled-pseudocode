@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?DestroyOutputDuplManager@@YAJPEAVOUTPUTDUPL_MGR@@@Z @ 0x1C03268AC
+ * Callers:
+ *     ??1OUTPUTDUPL_SESSION_MGR@@QEAA@XZ @ 0x1C01D96A4 (--1OUTPUTDUPL_SESSION_MGR@@QEAA@XZ.c)
+ *     ??1ADAPTER_DISPLAY@@QEAA@XZ @ 0x1C02B5F64 (--1ADAPTER_DISPLAY@@QEAA@XZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ??_GOUTPUTDUPL_MGR@@QEAAPEAXI@Z @ 0x1C00534EC (--_GOUTPUTDUPL_MGR@@QEAAPEAXI@Z.c)
+ *     ??1OUTPUTDUPL_MGR@@QEAA@XZ @ 0x1C03256C8 (--1OUTPUTDUPL_MGR@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall DestroyOutputDuplManager(OUTPUTDUPL_MGR **a1)
 {
   OUTPUTDUPL_MGR **v3; // rdi

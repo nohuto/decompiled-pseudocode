@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_BuildHimcList@@YAIPEBUtagTHREADINFO@@IPEAPEAUHIMC__@@@Z @ 0x1C00E8DF0
+ * Callers:
+ *     NtUserBuildHimcList @ 0x1C00E8D00 (NtUserBuildHimcList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall _BuildHimcList(const struct tagTHREADINFO *a1, unsigned int a2, struct HIMC__ **a3)
 {
   __int64 v5; // rbx

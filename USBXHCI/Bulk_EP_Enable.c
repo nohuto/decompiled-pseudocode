@@ -1,3 +1,11 @@
+/*
+ * XREFs of Bulk_EP_Enable @ 0x1C0013B50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_DDDD @ 0x1C000E120 (WPP_RECORDER_SF_DDDD.c)
+ */
+
 __int64 __fastcall Bulk_EP_Enable(__int64 a1)
 {
   __int64 v2; // rcx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of VidSchiUpdateContextRunningTimeAtISR @ 0x1C000B910
+ * Callers:
+ *     VidSchiProcessIsrCompletedPacket @ 0x1C000B650 (VidSchiProcessIsrCompletedPacket.c)
+ *     VidSchiUpdateNodeRunningTimeAtISR @ 0x1C000B890 (VidSchiUpdateNodeRunningTimeAtISR.c)
+ *     VidSchiProcessIsrPreemptedPacket @ 0x1C00175D0 (VidSchiProcessIsrPreemptedPacket.c)
+ *     VidSchiProcessIsrFaultedPacket @ 0x1C003AE5C (VidSchiProcessIsrFaultedPacket.c)
+ * Callees:
+ *     McTemplateK0piixqq_EtwWriteTransfer @ 0x1C0037E04 (McTemplateK0piixqq_EtwWriteTransfer.c)
+ */
+
 _BOOL8 __fastcall VidSchiUpdateContextRunningTimeAtISR(_QWORD *a1)
 {
   __int64 v1; // rbx

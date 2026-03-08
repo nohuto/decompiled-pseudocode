@@ -1,3 +1,11 @@
+/*
+ * XREFs of UpdateSizeTrackingInfo @ 0x1C01F3478
+ * Callers:
+ *     NtUserUpdateWindowTrackingInfo @ 0x1C01E0CB0 (NtUserUpdateWindowTrackingInfo.c)
+ * Callees:
+ *     GetMonitorWorkRectForWindow @ 0x1C00FF4A0 (GetMonitorWorkRectForWindow.c)
+ */
+
 __int64 __fastcall UpdateSizeTrackingInfo(const struct tagWND *a1, int *a2, int *a3)
 {
   __int64 v5; // rbx

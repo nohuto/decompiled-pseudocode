@@ -1,3 +1,16 @@
+/*
+ * XREFs of UserGetDesktopDC @ 0x1C003D300
+ * Callers:
+ *     NtGdiOpenDCW @ 0x1C003D110 (NtGdiOpenDCW.c)
+ *     NtGdiCreateMetafileDC @ 0x1C0199440 (NtGdiCreateMetafileDC.c)
+ * Callees:
+ *     ValidateHwndEx @ 0x1C003E310 (ValidateHwndEx.c)
+ *     _GetDCEx @ 0x1C003F6E0 (_GetDCEx.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     GreCreateDisplayDC @ 0x1C0055340 (GreCreateDisplayDC.c)
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C0070484 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall UserGetDesktopDC(unsigned int a1, __int64 a2, int a3)
 {
   HDEV v5; // rbp

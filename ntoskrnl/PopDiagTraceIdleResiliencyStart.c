@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopDiagTraceIdleResiliencyStart @ 0x140591A0C
+ * Callers:
+ *     PopDeepSleepEvaluateCallback @ 0x140595FC0 (PopDeepSleepEvaluateCallback.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall PopDiagTraceIdleResiliencyStart(__int64 a1, int a2, unsigned __int64 a3)
 {
   NTSTATUS result; // eax

@@ -1,3 +1,18 @@
+/*
+ * XREFs of GreEnableEUDC @ 0x1C00B77A8
+ * Callers:
+ *     ?CleanUpEUDC@@YAXXZ @ 0x1C00B76C0 (-CleanUpEUDC@@YAXXZ.c)
+ *     NtGdiEnableEudc @ 0x1C00B7790 (NtGdiEnableEudc.c)
+ * Callees:
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002A694 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002A6E0 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ?GetSessionTextStackStatus@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C00B7924 (-GetSessionTextStackStatus@UmfdHostLifeTimeManager@@SAJXZ.c)
+ *     bAddAllFlEntry @ 0x1C00B8F0C (bAddAllFlEntry.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     bDeleteAllFlEntry @ 0x1C0116094 (bDeleteAllFlEntry.c)
+ *     ?bSetupDefaultFlEntry@@YAHXZ @ 0x1C02A0B3C (-bSetupDefaultFlEntry@@YAHXZ.c)
+ */
+
 __int64 __fastcall GreEnableEUDC(Gre::Base *a1)
 {
   int v1; // edi

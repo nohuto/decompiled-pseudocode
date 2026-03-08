@@ -1,3 +1,11 @@
+/*
+ * XREFs of _strset_s @ 0x1403D95F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ */
+
 errno_t __cdecl strset_s(char *a1, size_t DstSize, int Value)
 {
   char *v3; // rax

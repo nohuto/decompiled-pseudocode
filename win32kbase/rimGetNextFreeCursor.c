@@ -1,3 +1,11 @@
+/*
+ * XREFs of rimGetNextFreeCursor @ 0x1C01DEDAC
+ * Callers:
+ *     RIMCmActivateContact @ 0x1C01DDE90 (RIMCmActivateContact.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall rimGetNextFreeCursor(__int64 a1)
 {
   unsigned int v2; // edi

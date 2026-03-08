@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?CleanupCursorObject@@YAXPEAUtagCURSOR@@@Z @ 0x1C0044690
+ * Callers:
+ *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C0041464 (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
+ * Callees:
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C0018890 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C001F240 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
+ *     GreDereferenceObject @ 0x1C00447CC (GreDereferenceObject.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?DestroyAniIcon@@YAHPEAUtagACON@@@Z @ 0x1C00E6CB4 (-DestroyAniIcon@@YAHPEAUtagACON@@@Z.c)
+ *     _lambda_a958981e61cb814173376795bd306db4_::operator() @ 0x1C026E4A8 (_lambda_a958981e61cb814173376795bd306db4_--operator().c)
+ */
+
 void __fastcall CleanupCursorObject(struct tagCURSOR *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rcx

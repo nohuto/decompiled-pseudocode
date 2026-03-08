@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwFlushBuffersFileExWrapper @ 0x1405EDEF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwFlushBuffersFileEx @ 0x1404140B0 (ZwFlushBuffersFileEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 __int64 __fastcall DifZwFlushBuffersFileExWrapper(__int64 a1, unsigned int a2, __int64 a3, int a4, __int64 a5)
 {
   __int64 *APIThunkContextById; // rax

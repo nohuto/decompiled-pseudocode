@@ -1,3 +1,12 @@
+/*
+ * XREFs of IrqPolicyConfigure @ 0x1C00AC2A4
+ * Callers:
+ *     AcpiIrqLibConfigureLibrary @ 0x1C00ABA48 (AcpiIrqLibConfigureLibrary.c)
+ * Callees:
+ *     OSGetRegistryValue @ 0x1C008DCAC (OSGetRegistryValue.c)
+ *     OSOpenUnicodeHandle @ 0x1C008E3DC (OSOpenUnicodeHandle.c)
+ */
+
 __int64 IrqPolicyConfigure()
 {
   struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-10h] BYREF

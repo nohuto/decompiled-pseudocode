@@ -1,3 +1,21 @@
+/*
+ * XREFs of IopFreeIrpExtension @ 0x1402B18FC
+ * Callers:
+ *     IoSetActivityIdIrp @ 0x1402B2080 (IoSetActivityIdIrp.c)
+ *     IopFreeCopyObjectsFromDataBuffer @ 0x1402F9948 (IopFreeCopyObjectsFromDataBuffer.c)
+ *     IopCopyCompleteReadIrp @ 0x1402F99A0 (IopCopyCompleteReadIrp.c)
+ *     IopFreeIrp @ 0x14030EC30 (IopFreeIrp.c)
+ *     IopCompleteRequest @ 0x140312C80 (IopCompleteRequest.c)
+ *     IoCleanupIrp @ 0x1403CB400 (IoCleanupIrp.c)
+ *     IopPerfCompleteRequest @ 0x14045735E (IopPerfCompleteRequest.c)
+ *     IoClearAdapterCryptoEngineExtension @ 0x140556880 (IoClearAdapterCryptoEngineExtension.c)
+ *     IoClearFsTrackOffsetState @ 0x1405568D0 (IoClearFsTrackOffsetState.c)
+ * Callees:
+ *     IopIrpHasExtensionType @ 0x1402B1D58 (IopIrpHasExtensionType.c)
+ *     IopFreeCopyObjectsFromIrp @ 0x1402F98FC (IopFreeCopyObjectsFromIrp.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 (__fastcall *__fastcall IopFreeIrpExtension(__int64 a1, int a2, char a3))()
 {
   char v3; // al

@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiExecuteDpcDelegate @ 0x14038D4D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiRetireDpcList @ 0x1402521E0 (KiRetireDpcList.c)
+ *     KiSwapThread @ 0x14025F500 (KiSwapThread.c)
+ *     KeAttachProcess @ 0x1402F8D80 (KeAttachProcess.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __noreturn KiExecuteDpcDelegate()
 {
   struct _KTHREAD *CurrentThread; // rdi

@@ -1,3 +1,28 @@
+/*
+ * XREFs of MiReapplyImportOptimizationForDriverVerifier @ 0x14063E4F8
+ * Callers:
+ *     MmApplyVerifierToRunningImage @ 0x140AE4F80 (MmApplyVerifierToRunningImage.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     KeIpiGenericCall @ 0x140396D40 (KeIpiGenericCall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUnlockAndFreeDvPatchImage @ 0x14063EDD4 (MiUnlockAndFreeDvPatchImage.c)
+ *     MmHasImageBeenImportOptimized @ 0x1407F72B8 (MmHasImageBeenImportOptimized.c)
+ *     MiEnumerateBasePatches @ 0x1407F7420 (MiEnumerateBasePatches.c)
+ *     MiInitializeDriverPatchState @ 0x1407F746C (MiInitializeDriverPatchState.c)
+ *     VslReapplyImportOptimizationForDriverVerifier @ 0x140940924 (VslReapplyImportOptimizationForDriverVerifier.c)
+ *     MiLockAndMapEntireDriver @ 0x140A31608 (MiLockAndMapEntireDriver.c)
+ *     MiUnlockEntireDriver @ 0x140A31880 (MiUnlockEntireDriver.c)
+ *     MiCheckVerifierFunctionsCfgState @ 0x140A41294 (MiCheckVerifierFunctionsCfgState.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiReapplyImportOptimizationForDriverVerifier(ULONG_PTR a1, int *a2, unsigned int a3)
 {
   __int64 v4; // r14

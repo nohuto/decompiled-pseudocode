@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwAlpcImpersonateClientContainerOfPort @ 0x1404133B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwAlpcImpersonateClientContainerOfPort(__int64 a1, __int64 a2)
 {
   _disable();

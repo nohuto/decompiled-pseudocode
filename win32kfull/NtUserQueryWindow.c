@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserQueryWindow @ 0x1C00A0010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsHungWindow@@YA_NPEBUtagWND@@@Z @ 0x1C009FF14 (-IsHungWindow@@YA_NPEBUtagWND@@@Z.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     ?ProcessHungWindow@@YAXPEAUtagWND@@@Z @ 0x1C01F4E68 (-ProcessHungWindow@@YAXPEAUtagWND@@@Z.c)
+ *     ?ShouldProcessHungWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C01F5038 (-ShouldProcessHungWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
+ */
+
 __int64 __fastcall NtUserQueryWindow(__int64 a1, __int64 a2, __int64 a3)
 {
   int v3; // edi

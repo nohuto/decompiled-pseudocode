@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?DrawMenuMark@@YAHPEAUHDC__@@PEAUtagRECT@@II@Z @ 0x1C0112A24
+ * Callers:
+ *     DrawFrameControl @ 0x1C0116938 (DrawFrameControl.c)
+ * Callees:
+ *     FillRect @ 0x1C00881F8 (FillRect.c)
+ *     ?FlipUserTextOutW@@YAHPEAUHDC__@@HHPEBGH@Z @ 0x1C01116B0 (-FlipUserTextOutW@@YAHPEAUHDC__@@HHPEBGH@Z.c)
+ *     ?GetCaptionChar@@YAGI@Z @ 0x1C01135C8 (-GetCaptionChar@@YAGI@Z.c)
+ *     GreSetTextColor @ 0x1C0113D94 (GreSetTextColor.c)
+ */
+
 __int64 __fastcall DrawMenuMark(HDC a1, LPCRECT a2, int a3, unsigned int a4)
 {
   LONG top; // edi

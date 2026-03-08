@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhReferenceListClose @ 0x1C00417E0
+ * Callers:
+ *     Usbh_PnpRemove @ 0x1C0044B44 (Usbh_PnpRemove.c)
+ * Callees:
+ *     UsbhReferenceListRemove @ 0x1C00018CC (UsbhReferenceListRemove.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 void __fastcall UsbhReferenceListClose(__int64 a1)
 {
   KIRQL v2; // bl

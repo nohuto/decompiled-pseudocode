@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiGetNumberOfPhysicalMonitors @ 0x1C00F5100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtGdiGetNumberOfPhysicalMonitors(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

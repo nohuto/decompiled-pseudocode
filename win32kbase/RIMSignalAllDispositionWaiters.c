@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMSignalAllDispositionWaiters @ 0x1C0032B90
+ * Callers:
+ *     RIMUnregisterForInput @ 0x1C00326C0 (RIMUnregisterForInput.c)
+ *     CleanupRimDevObjInUserModeCallback @ 0x1C0154388 (CleanupRimDevObjInUserModeCallback.c)
+ * Callees:
+ *     <none>
+ */
+
 LONG __fastcall RIMSignalAllDispositionWaiters(__int64 a1)
 {
   LONG v1; // r8d

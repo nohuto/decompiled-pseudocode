@@ -1,3 +1,23 @@
+/*
+ * XREFs of AlpcpCreateConnectionPort @ 0x14077D738
+ * Callers:
+ *     NtCreateWaitablePort @ 0x14077D650 (NtCreateWaitablePort.c)
+ *     NtCreatePort @ 0x14077D6A0 (NtCreatePort.c)
+ *     NtAlpcCreatePort @ 0x14077D6F0 (NtAlpcCreatePort.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AlpcpSetOwnerProcessPort @ 0x140712A4C (AlpcpSetOwnerProcessPort.c)
+ *     AlpcpValidateAndSetPortAttributes @ 0x140712AA4 (AlpcpValidateAndSetPortAttributes.c)
+ *     AlpcpInitializePort @ 0x140712D08 (AlpcpInitializePort.c)
+ *     AlpcInitializeHandleTable @ 0x14071378C (AlpcInitializeHandleTable.c)
+ *     AlpcpCreatePort @ 0x1407137E0 (AlpcpCreatePort.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     AlpcpAllocateBlob @ 0x1407CBB50 (AlpcpAllocateBlob.c)
+ */
+
 __int64 __fastcall AlpcpCreateConnectionPort(
         HANDLE *a1,
         int a2,

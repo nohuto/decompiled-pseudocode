@@ -1,3 +1,11 @@
+/*
+ * XREFs of DxgkCddEngIsRemoteConnection @ 0x1C00A5600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DxgkCddEngIsRemoteConnection(_DWORD *a1, _QWORD *a2, int *a3)
 {
   unsigned int v3; // r9d

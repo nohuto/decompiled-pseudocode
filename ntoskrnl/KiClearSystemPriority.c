@@ -1,3 +1,22 @@
+/*
+ * XREFs of KiClearSystemPriority @ 0x1402DAA90
+ * Callers:
+ *     MiZeroInParallel @ 0x140242EB8 (MiZeroInParallel.c)
+ *     PspRevertContainerImpersonation @ 0x140248164 (PspRevertContainerImpersonation.c)
+ *     KeDisconnectInterrupt @ 0x14028E38C (KeDisconnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x14028FA54 (KeConnectInterrupt.c)
+ *     PpmCheckCustomRun @ 0x1402D1B4C (PpmCheckCustomRun.c)
+ *     PpmReleaseLock @ 0x1402D1F40 (PpmReleaseLock.c)
+ *     PpmTryAcquireLock @ 0x1402D2BC8 (PpmTryAcquireLock.c)
+ *     KeClearSystemPriorityThread @ 0x1405746EC (KeClearSystemPriorityThread.c)
+ *     MiDemoteSlabEntries @ 0x1406541E4 (MiDemoteSlabEntries.c)
+ * Callees:
+ *     KiProcessDeferredReadyList @ 0x140226BD0 (KiProcessDeferredReadyList.c)
+ *     KiSetPriorityThread @ 0x1402273F0 (KiSetPriorityThread.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall KiClearSystemPriority(ULONG_PTR BugCheckParameter1, char *a2)
 {
   unsigned __int8 CurrentIrql; // si

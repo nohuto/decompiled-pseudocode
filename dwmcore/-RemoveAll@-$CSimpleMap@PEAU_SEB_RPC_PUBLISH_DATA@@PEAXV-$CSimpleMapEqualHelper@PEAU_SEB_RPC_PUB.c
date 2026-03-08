@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RemoveAll@?$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV?$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBLISH_DATA@@PEAX@ATL@@@ATL@@QEAAXXZ @ 0x180279218
+ * Callers:
+ *     ??1ContextTable@@QEAA@XZ @ 0x18010E2CC (--1ContextTable@@QEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ATL::CSimpleMap<_SEB_RPC_PUBLISH_DATA *,void *,ATL::CSimpleMapEqualHelper<_SEB_RPC_PUBLISH_DATA *,void *>>::RemoveAll(
         __int64 a1)
 {

@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiTrimWorkingSet @ 0x1402F08AC
+ * Callers:
+ *     MiTrimOrAgeWorkingSet @ 0x1402245D0 (MiTrimOrAgeWorkingSet.c)
+ *     MiReduceWs @ 0x1402F0810 (MiReduceWs.c)
+ *     MiForcedTrim @ 0x1406324C0 (MiForcedTrim.c)
+ * Callees:
+ *     MiWalkPageTables @ 0x140222CF0 (MiWalkPageTables.c)
+ *     MiTbFlushType @ 0x140224BDC (MiTbFlushType.c)
+ *     MiLogTrimWs @ 0x1402F0ADC (MiLogTrimWs.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiTrimWorkingSet(__int64 a1, unsigned __int64 a2, __int8 a3, unsigned int a4, int a5)
 {
   __int64 v6; // r14

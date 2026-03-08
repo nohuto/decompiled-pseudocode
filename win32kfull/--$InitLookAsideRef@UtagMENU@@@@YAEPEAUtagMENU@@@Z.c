@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$InitLookAsideRef@UtagMENU@@@@YAEPEAUtagMENU@@@Z @ 0x1C00D783C
+ * Callers:
+ *     ?InternalCreateMenu@@YAPEAUtagMENU@@H@Z @ 0x1C00D76B8 (-InternalCreateMenu@@YAPEAUtagMENU@@H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall InitLookAsideRef<tagMENU>(__int64 a1)
 {
   _QWORD *v2; // rax

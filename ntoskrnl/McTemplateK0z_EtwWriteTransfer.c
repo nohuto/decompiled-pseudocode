@@ -1,3 +1,19 @@
+/*
+ * XREFs of McTemplateK0z_EtwWriteTransfer @ 0x14055EEE8
+ * Callers:
+ *     PnpLogActionQueueEvent @ 0x14020368C (PnpLogActionQueueEvent.c)
+ *     PnpProcessTargetDeviceEvent @ 0x140681D34 (PnpProcessTargetDeviceEvent.c)
+ *     PiUpdateGuestAssignedState @ 0x140682FF0 (PiUpdateGuestAssignedState.c)
+ *     PnpInsertEventInQueue @ 0x140688D90 (PnpInsertEventInQueue.c)
+ *     PiUEventNotifyUserMode @ 0x14068C2D0 (PiUEventNotifyUserMode.c)
+ *     PipProcessDevNodeTree @ 0x1406CCD80 (PipProcessDevNodeTree.c)
+ *     PiSwCloseDescendants @ 0x1408672DC (PiSwCloseDescendants.c)
+ *     PiCMQueryRemove @ 0x140967304 (PiCMQueryRemove.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1403BE3A0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0z_EtwWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

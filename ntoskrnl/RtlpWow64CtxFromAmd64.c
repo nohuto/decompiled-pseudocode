@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpWow64CtxFromAmd64 @ 0x14077CCA8
+ * Callers:
+ *     RtlpWow64GetContextOnAmd64 @ 0x14077CAD4 (RtlpWow64GetContextOnAmd64.c)
+ * Callees:
+ *     RtlFxToFnFrame @ 0x1402ECAF0 (RtlFxToFnFrame.c)
+ */
+
 __int64 __fastcall RtlpWow64CtxFromAmd64(int a1, _DWORD *a2, int *a3)
 {
   int v3; // edi

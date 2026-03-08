@@ -1,3 +1,22 @@
+/*
+ * XREFs of NtAlpcImpersonateClientContainerOfPort @ 0x140975AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsImpersonateContainerOfThread @ 0x140225F60 (PsImpersonateContainerOfThread.c)
+ *     PoEnergyEstimationEnabled @ 0x1402384C0 (PoEnergyEstimationEnabled.c)
+ *     IoThreadToProcess @ 0x140248470 (IoThreadToProcess.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1402637F0 (ObDereferenceObjectDeferDelete.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PsEncodeThreadWorkOnBehalfTicket @ 0x1402E03D0 (PsEncodeThreadWorkOnBehalfTicket.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PsGetWorkOnBehalfThread @ 0x14033E134 (PsGetWorkOnBehalfThread.c)
+ *     AlpcpCaptureIdMessage @ 0x1406D4EB0 (AlpcpCaptureIdMessage.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     AlpcpLookupMessage @ 0x1407CA7C0 (AlpcpLookupMessage.c)
+ */
+
 __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, __int64 a2, int a3)
 {
   struct _KTHREAD *CurrentThread; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of _anonymous_namespace_::IsMouseButtonSwapped @ 0x1C022E9A0
+ * Callers:
+ *     ??0CButtonEvent@CMouseProcessor@@QEAA@W4ButtonNumber@@W4ButtonState@1@W4ButtonStateSpecialization@1@PEBVCMouseEvent@1@@Z @ 0x1C022A844 (--0CButtonEvent@CMouseProcessor@@QEAA@W4ButtonNumber@@W4ButtonState@1@W4ButtonStateSpecializatio.c)
+ *     ?ComputeMouseSystemStateForInterceptor@CMouseProcessor@@AEBA?AW4_INTERCEPTOR_MOUSE_SYSTEM_STATE@@AEBVMouseInputDataEx@1@@Z @ 0x1C022B990 (-ComputeMouseSystemStateForInterceptor@CMouseProcessor@@AEBA-AW4_INTERCEPTOR_MOUSE_SYSTEM_STATE@.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_sscc @ 0x1C0231C40 (WPP_RECORDER_AND_TRACE_SF_sscc.c)
+ */
+
 bool __fastcall anonymous_namespace_::IsMouseButtonSwapped(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // r14d

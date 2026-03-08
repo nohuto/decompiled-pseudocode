@@ -1,3 +1,27 @@
+/*
+ * XREFs of RootHub_PrepareHardware @ 0x1C00706C0
+ * Callers:
+ *     Controller_WdfEvtDevicePrepareHardware @ 0x1C0072A30 (Controller_WdfEvtDevicePrepareHardware.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     XilRegister_GetOperationalRegisters @ 0x1C000821C (XilRegister_GetOperationalRegisters.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     Controller_IsSecureDevice @ 0x1C000B0F8 (Controller_IsSecureDevice.c)
+ *     RootHub_DumpPortData @ 0x1C0017D40 (RootHub_DumpPortData.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dddd @ 0x1C001A740 (WPP_RECORDER_SF_dddd.c)
+ *     XilRegister_ReadBufferUlong @ 0x1C001A920 (XilRegister_ReadBufferUlong.c)
+ *     Register_FindFirstExtendedCapability @ 0x1C001A95C (Register_FindFirstExtendedCapability.c)
+ *     Register_FindNextExtendedCapability @ 0x1C001A9C8 (Register_FindNextExtendedCapability.c)
+ *     RootHub_InitializeReadModifyWriteLock @ 0x1C001AA2C (RootHub_InitializeReadModifyWriteLock.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage @ 0x1C001F76C (Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_cccc @ 0x1C0040C30 (WPP_RECORDER_SF_cccc.c)
+ *     RootHub_PopulatePortFlagsFromRegistry @ 0x1C00750D4 (RootHub_PopulatePortFlagsFromRegistry.c)
+ */
+
 __int64 __fastcall RootHub_PrepareHardware(unsigned __int64 *a1)
 {
   unsigned __int64 v2; // rax

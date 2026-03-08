@@ -1,3 +1,16 @@
+/*
+ * XREFs of PnpGetDevicePropertyData @ 0x1406F7418
+ * Callers:
+ *     IoGetDevicePropertyData @ 0x1406F7380 (IoGetDevicePropertyData.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     PnpCompareInterruptInformation @ 0x1406F4E64 (PnpCompareInterruptInformation.c)
+ *     RtlLCIDToCultureName @ 0x1409BBD70 (RtlLCIDToCultureName.c)
+ */
+
 __int64 __fastcall PnpGetDevicePropertyData(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheapInitializeWorkQueue @ 0x1403AFA9C
+ * Callers:
+ *     WheaInitialize @ 0x140B3E1A0 (WheaInitialize.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 (__fastcall *WheapInitializeWorkQueue())()
 {
   __int64 (__fastcall *result)(); // rax

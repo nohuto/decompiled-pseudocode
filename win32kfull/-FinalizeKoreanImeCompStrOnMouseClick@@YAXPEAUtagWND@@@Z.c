@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?FinalizeKoreanImeCompStrOnMouseClick@@YAXPEAUtagWND@@@Z @ 0x1C01ABEC0
+ * Callers:
+ *     EditionFinalizeKoreanImeCompStrOnMouseClick @ 0x1C0142990 (EditionFinalizeKoreanImeCompStrOnMouseClick.c)
+ * Callees:
+ *     PostInputMessage @ 0x1C0037A48 (PostInputMessage.c)
+ *     GetAppImeCompatFlags @ 0x1C00DABBC (GetAppImeCompatFlags.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ */
+
 void __fastcall FinalizeKoreanImeCompStrOnMouseClick(struct tagWND *a1)
 {
   __int64 v1; // rbx

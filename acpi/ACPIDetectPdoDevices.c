@@ -1,3 +1,23 @@
+/*
+ * XREFs of ACPIDetectPdoDevices @ 0x1C001AE34
+ * Callers:
+ *     ACPIBusIrpQueryBusRelations @ 0x1C007EC78 (ACPIBusIrpQueryBusRelations.c)
+ *     ACPIRootIrpQueryBusRelations @ 0x1C0093D88 (ACPIRootIrpQueryBusRelations.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIBuildMissingChildren @ 0x1C000D8BC (ACPIBuildMissingChildren.c)
+ *     ACPIBuildPdo @ 0x1C000DC84 (ACPIBuildPdo.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C001B508 (WPP_RECORDER_SF_qD.c)
+ *     ACPIDevicePowerFlushQueue @ 0x1C001EABC (ACPIDevicePowerFlushQueue.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     ACPIInitDereferenceDeviceExtensionUnlocked @ 0x1C002D0C0 (ACPIInitDereferenceDeviceExtensionUnlocked.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C002D594 (ACPIInitReferenceDeviceExtension.c)
+ *     ACPIBuildFlushQueue @ 0x1C007D42C (ACPIBuildFlushQueue.c)
+ *     ACPIDetectPdoMatch @ 0x1C00826E0 (ACPIDetectPdoMatch.c)
+ */
+
 __int64 __fastcall ACPIDetectPdoDevices(ULONG_PTR a1, PVOID *a2)
 {
   PVOID *v2; // r13

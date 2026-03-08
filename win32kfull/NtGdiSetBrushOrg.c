@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiSetBrushOrg @ 0x1C0150170
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreSetBrushOrg @ 0x1C0007754 (GreSetBrushOrg.c)
+ */
+
 __int64 __fastcall NtGdiSetBrushOrg(HDC a1, int a2, int a3, _QWORD *a4)
 {
   unsigned int v5; // r8d

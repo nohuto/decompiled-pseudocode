@@ -1,3 +1,29 @@
+/*
+ * XREFs of IopGraftName @ 0x14087A8D0
+ * Callers:
+ *     IopSymlinkProcessReparse @ 0x140790C0C (IopSymlinkProcessReparse.c)
+ * Callees:
+ *     IopSymlinkGetECP @ 0x14023ADA0 (IopSymlinkGetECP.c)
+ *     IopSymlinkRemoveECP @ 0x14023ADC4 (IopSymlinkRemoveECP.c)
+ *     IopGetFileObjectExtension @ 0x14023EB8C (IopGetFileObjectExtension.c)
+ *     Feature_2723316028__private_IsEnabledDeviceUsage @ 0x14040A1F0 (Feature_2723316028__private_IsEnabledDeviceUsage.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IopCopyOverNewPathSecure @ 0x14067C86C (IopCopyOverNewPathSecure.c)
+ *     IoGetIrpExtraCreateParameter @ 0x1406B1D50 (IoGetIrpExtraCreateParameter.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14070C300 (FsRtlFreeExtraCreateParameter.c)
+ *     ObQueryNameStringMode @ 0x14071EE84 (ObQueryNameStringMode.c)
+ *     IopGetFileInformation @ 0x14072054C (IopGetFileInformation.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x14077E41C (IopSymlinkAllocateAndAddECP.c)
+ *     IopSymlinkInitializeSymlinkInfo @ 0x14077E4E8 (IopSymlinkInitializeSymlinkInfo.c)
+ *     IopSymlinkRememberJunction @ 0x14087A7D0 (IopSymlinkRememberJunction.c)
+ *     IopSymlinkGetRelatedMountPoint @ 0x14087AF0C (IopSymlinkGetRelatedMountPoint.c)
+ *     IopCopyOverNewPath @ 0x14087AF34 (IopCopyOverNewPath.c)
+ *     IopSymlinkUpdateECP @ 0x14087BDFC (IopSymlinkUpdateECP.c)
+ *     IopSymlinkApplyToOpenedName @ 0x140945D10 (IopSymlinkApplyToOpenedName.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 IRP *__fastcall IopGraftName(IRP *a1, __int64 a2, int *a3)
 {
   void *v3; // r12

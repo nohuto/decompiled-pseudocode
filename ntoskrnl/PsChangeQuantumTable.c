@@ -1,3 +1,16 @@
+/*
+ * XREFs of PsChangeQuantumTable @ 0x14076EDA4
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ *     PspInitPhase0 @ 0x140B3F968 (PspInitPhase0.c)
+ * Callees:
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     MmIsThisAnNtAsSystem @ 0x1402B23D0 (MmIsThisAnNtAsSystem.c)
+ *     KeSetQuantumProcess @ 0x1402E39BC (KeSetQuantumProcess.c)
+ *     PspUnlockProcessListShared @ 0x1402E3A74 (PspUnlockProcessListShared.c)
+ *     PspComputeQuantum @ 0x140709E88 (PspComputeQuantum.c)
+ */
+
 char __fastcall PsChangeQuantumTable(char a1, char a2)
 {
   unsigned int v3; // eax

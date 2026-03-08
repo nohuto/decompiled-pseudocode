@@ -1,3 +1,13 @@
+/*
+ * XREFs of CreatePseudoDigitizerDevice @ 0x1C01B3424
+ * Callers:
+ *     _InitializeTouchInjectionWorker @ 0x1C01B1800 (_InitializeTouchInjectionWorker.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?_UpdateReportDescriptor@@YAXUtagRECT@@KK@Z @ 0x1C01B331C (-_UpdateReportDescriptor@@YAXUtagRECT@@KK@Z.c)
+ */
+
 struct DEVICEINFO *__fastcall CreatePseudoDigitizerDevice(int a1, int a2, __int64 a3)
 {
   struct DEVICEINFO *DeviceInfo; // rsi

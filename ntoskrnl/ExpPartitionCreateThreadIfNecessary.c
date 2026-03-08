@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpPartitionCreateThreadIfNecessary @ 0x1402F6A24
+ * Callers:
+ *     ExpTryQueueWorkItem @ 0x140308AAC (ExpTryQueueWorkItem.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExpNewThreadNecessary @ 0x14033F670 (ExpNewThreadNecessary.c)
+ */
+
 LONG __fastcall ExpPartitionCreateThreadIfNecessary(__int64 a1, __int64 a2, __int64 a3)
 {
   LONG result; // eax

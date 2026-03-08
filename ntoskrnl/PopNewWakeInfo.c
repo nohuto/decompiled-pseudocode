@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopNewWakeInfo @ 0x140A9DFB8
+ * Callers:
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     PopAcquireWakeSourceSpinLock @ 0x14058BF2C (PopAcquireWakeSourceSpinLock.c)
+ *     PopReleaseWakeSourceSpinLock @ 0x14058C200 (PopReleaseWakeSourceSpinLock.c)
+ *     PopWakeInfoDereference @ 0x14058C3B8 (PopWakeInfoDereference.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 LONG PopNewWakeInfo()
 {
   __int64 Pool2; // rax

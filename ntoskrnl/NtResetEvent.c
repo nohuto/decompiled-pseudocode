@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtResetEvent @ 0x140789DA0
+ * Callers:
+ *     PfSnPrefetchFileMetadata @ 0x140789C64 (PfSnPrefetchFileMetadata.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExpResetCrossVmEvent @ 0x140A03378 (ExpResetCrossVmEvent.c)
+ */
+
 __int64 __fastcall NtResetEvent(HANDLE Handle, LONG *a2)
 {
   KPROCESSOR_MODE PreviousMode; // r15

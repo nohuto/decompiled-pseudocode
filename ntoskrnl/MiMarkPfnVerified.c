@@ -1,3 +1,30 @@
+/*
+ * XREFs of MiMarkPfnVerified @ 0x1402093BC
+ * Callers:
+ *     MiGatherMappedPages @ 0x140215150 (MiGatherMappedPages.c)
+ *     MiAllocateWsle @ 0x14026D1B0 (MiAllocateWsle.c)
+ *     MiValidateInPage @ 0x140287570 (MiValidateInPage.c)
+ *     MiRevertValidPte @ 0x140322DC0 (MiRevertValidPte.c)
+ *     MiCopyPage @ 0x14032DC70 (MiCopyPage.c)
+ *     MiSetSystemCodeProtection @ 0x14032E170 (MiSetSystemCodeProtection.c)
+ *     MiInitializeBootLoadedDriverPfnRange @ 0x140370D54 (MiInitializeBootLoadedDriverPfnRange.c)
+ *     MiProtectDriverSectionPte @ 0x140618060 (MiProtectDriverSectionPte.c)
+ *     MiInitializeBootShadowStackPage @ 0x140642570 (MiInitializeBootShadowStackPage.c)
+ *     MiCompleteSecureProcessFault @ 0x1406435E4 (MiCompleteSecureProcessFault.c)
+ *     MiValidateImagePfn @ 0x14069EF78 (MiValidateImagePfn.c)
+ *     MiFillPerSessionProtos @ 0x140A4734C (MiFillPerSessionProtos.c)
+ *     MiCreateDescriptorPfns @ 0x140B373F4 (MiCreateDescriptorPfns.c)
+ *     MiHandleBootImage @ 0x140B3BA98 (MiHandleBootImage.c)
+ *     MiValidateKernelHalLargePageRange @ 0x140B976C0 (MiValidateKernelHalLargePageRange.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiGetPagePrivilege @ 0x14032D3F0 (MiGetPagePrivilege.c)
+ *     MiSetPfnIdentity @ 0x14034BE78 (MiSetPfnIdentity.c)
+ *     KeSetPagePrivilege @ 0x1403CF124 (KeSetPagePrivilege.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall MiMarkPfnVerified(ULONG_PTR BugCheckParameter2, char a2)
 {
   char v2; // bl

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TdrHistoryIsLimitExhausted@@YA_NPEBU_TDR_HISTORY@@PEBU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C030A3B0
+ * Callers:
+ *     ?TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030A4E0 (-TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall TdrHistoryIsLimitExhausted(
         const struct _TDR_HISTORY *a1,
         const struct _TDR_RECOVERY_CONTEXT *a2,

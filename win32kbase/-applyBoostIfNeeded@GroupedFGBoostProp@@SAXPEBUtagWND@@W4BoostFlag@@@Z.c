@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?applyBoostIfNeeded@GroupedFGBoostProp@@SAXPEBUtagWND@@W4BoostFlag@@@Z @ 0x1C008F128
+ * Callers:
+ *     ?ApplyBoost@GroupedProcessForegroundBoost@@YAXPEBUtagWND@@@Z @ 0x1C008F0F0 (-ApplyBoost@GroupedProcessForegroundBoost@@YAXPEBUtagWND@@@Z.c)
+ *     ?ApplyDeBoost@GroupedProcessForegroundBoost@@YAXPEBUtagWND@@@Z @ 0x1C008F110 (-ApplyDeBoost@GroupedProcessForegroundBoost@@YAXPEBUtagWND@@@Z.c)
+ * Callees:
+ *     ?applyBoost@GroupedFGBoostProp@@AEAAXW4BoostFlag@@@Z @ 0x1C000D768 (-applyBoost@GroupedFGBoostProp@@AEAAXW4BoostFlag@@@Z.c)
+ *     ??0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C005BB7C (--0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ??0?$ObjectLock@UtagObjLock@@@?$DomainExclusive@$$V@?$DomainShared@$$V@SharedUserCritOnly@@QEAA@AEAUtagObjLock@@@Z @ 0x1C0072AEC (--0-$ObjectLock@UtagObjLock@@@-$DomainExclusive@$$V@-$DomainShared@$$V@SharedUserCritOnly@@QEAA@.c)
+ *     ??$GetProp@VGroupedFGBoostProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVGroupedFGBoostProp@@@Z @ 0x1C008F1DC (--$GetProp@VGroupedFGBoostProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVGroupedFGBoostProp@@@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 void __fastcall GroupedFGBoostProp::applyBoostIfNeeded(__int64 a1, int a2)
 {
   __int64 v4; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiActivateWaiterKQueue @ 0x140354A10
+ * Callers:
+ *     KiActivateWaiterQueueWithNoLocks @ 0x1403548F8 (KiActivateWaiterQueueWithNoLocks.c)
+ * Callees:
+ *     KiWakeQueueWaiter @ 0x140340700 (KiWakeQueueWaiter.c)
+ */
+
 char __fastcall KiActivateWaiterKQueue(__int64 a1)
 {
   _QWORD *v1; // rax

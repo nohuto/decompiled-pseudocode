@@ -1,3 +1,11 @@
+/*
+ * XREFs of WdHwpGetWriteMethod @ 0x140527FBC
+ * Callers:
+ *     WdHwCreateHardwareRegister @ 0x140527E18 (WdHwCreateHardwareRegister.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 (__fastcall *__fastcall WdHwpGetWriteMethod(char a1, char a2))(unsigned __int16 a1, unsigned int a2)
 {
   __int64 v2; // r8

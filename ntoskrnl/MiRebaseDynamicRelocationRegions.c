@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiRebaseDynamicRelocationRegions @ 0x140B38F54
+ * Callers:
+ *     MiInitializeSystemVa @ 0x140B60308 (MiInitializeSystemVa.c)
+ * Callees:
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     KeFlushEntireTb @ 0x1403AD590 (KeFlushEntireTb.c)
+ *     MiApplyDynamicRelocations @ 0x140B39134 (MiApplyDynamicRelocations.c)
+ *     MiApplyRetpolineFixupsToKernelAndHal @ 0x140B3A7E0 (MiApplyRetpolineFixupsToKernelAndHal.c)
+ */
+
 __int64 __fastcall MiRebaseDynamicRelocationRegions(__int64 a1)
 {
   __int64 v2; // r13

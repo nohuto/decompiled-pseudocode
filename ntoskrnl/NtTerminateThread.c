@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtTerminateThread @ 0x1407DADE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspTerminateThreadByPointer @ 0x1407DA8F0 (PspTerminateThreadByPointer.c)
+ */
+
 __int64 __fastcall NtTerminateThread(ULONG_PTR a1, unsigned int a2)
 {
   unsigned int v2; // ebx

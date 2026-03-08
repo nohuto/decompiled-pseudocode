@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViThunkGetWdmThunk @ 0x140AD8BC4
+ * Callers:
+ *     ViThunkFindAllThunkedImports @ 0x140AD8940 (ViThunkFindAllThunkedImports.c)
+ * Callees:
+ *     VfIsVerifierEnabled @ 0x14036B1B0 (VfIsVerifierEnabled.c)
+ */
+
 __int64 __fastcall ViThunkGetWdmThunk(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rbx

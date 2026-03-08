@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiFreeReadListPages @ 0x1406A4F10
+ * Callers:
+ *     MiPfPutPagesInTransition @ 0x140288890 (MiPfPutPagesInTransition.c)
+ *     MiReleaseReadListResources @ 0x1406A4E80 (MiReleaseReadListResources.c)
+ * Callees:
+ *     MiReturnFaultCharges @ 0x1402F4480 (MiReturnFaultCharges.c)
+ *     MiGetPfnLink @ 0x1402FCBFC (MiGetPfnLink.c)
+ *     MiReleaseFreshPage @ 0x14034E570 (MiReleaseFreshPage.c)
+ *     MiPartitionIdToPointer @ 0x14036CC64 (MiPartitionIdToPointer.c)
+ *     MiFreeReadListPageList @ 0x1406A4FAC (MiFreeReadListPageList.c)
+ */
+
 void __fastcall MiFreeReadListPages(__int64 a1)
 {
   __int64 v2; // rax

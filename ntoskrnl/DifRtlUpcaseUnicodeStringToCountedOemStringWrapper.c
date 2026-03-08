@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifRtlUpcaseUnicodeStringToCountedOemStringWrapper @ 0x1405E9D50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1407A0140 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ */
+
 NTSTATUS __fastcall DifRtlUpcaseUnicodeStringToCountedOemStringWrapper(
         POEM_STRING DestinationString,
         PCUNICODE_STRING SourceString,

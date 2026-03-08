@@ -1,3 +1,18 @@
+/*
+ * XREFs of MmUpdateMdlTracker @ 0x14061AE74
+ * Callers:
+ *     IopProbeAndLockPages @ 0x14036D5D4 (IopProbeAndLockPages.c)
+ *     IopProbeAndLockPages_0 @ 0x1403CE574 (IopProbeAndLockPages_0.c)
+ *     IopProbeAndLockPages_1 @ 0x1405536D0 (IopProbeAndLockPages_1.c)
+ *     IopProbeAndLockPages_2 @ 0x1405578DC (IopProbeAndLockPages_2.c)
+ *     NtWriteFileGather @ 0x140799670 (NtWriteFileGather.c)
+ *     IopXxxControlFile @ 0x1407C1720 (IopXxxControlFile.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MmUpdateMdlTracker(unsigned __int64 a1, __int64 a2, __int64 a3)
 {
   PEPROCESS v3; // r9

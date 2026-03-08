@@ -1,3 +1,11 @@
+/*
+ * XREFs of BvgaSetDisplayOwnership @ 0x1403B12D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall BvgaSetDisplayOwnership(char a1)
 {
   char v1; // cl

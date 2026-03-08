@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??0CLightStack@@QEAA@XZ @ 0x180038FF4
+ * Callers:
+ *     ??0CDrawingContext@@IEAA@XZ @ 0x180038C88 (--0CDrawingContext@@IEAA@XZ.c)
+ *     ??0COcclusionContext@@QEAA@XZ @ 0x18003904C (--0COcclusionContext@@QEAA@XZ.c)
+ *     ??0CPreComputeContext@@QEAA@XZ @ 0x1800AEC6C (--0CPreComputeContext@@QEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 CLightStack *__fastcall CLightStack::CLightStack(CLightStack *this)
 {
   *(_QWORD *)this = (char *)this + 32;

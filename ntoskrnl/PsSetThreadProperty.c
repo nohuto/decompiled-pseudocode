@@ -1,3 +1,13 @@
+/*
+ * XREFs of PsSetThreadProperty @ 0x1403BEC70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PspValidateThread @ 0x1403BECB0 (PspValidateThread.c)
+ *     PspRemoveProperty @ 0x1403BED38 (PspRemoveProperty.c)
+ *     PspInsertProperty @ 0x1403BEE04 (PspInsertProperty.c)
+ */
+
 __int64 __fastcall PsSetThreadProperty(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

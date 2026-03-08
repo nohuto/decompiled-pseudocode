@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtQuerySystemInformationEx @ 0x140770840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 int __fastcall NtQuerySystemInformationEx(
         int a1,
         void *a2,

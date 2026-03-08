@@ -1,3 +1,11 @@
+/*
+ * XREFs of ShouldVirtualizeWindowRect @ 0x1C00A59F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall ShouldVirtualizeWindowRect(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rbx

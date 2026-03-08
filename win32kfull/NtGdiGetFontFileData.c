@@ -1,3 +1,18 @@
+/*
+ * XREFs of NtGdiGetFontFileData @ 0x1C02D87D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     EngMapFontFileFDInternal @ 0x1C0115154 (EngMapFontFileFDInternal.c)
+ *     EngUnmapFontFileFD @ 0x1C011CB40 (EngUnmapFontFileFD.c)
+ *     ??0CFixPred@Prediction@@QEAA@XZ @ 0x1C0125A10 (--0CFixPred@Prediction@@QEAA@XZ.c)
+ *     ??1PFFREFOBJ@@QEAA@XZ @ 0x1C0130380 (--1PFFREFOBJ@@QEAA@XZ.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ?GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z @ 0x1C014CD9A (-GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z.c)
+ *     ?MapFontFileInKernel@@YAJPEAXPEAPEAX@Z @ 0x1C02B884C (-MapFontFileInKernel@@YAJPEAXPEAPEAX@Z.c)
+ */
+
 __int64 __fastcall NtGdiGetFontFileData(unsigned int a1, unsigned int a2, size_t *a3, char *a4, size_t Size)
 {
   __int64 v6; // rsi

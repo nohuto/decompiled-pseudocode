@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlpProcessIommuPrq @ 0x140546010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HvcallFastExtended @ 0x1403C6CA0 (HvcallFastExtended.c)
+ */
+
 __int64 __fastcall HvlpProcessIommuPrq(_DWORD *a1)
 {
   __int64 result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpStartSiloKeyLockTracker @ 0x1408168F8
+ * Callers:
+ *     CmInitServerSiloState @ 0x140816884 (CmInitServerSiloState.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     CmpLockSiloKeyLockTrackerExclusive @ 0x1408463A4 (CmpLockSiloKeyLockTrackerExclusive.c)
+ */
+
 __int64 __fastcall CmpStartSiloKeyLockTracker(signed __int64 *BugCheckParameter2)
 {
   signed __int64 v2; // rax

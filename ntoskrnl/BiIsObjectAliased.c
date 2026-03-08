@@ -1,3 +1,12 @@
+/*
+ * XREFs of BiIsObjectAliased @ 0x14082EDE0
+ * Callers:
+ *     BiCreateObject @ 0x14082CA14 (BiCreateObject.c)
+ *     BcdOpenObject @ 0x14082E620 (BcdOpenObject.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall BiIsObjectAliased(_QWORD *a1, _DWORD *a2)
 {
   char result; // al

@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_WdfDeviceStopIdleActual @ 0x1C0033920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     StopIdleWorker @ 0x1C0031584 (StopIdleWorker.c)
+ */
+
 __int64 __fastcall imp_WdfDeviceStopIdleActual(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFDEVICE__ *Device,

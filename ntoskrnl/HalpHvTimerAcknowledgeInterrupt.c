@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpHvTimerAcknowledgeInterrupt @ 0x1403C88B0
+ * Callers:
+ *     HalpHvTimerInitialize @ 0x1403C8870 (HalpHvTimerInitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HalpHvTimerAcknowledgeInterrupt(__int64 a1)
 {
   __int64 v1; // rax

@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiReadWriteAnyLevelShadowPte @ 0x1403BA720
+ * Callers:
+ *     MiCheckKernelShadow @ 0x1403CA298 (MiCheckKernelShadow.c)
+ *     MiMakeShadowPageTableRange @ 0x14080B864 (MiMakeShadowPageTableRange.c)
+ *     MiInitializeShadowPageTable @ 0x14080B974 (MiInitializeShadowPageTable.c)
+ *     MmDeleteShadowMapping @ 0x140A39B58 (MmDeleteShadowMapping.c)
+ * Callees:
+ *     MiMapPageInHyperSpaceWorker @ 0x140214870 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140214A54 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 ULONG_PTR __fastcall MiReadWriteAnyLevelShadowPte(unsigned __int64 a1, int a2, int a3, __int64 a4)
 {
   _KPROCESS *Process; // r9

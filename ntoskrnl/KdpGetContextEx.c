@@ -1,3 +1,12 @@
+/*
+ * XREFs of KdpGetContextEx @ 0x140391F24
+ * Callers:
+ *     KdpSendWaitContinue @ 0x140AAD824 (KdpSendWaitContinue.c)
+ * Callees:
+ *     KdpGetContext @ 0x140AAE72C (KdpGetContext.c)
+ *     KdpQuickMoveMemory @ 0x140AAE918 (KdpQuickMoveMemory.c)
+ */
+
 __int64 __fastcall KdpGetContextEx(_DWORD *a1, unsigned __int16 *a2)
 {
   unsigned int v2; // esi

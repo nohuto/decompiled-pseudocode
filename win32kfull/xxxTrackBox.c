@@ -1,3 +1,16 @@
+/*
+ * XREFs of xxxTrackBox @ 0x1C022E110
+ * Callers:
+ *     ?xxxContScroll@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C022BFF0 (-xxxContScroll@@YAXPEAUtagWND@@I_K_J@Z.c)
+ * Callees:
+ *     _SetSystemTimer @ 0x1C0006384 (_SetSystemTimer.c)
+ *     PtInRect @ 0x1C00A34E8 (PtInRect.c)
+ *     ?RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C022BEFC (-RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z.c)
+ *     ?xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z @ 0x1C022C0E0 (-xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z.c)
+ *     ?zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z @ 0x1C022C83C (-zzzDrawInvertScrollArea@@YAXPEAUtagWND@@PEAUtagSBTRACK@@HI@Z.c)
+ *     xxxEndScroll @ 0x1C022CE90 (xxxEndScroll.c)
+ */
+
 void __fastcall xxxTrackBox(struct tagWND *a1, int a2, __int64 a3, int a4)
 {
   __int64 v7; // rbx

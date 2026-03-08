@@ -1,3 +1,23 @@
+/*
+ * XREFs of ?VerifierRandomFailure@@YAHK@Z @ 0x1C02A923C
+ * Callers:
+ *     VerifierBRUSHOBJ_pvAllocRbrush @ 0x1C02A92E0 (VerifierBRUSHOBJ_pvAllocRbrush.c)
+ *     VerifierCLIPOBJ_ppoGetPath @ 0x1C02A9320 (VerifierCLIPOBJ_ppoGetPath.c)
+ *     VerifierEngAllocMem @ 0x1C02A9350 (VerifierEngAllocMem.c)
+ *     VerifierEngAllocUserMem @ 0x1C02A94E0 (VerifierEngAllocUserMem.c)
+ *     VerifierEngCreateBitmap @ 0x1C02A9520 (VerifierEngCreateBitmap.c)
+ *     VerifierEngCreateClip @ 0x1C02A9590 (VerifierEngCreateClip.c)
+ *     VerifierEngCreateDeviceBitmap @ 0x1C02A95C0 (VerifierEngCreateDeviceBitmap.c)
+ *     VerifierEngCreateDeviceSurface @ 0x1C02A9620 (VerifierEngCreateDeviceSurface.c)
+ *     VerifierEngCreateDriverObj @ 0x1C02A9680 (VerifierEngCreateDriverObj.c)
+ *     VerifierEngCreatePalette @ 0x1C02A96D0 (VerifierEngCreatePalette.c)
+ *     VerifierEngCreatePath @ 0x1C02A9740 (VerifierEngCreatePath.c)
+ *     VerifierEngCreateRedirectionDeviceBitmap @ 0x1C02A9770 (VerifierEngCreateRedirectionDeviceBitmap.c)
+ *     VerifierEngCreateWnd @ 0x1C02A97D0 (VerifierEngCreateWnd.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VerifierRandomFailure(__int64 a1)
 {
   unsigned int v1; // edi

@@ -1,3 +1,40 @@
+/*
+ * XREFs of KeFlushTb @ 0x140323CB0
+ * Callers:
+ *     MiGetUltraMapping @ 0x140276080 (MiGetUltraMapping.c)
+ *     MiInsertCachedPte @ 0x14027D0C0 (MiInsertCachedPte.c)
+ *     MiAgeWorkingSetTail @ 0x1402C9E50 (MiAgeWorkingSetTail.c)
+ *     MiAttachSessionGlobal @ 0x1402D509C (MiAttachSessionGlobal.c)
+ *     MiConsumeSystemCacheTbFlushNeededView @ 0x1402F5E60 (MiConsumeSystemCacheTbFlushNeededView.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036D020 (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiGetWsAndMakePageTablesNx @ 0x1403AC164 (MiGetWsAndMakePageTablesNx.c)
+ *     MiManageUltraSpacePageTable @ 0x14046673C (MiManageUltraSpacePageTable.c)
+ *     MiSwitchToPfns @ 0x140B37268 (MiSwitchToPfns.c)
+ *     MiInitializeTbFlush @ 0x140B5CD2C (MiInitializeTbFlush.c)
+ * Callees:
+ *     KxFlushNonGlobalTb @ 0x140212260 (KxFlushNonGlobalTb.c)
+ *     KiIpiSendRequestEx @ 0x14021238C (KiIpiSendRequestEx.c)
+ *     KiIpiSendRequest @ 0x140233230 (KiIpiSendRequest.c)
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeFlushProcessWriteBuffers @ 0x1402373CC (KeFlushProcessWriteBuffers.c)
+ *     KiFlushCurrentTbWorker @ 0x1402D0000 (KiFlushCurrentTbWorker.c)
+ *     KxSetTimeStampBusy @ 0x1402DC0CC (KxSetTimeStampBusy.c)
+ *     KxFlushEntireTb @ 0x1403AD5FC (KxFlushEntireTb.c)
+ *     KiFlushCurrentTbOnly @ 0x1403B8390 (KiFlushCurrentTbOnly.c)
+ *     KiFlushAddressSpaceTb @ 0x1403C6B40 (KiFlushAddressSpaceTb.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403C8140 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403C8170 (HvlNotifyLongSpinWait.c)
+ *     KiPrepareFlushParameters @ 0x1403C8E3C (KiPrepareFlushParameters.c)
+ *     KiFlushAffinity @ 0x1403C9158 (KiFlushAffinity.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiIsFlushEntire @ 0x140457F9C (KiIsFlushEntire.c)
+ *     VmFlushTb @ 0x14045DE9C (VmFlushTb.c)
+ *     VslFlushSecureAddressSpace @ 0x140548BFC (VslFlushSecureAddressSpace.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFlushTb @ 0x14060AC48 (ExFlushTb.c)
+ */
+
 __int64 __fastcall KeFlushTb(__int64 a1, unsigned int a2)
 {
   unsigned int v3; // esi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of sub_180294F58 @ 0x180294F58
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall sub_180294F58(Microsoft::WRL::FtmBase *a1, struct IStream *a2, const struct _GUID *a3, void **a4)
 {
   char v4; // of

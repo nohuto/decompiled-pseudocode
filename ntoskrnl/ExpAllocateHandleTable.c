@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExpAllocateHandleTable @ 0x140706348
+ * Callers:
+ *     ExDupHandleTable @ 0x140705D54 (ExDupHandleTable.c)
+ *     ExCreateHandleTable @ 0x140706274 (ExCreateHandleTable.c)
+ * Callees:
+ *     PsReturnProcessPagedPoolQuota @ 0x140295600 (PsReturnProcessPagedPoolQuota.c)
+ *     ExpInsertLowLevelTableIntoFreeList @ 0x140706518 (ExpInsertLowLevelTableIntoFreeList.c)
+ *     ExpAllocateLowLevelTable @ 0x14070663C (ExpAllocateLowLevelTable.c)
+ *     PsChargeProcessPagedPoolQuota @ 0x1407D6CF0 (PsChargeProcessPagedPoolQuota.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpAllocateHandleTable(struct _KPROCESS *a1, char a2)
 {
   __int64 Pool2; // rdi

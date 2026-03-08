@@ -1,3 +1,18 @@
+/*
+ * XREFs of DpiFdoHandleDisplayDetectControl @ 0x1C001BDEC
+ * Callers:
+ *     DpiDxgkDdiDisplayDetectControl @ 0x1C01E6A28 (DpiDxgkDdiDisplayDetectControl.c)
+ * Callees:
+ *     DxgkQueryConnectionChanges @ 0x1C001BFA0 (DxgkQueryConnectionChanges.c)
+ *     DpIndicateConnectorChange @ 0x1C001C790 (DpIndicateConnectorChange.c)
+ *     DpiFdoInitializeConnectionChangePackage @ 0x1C005EA28 (DpiFdoInitializeConnectionChangePackage.c)
+ *     DpiFdoQueueConnectionChangePackage @ 0x1C005EB78 (DpiFdoQueueConnectionChangePackage.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C0180684 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C0180B30 (DpiAcquireCoreSyncAccessSafe.c)
+ *     DpiPdoIsChildConnected @ 0x1C01E6E20 (DpiPdoIsChildConnected.c)
+ *     ?DmmSetTargetForceableState@@YAJQEAXIE@Z @ 0x1C03AA4AC (-DmmSetTargetForceableState@@YAJQEAXIE@Z.c)
+ */
+
 __int64 __fastcall DpiFdoHandleDisplayDetectControl(__int64 a1, unsigned int *a2)
 {
   int v2; // ebx

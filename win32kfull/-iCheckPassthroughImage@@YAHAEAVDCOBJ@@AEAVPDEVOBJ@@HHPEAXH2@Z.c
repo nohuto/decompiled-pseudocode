@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?iCheckPassthroughImage@@YAHAEAVDCOBJ@@AEAVPDEVOBJ@@HHPEAXH2@Z @ 0x1C02793C8
+ * Callers:
+ *     ?GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1AEBUTag@RFONTOBJ@@@Z @ 0x1C02782F8 (-GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1AEBUTag@RFONTOBJ@@@Z.c)
+ * Callees:
+ *     ?pSurfobj@SURFACE@@QEAAPEAU_SURFOBJ@@XZ @ 0x1C001B2B0 (-pSurfobj@SURFACE@@QEAAPEAU_SURFOBJ@@XZ.c)
+ *     ?CreateXlateObject@@YAPEAVXLATE@@PEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0059450 (-CreateXlateObject@@YAPEAVXLATE@@PEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C007F50C (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
+ *     ?bValid@SURFREF@@QEBAHXZ @ 0x1C012F648 (-bValid@SURFREF@@QEBAHXZ.c)
+ *     ??0SURFFAKEOBJ@@QEAA@PEAUHDEV__@@PEAUDHPDEV__@@@Z @ 0x1C012FC34 (--0SURFFAKEOBJ@@QEAA@PEAUHDEV__@@PEAUDHPDEV__@@@Z.c)
+ *     ??1SURFFAKEOBJ@@QEAA@XZ @ 0x1C012FD24 (--1SURFFAKEOBJ@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ?pSurfobj@SURFREF@@QEAAPEAU_SURFOBJ@@XZ @ 0x1C0267C4C (-pSurfobj@SURFREF@@QEAAPEAU_SURFOBJ@@XZ.c)
+ *     ?bSupportsJPEG@XDCOBJ@@QEAAHXZ @ 0x1C0279338 (-bSupportsJPEG@XDCOBJ@@QEAAHXZ.c)
+ *     ?bSupportsPNG@XDCOBJ@@QEAAHXZ @ 0x1C0279358 (-bSupportsPNG@XDCOBJ@@QEAAHXZ.c)
+ */
+
 __int64 __fastcall iCheckPassthroughImage(
         struct DCOBJ *this,
         struct PDEVOBJ *a2,

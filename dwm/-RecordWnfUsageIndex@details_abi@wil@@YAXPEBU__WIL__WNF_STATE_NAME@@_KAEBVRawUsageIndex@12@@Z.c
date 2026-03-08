@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?RecordWnfUsageIndex@details_abi@wil@@YAXPEBU__WIL__WNF_STATE_NAME@@_KAEBVRawUsageIndex@12@@Z @ 0x14000149C
+ * Callers:
+ *     ?Record@UsageIndexes@details_abi@wil@@QEAAXXZ @ 0x140001F8C (-Record@UsageIndexes@details_abi@wil@@QEAAXXZ.c)
+ * Callees:
+ *     ?Iterate@RawUsageIndex@details_abi@wil@@QEBA_NV?$function@$$A6A_NPEAX_K01I@Z@wistd@@@Z @ 0x14000191C (-Iterate@RawUsageIndex@details_abi@wil@@QEBA_NV-$function@$$A6A_NPEAX_K01I@Z@wistd@@@Z.c)
+ *     ??0RawUsageIndex@details_abi@wil@@QEAA@GGW4CountSize@12@G0@Z @ 0x140001E2C (--0RawUsageIndex@details_abi@wil@@QEAA@GGW4CountSize@12@G0@Z.c)
+ *     ?NtStatusToHr@details@wil@@YAJJ@Z @ 0x14000210C (-NtStatusToHr@details@wil@@YAJJ@Z.c)
+ *     ?SetBuffer@RawUsageIndex@details_abi@wil@@QEAAXPEAX_K1@Z @ 0x1400021E4 (-SetBuffer@RawUsageIndex@details_abi@wil@@QEAAXPEAX_K1@Z.c)
+ *     ?FreeProcessHeap@details@wil@@YAXPEAX@Z @ 0x140002398 (-FreeProcessHeap@details@wil@@YAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x140005510 (__security_check_cookie.c)
+ *     wil_details_NtQueryWnfStateData @ 0x140006E38 (wil_details_NtQueryWnfStateData.c)
+ *     wil_details_NtUpdateWnfStateData @ 0x140006ECC (wil_details_NtUpdateWnfStateData.c)
+ *     _alloca_probe @ 0x140007150 (_alloca_probe.c)
+ */
+
 void __fastcall wil::details_abi::RecordWnfUsageIndex(
         wil::details_abi *this,
         const struct __WIL__WNF_STATE_NAME *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DxgkrnlLogBuildPagingBufferInformation@ADAPTER_RENDER@@AEAAXJPEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z @ 0x1C01942E0
+ * Callers:
+ *     ?DdiBuildPagingBuffer@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z @ 0x1C0193AD0 (-DdiBuildPagingBuffer@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_BUILDPAGINGBUFFER@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ADAPTER_RENDER::DxgkrnlLogBuildPagingBufferInformation(
         ADAPTER_RENDER *this,
         __int64 a2,

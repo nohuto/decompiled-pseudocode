@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwCreateEnlistment @ 0x1404138B0
+ * Callers:
+ *     DifZwCreateEnlistmentWrapper @ 0x1405EBF20 (DifZwCreateEnlistmentWrapper.c)
+ * Callees:
+ *     <none>
+ */
+
 // local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateEnlistment(
         PHANDLE EnlistmentHandle,

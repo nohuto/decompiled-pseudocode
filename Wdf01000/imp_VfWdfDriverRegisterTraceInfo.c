@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_VfWdfDriverRegisterTraceInfo @ 0x1C00B4A10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall imp_VfWdfDriverRegisterTraceInfo(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         _DRIVER_OBJECT *DriverObject,

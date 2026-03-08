@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetAdditionalDirtyRects@CVisual@@QEBAPEAVCMergedDirtyRect@@XZ @ 0x18004A3A0
+ * Callers:
+ *     ?CollectAdditionalDirtyRects@CVisual@@MEAAJPEBVCVisualTree@@PEAVCDirtyRegion@@AEBVCMILMatrix@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18004ACA0 (-CollectAdditionalDirtyRects@CVisual@@MEAAJPEBVCVisualTree@@PEAVCDirtyRegion@@AEBVCMILMatrix@@PE.c)
+ * Callees:
+ *     <none>
+ */
+
 struct CMergedDirtyRect *__fastcall CVisual::GetAdditionalDirtyRects(CVisual *this)
 {
   _DWORD *v1; // r8

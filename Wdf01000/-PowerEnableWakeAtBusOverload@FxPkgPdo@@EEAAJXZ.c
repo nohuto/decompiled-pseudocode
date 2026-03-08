@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PowerEnableWakeAtBusOverload@FxPkgPdo@@EEAAJXZ @ 0x1C0080680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 int (__fastcall *__fastcall FxPkgPdo::PowerEnableWakeAtBusOverload(FxPkgPdo *this))(WDFDEVICE__ *, _SYSTEM_POWER_STATE)
 {
   unsigned __int64 ObjectHandleUnchecked; // rcx

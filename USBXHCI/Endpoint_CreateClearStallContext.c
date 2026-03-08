@@ -1,3 +1,11 @@
+/*
+ * XREFs of Endpoint_CreateClearStallContext @ 0x1C0039D58
+ * Callers:
+ *     Endpoint_Create @ 0x1C006D624 (Endpoint_Create.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Endpoint_CreateClearStallContext(__int64 a1)
 {
   PIRP *Pool2; // rbx

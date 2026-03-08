@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeRegisterObjectDpc @ 0x140565CE8
+ * Callers:
+ *     ExQueueDpcEventWait @ 0x140609C40 (ExQueueDpcEventWait.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     KiWaitSatisfyOther @ 0x140293B88 (KiWaitSatisfyOther.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall KeRegisterObjectDpc(__int64 a1, ULONG_PTR a2, __int64 a3, char a4)
 {
   __int64 v8; // r10

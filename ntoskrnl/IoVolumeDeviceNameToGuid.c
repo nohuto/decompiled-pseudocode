@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoVolumeDeviceNameToGuid @ 0x140947B50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     IoVolumeDeviceNameToGuidPath @ 0x14072BD40 (IoVolumeDeviceNameToGuidPath.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IoVolumeDeviceNameToGuid(const void **a1, GUID *a2)
 {
   __int64 result; // rax

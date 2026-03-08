@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpHpSegSubAllocate @ 0x1402E28AC
+ * Callers:
+ *     RtlpHpSegLfhAllocate @ 0x1402E2850 (RtlpHpSegLfhAllocate.c)
+ *     RtlpHpSegVsAllocate @ 0x1402E2880 (RtlpHpSegVsAllocate.c)
+ * Callees:
+ *     RtlpHpSegAlloc @ 0x1402491F0 (RtlpHpSegAlloc.c)
+ *     RtlpHpSegPageRangeComputeLargePageCost @ 0x14024E860 (RtlpHpSegPageRangeComputeLargePageCost.c)
+ */
+
 __int64 __fastcall RtlpHpSegSubAllocate(__int64 a1, unsigned int a2, unsigned int a3, _DWORD *a4, _DWORD *a5)
 {
   unsigned int v6; // eax

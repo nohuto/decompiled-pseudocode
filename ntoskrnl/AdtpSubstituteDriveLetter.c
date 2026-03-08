@@ -1,3 +1,12 @@
+/*
+ * XREFs of AdtpSubstituteDriveLetter @ 0x14083DC80
+ * Callers:
+ *     AdtpPackageParameters @ 0x1403958B4 (AdtpPackageParameters.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     AdtpLookupDriveLetter @ 0x14083DCF8 (AdtpLookupDriveLetter.c)
+ */
+
 void *__fastcall AdtpSubstituteDriveLetter(UNICODE_STRING *a1)
 {
   void *result; // rax

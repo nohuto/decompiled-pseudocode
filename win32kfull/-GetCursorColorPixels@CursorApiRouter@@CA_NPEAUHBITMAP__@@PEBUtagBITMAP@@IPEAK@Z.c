@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetCursorColorPixels@CursorApiRouter@@CA_NPEAUHBITMAP__@@PEBUtagBITMAP@@IPEAK@Z @ 0x1C0225E90
+ * Callers:
+ *     ?SendMITCursorShape@CursorApiRouter@@CA_NPEAU_CURSINFO@@K@Z @ 0x1C02261A0 (-SendMITCursorShape@CursorApiRouter@@CA_NPEAU_CURSINFO@@K@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     GreGetDIBitsInternal @ 0x1C02E044C (GreGetDIBitsInternal.c)
+ */
+
 bool __fastcall CursorApiRouter::GetCursorColorPixels(HBITMAP a1, const struct tagBITMAP *a2, int a3, unsigned int *a4)
 {
   LONG bmWidth; // r10d

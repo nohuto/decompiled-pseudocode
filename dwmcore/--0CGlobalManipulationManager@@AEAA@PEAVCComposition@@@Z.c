@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CGlobalManipulationManager@@AEAA@PEAVCComposition@@@Z @ 0x1800CBC08
+ * Callers:
+ *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800AE4F0 (-Initialize@CComposition@@MEAAJXZ.c)
+ * Callees:
+ *     ??0CMmcssTask@@QEAA@XZ @ 0x1800CBEC8 (--0CMmcssTask@@QEAA@XZ.c)
+ *     ??0CManipulationManager@@IEAA@PEAVCComposition@@@Z @ 0x1800CBFC0 (--0CManipulationManager@@IEAA@PEAVCComposition@@@Z.c)
+ */
+
 CGlobalManipulationManager *__fastcall CGlobalManipulationManager::CGlobalManipulationManager(
         CGlobalManipulationManager *this,
         struct CComposition *a2)

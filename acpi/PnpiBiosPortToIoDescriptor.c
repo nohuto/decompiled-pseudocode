@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpiBiosPortToIoDescriptor @ 0x1C0091BE0
+ * Callers:
+ *     PnpBiosResourcesToNtResources @ 0x1C008EFDC (PnpBiosResourcesToNtResources.c)
+ * Callees:
+ *     PnpiUpdateResourceList @ 0x1C0092328 (PnpiUpdateResourceList.c)
+ */
+
 __int64 __fastcall PnpiBiosPortToIoDescriptor(__int64 a1, __int64 a2, unsigned int a3, char a4)
 {
   __int64 result; // rax

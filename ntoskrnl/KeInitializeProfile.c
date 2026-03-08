@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeInitializeProfile @ 0x140971EAC
+ * Callers:
+ *     NtStartProfile @ 0x140A019E0 (NtStartProfile.c)
+ * Callees:
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KiAndAffinityEx @ 0x140237720 (KiAndAffinityEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int16 __fastcall KeInitializeProfile(
         __int64 a1,
         __int64 a2,

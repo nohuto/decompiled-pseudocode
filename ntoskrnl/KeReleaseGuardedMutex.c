@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeReleaseGuardedMutex @ 0x1402CBD00
+ * Callers:
+ *     CcPinFileData @ 0x14021E620 (CcPinFileData.c)
+ * Callees:
+ *     ExpReleaseFastMutexContended @ 0x140239650 (ExpReleaseFastMutexContended.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __stdcall KeReleaseGuardedMutex(PKGUARDED_MUTEX Mutex)
 {
   unsigned __int64 OldIrql_low; // rdi

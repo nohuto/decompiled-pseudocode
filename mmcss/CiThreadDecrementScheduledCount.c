@@ -1,3 +1,12 @@
+/*
+ * XREFs of CiThreadDecrementScheduledCount @ 0x1C000A660
+ * Callers:
+ *     CiProcessSuspend @ 0x1C0004AE8 (CiProcessSuspend.c)
+ *     CiThreadCleanup @ 0x1C000A4B0 (CiThreadCleanup.c)
+ * Callees:
+ *     CiNdisUpdateThrottleState @ 0x1C000B860 (CiNdisUpdateThrottleState.c)
+ */
+
 __int64 __fastcall CiThreadDecrementScheduledCount(__int64 a1)
 {
   __int64 result; // rax

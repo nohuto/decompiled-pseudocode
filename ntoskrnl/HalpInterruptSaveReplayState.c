@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpInterruptSaveReplayState @ 0x140A94C7C
+ * Callers:
+ *     HalpDpGetInterruptReplayState @ 0x140A942C0 (HalpDpGetInterruptReplayState.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ */
+
 __int64 __fastcall HalpInterruptSaveReplayState(__int64 a1)
 {
   __int64 (__fastcall *v1)(_QWORD, __int64); // rax

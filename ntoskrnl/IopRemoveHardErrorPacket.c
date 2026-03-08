@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopRemoveHardErrorPacket @ 0x1405537C8
+ * Callers:
+ *     IopHardErrorThread @ 0x140941E20 (IopHardErrorThread.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 IopRemoveHardErrorPacket()
 {
   KIRQL v0; // al

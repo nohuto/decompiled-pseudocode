@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TryEnableStackSwap@CKernelStackSwap@@QEAAXXZ @ 0x1C012ED44
+ * Callers:
+ *     ??1CKernelStackSwapAuto@@QEAA@XZ @ 0x1C012ED28 (--1CKernelStackSwapAuto@@QEAA@XZ.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall CKernelStackSwap::TryEnableStackSwap(CKernelStackSwap *this)
 {
   if ( *(int *)(*((_QWORD *)this + 1) + 1544LL) <= 0 )

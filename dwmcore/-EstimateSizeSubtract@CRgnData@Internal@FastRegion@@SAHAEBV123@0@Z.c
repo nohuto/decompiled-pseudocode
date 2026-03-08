@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EstimateSizeSubtract@CRgnData@Internal@FastRegion@@SAHAEBV123@0@Z @ 0x180046978
+ * Callers:
+ *     ?Subtract@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180046720 (-Subtract@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FastRegion::Internal::CRgnData::EstimateSizeSubtract(
         const struct FastRegion::Internal::CRgnData *a1,
         const struct FastRegion::Internal::CRgnData *a2)

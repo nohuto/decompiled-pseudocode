@@ -1,3 +1,15 @@
+/*
+ * XREFs of SiQuerySystemInformationString @ 0x14082BAB8
+ * Callers:
+ *     SyspartGetFirmwarePartition @ 0x14082BA5C (SyspartGetFirmwarePartition.c)
+ *     SyspartGetSystemPartition @ 0x140A5C67C (SyspartGetSystemPartition.c)
+ * Callees:
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SiQuerySystemInformationString(__int64 a1, void *a2, unsigned int a3, unsigned int *a4)
 {
   unsigned int v7; // esi

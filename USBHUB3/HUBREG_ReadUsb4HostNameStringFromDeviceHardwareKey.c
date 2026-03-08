@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBREG_ReadUsb4HostNameStringFromDeviceHardwareKey @ 0x1C008908C
+ * Callers:
+ *     HUBFDO_EvtDevicePrepareHardware @ 0x1C0078890 (HUBFDO_EvtDevicePrepareHardware.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_Sq @ 0x1C0034628 (WPP_RECORDER_SF_Sq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBREG_ReadUsb4HostNameStringFromDeviceHardwareKey(_QWORD *a1)
 {
   __int64 v1; // rdx

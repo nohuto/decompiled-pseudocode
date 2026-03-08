@@ -1,3 +1,11 @@
+/*
+ * XREFs of DwmAsyncClearTaggedWindowRect @ 0x1C026F100
+ * Callers:
+ *     ?_DwmAsyncClearTaggedWindowRect@@YAJPEBUtagWND@@@Z @ 0x1C01F8848 (-_DwmAsyncClearTaggedWindowRect@@YAJPEBUtagWND@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DwmAsyncClearTaggedWindowRect(PVOID Object, __int64 a2)
 {
   unsigned int v3; // edi

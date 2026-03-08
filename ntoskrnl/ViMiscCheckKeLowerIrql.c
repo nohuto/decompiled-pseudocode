@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViMiscCheckKeLowerIrql @ 0x140ADE308
+ * Callers:
+ *     VfMiscKeReleaseInStackQueuedSpinLock_Entry @ 0x140ADCF50 (VfMiscKeReleaseInStackQueuedSpinLock_Entry.c)
+ *     VfMiscKeReleaseQueuedSpinLock_Entry @ 0x140ADCFD0 (VfMiscKeReleaseQueuedSpinLock_Entry.c)
+ *     VfMiscKeReleaseSpinLock_Entry @ 0x140ADD010 (VfMiscKeReleaseSpinLock_Entry.c)
+ * Callees:
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 char __fastcall ViMiscCheckKeLowerIrql(unsigned __int8 a1, unsigned __int8 a2)
 {
   _UNKNOWN **v2; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlStringCbCatW @ 0x1C004EC84
+ * Callers:
+ *     UsbhBuildContainerID @ 0x1C004F3E8 (UsbhBuildContainerID.c)
+ * Callees:
+ *     RtlStringCopyWorkerW @ 0x1C004ECF0 (RtlStringCopyWorkerW.c)
+ *     RtlStringLengthWorkerW @ 0x1C004ED4C (RtlStringLengthWorkerW.c)
+ */
+
 NTSTATUS __stdcall RtlStringCbCatW(NTSTRSAFE_PWSTR pszDest, size_t cbDest, NTSTRSAFE_PCWSTR pszSrc)
 {
   NTSTATUS result; // eax

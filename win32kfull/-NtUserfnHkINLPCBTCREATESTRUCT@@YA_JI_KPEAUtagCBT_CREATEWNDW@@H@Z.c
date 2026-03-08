@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?NtUserfnHkINLPCBTCREATESTRUCT@@YA_JI_KPEAUtagCBT_CREATEWNDW@@H@Z @ 0x1C01CD264
+ * Callers:
+ *     NtUserCallNextHookEx @ 0x1C0147340 (NtUserCallNextHookEx.c)
+ * Callees:
+ *     xxxCallNextHookEx @ 0x1C0009C64 (xxxCallNextHookEx.c)
+ *     RtlInitLargeUnicodeString @ 0x1C00A0F84 (RtlInitLargeUnicodeString.c)
+ *     RtlInitLargeAnsiString @ 0x1C00F4F04 (RtlInitLargeAnsiString.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall NtUserfnHkINLPCBTCREATESTRUCT(int a1, unsigned __int64 a2, struct tagCBT_CREATEWNDW *a3, int a4)
 {
   struct tagCBT_CREATEWNDW *v8; // rcx

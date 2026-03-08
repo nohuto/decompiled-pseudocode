@@ -1,3 +1,32 @@
+/*
+ * XREFs of DriverEntry @ 0x1C03D9E6C
+ * Callers:
+ *     GsDriverEntry @ 0x1C03D9010 (GsDriverEntry.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0007FCC (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0008010 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     McGenEventRegister_EtwRegister @ 0x1C00205D0 (McGenEventRegister_EtwRegister.c)
+ *     ?DxgkInitializeTelemetry@@YAXXZ @ 0x1C0021DF4 (-DxgkInitializeTelemetry@@YAXXZ.c)
+ *     InitializeTelemetryAssertsKMByDriverObject @ 0x1C0023004 (InitializeTelemetryAssertsKMByDriverObject.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C002463C (McTemplateK0q_EtwWriteTransfer.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     MonitorCleanupGlobal @ 0x1C006AF64 (MonitorCleanupGlobal.c)
+ *     ?DxgkInitTest@@YAXXZ @ 0x1C01DD9D8 (-DxgkInitTest@@YAXXZ.c)
+ *     MonitorInitializeGlobal @ 0x1C01FAE24 (MonitorInitializeGlobal.c)
+ *     WdmlibIoCreateDeviceSecure @ 0x1C0203154 (WdmlibIoCreateDeviceSecure.c)
+ *     ?CreateGlobal@CCD_BTL@@SAJXZ @ 0x1C0205590 (-CreateGlobal@CCD_BTL@@SAJXZ.c)
+ *     DxgkInitialPower @ 0x1C02056FC (DxgkInitialPower.c)
+ *     ?CreateGlobal@DXGGLOBAL@@SAJXZ @ 0x1C0205754 (-CreateGlobal@DXGGLOBAL@@SAJXZ.c)
+ *     ?SysMmInitializeGlobal@@YAXXZ @ 0x1C020CF44 (-SysMmInitializeGlobal@@YAXXZ.c)
+ *     ?TdrInit@@YAXXZ @ 0x1C0213610 (-TdrInit@@YAXXZ.c)
+ *     ?DxgDbgInit@@YAXXZ @ 0x1C0219AB4 (-DxgDbgInit@@YAXXZ.c)
+ *     ?DestroyGlobal@DXGGLOBAL@@SAXXZ @ 0x1C030D864 (-DestroyGlobal@DXGGLOBAL@@SAXXZ.c)
+ *     DxgkCleanupPower @ 0x1C0395C18 (DxgkCleanupPower.c)
+ *     wil_InitializeFeatureStaging @ 0x1C03D9078 (wil_InitializeFeatureStaging.c)
+ *     DpiInitializeGlobalState @ 0x1C03D91E8 (DpiInitializeGlobalState.c)
+ */
+
 NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING RegistryPath)
 {
   int v4; // eax

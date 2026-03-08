@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiInitializeNumaGraph @ 0x140B71624
+ * Callers:
+ *     MiCreatePfnDatabase @ 0x140B3A0B8 (MiCreatePfnDatabase.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ */
+
 __int64 __fastcall MiInitializeNumaGraph(__int64 a1)
 {
   __int64 result; // rax

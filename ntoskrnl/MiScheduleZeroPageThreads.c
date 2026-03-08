@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiScheduleZeroPageThreads @ 0x14036072C
+ * Callers:
+ *     MiWorkingSetManager @ 0x1403616C0 (MiWorkingSetManager.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MiReduceZeroingThreads @ 0x1402A81E4 (MiReduceZeroingThreads.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiIsCalibrationWorthwhile @ 0x140360984 (MiIsCalibrationWorthwhile.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 LARGE_INTEGER __fastcall MiScheduleZeroPageThreads(__int64 a1)
 {
   __int64 v1; // r12

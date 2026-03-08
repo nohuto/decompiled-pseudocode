@@ -1,3 +1,15 @@
+/*
+ * XREFs of wcschr @ 0x1C00DA918
+ * Callers:
+ *     xxxRemoteConnect @ 0x1C000F480 (xxxRemoteConnect.c)
+ *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C0075884 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
+ *     ParseWindowStation @ 0x1C00AA220 (ParseWindowStation.c)
+ *     ParseModeCap @ 0x1C0190A98 (ParseModeCap.c)
+ *     InitCreateUserSubsystem @ 0x1C032009C (InitCreateUserSubsystem.c)
+ * Callees:
+ *     <none>
+ */
+
 wchar_t *__cdecl wcschr(const wchar_t *Str, wchar_t Ch)
 {
   wchar_t v2; // ax

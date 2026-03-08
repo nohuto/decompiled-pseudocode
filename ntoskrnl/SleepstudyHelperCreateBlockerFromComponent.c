@@ -1,3 +1,14 @@
+/*
+ * XREFs of SleepstudyHelperCreateBlockerFromComponent @ 0x14099EFE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x140726370 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     SshpGenerateDeviceFriendlyName @ 0x140842DE4 (SshpGenerateDeviceFriendlyName.c)
+ *     SshpGenerateDeviceVerboseDescription @ 0x140842FDC (SshpGenerateDeviceVerboseDescription.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SleepstudyHelperCreateBlockerFromComponent(
         __int64 a1,
         __int128 *a2,

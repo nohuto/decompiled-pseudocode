@@ -1,3 +1,11 @@
+/*
+ * XREFs of _dynamic_initializer_for__g_rgCachedEffectTable__ @ 0x180003DD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void dynamic_initializer_for__g_rgCachedEffectTable__()
 {
   xmmword_1803E1D54 = (__int128)CLSID_D2D1ColorMatrix;

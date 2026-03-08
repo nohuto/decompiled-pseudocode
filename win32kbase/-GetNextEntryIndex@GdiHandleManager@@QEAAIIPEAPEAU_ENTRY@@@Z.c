@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z @ 0x1C006F140
+ * Callers:
+ *     ?MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z @ 0x1C006D528 (-MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z.c)
+ *     ?MultiUserGreHmgOwnAll@@YAXXZ @ 0x1C00A0B00 (-MultiUserGreHmgOwnAll@@YAXXZ.c)
+ *     MultiUserCleanupDCs @ 0x1C00B637C (MultiUserCleanupDCs.c)
+ *     ?vReleaseCurrentpMapProcForSurfaces@@YAXXZ @ 0x1C00CE504 (-vReleaseCurrentpMapProcForSurfaces@@YAXXZ.c)
+ *     HmgNextGarbageCollectible @ 0x1C0186160 (HmgNextGarbageCollectible.c)
+ *     NtGdiGetStats @ 0x1C01867F0 (NtGdiGetStats.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GdiHandleManager::GetNextEntryIndex(GdiHandleManager *this, unsigned int a2, struct _ENTRY **a3)
 {
   __int64 v4; // r8

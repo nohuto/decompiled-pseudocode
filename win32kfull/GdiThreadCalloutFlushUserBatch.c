@@ -1,3 +1,11 @@
+/*
+ * XREFs of GdiThreadCalloutFlushUserBatch @ 0x1C00D4EE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 GdiThreadCalloutFlushUserBatch()
 {
   struct _NT_TIB *Self; // rcx

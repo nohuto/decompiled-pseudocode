@@ -1,3 +1,11 @@
+/*
+ * XREFs of _SetActivationFilter @ 0x1C0011114
+ * Callers:
+ *     NtUserSetActivationFilter @ 0x1C0011060 (NtUserSetActivationFilter.c)
+ * Callees:
+ *     _FindActivationFilterWindow @ 0x1C00111D4 (_FindActivationFilterWindow.c)
+ */
+
 __int64 __fastcall SetActivationFilter(__int64 a1, int a2)
 {
   __int64 ActivationFilterWindow; // rax

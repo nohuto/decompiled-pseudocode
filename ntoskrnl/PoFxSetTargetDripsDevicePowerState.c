@@ -1,3 +1,19 @@
+/*
+ * XREFs of PoFxSetTargetDripsDevicePowerState @ 0x1409818B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     IoAcquireRemoveLockEx @ 0x140305F80 (IoAcquireRemoveLockEx.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopFxReleaseDevice @ 0x14045A79C (PopFxReleaseDevice.c)
+ *     PopPepGetMinimumDevicePowerState @ 0x14059CC00 (PopPepGetMinimumDevicePowerState.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PoFxSetTargetDripsDevicePowerState(__int64 a1, int a2)
 {
   NTSTATUS v4; // ebx

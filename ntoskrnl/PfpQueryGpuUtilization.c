@@ -1,3 +1,14 @@
+/*
+ * XREFs of PfpQueryGpuUtilization @ 0x14067F23C
+ * Callers:
+ *     PfQuerySuperfetchInformation @ 0x1406AE494 (PfQuerySuperfetchInformation.c)
+ * Callees:
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     PsInvokeWin32Callout @ 0x1407D2D10 (PsInvokeWin32Callout.c)
+ */
+
 __int64 __fastcall PfpQueryGpuUtilization(__int64 a1, char a2, _DWORD *a3)
 {
   __int64 result; // rax

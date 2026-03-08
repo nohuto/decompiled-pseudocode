@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsRestricted @ 0x1C00D08F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __fastcall IsRestricted(PETHREAD Thread)
 {
   PACCESS_TOKEN v2; // rdi

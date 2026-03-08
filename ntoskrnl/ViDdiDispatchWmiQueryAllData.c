@@ -1,3 +1,14 @@
+/*
+ * XREFs of ViDdiDispatchWmiQueryAllData @ 0x140AC0C04
+ * Callers:
+ *     ViDdiDispatchWmi @ 0x140AC0BA0 (ViDdiDispatchWmi.c)
+ * Callees:
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     VfIrpLogLockDatabase @ 0x140AD9844 (VfIrpLogLockDatabase.c)
+ *     VfIrpLogRetrieveWmiData @ 0x140AD9B50 (VfIrpLogRetrieveWmiData.c)
+ *     VfIrpLogUnlockDatabase @ 0x140AD9E30 (VfIrpLogUnlockDatabase.c)
+ */
+
 __int64 __fastcall ViDdiDispatchWmiQueryAllData(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdi

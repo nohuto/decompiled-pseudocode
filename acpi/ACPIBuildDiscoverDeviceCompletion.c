@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIBuildDiscoverDeviceCompletion @ 0x1C000CD20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIBuildCompleteCommon @ 0x1C000BC30 (ACPIBuildCompleteCommon.c)
+ *     WPP_RECORDER_SF_sqqDqss @ 0x1C0015C08 (WPP_RECORDER_SF_sqqDqss.c)
+ */
+
 void __fastcall ACPIBuildDiscoverDeviceCompletion(__int64 a1, int a2, __int64 a3)
 {
   __int64 v4; // rcx

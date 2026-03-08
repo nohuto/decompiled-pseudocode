@@ -1,3 +1,23 @@
+/*
+ * XREFs of ACPIInternalEvaluateOST @ 0x1C002E560
+ * Callers:
+ *     ACPICheckModuleStarted @ 0x1C00324D8 (ACPICheckModuleStarted.c)
+ *     ACPIProcessorStartDeviceWorker @ 0x1C003A1C0 (ACPIProcessorStartDeviceWorker.c)
+ *     ACPIInitShutdownInProgress @ 0x1C003CC08 (ACPIInitShutdownInProgress.c)
+ *     ACPINotifyOsShutdownWorker @ 0x1C003CD40 (ACPINotifyOsShutdownWorker.c)
+ *     ACPIRootEvent @ 0x1C003D000 (ACPIRootEvent.c)
+ *     AcpiShutdownNotificationTimerWorkItem @ 0x1C003D9E0 (AcpiShutdownNotificationTimerWorkItem.c)
+ *     ACPIBusIrpStartDeviceWorker @ 0x1C0081770 (ACPIBusIrpStartDeviceWorker.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     WPP_RECORDER_SF_qss @ 0x1C0015444 (WPP_RECORDER_SF_qss.c)
+ *     AMLIAsyncEvalObject @ 0x1C00478E8 (AMLIAsyncEvalObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ */
+
 __int64 __fastcall ACPIInternalEvaluateOST(_QWORD *a1, int a2, int a3)
 {
   unsigned int v6; // edi

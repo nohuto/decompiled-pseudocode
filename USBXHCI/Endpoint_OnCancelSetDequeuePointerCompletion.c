@@ -1,3 +1,16 @@
+/*
+ * XREFs of Endpoint_OnCancelSetDequeuePointerCompletion @ 0x1C0010BA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     WPP_RECORDER_SF_dddL @ 0x1C00108D8 (WPP_RECORDER_SF_dddL.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0017FB0 (WPP_RECORDER_SF_ddd.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Endpoint_StreamsOnCancelSetDequeuePointerComplete @ 0x1C003C41C (Endpoint_StreamsOnCancelSetDequeuePointerComplete.c)
+ */
+
 void __fastcall Endpoint_OnCancelSetDequeuePointerCompletion(__int64 a1, int a2, __int64 a3)
 {
   __int64 v3; // rbx

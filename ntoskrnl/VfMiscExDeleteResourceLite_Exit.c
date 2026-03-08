@@ -1,3 +1,11 @@
+/*
+ * XREFs of VfMiscExDeleteResourceLite_Exit @ 0x140ADCAD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 PVOID __fastcall VfMiscExDeleteResourceLite_Exit(__int64 a1)
 {
   PVOID *v1; // rdx

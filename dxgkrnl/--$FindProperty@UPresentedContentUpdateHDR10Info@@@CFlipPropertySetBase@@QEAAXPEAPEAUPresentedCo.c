@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??$FindProperty@UPresentedContentUpdateHDR10Info@@@CFlipPropertySetBase@@QEAAXPEAPEAUPresentedContentUpdateHDR10Info@@@Z @ 0x1C0085010
+ * Callers:
+ *     ?PrepareIFlipInfo@CEndpointResourceStateManager@@QEAAJPEAVCFlipPropertySet@@IPEAVCFlipPresentUpdate@@PEAPEAUFlipManagerTokenIFlipInfo@@@Z @ 0x1C0085E84 (-PrepareIFlipInfo@CEndpointResourceStateManager@@QEAAJPEAVCFlipPropertySet@@IPEAVCFlipPresentUpd.c)
+ *     ?ApplyPresentAttributeMetadataToUpdateToken@CContentResourceState@@IEAAXPEAVCFlipPropertySet@@PEAVCFlipContentToken@@@Z @ 0x1C0087924 (-ApplyPresentAttributeMetadataToUpdateToken@CContentResourceState@@IEAAXPEAVCFlipPropertySet@@PE.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CFlipPropertySetBase::FindProperty<PresentedContentUpdateHDR10Info>(__int64 a1, _QWORD *a2)
 {
   unsigned int v2; // r9d

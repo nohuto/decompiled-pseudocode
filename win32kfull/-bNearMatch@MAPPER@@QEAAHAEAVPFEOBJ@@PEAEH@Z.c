@@ -1,3 +1,26 @@
+/*
+ * XREFs of ?bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z @ 0x1C011B94C
+ * Callers:
+ *     ?bFoundExactMatch@MAPPER@@QEAAHPEAPEAU_FONTHASH@@H@Z @ 0x1C011B3A0 (-bFoundExactMatch@MAPPER@@QEAAHPEAPEAU_FONTHASH@@H@Z.c)
+ *     ?vEmergency@MAPPER@@QEAAXXZ @ 0x1C014DD80 (-vEmergency@MAPPER@@QEAAXXZ.c)
+ *     ?vAttemptDeviceMatch@MAPPER@@QEAAXXZ @ 0x1C029D774 (-vAttemptDeviceMatch@MAPPER@@QEAAXXZ.c)
+ * Callees:
+ *     ?bCheckFamilyName@PFEOBJ@@QEAAHPEBGHPEAH@Z @ 0x1C00E3648 (-bCheckFamilyName@PFEOBJ@@QEAAHPEBGHPEAH@Z.c)
+ *     ?jMapCharset@@YAEEAEAVPFEOBJ@@@Z @ 0x1C011CA08 (-jMapCharset@@YAEEAEAVPFEOBJ@@@Z.c)
+ *     ?bCalculateWishCell@MAPPER@@AEAAHXZ @ 0x1C011CF58 (-bCalculateWishCell@MAPPER@@AEAAHXZ.c)
+ *     ?bCalcOrientation@MAPPER@@QEAAHXZ @ 0x1C011CFEC (-bCalcOrientation@MAPPER@@QEAAHXZ.c)
+ *     ?bNoMatch@MAPPER@@QEBAHPEAVPFE@@@Z @ 0x1C011D08C (-bNoMatch@MAPPER@@QEBAHPEAVPFE@@@Z.c)
+ *     memcmp @ 0x1C012BEF0 (memcmp.c)
+ *     ?bSimItalic@IFIOBJ@@QEAAHXZ @ 0x1C014DCE6 (-bSimItalic@IFIOBJ@@QEAAHXZ.c)
+ *     ?pPvtDataMatch@PFFOBJ@@QEAAPEAUtagPvtData@@XZ @ 0x1C0150274 (-pPvtDataMatch@PFFOBJ@@QEAAPEAUtagPvtData@@XZ.c)
+ *     ?pGetLinkedFontList@PFEOBJ@@QEAAPEAU_LIST_ENTRY@@XZ @ 0x1C01502CC (-pGetLinkedFontList@PFEOBJ@@QEAAPEAU_LIST_ENTRY@@XZ.c)
+ *     ??$SafeDivide@JJJ@@YAJJJPEAJ@Z @ 0x1C029D2F0 (--$SafeDivide@JJJ@@YAJJJPEAJ@Z.c)
+ *     ??$SafeDivide@KKK@@YAJKKPEAK@Z @ 0x1C029D320 (--$SafeDivide@KKK@@YAJKKPEAK@Z.c)
+ *     ?bWin31BitmapHeightScaling@MAPPER@@QEAAHJJPEAJ@Z @ 0x1C029D6BC (-bWin31BitmapHeightScaling@MAPPER@@QEAAHJJPEAJ@Z.c)
+ *     ?bWin31BitmapWidthScaling@MAPPER@@QEAAHJJPEAJ@Z @ 0x1C029D6F8 (-bWin31BitmapWidthScaling@MAPPER@@QEAAHJJPEAJ@Z.c)
+ *     ?pvSimBold@IFIOBJ@@QEAAPEAXXZ @ 0x1C029D740 (-pvSimBold@IFIOBJ@@QEAAPEAXXZ.c)
+ */
+
 __int64 __fastcall MAPPER::bNearMatch(MAPPER *this, struct PFEOBJ *a2, unsigned __int8 *a3, int a4)
 {
   struct PFE *v4; // r14

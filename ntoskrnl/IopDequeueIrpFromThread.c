@@ -1,3 +1,21 @@
+/*
+ * XREFs of IopDequeueIrpFromThread @ 0x14030F160
+ * Callers:
+ *     IopfCompleteRequest @ 0x14027B2C0 (IopfCompleteRequest.c)
+ *     IopCopyCompleteReadRequest @ 0x1402F9BA0 (IopCopyCompleteReadRequest.c)
+ *     IopCompleteRequest @ 0x140312C80 (IopCompleteRequest.c)
+ *     IopIoRingCompleteIrp @ 0x1405570DC (IopIoRingCompleteIrp.c)
+ *     IopParseDevice @ 0x1407B6A30 (IopParseDevice.c)
+ *     IopCloseFile @ 0x1407BACE0 (IopCloseFile.c)
+ *     IopDeleteFile @ 0x1407BAF80 (IopDeleteFile.c)
+ *     IoCancelFileOpen @ 0x140943D90 (IoCancelFileOpen.c)
+ * Callees:
+ *     KxWaitForSpinLockAndAcquire @ 0x14024F7D0 (KxWaitForSpinLockAndAcquire.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140457E30 (KiAcquireSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14056F278 (KiReleaseSpinLockInstrumented.c)
+ */
+
 _QWORD *__fastcall IopDequeueIrpFromThread(_QWORD *a1)
 {
   __int64 v1; // rdi

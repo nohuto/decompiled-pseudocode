@@ -1,3 +1,15 @@
+/*
+ * XREFs of SfnTOUCH @ 0x1C0212810
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00344F8 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0034558 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ */
+
 __int64 __fastcall SfnTOUCH(_QWORD *a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
 {
   struct tagTHREADINFO *v10; // rax

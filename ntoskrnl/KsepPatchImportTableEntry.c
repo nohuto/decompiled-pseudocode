@@ -1,3 +1,11 @@
+/*
+ * XREFs of KsepPatchImportTableEntry @ 0x140974334
+ * Callers:
+ *     KsepPatchDriverImportsTable @ 0x140800258 (KsepPatchDriverImportsTable.c)
+ * Callees:
+ *     MmReplaceImportEntry @ 0x14062A6B8 (MmReplaceImportEntry.c)
+ */
+
 __int64 __fastcall KsepPatchImportTableEntry(_QWORD *a1, unsigned int a2, __int64 a3, ULONG_PTR a4)
 {
   int v4; // eax

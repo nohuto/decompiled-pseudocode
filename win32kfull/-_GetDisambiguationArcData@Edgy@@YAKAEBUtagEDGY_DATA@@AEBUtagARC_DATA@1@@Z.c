@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_GetDisambiguationArcData@Edgy@@YAKAEBUtagEDGY_DATA@@AEBUtagARC_DATA@1@@Z @ 0x1C01E9258
+ * Callers:
+ *     ?_GetArcData@Edgy@@YA?AUtagARC_DATA@1@AEAUtagEDGY_DATA@@QEAX@Z @ 0x1C01E8CF8 (-_GetArcData@Edgy@@YA-AUtagARC_DATA@1@AEAUtagEDGY_DATA@@QEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Edgy::_GetDisambiguationArcData(
         Edgy *this,
         const struct tagEDGY_DATA *a2,

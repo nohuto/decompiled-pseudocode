@@ -1,3 +1,32 @@
+/*
+ * XREFs of ?vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z @ 0x1C00292E0
+ * Callers:
+ *     ?vUnreferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C003C110 (-vUnreferencePdev@PDEVOBJ@@QEAAXXZ.c)
+ *     ?vDelete@XDCOBJ@@QEAAXK@Z @ 0x1C004EC00 (-vDelete@XDCOBJ@@QEAAXK@Z.c)
+ * Callees:
+ *     ?bDeletePaletteInternal@XEPALOBJ@@AEAAHW4_CLEANUPTYPE@@@Z @ 0x1C0019D64 (-bDeletePaletteInternal@XEPALOBJ@@AEAAHW4_CLEANUPTYPE@@@Z.c)
+ *     bDeleteSurface @ 0x1C0029640 (bDeleteSurface.c)
+ *     GreDeleteSemaphore @ 0x1C002AF30 (GreDeleteSemaphore.c)
+ *     ?bAllowDDICall@PDEVOBJ@@QEAAHXZ @ 0x1C002B304 (-bAllowDDICall@PDEVOBJ@@QEAAHXZ.c)
+ *     ?vDeleteHTPATSIZEUSERAllocations@PDEVOBJ@@QEAAXXZ @ 0x1C002B338 (-vDeleteHTPATSIZEUSERAllocations@PDEVOBJ@@QEAAXXZ.c)
+ *     ?Free@PDEV@@SAXPEAV1@H@Z @ 0x1C002B370 (-Free@PDEV@@SAXPEAV1@H@Z.c)
+ *     ?vDisableSurface@PDEVOBJ@@QEAAXE@Z @ 0x1C002B5B0 (-vDisableSurface@PDEVOBJ@@QEAAXE@Z.c)
+ *     ldevUnloadImage @ 0x1C002B6B0 (ldevUnloadImage.c)
+ *     PushThreadGuardedObject @ 0x1C0044340 (PushThreadGuardedObject.c)
+ *     PopThreadGuardedObject @ 0x1C00453C0 (PopThreadGuardedObject.c)
+ *     HmgDecrementShareReferenceCountEx @ 0x1C00483B0 (HmgDecrementShareReferenceCountEx.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0049800 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     EngAcquireSemaphore @ 0x1C004B690 (EngAcquireSemaphore.c)
+ *     ?vDelete@EBRUSHOBJ@@QEAAXXZ @ 0x1C005A050 (-vDelete@EBRUSHOBJ@@QEAAXXZ.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C005A234 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?vMarkSurfacesWithHDEV@@YAXPEAVPDEV@@@Z @ 0x1C006EF08 (-vMarkSurfacesWithHDEV@@YAXPEAVPDEV@@@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     IsPDEVOBJ_bDisableHalftoneSupported @ 0x1C009DCB8 (IsPDEVOBJ_bDisableHalftoneSupported.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     IsPFTOBJ_bUnloadWorkhorseSupported @ 0x1C02715D8 (IsPFTOBJ_bUnloadWorkhorseSupported.c)
+ *     IsUMPD_ldevUnloadImageSupported @ 0x1C0271630 (IsUMPD_ldevUnloadImageSupported.c)
+ */
+
 void __fastcall vUnreferencePdevWorker(struct tagUNREFDATA *a1)
 {
   __int64 v1; // rdi

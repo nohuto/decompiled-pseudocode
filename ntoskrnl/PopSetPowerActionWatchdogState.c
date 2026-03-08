@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopSetPowerActionWatchdogState @ 0x14058D058
+ * Callers:
+ *     PopIssueActionRequest @ 0x140986CA4 (PopIssueActionRequest.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x140250B60 (KeCancelTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopPowerActionWatchdog @ 0x14058CF90 (PopPowerActionWatchdog.c)
+ *     PopUpdatePowerActionWatchdogTimeouts @ 0x140987AC8 (PopUpdatePowerActionWatchdogTimeouts.c)
+ */
+
 void __fastcall PopSetPowerActionWatchdogState(unsigned int a1)
 {
   unsigned __int64 v2; // rdi

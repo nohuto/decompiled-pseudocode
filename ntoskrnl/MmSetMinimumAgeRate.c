@@ -1,3 +1,11 @@
+/*
+ * XREFs of MmSetMinimumAgeRate @ 0x140797F7C
+ * Callers:
+ *     PfSetSuperfetchInformation @ 0x1407E2A94 (PfSetSuperfetchInformation.c)
+ * Callees:
+ *     PsGetNextPartition @ 0x1402FF5F0 (PsGetNextPartition.c)
+ */
+
 void *__fastcall MmSetMinimumAgeRate(unsigned int a1)
 {
   void *result; // rax

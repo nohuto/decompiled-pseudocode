@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopValidateRTCWake @ 0x140A9E3E4
+ * Callers:
+ *     PopHandleWakeSources @ 0x140A9DD6C (PopHandleWakeSources.c)
+ * Callees:
+ *     PopDiagTraceRtcWakeInfo @ 0x140592130 (PopDiagTraceRtcWakeInfo.c)
+ *     PopCurrentPowerStatePrecise @ 0x140870DD8 (PopCurrentPowerStatePrecise.c)
+ *     PopCalculateWakeTimeAdjustment @ 0x140984168 (PopCalculateWakeTimeAdjustment.c)
+ */
+
 unsigned __int8 __fastcall PopValidateRTCWake(_BYTE *a1)
 {
   int v1; // edi

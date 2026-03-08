@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopDiagTraceBatteryCountChange @ 0x140989CC0
+ * Callers:
+ *     PopBatteryApplyCompositeState @ 0x14086E430 (PopBatteryApplyCompositeState.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SshpSessionManagerSendControlEvent @ 0x1408717B8 (SshpSessionManagerSendControlEvent.c)
+ */
+
 signed __int32 __fastcall PopDiagTraceBatteryCountChange(int a1, int a2, int a3)
 {
   int v3; // ebx

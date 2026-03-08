@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtSetTimerEx @ 0x1402CDBB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PoCaptureReasonContext @ 0x1402BD2FC (PoCaptureReasonContext.c)
+ *     PoDestroyReasonContext @ 0x1402BDBE4 (PoDestroyReasonContext.c)
+ *     ExpSetTimer @ 0x1402CDD38 (ExpSetTimer.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall NtSetTimerEx(__int64 a1, __int64 a2, __int128 *a3, unsigned int a4)
 {
   __int128 *v4; // rbx

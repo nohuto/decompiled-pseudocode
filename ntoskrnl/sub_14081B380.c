@@ -1,3 +1,12 @@
+/*
+ * XREFs of sub_14081B380 @ 0x14081B380
+ * Callers:
+ *     ClipInitHandles @ 0x140389270 (ClipInitHandles.c)
+ * Callees:
+ *     BCryptOpenAlgorithmProvider @ 0x14081B624 (BCryptOpenAlgorithmProvider.c)
+ *     TraceLoggingRegister_EtwRegister_EtwSetInformation @ 0x140930904 (TraceLoggingRegister_EtwRegister_EtwSetInformation.c)
+ */
+
 __int64 sub_14081B380()
 {
   NTSTATUS v0; // ebx

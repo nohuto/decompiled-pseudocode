@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopDiagTraceFxPerfSetRegistration @ 0x14098C6DC
+ * Callers:
+ *     PopFxTracePerfRegistration @ 0x14098F3C0 (PopFxTracePerfRegistration.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall PopDiagTraceFxPerfSetRegistration(
         PCEVENT_DESCRIPTOR EventDescriptor,
         __int64 a2,

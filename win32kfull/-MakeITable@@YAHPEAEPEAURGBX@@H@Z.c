@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?MakeITable@@YAHPEAEPEAURGBX@@H@Z @ 0x1C02A5D44
+ * Callers:
+ *     ?bGenColorXlate555@XEPALOBJ@@QEAAHXZ @ 0x1C02DA5E4 (-bGenColorXlate555@XEPALOBJ@@QEAAHXZ.c)
+ *     ?vInit256Rainbow@XEPALOBJ@@QEAAXXZ @ 0x1C02DAECC (-vInit256Rainbow@XEPALOBJ@@QEAAXXZ.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ?MakeITable256@@YAHPEAE@Z @ 0x1C02A5CEC (-MakeITable256@@YAHPEAE@Z.c)
+ *     ?MakeITableMono@@YAHPEAE@Z @ 0x1C02A5F48 (-MakeITableMono@@YAHPEAE@Z.c)
+ *     ?MakeITableVGA@@YAHPEAE@Z @ 0x1C02A5F9C (-MakeITableVGA@@YAHPEAE@Z.c)
+ *     ?inv_cmap@@YAXHPEAURGBX@@HPEAKPEAE@Z @ 0x1C02A647C (-inv_cmap@@YAXHPEAURGBX@@HPEAKPEAE@Z.c)
+ */
+
 __int64 __fastcall MakeITable(Gre::Base *a1, struct RGBX *a2, int a3)
 {
   int v3; // r15d

@@ -1,3 +1,16 @@
+/*
+ * XREFs of NVMeFirmwareActivateCompletion @ 0x1C0015020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     NVMeControllerAsyncReset @ 0x1C000CAB0 (NVMeControllerAsyncReset.c)
+ *     FirmwareActivate @ 0x1C00116D0 (FirmwareActivate.c)
+ *     IsFirmwareActivateWithoutResetEnabled @ 0x1C0014AC4 (IsFirmwareActivateWithoutResetEnabled.c)
+ *     NVMeQueueWorkItem @ 0x1C0016B88 (NVMeQueueWorkItem.c)
+ */
+
 char __fastcall NVMeFirmwareActivateCompletion(__int64 a1, __int64 a2)
 {
   __int64 SrbExtension; // rax

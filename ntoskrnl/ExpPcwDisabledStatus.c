@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpPcwDisabledStatus @ 0x1409FEB78
+ * Callers:
+ *     PcwCreateInstance @ 0x140753730 (PcwCreateInstance.c)
+ *     PcwAddInstance @ 0x14086B690 (PcwAddInstance.c)
+ *     PcwRegister @ 0x140871390 (PcwRegister.c)
+ * Callees:
+ *     RtlpQueryRegistryValues @ 0x14069B3C0 (RtlpQueryRegistryValues.c)
+ */
+
 __int64 ExpPcwDisabledStatus()
 {
   int v0; // eax

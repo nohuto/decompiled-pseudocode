@@ -1,3 +1,15 @@
+/*
+ * XREFs of PerfLogExecutiveResourceAcquire @ 0x1405FE2B8
+ * Callers:
+ *     ExpAcquireSharedStarveExclusive @ 0x1402213C0 (ExpAcquireSharedStarveExclusive.c)
+ *     ExpAcquireResourceExclusiveLite @ 0x14025B1B0 (ExpAcquireResourceExclusiveLite.c)
+ *     ExpAcquireResourceSharedLite @ 0x14025DED0 (ExpAcquireResourceSharedLite.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x1403C3440 (ExAcquireSharedWaitForExclusive.c)
+ *     ExpTryToAcquireResourceExclusiveLite @ 0x140608B54 (ExpTryToAcquireResourceExclusiveLite.c)
+ * Callees:
+ *     EtwpGetTrackingLockSlotForThread @ 0x1405FE198 (EtwpGetTrackingLockSlotForThread.c)
+ */
+
 signed __int64 __fastcall PerfLogExecutiveResourceAcquire(int a1, __int64 a2, unsigned int a3, int a4)
 {
   struct _KPRCB *CurrentPrcb; // rsi

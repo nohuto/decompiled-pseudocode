@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreOffsetClipRgn @ 0x1C00F94D4
+ * Callers:
+ *     xxxInternalPaintDesktop @ 0x1C00F9338 (xxxInternalPaintDesktop.c)
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ */
+
 __int64 __fastcall GreOffsetClipRgn(HDC a1, LONG a2, LONG a3)
 {
   __int64 v5; // rcx

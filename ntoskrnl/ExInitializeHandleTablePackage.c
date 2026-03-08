@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExInitializeHandleTablePackage @ 0x140B4839C
+ * Callers:
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     HalQueryMaximumProcessorCount @ 0x140375910 (HalQueryMaximumProcessorCount.c)
+ */
+
 __int64 ExInitializeHandleTablePackage()
 {
   __int64 result; // rax

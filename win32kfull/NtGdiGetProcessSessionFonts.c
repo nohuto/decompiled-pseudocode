@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiGetProcessSessionFonts @ 0x1C00D2D60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetProcessSessionFonts@@YAJPEAU_EPROCESS@@IIPEAI1PEAPEAXPEAG@Z @ 0x1C00D30D8 (-GetProcessSessionFonts@@YAJPEAU_EPROCESS@@IIPEAI1PEAPEAXPEAG@Z.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall NtGdiGetProcessSessionFonts(
         void *a1,
         volatile void *a2,

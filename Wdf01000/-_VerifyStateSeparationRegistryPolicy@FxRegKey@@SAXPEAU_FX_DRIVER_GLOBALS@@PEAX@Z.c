@@ -1,3 +1,28 @@
+/*
+ * XREFs of ?_VerifyStateSeparationRegistryPolicy@FxRegKey@@SAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C004E4D4
+ * Callers:
+ *     imp_WdfRegistryAssignMemory @ 0x1C004A310 (imp_WdfRegistryAssignMemory.c)
+ *     imp_WdfRegistryAssignMultiString @ 0x1C004A530 (imp_WdfRegistryAssignMultiString.c)
+ *     imp_WdfRegistryAssignString @ 0x1C004A7B0 (imp_WdfRegistryAssignString.c)
+ *     imp_WdfRegistryAssignULong @ 0x1C004A8F0 (imp_WdfRegistryAssignULong.c)
+ *     imp_WdfRegistryAssignUnicodeString @ 0x1C004A9F0 (imp_WdfRegistryAssignUnicodeString.c)
+ *     imp_WdfRegistryAssignValue @ 0x1C004ABC0 (imp_WdfRegistryAssignValue.c)
+ *     imp_WdfRegistryCreateKey @ 0x1C004ACD0 (imp_WdfRegistryCreateKey.c)
+ *     imp_WdfRegistryOpenKey @ 0x1C004AF50 (imp_WdfRegistryOpenKey.c)
+ *     imp_WdfRegistryRemoveKey @ 0x1C004BE70 (imp_WdfRegistryRemoveKey.c)
+ *     imp_WdfRegistryRemoveValue @ 0x1C004BF00 (imp_WdfRegistryRemoveValue.c)
+ * Callees:
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0002834 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ *     memmove @ 0x1C000B140 (memmove.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0018194 (WPP_IFR_SF_q.c)
+ *     WPP_IFR_SF_Z @ 0x1C0045150 (WPP_IFR_SF_Z.c)
+ *     ?_IsAffectedByStateSeparationRegistryPolicy@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAE@Z @ 0x1C004E150 (-_IsAffectedByStateSeparationRegistryPolicy@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAE@Z.c)
+ *     ?_IsStateSeparationRegistryViolation@FxRegKey@@SAJPEAXPEAE@Z @ 0x1C004E3E4 (-_IsStateSeparationRegistryViolation@FxRegKey@@SAJPEAXPEAE@Z.c)
+ */
+
 void __fastcall FxRegKey::_VerifyStateSeparationRegistryPolicy(_FX_DRIVER_GLOBALS *FxDriverGlobals, void *Key)
 {
   FX_POOL_TRACKER *v2; // rdi

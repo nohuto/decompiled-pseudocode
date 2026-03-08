@@ -1,3 +1,20 @@
+/*
+ * XREFs of PpmRegisterSpmSettings @ 0x14099A640
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PpmReleaseLock @ 0x1402D1F40 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     RtlpQueryRegistryValues @ 0x14069B3C0 (RtlpQueryRegistryValues.c)
+ *     PpmEnableProfile @ 0x140825808 (PpmEnableProfile.c)
+ *     PpmAllocateQueryTable @ 0x140999FC0 (PpmAllocateQueryTable.c)
+ *     PpmOpenRegistryKey @ 0x14099A2C4 (PpmOpenRegistryKey.c)
+ *     PpmProcessSettingsFromQueryTable @ 0x14099A414 (PpmProcessSettingsFromQueryTable.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PpmRegisterSpmSettings(void *a1, __int64 a2, __int64 a3)
 {
   _QWORD *QueryTable; // rdi

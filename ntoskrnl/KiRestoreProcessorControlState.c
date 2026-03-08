@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiRestoreProcessorControlState @ 0x140416280
+ * Callers:
+ *     KdpReport @ 0x140361A88 (KdpReport.c)
+ *     KiFreezeTargetExecution @ 0x140369240 (KiFreezeTargetExecution.c)
+ *     KiRestoreProcessorState @ 0x14036A318 (KiRestoreProcessorState.c)
+ *     KdpSymbol @ 0x140AAD56C (KdpSymbol.c)
+ *     KdpCommandString @ 0x140AB228C (KdpCommandString.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiRestoreProcessorControlState(__int64 a1)
 {
   unsigned __int64 v2; // rdx

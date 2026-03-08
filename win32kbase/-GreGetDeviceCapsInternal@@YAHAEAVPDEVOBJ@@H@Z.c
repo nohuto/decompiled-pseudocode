@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z @ 0x1C003EC60
+ * Callers:
+ *     GreGetDeviceCaps @ 0x1C003EAF0 (GreGetDeviceCaps.c)
+ * Callees:
+ *     IsGetColorManagementCapsSupported @ 0x1C0010E50 (IsGetColorManagementCapsSupported.c)
+ *     ?cFonts@PDEVOBJ@@QEAAKXZ @ 0x1C0010E80 (-cFonts@PDEVOBJ@@QEAAKXZ.c)
+ *     EngMulDiv @ 0x1C003BF30 (EngMulDiv.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C0041AF0 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0049800 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0049E20 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EngAcquireSemaphore @ 0x1C004B690 (EngAcquireSemaphore.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall GreGetDeviceCapsInternal(struct PDEVOBJ *a1, __int64 a2, __int64 a3)
 {
   unsigned int *v3; // rdi

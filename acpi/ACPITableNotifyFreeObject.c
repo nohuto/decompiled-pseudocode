@@ -1,3 +1,17 @@
+/*
+ * XREFs of ACPITableNotifyFreeObject @ 0x1C003F540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     ACPIBuildProcessDelayedDependencyExternalTrigger @ 0x1C000E1CC (ACPIBuildProcessDelayedDependencyExternalTrigger.c)
+ *     ACPIBuildProcessNotifyPepDeleteDevice @ 0x1C0010E04 (ACPIBuildProcessNotifyPepDeleteDevice.c)
+ *     ACPIInitDereferenceDeviceExtensionLocked @ 0x1C002D060 (ACPIInitDereferenceDeviceExtensionLocked.c)
+ *     WPP_RECORDER_SF_qqDD @ 0x1C003F9BC (WPP_RECORDER_SF_qqDD.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIFinalizeObject @ 0x1C0048034 (AMLIFinalizeObject.c)
+ */
+
 __int64 __fastcall ACPITableNotifyFreeObject(int a1, KIRQL *a2, int a3, int a4)
 {
   KIRQL *v5; // rbx

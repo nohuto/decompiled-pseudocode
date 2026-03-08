@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhBusIf_SetClearRootPortResumeTime @ 0x1C004C188
+ * Callers:
+ *     UsbhUnlinkPdoDeviceHandle @ 0x1C001BEDC (UsbhUnlinkPdoDeviceHandle.c)
+ *     UsbhSetupDevice @ 0x1C0039728 (UsbhSetupDevice.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (__fastcall *__fastcall UsbhBusIf_SetClearRootPortResumeTime(
         __int64 a1,
         __int64 a2,

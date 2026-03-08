@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhBusIfLocationDereference @ 0x1C004BF80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ */
+
 _DWORD *__fastcall UsbhBusIfLocationDereference(__int64 a1)
 {
   _DWORD *result; // rax

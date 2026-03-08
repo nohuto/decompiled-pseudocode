@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpHpConvertFlagsToSegmentFlags @ 0x1402E0CAC
+ * Callers:
+ *     RtlpFreeHeapInternal @ 0x1402E0AF4 (RtlpFreeHeapInternal.c)
+ *     RtlpAllocateHeapInternal @ 0x1402E0BC8 (RtlpAllocateHeapInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall RtlpHpConvertFlagsToSegmentFlags(int a1)
 {
   __int16 v1; // r8

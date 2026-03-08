@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?LogPermissionChange@DMMVIDPNTOPOLOGY@@UEAAXEW4ActionPermission_T@ProtectableFromChange@@_KE@Z @ 0x1C01D20B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall DMMVIDPNTOPOLOGY::LogPermissionChange(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of UnmapPrintKView @ 0x1C0125034
+ * Callers:
+ *     ?DestroyFont@PDEVOBJ@@QEAAXPEAU_FONTOBJ@@@Z @ 0x1C0123CA0 (-DestroyFont@PDEVOBJ@@QEAAXPEAU_FONTOBJ@@@Z.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ */
+
 void __fastcall UnmapPrintKView(__int64 a1)
 {
   __int64 v2; // rbx

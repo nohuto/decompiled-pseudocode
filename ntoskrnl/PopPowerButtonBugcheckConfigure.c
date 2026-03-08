@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopPowerButtonBugcheckConfigure @ 0x140857318
+ * Callers:
+ *     PopPowerButtonBugcheckWatchCallback @ 0x140993B60 (PopPowerButtonBugcheckWatchCallback.c)
+ *     PopInitializePowerButtonHold @ 0x140B47194 (PopInitializePowerButtonHold.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PopQueryPowerButtonConfiguration @ 0x1403A7704 (PopQueryPowerButtonConfiguration.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwNotifyChangeKey @ 0x140414730 (ZwNotifyChangeKey.c)
+ */
+
 char __fastcall PopPowerButtonBugcheckConfigure(HANDLE KeyHandle, char a2, _BYTE *a3)
 {
   char v3; // bl

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserThreadMessageQueueAttached @ 0x1C00C8120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserThreadMessageQueueAttached(unsigned int a1)
 {
   __int64 v2; // rcx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of _CmDeleteDeviceContainerWorker @ 0x140A60E84
+ * Callers:
+ *     _CmDeleteDeviceContainer @ 0x140A609A4 (_CmDeleteDeviceContainer.c)
+ * Callees:
+ *     _CmDeleteDeviceContainerRegKey @ 0x140A60ACC (_CmDeleteDeviceContainerRegKey.c)
+ *     _CmGetDeviceContainerMappedPropertyKeys @ 0x140A61518 (_CmGetDeviceContainerMappedPropertyKeys.c)
+ *     _CmSetDeviceContainerMappedProperty @ 0x140A61D50 (_CmSetDeviceContainerMappedProperty.c)
+ *     _CmRaiseDeleteEvent @ 0x140A62958 (_CmRaiseDeleteEvent.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmDeleteDeviceContainerWorker(__int64 a1, __int64 a2, __int16 a3)
 {
   int v3; // edi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIDeferredWakeCompletion @ 0x1C0023E50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_qqDqss @ 0x1C0024AA8 (WPP_RECORDER_SF_qqDqss.c)
+ *     ACPIInternalDecrementIrpReferenceCount @ 0x1C002E528 (ACPIInternalDecrementIrpReferenceCount.c)
+ */
+
 __int64 __fastcall ACPIDeferredWakeCompletion(__int64 a1, __int64 a2, int a3)
 {
   void *v5; // r9

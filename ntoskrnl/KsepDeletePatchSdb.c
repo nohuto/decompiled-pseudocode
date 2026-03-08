@@ -1,3 +1,14 @@
+/*
+ * XREFs of KsepDeletePatchSdb @ 0x140974504
+ * Callers:
+ *     KseShimDatabaseOpen @ 0x14079EFB4 (KseShimDatabaseOpen.c)
+ * Callees:
+ *     KsepLogError @ 0x140303450 (KsepLogError.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwDeleteFile @ 0x140413E30 (ZwDeleteFile.c)
+ *     KsepDebugPrint @ 0x14057E834 (KsepDebugPrint.c)
+ */
+
 NTSTATUS KsepDeletePatchSdb()
 {
   NTSTATUS result; // eax

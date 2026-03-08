@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Initialize@SC_DEVICE@@UEAAJXZ @ 0x1406744E0
+ * Callers:
+ *     ?Initialize@SC_DISK@@UEAAJXZ @ 0x1406732C0 (-Initialize@SC_DISK@@UEAAJXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x14078FD20 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ */
+
 __int64 __fastcall SC_DEVICE::Initialize(SC_DEVICE *this)
 {
   __int64 v2; // rax

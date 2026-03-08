@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopDeepSleepResiliencyPhaseAccountingUpdate @ 0x1402BBC88
+ * Callers:
+ *     PopDeepSleepClearDisengageReason @ 0x1402BBAAC (PopDeepSleepClearDisengageReason.c)
+ *     PopDeepSleepSetDisengageReason @ 0x1402BBB98 (PopDeepSleepSetDisengageReason.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopDeepSleepResiliencyPhaseAccountingBegin @ 0x140596150 (PopDeepSleepResiliencyPhaseAccountingBegin.c)
+ *     PopDeepSleepResiliencyPhaseAccountingEnd @ 0x14059626C (PopDeepSleepResiliencyPhaseAccountingEnd.c)
+ */
+
 __int64 __fastcall PopDeepSleepResiliencyPhaseAccountingUpdate(int a1, char a2)
 {
   __int64 v2; // r15

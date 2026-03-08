@@ -1,3 +1,13 @@
+/*
+ * XREFs of Amd64ConfigureCounter @ 0x140526AA0
+ * Callers:
+ *     Amd64DisableMonitoring @ 0x140526BF0 (Amd64DisableMonitoring.c)
+ *     Amd64EnableMonitoring @ 0x140526CE0 (Amd64EnableMonitoring.c)
+ *     Amd64RestartProfiling @ 0x140A95C40 (Amd64RestartProfiling.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall Amd64ConfigureCounter(unsigned int a1, char a2, __int64 a3, __int64 a4, char a5)
 {
   __int64 v5; // r10

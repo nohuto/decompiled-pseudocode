@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetHwnd@CVisual@@MEBAPEAUHWND__@@XZ @ 0x1800F39D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 HWND __fastcall CVisual::GetHwnd(CVisual *this)
 {
   HWND result; // rax

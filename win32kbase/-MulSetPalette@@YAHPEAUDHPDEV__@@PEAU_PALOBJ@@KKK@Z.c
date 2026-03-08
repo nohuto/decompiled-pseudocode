@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MulSetPalette@@YAHPEAUDHPDEV__@@PEAU_PALOBJ@@KKK@Z @ 0x1C018BC10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall MulSetPalette(
         struct DHPDEV__ *a1,
         struct _PALOBJ *a2,

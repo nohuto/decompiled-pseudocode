@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiGetTransitionPageHeatList @ 0x1406518EC
+ * Callers:
+ *     MiMakeTransitionHeatBatch @ 0x140651CD4 (MiMakeTransitionHeatBatch.c)
+ * Callees:
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ */
+
 PSLIST_ENTRY MiGetTransitionPageHeatList()
 {
   PSLIST_ENTRY result; // rax

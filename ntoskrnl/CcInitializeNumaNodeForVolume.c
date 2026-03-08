@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcInitializeNumaNodeForVolume @ 0x1403BB12C
+ * Callers:
+ *     CcInitializePrivateVolumeCacheMap @ 0x1403BAB18 (CcInitializePrivateVolumeCacheMap.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x140310130 (ExpAllocatePoolWithTagFromNode.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 char __fastcall CcInitializeNumaNodeForVolume(__int64 a1, _DWORD *a2, __int64 a3, unsigned int a4)
 {
   char v7; // di

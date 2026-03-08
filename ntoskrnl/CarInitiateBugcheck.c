@@ -1,3 +1,12 @@
+/*
+ * XREFs of CarInitiateBugcheck @ 0x1405D3464
+ * Callers:
+ *     CarReportRuleViolationForTriage @ 0x1405D1FA0 (CarReportRuleViolationForTriage.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     DifiDbgPrint @ 0x1405D3224 (DifiDbgPrint.c)
+ */
+
 void __fastcall __noreturn CarInitiateBugcheck(ULONG BugCheckCode, ULONG_PTR BugCheckParameter1, ULONG_PTR *a3)
 {
   ULONG_PTR v4; // rdi

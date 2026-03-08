@@ -1,3 +1,17 @@
+/*
+ * XREFs of PsInitializeVsmEnclave @ 0x1409B45D4
+ * Callers:
+ *     MiInitializeVsmEnclave @ 0x140A3B328 (MiInitializeVsmEnclave.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     VslInitializeEnclave @ 0x14093F734 (VslInitializeEnclave.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PsInitializeVsmEnclave(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5)
 {
   struct _KTHREAD *CurrentThread; // rax

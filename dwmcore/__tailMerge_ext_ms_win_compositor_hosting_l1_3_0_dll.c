@@ -1,3 +1,12 @@
+/*
+ * XREFs of __tailMerge_ext_ms_win_compositor_hosting_l1_3_0_dll @ 0x18010FAF3
+ * Callers:
+ *     __imp_load_SetManipulationInputTarget @ 0x18010FAE7 (__imp_load_SetManipulationInputTarget.c)
+ *     __imp_load_NotifyInputSinkTransformChanged @ 0x18010FC21 (__imp_load_NotifyInputSinkTransformChanged.c)
+ * Callees:
+ *     __delayLoadHelper2 @ 0x180100EB0 (__delayLoadHelper2.c)
+ */
+
 __int64 __fastcall _tailMerge_ext_ms_win_compositor_hosting_l1_3_0_dll(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rax

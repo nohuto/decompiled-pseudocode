@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopInitializePreSleepNotifications @ 0x140860760
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 PopInitializePreSleepNotifications()
 {
   unsigned int v0; // eax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpRegMultiSzToUnicodeStrings @ 0x140B549A4
+ * Callers:
+ *     PiInitCacheGroupInformation @ 0x140B572AC (PiInitCacheGroupInformation.c)
+ * Callees:
+ *     PnpFreeUnicodeStringList @ 0x14039C134 (PnpFreeUnicodeStringList.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PnpRegMultiSzToUnicodeStrings(_DWORD *a1, __int64 *a2, unsigned int *a3)
 {
   __int64 *v3; // r13

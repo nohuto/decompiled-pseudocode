@@ -1,3 +1,22 @@
+/*
+ * XREFs of ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C011CC6C
+ * Callers:
+ *     FreeFileView @ 0x1C00B7620 (FreeFileView.c)
+ *     vUnmapFile @ 0x1C00B81B4 (vUnmapFile.c)
+ *     ?bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z @ 0x1C00BACFC (-bMapFileRetainHandle@@YAHPEBGPEAU_FILEVIEW@@HPEAH@Z.c)
+ *     ?UmfdEscEngMapFontFileFD@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00BB9C0 (-UmfdEscEngMapFontFileFD@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ *     ?vUnmapFileFD@@YAXPEAU_FILEVIEW@@E@Z @ 0x1C00BC6DC (-vUnmapFileFD@@YAXPEAU_FILEVIEW@@E@Z.c)
+ *     EngMapFontFileFDInternal @ 0x1C0115154 (EngMapFontFileFDInternal.c)
+ *     ?bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH@Z @ 0x1C0119A20 (-bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH.c)
+ *     EngUnmapFile @ 0x1C028DF10 (EngUnmapFile.c)
+ *     bMapFile @ 0x1C028E338 (bMapFile.c)
+ *     GreMakeFontDir @ 0x1C02D77CC (GreMakeFontDir.c)
+ * Callees:
+ *     ZwWin32CreateSection @ 0x1C00BC3EC (ZwWin32CreateSection.c)
+ *     ?bCopySection@@YAHPEAX0_K@Z @ 0x1C028D690 (-bCopySection@@YAHPEAX0_K@Z.c)
+ *     ?bUnreferenceNetworkedFontFileNode@@YA_NPEAU_NETWORKED_FONT_FONT_FILE_NODE@@@Z @ 0x1C028DC54 (-bUnreferenceNetworkedFontFileNode@@YA_NPEAU_NETWORKED_FONT_FONT_FILE_NODE@@@Z.c)
+ */
+
 void __fastcall vUnreferenceFileviewSection(struct _FILEVIEW *a1)
 {
   void *v2; // rcx

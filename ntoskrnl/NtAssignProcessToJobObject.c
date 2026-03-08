@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtAssignProcessToJobObject @ 0x1406FF8A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     PsAssignProcessToJobObject @ 0x1406FF9A0 (PsAssignProcessToJobObject.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     EtwTraceJobAssignProcess @ 0x1409E25F8 (EtwTraceJobAssignProcess.c)
+ */
+
 __int64 __fastcall NtAssignProcessToJobObject(void *a1, ULONG_PTR a2)
 {
   KPROCESSOR_MODE PreviousMode; // bp

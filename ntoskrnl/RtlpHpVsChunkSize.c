@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpHpVsChunkSize @ 0x1405B4FE4
+ * Callers:
+ *     RtlpSizeHeapInternal @ 0x1405ABE4C (RtlpSizeHeapInternal.c)
+ *     RtlpHpSegSizeInternal @ 0x1405B47A8 (RtlpHpSegSizeInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpHpVsChunkSize(__int64 a1, __int64 a2, __int64 a3, int *a4)
 {
   __int64 v5; // r8

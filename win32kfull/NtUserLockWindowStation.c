@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserLockWindowStation @ 0x1C00EF0F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _LockWindowStation @ 0x1C00EF170 (_LockWindowStation.c)
+ */
+
 __int64 __fastcall NtUserLockWindowStation(__int64 a1)
 {
   unsigned int v2; // edi

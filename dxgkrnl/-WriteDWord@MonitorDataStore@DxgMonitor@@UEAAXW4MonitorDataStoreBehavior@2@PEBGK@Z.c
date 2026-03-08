@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?WriteDWord@MonitorDataStore@DxgMonitor@@UEAAXW4MonitorDataStoreBehavior@2@PEBGK@Z @ 0x1C03CA7F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ??$WriteData@K@MonitorDataStore@DxgMonitor@@AEAAXPEAXPEBGK@Z @ 0x1C03CA404 (--$WriteData@K@MonitorDataStore@DxgMonitor@@AEAAXPEAXPEBGK@Z.c)
+ */
+
 void __fastcall DxgMonitor::MonitorDataStore::WriteDWord(__int64 a1, char a2, const WCHAR *a3, int a4)
 {
   __int64 *v4; // rcx

@@ -1,3 +1,19 @@
+/*
+ * XREFs of HUBDESC_ValidateBOSDescriptorSet @ 0x1C003BEA8
+ * Callers:
+ *     HUBDTX_ValidateAndCacheBOSDescriptor @ 0x1C002AE70 (HUBDTX_ValidateAndCacheBOSDescriptor.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     HUBMISC_LogTelemetryIfSuperSpeedDeviceWorkingInHighSpeedMode @ 0x1C0031244 (HUBMISC_LogTelemetryIfSuperSpeedDeviceWorkingInHighSpeedMode.c)
+ *     WPP_RECORDER_SF_Ddd @ 0x1C00355BC (WPP_RECORDER_SF_Ddd.c)
+ *     HUBDESC_InternalValidateCommonDescriptorHeader @ 0x1C0035BCC (HUBDESC_InternalValidateCommonDescriptorHeader.c)
+ *     HUBDESC_InternalValidateDeviceCapabilityDescriptor @ 0x1C003B5DC (HUBDESC_InternalValidateDeviceCapabilityDescriptor.c)
+ *     HUBDESC_InternalValidateBOSDescriptor @ 0x1C003BB04 (HUBDESC_InternalValidateBOSDescriptor.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 bool __fastcall HUBDESC_ValidateBOSDescriptorSet(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,22 @@
+/*
+ * XREFs of KeMaskInterrupt @ 0x14028E5A8
+ * Callers:
+ *     KeDisconnectInterrupt @ 0x14028E38C (KeDisconnectInterrupt.c)
+ *     IopMaskInterrupt @ 0x1403AE79C (IopMaskInterrupt.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KeRemoveQueueDpcEx @ 0x14028DB50 (KeRemoveQueueDpcEx.c)
+ *     KiAcquireInterruptConnectLock @ 0x14028FEA0 (KiAcquireInterruptConnectLock.c)
+ *     KiIsInterruptTypeSecondary @ 0x140290340 (KiIsInterruptTypeSecondary.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetTargetProcessorDpcEx @ 0x1403007C0 (KeSetTargetProcessorDpcEx.c)
+ *     KeGetProcessorNumberFromIndex @ 0x1403644D0 (KeGetProcessorNumberFromIndex.c)
+ *     KiMaskInterruptInternal @ 0x1403AEACC (KiMaskInterruptInternal.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiMaskSecondaryInterruptInternal @ 0x14056F638 (KiMaskSecondaryInterruptInternal.c)
+ */
+
 __int64 __fastcall KeMaskInterrupt(__int64 *a1, unsigned __int8 a2, __int64 a3, struct _KDPC *a4)
 {
   char IsInterruptTypeSecondary; // al

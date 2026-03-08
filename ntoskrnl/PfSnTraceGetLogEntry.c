@@ -1,3 +1,22 @@
+/*
+ * XREFs of PfSnTraceGetLogEntry @ 0x14030841C
+ * Callers:
+ *     MiCompleteProtoPteFault @ 0x14026F5F0 (MiCompleteProtoPteFault.c)
+ *     PfSnTraceTimerRoutine @ 0x1402EEED0 (PfSnTraceTimerRoutine.c)
+ *     PfSnLogPageFaultCommon @ 0x140306D88 (PfSnLogPageFaultCommon.c)
+ *     PfSnCheckLogSequenceNumber @ 0x140308120 (PfSnCheckLogSequenceNumber.c)
+ *     PfSnLogStreamDelete @ 0x140773D30 (PfSnLogStreamDelete.c)
+ *     PfSnLogHelper @ 0x1407A3FD0 (PfSnLogHelper.c)
+ *     PfSnLogIdentifier @ 0x1407E3410 (PfSnLogIdentifier.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     PfSnTraceBufferAllocate @ 0x14035AFEC (PfSnTraceBufferAllocate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfSnTraceGetLogEntry(__int64 a1, unsigned int a2, _QWORD *a3)
 {
   __int64 v6; // rbp

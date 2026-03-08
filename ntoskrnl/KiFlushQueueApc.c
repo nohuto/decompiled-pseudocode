@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiFlushQueueApc @ 0x140352FFC
+ * Callers:
+ *     KeRundownApcQueues @ 0x1407D9DB0 (KeRundownApcQueues.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 _QWORD *__fastcall KiFlushQueueApc(__int64 a1, char a2)
 {
   __int64 v2; // r14

@@ -1,3 +1,16 @@
+/*
+ * XREFs of BgpFoGetFontHandle @ 0x140AEABC4
+ * Callers:
+ *     BgpTxtGetRegionContext @ 0x140AE970C (BgpTxtGetRegionContext.c)
+ *     BgpTxtCreateRegion @ 0x140AEB2AC (BgpTxtCreateRegion.c)
+ *     ResFwConfigureDisplayStringResources @ 0x140AEB630 (ResFwConfigureDisplayStringResources.c)
+ *     BgpConsoleInitialize @ 0x140AEB6E0 (BgpConsoleInitialize.c)
+ *     AnFwConfigureProgressResources @ 0x140AEB920 (AnFwConfigureProgressResources.c)
+ *     BgpFoDetermineFontInformation @ 0x140B997C4 (BgpFoDetermineFontInformation.c)
+ * Callees:
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ */
+
 __int64 __fastcall BgpFoGetFontHandle(wchar_t *Str2, __int64 **a2)
 {
   __int64 result; // rax

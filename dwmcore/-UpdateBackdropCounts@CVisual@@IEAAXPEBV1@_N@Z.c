@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UpdateBackdropCounts@CVisual@@IEAAXPEBV1@_N@Z @ 0x1800E7F4C
+ * Callers:
+ *     ?SetVisible@CVisual@@QEAAX_N@Z @ 0x1800E7EF4 (-SetVisible@CVisual@@QEAAX_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CVisual::UpdateBackdropCounts(CVisual *this, const struct CVisual *a2, char a3)
 {
   char v3; // r9

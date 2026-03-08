@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiInitializeGlobalState @ 0x1C03D91E8
+ * Callers:
+ *     DriverEntry @ 0x1C03D9E6C (DriverEntry.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     DpiKsrRestore @ 0x1C03A19E0 (DpiKsrRestore.c)
+ */
+
 __int64 DpiInitializeGlobalState()
 {
   char v0; // si

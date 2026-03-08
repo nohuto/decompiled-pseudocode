@@ -1,3 +1,17 @@
+/*
+ * XREFs of PspStorageReplaceObject @ 0x1409B50B4
+ * Callers:
+ *     PsReplaceSiloContext @ 0x1409A9740 (PsReplaceSiloContext.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PspGetStorageArray @ 0x140738754 (PspGetStorageArray.c)
+ */
+
 __int64 __fastcall PspStorageReplaceObject(__int64 a1, unsigned int a2, void *a3, _QWORD *a4)
 {
   __int64 result; // rax

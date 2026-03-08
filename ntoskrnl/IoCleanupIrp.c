@@ -1,3 +1,12 @@
+/*
+ * XREFs of IoCleanupIrp @ 0x1403CB400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IopFreeIrpExtension @ 0x1402B18FC (IopFreeIrpExtension.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 (__fastcall *__fastcall IoCleanupIrp(ULONG_PTR BugCheckParameter1))()
 {
   __int64 (__fastcall *result)(); // rax

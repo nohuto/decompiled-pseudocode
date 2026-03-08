@@ -1,3 +1,15 @@
+/*
+ * XREFs of VfDeadlockDeleteMemoryRange @ 0x140ABD6EC
+ * Callers:
+ *     VfDriverUnloadImage @ 0x140ABA284 (VfDriverUnloadImage.c)
+ *     VfFreeMemoryNotification @ 0x140ABF0E8 (VfFreeMemoryNotification.c)
+ *     VfPtFreePoolNotification @ 0x140ADB73C (VfPtFreePoolNotification.c)
+ * Callees:
+ *     ViDeadlockRemoveMemoryRangeResources @ 0x1405CF408 (ViDeadlockRemoveMemoryRangeResources.c)
+ *     ViDeadlockRemoveMemoryRangeThreads @ 0x1405CF568 (ViDeadlockRemoveMemoryRangeThreads.c)
+ *     ViDeadlockCanProceed @ 0x140ABD79A (ViDeadlockCanProceed.c)
+ */
+
 __int64 __fastcall VfDeadlockDeleteMemoryRange(unsigned __int64 a1, __int64 a2)
 {
   __int64 result; // rax

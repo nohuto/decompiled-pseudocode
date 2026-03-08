@@ -1,3 +1,34 @@
+/*
+ * XREFs of KzSetIrqlUnsafe @ 0x140569C60
+ * Callers:
+ *     KiChainedDispatch @ 0x140417850 (KiChainedDispatch.c)
+ *     KiScanInterruptObjectList @ 0x140417C90 (KiScanInterruptObjectList.c)
+ *     KiInterruptSubDispatch @ 0x140417E70 (KiInterruptSubDispatch.c)
+ *     KiInterruptSubDispatchNoLock @ 0x140417FC0 (KiInterruptSubDispatchNoLock.c)
+ *     KiInterruptSubDispatchNoLockNoEtw @ 0x140418110 (KiInterruptSubDispatchNoLockNoEtw.c)
+ *     KiInterruptDispatch @ 0x140418220 (KiInterruptDispatch.c)
+ *     KiInterruptDispatchNoLock @ 0x140418660 (KiInterruptDispatchNoLock.c)
+ *     KiInterruptDispatchNoLockNoEtw @ 0x140418AA0 (KiInterruptDispatchNoLockNoEtw.c)
+ *     KiInterruptDispatchNoEOI @ 0x140418EE0 (KiInterruptDispatchNoEOI.c)
+ *     KiSpuriousDispatchNoEOI @ 0x140419310 (KiSpuriousDispatchNoEOI.c)
+ *     KxIsrLinkage @ 0x140419FA0 (KxIsrLinkage.c)
+ *     KiIdleLoop @ 0x14041AF70 (KiIdleLoop.c)
+ *     KiApcInterrupt @ 0x14041BCF0 (KiApcInterrupt.c)
+ *     KiHvInterruptDispatch @ 0x14041D590 (KiHvInterruptDispatch.c)
+ *     KiVmbusInterruptDispatch @ 0x14041D9E0 (KiVmbusInterruptDispatch.c)
+ *     KiHvInterruptSubDispatch @ 0x14041DE10 (KiHvInterruptSubDispatch.c)
+ *     KiVmbusInterruptSubDispatch @ 0x14041DF70 (KiVmbusInterruptSubDispatch.c)
+ *     KiSwInterrupt @ 0x14041E0D0 (KiSwInterrupt.c)
+ *     KiDpcInterrupt @ 0x14041E8C0 (KiDpcInterrupt.c)
+ *     KiIpiInterrupt @ 0x14041EFD0 (KiIpiInterrupt.c)
+ *     KiIpiInterruptSubDispatch @ 0x14041F760 (KiIpiInterruptSubDispatch.c)
+ *     KiNmiInterruptStart @ 0x140423B80 (KiNmiInterruptStart.c)
+ *     KiMcheckAbort @ 0x140427E80 (KiMcheckAbort.c)
+ *     KiSystemStartup @ 0x140A84010 (KiSystemStartup.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int8 __fastcall KzSetIrqlUnsafe(unsigned __int8 a1)
 {
   unsigned __int64 v1; // rbx

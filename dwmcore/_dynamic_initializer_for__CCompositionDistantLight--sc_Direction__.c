@@ -1,3 +1,11 @@
+/*
+ * XREFs of _dynamic_initializer_for__CCompositionDistantLight::sc_Direction__ @ 0x180001CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 dynamic_initializer_for__CCompositionDistantLight::sc_Direction__()
 {
   __int64 result; // rax

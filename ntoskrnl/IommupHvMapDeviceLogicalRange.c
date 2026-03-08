@@ -1,3 +1,13 @@
+/*
+ * XREFs of IommupHvMapDeviceLogicalRange @ 0x140522EB0
+ * Callers:
+ *     HalpIommuDomainMapLogicalRange @ 0x140515914 (HalpIommuDomainMapLogicalRange.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x140515A38 (HalpIommuDomainUnmapLogicalRange.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall IommupHvMapDeviceLogicalRange(
         ULONG_PTR BugCheckParameter3,
         __int64 a2,

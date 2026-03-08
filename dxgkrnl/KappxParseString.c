@@ -1,3 +1,11 @@
+/*
+ * XREFs of KappxParseString @ 0x1C039408C
+ * Callers:
+ *     KappxParsePackageFullNameFromToken @ 0x1C0393F60 (KappxParsePackageFullNameFromToken.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ */
+
 __int64 __fastcall KappxParseString(void *Src, unsigned __int16 a2, __int64 a3)
 {
   void *v5; // rcx

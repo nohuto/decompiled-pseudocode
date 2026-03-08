@@ -1,3 +1,18 @@
+/*
+ * XREFs of PipProcessEnumeratedChildDevice @ 0x14068571C
+ * Callers:
+ *     PipEnumerateCompleted @ 0x140685510 (PipEnumerateCompleted.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PpDevNodeInsertIntoTree @ 0x1402FB13C (PpDevNodeInsertIntoTree.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     PipSetDevNodeFlags @ 0x1406857DC (PipSetDevNodeFlags.c)
+ *     PipAllocateDeviceNode @ 0x14078BC8C (PipAllocateDeviceNode.c)
+ *     PipSetDevNodeProblem @ 0x1408667BC (PipSetDevNodeProblem.c)
+ *     PpProfileCancelTransitioningDock @ 0x140960BA8 (PpProfileCancelTransitioningDock.c)
+ */
+
 __int64 __fastcall PipProcessEnumeratedChildDevice(__int64 a1, ULONG_PTR a2)
 {
   __int64 v2; // rsi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpPciAccessMmConfigSpace @ 0x1402D79A4
+ * Callers:
+ *     HalpPCIConfig @ 0x1402D7810 (HalpPCIConfig.c)
+ * Callees:
+ *     HalpPciGetMmConfigPhysicalAddress @ 0x1402D7A54 (HalpPciGetMmConfigPhysicalAddress.c)
+ *     HalpPciCheckAmdK8 @ 0x1402D7AC0 (HalpPciCheckAmdK8.c)
+ *     HalpPciMapMmConfigPhysicalAddress @ 0x1402D7B28 (HalpPciMapMmConfigPhysicalAddress.c)
+ *     HalpPCIPerformConfigAccess @ 0x1402D7B78 (HalpPCIPerformConfigAccess.c)
+ */
+
 char __fastcall HalpPciAccessMmConfigSpace(unsigned __int16 a1, char a2, __int64 a3, int a4, int a5, int a6, int a7)
 {
   __int64 v10; // rdx

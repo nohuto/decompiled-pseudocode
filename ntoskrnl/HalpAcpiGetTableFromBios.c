@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpAcpiGetTableFromBios @ 0x14029ABA0
+ * Callers:
+ *     HalpAcpiGetTableWork @ 0x14029C5D0 (HalpAcpiGetTableWork.c)
+ *     HalpAcpiIsCachedTableCompromised @ 0x14029C76C (HalpAcpiIsCachedTableCompromised.c)
+ * Callees:
+ *     HalpAcpiCheckAndMapTable @ 0x14029AD4C (HalpAcpiCheckAndMapTable.c)
+ *     HalpAcpiGetRsdt @ 0x14029C328 (HalpAcpiGetRsdt.c)
+ *     HalpAcpiGetTableWork @ 0x14029C5D0 (HalpAcpiGetTableWork.c)
+ */
+
 _DWORD *__fastcall HalpAcpiGetTableFromBios(int a1, int a2, char *Str1, char *a4, _DWORD *a5, _QWORD *a6)
 {
   _DWORD *v6; // r14

@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiForceIdleParkUnparkProcessor @ 0x14057A918
+ * Callers:
+ *     KiForceIdleParkUnparkDpcRoutine @ 0x14057A8F0 (KiForceIdleParkUnparkDpcRoutine.c)
+ *     KiForceIdleUpdateSchedulerParkState @ 0x14057AB44 (KiForceIdleUpdateSchedulerParkState.c)
+ * Callees:
+ *     KeInterlockedClearProcessorAffinityEx @ 0x1402DA1D0 (KeInterlockedClearProcessorAffinityEx.c)
+ *     KeInterlockedSetProcessorAffinityEx @ 0x1402DE1C0 (KeInterlockedSetProcessorAffinityEx.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeTransitionProcessorParkState @ 0x14057B3EC (KeTransitionProcessorParkState.c)
+ */
+
 __int64 __fastcall KiForceIdleParkUnparkProcessor(__int64 a1, char a2)
 {
   int v3; // edx

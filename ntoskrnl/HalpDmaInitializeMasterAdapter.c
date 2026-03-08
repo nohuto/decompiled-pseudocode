@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpDmaInitializeMasterAdapter @ 0x140B60FAC
+ * Callers:
+ *     HalpDmaInit @ 0x140B60E78 (HalpDmaInit.c)
+ * Callees:
+ *     RtlSetAllBits @ 0x14028BD00 (RtlSetAllBits.c)
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x14029B230 (MmUnmapIoSpace.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpDmaCommitContiguousMapBuffers @ 0x14039839C (HalpDmaCommitContiguousMapBuffers.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     HalpDmaAllocateTranslationBuffer @ 0x140B610F0 (HalpDmaAllocateTranslationBuffer.c)
+ *     HalpDmaFreeTranslationBuffer @ 0x140B8DED8 (HalpDmaFreeTranslationBuffer.c)
+ */
+
 __int64 __fastcall HalpDmaInitializeMasterAdapter(
         __int64 a1,
         unsigned __int64 a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of AddEventHooksWdfDeviceCreate @ 0x1C00B7C90
+ * Callers:
+ *     imp_VfWdfDeviceCreate @ 0x1C00B38C0 (imp_VfWdfDeviceCreate.c)
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C0045BD8 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     VfAddContextToHandle @ 0x1C00B8284 (VfAddContextToHandle.c)
+ *     VfAllocateContext @ 0x1C00B83E0 (VfAllocateContext.c)
+ */
+
 int __fastcall AddEventHooksWdfDeviceCreate(
         _VF_HOOK_PROCESS_INFO *HookProcessInfo,
         _WDF_DRIVER_GLOBALS *DriverGlobals,

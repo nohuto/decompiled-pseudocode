@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpPciReadIoConfigUlong @ 0x140513240
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpPciReadIoConfigUlong(unsigned int *a1, _DWORD *a2, int a3)
 {
   unsigned int v3; // r8d

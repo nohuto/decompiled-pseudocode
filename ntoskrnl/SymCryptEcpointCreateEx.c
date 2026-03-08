@@ -1,3 +1,13 @@
+/*
+ * XREFs of SymCryptEcpointCreateEx @ 0x1403F94C0
+ * Callers:
+ *     SymCryptEcpointCreate @ 0x1403F94A0 (SymCryptEcpointCreate.c)
+ *     SymCryptEcpointGetValue @ 0x1403F9550 (SymCryptEcpointGetValue.c)
+ *     SymCryptEcpointSetValue @ 0x1403F96E0 (SymCryptEcpointSetValue.c)
+ * Callees:
+ *     SymCryptModElementCreate @ 0x1403F3AEC (SymCryptModElementCreate.c)
+ */
+
 __int64 __fastcall SymCryptEcpointCreateEx(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   __int64 v4; // rbx

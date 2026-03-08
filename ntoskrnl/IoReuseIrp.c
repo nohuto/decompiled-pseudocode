@@ -1,3 +1,22 @@
+/*
+ * XREFs of IoReuseIrp @ 0x1402B1EB0
+ * Callers:
+ *     PopAllocateIrp @ 0x1402BA774 (PopAllocateIrp.c)
+ *     PopPrepareIoctl @ 0x140846A50 (PopPrepareIoctl.c)
+ *     SmKmFileInfoCleanup @ 0x1409D5B90 (SmKmFileInfoCleanup.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwActivityIdControl @ 0x140244870 (EtwActivityIdControl.c)
+ *     IopIrpHasExtensionType @ 0x1402B1D58 (IopIrpHasExtensionType.c)
+ *     IoSetActivityIdIrp @ 0x1402B2080 (IoSetActivityIdIrp.c)
+ *     IopFreeCopyObjectsFromIrp @ 0x1402F98FC (IopFreeCopyObjectsFromIrp.c)
+ *     IopIsActivityTracingEventEnabled @ 0x1403BD158 (IopIsActivityTracingEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IovpLogStackTrace @ 0x140ABEE08 (IovpLogStackTrace.c)
+ *     VfIoInitializeIrp @ 0x140ACA99C (VfIoInitializeIrp.c)
+ */
+
 void __stdcall IoReuseIrp(PIRP Irp, NTSTATUS Iostatus)
 {
   char v2; // si

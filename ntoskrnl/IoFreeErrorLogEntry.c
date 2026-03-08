@@ -1,3 +1,12 @@
+/*
+ * XREFs of IoFreeErrorLogEntry @ 0x1405544A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __stdcall IoFreeErrorLogEntry(PVOID ElEntry)
 {
   char *v1; // rbx

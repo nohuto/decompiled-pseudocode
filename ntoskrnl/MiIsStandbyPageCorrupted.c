@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiIsStandbyPageCorrupted @ 0x140663A4C
+ * Callers:
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ * Callees:
+ *     MiArePagefileContentsCorrupted @ 0x1406633DC (MiArePagefileContentsCorrupted.c)
+ */
+
 __int64 __fastcall MiIsStandbyPageCorrupted(__int64 a1)
 {
   __int64 v2; // r9

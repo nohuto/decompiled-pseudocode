@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReuseRealization@CDxHandleYUVBitmapRealization@@UEAA_NAEAUCSM_REALIZATION_INFO@@@Z @ 0x1802B1044
+ * Callers:
+ *     ?ReuseRealization@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EAA_NAEAUCSM_REALIZATION_INFO@@@Z @ 0x18011F1F0 (-ReuseRealization@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EAA_NAEAUCSM_REALIZATION_INFO@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CDxHandleYUVBitmapRealization::ReuseRealization(
         CDxHandleYUVBitmapRealization *this,
         struct CSM_REALIZATION_INFO *a2)

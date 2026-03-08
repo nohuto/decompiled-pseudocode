@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpSavePersistedLoggers @ 0x1409EB1E4
+ * Callers:
+ *     EtwpKsrCallback @ 0x1409EA6F0 (EtwpKsrCallback.c)
+ * Callees:
+ *     ExIsSoftBoot @ 0x140380700 (ExIsSoftBoot.c)
+ *     EtwpSavePersistedLoggersWorker @ 0x1409EB214 (EtwpSavePersistedLoggersWorker.c)
+ */
+
 char EtwpSavePersistedLoggers()
 {
   signed __int32 v0; // eax

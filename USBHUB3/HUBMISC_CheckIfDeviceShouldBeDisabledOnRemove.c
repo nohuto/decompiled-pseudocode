@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBMISC_CheckIfDeviceShouldBeDisabledOnRemove @ 0x1C0030594
+ * Callers:
+ *     HUBDSM_CheckingIfDeviceShouldBeDisabled @ 0x1C001F160 (HUBDSM_CheckingIfDeviceShouldBeDisabled.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBMISC_CheckIfDeviceShouldBeDisabledOnRemove(_DWORD *a1)
 {
   __int64 v2; // rax

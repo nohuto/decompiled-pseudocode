@@ -1,3 +1,22 @@
+/*
+ * XREFs of CmpCmdHiveOpen @ 0x1406C0FC8
+ * Callers:
+ *     CmLoadAppKey @ 0x1406BDA5C (CmLoadAppKey.c)
+ *     CmLoadKey @ 0x140732FF8 (CmLoadKey.c)
+ *     CmReplaceKey @ 0x140A12A54 (CmReplaceKey.c)
+ *     CmpFlushBackupHive @ 0x140A17C48 (CmpFlushBackupHive.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     IoSetThreadHardErrorMode @ 0x140244770 (IoSetThreadHardErrorMode.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     CmpInitHiveFromFile @ 0x1406C0BF0 (CmpInitHiveFromFile.c)
+ *     PsReferenceImpersonationTokenEx @ 0x1406D6630 (PsReferenceImpersonationTokenEx.c)
+ *     PsImpersonateClient @ 0x1406DA310 (PsImpersonateClient.c)
+ *     RtlImpersonateSelfEx @ 0x140783B34 (RtlImpersonateSelfEx.c)
+ */
+
 __int64 __fastcall CmpCmdHiveOpen(
         const UNICODE_STRING *a1,
         char a2,

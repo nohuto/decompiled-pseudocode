@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??$_Insert_range@PEAPEAVCTransform3D@@@?$vector@PEAVCTransform3D@@V?$allocator@PEAVCTransform3D@@@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCTransform3D@@@std@@@std@@@1@PEAPEAVCTransform3D@@1Uforward_iterator_tag@1@@Z @ 0x1801BBD88
+ * Callers:
+ *     ?SetOrAppendChildren@?$CTransform3DGroupGeneratedT@VCTransform3DGroup@@VCTransform3D@@@@AEAAJAEBV?$span@PEAVCTransform3D@@$0?0@gsl@@_N@Z @ 0x1801C4DFC (-SetOrAppendChildren@-$CTransform3DGroupGeneratedT@VCTransform3DGroup@@VCTransform3D@@@@AEAAJAEB.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B9880 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     ?_Change_array@?$vector@PEAVCTransform3D@@V?$allocator@PEAVCTransform3D@@@std@@@std@@AEAAXQEAPEAVCTransform3D@@_K1@Z @ 0x1801C7764 (-_Change_array@-$vector@PEAVCTransform3D@@V-$allocator@PEAVCTransform3D@@@std@@@std@@AEAAXQEAPEA.c)
+ */
+
 void __fastcall std::vector<CTransform3D *>::_Insert_range<CTransform3D * *>(
         __int64 a1,
         _BYTE *a2,

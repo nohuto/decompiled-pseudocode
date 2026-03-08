@@ -1,3 +1,11 @@
+/*
+ * XREFs of wil::details::_dynamic_initializer_for__g_header_init_InitializeResultHeader__ @ 0x140001010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void *wil::details::_dynamic_initializer_for__g_header_init_InitializeResultHeader__()
 {
   void *result; // rax

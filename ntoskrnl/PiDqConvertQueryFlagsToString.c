@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiDqConvertQueryFlagsToString @ 0x140959144
+ * Callers:
+ *     PiDqIrpQueryCreate @ 0x140745F08 (PiDqIrpQueryCreate.c)
+ * Callees:
+ *     RtlStringCbCopyExW @ 0x1402E1820 (RtlStringCbCopyExW.c)
+ */
+
 NTSTATUS __fastcall PiDqConvertQueryFlagsToString(unsigned int a1, wchar_t *a2, unsigned int a3, unsigned int *a4)
 {
   wchar_t *v6; // r10

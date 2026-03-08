@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiFindPagesForMdl @ 0x1402B3FE8
+ * Callers:
+ *     MiAllocatePagesForMdl @ 0x1402B3B18 (MiAllocatePagesForMdl.c)
+ * Callees:
+ *     MiAllocateMdlPagesByLists @ 0x14025B5F0 (MiAllocateMdlPagesByLists.c)
+ *     MiAllocateFastLargePagesForMdl @ 0x1403863B4 (MiAllocateFastLargePagesForMdl.c)
+ *     MiAllocateSkipPagesForMdl @ 0x1403A71B0 (MiAllocateSkipPagesForMdl.c)
+ *     MiAllocateMostlyContiguousPagesForMdl @ 0x1403A796C (MiAllocateMostlyContiguousPagesForMdl.c)
+ *     MiAllocateEnclavePagesForMdl @ 0x140620C1C (MiAllocateEnclavePagesForMdl.c)
+ */
+
 __int64 __fastcall MiFindPagesForMdl(__int64 a1)
 {
   _DWORD *v1; // rax

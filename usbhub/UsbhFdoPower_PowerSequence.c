@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhFdoPower_PowerSequence @ 0x1C003C1C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ */
+
 NTSTATUS __fastcall UsbhFdoPower_PowerSequence(__int64 a1, IRP *a2)
 {
   PDEVICE_OBJECT *v3; // rax

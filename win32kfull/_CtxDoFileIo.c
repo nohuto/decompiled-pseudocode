@@ -1,3 +1,11 @@
+/*
+ * XREFs of _CtxDoFileIo @ 0x1C02F89C8
+ * Callers:
+ *     EngFileWrite @ 0x1C028BB70 (EngFileWrite.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall CtxDoFileIo(__int64 a1, struct _FILE_OBJECT *a2, void *a3, ULONG a4)
 {
   NTSTATUS result; // eax

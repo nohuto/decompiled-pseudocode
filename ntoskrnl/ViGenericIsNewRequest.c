@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViGenericIsNewRequest @ 0x140AC0070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ViGenericIsNewRequest(_BYTE *a1, _BYTE *a2)
 {
   unsigned int v2; // r8d

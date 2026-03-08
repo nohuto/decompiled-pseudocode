@@ -1,3 +1,12 @@
+/*
+ * XREFs of Isoch_CommonBufferCallback @ 0x1C0043B30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Isoch_MapTransfers @ 0x1C0001C9C (Isoch_MapTransfers.c)
+ *     WPP_RECORDER_SF_L @ 0x1C00136C0 (WPP_RECORDER_SF_L.c)
+ */
+
 __int64 __fastcall Isoch_CommonBufferCallback(__int64 a1)
 {
   *(_DWORD *)(a1 + 336) = 0;

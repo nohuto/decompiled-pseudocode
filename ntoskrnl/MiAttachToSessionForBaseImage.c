@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiAttachToSessionForBaseImage @ 0x14063F7A4
+ * Callers:
+ *     MiApplyHotPatchToLoadedDriver @ 0x140A323A8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiUnapplyDriverHotPatch @ 0x140A390F8 (MiUnapplyDriverHotPatch.c)
+ * Callees:
+ *     MiAttachSessionGlobal @ 0x1402D509C (MiAttachSessionGlobal.c)
+ *     MiDetachSessionGlobal @ 0x1402EA04C (MiDetachSessionGlobal.c)
+ *     MiGetNextSessionGlobal @ 0x14063510C (MiGetNextSessionGlobal.c)
+ *     MmIsDriverLoadedCurrentSession @ 0x1407F7298 (MmIsDriverLoadedCurrentSession.c)
+ */
+
 __int64 *__fastcall MiAttachToSessionForBaseImage(__int64 a1)
 {
   __int64 *v2; // rbx

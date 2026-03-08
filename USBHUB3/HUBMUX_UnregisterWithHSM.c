@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBMUX_UnregisterWithHSM @ 0x1C0011748
+ * Callers:
+ *     HUBDSM_UnregisteringWithHSMOnDetachAfterCleanup @ 0x1C0020640 (HUBDSM_UnregisteringWithHSMOnDetachAfterCleanup.c)
+ *     HUBDSM_UnregsiteringWithHsmOnDetach @ 0x1C0020670 (HUBDSM_UnregsiteringWithHsmOnDetach.c)
+ * Callees:
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBMUX_UnregisterWithHSM(__int64 a1)
 {
   __int64 v2; // rdi

@@ -1,3 +1,17 @@
+/*
+ * XREFs of WbReleaseLeastRecentlyUsedHeapExecutedBlocks @ 0x140770D60
+ * Callers:
+ *     WbGetHeapExecutedBlock @ 0x1406AFAAC (WbGetHeapExecutedBlock.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     sub_1406AFC38 @ 0x1406AFC38 (sub_1406AFC38.c)
+ *     sub_140770F08 @ 0x140770F08 (sub_140770F08.c)
+ */
+
 void __fastcall WbReleaseLeastRecentlyUsedHeapExecutedBlocks(__int64 a1, int a2)
 {
   int v2; // r15d

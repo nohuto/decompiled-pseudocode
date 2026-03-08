@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpWnfSpecializeSecurityDescriptor @ 0x14071C08C
+ * Callers:
+ *     NtCreateWnfStateName @ 0x14071BBD0 (NtCreateWnfStateName.c)
+ *     ExpWnfLookupPermanentName @ 0x14071C320 (ExpWnfLookupPermanentName.c)
+ * Callees:
+ *     RtlGetDaclSecurityDescriptor @ 0x140299320 (RtlGetDaclSecurityDescriptor.c)
+ *     RtlpApplyAclToObject @ 0x14071C11C (RtlpApplyAclToObject.c)
+ *     RtlGetSaclSecurityDescriptor @ 0x14071C1D0 (RtlGetSaclSecurityDescriptor.c)
+ */
+
 NTSTATUS __fastcall ExpWnfSpecializeSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescriptor)
 {
   NTSTATUS result; // eax

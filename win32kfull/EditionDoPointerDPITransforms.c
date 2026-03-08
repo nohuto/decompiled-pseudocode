@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionDoPointerDPITransforms @ 0x1C01467E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetDPITransformationMonitor @ 0x1C01BAD54 (GetDPITransformationMonitor.c)
+ */
+
 __int64 __fastcall EditionDoPointerDPITransforms(__int64 a1, _QWORD *a2, __int64 a3)
 {
   __int64 result; // rax

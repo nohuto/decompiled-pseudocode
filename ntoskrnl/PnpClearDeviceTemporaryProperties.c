@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpClearDeviceTemporaryProperties @ 0x14068539C
+ * Callers:
+ *     PiProcessNewDeviceNode @ 0x140685858 (PiProcessNewDeviceNode.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14081CE14 (IopInitializeDeviceInstanceKey.c)
+ * Callees:
+ *     _PnpSetObjectProperty @ 0x140686C8C (_PnpSetObjectProperty.c)
+ */
+
 __int64 __fastcall PnpClearDeviceTemporaryProperties(int a1)
 {
   __int64 *v1; // rbx

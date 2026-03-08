@@ -1,3 +1,12 @@
+/*
+ * XREFs of Controller_IsRegKeySetToDisableS0Idle @ 0x1C001EA78
+ * Callers:
+ *     Controller_ConfigureS0IdleSettings @ 0x1C006EC7C (Controller_ConfigureS0IdleSettings.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 bool __fastcall Controller_IsRegKeySetToDisableS0Idle(__int64 a1)
 {
   int v2; // eax

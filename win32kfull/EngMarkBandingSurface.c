@@ -1,3 +1,12 @@
+/*
+ * XREFs of EngMarkBandingSurface @ 0x1C02911C0
+ * Callers:
+ *     NtGdiEngMarkBandingSurface @ 0x1C02CC9A0 (NtGdiEngMarkBandingSurface.c)
+ * Callees:
+ *     ??1EPALOBJ@@QEAA@XZ @ 0x1C0124F2C (--1EPALOBJ@@QEAA@XZ.c)
+ *     ?TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z @ 0x1C02910AC (-TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z.c)
+ */
+
 BOOL __stdcall EngMarkBandingSurface(HSURF hsurf)
 {
   char v1; // dl

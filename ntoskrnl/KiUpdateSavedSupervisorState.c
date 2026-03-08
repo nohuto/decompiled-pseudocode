@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiUpdateSavedSupervisorState @ 0x140A9C6A0
+ * Callers:
+ *     KiStartSavingSupervisorState @ 0x140A9C620 (KiStartSavingSupervisorState.c)
+ * Callees:
+ *     KeIpiGenericCall @ 0x140396D40 (KeIpiGenericCall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 KiUpdateSavedSupervisorState()
 {
   unsigned int v0; // ebp

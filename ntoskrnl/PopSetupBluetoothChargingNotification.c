@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopSetupBluetoothChargingNotification @ 0x140861698
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     ExSubscribeWnfStateChange @ 0x14078C4C0 (ExSubscribeWnfStateChange.c)
+ */
+
 __int64 PopSetupBluetoothChargingNotification()
 {
   char v1; // [rsp+40h] [rbp+8h] BYREF

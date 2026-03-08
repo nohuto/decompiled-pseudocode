@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiReleaseOutSwapReservations @ 0x1402004DC
+ * Callers:
+ *     MiProcessWsInSwapRanges @ 0x140200438 (MiProcessWsInSwapRanges.c)
+ * Callees:
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 _QWORD *__fastcall MiReleaseOutSwapReservations(ULONG_PTR *a1, unsigned __int64 a2)
 {
   _QWORD *result; // rax

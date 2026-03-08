@@ -1,3 +1,11 @@
+/*
+ * XREFs of AuthzBasepQuerySystemSecurityAttributeAndValues @ 0x14070B7B8
+ * Callers:
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1402472F0 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ * Callees:
+ *     AuthzBasepFindSystemSecurityAttribute @ 0x14070B828 (AuthzBasepFindSystemSecurityAttribute.c)
+ */
+
 __int64 __fastcall AuthzBasepQuerySystemSecurityAttributeAndValues(__int64 a1)
 {
   unsigned int v2; // edi

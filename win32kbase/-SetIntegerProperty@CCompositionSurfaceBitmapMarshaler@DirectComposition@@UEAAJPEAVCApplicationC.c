@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetIntegerProperty@CCompositionSurfaceBitmapMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00BD400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Feature_Servicing_NullPointerDereferenceWin32kbase__private_IsEnabledDeviceUsage @ 0x1C00E1598 (Feature_Servicing_NullPointerDereferenceWin32kbase__private_IsEnabledDeviceUsage.c)
+ */
+
 __int64 __fastcall DirectComposition::CCompositionSurfaceBitmapMarshaler::SetIntegerProperty(
         DirectComposition::CCompositionSurfaceBitmapMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

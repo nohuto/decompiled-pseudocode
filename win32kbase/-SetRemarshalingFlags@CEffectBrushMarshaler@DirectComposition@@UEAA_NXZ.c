@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CEffectBrushMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C0253680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CEffectBrushMarshaler::SetRemarshalingFlags(
         DirectComposition::CEffectBrushMarshaler *this)
 {

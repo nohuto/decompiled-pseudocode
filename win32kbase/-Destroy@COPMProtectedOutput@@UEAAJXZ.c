@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Destroy@COPMProtectedOutput@@UEAAJXZ @ 0x1C01882B0
+ * Callers:
+ *     ??0COPMProtectedOutput@@QEAA@W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAJ@Z @ 0x1C0187CB4 (--0COPMProtectedOutput@@QEAA@W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAJ@Z.c)
+ *     ??1COPMProtectedOutput@@UEAA@XZ @ 0x1C0187E04 (--1COPMProtectedOutput@@UEAA@XZ.c)
+ * Callees:
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00B0000 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     ?Destroy@CMonitorPDO@OPM@@UEAAJXZ @ 0x1C017EB20 (-Destroy@CMonitorPDO@OPM@@UEAAJXZ.c)
+ *     CallMonitor @ 0x1C017EE60 (CallMonitor.c)
+ */
+
 __int64 __fastcall COPMProtectedOutput::Destroy(COPMProtectedOutput *this)
 {
   void **v1; // rbx

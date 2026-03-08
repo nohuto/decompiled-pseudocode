@@ -1,3 +1,23 @@
+/*
+ * XREFs of PnpQueueQueryAndRemoveEvent @ 0x14096B0E0
+ * Callers:
+ *     PnpRequestDeviceEjectExWorker @ 0x140954220 (PnpRequestDeviceEjectExWorker.c)
+ *     PiCMQueryRemove @ 0x140967304 (PiCMQueryRemove.c)
+ * Callees:
+ *     PnpDiagnosticTraceObject @ 0x140202BAC (PnpDiagnosticTraceObject.c)
+ *     PnpDiagnosticTraceDeviceOperation @ 0x1402B167C (PnpDiagnosticTraceDeviceOperation.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CDF08 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PnpSetTargetDeviceRemove @ 0x140862DC8 (PnpSetTargetDeviceRemove.c)
+ *     PnpRemoveEventFromQueue @ 0x140961638 (PnpRemoveEventFromQueue.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpQueueQueryAndRemoveEvent(unsigned __int16 *a1, char *a2, _WORD *a3, _WORD *a4, char a5, int a6)
 {
   int v7; // r14d

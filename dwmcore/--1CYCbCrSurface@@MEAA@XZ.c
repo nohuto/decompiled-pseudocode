@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CYCbCrSurface@@MEAA@XZ @ 0x18021C09C
+ * Callers:
+ *     ??_ECYCbCrSurface@@MEAAPEAXI@Z @ 0x1801C0BC0 (--_ECYCbCrSurface@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800234BC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ */
+
 void __fastcall CYCbCrSurface::~CYCbCrSurface(CYCbCrSurface *this)
 {
   __int64 v2; // rcx

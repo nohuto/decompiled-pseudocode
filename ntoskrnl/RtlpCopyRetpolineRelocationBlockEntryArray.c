@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpCopyRetpolineRelocationBlockEntryArray @ 0x14036BCD8
+ * Callers:
+ *     RtlCreateRetpolineRelocationInformation @ 0x14036BA3C (RtlCreateRetpolineRelocationInformation.c)
+ * Callees:
+ *     RtlSizeOfRetpolineRelocationEntry @ 0x14036BD84 (RtlSizeOfRetpolineRelocationEntry.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 _DWORD *__fastcall RtlpCopyRetpolineRelocationBlockEntryArray(
         char *a1,
         unsigned int a2,

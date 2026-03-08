@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FreeView@@YAXPEAU_EPROCESS@@PEAUtagDESKTOP@@@Z @ 0x1C003CD80
+ * Callers:
+ *     UnmapDesktop @ 0x1C003CEA0 (UnmapDesktop.c)
+ *     FreeDesktop @ 0x1C00F2180 (FreeDesktop.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall FreeView(PRKPROCESS PROCESS, struct tagDESKTOP *a2)
 {
   _QWORD *ProcessWin32Process; // rax

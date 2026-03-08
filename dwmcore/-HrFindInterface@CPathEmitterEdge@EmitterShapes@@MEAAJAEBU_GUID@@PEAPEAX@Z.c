@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CPathEmitterEdge@EmitterShapes@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180266ED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall EmitterShapes::CPathEmitterEdge::HrFindInterface(
         EmitterShapes::CPathEmitterEdge *this,
         const struct _GUID *a2,

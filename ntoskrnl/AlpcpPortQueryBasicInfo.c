@@ -1,3 +1,11 @@
+/*
+ * XREFs of AlpcpPortQueryBasicInfo @ 0x140756870
+ * Callers:
+ *     NtAlpcQueryInformation @ 0x140756660 (NtAlpcQueryInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AlpcpPortQueryBasicInfo(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)
 {
   __int64 result; // rax

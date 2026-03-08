@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpAvlCompareKeyNames @ 0x140391230
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlCompareUnicodeStrings @ 0x140684CA0 (RtlCompareUnicodeStrings.c)
+ */
+
 __int64 __fastcall EtwpAvlCompareKeyNames(
         struct _RTL_AVL_TABLE *Table,
         const WCHAR *FirstStruct,

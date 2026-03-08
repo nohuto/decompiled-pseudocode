@@ -1,3 +1,14 @@
+/*
+ * XREFs of NewNameSpaceObject @ 0x1C004FDF0
+ * Callers:
+ *     InitializeNativeNamespace @ 0x1C0049FD4 (InitializeNativeNamespace.c)
+ *     AMLIAddNamespaceOverride @ 0x1C004A2A8 (AMLIAddNamespaceOverride.c)
+ *     CreateNameSpaceObject @ 0x1C004F10C (CreateNameSpaceObject.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ */
+
 _QWORD *__fastcall NewNameSpaceObject(__int64 a1)
 {
   _QWORD *v1; // rax

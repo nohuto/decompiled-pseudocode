@@ -1,3 +1,11 @@
+/*
+ * XREFs of KdpSuspendAllBreakpoints @ 0x140AB2D04
+ * Callers:
+ *     KdDisableDebuggerWithLock @ 0x140565128 (KdDisableDebuggerWithLock.c)
+ * Callees:
+ *     KdpLowWriteContent @ 0x140AB29EC (KdpLowWriteContent.c)
+ */
+
 char KdpSuspendAllBreakpoints()
 {
   unsigned int i; // ebx

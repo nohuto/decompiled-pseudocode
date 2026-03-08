@@ -1,3 +1,13 @@
+/*
+ * XREFs of SymCryptFdefIntMulMixedSize @ 0x1403FD9AC
+ * Callers:
+ *     SymCryptIntMulMixedSize @ 0x1403F38E4 (SymCryptIntMulMixedSize.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     SymCryptWipe @ 0x1403F0988 (SymCryptWipe.c)
+ *     SymCryptFdefRawMul @ 0x1403FE01C (SymCryptFdefRawMul.c)
+ */
+
 __int64 __fastcall SymCryptFdefIntMulMixedSize(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // esi

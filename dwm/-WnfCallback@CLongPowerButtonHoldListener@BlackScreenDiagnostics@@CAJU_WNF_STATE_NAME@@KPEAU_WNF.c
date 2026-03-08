@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?WnfCallback@CLongPowerButtonHoldListener@BlackScreenDiagnostics@@CAJU_WNF_STATE_NAME@@KPEAU_WNF_TYPE_ID@@PEAXPEBXK@Z @ 0x14000C300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x140005510 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x140007200 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall BlackScreenDiagnostics::CLongPowerButtonHoldListener::WnfCallback(
         struct _WNF_STATE_NAME a1,
         __int64 a2,

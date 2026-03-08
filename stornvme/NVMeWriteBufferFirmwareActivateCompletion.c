@@ -1,3 +1,17 @@
+/*
+ * XREFs of NVMeWriteBufferFirmwareActivateCompletion @ 0x1C00181D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     NVMeControllerAsyncReset @ 0x1C000CAB0 (NVMeControllerAsyncReset.c)
+ *     GetSrbScsiData @ 0x1C0012B7C (GetSrbScsiData.c)
+ *     IsFirmwareActivateWithoutResetEnabled @ 0x1C0014AC4 (IsFirmwareActivateWithoutResetEnabled.c)
+ *     NVMeQueueWorkItem @ 0x1C0016B88 (NVMeQueueWorkItem.c)
+ *     NVMeWriteBufferFirmwareActivate @ 0x1C00180C8 (NVMeWriteBufferFirmwareActivate.c)
+ */
+
 char __fastcall NVMeWriteBufferFirmwareActivateCompletion(__int64 a1, __int64 a2)
 {
   __int64 SrbExtension; // rax

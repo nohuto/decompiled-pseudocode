@@ -1,3 +1,11 @@
+/*
+ * XREFs of CiNdisOpenDevice @ 0x1C000BCB0
+ * Callers:
+ *     CsInitialize @ 0x1C000E0B0 (CsInitialize.c)
+ * Callees:
+ *     WPP_SF_d @ 0x1C0004884 (WPP_SF_d.c)
+ */
+
 NTSTATUS CiNdisOpenDevice()
 {
   NTSTATUS result; // eax

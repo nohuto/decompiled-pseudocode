@@ -1,3 +1,11 @@
+/*
+ * XREFs of Controller_RemoveControllerFromGlobalControllerList @ 0x1C00345B4
+ * Callers:
+ *     Controller_WdfEvtCleanupCallback @ 0x1C0036620 (Controller_WdfEvtCleanupCallback.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Controller_RemoveControllerFromGlobalControllerList(_QWORD *a1)
 {
   _QWORD *v1; // rbx

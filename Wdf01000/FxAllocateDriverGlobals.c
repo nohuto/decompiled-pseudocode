@@ -1,3 +1,12 @@
+/*
+ * XREFs of FxAllocateDriverGlobals @ 0x1C0043978
+ * Callers:
+ *     FxLibraryCommonRegisterClient @ 0x1C002C2B8 (FxLibraryCommonRegisterClient.c)
+ * Callees:
+ *     ?SetVerifierState@_FX_DRIVER_GLOBALS@@QEAAXE@Z @ 0x1C004384C (-SetVerifierState@_FX_DRIVER_GLOBALS@@QEAAXE@Z.c)
+ *     AllocAndInitializeTelemetryContext @ 0x1C004D098 (AllocAndInitializeTelemetryContext.c)
+ */
+
 _WDF_DRIVER_GLOBALS *__fastcall FxAllocateDriverGlobals()
 {
   _WDF_DRIVER_GLOBALS *result; // rax

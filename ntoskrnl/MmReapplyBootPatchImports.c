@@ -1,3 +1,20 @@
+/*
+ * XREFs of MmReapplyBootPatchImports @ 0x140B70FB0
+ * Callers:
+ *     IopInitializeBuiltinDriver @ 0x140B58C28 (IopInitializeBuiltinDriver.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiLookupDataTableEntry @ 0x14035ECF0 (MiLookupDataTableEntry.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiLockDriverPageRange @ 0x1406179F0 (MiLockDriverPageRange.c)
+ *     MmAcquireLoadLock @ 0x1407D2360 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x1407D2400 (MmReleaseLoadLock.c)
+ *     MiInitializeDriverPatchState @ 0x1407F746C (MiInitializeDriverPatchState.c)
+ *     MiUnlockDriverPages @ 0x14087313C (MiUnlockDriverPages.c)
+ *     MiPrepareDriverPatchState @ 0x140A28934 (MiPrepareDriverPatchState.c)
+ *     VslReapplyBootIndirectPatches @ 0x140B90324 (VslReapplyBootIndirectPatches.c)
+ */
+
 __int64 __fastcall MmReapplyBootPatchImports(unsigned __int64 a1)
 {
   struct _KTHREAD *Lock; // r15

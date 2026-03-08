@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnprCollectResources @ 0x140962AFC
+ * Callers:
+ *     PnpReplacePartitionUnit @ 0x140961B80 (PnpReplacePartitionUnit.c)
+ * Callees:
+ *     PipForAllChildDeviceNodes @ 0x140785680 (PipForAllChildDeviceNodes.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnprCollectResources(__int64 *a1, _QWORD *a2)
 {
   __int64 Pool2; // rax

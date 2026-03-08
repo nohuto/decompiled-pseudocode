@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RefreshDpiKMMetricsCacheNode@@YAXPEAUtagDpiKMMetricsCacheNode@@@Z @ 0x1C01C0418
+ * Callers:
+ *     GetDPIMETRICSForDpiUnsafe @ 0x1C00A47B4 (GetDPIMETRICSForDpiUnsafe.c)
+ * Callees:
+ *     CreateScaledFont @ 0x1C01C05F8 (CreateScaledFont.c)
+ */
+
 void __fastcall RefreshDpiKMMetricsCacheNode(struct tagDpiKMMetricsCacheNode *a1)
 {
   _QWORD *v2; // rsi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpUnlockCallbackListExclusive @ 0x1402F9670
+ * Callers:
+ *     ExpDeleteCallback @ 0x14067FE80 (ExpDeleteCallback.c)
+ *     ExCreateCallback @ 0x14078D4A0 (ExCreateCallback.c)
+ * Callees:
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ */
+
 char __fastcall ExpUnlockCallbackListExclusive(__int64 a1)
 {
   _QWORD *v2; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of IoSetIoAttributionIrp @ 0x140554CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoSetDiskIoAttributionFromThread @ 0x14027F900 (IoSetDiskIoAttributionFromThread.c)
+ *     IopSetDiskIoAttributionFromProcess @ 0x1402B1DD4 (IopSetDiskIoAttributionFromProcess.c)
+ */
+
 __int64 __fastcall IoSetIoAttributionIrp(__int64 a1, struct _KTHREAD *a2, int a3)
 {
   if ( a3 && (a3 & 0xFFFFFFFC) == 0 )

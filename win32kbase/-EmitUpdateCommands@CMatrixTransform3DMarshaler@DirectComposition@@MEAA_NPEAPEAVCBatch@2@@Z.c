@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CMatrixTransform3DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0251380
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0064740 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 bool __fastcall DirectComposition::CMatrixTransform3DMarshaler::EmitUpdateCommands(
         DirectComposition::CMatrixTransform3DMarshaler *this,
         struct DirectComposition::CBatch ***a2)

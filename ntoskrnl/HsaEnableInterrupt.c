@@ -1,3 +1,11 @@
+/*
+ * XREFs of HsaEnableInterrupt @ 0x140A96020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HsaEnableInterrupt(__int64 *a1)
 {
   __int64 result; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of WmipAddProviderIdToPIList @ 0x14069C180
+ * Callers:
+ *     WmipPrepareWnodeSI @ 0x14069BED4 (WmipPrepareWnodeSI.c)
+ *     WmipPrepareForWnodeAD @ 0x14069E360 (WmipPrepareForWnodeAD.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     WmipUnreferenceEntry @ 0x14069C9D0 (WmipUnreferenceEntry.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WmipAddProviderIdToPIList(const void **a1, _DWORD *a2, _DWORD *a3, void *a4, __int64 a5)
 {
   __int64 v5; // r15

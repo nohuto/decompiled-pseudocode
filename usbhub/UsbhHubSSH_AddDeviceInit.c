@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhHubSSH_AddDeviceInit @ 0x1C0058CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ */
+
 void __fastcall UsbhHubSSH_AddDeviceInit(__int64 a1, __int64 a2)
 {
   _DWORD *v4; // rbx

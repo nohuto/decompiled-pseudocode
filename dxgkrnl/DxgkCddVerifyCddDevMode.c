@@ -1,3 +1,13 @@
+/*
+ * XREFs of DxgkCddVerifyCddDevMode @ 0x1C016AE20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetBitsPerPixel@@YAIW4_D3DDDIFORMAT@@@Z @ 0x1C0002764 (-GetBitsPerPixel@@YAIW4_D3DDDIFORMAT@@@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAE@Z @ 0x1C0172AAC (-DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDE.c)
+ */
+
 __int64 __fastcall DxgkCddVerifyCddDevMode(__int64 a1)
 {
   int v2; // r8d

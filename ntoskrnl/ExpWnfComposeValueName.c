@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExpWnfComposeValueName @ 0x14071C674
+ * Callers:
+ *     ExpWnfWriteStateData @ 0x14071B1B0 (ExpWnfWriteStateData.c)
+ *     ExpWnfPopulateStateData @ 0x14071B9DC (ExpWnfPopulateStateData.c)
+ *     ExpWnfLookupPermanentName @ 0x14071C320 (ExpWnfLookupPermanentName.c)
+ *     ExpWnfDeletePermanentName @ 0x140779838 (ExpWnfDeletePermanentName.c)
+ *     ExpWnfRegisterPermanentName @ 0x140799310 (ExpWnfRegisterPermanentName.c)
+ *     ExpWnfDeletePermanentStateData @ 0x140A046AC (ExpWnfDeletePermanentStateData.c)
+ * Callees:
+ *     RtlInt64ToUnicodeString @ 0x14071C710 (RtlInt64ToUnicodeString.c)
+ */
+
 __int64 __fastcall ExpWnfComposeValueName(__int64 a1, UNICODE_STRING *a2)
 {
   __int64 v3; // rbx

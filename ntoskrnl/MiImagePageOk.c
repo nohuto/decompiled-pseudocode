@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiImagePageOk @ 0x14034B09C
+ * Callers:
+ *     MiWaitForCollidedFaultComplete @ 0x1402A2D3C (MiWaitForCollidedFaultComplete.c)
+ *     MiSoftFaultMappedView @ 0x14034A9A0 (MiSoftFaultMappedView.c)
+ * Callees:
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     MiUnlockVadTree @ 0x140330EC8 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x1403334B4 (MiLockVadTree.c)
+ */
+
 _BOOL8 __fastcall MiImagePageOk(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 **a4)
 {
   __int64 v4; // rax

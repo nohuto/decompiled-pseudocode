@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@CSurfaceBrushMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00BB280
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CSurfaceBrushMarshaler::Initialize(
         DirectComposition::CSurfaceBrushMarshaler *this)
 {

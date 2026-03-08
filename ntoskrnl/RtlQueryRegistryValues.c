@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlQueryRegistryValues @ 0x14079ABD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpQueryRegistryValues @ 0x14069B3C0 (RtlpQueryRegistryValues.c)
+ */
+
 // local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall RtlQueryRegistryValues(
         ULONG RelativeTo,

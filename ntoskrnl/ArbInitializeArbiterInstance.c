@@ -1,3 +1,18 @@
+/*
+ * XREFs of ArbInitializeArbiterInstance @ 0x14081E398
+ * Callers:
+ *     IopPortInitialize @ 0x14081B7A8 (IopPortInitialize.c)
+ *     IopDmaInitialize @ 0x14081D248 (IopDmaInitialize.c)
+ *     IopIrqInitialize @ 0x14081D2C0 (IopIrqInitialize.c)
+ *     IopBusNumberInitialize @ 0x14081D328 (IopBusNumberInitialize.c)
+ *     IopMemInitialize @ 0x14081F124 (IopMemInitialize.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ArbBuildAssignmentOrdering @ 0x14081E6C8 (ArbBuildAssignmentOrdering.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ArbInitializeArbiterInstance(__int64 a1, __int64 a2, int a3, __int64 a4, __int64 a5, __int64 a6)
 {
   struct _KEVENT *Pool2; // rax

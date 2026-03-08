@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetStats@CDDisplayRenderTarget@@UEAA_NPEAUtagCOMPOSITION_TARGET_STATS@@@Z @ 0x1801E511C
+ * Callers:
+ *     ?GetStats@CDDisplayRenderTarget@@$4PPPPPPPM@A@EAA_NPEAUtagCOMPOSITION_TARGET_STATS@@@Z @ 0x1801186D0 (-GetStats@CDDisplayRenderTarget@@$4PPPPPPPM@A@EAA_NPEAUtagCOMPOSITION_TARGET_STATS@@@Z.c)
+ * Callees:
+ *     ?GetPresentStats@CTargetStats@@QEBAXPEAVIOverlaySwapChain@@PEAUtagCOMPOSITION_STATS@@@Z @ 0x1801E4498 (-GetPresentStats@CTargetStats@@QEBAXPEAVIOverlaySwapChain@@PEAUtagCOMPOSITION_STATS@@@Z.c)
+ *     ?GetPresentTime@CTargetStats@@QEBA_KXZ @ 0x1801E4550 (-GetPresentTime@CTargetStats@@QEBA_KXZ.c)
+ *     ?Update@CTargetStats@@QEAA_N_KPEAVIOverlaySwapChain@@@Z @ 0x1801E4C60 (-Update@CTargetStats@@QEAA_N_KPEAVIOverlaySwapChain@@@Z.c)
+ */
+
 char __fastcall CDDisplayRenderTarget::GetStats(
         struct IOverlaySwapChain **this,
         struct tagCOMPOSITION_TARGET_STATS *a2)

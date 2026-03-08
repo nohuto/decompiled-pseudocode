@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcIsThereDirtyDataHelper @ 0x14039B220
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall CcIsThereDirtyDataHelper(__int64 a1, __int64 a2, __int64 a3)
 {
   KSPIN_LOCK *v3; // r13

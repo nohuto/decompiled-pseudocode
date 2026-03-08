@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Validate@EDID_PARSER@MonDescParser@@QEBAJ_N@Z @ 0x1C00114B0
+ * Callers:
+ *     ?Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z @ 0x1C0011258 (-Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z.c)
+ *     ?EDIDV1_FillProductIdManufacturerName@@YAJPEBEPEAG1@Z @ 0x1C00112B4 (-EDIDV1_FillProductIdManufacturerName@@YAJPEBEPEAG1@Z.c)
+ *     ?EDIDV1_ObtainDisplayConfigFriendlyName@@YAJPEBEPEAG@Z @ 0x1C0011344 (-EDIDV1_ObtainDisplayConfigFriendlyName@@YAJPEBEPEAG@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MonDescParser::EDID_PARSER::Validate(MonDescParser::EDID_PARSER *this)
 {
   __int64 v1; // rax

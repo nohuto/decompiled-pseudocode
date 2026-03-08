@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnprInitializeMappingReserve @ 0x140963304
+ * Callers:
+ *     PnprAllocateMappingReserves @ 0x140962974 (PnprAllocateMappingReserves.c)
+ * Callees:
+ *     IoAllocateMdl @ 0x14020CAD0 (IoAllocateMdl.c)
+ *     MmAllocateMappingAddressEx @ 0x140869D20 (MmAllocateMappingAddressEx.c)
+ *     MmFreeMappingAddress @ 0x14086B720 (MmFreeMappingAddress.c)
+ */
+
 __int64 __fastcall PnprInitializeMappingReserve(__int16 a1, __int64 a2)
 {
   unsigned int v4; // esi

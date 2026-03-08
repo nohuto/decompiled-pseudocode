@@ -1,3 +1,24 @@
+/*
+ * XREFs of KiCalibrateTimeAdjustment @ 0x140A9BEC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KeInsertQueueDpc @ 0x140230290 (KeInsertQueueDpc.c)
+ *     KiSelectActiveTimerTable @ 0x1402521A0 (KiSelectActiveTimerTable.c)
+ *     KeRemoveQueueDpc @ 0x14028DB30 (KeRemoveQueueDpc.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     RtlWriteReleaseTickLock @ 0x14037E0E0 (RtlWriteReleaseTickLock.c)
+ *     KiUpdateSystemTime @ 0x1403BB568 (KiUpdateSystemTime.c)
+ *     RtlWriteAcquireTickLock @ 0x1403BB750 (RtlWriteAcquireTickLock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HalCalibratePerformanceCounter @ 0x1404FC150 (HalCalibratePerformanceCounter.c)
+ *     KeRebaselineInterruptTime @ 0x140568AAC (KeRebaselineInterruptTime.c)
+ *     RtlEnlargedUnsignedDivide @ 0x14056AD74 (RtlEnlargedUnsignedDivide.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiPollFreezeExecution @ 0x1405746E0 (KiPollFreezeExecution.c)
+ */
+
 void __fastcall KiCalibrateTimeAdjustment(ULONG_PTR Argument)
 {
   struct _KPRCB *CurrentPrcb; // r14

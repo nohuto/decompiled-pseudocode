@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoCreateStreamFileObjectEx @ 0x140872AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoCreateStreamFileObjectEx2 @ 0x1406B5020 (IoCreateStreamFileObjectEx2.c)
+ */
+
 PFILE_OBJECT __stdcall IoCreateStreamFileObjectEx(
         PFILE_OBJECT FileObject,
         PDEVICE_OBJECT DeviceObject,

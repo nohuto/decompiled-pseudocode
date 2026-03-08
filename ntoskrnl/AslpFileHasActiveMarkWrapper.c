@@ -1,3 +1,11 @@
+/*
+ * XREFs of AslpFileHasActiveMarkWrapper @ 0x140A561C4
+ * Callers:
+ *     AslpFileGetExeWrapper @ 0x140A55740 (AslpFileGetExeWrapper.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ */
+
 __int64 __fastcall AslpFileHasActiveMarkWrapper(_DWORD *a1, __int64 a2, __int64 a3)
 {
   unsigned int v4; // ebx

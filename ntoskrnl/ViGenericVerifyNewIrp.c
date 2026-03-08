@@ -1,3 +1,15 @@
+/*
+ * XREFs of ViGenericVerifyNewIrp @ 0x140AC0390
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlStringCbPrintfA @ 0x140380B18 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     VfUtilDbgPrint @ 0x1405CBEB4 (VfUtilDbgPrint.c)
+ *     ViErrorDisplayDescription @ 0x140AD06D0 (ViErrorDisplayDescription.c)
+ *     ViErrorFinishReport @ 0x140AD0724 (ViErrorFinishReport.c)
+ */
+
 void __fastcall ViGenericVerifyNewIrp(__int64 a1, __int64 a2, __int64 a3, __int64 a4, const void *a5)
 {
   __int64 v7; // rcx

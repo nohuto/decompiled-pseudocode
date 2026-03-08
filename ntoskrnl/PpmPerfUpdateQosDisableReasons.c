@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmPerfUpdateQosDisableReasons @ 0x1402D1A88
+ * Callers:
+ *     PpmCheckPausePpmEngineForSx @ 0x140593EFC (PpmCheckPausePpmEngineForSx.c)
+ *     PpmCheckResumePpmEngineFromSx @ 0x140593F40 (PpmCheckResumePpmEngineFromSx.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x14075DE18 (PpmPerfUpdateDomainPolicy.c)
+ *     PpmPerfTelemetryWorker @ 0x140880450 (PpmPerfTelemetryWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PpmPerfUpdateQosDisableReasons(int *a1)
 {
   char v1; // dl

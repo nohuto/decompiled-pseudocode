@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiAdjustFaultList @ 0x1402E0A34
+ * Callers:
+ *     MiDispatchFault @ 0x14026A900 (MiDispatchFault.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MiAdjustFaultList(_QWORD *a1)
 {
   _QWORD *v1; // r8

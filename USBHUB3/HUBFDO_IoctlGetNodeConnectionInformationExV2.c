@@ -1,3 +1,20 @@
+/*
+ * XREFs of HUBFDO_IoctlGetNodeConnectionInformationExV2 @ 0x1C007B55C
+ * Callers:
+ *     HUBFDO_EvtIoDeviceControl @ 0x1C007C520 (HUBFDO_EvtIoDeviceControl.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000CE90 (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     HUBMISC_IsDeviceSuperSpeedPlusCapableOrHigher @ 0x1C0030E9C (HUBMISC_IsDeviceSuperSpeedPlusCapableOrHigher.c)
+ *     HUBMISC_IsDeviceOperatingAtSuperSpeedPlusOrHigher @ 0x1C0030EE0 (HUBMISC_IsDeviceOperatingAtSuperSpeedPlusOrHigher.c)
+ *     HUBMISC_GetActivityIdIrp @ 0x1C0033758 (HUBMISC_GetActivityIdIrp.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ *     HUBFDO_IoctlValidateParameters @ 0x1C00796AC (HUBFDO_IoctlValidateParameters.c)
+ */
+
 __int64 __fastcall HUBFDO_IoctlGetNodeConnectionInformationExV2(
         __int64 a1,
         __int64 a2,

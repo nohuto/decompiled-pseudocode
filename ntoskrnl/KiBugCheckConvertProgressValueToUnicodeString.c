@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiBugCheckConvertProgressValueToUnicodeString @ 0x140567298
+ * Callers:
+ *     KiBugCheckProgress @ 0x140567430 (KiBugCheckProgress.c)
+ * Callees:
+ *     <none>
+ */
+
 __int16 __fastcall KiBugCheckConvertProgressValueToUnicodeString(unsigned int a1, __int64 a2)
 {
   __int64 v2; // rsi

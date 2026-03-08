@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$move_uninitialized@PEAUSinkRenderParameters@CCpuClipAntialiasSinkContext@@PEAU12@@detail@@YA?A_PPEAUSinkRenderParameters@CCpuClipAntialiasSinkContext@@00@Z @ 0x1801FB8F0
+ * Callers:
+ *     ??$swap_helper@$09@?$expandable_buffer_base@USinkRenderParameters@CCpuClipAntialiasSinkContext@@$09@detail@@QEAA_NAEAV01@@Z @ 0x1801FBAE8 (--$swap_helper@$09@-$expandable_buffer_base@USinkRenderParameters@CCpuClipAntialiasSinkContext@@.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall detail::move_uninitialized<CCpuClipAntialiasSinkContext::SinkRenderParameters *,CCpuClipAntialiasSinkContext::SinkRenderParameters *>(
         __int64 a1,
         __int64 a2,

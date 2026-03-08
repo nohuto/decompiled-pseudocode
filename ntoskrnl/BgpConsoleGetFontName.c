@@ -1,3 +1,11 @@
+/*
+ * XREFs of BgpConsoleGetFontName @ 0x140B9A090
+ * Callers:
+ *     BgpConsoleInitialize @ 0x140AEB6E0 (BgpConsoleInitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 const wchar_t *__fastcall BgpConsoleGetFontName(int a1, const wchar_t **a2)
 {
   const wchar_t *result; // rax

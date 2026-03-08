@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopQueryEnvironmentVariableInfoTrEE @ 0x14094E2E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IopIssueTrEERequest @ 0x140559560 (IopIssueTrEERequest.c)
+ *     IopEfiStatusToNTSTATUS @ 0x14094D674 (IopEfiStatusToNTSTATUS.c)
+ */
+
 __int64 __fastcall IopQueryEnvironmentVariableInfoTrEE(__int64 a1, __int64 a2, int a3, _QWORD *a4, _OWORD *a5)
 {
   int v6; // edx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhValidateMsOs20CompatibleId @ 0x1C00527D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 char __fastcall UsbhValidateMsOs20CompatibleId(__int64 a1, __int64 a2, _WORD *a3)
 {
   char result; // al

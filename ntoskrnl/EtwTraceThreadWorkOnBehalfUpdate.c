@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwTraceThreadWorkOnBehalfUpdate @ 0x140231900
+ * Callers:
+ *     PsImpersonateContainerOfThread @ 0x140225F60 (PsImpersonateContainerOfThread.c)
+ *     PspRevertContainerImpersonation @ 0x140248164 (PspRevertContainerImpersonation.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x140316BE0 (NtWaitForWorkViaWorkerFactory.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwpLevelKeywordEnabled @ 0x140231970 (EtwpLevelKeywordEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall EtwTraceThreadWorkOnBehalfUpdate(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdx

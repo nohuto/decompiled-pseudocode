@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpQuerySecurityDescriptor @ 0x14074E794
+ * Callers:
+ *     RtlMakeSelfRelativeSD @ 0x14074E624 (RtlMakeSelfRelativeSD.c)
+ *     RtlSelfRelativeToAbsoluteSD @ 0x14086FDF0 (RtlSelfRelativeToAbsoluteSD.c)
+ *     RtlSelfRelativeToAbsoluteSD2 @ 0x1409B7DD0 (RtlSelfRelativeToAbsoluteSD2.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned int *__fastcall RtlpQuerySecurityDescriptor(
         __int64 a1,
         _QWORD *a2,

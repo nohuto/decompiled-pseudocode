@@ -1,3 +1,14 @@
+/*
+ * XREFs of HvipApertureDetectParameters @ 0x1405B38F0
+ * Callers:
+ *     HviEnterKernelAperture @ 0x1405B3844 (HviEnterKernelAperture.c)
+ * Callees:
+ *     HviGetHypervisorFeatures @ 0x14037F8A0 (HviGetHypervisorFeatures.c)
+ *     HviIsHypervisorVendorMicrosoft @ 0x14037FCF0 (HviIsHypervisorVendorMicrosoft.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HviGetHardwareFeatures @ 0x140612F60 (HviGetHardwareFeatures.c)
+ */
+
 char HvipApertureDetectParameters()
 {
   bool v5; // di

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?AcquireEntryLock@GdiHandleEntryTable@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C004AAC0
+ * Callers:
+ *     NtGdiDeleteObjectApp @ 0x1C0047D20 (NtGdiDeleteObjectApp.c)
+ *     GreGetBounds @ 0x1C004D5B0 (GreGetBounds.c)
+ *     GreGetDCPoint @ 0x1C0053880 (GreGetDCPoint.c)
+ *     HmgMarkLazyDelete @ 0x1C00A3410 (HmgMarkLazyDelete.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _ENTRY *__fastcall GdiHandleEntryTable::AcquireEntryLock(GdiHandleEntryTable *this, unsigned int a2, char a3)
 {
   __int64 v3; // rdi

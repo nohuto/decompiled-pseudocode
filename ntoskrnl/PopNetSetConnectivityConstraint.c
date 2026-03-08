@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopNetSetConnectivityConstraint @ 0x140860708
+ * Callers:
+ *     PopPowerAggregatorEngageAggressiveStandbyActions @ 0x1409906A8 (PopPowerAggregatorEngageAggressiveStandbyActions.c)
+ *     PopNetCompliantNicUpdate @ 0x1409936D4 (PopNetCompliantNicUpdate.c)
+ *     PopNetNonCompliantDeviceUpdate @ 0x140993894 (PopNetNonCompliantDeviceUpdate.c)
+ *     PopNetInitialize @ 0x140B46E8C (PopNetInitialize.c)
+ * Callees:
+ *     PopQueueWorkItem @ 0x1402BCCB4 (PopQueueWorkItem.c)
+ */
+
 char __fastcall PopNetSetConnectivityConstraint(int a1)
 {
   bool v1; // r8

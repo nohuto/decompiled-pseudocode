@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?MilPfToWic@@YAJW4Enum@MilPixelFormat@@PEAU_GUID@@@Z @ 0x18027E790
+ * Callers:
+ *     ?GetPixelFormat@CBitmap@@UEAAJPEAU_GUID@@@Z @ 0x18027E0E0 (-GetPixelFormat@CBitmap@@UEAAJPEAU_GUID@@@Z.c)
+ *     ?GetPixelFormat@CBitmapLock@@UEAAJPEAU_GUID@@@Z @ 0x18027EAD0 (-GetPixelFormat@CBitmapLock@@UEAAJPEAU_GUID@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MilPfToWic(int a1, GUID *a2)
 {
   GUID v2; // xmm0

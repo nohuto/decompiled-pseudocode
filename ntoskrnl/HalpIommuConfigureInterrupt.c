@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpIommuConfigureInterrupt @ 0x1403A4968
+ * Callers:
+ *     HalpIommuInitializeAll @ 0x140A8DA7C (HalpIommuInitializeAll.c)
+ * Callees:
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402A9460 (KeFindFirstSetRightGroupAffinity.c)
+ *     HalpInterruptRemap @ 0x140378D78 (HalpInterruptRemap.c)
+ *     HalpInterruptGenerateMessage @ 0x1403799C4 (HalpInterruptGenerateMessage.c)
+ *     HalpInterruptIsMsiSupported @ 0x14037D4DC (HalpInterruptIsMsiSupported.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpIommuSetupMessageInterruptRouting @ 0x140A8DD50 (HalpIommuSetupMessageInterruptRouting.c)
+ */
+
 __int64 __fastcall HalpIommuConfigureInterrupt(__int64 a1, int a2, __int128 *a3)
 {
   __int128 v6; // xmm0

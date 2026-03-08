@@ -1,3 +1,13 @@
+/*
+ * XREFs of _CmSetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140A66AD8
+ * Callers:
+ *     _CmSetDeviceMappedProperty @ 0x14076C5D4 (_CmSetDeviceMappedProperty.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _CmOpenDeviceRegKey @ 0x1406D3B3C (_CmOpenDeviceRegKey.c)
+ *     _RegRtlSetValue @ 0x140784FE4 (_RegRtlSetValue.c)
+ */
+
 __int64 __fastcall CmSetDeviceMappedPropertyFromInstanceKeyRegValue(
         __int64 a1,
         __int64 a2,

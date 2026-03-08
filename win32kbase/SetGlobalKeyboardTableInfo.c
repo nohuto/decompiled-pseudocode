@@ -1,3 +1,13 @@
+/*
+ * XREFs of SetGlobalKeyboardTableInfo @ 0x1C0085F08
+ * Callers:
+ *     ?xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_INTERNAL@@PEBGII@Z @ 0x1C0085310 (-xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_IN.c)
+ *     xxxChangeForegroundKeyboardTable @ 0x1C00C7730 (xxxChangeForegroundKeyboardTable.c)
+ *     ?SearchAndSetKbdTbl@@YAXPEAUDEVICEINFO@@KK@Z @ 0x1C0214018 (-SearchAndSetKbdTbl@@YAXPEAUDEVICEINFO@@KK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SetGlobalKeyboardTableInfo(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetInstanceId@@YAJU_UNICODE_STRING@@PEAPEAG1@Z @ 0x1C01A5864
+ * Callers:
+ *     ?GetTiltKeyName@@YAJU_UNICODE_STRING@@PEAPEAGH@Z @ 0x1C01A590C (-GetTiltKeyName@@YAJU_UNICODE_STRING@@PEAPEAGH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetInstanceId(struct _UNICODE_STRING *a1, unsigned __int16 **a2, unsigned __int16 **a3)
 {
   const wchar_t *Buffer; // rcx

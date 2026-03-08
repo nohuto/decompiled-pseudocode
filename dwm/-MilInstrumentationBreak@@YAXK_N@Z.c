@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?MilInstrumentationBreak@@YAXK_N@Z @ 0x14000E39C
+ * Callers:
+ *     ?MilInstrumentationHandleFailure_MaybeFailFast@@YAXJKIPEAX@Z @ 0x14000E1AC (-MilInstrumentationHandleFailure_MaybeFailFast@@YAXJKIPEAX@Z.c)
+ * Callees:
+ *     ?IsKernelDebuggerEnabled@@YAHXZ @ 0x14000E2D0 (-IsKernelDebuggerEnabled@@YAHXZ.c)
+ *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x14000E328 (-IsKernelDebuggerPresent@@YAHXZ.c)
+ *     ?RegGetHKLMDword@@YA_NQEBG0PEAK@Z @ 0x14000E654 (-RegGetHKLMDword@@YA_NQEBG0PEAK@Z.c)
+ */
+
 void __fastcall MilInstrumentationBreak(const unsigned __int16 *a1, const unsigned __int16 *a2)
 {
   char v2; // bl

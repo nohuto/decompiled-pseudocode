@@ -1,3 +1,14 @@
+/*
+ * XREFs of RIMActivatePointerDeviceDeadzone @ 0x1C01AA570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?Activate@RIMDeadzone@@QEAAJH@Z @ 0x1C01C8C54 (-Activate@RIMDeadzone@@QEAAJH@Z.c)
+ *     ?ActivateTelemetrySession@RIMDeadzone@@QEAAXH@Z @ 0x1C01C8CB8 (-ActivateTelemetrySession@RIMDeadzone@@QEAAXH@Z.c)
+ */
+
 __int64 __fastcall RIMActivatePointerDeviceDeadzone(__int64 a1, unsigned int a2, int a3)
 {
   int v3; // ebp

@@ -1,3 +1,18 @@
+/*
+ * XREFs of PiInitializeDDB @ 0x14079CD80
+ * Callers:
+ *     PiLookupInDDB @ 0x14079DE5C (PiLookupInDDB.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x140412810 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x140412850 (ZwUnmapViewOfSection.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     ZwCreateSection @ 0x140412C50 (ZwCreateSection.c)
+ *     SdbInitDatabaseInMemory @ 0x14079CFC8 (SdbInitDatabaseInMemory.c)
+ *     PnpLogEvent @ 0x140955B40 (PnpLogEvent.c)
+ */
+
 __int64 __fastcall PiInitializeDDB(PCWSTR SourceString, char a2, __int64 a3)
 {
   NTSTATUS v5; // ebx

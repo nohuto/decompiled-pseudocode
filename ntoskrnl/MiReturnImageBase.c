@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiReturnImageBase @ 0x1407C8860
+ * Callers:
+ *     MiCheckControlArea @ 0x140334D00 (MiCheckControlArea.c)
+ *     MiRelocateImageAgain @ 0x1406A160C (MiRelocateImageAgain.c)
+ *     MiFreeRelocations @ 0x140A45458 (MiFreeRelocations.c)
+ * Callees:
+ *     MiGetImageBitMapInfo @ 0x14020AF24 (MiGetImageBitMapInfo.c)
+ *     RtlClearBitsEx @ 0x14020FC50 (RtlClearBitsEx.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiZeroCfgSystemWideBitmap @ 0x1402DD8F8 (MiZeroCfgSystemWideBitmap.c)
+ *     MiReturnSystemImageAddress @ 0x1407F7768 (MiReturnSystemImageAddress.c)
+ */
+
 char __fastcall MiReturnImageBase(__int64 a1)
 {
   $C71981A45BEB2B45F82C232A7085991E *v1; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ViThunkFindAllSpecialTables @ 0x140AD8890
+ * Callers:
+ *     VfThunkApplyDriverAddedThunks @ 0x140AD8160 (VfThunkApplyDriverAddedThunks.c)
+ *     ViThunkReplaceAllThunkedImports @ 0x140AD8EC8 (ViThunkReplaceAllThunkedImports.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ViThunkFindNextSpecialTable @ 0x140AD8A68 (ViThunkFindNextSpecialTable.c)
+ */
+
 _QWORD *__fastcall ViThunkFindAllSpecialTables(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebp

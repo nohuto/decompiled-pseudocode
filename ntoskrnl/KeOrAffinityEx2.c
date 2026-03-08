@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeOrAffinityEx2 @ 0x14056CE80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiOrAffinityEx @ 0x14022B190 (KiOrAffinityEx.c)
+ */
+
 __int64 __fastcall KeOrAffinityEx2(char *a1, _WORD *a2, __int64 a3)
 {
   unsigned __int16 v3; // ax

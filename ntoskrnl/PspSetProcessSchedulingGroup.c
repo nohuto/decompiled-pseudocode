@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspSetProcessSchedulingGroup @ 0x1407DCF7C
+ * Callers:
+ *     PspApplyJobChainLimitsToProcess @ 0x1406FF27C (PspApplyJobChainLimitsToProcess.c)
+ *     PspSetCpuRateControlJobPostCallback @ 0x1407DCFE0 (PspSetCpuRateControlJobPostCallback.c)
+ * Callees:
+ *     KeSetProcessSchedulingGroup @ 0x1403556A4 (KeSetProcessSchedulingGroup.c)
+ */
+
 __int64 __fastcall PspSetProcessSchedulingGroup(__int64 a1, __int64 a2)
 {
   int v4; // esi

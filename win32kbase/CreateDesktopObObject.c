@@ -1,3 +1,11 @@
+/*
+ * XREFs of CreateDesktopObObject @ 0x1C00C28E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 __fastcall CreateDesktopObObject(__int64 a1, void *a2, __int64 a3, void **a4)
 {
   void **v5; // rsi

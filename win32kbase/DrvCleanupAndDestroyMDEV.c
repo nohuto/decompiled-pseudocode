@@ -1,3 +1,15 @@
+/*
+ * XREFs of DrvCleanupAndDestroyMDEV @ 0x1C00B61F4
+ * Callers:
+ *     CleanupGDI @ 0x1C00B57A0 (CleanupGDI.c)
+ * Callees:
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0049800 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0049E20 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EngAcquireSemaphore @ 0x1C004B690 (EngAcquireSemaphore.c)
+ *     MultiUserCleanupDCs @ 0x1C00B637C (MultiUserCleanupDCs.c)
+ *     DrvDestroyMDEV @ 0x1C00B6450 (DrvDestroyMDEV.c)
+ */
+
 __int64 __fastcall DrvCleanupAndDestroyMDEV(__int64 a1)
 {
   __int64 v2; // rcx

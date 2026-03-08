@@ -1,3 +1,12 @@
+/*
+ * XREFs of Controller_PopulateDeviceFlagsFromACPI @ 0x1C0073C40
+ * Callers:
+ *     Controller_PopulateDeviceFlags @ 0x1C00738B4 (Controller_PopulateDeviceFlags.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     Controller_ExecuteDSM @ 0x1C006E4A4 (Controller_ExecuteDSM.c)
+ */
+
 __int64 __fastcall Controller_PopulateDeviceFlagsFromACPI(__int64 a1)
 {
   int v2; // edx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bCleanupPFT@PUBLIC_PFTOBJ@@QEAAXW4eCleanupMode@1@PEAK@Z @ 0x1C00D0D34
+ * Callers:
+ *     ?RegistryNotificaionEnumerationEnd@@YAXPEAK@Z @ 0x1C00D0C74 (-RegistryNotificaionEnumerationEnd@@YAXPEAK@Z.c)
+ *     vCleanupPrivateFonts @ 0x1C0118D80 (vCleanupPrivateFonts.c)
+ * Callees:
+ *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C01181FC (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 int __fastcall PUBLIC_PFTOBJ::bCleanupPFT(PFTOBJ *a1, int a2, _DWORD *a3)
 {
   _UNKNOWN **v3; // rax

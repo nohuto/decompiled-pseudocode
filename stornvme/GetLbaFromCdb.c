@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetLbaFromCdb @ 0x1C0012AD0
+ * Callers:
+ *     MdlToPrp @ 0x1C0001570 (MdlToPrp.c)
+ *     BuildReadWriteCommand @ 0x1C0010FC4 (BuildReadWriteCommand.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetLbaFromCdb(_BYTE *a1, int a2)
 {
   char v2; // al

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?StateFlags@PDEVOBJ@@QEBAKXZ @ 0x1C0271B50
+ * Callers:
+ *     DxgkEngDetectGDIPath @ 0x1C0272670 (DxgkEngDetectGDIPath.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PDEVOBJ::StateFlags(PDEVOBJ *this)
 {
   __int64 v1; // rdx

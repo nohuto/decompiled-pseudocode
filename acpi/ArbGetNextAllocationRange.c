@@ -1,3 +1,11 @@
+/*
+ * XREFs of ArbGetNextAllocationRange @ 0x1C00A1A10
+ * Callers:
+ *     IrqArbGetNextAllocationRange @ 0x1C009D3B0 (IrqArbGetNextAllocationRange.c)
+ * Callees:
+ *     ArbpUpdatePriority @ 0x1C00A3098 (ArbpUpdatePriority.c)
+ */
+
 char __fastcall ArbGetNextAllocationRange(__int64 a1, __int64 a2)
 {
   __int64 v4; // rdx

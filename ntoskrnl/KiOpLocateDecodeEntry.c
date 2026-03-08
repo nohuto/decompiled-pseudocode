@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiOpLocateDecodeEntry @ 0x140362034
+ * Callers:
+ *     KiOpDecode @ 0x140361E00 (KiOpDecode.c)
+ * Callees:
+ *     KiOpFetchNextByte @ 0x140361F68 (KiOpFetchNextByte.c)
+ */
+
 __int64 __fastcall KiOpLocateDecodeEntry(__int64 a1)
 {
   __int64 *v2; // rbp

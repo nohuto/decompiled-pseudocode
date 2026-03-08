@@ -1,3 +1,12 @@
+/*
+ * XREFs of LogOp2_64 @ 0x1C00576E4
+ * Callers:
+ *     LogOp2 @ 0x1C00572D0 (LogOp2.c)
+ * Callees:
+ *     IsCompatableDSDTRevision @ 0x1C004BE28 (IsCompatableDSDTRevision.c)
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ */
+
 __int64 __fastcall LogOp2_64(__int64 a1, _QWORD *a2)
 {
   unsigned __int64 v2; // rbx

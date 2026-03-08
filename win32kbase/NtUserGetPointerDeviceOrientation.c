@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserGetPointerDeviceOrientation @ 0x1C01705C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ *     _anonymous_namespace_::GetMouseProcessor @ 0x1C0079E3C (_anonymous_namespace_--GetMouseProcessor.c)
+ *     ResolveMouseOrPointerDevice @ 0x1C00CA750 (ResolveMouseOrPointerDevice.c)
+ */
+
 __int64 __fastcall NtUserGetPointerDeviceOrientation(__int64 a1, _DWORD *a2, __int64 a3, __int64 a4)
 {
   _DWORD *v4; // r14

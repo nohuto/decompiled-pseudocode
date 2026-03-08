@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpTimerMeasureFrequencies @ 0x140376B78
+ * Callers:
+ *     HalpTimerSelectRoles @ 0x140376F4C (HalpTimerSelectRoles.c)
+ * Callees:
+ *     KeStallExecutionProcessor @ 0x14022B710 (KeStallExecutionProcessor.c)
+ *     HalpTimerStallExecutionProcessor @ 0x14022CA90 (HalpTimerStallExecutionProcessor.c)
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     HalpTimerReadTimerPairWithLatencyLimit @ 0x140376E70 (HalpTimerReadTimerPairWithLatencyLimit.c)
+ *     HalpTimerInitialize @ 0x140377220 (HalpTimerInitialize.c)
+ *     HalpTimerDetermineValidTimerPairReadLatency @ 0x140377478 (HalpTimerDetermineValidTimerPairReadLatency.c)
+ *     HalpTimerScaleCounter @ 0x1403BE604 (HalpTimerScaleCounter.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __fastcall HalpTimerMeasureFrequencies(__int64 a1, __int64 a2)
 {
   ULONG_PTR *v2; // rbx

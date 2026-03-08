@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpHpLfhSubsegmentFindEmptyUnits @ 0x14030A5A0
+ * Callers:
+ *     RtlpHpLfhSubsegmentFree @ 0x1402EB198 (RtlpHpLfhSubsegmentFree.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x14030A210 (RtlpHpLfhSubsegmentDecommitPages.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpHpLfhSubsegmentFindEmptyUnits(__int64 a1, unsigned int a2, _DWORD *a3)
 {
   __int64 v3; // r11

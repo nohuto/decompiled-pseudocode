@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?pAllocateAndInitializePFT@@YAPEAVPFT@@I@Z @ 0x1C00ECA6C
+ * Callers:
+ *     ?bInitPrivatePFT@@YAHXZ @ 0x1C026D728 (-bInitPrivatePFT@@YAHXZ.c)
+ *     bInitFontTables @ 0x1C03B7A90 (bInitFontTables.c)
+ * Callees:
+ *     <none>
+ */
+
 struct PFT *__fastcall pAllocateAndInitializePFT(int a1)
 {
   struct PFT *result; // rax

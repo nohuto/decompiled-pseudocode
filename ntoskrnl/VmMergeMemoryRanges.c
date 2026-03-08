@@ -1,3 +1,15 @@
+/*
+ * XREFs of VmMergeMemoryRanges @ 0x1409D99D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     VmpMergeMemoryRanges @ 0x1405F7BB4 (VmpMergeMemoryRanges.c)
+ */
+
 __int64 __fastcall VmMergeMemoryRanges(unsigned __int64 a1, __int64 a2)
 {
   unsigned __int64 v4; // rbp

@@ -1,3 +1,16 @@
+/*
+ * XREFs of HvlpMapStatisticsPage @ 0x14053EE40
+ * Callers:
+ *     HvlPhase1Initialize @ 0x140384654 (HvlPhase1Initialize.c)
+ *     HvlpEnableNextLogicalProcessor @ 0x14053E9B4 (HvlpEnableNextLogicalProcessor.c)
+ *     HvlpInitializeBootProcessor @ 0x14053ECAC (HvlpInitializeBootProcessor.c)
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 __int64 __fastcall HvlpMapStatisticsPage(ULONG a1, _OWORD *a2, _QWORD *a3)
 {
   PHYSICAL_ADDRESS *v6; // rbx

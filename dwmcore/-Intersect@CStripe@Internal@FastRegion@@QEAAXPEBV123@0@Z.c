@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Intersect@CStripe@Internal@FastRegion@@QEAAXPEBV123@0@Z @ 0x180048164
+ * Callers:
+ *     ?Intersect@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z @ 0x180047F68 (-Intersect@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FastRegion::Internal::CStripe::Intersect(
         FastRegion::Internal::CStripe *this,
         const struct FastRegion::Internal::CStripe *a2,

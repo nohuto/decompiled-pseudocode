@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchIsFlipQueueDeviceOwner @ 0x1C0107C20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall VidSchIsFlipQueueDeviceOwner(__int64 a1, unsigned int a2, __int64 a3)
 {
   struct _ERESOURCE *v3; // rsi

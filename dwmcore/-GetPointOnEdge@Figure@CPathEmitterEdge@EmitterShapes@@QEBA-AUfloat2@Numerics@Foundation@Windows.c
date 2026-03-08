@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPointOnEdge@Figure@CPathEmitterEdge@EmitterShapes@@QEBA?AUfloat2@Numerics@Foundation@Windows@@MM@Z @ 0x1802668B8
+ * Callers:
+ *     ?GetPointOnEdge@CPathEmitterEdge@EmitterShapes@@QEBA?AUfloat2@Numerics@Foundation@Windows@@MM@Z @ 0x18026685C (-GetPointOnEdge@CPathEmitterEdge@EmitterShapes@@QEBA-AUfloat2@Numerics@Foundation@Windows@@MM@Z.c)
+ * Callees:
+ *     EmitterShapes::GetPointOnLine @ 0x180266980 (EmitterShapes--GetPointOnLine.c)
+ */
+
 _DWORD *__fastcall EmitterShapes::CPathEmitterEdge::Figure::GetPointOnEdge(char **a1, _DWORD *a2, float a3, float a4)
 {
   float v5; // xmm4_4

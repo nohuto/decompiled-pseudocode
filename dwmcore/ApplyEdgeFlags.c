@@ -1,3 +1,14 @@
+/*
+ * XREFs of ApplyEdgeFlags @ 0x1801FCAE8
+ * Callers:
+ *     ?EmitGeometry@CWARPDrawListEntry@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCommand@@@Z @ 0x1801FCC70 (-EmitGeometry@CWARPDrawListEntry@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCommand.c)
+ * Callees:
+ *     ApplyEdgeFlagsWorker_3_1_2_ @ 0x1801FC710 (ApplyEdgeFlagsWorker_3_1_2_.c)
+ *     ApplyEdgeFlagsWorker_768_256_512_ @ 0x1801FC754 (ApplyEdgeFlagsWorker_768_256_512_.c)
+ *     ApplyEdgeFlagsWorker_196608_65536_131072_ @ 0x1801FC7A0 (ApplyEdgeFlagsWorker_196608_65536_131072_.c)
+ *     ApplyEdgeFlagsWorker_50331648_16777216_33554432_ @ 0x1801FC7EC (ApplyEdgeFlagsWorker_50331648_16777216_33554432_.c)
+ */
+
 void __fastcall ApplyEdgeFlags(float *a1, int a2)
 {
   float v2; // xmm0_4

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$InitLookAsideRef@UtagPOPUPMENU@@@@YAEPEAUtagPOPUPMENU@@@Z @ 0x1C02011E8
+ * Callers:
+ *     MNAllocPopup @ 0x1C0201DA8 (MNAllocPopup.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall InitLookAsideRef<tagPOPUPMENU>(__int64 a1)
 {
   _QWORD *v2; // rax

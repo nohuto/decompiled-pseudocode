@@ -1,3 +1,11 @@
+/*
+ * XREFs of WmipFindGuid @ 0x140793CEC
+ * Callers:
+ *     IoWMISystemControl @ 0x1407939D4 (IoWMISystemControl.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall WmipFindGuid(__int64 a1, unsigned int a2, _QWORD *a3, _DWORD *a4, _DWORD *a5)
 {
   __int64 v5; // r10

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PackTouchpadSettings @ 0x1C0219048
+ * Callers:
+ *     ?SendSettingsUpdateToContainer@Settings@IVRootDeliver@@YAXAEBUCONTAINER_ID@@@Z @ 0x1C02192C4 (-SendSettingsUpdateToContainer@Settings@IVRootDeliver@@YAXAEBUCONTAINER_ID@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 _DWORD *__fastcall PackTouchpadSettings(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _DWORD *v4; // rbx

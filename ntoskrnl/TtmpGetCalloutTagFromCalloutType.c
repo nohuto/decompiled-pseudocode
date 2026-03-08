@@ -1,3 +1,12 @@
+/*
+ * XREFs of TtmpGetCalloutTagFromCalloutType @ 0x1409A0714
+ * Callers:
+ *     TtmpStartCallout @ 0x1409A0CA0 (TtmpStartCallout.c)
+ *     TtmpStopCallout @ 0x1409A0D8C (TtmpStopCallout.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TtmpGetCalloutTagFromCalloutType(int a1)
 {
   int v1; // ecx

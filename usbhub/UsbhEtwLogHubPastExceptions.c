@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhEtwLogHubPastExceptions @ 0x1C005BB74
+ * Callers:
+ *     UsbhEtwRundown @ 0x1C005BED0 (UsbhEtwRundown.c)
+ * Callees:
+ *     UsbhEtwWrite @ 0x1C0009AC0 (UsbhEtwWrite.c)
+ *     UsbhEtwGetHubInfo @ 0x1C0021B60 (UsbhEtwGetHubInfo.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     UsbhGetExceptionDispatch @ 0x1C004B0F4 (UsbhGetExceptionDispatch.c)
+ */
+
 void __fastcall UsbhEtwLogHubPastExceptions(__int64 a1)
 {
   __int64 v2; // rbx

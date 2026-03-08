@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreConsoleShadowStop @ 0x1C02DEBE4
+ * Callers:
+ *     xxxRemoteConsoleShadowStop @ 0x1C0206924 (xxxRemoteConsoleShadowStop.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GreConsoleShadowStop(_QWORD *a1)
 {
   _QWORD *v2; // rdx

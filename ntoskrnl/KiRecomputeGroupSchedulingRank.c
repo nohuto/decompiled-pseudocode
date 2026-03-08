@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiRecomputeGroupSchedulingRank @ 0x1402AF340
+ * Callers:
+ *     KiQueueReadyThread @ 0x140257C00 (KiQueueReadyThread.c)
+ *     KiSwapThread @ 0x14025F500 (KiSwapThread.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1402AB8A8 (KiGroupSchedulingQuantumEnd.c)
+ * Callees:
+ *     KiChargeSchedulingGroupCycleTime @ 0x1402AB400 (KiChargeSchedulingGroupCycleTime.c)
+ *     KiResortScbQueue @ 0x1402AEDFC (KiResortScbQueue.c)
+ */
+
 void __fastcall KiRecomputeGroupSchedulingRank(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 v6; // r9

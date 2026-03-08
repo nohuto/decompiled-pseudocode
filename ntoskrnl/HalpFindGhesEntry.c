@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpFindGhesEntry @ 0x14037D5E8
+ * Callers:
+ *     HalpGenInitialRead @ 0x140A88528 (HalpGenInitialRead.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall HalpFindGhesEntry(int a1, __int64 **a2)
 {
   __int64 *result; // rax

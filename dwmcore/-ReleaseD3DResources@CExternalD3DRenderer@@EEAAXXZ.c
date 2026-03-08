@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReleaseD3DResources@CExternalD3DRenderer@@EEAAXXZ @ 0x1802849B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CExternalD3DRenderer::ReleaseD3DResources(CExternalD3DRenderer *this)
 {
   __int64 v1; // rdx

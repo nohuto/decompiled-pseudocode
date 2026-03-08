@@ -1,3 +1,13 @@
+/*
+ * XREFs of GreGetStockObject @ 0x1C0041A00
+ * Callers:
+ *     CleanupGDI @ 0x1C00B57A0 (CleanupGDI.c)
+ *     bInitICM @ 0x1C031D1E8 (bInitICM.c)
+ * Callees:
+ *     CaptureAndValidateUserModeDpiAwarenessContext @ 0x1C0041B80 (CaptureAndValidateUserModeDpiAwarenessContext.c)
+ *     GreGetDpiDepDefaultGuiFont @ 0x1C018C110 (GreGetDpiDepDefaultGuiFont.c)
+ */
+
 __int64 __fastcall GreGetStockObject(int a1)
 {
   __int64 v1; // rbx

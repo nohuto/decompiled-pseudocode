@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeRemoveSystemServiceTable @ 0x140970E20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ */
+
 char __fastcall KeRemoveSystemServiceTable(int a1)
 {
   __int64 v3; // rcx

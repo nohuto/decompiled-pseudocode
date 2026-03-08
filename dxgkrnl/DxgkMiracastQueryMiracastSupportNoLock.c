@@ -1,3 +1,11 @@
+/*
+ * XREFs of DxgkMiracastQueryMiracastSupportNoLock @ 0x1C001FE2C
+ * Callers:
+ *     ?AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C020B6D8 (-AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CO.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DxgkMiracastQueryMiracastSupportNoLock(__int64 a1)
 {
   __m128i v1; // xmm0

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?EnsureCachedVisualImage@CVisualBitmap@@AEAAJXZ @ 0x18021BBA4
+ * Callers:
+ *     ?CanUseCVI@CVisualBitmap@@AEAA_NPEAVCDrawingContext@@@Z @ 0x18021BA14 (-CanUseCVI@CVisualBitmap@@AEAA_NPEAVCDrawingContext@@@Z.c)
+ * Callees:
+ *     ??0CCachedVisualImage@@IEAA@PEAVCComposition@@_N@Z @ 0x1800B5BC8 (--0CCachedVisualImage@@IEAA@PEAVCComposition@@_N@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2CCachedVisualImage@@KAPEAX_K@Z @ 0x1800FEF9C (--2CCachedVisualImage@@KAPEAX_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?SetForVisualBitmap@CCachedVisualImage@@IEAAX_N@Z @ 0x18021461C (-SetForVisualBitmap@CCachedVisualImage@@IEAAX_N@Z.c)
+ *     ?SetRootVisual@CCachedVisualImage@@IEAAJPEAVCVisual@@@Z @ 0x180214728 (-SetRootVisual@CCachedVisualImage@@IEAAJPEAVCVisual@@@Z.c)
+ */
+
 __int64 __fastcall CVisualBitmap::EnsureCachedVisualImage(struct CComposition **this)
 {
   unsigned int v1; // edi

@@ -1,3 +1,16 @@
+/*
+ * XREFs of DbgParseOneArg @ 0x1C0059EC4
+ * Callers:
+ *     DbgParseArgs @ 0x1C0059E48 (DbgParseArgs.c)
+ *     DbgParseOneArg @ 0x1C0059EC4 (DbgParseOneArg.c)
+ * Callees:
+ *     _strtoui64_0 @ 0x1C0001A79 (_strtoui64_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     DbgMatchArg @ 0x1C0059D5C (DbgMatchArg.c)
+ *     DbgParseOneArg @ 0x1C0059EC4 (DbgParseOneArg.c)
+ */
+
 __int64 __fastcall DbgParseOneArg(__int64 a1, char *a2, unsigned int a3, _DWORD *a4)
 {
   unsigned int v5; // ebx

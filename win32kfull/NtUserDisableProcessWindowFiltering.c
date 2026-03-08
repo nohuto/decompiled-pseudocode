@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserDisableProcessWindowFiltering @ 0x1C00EEA30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 NtUserDisableProcessWindowFiltering()
 {
   __int64 v0; // rcx

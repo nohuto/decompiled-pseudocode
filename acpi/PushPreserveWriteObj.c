@@ -1,3 +1,11 @@
+/*
+ * XREFs of PushPreserveWriteObj @ 0x1C00526F4
+ * Callers:
+ *     AccessFieldData @ 0x1C0051AD8 (AccessFieldData.c)
+ * Callees:
+ *     PushFrame @ 0x1C0053C34 (PushFrame.c)
+ */
+
 __int64 __fastcall PushPreserveWriteObj(int a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax

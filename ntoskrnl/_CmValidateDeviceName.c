@@ -1,3 +1,23 @@
+/*
+ * XREFs of _CmValidateDeviceName @ 0x1406D3DF0
+ * Callers:
+ *     _CmGetDeviceInterfaceName @ 0x1406C54F8 (_CmGetDeviceInterfaceName.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x1406C6068 (PiCMGetRelatedDeviceInstance.c)
+ *     _PnpDispatchDevice @ 0x1406C8E70 (_PnpDispatchDevice.c)
+ *     _CmGetDeviceRegKeyPath @ 0x1406D3C6C (_CmGetDeviceRegKeyPath.c)
+ *     _CmEnumSubkeyCallback @ 0x1408247A0 (_CmEnumSubkeyCallback.c)
+ *     PiCMCreateDevice @ 0x1409654C0 (PiCMCreateDevice.c)
+ *     PiCMDeleteDevice @ 0x140965ED8 (PiCMDeleteDevice.c)
+ *     PiCMDeviceAction @ 0x14096671C (PiCMDeviceAction.c)
+ *     PiCMGenerateDeviceInstance @ 0x140966C4C (PiCMGenerateDeviceInstance.c)
+ *     PiCMGetDeviceDepth @ 0x140966FB0 (PiCMGetDeviceDepth.c)
+ *     PiCMQueryRemove @ 0x140967304 (PiCMQueryRemove.c)
+ *     PiCMRegisterDeviceInterface @ 0x140967714 (PiCMRegisterDeviceInterface.c)
+ *     PiCMSetDeviceProblem @ 0x1409679A8 (PiCMSetDeviceProblem.c)
+ * Callees:
+ *     RtlUnalignedStringCchLengthW @ 0x140246434 (RtlUnalignedStringCchLengthW.c)
+ */
+
 __int64 __fastcall CmValidateDeviceName(__int64 a1, const wchar_t *a2)
 {
   const wchar_t *v2; // rbx

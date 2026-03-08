@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpAddDockingInfo @ 0x140B50F94
+ * Callers:
+ *     CmpCreateHardwareProfiles @ 0x140B50B04 (CmpCreateHardwareProfiles.c)
+ *     CmpAddAliasEntry @ 0x140B94C88 (CmpAddAliasEntry.c)
+ * Callees:
+ *     NtSetValueKey @ 0x1407A9030 (NtSetValueKey.c)
+ */
+
 __int64 __fastcall CmpAddDockingInfo(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

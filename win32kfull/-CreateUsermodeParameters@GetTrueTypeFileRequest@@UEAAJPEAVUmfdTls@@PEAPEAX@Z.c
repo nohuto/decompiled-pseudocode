@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CreateUsermodeParameters@GetTrueTypeFileRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C0308C40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C011EA58 (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
+ */
+
 __int64 __fastcall GetTrueTypeFileRequest::CreateUsermodeParameters(
         GetTrueTypeFileRequest *this,
         UmfdUMBuffer **a2,

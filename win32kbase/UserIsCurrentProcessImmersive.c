@@ -1,3 +1,11 @@
+/*
+ * XREFs of UserIsCurrentProcessImmersive @ 0x1C017CDF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall UserIsCurrentProcessImmersive(__int64 a1)
 {
   _QWORD *CurrentProcessWin32Process; // rax

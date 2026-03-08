@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeEnterKernelDebugger @ 0x140566F70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiBugCheckDebugBreak @ 0x140567360 (KiBugCheckDebugBreak.c)
+ *     KdInitSystem @ 0x140AAE040 (KdInitSystem.c)
+ */
+
 __int64 KeEnterKernelDebugger()
 {
   unsigned __int8 CurrentIrql; // cl

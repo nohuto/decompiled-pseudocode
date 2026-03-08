@@ -1,3 +1,11 @@
+/*
+ * XREFs of XmAamOp @ 0x140531080
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall XmAamOp(__int64 a1)
 {
   unsigned int v1; // r8d

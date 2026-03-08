@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsFilterGetCallbacks @ 0x140343DF0
+ * Callers:
+ *     FsFilterPerformCallbacks @ 0x140343C70 (FsFilterPerformCallbacks.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FsFilterGetCallbacks(unsigned __int8 a1, __int64 a2, __int64 *a3, __int64 *a4)
 {
   __int64 result; // rax

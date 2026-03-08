@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiGdoCreateServiceEntry @ 0x1C0204FF4
+ * Callers:
+ *     DpiGdoSetupGdiParameters @ 0x1C0204950 (DpiGdoSetupGdiParameters.c)
+ * Callees:
+ *     wcsrchr_0 @ 0x1C002438F (wcsrchr_0.c)
+ */
+
 __int64 __fastcall DpiGdoCreateServiceEntry(__int64 a1, void *a2)
 {
   NTSTATUS v4; // eax

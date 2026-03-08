@@ -1,3 +1,24 @@
+/*
+ * XREFs of ?AddRef@CDxHandleBitmapRealization@@UEAAKXZ @ 0x1800D9B40
+ * Callers:
+ *     ?AddRef@CCachedVisualImage@@$4PPPPPPPM@HAA@EAAKXZ @ 0x180117D50 (-AddRef@CCachedVisualImage@@$4PPPPPPPM@HAA@EAAKXZ.c)
+ *     ?AddRef@CCompositionSurfaceBitmap@@$4PPPPPPPM@NA@EAAKXZ @ 0x180117D70 (-AddRef@CCompositionSurfaceBitmap@@$4PPPPPPPM@NA@EAAKXZ.c)
+ *     ?AddRef@CCompositionSurfaceBitmap@@WFI@EAAKXZ @ 0x180117D90 (-AddRef@CCompositionSurfaceBitmap@@WFI@EAAKXZ.c)
+ *     ?AddRef@CCompositionSurfaceBitmap@@WGA@EAAKXZ @ 0x180117DB0 (-AddRef@CCompositionSurfaceBitmap@@WGA@EAAKXZ.c)
+ *     ?AddRef@CCachedVisualImage@@$4PPPPPPPM@HNA@EAAKXZ @ 0x180119A70 (-AddRef@CCachedVisualImage@@$4PPPPPPPM@HNA@EAAKXZ.c)
+ *     ?AddRef@CD2DBitmap@@$4PPPPPPPM@BAA@EAAKXZ @ 0x18011BF30 (-AddRef@CD2DBitmap@@$4PPPPPPPM@BAA@EAAKXZ.c)
+ *     ?AddRef@CD2DBitmap@@WHA@EAAKXZ @ 0x18011BF50 (-AddRef@CD2DBitmap@@WHA@EAAKXZ.c)
+ *     ?AddRef@CDeviceTextureTarget@@$4PPPPPPPM@BCI@EAAKXZ @ 0x18011C190 (-AddRef@CDeviceTextureTarget@@$4PPPPPPPM@BCI@EAAKXZ.c)
+ *     ?AddRef@CDxHandleBitmapRealization@@$4PPPPPPPM@BKI@EAAKXZ @ 0x18011E030 (-AddRef@CDxHandleBitmapRealization@@$4PPPPPPPM@BKI@EAAKXZ.c)
+ *     ?AddRef@CGDIBitmapRealization@@$4PPPPPPPM@BMI@EAAKXZ @ 0x18011E050 (-AddRef@CGDIBitmapRealization@@$4PPPPPPPM@BMI@EAAKXZ.c)
+ *     ?AddRef@CRenderTargetBitmap@@$4PPPPPPPM@LA@EAAKXZ @ 0x18011E5B0 (-AddRef@CRenderTargetBitmap@@$4PPPPPPPM@LA@EAAKXZ.c)
+ *     ?AddRef@CDxHandleBitmapRealization@@$4PPPPPPPM@CBA@EAAKXZ @ 0x18011EAD0 (-AddRef@CDxHandleBitmapRealization@@$4PPPPPPPM@CBA@EAAKXZ.c)
+ *     ?AddRef@CRenderTargetBitmap@@$4PPPPPPPM@LI@EAAKXZ @ 0x18011F270 (-AddRef@CRenderTargetBitmap@@$4PPPPPPPM@LI@EAAKXZ.c)
+ *     ?AddRef@CD2DBitmap@@$4PPPPPPPM@BFI@EAAKXZ @ 0x18011F4B0 (-AddRef@CD2DBitmap@@$4PPPPPPPM@BFI@EAAKXZ.c)
+ * Callees:
+ *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x180279008 (-IsKernelDebuggerPresent@@YAHXZ.c)
+ */
+
 __int64 __fastcall CDxHandleBitmapRealization::AddRef(CDxHandleBitmapRealization *this)
 {
   int v3; // eax

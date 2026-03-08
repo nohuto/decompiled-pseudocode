@@ -1,3 +1,13 @@
+/*
+ * XREFs of AslGuidToString @ 0x14084C0B4
+ * Callers:
+ *     SdbGetEntryFlags @ 0x14084BDEC (SdbGetEntryFlags.c)
+ *     SdbpGetCustomSdbFileName @ 0x140A4FEA8 (SdbpGetCustomSdbFileName.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ */
+
 __int64 __fastcall AslGuidToString(wchar_t *a1, unsigned int a2, unsigned int *a3)
 {
   NTSTATUS v3; // ebx

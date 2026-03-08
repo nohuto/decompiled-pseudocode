@@ -1,3 +1,15 @@
+/*
+ * XREFs of PfSnActivateTrace @ 0x14035B038
+ * Callers:
+ *     PfSnBeginTrace @ 0x1407E31A8 (PfSnBeginTrace.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     PfSnAddProcessTrace @ 0x14035B0F8 (PfSnAddProcessTrace.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PfSnActivateTrace(__int64 a1)
 {
   unsigned __int64 v2; // rsi

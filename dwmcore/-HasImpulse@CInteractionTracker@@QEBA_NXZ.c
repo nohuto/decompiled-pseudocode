@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?HasImpulse@CInteractionTracker@@QEBA_NXZ @ 0x18022F824
+ * Callers:
+ *     ?CalculateInertiaCallbackValues@CInteractionTracker@@AEAA?AUInertiaCallbackValues@@XZ @ 0x18022DF28 (-CalculateInertiaCallbackValues@CInteractionTracker@@AEAA-AUInertiaCallbackValues@@XZ.c)
+ *     ?GetProperty@CInteractionTracker@@MEAAJIPEAVCExpressionValue@@@Z @ 0x18022F410 (-GetProperty@CInteractionTracker@@MEAAJIPEAVCExpressionValue@@@Z.c)
+ *     ?TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z @ 0x1802326B8 (-TransitionToInertia@CInteractionTracker@@AEAA_NW4InertiaReason@1@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?HasImpulse@CMotion@@QEBA_NXZ @ 0x180261990 (-HasImpulse@CMotion@@QEBA_NXZ.c)
+ */
+
 char __fastcall CInteractionTracker::HasImpulse(CInteractionTracker *this)
 {
   __int64 v2; // rcx

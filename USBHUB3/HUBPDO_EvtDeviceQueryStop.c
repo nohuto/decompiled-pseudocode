@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPDO_EvtDeviceQueryStop @ 0x1C007CEA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBPDO_EvtDeviceQueryStop(__int64 a1)
 {
   _InterlockedOr(

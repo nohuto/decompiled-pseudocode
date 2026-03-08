@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIInitUnicodeString @ 0x1C0087DD4
+ * Callers:
+ *     ACPIQueryDeviceBiosNameEx @ 0x1C0043BC4 (ACPIQueryDeviceBiosNameEx.c)
+ *     ACPIDockIrpQueryID @ 0x1C007B410 (ACPIDockIrpQueryID.c)
+ *     AcpiGetFullyQualifiedBiosName @ 0x1C0083FF0 (AcpiGetFullyQualifiedBiosName.c)
+ *     ExternalRequestBiosNameDeviceAssociation @ 0x1C00842D4 (ExternalRequestBiosNameDeviceAssociation.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall ACPIInitUnicodeString(PUNICODE_STRING DestinationString, const char *a2)
 {
   ULONG v3; // eax

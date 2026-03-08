@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiGetVirtualFaultPageInfo @ 0x14046438E
+ * Callers:
+ *     MiAllocateWsle @ 0x14026D1B0 (MiAllocateWsle.c)
+ *     MiValidVirtualizationFault @ 0x1404643C2 (MiValidVirtualizationFault.c)
+ *     MiLargePageFault @ 0x140643EB8 (MiLargePageFault.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiGetVirtualFaultPageInfo(__int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 *v2; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of SmmDestroyPhysicalObject @ 0x1C0013610
+ * Callers:
+ *     SmmCreatePhysicalObject @ 0x1C00130BC (SmmCreatePhysicalObject.c)
+ *     ?SysMmUnreferencePhysicalObject@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@@Z @ 0x1C0013590 (-SysMmUnreferencePhysicalObject@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@@Z.c)
+ * Callees:
+ *     McTemplateK0xxqqtpqp_EtwWriteTransfer @ 0x1C006F2E0 (McTemplateK0xxqqtpqp_EtwWriteTransfer.c)
+ */
+
 void __fastcall SmmDestroyPhysicalObject(_DWORD *RegionSize, char a2)
 {
   _DWORD *v2; // rsi

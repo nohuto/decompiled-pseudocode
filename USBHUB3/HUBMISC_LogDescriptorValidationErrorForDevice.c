@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBMISC_LogDescriptorValidationErrorForDevice @ 0x1C0033F70
+ * Callers:
+ *     HUBDSM_ValidatingMSOSContainerIdDescriptor @ 0x1C0021D40 (HUBDSM_ValidatingMSOSContainerIdDescriptor.c)
+ *     HUBDSM_AddingDeviceToGlobalChildList @ 0x1C0023150 (HUBDSM_AddingDeviceToGlobalChildList.c)
+ *     HUBDTX_ValidateAndCacheMSOSContainerIdDescriptorHeader @ 0x1C002C5F0 (HUBDTX_ValidateAndCacheMSOSContainerIdDescriptorHeader.c)
+ *     HUBDTX_ValidateAndCacheSerialNumberStringDescriptor @ 0x1C002CCF0 (HUBDTX_ValidateAndCacheSerialNumberStringDescriptor.c)
+ * Callees:
+ *     McTemplateK0ppqq_EtwWriteTransfer @ 0x1C0014388 (McTemplateK0ppqq_EtwWriteTransfer.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C0032FCC (HUBMISC_VerifierDbgBreak.c)
+ */
+
 void __fastcall HUBMISC_LogDescriptorValidationErrorForDevice(__int64 a1, ULONG a2)
 {
   int v4; // [rsp+28h] [rbp-20h]

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?make_float4x4_from_quaternion@Numerics@Foundation@Windows@@YA?AUfloat4x4@123@AEBUquaternion@123@@Z @ 0x18026E11C
+ * Callers:
+ *     ?SetRotation@CMILMatrix@@QEAAXAEBUquaternion@Numerics@Foundation@Windows@@@Z @ 0x18026D300 (-SetRotation@CMILMatrix@@QEAAXAEBUquaternion@Numerics@Foundation@Windows@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Windows::Foundation::Numerics::make_float4x4_from_quaternion(__int64 a1, float *a2)
 {
   float v2; // xmm0_4

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcFastCopyRead @ 0x140933BC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcCopyReadEx @ 0x14021E070 (CcCopyReadEx.c)
+ */
+
 void __stdcall CcFastCopyRead(
         PFILE_OBJECT FileObject,
         ULONG FileOffset,

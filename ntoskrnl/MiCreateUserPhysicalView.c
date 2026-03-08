@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiCreateUserPhysicalView @ 0x140A3EB08
+ * Callers:
+ *     MiReserveUserMemory @ 0x1407D4340 (MiReserveUserMemory.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x140334140 (MiCheckPurgeAndUpMapCount.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     MiInsertVadEvent @ 0x14034C254 (MiInsertVadEvent.c)
+ *     MiGetAweInfoPartition @ 0x1406482AC (MiGetAweInfoPartition.c)
+ *     MiGetAwePageSize @ 0x14064836C (MiGetAwePageSize.c)
+ *     MiReferenceAweHandle @ 0x14064976C (MiReferenceAweHandle.c)
+ *     MiCreateProcessDefaultAweInfo @ 0x140A3EA20 (MiCreateProcessDefaultAweInfo.c)
+ */
+
 int __fastcall MiCreateUserPhysicalView(__int64 a1, int a2, __int64 a3, _WORD *a4)
 {
   PVOID v4; // rdi

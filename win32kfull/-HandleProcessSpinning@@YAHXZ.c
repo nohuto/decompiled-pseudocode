@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HandleProcessSpinning@@YAHXZ @ 0x1C0071910
+ * Callers:
+ *     xxxRealInternalGetMessage @ 0x1C006F2F0 (xxxRealInternalGetMessage.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 HandleProcessSpinning(void)
 {
   __int64 v0; // rax

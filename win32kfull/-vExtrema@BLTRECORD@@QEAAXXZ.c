@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vExtrema@BLTRECORD@@QEAAXXZ @ 0x1C0291FF4
+ * Callers:
+ *     ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C02913F8 (-bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
+ *     GrePlgBlt @ 0x1C0293740 (GrePlgBlt.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall BLTRECORD::vExtrema(BLTRECORD *this)
 {
   int v1; // ebx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlIpv6AddressToStringExA @ 0x1405AC680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     sprintf_s @ 0x1403D9BA0 (sprintf_s.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlIpv6AddressToStringA @ 0x1405AC3F0 (RtlIpv6AddressToStringA.c)
+ */
+
 NTSTATUS __stdcall RtlIpv6AddressToStringExA(
         const struct in6_addr *Address,
         ULONG ScopeId,

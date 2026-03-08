@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbDevice_ConfigureEndpointCompletion @ 0x1C0048350
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dq @ 0x1C0019330 (WPP_RECORDER_SF_dq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall UsbDevice_ConfigureEndpointCompletion(__int64 a1, int a2)
 {
   __int64 v2; // rbx

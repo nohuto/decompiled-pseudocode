@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CompareLangName@@YAHPEBX0@Z @ 0x140394350
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CompareLangName(unsigned __int16 *a1, unsigned __int16 **a2)
 {
   unsigned __int16 *v2; // r8

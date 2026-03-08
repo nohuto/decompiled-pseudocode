@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiRemoveNonIdealCachedStacks @ 0x1406429F8
+ * Callers:
+ *     MiAdjustCachedStackList @ 0x140236608 (MiAdjustCachedStackList.c)
+ * Callees:
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ *     MiDeleteCachedKernelShadowStack @ 0x140641F64 (MiDeleteCachedKernelShadowStack.c)
+ *     MiKernelShadowStackIdealForCaching @ 0x140642840 (MiKernelShadowStackIdealForCaching.c)
+ */
+
 PSLIST_ENTRY __fastcall MiRemoveNonIdealCachedStacks(PSLIST_HEADER ListHead)
 {
   PSLIST_ENTRY result; // rax

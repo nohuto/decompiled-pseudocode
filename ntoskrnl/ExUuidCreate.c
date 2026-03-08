@@ -1,3 +1,27 @@
+/*
+ * XREFs of ExUuidCreate @ 0x1406F7EF0
+ * Callers:
+ *     PopPowerButtonWorkCallback @ 0x140596C60 (PopPowerButtonWorkCallback.c)
+ *     DifExUuidCreateWrapper @ 0x1405D7D10 (DifExUuidCreateWrapper.c)
+ *     EtwpStartLogger @ 0x140691964 (EtwpStartLogger.c)
+ *     NtCreateJobObject @ 0x1406F7BA0 (NtCreateJobObject.c)
+ *     CmpUuidCreate @ 0x140733C60 (CmpUuidCreate.c)
+ *     PipGenerateContainerID @ 0x140733C8C (PipGenerateContainerID.c)
+ *     BiCreateObject @ 0x14082CA14 (BiCreateObject.c)
+ *     ?CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z @ 0x14093D4B0 (-CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z.c)
+ *     IoGetDeviceDirectory @ 0x1409520A0 (IoGetDeviceDirectory.c)
+ *     PiDevCfgResolveVariableGenerateGuid @ 0x14095E9A0 (PiDevCfgResolveVariableGenerateGuid.c)
+ *     CmpCloneHwProfile @ 0x140A0D554 (CmpCloneHwProfile.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExpUuidSaveSequenceNumberIf @ 0x1406F6ECC (ExpUuidSaveSequenceNumberIf.c)
+ *     ExpUuidGetValues @ 0x1408701E8 (ExpUuidGetValues.c)
+ */
+
 NTSTATUS __stdcall ExUuidCreate(UUID *Uuid)
 {
   struct _KTHREAD *CurrentThread; // r14

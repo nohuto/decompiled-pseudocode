@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpRemoveSubKeyCellNoCellRef @ 0x140A21A3C
+ * Callers:
+ *     CmpCheckRegistry2 @ 0x1407B3F40 (CmpCheckRegistry2.c)
+ * Callees:
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvFreeCell @ 0x1407A6A90 (HvFreeCell.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpMarkCellDirty @ 0x1407D2460 (HvpMarkCellDirty.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpFindCellInIndex @ 0x140A2075C (CmpFindCellInIndex.c)
+ *     CmpRemoveCellFromIndex @ 0x140A2199C (CmpRemoveCellFromIndex.c)
+ */
+
 __int64 __fastcall CmpRemoveSubKeyCellNoCellRef(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4, int a3)
 {
   unsigned int v5; // edi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of AuthzBasepComputeExpression @ 0x14066D244
+ * Callers:
+ *     AuthzBasepEvaluateAceCondition @ 0x140246980 (AuthzBasepEvaluateAceCondition.c)
+ * Callees:
+ *     AuthzBasepOperandValueTypesCompatible @ 0x140366290 (AuthzBasepOperandValueTypesCompatible.c)
+ *     AuthzBasepComputeBitwise @ 0x14066D1E0 (AuthzBasepComputeBitwise.c)
+ */
+
 __int64 __fastcall AuthzBasepComputeExpression(char a1, __int64 a2, __int64 *a3)
 {
   unsigned int v3; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopEtDataSectionReserve @ 0x1407682C0
+ * Callers:
+ *     PopEtEnergyTrackerQuery @ 0x140767578 (PopEtEnergyTrackerQuery.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall PopEtDataSectionReserve(int *a1, unsigned int a2, int *a3)
 {
   int v3; // r10d

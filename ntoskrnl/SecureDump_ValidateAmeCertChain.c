@@ -1,3 +1,17 @@
+/*
+ * XREFs of SecureDump_ValidateAmeCertChain @ 0x14055C3D0
+ * Callers:
+ *     SecureDump_LoadCertAndProvisionKey @ 0x14055BD40 (SecureDump_LoadCertAndProvisionKey.c)
+ * Callees:
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     SecureDump_ConvertToRsaBlob @ 0x14055B6F0 (SecureDump_ConvertToRsaBlob.c)
+ *     SecureDump_GetCertificateThumbprint @ 0x14055BB70 (SecureDump_GetCertificateThumbprint.c)
+ *     MincrypK_ParseCertificateChainWithPolicy @ 0x140A6D63C (MincrypK_ParseCertificateChainWithPolicy.c)
+ *     MincryptFreePolicyInfo @ 0x140A6E064 (MincryptFreePolicyInfo.c)
+ *     MincryptGetLeafKeyFromPolicy @ 0x140A6E0A4 (MincryptGetLeafKeyFromPolicy.c)
+ *     MincryptGetRootKeyFromPolicy @ 0x140A6E0D4 (MincryptGetRootKeyFromPolicy.c)
+ */
+
 __int64 __fastcall SecureDump_ValidateAmeCertChain(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4)
 {
   int CertificateThumbprint; // ebx

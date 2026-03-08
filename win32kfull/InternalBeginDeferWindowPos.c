@@ -1,3 +1,15 @@
+/*
+ * XREFs of InternalBeginDeferWindowPos @ 0x1C0029148
+ * Callers:
+ *     xxxSetWindowRgn @ 0x1C0028E44 (xxxSetWindowRgn.c)
+ *     xxxSetWindowPosAndBand @ 0x1C0028FFC (xxxSetWindowPosAndBand.c)
+ *     xxxProcessSetWindowPosEvent @ 0x1C00E5F4C (xxxProcessSetWindowPosEvent.c)
+ *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00FFAF8 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
+ *     xxxArrangeIconicWindows @ 0x1C023C684 (xxxArrangeIconicWindows.c)
+ * Callees:
+ *     AllocateCvr @ 0x1C0027990 (AllocateCvr.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void *__fastcall InternalBeginDeferWindowPos(int a1)
 {

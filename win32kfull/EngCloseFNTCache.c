@@ -1,3 +1,14 @@
+/*
+ * XREFs of EngCloseFNTCache @ 0x1C00B83B8
+ * Callers:
+ *     xxxLW_LoadFonts @ 0x1C00B8670 (xxxLW_LoadFonts.c)
+ *     EngFntCacheAllocInternal @ 0x1C028CC6C (EngFntCacheAllocInternal.c)
+ * Callees:
+ *     ?vCleanUpFntCacheInternal@@YAXXZ @ 0x1C00B8080 (-vCleanUpFntCacheInternal@@YAXXZ.c)
+ *     bSetFntCacheReg @ 0x1C00B9774 (bSetFntCacheReg.c)
+ *     ComputeFileviewCheckSum @ 0x1C00BAB00 (ComputeFileviewCheckSum.c)
+ */
+
 void __fastcall EngCloseFNTCache(__int64 a1)
 {
   __int64 v1; // rbx

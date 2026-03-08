@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DpiKsrFinalize@@YAXPEAJ@Z @ 0x1C03A10A8
+ * Callers:
+ *     DpiKsrCallback @ 0x1C03A1650 (DpiKsrCallback.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 void __fastcall DpiKsrFinalize(int *a1)
 {
   if ( !a1 )

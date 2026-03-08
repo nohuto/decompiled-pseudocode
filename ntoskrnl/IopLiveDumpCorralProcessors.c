@@ -1,3 +1,20 @@
+/*
+ * XREFs of IopLiveDumpCorralProcessors @ 0x140A97E30
+ * Callers:
+ *     IopLiveDumpEnterCorralledState @ 0x140A980DC (IopLiveDumpEnterCorralledState.c)
+ * Callees:
+ *     KeInsertQueueDpc @ 0x140230290 (KeInsertQueueDpc.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402ABED0 (KeSetSystemGroupAffinityThread.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x14055793C (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpTraceCorralProcessorsDuration @ 0x1405583B8 (IopLiveDumpTraceCorralProcessorsDuration.c)
+ *     IopLiveDumpTraceSystemQuiesceStart @ 0x140559304 (IopLiveDumpTraceSystemQuiesceStart.c)
+ *     IopLiveDumpLockPages @ 0x14094BAE0 (IopLiveDumpLockPages.c)
+ *     IopLiveDumpInitiateCorralStateChange @ 0x140A987A4 (IopLiveDumpInitiateCorralStateChange.c)
+ */
+
 char __fastcall IopLiveDumpCorralProcessors(char *DeferredContext)
 {
   __int64 v1; // r14

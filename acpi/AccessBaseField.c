@@ -1,3 +1,20 @@
+/*
+ * XREFs of AccessBaseField @ 0x1C00517B0
+ * Callers:
+ *     AccessFieldData @ 0x1C0051AD8 (AccessFieldData.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ReadSystemMem @ 0x1C0005CC0 (ReadSystemMem.c)
+ *     WriteSystemIO @ 0x1C000624C (WriteSystemIO.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     FindRSAccess @ 0x1C004B438 (FindRSAccess.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     ReadSystemIO @ 0x1C0052EDC (ReadSystemIO.c)
+ *     WriteSystemMem @ 0x1C0053424 (WriteSystemMem.c)
+ *     PushFrame @ 0x1C0053C34 (PushFrame.c)
+ */
+
 __int64 __fastcall AccessBaseField(__int64 a1, __int64 a2, unsigned int *a3, unsigned int *a4, char a5)
 {
   __int64 v5; // rbp

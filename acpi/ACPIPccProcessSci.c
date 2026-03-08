@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIPccProcessSci @ 0x1C0033B3C
+ * Callers:
+ *     ACPIInterruptServiceRoutineDPC @ 0x1C0003E70 (ACPIInterruptServiceRoutineDPC.c)
+ * Callees:
+ *     AcpiPccCommandComplete @ 0x1C0004760 (AcpiPccCommandComplete.c)
+ *     AcpiPccPlatformNotification @ 0x1C003417C (AcpiPccPlatformNotification.c)
+ */
+
 void ACPIPccProcessSci()
 {
   unsigned int i; // edi

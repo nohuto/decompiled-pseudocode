@@ -1,3 +1,13 @@
+/*
+ * XREFs of CreateNewEventEntry @ 0x1C004BE44
+ * Callers:
+ *     InsertEventEntryInLookUpTable @ 0x1C004C2BC (InsertEventEntryInLookUpTable.c)
+ * Callees:
+ *     memmove @ 0x1C001A980 (memmove.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     CBufferGetNextOffset @ 0x1C004BCF4 (CBufferGetNextOffset.c)
+ */
+
 __int64 __fastcall CreateNewEventEntry(
         char a1,
         __int128 *a2,

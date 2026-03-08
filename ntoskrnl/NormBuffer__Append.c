@@ -1,3 +1,13 @@
+/*
+ * XREFs of NormBuffer__Append @ 0x1405AE02C
+ * Callers:
+ *     NormBuffer__AppendEx @ 0x1405AE10C (NormBuffer__AppendEx.c)
+ *     Normalization__Normalize @ 0x1409BE1FC (Normalization__Normalize.c)
+ *     Normalization__NormalizeCharacter @ 0x1409BE3B8 (Normalization__NormalizeCharacter.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall NormBuffer__Append(__int64 a1, int a2)
 {
   _WORD **v2; // r9

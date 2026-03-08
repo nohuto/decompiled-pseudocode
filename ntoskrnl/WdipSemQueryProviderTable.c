@@ -1,3 +1,11 @@
+/*
+ * XREFs of WdipSemQueryProviderTable @ 0x140833844
+ * Callers:
+ *     WdipSemUpdateProviderTableWithEvent @ 0x1408337A0 (WdipSemUpdateProviderTableWithEvent.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WdipSemQueryProviderTable(_QWORD *a1)
 {
   __int64 v1; // rdx

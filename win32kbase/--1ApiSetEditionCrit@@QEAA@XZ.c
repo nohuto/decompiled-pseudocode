@@ -1,3 +1,20 @@
+/*
+ * XREFs of ??1ApiSetEditionCrit@@QEAA@XZ @ 0x1C003A054
+ * Callers:
+ *     RIMReadInput @ 0x1C0039160 (RIMReadInput.c)
+ *     InputUnInitialize @ 0x1C0094FA8 (InputUnInitialize.c)
+ *     InputInitialize @ 0x1C0096C0C (InputInitialize.c)
+ *     rimApcIoUnregisterPlugPlayNotificationExWorker @ 0x1C00C3ACC (rimApcIoUnregisterPlugPlayNotificationExWorker.c)
+ *     rimInputApc @ 0x1C00CB830 (rimInputApc.c)
+ *     rimDeviceResetApc @ 0x1C01E2FC0 (rimDeviceResetApc.c)
+ *     ?OnDelayZonePalmRejectionTimerNotification@CHidInput@@EEAAJXZ @ 0x1C0211320 (-OnDelayZonePalmRejectionTimerNotification@CHidInput@@EEAAJXZ.c)
+ *     ?ivHandlePTPInertiaPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C021F300 (-ivHandlePTPInertiaPacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z.c)
+ *     ?ivHandleTouchInputPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C021F9D0 (-ivHandleTouchInputPacket@CBaseInput@@AEAA-AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ApiSetLeaveEditionCrit @ 0x1C00C701C (ApiSetLeaveEditionCrit.c)
+ */
+
 void __fastcall ApiSetEditionCrit::~ApiSetEditionCrit(ApiSetEditionCrit *this)
 {
   char v2; // bl

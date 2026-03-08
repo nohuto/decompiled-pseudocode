@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpErrataApplyPerProcessor @ 0x140A87B18
+ * Callers:
+ *     HalpErrataInitSystem @ 0x140A87AA0 (HalpErrataInitSystem.c)
+ *     HalpPostSleepMP @ 0x140A93F28 (HalpPostSleepMP.c)
+ * Callees:
+ *     HalpGetCpuInfo @ 0x14037D1F0 (HalpGetCpuInfo.c)
+ */
+
 char HalpErrataApplyPerProcessor()
 {
   unsigned __int64 v0; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?lParentErrorDividedBy4@HFDBASIS32@@QEBAJXZ @ 0x1C018A8FC
+ * Callers:
+ *     ?bNext@BEZIER32@@QEAAHPEAU_POINTFIX@@@Z @ 0x1C018A190 (-bNext@BEZIER32@@QEAAHPEAU_POINTFIX@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HFDBASIS32::lParentErrorDividedBy4(HFDBASIS32 *this)
 {
   int v1; // r9d

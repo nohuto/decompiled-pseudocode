@@ -1,3 +1,22 @@
+/*
+ * XREFs of KiIntSteerConnect @ 0x14028FF2C
+ * Callers:
+ *     KeConnectInterrupt @ 0x14028FA54 (KeConnectInterrupt.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiIntSteerUpdateDeviceInterruptMask @ 0x14028EFF0 (KiIntSteerUpdateDeviceInterruptMask.c)
+ *     KiIntSteerSetDestination @ 0x14028F0A0 (KiIntSteerSetDestination.c)
+ *     KiIntSteerChooseInitialTargetProcessors @ 0x14028F130 (KiIntSteerChooseInitialTargetProcessors.c)
+ *     KiIntSteerGetLineInformation @ 0x1402902B0 (KiIntSteerGetLineInformation.c)
+ *     KiIntSteerLogState @ 0x1402903C8 (KiIntSteerLogState.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwRegister @ 0x140690D20 (EtwRegister.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall KiIntSteerConnect(__int64 a1, unsigned int a2, __int64 a3, _BYTE *a4, __int64 a5)
 {
   __int64 v5; // r14

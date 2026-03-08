@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpHsaFindReservedDomain @ 0x14052BE4C
+ * Callers:
+ *     HsaGetBlockedDomain @ 0x14052DB9C (HsaGetBlockedDomain.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpHsaFindReservedDomain(__int64 a1, int a2)
 {
   _DWORD *v2; // r11

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspAddAccountingValues @ 0x1406FC264
+ * Callers:
+ *     PspQueryProcessAccountingInformationCallback @ 0x1406F92F0 (PspQueryProcessAccountingInformationCallback.c)
+ *     PspEnforceLimitsProcessCallback @ 0x1406FB480 (PspEnforceLimitsProcessCallback.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x1406FBA00 (PspEnforceLimitsJobPostCallback.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspAddAccountingValues(_QWORD *a1, char *a2)
 {
   __int64 v3; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RecalculateQueueInfo @ 0x1C00A64A0
+ * Callers:
+ *     zzzDestroyQueue @ 0x1C01553C0 (zzzDestroyQueue.c)
+ * Callees:
+ *     <none>
+ */
+
 struct tagTHREADINFO *RecalculateQueueInfo()
 {
   struct tagTHREADINFO *result; // rax

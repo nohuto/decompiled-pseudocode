@@ -1,3 +1,11 @@
+/*
+ * XREFs of WithinEpsilon @ 0x1800124FC
+ * Callers:
+ *     ?CalculateMatrixFromDelta@CManipulationTransform@@SAXAEBUD2DVector3@@00PEAUD2DMatrix@@@Z @ 0x180012374 (-CalculateMatrixFromDelta@CManipulationTransform@@SAXAEBUD2DVector3@@00PEAUD2DMatrix@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall WithinEpsilon(float a1, float a2)
 {
   float v2; // xmm0_4

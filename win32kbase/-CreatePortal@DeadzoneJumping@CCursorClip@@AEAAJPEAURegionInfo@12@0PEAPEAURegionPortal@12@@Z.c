@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CreatePortal@DeadzoneJumping@CCursorClip@@AEAAJPEAURegionInfo@12@0PEAPEAURegionPortal@12@@Z @ 0x1C020AB04
+ * Callers:
+ *     ?RefreshRegions@DeadzoneJumping@CCursorClip@@QEAA_NXZ @ 0x1C0013B64 (-RefreshRegions@DeadzoneJumping@CCursorClip@@QEAA_NXZ.c)
+ * Callees:
+ *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0068568 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ?RangesOverlap@DeadzoneJumping@CCursorClip@@CA_NJJJJ@Z @ 0x1C020B024 (-RangesOverlap@DeadzoneJumping@CCursorClip@@CA_NJJJJ@Z.c)
+ */
+
 __int64 __fastcall CCursorClip::DeadzoneJumping::CreatePortal(
         CCursorClip::DeadzoneJumping *this,
         struct CCursorClip::DeadzoneJumping::RegionInfo *a2,

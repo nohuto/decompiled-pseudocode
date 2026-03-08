@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ConfigureAutoForwardCleanupClose@FxDevice@@QEAAXPEAUWDFDEVICE_INIT@@@Z @ 0x1C003D9B8
+ * Callers:
+ *     ?Initialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C003E20C (-Initialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@PEAU_WDF_OBJECT_ATTRIBUTES@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxDevice::ConfigureAutoForwardCleanupClose(FxDevice *this, WDFDEVICE_INIT *DeviceInit)
 {
   _LIST_ENTRY *Blink; // rax

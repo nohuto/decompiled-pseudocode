@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpCovSampCaptureQueueApc @ 0x1406010A0
+ * Callers:
+ *     EtwpCovSampCaptureSample @ 0x140601340 (EtwpCovSampCaptureSample.c)
+ * Callees:
+ *     KeInitializeApc @ 0x140237E20 (KeInitializeApc.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     KeInsertQueueApc @ 0x14027DBF0 (KeInsertQueueApc.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpCovSampCaptureReleaseToLookaside @ 0x140461C2A (EtwpCovSampCaptureReleaseToLookaside.c)
+ *     EtwpCovSampLookasidePop @ 0x140461CA8 (EtwpCovSampLookasidePop.c)
+ *     KeIsThreadRunning @ 0x14056C7FC (KeIsThreadRunning.c)
+ *     KeTryToInsertQueueApc @ 0x140570BD0 (KeTryToInsertQueueApc.c)
+ */
+
 __int64 __fastcall EtwpCovSampCaptureQueueApc(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rbx

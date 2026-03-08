@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@?$CSectionBitmapAllocator@$0HAAA@$0HA@@NSInstrumentation@@AEAA_NPEAE@Z @ 0x1C0201A44
+ * Callers:
+ *     ?Create@?$CSectionBitmapAllocator@$0GAAA@$0GA@@NSInstrumentation@@SAPEAV12@QEAE@Z @ 0x1C02016F0 (-Create@-$CSectionBitmapAllocator@$0GAAA@$0GA@@NSInstrumentation@@SAPEAV12@QEAE@Z.c)
+ * Callees:
+ *     ??R_lambda_8d660a2ac28037d1603312a9876d8eb9_@@QEBAPEAU_RTL_BITMAP@@I@Z @ 0x1C020127C (--R_lambda_8d660a2ac28037d1603312a9876d8eb9_@@QEBAPEAU_RTL_BITMAP@@I@Z.c)
+ */
+
 char __fastcall NSInstrumentation::CSectionBitmapAllocator<28672,112>::Initialize(_QWORD *a1, __int64 a2)
 {
   unsigned __int64 v4; // rax

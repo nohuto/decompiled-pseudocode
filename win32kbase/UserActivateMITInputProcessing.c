@@ -1,3 +1,21 @@
+/*
+ * XREFs of UserActivateMITInputProcessing @ 0x1C00942B4
+ * Callers:
+ *     NtMITActivateInputProcessing @ 0x1C00941B0 (NtMITActivateInputProcessing.c)
+ * Callees:
+ *     HandleInputThreadActivated @ 0x1C002EFA0 (HandleInputThreadActivated.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?CreateIocpHandleForUserMode@IOCPDispatcher@@QEAAPEAXXZ @ 0x1C0094444 (-CreateIocpHandleForUserMode@IOCPDispatcher@@QEAAPEAXXZ.c)
+ *     ApiSetEditionActivateMitInput @ 0x1C0094680 (ApiSetEditionActivateMitInput.c)
+ *     PerfomInitialReadInputOnSharedThread @ 0x1C0094784 (PerfomInitialReadInputOnSharedThread.c)
+ *     ?OnInputThreadStateChanged@InputExtensibilityCallout@@QEBAXW4InputThreadState@@@Z @ 0x1C00947E0 (-OnInputThreadStateChanged@InputExtensibilityCallout@@QEBAXW4InputThreadState@@@Z.c)
+ *     IOCPDispatcher_Destroy @ 0x1C0095480 (IOCPDispatcher_Destroy.c)
+ *     ?CreateInstance@IOCPDispatcher@@SAJPEAPEAV1@@Z @ 0x1C0096578 (-CreateInstance@IOCPDispatcher@@SAJPEAPEAV1@@Z.c)
+ *     ?ActivateInputProcessing@CInputThreadBase@@QEAA_NXZ @ 0x1C009ABBC (-ActivateInputProcessing@CInputThreadBase@@QEAA_NXZ.c)
+ *     rimScheduleUserModeRimPnpRegistration @ 0x1C00CC0B4 (rimScheduleUserModeRimPnpRegistration.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall UserActivateMITInputProcessing(__int64 a1, _QWORD *a2)
 {
   _QWORD *v2; // rsi

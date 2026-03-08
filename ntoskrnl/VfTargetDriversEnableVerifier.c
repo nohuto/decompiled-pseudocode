@@ -1,3 +1,15 @@
+/*
+ * XREFs of VfTargetDriversEnableVerifier @ 0x140AC8480
+ * Callers:
+ *     VfSuspectApplyDifVolatileVerification @ 0x140AD7288 (VfSuspectApplyDifVolatileVerification.c)
+ * Callees:
+ *     VfAvlLookupTreeNode @ 0x140303680 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403039F0 (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x14045DE58 (VfAvlInitializeLockContext.c)
+ *     ViTargetDriversFreeVerifiedData @ 0x1405CCEEC (ViTargetDriversFreeVerifiedData.c)
+ *     ViTargetDriversAllocateVerifiedData @ 0x140AC8A34 (ViTargetDriversAllocateVerifiedData.c)
+ */
+
 __int64 __fastcall VfTargetDriversEnableVerifier(unsigned __int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

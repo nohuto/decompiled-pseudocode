@@ -1,3 +1,17 @@
+/*
+ * XREFs of ??0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z @ 0x1C001BD04
+ * Callers:
+ *     SetSysColor @ 0x1C001A584 (SetSysColor.c)
+ *     ?GreSetSolidBrushInternal@@YAHPEAUHBRUSH__@@KHH@Z @ 0x1C001BBAC (-GreSetSolidBrushInternal@@YAHPEAUHBRUSH__@@KHH@Z.c)
+ *     GreSetBrushOwner @ 0x1C001BD80 (GreSetBrushOwner.c)
+ *     bDeleteBrush @ 0x1C00D59D0 (bDeleteBrush.c)
+ *     GreGetBrushColor @ 0x1C017E540 (GreGetBrushColor.c)
+ * Callees:
+ *     ?bSaveAttributes@XEBRUSHOBJ@@IEAAHXZ @ 0x1C001C044 (-bSaveAttributes@XEBRUSHOBJ@@IEAAHXZ.c)
+ *     HmgDecrementShareReferenceCountEx @ 0x1C00483B0 (HmgDecrementShareReferenceCountEx.c)
+ *     HmgShareLockCheck @ 0x1C0049E60 (HmgShareLockCheck.c)
+ */
+
 BRUSHSELOBJ *__fastcall BRUSHSELOBJ::BRUSHSELOBJ(BRUSHSELOBJ *this, HBRUSH a2)
 {
   HBRUSH v2; // rax

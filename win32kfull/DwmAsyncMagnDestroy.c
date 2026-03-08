@@ -1,3 +1,14 @@
+/*
+ * XREFs of DwmAsyncMagnDestroy @ 0x1C026F38C
+ * Callers:
+ *     MagpDestroyLensContext @ 0x1C00337D8 (MagpDestroyLensContext.c)
+ *     MagpDecomposeDesktop @ 0x1C007F098 (MagpDecomposeDesktop.c)
+ *     MagContextThreadCallout @ 0x1C01A4070 (MagContextThreadCallout.c)
+ *     MagSetLensContextInformation @ 0x1C01A4A80 (MagSetLensContextInformation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall DwmAsyncMagnDestroy(PVOID Object, __int64 a2, __int64 a3)
 {
   unsigned int v4; // ebx

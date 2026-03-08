@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpThreadEnumCallback @ 0x140801B20
+ * Callers:
+ *     EtwpProcessEnumCallback @ 0x14080DD60 (EtwpProcessEnumCallback.c)
+ * Callees:
+ *     EtwpTraceThreadRundown @ 0x14036FE60 (EtwpTraceThreadRundown.c)
+ *     EtwpTraceThreadRundownWithStack @ 0x1405FF6DC (EtwpTraceThreadRundownWithStack.c)
+ */
+
 __int64 __fastcall EtwpThreadEnumCallback(__int64 a1, __int64 a2, __int64 a3)
 {
   bool v3; // zf

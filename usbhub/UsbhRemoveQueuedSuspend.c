@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhRemoveQueuedSuspend @ 0x1C003518C
+ * Callers:
+ *     Usbh_PCE_Disable_Action @ 0x1C0005350 (Usbh_PCE_Disable_Action.c)
+ *     Usbh_PCE_Resume_Action @ 0x1C0005C60 (Usbh_PCE_Resume_Action.c)
+ *     Usbh_PCE_wChange_Action @ 0x1C0014D00 (Usbh_PCE_wChange_Action.c)
+ *     Usbh_PCE_HardwareWake_Action @ 0x1C0021580 (Usbh_PCE_HardwareWake_Action.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhiSignalSuspendEvent @ 0x1C0036644 (UsbhiSignalSuspendEvent.c)
+ */
+
 __int64 __fastcall UsbhRemoveQueuedSuspend(__int64 a1, __int64 a2)
 {
   __int16 v4; // r9

@@ -1,3 +1,11 @@
+/*
+ * XREFs of EngFreeModule @ 0x1C028DCE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     vUnmapFile @ 0x1C00B81B4 (vUnmapFile.c)
+ */
+
 void __stdcall EngFreeModule(HANDLE h)
 {
   struct Gre::Base::SESSION_GLOBALS *v2; // rsi

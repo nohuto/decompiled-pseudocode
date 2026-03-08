@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionImmActivateAndUnloadThreadsLayout @ 0x1C023F138
+ * Callers:
+ *     ?xxxSetPKLinThreads@@YAXPEAUtagKL@@0@Z @ 0x1C0086318 (-xxxSetPKLinThreads@@YAXPEAUtagKL@@0@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (__fastcall *__fastcall ApiSetEditionImmActivateAndUnloadThreadsLayout(
         __int64 a1,
         __int64 a2,

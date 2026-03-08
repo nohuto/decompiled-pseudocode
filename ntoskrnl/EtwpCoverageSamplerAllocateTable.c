@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpCoverageSamplerAllocateTable @ 0x1409F00DC
+ * Callers:
+ *     EtwpCovSampHashMakeRoomAndAcquireLock @ 0x1408A4B3A (EtwpCovSampHashMakeRoomAndAcquireLock.c)
+ *     EtwpCoverageSamplerStart @ 0x1409F05F8 (EtwpCoverageSamplerStart.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 _OWORD *__fastcall EtwpCoverageSamplerAllocateTable(int a1)
 {
   _OWORD *Pool2; // rax

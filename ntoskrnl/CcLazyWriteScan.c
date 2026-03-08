@@ -1,3 +1,28 @@
+/*
+ * XREFs of CcLazyWriteScan @ 0x140533B4C
+ * Callers:
+ *     CcWorkerThread @ 0x140215D70 (CcWorkerThread.c)
+ * Callees:
+ *     CcCalculatePagesToWrite @ 0x140217524 (CcCalculatePagesToWrite.c)
+ *     CcScanLogHandleList @ 0x1402175F8 (CcScanLogHandleList.c)
+ *     CcShouldLazyWriteCacheMap @ 0x140219060 (CcShouldLazyWriteCacheMap.c)
+ *     CcPostWorkQueue @ 0x1402191C4 (CcPostWorkQueue.c)
+ *     CcGetNodeForLazyWrite @ 0x1402191F0 (CcGetNodeForLazyWrite.c)
+ *     CcAllocateWorkQueueEntry @ 0x140219880 (CcAllocateWorkQueueEntry.c)
+ *     CcUpdateTimeOnLogHandles @ 0x1402EC7F0 (CcUpdateTimeOnLogHandles.c)
+ *     CcSetLazyWriteScanQueuedInternal @ 0x1402EEE90 (CcSetLazyWriteScanQueuedInternal.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcPerfLogLoggedStreamsStats @ 0x140397704 (CcPerfLogLoggedStreamsStats.c)
+ *     CcPerfLogLazyWriteScan @ 0x140399FD0 (CcPerfLogLazyWriteScan.c)
+ *     CcComputeNextScanTime @ 0x1403A4028 (CcComputeNextScanTime.c)
+ *     CcPostDeferredWrites @ 0x1403BBEB8 (CcPostDeferredWrites.c)
+ *     CcAdjustThrottleForPartition @ 0x14053360C (CcAdjustThrottleForPartition.c)
+ *     CcIncrementWriteBehindPriority @ 0x1405339B4 (CcIncrementWriteBehindPriority.c)
+ *     CcRescheduleLazyWriteScan @ 0x140534F08 (CcRescheduleLazyWriteScan.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall CcLazyWriteScan(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   int v8; // r15d

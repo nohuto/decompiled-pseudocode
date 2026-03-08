@@ -1,3 +1,11 @@
+/*
+ * XREFs of Isoch_Cleanup @ 0x1C0043AE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall Isoch_Cleanup(__int64 a1)
 {
   KIRQL v2; // al

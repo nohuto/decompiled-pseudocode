@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?FindCommonRenderStrategy@CSurfaceBrush@@KAPEAVCSurfaceRenderStrategy@1@PEBVCResource@@@Z @ 0x1800E9708
+ * Callers:
+ *     ?SetSurface@CSurfaceBrush@@QEAAJPEAVCResource@@@Z @ 0x180049388 (-SetSurface@CSurfaceBrush@@QEAAJPEAVCResource@@@Z.c)
+ *     ??0CSurfaceBrush@@QEAA@PEAVCComposition@@@Z @ 0x1800B8E38 (--0CSurfaceBrush@@QEAA@PEAVCComposition@@@Z.c)
+ * Callees:
+ *     ?IsSupportedSurface@CBitmapRenderStrategy@@SA_NPEBVCResource@@@Z @ 0x1800E9798 (-IsSupportedSurface@CBitmapRenderStrategy@@SA_NPEBVCResource@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void ***__fastcall CSurfaceBrush::FindCommonRenderStrategy(const struct CResource *a1)
 {
   if ( !a1 )

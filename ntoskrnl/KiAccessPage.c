@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiAccessPage @ 0x140B10480
+ * Callers:
+ *     sub_140B0EA74 @ 0x140B0EA74 (sub_140B0EA74.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiAccessPage(__int64 (*a1)(void))
 {
   int v1; // rdx^4

@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpUpdateFileInfoDriverState @ 0x140786730
+ * Callers:
+ *     EtwpEnableKernelTrace @ 0x140786150 (EtwpEnableKernelTrace.c)
+ *     EtwpDisableKernelTrace @ 0x1407864C4 (EtwpDisableKernelTrace.c)
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     WmiQueryTraceProviderCount @ 0x14039FC34 (WmiQueryTraceProviderCount.c)
+ *     ZwLoadDriver @ 0x140414490 (ZwLoadDriver.c)
+ *     ZwUnloadDriver @ 0x140415DD0 (ZwUnloadDriver.c)
+ *     WmiTraceRundownNotify @ 0x1408479D8 (WmiTraceRundownNotify.c)
+ *     EtwpUpdateFileInfoDriverRegistration @ 0x140858188 (EtwpUpdateFileInfoDriverRegistration.c)
+ */
+
 __int64 __fastcall EtwpUpdateFileInfoDriverState(_DWORD *a1, _DWORD *a2, int a3, _QWORD *a4, unsigned int a5)
 {
   int v5; // edi

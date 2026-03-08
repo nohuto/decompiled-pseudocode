@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBDTX_DisarmDeviceForWakeUsingControlTransfer @ 0x1C002A82C
+ * Callers:
+ *     HUBDSM_DisarmingDeviceForWakeOnD0Entry @ 0x1C0023F70 (HUBDSM_DisarmingDeviceForWakeOnD0Entry.c)
+ *     HUBDSM_DisarmingDeviceForWakeOnPortResumed @ 0x1C0023FA0 (HUBDSM_DisarmingDeviceForWakeOnPortResumed.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBMISC_ControlTransfer @ 0x1C0032664 (HUBMISC_ControlTransfer.c)
+ */
+
 __int64 __fastcall HUBDTX_DisarmDeviceForWakeUsingControlTransfer(__int64 a1)
 {
   char v2; // cl

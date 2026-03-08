@@ -1,3 +1,11 @@
+/*
+ * XREFs of W32kCddStrokePath @ 0x1C0272DE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EngStrokePath @ 0x1C000C6E0 (EngStrokePath.c)
+ */
+
 BOOL __fastcall W32kCddStrokePath(
         SURFOBJ *a1,
         PATHOBJ *a2,

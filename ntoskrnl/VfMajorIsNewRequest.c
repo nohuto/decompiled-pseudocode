@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfMajorIsNewRequest @ 0x140ACFFD8
+ * Callers:
+ *     ViGenericVerifyIrpStackDownward @ 0x140AC00C0 (ViGenericVerifyIrpStackDownward.c)
+ *     IovpCallDriver1 @ 0x140AC9170 (IovpCallDriver1.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall VfMajorIsNewRequest(__int64 a1, _BYTE *a2)
 {
   __int64 v4; // rax

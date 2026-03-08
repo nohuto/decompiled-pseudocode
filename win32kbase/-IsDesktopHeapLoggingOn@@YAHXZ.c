@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsDesktopHeapLoggingOn@@YAHXZ @ 0x1C00D2B3C
+ * Callers:
+ *     Win32UserInitialize @ 0x1C031E444 (Win32UserInitialize.c)
+ * Callees:
+ *     OpenCacheKeyEx @ 0x1C00760E0 (OpenCacheKeyEx.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 IsDesktopHeapLoggingOn(void)
 {
   unsigned int v0; // ebx

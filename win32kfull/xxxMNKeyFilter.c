@@ -1,3 +1,20 @@
+/*
+ * XREFs of xxxMNKeyFilter @ 0x1C0241E88
+ * Callers:
+ *     xxxSysCommand @ 0x1C00DE67C (xxxSysCommand.c)
+ * Callees:
+ *     xxxMessageBeep @ 0x1C01F7F58 (xxxMessageBeep.c)
+ *     MNPositionSysMenu @ 0x1C0202174 (MNPositionSysMenu.c)
+ *     xxxMNStartMenu @ 0x1C0202834 (xxxMNStartMenu.c)
+ *     xxxMNLoop @ 0x1C021726C (xxxMNLoop.c)
+ *     xxxMNCancel @ 0x1C02199C4 (xxxMNCancel.c)
+ *     xxxMNChar @ 0x1C0219CB8 (xxxMNChar.c)
+ *     xxxMNCloseHierarchy @ 0x1C021A0D0 (xxxMNCloseHierarchy.c)
+ *     xxxMNOpenHierarchy @ 0x1C021B7B0 (xxxMNOpenHierarchy.c)
+ *     xxxMNSelectItem @ 0x1C021C660 (xxxMNSelectItem.c)
+ *     xxxMNSwitchToAlternateMenu @ 0x1C021D0B4 (xxxMNSwitchToAlternateMenu.c)
+ */
+
 void __fastcall xxxMNKeyFilter(__int64 *a1, __int64 a2, unsigned int a3)
 {
   int v3; // ebp

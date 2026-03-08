@@ -1,3 +1,11 @@
+/*
+ * XREFs of rimPenButtonsPolicyUpdateState @ 0x1C01D8FB8
+ * Callers:
+ *     rimApplyPointerDevicePolicies @ 0x1C00F1204 (rimApplyPointerDevicePolicies.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall rimPenButtonsPolicyUpdateState(__int64 a1, _DWORD *a2, int a3)
 {
   __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of UpcaseUnicodeToSingleByteNHelper @ 0x140303D00
+ * Callers:
+ *     RtlUpcaseUnicodeToOemN @ 0x14079FFE0 (RtlUpcaseUnicodeToOemN.c)
+ *     RtlUpcaseUnicodeToMultiByteN @ 0x1407A00A0 (RtlUpcaseUnicodeToMultiByteN.c)
+ * Callees:
+ *     PsGetEffectiveServerSilo @ 0x140294DF0 (PsGetEffectiveServerSilo.c)
+ */
+
 __int64 __fastcall UpcaseUnicodeToSingleByteNHelper(
         _BYTE *a1,
         unsigned int a2,

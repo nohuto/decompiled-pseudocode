@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoGetIoAttributionHandle @ 0x1402C9E10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IoGetIoAttributionHandle(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rax

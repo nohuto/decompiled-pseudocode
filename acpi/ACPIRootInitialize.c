@@ -1,3 +1,38 @@
+/*
+ * XREFs of ACPIRootInitialize @ 0x1C0093768
+ * Callers:
+ *     ACPITableLoad @ 0x1C003F170 (ACPITableLoad.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     _ACPIInternalError @ 0x1C0001B74 (_ACPIInternalError.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C002D594 (ACPIInitReferenceDeviceExtension.c)
+ *     ACPIInternalSetDeviceInterface @ 0x1C002EF0C (ACPIInternalSetDeviceInterface.c)
+ *     ACPIAmliPreDefinedRootObjectsNotifyPepDiscoverDevice @ 0x1C003C8FC (ACPIAmliPreDefinedRootObjectsNotifyPepDiscoverDevice.c)
+ *     ACPIEvaluateDsmEmcaMethodOnRootBus @ 0x1C003CA48 (ACPIEvaluateDsmEmcaMethodOnRootBus.c)
+ *     ACPIFixedFeatureButtonInitialize @ 0x1C003CBA8 (ACPIFixedFeatureButtonInitialize.c)
+ *     ACPIRootDeviceNotifyPepDiscoverDevice @ 0x1C003CE7C (ACPIRootDeviceNotifyPepDiscoverDevice.c)
+ *     ACPIVerifyUSB4Presence @ 0x1C003D85C (ACPIVerifyUSB4Presence.c)
+ *     IsHypervisorLpiCapable @ 0x1C003DA5C (IsHypervisorLpiCapable.c)
+ *     AMLIAsyncEvalObject @ 0x1C00478E8 (AMLIAsyncEvalObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNameSpaceObject @ 0x1C00483B8 (AMLIGetNameSpaceObject.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ *     AMLIGetParent @ 0x1C0048724 (AMLIGetParent.c)
+ *     AMLISetNSObjectContext @ 0x1C0048E8C (AMLISetNSObjectContext.c)
+ *     HviGetHypervisorFeatures @ 0x1C005ED10 (HviGetHypervisorFeatures.c)
+ *     ACPIAmliEvaluateOsc @ 0x1C007C7D8 (ACPIAmliEvaluateOsc.c)
+ *     ACPIPccLegacyInitialize @ 0x1C00897A8 (ACPIPccLegacyInitialize.c)
+ *     OSCreateHandle @ 0x1C008DB54 (OSCreateHandle.c)
+ *     OSOpenHandle @ 0x1C008DF10 (OSOpenHandle.c)
+ *     OSReadRegValue @ 0x1C008E6A0 (OSReadRegValue.c)
+ *     OSWriteRegValue @ 0x1C008EC30 (OSWriteRegValue.c)
+ *     ACPIEvaluateOscMethodOnRootBus @ 0x1C0093580 (ACPIEvaluateOscMethodOnRootBus.c)
+ *     ACPIEvaluateOscWheaMethodOnRootBus @ 0x1C00935E8 (ACPIEvaluateOscWheaMethodOnRootBus.c)
+ *     ACPIWriteOscSupportToRegistry @ 0x1C0094AA0 (ACPIWriteOscSupportToRegistry.c)
+ *     IsHypervisorCpcCapable @ 0x1C0094B98 (IsHypervisorCpcCapable.c)
+ */
+
 __int64 ACPIRootInitialize()
 {
   unsigned __int16 v0; // r15

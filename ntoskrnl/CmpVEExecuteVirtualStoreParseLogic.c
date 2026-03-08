@@ -1,3 +1,21 @@
+/*
+ * XREFs of CmpVEExecuteVirtualStoreParseLogic @ 0x140A17764
+ * Callers:
+ *     CmpDoParseKey @ 0x1406E1D90 (CmpDoParseKey.c)
+ * Callees:
+ *     RtlUnicodeStringCopy @ 0x1402B3164 (RtlUnicodeStringCopy.c)
+ *     RtlUnicodeStringCat @ 0x1402BD900 (RtlUnicodeStringCat.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     CmpFindPathByNameEx @ 0x14067CEE0 (CmpFindPathByNameEx.c)
+ *     CmpBlockHiveWrites @ 0x140A10B04 (CmpBlockHiveWrites.c)
+ *     CmpUnblockHiveWrites @ 0x140A10CD4 (CmpUnblockHiveWrites.c)
+ *     CmVirtualKCBToRealPath @ 0x140A15B68 (CmVirtualKCBToRealPath.c)
+ *     CmpVirtualBranchIsReplicated @ 0x140A1798C (CmpVirtualBranchIsReplicated.c)
+ *     CmpUnicodeStringAppendCharacter @ 0x140A1CAF0 (CmpUnicodeStringAppendCharacter.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmpVEExecuteVirtualStoreParseLogic(
         __int64 a1,
         const UNICODE_STRING *a2,

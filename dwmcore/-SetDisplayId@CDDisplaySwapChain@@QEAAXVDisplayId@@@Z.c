@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetDisplayId@CDDisplaySwapChain@@QEAAXVDisplayId@@@Z @ 0x1801E6310
+ * Callers:
+ *     ?ProcessUpdateTransform@CDDisplayRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DDISPLAYRENDERTARGET_UPDATETRANSFORM@@@Z @ 0x1801E55A8 (-ProcessUpdateTransform@CDDisplayRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_DDISPLAYRE.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CDDisplaySwapChain::SetDisplayId(__int64 a1, int a2)
 {
   __int64 v2; // r8

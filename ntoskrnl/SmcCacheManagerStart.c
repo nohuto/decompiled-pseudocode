@@ -1,3 +1,14 @@
+/*
+ * XREFs of SmcCacheManagerStart @ 0x1409D7E68
+ * Callers:
+ *     SmcCacheCreatePrepare @ 0x1409D4FE0 (SmcCacheCreatePrepare.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     SmKmKeyGenStart @ 0x1409D656C (SmKmKeyGenStart.c)
+ *     SmpUtilsGetControlDevice @ 0x1409D8F9C (SmpUtilsGetControlDevice.c)
+ */
+
 int __fastcall SmcCacheManagerStart(__int64 a1, __int64 a2)
 {
   _DWORD *v2; // rbx

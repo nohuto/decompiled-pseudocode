@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViThunkReplaceSpecialPristine @ 0x140AD91AC
+ * Callers:
+ *     ViThunkRecoverPristines @ 0x140AD8D6C (ViThunkRecoverPristines.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ViThunkReplaceSpecialPristine(_QWORD *a1)
 {
   PVOID *v1; // rdx

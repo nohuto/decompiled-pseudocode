@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1BRUSHMEMOBJ@@QEAA@XZ @ 0x1C02D2C88
+ * Callers:
+ *     ?hCreateHatchBrushInternal@@YAPEAUHBRUSH__@@KKH@Z @ 0x1C02D2CD4 (-hCreateHatchBrushInternal@@YAPEAUHBRUSH__@@KKH@Z.c)
+ *     GreCreateDIBBrush @ 0x1C02D2D2C (GreCreateDIBBrush.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall BRUSHMEMOBJ::~BRUSHMEMOBJ(BRUSHMEMOBJ *this)
 {
   _QWORD *v2; // rcx

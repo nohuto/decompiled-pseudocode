@@ -1,3 +1,21 @@
+/*
+ * XREFs of PiSwDispatch @ 0x140785720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     PiAuDoesClientHaveAccess @ 0x1406C4454 (PiAuDoesClientHaveAccess.c)
+ *     PiSwIrpPropertySet @ 0x1407857F8 (PiSwIrpPropertySet.c)
+ *     PiSwIrpCleanup @ 0x140807E94 (PiSwIrpCleanup.c)
+ *     PiSwDeviceDereference @ 0x140807FA4 (PiSwDeviceDereference.c)
+ *     PiSwIrpStartCreate @ 0x1408085B8 (PiSwIrpStartCreate.c)
+ *     PiSwIrpInterfaceRegister @ 0x1408086D4 (PiSwIrpInterfaceRegister.c)
+ *     PiSwIrpInterfacePropertySet @ 0x140808A64 (PiSwIrpInterfacePropertySet.c)
+ *     PiSwIrpInterfaceSetState @ 0x140808FD8 (PiSwIrpInterfaceSetState.c)
+ *     PiSwIrpSetLifetime @ 0x140858894 (PiSwIrpSetLifetime.c)
+ *     PiSwIrpGetLifetime @ 0x1409645C0 (PiSwIrpGetLifetime.c)
+ */
+
 __int64 __fastcall PiSwDispatch(__int64 a1, IRP *a2)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rsi

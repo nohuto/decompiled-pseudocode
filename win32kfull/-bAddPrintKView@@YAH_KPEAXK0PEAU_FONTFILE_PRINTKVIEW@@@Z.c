@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bAddPrintKView@@YAH_KPEAXK0PEAU_FONTFILE_PRINTKVIEW@@@Z @ 0x1C02B8BE0
+ * Callers:
+ *     ?pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z @ 0x1C02B9424 (-pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall bAddPrintKView(__int64 a1, void *a2, int a3, __int64 a4, struct _FONTFILE_PRINTKVIEW *a5)
 {
   __int64 v9; // rdi

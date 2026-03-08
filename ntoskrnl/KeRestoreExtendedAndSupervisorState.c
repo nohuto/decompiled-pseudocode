@@ -1,3 +1,18 @@
+/*
+ * XREFs of KeRestoreExtendedAndSupervisorState @ 0x14036A3E8
+ * Callers:
+ *     KeRestoreExtendedProcessorState @ 0x14036A3D0 (KeRestoreExtendedProcessorState.c)
+ *     DifKeRestoreExtendedProcessorStateWrapper @ 0x1405E3340 (DifKeRestoreExtendedProcessorStateWrapper.c)
+ *     PnprQuiesceProcessorDpc @ 0x140A9A400 (PnprQuiesceProcessorDpc.c)
+ *     PopHandleNextState @ 0x140AA4FAC (PopHandleNextState.c)
+ * Callees:
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlXRestoreS @ 0x1402D8238 (RtlXRestoreS.c)
+ *     RtlXRestore @ 0x14036A500 (RtlXRestore.c)
+ *     KeFreeXStateContext @ 0x14036A544 (KeFreeXStateContext.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 char __fastcall KeRestoreExtendedAndSupervisorState(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // r10

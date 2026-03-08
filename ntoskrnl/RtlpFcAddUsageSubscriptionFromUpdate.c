@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpFcAddUsageSubscriptionFromUpdate @ 0x1409BFD94
+ * Callers:
+ *     RtlpFcUpdateUsageTriggers @ 0x1409C05F0 (RtlpFcUpdateUsageTriggers.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpFcAddUsageSubscriptionFromUpdate(__int64 a1, _DWORD *a2, __int64 *a3)
 {
   __int64 v3; // r10

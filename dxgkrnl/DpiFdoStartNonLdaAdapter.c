@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiFdoStartNonLdaAdapter @ 0x1C0209FAC
+ * Callers:
+ *     DpiFdoStartAdapterThreadImpl @ 0x1C0209A10 (DpiFdoStartAdapterThreadImpl.c)
+ * Callees:
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ *     DpiFdoCreateSysMmAdapter @ 0x1C020A044 (DpiFdoCreateSysMmAdapter.c)
+ */
+
 __int64 __fastcall DpiFdoStartNonLdaAdapter(
         struct _DEVICE_OBJECT *a1,
         char a2,

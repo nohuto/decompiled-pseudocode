@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiSetStandardizedCacheInformation @ 0x140A8A138
+ * Callers:
+ *     KiSetCacheInformationIntel @ 0x140A899A0 (KiSetCacheInformationIntel.c)
+ *     KiSetCacheInformationAmd @ 0x140A9C858 (KiSetCacheInformationAmd.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall KiSetStandardizedCacheInformation(__int64 a1, unsigned int a2)
 {
   unsigned int v2; // ebp

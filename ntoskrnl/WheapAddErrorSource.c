@@ -1,3 +1,13 @@
+/*
+ * XREFs of WheapAddErrorSource @ 0x14037D97C
+ * Callers:
+ *     WheaAddErrorSource @ 0x14080C450 (WheaAddErrorSource.c)
+ *     WheapInitializeErrorSourceTable @ 0x140B3E058 (WheapInitializeErrorSourceTable.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ */
+
 LONG __fastcall WheapAddErrorSource(__int64 a1, __int64 a2)
 {
   __int64 *v3; // rax

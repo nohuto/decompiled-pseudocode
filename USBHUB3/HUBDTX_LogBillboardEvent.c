@@ -1,3 +1,16 @@
+/*
+ * XREFs of HUBDTX_LogBillboardEvent @ 0x1C002D020
+ * Callers:
+ *     HUBDSM_CheckingIfBillboardStringDescriptorShouldBeQueried @ 0x1C00223E0 (HUBDSM_CheckingIfBillboardStringDescriptorShouldBeQueried.c)
+ *     HUBDSM_ValidatingAndLoggingBillboardStringDescriptor @ 0x1C0022CC0 (HUBDSM_ValidatingAndLoggingBillboardStringDescriptor.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     McTemplateK0puuhz_EtwWriteTransfer @ 0x1C00296B0 (McTemplateK0puuhz_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 int __fastcall HUBDTX_LogBillboardEvent(__int64 a1, _BYTE *a2)
 {
   __int64 v4; // rsi

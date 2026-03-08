@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsImmDisableIMEPresent @ 0x1400068E8
+ * Callers:
+ *     wWinMain @ 0x140003430 (wWinMain.c)
+ * Callees:
+ *     ApiSetQueryApiSetPresence_0 @ 0x1400069D0 (ApiSetQueryApiSetPresence_0.c)
+ */
+
 char IsImmDisableIMEPresent()
 {
   char result; // al

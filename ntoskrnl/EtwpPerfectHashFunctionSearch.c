@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpPerfectHashFunctionSearch @ 0x140233A30
+ * Callers:
+ *     EtwpApplyEventIdPayloadFilter @ 0x140233900 (EtwpApplyEventIdPayloadFilter.c)
+ *     EtwpApplyStackWalkIdFilter @ 0x140601EC8 (EtwpApplyStackWalkIdFilter.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall EtwpPerfectHashFunctionSearch(__int16 a1, __int64 a2)
 {
   __int64 v2; // r8

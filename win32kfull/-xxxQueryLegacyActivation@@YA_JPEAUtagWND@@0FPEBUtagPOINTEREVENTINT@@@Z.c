@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?xxxQueryLegacyActivation@@YA_JPEAUtagWND@@0FPEBUtagPOINTEREVENTINT@@@Z @ 0x1C01C7884
+ * Callers:
+ *     ?xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z @ 0x1C01C75BC (-xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z.c)
+ * Callees:
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ *     GetDPITransformationMonitor @ 0x1C01BAD54 (GetDPITransformationMonitor.c)
+ */
+
 __int64 __fastcall xxxQueryLegacyActivation(
         struct tagWND *a1,
         struct tagWND *a2,

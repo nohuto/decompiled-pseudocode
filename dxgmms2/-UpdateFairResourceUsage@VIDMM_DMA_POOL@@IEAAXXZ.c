@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UpdateFairResourceUsage@VIDMM_DMA_POOL@@IEAAXXZ @ 0x1C00B209C
+ * Callers:
+ *     ??1VIDMM_DMA_POOL@@QEAA@XZ @ 0x1C00B0E88 (--1VIDMM_DMA_POOL@@QEAA@XZ.c)
+ *     ?Init@VIDMM_DMA_POOL@@QEAAJXZ @ 0x1C00B112C (-Init@VIDMM_DMA_POOL@@QEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VIDMM_DMA_POOL::UpdateFairResourceUsage(VIDMM_DMA_POOL *this)
 {
   __int64 v1; // rax

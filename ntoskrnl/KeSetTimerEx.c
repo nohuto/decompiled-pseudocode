@@ -1,3 +1,17 @@
+/*
+ * XREFs of KeSetTimerEx @ 0x140250F30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsTimerResolutionActive @ 0x140250500 (PsTimerResolutionActive.c)
+ *     KiComputeDueTime @ 0x140251110 (KiComputeDueTime.c)
+ *     KiInsertTimerTable @ 0x1402511D0 (KiInsertTimerTable.c)
+ *     KiCancelTimer @ 0x140251440 (KiCancelTimer.c)
+ *     KiTimerWaitTest @ 0x140251B00 (KiTimerWaitTest.c)
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     KiTraceSetTimer @ 0x14045A480 (KiTraceSetTimer.c)
+ */
+
 BOOLEAN __stdcall KeSetTimerEx(PKTIMER Timer, LARGE_INTEGER DueTime, LONG Period, PKDPC Dpc)
 {
   _KDPC *v7; // rsi

@@ -1,3 +1,23 @@
+/*
+ * XREFs of KeCopyPage @ 0x14041BC90
+ * Callers:
+ *     MiInitializeImageProtos @ 0x140213DD0 (MiInitializeImageProtos.c)
+ *     MiCombineInitialInstance @ 0x14029CD58 (MiCombineInitialInstance.c)
+ *     MiCopyPage @ 0x14032DC70 (MiCopyPage.c)
+ *     MiCopyDataPageToImagePage @ 0x140334490 (MiCopyDataPageToImagePage.c)
+ *     MiInitializeSystemPageTable @ 0x1403483AC (MiInitializeSystemPageTable.c)
+ *     MiReplacePageOfProtoPool @ 0x14061B5A0 (MiReplacePageOfProtoPool.c)
+ *     MiCopyKstack @ 0x14062A6D0 (MiCopyKstack.c)
+ *     MiSlowRotateCopy @ 0x140630B44 (MiSlowRotateCopy.c)
+ *     MiScrubPage @ 0x14065CB10 (MiScrubPage.c)
+ *     MiCopyMemoryPagefileData @ 0x14065D548 (MiCopyMemoryPagefileData.c)
+ *     MiRevertRelocatedImagePfn @ 0x14069F1D0 (MiRevertRelocatedImagePfn.c)
+ *     MiValidateSectionCreate @ 0x14069F890 (MiValidateSectionCreate.c)
+ *     MxCopyPage @ 0x140B96330 (MxCopyPage.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KeCopyPage(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopSetAwayModeStatus @ 0x14098780C
+ * Callers:
+ *     PopSetSystemAwayMode @ 0x140987890 (PopSetSystemAwayMode.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopSetPowerSettingValueAcDc @ 0x14073BE70 (PopSetPowerSettingValueAcDc.c)
+ *     PopBroadcastSessionInfo @ 0x1408294F4 (PopBroadcastSessionInfo.c)
+ */
+
 __int64 __fastcall PopSetAwayModeStatus(char a1)
 {
   __int64 result; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?SleepStudyEvaluateDripsConstraint@FxPkgPnp@@QEAAXE@Z @ 0x1C0079228
+ * Callers:
+ *     ?SleepStudyEvaluateParticipation@FxPkgPnp@@QEAAXXZ @ 0x1C00793A8 (-SleepStudyEvaluateParticipation@FxPkgPnp@@QEAAXXZ.c)
+ *     ?_SleepStudyWnfCallback@FxPkgPnp@@SAJPEAU_MX_WNF_SUBSCRIPTION_CONTEXT@@PEAX@Z @ 0x1C0079A30 (-_SleepStudyWnfCallback@FxPkgPnp@@SAJPEAU_MX_WNF_SUBSCRIPTION_CONTEXT@@PEAX@Z.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qd @ 0x1C0007FCC (WPP_IFR_SF_qd.c)
+ *     ?SleepStudyRegisterBlockingComponents@FxPkgPnp@@QEAAJXZ @ 0x1C0079560 (-SleepStudyRegisterBlockingComponents@FxPkgPnp@@QEAAJXZ.c)
+ *     SleepstudyHelper_Initialize @ 0x1C00B2108 (SleepstudyHelper_Initialize.c)
+ */
+
 void __fastcall FxPkgPnp::SleepStudyEvaluateDripsConstraint(FxPkgPnp *this, unsigned __int8 IgnoreWnfQueryFailure)
 {
   _SLEEP_STUDY_INTERFACE *m_SleepStudy; // rax

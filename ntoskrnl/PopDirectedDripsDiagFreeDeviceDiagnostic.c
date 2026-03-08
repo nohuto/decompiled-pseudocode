@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopDirectedDripsDiagFreeDeviceDiagnostic @ 0x14099B190
+ * Callers:
+ *     PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x14099B0EC (PopDirectedDripsDiagCreateDeviceDiagnostic.c)
+ *     PopDirectedDripsDiagRundownDevices @ 0x14099B8B8 (PopDirectedDripsDiagRundownDevices.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PopDirectedDripsDiagFreeDeviceDiagnostic(_QWORD *P)
 {
   void *v2; // rcx

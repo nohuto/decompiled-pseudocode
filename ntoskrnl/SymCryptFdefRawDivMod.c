@@ -1,3 +1,20 @@
+/*
+ * XREFs of SymCryptFdefRawDivMod @ 0x1403FDD28
+ * Callers:
+ *     SymCryptFdefIntDivMod @ 0x1403FD6A8 (SymCryptFdefIntDivMod.c)
+ *     SymCryptFdefIntToModElement @ 0x1403FE2E4 (SymCryptFdefIntToModElement.c)
+ *     SymCryptFdefModElementSetValueGeneric @ 0x1403FE7A4 (SymCryptFdefModElementSetValueGeneric.c)
+ *     SymCryptFdefModMulGeneric @ 0x1403FEE60 (SymCryptFdefModMulGeneric.c)
+ *     SymCryptFdefModSquareGeneric @ 0x1403FF410 (SymCryptFdefModSquareGeneric.c)
+ *     SymCryptFdefModulusInitMontgomeryInternal @ 0x1403FF7F0 (SymCryptFdefModulusInitMontgomeryInternal.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     SymCryptWipe @ 0x1403F0988 (SymCryptWipe.c)
+ *     SymCryptFdefRawMaskedAddSubdigit @ 0x1403FDFDC (SymCryptFdefRawMaskedAddSubdigit.c)
+ *     SymCryptFdefRawMultSubUint32 @ 0x1403FE08C (SymCryptFdefRawMultSubUint32.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 void __fastcall SymCryptFdefRawDivMod(void *Src, int a2, _DWORD *a3, __int64 a4, void *a5, _DWORD *a6)
 {
   __int64 v6; // rdi

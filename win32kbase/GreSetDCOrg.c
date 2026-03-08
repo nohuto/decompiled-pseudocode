@@ -1,3 +1,14 @@
+/*
+ * XREFs of GreSetDCOrg @ 0x1C005ACD0
+ * Callers:
+ *     GetMonitorDC @ 0x1C003D41C (GetMonitorDC.c)
+ * Callees:
+ *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C0041EF8 (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vCalcFillOrigin@DC@@QEAAXXZ @ 0x1C0045BC0 (-vCalcFillOrigin@DC@@QEAAXXZ.c)
+ *     ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C00467B8 (-vAltUnlockFast@XDCOBJ@@QEAAXXZ.c)
+ *     ?bDpiScaleTransform@DC@@QEBAHXZ @ 0x1C00597D0 (-bDpiScaleTransform@DC@@QEBAHXZ.c)
+ */
+
 __int64 __fastcall GreSetDCOrg(HDC a1, int a2, int a3, _OWORD *a4)
 {
   unsigned int v7; // ebx

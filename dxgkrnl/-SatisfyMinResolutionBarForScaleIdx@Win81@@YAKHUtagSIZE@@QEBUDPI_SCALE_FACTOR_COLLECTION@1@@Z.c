@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SatisfyMinResolutionBarForScaleIdx@Win81@@YAKHUtagSIZE@@QEBUDPI_SCALE_FACTOR_COLLECTION@1@@Z @ 0x1C031CBDC
+ * Callers:
+ *     ?AdjustScaleFactorForOverride@Win81@@YAKKHUtagSIZE@@PEBUDPI_SCALE_FACTOR_COLLECTION@1@@Z @ 0x1C031C2CC (-AdjustScaleFactorForOverride@Win81@@YAKKHUtagSIZE@@PEBUDPI_SCALE_FACTOR_COLLECTION@1@@Z.c)
+ *     ?FillDpiInfo@Win81@@YAXAEBUtagSIZE@@0IIHPEAU_DPI_INFORMATION@@@Z @ 0x1C031C72C (-FillDpiInfo@Win81@@YAXAEBUtagSIZE@@0IIHPEAU_DPI_INFORMATION@@@Z.c)
+ * Callees:
+ *     ??PWin81@@YA_NAEBUtagSIZE@@0@Z @ 0x1C031C220 (--PWin81@@YA_NAEBUtagSIZE@@0@Z.c)
+ */
+
 __int64 __fastcall Win81::SatisfyMinResolutionBarForScaleIdx(
         Win81 *this,
         __int64 a2,

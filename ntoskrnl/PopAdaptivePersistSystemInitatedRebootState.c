@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopAdaptivePersistSystemInitatedRebootState @ 0x14059B9D8
+ * Callers:
+ *     PopGracefulShutdown @ 0x140A9D970 (PopGracefulShutdown.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopBcdOpen @ 0x14082B4E4 (PopBcdOpen.c)
+ *     PopBcdClose @ 0x14082B524 (PopBcdClose.c)
+ *     BcdCloseObject @ 0x14082E5DC (BcdCloseObject.c)
+ *     BcdOpenObject @ 0x14082E620 (BcdOpenObject.c)
+ *     PopDiagTraceAdaptiveBootOverridePrepared @ 0x1409894CC (PopDiagTraceAdaptiveBootOverridePrepared.c)
+ *     PopAdaptiveGetSystemInitiatedRebootTargetBootEntry @ 0x1409987C0 (PopAdaptiveGetSystemInitiatedRebootTargetBootEntry.c)
+ *     BcdSetElementData @ 0x140A59BF0 (BcdSetElementData.c)
+ */
+
 __int64 __fastcall PopAdaptivePersistSystemInitatedRebootState(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdi

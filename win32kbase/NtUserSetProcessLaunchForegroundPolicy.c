@@ -1,3 +1,24 @@
+/*
+ * XREFs of NtUserSetProcessLaunchForegroundPolicy @ 0x1C0003010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ApiSetEditionAllowProcessLaunchForegroundPolicy @ 0x1C00050F0 (ApiSetEditionAllowProcessLaunchForegroundPolicy.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00052A0 (WPP_RECORDER_AND_TRACE_SF_dd.c)
+ *     ApiSetEditionPushProcessLaunchForegroundPolicy @ 0x1C0005348 (ApiSetEditionPushProcessLaunchForegroundPolicy.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C000F0BC (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     LockProcessByClientId @ 0x1C0084110 (LockProcessByClientId.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     WPP_RECORDER_AND_TRACE_SF_Dd @ 0x1C017A884 (WPP_RECORDER_AND_TRACE_SF_Dd.c)
+ */
+
 __int64 __fastcall NtUserSetProcessLaunchForegroundPolicy(unsigned int a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r9

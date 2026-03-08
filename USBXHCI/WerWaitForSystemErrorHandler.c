@@ -1,3 +1,11 @@
+/*
+ * XREFs of WerWaitForSystemErrorHandler @ 0x1C00547D0
+ * Callers:
+ *     WerKernelSubmitReport @ 0x1C00540E0 (WerKernelSubmitReport.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall WerWaitForSystemErrorHandler(int a1)
 {
   __int64 v1; // rbx

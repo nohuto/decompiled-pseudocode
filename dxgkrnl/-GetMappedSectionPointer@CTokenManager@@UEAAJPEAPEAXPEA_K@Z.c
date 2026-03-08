@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetMappedSectionPointer@CTokenManager@@UEAAJPEAPEAXPEA_K@Z @ 0x1C0012190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CTokenManager::GetMappedSectionPointer(CTokenManager *this, void **a2, unsigned __int64 *a3)
 {
   __int64 result; // rax

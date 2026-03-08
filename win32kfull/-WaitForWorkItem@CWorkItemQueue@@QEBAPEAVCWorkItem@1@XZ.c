@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?WaitForWorkItem@CWorkItemQueue@@QEBAPEAVCWorkItem@1@XZ @ 0x1C00BD100
+ * Callers:
+ *     ?UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00BB490 (-UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ * Callees:
+ *     ?DequeueWorkItem@CWorkItemQueue@@QEBAPEAVCWorkItem@1@XZ @ 0x1C00BD190 (-DequeueWorkItem@CWorkItemQueue@@QEBAPEAVCWorkItem@1@XZ.c)
+ */
+
 struct CWorkItemQueue::CWorkItem *__fastcall CWorkItemQueue::WaitForWorkItem(PRKEVENT **this)
 {
   struct CWorkItemQueue::CWorkItem *result; // rax

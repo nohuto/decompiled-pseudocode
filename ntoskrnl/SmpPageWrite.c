@@ -1,3 +1,14 @@
+/*
+ * XREFs of SmpPageWrite @ 0x1405C7990
+ * Callers:
+ *     MiStoreWriteIssue @ 0x14065A714 (MiStoreWriteIssue.c)
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140356594 (SmKmStoreRefFromStoreIndex.c)
+ *     ?SmPageWrite@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@T_SM_PAGE_ADD_PARAM@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@K@Z @ 0x14045CBDC (-SmPageWrite@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@T_SM_PAGE_ADD_PARAM@@PEAU.c)
+ *     SmpKeyedStoreReference @ 0x1405C78E8 (SmpKeyedStoreReference.c)
+ */
+
 __int64 __fastcall SmpPageWrite(
         __int64 a1,
         _DWORD *a2,

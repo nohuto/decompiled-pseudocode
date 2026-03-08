@@ -1,3 +1,21 @@
+/*
+ * XREFs of BiCreateKey @ 0x14082D580
+ * Callers:
+ *     BiSetObjectDescription @ 0x14082BB8C (BiSetObjectDescription.c)
+ *     BiAddStoreFromFile @ 0x14082BDE4 (BiAddStoreFromFile.c)
+ *     BiCreateObject @ 0x14082CA14 (BiCreateObject.c)
+ *     BcdSetElementDataWithFlags @ 0x14082D894 (BcdSetElementDataWithFlags.c)
+ * Callees:
+ *     CmSiCloseSection @ 0x1402F8438 (CmSiCloseSection.c)
+ *     BiSanitizeHandle @ 0x1402FDDE8 (BiSanitizeHandle.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     BiZwOpenKey @ 0x1403903E4 (BiZwOpenKey.c)
+ *     BiZwSetSecurityObject @ 0x14039040C (BiZwSetSecurityObject.c)
+ *     BiZwCreateKey @ 0x140390478 (BiZwCreateKey.c)
+ *     BiCreateKeySecurityDescriptor @ 0x14082E98C (BiCreateKeySecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiCreateKey(__int64 a1, const WCHAR *a2, ACCESS_MASK a3, unsigned int a4, _QWORD *a5, bool *a6)
 {
   const WCHAR *v7; // rax

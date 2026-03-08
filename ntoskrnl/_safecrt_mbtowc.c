@@ -1,3 +1,12 @@
+/*
+ * XREFs of _safecrt_mbtowc @ 0x1403D4730
+ * Callers:
+ *     _woutput_l @ 0x1403D6800 (_woutput_l.c)
+ *     _woutput_s @ 0x1403DB12C (_woutput_s.c)
+ * Callees:
+ *     RtlAnsiCharToUnicodeChar @ 0x1406EA670 (RtlAnsiCharToUnicodeChar.c)
+ */
+
 int __cdecl safecrt_mbtowc(wchar_t *DstCh, const char *SrcCh, size_t SrcSizeInBytes)
 {
   int result; // eax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiInitSystem @ 0x140B5EFDC
+ * Callers:
+ *     KiInitializeKernel @ 0x140A89160 (KiInitializeKernel.c)
+ * Callees:
+ *     KiInitializeIdleProcess @ 0x140B5F2B8 (KiInitializeIdleProcess.c)
+ *     KiForceSymbolReferences @ 0x140B92408 (KiForceSymbolReferences.c)
+ */
+
 __int64 __fastcall KiInitSystem(__int64 a1)
 {
   __int64 v2; // rcx

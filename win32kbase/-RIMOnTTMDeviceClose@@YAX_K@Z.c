@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RIMOnTTMDeviceClose@@YAX_K@Z @ 0x1C01E25E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ */
+
 void __fastcall RIMOnTTMDeviceClose(__int64 a1)
 {
   bool v2; // dl

@@ -1,3 +1,16 @@
+/*
+ * XREFs of WmipQueryAllDataMultiple @ 0x1409DDE84
+ * Callers:
+ *     WmipIoControl @ 0x140787290 (WmipIoControl.c)
+ *     IoWMIQueryAllDataMultiple @ 0x1409DBFC0 (IoWMIQueryAllDataMultiple.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WmipQueryAllData @ 0x14069DF2C (WmipQueryAllData.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WmipQueryAllDataMultiple(
         int a1,
         PVOID *a2,

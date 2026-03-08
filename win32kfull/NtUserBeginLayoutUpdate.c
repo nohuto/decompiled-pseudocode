@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserBeginLayoutUpdate @ 0x1C00EEB80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreWindowBeginLayoutUpdate @ 0x1C00161C4 (GreWindowBeginLayoutUpdate.c)
+ *     _GetTopLevelWindow @ 0x1C0035AF0 (_GetTopLevelWindow.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ */
+
 __int64 __fastcall NtUserBeginLayoutUpdate(__int64 a1)
 {
   __int64 v2; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of IntelPptFilter_DecreaseEndpointCount @ 0x1C007C090
+ * Callers:
+ *     IntelPptFilter_FilterCommandCompletion @ 0x1C007C230 (IntelPptFilter_FilterCommandCompletion.c)
+ *     IntelPptFilter_FilterEndpointConfigureCommand @ 0x1C007C2F8 (IntelPptFilter_FilterEndpointConfigureCommand.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ */
+
 _UNKNOWN **__fastcall IntelPptFilter_DecreaseEndpointCount(__int64 a1, int a2)
 {
   int v2; // edi

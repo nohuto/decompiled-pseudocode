@@ -1,3 +1,13 @@
+/*
+ * XREFs of PsChargeProcessPoolQuota @ 0x1402951F0
+ * Callers:
+ *     PsChargePoolQuota @ 0x140294F20 (PsChargePoolQuota.c)
+ *     FsRtlCancelNotify @ 0x1402F2B70 (FsRtlCancelNotify.c)
+ *     ExpAllocatePoolWithQuotaTag @ 0x140AAB128 (ExpAllocatePoolWithQuotaTag.c)
+ * Callees:
+ *     PspExpandQuota @ 0x140295420 (PspExpandQuota.c)
+ */
+
 NTSTATUS __stdcall PsChargeProcessPoolQuota(PEPROCESS Process, POOL_TYPE PoolType, ULONG_PTR Amount)
 {
   NTSTATUS v5; // ebp

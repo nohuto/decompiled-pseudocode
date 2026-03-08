@@ -1,3 +1,12 @@
+/*
+ * XREFs of xxxInitInput @ 0x1C00C1438
+ * Callers:
+ *     ?xxxInitTerminal@@YAJPEAUtagTERMINAL@@@Z @ 0x1C00BEB78 (-xxxInitTerminal@@YAJPEAUtagTERMINAL@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall xxxInitInput(__int64 a1)
 {
   unsigned int v2; // edi

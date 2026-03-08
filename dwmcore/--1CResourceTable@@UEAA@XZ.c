@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CResourceTable@@UEAA@XZ @ 0x1800A9DE0
+ * Callers:
+ *     ??_ECResourceTable@@UEAAPEAXI@Z @ 0x1800A9BB0 (--_ECResourceTable@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??$ReleaseInterface@VCProcessAttribution@@@@YAXAEAPEAVCProcessAttribution@@@Z @ 0x1800AB2F8 (--$ReleaseInterface@VCProcessAttribution@@@@YAXAEAPEAVCProcessAttribution@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CResourceTable::~CResourceTable(CResourceTable *this)
 {
   __int64 **v2; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetEffectiveCompositionFrameId@CComposition@@QEBA_KXZ @ 0x1801B05BC
+ * Callers:
+ *     ?GetPropertyValue@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@IPEAVCExpressionValue@@@Z @ 0x1801DFC50 (-GetPropertyValue@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@IPEAVCExpressionValue@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall CComposition::GetEffectiveCompositionFrameId(CComposition *this)
 {
   unsigned __int64 result; // rax

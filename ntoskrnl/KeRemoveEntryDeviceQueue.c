@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeRemoveEntryDeviceQueue @ 0x140570F70
+ * Callers:
+ *     DifKeRemoveEntryDeviceQueueWrapper @ 0x1405E3000 (DifKeRemoveEntryDeviceQueueWrapper.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 BOOLEAN __stdcall KeRemoveEntryDeviceQueue(PKDEVICE_QUEUE DeviceQueue, PKDEVICE_QUEUE_ENTRY DeviceQueueEntry)
 {
   BOOLEAN Inserted; // si

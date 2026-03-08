@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchRecommitSchedulingLogs @ 0x1C00196DC
+ * Callers:
+ *     ?InitPagingProcessVaSpace@VIDMM_GLOBAL@@QEAAJIE@Z @ 0x1C00C26EC (-InitPagingProcessVaSpace@VIDMM_GLOBAL@@QEAAJIE@Z.c)
+ * Callees:
+ *     ?RecommitSchLog@VIDMM_SCH_LOG@@SAJPEAV1@@Z @ 0x1C004D524 (-RecommitSchLog@VIDMM_SCH_LOG@@SAJPEAV1@@Z.c)
+ */
+
 __int64 __fastcall VidSchRecommitSchedulingLogs(__int64 a1, unsigned int a2)
 {
   int v2; // r8d

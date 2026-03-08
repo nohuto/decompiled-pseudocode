@@ -1,3 +1,11 @@
+/*
+ * XREFs of DispatchNotification @ 0x1C0004C6E
+ * Callers:
+ *     NotifyHandler @ 0x1C0004EE0 (NotifyHandler.c)
+ * Callees:
+ *     ACPIInitReferenceDeviceExtension @ 0x1C002D594 (ACPIInitReferenceDeviceExtension.c)
+ */
+
 __int64 __fastcall DispatchNotification(__int64 a1, int a2)
 {
   unsigned int v4; // edi

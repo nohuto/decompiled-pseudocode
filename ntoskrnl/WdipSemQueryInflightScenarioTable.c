@@ -1,3 +1,11 @@
+/*
+ * XREFs of WdipSemQueryInflightScenarioTable @ 0x1409DAFF4
+ * Callers:
+ *     WdipSemUpdateInflightScenarioTable @ 0x1409DB118 (WdipSemUpdateInflightScenarioTable.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WdipSemQueryInflightScenarioTable(_QWORD *a1, __int16 a2, _DWORD *a3)
 {
   __int64 v3; // r9

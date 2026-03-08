@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsNativeResolutionOnlyTVTiming@Win81@@YAHUtagSIZE@@H@Z @ 0x1C031CAE8
+ * Callers:
+ *     ?HeuristicallyDetermineViewingDistance@Win81@@YAIAEBUtagSIZE@@H0H@Z @ 0x1C031C960 (-HeuristicallyDetermineViewingDistance@Win81@@YAIAEBUtagSIZE@@H0H@Z.c)
+ * Callees:
+ *     ?IsNetbookResolution@Win81@@YAHUtagSIZE@@@Z @ 0x1C031CB50 (-IsNetbookResolution@Win81@@YAHUtagSIZE@@@Z.c)
+ */
+
 __int64 __fastcall Win81::IsNativeResolutionOnlyTVTiming(Win81 *this, struct tagSIZE a2)
 {
   int v2; // r8d

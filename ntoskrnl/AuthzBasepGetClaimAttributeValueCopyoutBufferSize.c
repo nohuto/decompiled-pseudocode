@@ -1,3 +1,11 @@
+/*
+ * XREFs of AuthzBasepGetClaimAttributeValueCopyoutBufferSize @ 0x140A57590
+ * Callers:
+ *     AuthzBasepGetClaimAttributesCopyoutBufferSize @ 0x140A57774 (AuthzBasepGetClaimAttributesCopyoutBufferSize.c)
+ * Callees:
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ */
+
 NTSTATUS __fastcall AuthzBasepGetClaimAttributeValueCopyoutBufferSize(__int64 a1, unsigned __int64 *a2)
 {
   unsigned __int64 v3; // r9

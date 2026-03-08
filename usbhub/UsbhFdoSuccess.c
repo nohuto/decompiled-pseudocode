@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhFdoSuccess @ 0x1C002B040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 __int64 __fastcall UsbhFdoSuccess(__int64 a1, __int64 a2)
 {
   int v2; // r9d

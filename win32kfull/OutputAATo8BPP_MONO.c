@@ -1,3 +1,11 @@
+/*
+ * XREFs of OutputAATo8BPP_MONO @ 0x1C025BE80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall OutputAATo8BPP_MONO(
         unsigned int *a1,
         __int64 a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ArbInitializeArbiterInstance @ 0x1C00A1B94
+ * Callers:
+ *     AcpiInitializeBusNumberArbiter @ 0x1C008204C (AcpiInitializeBusNumberArbiter.c)
+ *     AcpiInitializeMemoryArbiter @ 0x1C0088F2C (AcpiInitializeMemoryArbiter.c)
+ *     AcpiInitializePortArbiter @ 0x1C008C02C (AcpiInitializePortArbiter.c)
+ *     AcpiIrqLibInitializeGlobalState @ 0x1C00ABB68 (AcpiIrqLibInitializeGlobalState.c)
+ * Callees:
+ *     RtlInitializeRangeList_0 @ 0x1C0001A31 (RtlInitializeRangeList_0.c)
+ *     ArbBuildAssignmentOrdering @ 0x1C00A124C (ArbBuildAssignmentOrdering.c)
+ */
+
 __int64 __fastcall ArbInitializeArbiterInstance(__int64 a1, __int64 a2, int a3, __int64 a4)
 {
   struct _KEVENT *Pool2; // rax

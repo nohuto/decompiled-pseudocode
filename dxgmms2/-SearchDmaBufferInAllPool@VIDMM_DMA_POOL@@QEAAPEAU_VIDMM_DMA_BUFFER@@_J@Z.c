@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SearchDmaBufferInAllPool@VIDMM_DMA_POOL@@QEAAPEAU_VIDMM_DMA_BUFFER@@_J@Z @ 0x1C00F0480
+ * Callers:
+ *     ?WriteDmaHistoryToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_KK2K@Z @ 0x1C00F0B74 (-WriteDmaHistoryToMinidump@VIDMM_DMA_POOL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_KK2K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _LIST_ENTRY *__fastcall VIDMM_DMA_POOL::SearchDmaBufferInAllPool(VIDMM_DMA_POOL *this, struct _LIST_ENTRY *a2)
 {
   struct _LIST_ENTRY *Flink; // r8

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopUnlinkWakeSources @ 0x140984A4C
+ * Callers:
+ *     PopFreeWakeInfo @ 0x1409842B0 (PopFreeWakeInfo.c)
+ *     PopHandleWakeSources @ 0x140A9DD6C (PopHandleWakeSources.c)
+ * Callees:
+ *     PopFreeWakeSource @ 0x1409842D8 (PopFreeWakeSource.c)
+ */
+
 void __fastcall PopUnlinkWakeSources(__int64 a1)
 {
   _QWORD **v2; // rbx

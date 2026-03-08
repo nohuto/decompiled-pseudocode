@@ -1,3 +1,11 @@
+/*
+ * XREFs of InvokePauseCallbacks @ 0x1C0053994
+ * Callers:
+ *     RunContext @ 0x1C0053F34 (RunContext.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 void InvokePauseCallbacks()
 {
   __int64 v0; // rcx

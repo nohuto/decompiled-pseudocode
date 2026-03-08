@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopDirectedDripsNotifyResiliencyCompletionWorker @ 0x140584B00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PopPdcCompleteResiliencyCallback @ 0x140994E48 (PopPdcCompleteResiliencyCallback.c)
+ */
+
 signed __int32 __fastcall PopDirectedDripsNotifyResiliencyCompletionWorker(__int64 a1)
 {
   volatile signed __int64 *v1; // rdi

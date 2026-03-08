@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopGetPowerSettingValue @ 0x1402BCC10
+ * Callers:
+ *     PopScanIdleList @ 0x1402BC8E0 (PopScanIdleList.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ *     PopBatteryUpdateAlarms @ 0x140829D60 (PopBatteryUpdateAlarms.c)
+ *     PopEsInStandbyEvaluate @ 0x1409953B0 (PopEsInStandbyEvaluate.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PopFindPowerSettingConfiguration @ 0x14068D434 (PopFindPowerSettingConfiguration.c)
+ */
+
 __int64 __fastcall PopGetPowerSettingValue(
         __int64 a1,
         __int64 a2,

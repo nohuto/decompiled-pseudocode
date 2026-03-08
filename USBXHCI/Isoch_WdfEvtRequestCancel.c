@@ -1,3 +1,14 @@
+/*
+ * XREFs of Isoch_WdfEvtRequestCancel @ 0x1C0045C90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     TR_QueueDpcForTransferCompletion @ 0x1C000F284 (TR_QueueDpcForTransferCompletion.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_DDi @ 0x1C004207C (WPP_RECORDER_SF_DDi.c)
+ */
+
 void __fastcall Isoch_WdfEvtRequestCancel(__int64 a1)
 {
   char v1; // si

@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiSetProcessorSignature @ 0x140A8B504
+ * Callers:
+ *     KiInitializeBootStructures @ 0x140A887E0 (KiInitializeBootStructures.c)
+ *     KiSetFeatureBits @ 0x140A8A714 (KiSetFeatureBits.c)
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KdInitSystem @ 0x140AAE040 (KdInitSystem.c)
+ *     KiPublishProcessorFeatures @ 0x140B71D38 (KiPublishProcessorFeatures.c)
+ */
+
 __int64 __fastcall KiSetProcessorSignature(__int64 a1, unsigned int a2)
 {
   ULONG_PTR v13; // r13

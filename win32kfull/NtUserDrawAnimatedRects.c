@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserDrawAnimatedRects @ 0x1C01CFB30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxDrawAnimatedRects @ 0x1C0227740 (xxxDrawAnimatedRects.c)
+ */
+
 __int64 __fastcall NtUserDrawAnimatedRects(__int64 a1)
 {
   int v2; // ebx

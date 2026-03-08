@@ -1,3 +1,11 @@
+/*
+ * XREFs of PrmOpregionHandler @ 0x1C008CF90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PrmOpregionHandlerWorker @ 0x1C008D05C (PrmOpregionHandlerWorker.c)
+ */
+
 __int64 __fastcall PrmOpregionHandler(__int64 a1, __int64 a2, _DWORD *a3)
 {
   unsigned int v6; // ebx

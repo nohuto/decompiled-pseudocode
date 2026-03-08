@@ -1,3 +1,16 @@
+/*
+ * XREFs of EngpMovePointer @ 0x1C0127E08
+ * Callers:
+ *     ?vMovePointer@@YAXPEAUHDEV__@@HHJ@Z @ 0x1C001DC84 (-vMovePointer@@YAXPEAUHDEV__@@HHJ@Z.c)
+ *     EngMovePointer @ 0x1C0269DC0 (EngMovePointer.c)
+ * Callees:
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C0018890 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     IsDwmActive @ 0x1C002CF30 (IsDwmActive.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z @ 0x1C0128ACC (-DwmMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@K@Z.c)
+ *     ?GdiMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@H@Z @ 0x1C027CD08 (-GdiMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@H@Z.c)
+ */
+
 void EngpMovePointer(struct _SURFOBJ *a1, int a2, int a3, ...)
 {
   HDEV hdev; // rbx

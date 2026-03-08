@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiTryToAcquireQueuedSpinLockInstrumented @ 0x140457C4E
+ * Callers:
+ *     KxTryToAcquireQueuedSpinLock @ 0x1402DE86C (KxTryToAcquireQueuedSpinLock.c)
+ * Callees:
+ *     PerfLogSpinLockAcquire @ 0x1405FE910 (PerfLogSpinLockAcquire.c)
+ */
+
 __int64 __fastcall KiTryToAcquireQueuedSpinLockInstrumented(signed __int64 a1, _DWORD *a2)
 {
   struct _KPRCB *CurrentPrcb; // r8

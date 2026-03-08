@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UnlockAndFreeCPDs@@YAXPEAPEAU_CALLPROCDATA@@@Z @ 0x1C00132A0
+ * Callers:
+ *     DestroyClass @ 0x1C0033D18 (DestroyClass.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall UnlockAndFreeCPDs(struct _CALLPROCDATA **a1)
 {
   __int64 i; // rdx

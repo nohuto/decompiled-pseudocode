@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetDpiForCurrentProcess @ 0x1C00E9870
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtUserGetDpiForCurrentProcess(__int64 a1)
 {
   __int64 CurrentProcessWin32Process; // rax

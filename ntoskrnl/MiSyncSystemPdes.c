@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiSyncSystemPdes @ 0x1402A60BC
+ * Callers:
+ *     MmCreateProcessAddressSpace @ 0x1407289B8 (MmCreateProcessAddressSpace.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUpdateSystemPdes @ 0x1406170F0 (MiUpdateSystemPdes.c)
+ */
+
 __int64 __fastcall MiSyncSystemPdes(__int64 a1)
 {
   __int64 result; // rax

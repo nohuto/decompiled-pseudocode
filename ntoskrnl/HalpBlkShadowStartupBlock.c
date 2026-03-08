@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpBlkShadowStartupBlock @ 0x140B8ED94
+ * Callers:
+ *     HalpBlkInitializeVirtualAddressSpace @ 0x140B8ECAC (HalpBlkInitializeVirtualAddressSpace.c)
+ * Callees:
+ *     HalpBlkAddVirtualMapping @ 0x140B8E880 (HalpBlkAddVirtualMapping.c)
+ */
+
 __int64 HalpBlkShadowStartupBlock()
 {
   __int64 result; // rax

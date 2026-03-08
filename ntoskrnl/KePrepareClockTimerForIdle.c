@@ -1,3 +1,23 @@
+/*
+ * XREFs of KePrepareClockTimerForIdle @ 0x1402A9B1C
+ * Callers:
+ *     PpmIdleExecuteTransition @ 0x14022D7D0 (PpmIdleExecuteTransition.c)
+ * Callees:
+ *     KiSetPendingTick @ 0x14022AF40 (KiSetPendingTick.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeIsForceIdleEngaged @ 0x14024EAFC (KeIsForceIdleEngaged.c)
+ *     KiEventClockStateChange @ 0x1402A9ADC (KiEventClockStateChange.c)
+ *     PoAllProcessorsDeepIdle @ 0x1402AAF54 (PoAllProcessorsDeepIdle.c)
+ *     KiCancelClockTimer @ 0x1402D94E4 (KiCancelClockTimer.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x140328330 (KiGetNextTimerExpirationDueTime.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     KiLogClockIncrementUpdate @ 0x1403CA5C8 (KiLogClockIncrementUpdate.c)
+ *     KiClockTimerOneShotReady @ 0x1403CAAD4 (KiClockTimerOneShotReady.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall KePrepareClockTimerForIdle(char a1, char a2, unsigned __int64 a3, char a4, __int64 a5, _QWORD *a6)
 {
   int v6; // edi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeInitAmd64SpecificState @ 0x140B6F644
+ * Callers:
+ *     PipInitializeCoreDriversAndElam @ 0x140B57734 (PipInitializeCoreDriversAndElam.c)
+ * Callees:
+ *     KiFilterFiberContext @ 0x140B14C30 (KiFilterFiberContext.c)
+ *     KiSwInterruptPresent @ 0x140B65038 (KiSwInterruptPresent.c)
+ */
+
 __int64 KeInitAmd64SpecificState()
 {
   __int64 result; // rax

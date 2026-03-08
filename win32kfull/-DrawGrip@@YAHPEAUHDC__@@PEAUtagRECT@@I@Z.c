@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DrawGrip@@YAHPEAUHDC__@@PEAUtagRECT@@I@Z @ 0x1C00E77D8
+ * Callers:
+ *     DrawFrameControl @ 0x1C0116938 (DrawFrameControl.c)
+ * Callees:
+ *     GrePolyPatBlt @ 0x1C0088258 (GrePolyPatBlt.c)
+ *     GreExtTextOutW @ 0x1C0113604 (GreExtTextOutW.c)
+ *     GreSetTextColor @ 0x1C0113D94 (GreSetTextColor.c)
+ */
+
 __int64 __fastcall DrawGrip(HDC a1, struct tagRECT *a2, __int16 a3)
 {
   LONG bottom; // ebp

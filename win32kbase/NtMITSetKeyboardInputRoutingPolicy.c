@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtMITSetKeyboardInputRoutingPolicy @ 0x1C00CD720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C007CCB8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
+ *     SetKeyboardInputRoutingPolicy @ 0x1C00CD7B4 (SetKeyboardInputRoutingPolicy.c)
+ */
+
 __int64 __fastcall NtMITSetKeyboardInputRoutingPolicy(unsigned int a1)
 {
   PKDPC BufferChainingDpc; // rdi

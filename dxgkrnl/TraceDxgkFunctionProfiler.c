@@ -1,3 +1,12 @@
+/*
+ * XREFs of TraceDxgkFunctionProfiler @ 0x1C00246D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C002463C (McTemplateK0q_EtwWriteTransfer.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 char __fastcall TraceDxgkFunctionProfiler(int a1, char a2, __int64 a3)
 {
   __int64 v4; // rcx

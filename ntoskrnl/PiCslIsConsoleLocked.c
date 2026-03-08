@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiCslIsConsoleLocked @ 0x1409695FC
+ * Callers:
+ *     PipDmgEnforceEnumerationPolicy @ 0x140968304 (PipDmgEnforceEnumerationPolicy.c)
+ *     PipDmgReevaluateQueue @ 0x1409684CC (PipDmgReevaluateQueue.c)
+ *     PnpSurpriseFailUnsafeDmaDevices @ 0x140968A40 (PnpSurpriseFailUnsafeDmaDevices.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 char PiCslIsConsoleLocked()
 {
   char v0; // dl

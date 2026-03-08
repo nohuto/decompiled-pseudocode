@@ -1,3 +1,13 @@
+/*
+ * XREFs of ObpGrantAccess @ 0x14069DD08
+ * Callers:
+ *     ObpInsertOrLocateNamedObject @ 0x140696BDC (ObpInsertOrLocateNamedObject.c)
+ *     ObDuplicateObject @ 0x1406ED5C0 (ObDuplicateObject.c)
+ * Callees:
+ *     ObpAdjustCreatorAccessState @ 0x140698E40 (ObpAdjustCreatorAccessState.c)
+ *     ObCheckObjectAccess @ 0x14069DB90 (ObCheckObjectAccess.c)
+ */
+
 __int64 __fastcall ObpGrantAccess(int a1, char *a2, struct _ACCESS_STATE *a3, __int64 a4, __int16 a5, ACCESS_MASK *a6)
 {
   KPROCESSOR_MODE v7; // dl

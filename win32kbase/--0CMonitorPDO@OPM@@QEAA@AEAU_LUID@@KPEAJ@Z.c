@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??0CMonitorPDO@OPM@@QEAA@AEAU_LUID@@KPEAJ@Z @ 0x1C017E770
+ * Callers:
+ *     ??0COPMProtectedOutput@@QEAA@W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAJ@Z @ 0x1C0187CB4 (--0COPMProtectedOutput@@QEAA@W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAJ@Z.c)
+ * Callees:
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00B0000 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     ??0CMutex@OPM@@QEAA@PEAJ@Z @ 0x1C00C9370 (--0CMutex@OPM@@QEAA@PEAJ@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ??_GCMutex@OPM@@QEAAPEAXI@Z @ 0x1C017EAE4 (--_GCMutex@OPM@@QEAAPEAXI@Z.c)
+ *     ?Destroy@CMonitorPDO@OPM@@UEAAJXZ @ 0x1C017EB20 (-Destroy@CMonitorPDO@OPM@@UEAAJXZ.c)
+ */
+
 OPM::CMonitorPDO *__fastcall OPM::CMonitorPDO::CMonitorPDO(
         OPM::CMonitorPDO *this,
         struct _LUID *a2,

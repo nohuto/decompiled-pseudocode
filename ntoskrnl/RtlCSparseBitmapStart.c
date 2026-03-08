@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlCSparseBitmapStart @ 0x1403A57A4
+ * Callers:
+ *     RtlpHpVaMgrCtxStart @ 0x140375148 (RtlpHpVaMgrCtxStart.c)
+ *     RtlHpHeapManagerStart @ 0x1403762C8 (RtlHpHeapManagerStart.c)
+ * Callees:
+ *     RtlpHpEnvAllocVA @ 0x140330480 (RtlpHpEnvAllocVA.c)
+ *     MmManageFaultRange @ 0x1403A58F8 (MmManageFaultRange.c)
+ */
+
 __int64 __fastcall RtlCSparseBitmapStart(__int64 a1, unsigned __int64 a2, char a3, int a4)
 {
   ULONG_PTR v5; // rsi

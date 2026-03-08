@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CBitmapLock@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18027EB50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CBitmapLock::HrFindInterface(CBitmapLock *this, const struct _GUID *a2, void **a3)
 {
   __int64 result; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlInternTableIntern @ 0x1407015D8
+ * Callers:
+ *     PopEtAppIdIntern @ 0x14070146C (PopEtAppIdIntern.c)
+ *     PopEtStringIntern @ 0x1407941D4 (PopEtStringIntern.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     RtlpInternEntryFind @ 0x1407033D0 (RtlpInternEntryFind.c)
+ *     RtlpInternEntryHash @ 0x14070351C (RtlpInternEntryHash.c)
+ *     RtlpInternEntryCreate @ 0x140703750 (RtlpInternEntryCreate.c)
+ *     RtlpInternHashBucketsAllocate @ 0x14079C154 (RtlpInternHashBucketsAllocate.c)
+ *     RtlpInternHashBucketsFree @ 0x14079C1B4 (RtlpInternHashBucketsFree.c)
+ */
+
 __int64 __fastcall RtlInternTableIntern(__int64 a1, __int64 a2)
 {
   __int64 v4; // rsi

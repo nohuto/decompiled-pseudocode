@@ -1,3 +1,11 @@
+/*
+ * XREFs of DxgSetPowerComponentIdleForceAsyncCBInternal @ 0x1C000F950
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetPowerComponentIdleCBWorker@DXGADAPTER@@QEAAXIK@Z @ 0x1C000F9C0 (-SetPowerComponentIdleCBWorker@DXGADAPTER@@QEAAXIK@Z.c)
+ */
+
 void __fastcall DxgSetPowerComponentIdleForceAsyncCBInternal(__int64 a1, unsigned int a2)
 {
   __int64 v3; // rax

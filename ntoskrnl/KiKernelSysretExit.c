@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiKernelSysretExit @ 0x140AF4DC0
+ * Callers:
+ *     KiCallUserMode @ 0x14041A7F0 (KiCallUserMode.c)
+ *     KiSystemCall64 @ 0x14042B100 (KiSystemCall64.c)
+ * Callees:
+ *     <none>
+ */
+
 void KiKernelSysretExit()
 {
   unsigned int ShadowFlags; // esp

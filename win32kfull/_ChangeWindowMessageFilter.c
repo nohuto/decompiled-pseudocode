@@ -1,3 +1,14 @@
+/*
+ * XREFs of _ChangeWindowMessageFilter @ 0x1C00CB7AC
+ * Callers:
+ *     NtUserChangeWindowMessageFilter @ 0x1C00CB760 (NtUserChangeWindowMessageFilter.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?ValidateChangeMessageFilter@@YAHPEAUtagPROCESSINFO@@I@Z @ 0x1C00CBB6C (-ValidateChangeMessageFilter@@YAHPEAUtagPROCESSINFO@@I@Z.c)
+ *     ?AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C00CBC54 (-AddMessageToFilter@@YAHPEAPEAPEAXIPEAH@Z.c)
+ *     ?RemoveMessageFromFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C00CBDD4 (-RemoveMessageFromFilter@@YAHPEAPEAPEAXIPEAH@Z.c)
+ */
+
 __int64 __fastcall ChangeWindowMessageFilter(__int64 a1, int a2)
 {
   unsigned int v2; // edi

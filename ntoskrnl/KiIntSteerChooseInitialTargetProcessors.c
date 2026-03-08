@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiIntSteerChooseInitialTargetProcessors @ 0x14028F130
+ * Callers:
+ *     KiIntSteerConnect @ 0x14028FF2C (KiIntSteerConnect.c)
+ * Callees:
+ *     KeIntSteerGetSteeringMode @ 0x14028F388 (KeIntSteerGetSteeringMode.c)
+ *     KiIntPartGetLowestClassProcessorInMask @ 0x1402A9324 (KiIntPartGetLowestClassProcessorInMask.c)
+ *     KiIntRedirectConnnect @ 0x14057E3D8 (KiIntRedirectConnnect.c)
+ */
+
 __int64 __fastcall KiIntSteerChooseInitialTargetProcessors(
         __int64 a1,
         unsigned int a2,

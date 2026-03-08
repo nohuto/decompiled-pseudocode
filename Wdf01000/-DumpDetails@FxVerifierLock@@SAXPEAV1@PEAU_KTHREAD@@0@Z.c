@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?DumpDetails@FxVerifierLock@@SAXPEAV1@PEAU_KTHREAD@@0@Z @ 0x1C00469D4
+ * Callers:
+ *     ?Lock@FxVerifierLock@@QEAAXPEAEE@Z @ 0x1C0046CA0 (-Lock@FxVerifierLock@@QEAAXPEAEE@Z.c)
+ * Callees:
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_qDd @ 0x1C0018F98 (WPP_IFR_SF_qDd.c)
+ *     WPP_IFR_SF_ @ 0x1C001BC64 (WPP_IFR_SF_.c)
+ *     WPP_IFR_SF_DqD @ 0x1C0047320 (WPP_IFR_SF_DqD.c)
+ *     WPP_IFR_SF_qqDD @ 0x1C004740C (WPP_IFR_SF_qqDD.c)
+ */
+
 void __fastcall FxVerifierLock::DumpDetails(FxVerifierLock *Lock, _KTHREAD *curThread, FxVerifierLock *PerThreadList)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rdi

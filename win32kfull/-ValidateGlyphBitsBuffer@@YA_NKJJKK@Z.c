@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ValidateGlyphBitsBuffer@@YA_NKJJKK@Z @ 0x1C011E160
+ * Callers:
+ *     ?CaptureUsermodeParameters@QueryGlyphMetricsPlusBitsRequest@@UEAAXPEAX@Z @ 0x1C011DBE0 (-CaptureUsermodeParameters@QueryGlyphMetricsPlusBitsRequest@@UEAAXPEAX@Z.c)
+ *     ?CaptureUsermodeParameters@QueryFontDataRequest@@UEAAXPEAX@Z @ 0x1C011E020 (-CaptureUsermodeParameters@QueryFontDataRequest@@UEAAXPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall ValidateGlyphBitsBuffer(unsigned int a1, int a2, int a3, unsigned int a4, unsigned int a5)
 {
   unsigned __int64 v6; // rdx

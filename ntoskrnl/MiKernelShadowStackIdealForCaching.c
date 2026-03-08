@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiKernelShadowStackIdealForCaching @ 0x140642840
+ * Callers:
+ *     MiRemoveNonIdealCachedStacks @ 0x1406429F8 (MiRemoveNonIdealCachedStacks.c)
+ *     MmDeleteKernelShadowStack @ 0x140643030 (MmDeleteKernelShadowStack.c)
+ * Callees:
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiValidateKernelShadowStackPage @ 0x140642B48 (MiValidateKernelShadowStackPage.c)
+ */
+
 __int64 __fastcall MiKernelShadowStackIdealForCaching(
         ULONG_PTR BugCheckParameter2,
         unsigned __int64 a2,

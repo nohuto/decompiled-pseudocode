@@ -1,3 +1,14 @@
+/*
+ * XREFs of _lambda_cc320e0eecd868534feeae0a4f9b43e2_::operator() @ 0x1C02C8CA8
+ * Callers:
+ *     DxgkSetIndirectDisplayRenderAdapter @ 0x1C02D0E78 (DxgkSetIndirectDisplayRenderAdapter.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C000AA90 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0014BA0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01BA77C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ */
+
 char __fastcall lambda_cc320e0eecd868534feeae0a4f9b43e2_::operator()(__int64 **a1)
 {
   __int64 *v1; // rdx

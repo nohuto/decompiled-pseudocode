@@ -1,3 +1,20 @@
+/*
+ * XREFs of PsCreateVsmEnclave @ 0x1409B4008
+ * Callers:
+ *     MiCreateVsmEnclave @ 0x140A3AE48 (MiCreateVsmEnclave.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x14078FD20 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     VslCreateEnclave @ 0x14093EA80 (VslCreateEnclave.c)
+ *     PspVsmEnclaveHashAllocator @ 0x1409B4C3C (PspVsmEnclaveHashAllocator.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PsCreateVsmEnclave(
         __int64 a1,
         __int64 a2,

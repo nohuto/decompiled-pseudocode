@@ -1,3 +1,20 @@
+/*
+ * XREFs of Control_ProcessTransferEventWithED0 @ 0x1C0042974
+ * Callers:
+ *     Control_EP_TransferEventHandler @ 0x1C0006810 (Control_EP_TransferEventHandler.c)
+ *     Endpoint_TransferEventHandler @ 0x1C0009BA0 (Endpoint_TransferEventHandler.c)
+ *     TR_TransferEventHandler @ 0x1C0041CD4 (TR_TransferEventHandler.c)
+ * Callees:
+ *     Endpoint_HaltedCompletionCode @ 0x1C0006D98 (Endpoint_HaltedCompletionCode.c)
+ *     WPP_RECORDER_SF_DDqLDDi @ 0x1C0006EBC (WPP_RECORDER_SF_DDqLDDi.c)
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     WPP_RECORDER_SF_DDDD @ 0x1C000E120 (WPP_RECORDER_SF_DDDD.c)
+ *     memmove @ 0x1C0020400 (memmove.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Control_ProcessTransferEventPointer @ 0x1C00427B4 (Control_ProcessTransferEventPointer.c)
+ *     Control_ValidateED0TrbPointerOnMismatch @ 0x1C0042CA4 (Control_ValidateED0TrbPointerOnMismatch.c)
+ */
+
 char __fastcall Control_ProcessTransferEventWithED0(__int64 a1, __int64 a2)
 {
   char v2; // di

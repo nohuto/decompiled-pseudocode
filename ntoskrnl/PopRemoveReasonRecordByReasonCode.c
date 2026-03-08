@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopRemoveReasonRecordByReasonCode @ 0x14076091C
+ * Callers:
+ *     PopFilterCapabilities @ 0x140760774 (PopFilterCapabilities.c)
+ *     PopLogDisabledSleepReason @ 0x140760A60 (PopLogDisabledSleepReason.c)
+ *     PopEnableHiberFile @ 0x14082ADA4 (PopEnableHiberFile.c)
+ *     PopUpdateUpgradeInProgress @ 0x14085E230 (PopUpdateUpgradeInProgress.c)
+ * Callees:
+ *     PopGetReasonListByReasonCode @ 0x140760968 (PopGetReasonListByReasonCode.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void PopRemoveReasonRecordByReasonCode()
 {
   _QWORD *ReasonListByReasonCode; // rax

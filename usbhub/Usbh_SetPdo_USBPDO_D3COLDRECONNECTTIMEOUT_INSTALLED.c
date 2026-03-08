@@ -1,3 +1,13 @@
+/*
+ * XREFs of Usbh_SetPdo_USBPDO_D3COLDRECONNECTTIMEOUT_INSTALLED @ 0x1C0047B60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003B830 (WPP_RECORDER_SF_S.c)
+ */
+
 __int64 __fastcall Usbh_SetPdo_USBPDO_D3COLDRECONNECTTIMEOUT_INSTALLED(
         __int64 a1,
         __int64 a2,

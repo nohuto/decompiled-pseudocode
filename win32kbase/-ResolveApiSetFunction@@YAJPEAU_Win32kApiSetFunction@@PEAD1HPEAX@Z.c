@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ResolveApiSetFunction@@YAJPEAU_Win32kApiSetFunction@@PEAD1HPEAX@Z @ 0x1C00B2214
+ * Callers:
+ *     ?ResolveApiSetHost@@YAJPEAU_Win32kApiSet@@PEAX@Z @ 0x1C00B2130 (-ResolveApiSetHost@@YAJPEAU_Win32kApiSet@@PEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ResolveApiSetFunction(struct _Win32kApiSetFunction *a1, char *a2, char *a3, int a4, void *a5)
 {
   __int64 ExportedRoutineByName; // rdi

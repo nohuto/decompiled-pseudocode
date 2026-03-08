@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsArrayType @ 0x1409D1A10
+ * Callers:
+ *     LocalGetConditionForString @ 0x1409D1B24 (LocalGetConditionForString.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall IsArrayType(unsigned __int8 a1)
 {
   char v1; // r8

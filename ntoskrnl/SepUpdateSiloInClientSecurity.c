@@ -1,3 +1,16 @@
+/*
+ * XREFs of SepUpdateSiloInClientSecurity @ 0x1409CC168
+ * Callers:
+ *     SeCreateClientSecurityEx @ 0x1406D5D70 (SeCreateClientSecurityEx.c)
+ * Callees:
+ *     PsIsHostSilo @ 0x14030F2E0 (PsIsHostSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ *     SeQueryServerSiloToken @ 0x14078FCB0 (SeQueryServerSiloToken.c)
+ *     SepCopyClientTokenAndSetSilo @ 0x1409C6570 (SepCopyClientTokenAndSetSilo.c)
+ *     SeGetTokenControlInformation @ 0x1409CC400 (SeGetTokenControlInformation.c)
+ */
+
 __int64 __fastcall SepUpdateSiloInClientSecurity(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // r14

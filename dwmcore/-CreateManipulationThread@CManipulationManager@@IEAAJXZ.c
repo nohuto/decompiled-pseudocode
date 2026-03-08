@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CreateManipulationThread@CManipulationManager@@IEAAJXZ @ 0x1800CAC38
+ * Callers:
+ *     ?Initialize@CManipulationManager@@IEAAJXZ @ 0x1800CAB14 (-Initialize@CManipulationManager@@IEAAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CManipulationManager::CreateManipulationThread(HANDLE *this)
 {
   HANDLE *v1; // rdi

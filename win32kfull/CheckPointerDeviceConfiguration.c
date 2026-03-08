@@ -1,3 +1,11 @@
+/*
+ * XREFs of CheckPointerDeviceConfiguration @ 0x1C0078CE8
+ * Callers:
+ *     RawInputThread @ 0x1C007A0C0 (RawInputThread.c)
+ * Callees:
+ *     ReadTiltCalibrationData @ 0x1C01A678C (ReadTiltCalibrationData.c)
+ */
+
 void CheckPointerDeviceConfiguration()
 {
   int v0; // ebx

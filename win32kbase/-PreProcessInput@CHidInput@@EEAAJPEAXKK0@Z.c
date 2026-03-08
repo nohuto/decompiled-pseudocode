@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PreProcessInput@CHidInput@@EEAAJPEAXKK0@Z @ 0x1C00F39A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HMAssignmentUnlockWorker @ 0x1C007294C (HMAssignmentUnlockWorker.c)
+ *     ?OnFlushDelayZonePalmRejectInputTimerNotification@CHidInput@@EEAAJXZ @ 0x1C0211380 (-OnFlushDelayZonePalmRejectInputTimerNotification@CHidInput@@EEAAJXZ.c)
+ */
+
 __int64 __fastcall CHidInput::PreProcessInput(CHidInput *this, void *a2, char a3)
 {
   __int64 v4; // rax

@@ -1,3 +1,36 @@
+/*
+ * XREFs of MiAllocateChildVads @ 0x140A4571C
+ * Callers:
+ *     MiCloneProcessAddressSpace @ 0x140A45CF4 (MiCloneProcessAddressSpace.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MiLocateVadEvent @ 0x14020DC50 (MiLocateVadEvent.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     MiVadPureReserve @ 0x140321EB0 (MiVadPureReserve.c)
+ *     MiIsVadLargePrivate @ 0x1403316C0 (MiIsVadLargePrivate.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     MiFreeVadEvents @ 0x140631910 (MiFreeVadEvents.c)
+ *     MiCloneCaptureVadCommit @ 0x140641180 (MiCloneCaptureVadCommit.c)
+ *     MiCloneImageVad @ 0x140660B9C (MiCloneImageVad.c)
+ *     MiVadShouldBeForked @ 0x140663104 (MiVadShouldBeForked.c)
+ *     MiFreePlaceholderStorage @ 0x1406800F8 (MiFreePlaceholderStorage.c)
+ *     MiCreateWriteWatchView @ 0x140755EB4 (MiCreateWriteWatchView.c)
+ *     MiInsertSharedCommitNode @ 0x1407D63F0 (MiInsertSharedCommitNode.c)
+ *     MiRemoveSharedCommitNode @ 0x1407D6770 (MiRemoveSharedCommitNode.c)
+ *     MiCloneNoChange @ 0x140A2F178 (MiCloneNoChange.c)
+ *     MiFreeVadEventBitmap @ 0x140A2F248 (MiFreeVadEventBitmap.c)
+ *     MiCloneLargeFileOnlyVad @ 0x140A309C4 (MiCloneLargeFileOnlyVad.c)
+ *     MiCloneDiscardVadCommit @ 0x140A396CC (MiCloneDiscardVadCommit.c)
+ *     MiVadHasSharedCommit @ 0x140A41134 (MiVadHasSharedCommit.c)
+ *     MiCreatePlaceholderStorage @ 0x140A44FD0 (MiCreatePlaceholderStorage.c)
+ *     MiDeletePartialCloneVads @ 0x140A461CC (MiDeletePartialCloneVads.c)
+ *     MiInsertChildVads @ 0x140A4642C (MiInsertChildVads.c)
+ *     MiCreateLargePageVad @ 0x140A46988 (MiCreateLargePageVad.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiAllocateChildVads(ULONG_PTR BugCheckParameter1, _QWORD *a2)
 {
   __int64 *v3; // r12

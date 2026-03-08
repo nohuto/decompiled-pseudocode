@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bSpWndObjTrackedSprite@@YAHPEAVSPRITE@@@Z @ 0x1C02817F8
+ * Callers:
+ *     ?vSpUpdateWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAVEWNDOBJ@@@Z @ 0x1C02857B8 (-vSpUpdateWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAVEWNDOBJ@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bSpWndObjTrackedSprite(struct SPRITE *a1)
 {
   __int64 v2; // r8

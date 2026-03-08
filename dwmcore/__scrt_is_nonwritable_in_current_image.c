@@ -1,3 +1,11 @@
+/*
+ * XREFs of __scrt_is_nonwritable_in_current_image @ 0x18010E81C
+ * Callers:
+ *     dllmain_crt_process_attach @ 0x18010E9E8 (dllmain_crt_process_attach.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall _scrt_is_nonwritable_in_current_image(__int64 a1)
 {
   unsigned __int64 v1; // r8

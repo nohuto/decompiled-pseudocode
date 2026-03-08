@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmResetProcessorIdleAccounting @ 0x14039B074
+ * Callers:
+ *     PoIdle @ 0x14022D240 (PoIdle.c)
+ *     PpmResetIdlePolicy @ 0x14039AFC8 (PpmResetIdlePolicy.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall PpmResetProcessorIdleAccounting(unsigned int *a1, __int64 a2)
 {
   unsigned int v2; // esi

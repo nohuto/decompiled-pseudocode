@@ -1,3 +1,12 @@
+/*
+ * XREFs of UpdateMouseSensitivity @ 0x1C009D040
+ * Callers:
+ *     UnpackMouseSettings @ 0x1C02194BC (UnpackMouseSettings.c)
+ * Callees:
+ *     BroadcastSettingsUpdateToAllContainers @ 0x1C009D090 (BroadcastSettingsUpdateToAllContainers.c)
+ *     ?UpdateMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEAAXI@Z @ 0x1C009D0B0 (-UpdateMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEAAXI@Z.c)
+ */
+
 __int64 __fastcall UpdateMouseSensitivity(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // ebx

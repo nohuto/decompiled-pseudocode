@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?GetD3DDeviceNoRef@CDeviceManager@CCaptureRenderTarget@@QEAAPEAVCD3DDevice@@AEBU_LUID@@PEAUIFlipProducer@@@Z @ 0x1801EA094
+ * Callers:
+ *     ?CheckOcclusionState@CCaptureRenderTarget@@UEAAJXZ @ 0x1801E9638 (-CheckOcclusionState@CCaptureRenderTarget@@UEAAJXZ.c)
+ *     ?Present@CCaptureRenderTarget@@UEAAJ_N@Z @ 0x1801EA24C (-Present@CCaptureRenderTarget@@UEAAJ_N@Z.c)
+ *     ?Render@CCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801EA904 (-Render@CCaptureRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ *     ?CreateTextures@CVirtualMonitorCaptureRenderTarget@@IEAAJI@Z @ 0x1801EB1E8 (-CreateTextures@CVirtualMonitorCaptureRenderTarget@@IEAAJI@Z.c)
+ * Callees:
+ *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180034A40 (-Release@CD3DDevice@@UEAAKXZ.c)
+ *     ?GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z @ 0x18003D644 (-GetDevice@CDeviceManager@@QEAAJU_LUID@@PEAPEAVCD3DDevice@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 struct CD3DDevice *__fastcall CCaptureRenderTarget::CDeviceManager::GetD3DDeviceNoRef(
         struct CD3DDevice **this,
         const struct _LUID *a2,

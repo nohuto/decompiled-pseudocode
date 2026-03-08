@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?BltLnkRect@@YAXPEAU_BLTLNKINFO@@PEAU_RECTL@@@Z @ 0x1C00877C0
+ * Callers:
+ *     ?BltLnk@@YAHPEAVSURFACE@@00PEAVECLIPOBJ@@PEAVXLATE@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C0087124 (-BltLnk@@YAHPEAVSURFACE@@00PEAVECLIPOBJ@@PEAVXLATE@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ?BltLnkAccel6666@@YAXPEAE0JJJJ@Z @ 0x1C03060EC (-BltLnkAccel6666@@YAXPEAE0JJJJ@Z.c)
+ *     ?BltLnkAccel8888@@YAXPEAE0JJJJ@Z @ 0x1C030618C (-BltLnkAccel8888@@YAXPEAE0JJJJ@Z.c)
+ *     ?BltLnkAccelEEEE@@YAXPEAE0JJJJ@Z @ 0x1C0306234 (-BltLnkAccelEEEE@@YAXPEAE0JJJJ@Z.c)
+ */
+
 void __fastcall BltLnkRect(struct _BLTLNKINFO *a1, struct _RECTL *a2)
 {
   struct _RECTL *v2; // r13

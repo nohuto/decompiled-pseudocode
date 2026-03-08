@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMApplyPTPTranslation @ 0x1C00EFD5E
+ * Callers:
+ *     rimTransformGeometry @ 0x1C00F1872 (rimTransformGeometry.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?TransformPTPLogicalUnitsToPhysical@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@UtagPOINT@@PEAU2@@Z @ 0x1C00EFCCC (-TransformPTPLogicalUnitsToPhysical@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@UtagPOINT@@PEAU2@@Z.c)
+ */
+
 void __fastcall RIMApplyPTPTranslation(struct tagHID_POINTER_DEVICE_INFO *a1, __int64 a2)
 {
   unsigned int v4; // ecx

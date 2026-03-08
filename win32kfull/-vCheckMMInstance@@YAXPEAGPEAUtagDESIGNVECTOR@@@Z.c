@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?vCheckMMInstance@@YAXPEAGPEAUtagDESIGNVECTOR@@@Z @ 0x1C003589C
+ * Callers:
+ *     ?xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z @ 0x1C00356C8 (-xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z.c)
+ * Callees:
+ *     ?RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C00BE504 (-RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     GreGetCannonicalName @ 0x1C029D92C (GreGetCannonicalName.c)
+ */
+
 void __fastcall vCheckMMInstance(unsigned __int16 *a1, struct tagDESIGNVECTOR *a2)
 {
   unsigned __int16 *v3; // rbx

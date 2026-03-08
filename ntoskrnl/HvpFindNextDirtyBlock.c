@@ -1,3 +1,22 @@
+/*
+ * XREFs of HvpFindNextDirtyBlock @ 0x1407A4B70
+ * Callers:
+ *     HvpGenerateLogEntryDirtyData @ 0x14030C5F8 (HvpGenerateLogEntryDirtyData.c)
+ *     HvStoreModifiedData @ 0x14072D6A8 (HvStoreModifiedData.c)
+ *     HvWriteHivePrimaryFile @ 0x14073216C (HvWriteHivePrimaryFile.c)
+ * Callees:
+ *     HvpFindNextDirtyRun @ 0x14030C6F0 (HvpFindNextDirtyRun.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HvpMapEntryGetFreeBin @ 0x1407A6910 (HvpMapEntryGetFreeBin.c)
+ *     HvpMapEntryGetBlockAddress @ 0x1407B46A4 (HvpMapEntryGetBlockAddress.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     HvpGetBinContextInitialize @ 0x140AF2644 (HvpGetBinContextInitialize.c)
+ *     HvpMapEntryGetBinAddress @ 0x140AF2654 (HvpMapEntryGetBinAddress.c)
+ *     HvpGetCellMap @ 0x140AF2670 (HvpGetCellMap.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x140AF26CC (HvpMapEntryReleaseBinAddress.c)
+ */
+
 char __fastcall HvpFindNextDirtyBlock(
         ULONG_PTR BugCheckParameter2,
         __int64 a2,

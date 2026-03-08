@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpIsEnterpriseTemporaryControl @ 0x14040C090
+ * Callers:
+ *     RtlIsFeatureEnabledForEnterprise @ 0x14040BC10 (RtlIsFeatureEnabledForEnterprise.c)
+ * Callees:
+ *     RtlpEtcGetDwordFromRegistry @ 0x14040BE44 (RtlpEtcGetDwordFromRegistry.c)
+ *     RtlpEtcIsValidFeatureId @ 0x14040BEC0 (RtlpEtcIsValidFeatureId.c)
+ */
+
 bool __fastcall RtlpIsEnterpriseTemporaryControl(int a1)
 {
   char v2; // di

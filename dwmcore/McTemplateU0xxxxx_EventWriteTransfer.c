@@ -1,3 +1,13 @@
+/*
+ * XREFs of McTemplateU0xxxxx_EventWriteTransfer @ 0x18012AB2A
+ * Callers:
+ *     ?AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z @ 0x180046020 (-AddDirtyRegion@CGdiSpriteBitmap@@AEAAXAEAVCRegion@@_N@Z.c)
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x18004E7F8 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 __int64 McTemplateU0xxxxx_EventWriteTransfer(__int64 a1, __int64 a2, ...)
 {
   _BYTE v3[16]; // [rsp+30h] [rbp-31h] BYREF

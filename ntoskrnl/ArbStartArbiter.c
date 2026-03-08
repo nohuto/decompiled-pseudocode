@@ -1,3 +1,12 @@
+/*
+ * XREFs of ArbStartArbiter @ 0x140933B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     RtlFreeRangeList @ 0x140820250 (RtlFreeRangeList.c)
+ */
+
 __int64 __fastcall ArbStartArbiter(__int64 a1, __int64 a2)
 {
   RtlFreeRangeList(*(_QWORD *)(a1 + 40));

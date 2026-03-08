@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SysMmAllocateLogicalMemory@@YAJPEAUSYSMM_ADAPTER@@_KPEBXPEAPEAX@Z @ 0x1C01D1960
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SmmAllocateLogicalAddress@@YAJPEAUSYSMM_LOGICAL_ALLOCATOR@@_KPEBXPEAPEAUSYSMM_LOGICAL_BLOCK@@@Z @ 0x1C006FF1C (-SmmAllocateLogicalAddress@@YAJPEAUSYSMM_LOGICAL_ALLOCATOR@@_KPEBXPEAPEAUSYSMM_LOGICAL_BLOCK@@@Z.c)
+ */
+
 __int64 __fastcall SysMmAllocateLogicalMemory(
         struct SYSMM_ADAPTER *a1,
         unsigned __int64 a2,

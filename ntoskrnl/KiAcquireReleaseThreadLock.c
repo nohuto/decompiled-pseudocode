@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiAcquireReleaseThreadLock @ 0x140353BE0
+ * Callers:
+ *     KeRundownApcQueues @ 0x1407D9DB0 (KeRundownApcQueues.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KiAcquireReleaseThreadLock(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // bl

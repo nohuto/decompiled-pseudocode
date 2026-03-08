@@ -1,3 +1,13 @@
+/*
+ * XREFs of __tailMerge_ext_ms_win_ntuser_rectangle_ext_l1_1_0_dll @ 0x18010FCEE
+ * Callers:
+ *     __imp_load_EqualRect @ 0x18010FCE2 (__imp_load_EqualRect.c)
+ *     __imp_load_IsRectEmpty @ 0x18010FD6D (__imp_load_IsRectEmpty.c)
+ *     __imp_load_IntersectRect @ 0x18010FD7F (__imp_load_IntersectRect.c)
+ * Callees:
+ *     __delayLoadHelper2 @ 0x180100EB0 (__delayLoadHelper2.c)
+ */
+
 __int64 __fastcall _tailMerge_ext_ms_win_ntuser_rectangle_ext_l1_1_0_dll(
         __int64 a1,
         __int64 a2,

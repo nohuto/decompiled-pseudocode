@@ -1,3 +1,12 @@
+/*
+ * XREFs of SynchronizeContext @ 0x1C00CCA10
+ * Callers:
+ *     _lambda_7336048acd17859272a6f98208d72592_::_lambda_invoker_cdecl_ @ 0x1C00D4AF0 (_lambda_7336048acd17859272a6f98208d72592_--_lambda_invoker_cdecl_.c)
+ *     DestroyProcessInfo @ 0x1C00D51B0 (DestroyProcessInfo.c)
+ * Callees:
+ *     SendMessageTo @ 0x1C0081230 (SendMessageTo.c)
+ */
+
 __int64 __fastcall SynchronizeContext(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdx

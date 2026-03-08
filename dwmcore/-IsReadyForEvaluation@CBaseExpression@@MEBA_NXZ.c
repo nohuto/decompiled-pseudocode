@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsReadyForEvaluation@CBaseExpression@@MEBA_NXZ @ 0x1800E8980
+ * Callers:
+ *     ?IsReadyForEvaluation@CExpression@@MEBA_NXZ @ 0x1800E8950 (-IsReadyForEvaluation@CExpression@@MEBA_NXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CBaseExpression::IsReadyForEvaluation(CBaseExpression *this)
 {
   bool result; // al

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?AppendProductCodeId@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAU_UNICODE_STRING@@@Z @ 0x1C01FCFF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EDIDV1_IsEDIDBaseBlock@@YAJPEBE@Z @ 0x1C001ED38 (-EDIDV1_IsEDIDBaseBlock@@YAJPEBE@Z.c)
+ *     ?EDIDV1_ObtainMonitorProductCodeID@@YAJPEBEPEAG@Z @ 0x1C001EE0C (-EDIDV1_ObtainMonitorProductCodeID@@YAJPEBEPEAG@Z.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     MonitorLogBadEDID @ 0x1C03BFCE4 (MonitorLogBadEDID.c)
+ */
+
 __int64 __fastcall DxgMonitor::EdidMonitorDescriptor::AppendProductCodeId(
         DxgMonitor::EdidMonitorDescriptor *this,
         struct _UNICODE_STRING *a2)

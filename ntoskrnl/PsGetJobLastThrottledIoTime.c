@@ -1,3 +1,13 @@
+/*
+ * XREFs of PsGetJobLastThrottledIoTime @ 0x1405A1CE0
+ * Callers:
+ *     MiNoPagesLastChance @ 0x14064E904 (MiNoPagesLastChance.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PsGetJobLastThrottledIoTime(__int64 a1)
 {
   volatile LONG *v1; // rbx

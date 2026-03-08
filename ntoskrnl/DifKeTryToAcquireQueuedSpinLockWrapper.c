@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifKeTryToAcquireQueuedSpinLockWrapper @ 0x1405E3C70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     KeTryToAcquireQueuedSpinLock @ 0x14056ED60 (KeTryToAcquireQueuedSpinLock.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 LOGICAL __fastcall DifKeTryToAcquireQueuedSpinLockWrapper(KSPIN_LOCK_QUEUE_NUMBER Number, PKIRQL OldIrql)
 {
   __int64 *APIThunkContextById; // rax

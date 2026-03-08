@@ -1,3 +1,16 @@
+/*
+ * XREFs of KeAlertThreadByThreadId @ 0x1402D52B8
+ * Callers:
+ *     PsDispatchIumService @ 0x1405A2A44 (PsDispatchIumService.c)
+ *     NtAlertThreadByThreadId @ 0x14075F5B0 (NtAlertThreadByThreadId.c)
+ *     RtlRunOnceComplete @ 0x14079F240 (RtlRunOnceComplete.c)
+ *     VslCallEnclave @ 0x1408A00F8 (VslCallEnclave.c)
+ * Callees:
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     KiSignalThread @ 0x14033FD70 (KiSignalThread.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 char __fastcall KeAlertThreadByThreadId(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // si

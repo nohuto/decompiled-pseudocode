@@ -1,3 +1,13 @@
+/*
+ * XREFs of Isoch_GetPacketLength @ 0x1C00445B8
+ * Callers:
+ *     Isoch_RetrieveNextStage @ 0x1C0003800 (Isoch_RetrieveNextStage.c)
+ *     Isoch_PrepareStage @ 0x1C0004AD0 (Isoch_PrepareStage.c)
+ *     Isoch_TransferUrb_MarkLatePackets @ 0x1C00453C4 (Isoch_TransferUrb_MarkLatePackets.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Isoch_GetPacketLength(__int64 a1, unsigned int a2)
 {
   __int64 v2; // r8

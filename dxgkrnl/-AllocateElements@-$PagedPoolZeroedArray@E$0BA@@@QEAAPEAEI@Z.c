@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?AllocateElements@?$PagedPoolZeroedArray@E$0BA@@@QEAAPEAEI@Z @ 0x1C0311AE4
+ * Callers:
+ *     ?DxgkCreateDoorbellInternal@@YAJPEAU_D3DKMT_CREATE_DOORBELL@@_N@Z @ 0x1C03130A8 (-DxgkCreateDoorbellInternal@@YAJPEAU_D3DKMT_CREATE_DOORBELL@@_N@Z.c)
+ *     DxgkCreateHwQueueInternal @ 0x1C0318D00 (DxgkCreateHwQueueInternal.c)
+ *     NtDxgkOutputDuplPresentToHwQueue @ 0x1C031BA80 (NtDxgkOutputDuplPresentToHwQueue.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall PagedPoolZeroedArray<unsigned char,16>::AllocateElements(__int64 *a1, unsigned int a2)
 {
   __int64 result; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of QueryTemperatureInfoHealthLogCompletion @ 0x1C0019910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ *     BuildGetFeaturesTemperatureThresholdCommand @ 0x1C0010DDC (BuildGetFeaturesTemperatureThresholdCommand.c)
+ *     KelvinToCelsius @ 0x1C0014AF4 (KelvinToCelsius.c)
+ */
+
 __int64 __fastcall QueryTemperatureInfoHealthLogCompletion(__int64 a1, __int64 a2)
 {
   __int64 SrbExtension; // rax

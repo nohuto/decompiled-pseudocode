@@ -1,3 +1,11 @@
+/*
+ * XREFs of DbgkpConvertKernelToUserStateChange @ 0x1409342D4
+ * Callers:
+ *     NtWaitForDebugEvent @ 0x140935E70 (NtWaitForDebugEvent.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DbgkpConvertKernelToUserStateChange(__int64 a1, __int64 a2)
 {
   int v2; // r8d

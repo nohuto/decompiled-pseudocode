@@ -1,3 +1,15 @@
+/*
+ * XREFs of RIMIDEAdoptOrphanedRimDevs @ 0x1C00345C8
+ * Callers:
+ *     RIMRegisterForInputWithCallbacks @ 0x1C00356F0 (RIMRegisterForInputWithCallbacks.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?ResumeDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z @ 0x1C019FE54 (-ResumeDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z.c)
+ *     RIMIDEIsCompatibleDevice @ 0x1C01C4D48 (RIMIDEIsCompatibleDevice.c)
+ *     RIMRemoveHoldingFrame @ 0x1C01CDBCC (RIMRemoveHoldingFrame.c)
+ */
+
 _QWORD *__fastcall RIMIDEAdoptOrphanedRimDevs(PVOID **Object, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rax

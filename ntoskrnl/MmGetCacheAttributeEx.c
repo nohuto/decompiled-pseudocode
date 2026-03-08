@@ -1,3 +1,14 @@
+/*
+ * XREFs of MmGetCacheAttributeEx @ 0x14061C860
+ * Callers:
+ *     HalCreateCommonBufferFromMdl @ 0x14050FA20 (HalCreateCommonBufferFromMdl.c)
+ *     MmGetCacheAttribute @ 0x14061C840 (MmGetCacheAttribute.c)
+ * Callees:
+ *     MiIsPageInHugePfn @ 0x14029C30C (MiIsPageInHugePfn.c)
+ *     MiLookupIoPageNode @ 0x1403AB558 (MiLookupIoPageNode.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall MmGetCacheAttributeEx(unsigned __int64 a1, int a2, _DWORD *a3)
 {
   ULONG_PTR v5; // rbx

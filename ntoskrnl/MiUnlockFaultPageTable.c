@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiUnlockFaultPageTable @ 0x140343598
+ * Callers:
+ *     MiResolvePageTablePage @ 0x1402689F0 (MiResolvePageTablePage.c)
+ *     MiReleaseFaultState @ 0x1402A2FD4 (MiReleaseFaultState.c)
+ *     MiIssueHardFault @ 0x140342F00 (MiIssueHardFault.c)
+ * Callees:
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x1402CFF20 (MiEmptyDeferredWorkingSetEntries.c)
+ */
+
 void __fastcall MiUnlockFaultPageTable(__int64 a1)
 {
   __int64 v1; // rdi

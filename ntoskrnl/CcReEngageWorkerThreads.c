@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcReEngageWorkerThreads @ 0x1403CEBD0
+ * Callers:
+ *     CcWorkerThread @ 0x140215D70 (CcWorkerThread.c)
+ *     CcAdjustWriteBehindThreadPool @ 0x1405337B8 (CcAdjustWriteBehindThreadPool.c)
+ *     CcAsyncLazywriteWorker @ 0x14053741C (CcAsyncLazywriteWorker.c)
+ * Callees:
+ *     ExQueueWorkItemToPartition @ 0x1403439E0 (ExQueueWorkItemToPartition.c)
+ */
+
 void __fastcall CcReEngageWorkerThreads(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
   __int64 v4; // rsi

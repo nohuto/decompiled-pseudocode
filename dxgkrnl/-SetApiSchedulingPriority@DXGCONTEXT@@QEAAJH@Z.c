@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetApiSchedulingPriority@DXGCONTEXT@@QEAAJH@Z @ 0x1C004895C
+ * Callers:
+ *     DxgkSetContextSchedulingPriority @ 0x1C02ED6E0 (DxgkSetContextSchedulingPriority.c)
+ * Callees:
+ *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C0007980 (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
+ *     ?SetSchedulingPriority@DXGCONTEXT@@QEAAXH_N@Z @ 0x1C01D2200 (-SetSchedulingPriority@DXGCONTEXT@@QEAAXH_N@Z.c)
+ */
+
 __int64 __fastcall DXGCONTEXT::SetApiSchedulingPriority(DXGCONTEXT *this, int a2)
 {
   unsigned __int8 IsDxgmms2; // al

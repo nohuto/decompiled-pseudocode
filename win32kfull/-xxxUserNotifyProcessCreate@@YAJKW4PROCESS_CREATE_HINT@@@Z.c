@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?xxxUserNotifyProcessCreate@@YAJKW4PROCESS_CREATE_HINT@@@Z @ 0x1C003ECC8
+ * Callers:
+ *     NtUserNotifyProcessCreate @ 0x1C003EDE0 (NtUserNotifyProcessCreate.c)
+ * Callees:
+ *     ?xxxSetProcessInitState@@YAJPEAU_EPROCESS@@W4_PROCESS_INIT_HINT@@@Z @ 0x1C003E988 (-xxxSetProcessInitState@@YAJPEAU_EPROCESS@@W4_PROCESS_INIT_HINT@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qD @ 0x1C0077B08 (WPP_RECORDER_AND_TRACE_SF_qD.c)
+ *     LockProcessByClientId @ 0x1C0099860 (LockProcessByClientId.c)
+ *     WPP_RECORDER_AND_TRACE_SF_DD @ 0x1C009B8A4 (WPP_RECORDER_AND_TRACE_SF_DD.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall xxxUserNotifyProcessCreate(int a1, char a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rbp

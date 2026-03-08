@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopPowerAggregatorWorker @ 0x140871F90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorDiagTraceEvent @ 0x1407577FC (PopPowerAggregatorDiagTraceEvent.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140872018 (PopPowerAggregatorInvokeStateMachine.c)
+ */
+
 void PopPowerAggregatorWorker()
 {
   PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorLock);

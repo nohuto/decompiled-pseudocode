@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiUpdateChildrenCpuTarget @ 0x14057B080
+ * Callers:
+ *     KiUpdateCpuTargetByWeight @ 0x1402F1C6C (KiUpdateCpuTargetByWeight.c)
+ *     KiUpdateCpuTargetByRate @ 0x1402F1E28 (KiUpdateCpuTargetByRate.c)
+ * Callees:
+ *     KiUpdateCpuTargetByWeight @ 0x1402F1C6C (KiUpdateCpuTargetByWeight.c)
+ *     KiUpdateCpuTargetByRate @ 0x1402F1E28 (KiUpdateCpuTargetByRate.c)
+ */
+
 char __fastcall KiUpdateChildrenCpuTarget(_QWORD **a1, char a2)
 {
   _QWORD *v2; // rbx

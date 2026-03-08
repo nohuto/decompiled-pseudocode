@@ -1,3 +1,13 @@
+/*
+ * XREFs of NVMePowerSetFState @ 0x1C0010324
+ * Callers:
+ *     NVMeHwAdapterControl @ 0x1C0003050 (NVMeHwAdapterControl.c)
+ * Callees:
+ *     NVMeSetFStateIdleTimer @ 0x1C00106AC (NVMeSetFStateIdleTimer.c)
+ *     NVMeUpdateResumeLatencyTolerance @ 0x1C0010AA0 (NVMeUpdateResumeLatencyTolerance.c)
+ *     NVMeSetPowerState @ 0x1C002413C (NVMeSetPowerState.c)
+ */
+
 void __fastcall NVMePowerSetFState(_BYTE *a1, __int64 a2)
 {
   char v3; // di

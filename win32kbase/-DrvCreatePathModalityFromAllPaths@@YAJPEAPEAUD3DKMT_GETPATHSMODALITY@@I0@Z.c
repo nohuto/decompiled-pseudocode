@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DrvCreatePathModalityFromAllPaths@@YAJPEAPEAUD3DKMT_GETPATHSMODALITY@@I0@Z @ 0x1C018DE48
+ * Callers:
+ *     DrvSetDisplayConfig @ 0x1C0025C00 (DrvSetDisplayConfig.c)
+ * Callees:
+ *     GetPathsModality @ 0x1C0027994 (GetPathsModality.c)
+ *     ?AllocPathsModality@@YAPEAUD3DKMT_GETPATHSMODALITY@@G@Z @ 0x1C0027A4C (-AllocPathsModality@@YAPEAUD3DKMT_GETPATHSMODALITY@@G@Z.c)
+ */
+
 __int64 __fastcall DrvCreatePathModalityFromAllPaths(
         struct D3DKMT_GETPATHSMODALITY **a1,
         unsigned int a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlInsertInvertedFunctionTable @ 0x1402B26C8
+ * Callers:
+ *     MiProcessLoaderEntry @ 0x1402B2790 (MiProcessLoaderEntry.c)
+ * Callees:
+ *     RtlCaptureImageExceptionValues @ 0x1402B274C (RtlCaptureImageExceptionValues.c)
+ *     MmLockLoadedModuleListExclusive @ 0x1402B29E0 (MmLockLoadedModuleListExclusive.c)
+ *     RtlpInsertInvertedFunctionTableEntry @ 0x1402B2A30 (RtlpInsertInvertedFunctionTableEntry.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall RtlInsertInvertedFunctionTable(__int64 a1, int a2)
 {
   int v3; // edi

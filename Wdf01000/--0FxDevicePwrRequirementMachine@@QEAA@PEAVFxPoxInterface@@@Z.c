@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0FxDevicePwrRequirementMachine@@QEAA@PEAVFxPoxInterface@@@Z @ 0x1C0084678
+ * Callers:
+ *     ?CreateDevicePowerRequirementMachine@FxPoxInterface@@QEAAJXZ @ 0x1C00839D0 (-CreateDevicePowerRequirementMachine@FxPoxInterface@@QEAAJXZ.c)
+ * Callees:
+ *     ??0FxThreadedEventQueue@@QEAA@E@Z @ 0x1C008120C (--0FxThreadedEventQueue@@QEAA@E@Z.c)
+ */
+
 void __fastcall FxDevicePwrRequirementMachine::FxDevicePwrRequirementMachine(
         FxDevicePwrRequirementMachine *this,
         FxPoxInterface *PoxInterface)

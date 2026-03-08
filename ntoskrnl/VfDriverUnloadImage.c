@@ -1,3 +1,18 @@
+/*
+ * XREFs of VfDriverUnloadImage @ 0x140ABA284
+ * Callers:
+ *     MiUnloadSystemImage @ 0x1407F627C (MiUnloadSystemImage.c)
+ * Callees:
+ *     VfTargetDriversRemove @ 0x140303260 (VfTargetDriversRemove.c)
+ *     VfIsVerifierEnabled @ 0x14036B1B0 (VfIsVerifierEnabled.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     VfRemLockDeleteMemoryRange @ 0x140ABD1C2 (VfRemLockDeleteMemoryRange.c)
+ *     VfDeadlockDeleteMemoryRange @ 0x140ABD6EC (VfDeadlockDeleteMemoryRange.c)
+ *     VfSuspectDriversUnloadCallback @ 0x140AD7AB4 (VfSuspectDriversUnloadCallback.c)
+ *     ViThunkRemoveImportEntry @ 0x140AD8DEC (ViThunkRemoveImportEntry.c)
+ *     VfVolatileClearDifRuleClass @ 0x140ADAA7C (VfVolatileClearDifRuleClass.c)
+ */
+
 void __fastcall VfDriverUnloadImage(__int64 a1)
 {
   unsigned int v2; // ebx

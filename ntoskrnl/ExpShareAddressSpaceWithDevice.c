@@ -1,3 +1,32 @@
+/*
+ * XREFs of ExpShareAddressSpaceWithDevice @ 0x14060B7D4
+ * Callers:
+ *     ExShareAddressSpaceWithDevice @ 0x1409FEAE0 (ExShareAddressSpaceWithDevice.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAllocateAsid @ 0x14060B064 (ExpAllocateAsid.c)
+ *     ExpConvertSvmDevice @ 0x14060B3A8 (ExpConvertSvmDevice.c)
+ *     ExpPrepareNewSvmDevice @ 0x14060B56C (ExpPrepareNewSvmDevice.c)
+ *     ExpSvmDereferenceDevice @ 0x14060C208 (ExpSvmDereferenceDevice.c)
+ *     MmEnableProcessSvm @ 0x1406173A4 (MmEnableProcessSvm.c)
+ *     IoQueryInterface @ 0x140822260 (IoQueryInterface.c)
+ *     ExpAssignPasid @ 0x1409FEB10 (ExpAssignPasid.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpShareAddressSpaceWithDevice(__int64 a1, __int64 a2, _DWORD *a3)
 {
   int v5; // r12d

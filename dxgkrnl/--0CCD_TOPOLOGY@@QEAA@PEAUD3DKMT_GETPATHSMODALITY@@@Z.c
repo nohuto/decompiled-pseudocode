@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CCD_TOPOLOGY@@QEAA@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C01BE5A8
+ * Callers:
+ *     DxgkEnumerateModesForPathsModality @ 0x1C02FD6F0 (DxgkEnumerateModesForPathsModality.c)
+ * Callees:
+ *     <none>
+ */
+
 CCD_TOPOLOGY *__fastcall CCD_TOPOLOGY::CCD_TOPOLOGY(CCD_TOPOLOGY *this, struct D3DKMT_GETPATHSMODALITY *a2)
 {
   CCD_TOPOLOGY *result; // rax

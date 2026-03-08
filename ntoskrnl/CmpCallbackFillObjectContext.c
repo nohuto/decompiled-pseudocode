@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpCallbackFillObjectContext @ 0x1406E1220
+ * Callers:
+ *     CmpCallCallBacksEx @ 0x1406E0B20 (CmpCallCallBacksEx.c)
+ * Callees:
+ *     CmpGetCallbackObjectContext @ 0x140738A30 (CmpGetCallbackObjectContext.c)
+ *     CmpUnlockContextList @ 0x140738DA0 (CmpUnlockContextList.c)
+ *     CmpLockContextListShared @ 0x140738ED8 (CmpLockContextListShared.c)
+ */
+
 void __fastcall CmpCallbackFillObjectContext(int a1, _QWORD *a2, __int64 *a3)
 {
   _DWORD *v5; // rax

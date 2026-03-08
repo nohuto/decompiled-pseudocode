@@ -1,3 +1,12 @@
+/*
+ * XREFs of IvtGetDomainId @ 0x14052A58C
+ * Callers:
+ *     IvtAttachDeviceDomainInternal @ 0x140529388 (IvtAttachDeviceDomainInternal.c)
+ *     IvtUpdateScalableModeContextEntry @ 0x14052B844 (IvtUpdateScalableModeContextEntry.c)
+ * Callees:
+ *     IvtGetScalableModePasidTables @ 0x14052A834 (IvtGetScalableModePasidTables.c)
+ */
+
 __int64 __fastcall IvtGetDomainId(__int64 a1, __int64 a2)
 {
   __int64 ScalableModePasidTables; // rax

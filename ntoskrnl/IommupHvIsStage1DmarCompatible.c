@@ -1,3 +1,12 @@
+/*
+ * XREFs of IommupHvIsStage1DmarCompatible @ 0x140522BE4
+ * Callers:
+ *     IommupDeviceEnablePasidTaggedDma @ 0x140822E44 (IommupDeviceEnablePasidTaggedDma.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 bool __fastcall IommupHvIsStage1DmarCompatible(_DWORD *a1, char a2)
 {
   __int128 v4; // [rsp+20h] [rbp-28h] BYREF

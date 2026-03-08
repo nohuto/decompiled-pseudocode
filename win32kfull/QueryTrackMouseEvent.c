@@ -1,3 +1,11 @@
+/*
+ * XREFs of QueryTrackMouseEvent @ 0x1C00E0158
+ * Callers:
+ *     NtUserTrackMouseEvent @ 0x1C00E0060 (NtUserTrackMouseEvent.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall QueryTrackMouseEvent(__int64 a1)
 {
   __int64 v1; // rdx

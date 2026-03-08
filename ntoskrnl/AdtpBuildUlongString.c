@@ -1,3 +1,13 @@
+/*
+ * XREFs of AdtpBuildUlongString @ 0x140A589A8
+ * Callers:
+ *     AdtpPackageParameters @ 0x1403958B4 (AdtpPackageParameters.c)
+ *     AdtpBuildRegistryValueString @ 0x140A57FA4 (AdtpBuildRegistryValueString.c)
+ * Callees:
+ *     _ultow @ 0x1403D38C0 (_ultow.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall AdtpBuildUlongString(unsigned int Value, __int64 a2, wchar_t **a3, __int64 a4, _DWORD *a5, char *a6)
 {
   __int64 v10; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of zzzUpdateShadowAlpha @ 0x1C02248CC
+ * Callers:
+ *     NtUserSetLayeredWindowAttributes @ 0x1C002A290 (NtUserSetLayeredWindowAttributes.c)
+ * Callees:
+ *     _GetLayeredWindowAttributes @ 0x1C000F978 (_GetLayeredWindowAttributes.c)
+ *     ?FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z @ 0x1C0029674 (-FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z.c)
+ *     zzzUpdateLayeredWindow @ 0x1C01BE8C0 (zzzUpdateLayeredWindow.c)
+ */
+
 struct tagSHADOW *__fastcall zzzUpdateShadowAlpha(struct tagWND *a1)
 {
   struct tagSHADOW *result; // rax

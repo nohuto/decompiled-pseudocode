@@ -1,3 +1,19 @@
+/*
+ * XREFs of TUNNEL_EvtWorkitemPnpInterfaceNotification @ 0x1C008D8F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     RtlUnicodeStringPrintf @ 0x1C000C4DC (RtlUnicodeStringPrintf.c)
+ *     McTemplateK0pqhhh_EtwWriteTransfer @ 0x1C0014418 (McTemplateK0pqhhh_EtwWriteTransfer.c)
+ *     McTemplateK0ppp_EtwWriteTransfer @ 0x1C0040CF8 (McTemplateK0ppp_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_qqq @ 0x1C0040E00 (WPP_RECORDER_SF_qqq.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ *     TUNNEL_UpdateUsb4HostPowerRelations @ 0x1C008ECD8 (TUNNEL_UpdateUsb4HostPowerRelations.c)
+ */
+
 __int64 __fastcall TUNNEL_EvtWorkitemPnpInterfaceNotification(__int64 a1)
 {
   __int64 v2; // rax

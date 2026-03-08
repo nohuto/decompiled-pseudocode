@@ -1,3 +1,18 @@
+/*
+ * XREFs of UsbhHardErrorReset1BadEnable @ 0x1C004CFC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhCancelResetTimeout @ 0x1C00015A0 (UsbhCancelResetTimeout.c)
+ *     UsbhReleaseEnumBusLockEx @ 0x1C0003BCC (UsbhReleaseEnumBusLockEx.c)
+ *     UsbhEtwLogHubIrpEvent @ 0x1C00098E0 (UsbhEtwLogHubIrpEvent.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhAssertBusLock @ 0x1C00367A4 (UsbhAssertBusLock.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 __int64 __fastcall UsbhHardErrorReset1BadEnable(__int64 a1, __int64 a2)
 {
   _DWORD *v4; // rsi

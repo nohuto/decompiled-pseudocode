@@ -1,3 +1,14 @@
+/*
+ * XREFs of PnprEndMirroring @ 0x140A997C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PnprQuiesce @ 0x140560D88 (PnprQuiesce.c)
+ *     PnprSwap @ 0x1405610DC (PnprSwap.c)
+ *     PnprWakeProcessors @ 0x140A9AF9C (PnprWakeProcessors.c)
+ */
+
 __int64 __fastcall PnprEndMirroring(int a1)
 {
   int v1; // ebx

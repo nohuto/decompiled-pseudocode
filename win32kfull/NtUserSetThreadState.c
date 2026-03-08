@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetThreadState @ 0x1C00F1DE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserSetThreadState(int a1, int a2)
 {
   __int64 v4; // rcx

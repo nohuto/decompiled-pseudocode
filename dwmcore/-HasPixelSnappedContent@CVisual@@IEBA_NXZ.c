@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?HasPixelSnappedContent@CVisual@@IEBA_NXZ @ 0x18004AF78
+ * Callers:
+ *     ?AdjustContentWorldBounds@CVisual@@AEBA_NPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18004AE40 (-AdjustContentWorldBounds@CVisual@@AEBA_NPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSi.c)
+ * Callees:
+ *     ?GetContentAsBrushNoRef@CVisual@@QEBA_NPEAPEAVCBrush@@@Z @ 0x18004AFA4 (-GetContentAsBrushNoRef@CVisual@@QEBA_NPEAPEAVCBrush@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CVisual::HasPixelSnappedContent(CVisual *this)
 {
   char v1; // bl

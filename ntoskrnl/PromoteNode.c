@@ -1,3 +1,11 @@
+/*
+ * XREFs of PromoteNode @ 0x140245480
+ * Callers:
+ *     RebalanceNode @ 0x1402453A0 (RebalanceNode.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall PromoteNode(__int64 **a1)
 {
   __int64 *result; // rax

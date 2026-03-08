@@ -1,3 +1,12 @@
+/*
+ * XREFs of IoCheckQuotaBufferValidity @ 0x140943F70
+ * Callers:
+ *     IopSetEaOrQuotaInformationFile @ 0x140942B50 (IopSetEaOrQuotaInformationFile.c)
+ * Callees:
+ *     RtlLengthSid @ 0x140245EC0 (RtlLengthSid.c)
+ *     RtlValidSid @ 0x1407C92A0 (RtlValidSid.c)
+ */
+
 NTSTATUS __stdcall IoCheckQuotaBufferValidity(
         PFILE_QUOTA_INFORMATION QuotaBuffer,
         ULONG QuotaLength,

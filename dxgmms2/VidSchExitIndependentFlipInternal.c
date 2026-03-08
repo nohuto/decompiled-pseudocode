@@ -1,3 +1,16 @@
+/*
+ * XREFs of VidSchExitIndependentFlipInternal @ 0x1C003FABC
+ * Callers:
+ *     VidSchiCompletePendingFlipOnPlane @ 0x1C00183F4 (VidSchiCompletePendingFlipOnPlane.c)
+ *     VidSchExitIndependentFlip @ 0x1C003F9C0 (VidSchExitIndependentFlip.c)
+ * Callees:
+ *     VidSchiCancelIndependentFlips @ 0x1C003A50C (VidSchiCancelIndependentFlips.c)
+ *     VidSchiFlushPendingTokenList @ 0x1C003A950 (VidSchiFlushPendingTokenList.c)
+ *     ??0VIDSCH_INDEPENDENT_FLIP_VIDPNSOURCE_ITERATOR@@QEAA@PEAU_VIDSCH_INDEPENDENT_FLIP_STATE@@@Z @ 0x1C003D3F0 (--0VIDSCH_INDEPENDENT_FLIP_VIDPNSOURCE_ITERATOR@@QEAA@PEAU_VIDSCH_INDEPENDENT_FLIP_STATE@@@Z.c)
+ *     McTemplateK0txqqqtxtx_EtwWriteTransfer @ 0x1C003E23C (McTemplateK0txqqqtxtx_EtwWriteTransfer.c)
+ *     ?VidSchiCancelIndependentFlipsHwQueue@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@IPEAUVIDSCH_FLIP_QUEUE@@PEA_NPEAIII@Z @ 0x1C00489D8 (-VidSchiCancelIndependentFlipsHwQueue@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@IPEAUVIDSC.c)
+ */
+
 void __fastcall VidSchExitIndependentFlipInternal(
         struct HwQueueStagingList *a1,
         __int64 a2,

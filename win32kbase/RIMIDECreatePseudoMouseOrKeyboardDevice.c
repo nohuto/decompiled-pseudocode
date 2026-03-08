@@ -1,3 +1,18 @@
+/*
+ * XREFs of RIMIDECreatePseudoMouseOrKeyboardDevice @ 0x1C0004878
+ * Callers:
+ *     NtUserInjectKeyboardInput @ 0x1C00031D0 (NtUserInjectKeyboardInput.c)
+ *     NtUserInjectMouseInput @ 0x1C0173C50 (NtUserInjectMouseInput.c)
+ * Callees:
+ *     RIMIDECreateDeviceInstancePath @ 0x1C0004A6C (RIMIDECreateDeviceInstancePath.c)
+ *     rimFindReferencedRimObj @ 0x1C0004BC0 (rimFindReferencedRimObj.c)
+ *     RIMAddInjectionDeviceOfType @ 0x1C0004D20 (RIMAddInjectionDeviceOfType.c)
+ *     RawInputManagerObjectCreateKernelHandle @ 0x1C00B6080 (RawInputManagerObjectCreateKernelHandle.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 __fastcall RIMIDECreatePseudoMouseOrKeyboardDevice(unsigned int a1, __int64 *a2)
 {
   int ReferencedRimObj; // ebx

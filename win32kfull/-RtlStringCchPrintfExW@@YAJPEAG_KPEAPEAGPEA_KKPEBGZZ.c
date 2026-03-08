@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?RtlStringCchPrintfExW@@YAJPEAG_KPEAPEAGPEA_KKPEBGZZ @ 0x1C00C24B8
+ * Callers:
+ *     ?GrepDwmCreateComposedEvent@@YAJPEAUDwmState@@@Z @ 0x1C00C1E48 (-GrepDwmCreateComposedEvent@@YAJPEAUDwmState@@@Z.c)
+ * Callees:
+ *     RtlStringVPrintfWorkerW_0 @ 0x1C00C25B8 (RtlStringVPrintfWorkerW_0.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     RtlStringExHandleOtherFlagsW @ 0x1C0268460 (RtlStringExHandleOtherFlagsW.c)
+ */
+
 __int64 RtlStringCchPrintfExW(
         NTSTRSAFE_PWSTR pszDest,
         size_t cchDest,

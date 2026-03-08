@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheaErrorSourceGetState @ 0x14060E190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WheapGetErrorSource @ 0x14060EAE8 (WheapGetErrorSource.c)
+ */
+
 __int64 __fastcall WheaErrorSourceGetState(unsigned int a1)
 {
   __int64 ErrorSource; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopInitializePowerSettings @ 0x140B70508
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *PopInitializePowerSettings()
 {
   _QWORD *v0; // rax

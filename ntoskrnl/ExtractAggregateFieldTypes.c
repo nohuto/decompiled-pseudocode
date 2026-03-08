@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExtractAggregateFieldTypes @ 0x14035F37C
+ * Callers:
+ *     _tlgWriteAgg @ 0x14035EDD0 (_tlgWriteAgg.c)
+ *     MiLogPeriodicTelemetry @ 0x140360374 (MiLogPeriodicTelemetry.c)
+ *     MiLogSlabEntriesDemote @ 0x1403D0FE0 (MiLogSlabEntriesDemote.c)
+ *     MiLogSlabEntryAllocateFailure @ 0x140654B1C (MiLogSlabEntryAllocateFailure.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall ExtractAggregateFieldTypes(__int64 a1, __int64 a2)
 {
   __int64 v2; // rcx

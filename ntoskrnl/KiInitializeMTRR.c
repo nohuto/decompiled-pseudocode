@@ -1,3 +1,19 @@
+/*
+ * XREFs of KiInitializeMTRR @ 0x140B5FED0
+ * Callers:
+ *     KiInitMachineDependent @ 0x140396928 (KiInitMachineDependent.c)
+ * Callees:
+ *     MiLockPagableImageSection @ 0x1402252E0 (MiLockPagableImageSection.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MmLockPagableSectionByHandle @ 0x1406A7BD0 (MmLockPagableSectionByHandle.c)
+ *     KiMaskToLength @ 0x140A8C418 (KiMaskToLength.c)
+ *     KeRestoreMtrrBroadcast @ 0x140A8C444 (KeRestoreMtrrBroadcast.c)
+ *     KiReadFixedMtrr @ 0x140A8C908 (KiReadFixedMtrr.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall KiInitializeMTRR(char a1)
 {
   char v1; // r12

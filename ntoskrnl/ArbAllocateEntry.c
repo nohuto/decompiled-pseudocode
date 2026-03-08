@@ -1,3 +1,12 @@
+/*
+ * XREFs of ArbAllocateEntry @ 0x14083D690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ArbAllocateEntry(__int64 a1, unsigned __int64 a2)
 {
   char v2; // r14

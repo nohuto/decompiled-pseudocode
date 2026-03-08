@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhAcpiEvalAcpiMethodEx @ 0x1C0029AD0
+ * Callers:
+ *     UsbhGetAcpiPortAttributes @ 0x1C002B2AC (UsbhGetAcpiPortAttributes.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     memmove @ 0x1C0023580 (memmove.c)
+ *     memset @ 0x1C0023880 (memset.c)
+ */
+
 __int64 __fastcall UsbhAcpiEvalAcpiMethodEx(__int64 a1, unsigned __int16 *a2, int a3, _DWORD *a4)
 {
   PDEVICE_OBJECT *v7; // rax

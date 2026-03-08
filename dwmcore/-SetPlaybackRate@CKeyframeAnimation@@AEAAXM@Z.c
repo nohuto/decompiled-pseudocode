@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetPlaybackRate@CKeyframeAnimation@@AEAAXM@Z @ 0x1800D28C0
+ * Callers:
+ *     ?SetProperty@CKeyframeAnimation@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1800D27C0 (-SetProperty@CKeyframeAnimation@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ *     ?ProcessSetPlaybackRate@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMATION_SETPLAYBACKRATE@@@Z @ 0x18012F332 (-ProcessSetPlaybackRate@CKeyframeAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_KEYFRAMEANIMA.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CKeyframeAnimation::SetPlaybackRate(CKeyframeAnimation *this, float a2)
 {
   float v2; // xmm1_4

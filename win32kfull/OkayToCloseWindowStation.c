@@ -1,3 +1,11 @@
+/*
+ * XREFs of OkayToCloseWindowStation @ 0x1C00D17E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CheckHandleFlag @ 0x1C00D1900 (CheckHandleFlag.c)
+ */
+
 __int64 __fastcall OkayToCloseWindowStation(PRKPROCESS *a1)
 {
   if ( !*((_BYTE *)a1 + 24) )

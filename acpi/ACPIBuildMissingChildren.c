@@ -1,3 +1,18 @@
+/*
+ * XREFs of ACPIBuildMissingChildren @ 0x1C000D8BC
+ * Callers:
+ *     ACPIDetectFilterDevices @ 0x1C001AA10 (ACPIDetectFilterDevices.c)
+ *     ACPIDetectPdoDevices @ 0x1C001AE34 (ACPIDetectPdoDevices.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DD @ 0x1C00149A0 (WPP_RECORDER_SF_DD.c)
+ *     OSNotifyCreateDevice @ 0x1C0032738 (OSNotifyCreateDevice.c)
+ *     OSNotifyCreateOperationRegion @ 0x1C003285C (OSNotifyCreateOperationRegion.c)
+ *     OSNotifyCreateProcessor @ 0x1C0032ABC (OSNotifyCreateProcessor.c)
+ *     OSNotifyCreateThermalZone @ 0x1C0032BC0 (OSNotifyCreateThermalZone.c)
+ *     AMLIGetFirstChild @ 0x1C00482EC (AMLIGetFirstChild.c)
+ *     AMLIIterateSiblingsNext @ 0x1C00488D8 (AMLIIterateSiblingsNext.c)
+ */
+
 __int64 __fastcall ACPIBuildMissingChildren(__int64 a1)
 {
   __int64 *i; // rax

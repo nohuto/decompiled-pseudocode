@@ -1,3 +1,12 @@
+/*
+ * XREFs of DwmSyncFlushWindowChanges @ 0x1C0270A50
+ * Callers:
+ *     xxxSynchronizeDWMWindowChanges @ 0x1C01AE0C8 (xxxSynchronizeDWMWindowChanges.c)
+ * Callees:
+ *     ?DwmSyncLPCAllowed@@YAJXZ @ 0x1C001D800 (-DwmSyncLPCAllowed@@YAJXZ.c)
+ *     DwmSyncFlushForceRenderAndWaitForBatch @ 0x1C0270960 (DwmSyncFlushForceRenderAndWaitForBatch.c)
+ */
+
 __int64 __fastcall DwmSyncFlushWindowChanges(PVOID Object)
 {
   int v2; // ebx

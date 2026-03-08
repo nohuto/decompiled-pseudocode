@@ -1,3 +1,13 @@
+/*
+ * XREFs of VidSchiCleanupQueuedCommand @ 0x1C0046F08
+ * Callers:
+ *     VidSchFlushAdapter @ 0x1C0107550 (VidSchFlushAdapter.c)
+ * Callees:
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0013414 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00134D8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     VidSchiCleanupPacket_PriorityTable @ 0x1C010A430 (VidSchiCleanupPacket_PriorityTable.c)
+ */
+
 void __fastcall VidSchiCleanupQueuedCommand(__int64 a1)
 {
   char v2; // al

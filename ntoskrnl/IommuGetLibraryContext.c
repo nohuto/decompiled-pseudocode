@@ -1,3 +1,13 @@
+/*
+ * XREFs of IommuGetLibraryContext @ 0x140520AF0
+ * Callers:
+ *     IommupPasidDeviceCreate @ 0x14050C278 (IommupPasidDeviceCreate.c)
+ * Callees:
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     IommupGetSystemContext @ 0x1403AB428 (IommupGetSystemContext.c)
+ */
+
 __int64 __fastcall IommuGetLibraryContext(int a1, unsigned int a2, _QWORD *a3)
 {
   PVOID *SystemContext; // rdi

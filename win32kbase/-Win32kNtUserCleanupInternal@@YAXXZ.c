@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?Win32kNtUserCleanupInternal@@YAXXZ @ 0x1C008DC04
+ * Callers:
+ *     ?Win32kNtUserCleanup@@YAHXZ @ 0x1C008D904 (-Win32kNtUserCleanup@@YAHXZ.c)
+ * Callees:
+ *     FreeQueue @ 0x1C00706A4 (FreeQueue.c)
+ *     IsFreeMessageListSupported @ 0x1C00706F8 (IsFreeMessageListSupported.c)
+ *     HMAssignmentUnlockWorker @ 0x1C007294C (HMAssignmentUnlockWorker.c)
+ *     IsFreeSMSSupported @ 0x1C008E3B8 (IsFreeSMSSupported.c)
+ *     ?CLEANUP_CRIT_RESOURCE@@YAXAEAT_USERCRIT_TYPE@@@Z @ 0x1C008E3E4 (-CLEANUP_CRIT_RESOURCE@@YAXAEAT_USERCRIT_TYPE@@@Z.c)
+ *     ?CSTPop@@YAHPEAIPEAPEAX@Z @ 0x1C008E8E4 (-CSTPop@@YAHPEAIPEAPEAX@Z.c)
+ *     _lambda_2ad0db6ebdddb84bde70c96348b25c2b_::operator() @ 0x1C008E99C (_lambda_2ad0db6ebdddb84bde70c96348b25c2b_--operator().c)
+ *     ?FreePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B774 (-FreePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void Win32kNtUserCleanupInternal(void)
 {
   __int64 v0; // r8

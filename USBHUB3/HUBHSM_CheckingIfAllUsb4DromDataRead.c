@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBHSM_CheckingIfAllUsb4DromDataRead @ 0x1C0009E60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     FWUPDATE_ParseUsb4DromForVidPid @ 0x1C0040868 (FWUPDATE_ParseUsb4DromForVidPid.c)
+ */
+
 __int64 __fastcall HUBHSM_CheckingIfAllUsb4DromDataRead(__int64 a1)
 {
   __int64 v1; // rbx

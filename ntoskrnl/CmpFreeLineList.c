@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpFreeLineList @ 0x140B4ED2C
+ * Callers:
+ *     CmpFreeSectionList @ 0x140B4ECD4 (CmpFreeSectionList.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall CmpFreeLineList(_QWORD *P)
 {
   _QWORD *v1; // rbx

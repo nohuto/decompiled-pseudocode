@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhBusIf_SetMsOs20Support @ 0x1C004C294
+ * Callers:
+ *     UsbhGetAlternateUsbDescriptors @ 0x1C0037CEC (UsbhGetAlternateUsbDescriptors.c)
+ *     UsbhSetupDevice @ 0x1C0039728 (UsbhSetupDevice.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (__fastcall *__fastcall UsbhBusIf_SetMsOs20Support(
         __int64 a1,
         __int64 a2,

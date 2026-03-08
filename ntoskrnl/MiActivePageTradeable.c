@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiActivePageTradeable @ 0x14021244C
+ * Callers:
+ *     MiTradeActivePage @ 0x140211BC0 (MiTradeActivePage.c)
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPagePrivilege @ 0x14032D3F0 (MiGetPagePrivilege.c)
+ */
+
 _BOOL8 __fastcall MiActivePageTradeable(ULONG_PTR BugCheckParameter2, unsigned __int64 a2, int a3, char a4)
 {
   return (*(_QWORD *)(BugCheckParameter2 + 24) & 0x3FFFFFFFFFFFFFFFLL) == 1

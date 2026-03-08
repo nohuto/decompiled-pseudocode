@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkResumeMemorySegments @ 0x1C02BE454
+ * Callers:
+ *     DpiPowerArbiterThread @ 0x1C0210150 (DpiPowerArbiterThread.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?ResumeMemorySegments@ADAPTER_RENDER@@QEAAJXZ @ 0x1C02BD058 (-ResumeMemorySegments@ADAPTER_RENDER@@QEAAJXZ.c)
+ */
+
 __int64 __fastcall DxgkResumeMemorySegments(__int64 a1)
 {
   ADAPTER_RENDER *v3; // rcx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of BgkInitialize @ 0x140B99F84
+ * Callers:
+ *     InbvDriverInitialize @ 0x140B47614 (InbvDriverInitialize.c)
+ * Callees:
+ *     BgkpTryEnableConsole @ 0x140384818 (BgkpTryEnableConsole.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     BgLibraryInitialize @ 0x140AEB57C (BgLibraryInitialize.c)
+ *     BgConsoleGetInterface @ 0x140AEB5EC (BgConsoleGetInterface.c)
+ *     BgkDestroy @ 0x140AEBA68 (BgkDestroy.c)
+ *     BgkpLockBgfxCodeSection @ 0x140AEBB60 (BgkpLockBgfxCodeSection.c)
+ */
+
 __int64 __fastcall BgkInitialize(__int64 a1, unsigned int a2)
 {
   __int64 result; // rax

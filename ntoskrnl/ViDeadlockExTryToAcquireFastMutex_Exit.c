@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViDeadlockExTryToAcquireFastMutex_Exit @ 0x140AD6130
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VfDeadlockAcquireResource @ 0x140AD3DAC (VfDeadlockAcquireResource.c)
+ */
+
 PVOID __fastcall ViDeadlockExTryToAcquireFastMutex_Exit(__int64 a1)
 {
   PVOID result; // rax

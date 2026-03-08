@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?MultiUserGreDeleteXLATE@@YAXXZ @ 0x1C009FEE4
+ * Callers:
+ *     MultiUserNtGreCleanup @ 0x1C009EFD4 (MultiUserNtGreCleanup.c)
+ * Callees:
+ *     PopThreadGuardedObject @ 0x1C00453C0 (PopThreadGuardedObject.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 void __fastcall MultiUserGreDeleteXLATE(__int64 a1)
 {
   __int64 v1; // rbx

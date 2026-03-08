@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiDeleteAweBitMap @ 0x140A3ED88
+ * Callers:
+ *     MiDeleteAweInfo @ 0x140A3EDD8 (MiDeleteAweInfo.c)
+ *     MiResizeAweBitMap @ 0x140A3F4A0 (MiResizeAweBitMap.c)
+ * Callees:
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1402955D0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiDeleteAweBitMap(struct _KPROCESS *a1, __int64 a2)
 {
   __int64 v3; // rdx

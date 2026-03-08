@@ -1,3 +1,15 @@
+/*
+ * XREFs of PspSetProcessDefaultHardErrorMode @ 0x14076AD54
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KeSetAutoAlignmentProcess @ 0x14076AE0C (KeSetAutoAlignmentProcess.c)
+ */
+
 char __fastcall PspSetProcessDefaultHardErrorMode(__int64 a1, __int64 a2, unsigned int a3)
 {
   volatile signed __int64 *v3; // rdi

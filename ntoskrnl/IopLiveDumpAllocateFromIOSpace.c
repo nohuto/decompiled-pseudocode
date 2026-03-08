@@ -1,3 +1,19 @@
+/*
+ * XREFs of IopLiveDumpAllocateFromIOSpace @ 0x14094A574
+ * Callers:
+ *     IopLiveDumpAllocateDumpBuffers @ 0x140949C84 (IopLiveDumpAllocateDumpBuffers.c)
+ * Callees:
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     IopLiveDumpAllocateIoSpaceRanges @ 0x14094AAB0 (IopLiveDumpAllocateIoSpaceRanges.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x14094AFA4 (IopLiveDumpDiscardVirtualAddressRange.c)
+ *     IopLiveDumpFreeIoSpaceRanges @ 0x14094B2F4 (IopLiveDumpFreeIoSpaceRanges.c)
+ *     IopLiveDumpQueryIOSpaceRanges @ 0x14094BE00 (IopLiveDumpQueryIOSpaceRanges.c)
+ *     IopLiveDumpUnpackMemoryRun @ 0x14094C204 (IopLiveDumpUnpackMemoryRun.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 _UNKNOWN **__fastcall IopLiveDumpAllocateFromIOSpace(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
 {
   _UNKNOWN **result; // rax

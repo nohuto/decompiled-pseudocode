@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_ECDynamicInlineStorage@PrimitiveStorage@@UEAAPEAXI@Z @ 0x1800E22E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801046B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ */
+
 PrimitiveStorage::CDynamicInlineStorage *__fastcall PrimitiveStorage::CDynamicInlineStorage::`vector deleting destructor'(
         PrimitiveStorage::CDynamicInlineStorage *this,
         char a2)

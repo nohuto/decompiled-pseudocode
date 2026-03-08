@@ -1,3 +1,12 @@
+/*
+ * XREFs of IovpAdvanceStackDownwards @ 0x140AC8FE8
+ * Callers:
+ *     IovpCallDriver1 @ 0x140AC9170 (IovpCallDriver1.c)
+ *     IovpCompleteRequest1 @ 0x140AC99CC (IovpCompleteRequest1.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall IovpAdvanceStackDownwards(
         __int64 a1,
         char a2,

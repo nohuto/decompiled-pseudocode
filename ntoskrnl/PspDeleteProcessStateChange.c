@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspDeleteProcessStateChange @ 0x1409AE120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsThawMultiProcess @ 0x1402FFE80 (PsThawMultiProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ */
+
 LONG_PTR __fastcall PspDeleteProcessStateChange(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rbx

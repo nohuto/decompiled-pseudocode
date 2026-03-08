@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIEcDisconnectInterrupt @ 0x1C0083564
+ * Callers:
+ *     ACPIEcStopRemoveDeviceCommon @ 0x1C0025890 (ACPIEcStopRemoveDeviceCommon.c)
+ * Callees:
+ *     ACPIEcDisconnectGpeVector @ 0x1C00834E8 (ACPIEcDisconnectGpeVector.c)
+ */
+
 __int64 __fastcall ACPIEcDisconnectInterrupt(__int64 a1)
 {
   unsigned int v1; // ebx

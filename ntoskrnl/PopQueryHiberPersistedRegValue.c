@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopQueryHiberPersistedRegValue @ 0x14080FD60
+ * Callers:
+ *     PopInitHiberPersistedRegValues @ 0x14080FC80 (PopInitHiberPersistedRegValues.c)
+ *     PopWnfHibernatePolicyCallback @ 0x140986410 (PopWnfHibernatePolicyCallback.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     PopReadUlongPowerKey @ 0x140380EC0 (PopReadUlongPowerKey.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     PopOpenHiberPersistedKey @ 0x14080FEC0 (PopOpenHiberPersistedKey.c)
+ */
+
 __int64 __fastcall PopQueryHiberPersistedRegValue(int a1, unsigned int *a2)
 {
   __int64 v2; // rax

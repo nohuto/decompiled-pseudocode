@@ -1,3 +1,16 @@
+/*
+ * XREFs of _CmCreateDeviceInterfaceWorker @ 0x14087B924
+ * Callers:
+ *     _CmCreateDeviceInterface @ 0x14087B7BC (_CmCreateDeviceInterface.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x1406C9E28 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _CmGetDeviceInterfaceClassGuidString @ 0x1406CB790 (_CmGetDeviceInterfaceClassGuidString.c)
+ *     _CmCreateInterfaceClass @ 0x14087BA38 (_CmCreateInterfaceClass.c)
+ *     _CmRaiseCreateEvent @ 0x14087BC44 (_CmRaiseCreateEvent.c)
+ */
+
 __int64 __fastcall CmCreateDeviceInterfaceWorker(__int64 a1, __int64 a2, int a3, HANDLE *a4, _BYTE *a5, __int16 a6)
 {
   int DeviceInterfaceClassGuidString; // ebx

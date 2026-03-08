@@ -1,3 +1,14 @@
+/*
+ * XREFs of AdtpBuildIPv4Strings @ 0x140A57A18
+ * Callers:
+ *     AdtpBuildSockAddrString @ 0x140A5877C (AdtpBuildSockAddrString.c)
+ * Callees:
+ *     StringCchPrintfW @ 0x1402FAA78 (StringCchPrintfW.c)
+ *     RtlIpv4AddressToStringW @ 0x1403B97E0 (RtlIpv4AddressToStringW.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AdtpBuildIPv4Strings(const struct in_addr *a1, __int64 a2, _BYTE *a3, __int64 a4, _BYTE *a5)
 {
   unsigned int v9; // ebx

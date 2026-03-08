@@ -1,3 +1,15 @@
+/*
+ * XREFs of MoveObjData @ 0x1C004C164
+ * Callers:
+ *     RefOf @ 0x1C00068B0 (RefOf.c)
+ *     Name @ 0x1C00553B0 (Name.c)
+ *     CopyObject @ 0x1C0056550 (CopyObject.c)
+ *     Store @ 0x1C0058B60 (Store.c)
+ *     ParseCall @ 0x1C005A6A0 (ParseCall.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MoveObjData(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

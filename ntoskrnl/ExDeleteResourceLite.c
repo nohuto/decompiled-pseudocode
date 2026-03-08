@@ -1,3 +1,37 @@
+/*
+ * XREFs of ExDeleteResourceLite @ 0x140336580
+ * Callers:
+ *     PspJobDelete @ 0x140291AD0 (PspJobDelete.c)
+ *     CcDeallocateBcb @ 0x14029CCF0 (CcDeallocateBcb.c)
+ *     CcUnpinFileDataEx @ 0x140337E50 (CcUnpinFileDataEx.c)
+ *     DifExDeleteResourceLiteWrapper @ 0x1405D6140 (DifExDeleteResourceLiteWrapper.c)
+ *     PnpDereferenceNotify @ 0x1406F59C0 (PnpDereferenceNotify.c)
+ *     CmpInitCmRM @ 0x1407334D4 (CmpInitCmRM.c)
+ *     RtlCreateHeap @ 0x14078AD90 (RtlCreateHeap.c)
+ *     CmpDelayFreeRMWorker @ 0x14079A480 (CmpDelayFreeRMWorker.c)
+ *     RtlDestroyHeap @ 0x14079A780 (RtlDestroyHeap.c)
+ *     SepTokenDeleteMethod @ 0x1407C3CB0 (SepTokenDeleteMethod.c)
+ *     DrvDbOpenContext @ 0x14081D690 (DrvDbOpenContext.c)
+ *     MUIInitializeResourceLock @ 0x14085B81C (MUIInitializeResourceLock.c)
+ *     PiDrvDbDestroyNode @ 0x14096CEBC (PiDrvDbDestroyNode.c)
+ *     TtmpDeleteQueue @ 0x1409A9490 (TtmpDeleteQueue.c)
+ *     _PnpCtxCloseMachine @ 0x140A5DAE0 (_PnpCtxCloseMachine.c)
+ *     DrvDbDestroyDatabaseNode @ 0x140A6ACC0 (DrvDbDestroyDatabaseNode.c)
+ * Callees:
+ *     PsBoostThreadIoEx @ 0x1402634D0 (PsBoostThreadIoEx.c)
+ *     ExpOwnerEntryToThread @ 0x140283298 (ExpOwnerEntryToThread.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140283390 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     PsBoostThreadIoQoS @ 0x14029176C (PsBoostThreadIoQoS.c)
+ *     ExpResourceEnforcesOwnershipTransfer @ 0x1402917A4 (ExpResourceEnforcesOwnershipTransfer.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140350400 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140462ED8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140608CDC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall ExDeleteResourceLite(PERESOURCE Resource)
 {
   __int16 v2; // ax

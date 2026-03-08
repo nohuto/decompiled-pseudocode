@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsSurfaceLockable@@YAHPEAU_SURFOBJ@@PEAPEAUDHPDEV__@@@Z @ 0x1C029B958
+ * Callers:
+ *     ?GetLockableSURFOBJ@UMPDSURFOBJ@@AEAAPEAU_SURFOBJ@@PEAU2@@Z @ 0x1C029B758 (-GetLockableSURFOBJ@UMPDSURFOBJ@@AEAAPEAU_SURFOBJ@@PEAU2@@Z.c)
+ *     ?LockSurface@UMPDOBJ@@QEAAPEAU_SURFOBJ@@PEAUHSURF__@@@Z @ 0x1C029B9E8 (-LockSurface@UMPDOBJ@@QEAAPEAU_SURFOBJ@@PEAUHSURF__@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IsSurfaceLockable(struct _SURFOBJ *a1, struct DHPDEV__ **a2)
 {
   PVOID pvBits; // rdx

@@ -1,3 +1,19 @@
+/*
+ * XREFs of CcCopyWriteWontFlush @ 0x140290880
+ * Callers:
+ *     FsRtlCopyWrite @ 0x14084D5B0 (FsRtlCopyWrite.c)
+ * Callees:
+ *     CcGetPrivateVolumeCacheMapFromFileObject @ 0x140290B30 (CcGetPrivateVolumeCacheMapFromFileObject.c)
+ *     CcIsFileObjectDirectMapped @ 0x140290BB8 (CcIsFileObjectDirectMapped.c)
+ *     KxWaitForLockChainValid @ 0x140291730 (KxWaitForLockChainValid.c)
+ *     KxWaitForLockOwnerShip @ 0x14033B510 (KxWaitForLockOwnerShip.c)
+ *     CcCanIWriteStreamEx @ 0x140363460 (CcCanIWriteStreamEx.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140457B8E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x14056EF78 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14057DAC8 (KiHaltOnAddressWakeEntireList.c)
+ */
+
 BOOLEAN __stdcall CcCopyWriteWontFlush(PFILE_OBJECT FileObject, PLARGE_INTEGER FileOffset, ULONG Length)
 {
   struct _KTHREAD *CurrentThread; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiDisableInterruptResources @ 0x1C0395CD8
+ * Callers:
+ *     DpiFdoHandleFilterResources @ 0x1C0217020 (DpiFdoHandleFilterResources.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DpiDisableInterruptResources(__int64 a1)
 {
   unsigned int v1; // r9d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIPendingInvalidate @ 0x1C00145A4
+ * Callers:
+ *     ACPIBuildIssueInvalidateRelationsWorker @ 0x1C000D554 (ACPIBuildIssueInvalidateRelationsWorker.c)
+ *     ACPIBuildIssueNotifyInvalidateRelations @ 0x1C000D6D0 (ACPIBuildIssueNotifyInvalidateRelations.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall ACPIPendingInvalidate(__int64 a1)
 {
   __int64 v1; // rdx

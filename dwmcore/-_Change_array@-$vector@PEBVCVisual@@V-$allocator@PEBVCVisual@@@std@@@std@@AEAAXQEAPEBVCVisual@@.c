@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_Change_array@?$vector@PEBVCVisual@@V?$allocator@PEBVCVisual@@@std@@@std@@AEAAXQEAPEBVCVisual@@_K1@Z @ 0x1801DB854
+ * Callers:
+ *     ??$_Emplace_reallocate@AEBQEBVCVisual@@@?$vector@PEBVCVisual@@V?$allocator@PEBVCVisual@@@std@@@std@@QEAAPEAPEBVCVisual@@QEAPEBV2@AEBQEBV2@@Z @ 0x1801D7A7C (--$_Emplace_reallocate@AEBQEBVCVisual@@@-$vector@PEBVCVisual@@V-$allocator@PEBVCVisual@@@std@@@s.c)
+ *     ??$_Emplace_reallocate@PEBVCVisual@@@?$vector@PEBVCVisual@@V?$allocator@PEBVCVisual@@@std@@@std@@QEAAPEAPEBVCVisual@@QEAPEBV2@$$QEAPEBV2@@Z @ 0x1801D7B78 (--$_Emplace_reallocate@PEBVCVisual@@@-$vector@PEBVCVisual@@V-$allocator@PEBVCVisual@@@std@@@std@.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
 __int64 __fastcall std::vector<CVisual const *>::_Change_array(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   void *v6; // rcx

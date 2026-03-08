@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhFdoPnp_RemoveDevice @ 0x1C0043010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhReleaseHubNumber @ 0x1C0043EA0 (UsbhReleaseHubNumber.c)
+ *     Usbh_FDO_Pnp_State @ 0x1C0044348 (Usbh_FDO_Pnp_State.c)
+ *     UsbhSshDisabled @ 0x1C00592A0 (UsbhSshDisabled.c)
+ */
+
 __int64 __fastcall UsbhFdoPnp_RemoveDevice(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 {
   _DWORD *v4; // rsi

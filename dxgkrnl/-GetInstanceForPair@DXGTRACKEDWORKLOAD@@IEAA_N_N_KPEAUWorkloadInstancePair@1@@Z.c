@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetInstanceForPair@DXGTRACKEDWORKLOAD@@IEAA_N_N_KPEAUWorkloadInstancePair@1@@Z @ 0x1C03597EC
+ * Callers:
+ *     ?UpdateTrackedWorkload@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEBU_D3DKMT_UPDATETRACKEDWORKLOAD@@_K@Z @ 0x1C035A598 (-UpdateTrackedWorkload@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEBU_D3DKMT_UPDATETRACKEDWORKLOAD.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DXGTRACKEDWORKLOAD::GetInstanceForPair(
         DXGTRACKEDWORKLOAD *this,
         char a2,

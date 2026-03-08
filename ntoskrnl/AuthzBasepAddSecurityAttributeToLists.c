@@ -1,3 +1,13 @@
+/*
+ * XREFs of AuthzBasepAddSecurityAttributeToLists @ 0x140297DC8
+ * Callers:
+ *     AuthzBasepAddSecurityAttribute @ 0x140296FB0 (AuthzBasepAddSecurityAttribute.c)
+ *     AuthzBasepDeleteSecurityAttribute @ 0x140297E80 (AuthzBasepDeleteSecurityAttribute.c)
+ *     AuthzBasepDeleteAllSecurityAttributes @ 0x14066C554 (AuthzBasepDeleteAllSecurityAttributes.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall AuthzBasepAddSecurityAttributeToLists(__int64 a1, __int64 a2, char a3, char a4)
 {
   _QWORD *v4; // r9

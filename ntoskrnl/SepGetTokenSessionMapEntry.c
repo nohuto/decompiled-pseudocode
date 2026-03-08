@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepGetTokenSessionMapEntry @ 0x14045C46E
+ * Callers:
+ *     SepSetTokenLowboxNumber @ 0x1407398DC (SepSetTokenLowboxNumber.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x14074438C (SepDereferenceLowBoxNumberEntry.c)
+ *     SepIsParentOfChildAppContainer @ 0x1409CEBF4 (SepIsParentOfChildAppContainer.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SepGetTokenSessionMapEntry(int a1, char a2, __int64 *a3)
 {
   __int64 **v4; // rax

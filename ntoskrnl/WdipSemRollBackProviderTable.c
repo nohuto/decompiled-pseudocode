@@ -1,3 +1,11 @@
+/*
+ * XREFs of WdipSemRollBackProviderTable @ 0x1409DAD94
+ * Callers:
+ *     WdipSemLoadScenarioTable @ 0x140832BA4 (WdipSemLoadScenarioTable.c)
+ * Callees:
+ *     WdipSemFastFree @ 0x140833700 (WdipSemFastFree.c)
+ */
+
 PSLIST_ENTRY __fastcall WdipSemRollBackProviderTable(int a1)
 {
   unsigned int i; // esi

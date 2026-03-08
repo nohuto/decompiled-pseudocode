@@ -1,3 +1,21 @@
+/*
+ * XREFs of Isoch_Stage_MapIntoRing @ 0x1C0001050
+ * Callers:
+ *     Isoch_EvtDmaCallback @ 0x1C0001010 (Isoch_EvtDmaCallback.c)
+ *     Isoch_MapStage @ 0x1C0004810 (Isoch_MapStage.c)
+ * Callees:
+ *     TR_AddTRBRangeToSecureTransferRing @ 0x1C0007070 (TR_AddTRBRangeToSecureTransferRing.c)
+ *     UsbDevice_DirectWriteDoorbell @ 0x1C00080D0 (UsbDevice_DirectWriteDoorbell.c)
+ *     StageQueue_Release @ 0x1C0011840 (StageQueue_Release.c)
+ *     TR_ReleaseSegments @ 0x1C001187C (TR_ReleaseSegments.c)
+ *     WPP_RECORDER_SF_D @ 0x1C00180C4 (WPP_RECORDER_SF_D.c)
+ *     McTemplateK0uqq_EtwWriteTransfer @ 0x1C002272E (McTemplateK0uqq_EtwWriteTransfer.c)
+ *     Isoch_InsertLinkTrb @ 0x1C00445F4 (Isoch_InsertLinkTrb.c)
+ *     Isoch_Stage_FreeScatterGatherList @ 0x1C0045238 (Isoch_Stage_FreeScatterGatherList.c)
+ *     WPP_RECORDER_SF_DDqqDDD @ 0x1C004685C (WPP_RECORDER_SF_DDqqDDD.c)
+ *     XilUsbDevice_SendRequestToRingDoorbell @ 0x1C0048268 (XilUsbDevice_SendRequestToRingDoorbell.c)
+ */
+
 __int64 __fastcall Isoch_Stage_MapIntoRing(__int64 *a1)
 {
   __int64 v1; // r11

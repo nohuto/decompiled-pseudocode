@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_cfa85ae072c89c165dff36c328ecf84d_::operator() @ 0x1C0081944
+ * Callers:
+ *     ?ConsumerDwmProcessUpdateTokens@CFlipManager@@QEAAJPEAVCFlipPresentUpdate@@PEAVCFlipManagerToken@@PEAU_LIST_ENTRY@@@Z @ 0x1C00826AC (-ConsumerDwmProcessUpdateTokens@CFlipManager@@QEAAJPEAVCFlipPresentUpdate@@PEAVCFlipManagerToken.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 _QWORD **__fastcall lambda_cfa85ae072c89c165dff36c328ecf84d_::operator()(_QWORD **a1)
 {
   _QWORD **result; // rax

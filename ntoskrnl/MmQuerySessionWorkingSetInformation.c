@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmQuerySessionWorkingSetInformation @ 0x140463F64
+ * Callers:
+ *     EtwpLogSessionWorkingSetInfo @ 0x1408A25EC (EtwpLogSessionWorkingSetInfo.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MmQuerySessionWorkingSetInformation(__int64 a1, _DWORD *a2)
 {
   unsigned int v4; // esi

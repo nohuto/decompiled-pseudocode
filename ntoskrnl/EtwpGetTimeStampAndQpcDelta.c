@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpGetTimeStampAndQpcDelta @ 0x1405FECD0
+ * Callers:
+ *     EtwpReserveTraceBuffer @ 0x1403151E0 (EtwpReserveTraceBuffer.c)
+ * Callees:
+ *     RtlGetMultiTimePrecise @ 0x1402F9390 (RtlGetMultiTimePrecise.c)
+ */
+
 __int64 __fastcall EtwpGetTimeStampAndQpcDelta(__int64 a1, _QWORD *a2, _QWORD *a3)
 {
   bool v4; // zf

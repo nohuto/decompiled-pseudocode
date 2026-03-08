@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetInertiaRegionInVirtualizedScreen @ 0x1C01F8A64
+ * Callers:
+ *     ?_InertiaRegionIntersectsTopEdge@Edgy@@YAHPEBUINERTIA_INFO_INTERNAL@@PEBUtagRECT@@@Z @ 0x1C01E95B8 (-_InertiaRegionIntersectsTopEdge@Edgy@@YAHPEBUINERTIA_INFO_INTERNAL@@PEBUtagRECT@@@Z.c)
+ * Callees:
+ *     D3DXVec4Transform @ 0x1C0144E20 (D3DXVec4Transform.c)
+ */
+
 __int64 __fastcall GetInertiaRegionInVirtualizedScreen(__int64 a1, int *a2)
 {
   int v2; // eax

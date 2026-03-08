@@ -1,3 +1,11 @@
+/*
+ * XREFs of RESOURCE_HUB_UNICODE_STRING_PRINTF @ 0x1C0065890
+ * Callers:
+ *     DpOpenSpbResource @ 0x1C03A2E10 (DpOpenSpbResource.c)
+ * Callees:
+ *     ?RtlStringCbVPrintfExW@@YAJPEAG_KPEAPEAGPEA_KKPEBGPEAD@Z @ 0x1C006570C (-RtlStringCbVPrintfExW@@YAJPEAG_KPEAPEAGPEA_KKPEBGPEAD@Z.c)
+ */
+
 NTSTATUS RESOURCE_HUB_UNICODE_STRING_PRINTF(__int64 a1, const wchar_t *a2, ...)
 {
   NTSTATUS result; // eax

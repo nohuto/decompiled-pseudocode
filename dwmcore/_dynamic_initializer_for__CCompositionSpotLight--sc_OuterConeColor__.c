@@ -1,3 +1,11 @@
+/*
+ * XREFs of _dynamic_initializer_for__CCompositionSpotLight::sc_OuterConeColor__ @ 0x1800023D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 dynamic_initializer_for__CCompositionSpotLight::sc_OuterConeColor__()
 {
   __int64 result; // rax

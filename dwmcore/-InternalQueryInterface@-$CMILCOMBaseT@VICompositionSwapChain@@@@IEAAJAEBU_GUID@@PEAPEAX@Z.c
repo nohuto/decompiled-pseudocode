@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InternalQueryInterface@?$CMILCOMBaseT@VICompositionSwapChain@@@@IEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18029B13C
+ * Callers:
+ *     ?QueryInterface@CCompSwapChain@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18029B614 (-QueryInterface@CCompSwapChain@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CMILCOMBaseT<ICompositionSwapChain>::InternalQueryInterface(_QWORD *a1, _QWORD *a2, __int64 *a3)
 {
   int v5; // esi

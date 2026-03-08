@@ -1,3 +1,13 @@
+/*
+ * XREFs of AlignRects @ 0x1C00CC4F8
+ * Callers:
+ *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0022E20 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
+ *     ?DxgkEngAdjustMonitorPosition@@YAHPEAUtagRECT@@II@Z @ 0x1C00CC4E0 (-DxgkEngAdjustMonitorPosition@@YAHPEAUtagRECT@@II@Z.c)
+ * Callees:
+ *     ?RemoveGaps@@YAHPEAUtagRECT@@I@Z @ 0x1C02474D8 (-RemoveGaps@@YAHPEAUtagRECT@@I@Z.c)
+ *     ?RemoveOverlaps@@YAXPEAUtagRECT@@I@Z @ 0x1C0247A38 (-RemoveOverlaps@@YAXPEAUtagRECT@@I@Z.c)
+ */
+
 __int64 __fastcall AlignRects(struct tagRECT *a1, unsigned int a2, unsigned int a3)
 {
   struct tagRECT *v4; // rdi

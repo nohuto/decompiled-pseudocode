@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpHpVsSubsegmentCreate @ 0x1402DD684
+ * Callers:
+ *     RtlpHpVsContextAllocateInternal @ 0x14024A790 (RtlpHpVsContextAllocateInternal.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall RtlpHpVsSubsegmentCreate(__int64 a1, int a2, unsigned int a3)
 {
   __int64 v3; // rsi

@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?DT_InitDrawTextInfo@@YAHPEAUHDC__@@PEAUtagRECT@@IPEAUDRAWTEXTDATA@@PEAUtagDRAWTEXTPARAMS@@@Z @ 0x1C024FB18
+ * Callers:
+ *     DrawTextExWorker @ 0x1C024FEBC (DrawTextExWorker.c)
+ * Callees:
+ *     GetDPIServerInfo @ 0x1C010C460 (GetDPIServerInfo.c)
+ *     ?GrepGetTextMetricsW@@YAHPEAUHDC__@@PEAU_TMW_INTERNAL@@W4EntryPoint@RFONTOBJ@@@Z @ 0x1C0112400 (-GrepGetTextMetricsW@@YAHPEAUHDC__@@PEAU_TMW_INTERNAL@@W4EntryPoint@RFONTOBJ@@@Z.c)
+ *     ??1EUDCCountRegion@@QEAA@XZ @ 0x1C0114AF8 (--1EUDCCountRegion@@QEAA@XZ.c)
+ *     ??0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C0114B84 (--0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     IsSysFontAndDefaultMode @ 0x1C025021C (IsSysFontAndDefaultMode.c)
+ *     GreGetTextCharsetInfo @ 0x1C0290D68 (GreGetTextCharsetInfo.c)
+ */
+
 __int64 __fastcall DT_InitDrawTextInfo(
         HDC a1,
         struct tagRECT *a2,

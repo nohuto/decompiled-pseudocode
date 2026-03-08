@@ -1,3 +1,16 @@
+/*
+ * XREFs of NVMeSetNonOperationalPowerStatePermissiveMode @ 0x1C0023ED4
+ * Callers:
+ *     NVMeControllerPowerUp @ 0x1C000E0F4 (NVMeControllerPowerUp.c)
+ *     NVMePowerSettingChangeNotification @ 0x1C0010430 (NVMePowerSettingChangeNotification.c)
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     NVMeControllerGetLocalCommand @ 0x1C000352C (NVMeControllerGetLocalCommand.c)
+ *     Feature_Servicing_Huawei22H2BluescreenAfterSleep__private_IsEnabledDeviceUsage @ 0x1C000361C (Feature_Servicing_Huawei22H2BluescreenAfterSleep__private_IsEnabledDeviceUsage.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     WaitForCommandComplete @ 0x1C0025544 (WaitForCommandComplete.c)
+ */
+
 __int64 __fastcall NVMeSetNonOperationalPowerStatePermissiveMode(__int64 a1, unsigned __int8 a2)
 {
   int v2; // esi

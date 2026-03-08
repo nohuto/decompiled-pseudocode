@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DpiDxgkDdiSaveMemoryForHotUpdate@@YAJPEAU_FDO_CONTEXT@@PEBU_DXGKARG_SAVEMEMORYFORHOTUPDATE@@@Z @ 0x1C03A0E30
+ * Callers:
+ *     ?DpiKsrSaveMemoryCallback@@YAJPEAU_FDO_CONTEXT@@PEAX@Z @ 0x1C03A11C0 (-DpiKsrSaveMemoryCallback@@YAJPEAU_FDO_CONTEXT@@PEAX@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C003FFEC (McTemplateK0pqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiDxgkDdiSaveMemoryForHotUpdate(
         struct _FDO_CONTEXT *a1,
         const struct _DXGKARG_SAVEMEMORYFORHOTUPDATE *a2,

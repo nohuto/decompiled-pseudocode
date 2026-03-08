@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlGetStatsUpdateCounter @ 0x1405443E4
+ * Callers:
+ *     PpmHvSnapPerformanceAccumulation @ 0x14059DC74 (PpmHvSnapPerformanceAccumulation.c)
+ * Callees:
+ *     HvlpGetLpcbByLpIndex @ 0x1403C8E08 (HvlpGetLpcbByLpIndex.c)
+ */
+
 char __fastcall HvlGetStatsUpdateCounter(unsigned int a1)
 {
   int *LpcbByLpIndex; // rax

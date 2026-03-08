@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CreateDirectInkFactory@CD2DGenericInk@@SAJPEAUID2D1DeviceContext@@PEAPEAUIDCompositionDirectInkFactoryPartner@@@Z @ 0x180299900
+ * Callers:
+ *     ?LazyInitDirectInkFactory@CD2DContext@@AEAAJXZ @ 0x180284438 (-LazyInitDirectInkFactory@CD2DContext@@AEAAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     GetLPCreateDCompositionDirectInkFactoryPartner @ 0x18029998C (GetLPCreateDCompositionDirectInkFactoryPartner.c)
+ */
+
 __int64 __fastcall CD2DGenericInk::CreateDirectInkFactory(
         struct ID2D1DeviceContext *a1,
         struct IDCompositionDirectInkFactoryPartner **a2)

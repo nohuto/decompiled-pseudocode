@@ -1,3 +1,16 @@
+/*
+ * XREFs of IovpCompleteRequest1 @ 0x140AC99CC
+ * Callers:
+ *     IovCompleteRequest @ 0x140ABE48C (IovCompleteRequest.c)
+ * Callees:
+ *     ViErrorReport1 @ 0x1405CDA04 (ViErrorReport1.c)
+ *     IovpAdvanceStackDownwards @ 0x140AC8FE8 (IovpAdvanceStackDownwards.c)
+ *     VfPendingFinishLogging @ 0x140ACE828 (VfPendingFinishLogging.c)
+ *     VfPendingStartLogging @ 0x140ACEB98 (VfPendingStartLogging.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x140ADE768 (VfIrpDatabaseEntryFindAndLock.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140ADE8EC (VfIrpDatabaseEntryReleaseLock.c)
+ */
+
 __int64 __fastcall IovpCompleteRequest1(__int64 a1, char a2, __int64 a3)
 {
   unsigned __int8 CurrentIrql; // r14

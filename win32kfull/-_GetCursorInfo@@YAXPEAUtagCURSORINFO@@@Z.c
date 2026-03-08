@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_GetCursorInfo@@YAXPEAUtagCURSORINFO@@@Z @ 0x1C0009E08
+ * Callers:
+ *     NtUserGetCursorInfo @ 0x1C0009CE0 (NtUserGetCursorInfo.c)
+ * Callees:
+ *     UsingPenCursors @ 0x1C01AEE8C (UsingPenCursors.c)
+ */
+
 void __fastcall _GetCursorInfo(struct tagCURSORINFO *a1)
 {
   unsigned int CurrentThreadDpiAwarenessContext; // eax

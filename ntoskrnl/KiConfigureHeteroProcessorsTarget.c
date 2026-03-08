@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiConfigureHeteroProcessorsTarget @ 0x140569250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402AB030 (KeEnumerateNextSchedulerSubNodeInNode.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeIsMultiCoreClassesEnabled @ 0x14038E410 (KeIsMultiCoreClassesEnabled.c)
+ *     KiTraceLogHeteroRundown @ 0x1403AB22C (KiTraceLogHeteroRundown.c)
+ *     KiComputeHgsScore @ 0x140574B60 (KiComputeHgsScore.c)
+ */
+
 volatile signed __int32 *__fastcall KiConfigureHeteroProcessorsTarget(
         __int64 a1,
         _DWORD *a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of AMLIGetNameSpaceObjectPath @ 0x1C00485CC
+ * Callers:
+ *     AcpiDiagTraceDeviceReset @ 0x1C0008154 (AcpiDiagTraceDeviceReset.c)
+ *     ACPIAmliBuildObjectPathname @ 0x1C000B0E0 (ACPIAmliBuildObjectPathname.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     GetObjectPath @ 0x1C004BB70 (GetObjectPath.c)
+ */
+
 __int64 __fastcall AMLIGetNameSpaceObjectPath(_QWORD *a1, void *a2, _DWORD *a3)
 {
   unsigned int v5; // edi

@@ -1,3 +1,20 @@
+/*
+ * XREFs of NtAlpcQueryInformation @ 0x140756660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     AlpcpPortQueryBasicInfo @ 0x140756870 (AlpcpPortQueryBasicInfo.c)
+ *     AlpcpPortQueryServerSessionInfo @ 0x1407568CC (AlpcpPortQueryServerSessionInfo.c)
+ *     AlpcpPortQueryConnectedSidInfo @ 0x1407569CC (AlpcpPortQueryConnectedSidInfo.c)
+ *     AlpcpWaitForPortReferences @ 0x140756B9C (AlpcpWaitForPortReferences.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExRaiseAccessViolation @ 0x1408713F0 (ExRaiseAccessViolation.c)
+ *     AlpcpPortQueryServerInfo @ 0x1409760D8 (AlpcpPortQueryServerInfo.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall NtAlpcQueryInformation(
         HANDLE Handle,
         int a2,

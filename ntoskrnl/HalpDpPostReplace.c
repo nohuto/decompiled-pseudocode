@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpDpPostReplace @ 0x140A94408
+ * Callers:
+ *     HalpDpReplaceControl @ 0x140A94820 (HalpDpReplaceControl.c)
+ * Callees:
+ *     HalpAcpiPmRegisterWrite @ 0x1402F76E0 (HalpAcpiPmRegisterWrite.c)
+ *     HalpAcpiPmRegisterAvailable @ 0x1402F9250 (HalpAcpiPmRegisterAvailable.c)
+ *     HalpAcpiPmRegisterRead @ 0x14039CF90 (HalpAcpiPmRegisterRead.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpSetClockAfterSleep @ 0x140508AF0 (HalpSetClockAfterSleep.c)
+ */
+
 void __fastcall HalpDpPostReplace(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r9

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiInitializeBootMemoryDescriptor @ 0x140B38670
+ * Callers:
+ *     MxInitializeFreeNodeDescriptors @ 0x140B37B68 (MxInitializeFreeNodeDescriptors.c)
+ *     MxSwitchDescriptors @ 0x140B964BC (MxSwitchDescriptors.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiInitializeBootMemoryDescriptor(
         unsigned __int64 *a1,
         unsigned __int64 a2,

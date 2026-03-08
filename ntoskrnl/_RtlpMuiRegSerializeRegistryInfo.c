@@ -1,3 +1,12 @@
+/*
+ * XREFs of _RtlpMuiRegSerializeRegistryInfo @ 0x140843C80
+ * Callers:
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x14039C764 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall RtlpMuiRegSerializeRegistryInfo(__int64 a1, _OWORD *a2, unsigned int *a3)
 {
   unsigned int v3; // ebx

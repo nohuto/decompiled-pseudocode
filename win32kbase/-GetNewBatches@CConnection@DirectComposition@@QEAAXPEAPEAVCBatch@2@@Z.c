@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetNewBatches@CConnection@DirectComposition@@QEAAXPEAPEAVCBatch@2@@Z @ 0x1C00998C8
+ * Callers:
+ *     ?Disconnect@CConnection@DirectComposition@@QEAAXXZ @ 0x1C0098744 (-Disconnect@CConnection@DirectComposition@@QEAAXXZ.c)
+ *     ?GetReadyBatches@CConnection@DirectComposition@@QEAAJ_KPEAPEAVCBatch@2@@Z @ 0x1C02498F4 (-GetReadyBatches@CConnection@DirectComposition@@QEAAJ_KPEAPEAVCBatch@2@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DirectComposition::CConnection::GetNewBatches(
         union _SLIST_HEADER *this,
         struct DirectComposition::CBatch **a2)

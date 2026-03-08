@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpRemoveKeyHash @ 0x14074BBF8
+ * Callers:
+ *     CmpDiscardKcb @ 0x14074B098 (CmpDiscardKcb.c)
+ *     CmRenameKey @ 0x140A1170C (CmRenameKey.c)
+ *     CmpRehashKcbSubtree @ 0x140A14998 (CmpRehashKcbSubtree.c)
+ * Callees:
+ *     CmpRemoveKeyHashFromTableEntry @ 0x1407AF7E4 (CmpRemoveKeyHashFromTableEntry.c)
+ */
+
 __int64 __fastcall CmpRemoveKeyHash(__int64 a1, _DWORD *a2)
 {
   return CmpRemoveKeyHashFromTableEntry(

@@ -1,3 +1,15 @@
+/*
+ * XREFs of DriverCleanup @ 0x1C00021B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McGenEventUnregister_EtwUnregister @ 0x1C0001718 (McGenEventUnregister_EtwUnregister.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     WppCleanupKm @ 0x1C00767A8 (WppCleanupKm.c)
+ *     SleepstudyHelper_Uninitialize @ 0x1C008F7C4 (SleepstudyHelper_Uninitialize.c)
+ *     TlgUnregisterAggregateProvider @ 0x1C00906E0 (TlgUnregisterAggregateProvider.c)
+ */
+
 NTSTATUS __fastcall DriverCleanup(__int64 a1)
 {
   __int64 v2; // rdi

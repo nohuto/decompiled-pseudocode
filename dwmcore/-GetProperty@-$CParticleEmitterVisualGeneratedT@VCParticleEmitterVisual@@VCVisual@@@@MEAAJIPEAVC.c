@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetProperty@?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1802424B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetProperty@CVisual@@UEAAJIPEAVCExpressionValue@@@Z @ 0x1800C40C0 (-GetProperty@CVisual@@UEAAJIPEAVCExpressionValue@@@Z.c)
+ */
+
 __int64 __fastcall CParticleEmitterVisualGeneratedT<CParticleEmitterVisual,CVisual>::GetProperty(
         __int64 a1,
         unsigned int a2,

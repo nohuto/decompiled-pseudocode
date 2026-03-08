@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CreatePowerThreadIfNeeded@FxPkgPnp@@AEAAJXZ @ 0x1C00816C8
+ * Callers:
+ *     ?PnpEventHardwareAvailable@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C006A930 (-PnpEventHardwareAvailable@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall FxPkgPnp::CreatePowerThreadIfNeeded(FxPkgPnp *this)
 {
   int v2; // esi

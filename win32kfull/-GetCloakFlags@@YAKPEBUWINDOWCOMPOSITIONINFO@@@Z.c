@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetCloakFlags@@YAKPEBUWINDOWCOMPOSITIONINFO@@@Z @ 0x1C002EEE0
+ * Callers:
+ *     ?zzzSetWindowCompositionCloak@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@K@Z @ 0x1C002E920 (-zzzSetWindowCompositionCloak@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetCloakFlags(const struct WINDOWCOMPOSITIONINFO *a1)
 {
   int v1; // edx

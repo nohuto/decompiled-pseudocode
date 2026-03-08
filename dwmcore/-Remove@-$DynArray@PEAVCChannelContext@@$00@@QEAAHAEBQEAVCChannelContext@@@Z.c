@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Remove@?$DynArray@PEAVCChannelContext@@$00@@QEAAHAEBQEAVCChannelContext@@@Z @ 0x1800A9CF4
+ * Callers:
+ *     ?CloseChannel@CComposition@@IEAAJI@Z @ 0x1800A9BF4 (-CloseChannel@CComposition@@IEAAJI@Z.c)
+ *     ?Partition_RegisterForNotifications@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_REGISTERFORNOTIFICATIONS@@@Z @ 0x1800EB3D8 (-Partition_RegisterForNotifications@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DynArray<CChannelContext *,1>::Remove(__int64 *a1, _QWORD *a2)
 {
   unsigned int v2; // r8d

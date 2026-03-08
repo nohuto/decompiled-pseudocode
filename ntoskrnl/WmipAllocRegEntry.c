@@ -1,3 +1,19 @@
+/*
+ * XREFs of WmipAllocRegEntry @ 0x1403BC6F4
+ * Callers:
+ *     WmipRegisterDevice @ 0x140869828 (WmipRegisterDevice.c)
+ *     WmipInitializeDataStructs @ 0x140B540A4 (WmipInitializeDataStructs.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     WmipAllocProviderId @ 0x140799F90 (WmipAllocProviderId.c)
+ */
+
 _QWORD *__fastcall WmipAllocRegEntry(__int64 a1, int a2)
 {
   _QWORD *v4; // rax

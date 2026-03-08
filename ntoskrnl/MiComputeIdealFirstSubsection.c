@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiComputeIdealFirstSubsection @ 0x140A30A78
+ * Callers:
+ *     MiCreateDataFileMap @ 0x1406A6C30 (MiCreateDataFileMap.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     FsRtlGetFileExtents @ 0x14053A498 (FsRtlGetFileExtents.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 _DWORD *__fastcall MiComputeIdealFirstSubsection(struct _FILE_OBJECT *a1)
 {
   _DWORD *result; // rax

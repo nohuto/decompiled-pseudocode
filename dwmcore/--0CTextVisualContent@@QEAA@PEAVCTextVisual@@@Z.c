@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CTextVisualContent@@QEAA@PEAVCTextVisual@@@Z @ 0x1802516B4
+ * Callers:
+ *     ?Initialize@CTextVisual@@MEAAJXZ @ 0x1802518A0 (-Initialize@CTextVisual@@MEAAJXZ.c)
+ * Callees:
+ *     ??0CContent@@IEAA@PEAVCComposition@@@Z @ 0x1800B8F68 (--0CContent@@IEAA@PEAVCComposition@@@Z.c)
+ */
+
 CTextVisualContent *__fastcall CTextVisualContent::CTextVisualContent(
         CTextVisualContent *this,
         struct CComposition **a2)

@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeCaptureLiveDumpWorkItem @ 0x1C000C340
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ */
+
 __int64 __fastcall NVMeCaptureLiveDumpWorkItem(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v5; // r9

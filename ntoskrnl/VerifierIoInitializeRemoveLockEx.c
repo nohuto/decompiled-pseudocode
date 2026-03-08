@@ -1,3 +1,19 @@
+/*
+ * XREFs of VerifierIoInitializeRemoveLockEx @ 0x140ACF620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VfAvlReserveNode @ 0x140303910 (VfAvlReserveNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403039F0 (VfAvlCleanupLockContext.c)
+ *     VfAvlInsertReservedTreeNode @ 0x140303A48 (VfAvlInsertReservedTreeNode.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     VfAvlInitializeLockContext @ 0x14045DE58 (VfAvlInitializeLockContext.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ *     ViRemLockDeleteFirstTreeNode @ 0x140ACF8CC (ViRemLockDeleteFirstTreeNode.c)
+ *     ViRemLockFindSurrogate @ 0x140ACF978 (ViRemLockFindSurrogate.c)
+ */
+
 void __fastcall VerifierIoInitializeRemoveLockEx(
         ULONG_PTR BugCheckParameter3,
         unsigned int a2,

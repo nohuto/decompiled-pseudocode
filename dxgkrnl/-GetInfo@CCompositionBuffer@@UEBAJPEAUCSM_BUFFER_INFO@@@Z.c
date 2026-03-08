@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetInfo@CCompositionBuffer@@UEBAJPEAUCSM_BUFFER_INFO@@@Z @ 0x1C007CB60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CCompositionBuffer::GetInfo(CCompositionBuffer *this, struct CSM_BUFFER_INFO *a2)
 {
   __int64 result; // rax

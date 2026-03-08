@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiClearVadBits @ 0x1403335A0
+ * Callers:
+ *     MiRemoveVad @ 0x140333090 (MiRemoveVad.c)
+ * Callees:
+ *     MiClearVadCellBits @ 0x1403336C0 (MiClearVadCellBits.c)
+ */
+
 struct _KTHREAD *__fastcall MiClearVadBits(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned __int64 v4; // r15

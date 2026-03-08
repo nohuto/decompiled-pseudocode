@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiDqQueryActionQueueEntryFree @ 0x140746890
+ * Callers:
+ *     PiDqQuerySerializeActionQueue @ 0x140746290 (PiDqQuerySerializeActionQueue.c)
+ *     PiDqQueryFreeActiveData @ 0x1407910F8 (PiDqQueryFreeActiveData.c)
+ * Callees:
+ *     PiPnpRtlObjectEventRelease @ 0x1406CCCF8 (PiPnpRtlObjectEventRelease.c)
+ *     PiDmObjectRelease @ 0x1406D0328 (PiDmObjectRelease.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PiDqQueryActionQueueEntryFree(_QWORD *P)
 {
   unsigned int *v2; // rcx

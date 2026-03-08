@@ -1,3 +1,11 @@
+/*
+ * XREFs of Bulk_TransferData_ConfigureBuffer @ 0x1C0012328
+ * Callers:
+ *     Bulk_RetrieveNextStage @ 0x1C0011FDC (Bulk_RetrieveNextStage.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DDD @ 0x1C001E054 (WPP_RECORDER_SF_DDD.c)
+ */
+
 __int64 __fastcall Bulk_TransferData_ConfigureBuffer(__int64 a1)
 {
   __int64 v1; // rbp

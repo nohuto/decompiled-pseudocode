@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiSaveBugCheckRecoveryStatusMultipleBugChecks @ 0x140578E88
+ * Callers:
+ *     KiHandleMultipleBugchecksDuringRecovery @ 0x140578C10 (KiHandleMultipleBugchecksDuringRecovery.c)
+ * Callees:
+ *     IoSaveBugCheckRecoveryStatus @ 0x14054E6BC (IoSaveBugCheckRecoveryStatus.c)
+ *     KiUpdateBugcheckRecoveryProgress @ 0x1405793F8 (KiUpdateBugcheckRecoveryProgress.c)
+ */
+
 __int64 __fastcall KiSaveBugCheckRecoveryStatusMultipleBugChecks(char a1, char a2, unsigned __int8 a3)
 {
   _BYTE v4[12]; // [rsp+20h] [rbp-20h] BYREF

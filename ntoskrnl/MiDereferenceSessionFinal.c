@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiDereferenceSessionFinal @ 0x14067E7A0
+ * Callers:
+ *     MiDereferenceSession @ 0x140791B70 (MiDereferenceSession.c)
+ * Callees:
+ *     MiUnlinkSessionWorkingSet @ 0x140200794 (MiUnlinkSessionWorkingSet.c)
+ *     MiMarkSessionDeletePending @ 0x1402007FC (MiMarkSessionDeletePending.c)
+ *     MiSessionUnlinkProcess @ 0x14020086C (MiSessionUnlinkProcess.c)
+ *     MiDeleteSessionAddressSpace @ 0x1402008EC (MiDeleteSessionAddressSpace.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiReturnResident @ 0x1402A52C8 (MiReturnResident.c)
+ *     MiDetachProcessFromSession @ 0x1402EA0D8 (MiDetachProcessFromSession.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     MiPartitionIdToPointer @ 0x14036CC64 (MiPartitionIdToPointer.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     MiSessionUnloadAllImages @ 0x14067E8F8 (MiSessionUnloadAllImages.c)
+ *     ExpWnfDeleteScopeById @ 0x140704810 (ExpWnfDeleteScopeById.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ */
+
 unsigned __int64 MiDereferenceSessionFinal()
 {
   _KPROCESS *Process; // rdi

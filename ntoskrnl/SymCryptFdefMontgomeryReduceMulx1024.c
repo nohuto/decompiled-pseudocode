@@ -1,3 +1,12 @@
+/*
+ * XREFs of SymCryptFdefMontgomeryReduceMulx1024 @ 0x140408380
+ * Callers:
+ *     SymCryptFdefModMulMontgomeryMulx1024 @ 0x1403FF080 (SymCryptFdefModMulMontgomeryMulx1024.c)
+ *     SymCryptFdefModSquareMontgomeryMulx1024 @ 0x1403FF5F0 (SymCryptFdefModSquareMontgomeryMulx1024.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefMontgomeryReduceMulx1024(__int64 a1, __m128i *a2, __m128i *a3)
 {
   int v4; // r9d

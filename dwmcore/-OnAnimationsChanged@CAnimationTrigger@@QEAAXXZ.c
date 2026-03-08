@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnAnimationsChanged@CAnimationTrigger@@QEAAXXZ @ 0x18001DCF4
+ * Callers:
+ *     ?SetOrAppendAnimations@?$CAnimationTriggerGeneratedT@VCAnimationTrigger@@VCPropertyChangeResource@@@@AEAAJAEBV?$span@PEAVCBaseExpression@@$0?0@gsl@@_N@Z @ 0x18001DB2C (-SetOrAppendAnimations@-$CAnimationTriggerGeneratedT@VCAnimationTrigger@@VCPropertyChangeResourc.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CAnimationTrigger::OnAnimationsChanged(CAnimationTrigger *this)
 {
   _QWORD *v2; // rdi

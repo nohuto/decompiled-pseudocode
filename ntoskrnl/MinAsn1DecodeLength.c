@@ -1,3 +1,11 @@
+/*
+ * XREFs of MinAsn1DecodeLength @ 0x140A6E6E4
+ * Callers:
+ *     MinAsn1ExtractContent @ 0x140A6EA28 (MinAsn1ExtractContent.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MinAsn1DecodeLength(_DWORD *a1, unsigned __int8 *a2, unsigned int a3)
 {
   unsigned int v3; // r9d

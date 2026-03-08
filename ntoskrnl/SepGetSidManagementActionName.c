@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepGetSidManagementActionName @ 0x1409C6BF4
+ * Callers:
+ *     SepLogTokenSidManagement @ 0x1409C6C70 (SepLogTokenSidManagement.c)
+ * Callees:
+ *     <none>
+ */
+
 wchar_t *__fastcall SepGetSidManagementActionName(int a1, _DWORD *a2)
 {
   int v2; // ecx

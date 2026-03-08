@@ -1,3 +1,11 @@
+/*
+ * XREFs of PowerUpdateBrightnessLevels @ 0x1C015C0A4
+ * Callers:
+ *     UserPowerInfoCallout @ 0x1C00B657C (UserPowerInfoCallout.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PowerUpdateBrightnessLevels(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // ebx

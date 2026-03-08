@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DxgkThreadCallout@@YAJPEAPEAXE@Z @ 0x1C019FFF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C0007E94 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DxgkThreadCallout(void **a1, char a2)
 {
   volatile signed __int32 *v3; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpFastResourceLegacyIsAcquiredShared2 @ 0x140410288
+ * Callers:
+ *     ExpFastResourceLegacyIsAcquiredShared @ 0x1406081A8 (ExpFastResourceLegacyIsAcquiredShared.c)
+ * Callees:
+ *     ExpIsFastResourceOwned @ 0x14041057C (ExpIsFastResourceOwned.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExpFastResourceLegacyIsAcquiredShared2(__int64 a1, __int64 a2)
 {
   unsigned int v2; // edi

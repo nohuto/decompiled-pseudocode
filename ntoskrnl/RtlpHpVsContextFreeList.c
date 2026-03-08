@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlpHpVsContextFreeList @ 0x140249050
+ * Callers:
+ *     RtlpHpVsContextFree @ 0x1402B6740 (RtlpHpVsContextFree.c)
+ *     RtlpHpHeapCompact @ 0x1402CC2D4 (RtlpHpHeapCompact.c)
+ * Callees:
+ *     RtlpHpVsChunkFree @ 0x140249D70 (RtlpHpVsChunkFree.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x1402CD080 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpVsSubsegmentFree @ 0x1402EAA68 (RtlpHpVsSubsegmentFree.c)
+ *     RtlpHpAcquireQueuedLockExclusive @ 0x140350330 (RtlpHpAcquireQueuedLockExclusive.c)
+ *     RtlpLogHeapFailure @ 0x1405B2884 (RtlpLogHeapFailure.c)
+ */
+
 __int64 __fastcall RtlpHpVsContextFreeList(__int64 a1, unsigned int a2, _QWORD *a3)
 {
   unsigned int *v3; // rdi

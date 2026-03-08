@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_GetVmtPreference@BTL_TOPOLOGY_CONSTRUCTOR@@CA?AW4_VMT_PREFERENCE@1@W4_DMM_VIDPN_MONITOR_TYPE@@@Z @ 0x1C03BDD40
+ * Callers:
+ *     ?_FindAnchorAdaptersCallback@_ANCHOR_INFO@BTL_TOPOLOGY_CONSTRUCTOR@@SAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C017A1D0 (-_FindAnchorAdaptersCallback@_ANCHOR_INFO@BTL_TOPOLOGY_CONSTRUCTOR@@SAJPEAVDXGADAPTER@@PEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall BTL_TOPOLOGY_CONSTRUCTOR::_GetVmtPreference(int a1)
 {
   int v1; // ecx

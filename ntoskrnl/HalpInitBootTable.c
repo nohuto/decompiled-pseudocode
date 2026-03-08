@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpInitBootTable @ 0x140B6316C
+ * Callers:
+ *     HalpSetupAcpiPhase0 @ 0x140B62CA8 (HalpSetupAcpiPhase0.c)
+ * Callees:
+ *     HalpAcpiGetTable @ 0x14029C550 (HalpAcpiGetTable.c)
+ *     HalReadBootRegister @ 0x140A8D824 (HalReadBootRegister.c)
+ *     HalWriteBootRegister @ 0x140A8D86C (HalWriteBootRegister.c)
+ */
+
 __int64 (*__fastcall HalpInitBootTable(__int64 a1))()
 {
   __int64 Table; // rax

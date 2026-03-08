@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0t_EtwWriteTransfer @ 0x1C0167AD0
+ * Callers:
+ *     EtwTraceTouchPadCurtainState @ 0x1C01642D0 (EtwTraceTouchPadCurtainState.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0t_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   struct _EVENT_DATA_DESCRIPTOR v5; // [rsp+30h] [rbp-38h] BYREF

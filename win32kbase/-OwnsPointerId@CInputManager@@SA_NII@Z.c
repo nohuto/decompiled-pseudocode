@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OwnsPointerId@CInputManager@@SA_NII@Z @ 0x1C026FFE8
+ * Callers:
+ *     ?CapturePointer@CApplicationChannel@DirectComposition@@QEAAJIW4CapturePointerType@@I_K@Z @ 0x1C024AB04 (-CapturePointer@CApplicationChannel@DirectComposition@@QEAAJIW4CapturePointerType@@I_K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CInputManager::OwnsPointerId(int a1, int a2)
 {
   CInputManager *v2; // rbx

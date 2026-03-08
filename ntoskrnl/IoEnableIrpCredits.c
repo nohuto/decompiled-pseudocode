@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoEnableIrpCredits @ 0x14094102C
+ * Callers:
+ *     PspInitializeQuotaBlock @ 0x1408599CC (PspInitializeQuotaBlock.c)
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     KeSynchronizeWithDynamicProcessors @ 0x140773F48 (KeSynchronizeWithDynamicProcessors.c)
+ *     IopQueryProcessorInitValues @ 0x14085FEC4 (IopQueryProcessorInitValues.c)
+ */
+
 ULONG IoEnableIrpCredits()
 {
   ULONG result; // eax

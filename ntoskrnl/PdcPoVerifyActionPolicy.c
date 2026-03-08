@@ -1,3 +1,13 @@
+/*
+ * XREFs of PdcPoVerifyActionPolicy @ 0x140994BD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopVerifyPowerActionPolicy @ 0x14082A608 (PopVerifyPowerActionPolicy.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PdcPoVerifyActionPolicy(int *a1)
 {
   __int64 v2; // rdx

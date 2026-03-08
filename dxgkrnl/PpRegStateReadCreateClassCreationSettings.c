@@ -1,3 +1,16 @@
+/*
+ * XREFs of PpRegStateReadCreateClassCreationSettings @ 0x1C0393598
+ * Callers:
+ *     IoDevObjCreateDeviceSecure @ 0x1C0392540 (IoDevObjCreateDeviceSecure.c)
+ * Callees:
+ *     WdmlibRtlInitUnicodeStringEx @ 0x1C005D324 (WdmlibRtlInitUnicodeStringEx.c)
+ *     PiRegStateOpenClassKey @ 0x1C0393208 (PiRegStateOpenClassKey.c)
+ *     PiRegStateReadStackCreationSettingsFromKey @ 0x1C03933A4 (PiRegStateReadStackCreationSettingsFromKey.c)
+ *     CmRegUtilOpenExistingWstrKey @ 0x1C0393AAC (CmRegUtilOpenExistingWstrKey.c)
+ *     CmRegUtilUcValueSetUcString @ 0x1C0393CE4 (CmRegUtilUcValueSetUcString.c)
+ *     CmRegUtilWstrValueSetWstrString @ 0x1C0393E90 (CmRegUtilWstrValueSetWstrString.c)
+ */
+
 __int64 __fastcall PpRegStateReadCreateClassCreationSettings(unsigned int *a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

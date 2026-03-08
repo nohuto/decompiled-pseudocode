@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpHvBuildDeviceId @ 0x140A92814
+ * Callers:
+ *     HalpTimerInitializeHypervisorTimer @ 0x1403B13E0 (HalpTimerInitializeHypervisorTimer.c)
+ *     HalpHvMapDeviceMsiRange @ 0x140A928BC (HalpHvMapDeviceMsiRange.c)
+ *     HalpHvUnmapDeviceMsiRange @ 0x140A929EC (HalpHvUnmapDeviceMsiRange.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HalpHvBuildDeviceId(__int64 a1, int *a2, char a3, __int64 a4)
 {
   int v4; // r10d

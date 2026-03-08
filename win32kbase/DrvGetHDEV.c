@@ -1,3 +1,15 @@
+/*
+ * XREFs of DrvGetHDEV @ 0x1C003C250
+ * Callers:
+ *     hdcOpenDCW @ 0x1C003C8E0 (hdcOpenDCW.c)
+ * Callees:
+ *     DrvGetDeviceFromName @ 0x1C003C370 (DrvGetDeviceFromName.c)
+ *     ?TrackObjectReferenceIncrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z @ 0x1C0047CDC (-TrackObjectReferenceIncrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0049800 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0049E20 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EngAcquireSemaphore @ 0x1C004B690 (EngAcquireSemaphore.c)
+ */
+
 __int64 *__fastcall DrvGetHDEV(const UNICODE_STRING *a1)
 {
   __int64 *v1; // rsi

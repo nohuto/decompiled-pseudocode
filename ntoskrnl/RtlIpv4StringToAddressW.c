@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlIpv4StringToAddressW @ 0x1402EFD60
+ * Callers:
+ *     RtlIpv4StringToAddressExW @ 0x1403C0D00 (RtlIpv4StringToAddressExW.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     iswctype @ 0x1403D67C4 (iswctype.c)
+ */
+
 NTSTATUS __stdcall RtlIpv4StringToAddressW(PCWSTR S, BOOLEAN Strict, LPCWSTR *Terminator, struct in_addr *Addr)
 {
   unsigned int *v6; // rbx

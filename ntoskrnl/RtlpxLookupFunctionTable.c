@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlpxLookupFunctionTable @ 0x1402CB3A0
+ * Callers:
+ *     RtlLookupFunctionEntry @ 0x140281130 (RtlLookupFunctionEntry.c)
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x140281490 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     RtlPcToFileHeader @ 0x1403BE120 (RtlPcToFileHeader.c)
+ *     RtlLookupFunctionTableEx @ 0x1403D0B70 (RtlLookupFunctionTableEx.c)
+ *     RtlLookupFunctionTable @ 0x14040C148 (RtlLookupFunctionTable.c)
+ *     KiTpBuildExcludedKernelTracepointBitmap @ 0x140973330 (KiTpBuildExcludedKernelTracepointBitmap.c)
+ *     KiVerifyPdata @ 0x140B5D77C (KiVerifyPdata.c)
+ *     MiInitializeLoadedModuleList @ 0x140B5D84C (MiInitializeLoadedModuleList.c)
+ * Callees:
+ *     MmLockLoadedModuleListShared @ 0x1402280EC (MmLockLoadedModuleListShared.c)
+ *     MmUnlockLoadedModuleListShared @ 0x1402824A4 (MmUnlockLoadedModuleListShared.c)
+ */
+
 PVOID __fastcall RtlpxLookupFunctionTable(unsigned __int64 a1, __int64 a2)
 {
   PVOID v2; // r15

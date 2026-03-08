@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DpiIndirectEscapeAccessCheck@@YAJXZ @ 0x1C039F29C
+ * Callers:
+ *     DxgkHandleIndirectEscape @ 0x1C03A0354 (DxgkHandleIndirectEscape.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 __int64 DpiIndirectEscapeAccessCheck(void)
 {
   ULONG v0; // eax

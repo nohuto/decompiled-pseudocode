@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetBounds@CAtlasedRectsMesh@@QEBAXPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800E889C
+ * Callers:
+ *     ?EnsureBounds@CAtlasedRectsGroup@@IEBAXXZ @ 0x1800E87FC (-EnsureBounds@CAtlasedRectsGroup@@IEBAXXZ.c)
+ * Callees:
+ *     ?UnionUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x180040360 (-UnionUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z.c)
+ */
+
 char __fastcall CAtlasedRectsMesh::GetBounds(__int64 a1, _OWORD *a2)
 {
   __int64 v2; // r10

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ValidateParents@@YAHPEAUtagWND@@H@Z @ 0x1C010220C
+ * Callers:
+ *     ?xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z @ 0x1C0102024 (-xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z.c)
+ * Callees:
+ *     ?InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z @ 0x1C0052B80 (-InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z.c)
+ *     LogicalToPhysicalInPlaceRgnWorker @ 0x1C00DB9C4 (LogicalToPhysicalInPlaceRgnWorker.c)
+ *     IntersectWithParents @ 0x1C00FEB48 (IntersectWithParents.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall ValidateParents(struct tagWND **a1, int a2)
 {
   struct tagWND *v3; // r8

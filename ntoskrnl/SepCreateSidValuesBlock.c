@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepCreateSidValuesBlock @ 0x1409CC72C
+ * Callers:
+ *     SepSetTokenUserAndGroups @ 0x1409CCB0C (SepSetTokenUserAndGroups.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlCopySid @ 0x1406D4890 (RtlCopySid.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SepCreateSidValuesBlock(_QWORD *a1, PSID *a2, unsigned int a3, __int64 a4, int a5, unsigned int a6)
 {
   _QWORD *v9; // rsi

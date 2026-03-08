@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvpResetPageProtection @ 0x140765A30
+ * Callers:
+ *     HvResetDirtyData @ 0x14072E110 (HvResetDirtyData.c)
+ * Callees:
+ *     RtlFindNextForwardRunSet @ 0x1402DC12C (RtlFindNextForwardRunSet.c)
+ *     HvpSetRangeProtection @ 0x1407A5934 (HvpSetRangeProtection.c)
+ */
+
 __int64 __fastcall HvpResetPageProtection(ULONG_PTR BugCheckParameter2)
 {
   unsigned int v2; // esi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ScheduleDeferredWorkOnRenderThread@CManipulationManager@@QEAAJP6AJPEAX@Z0W4MsgPriority@@@Z @ 0x18019DF2C
+ * Callers:
+ *     ?_EnqueueDeferredDeltaReset@CManipulation@@AEAAJI@Z @ 0x18020BBC8 (-_EnqueueDeferredDeltaReset@CManipulation@@AEAAJI@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CManipulationManager::ScheduleDeferredWorkOnRenderThread(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rax

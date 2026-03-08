@@ -1,3 +1,12 @@
+/*
+ * XREFs of MmReleaseResourceCharge @ 0x140302870
+ * Callers:
+ *     SmAcquireReleaseCharges @ 0x140359F14 (SmAcquireReleaseCharges.c)
+ *     MmChargeResources @ 0x140359F68 (MmChargeResources.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ */
+
 void __fastcall MmReleaseResourceCharge(__int64 *a1, unsigned __int64 a2, __int64 CurrentPrcb, int a4)
 {
   __int64 v4; // r11

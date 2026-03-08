@@ -1,3 +1,17 @@
+/*
+ * XREFs of MmGetPageBadStatus @ 0x140629080
+ * Callers:
+ *     HalpPmemErrorDeferredHandler @ 0x1405175AC (HalpPmemErrorDeferredHandler.c)
+ *     WheapProcessOfflineList @ 0x1406120C0 (WheapProcessOfflineList.c)
+ *     WheapExecuteRowFailureCheck @ 0x140A05D80 (WheapExecuteRowFailureCheck.c)
+ *     WheapPfaMemoryCheck @ 0x140A06078 (WheapPfaMemoryCheck.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiIsPageOnBadList @ 0x14034B1D0 (MiIsPageOnBadList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetPageInHugePageBadStatus @ 0x14061DAC4 (MiGetPageInHugePageBadStatus.c)
+ */
+
 __int64 __fastcall MmGetPageBadStatus(_QWORD *a1)
 {
   unsigned __int64 v1; // rcx

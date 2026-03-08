@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiPnpRtlGetDeviceRelationsList @ 0x140851CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwPlugPlayControl @ 0x140414A70 (ZwPlugPlayControl.c)
+ */
+
 __int64 __fastcall PiPnpRtlGetDeviceRelationsList(
         __int64 a1,
         __int128 *a2,

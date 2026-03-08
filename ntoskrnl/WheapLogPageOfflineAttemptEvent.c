@@ -1,3 +1,13 @@
+/*
+ * XREFs of WheapLogPageOfflineAttemptEvent @ 0x140A05BE0
+ * Callers:
+ *     WheapAttemptPhysicalPageOffline @ 0x140A0555C (WheapAttemptPhysicalPageOffline.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     WheapTrackPendingPage @ 0x140A06FC8 (WheapTrackPendingPage.c)
+ */
+
 NTSTATUS __fastcall WheapLogPageOfflineAttemptEvent(__int64 a1, char a2, char a3, char a4, char a5)
 {
   bool v9; // [rsp+38h] [rbp-21h] BYREF

@@ -1,3 +1,11 @@
+/*
+ * XREFs of sub_1409F7400 @ 0x1409F7400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall sub_1409F7400(__int64 a1, _DWORD *a2, _OWORD *a3, unsigned int a4, _DWORD *a5, _BYTE *a6)
 {
   unsigned int v6; // r10d

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopFanSxEntry @ 0x14059718C
+ * Callers:
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopFanUpdateStatistics @ 0x140994754 (PopFanUpdateStatistics.c)
+ */
+
 void PopFanSxEntry()
 {
   struct _KTHREAD *CurrentThread; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwTraceAutoBoostEntryExhaustion @ 0x14045EAC6
+ * Callers:
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ * Callees:
+ *     MmGetMinWsPagePriority @ 0x140242D60 (MmGetMinWsPagePriority.c)
+ *     EtwTraceSiloKernelEvent @ 0x14035EC20 (EtwTraceSiloKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledWithReporting @ 0x14040C880 (Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledWithReporting.c)
+ */
+
 void __fastcall EtwTraceAutoBoostEntryExhaustion(__int64 a1, __int64 a2)
 {
   int v4; // eax

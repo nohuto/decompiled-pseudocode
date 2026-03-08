@@ -1,3 +1,14 @@
+/*
+ * XREFs of HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x140732864
+ * Callers:
+ *     HvpMappedViewConvertLockedPagesToCOWByPolicy @ 0x1407329FC (HvpMappedViewConvertLockedPagesToCOWByPolicy.c)
+ * Callees:
+ *     CmSiReleaseProcessLockedPagesCharge @ 0x14020C564 (CmSiReleaseProcessLockedPagesCharge.c)
+ *     CmSiUnlockViewOfSection @ 0x1402B3864 (CmSiUnlockViewOfSection.c)
+ *     CmSiProtectViewOfSection @ 0x14030D290 (CmSiProtectViewOfSection.c)
+ *     HvpViewMapTouchPages @ 0x140732810 (HvpViewMapTouchPages.c)
+ */
+
 __int64 __fastcall HvpMappedViewConvertRegionFromLockedToCOWByPolicy(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // r14

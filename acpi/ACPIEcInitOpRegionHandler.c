@@ -1,3 +1,19 @@
+/*
+ * XREFs of ACPIEcInitOpRegionHandler @ 0x1C00251B0
+ * Callers:
+ *     ACPITableLoad @ 0x1C003F170 (ACPITableLoad.c)
+ * Callees:
+ *     ACPIMapNamedTable @ 0x1C00018A0 (ACPIMapNamedTable.c)
+ *     RtlStringCchLengthA @ 0x1C00091CC (RtlStringCchLengthA.c)
+ *     ACPIEcCreateEcData @ 0x1C00250B4 (ACPIEcCreateEcData.c)
+ *     AMLIGetNameSpaceObject @ 0x1C00483B8 (AMLIGetNameSpaceObject.c)
+ *     ACPIEcConnectGpeVector @ 0x1C00833B8 (ACPIEcConnectGpeVector.c)
+ *     ACPIEcConnectGpioInterrupt @ 0x1C00833F4 (ACPIEcConnectGpioInterrupt.c)
+ *     ACPIEcDisconnectGpeVector @ 0x1C00834E8 (ACPIEcDisconnectGpeVector.c)
+ *     ACPIEcDisconnectGpioInterrupt @ 0x1C0083518 (ACPIEcDisconnectGpioInterrupt.c)
+ *     RegisterOperationRegionHandler @ 0x1C008BB24 (RegisterOperationRegionHandler.c)
+ */
+
 void ACPIEcInitOpRegionHandler()
 {
   __int64 Pool2; // rbx

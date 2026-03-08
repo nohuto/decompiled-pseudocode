@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??$find@V?$span_iterator@$$CBW4ShaderLinkingArgument@@@details@gsl@@W4ShaderLinkingArgument@@@std@@YA?AV?$span_iterator@$$CBW4ShaderLinkingArgument@@@details@gsl@@V123@V123@AEBW4ShaderLinkingArgument@@@Z @ 0x18002800C
+ * Callers:
+ *     HasLighting @ 0x180027EF8 (HasLighting.c)
+ *     HasWhiteNoise @ 0x180027F88 (HasWhiteNoise.c)
+ * Callees:
+ *     ?terminate@details@gsl@@YAXXZ @ 0x1801AEDB0 (-terminate@details@gsl@@YAXXZ.c)
+ */
+
 __int64 __fastcall std::find<gsl::details::span_iterator<enum ShaderLinkingArgument const>,enum ShaderLinkingArgument>(
         __int64 a1,
         __int128 *a2,

@@ -1,3 +1,26 @@
+/*
+ * XREFs of IopLiveDumpCollectPages @ 0x140A97A84
+ * Callers:
+ *     IopLiveDumpCapture @ 0x14094AEEC (IopLiveDumpCapture.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x140A98070 (IopLiveDumpEndMirroringCallback.c)
+ * Callees:
+ *     KeSaveSupervisorState @ 0x14036A078 (KeSaveSupervisorState.c)
+ *     KiSaveProcessorControlState @ 0x140416350 (KiSaveProcessorControlState.c)
+ *     RtlCaptureContext @ 0x140420580 (RtlCaptureContext.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvlCollectLivedump @ 0x140545434 (HvlCollectLivedump.c)
+ *     IoFillDumpHeader @ 0x14054D7C8 (IoFillDumpHeader.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x14055793C (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpTraceCaptureProcessorContextDuration @ 0x14055825C (IopLiveDumpTraceCaptureProcessorContextDuration.c)
+ *     RtlNumberOfSetBitsEx @ 0x1405A6770 (RtlNumberOfSetBitsEx.c)
+ *     IopLiveDumpGenerateIptSecondaryData @ 0x140A984FC (IopLiveDumpGenerateIptSecondaryData.c)
+ *     IopLiveDumpMarkImportantDumpData @ 0x140A98980 (IopLiveDumpMarkImportantDumpData.c)
+ *     IopLiveDumpMarkRequiredDumpData @ 0x140A98D24 (IopLiveDumpMarkRequiredDumpData.c)
+ *     IopLiveDumpPopulateBitmapForDump @ 0x140A990E0 (IopLiveDumpPopulateBitmapForDump.c)
+ *     IopLiveDumpStartDumpDataBuffering @ 0x140A994B8 (IopLiveDumpStartDumpDataBuffering.c)
+ *     IopLiveDumpUncorralProcessors @ 0x140A99588 (IopLiveDumpUncorralProcessors.c)
+ */
+
 __int64 __fastcall IopLiveDumpCollectPages(__int64 a1)
 {
   int v1; // eax

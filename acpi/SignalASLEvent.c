@@ -1,3 +1,11 @@
+/*
+ * XREFs of SignalASLEvent @ 0x1C0054E2C
+ * Callers:
+ *     ResetSignal @ 0x1C00559C0 (ResetSignal.c)
+ * Callees:
+ *     DequeueAndReadyContext @ 0x1C00548A4 (DequeueAndReadyContext.c)
+ */
+
 void __fastcall SignalASLEvent(__int64 a1)
 {
   KIRQL v2; // si

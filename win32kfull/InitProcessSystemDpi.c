@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitProcessSystemDpi @ 0x1C00A1D00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetDPIServerInfoForDpi @ 0x1C00A1E90 (GetDPIServerInfoForDpi.c)
+ */
+
 __int64 __fastcall InitProcessSystemDpi(__int64 a1)
 {
   __int64 v2; // r14

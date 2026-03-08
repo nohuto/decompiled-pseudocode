@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopCheckpointSystemSleepUnsafe @ 0x140AA7484
+ * Callers:
+ *     PopEnableSystemSleepCheckpoint @ 0x140993DEC (PopEnableSystemSleepCheckpoint.c)
+ *     PopCheckpointSystemSleep @ 0x140AA7378 (PopCheckpointSystemSleep.c)
+ * Callees:
+ *     HalSetEnvironmentVariableEx @ 0x140502A90 (HalSetEnvironmentVariableEx.c)
+ *     VslReportBugCheckProgress @ 0x140549EE0 (VslReportBugCheckProgress.c)
+ *     ExSetFirmwareEnvironmentVariable @ 0x1409F8BC0 (ExSetFirmwareEnvironmentVariable.c)
+ */
+
 __int64 __fastcall PopCheckpointSystemSleepUnsafe(char a1)
 {
   char v2; // [rsp+40h] [rbp+8h] BYREF

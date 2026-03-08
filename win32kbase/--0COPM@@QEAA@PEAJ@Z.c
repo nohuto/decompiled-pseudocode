@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0COPM@@QEAA@PEAJ@Z @ 0x1C00C91E4
+ * Callers:
+ *     OPMInitialize @ 0x1C00C9154 (OPMInitialize.c)
+ * Callees:
+ *     ??0CMutex@OPM@@QEAA@PEAJ@Z @ 0x1C00C9370 (--0CMutex@OPM@@QEAA@PEAJ@Z.c)
+ */
+
 COPM *__fastcall COPM::COPM(COPM *this, int *a2)
 {
   struct _LOOKASIDE_LIST_EX *Pool2; // rax

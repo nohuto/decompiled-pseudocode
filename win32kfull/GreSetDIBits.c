@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreSetDIBits @ 0x1C02E0580
+ * Callers:
+ *     ?xxxDIBtoBMP@@YAPEAUHBITMAP__@@PEAUtagBITMAPINFOHEADER@@PEAUHPALETTE__@@K@Z @ 0x1C01FF654 (-xxxDIBtoBMP@@YAPEAUHBITMAP__@@PEAUtagBITMAPINFOHEADER@@PEAUHPALETTE__@@K@Z.c)
+ * Callees:
+ *     pbmiConvertInfo @ 0x1C02C7738 (pbmiConvertInfo.c)
+ *     ?GreSetDIBitsInternal@@YAHPEAUHDC__@@PEAUHBITMAP__@@IIAEAV?$umptr_r@E@@PEAUtagBITMAPINFO@@IIPEAX@Z @ 0x1C02DFCFC (-GreSetDIBitsInternal@@YAHPEAUHDC__@@PEAUHBITMAP__@@IIAEAV-$umptr_r@E@@PEAUtagBITMAPINFO@@IIPEAX.c)
+ */
+
 __int64 __fastcall GreSetDIBits(HDC a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, unsigned int *a6)
 {
   unsigned int v6; // esi

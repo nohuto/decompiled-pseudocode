@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Clear@ParticleCollection@CParticleEmitterVisual@@QEAAXXZ @ 0x1801C0D8C
+ * Callers:
+ *     ?SetClear@CParticleEmitterVisual@@QEAAJ_N@Z @ 0x1801C356C (-SetClear@CParticleEmitterVisual@@QEAAJ_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CParticleEmitterVisual::ParticleCollection::Clear(CParticleEmitterVisual::ParticleCollection *this)
 {
   *((_DWORD *)this + 114) = 0;

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetRootVisualTree@CVisualTree@@QEBAPEAV1@XZ @ 0x180210EB8
+ * Callers:
+ *     ?RenderAdditionalTopmostContent@CCaptureRenderTarget@@IEAAJPEAVCDrawingContext@@@Z @ 0x1801EAAB0 (-RenderAdditionalTopmostContent@CCaptureRenderTarget@@IEAAJPEAVCDrawingContext@@@Z.c)
+ * Callees:
+ *     ?GetVisualTreeNoRef@CVisual@@QEBAPEAVCVisualTree@@XZ @ 0x18003A594 (-GetVisualTreeNoRef@CVisual@@QEBAPEAVCVisualTree@@XZ.c)
+ */
+
 struct CVisualTree *__fastcall CVisualTree::GetRootVisualTree(CVisualTree *this)
 {
   CVisual *v1; // r11

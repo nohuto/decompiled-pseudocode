@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserPeekMessage @ 0x1C006F140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ClientGetMessageMPH @ 0x1C0003090 (ClientGetMessageMPH.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxRealInternalGetMessage @ 0x1C006F2F0 (xxxRealInternalGetMessage.c)
+ */
+
 __int64 __fastcall NtUserPeekMessage(_OWORD *a1, __int64 a2, int a3, int a4, int a5, char a6)
 {
   int v10; // edi

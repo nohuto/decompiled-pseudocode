@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpApicDescribeLocalLines @ 0x140374568
+ * Callers:
+ *     HalpApicInitializeLocalUnit @ 0x140372980 (HalpApicInitializeLocalUnit.c)
+ * Callees:
+ *     HalpInterruptRegisterLine @ 0x1403748A0 (HalpInterruptRegisterLine.c)
+ */
+
 __int64 __fastcall HalpApicDescribeLocalLines(_DWORD *a1)
 {
   int v1; // eax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhReleasePowerContext @ 0x1C001BA68
+ * Callers:
+ *     UsbhPdoSetD0 @ 0x1C0003200 (UsbhPdoSetD0.c)
+ *     UsbhFdoDxPoComplete_Action @ 0x1C000B5D0 (UsbhFdoDxPoComplete_Action.c)
+ *     UsbhFdoD0Worker_Action @ 0x1C000CE60 (UsbhFdoD0Worker_Action.c)
+ *     UsbhPdoUnblockPendedD0IrpWI @ 0x1C001A910 (UsbhPdoUnblockPendedD0IrpWI.c)
+ *     UsbhSet_D0_wQueued_Action @ 0x1C001E1B0 (UsbhSet_D0_wQueued_Action.c)
+ *     UsbhFdoPower_PowerFailureEntry @ 0x1C003C0B8 (UsbhFdoPower_PowerFailureEntry.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ */
+
 void __fastcall UsbhReleasePowerContext(__int64 a1, __int64 a2)
 {
   _DWORD *v3; // rax

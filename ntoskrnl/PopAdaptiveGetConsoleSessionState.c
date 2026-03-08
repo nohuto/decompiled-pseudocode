@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopAdaptiveGetConsoleSessionState @ 0x14073C624
+ * Callers:
+ *     PopAdaptiveGetSessionStateUnsafe @ 0x14073CBB8 (PopAdaptiveGetSessionStateUnsafe.c)
+ * Callees:
+ *     PopSetPowerSettingValueAcDc @ 0x14073BE70 (PopSetPowerSettingValueAcDc.c)
+ *     TtmIsEnabled @ 0x14073C8BC (TtmIsEnabled.c)
+ *     PopSetSessionUserStatus @ 0x14073C8E4 (PopSetSessionUserStatus.c)
+ *     PopAdaptiveCalculateInputRelativeTimeout @ 0x14099871C (PopAdaptiveCalculateInputRelativeTimeout.c)
+ *     PopAdaptiveConsoleSessionOverrideClear @ 0x140998780 (PopAdaptiveConsoleSessionOverrideClear.c)
+ */
+
 __int64 __fastcall PopAdaptiveGetConsoleSessionState(
         unsigned int a1,
         _QWORD *a2,

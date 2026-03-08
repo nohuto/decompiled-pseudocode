@@ -1,3 +1,13 @@
+/*
+ * XREFs of DwmSyncMagnUpdateWindowSharedTextures @ 0x1C0270C10
+ * Callers:
+ *     MagGetLensContextInformation @ 0x1C01A43C0 (MagGetLensContextInformation.c)
+ * Callees:
+ *     ?DwmSyncLPCAllowed@@YAJXZ @ 0x1C001D800 (-DwmSyncLPCAllowed@@YAJXZ.c)
+ *     ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C001D830 (-SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall DwmSyncMagnUpdateWindowSharedTextures(
         PVOID Object,
         __int64 a2,

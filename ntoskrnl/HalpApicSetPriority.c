@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpApicSetPriority @ 0x140373A90
+ * Callers:
+ *     HalpApicInitializeLocalUnit @ 0x140372980 (HalpApicInitializeLocalUnit.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 struct _KPRCB *__fastcall HalpApicSetPriority(__int64 a1, unsigned int a2)
 {
   unsigned __int64 v2; // rbx

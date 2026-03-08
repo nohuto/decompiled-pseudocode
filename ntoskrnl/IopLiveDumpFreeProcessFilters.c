@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopLiveDumpFreeProcessFilters @ 0x14094B484
+ * Callers:
+ *     IopLiveDumpReleaseResources @ 0x14094BEA8 (IopLiveDumpReleaseResources.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall IopLiveDumpFreeProcessFilters(__int64 a1)
 {
   _QWORD **v1; // rbx

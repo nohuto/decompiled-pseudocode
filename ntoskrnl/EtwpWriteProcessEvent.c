@@ -1,3 +1,20 @@
+/*
+ * XREFs of EtwpWriteProcessEvent @ 0x1407E9594
+ * Callers:
+ *     EtwTraceProcess @ 0x1407E93B4 (EtwTraceProcess.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     PsGetProcessServerSilo @ 0x1402637E0 (PsGetProcessServerSilo.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     EtwTraceSiloKernelEvent @ 0x14035EC20 (EtwTraceSiloKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpBuildProcessEvent @ 0x14071DE28 (EtwpBuildProcessEvent.c)
+ *     EtwpPsProvTraceProcess @ 0x1407E8D90 (EtwpPsProvTraceProcess.c)
+ *     RtlFreeAnsiString @ 0x1407EA820 (RtlFreeAnsiString.c)
+ */
+
 void __fastcall EtwpWriteProcessEvent(__int64 a1, __int16 a2, int *a3, int *a4, unsigned __int16 *a5, __int64 a6)
 {
   char v6; // r14

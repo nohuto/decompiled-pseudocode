@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtGdiGetRegionData @ 0x1C003C400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreGetRegionData @ 0x1C003C510 (GreGetRegionData.c)
+ *     AllocFreeTmpBuffer @ 0x1C003C6A0 (AllocFreeTmpBuffer.c)
+ *     FreeTmpBuffer @ 0x1C003C850 (FreeTmpBuffer.c)
+ *     EngSetLastError @ 0x1C00BAB10 (EngSetLastError.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 __int64 __fastcall NtGdiGetRegionData(HRGN a1, __int64 a2, volatile void *a3)
 {
   unsigned int v5; // esi

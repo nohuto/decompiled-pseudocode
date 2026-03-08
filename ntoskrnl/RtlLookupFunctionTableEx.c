@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlLookupFunctionTableEx @ 0x1403D0B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpxLookupFunctionTable @ 0x1402CB3A0 (RtlpxLookupFunctionTable.c)
+ */
+
 PVOID __fastcall RtlLookupFunctionTableEx(unsigned __int64 a1, _QWORD *a2)
 {
   if ( a1 < *((_QWORD *)&xmmword_140E00030 + 1)

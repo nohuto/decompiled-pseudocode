@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopSizeTriageDumpDataBlocks @ 0x140551664
+ * Callers:
+ *     IoFillTriageDumpBuffer @ 0x14054DAD0 (IoFillTriageDumpBuffer.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IopSizeTriageDumpDataBlocks(
         _DWORD *a1,
         unsigned int a2,

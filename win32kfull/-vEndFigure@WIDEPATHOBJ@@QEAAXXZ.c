@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?vEndFigure@WIDEPATHOBJ@@QEAAXXZ @ 0x1C0151742
+ * Callers:
+ *     ?bHobbyize@WIDEPENOBJ@@AEAAHQEAVEVECTORFX@@@Z @ 0x1C0150B0A (-bHobbyize@WIDEPENOBJ@@AEAAHQEAVEVECTORFX@@@Z.c)
+ *     ?bWiden@WIDENER@@IEAAHXZ @ 0x1C0150E1A (-bWiden@WIDENER@@IEAAHXZ.c)
+ *     ?bThicken@WIDEPENOBJ@@AEAAHPEAU_POINTFIX@@@Z @ 0x1C02F3AE4 (-bThicken@WIDEPENOBJ@@AEAAHPEAU_POINTFIX@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall WIDEPATHOBJ::vEndFigure(WIDEPATHOBJ *this)
 {
   __int64 v1; // rdx

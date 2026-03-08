@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiLockVadShared @ 0x14031F870
+ * Callers:
+ *     MiCleanCfg @ 0x1402F86F4 (MiCleanCfg.c)
+ *     MiWaitForRotateToComplete @ 0x1406317E4 (MiWaitForRotateToComplete.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x140727330 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     MmQueryVirtualMemory @ 0x1407C6390 (MmQueryVirtualMemory.c)
+ *     NtAreMappedFilesTheSame @ 0x14086F640 (NtAreMappedFilesTheSame.c)
+ *     MiHotPatchProcess @ 0x140A34804 (MiHotPatchProcess.c)
+ *     MmIsFileMapped @ 0x140A39978 (MmIsFileMapped.c)
+ *     MiFinishPlaceholderVadReplacement @ 0x140A45098 (MiFinishPlaceholderVadReplacement.c)
+ * Callees:
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 signed __int64 __fastcall MiLockVadShared(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdi

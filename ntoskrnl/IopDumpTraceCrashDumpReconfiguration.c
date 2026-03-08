@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopDumpTraceCrashDumpReconfiguration @ 0x140550548
+ * Callers:
+ *     IoConfigureCrashDump @ 0x14054D564 (IoConfigureCrashDump.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IopDumpIsTracingEnabled @ 0x140550448 (IopDumpIsTracingEnabled.c)
+ */
+
 char __fastcall IopDumpTraceCrashDumpReconfiguration(int a1)
 {
   char result; // al

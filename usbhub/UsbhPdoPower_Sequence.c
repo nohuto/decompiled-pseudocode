@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhPdoPower_Sequence @ 0x1C003CAC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhDecPdoIoCount @ 0x1C001BC4C (UsbhDecPdoIoCount.c)
+ *     UsbhIncPdoIoCount @ 0x1C0020E30 (UsbhIncPdoIoCount.c)
+ */
+
 __int64 __fastcall UsbhPdoPower_Sequence(ULONG_PTR BugCheckParameter3, IRP *BugCheckParameter4)
 {
   unsigned int v4; // edi

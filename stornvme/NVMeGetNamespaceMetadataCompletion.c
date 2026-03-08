@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeGetNamespaceMetadataCompletion @ 0x1C001ED10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     memmove @ 0x1C0004280 (memmove.c)
+ */
+
 __int64 __fastcall NVMeGetNamespaceMetadataCompletion(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

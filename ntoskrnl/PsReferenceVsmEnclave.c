@@ -1,3 +1,11 @@
+/*
+ * XREFs of PsReferenceVsmEnclave @ 0x1409B4820
+ * Callers:
+ *     MiCanDeleteEnclave @ 0x140644B94 (MiCanDeleteEnclave.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PsReferenceVsmEnclave(__int64 a1)
 {
   __int64 result; // rax

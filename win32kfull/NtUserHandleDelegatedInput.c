@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserHandleDelegatedInput @ 0x1C0147BD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_HandleDelegatedInput@@YAHPEAUtagTHREADINFO@@W4HDIOPTION@@QEAUtagMSG@@@Z @ 0x1C00148B0 (-_HandleDelegatedInput@@YAHPEAUtagTHREADINFO@@W4HDIOPTION@@QEAUtagMSG@@@Z.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserHandleDelegatedInput(_OWORD *a1, unsigned int a2)
 {
   __int64 v4; // rcx

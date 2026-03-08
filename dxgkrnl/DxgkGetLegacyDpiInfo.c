@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkGetLegacyDpiInfo @ 0x1C031D800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?DxgkUpdateGdiInfo@Win81@@YAJPEAXIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C031C504 (-DxgkUpdateGdiInfo@Win81@@YAJPEAXIIHPEAU_DPI_INFORMATION@@@Z.c)
+ */
+
 __int64 __fastcall DxgkGetLegacyDpiInfo(__int64 a1, Win81 *a2, unsigned int a3, int a4)
 {
   __int64 v6; // rbx

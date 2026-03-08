@@ -1,3 +1,21 @@
+/*
+ * XREFs of UsbDevice_UpdateUsbDevice @ 0x1C001D43C
+ * Callers:
+ *     UsbDevice_UpdateCompletion @ 0x1C001D310 (UsbDevice_UpdateCompletion.c)
+ *     UsbDevice_UcxEvtUpdate @ 0x1C001DDD0 (UsbDevice_UcxEvtUpdate.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     Etw_DeviceUpdate @ 0x1C001D724 (Etw_DeviceUpdate.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage @ 0x1C001F76C (Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage.c)
+ *     RootHub_IsDeviceNative @ 0x1C001F7C0 (RootHub_IsDeviceNative.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     RootHub_SetPortResumeTime @ 0x1C003FC7C (RootHub_SetPortResumeTime.c)
+ *     RootHub_Update20HardwareLpmParameters @ 0x1C0040410 (RootHub_Update20HardwareLpmParameters.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ */
+
 __int64 __fastcall UsbDevice_UpdateUsbDevice(__int64 a1, __int64 a2)
 {
   __int64 v4; // rax

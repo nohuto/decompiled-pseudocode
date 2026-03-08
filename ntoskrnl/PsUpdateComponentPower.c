@@ -1,3 +1,13 @@
+/*
+ * XREFs of PsUpdateComponentPower @ 0x140294B40
+ * Callers:
+ *     PspApplyJobChainLimitsToProcess @ 0x1406FF27C (PspApplyJobChainLimitsToProcess.c)
+ *     PspSetProcessEnergyTrackingStateCallback @ 0x14079B910 (PspSetProcessEnergyTrackingStateCallback.c)
+ * Callees:
+ *     RtlInterlockedTimelineBitmapUpdate @ 0x140294BF4 (RtlInterlockedTimelineBitmapUpdate.c)
+ *     PoEnergyContextUpdateComponentPower @ 0x1406FF3F8 (PoEnergyContextUpdateComponentPower.c)
+ */
+
 void __fastcall PsUpdateComponentPower(struct _KPROCESS *a1, int a2, unsigned __int64 a3)
 {
   PEPROCESS v3; // r10

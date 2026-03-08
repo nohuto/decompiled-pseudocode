@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserCanBrokerForceForeground @ 0x1C0011330
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?RunForegroundAccessCheck@@YA_NPEBUtagWND@@W4ForegroundAccessCheck@@@Z @ 0x1C00113B0 (-RunForegroundAccessCheck@@YA_NPEBUtagWND@@W4ForegroundAccessCheck@@@Z.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserCanBrokerForceForeground(_DWORD *a1)
 {
   __int64 v2; // rax

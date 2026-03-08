@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidSchiHwQueueFull@@YA_NPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C001CE8C
+ * Callers:
+ *     ?VidSchiPacketBlockedOnWaitCondition@@YA_NPEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C001D260 (-VidSchiPacketBlockedOnWaitCondition@@YA_NPEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall VidSchiHwQueueFull(struct VIDSCH_HW_QUEUE *a1)
 {
   __int64 v2; // rdx

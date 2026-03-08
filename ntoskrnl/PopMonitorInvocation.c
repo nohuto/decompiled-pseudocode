@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopMonitorInvocation @ 0x140756DE8
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ * Callees:
+ *     Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x14040B89C (Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     PopProcessSessionDisplayStateChange @ 0x140757094 (PopProcessSessionDisplayStateChange.c)
+ *     PopIsInputSuppressionEngaged @ 0x140757D60 (PopIsInputSuppressionEngaged.c)
+ *     PopDiagTraceMonitorOnWithLidClosed @ 0x14098CDDC (PopDiagTraceMonitorOnWithLidClosed.c)
+ *     PopTraceMonitorOnRequestUserInput @ 0x14098F96C (PopTraceMonitorOnRequestUserInput.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopMonitorInvocation(__int64 a1)
 {
   unsigned int v1; // edi

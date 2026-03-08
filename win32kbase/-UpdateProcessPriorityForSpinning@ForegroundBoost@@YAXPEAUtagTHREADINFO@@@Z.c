@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?UpdateProcessPriorityForSpinning@ForegroundBoost@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C005B8C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C000F0BC (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     ??0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C005BB7C (--0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     _anonymous_namespace_::SetForegroundPriorityProcess @ 0x1C005BD80 (_anonymous_namespace_--SetForegroundPriorityProcess.c)
+ */
+
 void __fastcall ForegroundBoost::UpdateProcessPriorityForSpinning(ForegroundBoost *this, struct tagTHREADINFO *a2)
 {
   __int64 v3; // rdi

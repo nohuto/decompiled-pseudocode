@@ -1,3 +1,12 @@
+/*
+ * XREFs of ResFwGetContext @ 0x140AEF010
+ * Callers:
+ *     BgGetContext @ 0x140AEE26C (BgGetContext.c)
+ * Callees:
+ *     MmAllocatePagesForMdlEx @ 0x1402B3960 (MmAllocatePagesForMdlEx.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ */
+
 __int64 __fastcall ResFwGetContext(__int64 *a1)
 {
   char *v1; // rbx

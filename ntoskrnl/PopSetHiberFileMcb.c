@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopSetHiberFileMcb @ 0x1407FC4A4
+ * Callers:
+ *     PopCreateHiberFile @ 0x1407FBF00 (PopCreateHiberFile.c)
+ *     PopResizeHiberFile @ 0x140985EE0 (PopResizeHiberFile.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopSetHiberFileMcb(PVOID P, unsigned int a2)
 {
   unsigned int v2; // ebx

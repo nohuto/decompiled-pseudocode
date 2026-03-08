@@ -1,3 +1,34 @@
+/*
+ * XREFs of UsbhDeletePdo @ 0x1C005409C
+ * Callers:
+ *     UsbhWaitConnect @ 0x1C0018530 (UsbhWaitConnect.c)
+ *     UsbhRequestPortSuspend @ 0x1C0018D14 (UsbhRequestPortSuspend.c)
+ *     Usbh_BusPause_PdoEvent @ 0x1C003A81C (Usbh_BusPause_PdoEvent.c)
+ *     Usbh_BusPnpFreeResources_PdoEvent @ 0x1C003A9B8 (Usbh_BusPnpFreeResources_PdoEvent.c)
+ *     Usbh_BusPnpStop_PdoEvent @ 0x1C003AB58 (Usbh_BusPnpStop_PdoEvent.c)
+ *     Usbh_BusRemove_PdoEvent @ 0x1C003AD1C (Usbh_BusRemove_PdoEvent.c)
+ *     Usbh_Disconnect_PdoEvent @ 0x1C003AFBC (Usbh_Disconnect_PdoEvent.c)
+ *     Usbh_ErrorDisconnect_PdoEvent @ 0x1C003B0C0 (Usbh_ErrorDisconnect_PdoEvent.c)
+ *     Usbh_PdoRemove_PdoEvent @ 0x1C003B22C (Usbh_PdoRemove_PdoEvent.c)
+ * Callees:
+ *     UsbhDecHubBusy @ 0x1C0003DB0 (UsbhDecHubBusy.c)
+ *     UsbhDisableTimerObject @ 0x1C00084D0 (UsbhDisableTimerObject.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     UsbhSshSetPortsBusyState @ 0x1C000ABD0 (UsbhSshSetPortsBusyState.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhDecPdoIoCount @ 0x1C001BC4C (UsbhDecPdoIoCount.c)
+ *     UsbhUnlinkPdoDeviceHandle @ 0x1C001BEDC (UsbhUnlinkPdoDeviceHandle.c)
+ *     UsbhDisconnectPdoFromHub @ 0x1C002A2DC (UsbhDisconnectPdoFromHub.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002EA5C (WPP_RECORDER_SF_q.c)
+ *     SET_PDO_HWPNPSTATE @ 0x1C0036750 (SET_PDO_HWPNPSTATE.c)
+ *     UsbhBillboardCleanup @ 0x1C00532D4 (UsbhBillboardCleanup.c)
+ *     UsbhDeleteOrphanPdo @ 0x1C0053EF8 (UsbhDeleteOrphanPdo.c)
+ *     UsbhRemoveAndDeletePdo @ 0x1C0057614 (UsbhRemoveAndDeletePdo.c)
+ *     UsbhResetPortData @ 0x1C0057774 (UsbhResetPortData.c)
+ *     UsbhEtwLogDeviceInformation @ 0x1C005B6F8 (UsbhEtwLogDeviceInformation.c)
+ */
+
 void __fastcall UsbhDeletePdo(__int64 a1, struct _DEVICE_OBJECT *a2, int a3, int a4, __int64 a5)
 {
   __int64 v7; // r12

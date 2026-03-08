@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExQuerySystemLockInformation @ 0x140AA7BF8
+ * Callers:
+ *     ExpGetLockInformation @ 0x1409F37D4 (ExpGetLockInformation.c)
+ * Callees:
+ *     MmUnlockPagableImageSection @ 0x140225D90 (MmUnlockPagableImageSection.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExpOwnerEntryToThread @ 0x140283298 (ExpOwnerEntryToThread.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmLockPagableSectionByHandle @ 0x1406A7BD0 (MmLockPagableSectionByHandle.c)
+ */
+
 __int64 __fastcall ExQuerySystemLockInformation(_DWORD *a1, unsigned int a2, unsigned int *a3)
 {
   unsigned int v3; // ebx

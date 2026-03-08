@@ -1,3 +1,17 @@
+/*
+ * XREFs of ViPtLogStackTrace @ 0x140ADC05C
+ * Callers:
+ *     VfHandlePoolAlloc @ 0x140ACDFB0 (VfHandlePoolAlloc.c)
+ *     VfPtFreePoolNotification @ 0x140ADB73C (VfPtFreePoolNotification.c)
+ *     VerifierMmCreateMdl @ 0x140ADFD30 (VerifierMmCreateMdl.c)
+ * Callees:
+ *     RtlEnoughStackSpaceForStackCapture @ 0x140205D40 (RtlEnoughStackSpaceForStackCapture.c)
+ *     MmIsSessionAddress @ 0x140239ED0 (MmIsSessionAddress.c)
+ *     KeExpandKernelStackAndCalloutEx @ 0x1403155F0 (KeExpandKernelStackAndCalloutEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ViPtLogStackCallout @ 0x140ADBF00 (ViPtLogStackCallout.c)
+ */
+
 void __fastcall ViPtLogStackTrace(__int64 a1, int a2, __int64 a3, char a4)
 {
   __int16 v8; // bx

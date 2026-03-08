@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FxIFRGetDriverMultiString@@YAJKPEAGPEAK@Z @ 0x1C0026E98
+ * Callers:
+ *     ?FxIFRReplay@@YAX_K@Z @ 0x1C0027070 (-FxIFRReplay@@YAX_K@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ *     ?_QueryValue@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEBU_UNICODE_STRING@@K1PEAK3@Z @ 0x1C004CBC4 (-_QueryValue@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEBU_UNICODE_STRING@@K1PEAK3@Z.c)
+ */
+
 __int64 __fastcall FxIFRGetDriverMultiString(
         unsigned int ValueLength,
         wchar_t *Value,

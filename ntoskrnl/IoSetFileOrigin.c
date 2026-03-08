@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoSetFileOrigin @ 0x1403C9B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall IoSetFileOrigin(PFILE_OBJECT FileObject, BOOLEAN Remote)
 {
   ULONG Flags; // eax

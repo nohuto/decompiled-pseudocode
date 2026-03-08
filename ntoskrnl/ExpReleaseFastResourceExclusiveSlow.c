@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExpReleaseFastResourceExclusiveSlow @ 0x140410F34
+ * Callers:
+ *     ExpReleaseFastResourceExclusive2 @ 0x140410E88 (ExpReleaseFastResourceExclusive2.c)
+ * Callees:
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402916B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     ExpCommitWakeFastResource @ 0x14040FE18 (ExpCommitWakeFastResource.c)
+ *     ExpPrepareToWakeFastResourceExclusive @ 0x140410920 (ExpPrepareToWakeFastResourceExclusive.c)
+ *     ExpUpdateLockWordForRelease @ 0x1404112C0 (ExpUpdateLockWordForRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExpReleaseFastResourceExclusiveSlow(KSPIN_LOCK *BugCheckParameter2, unsigned __int8 a2)
 {
   ULONG_PTR v3; // rsi

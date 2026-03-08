@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpLookasideAdjustDepth @ 0x1402C60F0
+ * Callers:
+ *     RtlpDynamicLookasideRebalance @ 0x1402C5F90 (RtlpDynamicLookasideRebalance.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpLookasideAdjustDepth(__int64 a1, int a2)
 {
   unsigned int v2; // r8d

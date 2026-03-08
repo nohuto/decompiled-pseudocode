@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FillConstantBuffer@CCustomKernelEffect@@UEBAXIIPEAX@Z @ 0x1800D2200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memcpy_0 @ 0x1801177E8 (memcpy_0.c)
+ */
+
 void __fastcall CCustomKernelEffect::FillConstantBuffer(const void **this, __int64 a2, __int64 a3, void *a4)
 {
   unsigned __int64 v6; // rax

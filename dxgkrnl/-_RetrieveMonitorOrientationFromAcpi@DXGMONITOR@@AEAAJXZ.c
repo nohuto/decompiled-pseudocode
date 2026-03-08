@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_RetrieveMonitorOrientationFromAcpi@DXGMONITOR@@AEAAJXZ @ 0x1C01FD958
+ * Callers:
+ *     ?_RetrieveMonitorConfigurationFromDriverInf@DXGMONITOR@@AEAAJXZ @ 0x1C01FD8C8 (-_RetrieveMonitorConfigurationFromDriverInf@DXGMONITOR@@AEAAJXZ.c)
+ * Callees:
+ *     ?_ValidateMonitorOrientation@DXGMONITOR@@AEAAEK@Z @ 0x1C021A550 (-_ValidateMonitorOrientation@DXGMONITOR@@AEAAEK@Z.c)
+ */
+
 __int64 __fastcall DXGMONITOR::_RetrieveMonitorOrientationFromAcpi(DXGMONITOR *this)
 {
   unsigned int v1; // eax

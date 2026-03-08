@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlUnicodeStringValidateDestWorker_0 @ 0x1C004DD28
+ * Callers:
+ *     ?RtlUnicodeStringCat@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C004DBB0 (-RtlUnicodeStringCat@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ *     ?RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C004DC80 (-RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ * Callees:
+ *     RtlUnicodeStringValidateWorker_0 @ 0x1C004DD98 (RtlUnicodeStringValidateWorker_0.c)
+ */
+
 NTSTATUS __stdcall RtlUnicodeStringValidateDestWorker_0(
         PCUNICODE_STRING DestinationString,
         wchar_t **ppszDest,

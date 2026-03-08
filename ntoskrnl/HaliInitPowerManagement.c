@@ -1,3 +1,16 @@
+/*
+ * XREFs of HaliInitPowerManagement @ 0x140801CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExRegisterCallback @ 0x1402FBE90 (ExRegisterCallback.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     HalpAcpiGetFacsMapping @ 0x1403705F8 (HalpAcpiGetFacsMapping.c)
+ *     ExCreateCallback @ 0x14078D4A0 (ExCreateCallback.c)
+ *     HalpPutAcpiHacksInRegistry @ 0x14080237C (HalpPutAcpiHacksInRegistry.c)
+ *     HalpPiix4Detect @ 0x140A85B70 (HalpPiix4Detect.c)
+ */
+
 NTSTATUS __fastcall HaliInitPowerManagement(__int64 a1, _QWORD *a2)
 {
   __int64 v4; // rcx

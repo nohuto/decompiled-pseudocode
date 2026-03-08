@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPDO_SignalPnpPowerFailureEvent @ 0x1C00198D8
+ * Callers:
+ *     HUBDSM_FlushingPnpEventsWithPortOff @ 0x1C0023DB0 (HUBDSM_FlushingPnpEventsWithPortOff.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBPDO_SignalPnpPowerFailureEvent(__int64 a1)
 {
   __int64 result; // rax

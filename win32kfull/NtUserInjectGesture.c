@@ -1,3 +1,18 @@
+/*
+ * XREFs of NtUserInjectGesture @ 0x1C01D62D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     _PostMessageCheckIL @ 0x1C01B81EC (_PostMessageCheckIL.c)
+ *     AllocGestureInfo @ 0x1C0207064 (AllocGestureInfo.c)
+ *     ValidateGestureCaller @ 0x1C0207674 (ValidateGestureCaller.c)
+ *     ValidateGestureInfo @ 0x1C0207728 (ValidateGestureInfo.c)
+ *     _FreeGestureInfo @ 0x1C0207760 (_FreeGestureInfo.c)
+ */
+
 __int64 __fastcall NtUserInjectGesture(__int64 a1, int a2, __int64 a3, ULONG64 a4, volatile void *Address)
 {
   volatile void *v9; // r14

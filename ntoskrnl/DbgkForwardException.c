@@ -1,3 +1,22 @@
+/*
+ * XREFs of DbgkForwardException @ 0x1409365F4
+ * Callers:
+ *     KiSchedulerApc @ 0x140353560 (KiSchedulerApc.c)
+ *     KiDispatchException @ 0x140362740 (KiDispatchException.c)
+ *     PsDispatchIumService @ 0x1405A2A44 (PsDispatchIumService.c)
+ *     DbgkpSendErrorMessage @ 0x14093730C (DbgkpSendErrorMessage.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KeCopyExceptionRecord @ 0x140576430 (KeCopyExceptionRecord.c)
+ *     PsSetProcessFaultInformation @ 0x14067FC50 (PsSetProcessFaultInformation.c)
+ *     PsCaptureExceptionPort @ 0x1407D9D10 (PsCaptureExceptionPort.c)
+ *     DbgkpSendApiMessage @ 0x1409370E0 (DbgkpSendApiMessage.c)
+ *     DbgkpSendApiMessageLpc @ 0x1409371D8 (DbgkpSendApiMessageLpc.c)
+ *     DbgkpSendErrorMessage @ 0x14093730C (DbgkpSendErrorMessage.c)
+ */
+
 bool __fastcall DbgkForwardException(__int64 a1, char a2, char a3)
 {
   char v6; // r14

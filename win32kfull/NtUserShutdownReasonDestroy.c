@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserShutdownReasonDestroy @ 0x1C00F1FF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     InternalRemoveProp @ 0x1C002484C (InternalRemoveProp.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserShutdownReasonDestroy(__int64 a1)
 {
   __int64 v2; // rax

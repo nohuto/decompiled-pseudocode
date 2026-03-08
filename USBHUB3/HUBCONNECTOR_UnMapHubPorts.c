@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBCONNECTOR_UnMapHubPorts @ 0x1C0082B58
+ * Callers:
+ *     HUBFDO_EvtDeviceReleaseHardware @ 0x1C0079370 (HUBFDO_EvtDeviceReleaseHardware.c)
+ *     HUBCONNECTOR_MapHubPorts @ 0x1C0082A18 (HUBCONNECTOR_MapHubPorts.c)
+ * Callees:
+ *     HUBCONNECTOR_DeRegisterPort @ 0x1C008214C (HUBCONNECTOR_DeRegisterPort.c)
+ */
+
 void __fastcall HUBCONNECTOR_UnMapHubPorts(_WORD *a1)
 {
   unsigned __int16 v1; // di

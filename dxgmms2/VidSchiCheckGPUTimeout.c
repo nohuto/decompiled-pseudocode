@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiCheckGPUTimeout @ 0x1C010605C
+ * Callers:
+ *     VidSchiReportHwHang @ 0x1C00475B8 (VidSchiReportHwHang.c)
+ * Callees:
+ *     VidSchiCheckNodeTimeout @ 0x1C00A5B80 (VidSchiCheckNodeTimeout.c)
+ */
+
 __int64 __fastcall VidSchiCheckGPUTimeout(__int64 a1, _QWORD *a2, _QWORD *a3)
 {
   __int64 v3; // rdi

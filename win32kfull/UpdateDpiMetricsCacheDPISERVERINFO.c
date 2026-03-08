@@ -1,3 +1,13 @@
+/*
+ * XREFs of UpdateDpiMetricsCacheDPISERVERINFO @ 0x1C00B7F80
+ * Callers:
+ *     ?UserReinitializeStockFonts@@YAXKH@Z @ 0x1C00B7E08 (-UserReinitializeStockFonts@@YAXKH@Z.c)
+ *     xxxSetNCFonts @ 0x1C010E91C (xxxSetNCFonts.c)
+ * Callees:
+ *     GetDPIServerInfoForDpi @ 0x1C00A1E90 (GetDPIServerInfoForDpi.c)
+ *     ?ClearDPISERVERINFO@@YAXPEAUtagDPISERVERINFO@@@Z @ 0x1C00B8018 (-ClearDPISERVERINFO@@YAXPEAUtagDPISERVERINFO@@@Z.c)
+ */
+
 void UpdateDpiMetricsCacheDPISERVERINFO()
 {
   __int64 v0; // rdi

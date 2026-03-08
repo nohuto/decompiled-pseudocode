@@ -1,3 +1,11 @@
+/*
+ * XREFs of DelegateChainingResetAndCoalescePointerMessage @ 0x1C01C7A18
+ * Callers:
+ *     ?_ShellHandwritingDelegationReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z @ 0x1C01B7674 (-_ShellHandwritingDelegationReassignInputMessage@@YAXPEAUtagTHREADINFO@@0PEAUtagQMSG@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall DelegateChainingResetAndCoalescePointerMessage(__int64 a1, __int64 a2, __int64 a3)
 {
   int v4; // edi

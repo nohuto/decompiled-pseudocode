@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetCurrentBufferPointer@CLegacyTokenBuffer@@QEAAJPEAPEAEPEAII@Z @ 0x1C001BB44
+ * Callers:
+ *     ?ProcessGdiSysmemTokens@CTokenManager@@IEAAJXZ @ 0x1C001B9FC (-ProcessGdiSysmemTokens@CTokenManager@@IEAAJXZ.c)
+ * Callees:
+ *     ?Grow@CLegacyTokenBuffer@@IEAAJXZ @ 0x1C0077B74 (-Grow@CLegacyTokenBuffer@@IEAAJXZ.c)
+ */
+
 __int64 __fastcall CLegacyTokenBuffer::GetCurrentBufferPointer(
         CLegacyTokenBuffer *this,
         unsigned __int8 **a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspLookupSyscallProviderByIdNoLock @ 0x1409B1E1C
+ * Callers:
+ *     PspLookupSyscallProviderById @ 0x1405A2870 (PspLookupSyscallProviderById.c)
+ *     PspInsertSyscallProvider @ 0x1409B1D44 (PspInsertSyscallProvider.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspLookupSyscallProviderByIdNoLock(_QWORD *a1, volatile signed __int64 **a2)
 {
   volatile signed __int64 *v2; // r8

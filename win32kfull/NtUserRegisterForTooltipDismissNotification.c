@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserRegisterForTooltipDismissNotification @ 0x1C01DA670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     ?InsertTooltipRegistration@TooltipDismiss@@YA_NPEAUHWND__@@@Z @ 0x1C02302B0 (-InsertTooltipRegistration@TooltipDismiss@@YA_NPEAUHWND__@@@Z.c)
+ *     ?RemoveTooltipRegistrationIfHwndInList@TooltipDismiss@@YA_NPEAUHWND__@@@Z @ 0x1C023030C (-RemoveTooltipRegistrationIfHwndInList@TooltipDismiss@@YA_NPEAUHWND__@@@Z.c)
+ */
+
 __int64 __fastcall NtUserRegisterForTooltipDismissNotification(TooltipDismiss *this, int a2)
 {
   __int64 v4; // rbx

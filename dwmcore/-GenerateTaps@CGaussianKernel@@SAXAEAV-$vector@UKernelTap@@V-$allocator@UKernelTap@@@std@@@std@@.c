@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?GenerateTaps@CGaussianKernel@@SAXAEAV?$vector@UKernelTap@@V?$allocator@UKernelTap@@@std@@@std@@W4SeparableKernelPass@@MM@Z @ 0x1800D1480
+ * Callers:
+ *     ?Build@CBlurRenderingGraphBuilder@@QEAAJW4D3D_FEATURE_LEVEL@@@Z @ 0x1800D1AE4 (-Build@CBlurRenderingGraphBuilder@@QEAAJW4D3D_FEATURE_LEVEL@@@Z.c)
+ * Callees:
+ *     ?_Reallocate_exactly@?$vector@UKernelTap@@V?$allocator@UKernelTap@@@std@@@std@@AEAAX_K@Z @ 0x1800D1650 (-_Reallocate_exactly@-$vector@UKernelTap@@V-$allocator@UKernelTap@@@std@@@std@@AEAAX_K@Z.c)
+ *     ceilf_0 @ 0x1801176EC (ceilf_0.c)
+ *     expf_0 @ 0x180117710 (expf_0.c)
+ *     ??$_Emplace_reallocate@AEAMMAEAM@?$vector@UKernelTap@@V?$allocator@UKernelTap@@@std@@@std@@QEAAPEAUKernelTap@@QEAU2@AEAM$$QEAM1@Z @ 0x18027F2AC (--$_Emplace_reallocate@AEAMMAEAM@-$vector@UKernelTap@@V-$allocator@UKernelTap@@@std@@@std@@QEAAP.c)
+ *     ??$emplace_back@MAEAMAEAM@?$vector@UKernelTap@@V?$allocator@UKernelTap@@@std@@@std@@QEAA?A_T$$QEAMAEAM1@Z @ 0x18027F58C (--$emplace_back@MAEAMAEAM@-$vector@UKernelTap@@V-$allocator@UKernelTap@@@std@@@std@@QEAA-A_T$$QE.c)
+ */
+
 unsigned __int64 __fastcall CGaussianKernel::GenerateTaps(unsigned __int64 *a1, char a2, float a3, float a4)
 {
   float v6; // xmm1_4

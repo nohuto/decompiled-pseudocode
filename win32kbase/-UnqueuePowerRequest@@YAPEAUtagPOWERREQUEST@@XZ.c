@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UnqueuePowerRequest@@YAPEAUtagPOWERREQUEST@@XZ @ 0x1C00B3D50
+ * Callers:
+ *     CleanupPowerRequestList @ 0x1C00B39B0 (CleanupPowerRequestList.c)
+ *     xxxUserPowerCalloutWorker @ 0x1C00B3AC0 (xxxUserPowerCalloutWorker.c)
+ * Callees:
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C00EE6B4 (McTemplateK0pq_EtwWriteTransfer.c)
+ */
+
 struct tagPOWERREQUEST *__fastcall UnqueuePowerRequest(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _QWORD *v4; // rbx

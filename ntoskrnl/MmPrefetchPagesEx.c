@@ -1,3 +1,29 @@
+/*
+ * XREFs of MmPrefetchPagesEx @ 0x1406A387C
+ * Callers:
+ *     PfpPrefetchFilesTrickle @ 0x1406A2A70 (PfpPrefetchFilesTrickle.c)
+ *     MmPrefetchPages @ 0x1406A3830 (MmPrefetchPages.c)
+ *     PfSnPrefetchSections @ 0x1407E16A0 (PfSnPrefetchSections.c)
+ *     PfpPrefetchFiles @ 0x14097AEE4 (PfpPrefetchFiles.c)
+ * Callees:
+ *     MiDereferenceInPageAutoBoostLock @ 0x14020CA70 (MiDereferenceInPageAutoBoostLock.c)
+ *     MiGetInPageAutoBoostLock @ 0x14020CAA0 (MiGetInPageAutoBoostLock.c)
+ *     MiPfCompletePrefetchIos @ 0x14020DA48 (MiPfCompletePrefetchIos.c)
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     MiFreeInPageSupportBlock @ 0x140287B5C (MiFreeInPageSupportBlock.c)
+ *     MiPfPutPagesInTransition @ 0x140288890 (MiPfPutPagesInTransition.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiLockDynamicMemoryShared @ 0x1402DAC90 (MiLockDynamicMemoryShared.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1402DC340 (MiUnlockDynamicMemoryShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MiNotifyPageHeat @ 0x140652018 (MiNotifyPageHeat.c)
+ *     MiPfExecuteReadList @ 0x1406A3F98 (MiPfExecuteReadList.c)
+ *     MiReleaseReadListResources @ 0x1406A4E80 (MiReleaseReadListResources.c)
+ *     MiPfPrepareReadList @ 0x1407C42F0 (MiPfPrepareReadList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MmPrefetchPagesEx(unsigned int a1, __int64 a2, int a3)
 {
   struct _KTHREAD *CurrentThread; // r13

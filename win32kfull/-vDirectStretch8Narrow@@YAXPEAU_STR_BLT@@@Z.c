@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vDirectStretch8Narrow@@YAXPEAU_STR_BLT@@@Z @ 0x1C03045D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vDirectStretch8Narrow(struct _STR_BLT *a1)
 {
   _BYTE *v2; // r9

@@ -1,3 +1,21 @@
+/*
+ * XREFs of PiDevCfgQueryIncludedDriverConfigurations @ 0x1408766D8
+ * Callers:
+ *     PiDevCfgQueryDriverConfiguration @ 0x140876268 (PiDevCfgQueryDriverConfiguration.c)
+ * Callees:
+ *     PnpDuplicateUnicodeString @ 0x1403C2368 (PnpDuplicateUnicodeString.c)
+ *     wcschr @ 0x1403D5D90 (wcschr.c)
+ *     wcsrchr @ 0x1403D5F90 (wcsrchr.c)
+ *     PiDevCfgGetDriverConfigurationKeyScope @ 0x14055F9C8 (PiDevCfgGetDriverConfigurationKeyScope.c)
+ *     PiDevCfgPushDriverNodeEntry @ 0x14055FE54 (PiDevCfgPushDriverNodeEntry.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x140876268 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgFreeDriverNode @ 0x14087DAA0 (PiDevCfgFreeDriverNode.c)
+ *     PiDevCfgAppendMultiSz @ 0x1409596C4 (PiDevCfgAppendMultiSz.c)
+ *     PiDevCfgQueryIncludedDriverNode @ 0x14095C298 (PiDevCfgQueryIncludedDriverNode.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDevCfgQueryIncludedDriverConfigurations(__int64 a1)
 {
   __int64 v1; // r13

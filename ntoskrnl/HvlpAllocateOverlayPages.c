@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvlpAllocateOverlayPages @ 0x1405473DC
+ * Callers:
+ *     HvlSetupPhysicalFaultNotificationQueue @ 0x14053E1E0 (HvlSetupPhysicalFaultNotificationQueue.c)
+ *     HvlInitializeProcessor @ 0x14080AFA0 (HvlInitializeProcessor.c)
+ * Callees:
+ *     MmAllocateContiguousNodeMemory @ 0x1403B4900 (MmAllocateContiguousNodeMemory.c)
+ */
+
 __int64 HvlpAllocateOverlayPages()
 {
   unsigned int v0; // esi

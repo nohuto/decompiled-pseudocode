@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExFastReferenceHandleTableEntry @ 0x14035A944
+ * Callers:
+ *     ObpReferenceObjectByHandle @ 0x1407DF424 (ObpReferenceObjectByHandle.c)
+ * Callees:
+ *     ExpBlockOnLockedHandleEntry @ 0x140749B5C (ExpBlockOnLockedHandleEntry.c)
+ */
+
 __int64 __fastcall ExFastReferenceHandleTableEntry(__int64 a1, _QWORD *a2, __int64 *a3)
 {
   __int64 i; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SupportsInteractionType@CInteractionProcessor@@QEBAHW4InputType@@I_N@Z @ 0x1800EEA9C
+ * Callers:
+ *     ?SupportsInteractionType@CInteraction@@UEBAHW4InputType@@I_N@Z @ 0x1800EEA80 (-SupportsInteractionType@CInteraction@@UEBAHW4InputType@@I_N@Z.c)
+ *     ?SupportsInteractionType@CInteractionRoot@@UEBAHW4InputType@@I_N@Z @ 0x1801A3740 (-SupportsInteractionType@CInteractionRoot@@UEBAHW4InputType@@I_N@Z.c)
+ * Callees:
+ *     _anonymous_namespace_::GetTemporaryConfigWithMask @ 0x1800E9994 (_anonymous_namespace_--GetTemporaryConfigWithMask.c)
+ *     ?ConfigurationListContainsType@?$CInputTypeContext@UDwmMousewheelInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@QEBAHIU?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@0@Z @ 0x180129908 (-ConfigurationListContainsType@-$CInputTypeContext@UDwmMousewheelInteractionConfigurationPrimiti.c)
+ */
+
 __int64 __fastcall CInteractionProcessor::SupportsInteractionType(__int64 a1, int a2, unsigned int a3, char a4)
 {
   unsigned int v4; // edi

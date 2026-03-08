@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlEndSystemInterrupt @ 0x140412120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void HvlEndSystemInterrupt()
 {
   if ( !_bittestandreset((signed __int32 *)KeGetPcr()->Prcb.VirtualApicAssist, 0) )

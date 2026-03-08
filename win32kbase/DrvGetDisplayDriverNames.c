@@ -1,3 +1,14 @@
+/*
+ * XREFs of DrvGetDisplayDriverNames @ 0x1C0024700
+ * Callers:
+ *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0022E20 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
+ *     DrvBuildDevmodeList @ 0x1C0028AF8 (DrvBuildDevmodeList.c)
+ *     DrvEscapeRemoteDrivers @ 0x1C00D8D30 (DrvEscapeRemoteDrivers.c)
+ * Callees:
+ *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0062994 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 unsigned int *__fastcall DrvGetDisplayDriverNames(__int64 a1)
 {
   _WORD *v1; // rax

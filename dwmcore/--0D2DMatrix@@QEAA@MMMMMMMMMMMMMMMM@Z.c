@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??0D2DMatrix@@QEAA@MMMMMMMMMMMMMMMM@Z @ 0x180279304
+ * Callers:
+ *     ??DD2DMatrix@@QEBA?AU0@M@Z @ 0x1802793F8 (--DD2DMatrix@@QEBA-AU0@M@Z.c)
+ *     ??GD2DMatrix@@QEBA?AU0@AEBU0@@Z @ 0x180279580 (--GD2DMatrix@@QEBA-AU0@AEBU0@@Z.c)
+ *     ??GD2DMatrix@@QEBA?AU0@XZ @ 0x18027972C (--GD2DMatrix@@QEBA-AU0@XZ.c)
+ *     ??HD2DMatrix@@QEBA?AU0@AEBU0@@Z @ 0x1802798D4 (--HD2DMatrix@@QEBA-AU0@AEBU0@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 D2DMatrix *__fastcall D2DMatrix::D2DMatrix(
         D2DMatrix *this,
         float a2,

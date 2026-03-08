@@ -1,3 +1,13 @@
+/*
+ * XREFs of LpcpRequestWaitReplyPort @ 0x14097555C
+ * Callers:
+ *     LpcRequestWaitReplyPort @ 0x1408A04D0 (LpcRequestWaitReplyPort.c)
+ *     LpcRequestWaitReplyPortEx @ 0x140975210 (LpcRequestWaitReplyPortEx.c)
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1407CF500 (AlpcpProcessSynchronousRequest.c)
+ */
+
 __int64 __fastcall LpcpRequestWaitReplyPort(__int64 a1, __int128 *a2, unsigned __int64 a3, __int64 a4, char a5)
 {
   struct _KTHREAD *CurrentThread; // rax

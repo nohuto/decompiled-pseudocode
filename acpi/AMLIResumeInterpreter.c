@@ -1,3 +1,15 @@
+/*
+ * XREFs of AMLIResumeInterpreter @ 0x1C0048D2C
+ * Callers:
+ *     ACPIDevicePowerProcessPhase0SystemSubPhase1 @ 0x1C001F040 (ACPIDevicePowerProcessPhase0SystemSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase2 @ 0x1C00211F0 (ACPIDevicePowerProcessPhase5SystemSubPhase2.c)
+ *     AcpiReflectNativeObject @ 0x1C0037D80 (AcpiReflectNativeObject.c)
+ *     Simulator_CallbackWorker @ 0x1C0048FB0 (Simulator_CallbackWorker.c)
+ * Callees:
+ *     OSQueueWorkItem @ 0x1C004774C (OSQueueWorkItem.c)
+ *     LogSchedEvent @ 0x1C004E3AC (LogSchedEvent.c)
+ */
+
 void AMLIResumeInterpreter()
 {
   _QWORD *v0; // rbx

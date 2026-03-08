@@ -1,3 +1,15 @@
+/*
+ * XREFs of PfCheckDeprioritizeImage @ 0x1407E72DC
+ * Callers:
+ *     CcUnmapVacb @ 0x1406A7150 (CcUnmapVacb.c)
+ *     PfProcessCreateNotification @ 0x1407E6CA0 (PfProcessCreateNotification.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ */
+
 _BOOL8 __fastcall PfCheckDeprioritizeImage(unsigned int a1)
 {
   __int64 v1; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MNDrawMenu3DHotTracking@@YAXPEAUHDC__@@AEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C02366B4
+ * Callers:
+ *     xxxDrawMenuItem @ 0x1C0237914 (xxxDrawMenuItem.c)
+ * Callees:
+ *     NtGdiPatBlt @ 0x1C008B370 (NtGdiPatBlt.c)
+ */
+
 __int64 __fastcall MNDrawMenu3DHotTracking(HDC a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

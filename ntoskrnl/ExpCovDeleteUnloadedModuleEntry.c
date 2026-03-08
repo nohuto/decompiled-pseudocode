@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpCovDeleteUnloadedModuleEntry @ 0x140A03718
+ * Callers:
+ *     ExCovReadjustUnloadedModuleEntry @ 0x1407F6CC8 (ExCovReadjustUnloadedModuleEntry.c)
+ *     ExpCovQueryInformation @ 0x140A03B6C (ExpCovQueryInformation.c)
+ *     ExpCovResetInformation @ 0x140A04414 (ExpCovResetInformation.c)
+ * Callees:
+ *     ExpCovFreeUnloadedModuleEntry @ 0x140A03794 (ExpCovFreeUnloadedModuleEntry.c)
+ */
+
 __int64 __fastcall ExpCovDeleteUnloadedModuleEntry(_QWORD *a1)
 {
   _QWORD *v2; // rdx

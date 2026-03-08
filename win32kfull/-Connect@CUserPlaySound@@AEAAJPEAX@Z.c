@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Connect@CUserPlaySound@@AEAAJPEAX@Z @ 0x1C00F6B4C
+ * Callers:
+ *     NtUserDoSoundConnect @ 0x1C00F4290 (NtUserDoSoundConnect.c)
+ * Callees:
+ *     PlaySoundConnect @ 0x1C039CDE4 (PlaySoundConnect.c)
+ *     PlaySoundDisconnect @ 0x1C039CF50 (PlaySoundDisconnect.c)
+ */
+
 __int64 __fastcall CUserPlaySound::Connect(CUserPlaySound *this, void *a2)
 {
   RPC_BINDING_HANDLE *v2; // rsi

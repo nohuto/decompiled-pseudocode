@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiEvaluateGroupSchedulingPreemption @ 0x1403426B0
+ * Callers:
+ *     KeYieldExecution @ 0x140256BE0 (KeYieldExecution.c)
+ *     KiDeferredReadySingleThread @ 0x140259FB0 (KiDeferredReadySingleThread.c)
+ *     KiSearchForNewThread @ 0x140260460 (KiSearchForNewThread.c)
+ *     KiDoesThreadDominateRescheduleContextEntry @ 0x1402C3F04 (KiDoesThreadDominateRescheduleContextEntry.c)
+ *     KiDirectSwitchThread @ 0x1403414A0 (KiDirectSwitchThread.c)
+ * Callees:
+ *     KiIsThreadConstrainedBySchedulingGroup @ 0x1402280CC (KiIsThreadConstrainedBySchedulingGroup.c)
+ *     KiShouldPreemptionBeDeferred @ 0x1402ADF34 (KiShouldPreemptionBeDeferred.c)
+ *     KiGetComparisonRanks @ 0x1402FDA84 (KiGetComparisonRanks.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1403428F0 (KiGetThreadEffectiveRankNonZero.c)
+ */
+
 bool __fastcall KiEvaluateGroupSchedulingPreemption(__int64 *a1, __int64 a2, int a3, __int64 *a4)
 {
   unsigned __int8 v4; // al

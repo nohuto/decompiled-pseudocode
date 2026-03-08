@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpStackTraceDispatcher @ 0x140460750
+ * Callers:
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x14036F9F8 (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogContextSwapEvent @ 0x140384C90 (EtwpLogContextSwapEvent.c)
+ * Callees:
+ *     EtwpGetStackCaptureSettings @ 0x1404603A4 (EtwpGetStackCaptureSettings.c)
+ *     EtwpQueueStackWalkApc @ 0x140460526 (EtwpQueueStackWalkApc.c)
+ *     EtwpTraceStackWalk @ 0x140460A6C (EtwpTraceStackWalk.c)
+ */
+
 void __fastcall EtwpStackTraceDispatcher(unsigned int *a1, _SLIST_ENTRY **a2, struct _KTHREAD *a3, unsigned int a4)
 {
   unsigned int v5; // ebx

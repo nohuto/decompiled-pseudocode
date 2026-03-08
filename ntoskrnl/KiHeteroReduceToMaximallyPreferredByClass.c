@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiHeteroReduceToMaximallyPreferredByClass @ 0x140574EC0
+ * Callers:
+ *     KiHeteroIdleSetReduction @ 0x14045974C (KiHeteroIdleSetReduction.c)
+ *     KiTallyHeteroSoftParkElectionVotes @ 0x14057C0D8 (KiTallyHeteroSoftParkElectionVotes.c)
+ * Callees:
+ *     KiGetProcessorClassForPolicy @ 0x140459166 (KiGetProcessorClassForPolicy.c)
+ */
+
 __int64 __fastcall KiHeteroReduceToMaximallyPreferredByClass(
         unsigned __int16 a1,
         unsigned __int64 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBDESC_InternalValidateLastEndpoint @ 0x1C0036224
+ * Callers:
+ *     HUBDESC_InternalValidateLastInterface @ 0x1C0036338 (HUBDESC_InternalValidateLastInterface.c)
+ *     HUBDESC_InternalValidateEndpointDescriptor @ 0x1C0036484 (HUBDESC_InternalValidateEndpointDescriptor.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 bool __fastcall HUBDESC_InternalValidateLastEndpoint(__int64 a1, int *a2, __int64 a3)
 {
   int *v4; // rdi

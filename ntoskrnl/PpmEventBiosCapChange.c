@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmEventBiosCapChange @ 0x1405977CC
+ * Callers:
+ *     PpmRegisterPerfCap @ 0x14058AF70 (PpmRegisterPerfCap.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     PpmEventGetEventDescriptorAndProcessorId @ 0x140233B18 (PpmEventGetEventDescriptorAndProcessorId.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PpmEventBiosCapChange(__int64 a1, int a2)
 {
   const EVENT_DESCRIPTOR *EventDescriptorAndProcessorId; // rax

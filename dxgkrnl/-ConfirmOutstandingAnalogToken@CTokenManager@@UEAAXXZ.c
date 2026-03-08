@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ConfirmOutstandingAnalogToken@CTokenManager@@UEAAXXZ @ 0x1C0076AD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AcquireTokenManagerLock@CTokenManager@@AEAAXXZ @ 0x1C00129C0 (-AcquireTokenManagerLock@CTokenManager@@AEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CTokenManager::ConfirmOutstandingAnalogToken(CTokenManager *this)
 {
   __int64 v2; // rcx

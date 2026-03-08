@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@CCompositionPointLightMarshaler@DirectComposition@@UEAAJXZ @ 0x1C0269F50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CCompositionPointLightMarshaler::Initialize(
         DirectComposition::CCompositionPointLightMarshaler *this)
 {

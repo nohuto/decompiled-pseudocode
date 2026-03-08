@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreSetLFONTOwner @ 0x1C010E86C
+ * Callers:
+ *     FinishStockFontReinit @ 0x1C00B9210 (FinishStockFontReinit.c)
+ *     CreateFontFromUserProfile @ 0x1C010E764 (CreateFontFromUserProfile.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GreSetLFONTOwner(__int64 a1, unsigned int a2, __int64 a3)
 {
   unsigned int v3; // eax

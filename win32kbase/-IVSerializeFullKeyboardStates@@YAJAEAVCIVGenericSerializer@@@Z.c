@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IVSerializeFullKeyboardStates@@YAJAEAVCIVGenericSerializer@@@Z @ 0x1C021D80C
+ * Callers:
+ *     ?SerializeFullKeyboardStatesForContainer@Detail@Keyboard@IVRootDeliver@@YAJAEAVCIVGenericSerializer@@@Z @ 0x1C022828C (-SerializeFullKeyboardStatesForContainer@Detail@Keyboard@IVRootDeliver@@YAJAEAVCIVGenericSeriali.c)
+ * Callees:
+ *     ?Serialize@CIVSerializer@@IEAAJPEAPEAXQEAX_K_N@Z @ 0x1C0234168 (-Serialize@CIVSerializer@@IEAAJPEAPEAXQEAX_K_N@Z.c)
+ */
+
 __int64 __fastcall IVSerializeFullKeyboardStates(struct CIVGenericSerializer *this, __int64 a2, __int64 a3, __int64 a4)
 {
   void **v4; // rdi

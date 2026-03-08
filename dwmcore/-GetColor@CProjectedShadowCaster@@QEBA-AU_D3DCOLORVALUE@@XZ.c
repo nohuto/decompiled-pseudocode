@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetColor@CProjectedShadowCaster@@QEBA?AU_D3DCOLORVALUE@@XZ @ 0x180005B14
+ * Callers:
+ *     ?IsEmptyMaskContent@CProjectedShadowCaster@@QEBA_NXZ @ 0x180005A70 (-IsEmptyMaskContent@CProjectedShadowCaster@@QEBA_NXZ.c)
+ *     ?ComputeShadowColor@CProjectedShadow@@AEBA?AU_D3DCOLORVALUE@@PEAVCDrawingContext@@@Z @ 0x18012F430 (-ComputeShadowColor@CProjectedShadow@@AEBA-AU_D3DCOLORVALUE@@PEAVCDrawingContext@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _D3DCOLORVALUE *__fastcall CProjectedShadowCaster::GetColor(
         CProjectedShadowCaster *this,
         struct _D3DCOLORVALUE *__return_ptr retstr)

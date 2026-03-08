@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopAssociateThermalRequest @ 0x14084BAD0
+ * Callers:
+ *     PoCreateThermalRequest @ 0x14084B9E0 (PoCreateThermalRequest.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x1403901F8 (PopThermalUpdateTelemetryClientCount.c)
+ *     PopGetDope @ 0x1403BF328 (PopGetDope.c)
+ *     PopAcquireCoolingInterface @ 0x14084BC94 (PopAcquireCoolingInterface.c)
+ *     PopDiagTraceThermalRequest @ 0x14085CD54 (PopDiagTraceThermalRequest.c)
+ *     PopDiagTraceCoolingExtension @ 0x14085D84C (PopDiagTraceCoolingExtension.c)
+ *     PopCleanCoolingExtension @ 0x14097FD9C (PopCleanCoolingExtension.c)
+ *     PopRegisterCoolingExtensionProtection @ 0x140980294 (PopRegisterCoolingExtensionProtection.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PopAssociateThermalRequest(__int64 a1, __int64 a2, char a3)
 {
   _QWORD *v6; // rdi

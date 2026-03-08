@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspGetNoChildProcessRestrictedPolicy @ 0x14079B490
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1407215F0 (NtQueryInformationProcess.c)
+ * Callees:
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     SeTokenGetNoChildProcessRestricted @ 0x14029894C (SeTokenGetNoChildProcessRestricted.c)
+ */
+
 __int64 __fastcall PspGetNoChildProcessRestrictedPolicy(__int64 a1)
 {
   ULONG_PTR v2; // rbx

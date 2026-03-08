@@ -1,3 +1,21 @@
+/*
+ * XREFs of SmcStoreCreate @ 0x1409D8464
+ * Callers:
+ *     SmcProcessStoreCreateRequest @ 0x1409D56AC (SmcProcessStoreCreateRequest.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402A4AEC (SSHSupportAllocateNonPaged.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SmStoreCreate @ 0x1409D4C2C (SmStoreCreate.c)
+ *     SmKmKeyGenGenerate @ 0x1409D601C (SmKmKeyGenGenerate.c)
+ *     SmKmRegParamsLoad @ 0x1409D662C (SmKmRegParamsLoad.c)
+ *     SmcCacheReference @ 0x1409D8000 (SmcCacheReference.c)
+ *     SmcStoreSlotAbort @ 0x1409D8C18 (SmcStoreSlotAbort.c)
+ *     SmcStoreSlotCommit @ 0x1409D8CB0 (SmcStoreSlotCommit.c)
+ *     SmcStoreSlotReserve @ 0x1409D8D54 (SmcStoreSlotReserve.c)
+ */
+
 __int64 __fastcall SmcStoreCreate(__int64 a1, unsigned int a2, _DWORD *a3, unsigned int a4, unsigned int *a5)
 {
   struct _PRIVILEGE_SET *v9; // r14

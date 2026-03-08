@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vLine1Octant07@@YAXPEAU_DDALINE@@PEAEJK@Z @ 0x1C02FE5F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vLine1Octant07(struct _DDALINE *a1, unsigned __int8 *a2, int a3, int a4)
 {
   int v4; // edi

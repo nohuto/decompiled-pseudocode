@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhGetPdoRegistryParameter @ 0x1C0045000
+ * Callers:
+ *     UsbhExtPropDescSemaphorePresent @ 0x1C0032980 (UsbhExtPropDescSemaphorePresent.c)
+ *     UsbhReadPdoRegistryKeys @ 0x1C0046364 (UsbhReadPdoRegistryKeys.c)
+ *     UsbhRegPnpStart @ 0x1C0046820 (UsbhRegPnpStart.c)
+ *     UsbhUpdateRegHubHardResetCount @ 0x1C0046F60 (UsbhUpdateRegHubHardResetCount.c)
+ * Callees:
+ *     memmove @ 0x1C0023580 (memmove.c)
+ */
+
 __int64 __fastcall UsbhGetPdoRegistryParameter(
         struct _DEVICE_OBJECT *a1,
         const WCHAR *a2,

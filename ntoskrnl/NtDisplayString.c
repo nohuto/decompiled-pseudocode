@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtDisplayString @ 0x1409F5C70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     BgkDisplayStringEx @ 0x14054C9A4 (BgkDisplayStringEx.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtDisplayString(unsigned __int64 a1)
 {
   KPROCESSOR_MODE PreviousMode; // di

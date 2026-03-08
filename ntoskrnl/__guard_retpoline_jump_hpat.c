@@ -1,3 +1,11 @@
+/*
+ * XREFs of __guard_retpoline_jump_hpat @ 0x140AF6560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall _guard_retpoline_jump_hpat()
 {
   __int64 v0; // rax

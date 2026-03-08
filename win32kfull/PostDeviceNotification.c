@@ -1,3 +1,17 @@
+/*
+ * XREFs of PostDeviceNotification @ 0x1C00D6230
+ * Callers:
+ *     EditionDevicePnpNotification @ 0x1C00D53F0 (EditionDevicePnpNotification.c)
+ *     ?InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KHPEAUtagWND@@H@Z @ 0x1C00D604C (-InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KH.c)
+ *     Win32kRIMDevChangeCallback @ 0x1C01A7C60 (Win32kRIMDevChangeCallback.c)
+ * Callees:
+ *     ?InProcessDeviceTypeRequestTable@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@GG@Z @ 0x1C00D5A40 (-InProcessDeviceTypeRequestTable@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@GG@Z.c)
+ *     ?PostHidNotification@@YAHPEAUtagPROCESS_HID_REQUEST@@PEAUDEVICEINFO@@I_K@Z @ 0x1C00D6620 (-PostHidNotification@@YAHPEAUtagPROCESS_HID_REQUEST@@PEAUDEVICEINFO@@I_K@Z.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ *     PostPointerEventMessage @ 0x1C01C4440 (PostPointerEventMessage.c)
+ *     ?OnDeviceRemoval@Edgy@@YAXPEAX@Z @ 0x1C01E8948 (-OnDeviceRemoval@Edgy@@YAXPEAX@Z.c)
+ */
+
 void __fastcall PostDeviceNotification(
         struct tagPROCESS_HID_REQUEST *a1,
         struct DEVICEINFO *a2,

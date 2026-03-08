@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ConfirmFrame@CKernelTransport@@UEAAJAEBUtagCOMPOSITION_CONFIRM_FRAME_INFO@@@Z @ 0x1800E7A60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CKernelTransport::ConfirmFrame(
         CKernelTransport *this,
         const struct tagCOMPOSITION_CONFIRM_FRAME_INFO *a2)

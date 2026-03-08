@@ -1,3 +1,14 @@
+/*
+ * XREFs of SetUMInputObservationState @ 0x1C02189D4
+ * Callers:
+ *     NtMITSetInputObservationState @ 0x1C016BE90 (NtMITSetInputObservationState.c)
+ * Callees:
+ *     _anonymous_namespace_::GetMouseProcessor @ 0x1C0079E3C (_anonymous_namespace_--GetMouseProcessor.c)
+ *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C007CCB8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?SetUMInputObservationState@CBaseProcessor@@QEAAXW4_MIT_INPUT_OBSERVATION_STATE@@@Z @ 0x1C0226240 (-SetUMInputObservationState@CBaseProcessor@@QEAAXW4_MIT_INPUT_OBSERVATION_STATE@@@Z.c)
+ */
+
 __int64 __fastcall SetUMInputObservationState(int a1, int a2, unsigned int a3)
 {
   __int64 v6; // rdx

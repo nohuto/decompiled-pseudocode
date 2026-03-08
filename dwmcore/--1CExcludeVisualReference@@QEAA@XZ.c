@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CExcludeVisualReference@@QEAA@XZ @ 0x1801B10B8
+ * Callers:
+ *     ??_GCExcludeVisualReference@@QEAAPEAXI@Z @ 0x1801B148C (--_GCExcludeVisualReference@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Restore@CExcludeVisualReference@@UEAAXXZ @ 0x1801CA350 (-Restore@CExcludeVisualReference@@UEAAXXZ.c)
+ */
+
 void __fastcall CExcludeVisualReference::~CExcludeVisualReference(CExcludeVisualReference *this)
 {
   bool v1; // zf

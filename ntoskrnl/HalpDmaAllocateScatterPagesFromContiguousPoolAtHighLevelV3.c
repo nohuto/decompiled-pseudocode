@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3 @ 0x1404FD200
+ * Callers:
+ *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x14050E094 (HalpDmaAllocateMapRegistersAtHighLevel.c)
+ * Callees:
+ *     RtlFindClearBitsAndSet @ 0x14030CEE0 (RtlFindClearBitsAndSet.c)
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ *     HalpDmaIndexToTranslationEntry @ 0x1404540DE (HalpDmaIndexToTranslationEntry.c)
+ */
+
 __int64 __fastcall HalpDmaAllocateScatterPagesFromContiguousPoolAtHighLevelV3(
         __int64 a1,
         __int64 a2,

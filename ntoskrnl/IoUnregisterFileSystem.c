@@ -1,3 +1,15 @@
+/*
+ * XREFs of IoUnregisterFileSystem @ 0x1408728F0
+ * Callers:
+ *     RawShutdown @ 0x1409B52A0 (RawShutdown.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     IopDecrementDeviceObjectRefCount @ 0x1402F0E78 (IopDecrementDeviceObjectRefCount.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __stdcall IoUnregisterFileSystem(PDEVICE_OBJECT DeviceObject)
 {
   struct _KTHREAD *CurrentThread; // rax

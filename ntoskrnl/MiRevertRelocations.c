@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiRevertRelocations @ 0x14069F300
+ * Callers:
+ *     MiValidateSectionCreate @ 0x14069F890 (MiValidateSectionCreate.c)
+ * Callees:
+ *     MiPerformFixups @ 0x14069F3D0 (MiPerformFixups.c)
+ */
+
 __int64 __fastcall MiRevertRelocations(__int64 a1, ULONG_PTR a2, unsigned int a3)
 {
   __int64 result; // rax

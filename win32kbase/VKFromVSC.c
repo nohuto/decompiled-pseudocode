@@ -1,3 +1,15 @@
+/*
+ * XREFs of VKFromVSC @ 0x1C021B5D0
+ * Callers:
+ *     NtMITSynthesizeKeyboardInput @ 0x1C00087B0 (NtMITSynthesizeKeyboardInput.c)
+ *     ProcessKeyboardInjectedInput @ 0x1C000E730 (ProcessKeyboardInjectedInput.c)
+ *     ProcessKeyboardInputWorker @ 0x1C021A7E0 (ProcessKeyboardInputWorker.c)
+ * Callees:
+ *     GetModifierBits @ 0x1C0002C40 (GetModifierBits.c)
+ *     GetActiveHKL @ 0x1C007F950 (GetActiveHKL.c)
+ *     ?IsWinstaLessSession@@YA_NXZ @ 0x1C0082864 (-IsWinstaLessSession@@YA_NXZ.c)
+ */
+
 char __fastcall VKFromVSC(unsigned __int8 *a1, char a2)
 {
   __int16 v3; // di

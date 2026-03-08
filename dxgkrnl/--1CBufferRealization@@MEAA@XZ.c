@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CBufferRealization@@MEAA@XZ @ 0x1C000BB70
+ * Callers:
+ *     ??_ECBufferRealization@@MEAAPEAXI@Z @ 0x1C000BAA0 (--_ECBufferRealization@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CBufferRealization::~CBufferRealization(CBufferRealization *this)
 {
   void (__fastcall ***v2)(_QWORD); // rcx

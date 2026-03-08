@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIBuildProcessRunMethodPhaseCheckPep @ 0x1C00116D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIBuildCompleteMustSucceed @ 0x1C000BCB0 (ACPIBuildCompleteMustSucceed.c)
+ *     AcpiNotifyPlExtDiscoverDeviceAsync @ 0x1C0037A5C (AcpiNotifyPlExtDiscoverDeviceAsync.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessRunMethodPhaseCheckPep(__int64 a1)
 {
   __int64 v1; // rbx

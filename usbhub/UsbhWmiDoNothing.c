@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhWmiDoNothing @ 0x1C004A0C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ */
+
 __int64 __fastcall UsbhWmiDoNothing(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   _DWORD *v6; // r10

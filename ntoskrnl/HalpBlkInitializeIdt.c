@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpBlkInitializeIdt @ 0x140A95370
+ * Callers:
+ *     HalpBlkInitializeProcessorState @ 0x140A9544C (HalpBlkInitializeProcessorState.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 unsigned __int64 __fastcall HalpBlkInitializeIdt(__int64 a1, char *a2)
 {
   unsigned int v3; // edx

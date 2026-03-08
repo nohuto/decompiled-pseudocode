@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiDxgkDdiQueryChildStatus @ 0x1C01E70DC
+ * Callers:
+ *     DpiPdoIsChildConnected @ 0x1C01E6E20 (DpiPdoIsChildConnected.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqqqqq_EtwWriteTransfer @ 0x1C00472CC (McTemplateK0pqqqqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiDxgkDdiQueryChildStatus(__int64 a1, __int64 a2, __int64 a3, unsigned __int8 a4)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of IpmiLibAddSelBugcheckRecord @ 0x140675714
+ * Callers:
+ *     KeBugCheck2 @ 0x140565E90 (KeBugCheck2.c)
+ * Callees:
+ *     IpmiHwContextInitialized @ 0x1406751AC (IpmiHwContextInitialized.c)
+ *     IpmiLibAddSelRecord @ 0x1406758D8 (IpmiLibAddSelRecord.c)
+ *     IpmiLibpAddSelRawData @ 0x140675980 (IpmiLibpAddSelRawData.c)
+ */
+
 __int64 __fastcall IpmiLibAddSelBugcheckRecord(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   unsigned __int16 *v4; // rdi

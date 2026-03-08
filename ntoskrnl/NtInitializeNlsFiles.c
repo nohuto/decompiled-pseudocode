@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtInitializeNlsFiles @ 0x140780A70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ZwQueryDefaultLocale @ 0x1404125B0 (ZwQueryDefaultLocale.c)
+ *     MmMapViewOfSection @ 0x14069EC70 (MmMapViewOfSection.c)
+ *     ExpGetGlobalLocaleSection @ 0x140780BAC (ExpGetGlobalLocaleSection.c)
+ */
+
 __int64 __fastcall NtInitializeNlsFiles(_QWORD *a1, _DWORD *a2)
 {
   __int64 v4; // rdx

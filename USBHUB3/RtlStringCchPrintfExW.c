@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlStringCchPrintfExW @ 0x1C001404C
+ * Callers:
+ *     HUBPDO_GetLocationString @ 0x1C001B020 (HUBPDO_GetLocationString.c)
+ * Callees:
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 NTSTATUS RtlStringCchPrintfExW(
         NTSTRSAFE_PWSTR pszDest,
         size_t cchDest,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CalculateNaturalEndpoint@CPositionMotion@@MEBAMXZ @ 0x18026C140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?UnboundedInertiaPanningAtTime@CPositionMotion@@AEBAMM@Z @ 0x18026C358 (-UnboundedInertiaPanningAtTime@CPositionMotion@@AEBAMM@Z.c)
+ */
+
 float __fastcall CPositionMotion::CalculateNaturalEndpoint(CPositionMotion *this)
 {
   float v2; // xmm6_4

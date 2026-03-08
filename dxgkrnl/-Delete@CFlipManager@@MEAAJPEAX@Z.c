@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?Delete@CFlipManager@@MEAAJPEAX@Z @ 0x1C0082E80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?FreeCancels@CFlipManager@@AEAAXXZ @ 0x1C00830AC (-FreeCancels@CFlipManager@@AEAAXXZ.c)
+ *     ?FreeCurrentUpdates@CFlipManager@@AEAAXXZ @ 0x1C0083138 (-FreeCurrentUpdates@CFlipManager@@AEAAXXZ.c)
+ *     ?FreeQueuedUpdates@CFlipManager@@AEAAXXZ @ 0x1C008322C (-FreeQueuedUpdates@CFlipManager@@AEAAXXZ.c)
+ *     ?DestroyAllResourceStates@CEndpointResourceStateManager@@QEAAXXZ @ 0x1C00855BC (-DestroyAllResourceStates@CEndpointResourceStateManager@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall CFlipManager::Delete(CFlipManager *this, void *a2)
 {
   void (__fastcall ***v3)(_QWORD, __int64); // rcx

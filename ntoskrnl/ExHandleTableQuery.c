@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExHandleTableQuery @ 0x1407117F0
+ * Callers:
+ *     ObGetProcessHandleCount @ 0x14071172C (ObGetProcessHandleCount.c)
+ * Callees:
+ *     <none>
+ */
+
 signed __int64 __fastcall ExHandleTableQuery(unsigned int *a1, _DWORD *a2, _DWORD *a3)
 {
   unsigned int *v3; // rax

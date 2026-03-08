@@ -1,3 +1,13 @@
+/*
+ * XREFs of ProcessMultipleCommandsInSpecificQueue @ 0x1C0024840
+ * Callers:
+ *     ProcessMultipleCommands @ 0x1C0024780 (ProcessMultipleCommands.c)
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     ProcessCommandTrace @ 0x1C00022D0 (ProcessCommandTrace.c)
+ *     SrbAssignCommandId @ 0x1C00253D4 (SrbAssignCommandId.c)
+ */
+
 char __fastcall ProcessMultipleCommandsInSpecificQueue(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4)
 {
   char v7; // r12

@@ -1,3 +1,16 @@
+/*
+ * XREFs of PiSwBusRelationRemove @ 0x140964098
+ * Callers:
+ *     PiSwIrpStartCreateWorker @ 0x140806A2C (PiSwIrpStartCreateWorker.c)
+ *     PiSwCloseDevice @ 0x140964150 (PiSwCloseDevice.c)
+ *     PiSwProcessRemove @ 0x140964760 (PiSwProcessRemove.c)
+ * Callees:
+ *     RtlDeleteElementGenericTableAvl @ 0x140244F40 (RtlDeleteElementGenericTableAvl.c)
+ *     McTemplateK0zzz_EtwWriteTransfer @ 0x140561860 (McTemplateK0zzz_EtwWriteTransfer.c)
+ *     PiSwDeviceDereference @ 0x140807FA4 (PiSwDeviceDereference.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PiSwBusRelationRemove(const wchar_t **P, __int64 a2, __int64 a3)
 {
   char *v3; // rbx

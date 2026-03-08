@@ -1,3 +1,27 @@
+/*
+ * XREFs of MxSwapPages @ 0x140B50198
+ * Callers:
+ *     MxRelocatePageTables @ 0x140B4F790 (MxRelocatePageTables.c)
+ *     MxMovePageTables @ 0x140B4F948 (MxMovePageTables.c)
+ * Callees:
+ *     MiWriteValidPteNewPage @ 0x140211DE8 (MiWriteValidPteNewPage.c)
+ *     KeFlushSingleTb @ 0x140211E60 (KeFlushSingleTb.c)
+ *     MiCopyPfnEntryEx @ 0x140213930 (MiCopyPfnEntryEx.c)
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiFinalizePageAttribute @ 0x14028A354 (MiFinalizePageAttribute.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiLockNestedPageAtDpcInline @ 0x1402DDE90 (MiLockNestedPageAtDpcInline.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MxGetPhase0Mapping @ 0x140B5049C (MxGetPhase0Mapping.c)
+ */
+
 __int64 __fastcall MxSwapPages(__int64 a1, unsigned __int64 a2)
 {
   ULONG_PTR v3; // r15

@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?SetProperty@CProjectedShadowScene@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1802488B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetBlurRadiusMultiplier@CProjectedShadowScene@@AEAAXM@Z @ 0x180004550 (-SetBlurRadiusMultiplier@CProjectedShadowScene@@AEAAXM@Z.c)
+ *     ?SetMaxBlurRadius@CProjectedShadowScene@@AEAAXM@Z @ 0x180004598 (-SetMaxBlurRadius@CProjectedShadowScene@@AEAAXM@Z.c)
+ *     ?SetOpacityFalloff@CProjectedShadowScene@@AEAAXM@Z @ 0x1800045E4 (-SetOpacityFalloff@CProjectedShadowScene@@AEAAXM@Z.c)
+ *     ?SetMaxOpacity@CProjectedShadowScene@@AEAAXM@Z @ 0x180004624 (-SetMaxOpacity@CProjectedShadowScene@@AEAAXM@Z.c)
+ *     ?SetMinOpacity@CProjectedShadowScene@@AEAAXM@Z @ 0x180004688 (-SetMinOpacity@CProjectedShadowScene@@AEAAXM@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SetMinBlurRadius@CProjectedShadowScene@@AEAAXM@Z @ 0x180248854 (-SetMinBlurRadius@CProjectedShadowScene@@AEAAXM@Z.c)
+ */
+
 __int64 __fastcall CProjectedShadowScene::SetProperty(CProjectedShadowScene *a1, int a2, int a3, float *a4)
 {
   int v4; // edx

@@ -1,3 +1,22 @@
+/*
+ * XREFs of _CmValidateDeviceInterfaceName @ 0x1406D3FF0
+ * Callers:
+ *     _CmGetDeviceInterfaceSymbolicLinkName @ 0x140683BDC (_CmGetDeviceInterfaceSymbolicLinkName.c)
+ *     _CmSetDeviceInterfacePathFormat @ 0x1406C3E94 (_CmSetDeviceInterfacePathFormat.c)
+ *     _PnpDispatchDeviceInterface @ 0x1406C8CF0 (_PnpDispatchDeviceInterface.c)
+ *     _CmGetDeviceInterfaceSubkeyPath @ 0x1406D208C (_CmGetDeviceInterfaceSubkeyPath.c)
+ *     IoGetDeviceInterfaceAlias @ 0x14078E260 (IoGetDeviceInterfaceAlias.c)
+ *     _CmGetDeviceInterfacePathFormat @ 0x14078E5C4 (_CmGetDeviceInterfacePathFormat.c)
+ *     _CmGetDeviceInterfaceReferenceString @ 0x14078E658 (_CmGetDeviceInterfaceReferenceString.c)
+ *     _CmDeviceClassesSubkeyCallback @ 0x140824A50 (_CmDeviceClassesSubkeyCallback.c)
+ * Callees:
+ *     RtlStringCchCopyNExW @ 0x140245AC0 (RtlStringCchCopyNExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     RtlPrefixUnicodeString @ 0x1406D5A70 (RtlPrefixUnicodeString.c)
+ */
+
 NTSTATUS __fastcall CmValidateDeviceInterfaceName(__int64 a1, __int64 a2)
 {
   int v3; // edi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBPDO_BillboardCleanup @ 0x1C007E300
+ * Callers:
+ *     HUBPDO_EvtDeviceCleanup @ 0x1C001A4C0 (HUBPDO_EvtDeviceCleanup.c)
+ *     HUBPDO_EvtDeviceSurpriseRemoval @ 0x1C007E890 (HUBPDO_EvtDeviceSurpriseRemoval.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBFDO_CleanupDeviceInterfaceForBillboard @ 0x1C000F7E4 (HUBFDO_CleanupDeviceInterfaceForBillboard.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall HUBPDO_BillboardCleanup(__int64 a1)
 {
   __int64 v2; // rdx

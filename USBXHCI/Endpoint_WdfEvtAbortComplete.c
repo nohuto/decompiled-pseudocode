@@ -1,3 +1,12 @@
+/*
+ * XREFs of Endpoint_WdfEvtAbortComplete @ 0x1C003D580
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ddq @ 0x1C000C300 (WPP_RECORDER_SF_ddq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Endpoint_WdfEvtAbortComplete(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

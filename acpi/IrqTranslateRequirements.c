@@ -1,3 +1,11 @@
+/*
+ * XREFs of IrqTranslateRequirements @ 0x1C009A4A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IrqTranslateRequirements(__int64 a1, _OWORD *a2, __int64 a3, _DWORD *a4, __int64 *a5)
 {
   __int64 Pool2; // rax

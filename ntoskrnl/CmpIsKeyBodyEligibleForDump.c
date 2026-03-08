@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpIsKeyBodyEligibleForDump @ 0x140AF2AB0
+ * Callers:
+ *     CmDumpKeyToFile @ 0x140A07E64 (CmDumpKeyToFile.c)
+ *     CmpDumpKeyToBuffer @ 0x140AF28C4 (CmpDumpKeyToBuffer.c)
+ * Callees:
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140AF24F0 (CmpPerformKeyBodyDeletionCheck.c)
+ */
+
 __int64 __fastcall CmpIsKeyBodyEligibleForDump(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

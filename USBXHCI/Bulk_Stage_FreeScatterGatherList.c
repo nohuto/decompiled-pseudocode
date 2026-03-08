@@ -1,3 +1,15 @@
+/*
+ * XREFs of Bulk_Stage_FreeScatterGatherList @ 0x1C00118C4
+ * Callers:
+ *     Bulk_CompleteTransfers @ 0x1C000E608 (Bulk_CompleteTransfers.c)
+ *     Bulk_ProcessTransferEventWithED1 @ 0x1C0011324 (Bulk_ProcessTransferEventWithED1.c)
+ *     Bulk_ProcessTransferEventWithHaltedCompletion @ 0x1C0046FFC (Bulk_ProcessTransferEventWithHaltedCompletion.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     TR_SendCompleteStageRequest @ 0x1C0041C60 (TR_SendCompleteStageRequest.c)
+ *     SecureDmaEnabler_ReleaseResourcesAfterDma @ 0x1C00521B0 (SecureDmaEnabler_ReleaseResourcesAfterDma.c)
+ */
+
 void __fastcall Bulk_Stage_FreeScatterGatherList(__int64 a1, __int64 a2)
 {
   __int64 v4; // rbx

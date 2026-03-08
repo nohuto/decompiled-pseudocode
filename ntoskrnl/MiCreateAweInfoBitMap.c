@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiCreateAweInfoBitMap @ 0x140A3E8D0
+ * Callers:
+ *     MiAllocateAweInfo @ 0x140A3D3BC (MiAllocateAweInfo.c)
+ *     MiResizeAweBitMap @ 0x140A3F4A0 (MiResizeAweBitMap.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x14034CCC0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     MiGetAweInfoPartition @ 0x1406482AC (MiGetAweInfoPartition.c)
+ *     MiGetAwePageSize @ 0x14064836C (MiGetAwePageSize.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiCreateAweInfoBitMap(__int64 a1)
 {
   _KPROCESS *Process; // rsi

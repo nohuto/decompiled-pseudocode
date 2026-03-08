@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiTimerExpiration @ 0x14057A354
+ * Callers:
+ *     KiTimerExpirationDpc @ 0x14057A560 (KiTimerExpirationDpc.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KiSelectActiveTimerTable @ 0x1402521A0 (KiSelectActiveTimerTable.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiExpireTimerTable @ 0x14057A154 (KiExpireTimerTable.c)
+ */
+
 __int64 __fastcall KiTimerExpiration(__int64 a1, int a2, unsigned __int64 a3, char a4, int *a5)
 {
   __int64 result; // rax

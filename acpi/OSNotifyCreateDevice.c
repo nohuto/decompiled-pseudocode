@@ -1,3 +1,16 @@
+/*
+ * XREFs of OSNotifyCreateDevice @ 0x1C0032738
+ * Callers:
+ *     ACPIBuildMissingChildren @ 0x1C000D8BC (ACPIBuildMissingChildren.c)
+ *     OSNotifyCreate @ 0x1C00325E0 (OSNotifyCreate.c)
+ * Callees:
+ *     ACPIBuildDeviceExtension @ 0x1C000C314 (ACPIBuildDeviceExtension.c)
+ *     ACPIBuildDeviceRequest @ 0x1C000C9C0 (ACPIBuildDeviceRequest.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C001B508 (WPP_RECORDER_SF_qD.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetParent @ 0x1C0048724 (AMLIGetParent.c)
+ */
+
 __int64 __fastcall OSNotifyCreateDevice(volatile signed __int32 *BugCheckParameter3, unsigned __int64 a2)
 {
   volatile signed __int32 *v3; // rdi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of FinishStockFontReinit @ 0x1C00B9210
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FinishStockFontInit @ 0x1C00B9D70 (FinishStockFontInit.c)
+ *     ?bSetStockFont@@YAHPEAXHH@Z @ 0x1C00BA5D0 (-bSetStockFont@@YAHPEAXHH@Z.c)
+ *     GreSetLFONTOwner @ 0x1C010E86C (GreSetLFONTOwner.c)
+ *     hfontInitDefaultGuiFont @ 0x1C03B6C5C (hfontInitDefaultGuiFont.c)
+ */
+
 __int64 __fastcall FinishStockFontReinit(Gre::Base *c)
 {
   INT v1; // edi

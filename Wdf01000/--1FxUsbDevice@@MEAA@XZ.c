@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1FxUsbDevice@@MEAA@XZ @ 0x1C005C440
+ * Callers:
+ *     ??_EFxUsbDevice@@MEAAPEAXI@Z @ 0x1C005C550 (--_EFxUsbDevice@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0002D30 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxUsbDevice::~FxUsbDevice(FxUsbDevice *this, unsigned int a2)
 {
   void (__fastcall *m_BusInterfaceDereference)(void *); // rax

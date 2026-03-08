@@ -1,3 +1,11 @@
+/*
+ * XREFs of AssociateKernelIocpWcp @ 0x1C007DA70
+ * Callers:
+ *     ?SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z @ 0x1C007D9E0 (-SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ */
+
 __int64 __fastcall AssociateKernelIocpWcp(
         __int64 a1,
         __int64 a2,

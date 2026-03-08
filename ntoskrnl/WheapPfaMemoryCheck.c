@@ -1,3 +1,17 @@
+/*
+ * XREFs of WheapPfaMemoryCheck @ 0x140A06078
+ * Callers:
+ *     WheapPredictiveFailureAnalysis @ 0x140A063BC (WheapPredictiveFailureAnalysis.c)
+ * Callees:
+ *     MmGetPageBadStatus @ 0x140629080 (MmGetPageBadStatus.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x140A05140 (WheaAttemptPhysicalPageOffline.c)
+ *     WheapExecuteRowFailureCheck @ 0x140A05D80 (WheapExecuteRowFailureCheck.c)
+ *     WheapPfaLogPageMonitorRemoval @ 0x140A05FE0 (WheapPfaLogPageMonitorRemoval.c)
+ *     WheapPfaRetireExpiredMemoryEntries @ 0x140A0630C (WheapPfaRetireExpiredMemoryEntries.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall WheapPfaMemoryCheck(unsigned __int64 a1, __int64 a2)
 {
   unsigned __int64 v2; // rdi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??1FxPkgIo@@UEAA@XZ @ 0x1C0061FD8
+ * Callers:
+ *     ??_EFxPkgIo@@UEAAPEAXI@Z @ 0x1C00620B0 (--_EFxPkgIo@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0002D30 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C0016BA8 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0018194 (WPP_IFR_SF_q.c)
+ */
+
 void __fastcall FxPkgIo::~FxPkgIo(FxPkgIo *this, unsigned int a2)
 {
   _LIST_ENTRY *p_m_DynamicDispatchInfoListHead; // rsi

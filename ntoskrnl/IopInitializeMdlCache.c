@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopInitializeMdlCache @ 0x1408367D4
+ * Callers:
+ *     IoInitSystem @ 0x140B5E3E0 (IoInitSystem.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *IopInitializeMdlCache()
 {
   __int64 *result; // rax

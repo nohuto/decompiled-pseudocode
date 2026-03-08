@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?DeInitGlobals@VIDMM_GLOBAL@@SAXXZ @ 0x1C00E12CC
+ * Callers:
+ *     DriverUnload @ 0x1C002CF70 (DriverUnload.c)
+ *     DriverEntry @ 0x1C010D1E8 (DriverEntry.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C0001A30 (--3@YAXPEAX@Z.c)
+ *     McGenEventUnregister_EtwUnregister @ 0x1C002E4C8 (McGenEventUnregister_EtwUnregister.c)
+ *     ??_GVIDMM_PROCESS_FENCE_STORAGE@@QEAAPEAXI@Z @ 0x1C002F878 (--_GVIDMM_PROCESS_FENCE_STORAGE@@QEAAPEAXI@Z.c)
+ *     ?DeInitPhysicalHeap@VIDMM_GLOBAL@@CAXXZ @ 0x1C00E13F4 (-DeInitPhysicalHeap@VIDMM_GLOBAL@@CAXXZ.c)
+ *     TlgUnregisterAggregateProvider @ 0x1C010A918 (TlgUnregisterAggregateProvider.c)
+ */
+
 void VIDMM_GLOBAL::DeInitGlobals(void)
 {
   VIDMM_GLOBAL::DeInitPhysicalHeap();

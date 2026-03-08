@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetMonitorDescriptorPnpIds@MonitorDescriptorState@DxgMonitor@@QEBAJPEAU_DXGK_GENERIC_DESCRIPTOR@@@Z @ 0x1C020189C
+ * Callers:
+ *     MonitorGetMonitorDescriptorIDs @ 0x1C0201BDC (MonitorGetMonitorDescriptorIDs.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DxgMonitor::MonitorDescriptorState::GetMonitorDescriptorPnpIds(
         DxgMonitor::MonitorDescriptorState *this,
         struct _DXGK_GENERIC_DESCRIPTOR *a2)

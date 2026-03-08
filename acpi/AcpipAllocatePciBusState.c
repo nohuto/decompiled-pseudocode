@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpipAllocatePciBusState @ 0x1C00348CC
+ * Callers:
+ *     IsPciBusAsync @ 0x1C0035270 (IsPciBusAsync.c)
+ * Callees:
+ *     <none>
+ */
+
 char *AcpipAllocatePciBusState()
 {
   char *Pool2; // rbx

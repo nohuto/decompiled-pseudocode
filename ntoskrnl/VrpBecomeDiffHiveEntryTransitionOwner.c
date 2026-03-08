@@ -1,3 +1,12 @@
+/*
+ * XREFs of VrpBecomeDiffHiveEntryTransitionOwner @ 0x140738110
+ * Callers:
+ *     VrpLoadDifferencingHive @ 0x1407375CC (VrpLoadDifferencingHive.c)
+ *     VrpUnloadDifferencingHive @ 0x1407379FC (VrpUnloadDifferencingHive.c)
+ * Callees:
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ */
+
 char __fastcall VrpBecomeDiffHiveEntryTransitionOwner(__int64 a1)
 {
   _QWORD *v1; // rcx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ObpCreateDefaultObjectTypeSD @ 0x14080D1E8
+ * Callers:
+ *     ObpInitObjectTypeSD @ 0x14080D154 (ObpInitObjectTypeSD.c)
+ * Callees:
+ *     RtlLengthSid @ 0x140245EC0 (RtlLengthSid.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpAddKnownAce @ 0x1406D3290 (RtlpAddKnownAce.c)
+ *     RtlCreateAcl @ 0x1406DB640 (RtlCreateAcl.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ObpCreateDefaultObjectTypeSD(__int64 *a1)
 {
   ULONG v2; // ebx

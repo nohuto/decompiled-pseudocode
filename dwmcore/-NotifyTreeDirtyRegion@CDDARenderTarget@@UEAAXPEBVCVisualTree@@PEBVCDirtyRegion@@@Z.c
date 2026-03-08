@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NotifyTreeDirtyRegion@CDDARenderTarget@@UEAAXPEBVCVisualTree@@PEBVCDirtyRegion@@@Z @ 0x18012D7F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CDDARenderTarget::NotifyTreeDirtyRegion(
         CDDARenderTarget *this,
         const struct CVisualTree *a2,

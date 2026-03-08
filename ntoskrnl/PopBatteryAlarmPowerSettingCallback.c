@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopBatteryAlarmPowerSettingCallback @ 0x140829D30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopBatteryUpdateAlarms @ 0x140829D60 (PopBatteryUpdateAlarms.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopBatteryAlarmPowerSettingCallback(
         LPCGUID SettingGuid,
         PVOID Value,

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ @ 0x1C02B14FC
+ * Callers:
+ *     ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C02B1790 (-Destroy@DXGADAPTER@@QEAAXXZ.c)
+ * Callees:
+ *     RtlUnicodeStringValidateDestWorker @ 0x1C000AE14 (RtlUnicodeStringValidateDestWorker.c)
+ *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C000AE80 (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     DpiGetRegistryPathFromPDO @ 0x1C001D100 (DpiGetRegistryPathFromPDO.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     ?DeleteRegistryKey@DXGADAPTER@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C02B116C (-DeleteRegistryKey@DXGADAPTER@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
+ */
+
 void __fastcall DXGADAPTER::DeleteRegistryKeys(DXGADAPTER *this)
 {
   struct _DEVICE_OBJECT *v2; // rcx

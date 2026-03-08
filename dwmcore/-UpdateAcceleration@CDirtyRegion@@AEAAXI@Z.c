@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UpdateAcceleration@CDirtyRegion@@AEAAXI@Z @ 0x1800D4D28
+ * Callers:
+ *     ?_Add@CDirtyRegion@@AEAAJPEAVCVisual@@_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18006A480 (-_Add@CDirtyRegion@@AEAAJPEAVCVisual@@_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSiz.c)
+ *     ?Merge@CDirtyRegion@@AEAAXII@Z @ 0x180077D00 (-Merge@CDirtyRegion@@AEAAXII@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CDirtyRegion::UpdateAcceleration(CDirtyRegion *this, unsigned int a2)
 {
   __int64 v3; // r8

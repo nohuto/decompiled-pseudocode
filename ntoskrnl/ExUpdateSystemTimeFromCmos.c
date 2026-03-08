@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExUpdateSystemTimeFromCmos @ 0x140A850B4
+ * Callers:
+ *     ExpTimeRefreshWork @ 0x140A8EE20 (ExpTimeRefreshWork.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ *     KdpTimeSlipWork @ 0x140AAD010 (KdpTimeSlipWork.c)
+ * Callees:
+ *     HalQueryRealTimeClock @ 0x1402D0F30 (HalQueryRealTimeClock.c)
+ *     ExLocalTimeToSystemTime @ 0x1402D10A0 (ExLocalTimeToSystemTime.c)
+ *     RtlTimeFieldsToTime @ 0x1402D1150 (RtlTimeFieldsToTime.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExpSetSystemTime @ 0x140AA7AF4 (ExpSetSystemTime.c)
+ */
+
 char __fastcall ExUpdateSystemTimeFromCmos(char a1, unsigned int a2)
 {
   unsigned __int64 v3; // rbx

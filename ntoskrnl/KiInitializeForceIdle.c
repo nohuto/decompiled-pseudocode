@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiInitializeForceIdle @ 0x14080B574
+ * Callers:
+ *     KeInitializeTimerTable @ 0x14080B438 (KeInitializeTimerTable.c)
+ * Callees:
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     KeDisableForceIdle @ 0x14057A800 (KeDisableForceIdle.c)
+ */
+
 __int64 __fastcall KiInitializeForceIdle(__int64 a1)
 {
   __int64 result; // rax

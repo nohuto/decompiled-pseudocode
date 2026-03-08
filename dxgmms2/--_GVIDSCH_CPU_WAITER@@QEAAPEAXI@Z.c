@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_GVIDSCH_CPU_WAITER@@QEAAPEAXI@Z @ 0x1C003458C
+ * Callers:
+ *     VidSchSubmitWaitFromCpu @ 0x1C0001470 (VidSchSubmitWaitFromCpu.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall VIDSCH_CPU_WAITER::`scalar deleting destructor'(_QWORD *P)
 {
   _QWORD *v2; // rcx

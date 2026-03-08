@@ -1,3 +1,18 @@
+/*
+ * XREFs of PushAccFieldObj @ 0x1C00525E8
+ * Callers:
+ *     WriteFieldObj @ 0x1C0006080 (WriteFieldObj.c)
+ *     AccFieldUnit @ 0x1C0051630 (AccFieldUnit.c)
+ *     AccessFieldData @ 0x1C0051AD8 (AccessFieldData.c)
+ *     PreserveWriteObj @ 0x1C0052540 (PreserveWriteObj.c)
+ *     ReadField @ 0x1C0052AE0 (ReadField.c)
+ *     ReadFieldObj @ 0x1C0052CB0 (ReadFieldObj.c)
+ *     WriteFieldLoop @ 0x1C0053200 (WriteFieldLoop.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     PushFrame @ 0x1C0053C34 (PushFrame.c)
+ */
+
 __int64 __fastcall PushAccFieldObj(int a1, int a2, __int64 a3, __int64 a4, __int64 a5, unsigned int a6)
 {
   int v8; // r8d

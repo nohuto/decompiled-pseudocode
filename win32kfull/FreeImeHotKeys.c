@@ -1,3 +1,11 @@
+/*
+ * XREFs of FreeImeHotKeys @ 0x1C00F24E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FreeImeHotKeys(__int64 a1)
 {
   __int64 *v1; // rcx

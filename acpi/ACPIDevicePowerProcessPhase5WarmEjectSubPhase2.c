@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIDevicePowerProcessPhase5WarmEjectSubPhase2 @ 0x1C0021A10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIDockFindCorrespondingDock @ 0x1C0009314 (ACPIDockFindCorrespondingDock.c)
+ *     WPP_RECORDER_SF_qLqss @ 0x1C0009C8C (WPP_RECORDER_SF_qLqss.c)
+ *     ACPIDeviceCompleteGenericPhase @ 0x1C001C540 (ACPIDeviceCompleteGenericPhase.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     AMLIIsNamedChildPresent @ 0x1C00487BC (AMLIIsNamedChildPresent.c)
+ */
+
 __int64 __fastcall ACPIDevicePowerProcessPhase5WarmEjectSubPhase2(__int64 a1)
 {
   _QWORD *v1; // rdi

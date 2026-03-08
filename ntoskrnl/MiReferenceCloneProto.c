@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiReferenceCloneProto @ 0x14034A39C
+ * Callers:
+ *     MiIncrementCombinedPte @ 0x14034A354 (MiIncrementCombinedPte.c)
+ *     MiReferenceExistingCloneProto @ 0x140662DCC (MiReferenceExistingCloneProto.c)
+ * Callees:
+ *     MiChargeCrossPartitionSharedPage @ 0x14034A438 (MiChargeCrossPartitionSharedPage.c)
+ *     MiLockCloneBlockAtDpc @ 0x14034A49C (MiLockCloneBlockAtDpc.c)
+ */
+
 __int64 __fastcall MiReferenceCloneProto(__int64 a1, __int64 a2, __int64 a3, char a4, _QWORD *a5)
 {
   unsigned int v6; // edi

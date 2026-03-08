@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpKsrMemoryEnumCallback @ 0x1409EA800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwpKsrMemoryEnumCallback(__int64 a1, __int64 a2, unsigned int *a3)
 {
   __int64 v3; // rcx

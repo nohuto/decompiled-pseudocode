@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpIsKeyStackSymlink @ 0x1407A9830
+ * Callers:
+ *     CmQueryLayeredKey @ 0x1402F262C (CmQueryLayeredKey.c)
+ *     CmpDoParseKey @ 0x1406E1D90 (CmpDoParseKey.c)
+ *     CmSetValueKey @ 0x1407A9870 (CmSetValueKey.c)
+ * Callees:
+ *     CmpGetKcbAtLayerHeight @ 0x1407AF600 (CmpGetKcbAtLayerHeight.c)
+ */
+
 bool __fastcall CmpIsKeyStackSymlink(__int64 a1)
 {
   __int64 v1; // r8

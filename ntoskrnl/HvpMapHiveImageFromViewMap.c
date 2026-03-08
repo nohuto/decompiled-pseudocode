@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvpMapHiveImageFromViewMap @ 0x14073051C
+ * Callers:
+ *     HvLoadHive @ 0x14072F5C0 (HvLoadHive.c)
+ *     HvpPerformLogFileRecovery @ 0x1407FBCAC (HvpPerformLogFileRecovery.c)
+ * Callees:
+ *     CmpClaimGlobalQuota @ 0x14072C8EC (CmpClaimGlobalQuota.c)
+ *     HvpGetCellMap @ 0x140AF2670 (HvpGetCellMap.c)
+ */
+
 __int64 __fastcall HvpMapHiveImageFromViewMap(__int64 a1, __int64 a2, unsigned int a3)
 {
   int v5; // edi

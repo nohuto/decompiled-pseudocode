@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiMirrorRemoveInactivePages @ 0x140625E94
+ * Callers:
+ *     MiMirrorReduceBlackToActiveAndPrivatePages @ 0x140625A10 (MiMirrorReduceBlackToActiveAndPrivatePages.c)
+ * Callees:
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     MiGetPfnPageSizeIndex @ 0x14034D770 (MiGetPfnPageSizeIndex.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x140624E58 (MiMirrorOmitPagesFromCopy.c)
+ *     MiGetBaseResidentPageForBugCheck @ 0x14064CC14 (MiGetBaseResidentPageForBugCheck.c)
+ */
+
 __int64 __fastcall MiMirrorRemoveInactivePages(__int64 a1, __int64 a2, __int64 a3)
 {
   int v3; // r9d

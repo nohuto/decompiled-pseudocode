@@ -1,3 +1,24 @@
+/*
+ * XREFs of ApiSetEditionPostRitSound @ 0x1C0241DC8
+ * Callers:
+ *     ?FKActivationTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01E3F00 (-FKActivationTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?FilterKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01E4050 (-FilterKeys@@YAHPEAUtagKE@@KH@Z.c)
+ *     ?HighContrastHotKey@@YAHPEAUtagKE@@KH@Z @ 0x1C01E4320 (-HighContrastHotKey@@YAHPEAUtagKE@@KH@Z.c)
+ *     ?MouseKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01E4460 (-MouseKeys@@YAHPEAUtagKE@@KH@Z.c)
+ *     ?ToggleKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01E46D0 (-ToggleKeys@@YAHPEAUtagKE@@KH@Z.c)
+ *     ?TurnOffMouseKeys@@YAXXZ @ 0x1C01E48A0 (-TurnOffMouseKeys@@YAXXZ.c)
+ *     ?xxxAccessTimeOutTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01E48F0 (-xxxAccessTimeOutTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?xxxFKAcceptanceDelayTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01E49D0 (-xxxFKAcceptanceDelayTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?xxxFKRepeatRateTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01E4A90 (-xxxFKRepeatRateTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?xxxMKToggleMouseKeys@@YAHG@Z @ 0x1C01E5AD0 (-xxxMKToggleMouseKeys@@YAHG@Z.c)
+ *     ?xxxStickyKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01E5C10 (-xxxStickyKeys@@YAHPEAUtagKE@@KH@Z.c)
+ *     ?xxxToggleKeysTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01E6040 (-xxxToggleKeysTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?xxxTwoKeysDown@@YAHH@Z @ 0x1C01E61D0 (-xxxTwoKeysDown@@YAHH@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (__fastcall *__fastcall ApiSetEditionPostRitSound(
         unsigned int a1,
         __int64 a2,

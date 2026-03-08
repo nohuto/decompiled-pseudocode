@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiGdoDispatchGdiPnp @ 0x1C0013948
+ * Callers:
+ *     DpiDispatchPnp @ 0x1C01D10E0 (DpiDispatchPnp.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiGdoDispatchGdiPnp(__int64 a1, __int64 a2)
 {
   unsigned int v3; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of WppLoadTracingSupport @ 0x1C00762FC
+ * Callers:
+ *     DriverEntry @ 0x1C0093228 (DriverEntry.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 PVOID WppLoadTracingSupport()
 {
   PVOID result; // rax

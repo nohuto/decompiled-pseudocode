@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?SyncLock@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@I_N@Z @ 0x1801DB0B8
+ * Callers:
+ *     ?SyncLock@CLegacyRenderTarget@@UEAAX_NI@Z @ 0x1801E4BB0 (-SyncLock@CLegacyRenderTarget@@UEAAX_NI@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?LegacyPresentRequired@COverlayContext@@AEBA_NXZ @ 0x1800C92B0 (-LegacyPresentRequired@COverlayContext@@AEBA_NXZ.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall COverlayContext::SyncLock(COverlayContext *this, struct IOverlaySwapChain *a2, int a3, char a4)
 {
   __int128 v6; // xmm0

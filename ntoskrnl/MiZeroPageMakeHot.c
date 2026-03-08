@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiZeroPageMakeHot @ 0x140653630
+ * Callers:
+ *     MiZeroPage @ 0x140275060 (MiZeroPage.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x14035094C (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiSetZeroPageThreadPriority @ 0x140357538 (MiSetZeroPageThreadPriority.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiChangePageHeatImmediate @ 0x1406517FC (MiChangePageHeatImmediate.c)
+ */
+
 char __fastcall MiZeroPageMakeHot(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
   $C71981A45BEB2B45F82C232A7085991E *v4; // rax

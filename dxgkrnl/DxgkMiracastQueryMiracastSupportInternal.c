@@ -1,3 +1,22 @@
+/*
+ * XREFs of DxgkMiracastQueryMiracastSupportInternal @ 0x1C01F7DCC
+ * Callers:
+ *     DxgkMiracastStartMiracastSession @ 0x1C00615C4 (DxgkMiracastStartMiracastSession.c)
+ *     ?DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C018DC00 (-DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ *     DxgkNetDispQueryMiracastDisplayDeviceSupport @ 0x1C02CEBE0 (DxgkNetDispQueryMiracastDisplayDeviceSupport.c)
+ *     DpiFdoHandleStopDevice @ 0x1C03973C0 (DpiFdoHandleStopDevice.c)
+ *     DpiMiracastFindDisplayAdapterFdo @ 0x1C039A4FC (DpiMiracastFindDisplayAdapterFdo.c)
+ * Callees:
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     ?IsMiniportListMutexOwnedByCurrentThread@@YAEXZ @ 0x1C001D678 (-IsMiniportListMutexOwnedByCurrentThread@@YAEXZ.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     DpiMiracastGetForcedMode @ 0x1C01F6C9C (DpiMiracastGetForcedMode.c)
+ *     DpiMiracastFindRenderAdapterForSession @ 0x1C01F7F00 (DpiMiracastFindRenderAdapterForSession.c)
+ *     DpiMiracastQueryMiracastSupportForFDO @ 0x1C01F7F50 (DpiMiracastQueryMiracastSupportForFDO.c)
+ *     DpiMiracastFindDisplayAdapterFdoIhv @ 0x1C02196D4 (DpiMiracastFindDisplayAdapterFdoIhv.c)
+ */
+
 __int64 __fastcall DxgkMiracastQueryMiracastSupportInternal(__int64 a1)
 {
   char v2; // di

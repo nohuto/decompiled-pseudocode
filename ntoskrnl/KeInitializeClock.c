@@ -1,3 +1,24 @@
+/*
+ * XREFs of KeInitializeClock @ 0x140B67BE8
+ * Callers:
+ *     Phase1InitializationIoReady @ 0x140B42D0C (Phase1InitializationIoReady.c)
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     KiSetPendingTick @ 0x14022AF40 (KiSetPendingTick.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ *     KiSetupTimeIncrement @ 0x1403A5E18 (KiSetupTimeIncrement.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     strstr @ 0x1403D3650 (strstr.c)
+ *     Feature_PerProcessorClockTick__private_ReportDeviceUsage @ 0x14040A770 (Feature_PerProcessorClockTick__private_ReportDeviceUsage.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PoTraceDynamicTickDisabled @ 0x14058EB5C (PoTraceDynamicTickDisabled.c)
+ *     EmClientQueryRuleState @ 0x140A85190 (EmClientQueryRuleState.c)
+ */
+
 char __fastcall KeInitializeClock(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   char result; // al

@@ -1,3 +1,16 @@
+/*
+ * XREFs of RemoveHmodDependency @ 0x1C009D71C
+ * Callers:
+ *     DestroyEventHook @ 0x1C0035F80 (DestroyEventHook.c)
+ *     FreeHook @ 0x1C0039160 (FreeHook.c)
+ *     _RegisterUserApiHook @ 0x1C00DD234 (_RegisterUserApiHook.c)
+ *     _UnregisterUserApiHook @ 0x1C00F56F0 (_UnregisterUserApiHook.c)
+ *     _UnregisterDManipHook @ 0x1C00F59F0 (_UnregisterDManipHook.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x1C012BEC0 (__report_rangecheckfailure.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall RemoveHmodDependency(__int64 a1)
 {

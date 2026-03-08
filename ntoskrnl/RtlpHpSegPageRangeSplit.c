@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpHpSegPageRangeSplit @ 0x1405B4678
+ * Callers:
+ *     RtlpHpSegLargeRangeAllocate @ 0x1403BEB28 (RtlpHpSegLargeRangeAllocate.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall RtlpHpSegPageRangeSplit(__int64 a1, __int64 a2, unsigned int a3)
 {
   int v3; // ecx

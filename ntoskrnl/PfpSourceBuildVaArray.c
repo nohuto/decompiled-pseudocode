@@ -1,3 +1,12 @@
+/*
+ * XREFs of PfpSourceBuildVaArray @ 0x14097BD58
+ * Callers:
+ *     PfpPrefetchPrivatePages @ 0x14097B268 (PfpPrefetchPrivatePages.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfpSourceBuildVaArray(__int64 a1, unsigned int *a2)
 {
   __int64 v2; // rbp

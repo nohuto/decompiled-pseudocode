@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiChargeCrossPartitionSharedPage @ 0x14034A438
+ * Callers:
+ *     MiCombineInitialInstance @ 0x14029CD58 (MiCombineInitialInstance.c)
+ *     MiReferenceCloneProto @ 0x14034A39C (MiReferenceCloneProto.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiGetCrossPartitionCloneCharges @ 0x14066222C (MiGetCrossPartitionCloneCharges.c)
+ */
+
 __int64 __fastcall MiChargeCrossPartitionSharedPage(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   unsigned __int64 v5; // r8

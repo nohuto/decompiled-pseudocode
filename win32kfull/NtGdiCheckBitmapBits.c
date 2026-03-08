@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiCheckBitmapBits @ 0x1C02D0B90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GreCheckBitmapBits@@YAHPEAUHDC__@@PEAXPEAU_DEVBITMAPINFO@@1PEAE@Z @ 0x1C02D03B0 (-GreCheckBitmapBits@@YAHPEAUHDC__@@PEAXPEAU_DEVBITMAPINFO@@1PEAE@Z.c)
+ */
+
 __int64 __fastcall NtGdiCheckBitmapBits(HDC a1, void *a2, char *a3, int a4, SIZE_T Size, int a6, int a7, char *Address)
 {
   unsigned int v11; // edi

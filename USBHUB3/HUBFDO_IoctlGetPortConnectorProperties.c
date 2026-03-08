@@ -1,3 +1,20 @@
+/*
+ * XREFs of HUBFDO_IoctlGetPortConnectorProperties @ 0x1C007B17C
+ * Callers:
+ *     HUBFDO_EvtIoDeviceControl @ 0x1C007C520 (HUBFDO_EvtIoDeviceControl.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000CE90 (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     HUBMISC_GetActivityIdIrp @ 0x1C0033758 (HUBMISC_GetActivityIdIrp.c)
+ *     HUBMISC_StripSymbolicNamePrefix @ 0x1C0033784 (HUBMISC_StripSymbolicNamePrefix.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ *     HUBFDO_IoctlValidateParameters @ 0x1C00796AC (HUBFDO_IoctlValidateParameters.c)
+ *     HUBCONNECTOR_GetCompanionPort @ 0x1C0082380 (HUBCONNECTOR_GetCompanionPort.c)
+ */
+
 __int64 __fastcall HUBFDO_IoctlGetPortConnectorProperties(
         __int64 a1,
         __int64 a2,

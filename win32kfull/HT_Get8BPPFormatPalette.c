@@ -1,3 +1,12 @@
+/*
+ * XREFs of HT_Get8BPPFormatPalette @ 0x1C0252D80
+ * Callers:
+ *     HT_Get8BPPMaskPalette @ 0x1C0252E90 (HT_Get8BPPMaskPalette.c)
+ *     NtGdiHT_Get8BPPFormatPalette @ 0x1C02CF0F0 (NtGdiHT_Get8BPPFormatPalette.c)
+ * Callees:
+ *     DivFD6 @ 0x1C014AF0C (DivFD6.c)
+ */
+
 LONG __stdcall HT_Get8BPPFormatPalette(
         LPPALETTEENTRY pPaletteEntry,
         USHORT RedGamma,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmEventTraceHeteroResponse @ 0x14059945C
+ * Callers:
+ *     PpmCheckComputeHeteroResponse @ 0x140593FE0 (PpmCheckComputeHeteroResponse.c)
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x140594418 (PpmCheckComputeMultiClassHeteroResponse.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void PpmEventTraceHeteroResponse(__int64 a1, __int64 a2, _QWORD *a3, ...)
 {
   unsigned __int64 v3; // rdi

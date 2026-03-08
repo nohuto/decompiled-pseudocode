@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmCheckSnapAllUtility @ 0x140233FD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PpmPerfSnapUtility @ 0x140235210 (PpmPerfSnapUtility.c)
+ *     PpmIdleSnapConcurrency @ 0x1402DAEF8 (PpmIdleSnapConcurrency.c)
+ */
+
 char PpmCheckSnapAllUtility()
 {
   unsigned __int16 v0; // di

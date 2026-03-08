@@ -1,3 +1,17 @@
+/*
+ * XREFs of EmpEvaluateNodeLink @ 0x140245FF4
+ * Callers:
+ *     EmpEvaluateNodeLink @ 0x140245FF4 (EmpEvaluateNodeLink.c)
+ *     EmpEvaluateTargetRule @ 0x1402D6300 (EmpEvaluateTargetRule.c)
+ * Callees:
+ *     EmpFreePool @ 0x140245FC0 (EmpFreePool.c)
+ *     EmpEvaluateNodeLink @ 0x140245FF4 (EmpEvaluateNodeLink.c)
+ *     EmpAllocatePool @ 0x1402463F4 (EmpAllocatePool.c)
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     EmpEvaluateParseNodeMapping @ 0x1402DE63C (EmpEvaluateParseNodeMapping.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall EmpEvaluateNodeLink(
         __int64 a1,
         __int64 a2,

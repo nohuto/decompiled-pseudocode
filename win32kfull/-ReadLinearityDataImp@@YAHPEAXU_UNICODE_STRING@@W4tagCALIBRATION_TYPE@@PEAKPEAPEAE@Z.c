@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReadLinearityDataImp@@YAHPEAXU_UNICODE_STRING@@W4tagCALIBRATION_TYPE@@PEAKPEAPEAE@Z @ 0x1C01A5F74
+ * Callers:
+ *     ?ReadLinearityData@@YAHPEAUtagHID_POINTER_DEVICE_INFO@@U_UNICODE_STRING@@PEAX@Z @ 0x1C01A5B7C (-ReadLinearityData@@YAHPEAUtagHID_POINTER_DEVICE_INFO@@U_UNICODE_STRING@@PEAX@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ValidateCalibrationData @ 0x1C01A6BA0 (ValidateCalibrationData.c)
+ */
+
 __int64 __fastcall ReadLinearityDataImp(
         void *a1,
         struct _UNICODE_STRING *a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiAddUnicodeStringToCrashDump @ 0x14062D4C4
+ * Callers:
+ *     MiAddPartitionToCrashDump @ 0x14062D1FC (MiAddPartitionToCrashDump.c)
+ * Callees:
+ *     MiIsAddressRangeValid @ 0x14062D8D4 (MiIsAddressRangeValid.c)
+ *     MmAddRangeToCrashDump @ 0x14062DD30 (MmAddRangeToCrashDump.c)
+ */
+
 __int64 __fastcall MiAddUnicodeStringToCrashDump(__int64 a1, __int64 a2)
 {
   __int64 v4; // rdi

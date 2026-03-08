@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifMmFreeNonCachedMemoryWrapper @ 0x1405E4CC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     MmFreeNonCachedMemory @ 0x140A2AE10 (MmFreeNonCachedMemory.c)
+ */
+
 void __fastcall DifMmFreeNonCachedMemoryWrapper(PVOID BaseAddress, SIZE_T NumberOfBytes)
 {
   __int64 *APIThunkContextById; // rax

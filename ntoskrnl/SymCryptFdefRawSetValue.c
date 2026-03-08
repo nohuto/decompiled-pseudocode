@@ -1,3 +1,12 @@
+/*
+ * XREFs of SymCryptFdefRawSetValue @ 0x1403FFF38
+ * Callers:
+ *     SymCryptFdefModElementSetValueGeneric @ 0x1403FE7A4 (SymCryptFdefModElementSetValueGeneric.c)
+ *     SymCryptFdefIntSetValue @ 0x1403FFD9C (SymCryptFdefIntSetValue.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefRawSetValue(unsigned __int8 *a1, __int64 a2, int a3, _DWORD *a4, int a5)
 {
   __int64 v7; // r11

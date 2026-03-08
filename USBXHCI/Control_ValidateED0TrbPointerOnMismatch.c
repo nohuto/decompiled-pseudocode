@@ -1,3 +1,12 @@
+/*
+ * XREFs of Control_ValidateED0TrbPointerOnMismatch @ 0x1C0042CA4
+ * Callers:
+ *     Control_ProcessTransferEventWithED0 @ 0x1C0042974 (Control_ProcessTransferEventWithED0.c)
+ * Callees:
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     WPP_RECORDER_SF_DDi @ 0x1C004207C (WPP_RECORDER_SF_DDi.c)
+ */
+
 signed __int64 __fastcall Control_ValidateED0TrbPointerOnMismatch(__int64 *a1, signed __int64 *a2)
 {
   signed __int64 result; // rax

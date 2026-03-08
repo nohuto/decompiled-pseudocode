@@ -1,3 +1,11 @@
+/*
+ * XREFs of PcisuppWriteIntLine @ 0x1C009A378
+ * Callers:
+ *     IrqArbCommitAllocation @ 0x1C009D040 (IrqArbCommitAllocation.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall PcisuppWriteIntLine(__int64 a1, char a2)
 {
   __int64 v4; // rdx

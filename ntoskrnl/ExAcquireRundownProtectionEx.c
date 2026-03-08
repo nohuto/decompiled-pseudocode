@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExAcquireRundownProtectionEx @ 0x14035AFC0
+ * Callers:
+ *     MiCompleteProtoPteFault @ 0x14026F5F0 (MiCompleteProtoPteFault.c)
+ *     PfSnReferenceProcessTrace @ 0x14028D560 (PfSnReferenceProcessTrace.c)
+ *     ExReferenceCallBackBlock @ 0x14034C060 (ExReferenceCallBackBlock.c)
+ *     PfSnAddProcessTrace @ 0x14035B0F8 (PfSnAddProcessTrace.c)
+ *     ExCompareExchangeCallBack @ 0x140388EF8 (ExCompareExchangeCallBack.c)
+ *     PspRundownProcess @ 0x1409B0DEC (PspRundownProcess.c)
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall ExAcquireRundownProtectionEx(PEX_RUNDOWN_REF RunRef, ULONG Count)
 {
   unsigned __int64 v2; // rax

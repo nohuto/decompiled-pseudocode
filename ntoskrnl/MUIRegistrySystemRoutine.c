@@ -1,3 +1,12 @@
+/*
+ * XREFs of MUIRegistrySystemRoutine @ 0x1408435A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x14039C764 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ */
+
 void __fastcall MUIRegistrySystemRoutine(__int64 a1)
 {
   int KernelRegistryInfo; // eax

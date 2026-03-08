@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetTextureBounds@CMeshGeometry2D@@UEAAXPEAV?$CRectF@UBaseSampling@CoordinateSpace@@@@@Z @ 0x180255450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CMeshGeometry2D::GetTextureBounds(__int64 a1, _OWORD *a2)
 {
   double *v3; // r8

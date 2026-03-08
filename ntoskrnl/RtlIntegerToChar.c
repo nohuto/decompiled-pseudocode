@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlIntegerToChar @ 0x140780650
+ * Callers:
+ *     CmLogMcUpdateStatus @ 0x1406133DC (CmLogMcUpdateStatus.c)
+ *     RtlIntegerToUnicodeString @ 0x1407805C0 (RtlIntegerToUnicodeString.c)
+ *     CmpInitializeRegistryNode @ 0x140816FB8 (CmpInitializeRegistryNode.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall RtlIntegerToChar(unsigned int a1, unsigned int a2, int a3, char *a4)
 {
   unsigned int v6; // r8d

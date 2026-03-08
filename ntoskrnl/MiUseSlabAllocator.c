@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiUseSlabAllocator @ 0x140289310
+ * Callers:
+ *     MiWalkEntireImage @ 0x1402862C0 (MiWalkEntireImage.c)
+ *     MiPfPutPagesInTransition @ 0x140288890 (MiPfPutPagesInTransition.c)
+ *     MiResolveMappedFileFault @ 0x14028A780 (MiResolveMappedFileFault.c)
+ *     MiGetHardFaultPages @ 0x14028CE24 (MiGetHardFaultPages.c)
+ *     MiFinalizeImageHeaderPage @ 0x1402C6548 (MiFinalizeImageHeaderPage.c)
+ *     MiPfPrepareSequentialReadList @ 0x1406EBE40 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x1407C42F0 (MiPfPrepareReadList.c)
+ * Callees:
+ *     MiGetSlabAllocatorTypeByProtection @ 0x1404650AE (MiGetSlabAllocatorTypeByProtection.c)
+ */
+
 __int64 __fastcall MiUseSlabAllocator(__int64 a1, __int64 *a2, __int16 a3, _DWORD *a4)
 {
   __int64 v4; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiAdjustRescheduleContextForParking @ 0x14057DB98
+ * Callers:
+ *     KiParkCurrentProcessor @ 0x14057BAA4 (KiParkCurrentProcessor.c)
+ * Callees:
+ *     KiFindRescheduleContextEntryForPrcb @ 0x1402ADFD8 (KiFindRescheduleContextEntryForPrcb.c)
+ *     KiAdjustRescheduleContextEntryForThreadRemoval @ 0x1402AE004 (KiAdjustRescheduleContextEntryForThreadRemoval.c)
+ *     KiIsPrcbThread @ 0x1402AEFCC (KiIsPrcbThread.c)
+ */
+
 char __fastcall KiAdjustRescheduleContextForParking(__int64 a1, _KTHREAD *a2)
 {
   __int64 Blink; // rcx

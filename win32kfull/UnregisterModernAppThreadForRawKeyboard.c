@@ -1,3 +1,13 @@
+/*
+ * XREFs of UnregisterModernAppThreadForRawKeyboard @ 0x1C01AB2A8
+ * Callers:
+ *     _EnableModernAppWindowKeyboardIntercept @ 0x1C01E4748 (_EnableModernAppWindowKeyboardIntercept.c)
+ * Callees:
+ *     HasHidTable @ 0x1C0038CB0 (HasHidTable.c)
+ *     _RegisterRawInputDevices @ 0x1C00D5AC8 (_RegisterRawInputDevices.c)
+ *     ?HasRawKeyboardPerThreadRegistration@@YAHPEBUtagPROCESSINFO@@@Z @ 0x1C01AA8F0 (-HasRawKeyboardPerThreadRegistration@@YAHPEBUtagPROCESSINFO@@@Z.c)
+ */
+
 __int64 __fastcall UnregisterModernAppThreadForRawKeyboard(__int64 a1)
 {
   __int64 v2; // rcx

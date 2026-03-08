@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvlUnregisterDeviceId @ 0x140543C70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HvcallFastExtended @ 0x1403C6CA0 (HvcallFastExtended.c)
+ *     HvlpHvToNtStatus @ 0x140456F16 (HvlpHvToNtStatus.c)
+ */
+
 __int64 __fastcall HvlUnregisterDeviceId(__int64 a1)
 {
   unsigned __int16 v1; // ax

@@ -1,3 +1,22 @@
+/*
+ * XREFs of AcpiIrqLibSetupSciInterrupt @ 0x1C0098DAC
+ * Callers:
+ *     OSInterruptVector @ 0x1C00A8314 (OSInterruptVector.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ProcessorCopyData @ 0x1C009A964 (ProcessorCopyData.c)
+ *     IrqArbGetDeviceIrql @ 0x1C009D304 (IrqArbGetDeviceIrql.c)
+ *     IcAddPossibleReference @ 0x1C009EB74 (IcAddPossibleReference.c)
+ *     IcClearPossibleData @ 0x1C009EFD0 (IcClearPossibleData.c)
+ *     IcCopyData @ 0x1C009F078 (IcCopyData.c)
+ *     IcCopyInputStateToDeviceState @ 0x1C009F1D0 (IcCopyInputStateToDeviceState.c)
+ *     IcRemapInputs @ 0x1C009F490 (IcRemapInputs.c)
+ *     IcSetPossibleInput @ 0x1C009F6B4 (IcSetPossibleInput.c)
+ *     IrqLibpSetSciConnectionData @ 0x1C00ABE14 (IrqLibpSetSciConnectionData.c)
+ *     IrqPolicyGetDistributionDisposition @ 0x1C00AC39C (IrqPolicyGetDistributionDisposition.c)
+ */
+
 __int64 __fastcall AcpiIrqLibSetupSciInterrupt(unsigned __int16 a1, void *a2)
 {
   ULONGLONG v2; // rdi

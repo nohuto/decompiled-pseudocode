@@ -1,3 +1,14 @@
+/*
+ * XREFs of LinkNodeGetPossibleResources @ 0x1C00994B8
+ * Callers:
+ *     IrqArbAddAllocation @ 0x1C009C4B0 (IrqArbAddAllocation.c)
+ *     IrqArbpAssignIrqFromLinkNode @ 0x1C009DB0C (IrqArbpAssignIrqFromLinkNode.c)
+ * Callees:
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     PnpBiosResourcesToNtResources @ 0x1C008EFDC (PnpBiosResourcesToNtResources.c)
+ *     PnpIoResourceListToCmResourceList @ 0x1C008FD8C (PnpIoResourceListToCmResourceList.c)
+ */
+
 __int64 __fastcall LinkNodeGetPossibleResources(__int64 a1, _QWORD *a2, _BYTE *a3)
 {
   __int64 v4; // rcx

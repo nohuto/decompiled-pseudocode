@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopDeepSleepEvaluateCallback @ 0x140595FC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PpmReleaseLock @ 0x1402D1F40 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x1402D1FF0 (PoFxSendSystemLatencyUpdate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopDiagTraceIdleResiliencyEnd @ 0x14059195C (PopDiagTraceIdleResiliencyEnd.c)
+ *     PopDiagTraceIdleResiliencyStart @ 0x140591A0C (PopDiagTraceIdleResiliencyStart.c)
+ */
+
 __int64 PopDeepSleepEvaluateCallback()
 {
   KIRQL i; // al

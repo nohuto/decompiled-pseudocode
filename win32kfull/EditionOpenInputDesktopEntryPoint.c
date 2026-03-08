@@ -1,3 +1,14 @@
+/*
+ * XREFs of EditionOpenInputDesktopEntryPoint @ 0x1C00BF2E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     CloseProtectedHandle @ 0x1C0094854 (CloseProtectedHandle.c)
+ *     _GetProcessWindowStation @ 0x1C00BF460 (_GetProcessWindowStation.c)
+ *     OpenDesktopCompletion @ 0x1C00C119C (OpenDesktopCompletion.c)
+ */
+
 HANDLE __fastcall EditionOpenInputDesktopEntryPoint(unsigned int a1, int a2, int a3)
 {
   KPROCESSOR_MODE AccessMode; // si

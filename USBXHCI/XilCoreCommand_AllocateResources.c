@@ -1,3 +1,12 @@
+/*
+ * XREFs of XilCoreCommand_AllocateResources @ 0x1C001BC30
+ * Callers:
+ *     XilCommand_AllocateResources @ 0x1C001BBE0 (XilCommand_AllocateResources.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     CommonBuffer_AcquireBuffer @ 0x1C0013038 (CommonBuffer_AcquireBuffer.c)
+ */
+
 __int64 __fastcall XilCoreCommand_AllocateResources(__int64 a1)
 {
   __int64 v2; // rdx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UmfdClientSignalServerAndWaitForCompletion@@YAJPEAX0PEBI@Z @ 0x1C011F7BC
+ * Callers:
+ *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C011ED74 (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
+ *     UmfdQueryFontData @ 0x1C011EFA0 (UmfdQueryFontData.c)
+ * Callees:
+ *     ?WaitForCompletionAndReleaseWorkItem@CMultipleConsumerWorkQueue@@QEAA_NQEAVCWaitableWorkItem@1@PEBIPEA_N@Z @ 0x1C011F820 (-WaitForCompletionAndReleaseWorkItem@CMultipleConsumerWorkQueue@@QEAA_NQEAVCWaitableWorkItem@1@P.c)
+ */
+
 __int64 __fastcall UmfdClientSignalServerAndWaitForCompletion(
         CMultipleConsumerWorkQueue *a1,
         struct CMultipleConsumerWorkQueue::CWaitableWorkItem **a2,

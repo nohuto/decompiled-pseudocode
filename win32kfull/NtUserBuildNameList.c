@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserBuildNameList @ 0x1C00E5660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _BuildNameList @ 0x1C00E5770 (_BuildNameList.c)
+ */
+
 __int64 __fastcall NtUserBuildNameList(__int64 a1, __int64 a2, _WORD *a3, _DWORD *a4)
 {
   unsigned int v6; // r14d

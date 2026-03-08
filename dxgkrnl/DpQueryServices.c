@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpQueryServices @ 0x1C0218A70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpQueryServices(__int64 a1, int a2, unsigned __int16 *a3)
 {
   unsigned int v3; // edi

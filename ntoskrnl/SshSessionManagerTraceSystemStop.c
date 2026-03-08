@@ -1,3 +1,12 @@
+/*
+ * XREFs of SshSessionManagerTraceSystemStop @ 0x14099EC30
+ * Callers:
+ *     PopGracefulShutdown @ 0x140A9D970 (PopGracefulShutdown.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SshpSessionManagerSendControlEvent @ 0x1408717B8 (SshpSessionManagerSendControlEvent.c)
+ */
+
 signed __int32 __fastcall SshSessionManagerTraceSystemStop(int a1, int a2)
 {
   int *v3; // [rsp+20h] [rbp-38h] BYREF

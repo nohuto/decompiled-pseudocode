@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_SetTargetForCursorApiBrokering@@YAXPEAUtagTHREADINFO@@0@Z @ 0x1C01A9C6C
+ * Callers:
+ *     NtUserSetTargetForResourceBrokering @ 0x1C01DDDE0 (NtUserSetTargetForResourceBrokering.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall _SetTargetForCursorApiBrokering(struct tagTHREADINFO *a1, struct tagTHREADINFO *a2)
 {
   __int64 v2; // rax

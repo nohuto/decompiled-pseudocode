@@ -1,3 +1,15 @@
+/*
+ * XREFs of RIMIDECreateDeviceInstancePath @ 0x1C0004A6C
+ * Callers:
+ *     RIMIDECreatePseudoMouseOrKeyboardDevice @ 0x1C0004878 (RIMIDECreatePseudoMouseOrKeyboardDevice.c)
+ *     RIMIDECreatePseudoHIDDevice @ 0x1C01C2E38 (RIMIDECreatePseudoHIDDevice.c)
+ * Callees:
+ *     ?RtlUnicodeStringPrintf@@YAJPEAU_UNICODE_STRING@@PEBGZZ @ 0x1C0004B28 (-RtlUnicodeStringPrintf@@YAJPEAU_UNICODE_STRING@@PEBGZZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C000F0BC (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     isChildPartition @ 0x1C0078FF0 (isChildPartition.c)
+ */
+
 __int64 __fastcall RIMIDECreateDeviceInstancePath(
         int a1,
         unsigned __int16 a2,

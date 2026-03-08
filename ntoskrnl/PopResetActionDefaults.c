@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopResetActionDefaults @ 0x140860E68
+ * Callers:
+ *     PopExecutePowerAction @ 0x1409867F4 (PopExecutePowerAction.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     <none>
+ */
+
 void PopResetActionDefaults()
 {
   dword_140C3CD8C = 1;

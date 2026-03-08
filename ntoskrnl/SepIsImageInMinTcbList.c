@@ -1,3 +1,15 @@
+/*
+ * XREFs of SepIsImageInMinTcbList @ 0x14070E2F8
+ * Callers:
+ *     SepIsMinTCB @ 0x14070E10C (SepIsMinTCB.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     RtlQueryImageFileKeyOption @ 0x140709A50 (RtlQueryImageFileKeyOption.c)
+ *     RtlpOpenImageFileOptionsKeyEx @ 0x14077EE60 (RtlpOpenImageFileOptionsKeyEx.c)
+ */
+
 __int64 __fastcall SepIsImageInMinTcbList(
         __int64 a1,
         unsigned int a2,

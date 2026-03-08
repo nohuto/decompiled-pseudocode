@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiReferenceIncomingPhysicalPages @ 0x140A3F148
+ * Callers:
+ *     NtMapUserPhysicalPages @ 0x140A3FC10 (NtMapUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x140A3FEC0 (NtMapUserPhysicalPagesScatter.c)
+ * Callees:
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiDecrementAweMapCount @ 0x14064709C (MiDecrementAweMapCount.c)
+ *     MiGetAweNode @ 0x1406482F8 (MiGetAweNode.c)
+ *     MiGetAwePageSize @ 0x14064836C (MiGetAwePageSize.c)
+ *     MiGetAweViewPageSize @ 0x14064840C (MiGetAweViewPageSize.c)
+ *     MiIncrementAweMapCount @ 0x140648524 (MiIncrementAweMapCount.c)
+ *     MiGetVadCacheAttribute @ 0x14065E5C4 (MiGetVadCacheAttribute.c)
+ */
+
 __int64 __fastcall MiReferenceIncomingPhysicalPages(
         __int64 a1,
         __int64 a2,

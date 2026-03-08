@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDeviceSpecificAccelerationData@CTouchpadAcceleration@@UEAAXAEBUBallistics@CDeviceAcceleration@@PEAKPEAPEB_J22@Z @ 0x1C00D61B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CTouchpadAcceleration::GetDeviceSpecificAccelerationData(
         CTouchpadAcceleration *this,
         const struct CDeviceAcceleration::Ballistics *a2,

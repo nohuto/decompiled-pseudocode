@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionUnloadCursorsAndIcons @ 0x1C00EC770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 void EditionUnloadCursorsAndIcons()
 {
   PDEVICE_OBJECT v0; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ObpIsUnsecureName @ 0x140791AE4
+ * Callers:
+ *     ObpLookupObjectName @ 0x1406E86B0 (ObpLookupObjectName.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlPrefixUnicodeString @ 0x1406D5A70 (RtlPrefixUnicodeString.c)
+ */
+
 char __fastcall ObpIsUnsecureName(PCUNICODE_STRING String2, BOOLEAN a2)
 {
   const WCHAR *v4; // rbx

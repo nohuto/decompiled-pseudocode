@@ -1,3 +1,24 @@
+/*
+ * XREFs of KeRegisterObjectNotification @ 0x14024F260
+ * Callers:
+ *     NtAssociateWaitCompletionPacket @ 0x14024EEE0 (NtAssociateWaitCompletionPacket.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x140316BE0 (NtWaitForWorkViaWorkerFactory.c)
+ *     ExpTryEnterWorkerFactoryAwayMode @ 0x140367F28 (ExpTryEnterWorkerFactoryAwayMode.c)
+ *     ExpWorkerFactoryManagerThread @ 0x14038AA00 (ExpWorkerFactoryManagerThread.c)
+ *     NtCreateWorkerFactory @ 0x14068A160 (NtCreateWorkerFactory.c)
+ *     ExpWorkerFactoryInitialization @ 0x140B6F290 (ExpWorkerFactoryInitialization.c)
+ * Callees:
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     KiWaitSatisfyOther @ 0x140293B88 (KiWaitSatisfyOther.c)
+ *     KiWakeOtherQueueWaiters @ 0x140293BF4 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x140340700 (KiWakeQueueWaiter.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeIsThreadRunning @ 0x14056C7FC (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405FA8FC (EtwTraceEnqueueWork.c)
+ */
+
 char __fastcall KeRegisterObjectNotification(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int8 CurrentIrql; // si

@@ -1,3 +1,31 @@
+/*
+ * XREFs of MiValidFault @ 0x1402C90E0
+ * Callers:
+ *     MiUserFault @ 0x140268260 (MiUserFault.c)
+ * Callees:
+ *     MiProcessWsInSwapFault @ 0x140200008 (MiProcessWsInSwapFault.c)
+ *     MiLockPageAndSetDirty @ 0x1402110B8 (MiLockPageAndSetDirty.c)
+ *     KeFlushSingleTb @ 0x140211E60 (KeFlushSingleTb.c)
+ *     MiTbFlushType @ 0x140224BDC (MiTbFlushType.c)
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     KeIsUserVaAccessAllowed @ 0x140256450 (KeIsUserVaAccessAllowed.c)
+ *     MiUpdatePrefetchPriority @ 0x1402C95DC (MiUpdatePrefetchPriority.c)
+ *     MiCheckAndUpdateIoAttribution @ 0x1402C9700 (MiCheckAndUpdateIoAttribution.c)
+ *     KeInvalidAccessAllowed @ 0x1402DA5E0 (KeInvalidAccessAllowed.c)
+ *     MiCheckSystemNxFault @ 0x1402EB3C8 (MiCheckSystemNxFault.c)
+ *     MiCopyOnWrite @ 0x140319F00 (MiCopyOnWrite.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiWriteValidPteNewProtection @ 0x14032E660 (MiWriteValidPteNewProtection.c)
+ *     MiUnlockVadTree @ 0x140330EC8 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x1403334B4 (MiLockVadTree.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiValidVirtualizationFault @ 0x1404643C2 (MiValidVirtualizationFault.c)
+ *     MiRotatedToFrameBuffer @ 0x140630A34 (MiRotatedToFrameBuffer.c)
+ *     MiCanGrantExecute @ 0x140643510 (MiCanGrantExecute.c)
+ *     MiKernelWriteToExecutableMemory @ 0x140643DB8 (MiKernelWriteToExecutableMemory.c)
+ *     MiSetFaultPacketDirectives @ 0x1406441A8 (MiSetFaultPacketDirectives.c)
+ */
+
 __int64 __fastcall MiValidFault(__int64 a1, signed __int64 a2)
 {
   ULONG_PTR v2; // r11

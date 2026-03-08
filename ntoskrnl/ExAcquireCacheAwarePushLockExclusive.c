@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExAcquireCacheAwarePushLockExclusive @ 0x140239E80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfAcquireCacheAwarePushLockExclusiveEx @ 0x140239F00 (ExfAcquireCacheAwarePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ */
+
 __int64 __fastcall ExAcquireCacheAwarePushLockExclusive(__int64 a1)
 {
   __int64 v2; // rbx

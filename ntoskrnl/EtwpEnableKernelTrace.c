@@ -1,3 +1,22 @@
+/*
+ * XREFs of EtwpEnableKernelTrace @ 0x140786150
+ * Callers:
+ *     EtwpUpdateGlobalGroupMasks @ 0x140785F3C (EtwpUpdateGlobalGroupMasks.c)
+ *     EtwpFixBootLoggers @ 0x140B6569C (EtwpFixBootLoggers.c)
+ * Callees:
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IoPerfInit @ 0x140556AD8 (IoPerfInit.c)
+ *     KeStartProfile @ 0x140571A6C (KeStartProfile.c)
+ *     DbgSetDebugPrintCallback @ 0x1405A53E0 (DbgSetDebugPrintCallback.c)
+ *     EtwpDisableKernelTrace @ 0x1407864C4 (EtwpDisableKernelTrace.c)
+ *     EtwpUpdateFileInfoDriverState @ 0x140786730 (EtwpUpdateFileInfoDriverState.c)
+ *     AlpcRegisterLogRoutine @ 0x140977034 (AlpcRegisterLogRoutine.c)
+ *     ObEnableEtwReferenceTrace @ 0x14097950C (ObEnableEtwReferenceTrace.c)
+ *     WmiSetNetworkNotify @ 0x1409DEA4C (WmiSetNetworkNotify.c)
+ *     EtwpTimeProfileStart @ 0x1409E3D58 (EtwpTimeProfileStart.c)
+ */
+
 __int64 __fastcall EtwpEnableKernelTrace(_DWORD *a1, _DWORD *a2, __int64 a3, unsigned int a4)
 {
   int updated; // edi

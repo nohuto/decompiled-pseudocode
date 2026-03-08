@@ -1,3 +1,21 @@
+/*
+ * XREFs of PnpProcessAssignResources @ 0x140681528
+ * Callers:
+ *     PipProcessDevNodeTree @ 0x1406CCD80 (PipProcessDevNodeTree.c)
+ * Callees:
+ *     PipSetDevNodeState @ 0x1402028D0 (PipSetDevNodeState.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PnpAssignResourcesToDevices @ 0x140680DD8 (PnpAssignResourcesToDevices.c)
+ *     PnpProcessAssignResourcesWorker @ 0x1406816EC (PnpProcessAssignResourcesWorker.c)
+ *     PipClearDevNodeUserFlags @ 0x1406831A8 (PipClearDevNodeUserFlags.c)
+ *     PipSetDevNodeFlags @ 0x1406857DC (PipSetDevNodeFlags.c)
+ *     PipSetDevNodeProblem @ 0x1408667BC (PipSetDevNodeProblem.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall PnpProcessAssignResources(__int64 a1, unsigned __int8 a2, __int64 a3)
 {
   unsigned int v4; // ebx

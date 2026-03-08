@@ -1,3 +1,12 @@
+/*
+ * XREFs of IntPartGetClassAffinityGroup @ 0x140B43A84
+ * Callers:
+ *     KiIntPartInit @ 0x140B437B4 (KiIntPartInit.c)
+ * Callees:
+ *     IntPartGetProcessorEfficiencyClass @ 0x14037FFF4 (IntPartGetProcessorEfficiencyClass.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall IntPartGetClassAffinityGroup(__int64 a1, unsigned int a2)
 {
   unsigned __int8 v2; // bl

@@ -1,3 +1,12 @@
+/*
+ * XREFs of IoConnectInterrupt @ 0x140857B70
+ * Callers:
+ *     DifIoConnectInterruptWrapper @ 0x1405DB900 (DifIoConnectInterruptWrapper.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     IopConnectInterruptFullySpecified @ 0x140857BF0 (IopConnectInterruptFullySpecified.c)
+ */
+
 NTSTATUS __stdcall IoConnectInterrupt(
         PKINTERRUPT *InterruptObject,
         PKSERVICE_ROUTINE ServiceRoutine,

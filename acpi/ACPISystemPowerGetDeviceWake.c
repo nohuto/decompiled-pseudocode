@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPISystemPowerGetDeviceWake @ 0x1C0094F08
+ * Callers:
+ *     ACPISystemPowerUpdateWakeCapabilitiesForFilters @ 0x1C003E7C8 (ACPISystemPowerUpdateWakeCapabilitiesForFilters.c)
+ *     ACPISystemPowerUpdateWakeCapabilitiesForPDOs @ 0x1C003EAE0 (ACPISystemPowerUpdateWakeCapabilitiesForPDOs.c)
+ * Callees:
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ */
+
 __int64 __fastcall ACPISystemPowerGetDeviceWake(__int64 a1, _DWORD *a2)
 {
   int v3; // ebx

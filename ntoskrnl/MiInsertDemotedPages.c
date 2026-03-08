@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiInsertDemotedPages @ 0x1402CACC8
+ * Callers:
+ *     MiDemoteLocalLargePage @ 0x14034E760 (MiDemoteLocalLargePage.c)
+ *     MiGetLargePage @ 0x14034EF30 (MiGetLargePage.c)
+ *     MiDemoteLargeFreePage @ 0x14039BCC8 (MiDemoteLargeFreePage.c)
+ * Callees:
+ *     MiInsertLargePageChain @ 0x1402CADB0 (MiInsertLargePageChain.c)
+ */
+
 __int64 __fastcall MiInsertDemotedPages(int a1, __int64 a2, int a3, int a4, __int64 a5)
 {
   __int64 result; // rax

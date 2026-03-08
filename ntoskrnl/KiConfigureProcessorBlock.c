@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiConfigureProcessorBlock @ 0x140A85FE4
+ * Callers:
+ *     KiInitializeKernel @ 0x140A89160 (KiInitializeKernel.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x140A9C260 (KiInitializeDynamicProcessorDpc.c)
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     KiGetSubNodeForGroup @ 0x1402E9A50 (KiGetSubNodeForGroup.c)
+ */
+
 __int64 __fastcall KiConfigureProcessorBlock(__int64 a1)
 {
   __int64 v1; // rbx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of DpiMiracastFindDisplayAdapterFdoIhv @ 0x1C02196D4
+ * Callers:
+ *     DxgkMiracastQueryMiracastSupportInternal @ 0x1C01F7DCC (DxgkMiracastQueryMiracastSupportInternal.c)
+ *     DpiMiracastFindDisplayAdapterFdo @ 0x1C039A4FC (DpiMiracastFindDisplayAdapterFdo.c)
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     DpiGetFdoFromDevice @ 0x1C0012F68 (DpiGetFdoFromDevice.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ */
+
 __int64 __fastcall DpiMiracastFindDisplayAdapterFdoIhv(__int64 *a1)
 {
   unsigned int v2; // edi

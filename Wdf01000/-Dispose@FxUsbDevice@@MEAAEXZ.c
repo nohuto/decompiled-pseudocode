@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Dispose@FxUsbDevice@@MEAAEXZ @ 0x1C005D3F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ?Dispose@FxIoTarget@@MEAAEXZ @ 0x1C00529F0 (-Dispose@FxIoTarget@@MEAAEXZ.c)
+ */
+
 unsigned __int8 __fastcall FxUsbDevice::Dispose(FxUsbDevice *this)
 {
   USBD_HANDLE__ *m_USBDHandle; // rbx

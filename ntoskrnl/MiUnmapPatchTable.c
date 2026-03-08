@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiUnmapPatchTable @ 0x140A3953C
+ * Callers:
+ *     MiMapSystemImage @ 0x1407F5DFC (MiMapSystemImage.c)
+ *     MiUnloadSystemImage @ 0x1407F627C (MiUnloadSystemImage.c)
+ * Callees:
+ *     MiDeleteSystemPagableVm @ 0x1402B04B0 (MiDeleteSystemPagableVm.c)
+ *     MiGetSessionVm @ 0x14036C17C (MiGetSessionVm.c)
+ */
+
 __int64 MiUnmapPatchTable()
 {
   unsigned __int64 SessionVm; // rax

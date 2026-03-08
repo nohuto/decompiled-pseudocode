@@ -1,3 +1,17 @@
+/*
+ * XREFs of IopCallDriverReference @ 0x14027F1E0
+ * Callers:
+ *     NtSetInformationFile @ 0x14027E490 (NtSetInformationFile.c)
+ *     IopSynchronousServiceTail @ 0x1407C33C0 (IopSynchronousServiceTail.c)
+ * Callees:
+ *     IoGetIoPriorityHint @ 0x14027F300 (IoGetIoPriorityHint.c)
+ *     IopSetIrpPriorityHintFromFileObject @ 0x14027F340 (IopSetIrpPriorityHintFromFileObject.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140283390 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall IopCallDriverReference(PDEVICE_OBJECT DeviceObject, PIRP Irp, char a3, void *a4, int a5)
 {
   __int64 v9; // rax

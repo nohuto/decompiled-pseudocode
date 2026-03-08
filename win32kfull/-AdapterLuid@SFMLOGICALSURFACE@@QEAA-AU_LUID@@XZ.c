@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AdapterLuid@SFMLOGICALSURFACE@@QEAA?AU_LUID@@XZ @ 0x1C014CAD8
+ * Callers:
+ *     GreGetDxSharedSurface @ 0x1C000A248 (GreGetDxSharedSurface.c)
+ *     GreWindowResizeComplete @ 0x1C026ADA0 (GreWindowResizeComplete.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _LUID __fastcall SFMLOGICALSURFACE::AdapterLuid(SFMLOGICALSURFACE *this, _QWORD *a2)
 {
   __int64 v2; // r8

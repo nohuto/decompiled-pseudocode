@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetPendingIndependentFlipAttributes@CFlipExBuffer@@IEAAXAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@@Z @ 0x1C007DBD4
+ * Callers:
+ *     ?CheckIndependentFlipAttributes@CFlipExBuffer@@IEAA_NAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEA_N@Z @ 0x1C007CE48 (-CheckIndependentFlipAttributes@CFlipExBuffer@@IEAA_NAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CFlipExBuffer::SetPendingIndependentFlipAttributes(
         CFlipExBuffer *this,
         const struct _D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN *a2)

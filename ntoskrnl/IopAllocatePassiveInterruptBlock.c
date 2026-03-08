@@ -1,3 +1,17 @@
+/*
+ * XREFs of IopAllocatePassiveInterruptBlock @ 0x1408472F4
+ * Callers:
+ *     IopConnectInterrupt @ 0x1406F43D8 (IopConnectInterrupt.c)
+ * Callees:
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IopInsertPassiveInterruptBlock @ 0x14039E0A0 (IopInsertPassiveInterruptBlock.c)
+ *     IopFindPassiveInterruptBlock @ 0x14039E808 (IopFindPassiveInterruptBlock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopAllocatePassiveInterruptBlock(_DWORD *a1, _OWORD *a2)
 {
   bool v2; // zf

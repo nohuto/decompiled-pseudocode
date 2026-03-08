@@ -1,3 +1,14 @@
+/*
+ * XREFs of Control_TransferData_Initialize @ 0x1C00070AC
+ * Callers:
+ *     Control_WdfEvtIoDefault @ 0x1C0005C60 (Control_WdfEvtIoDefault.c)
+ *     Control_WdfEvtIoCanceledOnQueue @ 0x1C0042F70 (Control_WdfEvtIoCanceledOnQueue.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     McTemplateK0uqqq_EtwWriteTransfer @ 0x1C0022696 (McTemplateK0uqqq_EtwWriteTransfer.c)
+ */
+
 NTSTATUS __fastcall Control_TransferData_Initialize(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
   NTSTATUS result; // eax

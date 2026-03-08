@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiFreeSecureKernelPage @ 0x1406543B4
+ * Callers:
+ *     MmFreeNonChargedSecurePages @ 0x1406556E8 (MmFreeNonChargedSecurePages.c)
+ *     MmFreeSecureKernelPages @ 0x1406558DC (MmFreeSecureKernelPages.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiFreePagesFromMdl @ 0x1402C0DD0 (MiFreePagesFromMdl.c)
+ *     MiSetPfnIdentity @ 0x14034BE78 (MiSetPfnIdentity.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFreeSmallPageFromMdl @ 0x140620DF0 (MiFreeSmallPageFromMdl.c)
+ */
+
 __int64 __fastcall MiFreeSecureKernelPage(ULONG_PTR a1, __int64 a2, int a3, ULONG_PTR a4, _DWORD *a5)
 {
   __int64 v8; // rbx

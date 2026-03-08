@@ -1,3 +1,34 @@
+/*
+ * XREFs of MiZeroInParallel @ 0x140242EB8
+ * Callers:
+ *     MiInitializeMdlOneNodeBatchPages @ 0x1402B4650 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiProcessPageGroupInfo @ 0x1402B4BE0 (MiProcessPageGroupInfo.c)
+ *     MiFindLargePageMemory @ 0x140A46B08 (MiFindLargePageMemory.c)
+ * Callees:
+ *     KeSetPriorityThread @ 0x1402261B0 (KeSetPriorityThread.c)
+ *     KeQueryPriorityThread @ 0x140240EA0 (KeQueryPriorityThread.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     MiZeroInParallelWorker @ 0x140275970 (MiZeroInParallelWorker.c)
+ *     KeWaitForGate @ 0x1402931D8 (KeWaitForGate.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     MiInitializeAffinityWalker @ 0x1402A7028 (MiInitializeAffinityWalker.c)
+ *     MiAllocateAcceleratorDescriptor @ 0x1402A9850 (MiAllocateAcceleratorDescriptor.c)
+ *     MiSelectEngine @ 0x1402B4AF8 (MiSelectEngine.c)
+ *     KiClearSystemPriority @ 0x1402DAA90 (KiClearSystemPriority.c)
+ *     MiTimeToWriteMemory @ 0x1402E5238 (MiTimeToWriteMemory.c)
+ *     KiSetSystemPriorityThread @ 0x1402E9F30 (KiSetSystemPriorityThread.c)
+ *     MiInitializeZeroGroup @ 0x1402F4E60 (MiInitializeZeroGroup.c)
+ *     MiGetNextAffinityWalker @ 0x1403B9938 (MiGetNextAffinityWalker.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiDeleteAcceleratorDescriptor @ 0x14065241C (MiDeleteAcceleratorDescriptor.c)
+ *     MiRestoreIdealProcessorThread @ 0x140664A64 (MiRestoreIdealProcessorThread.c)
+ *     MiSetIdealProcessorThread @ 0x140664A8C (MiSetIdealProcessorThread.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1407DE330 (PsCreateSystemThreadEx.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiZeroInParallel(__int64 *a1)
 {
   int v1; // r15d

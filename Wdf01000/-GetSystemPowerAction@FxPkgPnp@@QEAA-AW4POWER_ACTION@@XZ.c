@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetSystemPowerAction@FxPkgPnp@@QEAA?AW4POWER_ACTION@@XZ @ 0x1C00725F8
+ * Callers:
+ *     imp_WdfDeviceGetSystemPowerAction @ 0x1C0032C00 (imp_WdfDeviceGetSystemPowerAction.c)
+ *     ?GetTargetDevicePowerStateFromPendingDevicePowerDownIrp@FxPkgPnp@@QEAA?AW4_WDF_POWER_DEVICE_STATE@@XZ @ 0x1C006DD80 (-GetTargetDevicePowerStateFromPendingDevicePowerDownIrp@FxPkgPnp@@QEAA-AW4_WDF_POWER_DEVICE_STAT.c)
+ * Callees:
+ *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C0001F2C (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
+ */
+
 __int64 __fastcall FxPkgPnp::GetSystemPowerAction(FxPkgPnp *this, unsigned int a2)
 {
   bool IsVersionGreaterThanOrEqualTo; // al

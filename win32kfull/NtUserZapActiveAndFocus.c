@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserZapActiveAndFocus @ 0x1C01E13E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     zzzInputFocusLostWindowEvent @ 0x1C009BA70 (zzzInputFocusLostWindowEvent.c)
+ */
+
 __int64 NtUserZapActiveAndFocus()
 {
   tagQ *v0; // rbx

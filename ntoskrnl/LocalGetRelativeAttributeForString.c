@@ -1,3 +1,22 @@
+/*
+ * XREFs of LocalGetRelativeAttributeForString @ 0x1409D2214
+ * Callers:
+ *     LocalGetAclForString @ 0x14074F18C (LocalGetAclForString.c)
+ * Callees:
+ *     RtlLengthSid @ 0x140245EC0 (RtlLengthSid.c)
+ *     iswspace @ 0x1403D4650 (iswspace.c)
+ *     wcstoxq @ 0x1403D653C (wcstoxq.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SddlpAlloc @ 0x1407507C8 (SddlpAlloc.c)
+ *     LocalGetSidForString @ 0x140750A70 (LocalGetSidForString.c)
+ *     DecodeAttributeName @ 0x1409CFF1C (DecodeAttributeName.c)
+ *     GetDigitFromChar @ 0x1409D0648 (GetDigitFromChar.c)
+ *     GetFlags @ 0x1409D06C8 (GetFlags.c)
+ *     GetValueType @ 0x1409D18F8 (GetValueType.c)
+ *     IsLegalAttributeChar2 @ 0x1409D1AA0 (IsLegalAttributeChar2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall LocalGetRelativeAttributeForString(
         _WORD *a1,
         _QWORD *a2,

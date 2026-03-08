@@ -1,3 +1,16 @@
+/*
+ * XREFs of PipAllocateDeviceNode @ 0x14078BC8C
+ * Callers:
+ *     PipProcessEnumeratedChildDevice @ 0x14068571C (PipProcessEnumeratedChildDevice.c)
+ *     IopLegacyResourceAllocation @ 0x140801DA4 (IopLegacyResourceAllocation.c)
+ *     IoReportDetectedDevice @ 0x140802A80 (IoReportDetectedDevice.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14081CE14 (IopInitializeDeviceInstanceKey.c)
+ *     PiInitializeDevice @ 0x14096AB74 (PiInitializeDevice.c)
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PipAllocateDeviceNode(__int64 a1, __int64 a2)
 {
   __int64 Pool2; // rax

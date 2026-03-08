@@ -1,3 +1,15 @@
+/*
+ * XREFs of PiDmListAddObjectWorker @ 0x1406CD594
+ * Callers:
+ *     PiDmListAddObject @ 0x1406CBAD4 (PiDmListAddObject.c)
+ *     PiDmListAddList @ 0x14087DCD8 (PiDmListAddList.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     PiDmListUpdateAggregationCountWorker @ 0x140869528 (PiDmListUpdateAggregationCountWorker.c)
+ */
+
 char *__fastcall PiDmListAddObjectWorker(int a1, struct _ERESOURCE *a2, __int64 a3, __int64 a4, char *a5)
 {
   __int64 v8; // rcx

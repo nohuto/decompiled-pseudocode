@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiAllocateProcessVads @ 0x1407286B0
+ * Callers:
+ *     MmInitializeProcessAddressSpace @ 0x1407291A8 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeHandBuiltProcess2 @ 0x14085D06C (MmInitializeHandBuiltProcess2.c)
+ * Callees:
+ *     MiAllocateVad @ 0x140728758 (MiAllocateVad.c)
+ *     MiReturnProcessVads @ 0x140A286A0 (MiReturnProcessVads.c)
+ */
+
 _QWORD *__fastcall MiAllocateProcessVads(__int64 a1, __int64 a2)
 {
   void *Vad; // rbx

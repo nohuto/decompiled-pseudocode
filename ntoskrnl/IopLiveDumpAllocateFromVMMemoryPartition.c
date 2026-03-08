@@ -1,3 +1,18 @@
+/*
+ * XREFs of IopLiveDumpAllocateFromVMMemoryPartition @ 0x14094A8B4
+ * Callers:
+ *     IopLiveDumpAllocateDumpBuffers @ 0x140949C84 (IopLiveDumpAllocateDumpBuffers.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402B39C0 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     MmFreePagesFromMdl @ 0x1402C0DB0 (MmFreePagesFromMdl.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IopLiveDumpTraceAllocationFromVMMemoryPartitionFailure @ 0x140557CD0 (IopLiveDumpTraceAllocationFromVMMemoryPartitionFailure.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 PVOID __fastcall IopLiveDumpAllocateFromVMMemoryPartition(__int64 a1, unsigned __int64 a2, __int64 *a3)
 {
   int v3; // eax

@@ -1,3 +1,28 @@
+/*
+ * XREFs of MiAddPagesToEnclave @ 0x14064445C
+ * Callers:
+ *     MiCommitEnclavePages @ 0x140644C84 (MiCommitEnclavePages.c)
+ * Callees:
+ *     MiMapPageInHyperSpaceWorker @ 0x140214870 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140214A54 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeSystemAddressValid @ 0x140321770 (MiMakeSystemAddressValid.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiWorkingSetIsContended @ 0x1403478E0 (MiWorkingSetIsContended.c)
+ *     MiPageTableLockIsContended @ 0x140347920 (MiPageTableLockIsContended.c)
+ *     KeAddEnclavePage @ 0x14056DC68 (KeAddEnclavePage.c)
+ *     MiGetPageForEnclave @ 0x140645A8C (MiGetPageForEnclave.c)
+ *     MiInitializeEnclavePfn @ 0x140645B58 (MiInitializeEnclavePfn.c)
+ *     MiReserveEnclavePages @ 0x140646394 (MiReserveEnclavePages.c)
+ *     MiReturnEnclavePage @ 0x140646460 (MiReturnEnclavePage.c)
+ *     MiWriteEnclavePte @ 0x1406465DC (MiWriteEnclavePte.c)
+ *     MiReturnReservedEnclavePages @ 0x140AAA540 (MiReturnReservedEnclavePages.c)
+ */
+
 __int64 __fastcall MiAddPagesToEnclave(__int64 a1, unsigned __int64 a2, ULONG_PTR a3, ULONG_PTR a4, unsigned int a5)
 {
   ULONG_PTR v5; // r14

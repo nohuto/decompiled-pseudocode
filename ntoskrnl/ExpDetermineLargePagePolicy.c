@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpDetermineLargePagePolicy @ 0x1403AFB34
+ * Callers:
+ *     ExInitializePoolHeapManagement @ 0x140374D0C (ExInitializePoolHeapManagement.c)
+ * Callees:
+ *     MmGetNumberOfPhysicalPages @ 0x140768AB0 (MmGetNumberOfPhysicalPages.c)
+ */
+
 __int64 __fastcall ExpDetermineLargePagePolicy(__int64 a1)
 {
   unsigned __int64 NumberOfPhysicalPages; // rax

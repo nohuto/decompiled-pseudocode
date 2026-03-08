@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtCreateCrossVmMutant @ 0x140A02B20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExpCreateCrossVmMutant @ 0x140A02EAC (ExpCreateCrossVmMutant.c)
+ */
+
 __int64 __fastcall NtCreateCrossVmMutant(_QWORD *a1, int a2, int a3, int a4, __int64 a5, __int64 a6)
 {
   char PreviousMode; // di

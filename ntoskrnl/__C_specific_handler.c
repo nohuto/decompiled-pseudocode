@@ -1,3 +1,14 @@
+/*
+ * XREFs of __C_specific_handler @ 0x1403D2190
+ * Callers:
+ *     __GSHandlerCheck_SEH @ 0x140411A40 (__GSHandlerCheck_SEH.c)
+ * Callees:
+ *     RtlUnwindEx @ 0x1402809E0 (RtlUnwindEx.c)
+ *     KeCheckStackAndTargetAddress @ 0x1402DC470 (KeCheckStackAndTargetAddress.c)
+ *     _NLG_Notify @ 0x1403D3740 (_NLG_Notify.c)
+ *     __NLG_Return2 @ 0x1403D3770 (__NLG_Return2.c)
+ */
+
 EXCEPTION_DISPOSITION __cdecl _C_specific_handler(
         struct _EXCEPTION_RECORD *ExceptionRecord,
         void *EstablisherFrame,

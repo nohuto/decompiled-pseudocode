@@ -1,3 +1,23 @@
+/*
+ * XREFs of KiDeferredBugcheckRecoveryWorker @ 0x140578960
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402ABED0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalReturnToFirmware @ 0x140504990 (HalReturnToFirmware.c)
+ *     IoWriteCapturedPristineTriageDumpToDedicatedDumpFile @ 0x14054ECE4 (IoWriteCapturedPristineTriageDumpToDedicatedDumpFile.c)
+ *     KiInvokeBugCheckEntryCallbacks @ 0x1405684CC (KiInvokeBugCheckEntryCallbacks.c)
+ *     KiCaptureDumpPostRecovery @ 0x140578810 (KiCaptureDumpPostRecovery.c)
+ *     KiRecordRecoveryFailure @ 0x140578E50 (KiRecordRecoveryFailure.c)
+ *     KiSaveBugCheckRecoveryStatusPhase2 @ 0x140578FBC (KiSaveBugCheckRecoveryStatusPhase2.c)
+ *     KiUpdateBugcheckRecoveryProgress @ 0x1405793F8 (KiUpdateBugcheckRecoveryProgress.c)
+ *     ExRebootSystemForRecovery @ 0x140604294 (ExRebootSystemForRecovery.c)
+ */
+
 __int64 KiDeferredBugcheckRecoveryWorker()
 {
   __int64 v0; // rcx

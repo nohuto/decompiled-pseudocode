@@ -1,3 +1,15 @@
+/*
+ * XREFs of DifMmAllocateContiguousMemoryExWrapper @ 0x1405E42F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmAllocateContiguousMemoryEx @ 0x14038D1E0 (MmAllocateContiguousMemoryEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 __int64 __fastcall DifMmAllocateContiguousMemoryExWrapper(
         _QWORD *a1,
         __int64 a2,

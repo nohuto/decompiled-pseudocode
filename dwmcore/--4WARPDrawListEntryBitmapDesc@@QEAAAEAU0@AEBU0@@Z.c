@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??4WARPDrawListEntryBitmapDesc@@QEAAAEAU0@AEBU0@@Z @ 0x1801FC9E0
+ * Callers:
+ *     ??0CWARPDrawListEntry@@AEAA@AEBUWARPDrawListEntryParams@@@Z @ 0x1801FC838 (--0CWARPDrawListEntry@@AEAA@AEBUWARPDrawListEntryParams@@@Z.c)
+ * Callees:
+ *     ??4CDrawListBitmap@@QEAAAEAV0@AEBV0@@Z @ 0x1800942A0 (--4CDrawListBitmap@@QEAAAEAV0@AEBV0@@Z.c)
+ */
+
 __int64 __fastcall WARPDrawListEntryBitmapDesc::operator=(__int64 a1, __int64 a2)
 {
   CDrawListBitmap::operator=((__int64 *)a1, (__int64 *)a2);

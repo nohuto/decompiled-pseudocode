@@ -1,3 +1,16 @@
+/*
+ * XREFs of CcFetchDataForRead @ 0x140221EE0
+ * Callers:
+ *     CcMdlRead @ 0x1406A3B50 (CcMdlRead.c)
+ *     CcMapAndCopyFromCache @ 0x1406A7510 (CcMapAndCopyFromCache.c)
+ * Callees:
+ *     MmWaitForCacheManagerPrefetch @ 0x14020D9A0 (MmWaitForCacheManagerPrefetch.c)
+ *     MmCheckCachedPageStates @ 0x1402200B0 (MmCheckCachedPageStates.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     MmPrefetchForCacheManager @ 0x1406A3DCC (MmPrefetchForCacheManager.c)
+ *     MmHardFaultBytesRequired @ 0x1406A7A10 (MmHardFaultBytesRequired.c)
+ */
+
 char __fastcall CcFetchDataForRead(
         int a1,
         _QWORD *a2,

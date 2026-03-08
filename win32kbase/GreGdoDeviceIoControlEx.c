@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreGdoDeviceIoControlEx @ 0x1C00D7DE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C0021280 (-GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z.c)
+ */
+
 __int64 __fastcall GreGdoDeviceIoControlEx(
         struct _DEVICE_OBJECT *a1,
         ULONG a2,

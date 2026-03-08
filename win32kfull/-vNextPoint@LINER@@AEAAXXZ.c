@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?vNextPoint@LINER@@AEAAXXZ @ 0x1C02F49C0
+ * Callers:
+ *     ?vNextEvent@LINER@@QEAAXXZ @ 0x1C02F4870 (-vNextEvent@LINER@@QEAAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?bNextPoint@READER@@IEAAHAEAU_POINTFIX@@@Z @ 0x1C0150C84 (-bNextPoint@READER@@IEAAHAEAU_POINTFIX@@@Z.c)
+ *     ?bNextFigure@READER@@IEAAHXZ @ 0x1C02F3690 (-bNextFigure@READER@@IEAAHXZ.c)
+ *     ?vInit@BEZIER@@QEAAXPEAU_POINTFIX@@PEAU_RECTFX@@PEB_J@Z @ 0x1C02F474C (-vInit@BEZIER@@QEAAXPEAU_POINTFIX@@PEAU_RECTFX@@PEB_J@Z.c)
+ */
+
 void __fastcall LINER::vNextPoint(LINER *this)
 {
   __int64 v2; // rax

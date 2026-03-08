@@ -1,3 +1,21 @@
+/*
+ * XREFs of PipEnumerateDevice @ 0x140688710
+ * Callers:
+ *     PipProcessDevNodeTree @ 0x1406CCD80 (PipProcessDevNodeTree.c)
+ * Callees:
+ *     PoFxActivateDevice @ 0x140202138 (PoFxActivateDevice.c)
+ *     PoFxIdleDevice @ 0x14020259C (PoFxIdleDevice.c)
+ *     PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x140202804 (PnpDeviceCompletionQueueDispatchedEntryCompleted.c)
+ *     PipSetDevNodeState @ 0x1402028D0 (PipSetDevNodeState.c)
+ *     PnpDiagnosticTraceObject @ 0x140202BAC (PnpDiagnosticTraceObject.c)
+ *     PnpDeviceCompletionQueueAddDispatchedRequest @ 0x140202C70 (PnpDeviceCompletionQueueAddDispatchedRequest.c)
+ *     PnpDeviceCompletionQueueRemoveCompletedRequest @ 0x140202F10 (PnpDeviceCompletionQueueRemoveCompletedRequest.c)
+ *     PnpDeviceCompletionProcessCompletedRequest @ 0x140685424 (PnpDeviceCompletionProcessCompletedRequest.c)
+ *     PipClearDevNodeFlags @ 0x14068816C (PipClearDevNodeFlags.c)
+ *     PnpQueryDeviceRelations @ 0x140688584 (PnpQueryDeviceRelations.c)
+ *     PnpDeviceCompletionRequestCreate @ 0x140688CA4 (PnpDeviceCompletionRequestCreate.c)
+ */
+
 __int64 __fastcall PipEnumerateDevice(__int64 a1, int a2, int a3)
 {
   __int64 v5; // rbx

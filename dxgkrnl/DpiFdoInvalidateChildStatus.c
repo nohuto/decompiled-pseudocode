@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiFdoInvalidateChildStatus @ 0x1C0397E60
+ * Callers:
+ *     DpiPollSingleDisplayChild @ 0x1C0394E68 (DpiPollSingleDisplayChild.c)
+ *     DpiPdoPollingWorkItem @ 0x1C03A50C0 (DpiPdoPollingWorkItem.c)
+ * Callees:
+ *     DpiDxgkDdiDisplayDetectControl @ 0x1C01E6A28 (DpiDxgkDdiDisplayDetectControl.c)
+ */
+
 __int64 __fastcall DpiFdoInvalidateChildStatus(
         __int64 a1,
         int a2,

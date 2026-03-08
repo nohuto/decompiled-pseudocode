@@ -1,3 +1,12 @@
+/*
+ * XREFs of ESM_NotifyingTransferRingsEndpointHalted @ 0x1C0051720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     XilEndpoint_FetchStreamContextArray @ 0x1C00390E8 (XilEndpoint_FetchStreamContextArray.c)
+ *     TR_EndpointHalted @ 0x1C004180C (TR_EndpointHalted.c)
+ */
+
 __int64 __fastcall ESM_NotifyingTransferRingsEndpointHalted(__int64 a1)
 {
   __int64 v1; // rdi

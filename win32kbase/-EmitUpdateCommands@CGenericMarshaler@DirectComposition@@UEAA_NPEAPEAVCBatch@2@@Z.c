@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CGenericMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C026F300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_12e75180a11ffed6cad26bb14cc56b49___ @ 0x1C026F084 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_12e75180a11ffed6cad26bb14cc56b4.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_2c1c17c18233082b92a848548c47cd14___ @ 0x1C026F104 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_2c1c17c18233082b92a848548c47cd1.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_8cac5da16f0742029578aa2516c8918d___ @ 0x1C026F18C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_8cac5da16f0742029578aa2516c8918.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_cd6f464a9ec2345488c4c067fc53b36f___ @ 0x1C026F200 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_cd6f464a9ec2345488c4c067fc53b36.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_cf52b1175f102f66240ee89a888274f8___ @ 0x1C026F278 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_cf52b1175f102f66240ee89a888274f.c)
+ */
+
 char __fastcall DirectComposition::CGenericMarshaler::EmitUpdateCommands(
         DirectComposition::CGenericMarshaler *this,
         struct DirectComposition::CBatch ***a2)

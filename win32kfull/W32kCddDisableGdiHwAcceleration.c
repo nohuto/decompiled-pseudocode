@@ -1,3 +1,12 @@
+/*
+ * XREFs of W32kCddDisableGdiHwAcceleration @ 0x1C00E8850
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ */
+
 __int64 W32kCddDisableGdiHwAcceleration()
 {
   unsigned __int64 v0; // rbx

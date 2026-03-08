@@ -1,3 +1,16 @@
+/*
+ * XREFs of VmColdPagesHint @ 0x1405F6510
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     ZwUnlockVirtualMemory @ 0x140415E70 (ZwUnlockVirtualMemory.c)
+ *     VmpProcessContextLockShared @ 0x14045E744 (VmpProcessContextLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpLogColdHint @ 0x1405F77C0 (VmpLogColdHint.c)
+ */
+
 __int64 __fastcall VmColdPagesHint(unsigned __int64 a1, unsigned __int64 a2, __int64 a3)
 {
   unsigned __int64 v4; // rsi

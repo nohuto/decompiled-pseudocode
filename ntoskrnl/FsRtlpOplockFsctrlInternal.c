@@ -1,3 +1,32 @@
+/*
+ * XREFs of FsRtlpOplockFsctrlInternal @ 0x1406B3240
+ * Callers:
+ *     FsRtlOplockFsctrlEx @ 0x1406B3220 (FsRtlOplockFsctrlEx.c)
+ *     FsRtlOplockFsctrl @ 0x1406B3A40 (FsRtlOplockFsctrl.c)
+ *     FsRtlUpperOplockFsctrl @ 0x14093B1B0 (FsRtlUpperOplockFsctrl.c)
+ * Callees:
+ *     FsRtlpClearOwner @ 0x14023AB1C (FsRtlpClearOwner.c)
+ *     FsRtlCheckOplockEx @ 0x14023ADF0 (FsRtlCheckOplockEx.c)
+ *     FsRtlpOplockDequeueRH @ 0x14023EA10 (FsRtlpOplockDequeueRH.c)
+ *     FsRtlpRequestShareableOplock @ 0x14023EEF0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpComputeShareableOplockState @ 0x14023F940 (FsRtlpComputeShareableOplockState.c)
+ *     IoIsOperationSynchronous @ 0x14023FB50 (IoIsOperationSynchronous.c)
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     FsRtlpAttachOplockKey @ 0x14023FE88 (FsRtlpAttachOplockKey.c)
+ *     FsRtlpCallerIsAtomicRequestor @ 0x14023FF90 (FsRtlpCallerIsAtomicRequestor.c)
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     FsRtlpReleaseIrpsWaitingForRH @ 0x1402F5A44 (FsRtlpReleaseIrpsWaitingForRH.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x1403B9C94 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403CD730 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpAcknowledgeOplockBreak @ 0x14053BB78 (FsRtlpAcknowledgeOplockBreak.c)
+ *     FsRtlpAllocateOplock @ 0x140773FDC (FsRtlpAllocateOplock.c)
+ *     FsRtlpOpBatchBreakClosePending @ 0x14093B3DC (FsRtlpOpBatchBreakClosePending.c)
+ *     FsRtlpOplockBreakNotify @ 0x14093B518 (FsRtlpOplockBreakNotify.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall FsRtlpOplockFsctrlInternal(__int64 *Oplock, PIRP Irp, int a3, int a4, unsigned int a5)
 {
   unsigned int v7; // ebx

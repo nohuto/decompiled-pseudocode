@@ -1,3 +1,12 @@
+/*
+ * XREFs of xxxDestroyThreadDDEObject @ 0x1C00F4BE0
+ * Callers:
+ *     NtUserDdeInitialize @ 0x1C00E4630 (NtUserDdeInitialize.c)
+ *     NtUserCsDdeUninitialize @ 0x1C01CF1F0 (NtUserCsDdeUninitialize.c)
+ * Callees:
+ *     xxxDestroyWindow @ 0x1C004B7F0 (xxxDestroyWindow.c)
+ */
+
 __int64 __fastcall xxxDestroyThreadDDEObject(__int64 a1, __int64 a2)
 {
   PKDPC BufferChainingDpc; // rcx

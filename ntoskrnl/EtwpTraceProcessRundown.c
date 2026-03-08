@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpTraceProcessRundown @ 0x14080E0E4
+ * Callers:
+ *     EtwpProcessEnumCallback @ 0x14080DD60 (EtwpProcessEnumCallback.c)
+ * Callees:
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpBuildProcessEvent @ 0x14071DE28 (EtwpBuildProcessEvent.c)
+ *     RtlFreeAnsiString @ 0x1407EA820 (RtlFreeAnsiString.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpTraceProcessRundown(__int64 a1, __int64 a2, __int16 a3, __int64 a4)
 {
   char v8; // r8

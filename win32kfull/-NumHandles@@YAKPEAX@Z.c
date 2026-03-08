@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NumHandles@@YAKPEAX@Z @ 0x1C007873C
+ * Callers:
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C0078068 (-InitiateWin32kCleanup@@YAHXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall NumHandles(void *a1)
 {

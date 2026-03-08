@@ -1,3 +1,11 @@
+/*
+ * XREFs of AuthzBasepEvaluateAttribute @ 0x1402E2940
+ * Callers:
+ *     AuthzBasepEvaluateAceCondition @ 0x140246980 (AuthzBasepEvaluateAceCondition.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AuthzBasepEvaluateAttribute(__int64 a1)
 {
   unsigned int v1; // edx

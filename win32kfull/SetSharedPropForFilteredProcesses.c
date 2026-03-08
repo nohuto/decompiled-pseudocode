@@ -1,3 +1,12 @@
+/*
+ * XREFs of SetSharedPropForFilteredProcesses @ 0x1C021F288
+ * Callers:
+ *     NtUserSetProp @ 0x1C0100EE0 (NtUserSetProp.c)
+ *     InternalSetProp @ 0x1C01011E0 (InternalSetProp.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SetSharedPropForFilteredProcesses(__int64 a1, __int16 a2, __int64 a3)
 {
   __int64 v5; // rax

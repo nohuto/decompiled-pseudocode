@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiUpdateOldPte @ 0x140463D20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiWalkVaCheckCommon @ 0x140349290 (MiWalkVaCheckCommon.c)
+ *     MiGetVaAge @ 0x140349610 (MiGetVaAge.c)
+ *     MiInsertVmAccessedEntry @ 0x140463768 (MiInsertVmAccessedEntry.c)
+ *     MiUpdateOldPteWorker @ 0x140463E86 (MiUpdateOldPteWorker.c)
+ *     MiUpdateOldWorkingSetPagesTail @ 0x140463EE0 (MiUpdateOldWorkingSetPagesTail.c)
+ */
+
 __int64 __fastcall MiUpdateOldPte(__int64 a1, unsigned __int64 a2, int a3)
 {
   __int64 v5; // r15

@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpTscReserveResources @ 0x1403AC968
+ * Callers:
+ *     HalpTimerInitSystem @ 0x1403776D0 (HalpTimerInitSystem.c)
+ * Callees:
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x140372460 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpTscCheckAdjustMsrCapability @ 0x1403ACA80 (HalpTscCheckAdjustMsrCapability.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 HalpTscReserveResources()
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessUpdate@?$TValueResource@UMilRectD@@UtagMILCMD_RECTDRESOURCE@@$0IL@@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_RECTDRESOURCE@@@Z @ 0x1801C2D3C
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F0A8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall TValueResource<MilRectD,tagMILCMD_RECTDRESOURCE,139>::ProcessUpdate(
         __int64 *a1,
         __int64 a2,

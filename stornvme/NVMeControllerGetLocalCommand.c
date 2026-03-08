@@ -1,3 +1,11 @@
+/*
+ * XREFs of NVMeControllerGetLocalCommand @ 0x1C000352C
+ * Callers:
+ *     NVMeSetNonOperationalPowerStatePermissiveMode @ 0x1C0023ED4 (NVMeSetNonOperationalPowerStatePermissiveMode.c)
+ * Callees:
+ *     NVMeControllerAllocateLocalCommand @ 0x1C00032F0 (NVMeControllerAllocateLocalCommand.c)
+ */
+
 _BYTE *__fastcall NVMeControllerGetLocalCommand(__int64 a1)
 {
   _BYTE *result; // rax

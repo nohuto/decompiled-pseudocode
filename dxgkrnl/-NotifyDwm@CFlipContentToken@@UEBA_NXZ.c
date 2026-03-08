@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?NotifyDwm@CFlipContentToken@@UEBA_NXZ @ 0x1C0089300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?GetIndependentFlipNotifyDwm@CompositionSurfaceObject@@QEAAJ_KPEA_N@Z @ 0x1C0078CD4 (-GetIndependentFlipNotifyDwm@CompositionSurfaceObject@@QEAAJ_KPEA_N@Z.c)
+ */
+
 char __fastcall CFlipContentToken::NotifyDwm(CFlipContentToken *this)
 {
   char v2; // bl

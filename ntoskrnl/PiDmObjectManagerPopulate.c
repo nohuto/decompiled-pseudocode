@@ -1,3 +1,18 @@
+/*
+ * XREFs of PiDmObjectManagerPopulate @ 0x14083A17C
+ * Callers:
+ *     PiDmInit @ 0x140B5E6D8 (PiDmInit.c)
+ * Callees:
+ *     RtlDeleteElementGenericTableAvl @ 0x140244F40 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlInsertElementGenericTableAvl @ 0x1402451A0 (RtlInsertElementGenericTableAvl.c)
+ *     RtlEnumerateGenericTableAvl @ 0x1402EF150 (RtlEnumerateGenericTableAvl.c)
+ *     PiDmObjectRelease @ 0x1406D0328 (PiDmObjectRelease.c)
+ *     PiDmObjectCreate @ 0x140868FFC (PiDmObjectCreate.c)
+ *     _PnpGetObjectList @ 0x14086A038 (_PnpGetObjectList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDmObjectManagerPopulate(__int64 a1)
 {
   void *Pool2; // rdi

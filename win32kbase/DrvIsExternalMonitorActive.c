@@ -1,3 +1,14 @@
+/*
+ * XREFs of DrvIsExternalMonitorActive @ 0x1C000F280
+ * Callers:
+ *     UpdateExternalMonitorConnectedStatus @ 0x1C000F1C0 (UpdateExternalMonitorConnectedStatus.c)
+ * Callees:
+ *     ?Fill@QDC_AUTO_BUFFERS@@QEAAJIPEAW4DISPLAYCONFIG_TOPOLOGY_ID@@@Z @ 0x1C000F37C (-Fill@QDC_AUTO_BUFFERS@@QEAAJIPEAW4DISPLAYCONFIG_TOPOLOGY_ID@@@Z.c)
+ *     ?Free@QDC_AUTO_BUFFERS@@QEAAXXZ @ 0x1C000F450 (-Free@QDC_AUTO_BUFFERS@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 __fastcall DrvIsExternalMonitorActive(_BYTE *a1)
 {
   unsigned int v2; // ebx

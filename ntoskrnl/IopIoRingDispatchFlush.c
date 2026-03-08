@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopIoRingDispatchFlush @ 0x1409463CC
+ * Callers:
+ *     IopProcessIoRingEntry @ 0x140947008 (IopProcessIoRingEntry.c)
+ * Callees:
+ *     IopCompleteIoRingEntry @ 0x140556F5C (IopCompleteIoRingEntry.c)
+ *     IopFlushBuffersFile @ 0x14076DF74 (IopFlushBuffersFile.c)
+ *     IopIoRingReferenceFileObject @ 0x140946F94 (IopIoRingReferenceFileObject.c)
+ */
+
 LONG_PTR __fastcall IopIoRingDispatchFlush(PVOID a1, __int64 a2)
 {
   int v4; // edx

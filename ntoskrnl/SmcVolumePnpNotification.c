@@ -1,3 +1,13 @@
+/*
+ * XREFs of SmcVolumePnpNotification @ 0x1409D8EC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     SmcCacheDelete @ 0x1409D7D8C (SmcCacheDelete.c)
+ *     SmcCacheReference @ 0x1409D8000 (SmcCacheReference.c)
+ */
+
 __int64 __fastcall SmcVolumePnpNotification(_QWORD *NotificationStructure, struct _EX_RUNDOWN_REF *Context)
 {
   __int64 v3; // rax

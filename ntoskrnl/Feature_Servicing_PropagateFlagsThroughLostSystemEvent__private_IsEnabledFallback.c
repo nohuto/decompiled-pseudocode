@@ -1,3 +1,11 @@
+/*
+ * XREFs of Feature_Servicing_PropagateFlagsThroughLostSystemEvent__private_IsEnabledFallback @ 0x14040C8F4
+ * Callers:
+ *     Feature_Servicing_PropagateFlagsThroughLostSystemEvent__private_IsEnabledDeviceUsage @ 0x14040C8BC (Feature_Servicing_PropagateFlagsThroughLostSystemEvent__private_IsEnabledDeviceUsage.c)
+ * Callees:
+ *     wil_details_IsEnabledFallback @ 0x140409AE0 (wil_details_IsEnabledFallback.c)
+ */
+
 __int64 __fastcall Feature_Servicing_PropagateFlagsThroughLostSystemEvent__private_IsEnabledFallback(
         __int64 a1,
         int a2)

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPISystemPowerProcessRootMapping @ 0x1C00950C0
+ * Callers:
+ *     ACPISystemPowerInitializeRootMapping @ 0x1C003DEA4 (ACPISystemPowerInitializeRootMapping.c)
+ * Callees:
+ *     ACPISystemPowerDetermineSupportedDeviceStates @ 0x1C003DAE0 (ACPISystemPowerDetermineSupportedDeviceStates.c)
+ *     WPP_RECORDER_SF_DLqss @ 0x1C003EF58 (WPP_RECORDER_SF_DLqss.c)
+ */
+
 __int64 __fastcall ACPISystemPowerProcessRootMapping(_QWORD *a1, __int64 a2)
 {
   unsigned int *v3; // rdi

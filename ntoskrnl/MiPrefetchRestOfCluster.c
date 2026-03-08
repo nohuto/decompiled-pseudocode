@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiPrefetchRestOfCluster @ 0x1402FBFE0
+ * Callers:
+ *     MiWaitForInPageComplete @ 0x140342A90 (MiWaitForInPageComplete.c)
+ * Callees:
+ *     MiGetEffectivePagePriorityThread @ 0x14028A260 (MiGetEffectivePagePriorityThread.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiPrefetchVirtualMemory @ 0x140363970 (MiPrefetchVirtualMemory.c)
+ */
+
 void __fastcall MiPrefetchRestOfCluster(__int64 a1, _QWORD *a2, __int64 a3)
 {
   unsigned __int64 v3; // rbx

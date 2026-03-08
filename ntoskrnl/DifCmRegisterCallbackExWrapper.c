@@ -1,3 +1,15 @@
+/*
+ * XREFs of DifCmRegisterCallbackExWrapper @ 0x1405D4020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     CmRegisterCallbackEx @ 0x14084E720 (CmRegisterCallbackEx.c)
+ */
+
 NTSTATUS __fastcall DifCmRegisterCallbackExWrapper(
         PEX_CALLBACK_FUNCTION Function,
         PCUNICODE_STRING Altitude,

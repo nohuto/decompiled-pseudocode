@@ -1,3 +1,13 @@
+/*
+ * XREFs of AcpiHandleInternalNotify @ 0x1C0037468
+ * Callers:
+ *     AcpiNativeNotifyEventHandler @ 0x1C00376C0 (AcpiNativeNotifyEventHandler.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qs @ 0x1C00152B8 (WPP_RECORDER_SF_qs.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIIterateParentNext @ 0x1C00488A4 (AMLIIterateParentNext.c)
+ */
+
 void __fastcall AcpiHandleInternalNotify(volatile signed __int32 *a1)
 {
   volatile signed __int32 *v1; // rdi

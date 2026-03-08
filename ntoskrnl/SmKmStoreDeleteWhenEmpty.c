@@ -1,3 +1,17 @@
+/*
+ * XREFs of SmKmStoreDeleteWhenEmpty @ 0x140358874
+ * Callers:
+ *     ?SmFeEvictComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z @ 0x1405CA1A8 (-SmFeEvictComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z.c)
+ *     SmpKeyedStoreCreate @ 0x1407DD424 (SmpKeyedStoreCreate.c)
+ *     SmpKeyedStoreDeleteInitiate @ 0x1407E6938 (SmpKeyedStoreDeleteInitiate.c)
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItemToPartition @ 0x1403439E0 (ExQueueWorkItemToPartition.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140356594 (SmKmStoreRefFromStoreIndex.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall SmKmStoreDeleteWhenEmpty(__int64 a1, __int64 a2)
 {
   int v2; // r14d

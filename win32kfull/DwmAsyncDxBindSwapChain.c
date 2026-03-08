@@ -1,3 +1,11 @@
+/*
+ * XREFs of DwmAsyncDxBindSwapChain @ 0x1C026F17C
+ * Callers:
+ *     ?NotifyDwm@CSwapChainProp@@QEAAHQEAUtagWND@@@Z @ 0x1C021EDEC (-NotifyDwm@CSwapChainProp@@QEAAHQEAUtagWND@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DwmAsyncDxBindSwapChain(PVOID Object, __int64 a2, __int64 a3)
 {
   unsigned int v4; // ebx

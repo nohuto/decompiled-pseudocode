@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiReturnFaultCharges @ 0x1402F4480
+ * Callers:
+ *     MiGetPageForHeader @ 0x1402140A4 (MiGetPageForHeader.c)
+ *     MiMigratePfn @ 0x140272370 (MiMigratePfn.c)
+ *     MiPfPutPagesInTransition @ 0x140288890 (MiPfPutPagesInTransition.c)
+ *     MiResolveMappedFileFault @ 0x14028A780 (MiResolveMappedFileFault.c)
+ *     MiPrivateFixup @ 0x1402A180C (MiPrivateFixup.c)
+ *     MiPrefetchPagesViable @ 0x1402FCD14 (MiPrefetchPagesViable.c)
+ *     MiObtainFaultCharges @ 0x14031EEE0 (MiObtainFaultCharges.c)
+ *     MiSwitchToTransition @ 0x140630D6C (MiSwitchToTransition.c)
+ *     MiResolvePageFileFault @ 0x140668EDC (MiResolvePageFileFault.c)
+ *     MiFreeReadListPages @ 0x1406A4F10 (MiFreeReadListPages.c)
+ *     MiPfPrepareSequentialReadList @ 0x1406EBE40 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x1407C42F0 (MiPfPrepareReadList.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ */
+
 void __fastcall MiReturnFaultCharges(__int64 a1, __int64 a2, struct _KPRCB *CurrentPrcb)
 {
   char v3; // bl

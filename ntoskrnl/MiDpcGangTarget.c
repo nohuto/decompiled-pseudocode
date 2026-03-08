@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiDpcGangTarget @ 0x140664900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiGetGangAssignment @ 0x140386CC4 (MiGetGangAssignment.c)
+ *     MiDoGangAssignment @ 0x140386D14 (MiDoGangAssignment.c)
+ */
+
 __int64 __fastcall MiDpcGangTarget(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)
 {
   int GangAssignment; // r14d

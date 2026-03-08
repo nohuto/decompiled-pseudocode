@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmTranslatePlatformIdleAccounting @ 0x140595CF8
+ * Callers:
+ *     PpmEventTracePlatformIdleAccounting @ 0x140996070 (PpmEventTracePlatformIdleAccounting.c)
+ * Callees:
+ *     PpmConvertTime @ 0x140235D70 (PpmConvertTime.c)
+ */
+
 __int64 __fastcall PpmTranslatePlatformIdleAccounting(__int64 a1, __int64 a2)
 {
   __int64 v2; // r11

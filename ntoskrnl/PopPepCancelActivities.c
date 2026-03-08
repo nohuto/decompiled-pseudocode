@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopPepCancelActivities @ 0x140307390
+ * Callers:
+ *     PopPepTriggerActivity @ 0x140307C1C (PopPepTriggerActivity.c)
+ * Callees:
+ *     PopPepCancelActivityRange @ 0x140307328 (PopPepCancelActivityRange.c)
+ */
+
 __int64 *__fastcall PopPepCancelActivities(__int64 a1, __int64 a2, int a3)
 {
   __int64 *result; // rax

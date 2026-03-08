@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeUpdateTotalCyclesCurrentThread @ 0x140228820
+ * Callers:
+ *     KeQueryTotalCycleTimeThread @ 0x1402288B0 (KeQueryTotalCycleTimeThread.c)
+ *     PsQueryTotalCycleTimeProcess @ 0x140789FC0 (PsQueryTotalCycleTimeProcess.c)
+ *     KeEnableProfiling @ 0x140971DE0 (KeEnableProfiling.c)
+ * Callees:
+ *     KiEndThreadCycleAccumulation @ 0x140227260 (KiEndThreadCycleAccumulation.c)
+ *     KiStartThreadCycleAccumulation @ 0x140227310 (KiStartThreadCycleAccumulation.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall KeUpdateTotalCyclesCurrentThread(__int64 a1, unsigned __int64 *a2)
 {
   struct _KPRCB *CurrentPrcb; // rbx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of PspNotifyServerSiloTermination @ 0x1409B147C
+ * Callers:
+ *     PspCompleteServerSiloShutdownDeferred @ 0x1409A9B20 (PspCompleteServerSiloShutdownDeferred.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PspGetServerSiloStatePointer @ 0x1405A14C4 (PspGetServerSiloStatePointer.c)
+ *     PspGetNextMonitor @ 0x1409B1240 (PspGetNextMonitor.c)
+ *     PspInvokeTerminateCallback @ 0x1409B1268 (PspInvokeTerminateCallback.c)
+ *     EtwTraceJobServerSiloStateChange @ 0x1409E27EC (EtwTraceJobServerSiloStateChange.c)
+ */
+
 char __fastcall PspNotifyServerSiloTermination(__int64 a1)
 {
   __int64 ServerSiloStatePointer; // rax

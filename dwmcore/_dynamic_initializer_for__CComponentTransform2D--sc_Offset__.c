@@ -1,3 +1,11 @@
+/*
+ * XREFs of _dynamic_initializer_for__CComponentTransform2D::sc_Offset__ @ 0x1800017F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 dynamic_initializer_for__CComponentTransform2D::sc_Offset__()
 {
   __int64 result; // rax

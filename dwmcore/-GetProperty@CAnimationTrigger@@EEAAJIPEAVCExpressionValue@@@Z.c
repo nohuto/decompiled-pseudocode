@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetProperty@CAnimationTrigger@@EEAAJIPEAVCExpressionValue@@@Z @ 0x180020070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CAnimationTrigger::GetProperty(CAnimationTrigger *this, int a2, struct CExpressionValue *a3)
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpCollectSamplingProfileCorruptionStatus @ 0x140505588
+ * Callers:
+ *     HalpCollectProfileCorruptionStatus @ 0x14050532C (HalpCollectProfileCorruptionStatus.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpCollectSamplingProfileCorruptionStatus(__int64 a1, unsigned int a2, unsigned int *a3)
 {
   unsigned int v7; // r11d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PerfInfoLogUnexpectedInterrupt @ 0x1405FC8D0
+ * Callers:
+ *     KxIsrLinkage @ 0x140419FA0 (KxIsrLinkage.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PerfInfoLogUnexpectedInterrupt(int a1)
 {
   int *v1; // [rsp+30h] [rbp-28h] BYREF

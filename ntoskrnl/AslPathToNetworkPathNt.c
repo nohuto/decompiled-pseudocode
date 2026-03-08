@@ -1,3 +1,15 @@
+/*
+ * XREFs of AslPathToNetworkPathNt @ 0x140A5261C
+ * Callers:
+ *     SdbpResolveMatchingFile @ 0x140A4EB00 (SdbpResolveMatchingFile.c)
+ * Callees:
+ *     wcscat_s @ 0x1403DA170 (wcscat_s.c)
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     AslpDetermineDosPathNameType @ 0x140A53838 (AslpDetermineDosPathNameType.c)
+ */
+
 __int64 __fastcall AslPathToNetworkPathNt(wchar_t **a1, __int64 a2)
 {
   unsigned int v2; // ebx

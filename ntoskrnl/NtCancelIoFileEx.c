@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtCancelIoFileEx @ 0x14076FFC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IopReferenceFileObject @ 0x14023EBCC (IopReferenceFileObject.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IopCancelIoFile @ 0x14077006C (IopCancelIoFile.c)
+ */
+
 __int64 __fastcall NtCancelIoFileEx(void *a1, __int64 a2, unsigned __int64 a3)
 {
   KPROCESSOR_MODE PreviousMode; // r8

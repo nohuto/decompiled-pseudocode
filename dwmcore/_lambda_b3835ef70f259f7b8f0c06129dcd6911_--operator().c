@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_b3835ef70f259f7b8f0c06129dcd6911_::operator() @ 0x1800F7A5C
+ * Callers:
+ *     ?CreateUVData@CCpuClipAntialiasSink@@QEBAXW4TemplateID@1@AEBUBounds@1@_KIV?$span@$$CBUPrimitiveUVDesc@@$0?0@gsl@@PEAPEAVUVData@1@@Z @ 0x18007C830 (-CreateUVData@CCpuClipAntialiasSink@@QEBAXW4TemplateID@1@AEBUBounds@1@_KIV-$span@$$CBUPrimitiveU.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 *__fastcall lambda_b3835ef70f259f7b8f0c06129dcd6911_::operator()(
         _BYTE *a1,
         unsigned __int64 *a2,

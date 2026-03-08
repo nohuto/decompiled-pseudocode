@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlFlushNonVolatileMemoryRanges @ 0x1405AD470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlDrainNonVolatileFlush @ 0x1405A57C0 (RtlDrainNonVolatileFlush.c)
+ *     RtlFlushNonVolatileMemory @ 0x1405A57F0 (RtlFlushNonVolatileMemory.c)
+ */
+
 __int64 __fastcall RtlFlushNonVolatileMemoryRanges(char a1, __int64 *a2, __int64 a3, char a4)
 {
   __int64 v5; // rdi

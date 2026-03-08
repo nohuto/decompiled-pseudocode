@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhGetPersistedUsbFlagsPath @ 0x1C0045160
+ * Callers:
+ *     UsbhGetInitRegUsbDeviceFlags @ 0x1C0044E20 (UsbhGetInitRegUsbDeviceFlags.c)
+ *     UsbhGetRegPersistedUsbDeviceFlags @ 0x1C004539C (UsbhGetRegPersistedUsbDeviceFlags.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     RtlStringCbPrintfW @ 0x1C0044C1C (RtlStringCbPrintfW.c)
+ */
+
 wchar_t *__fastcall UsbhGetPersistedUsbFlagsPath(__int64 a1, __int64 a2)
 {
   unsigned __int16 *v2; // rdi

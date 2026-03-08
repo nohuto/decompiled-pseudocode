@@ -1,3 +1,12 @@
+/*
+ * XREFs of ForceUpdatePointerDeviceSystemMetrics @ 0x1C0097D70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?WriteSystemMetricsKey@CInputSystemMetrics@@AEBAXKW4tagHPD_REGISTRY_HIVE@@@Z @ 0x1C0097DB4 (-WriteSystemMetricsKey@CInputSystemMetrics@@AEBAXKW4tagHPD_REGISTRY_HIVE@@@Z.c)
+ *     ?WritePointerDevicePresenceKey@CInputSystemMetrics@@AEBAXK@Z @ 0x1C0097F04 (-WritePointerDevicePresenceKey@CInputSystemMetrics@@AEBAXK@Z.c)
+ */
+
 void __fastcall ForceUpdatePointerDeviceSystemMetrics(__int64 a1)
 {
   _DWORD *v1; // rdi

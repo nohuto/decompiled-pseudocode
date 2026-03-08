@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhInternalValidateSuperSpeedDeviceCapabilityDescriptor @ 0x1C0052338
+ * Callers:
+ *     UsbhInternalValidateDeviceCapabilityDescriptor @ 0x1C0051EEC (UsbhInternalValidateDeviceCapabilityDescriptor.c)
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 char __fastcall UsbhInternalValidateSuperSpeedDeviceCapabilityDescriptor(__int64 a1, unsigned __int8 *a2)
 {
   unsigned __int8 *v2; // r11

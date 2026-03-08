@@ -1,3 +1,17 @@
+/*
+ * XREFs of HUBID_BuildCompatibleID @ 0x1C001E9A8
+ * Callers:
+ *     HUBPDO_ReturnDeviceConfigInfo @ 0x1C0016420 (HUBPDO_ReturnDeviceConfigInfo.c)
+ *     HUBPDO_AssignPDOIds @ 0x1C007EB7C (HUBPDO_AssignPDOIds.c)
+ * Callees:
+ *     HUBID_AssignIDString @ 0x1C001DBCC (HUBID_AssignIDString.c)
+ *     HUBID_GetUnknownId @ 0x1C001DFAC (HUBID_GetUnknownId.c)
+ *     HUBID_BuildDeviceCompatibleID @ 0x1C001E220 (HUBID_BuildDeviceCompatibleID.c)
+ *     HUBID_BuildHubCompatibleID @ 0x1C001E488 (HUBID_BuildHubCompatibleID.c)
+ *     HUBID_BuildClassCompatibleID @ 0x1C001E568 (HUBID_BuildClassCompatibleID.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ */
+
 int __fastcall HUBID_BuildCompatibleID(__int64 a1, __int64 a2, _OWORD *a3)
 {
   __int64 v3; // r10

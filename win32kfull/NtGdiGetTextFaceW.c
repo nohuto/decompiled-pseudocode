@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiGetTextFaceW @ 0x1C011A610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreGetTextFaceW @ 0x1C011A714 (GreGetTextFaceW.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall NtGdiGetTextFaceW(__int64 a1, int a2, char *a3, unsigned int a4)
 {
   __int64 v7; // rax

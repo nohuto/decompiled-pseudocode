@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiReleaseSmallPteMappings @ 0x14027D4D0
+ * Callers:
+ *     MiInsertCachedPte @ 0x14027D0C0 (MiInsertCachedPte.c)
+ *     MiEmptyPteBins @ 0x140299F00 (MiEmptyPteBins.c)
+ * Callees:
+ *     MiFlushTbListEarly @ 0x140229404 (MiFlushTbListEarly.c)
+ *     MiTbFlushTimeStampMayNeedFlush @ 0x14029A144 (MiTbFlushTimeStampMayNeedFlush.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiReturnSystemPtes @ 0x1402EB3FC (MiReturnSystemPtes.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     RtlInterlockedSetClearRunEx @ 0x1403293B0 (RtlInterlockedSetClearRunEx.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 unsigned __int64 __fastcall MiReleaseSmallPteMappings(ULONG_PTR *a1, int a2, unsigned int a3, int a4)
 {
   ULONG_PTR *v6; // rbp

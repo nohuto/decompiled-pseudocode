@@ -1,3 +1,16 @@
+/*
+ * XREFs of CiDispatchCreateTaskIndexClient @ 0x1C000A240
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CiTaskIndexReference @ 0x1C00011A0 (CiTaskIndexReference.c)
+ *     CiTaskIndexDereference @ 0x1C00021B0 (CiTaskIndexDereference.c)
+ *     WPP_SF_ @ 0x1C0004634 (WPP_SF_.c)
+ *     WPP_SF_dd @ 0x1C00048CC (WPP_SF_dd.c)
+ *     CiLookupTask @ 0x1C000AC70 (CiLookupTask.c)
+ *     CiTaskIndexCreate @ 0x1C000B370 (CiTaskIndexCreate.c)
+ */
+
 __int64 __fastcall CiDispatchCreateTaskIndexClient(PIRP Irp, __int64 a2, __int64 a3)
 {
   int v3; // r9d

@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepCheckCreateLowBox @ 0x140799F04
+ * Callers:
+ *     NtCreateLowBoxToken @ 0x14069D520 (NtCreateLowBoxToken.c)
+ * Callees:
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     RtlIsParentOfChildAppContainer @ 0x1409B9428 (RtlIsParentOfChildAppContainer.c)
+ */
+
 __int64 __fastcall SepCheckCreateLowBox(PSID a1)
 {
   int IsParentOfChildAppContainer; // ebx

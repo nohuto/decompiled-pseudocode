@@ -1,3 +1,22 @@
+/*
+ * XREFs of CcInitializeBcbProfiler @ 0x140B14354
+ * Callers:
+ *     CcInitializeCacheManager @ 0x140B3EB44 (CcInitializeCacheManager.c)
+ * Callees:
+ *     KeInitializeTimer @ 0x140237D80 (KeInitializeTimer.c)
+ *     KeSetCoalescableTimer @ 0x140250440 (KeSetCoalescableTimer.c)
+ *     RtlpConvertFunctionEntry @ 0x1402822F0 (RtlpConvertFunctionEntry.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x14035D7C0 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     RtlpLookupPrimaryFunctionEntry @ 0x1403BEF80 (RtlpLookupPrimaryFunctionEntry.c)
+ *     strstr @ 0x1403D3650 (strstr.c)
+ *     RtlLookupFunctionTable @ 0x14040C148 (RtlLookupFunctionTable.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     KiAreCodePatchesAllowed @ 0x140B926E0 (KiAreCodePatchesAllowed.c)
+ *     KiGetLoadOptions @ 0x140B9272C (KiGetLoadOptions.c)
+ */
+
 char CcInitializeBcbProfiler()
 {
   unsigned __int64 Pool2; // rax

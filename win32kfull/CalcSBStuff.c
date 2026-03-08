@@ -1,3 +1,21 @@
+/*
+ * XREFs of CalcSBStuff @ 0x1C00D9FC8
+ * Callers:
+ *     xxxDrawScrollBar @ 0x1C0013C30 (xxxDrawScrollBar.c)
+ *     xxxGetScrollBarInfo @ 0x1C00D9CEC (xxxGetScrollBarInfo.c)
+ *     ?HitTestScrollBar@@YAHPEAUtagWND@@HUtagPOINT@@@Z @ 0x1C022BCB4 (-HitTestScrollBar@@YAHPEAUtagWND@@HUtagPOINT@@@Z.c)
+ *     ?RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C022BEFC (-RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z.c)
+ *     ?xxxDrawThumb@@YAXPEAUtagWND@@PEAUtagSBCALC@@H@Z @ 0x1C022C1A4 (-xxxDrawThumb@@YAXPEAUtagWND@@PEAUtagSBCALC@@H@Z.c)
+ *     xxxDoScrollMenu @ 0x1C022CC6C (xxxDoScrollMenu.c)
+ *     xxxSBTrackInit @ 0x1C022D18C (xxxSBTrackInit.c)
+ * Callees:
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     GetRect @ 0x1C0067778 (GetRect.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     _InitPwSB @ 0x1C00DA0E8 (_InitPwSB.c)
+ *     CalcSBStuff2 @ 0x1C00DA144 (CalcSBStuff2.c)
+ */
+
 __int64 __fastcall CalcSBStuff(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v6; // rcx

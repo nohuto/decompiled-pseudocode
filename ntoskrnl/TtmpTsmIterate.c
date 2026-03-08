@@ -1,3 +1,11 @@
+/*
+ * XREFs of TtmpTsmIterate @ 0x1409A8BDC
+ * Callers:
+ *     TtmpUpdateTerminalState @ 0x1409A8CC8 (TtmpUpdateTerminalState.c)
+ * Callees:
+ *     TtmpTsmEvaluateTimeouts @ 0x1409A8B74 (TtmpTsmEvaluateTimeouts.c)
+ */
+
 bool __fastcall TtmpTsmIterate(__int64 a1, __int64 a2)
 {
   int v2; // eax

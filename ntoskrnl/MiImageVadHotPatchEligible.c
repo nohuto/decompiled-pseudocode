@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiImageVadHotPatchEligible @ 0x140768E2C
+ * Callers:
+ *     MiSetProtectionOnSection @ 0x140321FC0 (MiSetProtectionOnSection.c)
+ *     MiGetVadForHotPatchInProgress @ 0x140A3464C (MiGetVadForHotPatchInProgress.c)
+ *     MiHotPatchProcess @ 0x140A34804 (MiHotPatchProcess.c)
+ *     MmPrepareImagePagesForHotPatch @ 0x140A395A0 (MmPrepareImagePagesForHotPatch.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiImageVadHotPatchEligible(__int64 a1)
 {
   unsigned int v1; // r10d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RemoveAllResourceStates@CEndpointResourceStateManager@@QEAAXXZ @ 0x1C0086FA4
+ * Callers:
+ *     ?ProcessProducerDisconnect@CFlipManager@@IEAAXXZ @ 0x1C0084068 (-ProcessProducerDisconnect@CFlipManager@@IEAAXXZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?RemovePoolBufferState@CEndpointResourceStateManager@@QEAAXPEAVCPoolBufferResourceState@@@Z @ 0x1C0087028 (-RemovePoolBufferState@CEndpointResourceStateManager@@QEAAXPEAVCPoolBufferResourceState@@@Z.c)
+ */
+
 void __fastcall CEndpointResourceStateManager::RemoveAllResourceStates(CEndpointResourceStateManager *this)
 {
   char *v1; // rsi

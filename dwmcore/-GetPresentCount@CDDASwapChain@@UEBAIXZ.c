@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPresentCount@CDDASwapChain@@UEBAIXZ @ 0x18029FC10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CDDASwapChain::GetPresentCount(CDDASwapChain *this)
 {
   __int64 v1; // rcx

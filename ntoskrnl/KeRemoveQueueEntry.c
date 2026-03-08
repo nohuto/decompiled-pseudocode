@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeRemoveQueueEntry @ 0x1402DF000
+ * Callers:
+ *     IopCancelWaitCompletionPacket @ 0x1402DEF38 (IopCancelWaitCompletionPacket.c)
+ *     IoCancelMiniCompletionPacket @ 0x1405559D0 (IoCancelMiniCompletionPacket.c)
+ * Callees:
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall KeRemoveQueueEntry(__int64 a1, _QWORD *a2)
 {
   char v4; // r14

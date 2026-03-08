@@ -1,3 +1,17 @@
+/*
+ * XREFs of _GetClientRect @ 0x1C01016A4
+ * Callers:
+ *     ?GetVisRgn@@YA_NPEAUtagWND@@KPEAUHRGN__@@@Z @ 0x1C0025360 (-GetVisRgn@@YA_NPEAUtagWND@@KPEAUHRGN__@@@Z.c)
+ *     xxxInitSendValidateMinMaxInfoEx @ 0x1C004524C (xxxInitSendValidateMinMaxInfoEx.c)
+ *     EtwTraceLayoutChangeStop @ 0x1C0098E78 (EtwTraceLayoutChangeStop.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ *     xxxSendSizeMessage @ 0x1C00FF5DC (xxxSendSizeMessage.c)
+ *     ?xxxPaintSwitchWindow@@YAXPEAUtagWND@@@Z @ 0x1C01CADAC (-xxxPaintSwitchWindow@@YAXPEAUtagWND@@@Z.c)
+ *     xxxMNUpdateShownMenu @ 0x1C02341E4 (xxxMNUpdateShownMenu.c)
+ * Callees:
+ *     GetPrimaryMonitorRect @ 0x1C0101710 (GetPrimaryMonitorRect.c)
+ */
+
 __int64 __fastcall GetClientRect(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdx

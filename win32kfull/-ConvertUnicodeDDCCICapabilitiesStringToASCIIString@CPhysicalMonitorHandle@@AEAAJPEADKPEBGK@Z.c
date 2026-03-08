@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ConvertUnicodeDDCCICapabilitiesStringToASCIIString@CPhysicalMonitorHandle@@AEAAJPEADKPEBGK@Z @ 0x1C026B634
+ * Callers:
+ *     ?DdcciGetCapabilitiesStringFromRegistry@CPhysicalMonitorHandle@@AEAAJXZ @ 0x1C026BC08 (-DdcciGetCapabilitiesStringFromRegistry@CPhysicalMonitorHandle@@AEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CPhysicalMonitorHandle::ConvertUnicodeDDCCICapabilitiesStringToASCIIString(
         CPhysicalMonitorHandle *this,
         char *a2,

@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiCreateCpuSetForProcessor @ 0x140A89FC8
+ * Callers:
+ *     KiCompleteKernelInit @ 0x140A89D30 (KiCompleteKernelInit.c)
+ *     KiAllocateCpuSetData @ 0x140B3AC30 (KiAllocateCpuSetData.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     RtlWriteReleaseTickLock @ 0x14037E0E0 (RtlWriteReleaseTickLock.c)
+ *     RtlWriteAcquireTickLock @ 0x1403BB750 (RtlWriteAcquireTickLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 _UNKNOWN **__fastcall KiCreateCpuSetForProcessor(__int64 a1)
 {
   _UNKNOWN **result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of wil_details_FeatureReporting_IncrementUsageInCache @ 0x1C001EFA8
+ * Callers:
+ *     wil_details_FeatureReporting_RecordUsageInCache @ 0x1C001F0A0 (wil_details_FeatureReporting_RecordUsageInCache.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall wil_details_FeatureReporting_IncrementUsageInCache(
         volatile signed __int32 *a1,
         int a2,

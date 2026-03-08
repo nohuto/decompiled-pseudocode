@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpRunDownCmRM @ 0x14074C420
+ * Callers:
+ *     CmpPerformUnloadKey @ 0x14074A194 (CmpPerformUnloadKey.c)
+ *     CmShutdownCmRM @ 0x14074C37C (CmShutdownCmRM.c)
+ * Callees:
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1402637F0 (ObDereferenceObjectDeferDelete.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     CmpCleanupTransactionState @ 0x14073526C (CmpCleanupTransactionState.c)
+ *     CmpDelayFreeCmRm @ 0x14074C598 (CmpDelayFreeCmRm.c)
+ */
+
 void __fastcall CmpRunDownCmRM(__int64 a1, char a2)
 {
   struct _KTHREAD *CurrentThread; // rax

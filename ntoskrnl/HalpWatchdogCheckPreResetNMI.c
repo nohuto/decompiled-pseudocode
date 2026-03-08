@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpWatchdogCheckPreResetNMI @ 0x1405098C0
+ * Callers:
+ *     HalpPreprocessNmi @ 0x1402FBBD0 (HalpPreprocessNmi.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 int HalpWatchdogCheckPreResetNMI()
 {
   unsigned __int64 v0; // rax

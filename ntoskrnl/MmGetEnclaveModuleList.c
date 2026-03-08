@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmGetEnclaveModuleList @ 0x140646774
+ * Callers:
+ *     PsGetProcessEnclaveModuleInfo @ 0x1405A440C (PsGetProcessEnclaveModuleInfo.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14031F7B0 (MiUnlockAndDereferenceVadShared.c)
+ */
+
 __int64 __fastcall MmGetEnclaveModuleList(unsigned __int64 a1, _QWORD *a2, unsigned int *a3)
 {
   unsigned int v3; // ebx

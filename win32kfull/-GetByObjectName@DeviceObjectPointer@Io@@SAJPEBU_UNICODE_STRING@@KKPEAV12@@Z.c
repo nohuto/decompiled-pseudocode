@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetByObjectName@DeviceObjectPointer@Io@@SAJPEBU_UNICODE_STRING@@KKPEAV12@@Z @ 0x1C022A858
+ * Callers:
+ *     ?SendSynchronousIoControl@RimBackedDeviceBase@Rim@@QEBAJKPEAXK0KPEAK@Z @ 0x1C022AB60 (-SendSynchronousIoControl@RimBackedDeviceBase@Rim@@QEBAJKPEAXK0KPEAK@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??1DeviceObjectPointer@Io@@QEAA@XZ @ 0x1C022A7B0 (--1DeviceObjectPointer@Io@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall Io::DeviceObjectPointer::GetByObjectName(
         struct _UNICODE_STRING *a1,
         __int64 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of SpiMax311PutByte @ 0x14067AD50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SpiMax311BufferRxData @ 0x14067AC44 (SpiMax311BufferRxData.c)
+ *     SpiMax311TxEmpty @ 0x14067AF94 (SpiMax311TxEmpty.c)
+ *     SpiSend16 @ 0x14067AFCC (SpiSend16.c)
+ */
+
 __int64 __fastcall SpiMax311PutByte(_QWORD *a1, unsigned __int8 a2, char a3)
 {
   unsigned __int16 v3; // di

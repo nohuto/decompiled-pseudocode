@@ -1,3 +1,12 @@
+/*
+ * XREFs of BiConvertElementFormatToValueType @ 0x14082EFD8
+ * Callers:
+ *     BcdSetElementDataWithFlags @ 0x14082D894 (BcdSetElementDataWithFlags.c)
+ *     BcdGetElementDataWithFlags @ 0x14082E398 (BcdGetElementDataWithFlags.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall BiConvertElementFormatToValueType(int a1)
 {
   int v1; // ecx

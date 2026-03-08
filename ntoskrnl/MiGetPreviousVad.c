@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiGetPreviousVad @ 0x140242E74
+ * Callers:
+ *     MiReturnPageTablePageCommitment @ 0x1406B6AF0 (MiReturnPageTablePageCommitment.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MiGetPreviousVad(unsigned __int64 *a1)
 {
   unsigned __int64 v1; // rdx

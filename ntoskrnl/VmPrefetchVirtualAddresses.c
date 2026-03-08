@@ -1,3 +1,16 @@
+/*
+ * XREFs of VmPrefetchVirtualAddresses @ 0x1409D90F4
+ * Callers:
+ *     MmInSwapWorkingSet @ 0x1402000BC (MmInSwapWorkingSet.c)
+ *     NtSetInformationVirtualMemory @ 0x14075BCB0 (NtSetInformationVirtualMemory.c)
+ * Callees:
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     VmpPrefetchVirtualAddresses @ 0x1405F828C (VmpPrefetchVirtualAddresses.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall VmPrefetchVirtualAddresses(_QWORD *Src, unsigned __int64 a2, int a3)
 {
   unsigned int v4; // ebx

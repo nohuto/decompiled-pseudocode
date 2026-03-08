@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopReportBootResources @ 0x140B35AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PnpDetermineResourceListSize @ 0x1406F69E8 (PnpDetermineResourceListSize.c)
+ *     IopAllocateBootResources @ 0x140804670 (IopAllocateBootResources.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopReportBootResources(unsigned int a1, __int64 a2, _DWORD *a3)
 {
   const void *v4; // rdi

@@ -1,3 +1,32 @@
+/*
+ * XREFs of CmpUndoDeleteKeyForTransEx @ 0x14067D5F4
+ * Callers:
+ *     CmpCreateChild @ 0x1407A7590 (CmpCreateChild.c)
+ * Callees:
+ *     CmpTransEnlistUowInCmTrans @ 0x14024185C (CmpTransEnlistUowInCmTrans.c)
+ *     CmpDereferenceSecurityNode @ 0x140243994 (CmpDereferenceSecurityNode.c)
+ *     CmpTransEnlistUowInKcb @ 0x1402C0814 (CmpTransEnlistUowInKcb.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x14030DD50 (CmpFindSecurityCellCacheIndex.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     CmpGetSecurityDescriptorNodeEx @ 0x14067D1C8 (CmpGetSecurityDescriptorNodeEx.c)
+ *     CmpRundownUnitOfWork @ 0x1406B6040 (CmpRundownUnitOfWork.c)
+ *     CmpLockIXLockIntent @ 0x1406B7020 (CmpLockIXLockIntent.c)
+ *     CmpLockIXLockExclusive @ 0x1406B70A0 (CmpLockIXLockExclusive.c)
+ *     HvUnlockHiveFlusherShared @ 0x14074A8C4 (HvUnlockHiveFlusherShared.c)
+ *     HvLockHiveFlusherShared @ 0x14074A8FC (HvLockHiveFlusherShared.c)
+ *     CmListGetPrevElement @ 0x140776A40 (CmListGetPrevElement.c)
+ *     CmpAllocateUnitOfWork @ 0x140784388 (CmpAllocateUnitOfWork.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvFreeCell @ 0x1407A6A90 (HvFreeCell.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmLockHiveSecurityExclusive @ 0x140A1C7D8 (CmLockHiveSecurityExclusive.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmUnlockHiveSecurity @ 0x140AF25F0 (CmUnlockHiveSecurity.c)
+ */
+
 __int64 __fastcall CmpUndoDeleteKeyForTransEx(ULONG_PTR BugCheckParameter3, __int64 a2, void *a3)
 {
   __int64 v4; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserHardErrorControl @ 0x1C01D5A70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxHardErrorControl @ 0x1C0226A64 (xxxHardErrorControl.c)
+ */
+
 __int64 __fastcall NtUserHardErrorControl(unsigned int a1, __int64 a2, ULONG64 a3)
 {
   __int64 v6; // rdx

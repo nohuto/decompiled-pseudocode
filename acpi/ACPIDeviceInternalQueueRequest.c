@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIDeviceInternalQueueRequest @ 0x1C001D4A0
+ * Callers:
+ *     ACPIDeviceInitializePowerRequest @ 0x1C001CF98 (ACPIDeviceInitializePowerRequest.c)
+ *     ACPIDeviceIrpWaitWakeRequestComplete @ 0x1C001E0B8 (ACPIDeviceIrpWaitWakeRequestComplete.c)
+ * Callees:
+ *     ACPIPowerScheduleDpc @ 0x1C0022714 (ACPIPowerScheduleDpc.c)
+ */
+
 _QWORD *__fastcall ACPIDeviceInternalQueueRequest(__int64 a1, _QWORD *a2, __int16 a3)
 {
   char v3; // r9

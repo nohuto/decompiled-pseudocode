@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlGetElementGenericTableAvl @ 0x1405AC190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RealSuccessor @ 0x1402457FC (RealSuccessor.c)
+ *     RealPredecessor @ 0x1402F4B58 (RealPredecessor.c)
+ */
+
 PVOID __stdcall RtlGetElementGenericTableAvl(PRTL_AVL_TABLE Table, ULONG I)
 {
   unsigned int WhichOrderedElement; // r9d

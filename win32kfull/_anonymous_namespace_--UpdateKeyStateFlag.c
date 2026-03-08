@@ -1,3 +1,11 @@
+/*
+ * XREFs of _anonymous_namespace_::UpdateKeyStateFlag @ 0x1C00DE944
+ * Callers:
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C00A126C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 anonymous_namespace_::UpdateKeyStateFlag()
 {
   __int64 result; // rax

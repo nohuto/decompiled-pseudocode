@@ -1,3 +1,27 @@
+/*
+ * XREFs of RtlpGetTokenNamedObjectPath @ 0x1409B9D5C
+ * Callers:
+ *     RtlGetAppContainerNamedObjectPath @ 0x1405A7A70 (RtlGetAppContainerNamedObjectPath.c)
+ *     RtlGetTokenNamedObjectPath @ 0x1409B93E0 (RtlGetTokenNamedObjectPath.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     RtlStringCbLengthW @ 0x140246920 (RtlStringCbLengthW.c)
+ *     RtlSubAuthoritySid @ 0x1402BE740 (RtlSubAuthoritySid.c)
+ *     RtlGetCurrentServiceSessionId @ 0x1403024F0 (RtlGetCurrentServiceSessionId.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     NtQueryInformationToken @ 0x1406D6780 (NtQueryInformationToken.c)
+ *     RtlGetAppContainerSidType @ 0x1407414C0 (RtlGetAppContainerSidType.c)
+ *     RtlConvertSidToUnicodeString @ 0x1407479E0 (RtlConvertSidToUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     RtlGetAppContainerParent @ 0x1409B9200 (RtlGetAppContainerParent.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlpGetTokenNamedObjectPath(HANDLE TokenHandle, char *Sid, char a3, UNICODE_STRING *a4)
 {
   char *v8; // r12

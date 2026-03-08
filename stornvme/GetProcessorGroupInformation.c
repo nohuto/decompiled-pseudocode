@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetProcessorGroupInformation @ 0x1C0009D30
+ * Callers:
+ *     NVMeControllerFilterResourceRequirements @ 0x1C000CD5C (NVMeControllerFilterResourceRequirements.c)
+ * Callees:
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     FreeProcessorGroupInfo @ 0x1C00099EC (FreeProcessorGroupInfo.c)
+ */
+
 char __fastcall GetProcessorGroupInformation(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned __int16 *v5; // rsi

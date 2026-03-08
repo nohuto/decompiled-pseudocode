@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RIMIDEInjectionIndexToLinkIndex@@YAHPEAURIMDEV@@KPEAGH@Z @ 0x1C01C0E24
+ * Callers:
+ *     RIMIDEInjectDeviceInput @ 0x1C01C39C8 (RIMIDEInjectDeviceInput.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RIMIDEInjectionIndexToLinkIndex(struct RIMDEV *a1, int a2, unsigned __int16 *a3, int a4)
 {
   __int64 v4; // rax

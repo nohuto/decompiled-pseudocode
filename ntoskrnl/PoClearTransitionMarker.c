@@ -1,3 +1,20 @@
+/*
+ * XREFs of PoClearTransitionMarker @ 0x14085A768
+ * Callers:
+ *     CmCompleteRegistryInitialization @ 0x1408174BC (CmCompleteRegistryInitialization.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     RtlComputeCrc32 @ 0x1402B8B70 (RtlComputeCrc32.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     ExIsSoftBoot @ 0x140380700 (ExIsSoftBoot.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlpSystemBootStatusRequest @ 0x14073AEEC (RtlpSystemBootStatusRequest.c)
+ *     RtlUnlockBootStatusData @ 0x14073D1B0 (RtlUnlockBootStatusData.c)
+ *     RtlLockBootStatusData @ 0x14073DD00 (RtlLockBootStatusData.c)
+ *     RtlInitializeBootStatusDataBlackBox @ 0x14085A8FC (RtlInitializeBootStatusDataBlackBox.c)
+ *     PopRecordLongPowerButtonPressDetected @ 0x14085A9C0 (PopRecordLongPowerButtonPressDetected.c)
+ */
+
 __int64 PoClearTransitionMarker()
 {
   unsigned int v0; // ebx

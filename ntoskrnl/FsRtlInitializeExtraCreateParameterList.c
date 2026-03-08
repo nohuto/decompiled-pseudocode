@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlInitializeExtraCreateParameterList @ 0x140799550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall FsRtlInitializeExtraCreateParameterList(PECP_LIST EcpList)
 {
   NTSTATUS result; // eax

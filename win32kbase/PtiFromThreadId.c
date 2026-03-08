@@ -1,3 +1,13 @@
+/*
+ * XREFs of PtiFromThreadId @ 0x1C00A6C40
+ * Callers:
+ *     GetKeyboardDelegationTargetQ @ 0x1C00E1100 (GetKeyboardDelegationTargetQ.c)
+ *     NtMITPostThreadEventMessage @ 0x1C016B930 (NtMITPostThreadEventMessage.c)
+ *     NtMITSetLastInputRecipient @ 0x1C016BF40 (NtMITSetLastInputRecipient.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PtiFromThreadId(int a1)
 {
   HANDLE v1; // rsi

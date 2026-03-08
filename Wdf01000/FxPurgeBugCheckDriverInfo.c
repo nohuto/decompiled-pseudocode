@@ -1,3 +1,11 @@
+/*
+ * XREFs of FxPurgeBugCheckDriverInfo @ 0x1C0088C58
+ * Callers:
+ *     FxDestroy @ 0x1C0043AD0 (FxDestroy.c)
+ * Callees:
+ *     memmove @ 0x1C000B140 (memmove.c)
+ */
+
 void __fastcall FxPurgeBugCheckDriverInfo(_FX_DRIVER_GLOBALS *FxDriverGlobals)
 {
   KIRQL v2; // al

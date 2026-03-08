@@ -1,3 +1,13 @@
+/*
+ * XREFs of SdbpGetStringTableItemFromStringRef @ 0x1407A2B08
+ * Callers:
+ *     SdbpGetMappedStringFromTable @ 0x1407A2168 (SdbpGetMappedStringFromTable.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbGetTagFromTagID @ 0x1407A2A70 (SdbGetTagFromTagID.c)
+ *     RtlRunOnceExecuteOnce @ 0x1407A2BE0 (RtlRunOnceExecuteOnce.c)
+ */
+
 __int64 __fastcall SdbpGetStringTableItemFromStringRef(
         union _RTL_RUN_ONCE *Parameter,
         int a2,

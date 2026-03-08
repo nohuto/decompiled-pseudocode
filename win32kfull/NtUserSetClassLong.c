@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserSetClassLong @ 0x1C01DBAD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxSetClassLong @ 0x1C01BF660 (xxxSetClassLong.c)
+ */
+
 __int64 __fastcall NtUserSetClassLong(__int64 a1, int a2, unsigned int a3, unsigned int a4)
 {
   __int64 v8; // rax

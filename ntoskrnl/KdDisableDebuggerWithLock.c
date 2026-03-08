@@ -1,3 +1,17 @@
+/*
+ * XREFs of KdDisableDebuggerWithLock @ 0x140565128
+ * Callers:
+ *     KdDisableDebugger @ 0x140565110 (KdDisableDebugger.c)
+ *     KdInitSystem @ 0x140AAE040 (KdInitSystem.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KdPowerTransitionEx @ 0x1403A7D80 (KdPowerTransitionEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KdpAllowDisable @ 0x140AB26EC (KdpAllowDisable.c)
+ *     KdpSuspendAllBreakpoints @ 0x140AB2D04 (KdpSuspendAllBreakpoints.c)
+ */
+
 __int64 KdDisableDebuggerWithLock()
 {
   unsigned __int8 CurrentIrql; // bl

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ObQueryTypeInfo @ 0x14071E8D0
+ * Callers:
+ *     NtQueryObject @ 0x14071EA20 (NtQueryObject.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall ObQueryTypeInfo(__int64 a1, __int64 a2, unsigned int a3, unsigned int *a4)
 {
   unsigned int v6; // ebx

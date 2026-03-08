@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopEtProcessSnapshotUpdate @ 0x140701D28
+ * Callers:
+ *     PopEtEnergyTrackerEnumSnapshotCallback @ 0x1407015AC (PopEtEnergyTrackerEnumSnapshotCallback.c)
+ *     PopEtProcessEnumSnapshotCallback @ 0x140701C20 (PopEtProcessEnumSnapshotCallback.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopEtProcessSnapshotCreate @ 0x140701954 (PopEtProcessSnapshotCreate.c)
+ *     PopEtProcessSnapshotFind @ 0x140701F10 (PopEtProcessSnapshotFind.c)
+ *     PopEtEnergyTrackerUpdateAggregate @ 0x140702020 (PopEtEnergyTrackerUpdateAggregate.c)
+ *     PopEtProcessSnapshotUpdateFromSnapshotContext @ 0x140702468 (PopEtProcessSnapshotUpdateFromSnapshotContext.c)
+ *     PopEtAggregateKeyCleanup @ 0x140702A18 (PopEtAggregateKeyCleanup.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopEtProcessSnapshotUpdate(unsigned int *a1)
 {
   __int64 v2; // rcx

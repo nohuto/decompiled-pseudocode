@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?MouseKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01E4460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ApiSetEditionKillAccessibilityTimer @ 0x1C0240100 (ApiSetEditionKillAccessibilityTimer.c)
+ *     ApiSetEditionPostAccessibilityShortcutNotification @ 0x1C02416C0 (ApiSetEditionPostAccessibilityShortcutNotification.c)
+ *     ApiSetEditionPostRitSound @ 0x1C0241DC8 (ApiSetEditionPostRitSound.c)
+ */
+
 __int64 __fastcall MouseKeys(struct tagKE *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int16 v4; // di

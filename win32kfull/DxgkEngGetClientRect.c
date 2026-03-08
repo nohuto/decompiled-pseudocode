@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkEngGetClientRect @ 0x1C014D450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0MDCOBJA@@QEAA@PEAUHDC__@@H@Z @ 0x1C0007358 (--0MDCOBJA@@QEAA@PEAUHDC__@@H@Z.c)
+ *     ??1DCOBJA@@QEAA@XZ @ 0x1C012FB74 (--1DCOBJA@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall DxgkEngGetClientRect(HDC a1, _OWORD *a2)
 {
   __int64 result; // rax

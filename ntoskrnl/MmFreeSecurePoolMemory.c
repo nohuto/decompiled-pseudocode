@@ -1,3 +1,16 @@
+/*
+ * XREFs of MmFreeSecurePoolMemory @ 0x14063F668
+ * Callers:
+ *     PsDispatchIumService @ 0x1405A2A44 (PsDispatchIumService.c)
+ *     MmAllocateSecurePoolMemory @ 0x14063F4FC (MmAllocateSecurePoolMemory.c)
+ * Callees:
+ *     MiClearNonPagedPtes @ 0x14020DF88 (MiClearNonPagedPtes.c)
+ *     MiReturnSystemVa @ 0x14020E9A0 (MiReturnSystemVa.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiIsSystemVaAllocated @ 0x140634AE4 (MiIsSystemVaAllocated.c)
+ */
+
 unsigned __int64 __fastcall MmFreeSecurePoolMemory(
         ULONG_PTR BugCheckParameter2,
         ULONG_PTR BugCheckParameter3,
